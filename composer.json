@@ -1,0 +1,25 @@
+{
+    "name": "Zimbra/API",
+    "type": "library",
+    "description": "Zimbra API is a PHP soap client library for zimbra soap api (web service)",
+    "keywords": ["library", "soap", "web service", "client", "Zimbra API"],
+    "license": "BSD (3-Clause) License",
+    "authors": [
+        {
+            "name": "Nguyen Van Nguyen",
+            "email": "nguyennv1981@gmail.com",
+            "homepage": "https://github.com/nguyennv"
+        }
+    ],
+
+    "require": {
+        "guzzle/guzzle": "~3.7",
+        "ext-soap": "*"
+    },
+    "autoload": {
+        "psr-0": {
+            "Zimbra\\Tests": "tests/",
+            "Zimbra": "src/"
+        }
+    }
+}
