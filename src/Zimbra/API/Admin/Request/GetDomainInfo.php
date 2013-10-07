@@ -94,13 +94,13 @@ class GetDomainInfo extends Request
      */
     public function toArray()
     {
+        if(is_bool($this->_applyConfig))
+        {
+            $this->array['applyConfig'] = $this->_applyConfig ? 1 : 0;
+        }
         if($this->_domain instanceof Domain)
         {
             $this->array += $this->_domain->toArray();
-        }
-        if(is_bool($this->_applyConfig))
-        {
-            $this->array['_applyConfig'] = $this->_applyConfig ? 1 : 0;
         }
         return parent::toArray();
     }

@@ -46,7 +46,7 @@ class GetIndexStats extends Request
      * @param  Mailbox $mbox
      * @return Mailbox|self
      */
-    public function target(Mailbox $mbox = null)
+    public function mbox(Mailbox $mbox = null)
     {
         if(null === $mbox)
         {

@@ -11,7 +11,7 @@
 namespace Zimbra\API\Admin\Request;
 
 use Zimbra\Soap\Request;
-use Zimbra\Soap\Struct\DistListSelector as DistList;
+use Zimbra\Soap\Struct\DistributionListSelector as DistList;
 
 /**
  * GetDistributionListMembership class

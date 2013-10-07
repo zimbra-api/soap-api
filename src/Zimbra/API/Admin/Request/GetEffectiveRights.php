@@ -132,7 +132,7 @@ class GetEffectiveRights extends Request
         }
         if(!empty($this->_expandAllAttrs))
         {
-            $this->array['expandAllAttrs'] += $this->_expandAllAttrs;
+            $this->array['expandAllAttrs'] = $this->_expandAllAttrs;
         }
         return parent::toArray();
     }
@@ -151,7 +151,7 @@ class GetEffectiveRights extends Request
         }
         if(!empty($this->_expandAllAttrs))
         {
-            $xml->addAttribute('expandAllAttrs', $this->_expandAllAttrs);
+            $this->xml->addAttribute('expandAllAttrs', $this->_expandAllAttrs);
         }
         return parent::toXml();
     }
