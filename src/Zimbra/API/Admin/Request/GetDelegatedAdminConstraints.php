@@ -11,7 +11,7 @@
 namespace Zimbra\API\Admin\Request;
 
 use Zimbra\Soap\Request;
-use Zimbra\Soap\Struct\NamedElement as Named;
+use Zimbra\Soap\Struct\NamedElement as Attr;
 
 /**
  * GetDelegatedAdminConstraints class
@@ -118,10 +118,10 @@ class GetDelegatedAdminConstraints extends Request
     /**
      * Add an attr
      *
-     * @param  Named $attr
+     * @param  Attr $attr
      * @return self
      */
-    public function addAttr(Named $attr)
+    public function addAttr(Attr $attr)
     {
         $this->_attrs[] = $attr;
         return $this;
@@ -142,7 +142,7 @@ class GetDelegatedAdminConstraints extends Request
         $this->_attrs = array();
         foreach ($attrs as $attr)
         {
-            if($attr instanceof Named)
+            if($attr instanceof Attr)
             {
                 $this->_attrs[] = $attr;
             }
