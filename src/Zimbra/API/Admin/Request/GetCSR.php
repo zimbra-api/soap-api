@@ -85,7 +85,7 @@ class GetCSR extends Request
     {
         if(null === $type)
         {
-            return $this->_rightClass;
+            return $this->_type;
         }
         if(in_array(trim($type), self::$_validTypes))
         {
