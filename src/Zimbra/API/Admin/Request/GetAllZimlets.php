@@ -33,6 +33,12 @@ class GetAllZimlets extends Request
     private $_exclude;
 
     /**
+     * Valid excludes
+     * @var array
+     */
+    private static $_validExcludes = array('extension', 'mail', 'none');
+
+    /**
      * Constructor method for GetAllZimlets
      * @param  string $exclude
      * @return self
@@ -40,7 +46,7 @@ class GetAllZimlets extends Request
     public function __construct($exclude = null)
     {
         parent::__construct();
-		$this->_exclude = in_array(trim($exclude), array('extension', 'mail', 'none')) ? trim($exclude) : null;
+		$this->_exclude = in_array(trim($exclude), self::$_validExcludes) ? trim($exclude) : null;
     }
 
     /**
@@ -55,7 +61,7 @@ class GetAllZimlets extends Request
         {
             return $this->_exclude;
         }
-		$this->_exclude = in_array(trim($exclude), array('extension', 'mail', 'none')) ? trim($exclude) : null;
+		$this->_exclude = in_array(trim($exclude), self::$_validExcludes) ? trim($exclude) : null;
         return $this;
     }
 
