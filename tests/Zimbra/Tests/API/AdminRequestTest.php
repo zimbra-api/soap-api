@@ -2332,4 +2332,1341 @@ class AdminRequestTest extends ZimbraTestCase
         );
         $this->assertEquals($array, $req->toArray());
     }
+
+    public function testGenCSR()
+    {
+        $req = new \Zimbra\API\Admin\Request\GenCSR(
+            'server', false, 'self', 1024, 'c', 'sT', 'l', 'o', 'oU', 'cN', array('subject')
+        );
+        $this->assertSame('server', $req->server());
+        $this->assertFalse($req->isNew());
+        $this->assertSame('self', $req->type());
+        $this->assertSame(1024, $req->keysize());
+        $this->assertSame('c', $req->c());
+        $this->assertSame('sT', $req->sT());
+        $this->assertSame('l', $req->l());
+        $this->assertSame('o', $req->o());
+        $this->assertSame('oU', $req->oU());
+        $this->assertSame('cN', $req->cN());
+        $this->assertSame(array('subject'), $req->subjectAltName());
+
+        $req->server('server')
+            ->isNew(true)
+            ->type('comm')
+            ->keysize(2048)
+            ->c('c')
+            ->sT('st')
+            ->l('l')
+            ->o('o')
+            ->oU('ou')
+            ->cN('cn')
+            ->subjectAltName(array('subject'));
+        $this->assertSame('server', $req->server());
+        $this->assertTrue($req->isNew());
+        $this->assertSame('comm', $req->type());
+        $this->assertSame(2048, $req->keysize());
+        $this->assertSame('c', $req->c());
+        $this->assertSame('st', $req->sT());
+        $this->assertSame('l', $req->l());
+        $this->assertSame('o', $req->o());
+        $this->assertSame('ou', $req->oU());
+        $this->assertSame('cn', $req->cN());
+        $this->assertSame(array('subject'), $req->subjectAltName());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<GenCSRRequest server="server" new="1" type="comm" keysize="2048">'
+                .'<C>c</C>'
+                .'<ST>st</ST>'
+                .'<L>l</L>'
+                .'<O>o</O>'
+                .'<OU>ou</OU>'
+                .'<CN>cn</CN>'
+                .'<SubjectAltName>subject</SubjectAltName>'
+            .'</GenCSRRequest>';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
+
+        $array = array(
+            'GenCSRRequest' => array(
+                'server' => 'server',
+                'new' => 1,
+                'type' => 'comm',
+                'keysize' => 2048,
+                'C' => 'c',
+                'ST' => 'st',
+                'L' => 'l',
+                'O' => 'o',
+                'OU' => 'ou',
+                'CN' => 'cn',
+                'SubjectAltName' => array(
+                    'subject'
+                ),
+            ),
+        );
+        $this->assertEquals($array, $req->toArray());
+    }
+
+    public function testGetAccount()
+    {
+        $account = new \Zimbra\Soap\Struct\AccountSelector('name', 'value');
+        $req = new \Zimbra\API\Admin\Request\GetAccount($account, false, 'attrs');
+        $this->assertSame($account, $req->account());
+        $this->assertFalse($req->applyCos());
+        $this->assertSame('attrs', $req->attrs());
+
+        $req->account($account)
+            ->applyCos(true)
+            ->attrs('attrs');
+        $this->assertSame($account, $req->account());
+        $this->assertTrue($req->applyCos());
+        $this->assertSame('attrs', $req->attrs());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<GetAccountRequest applyCos="1" attrs="attrs">'
+                .'<account by="name">value</account>'
+            .'</GetAccountRequest>';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
+
+        $array = array(
+            'GetAccountRequest' => array(
+                'applyCos' => 1,
+                'attrs' => 'attrs',
+                'account' => array(
+                    'by' => 'name',
+                    '_' => 'value',
+                ),
+            ),
+        );
+        $this->assertEquals($array, $req->toArray());
+    }
+
+    public function testGetAccountInfo()
+    {
+        $account = new \Zimbra\Soap\Struct\AccountSelector('name', 'value');
+        $req = new \Zimbra\API\Admin\Request\GetAccountInfo($account);
+        $this->assertSame($account, $req->account());
+
+        $req->account($account);
+        $this->assertSame($account, $req->account());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<GetAccountInfoRequest>'
+                .'<account by="name">value</account>'
+            .'</GetAccountInfoRequest>';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
+
+        $array = array(
+            'GetAccountInfoRequest' => array(
+                'account' => array(
+                    'by' => 'name',
+                    '_' => 'value',
+                ),
+            ),
+        );
+        $this->assertEquals($array, $req->toArray());
+    }
+
+    public function testGetAccountLoggers()
+    {
+        $account = new \Zimbra\Soap\Struct\AccountSelector('name', 'value');
+        $req = new \Zimbra\API\Admin\Request\GetAccountLoggers($account);
+        $this->assertSame($account, $req->account());
+
+        $req->account($account);
+        $this->assertSame($account, $req->account());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<GetAccountLoggersRequest>'
+                .'<account by="name">value</account>'
+            .'</GetAccountLoggersRequest>';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
+
+        $array = array(
+            'GetAccountLoggersRequest' => array(
+                'account' => array(
+                    'by' => 'name',
+                    '_' => 'value',
+                ),
+            ),
+        );
+        $this->assertEquals($array, $req->toArray());
+    }
+
+    public function testGetAccountMembership()
+    {
+        $account = new \Zimbra\Soap\Struct\AccountSelector('name', 'value');
+        $req = new \Zimbra\API\Admin\Request\GetAccountMembership($account);
+        $this->assertSame($account, $req->account());
+
+        $req->account($account);
+        $this->assertSame($account, $req->account());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<GetAccountMembershipRequest>'
+                .'<account by="name">value</account>'
+            .'</GetAccountMembershipRequest>';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
+
+        $array = array(
+            'GetAccountMembershipRequest' => array(
+                'account' => array(
+                    'by' => 'name',
+                    '_' => 'value',
+                ),
+            ),
+        );
+        $this->assertEquals($array, $req->toArray());
+    }
+
+    public function testGetAdminConsoleUIComp()
+    {
+        $account = new \Zimbra\Soap\Struct\AccountSelector('name', 'value');
+        $dl = new \Zimbra\Soap\Struct\DistributionListSelector('name', 'value');
+
+        $req = new \Zimbra\API\Admin\Request\GetAdminConsoleUIComp($account, $dl);
+        $this->assertSame($account, $req->account());
+        $this->assertSame($dl, $req->dl());
+
+        $req->account($account)
+            ->dl($dl);
+        $this->assertSame($account, $req->account());
+        $this->assertSame($dl, $req->dl());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<GetAdminConsoleUICompRequest>'
+                .'<account by="name">value</account>'
+                .'<dl by="name">value</dl>'
+            .'</GetAdminConsoleUICompRequest>';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
+
+        $array = array(
+            'GetAdminConsoleUICompRequest' => array(
+                'account' => array(
+                    'by' => 'name',
+                    '_' => 'value',
+                ),
+                'dl' => array(
+                    'by' => 'name',
+                    '_' => 'value',
+                ),
+            ),
+        );
+        $this->assertEquals($array, $req->toArray());
+    }
+
+    public function testGetAdminExtensionZimlets()
+    {
+        $req = new \Zimbra\API\Admin\Request\GetAdminExtensionZimlets();
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<GetAdminExtensionZimletsRequest />';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
+
+        $array = array(
+            'GetAdminExtensionZimletsRequest' => array(),
+        );
+        $this->assertEquals($array, $req->toArray());
+    }
+
+    public function testGetAdminSavedSearches()
+    {
+        $search = new \Zimbra\Soap\Struct\NamedElement('name');
+        $req = new \Zimbra\API\Admin\Request\GetAdminSavedSearches($search);
+        $this->assertSame($search, $req->search());
+
+        $req->search($search);
+        $this->assertSame($search, $req->search());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<GetAdminSavedSearchesRequest>'
+                .'<search name="name" />'
+            .'</GetAdminSavedSearchesRequest>';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
+
+        $array = array(
+            'GetAdminSavedSearchesRequest' => array(
+                'search' => array(
+                    'name' => 'name',
+                ),
+            ),
+        );
+        $this->assertEquals($array, $req->toArray());
+    }
+
+    public function testGetAggregateQuotaUsageOnServer()
+    {
+        $req = new \Zimbra\API\Admin\Request\GetAggregateQuotaUsageOnServer();
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<GetAggregateQuotaUsageOnServerRequest />';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
+
+        $array = array(
+            'GetAggregateQuotaUsageOnServerRequest' => array(),
+        );
+        $this->assertEquals($array, $req->toArray());
+    }
+
+    public function testGetAllAccountLoggers()
+    {
+        $req = new \Zimbra\API\Admin\Request\GetAllAccountLoggers();
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<GetAllAccountLoggersRequest />';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
+
+        $array = array(
+            'GetAllAccountLoggersRequest' => array(),
+        );
+        $this->assertEquals($array, $req->toArray());
+    }
+
+    public function testGetAllAccounts()
+    {
+        $server = new \Zimbra\Soap\Struct\ServerSelector('name', 'value');
+        $domain = new \Zimbra\Soap\Struct\DomainSelector('name', 'value');
+
+        $req = new \Zimbra\API\Admin\Request\GetAllAccounts($server, $domain);
+        $this->assertSame($server, $req->server());
+        $this->assertSame($domain, $req->domain());
+
+        $req->server($server)
+            ->domain($domain);
+        $this->assertSame($server, $req->server());
+        $this->assertSame($domain, $req->domain());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<GetAllAccountsRequest>'
+                .'<server by="name">value</server>'
+                .'<domain by="name">value</domain>'
+            .'</GetAllAccountsRequest>';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
+
+        $array = array(
+            'GetAllAccountsRequest' => array(
+                'server' => array(
+                    'by' => 'name',
+                    '_' => 'value',
+                ),
+                'domain' => array(
+                    'by' => 'name',
+                    '_' => 'value',
+                ),
+            ),
+        );
+        $this->assertEquals($array, $req->toArray());
+    }
+
+    public function testGetAllAdminAccounts()
+    {
+        $req = new \Zimbra\API\Admin\Request\GetAllAdminAccounts(false);
+        $this->assertFalse($req->applyCos());
+        $req->applyCos(true);
+        $this->assertTrue($req->applyCos());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<GetAllAdminAccountsRequest applyCos="1" />';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
+
+        $array = array(
+            'GetAllAdminAccountsRequest' => array(
+                'applyCos' => 1
+            ),
+        );
+        $this->assertEquals($array, $req->toArray());
+    }
+
+    public function testGetAllCalendarResources()
+    {
+        $server = new \Zimbra\Soap\Struct\ServerSelector('name', 'value');
+        $domain = new \Zimbra\Soap\Struct\DomainSelector('name', 'value');
+
+        $req = new \Zimbra\API\Admin\Request\GetAllCalendarResources($server, $domain);
+        $this->assertSame($server, $req->server());
+        $this->assertSame($domain, $req->domain());
+
+        $req->server($server)
+            ->domain($domain);
+        $this->assertSame($server, $req->server());
+        $this->assertSame($domain, $req->domain());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<GetAllCalendarResourcesRequest>'
+                .'<server by="name">value</server>'
+                .'<domain by="name">value</domain>'
+            .'</GetAllCalendarResourcesRequest>';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
+
+        $array = array(
+            'GetAllCalendarResourcesRequest' => array(
+                'server' => array(
+                    'by' => 'name',
+                    '_' => 'value',
+                ),
+                'domain' => array(
+                    'by' => 'name',
+                    '_' => 'value',
+                ),
+            ),
+        );
+        $this->assertEquals($array, $req->toArray());
+    }
+
+    public function testGetAllConfig()
+    {
+        $req = new \Zimbra\API\Admin\Request\GetAllConfig();
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<GetAllConfigRequest />';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
+
+        $array = array(
+            'GetAllConfigRequest' => array(),
+        );
+        $this->assertEquals($array, $req->toArray());
+    }
+
+    public function testGetAllCos()
+    {
+        $req = new \Zimbra\API\Admin\Request\GetAllCos();
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<GetAllCosRequest />';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
+
+        $array = array(
+            'GetAllCosRequest' => array(),
+        );
+        $this->assertEquals($array, $req->toArray());
+    }
+
+    public function testGetAllDistributionLists()
+    {
+        $domain = new \Zimbra\Soap\Struct\DomainSelector('name', 'value');
+
+        $req = new \Zimbra\API\Admin\Request\GetAllDistributionLists($domain);
+        $this->assertSame($domain, $req->domain());
+
+        $req->domain($domain);
+        $this->assertSame($domain, $req->domain());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<GetAllDistributionListsRequest>'
+                .'<domain by="name">value</domain>'
+            .'</GetAllDistributionListsRequest>';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
+
+        $array = array(
+            'GetAllDistributionListsRequest' => array(
+                'domain' => array(
+                    'by' => 'name',
+                    '_' => 'value',
+                ),
+            ),
+        );
+        $this->assertEquals($array, $req->toArray());
+    }
+
+    public function testGetAllDomains()
+    {
+        $req = new \Zimbra\API\Admin\Request\GetAllDomains(false);
+        $this->assertFalse($req->applyConfig());
+        $req->applyConfig(true);
+        $this->assertTrue($req->applyConfig());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<GetAllDomainsRequest applyConfig="1" />';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
+
+        $array = array(
+            'GetAllDomainsRequest' => array(
+                'applyConfig' => 1
+            ),
+        );
+        $this->assertEquals($array, $req->toArray());
+    }
+
+    public function testGetAllEffectiveRights()
+    {
+        $grantee = new \Zimbra\Soap\Struct\GranteeSelector('value', 'usr', 'id', 'secret', true);
+
+        $req = new \Zimbra\API\Admin\Request\GetAllEffectiveRights($grantee, false);
+        $this->assertSame($grantee, $req->grantee());
+        $this->assertFalse($req->expandAllAttrs());
+
+        $req->grantee($grantee)
+            ->expandAllAttrs(true);
+        $this->assertSame($grantee, $req->grantee());
+        $this->assertTrue($req->expandAllAttrs());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<GetAllEffectiveRightsRequest expandAllAttrs="1">'
+                .'<grantee type="usr" by="id" secret="secret" all="1">value</grantee>'
+            .'</GetAllEffectiveRightsRequest>';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
+
+        $array = array(
+            'GetAllEffectiveRightsRequest' => array(
+                'expandAllAttrs' => 1,
+                'grantee' => array(
+                    '_' => 'value',
+                    'type' => 'usr',
+                    'by' => 'id',
+                    'secret' => 'secret',
+                    'all' => 1,
+                ),
+            ),
+        );
+        $this->assertEquals($array, $req->toArray());
+    }
+
+    public function testGetAllFreeBusyProviders()
+    {
+        $req = new \Zimbra\API\Admin\Request\GetAllFreeBusyProviders();
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<GetAllFreeBusyProvidersRequest />';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
+
+        $array = array(
+            'GetAllFreeBusyProvidersRequest' => array(),
+        );
+        $this->assertEquals($array, $req->toArray());
+    }
+
+    public function testGetAllLocales()
+    {
+        $req = new \Zimbra\API\Admin\Request\GetAllLocales();
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<GetAllLocalesRequest />';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
+
+        $array = array(
+            'GetAllLocalesRequest' => array(),
+        );
+        $this->assertEquals($array, $req->toArray());
+    }
+
+    public function testGetAllMailboxes()
+    {
+        $req = new \Zimbra\API\Admin\Request\GetAllMailboxes(100, 100);
+        $this->assertSame(100, $req->limit());
+        $this->assertSame(100, $req->offset());
+
+        $req->limit(100)
+            ->offset(100);
+        $this->assertSame(100, $req->limit());
+        $this->assertSame(100, $req->offset());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<GetAllMailboxesRequest limit="100" offset="100" />';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
+
+        $array = array(
+            'GetAllMailboxesRequest' => array(
+                'limit' => 100,
+                'offset' => 100,
+            ),
+        );
+        $this->assertEquals($array, $req->toArray());
+    }
+
+    public function testGetAllRights()
+    {
+        $req = new \Zimbra\API\Admin\Request\GetAllRights('targetType', false, 'ADMIN');
+        $this->assertSame('targetType', $req->targetType());
+        $this->assertFalse($req->expandAllAttrs());
+        $this->assertSame('ADMIN', $req->rightClass());
+
+        $req->targetType('targetType')
+            ->expandAllAttrs(true)
+            ->rightClass('ALL');
+        $this->assertSame('targetType', $req->targetType());
+        $this->assertTrue($req->expandAllAttrs());
+        $this->assertSame('ALL', $req->rightClass());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<GetAllRightsRequest targetType="targetType" expandAllAttrs="1" rightClass="ALL" />';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
+
+        $array = array(
+            'GetAllRightsRequest' => array(
+                'targetType' => 'targetType',
+                'expandAllAttrs' => 1,
+                'rightClass' => 'ALL',
+            ),
+        );
+        $this->assertEquals($array, $req->toArray());
+    }
+
+    public function testGetAllServers()
+    {
+        $req = new \Zimbra\API\Admin\Request\GetAllServers('service', false);
+        $this->assertSame('service', $req->service());
+        $this->assertFalse($req->applyConfig());
+
+        $req->service('service')
+            ->applyConfig(true);
+        $this->assertSame('service', $req->service());
+        $this->assertTrue($req->applyConfig());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<GetAllServersRequest service="service" applyConfig="1" />';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
+
+        $array = array(
+            'GetAllServersRequest' => array(
+                'service' => 'service',
+                'applyConfig' => 1,
+            ),
+        );
+        $this->assertEquals($array, $req->toArray());
+    }
+
+    public function testGetAllSkins()
+    {
+        $req = new \Zimbra\API\Admin\Request\GetAllSkins();
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<GetAllSkinsRequest />';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
+
+        $array = array(
+            'GetAllSkinsRequest' => array(),
+        );
+        $this->assertEquals($array, $req->toArray());
+    }
+
+    public function testGetAllUCProviders()
+    {
+        $req = new \Zimbra\API\Admin\Request\GetAllUCProviders();
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<GetAllUCProvidersRequest />';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
+
+        $array = array(
+            'GetAllUCProvidersRequest' => array(),
+        );
+        $this->assertEquals($array, $req->toArray());
+    }
+
+    public function testGetAllUCServices()
+    {
+        $req = new \Zimbra\API\Admin\Request\GetAllUCServices();
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<GetAllUCServicesRequest />';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
+
+        $array = array(
+            'GetAllUCServicesRequest' => array(),
+        );
+        $this->assertEquals($array, $req->toArray());
+    }
+
+    public function testGetAllVolumes()
+    {
+        $req = new \Zimbra\API\Admin\Request\GetAllVolumes();
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<GetAllVolumesRequest />';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
+
+        $array = array(
+            'GetAllVolumesRequest' => array(),
+        );
+        $this->assertEquals($array, $req->toArray());
+    }
+
+    public function testGetAllXMPPComponents()
+    {
+        $req = new \Zimbra\API\Admin\Request\GetAllXMPPComponents();
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<GetAllXMPPComponentsRequest />';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
+
+        $array = array(
+            'GetAllXMPPComponentsRequest' => array(),
+        );
+        $this->assertEquals($array, $req->toArray());
+    }
+
+    public function testGetAllZimlets()
+    {
+        $req = new \Zimbra\API\Admin\Request\GetAllZimlets('extension');
+        $this->assertSame('extension', $req->exclude());
+
+        $req->exclude('mail');
+        $this->assertSame('mail', $req->exclude());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<GetAllZimletsRequest exclude="mail" />';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
+
+        $array = array(
+            'GetAllZimletsRequest' => array(
+                'exclude' => 'mail',
+            ),
+        );
+        $this->assertEquals($array, $req->toArray());
+    }
+
+    public function testGetAttributeInfo()
+    {
+        $req = new \Zimbra\API\Admin\Request\GetAttributeInfo('attrs', 'a,account,b,aclTarget,c');
+        $this->assertSame('attrs', $req->attrs());
+        $this->assertSame('account,aclTarget', $req->entryTypes());
+
+        $req->attrs('attrs')
+            ->entryTypes('x,account,y,alias,z');
+        $this->assertSame('attrs', $req->attrs());
+        $this->assertSame('account,alias', $req->entryTypes());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<GetAttributeInfoRequest attrs="attrs" entryTypes="account,alias" />';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
+
+        $array = array(
+            'GetAttributeInfoRequest' => array(
+                'attrs' => 'attrs',
+                'entryTypes' => 'account,alias',
+            ),
+        );
+        $this->assertEquals($array, $req->toArray());
+    }
+
+    public function testGetCalendarResource()
+    {
+        $calResource = new \Zimbra\Soap\Struct\CalendarResourceSelector('name', 'value');
+        $req = new \Zimbra\API\Admin\Request\GetCalendarResource($calResource, false, 'attrs');
+        $this->assertSame($calResource, $req->calResource());
+        $this->assertFalse($req->applyCos());
+        $this->assertSame('attrs', $req->attrs());
+
+        $req->calResource($calResource)
+            ->applyCos(true)
+            ->attrs('attrs');
+        $this->assertSame($calResource, $req->calResource());
+        $this->assertTrue($req->applyCos());
+        $this->assertSame('attrs', $req->attrs());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<GetCalendarResourceRequest applyCos="1" attrs="attrs">'
+                .'<calresource by="name">value</calresource>'
+            .'</GetCalendarResourceRequest>';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
+
+        $array = array(
+            'GetCalendarResourceRequest' => array(
+                'applyCos' => 1,
+                'attrs' => 'attrs',
+                'calresource' => array(
+                    'by' => 'name',
+                    '_' => 'value',
+                ),
+            ),
+        );
+        $this->assertEquals($array, $req->toArray());
+    }
+
+    public function testGetCert()
+    {
+        $req = new \Zimbra\API\Admin\Request\GetCert('server', 'all', 'self');
+        $this->assertSame('server', $req->server());
+        $this->assertSame('all', $req->type());
+        $this->assertSame('self', $req->option());
+
+        $req->server('server')
+            ->type('mta')
+            ->option('comm');
+        $this->assertSame('server', $req->server());
+        $this->assertSame('mta', $req->type());
+        $this->assertSame('comm', $req->option());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<GetCertRequest server="server" type="mta" option="comm" />';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
+
+        $array = array(
+            'GetCertRequest' => array(
+                'server' => 'server',
+                'type' => 'mta',
+                'option' => 'comm',
+            ),
+        );
+        $this->assertEquals($array, $req->toArray());
+    }
+
+    public function testGetConfig()
+    {
+        $attr = new \Zimbra\Soap\Struct\KeyValuePair('key', 'value');
+        $req = new \Zimbra\API\Admin\Request\GetConfig(array($attr));
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<GetConfigRequest>'
+                .'<a n="key">value</a>'
+            .'</GetConfigRequest>';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
+
+        $array = array(
+            'GetConfigRequest' => array(
+                'a' => array(
+                    array(
+                        'n' => 'key',
+                        '_' => 'value',
+                    ),
+                )
+            ),
+        );
+        $this->assertEquals($array, $req->toArray());
+    }
+
+    public function testGetCos()
+    {
+        $cos = new \Zimbra\Soap\Struct\CosSelector('name', 'value');
+        $req = new \Zimbra\API\Admin\Request\GetCos($cos, 'attrs');
+        $this->assertSame($cos, $req->cos());
+        $this->assertSame('attrs', $req->attrs());
+
+        $req->cos($cos)
+            ->attrs('attrs');
+        $this->assertSame($cos, $req->cos());
+        $this->assertSame('attrs', $req->attrs());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<GetCosRequest attrs="attrs">'
+                .'<cos by="name">value</cos>'
+            .'</GetCosRequest>';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
+
+        $array = array(
+            'GetCosRequest' => array(
+                'attrs' => 'attrs',
+                'cos' => array(
+                    'by' => 'name',
+                    '_' => 'value',
+                ),
+            ),
+        );
+        $this->assertEquals($array, $req->toArray());
+    }
+
+    public function testGetCreateObjectAttrs()
+    {
+        $target = new \Zimbra\Soap\Struct\TargetWithType('type', 'value');
+        $cos = new \Zimbra\Soap\Struct\CosSelector('name', 'value');
+        $domain = new \Zimbra\Soap\Struct\DomainSelector('name', 'value');
+
+        $req = new \Zimbra\API\Admin\Request\GetCreateObjectAttrs($target, $domain, $cos);
+        $this->assertSame($target, $req->target());
+        $this->assertSame($domain, $req->domain());
+        $this->assertSame($cos, $req->cos());
+
+        $req->target($target)
+            ->domain($domain)
+            ->cos($cos);
+        $this->assertSame($target, $req->target());
+        $this->assertSame($domain, $req->domain());
+        $this->assertSame($cos, $req->cos());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<GetCreateObjectAttrsRequest>'
+                .'<target type="type">value</target>'
+                .'<domain by="name">value</domain>'
+                .'<cos by="name">value</cos>'
+            .'</GetCreateObjectAttrsRequest>';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
+
+        $array = array(
+            'GetCreateObjectAttrsRequest' => array(
+                'target' => array(
+                    'type' => 'type',
+                    '_' => 'value',
+                ),
+                'domain' => array(
+                    'by' => 'name',
+                    '_' => 'value',
+                ),
+                'cos' => array(
+                    'by' => 'name',
+                    '_' => 'value',
+                ),
+            ),
+        );
+        $this->assertEquals($array, $req->toArray());
+    }
+
+    public function testGetCSR()
+    {
+        $req = new \Zimbra\API\Admin\Request\GetCSR('server', 'self');
+        $this->assertSame('server', $req->server());
+        $this->assertSame('self', $req->type());
+
+        $req->server('server')
+            ->type('comm');
+        $this->assertSame('server', $req->server());
+        $this->assertSame('comm', $req->type());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<GetCSRRequest server="server" type="comm" />';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
+
+        $array = array(
+            'GetCSRRequest' => array(
+                'server' => 'server',
+                'type' => 'comm',
+            ),
+        );
+        $this->assertEquals($array, $req->toArray());
+    }
+
+    public function testGetCurrentVolumes()
+    {
+        $req = new \Zimbra\API\Admin\Request\GetCurrentVolumes();
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<GetCurrentVolumesRequest />';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
+
+        $array = array(
+            'GetCurrentVolumesRequest' => array(),
+        );
+        $this->assertEquals($array, $req->toArray());
+    }
+
+    public function testGetDataSources()
+    {
+        $attr = new \Zimbra\Soap\Struct\KeyValuePair('key', 'value');
+        $req = new \Zimbra\API\Admin\Request\GetDataSources('id', array($attr));
+        $this->assertSame('id', $req->id());
+
+        $req->id('id');
+        $this->assertSame('id', $req->id());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<GetDataSourcesRequest id="id">'
+                .'<a n="key">value</a>'
+            .'</GetDataSourcesRequest>';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
+
+        $array = array(
+            'GetDataSourcesRequest' => array(
+                'id' => 'id',
+                'a' => array(
+                    array(
+                        'n' => 'key',
+                        '_' => 'value',
+                    ),
+                )
+            ),
+        );
+        $this->assertEquals($array, $req->toArray());
+    }
+
+    public function testGetDelegatedAdminConstraints()
+    {
+        $attr = new \Zimbra\Soap\Struct\NamedElement('name');
+
+        $req = new \Zimbra\API\Admin\Request\GetDelegatedAdminConstraints('type', 'id', 'name', array($attr));
+        $this->assertSame('type', $req->type());
+        $this->assertSame('id', $req->id());
+        $this->assertSame('name', $req->name());
+        $this->assertSame(array($attr), $req->attrs());
+
+        $req->type('type')
+            ->id('id')
+            ->name('name')
+            ->attrs(array($attr))
+            ->addAttr($attr);
+        $this->assertSame('type', $req->type());
+        $this->assertSame('id', $req->id());
+        $this->assertSame('name', $req->name());
+        $this->assertSame(array($attr, $attr), $req->attrs());
+
+        $req->attrs(array($attr));
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<GetDelegatedAdminConstraintsRequest type="type" id="id" name="name">'
+                .'<a name="name" />'
+            .'</GetDelegatedAdminConstraintsRequest>';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
+
+        $array = array(
+            'GetDelegatedAdminConstraintsRequest' => array(
+                'type' => 'type',
+                'id' => 'id',
+                'name' => 'name',
+                'a' => array(
+                    array(
+                        'name' => 'name',
+                    ),
+                )
+            ),
+        );
+        $this->assertEquals($array, $req->toArray());
+    }
+
+    public function testGetDevices()
+    {
+        $account = new \Zimbra\Soap\Struct\AccountSelector('name', 'value');
+        $req = new \Zimbra\API\Admin\Request\GetDevices($account);
+        $this->assertSame($account, $req->account());
+
+        $req->account($account);
+        $this->assertSame($account, $req->account());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<GetDevicesRequest>'
+                .'<account by="name">value</account>'
+            .'</GetDevicesRequest>';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
+
+        $array = array(
+            'GetDevicesRequest' => array(
+                'account' => array(
+                    'by' => 'name',
+                    '_' => 'value',
+                ),
+            ),
+        );
+        $this->assertEquals($array, $req->toArray());
+    }
+
+    public function testGetDistributionList()
+    {
+        $attr = new \Zimbra\Soap\Struct\KeyValuePair('key', 'value');
+        $dl = new \Zimbra\Soap\Struct\DistributionListSelector('name', 'value');
+        $req = new \Zimbra\API\Admin\Request\GetDistributionList($dl, 100, 100, false, array($attr));
+        $this->assertSame($dl, $req->dl());
+        $this->assertSame(100, $req->limit());
+        $this->assertSame(100, $req->offset());
+        $this->assertFalse($req->sortAscending());
+
+        $req->dl($dl)
+            ->limit(100)
+            ->offset(100)
+            ->sortAscending(true);
+        $this->assertSame($dl, $req->dl());
+        $this->assertSame(100, $req->limit());
+        $this->assertSame(100, $req->offset());
+        $this->assertTrue($req->sortAscending());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<GetDistributionListRequest limit="100" offset="100" sortAscending="1">'
+                .'<dl by="name">value</dl>'
+                .'<a n="key">value</a>'
+            .'</GetDistributionListRequest>';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
+
+        $array = array(
+            'GetDistributionListRequest' => array(
+                'limit' => 100,
+                'offset' => 100,
+                'sortAscending' => 1,
+                'dl' => array(
+                    'by' => 'name',
+                    '_' => 'value',
+                ),
+                'a' => array(
+                    array(
+                        'n' => 'key',
+                        '_' => 'value',
+                    ),
+                )
+            ),
+        );
+        $this->assertEquals($array, $req->toArray());
+    }
+
+
+    public function testGetDistributionListMembership()
+    {
+        $dl = new \Zimbra\Soap\Struct\DistributionListSelector('name', 'value');
+        $req = new \Zimbra\API\Admin\Request\GetDistributionListMembership($dl, 100, 100);
+        $this->assertSame($dl, $req->dl());
+        $this->assertSame(100, $req->limit());
+        $this->assertSame(100, $req->offset());
+
+        $req->dl($dl)
+            ->limit(100)
+            ->offset(100);
+        $this->assertSame($dl, $req->dl());
+        $this->assertSame(100, $req->limit());
+        $this->assertSame(100, $req->offset());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<GetDistributionListMembershipRequest limit="100" offset="100">'
+                .'<dl by="name">value</dl>'
+            .'</GetDistributionListMembershipRequest>';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
+
+        $array = array(
+            'GetDistributionListMembershipRequest' => array(
+                'limit' => 100,
+                'offset' => 100,
+                'dl' => array(
+                    'by' => 'name',
+                    '_' => 'value',
+                ),
+            ),
+        );
+        $this->assertEquals($array, $req->toArray());
+    }
+
+    public function testGetDomain()
+    {
+        $domain = new \Zimbra\Soap\Struct\DomainSelector('name', 'value');
+        $req = new \Zimbra\API\Admin\Request\GetDomain($domain, false, 'attrs');
+        $this->assertSame($domain, $req->domain());
+        $this->assertFalse($req->applyConfig());
+        $this->assertSame('attrs', $req->attrs());
+
+        $req->domain($domain)
+            ->applyConfig(true)
+            ->attrs('attrs');
+        $this->assertSame($domain, $req->domain());
+        $this->assertTrue($req->applyConfig());
+        $this->assertSame('attrs', $req->attrs());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<GetDomainRequest applyConfig="1" attrs="attrs">'
+                .'<domain by="name">value</domain>'
+            .'</GetDomainRequest>';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
+
+        $array = array(
+            'GetDomainRequest' => array(
+                'applyConfig' => 1,
+                'attrs' => 'attrs',
+                'domain' => array(
+                    'by' => 'name',
+                    '_' => 'value',
+                ),
+            ),
+        );
+        $this->assertEquals($array, $req->toArray());
+    }
+
+    public function testGetDomainInfo()
+    {
+        $domain = new \Zimbra\Soap\Struct\DomainSelector('name', 'value');
+        $req = new \Zimbra\API\Admin\Request\GetDomainInfo($domain, false);
+        $this->assertSame($domain, $req->domain());
+        $this->assertFalse($req->applyConfig());
+
+        $req->domain($domain)
+            ->applyConfig(true);
+        $this->assertSame($domain, $req->domain());
+        $this->assertTrue($req->applyConfig());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<GetDomainInfoRequest applyConfig="1">'
+                .'<domain by="name">value</domain>'
+            .'</GetDomainInfoRequest>';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
+
+        $array = array(
+            'GetDomainInfoRequest' => array(
+                'applyConfig' => 1,
+                'domain' => array(
+                    'by' => 'name',
+                    '_' => 'value',
+                ),
+            ),
+        );
+        $this->assertEquals($array, $req->toArray());
+    }
+
+    public function testGetEffectiveRights()
+    {
+        $target = new \Zimbra\Soap\Struct\EffectiveRightsTargetSelector('account', 'value', 'name');
+        $grantee = new \Zimbra\Soap\Struct\GranteeSelector('value', 'usr', 'id', 'secret', true);
+
+        $req = new \Zimbra\API\Admin\Request\GetEffectiveRights($target, $grantee, 'getAttrs');
+        $this->assertSame($target, $req->target());
+        $this->assertSame($grantee, $req->grantee());
+        $this->assertSame('getAttrs', $req->expandAllAttrs());
+
+        $req->target($target)
+            ->grantee($grantee)
+            ->expandAllAttrs('setAttrs');
+        $this->assertSame($target, $req->target());
+        $this->assertSame($grantee, $req->grantee());
+        $this->assertSame('setAttrs', $req->expandAllAttrs());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<GetEffectiveRightsRequest expandAllAttrs="setAttrs">'
+                .'<target type="account" by="name">value</target>'
+                .'<grantee type="usr" by="id" secret="secret" all="1">value</grantee>'
+            .'</GetEffectiveRightsRequest>';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
+
+        $array = array(
+            'GetEffectiveRightsRequest' => array(
+                'expandAllAttrs' => 'setAttrs',
+                'target' => array(
+                    'type' => 'account',
+                    '_' => 'value',
+                    'by' => 'name',
+                ),
+                'grantee' => array(
+                    '_' => 'value',
+                    'type' => 'usr',
+                    'by' => 'id',
+                    'secret' => 'secret',
+                    'all' => 1,
+                ),
+            ),
+        );
+        $this->assertEquals($array, $req->toArray());
+    }
+
+    public function testGetFreeBusyQueueInfo()
+    {
+        $provider = new \Zimbra\Soap\Struct\NamedElement('name');
+        $req = new \Zimbra\API\Admin\Request\GetFreeBusyQueueInfo($provider);
+        $this->assertSame($provider, $req->provider());
+
+        $req->provider($provider);
+        $this->assertSame($provider, $req->provider());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<GetFreeBusyQueueInfoRequest>'
+                .'<provider name="name" />'
+            .'</GetFreeBusyQueueInfoRequest>';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
+
+        $array = array(
+            'GetFreeBusyQueueInfoRequest' => array(
+                'provider' => array(
+                    'name' => 'name',
+                ),
+            ),
+        );
+        $this->assertEquals($array, $req->toArray());
+    }
+
+    public function testGetGrants()
+    {
+        $target = new \Zimbra\Soap\Struct\EffectiveRightsTargetSelector('account', 'value', 'name');
+        $grantee = new \Zimbra\Soap\Struct\GranteeSelector('value', 'usr', 'id', 'secret', true);
+
+        $req = new \Zimbra\API\Admin\Request\GetGrants($target, $grantee);
+        $this->assertSame($target, $req->target());
+        $this->assertSame($grantee, $req->grantee());
+
+        $req->target($target)
+            ->grantee($grantee);
+        $this->assertSame($target, $req->target());
+        $this->assertSame($grantee, $req->grantee());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<GetGrantsRequest>'
+                .'<target type="account" by="name">value</target>'
+                .'<grantee type="usr" by="id" secret="secret" all="1">value</grantee>'
+            .'</GetGrantsRequest>';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
+
+        $array = array(
+            'GetGrantsRequest' => array(
+                'target' => array(
+                    'type' => 'account',
+                    '_' => 'value',
+                    'by' => 'name',
+                ),
+                'grantee' => array(
+                    '_' => 'value',
+                    'type' => 'usr',
+                    'by' => 'id',
+                    'secret' => 'secret',
+                    'all' => 1,
+                ),
+            ),
+        );
+        $this->assertEquals($array, $req->toArray());
+    }
+
+    public function testGetIndexStats()
+    {
+        $mbox = new \Zimbra\Soap\Struct\MailboxByAccountIdSelector('id');
+        $req = new \Zimbra\API\Admin\Request\GetIndexStats($mbox);
+        $this->assertSame($mbox, $req->mbox());
+
+        $req->mbox($mbox);
+        $this->assertSame($mbox, $req->mbox());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<GetIndexStatsRequest>'
+                .'<mbox id="id" />'
+            .'</GetIndexStatsRequest>';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
+
+        $array = array(
+            'GetIndexStatsRequest' => array(
+                'mbox' => array(
+                    'id' => 'id',
+                ),
+            ),
+        );
+        $this->assertEquals($array, $req->toArray());
+    }
+
+    public function testGetLDAPEntries()
+    {
+        $req = new \Zimbra\API\Admin\Request\GetLDAPEntries(
+            'query', 'ldapSearchBase', 'sortBy', false, 100, 100
+        );
+        $this->assertSame('query', $req->query());
+        $this->assertSame('ldapSearchBase', $req->ldapSearchBase());
+        $this->assertSame('sortBy', $req->sortBy());
+        $this->assertFalse($req->sortAscending());
+        $this->assertSame(100, $req->limit());
+        $this->assertSame(100, $req->offset());
+
+        $req->query('query')
+            ->ldapSearchBase('ldapSearchBase')
+            ->sortBy('sortBy')
+            ->sortAscending(true)
+            ->limit(100)
+            ->offset(100);
+        $this->assertSame('query', $req->query());
+        $this->assertSame('ldapSearchBase', $req->ldapSearchBase());
+        $this->assertSame('sortBy', $req->sortBy());
+        $this->assertTrue($req->sortAscending());
+        $this->assertSame(100, $req->limit());
+        $this->assertSame(100, $req->offset());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<GetLDAPEntriesRequest query="query" sortBy="sortBy" sortAscending="1" limit="100" offset="100">'
+                .'<ldapSearchBase>ldapSearchBase</ldapSearchBase>'
+            .'</GetLDAPEntriesRequest>';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
+
+        $array = array(
+            'GetLDAPEntriesRequest' => array(
+                'query' => 'query',
+                'ldapSearchBase' => 'ldapSearchBase',
+                'sortBy' => 'sortBy',
+                'sortAscending' => 1,
+                'limit' => 100,
+                'offset' => 100,
+            ),
+        );
+        $this->assertEquals($array, $req->toArray());
+    }
+
+    public function testGetLicenseInfo()
+    {
+        $req = new \Zimbra\API\Admin\Request\GetLicenseInfo();
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<GetLicenseInfoRequest />';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
+
+        $array = array(
+            'GetLicenseInfoRequest' => array(),
+        );
+        $this->assertEquals($array, $req->toArray());
+    }
 }

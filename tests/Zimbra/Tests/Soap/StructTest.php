@@ -1034,7 +1034,7 @@ class StructTest extends ZimbraTestCase
 
     public function testEffectiveRightsTargetSelector()
     {
-        $target = new \Zimbra\Soap\Struct\EffectiveRightsTargetSelector('domain', 'target' ,'id');
+        $target = new \Zimbra\Soap\Struct\EffectiveRightsTargetSelector('domain', 'target', 'id');
         $this->assertSame('domain', $target->type());
         $this->assertSame('target', $target->value());
         $this->assertSame('id', $target->by());
