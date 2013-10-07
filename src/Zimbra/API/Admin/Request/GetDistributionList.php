@@ -11,7 +11,7 @@
 namespace Zimbra\API\Admin\Request;
 
 use Zimbra\Soap\Request\Attr;
-use Zimbra\Soap\Struct\DistListSelector as DistList;
+use Zimbra\Soap\Struct\DistributionListSelector as DistList;
 
 /**
  * GetDistributionList class
@@ -50,7 +50,7 @@ class GetDistributionList extends Attr
 
     /**
      * Constructor method for GetDistributionList
-     * @param  DistList $dl
+     * @param  DistributionList $dl
      * @param  int $limit
      * @param  int $offset
      * @param  bool $sortAscending
