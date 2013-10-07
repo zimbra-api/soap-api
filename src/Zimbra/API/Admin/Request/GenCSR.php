@@ -33,7 +33,7 @@ class GenCSR extends Request
      * If value is "1" then force to create a new CSR, the previous one will be overwrited
      * @var string
      */
-    private $_create;
+    private $_isNew;
 
     /**
      * Type of CSR (required)
@@ -44,7 +44,7 @@ class GenCSR extends Request
 
     /**
      * Key size - 1024 or 2048
-     * @var string
+     * @var int
      */
     private $_keysize;
 
@@ -93,9 +93,9 @@ class GenCSR extends Request
     /**
      * Constructor method for GenCSR
      * @param string $server
-     * @param string $create
+     * @param bool $create
      * @param string $type
-     * @param string $keysize
+     * @param int $keysize
      * @param string $c
      * @param string $sT
      * @param string $l
@@ -107,7 +107,7 @@ class GenCSR extends Request
      */
     public function __construct(
         $server,
-        $create,
+        $isNew,
         $type,
         $keysize,
         $c = null,
@@ -120,9 +120,9 @@ class GenCSR extends Request
     {
         parent::__construct();
         $this->_server = trim($server);
-        $this->_create = trim($create);
+        $this->_isNew = (bool) $isNew;
         $this->_type = in_array(trim($type), array('self', 'comm')) ? trim($type) : 'self';
-        $this->_keysize = in_array(trim($keysize), array('1024', '2048')) ? trim($keysize) : '1024';
+        $this->_keysize = in_array(intval($keysize), array(1024, 2048)) ? intval($keysize) : 1024;
 
 		$this->_c = trim($c);
 		$this->_sT = trim($sT);
@@ -159,16 +159,16 @@ class GenCSR extends Request
     /**
      * Gets or sets new
      *
-     * @param  string $create
-     * @return string|self
+     * @param  bool $isNew
+     * @return bool|self
      */
-    public function create($create = null)
+    public function isNew($isNew = null)
     {
-        if(null === $create)
+        if(null === $isNew)
         {
-            return $this->_create;
+            return $this->_isNew;
         }
-        $this->_create = trim($create);
+        $this->_isNew = (bool) $isNew;
         return $this;
     }
 
@@ -191,8 +191,8 @@ class GenCSR extends Request
     /**
      * Gets or sets keysize
      *
-     * @param  string $keysize
-     * @return string|self
+     * @param  int $keysize
+     * @return int|self
      */
     public function keysize($keysize = null)
     {
@@ -200,7 +200,7 @@ class GenCSR extends Request
         {
             return $this->_keysize;
         }
-        $this->_keysize = in_array(trim($keysize), array('1024', '2048')) ? trim($keysize) : '1024';
+        $this->_keysize = in_array(intval($keysize), array(1024, 2048)) ? intval($keysize) : 1024;
         return $this;
     }
 
@@ -333,7 +333,7 @@ class GenCSR extends Request
     {
         $this->array = array(
             'server' => $this->_server,
-            'new' => $this->_create,
+            'new' => $this->_isNew ? 1 : 0,
             'type' => $this->_type,
             'keysize' => $this->_keysize,
         );
@@ -364,7 +364,7 @@ class GenCSR extends Request
         if(count($this->_subjectAltName))
         {
             $this->array['SubjectAltName'] = array();
-            foreach ($$this->_subjectAltName as $subject)
+            foreach ($this->_subjectAltName as $subject)
             {
                 $this->array['SubjectAltName'][] = $subject;
             }
@@ -380,36 +380,36 @@ class GenCSR extends Request
     public function toXml()
     {
         $this->xml->addAttribute('server', $this->_server)
-                  ->addAttribute('new', $this->_create)
+                  ->addAttribute('new', $this->_isNew ? 1 : 0)
                   ->addAttribute('type', $this->_type)
                   ->addAttribute('keysize', $this->_keysize);
         if(!empty($this->_c))
         {
-            $this->xml->addAttribute('C', $this->_c);
+            $this->xml->addChild('C', $this->_c);
         }
         if(!empty($this->_sT))
         {
-            $this->xml->addAttribute('ST', $this->_sT);
+            $this->xml->addChild('ST', $this->_sT);
         }
         if(!empty($this->_l))
         {
-            $this->xml->addAttribute('L', $this->_l);
+            $this->xml->addChild('L', $this->_l);
         }
         if(!empty($this->_o))
         {
-            $this->xml->addAttribute('O', $this->_o);
+            $this->xml->addChild('O', $this->_o);
         }
         if(!empty($this->_oU))
         {
-            $this->xml->addAttribute('OU', $this->_oU);
+            $this->xml->addChild('OU', $this->_oU);
         }
         if(!empty($this->_cN))
         {
-            $this->xml->addAttribute('CN', $this->_cN);
+            $this->xml->addChild('CN', $this->_cN);
         }
-        foreach ($$this->_subjectAltName as $subject)
+        foreach ($this->_subjectAltName as $subject)
         {
-            $this->xml->addAttribute('SubjectAltName', $subject);
+            $this->xml->addChild('SubjectAltName', $subject);
         }
         return parent::toXml();
     }
