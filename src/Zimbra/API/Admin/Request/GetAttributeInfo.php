@@ -71,10 +71,7 @@ class GetAttributeInfo extends Request
     public function __construct($attrs = null, $entryTypes = null)
     {
         parent::__construct();
-        if(null !== $attrs)
-        {
-            $this->_attrs = trim($attrs);
-        }
+        $this->_attrs = trim($attrs);
         if(null !== $entryTypes)
         {
             $entryTypes = explode(',', $entryTypes);
@@ -86,26 +83,23 @@ class GetAttributeInfo extends Request
                     $types[] = trim($type);
                 }
             }
-            if(count($types))
-            {
-                $this->_entryTypes = implode(',', $types)
-            }
+            $this->_entryTypes = implode(',', $types);
         }
     }
 
     /**
-     * Gets or sets targetType
+     * Gets or sets attrs
      *
-     * @param  string $targetType
+     * @param  string $attrs
      * @return string|self
      */
-    public function targetType($targetType = null)
+    public function attrs($attrs = null)
     {
-        if(null === $targetType)
+        if(null === $attrs)
         {
-            return $this->_targetType;
+            return $this->_attrs;
         }
-        $this->_targetType = trim($targetType);
+        $this->_attrs = trim($attrs);
         return $this;
     }
 
@@ -130,7 +124,7 @@ class GetAttributeInfo extends Request
                 $types[] = trim($type);
             }
         }
-		$this->_entryTypes = implode(',', $types)
+		$this->_entryTypes = implode(',', $types);
         return $this;
     }
 
