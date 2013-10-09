@@ -11,7 +11,6 @@
 namespace Zimbra\API\Admin\Request;
 
 use Zimbra\Soap\Request;
-use Zimbra\Soap\Struct\UCServiceSelector as UCService;
 
 /**
  * GetVolume class

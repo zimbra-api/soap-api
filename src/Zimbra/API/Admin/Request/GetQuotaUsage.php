@@ -65,6 +65,8 @@ class GetQuotaUsage extends Request
      */
     private $_refresh;
 
+    private static $_validSorts = array('percentUsed', 'totalUsed', 'quotaLimit');
+
     /**
      * Constructor method for GetQuotaUsage
      * @param string $domain
@@ -99,7 +101,7 @@ class GetQuotaUsage extends Request
         {
             $this->_offset = (int) $offset;
         }
-        if(in_array(trim($sortBy), array('percentUsed', 'totalUsed', 'quotaLimit')))
+        if(in_array(trim($sortBy), self::$_validSorts))
         {
             $this->_sortBy = trim($sortBy);
         }
@@ -189,7 +191,7 @@ class GetQuotaUsage extends Request
         {
             return $this->_sortBy;
         }
-        if(in_array(trim($sortBy), array('percentUsed', 'totalUsed', 'quotaLimit')))
+        if(in_array(trim($sortBy), self::$_validSorts))
         {
             $this->_sortBy = trim($sortBy);
         }

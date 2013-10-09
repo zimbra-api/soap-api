@@ -39,6 +39,12 @@ class GetServerNIfs extends Request
     private $_server;
 
     /**
+     * Valid types
+     * @var array
+     */
+    private static $_validTypes = array('ipV4', 'ipV6', 'both');
+
+    /**
      * Constructor method for GetServerNIfs
      * @param  Server $server
      * @param  string $type
@@ -48,7 +54,7 @@ class GetServerNIfs extends Request
     {
         parent::__construct();
         $this->_server = $server;
-        if(in_array(trim($type), array('ipV4', 'ipV6', 'both')))
+        if(in_array(trim($type), self::$_validTypes))
         {
             $this->_type = trim($type);
         }
@@ -82,7 +88,7 @@ class GetServerNIfs extends Request
         {
             return $this->_type;
         }
-        if(in_array(trim($type), array('ipV4', 'ipV6', 'both')))
+        if(in_array(trim($type), self::$_validTypes))
         {
             $this->_type = trim($type);
         }

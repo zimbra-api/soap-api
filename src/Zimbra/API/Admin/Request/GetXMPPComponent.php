@@ -11,7 +11,7 @@
 namespace Zimbra\API\Admin\Request;
 
 use Zimbra\Soap\Request;
-use Zimbra\Soap\Struct\XMPPComponentSelector as XMPP;
+use Zimbra\Soap\Struct\XmppComponentSelector as Xmpp;
 
 /**
  * GetXMPPComponent class
@@ -27,7 +27,7 @@ class GetXMPPComponent extends Request
 {
     /**
      * XMPP Component selector
-     * @var XMPP
+     * @var Xmpp
      */
     private $_xmpp;
 
@@ -39,11 +39,11 @@ class GetXMPPComponent extends Request
 
     /**
      * Constructor method for GetXMPPComponent
-     * @param  XMPP $xmpp
+     * @param  Xmpp $xmpp
      * @param  string $attrs
      * @return self
      */
-    public function __construct(XMPP $xmpp, $attrs = null)
+    public function __construct(Xmpp $xmpp, $attrs = null)
     {
         parent::__construct();
         $this->_xmpp = $xmpp;
@@ -53,10 +53,10 @@ class GetXMPPComponent extends Request
     /**
      * Gets or sets xmpp
      *
-     * @param  XMPP $xmpp
-     * @return XMPP|self
+     * @param  Xmpp $xmpp
+     * @return Xmpp|self
      */
-    public function xmpp(XMPP $xmpp = null)
+    public function xmpp(Xmpp $xmpp = null)
     {
         if(null === $xmpp)
         {

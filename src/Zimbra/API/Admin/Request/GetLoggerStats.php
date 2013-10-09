@@ -59,13 +59,13 @@ class GetLoggerStats extends Request
      * @return self
      */
     public function __construct(
-        Hostname $hostname = null,
+        HostName $hostname = null,
         StatsSpec $stats = null,
         TimeAttr $startTime = null,
         TimeAttr $endTime = null)
     {
         parent::__construct();
-        if($hostname instanceof Hostname)
+        if($hostname instanceof HostName)
         {
             $this->_hostname = $hostname;
         }
@@ -86,10 +86,10 @@ class GetLoggerStats extends Request
     /**
      * Gets or sets hostname
      *
-     * @param  Hostname $hostname
-     * @return Hostname|self
+     * @param  HostName $hostname
+     * @return HostName|self
      */
-    public function hostname(Hostname $hostname = null)
+    public function hostname(HostName $hostname = null)
     {
         if(null === $hostname)
         {
@@ -154,7 +154,7 @@ class GetLoggerStats extends Request
      */
     public function toArray()
     {
-        if($this->_hostname instanceof Hostname)
+        if($this->_hostname instanceof HostName)
         {
             $this->array += $this->_hostname->toArray();
         }
@@ -164,11 +164,11 @@ class GetLoggerStats extends Request
         }
         if($this->_startTime instanceof TimeAttr)
         {
-            $this->array += $this->_startTime->toArray();
+            $this->array += $this->_startTime->toArray('startTime');
         }
         if($this->_endTime instanceof TimeAttr)
         {
-            $this->array += $this->_endTime->toArray();
+            $this->array += $this->_endTime->toArray('endTime');
         }
         return parent::toArray();
     }
@@ -180,7 +180,7 @@ class GetLoggerStats extends Request
      */
     public function toXml()
     {
-        if($this->_hostname instanceof Hostname)
+        if($this->_hostname instanceof HostName)
         {
             $this->xml->append($this->_hostname->toXml());
         }
@@ -190,11 +190,11 @@ class GetLoggerStats extends Request
         }
         if($this->_startTime instanceof TimeAttr)
         {
-            $this->xml->append($this->_startTime->toXml());
+            $this->xml->append($this->_startTime->toXml('startTime'));
         }
         if($this->_endTime instanceof TimeAttr)
         {
-            $this->xml->append($this->_endTime->toXml());
+            $this->xml->append($this->_endTime->toXml('endTime'));
         }
         return parent::toXml();
     }

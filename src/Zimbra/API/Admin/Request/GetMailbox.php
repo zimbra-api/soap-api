@@ -47,7 +47,7 @@ class GetMailbox extends Request
      * @param  Mailbox $mbox
      * @return Mailbox|self
      */
-    public function server(Mailbox $mbox = null)
+    public function mbox(Mailbox $mbox = null)
     {
         if(null === $mbox)
         {

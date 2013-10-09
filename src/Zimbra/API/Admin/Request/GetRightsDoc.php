@@ -49,7 +49,7 @@ class GetRightsDoc extends Request
      */
     public function addPackage(Package $package)
     {
-        $this->_packages[] = $attr;
+        $this->_packages[] = $package;
         return $this;
     }
 

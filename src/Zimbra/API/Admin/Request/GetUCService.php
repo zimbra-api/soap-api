@@ -11,7 +11,7 @@
 namespace Zimbra\API\Admin\Request;
 
 use Zimbra\Soap\Request;
-use Zimbra\Soap\Struct\UCServiceSelector as UCService;
+use Zimbra\Soap\Struct\UcServiceSelector as UcService;
 
 /**
  * GetUCService class
@@ -26,7 +26,7 @@ class GetUCService extends Request
 {
     /**
      * UC Service
-     * @var UCService
+     * @var UcService
      */
     private $_ucservice;
 
@@ -38,11 +38,11 @@ class GetUCService extends Request
 
     /**
      * Constructor method for GetUCService
-     * @param  UCService $ucservice
+     * @param  UcService $ucservice
      * @param  string $attrs
      * @return self
      */
-    public function __construct(UCService $ucservice = null, $attrs = null)
+    public function __construct(UcService $ucservice = null, $attrs = null)
     {
         parent::__construct();
         if($ucservice instanceof UCService)
@@ -55,10 +55,10 @@ class GetUCService extends Request
     /**
      * Gets or sets ucservice
      *
-     * @param  UCService $ucservice
-     * @return UCService|self
+     * @param  UcService $ucservice
+     * @return UcService|self
      */
-    public function ucservice(UCService $ucservice = null)
+    public function ucservice(UcService $ucservice = null)
     {
         if(null === $ucservice)
         {
@@ -91,7 +91,7 @@ class GetUCService extends Request
      */
     public function toArray()
     {
-        if($this->_ucservice instanceof UCService)
+        if($this->_ucservice instanceof UcService)
         {
             $this->array += $this->_ucservice->toArray();
         }
@@ -109,7 +109,7 @@ class GetUCService extends Request
      */
     public function toXml()
     {
-        if($this->_ucservice instanceof UCService)
+        if($this->_ucservice instanceof UcService)
         {
             $this->xml->append($this->_ucservice->toXml());
         }

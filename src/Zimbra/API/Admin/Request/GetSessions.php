@@ -58,16 +58,16 @@ class GetSessions extends Request
      * Constructor method for GetSessions
      * @param string $type
      * @param string $sortBy
-     * @param int $offset
      * @param int $limit
+     * @param int $offset
      * @param bool $refresh
      * @return self
      */
     public function __construct(
         $type,
         $sortBy = null,
-        $offset = null,
         $limit = null,
+        $offset = null,
         $refresh = null
     )
     {
@@ -84,17 +84,17 @@ class GetSessions extends Request
         {
             $this->_sortBy = trim($sortBy);
         }
+        if(null !== $limit)
+        {
+            $this->_limit = (int) $limit;
+        }
         if(null !== $offset)
         {
             $this->_offset = (int) $offset;
         }
-        if(null !== $limit)
-        {
-            $this->_limit = (bool) $limit;
-        }
         if(null !== $refresh)
         {
-            $this->_refresh = (int) $refresh;
+            $this->_refresh = (bool) $refresh;
         }
     }
 
@@ -164,7 +164,7 @@ class GetSessions extends Request
      */
     public function limit($limit = null)
     {
-        if(null === $applyConfig)
+        if(null === $limit)
         {
             return $this->_limit;
         }
@@ -202,13 +202,13 @@ class GetSessions extends Request
         {
             $this->array['sortBy'] = $this->_sortBy;
         }
-        if(is_int($this->_offset))
-        {
-            $this->array['offset'] = $this->_offset;
-        }
         if(is_int($this->_limit))
         {
             $this->array['limit'] = $this->_limit;
+        }
+        if(is_int($this->_offset))
+        {
+            $this->array['offset'] = $this->_offset;
         }
         if(is_bool($this->_refresh))
         {
@@ -229,13 +229,13 @@ class GetSessions extends Request
         {
             $this->xml->addAttribute('sortBy', $this->_sortBy);
         }
-        if(is_int($this->_offset))
-        {
-            $this->xml->addAttribute('offset', $this->_offset);
-        }
         if(is_int($this->_limit))
         {
             $this->xml->addAttribute('limit', $this->_limit);
+        }
+        if(is_int($this->_offset))
+        {
+            $this->xml->addAttribute('offset', $this->_offset);
         }
         if(is_bool($this->_refresh))
         {

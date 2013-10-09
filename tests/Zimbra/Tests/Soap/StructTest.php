@@ -2555,17 +2555,17 @@ class StructTest extends ZimbraTestCase
         $stat = new \Zimbra\Soap\Struct\NamedElement('name');
         $values = new \Zimbra\Soap\Struct\StatsValueWrapper(array($stat));
 
-        $stat = new \Zimbra\Soap\Struct\StatsSpec($values, 'n', 'l');
-        $this->assertSame($values, $stat->values());
-        $this->assertSame('n', $stat->name());
-        $this->assertSame('l', $stat->limit());
+        $stats = new \Zimbra\Soap\Struct\StatsSpec($values, 'n', 'l');
+        $this->assertSame($values, $stats->values());
+        $this->assertSame('n', $stats->name());
+        $this->assertSame('l', $stats->limit());
 
-        $stat->values($values)
-             ->name('name')
-             ->limit('limit');
-        $this->assertSame($values, $stat->values());
-        $this->assertSame('name', $stat->name());
-        $this->assertSame('limit', $stat->limit());
+        $stats->values($values)
+              ->name('name')
+              ->limit('limit');
+        $this->assertSame($values, $stats->values());
+        $this->assertSame('name', $stats->name());
+        $this->assertSame('limit', $stats->limit());
 
         $xml = '<?xml version="1.0"?>'."\n"
             .'<stats name="name" limit="limit">'
@@ -2573,7 +2573,7 @@ class StructTest extends ZimbraTestCase
                     .'<stat name="name" />'
                 .'</values>'
             .'</stats>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $stat);
+        $this->assertXmlStringEqualsXmlString($xml, (string) $stats);
 
         $array = array(
             'stats' => array(
@@ -2586,7 +2586,7 @@ class StructTest extends ZimbraTestCase
                 ),
             ),
         );
-        $this->assertEquals($array, $stat->toArray());
+        $this->assertEquals($array, $stats->toArray());
     }
 
     public function testSyncGalAccountDataSourceSpec()
