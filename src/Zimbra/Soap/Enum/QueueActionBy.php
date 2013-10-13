@@ -17,7 +17,7 @@ namespace Zimbra\Soap\Enum;
  * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright Copyright © 2013 by Nguyen Van Nguyen.
  */
-class QueueActionBy
+class QueueActionBy extends Base
 {
     /**
      * Constant for value 'id'
@@ -29,18 +29,4 @@ class QueueActionBy
      * @return string 'query'
      */
     const QUERY = 'query';
-
-    /**
-     * Return true if value is allowed
-     * @param  string $by
-     * @return bool true|false
-     */
-    public static function isValid($by)
-    {
-        $validValues = array(
-            self::ID,
-            self::QUERY,
-        );
-        return in_array($by, $validValues);
-    }
 }

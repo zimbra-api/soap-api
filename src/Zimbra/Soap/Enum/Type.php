@@ -17,7 +17,7 @@ namespace Zimbra\Soap\Enum;
  * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright Copyright © 2013 by Nguyen Van Nguyen.
  */
-class Type
+class Type extends Base
 {
     /**
      * Constant for value 'user'
@@ -29,18 +29,4 @@ class Type
      * @return string 'system'
      */
     const SYSTEM = 'system';
-
-    /**
-     * Return true if value is allowed
-     * @param  string $type
-     * @return bool true|false
-     */
-    public static function isValid($type)
-    {
-        $validValues = array(
-            self::USER,
-            self::SYSTEM,
-        );
-        return in_array($type, $validValues);
-    }
 }

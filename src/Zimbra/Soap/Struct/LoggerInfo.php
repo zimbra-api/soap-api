@@ -24,29 +24,28 @@ class LoggerInfo
 {
     /**
      * Name of the logger category
-     * - use : required
      * @var string
      */
     private $_category;
 
     /**
      * Level of the logging.
-     * @var string
+     * @var LoggingLevel
      */
     private $_level;
 
     /**
      * Constructor method for loggerInfo
      * @param string $category
-     * @param string $level
+     * @param LoggingLevel $level
      * @return self
      */
-    public function __construct($category, $level = null)
+    public function __construct($category, LoggingLevel $level = null)
     {
         $this->_category = trim($category);
-        if(LoggingLevel::isValid(trim($level)))
+        if($level instanceof LoggingLevel)
         {
-            $this->_level = trim($level);
+            $this->_level = $level;
         }
     }
 
@@ -69,19 +68,16 @@ class LoggerInfo
     /**
      * Gets or sets level
      *
-     * @param  string $level
-     * @return string|self
+     * @param  LoggingLevel $level
+     * @return LoggingLevel|self
      */
-    public function level($level = null)
+    public function level(LoggingLevel $level = null)
     {
         if(null === $level)
         {
             return $this->_level;
         }
-        if(LoggingLevel::isValid(trim($level)))
-        {
-            $this->_level = trim($level);
-        }
+        $this->_level = $level;
         return $this;
     }
 
@@ -97,7 +93,7 @@ class LoggerInfo
         $arr = array(
             'category' => $this->_category,
         );
-        if(!empty($this->_level))
+        if($this->_level instanceof LoggingLevel)
         {
             $arr['level'] = $this->_level;
         }
@@ -115,7 +111,7 @@ class LoggerInfo
         $name = !empty($name) ? $name : 'logger';
         $xml = new SimpleXML('<'.$name.' />');
         $xml->addAttribute('category', $this->_category);
-        if(!empty($this->_level))
+        if($this->_level instanceof LoggingLevel)
         {
             $xml->addAttribute('level', $this->_level);
         }

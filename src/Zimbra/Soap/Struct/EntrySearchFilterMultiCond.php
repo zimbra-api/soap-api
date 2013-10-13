@@ -10,9 +10,9 @@
 
 namespace Zimbra\Soap\Struct;
 
-use Zimbra\Utils\SimpleXML;
 use Zimbra\Soap\Struct\EntrySearchFilterMultiCond as MultiCond;
 use Zimbra\Soap\Struct\EntrySearchFilterSingleCond as SingleCond;
+use Zimbra\Utils\SimpleXML;
 
 /**
  * EntrySearchFilterMultiCond class

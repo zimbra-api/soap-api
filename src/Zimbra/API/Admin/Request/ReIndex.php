@@ -12,6 +12,7 @@ namespace Zimbra\API\Admin\Request;
 
 use Zimbra\Soap\Request;
 use Zimbra\Soap\Struct\ReindexMailboxInfo as Mailbox;
+use Zimbra\Soap\Enum\ReIndexAction as Action;
 
 /**
  * ReIndex class
@@ -26,7 +27,7 @@ class ReIndex extends Request
 {
     /**
      * Action to perform
-     * @var string
+     * @var Action
      */
     private $_action;
 
@@ -39,16 +40,16 @@ class ReIndex extends Request
     /**
      * Constructor method for ModifyVolume
      * @param Mailbox $mbox
-     * @param string $action
+     * @param ReIndexAction $action
      * @return self
      */
-    public function __construct(Mailbox $mbox, $action = null)
+    public function __construct(Mailbox $mbox, Action $action = null)
     {
         parent::__construct();
         $this->_mbox = $mbox;
-        if(in_array(trim($action), array('start', 'status', 'cancel')))
+        if($action instanceof Action)
         {
-            $this->_action = trim($action);
+            $this->_action = $action;
         }
     }
 
@@ -71,19 +72,16 @@ class ReIndex extends Request
     /**
      * Gets or sets action
      *
-     * @param  string $action
-     * @return string|self
+     * @param  Action $action
+     * @return Action|self
      */
-    public function action($action = null)
+    public function action(Action $action = null)
     {
         if(null === $action)
         {
             return $this->_action;
         }
-        if(in_array(trim($action), array('start', 'status', 'cancel')))
-        {
-            $this->_action = trim($action);
-        }
+        $this->_action = $action;
         return $this;
     }
 
@@ -95,9 +93,9 @@ class ReIndex extends Request
     public function toArray()
     {
         $this->array = $this->_mbox->toArray('mbox');
-        if(!empty($this->_action))
+        if($this->_action instanceof Action)
         {
-            $this->array['action'] = $this->_action;
+            $this->array['action'] = (string) $this->_action;
         }
         return parent::toArray();
     }
@@ -110,9 +108,9 @@ class ReIndex extends Request
     public function toXml()
     {
         $this->xml->append($this->_mbox->toXml('mbox'));
-        if(!empty($this->_action))
+        if($this->_action instanceof Action)
         {
-            $this->xml->addAttribute('action', $this->_action);
+            $this->xml->addAttribute('action', (string) $this->_action);
         }
         return parent::toXml();
     }

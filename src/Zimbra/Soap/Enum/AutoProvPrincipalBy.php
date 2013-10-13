@@ -17,7 +17,7 @@ namespace Zimbra\Soap\Enum;
  * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright Copyright © 2013 by Nguyen Van Nguyen.
  */
-class AutoProvPrincipalBy
+class AutoProvPrincipalBy extends Base
 {
     /**
      * Constant for value 'dn'
@@ -29,18 +29,4 @@ class AutoProvPrincipalBy
      * @return string 'name'
      */
     const NAME = 'name';
-
-    /**
-     * Return true if value is allowed
-     * @param  string $by
-     * @return bool true|false
-     */
-    public static function isValid($by)
-    {
-        $validValues = array(
-            self::DN,
-            self::NAME,
-        );
-        return in_array($by, $validValues);
-    }
 }

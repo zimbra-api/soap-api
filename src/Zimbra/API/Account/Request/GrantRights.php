@@ -12,6 +12,7 @@ namespace Zimbra\API\Account\Request;
 
 use Zimbra\Soap\Request;
 use Zimbra\Soap\Struct\AccountACEInfo as ACE;
+use Zimbra\Utils\TypedSequence;
 
 /**
  * GrantRights class
@@ -37,7 +38,7 @@ class GrantRights extends Request
     public function __construct(array $aces = array())
     {
         parent::__construct();
-        $this->aces($aces);
+        $this->_aces = new TypedSequence('Zimbra\Soap\Struct\AccountACEInfo', $aces);
     }
 
     /**
@@ -48,31 +49,18 @@ class GrantRights extends Request
      */
     public function addAce(ACE $ace)
     {
-        $this->_aces[] = $ace;
+        $this->_aces->add($ace);
         return $this;
     }
 
     /**
-     * Gets or sets aces
+     * Gets ace sequence
      *
-     * @param  array $aces
-     * @return array|self
+     * @return Sequence
      */
-    public function aces(arrar $aces = null)
+    public function aces()
     {
-        if(null === $aces)
-        {
-            return $this->_aces;
-        }
-        $this->_aces = array();
-        foreach ($aces as $ace)
-        {
-            if($ace instanceof ACE)
-            {
-                $this->_aces[] = $ace;
-            }
-        }
-        return $this;
+        return $this->_aces;
     }
 
     /**

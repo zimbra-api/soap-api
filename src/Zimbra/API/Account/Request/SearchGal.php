@@ -13,6 +13,7 @@ namespace Zimbra\API\Account\Request;
 use Zimbra\Soap\Request;
 use Zimbra\Soap\Enum\GalSearchType as SearchType;
 use Zimbra\Soap\Enum\MemberOfSelector as MemberOf;
+use Zimbra\Soap\Enum\SortBy;
 use Zimbra\Soap\Struct\CursorInfo;
 use Zimbra\Soap\Struct\EntrySearchFilterInfo as SearchFilter;
 
@@ -27,7 +28,6 @@ use Zimbra\Soap\Struct\EntrySearchFilterInfo as SearchFilter;
  */
 class SearchGal extends Request
 {
-    private static $_sortByValues = array('none', 'dateAsc', 'dateDesc', 'subjAsc', 'subjDesc', 'nameAsc', 'nameDesc', 'rcptAsc', 'rcptDesc', 'attachAsc', 'attachDesc', 'flagAsc', 'flagDesc', 'priorityAsc', 'priorityDesc');
     /**
      * Client locale identification. 
      * @var string
@@ -80,7 +80,7 @@ class SearchGal extends Request
 
     /**
      * Specify if the "isMember" flag is needed in the response for group entries.
-     * @var string
+     * @var MemberOf
      */
     private $_needIsMember;
 
@@ -129,14 +129,14 @@ class SearchGal extends Request
      * @param string $locale
      * @param string $ref
      * @param string $name
-     * @param string $type
+     * @param SearchType $type
      * @param bool   $needExp
      * @param bool   $needIsOwner
-     * @param string $needIsMember
+     * @param MemberOf $needIsMember
      * @param bool   $needSMIMECerts
      * @param string $galAcctId
      * @param bool   $quick
-     * @param string $sortBy
+     * @param SortBy $sortBy
      * @param int    $limit
      * @param int    $offset
      * @return self
@@ -147,17 +147,16 @@ class SearchGal extends Request
         $locale = null,
         $ref = null,
         $name = null,
-        $type = null,
+        SearchType $type = null,
         $needExp = null,
         $needIsOwner = null,
-        $needIsMember = null,
+        MemberOf $needIsMember = null,
         $needSMIMECerts = null,
         $galAcctId = null,
         $quick = null,
-        $sortBy = null,
+        SortBy $sortBy = null,
         $limit = null,
-        $offset = null
-    )
+        $offset = null)
     {
         parent::__construct();
 		$this->_locale = trim($locale);
@@ -171,9 +170,9 @@ class SearchGal extends Request
         }
         $this->_ref = trim($ref);
         $this->_name = trim($name);
-        if(SearchType::isValid(trim($type)))
+        if($type instanceof SearchType)
         {
-            $this->_type = trim($type);
+            $this->_type = $type;
         }
         if(null !== $needExp)
         {
@@ -183,9 +182,9 @@ class SearchGal extends Request
         {
             $this->_needIsOwner = (bool) $needIsOwner;
         }
-        if(MemberOf::isValid(trim($needIsMember)))
+        if($needIsMember instanceof MemberOf)
         {
-            $this->_needIsMember = trim($needIsMember);
+            $this->_needIsMember = $needIsMember;
         }
         if(null !== $needSMIMECerts)
         {
@@ -196,9 +195,9 @@ class SearchGal extends Request
         {
             $this->_quick = (bool) $quick;
         }
-        if(in_array(trim($sortBy), self::$_sortByValues))
+        if($sortBy instanceof SortBy)
         {
-            $this->_sortBy = trim($sortBy);
+            $this->_sortBy = $sortBy;
         }
         if(null !== $limit)
         {
@@ -293,19 +292,16 @@ class SearchGal extends Request
     /**
      * Gets or sets type.
      *
-     * @param  string $type
-     * @return string|self
+     * @param  SearchType $type
+     * @return SearchType|self
      */
-    public function type($type = null)
+    public function type(SearchType $type = null)
     {
         if(null === $type)
         {
             return $this->_type;
         }
-        if(SearchType::isValid(trim($type)))
-        {
-            $this->_type = trim($type);
-        }
+		$this->_type = $type;
         return $this;
     }
 
@@ -344,19 +340,16 @@ class SearchGal extends Request
     /**
      * Gets or sets needIsMember.
      *
-     * @param  string $needIsMember
-     * @return string|self
+     * @param  MemberOf $needIsMember
+     * @return MemberOf|self
      */
-    public function needIsMember($needIsMember = null)
+    public function needIsMember(MemberOf $needIsMember = null)
     {
         if(null === $needIsMember)
         {
             return $this->_needIsMember;
         }
-        if(MemberOf::isValid(trim($needIsMember)))
-        {
-            $this->_needIsMember = trim($needIsMember);
-        }
+		$this->_needIsMember = $needIsMember;
         return $this;
     }
 
@@ -411,19 +404,16 @@ class SearchGal extends Request
     /**
      * Gets or sets sortBy
      *
-     * @param  string $sortBy
-     * @return string|self
+     * @param  SortBy $sortBy
+     * @return SortBy|self
      */
-    public function sortBy($sortBy = null)
+    public function sortBy(SortBy $sortBy = null)
     {
         if(null === $sortBy)
         {
             return $this->_sortBy;
         }
-        if(in_array(trim($sortBy), self::$_sortByValues))
-        {
-            $this->_sortBy = trim($sortBy);
-        }
+        $this->_sortBy = $sortBy;
         return $this;
     }
 
@@ -478,9 +468,9 @@ class SearchGal extends Request
         {
             $this->array['name'] = $this->_name;
         }
-        if(!empty($this->_type))
+        if($this->_type instanceof SearchType)
         {
-            $this->array['type'] = $this->_type;
+            $this->array['type'] = (string) $this->_type;
         }
         if(is_bool($this->_needExp))
         {
@@ -490,9 +480,9 @@ class SearchGal extends Request
         {
             $this->array['needIsOwner'] = $this->_needIsOwner ? 1 : 0;
         }
-        if(!empty($this->_needIsMember))
+        if($this->_needIsMember instanceof MemberOf)
         {
-            $this->array['needIsMember'] = $this->_needIsMember;
+            $this->array['needIsMember'] = (string) $this->_needIsMember;
         }
         if(!empty($this->_needSMIMECerts))
         {
@@ -506,9 +496,9 @@ class SearchGal extends Request
         {
             $this->array['quick'] = $this->_quick ? 1 : 0;
         }
-        if(!empty($this->_sortBy))
+        if($this->_sortBy instanceof SortBy)
         {
-            $this->array['sortBy'] = $this->_sortBy;
+            $this->array['sortBy'] = (string) $this->_sortBy;
         }
         if(is_int($this->_limit))
         {
@@ -550,9 +540,9 @@ class SearchGal extends Request
         {
             $this->xml->addAttribute('name', $this->_name);
         }
-        if(!empty($this->_type))
+        if($this->_type instanceof SearchType)
         {
-            $this->xml->addAttribute('type', $this->_type);
+            $this->xml->addAttribute('type', (string) $this->_type);
         }
         if(is_bool($this->_needExp))
         {
@@ -562,9 +552,9 @@ class SearchGal extends Request
         {
             $this->xml->addAttribute('needIsOwner', $this->_needIsOwner ? 1 : 0);
         }
-        if(!empty($this->_needIsMember))
+        if($this->_needIsMember instanceof MemberOf)
         {
-            $this->xml->addAttribute('needIsMember', $this->_needIsMember);
+            $this->xml->addAttribute('needIsMember', (string) $this->_needIsMember);
         }
         if(!empty($this->_needSMIMECerts))
         {
@@ -578,9 +568,9 @@ class SearchGal extends Request
         {
             $this->xml->addAttribute('quick', $this->_quick ? 1 : 0);
         }
-        if(!empty($this->_sortBy))
+        if($this->_sortBy instanceof SortBy)
         {
-            $this->xml->addAttribute('sortBy', $this->_sortBy);
+            $this->xml->addAttribute('sortBy', (string) $this->_sortBy);
         }
         if(is_int($this->_limit))
         {

@@ -28,7 +28,7 @@ class CountObjects extends Request
 {
     /**
      * Object type
-     * @var string
+     * @var ObjType
      */
     private $_type;
 
@@ -51,17 +51,10 @@ class CountObjects extends Request
      * @param UcService $ucservice
      * @return self
      */
-    public function __construct($type, Domain $domain = null, UcService $ucservice = null)
+    public function __construct(ObjType $type, Domain $domain = null, UcService $ucservice = null)
     {
         parent::__construct();
-        if(ObjType::isValid(trim($type)))
-        {
-            $this->_type = trim($type);
-        }
-        else
-        {
-            throw new \InvalidArgumentException('Invalid object type');
-        }
+		$this->_type = $type;
         if($domain instanceof Domain)
         {
             $this->_domain = $domain;
@@ -75,23 +68,16 @@ class CountObjects extends Request
     /**
      * Gets or sets type
      *
-     * @param  string $type
-     * @return string|self
+     * @param  ObjType $type
+     * @return ObjType|self
      */
-    public function type($type = null)
+    public function type(ObjType $type = null)
     {
         if(null === $type)
         {
             return $this->_type;
         }
-        if(ObjType::isValid(trim($type)))
-        {
-            $this->_type = trim($type);
-        }
-        else
-        {
-            throw new \InvalidArgumentException('Invalid object type');
-        }
+		$this->_type = $type;
         return $this;
     }
 
@@ -135,7 +121,7 @@ class CountObjects extends Request
     public function toArray()
     {
         $this->array = array(
-            'type' => $this->_type,
+            'type' => (string) $this->_type,
         );
         if($this->_domain instanceof Domain)
         {
@@ -155,7 +141,7 @@ class CountObjects extends Request
      */
     public function toXml()
     {
-        $this->xml->addAttribute('type', $this->_type);
+        $this->xml->addAttribute('type', (string) $this->_type);
         if($this->_domain instanceof Domain)
         {
             $this->xml->append($this->_domain->toXml());

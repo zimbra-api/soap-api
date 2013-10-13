@@ -10,7 +10,7 @@
 
 namespace Zimbra\Soap\Struct;
 
-use Zimbra\Soap\Enum\CalendarResourceBy as By;
+use Zimbra\Soap\Enum\CalendarResourceBy as CalResBy;
 use Zimbra\Utils\SimpleXML;
 
 /**
@@ -24,7 +24,7 @@ class CalendarResourceSelector
 {
     /**
      * Select the meaning of {cal-resource-selector-key}
-     * @var string
+     * @var CalResBy
      */
     private $_by;
 
@@ -36,43 +36,29 @@ class CalendarResourceSelector
 
     /**
      * Constructor method for CalendarResourceSelector
-     * @param  string $by
+     * @param  CalResBy $by
      * @param  string $value
      * @return self
      */
-    public function __construct($by, $value = null)
+    public function __construct(CalResBy $by, $value = null)
     {
-        if(By::isValid(trim($by)))
-        {
-            $this->_by = trim($by);
-        }
-        else
-        {
-            throw new \InvalidArgumentException('Invalid calendar resource by');
-        }
+        $this->_by = $by;
         $this->_value = trim($value);
     }
 
     /**
      * Gets or sets by
      *
-     * @param  string $by
-     * @return string|self
+     * @param  CalResBy $by
+     * @return CalResBy|self
      */
-    public function by($by = null)
+    public function by(CalResBy $by = null)
     {
         if(null === $by)
         {
             return $this->_by;
         }
-        if(By::isValid(trim($by)))
-        {
-            $this->_by = trim($by);
-        }
-        else
-        {
-            throw new \InvalidArgumentException('Invalid calendar resource by');
-        }
+        $this->_by = $by;
         return $this;
     }
 
@@ -102,7 +88,7 @@ class CalendarResourceSelector
     {
         $name = !empty($name) ? $name : 'calresource';
         return array($name => array(
-            'by' => $this->_by,
+            'by' => (string) $this->_by,
             '_' => $this->_value,
         ));
     }
@@ -117,7 +103,7 @@ class CalendarResourceSelector
     {
         $name = !empty($name) ? $name : 'calresource';
         $xml = new SimpleXML('<'.$name.'>'.$this->_value.'</'.$name.'>');
-        $xml->addAttribute('by', $this->_by);
+        $xml->addAttribute('by', (string) $this->_by);
         return $xml;
     }
 

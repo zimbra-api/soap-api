@@ -13,6 +13,7 @@ namespace Zimbra\Soap\Struct;
 use Zimbra\Soap\Enum\TargetType;
 use Zimbra\Soap\Enum\TargetBy;
 use Zimbra\Utils\SimpleXML;
+use PhpCollection\Sequence;
 
 /**
  * CheckRightsTargetSpec class
@@ -25,13 +26,13 @@ class CheckRightsTargetSpec
 {
     /**
      * Target type
-     * @var string
+     * @var TargetType
      */
     private $_type;
 
     /**
      * Selects the meaning of {target-key}
-     * @var string
+     * @var TargetBy
      */
     private $_by;
 
@@ -51,80 +52,58 @@ class CheckRightsTargetSpec
 
     /**
      * Constructor method for checkRightsTargetSpec
-     * @param  string $type
-     * @param  string $by
+     * @param  TargetType $type
+     * @param  TargetBy $by
      * @param  string $key
      * @param  string $rights
      * @return self
      */
-    public function __construct($type, $by, $key, array $rights = array())
+    public function __construct(TargetType $type, TargetBy $by, $key, array $rights = array())
     {
-        if(TargetType::isValid(trim($type)))
-        {
-            $this->_type = trim($type);
-        }
-        else
-        {
-            throw new \InvalidArgumentException('Invalid target type');
-        }
-        if(TargetBy::isValid(trim($by)))
-        {
-            $this->_by = trim($by);
-        }
-        else
-        {
-            throw new \InvalidArgumentException('Invalid target by');
-        }
+        $this->_type = $type;
+        $this->_by = $by;
         $this->_key = trim($key);
+
+        $this->_rights = new Sequence;
         foreach ($rights as $right)
         {
-            $this->_rights[] = trim($right);
+            $right = trim($right);
+            if(!empty($right))
+            {
+                $this->_rights->add($right);
+            }
         }
     }
 
     /**
      * Gets or sets type
      *
-     * @param  string $type
-     * @return string|self
+     * @param  TargetType $type
+     * @return TargetType|self
      */
-    public function type($type = null)
+    public function type(TargetType $type = null)
     {
         if(null === $type)
         {
             return $this->_type;
         }
-        if(TargetType::isValid(trim($type)))
-        {
-            $this->_type = trim($type);
-        }
-        else
-        {
-            throw new \InvalidArgumentException('Invalid target type');
-        }
+        $this->_type = $type;
         return $this;
     }
 
     /**
      * Gets or sets by
      *
-     * @param  string $by
-     * @return string|self
+     * @param  TargetBy $by
+     * @return TargetBy|self
      */
-    public function by($by = null)
+    public function by(TargetBy $by = null)
     {
         if(null === $by)
         {
             return $this->_by;
         }
-        if(TargetBy::isValid(trim($by)))
-        {
-            $this->_by = trim($by);
-        }
-        else
-        {
-            throw new \InvalidArgumentException('Invalid target by');
-        }
+        $this->_by = $by;
         return $this;
     }
 
@@ -152,30 +131,22 @@ class CheckRightsTargetSpec
      */
     public function addRight($right)
     {
+        $right = trim($right);
         if(!empty($right))
         {
-            $this->_rights[] = trim($right);
+            $this->_rights->add($right);
         }
         return $this;
     }
 
     /**
-     * Gets or sets array of right
+     * Gets rights
      *
-     * @return array
+     * @return Sequence
      */
-    public function rights(array $rights = null)
+    public function rights()
     {
-        if(null === $rights)
-        {
-            return $this->_rights;
-        }
-        $this->_rights = array();
-        foreach ($rights as $right)
-        {
-            $this->_rights[] = trim($right);
-        }
-        return $this;
+        return $this->_rights;
     }
 
     /**
@@ -186,13 +157,13 @@ class CheckRightsTargetSpec
     public function toArray()
     {
         $arr = array(
-            'type' => $this->_type,
-            'by' => $this->_by,
+            'type' => (string) $this->_type,
+            'by' => (string) $this->_by,
             'key' => $this->_key,
         );
         if(count($this->_rights))
         {
-            $arr['right'] = $this->_rights;
+            $arr['right'] = $this->_rights->all();
         }
         return array('target' => $arr);
     }
@@ -205,14 +176,14 @@ class CheckRightsTargetSpec
     public function toXml()
     {
         $xml = new SimpleXML('<target />');
-        $xml->addAttribute('type', $this->_type)
-            ->addAttribute('by', $this->_by)
+        $xml->addAttribute('type', (string) $this->_type)
+            ->addAttribute('by', (string) $this->_by)
             ->addAttribute('key', $this->_key);
-        if(count($this->_rights))
+        foreach ($this->_rights as $right)
         {
-            foreach ($this->_rights as $right)
+            if(!empty($right))
             {
-                $xml->addChild('right', (string) $right);
+                $xml->addChild('right', $right);
             }
         }
         return $xml;

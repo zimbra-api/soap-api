@@ -25,8 +25,7 @@ class UcServiceSelector
     /**
      * Select the meaning of {acct-selector-key}
      * Valid values: id|name
-     * - use : required
-     * @var string
+     * @var UcServiceBy
      */
     private $_by;
 
@@ -38,43 +37,29 @@ class UcServiceSelector
 
     /**
      * Constructor method for UcServiceSelector
-     * @param  string $by
+     * @param  UcServiceBy $by
      * @param  string $value
      * @return self
      */
-    public function __construct($by, $value = null)
+    public function __construct(UcServiceBy $by, $value = null)
     {
-        if(UcServiceBy::isValid(trim($by)))
-        {
-            $this->_by = trim($by);
-        }
-        else
-        {
-            throw new \InvalidArgumentException('Invalid uc service by');
-        }
+        $this->_by = $by;
         $this->_value = trim($value);
     }
 
     /**
      * Gets or sets by
      *
-     * @param  string $by
-     * @return string|self
+     * @param  UcServiceBy $by
+     * @return UcServiceBy|self
      */
-    public function by($by = null)
+    public function by(UcServiceBy $by = null)
     {
         if(null === $by)
         {
             return $this->_by;
         }
-        if(UcServiceBy::isValid(trim($by)))
-        {
-            $this->_by = trim($by);
-        }
-        else
-        {
-            throw new \InvalidArgumentException('Invalid uc service by');
-        }
+        $this->_by = $by;
         return $this;
     }
 
@@ -104,7 +89,7 @@ class UcServiceSelector
     {
         $name = !empty($name) ? $name : 'ucservice';
         return array($name => array(
-            'by' => $this->_by,
+            'by' => (string) $this->_by,
             '_' => $this->_value,
         ));
     }
@@ -119,7 +104,7 @@ class UcServiceSelector
     {
         $name = !empty($name) ? $name : 'ucservice';
         $xml = new SimpleXML('<'.$name.'>'.$this->_value.'</'.$name.'>');
-        $xml->addAttribute('by', $this->_by);
+        $xml->addAttribute('by', (string) $this->_by);
         return $xml;
     }
 

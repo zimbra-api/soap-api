@@ -17,7 +17,7 @@ namespace Zimbra\Soap\Enum;
  * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright Copyright © 2013 by Nguyen Van Nguyen.
  */
-class GetSessionsSortBy
+class GetSessionsSortBy extends Base
 {
     /**
      * Constant for value 'nameAsc'
@@ -54,22 +54,4 @@ class GetSessionsSortBy
      * @return string 'accessedDesc'
      */
     const ACCESSED_DESC = 'accessedDesc';
-
-    /**
-     * Return true if value is allowed
-     * @param  string $sortBy
-     * @return bool true|false
-     */
-    public static function isValid($sortBy)
-    {
-        $validValues = array(
-            self::NAME_ASC,
-            self::NAME_DESC,
-            self::CREATED_ASC,
-            self::CREATED_DESC,
-            self::ACCESSED_ASC,
-            self::ACCESSED_DESC,
-        );
-        return in_array($sortBy, $validValues);
-    }
 }

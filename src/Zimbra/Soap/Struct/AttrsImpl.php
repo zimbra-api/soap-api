@@ -11,6 +11,7 @@
 namespace Zimbra\Soap\Struct;
 
 use Zimbra\Utils\SimpleXML;
+use Zimbra\Utils\TypedSequence;
 
 /**
  * AttrsImpl class
@@ -41,7 +42,7 @@ abstract class AttrsImpl
      */
     public function __construct(array $attrs = array())
     {
-        $this->attrs($attrs);
+        $this->_attrs = new TypedSequence('Zimbra\Soap\Struct\KeyValuePair', $attrs);
     }
 
     /**
@@ -52,31 +53,18 @@ abstract class AttrsImpl
      */
     public function addAttr(KeyValuePair $attr)
     {
-        $this->_attrs[] = $attr;
+        $this->_attrs->add($attr);
         return $this;
     }
 
     /**
-     * Gets or sets attr array
+     * Gets attr sequence
      *
-     * @param  array $attrs
-     * @return array|self
+     * @return Sequence
      */
-    public function attrs(array $attrs = null)
+    public function attrs()
     {
-        if(null === $attrs)
-        {
-            return $this->_attrs;
-        }
-        $this->_attrs = array();
-        foreach ($attrs as $attr)
-        {
-            if($attr instanceof KeyValuePair)
-            {
-                $this->_attrs[] = $attr;
-            }
-        }
-        return $this;
+        return $this->_attrs;
     }
 
     /**

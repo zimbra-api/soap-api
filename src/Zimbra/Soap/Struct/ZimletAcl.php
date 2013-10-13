@@ -10,6 +10,7 @@
 
 namespace Zimbra\Soap\Struct;
 
+use Zimbra\Soap\Enum\AclType;
 use Zimbra\Utils\SimpleXML;
 
 /**
@@ -29,21 +30,22 @@ class ZimletAcl
 
     /**
      * ACL
-     * @var string
+     * @var AclType
      */
     private $_acl;
 
     /**
      * Constructor method for ZimletAcl
      * @param  string $cos
+     * @param  AclType $acl
      * @return self
      */
-    public function __construct($cos = null, $acl = null)
+    public function __construct($cos = null, AclType $acl = null)
     {
         $this->_cos = trim($cos);
-        if(in_array(trim($acl), array('grant', 'deny')))
+        if($acl instanceof AclType)
         {
-            $this->_acl = trim($acl);
+            $this->_acl = $acl;
         }
     }
 
@@ -66,19 +68,16 @@ class ZimletAcl
     /**
      * Gets or sets acl
      *
-     * @param  string $acl
-     * @return string|self
+     * @param  AclType $acl
+     * @return AclType|self
      */
-    public function acl($acl = null)
+    public function acl(AclType $acl = null)
     {
         if(null === $acl)
         {
             return $this->_acl;
         }
-        if(in_array(trim($acl), array('grant', 'deny')))
-        {
-            $this->_acl = trim($acl);
-        }
+        $this->_acl = $acl;
         return $this;
     }
 
@@ -96,9 +95,9 @@ class ZimletAcl
         {
             $arr['cos'] = $this->_cos;
         }
-        if(!empty($this->_acl))
+        if($this->_acl instanceof AclType)
         {
-            $arr['acl'] = $this->_acl;
+            $arr['acl'] = (string) $this->_acl;
         }
         return array($name => $arr);
     }
@@ -117,9 +116,9 @@ class ZimletAcl
         {
             $xml->addAttribute('cos', $this->_cos);
         }
-        if(!empty($this->_acl))
+        if($this->_acl instanceof AclType)
         {
-            $xml->addAttribute('acl', $this->_acl);
+            $xml->addAttribute('acl', (string) $this->_acl);
         }
         return $xml;
     }

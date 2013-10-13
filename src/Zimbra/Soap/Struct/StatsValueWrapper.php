@@ -11,6 +11,7 @@
 namespace Zimbra\Soap\Struct;
 
 use Zimbra\Utils\SimpleXML;
+use Zimbra\Utils\TypedSequence;
 
 /**
  * StatsValueWrapper class
@@ -34,7 +35,7 @@ class StatsValueWrapper
      */
     public function __construct(array $stats = array())
     {
-        $this->stats($stats);
+        $this->_stats = new TypedSequence('Zimbra\Soap\Struct\NamedElement', $stats);
     }
 
     /**
@@ -45,31 +46,18 @@ class StatsValueWrapper
      */
     public function addStat(NamedElement $stat)
     {
-        $this->_stats[] = $stat;
+        $this->_stats->add($stat);
         return $this;
     }
 
     /**
-     * Gets or sets stats array
+     * Gets stat equence
      *
-     * @param  array $stats
-     * @return array|self
+     * @return Sequence
      */
     public function stats(array $stats = null)
     {
-        if(null === $stats)
-        {
-            return $this->_stats;
-        }
-        $this->_stats = array();
-        foreach ($stats as $stat)
-        {
-            if($stat instanceof NamedElement)
-            {
-                $this->_stats[] = $stat;
-            }
-        }
-        return $this;
+        return $this->_stats;
     }
 
     /**

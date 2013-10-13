@@ -10,7 +10,7 @@
 
 namespace Zimbra\Soap\Struct;
 
-use Zimbra\Soap\Enum\XmppComponentBy as By;
+use Zimbra\Soap\Enum\XmppComponentBy as XmppBy;
 use Zimbra\Utils\SimpleXML;
 
 /**
@@ -25,7 +25,7 @@ class XmppComponentSelector
     /**
      * Select the meaning of {acct-selector-key}
      * Valid values: id|name|serviceHostname
-     * @var string
+     * @var XmppBy
      */
     private $_by;
 
@@ -37,43 +37,29 @@ class XmppComponentSelector
 
     /**
      * Constructor method for XmppComponentSelector
-     * @param  string $by
+     * @param  XmppBy $by
      * @param  string $value
      * @return self
      */
-    public function __construct($by, $value = null)
+    public function __construct(XmppBy $by, $value = null)
     {
-        if(By::isValid(trim($by)))
-        {
-            $this->_by = trim($by);
-        }
-        else
-        {
-            throw new \InvalidArgumentException('Invalid xmpp component by');
-        }
+        $this->_by = $by;
         $this->_value = trim($value);
     }
 
     /**
      * Gets or sets by
      *
-     * @param  string $by
-     * @return string|self
+     * @param  XmppBy $by
+     * @return XmppBy|self
      */
-    public function by($by = null)
+    public function by(XmppBy $by = null)
     {
         if(null === $by)
         {
             return $this->_by;
         }
-        if(By::isValid(trim($by)))
-        {
-            $this->_by = trim($by);
-        }
-        else
-        {
-            throw new \InvalidArgumentException('Invalid xmpp component by');
-        }
+        $this->_by = $by;
         return $this;
     }
 
@@ -103,7 +89,7 @@ class XmppComponentSelector
     {
         $name = !empty($name) ? $name : 'xmppcomponent';
         return array($name => array(
-            'by' => $this->_by,
+            'by' => (string) $this->_by,
             '_' => $this->_value,
         ));
     }
@@ -118,7 +104,7 @@ class XmppComponentSelector
     {
         $name = !empty($name) ? $name : 'xmppcomponent';
         $xml = new SimpleXML('<'.$name.'>'.$this->_value.'</'.$name.'>');
-        $xml->addAttribute('by', $this->_by);
+        $xml->addAttribute('by', (string) $this->_by);
         return $xml;
     }
 

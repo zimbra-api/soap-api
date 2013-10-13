@@ -12,6 +12,7 @@ namespace Zimbra\API\Admin\Request;
 
 use Zimbra\Soap\Request;
 use Zimbra\Soap\Struct\ServerSelector as Server;
+use Zimbra\Soap\Enum\IpType;
 
 /**
  * GetServerNIfs class
@@ -28,7 +29,7 @@ class GetServerNIfs extends Request
 {
     /**
      * Specifics the ipAddress type (ipV4/ipV6/both). default is ipv4
-     * @var string
+     * @var IpType
      */
     private $_type;
 
@@ -39,24 +40,18 @@ class GetServerNIfs extends Request
     private $_server;
 
     /**
-     * Valid types
-     * @var array
-     */
-    private static $_validTypes = array('ipV4', 'ipV6', 'both');
-
-    /**
      * Constructor method for GetServerNIfs
      * @param  Server $server
      * @param  string $type
      * @return self
      */
-    public function __construct(Server $server, $type = null)
+    public function __construct(Server $server, IpType $type = null)
     {
         parent::__construct();
         $this->_server = $server;
-        if(in_array(trim($type), self::$_validTypes))
+        if($type instanceof IpType)
         {
-            $this->_type = trim($type);
+            $this->_type = $type;
         }
     }
 
@@ -79,19 +74,16 @@ class GetServerNIfs extends Request
     /**
      * Gets or sets type
      *
-     * @param  string $type
-     * @return string|self
+     * @param  IpType $type
+     * @return IpType|self
      */
-    public function type($type = null)
+    public function type(IpType $type = null)
     {
         if(null === $type)
         {
             return $this->_type;
         }
-        if(in_array(trim($type), self::$_validTypes))
-        {
-            $this->_type = trim($type);
-        }
+        $this->_type = $type;
         return $this;
     }
 
@@ -103,9 +95,9 @@ class GetServerNIfs extends Request
     public function toArray()
     {
         $this->array = $this->_server->toArray();
-        if(!empty($this->_type))
+        if($this->_type instanceof IpType)
         {
-            $this->array['type'] = $this->_type;
+            $this->array['type'] = (string) $this->_type;
         }
         return parent::toArray();
     }
@@ -118,9 +110,9 @@ class GetServerNIfs extends Request
     public function toXml()
     {
         $this->xml->append($this->_server->toXml());
-        if(!empty($this->_type))
+        if($this->_type instanceof IpType)
         {
-            $this->xml->addAttribute('type', $this->_type);
+            $this->xml->addAttribute('type', (string) $this->_type);
         }
         return parent::toXml();
     }

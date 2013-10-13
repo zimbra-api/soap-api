@@ -11,6 +11,7 @@
 namespace Zimbra\API\Admin\Request;
 
 use Zimbra\Soap\Request;
+use Zimbra\Soap\Enum\CSRType;
 
 /**
  * GetCSR class
@@ -33,30 +34,24 @@ class GetCSR extends Request
      * Type of CSR (required)
      * self: self-signed certificate
      * comm: commercial certificate
-     * @var string
+     * @var CSRType
      */
     private $_type;
 
     /**
-     * Valid types
-     * @var array
-     */
-    private static $_validTypes = array(
-        'self',
-        'comm',
-    );
-
-    /**
      * Constructor method for GetCSR
      * @param  string $server
-     * @param  string $type
+     * @param  CSRType $type
      * @return self
      */
-    public function __construct($server = null, $type = null)
+    public function __construct($server = null, CSRType $type = null)
     {
         parent::__construct();
 		$this->_server = trim($server);
-		$this->_type = in_array(trim($type), self::$_validTypes) ? trim($type) : null;
+        if($type instanceof CSRType)
+        {
+            $this->_type = $type;
+        }
     }
 
     /**
@@ -78,19 +73,16 @@ class GetCSR extends Request
     /**
      * Gets or sets type
      *
-     * @param  string $type
-     * @return string|self
+     * @param  CSRType $type
+     * @return CSRType|self
      */
-    public function type($type = null)
+    public function type(CSRType $type = null)
     {
         if(null === $type)
         {
             return $this->_type;
         }
-        if(in_array(trim($type), self::$_validTypes))
-        {
-            $this->_type = trim($type);
-        }
+        $this->_type = $type;
         return $this;
     }
 
@@ -105,9 +97,9 @@ class GetCSR extends Request
         {
             $this->array['server'] = $this->_server;
         }
-        if(!empty($this->_type))
+        if($this->_type instanceof CSRType)
         {
-            $this->array['type'] = $this->_type;
+            $this->array['type'] = (string) $this->_type;
         }
         return parent::toArray();
     }
@@ -123,9 +115,9 @@ class GetCSR extends Request
         {
             $this->xml->addAttribute('server', $this->_server);
         }
-        if(!empty($this->_type))
+        if($this->_type instanceof CSRType)
         {
-            $this->xml->addAttribute('type', $this->_type);
+            $this->xml->addAttribute('type', (string) $this->_type);
         }
         return parent::toXml();
     }

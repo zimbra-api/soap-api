@@ -12,6 +12,7 @@ namespace Zimbra\API\Account\Request;
 
 use Zimbra\Soap\Request;
 use Zimbra\Soap\Struct\Prop;
+use Zimbra\Utils\TypedSequence;
 
 /**
  * ModifyProperties class
@@ -38,7 +39,7 @@ class ModifyProperties extends Request
     public function __construct(array $props = array())
     {
         parent::__construct();
-        $this->props($props);
+        $this->_props = new TypedSequence('Zimbra\Soap\Struct\Prop', $props);
     }
 
     /**
@@ -49,31 +50,18 @@ class ModifyProperties extends Request
      */
     public function addProp(Prop $prop)
     {
-        $this->_props[] = $prop;
+        $this->_props->add($prop);
         return $this;
     }
 
     /**
-     * Gets or sets props
+     * Gets prop sequence
      *
-     * @param  array $props
-     * @return array|self
+     * @return Sequence
      */
-    public function props(array $props = null)
+    public function props()
     {
-        if(null === $props)
-        {
-            return $this->_props;
-        }
-        $this->_props = array();
-        foreach ($props as $prop)
-        {
-            if($prop instanceof Prop)
-            {
-                $this->_props[] = $prop;
-            }
-        }
-        return $this;
+        return $this->_props;
     }
 
     /**

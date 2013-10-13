@@ -12,6 +12,7 @@ namespace Zimbra\API\Account\Request;
 
 use Zimbra\Soap\Request;
 use Zimbra\Soap\Struct\OpValue;
+use Zimbra\Utils\TypedSequence;
 
 /**
  * ModifyWhiteBlackList class
@@ -45,8 +46,8 @@ class ModifyWhiteBlackList extends Request
     public function __construct(array $whiteList = array(), array $blackList = array())
     {
         parent::__construct();
-        $this->whiteList($whiteList);
-        $this->blackList($blackList);
+        $this->_whiteList = new TypedSequence('Zimbra\Soap\Struct\OpValue', $whiteList);
+        $this->_blackList = new TypedSequence('Zimbra\Soap\Struct\OpValue', $blackList);
     }
 
     /**
@@ -57,31 +58,18 @@ class ModifyWhiteBlackList extends Request
      */
     public function addToWhiteList(OpValue $addr)
     {
-        $this->_whiteList[] = $addr;
+        $this->_whiteList->add($addr);
         return $this;
     }
 
     /**
-     * Gets or sets whiteList
+     * Gets white list sequence
      *
-     * @param  array $whiteList
-     * @return array|self
+     * @return Sequence
      */
-    public function whiteList(array $whiteList = null)
+    public function whiteList()
     {
-        if(null === $whiteList)
-        {
-            return $this->_whiteList;
-        }
-        $this->_whiteList = array();
-        foreach ($whiteList as $addr)
-        {
-            if($addr instanceof OpValue)
-            {
-                $this->_whiteList[] = $addr;
-            }
-        }
-        return $this;
+        return $this->_whiteList;
     }
 
     /**
@@ -92,31 +80,18 @@ class ModifyWhiteBlackList extends Request
      */
     public function addToBlackList(OpValue $addr)
     {
-        $this->_blackList[] = $addr;
+        $this->_blackList->add($addr);
         return $this;
     }
 
     /**
-     * Gets or sets blackList
+     * Gets black list Sequence
      *
-     * @param  array $blackList
-     * @return array|self
+     * @return Sequence
      */
-    public function blackList(array $blackList = null)
+    public function blackList()
     {
-        if(null === $blackList)
-        {
-            return $this->_blackList;
-        }
-        $this->_blackList = array();
-        foreach ($blackList as $addr)
-        {
-            if($addr instanceof OpValue)
-            {
-                $this->_blackList[] = $addr;
-            }
-        }
-        return $this;
+        return $this->_blackList;
     }
 
     /**

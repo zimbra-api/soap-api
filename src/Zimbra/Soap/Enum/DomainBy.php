@@ -17,20 +17,8 @@ namespace Zimbra\Soap\Enum;
  * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright Copyright © 2013 by Nguyen Van Nguyen.
  */
-class DomainBy
+class DomainBy extends NameIdBy
 {
-    /**
-     * Constant for value 'id'
-     * @return string 'id'
-     */
-    const ID = 'id';
-
-    /**
-     * Constant for value 'name'
-     * @return string 'name'
-     */
-    const NAME = 'name';
-
     /**
      * Constant for value 'virtualHostname'
      * @return string 'virtualHostname'
@@ -48,21 +36,4 @@ class DomainBy
      * @return string 'foreignName'
      */
     const FOREIGN_NAME = 'foreignName';
-
-    /**
-     * Return true if value is allowed
-     * @param  string $by
-     * @return bool true|false
-     */
-    public static function isValid($by)
-    {
-        $validValues = array(
-            self::ID,
-            self::NAME,
-            self::VIRTUAL_HOSTNAME,
-            self::KRB5_REALM,
-            self::FOREIGN_NAME,
-        );
-        return in_array($by, $validValues);
-    }
 }

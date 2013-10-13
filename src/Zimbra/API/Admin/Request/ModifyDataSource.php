@@ -80,7 +80,7 @@ class ModifyDataSource extends Attr
         {
             return $this->_dataSource;
         }
-        $this->_dataSource = trim($dataSource);
+        $this->_dataSource = $dataSource;
         return $this;
     }
 
@@ -94,7 +94,7 @@ class ModifyDataSource extends Attr
         $this->array = array(
             'id' => $this->_id,
         );
-        $this->array = $this->_dataSource->toArray('dataSource');
+        $this->array += $this->_dataSource->toArray('dataSource');
         return parent::toArray();
     }
 

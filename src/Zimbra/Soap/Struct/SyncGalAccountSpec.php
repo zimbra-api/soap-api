@@ -12,6 +12,7 @@ namespace Zimbra\Soap\Struct;
 
 use Zimbra\Utils\SimpleXML;
 use Zimbra\Soap\Struct\SyncGalAccountDataSourceSpec as DataSource;
+use Zimbra\Utils\TypedSequence;
 
 /**
  * SyncGalAccountSpec class
@@ -43,7 +44,9 @@ class SyncGalAccountSpec
     public function __construct($id, array $dataSources = array())
     {
         $this->_id = trim($id);
-        $this->dataSources($dataSources);
+        $this->_dataSources = new TypedSequence(
+            'Zimbra\Soap\Struct\SyncGalAccountDataSourceSpec', $dataSources
+        );
     }
 
     /**
@@ -70,25 +73,18 @@ class SyncGalAccountSpec
      */
     public function addDataSource(DataSource $dataSource)
     {
-        $this->_dataSources[] = $dataSource;
+        $this->_dataSources->add($dataSource);
         return $this;
     }
 
-    public function dataSources(array $dataSources = null)
+    /**
+     * Gets data source equence
+     *
+     * @return Sequence
+     */
+    public function dataSources()
     {
-        if(null === $dataSources)
-        {
-            return $this->_dataSources;
-        }
-        $this->_dataSources = array();
-        foreach ($dataSources as $dataSource)
-        {
-            if($dataSource instanceof DataSource)
-            {
-                $this->_dataSources[] = $dataSource;
-            }
-        }
-        return $this;
+        return $this->_dataSources;
     }
 
     /**

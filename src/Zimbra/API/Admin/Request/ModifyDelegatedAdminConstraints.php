@@ -12,6 +12,7 @@ namespace Zimbra\API\Admin\Request;
 
 use Zimbra\Soap\Request;
 use Zimbra\Soap\Struct\ConstraintAttr as Attr;
+use Zimbra\Soap\Enum\TargetType;
 
 /**
  * ModifyDelegatedAdminConstraints class
@@ -26,7 +27,7 @@ class ModifyDelegatedAdminConstraints extends Request
 {
     /**
      * Target type
-     * @var string
+     * @var TargetType
      */
     private $_type;
 
@@ -50,23 +51,16 @@ class ModifyDelegatedAdminConstraints extends Request
 
     /**
      * Constructor method for ModifyDelegatedAdminConstraints
-     * @param string $type
+     * @param TargetType $type
      * @param string $id
      * @param string $name
      * @param array  $attrs
      * @return self
      */
-    public function __construct($type, $id = null, $name = null, array $attrs = array())
+    public function __construct(TargetType $type, $id = null, $name = null, array $attrs = array())
     {
         parent::__construct();
-        if(TargetType::isValid(trim($type)))
-        {
-            $this->_type = trim($type);
-        }
-        else
-        {
-            throw new \InvalidArgumentException('Invalid target type');
-        }
+		$this->_type = $type;
         $this->_id = trim($id);
         $this->_name = trim($name);
         $this->attrs($attrs);
@@ -75,23 +69,16 @@ class ModifyDelegatedAdminConstraints extends Request
     /**
      * Gets or sets type
      *
-     * @param  string $type
-     * @return string|self
+     * @param  TargetType $type
+     * @return TargetType|self
      */
-    public function type($type = null)
+    public function type(TargetType $type = null)
     {
         if(null === $type)
         {
             return $this->_type;
         }
-        if(TargetType::isValid(trim($type)))
-        {
-            $this->_type = trim($type);
-        }
-        else
-        {
-            throw new \InvalidArgumentException('Invalid target type');
-        }
+		$this->_type = $type;
         return $this;
     }
 
@@ -170,7 +157,7 @@ class ModifyDelegatedAdminConstraints extends Request
     public function toArray()
     {
         $this->array = array(
-            'type' => $this->_type,
+            'type' => (string) $this->_type,
         );
         if(!empty($this->_id))
         {
@@ -199,7 +186,7 @@ class ModifyDelegatedAdminConstraints extends Request
      */
     public function toXml()
     {
-        $this->xml->addAttribute('type', $this->_type);
+        $this->xml->addAttribute('type', (string) $this->_type);
         if(!empty($this->_id))
         {
             $this->xml->addAttribute('id', $this->_id);

@@ -11,6 +11,7 @@
 namespace Zimbra\API\Admin\Request;
 
 use Zimbra\Soap\Request;
+use Zimbra\Soap\Enum\ZimletExcludeType as ExcludeType;
 
 /**
  * GetAllZimlets class
@@ -28,40 +29,37 @@ class GetAllZimlets extends Request
      * extension: return only mail Zimlets
      * mail: return only admin extensions
      * none [default]: return both mail and admin zimlets
-     * @var string
+     * @var ExcludeType
      */
     private $_exclude;
 
     /**
-     * Valid excludes
-     * @var array
-     */
-    private static $_validExcludes = array('extension', 'mail', 'none');
-
-    /**
      * Constructor method for GetAllZimlets
-     * @param  string $exclude
+     * @param  ExcludeType $exclude
      * @return self
      */
-    public function __construct($exclude = null)
+    public function __construct(ExcludeType $exclude = null)
     {
         parent::__construct();
-		$this->_exclude = in_array(trim($exclude), self::$_validExcludes) ? trim($exclude) : null;
+        if($exclude instanceof ExcludeType)
+        {
+            $this->_exclude = $exclude;
+        }
     }
 
     /**
      * Gets or sets exclude
      *
-     * @param  string $exclude
-     * @return string|self
+     * @param  ExcludeType $exclude
+     * @return ExcludeType|self
      */
-    public function exclude($exclude = null)
+    public function exclude(ExcludeType $exclude = null)
     {
         if(null === $exclude)
         {
             return $this->_exclude;
         }
-		$this->_exclude = in_array(trim($exclude), self::$_validExcludes) ? trim($exclude) : null;
+		$this->_exclude = $exclude;
         return $this;
     }
 
@@ -72,9 +70,9 @@ class GetAllZimlets extends Request
      */
     public function toArray()
     {
-        if(!empty($this->_exclude))
+        if($this->_exclude instanceof ExcludeType)
         {
-            $this->array['exclude'] = $this->_exclude;
+            $this->array['exclude'] = (string) $this->_exclude;
         }
         return parent::toArray();
     }
@@ -86,9 +84,9 @@ class GetAllZimlets extends Request
      */
     public function toXml()
     {
-        if(!empty($this->_exclude))
+        if($this->_exclude instanceof ExcludeType)
         {
-            $this->xml->addAttribute('exclude', $this->_exclude);
+            $this->xml->addAttribute('exclude', (string) $this->_exclude);
         }
         return parent::toXml();
     }

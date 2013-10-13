@@ -11,10 +11,14 @@
             "homepage": "https://github.com/nguyennv"
         }
     ],
-
     "require": {
         "guzzle/guzzle": "~3.7",
+        "phpcollection/phpcollection": "0.*",
         "ext-soap": "*"
+    },
+    "require-dev": {
+        "zendframework/zend-soap": "2.3.*",
+        "react/http": "0.3.*"
     },
     "autoload": {
         "psr-0": {

@@ -10,6 +10,7 @@
 
 namespace Zimbra\Soap\Struct;
 
+use Zimbra\Soap\Enum\ZimletStatus;
 use Zimbra\Utils\SimpleXML;
 
 /**
@@ -65,7 +66,7 @@ class ZimletAclStatusPri
         if($status instanceof ValueAttrib)
         {
             $value = $status->value();
-            if(in_array($value, array('enabled', 'disabled')))
+            if(ZimletStatus::has($value))
             {
                 $this->_status = $status;
             }
@@ -121,7 +122,7 @@ class ZimletAclStatusPri
             return $this->_status;
         }
         $value = $status->value();
-        if(in_array($value, array('enabled', 'disabled')))
+        if(ZimletStatus::has($value))
         {
             $this->_status = $status;
         }

@@ -10,6 +10,7 @@
 
 namespace Zimbra\Soap\Struct;
 
+use Zimbra\Soap\Enum\AceRightType;
 use Zimbra\Soap\Enum\GranteeType;
 use Zimbra\Utils\SimpleXML;
 
@@ -24,13 +25,13 @@ class AccountACEInfo
 {
     /**
      * The type of grantee
-     * @var string
+     * @var GranteeType
      */
     private $_gt;
 
     /**
      * The right
-     * @var string
+     * @var AceRightType
      */
     private $_right;
 
@@ -71,9 +72,9 @@ class AccountACEInfo
     private $_chkgt;
 
     /**
-     * Constructor method for accountACEInfo
+     * Constructor method for AccountACEInfo
      * @param GranteeType $gt
-     * @param string $right
+     * @param AceRightType $right
      * @param string $zid
      * @param string $d
      * @param string $key
@@ -83,8 +84,8 @@ class AccountACEInfo
      * @return self
      */
     public function __construct(
-        $gt,
-        $right,
+        GranteeType $gt,
+        AceRightType $right,
         $zid = null,
         $d = null,
         $key = null,
@@ -93,22 +94,9 @@ class AccountACEInfo
         $chkgt = null
     )
     {
-        if(GranteeType::isValid($gt))
-        {
-            $this->_gt = trim($gt);
-        }
-        else
-        {
-            throw new \InvalidArgumentException('Invalid grantee type');
-        }
-        if(in_array($right, array('viewFreeBusy', 'invite')))
-        {
-            $this->_right = trim($right);
-        }
-        else
-        {
-            throw new \InvalidArgumentException('Invalid right');
-        }
+        $this->_gt = $gt;
+        $this->_right = $right;
+
         $this->_zid = trim($zid);
         $this->_d = trim($d);
         $this->_key = trim($key);
@@ -126,46 +114,32 @@ class AccountACEInfo
     /**
      * Gets or sets gt
      *
-     * @param  string $gt
-     * @return string|self
+     * @param  GranteeType $gt
+     * @return GranteeType|self
      */
-    public function gt($gt = null)
+    public function gt(GranteeType $gt = null)
     {
         if(null === $gt)
         {
             return $this->_gt;
         }
-        if(GranteeType::isValid($gt))
-        {
-            $this->_gt = trim($gt);
-        }
-        else
-        {
-            throw new \InvalidArgumentException('Invalid grantee type');
-        }
+        $this->_gt = $gt;
         return $this;
     }
 
     /**
      * Gets or sets right
      *
-     * @param  string $right
-     * @return string|self
+     * @param  AceRightType $right
+     * @return AceRightType|self
      */
-    public function right($right = null)
+    public function right(AceRightType $right = null)
     {
         if(null === $right)
         {
             return $this->_right;
         }
-        if(in_array($right, array('viewFreeBusy', 'invite')))
-        {
-            $this->_right = trim($right);
-        }
-        else
-        {
-            throw new \InvalidArgumentException('Invalid right');
-        }
+        $this->_right = $right;
         return $this;
     }
 
@@ -275,8 +249,8 @@ class AccountACEInfo
     {
         $name = !empty($name) ? $name : 'ace';
         $arr = array(
-            'gt' => $this->_gt,
-            'right' => $this->_right,
+            'gt' => (string) $this->_gt,
+            'right' => (string) $this->_right,
         );
         if(!empty($this->_zid))
         {
@@ -316,8 +290,8 @@ class AccountACEInfo
     {
         $name = !empty($name) ? $name : 'ace';
         $xml = new SimpleXML('<'.$name.' />');
-        $xml->addAttribute('gt', $this->_gt)
-            ->addAttribute('right', $this->_right);
+        $xml->addAttribute('gt', (string) $this->_gt)
+            ->addAttribute('right', (string) $this->_right);
         if(!empty($this->_zid))
         {
             $xml->addAttribute('zid', $this->_zid);

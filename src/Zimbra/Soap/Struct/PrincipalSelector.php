@@ -25,8 +25,7 @@ class PrincipalSelector
     /**
      * Select the meaning of {acct-selector-key}
      * Valid values: dn|name
-     * - use : required
-     * @var string
+     * @var PrincipalBy
      */
     private $_by;
 
@@ -38,43 +37,29 @@ class PrincipalSelector
 
     /**
      * Constructor method for PrincipalSelector
-     * @param  string $by
+     * @param  PrincipalBy $by
      * @param  string $value
      * @return self
      */
-    public function __construct($by, $value = null)
+    public function __construct(PrincipalBy $by, $value = null)
     {
-        if(PrincipalBy::isValid(trim($by)))
-        {
-            $this->_by = trim($by);
-        }
-        else
-        {
-            throw new \InvalidArgumentException('Invalid principal by');
-        }
+        $this->_by = $by;
         $this->_value = trim($value);
     }
 
     /**
      * Gets or sets by
      *
-     * @param  string $by
-     * @return string|self
+     * @param  PrincipalBy $by
+     * @return PrincipalBy|self
      */
-    public function by($by = null)
+    public function by(PrincipalBy $by = null)
     {
         if(null === $by)
         {
             return $this->_by;
         }
-        if(PrincipalBy::isValid(trim($by)))
-        {
-            $this->_by = trim($by);
-        }
-        else
-        {
-            throw new \InvalidArgumentException('Invalid principal by');
-        }
+        $this->_by = $by;
         return $this;
     }
 
@@ -104,7 +89,7 @@ class PrincipalSelector
     {
         $name = !empty($name) ? $name : 'principal';
         $arr = array(
-            'by' => $this->_by,
+            'by' => (string) $this->_by,
             '_' => $this->_value,
         );
         return array($name => $arr);
@@ -120,7 +105,7 @@ class PrincipalSelector
     {
         $name = !empty($name) ? $name : 'principal';
         $xml = new SimpleXML('<'.$name.'>'.$this->_value.'</'.$name.'>');
-        $xml->addAttribute('by', $this->_by);
+        $xml->addAttribute('by', (string) $this->_by);
         return $xml;
     }
 

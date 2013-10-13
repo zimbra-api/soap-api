@@ -11,6 +11,7 @@
 namespace Zimbra\API\Admin\Request;
 
 use Zimbra\Soap\Request;
+use Zimbra\Soap\Enum\RightClass;
 
 /**
  * GetAllRights class
@@ -40,7 +41,7 @@ class GetAllRights extends Request
      * ADMIN: return admin rights only
      * USER: return user rights only
      * ALL: return both admin rights and user rights
-     * @var string
+     * @var RightClass
      */
     private $_rightClass;
 
@@ -48,10 +49,10 @@ class GetAllRights extends Request
      * Constructor method for GetAllRights
      * @param  string $targetType
      * @param  bool $expandAllAttrs
-     * @param  string $rightClass
+     * @param  RightClass $rightClass
      * @return self
      */
-    public function __construct($targetType = null, $expandAllAttrs = null, $rightClass = null)
+    public function __construct($targetType = null, $expandAllAttrs = null, RightClass $rightClass = null)
     {
         parent::__construct();
 		$this->_targetType = trim($targetType);
@@ -59,7 +60,10 @@ class GetAllRights extends Request
         {
             $this->_expandAllAttrs = (bool) $expandAllAttrs;
         }
-		$this->_rightClass = in_array(trim($rightClass), array('ADMIN', 'USER', 'ALL')) ? trim($rightClass) : null;
+        if($rightClass instanceof RightClass)
+        {
+            $this->_rightClass = $rightClass;
+        }
     }
 
     /**
@@ -97,16 +101,16 @@ class GetAllRights extends Request
     /**
      * Gets or sets rightClass
      *
-     * @param  string $rightClass
-     * @return string|self
+     * @param  RightClass $rightClass
+     * @return RightClass|self
      */
-    public function rightClass($rightClass = null)
+    public function rightClass(RightClass $rightClass = null)
     {
         if(null === $rightClass)
         {
             return $this->_rightClass;
         }
-		$this->_rightClass = in_array(trim($rightClass), array('ADMIN', 'USER', 'ALL')) ? trim($rightClass) : null;
+		$this->_rightClass = $rightClass;
         return $this;
     }
 
@@ -125,9 +129,9 @@ class GetAllRights extends Request
         {
             $this->array['expandAllAttrs'] = $this->_expandAllAttrs ? 1 : 0;
         }
-        if(!empty($this->_rightClass))
+        if($this->_rightClass instanceof RightClass)
         {
-            $this->array['rightClass'] = $this->_rightClass;
+            $this->array['rightClass'] = (string) $this->_rightClass;
         }
         return parent::toArray();
     }
@@ -147,9 +151,9 @@ class GetAllRights extends Request
         {
             $this->xml->addAttribute('expandAllAttrs', $this->_expandAllAttrs ? 1 : 0);
         }
-        if(!empty($this->_rightClass))
+        if($this->_rightClass instanceof RightClass)
         {
-            $this->xml->addAttribute('rightClass', $this->_rightClass);
+            $this->xml->addAttribute('rightClass', (string) $this->_rightClass);
         }
         return parent::toXml();
     }

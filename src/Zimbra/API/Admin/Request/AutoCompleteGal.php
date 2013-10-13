@@ -38,7 +38,7 @@ class AutoCompleteGal extends Request
 
     /**
      * Type of addresses to auto-complete on
-     * @var string
+     * @var SearchType
      */
     private $_type;
 
@@ -58,7 +58,7 @@ class AutoCompleteGal extends Request
      * Constructor method for AutoCompleteGal
      * @param  string $domain
      * @param  string $name
-     * @param  string $type
+     * @param  SearchType $type
      * @param  string $galAcctId
      * @param  int    $limit
      * @return self
@@ -66,16 +66,16 @@ class AutoCompleteGal extends Request
     public function __construct(
         $domain,
         $name,
-        $type = null,
+        SearchType $type = null,
         $galAcctId = null,
         $limit = null)
     {
         parent::__construct();
         $this->_domain = trim($domain);
         $this->_name = trim($name);
-        if(SearchType::isValid(trim($type)))
+        if($type instanceof SearchType)
         {
-            $this->_type = trim($type);
+            $this->_type = $type;
         }
 		$this->_galAcctId = trim($galAcctId);
         if(null !== $limit)
@@ -119,19 +119,16 @@ class AutoCompleteGal extends Request
     /**
      * Gets or sets type
      *
-     * @param  string $type
-     * @return string|self
+     * @param  SearchType $type
+     * @return SearchType|self
      */
-    public function type($type = null)
+    public function type(SearchType $type = null)
     {
         if(null === $type)
         {
             return $this->_type;
         }
-        if(SearchType::isValid($type))
-        {
-            $this->_type = trim($type);
-        }
+		$this->_type = $type;
         return $this;
     }
 
@@ -178,9 +175,9 @@ class AutoCompleteGal extends Request
             'domain' => $this->_domain,
             'name' => $this->_name,
         );
-        if(!empty($this->_type))
+        if($this->_type instanceof SearchType)
         {
-            $this->array['type'] = $this->_type;
+            $this->array['type'] = (string) $this->_type;
         }
         if(!empty($this->_galAcctId))
         {
@@ -202,9 +199,9 @@ class AutoCompleteGal extends Request
     {
         $this->xml->addAttribute('name', $this->_name)
                   ->addAttribute('domain', $this->_domain);
-        if(!empty($this->_type))
+        if($this->_type instanceof SearchType)
         {
-            $this->xml->addAttribute('type', $this->_type);
+            $this->xml->addAttribute('type', (string) $this->_type);
         }
         if(!empty($this->_galAcctId))
         {

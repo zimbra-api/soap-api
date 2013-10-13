@@ -12,6 +12,7 @@ namespace Zimbra\API\Admin\Request;
 
 use Zimbra\Soap\Request;
 use Zimbra\Soap\Struct\AttachmentIdAttrib as Attachment;
+use Zimbra\Soap\Enum\DeployZimletAction as Action;
 
 /**
  * DeployZimlet class
@@ -26,7 +27,7 @@ class DeployZimlet extends Request
 {
     /**
      * Action - valid values : deployAll|deployLocal|status
-     * @var string
+     * @var Action
      */
     private $_action;
 
@@ -48,8 +49,6 @@ class DeployZimlet extends Request
      */
     private $_synchronous;
 
-    private static $_validActions = array('deployAll', 'deployLocal', 'status');
-
     /**
      * Constructor method for DeployZimlet
      * @param string $action
@@ -59,21 +58,14 @@ class DeployZimlet extends Request
      * @return self
      */
     public function __construct(
-        $action,
+        Action $action,
         Attachment $content = null,
         $flush = null,
         $synchronous = null
     )
     {
         parent::__construct();
-        if(in_array(trim($action), self::$_validActions))
-        {
-            $this->_action = trim($action);
-        }
-        else
-        {
-            throw new \InvalidArgumentException('Invalid action');
-        }
+        $this->_action = $action;
         if($content instanceof Attachment)
         {
             $this->_content = $content;
@@ -91,23 +83,16 @@ class DeployZimlet extends Request
     /**
      * Gets or sets action
      *
-     * @param  string $action
-     * @return string|self
+     * @param  Action $action
+     * @return Action|self
      */
-    public function action($action = null)
+    public function action(Action $action = null)
     {
         if(null === $action)
         {
             return $this->_action;
         }
-        if(in_array(trim($action), self::$_validActions))
-        {
-            $this->_action = trim($action);
-        }
-        else
-        {
-            throw new \InvalidArgumentException('Invalid action');
-        }
+        $this->_action = $action;
         return $this;
     }
 
@@ -167,7 +152,7 @@ class DeployZimlet extends Request
     public function toArray()
     {
         $this->array = array(
-            'action' => $this->_action,
+            'action' => (string) $this->_action,
         );
         if($this->_content instanceof Attachment)
         {
@@ -191,7 +176,7 @@ class DeployZimlet extends Request
      */
     public function toXml()
     {
-        $this->xml->addAttribute('action', $this->_action);
+        $this->xml->addAttribute('action', (string) $this->_action);
         if($this->_content instanceof Attachment)
         {
             $this->xml->append($this->_content->toXml('content'));

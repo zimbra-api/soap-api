@@ -12,6 +12,7 @@ namespace Zimbra\API\Admin\Request;
 
 use Zimbra\Soap\Request;
 use Zimbra\Soap\Enum\GetSessionsSortBy;
+use Zimbra\Soap\Enum\SessionType;
 
 /**
  * GetSessions class
@@ -26,7 +27,7 @@ class GetSessions extends Request
 {
     /**
      * Type - valid values soap|imap|admin
-     * @var string
+     * @var SessionType
      */
     private $_type;
 
@@ -56,33 +57,25 @@ class GetSessions extends Request
 
     /**
      * Constructor method for GetSessions
-     * @param string $type
-     * @param string $sortBy
+     * @param SessionType $type
+     * @param GetSessionsSortBy $sortBy
      * @param int $limit
      * @param int $offset
      * @param bool $refresh
      * @return self
      */
     public function __construct(
-        $type,
-        $sortBy = null,
+        SessionType $type,
+        GetSessionsSortBy $sortBy = null,
         $limit = null,
         $offset = null,
-        $refresh = null
-    )
+        $refresh = null)
     {
         parent::__construct();
-        if(in_array(trim($type), array('soap', 'imap', 'admin')))
+        $this->_type = $type;
+        if($sortBy instanceof GetSessionsSortBy)
         {
-            $this->_type = trim($type);
-        }
-        else
-        {
-            $this->_type = 'imap';
-        }
-        if(GetSessionsSortBy::isValid(trim($sortBy)))
-        {
-            $this->_sortBy = trim($sortBy);
+            $this->_sortBy = $sortBy;
         }
         if(null !== $limit)
         {
@@ -101,42 +94,32 @@ class GetSessions extends Request
     /**
      * Gets or sets type
      *
-     * @param  string $type
-     * @return string|self
+     * @param  SessionType $type
+     * @return SessionType|self
      */
-    public function type($type = null)
+    public function type(SessionType $type = null)
     {
         if(null === $type)
         {
             return $this->_type;
         }
-        if(in_array(trim($type), array('soap', 'imap', 'admin')))
-        {
-            $this->_type = trim($type);
-        }
-        else
-        {
-            $this->_type = 'imap';
-        }
+        $this->_type = $type;
         return $this;
     }
 
     /**
      * Gets or sets sortBy
      *
-     * @param  string $sortBy
-     * @return string|self
+     * @param  GetSessionsSortBy $sortBy
+     * @return GetSessionsSortBy|self
      */
-    public function sortBy($sortBy = null)
+    public function sortBy(GetSessionsSortBy $sortBy = null)
     {
         if(null === $sortBy)
         {
             return $this->_sortBy;
         }
-        if(GetSessionsSortBy::isValid(trim($sortBy)))
-        {
-            $this->_sortBy = trim($sortBy);
-        }
+		$this->_sortBy = $sortBy;
         return $this;
     }
 
@@ -196,11 +179,11 @@ class GetSessions extends Request
     public function toArray()
     {
         $this->array = array(
-            'type' => $this->_type,
+            'type' => (string) $this->_type,
         );
-        if(!empty($this->_sortBy))
+        if($this->_sortBy instanceof GetSessionsSortBy)
         {
-            $this->array['sortBy'] = $this->_sortBy;
+            $this->array['sortBy'] = (string) $this->_sortBy;
         }
         if(is_int($this->_limit))
         {
@@ -224,10 +207,10 @@ class GetSessions extends Request
      */
     public function toXml()
     {
-        $this->xml->addAttribute('type', $this->_type);
-        if(!empty($this->_sortBy))
+        $this->xml->addAttribute('type', (string) $this->_type);
+        if($this->_sortBy instanceof GetSessionsSortBy)
         {
-            $this->xml->addAttribute('sortBy', $this->_sortBy);
+            $this->xml->addAttribute('sortBy', (string) $this->_sortBy);
         }
         if(is_int($this->_limit))
         {

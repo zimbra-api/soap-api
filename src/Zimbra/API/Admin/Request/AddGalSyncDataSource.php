@@ -39,7 +39,7 @@ class AddGalSyncDataSource extends Attr
 
     /**
      * GalMode type
-     * @var string
+     * @var GalMode
      */
     private $_type;
 
@@ -59,7 +59,7 @@ class AddGalSyncDataSource extends Attr
      * Constructor method for AddGalSyncDataSource
      * @param string $name
      * @param string $domain
-     * @param string $type
+     * @param GalMode $type
      * @param string $folder
      * @param Account $account
      * @return self
@@ -68,7 +68,7 @@ class AddGalSyncDataSource extends Attr
         Account $account,
         $name,
         $domain,
-        $type,
+        GalMode $type,
         $folder = null,
         array $attrs = array())
     {
@@ -76,14 +76,7 @@ class AddGalSyncDataSource extends Attr
         $this->_account = $account;
         $this->_name = trim($name);
         $this->_domain = trim($domain);
-        if(GalMode::isValid($type))
-        {
-            $this->_type = $type;
-        }
-        else
-        {
-            throw new \InvalidArgumentException('Invalid type');
-        }
+		$this->_type = $type;
         $this->_folder = trim($folder);
     }
 
@@ -138,23 +131,16 @@ class AddGalSyncDataSource extends Attr
     /**
      * Gets or sets type
      *
-     * @param  string $type
-     * @return string|self
+     * @param  GalMode $type
+     * @return GalMode|self
      */
-    public function type($type = null)
+    public function type(GalMode $type = null)
     {
         if(null === $type)
         {
             return $this->_type;
         }
-        if(GalMode::isValid(trim($type)))
-        {
-            $this->_type = trim($type);
-        }
-        else
-        {
-            throw new \InvalidArgumentException('Invalid type');
-        }
+		$this->_type = $type;
         return $this;
     }
 
@@ -183,7 +169,7 @@ class AddGalSyncDataSource extends Attr
         $this->array = array(
             'name' => $this->_name,
             'domain' => $this->_domain,
-            'type' => $this->_type,
+            'type' => (string) $this->_type,
         );
         if(!empty($this->_folder))
         {
@@ -202,7 +188,7 @@ class AddGalSyncDataSource extends Attr
     {
         $this->xml->addAttribute('name', $this->_name)
                   ->addAttribute('domain', $this->_domain)
-                  ->addAttribute('type', $this->_type);
+                  ->addAttribute('type', (string) $this->_type);
         if(!empty($this->_folder))
         {
             $this->xml->addAttribute('folder', $this->_folder);

@@ -11,6 +11,7 @@
 namespace Zimbra\Soap\Struct;
 
 use Zimbra\Utils\SimpleXML;
+use Zimbra\Utils\TypedSequence;
 
 /**
  * Signature class
@@ -62,7 +63,7 @@ class Signature
         $this->_name = trim($name);
         $this->_id = trim($id);
         $this->_cid = trim($cid);
-        $this->contents($contents);
+        $this->_contents = new TypedSequence('Zimbra\Soap\Struct\SignatureContent', $contents);
     }
 
     /**
@@ -121,30 +122,18 @@ class Signature
      */
     public function addContent(SignatureContent $content)
     {
-        $this->_contents[] = $content;
+        $this->_contents->add($content);
         return $this;
     }
 
     /**
-     * Get signature content array
+     * Gets signature content sequence
      *
-     * @return array|self
+     * @return Sequence
      */
-    public function contents(array $contents = null)
+    public function contents()
     {
-        if(null === $contents)
-        {
-            return $this->_contents;
-        }
-        $this->_contents = array();
-        foreach ($contents as $content)
-        {
-            if($content instanceof SignatureContent)
-            {
-                $this->_contents[] = $content;
-            }
-        }
-        return $this;
+        return $this->_contents;
     }
 
     /**
@@ -199,12 +188,9 @@ class Signature
         {
             $xml->addChild('cid', $this->_cid);
         }
-        if(count($this->_contents))
+        foreach ($this->_contents as $content)
         {
-            foreach ($this->_contents as $content)
-            {
-                $xml->append($content->toXml());
-            }
+            $xml->append($content->toXml());
         }
         return $xml;
     }

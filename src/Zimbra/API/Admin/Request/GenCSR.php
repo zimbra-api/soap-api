@@ -11,6 +11,8 @@
 namespace Zimbra\API\Admin\Request;
 
 use Zimbra\Soap\Request;
+use Zimbra\Soap\Enum\CSRType;
+use Zimbra\Soap\Enum\CSRKeySize;
 
 /**
  * GenCSR class
@@ -38,13 +40,13 @@ class GenCSR extends Request
     /**
      * Type of CSR (required)
      * self|comm
-     * @var string
+     * @var CSRType
      */
     private $_type;
 
     /**
      * Key size - 1024 or 2048
-     * @var int
+     * @var CSRKeySize
      */
     private $_keysize;
 
@@ -94,8 +96,8 @@ class GenCSR extends Request
      * Constructor method for GenCSR
      * @param string $server
      * @param bool $create
-     * @param string $type
-     * @param int $keysize
+     * @param CSRType $type
+     * @param CSRKeySize $keysize
      * @param string $c
      * @param string $sT
      * @param string $l
@@ -108,8 +110,8 @@ class GenCSR extends Request
     public function __construct(
         $server,
         $isNew,
-        $type,
-        $keysize,
+        CSRType $type,
+        CSRKeySize $keysize,
         $c = null,
         $sT = null,
         $l = null,
@@ -121,8 +123,8 @@ class GenCSR extends Request
         parent::__construct();
         $this->_server = trim($server);
         $this->_isNew = (bool) $isNew;
-        $this->_type = in_array(trim($type), array('self', 'comm')) ? trim($type) : 'self';
-        $this->_keysize = in_array(intval($keysize), array(1024, 2048)) ? intval($keysize) : 1024;
+        $this->_type = $type;
+        $this->_keysize = $keysize;
 
 		$this->_c = trim($c);
 		$this->_sT = trim($sT);
@@ -175,32 +177,32 @@ class GenCSR extends Request
     /**
      * Gets or sets type
      *
-     * @param  string $type
-     * @return string|self
+     * @param  CSRType $type
+     * @return CSRType|self
      */
-    public function type($type = null)
+    public function type(CSRType $type = null)
     {
         if(null === $type)
         {
             return $this->_type;
         }
-        $this->_type = in_array(trim($type), array('self', 'comm')) ? trim($type) : 'self';
+        $this->_type = $type;
         return $this;
     }
 
     /**
      * Gets or sets keysize
      *
-     * @param  int $keysize
-     * @return int|self
+     * @param  CSRKeySize $keysize
+     * @return CSRKeySize|self
      */
-    public function keysize($keysize = null)
+    public function keysize(CSRKeySize $keysize = null)
     {
         if(null === $keysize)
         {
             return $this->_keysize;
         }
-        $this->_keysize = in_array(intval($keysize), array(1024, 2048)) ? intval($keysize) : 1024;
+        $this->_keysize = $keysize;
         return $this;
     }
 
@@ -334,8 +336,8 @@ class GenCSR extends Request
         $this->array = array(
             'server' => $this->_server,
             'new' => $this->_isNew ? 1 : 0,
-            'type' => $this->_type,
-            'keysize' => $this->_keysize,
+            'type' => (string) $this->_type,
+            'keysize' => $this->_keysize->value(),
         );
         if(!empty($this->_c))
         {
@@ -381,8 +383,8 @@ class GenCSR extends Request
     {
         $this->xml->addAttribute('server', $this->_server)
                   ->addAttribute('new', $this->_isNew ? 1 : 0)
-                  ->addAttribute('type', $this->_type)
-                  ->addAttribute('keysize', $this->_keysize);
+                  ->addAttribute('type', (string) $this->_type)
+                  ->addAttribute('keysize', (string) $this->_keysize);
         if(!empty($this->_c))
         {
             $this->xml->addChild('C', $this->_c);

@@ -39,44 +39,30 @@ class DedupeBlobs extends Request
 
     /**
      * Constructor method for DedupeBlobs
-     * @param  string $action
+     * @param  DedupAction $action
      * @param  array  $volumes
      * @return DedupeBlobs
      */
-    public function __construct($action, array $volumes = array())
+    public function __construct(DedupAction $action, array $volumes = array())
     {
         parent::__construct();
-        if(DedupAction::isValid(trim($action)))
-        {
-            $this->_action = trim($action);
-        }
-        else
-        {
-            throw new \InvalidArgumentException('Invalid dedup action');
-        }
+		$this->_action = $action;
         $this->volumes($volumes);
     }
 
     /**
      * Gets or sets action
      *
-     * @param  string $action
-     * @return string|DedupeBlobs
+     * @param  DedupAction $action
+     * @return DedupAction|DedupeBlobs
      */
-    public function action($action = null)
+    public function action(DedupAction $action = null)
     {
         if(null === $action)
         {
             return $this->_action;
         }
-        if(DedupAction::isValid(trim($action)))
-        {
-            $this->_action = trim($action);
-        }
-        else
-        {
-            throw new \InvalidArgumentException('Invalid dedup action');
-        }
+		$this->_action = $action;
         return $this;
     }
 
@@ -123,7 +109,7 @@ class DedupeBlobs extends Request
     public function toArray()
     {
         $this->array = array(
-            'action' => $this->_action,
+            'action' => (string) $this->_action,
         );
         if(count($this->_volumes))
         {
@@ -144,7 +130,7 @@ class DedupeBlobs extends Request
      */
     public function toXml()
     {
-        $this->xml->addAttribute('action', $this->_action);
+        $this->xml->addAttribute('action', (string) $this->_action);
         foreach ($this->_volumes as $volume)
         {
             $this->xml->append($volume->toXml('volume'));

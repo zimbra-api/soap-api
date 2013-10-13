@@ -17,7 +17,7 @@ namespace Zimbra\Soap\Enum;
  * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright Copyright © 2013 by Nguyen Van Nguyen.
  */
-class DataSourceType
+class DataSourceType extends Base
 {
     /**
      * Constant for value 'pop3'
@@ -78,26 +78,4 @@ class DataSourceType
      * @return string 'tagmap'
      */
     const TAGMAP = 'tagmap';
-
-    /**
-     * Return true if value is allowed
-     * @param  string $type
-     * @return bool true|false
-     */
-    public static function isValid($type)
-    {
-        $validValues = array(
-            self::POP3,
-            self::IMAP,
-            self::CALDAV,
-            self::CONTACTS,
-            self::YAB,
-            self::RSS,
-            self::CAL,
-            self::GAL,
-            self::XSYNC,
-            self::TAGMAP,
-        );
-        return in_array($type, $validValues);
-    }
 }

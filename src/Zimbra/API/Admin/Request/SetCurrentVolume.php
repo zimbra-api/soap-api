@@ -11,6 +11,7 @@
 namespace Zimbra\API\Admin\Request;
 
 use Zimbra\Soap\Request;
+use Zimbra\Soap\Enum\VolumeType;
 
 /**
  * SetCurrentVolume class
@@ -41,14 +42,11 @@ class SetCurrentVolume extends Request
      * @param string $type
      * @return self
      */
-    public function __construct($id, $type)
+    public function __construct($id, VolumeType $type)
     {
         parent::__construct();
         $this->_id = (int) $id;
-        if(in_array((int) $type, array(1, 2, 10)))
-        {
-            $this->_type = (int) $type;
-        }
+        $this->_type = $type;
     }
 
     /**
@@ -70,19 +68,16 @@ class SetCurrentVolume extends Request
     /**
      * Gets or sets type
      *
-     * @param  int $type
-     * @return int|self
+     * @param  VolumeType $type
+     * @return VolumeType|self
      */
-    public function type($type = null)
+    public function type(VolumeType $type = null)
     {
         if(null === $type)
         {
             return $this->_type;
         }
-        if(in_array((int) $type, array(1, 2, 10)))
-        {
-            $this->_type = (int) $type;
-        }
+        $this->_type = $type;
         return $this;
     }
 
@@ -95,7 +90,7 @@ class SetCurrentVolume extends Request
     {
         $this->array = array(
             'id' => $this->_id,
-            'type' => $this->_type,
+            'type' => $this->_type->value(),
         );
         return parent::toArray();
     }
@@ -108,7 +103,7 @@ class SetCurrentVolume extends Request
     public function toXml()
     {
         $this->xml->addAttribute('id', $this->_id)
-                  ->addAttribute('type', $this->_type);
+                  ->addAttribute('type', $this->_type->value());
         return parent::toXml();
     }
 }

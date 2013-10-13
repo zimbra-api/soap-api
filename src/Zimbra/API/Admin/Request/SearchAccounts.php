@@ -121,9 +121,10 @@ class SearchAccounts extends Request
         }
         foreach (explode(',', $attrs) as $attr)
         {
-            if(in_array(trim($attr), array('displayName', 'zimbraId', 'zimbraAccountStatus')))
+			$attr = trim($attr);
+            if(in_array($attr, array('displayName', 'zimbraId', 'zimbraAccountStatus')))
             {
-                $this->_attrs = empty($this->_attrs) ? trim($attr) : ',' . trim($attr);
+                $this->_attrs = empty($this->_attrs) ? $attr : ',' . $attr;
             }
         }
         $this->_sortBy = trim($sortBy);

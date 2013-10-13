@@ -12,6 +12,7 @@ namespace Zimbra\API\Account\Request;
 
 use Zimbra\Soap\Request;
 use Zimbra\Soap\Struct\Right;
+use Zimbra\Utils\TypedSequence;
 
 /**
  * GetRights class
@@ -38,7 +39,7 @@ class GetRights extends Request
     public function __construct(array $rights = array())
     {
         parent::__construct();
-        $this->rights($rights);
+        $this->_rights = new TypedSequence('Zimbra\Soap\Struct\Right', $rights);
     }
 
     /**
@@ -49,31 +50,18 @@ class GetRights extends Request
      */
     public function addRight(Right $right)
     {
-        $this->_rights[] = $right;
+        $this->_rights->add($right);
         return $this;
     }
 
     /**
-     * Gets or sets prefs
+     * Gets pref sequence
      *
-     * @param  array $rights
-     * @return array|self
+     * @return Sequence
      */
-    public function rights(array $rights = null)
+    public function rights()
     {
-        if(null === $rights)
-        {
-            return $this->_rights;
-        }
-        $this->_rights = array();
-        foreach ($rights as $right)
-        {
-            if($right instanceof Right)
-            {
-                $this->_rights[] = $right;
-            }
-        }
-        return $this;
+        return $this->_rights;
     }
 
     /**
@@ -83,7 +71,7 @@ class GetRights extends Request
      */
     public function toArray()
     {
-        if(count($this->_prefs))
+        if(count($this->_rights))
         {
             $this->array['ace'] = array();
             foreach ($this->_rights as $right)

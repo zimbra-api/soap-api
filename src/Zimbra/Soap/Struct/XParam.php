@@ -23,14 +23,12 @@ class XParam
 {
     /**
      * xParam Name
-     * - use : required
      * @var string
      */
     private $_name;
 
     /**
      * xParam value
-     * - use : required
      * @var string
      */
     private $_value;

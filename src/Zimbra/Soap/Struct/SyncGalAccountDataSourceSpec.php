@@ -10,6 +10,7 @@
 
 namespace Zimbra\Soap\Struct;
 
+use Zimbra\Soap\Enum\DataSourceBy;
 use Zimbra\Utils\SimpleXML;
 
 /**
@@ -23,7 +24,7 @@ class SyncGalAccountDataSourceSpec
 {
     /**
      * The by
-     * @var string
+     * @var DataSourceBy
      */
     private $_by;
 
@@ -50,23 +51,20 @@ class SyncGalAccountDataSourceSpec
 
     /**
      * Constructor method for SyncGalAccountDataSourceSpec
-     * @param string $by
+     * @param DataSourceBy $by
      * @param string $value
      * @param bool $fullSync
      * @param bool $reset
      * @return self
      */
     public function __construct(
-        $by,
+        DataSourceBy $by,
         $value = null,
         $fullSync = null,
         $reset = null
     )
     {
-        if(in_array(trim($by), array('id', 'name')))
-        {
-            $this->_by = trim($by);
-        }
+        $this->_by = $by;
         $this->_value = trim($value);
         if(null !== $fullSync)
         {
@@ -81,19 +79,16 @@ class SyncGalAccountDataSourceSpec
     /**
      * Gets or sets by
      *
-     * @param  string $by
-     * @return string|self
+     * @param  DataSourceBy $by
+     * @return DataSourceBy|self
      */
-    public function by($by = null)
+    public function by(DataSourceBy $by = null)
     {
         if(null === $by)
         {
             return $this->_by;
         }
-        if(in_array(trim($by), array('id', 'name')))
-        {
-            $this->_by = trim($by);
-        }
+        $this->_by = $by;
         return $this;
     }
 
@@ -155,7 +150,7 @@ class SyncGalAccountDataSourceSpec
     {
         $name = !empty($name) ? $name : 'datasource';
         $arr = array(
-            'by' => $this->_by,
+            'by' => (string) $this->_by,
             '_' => $this->_value,
         );
         if(is_bool($this->_fullSync))
@@ -179,7 +174,7 @@ class SyncGalAccountDataSourceSpec
     {
         $name = !empty($name) ? $name : 'datasource';
         $xml = new SimpleXML('<'.$name.'>'.$this->_value.'</'.$name.'>');
-        $xml->addAttribute('by', $this->_by);
+        $xml->addAttribute('by', (string) $this->_by);
         if(is_bool($this->_fullSync))
         {
             $xml->addAttribute('fullSync', $this->_fullSync ? 1: 0);

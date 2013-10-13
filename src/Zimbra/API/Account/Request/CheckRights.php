@@ -12,6 +12,7 @@ namespace Zimbra\API\Account\Request;
 
 use Zimbra\Soap\Request;
 use Zimbra\Soap\Struct\CheckRightsTargetSpec as Target;
+use Zimbra\Utils\TypedSequence;
 
 /**
  * CheckRights class
@@ -39,7 +40,7 @@ class CheckRights extends Request
     public function __construct(array $targets)
     {
         parent::__construct();
-        $this->targets($targets);
+        $this->_targets = new TypedSequence('Zimbra\Soap\Struct\CheckRightsTargetSpec', $targets);
         if(count($this->_targets) === 0)
         {
             throw new \InvalidArgumentException('CheckRights must have at least one target');
@@ -54,35 +55,18 @@ class CheckRights extends Request
      */
     public function addTarget(Target $target)
     {
-        $this->_targets[] = $target;
+        $this->_targets->add($target);
         return $this;
     }
 
     /**
-     * Gets or sets targets
+     * Gets target sequence
      *
-     * @param  array $targets
-     * @return array|self
+     * @return Sequence
      */
-    public function targets(array $targets = null)
+    public function targets()
     {
-        if(null === $targets)
-        {
-            return $this->_targets;
-        }
-        $this->_targets = array();
-        foreach ($targets as $target)
-        {
-            if($target instanceof Target)
-            {
-                $this->_targets[] = $target;
-            }
-        }
-        if(count($this->_targets) === 0)
-        {
-            throw new \InvalidArgumentException('CheckRights must have at least one target');
-        }
-        return $this;        
+        return $this->_targets;
     }
 
     /**

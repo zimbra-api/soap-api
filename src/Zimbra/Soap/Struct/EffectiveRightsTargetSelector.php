@@ -44,67 +44,47 @@ class EffectiveRightsTargetSelector
     /**
      * Constructor method for effectiveRightsTargetSelector
      * @see parent::__construct()
-     * @param string $type
+     * @param TargetType $type
      * @param string $value
-     * @param string $by
+     * @param TargetBy $by
      * @return self
      */
-    public function __construct($type, $value = null, $by = null)
+    public function __construct(TargetType $type, $value = null, TargetBy $by = null)
     {
-        if(TargetType::isValid(trim($type)))
-        {
-            $this->_type = trim($type);
-        }
-        else
-        {
-            throw new \InvalidArgumentException('Invalid target type');
-        }
-        if(TargetBy::isValid(trim($by)))
-        {
-            $this->_by = trim($by);
-        }
+        $this->_type = $type;
+        $this->_by = $by;
         $this->_value = trim($value);
     }
 
     /**
      * Gets or sets type
      *
-     * @param  string $type
-     * @return string|self
+     * @param  TargetType $type
+     * @return TargetType|self
      */
-    public function type($type = null)
+    public function type(TargetType $type = null)
     {
         if(null === $type)
         {
             return $this->_type;
         }
-        if(TargetType::isValid(trim($type)))
-        {
-            $this->_type = trim($type);
-        }
-        else
-        {
-            throw new \InvalidArgumentException('Invalid target type');
-        }
+        $this->_type = $type;
         return $this;
     }
 
     /**
      * Gets or sets by
      *
-     * @param  string $by
-     * @return string|self
+     * @param  TargetBy $by
+     * @return TargetBy|self
      */
-    public function by($by = null)
+    public function by(TargetBy $by = null)
     {
         if(null === $by)
         {
             return $this->_by;
         }
-        if(TargetBy::isValid(trim($by)))
-        {
-            $this->_by = trim($by);
-        }
+        $this->_by = $by;
         return $this;
     }
 
@@ -134,12 +114,12 @@ class EffectiveRightsTargetSelector
     {
         $name = !empty($name) ? $name : 'target';
         $arr = array(
-            'type' => $this->_type,
+            'type' => (string) $this->_type,
             '_' => $this->_value,
         );
         if(!empty($this->_by))
         {
-            $arr['by'] = $this->_by;
+            $arr['by'] = (string) $this->_by;
         }
         return array($name => $arr);
     }
@@ -154,10 +134,10 @@ class EffectiveRightsTargetSelector
     {
         $name = !empty($name) ? $name : 'target';
         $xml = new SimpleXML('<'.$name.'>'.$this->_value.'</'.$name.'>');
-        $xml->addAttribute('type', $this->_type);
+        $xml->addAttribute('type', (string) $this->_type);
         if(!empty($this->_by))
         {
-            $xml->addAttribute('by', $this->_by);
+            $xml->addAttribute('by', (string) $this->_by);
         }
         return $xml;
     }

@@ -11,6 +11,7 @@
 namespace Zimbra\Soap\Struct;
 
 use Zimbra\Utils\SimpleXML;
+use Zimbra\Utils\TypedSequence;
 
 /**
  * QueueQueryField class
@@ -42,7 +43,7 @@ class QueueQueryField
     public function __construct($name, array $matches = array())
     {
         $this->_name = trim($name);
-        $this->matches($matches);
+        $this->_matches = new TypedSequence('Zimbra\Soap\Struct\ValueAttrib', $matches);
     }
 
     /**
@@ -69,31 +70,18 @@ class QueueQueryField
      */
     public function addMatch(ValueAttrib $match)
     {
-        $this->_matches[] = $match;
+        $this->_matches->add($match);
         return $this;
     }
 
     /**
-     * Gets or sets matches array
+     * Gets matches sequence
      *
-     * @param  array $matches
-     * @return array|self
+     * @return Sequence
      */
-    public function matches(array $matches = null)
+    public function matches()
     {
-        if(null === $matches)
-        {
-            return $this->_matches;
-        }
-        $this->_matches = array();
-        foreach ($matches as $match)
-        {
-            if($match instanceof ValueAttrib)
-            {
-                $this->_matches[] = $match;
-            }
-        }
-        return $this;
+        return $this->_matches;
     }
 
     /**

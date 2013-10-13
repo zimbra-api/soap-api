@@ -10,7 +10,6 @@
 
 namespace Zimbra\Soap\Struct;
 
-use Zimbra\Soap\Enum\GranteeType;
 use Zimbra\Utils\SimpleXML;
 
 /**

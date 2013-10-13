@@ -11,7 +11,7 @@
 namespace Zimbra\API\Admin\Request;
 
 use Zimbra\Soap\Request;
-use Zimbra\Soap\Enum\Action;
+use Zimbra\Soap\Enum\AutoProvTaskAction as Action;
 
 /**
  * AutoProvTaskControl class
@@ -30,54 +30,34 @@ class AutoProvTaskControl extends Request
 {
     /**
      * Action to perform - one of start|status|stop
-     * @var string
+     * @var Action
      */
     private $_action;
-	
-    /**
-     * Valid actions
-     * @var array
-     */
-	private static $_validActions = array('start', 'status', 'stop');
 
     /**
      * Constructor method for AutoProvTaskControl
      * @param string $action
      * @return self
      */
-    public function __construct($action)
+    public function __construct(Action $action)
     {
         parent::__construct();
-        if(in_array(trim($action), self::$_validActions))
-        {
-            $this->_action = trim($action);
-        }
-        else
-        {
-            throw new \InvalidArgumentException('Invalid action');
-        }
+        $this->_action = $action;
     }
 
     /**
      * Gets or sets action
      *
-     * @param  string $action
-     * @return string|self
+     * @param  Action $action
+     * @return Action|self
      */
-    public function action($action = null)
+    public function action(Action $action = null)
     {
         if(null === $action)
         {
             return $this->_action;
         }
-        if(in_array(trim($action), self::$_validActions))
-        {
-            $this->_action = trim($action);
-        }
-        else
-        {
-            throw new \InvalidArgumentException('Invalid action');
-        }
+        $this->_action = $action;
         return $this;
     }
 
@@ -89,7 +69,7 @@ class AutoProvTaskControl extends Request
     public function toArray()
     {
         $this->array = array(
-            'action' => $this->_action,
+            'action' => (string) $this->_action,
         );
         return parent::toArray();
     }
@@ -101,7 +81,7 @@ class AutoProvTaskControl extends Request
      */
     public function toXml()
     {
-        $this->xml->addAttribute('action', $this->_action);
+        $this->xml->addAttribute('action', (string) $this->_action);
         return parent::toXml();
     }
 }

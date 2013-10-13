@@ -25,13 +25,13 @@ class MailQueueAction
 {
     /**
      * Operation
-     * @var string
+     * @var QueueAction
      */
     private $_op;
 
     /**
      * By selector
-     * @var string
+     * @var QueueActionBy
      */
     private $_by;
 
@@ -44,29 +44,15 @@ class MailQueueAction
     /**
      * Constructor method for MailQueueAction
      * @param  QueueQuery $query
-     * @param  string $op
-     * @param  string $by
+     * @param  QueueAction $op
+     * @param  QueueActionBy $by
      * @return self
      */
-    public function __construct(QueueQuery $query, $op, $by)
+    public function __construct(QueueQuery $query, QueueAction $op, QueueActionBy $by)
     {
         $this->_query = $query;
-        if(QueueAction::isValid(trim($op)))
-        {
-            $this->_op = trim($op);
-        }
-        else
-        {
-            throw new \InvalidArgumentException('Invalid operation');
-        }
-        if(QueueActionBy::isValid(trim($by)))
-        {
-            $this->_by = trim($by);
-        }
-        else
-        {
-            throw new \InvalidArgumentException('Invalid by selector');
-        }
+        $this->_op = $op;
+        $this->_by = $by;
     }
 
     /**
@@ -88,46 +74,32 @@ class MailQueueAction
     /**
      * Gets or sets op
      *
-     * @param  string $op
-     * @return string|self
+     * @param  QueueAction $op
+     * @return QueueAction|self
      */
-    public function op($op = null)
+    public function op(QueueAction $op = null)
     {
         if(null === $op)
         {
             return $this->_op;
         }
-        if(QueueAction::isValid(trim($op)))
-        {
-            $this->_op = trim($op);
-        }
-        else
-        {
-            throw new \InvalidArgumentException('Invalid operation');
-        }
+        $this->_op = $op;
         return $this;
     }
 
     /**
      * Gets or sets by
      *
-     * @param  string $by
-     * @return string|self
+     * @param  QueueActionBy $by
+     * @return QueueActionBy|self
      */
-    public function by($by = null)
+    public function by(QueueActionBy $by = null)
     {
         if(null === $by)
         {
             return $this->_by;
         }
-        if(QueueActionBy::isValid(trim($by)))
-        {
-            $this->_by = trim($by);
-        }
-        else
-        {
-            throw new \InvalidArgumentException('Invalid by selector');
-        }
+        $this->_by = $by;
         return $this;
     }
 
@@ -141,8 +113,8 @@ class MailQueueAction
     {
         $name = !empty($name) ? $name : 'action';
         $arr = array(
-            'op' => $this->_op,
-            'by' => $this->_by,
+            'op' => (string) $this->_op,
+            'by' => (string) $this->_by,
         );
         $arr += $this->_query->toArray('query');
         return array($name => $arr);
@@ -158,8 +130,8 @@ class MailQueueAction
     {
         $name = !empty($name) ? $name : 'action';
         $xml = new SimpleXML('<'.$name.' />');
-        $xml->addAttribute('op', $this->_op)
-            ->addAttribute('by', $this->_by)
+        $xml->addAttribute('op', (string) $this->_op)
+            ->addAttribute('by', (string) $this->_by)
             ->append($this->_query->toXml('query'));
         return $xml;
     }

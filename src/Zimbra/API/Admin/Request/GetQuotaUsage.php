@@ -11,6 +11,7 @@
 namespace Zimbra\API\Admin\Request;
 
 use Zimbra\Soap\Request;
+use Zimbra\Soap\Enum\QuotaSortBy;
 
 /**
  * GetQuotaUsage class
@@ -49,7 +50,7 @@ class GetQuotaUsage extends Request
 
     /**
      * SortBy - valid values: "percentUsed", "totalUsed", "quotaLimit"
-     * @var string
+     * @var QuotaSortBy
      */
     private $_sortBy;
 
@@ -65,15 +66,13 @@ class GetQuotaUsage extends Request
      */
     private $_refresh;
 
-    private static $_validSorts = array('percentUsed', 'totalUsed', 'quotaLimit');
-
     /**
      * Constructor method for GetQuotaUsage
      * @param string $domain
      * @param bool $allServers
      * @param int $limit
      * @param int $offset
-     * @param string $sortBy
+     * @param QuotaSortBy $sortBy
      * @param bool $sortAscending
      * @param bool $refresh
      * @return self
@@ -83,7 +82,7 @@ class GetQuotaUsage extends Request
         $allServers = null,
         $limit = null,
         $offset = null,
-        $sortBy = null,
+        QuotaSortBy $sortBy = null,
         $sortAscending = null,
         $refresh = null)
     {
@@ -101,9 +100,9 @@ class GetQuotaUsage extends Request
         {
             $this->_offset = (int) $offset;
         }
-        if(in_array(trim($sortBy), self::$_validSorts))
+        if($sortBy instanceof QuotaSortBy)
         {
-            $this->_sortBy = trim($sortBy);
+            $this->_sortBy = $sortBy;
         }
         if(null !== $sortAscending)
         {
@@ -182,19 +181,16 @@ class GetQuotaUsage extends Request
     /**
      * Gets or sets sortBy
      *
-     * @param  string $sortBy
-     * @return string|self
+     * @param  QuotaSortBy $sortBy
+     * @return QuotaSortBy|self
      */
-    public function sortBy($sortBy = null)
+    public function sortBy(QuotaSortBy $sortBy = null)
     {
         if(null === $sortBy)
         {
             return $this->_sortBy;
         }
-        if(in_array(trim($sortBy), self::$_validSorts))
-        {
-            $this->_sortBy = trim($sortBy);
-        }
+        $this->_sortBy = $sortBy;
         return $this;
     }
 
@@ -253,9 +249,9 @@ class GetQuotaUsage extends Request
         {
             $this->array['offset'] = $this->_offset;
         }
-        if(!empty($this->_sortBy))
+        if($this->_sortBy instanceof QuotaSortBy)
         {
-            $this->array['sortBy'] = $this->_sortBy;
+            $this->array['sortBy'] = (string) $this->_sortBy;
         }
         if(is_bool($this->_sortAscending))
         {
@@ -291,9 +287,9 @@ class GetQuotaUsage extends Request
         {
             $this->xml->addAttribute('offset', $this->_offset);
         }
-        if(!empty($this->_sortBy))
+        if($this->_sortBy instanceof QuotaSortBy)
         {
-            $this->xml->addAttribute('sortBy', $this->_sortBy);
+            $this->xml->addAttribute('sortBy', (string) $this->_sortBy);
         }
         if(is_bool($this->_sortAscending))
         {

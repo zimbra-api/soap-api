@@ -10,6 +10,7 @@
 
 namespace Zimbra\Soap\Struct;
 
+use Zimbra\Soap\Enum\ContentType;
 use Zimbra\Utils\SimpleXML;
 
 /**
@@ -29,22 +30,22 @@ class SignatureContent
 
     /**
      * Content Type - "text/plain" or "text/html"
-     * @var string
+     * @var ContentType
      */
     private $_type;
 
     /**
      * Constructor method for signatureContent
      * @param string $value
-     * @param string $type
+     * @param ContentType $type
      * @return self
      */
-    public function __construct($value = null, $type = null)
+    public function __construct($value = null, ContentType $type = null)
     {
         $this->_value = trim($value);
-        if(in_array(trim($type), array('text/plain', 'text/html')))
+        if($type instanceof ContentType)
         {
-            $this->_type = trim($type);
+            $this->_type = $type;
         }
     }
 
@@ -67,19 +68,16 @@ class SignatureContent
     /**
      * Gets or sets type
      *
-     * @param  string $type
-     * @return string|self
+     * @param  ContentType $type
+     * @return ContentType|self
      */
-    public function type($type = null)
+    public function type(ContentType $type = null)
     {
         if(null === $type)
         {
             return $this->_type;
         }
-        if(in_array(trim($type), array('text/plain', 'text/html')))
-        {
-            $this->_type = trim($type);
-        }
+        $this->_type = $type;
         return $this;
     }
 
@@ -91,7 +89,7 @@ class SignatureContent
     public function toArray()
     {
         $arr = array();
-        if(!empty($this->_type))
+        if($this->_type instanceof ContentType)
         {
             $arr['type'] = $this->_type;
         }
@@ -110,7 +108,7 @@ class SignatureContent
     public function toXml()
     {
         $xml = new SimpleXML('<content>'.$this->_value.'</content>');
-        if(!empty($this->_type))
+        if($this->_type instanceof ContentType)
         {
             $xml->addAttribute('type', (string) $this->_type);
         }

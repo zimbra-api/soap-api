@@ -11,6 +11,8 @@
 namespace Zimbra\API\Admin\Request;
 
 use Zimbra\Soap\Request;
+use Zimbra\Soap\Enum\CertType;
+use Zimbra\Soap\Enum\CSRType;
 
 /**
  * GetCert class
@@ -31,59 +33,33 @@ class GetCert extends Request
 
     /**
      * Certificate type 
-     * @var string
+     * @var CertType
      */
     private $_type;
 
     /**
      * Required only when type is "staged"
      * Could be "self" (self-signed cert) or "comm" (commerical cert).
-     * @var string
+     * @var CSRType
      */
     private $_option;
 
     /**
-     * Valid types
-     * @var array
-     */
-    private static $_validTypes = array(
-        'all',
-        'mta',
-        'ldap',
-        'mailboxd',
-        'proxy',
-        'staged',
-    );
-
-    /**
-     * Valid types
-     * @var array
-     */
-    private static $_validOptions = array(
-        'self',
-        'comm',
-    );
-
-    /**
      * Constructor method for GetCert
      * @param  string $server
-     * @param  string $type
-     * @param  string $option
+     * @param  CertType $type
+     * @param  CSRType $option
      * @return self
      */
-    public function __construct($server, $type, $option = null)
+    public function __construct($server, CertType $type, CSRType $option = null)
     {
         parent::__construct();
         $this->_server = trim($server);
-        if(in_array(trim($type), self::$_validTypes))
+        $this->_type = $type;
+        if($option instanceof CSRType)
         {
-            $this->_type = trim($type);
+            $this->_option = $option;
         }
-        else
-        {
-            throw new \InvalidArgumentException('Invalid type');
-        }
-		$this->_option = in_array(trim($option), self::$_validOptions) ? trim($option) : null;
     }
 
     /**
@@ -105,42 +81,32 @@ class GetCert extends Request
     /**
      * Gets or sets type
      *
-     * @param  string $type
-     * @return string|self
+     * @param  CertType $type
+     * @return CertType|self
      */
-    public function type($type = null)
+    public function type(CertType $type = null)
     {
         if(null === $type)
         {
             return $this->_type;
         }
-        if(in_array(trim($type), self::$_validTypes))
-        {
-            $this->_type = trim($type);
-        }
-        else
-        {
-            throw new \InvalidArgumentException('Invalid type');
-        }
+        $this->_type = $type;
         return $this;
     }
 
     /**
      * Gets or sets option
      *
-     * @param  string $option
-     * @return string|self
+     * @param  CSRType $option
+     * @return CSRType|self
      */
-    public function option($option = null)
+    public function option(CSRType $option = null)
     {
         if(null === $option)
         {
             return $this->_option;
         }
-        if(in_array(trim($option), self::$_validOptions))
-        {
-            $this->_option = trim($option);
-        }
+        $this->_option = $option;
         return $this;
     }
 
@@ -153,9 +119,9 @@ class GetCert extends Request
     {
         $this->array = array(
             'server' => $this->_server,
-            'type' => $this->_type,
+            'type' => (string) $this->_type,
         );
-        if(!empty($this->_option))
+        if($this->_option instanceof CSRType)
         {
             $this->array['option'] = $this->_option;
         }
@@ -170,10 +136,10 @@ class GetCert extends Request
     public function toXml()
     {
         $this->xml->addAttribute('server', $this->_server)
-                  ->addAttribute('type', $this->_type);
-        if(!empty($this->_option))
+                  ->addAttribute('type', (string) $this->_type);
+        if($this->_option instanceof CSRType)
         {
-            $this->xml->addAttribute('option', $this->_option);
+            $this->xml->addAttribute('option', (string) $this->_option);
         }
         return parent::toXml();
     }

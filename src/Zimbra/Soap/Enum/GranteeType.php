@@ -17,7 +17,7 @@ namespace Zimbra\Soap\Enum;
  * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright Copyright © 2013 by Nguyen Van Nguyen.
  */
-class GranteeType
+class GranteeType extends Base
 {
     /**
      * Constant for value 'usr'
@@ -72,25 +72,4 @@ class GranteeType
      * @return string 'email'
      */
     const EMAIL = 'email';
-
-    /**
-     * Return true if value is allowed
-     * @param  string $type
-     * @return bool true|false
-     */
-    public static function isValid($type)
-    {
-        $validValues = array(
-            self::USR,
-            self::GRP,
-            self::EGP,
-            self::ALL,
-            self::DOM,
-            self::GST,
-            self::KEY,
-            self::PUB,
-            self::EMAIL,
-        );
-        return in_array($type, $validValues);
-    }
 }

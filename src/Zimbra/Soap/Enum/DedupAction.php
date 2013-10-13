@@ -17,7 +17,7 @@ namespace Zimbra\Soap\Enum;
  * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright Copyright © 2013 by Nguyen Van Nguyen.
  */
-class DedupAction
+class DedupAction extends Base
 {
     /**
      * Constant for value 'start'
@@ -39,20 +39,4 @@ class DedupAction
      * @return string 'reset'
      */
     const RESET = 'reset';
-
-    /**
-     * Return true if value is allowed
-     * @param  string $action
-     * @return bool true|false
-     */
-    public static function isValid($action)
-    {
-        $validValues = array(
-            self::START,
-            self::STATUS,
-            self::STOP,
-            self::RESET,
-        );
-        return in_array($action, $validValues);
-    }
 }

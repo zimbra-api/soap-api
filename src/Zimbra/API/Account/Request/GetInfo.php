@@ -11,6 +11,7 @@
 namespace Zimbra\API\Account\Request;
 
 use Zimbra\Soap\Request;
+use Zimbra\Soap\Enum\SectionType;
 
 /**
  * GetInfo class
@@ -23,8 +24,6 @@ use Zimbra\Soap\Request;
  */
 class GetInfo extends Request
 {
-    private static $_validSections = array('mbox', 'prefs', 'attrs', 'zimlets', 'props', 'idents', 'sigs', 'dsrcs', 'children');
-
     /**
      * Comma separated list of sections to return information about.
      * @var string
@@ -88,7 +87,7 @@ class GetInfo extends Request
         foreach ($sections as $section)
         {
             $section = trim($section);
-            if(in_array($section, self::$_validSections))
+            if(SectionType::has($section))
             {
                 $this->_sections = empty($this->_sections) ? $section : $this->_sections . ',' . $section;
             }

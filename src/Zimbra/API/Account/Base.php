@@ -53,7 +53,7 @@ use Zimbra\API\Account\Request\SubscribeDistributionList;
 use Zimbra\API\Account\Request\SyncGal;
 
 use Zimbra\Soap\Enum\AccountBy;
-use Zimbra\Soap\Enum\DistListBy;
+use Zimbra\Soap\Enum\DistributionListBy as DistListBy;
 use Zimbra\Soap\Struct\AccountSelector;
 use Zimbra\Soap\Struct\AuthToken;
 use Zimbra\Soap\Struct\CursorInfo;
@@ -114,7 +114,7 @@ abstract class Base extends Account implements AccountInterface
     {
         if(!($account instanceof AccountSelector))
         {
-            $account = new AccountSelector(AccountBy::NAME, (string) $account);
+            $account = new AccountSelector(AccountBy::NAME(), (string) $account);
         }
         $request = new Auth(
             $account,
@@ -145,7 +145,7 @@ abstract class Base extends Account implements AccountInterface
     {
         if(!($account instanceof AccountSelector))
         {
-            $account = new AccountSelector(AccountBy::NAME, (string) $account);
+            $account = new AccountSelector(AccountBy::NAME(), (string) $account);
         }
         return $this->auth($account, $password, null, null, $virtualHost);
     }
@@ -162,7 +162,7 @@ abstract class Base extends Account implements AccountInterface
     {
         if(!($account instanceof AccountSelector))
         {
-            $account = new AccountSelector(AccountBy::NAME, (string) $account);
+            $account = new AccountSelector(AccountBy::NAME(), (string) $account);
         }
         if(!($token instanceof AuthToken))
         {
@@ -183,7 +183,7 @@ abstract class Base extends Account implements AccountInterface
     {
         if(!($account instanceof AccountSelector))
         {
-            $account = new AccountSelector(AccountBy::NAME, (string) $account);
+            $account = new AccountSelector(AccountBy::NAME(), (string) $account);
         }
         $preAuth = new PreAuth(time() * 1000);
         $preAuth->computeValue($account, $key);
@@ -220,7 +220,7 @@ abstract class Base extends Account implements AccountInterface
     {
         if(!($account instanceof AccountSelector))
         {
-            $account = new AccountSelector(AccountBy::NAME, (string) $account);
+            $account = new AccountSelector(AccountBy::NAME(), (string) $account);
         }
         $request = new ChangePassword($account, $oldPassword, $password, $virtualHost);
         return $this->_client->doRequest($request);
@@ -325,7 +325,7 @@ abstract class Base extends Account implements AccountInterface
     {
         if(!($dl instanceof DistListSelector))
         {
-            $dl = new DistListSelector(DistListBy::NAME, (string) $dl);
+            $dl = new DistListSelector(DistListBy::NAME(), (string) $dl);
         }
         $request = new DistributionListAction($dl, $action, $attrs);
         return $this->_client->doRequest($request);
@@ -374,7 +374,7 @@ abstract class Base extends Account implements AccountInterface
     {
         if(!($account instanceof AccountSelector))
         {
-            $account = new AccountSelector(AccountBy::NAME, (string) $account);
+            $account = new AccountSelector(AccountBy::NAME(), (string) $account);
         }
         return $this->_client->doRequest(new GetAccountInfo($account));
     }
@@ -438,7 +438,7 @@ abstract class Base extends Account implements AccountInterface
     {
         if(!($dl instanceof DistListSelector))
         {
-            $dl = new DistListSelector(DistListBy::NAME, (string) $dl);
+            $dl = new DistListSelector(DistListBy::NAME(), (string) $dl);
         }
         $request = new GetDistributionList($dl, $needOwners, $needRights, $attrs);
         return $this->_client->doRequest($request);
@@ -518,7 +518,7 @@ abstract class Base extends Account implements AccountInterface
     {
         if(!($owner instanceof AccountSelector))
         {
-            $owner = new AccountSelector(AccountBy::NAME, (string) $owner);
+            $owner = new AccountSelector(AccountBy::NAME(), (string) $owner);
         }
         $request = new GetShareInfo($grantee, $owner, $internal, $includeSelf);
         return $this->_client->doRequest($request);
@@ -711,7 +711,7 @@ abstract class Base extends Account implements AccountInterface
     {
         if(!($dl instanceof DistListSelector))
         {
-            $dl = new DistListSelector(DistListBy::NAME, (string) $dl);
+            $dl = new DistListSelector(DistListBy::NAME(), (string) $dl);
         }
         $request = new SubscribeDistributionList($op, $dl);
         return $this->_client->doRequest($request);

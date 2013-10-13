@@ -11,6 +11,8 @@
 namespace Zimbra\Soap\Struct;
 
 use Zimbra\Utils\SimpleXML;
+use PhpCollection\Sequence;
+use Zimbra\Utils\TypedSequence;
 
 /**
  * Identity class
@@ -49,7 +51,7 @@ class Identity
     {
         $this->_name = trim($name);
         $this->_id = trim($id);
-        $this->attrs($attrs);
+        $this->_attrs = new TypedSequence('Zimbra\Soap\Struct\Attr', $attrs);
     }
 
     /**
@@ -92,30 +94,18 @@ class Identity
      */
     public function addAttr(Attr $attr)
     {
-        $this->_attrs[] = $attr;
+        $this->_attrs->add($attr);
         return $this;
     }
 
     /**
-     * Get array of Attr
+     * Gets attr sequence
      *
-     * @return array Array of Attr
+     * @return Sequence
      */
     public function attrs(array $attrs = null)
     {
-        if(null === $attrs)
-        {
-            return $this->_attrs;
-        }
-        $this->_attrs = array();
-        foreach ($attrs as $attr)
-        {
-            if($attr instanceof Attr)
-            {
-                $this->_attrs[] = $attr;
-            }
-        }
-        return $this;
+        return $this->_attrs;
     }
 
     /**
@@ -139,8 +129,11 @@ class Identity
             $arr['a'] = array();
             foreach ($this->_attrs as $attr)
             {
-                $attrArr = $attr->toArray('a');
-                $arr['a'][] = $attrArr['a'];
+                if($attr instanceof Attr)
+                {
+                    $attrArr = $attr->toArray('a');
+                    $arr['a'][] = $attrArr['a'];
+                }
             }
         }
         return array('identity' => $arr);
@@ -162,9 +155,9 @@ class Identity
         {
             $xml->addAttribute('id', (string) $this->_id);
         }
-        if(count($this->_attrs))
+        foreach ($this->_attrs as $attr)
         {
-            foreach ($this->_attrs as $attr)
+            if($attr instanceof Attr)
             {
                 $xml->append($attr->toXml('a'));
             }

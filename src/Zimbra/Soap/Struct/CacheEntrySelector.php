@@ -25,7 +25,7 @@ class CacheEntrySelector
     /**
      * Select the meaning of {acct-selector-key}
      * Valid values: adminName|appAdminName|id|foreignPrincipal|name|krb5Principal
-     * @var string
+     * @var CacheEntryBy
      */
     private $_by;
 
@@ -37,43 +37,29 @@ class CacheEntrySelector
 
     /**
      * Constructor method for CacheEntrySelector
-     * @param  string $by
+     * @param  CacheEntryBy $by
      * @param  string $value
      * @return self
      */
-    public function __construct($by, $value = null)
+    public function __construct(CacheEntryBy $by, $value = null)
     {
-        if(CacheEntryBy::isValid(trim($by)))
-        {
-            $this->_by = trim($by);
-        }
-        else
-        {
-            throw new \InvalidArgumentException('Invalid cache entry by');
-        }
+        $this->_by = $by;
         $this->_value = trim($value);
     }
 
     /**
      * Gets or sets by
      *
-     * @param  string $by
-     * @return string|self
+     * @param  CacheEntryBy $by
+     * @return CacheEntryBy|self
      */
-    public function by($by = null)
+    public function by(CacheEntryBy $by = null)
     {
         if(null === $by)
         {
             return $this->_by;
         }
-        if(CacheEntryBy::isValid(trim($by)))
-        {
-            $this->_by = trim($by);
-        }
-        else
-        {
-            throw new \InvalidArgumentException('Invalid cache entry by');
-        }
+        $this->_by = $by;
         return $this;
     }
 
@@ -103,7 +89,7 @@ class CacheEntrySelector
     {
         $name = !empty($name) ? $name : 'entry';
         $arr = array(
-            'by' => $this->_by,
+            'by' => (string) $this->_by,
             '_' => $this->_value,
         );
         return array($name => $arr);
@@ -119,7 +105,7 @@ class CacheEntrySelector
     {
         $name = !empty($name) ? $name : 'entry';
         $xml = new SimpleXML('<'.$name.'>'.$this->_value.'</'.$name.'>');
-        $xml->addAttribute('by', $this->_by);
+        $xml->addAttribute('by', (string) $this->_by);
         return $xml;
     }
 

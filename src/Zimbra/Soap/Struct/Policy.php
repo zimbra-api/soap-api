@@ -24,7 +24,7 @@ class Policy
 {
     /**
      * Retention policy type
-     * @var string
+     * @var Type
      */
     private $_type;
     /**
@@ -51,11 +51,11 @@ class Policy
      * @param string $lifetime
      * @return self
      */
-    public function __construct($type = null, $id = null, $name = null, $lifetime = null)
+    public function __construct(Type $type = null, $id = null, $name = null, $lifetime = null)
     {
-        if(Type::isValid(trim($type)))
+        if($type instanceof Type)
         {
-            $this->_type = trim($type);
+            $this->_type = $type;
         }
         $this->_id = trim($id);
         $this->_name = trim($name);
@@ -65,19 +65,16 @@ class Policy
     /**
      * Gets or sets type
      *
-     * @param  string $type
-     * @return string|self
+     * @param  Type $type
+     * @return Type|self
      */
-    public function type($type = null)
+    public function type(Type $type = null)
     {
         if(null === $type)
         {
             return $this->_type;
         }
-        if(Type::isValid(trim($type)))
-        {
-            $this->_type = trim($type);
-        }
+        $this->_type = $type;
         return $this;
     }
 
@@ -139,9 +136,9 @@ class Policy
     {
         $name = !empty($name) ? $name : 'policy';
         $arr = array();
-        if(!empty($this->_type))
+        if($this->_type instanceof Type)
         {
-            $arr['type'] = $this->_type;
+            $arr['type'] = (string) $this->_type;
         }
         if(!empty($this->_id))
         {
@@ -168,9 +165,9 @@ class Policy
     {
         $name = !empty($name) ? $name : 'policy';
         $xml = new SimpleXML('<'.$name.' />');
-        if(!empty($this->_type))
+        if($this->_type instanceof Type)
         {
-            $xml->addAttribute('type', $this->_type);
+            $xml->addAttribute('type', (string) $this->_type);
         }
         if(!empty($this->_id))
         {

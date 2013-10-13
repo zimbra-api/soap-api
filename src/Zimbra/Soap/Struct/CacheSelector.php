@@ -11,6 +11,8 @@
 namespace Zimbra\Soap\Struct;
 
 use Zimbra\Utils\SimpleXML;
+use Zimbra\Soap\Enum\CacheType;
+use Zimbra\Utils\TypedSequence;
 
 /**
  * CacheSelector class
@@ -30,7 +32,7 @@ class CacheSelector
     /**
      * The entry
      * Array of CacheEntrySelector
-     * @var array
+     * @var Sequence
      */
     private $_entries = array();
 
@@ -41,12 +43,6 @@ class CacheSelector
      * @var bool
      */
     private $_allServers;
-
-    /**
-     * Valid cache types
-     * @var array
-     */
-    private static $_validTypes = array('skin', 'locale', 'account', 'cos', 'domain', 'server', 'zimlet');
 
     /**
      * Constructor method for CacheSelector
@@ -60,7 +56,7 @@ class CacheSelector
         $types = explode(',', $type);
         foreach ($types as $type)
         {
-            if(in_array(trim($type), self::$_validTypes))
+            if(CacheType::has(trim($type)))
             {
                 if(empty($this->_type))
                     $this->_type = trim($type);
@@ -72,9 +68,8 @@ class CacheSelector
         {
             $this->_allServers = (bool) $allServers;
         }
-        $this->entries($entries);
+        $this->_entries = new TypedSequence('Zimbra\Soap\Struct\CacheEntrySelector', $entries);
     }
-
 
     /**
      * Gets or sets type
@@ -92,7 +87,7 @@ class CacheSelector
         $this->_type = '';
         foreach ($types as $type)
         {
-            if(in_array(trim($type), self::$_validTypes))
+            if(CacheType::has(trim($type)))
             {
                 if(empty($this->_type))
                     $this->_type = trim($type);
@@ -127,32 +122,19 @@ class CacheSelector
      */
     public function addEntry(CacheEntrySelector $entry)
     {
-        $this->_entries[] = $entry;
+        $this->_entries->add($entry);
         return $this;
     }
 
 
     /**
-     * Gets or sets entries
+     * Gets entries Sequence
      *
-     * @param  array $entries
-     * @return array|self
+     * @return Sequence
      */
-    public function entries($entries = null)
+    public function entries()
     {
-        if(null === $entries)
-        {
-            return $this->_entries;
-        }
-        $this->_entries = array();
-        foreach ($entries as $entry)
-        {
-            if($entry instanceof CacheEntrySelector)
-            {
-                $this->_entries[] = $entry;
-            }
-        }
-        return $this;
+        return $this->_entries;
     }
 
     /**

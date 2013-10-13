@@ -3,6 +3,48 @@
 namespace Zimbra\Tests\API;
 
 use Zimbra\Tests\ZimbraTestCase;
+use Zimbra\Soap\Enum\AccountBy;
+use Zimbra\Soap\Enum\AclType;
+use Zimbra\Soap\Enum\AttrMethod;
+use Zimbra\Soap\Enum\AuthScheme;
+use Zimbra\Soap\Enum\AutoProvPrincipalBy as PrincipalBy;
+use Zimbra\Soap\Enum\AutoProvTaskAction as TaskAction;
+use Zimbra\Soap\Enum\CacheEntryBy;
+use Zimbra\Soap\Enum\CalendarResourceBy as CalResBy;
+use Zimbra\Soap\Enum\CertType;
+use Zimbra\Soap\Enum\CompactIndexAction as IndexAction;
+use Zimbra\Soap\Enum\CountObjectsType as ObjType;
+use Zimbra\Soap\Enum\CosBy;
+use Zimbra\Soap\Enum\CSRType;
+use Zimbra\Soap\Enum\CSRKeySize;
+use Zimbra\Soap\Enum\DataSourceType;
+use Zimbra\Soap\Enum\DedupAction;
+use Zimbra\Soap\Enum\DeployZimletAction as DeployAction;
+use Zimbra\Soap\Enum\DistributionListBy as DLBy;
+use Zimbra\Soap\Enum\DomainBy;
+use Zimbra\Soap\Enum\GalMode;
+use Zimbra\Soap\Enum\GalSearchType as SearchType;
+use Zimbra\Soap\Enum\GalConfigAction as ConfigAction;
+use Zimbra\Soap\Enum\GetSessionsSortBy as SessionsSortBy;
+use Zimbra\Soap\Enum\GranteeType;
+use Zimbra\Soap\Enum\GranteeBy;
+use Zimbra\Soap\Enum\IpType;
+use Zimbra\Soap\Enum\LoggingLevel;
+use Zimbra\Soap\Enum\QueueAction;
+use Zimbra\Soap\Enum\QueueActionBy;
+use Zimbra\Soap\Enum\QuotaSortBy;
+use Zimbra\Soap\Enum\ReIndexAction;
+use Zimbra\Soap\Enum\RightClass;
+use Zimbra\Soap\Enum\ServerBy;
+use Zimbra\Soap\Enum\SessionType;
+use Zimbra\Soap\Enum\TargetBy;
+use Zimbra\Soap\Enum\TargetType;
+use Zimbra\Soap\Enum\Type;
+use Zimbra\Soap\Enum\UcServiceBy;
+use Zimbra\Soap\Enum\XmppComponentBy as XmppBy;
+use Zimbra\Soap\Enum\ZimletStatus;
+use Zimbra\Soap\Enum\ZimletExcludeType as ExcludeType;
+
 use Zimbra\Utils\SimpleXML;
 
 /**
@@ -36,8 +78,8 @@ class AdminRequestTest extends ZimbraTestCase
 
     public function testAddAccountLogger()
     {
-        $logger = new \Zimbra\Soap\Struct\LoggerInfo('category', 'error');
-        $account = new \Zimbra\Soap\Struct\AccountSelector('name', 'value');
+        $logger = new \Zimbra\Soap\Struct\LoggerInfo('category', LoggingLevel::ERROR());
+        $account = new \Zimbra\Soap\Struct\AccountSelector(AccountBy::NAME(), 'value');
         $req = new \Zimbra\API\Admin\Request\AddAccountLogger($logger, $account);
 
         $this->assertSame($logger, $req->logger());
@@ -125,24 +167,26 @@ class AdminRequestTest extends ZimbraTestCase
     public function testAddGalSyncDataSource()
     {
         $attr = new \Zimbra\Soap\Struct\KeyValuePair('key', 'value');
-        $account = new \Zimbra\Soap\Struct\AccountSelector('name', 'value');
-        $req = new \Zimbra\API\Admin\Request\AddGalSyncDataSource($account, 'name', 'domain', 'both', 'folder', array($attr));
+        $account = new \Zimbra\Soap\Struct\AccountSelector(AccountBy::NAME(), 'value');
+        $req = new \Zimbra\API\Admin\Request\AddGalSyncDataSource(
+            $account, 'name', 'domain', GalMode::BOTH(), 'folder', array($attr)
+        );
 
         $this->assertSame($account, $req->account());
         $this->assertSame('name', $req->name());
         $this->assertSame('domain', $req->domain());
-        $this->assertSame('both', $req->type());
+        $this->assertSame('both', $req->type()->value());
         $this->assertSame('folder', $req->folder());
 
         $req->account($account)
             ->name('name')
             ->domain('domain')
-            ->type('zimbra')
+            ->type(GalMode::ZIMBRA())
             ->folder('folder');
         $this->assertSame($account, $req->account());
         $this->assertSame('name', $req->name());
         $this->assertSame('domain', $req->domain());
-        $this->assertSame('zimbra', $req->type());
+        $this->assertSame('zimbra', $req->type()->value());
         $this->assertSame('folder', $req->folder());
 
         $xml = '<?xml version="1.0"?>'."\n"
@@ -352,7 +396,7 @@ class AdminRequestTest extends ZimbraTestCase
 
     public function testAuth()
     {
-        $account = new \Zimbra\Soap\Struct\AccountSelector('name', 'value');
+        $account = new \Zimbra\Soap\Struct\AccountSelector(AccountBy::NAME(), 'value');
         $req = new \Zimbra\API\Admin\Request\Auth('name', 'password', 'authToken', $account, 'virtualHost', false);
 
         $this->assertSame('name', $req->name());
@@ -401,21 +445,23 @@ class AdminRequestTest extends ZimbraTestCase
 
     public function testAutoCompleteGal()
     {
-        $req = new \Zimbra\API\Admin\Request\AutoCompleteGal('domain', 'name', 'all', 'galAcctId', 100);
+        $req = new \Zimbra\API\Admin\Request\AutoCompleteGal(
+            'domain', 'name', SearchType::ALL(), 'galAcctId', 100
+        );
         $this->assertSame('domain', $req->domain());
         $this->assertSame('name', $req->name());
-        $this->assertSame('all', $req->type());
+        $this->assertSame('all', $req->type()->value());
         $this->assertSame('galAcctId', $req->galAcctId());
         $this->assertSame(100, $req->limit());
 
         $req->domain('domain')
             ->name('name')
-            ->type('account')
+            ->type(SearchType::ACCOUNT())
             ->galAcctId('galAcctId')
             ->limit(100);
         $this->assertSame('domain', $req->domain());
         $this->assertSame('name', $req->name());
-        $this->assertSame('account', $req->type());
+        $this->assertSame('account', $req->type()->value());
         $this->assertSame('galAcctId', $req->galAcctId());
         $this->assertSame(100, $req->limit());
 
@@ -437,8 +483,8 @@ class AdminRequestTest extends ZimbraTestCase
 
     public function testAutoProvAccount()
     {
-        $domain = new \Zimbra\Soap\Struct\DomainSelector('name', 'value');
-        $principal = new \Zimbra\Soap\Struct\PrincipalSelector('dn', 'principal');
+        $domain = new \Zimbra\Soap\Struct\DomainSelector(DomainBy::NAME(), 'value');
+        $principal = new \Zimbra\Soap\Struct\PrincipalSelector(PrincipalBy::DN(), 'principal');
         $req = new \Zimbra\API\Admin\Request\AutoProvAccount($domain, $principal, 'password');
 
         $this->assertSame($domain, $req->domain());
@@ -478,11 +524,11 @@ class AdminRequestTest extends ZimbraTestCase
 
     public function testAutoProvTaskControl()
     {
-        $req = new \Zimbra\API\Admin\Request\AutoProvTaskControl('start');
-        $this->assertSame('start', $req->action());
+        $req = new \Zimbra\API\Admin\Request\AutoProvTaskControl(TaskAction::START());
+        $this->assertSame('start', $req->action()->value());
 
-        $req->action('status');
-        $this->assertSame('status', $req->action());
+        $req->action(TaskAction::STATUS());
+        $this->assertSame('status', $req->action()->value());
 
         $xml = '<?xml version="1.0"?>'."\n"
             .'<AutoProvTaskControlRequest action="status" />';
@@ -613,7 +659,7 @@ class AdminRequestTest extends ZimbraTestCase
 
     public function testCheckDomainMXRecord()
     {
-        $domain = new \Zimbra\Soap\Struct\DomainSelector('name', 'value');
+        $domain = new \Zimbra\Soap\Struct\DomainSelector(DomainBy::NAME(), 'value');
         $req = new \Zimbra\API\Admin\Request\CheckDomainMXRecord($domain);
         $this->assertSame($domain, $req->domain());
 
@@ -639,7 +685,9 @@ class AdminRequestTest extends ZimbraTestCase
 
     public function testCheckExchangeAuth()
     {
-        $auth = new \Zimbra\Soap\Struct\ExchangeAuthSpec('url', 'user', 'pass', 'form', 'type');
+        $auth = new \Zimbra\Soap\Struct\ExchangeAuthSpec(
+            'url', 'user', 'pass', AuthScheme::FORM(), 'type'
+        );
         $req = new \Zimbra\API\Admin\Request\CheckExchangeAuth($auth);
         $this->assertSame($auth, $req->auth());
 
@@ -671,14 +719,14 @@ class AdminRequestTest extends ZimbraTestCase
         $attr = new \Zimbra\Soap\Struct\KeyValuePair('key', 'value');
         $query = new \Zimbra\Soap\Struct\LimitedQuery(100, 'value');
 
-        $req = new \Zimbra\API\Admin\Request\CheckGalConfig($query, 'autocomplete', array($attr));
+        $req = new \Zimbra\API\Admin\Request\CheckGalConfig($query, ConfigAction::AUTOCOMPLETE(), array($attr));
         $this->assertSame($query, $req->query());
-        $this->assertSame('autocomplete', $req->action());
+        $this->assertSame('autocomplete', $req->action()->value());
 
         $req->query($query)
-            ->action('search');
+            ->action(ConfigAction::SEARCH());
         $this->assertSame($query, $req->query());
-        $this->assertSame('search', $req->action());
+        $this->assertSame('search', $req->action()->value());
 
         $xml = '<?xml version="1.0"?>'."\n"
             .'<CheckGalConfigRequest>'
@@ -766,8 +814,12 @@ class AdminRequestTest extends ZimbraTestCase
     public function testCheckRight()
     {
         $attr = new \Zimbra\Soap\Struct\KeyValuePair('key', 'value');
-        $target = new \Zimbra\Soap\Struct\EffectiveRightsTargetSelector('account', 'value' ,'name');
-        $grantee = new \Zimbra\Soap\Struct\GranteeSelector('value', 'usr', 'id', 'secret', true);
+        $target = new \Zimbra\Soap\Struct\EffectiveRightsTargetSelector(
+            TargetType::ACCOUNT(), 'value' , TargetBy::NAME()
+        );
+        $grantee = new \Zimbra\Soap\Struct\GranteeSelector(
+            'value', GranteeType::USR(), GranteeBy::ID(), 'secret', true
+        );
 
         $req = new \Zimbra\API\Admin\Request\CheckRight($target, $grantee, 'right', array($attr));
         $this->assertSame($target, $req->target());
@@ -847,14 +899,14 @@ class AdminRequestTest extends ZimbraTestCase
     public function testCompactIndex()
     {
         $mbox = new \Zimbra\Soap\Struct\MailboxByAccountIdSelector('id');
-        $req = new \Zimbra\API\Admin\Request\CompactIndex($mbox, 'start');
+        $req = new \Zimbra\API\Admin\Request\CompactIndex($mbox, IndexAction::START());
         $this->assertSame($mbox, $req->mbox());
-        $this->assertSame('start', $req->action());
+        $this->assertSame('start', $req->action()->value());
 
         $req->mbox($mbox)
-            ->action('status');
+            ->action(IndexAction::STATUS());
         $this->assertSame($mbox, $req->mbox());
-        $this->assertSame('status', $req->action());
+        $this->assertSame('status', $req->action()->value());
 
         $xml = '<?xml version="1.0"?>'."\n"
             .'<CompactIndexRequest action="status">'
@@ -914,7 +966,7 @@ class AdminRequestTest extends ZimbraTestCase
 
     public function testCopyCos()
     {
-        $cos = new \Zimbra\Soap\Struct\CosSelector('name', 'value');
+        $cos = new \Zimbra\Soap\Struct\CosSelector(CosBy::NAME(), 'value');
         $req = new \Zimbra\API\Admin\Request\CopyCos('name', $cos);
         $this->assertSame('name', $req->name());
         $this->assertSame($cos, $req->cos());
@@ -945,7 +997,7 @@ class AdminRequestTest extends ZimbraTestCase
 
     public function testCountAccount()
     {
-        $domain = new \Zimbra\Soap\Struct\DomainSelector('name', 'value');
+        $domain = new \Zimbra\Soap\Struct\DomainSelector(DomainBy::NAME(), 'value');
 
         $req = new \Zimbra\API\Admin\Request\CountAccount($domain);
         $this->assertSame($domain, $req->domain());
@@ -972,18 +1024,18 @@ class AdminRequestTest extends ZimbraTestCase
 
     public function testCountObjects()
     {
-        $domain = new \Zimbra\Soap\Struct\DomainSelector('name', 'value');
-        $ucservice = new \Zimbra\Soap\Struct\UcServiceSelector('name', 'value');
+        $domain = new \Zimbra\Soap\Struct\DomainSelector(DomainBy::NAME(), 'value');
+        $ucservice = new \Zimbra\Soap\Struct\UcServiceSelector(UcServiceBy::NAME(), 'value');
 
-        $req = new \Zimbra\API\Admin\Request\CountObjects('userAccount', $domain, $ucservice);
-        $this->assertSame('userAccount', $req->type());
+        $req = new \Zimbra\API\Admin\Request\CountObjects(ObjType::USER_ACCOUNT(), $domain, $ucservice);
+        $this->assertSame('userAccount', $req->type()->value());
         $this->assertSame($domain, $req->domain());
         $this->assertSame($ucservice, $req->ucservice());
 
-        $req->type('account')
+        $req->type(ObjType::ACCOUNT())
             ->domain($domain)
             ->ucservice($ucservice);
-        $this->assertSame('account', $req->type());
+        $this->assertSame('account', $req->type()->value());
         $this->assertSame($domain, $req->domain());
         $this->assertSame($ucservice, $req->ucservice());
 
@@ -1110,7 +1162,7 @@ class AdminRequestTest extends ZimbraTestCase
     public function testCreateDataSource()
     {
         $attr = new \Zimbra\Soap\Struct\KeyValuePair('key', 'value');
-        $dataSource = new \Zimbra\Soap\Struct\DataSourceSpecifier('pop3', 'name', array($attr));
+        $dataSource = new \Zimbra\Soap\Struct\DataSourceSpecifier(DataSourceType::POP3(), 'name', array($attr));
 
         $req = new \Zimbra\API\Admin\Request\CreateDataSource('id', $dataSource);
         $this->assertSame('id', $req->id());
@@ -1213,14 +1265,14 @@ class AdminRequestTest extends ZimbraTestCase
     public function testCreateGalSyncAccount()
     {
         $attr = new \Zimbra\Soap\Struct\KeyValuePair('key', 'value');
-        $account = new \Zimbra\Soap\Struct\AccountSelector('name', 'value');
+        $account = new \Zimbra\Soap\Struct\AccountSelector(AccountBy::NAME(), 'value');
 
         $req = new \Zimbra\API\Admin\Request\CreateGalSyncAccount(
-            'name', 'domain', 'both', 'server', $account, 'password', 'folder', array($attr)
+            'name', 'domain', GalMode::BOTH(), 'server', $account, 'password', 'folder', array($attr)
         );
         $this->assertSame('name', $req->name());
         $this->assertSame('domain', $req->domain());
-        $this->assertSame('both', $req->type());
+        $this->assertSame('both', $req->type()->value());
         $this->assertSame('server', $req->server());
         $this->assertSame($account, $req->account());
         $this->assertSame('password', $req->password());
@@ -1228,14 +1280,14 @@ class AdminRequestTest extends ZimbraTestCase
 
         $req->name('name')
             ->domain('domain')
-            ->type('ldap')
+            ->type(GalMode::LDAP())
             ->server('server')
             ->account($account)
             ->password('password')
             ->folder('folder');
         $this->assertSame('name', $req->name());
         $this->assertSame('domain', $req->domain());
-        $this->assertSame('ldap', $req->type());
+        $this->assertSame('ldap', $req->type()->value());
         $this->assertSame('server', $req->server());
         $this->assertSame($account, $req->account());
         $this->assertSame('password', $req->password());
@@ -1331,9 +1383,9 @@ class AdminRequestTest extends ZimbraTestCase
 
     public function testCreateSystemRetentionPolicy()
     {
-        $cos = new \Zimbra\Soap\Struct\CosSelector('name', 'value');
-        $keep = new \Zimbra\Soap\Struct\Policy('system', 'id', 'name', 'lifetime');
-        $purge = new \Zimbra\Soap\Struct\Policy('user', 'id', 'name', 'lifetime');
+        $cos = new \Zimbra\Soap\Struct\CosSelector(CosBy::NAME(), 'value');
+        $keep = new \Zimbra\Soap\Struct\Policy(Type::SYSTEM(), 'id', 'name', 'lifetime');
+        $purge = new \Zimbra\Soap\Struct\Policy(Type::USER(), 'id', 'name', 'lifetime');
 
         $req = new \Zimbra\API\Admin\Request\CreateSystemRetentionPolicy($cos, $keep, $purge);
         $this->assertSame($cos, $req->cos());
@@ -1465,8 +1517,8 @@ class AdminRequestTest extends ZimbraTestCase
     public function testCreateXMPPComponent()
     {
         $attr = new \Zimbra\Soap\Struct\KeyValuePair('key', 'value');
-        $domain = new \Zimbra\Soap\Struct\DomainSelector('name', 'domain');
-        $server = new \Zimbra\Soap\Struct\ServerSelector('name', 'server');
+        $domain = new \Zimbra\Soap\Struct\DomainSelector(DomainBy::NAME(), 'domain');
+        $server = new \Zimbra\Soap\Struct\ServerSelector(ServerBy::NAME(), 'server');
         $xmpp = new \Zimbra\Soap\Struct\XmppComponentSpec('name', $domain, $server, array($attr));
 
         $req = new \Zimbra\API\Admin\Request\CreateXMPPComponent($xmpp);
@@ -1542,14 +1594,14 @@ class AdminRequestTest extends ZimbraTestCase
     public function testDedupeBlobs()
     {
         $volume = new \Zimbra\Soap\Struct\IntIdAttr(1);
-        $req = new \Zimbra\API\Admin\Request\DedupeBlobs('start', array($volume));
-        $this->assertSame('start', $req->action());
+        $req = new \Zimbra\API\Admin\Request\DedupeBlobs(DedupAction::START(), array($volume));
+        $this->assertSame('start', $req->action()->value());
         $this->assertSame(array($volume), $req->volumes());
 
-        $req->action('status')
+        $req->action(DedupAction::STATUS())
             ->volumes(array($volume))
             ->addVolume($volume);
-        $this->assertSame('status', $req->action());
+        $this->assertSame('status', $req->action()->value());
         $this->assertSame(array($volume, $volume), $req->volumes());
 
         $xml = '<?xml version="1.0"?>'."\n"
@@ -1577,7 +1629,7 @@ class AdminRequestTest extends ZimbraTestCase
 
     public function testDelegateAuth()
     {
-        $account = new \Zimbra\Soap\Struct\AccountSelector('name', 'value');
+        $account = new \Zimbra\Soap\Struct\AccountSelector(AccountBy::NAME(), 'value');
         $req = new \Zimbra\API\Admin\Request\DelegateAuth($account, 1000);
         $this->assertSame($account, $req->account());
         $this->assertSame(1000, $req->duration());
@@ -1748,7 +1800,7 @@ class AdminRequestTest extends ZimbraTestCase
 
     public function testDeleteGalSyncAccount()
     {
-        $account = new \Zimbra\Soap\Struct\AccountSelector('name', 'value');
+        $account = new \Zimbra\Soap\Struct\AccountSelector(AccountBy::NAME(), 'value');
         $req = new \Zimbra\API\Admin\Request\DeleteGalSyncAccount($account);
         $this->assertSame($account, $req->account());
 
@@ -1839,8 +1891,8 @@ class AdminRequestTest extends ZimbraTestCase
 
     public function testDeleteSystemRetentionPolicy()
     {
-        $cos = new \Zimbra\Soap\Struct\CosSelector('name', 'value');
-        $policy = new \Zimbra\Soap\Struct\Policy('system', 'id', 'name', 'lifetime');
+        $cos = new \Zimbra\Soap\Struct\CosSelector(CosBy::NAME(), 'value');
+        $policy = new \Zimbra\Soap\Struct\Policy(Type::SYSTEM(), 'id', 'name', 'lifetime');
 
         $req = new \Zimbra\API\Admin\Request\DeleteSystemRetentionPolicy($policy, $cos);
         $this->assertSame($policy, $req->policy());
@@ -1919,7 +1971,7 @@ class AdminRequestTest extends ZimbraTestCase
 
     public function testDeleteXMPPComponent()
     {
-        $xmpp = new \Zimbra\Soap\Struct\XmppComponentSelector('name', 'value');
+        $xmpp = new \Zimbra\Soap\Struct\XmppComponentSelector(XmppBy::NAME(), 'value');
         $req = new \Zimbra\API\Admin\Request\DeleteXMPPComponent($xmpp);
         $this->assertSame($xmpp, $req->xmpp());
 
@@ -1971,17 +2023,17 @@ class AdminRequestTest extends ZimbraTestCase
     public function testDeployZimlet()
     {
         $content = new \Zimbra\Soap\Struct\AttachmentIdAttrib('aid');
-        $req = new \Zimbra\API\Admin\Request\DeployZimlet('deployAll', $content, false, true);
-        $this->assertSame('deployAll', $req->action());
+        $req = new \Zimbra\API\Admin\Request\DeployZimlet(DeployAction::DEPLOY_ALL(), $content, false, true);
+        $this->assertSame('deployAll', $req->action()->value());
         $this->assertSame($content, $req->content());
         $this->assertFalse($req->flush());
         $this->assertTrue($req->synchronous());
 
-        $req->action('deployLocal')
+        $req->action(DeployAction::DEPLOY_LOCAL())
             ->content($content)
             ->flush(true)
             ->synchronous(false);
-        $this->assertSame('deployLocal', $req->action());
+        $this->assertSame('deployLocal', $req->action()->value());
         $this->assertSame($content, $req->content());
         $this->assertTrue($req->flush());
         $this->assertFalse($req->synchronous());
@@ -2298,7 +2350,7 @@ class AdminRequestTest extends ZimbraTestCase
 
     public function testFlushCache()
     {
-        $entry = new \Zimbra\Soap\Struct\CacheEntrySelector('name', 'value');
+        $entry = new \Zimbra\Soap\Struct\CacheEntrySelector(CacheEntryBy::NAME(), 'value');
         $cache = new \Zimbra\Soap\Struct\CacheSelector('skin,account', true, array($entry));
 
         $req = new \Zimbra\API\Admin\Request\FlushCache($cache);
@@ -2334,12 +2386,12 @@ class AdminRequestTest extends ZimbraTestCase
     public function testGenCSR()
     {
         $req = new \Zimbra\API\Admin\Request\GenCSR(
-            'server', false, 'self', 1024, 'c', 'sT', 'l', 'o', 'oU', 'cN', array('subject')
+            'server', false, CSRType::SELF(), CSRKeySize::SIZE_1024(), 'c', 'sT', 'l', 'o', 'oU', 'cN', array('subject')
         );
         $this->assertSame('server', $req->server());
         $this->assertFalse($req->isNew());
-        $this->assertSame('self', $req->type());
-        $this->assertSame(1024, $req->keysize());
+        $this->assertSame('self', $req->type()->value());
+        $this->assertSame(1024, $req->keysize()->value());
         $this->assertSame('c', $req->c());
         $this->assertSame('sT', $req->sT());
         $this->assertSame('l', $req->l());
@@ -2350,8 +2402,8 @@ class AdminRequestTest extends ZimbraTestCase
 
         $req->server('server')
             ->isNew(true)
-            ->type('comm')
-            ->keysize(2048)
+            ->type(CSRType::COMM())
+            ->keysize(CSRKeySize::SIZE_2048())
             ->c('c')
             ->sT('st')
             ->l('l')
@@ -2361,8 +2413,8 @@ class AdminRequestTest extends ZimbraTestCase
             ->subjectAltName(array('subject'));
         $this->assertSame('server', $req->server());
         $this->assertTrue($req->isNew());
-        $this->assertSame('comm', $req->type());
-        $this->assertSame(2048, $req->keysize());
+        $this->assertSame('comm', $req->type()->value());
+        $this->assertSame(2048, $req->keysize()->value());
         $this->assertSame('c', $req->c());
         $this->assertSame('st', $req->sT());
         $this->assertSame('l', $req->l());
@@ -2405,7 +2457,7 @@ class AdminRequestTest extends ZimbraTestCase
 
     public function testGetAccount()
     {
-        $account = new \Zimbra\Soap\Struct\AccountSelector('name', 'value');
+        $account = new \Zimbra\Soap\Struct\AccountSelector(AccountBy::NAME(), 'value');
         $req = new \Zimbra\API\Admin\Request\GetAccount($account, false, 'attrs');
         $this->assertSame($account, $req->account());
         $this->assertFalse($req->applyCos());
@@ -2439,7 +2491,7 @@ class AdminRequestTest extends ZimbraTestCase
 
     public function testGetAccountInfo()
     {
-        $account = new \Zimbra\Soap\Struct\AccountSelector('name', 'value');
+        $account = new \Zimbra\Soap\Struct\AccountSelector(AccountBy::NAME(), 'value');
         $req = new \Zimbra\API\Admin\Request\GetAccountInfo($account);
         $this->assertSame($account, $req->account());
 
@@ -2465,7 +2517,7 @@ class AdminRequestTest extends ZimbraTestCase
 
     public function testGetAccountLoggers()
     {
-        $account = new \Zimbra\Soap\Struct\AccountSelector('name', 'value');
+        $account = new \Zimbra\Soap\Struct\AccountSelector(AccountBy::NAME(), 'value');
         $req = new \Zimbra\API\Admin\Request\GetAccountLoggers($account);
         $this->assertSame($account, $req->account());
 
@@ -2491,7 +2543,7 @@ class AdminRequestTest extends ZimbraTestCase
 
     public function testGetAccountMembership()
     {
-        $account = new \Zimbra\Soap\Struct\AccountSelector('name', 'value');
+        $account = new \Zimbra\Soap\Struct\AccountSelector(AccountBy::NAME(), 'value');
         $req = new \Zimbra\API\Admin\Request\GetAccountMembership($account);
         $this->assertSame($account, $req->account());
 
@@ -2517,8 +2569,8 @@ class AdminRequestTest extends ZimbraTestCase
 
     public function testGetAdminConsoleUIComp()
     {
-        $account = new \Zimbra\Soap\Struct\AccountSelector('name', 'value');
-        $dl = new \Zimbra\Soap\Struct\DistributionListSelector('name', 'value');
+        $account = new \Zimbra\Soap\Struct\AccountSelector(AccountBy::NAME(), 'value');
+        $dl = new \Zimbra\Soap\Struct\DistributionListSelector(DLBy::NAME(), 'value');
 
         $req = new \Zimbra\API\Admin\Request\GetAdminConsoleUIComp($account, $dl);
         $this->assertSame($account, $req->account());
@@ -2620,8 +2672,8 @@ class AdminRequestTest extends ZimbraTestCase
 
     public function testGetAllAccounts()
     {
-        $server = new \Zimbra\Soap\Struct\ServerSelector('name', 'value');
-        $domain = new \Zimbra\Soap\Struct\DomainSelector('name', 'value');
+        $server = new \Zimbra\Soap\Struct\ServerSelector(ServerBy::NAME(), 'value');
+        $domain = new \Zimbra\Soap\Struct\DomainSelector(DomainBy::NAME(), 'value');
 
         $req = new \Zimbra\API\Admin\Request\GetAllAccounts($server, $domain);
         $this->assertSame($server, $req->server());
@@ -2675,8 +2727,8 @@ class AdminRequestTest extends ZimbraTestCase
 
     public function testGetAllCalendarResources()
     {
-        $server = new \Zimbra\Soap\Struct\ServerSelector('name', 'value');
-        $domain = new \Zimbra\Soap\Struct\DomainSelector('name', 'value');
+        $server = new \Zimbra\Soap\Struct\ServerSelector(ServerBy::NAME(), 'value');
+        $domain = new \Zimbra\Soap\Struct\DomainSelector(DomainBy::NAME(), 'value');
 
         $req = new \Zimbra\API\Admin\Request\GetAllCalendarResources($server, $domain);
         $this->assertSame($server, $req->server());
@@ -2739,7 +2791,7 @@ class AdminRequestTest extends ZimbraTestCase
 
     public function testGetAllDistributionLists()
     {
-        $domain = new \Zimbra\Soap\Struct\DomainSelector('name', 'value');
+        $domain = new \Zimbra\Soap\Struct\DomainSelector(DomainBy::NAME(), 'value');
 
         $req = new \Zimbra\API\Admin\Request\GetAllDistributionLists($domain);
         $this->assertSame($domain, $req->domain());
@@ -2785,7 +2837,9 @@ class AdminRequestTest extends ZimbraTestCase
 
     public function testGetAllEffectiveRights()
     {
-        $grantee = new \Zimbra\Soap\Struct\GranteeSelector('value', 'usr', 'id', 'secret', true);
+        $grantee = new \Zimbra\Soap\Struct\GranteeSelector(
+            'value', GranteeType::USR(), GranteeBy::ID(), 'secret', true
+        );
 
         $req = new \Zimbra\API\Admin\Request\GetAllEffectiveRights($grantee, false);
         $this->assertSame($grantee, $req->grantee());
@@ -2871,17 +2925,17 @@ class AdminRequestTest extends ZimbraTestCase
 
     public function testGetAllRights()
     {
-        $req = new \Zimbra\API\Admin\Request\GetAllRights('targetType', false, 'ADMIN');
+        $req = new \Zimbra\API\Admin\Request\GetAllRights('targetType', false, RightClass::ADMIN());
         $this->assertSame('targetType', $req->targetType());
         $this->assertFalse($req->expandAllAttrs());
-        $this->assertSame('ADMIN', $req->rightClass());
+        $this->assertSame('ADMIN', $req->rightClass()->value());
 
         $req->targetType('targetType')
             ->expandAllAttrs(true)
-            ->rightClass('ALL');
+            ->rightClass(RightClass::ALL());
         $this->assertSame('targetType', $req->targetType());
         $this->assertTrue($req->expandAllAttrs());
-        $this->assertSame('ALL', $req->rightClass());
+        $this->assertSame('ALL', $req->rightClass()->value());
 
         $xml = '<?xml version="1.0"?>'."\n"
             .'<GetAllRightsRequest targetType="targetType" expandAllAttrs="1" rightClass="ALL" />';
@@ -2993,11 +3047,11 @@ class AdminRequestTest extends ZimbraTestCase
 
     public function testGetAllZimlets()
     {
-        $req = new \Zimbra\API\Admin\Request\GetAllZimlets('extension');
-        $this->assertSame('extension', $req->exclude());
+        $req = new \Zimbra\API\Admin\Request\GetAllZimlets(ExcludeType::EXTENSION());
+        $this->assertSame('extension', $req->exclude()->value());
 
-        $req->exclude('mail');
-        $this->assertSame('mail', $req->exclude());
+        $req->exclude(ExcludeType::MAIL());
+        $this->assertSame('mail', $req->exclude()->value());
 
         $xml = '<?xml version="1.0"?>'."\n"
             .'<GetAllZimletsRequest exclude="mail" />';
@@ -3037,7 +3091,7 @@ class AdminRequestTest extends ZimbraTestCase
 
     public function testGetCalendarResource()
     {
-        $calResource = new \Zimbra\Soap\Struct\CalendarResourceSelector('name', 'value');
+        $calResource = new \Zimbra\Soap\Struct\CalendarResourceSelector(CalResBy::NAME(), 'value');
         $req = new \Zimbra\API\Admin\Request\GetCalendarResource($calResource, false, 'attrs');
         $this->assertSame($calResource, $req->calResource());
         $this->assertFalse($req->applyCos());
@@ -3071,17 +3125,17 @@ class AdminRequestTest extends ZimbraTestCase
 
     public function testGetCert()
     {
-        $req = new \Zimbra\API\Admin\Request\GetCert('server', 'all', 'self');
+        $req = new \Zimbra\API\Admin\Request\GetCert('server', CertType::ALL(), CSRType::SELF());
         $this->assertSame('server', $req->server());
-        $this->assertSame('all', $req->type());
-        $this->assertSame('self', $req->option());
+        $this->assertSame('all', $req->type()->value());
+        $this->assertSame('self', $req->option()->value());
 
         $req->server('server')
-            ->type('mta')
-            ->option('comm');
+            ->type(CertType::MTA())
+            ->option(CSRType::COMM());
         $this->assertSame('server', $req->server());
-        $this->assertSame('mta', $req->type());
-        $this->assertSame('comm', $req->option());
+        $this->assertSame('mta', $req->type()->value());
+        $this->assertSame('comm', $req->option()->value());
 
         $xml = '<?xml version="1.0"?>'."\n"
             .'<GetCertRequest server="server" type="mta" option="comm" />';
@@ -3123,7 +3177,7 @@ class AdminRequestTest extends ZimbraTestCase
 
     public function testGetCos()
     {
-        $cos = new \Zimbra\Soap\Struct\CosSelector('name', 'value');
+        $cos = new \Zimbra\Soap\Struct\CosSelector(CosBy::NAME(), 'value');
         $req = new \Zimbra\API\Admin\Request\GetCos($cos, 'attrs');
         $this->assertSame($cos, $req->cos());
         $this->assertSame('attrs', $req->attrs());
@@ -3154,8 +3208,8 @@ class AdminRequestTest extends ZimbraTestCase
     public function testGetCreateObjectAttrs()
     {
         $target = new \Zimbra\Soap\Struct\TargetWithType('type', 'value');
-        $cos = new \Zimbra\Soap\Struct\CosSelector('name', 'value');
-        $domain = new \Zimbra\Soap\Struct\DomainSelector('name', 'value');
+        $cos = new \Zimbra\Soap\Struct\CosSelector(CosBy::NAME(), 'value');
+        $domain = new \Zimbra\Soap\Struct\DomainSelector(DomainBy::NAME(), 'value');
 
         $req = new \Zimbra\API\Admin\Request\GetCreateObjectAttrs($target, $domain, $cos);
         $this->assertSame($target, $req->target());
@@ -3198,14 +3252,14 @@ class AdminRequestTest extends ZimbraTestCase
 
     public function testGetCSR()
     {
-        $req = new \Zimbra\API\Admin\Request\GetCSR('server', 'self');
+        $req = new \Zimbra\API\Admin\Request\GetCSR('server', CSRType::SELF());
         $this->assertSame('server', $req->server());
-        $this->assertSame('self', $req->type());
+        $this->assertSame('self', $req->type()->value());
 
         $req->server('server')
-            ->type('comm');
+            ->type(CSRType::COMM());
         $this->assertSame('server', $req->server());
-        $this->assertSame('comm', $req->type());
+        $this->assertSame('comm', $req->type()->value());
 
         $xml = '<?xml version="1.0"?>'."\n"
             .'<GetCSRRequest server="server" type="comm" />';
@@ -3307,7 +3361,7 @@ class AdminRequestTest extends ZimbraTestCase
 
     public function testGetDevices()
     {
-        $account = new \Zimbra\Soap\Struct\AccountSelector('name', 'value');
+        $account = new \Zimbra\Soap\Struct\AccountSelector(AccountBy::NAME(), 'value');
         $req = new \Zimbra\API\Admin\Request\GetDevices($account);
         $this->assertSame($account, $req->account());
 
@@ -3334,7 +3388,7 @@ class AdminRequestTest extends ZimbraTestCase
     public function testGetDistributionList()
     {
         $attr = new \Zimbra\Soap\Struct\KeyValuePair('key', 'value');
-        $dl = new \Zimbra\Soap\Struct\DistributionListSelector('name', 'value');
+        $dl = new \Zimbra\Soap\Struct\DistributionListSelector(DLBy::NAME(), 'value');
         $req = new \Zimbra\API\Admin\Request\GetDistributionList($dl, 100, 100, false, array($attr));
         $this->assertSame($dl, $req->dl());
         $this->assertSame(100, $req->limit());
@@ -3380,7 +3434,7 @@ class AdminRequestTest extends ZimbraTestCase
 
     public function testGetDistributionListMembership()
     {
-        $dl = new \Zimbra\Soap\Struct\DistributionListSelector('name', 'value');
+        $dl = new \Zimbra\Soap\Struct\DistributionListSelector(DLBy::NAME(), 'value');
         $req = new \Zimbra\API\Admin\Request\GetDistributionListMembership($dl, 100, 100);
         $this->assertSame($dl, $req->dl());
         $this->assertSame(100, $req->limit());
@@ -3414,7 +3468,7 @@ class AdminRequestTest extends ZimbraTestCase
 
     public function testGetDomain()
     {
-        $domain = new \Zimbra\Soap\Struct\DomainSelector('name', 'value');
+        $domain = new \Zimbra\Soap\Struct\DomainSelector(DomainBy::NAME(), 'value');
         $req = new \Zimbra\API\Admin\Request\GetDomain($domain, false, 'attrs');
         $this->assertSame($domain, $req->domain());
         $this->assertFalse($req->applyConfig());
@@ -3448,7 +3502,7 @@ class AdminRequestTest extends ZimbraTestCase
 
     public function testGetDomainInfo()
     {
-        $domain = new \Zimbra\Soap\Struct\DomainSelector('name', 'value');
+        $domain = new \Zimbra\Soap\Struct\DomainSelector(DomainBy::NAME(), 'value');
         $req = new \Zimbra\API\Admin\Request\GetDomainInfo($domain, false);
         $this->assertSame($domain, $req->domain());
         $this->assertFalse($req->applyConfig());
@@ -3478,20 +3532,24 @@ class AdminRequestTest extends ZimbraTestCase
 
     public function testGetEffectiveRights()
     {
-        $target = new \Zimbra\Soap\Struct\EffectiveRightsTargetSelector('account', 'value', 'name');
-        $grantee = new \Zimbra\Soap\Struct\GranteeSelector('value', 'usr', 'id', 'secret', true);
+        $target = new \Zimbra\Soap\Struct\EffectiveRightsTargetSelector(
+            TargetType::ACCOUNT(), 'value', TargetBy::NAME()
+        );
+        $grantee = new \Zimbra\Soap\Struct\GranteeSelector(
+            'value', GranteeType::USR(), GranteeBy::ID(), 'secret', true
+        );
 
-        $req = new \Zimbra\API\Admin\Request\GetEffectiveRights($target, $grantee, 'getAttrs');
+        $req = new \Zimbra\API\Admin\Request\GetEffectiveRights($target, $grantee, AttrMethod::GET_ATTRS());
         $this->assertSame($target, $req->target());
         $this->assertSame($grantee, $req->grantee());
-        $this->assertSame('getAttrs', $req->expandAllAttrs());
+        $this->assertSame('getAttrs', $req->expandAllAttrs()->value());
 
         $req->target($target)
             ->grantee($grantee)
-            ->expandAllAttrs('setAttrs');
+            ->expandAllAttrs(AttrMethod::SET_ATTRS());
         $this->assertSame($target, $req->target());
         $this->assertSame($grantee, $req->grantee());
-        $this->assertSame('setAttrs', $req->expandAllAttrs());
+        $this->assertSame('setAttrs', $req->expandAllAttrs()->value());
 
         $xml = '<?xml version="1.0"?>'."\n"
             .'<GetEffectiveRightsRequest expandAllAttrs="setAttrs">'
@@ -3547,8 +3605,12 @@ class AdminRequestTest extends ZimbraTestCase
 
     public function testGetGrants()
     {
-        $target = new \Zimbra\Soap\Struct\EffectiveRightsTargetSelector('account', 'value', 'name');
-        $grantee = new \Zimbra\Soap\Struct\GranteeSelector('value', 'usr', 'id', 'secret', true);
+        $target = new \Zimbra\Soap\Struct\EffectiveRightsTargetSelector(
+            TargetType::ACCOUNT(), 'value', TargetBy::NAME()
+        );
+        $grantee = new \Zimbra\Soap\Struct\GranteeSelector(
+            'value', GranteeType::USR(), GranteeBy::ID(), 'secret', true
+        );
 
         $req = new \Zimbra\API\Admin\Request\GetGrants($target, $grantee);
         $this->assertSame($target, $req->target());
@@ -3865,13 +3927,13 @@ class AdminRequestTest extends ZimbraTestCase
     public function testGetQuotaUsage()
     {
         $req = new \Zimbra\API\Admin\Request\GetQuotaUsage(
-            'domain', false, 100, 100, 'percentUsed', false, true
+            'domain', false, 100, 100, QuotaSortBy::PERCENT_USED(), false, true
         );
         $this->assertSame('domain', $req->domain());
         $this->assertFalse($req->allServers());
         $this->assertSame(100, $req->limit());
         $this->assertSame(100, $req->offset());
-        $this->assertSame('percentUsed', $req->sortBy());
+        $this->assertSame('percentUsed', $req->sortBy()->value());
         $this->assertFalse($req->sortAscending());
         $this->assertTrue($req->refresh());
 
@@ -3879,14 +3941,14 @@ class AdminRequestTest extends ZimbraTestCase
             ->allServers(true)
             ->limit(10)
             ->offset(0)
-            ->sortBy('totalUsed')
+            ->sortBy(QuotaSortBy::TOTAL_USED())
             ->sortAscending(true)
             ->refresh(false);
         $this->assertSame('domain', $req->domain());
         $this->assertTrue($req->allServers());
         $this->assertSame(10, $req->limit());
         $this->assertSame(0, $req->offset());
-        $this->assertSame('totalUsed', $req->sortBy());
+        $this->assertSame('totalUsed', $req->sortBy()->value());
         $this->assertTrue($req->sortAscending());
         $this->assertFalse($req->refresh());
 
@@ -3969,7 +4031,7 @@ class AdminRequestTest extends ZimbraTestCase
 
     public function testGetServer()
     {
-        $server = new \Zimbra\Soap\Struct\ServerSelector('name', 'server');
+        $server = new \Zimbra\Soap\Struct\ServerSelector(ServerBy::NAME(), 'server');
         $req = new \Zimbra\API\Admin\Request\GetServer($server, false, 'attrs');
         $this->assertSame($server, $req->server());
         $this->assertFalse($req->applyConfig());
@@ -4003,15 +4065,15 @@ class AdminRequestTest extends ZimbraTestCase
 
     public function testGetServerNIfs()
     {
-        $server = new \Zimbra\Soap\Struct\ServerSelector('name', 'server');
-        $req = new \Zimbra\API\Admin\Request\GetServerNIfs($server, 'both');
+        $server = new \Zimbra\Soap\Struct\ServerSelector(ServerBy::NAME(), 'server');
+        $req = new \Zimbra\API\Admin\Request\GetServerNIfs($server, IpType::BOTH());
         $this->assertSame($server, $req->server());
-        $this->assertSame('both', $req->type());
+        $this->assertSame('both', $req->type()->value());
 
         $req->server($server)
-            ->type('ipV4');
+            ->type(IpType::IPV4());
         $this->assertSame($server, $req->server());
-        $this->assertSame('ipV4', $req->type());
+        $this->assertSame('ipV4', $req->type()->value());
 
         $xml = '<?xml version="1.0"?>'."\n"
             .'<GetServerNIfsRequest type="ipV4">'
@@ -4081,21 +4143,21 @@ class AdminRequestTest extends ZimbraTestCase
     public function testGetSessions()
     {
         $req = new \Zimbra\API\Admin\Request\GetSessions(
-            'soap', 'nameAsc', 100, 100, false
+            SessionType::SOAP(), SessionsSortBy::NAME_ASC(), 100, 100, false
         );
-        $this->assertSame('soap', $req->type());
-        $this->assertSame('nameAsc', $req->sortBy());
+        $this->assertSame('soap', $req->type()->value());
+        $this->assertSame('nameAsc', $req->sortBy()->value());
         $this->assertSame(100, $req->limit());
         $this->assertSame(100, $req->offset());
         $this->assertFalse($req->refresh());
 
-        $req->type('admin')
-            ->sortBy('nameDesc')
+        $req->type(SessionType::ADMIN())
+            ->sortBy(SessionsSortBy::NAME_DESC())
             ->limit(10)
             ->offset(0)
             ->refresh(true);
-        $this->assertSame('admin', $req->type());
-        $this->assertSame('nameDesc', $req->sortBy());
+        $this->assertSame('admin', $req->type()->value());
+        $this->assertSame('nameDesc', $req->sortBy()->value());
         $this->assertSame(10, $req->limit());
         $this->assertSame(0, $req->offset());
         $this->assertTrue($req->refresh());
@@ -4123,7 +4185,7 @@ class AdminRequestTest extends ZimbraTestCase
 
     public function testGetShareInfo()
     {
-        $owner = new \Zimbra\Soap\Struct\AccountSelector('name', 'value');
+        $owner = new \Zimbra\Soap\Struct\AccountSelector(AccountBy::NAME(), 'value');
         $grantee = new \Zimbra\Soap\Struct\GranteeChooser('type', 'id', 'name');
      
         $req = new \Zimbra\API\Admin\Request\GetShareInfo($owner, $grantee);
@@ -4160,7 +4222,7 @@ class AdminRequestTest extends ZimbraTestCase
 
     public function testGetSystemRetentionPolicy()
     {
-        $cos = new \Zimbra\Soap\Struct\CosSelector('name', 'value');
+        $cos = new \Zimbra\Soap\Struct\CosSelector(CosBy::NAME(), 'value');
         $req = new \Zimbra\API\Admin\Request\GetSystemRetentionPolicy($cos);
         $this->assertSame($cos, $req->cos());
         $req->cos($cos);
@@ -4185,7 +4247,7 @@ class AdminRequestTest extends ZimbraTestCase
 
     public function testGetUCService()
     {
-        $ucservice = new \Zimbra\Soap\Struct\UcServiceSelector('name', 'value');
+        $ucservice = new \Zimbra\Soap\Struct\UcServiceSelector(UcServiceBy::NAME(), 'value');
         $req = new \Zimbra\API\Admin\Request\GetUCService($ucservice, 'attrs');
         $this->assertSame($ucservice, $req->ucservice());
         $this->assertSame('attrs', $req->attrs());
@@ -4248,7 +4310,7 @@ class AdminRequestTest extends ZimbraTestCase
 
     public function testGetXMPPComponent()
     {
-        $xmpp = new \Zimbra\Soap\Struct\XmppComponentSelector('name', 'value');
+        $xmpp = new \Zimbra\Soap\Struct\XmppComponentSelector(XmppBy::NAME(), 'value');
         $req = new \Zimbra\API\Admin\Request\GetXMPPComponent($xmpp, 'attrs');
         $this->assertSame($xmpp, $req->xmpp());
         $this->assertSame('attrs', $req->attrs());
@@ -4321,8 +4383,12 @@ class AdminRequestTest extends ZimbraTestCase
 
     public function testGrantRight()
     {
-        $target = new \Zimbra\Soap\Struct\EffectiveRightsTargetSelector('account', 'value', 'name');
-        $grantee = new \Zimbra\Soap\Struct\GranteeSelector('value', 'usr', 'id', 'secret', true);
+        $target = new \Zimbra\Soap\Struct\EffectiveRightsTargetSelector(
+            TargetType::ACCOUNT(), 'value', TargetBy::NAME()
+        );
+        $grantee = new \Zimbra\Soap\Struct\GranteeSelector(
+            'value', GranteeType::USR(), GranteeBy::ID(), 'secret', true
+        );
         $right = new \Zimbra\Soap\Struct\RightModifierInfo('value', true, false, false, true);
 
         $req = new \Zimbra\API\Admin\Request\GrantRight($target, $grantee, $right);
@@ -4367,6 +4433,674 @@ class AdminRequestTest extends ZimbraTestCase
                     '_' => 'value',
                 ),
             ),
+        );
+        $this->assertEquals($array, $req->toArray());
+    }
+
+    public function testMailQueueAction()
+    {
+        $attr = new \Zimbra\Soap\Struct\ValueAttrib('value');
+        $field = new \Zimbra\Soap\Struct\QueueQueryField('name', array($attr));
+        $query = new \Zimbra\Soap\Struct\QueueQuery(array($field), 100, 0);
+        $action = new \Zimbra\Soap\Struct\MailQueueAction($query, QueueAction::HOLD(), QueueActionBy::QUERY());
+        $queue = new \Zimbra\Soap\Struct\MailQueueWithAction('name', $action);
+        $server = new \Zimbra\Soap\Struct\ServerWithQueueAction('name', $queue);
+
+        $req = new \Zimbra\API\Admin\Request\MailQueueAction($server);
+        $this->assertSame($server, $req->server());
+        $req->server($server);
+        $this->assertSame($server, $req->server());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<MailQueueActionRequest>'
+                .'<server name="name">'
+                    .'<queue name="name">'
+                        .'<action op="hold" by="query">'
+                            .'<query limit="100" offset="0">'
+                                .'<field name="name">'
+                                    .'<match value="value" />'
+                                .'</field>'
+                            .'</query>'
+                        .'</action>'
+                    .'</queue>'
+                .'</server>'
+            .'</MailQueueActionRequest>';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
+
+        $array = array(
+            'MailQueueActionRequest' => array(
+                'server' => array(
+                    'name' => 'name',
+                    'queue' => array(
+                        'name' => 'name',
+                        'action' => array(
+                            'op' => 'hold',
+                            'by' => 'query',
+                            'query' => array(
+                                'limit' => 100,
+                                'offset' => 0,
+                                'field' => array(
+                                    array(
+                                        'name' => 'name',
+                                        'match' => array(
+                                            array('value' => 'value'),
+                                        )
+                                    )
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+            ),
+        );
+        $this->assertEquals($array, $req->toArray());
+    }
+
+    public function testMailQueueFlush()
+    {
+        $server = new \Zimbra\Soap\Struct\NamedElement('name');
+        $req = new \Zimbra\API\Admin\Request\MailQueueFlush($server);
+        $this->assertSame($server, $req->server());
+        $req->server($server);
+        $this->assertSame($server, $req->server());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<MailQueueFlushRequest>'
+                .'<server name="name" />'
+            .'</MailQueueFlushRequest>';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
+
+        $array = array(
+            'MailQueueFlushRequest' => array(
+                'server' => array(
+                    'name' => 'name',
+                ),
+            ),
+        );
+        $this->assertEquals($array, $req->toArray());
+    }
+
+    public function testMigrateAccount()
+    {
+        $migrate = new \Zimbra\Soap\Struct\IdAndAction('id', 'wiki');
+        $req = new \Zimbra\API\Admin\Request\MigrateAccount($migrate);
+        $this->assertSame($migrate, $req->migrate());
+        $req->migrate($migrate);
+        $this->assertSame($migrate, $req->migrate());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<MigrateAccountRequest>'
+                .'<migrate id="id" action="wiki" />'
+            .'</MigrateAccountRequest>';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
+
+        $array = array(
+            'MigrateAccountRequest' => array(
+                'migrate' => array(
+                    'id' => 'id',
+                    'action' => 'wiki',
+                ),
+            ),
+        );
+        $this->assertEquals($array, $req->toArray());
+    }
+
+    public function testModifyAccount()
+    {
+        $attr = new \Zimbra\Soap\Struct\KeyValuePair('key', 'value');
+        $req = new \Zimbra\API\Admin\Request\ModifyAccount('id', array($attr));
+
+        $this->assertSame('id', $req->id());
+
+        $req->id('id');
+        $this->assertSame('id', $req->id());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<ModifyAccountRequest id="id">'
+                .'<a n="key">value</a>'
+            .'</ModifyAccountRequest>';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
+
+        $array = array(
+            'ModifyAccountRequest' => array(
+                'id' => 'id',
+                'a' => array(
+                    array(
+                        'n' => 'key',
+                        '_' => 'value',
+                    ),
+                ),
+            ),
+        );
+        $this->assertEquals($array, $req->toArray());
+    }
+
+    public function testModifyAdminSavedSearches()
+    {
+        $search = new \Zimbra\Soap\Struct\NamedValue('name', 'value');
+        $req = new \Zimbra\API\Admin\Request\ModifyAdminSavedSearches(array($search));
+        $this->assertSame(array($search), $req->searchs());
+
+        $req->searchs(array($search))
+            ->addSearch($search);
+        $this->assertSame(array($search, $search), $req->searchs());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<ModifyAdminSavedSearchesRequest>'
+                .'<search name="name">value</search>'
+                .'<search name="name">value</search>'
+            .'</ModifyAdminSavedSearchesRequest>';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
+
+        $array = array(
+            'ModifyAdminSavedSearchesRequest' => array(
+                'search' => array(
+                    array(
+                        'name' => 'name',
+                        '_' => 'value',
+                    ),
+                    array(
+                        'name' => 'name',
+                        '_' => 'value',
+                    ),
+                ),
+            ),
+        );
+        $this->assertEquals($array, $req->toArray());
+    }
+
+    public function testModifyCalendarResource()
+    {
+        $attr = new \Zimbra\Soap\Struct\KeyValuePair('key', 'value');
+        $req = new \Zimbra\API\Admin\Request\ModifyCalendarResource('id', array($attr));
+
+        $this->assertSame('id', $req->id());
+
+        $req->id('id');
+        $this->assertSame('id', $req->id());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<ModifyCalendarResourceRequest id="id">'
+                .'<a n="key">value</a>'
+            .'</ModifyCalendarResourceRequest>';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
+
+        $array = array(
+            'ModifyCalendarResourceRequest' => array(
+                'id' => 'id',
+                'a' => array(
+                    array(
+                        'n' => 'key',
+                        '_' => 'value',
+                    ),
+                ),
+            ),
+        );
+        $this->assertEquals($array, $req->toArray());
+    }
+
+    public function testModifyConfig()
+    {
+        $attr = new \Zimbra\Soap\Struct\KeyValuePair('key', 'value');
+        $req = new \Zimbra\API\Admin\Request\ModifyConfig(array($attr));
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<ModifyConfigRequest>'
+                .'<a n="key">value</a>'
+            .'</ModifyConfigRequest>';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
+
+        $array = array(
+            'ModifyConfigRequest' => array(
+                'a' => array(
+                    array(
+                        'n' => 'key',
+                        '_' => 'value',
+                    ),
+                )
+            ),
+        );
+        $this->assertEquals($array, $req->toArray());
+    }
+
+    public function testModifyCos()
+    {
+        $attr = new \Zimbra\Soap\Struct\KeyValuePair('key', 'value');
+        $req = new \Zimbra\API\Admin\Request\ModifyCos('id', array($attr));
+
+        $this->assertSame('id', $req->id());
+
+        $req->id('id');
+        $this->assertSame('id', $req->id());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<ModifyCosRequest>'
+                .'<id>id</id>'
+                .'<a n="key">value</a>'
+            .'</ModifyCosRequest>';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
+
+        $array = array(
+            'ModifyCosRequest' => array(
+                'id' => 'id',
+                'a' => array(
+                    array(
+                        'n' => 'key',
+                        '_' => 'value',
+                    ),
+                ),
+            ),
+        );
+        $this->assertEquals($array, $req->toArray());
+    }
+
+    public function testModifyDataSource()
+    {
+        $dataSource = new \Zimbra\Soap\Struct\Id('id');
+        $attr = new \Zimbra\Soap\Struct\KeyValuePair('key', 'value');
+        $req = new \Zimbra\API\Admin\Request\ModifyDataSource('id', $dataSource, array($attr));
+
+        $this->assertSame('id', $req->id());
+        $this->assertSame($dataSource, $req->dataSource());
+
+        $req->id('id')
+            ->dataSource($dataSource);
+        $this->assertSame('id', $req->id());
+        $this->assertSame($dataSource, $req->dataSource());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<ModifyDataSourceRequest id="id">'
+                .'<dataSource id="id" />'
+                .'<a n="key">value</a>'
+            .'</ModifyDataSourceRequest>';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
+
+        $array = array(
+            'ModifyDataSourceRequest' => array(
+                'id' => 'id',
+                'dataSource' => array(
+                    'id' => 'id',
+                ),
+                'a' => array(
+                    array(
+                        'n' => 'key',
+                        '_' => 'value',
+                    ),
+                ),
+            ),
+        );
+        $this->assertEquals($array, $req->toArray());
+    }
+
+    public function testModifyDelegatedAdminConstraints()
+    {
+        $constraint = new \Zimbra\Soap\Struct\ConstraintInfo('min', 'max', array('value1', 'value2'));
+        $attr = new \Zimbra\Soap\Struct\ConstraintAttr('name', $constraint);
+        $req = new \Zimbra\API\Admin\Request\ModifyDelegatedAdminConstraints(
+            TargetType::GROUP(), 'id', 'name', array($attr)
+        );
+
+        $this->assertSame('group', $req->type()->value());
+        $this->assertSame('id', $req->id());
+        $this->assertSame('name', $req->name());
+        $this->assertSame(array($attr), $req->attrs());
+
+        $req->type(TargetType::ACCOUNT())
+            ->id('id')
+            ->name('name')
+            ->attrs(array($attr))
+            ->addAttr($attr);
+        $this->assertSame('account', $req->type()->value());
+        $this->assertSame('id', $req->id());
+        $this->assertSame('name', $req->name());
+        $this->assertSame(array($attr, $attr), $req->attrs());
+
+        $req->attrs(array($attr));
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<ModifyDelegatedAdminConstraintsRequest type="account" id="id" name="name">'
+                .'<a name="name">'
+                    .'<constraint>'
+                        .'<min>min</min>'
+                        .'<max>max</max>'
+                        .'<values>'
+                            .'<v>value1</v>'
+                            .'<v>value2</v>'
+                        .'</values>'
+                    .'</constraint>'
+                .'</a>'
+            .'</ModifyDelegatedAdminConstraintsRequest>';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
+
+        $array = array(
+            'ModifyDelegatedAdminConstraintsRequest' => array(
+                'type' => 'account',
+                'id' => 'id',
+                'name' => 'name',
+                'a' => array(
+                    array(
+                        'name' => 'name',
+                        'constraint' => array(
+                            'min' => 'min',
+                            'max' => 'max',
+                            'values' => array(
+                                'v' => array(
+                                    'value1',
+                                    'value2',
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+            ),
+        );
+        $this->assertEquals($array, $req->toArray());
+    }
+
+    public function testModifyDistributionList()
+    {
+        $attr = new \Zimbra\Soap\Struct\KeyValuePair('key', 'value');
+        $req = new \Zimbra\API\Admin\Request\ModifyDistributionList('id', array($attr));
+
+        $this->assertSame('id', $req->id());
+
+        $req->id('id');
+        $this->assertSame('id', $req->id());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<ModifyDistributionListRequest id="id">'
+                .'<a n="key">value</a>'
+            .'</ModifyDistributionListRequest>';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
+
+        $array = array(
+            'ModifyDistributionListRequest' => array(
+                'id' => 'id',
+                'a' => array(
+                    array(
+                        'n' => 'key',
+                        '_' => 'value',
+                    ),
+                ),
+            ),
+        );
+        $this->assertEquals($array, $req->toArray());
+    }
+
+    public function testModifyDomain()
+    {
+        $attr = new \Zimbra\Soap\Struct\KeyValuePair('key', 'value');
+        $req = new \Zimbra\API\Admin\Request\ModifyDomain('id', array($attr));
+
+        $this->assertSame('id', $req->id());
+
+        $req->id('id');
+        $this->assertSame('id', $req->id());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<ModifyDomainRequest id="id">'
+                .'<a n="key">value</a>'
+            .'</ModifyDomainRequest>';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
+
+        $array = array(
+            'ModifyDomainRequest' => array(
+                'id' => 'id',
+                'a' => array(
+                    array(
+                        'n' => 'key',
+                        '_' => 'value',
+                    ),
+                ),
+            ),
+        );
+        $this->assertEquals($array, $req->toArray());
+    }
+
+    public function testModifyLDAPEntry()
+    {
+        $attr = new \Zimbra\Soap\Struct\KeyValuePair('key', 'value');
+        $req = new \Zimbra\API\Admin\Request\ModifyLDAPEntry('dn', array($attr));
+
+        $this->assertSame('dn', $req->dn());
+
+        $req->dn('dn');
+        $this->assertSame('dn', $req->dn());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<ModifyLDAPEntryRequest dn="dn">'
+                .'<a n="key">value</a>'
+            .'</ModifyLDAPEntryRequest>';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
+
+        $array = array(
+            'ModifyLDAPEntryRequest' => array(
+                'dn' => 'dn',
+                'a' => array(
+                    array(
+                        'n' => 'key',
+                        '_' => 'value',
+                    ),
+                ),
+            ),
+        );
+        $this->assertEquals($array, $req->toArray());
+    }
+
+    public function testModifyServer()
+    {
+        $attr = new \Zimbra\Soap\Struct\KeyValuePair('key', 'value');
+        $req = new \Zimbra\API\Admin\Request\ModifyServer('id', array($attr));
+
+        $this->assertSame('id', $req->id());
+
+        $req->id('id');
+        $this->assertSame('id', $req->id());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<ModifyServerRequest id="id">'
+                .'<a n="key">value</a>'
+            .'</ModifyServerRequest>';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
+
+        $array = array(
+            'ModifyServerRequest' => array(
+                'id' => 'id',
+                'a' => array(
+                    array(
+                        'n' => 'key',
+                        '_' => 'value',
+                    ),
+                ),
+            ),
+        );
+        $this->assertEquals($array, $req->toArray());
+    }
+
+    public function testModifySystemRetentionPolicy()
+    {
+        $cos = new \Zimbra\Soap\Struct\CosSelector(CosBy::NAME(), 'value');
+        $policy = new \Zimbra\Soap\Struct\Policy(Type::SYSTEM(), 'id', 'name', 'lifetime');
+
+        $req = new \Zimbra\API\Admin\Request\ModifySystemRetentionPolicy($policy, $cos);
+        $this->assertSame($policy, $req->policy());
+        $this->assertSame($cos, $req->cos());
+
+        $req->policy($policy)
+            ->cos($cos);
+        $this->assertSame($policy, $req->policy());
+        $this->assertSame($cos, $req->cos());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<ModifySystemRetentionPolicyRequest>'
+                .'<policy type="system" id="id" name="name" lifetime="lifetime" />'
+                .'<cos by="name">value</cos>'
+            .'</ModifySystemRetentionPolicyRequest>';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
+
+        $array = array(
+            'ModifySystemRetentionPolicyRequest' => array(
+                'policy' => array(
+                    'type' => 'system',
+                    'id' => 'id',
+                    'name' => 'name',
+                    'lifetime' => 'lifetime',
+                ),
+                'cos' => array(
+                    'by' => 'name',
+                    '_' => 'value',
+                ),
+            ),
+        );
+        $this->assertEquals($array, $req->toArray());
+    }
+
+    public function testModifyUCService()
+    {
+        $attr = new \Zimbra\Soap\Struct\KeyValuePair('key', 'value');
+        $req = new \Zimbra\API\Admin\Request\ModifyUCService('id', array($attr));
+
+        $this->assertSame('id', $req->id());
+
+        $req->id('id');
+        $this->assertSame('id', $req->id());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<ModifyUCServiceRequest>'
+                .'<id>id</id>'
+                .'<a n="key">value</a>'
+            .'</ModifyUCServiceRequest>';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
+
+        $array = array(
+            'ModifyUCServiceRequest' => array(
+                'id' => 'id',
+                'a' => array(
+                    array(
+                        'n' => 'key',
+                        '_' => 'value',
+                    ),
+                ),
+            ),
+        );
+        $this->assertEquals($array, $req->toArray());
+    }
+
+    public function testModifyVolume()
+    {
+        $volume = new \Zimbra\Soap\Struct\VolumeInfo(1, 2, 3, 4, 5, 6, 7, 'name', 'rootpath', false, true);
+        $req = new \Zimbra\API\Admin\Request\ModifyVolume(100, $volume);
+        $this->assertSame(100, $req->id());
+        $this->assertSame($volume, $req->volume());
+
+        $req->id(100)
+            ->volume($volume);
+        $this->assertSame(100, $req->id());
+        $this->assertSame($volume, $req->volume());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<ModifyVolumeRequest id="100">'
+                .'<volume '
+                    .'id="1" '
+                    .'type="2" '
+                    .'compressionThreshold="3" '
+                    .'mgbits="4" '
+                    .'mbits="5" '
+                    .'fgbits="6" '
+                    .'fbits="7" '
+                    .'name="name" '
+                    .'rootpath="rootpath" '
+                    .'compressBlobs="0" '
+                    .'isCurrent="1" />'
+            .'</ModifyVolumeRequest>';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
+
+        $array = array(
+            'ModifyVolumeRequest' => array(
+                'id' => 100,
+                'volume' => array(
+                    'id' => 1,
+                    'type' => 2,
+                    'compressionThreshold' => 3,
+                    'mgbits' => 4,
+                    'mbits' => 5,
+                    'fgbits' => 6,
+                    'fbits' => 7,
+                    'name' => 'name',
+                    'rootpath' => 'rootpath',
+                    'compressBlobs' => 0,
+                    'isCurrent' => 1,
+                ),
+            ),
+        );
+        $this->assertEquals($array, $req->toArray());
+    }
+
+    public function testModifyZimlet()
+    {
+        $acl = new \Zimbra\Soap\Struct\ZimletAcl('cos', AclType::DENY());
+        $status = new \Zimbra\Soap\Struct\ValueAttrib(ZimletStatus::DISABLED);
+        $priority = new \Zimbra\Soap\Struct\IntegerValueAttrib(1);
+        $zimlet = new \Zimbra\Soap\Struct\ZimletAclStatusPri('name', $acl, $status, $priority);
+
+        $req = new \Zimbra\API\Admin\Request\ModifyZimlet($zimlet);
+        $this->assertSame($zimlet, $req->zimlet());
+        $req->zimlet($zimlet);
+        $this->assertSame($zimlet, $req->zimlet());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<ModifyZimletRequest>'
+                .'<zimlet name="name">'
+                    .'<acl cos="cos" acl="deny" />'
+                    .'<status value="disabled" />'
+                    .'<priority value="1" />'
+                .'</zimlet>'
+            .'</ModifyZimletRequest>';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
+
+        $array = array(
+            'ModifyZimletRequest' => array(
+                'zimlet' => array(
+                    'name' => 'name',
+                    'acl' => array(
+                        'cos' => 'cos',
+                        'acl' => 'deny',
+                    ),
+                    'status' => array(
+                        'value' => 'disabled',
+                    ),
+                    'priority' => array(
+                        'value' => 1,
+                    ),
+                ),
+            ),
+        );
+        $this->assertEquals($array, $req->toArray());
+    }
+
+    public function testNoOp()
+    {
+        $req = new \Zimbra\API\Admin\Request\NoOp();
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<NoOpRequest />';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
+
+        $array = array(
+            'NoOpRequest' => array(),
+        );
+        $this->assertEquals($array, $req->toArray());
+    }
+
+    public function testPing()
+    {
+        $req = new \Zimbra\API\Admin\Request\Ping();
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<PingRequest />';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
+
+        $array = array(
+            'PingRequest' => array(),
         );
         $this->assertEquals($array, $req->toArray());
     }

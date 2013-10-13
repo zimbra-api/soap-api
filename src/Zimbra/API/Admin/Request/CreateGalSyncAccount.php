@@ -39,7 +39,7 @@ class CreateGalSyncAccount extends Attr
 
     /**
      * GalMode type
-     * @var string
+     * @var GalMode
      */
     private $_type;
 
@@ -71,7 +71,7 @@ class CreateGalSyncAccount extends Attr
      * Constructor method for CreateGalSyncAccount
      * @param string $name
      * @param string $domain
-     * @param string $type
+     * @param GalMode $type
      * @param string $server
      * @param Account $account
      * @param string $password
@@ -82,25 +82,17 @@ class CreateGalSyncAccount extends Attr
     public function __construct(
         $name,
         $domain,
-        $type,
+        GalMode $type,
         $server,
         Account $account,
         $password = null,
         $folder = null,
-        array $attrs = array()
-    )
+        array $attrs = array())
     {
         parent::__construct($attrs);
         $this->_name = trim($name);
         $this->_domain = trim($domain);
-        if(GalMode::isValid(trim($type)))
-        {
-            $this->_type = trim($type);
-        }
-        else
-        {
-            throw new \InvalidArgumentException('Invalid GAL mode type');
-        }
+		$this->_type = $type;
         $this->_server = trim($server);
         $this->_account = $account;
         $this->_password = trim($password);
@@ -142,23 +134,16 @@ class CreateGalSyncAccount extends Attr
     /**
      * Gets or sets type
      *
-     * @param  string $type
-     * @return string|self
+     * @param  GalMode $type
+     * @return GalMode|self
      */
-    public function type($type = null)
+    public function type(GalMode $type = null)
     {
         if(null === $type)
         {
             return $this->_type;
         }
-        if(GalMode::isValid(trim($type)))
-        {
-            $this->_type = trim($type);
-        }
-        else
-        {
-            throw new \InvalidArgumentException('Invalid GAL mode type');
-        }
+		$this->_type = $type;
         return $this;
     }
 
@@ -236,7 +221,7 @@ class CreateGalSyncAccount extends Attr
         $this->array = array(
             'name' => $this->_name,
             'domain' => $this->_domain,
-            'type' => $this->_type,
+            'type' => (string) $this->_type,
             'server' => $this->_server,
         );
         $this->array += $this->_account->toArray();
@@ -260,7 +245,7 @@ class CreateGalSyncAccount extends Attr
     {
         $this->xml->addAttribute('name', $this->_name)
                   ->addAttribute('domain', $this->_domain)
-                  ->addAttribute('type', $this->_type)
+                  ->addAttribute('type', (string) $this->_type)
                   ->addAttribute('server', $this->_server)
                   ->append($this->_account->toXml());
         if(!empty($this->_password))

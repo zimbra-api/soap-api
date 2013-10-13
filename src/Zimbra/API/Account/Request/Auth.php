@@ -16,6 +16,7 @@ use Zimbra\Soap\Struct\PreAuth;
 use Zimbra\Soap\Struct\AuthToken;
 use Zimbra\Soap\Struct\Pref;
 use Zimbra\Soap\Struct\Attr;
+use Zimbra\Utils\TypedSequence;
 
 /**
  * Auth request class
@@ -123,8 +124,10 @@ class Auth extends Request
             $this->_authToken = $authToken;
         }
         $this->_virtualHost = trim($virtualHost);
-        $this->prefs($prefs);
-        $this->attrs($attrs);
+
+        $this->_prefs = new TypedSequence('Zimbra\Soap\Struct\Pref', $prefs);
+        $this->_attrs = new TypedSequence('Zimbra\Soap\Struct\Attr', $attrs);
+
         $this->_requestedSkin = trim($requestedSkin);
         if(null !== $persistAuthTokenCookie)
         {
@@ -220,31 +223,18 @@ class Auth extends Request
      */
     public function addPref(Pref $pref)
     {
-        $this->_prefs[] = $pref;
+        $this->_prefs->add($pref);
         return $this;
     }
 
     /**
-     * Gets or sets prefs
+     * Gets pref sequence
      *
-     * @param  array $prefs
-     * @return array|self
+     * @return Sequence
      */
-    public function prefs(array $prefs = null)
+    public function prefs()
     {
-        if(null === $prefs)
-        {
-            return $this->_prefs;
-        }
-        $this->_prefs = array();
-        foreach ($prefs as $pref)
-        {
-            if($pref instanceof Pref)
-            {
-                $this->_prefs[] = $pref;
-            }
-        }
-        return $this;
+        return $this->_prefs;
     }
 
     /**
@@ -255,31 +245,18 @@ class Auth extends Request
      */
     public function addAttr(Attr $attr)
     {
-        $this->_attrs[] = $attr;
+        $this->_attrs->add($attr);
         return $this;
     }
 
     /**
-     * Gets or sets attrs
+     * Gets attr sequence
      *
-     * @param  array $attrs
-     * @return array|self
+     * @return Sequence
      */
     public function attrs(array $attrs = null)
     {
-        if(null === $attrs)
-        {
-            return $this->_attrs;
-        }
-        $this->_attrs = array();
-        foreach ($attrs as $attr)
-        {
-            if($attr instanceof Attr)
-            {
-                $this->_attrs[] = $attr;
-            }
-        }
-        return $this;
+        return $this->_attrs;
     }
 
     /**

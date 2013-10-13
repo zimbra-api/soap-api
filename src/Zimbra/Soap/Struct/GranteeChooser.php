@@ -10,7 +10,6 @@
 
 namespace Zimbra\Soap\Struct;
 
-use Zimbra\Soap\Enum\AccountBy;
 use Zimbra\Utils\SimpleXML;
 
 /**

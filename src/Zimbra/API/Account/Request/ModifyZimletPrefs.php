@@ -12,6 +12,7 @@ namespace Zimbra\API\Account\Request;
 
 use Zimbra\Soap\Request;
 use Zimbra\Soap\Struct\ZimletPrefsSpec as Zimlet;
+use Zimbra\Utils\TypedSequence;
 
 /**
  * ModifyZimletPrefs class
@@ -38,7 +39,7 @@ class ModifyZimletPrefs extends Request
     public function __construct(array $zimlets = array())
     {
         parent::__construct();
-        $this->zimlets($zimlets);
+        $this->_zimlets = new TypedSequence('Zimbra\Soap\Struct\ZimletPrefsSpec', $zimlets);
     }
 
     /**
@@ -49,31 +50,19 @@ class ModifyZimletPrefs extends Request
      */
     public function addZimlet(Zimlet $zimlet)
     {
-        $this->_zimlets[] = $zimlet;
+        $this->_zimlets->add($zimlet);
         return $this;
     }
 
     /**
-     * Gets or sets zimlets
+     * Gets zimlet sequence
      *
      * @param  array $zimlets
-     * @return array|self
+     * @return Sequence
      */
-    public function zimlets(array $zimlets = null)
+    public function zimlets()
     {
-        if(null === $zimlets)
-        {
-            return $this->_zimlets;
-        }
-        $this->_zimlets = array();
-        foreach ($zimlets as $zimlet)
-        {
-            if($zimlet instanceof Zimlet)
-            {
-                $this->_zimlets[] = $zimlet;
-            }
-        }
-        return $this;
+        return $this->_zimlets;
     }
 
     /**

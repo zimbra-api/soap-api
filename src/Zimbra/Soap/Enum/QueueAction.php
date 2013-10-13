@@ -17,7 +17,7 @@ namespace Zimbra\Soap\Enum;
  * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright Copyright © 2013 by Nguyen Van Nguyen.
  */
-class QueueAction
+class QueueAction extends Base
 {
     /**
      * Constant for value 'hold'
@@ -42,20 +42,4 @@ class QueueAction
      * @return string 'requeue'
      */
     const REQUEUE = 'requeue';
-
-    /**
-     * Return true if value is allowed
-     * @param  string $action
-     * @return bool true|false
-     */
-    public static function isValid($action)
-    {
-        $validValues = array(
-            self::HOLD,
-            self::RELEASE,
-            self::DELETE,
-            self::REQUEUE,
-        );
-        return in_array($action, $validValues);
-    }
 }

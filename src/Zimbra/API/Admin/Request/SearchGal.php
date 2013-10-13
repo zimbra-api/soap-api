@@ -11,6 +11,7 @@
 namespace Zimbra\API\Admin\Request;
 
 use Zimbra\Soap\Request;
+use Zimbra\Soap\Enum\SearchGalType;
 
 /**
  * SearchGal class
@@ -66,7 +67,7 @@ class SearchGal extends Request
      * @param string $domain
      * @param string $name
      * @param int $limit
-     * @param string $type
+     * @param SearchGalType $type
      * @param string $galAcctId
      * @return self
      */
@@ -74,7 +75,7 @@ class SearchGal extends Request
         $domain,
         $name = null,
         $limit = null,
-        $type = null,
+        SearchGalType $type = null,
         $galAcctId = null
     )
     {
@@ -85,9 +86,9 @@ class SearchGal extends Request
         {
             $this->_limit = (int) $limit;
         }
-        if(in_array(trim($type), self::$_validTypes))
+        if($type instanceof SearchGalType)
         {
-            $this->_type = trim($type);
+            $this->_type = $type;
         }
         $this->_galAcctId = trim($galAcctId);
     }
@@ -142,19 +143,16 @@ class SearchGal extends Request
     /**
      * Gets or sets type
      *
-     * @param  string $type
-     * @return string|self
+     * @param  SearchGalType $type
+     * @return SearchGalType|self
      */
-    public function type($type = null)
+    public function type(SearchGalType $type = null)
     {
         if(null === $type)
         {
             return $this->_type;
         }
-        if(in_array(trim($type), self::$_validTypes))
-        {
-            $this->_type = trim($type);
-        }
+        $this->_type = $type;
         return $this;
     }
 
@@ -193,9 +191,9 @@ class SearchGal extends Request
         {
             $this->array['limit'] = $this->_limit;
         }
-        if(!empty($this->_type))
+        if($this->_type instanceof SearchGalType)
         {
-            $this->array['type'] = $this->_type;
+            $this->array['type'] = (string) $this->_type;
         }
         if(!empty($this->_galAcctId))
         {
@@ -223,9 +221,9 @@ class SearchGal extends Request
         {
             $this->xml->addAttribute('limit', $this->_limit);
         }
-        if(!empty($this->_type))
+        if($this->_type instanceof SearchGalType)
         {
-            $this->xml->addAttribute('type', $this->_type);
+            $this->xml->addAttribute('type', (string) $this->_type);
         }
         if(!empty($this->_galAcctId))
         {

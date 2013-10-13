@@ -24,29 +24,25 @@ class ExchangeAuthSpec
 {
     /**
      * URL to Exchange server
-     * - use : required
      * @var string
      */
     private $_url;
 
     /**
      * Exchange user
-     * - use : required
      * @var string
      */
     private $_user;
 
     /**
      * Exchange password
-     * - use : required
      * @var string
      */
     private $_pass;
 
     /**
      * Auth scheme
-     * - use : required
-     * @var string
+     * @var AuthScheme
      */
     private $_scheme;
 
@@ -61,23 +57,16 @@ class ExchangeAuthSpec
      * @param string $url
      * @param string $user
      * @param string $pass
-     * @param string $scheme
+     * @param AuthScheme $scheme
      * @param string $type
      * @return self
      */
-    public function __construct($url, $user, $pass, $scheme, $type = null)
+    public function __construct($url, $user, $pass, AuthScheme $scheme, $type = null)
     {
         $this->_url = trim($url);
         $this->_user = trim($user);
         $this->_pass = trim($pass);
-        if(AuthScheme::isValid(trim($scheme)))
-        {
-            $this->_scheme = trim($scheme);
-        }
-        else
-        {
-            throw new \InvalidArgumentException('Invalid scheme');
-        }
+        $this->_scheme = $scheme;
         $this->_type = trim($type);
     }
 
@@ -132,23 +121,16 @@ class ExchangeAuthSpec
     /**
      * Gets or sets scheme
      *
-     * @param  string $scheme
-     * @return string|self
+     * @param  AuthScheme $scheme
+     * @return AuthScheme|self
      */
-    public function scheme($scheme = null)
+    public function scheme(AuthScheme $scheme = null)
     {
         if(null === $scheme)
         {
             return $this->_scheme;
         }
-        if(AuthScheme::isValid(trim($scheme)))
-        {
-            $this->_scheme = trim($scheme);
-        }
-        else
-        {
-            throw new \InvalidArgumentException('Invalid scheme');
-        }
+        $this->_scheme = $scheme;
         return $this;
     }
 
@@ -181,7 +163,7 @@ class ExchangeAuthSpec
             'url' => $this->_url,
             'user' => $this->_user,
             'pass' => $this->_pass,
-            'scheme' => $this->_scheme,
+            'scheme' => (string) $this->_scheme,
         );
         if(!empty($this->_type))
         {
@@ -203,7 +185,7 @@ class ExchangeAuthSpec
         $xml->addAttribute('url', $this->_url)
             ->addAttribute('user', $this->_user)
             ->addAttribute('pass', $this->_pass)
-            ->addAttribute('scheme', $this->_scheme);
+            ->addAttribute('scheme', (string) $this->_scheme);
         if(!empty($this->_type))
         {
             $xml->addAttribute('type', $this->_type);

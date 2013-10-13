@@ -12,6 +12,7 @@ namespace Zimbra\API\Admin\Request;
 
 use Zimbra\Soap\Request\Attr;
 use Zimbra\Soap\Struct\LimitedQuery as Query;
+use Zimbra\Soap\Enum\GalConfigAction as Action;
 
 /**
  * CheckGalConfig class
@@ -32,7 +33,7 @@ class CheckGalConfig extends Attr
 
     /**
      * The action. Can be autocomplete|search|sync. Default is search
-     * @var string
+     * @var Action
      */
     private $_action;
 
@@ -46,20 +47,20 @@ class CheckGalConfig extends Attr
      * Constructor method for CheckGalConfig
      *
      * @param Query $query
-     * @param string $action
+     * @param Action $action
      * @param array  $attrs
      * @return self
      */
-    public function __construct(Query $query = null, $action = null, array $attrs = array())
+    public function __construct(Query $query = null, Action $action = null, array $attrs = array())
     {
         parent::__construct($attrs);
         if($query instanceof Query)
         {
             $this->_query = $query;
         }
-        if(in_array(trim($action), array('autocomplete', 'search', 'sync')))
+        if($action instanceof Action)
         {
-            $this->_action = trim($action);
+            $this->_action = $action;
         }
     }
 
@@ -82,19 +83,16 @@ class CheckGalConfig extends Attr
     /**
      * Gets or sets action
      *
-     * @param  string $action
-     * @return string|self
+     * @param  Action $action
+     * @return Action|self
      */
-    public function action($action = null)
+    public function action(Action $action = null)
     {
         if(null === $action)
         {
             return $this->_action;
         }
-        if(in_array(trim($action), array('autocomplete', 'search', 'sync')))
-        {
-            $this->_action = trim($action);
-        }
+        $this->_action = $action;
         return $this;
     }
 
@@ -109,9 +107,9 @@ class CheckGalConfig extends Attr
         {
             $this->array += $this->_query->toArray();
         }
-        if(!empty($this->_action))
+        if($this->_action instanceof Action)
         {
-            $this->array['action'] = $this->_action;
+            $this->array['action'] = (string) $this->_action;
         }
         return parent::toArray();
     }
@@ -127,9 +125,9 @@ class CheckGalConfig extends Attr
         {
             $this->xml->append($this->_query->toXml());
         }
-        if(!empty($this->_action))
+        if($this->_action instanceof Action)
         {
-            $this->xml->addChild('action', $this->_action);
+            $this->xml->addChild('action', (string) $this->_action);
         }
         return parent::toXml();
     }

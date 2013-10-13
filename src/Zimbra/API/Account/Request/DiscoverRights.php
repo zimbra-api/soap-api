@@ -11,6 +11,7 @@
 namespace Zimbra\API\Account\Request;
 
 use Zimbra\Soap\Request;
+use PhpCollection\Sequence;
 
 /**
  * DiscoverRights class
@@ -37,7 +38,19 @@ class DiscoverRights extends Request
     public function __construct(array $rights)
     {
         parent::__construct();
-        $this->rights($rights);
+        $this->_rights = new Sequence;
+        foreach ($rights as $right)
+        {
+            $right = trim($right);
+            if(!empty($right))
+            {
+                $this->_rights->add($right);
+            }
+        }
+        if(count($this->_rights) === 0)
+        {
+            throw new \InvalidArgumentException('DiscoverRights must have at least one right');
+        }
     }
 
     /**
@@ -51,40 +64,19 @@ class DiscoverRights extends Request
         $right = trim($right);
         if(!empty($right))
         {
-            $this->_rights[] = $right;
+            $this->_rights->add($right);
         }
         return $this;
     }
 
     /**
-     * Gets or sets rights
+     * Gets right sequence
      *
-     * @param  array $rights
-     * @return array|self
+     * @return Sequence
      */
-    public function rights(array $rights = null)
+    public function rights()
     {
-        if(null === $rights)
-        {
-            return $this->_rights;
-        }
-        else
-        {
-            $this->_rights = array();
-            foreach ($rights as $right)
-            {
-                $right = trim($right);
-                if(!empty($right))
-                {
-                    $this->_rights[] = $right;
-                }
-            }
-            if(count($this->_rights) === 0)
-            {
-                throw new \InvalidArgumentException('DiscoverRights must have at least one right');
-            }
-            return $this;
-        }
+        return $this->_rights;
     }
 
     /**
@@ -96,7 +88,13 @@ class DiscoverRights extends Request
     {
         if(count($this->_rights))
         {
-            $this->array['right'] = $this->_rights;
+            foreach ($this->_rights as $right)
+            {
+                if(!empty($right))
+                {
+                    $this->array['right'][] = $right;
+                }
+            }
         }
         return parent::toArray();
     }
@@ -112,7 +110,10 @@ class DiscoverRights extends Request
         {
             foreach ($this->_rights as $right)
             {
-                $this->xml->addChild('right', $right);
+                if(!empty($right))
+                {
+                    $this->xml->addChild('right', $right);
+                }
             }
         }
         return parent::toXml();

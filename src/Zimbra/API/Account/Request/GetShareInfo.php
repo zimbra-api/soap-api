@@ -56,7 +56,7 @@ class GetShareInfo extends Request
     private $_includeSelf;
 
     /**
-     * Constructor method for getShareInfoRequest
+     * Constructor method for GetShareInfo
      * @param Grantee $grantee
      * @param Account $owner
      * @param bool $internal

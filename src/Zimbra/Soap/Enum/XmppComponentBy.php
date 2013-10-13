@@ -17,36 +17,11 @@ namespace Zimbra\Soap\Enum;
  * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright Copyright © 2013 by Nguyen Van Nguyen.
  */
-class XmppComponentBy
+class XmppComponentBy extends NameIdBy
 {
-    /**
-     * Constant for value 'id'
-     * @return string 'id'
-     */
-    const ID = 'id';
-    /**
-     * Constant for value 'name'
-     * @return string 'name'
-     */
-    const NAME = 'name';
     /**
      * Constant for value 'serviceHostname'
      * @return string 'serviceHostname'
      */
     const SERVICE_HOSTNAME = 'serviceHostname';
-
-    /**
-     * Return true if value is allowed
-     * @param  string $by
-     * @return bool true|false
-     */
-    public static function isValid($by)
-    {
-        $validValues = array(
-            self::ID,
-            self::NAME,
-            self::SERVICE_HOSTNAME,
-        );
-        return in_array($by, $validValues);
-    }
 }

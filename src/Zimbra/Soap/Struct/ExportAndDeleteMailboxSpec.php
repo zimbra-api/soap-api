@@ -10,7 +10,9 @@
 
 namespace Zimbra\Soap\Struct;
 
+use Zimbra\Soap\Struct\ExportAndDeleteItemSpec as ItemSpec;
 use Zimbra\Utils\SimpleXML;
+use Zimbra\Utils\TypedSequence;
 
 /**
  * ExportAndDeleteMailboxSpec class
@@ -41,7 +43,9 @@ class ExportAndDeleteMailboxSpec
     public function __construct($id, array $items = array())
     {
         $this->_id = (int) $id;
-        $this->items($items);
+        $this->_items = new TypedSequence(
+            'Zimbra\Soap\Struct\ExportAndDeleteItemSpec', $items
+        );
     }
 
     /**
@@ -63,36 +67,23 @@ class ExportAndDeleteMailboxSpec
     /**
      * Add an item
      *
-     * @param  ExportAndDeleteItemSpec $item
+     * @param  ItemSpec $item
      * @return self
      */
-    public function addItem(ExportAndDeleteItemSpec $item)
+    public function addItem(ItemSpec $item)
     {
-        $this->_items[] = $item;
+        $this->_items->add($item);
         return $this;
     }
 
     /**
-     * Gets or sets items
+     * Gets item sequence
      *
-     * @param  array $items
-     * @return array|self
+     * @return Sequence
      */
-    public function items(array $items = null)
+    public function items()
     {
-        if(null === $items)
-        {
-            return $this->_items;
-        }
-        $this->_items = array();
-        foreach ($items as $item)
-        {
-            if($item instanceof ExportAndDeleteItemSpec)
-            {
-                $this->_items[] = $item;
-            }
-        }
-        return $this;
+        return $this->_items;
     }
 
     /**

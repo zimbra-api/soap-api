@@ -12,6 +12,7 @@ namespace Zimbra\API\Account\Request;
 
 use Zimbra\Soap\Request;
 use Zimbra\Soap\Struct\Pref;
+use Zimbra\Utils\TypedSequence;
 
 /**
  * ModifyPrefs class
@@ -38,7 +39,7 @@ class ModifyPrefs extends Request
     public function __construct(array $prefs = array())
     {
         parent::__construct();
-        $this->prefs($prefs);
+        $this->_prefs = new TypedSequence('Zimbra\Soap\Struct\Pref', $prefs);
     }
 
     /**
@@ -49,31 +50,18 @@ class ModifyPrefs extends Request
      */
     public function addPref(Pref $pref)
     {
-        $this->_prefs[] = $pref;
+        $this->_prefs->add($pref);
         return $this;
     }
 
     /**
-     * Gets or sets prefs
+     * Gets pref Sequence
      *
-     * @param  array $prefs
-     * @return array|self
+     * @return Sequence
      */
-    public function prefs(array $prefs = null)
+    public function prefs()
     {
-        if(null === $prefs)
-        {
-            return $this->_prefs;
-        }
-        $this->_prefs = array();
-        foreach ($prefs as $pref)
-        {
-            if($pref instanceof Pref)
-            {
-                $this->_prefs[] = $pref;
-            }
-        }
-        return $this;
+        return $this->_prefs;
     }
 
     /**

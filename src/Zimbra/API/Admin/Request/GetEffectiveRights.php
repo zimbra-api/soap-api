@@ -13,6 +13,7 @@ namespace Zimbra\API\Admin\Request;
 use Zimbra\Soap\Request;
 use Zimbra\Soap\Struct\EffectiveRightsTargetSelector as Target;
 use Zimbra\Soap\Struct\GranteeSelector as Grantee;
+use Zimbra\Soap\Enum\AttrMethod;
 
 /**
  * GetEffectiveRights class
@@ -39,15 +40,9 @@ class GetEffectiveRights extends Request
 
     /**
      * Whether to include all attribute names in the <getAttrs>/<setAttrs> elements in the response if all attributes of the target are gettable/settable.
-     * @var string
+     * @var AttrMethod
      */
     private $_expandAllAttrs;
-
-    /**
-     * Valid attributes
-     * @var array
-     */
-    private static $_validAttrs = array('getAttrs', 'setAttrs', 'getAttrs,setAttrs');
 
     /**
      * Constructor method for GetEffectiveRights
@@ -56,7 +51,7 @@ class GetEffectiveRights extends Request
      * @param  string $expandAllAttrs
      * @return self
      */
-    public function __construct(Target $target, Grantee $grantee = null, $expandAllAttrs = null)
+    public function __construct(Target $target, Grantee $grantee = null, AttrMethod $expandAllAttrs = null)
     {
         parent::__construct();
         $this->_target = $target;
@@ -64,7 +59,10 @@ class GetEffectiveRights extends Request
         {
             $this->_grantee = $grantee;
         }
-		$this->_expandAllAttrs = in_array(trim($expandAllAttrs), self::$_validAttrs) ? trim($expandAllAttrs) : null;
+        if($expandAllAttrs instanceof AttrMethod)
+        {
+            $this->_expandAllAttrs = $expandAllAttrs;
+        }
     }
 
     /**
@@ -105,16 +103,13 @@ class GetEffectiveRights extends Request
      * @param  string $expandAllAttrs
      * @return string|self
      */
-    public function expandAllAttrs($expandAllAttrs = null)
+    public function expandAllAttrs(AttrMethod $expandAllAttrs = null)
     {
         if(null === $expandAllAttrs)
         {
             return $this->_expandAllAttrs;
         }
-        if(in_array(trim($expandAllAttrs), self::$_validAttrs))
-        {
-            $this->_expandAllAttrs = trim($expandAllAttrs);
-        }
+        $this->_expandAllAttrs = $expandAllAttrs;
         return $this;
     }
 
@@ -130,9 +125,9 @@ class GetEffectiveRights extends Request
         {
             $this->array += $this->_grantee->toArray();
         }
-        if(!empty($this->_expandAllAttrs))
+        if($this->_expandAllAttrs instanceof AttrMethod)
         {
-            $this->array['expandAllAttrs'] = $this->_expandAllAttrs;
+            $this->array['expandAllAttrs'] = (string) $this->_expandAllAttrs;
         }
         return parent::toArray();
     }
@@ -149,9 +144,9 @@ class GetEffectiveRights extends Request
         {
             $this->xml->append($this->_grantee->toXml());
         }
-        if(!empty($this->_expandAllAttrs))
+        if($this->_expandAllAttrs instanceof AttrMethod)
         {
-            $this->xml->addAttribute('expandAllAttrs', $this->_expandAllAttrs);
+            $this->xml->addAttribute('expandAllAttrs', (string) $this->_expandAllAttrs);
         }
         return parent::toXml();
     }

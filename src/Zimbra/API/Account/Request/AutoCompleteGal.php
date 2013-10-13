@@ -67,10 +67,9 @@ class AutoCompleteGal extends Request
     public function __construct(
         $name,
         $needExp = null,
-        $type = null,
+        SearchType $type = null,
         $galAcctId = null,
-        $limit = null
-    )
+        $limit = null)
     {
         parent::__construct();
         $this->_name = trim($name);
@@ -79,9 +78,9 @@ class AutoCompleteGal extends Request
         {
             $this->_needExp = (bool) $needExp;
         }
-        if(SearchType::isValid(trim($type)))
+        if($type instanceof SearchType)
         {
-            $this->_type = trim($type);
+            $this->_type = $type;
         }
         if(null !== $limit)
         {
@@ -124,19 +123,16 @@ class AutoCompleteGal extends Request
     /**
      * Gets or sets type
      *
-     * @param  string $type
-     * @return string|self
+     * @param  SearchType $type
+     * @return SearchType|self
      */
-    public function type($type = null)
+    public function type(SearchType $type = null)
     {
         if(null === $type)
         {
             return $this->_type;
         }
-        if(SearchType::isValid(trim($type)))
-        {
-            $this->_type = trim($type);
-        }
+		$this->_type = $type;
         return $this;
     }
 
@@ -186,9 +182,9 @@ class AutoCompleteGal extends Request
         {
             $this->array['needExp'] = $this->_needExp ? 1 : 0;
         }
-        if(!empty($this->_type))
+        if($this->_type instanceof SearchType)
         {
-            $this->array['type'] = $this->_type;
+            $this->array['type'] = (string) $this->_type;
         }
         if(!empty($this->_galAcctId))
         {
@@ -213,9 +209,9 @@ class AutoCompleteGal extends Request
         {
             $this->xml->addAttribute('needExp', $this->_needExp ? 1 : 0);
         }
-        if(!empty($this->_type))
+        if($this->_type instanceof SearchType)
         {
-            $this->xml->addAttribute('type', $this->_type);
+            $this->xml->addAttribute('type', (string) $this->_type);
         }
         if(!empty($this->_galAcctId))
         {

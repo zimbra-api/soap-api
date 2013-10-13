@@ -44,6 +44,10 @@ class AdminCreateWaitSet extends Request
      */
     private $_addWaitSets = array();
 
+    /**
+     * Valid types
+     * @var array
+     */
     private static $_validTypes = array('f', 'm', 'c', 'a', 't', 'd', 'all');
 
     /**

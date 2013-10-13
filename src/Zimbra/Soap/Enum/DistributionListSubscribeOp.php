@@ -17,7 +17,7 @@ namespace Zimbra\Soap\Enum;
  * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright Copyright © 2013 by Nguyen Van Nguyen.
  */
-class DistributionListSubscribeOp
+class DistributionListSubscribeOp extends Base
 {
     /**
      * Constant for value 'subscribe'
@@ -30,18 +30,4 @@ class DistributionListSubscribeOp
      * @return string 'unsubscribe'
      */
     const UNSUBSCRIBE = 'unsubscribe';
-
-    /**
-     * Return true if value is allowed
-     * @param  string $op
-     * @return bool true|false
-     */
-    public static function isValid($op)
-    {
-        $validValues = array(
-            self::SUBSCRIBE,
-            self::UNSUBSCRIBE,
-        );
-        return in_array($op, $validValues);
-    }
 }

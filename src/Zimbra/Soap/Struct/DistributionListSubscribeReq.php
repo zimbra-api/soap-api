@@ -10,7 +10,7 @@
 
 namespace Zimbra\Soap\Struct;
 
-use Zimbra\Soap\Enum\DistributionListSubscribeOp as Op;
+use Zimbra\Soap\Enum\DistributionListSubscribeOp as SubscribeOp;
 use Zimbra\Utils\SimpleXML;
 
 /**
@@ -24,8 +24,7 @@ class DistributionListSubscribeReq
 {
     /**
      * The operation
-     * - use : required
-     * @var string
+     * @var SubscribeOp
      */
     private $_op;
 
@@ -43,21 +42,14 @@ class DistributionListSubscribeReq
 
     /**
      * Constructor method for DistributionListSubscribeReq
-     * @param  string $op
+     * @param  SubscribeOp $op
      * @param  string $value
      * @param  bool   $bccOwners
      * @return self
      */
-    public function __construct($op, $value = null, $bccOwners = null)
+    public function __construct(SubscribeOp $op, $value = null, $bccOwners = null)
     {
-        if(Op::isValid(trim($op)))
-        {
-            $this->_op = trim($op);
-        }
-        else
-        {
-            throw new \InvalidArgumentException('Invalid subscribe operation');
-        }
+        $this->_op = $op;
         $this->_value = trim($value);
         if(null !== $bccOwners)
         {
@@ -68,24 +60,17 @@ class DistributionListSubscribeReq
     /**
      * Gets or sets op
      *
-     * @param  string $op
-     * @return string|self
+     * @param  SubscribeOp $op
+     * @return SubscribeOp|self
      */
-    public function op($op = null)
+    public function op(SubscribeOp $op = null)
     {
         if(null === $op)
         {
             return $this->_op;
         }
-        if(Op::isValid(trim($op)))
-        {
-            $this->_op = trim($op);
-            return $this;
-        }
-        else
-        {
-            throw new \InvalidArgumentException('Invalid subscribe operation');
-        }
+        $this->_op = $op;
+        return $this;
     }
 
     /**
@@ -128,7 +113,7 @@ class DistributionListSubscribeReq
     public function toArray()
     {
         $arr = array(
-            'op' => $this->_op,
+            'op' => (string) $this->_op,
             '_' => $this->_value,
         );
         if(is_bool($this->_bccOwners))
@@ -146,7 +131,7 @@ class DistributionListSubscribeReq
     public function toXml()
     {
         $xml = new SimpleXML('<subsReq>'.$this->_value.'</subsReq>');
-        $xml->addAttribute('op', $this->_op);
+        $xml->addAttribute('op', (string) $this->_op);
         if(is_bool($this->_bccOwners))
         {
             $xml->addAttribute('bccOwners', $this->_bccOwners ? 1 : 0);

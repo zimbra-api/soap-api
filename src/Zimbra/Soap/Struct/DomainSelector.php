@@ -25,8 +25,7 @@ class DomainSelector
     /**
      * Select the meaning of {acct-selector-key}
      * Valid values: id|name|virtualHostname|krb5Realm|foreignName
-     * - use : required
-     * @var string
+     * @var DomainBy
      */
     private $_by;
 
@@ -38,43 +37,29 @@ class DomainSelector
 
     /**
      * Constructor method for DomainSelector
-     * @param  string $by
+     * @param  DomainBy $by
      * @param  string $value
      * @return self
      */
-    public function __construct($by, $value = null)
+    public function __construct(DomainBy $by, $value = null)
     {
-        if(DomainBy::isValid(trim($by)))
-        {
-            $this->_by = trim($by);
-        }
-        else
-        {
-            throw new \InvalidArgumentException('Invalid domain by');
-        }
+        $this->_by = $by;
         $this->_value = trim($value);
     }
 
     /**
      * Gets or sets by
      *
-     * @param  string $by
-     * @return string|self
+     * @param  DomainBy $by
+     * @return DomainBy|self
      */
-    public function by($by = null)
+    public function by(DomainBy $by = null)
     {
         if(null === $by)
         {
             return $this->_by;
         }
-        if(DomainBy::isValid(trim($by)))
-        {
-            $this->_by = trim($by);
-        }
-        else
-        {
-            throw new \InvalidArgumentException('Invalid domain by');
-        }
+        $this->_by = $by;
         return $this;
     }
 
@@ -104,7 +89,7 @@ class DomainSelector
     {
         $name = !empty($name) ? $name : 'domain';
         return array($name => array(
-            'by' => $this->_by,
+            'by' => (string) $this->_by,
             '_' => $this->_value,
         ));
     }
@@ -119,7 +104,7 @@ class DomainSelector
     {
         $name = !empty($name) ? $name : 'domain';
         $xml = new SimpleXML('<'.$name.'>'.$this->_value.'</'.$name.'>');
-        $xml->addAttribute('by', $this->_by);
+        $xml->addAttribute('by', (string) $this->_by);
         return $xml;
     }
 

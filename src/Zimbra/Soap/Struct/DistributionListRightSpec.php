@@ -10,7 +10,9 @@
 
 namespace Zimbra\Soap\Struct;
 
+use Zimbra\Soap\Struct\DistributionListGranteeSelector as GranteeSelector;
 use Zimbra\Utils\SimpleXML;
+use Zimbra\Utils\TypedSequence;
 
 /**
  * DistributionListRightSpec class
@@ -23,13 +25,11 @@ class DistributionListRightSpec
 {
     /**
      * The right
-     * - use : required
      * @var string
      */
     private $_right;
     /**
      * The array of grantee
-     * - minOccurs : 0
      * @var array
      */
     private $_grantees = array();
@@ -43,7 +43,9 @@ class DistributionListRightSpec
     public function __construct($right, array $grantees = array())
     {
         $this->_right = trim($right);
-        $this->grantees($grantees);
+        $this->_grantees = new TypedSequence(
+            'Zimbra\Soap\Struct\DistributionListGranteeSelector', $grantees
+        );
     }
 
     /**
@@ -65,35 +67,23 @@ class DistributionListRightSpec
     /**
      * Add a grantee
      *
-     * @param  DistributionListGranteeSelector $grantee
-     * @return DistributionListRightSpec
+     * @param  GranteeSelector $grantee
+     * @return GranteeSelector
      */
-    public function addGrantee(DistributionListGranteeSelector $grantee)
+    public function addGrantee(GranteeSelector $grantee)
     {
-        $this->_grantees[] = $grantee;
+        $this->_grantees->add($grantee);
         return $this;
     }
 
     /**
-     * Get grantee array
+     * Gets grantee Sequence
      *
-     * @return array
+     * @return Sequence
      */
-    public function grantees(array $grantees = null)
+    public function grantees()
     {
-        if(null === $grantees)
-        {
-            return $this->_grantees;
-        }
-        $this->_grantees = array();
-        foreach ($grantees as $grantee)
-        {
-            if($grantee instanceof DistributionListGranteeSelector)
-            {
-                $this->_grantees[] = $grantee;
-            }
-        }
-        return $this;
+        return $this->_grantees;
     }
 
     /**
@@ -127,12 +117,9 @@ class DistributionListRightSpec
     {
         $xml = new SimpleXML('<right />');
         $xml->addAttribute('right', $this->_right);
-        if(count($this->_grantees))
+        foreach ($this->_grantees as $grantee)
         {
-            foreach ($this->_grantees as $grantee)
-            {
-                $xml->append($grantee->toXml('grantee'));
-            }
+            $xml->append($grantee->toXml('grantee'));
         }
         return $xml;
     }

@@ -11,6 +11,7 @@
 namespace Zimbra\Soap\Struct;
 
 use Zimbra\Utils\SimpleXML;
+use PhpCollection\Sequence;
 
 /**
  * ConstraintInfo class
@@ -50,9 +51,13 @@ class ConstraintInfo
     {
         $this->_min = trim($min);
         $this->_max = trim($max);
+        $this->_values = new Sequence;
         foreach ($values as $value)
         {
-            $this->_values[] = trim($value);
+            if(!empty($value))
+            {
+                $this->_values->add($value);
+            }
         }
     }
 
@@ -96,28 +101,21 @@ class ConstraintInfo
      */
     public function addValue($value)
     {
-        $this->_values[] = trim($value);
+        if(!empty($value))
+        {
+            $this->_values->add($value);
+        }
         return $this;
     }
 
     /**
-     * Gets or sets values
+     * Gets values
      *
-     * @param  array $values
-     * @return string|self
+     * @return Sequence
      */
-    public function values(array $values = null)
+    public function values()
     {
-        if(null === $values)
-        {
-            return $this->_values;
-        }
-        $this->_values = array();
-        foreach ($values as $value)
-        {
-            $this->_values[] = trim($value);
-        }
-        return $this;
+        return $this->_values;
     }
 
     /**
@@ -164,11 +162,11 @@ class ConstraintInfo
         $xml = new SimpleXML('<'.$name.' />');
         if(!empty($this->_min))
         {
-            $xml->addAttribute('min', $this->_min);
+            $xml->addChild('min', $this->_min);
         }
         if(!empty($this->_max))
         {
-            $xml->addAttribute('max', $this->_max);
+            $xml->addChild('max', $this->_max);
         }
         $values = $xml->addChild('values');
         foreach ($this->_values as $value)

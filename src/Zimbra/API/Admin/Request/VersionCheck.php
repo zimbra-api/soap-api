@@ -11,6 +11,7 @@
 namespace Zimbra\API\Admin\Request;
 
 use Zimbra\Soap\Request;
+use Zimbra\Soap\Enum\VersionCheckAction as Action;
 
 /**
  * VersionCheck class
@@ -24,35 +25,35 @@ use Zimbra\Soap\Request;
 class VersionCheck extends Request
 {
     /**
-     * Certificate attach ID
-     * @var string
+     * The action
+     * @var Action
      */
     private $_action;
 
     /**
-     * Constructor method for UploadProxyCA
-     * @param string $action
+     * Constructor method for VersionCheck
+     * @param Action $action
      * @return self
      */
-    public function __construct($action)
+    public function __construct(Action $action)
     {
         parent::__construct();
-        $this->_action = in_array(trim($action), array('check', 'status')) ? trim($action) : 'check';
+        $this->_action = $action;
     }
 
     /**
      * Gets or sets action
      *
-     * @param  string $action
-     * @return string|self
+     * @param  Action $action
+     * @return Action|self
      */
-    public function action($action = null)
+    public function action(Action $action = null)
     {
         if(null === $action)
         {
             return $this->_action;
         }
-        $this->_action = in_array(trim($action), array('check', 'status')) ? trim($action) : 'check';
+        $this->_action = $action;
         return $this;
     }
 
@@ -64,7 +65,7 @@ class VersionCheck extends Request
     public function toArray()
     {
         $this->array = array(
-            'action' => $this->_action,
+            'action' => (string) $this->_action,
         );
         return parent::toArray();
     }
@@ -76,7 +77,7 @@ class VersionCheck extends Request
      */
     public function toXml()
     {
-        $this->xml->addAttribute('action', $this->_action);
+        $this->xml->addAttribute('action', (string) $this->_action);
         return parent::toXml();
     }
 }

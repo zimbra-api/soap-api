@@ -25,8 +25,7 @@ class CosSelector
     /**
      * Select the meaning of {acct-selector-key}
      * Valid values: id|name
-     * - use : required
-     * @var string
+     * @var CosBy
      */
     private $_by;
 
@@ -38,43 +37,29 @@ class CosSelector
 
     /**
      * Constructor method for CosSelector
-     * @param  string $by
+     * @param  CosBy $by
      * @param  string $value
      * @return self
      */
-    public function __construct($by, $value = null)
+    public function __construct(CosBy $by, $value = null)
     {
-        if(CosBy::isValid(trim($by)))
-        {
-            $this->_by = trim($by);
-        }
-        else
-        {
-            throw new \InvalidArgumentException('Invalid cos by');
-        }
+        $this->_by = $by;
         $this->_value = trim($value);
     }
 
     /**
      * Gets or sets by
      *
-     * @param  string $by
-     * @return string|self
+     * @param  CosBy $by
+     * @return CosBy|self
      */
-    public function by($by = null)
+    public function by(CosBy $by = null)
     {
         if(null === $by)
         {
             return $this->_by;
         }
-        if(CosBy::isValid(trim($by)))
-        {
-            $this->_by = trim($by);
-        }
-        else
-        {
-            throw new \InvalidArgumentException('Invalid cos by');
-        }
+        $this->_by = $by;
         return $this;
     }
 
@@ -104,7 +89,7 @@ class CosSelector
     {
         $name = !empty($name) ? $name : 'cos';
         return array($name => array(
-            'by' => $this->_by,
+            'by' => (string) $this->_by,
             '_' => $this->_value,
         ));
     }
@@ -119,7 +104,7 @@ class CosSelector
     {
         $name = !empty($name) ? $name : 'cos';
         $xml = new SimpleXML('<'.$name.'>'.$this->_value.'</'.$name.'>');
-        $xml->addAttribute('by', $this->_by);
+        $xml->addAttribute('by', (string) $this->_by);
         return $xml;
     }
 

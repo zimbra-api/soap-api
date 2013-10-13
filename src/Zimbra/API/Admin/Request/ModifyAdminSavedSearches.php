@@ -88,7 +88,7 @@ class ModifyAdminSavedSearches extends Request
             $this->array['search'] = array();
             foreach ($this->_searchs as $search)
             {
-                $searchArr = $attr->toArray('search');
+                $searchArr = $search->toArray('search');
                 $this->array['search'][] = $searchArr['search'];
             }
         }

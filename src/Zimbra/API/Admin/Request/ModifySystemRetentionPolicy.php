@@ -65,7 +65,7 @@ class ModifySystemRetentionPolicy extends Request
         {
             return $this->_cos;
         }
-        $this->_cos = trim($cos);
+        $this->_cos = $cos;
         return $this;
     }
 

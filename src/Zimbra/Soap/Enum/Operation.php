@@ -17,7 +17,7 @@ namespace Zimbra\Soap\Enum;
  * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright Copyright © 2013 by Nguyen Van Nguyen.
  */
-class Operation
+class Operation extends Base
 {
     /**
      * Constant for value 'delete'
@@ -96,29 +96,4 @@ class Operation
      * @return string 'rejectSubsReq'
      */
     const REJECT_SUBSREQ = 'rejectSubsReq';
-
-    /**
-     * Return true if value is allowed
-     * @param  string $op
-     * @return bool true|false
-     */
-    public static function isValid($op)
-    {
-        $validValues = array(
-            self::DELETE,
-            self::MODIFY,
-            self::RENAME,
-            self::ADD_OWNERS,
-            self::REMOVE_OWNERS,
-            self::SET_OWNERS,
-            self::GRANT_RIGHTS,
-            self::REVOKE_RIGHTS,
-            self::SET_RIGHTS,
-            self::ADD_MEMBERS,
-            self::REMOVE_MEMBERS,
-            self::ACCEPT_SUBSREQ,
-            self::REJECT_SUBSREQ,
-        );
-        return in_array($op, $validValues);
-    }
 }

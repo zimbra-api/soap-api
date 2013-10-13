@@ -10,7 +10,7 @@
 
 namespace Zimbra\Soap\Struct;
 
-use Zimbra\Soap\Enum\DistributionListBy;
+use Zimbra\Soap\Enum\DistributionListBy as DistListBy;
 use Zimbra\Utils\SimpleXML;
 
 /**
@@ -25,8 +25,7 @@ class DistributionListSelector
     /**
      * Select the meaning of {dl-selector-key}
      * Valid values: id|name
-     * - use : required
-     * @var DistributionListBy
+     * @var DistListBy
      */
     private $_by;
 
@@ -38,44 +37,30 @@ class DistributionListSelector
 
     /**
      * Constructor method for DistributionListSelector
-     * @param  string $by
+     * @param  DistListBy $by
      * @param  string $value
      * @return self
      */
-    public function __construct($by, $value = null)
+    public function __construct(DistListBy $by, $value = null)
     {
-        if(DistributionListBy::isValid(trim($by)))
-        {
-            $this->_by = trim($by);
-        }
-        else
-        {
-            throw new \InvalidArgumentException('Invalid distribution list by');
-        }
+        $this->_by = $by;
         $this->_value = trim($value);
     }
 
     /**
      * Gets or sets by
      *
-     * @param  string $by
-     * @return string|self
+     * @param  DistListBy $by
+     * @return DistListBy|self
      */
-    public function by($by = null)
+    public function by(DistListBy $by = null)
     {
         if(null === $by)
         {
             return $this->_by;
         }
-        if(DistributionListBy::isValid(trim($by)))
-        {
-            $this->_by = trim($by);
-            return $this;
-        }
-        else
-        {
-            throw new \InvalidArgumentException('Invalid distribution list by');
-        }
+        $this->_by = $by;
+        return $this;
     }
 
     /**
@@ -102,7 +87,7 @@ class DistributionListSelector
     public function toArray()
     {
         return array('dl' => array(
-            'by' => $this->_by,
+            'by' => (string) $this->_by,
             '_' => $this->_value,
         ));
     }
@@ -115,7 +100,7 @@ class DistributionListSelector
     public function toXml()
     {
         $xml = new SimpleXML('<dl>'.$this->_value.'</dl>');
-        $xml->addAttribute('by', $this->_by);
+        $xml->addAttribute('by', (string) $this->_by);
         return $xml;
     }
 

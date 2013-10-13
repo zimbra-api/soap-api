@@ -11,6 +11,8 @@
 namespace Zimbra\Soap\Struct;
 
 use Zimbra\Utils\SimpleXML;
+use Zimbra\Soap\Enum\ParticipationStatus;
+use Zimbra\Utils\TypedSequence;
 
 /**
  * CalendarAttendee class
@@ -23,9 +25,9 @@ class CalendarAttendee
 {
     /**
      * Non-standard parameters (XPARAMs)
-     * @var array Array of XParam
+     * @var Sequence
      */
-    private $_xparams = array();
+    private $_xparams;
 
     /**
      * Email address (without "MAILTO:")
@@ -79,7 +81,7 @@ class CalendarAttendee
      * iCalendar PTST (Participation status).
      * Valid values: NE|AC|TE|DE|DG|CO|IN|WE|DF
      * Meanings: "NE"eds-action, "TE"ntative, "AC"cept, "DE"clined, "DG" (delegated), "CO"mpleted (todo), "IN"-process (todo), "WA"iting (custom value only for todo), "DF" (deferred; custom value only for todo)
-     * @var string
+     * @var ParticipationStatus
      */
     private $_ptst;
 
@@ -124,7 +126,7 @@ class CalendarAttendee
      * @param string $lang
      * @param string $cutype
      * @param string $role
-     * @param string $ptst
+     * @param ParticipationStatus $ptst
      * @param bool   $rsvp
      * @param string $member
      * @param string $delTo
@@ -141,14 +143,14 @@ class CalendarAttendee
         $lang = null,
         $cutype = null,
         $role = null,
-        $ptst = null,
+        ParticipationStatus $ptst = null,
         $rsvp = null,
         $member = null,
         $delTo = null,
-        $delFrom = null
-    )
+        $delFrom = null)
     {
-        $this->xparams($xparams);
+        $this->_xparams = new TypedSequence('Zimbra\Soap\Struct\XParam', $xparams);
+
         $this->_a = trim($a);
         $this->_url = trim($url);
         $this->_d = trim($d);
@@ -157,9 +159,9 @@ class CalendarAttendee
         $this->_lang = trim($lang);
         $this->_cutype = trim($cutype);
         $this->_role = trim($role);
-        if(in_array($ptst, self::$_validValues))
+        if($ptst instanceof ParticipationStatus)
         {
-            $this->_ptst = trim($ptst);
+            $this->_ptst = $ptst;
         }
         if(null !== $rsvp)
         {
@@ -178,31 +180,18 @@ class CalendarAttendee
      */
     public function addXParam(XParam $xparam)
     {
-        $this->_xparams[] = $xparam;
+        $this->_xparams->add($xparam);
         return $this;
     }
 
     /**
-     * Gets or sets array of xparam
+     * Gets xparam sequence
      *
-     * @param  array $xparams
-     * @return array|self
+     * @return Sequence
      */
-    public function xparams(array $xparams = null)
+    public function xparams()
     {
-        if(null === $xparams)
-        {
-            return $this->_xparams;
-        }
-        $this->_xparams = array();
-        foreach ($xparams as $xparam)
-        {
-            if($xparam instanceof XParam)
-            {
-                $this->_xparams[] = $xparam;
-            }
-        }
-        return $this;
+        return $this->_xparams;
     }
 
     /**
@@ -337,19 +326,16 @@ class CalendarAttendee
      * Gets or sets iCalendar PTST
      * Valid values: NE|AC|TE|DE|DG|CO|IN|WE|DF
      *
-     * @param  string $ptst iCalendar PTST
-     * @return string|self
+     * @param  ParticipationStatus $ptst
+     * @return ParticipationStatus|self
      */
-    public function ptst($ptst = null)
+    public function ptst(ParticipationStatus $ptst = null)
     {
         if(null === $ptst)
         {
             return $this->_ptst;
         }
-        if(in_array($ptst, self::$_validValues))
-        {
-            $this->_ptst = trim($ptst);
-        }
+        $this->_ptst = $ptst;
         return $this;
     }
 
@@ -452,9 +438,9 @@ class CalendarAttendee
         {
             $arr['role'] = $this->_role;
         }
-        if(!empty($this->_ptst))
+        if($this->_ptst instanceof ParticipationStatus)
         {
-            $arr['ptst'] = $this->_ptst;
+            $arr['ptst'] = (string) $this->_ptst;
         }
         if(is_bool($this->_rsvp))
         {
@@ -524,9 +510,9 @@ class CalendarAttendee
         {
             $xml->addAttribute('role', $this->_role);
         }
-        if(!empty($this->_ptst))
+        if($this->_ptst instanceof ParticipationStatus)
         {
-            $xml->addAttribute('ptst', $this->_ptst);
+            $xml->addAttribute('ptst', (string) $this->_ptst);
         }
         if(is_bool($this->_rsvp))
         {
@@ -544,12 +530,9 @@ class CalendarAttendee
         {
             $xml->addAttribute('delFrom', $this->_delFrom);
         }
-        if(count($this->_xparams))
+        foreach ($this->_xparams as $xparam)
         {
-            foreach ($this->_xparams as $xparam)
-            {
-                $xml->append($xparam->toXml());
-            }
+            $xml->append($xparam->toXml());
         }
         return $xml;
     }

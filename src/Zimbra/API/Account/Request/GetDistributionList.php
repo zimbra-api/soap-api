@@ -13,6 +13,7 @@ namespace Zimbra\API\Account\Request;
 use Zimbra\Soap\Request;
 use Zimbra\Soap\Struct\Attr;
 use Zimbra\Soap\Struct\DistributionListSelector as DistList;
+use Zimbra\Utils\TypedSequence;
 
 /**
  * GetDistributionList class
@@ -71,7 +72,7 @@ class GetDistributionList extends Request
             $this->_needOwners = (bool) $needOwners;
         }
         $this->_needRights = trim($needRights);
-        $this->attrs($attrs);
+        $this->_attrs = new TypedSequence('Zimbra\Soap\Struct\Attr', $attrs);
     }
 
     /**
@@ -130,31 +131,18 @@ class GetDistributionList extends Request
      */
     public function addAttr(Attr $attr)
     {
-        $this->_attrs[] = $attr;
+        $this->_attrs->add($attr);
         return $this;
     }
 
     /**
-     * Gets or sets attrs
+     * Gets attr sequence
      *
-     * @param  array $attrs
-     * @return array|self
+     * @return Sequence
      */
-    public function attrs(array $attrs = null)
+    public function attrs()
     {
-        if(null === $attrs)
-        {
-            return $this->_attrs;
-        }
-        $this->_attrs = array();
-        foreach ($attrs as $attr)
-        {
-            if($attr instanceof Attr)
-            {
-                $this->_attrs[] = $attr;
-            }
-        }
-        return $this;
+        return $this->_attrs;
     }
 
     /**
@@ -201,12 +189,9 @@ class GetDistributionList extends Request
         {
             $this->xml->addAttribute('needRights', $this->_needRights);
         }
-        if(count($this->_attrs))
+        foreach ($this->_attrs as $attr)
         {
-            foreach ($this->_attrs as $attr)
-            {
-                $this->xml->append($attr->toXml('a'));
-            }
+            $this->xml->append($attr->toXml('a'));
         }
         return parent::toXml();
     }

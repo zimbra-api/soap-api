@@ -10,6 +10,7 @@
 
 namespace Zimbra\Soap\Struct;
 
+use Zimbra\Soap\Enum\ZimletStatus;
 use Zimbra\Utils\SimpleXML;
 
 /**
@@ -23,7 +24,6 @@ class ZimletPrefsSpec
 {
     /**
      * Zimlet name
-     * - use : required
      * @var string
      */
     private $_name;
@@ -31,28 +31,20 @@ class ZimletPrefsSpec
     /**
      * Zimlet presence setting
      * Valid values : "enabled" | "disabled"
-     * - use : required
-     * @var string
+     * @var ZimletStatus
      */
     private $_presence;
 
     /**
      * Constructor method for ZimletPrefsSpec
      * @param  string $name
-     * @param  string $presence
+     * @param  ZimletStatus $presence
      * @return self
      */
-    public function __construct($name, $presence)
+    public function __construct($name, ZimletStatus $presence)
     {
         $this->_name = trim($name);
-        if(in_array(trim($presence), array('enabled', 'disabled')))
-        {
-            $this->_presence = trim($presence);
-        }
-        else
-        {
-            $this->_presence = 'enabled';
-        }
+        $this->_presence = $presence;
     }
 
     /**
@@ -74,19 +66,16 @@ class ZimletPrefsSpec
     /**
      * Gets or sets presence
      *
-     * @param  string $presence
-     * @return string|self
+     * @param  ZimletStatus $presence
+     * @return ZimletStatus|self
      */
-    public function presence($presence = null)
+    public function presence(ZimletStatus $presence = null)
     {
         if(null === $presence)
         {
             return $this->_presence;
         }
-        if(in_array(trim($presence), array('enabled', 'disabled')))
-        {
-            $this->_presence = trim($presence);
-        }
+        $this->_presence = $presence;
         return $this;
     }
 
@@ -99,7 +88,7 @@ class ZimletPrefsSpec
     {
         $arr = array(
             'name' => $this->_name,
-            'presence' => $this->_presence,
+            'presence' => (string) $this->_presence,
         );
         return array('zimlet' => $arr);
     }
@@ -113,7 +102,7 @@ class ZimletPrefsSpec
     {
         $xml = new SimpleXML('<zimlet />');
         $xml->addAttribute('name', $this->_name)
-            ->addAttribute('presence', $this->_presence);
+            ->addAttribute('presence', (string) $this->_presence);
         return $xml;
     }
 

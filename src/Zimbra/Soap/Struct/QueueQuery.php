@@ -11,6 +11,7 @@
 namespace Zimbra\Soap\Struct;
 
 use Zimbra\Utils\SimpleXML;
+use Zimbra\Utils\TypedSequence;
 
 /**
  * QueueQuery class
@@ -48,7 +49,7 @@ class QueueQuery
      */
     public function __construct(array $fields = array(), $limit = null, $offset = null)
     {
-        $this->fields($fields);
+        $this->_fields = new TypedSequence('Zimbra\Soap\Struct\QueueQueryField', $fields);
         if(null !== $limit)
         {
             $this->_limit = (int) $limit;
@@ -67,31 +68,18 @@ class QueueQuery
      */
     public function addField(QueueQueryField $field)
     {
-        $this->_fields[] = $field;
+        $this->_fields->add($field);
         return $this;
     }
 
     /**
-     * Gets or sets fields array
+     * Gets field sequence
      *
-     * @param  array $fields
-     * @return array|self
+     * @return Sequence
      */
-    public function fields(array $fields = null)
+    public function fields()
     {
-        if(null === $fields)
-        {
-            return $this->_fields;
-        }
-        $this->_fields = array();
-        foreach ($fields as $field)
-        {
-            if($field instanceof QueueQueryField)
-            {
-                $this->_fields[] = $field;
-            }
-        }
-        return $this;
+        return $this->_fields;
     }
 
     /**

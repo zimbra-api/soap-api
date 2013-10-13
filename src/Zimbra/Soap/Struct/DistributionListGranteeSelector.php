@@ -11,7 +11,7 @@
 namespace Zimbra\Soap\Struct;
 
 use Zimbra\Soap\Enum\GranteeType;
-use Zimbra\Soap\Enum\DistributionListGranteeBy;
+use Zimbra\Soap\Enum\DistributionListGranteeBy as GranteeBy;
 use Zimbra\Utils\SimpleXML;
 
 /**
@@ -25,15 +25,13 @@ class DistributionListGranteeSelector
 {
     /**
      * Grantee type
-     * - use : required
      * @var GranteeType
      */
     private $_type;
 
     /**
      * Selects meaning of {dl-grantee-key}
-     * - use : required
-     * @var LDGranteeBy
+     * @var GranteeBy
      */
     private $_by;
 
@@ -46,74 +44,46 @@ class DistributionListGranteeSelector
     /**
      * Constructor method for DistributionListGranteeSelector
      * @param GranteeType $type
-     * @param DistributionListGranteeBy $by
+     * @param GranteeBy $by
      * @param string $value
      * @return self
      */
-    public function __construct($type, $by, $value = null)
+    public function __construct(GranteeType $type, GranteeBy $by, $value = null)
     {
-        if(GranteeType::isValid(trim($type)))
-        {
-            $this->_type = trim($type);
-        }
-        else
-        {
-            throw new \InvalidArgumentException('Invalid grantee type');
-        }
-        if(DistributionListGranteeBy::isValid(trim($by)))
-        {
-            $this->_by = trim($by);
-        }
-        else
-        {
-            throw new \InvalidArgumentException('Invalid grantee by');
-        }
+        $this->_type = $type;
+        $this->_by = $by;
         $this->_value = trim($value);
     }
 
     /**
      * Gets or sets type
      *
-     * @param  string $type
-     * @return string|self
+     * @param  GranteeType $type
+     * @return GranteeType|self
      */
-    public function type($type = null)
+    public function type(GranteeType $type = null)
     {
         if(null === $type)
         {
-            return (string) $this->_type;
+            return $this->_type;
         }
-        if(GranteeType::isValid(trim($type)))
-        {
-            $this->_type = trim($type);
-        }
-        else
-        {
-            throw new \InvalidArgumentException('Invalid grantee type');
-        }
+        $this->_type = $type;
         return $this;
     }
 
     /**
      * Gets or sets by
      *
-     * @param  string $by
-     * @return string|self
+     * @param  GranteeBy $by
+     * @return GranteeBy|self
      */
-    public function by($by = null)
+    public function by(GranteeBy $by = null)
     {
         if(null === $by)
         {
-            return (string) $this->_by;
+            return $this->_by;
         }
-        if(DistributionListGranteeBy::isValid(trim($by)))
-        {
-            $this->_by = trim($by);
-        }
-        else
-        {
-            throw new \InvalidArgumentException('Invalid grantee by');
-        }
+        $this->_by = $by;
         return $this;
     }
 
@@ -143,8 +113,8 @@ class DistributionListGranteeSelector
     {
         $name = !empty($name) ? $name : 'grantee';
         $arr = array(
-            'type' => $this->_type,
-            'by' => $this->_by,
+            'type' => (string) $this->_type,
+            'by' => (string) $this->_by,
             '_' => $this->_value,
         );
         return array($name => $arr);
@@ -160,8 +130,8 @@ class DistributionListGranteeSelector
     {
         $name = !empty($name) ? $name : 'grantee';
         $xml = new SimpleXML('<'.$name.'>'.$this->_value.'</'.$name.'>');
-        $xml->addAttribute('type', $this->_type)
-            ->addAttribute('by', $this->_by);
+        $xml->addAttribute('type', (string) $this->_type)
+            ->addAttribute('by', (string) $this->_by);
         return $xml;
     }
 

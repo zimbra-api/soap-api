@@ -31,13 +31,13 @@ class GranteeSelector
 
     /**
      * The type
-     * @var string
+     * @var GranteeType
      */
     private $_type;
 
     /**
      * The by
-     * @var string
+     * @var GranteeBy
      */
     private $_by;
 
@@ -66,20 +66,19 @@ class GranteeSelector
      */
     public function __construct(
         $value = null,
-        $type = null,
-        $by = null,
+        GranteeType $type = null,
+        GranteeBy $by = null,
         $secret = null,
-        $all = null
-    )
+        $all = null)
     {
         $this->_value = trim($value);
-        if(GranteeType::isValid(trim($type)))
+        if($type instanceof GranteeType)
         {
-            $this->_type = trim($type);
+            $this->_type = $type;
         }
-        if(GranteeBy::isValid(trim($by)))
+        if($by instanceof GranteeBy)
         {
-            $this->_by = trim($by);
+            $this->_by = $by;
         }
         $this->_secret = trim($secret);
         if(null !== $all)
@@ -107,38 +106,32 @@ class GranteeSelector
     /**
      * Gets or sets type
      *
-     * @param  string $type
-     * @return string|self
+     * @param  GranteeType $type
+     * @return GranteeType|self
      */
-    public function type($type = null)
+    public function type(GranteeType $type = null)
     {
         if(null === $type)
         {
             return $this->_type;
         }
-        if(GranteeType::isValid(trim($type)))
-        {
-            $this->_type = trim($type);
-        }
+        $this->_type = $type;
         return $this;
     }
 
     /**
      * Gets or sets by
      *
-     * @param  string $by
-     * @return string|self
+     * @param  GranteeBy $by
+     * @return GranteeBy|self
      */
-    public function by($by = null)
+    public function by(GranteeBy $by = null)
     {
         if(null === $by)
         {
             return $this->_by;
         }
-        if(GranteeBy::isValid(trim($by)))
-        {
-            $this->_by = trim($by);
-        }
+        $this->_by = $by;
         return $this;
     }
 
@@ -185,13 +178,14 @@ class GranteeSelector
         $arr = array(
             '_' => $this->_value,
         );
-        if(!empty($this->_type))
+
+        if($this->_type instanceof GranteeType)
         {
-            $arr['type'] = $this->_type;
+            $arr['type'] = (string) $this->_type;
         }
-        if(!empty($this->_by))
+        if($this->_by instanceof GranteeBy)
         {
-            $arr['by'] = $this->_by;
+            $arr['by'] = (string) $this->_by;
         }
         if(!empty($this->_secret))
         {
@@ -212,13 +206,13 @@ class GranteeSelector
     public function toXml()
     {
         $xml = new SimpleXML('<grantee>'. $this->_value.'</grantee>');
-        if(!empty($this->_type))
+        if($this->_type instanceof GranteeType)
         {
-            $xml->addAttribute('type', $this->_type);
+            $xml->addAttribute('type', (string) $this->_type);
         }
-        if(!empty($this->_by))
+        if($this->_by instanceof GranteeBy)
         {
-            $xml->addAttribute('by', $this->_by);
+            $xml->addAttribute('by', (string) $this->_by);
         }
         if(!empty($this->_secret))
         {

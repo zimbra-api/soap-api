@@ -15,6 +15,8 @@ use Zimbra\Soap\Struct\DistributionListGranteeSelector as Grantee;
 use Zimbra\Soap\Struct\DistributionListRightSpec as Right;
 use Zimbra\Soap\Enum\Operation;
 use Zimbra\Utils\SimpleXML;
+use Zimbra\Utils\TypedSequence;
+use PhpCollection\Sequence;
 
 /**
  * DistributionListAction class
@@ -27,7 +29,7 @@ class DistributionListAction extends AttrsImpl
 {
     /**
      * Operation to perform.
-     * @var string
+     * @var Operation
      */
     private $_op;
 
@@ -35,7 +37,7 @@ class DistributionListAction extends AttrsImpl
      * Group members
      * @var string
      */
-    private $_dlms = array();
+    private $_dlms;
 
     /**
      * New name
@@ -45,36 +47,29 @@ class DistributionListAction extends AttrsImpl
 
     /**
      * The owner
-     * LDGranteeSelector array
+     * Grantee array
      * @var array
      */
-    private $_owners = array();
+    private $_owners;
 
     /**
      * The right
-     * DistributionListRightSpec array
+     * Right array
      * @var array
      */
-    private $_rights = array();
+    private $_rights;
 
     /**
      * Subscription request 
-     * @var DistributionListSubscribeReq
+     * @var Subscribe
      */
     private $_subsReq;
 
     /**
-     * Attributes
-     * KeyValuePair array
-     * @var array
-     */
-    private $_attrs = array();
-
-    /**
      * Constructor method for DistributionListAction
-     * @param string $op
+     * @param Operation $op
      * @param string $newName
-     * @param DistributionListSubscribeReq $subsReq
+     * @param Subscribe $subsReq
      * @param array $dlms
      * @param array $owners
      * @param array $rights
@@ -82,7 +77,7 @@ class DistributionListAction extends AttrsImpl
      * @return self
      */
     public function __construct(
-        $op,
+        Operation $op,
         $newName = null,
         Subscribe $subsReq = null,
         array $dlms = array(),
@@ -92,44 +87,35 @@ class DistributionListAction extends AttrsImpl
     )
     {
         parent::__construct($attrs);
-        if(Operation::isValid(trim($op)))
-        {
-            $this->_op = trim($op);
-        }
-        else
-        {
-            throw new \InvalidArgumentException('Invalid operation');
-        }
+        $this->_op = $op;
         $this->_newName = trim($newName);
         if($subsReq instanceof Subscribe)
         {
             $this->_subsReq = $subsReq;
         }
-        $this->dlms($dlms);
-        $this->owners($owners);
-        $this->rights($rights);
+        $this->_dlms = new Sequence;
+        $this->_dlms->addAll($dlms);
+
+        $this->_owners = new TypedSequence('Zimbra\Soap\Struct\DistributionListGranteeSelector');
+        $this->_owners->addAll($owners);
+
+        $this->_rights = new TypedSequence('Zimbra\Soap\Struct\DistributionListRightSpec');
+        $this->_rights->addAll($rights);
     }
 
     /**
      * Gets or sets op
      *
-     * @param  string $op
-     * @return string|self
+     * @param  Operation $op
+     * @return Operation|self
      */
-    public function op($op = null)
+    public function op(Operation $op = null)
     {
         if(null === $op)
         {
             return $this->_op;
         }
-        if(Operation::isValid(trim($op)))
-        {
-            $this->_op = trim($op);
-        }
-        else
-        {
-            throw new \InvalidArgumentException('Invalid operation');
-        }
+        $this->_op = $op;
         return $this;
     }
 
@@ -152,8 +138,8 @@ class DistributionListAction extends AttrsImpl
     /**
      * Gets or sets subsReq
      *
-     * @param  DistributionListSubscribeReq $subsReq
-     * @return DistributionListSubscribeReq|self
+     * @param  Subscribe $subsReq
+     * @return Subscribe|self
      */
     public function subsReq(Subscribe $subsReq = null)
     {
@@ -176,103 +162,63 @@ class DistributionListAction extends AttrsImpl
         $dlm = trim($dlm);
         if(!empty($dlm))
         {
-            $this->_dlms[] = $dlm;
+            $this->_dlms->add($dlm);
         }
         return $this;
     }
 
     /**
-     * Gets or sets member array
+     * Gets member sequence
      *
-     * @param  array $dlms
-     * @return array|self
+     * @return Sequence
      */
-    public function dlms(array $dlms = null)
+    public function dlms()
     {
-        if(null === $dlms)
-        {
-            return $this->_dlms;
-        }
-        $this->_dlms = array();
-        foreach ($dlms as $dlm)
-        {
-            $dlm = trim($dlm);
-            if(!empty($dlm))
-            {
-                $this->_dlms[] = $dlm;
-            }
-        }
-        return $this;
+        return $this->_dlms;
     }
 
     /**
      * Add a owner
      *
-     * @param  DistributionListGranteeSelector $owner
+     * @param  Grantee $owner
      * @return self
      */
     public function addOwner(Grantee $owner)
     {
-        $this->_owners[] = $owner;
+        $this->_owners->add($owner);
         return $this;
     }
 
     /**
-     * Gets or sets owner array
+     * Gets owner sequence
      *
-     * @param  array $owners
-     * @return array|self
+     * @return Sequence
      */
-    public function owners(array $owners = null)
+    public function owners()
     {
-        if(null === $owners)
-        {
-            return $this->_owners;
-        }
-        $this->_owners = array();
-        foreach ($owners as $owner)
-        {
-            if($owner instanceof Grantee)
-            {
-                $this->_owners[] = $owner;
-            }
-        }
-        return $this;
+        return $this->_owners;
     }
 
     /**
      * Add a right
      *
-     * @param  DistributionListRightSpec $right
+     * @param  Right $right
      * @return self
      */
     public function addRight(Right $right)
     {
-        $this->_rights[] = $right;
+        $this->_rights->add($right);
         return $this;
     }
 
     /**
-     * Gets or sets right array
+     * Gets right sequence
      *
-     * @param  array $rights
-     * @return array|self
+     * @return Sequence
      */
-    public function rights(array $rights = null)
+    public function rights()
     {
-        if(null === $rights)
-        {
-            return $this->_rights;
-        }
-        $this->_rights = array();
-        foreach ($rights as $right)
-        {
-            if($right instanceof Right)
-            {
-                $this->_rights[] = $right;
-            }
-        }
-        return $this;
+        return $this->_rights;
     }
 
     /**
@@ -283,20 +229,20 @@ class DistributionListAction extends AttrsImpl
     public function toArray()
     {
         $this->array = array(
-            'op' => $this->_op,
+            'op' => (string) $this->_op,
         );
         if(!empty($this->_newName))
         {
             $this->array['newName'] = $this->_newName;
         }
-        if($this->_subsReq instanceof DistributionListSubscribeReq)
+        if($this->_subsReq instanceof Subscribe)
         {
             $subsReqArr = $this->_subsReq->toArray();
             $this->array['subsReq'] = $subsReqArr['subsReq'];
         }
         if(count($this->_dlms))
         {
-            $this->array['dlm'] = $this->_dlms;
+            $this->array['dlm'] = $this->_dlms->all();
         }
         if(count($this->_owners))
         {
@@ -327,35 +273,26 @@ class DistributionListAction extends AttrsImpl
     public function toXml()
     {
         $xml = new SimpleXML('<action />');
-        $xml->addAttribute('op', $this->_op);
+        $xml->addAttribute('op', (string) $this->_op);
         if(!empty($this->_newName))
         {
             $xml->addChild('newName', $this->_newName);
         }
-        if($this->_subsReq instanceof DistributionListSubscribeReq)
+        if($this->_subsReq instanceof Subscribe)
         {
             $xml->append($this->_subsReq->toXml());
         }
-        if(count($this->_dlms))
+        foreach ($this->_dlms as $dlm)
         {
-            foreach ($this->_dlms as $dlm)
-            {
-                $xml->addChild('dlm', $dlm);
-            }
+            $xml->addChild('dlm', $dlm);
         }
-        if(count($this->_owners))
+        foreach ($this->_owners as $owner)
         {
-            foreach ($this->_owners as $owner)
-            {
-                $xml->append($owner->toXml('owner'));
-            }
+            $xml->append($owner->toXml('owner'));
         }
-        if(count($this->_rights))
+        foreach ($this->_rights as $right)
         {
-            foreach ($this->_rights as $right)
-            {
-                $xml->append($right->toXml());
-            }
+            $xml->append($right->toXml());
         }
         parent::appendAttrs($xml);
         return $xml;

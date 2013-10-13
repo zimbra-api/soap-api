@@ -30,11 +30,13 @@ class GetAccountDistributionLists extends Request
      * @var boolean
      */
     private $_ownerOf;
+
     /**
      * The memberOf
-     * @var string
+     * @var MemberOf
      */
     private $_memberOf;
+
     /**
      * The attributes
      * @var string
@@ -44,20 +46,20 @@ class GetAccountDistributionLists extends Request
     /**
      * Constructor method for GetAccountDistributionLists
      * @param  bool   $ownerOf
-     * @param  string $memberOf
+     * @param  MemberOf $memberOf
      * @param  string $attrs
      * @return self
      */
-    public function __construct($ownerOf = null, $memberOf = null, $attrs = null)
+    public function __construct($ownerOf = null, MemberOf $memberOf = null, $attrs = null)
     {
         parent::__construct();
         if(null !== $ownerOf)
         {
             $this->_ownerOf = (bool) $ownerOf;
         }
-        if(MemberOf::isValid(trim($memberOf)))
+        if($memberOf instanceof MemberOf)
         {
-            $this->_memberOf = trim($memberOf);
+            $this->_memberOf = $memberOf;
         }
         $this->_attrs = trim($attrs);
     }
@@ -81,19 +83,16 @@ class GetAccountDistributionLists extends Request
     /**
      * Gets or sets memberOf
      *
-     * @param  string $memberOf
-     * @return string|self
+     * @param  MemberOf $memberOf
+     * @return MemberOf|self
      */
-    public function memberOf($memberOf = null)
+    public function memberOf(MemberOf $memberOf = null)
     {
         if(null === $memberOf)
         {
             return $this->_memberOf;
         }
-        if(MemberOf::isValid(trim($memberOf)))
-        {
-            $this->_memberOf = trim($memberOf);
-        }
+		$this->_memberOf = $memberOf;
         return $this;
     }
 
@@ -124,9 +123,9 @@ class GetAccountDistributionLists extends Request
         {
             $this->array['ownerOf'] = $this->_ownerOf ? 1 : 0;
         }
-        if(!empty($this->_memberOf))
+        if($this->_memberOf instanceof MemberOf)
         {
-            $this->array['memberOf'] = $this->_memberOf;
+            $this->array['memberOf'] = (string) $this->_memberOf;
         }
         if(!empty($this->_attrs))
         {
@@ -146,9 +145,9 @@ class GetAccountDistributionLists extends Request
         {
             $this->xml->addAttribute('ownerOf', $this->_ownerOf ? 1 : 0);
         }
-        if(!empty($this->_memberOf))
+        if($this->_memberOf instanceof MemberOf)
         {
-            $this->xml->addAttribute('memberOf', $this->_memberOf);
+            $this->xml->addAttribute('memberOf', (string) $this->_memberOf);
         }
         if(!empty($this->_attrs))
         {

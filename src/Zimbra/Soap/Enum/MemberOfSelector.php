@@ -17,7 +17,7 @@ namespace Zimbra\Soap\Enum;
  * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright Copyright © 2013 by Nguyen Van Nguyen.
  */
-class MemberOfSelector
+class MemberOfSelector extends Base
 {
     /**
      * Constant for value 'all'
@@ -34,19 +34,4 @@ class MemberOfSelector
      * @return string 'none'
      */
     const NONE = 'none';
-
-    /**
-     * Return true if value is allowed
-     * @param  string $of
-     * @return bool true|false
-     */
-    public static function isValid($of)
-    {
-        $validValues = array(
-            self::ALL,
-            self::DIRECT_ONLY,
-            self::NONE,
-        );
-        return in_array($of, $validValues);
-    }
 }

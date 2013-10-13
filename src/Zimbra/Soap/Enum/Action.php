@@ -17,7 +17,7 @@ namespace Zimbra\Soap\Enum;
  * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright Copyright © 2013 by Nguyen Van Nguyen.
  */
-class Action
+class Action extends Base
 {
     /**
      * Constant for value 'edit'
@@ -49,22 +49,4 @@ class Action
      * @return string 'stop'
      */
     const STOP = 'stop';
-
-    /**
-     * Return true if value is allowed
-     * @param  string $action
-     * @return bool true|false
-     */
-    public static function isValid($action)
-    {
-        $validValues = array(
-            self::EDIT,
-            self::REVOKE,
-            self::EXPIRE,
-            self::START,
-            self::STATUS,
-            self::STOP,
-        );
-        return in_array($action, $validValues);
-    }
 }

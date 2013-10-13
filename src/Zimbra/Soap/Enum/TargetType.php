@@ -17,7 +17,7 @@ namespace Zimbra\Soap\Enum;
  * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright Copyright © 2013 by Nguyen Van Nguyen.
  */
-class TargetType
+class TargetType extends Base
 {
     /**
      * Constant for value 'account'
@@ -90,28 +90,4 @@ class TargetType
      * @return string 'global'
      */
     const GLOBALTYPE = 'global';
-
-    /**
-     * Return true if value is allowed
-     * @param  string $type
-     * @return bool true|false
-     */
-    public static function isValid($type)
-    {
-        $validValues = array(
-            self::ACCOUNT,
-            self::CALRESOURCE,
-            self::COS,
-            self::DL,
-            self::GROUP,
-            self::DOMAIN,
-            self::SERVER,
-            self::UCSERVICE,
-            self::XMPPCOMPONENT,
-            self::ZIMLET,
-            self::CONFIG,
-            self::GLOBALTYPE,
-        );
-        return in_array($type, $validValues);
-    }
 }

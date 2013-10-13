@@ -26,7 +26,7 @@ class SubscribeDistributionList extends Request
 {
     /**
      * The operation to perform. 
-     * @var string
+     * @var SubscribeOp
      */
     private $_op;
 
@@ -38,44 +38,30 @@ class SubscribeDistributionList extends Request
 
     /**
      * Constructor method for subscribeDistributionList
-     * @param string $op
+     * @param SubscribeOp $op
      * @param DistList $dl
      * @return self
      */
-    public function __construct($op, DistList $dl)
+    public function __construct(SubscribeOp $op, DistList $dl)
     {
         parent::__construct();
-        if(SubscribeOp::isValid(trim($op)))
-        {
-            $this->_op = trim($op);
-        }
-        else
-        {
-            throw new \InvalidArgumentException('Invalid subscribe operation');
-        }
+		$this->_op = $op;
         $this->_dl = $dl;
     }
 
     /**
      * Gets or sets op
      *
-     * @param  string $op
-     * @return string|self
+     * @param  SubscribeOp $op
+     * @return SubscribeOp|self
      */
-    public function op($op = null)
+    public function op(SubscribeOp $op = null)
     {
         if(null === $op)
         {
             return $this->_op;
         }
-        if(SubscribeOp::isValid(trim($op)))
-        {
-            $this->_op = trim($op);
-        }
-        else
-        {
-            throw new \InvalidArgumentException('Invalid subscribe operation');
-        }
+		$this->_op = $op;
         return $this;
     }
 
@@ -103,7 +89,7 @@ class SubscribeDistributionList extends Request
     public function toArray()
     {
         $this->array = array(
-            'op' => $this->_op,
+            'op' => (string) $this->_op,
         );
         $this->array += $this->_dl->toArray();
         return parent::toArray();
@@ -116,7 +102,7 @@ class SubscribeDistributionList extends Request
      */
     public function toXml()
     {
-        $this->xml->addAttribute('op', $this->_op)
+        $this->xml->addAttribute('op', (string) $this->_op)
                   ->append($this->_dl->toXml());
         return parent::toXml();
     }

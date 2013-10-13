@@ -24,7 +24,6 @@ class DataSourceSpecifier extends AttrsImpl
 {
     /**
      * The type
-     * - use : required
      * @var DataSourceType
      */
     private $type;
@@ -42,40 +41,26 @@ class DataSourceSpecifier extends AttrsImpl
      * @param string $name
      * @return self
      */
-    public function __construct($type, $name, array $attrs = array())
+    public function __construct(DataSourceType $type, $name, array $attrs = array())
     {
         parent::__construct($attrs);
-        if(DataSourceType::isValid(trim($type)))
-        {
-            $this->_type = trim($type);
-        }
-        else
-        {
-            throw new \InvalidArgumentException('Invalid data source type');
-        }
+        $this->_type = $type;
         $this->_name = trim($name);
     }
 
     /**
      * Gets or sets type
      *
-     * @param  string $type
-     * @return string|self
+     * @param  DataSourceType $type
+     * @return DataSourceType|self
      */
-    public function type($type = null)
+    public function type(DataSourceType $type = null)
     {
         if(null === $type)
         {
             return $this->_type;
         }
-        if(DataSourceType::isValid(trim($type)))
-        {
-            $this->_type = trim($type);
-        }
-        else
-        {
-            throw new \InvalidArgumentException('Invalid data source type');
-        }
+        $this->_type = $type;
         return $this;
     }
 
@@ -103,7 +88,7 @@ class DataSourceSpecifier extends AttrsImpl
     public function toArray()
     {
         $this->array = array(
-            'type' => $this->_type,
+            'type' => (string) $this->_type,
             'name' => $this->_name,
         );
         return array('dataSource' => parent::toArray());
@@ -117,7 +102,7 @@ class DataSourceSpecifier extends AttrsImpl
     public function toXml()
     {
         $xml = new SimpleXML('<dataSource />');
-        $xml->addAttribute('type', $this->_type)
+        $xml->addAttribute('type', (string) $this->_type)
             ->addAttribute('name', $this->_name);
         parent::appendAttrs($xml);
         return $xml;

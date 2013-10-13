@@ -12,6 +12,7 @@ namespace Zimbra\API\Account\Request;
 
 use Zimbra\Soap\Request;
 use Zimbra\Soap\Struct\Identity;
+use Zimbra\Utils\TypedSequence;
 
 /**
  * GetIdentities class
@@ -26,7 +27,7 @@ class GetIdentities extends Request
 {
     /**
      * Identities
-     * @var array
+     * @var Sequence
      */
     private $_identities = array();
 
@@ -38,7 +39,7 @@ class GetIdentities extends Request
     public function __construct(array $identities = array())
     {
         parent::__construct();
-        $this->identities($identities);
+        $this->_identities = new TypedSequence('Zimbra\Soap\Struct\Identity', $identities);
     }
 
     /**
@@ -49,31 +50,18 @@ class GetIdentities extends Request
      */
     public function addIdentity(Identity $identity)
     {
-        $this->_identities[] = $identity;
+        $this->_identities->add($identity);
         return $this;
     }
 
     /**
-     * Gets or sets identity
+     * Gets identity Sequence
      *
-     * @param  array $identities
-     * @return array|self
+     * @return Sequence
      */
     public function identities(array $identities = null)
     {
-        if(null === $identities)
-        {
-            return $this->_identities;
-        }
-        $this->_identities = array();
-        foreach ($identities as $identity)
-        {
-            if($identity instanceof Identity)
-            {
-                $this->_identities[] = $identity;
-            }
-        }
-        return $this;
+        return $this->_identities;
     }
 
     /**
