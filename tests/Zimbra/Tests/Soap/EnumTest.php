@@ -584,20 +584,6 @@ class EnumTest extends ZimbraTestCase
         }
     }
 
-    public function testSearchGalType()
-    {
-        $values = array(
-            'all',
-            'account',
-            'resource',
-            'group',
-        );
-        foreach ($values as $value)
-        {
-            $this->assertTrue(\Zimbra\Soap\Enum\SearchGalType::has($value));
-        }
-    }
-
     public function testSectionType()
     {
         $values = array(

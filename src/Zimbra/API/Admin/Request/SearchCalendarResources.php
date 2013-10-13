@@ -11,7 +11,6 @@
 namespace Zimbra\API\Admin\Request;
 
 use Zimbra\Soap\Request;
-use Zimbra\Soap\Struct\CursorInfo;
 use Zimbra\Soap\Struct\EntrySearchFilterInfo as SearchFilter;
 
 /**
@@ -82,7 +81,7 @@ class SearchCalendarResources extends Request
      * @param string $domain
      * @param bool $applyCos
      * @param string $sortBy
-     * @param bool $
+     * @param bool $sortAscending
      * @param string $attrs
      * @return self
      */
@@ -126,10 +125,10 @@ class SearchCalendarResources extends Request
     /**
      * Gets or sets searchFilter
      *
-     * @param  EntrySearchFilterInfo $searchFilter
-     * @return EntrySearchFilterInfo|self
+     * @param  SearchFilter $searchFilter
+     * @return SearchFilter|self
      */
-    public function searchFilter(EntrySearchFilterInfo $searchFilter = null)
+    public function searchFilter(SearchFilter $searchFilter = null)
     {
         if(null === $searchFilter)
         {

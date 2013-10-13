@@ -11,7 +11,7 @@
 namespace Zimbra\API\Admin\Request;
 
 use Zimbra\Soap\Request\Attr;
-use Zimbra\Soap\Struct\UCServiceSelector as UCService;
+use Zimbra\Soap\Struct\UcServiceSelector as UcService;
 
 
 /**
@@ -45,14 +45,14 @@ class UpdatePresenceSessionId extends Attr
 
     /**
      * Constructor method for UpdatePresenceSessionId
-     * @param UCService $ucservice
+     * @param UcService $ucservice
      * @param string $username
      * @param string $password
      * @param array  $attrs
      * @return self
      */
     public function __construct(
-        UCService $ucservice,
+        UcService $ucservice,
         $username,
         $password,
         array $attrs = array())
@@ -66,10 +66,10 @@ class UpdatePresenceSessionId extends Attr
     /**
      * Gets or sets ucservice
      *
-     * @param  UCService $ucservice
-     * @return UCService|self
+     * @param  UcService $ucservice
+     * @return UcService|self
      */
-    public function ucservice(UCService $ucservice = null)
+    public function ucservice(UcService $ucservice = null)
     {
         if(null === $ucservice)
         {

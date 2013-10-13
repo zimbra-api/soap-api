@@ -130,14 +130,14 @@ class SearchAccounts extends Request
         $this->_sortBy = trim($sortBy);
         foreach (explode(',', trim($types)) as $type)
         {
-            if(in_array(trim($type), array('accounts', 'resources ')))
+            if(in_array(trim($type), array('accounts', 'resources')))
             {
                 $this->_types = empty($this->_types) ? trim($type) : ',' . trim($type);
             }
         }
         if(null !== $sortAscending)
         {
-            $this->_sortAscendings = (bool) $sortAscending;
+            $this->_sortAscending = (bool) $sortAscending;
         }
     }
 
@@ -272,9 +272,10 @@ class SearchAccounts extends Request
         {
             return $this->_types;
         }
+        $this->_types = '';
         foreach (explode(',', trim($types)) as $type)
         {
-            if(in_array(trim($type), array('accounts', 'resources ')))
+            if(in_array(trim($type), array('accounts', 'resources')))
             {
                 $this->_types = empty($this->_types) ? trim($type) : ',' . trim($type);
             }

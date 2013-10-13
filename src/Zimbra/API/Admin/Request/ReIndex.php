@@ -40,7 +40,7 @@ class ReIndex extends Request
     /**
      * Constructor method for ModifyVolume
      * @param Mailbox $mbox
-     * @param ReIndexAction $action
+     * @param Action $action
      * @return self
      */
     public function __construct(Mailbox $mbox, Action $action = null)

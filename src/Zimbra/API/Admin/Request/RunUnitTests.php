@@ -11,6 +11,7 @@
 namespace Zimbra\API\Admin\Request;
 
 use Zimbra\Soap\Request;
+use PhpCollection\Sequence;
 
 /**
  * RunUnitTests class
@@ -31,45 +32,39 @@ class RunUnitTests extends Request
 
     /**
      * Constructor method for RunUnitTests
-     * @param  array  $dlms
+     * @param  array  $tests
      * @return self
      */
     public function __construct(array $tests = array())
     {
         parent::__construct();
-        $this->_id = trim($id);
-        foreach ($tests as $test)
-        {
-            $test = trim($test);
-            if(!empty($test))
-            {
-                $this->_tests[] = $test;
-            }
-        }
+        $this->_tests = new Sequence($tests);
     }
 
     /**
-     * Gets or sets tests
+     * Add a test
      *
-     * @param  array $tests
-     * @return array|self
+     * @param  string $test
+     * @return self
      */
-    public function tests(array $tests = null)
+    public function addTest($test)
     {
-        if(null === $tests)
+        $test = trim($test);
+        if(!empty($test))
         {
-            return $this->_tests;
-        }
-        $this->_tests = array();
-        foreach ($tests as $test)
-        {
-            $test = trim($test);
-            if(!empty($test))
-            {
-                $this->_tests[] = $test;
-            }
+            $this->_tests->add($test);
         }
         return $this;
+    }
+
+    /**
+     * Gets test sequence
+     *
+     * @return Sequence
+     */
+    public function tests()
+    {
+        return $this->_tests;
     }
 
     /**
@@ -79,6 +74,7 @@ class RunUnitTests extends Request
      */
     public function toArray()
     {
+        $this->normalizeTests();
         if(count($this->_tests))
         {
             $this->array['test'] = array();
@@ -97,10 +93,20 @@ class RunUnitTests extends Request
      */
     public function toXml()
     {
+        $this->normalizeTests();
         foreach ($this->_tests as $test)
         {
             $this->xml->addChild('test', $test);
         }
         return parent::toXml();
+    }
+
+    private function normalizeTests()
+    {
+        $this->_tests = $this->_tests->filter(function($test)
+        {
+            $test = trim($test);
+            return !empty($test);
+        });
     }
 }

@@ -11,7 +11,7 @@
 namespace Zimbra\API\Admin\Request;
 
 use Zimbra\Soap\Request;
-use Zimbra\Soap\Enum\SearchGalType;
+use Zimbra\Soap\Enum\GalSearchType;
 
 /**
  * SearchGal class
@@ -67,7 +67,7 @@ class SearchGal extends Request
      * @param string $domain
      * @param string $name
      * @param int $limit
-     * @param SearchGalType $type
+     * @param GalSearchType $type
      * @param string $galAcctId
      * @return self
      */
@@ -75,7 +75,7 @@ class SearchGal extends Request
         $domain,
         $name = null,
         $limit = null,
-        SearchGalType $type = null,
+        GalSearchType $type = null,
         $galAcctId = null
     )
     {
@@ -86,7 +86,7 @@ class SearchGal extends Request
         {
             $this->_limit = (int) $limit;
         }
-        if($type instanceof SearchGalType)
+        if($type instanceof GalSearchType)
         {
             $this->_type = $type;
         }
@@ -143,10 +143,10 @@ class SearchGal extends Request
     /**
      * Gets or sets type
      *
-     * @param  SearchGalType $type
-     * @return SearchGalType|self
+     * @param  GalSearchType $type
+     * @return GalSearchType|self
      */
-    public function type(SearchGalType $type = null)
+    public function type(GalSearchType $type = null)
     {
         if(null === $type)
         {
@@ -191,7 +191,7 @@ class SearchGal extends Request
         {
             $this->array['limit'] = $this->_limit;
         }
-        if($this->_type instanceof SearchGalType)
+        if($this->_type instanceof GalSearchType)
         {
             $this->array['type'] = (string) $this->_type;
         }
@@ -221,7 +221,7 @@ class SearchGal extends Request
         {
             $this->xml->addAttribute('limit', $this->_limit);
         }
-        if($this->_type instanceof SearchGalType)
+        if($this->_type instanceof GalSearchType)
         {
             $this->xml->addAttribute('type', (string) $this->_type);
         }

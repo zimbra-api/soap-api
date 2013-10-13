@@ -24,16 +24,19 @@ class GalSearchType extends Base
      * @return string 'all'
      */
     const ALL = 'all';
+
     /**
      * Constant for value 'account'
      * @return string 'account'
      */
     const ACCOUNT = 'account';
+
     /**
      * Constant for value 'resource'
      * @return string 'resource'
      */
     const RESOURCE = 'resource';
+
     /**
      * Constant for value 'group'
      * @return string 'group'

@@ -11,6 +11,7 @@
 namespace Zimbra\API\Admin\Request;
 
 use Zimbra\Soap\Request;
+use PhpCollection\Sequence;
 
 /**
  * RemoveDistributionListMember class
@@ -34,7 +35,7 @@ class RemoveDistributionListMember extends Request
      * Members
      * @var array
      */
-    private $_dlms = array();
+    private $_dlms;
 
     /**
      * Constructor method for RemoveDistributionListMember
@@ -46,7 +47,12 @@ class RemoveDistributionListMember extends Request
     {
         parent::__construct();
         $this->_id = trim($id);
-        $this->dlms($dlms);
+        $this->_dlms = new Sequence($dlms);
+        $this->normalizeDlms();
+        if(!count($this->_dlms))
+        {
+            throw new \InvalidArgumentException('AddDistributionListMember must have at least a member');
+        }
     }
 
     /**
@@ -66,31 +72,29 @@ class RemoveDistributionListMember extends Request
     }
 
     /**
-     * Gets or sets dlms
+     * Add a member
      *
-     * @param  array $dlms
-     * @return array|self
+     * @param  string $dlm
+     * @return self
      */
-    public function dlms(array $dlms = null)
+    public function addDlm($dlm)
     {
-        if(null === $dlms)
+        $dlm = trim($dlm);
+        if(!empty($dlm))
         {
-            return $this->_dlms;
-        }
-        $this->_dlms = array();
-        foreach ($dlms as $dlm)
-        {
-            $dlm = trim($dlm);
-            if(!empty($dlm))
-            {
-                $this->_dlms[] = $dlm;
-            }
-        }
-        if(!count($this->_dlms))
-        {
-            throw new \InvalidArgumentException('AddDistributionListMember must have at least a member');
+            $this->_dlms->add($dlm);
         }
         return $this;
+    }
+
+    /**
+     * Gets dlm sequence
+     *
+     * @return Sequence
+     */
+    public function dlms()
+    {
+        return $this->_dlms;
     }
 
     /**
@@ -103,6 +107,7 @@ class RemoveDistributionListMember extends Request
         $this->array = array(
             'id' => $this->_id,
         );
+        $this->normalizeDlms();
         if(count($this->_dlms))
         {
             $this->array['dlm'] = array();
@@ -122,10 +127,20 @@ class RemoveDistributionListMember extends Request
     public function toXml()
     {
         $this->xml->addAttribute('id', $this->_id);
+        $this->normalizeDlms();
         foreach ($this->_dlms as $dlm)
         {
             $this->xml->addChild('dlm', $dlm);
         }
         return parent::toXml();
+    }
+
+    private function normalizeDlms()
+    {
+        $this->_dlms = $this->_dlms->filter(function($dlm)
+        {
+            $dlm = trim($dlm);
+            return !empty($dlm);
+        });
     }
 }
