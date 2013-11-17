@@ -105,7 +105,7 @@ class Http implements ClientInterface
      */
     public function authToken($authToken = null)
     {
-        if($authToken === null)
+        if(null === $authToken)
         {
             return $this->authToken;
         }
@@ -121,7 +121,7 @@ class Http implements ClientInterface
      */
     public function sessionId($sessionId = null)
     {
-        if($sessionId === null)
+        if(null === $sessionId)
         {
             return $this->sessionId;
         }

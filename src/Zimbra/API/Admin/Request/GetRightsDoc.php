@@ -12,6 +12,7 @@ namespace Zimbra\API\Admin\Request;
 
 use Zimbra\Soap\Request;
 use Zimbra\Soap\Struct\PackageSelector as Package;
+use Zimbra\Utils\TypedSequence;
 
 /**
  * GetRightsDoc class
@@ -28,7 +29,7 @@ class GetRightsDoc extends Request
      * Packages
      * @var array
      */
-    private $_packages = array();
+    private $_packages;
 
     /**
      * Constructor method for GetRightsDoc
@@ -38,7 +39,7 @@ class GetRightsDoc extends Request
     public function __construct(array $packages = array())
     {
         parent::__construct();
-        $this->packages($packages);
+        $this->_packages = new TypedSequence('Zimbra\Soap\Struct\PackageSelector', $packages);
     }
 
     /**
@@ -49,31 +50,18 @@ class GetRightsDoc extends Request
      */
     public function addPackage(Package $package)
     {
-        $this->_packages[] = $package;
+        $this->_packages->add($package);
         return $this;
     }
 
     /**
-     * Gets or sets packages
+     * Gets package sequence
      *
-     * @param  array $packages
-     * @return array|self
+     * @return Sequence
      */
-    public function packages(array $packages = null)
+    public function packages()
     {
-        if(null === $packages)
-        {
-            return $this->_packages;
-        }
-        $this->_packages = array();
-        foreach ($packages as $package)
-        {
-            if($package instanceof Package)
-            {
-                $this->_packages[] = $package;
-            }
-        }
-        return $this;
+        return $this->_packages;
     }
 
     /**

@@ -12,6 +12,8 @@ namespace Zimbra\API\Admin\Request;
 
 use Zimbra\Soap\Request;
 use Zimbra\Soap\Struct\WaitSetAddSpec as WaitSet;
+use Zimbra\Soap\Enum\InterestType;
+use Zimbra\Utils\TypedSequence;
 
 /**
  * AdminCreateWaitSet class
@@ -27,8 +29,7 @@ class AdminCreateWaitSet extends Request
 {
     /**
      * Default interest types
-     * comma-separated list
-     * @var string
+     * @var array
      */
     private $_defTypes;
 
@@ -42,56 +43,68 @@ class AdminCreateWaitSet extends Request
      * The WaitSet add spec array
      * @var array
      */
-    private $_addWaitSets = array();
-
-    /**
-     * Valid types
-     * @var array
-     */
-    private static $_validTypes = array('f', 'm', 'c', 'a', 't', 'd', 'all');
+    private $_waitSets;
 
     /**
      * Constructor method for AdminCreateWaitSet
-     * @param  string $defTypes
-     * @param  bool   $allAccounts
-     * @param  array  $addWaitSets
+     * @param  array $defTypes
+     * @param  array $waitSets
+     * @param  bool  $allAccounts
      * @return self
      */
-    public function __construct($defTypes, $allAccounts = null, array $addWaitSets = array())
+    public function __construct(array $defTypes, array $waitSets = array(), $allAccounts = null)
     {
         parent::__construct();
-        $this->defTypes($defTypes);
+        $this->_defTypes = new TypedSequence('Zimbra\Soap\Enum\InterestType', $defTypes);
+        $this->_waitSets = new TypedSequence('Zimbra\Soap\Struct\WaitSetAddSpec', $waitSets);
         if(null !== $allAccounts)
         {
             $this->_allAccounts = (bool) $allAccounts;
         }
-        $this->addWaitSets($addWaitSets);
     }
 
     /**
-     * Gets or sets defTypes
+     * Add a type
      *
-     * @param  string $defTypes
-     * @return string|self
+     * @param  InterestType $type
+     * @return self
      */
-    public function defTypes($defTypes = null)
+    public function addDefType(InterestType $type)
     {
-        if(null === $defTypes)
-        {
-            return $this->_defTypes;
-        }
-        $types = array();
-        $defTypes = explode(',', $defTypes);
-        foreach ($defTypes as $type)
-        {
-            $type = trim($type);
-            if(in_array($type, self::$_validTypes))
-            {
-                $types[] = $type;
-            }
-        }
-        $this->_defTypes = implode(',', $types);
+        $this->_defTypes->add($type);
         return $this;
+    }
+
+    /**
+     * Gets defTypes
+     *
+     * @return string
+     */
+    public function defTypes()
+    {
+        return count($this->_defTypes) ? implode(',', $this->_defTypes->all()) : 'all';
+    }
+
+    /**
+     * Add a WaitSet
+     *
+     * @param  WaitSet $spec
+     * @return self
+     */
+    public function addWaitSet(WaitSet $spec)
+    {
+        $this->_waitSets->add($spec);
+        return $this;
+    }
+
+    /**
+     * Gets addWaitSet Sequence
+     *
+     * @return Sequence
+     */
+    public function WaitSets()
+    {
+        return $this->_waitSets;
     }
 
     /**
@@ -111,41 +124,6 @@ class AdminCreateWaitSet extends Request
     }
 
     /**
-     * Add a WaitSet
-     *
-     * @param  WaitSet $spec
-     * @return self
-     */
-    public function addSpec(WaitSet $spec)
-    {
-        $this->_addWaitSets[] = $spec;
-        return $this;
-    }
-
-    /**
-     * Gets or sets addWaitSets
-     *
-     * @param  array $addWaitSets
-     * @return array|self
-     */
-    public function addWaitSets(array $addWaitSets = null)
-    {
-        if(null === $addWaitSets)
-        {
-            return $this->_addWaitSets;
-        }
-        $this->_addWaitSets = array();
-        foreach ($addWaitSets as $spec)
-        {
-            if($spec instanceof WaitSet)
-            {
-                $this->_addWaitSets[] = $spec;
-            }
-        }
-        return $this;
-    }
-
-    /**
      * Returns the array representation of this class 
      *
      * @return array
@@ -153,17 +131,17 @@ class AdminCreateWaitSet extends Request
     public function toArray()
     {
         $this->array = array(
-            'defTypes' => $this->_defTypes,
+            'defTypes' => $this->defTypes(),
             'add' => array(),
         );
         if(is_bool($this->_allAccounts))
         {
             $this->array['allAccounts'] = $this->_allAccounts ? 1 : 0;
         }
-        if(count($this->_addWaitSets))
+        if(count($this->_waitSets))
         {
             $this->array['add']['a'] = array();
-            foreach ($this->_addWaitSets as $spec)
+            foreach ($this->_waitSets as $spec)
             {
                 $specArr = $spec->toArray('a');
                 $this->array['add']['a'][] = $specArr['a'];
@@ -179,13 +157,13 @@ class AdminCreateWaitSet extends Request
      */
     public function toXml()
     {
-        $this->xml->addAttribute('defTypes', $this->_defTypes);
+        $this->xml->addAttribute('defTypes', $this->defTypes());
         if(is_bool($this->_allAccounts))
         {
             $this->xml->addAttribute('allAccounts', $this->_allAccounts ? 1 : 0);
         }
         $add = $this->xml->addChild('add', null);
-        foreach ($this->_addWaitSets as $spec)
+        foreach ($this->_waitSets as $spec)
         {
             $add->append($spec->toXml('a'));
         }

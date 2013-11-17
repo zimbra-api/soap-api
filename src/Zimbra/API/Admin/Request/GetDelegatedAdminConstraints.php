@@ -12,6 +12,8 @@ namespace Zimbra\API\Admin\Request;
 
 use Zimbra\Soap\Request;
 use Zimbra\Soap\Struct\NamedElement as Attr;
+use Zimbra\Soap\Enum\TargetType;
+use Zimbra\Utils\TypedSequence;
 
 /**
  * GetDelegatedAdminConstraints class
@@ -29,7 +31,7 @@ class GetDelegatedAdminConstraints extends Request
 {
     /**
      * Target type
-     * @var string
+     * @var TargetType
      */
     private $_type;
 
@@ -52,34 +54,34 @@ class GetDelegatedAdminConstraints extends Request
 
     /**
      * Constructor method for GetDelegatedAdminConstraints
-     * @param  string $type
+     * @param  TargetType $type
      * @param  string $id
      * @param  string $name
      * @param  array $attrs
      * @return self
      */
-    public function __construct($type, $id = null, $name = null, array $attrs = array())
+    public function __construct(TargetType $type, $id = null, $name = null, array $attrs = array())
     {
         parent::__construct($attrs);
-        $this->_type = trim($type);
+        $this->_type = $type;
 		$this->_id = trim($id);
 		$this->_name = trim($name);
-        $this->attrs($attrs);
+        $this->_attrs = new TypedSequence('Zimbra\Soap\Struct\NamedElement', $attrs);
     }
 
     /**
      * Gets or sets type
      *
-     * @param  string $type
-     * @return string|self
+     * @param  TargetType $type
+     * @return TargetType|self
      */
-    public function type($type = null)
+    public function type(TargetType $type = null)
     {
         if(null === $type)
         {
             return $this->_type;
         }
-        $this->_type = trim($type);
+        $this->_type = $type;
         return $this;
     }
 
@@ -123,31 +125,18 @@ class GetDelegatedAdminConstraints extends Request
      */
     public function addAttr(Attr $attr)
     {
-        $this->_attrs[] = $attr;
+        $this->_attrs->add($attr);
         return $this;
     }
 
     /**
-     * Gets or sets attrs
+     * Gets attr sequence
      *
-     * @param  array $attrs
-     * @return array|self
+     * @return Sequence
      */
-    public function attrs(array $attrs = null)
+    public function attrs()
     {
-        if(null === $attrs)
-        {
-            return $this->_attrs;
-        }
-        $this->_attrs = array();
-        foreach ($attrs as $attr)
-        {
-            if($attr instanceof Attr)
-            {
-                $this->_attrs[] = $attr;
-            }
-        }
-        return $this;
+        return $this->_attrs;
     }
 
     /**

@@ -54,7 +54,7 @@ class GetDistributionList extends Attr
      * @param  int $limit
      * @param  int $offset
      * @param  bool $sortAscending
-     * @param  array $attr
+     * @param  array $attrs
      * @return self
      */
     public function __construct(
@@ -62,9 +62,9 @@ class GetDistributionList extends Attr
         $limit = null,
         $offset = null,
         $sortAscending = null,
-        array $attr = array())
+        array $attrs = array())
     {
-        parent::__construct($attr);
+        parent::__construct($attrs);
         if($dl instanceof DistList)
         {
             $this->_dl = $dl;

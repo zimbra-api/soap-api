@@ -25,7 +25,7 @@ use Zimbra\Soap\Struct\ExchangeAuthSpec as Exchange;
 class CheckExchangeAuth extends Request
 {
     /**
-     * Exchange Auth details
+     * Exchange auth details
      * @var Exchange
      */
     private $_auth;

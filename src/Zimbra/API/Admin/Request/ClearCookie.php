@@ -12,6 +12,7 @@ namespace Zimbra\API\Admin\Request;
 
 use Zimbra\Soap\Request;
 use Zimbra\Soap\Struct\CookieSpec as Cookie;
+use Zimbra\Utils\TypedSequence;
 
 /**
  * ClearCookie class
@@ -28,7 +29,7 @@ class ClearCookie extends Request
      * Specifies cookies to clean
      * @var array
      */
-    private $_cookies = array();
+    private $_cookies;
 
     /**
      * Constructor method for ClearCookie
@@ -38,7 +39,7 @@ class ClearCookie extends Request
     public function __construct(array $cookies = array())
     {
         parent::__construct();
-        $this->cookies($cookies);
+        $this->_cookies = new TypedSequence('Zimbra\Soap\Struct\CookieSpec', $cookies);
     }
 
     /**
@@ -49,31 +50,18 @@ class ClearCookie extends Request
      */
     public function addCookie(Cookie $cookie)
     {
-        $this->_cookies[] = $cookie;
+        $this->_cookies->add($cookie);
         return $this;
     }
 
     /**
-     * Gets or sets cookies
+     * Gets cookie sequence
      *
-     * @param  array $cookies
-     * @return array|self
+     * @return Sequence
      */
-    public function cookies(array $cookies = null)
+    public function cookies()
     {
-        if(null === $cookies)
-        {
-            return $this->_cookies;
-        }
-        $this->_cookies = array();
-        foreach ($cookies as $cookie)
-        {
-            if($cookie instanceof Cookie)
-            {
-                $this->_cookies[] = $cookie;
-            }
-        }
-        return $this;
+        return $this->_cookies;
     }
 
     /**

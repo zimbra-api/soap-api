@@ -62,12 +62,12 @@ class Auth extends Request
 
     /**
      * Constructor method for Auth
-     * @param string $name
-     * @param string $password
-     * @param string $authToken
+     * @param string  $name
+     * @param string  $password
+     * @param string  $authToken
      * @param Account $account
-     * @param string $virtualHost
-     * @param bool   $persistAuthTokenCookie
+     * @param string  $virtualHost
+     * @param bool    $persistAuthTokenCookie
      * @return self
      */
     public function __construct(

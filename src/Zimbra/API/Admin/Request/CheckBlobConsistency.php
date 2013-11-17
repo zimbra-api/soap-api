@@ -12,6 +12,7 @@ namespace Zimbra\API\Admin\Request;
 
 use Zimbra\Soap\Request;
 use Zimbra\Soap\Struct\IntIdAttr;
+use Zimbra\Utils\TypedSequence;
 
 /**
  * CheckBlobConsistency class
@@ -28,13 +29,13 @@ class CheckBlobConsistency extends Request
      * The volume
      * @var array
      */
-    private $_volumes = array();
+    private $_volumes;
 
     /**
      * The mbox
      * @var array
      */
-    private $_mboxes = array();
+    private $_mboxes;
 
     /**
      * The checkSize
@@ -50,8 +51,8 @@ class CheckBlobConsistency extends Request
 
     /**
      * Constructor method for CheckBlobConsistency
-     * @param array $volume
-     * @param array $mbox
+     * @param array $volumes
+     * @param array $mboxes
      * @param bool  $checkSize
      * @param bool  $reportUsedBlobs
      * @return self
@@ -60,12 +61,12 @@ class CheckBlobConsistency extends Request
         array $volumes = array(),
         array $mboxes = array(),
         $checkSize = null,
-        $reportUsedBlobs = null
-    )
+        $reportUsedBlobs = null)
     {
         parent::__construct();
-        $this->volumes($volumes);
-        $this->mboxes($mboxes);
+        $this->_volumes = new TypedSequence('Zimbra\Soap\Struct\IntIdAttr', $volumes);
+        $this->_mboxes = new TypedSequence('Zimbra\Soap\Struct\IntIdAttr', $mboxes);
+
         if(null !== $checkSize)
         {
             $this->_checkSize = (bool) $checkSize;
@@ -84,31 +85,18 @@ class CheckBlobConsistency extends Request
      */
     public function addVolume(IntIdAttr $volume)
     {
-        $this->_volumes[] = $volume;
+        $this->_volumes->add($volume);
         return $this;
     }
 
     /**
-     * Gets or sets volumes
+     * Gets volume sequence
      *
-     * @param  array $volumes
-     * @return array|self
+     * @return Sequence
      */
-    public function volumes(array $volumes = null)
+    public function volumes()
     {
-        if(null === $volumes)
-        {
-            return $this->_volumes;
-        }
-        $this->_volumes = array();
-        foreach ($volumes as $volume)
-        {
-            if($volume instanceof IntIdAttr)
-            {
-                $this->_volumes[] = $volume;
-            }
-        }
-        return $this;
+        return $this->_volumes;
     }
 
     /**
@@ -119,31 +107,18 @@ class CheckBlobConsistency extends Request
      */
     public function addMbox(IntIdAttr $mbox)
     {
-        $this->_mboxes[] = $mbox;
+        $this->_mboxes->add($mbox);
         return $this;
     }
 
     /**
-     * Gets or sets mboxes
+     * Gets mbox sequence
      *
-     * @param  array $mboxes
-     * @return array|self
+     * @return Sequence
      */
-    public function mboxes(array $mboxes = null)
+    public function mboxes()
     {
-        if(null === $mboxes)
-        {
-            return $this->_mboxes;
-        }
-        $this->_mboxes = array();
-        foreach ($mboxes as $mbox)
-        {
-            if($mbox instanceof IntIdAttr)
-            {
-                $this->_mboxes[] = $mbox;
-            }
-        }
-        return $this;
+        return $this->_mboxes;
     }
 
     /**

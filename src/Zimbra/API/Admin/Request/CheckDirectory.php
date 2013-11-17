@@ -12,6 +12,7 @@ namespace Zimbra\API\Admin\Request;
 
 use Zimbra\Soap\Request;
 use Zimbra\Soap\Struct\CheckDirSelector as CheckDir;
+use Zimbra\Utils\TypedSequence;
 
 /**
  * CheckDirectory class
@@ -38,7 +39,7 @@ class CheckDirectory extends Request
     public function __construct(array $directories = array())
     {
         parent::__construct();
-        $this->directories($directories);
+        $this->_directories = new TypedSequence('Zimbra\Soap\Struct\CheckDirSelector', $directories);
     }
 
     /**
@@ -49,30 +50,17 @@ class CheckDirectory extends Request
      */
     public function addDirectory(CheckDir $directory)
     {
-        $this->_directories[] = $directory;
+        $this->_directories->add($directory);
     }
 
     /**
-     * Gets or sets directories
+     * Gets directory Sequence
      *
-     * @param  array $directories
-     * @return array|self
+     * @return Sequence
      */
-    public function directories(array $directories = null)
+    public function directories()
     {
-        if(null === $directories)
-        {
-            return $this->_directories;
-        }
-        $this->_directories = array();
-        foreach ($directories as $directory)
-        {
-            if($directory instanceof CheckDir)
-            {
-                $this->_directories[] = $directory;
-            }
-        }
-        return $this;
+        return $this->_directories;
     }
 
     /**

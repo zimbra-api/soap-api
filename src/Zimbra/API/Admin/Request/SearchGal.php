@@ -56,12 +56,6 @@ class SearchGal extends Request
     private $_galAcctId;
 
     /**
-     * Valid types
-     * @var array
-     */
-    private static $_validTypes = array('all', 'account', 'resource', 'group');
-
-    /**
      * Constructor method for SearchGal
      * @see parent::__construct()
      * @param string $domain

@@ -61,8 +61,7 @@ class DeployZimlet extends Request
         Action $action,
         Attachment $content = null,
         $flush = null,
-        $synchronous = null
-    )
+        $synchronous = null)
     {
         parent::__construct();
         $this->_action = $action;

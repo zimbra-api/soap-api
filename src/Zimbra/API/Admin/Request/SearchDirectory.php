@@ -11,6 +11,8 @@
 namespace Zimbra\API\Admin\Request;
 
 use Zimbra\Soap\Request;
+use Zimbra\Soap\Enum\DirectorySearchType as SearchType;
+use Zimbra\Utils\TypedSequence;
 
 /**
  * SearchDirectory class
@@ -100,19 +102,6 @@ class SearchDirectory extends Request
     private $_attrs;
 
     /**
-     * Valid types
-     * @var array
-     */
-    private static $_validTypes = array(
-        'accounts',
-        'distributionlists',
-        'aliases',
-        'resources',
-        'domains',
-        'coses'
-    );
-
-    /**
      * Constructor method for SearchDirectory
      * @see parent::__construct()
      * @param string $query
@@ -122,8 +111,8 @@ class SearchDirectory extends Request
      * @param string $domain
      * @param bool $applyCos
      * @param bool $applyConfig
+     * @param array $types
      * @param string $sortBy
-     * @param string $types
      * @param bool $sortAscending
      * @param bool $countOnly
      * @param string $attrs
@@ -137,8 +126,8 @@ class SearchDirectory extends Request
         $domain = null,
         $applyCos = null,
         $applyConfig = null,
+        array $types = array(),
         $sortBy = null,
-        $types = null,
         $sortAscending = null,
         $countOnly = null,
         $attrs = null
@@ -168,16 +157,7 @@ class SearchDirectory extends Request
             $this->_applyConfig = (bool) $applyConfig;
         }
         $this->_sortBy = trim($sortBy);
-
-        foreach (explode(',', trim($types)) as $type)
-        {
-            if(in_array(trim($type), self::$_validTypes))
-            {
-                $this->_types = empty($this->_types) ? trim($type) : ',' . trim($type);
-            }
-        }
-
-        $this->_types = trim($types);
+        $this->_types = new TypedSequence('Zimbra\Soap\Enum\DirectorySearchType', $types);
         if(null !== $sortAscending)
         {
             $this->_sortAscending = (bool) $sortAscending;
@@ -302,6 +282,29 @@ class SearchDirectory extends Request
     }
 
     /**
+     * Add a search type
+     *
+     * @param  SearchType $type
+     * @return self
+     */
+    public function addType(SearchType $type)
+    {
+        $this->_types->add($type);
+        return $this;
+    }
+
+    /**
+     * Gets or sets types
+     *
+     * @param  string $types
+     * @return string|self
+     */
+    public function types()
+    {
+        return $this->_types;
+    }
+
+    /**
      * Gets or sets sortBy
      *
      * @param  string $sortBy
@@ -314,29 +317,6 @@ class SearchDirectory extends Request
             return $this->_sortBy;
         }
         $this->_sortBy = trim($sortBy);
-        return $this;
-    }
-
-    /**
-     * Gets or sets types
-     *
-     * @param  string $types
-     * @return string|self
-     */
-    public function types($types = null)
-    {
-        if(null === $types)
-        {
-            return $this->_types;
-        }
-        $this->_types = '';
-        foreach (explode(',', trim($types)) as $type)
-        {
-            if(in_array(trim($type), self::$_validTypes))
-            {
-                $this->_types = empty($this->_types) ? trim($type) : ',' . trim($type);
-            }
-        }
         return $this;
     }
 
@@ -423,13 +403,13 @@ class SearchDirectory extends Request
         {
             $this->array['applyConfig'] = $this->_applyConfig ? 1 : 0;
         }
+        if(count($this->_types))
+        {
+            $this->array['types'] = implode(',', $this->_types->all());
+        }
         if(!empty($this->_sortBy))
         {
             $this->array['sortBy'] = $this->_sortBy;
-        }
-        if(!empty($this->_types))
-        {
-            $this->array['types'] = $this->_types;
         }
         if(is_bool($this->_sortAscending))
         {
@@ -481,13 +461,13 @@ class SearchDirectory extends Request
         {
             $this->xml->addAttribute('applyConfig', $this->_applyConfig ? 1 : 0);
         }
+        if(count($this->_types))
+        {
+            $this->xml->addAttribute('types', implode(',', $this->_types->all()));
+        }
         if(!empty($this->_sortBy))
         {
             $this->xml->addAttribute('sortBy', $this->_sortBy);
-        }
-        if(!empty($this->_types))
-        {
-            $this->xml->addAttribute('types', $this->_types);
         }
         if(is_bool($this->_sortAscending))
         {

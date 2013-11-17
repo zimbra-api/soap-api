@@ -13,6 +13,7 @@ namespace Zimbra\API\Admin\Request;
 use Zimbra\Soap\Request;
 use Zimbra\Soap\Struct\NamedElement as Account;
 use Zimbra\Soap\Struct\TZFixupRule;
+use Zimbra\Utils\TypedSequence;
 
 /**
  * FixCalendarTZ class
@@ -42,13 +43,13 @@ class FixCalendarTZ extends Request
      * Accounts
      * @var array
      */
-    private $_accounts = array();
+    private $_accounts;
 
     /**
      * Fixup rules
      * @var array
      */
-    private $_fixupRules = array();
+    private $_fixupRules;
 
     /**
      * Constructor method for FixCalendarTZ
@@ -74,8 +75,8 @@ class FixCalendarTZ extends Request
         {
             $this->_after = (int) $after;
         }
-        $this->accounts($accounts);
-        $this->fixupRules($fixupRules);
+        $this->_accounts = new TypedSequence('Zimbra\Soap\Struct\NamedElement', $accounts);
+        $this->_fixupRules = new TypedSequence('Zimbra\Soap\Struct\TZFixupRule', $fixupRules);
     }
 
     /**
@@ -118,31 +119,18 @@ class FixCalendarTZ extends Request
      */
     public function addAccount(Account $account)
     {
-        $this->_accounts[] = $account;
+        $this->_accounts->add($account);
         return $this;
     }
 
     /**
-     * Gets or sets accounts array
+     * Gets account sequence
      *
-     * @param  array $accounts
-     * @return array|self
+     * @return Sequence
      */
-    public function accounts(array $accounts = null)
+    public function accounts()
     {
-        if(null === $accounts)
-        {
-            return $this->_accounts;
-        }
-        $this->_accounts = array();
-        foreach ($accounts as $account)
-        {
-            if($account instanceof Account)
-            {
-                $this->_accounts[] = $account;
-            }
-        }
-        return $this;
+        return $this->_accounts;
     }
 
     /**
@@ -153,31 +141,18 @@ class FixCalendarTZ extends Request
      */
     public function addFixupRule(TZFixupRule $fixupRule)
     {
-        $this->_fixupRules[] = $fixupRule;
+        $this->_fixupRules->add($fixupRule);
         return $this;
     }
 
     /**
-     * Gets or sets fixupRules array
+     * Gets fixupRule sequence
      *
-     * @param  array $fixupRules
-     * @return array|self
+     * @return Sequence
      */
-    public function fixupRules(array $fixupRules = null)
+    public function fixupRules()
     {
-        if(null === $fixupRules)
-        {
-            return $this->_fixupRules;
-        }
-        $this->_fixupRules = array();
-        foreach ($fixupRules as $fixupRule)
-        {
-            if($fixupRule instanceof TZFixupRule)
-            {
-                $this->_fixupRules[] = $fixupRule;
-            }
-        }
-        return $this;
+        return $this->_fixupRules;
     }
 
     /**

@@ -25,7 +25,7 @@ use Zimbra\Soap\Struct\NamedElement as Server;
 class MailQueueFlush extends Request
 {
     /**
-     * Server Mail Queue Query
+     * Mta server
      * @var Server
      */
     private $_server;

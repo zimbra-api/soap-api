@@ -21,14 +21,17 @@ use Zimbra\Soap\Enum\DataSourceBy;
 use Zimbra\Soap\Enum\DataSourceType;
 use Zimbra\Soap\Enum\DedupAction;
 use Zimbra\Soap\Enum\DeployZimletAction as DeployAction;
+use Zimbra\Soap\Enum\DirectorySearchType as DirSearchType;
 use Zimbra\Soap\Enum\DistributionListBy as DLBy;
 use Zimbra\Soap\Enum\DomainBy;
+use Zimbra\Soap\Enum\EntryType;
 use Zimbra\Soap\Enum\GalMode;
 use Zimbra\Soap\Enum\GalSearchType as SearchType;
 use Zimbra\Soap\Enum\GalConfigAction as ConfigAction;
 use Zimbra\Soap\Enum\GetSessionsSortBy as SessionsSortBy;
 use Zimbra\Soap\Enum\GranteeType;
 use Zimbra\Soap\Enum\GranteeBy;
+use Zimbra\Soap\Enum\InterestType;
 use Zimbra\Soap\Enum\IpType;
 use Zimbra\Soap\Enum\LoggingLevel;
 use Zimbra\Soap\Enum\QueueAction;
@@ -222,19 +225,23 @@ class AdminRequestTest extends ZimbraTestCase
 
     public function testAdminCreateWaitSet()
     {
-        $waitSet = new \Zimbra\Soap\Struct\WaitSetAddSpec('name', 'id', 'token', 'f,m,c');
-        $req = new \Zimbra\API\Admin\Request\AdminCreateWaitSet('all', false, array($waitSet));
-        $this->assertSame('all', $req->defTypes());
+        $waitSet = new \Zimbra\Soap\Struct\WaitSetAddSpec(
+            'name', 'id', 'token', array(InterestType::FOLDERS(), InterestType::MESSAGES(), InterestType::CONTACTS())
+        );
+        $req = new \Zimbra\API\Admin\Request\AdminCreateWaitSet(
+            array(InterestType::FOLDERS()), array($waitSet), false
+        );
+        $this->assertSame('f', $req->defTypes());
+        $this->assertSame(array($waitSet), $req->WaitSets()->all());
         $this->assertFalse($req->allAccounts());
-        $this->assertSame(array($waitSet), $req->addWaitSets());
 
-        $req->defTypes('f,m,c')
-            ->allAccounts(true)
-            ->addWaitSets(array($waitSet))
-            ->addSpec($waitSet);
+        $req->addDefType(InterestType::MESSAGES())
+            ->addDefType(InterestType::CONTACTS())
+            ->addWaitSet($waitSet)
+            ->allAccounts(true);
         $this->assertSame('f,m,c', $req->defTypes());
+        $this->assertSame(array($waitSet, $waitSet), $req->WaitSets()->all());
         $this->assertTrue($req->allAccounts());
-        $this->assertSame(array($waitSet, $waitSet), $req->addWaitSets());
 
         $xml = '<?xml version="1.0"?>'."\n"
             .'<AdminCreateWaitSetRequest defTypes="f,m,c" allAccounts="1">'
@@ -292,39 +299,43 @@ class AdminRequestTest extends ZimbraTestCase
 
     public function testAdminWaitSet()
     {
-        $add = new \Zimbra\Soap\Struct\WaitSetAddSpec('name', 'id', 'token', 'f,m,c');
-        $update = new \Zimbra\Soap\Struct\WaitSetAddSpec('name', 'id', 'token', 'f,m,c');
+        $add = new \Zimbra\Soap\Struct\WaitSetAddSpec(
+            'name', 'id', 'token', array(InterestType::FOLDERS(), InterestType::MESSAGES(), InterestType::CONTACTS())
+        );
+        $update = new \Zimbra\Soap\Struct\WaitSetAddSpec(
+            'name', 'id', 'token', array(InterestType::FOLDERS(), InterestType::MESSAGES(), InterestType::CONTACTS())
+        );
         $remove = new \Zimbra\Soap\Struct\Id('id');
-        $req = new \Zimbra\API\Admin\Request\AdminWaitSet('waitSet', 'seq', false, 'all', 1000, array($add), array($update), array($remove));
+        $req = new \Zimbra\API\Admin\Request\AdminWaitSet(
+            'waitSet', 'seq', false, array(InterestType::FOLDERS()), 1000, array($add), array($update), array($remove)
+        );
 
         $this->assertSame('waitSet', $req->waitSet());
         $this->assertSame('seq', $req->seq());
         $this->assertFalse($req->block());
-        $this->assertSame('all', $req->defTypes());
+        $this->assertSame('f', $req->defTypes());
         $this->assertSame(1000, $req->timeout());
-        $this->assertSame(array($add), $req->addWaitSets());
-        $this->assertSame(array($update), $req->updateWaitSets());
-        $this->assertSame(array($remove), $req->removeWaitSets());
+        $this->assertSame(array($add), $req->addWaitSets()->all());
+        $this->assertSame(array($update), $req->updateWaitSets()->all());
+        $this->assertSame(array($remove), $req->removeWaitSets()->all());
 
         $req->waitSet('waitSet')
             ->seq('seq')
             ->block(true)
-            ->defTypes('f,m,c')
+            ->addDefType(InterestType::MESSAGES())
+            ->addDefType(InterestType::CONTACTS())
             ->timeout(1000)
-            ->addWaitSets(array($add))
             ->addWaitSet($add)
-            ->updateWaitSets(array($update))
             ->addUpdate($update)
-            ->removeWaitSets(array($remove))
             ->addRemove($remove);
         $this->assertSame('waitSet', $req->waitSet());
         $this->assertSame('seq', $req->seq());
         $this->assertTrue($req->block());
         $this->assertSame('f,m,c', $req->defTypes());
         $this->assertSame(1000, $req->timeout());
-        $this->assertSame(array($add, $add), $req->addWaitSets());
-        $this->assertSame(array($update, $update), $req->updateWaitSets());
-        $this->assertSame(array($remove, $remove), $req->removeWaitSets());
+        $this->assertSame(array($add, $add), $req->addWaitSets()->all());
+        $this->assertSame(array($update, $update), $req->updateWaitSets()->all());
+        $this->assertSame(array($remove, $remove), $req->removeWaitSets()->all());
 
         $xml = '<?xml version="1.0"?>'."\n"
             .'<AdminWaitSetRequest waitSet="waitSet" seq="seq" block="1" defTypes="f,m,c" timeout="1000" >'
@@ -584,19 +595,17 @@ class AdminRequestTest extends ZimbraTestCase
         $mbox = new \Zimbra\Soap\Struct\IntIdAttr(1);
 
         $req = new \Zimbra\API\Admin\Request\CheckBlobConsistency(array($volume), array($mbox), true, false);
-        $this->assertSame(array($volume), $req->volumes());
-        $this->assertSame(array($mbox), $req->mboxes());
+        $this->assertSame(array($volume), $req->volumes()->all());
+        $this->assertSame(array($mbox), $req->mboxes()->all());
         $this->assertTrue($req->checkSize());
         $this->assertFalse($req->reportUsedBlobs());
 
-        $req->volumes(array($volume))
-            ->addVolume($volume)
-            ->mboxes(array($mbox))
+        $req->addVolume($volume)
             ->addMbox($mbox)
             ->checkSize(false)
             ->reportUsedBlobs(true);
-        $this->assertSame(array($volume, $volume), $req->volumes());
-        $this->assertSame(array($mbox, $mbox), $req->mboxes());
+        $this->assertSame(array($volume, $volume), $req->volumes()->all());
+        $this->assertSame(array($mbox, $mbox), $req->mboxes()->all());
         $this->assertFalse($req->checkSize());
         $this->assertTrue($req->reportUsedBlobs());
 
@@ -630,11 +639,10 @@ class AdminRequestTest extends ZimbraTestCase
     {
         $dir = new \Zimbra\Soap\Struct\CheckDirSelector('path', true);
         $req = new \Zimbra\API\Admin\Request\CheckDirectory(array($dir));
-        $this->assertSame(array($dir), $req->directories());
+        $this->assertSame(array($dir), $req->directories()->all());
 
-        $req->directories(array($dir))
-            ->addDirectory($dir);
-        $this->assertSame(array($dir, $dir), $req->directories());
+        $req->addDirectory($dir);
+        $this->assertSame(array($dir, $dir), $req->directories()->all());
 
         $xml = '<?xml version="1.0"?>'."\n"
             .'<CheckDirectoryRequest>'
@@ -875,11 +883,10 @@ class AdminRequestTest extends ZimbraTestCase
     {
         $cookie = new \Zimbra\Soap\Struct\CookieSpec('name');
         $req = new \Zimbra\API\Admin\Request\ClearCookie(array($cookie));
-        $this->assertSame(array($cookie), $req->cookies());
+        $this->assertSame(array($cookie), $req->cookies()->all());
 
-        $req->cookies(array($cookie))
-            ->addCookie($cookie);
-        $this->assertSame(array($cookie, $cookie), $req->cookies());
+        $req->addCookie($cookie);
+        $this->assertSame(array($cookie, $cookie), $req->cookies()->all());
 
         $xml = '<?xml version="1.0"?>'."\n"
             .'<ClearCookieRequest>'
@@ -2133,13 +2140,12 @@ class AdminRequestTest extends ZimbraTestCase
 
         $req = new \Zimbra\API\Admin\Request\FixCalendarEndTime(false, array($account));
         $this->assertFalse($req->sync());
-        $this->assertSame(array($account), $req->accounts());
+        $this->assertSame(array($account), $req->accounts()->all());
 
         $req->sync(true)
-            ->accounts(array($account))
             ->addAccount($account);
         $this->assertTrue($req->sync());
-        $this->assertSame(array($account, $account), $req->accounts());
+        $this->assertSame(array($account, $account), $req->accounts()->all());
 
         $xml = '<?xml version="1.0"?>'."\n"
             .'<FixCalendarEndTimeRequest sync="1">'
@@ -2170,13 +2176,12 @@ class AdminRequestTest extends ZimbraTestCase
 
         $req = new \Zimbra\API\Admin\Request\FixCalendarPriority(false, array($account));
         $this->assertFalse($req->sync());
-        $this->assertSame(array($account), $req->accounts());
+        $this->assertSame(array($account), $req->accounts()->all());
 
         $req->sync(true)
-            ->accounts(array($account))
             ->addAccount($account);
         $this->assertTrue($req->sync());
-        $this->assertSame(array($account, $account), $req->accounts());
+        $this->assertSame(array($account, $account), $req->accounts()->all());
 
         $xml = '<?xml version="1.0"?>'."\n"
             .'<FixCalendarPriorityRequest sync="1">'
@@ -2227,24 +2232,22 @@ class AdminRequestTest extends ZimbraTestCase
         $req = new \Zimbra\API\Admin\Request\FixCalendarTZ(false, 1000, array($account), array($fixupRule));
         $this->assertFalse($req->sync());
         $this->assertSame(1000, $req->after());
-        $this->assertSame(array($account), $req->accounts());
-        $this->assertSame(array($fixupRule), $req->fixupRules());
+        $this->assertSame(array($account), $req->accounts()->all());
+        $this->assertSame(array($fixupRule), $req->fixupRules()->all());
 
         $req->sync(true)
             ->after(1000)
-            ->accounts(array($account))
             ->addAccount($account)
-            ->fixupRules(array($fixupRule))
             ->addFixupRule($fixupRule);
         $this->assertTrue($req->sync());
         $this->assertSame(1000, $req->after());
-        $this->assertSame(array($account, $account), $req->accounts());
-        $this->assertSame(array($fixupRule, $fixupRule), $req->fixupRules());
+        $this->assertSame(array($account, $account), $req->accounts()->all());
+        $this->assertSame(array($fixupRule, $fixupRule), $req->fixupRules()->all());
 
         $req->sync(true)
-            ->after(1000)
-            ->accounts(array($account))
-            ->fixupRules(array($fixupRule));
+            ->after(1000);
+        $req->accounts()->remove(1);
+        $req->fixupRules()->remove(1);
 
         $xml = '<?xml version="1.0"?>'."\n"
             .'<FixCalendarTZRequest sync="1" after="1000">'
@@ -3070,23 +3073,25 @@ class AdminRequestTest extends ZimbraTestCase
 
     public function testGetAttributeInfo()
     {
-        $req = new \Zimbra\API\Admin\Request\GetAttributeInfo('attrs', 'a,account,b,aclTarget,c');
+        $req = new \Zimbra\API\Admin\Request\GetAttributeInfo(
+            'attrs', array(EntryType::ACCOUNT(), EntryType::ACL_TARGET())
+        );
         $this->assertSame('attrs', $req->attrs());
-        $this->assertSame('account,aclTarget', $req->entryTypes());
+        $this->assertSame('account,aclTarget', implode(',', $req->entryTypes()->all()));
 
         $req->attrs('attrs')
-            ->entryTypes('x,account,y,alias,z');
+            ->addEntryType(EntryType::ALIAS());
         $this->assertSame('attrs', $req->attrs());
-        $this->assertSame('account,alias', $req->entryTypes());
+        $this->assertSame('account,aclTarget,alias', implode(',', $req->entryTypes()->all()));
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<GetAttributeInfoRequest attrs="attrs" entryTypes="account,alias" />';
+            .'<GetAttributeInfoRequest attrs="attrs" entryTypes="account,aclTarget,alias" />';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
         $array = array(
             'GetAttributeInfoRequest' => array(
                 'attrs' => 'attrs',
-                'entryTypes' => 'account,alias',
+                'entryTypes' => 'account,aclTarget,alias',
             ),
         );
         $this->assertEquals($array, $req->toArray());
@@ -3324,32 +3329,33 @@ class AdminRequestTest extends ZimbraTestCase
     {
         $attr = new \Zimbra\Soap\Struct\NamedElement('name');
 
-        $req = new \Zimbra\API\Admin\Request\GetDelegatedAdminConstraints('type', 'id', 'name', array($attr));
-        $this->assertSame('type', $req->type());
+        $req = new \Zimbra\API\Admin\Request\GetDelegatedAdminConstraints(
+            TargetType::ACCOUNT(), 'id', 'name', array($attr)
+        );
+        $this->assertSame('account', $req->type()->value());
         $this->assertSame('id', $req->id());
         $this->assertSame('name', $req->name());
-        $this->assertSame(array($attr), $req->attrs());
+        $this->assertSame(array($attr), $req->attrs()->all());
 
-        $req->type('type')
+        $req->type(TargetType::DOMAIN())
             ->id('id')
             ->name('name')
-            ->attrs(array($attr))
             ->addAttr($attr);
-        $this->assertSame('type', $req->type());
+        $this->assertSame('domain', $req->type()->value());
         $this->assertSame('id', $req->id());
         $this->assertSame('name', $req->name());
-        $this->assertSame(array($attr, $attr), $req->attrs());
+        $this->assertSame(array($attr, $attr), $req->attrs()->all());
 
-        $req->attrs(array($attr));
+        $req->attrs()->remove(1);
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<GetDelegatedAdminConstraintsRequest type="type" id="id" name="name">'
+            .'<GetDelegatedAdminConstraintsRequest type="domain" id="id" name="name">'
                 .'<a name="name" />'
             .'</GetDelegatedAdminConstraintsRequest>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
         $array = array(
             'GetDelegatedAdminConstraintsRequest' => array(
-                'type' => 'type',
+                'type' => 'domain',
                 'id' => 'id',
                 'name' => 'name',
                 'a' => array(
@@ -4008,11 +4014,10 @@ class AdminRequestTest extends ZimbraTestCase
     {
         $package = new \Zimbra\Soap\Struct\PackageSelector('name');
         $req = new \Zimbra\API\Admin\Request\GetRightsDoc(array($package));
-        $this->assertSame(array($package), $req->packages());
+        $this->assertSame(array($package), $req->packages()->all());
 
-        $req->packages(array($package))
-            ->addPackage($package);
-        $this->assertSame(array($package, $package), $req->packages());
+        $req->addPackage($package);
+        $this->assertSame(array($package, $package), $req->packages()->all());
 
         $xml = '<?xml version="1.0"?>'."\n"
             .'<GetRightsDocRequest>'
@@ -4100,10 +4105,9 @@ class AdminRequestTest extends ZimbraTestCase
     {
         $stat = new \Zimbra\Soap\Struct\Stat('name', 'description');
         $req = new \Zimbra\API\Admin\Request\GetServerStats(array($stat));
-        $this->assertSame(array($stat), $req->stats());
-        $req->stats(array($stat))
-            ->addStat($stat);
-        $this->assertSame(array($stat, $stat), $req->stats());
+        $this->assertSame(array($stat), $req->stats()->all());
+        $req->addStat($stat);
+        $this->assertSame(array($stat, $stat), $req->stats()->all());
 
         $xml = '<?xml version="1.0"?>'."\n"
             .'<GetServerStatsRequest>'
@@ -4582,11 +4586,10 @@ class AdminRequestTest extends ZimbraTestCase
     {
         $search = new \Zimbra\Soap\Struct\NamedValue('name', 'value');
         $req = new \Zimbra\API\Admin\Request\ModifyAdminSavedSearches(array($search));
-        $this->assertSame(array($search), $req->searchs());
+        $this->assertSame(array($search), $req->searchs()->all());
 
-        $req->searchs(array($search))
-            ->addSearch($search);
-        $this->assertSame(array($search, $search), $req->searchs());
+        $req->addSearch($search);
+        $this->assertSame(array($search, $search), $req->searchs()->all());
 
         $xml = '<?xml version="1.0"?>'."\n"
             .'<ModifyAdminSavedSearchesRequest>'
@@ -4746,19 +4749,18 @@ class AdminRequestTest extends ZimbraTestCase
         $this->assertSame('group', $req->type()->value());
         $this->assertSame('id', $req->id());
         $this->assertSame('name', $req->name());
-        $this->assertSame(array($attr), $req->attrs());
+        $this->assertSame(array($attr), $req->attrs()->all());
 
         $req->type(TargetType::ACCOUNT())
             ->id('id')
             ->name('name')
-            ->attrs(array($attr))
             ->addAttr($attr);
         $this->assertSame('account', $req->type()->value());
         $this->assertSame('id', $req->id());
         $this->assertSame('name', $req->name());
-        $this->assertSame(array($attr, $attr), $req->attrs());
+        $this->assertSame(array($attr, $attr), $req->attrs()->all());
 
-        $req->attrs(array($attr));
+        $req->attrs()->remove(1);
         $xml = '<?xml version="1.0"?>'."\n"
             .'<ModifyDelegatedAdminConstraintsRequest type="account" id="id" name="name">'
                 .'<a name="name">'
@@ -5962,7 +5964,7 @@ class AdminRequestTest extends ZimbraTestCase
     public function testSearchDirectory()
     {
         $req = new \Zimbra\API\Admin\Request\SearchDirectory(
-            'query', 100, 10, 0, 'domain', false, true, 'sortBy', 'resources', true, false, 'attrs'
+            'query', 100, 10, 0, 'domain', false, true, array(DirSearchType::RESOURCES()), 'sortBy', true, false, 'attrs'
         );
         $this->assertEquals('query', $req->query());
         $this->assertEquals(100, $req->maxResults());
@@ -5971,8 +5973,9 @@ class AdminRequestTest extends ZimbraTestCase
         $this->assertEquals('domain', $req->domain());
         $this->assertFalse($req->applyCos());
         $this->assertTrue($req->applyConfig());
+        $types = implode(',', $req->types()->all());
+        $this->assertEquals('resources', $types);
         $this->assertEquals('sortBy', $req->sortBy());
-        $this->assertEquals('resources', $req->types());
         $this->assertTrue($req->sortAscending());
         $this->assertFalse($req->countOnly());
         $this->assertEquals('attrs', $req->attrs());
@@ -5984,8 +5987,8 @@ class AdminRequestTest extends ZimbraTestCase
             ->domain('domain')
             ->applyCos(true)
             ->applyConfig(false)
+            ->addType(DirSearchType::ACCOUNTS())
             ->sortBy('sortBy')
-            ->types('accounts')
             ->sortAscending(false)
             ->countOnly(true)
             ->attrs('attrs');
@@ -5996,8 +5999,9 @@ class AdminRequestTest extends ZimbraTestCase
         $this->assertEquals('domain', $req->domain());
         $this->assertTrue($req->applyCos());
         $this->assertFalse($req->applyConfig());
+        $types = implode(',', $req->types()->all());
+        $this->assertEquals('resources,accounts', $types);
         $this->assertEquals('sortBy', $req->sortBy());
-        $this->assertEquals('accounts', $req->types());
         $this->assertFalse($req->sortAscending());
         $this->assertTrue($req->countOnly());
         $this->assertEquals('attrs', $req->attrs());
@@ -6011,8 +6015,8 @@ class AdminRequestTest extends ZimbraTestCase
                 .'domain="domain" '
                 .'applyCos="1" '
                 .'applyConfig="0" '
+                .'types="resources,accounts" '
                 .'sortBy="sortBy" '
-                .'types="accounts" '
                 .'sortAscending="0" '
                 .'countOnly="1" '
                 .'attrs="attrs" '
@@ -6028,8 +6032,8 @@ class AdminRequestTest extends ZimbraTestCase
                 'domain' => 'domain',
                 'applyCos' => 1,
                 'applyConfig' => 0,
+                'types' => 'resources,accounts',
                 'sortBy' => 'sortBy',
-                'types' => 'accounts',
                 'sortAscending' => 0,
                 'countOnly' => 1,
                 'attrs' => 'attrs',

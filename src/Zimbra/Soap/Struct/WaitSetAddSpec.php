@@ -11,6 +11,8 @@
 namespace Zimbra\Soap\Struct;
 
 use Zimbra\Utils\SimpleXML;
+use Zimbra\Soap\Enum\InterestType;
+use Zimbra\Utils\TypedSequence;
 
 /**
  * WaitSetAddSpec class
@@ -50,18 +52,15 @@ class WaitSetAddSpec
      * @param string $name
      * @param string $id
      * @param string $token
-     * @param string $types
+     * @param array $types
      * @return self
      */
-    public function __construct($name = null, $id = null, $token = null, $types = null)
+    public function __construct($name = null, $id = null, $token = null, array $types = array())
     {
         $this->_name = trim($name);
         $this->_id = trim($id);
         $this->_token = trim($token);
-        if(null !== $types)
-        {
-            $this->types($types);
-        }
+        $this->_types = new TypedSequence('Zimbra\Soap\Enum\InterestType', $types);
     }
 
     /**
@@ -113,28 +112,25 @@ class WaitSetAddSpec
     }
 
     /**
-     * Gets or sets types
+     * Add a type
      *
-     * @param  string $types
-     * @return string|self
+     * @param  InterestType $type
+     * @return self
      */
-    public function types($types = null)
+    public function addType(InterestType $type)
     {
-        if(null === $types)
-        {
-            return $this->_types;
-        }
-        $validTypes = array('f', 'm', 'c', 'a', 't', 'd', 'all');
-        $arr = array();
-        foreach (explode(',', $types) as $type)
-        {
-            if(in_array(trim($type), $validTypes))
-            {
-                $arr[] = trim($type);
-            }
-        }
-        $this->_types = implode(',', $arr);
+        $this->_types->add($type);
         return $this;
+    }
+
+    /**
+     * Gets types
+     *
+     * @return string
+     */
+    public function types()
+    {
+        return count($this->_types) ? implode(',', $this->_types->all()) : '';
     }
 
     /**
@@ -158,9 +154,10 @@ class WaitSetAddSpec
         {
             $arr['token'] = $this->_token;
         }
-        if(!empty($this->_types))
+        $types = $this->types();
+        if(!empty($types))
         {
-            $arr['types'] = $this->_types;
+            $arr['types'] = $types;
         }
 
         return array($name => $arr);
@@ -187,9 +184,10 @@ class WaitSetAddSpec
         {
             $xml->addAttribute('token', $this->_token);
         }
-        if(!empty($this->_types))
+        $types = $this->types();
+        if(!empty($types))
         {
-            $xml->addAttribute('types', $this->_types);
+            $xml->addAttribute('types', $types);
         }
         return $xml;
     }

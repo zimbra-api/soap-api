@@ -43,8 +43,9 @@ class VerifyStoreManager extends Request
 
     /**
      * Constructor method for VerifyStoreManager
-     * @param string $cert
-     * @param string $privkey
+     * @param int $fileSize
+     * @param int $num
+     * @param bool $checkBlobs
      * @return self
      */
     public function __construct($fileSize = null, $num = null, $checkBlobs = null)

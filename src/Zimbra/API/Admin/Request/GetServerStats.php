@@ -12,6 +12,7 @@ namespace Zimbra\API\Admin\Request;
 
 use Zimbra\Soap\Request;
 use Zimbra\Soap\Struct\Stat;
+use Zimbra\Utils\TypedSequence;
 
 /**
  * GetServerStats class
@@ -41,7 +42,7 @@ class GetServerStats extends Request
     public function __construct(array $stats = array())
     {
         parent::__construct();
-        $this->stats($stats);
+        $this->_stats = new TypedSequence('Zimbra\Soap\Struct\Stat', $stats);
     }
 
     /**
@@ -52,31 +53,18 @@ class GetServerStats extends Request
      */
     public function addStat(Stat $stat)
     {
-        $this->_stats[] = $stat;
+        $this->_stats->add($stat);
         return $this;
     }
 
     /**
-     * Gets or sets stats
+     * Gets stat Sequence
      *
-     * @param  array $stats
-     * @return array|self
+     * @return Sequence
      */
-    public function stats(array $stats = null)
+    public function stats()
     {
-        if(null === $stats)
-        {
-            return $this->_stats;
-        }
-        $this->_stats = array();
-        foreach ($stats as $stat)
-        {
-            if($stat instanceof Stat)
-            {
-                $this->_stats[] = $stat;
-            }
-        }
-        return $this;
+        return $this->_stats;
     }
 
     /**

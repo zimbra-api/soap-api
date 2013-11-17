@@ -11,6 +11,8 @@
 namespace Zimbra\API\Admin\Request;
 
 use Zimbra\Soap\Request;
+use Zimbra\Soap\Enum\EntryType;
+use Zimbra\Utils\TypedSequence;
 
 /**
  * GetAttributeInfo class
@@ -37,54 +39,16 @@ class GetAttributeInfo extends Request
     private $_entryTypes;
 
     /**
-     * Valid entry types
-     * @var array
-     */
-    private static $_validTypes = array(
-        'account',
-        'alias',
-        'distributionList',
-        'cos',
-        'globalConfig',
-        'domain',
-        'server',
-        'mimeEntry',
-        'zimletEntry',
-        'calendarResource',
-        'identity,dataSource',
-        'pop3DataSource',
-        'imapDataSource',
-        'rssDataSource',
-        'liveDataSource',
-        'galDataSource',
-        'signature',
-        'xmppComponent',
-        'aclTarget'
-    );
-
-    /**
      * Constructor method for GetAttributeInfo
      * @param  string $attrs
      * @param  string $entryTypes
      * @return self
      */
-    public function __construct($attrs = null, $entryTypes = null)
+    public function __construct($attrs = null, array $entryTypes = array())
     {
         parent::__construct();
         $this->_attrs = trim($attrs);
-        if(null !== $entryTypes)
-        {
-            $entryTypes = explode(',', $entryTypes);
-            $types = array();
-            foreach ($entryTypes as $type)
-            {
-                if(in_array(trim($type), self::$_validTypes))
-                {
-                    $types[] = trim($type);
-                }
-            }
-            $this->_entryTypes = implode(',', $types);
-        }
+        $this->_entryTypes = new TypedSequence('Zimbra\Soap\Enum\EntryType', $entryTypes);
     }
 
     /**
@@ -104,28 +68,25 @@ class GetAttributeInfo extends Request
     }
 
     /**
-     * Gets or sets entryTypes
+     * Add an EntryType
      *
-     * @param  string $entryTypes
-     * @return string|self
+     * @param  EntryType $entryType
+     * @return self
      */
-    public function entryTypes($entryTypes = null)
+    public function addEntryType(EntryType $entryType)
     {
-        if(null === $entryTypes)
-        {
-            return $this->_entryTypes;
-        }
-        $entryTypes = explode(',', $entryTypes);
-        $types = array();
-        foreach ($entryTypes as $type)
-        {
-            if(in_array(trim($type), self::$_validTypes))
-            {
-                $types[] = trim($type);
-            }
-        }
-		$this->_entryTypes = implode(',', $types);
+        $this->_entryTypes->add($entryType);
         return $this;
+    }
+
+    /**
+     * Gets entryType sequence
+     *
+     * @return Sequence
+     */
+    public function entryTypes()
+    {
+        return $this->_entryTypes;
     }
 
     /**
@@ -139,9 +100,10 @@ class GetAttributeInfo extends Request
         {
             $this->array['attrs'] = $this->_attrs;
         }
-        if(!empty($this->_entryTypes))
+        if(count($this->_entryTypes))
         {
-            $this->array['entryTypes'] = $this->_entryTypes;
+            $entryTypes = implode(',', $this->_entryTypes->all());
+            $this->array['entryTypes'] = $entryTypes;
         }
         return parent::toArray();
     }
@@ -157,9 +119,10 @@ class GetAttributeInfo extends Request
         {
             $this->xml->addAttribute('attrs', $this->_attrs);
         }
-        if(!empty($this->_entryTypes))
+        if(count($this->_entryTypes))
         {
-            $this->xml->addAttribute('entryTypes', $this->_entryTypes);
+            $entryTypes = implode(',', $this->_entryTypes->all());
+            $this->xml->addAttribute('entryTypes', $entryTypes);
         }
         return parent::toXml();
     }

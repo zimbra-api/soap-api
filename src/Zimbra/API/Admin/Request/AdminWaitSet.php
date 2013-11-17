@@ -13,6 +13,8 @@ namespace Zimbra\API\Admin\Request;
 use Zimbra\Soap\Request;
 use Zimbra\Soap\Struct\Id;
 use Zimbra\Soap\Struct\WaitSetAddSpec as WaitSet;
+use Zimbra\Soap\Enum\InterestType;
+use Zimbra\Utils\TypedSequence;
 
 /**
  * AdminWaitSet class
@@ -63,7 +65,8 @@ class AdminWaitSet extends Request
     private $_block;
 
     /**
-     * Default interest types: comma-separated list
+     * Default interest types
+     * Comma-separated list
      * @var string
      */
     private $_defTypes;
@@ -79,7 +82,7 @@ class AdminWaitSet extends Request
      * @param string $waitSet
      * @param string $seq
      * @param bool   $block
-     * @param string $defTypes
+     * @param array  $defTypes
      * @param int    $timeout
      * @param array  $addWaitSets
      * @param array  $updateWaitSets
@@ -90,28 +93,25 @@ class AdminWaitSet extends Request
         $waitSet,
         $seq,
         $block = null,
-        $defTypes = null,
+        array $defTypes = array(),
         $timeout = null,
         array $addWaitSets = array(),
         array $updateWaitSets = array(),
-        array $removeWaitSets = array()
-    )
+        array $removeWaitSets = array())
     {
         parent::__construct();
         $this->_waitSet = trim($waitSet);
         $this->_seq = trim($seq);
-        $this->addWaitSets($addWaitSets);
-        $this->updateWaitSets($updateWaitSets);
-        $this->removeWaitSets($removeWaitSets);
+
+        $this->_addWaitSets = new TypedSequence('Zimbra\Soap\Struct\WaitSetAddSpec', $addWaitSets);
+        $this->_updateWaitSets = new TypedSequence('Zimbra\Soap\Struct\WaitSetAddSpec', $updateWaitSets);
+        $this->_removeWaitSets = new TypedSequence('Zimbra\Soap\Struct\Id', $removeWaitSets);
 
         if(null !== $block)
         {
             $this->_block = (bool) $block;
         }
-        if(null !== $defTypes)
-        {
-            $this->defTypes($defTypes);
-        }
+        $this->_defTypes = new TypedSequence('Zimbra\Soap\Enum\InterestType', $defTypes);
         if(null !== $timeout)
         {
             $this->_timeout = (int) $timeout;
@@ -151,30 +151,25 @@ class AdminWaitSet extends Request
     }
 
     /**
-     * Gets or sets defTypes
+     * Add a type
      *
-     * @param  string $defTypes
-     * @return string|self
+     * @param  InterestType $type
+     * @return self
      */
-    public function defTypes($defTypes = null)
+    public function addDefType(InterestType $type)
     {
-        if(null === $defTypes)
-        {
-            return $this->_defTypes;
-        }
-        $validTypes = array('f', 'm', 'c', 'a', 't', 'd', 'all');
-        $types = array();
-        $defTypes = explode(',', $defTypes);
-        foreach ($defTypes as $type)
-        {
-            $type = trim($type);
-            if(in_array($type, $validTypes))
-            {
-                $types[] = $type;
-            }
-        }
-        $this->_defTypes = implode(',', $types);
+        $this->_defTypes->add($type);
         return $this;
+    }
+
+    /**
+     * Gets defType
+     *
+     * @return string
+     */
+    public function defTypes()
+    {
+        return count($this->_defTypes) ? implode(',', $this->_defTypes->all()) : '';
     }
 
     /**
@@ -217,31 +212,18 @@ class AdminWaitSet extends Request
      */
     public function addWaitSet(WaitSet $spec)
     {
-        $this->_addWaitSets[] = $spec;
+        $this->_addWaitSets->add($spec);
         return $this;
     }
 
     /**
-     * Gets or sets addWaitSets
+     * Gets addWaitSet sequence
      *
-     * @param  array $addWaitSets
-     * @return array|self
+     * @return Sequence
      */
-    public function addWaitSets(array $addWaitSets = null)
+    public function addWaitSets()
     {
-        if(null === $addWaitSets)
-        {
-            return $this->_addWaitSets;
-        }
-        $this->_addWaitSets = array();
-        foreach ($addWaitSets as $spec)
-        {
-            if($spec instanceof WaitSet)
-            {
-                $this->_addWaitSets[] = $spec;
-            }
-        }
-        return $this;
+        return $this->_addWaitSets;
     }
 
     /**
@@ -252,31 +234,18 @@ class AdminWaitSet extends Request
      */
     public function addUpdate(WaitSet $spec)
     {
-        $this->_updateWaitSets[] = $spec;
+        $this->_updateWaitSets->add($spec);
         return $this;
     }
 
     /**
-     * Gets or sets updateWaitSets
+     * Gets updateWaitSet sequence
      *
-     * @param  array $updateWaitSets
-     * @return array|self
+     * @return Sequence
      */
-    public function updateWaitSets(array $updateWaitSets = null)
+    public function updateWaitSets()
     {
-        if(null === $updateWaitSets)
-        {
-            return $this->_updateWaitSets;
-        }
-        $this->_updateWaitSets = array();
-        foreach ($updateWaitSets as $spec)
-        {
-            if($spec instanceof WaitSet)
-            {
-                $this->_updateWaitSets[] = $spec;
-            }
-        }
-        return $this;
+        return $this->_updateWaitSets;
     }
 
     /**
@@ -287,31 +256,18 @@ class AdminWaitSet extends Request
      */
     public function addRemove(Id $id)
     {
-        $this->_removeWaitSets[] = $id;
+        $this->_removeWaitSets->add($id);
         return $this;
     }
 
     /**
-     * Gets or sets removeWaitSets
+     * Gets removeWaitSets sequence
      *
-     * @param  array $removeWaitSets
-     * @return array|self
+     * @return Sequence
      */
-    public function removeWaitSets(array $removeWaitSets = null)
+    public function removeWaitSets()
     {
-        if(null === $removeWaitSets)
-        {
-            return $this->_removeWaitSets;
-        }
-        $this->_removeWaitSets = array();
-        foreach ($removeWaitSets as $id)
-        {
-            if($id instanceof Id)
-            {
-                $this->_removeWaitSets[] = $id;
-            }
-        }
-        return $this;
+        return $this->_removeWaitSets;
     }
 
     /**
@@ -332,9 +288,10 @@ class AdminWaitSet extends Request
         {
             $this->array['block'] = $this->_block ? 1 : 0;
         }
-        if(!empty($this->_defTypes))
+        $defTypes = $this->defTypes();
+        if(!empty($defTypes))
         {
-            $this->array['defTypes'] = $this->_defTypes;
+            $this->array['defTypes'] = $defTypes;
         }
         if(is_int($this->_timeout))
         {
@@ -383,9 +340,10 @@ class AdminWaitSet extends Request
         {
             $this->xml->addAttribute('block', $this->_block ? 1 : 0);
         }
-        if(!empty($this->_defTypes))
+        $defTypes = $this->defTypes();
+        if(!empty($defTypes))
         {
-            $this->xml->addAttribute('defTypes', $this->_defTypes);
+            $this->xml->addAttribute('defTypes', $defTypes);
         }
         if(is_int($this->_timeout))
         {

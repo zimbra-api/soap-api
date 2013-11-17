@@ -46,7 +46,7 @@ class CountObjects extends Request
 
     /**
      * Constructor method for CountObjects
-     * @param string $type
+     * @param ObjType $type
      * @param Domain $domain
      * @param UcService $ucservice
      * @return self

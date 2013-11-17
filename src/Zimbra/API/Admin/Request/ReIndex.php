@@ -38,7 +38,7 @@ class ReIndex extends Request
     private $_mbox;
 
     /**
-     * Constructor method for ModifyVolume
+     * Constructor method for ReIndex
      * @param Mailbox $mbox
      * @param Action $action
      * @return self

@@ -32,7 +32,7 @@ class RecalculateMailboxCounts extends Request
     private $_mbox;
 
     /**
-     * Constructor method for ModifyVolume
+     * Constructor method for RecalculateMailboxCounts
      * @param Mailbox $mbox
      * @param string $action
      * @return self

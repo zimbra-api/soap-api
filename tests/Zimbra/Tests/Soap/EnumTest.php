@@ -436,6 +436,23 @@ class EnumTest extends ZimbraTestCase
         }
     }
 
+    public function testInterestType()
+    {
+        $values = array(
+            'f',
+            'm',
+            'c',
+            'a',
+            't',
+            'd',
+            'all',
+        );
+        foreach ($values as $value)
+        {
+            $this->assertTrue(\Zimbra\Soap\Enum\InterestType::has($value));
+        }
+    }
+
     public function testIpType()
     {
         $values = array(

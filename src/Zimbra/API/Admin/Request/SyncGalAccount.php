@@ -25,7 +25,7 @@ use Zimbra\Soap\Struct\SyncGalAccountSpec as Account;
 class SyncGalAccount extends Request
 {
     /**
-     * Account selector
+     * SyncGalAccount data source specifications.
      * @var Account
      */
     private $_account;

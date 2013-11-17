@@ -11,8 +11,8 @@
 namespace Zimbra\API\Admin\Request;
 
 use Zimbra\Soap\Request\Attr;
-use Zimbra\Soap\Struct\GranteeSelector as Grantee;
 use Zimbra\Soap\Struct\EffectiveRightsTargetSelector as Target;
+use Zimbra\Soap\Struct\GranteeSelector as Grantee;
 
 /**
  * CheckRight class
@@ -55,8 +55,7 @@ class CheckRight extends Attr
         Target $target,
         Grantee $grantee,
         $right,
-        array $attrs = array()
-    )
+        array $attrs = array())
     {
         parent::__construct($attrs);
         $this->_target = $target;

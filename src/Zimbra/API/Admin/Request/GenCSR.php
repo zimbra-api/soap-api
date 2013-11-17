@@ -95,7 +95,7 @@ class GenCSR extends Request
     /**
      * Constructor method for GenCSR
      * @param string $server
-     * @param bool $create
+     * @param bool $isNew
      * @param CSRType $type
      * @param CSRKeySize $keysize
      * @param string $c

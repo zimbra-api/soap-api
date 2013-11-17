@@ -10,11 +10,12 @@
 
 namespace Zimbra\API\Account;
 
-use Zimbra\Soap\Struct\AccountSelector;
+use Zimbra\Soap\Struct\AccountSelector as Account;
 use Zimbra\Soap\Struct\AuthToken;
 use Zimbra\Soap\Struct\CursorInfo;
-use Zimbra\Soap\Struct\DistListAction;
-use Zimbra\Soap\Struct\EntrySearchFilterInfo;
+use Zimbra\Soap\Struct\DistributionListSelector as DistListSelector;
+use Zimbra\Soap\Struct\DistributionListAction as DistListAction;
+use Zimbra\Soap\Struct\EntrySearchFilterInfo as SearchFilter;
 use Zimbra\Soap\Struct\GranteeChooser;
 use Zimbra\Soap\Struct\Identity;
 use Zimbra\Soap\Struct\NameId;
@@ -45,7 +46,7 @@ interface AccountInterface
      * @return authentication token
      */
     function auth(
-        AccountSelector $account = null,
+        Account $account = null,
         $password = null,
         PreAuth $preauth = null,
         AuthToken $authToken = null,
@@ -59,32 +60,44 @@ interface AccountInterface
     /**
      * Authenticate for an account
      *
-     * @param  string|AccountSelector $account  The user account.
+     * @param  Account $account  The user account.
      * @param  string $password    The user password.
      * @param  string $virtualHost If specified (in conjunction with by="name"), virtual-host is used to determine the domain of the account name, if it does not include a domain component.
      * @return authentication token
      */
-    function authByAcount($account, $password, $virtualHost = null);
+    function authByAcount(
+        Account $account,
+        $password,
+        $virtualHost = null
+    );
 
     /**
      * Authenticate for an account by token
      *
-     * @param  string|AccountSelector $account The user account.
-     * @param  string|AuthToken    $token The authentication token.
+     * @param  Account $account The user account.
+     * @param  AuthToken $token The authentication token.
      * @param  string $virtualHost If specified (in conjunction with by="name"), virtual-host is used to determine the domain of the account name, if it does not include a domain component.
      * @return authentication token
      */
-    function authByToken($account, $token, $virtualHost = null);
+    function authByToken(
+        Account $account,
+        AuthToken $token,
+        $virtualHost = null
+    );
 
     /**
      * Authenticate for an account by pre authentication key
      *
-     * @param  string|AccountSelector $account The user account.
-     * @param  string|PreAuth $key    Pre authentication key
-     * @param  string $virtualHost    If specified (in conjunction with by="name"), virtual-host is used to determine the domain of the account name, if it does not include a domain component.
+     * @param  Account $account The user account.
+     * @param  string $key    Pre authentication key
+     * @param  string $virtualHost If specified (in conjunction with by="name"), virtual-host is used to determine the domain of the account name, if it does not include a domain component.
      * @return authentication token
      */
-    function authByPre($account, $key, $virtualHost = null);
+    function authByPre(
+        Account $account,
+        $key,
+        $virtualHost = null
+    );
 
     /**
      * Perform an autocomplete for a name against the Global Address List
@@ -96,18 +109,29 @@ interface AccountInterface
      * @param  int    $limit An  integer specifying the maximum number of results to return
      * @return mixed
      */
-    function autoCompleteGal($name, $needExp = null, $type = null, $galAcctId = null, $limit = null);
+    function autoCompleteGal(
+        $name,
+        $needExp = null,
+        $type = null,
+        $galAcctId = null,
+        $limit = null
+    );
 
     /**
      * Change password
      *
-     * @param  string|AccountSelector $account The user account.
+     * @param  Account $account The user account.
      * @param  string $oldPassword Old password
      * @param  string $password    New Password to assign
      * @param  string $virtualHost Virtual-host is used to determine the domain of the account name
      * @return mixed
      */
-    function changePassword($account, $oldPassword, $password, $virtualHost = '');
+    function changePassword(
+        Account $account,
+        $oldPassword,
+        $password,
+        $virtualHost = ''
+    );
 
     /**
      * Check if the authed user has the specified right(s) on a target.
@@ -126,7 +150,11 @@ interface AccountInterface
      * @param  array  $attrs Attributes specified as key value pairs
      * @return mixed
      */
-    function createDistributionList($name, $dynamic = null, array $attrs = array());
+    function createDistributionList(
+        $name,
+        $dynamic = null,
+        array $attrs = array()
+    );
 
     /**
      * Create an Identity
@@ -177,12 +205,16 @@ interface AccountInterface
      *      Only admins can modify grants on domains and globalgrant,
      *      owners of groups can only modify grants on the group entry.
      *
-     * @param  string|DistListSelector $dl Identifies the distribution list to act upon
+     * @param  DistListSelector $dl Identifies the distribution list to act upon
      * @param  DistListAction $action Specifies the action to perform
      * @param  array $attrs Attributes
      * @return mixed
      */
-    function distributionListAction($dl, DistListAction $action, array $attrs = array());
+    function distributionListAction(
+        DistListSelector $dl,
+        DistListAction $action,
+        array $attrs = array()
+    );
 
     /**
      * End the current session, removing it from all caches.
@@ -208,15 +240,19 @@ interface AccountInterface
      * @param  string $attrs    Comma-seperated attributes to return
      * @return mixed
      */
-    function getAccountDistributionLists($ownerOf = null, $memberOf = null, $attrs = null);
+    function getAccountDistributionLists(
+        $ownerOf = null,
+        $memberOf = null,
+        $attrs = null
+    );
 
     /**
      * Get Information about an account
      *
-     * @param  string|AccountSelector $account Use to identify the account
+     * @param  Account $account Use to identify the account
      * @return mixed
      */
-    function getAccountInfo($account);
+    function getAccountInfo(Account $account);
 
     /**
      * Returns all locales defined in the system
@@ -261,7 +297,12 @@ interface AccountInterface
      * @param  array  $attrs Attributes of the distribution list
      * @return mixed
      */
-    function getDistributionList($dl, $needOwners = null, $needRights = null, array $attrs = array());
+    function getDistributionList(
+        DistListSelector $dl,
+        $needOwners = null,
+        $needRights = null,
+        array $attrs = array()
+    );
 
     /**
      * Get the list of members of a distribution list.
@@ -310,13 +351,18 @@ interface AccountInterface
     /**
      * Get information about published shares
      *
-     * @param  GranteeChooser $grantee Filter by the specified grantee type
-     * @param  string|AccountSelector $owner  Specifies the owner of the share
+     * @param  GranteeChooser  $grantee  Filter by the specified grantee type
+     * @param  Account $owner  Specifies the owner of the share
      * @param  bool   $internal    Flags that have been proxied to this server because the specified "owner account" is homed here. Do not proxy in this case. (Used internally by ZCS)
      * @param  bool   $includeSelf Flag whether own shares should be included. 0 if shares owned by the requested account should not be included in the response. 1 (default) include shares owned by the requested account
      * @return mixed
      */
-    function getShareInfo(GranteeChooser $grantee = null, $owner = null, $internal = null, $includeSelf = null);
+    function getShareInfo(
+        GranteeChooser $grantee = null,
+        Account $owner = null,
+        $internal = null,
+        $includeSelf = null
+    );
 
     /**
      * Get Signatures associated with an account
@@ -393,7 +439,10 @@ interface AccountInterface
      * @param  array $blackList Black list
      * @return mixed
      */
-    function modifyWhiteBlackList(array $whiteList, array $blackList = array());
+    function modifyWhiteBlackList(
+        array $whiteList,
+        array $blackList = array()
+    );
 
     /**
      * Modify Zimlet Preferences
@@ -417,7 +466,7 @@ interface AccountInterface
      * return ("displayName", "zimbraId", "zimbraCalResType")
      *
      * @param CursorInfo $cursor Cursor specification
-     * @param EntrySearchFilterInfo $searchFilter Search filter specification
+     * @param SearchFilter $searchFilter Search filter specification
      * @param string $name      If specified, passed through to the GAL search as the search key
      * @param string $locale    Client locale identification. 
      * @param bool   $quick     "Quick" flag. 
@@ -428,13 +477,24 @@ interface AccountInterface
      * @param string $attrs     Comma separated list of attributes
      * @return mixed
      */
-    function searchCalendarResources(CursorInfo $cursor = null, EntrySearchFilterInfo $searchFilter = null, $name = null, $locale = null, $quick = null, $sortBy = null, $limit = null, $offset = null, $galAcctId = null, $attrs = null);
+    function searchCalendarResources(
+        CursorInfo $cursor = null,
+        SearchFilter $searchFilter = null,
+        $name = null,
+        $locale = null,
+        $quick = null,
+        $sortBy = null,
+        $limit = null,
+        $offset = null,
+        $galAcctId = null,
+        $attrs = null
+    );
 
     /**
      * Search Global Address List (GAL)
      *
      * @param CursorInfo $cursor  Cursor specification
-     * @param EntrySearchFilterInfo $searchFilter Search filter specification
+     * @param SearchFilter $searchFilter Search filter specification
      * @param string $locale      Client locale identification. 
      * @param string $ref         If set then search GAL by this ref, which is a dn. If specified then "name" attribute is ignored.
      * @param string $name        Query string. Note: ignored if {gal-search-ref-DN} is specified
@@ -450,16 +510,32 @@ interface AccountInterface
      * @param int    $offset      Specifies the 0-based offset into the results list to return as the first result for this search operation. 
      * @return mixed
      */
-    function searchGal(CursorInfo $cursor = null, EntrySearchFilterInfo $searchFilter = null, $locale = null, $ref = null, $name = null, $type = null, $needExp = null, $needIsOwner = null, $needIsMember = null, $needSMIMECerts = null, $galAcctId = null, $quick = null, $sortBy = null, $limit = null, $offset = null);
+    function searchGal(
+        CursorInfo $cursor = null,
+        SearchFilter $searchFilter = null,
+        $locale = null,
+        $ref = null,
+        $name = null,
+        $type = null,
+        $needExp = null,
+        $needIsOwner = null,
+        $needIsMember = null,
+        $needSMIMECerts = null,
+        $galAcctId = null,
+        $quick = null,
+        $sortBy = null,
+        $limit = null,
+        $offset = null
+    );
 
     /**
      * Subscribe to a distribution list
      *
      * @param string $op
-     * @param string|DistListSelector $dl
+     * @param DistListSelector $dl
      * @return mixed
      */
-    function subscribeDistributionList($op, $dl);
+    function subscribeDistributionList($op, DistListSelector $dl);
 
     /**
      * Synchronize with the Global Address List

@@ -51,7 +51,10 @@ class GetEffectiveRights extends Request
      * @param  string $expandAllAttrs
      * @return self
      */
-    public function __construct(Target $target, Grantee $grantee = null, AttrMethod $expandAllAttrs = null)
+    public function __construct(
+        Target $target,
+        Grantee $grantee = null,
+        AttrMethod $expandAllAttrs = null)
     {
         parent::__construct();
         $this->_target = $target;

@@ -46,16 +46,16 @@ class TypedSequence extends Sequence
      */
     public function add($element)
     {
-    	if($element instanceof $this->_type)
-    	{
-    		parent::add($element);
-    	}
-    	else
-    	{
-    		throw new \UnexpectedValueException(
-    			"TypedSequence<$this->_type> can only hold objects of $this->_type class."
-			);
-    	}
+        if($element instanceof $this->_type)
+        {
+            parent::add($element);
+        }
+        else
+        {
+            throw new \UnexpectedValueException(
+                "TypedSequence<$this->_type> can only hold objects of $this->_type class."
+            );
+        }
         return $this;
     }
 
@@ -68,7 +68,7 @@ class TypedSequence extends Sequence
     {
         foreach ($elements as $element)
         {
-        	$this->add($element);
+            $this->add($element);
         }
         return $this;
     }
@@ -84,13 +84,13 @@ class TypedSequence extends Sequence
         if ( ! isset($this->elements[$index]))
         {
             throw new \InvalidArgumentException(
-            	sprintf('There is no element at index "%d".', $index)
-        	);
+                sprintf('There is no element at index "%d".', $index)
+            );
         }
-    	if($value instanceof $this->_type)
-    	{
-	        $this->elements[$index] = $value;
-    	}
-    	return $this;
+        if($value instanceof $this->_type)
+        {
+            $this->elements[$index] = $value;
+        }
+        return $this;
     }
 }

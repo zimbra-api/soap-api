@@ -22,6 +22,7 @@ use Zimbra\Soap\Enum\DistributionListSubscribeOp as DLSubscribeOp;
 use Zimbra\Soap\Enum\DomainBy;
 use Zimbra\Soap\Enum\GranteeType;
 use Zimbra\Soap\Enum\GranteeBy;
+use Zimbra\Soap\Enum\InterestType;
 use Zimbra\Soap\Enum\LoggingLevel;
 use Zimbra\Soap\Enum\Operation;
 use Zimbra\Soap\Enum\ParticipationStatus as PartStatus;
@@ -3235,16 +3236,17 @@ class StructTest extends ZimbraTestCase
 
     public function testWaitSetAddSpec()
     {
-        $waitSet = new \Zimbra\Soap\Struct\WaitSetAddSpec('n', 'i', 't', 'x,m,y,c');
+        $waitSet = new \Zimbra\Soap\Struct\WaitSetAddSpec('n', 'i', 't', array(InterestType::FOLDERS()));
         $this->assertSame('n', $waitSet->name());
         $this->assertSame('i', $waitSet->id());
         $this->assertSame('t', $waitSet->token());
-        $this->assertSame('m,c', $waitSet->types());
+        $this->assertSame('f', $waitSet->types());
 
         $waitSet->name('name')
                 ->id('id')
                 ->token('token')
-                ->types('x,f,y,m,z,c');
+                ->addType(InterestType::MESSAGES())
+                ->addType(InterestType::CONTACTS());
         $this->assertSame('name', $waitSet->name());
         $this->assertSame('id', $waitSet->id());
         $this->assertSame('token', $waitSet->token());

@@ -13,6 +13,7 @@ namespace Zimbra\API\Admin\Request;
 use Zimbra\Soap\Request;
 use Zimbra\Soap\Struct\ConstraintAttr as Attr;
 use Zimbra\Soap\Enum\TargetType;
+use Zimbra\Utils\TypedSequence;
 
 /**
  * ModifyDelegatedAdminConstraints class
@@ -57,13 +58,17 @@ class ModifyDelegatedAdminConstraints extends Request
      * @param array  $attrs
      * @return self
      */
-    public function __construct(TargetType $type, $id = null, $name = null, array $attrs = array())
+    public function __construct(
+        TargetType $type,
+        $id = null,
+        $name = null,
+        array $attrs = array())
     {
         parent::__construct();
 		$this->_type = $type;
         $this->_id = trim($id);
         $this->_name = trim($name);
-        $this->attrs($attrs);
+        $this->_attrs = new TypedSequence('Zimbra\Soap\Struct\ConstraintAttr', $attrs);
     }
 
     /**
@@ -122,31 +127,18 @@ class ModifyDelegatedAdminConstraints extends Request
      */
     public function addAttr(Attr $attr)
     {
-        $this->_attrs[] = $attr;
+        $this->_attrs->add($attr);
         return $this;
     }
 
     /**
-     * Gets or sets attrs
+     * Gets attr Sequence
      *
-     * @param  array $attrs
-     * @return array|self
+     * @return Sequence
      */
-    public function attrs(array $attrs = null)
+    public function attrs()
     {
-        if(null === $attrs)
-        {
-            return $this->_attrs;
-        }
-        $this->_attrs = array();
-        foreach ($attrs as $attr)
-        {
-            if($attr instanceof Attr)
-            {
-                $this->_attrs[] = $attr;
-            }
-        }
-        return $this;
+        return $this->_attrs;
     }
 
     /**

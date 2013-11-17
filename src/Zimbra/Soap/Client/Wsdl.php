@@ -117,7 +117,7 @@ class Wsdl extends \SoapClient implements ClientInterface
      */
     public function authToken($authToken = null)
     {
-        if($authToken === null)
+        if(null === $authToken)
         {
             return isset($this->_headers['authToken']) ? $this->_headers['authToken'] : null;
         }
@@ -133,7 +133,7 @@ class Wsdl extends \SoapClient implements ClientInterface
      */
     public function sessionId($sessionId = null)
     {
-        if($sessionId === null)
+        if(null === $sessionId)
         {
             return isset($this->_headers['sessionId']) ? $this->_headers['sessionId'] : null;
         }

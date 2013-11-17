@@ -12,6 +12,7 @@ namespace Zimbra\API\Admin\Request;
 
 use Zimbra\Soap\Request;
 use Zimbra\Soap\Struct\NamedValue;
+use Zimbra\Utils\TypedSequence;
 
 /**
  * ModifyAdminSavedSearches class
@@ -38,7 +39,7 @@ class ModifyAdminSavedSearches extends Request
     public function __construct(array $searchs = array())
     {
         parent::__construct();
-        $this->searchs($searchs);
+        $this->_searchs = new TypedSequence('Zimbra\Soap\Struct\NamedValue', $searchs);
     }
 
     /**
@@ -49,31 +50,18 @@ class ModifyAdminSavedSearches extends Request
      */
     public function addSearch(NamedValue $search)
     {
-        $this->_searchs[] = $search;
+        $this->_searchs->add($search);
         return $this;
     }
 
     /**
-     * Gets or sets searchs
+     * Gets search sequence
      *
-     * @param  array $searchs
-     * @return array|self
+     * @return Sequence
      */
-    public function searchs(array $searchs = null)
+    public function searchs()
     {
-        if(null === $searchs)
-        {
-            return $this->_searchs;
-        }
-        $this->_searchs = array();
-        foreach ($searchs as $search)
-        {
-            if($search instanceof NamedValue)
-            {
-                $this->_searchs[] = $search;
-            }
-        }
-        return $this;
+        return $this->_searchs;
     }
 
     /**

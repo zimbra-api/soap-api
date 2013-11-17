@@ -11,54 +11,15 @@
 namespace Zimbra\API\Account;
 
 use Zimbra\API\Account;
-use Zimbra\API\Account\Request\Auth;
-use Zimbra\API\Account\Request\AutoCompleteGal;
-use Zimbra\API\Account\Request\ChangePassword;
-use Zimbra\API\Account\Request\CheckRights;
-use Zimbra\API\Account\Request\CreateDistributionList;
-use Zimbra\API\Account\Request\CreateIdentity;
-use Zimbra\API\Account\Request\CreateSignature;
-use Zimbra\API\Account\Request\DeleteIdentity;
-use Zimbra\API\Account\Request\DeleteSignature;
-use Zimbra\API\Account\Request\DiscoverRights;
-use Zimbra\API\Account\Request\DistributionListAction;
-use Zimbra\API\Account\Request\EndSession;
-use Zimbra\API\Account\Request\GetAccountDistributionLists;
-use Zimbra\API\Account\Request\GetAccountInfo;
-use Zimbra\API\Account\Request\GetAllLocales;
-use Zimbra\API\Account\Request\GetAvailableCsvFormats;
-use Zimbra\API\Account\Request\GetAvailableLocales;
-use Zimbra\API\Account\Request\GetAvailableSkins;
-use Zimbra\API\Account\Request\GetDistributionList;
-use Zimbra\API\Account\Request\GetDistributionListMembers;
-use Zimbra\API\Account\Request\GetIdentities;
-use Zimbra\API\Account\Request\GetInfo;
-use Zimbra\API\Account\Request\GetPrefs;
-use Zimbra\API\Account\Request\GetRights;
-use Zimbra\API\Account\Request\GetShareInfo;
-use Zimbra\API\Account\Request\GetSignatures;
-use Zimbra\API\Account\Request\GetVersionInfo;
-use Zimbra\API\Account\Request\GetWhiteBlackList;
-use Zimbra\API\Account\Request\GrantRights;
-use Zimbra\API\Account\Request\ModifyIdentity;
-use Zimbra\API\Account\Request\ModifyPrefs;
-use Zimbra\API\Account\Request\ModifyProperties;
-use Zimbra\API\Account\Request\ModifySignature;
-use Zimbra\API\Account\Request\ModifyWhiteBlackList;
-use Zimbra\API\Account\Request\ModifyZimletPrefs;
-use Zimbra\API\Account\Request\RevokeRights;
-use Zimbra\API\Account\Request\SearchCalendarResources;
-use Zimbra\API\Account\Request\SearchGal;
-use Zimbra\API\Account\Request\SubscribeDistributionList;
-use Zimbra\API\Account\Request\SyncGal;
 
 use Zimbra\Soap\Enum\AccountBy;
 use Zimbra\Soap\Enum\DistributionListBy as DistListBy;
+
 use Zimbra\Soap\Struct\AccountSelector;
 use Zimbra\Soap\Struct\AuthToken;
 use Zimbra\Soap\Struct\CursorInfo;
-use Zimbra\Soap\Struct\DistListSelector;
-use Zimbra\Soap\Struct\DistListAction;
+use Zimbra\Soap\Struct\DistributionListSelector as DistListSelector;
+use Zimbra\Soap\Struct\DistributionListAction as DistListAction;
 use Zimbra\Soap\Struct\EntrySearchFilterInfo;
 use Zimbra\Soap\Struct\GranteeChooser;
 use Zimbra\Soap\Struct\Identity;
@@ -89,7 +50,7 @@ abstract class Base extends Account implements AccountInterface
     /**
      * Authenticate for an account
      *
-     * @param  string|AccountSelector   $account The user account.
+     * @param  string|AccountSelector $account The user account.
      * @param  string    $password The user password.
      * @param  PreAuth   $key Pre authentication key
      * @param  AuthToken $token The authentication token.
@@ -112,11 +73,7 @@ abstract class Base extends Account implements AccountInterface
         $persistAuthTokenCookie = null
     )
     {
-        if(!($account instanceof AccountSelector))
-        {
-            $account = new AccountSelector(AccountBy::NAME(), (string) $account);
-        }
-        $request = new Auth(
+        $request = new \Zimbra\API\Account\Request\Auth(
             $account,
             $password,
             $preauth,
@@ -136,38 +93,34 @@ abstract class Base extends Account implements AccountInterface
     /**
      * Authenticate for an account
      *
-     * @param  string|AccountSelector $account  The user account.
+     * @param  AccountSelector $account  The user account.
      * @param  string $password    The user password.
      * @param  string $virtualHost If specified (in conjunction with by="name"), virtual-host is used to determine the domain of the account name, if it does not include a domain component.
      * @return authentication token
      */
-    public function authByAcount($account, $password, $virtualHost = null)
+    public function authByAcount(
+        AccountSelector $account,
+        $password,
+        $virtualHost = null
+    )
     {
-        if(!($account instanceof AccountSelector))
-        {
-            $account = new AccountSelector(AccountBy::NAME(), (string) $account);
-        }
         return $this->auth($account, $password, null, null, $virtualHost);
     }
 
     /**
      * Authenticate for an account by token
      *
-     * @param  string|AccountSelector $account The user account.
-     * @param  string|AuthToken    $token The authentication token.
+     * @param  AccountSelector $account The user account.
+     * @param  AuthToken    $token The authentication token.
      * @param  string $virtualHost If specified (in conjunction with by="name"), virtual-host is used to determine the domain of the account name, if it does not include a domain component.
      * @return authentication token
      */
-    public function authByToken($account, $token, $virtualHost = null)
+    public function authByToken(
+        AccountSelector $account,
+        AuthToken $token,
+        $virtualHost = null
+    )
     {
-        if(!($account instanceof AccountSelector))
-        {
-            $account = new AccountSelector(AccountBy::NAME(), (string) $account);
-        }
-        if(!($token instanceof AuthToken))
-        {
-            $token = new AuthToken((string) $token, TRUE);
-        }
         return $this->auth($account, null, null, $token, $virtualHost);
     }
 
@@ -179,12 +132,12 @@ abstract class Base extends Account implements AccountInterface
      * @param  string $virtualHost If specified (in conjunction with by="name"), virtual-host is used to determine the domain of the account name, if it does not include a domain component.
      * @return authentication token
      */
-    public function authByPre($account, $key, $virtualHost = null)
+    public function authByPre(
+        AccountSelector $account,
+        $key,
+        $virtualHost = null
+    )
     {
-        if(!($account instanceof AccountSelector))
-        {
-            $account = new AccountSelector(AccountBy::NAME(), (string) $account);
-        }
         $preAuth = new PreAuth(time() * 1000);
         $preAuth->computeValue($account, $key);
 
@@ -201,28 +154,39 @@ abstract class Base extends Account implements AccountInterface
      * @param  int    $limit An  integer specifying the maximum number of results to return
      * @return mixed
      */
-    public function autoCompleteGal($name, $needExp = null, $type = null, $galAcctId = null, $limit = null)
+    public function autoCompleteGal(
+        $name,
+        $needExp = null,
+        $type = null,
+        $galAcctId = null,
+        $limit = null
+    )
     {
-        $request = new AutoCompleteGal($name, $needExp, $type, $galAcctId, $limit);
+        $request = new \Zimbra\API\Account\Request\AutoCompleteGal(
+            $name, $needExp, $type, $galAcctId, $limit
+        );
         return $this->_client->doRequest($request);
     }
 
     /**
      * Change password
      *
-     * @param  string|AccountSelector $account The user account.
-     * @param  string $oldPassword Old password
-     * @param  string $password    New Password to assign
-     * @param  string $virtualHost Virtual-host is used to determine the domain of the account name
+     * @param  AccountSelector $account     The user account.
+     * @param  string  $oldPassword Old password
+     * @param  string  $password    New Password to assign
+     * @param  string  $virtualHost Virtual-host is used to determine the domain of the account name
      * @return mixed
      */
-    public function changePassword($account, $oldPassword, $password, $virtualHost = '')
+    public function changePassword(
+        AccountSelector $account,
+        $oldPassword,
+        $password,
+        $virtualHost = ''
+    )
     {
-        if(!($account instanceof AccountSelector))
-        {
-            $account = new AccountSelector(AccountBy::NAME(), (string) $account);
-        }
-        $request = new ChangePassword($account, $oldPassword, $password, $virtualHost);
+        $request = new \Zimbra\API\Account\Request\ChangePassword(
+            $account, $oldPassword, $password, $virtualHost
+        );
         return $this->_client->doRequest($request);
     }
 
@@ -234,7 +198,8 @@ abstract class Base extends Account implements AccountInterface
      */
     public function checkRights(array $targets)
     {
-        return $this->_client->doRequest(new CheckRights($targets));
+        $request = new \Zimbra\API\Account\Request\CheckRights($targets);
+        return $this->_client->doRequest($request);
     }
 
     /**
@@ -246,9 +211,15 @@ abstract class Base extends Account implements AccountInterface
      * @param  array  $attrs Attributes specified as key value pairs
      * @return mixed
      */
-    public function createDistributionList($name, $dynamic = null, array $attrs = array())
+    public function createDistributionList(
+        $name,
+        $dynamic = null,
+        array $attrs = array()
+    )
     {
-        $request = new CreateDistributionList($name, $dynamic, $attrs);
+        $request = new \Zimbra\API\Account\Request\CreateDistributionList(
+            $name, $dynamic, $attrs
+        );
         return $this->_client->doRequest($request);
     }
 
@@ -260,7 +231,10 @@ abstract class Base extends Account implements AccountInterface
      */
     public function createIdentity(Identity $identity)
     {
-        return $this->_client->doRequest(new CreateIdentity($identity));
+        $request = new \Zimbra\API\Account\Request\CreateIdentity(
+            $identity
+        );
+        return $this->_client->doRequest($request);
     }
 
     /**
@@ -271,7 +245,10 @@ abstract class Base extends Account implements AccountInterface
      */
     public function createSignature(Signature $signature)
     {
-        return $this->_client->doRequest(new CreateSignature($signature));
+        $request = new \Zimbra\API\Account\Request\CreateSignature(
+            $signature
+        );
+        return $this->_client->doRequest($$request);
     }
 
     /**
@@ -282,7 +259,10 @@ abstract class Base extends Account implements AccountInterface
      */
     public function deleteIdentity(NameId $identity)
     {
-        return $this->_client->doRequest(new DeleteIdentity($identity));
+        $request = new \Zimbra\API\Account\Request\DeleteIdentity(
+            $identity
+        );
+        return $this->_client->doRequest($request);
     }
 
     /**
@@ -293,7 +273,10 @@ abstract class Base extends Account implements AccountInterface
      */
     public function deleteSignature(NameId $signature)
     {
-        return $this->_client->doRequest(new DeleteSignature($signature));
+        $request = new \Zimbra\API\Account\Request\DeleteSignature(
+            $signature
+        );
+        return $this->_client->doRequest($request);
     }
 
     /**
@@ -304,7 +287,10 @@ abstract class Base extends Account implements AccountInterface
      */
     public function discoverRights(array $rights)
     {
-        return $this->_client->doRequest(new DiscoverRights($rights));
+        $request = new \Zimbra\API\Account\Request\DiscoverRights(
+            $rights
+        );
+        return $this->_client->doRequest($request);
     }
 
     /**
@@ -316,18 +302,20 @@ abstract class Base extends Account implements AccountInterface
      *      Only admins can modify grants on domains and globalgrant,
      *      owners of groups can only modify grants on the group entry.
      *
-     * @param  string|DistListSelector $dl Identifies the distribution list to act upon
+     * @param  DistListSelector $dl Identifies the distribution list to act upon
      * @param  DistListAction $action Specifies the action to perform
      * @param  array $attrs Attributes
      * @return mixed
      */
-    public function distributionListAction($dl, DistListAction $action, array $attrs = array())
+    public function distributionListAction(
+        DistListSelector $dl,
+        DistListAction $action,
+        array $attrs = array()
+    )
     {
-        if(!($dl instanceof DistListSelector))
-        {
-            $dl = new DistListSelector(DistListBy::NAME(), (string) $dl);
-        }
-        $request = new DistributionListAction($dl, $action, $attrs);
+        $request = new \Zimbra\API\Account\Request\DistributionListAction(
+            $dl, $action, $attrs
+        );
         return $this->_client->doRequest($request);
     }
 
@@ -340,7 +328,8 @@ abstract class Base extends Account implements AccountInterface
      */
     public function endSession()
     {
-        return $this->_client->doRequest(new EndSession);
+        $request = new \Zimbra\API\Account\Request\EndSession;
+        return $this->_client->doRequest($request);
     }
 
     /**
@@ -358,25 +347,30 @@ abstract class Base extends Account implements AccountInterface
      * @param  string $attrs    Comma-seperated attributes to return
      * @return mixed
      */
-    public function getAccountDistributionLists($ownerOf = null, $memberOf = null, $attrs = null)
+    public function getAccountDistributionLists(
+        $ownerOf = null,
+        $memberOf = null,
+        $attrs = null
+    )
     {
-        $request = new GetAccountDistributionLists($ownerOf, $memberOf, $attrs);
+        $request = new \Zimbra\API\Account\Request\GetAccountDistributionLists(
+            $ownerOf, $memberOf, $attrs
+        );
         return $this->_client->doRequest($request);
     }
 
     /**
      * Get Information about an account
      *
-     * @param  string|AccountSelector $account Use to identify the account
+     * @param  AccountSelector $account Use to identify the account
      * @return mixed
      */
-    public function getAccountInfo($account)
+    public function getAccountInfo(AccountSelector $account)
     {
-        if(!($account instanceof AccountSelector))
-        {
-            $account = new AccountSelector(AccountBy::NAME(), (string) $account);
-        }
-        return $this->_client->doRequest(new GetAccountInfo($account));
+        $request = new \Zimbra\API\Account\Request\GetAccountInfo(
+            $account
+        );
+        return $this->_client->doRequest($request);
     }
 
     /**
@@ -386,7 +380,8 @@ abstract class Base extends Account implements AccountInterface
      */
     public function getAllLocales()
     {
-        return $this->_client->doRequest(new GetAllLocales);
+        $request = new \Zimbra\API\Account\Request\GetAllLocales;
+        return $this->_client->doRequest($request);
     }
 
     /**
@@ -396,7 +391,8 @@ abstract class Base extends Account implements AccountInterface
      */
     public function getAvailableCsvFormats()
     {
-        return $this->_client->doRequest(new GetAvailableCsvFormats);
+        $request = new \Zimbra\API\Account\Request\GetAvailableCsvFormats;
+        return $this->_client->doRequest($request);
     }
 
     /**
@@ -408,7 +404,8 @@ abstract class Base extends Account implements AccountInterface
      */
     public function getAvailableLocales()
     {
-        return $this->_client->doRequest(new GetAvailableLocales);
+        $request = new \Zimbra\API\Account\Request\GetAvailableLocales;
+        return $this->_client->doRequest($request);
     }
 
     /**
@@ -422,25 +419,29 @@ abstract class Base extends Account implements AccountInterface
      */
     public function getAvailableSkins()
     {
-        return $this->_client->doRequest(new GetAvailableSkins);
+        $request = new \Zimbra\API\Account\Request\GetAvailableSkins;
+        return $this->_client->doRequest($request);
     }
 
     /**
      * Get a distribution list, optionally with ownership information an granted rights.
      *
-     * @param  string|DistListSelector   $dl Specify the distribution list
+     * @param  DistListSelector   $dl Specify the distribution list
      * @param  bool   $needOwners Whether to return owners, default is 0 (i.e. Don't return owners)
      * @param  string $needRights Return grants for the specified (comma-seperated) rights. 
      * @param  array  $attrs Attributes of the distribution list
      * @return mixed
      */
-    public function getDistributionList($dl, $needOwners = null, $needRights = null, array $attrs = array())
+    public function getDistributionList(
+        DistListSelector $dl,
+        $needOwners = null,
+        $needRights = null,
+        array $attrs = array()
+    )
     {
-        if(!($dl instanceof DistListSelector))
-        {
-            $dl = new DistListSelector(DistListBy::NAME(), (string) $dl);
-        }
-        $request = new GetDistributionList($dl, $needOwners, $needRights, $attrs);
+        $request = new \Zimbra\API\Account\Request\GetDistributionList(
+            $dl, $needOwners, $needRights, $attrs
+        );
         return $this->_client->doRequest($request);
     }
 
@@ -454,7 +455,9 @@ abstract class Base extends Account implements AccountInterface
      */
     public function getDistributionListMembers($dl, $limit = null, $offset = null)
     {
-        $request = new GetDistributionListMembers($dl, $limit, $offset);
+        $request = new \Zimbra\API\Account\Request\GetDistributionListMembers(
+            $dl, $limit, $offset
+        );
         return $this->_client->doRequest($request);
     }
 
@@ -466,6 +469,9 @@ abstract class Base extends Account implements AccountInterface
      */
     public function getIdentities(array $identities = array())
     {
+        $request = new \Zimbra\API\Account\Request\GetIdentities(
+            $identities
+        );
         return $this->_client->doRequest(new GetIdentities($identities));
     }
 
@@ -479,7 +485,9 @@ abstract class Base extends Account implements AccountInterface
      */
     public function getInfo($sections = null, $rights = null)
     {
-        $request = new GetInfo($sections, $rights);
+        $request = new \Zimbra\API\Account\Request\GetInfo(
+            $sections, $rights
+        );
         return $this->_client->doRequest($request);
     }
 
@@ -491,7 +499,10 @@ abstract class Base extends Account implements AccountInterface
      */
     public function getPrefs(array $prefs = array())
     {
-        return $this->_client->doRequest(new GetPrefs($prefs));
+        $request = new \Zimbra\API\Account\Request\GetPrefs(
+            $prefs
+        );
+        return $this->_client->doRequest($request);
     }
 
     /**
@@ -502,25 +513,31 @@ abstract class Base extends Account implements AccountInterface
      */
     public function getRights(array $rights = array())
     {
-        return $this->_client->doRequest(new GetRights($rights));
+        $request = new \Zimbra\API\Account\Request\GetRights(
+            $rights
+        );
+        return $this->_client->doRequest($request);
     }
 
     /**
      * Get information about published shares
      *
-     * @param  GranteeChooser $grantee Filter by the specified grantee type
-     * @param  string|AccountSelector $owner  Specifies the owner of the share
+     * @param  GranteeChooser  $grantee Filter by the specified grantee type
+     * @param  AccountSelector $owner   Specifies the owner of the share
      * @param  bool   $internal    Flags that have been proxied to this server because the specified "owner account" is homed here. Do not proxy in this case. (Used internally by ZCS)
      * @param  bool   $includeSelf Flag whether own shares should be included. 0 if shares owned by the requested account should not be included in the response. 1 (default) include shares owned by the requested account
      * @return mixed
      */
-    public function getShareInfo(GranteeChooser $grantee = null, $owner = null, $internal = null, $includeSelf = null)
+    public function getShareInfo(
+        GranteeChooser $grantee = null,
+        AccountSelector $owner = null,
+        $internal = null,
+        $includeSelf = null
+    )
     {
-        if(!($owner instanceof AccountSelector))
-        {
-            $owner = new AccountSelector(AccountBy::NAME(), (string) $owner);
-        }
-        $request = new GetShareInfo($grantee, $owner, $internal, $includeSelf);
+        $request = new \Zimbra\API\Account\Request\GetShareInfo(
+            $grantee, $owner, $internal, $includeSelf
+        );
         return $this->_client->doRequest($request);
     }
 
@@ -531,7 +548,8 @@ abstract class Base extends Account implements AccountInterface
      */
     public function getSignatures()
     {
-        return $this->_client->doRequest(new GetSignatures);
+        $request = new \Zimbra\API\Account\Request\GetSignatures;
+        return $this->_client->doRequest($request);
     }
 
     /**
@@ -543,7 +561,8 @@ abstract class Base extends Account implements AccountInterface
      */
     public function getVersionInfo()
     {
-        return $this->_client->doRequest(new GetVersionInfo);
+        $request = new \Zimbra\API\Account\Request\GetVersionInfo;
+        return $this->_client->doRequest($request);
     }
 
     /**
@@ -553,7 +572,8 @@ abstract class Base extends Account implements AccountInterface
      */
     public function getWhiteBlackList()
     {
-        return $this->_client->doRequest(new GetWhiteBlackList);
+        $request = new \Zimbra\API\Account\Request\GetWhiteBlackList;
+        return $this->_client->doRequest($request);
     }
 
     /**
@@ -564,7 +584,10 @@ abstract class Base extends Account implements AccountInterface
      */
     public function grantRights(array $aces = array())
     {
-        return $this->_client->doRequest(new GrantRights($aces));
+        $request = new \Zimbra\API\Account\Request\GrantRights(
+            $aces
+        );
+        return $this->_client->doRequest($request);
     }
 
     /**
@@ -575,7 +598,10 @@ abstract class Base extends Account implements AccountInterface
      */
     public function modifyIdentity(Identity $identity)
     {
-        return $this->_client->doRequest(new ModifyIdentity($identity));
+        $request = new \Zimbra\API\Account\Request\ModifyIdentity(
+            $identity
+        );
+        return $this->_client->doRequest($request);
     }
 
     /**
@@ -586,7 +612,10 @@ abstract class Base extends Account implements AccountInterface
      */
     public function modifyPrefs(array $prefs = array())
     {
-        return $this->_client->doRequest(new ModifyPrefs($prefs));
+        $request = new \Zimbra\API\Account\Request\ModifyPrefs(
+            $prefs
+        );
+        return $this->_client->doRequest($request);
     }
 
     /**
@@ -597,7 +626,10 @@ abstract class Base extends Account implements AccountInterface
      */
     public function modifyProperties(array $props = array())
     {
-        return $this->_client->doRequest(new ModifyProperties($props));
+        $request = new \Zimbra\API\Account\Request\ModifyProperties(
+            $props
+        );
+        return $this->_client->doRequest($request);
     }
 
     /**
@@ -612,7 +644,10 @@ abstract class Base extends Account implements AccountInterface
      */
     public function modifySignature(Signature $signature)
     {
-        return $this->_client->doRequest(new ModifySignature($signature));
+        $request = new \Zimbra\API\Account\Request\ModifySignature(
+            $signature
+        );
+        return $this->_client->doRequest($request);
     }
 
     /**
@@ -623,9 +658,14 @@ abstract class Base extends Account implements AccountInterface
      * @param  array $blackList Black list
      * @return mixed
      */
-    public function modifyWhiteBlackList(array $whiteList, array $blackList = array())
+    public function modifyWhiteBlackList(
+        array $whiteList,
+        array $blackList = array()
+    )
     {
-        $request = new ModifyWhiteBlackList($whiteList, $blackList);
+        $request = new \Zimbra\API\Account\Request\ModifyWhiteBlackList(
+            $whiteList, $blackList
+        );
         return $this->_client->doRequest($request);
     }
 
@@ -637,7 +677,10 @@ abstract class Base extends Account implements AccountInterface
      */
     public function modifyZimletPrefs(array $zimlets = array())
     {
-        return $this->_client->doRequest(new ModifyZimletPrefs($zimlets));
+        $request = new \Zimbra\API\Account\Request\ModifyZimletPrefs(
+            $zimlets
+        );
+        return $this->_client->doRequest($request);
     }
 
     /**
@@ -648,7 +691,10 @@ abstract class Base extends Account implements AccountInterface
      */
     function revokeRights(array $aces = array())
     {
-        return $this->_client->doRequest(new RevokeRights($aces));
+        $request = new \Zimbra\API\Account\Request\RevokeRights(
+            $aces
+        );
+        return $this->_client->doRequest($request);
     }
 
     /**
@@ -668,9 +714,23 @@ abstract class Base extends Account implements AccountInterface
      * @param string $attrs     Comma separated list of attributes
      * @return mixed
      */
-    public function searchCalendarResources(CursorInfo $cursor = null, EntrySearchFilterInfo $searchFilter = null, $name = null, $locale = null, $quick = null, $sortBy = null, $limit = null, $offset = null, $galAcctId = null, $attrs = null)
+    public function searchCalendarResources(
+        CursorInfo $cursor = null,
+        EntrySearchFilterInfo $searchFilter = null,
+        $name = null,
+        $locale = null,
+        $quick = null,
+        $sortBy = null,
+        $limit = null,
+        $offset = null,
+        $galAcctId = null,
+        $attrs = null
+    )
     {
-        $request = new SearchCalendarResources($cursor, $searchFilter, $name, $locale, $quick, $sortBy, $limit, $offset, $galAcctId, $attrs);
+        $request = new \Zimbra\API\Account\Request\SearchCalendarResources(
+            $cursor, $searchFilter, $name, $locale, $quick,
+            $sortBy, $limit, $offset, $galAcctId, $attrs
+        );
         return $this->_client->doRequest($request);
     }
 
@@ -694,9 +754,29 @@ abstract class Base extends Account implements AccountInterface
      * @param int    $offset      Specifies the 0-based offset into the results list to return as the first result for this search operation. 
      * @return mixed
      */
-    public function searchGal(CursorInfo $cursor = null, EntrySearchFilterInfo $searchFilter = null, $locale = null, $ref = null, $name = null, $type = null, $needExp = null, $needIsOwner = null, $needIsMember = null, $needSMIMECerts = null, $galAcctId = null, $quick = null, $sortBy = null, $limit = null, $offset = null)
+    public function searchGal(
+        CursorInfo $cursor = null,
+        EntrySearchFilterInfo $searchFilter = null,
+        $locale = null,
+        $ref = null,
+        $name = null,
+        $type = null,
+        $needExp = null,
+        $needIsOwner = null,
+        $needIsMember = null,
+        $needSMIMECerts = null,
+        $galAcctId = null,
+        $quick = null,
+        $sortBy = null,
+        $limit = null,
+        $offset = null
+    )
     {
-        $request = new SearchGal($cursor, $searchFilter, $locale, $ref, $name, $type, $needExp, $needIsOwner, $needIsMember, $needSMIMECerts, $galAcctId, $quick, $sortBy, $limit, $offset);
+        $request = new \Zimbra\API\Account\Request\SearchGal(
+            $cursor, $searchFilter, $locale, $ref, $name, $type,
+            $needExp, $needIsOwner, $needIsMember, $needSMIMECerts,
+            $galAcctId, $quick, $sortBy, $limit, $offset
+        );
         return $this->_client->doRequest($request);
     }
 
@@ -704,16 +784,14 @@ abstract class Base extends Account implements AccountInterface
      * Subscribe to a distribution list
      *
      * @param string $op
-     * @param string|DistListSelector $dl
+     * @param DistListSelector $dl
      * @return mixed
      */
-    public function subscribeDistributionList($op, $dl)
+    public function subscribeDistributionList($op, DistListSelector $dl)
     {
-        if(!($dl instanceof DistListSelector))
-        {
-            $dl = new DistListSelector(DistListBy::NAME(), (string) $dl);
-        }
-        $request = new SubscribeDistributionList($op, $dl);
+        $request = new \Zimbra\API\Account\Request\SubscribeDistributionList(
+            $op, $dl
+        );
         return $this->_client->doRequest($request);
     }
 
@@ -727,7 +805,9 @@ abstract class Base extends Account implements AccountInterface
      */
     public function syncGal($token = null, $galAcctId = null, $idOnly = null)
     {
-        $request = new SyncGal($token, $galAcctId, $idOnly);
+        $request = new \Zimbra\API\Account\Request\SyncGal(
+            $token, $galAcctId, $idOnly
+        );
         return $this->_client->doRequest($request);
     }
 }

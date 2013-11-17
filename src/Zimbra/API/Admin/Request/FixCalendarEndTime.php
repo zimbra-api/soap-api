@@ -12,6 +12,7 @@ namespace Zimbra\API\Admin\Request;
 
 use Zimbra\Soap\Request;
 use Zimbra\Soap\Struct\NamedElement as Account;
+use Zimbra\Utils\TypedSequence;
 
 /**
  * FixCalendarEndTime class
@@ -34,7 +35,7 @@ class FixCalendarEndTime extends Request
      * Accounts
      * @var array
      */
-    private $_accounts = array();
+    private $_accounts;
 
     /**
      * Constructor method for FixCalendarEndTime
@@ -49,7 +50,7 @@ class FixCalendarEndTime extends Request
         {
             $this->_sync = (bool) $sync;
         }
-        $this->accounts($accounts);
+        $this->_accounts = new TypedSequence('Zimbra\Soap\Struct\NamedElement', $accounts);
     }
 
     /**
@@ -76,31 +77,18 @@ class FixCalendarEndTime extends Request
      */
     public function addAccount(Account $account)
     {
-        $this->_accounts[] = $account;
+        $this->_accounts->add($account);
         return $this;
     }
 
     /**
-     * Gets or sets accounts array
+     * Gets account equence
      *
-     * @param  array $accounts
-     * @return array|self
+     * @return Sequence
      */
-    public function accounts(array $accounts = null)
+    public function accounts()
     {
-        if(null === $accounts)
-        {
-            return $this->_accounts;
-        }
-        $this->_accounts = array();
-        foreach ($accounts as $account)
-        {
-            if($account instanceof Account)
-            {
-                $this->_accounts[] = $account;
-            }
-        }
-        return $this;
+        return $this->_accounts;
     }
 
     /**
