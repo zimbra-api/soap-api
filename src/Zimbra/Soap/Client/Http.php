@@ -92,7 +92,15 @@ class Http implements ClientInterface
         );
 
         $this->headers = $httpRequest->getHeaders()->toArray();
-        $this->response = $httpRequest->send();
+        try
+        {
+            $this->response = $httpRequest->send();
+        }
+        catch (\Guzzle\Http\Exception\BadResponseException $ex)
+        {
+            $this->response = $ex->getResponse();
+            throw $ex;
+        }
         return $this->response->getBody(true);
 
     }
