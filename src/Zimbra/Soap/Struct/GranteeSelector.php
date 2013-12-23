@@ -173,8 +173,9 @@ class GranteeSelector
      * @param  string $name
      * @return array
      */
-    public function toArray()
+    public function toArray($name = 'grantee')
     {
+        $name = !empty($name) ? $name : 'grantee';
         $arr = array(
             '_' => $this->_value,
         );
@@ -195,7 +196,7 @@ class GranteeSelector
         {
             $arr['all'] = (bool) $this->_all ? 1 : 0;
         }
-        return array('grantee' => $arr);
+        return array($name => $arr);
     }
 
     /**
@@ -203,9 +204,10 @@ class GranteeSelector
      *
      * @return SimpleXML
      */
-    public function toXml()
+    public function toXml($name = 'grantee')
     {
-        $xml = new SimpleXML('<grantee>'. $this->_value.'</grantee>');
+        $name = !empty($name) ? $name : 'grantee';
+        $xml = new SimpleXML('<'.$name.'>'. $this->_value.'</'.$name.'>');
         if($this->_type instanceof GranteeType)
         {
             $xml->addAttribute('type', (string) $this->_type);

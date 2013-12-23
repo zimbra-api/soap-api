@@ -84,13 +84,14 @@ class ZimletPrefsSpec
      *
      * @return array
      */
-    public function toArray()
+    public function toArray($name = 'zimlet')
     {
+        $name = !empty($name) ? $name : 'zimlet';
         $arr = array(
             'name' => $this->_name,
             'presence' => (string) $this->_presence,
         );
-        return array('zimlet' => $arr);
+        return array($name => $arr);
     }
 
     /**
@@ -98,9 +99,10 @@ class ZimletPrefsSpec
      *
      * @return SimpleXML
      */
-    public function toXml()
+    public function toXml($name = 'zimlet')
     {
-        $xml = new SimpleXML('<zimlet />');
+        $name = !empty($name) ? $name : 'zimlet';
+        $xml = new SimpleXML('<'.$name.' />');
         $xml->addAttribute('name', $this->_name)
             ->addAttribute('presence', (string) $this->_presence);
         return $xml;

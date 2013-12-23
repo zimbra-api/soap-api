@@ -27,9 +27,9 @@ class GetPrefs extends Request
 {
     /**
      * Preference value
-     * @var array Array of Pref
+     * @var TypedSequence of Pref
      */
-    private $_prefs = array();
+    private $_pref;
 
     /**
      * Constructor method for GetPrefs
@@ -39,7 +39,7 @@ class GetPrefs extends Request
     public function __construct(array $prefs = array())
     {
         parent::__construct();
-        $this->_prefs = new TypedSequence(Pref::CLASS, $prefs);
+        $this->_pref = new TypedSequence('Zimbra\Soap\Struct\Pref', $prefs);
     }
 
     /**
@@ -50,7 +50,7 @@ class GetPrefs extends Request
      */
     public function addPref(Pref $pref)
     {
-        $this->_prefs->add($pref);
+        $this->_pref->add($pref);
         return $this;
     }
 
@@ -59,9 +59,9 @@ class GetPrefs extends Request
      *
      * @return Sequence
      */
-    public function prefs()
+    public function pref()
     {
-        return $this->_prefs;
+        return $this->_pref;
     }
 
     /**
@@ -71,10 +71,10 @@ class GetPrefs extends Request
      */
     public function toArray()
     {
-        if(count($this->_prefs))
+        if(count($this->_pref))
         {
             $this->array['pref'] = array();
-            foreach ($this->_prefs as $pref)
+            foreach ($this->_pref as $pref)
             {
                 $prefArr = $pref->toArray();
                 $this->array['pref'][] = $prefArr['pref'];
@@ -90,7 +90,7 @@ class GetPrefs extends Request
      */
     public function toXml()
     {
-        foreach ($this->_prefs as $pref)
+        foreach ($this->_pref as $pref)
         {
             $this->xml->append($pref->toXml());
         }

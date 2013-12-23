@@ -140,8 +140,9 @@ class CursorInfo
      *
      * @return array
      */
-    public function toArray()
+    public function toArray($name = 'cursor')
     {
+        $name = !empty($name) ? $name : 'cursor';
         $arr = array();
         if(!empty($this->_id))
         {
@@ -160,7 +161,7 @@ class CursorInfo
             $arr['includeOffset'] = $this->_includeOffset ? 1 : 0;
         }
 
-        return array('cursor' => $arr);
+        return array($name => $arr);
     }
 
     /**
@@ -168,9 +169,10 @@ class CursorInfo
      *
      * @return SimpleXML
      */
-    public function toXml()
+    public function toXml($name = 'cursor')
     {
-        $xml = new SimpleXML('<cursor />');
+        $name = !empty($name) ? $name : 'cursor';
+        $xml = new SimpleXML('<'.$name.' />');
         if(!empty($this->_id))
         {
             $xml->addAttribute('id', $this->_id);

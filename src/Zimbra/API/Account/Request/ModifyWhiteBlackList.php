@@ -27,13 +27,13 @@ class ModifyWhiteBlackList extends Request
 {
     /**
      * White list
-     * @var array
+     * @var TypedSequence
      */
     private $_whiteList = array();
 
     /**
      * Black list
-     * @var array
+     * @var TypedSequence
      */
     private $_blackList = array();
 

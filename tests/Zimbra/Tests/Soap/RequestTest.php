@@ -53,8 +53,8 @@ class RequestTest extends ZimbraTestCase
         $attr1 = new \Zimbra\Soap\Struct\KeyValuePair('key1', 'value1');
         $attr2 = new \Zimbra\Soap\Struct\KeyValuePair('key2', 'value2');
         $attr3 = new \Zimbra\Soap\Struct\KeyValuePair('key3', 'value3');
-        $stub->addAttr($attr1)->attrs()->addAll(array($attr2, $attr3));
-        $this->assertEquals(array($attr1, $attr2, $attr3), $stub->attrs()->all());
+        $stub->addAttr($attr1)->attr()->addAll(array($attr2, $attr3));
+        $this->assertEquals(array($attr1, $attr2, $attr3), $stub->attr()->all());
 
         $stub->expects($this->any())
              ->method('toArray');

@@ -46,9 +46,9 @@ class CheckRightsTargetSpec
 
     /**
      * Array of right
-     * @var string
+     * @var Sequence
      */
-    private $_rights = array();
+    private $_right = array();
 
     /**
      * Constructor method for checkRightsTargetSpec
@@ -64,13 +64,13 @@ class CheckRightsTargetSpec
         $this->_by = $by;
         $this->_key = trim($key);
 
-        $this->_rights = new Sequence;
+        $this->_right = new Sequence;
         foreach ($rights as $right)
         {
             $right = trim($right);
             if(!empty($right))
             {
-                $this->_rights->add($right);
+                $this->_right->add($right);
             }
         }
     }
@@ -134,7 +134,7 @@ class CheckRightsTargetSpec
         $right = trim($right);
         if(!empty($right))
         {
-            $this->_rights->add($right);
+            $this->_right->add($right);
         }
         return $this;
     }
@@ -144,9 +144,9 @@ class CheckRightsTargetSpec
      *
      * @return Sequence
      */
-    public function rights()
+    public function right()
     {
-        return $this->_rights;
+        return $this->_right;
     }
 
     /**
@@ -154,18 +154,19 @@ class CheckRightsTargetSpec
      *
      * @return array
      */
-    public function toArray()
+    public function toArray($name = 'target')
     {
+        $name = !empty($name) ? $name : 'target';
         $arr = array(
             'type' => (string) $this->_type,
             'by' => (string) $this->_by,
             'key' => $this->_key,
         );
-        if(count($this->_rights))
+        if(count($this->_right))
         {
-            $arr['right'] = $this->_rights->all();
+            $arr['right'] = $this->_right->all();
         }
-        return array('target' => $arr);
+        return array($name => $arr);
     }
 
     /**
@@ -173,13 +174,14 @@ class CheckRightsTargetSpec
      *
      * @return SimpleXML
      */
-    public function toXml()
+    public function toXml($name = 'target')
     {
-        $xml = new SimpleXML('<target />');
+        $name = !empty($name) ? $name : 'target';
+        $xml = new SimpleXML('<'.$name.' />');
         $xml->addAttribute('type', (string) $this->_type)
             ->addAttribute('by', (string) $this->_by)
             ->addAttribute('key', $this->_key);
-        foreach ($this->_rights as $right)
+        foreach ($this->_right as $right)
         {
             if(!empty($right))
             {

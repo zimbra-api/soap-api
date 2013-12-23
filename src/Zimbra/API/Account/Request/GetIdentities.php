@@ -29,7 +29,7 @@ class GetIdentities extends Request
      * Identities
      * @var Sequence
      */
-    private $_identities = array();
+    private $_identity;
 
     /**
      * Constructor method for GetIdentities
@@ -39,7 +39,7 @@ class GetIdentities extends Request
     public function __construct(array $identities = array())
     {
         parent::__construct();
-        $this->_identities = new TypedSequence('Zimbra\Soap\Struct\Identity', $identities);
+        $this->_identity = new TypedSequence('Zimbra\Soap\Struct\Identity', $identities);
     }
 
     /**
@@ -50,18 +50,18 @@ class GetIdentities extends Request
      */
     public function addIdentity(Identity $identity)
     {
-        $this->_identities->add($identity);
+        $this->_identity->add($identity);
         return $this;
     }
 
     /**
-     * Gets identity Sequence
+     * Gets identity sequence
      *
      * @return Sequence
      */
-    public function identities(array $identities = null)
+    public function identity()
     {
-        return $this->_identities;
+        return $this->_identity;
     }
 
     /**
@@ -71,10 +71,10 @@ class GetIdentities extends Request
      */
     public function toArray()
     {
-        if(count($this->_identities))
+        if(count($this->_identity))
         {
             $this->array['identity'] = array();
-            foreach ($this->_identities as $identity)
+            foreach ($this->_identity as $identity)
             {
                 $identityArr = $identity->toArray();
                 $this->array['identity'][] = $identityArr['identity'];
@@ -90,9 +90,9 @@ class GetIdentities extends Request
      */
     public function toXml()
     {
-        foreach ($this->_identities as $identity)
+        foreach ($this->_identity as $identity)
         {
-            $this->xml->append($identity->toXml());
+            $this->xml->append($identity->toXml('identity'));
         }
         return parent::toXml();
     }

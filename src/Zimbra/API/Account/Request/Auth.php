@@ -61,15 +61,15 @@ class Auth extends Request
 
     /**
      * Preference
-     * @var array of Pref
+     * @var TypedSequence of Pref
      */
-    private $_prefs = array();
+    private $_prefs;
 
     /**
      * The attributes
-     * @var array of Attr
+     * @var TypedSequence of Attr
      */
-    private $_attrs = array();
+    private $_attrs;
 
     /**
      * The requestedSkin

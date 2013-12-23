@@ -24,10 +24,10 @@ abstract class AttrsImpl
 {
     /**
      * Attributes
-     * KeyValuePair array
-     * @var array
+     * KeyValuePair Sequence
+     * @var TypedSequence
      */
-    private $_attrs = array();
+    private $_attr = array();
 
     /**
      * The array representation of this class 
@@ -42,7 +42,7 @@ abstract class AttrsImpl
      */
     public function __construct(array $attrs = array())
     {
-        $this->_attrs = new TypedSequence('Zimbra\Soap\Struct\KeyValuePair', $attrs);
+        $this->_attr = new TypedSequence('Zimbra\Soap\Struct\KeyValuePair', $attrs);
     }
 
     /**
@@ -53,7 +53,7 @@ abstract class AttrsImpl
      */
     public function addAttr(KeyValuePair $attr)
     {
-        $this->_attrs->add($attr);
+        $this->_attr->add($attr);
         return $this;
     }
 
@@ -62,9 +62,9 @@ abstract class AttrsImpl
      *
      * @return Sequence
      */
-    public function attrs()
+    public function attr()
     {
-        return $this->_attrs;
+        return $this->_attr;
     }
 
     /**
@@ -74,10 +74,10 @@ abstract class AttrsImpl
      */
     public function toArray()
     {
-        if(count($this->_attrs))
+        if(count($this->_attr))
         {
             $this->array['a'] = array();
-            foreach ($this->_attrs as $attr)
+            foreach ($this->_attr as $attr)
             {
                 $attrArr = $attr->toArray('a');
                 $this->array['a'][] = $attrArr['a'];
@@ -93,7 +93,7 @@ abstract class AttrsImpl
      */
     public function appendAttrs(SimpleXML $xml)
     {
-        foreach ($this->_attrs as $attr)
+        foreach ($this->_attr as $attr)
         {
             $xml->append($attr->toXml('a'));
         }

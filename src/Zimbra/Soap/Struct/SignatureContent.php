@@ -86,8 +86,9 @@ class SignatureContent
      *
      * @return array
      */
-    public function toArray()
+    public function toArray($name = 'content')
     {
+        $name = !empty($name) ? $name : 'content';
         $arr = array();
         if($this->_type instanceof ContentType)
         {
@@ -97,7 +98,7 @@ class SignatureContent
         {
             $arr['_'] = $this->_value;
         }
-        return array('content' => $arr);
+        return array($name => $arr);
     }
 
     /**
@@ -105,9 +106,10 @@ class SignatureContent
      *
      * @return SimpleXML
      */
-    public function toXml()
+    public function toXml($name = 'content')
     {
-        $xml = new SimpleXML('<content>'.$this->_value.'</content>');
+        $name = !empty($name) ? $name : 'content';
+        $xml = new SimpleXML('<'.$name.'>'.$this->_value.'</'.$name.'>');
         if($this->_type instanceof ContentType)
         {
             $xml->addAttribute('type', (string) $this->_type);

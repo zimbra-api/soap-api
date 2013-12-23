@@ -108,14 +108,15 @@ class Prop
      *
      * @return array
      */
-    public function toArray()
+    public function toArray($name = 'prop')
     {
+        $name = !empty($name) ? $name : 'prop';
         $arr = array(
             'zimlet' => $this->_zimlet,
             'name' => $this->_name,
             '_' => $this->_value,
         );
-        return array('prop' => $arr);
+        return array($name => $arr);
     }
 
     /**
@@ -123,9 +124,10 @@ class Prop
      *
      * @return SimpleXML
      */
-    public function toXml()
+    public function toXml($name = 'prop')
     {
-        $xml = new SimpleXML('<prop>'.$this->_value.'</prop>');
+        $name = !empty($name) ? $name : 'prop';
+        $xml = new SimpleXML('<'.$name.'>'.$this->_value.'</'.$name.'>');
         $xml->addAttribute('zimlet', $this->_zimlet)
             ->addAttribute('name', $this->_name);
         return $xml;

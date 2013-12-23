@@ -85,13 +85,14 @@ class DataSourceSpecifier extends AttrsImpl
      *
      * @return array
      */
-    public function toArray()
+    public function toArray($name = 'dataSource')
     {
+        $name = !empty($name) ? $name : 'dataSource';
         $this->array = array(
             'type' => (string) $this->_type,
             'name' => $this->_name,
         );
-        return array('dataSource' => parent::toArray());
+        return array($name => parent::toArray());
     }
 
     /**
@@ -99,9 +100,10 @@ class DataSourceSpecifier extends AttrsImpl
      *
      * @return SimpleXML
      */
-    public function toXml()
+    public function toXml($name = 'dataSource')
     {
-        $xml = new SimpleXML('<dataSource />');
+        $name = !empty($name) ? $name : 'dataSource';
+        $xml = new SimpleXML('<'.$name.' />');
         $xml->addAttribute('type', (string) $this->_type)
             ->addAttribute('name', $this->_name);
         parent::appendAttrs($xml);

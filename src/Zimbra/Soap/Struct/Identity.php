@@ -36,9 +36,9 @@ class Identity
 
     /**
      * Attributes
-     * @var array Array of Attr
+     * @var TypedSequence
      */
-    private $_attrs = array();
+    private $_attr = array();
 
     /**
      * Constructor method for identity
@@ -51,7 +51,7 @@ class Identity
     {
         $this->_name = trim($name);
         $this->_id = trim($id);
-        $this->_attrs = new TypedSequence('Zimbra\Soap\Struct\Attr', $attrs);
+        $this->_attr = new TypedSequence('Zimbra\Soap\Struct\Attr', $attrs);
     }
 
     /**
@@ -90,11 +90,11 @@ class Identity
      * Add Attr
      *
      * @param  Attr $attr
-     * @return Identity
+     * @return self
      */
     public function addAttr(Attr $attr)
     {
-        $this->_attrs->add($attr);
+        $this->_attr->add($attr);
         return $this;
     }
 
@@ -103,9 +103,9 @@ class Identity
      *
      * @return Sequence
      */
-    public function attrs(array $attrs = null)
+    public function attr()
     {
-        return $this->_attrs;
+        return $this->_attr;
     }
 
     /**
@@ -113,8 +113,9 @@ class Identity
      *
      * @return array
      */
-    public function toArray()
+    public function toArray($name = 'identity')
     {
+        $name = !empty($name) ? $name : 'identity';
         $arr =  array();
         if(!empty($this->_name))
         {
@@ -124,10 +125,10 @@ class Identity
         {
             $arr['id'] = (string) $this->_id;
         }
-        if(count($this->_attrs))
+        if(count($this->_attr))
         {
             $arr['a'] = array();
-            foreach ($this->_attrs as $attr)
+            foreach ($this->_attr as $attr)
             {
                 if($attr instanceof Attr)
                 {
@@ -136,7 +137,7 @@ class Identity
                 }
             }
         }
-        return array('identity' => $arr);
+        return array($name => $arr);
     }
 
     /**
@@ -144,9 +145,10 @@ class Identity
      *
      * @return SimpleXML
      */
-    public function toXml()
+    public function toXml($name = 'identity')
     {
-        $xml = new SimpleXML('<identity />');
+        $name = !empty($name) ? $name : 'identity';
+        $xml = new SimpleXML('<'.$name.' />');
         if(!empty($this->_name))
         {
             $xml->addAttribute('name', (string) $this->_name);
@@ -155,7 +157,7 @@ class Identity
         {
             $xml->addAttribute('id', (string) $this->_id);
         }
-        foreach ($this->_attrs as $attr)
+        foreach ($this->_attr as $attr)
         {
             if($attr instanceof Attr)
             {

@@ -106,8 +106,9 @@ class StatsSpec
      *
      * @return array
      */
-    public function toArray()
+    public function toArray($name = 'stats')
     {
+        $name = !empty($name) ? $name : 'stats';
         $arr = $this->_values->toArray();
         if(!empty($this->_name))
         {
@@ -118,7 +119,7 @@ class StatsSpec
             $arr['limit'] = $this->_limit;
         }
 
-        return array('stats' => $arr);
+        return array($name => $arr);
     }
 
     /**
@@ -126,9 +127,10 @@ class StatsSpec
      *
      * @return SimpleXML
      */
-    public function toXml()
+    public function toXml($name = 'stats')
     {
-        $xml = new SimpleXML('<stats />');
+        $name = !empty($name) ? $name : 'stats';
+        $xml = new SimpleXML('<'.$name.' />');
         $xml->append($this->_values->toXml());
         if(!empty($this->_name))
         {

@@ -151,8 +151,9 @@ class EntrySearchFilterSingleCond
      *
      * @return array
      */
-    public function toArray()
+    public function toArray($name = 'cond')
     {
+        $name = !empty($name) ? $name : 'cond';
         $arr = array(
             'attr' => $this->_attr,
             'op' => $this->_op,
@@ -163,7 +164,7 @@ class EntrySearchFilterSingleCond
             $arr['not'] = $this->_not ? 1 : 0;
         }
 
-        return array('cond' => $arr);
+        return array($name => $arr);
     }
 
     /**
@@ -171,9 +172,10 @@ class EntrySearchFilterSingleCond
      *
      * @return SimpleXML
      */
-    public function toXml()
+    public function toXml($name = 'cond')
     {
-        $xml = new SimpleXML('<cond />');
+        $name = !empty($name) ? $name : 'cond';
+        $xml = new SimpleXML('<'.$name.' />');
         $xml->addAttribute('attr', $this->_attr)
             ->addAttribute('op', $this->_op)
             ->addAttribute('value', $this->_value);

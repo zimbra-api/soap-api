@@ -31,9 +31,9 @@ class SyncGalAccountSpec
 
     /**
      * SyncGalAccount data source specifications
-     * @var array
+     * @var TypedSequence
      */
-    private $_dataSources = array();
+    private $_dataSource = array();
 
     /**
      * Constructor method for SyncGalAccountSpec
@@ -44,7 +44,7 @@ class SyncGalAccountSpec
     public function __construct($id, array $dataSources = array())
     {
         $this->_id = trim($id);
-        $this->_dataSources = new TypedSequence(
+        $this->_dataSource = new TypedSequence(
             'Zimbra\Soap\Struct\SyncGalAccountDataSourceSpec', $dataSources
         );
     }
@@ -73,7 +73,7 @@ class SyncGalAccountSpec
      */
     public function addDataSource(DataSource $dataSource)
     {
-        $this->_dataSources->add($dataSource);
+        $this->_dataSource->add($dataSource);
         return $this;
     }
 
@@ -82,9 +82,9 @@ class SyncGalAccountSpec
      *
      * @return Sequence
      */
-    public function dataSources()
+    public function dataSource()
     {
-        return $this->_dataSources;
+        return $this->_dataSource;
     }
 
     /**
@@ -99,10 +99,10 @@ class SyncGalAccountSpec
         $arr = array(
             'id' => $this->_id,
         );
-        if(count($this->_dataSources))
+        if(count($this->_dataSource))
         {
             $arr['datasource'] = array();
-            foreach ($this->_dataSources as $dataSource)
+            foreach ($this->_dataSource as $dataSource)
             {
                 $dataSourceArr = $dataSource->toArray('datasource');
                 $arr['datasource'][] = $dataSourceArr['datasource'];
@@ -122,7 +122,7 @@ class SyncGalAccountSpec
         $name = !empty($name) ? $name : 'account';
         $xml = new SimpleXML('<'.$name.' />');
         $xml->addAttribute('id', $this->_id);
-        foreach ($this->_dataSources as $dataSource)
+        foreach ($this->_dataSource as $dataSource)
         {
             $xml->append($dataSource->toXml('datasource'));
         }

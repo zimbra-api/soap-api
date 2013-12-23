@@ -15,7 +15,7 @@ use Zimbra\Soap\Enum\ParticipationStatus;
 use Zimbra\Utils\TypedSequence;
 
 /**
- * CalendarAttendee class
+ * CalendarAttendee struct class
  * @package   Zimbra
  * @category  Soap
  * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
@@ -27,7 +27,7 @@ class CalendarAttendee
      * Non-standard parameters (XPARAMs)
      * @var Sequence
      */
-    private $_xparams;
+    private $_xparam;
 
     /**
      * Email address (without "MAILTO:")
@@ -108,12 +108,6 @@ class CalendarAttendee
      * @var string
      */
     private $_delFrom;
-    
-    /**
-     * Valid values
-     * @var array
-     */
-    private static $_validValues = array('NE', 'AC', 'TE', 'DE', 'DG', 'CO', 'IN', 'WE', 'DF');
 
     /**
      * Constructor method for CalendarAttendee
@@ -149,7 +143,7 @@ class CalendarAttendee
         $delTo = null,
         $delFrom = null)
     {
-        $this->_xparams = new TypedSequence('Zimbra\Soap\Struct\XParam', $xparams);
+        $this->_xparam = new TypedSequence('Zimbra\Soap\Struct\XParam', $xparams);
 
         $this->_a = trim($a);
         $this->_url = trim($url);
@@ -180,7 +174,7 @@ class CalendarAttendee
      */
     public function addXParam(XParam $xparam)
     {
-        $this->_xparams->add($xparam);
+        $this->_xparam->add($xparam);
         return $this;
     }
 
@@ -189,9 +183,9 @@ class CalendarAttendee
      *
      * @return Sequence
      */
-    public function xparams()
+    public function xparam()
     {
-        return $this->_xparams;
+        return $this->_xparam;
     }
 
     /**
@@ -403,8 +397,14 @@ class CalendarAttendee
         return $this;
     }
 
-    public function toArray()
+    /**
+     * Returns the array representation of this class 
+     *
+     * @return array
+     */
+    public function toArray($name = 'at')
     {
+        $name = !empty($name) ? $name : 'at';
         $arr = array();
         if(!empty($this->_a))
         {
@@ -458,16 +458,16 @@ class CalendarAttendee
         {
             $arr['delFrom'] = $this->_delFrom;
         }
-        if(count($this->_xparams))
+        if(count($this->_xparam))
         {
             $arr['xparam'] = array();
-            foreach ($this->_xparams as $xparam)
+            foreach ($this->_xparam as $xparam)
             {
-                $xparamArr = $xparam->toArray();
+                $xparamArr = $xparam->toArray('xparam');
                 $arr['xparam'][] = $xparamArr['xparam'];
             }
         }
-        return array('at' => $arr);
+        return array($name => $arr);
     }
 
     /**
@@ -475,9 +475,10 @@ class CalendarAttendee
      *
      * @return SimpleXML
      */
-    public function toXml()
+    public function toXml($name = 'at')
     {
-        $xml = new SimpleXML('<at />');
+        $name = !empty($name) ? $name : 'at';
+        $xml = new SimpleXML('<'.$name.' />');
         if(!empty($this->_a))
         {
             $xml->addAttribute('a', $this->_a);
@@ -530,9 +531,9 @@ class CalendarAttendee
         {
             $xml->addAttribute('delFrom', $this->_delFrom);
         }
-        foreach ($this->_xparams as $xparam)
+        foreach ($this->_xparam as $xparam)
         {
-            $xml->append($xparam->toXml());
+            $xml->append($xparam->toXml('xparam'));
         }
         return $xml;
     }

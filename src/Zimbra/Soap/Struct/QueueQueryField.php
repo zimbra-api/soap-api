@@ -30,9 +30,9 @@ class QueueQueryField
 
     /**
      * Match specifications
-     * @var array
+     * @var TypedSequence
      */
-    private $_matches = array();
+    private $_match = array();
 
     /**
      * Constructor method for QueueQueryField
@@ -43,7 +43,7 @@ class QueueQueryField
     public function __construct($name, array $matches = array())
     {
         $this->_name = trim($name);
-        $this->_matches = new TypedSequence('Zimbra\Soap\Struct\ValueAttrib', $matches);
+        $this->_match = new TypedSequence('Zimbra\Soap\Struct\ValueAttrib', $matches);
     }
 
     /**
@@ -70,18 +70,18 @@ class QueueQueryField
      */
     public function addMatch(ValueAttrib $match)
     {
-        $this->_matches->add($match);
+        $this->_match->add($match);
         return $this;
     }
 
     /**
-     * Gets matches sequence
+     * Gets match sequence
      *
      * @return Sequence
      */
-    public function matches()
+    public function match()
     {
-        return $this->_matches;
+        return $this->_match;
     }
 
     /**
@@ -96,10 +96,10 @@ class QueueQueryField
         $arr = array(
             'name' => $this->_name,
         );
-        if(count($this->_matches))
+        if(count($this->_match))
         {
             $arr['match'] = array();
-            foreach ($this->_matches as $match)
+            foreach ($this->_match as $match)
             {
                 $matchArr = $match->toArray('match');
                 $arr['match'][] = $matchArr['match'];
@@ -119,7 +119,7 @@ class QueueQueryField
         $name = !empty($name) ? $name : 'field';
         $xml = new SimpleXML('<'.$name.' />');
         $xml->addAttribute('name', $this->_name);
-        foreach ($this->_matches as $match)
+        foreach ($this->_match as $match)
         {
             $xml->append($match->toXml('match'));
         }

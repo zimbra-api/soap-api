@@ -24,9 +24,9 @@ class StatsValueWrapper
 {
     /**
      * Stats specification
-     * @var array
+     * @var TypedSequence
      */
-    private $_stats = array();
+    private $_stat = array();
 
     /**
      * Constructor method for StatsValueWrapper
@@ -35,7 +35,7 @@ class StatsValueWrapper
      */
     public function __construct(array $stats = array())
     {
-        $this->_stats = new TypedSequence('Zimbra\Soap\Struct\NamedElement', $stats);
+        $this->_stat = new TypedSequence('Zimbra\Soap\Struct\NamedElement', $stats);
     }
 
     /**
@@ -46,7 +46,7 @@ class StatsValueWrapper
      */
     public function addStat(NamedElement $stat)
     {
-        $this->_stats->add($stat);
+        $this->_stat->add($stat);
         return $this;
     }
 
@@ -55,9 +55,9 @@ class StatsValueWrapper
      *
      * @return Sequence
      */
-    public function stats(array $stats = null)
+    public function stat()
     {
-        return $this->_stats;
+        return $this->_stat;
     }
 
     /**
@@ -70,10 +70,10 @@ class StatsValueWrapper
     {
         $name = !empty($name) ? $name : 'values';
         $arr = array();
-        if(count($this->_stats))
+        if(count($this->_stat))
         {
             $arr['stat'] = array();
-            foreach ($this->_stats as $stat)
+            foreach ($this->_stat as $stat)
             {
                 $statArr = $stat->toArray('stat');
                 $arr['stat'][] = $statArr['stat'];
@@ -92,7 +92,7 @@ class StatsValueWrapper
     {
         $name = !empty($name) ? $name : 'values';
         $xml = new SimpleXML('<'.$name.' />');
-        foreach ($this->_stats as $stat)
+        foreach ($this->_stat as $stat)
         {
             $xml->append($stat->toXml('stat'));
         }

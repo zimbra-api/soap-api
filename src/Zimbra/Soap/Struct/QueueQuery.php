@@ -24,9 +24,9 @@ class QueueQuery
 {
     /**
      * Queue query field
-     * @var array
+     * @var TypedSequence
      */
-    private $_fields = array();
+    private $_field;
 
     /**
      * Limit the number of queue items to return in the response
@@ -49,7 +49,7 @@ class QueueQuery
      */
     public function __construct(array $fields = array(), $limit = null, $offset = null)
     {
-        $this->_fields = new TypedSequence('Zimbra\Soap\Struct\QueueQueryField', $fields);
+        $this->_field = new TypedSequence('Zimbra\Soap\Struct\QueueQueryField', $fields);
         if(null !== $limit)
         {
             $this->_limit = (int) $limit;
@@ -68,7 +68,7 @@ class QueueQuery
      */
     public function addField(QueueQueryField $field)
     {
-        $this->_fields->add($field);
+        $this->_field->add($field);
         return $this;
     }
 
@@ -77,9 +77,9 @@ class QueueQuery
      *
      * @return Sequence
      */
-    public function fields()
+    public function field()
     {
-        return $this->_fields;
+        return $this->_field;
     }
 
     /**
@@ -124,10 +124,10 @@ class QueueQuery
     {
         $name = !empty($name) ? $name : 'query';
         $arr = array();
-        if(count($this->_fields))
+        if(count($this->_field))
         {
             $arr['field'] = array();
-            foreach ($this->_fields as $field)
+            foreach ($this->_field as $field)
             {
                 $fieldArr = $field->toArray('field');
                 $arr['field'][] = $fieldArr['field'];
@@ -154,7 +154,7 @@ class QueueQuery
     {
         $name = !empty($name) ? $name : 'query';
         $xml = new SimpleXML('<'.$name.' />');
-        foreach ($this->_fields as $field)
+        foreach ($this->_field as $field)
         {
             $xml->append($field->toXml('field'));
         }

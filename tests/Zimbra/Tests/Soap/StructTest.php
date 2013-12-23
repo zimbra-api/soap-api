@@ -8,6 +8,7 @@ use Zimbra\Utils\SimpleXML;
 use Zimbra\Soap\Enum\AccountBy;
 use Zimbra\Soap\Enum\AceRightType;
 use Zimbra\Soap\Enum\AclType;
+use Zimbra\Soap\Enum\AlarmAction;
 use Zimbra\Soap\Enum\AuthScheme;
 use Zimbra\Soap\Enum\AutoProvPrincipalBy as PrincipalBy;
 use Zimbra\Soap\Enum\CacheEntryBy;
@@ -20,9 +21,14 @@ use Zimbra\Soap\Enum\DistributionListBy as DLBy;
 use Zimbra\Soap\Enum\DistributionListGranteeBy as DLGranteeBy;
 use Zimbra\Soap\Enum\DistributionListSubscribeOp as DLSubscribeOp;
 use Zimbra\Soap\Enum\DomainBy;
+use Zimbra\Soap\Enum\FreeBusyStatus;
+use Zimbra\Soap\Enum\Frequency;
 use Zimbra\Soap\Enum\GranteeType;
 use Zimbra\Soap\Enum\GranteeBy;
 use Zimbra\Soap\Enum\InterestType;
+use Zimbra\Soap\Enum\InviteChange;
+use Zimbra\Soap\Enum\InviteClass;
+use Zimbra\Soap\Enum\InviteStatus;
 use Zimbra\Soap\Enum\LoggingLevel;
 use Zimbra\Soap\Enum\Operation;
 use Zimbra\Soap\Enum\ParticipationStatus as PartStatus;
@@ -31,8 +37,10 @@ use Zimbra\Soap\Enum\QueueActionBy;
 use Zimbra\Soap\Enum\ServerBy;
 use Zimbra\Soap\Enum\TargetType;
 use Zimbra\Soap\Enum\TargetBy;
+use Zimbra\Soap\Enum\Transparency;
 use Zimbra\Soap\Enum\Type;
 use Zimbra\Soap\Enum\UcServiceBy;
+use Zimbra\Soap\Enum\WeekDay;
 use Zimbra\Soap\Enum\XmppComponentBy as XmppBy;
 use Zimbra\Soap\Enum\ZimletStatus;
 
@@ -43,39 +51,39 @@ class StructTest extends ZimbraTestCase
 {
     public function testAccountACEInfo()
     {
-        $info = new \Zimbra\Soap\Struct\AccountACEInfo(
+        $ace = new \Zimbra\Soap\Struct\AccountACEInfo(
             GranteeType::USR(), AceRightType::INVITE(), 'z', 'd', 'k', 'p', false, true
         );
-        $this->assertTrue($info->gt()->is('usr'));
-        $this->assertTrue($info->right()->is('invite'));
-        $this->assertSame('z', $info->zid());
-        $this->assertSame('d', $info->d());
-        $this->assertSame('k', $info->key());
-        $this->assertSame('p', $info->pw());
-        $this->assertFalse($info->deny());
-        $this->assertTrue($info->chkgt());
+        $this->assertTrue($ace->gt()->is('usr'));
+        $this->assertTrue($ace->right()->is('invite'));
+        $this->assertSame('z', $ace->zid());
+        $this->assertSame('d', $ace->d());
+        $this->assertSame('k', $ace->key());
+        $this->assertSame('p', $ace->pw());
+        $this->assertFalse($ace->deny());
+        $this->assertTrue($ace->chkgt());
 
-        $info->gt(GranteeType::ALL())
-             ->right(AceRightType::VIEW_FREE_BUSY())
-             ->zid('zid')
-             ->d('dir')
-             ->key('key')
-             ->pw('pw')
-             ->deny(true)
-             ->chkgt(false);
+        $ace->gt(GranteeType::ALL())
+            ->right(AceRightType::VIEW_FREE_BUSY())
+            ->zid('zid')
+            ->d('dir')
+            ->key('key')
+            ->pw('pw')
+            ->deny(true)
+            ->chkgt(false);
 
-        $this->assertTrue($info->gt()->is('all'));
-        $this->assertTrue($info->right()->is('viewFreeBusy'));
-        $this->assertSame('zid', $info->zid());
-        $this->assertSame('dir', $info->d());
-        $this->assertSame('key', $info->key());
-        $this->assertSame('pw', $info->pw());
-        $this->assertTrue($info->deny());
-        $this->assertFalse($info->chkgt());
+        $this->assertTrue($ace->gt()->is('all'));
+        $this->assertTrue($ace->right()->is('viewFreeBusy'));
+        $this->assertSame('zid', $ace->zid());
+        $this->assertSame('dir', $ace->d());
+        $this->assertSame('key', $ace->key());
+        $this->assertSame('pw', $ace->pw());
+        $this->assertTrue($ace->deny());
+        $this->assertFalse($ace->chkgt());
 
         $xml = '<?xml version="1.0"?>'."\n"
             .'<ace gt="all" right="viewFreeBusy" zid="zid" d="dir" key="key" pw="pw" deny="1" chkgt="0" />';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $info);
+        $this->assertXmlStringEqualsXmlString($xml, (string) $ace);
 
         $array = array(
             'ace' => array(
@@ -89,7 +97,7 @@ class StructTest extends ZimbraTestCase
                 'chkgt' => 0,
             ),
         );
-        $this->assertEquals($array, $info->toArray());
+        $this->assertEquals($array, $ace->toArray());
     }
 
     public function testAccountSelector()
@@ -118,21 +126,21 @@ class StructTest extends ZimbraTestCase
 
     public function testAttachmentIdAttrib()
     {
-        $attr = new \Zimbra\Soap\Struct\AttachmentIdAttrib('id');
-        $this->assertSame('id', $attr->aid());
-        $attr->aid('aid');
-        $this->assertSame('aid', $attr->aid());
+        $content = new \Zimbra\Soap\Struct\AttachmentIdAttrib('id');
+        $this->assertSame('id', $content->aid());
+        $content->aid('aid');
+        $this->assertSame('aid', $content->aid());
 
         $xml = '<?xml version="1.0"?>'."\n"
             .'<content aid="aid" />';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $attr);
+        $this->assertXmlStringEqualsXmlString($xml, (string) $content);
 
         $array = array(
             'content' => array(
                 'aid' => 'aid',
             ),
         );
-        $this->assertEquals($array, $attr->toArray());
+        $this->assertEquals($array, $content->toArray());
     }
 
     public function testAttr()
@@ -194,8 +202,8 @@ class StructTest extends ZimbraTestCase
         $attr1 = new \Zimbra\Soap\Struct\KeyValuePair('key1', 'value1');
         $attr2 = new \Zimbra\Soap\Struct\KeyValuePair('key2', 'value2');
         $attr3 = new \Zimbra\Soap\Struct\KeyValuePair('key3', 'value3');
-        $stub->addAttr($attr1)->attrs()->addAll(array($attr2, $attr3));
-        foreach ($stub->attrs() as $attr)
+        $stub->addAttr($attr1)->attr()->addAll(array($attr2, $attr3));
+        foreach ($stub->attr() as $attr)
         {
             $this->assertInstanceOf('\Zimbra\Soap\Struct\KeyValuePair', $attr);
         }
@@ -242,18 +250,18 @@ class StructTest extends ZimbraTestCase
 
     public function testCacheEntrySelector()
     {
-        $cache = new \Zimbra\Soap\Struct\CacheEntrySelector(CacheEntryBy::NAME(), 'cache');
-        $this->assertTrue($cache->by()->is('name'));
-        $this->assertSame('cache', $cache->value());
+        $entry = new \Zimbra\Soap\Struct\CacheEntrySelector(CacheEntryBy::NAME(), 'cache');
+        $this->assertTrue($entry->by()->is('name'));
+        $this->assertSame('cache', $entry->value());
 
-        $cache->by(CacheEntryBy::ID())
+        $entry->by(CacheEntryBy::ID())
               ->value('value');
-        $this->assertTrue($cache->by()->is('id'));
-        $this->assertSame('value', $cache->value());
+        $this->assertTrue($entry->by()->is('id'));
+        $this->assertSame('value', $entry->value());
 
         $xml = '<?xml version="1.0"?>'."\n"
             .'<entry by="id">value</entry>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $cache);
+        $this->assertXmlStringEqualsXmlString($xml, (string) $entry);
 
         $array = array(
             'entry' => array(
@@ -261,7 +269,7 @@ class StructTest extends ZimbraTestCase
                 '_' => 'value',
             ),
         );
-        $this->assertEquals($array, $cache->toArray());
+        $this->assertEquals($array, $entry->toArray());
     }
 
     public function testCacheSelector()
@@ -272,14 +280,14 @@ class StructTest extends ZimbraTestCase
         $cache = new \Zimbra\Soap\Struct\CacheSelector('skin,abc,locale,xyz,account', false, array($entry1));
         $this->assertSame('skin,locale,account', $cache->type());
         $this->assertFalse($cache->allServers());
-        $this->assertSame(array($entry1), $cache->entries()->all());
+        $this->assertSame(array($entry1), $cache->entry()->all());
 
         $cache->type('abc,skin,account,xyz')
               ->allServers(true)
               ->addEntry($entry2);
         $this->assertSame('skin,account', $cache->type());
         $this->assertTrue($cache->allServers());
-        $this->assertSame(array($entry1, $entry2), $cache->entries()->all());
+        $this->assertSame(array($entry1, $entry2), $cache->entry()->all());
 
         $xml = '<?xml version="1.0"?>'."\n"
             .'<cache type="skin,account" allServers="1">'
@@ -339,7 +347,7 @@ class StructTest extends ZimbraTestCase
         $cal = new \Zimbra\Soap\Struct\CalendarAttendee(array($xparam1)
             , 'a', 'url', 'd', 'sentBy', 'dir', 'lang', 'cutype', 'role', PartStatus::NE(), true, 'member', 'delTo', 'delFrom'
         );
-        $this->assertSame(array($xparam1), $cal->xparams()->all());
+        $this->assertSame(array($xparam1), $cal->xparam()->all());
         $this->assertSame('a', $cal->a());
         $this->assertSame('url', $cal->url());
         $this->assertSame('d', $cal->d());
@@ -355,7 +363,7 @@ class StructTest extends ZimbraTestCase
         $this->assertSame('delFrom', $cal->delFrom());
 
         $cal->addXParam($xparam2);
-        $this->assertSame(array($xparam1, $xparam2), $cal->xparams()->all());
+        $this->assertSame(array($xparam1, $xparam2), $cal->xparam()->all());
         $cal->a('a')
             ->url('url')
             ->d('d')
@@ -577,7 +585,7 @@ class StructTest extends ZimbraTestCase
         $this->assertTrue($target->type()->is('domain'));
         $this->assertTrue($target->by()->is('id'));
         $this->assertSame('key', $target->key());
-        $this->assertSame(array('right1', 'right2'), $target->rights()->all());
+        $this->assertSame(array('right1', 'right2'), $target->right()->all());
 
         $target->type(TargetType::ACCOUNT())
                ->by(TargetBy::NAME())
@@ -587,7 +595,7 @@ class StructTest extends ZimbraTestCase
         $this->assertTrue($target->type()->is('account'));
         $this->assertTrue($target->by()->is('name'));
         $this->assertSame('key', $target->key());
-        $this->assertSame(array('right1', 'right2', 'right3'), $target->rights()->all());
+        $this->assertSame(array('right1', 'right2', 'right3'), $target->right()->all());
 
         $xml = '<?xml version="1.0"?>'."\n"
             .'<target type="account" by="name" key="key">'
@@ -617,14 +625,14 @@ class StructTest extends ZimbraTestCase
         $constraint = new \Zimbra\Soap\Struct\ConstraintInfo('max', 'min', array('value'));
         $this->assertSame('max', $constraint->min());
         $this->assertSame('min', $constraint->max());
-        $this->assertSame(array('value'), $constraint->values()->all());
+        $this->assertSame(array('value'), $constraint->value()->all());
 
         $constraint->min('min')
             ->max('max')
             ->addValue('value1');
         $this->assertSame('min', $constraint->min());
         $this->assertSame('max', $constraint->max());
-        $this->assertSame(array('value', 'value1'), $constraint->values()->all());
+        $this->assertSame(array('value', 'value1'), $constraint->value()->all());
 
         $xml = '<?xml version="1.0"?>'."\n"
             .'<constraint>'
@@ -890,12 +898,12 @@ class StructTest extends ZimbraTestCase
 
         $right = new \Zimbra\Soap\Struct\DistributionListRightSpec('name', array($grantee1, $grantee2));
         $this->assertSame('name', $right->right());
-        $this->assertSame(array($grantee1, $grantee2), $right->grantees()->all());
+        $this->assertSame(array($grantee1, $grantee2), $right->grantee()->all());
 
         $right->right('right')
               ->addGrantee($grantee3);
         $this->assertSame('right', $right->right());
-        $this->assertSame(array($grantee1, $grantee2, $grantee3), $right->grantees()->all());
+        $this->assertSame(array($grantee1, $grantee2, $grantee3), $right->grantee()->all());
 
         $xml = '<?xml version="1.0"?>'."\n"
             .'<right right="right">'
@@ -946,9 +954,9 @@ class StructTest extends ZimbraTestCase
         $this->assertTrue($dl->op()->is('modify'));
         $this->assertSame('name', $dl->newName());
         $this->assertSame($subsReq, $dl->subsReq());
-        $this->assertSame(array('dlm'), $dl->dlms()->all());
-        $this->assertSame(array($owner), $dl->owners()->all());
-        $this->assertSame(array($right), $dl->rights()->all());
+        $this->assertSame(array('dlm'), $dl->dlm()->all());
+        $this->assertSame(array($owner), $dl->owner()->all());
+        $this->assertSame(array($right), $dl->right()->all());
 
         $dl = new \Zimbra\Soap\Struct\DistributionListAction(Operation::RENAME());
         $dl->op(Operation::DELETE())
@@ -962,9 +970,9 @@ class StructTest extends ZimbraTestCase
         $this->assertTrue($dl->op()->is('delete'));
         $this->assertSame('newName', $dl->newName());
         $this->assertSame($subsReq, $dl->subsReq());
-        $this->assertSame(array('dlm'), $dl->dlms()->all());
-        $this->assertSame(array($owner), $dl->owners()->all());
-        $this->assertSame(array($right), $dl->rights()->all());
+        $this->assertSame(array('dlm'), $dl->dlm()->all());
+        $this->assertSame(array($owner), $dl->owner()->all());
+        $this->assertSame(array($right), $dl->right()->all());
 
         $xml = '<?xml version="1.0"?>'."\n"
             .'<action op="delete">'
@@ -1317,13 +1325,13 @@ class StructTest extends ZimbraTestCase
 
         $mbox = new \Zimbra\Soap\Struct\ExportAndDeleteMailboxSpec(1, array($item1, $item2));
         $this->assertSame(1, $mbox->id());
-        $this->assertSame(array($item1, $item2), $mbox->items()->all());
+        $this->assertSame(array($item1, $item2), $mbox->item()->all());
 
         $mbox->id(2)
              ->addItem($item3);
 
         $this->assertSame(2, $mbox->id());
-        $this->assertSame(array($item1, $item2, $item3), $mbox->items()->all());
+        $this->assertSame(array($item1, $item2, $item3), $mbox->item()->all());
 
         $xml = '<?xml version="1.0"?>'."\n"
             .'<mbox id="2">'
@@ -1494,7 +1502,7 @@ class StructTest extends ZimbraTestCase
         $identity = new \Zimbra\Soap\Struct\Identity('n', 'i', array($attr1, $attr2));
         $this->assertSame('n', $identity->name());
         $this->assertSame('i', $identity->id());
-        $this->assertSame(array($attr1, $attr2), $identity->attrs()->all());
+        $this->assertSame(array($attr1, $attr2), $identity->attr()->all());
 
         $identity->name('name')
                  ->id('id')
@@ -1502,7 +1510,7 @@ class StructTest extends ZimbraTestCase
 
         $this->assertSame('name', $identity->name());
         $this->assertSame('id', $identity->id());
-        $this->assertSame(array($attr1, $attr2, $attr3), $identity->attrs()->all());
+        $this->assertSame(array($attr1, $attr2, $attr3), $identity->attr()->all());
 
         $xml = '<?xml version="1.0"?>'."\n"
             .'<identity name="name" id="id">'
@@ -1697,12 +1705,12 @@ class StructTest extends ZimbraTestCase
 
         $field = new \Zimbra\Soap\Struct\QueueQueryField('n', array($match1));
         $this->assertSame('n', $field->name());
-        $this->assertSame(array($match1), $field->matches()->all());
+        $this->assertSame(array($match1), $field->match()->all());
 
         $field->name('name')
               ->addMatch($match2);
         $this->assertSame('name', $field->name());
-        $this->assertSame(array($match1, $match2), $field->matches()->all());
+        $this->assertSame(array($match1, $match2), $field->match()->all());
 
         $xml = '<?xml version="1.0"?>'."\n"
             .'<field name="name">'
@@ -1731,14 +1739,14 @@ class StructTest extends ZimbraTestCase
         $query = new \Zimbra\Soap\Struct\QueueQuery(array($field), 10, 10);
         $this->assertSame(10, $query->limit());
         $this->assertSame(10, $query->offset());
-        $this->assertSame(array($field), $query->fields()->all());
+        $this->assertSame(array($field), $query->field()->all());
 
         $query->limit(100)
               ->offset(0)
               ->addField($field);
         $this->assertSame(100, $query->limit());
         $this->assertSame(0, $query->offset());
-        $this->assertSame(array($field, $field), $query->fields()->all());
+        $this->assertSame(array($field, $field), $query->field()->all());
 
         $xml = '<?xml version="1.0"?>'."\n"
             .'<query limit="100" offset="0">'
@@ -2478,7 +2486,7 @@ class StructTest extends ZimbraTestCase
         $this->assertSame('n', $sig->name());
         $this->assertSame('i', $sig->id());
         $this->assertSame('c', $sig->cid());
-        $this->assertSame(array($content1), $sig->contents()->all());
+        $this->assertSame(array($content1), $sig->content()->all());
 
         $sig->name('name')
             ->id('id')
@@ -2487,7 +2495,7 @@ class StructTest extends ZimbraTestCase
         $this->assertSame('name', $sig->name());
         $this->assertSame('id', $sig->id());
         $this->assertSame('cid', $sig->cid());
-        $this->assertSame(array($content1, $content2), $sig->contents()->all());
+        $this->assertSame(array($content1, $content2), $sig->content()->all());
 
         $xml = '<?xml version="1.0"?>'."\n"
             .'<signature name="name" id="id">'
@@ -2561,10 +2569,10 @@ class StructTest extends ZimbraTestCase
         $stat2 = new \Zimbra\Soap\Struct\NamedElement('name2');
 
         $wrapper = new \Zimbra\Soap\Struct\StatsValueWrapper(array($stat1));
-        $this->assertSame(array($stat1), $wrapper->stats()->all());
+        $this->assertSame(array($stat1), $wrapper->stat()->all());
 
         $wrapper->addStat($stat2);
-        $this->assertSame(array($stat1, $stat2), $wrapper->stats()->all());
+        $this->assertSame(array($stat1, $stat2), $wrapper->stat()->all());
 
         $xml = '<?xml version="1.0"?>'."\n"
             .'<values>'
@@ -2662,12 +2670,12 @@ class StructTest extends ZimbraTestCase
 
         $sync = new \Zimbra\Soap\Struct\SyncGalAccountSpec('i', array($ds1));
         $this->assertSame('i', $sync->id());
-        $this->assertSame(array($ds1), $sync->dataSources()->all());
+        $this->assertSame(array($ds1), $sync->dataSource()->all());
 
         $sync->id('id')
              ->addDataSource($ds2);
         $this->assertSame('id', $sync->id());
-        $this->assertSame(array($ds1, $ds2), $sync->dataSources()->all());
+        $this->assertSame(array($ds1, $ds2), $sync->dataSource()->all());
 
         $xml = '<?xml version="1.0"?>'."\n"
             .'<account id="id">'
@@ -3433,5 +3441,3426 @@ class StructTest extends ZimbraTestCase
             ),
         );
         $this->assertEquals($array, $zimlet->toArray());
+    }
+
+    public function testHeader()
+    {
+        $header = new \Zimbra\Soap\Struct\Header('name', 'value');
+        $this->assertSame('name', $header->name());
+        $this->assertSame('value', $header->value());
+
+        $header->name('name')
+               ->value('value');
+        $this->assertSame('name', $header->name());
+        $this->assertSame('value', $header->value());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<header name="name">value</header>';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $header);
+
+        $array = array(
+            'header' => array(
+                'name' => 'name',
+                '_' => 'value',
+            ),
+        );
+        $this->assertEquals($array, $header->toArray());
+    }
+
+
+    public function testAttachSpec()
+    {
+        $stub = $this->getMockForAbstractClass('\Zimbra\Soap\Struct\AttachSpec');
+        $stub->optional(true);
+        $this->assertTrue($stub->optional());
+    }
+
+    public function testContactAttachSpec()
+    {
+        $cn = new \Zimbra\Soap\Struct\ContactAttachSpec('i');
+        $this->assertSame('i', $cn->id());
+
+        $cn->id('id')
+           ->optional(true);
+        $this->assertSame('id', $cn->id());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<cn id="id" optional="1" />';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $cn);
+
+        $array = array(
+            'cn' => array(
+                'id' => 'id',
+                'optional' => 1,
+            ),
+        );
+        $this->assertEquals($array, $cn->toArray());
+    }
+
+    public function testMsgAttachSpec()
+    {
+        $m = new \Zimbra\Soap\Struct\MsgAttachSpec('i');
+        $this->assertSame('i', $m->id());
+
+        $m->id('id')
+          ->optional(true);
+        $this->assertSame('id', $m->id());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<m id="id" optional="1" />';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $m);
+
+        $array = array(
+            'm' => array(
+                'id' => 'id',
+                'optional' => 1,
+            ),
+        );
+        $this->assertEquals($array, $m->toArray());
+    }
+
+    public function testMimePartAttachSpec()
+    {
+        $mp = new \Zimbra\Soap\Struct\MimePartAttachSpec('id', 'p');
+        $this->assertSame('id', $mp->mid());
+        $this->assertSame('p', $mp->part());
+
+        $mp->mid('mid')
+           ->part('part')
+           ->optional(true);
+        $this->assertSame('mid', $mp->mid());
+        $this->assertSame('part', $mp->part());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<mp mid="mid" part="part" optional="1" />';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $mp);
+
+        $array = array(
+            'mp' => array(
+                'mid' => 'mid',
+                'part' => 'part',
+                'optional' => 1,
+            ),
+        );
+        $this->assertEquals($array, $mp->toArray());
+    }
+
+    public function testDocAttachSpec()
+    {
+        $doc = new \Zimbra\Soap\Struct\DocAttachSpec('p', 'i', 10);
+        $this->assertSame('p', $doc->path());
+        $this->assertSame('i', $doc->id());
+        $this->assertSame(10, $doc->ver());
+
+        $doc->path('path')
+            ->id('id')
+            ->ver(1)
+            ->optional(true);
+        $this->assertSame('path', $doc->path());
+        $this->assertSame('id', $doc->id());
+        $this->assertSame(1, $doc->ver());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<doc path="path" id="id" ver="1" optional="1" />';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $doc);
+
+        $array = array(
+            'doc' => array(
+                'path' => 'path',
+                'id' => 'id',
+                'ver' => 1,
+                'optional' => 1,
+            ),
+        );
+        $this->assertEquals($array, $doc->toArray());
+    }
+
+    public function testAttachmentsInfo()
+    {
+        $mp = new \Zimbra\Soap\Struct\MimePartAttachSpec('mid', 'part', true);
+        $m = new \Zimbra\Soap\Struct\MsgAttachSpec('id', false);
+        $cn = new \Zimbra\Soap\Struct\ContactAttachSpec('id', false);
+        $doc = new \Zimbra\Soap\Struct\DocAttachSpec('path', 'id', 1, true);
+
+        $attach = new \Zimbra\Soap\Struct\AttachmentsInfo;
+        $attach->mp($mp)
+            ->m($m)
+            ->cn($cn)
+            ->doc($doc)
+            ->aid('aid');
+        $this->assertSame($mp, $attach->mp());
+        $this->assertSame($m, $attach->m());
+        $this->assertSame($cn, $attach->cn());
+        $this->assertSame($doc, $attach->doc());
+        $this->assertSame('aid', $attach->aid());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<attach aid="aid">'
+                .'<mp mid="mid" part="part" optional="1" />'
+                .'<m id="id" optional="0" />'
+                .'<cn id="id" optional="0" />'
+                .'<doc path="path" id="id" ver="1" optional="1" />'
+            .'</attach>';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $attach);
+
+        $array = array(
+            'attach' => array(
+                'aid' => 'aid',
+                'mp' => array(
+                    'mid' => 'mid',
+                    'part' => 'part',
+                    'optional' => 1,
+                ),
+                'm' => array(
+                    'id' => 'id',
+                    'optional' => 0,
+                ),
+                'cn' => array(
+                    'id' => 'id',
+                    'optional' => 0,
+                ),
+                'doc' => array(
+                    'path' => 'path',
+                    'id' => 'id',
+                    'ver' => 1,
+                    'optional' => 1,
+                ),
+            ),
+        );
+        $this->assertEquals($array, $attach->toArray());
+    }
+
+    public function testMimePartInfo()
+    {
+        $mp = new \Zimbra\Soap\Struct\MimePartAttachSpec('mid', 'part', true);
+        $m = new \Zimbra\Soap\Struct\MsgAttachSpec('id', false);
+        $cn = new \Zimbra\Soap\Struct\ContactAttachSpec('id', false);
+        $doc = new \Zimbra\Soap\Struct\DocAttachSpec('path', 'id', 1, true);
+        $attach = new \Zimbra\Soap\Struct\AttachmentsInfo($mp, $m, $cn, $doc, 'aid');
+
+        $info = new \Zimbra\Soap\Struct\MimePartInfo(array(), null, 'ct', 'content', 'ci');
+
+        $mpi = new \Zimbra\Soap\Struct\MimePartInfo(array($info), $attach, 'ct', 'content', 'ci');
+        $this->assertSame(array($info), $mpi->mp()->all());
+        $this->assertSame($attach, $mpi->attach());
+        $this->assertSame('ct', $mpi->ct());
+        $this->assertSame('content', $mpi->content());
+        $this->assertSame('ci', $mpi->ci());
+
+        $mpi->addMp($info)
+            ->attach($attach)
+            ->ct('ct')
+            ->content('content')
+            ->ci('ci');
+        $this->assertSame(array($info, $info), $mpi->mp()->all());
+        $this->assertSame($attach, $mpi->attach());
+        $this->assertSame('ct', $mpi->ct());
+        $this->assertSame('content', $mpi->content());
+        $this->assertSame('ci', $mpi->ci());
+
+        $mpi = new \Zimbra\Soap\Struct\MimePartInfo(array($info), $attach, 'ct', 'content', 'ci');
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<mp ct="ct" content="content" ci="ci">'
+                .'<mp ct="ct" content="content" ci="ci" />'
+                .'<attach aid="aid">'
+                    .'<mp mid="mid" part="part" optional="1" />'
+                    .'<m id="id" optional="0" />'
+                    .'<cn id="id" optional="0" />'
+                    .'<doc path="path" id="id" ver="1" optional="1" />'
+                .'</attach>'
+            .'</mp>';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $mpi);
+
+        $array = array(
+            'mp' => array(
+                'ct' => 'ct',
+                'content' => 'content',
+                'ci' => 'ci',
+                'mp' => array(
+                    array(
+                        'ct' => 'ct',
+                        'content' => 'content',
+                        'ci' => 'ci',
+                    ),
+                ),
+                'attach' => array(
+                    'aid' => 'aid',
+                    'mp' => array(
+                        'mid' => 'mid',
+                        'part' => 'part',
+                        'optional' => 1,
+                    ),
+                    'm' => array(
+                        'id' => 'id',
+                        'optional' => 0,
+                    ),
+                    'cn' => array(
+                        'id' => 'id',
+                        'optional' => 0,
+                    ),
+                    'doc' => array(
+                        'path' => 'path',
+                        'id' => 'id',
+                        'ver' => 1,
+                        'optional' => 1,
+                    ),
+                ),
+            ),
+        );
+        $this->assertEquals($array, $mpi->toArray());
+    }
+
+    public function testRawInvite()
+    {
+        $content = new \Zimbra\Soap\Struct\RawInvite('uid', 'value', 'summary');
+        $this->assertSame('uid', $content->uid());
+        $this->assertSame('value', $content->value());
+        $this->assertSame('summary', $content->summary());
+
+        $content->uid('uid')
+                ->summary('summary')
+                ->value('value');
+        $this->assertSame('uid', $content->uid());
+        $this->assertSame('summary', $content->summary());
+        $this->assertSame('value', $content->value());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<content uid="uid" summary="summary">value</content>';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $content);
+
+        $array = array(
+            'content' => array(
+                '_' => 'value',
+                'uid' => 'uid',
+                'summary' => 'summary',
+            ),
+        );
+        $this->assertEquals($array, $content->toArray());
+    }
+
+    public function testGeoInfo()
+    {
+        $geo = new \Zimbra\Soap\Struct\GeoInfo(123.456, 654.321);
+        $this->assertSame(123.456, $geo->lat());
+        $this->assertSame(654.321, $geo->lon());
+
+        $geo->lat(654.321)
+            ->lon(123.456);
+        $this->assertSame(654.321, $geo->lat());
+        $this->assertSame(123.456, $geo->lon());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<geo lat="654.321" lon="123.456" />';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $geo);
+
+        $array = array(
+            'geo' => array(
+                'lat' => 654.321,
+                'lon' => 123.456,
+            ),
+        );
+        $this->assertEquals($array, $geo->toArray());
+    }
+
+    public function testDateAttr()
+    {
+        $abs = new \Zimbra\Soap\Struct\DateAttr('20120315T18302305Z');
+        $this->assertSame('20120315T18302305Z', $abs->d());
+        $abs->d('20120315T18302305Z');
+        $this->assertSame('20120315T18302305Z', $abs->d());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<abs d="20120315T18302305Z" />';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $abs);
+
+        $array = array(
+            'abs' => array(
+                'd' => '20120315T18302305Z',
+            ),
+        );
+        $this->assertEquals($array, $abs->toArray());
+    }
+
+    public function testDurationInfo()
+    {
+        $rel = new \Zimbra\Soap\Struct\DurationInfo(false, 1, 2, 3, 4, 5, 'END', 6);
+        $this->assertFalse($rel->neg());
+        $this->assertSame(1, $rel->w());
+        $this->assertSame(2, $rel->d());
+        $this->assertSame(3, $rel->h());
+        $this->assertSame(4, $rel->m());
+        $this->assertSame(5, $rel->s());
+        $this->assertSame('END', $rel->related());
+        $this->assertSame(6, $rel->count());
+
+        $rel->neg(true)
+            ->w(1)
+            ->d(2)
+            ->h(3)
+            ->m(4)
+            ->s(5)
+            ->related('START')
+            ->count(6);
+        $this->assertTrue($rel->neg());
+        $this->assertSame(1, $rel->w());
+        $this->assertSame(2, $rel->d());
+        $this->assertSame(3, $rel->h());
+        $this->assertSame(4, $rel->m());
+        $this->assertSame(5, $rel->s());
+        $this->assertSame('START', $rel->related());
+        $this->assertSame(6, $rel->count());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<rel neg="1" w="1" d="2" h="3" m="4" s="5" related="START" count="6" />';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $rel);
+
+        $array = array(
+            'rel' => array(
+                'neg' => 1,
+                'w' => 1,
+                'd' => 2,
+                'h' => 3,
+                'm' => 4,
+                's' => 5,
+                'related' => 'START',
+                'count' => 6,
+            ),
+        );
+        $this->assertEquals($array, $rel->toArray());
+    }
+
+    public function testAlarmTriggerInfo()
+    {
+        $abs = new \Zimbra\Soap\Struct\DateAttr('20120315T18302305Z');
+        $rel = new \Zimbra\Soap\Struct\DurationInfo(true, 1, 2, 3, 4, 5, 'START', 6);
+        $trigger = new \Zimbra\Soap\Struct\AlarmTriggerInfo($abs, $rel);
+
+        $this->assertSame($abs, $trigger->abs());
+        $this->assertSame($rel, $trigger->rel());
+        $trigger->abs($abs)
+                ->rel($rel);
+        $this->assertSame($abs, $trigger->abs());
+        $this->assertSame($rel, $trigger->rel());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<trigger>'
+                .'<abs d="20120315T18302305Z" />'
+                .'<rel neg="1" w="1" d="2" h="3" m="4" s="5" related="START" count="6" />'
+            .'</trigger>';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $trigger);
+
+        $array = array(
+            'trigger' => array(
+                'abs' => array(
+                    'd' => '20120315T18302305Z',
+                ),
+                'rel' => array(
+                    'neg' => 1,
+                    'w' => 1,
+                    'd' => 2,
+                    'h' => 3,
+                    'm' => 4,
+                    's' => 5,
+                    'related' => 'START',
+                    'count' => 6,
+                ),
+            ),
+        );
+        $this->assertEquals($array, $trigger->toArray());
+    }
+
+    public function testCalendarAttach()
+    {
+        $ca = new \Zimbra\Soap\Struct\CalendarAttach('uri', 'ct', 'value');
+        $this->assertSame('uri', $ca->uri());
+        $this->assertSame('ct', $ca->ct());
+        $this->assertSame('value', $ca->value());
+
+        $ca->uri('uri')
+           ->ct('ct')
+           ->value('value');
+        $this->assertSame('uri', $ca->uri());
+        $this->assertSame('ct', $ca->ct());
+        $this->assertSame('value', $ca->value());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<attach uri="uri" ct="ct">value</attach>';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $ca);
+
+        $array = array(
+            'attach' => array(
+                'uri' => 'uri',
+                'ct' => 'ct',
+                '_' => 'value',
+            ),
+        );
+        $this->assertEquals($array, $ca->toArray());
+    }
+
+    public function testXProp()
+    {
+        $xparam1 = new \Zimbra\Soap\Struct\XParam('name1', 'value1');
+        $xparam2 = new \Zimbra\Soap\Struct\XParam('name2', 'value2');
+        $xprop = new \Zimbra\Soap\Struct\XProp('name', 'value', array($xparam1));
+
+        $this->assertSame(array($xparam1), $xprop->xparam()->all());
+        $this->assertSame('name', $xprop->name());
+        $this->assertSame('value', $xprop->value());
+
+        $xprop->addXParam($xparam2);
+        $this->assertSame(array($xparam1, $xparam2), $xprop->xparam()->all());
+        $xprop->name('name')
+              ->value('value');
+        $this->assertSame('name', $xprop->name());
+        $this->assertSame('value', $xprop->value());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<xprop name="name" value="value">'
+                .'<xparam name="name1" value="value1" />'
+                .'<xparam name="name2" value="value2" />'
+            .'</xprop>';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $xprop);
+
+        $array = array(
+            'xprop' => array(
+                'name' => 'name',
+                'value' => 'value',
+                'xparam' => array(
+                    array(
+                        'name' => 'name1',
+                        'value' => 'value1',
+                    ),
+                    array(
+                        'name' => 'name2',
+                        'value' => 'value2',
+                    ),
+                ),
+            ),
+        );
+        $this->assertEquals($array, $xprop->toArray());
+    }
+
+    function testAlarmInfo()
+    {
+        $abs = new \Zimbra\Soap\Struct\DateAttr('20120315T18302305Z');
+        $rel = new \Zimbra\Soap\Struct\DurationInfo(true, 1, 2, 3, 4, 5, 'START', 6);
+        $trigger = new \Zimbra\Soap\Struct\AlarmTriggerInfo($abs, $rel);
+
+        $repeat = new \Zimbra\Soap\Struct\DurationInfo(false, 1, 2, 3, 4, 5, 'END', 6);
+        $attach = new \Zimbra\Soap\Struct\CalendarAttach('uri', 'ct', 'value');
+
+        $xparam1 = new \Zimbra\Soap\Struct\XParam('name1', 'value1');
+        $at = new \Zimbra\Soap\Struct\CalendarAttendee(array($xparam1)
+            , 'a', 'url', 'd', 'sentBy', 'dir', 'lang', 'cutype', 'role', PartStatus::NE(), true, 'member', 'delTo', 'delFrom'
+        );
+        $xparam2 = new \Zimbra\Soap\Struct\XParam('name2', 'value2');
+        $xprop = new \Zimbra\Soap\Struct\XProp('name', 'value', array($xparam2));
+
+        $alarm = new \Zimbra\Soap\Struct\AlarmInfo(
+            AlarmAction::DISPLAY(), $trigger, $repeat, 'desc', $attach, 'summary', array($at), array($xprop)
+        );
+
+        $this->assertSame('DISPLAY', (string) $alarm->action());
+        $this->assertSame($trigger, $alarm->trigger());
+        $this->assertSame($repeat, $alarm->repeat());
+        $this->assertSame('desc', $alarm->desc());
+        $this->assertSame($attach, $alarm->attach());
+        $this->assertSame('summary', $alarm->summary());
+        $this->assertSame(array($at), $alarm->at()->all());
+        $this->assertSame(array($xprop), $alarm->xprop()->all());
+
+        $alarm->at()->add($at);
+        $alarm->xprop()->add($xprop);
+        $this->assertSame(array($at, $at), $alarm->at()->all());
+        $this->assertSame(array($xprop, $xprop), $alarm->xprop()->all());
+        $alarm->action(AlarmAction::DISPLAY())
+              ->trigger($trigger)
+              ->repeat($repeat)
+              ->desc('desc')
+              ->attach($attach)
+              ->summary('summary');
+        $this->assertSame('DISPLAY', (string) $alarm->action());
+        $this->assertSame($trigger, $alarm->trigger());
+        $this->assertSame($repeat, $alarm->repeat());
+        $this->assertSame('desc', $alarm->desc());
+        $this->assertSame($attach, $alarm->attach());
+        $this->assertSame('summary', $alarm->summary());
+        unset($alarm);
+
+        $alarm = new \Zimbra\Soap\Struct\AlarmInfo(
+            AlarmAction::DISPLAY(), $trigger, $repeat, 'desc', $attach, 'summary', array($at), array($xprop)
+        );
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<alarm action="DISPLAY">'
+                .'<trigger>'
+                    .'<abs d="20120315T18302305Z" />'
+                    .'<rel neg="1" w="1" d="2" h="3" m="4" s="5" related="START" count="6" />'
+                .'</trigger>'
+                .'<repeat neg="0" w="1" d="2" h="3" m="4" s="5" related="END" count="6" />'
+                .'<desc>desc</desc>'
+                .'<attach uri="uri" ct="ct">value</attach>'
+                .'<summary>summary</summary>'
+                .'<at a="a" url="url" d="d" sentBy="sentBy" dir="dir" lang="lang" cutype="cutype" role="role" ptst="NE" rsvp="1" member="member" delTo="delTo" delFrom="delFrom">'
+                    .'<xparam name="name1" value="value1" />'
+                .'</at>'
+                .'<xprop name="name" value="value">'
+                    .'<xparam name="name2" value="value2" />'
+                .'</xprop>'
+            .'</alarm>';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $alarm);
+
+        $array = array(
+            'alarm' => array(
+                'action' => 'DISPLAY',
+                'trigger' => array(
+                    'abs' => array(
+                        'd' => '20120315T18302305Z',
+                    ),
+                    'rel' => array(
+                        'neg' => 1,
+                        'w' => 1,
+                        'd' => 2,
+                        'h' => 3,
+                        'm' => 4,
+                        's' => 5,
+                        'related' => 'START',
+                        'count' => 6,
+                    ),
+                ),
+                'repeat' => array(
+                    'neg' => 0,
+                    'w' => 1,
+                    'd' => 2,
+                    'h' => 3,
+                    'm' => 4,
+                    's' => 5,
+                    'related' => 'END',
+                    'count' => 6,
+                ),
+                'desc' => 'desc',
+                'attach' => array(
+                    'uri' => 'uri',
+                    'ct' => 'ct',
+                    '_' => 'value',
+                ),
+                'summary' => 'summary',
+                'at' => array(
+                    array(
+                        'a' => 'a',
+                        'url' => 'url',
+                        'd' => 'd',
+                        'sentBy' => 'sentBy',
+                        'dir' => 'dir',
+                        'lang' => 'lang',
+                        'cutype' => 'cutype',
+                        'role' => 'role',
+                        'ptst' => 'NE',
+                        'rsvp' => 1,
+                        'member' => 'member',
+                        'delTo' => 'delTo',
+                        'delFrom' => 'delFrom',
+                        'xparam' => array(
+                            array(
+                                'name' => 'name1',
+                                'value' => 'value1',
+                            ),
+                        ),
+                    ),
+                ),
+                'xprop' => array(
+                    array(
+                        'name' => 'name',
+                        'value' => 'value',
+                        'xparam' => array(
+                            array(
+                                'name' => 'name2',
+                                'value' => 'value2',
+                            ),
+                        ),
+                    ),
+                ),
+            ),
+        );
+        $this->assertEquals($array, $alarm->toArray());
+    }
+
+    public function testCalOrganizer()
+    {
+        $xparam1 = new \Zimbra\Soap\Struct\XParam('name1', 'value1');
+        $xparam2 = new \Zimbra\Soap\Struct\XParam('name2', 'value2');
+        $or = new \Zimbra\Soap\Struct\CalOrganizer(array($xparam1)
+            , 'a', 'url', 'd', 'sentBy', 'dir', 'lang'
+        );
+        $this->assertSame(array($xparam1), $or->xparam()->all());
+        $this->assertSame('a', $or->a());
+        $this->assertSame('url', $or->url());
+        $this->assertSame('d', $or->d());
+        $this->assertSame('sentBy', $or->sentBy());
+        $this->assertSame('dir', $or->dir());
+        $this->assertSame('lang', $or->lang());
+
+        $or->addXParam($xparam2);
+        $this->assertSame(array($xparam1, $xparam2), $or->xparam()->all());
+        $or->a('a')
+           ->url('url')
+           ->d('d')
+           ->sentBy('sentBy')
+           ->dir('dir')
+           ->lang('lang');
+        $this->assertSame('a', $or->a());
+        $this->assertSame('url', $or->url());
+        $this->assertSame('d', $or->d());
+        $this->assertSame('sentBy', $or->sentBy());
+        $this->assertSame('dir', $or->dir());
+        $this->assertSame('lang', $or->lang());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<or a="a" url="url" d="d" sentBy="sentBy" dir="dir" lang="lang">'
+                .'<xparam name="name1" value="value1" />'
+                .'<xparam name="name2" value="value2" />'
+            .'</or>';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $or);
+
+        $array = array(
+            'or' => array(
+                'a' => 'a',
+                'url' => 'url',
+                'd' => 'd',
+                'sentBy' => 'sentBy',
+                'dir' => 'dir',
+                'lang' => 'lang',
+                'xparam' => array(
+                    array(
+                        'name' => 'name1',
+                        'value' => 'value1',
+                    ),
+                    array(
+                        'name' => 'name2',
+                        'value' => 'value2',
+                    ),
+                ),
+            ),
+        );
+        $this->assertEquals($array, $or->toArray());
+    }
+
+    public function testRecurIdInfo()
+    {
+        $recur = new \Zimbra\Soap\Struct\RecurIdInfo(
+            1, '991231', 'tz', '991231000000'
+        );
+        $this->assertSame(1, $recur->rangeType());
+        $this->assertSame('991231', $recur->recurId());
+        $this->assertSame('tz', $recur->tz());
+        $this->assertSame('991231000000', $recur->ridZ());
+
+        $recur->rangeType(1)
+              ->recurId('991231')
+              ->tz('tz')
+              ->ridZ('991231000000');
+        $this->assertSame(1, $recur->rangeType());
+        $this->assertSame('991231', $recur->recurId());
+        $this->assertSame('tz', $recur->tz());
+        $this->assertSame('991231000000', $recur->ridZ());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<recur rangeType="1" recurId="991231" tz="tz" ridZ="991231000000" />';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $recur);
+
+        $array = array(
+            'recur' => array(
+                'rangeType' => 1,
+                'recurId' => '991231',
+                'tz' => 'tz',
+                'ridZ' => '991231000000',
+            ),
+        );
+        $this->assertEquals($array, $recur->toArray());
+    }
+
+    public function testCancelRuleInfo()
+    {
+        $cancel = new \Zimbra\Soap\Struct\CancelRuleInfo(
+            1, '991231', 'tz', '991231000000'
+        );
+        $this->assertSame(1, $cancel->rangeType());
+        $this->assertSame('991231', $cancel->recurId());
+        $this->assertSame('tz', $cancel->tz());
+        $this->assertSame('991231000000', $cancel->ridZ());
+
+        $cancel->rangeType(1)
+               ->recurId('991231')
+               ->tz('tz')
+               ->ridZ('991231000000');
+        $this->assertSame(1, $cancel->rangeType());
+        $this->assertSame('991231', $cancel->recurId());
+        $this->assertSame('tz', $cancel->tz());
+        $this->assertSame('991231000000', $cancel->ridZ());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<cancel rangeType="1" recurId="991231" tz="tz" ridZ="991231000000" />';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $cancel);
+
+        $array = array(
+            'cancel' => array(
+                'rangeType' => 1,
+                'recurId' => '991231',
+                'tz' => 'tz',
+                'ridZ' => '991231000000',
+            ),
+        );
+        $this->assertEquals($array, $cancel->toArray());
+    }
+
+    public function testDtTimeInfo()
+    {
+        $dt = new \Zimbra\Soap\Struct\DtTimeInfo(
+            '20120315T18302305Z', 'tz', 1000
+        );
+        $this->assertSame('20120315T18302305Z', $dt->d());
+        $this->assertSame('tz', $dt->tz());
+        $this->assertSame(1000, $dt->u());
+
+        $dt->d('20120315T18302305Z')
+           ->tz('tz')
+           ->u(1000);
+        $this->assertSame('20120315T18302305Z', $dt->d());
+        $this->assertSame('tz', $dt->tz());
+        $this->assertSame(1000, $dt->u());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<dt d="20120315T18302305Z" tz="tz" u="1000" />';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $dt);
+
+        $array = array(
+            'dt' => array(
+                'd' => '20120315T18302305Z',
+                'tz' => 'tz',
+                'u' => 1000,
+            ),
+        );
+        $this->assertEquals($array, $dt->toArray());
+    }
+
+    public function testDtVal()
+    {
+        $s = new \Zimbra\Soap\Struct\DtTimeInfo(
+            '20120315T18302305Z', 'tz', 1000
+        );
+        $e = new \Zimbra\Soap\Struct\DtTimeInfo(
+            '20130315T18302305Z', 'tz', 2000
+        );
+        $dur = new \Zimbra\Soap\Struct\DurationInfo(
+            true, 1, 2, 3, 4, 5, 'START', 6
+        );
+
+        $dtval = new \Zimbra\Soap\Struct\DtVal($s, $e, $dur);
+        $this->assertSame($s, $dtval->s());
+        $this->assertSame($e, $dtval->e());
+        $this->assertSame($dur, $dtval->dur());
+
+        $dtval->s($s)
+              ->e($e)
+              ->dur($dur);
+        $this->assertSame($s, $dtval->s());
+        $this->assertSame($e, $dtval->e());
+        $this->assertSame($dur, $dtval->dur());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<dtval>'
+                .'<s d="20120315T18302305Z" tz="tz" u="1000" />'
+                .'<e d="20130315T18302305Z" tz="tz" u="2000" />'
+                .'<dur neg="1" w="1" d="2" h="3" m="4" s="5" related="START" count="6" />'
+            .'</dtval>';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $dtval);
+
+        $array = array(
+            'dtval' => array(
+                's' => array(
+                    'd' => '20120315T18302305Z',
+                    'tz' => 'tz',
+                    'u' => 1000,
+                ),
+                'e' => array(
+                    'd' => '20130315T18302305Z',
+                    'tz' => 'tz',
+                    'u' => 2000,
+                ),
+                'dur' => array(
+                    'neg' => 1,
+                    'w' => 1,
+                    'd' => 2,
+                    'h' => 3,
+                    'm' => 4,
+                    's' => 5,
+                    'related' => 'START',
+                    'count' => 6,
+                ),
+            ),
+        );
+        $this->assertEquals($array, $dtval->toArray());
+    }
+
+    public function testSingleDates()
+    {
+        $s = new \Zimbra\Soap\Struct\DtTimeInfo(
+            '20120315T18302305Z', 'tz', 1000
+        );
+        $e = new \Zimbra\Soap\Struct\DtTimeInfo(
+            '20130315T18302305Z', 'tz', 2000
+        );
+        $dur = new \Zimbra\Soap\Struct\DurationInfo(
+            true, 1, 2, 3, 4, 5, 'START', 6
+        );
+        $dtval = new \Zimbra\Soap\Struct\DtVal($s, $e, $dur);
+
+        $dates = new \Zimbra\Soap\Struct\SingleDates('tz', array($dtval));
+        $this->assertSame('tz', $dates->tz());
+        $this->assertSame(array($dtval), $dates->dtval()->all());
+
+        $dates->tz('tz')
+              ->addDtVal($dtval);
+        $this->assertSame('tz', $dates->tz());
+        $this->assertSame(array($dtval, $dtval), $dates->dtval()->all());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<dates tz="tz">'
+                .'<dtval>'
+                    .'<s d="20120315T18302305Z" tz="tz" u="1000" />'
+                    .'<e d="20130315T18302305Z" tz="tz" u="2000" />'
+                    .'<dur neg="1" w="1" d="2" h="3" m="4" s="5" related="START" count="6" />'
+                .'</dtval>'
+                .'<dtval>'
+                    .'<s d="20120315T18302305Z" tz="tz" u="1000" />'
+                    .'<e d="20130315T18302305Z" tz="tz" u="2000" />'
+                    .'<dur neg="1" w="1" d="2" h="3" m="4" s="5" related="START" count="6" />'
+                .'</dtval>'
+            .'</dates>';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $dates);
+
+        $array = array(
+            'dates' => array(
+                'tz' => 'tz',
+                'dtval' => array(
+                    array(
+                        's' => array(
+                            'd' => '20120315T18302305Z',
+                            'tz' => 'tz',
+                            'u' => 1000,
+                        ),
+                        'e' => array(
+                            'd' => '20130315T18302305Z',
+                            'tz' => 'tz',
+                            'u' => 2000,
+                        ),
+                        'dur' => array(
+                            'neg' => 1,
+                            'w' => 1,
+                            'd' => 2,
+                            'h' => 3,
+                            'm' => 4,
+                            's' => 5,
+                            'related' => 'START',
+                            'count' => 6,
+                        ),
+                    ),
+                    array(
+                        's' => array(
+                            'd' => '20120315T18302305Z',
+                            'tz' => 'tz',
+                            'u' => 1000,
+                        ),
+                        'e' => array(
+                            'd' => '20130315T18302305Z',
+                            'tz' => 'tz',
+                            'u' => 2000,
+                        ),
+                        'dur' => array(
+                            'neg' => 1,
+                            'w' => 1,
+                            'd' => 2,
+                            'h' => 3,
+                            'm' => 4,
+                            's' => 5,
+                            'related' => 'START',
+                            'count' => 6,
+                        ),
+                    ),
+                ),
+            ),
+        );
+        $this->assertEquals($array, $dates->toArray());
+    }
+
+    public function testDateTimeStringAttr()
+    {
+        $until = new \Zimbra\Soap\Struct\DateTimeStringAttr('20120315T18302305Z');
+        $this->assertSame('20120315T18302305Z', $until->d());
+        $until->d('20120315T18302305Z');
+        $this->assertSame('20120315T18302305Z', $until->d());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<until d="20120315T18302305Z" />';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $until);
+
+        $array = array(
+            'until' => array(
+                'd' => '20120315T18302305Z',
+            ),
+        );
+        $this->assertEquals($array, $until->toArray());
+    }
+
+    public function testNumAttr()
+    {
+        $count = new \Zimbra\Soap\Struct\NumAttr(20120315);
+        $this->assertSame(20120315, $count->num());
+        $count->num(20120315);
+        $this->assertSame(20120315, $count->num());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<count num="20120315" />';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $count);
+
+        $array = array(
+            'count' => array(
+                'num' => 20120315,
+            ),
+        );
+        $this->assertEquals($array, $count->toArray());
+    }
+
+    public function testIntervalRule()
+    {
+        $interval = new \Zimbra\Soap\Struct\IntervalRule(20120315);
+        $this->assertSame(20120315, $interval->ival());
+        $interval->ival(20120315);
+        $this->assertSame(20120315, $interval->ival());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<interval ival="20120315" />';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $interval);
+
+        $array = array(
+            'interval' => array(
+                'ival' => 20120315,
+            ),
+        );
+        $this->assertEquals($array, $interval->toArray());
+    }
+
+    public function testBySecondRule()
+    {
+        $bysecond = new \Zimbra\Soap\Struct\BySecondRule('10,a,20,b,30');
+        $this->assertSame('10,20,30', $bysecond->seclist());
+        $bysecond->seclist('10,a,20,b,30');
+        $this->assertSame('10,20,30', $bysecond->seclist());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<bysecond seclist="10,20,30" />';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $bysecond);
+
+        $array = array(
+            'bysecond' => array(
+                'seclist' => '10,20,30',
+            ),
+        );
+        $this->assertEquals($array, $bysecond->toArray());
+    }
+
+    public function testByMinuteRule()
+    {
+        $byminute = new \Zimbra\Soap\Struct\ByMinuteRule('10,a,20,b,30');
+        $this->assertSame('10,20,30', $byminute->minlist());
+        $byminute->minlist('10,a,20,b,30');
+        $this->assertSame('10,20,30', $byminute->minlist());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<byminute minlist="10,20,30" />';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $byminute);
+
+        $array = array(
+            'byminute' => array(
+                'minlist' => '10,20,30',
+            ),
+        );
+        $this->assertEquals($array, $byminute->toArray());
+    }
+
+    public function testByHourRule()
+    {
+        $byhour = new \Zimbra\Soap\Struct\ByHourRule('5,a,10,b,15');
+        $this->assertSame('5,10,15', $byhour->hrlist());
+        $byhour->hrlist('5,a,10,b,15');
+        $this->assertSame('5,10,15', $byhour->hrlist());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<byhour hrlist="5,10,15" />';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $byhour);
+
+        $array = array(
+            'byhour' => array(
+                'hrlist' => '5,10,15',
+            ),
+        );
+        $this->assertEquals($array, $byhour->toArray());
+    }
+
+    public function testWkDay()
+    {
+        $wkday = new \Zimbra\Soap\Struct\WkDay(WeekDay::SU(), 1);
+        $this->assertSame('SU', (string) $wkday->day());
+        $this->assertSame(1, $wkday->ordwk());
+
+        $wkday->day(WeekDay::SU())
+              ->ordwk(1);
+        $this->assertSame('SU', (string) $wkday->day());
+        $this->assertSame(1, $wkday->ordwk());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<wkday day="SU" ordwk="1" />';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $wkday);
+
+        $array = array(
+            'wkday' => array(
+                'day' => 'SU',
+                'ordwk' => 1,
+            ),
+        );
+        $this->assertEquals($array, $wkday->toArray());
+    }
+
+    public function testByDayRule()
+    {
+        $wkday1 = new \Zimbra\Soap\Struct\WkDay(WeekDay::SU(), 1);
+        $wkday2 = new \Zimbra\Soap\Struct\WkDay(WeekDay::MO(), 1);
+
+        $byday = new \Zimbra\Soap\Struct\ByDayRule(array($wkday1));
+        $this->assertSame(array($wkday1), $byday->wkday()->all());
+        $byday->addWkDay($wkday2);
+        $this->assertSame(array($wkday1, $wkday2), $byday->wkday()->all());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<byday>'
+                .'<wkday day="SU" ordwk="1" />'
+                .'<wkday day="MO" ordwk="1" />'
+            .'</byday>';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $byday);
+
+        $array = array(
+            'byday' => array(
+                'wkday' => array(
+                    array(
+                        'day' => 'SU',
+                        'ordwk' => 1,
+                    ),
+                    array(
+                        'day' => 'MO',
+                        'ordwk' => 1,
+                    ),
+                )
+            ),
+        );
+        $this->assertEquals($array, $byday->toArray());
+    }
+
+    public function testByMonthDayRule()
+    {
+        $bymonthday = new \Zimbra\Soap\Struct\ByMonthDayRule('5,a,10,b,15,32');
+        $this->assertSame('5,10,15', $bymonthday->modaylist());
+        $bymonthday->modaylist('5,a,10,b,15,-32');
+        $this->assertSame('5,10,15', $bymonthday->modaylist());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<bymonthday modaylist="5,10,15" />';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $bymonthday);
+
+        $array = array(
+            'bymonthday' => array(
+                'modaylist' => '5,10,15',
+            ),
+        );
+        $this->assertEquals($array, $bymonthday->toArray());
+    }
+
+    public function testByYearDayRule()
+    {
+        $byyearday = new \Zimbra\Soap\Struct\ByYearDayRule('5,a,10,b,15,367');
+        $this->assertSame('5,10,15', $byyearday->yrdaylist());
+        $byyearday->yrdaylist('5,a,10,b,15,-368');
+        $this->assertSame('5,10,15', $byyearday->yrdaylist());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<byyearday yrdaylist="5,10,15" />';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $byyearday);
+
+        $array = array(
+            'byyearday' => array(
+                'yrdaylist' => '5,10,15',
+            ),
+        );
+        $this->assertEquals($array, $byyearday->toArray());
+    }
+
+    public function testByWeekNoRule()
+    {
+        $byweekno = new \Zimbra\Soap\Struct\ByWeekNoRule('5,a,10,b,15,54');
+        $this->assertSame('5,10,15', $byweekno->wklist());
+        $byweekno->wklist('5,a,10,b,15,-54');
+        $this->assertSame('5,10,15', $byweekno->wklist());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<byweekno wklist="5,10,15" />';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $byweekno);
+
+        $array = array(
+            'byweekno' => array(
+                'wklist' => '5,10,15',
+            ),
+        );
+        $this->assertEquals($array, $byweekno->toArray());
+    }
+
+    public function testByMonthRule()
+    {
+        $bymonth = new \Zimbra\Soap\Struct\ByMonthRule('5,a,10,b,15');
+        $this->assertSame('5,10', $bymonth->molist());
+        $bymonth->molist('5,a,10,b,15');
+        $this->assertSame('5,10', $bymonth->molist());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<bymonth molist="5,10" />';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $bymonth);
+
+        $array = array(
+            'bymonth' => array(
+                'molist' => '5,10',
+            ),
+        );
+        $this->assertEquals($array, $bymonth->toArray());
+    }
+
+    public function testBySetPosRule()
+    {
+        $bysetpos = new \Zimbra\Soap\Struct\BySetPosRule('5,a,10,b,15,367');
+        $this->assertSame('5,10,15', $bysetpos->poslist());
+        $bysetpos->poslist('5,a,10,b,15,-368');
+        $this->assertSame('5,10,15', $bysetpos->poslist());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<bysetpos poslist="5,10,15" />';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $bysetpos);
+
+        $array = array(
+            'bysetpos' => array(
+                'poslist' => '5,10,15',
+            ),
+        );
+        $this->assertEquals($array, $bysetpos->toArray());
+    }
+
+    public function testWkstRule()
+    {
+        $wkst = new \Zimbra\Soap\Struct\WkstRule(WeekDay::SU());
+        $this->assertSame('SU', (string) $wkst->day());
+
+        $wkst->day(WeekDay::SU());
+        $this->assertSame('SU', (string) $wkst->day());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<wkst day="SU" />';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $wkst);
+
+        $array = array(
+            'wkst' => array(
+                'day' => 'SU',
+            ),
+        );
+        $this->assertEquals($array, $wkst->toArray());
+    }
+
+    public function testXNameRule()
+    {
+        $xname = new \Zimbra\Soap\Struct\XNameRule('n', 'v');
+        $this->assertSame('n', $xname->name());
+        $this->assertSame('v', $xname->value());
+
+        $xname->name('name')
+              ->value('value');
+        $this->assertSame('name', $xname->name());
+        $this->assertSame('value', $xname->value());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<rule-x-name name="name" value="value" />';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $xname);
+
+        $array = array(
+            'rule-x-name' => array(
+                'name' => 'name',
+                'value' => 'value',
+            ),
+        );
+        $this->assertEquals($array, $xname->toArray());
+    }
+
+    public function testSimpleRepeatingRule()
+    {
+        $wkday = new \Zimbra\Soap\Struct\WkDay(WeekDay::SU(), 1);
+
+        $until = new \Zimbra\Soap\Struct\DateTimeStringAttr('20120315T18302305Z');
+        $count = new \Zimbra\Soap\Struct\NumAttr(20120315);
+        $interval = new \Zimbra\Soap\Struct\IntervalRule(20120315);
+        $bysecond = new \Zimbra\Soap\Struct\BySecondRule('10,a,20,b,30');
+        $byminute = new \Zimbra\Soap\Struct\ByMinuteRule('10,a,20,b,30');
+        $byhour = new \Zimbra\Soap\Struct\ByHourRule('5,a,10,b,15');
+        $byday = new \Zimbra\Soap\Struct\ByDayRule(array($wkday));
+        $bymonthday = new \Zimbra\Soap\Struct\ByMonthDayRule('5,a,10,b,15,32');
+        $byyearday = new \Zimbra\Soap\Struct\ByYearDayRule('5,a,10,b,15,367');
+        $byweekno = new \Zimbra\Soap\Struct\ByWeekNoRule('5,a,10,b,15,54');
+        $bymonth = new \Zimbra\Soap\Struct\ByMonthRule('5,a,10,b,15');
+        $bysetpos = new \Zimbra\Soap\Struct\BySetPosRule('5,a,10,b,15,367');
+        $wkst = new \Zimbra\Soap\Struct\WkstRule(WeekDay::SU());
+        $xname = new \Zimbra\Soap\Struct\XNameRule('name', 'value');
+
+        $rule = new \Zimbra\Soap\Struct\SimpleRepeatingRule(
+            Frequency::SEC(),
+            $until,
+            $count,
+            $interval,
+            $bysecond,
+            $byminute,
+            $byhour,
+            $byday,
+            $bymonthday,
+            $byyearday,
+            $byweekno,
+            $bymonth,
+            $bysetpos,
+            $wkst,
+            array($xname)
+        );
+        $this->assertSame('SEC', (string) $rule->freq());
+        $this->assertSame($until, $rule->until());
+        $this->assertSame($count, $rule->count());
+        $this->assertSame($interval, $rule->interval());
+        $this->assertSame($bysecond, $rule->bysecond());
+        $this->assertSame($byminute, $rule->byminute());
+        $this->assertSame($byhour, $rule->byhour());
+        $this->assertSame($byday, $rule->byday());
+        $this->assertSame($bymonthday, $rule->bymonthday());
+        $this->assertSame($byyearday, $rule->byyearday());
+        $this->assertSame($byweekno, $rule->byweekno());
+        $this->assertSame($bymonth, $rule->bymonth());
+        $this->assertSame($bysetpos, $rule->bysetpos());
+        $this->assertSame($wkst, $rule->wkst());
+        $this->assertSame(array($xname), $rule->ruleXName()->all());
+
+        $rule->freq(Frequency::SEC())
+             ->until($until)
+             ->count($count)
+             ->interval($interval)
+             ->bysecond($bysecond)
+             ->byminute($byminute)
+             ->byhour($byhour)
+             ->byday($byday)
+             ->bymonthday($bymonthday)
+             ->byyearday($byyearday)
+             ->byweekno($byweekno)
+             ->bymonth($bymonth)
+             ->bysetpos($bysetpos)
+             ->wkst($wkst)
+             ->addXNameRule($xname);
+        $this->assertSame('SEC', (string) $rule->freq());
+        $this->assertSame($until, $rule->until());
+        $this->assertSame($count, $rule->count());
+        $this->assertSame($interval, $rule->interval());
+        $this->assertSame($bysecond, $rule->bysecond());
+        $this->assertSame($byminute, $rule->byminute());
+        $this->assertSame($byhour, $rule->byhour());
+        $this->assertSame($byday, $rule->byday());
+        $this->assertSame($bymonthday, $rule->bymonthday());
+        $this->assertSame($byyearday, $rule->byyearday());
+        $this->assertSame($byweekno, $rule->byweekno());
+        $this->assertSame($bymonth, $rule->bymonth());
+        $this->assertSame($bysetpos, $rule->bysetpos());
+        $this->assertSame($wkst, $rule->wkst());
+        $this->assertSame(array($xname, $xname), $rule->ruleXName()->all());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<rule freq="SEC">'
+                .'<until d="20120315T18302305Z" />'
+                .'<count num="20120315" />'
+                .'<interval ival="20120315" />'
+                .'<bysecond seclist="10,20,30" />'
+                .'<byminute minlist="10,20,30" />'
+                .'<byhour hrlist="5,10,15" />'
+                .'<byday>'
+                    .'<wkday day="SU" ordwk="1" />'
+                .'</byday>'
+                .'<bymonthday modaylist="5,10,15" />'
+                .'<byyearday yrdaylist="5,10,15" />'
+                .'<byweekno wklist="5,10,15" />'
+                .'<bymonth molist="5,10" />'
+                .'<bysetpos poslist="5,10,15" />'
+                .'<wkst day="SU" />'
+                .'<rule-x-name name="name" value="value" />'
+                .'<rule-x-name name="name" value="value" />'
+            .'</rule>';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $rule);
+
+        $array = array(
+            'rule' => array(
+                'freq' => 'SEC',
+                'until' => array(
+                    'd' => '20120315T18302305Z',
+                ),
+                'count' => array(
+                    'num' => 20120315,
+                ),
+                'interval' => array(
+                    'ival' => 20120315,
+                ),
+                'bysecond' => array(
+                    'seclist' => '10,20,30',
+                ),
+                'byminute' => array(
+                    'minlist' => '10,20,30',
+                ),
+                'byhour' => array(
+                    'hrlist' => '5,10,15',
+                ),
+                'byday' => array(
+                    'wkday' => array(
+                        array(
+                            'day' => 'SU',
+                            'ordwk' => 1,
+                        ),
+                    )
+                ),
+                'bymonthday' => array(
+                    'modaylist' => '5,10,15',
+                ),
+                'byyearday' => array(
+                    'yrdaylist' => '5,10,15',
+                ),
+                'byweekno' => array(
+                    'wklist' => '5,10,15',
+                ),
+                'bymonth' => array(
+                    'molist' => '5,10',
+                ),
+                'bysetpos' => array(
+                    'poslist' => '5,10,15',
+                ),
+                'wkst' => array(
+                    'day' => 'SU',
+                ),
+                'rule-x-name' => array(
+                    array(
+                        'name' => 'name',
+                        'value' => 'value',
+                    ),
+                    array(
+                        'name' => 'name',
+                        'value' => 'value',
+                    ),
+                ),
+            ),
+        );
+        $this->assertEquals($array, $rule->toArray());
+    }
+
+    public function testRecurrenceInfo()
+    {
+        $except = new \Zimbra\Soap\Struct\ExceptionRuleInfo(
+            1, '991231', 'tz', '991231000000'
+        );
+        $cancel = new \Zimbra\Soap\Struct\CancelRuleInfo(
+            1, '991231', 'tz', '991231000000'
+        );
+
+        $s = new \Zimbra\Soap\Struct\DtTimeInfo(
+            '20120315T18302305Z', 'tz', 1000
+        );
+        $e = new \Zimbra\Soap\Struct\DtTimeInfo(
+            '20130315T18302305Z', 'tz', 2000
+        );
+        $dur = new \Zimbra\Soap\Struct\DurationInfo(
+            true, 1, 2, 3, 4, 5, 'START', 6
+        );
+        $dtval = new \Zimbra\Soap\Struct\DtVal($s, $e, $dur);
+        $dates = new \Zimbra\Soap\Struct\SingleDates('tz', array($dtval));
+
+        $wkday = new \Zimbra\Soap\Struct\WkDay(WeekDay::SU(), 1);
+        $until = new \Zimbra\Soap\Struct\DateTimeStringAttr('20120315T18302305Z');
+        $count = new \Zimbra\Soap\Struct\NumAttr(20120315);
+        $interval = new \Zimbra\Soap\Struct\IntervalRule(20120315);
+        $bysecond = new \Zimbra\Soap\Struct\BySecondRule('10,a,20,b,30');
+        $byminute = new \Zimbra\Soap\Struct\ByMinuteRule('10,a,20,b,30');
+        $byhour = new \Zimbra\Soap\Struct\ByHourRule('5,a,10,b,15');
+        $byday = new \Zimbra\Soap\Struct\ByDayRule(array($wkday));
+        $bymonthday = new \Zimbra\Soap\Struct\ByMonthDayRule('5,a,10,b,15,32');
+        $byyearday = new \Zimbra\Soap\Struct\ByYearDayRule('5,a,10,b,15,367');
+        $byweekno = new \Zimbra\Soap\Struct\ByWeekNoRule('5,a,10,b,15,54');
+        $bymonth = new \Zimbra\Soap\Struct\ByMonthRule('5,a,10,b,15');
+        $bysetpos = new \Zimbra\Soap\Struct\BySetPosRule('5,a,10,b,15,367');
+        $wkst = new \Zimbra\Soap\Struct\WkstRule(WeekDay::SU());
+        $xname = new \Zimbra\Soap\Struct\XNameRule('name', 'value');
+        $rule = new \Zimbra\Soap\Struct\SimpleRepeatingRule(
+            Frequency::SEC(),
+            $until,
+            $count,
+            $interval,
+            $bysecond,
+            $byminute,
+            $byhour,
+            $byday,
+            $bymonthday,
+            $byyearday,
+            $byweekno,
+            $bymonth,
+            $bysetpos,
+            $wkst,
+            array($xname)
+        );
+
+        $add = new \Zimbra\Soap\Struct\AddRecurrenceInfo(null, null, $except, $cancel, $dates, $rule);
+        $exclude = new \Zimbra\Soap\Struct\ExcludeRecurrenceInfo(null, null, $except, $cancel, $dates, $rule);
+        $recur = new \Zimbra\Soap\Struct\RecurrenceInfo($add, $exclude, $except, $cancel, $dates, $rule);
+
+        $this->assertSame($add, $recur->add());
+        $this->assertSame($exclude, $recur->exclude());
+        $this->assertSame($except, $recur->except());
+        $this->assertSame($cancel, $recur->cancel());
+        $this->assertSame($dates, $recur->dates());
+        $this->assertSame($rule, $recur->rule());
+
+        $recur->add($add)
+              ->exclude($exclude)
+              ->except($except)
+              ->cancel($cancel)
+              ->dates($dates)
+              ->rule($rule);
+        $this->assertSame($add, $recur->add());
+        $this->assertSame($exclude, $recur->exclude());
+        $this->assertSame($except, $recur->except());
+        $this->assertSame($cancel, $recur->cancel());
+        $this->assertSame($dates, $recur->dates());
+        $this->assertSame($rule, $recur->rule());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<recur>'
+                .'<add>'
+                    .'<except rangeType="1" recurId="991231" tz="tz" ridZ="991231000000" />'
+                    .'<cancel rangeType="1" recurId="991231" tz="tz" ridZ="991231000000" />'
+                    .'<dates tz="tz">'
+                        .'<dtval>'
+                            .'<s d="20120315T18302305Z" tz="tz" u="1000" />'
+                            .'<e d="20130315T18302305Z" tz="tz" u="2000" />'
+                            .'<dur neg="1" w="1" d="2" h="3" m="4" s="5" related="START" count="6" />'
+                        .'</dtval>'
+                    .'</dates>'
+                    .'<rule freq="SEC">'
+                        .'<until d="20120315T18302305Z" />'
+                        .'<count num="20120315" />'
+                        .'<interval ival="20120315" />'
+                        .'<bysecond seclist="10,20,30" />'
+                        .'<byminute minlist="10,20,30" />'
+                        .'<byhour hrlist="5,10,15" />'
+                        .'<byday>'
+                            .'<wkday day="SU" ordwk="1" />'
+                        .'</byday>'
+                        .'<bymonthday modaylist="5,10,15" />'
+                        .'<byyearday yrdaylist="5,10,15" />'
+                        .'<byweekno wklist="5,10,15" />'
+                        .'<bymonth molist="5,10" />'
+                        .'<bysetpos poslist="5,10,15" />'
+                        .'<wkst day="SU" />'
+                        .'<rule-x-name name="name" value="value" />'
+                    .'</rule>'
+                .'</add>'
+                .'<exclude>'
+                    .'<except rangeType="1" recurId="991231" tz="tz" ridZ="991231000000" />'
+                    .'<cancel rangeType="1" recurId="991231" tz="tz" ridZ="991231000000" />'
+                    .'<dates tz="tz">'
+                        .'<dtval>'
+                            .'<s d="20120315T18302305Z" tz="tz" u="1000" />'
+                            .'<e d="20130315T18302305Z" tz="tz" u="2000" />'
+                            .'<dur neg="1" w="1" d="2" h="3" m="4" s="5" related="START" count="6" />'
+                        .'</dtval>'
+                    .'</dates>'
+                    .'<rule freq="SEC">'
+                        .'<until d="20120315T18302305Z" />'
+                        .'<count num="20120315" />'
+                        .'<interval ival="20120315" />'
+                        .'<bysecond seclist="10,20,30" />'
+                        .'<byminute minlist="10,20,30" />'
+                        .'<byhour hrlist="5,10,15" />'
+                        .'<byday>'
+                            .'<wkday day="SU" ordwk="1" />'
+                        .'</byday>'
+                        .'<bymonthday modaylist="5,10,15" />'
+                        .'<byyearday yrdaylist="5,10,15" />'
+                        .'<byweekno wklist="5,10,15" />'
+                        .'<bymonth molist="5,10" />'
+                        .'<bysetpos poslist="5,10,15" />'
+                        .'<wkst day="SU" />'
+                        .'<rule-x-name name="name" value="value" />'
+                    .'</rule>'
+                .'</exclude>'
+                .'<except rangeType="1" recurId="991231" tz="tz" ridZ="991231000000" />'
+                .'<cancel rangeType="1" recurId="991231" tz="tz" ridZ="991231000000" />'
+                .'<dates tz="tz">'
+                    .'<dtval>'
+                        .'<s d="20120315T18302305Z" tz="tz" u="1000" />'
+                        .'<e d="20130315T18302305Z" tz="tz" u="2000" />'
+                        .'<dur neg="1" w="1" d="2" h="3" m="4" s="5" related="START" count="6" />'
+                    .'</dtval>'
+                .'</dates>'
+                .'<rule freq="SEC">'
+                    .'<until d="20120315T18302305Z" />'
+                    .'<count num="20120315" />'
+                    .'<interval ival="20120315" />'
+                    .'<bysecond seclist="10,20,30" />'
+                    .'<byminute minlist="10,20,30" />'
+                    .'<byhour hrlist="5,10,15" />'
+                    .'<byday>'
+                        .'<wkday day="SU" ordwk="1" />'
+                    .'</byday>'
+                    .'<bymonthday modaylist="5,10,15" />'
+                    .'<byyearday yrdaylist="5,10,15" />'
+                    .'<byweekno wklist="5,10,15" />'
+                    .'<bymonth molist="5,10" />'
+                    .'<bysetpos poslist="5,10,15" />'
+                    .'<wkst day="SU" />'
+                    .'<rule-x-name name="name" value="value" />'
+                .'</rule>'
+            .'</recur>';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $recur);
+
+        $array = array(
+            'recur' => array(
+                'add' => array(
+                    'except' => array(
+                        'rangeType' => 1,
+                        'recurId' => '991231',
+                        'tz' => 'tz',
+                        'ridZ' => '991231000000',
+                    ),
+                    'cancel' => array(
+                        'rangeType' => 1,
+                        'recurId' => '991231',
+                        'tz' => 'tz',
+                        'ridZ' => '991231000000',
+                    ),
+                    'dates' => array(
+                        'tz' => 'tz',
+                        'dtval' => array(
+                            array(
+                                's' => array(
+                                    'd' => '20120315T18302305Z',
+                                    'tz' => 'tz',
+                                    'u' => 1000,
+                                ),
+                                'e' => array(
+                                    'd' => '20130315T18302305Z',
+                                    'tz' => 'tz',
+                                    'u' => 2000,
+                                ),
+                                'dur' => array(
+                                    'neg' => 1,
+                                    'w' => 1,
+                                    'd' => 2,
+                                    'h' => 3,
+                                    'm' => 4,
+                                    's' => 5,
+                                    'related' => 'START',
+                                    'count' => 6,
+                                ),
+                            ),
+                        ),
+                    ),
+                    'rule' => array(
+                        'freq' => 'SEC',
+                        'until' => array(
+                            'd' => '20120315T18302305Z',
+                        ),
+                        'count' => array(
+                            'num' => 20120315,
+                        ),
+                        'interval' => array(
+                            'ival' => 20120315,
+                        ),
+                        'bysecond' => array(
+                            'seclist' => '10,20,30',
+                        ),
+                        'byminute' => array(
+                            'minlist' => '10,20,30',
+                        ),
+                        'byhour' => array(
+                            'hrlist' => '5,10,15',
+                        ),
+                        'byday' => array(
+                            'wkday' => array(
+                                array(
+                                    'day' => 'SU',
+                                    'ordwk' => 1,
+                                ),
+                            )
+                        ),
+                        'bymonthday' => array(
+                            'modaylist' => '5,10,15',
+                        ),
+                        'byyearday' => array(
+                            'yrdaylist' => '5,10,15',
+                        ),
+                        'byweekno' => array(
+                            'wklist' => '5,10,15',
+                        ),
+                        'bymonth' => array(
+                            'molist' => '5,10',
+                        ),
+                        'bysetpos' => array(
+                            'poslist' => '5,10,15',
+                        ),
+                        'wkst' => array(
+                            'day' => 'SU',
+                        ),
+                        'rule-x-name' => array(
+                            array(
+                                'name' => 'name',
+                                'value' => 'value',
+                            ),
+                        ),
+                    ),
+                ),
+                'exclude' => array(
+                    'except' => array(
+                        'rangeType' => 1,
+                        'recurId' => '991231',
+                        'tz' => 'tz',
+                        'ridZ' => '991231000000',
+                    ),
+                    'cancel' => array(
+                        'rangeType' => 1,
+                        'recurId' => '991231',
+                        'tz' => 'tz',
+                        'ridZ' => '991231000000',
+                    ),
+                    'dates' => array(
+                        'tz' => 'tz',
+                        'dtval' => array(
+                            array(
+                                's' => array(
+                                    'd' => '20120315T18302305Z',
+                                    'tz' => 'tz',
+                                    'u' => 1000,
+                                ),
+                                'e' => array(
+                                    'd' => '20130315T18302305Z',
+                                    'tz' => 'tz',
+                                    'u' => 2000,
+                                ),
+                                'dur' => array(
+                                    'neg' => 1,
+                                    'w' => 1,
+                                    'd' => 2,
+                                    'h' => 3,
+                                    'm' => 4,
+                                    's' => 5,
+                                    'related' => 'START',
+                                    'count' => 6,
+                                ),
+                            ),
+                        ),
+                    ),
+                    'rule' => array(
+                        'freq' => 'SEC',
+                        'until' => array(
+                            'd' => '20120315T18302305Z',
+                        ),
+                        'count' => array(
+                            'num' => 20120315,
+                        ),
+                        'interval' => array(
+                            'ival' => 20120315,
+                        ),
+                        'bysecond' => array(
+                            'seclist' => '10,20,30',
+                        ),
+                        'byminute' => array(
+                            'minlist' => '10,20,30',
+                        ),
+                        'byhour' => array(
+                            'hrlist' => '5,10,15',
+                        ),
+                        'byday' => array(
+                            'wkday' => array(
+                                array(
+                                    'day' => 'SU',
+                                    'ordwk' => 1,
+                                ),
+                            )
+                        ),
+                        'bymonthday' => array(
+                            'modaylist' => '5,10,15',
+                        ),
+                        'byyearday' => array(
+                            'yrdaylist' => '5,10,15',
+                        ),
+                        'byweekno' => array(
+                            'wklist' => '5,10,15',
+                        ),
+                        'bymonth' => array(
+                            'molist' => '5,10',
+                        ),
+                        'bysetpos' => array(
+                            'poslist' => '5,10,15',
+                        ),
+                        'wkst' => array(
+                            'day' => 'SU',
+                        ),
+                        'rule-x-name' => array(
+                            array(
+                                'name' => 'name',
+                                'value' => 'value',
+                            ),
+                        ),
+                    ),
+                ),
+                'except' => array(
+                    'rangeType' => 1,
+                    'recurId' => '991231',
+                    'tz' => 'tz',
+                    'ridZ' => '991231000000',
+                ),
+                'cancel' => array(
+                    'rangeType' => 1,
+                    'recurId' => '991231',
+                    'tz' => 'tz',
+                    'ridZ' => '991231000000',
+                ),
+                'dates' => array(
+                    'tz' => 'tz',
+                    'dtval' => array(
+                        array(
+                            's' => array(
+                                'd' => '20120315T18302305Z',
+                                'tz' => 'tz',
+                                'u' => 1000,
+                            ),
+                            'e' => array(
+                                'd' => '20130315T18302305Z',
+                                'tz' => 'tz',
+                                'u' => 2000,
+                            ),
+                            'dur' => array(
+                                'neg' => 1,
+                                'w' => 1,
+                                'd' => 2,
+                                'h' => 3,
+                                'm' => 4,
+                                's' => 5,
+                                'related' => 'START',
+                                'count' => 6,
+                            ),
+                        ),
+                    ),
+                ),
+                'rule' => array(
+                    'freq' => 'SEC',
+                    'until' => array(
+                        'd' => '20120315T18302305Z',
+                    ),
+                    'count' => array(
+                        'num' => 20120315,
+                    ),
+                    'interval' => array(
+                        'ival' => 20120315,
+                    ),
+                    'bysecond' => array(
+                        'seclist' => '10,20,30',
+                    ),
+                    'byminute' => array(
+                        'minlist' => '10,20,30',
+                    ),
+                    'byhour' => array(
+                        'hrlist' => '5,10,15',
+                    ),
+                    'byday' => array(
+                        'wkday' => array(
+                            array(
+                                'day' => 'SU',
+                                'ordwk' => 1,
+                            ),
+                        )
+                    ),
+                    'bymonthday' => array(
+                        'modaylist' => '5,10,15',
+                    ),
+                    'byyearday' => array(
+                        'yrdaylist' => '5,10,15',
+                    ),
+                    'byweekno' => array(
+                        'wklist' => '5,10,15',
+                    ),
+                    'bymonth' => array(
+                        'molist' => '5,10',
+                    ),
+                    'bysetpos' => array(
+                        'poslist' => '5,10,15',
+                    ),
+                    'wkst' => array(
+                        'day' => 'SU',
+                    ),
+                    'rule-x-name' => array(
+                        array(
+                            'name' => 'name',
+                            'value' => 'value',
+                        ),
+                    ),
+                ),
+            ),
+        );
+        $this->assertEquals($array, $recur->toArray());
+    }
+
+    public function testExceptionRecurIdInfo()
+    {
+        $exceptId = new \Zimbra\Soap\Struct\ExceptionRecurIdInfo(
+            '20120315T18302305Z', 'tz', -1
+        );
+        $this->assertSame('20120315T18302305Z', $exceptId->d());
+        $this->assertSame('tz', $exceptId->tz());
+        $this->assertSame(-1, $exceptId->rangeType());
+
+        $exceptId->d('20120315T18302305Z')
+                 ->tz('tz')
+                 ->rangeType(-1);
+        $this->assertSame('20120315T18302305Z', $exceptId->d());
+        $this->assertSame('tz', $exceptId->tz());
+        $this->assertSame(-1, $exceptId->rangeType());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<exceptId d="20120315T18302305Z" tz="tz" rangeType="-1" />';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $exceptId);
+
+        $array = array(
+            'exceptId' => array(
+                'd' => '20120315T18302305Z',
+                'tz' => 'tz',
+                'rangeType' => -1,
+            ),
+        );
+        $this->assertEquals($array, $exceptId->toArray());
+    }
+
+    public function testInviteComponentCommon()
+    {
+        $subject = InviteChange::SUBJECT();
+        $location = InviteChange::LOCATION();
+        $time = InviteChange::TIME();
+        $comp = new \Zimbra\Soap\Struct\InviteComponentCommon(
+            'method',
+            1,
+            true,
+            1,
+            'name',
+            'loc',
+            1,
+            '20120315T18302305Z',
+            true,
+            FreeBusyStatus::F(),
+            FreeBusyStatus::F(),
+            Transparency::O(),
+            true,
+            'x_uid',
+            'uid',
+            1,
+            1,
+            'calItemId',
+            'apptId',
+            'ciFolder',
+            InviteStatus::COMP(),
+            InviteClass::PUB(),
+            'url',
+            true,
+            'ridZ',
+            true,
+            true,
+            true,
+            array($subject, $location)
+        );
+
+        $this->assertSame('method', $comp->method());
+        $this->assertSame(1, $comp->compNum());
+        $this->assertTrue($comp->rsvp());
+        $this->assertSame(1, $comp->priority());
+        $this->assertSame('name', $comp->name());
+        $this->assertSame('loc', $comp->loc());
+        $this->assertSame(1, $comp->percentComplete());
+        $this->assertSame('20120315T18302305Z', $comp->completed());
+        $this->assertTrue($comp->noBlob());
+        $this->assertTrue($comp->fba()->is('F'));
+        $this->assertTrue($comp->fb()->is('F'));
+        $this->assertTrue($comp->transp()->is('O'));
+        $this->assertTrue($comp->isOrg());
+        $this->assertSame('x_uid', $comp->x_uid());
+        $this->assertSame('uid', $comp->uid());
+        $this->assertSame(1, $comp->seq());
+        $this->assertSame(1, $comp->d());
+        $this->assertSame('calItemId', $comp->calItemId());
+        $this->assertSame('apptId', $comp->apptId());
+        $this->assertSame('ciFolder', $comp->ciFolder());
+        $this->assertTrue($comp->status()->is('COMP'));
+        $this->assertTrue($comp->klass()->is('PUB'));
+        $this->assertSame('url', $comp->url());
+        $this->assertTrue($comp->ex());
+        $this->assertSame('ridZ', $comp->ridZ());
+        $this->assertTrue($comp->allDay());
+        $this->assertTrue($comp->draft());
+        $this->assertTrue($comp->neverSent());
+        $this->assertSame(array($subject, $location), $comp->change()->all());
+
+        $comp->method('method')
+             ->compNum(1)
+             ->rsvp(true)
+             ->priority(1)
+             ->name('name')
+             ->loc('loc')
+             ->percentComplete(1)
+             ->completed('20120315T18302305Z')
+             ->noBlob(true)
+             ->fba(FreeBusyStatus::F())
+             ->fb(FreeBusyStatus::F())
+             ->transp(Transparency::O())
+             ->isOrg(true)
+             ->x_uid('x_uid')
+             ->uid('uid')
+             ->seq(1)
+             ->d(1)
+             ->calItemId('calItemId')
+             ->apptId('apptId')
+             ->ciFolder('ciFolder')
+             ->status(InviteStatus::COMP())
+             ->klass(InviteClass::PUB())
+             ->url('url')
+             ->ex(true)
+             ->ridZ('ridZ')
+             ->allDay(true)
+             ->draft(true)
+             ->neverSent(true)
+             ->addChange($time);
+        $this->assertSame('method', $comp->method());
+        $this->assertSame(1, $comp->compNum());
+        $this->assertTrue($comp->rsvp());
+        $this->assertSame(1, $comp->priority());
+        $this->assertSame('name', $comp->name());
+        $this->assertSame('loc', $comp->loc());
+        $this->assertSame(1, $comp->percentComplete());
+        $this->assertSame('20120315T18302305Z', $comp->completed());
+        $this->assertTrue($comp->noBlob());
+        $this->assertTrue($comp->fba()->is('F'));
+        $this->assertTrue($comp->fb()->is('F'));
+        $this->assertTrue($comp->transp()->is('O'));
+        $this->assertTrue($comp->isOrg());
+        $this->assertSame('x_uid', $comp->x_uid());
+        $this->assertSame('uid', $comp->uid());
+        $this->assertSame(1, $comp->seq());
+        $this->assertSame(1, $comp->d());
+        $this->assertSame('calItemId', $comp->calItemId());
+        $this->assertSame('apptId', $comp->apptId());
+        $this->assertSame('ciFolder', $comp->ciFolder());
+        $this->assertTrue($comp->status()->is('COMP'));
+        $this->assertTrue($comp->klass()->is('PUB'));
+        $this->assertSame('url', $comp->url());
+        $this->assertTrue($comp->ex());
+        $this->assertSame('ridZ', $comp->ridZ());
+        $this->assertTrue($comp->allDay());
+        $this->assertTrue($comp->draft());
+        $this->assertTrue($comp->neverSent());
+        $this->assertSame(array($subject, $location, $time), $comp->change()->all());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<comp'
+                .' method="method"'
+                .' compNum="1"'
+                .' rsvp="1"'
+                .' priority="1"'
+                .' name="name"'
+                .' loc="loc"'
+                .' percentComplete="1"'
+                .' completed="20120315T18302305Z"'
+                .' noBlob="1"'
+                .' fba="F"'
+                .' fb="F"'
+                .' transp="O"'
+                .' isOrg="1"'
+                .' x_uid="x_uid"'
+                .' uid="uid"'
+                .' seq="1"'
+                .' d="1"'
+                .' calItemId="calItemId"'
+                .' apptId="apptId"'
+                .' ciFolder="ciFolder"'
+                .' status="COMP"'
+                .' class="PUB"'
+                .' url="url"'
+                .' ex="1"'
+                .' ridZ="ridZ"'
+                .' allDay="1"'
+                .' draft="1"'
+                .' neverSent="1"'
+                .' change="subject,location,time"'
+            .' />';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $comp);
+
+        $array = array(
+            'comp' => array(
+                'method' => 'method',
+                'compNum' => 1,
+                'rsvp' => 1,
+                'priority' => 1,
+                'name' => 'name',
+                'loc' => 'loc',
+                'percentComplete' => 1,
+                'completed' => '20120315T18302305Z',
+                'noBlob' => 1,
+                'fba' => 'F',
+                'fb' => 'F',
+                'transp' => 'O',
+                'isOrg' => 1,
+                'x_uid' => 'x_uid',
+                'uid' => 'uid',
+                'seq' => 1,
+                'd' => 1,
+                'calItemId' => 'calItemId',
+                'apptId' => 'apptId',
+                'ciFolder' => 'ciFolder',
+                'status' => 'COMP',
+                'class' => 'PUB',
+                'url' => 'url',
+                'ex' => 1,
+                'ridZ' => 'ridZ',
+                'allDay' => 1,
+                'draft' => 1,
+                'neverSent' => 1,
+                'change' => 'subject,location,time',
+            ),
+        );
+        $this->assertEquals($array, $comp->toArray());
+    }
+
+    public function testInviteComponent()
+    {
+        $xparam = new \Zimbra\Soap\Struct\XParam('name', 'value');
+        $at = new \Zimbra\Soap\Struct\CalendarAttendee(array($xparam)
+            , 'a', 'url', 'd', 'sentBy', 'dir', 'lang', 'cutype', 'role', PartStatus::NE(), true, 'member', 'delTo', 'delFrom'
+        );
+        $abs = new \Zimbra\Soap\Struct\DateAttr('20120315T18302305Z');
+        $rel = new \Zimbra\Soap\Struct\DurationInfo(true, 1, 2, 3, 4, 5, 'START', 6);
+        $trigger = new \Zimbra\Soap\Struct\AlarmTriggerInfo($abs, $rel);
+        $repeat = new \Zimbra\Soap\Struct\DurationInfo(false, 1, 2, 3, 4, 5, 'END', 6);
+        $attach = new \Zimbra\Soap\Struct\CalendarAttach('uri', 'ct', 'value');
+        $except = new \Zimbra\Soap\Struct\ExceptionRuleInfo(
+            1, '991231', 'tz', '991231000000'
+        );
+        $cancel = new \Zimbra\Soap\Struct\CancelRuleInfo(
+            1, '991231', 'tz', '991231000000'
+        );
+        $s = new \Zimbra\Soap\Struct\DtTimeInfo(
+            '20120315T18302305Z', 'tz', 1000
+        );
+        $e = new \Zimbra\Soap\Struct\DtTimeInfo(
+            '20130315T18302305Z', 'tz', 2000
+        );
+        $dur = new \Zimbra\Soap\Struct\DurationInfo(
+            true, 1, 2, 3, 4, 5, 'START', 6
+        );
+        $dtval = new \Zimbra\Soap\Struct\DtVal($s, $e, $dur);
+        $dates = new \Zimbra\Soap\Struct\SingleDates('tz', array($dtval));
+        $wkday = new \Zimbra\Soap\Struct\WkDay(WeekDay::SU(), 1);
+        $until = new \Zimbra\Soap\Struct\DateTimeStringAttr('20120315T18302305Z');
+        $count = new \Zimbra\Soap\Struct\NumAttr(20120315);
+        $interval = new \Zimbra\Soap\Struct\IntervalRule(20120315);
+        $bysecond = new \Zimbra\Soap\Struct\BySecondRule('10,a,20,b,30');
+        $byminute = new \Zimbra\Soap\Struct\ByMinuteRule('10,a,20,b,30');
+        $byhour = new \Zimbra\Soap\Struct\ByHourRule('5,a,10,b,15');
+        $byday = new \Zimbra\Soap\Struct\ByDayRule(array($wkday));
+        $bymonthday = new \Zimbra\Soap\Struct\ByMonthDayRule('5,a,10,b,15,32');
+        $byyearday = new \Zimbra\Soap\Struct\ByYearDayRule('5,a,10,b,15,367');
+        $byweekno = new \Zimbra\Soap\Struct\ByWeekNoRule('5,a,10,b,15,54');
+        $bymonth = new \Zimbra\Soap\Struct\ByMonthRule('5,a,10,b,15');
+        $bysetpos = new \Zimbra\Soap\Struct\BySetPosRule('5,a,10,b,15,367');
+        $wkst = new \Zimbra\Soap\Struct\WkstRule(WeekDay::SU());
+        $xname = new \Zimbra\Soap\Struct\XNameRule('name', 'value');
+        $rule = new \Zimbra\Soap\Struct\SimpleRepeatingRule(
+            Frequency::SEC(),
+            $until,
+            $count,
+            $interval,
+            $bysecond,
+            $byminute,
+            $byhour,
+            $byday,
+            $bymonthday,
+            $byyearday,
+            $byweekno,
+            $bymonth,
+            $bysetpos,
+            $wkst,
+            array($xname)
+        );
+        $add = new \Zimbra\Soap\Struct\AddRecurrenceInfo(null, null, $except, $cancel, $dates, $rule);
+        $exclude = new \Zimbra\Soap\Struct\ExcludeRecurrenceInfo(null, null, $except, $cancel, $dates, $rule);
+
+        $geo = new \Zimbra\Soap\Struct\GeoInfo(123.456, 654.321);
+        $xprop = new \Zimbra\Soap\Struct\XProp('name', 'value', array($xparam));
+        $alarm = new \Zimbra\Soap\Struct\AlarmInfo(
+            AlarmAction::DISPLAY(), $trigger, $repeat, 'desc', $attach, 'summary', array($at), array($xprop)
+        );
+        $org = new \Zimbra\Soap\Struct\CalOrganizer(array($xparam)
+            , 'a', 'url', 'd', 'sentBy', 'dir', 'lang'
+        );
+        $recur = new \Zimbra\Soap\Struct\RecurrenceInfo($add, $exclude, $except, $cancel, $dates, $rule);
+        $exceptId = new \Zimbra\Soap\Struct\ExceptionRecurIdInfo(
+            '20120315T18302305Z', 'tz', -1
+        );
+
+        $comp = new \Zimbra\Soap\Struct\InviteComponent(
+            'method',
+            1,
+            true,
+            1,
+            'name',
+            'loc',
+            1,
+            '20120315T18302305Z',
+            true,
+            FreeBusyStatus::F(),
+            FreeBusyStatus::F(),
+            Transparency::O(),
+            true,
+            'x_uid',
+            'uid',
+            1,
+            1,
+            'calItemId',
+            'apptId',
+            'ciFolder',
+            InviteStatus::COMP(),
+            InviteClass::PUB(),
+            'url',
+            true,
+            'ridZ',
+            true,
+            true,
+            true,
+            array(InviteChange::SUBJECT(), InviteChange::LOCATION(), InviteChange::TIME()),
+            array('category1', 'category2'),
+            array('comment1', 'comment2'),
+            array('contact1', 'contact2'),
+            $geo,
+            array($at),
+            array($alarm),
+            array($xprop),
+            'fr',
+            'desc',
+            'descHtml',
+            $org,
+            $recur,
+            $exceptId,
+            $s,
+            $e,
+            $dur
+        );
+
+        $this->assertSame(array('category1', 'category2'), $comp->category());
+        $this->assertSame(array('comment1', 'comment2'), $comp->comment());
+        $this->assertSame(array('contact1', 'contact2'), $comp->contact());
+        $this->assertSame($geo, $comp->geo());
+        $this->assertSame(array($at), $comp->at()->all());
+        $this->assertSame(array($alarm), $comp->alarm()->all());
+        $this->assertSame(array($xprop), $comp->xprop()->all());
+        $this->assertSame('fr', $comp->fr());
+        $this->assertSame('desc', $comp->desc());
+        $this->assertSame('descHtml', $comp->descHtml());
+        $this->assertSame($org, $comp->org());
+        $this->assertSame($recur, $comp->recur());
+        $this->assertSame($exceptId, $comp->exceptId());
+        $this->assertSame($s, $comp->s());
+        $this->assertSame($e, $comp->e());
+        $this->assertSame($dur, $comp->dur());
+
+        $comp->category(array('category1', 'category2'))
+             ->comment(array('comment1', 'comment2'))
+             ->contact(array('contact1', 'contact2'))
+             ->geo($geo)
+             ->addAt($at)
+             ->addAlarm($alarm)
+             ->addXProp($xprop)
+             ->fr('fr')
+             ->desc('desc')
+             ->descHtml('descHtml')
+             ->org($org)
+             ->recur($recur)
+             ->exceptId($exceptId)
+             ->s($s)
+             ->e($e)
+             ->dur($dur);
+        $this->assertSame(array('category1', 'category2'), $comp->category());
+        $this->assertSame(array('comment1', 'comment2'), $comp->comment());
+        $this->assertSame(array('contact1', 'contact2'), $comp->contact());
+        $this->assertSame($geo, $comp->geo());
+        $this->assertSame(array($at, $at), $comp->at()->all());
+        $this->assertSame(array($alarm, $alarm), $comp->alarm()->all());
+        $this->assertSame(array($xprop, $xprop), $comp->xprop()->all());
+        $this->assertSame('fr', $comp->fr());
+        $this->assertSame('desc', $comp->desc());
+        $this->assertSame('descHtml', $comp->descHtml());
+        $this->assertSame($org, $comp->org());
+        $this->assertSame($recur, $comp->recur());
+        $this->assertSame($exceptId, $comp->exceptId());
+        $this->assertSame($s, $comp->s());
+        $this->assertSame($e, $comp->e());
+        $this->assertSame($dur, $comp->dur());
+
+        $comp = new \Zimbra\Soap\Struct\InviteComponent(
+            'method',
+            1,
+            true,
+            1,
+            'name',
+            'loc',
+            1,
+            '20120315T18302305Z',
+            true,
+            FreeBusyStatus::F(),
+            FreeBusyStatus::F(),
+            Transparency::O(),
+            true,
+            'x_uid',
+            'uid',
+            1,
+            1,
+            'calItemId',
+            'apptId',
+            'ciFolder',
+            InviteStatus::COMP(),
+            InviteClass::PUB(),
+            'url',
+            true,
+            'ridZ',
+            true,
+            true,
+            true,
+            array(InviteChange::SUBJECT(), InviteChange::LOCATION(), InviteChange::TIME()),
+            array('category1', 'category2'),
+            array('comment1', 'comment2'),
+            array('contact1', 'contact2'),
+            $geo,
+            array($at),
+            array($alarm),
+            array($xprop),
+            'fr',
+            'desc',
+            'descHtml',
+            $org,
+            $recur,
+            $exceptId,
+            $s,
+            $e,
+            $dur
+        );
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<comp'
+                .' method="method"'
+                .' compNum="1"'
+                .' rsvp="1"'
+                .' priority="1"'
+                .' name="name"'
+                .' loc="loc"'
+                .' percentComplete="1"'
+                .' completed="20120315T18302305Z"'
+                .' noBlob="1"'
+                .' fba="F"'
+                .' fb="F"'
+                .' transp="O"'
+                .' isOrg="1"'
+                .' x_uid="x_uid"'
+                .' uid="uid"'
+                .' seq="1"'
+                .' d="1"'
+                .' calItemId="calItemId"'
+                .' apptId="apptId"'
+                .' ciFolder="ciFolder"'
+                .' status="COMP"'
+                .' class="PUB"'
+                .' url="url"'
+                .' ex="1"'
+                .' ridZ="ridZ"'
+                .' allDay="1"'
+                .' draft="1"'
+                .' neverSent="1"'
+                .' change="subject,location,time">'
+                .'<category>category1</category>'
+                .'<category>category2</category>'
+                .'<comment>comment1</comment>'
+                .'<comment>comment2</comment>'
+                .'<contact>contact1</contact>'
+                .'<contact>contact2</contact>'
+                .'<geo lat="123.456" lon="654.321" />'
+                .'<at a="a" url="url" d="d" sentBy="sentBy" dir="dir" lang="lang" cutype="cutype" role="role" ptst="NE" rsvp="1" member="member" delTo="delTo" delFrom="delFrom">'
+                    .'<xparam name="name" value="value" />'
+                .'</at>'
+                .'<alarm action="DISPLAY">'
+                    .'<trigger>'
+                        .'<abs d="20120315T18302305Z" />'
+                        .'<rel neg="1" w="1" d="2" h="3" m="4" s="5" related="START" count="6" />'
+                    .'</trigger>'
+                    .'<repeat neg="0" w="1" d="2" h="3" m="4" s="5" related="END" count="6" />'
+                    .'<desc>desc</desc>'
+                    .'<attach uri="uri" ct="ct">value</attach>'
+                    .'<summary>summary</summary>'
+                    .'<at a="a" url="url" d="d" sentBy="sentBy" dir="dir" lang="lang" cutype="cutype" role="role" ptst="NE" rsvp="1" member="member" delTo="delTo" delFrom="delFrom">'
+                        .'<xparam name="name" value="value" />'
+                    .'</at>'
+                    .'<xprop name="name" value="value">'
+                        .'<xparam name="name" value="value" />'
+                    .'</xprop>'
+                .'</alarm>'
+                .'<xprop name="name" value="value">'
+                    .'<xparam name="name" value="value" />'
+                .'</xprop>'
+                .'<fr>fr</fr>'
+                .'<desc>desc</desc>'
+                .'<descHtml>descHtml</descHtml>'
+                .'<or a="a" url="url" d="d" sentBy="sentBy" dir="dir" lang="lang">'
+                    .'<xparam name="name" value="value" />'
+                .'</or>'
+                .'<recur>'
+                    .'<add>'
+                        .'<except rangeType="1" recurId="991231" tz="tz" ridZ="991231000000" />'
+                        .'<cancel rangeType="1" recurId="991231" tz="tz" ridZ="991231000000" />'
+                        .'<dates tz="tz">'
+                            .'<dtval>'
+                                .'<s d="20120315T18302305Z" tz="tz" u="1000" />'
+                                .'<e d="20130315T18302305Z" tz="tz" u="2000" />'
+                                .'<dur neg="1" w="1" d="2" h="3" m="4" s="5" related="START" count="6" />'
+                            .'</dtval>'
+                        .'</dates>'
+                        .'<rule freq="SEC">'
+                            .'<until d="20120315T18302305Z" />'
+                            .'<count num="20120315" />'
+                            .'<interval ival="20120315" />'
+                            .'<bysecond seclist="10,20,30" />'
+                            .'<byminute minlist="10,20,30" />'
+                            .'<byhour hrlist="5,10,15" />'
+                            .'<byday>'
+                                .'<wkday day="SU" ordwk="1" />'
+                            .'</byday>'
+                            .'<bymonthday modaylist="5,10,15" />'
+                            .'<byyearday yrdaylist="5,10,15" />'
+                            .'<byweekno wklist="5,10,15" />'
+                            .'<bymonth molist="5,10" />'
+                            .'<bysetpos poslist="5,10,15" />'
+                            .'<wkst day="SU" />'
+                            .'<rule-x-name name="name" value="value" />'
+                        .'</rule>'
+                    .'</add>'
+                    .'<exclude>'
+                        .'<except rangeType="1" recurId="991231" tz="tz" ridZ="991231000000" />'
+                        .'<cancel rangeType="1" recurId="991231" tz="tz" ridZ="991231000000" />'
+                        .'<dates tz="tz">'
+                            .'<dtval>'
+                                .'<s d="20120315T18302305Z" tz="tz" u="1000" />'
+                                .'<e d="20130315T18302305Z" tz="tz" u="2000" />'
+                                .'<dur neg="1" w="1" d="2" h="3" m="4" s="5" related="START" count="6" />'
+                            .'</dtval>'
+                        .'</dates>'
+                        .'<rule freq="SEC">'
+                            .'<until d="20120315T18302305Z" />'
+                            .'<count num="20120315" />'
+                            .'<interval ival="20120315" />'
+                            .'<bysecond seclist="10,20,30" />'
+                            .'<byminute minlist="10,20,30" />'
+                            .'<byhour hrlist="5,10,15" />'
+                            .'<byday>'
+                                .'<wkday day="SU" ordwk="1" />'
+                            .'</byday>'
+                            .'<bymonthday modaylist="5,10,15" />'
+                            .'<byyearday yrdaylist="5,10,15" />'
+                            .'<byweekno wklist="5,10,15" />'
+                            .'<bymonth molist="5,10" />'
+                            .'<bysetpos poslist="5,10,15" />'
+                            .'<wkst day="SU" />'
+                            .'<rule-x-name name="name" value="value" />'
+                        .'</rule>'
+                    .'</exclude>'
+                    .'<except rangeType="1" recurId="991231" tz="tz" ridZ="991231000000" />'
+                    .'<cancel rangeType="1" recurId="991231" tz="tz" ridZ="991231000000" />'
+                    .'<dates tz="tz">'
+                        .'<dtval>'
+                            .'<s d="20120315T18302305Z" tz="tz" u="1000" />'
+                            .'<e d="20130315T18302305Z" tz="tz" u="2000" />'
+                            .'<dur neg="1" w="1" d="2" h="3" m="4" s="5" related="START" count="6" />'
+                        .'</dtval>'
+                    .'</dates>'
+                    .'<rule freq="SEC">'
+                        .'<until d="20120315T18302305Z" />'
+                        .'<count num="20120315" />'
+                        .'<interval ival="20120315" />'
+                        .'<bysecond seclist="10,20,30" />'
+                        .'<byminute minlist="10,20,30" />'
+                        .'<byhour hrlist="5,10,15" />'
+                        .'<byday>'
+                            .'<wkday day="SU" ordwk="1" />'
+                        .'</byday>'
+                        .'<bymonthday modaylist="5,10,15" />'
+                        .'<byyearday yrdaylist="5,10,15" />'
+                        .'<byweekno wklist="5,10,15" />'
+                        .'<bymonth molist="5,10" />'
+                        .'<bysetpos poslist="5,10,15" />'
+                        .'<wkst day="SU" />'
+                        .'<rule-x-name name="name" value="value" />'
+                    .'</rule>'
+                .'</recur>'
+                .'<exceptId d="20120315T18302305Z" tz="tz" rangeType="-1" />'
+                .'<s d="20120315T18302305Z" tz="tz" u="1000" />'
+                .'<e d="20130315T18302305Z" tz="tz" u="2000" />'
+                .'<dur neg="1" w="1" d="2" h="3" m="4" s="5" related="START" count="6" />'
+            .'</comp>';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $comp);
+
+        $array = array(
+            'comp' => array(
+                'method' => 'method',
+                'compNum' => 1,
+                'rsvp' => 1,
+                'priority' => 1,
+                'name' => 'name',
+                'loc' => 'loc',
+                'percentComplete' => 1,
+                'completed' => '20120315T18302305Z',
+                'noBlob' => 1,
+                'fba' => 'F',
+                'fb' => 'F',
+                'transp' => 'O',
+                'isOrg' => 1,
+                'x_uid' => 'x_uid',
+                'uid' => 'uid',
+                'seq' => 1,
+                'd' => 1,
+                'calItemId' => 'calItemId',
+                'apptId' => 'apptId',
+                'ciFolder' => 'ciFolder',
+                'status' => 'COMP',
+                'class' => 'PUB',
+                'url' => 'url',
+                'ex' => 1,
+                'ridZ' => 'ridZ',
+                'allDay' => 1,
+                'draft' => 1,
+                'neverSent' => 1,
+                'change' => 'subject,location,time',
+                'category' => array(
+                    'category1',
+                    'category2',
+                ),
+                'comment' => array(
+                    'comment1',
+                    'comment2',
+                ),
+                'contact' => array(
+                    'contact1',
+                    'contact2',
+                ),
+                'geo' => array(
+                    'lat' => 123.456,
+                    'lon' => 654.321,
+                ),
+                'at' => array(
+                    array(
+                        'a' => 'a',
+                        'url' => 'url',
+                        'd' => 'd',
+                        'sentBy' => 'sentBy',
+                        'dir' => 'dir',
+                        'lang' => 'lang',
+                        'cutype' => 'cutype',
+                        'role' => 'role',
+                        'ptst' => 'NE',
+                        'rsvp' => 1,
+                        'member' => 'member',
+                        'delTo' => 'delTo',
+                        'delFrom' => 'delFrom',
+                        'xparam' => array(
+                            array(
+                                'name' => 'name',
+                                'value' => 'value',
+                            ),
+                        ),
+                    ),
+                ),
+                'alarm' => array(
+                    array(
+                        'action' => 'DISPLAY',
+                        'trigger' => array(
+                            'abs' => array(
+                                'd' => '20120315T18302305Z',
+                            ),
+                            'rel' => array(
+                                'neg' => 1,
+                                'w' => 1,
+                                'd' => 2,
+                                'h' => 3,
+                                'm' => 4,
+                                's' => 5,
+                                'related' => 'START',
+                                'count' => 6,
+                            ),
+                        ),
+                        'repeat' => array(
+                            'neg' => 0,
+                            'w' => 1,
+                            'd' => 2,
+                            'h' => 3,
+                            'm' => 4,
+                            's' => 5,
+                            'related' => 'END',
+                            'count' => 6,
+                        ),
+                        'desc' => 'desc',
+                        'attach' => array(
+                            'uri' => 'uri',
+                            'ct' => 'ct',
+                            '_' => 'value',
+                        ),
+                        'summary' => 'summary',
+                        'at' => array(
+                            array(
+                                'a' => 'a',
+                                'url' => 'url',
+                                'd' => 'd',
+                                'sentBy' => 'sentBy',
+                                'dir' => 'dir',
+                                'lang' => 'lang',
+                                'cutype' => 'cutype',
+                                'role' => 'role',
+                                'ptst' => 'NE',
+                                'rsvp' => 1,
+                                'member' => 'member',
+                                'delTo' => 'delTo',
+                                'delFrom' => 'delFrom',
+                                'xparam' => array(
+                                    array(
+                                        'name' => 'name',
+                                        'value' => 'value',
+                                    ),
+                                ),
+                            ),
+                        ),
+                        'xprop' => array(
+                            array(
+                                'name' => 'name',
+                                'value' => 'value',
+                                'xparam' => array(
+                                    array(
+                                        'name' => 'name',
+                                        'value' => 'value',
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                'xprop' => array(
+                    array(
+                        'name' => 'name',
+                        'value' => 'value',
+                        'xparam' => array(
+                            array(
+                                'name' => 'name',
+                                'value' => 'value',
+                            ),
+                        ),
+                    ),
+                ),
+                'fr' => 'fr',
+                'desc' => 'desc',
+                'descHtml' => 'descHtml',
+                'or' => array(
+                    'a' => 'a',
+                    'url' => 'url',
+                    'd' => 'd',
+                    'sentBy' => 'sentBy',
+                    'dir' => 'dir',
+                    'lang' => 'lang',
+                    'xparam' => array(
+                        array(
+                            'name' => 'name',
+                            'value' => 'value',
+                        ),
+                    ),
+                ),
+                'recur' => array(
+                    'add' => array(
+                        'except' => array(
+                            'rangeType' => 1,
+                            'recurId' => '991231',
+                            'tz' => 'tz',
+                            'ridZ' => '991231000000',
+                        ),
+                        'cancel' => array(
+                            'rangeType' => 1,
+                            'recurId' => '991231',
+                            'tz' => 'tz',
+                            'ridZ' => '991231000000',
+                        ),
+                        'dates' => array(
+                            'tz' => 'tz',
+                            'dtval' => array(
+                                array(
+                                    's' => array(
+                                        'd' => '20120315T18302305Z',
+                                        'tz' => 'tz',
+                                        'u' => 1000,
+                                    ),
+                                    'e' => array(
+                                        'd' => '20130315T18302305Z',
+                                        'tz' => 'tz',
+                                        'u' => 2000,
+                                    ),
+                                    'dur' => array(
+                                        'neg' => 1,
+                                        'w' => 1,
+                                        'd' => 2,
+                                        'h' => 3,
+                                        'm' => 4,
+                                        's' => 5,
+                                        'related' => 'START',
+                                        'count' => 6,
+                                    ),
+                                ),
+                            ),
+                        ),
+                        'rule' => array(
+                            'freq' => 'SEC',
+                            'until' => array(
+                                'd' => '20120315T18302305Z',
+                            ),
+                            'count' => array(
+                                'num' => 20120315,
+                            ),
+                            'interval' => array(
+                                'ival' => 20120315,
+                            ),
+                            'bysecond' => array(
+                                'seclist' => '10,20,30',
+                            ),
+                            'byminute' => array(
+                                'minlist' => '10,20,30',
+                            ),
+                            'byhour' => array(
+                                'hrlist' => '5,10,15',
+                            ),
+                            'byday' => array(
+                                'wkday' => array(
+                                    array(
+                                        'day' => 'SU',
+                                        'ordwk' => 1,
+                                    ),
+                                )
+                            ),
+                            'bymonthday' => array(
+                                'modaylist' => '5,10,15',
+                            ),
+                            'byyearday' => array(
+                                'yrdaylist' => '5,10,15',
+                            ),
+                            'byweekno' => array(
+                                'wklist' => '5,10,15',
+                            ),
+                            'bymonth' => array(
+                                'molist' => '5,10',
+                            ),
+                            'bysetpos' => array(
+                                'poslist' => '5,10,15',
+                            ),
+                            'wkst' => array(
+                                'day' => 'SU',
+                            ),
+                            'rule-x-name' => array(
+                                array(
+                                    'name' => 'name',
+                                    'value' => 'value',
+                                ),
+                            ),
+                        ),
+                    ),
+                    'exclude' => array(
+                        'except' => array(
+                            'rangeType' => 1,
+                            'recurId' => '991231',
+                            'tz' => 'tz',
+                            'ridZ' => '991231000000',
+                        ),
+                        'cancel' => array(
+                            'rangeType' => 1,
+                            'recurId' => '991231',
+                            'tz' => 'tz',
+                            'ridZ' => '991231000000',
+                        ),
+                        'dates' => array(
+                            'tz' => 'tz',
+                            'dtval' => array(
+                                array(
+                                    's' => array(
+                                        'd' => '20120315T18302305Z',
+                                        'tz' => 'tz',
+                                        'u' => 1000,
+                                    ),
+                                    'e' => array(
+                                        'd' => '20130315T18302305Z',
+                                        'tz' => 'tz',
+                                        'u' => 2000,
+                                    ),
+                                    'dur' => array(
+                                        'neg' => 1,
+                                        'w' => 1,
+                                        'd' => 2,
+                                        'h' => 3,
+                                        'm' => 4,
+                                        's' => 5,
+                                        'related' => 'START',
+                                        'count' => 6,
+                                    ),
+                                ),
+                            ),
+                        ),
+                        'rule' => array(
+                            'freq' => 'SEC',
+                            'until' => array(
+                                'd' => '20120315T18302305Z',
+                            ),
+                            'count' => array(
+                                'num' => 20120315,
+                            ),
+                            'interval' => array(
+                                'ival' => 20120315,
+                            ),
+                            'bysecond' => array(
+                                'seclist' => '10,20,30',
+                            ),
+                            'byminute' => array(
+                                'minlist' => '10,20,30',
+                            ),
+                            'byhour' => array(
+                                'hrlist' => '5,10,15',
+                            ),
+                            'byday' => array(
+                                'wkday' => array(
+                                    array(
+                                        'day' => 'SU',
+                                        'ordwk' => 1,
+                                    ),
+                                )
+                            ),
+                            'bymonthday' => array(
+                                'modaylist' => '5,10,15',
+                            ),
+                            'byyearday' => array(
+                                'yrdaylist' => '5,10,15',
+                            ),
+                            'byweekno' => array(
+                                'wklist' => '5,10,15',
+                            ),
+                            'bymonth' => array(
+                                'molist' => '5,10',
+                            ),
+                            'bysetpos' => array(
+                                'poslist' => '5,10,15',
+                            ),
+                            'wkst' => array(
+                                'day' => 'SU',
+                            ),
+                            'rule-x-name' => array(
+                                array(
+                                    'name' => 'name',
+                                    'value' => 'value',
+                                ),
+                            ),
+                        ),
+                    ),
+                    'except' => array(
+                        'rangeType' => 1,
+                        'recurId' => '991231',
+                        'tz' => 'tz',
+                        'ridZ' => '991231000000',
+                    ),
+                    'cancel' => array(
+                        'rangeType' => 1,
+                        'recurId' => '991231',
+                        'tz' => 'tz',
+                        'ridZ' => '991231000000',
+                    ),
+                    'dates' => array(
+                        'tz' => 'tz',
+                        'dtval' => array(
+                            array(
+                                's' => array(
+                                    'd' => '20120315T18302305Z',
+                                    'tz' => 'tz',
+                                    'u' => 1000,
+                                ),
+                                'e' => array(
+                                    'd' => '20130315T18302305Z',
+                                    'tz' => 'tz',
+                                    'u' => 2000,
+                                ),
+                                'dur' => array(
+                                    'neg' => 1,
+                                    'w' => 1,
+                                    'd' => 2,
+                                    'h' => 3,
+                                    'm' => 4,
+                                    's' => 5,
+                                    'related' => 'START',
+                                    'count' => 6,
+                                ),
+                            ),
+                        ),
+                    ),
+                    'rule' => array(
+                        'freq' => 'SEC',
+                        'until' => array(
+                            'd' => '20120315T18302305Z',
+                        ),
+                        'count' => array(
+                            'num' => 20120315,
+                        ),
+                        'interval' => array(
+                            'ival' => 20120315,
+                        ),
+                        'bysecond' => array(
+                            'seclist' => '10,20,30',
+                        ),
+                        'byminute' => array(
+                            'minlist' => '10,20,30',
+                        ),
+                        'byhour' => array(
+                            'hrlist' => '5,10,15',
+                        ),
+                        'byday' => array(
+                            'wkday' => array(
+                                array(
+                                    'day' => 'SU',
+                                    'ordwk' => 1,
+                                ),
+                            )
+                        ),
+                        'bymonthday' => array(
+                            'modaylist' => '5,10,15',
+                        ),
+                        'byyearday' => array(
+                            'yrdaylist' => '5,10,15',
+                        ),
+                        'byweekno' => array(
+                            'wklist' => '5,10,15',
+                        ),
+                        'bymonth' => array(
+                            'molist' => '5,10',
+                        ),
+                        'bysetpos' => array(
+                            'poslist' => '5,10,15',
+                        ),
+                        'wkst' => array(
+                            'day' => 'SU',
+                        ),
+                        'rule-x-name' => array(
+                            array(
+                                'name' => 'name',
+                                'value' => 'value',
+                            ),
+                        ),
+                    ),
+                ),
+                'exceptId' => array(
+                    'd' => '20120315T18302305Z',
+                    'tz' => 'tz',
+                    'rangeType' => -1,
+                ),
+                's' => array(
+                    'd' => '20120315T18302305Z',
+                    'tz' => 'tz',
+                    'u' => 1000,
+                ),
+                'e' => array(
+                    'd' => '20130315T18302305Z',
+                    'tz' => 'tz',
+                    'u' => 2000,
+                ),
+                'dur' => array(
+                    'neg' => 1,
+                    'w' => 1,
+                    'd' => 2,
+                    'h' => 3,
+                    'm' => 4,
+                    's' => 5,
+                    'related' => 'START',
+                    'count' => 6,
+                ),
+            ),
+        );
+        $this->assertEquals($array, $comp->toArray());
+    }
+
+    public function testInvitationInfo()
+    {
+        $mp = new \Zimbra\Soap\Struct\MimePartAttachSpec('mid', 'part', true);
+        $m = new \Zimbra\Soap\Struct\MsgAttachSpec('id', false);
+        $cn = new \Zimbra\Soap\Struct\ContactAttachSpec('id', false);
+        $doc = new \Zimbra\Soap\Struct\DocAttachSpec('path', 'id', 1, true);
+        $info = new \Zimbra\Soap\Struct\MimePartInfo(array(), null, 'ct', 'content', 'ci');
+
+        $standard = new \Zimbra\Soap\Struct\TzOnsetInfo(1, 2, 3, 4);
+        $daylight = new \Zimbra\Soap\Struct\TzOnsetInfo(4, 3, 2, 1);
+
+        $content = new \Zimbra\Soap\Struct\RawInvite('uid', 'value', 'summary');
+        $tz = new \Zimbra\Soap\Struct\CalTZInfo('id', 1, 1, 'stdname', 'dayname', $standard, $daylight);
+        $attach = new \Zimbra\Soap\Struct\AttachmentsInfo($mp, $m, $cn, $doc, 'aid');
+        $mp = new \Zimbra\Soap\Struct\MimePartInfo(array($info), $attach, 'ct', 'content', 'ci');
+        $comp = new \Zimbra\Soap\Struct\InviteComponent('method',1,true);
+
+        $inv = new \Zimbra\Soap\Struct\InvitationInfo(
+            'method',
+            1,
+            true
+        );
+
+        $inv->content($content)
+            ->comp($comp)
+            ->addTz($tz)
+            ->addMp($mp)
+            ->attach($attach)
+            ->id('id')
+            ->ct('ct')
+            ->ci('ci');
+
+        $this->assertSame($content, $inv->content());
+        $this->assertSame($comp, $inv->comp());
+        $this->assertSame(array($tz), $inv->tz()->all());
+        $this->assertSame(array($mp), $inv->mp()->all());
+        $this->assertSame($attach, $inv->attach());
+        $this->assertSame('id', $inv->id());
+        $this->assertSame('ct', $inv->ct());
+        $this->assertSame('ci', $inv->ci());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<inv method="method" compNum="1" rsvp="1" id="id" ct="ct" ci="ci">'
+                .'<content uid="uid" summary="summary">value</content>'
+                .'<comp method="method" compNum="1" rsvp="1" />'
+                .'<tz id="id" stdoff="1" dayoff="1" stdname="stdname" dayname="dayname">'
+                    .'<standard mon="1" hour="2" min="3" sec="4" />'
+                    .'<daylight mon="4" hour="3" min="2" sec="1" />'
+                .'</tz>'
+                .'<mp ct="ct" content="content" ci="ci">'
+                    .'<mp ct="ct" content="content" ci="ci" />'
+                    .'<attach aid="aid">'
+                        .'<mp mid="mid" part="part" optional="1" />'
+                        .'<m id="id" optional="0" />'
+                        .'<cn id="id" optional="0" />'
+                        .'<doc path="path" id="id" ver="1" optional="1" />'
+                    .'</attach>'
+                .'</mp>'
+                .'<attach aid="aid">'
+                    .'<mp mid="mid" part="part" optional="1" />'
+                    .'<m id="id" optional="0" />'
+                    .'<cn id="id" optional="0" />'
+                    .'<doc path="path" id="id" ver="1" optional="1" />'
+                .'</attach>'
+            .'</inv>';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $inv);
+
+        $array = array(
+            'inv' => array(
+                'method' => 'method',
+                'compNum' => 1,
+                'rsvp' => 1,
+                'id' => 'id',
+                'ct' => 'ct',
+                'ci' => 'ci',
+                'content' => array(
+                    '_' => 'value',
+                    'uid' => 'uid',
+                    'summary' => 'summary',
+                ),
+                'comp' => array(
+                    'method' => 'method',
+                    'compNum' => 1,
+                    'rsvp' => 1,
+                ),
+                'tz' => array(
+                    array(
+                        'id' => 'id',
+                        'stdoff' => 1,
+                        'dayoff' => 1,
+                        'stdname' => 'stdname',
+                        'dayname' => 'dayname',
+                        'standard' => array(
+                            'mon' => 1,
+                            'hour' => 2,
+                            'min' => 3,
+                            'sec' => 4,
+                        ),
+                        'daylight' => array(
+                            'mon' => 4,
+                            'hour' => 3,
+                            'min' => 2,
+                            'sec' => 1,
+                        ),
+                    ),
+                ),
+                'mp' => array(
+                    array(
+                        'ct' => 'ct',
+                        'content' => 'content',
+                        'ci' => 'ci',
+                        'mp' => array(
+                            array(
+                                'ct' => 'ct',
+                                'content' => 'content',
+                                'ci' => 'ci',
+                            ),
+                        ),
+                        'attach' => array(
+                            'aid' => 'aid',
+                            'mp' => array(
+                                'mid' => 'mid',
+                                'part' => 'part',
+                                'optional' => 1,
+                            ),
+                            'm' => array(
+                                'id' => 'id',
+                                'optional' => 0,
+                            ),
+                            'cn' => array(
+                                'id' => 'id',
+                                'optional' => 0,
+                            ),
+                            'doc' => array(
+                                'path' => 'path',
+                                'id' => 'id',
+                                'ver' => 1,
+                                'optional' => 1,
+                            ),
+                        ),
+                    ),
+                ),
+                'attach' => array(
+                    'aid' => 'aid',
+                    'mp' => array(
+                        'mid' => 'mid',
+                        'part' => 'part',
+                        'optional' => 1,
+                    ),
+                    'm' => array(
+                        'id' => 'id',
+                        'optional' => 0,
+                    ),
+                    'cn' => array(
+                        'id' => 'id',
+                        'optional' => 0,
+                    ),
+                    'doc' => array(
+                        'path' => 'path',
+                        'id' => 'id',
+                        'ver' => 1,
+                        'optional' => 1,
+                    ),
+                ),
+            ),
+        );
+        $this->assertEquals($array, $inv->toArray());
+    }
+
+    public function testEmailAddrInfo()
+    {
+        $e = new \Zimbra\Soap\Struct\EmailAddrInfo('a', 't', 'p');
+        $this->assertSame('a', $e->a());
+        $this->assertSame('t', $e->t());
+        $this->assertSame('p', $e->p());
+
+        $e->a('a')
+          ->t('t')
+          ->p('p');
+        $this->assertSame('a', $e->a());
+        $this->assertSame('t', $e->t());
+        $this->assertSame('p', $e->p());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<e a="a" t="t" p="p" />';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $e);
+
+        $array = array(
+            'e' => array(
+                'a' => 'a',
+                't' => 't',
+                'p' => 'p',
+            ),
+        );
+        $this->assertEquals($array, $e->toArray());
+    }
+
+    public function testMsg()
+    {
+        $mp = new \Zimbra\Soap\Struct\MimePartAttachSpec('mid', 'part', true);
+        $m = new \Zimbra\Soap\Struct\MsgAttachSpec('id', false);
+        $cn = new \Zimbra\Soap\Struct\ContactAttachSpec('id', false);
+        $doc = new \Zimbra\Soap\Struct\DocAttachSpec('path', 'id', 1, true);
+        $info = new \Zimbra\Soap\Struct\MimePartInfo(array(), null, 'ct', 'content', 'ci');
+        $standard = new \Zimbra\Soap\Struct\TzOnsetInfo(1, 2, 3, 4);
+        $daylight = new \Zimbra\Soap\Struct\TzOnsetInfo(4, 3, 2, 1);
+
+        $header = new \Zimbra\Soap\Struct\Header('name', 'value');
+        $attach = new \Zimbra\Soap\Struct\AttachmentsInfo($mp, $m, $cn, $doc, 'aid');
+        $mp = new \Zimbra\Soap\Struct\MimePartInfo(array($info), $attach, 'ct', 'content', 'ci');
+        $inv = new \Zimbra\Soap\Struct\InvitationInfo(
+            'method',
+            1,
+            true
+        );
+        $e = new \Zimbra\Soap\Struct\EmailAddrInfo('a', 't', 'p');
+        $tz = new \Zimbra\Soap\Struct\CalTZInfo('id', 1, 1, 'stdname', 'dayname', $standard, $daylight);
+
+        $m = new \Zimbra\Soap\Struct\Msg(
+            'aid',
+            'origid',
+            'rt',
+            'idnt',
+            'su',
+            'irt',
+            'l',
+            'f',
+            'content',
+            array($header),
+            $mp,
+            $attach,
+            $inv,
+            array($e),
+            array($tz),
+            'fr'
+        );
+
+        $this->assertSame('aid', $m->aid());
+        $this->assertSame('origid', $m->origid());
+        $this->assertSame('rt', $m->rt());
+        $this->assertSame('idnt', $m->idnt());
+        $this->assertSame('su', $m->su());
+        $this->assertSame('irt', $m->irt());
+        $this->assertSame('l', $m->l());
+        $this->assertSame('f', $m->f());
+        $this->assertSame('content', $m->content());
+        $this->assertSame(array($header), $m->header()->all());
+        $this->assertSame($mp, $m->mp());
+        $this->assertSame($attach, $m->attach());
+        $this->assertSame($inv, $m->inv());
+        $this->assertSame(array($e), $m->e()->all());
+        $this->assertSame(array($tz), $m->tz()->all());
+        $this->assertSame('fr', $m->fr());
+
+        $m->aid('aid')
+          ->origid('origid')
+          ->rt('rt')
+          ->idnt('idnt')
+          ->su('su')
+          ->irt('irt')
+          ->l('l')
+          ->f('f')
+          ->content('content')
+          ->addHeader($header)
+          ->mp($mp)
+          ->attach($attach)
+          ->inv($inv)
+          ->addE($e)
+          ->addTz($tz)
+          ->fr('fr');
+        $this->assertSame('aid', $m->aid());
+        $this->assertSame('origid', $m->origid());
+        $this->assertSame('rt', $m->rt());
+        $this->assertSame('idnt', $m->idnt());
+        $this->assertSame('su', $m->su());
+        $this->assertSame('irt', $m->irt());
+        $this->assertSame('l', $m->l());
+        $this->assertSame('f', $m->f());
+        $this->assertSame('content', $m->content());
+        $this->assertSame(array($header, $header), $m->header()->all());
+        $this->assertSame($mp, $m->mp());
+        $this->assertSame($attach, $m->attach());
+        $this->assertSame($inv, $m->inv());
+        $this->assertSame(array($e, $e), $m->e()->all());
+        $this->assertSame(array($tz, $tz), $m->tz()->all());
+        $this->assertSame('fr', $m->fr());
+
+        $m = new \Zimbra\Soap\Struct\Msg(
+            'aid',
+            'origid',
+            'rt',
+            'idnt',
+            'su',
+            'irt',
+            'l',
+            'f',
+            'content',
+            array($header),
+            $mp,
+            $attach,
+            $inv,
+            array($e),
+            array($tz),
+            'fr'
+        );
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<m aid="aid" origid="origid" rt="rt" idnt="idnt" su="su" irt="irt" l="l" f="f">'
+                .'<content>content</content>'
+                .'<header name="name">value</header>'
+                .'<mp ct="ct" content="content" ci="ci">'
+                    .'<mp ct="ct" content="content" ci="ci" />'
+                    .'<attach aid="aid">'
+                        .'<mp mid="mid" part="part" optional="1" />'
+                        .'<m id="id" optional="0" />'
+                        .'<cn id="id" optional="0" />'
+                        .'<doc path="path" id="id" ver="1" optional="1" />'
+                    .'</attach>'
+                .'</mp>'
+                .'<attach aid="aid">'
+                    .'<mp mid="mid" part="part" optional="1" />'
+                    .'<m id="id" optional="0" />'
+                    .'<cn id="id" optional="0" />'
+                    .'<doc path="path" id="id" ver="1" optional="1" />'
+                .'</attach>'
+                .'<inv method="method" compNum="1" rsvp="1" />'
+                .'<e a="a" t="t" p="p" />'
+                .'<tz id="id" stdoff="1" dayoff="1" stdname="stdname" dayname="dayname">'
+                    .'<standard mon="1" hour="2" min="3" sec="4" />'
+                    .'<daylight mon="4" hour="3" min="2" sec="1" />'
+                .'</tz>'
+                .'<fr>fr</fr>'
+            .'</m>';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $m);
+
+        $array = array(
+            'm' => array(
+                'aid' => 'aid',
+                'origid' => 'origid',
+                'rt' => 'rt',
+                'idnt' => 'idnt',
+                'su' => 'su',
+                'irt' => 'irt',
+                'l' => 'l',
+                'f' => 'f',
+                'content' => 'content',
+                'header' => array(
+                    array(
+                        'name' => 'name',
+                        '_' => 'value',
+                    ),
+                ),
+                'mp' => array(
+                    'ct' => 'ct',
+                    'content' => 'content',
+                    'ci' => 'ci',
+                    'mp' => array(
+                        array(
+                            'ct' => 'ct',
+                            'content' => 'content',
+                            'ci' => 'ci',
+                        ),
+                    ),
+                    'attach' => array(
+                        'aid' => 'aid',
+                        'mp' => array(
+                            'mid' => 'mid',
+                            'part' => 'part',
+                            'optional' => 1,
+                        ),
+                        'm' => array(
+                            'id' => 'id',
+                            'optional' => 0,
+                        ),
+                        'cn' => array(
+                            'id' => 'id',
+                            'optional' => 0,
+                        ),
+                        'doc' => array(
+                            'path' => 'path',
+                            'id' => 'id',
+                            'ver' => 1,
+                            'optional' => 1,
+                        ),
+                    ),
+                ),
+                'attach' => array(
+                    'aid' => 'aid',
+                    'mp' => array(
+                        'mid' => 'mid',
+                        'part' => 'part',
+                        'optional' => 1,
+                    ),
+                    'm' => array(
+                        'id' => 'id',
+                        'optional' => 0,
+                    ),
+                    'cn' => array(
+                        'id' => 'id',
+                        'optional' => 0,
+                    ),
+                    'doc' => array(
+                        'path' => 'path',
+                        'id' => 'id',
+                        'ver' => 1,
+                        'optional' => 1,
+                    ),
+                ),
+                'inv' => array(
+                    'method' => 'method',
+                    'compNum' => 1,
+                    'rsvp' => 1,
+                ),
+                'e' => array(
+                    array(
+                        'a' => 'a',
+                        't' => 't',
+                        'p' => 'p',
+                    ),
+                ),
+                'tz' => array(
+                    array(
+                        'id' => 'id',
+                        'stdoff' => 1,
+                        'dayoff' => 1,
+                        'stdname' => 'stdname',
+                        'dayname' => 'dayname',
+                        'standard' => array(
+                            'mon' => 1,
+                            'hour' => 2,
+                            'min' => 3,
+                            'sec' => 4,
+                        ),
+                        'daylight' => array(
+                            'mon' => 4,
+                            'hour' => 3,
+                            'min' => 2,
+                            'sec' => 1,
+                        ),
+                    ),
+                ),
+                'fr' => 'fr',
+            ),
+        );
+        $this->assertEquals($array, $m->toArray());
     }
 }

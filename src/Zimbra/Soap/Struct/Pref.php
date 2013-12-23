@@ -110,8 +110,9 @@ class Pref
      *
      * @return array
      */
-    public function toArray()
+    public function toArray($name = 'pref')
     {
+        $name = !empty($name) ? $name : 'pref';
         $arr = array(
             'name' => $this->_name,
             '_' => $this->_value,
@@ -120,7 +121,7 @@ class Pref
         {
             $arr['modified'] = $this->_modified;
         }
-        return array('pref' => $arr);
+        return array($name => $arr);
     }
 
     /**
@@ -128,9 +129,10 @@ class Pref
      *
      * @return SimpleXML
      */
-    public function toXml()
+    public function toXml($name = 'pref')
     {
-        $xml = new SimpleXML('<pref>'.$this->_value.'</pref>');
+        $name = !empty($name) ? $name : 'pref';
+        $xml = new SimpleXML('<'.$name.'>'.$this->_value.'</'.$name.'>');
         $xml->addAttribute('name', $this->_name);
         if(is_int($this->_modified))
         {

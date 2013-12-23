@@ -84,9 +84,10 @@ class DistributionListSelector
      *
      * @return array
      */
-    public function toArray()
+    public function toArray($name = 'dl')
     {
-        return array('dl' => array(
+        $name = !empty($name) ? $name : 'dl';
+        return array($name => array(
             'by' => (string) $this->_by,
             '_' => $this->_value,
         ));
@@ -97,9 +98,10 @@ class DistributionListSelector
      *
      * @return SimpleXML
      */
-    public function toXml()
+    public function toXml($name = 'dl')
     {
-        $xml = new SimpleXML('<dl>'.$this->_value.'</dl>');
+        $name = !empty($name) ? $name : 'dl';
+        $xml = new SimpleXML('<'.$name.'>'.$this->_value.'</'.$name.'>');
         $xml->addAttribute('by', (string) $this->_by);
         return $xml;
     }

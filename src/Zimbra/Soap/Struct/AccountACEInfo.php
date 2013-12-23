@@ -15,7 +15,7 @@ use Zimbra\Soap\Enum\GranteeType;
 use Zimbra\Utils\SimpleXML;
 
 /**
- * AccountACEInfo class
+ * AccountACEInfo struct class
  * @package   Zimbra
  * @category  Soap
  * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com

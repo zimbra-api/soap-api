@@ -41,9 +41,9 @@ class DistributionListAction extends Request
 
     /**
      * Attributes
-     * @var array
+     * @var TypedSequence
      */
-    private $_attrs = array();
+    private $_attr;
 
     /**
      * Constructor method for DistributionListAction
@@ -57,7 +57,7 @@ class DistributionListAction extends Request
         parent::__construct();
         $this->_dl = $dl;
         $this->_action = $action;
-        $this->_attrs = new TypedSequence('Zimbra\Soap\Struct\Attr', $attrs);
+        $this->_attr = new TypedSequence('Zimbra\Soap\Struct\Attr', $attrs);
     }
 
     /**
@@ -100,7 +100,7 @@ class DistributionListAction extends Request
      */
     public function addAttr(Attr $attr)
     {
-        $this->_attrs->add($attr);
+        $this->_attr->add($attr);
         return $this;
     }
 
@@ -109,9 +109,9 @@ class DistributionListAction extends Request
      *
      * @return Sequence
      */
-    public function attrs()
+    public function attr()
     {
-        return $this->_attrs;
+        return $this->_attr;
     }
 
     /**
@@ -129,16 +129,13 @@ class DistributionListAction extends Request
         {
             $this->array += $this->_action->toArray();
         }
-        if(count($this->_attrs))
+        if(count($this->_attr))
         {
             $this->array['a'] = array();
-            foreach ($this->_attrs as $attr)
+            foreach ($this->_attr as $attr)
             {
-                if($attr instanceof Attr)
-                {
-                    $attrArr = $attr->toArray('a');
-                    $this->array['a'][] = $attrArr['a'];
-                }
+                $attrArr = $attr->toArray('a');
+                $this->array['a'][] = $attrArr['a'];
             }
         }
         return parent::toArray();
@@ -159,12 +156,9 @@ class DistributionListAction extends Request
         {
             $this->xml->append($this->_action->toXml());
         }
-        foreach ($this->_attrs as $attr)
+        foreach ($this->_attr as $attr)
         {
-            if($attr instanceof Attr)
-            {
-                $this->xml->append($attr->toXml('a'));
-            }
+            $this->xml->append($attr->toXml('a'));
         }
         return parent::toXml();
     }

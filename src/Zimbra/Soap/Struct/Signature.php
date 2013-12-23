@@ -41,10 +41,10 @@ class Signature
     private $_cid;
 
     /**
-     * Content of the signature array
-     * @var array 
+     * Content of the signature sequence
+     * @var TypedSequence 
      */
-    private $_contents = array();
+    private $_content = array();
 
     /**
      * Constructor method for signature
@@ -63,7 +63,7 @@ class Signature
         $this->_name = trim($name);
         $this->_id = trim($id);
         $this->_cid = trim($cid);
-        $this->_contents = new TypedSequence('Zimbra\Soap\Struct\SignatureContent', $contents);
+        $this->_content = new TypedSequence('Zimbra\Soap\Struct\SignatureContent', $contents);
     }
 
     /**
@@ -122,7 +122,7 @@ class Signature
      */
     public function addContent(SignatureContent $content)
     {
-        $this->_contents->add($content);
+        $this->_content->add($content);
         return $this;
     }
 
@@ -131,9 +131,9 @@ class Signature
      *
      * @return Sequence
      */
-    public function contents()
+    public function content()
     {
-        return $this->_contents;
+        return $this->_content;
     }
 
     /**
@@ -141,8 +141,9 @@ class Signature
      *
      * @return array
      */
-    public function toArray()
+    public function toArray($name = 'signature')
     {
+        $name = !empty($name) ? $name : 'signature';
         $arr = array();
         if(!empty($this->_id))
         {
@@ -156,16 +157,16 @@ class Signature
         {
             $arr['cid'] = $this->_cid;
         }
-        if(count($this->_contents))
+        if(count($this->_content))
         {
             $arr['content'] = array();
-            foreach ($this->_contents as $content)
+            foreach ($this->_content as $content)
             {
-                $contentArr = $content->toArray();
+                $contentArr = $content->toArray('content');
                 $arr['content'][] = $contentArr['content'];
             }
         }
-        return array('signature' => $arr);
+        return array($name => $arr);
     }
 
     /**
@@ -173,9 +174,10 @@ class Signature
      *
      * @return SimpleXML
      */
-    public function toXml()
+    public function toXml($name = 'signature')
     {
-        $xml = new SimpleXML('<signature />');
+        $name = !empty($name) ? $name : 'signature';
+        $xml = new SimpleXML('<'.$name.' />');
         if(!empty($this->_id))
         {
             $xml->addAttribute('id', $this->_id);
@@ -188,9 +190,9 @@ class Signature
         {
             $xml->addChild('cid', $this->_cid);
         }
-        foreach ($this->_contents as $content)
+        foreach ($this->_content as $content)
         {
-            $xml->append($content->toXml());
+            $xml->append($content->toXml('content'));
         }
         return $xml;
     }

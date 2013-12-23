@@ -26,9 +26,9 @@ class DiscoverRights extends Request
 {
     /**
      * The signature
-     * @var array
+     * @var Sequence
      */
-    private $_rights = array();
+    private $_right;
 
     /**
      * Constructor method for DiscoverRights
@@ -38,16 +38,16 @@ class DiscoverRights extends Request
     public function __construct(array $rights)
     {
         parent::__construct();
-        $this->_rights = new Sequence;
+        $this->_right = new Sequence;
         foreach ($rights as $right)
         {
             $right = trim($right);
             if(!empty($right))
             {
-                $this->_rights->add($right);
+                $this->_right->add($right);
             }
         }
-        if(count($this->_rights) === 0)
+        if(count($this->_right) === 0)
         {
             throw new \InvalidArgumentException('DiscoverRights must have at least one right');
         }
@@ -64,7 +64,7 @@ class DiscoverRights extends Request
         $right = trim($right);
         if(!empty($right))
         {
-            $this->_rights->add($right);
+            $this->_right->add($right);
         }
         return $this;
     }
@@ -74,9 +74,9 @@ class DiscoverRights extends Request
      *
      * @return Sequence
      */
-    public function rights()
+    public function right()
     {
-        return $this->_rights;
+        return $this->_right;
     }
 
     /**
@@ -86,9 +86,9 @@ class DiscoverRights extends Request
      */
     public function toArray()
     {
-        if(count($this->_rights))
+        if(count($this->_right))
         {
-            foreach ($this->_rights as $right)
+            foreach ($this->_right as $right)
             {
                 if(!empty($right))
                 {
@@ -106,9 +106,9 @@ class DiscoverRights extends Request
      */
     public function toXml()
     {
-        if(count($this->_rights))
+        if(count($this->_right))
         {
-            foreach ($this->_rights as $right)
+            foreach ($this->_right as $right)
             {
                 if(!empty($right))
                 {

@@ -47,9 +47,9 @@ class GetDistributionList extends Request
 
     /**
      * The attribute
-     * @var array of Attr
+     * @var TypedSequence
      */
-    private $_attrs = array();
+    private $_attr;
 
     /**
      * Constructor method for getDistributionList
@@ -72,7 +72,7 @@ class GetDistributionList extends Request
             $this->_needOwners = (bool) $needOwners;
         }
         $this->_needRights = trim($needRights);
-        $this->_attrs = new TypedSequence('Zimbra\Soap\Struct\Attr', $attrs);
+        $this->_attr = new TypedSequence('Zimbra\Soap\Struct\Attr', $attrs);
     }
 
     /**
@@ -127,11 +127,11 @@ class GetDistributionList extends Request
      * Add an attr
      *
      * @param  Attr $attr
-     * @return GetDistributionList
+     * @return self
      */
     public function addAttr(Attr $attr)
     {
-        $this->_attrs->add($attr);
+        $this->_attr->add($attr);
         return $this;
     }
 
@@ -140,9 +140,9 @@ class GetDistributionList extends Request
      *
      * @return Sequence
      */
-    public function attrs()
+    public function attr()
     {
-        return $this->_attrs;
+        return $this->_attr;
     }
 
     /**
@@ -161,10 +161,10 @@ class GetDistributionList extends Request
         {
             $this->array['needRights'] = (string) $this->_needRights;
         }
-        if(count($this->_attrs))
+        if(count($this->_attr))
         {
             $this->array['a'] = array();
-            foreach ($this->_attrs as $attr)
+            foreach ($this->_attr as $attr)
             {
                 $attrArr = $attr->toArray('a');
                 $this->array['a'][] = $attrArr['a'];
@@ -189,7 +189,7 @@ class GetDistributionList extends Request
         {
             $this->xml->addAttribute('needRights', $this->_needRights);
         }
-        foreach ($this->_attrs as $attr)
+        foreach ($this->_attr as $attr)
         {
             $this->xml->append($attr->toXml('a'));
         }

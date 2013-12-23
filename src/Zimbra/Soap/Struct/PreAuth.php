@@ -130,8 +130,9 @@ class PreAuth
      *
      * @return array
      */
-    public function toArray()
+    public function toArray($name = 'preauth')
     {
+        $name = !empty($name) ? $name : 'preauth';
         $arr = array(
             'timestamp' => $this->_timestamp,
             '_' => $this->_value,
@@ -140,7 +141,7 @@ class PreAuth
         {
             $arr['expiresTimestamp'] = $this->_expiresTimestamp;
         }
-        return array('preauth' => $arr);
+        return array($name => $arr);
     }
 
     /**
@@ -148,9 +149,10 @@ class PreAuth
      *
      * @return SimpleXML
      */
-    public function toXml()
+    public function toXml($name = 'preauth')
     {
-        $xml = new SimpleXML('<preauth>'.$this->_value.'</preauth>');
+        $name = !empty($name) ? $name : 'preauth';
+        $xml = new SimpleXML('<'.$name.'>'.$this->_value.'</'.$name.'>');
         $xml->addAttribute('timestamp', $this->_timestamp);
         if(is_int($this->_expiresTimestamp))
         {

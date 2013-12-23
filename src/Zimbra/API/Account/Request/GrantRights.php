@@ -27,18 +27,19 @@ class GrantRights extends Request
 {
     /**
      * Specify Access Control Entries
-     * @var array
+     * @var TypedSequence
      */
-    private  $_aces = array();
+    private  $_ace;
+
     /**
      * Constructor method for grantRights
-     * @param array $aces
+     * @param array $ace
      * @return self
      */
-    public function __construct(array $aces = array())
+    public function __construct(array $ace = array())
     {
         parent::__construct();
-        $this->_aces = new TypedSequence('Zimbra\Soap\Struct\AccountACEInfo', $aces);
+        $this->_ace = new TypedSequence('Zimbra\Soap\Struct\AccountACEInfo', $ace);
     }
 
     /**
@@ -49,7 +50,7 @@ class GrantRights extends Request
      */
     public function addAce(ACE $ace)
     {
-        $this->_aces->add($ace);
+        $this->_ace->add($ace);
         return $this;
     }
 
@@ -58,9 +59,9 @@ class GrantRights extends Request
      *
      * @return Sequence
      */
-    public function aces()
+    public function ace()
     {
-        return $this->_aces;
+        return $this->_ace;
     }
 
     /**
@@ -70,10 +71,10 @@ class GrantRights extends Request
      */
     public function toArray()
     {
-        if(count($this->_aces))
+        if(count($this->_ace))
         {
             $this->array['ace'] = array();
-            foreach ($this->_aces as $ace)
+            foreach ($this->_ace as $ace)
             {
                 $aceArr = $ace->toArray();
                 $this->array['ace'][] = $aceArr['ace'];
@@ -89,9 +90,9 @@ class GrantRights extends Request
      */
     public function toXml()
     {
-        foreach ($this->_aces as $ace)
+        foreach ($this->_ace as $ace)
         {
-            $this->xml->append($ace->toXml());
+            $this->xml->append($ace->toXml('ace'));
         }
         return parent::toXml();
     }

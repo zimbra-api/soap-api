@@ -28,7 +28,7 @@ abstract class Attr extends Request
      * Attributes specified as key value pairs
      * @var Sequence
      */
-    private $_attrs;
+    private $_attr;
 
     /**
      * AttrRequest constructor
@@ -37,7 +37,7 @@ abstract class Attr extends Request
     public function __construct(array $attrs = array())
     {
         parent::__construct();
-        $this->_attrs = new TypedSequence('Zimbra\Soap\Struct\KeyValuePair', $attrs);
+        $this->_attr = new TypedSequence('Zimbra\Soap\Struct\KeyValuePair', $attrs);
     }
 
     /**
@@ -48,19 +48,18 @@ abstract class Attr extends Request
      */
     public function addAttr(KeyValuePair $attr)
     {
-        $this->_attrs->add($attr);
+        $this->_attr->add($attr);
         return $this;
     }
 
     /**
      * Gets attr sequence
      *
-     * @param  array $attrs
      * @return Sequence
      */
-    public function attrs()
+    public function attr()
     {
-        return $this->_attrs;
+        return $this->_attr;
     }
 
     /**
@@ -70,10 +69,10 @@ abstract class Attr extends Request
      */
     public function toArray()
     {
-        if(count($this->_attrs))
+        if(count($this->_attr))
         {
             $this->array['a'] = array();
-            foreach ($this->_attrs as $attr)
+            foreach ($this->_attr as $attr)
             {
                 $attrArr = $attr->toArray('a');
                 $this->array['a'][] = $attrArr['a'];
@@ -89,7 +88,7 @@ abstract class Attr extends Request
      */
     public function toXml()
     {
-        foreach ($this->_attrs as $attr)
+        foreach ($this->_attr as $attr)
         {
             $this->xml->append($attr->toXml('a'));
         }

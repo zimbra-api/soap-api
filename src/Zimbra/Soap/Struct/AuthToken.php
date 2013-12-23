@@ -87,8 +87,9 @@ class AuthToken
      *
      * @return array
      */
-    public function toArray()
+    public function toArray($name = 'authToken')
     {
+        $name = !empty($name) ? $name : 'authToken';
         $arr =  array(
             '_' => $this->_value,
         );
@@ -96,7 +97,7 @@ class AuthToken
         {
             $arr['verifyAccount'] = $this->_verifyAccount ? 1 : 0;
         }
-        return array('authToken' => $arr);
+        return array($name => $arr);
     }
 
     /**
@@ -104,9 +105,10 @@ class AuthToken
      *
      * @return SimpleXML
      */
-    public function toXml()
+    public function toXml($name = 'authToken')
     {
-        $xml = new SimpleXML('<authToken>'. $this->_value.'</authToken>');
+        $name = !empty($name) ? $name : 'authToken';
+        $xml = new SimpleXML('<'.$name.'>'. $this->_value.'</'.$name.'>');
         if(is_bool($this->_verifyAccount))
         {
             $xml->addAttribute('verifyAccount', $this->_verifyAccount ? 1 : 0);

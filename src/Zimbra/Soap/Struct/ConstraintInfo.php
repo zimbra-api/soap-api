@@ -36,9 +36,9 @@ class ConstraintInfo
 
     /**
      * Values
-     * @var array
+     * @var Sequence
      */
-    private $_values = array();
+    private $_value = array();
 
     /**
      * Constructor method for ConstraintInfo
@@ -51,12 +51,12 @@ class ConstraintInfo
     {
         $this->_min = trim($min);
         $this->_max = trim($max);
-        $this->_values = new Sequence;
+        $this->_value = new Sequence;
         foreach ($values as $value)
         {
             if(!empty($value))
             {
-                $this->_values->add($value);
+                $this->_value->add($value);
             }
         }
     }
@@ -103,19 +103,19 @@ class ConstraintInfo
     {
         if(!empty($value))
         {
-            $this->_values->add($value);
+            $this->_value->add($value);
         }
         return $this;
     }
 
     /**
-     * Gets values
+     * Gets value sequence
      *
      * @return Sequence
      */
-    public function values()
+    public function value()
     {
-        return $this->_values;
+        return $this->_value;
     }
 
     /**
@@ -138,10 +138,10 @@ class ConstraintInfo
         {
             $arr['max'] = $this->_max;
         }
-        if(count($this->_values))
+        if(count($this->_value))
         {
             $values['v'] = array();
-            foreach ($this->_values as $value)
+            foreach ($this->_value as $value)
             {
                 $values['v'][] = $value;
             }
@@ -169,7 +169,7 @@ class ConstraintInfo
             $xml->addChild('max', $this->_max);
         }
         $values = $xml->addChild('values');
-        foreach ($this->_values as $value)
+        foreach ($this->_value as $value)
         {
             $values->addChild('v', $value);
         }

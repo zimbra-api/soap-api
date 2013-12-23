@@ -13,7 +13,7 @@ namespace Zimbra\Soap\Struct;
 use Zimbra\Utils\SimpleXML;
 
 /**
- * NamedValue class
+ * NamedValue struct class
  * @package   Zimbra
  * @category  Soap
  * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com

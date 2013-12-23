@@ -29,10 +29,10 @@ class DistributionListRightSpec
      */
     private $_right;
     /**
-     * The array of grantee
-     * @var array
+     * The sequence of grantee
+     * @var TypedSequence
      */
-    private $_grantees = array();
+    private $_grantee = array();
 
     /**
      * Constructor method for DistributionListRightSpec
@@ -43,7 +43,7 @@ class DistributionListRightSpec
     public function __construct($right, array $grantees = array())
     {
         $this->_right = trim($right);
-        $this->_grantees = new TypedSequence(
+        $this->_grantee = new TypedSequence(
             'Zimbra\Soap\Struct\DistributionListGranteeSelector', $grantees
         );
     }
@@ -72,7 +72,7 @@ class DistributionListRightSpec
      */
     public function addGrantee(GranteeSelector $grantee)
     {
-        $this->_grantees->add($grantee);
+        $this->_grantee->add($grantee);
         return $this;
     }
 
@@ -81,9 +81,9 @@ class DistributionListRightSpec
      *
      * @return Sequence
      */
-    public function grantees()
+    public function grantee()
     {
-        return $this->_grantees;
+        return $this->_grantee;
     }
 
     /**
@@ -91,21 +91,22 @@ class DistributionListRightSpec
      *
      * @return array
      */
-    public function toArray()
+    public function toArray($name = 'right')
     {
+        $name = !empty($name) ? $name : 'right';
         $arr = array(
             'right' => $this->_right,
         );
-        if(count($this->_grantees))
+        if(count($this->_grantee))
         {
             $arr['grantee'] = array();
-            foreach ($this->_grantees as $grantee)
+            foreach ($this->_grantee as $grantee)
             {
                 $granteeArr = $grantee->toArray('grantee');
                 $arr['grantee'][] = $granteeArr['grantee'];
             }
         }
-        return array('right' => $arr);
+        return array($name => $arr);
     }
 
     /**
@@ -113,11 +114,12 @@ class DistributionListRightSpec
      *
      * @return SimpleXML
      */
-    public function toXml()
+    public function toXml($name = 'right')
     {
-        $xml = new SimpleXML('<right />');
+        $name = !empty($name) ? $name : 'right';
+        $xml = new SimpleXML('<'.$name.' />');
         $xml->addAttribute('right', $this->_right);
-        foreach ($this->_grantees as $grantee)
+        foreach ($this->_grantee as $grantee)
         {
             $xml->append($grantee->toXml('grantee'));
         }

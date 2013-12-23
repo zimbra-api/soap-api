@@ -148,8 +148,9 @@ class EntrySearchFilterMultiCond
      *
      * @return array
      */
-    public function toArray()
+    public function toArray($name = 'conds')
     {
+        $name = !empty($name) ? $name : 'conds';
         $arr = array();
         if(is_bool($this->_not))
         {
@@ -168,7 +169,7 @@ class EntrySearchFilterMultiCond
             $arr += $this->_cond->toArray();
         }
 
-        return array('conds' => $arr);
+        return array($name => $arr);
     }
 
     /**
@@ -176,9 +177,10 @@ class EntrySearchFilterMultiCond
      *
      * @return SimpleXML
      */
-    public function toXml()
+    public function toXml($name = 'conds')
     {
-        $xml = new SimpleXML('<conds />');
+        $name = !empty($name) ? $name : 'conds';
+        $xml = new SimpleXML('<'.$name.' />');
         if(is_bool($this->_not))
         {
             $xml->addAttribute('not', $this->_not ? 1 : 0);

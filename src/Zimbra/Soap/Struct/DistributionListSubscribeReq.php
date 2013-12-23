@@ -110,8 +110,9 @@ class DistributionListSubscribeReq
      *
      * @return array
      */
-    public function toArray()
+    public function toArray($name = 'subsReq')
     {
+        $name = !empty($name) ? $name : 'subsReq';
         $arr = array(
             'op' => (string) $this->_op,
             '_' => $this->_value,
@@ -120,7 +121,7 @@ class DistributionListSubscribeReq
         {
             $arr['bccOwners'] = $this->_bccOwners ? 1 : 0;
         }
-        return array('subsReq' => $arr);
+        return array($name => $arr);
     }
 
     /**
@@ -128,9 +129,10 @@ class DistributionListSubscribeReq
      *
      * @return SimpleXML
      */
-    public function toXml()
+    public function toXml($name = 'subsReq')
     {
-        $xml = new SimpleXML('<subsReq>'.$this->_value.'</subsReq>');
+        $name = !empty($name) ? $name : 'subsReq';
+        $xml = new SimpleXML('<'.$name.'>'.$this->_value.'</'.$name.'>');
         $xml->addAttribute('op', (string) $this->_op);
         if(is_bool($this->_bccOwners))
         {

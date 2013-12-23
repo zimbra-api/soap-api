@@ -113,8 +113,9 @@ class XmppComponentSpec extends AttrsImpl
      *
      * @return array
      */
-    public function toArray()
+    public function toArray($name = 'xmppcomponent')
     {
+        $name = !empty($name) ? $name : 'xmppcomponent';
         $this->array = array(
             'name' => $this->_name,
         );
@@ -122,7 +123,7 @@ class XmppComponentSpec extends AttrsImpl
         $this->array['domain'] = $domainArr['domain'];
         $serverArr = $this->_server->toArray();
         $this->array['server'] = $serverArr['server'];
-        return array('xmppcomponent' => parent::toArray());
+        return array($name => parent::toArray());
     }
 
     /**
@@ -130,9 +131,10 @@ class XmppComponentSpec extends AttrsImpl
      *
      * @return SimpleXML
      */
-    public function toXml()
+    public function toXml($name = 'xmppcomponent')
     {
-        $xml = new SimpleXML('<xmppcomponent />');
+        $name = !empty($name) ? $name : 'xmppcomponent';
+        $xml = new SimpleXML('<'.$name.' />');
         $xml->addAttribute('name', $this->_name)
             ->append($this->_domain->toXml())
             ->append($this->_server->toXml());

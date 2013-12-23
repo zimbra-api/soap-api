@@ -27,9 +27,9 @@ class ModifyPrefs extends Request
 {
     /**
      * Specify the preferences to be modified
-     * @var array
+     * @var TypedSequence
      */
-    private $_prefs = array();
+    private $_pref;
 
     /**
      * Constructor method for modifyIdentity
@@ -39,7 +39,7 @@ class ModifyPrefs extends Request
     public function __construct(array $prefs = array())
     {
         parent::__construct();
-        $this->_prefs = new TypedSequence('Zimbra\Soap\Struct\Pref', $prefs);
+        $this->_pref = new TypedSequence('Zimbra\Soap\Struct\Pref', $prefs);
     }
 
     /**
@@ -50,7 +50,7 @@ class ModifyPrefs extends Request
      */
     public function addPref(Pref $pref)
     {
-        $this->_prefs->add($pref);
+        $this->_pref->add($pref);
         return $this;
     }
 
@@ -59,9 +59,9 @@ class ModifyPrefs extends Request
      *
      * @return Sequence
      */
-    public function prefs()
+    public function pref()
     {
-        return $this->_prefs;
+        return $this->_pref;
     }
 
     /**
@@ -71,12 +71,12 @@ class ModifyPrefs extends Request
      */
     public function toArray()
     {
-        if(count($this->_prefs))
+        if(count($this->_pref))
         {
             $this->array['pref'] = array();
-            foreach ($this->_prefs as $pref)
+            foreach ($this->_pref as $pref)
             {
-                $prefArr = $pref->toArray();
+                $prefArr = $pref->toArray('pref');
                 $this->array['pref'][] = $prefArr['pref'];
             }
         }
@@ -90,9 +90,9 @@ class ModifyPrefs extends Request
      */
     public function toXml()
     {
-        foreach ($this->_prefs as $pref)
+        foreach ($this->_pref as $pref)
         {
-            $this->xml->append($pref->toXml());
+            $this->xml->append($pref->toXml('pref'));
         }
         return parent::toXml();
     }

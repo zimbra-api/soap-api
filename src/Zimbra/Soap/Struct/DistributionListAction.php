@@ -35,9 +35,9 @@ class DistributionListAction extends AttrsImpl
 
     /**
      * Group members
-     * @var string
+     * @var Sequence
      */
-    private $_dlms;
+    private $_dlm;
 
     /**
      * New name
@@ -47,17 +47,17 @@ class DistributionListAction extends AttrsImpl
 
     /**
      * The owner
-     * Grantee array
-     * @var array
+     * Grantee sequence
+     * @var TypedSequence
      */
-    private $_owners;
+    private $_owner;
 
     /**
      * The right
-     * Right array
-     * @var array
+     * Right sequence
+     * @var TypedSequence
      */
-    private $_rights;
+    private $_right;
 
     /**
      * Subscription request 
@@ -93,14 +93,14 @@ class DistributionListAction extends AttrsImpl
         {
             $this->_subsReq = $subsReq;
         }
-        $this->_dlms = new Sequence;
-        $this->_dlms->addAll($dlms);
+        $this->_dlm = new Sequence;
+        $this->_dlm->addAll($dlms);
 
-        $this->_owners = new TypedSequence('Zimbra\Soap\Struct\DistributionListGranteeSelector');
-        $this->_owners->addAll($owners);
+        $this->_owner = new TypedSequence('Zimbra\Soap\Struct\DistributionListGranteeSelector');
+        $this->_owner->addAll($owners);
 
-        $this->_rights = new TypedSequence('Zimbra\Soap\Struct\DistributionListRightSpec');
-        $this->_rights->addAll($rights);
+        $this->_right = new TypedSequence('Zimbra\Soap\Struct\DistributionListRightSpec');
+        $this->_right->addAll($rights);
     }
 
     /**
@@ -162,7 +162,7 @@ class DistributionListAction extends AttrsImpl
         $dlm = trim($dlm);
         if(!empty($dlm))
         {
-            $this->_dlms->add($dlm);
+            $this->_dlm->add($dlm);
         }
         return $this;
     }
@@ -172,9 +172,9 @@ class DistributionListAction extends AttrsImpl
      *
      * @return Sequence
      */
-    public function dlms()
+    public function dlm()
     {
-        return $this->_dlms;
+        return $this->_dlm;
     }
 
     /**
@@ -185,7 +185,7 @@ class DistributionListAction extends AttrsImpl
      */
     public function addOwner(Grantee $owner)
     {
-        $this->_owners->add($owner);
+        $this->_owner->add($owner);
         return $this;
     }
 
@@ -194,9 +194,9 @@ class DistributionListAction extends AttrsImpl
      *
      * @return Sequence
      */
-    public function owners()
+    public function owner()
     {
-        return $this->_owners;
+        return $this->_owner;
     }
 
     /**
@@ -207,7 +207,7 @@ class DistributionListAction extends AttrsImpl
      */
     public function addRight(Right $right)
     {
-        $this->_rights->add($right);
+        $this->_right->add($right);
         return $this;
     }
 
@@ -216,9 +216,9 @@ class DistributionListAction extends AttrsImpl
      *
      * @return Sequence
      */
-    public function rights()
+    public function right()
     {
-        return $this->_rights;
+        return $this->_right;
     }
 
     /**
@@ -226,8 +226,9 @@ class DistributionListAction extends AttrsImpl
      *
      * @return array
      */
-    public function toArray()
+    public function toArray($name = 'action')
     {
+        $name = !empty($name) ? $name : 'action';
         $this->array = array(
             'op' => (string) $this->_op,
         );
@@ -240,29 +241,29 @@ class DistributionListAction extends AttrsImpl
             $subsReqArr = $this->_subsReq->toArray();
             $this->array['subsReq'] = $subsReqArr['subsReq'];
         }
-        if(count($this->_dlms))
+        if(count($this->_dlm))
         {
-            $this->array['dlm'] = $this->_dlms->all();
+            $this->array['dlm'] = $this->_dlm->all();
         }
-        if(count($this->_owners))
+        if(count($this->_owner))
         {
             $this->array['owner'] = array();
-            foreach ($this->_owners as $owner)
+            foreach ($this->_owner as $owner)
             {
                 $ownerArr = $owner->toArray('owner');
                 $this->array['owner'][] = $ownerArr['owner'];
             }
         }
-        if(count($this->_rights))
+        if(count($this->_right))
         {
             $this->array['right'] = array();
-            foreach ($this->_rights as $right)
+            foreach ($this->_right as $right)
             {
                 $rightArr = $right->toArray();
                 $this->array['right'][] = $rightArr['right'];
             }
         }
-        return array('action' => parent::toArray());
+        return array($name => parent::toArray());
     }
 
     /**
@@ -270,9 +271,10 @@ class DistributionListAction extends AttrsImpl
      *
      * @return SimpleXML
      */
-    public function toXml()
+    public function toXml($name = 'action')
     {
-        $xml = new SimpleXML('<action />');
+        $name = !empty($name) ? $name : 'action';
+        $xml = new SimpleXML('<'.$name.' />');
         $xml->addAttribute('op', (string) $this->_op);
         if(!empty($this->_newName))
         {
@@ -282,17 +284,17 @@ class DistributionListAction extends AttrsImpl
         {
             $xml->append($this->_subsReq->toXml());
         }
-        foreach ($this->_dlms as $dlm)
+        foreach ($this->_dlm as $dlm)
         {
             $xml->addChild('dlm', $dlm);
         }
-        foreach ($this->_owners as $owner)
+        foreach ($this->_owner as $owner)
         {
             $xml->append($owner->toXml('owner'));
         }
-        foreach ($this->_rights as $right)
+        foreach ($this->_right as $right)
         {
-            $xml->append($right->toXml());
+            $xml->append($right->toXml('right'));
         }
         parent::appendAttrs($xml);
         return $xml;

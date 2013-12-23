@@ -225,10 +225,10 @@ class AccountRequestTest extends ZimbraTestCase
             TargetType::DOMAIN(), TargetBy::ID(), 'key', array('right1', 'right2')
         );
         $req = new \Zimbra\API\Account\Request\CheckRights(array($target));
-        $this->assertSame(array($target), $req->targets()->all());
+        $this->assertSame(array($target), $req->target()->all());
 
         $req->addTarget($target);
-        $this->assertSame(array($target, $target), $req->targets()->all());
+        $this->assertSame(array($target, $target), $req->target()->all());
 
         $xml = '<?xml version="1.0"?>'."\n"
             .'<CheckRightsRequest>'
@@ -426,10 +426,10 @@ class AccountRequestTest extends ZimbraTestCase
     public function testDiscoverRights()
     {
         $req = new \Zimbra\API\Account\Request\DiscoverRights(array('right1', 'right2'));
-        $this->assertSame(array('right1', 'right2'), $req->rights()->all());
+        $this->assertSame(array('right1', 'right2'), $req->right()->all());
 
         $req->addRight('right3');
-        $this->assertSame(array('right1', 'right2', 'right3'), $req->rights()->all());
+        $this->assertSame(array('right1', 'right2', 'right3'), $req->right()->all());
 
         $xml = '<?xml version="1.0"?>'."\n"
             .'<DiscoverRightsRequest>'
@@ -466,14 +466,14 @@ class AccountRequestTest extends ZimbraTestCase
         $req = new \Zimbra\API\Account\Request\DistributionListAction($dl, $action, array($attr));
         $this->assertSame($dl, $req->dl());
         $this->assertSame($action, $req->action());
-        $this->assertSame(array($attr), $req->attrs()->all());
+        $this->assertSame(array($attr), $req->attr()->all());
 
         $req->dl($dl)
             ->action($action)
             ->addAttr($attr);
         $this->assertSame($dl, $req->dl());
         $this->assertSame($action, $req->action());
-        $this->assertSame(array($attr, $attr), $req->attrs()->all());
+        $this->assertSame(array($attr, $attr), $req->attr()->all());
 
         $xml = '<?xml version="1.0"?>'."\n"
             .'<DistributionListActionRequest>'
@@ -685,7 +685,7 @@ class AccountRequestTest extends ZimbraTestCase
         $this->assertSame($dl, $req->dl());
         $this->assertFalse($req->needOwners());
         $this->assertSame('sendToDistList', $req->needRights());
-        $this->assertSame(array($attr), $req->attrs()->all());
+        $this->assertSame(array($attr), $req->attr()->all());
 
         $req->dl($dl)
             ->needOwners(true)
@@ -694,7 +694,7 @@ class AccountRequestTest extends ZimbraTestCase
         $this->assertSame($dl, $req->dl());
         $this->assertTrue($req->needOwners());
         $this->assertSame('sendToDistList,viewDistList', $req->needRights());
-        $this->assertSame(array($attr, $attr), $req->attrs()->all());
+        $this->assertSame(array($attr, $attr), $req->attr()->all());
 
         $xml = '<?xml version="1.0"?>'."\n"
             .'<GetDistributionListRequest needOwners="1" needRights="sendToDistList,viewDistList">'
@@ -757,9 +757,9 @@ class AccountRequestTest extends ZimbraTestCase
         $identity = new \Zimbra\Soap\Struct\Identity('name', 'id', array($attr));
 
         $req = new \Zimbra\API\Account\Request\GetIdentities(array($identity));
-        $this->assertSame(array($identity), $req->identities()->all());
+        $this->assertSame(array($identity), $req->identity()->all());
         $req->addIdentity($identity);
-        $this->assertSame(array($identity, $identity), $req->identities()->all());
+        $this->assertSame(array($identity, $identity), $req->identity()->all());
 
         $xml = '<?xml version="1.0"?>'."\n"
             .'<GetIdentitiesRequest>'
@@ -831,10 +831,10 @@ class AccountRequestTest extends ZimbraTestCase
     {
         $pref = \Zimbra\Soap\Struct\Pref('name', 'value', 1000);
         $req = new \Zimbra\API\Account\Request\GetPrefs(array($pref));
-        $this->assertSame(array($pref), $req->prefs()->all());
+        $this->assertSame(array($pref), $req->pref()->all());
 
         $req->addPref($pref);
-        $this->assertSame(array($pref, $pref), $req->prefs()->all());
+        $this->assertSame(array($pref, $pref), $req->pref()->all());
 
         $xml = '<?xml version="1.0"?>'."\n"
             .'<GetPrefsRequest>'
@@ -860,12 +860,12 @@ class AccountRequestTest extends ZimbraTestCase
 
     public function testGetRights()
     {
-        $right = new \Zimbra\Soap\Struct\Right('right');
-        $req = new \Zimbra\API\Account\Request\GetRights(array($right));
-        $this->assertSame(array($right), $req->rights()->all());
+        $ace = new \Zimbra\Soap\Struct\Right('right');
+        $req = new \Zimbra\API\Account\Request\GetRights(array($ace));
+        $this->assertSame(array($ace), $req->ace()->all());
 
-        $req->addRight($right);
-        $this->assertSame(array($right, $right), $req->rights()->all());
+        $req->addAce($ace);
+        $this->assertSame(array($ace, $ace), $req->ace()->all());
 
         $xml = '<?xml version="1.0"?>'."\n"
             .'<GetRightsRequest>'
@@ -979,10 +979,10 @@ class AccountRequestTest extends ZimbraTestCase
             GranteeType::ALL(), AceRightType::VIEW_FREE_BUSY(), 'zid', 'dir', 'key', 'pw', true, false
         );
         $req = new \Zimbra\API\Account\Request\GrantRights(array($ace));
-        $this->assertSame(array($ace), $req->aces()->all());
+        $this->assertSame(array($ace), $req->ace()->all());
 
         $req->addAce($ace);
-        $this->assertSame(array($ace, $ace), $req->aces()->all());
+        $this->assertSame(array($ace, $ace), $req->ace()->all());
 
         $xml = '<?xml version="1.0"?>'."\n"
             .'<GrantRightsRequest>'
@@ -1060,10 +1060,10 @@ class AccountRequestTest extends ZimbraTestCase
     {
         $pref = new \Zimbra\Soap\Struct\Pref('name', 'value', 1000);
         $req = new \Zimbra\API\Account\Request\ModifyPrefs(array($pref));
-        $this->assertSame(array($pref), $req->prefs()->all());
+        $this->assertSame(array($pref), $req->pref()->all());
 
         $req->addPref($pref);
-        $this->assertSame(array($pref, $pref), $req->prefs()->all());
+        $this->assertSame(array($pref, $pref), $req->pref()->all());
 
         $xml = '<?xml version="1.0"?>'."\n"
             .'<ModifyPrefsRequest>'
@@ -1091,10 +1091,10 @@ class AccountRequestTest extends ZimbraTestCase
     {
         $prop = new \Zimbra\Soap\Struct\Prop('zimlet', 'name', 'value');
         $req = new \Zimbra\API\Account\Request\ModifyProperties(array($prop));
-        $this->assertSame(array($prop), $req->props()->all());
+        $this->assertSame(array($prop), $req->prop()->all());
 
         $req->addProp($prop);
-        $this->assertSame(array($prop, $prop), $req->props()->all());
+        $this->assertSame(array($prop, $prop), $req->prop()->all());
 
         $xml = '<?xml version="1.0"?>'."\n"
             .'<ModifyPropertiesRequest>'
@@ -1217,10 +1217,10 @@ class AccountRequestTest extends ZimbraTestCase
     {
         $zimlet = new \Zimbra\Soap\Struct\ZimletPrefsSpec('name', ZimletStatus::ENABLED());
         $req = new \Zimbra\API\Account\Request\ModifyZimletPrefs(array($zimlet));
-        $this->assertSame(array($zimlet), $req->zimlets()->all());
+        $this->assertSame(array($zimlet), $req->zimlet()->all());
 
         $req->addZimlet($zimlet);
-        $this->assertSame(array($zimlet, $zimlet), $req->zimlets()->all());
+        $this->assertSame(array($zimlet, $zimlet), $req->zimlet()->all());
 
         $xml = '<?xml version="1.0"?>'."\n"
             .'<ModifyZimletPrefsRequest>'
@@ -1250,10 +1250,10 @@ class AccountRequestTest extends ZimbraTestCase
     {
         $ace = new \Zimbra\Soap\Struct\AccountACEInfo(GranteeType::ALL(), AceRightType::VIEW_FREE_BUSY(), 'zid', 'dir', 'key', 'pw', true, false);
         $req = new \Zimbra\API\Account\Request\RevokeRights(array($ace));
-        $this->assertSame(array($ace), $req->aces()->all());
+        $this->assertSame(array($ace), $req->ace()->all());
 
         $req->addAce($ace);
-        $this->assertSame(array($ace, $ace), $req->aces()->all());
+        $this->assertSame(array($ace, $ace), $req->ace()->all());
 
         $xml = '<?xml version="1.0"?>'."\n"
             .'<RevokeRightsRequest>'

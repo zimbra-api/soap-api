@@ -30,9 +30,9 @@ class ExportAndDeleteMailboxSpec
     private $_id;
     /**
      * Items
-     * @var array
+     * @var TypedSequence
      */
-    private $_items = array();
+    private $_item = array();
 
     /**
      * Constructor method for ExportAndDeleteMailboxSpec
@@ -43,7 +43,7 @@ class ExportAndDeleteMailboxSpec
     public function __construct($id, array $items = array())
     {
         $this->_id = (int) $id;
-        $this->_items = new TypedSequence(
+        $this->_item = new TypedSequence(
             'Zimbra\Soap\Struct\ExportAndDeleteItemSpec', $items
         );
     }
@@ -72,7 +72,7 @@ class ExportAndDeleteMailboxSpec
      */
     public function addItem(ItemSpec $item)
     {
-        $this->_items->add($item);
+        $this->_item->add($item);
         return $this;
     }
 
@@ -81,9 +81,9 @@ class ExportAndDeleteMailboxSpec
      *
      * @return Sequence
      */
-    public function items()
+    public function item()
     {
-        return $this->_items;
+        return $this->_item;
     }
 
     /**
@@ -98,10 +98,10 @@ class ExportAndDeleteMailboxSpec
         $arr = array(
             'id' => $this->_id,
         );
-        if(count($this->_items))
+        if(count($this->_item))
         {
             $arr['item'] = array();
-            foreach ($this->_items as $item)
+            foreach ($this->_item as $item)
             {
                 $itemArr = $item->toArray('item');
                 $arr['item'][] = $itemArr['item'];
@@ -121,7 +121,7 @@ class ExportAndDeleteMailboxSpec
         $name = !empty($name) ? $name : 'mbox';
         $xml = new SimpleXML('<'.$name.' />');
         $xml->addAttribute('id', $this->_id);
-        foreach ($this->_items as $item)
+        foreach ($this->_item as $item)
         {
             $xml->append($item->toXml('item'));
         }

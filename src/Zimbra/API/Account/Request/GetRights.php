@@ -11,7 +11,7 @@
 namespace Zimbra\API\Account\Request;
 
 use Zimbra\Soap\Request;
-use Zimbra\Soap\Struct\Right;
+use Zimbra\Soap\Struct\Right as ACE;
 use Zimbra\Utils\TypedSequence;
 
 /**
@@ -26,42 +26,42 @@ use Zimbra\Utils\TypedSequence;
 class GetRights extends Request
 {
     /**
-     * Preference value
-     * @var array Array of Pref
+     * Specify Access Control Entries
+     * @var TypedSequence of Right
      */
-    private $_rights = array();
+    private $_ace;
 
     /**
      * Constructor method for GetRights
-     * @param array $rights
+     * @param array $ace
      * @return self
      */
-    public function __construct(array $rights = array())
+    public function __construct(array $ace = array())
     {
         parent::__construct();
-        $this->_rights = new TypedSequence('Zimbra\Soap\Struct\Right', $rights);
+        $this->_ace = new TypedSequence('Zimbra\Soap\Struct\Right', $ace);
     }
 
     /**
-     * Add a right
+     * Add an ace
      *
-     * @param  Right $pref
+     * @param  ACE $ace
      * @return self
      */
-    public function addRight(Right $right)
+    public function addAce(ACE $ace)
     {
-        $this->_rights->add($right);
+        $this->_ace->add($ace);
         return $this;
     }
 
     /**
-     * Gets pref sequence
+     * Gets ace sequence
      *
      * @return Sequence
      */
-    public function rights()
+    public function ace()
     {
-        return $this->_rights;
+        return $this->_ace;
     }
 
     /**
@@ -71,13 +71,13 @@ class GetRights extends Request
      */
     public function toArray()
     {
-        if(count($this->_rights))
+        if(count($this->_ace))
         {
             $this->array['ace'] = array();
-            foreach ($this->_rights as $right)
+            foreach ($this->_ace as $ace)
             {
-                $rightArr = $right->toArray();
-                $this->array['ace'][] = $rightArr['ace'];
+                $aceArr = $ace->toArray('ace');
+                $this->array['ace'][] = $aceArr['ace'];
             }
         }
         return parent::toArray();
@@ -90,9 +90,9 @@ class GetRights extends Request
      */
     public function toXml()
     {
-        foreach ($this->_rights as $right)
+        foreach ($this->_ace as $ace)
         {
-            $this->xml->append($right->toXml());
+            $this->xml->append($ace->toXml('ace'));
         }
         return parent::toXml();
     }

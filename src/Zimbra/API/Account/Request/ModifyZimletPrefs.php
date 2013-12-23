@@ -27,19 +27,19 @@ class ModifyZimletPrefs extends Request
 {
     /**
      * Zimlet Preference Specifications
-     * @var array
+     * @var TypedSequence
      */
-    private $_zimlets = array();
+    private $_zimlet;
 
     /**
      * Constructor method for ModifyZimletPrefs
-     * @param array $zimlets
+     * @param array $zimlet
      * @return self
      */
-    public function __construct(array $zimlets = array())
+    public function __construct(array $zimlet = array())
     {
         parent::__construct();
-        $this->_zimlets = new TypedSequence('Zimbra\Soap\Struct\ZimletPrefsSpec', $zimlets);
+        $this->_zimlet = new TypedSequence('Zimbra\Soap\Struct\ZimletPrefsSpec', $zimlet);
     }
 
     /**
@@ -50,19 +50,18 @@ class ModifyZimletPrefs extends Request
      */
     public function addZimlet(Zimlet $zimlet)
     {
-        $this->_zimlets->add($zimlet);
+        $this->_zimlet->add($zimlet);
         return $this;
     }
 
     /**
      * Gets zimlet sequence
      *
-     * @param  array $zimlets
      * @return Sequence
      */
-    public function zimlets()
+    public function zimlet()
     {
-        return $this->_zimlets;
+        return $this->_zimlet;
     }
 
     /**
@@ -72,12 +71,12 @@ class ModifyZimletPrefs extends Request
      */
     public function toArray()
     {
-        if(count($this->_zimlets))
+        if(count($this->_zimlet))
         {
             $this->array['zimlet'] = array();
-            foreach ($this->_zimlets as $zimlet)
+            foreach ($this->_zimlet as $zimlet)
             {
-                $zimletArr = $zimlet->toArray();
+                $zimletArr = $zimlet->toArray('zimlet');
                 $this->array['zimlet'][] = $zimletArr['zimlet'];
             }
         }
@@ -91,9 +90,9 @@ class ModifyZimletPrefs extends Request
      */
     public function toXml()
     {
-        foreach ($this->_zimlets as $zimlet)
+        foreach ($this->_zimlet as $zimlet)
         {
-            $this->xml->append($zimlet->toXml());
+            $this->xml->append($zimlet->toXml('zimlet'));
         }
         return parent::toXml();
     }

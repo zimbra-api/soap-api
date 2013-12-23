@@ -343,10 +343,10 @@ interface AccountInterface
     /**
      * Get account level rights. 
      *
-     * @param  array $rights Specify Access Control Entries. 
+     * @param  array $ace Specify Access Control Entries. 
      * @return mixed
      */
-    function getRights(array $rights = array());
+    function getRights(array $ace = array());
 
     /**
      * Get information about published shares
@@ -406,18 +406,18 @@ interface AccountInterface
     /**
      * Modify preferences
      *
-     * @param  array $prefs Specify the preferences to be modified
+     * @param  array $pref Specify the preferences to be modified
      * @return mixed
      */
-    function modifyPrefs(array $prefs = array());
+    function modifyPrefs(array $pref = array());
 
     /**
      * Modify properties related to zimlets
      *
-     * @param  array $props Specify the preferences to be modified
+     * @param  array $prop Specify the properties to be modified
      * @return mixed
      */
-    function modifyProperties(array $props = array());
+    function modifyProperties(array $prop = array());
 
     /**
      * Change attributes of the given signature
@@ -447,10 +447,10 @@ interface AccountInterface
     /**
      * Modify Zimlet Preferences
      *
-     * @param  array $zimlets Zimlet Preference Specifications
+     * @param  array $zimlet Zimlet Preference Specifications
      * @return mixed
      */
-    function modifyZimletPrefs(array $zimlets = array());
+    function modifyZimletPrefs(array $zimlet = array());
 
     /**
      * Revoke account level rights
@@ -458,7 +458,7 @@ interface AccountInterface
      * @param  array $ace Specify Access Control Entries
      * @return mixed
      */
-    function revokeRights(array $aces = array());
+    function revokeRights(array $ace = array());
 
     /**
      * Search Global Address List (GAL) for calendar resources

@@ -89,8 +89,9 @@ class EntrySearchFilterInfo
      *
      * @return array
      */
-    public function toArray()
+    public function toArray($name = 'searchFilter')
     {
+        $name = !empty($name) ? $name : 'searchFilter';
         $arr = array();
         if($this->_conds instanceof MultiCond)
         {
@@ -101,7 +102,7 @@ class EntrySearchFilterInfo
             $arr += $this->_cond->toArray();
         }
 
-        return array('searchFilter' => $arr);
+        return array($name => $arr);
     }
 
     /**
@@ -109,9 +110,10 @@ class EntrySearchFilterInfo
      *
      * @return SimpleXML
      */
-    public function toXml()
+    public function toXml($name = 'searchFilter')
     {
-        $xml = new SimpleXML('<searchFilter />');
+        $name = !empty($name) ? $name : 'searchFilter';
+        $xml = new SimpleXML('<'.$name.' />');
         if($this->_conds instanceof MultiCond)
         {
             $xml->append($this->_conds->toXml());

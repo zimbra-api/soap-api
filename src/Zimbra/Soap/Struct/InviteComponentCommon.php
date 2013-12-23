@@ -11,9 +11,15 @@
 namespace Zimbra\Soap\Struct;
 
 use Zimbra\Utils\SimpleXML;
+use Zimbra\Soap\Enum\FreeBusyStatus;
+use Zimbra\Soap\Enum\Transparency;
+use Zimbra\Soap\Enum\InviteStatus;
+use Zimbra\Soap\Enum\InviteClass;
+use Zimbra\Soap\Enum\InviteChange;
+use Zimbra\Utils\TypedSequence;
 
 /**
- * InviteComponentCommon class
+ * InviteComponentCommon struct class
  * @package   Zimbra
  * @category  Soap
  * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
@@ -46,7 +52,7 @@ class InviteComponentCommon
      * Priority (0 - 9; default = 0)
      * @var int
      */
-    private $_priority = 0;
+    private $_priority;
 
     /**
      * The name
@@ -64,7 +70,7 @@ class InviteComponentCommon
      * Percent complete for VTODO (0 - 100; default = 0)
      * @var int
      */
-    private $_percentComplete = 0;
+    private $_percentComplete;
 
     /**
      * VTODO COMPLETED DATE-TIME in format yyyyMMddThhmmssZ
@@ -82,20 +88,20 @@ class InviteComponentCommon
      * The "actual" free-busy status of this invite (ie what the client should display).
      * This is synthesized taking into account our Attendee's PartStat, the Opacity of the appointment, its Status, etc... 
      * Valid values - F|B|T|U. i.e. Free, Busy (default), busy-Tentative, OutOfOffice (busy-unavailable)
-     * @var string
+     * @var FreeBusyStatus
      */
     private $_fba;
 
     /**
      * FreeBusy setting F|B|T|U 
      * i.e. Free, Busy (default), busy-Tentative, OutOfOffice (busy-unavailable)
-     * @var string
+     * @var FreeBusyStatus
      */
     private $_fb;
 
     /**
      * Transparency - O|T. i.e. Opaque or Transparent
-     * @var string
+     * @var Transparency
      */
     private $_transp;
 
@@ -125,7 +131,7 @@ class InviteComponentCommon
 
     /**
      * Date - used for zdsync
-     * @var long
+     * @var integer
      */
     private $_d;
 
@@ -151,7 +157,7 @@ class InviteComponentCommon
      * Status - TENT|CONF|CANC|NEED|COMP|INPR|WAITING|DEFERRED
      * i.e. TENTative, CONFirmed, CANCelled, COMPleted, INPRogress, WAITING, DEFERRED where waiting
      * and Deferred are custom values not found in the iCalendar spec.
-     * @var string
+     * @var InviteStatus
      */
     private $_status;
 
@@ -200,9 +206,9 @@ class InviteComponentCommon
     /**
      * Comma-separated list of changed data in an updated invite.
      * Possible values are "subject", "location", "time" (start time, end time, or duration), and "recurrence".
-     * @var string
+     * @var TypedSequence
      */
-    private $_changes;
+    private $_change;
 
     /**
      * Constructor method for InviteComponentCommon
@@ -210,12 +216,140 @@ class InviteComponentCommon
      * @param string $method
      * @param int    $compNum
      * @param bool   $rsvp
+     * @param int    $priority
+     * @param string $name
+     * @param string $loc
+     * @param int    $percentComplete
+     * @param string $completed
+     * @param bool   $noBlob
+     * @param FreeBusyStatus $fba
+     * @param FreeBusyStatus $fb
+     * @param Transparency $transp
+     * @param bool   $isOrg
+     * @param string $x_uid
+     * @param string $uid
+     * @param int    $seq
+     * @param int    $d
+     * @param string $calItemId
+     * @param string $apptId
+     * @param string $ciFolder
+     * @param InviteStatus $status
+     * @param InviteClass $class
+     * @param string $url
+     * @param bool   $ex
+     * @param string $ridZ
+     * @param bool   $allDay
+     * @param bool   $draft
+     * @param bool   $neverSent
+     * @param array  $change
      */
-    public function __construct($method, $compNum, $rsvp)
+    public function __construct(
+        $method,
+        $compNum,
+        $rsvp,
+        $priority = null,
+        $name = null,
+        $loc = null,
+        $percentComplete = null,
+        $completed = null,
+        $noBlob = null,
+        FreeBusyStatus $fba = null,
+        FreeBusyStatus $fb = null,
+        Transparency $transp = null,
+        $isOrg = null,
+        $x_uid = null,
+        $uid = null,
+        $seq = null,
+        $d = null,
+        $calItemId = null,
+        $apptId = null,
+        $ciFolder = null,
+        InviteStatus $status = null,
+        InviteClass $class = null,
+        $url = null,
+        $ex = null,
+        $ridZ = null,
+        $allDay = null,
+        $draft = null,
+        $neverSent = null,
+        array $change = array()
+    )
     {
-        $this->method($method)
-             ->compNum($compNum)
-             ->rsvp($rsvp);
+        $this->_method = trim($method);
+        $this->_compNum = (int) $compNum;
+        $this->_rsvp = (bool) $rsvp;
+        if(null !== $priority)
+        {
+            $this->_priority = ((int) $priority > 0 or (int) $priority < 10) ? (int) $priority : 0;
+        }
+        $this->_name = trim($name);
+        $this->_loc = trim($loc);
+        if(null !== $percentComplete)
+        {
+            $this->_percentComplete = ((int) $percentComplete > 0 or (int) $percentComplete <= 100) ? (int) $percentComplete : 0;
+        }
+        $this->_completed = trim($completed);
+        if(null !== $noBlob)
+        {
+            $this->_noBlob = (bool) $noBlob;
+        }
+        if($fba instanceof FreeBusyStatus)
+        {
+            $this->_fba = $fba;
+        }
+        if($fb instanceof FreeBusyStatus)
+        {
+            $this->_fb = $fb;
+        }
+        if($transp instanceof Transparency)
+        {
+            $this->_transp = $transp;
+        }
+        if(null !== $isOrg)
+        {
+            $this->_isOrg = (bool) $isOrg;
+        }
+        $this->_x_uid = trim($x_uid);
+        $this->_uid = trim($uid);
+        if(null !== $seq)
+        {
+            $this->_seq = (int) $seq;
+        }
+        if(null !== $d)
+        {
+            $this->_d = (int) $d;
+        }
+        $this->_calItemId = trim($calItemId);
+        $this->_apptId = trim($apptId);
+        $this->_ciFolder = trim($ciFolder);
+        if($status instanceof InviteStatus)
+        {
+            $this->_status = $status;
+        }
+        if($class instanceof InviteClass)
+        {
+            $this->_class = $class;
+        }
+        $this->_url = trim($url);
+        if(null !== $ex)
+        {
+            $this->_ex = (bool) $ex;
+        }
+        $this->_ridZ = trim($ridZ);
+        if(null !== $allDay)
+        {
+            $this->_allDay = (bool) $allDay;
+        }
+        if(null !== $draft)
+        {
+            $this->_draft = (bool) $draft;
+        }
+        if(null !== $neverSent)
+        {
+            $this->_neverSent = (bool) $neverSent;
+        }
+
+        $this->_change = new TypedSequence('Zimbra\Soap\Enum\InviteChange', $change);
     }
 
     /**
@@ -278,10 +412,7 @@ class InviteComponentCommon
         {
             return $this->_priority;
         }
-        if((int) $priority > 0 and (int) $priority < 10)
-        {
-            $this->_priority = (int) $priority;
-        }
+        $this->_priority = ((int) $priority > 0 or (int) $priority < 10) ? (int) $priority : 0;
         return $this;
     }
 
@@ -329,10 +460,7 @@ class InviteComponentCommon
         {
             return $this->_percentComplete;
         }
-        if((int) $percentComplete > 0 and (int) $percentComplete <= 100)
-        {
-            $this->_percentComplete = (int) $percentComplete;
-        }
+        $this->_percentComplete = ((int) $percentComplete > 0 or (int) $percentComplete <= 100) ? (int) $percentComplete : 0;
         return $this;
     }
 
@@ -373,25 +501,17 @@ class InviteComponentCommon
      * Gets or sets "actual" free-busy status
      * Valid values - F|B|T|U. i.e. Free, Busy (default), busy-Tentative, OutOfOffice (busy-unavailable)
      *
-     * @param  string $fb
-     * @return string|self
+     * @param  FreeBusyStatus $fb
+     * @return FreeBusyStatus|self
      */
-    public function fba($fba = null)
+    public function fba(FreeBusyStatus $fba = null)
     {
         if(null === $fba)
         {
             return $this->_fba;
         }
-        $validValues = array('F', 'B', 'T', 'U');
-        if(in_array(trim($fba), $validValues))
-        {
-            $this->_fba = trim($fba);
-            return $this;
-        }
-        else
-        {
-            throw new \InvalidArgumentException("Invalid fba value");
-        }
+        $this->_fba = $fba;
+        return $this;
     }
 
     /**
@@ -399,50 +519,34 @@ class InviteComponentCommon
      * Valid values: F|B|T|U 
      * i.e. Free, Busy (default), busy-Tentative, OutOfOffice (busy-unavailable)
      *
-     * @param  string $fb
-     * @return string|self
+     * @param  FreeBusyStatus $fb
+     * @return FreeBusyStatus|self
      */
-    public function fb($fb = null)
+    public function fb(FreeBusyStatus $fb = null)
     {
         if(null === $fb)
         {
             return $this->_fb;
         }
-        $validValues = array('F', 'B', 'T', 'U');
-        if(in_array(trim($fb), $validValues))
-        {
-            $this->_fb = trim($fb);
-            return $this;
-        }
-        else
-        {
-            throw new \InvalidArgumentException("Invalid fb value");
-        }
+        $this->_fb = $fb;
+        return $this;
     }
 
     /**
      * Gets or sets transparency
      * Valid values: O|T. i.e. Opaque or Transparent
      *
-     * @param  string $transp
-     * @return string|self
+     * @param  Transparency $transp
+     * @return Transparency|self
      */
-    public function transp($transp = null)
+    public function transp(Transparency $transp = null)
     {
         if(null === $transp)
         {
             return $this->_transp;
         }
-        $validValues = array('O', 'T');
-        if(in_array(trim($transp), $validValues))
-        {
-            $this->_transp = trim($transp);
-            return $this;
-        }
-        else
-        {
-            throw new RuntimeException("Invalid value");
-        }
+        $this->_transp = $transp;
+        return $this;
     }
 
     /**
@@ -578,50 +682,34 @@ class InviteComponentCommon
      * Valid values: TENT|CONF|CANC|NEED|COMP|INPR|WAITING|DEFERRED
      * i.e. TENTative, CONFirmed, CANCelled, COMPleted, INPRogress, WAITING, DEFERRED where waiting and Deferred are custom values not found in the iCalendar spec.
      *
-     * @param  string $status
-     * @return string|self
+     * @param  InviteStatus $status
+     * @return InviteStatus|self
      */
-    public function status($status = null)
+    public function status(InviteStatus $status = null)
     {
         if(null === $status)
         {
             return $this->_status;
         }
-        $validValues = array('TENT', 'CONF', 'CANC', 'NEED', 'COMP', 'INPR', 'WAITING', 'DEFERRED'); 
-        if(in_array(trim($status), $validValues))
-        {
-            $this->_status = trim($status);
-            return $this;
-        }
-        else
-        {
-            throw new \InvalidArgumentException("Invalid status value");
-        }
+        $this->_status = $status;
+        return $this;
     }
 
     /**
      * Gets or sets class
      * Valid values: PUB|PRI|CON
      *
-     * @param  string $class
-     * @return string|self
+     * @param  InviteClass $class
+     * @return InviteClass|self
      */
-    public function klass($class = null)
+    public function klass(InviteClass $class = null)
     {
         if(null === $class)
         {
             return $this->_class;
         }
-        $validValues = array('PUB', 'PRI', 'CON');
-        if(in_array(trim($class), $validValues))
-        {
-            $this->_class = trim($class);
-            return $this;
-        }
-        else
-        {
-            throw new \InvalidArgumentException("Invalid class value");
-        }
+        $this->_class = $class;
+        return $this;
     }
 
     /**
@@ -721,52 +809,276 @@ class InviteComponentCommon
     }
 
     /**
-     * Get array of changes
+     * Add in invite change
+     * Valid values: subject|location|time|recurrence
      *
-     * @return array Array of changes
+     * @param  InviteChange $change
+     * @return self
      */
-    public function changes(array $changes = null)
+    public function addChange(InviteChange $change)
     {
-        if(null === $changes)
-        {
-            return $this->_changes;
-        }
-        $this->_changes = array();
-        $validValues = array('subject', 'location', 'time', 'recurrence');
-        foreach ($changes as $change)
-        {
-            if(in_array(trim($change), $validValues))
-            {
-                $this->_changes[] = trim($change);
-            }
-        }
+        $this->_change->add($change);
         return $this;
     }
 
     /**
-     * Add change
-     * Valid values: subject|location|time|recurrence
+     * Get sequence of change
      *
-     * @param  string $change
-     * @return InviteComponentCommon
+     * @return Sequence
      */
-    public function addChange($change = '')
+    public function change()
     {
-        $validValues = array('subject', 'location', 'time', 'recurrence');
-        if(!in_array(trim($change), $this->_changes) and in_array(trim($change), $validValues))
-        {
-            $this->_changes[] = trim($change);
-        }
-        return $this;
+        return $this->_change;
     }
 
-    public function toArray()
+    /**
+     * Returns the array representation of this class 
+     *
+     * @param  string $name
+     * @return array
+     */
+    public function toArray($name = 'comp')
     {
+        $name = !empty($name) ? $name : 'comp';
         $arr = array(
             'method' => $this->_method,
             'compNum' => $this->_compNum,
             'rsvp' => $this->_rsvp ? 1 : 0,
         );
-        return $arr;
+        if(is_int($this->_priority))
+        {
+            $arr['priority'] = $this->_priority;
+        }
+        if(!empty($this->_name))
+        {
+            $arr['name'] = $this->_name;
+        }
+        if(!empty($this->_loc))
+        {
+            $arr['loc'] = $this->_loc;
+        }
+        if(is_int($this->_percentComplete))
+        {
+            $arr['percentComplete'] = $this->_percentComplete;
+        }
+        if(!empty($this->_completed))
+        {
+            $arr['completed'] = $this->_completed;
+        }
+        if(is_bool($this->_noBlob))
+        {
+            $arr['noBlob'] = $this->_noBlob ? 1 : 0;
+        }
+        if($this->_fba instanceof FreeBusyStatus)
+        {
+            $arr['fba'] = (string) $this->_fba;
+        }
+        if($this->_fb instanceof FreeBusyStatus)
+        {
+            $arr['fb'] = (string) $this->_fb;
+        }
+        if($this->_transp instanceof Transparency)
+        {
+            $arr['transp'] = (string) $this->_transp;
+        }
+        if(is_bool($this->_isOrg))
+        {
+            $arr['isOrg'] = $this->_isOrg ? 1 : 0;
+        }
+        if(!empty($this->_x_uid))
+        {
+            $arr['x_uid'] = $this->_x_uid;
+        }
+        if(!empty($this->_uid))
+        {
+            $arr['uid'] = $this->_uid;
+        }
+        if(is_int($this->_seq))
+        {
+            $arr['seq'] = $this->_seq;
+        }
+        if(is_int($this->_d))
+        {
+            $arr['d'] = $this->_d;
+        }
+        if(!empty($this->_calItemId))
+        {
+            $arr['calItemId'] = $this->_calItemId;
+        }
+        if(!empty($this->_apptId))
+        {
+            $arr['apptId'] = $this->_apptId;
+        }
+        if(!empty($this->_ciFolder))
+        {
+            $arr['ciFolder'] = $this->_ciFolder;
+        }
+        if($this->_status instanceof InviteStatus)
+        {
+            $arr['status'] = (string) $this->_status;
+        }
+        if($this->_class instanceof InviteClass)
+        {
+            $arr['class'] = (string) $this->_class;
+        }
+        if(!empty($this->_url))
+        {
+            $arr['url'] = $this->_url;
+        }
+        if(is_bool($this->_ex))
+        {
+            $arr['ex'] = $this->_ex ? 1 : 0;
+        }
+        if(!empty($this->_ridZ))
+        {
+            $arr['ridZ'] = $this->_ridZ;
+        }
+        if(is_bool($this->_allDay))
+        {
+            $arr['allDay'] = $this->_allDay ? 1 : 0;
+        }
+        if(is_bool($this->_draft))
+        {
+            $arr['draft'] = $this->_draft ? 1 : 0;
+        }
+        if(is_bool($this->_neverSent))
+        {
+            $arr['neverSent'] = $this->_neverSent ? 1 : 0;
+        }
+        if(count($this->_change))
+        {
+            $arr['change'] = implode(',', $this->_change->all());
+        }
+        return array($name => $arr);
+    }
+
+    /**
+     * Method returning the xml representation of this class
+     *
+     * @param  string $name
+     * @return SimpleXML
+     */
+    public function toXml($name = 'comp')
+    {
+        $name = !empty($name) ? $name : 'comp';
+        $xml = new SimpleXML('<'.$name.' />');
+        $xml->addAttribute('method', $this->_method)
+            ->addAttribute('compNum', $this->_compNum)
+            ->addAttribute('rsvp', $this->_rsvp ? 1 : 0);
+        if(is_int($this->_priority))
+        {
+            $xml->addAttribute('priority', $this->_priority);
+        }
+        if(!empty($this->_name))
+        {
+            $xml->addAttribute('name', $this->_name);
+        }
+        if(!empty($this->_loc))
+        {
+            $xml->addAttribute('loc', $this->_loc);
+        }
+        if(is_int($this->_percentComplete))
+        {
+            $xml->addAttribute('percentComplete', $this->_percentComplete);
+        }
+        if(!empty($this->_completed))
+        {
+            $xml->addAttribute('completed', $this->_completed);
+        }
+        if(is_bool($this->_noBlob))
+        {
+            $xml->addAttribute('noBlob', $this->_noBlob ? 1 : 0);
+        }
+        if($this->_fba instanceof FreeBusyStatus)
+        {
+            $xml->addAttribute('fba', (string) $this->_fba);
+        }
+        if($this->_fb instanceof FreeBusyStatus)
+        {
+            $xml->addAttribute('fb', (string) $this->_fb);
+        }
+        if($this->_transp instanceof Transparency)
+        {
+            $xml->addAttribute('transp', (string) $this->_transp);
+        }
+        if(is_bool($this->_isOrg))
+        {
+            $xml->addAttribute('isOrg', $this->_isOrg ? 1 : 0);
+        }
+        if(!empty($this->_x_uid))
+        {
+            $xml->addAttribute('x_uid', $this->_x_uid);
+        }
+        if(!empty($this->_uid))
+        {
+            $xml->addAttribute('uid', $this->_uid);
+        }
+        if(is_int($this->_seq))
+        {
+            $xml->addAttribute('seq', $this->_seq);
+        }
+        if(is_int($this->_d))
+        {
+            $xml->addAttribute('d', $this->_d);
+        }
+        if(!empty($this->_calItemId))
+        {
+            $xml->addAttribute('calItemId', $this->_calItemId);
+        }
+        if(!empty($this->_apptId))
+        {
+            $xml->addAttribute('apptId', $this->_apptId);
+        }
+        if(!empty($this->_ciFolder))
+        {
+            $xml->addAttribute('ciFolder', $this->_ciFolder);
+        }
+        if($this->_status instanceof InviteStatus)
+        {
+            $xml->addAttribute('status', (string) $this->_status);
+        }
+        if($this->_class instanceof InviteClass)
+        {
+            $xml->addAttribute('class', (string) $this->_class);
+        }
+        if(!empty($this->_url))
+        {
+            $xml->addAttribute('url', $this->_url);
+        }
+        if(is_bool($this->_ex))
+        {
+            $xml->addAttribute('ex', $this->_ex ? 1 : 0);
+        }
+        if(!empty($this->_ridZ))
+        {
+            $xml->addAttribute('ridZ', $this->_ridZ);
+        }
+        if(is_bool($this->_allDay))
+        {
+            $xml->addAttribute('allDay', $this->_allDay ? 1 : 0);
+        }
+        if(is_bool($this->_draft))
+        {
+            $xml->addAttribute('draft', $this->_draft ? 1 : 0);
+        }
+        if(is_bool($this->_neverSent))
+        {
+            $xml->addAttribute('neverSent', $this->_neverSent ? 1 : 0);
+        }
+        if(count($this->_change))
+        {
+            $xml->addAttribute('change', implode(',', $this->_change->all()));
+        }
+        return $xml;
+    }
+
+    /**
+     * Method returning the xml string representation of this class
+     *
+     * @return string
+     */
+    public function __toString()
+    {
+        return $this->toXml()->asXml();
     }
 }

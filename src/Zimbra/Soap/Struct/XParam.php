@@ -13,7 +13,7 @@ namespace Zimbra\Soap\Struct;
 use Zimbra\Utils\SimpleXML;
 
 /**
- * XParam class
+ * XParam struct class
  * @package   Zimbra
  * @category  Soap
  * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
@@ -83,9 +83,10 @@ class XParam
      *
      * @return array
      */
-    public function toArray()
+    public function toArray($name = 'xparam')
     {
-        return array('xparam' => array(
+        $name = !empty($name) ? $name : 'xparam';
+        return array($name => array(
             'name' => $this->_name,
             'value' => $this->_value,
         ));
@@ -96,9 +97,10 @@ class XParam
      *
      * @return SimpleXML
      */
-    public function toXml()
+    public function toXml($name = 'xparam')
     {
-        $xml = new SimpleXML('<xparam />');
+        $name = !empty($name) ? $name : 'xparam';
+        $xml = new SimpleXML('<'.$name.' />');
         $xml->addAttribute('name', $this->_name)
             ->addAttribute('value', $this->_value);
         return $xml;

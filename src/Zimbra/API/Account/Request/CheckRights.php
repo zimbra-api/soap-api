@@ -27,10 +27,9 @@ class CheckRights extends Request
 {
     /**
      * The targets
-     * - maxOccurs : unbounded
-     * @var array
+     * @var TypedSequence
      */
-    private $_targets = array();
+    private $_target = array();
 
     /**
      * Constructor method for checkRightsRequest
@@ -40,8 +39,8 @@ class CheckRights extends Request
     public function __construct(array $targets)
     {
         parent::__construct();
-        $this->_targets = new TypedSequence('Zimbra\Soap\Struct\CheckRightsTargetSpec', $targets);
-        if(count($this->_targets) === 0)
+        $this->_target = new TypedSequence('Zimbra\Soap\Struct\CheckRightsTargetSpec', $targets);
+        if(count($this->_target) === 0)
         {
             throw new \InvalidArgumentException('CheckRights must have at least one target');
         }
@@ -55,7 +54,7 @@ class CheckRights extends Request
      */
     public function addTarget(Target $target)
     {
-        $this->_targets->add($target);
+        $this->_target->add($target);
         return $this;
     }
 
@@ -64,9 +63,9 @@ class CheckRights extends Request
      *
      * @return Sequence
      */
-    public function targets()
+    public function target()
     {
-        return $this->_targets;
+        return $this->_target;
     }
 
     /**
@@ -77,10 +76,10 @@ class CheckRights extends Request
     public function toArray()
     {
         $this->array = array();
-        if(count($this->_targets))
+        if(count($this->_target))
         {
             $this->array['target'] = array();
-            foreach ($this->_targets as $target)
+            foreach ($this->_target as $target)
             {
                 $targetArr = $target->toArray();
                 $this->array['target'][] = $targetArr['target'];
@@ -96,9 +95,9 @@ class CheckRights extends Request
      */
     public function toXml()
     {
-        foreach ($this->_targets as $target)
+        foreach ($this->_target as $target)
         {
-            $this->xml->append($target->toXml());
+            $this->xml->append($target->toXml('target'));
         }
         return parent::toXml();
     }

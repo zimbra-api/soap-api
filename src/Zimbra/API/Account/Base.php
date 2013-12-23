@@ -508,13 +508,13 @@ abstract class Base extends Account implements AccountInterface
     /**
      * Get account level rights. 
      *
-     * @param  array $rights Specify Access Control Entries. 
+     * @param  array $ace Specify Access Control Entries. 
      * @return mixed
      */
-    public function getRights(array $rights = array())
+    public function getRights(array $ace = array())
     {
         $request = new \Zimbra\API\Account\Request\GetRights(
-            $rights
+            $ace
         );
         return $this->_client->doRequest($request);
     }
@@ -607,13 +607,13 @@ abstract class Base extends Account implements AccountInterface
     /**
      * Modify preferences
      *
-     * @param  array $prefs Specify the preferences to be modified
+     * @param  array $pref Specify the preferences to be modified
      * @return mixed
      */
-    public function modifyPrefs(array $prefs = array())
+    public function modifyPrefs(array $pref = array())
     {
         $request = new \Zimbra\API\Account\Request\ModifyPrefs(
-            $prefs
+            $pref
         );
         return $this->_client->doRequest($request);
     }
@@ -621,13 +621,13 @@ abstract class Base extends Account implements AccountInterface
     /**
      * Modify properties related to zimlets
      *
-     * @param  array $props Specify the preferences to be modified
+     * @param  array $prop Specify the properties to be modified
      * @return mixed
      */
-    public function modifyProperties(array $props = array())
+    public function modifyProperties(array $prop = array())
     {
         $request = new \Zimbra\API\Account\Request\ModifyProperties(
-            $props
+            $prop
         );
         return $this->_client->doRequest($request);
     }
@@ -672,13 +672,13 @@ abstract class Base extends Account implements AccountInterface
     /**
      * Modify Zimlet Preferences
      *
-     * @param  array $zimlets Zimlet Preference Specifications
+     * @param  array $zimlet Zimlet Preference Specifications
      * @return mixed
      */
-    public function modifyZimletPrefs(array $zimlets = array())
+    public function modifyZimletPrefs(array $zimlet = array())
     {
         $request = new \Zimbra\API\Account\Request\ModifyZimletPrefs(
-            $zimlets
+            $zimlet
         );
         return $this->_client->doRequest($request);
     }
@@ -689,10 +689,10 @@ abstract class Base extends Account implements AccountInterface
      * @param  array $ace Specify Access Control Entries
      * @return mixed
      */
-    function revokeRights(array $aces = array())
+    function revokeRights(array $ace = array())
     {
         $request = new \Zimbra\API\Account\Request\RevokeRights(
-            $aces
+            $ace
         );
         return $this->_client->doRequest($request);
     }

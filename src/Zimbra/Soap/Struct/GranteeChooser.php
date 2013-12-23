@@ -110,8 +110,9 @@ class GranteeChooser
      * @param  string $name
      * @return array
      */
-    public function toArray()
+    public function toArray($name = 'grantee')
     {
+        $name = !empty($name) ? $name : 'grantee';
         $arr = array();
         if(!empty($this->_type))
         {
@@ -125,7 +126,7 @@ class GranteeChooser
         {
             $arr['name'] = $this->_name;
         }
-        return array('grantee' => $arr);
+        return array($name => $arr);
     }
 
     /**
@@ -133,9 +134,10 @@ class GranteeChooser
      *
      * @return SimpleXML
      */
-    public function toXml()
+    public function toXml($name = 'grantee')
     {
-        $xml = new SimpleXML('<grantee />');
+        $name = !empty($name) ? $name : 'grantee';
+        $xml = new SimpleXML('<'.$name.' />');
         if(!empty($this->_type))
         {
             $xml->addAttribute('type', $this->_type);

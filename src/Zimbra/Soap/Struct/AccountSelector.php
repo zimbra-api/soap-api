@@ -14,7 +14,7 @@ use Zimbra\Soap\Enum\AccountBy;
 use Zimbra\Utils\SimpleXML;
 
 /**
- * AccountSelector class
+ * AccountSelector struct class
  * @package   Zimbra
  * @category  Soap
  * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com

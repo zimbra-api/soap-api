@@ -26,20 +26,20 @@ use Zimbra\Utils\TypedSequence;
 class ModifyProperties extends Request
 {
     /**
-     * Specify the properences to be modified
-     * @var array
+     * Specify the properties to be modified
+     * @var TypedSequence
      */
-    private $_props = array();
+    private $_prop;
 
     /**
      * Constructor method for ModifyProperties
-     * @param array $props
+     * @param array $prop
      * @return self
      */
-    public function __construct(array $props = array())
+    public function __construct(array $prop = array())
     {
         parent::__construct();
-        $this->_props = new TypedSequence('Zimbra\Soap\Struct\Prop', $props);
+        $this->_prop = new TypedSequence('Zimbra\Soap\Struct\Prop', $prop);
     }
 
     /**
@@ -50,18 +50,18 @@ class ModifyProperties extends Request
      */
     public function addProp(Prop $prop)
     {
-        $this->_props->add($prop);
+        $this->_prop->add($prop);
         return $this;
     }
 
     /**
-     * Gets prop sequence
+     * Gets property sequence
      *
      * @return Sequence
      */
-    public function props()
+    public function prop()
     {
-        return $this->_props;
+        return $this->_prop;
     }
 
     /**
@@ -71,12 +71,12 @@ class ModifyProperties extends Request
      */
     public function toArray()
     {
-        if(count($this->_props))
+        if(count($this->_prop))
         {
             $this->array['prop'] = array();
-            foreach ($this->_props as $prop)
+            foreach ($this->_prop as $prop)
             {
-                $propArr = $prop->toArray();
+                $propArr = $prop->toArray('prop');
                 $this->array['prop'][] = $propArr['prop'];
             }
         }
@@ -90,9 +90,9 @@ class ModifyProperties extends Request
      */
     public function toXml()
     {
-        foreach ($this->_props as $prop)
+        foreach ($this->_prop as $prop)
         {
-            $this->xml->append($prop->toXml());
+            $this->xml->append($prop->toXml('prop'));
         }
         return parent::toXml();
     }

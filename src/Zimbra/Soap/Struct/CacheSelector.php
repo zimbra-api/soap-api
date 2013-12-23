@@ -34,7 +34,7 @@ class CacheSelector
      * Array of CacheEntrySelector
      * @var Sequence
      */
-    private $_entries = array();
+    private $_entry = array();
 
     /**
      * The allServers flag
@@ -68,7 +68,7 @@ class CacheSelector
         {
             $this->_allServers = (bool) $allServers;
         }
-        $this->_entries = new TypedSequence('Zimbra\Soap\Struct\CacheEntrySelector', $entries);
+        $this->_entry = new TypedSequence('Zimbra\Soap\Struct\CacheEntrySelector', $entries);
     }
 
     /**
@@ -122,19 +122,19 @@ class CacheSelector
      */
     public function addEntry(CacheEntrySelector $entry)
     {
-        $this->_entries->add($entry);
+        $this->_entry->add($entry);
         return $this;
     }
 
 
     /**
-     * Gets entries Sequence
+     * Gets entry sequence
      *
      * @return Sequence
      */
-    public function entries()
+    public function entry()
     {
-        return $this->_entries;
+        return $this->_entry;
     }
 
     /**
@@ -153,10 +153,10 @@ class CacheSelector
         {
             $arr['allServers'] = $this->_allServers ? 1 : 0;
         }
-        if(count($this->_entries))
+        if(count($this->_entry))
         {
             $arr['entry'] = array();
-            foreach ($this->_entries as $entry)
+            foreach ($this->_entry as $entry)
             {
                 $entryArr = $entry->toArray('entry');
                 $arr['entry'][] = $entryArr['entry'];
@@ -180,7 +180,7 @@ class CacheSelector
         {
             $xml->addAttribute('allServers', $this->_allServers ? 1 : 0);
         }
-        foreach ($this->_entries as $entry)
+        foreach ($this->_entry as $entry)
         {
             $xml->append($entry->toXml('entry'));
         }
