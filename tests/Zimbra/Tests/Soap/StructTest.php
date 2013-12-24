@@ -6939,4 +6939,26 @@ class StructTest extends ZimbraTestCase
         );
         $this->assertEquals($array, $m->toArray());
     }
+
+    public function testIdsAttr()
+    {
+        $m = new \Zimbra\Soap\Struct\IdsAttr(
+            'ids'
+        );
+        $this->assertSame('ids', $m->ids());
+
+        $m->ids('ids');
+        $this->assertSame('ids', $m->ids());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<m ids="ids" />';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $m);
+
+        $array = array(
+            'm' => array(
+                'ids' => 'ids',
+            ),
+        );
+        $this->assertEquals($array, $m->toArray());
+    }
 }

@@ -3,6 +3,8 @@
 namespace Zimbra\Tests\API;
 
 use Zimbra\Tests\ZimbraTestCase;
+
+use Zimbra\Soap\Enum\GalSearchType;
 use Zimbra\Soap\Enum\ParticipationStatus;
 
 /**
@@ -482,6 +484,136 @@ class MailRequestTest extends ZimbraTestCase
         $array = array(
             'AnnounceOrganizerChangeRequest' => array(
             	'id' => 'id',
+            )
+        );
+        $this->assertEquals($array, $req->toArray());
+	}
+
+	public function testApplyFilterRules()
+	{
+        $filterRule = new \Zimbra\Soap\Struct\NamedElement('name');
+        $m = new \Zimbra\Soap\Struct\IdsAttr('ids');
+        $req = new \Zimbra\API\Mail\Request\ApplyFilterRules(
+            array($filterRule), $m, 'query'
+        );
+        $this->assertSame(array($filterRule), $req->filterRule()->all());
+        $this->assertSame($m, $req->m());
+        $this->assertSame('query', $req->query());
+
+        $req->query('query')
+        	->m($m)
+        	->addFilterRule($filterRule);
+        $this->assertSame(array($filterRule, $filterRule), $req->filterRule()->all());
+        $this->assertSame($m, $req->m());
+        $this->assertSame('query', $req->query());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<ApplyFilterRulesRequest>'
+            	.'<filterRules>'
+            		.'<filterRule name="name" />'
+            		.'<filterRule name="name" />'
+            	.'</filterRules>'
+            	.'<m ids="ids" />'
+            	.'<query>query</query>'
+            .'</ApplyFilterRulesRequest>';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
+
+        $array = array(
+            'ApplyFilterRulesRequest' => array(
+            	'filterRules' => array(
+            		'filterRule' => array(
+            			array('name' => 'name'),
+            			array('name' => 'name'),
+        			),
+        		),
+	            'm' => array(
+	                'ids' => 'ids',
+	            ),
+            	'query' => 'query',
+            )
+        );
+        $this->assertEquals($array, $req->toArray());
+	}
+
+	public function testApplyOutgoingFilterRules()
+	{
+        $filterRule = new \Zimbra\Soap\Struct\NamedElement('name');
+        $m = new \Zimbra\Soap\Struct\IdsAttr('ids');
+        $req = new \Zimbra\API\Mail\Request\ApplyOutgoingFilterRules(
+            array($filterRule), $m, 'query'
+        );
+        $this->assertSame(array($filterRule), $req->filterRule()->all());
+        $this->assertSame($m, $req->m());
+        $this->assertSame('query', $req->query());
+
+        $req->query('query')
+        	->m($m)
+        	->addFilterRule($filterRule);
+        $this->assertSame(array($filterRule, $filterRule), $req->filterRule()->all());
+        $this->assertSame($m, $req->m());
+        $this->assertSame('query', $req->query());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<ApplyOutgoingFilterRulesRequest>'
+            	.'<filterRules>'
+            		.'<filterRule name="name" />'
+            		.'<filterRule name="name" />'
+            	.'</filterRules>'
+            	.'<m ids="ids" />'
+            	.'<query>query</query>'
+            .'</ApplyOutgoingFilterRulesRequest>';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
+
+        $array = array(
+            'ApplyOutgoingFilterRulesRequest' => array(
+            	'filterRules' => array(
+            		'filterRule' => array(
+            			array('name' => 'name'),
+            			array('name' => 'name'),
+        			),
+        		),
+	            'm' => array(
+	                'ids' => 'ids',
+	            ),
+            	'query' => 'query',
+            )
+        );
+        $this->assertEquals($array, $req->toArray());
+	}
+
+	public function testAutoComplete()
+	{
+        $req = new \Zimbra\API\Mail\Request\AutoComplete(
+            'name', GalSearchType::ALL(), true, 'folders', true
+        );
+        $this->assertSame('name', $req->name());
+        $this->assertTrue($req->t()->is('all'));
+        $this->assertTrue($req->needExp());
+        $this->assertSame('folders', $req->folders());
+        $this->assertTrue($req->includeGal());
+
+        $req->name('name')
+        	->t(GalSearchType::ALL())
+        	->needExp(true)
+        	->folders('folders')
+        	->includeGal(true);
+        $this->assertSame('name', $req->name());
+        $this->assertTrue($req->t()->is('all'));
+        $this->assertTrue($req->needExp());
+        $this->assertSame('folders', $req->folders());
+        $this->assertTrue($req->includeGal());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<AutoCompleteRequest name="name" t="all" needExp="1" folders="folders" includeGal="1" />';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
+
+        $array = array(
+            'AutoCompleteRequest' => array(
+            	'name' => 'name',
+            	't' => 'all',
+            	'needExp' => 1,
+            	'folders' => 'folders',
+            	'includeGal' => 1,
             )
         );
         $this->assertEquals($array, $req->toArray());
