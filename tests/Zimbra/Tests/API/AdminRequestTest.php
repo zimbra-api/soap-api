@@ -51,8 +51,6 @@ use Zimbra\Soap\Enum\XmppComponentBy as XmppBy;
 use Zimbra\Soap\Enum\ZimletStatus;
 use Zimbra\Soap\Enum\ZimletExcludeType as ExcludeType;
 
-use Zimbra\Utils\SimpleXML;
-
 /**
  * Testcase class for admin api soap request.
  */

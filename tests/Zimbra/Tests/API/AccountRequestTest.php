@@ -17,7 +17,6 @@ use Zimbra\Soap\Enum\SortBy;
 use Zimbra\Soap\Enum\TargetType;
 use Zimbra\Soap\Enum\TargetBy;
 use Zimbra\Soap\Enum\ZimletStatus;
-use Zimbra\Utils\SimpleXML;
 
 /**
  * Testcase class for account api soap request.
