@@ -230,4 +230,46 @@ class MailRequestTest extends ZimbraTestCase
         );
         $this->assertEquals($array, $req->toArray());
 	}
+
+	public function testAddMsg()
+	{
+        $m = new \Zimbra\Soap\Struct\AddMsgSpec(
+            'content', 'f', 't', 'tn', 'l', true, 'd', 'aid'
+        );
+        $req = new \Zimbra\API\Mail\Request\AddMsg(
+            $m, true
+        );
+        $this->assertSame($m, $req->m());
+        $this->assertTrue($req->filterSent());
+
+        $req->m($m)
+        	->filterSent(true);
+        $this->assertSame($m, $req->m());
+        $this->assertTrue($req->filterSent());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<AddMsgRequest filterSent="1">'
+                .'<m f="f" t="t" tn="tn" l="l" noICal="1" d="d" aid="aid">'
+	                .'<content>content</content>'
+	            .'</m>'
+            .'</AddMsgRequest>';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
+
+        $array = array(
+            'AddMsgRequest' => array(
+            	'filterSent' => 1,
+	            'm' => array(
+	                'content' => 'content',
+	                'f' => 'f',
+	                't' => 't',
+	                'tn' => 'tn',
+	                'l' => 'l',
+	                'noICal' => 1,
+	                'd' => 'd',
+	                'aid' => 'aid',
+	            ),
+            )
+        );
+        $this->assertEquals($array, $req->toArray());
+	}
 }
