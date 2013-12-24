@@ -202,4 +202,32 @@ class MailRequestTest extends ZimbraTestCase
         );
         $this->assertEquals($array, $req->toArray());
 	}
+
+	public function testAddComment()
+	{
+        $comment = new \Zimbra\Soap\Struct\AddedComment('parentId', 'text');
+        $req = new \Zimbra\API\Mail\Request\AddComment(
+            $comment
+        );
+        $this->assertSame($comment, $req->comment());
+
+        $req->comment($comment);
+        $this->assertSame($comment, $req->comment());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<AddCommentRequest>'
+                .'<comment parentId="parentId" text="text" />'
+            .'</AddCommentRequest>';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
+
+        $array = array(
+            'AddCommentRequest' => array(
+	            'comment' => array(
+	                'parentId' => 'parentId',
+	                'text' => 'text',
+	            ),
+            )
+        );
+        $this->assertEquals($array, $req->toArray());
+	}
 }
