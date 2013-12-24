@@ -13,7 +13,6 @@ namespace Zimbra\API\Mail\Request;
 use Zimbra\Soap\Request;
 use Zimbra\Soap\Struct\Msg;
 use Zimbra\Soap\Enum\ParticipationStatus;
-use Zimbra\Utils\SimpleXML;
 
 /**
  * AddTaskInvite request class

@@ -12,7 +12,6 @@ namespace Zimbra\API\Mail\Request;
 
 use Zimbra\Soap\Request;
 use Zimbra\Soap\Struct\AddMsgSpec;
-use Zimbra\Utils\SimpleXML;
 
 /**
  * AddMsg request class

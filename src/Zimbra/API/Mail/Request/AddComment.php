@@ -12,7 +12,6 @@ namespace Zimbra\API\Mail\Request;
 
 use Zimbra\Soap\Request;
 use Zimbra\Soap\Struct\AddedComment;
-use Zimbra\Utils\SimpleXML;
 
 /**
  * AddComment request class

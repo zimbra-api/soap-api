@@ -12,7 +12,6 @@ namespace Zimbra\API\Mail\Request;
 
 use Zimbra\Soap\Request;
 use Zimbra\Soap\Enum\GalSearchType;
-use Zimbra\Utils\SimpleXML;
 
 /**
  * AutoComplete request class
