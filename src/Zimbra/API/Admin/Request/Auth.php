@@ -210,7 +210,7 @@ class Auth extends Request
         }
         if($this->_account instanceof Account)
         {
-            $this->array += $this->_account->toArray();
+            $this->array += $this->_account->toArray('account');
         }
         if(!empty($this->_virtualHost))
         {
@@ -244,7 +244,7 @@ class Auth extends Request
         }
         if($this->_account instanceof Account)
         {
-            $this->xml->append($this->_account->toXml());
+            $this->xml->append($this->_account->toXml('account'));
         }
         if(!empty($this->_virtualHost))
         {
