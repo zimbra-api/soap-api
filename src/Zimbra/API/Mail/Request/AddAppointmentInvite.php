@@ -42,8 +42,8 @@ class AddAppointmentInvite extends Request
 
     /**
      * Constructor method for AddAppointmentInvite
-     * @param  string $ptst
-     * @param  string $m
+     * @param  ParticipationStatus $ptst
+     * @param  Msg $m
      * @return self
      */
     public function __construct(ParticipationStatus $ptst = null, Msg $m = null)
