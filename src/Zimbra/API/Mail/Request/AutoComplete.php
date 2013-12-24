@@ -33,7 +33,7 @@ class AutoComplete extends Request
      * GAL Search type - default value is "account"
      * @var string
      */
-    private $_type;
+    private $_t;
 
     /**
      * Set if the "exp" flag is needed in the response for group entries. Default is unset.
@@ -58,27 +58,24 @@ class AutoComplete extends Request
      * @param  string $name
      * @param  GalSearchType $type
      * @param  bool   $needExp
-     * @param  array  $folders
+     * @param  string $folders
      * @param  bool   $includeGal
      * @return self
      */
-    public function __construct($name, GalSearchType $type = null, $needExp = null, array $folders = null, $includeGal = null)
+    public function __construct($name, GalSearchType $t = null, $needExp = null, $folders = null, $includeGal = null)
     {
         parent::__construct();
-        $this->_name = (string) $name;
-        if($type instanceof GalSearchType)
+        $this->_name = trim($name);
+        $this->_folders = trim($folders);
+        if($t instanceof GalSearchType)
         {
-            $this->_type = $type;
+            $this->_t = $t;
         }
-        if($needExp !== null)
+        if(null !== $needExp)
         {
             $this->_needExp = (bool) $needExp;
         }
-        if($folders !== null)
-        {
-            $this->_folders = $folders;
-        }
-        if($includeGal !== null)
+        if(null !== $includeGal)
         {
             $this->_includeGal = (bool) $includeGal;
         }
@@ -96,23 +93,23 @@ class AutoComplete extends Request
         {
             return $this->_name;
         }
-        $this->_name = (string) $name;
+        $this->_name = trim($name);
         return $this;
     }
 
     /**
-     * Get or set type
+     * Get or set t
      *
-     * @param  GalSearchType $type
+     * @param  GalSearchType $t
      * @return GalSearchType|self
      */
-    public function type(GalSearchType $type = null)
+    public function t(GalSearchType $t = null)
     {
-        if(null === $type)
+        if(null === $t)
         {
-            return $this->_type;
+            return $this->_t;
         }
-        $this->_type = $type;
+        $this->_t = $t;
         return $this;
     }
 
@@ -133,39 +130,18 @@ class AutoComplete extends Request
     }
 
     /**
-     * Add a folder name
-     *
-     * @param  string $folder
-     * @return string|self
-     */
-    public function addFolder($folder)
-    {
-        if(!empty($folder))
-        {
-            $this->_folders[] = (string) $folder;
-        }
-        return $this;
-    }
-
-    /**
      * Get or set folders
      *
-     * @param  array $folders
-     * @return array|self
+     * @param  string $folders
+     * @return string|self
      */
-    public function folders(array $folders = null)
+    public function folders($folders = null)
     {
         if(null === $folders)
         {
             return $this->_folders;
         }
-        foreach ($folders as $folder)
-        {
-            if(!empty($folder))
-            {
-                $this->_folders[] = (string) $folder;
-            }
-        }
+        $this->_folders = trim($folders);
         return $this;
     }
 
@@ -192,24 +168,24 @@ class AutoComplete extends Request
      */
     public function toArray()
     {
-        $arr = array(
+        $this->array = array(
             'name' => $this->_name,
         );
-        if($this->_type !== null)
+        if($this->_t instanceof GalSearchType)
         {
-            $arr['t'] = (string) $this->_type;
+            $this->array['t'] = (string) $this->_t;
         }
-        if($this->_needExp !== null)
+        if(is_bool($this->_needExp))
         {
-            $arr['needExp'] = (bool) $this->_needExp ? 1 : 0;
+            $this->array['needExp'] = $this->_needExp ? 1 : 0;
         }
-        if(count($this->_folders))
+        if(!empty($this->_folders))
         {
-            $arr['folder'] = implode(',', $this->_folders);
+            $this->array['folders'] = $this->_folders;
         }
-        if($this->_includeGal !== null)
+        if(is_bool($this->_includeGal))
         {
-            $arr['includeGal'] = (bool) $this->_includeGal ? 1 : 0;
+            $this->array['includeGal'] = $this->_includeGal ? 1 : 0;
         }
         return parent::toArray();
     }
@@ -222,21 +198,21 @@ class AutoComplete extends Request
     public function toXml()
     {
         $this->xml->addAttribute('name', $this->_name);
-        if($this->_type !== null)
+        if($this->_t instanceof GalSearchType)
         {
-            $this->xml->addAttribute('t', (string) $this->_type);
+            $this->xml->addAttribute('t', (string) $this->_t);
         }
-        if($this->_needExp !== null)
+        if(is_bool($this->_needExp))
         {
-            $this->xml->addAttribute('needExp', (bool) $this->_needExp ? 1 : 0);
+            $this->xml->addAttribute('needExp', $this->_needExp ? 1 : 0);
         }
-        if(count($this->_folders))
+        if(!empty($this->_folders))
         {
-            $this->xml->addAttribute('folder', implode(',', $this->_folders));
+            $this->xml->addAttribute('folders', $this->_folders);
         }
-        if($this->_includeGal !== null)
+        if(is_bool($this->_includeGal))
         {
-            $this->xml->addAttribute('includeGal', (bool) $this->_includeGal ? 1 : 0);
+            $this->xml->addAttribute('includeGal', $this->_includeGal ? 1 : 0);
         }
         return parent::toXml();
     }
