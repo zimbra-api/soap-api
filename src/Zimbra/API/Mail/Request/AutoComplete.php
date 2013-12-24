@@ -26,7 +26,6 @@ class AutoComplete extends Request
 {
     /**
      * The name to test for autocompletion
-     * - use : required
      * @var string
      */
     private $_name;
@@ -58,19 +57,19 @@ class AutoComplete extends Request
     /**
      * Constructor method for autoCompleteRequest
      * @param  string $name
-     * @param  string $type
+     * @param  GalSearchType $type
      * @param  bool   $needExp
      * @param  array  $folders
      * @param  bool   $includeGal
-     * @return AutoComplete
+     * @return self
      */
-    public function __construct($name, $type = null, $needExp = null, array $folders = null, $includeGal = null)
+    public function __construct($name, GalSearchType $type = null, $needExp = null, array $folders = null, $includeGal = null)
     {
         parent::__construct();
         $this->_name = (string) $name;
-        if($type !== null and GalSearchType::isValid($type))
+        if($type instanceof GalSearchType)
         {
-            $this->_type = (string) $type;
+            $this->_type = $type;
         }
         if($needExp !== null)
         {
@@ -105,19 +104,16 @@ class AutoComplete extends Request
     /**
      * Get or set type
      *
-     * @param  string $type
-     * @return string|AutoComplete
+     * @param  GalSearchType $type
+     * @return GalSearchType|self
      */
-    public function type($type = null)
+    public function type(GalSearchType $type = null)
     {
         if(null === $type)
         {
             return $this->_type;
         }
-        if(GalSearchType::isValid($type))
-        {
-            $this->_type = (string) $type;
-        }
+        $this->_type = $type;
         return $this;
     }
 
@@ -125,7 +121,7 @@ class AutoComplete extends Request
      * Get or set needExp
      *
      * @param  bool $needExp
-     * @return bool|AutoComplete
+     * @return bool|self
      */
     public function needExp($needExp = null)
     {
@@ -141,7 +137,7 @@ class AutoComplete extends Request
      * Add a folder name
      *
      * @param  string $folder
-     * @return string|AutoComplete
+     * @return string|self
      */
     public function addFolder($folder)
     {
@@ -156,7 +152,7 @@ class AutoComplete extends Request
      * Get or set folders
      *
      * @param  array $folders
-     * @return array|AutoComplete
+     * @return array|self
      */
     public function folders(array $folders = null)
     {
@@ -178,7 +174,7 @@ class AutoComplete extends Request
      * Get or set includeGal
      *
      * @param  bool $includeGal
-     * @return bool|AutoComplete
+     * @return bool|self
      */
     public function includeGal($includeGal = null)
     {
@@ -216,7 +212,7 @@ class AutoComplete extends Request
         {
             $arr['includeGal'] = (bool) $this->_includeGal ? 1 : 0;
         }
-        return array('AutoCompleteRequest' => $arr);
+        return parent::toArray();
     }
 
     /**
@@ -243,6 +239,6 @@ class AutoComplete extends Request
         {
             $this->xml->addAttribute('includeGal', (bool) $this->_includeGal ? 1 : 0);
         }
-        return $this->xml;
+        return parent::toXml();
     }
 }
