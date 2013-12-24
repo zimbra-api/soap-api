@@ -28,7 +28,7 @@ class AddComment extends Request
      * Message
      * @var AddedComment
      */
-    protected $_comment;
+    private $_comment;
 
     /**
      * Constructor method for AddComment
