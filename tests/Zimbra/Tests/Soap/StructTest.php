@@ -6627,11 +6627,7 @@ class StructTest extends ZimbraTestCase
         $header = new \Zimbra\Soap\Struct\Header('name', 'value');
         $attach = new \Zimbra\Soap\Struct\AttachmentsInfo($mp, $m, $cn, $doc, 'aid');
         $mp = new \Zimbra\Soap\Struct\MimePartInfo(array($info), $attach, 'ct', 'content', 'ci');
-        $inv = new \Zimbra\Soap\Struct\InvitationInfo(
-            'method',
-            1,
-            true
-        );
+        $inv = new \Zimbra\Soap\Struct\InvitationInfo('method', 1, true);
         $e = new \Zimbra\Soap\Struct\EmailAddrInfo('a', 't', 'p');
         $tz = new \Zimbra\Soap\Struct\CalTZInfo('id', 1, 1, 'stdname', 'dayname', $standard, $daylight);
 
@@ -6862,5 +6858,29 @@ class StructTest extends ZimbraTestCase
             ),
         );
         $this->assertEquals($array, $m->toArray());
+    }
+
+    public function testAddedComment()
+    {
+        $comment = new \Zimbra\Soap\Struct\AddedComment('parentId', 'text');
+        $this->assertSame('parentId', $comment->parentId());
+        $this->assertSame('text', $comment->text());
+
+        $comment->parentId('parentId')
+                ->text('text');
+        $this->assertSame('parentId', $comment->parentId());
+        $this->assertSame('text', $comment->text());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<comment parentId="parentId" text="text" />';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $comment);
+
+        $array = array(
+            'comment' => array(
+                'parentId' => 'parentId',
+                'text' => 'text',
+            ),
+        );
+        $this->assertEquals($array, $comment->toArray());
     }
 }
