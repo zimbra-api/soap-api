@@ -41,7 +41,7 @@ class AddAppointmentInvite extends Request
     protected $_m;
 
     /**
-     * Constructor method for autoCompleteRequest
+     * Constructor method for AddAppointmentInvite
      * @param  string $ptst
      * @param  string $m
      * @return self
