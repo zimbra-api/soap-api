@@ -6883,4 +6883,60 @@ class StructTest extends ZimbraTestCase
         );
         $this->assertEquals($array, $comment->toArray());
     }
+
+    /**
+     * @param bool   $
+     * @return self
+     */
+    public function testAddMsgSpec()
+    {
+        $m = new \Zimbra\Soap\Struct\AddMsgSpec(
+            'content', 'f', 't', 'tn', 'l', true, 'd', 'aid'
+        );
+        $this->assertSame('content', $m->content());
+        $this->assertSame('f', $m->f());
+        $this->assertSame('t', $m->t());
+        $this->assertSame('tn', $m->tn());
+        $this->assertSame('l', $m->l());
+        $this->assertTrue($m->noICal());
+        $this->assertSame('d', $m->d());
+        $this->assertSame('aid', $m->aid());
+
+        $m->content('content')
+          ->f('f')
+          ->t('t')
+          ->tn('tn')
+          ->l('l')
+          ->noICal(true)
+          ->d('d')
+          ->aid('aid');
+        $this->assertSame('content', $m->content());
+        $this->assertSame('f', $m->f());
+        $this->assertSame('t', $m->t());
+        $this->assertSame('tn', $m->tn());
+        $this->assertSame('l', $m->l());
+        $this->assertTrue($m->noICal());
+        $this->assertSame('d', $m->d());
+        $this->assertSame('aid', $m->aid());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<m f="f" t="t" tn="tn" l="l" noICal="1" d="d" aid="aid">'
+                .'<content>content</content>'
+            .'</m>';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $m);
+
+        $array = array(
+            'm' => array(
+                'content' => 'content',
+                'f' => 'f',
+                't' => 't',
+                'tn' => 'tn',
+                'l' => 'l',
+                'noICal' => 1,
+                'd' => 'd',
+                'aid' => 'aid',
+            ),
+        );
+        $this->assertEquals($array, $m->toArray());
+    }
 }
