@@ -465,4 +465,25 @@ class MailRequestTest extends ZimbraTestCase
         );
         $this->assertEquals($array, $req->toArray());
 	}
+
+	public function testAnnounceOrganizerChange()
+	{
+        $req = new \Zimbra\API\Mail\Request\AnnounceOrganizerChange(
+            'id'
+        );
+        $this->assertSame('id', $req->id());
+        $req->id('id');
+        $this->assertSame('id', $req->id());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<AnnounceOrganizerChangeRequest id="id" />';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
+
+        $array = array(
+            'AnnounceOrganizerChangeRequest' => array(
+            	'id' => 'id',
+            )
+        );
+        $this->assertEquals($array, $req->toArray());
+	}
 }
