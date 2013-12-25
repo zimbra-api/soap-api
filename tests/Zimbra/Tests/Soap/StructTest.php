@@ -6996,4 +6996,32 @@ class StructTest extends ZimbraTestCase
         );
         $this->assertEquals($array, $m->toArray());
     }
+
+    public function testInstanceRecurIdInfo()
+    {
+        $inst = new \Zimbra\Soap\Struct\InstanceRecurIdInfo('range', '20130315T18302305Z', 'tz');
+        $this->assertSame('range', $inst->range());
+        $this->assertSame('20130315T18302305Z', $inst->d());
+        $this->assertSame('tz', $inst->tz());
+
+        $inst->range('range')
+          ->d('20130315T18302305Z')
+          ->tz('tz');
+        $this->assertSame('range', $inst->range());
+        $this->assertSame('20130315T18302305Z', $inst->d());
+        $this->assertSame('tz', $inst->tz());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<inst range="range" d="20130315T18302305Z" tz="tz" />';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $inst);
+
+        $array = array(
+            'inst' => array(
+                'range' => 'range',
+                'd' => '20130315T18302305Z',
+                'tz' => 'tz',
+            ),
+        );
+        $this->assertEquals($array, $inst->toArray());
+    }
 }
