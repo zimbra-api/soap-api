@@ -11,7 +11,7 @@
 namespace Zimbra\Soap\Enum;
 
 /**
- * Operation class
+ * Operation enum class
  * @package   Zimbra
  * @category  Soap
  * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com

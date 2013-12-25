@@ -11,12 +11,29 @@
 namespace Zimbra\Soap\Enum;
 
 /**
- * DistributionListGranteeBy enum class
+ * BrowseBy enum class
  * @package   Zimbra
  * @category  Soap
  * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright Copyright © 2013 by Nguyen Van Nguyen.
  */
-class DistributionListGranteeBy extends NameIdBy
+class BrowseBy extends Base
 {
+    /**
+     * Constant for value 'domains'
+     * @return string 'adminName'
+     */
+    const DOMAINS = 'domains';
+
+    /**
+     * Constant for value 'attachments'
+     * @return string 'attachments'
+     */
+    const ATTACHMENTS = 'attachments';
+
+    /**
+     * Constant for value 'objects'
+     * @return string 'objects'
+     */
+    const OBJECTS = 'objects';
 }
