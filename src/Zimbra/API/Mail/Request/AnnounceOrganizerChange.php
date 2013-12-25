@@ -26,7 +26,7 @@ class AnnounceOrganizerChange extends Request
      * ID
      * @var string
      */
-    protected $_id;
+    private $_id;
 
     /**
      * Constructor method for AnnounceOrganizerChange
@@ -73,7 +73,7 @@ class AnnounceOrganizerChange extends Request
      */
     public function toXml()
     {
-    	$this->xml->addAttribute('id', $this->_id);
+        $this->xml->addAttribute('id', $this->_id);
         return parent::toXml();
     }
 }

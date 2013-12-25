@@ -31,13 +31,13 @@ class AddTaskInvite extends Request
      * "NE"eds-action, "TE"ntative, "AC"cept, "DE"clined, "DG" (delegated), "CO"mpleted (todo), "IN"-process (todo), "WA"iting (custom value only for todo), "DF" (deferred; custom value only for todo)
      * @var ParticipationStatus
      */
-    protected $_ptst;
+    private $_ptst;
 
     /**
      * Message
      * @var Msg
      */
-    protected $_m;
+    private $_m;
 
     /**
      * Constructor method for AddTaskInvite
@@ -117,7 +117,7 @@ class AddTaskInvite extends Request
     {
         if($this->_ptst instanceof ParticipationStatus)
         {
-        	$this->xml->addAttribute('ptst', (string) $this->_ptst);
+            $this->xml->addAttribute('ptst', (string) $this->_ptst);
         }
         if($this->_m instanceof Msg)
         {

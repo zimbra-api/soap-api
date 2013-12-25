@@ -56,7 +56,7 @@ class ApplyFilterRules extends Request
         $this->_filterRule = new TypedSequence('Zimbra\Soap\Struct\NamedElement', $filterRule);
         if($m instanceof IdsAttr)
         {
-        	$this->_m = $m;
+            $this->_m = $m;
         }
         $this->_query = trim($query);
     }
@@ -122,7 +122,7 @@ class ApplyFilterRules extends Request
      */
     public function toArray()
     {
-    	$this->array['filterRules'] = array();
+        $this->array['filterRules'] = array();
         if(count($this->_filterRule))
         {
             $arr['filterRule'] = array();
@@ -151,7 +151,7 @@ class ApplyFilterRules extends Request
      */
     public function toXml()
     {
-    	$filterRules = $this->xml->addChild('filterRules', null);
+        $filterRules = $this->xml->addChild('filterRules', null);
         foreach ($this->_filterRule as $filterRule)
         {
             $filterRules->append($filterRule->toXml('filterRule'));
@@ -162,7 +162,7 @@ class ApplyFilterRules extends Request
         }
         if(!empty($this->_query))
         {
-        	$this->xml->addChild('query', $this->_query);
+            $this->xml->addChild('query', $this->_query);
         }
         return parent::toXml();
     }

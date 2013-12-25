@@ -27,20 +27,20 @@ class Browse extends Request
      * Browse by setting - domains|attachments|objects
      * @var BrowseBy
      */
-    protected $_browseBy;
+    private $_browseBy;
 
     /**
      * Regex string. Return only those results which match the specified regular expression
      * @var string
      */
-    protected $_regex;
+    private $_regex;
 
     /**
      * Return only a maximum number of entries as requested.
      * If more than {max-entries} results exist, the server will return the first {max-entries}, sorted by frequency
      * @var int
      */
-    protected $_maxToReturn;
+    private $_maxToReturn;
 
     /**
      * Constructor method for BounceMsg
@@ -54,7 +54,7 @@ class Browse extends Request
         $this->_regex = trim($regex);
         if(null !== $maxToReturn)
         {
-        	$this->_maxToReturn = (int) $maxToReturn;
+            $this->_maxToReturn = (int) $maxToReturn;
         }
     }
 
@@ -116,11 +116,11 @@ class Browse extends Request
         $this->array['browseBy'] = (string) $this->_browseBy;
         if(!empty($this->_regex))
         {
-        	$this->array['regex'] = $this->_regex;
+            $this->array['regex'] = $this->_regex;
         }
         if(is_int($this->_maxToReturn))
         {
-        	$this->array['maxToReturn'] = $this->_maxToReturn;
+            $this->array['maxToReturn'] = $this->_maxToReturn;
         }
         return parent::toArray();
     }
@@ -135,11 +135,11 @@ class Browse extends Request
         $this->xml->addAttribute('browseBy', (string) $this->_browseBy);
         if(!empty($this->_regex))
         {
-        	$this->xml->addAttribute('regex', $this->_regex);
+            $this->xml->addAttribute('regex', $this->_regex);
         }
         if(is_int($this->_maxToReturn))
         {
-        	$this->xml->addAttribute('maxToReturn', $this->_maxToReturn);
+            $this->xml->addAttribute('maxToReturn', $this->_maxToReturn);
         }
         return parent::toXml();
     }

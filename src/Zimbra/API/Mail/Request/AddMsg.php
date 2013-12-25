@@ -27,7 +27,7 @@ class AddMsg extends Request
      * Specification of the message to add
      * @var AddMsgSpec
      */
-    protected $_m;
+    private $_m;
 
     /**
      * If set, then do outgoing message filtering if the msg is being added to
@@ -35,7 +35,7 @@ class AddMsg extends Request
      * Default is unset.
      * @var bool
      */
-    protected $_filterSent;
+    private $_filterSent;
 
     /**
      * Constructor method for AddMsg
@@ -49,7 +49,7 @@ class AddMsg extends Request
         $this->_m = $m;
         if(null !== $filterSent)
         {
-        	$this->_filterSent = (bool) $filterSent;
+            $this->_filterSent = (bool) $filterSent;
         }
     }
 
@@ -92,10 +92,10 @@ class AddMsg extends Request
      */
     public function toArray()
     {
-    	if(is_bool($this->_filterSent))
-    	{
-    		$this->array['filterSent'] = $this->_filterSent ? 1 : 0;
-    	}
+        if(is_bool($this->_filterSent))
+        {
+            $this->array['filterSent'] = $this->_filterSent ? 1 : 0;
+        }
         $this->array += $this->_m->toArray('m');
         return parent::toArray();
     }
@@ -107,10 +107,10 @@ class AddMsg extends Request
      */
     public function toXml()
     {
-    	if(is_bool($this->_filterSent))
-    	{
-    		$this->xml->addAttribute('filterSent', $this->_filterSent ? 1 : 0);
-    	}
+        if(is_bool($this->_filterSent))
+        {
+            $this->xml->addAttribute('filterSent', $this->_filterSent ? 1 : 0);
+        }
         $this->xml->append($this->_m->toXml('m'));
         return parent::toXml();
     }
