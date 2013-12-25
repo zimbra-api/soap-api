@@ -6961,4 +6961,39 @@ class StructTest extends ZimbraTestCase
         );
         $this->assertEquals($array, $m->toArray());
     }
+
+    public function testBounceMsgSpec()
+    {
+        $e = new \Zimbra\Soap\Struct\EmailAddrInfo('a', 't', 'p');
+        $m = new \Zimbra\Soap\Struct\BounceMsgSpec('id', array($e));
+
+        $this->assertSame('id', $m->id());
+        $this->assertSame(array($e), $m->e()->all());
+
+        $m->id('id')
+          ->addE($e);
+        $this->assertSame('id', $m->id());
+        $this->assertSame(array($e, $e), $m->e()->all());
+
+        $m = new \Zimbra\Soap\Struct\BounceMsgSpec('id', array($e));
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<m id="id">'
+                .'<e a="a" t="t" p="p" />'
+            .'</m>';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $m);
+
+        $array = array(
+            'm' => array(
+                'id' => 'id',
+                'e' => array(
+                    array(
+                        'a' => 'a',
+                        't' => 't',
+                        'p' => 'p',
+                    ),
+                ),
+            ),
+        );
+        $this->assertEquals($array, $m->toArray());
+    }
 }

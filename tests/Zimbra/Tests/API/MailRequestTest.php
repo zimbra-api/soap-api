@@ -4,6 +4,7 @@ namespace Zimbra\Tests\API;
 
 use Zimbra\Tests\ZimbraTestCase;
 
+use Zimbra\Soap\Enum\BrowseBy;
 use Zimbra\Soap\Enum\GalSearchType;
 use Zimbra\Soap\Enum\ParticipationStatus;
 
@@ -614,6 +615,73 @@ class MailRequestTest extends ZimbraTestCase
             	'needExp' => 1,
             	'folders' => 'folders',
             	'includeGal' => 1,
+            )
+        );
+        $this->assertEquals($array, $req->toArray());
+	}
+
+	public function testBounceMsg()
+	{
+        $e = new \Zimbra\Soap\Struct\EmailAddrInfo('a', 't', 'p');
+        $m = new \Zimbra\Soap\Struct\BounceMsgSpec('id', array($e));
+        $req = new \Zimbra\API\Mail\Request\BounceMsg(
+            $m
+        );
+
+        $this->assertSame($m, $req->m());
+        $req->m($m);
+        $this->assertSame($m, $req->m());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<BounceMsgRequest>'
+	            .'<m id="id">'
+	                .'<e a="a" t="t" p="p" />'
+	            .'</m>'
+            .'</BounceMsgRequest>';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
+
+        $array = array(
+            'BounceMsgRequest' => array(
+	            'm' => array(
+	                'id' => 'id',
+	                'e' => array(
+	                    array(
+	                        'a' => 'a',
+	                        't' => 't',
+	                        'p' => 'p',
+	                    ),
+	                ),
+	            ),
+            )
+        );
+        $this->assertEquals($array, $req->toArray());
+	}
+
+	public function testBrowse()
+	{
+        $req = new \Zimbra\API\Mail\Request\Browse(
+            BrowseBy::DOMAINS(), 'regex', 1
+        );
+        $this->assertTrue($req->browseBy()->is('domains'));
+        $this->assertSame('regex', $req->regex());
+        $this->assertSame(1, $req->maxToReturn());
+
+        $req->browseBy(BrowseBy::DOMAINS())
+        	->regex('regex')
+        	->maxToReturn(1);
+        $this->assertTrue($req->browseBy()->is('domains'));
+        $this->assertSame('regex', $req->regex());
+        $this->assertSame(1, $req->maxToReturn());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<BrowseRequest browseBy="domains" regex="regex" maxToReturn="1" />';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
+
+        $array = array(
+            'BrowseRequest' => array(
+            	'browseBy' => 'domains',
+            	'regex' => 'regex',
+            	'maxToReturn' => 1,
             )
         );
         $this->assertEquals($array, $req->toArray());

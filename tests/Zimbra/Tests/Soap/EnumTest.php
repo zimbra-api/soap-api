@@ -774,4 +774,17 @@ class EnumTest extends ZimbraTestCase
             $this->assertTrue(\Zimbra\Soap\Enum\ZimletStatus::has($value));
         }
     }
+
+    public function testBrowseBy()
+    {
+        $values = array(
+            'domains',
+            'attachments',
+            'objects',
+        );
+        foreach ($values as $value)
+        {
+            $this->assertTrue(\Zimbra\Soap\Enum\BrowseBy::has($value));
+        }
+    }
 }
