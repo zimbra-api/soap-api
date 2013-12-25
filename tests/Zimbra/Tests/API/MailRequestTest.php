@@ -4,9 +4,11 @@ namespace Zimbra\Tests\API;
 
 use Zimbra\Tests\ZimbraTestCase;
 
+use Zimbra\Soap\Enum\AccountBy;
 use Zimbra\Soap\Enum\BrowseBy;
 use Zimbra\Soap\Enum\GalSearchType;
 use Zimbra\Soap\Enum\ParticipationStatus;
+use Zimbra\Soap\Enum\TargetType;
 
 /**
  * Testcase class for account api soap request.
@@ -961,6 +963,39 @@ class MailRequestTest extends ZimbraTestCase
                 'device' => array(
                     'id' => 'id',
                 ),
+            )
+        );
+        $this->assertEquals($array, $req->toArray());
+    }
+
+    public function testCheckPermission()
+    {
+        $target = new \Zimbra\Soap\Struct\TargetSpec(
+            TargetType::ACCOUNT(), AccountBy::NAME(), 'value'
+        );
+        $req = new \Zimbra\API\Mail\Request\CheckPermission($target, array('right1', 'right2'));
+        $this->assertSame($target, $req->target());
+        $this->assertSame(array('right1', 'right2'), $req->right());
+
+        $req->target($target)
+            ->right(array('right1', 'right2'));
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<CheckPermissionRequest>'
+                .'<target type="account" by="name">value</target>'
+                .'<right>right1</right>'
+                .'<right>right2</right>'
+            .'</CheckPermissionRequest>';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
+
+        $array = array(
+            'CheckPermissionRequest' => array(
+                'target' => array(
+                    'type' => 'account',
+                    'by' => 'name',
+                    '_' => 'value',
+                ),
+                'right' => array('right1', 'right2')
             )
         );
         $this->assertEquals($array, $req->toArray());

@@ -6999,7 +6999,9 @@ class StructTest extends ZimbraTestCase
 
     public function testInstanceRecurIdInfo()
     {
-        $inst = new \Zimbra\Soap\Struct\InstanceRecurIdInfo('range', '20130315T18302305Z', 'tz');
+        $inst = new \Zimbra\Soap\Struct\InstanceRecurIdInfo(
+            'range', '20130315T18302305Z', 'tz'
+        );
         $this->assertSame('range', $inst->range());
         $this->assertSame('20130315T18302305Z', $inst->d());
         $this->assertSame('tz', $inst->tz());
@@ -7023,5 +7025,35 @@ class StructTest extends ZimbraTestCase
             ),
         );
         $this->assertEquals($array, $inst->toArray());
+    }
+
+    public function testTargetSpec()
+    {
+        $target = new \Zimbra\Soap\Struct\TargetSpec(
+            TargetType::ACCOUNT(), AccountBy::NAME(), 'value'
+        );
+        $this->assertTrue($target->type()->is('account'));
+        $this->assertTrue($target->by()->is('name'));
+        $this->assertSame('value', $target->value());
+
+        $target->type(TargetType::ACCOUNT())
+               ->by(AccountBy::NAME())
+               ->value('value');
+        $this->assertTrue($target->type()->is('account'));
+        $this->assertTrue($target->by()->is('name'));
+        $this->assertSame('value', $target->value());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<target type="account" by="name">value</target>';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $target);
+
+        $array = array(
+            'target' => array(
+                'type' => 'account',
+                'by' => 'name',
+                '_' => 'value',
+            ),
+        );
+        $this->assertEquals($array, $target->toArray());
     }
 }
