@@ -72,7 +72,7 @@ class AddMsg extends Request
     /**
      * Get or set filterSent
      *
-     * @param  bool $m
+     * @param  bool $filterSent
      * @return bool|self
      */
     public function filterSent($filterSent = null)
