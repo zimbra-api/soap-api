@@ -13,6 +13,8 @@ use Zimbra\Soap\Enum\AuthScheme;
 use Zimbra\Soap\Enum\AutoProvPrincipalBy as PrincipalBy;
 use Zimbra\Soap\Enum\CacheEntryBy;
 use Zimbra\Soap\Enum\CalendarResourceBy as CalResBy;
+use Zimbra\Soap\Enum\ContactAction;
+use Zimbra\Soap\Enum\ConvAction;
 use Zimbra\Soap\Enum\ContentType;
 use Zimbra\Soap\Enum\CosBy;
 use Zimbra\Soap\Enum\DataSourceBy;
@@ -7055,5 +7057,419 @@ class StructTest extends ZimbraTestCase
             ),
         );
         $this->assertEquals($array, $target->toArray());
+    }
+
+    public function testFreeBusyUserSpec()
+    {
+        $usr = new \Zimbra\Soap\Struct\FreeBusyUserSpec(
+            1, 'id', 'name'
+        );
+        $this->assertSame(1, $usr->l());
+        $this->assertSame('id', $usr->id());
+        $this->assertSame('name', $usr->name());
+
+        $usr->l(1)
+          ->id('id')
+          ->name('name');
+        $this->assertSame(1, $usr->l());
+        $this->assertSame('id', $usr->id());
+        $this->assertSame('name', $usr->name());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<usr l="1" id="id" name="name" />';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $usr);
+
+        $array = array(
+            'usr' => array(
+                'l' => 1,
+                'id' => 'id',
+                'name' => 'name',
+            ),
+        );
+        $this->assertEquals($array, $usr->toArray());
+    }
+
+    public function testExpandedRecurrenceComponent()
+    {
+        $exceptId = new \Zimbra\Soap\Struct\InstanceRecurIdInfo(
+            'range', '20130315T18302305Z', 'tz'
+        );
+        $dur = new \Zimbra\Soap\Struct\DurationInfo(true, 1, 2, 3, 4, 5, 'START', 6);
+        $recur = new \Zimbra\Soap\Struct\RecurrenceInfo;
+
+        $comp = new \Zimbra\Soap\Struct\ExpandedRecurrenceComponent(
+            $exceptId, $dur, $recur, 1, 1
+        );
+        $this->assertSame($exceptId, $comp->exceptId());
+        $this->assertSame($dur, $comp->dur());
+        $this->assertSame($recur, $comp->recur());
+        $this->assertSame(1, $comp->s());
+        $this->assertSame(1, $comp->e());
+
+        $comp->exceptId($exceptId)
+             ->dur($dur)
+             ->recur($recur)
+             ->s(1)
+             ->e(1);
+        $this->assertSame($exceptId, $comp->exceptId());
+        $this->assertSame($dur, $comp->dur());
+        $this->assertSame($recur, $comp->recur());
+        $this->assertSame(1, $comp->s());
+        $this->assertSame(1, $comp->e());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<comp s="1" e="1">'
+                .'<exceptId range="range" d="20130315T18302305Z" tz="tz" />'
+                .'<dur neg="1" w="1" d="2" h="3" m="4" s="5" related="START" count="6" />'
+                .'<recur />'
+            .'</comp>';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $comp);
+
+        $array = array(
+            'comp' => array(
+                's' => 1,
+                'e' => 1,
+                'exceptId' => array(
+                    'range' => 'range',
+                    'd' => '20130315T18302305Z',
+                    'tz' => 'tz',
+                ),
+                'dur' => array(
+                    'neg' => 1,
+                    'w' => 1,
+                    'd' => 2,
+                    'h' => 3,
+                    'm' => 4,
+                    's' => 5,
+                    'related' => 'START',
+                    'count' => 6,
+                ),
+                'recur' => array(),
+            ),
+        );
+        $this->assertEquals($array, $comp->toArray());
+    }
+
+    public function testNewContactAttr()
+    {
+        $a = new \Zimbra\Soap\Struct\NewContactAttr(
+            'n', 'value', 'aid', 'id', 'part'
+        );
+        $this->assertSame('n', $a->n());
+        $this->assertSame('value', $a->value());
+        $this->assertSame('aid', $a->aid());
+        $this->assertSame('id', $a->id());
+        $this->assertSame('part', $a->part());
+
+        $a->n('n')
+          ->value('value')
+          ->aid('aid')
+          ->id('id')
+          ->part('part');
+        $this->assertSame('n', $a->n());
+        $this->assertSame('value', $a->value());
+        $this->assertSame('aid', $a->aid());
+        $this->assertSame('id', $a->id());
+        $this->assertSame('part', $a->part());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<a n="n" aid="aid" id="id" part="part">value</a>';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $a);
+
+        $array = array(
+            'a' => array(
+                'n' => 'n',
+                '_' => 'value',
+                'aid' => 'aid',
+                'id' => 'id',
+                'part' => 'part',
+            ),
+        );
+        $this->assertEquals($array, $a->toArray());
+    }
+
+    public function testActionSelector()
+    {
+        $action = new \Zimbra\Soap\Struct\ActionSelector(
+            ContactAction::MOVE(), 'id', 'tcon', 1, 'l', 'rgb', 1, 'name', 'f', 't', 'tn'
+        );
+        $this->assertSame('id', $action->id());
+        $this->assertSame('tcon', $action->tcon());
+        $this->assertSame(1, $action->tag());
+        $this->assertSame('l', $action->l());
+        $this->assertSame('rgb', $action->rgb());
+        $this->assertSame(1, $action->color());
+        $this->assertSame('name', $action->name());
+        $this->assertSame('f', $action->f());
+        $this->assertSame('t', $action->t());
+        $this->assertSame('tn', $action->tn());
+
+        $action->id('id')
+               ->tcon('tcon')
+               ->tag(1)
+               ->l('l')
+               ->rgb('rgb')
+               ->color(1)
+               ->name('name')
+               ->f('f')
+               ->t('t')
+               ->tn('tn');
+        $this->assertSame('id', $action->id());
+        $this->assertSame('tcon', $action->tcon());
+        $this->assertSame(1, $action->tag());
+        $this->assertSame('l', $action->l());
+        $this->assertSame('rgb', $action->rgb());
+        $this->assertSame(1, $action->color());
+        $this->assertSame('name', $action->name());
+        $this->assertSame('f', $action->f());
+        $this->assertSame('t', $action->t());
+        $this->assertSame('tn', $action->tn());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<action op="move" id="id" tcon="tcon" tag="1" l="l" rgb="rgb" color="1" name="name" f="f" t="t" tn="tn" />';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $action);
+
+        $array = array(
+            'action' => array(
+                'op' => 'move',
+                'id' => 'id',
+                'tcon' => 'tcon',
+                'tag' => 1,
+                'l' => 'l',
+                'rgb' => 'rgb',
+                'color' => 1,
+                'name' => 'name',
+                'f' => 'f',
+                't' => 't',
+                'tn' => 'tn',
+            ),
+        );
+        $this->assertEquals($array, $action->toArray());
+    }
+
+    public function testContactActionSelector()
+    {
+        $a = new \Zimbra\Soap\Struct\NewContactAttr(
+            'n', 'value', 'aid', 'id', 'part'
+        );
+        $action = new \Zimbra\Soap\Struct\ContactActionSelector(
+            ContactAction::MOVE(), 'id', 'tcon', 1, 'l', 'rgb', 1, 'name', 'f', 't', 'tn', array($a)
+        );
+        $this->assertTrue($action->op()->is('move'));
+        $this->assertSame(array($a), $action->a()->all());
+
+        $action->op(ContactAction::MOVE())
+               ->addA($a);
+        $this->assertTrue($action->op()->is('move'));
+        $this->assertSame(array($a, $a), $action->a()->all());
+
+        $action = new \Zimbra\Soap\Struct\ContactActionSelector(
+            ContactAction::MOVE(), 'id', 'tcon', 1, 'l', 'rgb', 1, 'name', 'f', 't', 'tn', array($a)
+        );
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<action op="move" id="id" tcon="tcon" tag="1" l="l" rgb="rgb" color="1" name="name" f="f" t="t" tn="tn">'
+                .'<a n="n" aid="aid" id="id" part="part">value</a>'
+            .'</action>';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $action);
+
+        $array = array(
+            'action' => array(
+                'op' => 'move',
+                'id' => 'id',
+                'tcon' => 'tcon',
+                'tag' => 1,
+                'l' => 'l',
+                'rgb' => 'rgb',
+                'color' => 1,
+                'name' => 'name',
+                'f' => 'f',
+                't' => 't',
+                'tn' => 'tn',
+                'a' => array(
+                    array(
+                        'n' => 'n',
+                        '_' => 'value',
+                        'aid' => 'aid',
+                        'id' => 'id',
+                        'part' => 'part',
+                    ),
+                ),
+            ),
+        );
+        $this->assertEquals($array, $action->toArray());
+    }
+
+    public function testConvActionSelector()
+    {
+        $action = new \Zimbra\Soap\Struct\ConvActionSelector(
+            ConvAction::DELETE(), 'id', 'tcon', 1, 'l', 'rgb', 1, 'name', 'f', 't', 'tn'
+        );
+        $this->assertTrue($action->op()->is('delete'));
+        $action->op(ConvAction::DELETE());
+        $this->assertTrue($action->op()->is('delete'));
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<action op="delete" id="id" tcon="tcon" tag="1" l="l" rgb="rgb" color="1" name="name" f="f" t="t" tn="tn" />';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $action);
+
+        $array = array(
+            'action' => array(
+                'op' => 'delete',
+                'id' => 'id',
+                'tcon' => 'tcon',
+                'tag' => 1,
+                'l' => 'l',
+                'rgb' => 'rgb',
+                'color' => 1,
+                'name' => 'name',
+                'f' => 'f',
+                't' => 't',
+                'tn' => 'tn',
+            ),
+        );
+        $this->assertEquals($array, $action->toArray());
+    }
+
+    public function testVCardInfo()
+    {
+        $vcard = new \Zimbra\Soap\Struct\VCardInfo(
+            'value', 'mid', 'part', 'aid'
+        );
+        $this->assertSame('value', $vcard->value());
+        $this->assertSame('mid', $vcard->mid());
+        $this->assertSame('part', $vcard->part());
+        $this->assertSame('aid', $vcard->aid());
+
+        $vcard->value('value')
+              ->mid('mid')
+              ->part('part')
+              ->aid('aid');
+        $this->assertSame('value', $vcard->value());
+        $this->assertSame('mid', $vcard->mid());
+        $this->assertSame('part', $vcard->part());
+        $this->assertSame('aid', $vcard->aid());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<vcard mid="mid" part="part" aid="aid">value</vcard>';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $vcard);
+
+        $array = array(
+            'vcard' => array(
+                '_' => 'value',
+                'mid' => 'mid',
+                'part' => 'part',
+                'aid' => 'aid',
+            ),
+        );
+        $this->assertEquals($array, $vcard->toArray());
+    }
+
+    public function testNewContactGroupMember()
+    {
+        $m = new \Zimbra\Soap\Struct\NewContactGroupMember(
+            'type', 'value'
+        );
+        $this->assertSame('type', $m->type());
+        $this->assertSame('value', $m->value());
+
+        $m->type('type')
+          ->value('value');
+        $this->assertSame('type', $m->type());
+        $this->assertSame('value', $m->value());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<m type="type" value="value" />';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $m);
+
+        $array = array(
+            'm' => array(
+                'type' => 'type',
+                'value' => 'value',
+            ),
+        );
+        $this->assertEquals($array, $m->toArray());
+    }
+
+    public function testContactSpec()
+    {
+        $vcard = new \Zimbra\Soap\Struct\VCardInfo(
+            'value', 'mid', 'part', 'aid'
+        );
+        $a = new \Zimbra\Soap\Struct\NewContactAttr(
+            'n', 'value', 'aid', 'id', 'part'
+        );
+        $m = new \Zimbra\Soap\Struct\NewContactGroupMember(
+            'type', 'value'
+        );
+
+        $cn = new \Zimbra\Soap\Struct\ContactSpec(
+            $vcard, array($a), array($m), 1, 'l', 't', 'tn'
+        );
+        $this->assertSame($vcard, $cn->vcard());
+        $this->assertSame(array($a), $cn->a()->all());
+        $this->assertSame(array($m), $cn->m()->all());
+        $this->assertSame(1, $cn->id());
+        $this->assertSame('l', $cn->l());
+        $this->assertSame('t', $cn->t());
+        $this->assertSame('tn', $cn->tn());
+
+        $cn->vcard($vcard)
+           ->addA($a)
+           ->addM($m)
+           ->id(1)
+           ->l('l')
+           ->t('t')
+           ->tn('tn');
+        $this->assertSame($vcard, $cn->vcard());
+        $this->assertSame(array($a, $a), $cn->a()->all());
+        $this->assertSame(array($m, $m), $cn->m()->all());
+        $this->assertSame(1, $cn->id());
+        $this->assertSame('l', $cn->l());
+        $this->assertSame('t', $cn->t());
+        $this->assertSame('tn', $cn->tn());
+
+        $cn = new \Zimbra\Soap\Struct\ContactSpec(
+            $vcard, array($a), array($m), 1, 'l', 't', 'tn'
+        );
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<cn id="1" l="l" t="t" tn="tn">'
+                .'<vcard mid="mid" part="part" aid="aid">value</vcard>'
+                .'<a n="n" aid="aid" id="id" part="part">value</a>'
+                .'<m type="type" value="value" />'
+            .'</cn>';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $cn);
+
+        $array = array(
+            'cn' => array(
+                'id' => 1,
+                'l' => 'l',
+                't' => 't',
+                'tn' => 'tn',
+                'vcard' => array(
+                    '_' => 'value',
+                    'mid' => 'mid',
+                    'part' => 'part',
+                    'aid' => 'aid',
+                ),
+                'a' => array(
+                    array(
+                        'n' => 'n',
+                        '_' => 'value',
+                        'aid' => 'aid',
+                        'id' => 'id',
+                        'part' => 'part',
+                    ),
+                ),
+                'm' => array(
+                    array(
+                        'type' => 'type',
+                        'value' => 'value',
+                    ),
+                ),
+            ),
+        );
+        $this->assertEquals($array, $cn->toArray());
     }
 }

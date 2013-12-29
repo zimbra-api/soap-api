@@ -787,4 +787,152 @@ class EnumTest extends ZimbraTestCase
             $this->assertTrue(\Zimbra\Soap\Enum\BrowseBy::has($value));
         }
     }
+
+    public function testContactAction()
+    {
+        $values = array(
+            'move',
+            'delete',
+            'flag',
+            'trash',
+            'tag',
+            'update',
+        );
+        foreach ($values as $value)
+        {
+            $this->assertTrue(\Zimbra\Soap\Enum\ContactAction::has($value));
+        }
+    }
+
+    public function testItemAction()
+    {
+        $values = array(
+            'delete',
+            'dumpsterdelete',
+            'recover',
+            'read',
+            'flag',
+            'priority',
+            'tag',
+            'move',
+            'trash',
+            'rename',
+            'update',
+            'color',
+            'lock',
+            'unlock',
+        );
+        
+        foreach ($values as $value)
+        {
+            $this->assertTrue(\Zimbra\Soap\Enum\ItemAction::has($value));
+        }
+    }
+
+    public function testMsgAction()
+    {
+        $values = array(
+            'delete',
+            'read',
+            'flag',
+            'tag',
+            'move',
+            'update',
+            'spam',
+            'trash',
+        );
+        foreach ($values as $value)
+        {
+            $this->assertTrue(\Zimbra\Soap\Enum\MsgAction::has($value));
+        }
+    }
+
+    public function testConvAction()
+    {
+        $values = array(
+            'delete',
+            'read',
+            'flag',
+            'priority',
+            'tag',
+            'move',
+            'spam',
+            'trash',
+        );
+        foreach ($values as $value)
+        {
+            $this->assertTrue(\Zimbra\Soap\Enum\ConvAction::has($value));
+        }
+    }
+
+    public function testFolderAction()
+    {
+        $values = array(
+            'read',
+            'delete',
+            'rename',
+            'move',
+            'trash',
+            'empty',
+            'color',
+            'grant',
+            '!grant',
+            'revokeorphangrants',
+            'url',
+            'import',
+            'sync',
+            'fb',
+            'check',
+            '!check',
+            'update',
+            'syncon',
+            '!syncon',
+            'retentionpolicy',
+            'disableactivesync',
+            '!disableactivesync',
+        );
+        foreach ($values as $value)
+        {
+            $this->assertTrue(\Zimbra\Soap\Enum\FolderAction::has($value));
+        }
+    }
+
+    public function testTagAction()
+    {
+        $values = array(
+            'read',
+            'rename',
+            'color',
+            'delete',
+            'update',
+            'retentionpolicy',
+        );
+        foreach ($values as $value)
+        {
+            $this->assertTrue(\Zimbra\Soap\Enum\TagAction::has($value));
+        }
+    }
+
+    public function testDistributionListAction()
+    {
+        $values = array(
+            'delete',
+            'rename',
+            'modify',
+            'addOwners',
+            'removeOwners',
+            'setOwners',
+            'grantRights',
+            'revokeRights',
+            'setRights',
+            'addMembers',
+            'removeMembers',
+            'acceptSubsReq',
+            'rejectSubsReq',
+        );
+        foreach ($values as $value)
+        {
+            $this->assertTrue(\Zimbra\Soap\Enum\DistributionListAction::has($value));
+        }
+    }
 }
