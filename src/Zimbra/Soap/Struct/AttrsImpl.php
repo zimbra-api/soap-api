@@ -24,8 +24,7 @@ abstract class AttrsImpl
 {
     /**
      * Attributes
-     * KeyValuePair Sequence
-     * @var TypedSequence
+     * @var TypedSequence<KeyValuePair>
      */
     private $_attr = array();
 

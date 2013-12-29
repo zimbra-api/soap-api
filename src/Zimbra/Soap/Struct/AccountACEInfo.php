@@ -208,9 +208,9 @@ class AccountACEInfo
     }
 
     /**
-     * Gets or sets pw
+     * Gets or sets deny
      *
-     * @param  bool $pw
+     * @param  bool $deny
      * @return bool|self
      */
     public function deny($deny = null)
