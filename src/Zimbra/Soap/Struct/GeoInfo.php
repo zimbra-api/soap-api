@@ -95,11 +95,11 @@ class GeoInfo
         $arr = array();
         if(is_float($this->_lat))
         {
-            $arr['lat'] = (string) $this->_lat;
+            $arr['lat'] = $this->_lat;
         }
         if(is_float($this->_lon))
         {
-            $arr['lon'] = (string) $this->_lon;
+            $arr['lon'] = $this->_lon;
         }
         return array($name => $arr);
     }
