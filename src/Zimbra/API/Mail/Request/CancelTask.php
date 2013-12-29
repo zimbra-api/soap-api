@@ -10,11 +10,6 @@
 
 namespace Zimbra\API\Mail\Request;
 
-use Zimbra\Soap\Request;
-use Zimbra\Soap\Struct\CalTZInfo;
-use Zimbra\Soap\Struct\InstanceRecurIdInfo;
-use Zimbra\Soap\Struct\Msg;
-
 /**
  * CancelTask request class
  *
