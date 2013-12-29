@@ -39,7 +39,7 @@ class ApplyFilterRules extends Request
 
     /**
      * Query string
-     * @var String
+     * @var string
      */
     private $_query;
 
@@ -84,7 +84,7 @@ class ApplyFilterRules extends Request
     }
 
     /**
-     * Gets or sets m value
+     * Gets or sets m
      *
      * @param  IdsAttr $m
      * @return IdsAttr|self
@@ -100,7 +100,7 @@ class ApplyFilterRules extends Request
     }
 
     /**
-     * Gets or sets query value
+     * Gets or sets query
      *
      * @param  string $query
      * @return string|self
