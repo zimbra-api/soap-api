@@ -42,10 +42,10 @@ class AutoComplete extends Request
     private $_needExp;
 
     /**
-     * list of folder IDs
-     * @var array
+     * Comma separated list of folder IDs
+     * @var string
      */
-    private $_folders = array();
+    private $_folders;
 
     /**
      * Flag whether to include Global Address Book (GAL)
@@ -54,7 +54,7 @@ class AutoComplete extends Request
     private $_includeGal;
 
     /**
-     * Constructor method for autoCompleteRequest
+     * Constructor method for AutoComplete
      * @param  string $name
      * @param  GalSearchType $type
      * @param  bool   $needExp
@@ -85,7 +85,7 @@ class AutoComplete extends Request
      * Get or set name
      *
      * @param  string $name
-     * @return string|AutoComplete
+     * @return string|self
      */
     public function name($name = null)
     {
