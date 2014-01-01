@@ -56,7 +56,7 @@ class AutoComplete extends Request
     /**
      * Constructor method for AutoComplete
      * @param  string $name
-     * @param  GalSearchType $type
+     * @param  GalSearchType $t
      * @param  bool   $needExp
      * @param  string $folders
      * @param  bool   $includeGal
