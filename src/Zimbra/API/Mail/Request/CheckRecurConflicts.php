@@ -97,16 +97,16 @@ class CheckRecurConflicts extends Request
      * @return self
      */
     public function __construct(
-    	array $tz = array(),
-    	ExpandedRecurrenceCancel $cancel = null,
-    	ExpandedRecurrenceInvite $comp = null,
-    	ExpandedRecurrenceException $except = null,
-    	array $usr = array(),
-    	$s = null,
-    	$e = null,
-    	$all = null,
-    	$excludeUid = null
-	)
+        array $tz = array(),
+        ExpandedRecurrenceCancel $cancel = null,
+        ExpandedRecurrenceInvite $comp = null,
+        ExpandedRecurrenceException $except = null,
+        array $usr = array(),
+        $s = null,
+        $e = null,
+        $all = null,
+        $excludeUid = null
+    )
     {
         parent::__construct();
         $this->_tz = new TypedSequence('Zimbra\Soap\Struct\CalTZInfo', $tz);
@@ -125,15 +125,15 @@ class CheckRecurConflicts extends Request
         $this->_usr = new TypedSequence('Zimbra\Soap\Struct\FreeBusyUserSpec', $usr);
         if(null !== $s)
         {
-        	$this->_s = (int) $s;
+            $this->_s = (int) $s;
         }
         if(null !== $e)
         {
-        	$this->_e = (int) $e;
+            $this->_e = (int) $e;
         }
         if(null !== $all)
         {
-        	$this->_all = (bool) $all;
+            $this->_all = (bool) $all;
         }
 
         $this->_excludeUid = trim($excludeUid);
