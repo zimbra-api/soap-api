@@ -10,8 +10,8 @@
 
 namespace Zimbra\Soap\Struct;
 
-use Zimbra\Utils\SimpleXML;
 use Zimbra\Soap\Enum\InterestType;
+use Zimbra\Utils\SimpleXML;
 use Zimbra\Utils\TypedSequence;
 
 /**
