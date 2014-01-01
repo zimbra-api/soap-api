@@ -22,9 +22,13 @@ use Zimbra\Soap\Enum\DataSourceType;
 use Zimbra\Soap\Enum\DistributionListBy as DLBy;
 use Zimbra\Soap\Enum\DistributionListGranteeBy as DLGranteeBy;
 use Zimbra\Soap\Enum\DistributionListSubscribeOp as DLSubscribeOp;
+use Zimbra\Soap\Enum\DocumentAction;
+use Zimbra\Soap\Enum\DocumentGrantType;
+use Zimbra\Soap\Enum\DocumentPermission;
 use Zimbra\Soap\Enum\DomainBy;
 use Zimbra\Soap\Enum\FreeBusyStatus;
 use Zimbra\Soap\Enum\Frequency;
+use Zimbra\Soap\Enum\FolderAction;
 use Zimbra\Soap\Enum\GranteeType;
 use Zimbra\Soap\Enum\GranteeBy;
 use Zimbra\Soap\Enum\InterestType;
@@ -56,14 +60,14 @@ class StructTest extends ZimbraTestCase
     public function testAccountACEInfo()
     {
         $ace = new \Zimbra\Soap\Struct\AccountACEInfo(
-            GranteeType::USR(), AceRightType::INVITE(), 'z', 'd', 'k', 'p', false, true
+            GranteeType::USR(), AceRightType::INVITE(), 'zid', 'd', 'key', 'pw', false, true
         );
         $this->assertTrue($ace->gt()->is('usr'));
         $this->assertTrue($ace->right()->is('invite'));
-        $this->assertSame('z', $ace->zid());
+        $this->assertSame('zid', $ace->zid());
         $this->assertSame('d', $ace->d());
-        $this->assertSame('k', $ace->key());
-        $this->assertSame('p', $ace->pw());
+        $this->assertSame('key', $ace->key());
+        $this->assertSame('pw', $ace->pw());
         $this->assertFalse($ace->deny());
         $this->assertTrue($ace->chkgt());
 
@@ -149,9 +153,9 @@ class StructTest extends ZimbraTestCase
 
     public function testAttr()
     {
-        $attr = new \Zimbra\Soap\Struct\Attr('n', 'v', false);
-        $this->assertSame('n', $attr->name());
-        $this->assertSame('v', $attr->value());
+        $attr = new \Zimbra\Soap\Struct\Attr('name', 'value', false);
+        $this->assertSame('name', $attr->name());
+        $this->assertSame('value', $attr->value());
         $this->assertFalse($attr->pd());
 
         $attr->name('name')
@@ -177,9 +181,9 @@ class StructTest extends ZimbraTestCase
 
     public function testKeyValuePair()
     {
-        $kpv = new \Zimbra\Soap\Struct\KeyValuePair('k', 'v');
-        $this->assertSame('k', $kpv->key());
-        $this->assertSame('v', $kpv->value());
+        $kpv = new \Zimbra\Soap\Struct\KeyValuePair('key', 'value');
+        $this->assertSame('key', $kpv->key());
+        $this->assertSame('value', $kpv->value());
 
         $kpv->key('key')
             ->value('value');
@@ -201,7 +205,7 @@ class StructTest extends ZimbraTestCase
 
     public function testAttrsImpl()
     {
-        $stub = $this->getMockForAbstractClass('\Zimbra\Soap\Struct\AttrsImpl');
+        $stub = $this->getMockForAbstractClass('Zimbra\Soap\Struct\AttrsImpl');
 
         $attr1 = new \Zimbra\Soap\Struct\KeyValuePair('key1', 'value1');
         $attr2 = new \Zimbra\Soap\Struct\KeyValuePair('key2', 'value2');
@@ -230,8 +234,8 @@ class StructTest extends ZimbraTestCase
 
     public function testAuthToken()
     {
-        $token = new \Zimbra\Soap\Struct\AuthToken('t', false);
-        $this->assertSame('t', $token->value());
+        $token = new \Zimbra\Soap\Struct\AuthToken('token', false);
+        $this->assertSame('token', $token->value());
         $this->assertFalse($token->verifyAccount());
 
         $token->value('token')
@@ -321,9 +325,9 @@ class StructTest extends ZimbraTestCase
 
     public function testXParam()
     {
-        $xparam = new \Zimbra\Soap\Struct\XParam('n', 'v');
-        $this->assertSame('n', $xparam->name());
-        $this->assertSame('v', $xparam->value());
+        $xparam = new \Zimbra\Soap\Struct\XParam('name', 'value');
+        $this->assertSame('name', $xparam->name());
+        $this->assertSame('value', $xparam->value());
 
         $xparam->name('name')
                ->value('value');
@@ -504,8 +508,8 @@ class StructTest extends ZimbraTestCase
         $standard = new \Zimbra\Soap\Struct\TzOnsetInfo(1, 2, 3, 4);
         $daylight = new \Zimbra\Soap\Struct\TzOnsetInfo(4, 3, 2, 1);
 
-        $tzi = new \Zimbra\Soap\Struct\CalTZInfo('i', 2, 3, 'std', 'day', $daylight, $standard);
-        $this->assertSame('i', $tzi->id());
+        $tzi = new \Zimbra\Soap\Struct\CalTZInfo('id', 2, 3, 'std', 'day', $daylight, $standard);
+        $this->assertSame('id', $tzi->id());
         $this->assertSame(2, $tzi->stdoff());
         $this->assertSame(3, $tzi->dayoff());
         $this->assertSame('std', $tzi->stdname());
@@ -561,8 +565,8 @@ class StructTest extends ZimbraTestCase
 
     public function testCheckDirSelector()
     {
-        $dir = new \Zimbra\Soap\Struct\CheckDirSelector('dir', false);
-        $this->assertSame('dir', $dir->path());
+        $dir = new \Zimbra\Soap\Struct\CheckDirSelector('path', false);
+        $this->assertSame('path', $dir->path());
         $this->assertFalse($dir->create());
 
         $dir->path('path')
@@ -754,8 +758,8 @@ class StructTest extends ZimbraTestCase
 
     public function testCursorInfo()
     {
-        $cursor = new \Zimbra\Soap\Struct\CursorInfo('i','sort', 'end', false);
-        $this->assertSame('i', $cursor->id());
+        $cursor = new \Zimbra\Soap\Struct\CursorInfo('id','sort', 'end', false);
+        $this->assertSame('id', $cursor->id());
         $this->assertSame('sort', $cursor->sortVal());
         $this->assertSame('end', $cursor->endSortVal());
         $this->assertFalse($cursor->includeOffset());
@@ -786,9 +790,9 @@ class StructTest extends ZimbraTestCase
 
     public function testDataSourceSpecifier()
     {
-        $ds = new \Zimbra\Soap\Struct\DataSourceSpecifier(DataSourceType::IMAP(), 'n');
+        $ds = new \Zimbra\Soap\Struct\DataSourceSpecifier(DataSourceType::IMAP(), 'name');
         $this->assertTrue($ds->type()->is('imap'));
-        $this->assertSame('n', $ds->name());
+        $this->assertSame('name', $ds->name());
 
         $attr = new \Zimbra\Soap\Struct\KeyValuePair('key', 'value');
         $ds->type(DataSourceType::POP3())
@@ -820,8 +824,8 @@ class StructTest extends ZimbraTestCase
 
     public function testDeviceId()
     {
-        $device = new \Zimbra\Soap\Struct\DeviceId('i');
-        $this->assertSame('i', $device->id());
+        $device = new \Zimbra\Soap\Struct\DeviceId('id');
+        $this->assertSame('id', $device->id());
 
         $device->id('id');
         $this->assertSame('id', $device->id());
@@ -840,9 +844,9 @@ class StructTest extends ZimbraTestCase
 
     public function testDistributionListSubscribeReq()
     {
-        $subsReq = new \Zimbra\Soap\Struct\DistributionListSubscribeReq(DLSubscribeOp::UNSUBSCRIBE(), 'v', false);
+        $subsReq = new \Zimbra\Soap\Struct\DistributionListSubscribeReq(DLSubscribeOp::UNSUBSCRIBE(), 'value', false);
         $this->assertTrue($subsReq->op()->is('unsubscribe'));
-        $this->assertSame('v', $subsReq->value());
+        $this->assertSame('value', $subsReq->value());
         $this->assertFalse($subsReq->bccOwners());
 
         $subsReq->op(DLSubscribeOp::SUBSCRIBE())
@@ -1112,10 +1116,10 @@ class StructTest extends ZimbraTestCase
 
     public function testEntrySearchFilterSingleCond()
     {
-        $cond = new \Zimbra\Soap\Struct\EntrySearchFilterSingleCond('a', 'has', 'v', false);
-        $this->assertSame('a', $cond->attr());
+        $cond = new \Zimbra\Soap\Struct\EntrySearchFilterSingleCond('attr', 'has', 'value', false);
+        $this->assertSame('attr', $cond->attr());
         $this->assertSame('has', $cond->op());
-        $this->assertSame('v', $cond->value());
+        $this->assertSame('value', $cond->value());
         $this->assertFalse($cond->notFlag());
 
         $cond->attr('attr')
@@ -1262,12 +1266,12 @@ class StructTest extends ZimbraTestCase
 
     public function testExchangeAuthSpec()
     {
-        $exc = new \Zimbra\Soap\Struct\ExchangeAuthSpec('u', 'u', 'p', AuthScheme::BASIC(), 't');
-        $this->assertSame('u', $exc->url());
-        $this->assertSame('u', $exc->user());
-        $this->assertSame('p', $exc->pass());
+        $exc = new \Zimbra\Soap\Struct\ExchangeAuthSpec('url', 'user', 'pass', AuthScheme::BASIC(), 'type');
+        $this->assertSame('url', $exc->url());
+        $this->assertSame('user', $exc->user());
+        $this->assertSame('pass', $exc->pass());
         $this->assertSame('basic', $exc->scheme()->value());
-        $this->assertSame('t', $exc->type());
+        $this->assertSame('type', $exc->type());
 
         $exc->url('url')
             ->user('user')
@@ -1369,10 +1373,10 @@ class StructTest extends ZimbraTestCase
 
     public function testGranteeChooser()
     {
-        $grantee = new \Zimbra\Soap\Struct\GranteeChooser('t', 'i', 'n');
-        $this->assertSame('t', $grantee->type());
-        $this->assertSame('i', $grantee->id());
-        $this->assertSame('n', $grantee->name());
+        $grantee = new \Zimbra\Soap\Struct\GranteeChooser('type', 'id', 'name');
+        $this->assertSame('type', $grantee->type());
+        $this->assertSame('id', $grantee->id());
+        $this->assertSame('name', $grantee->name());
 
         $grantee->type('type')
                 ->id('id')
@@ -1455,8 +1459,8 @@ class StructTest extends ZimbraTestCase
 
     public function testId()
     {
-        $id = new \Zimbra\Soap\Struct\Id('string');
-        $this->assertSame('string', $id->id());
+        $id = new \Zimbra\Soap\Struct\Id('id');
+        $this->assertSame('id', $id->id());
 
         $id->id('id');
         $this->assertSame('id', $id->id());
@@ -1475,8 +1479,8 @@ class StructTest extends ZimbraTestCase
 
     public function testIdAndAction()
     {
-        $ia = new \Zimbra\Soap\Struct\IdAndAction('i', 'bug72174');
-        $this->assertSame('i', $ia->id());
+        $ia = new \Zimbra\Soap\Struct\IdAndAction('id', 'bug72174');
+        $this->assertSame('id', $ia->id());
         $this->assertSame('bug72174', $ia->action());
 
         $ia->id('id')
@@ -1503,9 +1507,9 @@ class StructTest extends ZimbraTestCase
         $attr2 = new \Zimbra\Soap\Struct\Attr('name2', 'value2', false);
         $attr3 = new \Zimbra\Soap\Struct\Attr('name3', 'value3', true);
 
-        $identity = new \Zimbra\Soap\Struct\Identity('n', 'i', array($attr1, $attr2));
-        $this->assertSame('n', $identity->name());
-        $this->assertSame('i', $identity->id());
+        $identity = new \Zimbra\Soap\Struct\Identity('name', 'id', array($attr1, $attr2));
+        $this->assertSame('name', $identity->name());
+        $this->assertSame('id', $identity->id());
         $this->assertSame(array($attr1, $attr2), $identity->attr()->all());
 
         $identity->name('name')
@@ -1552,9 +1556,9 @@ class StructTest extends ZimbraTestCase
 
     public function testIdStatus()
     {
-        $is = new \Zimbra\Soap\Struct\IdStatus('i', 's');
-        $this->assertSame('i', $is->id());
-        $this->assertSame('s', $is->status());
+        $is = new \Zimbra\Soap\Struct\IdStatus('id', 'status');
+        $this->assertSame('id', $is->id());
+        $this->assertSame('status', $is->status());
 
         $is->id('id')
            ->status('status');
@@ -1664,8 +1668,8 @@ class StructTest extends ZimbraTestCase
 
     public function testMailboxByAccountIdSelector()
     {
-        $mbox = new \Zimbra\Soap\Struct\MailboxByAccountIdSelector('i');
-        $this->assertSame('i', $mbox->id());
+        $mbox = new \Zimbra\Soap\Struct\MailboxByAccountIdSelector('id');
+        $this->assertSame('id', $mbox->id());
 
         $mbox->id('id');
         $this->assertSame('id', $mbox->id());
@@ -1684,8 +1688,8 @@ class StructTest extends ZimbraTestCase
 
     public function testValueAttrib()
     {
-        $attr = new \Zimbra\Soap\Struct\ValueAttrib('v');
-        $this->assertSame('v', $attr->value());
+        $attr = new \Zimbra\Soap\Struct\ValueAttrib('value');
+        $this->assertSame('value', $attr->value());
 
         $attr->value('value');
         $this->assertSame('value', $attr->value());
@@ -1707,8 +1711,8 @@ class StructTest extends ZimbraTestCase
         $match1 = new \Zimbra\Soap\Struct\ValueAttrib('value1');
         $match2 = new \Zimbra\Soap\Struct\ValueAttrib('value2');
 
-        $field = new \Zimbra\Soap\Struct\QueueQueryField('n', array($match1));
-        $this->assertSame('n', $field->name());
+        $field = new \Zimbra\Soap\Struct\QueueQueryField('name', array($match1));
+        $this->assertSame('name', $field->name());
         $this->assertSame(array($match1), $field->match()->all());
 
         $field->name('name')
@@ -1986,9 +1990,9 @@ class StructTest extends ZimbraTestCase
 
     public function testNameId()
     {
-        $nameId = new \Zimbra\Soap\Struct\NameId('n', 'i');
-        $this->assertSame('n', $nameId->name());
-        $this->assertSame('i', $nameId->id());
+        $nameId = new \Zimbra\Soap\Struct\NameId('name', 'id');
+        $this->assertSame('name', $nameId->name());
+        $this->assertSame('id', $nameId->id());
 
         $nameId->name('name')
                ->id('id');
@@ -2010,8 +2014,8 @@ class StructTest extends ZimbraTestCase
 
     public function testNames()
     {
-        $names = new \Zimbra\Soap\Struct\Names('n');
-        $this->assertSame('n', $names->name());
+        $names = new \Zimbra\Soap\Struct\Names('name');
+        $this->assertSame('name', $names->name());
 
         $names->name('name');
         $this->assertSame('name', $names->name());
@@ -2050,9 +2054,9 @@ class StructTest extends ZimbraTestCase
 
     public function testOpValue()
     {
-        $op = new \Zimbra\Soap\Struct\OpValue('-', 'v');
+        $op = new \Zimbra\Soap\Struct\OpValue('-', 'value');
         $this->assertSame('-', $op->op());
-        $this->assertSame('v', $op->value());
+        $this->assertSame('value', $op->value());
 
         $op->op('+')
            ->value('value');
@@ -2074,8 +2078,8 @@ class StructTest extends ZimbraTestCase
 
     public function testPackageSelector()
     {
-        $package = new \Zimbra\Soap\Struct\PackageSelector('n');
-        $this->assertSame('n', $package->name());
+        $package = new \Zimbra\Soap\Struct\PackageSelector('name');
+        $this->assertSame('name', $package->name());
 
         $package->name('name');
         $this->assertSame('name', $package->name());
@@ -2094,11 +2098,11 @@ class StructTest extends ZimbraTestCase
 
     public function testPolicy()
     {
-        $policy = new \Zimbra\Soap\Struct\Policy(Type::SYSTEM(), 'i', 'n', 'l');
+        $policy = new \Zimbra\Soap\Struct\Policy(Type::SYSTEM(), 'id', 'name', 'lifetime');
         $this->assertSame('system', $policy->type()->value());
-        $this->assertSame('i', $policy->id());
-        $this->assertSame('n', $policy->name());
-        $this->assertSame('l', $policy->lifetime());
+        $this->assertSame('id', $policy->id());
+        $this->assertSame('name', $policy->name());
+        $this->assertSame('lifetime', $policy->lifetime());
 
         $policy->type(Type::USER())
                ->id('id')
@@ -2127,9 +2131,9 @@ class StructTest extends ZimbraTestCase
     public function testPreAuth()
     {
         $now = time();
-        $pre = new \Zimbra\Soap\Struct\PreAuth($now, 'v', 1);
+        $pre = new \Zimbra\Soap\Struct\PreAuth($now, 'value', 1);
         $this->assertSame($now, $pre->timestamp());
-        $this->assertSame('v', $pre->value());
+        $this->assertSame('value', $pre->value());
         $this->assertSame(1, $pre->expiresTimestamp());
 
         $pre->timestamp($now + 1000)
@@ -2159,9 +2163,9 @@ class StructTest extends ZimbraTestCase
 
     public function testPref()
     {
-        $pref = new \Zimbra\Soap\Struct\Pref('n', 'v', 1);
-        $this->assertSame('n', $pref->name());
-        $this->assertSame('v', $pref->value());
+        $pref = new \Zimbra\Soap\Struct\Pref('name', 'value', 1);
+        $this->assertSame('name', $pref->name());
+        $this->assertSame('value', $pref->value());
         $this->assertSame(1, $pref->modified());
 
         $pref->name('name')
@@ -2211,10 +2215,10 @@ class StructTest extends ZimbraTestCase
 
     public function testProp()
     {
-        $prop = new \Zimbra\Soap\Struct\Prop('z', 'n', 'v');
-        $this->assertSame('z', $prop->zimlet());
-        $this->assertSame('n', $prop->name());
-        $this->assertSame('v', $prop->value());
+        $prop = new \Zimbra\Soap\Struct\Prop('zimlet', 'name', 'value');
+        $this->assertSame('zimlet', $prop->zimlet());
+        $this->assertSame('name', $prop->name());
+        $this->assertSame('value', $prop->value());
 
         $prop->zimlet('zimlet')
              ->name('name')
@@ -2239,8 +2243,8 @@ class StructTest extends ZimbraTestCase
 
     public function testReindexMailboxInfo()
     {
-        $mbox = new \Zimbra\Soap\Struct\ReindexMailboxInfo('i', 'contact, , appointment,xyz', 'ids');
-        $this->assertSame('i', $mbox->id());
+        $mbox = new \Zimbra\Soap\Struct\ReindexMailboxInfo('id', 'contact, , appointment,xyz', 'ids');
+        $this->assertSame('id', $mbox->id());
         $this->assertSame('contact,appointment', $mbox->types());
         $this->assertSame('ids', $mbox->ids());
 
@@ -2267,8 +2271,8 @@ class StructTest extends ZimbraTestCase
 
     public function testRight()
     {
-        $right = new \Zimbra\Soap\Struct\Right('r');
-        $this->assertSame('r', $right->right());
+        $right = new \Zimbra\Soap\Struct\Right('right');
+        $this->assertSame('right', $right->right());
 
         $right->right('right');
         $this->assertSame('right', $right->right());
@@ -2287,8 +2291,8 @@ class StructTest extends ZimbraTestCase
 
     public function testRightModifierInfo()
     {
-        $right = new \Zimbra\Soap\Struct\RightModifierInfo('v', false, true, true, false);
-        $this->assertSame('v', $right->value());
+        $right = new \Zimbra\Soap\Struct\RightModifierInfo('value', false, true, true, false);
+        $this->assertSame('value', $right->value());
         $this->assertFalse($right->deny());
         $this->assertTrue($right->canDelegate());
         $this->assertTrue($right->disinheritSubGroups());
@@ -2328,8 +2332,8 @@ class StructTest extends ZimbraTestCase
         $query = new \Zimbra\Soap\Struct\QueueQuery(array($field), 100, 0);
         $queue = new \Zimbra\Soap\Struct\MailQueueQuery($query, 'name', 0, 1);
 
-        $server = new \Zimbra\Soap\Struct\ServerMailQueueQuery('n', $queue);
-        $this->assertSame('n', $server->name());
+        $server = new \Zimbra\Soap\Struct\ServerMailQueueQuery('name', $queue);
+        $this->assertSame('name', $server->name());
         $this->assertSame($queue, $server->queue());
 
         $server->name('name')
@@ -3474,7 +3478,7 @@ class StructTest extends ZimbraTestCase
 
     public function testAttachSpec()
     {
-        $stub = $this->getMockForAbstractClass('\Zimbra\Soap\Struct\AttachSpec');
+        $stub = $this->getMockForAbstractClass('Zimbra\Soap\Struct\AttachSpec');
         $stub->optional(true);
         $this->assertTrue($stub->optional());
     }
@@ -7152,6 +7156,106 @@ class StructTest extends ZimbraTestCase
         $this->assertEquals($array, $comp->toArray());
     }
 
+    public function testExpandedRecurrenceInvite()
+    {
+        $comp = new \Zimbra\Soap\Struct\ExpandedRecurrenceInvite();
+        $this->assertInstanceOf('Zimbra\Soap\Struct\ExpandedRecurrenceComponent', $comp);
+    }
+
+    public function testExpandedRecurrenceCancel()
+    {
+        $exceptId = new \Zimbra\Soap\Struct\InstanceRecurIdInfo(
+            'range', '20130315T18302305Z', 'tz'
+        );
+        $dur = new \Zimbra\Soap\Struct\DurationInfo(true, 1, 2, 3, 4, 5, 'START', 6);
+        $recur = new \Zimbra\Soap\Struct\RecurrenceInfo;
+
+        $cancel = new \Zimbra\Soap\Struct\ExpandedRecurrenceCancel(
+            $exceptId, $dur, $recur, 1, 1
+        );
+        $this->assertInstanceOf('Zimbra\Soap\Struct\ExpandedRecurrenceComponent', $cancel);
+
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<cancel s="1" e="1">'
+                .'<exceptId range="range" d="20130315T18302305Z" tz="tz" />'
+                .'<dur neg="1" w="1" d="2" h="3" m="4" s="5" related="START" count="6" />'
+                .'<recur />'
+            .'</cancel>';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $cancel);
+
+        $array = array(
+            'cancel' => array(
+                's' => 1,
+                'e' => 1,
+                'exceptId' => array(
+                    'range' => 'range',
+                    'd' => '20130315T18302305Z',
+                    'tz' => 'tz',
+                ),
+                'dur' => array(
+                    'neg' => 1,
+                    'w' => 1,
+                    'd' => 2,
+                    'h' => 3,
+                    'm' => 4,
+                    's' => 5,
+                    'related' => 'START',
+                    'count' => 6,
+                ),
+                'recur' => array(),
+            ),
+        );
+        $this->assertEquals($array, $cancel->toArray());
+    }
+
+    public function testExpandedRecurrenceException()
+    {
+        $exceptId = new \Zimbra\Soap\Struct\InstanceRecurIdInfo(
+            'range', '20130315T18302305Z', 'tz'
+        );
+        $dur = new \Zimbra\Soap\Struct\DurationInfo(true, 1, 2, 3, 4, 5, 'START', 6);
+        $recur = new \Zimbra\Soap\Struct\RecurrenceInfo;
+
+        $except = new \Zimbra\Soap\Struct\ExpandedRecurrenceException(
+            $exceptId, $dur, $recur, 1, 1
+        );
+        $this->assertInstanceOf('Zimbra\Soap\Struct\ExpandedRecurrenceComponent', $except);
+
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<except s="1" e="1">'
+                .'<exceptId range="range" d="20130315T18302305Z" tz="tz" />'
+                .'<dur neg="1" w="1" d="2" h="3" m="4" s="5" related="START" count="6" />'
+                .'<recur />'
+            .'</except>';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $except);
+
+        $array = array(
+            'except' => array(
+                's' => 1,
+                'e' => 1,
+                'exceptId' => array(
+                    'range' => 'range',
+                    'd' => '20130315T18302305Z',
+                    'tz' => 'tz',
+                ),
+                'dur' => array(
+                    'neg' => 1,
+                    'w' => 1,
+                    'd' => 2,
+                    'h' => 3,
+                    'm' => 4,
+                    's' => 5,
+                    'related' => 'START',
+                    'count' => 6,
+                ),
+                'recur' => array(),
+            ),
+        );
+        $this->assertEquals($array, $except->toArray());
+    }
+
     public function testNewContactAttr()
     {
         $a = new \Zimbra\Soap\Struct\NewContactAttr(
@@ -8032,5 +8136,645 @@ class StructTest extends ZimbraTestCase
             ),
         );
         $this->assertEquals($array, $tag->toArray());
+    }
+
+    public function testNameOrId()
+    {
+        $nameId = new \Zimbra\Soap\Struct\NameOrId('name', 'id');
+        $this->assertSame('name', $nameId->name());
+        $this->assertSame('id', $nameId->id());
+
+        $nameId->name('name')
+               ->id('id');
+        $this->assertSame('name', $nameId->name());
+        $this->assertSame('id', $nameId->id());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<name name="name" id="id" />';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $nameId);
+
+        $array = array(
+            'name' => array(
+                'name' => 'name',
+                'id' => 'id',
+            ),
+        );
+        $this->assertEquals($array, $nameId->toArray());
+    }
+
+    public function testDataSourceNameOrId()
+    {
+        $stub = $this->getMockForAbstractClass('Zimbra\Soap\Struct\DataSourceNameOrId');
+        $this->assertInstanceOf('Zimbra\Soap\Struct\NameOrId', $stub);
+    }
+
+    public function testImapDataSourceNameOrId()
+    {
+        $imap = new \Zimbra\Soap\Struct\ImapDataSourceNameOrId('name', 'id');
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<imap name="name" id="id" />';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $imap);
+
+        $array = array(
+            'imap' => array(
+                'name' => 'name',
+                'id' => 'id',
+            ),
+        );
+        $this->assertEquals($array, $imap->toArray());
+    }
+
+    public function testPop3DataSourceNameOrId()
+    {
+        $pop3 = new \Zimbra\Soap\Struct\Pop3DataSourceNameOrId('name', 'id');
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<pop3 name="name" id="id" />';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $pop3);
+
+        $array = array(
+            'pop3' => array(
+                'name' => 'name',
+                'id' => 'id',
+            ),
+        );
+        $this->assertEquals($array, $pop3->toArray());
+    }
+
+    public function testCaldavDataSourceNameOrId()
+    {
+        $caldav = new \Zimbra\Soap\Struct\CaldavDataSourceNameOrId('name', 'id');
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<caldav name="name" id="id" />';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $caldav);
+
+        $array = array(
+            'caldav' => array(
+                'name' => 'name',
+                'id' => 'id',
+            ),
+        );
+        $this->assertEquals($array, $caldav->toArray());
+    }
+
+    public function testYabDataSourceNameOrId()
+    {
+        $yab = new \Zimbra\Soap\Struct\YabDataSourceNameOrId('name', 'id');
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<yab name="name" id="id" />';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $yab);
+
+        $array = array(
+            'yab' => array(
+                'name' => 'name',
+                'id' => 'id',
+            ),
+        );
+        $this->assertEquals($array, $yab->toArray());
+    }
+
+    public function testRssDataSourceNameOrId()
+    {
+        $rss = new \Zimbra\Soap\Struct\RssDataSourceNameOrId('name', 'id');
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<rss name="name" id="id" />';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $rss);
+
+        $array = array(
+            'rss' => array(
+                'name' => 'name',
+                'id' => 'id',
+            ),
+        );
+        $this->assertEquals($array, $rss->toArray());
+    }
+
+    public function testGalDataSourceNameOrId()
+    {
+        $gal = new \Zimbra\Soap\Struct\GalDataSourceNameOrId('name', 'id');
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<gal name="name" id="id" />';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $gal);
+
+        $array = array(
+            'gal' => array(
+                'name' => 'name',
+                'id' => 'id',
+            ),
+        );
+        $this->assertEquals($array, $gal->toArray());
+    }
+
+    public function testCalDataSourceNameOrId()
+    {
+        $cal = new \Zimbra\Soap\Struct\CalDataSourceNameOrId('name', 'id');
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<cal name="name" id="id" />';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $cal);
+
+        $array = array(
+            'cal' => array(
+                'name' => 'name',
+                'id' => 'id',
+            ),
+        );
+        $this->assertEquals($array, $cal->toArray());
+    }
+
+    public function testUnknownDataSourceNameOrId()
+    {
+        $unknown = new \Zimbra\Soap\Struct\UnknownDataSourceNameOrId('name', 'id');
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<unknown name="name" id="id" />';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $unknown);
+
+        $array = array(
+            'unknown' => array(
+                'name' => 'name',
+                'id' => 'id',
+            ),
+        );
+        $this->assertEquals($array, $unknown->toArray());
+    }
+
+    public function testDiffDocumentVersionSpec()
+    {
+        $doc = new \Zimbra\Soap\Struct\DiffDocumentVersionSpec('id', 1, 2);
+        $this->assertSame('id', $doc->id());
+        $this->assertSame(1, $doc->v1());
+        $this->assertSame(2, $doc->v2());
+
+        $doc->id('id')
+            ->v1(1)
+            ->v2(2);
+        $this->assertSame('id', $doc->id());
+        $this->assertSame(1, $doc->v1());
+        $this->assertSame(2, $doc->v2());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<doc id="id" v1="1" v2="2" />';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $doc);
+
+        $array = array(
+            'doc' => array(
+                'id' => 'id',
+                'v1' => 1,
+                'v2' => 2,
+            ),
+        );
+        $this->assertEquals($array, $doc->toArray());
+    }
+
+    public function testDismissAlarm()
+    {
+        $alarm = new \Zimbra\Soap\Struct\DismissAlarm('id', 1);
+        $this->assertSame('id', $alarm->id());
+        $this->assertSame(1, $alarm->dismissedAt());
+
+        $alarm->id('id')
+              ->dismissedAt(1);
+        $this->assertSame('id', $alarm->id());
+        $this->assertSame(1, $alarm->dismissedAt());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<alarm id="id" dismissedAt="1" />';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $alarm);
+
+        $array = array(
+            'alarm' => array(
+                'id' => 'id',
+                'dismissedAt' => 1,
+            ),
+        );
+        $this->assertEquals($array, $alarm->toArray());
+    }
+
+    public function testDismissAppointmentAlarm()
+    {
+        $appt = new \Zimbra\Soap\Struct\DismissAppointmentAlarm('id', 1);
+        $this->assertInstanceOf('Zimbra\Soap\Struct\DismissAlarm', $appt);
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<appt id="id" dismissedAt="1" />';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $appt);
+
+        $array = array(
+            'appt' => array(
+                'id' => 'id',
+                'dismissedAt' => 1,
+            ),
+        );
+        $this->assertEquals($array, $appt->toArray());
+    }
+
+    public function testDismissTaskAlarm()
+    {
+        $task = new \Zimbra\Soap\Struct\DismissTaskAlarm('id', 1);
+        $this->assertInstanceOf('Zimbra\Soap\Struct\DismissAlarm', $task);
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<task id="id" dismissedAt="1" />';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $task);
+
+        $array = array(
+            'task' => array(
+                'id' => 'id',
+                'dismissedAt' => 1,
+            ),
+        );
+        $this->assertEquals($array, $task->toArray());
+    }
+
+    public function testDocumentActionGrant()
+    {
+        $grant = new \Zimbra\Soap\Struct\DocumentActionGrant(
+            DocumentPermission::READ(), DocumentGrantType::ALL(), 1
+        );
+        $this->assertTrue($grant->perm()->is('r'));
+        $this->assertTrue($grant->gt()->is('all'));
+        $this->assertSame(1, $grant->expiry());
+
+        $grant->perm(DocumentPermission::READ())
+              ->gt(DocumentGrantType::ALL())
+              ->expiry(1);
+        $this->assertTrue($grant->perm()->is('r'));
+        $this->assertTrue($grant->gt()->is('all'));
+        $this->assertSame(1, $grant->expiry());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<grant perm="r" gt="all" expiry="1" />';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $grant);
+
+        $array = array(
+            'grant' => array(
+                'perm' => 'r',
+                'gt' => 'all',
+                'expiry' => 1,
+            ),
+        );
+        $this->assertEquals($array, $grant->toArray());
+    }
+
+    public function testDocumentActionSelector()
+    {
+        $grant = new \Zimbra\Soap\Struct\DocumentActionGrant(
+            DocumentPermission::READ(), DocumentGrantType::ALL(), 1
+        );
+        $action = new \Zimbra\Soap\Struct\DocumentActionSelector(
+            DocumentAction::WATCH(), 'id', 'tcon', 1, 'l', '#aabbcc', 1, 'name', 'f', 't', 'tn', $grant, 'zid'
+        );
+        $this->assertTrue($action->op()->is('watch'));
+        $this->assertSame($grant, $action->grant());
+        $this->assertSame('zid', $action->zid());
+
+        $action->op(DocumentAction::WATCH())
+               ->grant($grant)
+               ->zid('zid');
+        $this->assertTrue($action->op()->is('watch'));
+        $this->assertSame($grant, $action->grant());
+        $this->assertSame('zid', $action->zid());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<action op="watch" id="id" tcon="tcon" tag="1" l="l" rgb="#aabbcc" color="1" name="name" f="f" t="t" tn="tn" zid="zid">'
+                .'<grant perm="r" gt="all" expiry="1" />'
+            .'</action>';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $action);
+
+        $array = array(
+            'action' => array(
+                'op' => 'watch',
+                'id' => 'id',
+                'tcon' => 'tcon',
+                'tag' => 1,
+                'l' => 'l',
+                'rgb' => '#aabbcc',
+                'color' => 1,
+                'name' => 'name',
+                'f' => 'f',
+                't' => 't',
+                'tn' => 'tn',
+                'zid' => 'zid',
+                'grant' => array(
+                    'perm' => 'r',
+                    'gt' => 'all',
+                    'expiry' => 1,
+                ),
+            )
+        );
+        $this->assertEquals($array, $action->toArray());
+    }
+
+    public function testSharedReminderMount()
+    {
+        $link = new \Zimbra\Soap\Struct\SharedReminderMount(
+            'id', true
+        );
+        $this->assertSame('id', $link->id());
+        $this->assertTrue($link->reminder());
+
+        $link->id('id')
+             ->reminder(true);
+        $this->assertSame('id', $link->id());
+        $this->assertTrue($link->reminder());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<link id="id" reminder="1" />';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $link);
+
+        $array = array(
+            'link' => array(
+                'id' => 'id',
+                'reminder' => 1,
+            ),
+        );
+        $this->assertEquals($array, $link->toArray());
+    }
+
+    public function testRetentionPolicy()
+    {
+        $keep = new \Zimbra\Soap\Struct\Policy(Type::SYSTEM(), 'id', 'name', 'lifetime');
+        $purge = new \Zimbra\Soap\Struct\Policy(Type::USER(), 'id', 'name', 'lifetime');
+
+        $retentionPolicy = new \Zimbra\Soap\Struct\RetentionPolicy(
+            array($keep), array($purge)
+        );
+        $this->assertSame(array($keep), $retentionPolicy->keep()->all());
+        $this->assertSame(array($purge), $retentionPolicy->purge()->all());
+
+        $retentionPolicy->addKeep($purge)
+                        ->addPurge($keep);
+        $this->assertSame(array($keep, $purge), $retentionPolicy->keep()->all());
+        $this->assertSame(array($purge, $keep), $retentionPolicy->purge()->all());
+
+        $retentionPolicy->keep()->remove(1);
+        $retentionPolicy->purge()->remove(1);
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<retentionPolicy>'
+                .'<keep>'
+                    .'<policy type="system" id="id" name="name" lifetime="lifetime" />'
+                .'</keep>'
+                .'<purge>'
+                    .'<policy type="user" id="id" name="name" lifetime="lifetime" />'
+                .'</purge>'
+            .'</retentionPolicy>';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $retentionPolicy);
+
+        $array = array(
+            'retentionPolicy' => array(
+                'keep' => array(
+                    'policy' => array(
+                        array(
+                            'type' => 'system',
+                            'id' => 'id',
+                            'name' => 'name',
+                            'lifetime' => 'lifetime',
+                        ),
+                    ),
+                ),
+                'purge' => array(
+                    'policy' => array(
+                        array(
+                            'type' => 'user',
+                            'id' => 'id',
+                            'name' => 'name',
+                            'lifetime' => 'lifetime',
+                        ),
+                    ),
+                ),
+            ),
+        );
+        $this->assertEquals($array, $retentionPolicy->toArray());
+    }
+
+    public function testFolderActionSelector()
+    {
+        $keep = new \Zimbra\Soap\Struct\Policy(Type::SYSTEM(), 'id', 'name', 'lifetime');
+        $purge = new \Zimbra\Soap\Struct\Policy(Type::USER(), 'id', 'name', 'lifetime');
+        $retentionPolicy = new \Zimbra\Soap\Struct\RetentionPolicy(
+            array($keep), array($purge)
+        );
+        $grant = new \Zimbra\Soap\Struct\ActionGrantSelector(
+            'perm', GranteeType::USR(), 'zid', 'd', 'args', 'pw', 'key'
+        );
+
+        $action = new \Zimbra\Soap\Struct\FolderActionSelector(
+            FolderAction::READ(),
+            'id',
+            'tcon',
+            1,
+            'l',
+            '#aabbcc',
+            1,
+            'name',
+            'f',
+            't',
+            'tn',
+            $grant,
+            array($grant),
+            $retentionPolicy,
+            true,
+            'url',
+            true,
+            'zid',
+            'gt',
+            'view'
+        );
+        $this->assertTrue($action->op()->is('read'));
+        $this->assertSame($grant, $action->grant());
+        $this->assertSame(array($grant), $action->acl()->all());
+        $this->assertSame($retentionPolicy, $action->retentionPolicy());
+        $this->assertTrue($action->recursive());
+        $this->assertSame('url', $action->url());
+        $this->assertTrue($action->excludeFreeBusy());
+        $this->assertSame('zid', $action->zid());
+        $this->assertSame('gt', $action->gt());
+        $this->assertSame('view', $action->view());
+
+        $action->op(FolderAction::READ())
+               ->grant($grant)
+               ->addAcl($grant)
+               ->retentionPolicy($retentionPolicy)
+               ->recursive(true)
+               ->url('url')
+               ->excludeFreeBusy(true)
+               ->zid('zid')
+               ->gt('gt')
+               ->view('view');
+        $this->assertTrue($action->op()->is('read'));
+        $this->assertSame($grant, $action->grant());
+        $this->assertSame(array($grant, $grant), $action->acl()->all());
+        $this->assertSame($retentionPolicy, $action->retentionPolicy());
+        $this->assertTrue($action->recursive());
+        $this->assertSame('url', $action->url());
+        $this->assertTrue($action->excludeFreeBusy());
+        $this->assertSame('zid', $action->zid());
+        $this->assertSame('gt', $action->gt());
+        $this->assertSame('view', $action->view());
+
+        $action->acl()->remove(1);
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<action op="read" id="id" tcon="tcon" tag="1" l="l" rgb="#aabbcc" color="1" name="name" f="f" t="t" tn="tn" recursive="1" url="url" excludeFreeBusy="1" zid="zid" gt="gt" view="view">'
+                .'<grant perm="perm" gt="usr" zid="zid" d="d" args="args" pw="pw" key="key" />'
+                .'<acl>'
+                    .'<grant perm="perm" gt="usr" zid="zid" d="d" args="args" pw="pw" key="key" />'
+                .'</acl>'
+                .'<retentionPolicy>'
+                    .'<keep>'
+                        .'<policy type="system" id="id" name="name" lifetime="lifetime" />'
+                    .'</keep>'
+                    .'<purge>'
+                        .'<policy type="user" id="id" name="name" lifetime="lifetime" />'
+                    .'</purge>'
+                .'</retentionPolicy>'
+            .'</action>';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $action);
+
+        $array = array(
+            'action' => array(
+                'op' => 'read',
+                'id' => 'id',
+                'tcon' => 'tcon',
+                'tag' => 1,
+                'l' => 'l',
+                'rgb' => '#aabbcc',
+                'color' => 1,
+                'name' => 'name',
+                'f' => 'f',
+                't' => 't',
+                'tn' => 'tn',
+                'recursive' => 1,
+                'url' => 'url',
+                'excludeFreeBusy' => 1,
+                'zid' => 'zid',
+                'gt' => 'gt',
+                'view' => 'view',
+                'grant' => array(
+                    'perm' => 'perm',
+                    'gt' => 'usr',
+                    'zid' => 'zid',
+                    'd' => 'd',
+                    'args' => 'args',
+                    'pw' => 'pw',
+                    'key' => 'key',
+                ),
+                'acl' => array(
+                    'grant' => array(
+                        array(
+                            'perm' => 'perm',
+                            'gt' => 'usr',
+                            'zid' => 'zid',
+                            'd' => 'd',
+                            'args' => 'args',
+                            'pw' => 'pw',
+                            'key' => 'key',
+                        ),
+                    ),
+                ),
+                'retentionPolicy' => array(
+                    'keep' => array(
+                        'policy' => array(
+                            array(
+                                'type' => 'system',
+                                'id' => 'id',
+                                'name' => 'name',
+                                'lifetime' => 'lifetime',
+                            ),
+                        ),
+                    ),
+                    'purge' => array(
+                        'policy' => array(
+                            array(
+                                'type' => 'user',
+                                'id' => 'id',
+                                'name' => 'name',
+                                'lifetime' => 'lifetime',
+                            ),
+                        ),
+                    ),
+                ),
+            ),
+        );
+        $this->assertEquals($array, $action->toArray());
+    }
+
+    public function testActivityFilter()
+    {
+        $filter = new \Zimbra\Soap\Struct\ActivityFilter(
+            'account', 'op', 'session'
+        );
+        $this->assertSame('account', $filter->account());
+        $this->assertSame('op', $filter->op());
+        $this->assertSame('session', $filter->session());
+
+        $filter->account('account')
+               ->op('op')
+               ->session('session');
+        $this->assertSame('account', $filter->account());
+        $this->assertSame('op', $filter->op());
+        $this->assertSame('session', $filter->session());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<filter account="account" op="op" session="session" />';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $filter);
+
+        $array = array(
+            'filter' => array(
+                'account' => 'account',
+                'op' => 'op',
+                'session' => 'session',
+            ),
+        );
+        $this->assertEquals($array, $filter->toArray());
+    }
+
+    public function testParentId()
+    {
+        $comment = new \Zimbra\Soap\Struct\ParentId(
+            'item-id-of-parent'
+        );
+        $this->assertSame('item-id-of-parent', $comment->parentId());
+
+        $comment->parentId('item-id-of-parent');
+        $this->assertSame('item-id-of-parent', $comment->parentId());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<comment parentId="item-id-of-parent" />';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $comment);
+
+        $array = array(
+            'comment' => array(
+                'parentId' => 'item-id-of-parent',
+            ),
+        );
+        $this->assertEquals($array, $comment->toArray());
+    }
+
+    public function testAttributeName()
+    {
+        $a = new \Zimbra\Soap\Struct\AttributeName('attribute-name');
+        $this->assertSame('attribute-name', $a->n());
+
+        $a->n('attribute-name');
+        $this->assertSame('attribute-name', $a->n());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<a n="attribute-name" />';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $a);
+
+        $array = array(
+            'a' => array(
+                'n' => 'attribute-name',
+            ),
+        );
+        $this->assertEquals($array, $a->toArray());
     }
 }

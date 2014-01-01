@@ -966,4 +966,43 @@ class EnumTest extends ZimbraTestCase
             $this->assertTrue(\Zimbra\Soap\Enum\SearchType::has($value));
         }
     }
+
+    public function testDocumentGrantType()
+    {
+        $values = array(
+            'all',
+            'pub',
+        );
+        foreach ($values as $value)
+        {
+            $this->assertTrue(\Zimbra\Soap\Enum\DocumentGrantType::has($value));
+        }
+    }
+
+    public function testDocumentPermission()
+    {
+        $values = array(
+            'r',
+            'w',
+            'd',
+        );
+        foreach ($values as $value)
+        {
+            $this->assertTrue(\Zimbra\Soap\Enum\DocumentPermission::has($value));
+        }
+    }
+
+    public function testDocumentAction()
+    {
+        $values = array(
+            'watch',
+            '!watch',
+            'grant',
+            '!grant',
+        );
+        foreach ($values as $value)
+        {
+            $this->assertTrue(\Zimbra\Soap\Enum\DocumentAction::has($value));
+        }
+    }
 }
