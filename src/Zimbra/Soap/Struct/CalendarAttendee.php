@@ -337,7 +337,7 @@ class CalendarAttendee
      * Gets or sets iCalendar RSVP
      *
      * @param  bool $rsvp iCalendar RSVP
-     * @return bool|ZAP_Soap_Struct_CalendarAttendee
+     * @return bool|self
      */
     public function rsvp($rsvp = null)
     {
