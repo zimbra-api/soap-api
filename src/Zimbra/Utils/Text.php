@@ -19,6 +19,11 @@ namespace Zimbra\Utils;
  */
 class Text
 {
+    public static function isRgb($rgb)
+    {
+        //return (bool) preg_match('/^#?+[0-9a-f]{3}(?:[0-9a-f]{3})?$/i', $rgb);
+        return (bool) preg_match('/^#([a-f0-9]{3}){1,2}$/iD', $rgb);
+    }
     /**
      * Check the tag is valid.
      *

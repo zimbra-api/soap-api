@@ -12,6 +12,7 @@ namespace Zimbra\Soap\Struct;
 
 use Zimbra\Soap\Enum\Base;
 use Zimbra\Utils\SimpleXML;
+use Zimbra\Utils\Text;
 
 /**
  * ActionSelector struct class
@@ -130,7 +131,7 @@ class ActionSelector
         $this->_id = trim($id);
         $this->_tcon = trim($tcon);
         $this->_l = trim($l);
-        $this->_rgb = trim($rgb);
+        $this->_rgb = Text::isRgb(trim($rgb)) ? trim($rgb) : '';
         if(null !== $tag)
         {
             $this->_tag = (int) $tag;
@@ -222,7 +223,7 @@ class ActionSelector
         {
             return $this->_rgb;
         }
-        $this->_rgb = trim($rgb);
+        $this->_rgb = Text::isRgb(trim($rgb)) ? trim($rgb) : '';
         return $this;
     }
 
