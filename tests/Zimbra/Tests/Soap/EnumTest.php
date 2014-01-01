@@ -935,4 +935,35 @@ class EnumTest extends ZimbraTestCase
             $this->assertTrue(\Zimbra\Soap\Enum\DistributionListAction::has($value));
         }
     }
+
+    public function testMdsConnectionType()
+    {
+        $values = array(
+            'cleartext',
+            'ssl',
+            'tls',
+            'tls_is_available',
+        );
+        foreach ($values as $value)
+        {
+            $this->assertTrue(\Zimbra\Soap\Enum\MdsConnectionType::has($value));
+        }
+    }
+
+    public function testSearchType()
+    {
+        $values = array(
+            'conversation',
+            'message',
+            'contact',
+            'appointment',
+            'task',
+            'wiki',
+            'document',
+        );
+        foreach ($values as $value)
+        {
+            $this->assertTrue(\Zimbra\Soap\Enum\SearchType::has($value));
+        }
+    }
 }

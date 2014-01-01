@@ -32,10 +32,12 @@ use Zimbra\Soap\Enum\InviteChange;
 use Zimbra\Soap\Enum\InviteClass;
 use Zimbra\Soap\Enum\InviteStatus;
 use Zimbra\Soap\Enum\LoggingLevel;
+use Zimbra\Soap\Enum\MdsConnectionType;
 use Zimbra\Soap\Enum\Operation;
 use Zimbra\Soap\Enum\ParticipationStatus as PartStatus;
 use Zimbra\Soap\Enum\QueueAction;
 use Zimbra\Soap\Enum\QueueActionBy;
+use Zimbra\Soap\Enum\SearchType;
 use Zimbra\Soap\Enum\ServerBy;
 use Zimbra\Soap\Enum\TargetType;
 use Zimbra\Soap\Enum\TargetBy;
@@ -3246,10 +3248,10 @@ class StructTest extends ZimbraTestCase
 
     public function testWaitSetAddSpec()
     {
-        $waitSet = new \Zimbra\Soap\Struct\WaitSetAddSpec('n', 'i', 't', array(InterestType::FOLDERS()));
-        $this->assertSame('n', $waitSet->name());
-        $this->assertSame('i', $waitSet->id());
-        $this->assertSame('t', $waitSet->token());
+        $waitSet = new \Zimbra\Soap\Struct\WaitSetAddSpec('name', 'id', 'token', array(InterestType::FOLDERS()));
+        $this->assertSame('name', $waitSet->name());
+        $this->assertSame('id', $waitSet->id());
+        $this->assertSame('token', $waitSet->token());
         $this->assertSame('f', $waitSet->types());
 
         $waitSet->name('name')
@@ -7191,13 +7193,13 @@ class StructTest extends ZimbraTestCase
     public function testActionSelector()
     {
         $action = new \Zimbra\Soap\Struct\ActionSelector(
-            ContactAction::MOVE(), 'id', 'tcon', 1, 'l', 'rgb', 1, 'name', 'f', 't', 'tn'
+            ContactAction::MOVE(), 'id', 'tcon', 1, 'l', '#aabbcc', 1, 'name', 'f', 't', 'tn'
         );
         $this->assertSame('id', $action->id());
         $this->assertSame('tcon', $action->tcon());
         $this->assertSame(1, $action->tag());
         $this->assertSame('l', $action->l());
-        $this->assertSame('rgb', $action->rgb());
+        $this->assertSame('#aabbcc', $action->rgb());
         $this->assertSame(1, $action->color());
         $this->assertSame('name', $action->name());
         $this->assertSame('f', $action->f());
@@ -7208,7 +7210,7 @@ class StructTest extends ZimbraTestCase
                ->tcon('tcon')
                ->tag(1)
                ->l('l')
-               ->rgb('rgb')
+               ->rgb('#aabbcc')
                ->color(1)
                ->name('name')
                ->f('f')
@@ -7218,7 +7220,7 @@ class StructTest extends ZimbraTestCase
         $this->assertSame('tcon', $action->tcon());
         $this->assertSame(1, $action->tag());
         $this->assertSame('l', $action->l());
-        $this->assertSame('rgb', $action->rgb());
+        $this->assertSame('#aabbcc', $action->rgb());
         $this->assertSame(1, $action->color());
         $this->assertSame('name', $action->name());
         $this->assertSame('f', $action->f());
@@ -7226,7 +7228,7 @@ class StructTest extends ZimbraTestCase
         $this->assertSame('tn', $action->tn());
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<action op="move" id="id" tcon="tcon" tag="1" l="l" rgb="rgb" color="1" name="name" f="f" t="t" tn="tn" />';
+            .'<action op="move" id="id" tcon="tcon" tag="1" l="l" rgb="#aabbcc" color="1" name="name" f="f" t="t" tn="tn" />';
         $this->assertXmlStringEqualsXmlString($xml, (string) $action);
 
         $array = array(
@@ -7236,7 +7238,7 @@ class StructTest extends ZimbraTestCase
                 'tcon' => 'tcon',
                 'tag' => 1,
                 'l' => 'l',
-                'rgb' => 'rgb',
+                'rgb' => '#aabbcc',
                 'color' => 1,
                 'name' => 'name',
                 'f' => 'f',
@@ -7253,7 +7255,7 @@ class StructTest extends ZimbraTestCase
             'n', 'value', 'aid', 'id', 'part'
         );
         $action = new \Zimbra\Soap\Struct\ContactActionSelector(
-            ContactAction::MOVE(), 'id', 'tcon', 1, 'l', 'rgb', 1, 'name', 'f', 't', 'tn', array($a)
+            ContactAction::MOVE(), 'id', 'tcon', 1, 'l', '#aabbcc', 1, 'name', 'f', 't', 'tn', array($a)
         );
         $this->assertTrue($action->op()->is('move'));
         $this->assertSame(array($a), $action->a()->all());
@@ -7264,11 +7266,11 @@ class StructTest extends ZimbraTestCase
         $this->assertSame(array($a, $a), $action->a()->all());
 
         $action = new \Zimbra\Soap\Struct\ContactActionSelector(
-            ContactAction::MOVE(), 'id', 'tcon', 1, 'l', 'rgb', 1, 'name', 'f', 't', 'tn', array($a)
+            ContactAction::MOVE(), 'id', 'tcon', 1, 'l', '#aabbcc', 1, 'name', 'f', 't', 'tn', array($a)
         );
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<action op="move" id="id" tcon="tcon" tag="1" l="l" rgb="rgb" color="1" name="name" f="f" t="t" tn="tn">'
+            .'<action op="move" id="id" tcon="tcon" tag="1" l="l" rgb="#aabbcc" color="1" name="name" f="f" t="t" tn="tn">'
                 .'<a n="n" aid="aid" id="id" part="part">value</a>'
             .'</action>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $action);
@@ -7280,7 +7282,7 @@ class StructTest extends ZimbraTestCase
                 'tcon' => 'tcon',
                 'tag' => 1,
                 'l' => 'l',
-                'rgb' => 'rgb',
+                'rgb' => '#aabbcc',
                 'color' => 1,
                 'name' => 'name',
                 'f' => 'f',
@@ -7303,14 +7305,14 @@ class StructTest extends ZimbraTestCase
     public function testConvActionSelector()
     {
         $action = new \Zimbra\Soap\Struct\ConvActionSelector(
-            ConvAction::DELETE(), 'id', 'tcon', 1, 'l', 'rgb', 1, 'name', 'f', 't', 'tn'
+            ConvAction::DELETE(), 'id', 'tcon', 1, 'l', '#aabbcc', 1, 'name', 'f', 't', 'tn'
         );
         $this->assertTrue($action->op()->is('delete'));
         $action->op(ConvAction::DELETE());
         $this->assertTrue($action->op()->is('delete'));
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<action op="delete" id="id" tcon="tcon" tag="1" l="l" rgb="rgb" color="1" name="name" f="f" t="t" tn="tn" />';
+            .'<action op="delete" id="id" tcon="tcon" tag="1" l="l" rgb="#aabbcc" color="1" name="name" f="f" t="t" tn="tn" />';
         $this->assertXmlStringEqualsXmlString($xml, (string) $action);
 
         $array = array(
@@ -7320,7 +7322,7 @@ class StructTest extends ZimbraTestCase
                 'tcon' => 'tcon',
                 'tag' => 1,
                 'l' => 'l',
-                'rgb' => 'rgb',
+                'rgb' => '#aabbcc',
                 'color' => 1,
                 'name' => 'name',
                 'f' => 'f',
@@ -7471,5 +7473,564 @@ class StructTest extends ZimbraTestCase
             ),
         );
         $this->assertEquals($array, $cn->toArray());
+    }
+
+    public function testMailDataSource()
+    {
+        $mail = new \Zimbra\Soap\Struct\MailDataSource(
+            'id',
+            'name',
+            'l',
+            true,
+            true,
+            'host',
+            1,
+            MdsConnectionType::SSL(),
+            'username',
+            'password',
+            'pollingInterval',
+            'emailAddress',
+            true,
+            'defaultSignature',
+            'forwardReplySignature',
+            'fromDisplay',
+            'replyToAddress',
+            'replyToDisplay',
+            'importClass',
+            1,
+            'lastError',
+            array('a', 'b')
+        );
+        $this->assertSame('id', $mail->id());
+        $this->assertSame('name', $mail->name());
+        $this->assertSame('l', $mail->l());
+        $this->assertTrue($mail->isEnabled());
+        $this->assertTrue($mail->importOnly());
+        $this->assertSame('host', $mail->host());
+        $this->assertSame(1, $mail->port());
+        $this->assertTrue($mail->connectionType()->is('ssl'));
+        $this->assertSame('username', $mail->username());
+        $this->assertSame('password', $mail->password());
+        $this->assertSame('pollingInterval', $mail->pollingInterval());
+        $this->assertSame('emailAddress', $mail->emailAddress());
+        $this->assertTrue($mail->useAddressForForwardReply());
+        $this->assertSame('defaultSignature', $mail->defaultSignature());
+        $this->assertSame('forwardReplySignature', $mail->forwardReplySignature());
+        $this->assertSame('fromDisplay', $mail->fromDisplay());
+        $this->assertSame('replyToAddress', $mail->replyToAddress());
+        $this->assertSame('replyToDisplay', $mail->replyToDisplay());
+        $this->assertSame('importClass', $mail->importClass());
+        $this->assertSame(1, $mail->failingSince());
+        $this->assertSame('lastError', $mail->lastError());
+        $this->assertSame(array('a', 'b'), $mail->a());
+
+        $mail->id('id')
+             ->name('name')
+             ->l('l')
+             ->isEnabled(true)
+             ->importOnly(true)
+             ->host('host')
+             ->port(1)
+             ->connectionType(MdsConnectionType::SSL())
+             ->username('username')
+             ->password('password')
+             ->pollingInterval('pollingInterval')
+             ->emailAddress('emailAddress')
+             ->useAddressForForwardReply(true)
+             ->defaultSignature('defaultSignature')
+             ->forwardReplySignature('forwardReplySignature')
+             ->fromDisplay('fromDisplay')
+             ->replyToAddress('replyToAddress')
+             ->replyToDisplay('replyToDisplay')
+             ->importClass('importClass')
+             ->failingSince(1)
+             ->lastError('lastError')
+             ->a(array('a', 'b'));
+        $this->assertSame('id', $mail->id());
+        $this->assertSame('name', $mail->name());
+        $this->assertSame('l', $mail->l());
+        $this->assertTrue($mail->isEnabled());
+        $this->assertTrue($mail->importOnly());
+        $this->assertSame('host', $mail->host());
+        $this->assertSame(1, $mail->port());
+        $this->assertTrue($mail->connectionType()->is('ssl'));
+        $this->assertSame('username', $mail->username());
+        $this->assertSame('password', $mail->password());
+        $this->assertSame('pollingInterval', $mail->pollingInterval());
+        $this->assertSame('emailAddress', $mail->emailAddress());
+        $this->assertTrue($mail->useAddressForForwardReply());
+        $this->assertSame('defaultSignature', $mail->defaultSignature());
+        $this->assertSame('forwardReplySignature', $mail->forwardReplySignature());
+        $this->assertSame('fromDisplay', $mail->fromDisplay());
+        $this->assertSame('replyToAddress', $mail->replyToAddress());
+        $this->assertSame('replyToDisplay', $mail->replyToDisplay());
+        $this->assertSame('importClass', $mail->importClass());
+        $this->assertSame(1, $mail->failingSince());
+        $this->assertSame('lastError', $mail->lastError());
+        $this->assertSame(array('a', 'b'), $mail->a());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<mail id="id" name="name" l="l" isEnabled="1" importOnly="1" host="host" port="1" '
+            .'connectionType="ssl" username="username" password="password" pollingInterval="pollingInterval" '
+            .'emailAddress="emailAddress" useAddressForForwardReply="1" defaultSignature="defaultSignature" '
+            .'forwardReplySignature="forwardReplySignature" fromDisplay="fromDisplay" replyToAddress="replyToAddress" '
+            .'replyToDisplay="replyToDisplay" importClass="importClass" failingSince="1">'
+                .'<lastError>lastError</lastError>'
+                .'<a>a</a>'
+                .'<a>b</a>'
+            .'</mail>';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $mail);
+
+        $array = array(
+            'mail' => array(
+                'id' => 'id',
+                'name' => 'name',
+                'l' => 'l',
+                'isEnabled' => 1,
+                'importOnly' => 1,
+                'host' => 'host',
+                'port' => 1,
+                'connectionType' => 'ssl',
+                'username' => 'username',
+                'password' => 'password',
+                'pollingInterval' => 'pollingInterval',
+                'emailAddress' => 'emailAddress',
+                'useAddressForForwardReply' => 1,
+                'defaultSignature' => 'defaultSignature',
+                'forwardReplySignature' => 'forwardReplySignature',
+                'fromDisplay' => 'fromDisplay',
+                'replyToAddress' => 'replyToAddress',
+                'replyToDisplay' => 'replyToDisplay',
+                'importClass' => 'importClass',
+                'failingSince' => 1,
+                'lastError' => 'lastError',
+                'a' => array('a', 'b'),
+            ),
+        );
+        $this->assertEquals($array, $mail->toArray());
+    }
+
+    public function testMailImapDataSource()
+    {
+        $imap = new \Zimbra\Soap\Struct\MailImapDataSource();
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<imap />';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $imap);
+
+        $array = array(
+            'imap' => array(),
+        );
+        $this->assertEquals($array, $imap->toArray());
+    }
+
+    public function testMailPop3DataSource()
+    {
+        $pop3 = new \Zimbra\Soap\Struct\MailPop3DataSource(true);
+        $this->assertTrue($pop3->leaveOnServer());
+        $pop3->leaveOnServer(true);
+        $this->assertTrue($pop3->leaveOnServer());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<pop3 leaveOnServer="1" />';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $pop3);
+
+        $array = array(
+            'pop3' => array(
+                'leaveOnServer' => 1,
+            ),
+        );
+        $this->assertEquals($array, $pop3->toArray());
+    }
+
+    public function testMailCaldavDataSource()
+    {
+        $caldav = new \Zimbra\Soap\Struct\MailCaldavDataSource();
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<caldav />';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $caldav);
+
+        $array = array(
+            'caldav' => array(),
+        );
+        $this->assertEquals($array, $caldav->toArray());
+    }
+
+    public function testMailYabDataSource()
+    {
+        $yab = new \Zimbra\Soap\Struct\MailYabDataSource();
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<yab />';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $yab);
+
+        $array = array(
+            'yab' => array(),
+        );
+        $this->assertEquals($array, $yab->toArray());
+    }
+
+    public function testMailRssDataSource()
+    {
+        $rss = new \Zimbra\Soap\Struct\MailRssDataSource();
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<rss />';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $rss);
+
+        $array = array(
+            'rss' => array(),
+        );
+        $this->assertEquals($array, $rss->toArray());
+    }
+
+    public function testMailGalDataSource()
+    {
+        $gal = new \Zimbra\Soap\Struct\MailGalDataSource();
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<gal />';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $gal);
+
+        $array = array(
+            'gal' => array(),
+        );
+        $this->assertEquals($array, $gal->toArray());
+    }
+
+    public function testMailCalDataSource()
+    {
+        $cal = new \Zimbra\Soap\Struct\MailCalDataSource();
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<cal />';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $cal);
+
+        $array = array(
+            'cal' => array(),
+        );
+        $this->assertEquals($array, $cal->toArray());
+    }
+
+    public function testMailUnknownDataSource()
+    {
+        $unknown = new \Zimbra\Soap\Struct\MailUnknownDataSource();
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<unknown />';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $unknown);
+
+        $array = array(
+            'unknown' => array(),
+        );
+        $this->assertEquals($array, $unknown->toArray());
+    }
+
+    public function testActionGrantSelector()
+    {
+        $grant = new \Zimbra\Soap\Struct\ActionGrantSelector(
+            'perm', GranteeType::USR(), 'zid', 'd', 'args', 'pw', 'key'
+        );
+        $this->assertSame('perm', $grant->perm());
+        $this->assertTrue($grant->gt()->is('usr'));
+        $this->assertSame('zid', $grant->zid());
+        $this->assertSame('d', $grant->d());
+        $this->assertSame('args', $grant->args());
+        $this->assertSame('pw', $grant->pw());
+        $this->assertSame('key', $grant->key());
+
+        $grant->perm('perm')
+              ->gt(GranteeType::USR())
+              ->zid('zid')
+              ->d('d')
+              ->args('args')
+              ->pw('pw')
+              ->key('key');
+        $this->assertSame('perm', $grant->perm());
+        $this->assertTrue($grant->gt()->is('usr'));
+        $this->assertSame('zid', $grant->zid());
+        $this->assertSame('d', $grant->d());
+        $this->assertSame('args', $grant->args());
+        $this->assertSame('pw', $grant->pw());
+        $this->assertSame('key', $grant->key());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<grant perm="perm" gt="usr" zid="zid" d="d" args="args" pw="pw" key="key" />';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $grant);
+
+        $array = array(
+            'grant' => array(
+                'perm' => 'perm',
+                'gt' => 'usr',
+                'zid' => 'zid',
+                'd' => 'd',
+                'args' => 'args',
+                'pw' => 'pw',
+                'key' => 'key',
+            ),
+        );
+        $this->assertEquals($array, $grant->toArray());
+    }
+
+    public function testNewFolderSpec()
+    {
+        $grant = new \Zimbra\Soap\Struct\ActionGrantSelector(
+            'perm', GranteeType::USR(), 'zid', 'd', 'args', 'pw', 'key'
+        );
+        $folder = new \Zimbra\Soap\Struct\NewFolderSpec(
+            'name', SearchType::TASK(), 'f', 1, '#aabbcc', 'url', 'l', true, true, array($grant)
+        );
+        $this->assertSame('name', $folder->name());
+        $this->assertTrue($folder->view()->is('task'));
+        $this->assertSame('f', $folder->f());
+        $this->assertSame(1, $folder->color());
+        $this->assertSame('#aabbcc', $folder->rgb());
+        $this->assertSame('url', $folder->url());
+        $this->assertSame('l', $folder->l());
+        $this->assertTrue($folder->fie());
+        $this->assertTrue($folder->sync());
+        $this->assertSame(array($grant), $folder->grant()->all());
+
+        $folder->name('name')
+               ->view(SearchType::TASK())
+               ->f('f')
+               ->color(1)
+               ->rgb('#aabbcc')
+               ->url('url')
+               ->l('l')
+               ->fie(true)
+               ->sync(true)
+               ->addGrant($grant);
+        $this->assertSame('name', $folder->name());
+        $this->assertTrue($folder->view()->is('task'));
+        $this->assertSame('f', $folder->f());
+        $this->assertSame(1, $folder->color());
+        $this->assertSame('#aabbcc', $folder->rgb());
+        $this->assertSame('url', $folder->url());
+        $this->assertSame('l', $folder->l());
+        $this->assertTrue($folder->fie());
+        $this->assertTrue($folder->sync());
+        $this->assertSame(array($grant, $grant), $folder->grant()->all());
+
+        $folder = new \Zimbra\Soap\Struct\NewFolderSpec(
+            'name', SearchType::TASK(), 'f', 1, '#aabbcc', 'url', 'l', true, true, array($grant)
+        );
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<folder name="name" view="task" f="f" color="1" rgb="#aabbcc" url="url" l="l" fie="1" sync="1">'
+                .'<acl>'
+                    .'<grant perm="perm" gt="usr" zid="zid" d="d" args="args" pw="pw" key="key" />'
+                .'</acl>'
+            .'</folder>';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $folder);
+
+        $array = array(
+            'folder' => array(
+                'name' => 'name',
+                'view' => 'task',
+                'f' => 'f',
+                'color' => 1,
+                'rgb' => '#aabbcc',
+                'url' => 'url',
+                'l' => 'l',
+                'fie' => 1,
+                'sync' => 1,
+                'acl' => array(
+                    'grant' => array(
+                        array(
+                            'perm' => 'perm',
+                            'gt' => 'usr',
+                            'zid' => 'zid',
+                            'd' => 'd',
+                            'args' => 'args',
+                            'pw' => 'pw',
+                            'key' => 'key',
+                        ),
+                    ),
+                ),
+            ),
+        );
+        $this->assertEquals($array, $folder->toArray());
+    }
+
+    public function testNewMountpointSpec()
+    {
+        $link = new \Zimbra\Soap\Struct\NewMountpointSpec(
+            'name', SearchType::TASK(), 'f', 1, '#aabbcc', 'url', 'l', true, true, 'zid', 'owner', 1, 'path'
+        );
+        $this->assertSame('name', $link->name());
+        $this->assertTrue($link->view()->is('task'));
+        $this->assertSame('f', $link->f());
+        $this->assertSame(1, $link->color());
+        $this->assertSame('#aabbcc', $link->rgb());
+        $this->assertSame('url', $link->url());
+        $this->assertSame('l', $link->l());
+        $this->assertTrue($link->fie());
+        $this->assertTrue($link->reminder());
+        $this->assertSame('zid', $link->zid());
+        $this->assertSame('owner', $link->owner());
+        $this->assertSame(1, $link->rid());
+        $this->assertSame('path', $link->path());
+
+        $link->name('name')
+             ->view(SearchType::TASK())
+             ->f('f')
+             ->color(1)
+             ->rgb('#aabbcc')
+             ->url('url')
+             ->l('l')
+             ->fie(true)
+             ->reminder(true)
+             ->zid('zid')
+             ->owner('owner')
+             ->rid(1)
+             ->path('path');
+        $this->assertSame('name', $link->name());
+        $this->assertTrue($link->view()->is('task'));
+        $this->assertSame('f', $link->f());
+        $this->assertSame(1, $link->color());
+        $this->assertSame('#aabbcc', $link->rgb());
+        $this->assertSame('url', $link->url());
+        $this->assertSame('l', $link->l());
+        $this->assertTrue($link->fie());
+        $this->assertTrue($link->reminder());
+        $this->assertSame('zid', $link->zid());
+        $this->assertSame('owner', $link->owner());
+        $this->assertSame(1, $link->rid());
+        $this->assertSame('path', $link->path());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<link name="name" view="task" f="f" color="1" rgb="#aabbcc" url="url" l="l" fie="1" reminder="1" zid="zid" owner="owner" rid="1" path="path" />';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $link);
+
+        $array = array(
+            'link' => array(
+                'name' => 'name',
+                'view' => 'task',
+                'f' => 'f',
+                'color' => 1,
+                'rgb' => '#aabbcc',
+                'url' => 'url',
+                'l' => 'l',
+                'fie' => 1,
+                'reminder' => 1,
+                'zid' => 'zid',
+                'owner' => 'owner',
+                'rid' => 1,
+                'path' => 'path',
+            ),
+        );
+        $this->assertEquals($array, $link->toArray());
+    }
+
+    public function testNewNoteSpec()
+    {
+        $note = new \Zimbra\Soap\Struct\NewNoteSpec(
+            'l', 'content', 1, 'pos'
+        );
+        $this->assertSame('l', $note->l());
+        $this->assertSame('content', $note->content());
+        $this->assertSame(1, $note->color());
+        $this->assertSame('pos', $note->pos());
+
+        $note->l('l')
+             ->content('content')
+             ->color(1)
+             ->pos('pos');
+        $this->assertSame('l', $note->l());
+        $this->assertSame('content', $note->content());
+        $this->assertSame(1, $note->color());
+        $this->assertSame('pos', $note->pos());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<note l="l" content="content" color="1" pos="pos" />';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $note);
+
+        $array = array(
+            'note' => array(
+                'l' => 'l',
+                'content' => 'content',
+                'color' => 1,
+                'pos' => 'pos',
+            ),
+        );
+        $this->assertEquals($array, $note->toArray());
+    }
+
+    public function testNewSearchFolderSpec()
+    {
+        $search = new \Zimbra\Soap\Struct\NewSearchFolderSpec(
+            'name', 'query', 'types', 'sortBy', 'f', 1, 'l'
+        );
+        $this->assertSame('name', $search->name());
+        $this->assertSame('query', $search->query());
+        $this->assertSame('types', $search->types());
+        $this->assertSame('sortBy', $search->sortBy());
+        $this->assertSame('f', $search->f());
+        $this->assertSame(1, $search->color());
+        $this->assertSame('l', $search->l());
+
+        $search->name('name')
+               ->query('query')
+               ->types('types')
+               ->sortBy('sortBy')
+               ->f('f')
+               ->color(1)
+               ->l('l');
+        $this->assertSame('name', $search->name());
+        $this->assertSame('query', $search->query());
+        $this->assertSame('types', $search->types());
+        $this->assertSame('sortBy', $search->sortBy());
+        $this->assertSame('f', $search->f());
+        $this->assertSame(1, $search->color());
+        $this->assertSame('l', $search->l());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<search name="name" query="query" types="types" sortBy="sortBy" f="f" color="1" l="l" />';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $search);
+
+        $array = array(
+            'search' => array(
+                'name' => 'name',
+                'query' => 'query',
+                'types' => 'types',
+                'sortBy' => 'sortBy',
+                'f' => 'f',
+                'color' => 1,
+                'l' => 'l',
+            ),
+        );
+        $this->assertEquals($array, $search->toArray());
+    }
+
+    public function testTagSpec()
+    {
+        $tag = new \Zimbra\Soap\Struct\TagSpec(
+            'name', '#aabbcc', 1
+        );
+        $this->assertSame('name', $tag->name());
+        $this->assertSame('#aabbcc', $tag->rgb());
+        $this->assertSame(1, $tag->color());
+
+        $tag->name('name')
+            ->rgb('#aabbcc')
+            ->color(1);
+        $this->assertSame('name', $tag->name());
+        $this->assertSame('#aabbcc', $tag->rgb());
+        $this->assertSame(1, $tag->color());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<tag name="name" rgb="#aabbcc" color="1" />';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $tag);
+
+        $array = array(
+            'tag' => array(
+                'name' => 'name',
+                'rgb' => '#aabbcc',
+                'color' => 1,
+            ),
+        );
+        $this->assertEquals($array, $tag->toArray());
     }
 }

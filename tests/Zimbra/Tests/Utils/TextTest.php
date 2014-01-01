@@ -10,6 +10,21 @@ use Zimbra\Utils\Text;
  */
 class TextTest extends ZimbraTestCase
 {
+    public function testIsRgb()
+    {
+        $this->assertTrue(Text::isRgb('#112233'));
+        $this->assertTrue(Text::isRgb('#1122ff'));
+        $this->assertTrue(Text::isRgb('#11ff33'));
+        $this->assertTrue(Text::isRgb('#ff2233'));
+        $this->assertTrue(Text::isRgb('#aabbcc'));
+
+        $this->assertFalse(Text::isRgb('#1122gg'));
+        $this->assertFalse(Text::isRgb('#11gg33'));
+        $this->assertFalse(Text::isRgb('#gg2233'));
+        $this->assertFalse(Text::isRgb('#aabbgg'));
+        $this->assertFalse(Text::isRgb('#aaggcc'));
+        $this->assertFalse(Text::isRgb('#ggbbcc'));
+    }
     public function testIsValidTagName()
     {
         $this->assertTrue(Text::isValidTagName('name'));
