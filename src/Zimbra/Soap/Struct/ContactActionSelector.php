@@ -26,7 +26,7 @@ class ContactActionSelector extends ActionSelector
      * New Contact attributes
      * @var TypedSequence<NewContactAttr>
      */
-	private $_a;
+    private $_a;
 
     /**
      * Constructor method for AccountACEInfo
@@ -41,6 +41,7 @@ class ContactActionSelector extends ActionSelector
      * @param string $f
      * @param string $t
      * @param string $tn
+     * @param array $a
      * @return self
      */
     public function __construct(
@@ -58,19 +59,19 @@ class ContactActionSelector extends ActionSelector
         array $a = array()
     )
     {
-    	parent::__construct(
-	        $op,
-	        $id,
-	        $tcon,
-	        $tag,
-	        $l,
-	        $rgb,
-	        $color,
-	        $name,
-	        $f,
-	        $t,
-	        $tn
-		);
+        parent::__construct(
+            $op,
+            $id,
+            $tcon,
+            $tag,
+            $l,
+            $rgb,
+            $color,
+            $name,
+            $f,
+            $t,
+            $tn
+        );
         $this->_a = new TypedSequence('Zimbra\Soap\Struct\NewContactAttr', $a);
     }
 
