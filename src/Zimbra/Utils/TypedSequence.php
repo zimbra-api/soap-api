@@ -29,7 +29,7 @@ class TypedSequence extends Sequence
 
     /**
      * Constructor method for TypedSequence
-     * @param string $type class type
+     * @param string $type
      * @param array $elements
      * @return self
      */
@@ -41,7 +41,7 @@ class TypedSequence extends Sequence
 
     /**
      * Appends an element at the end of the sequence.
-     * @param mixed $element new element
+     * @param T $element
      * @return self
      */
     public function add($element)
@@ -76,12 +76,12 @@ class TypedSequence extends Sequence
     /**
      * Updates the element at the given index (0-based).
      *
-     * @param integer $index
+     * @param int $index
      * @param T $value
      */
     public function update($index, $value)
     {
-        if ( ! isset($this->elements[$index]))
+        if (!isset($this->elements[$index]))
         {
             throw new \InvalidArgumentException(
                 sprintf('There is no element at index "%d".', $index)
@@ -92,5 +92,22 @@ class TypedSequence extends Sequence
             $this->elements[$index] = $value;
         }
         return $this;
+    }
+
+    /**
+     * Remove the element from sequence.
+     *
+     * @param T $element
+     * @param int
+     */
+    public function removeElement($element)
+    {
+        if(($index = $this->indexOf($element)) >= 0)
+        {
+            $this->remove($index);
+            return $index;
+        }
+        else
+            return FALSE;
     }
 }
