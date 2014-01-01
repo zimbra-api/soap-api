@@ -22,7 +22,7 @@ use Zimbra\Utils\SimpleXML;
 class DeviceId
 {
     /**
-     * Device  ID
+     * Device ID
      * @var string
      */
     private $_id;

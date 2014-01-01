@@ -13,7 +13,7 @@ namespace Zimbra\Soap\Struct;
 use Zimbra\Utils\SimpleXML;
 
 /**
- * NameId class
+ * NameId struct class
  * @package   Zimbra
  * @category  Soap
  * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
@@ -34,12 +34,12 @@ class NameId
     private $_id;
 
     /**
-     * Constructor method for nameId
+     * Constructor method for NameId
      * @param string $name
      * @param string $id
      * @return self
      */
-    public function __construct($name = null, $id = null)
+    public function __construct($name, $id)
     {
         $this->_name = trim($name);
         $this->_id = trim($id);
@@ -86,15 +86,10 @@ class NameId
     public function toArray($name = 'name')
     {
         $name = !empty($name) ? $name : 'name';
-        $arr =  array();
-        if(!empty($this->_name))
-        {
-            $arr['name'] = (string) $this->_name;
-        }
-        if(!empty($this->_id))
-        {
-            $arr['id'] = (string) $this->_id;
-        }
+        $arr =  array(
+            'name' => $this->_name,
+            'id' => $this->_id,
+        );
         return array($name => $arr);
     }
 
@@ -108,14 +103,8 @@ class NameId
     {
         $name = !empty($name) ? $name : 'name';
         $xml = new SimpleXML('<'.$name.' />');
-        if(!empty($this->_name))
-        {
-            $xml->addAttribute('name', $this->_name);
-        }
-        if(!empty($this->_id))
-        {
-            $xml->addAttribute('id', $this->_id);
-        }
+        $xml->addAttribute('name', $this->_name)
+            ->addAttribute('id', $this->_id);
         return $xml;
     }
 
