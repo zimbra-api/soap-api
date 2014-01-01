@@ -24,7 +24,7 @@ use Zimbra\Soap\Struct\AddedComment;
 class AddComment extends Request
 {
     /**
-     * Message
+     * Added comment
      * @var AddedComment
      */
     private $_comment;
