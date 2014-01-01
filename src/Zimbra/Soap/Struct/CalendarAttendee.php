@@ -25,7 +25,7 @@ class CalendarAttendee
 {
     /**
      * Non-standard parameters (XPARAMs)
-     * @var Sequence
+     * @var TypedSequence<XParam>
      */
     private $_xparam;
 
@@ -141,7 +141,8 @@ class CalendarAttendee
         $rsvp = null,
         $member = null,
         $delTo = null,
-        $delFrom = null)
+        $delFrom = null
+    )
     {
         $this->_xparam = new TypedSequence('Zimbra\Soap\Struct\XParam', $xparams);
 
