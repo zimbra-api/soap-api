@@ -4388,4 +4388,735 @@ class MailRequestTest extends ZimbraTestCase
         );
         $this->assertEquals($array, $req->toArray());
     }
+
+    public function testGetConv()
+    {
+        $header = new \Zimbra\Soap\Struct\AttributeName('attribute-name');
+        $c = new \Zimbra\Soap\Struct\ConversationSpec(
+            'id', array($header), 'fetch', true, 1
+        );
+        $req = new \Zimbra\API\Mail\Request\GetConv(
+            $c
+        );
+        $this->assertSame($c, $req->c());
+
+        $req->c($c);
+        $this->assertSame($c, $req->c());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<GetConvRequest>'
+                .'<c id="id" fetch="fetch" html="1" max="1">'
+                    .'<header n="attribute-name" />'
+                .'</c>'
+            .'</GetConvRequest>';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
+
+        $array = array(
+            'GetConvRequest' => array(
+                'c' => array(
+                    'id' => 'id',
+                    'fetch' => 'fetch',
+                    'html' => 1,
+                    'max' => 1,
+                    'header' => array(
+                        array(
+                            'n' => 'attribute-name',
+                        ),
+                    ),
+                ),
+            )
+        );
+        $this->assertEquals($array, $req->toArray());
+    }
+
+    public function testGetCustomMetadata()
+    {
+        $meta = new \Zimbra\Soap\Struct\SectionAttr('section');
+        $req = new \Zimbra\API\Mail\Request\GetCustomMetadata(
+            'id', $meta
+        );
+        $this->assertSame('id', $req->id());
+        $this->assertSame($meta, $req->meta());
+
+        $req->id('id')
+            ->meta($meta);
+        $this->assertSame($meta, $req->meta());
+        $this->assertSame('id', $req->id());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<GetCustomMetadataRequest id="id">'
+                .'<meta section="section" />'
+            .'</GetCustomMetadataRequest>';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
+
+        $array = array(
+            'GetCustomMetadataRequest' => array(
+                'id' => 'id',
+                'meta' => array(
+                    'section' => 'section',
+                ),
+            )
+        );
+        $this->assertEquals($array, $req->toArray());
+    }
+
+    public function testGetDataSources()
+    {
+        $req = new \Zimbra\API\Mail\Request\GetDataSources();
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<GetDataSourcesRequest />';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
+
+        $array = array(
+            'GetDataSourcesRequest' => array()
+        );
+        $this->assertEquals($array, $req->toArray());
+    }
+
+    public function testGetDocumentShareURL()
+    {
+        $item = new \Zimbra\Soap\Struct\ItemSpec(
+            'id', 'l', 'name', 'path'
+        );
+        $req = new \Zimbra\API\Mail\Request\GetDocumentShareURL(
+            $item
+        );
+        $this->assertSame($item, $req->item());
+
+        $req->item($item);
+        $this->assertSame($item, $req->item());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<GetDocumentShareURLRequest>'
+                .'<item id="id" l="l" name="name" path="path" />'
+            .'</GetDocumentShareURLRequest>';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
+
+        $array = array(
+            'GetDocumentShareURLRequest' => array(
+                'item' => array(
+                    'id' => 'id',
+                    'l' => 'l',
+                    'name' => 'name',
+                    'path' => 'path',
+                ),
+            )
+        );
+        $this->assertEquals($array, $req->toArray());
+    }
+
+    public function testGetEffectiveFolderPerms()
+    {
+        $folder = new \Zimbra\Soap\Struct\FolderSpec(
+            'l'
+        );
+        $req = new \Zimbra\API\Mail\Request\GetEffectiveFolderPerms(
+            $folder
+        );
+        $this->assertSame($folder, $req->folder());
+
+        $req->folder($folder);
+        $this->assertSame($folder, $req->folder());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<GetEffectiveFolderPermsRequest>'
+                .'<folder l="l" />'
+            .'</GetEffectiveFolderPermsRequest>';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
+
+        $array = array(
+            'GetEffectiveFolderPermsRequest' => array(
+                'folder' => array(
+                    'l' => 'l',
+                ),
+            )
+        );
+        $this->assertEquals($array, $req->toArray());
+    }
+
+    public function testGetFilterRules()
+    {
+        $req = new \Zimbra\API\Mail\Request\GetFilterRules();
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<GetFilterRulesRequest />';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
+
+        $array = array(
+            'GetFilterRulesRequest' => array()
+        );
+        $this->assertEquals($array, $req->toArray());
+    }
+
+    public function testGetFolder()
+    {
+        $folder = new \Zimbra\Soap\Struct\GetFolderSpec(
+            'uuid', 'l', 'path'
+        );
+        $req = new \Zimbra\API\Mail\Request\GetFolder(
+            $folder, true, true, 'view', 1, true
+        );
+        $this->assertSame($folder, $req->folder());
+        $this->assertTrue($req->visible());
+        $this->assertTrue($req->needGranteeName());
+        $this->assertSame('view', $req->view());
+        $this->assertSame(1, $req->depth());
+        $this->assertTrue($req->tr());
+
+        $req->folder($folder)
+            ->visible(true)
+            ->needGranteeName(true)
+            ->view('view')
+            ->depth(1)
+            ->tr(true);
+        $this->assertSame($folder, $req->folder());
+        $this->assertTrue($req->visible());
+        $this->assertTrue($req->needGranteeName());
+        $this->assertSame('view', $req->view());
+        $this->assertSame(1, $req->depth());
+        $this->assertTrue($req->tr());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<GetFolderRequest visible="1" needGranteeName="1" view="view" depth="1" tr="1">'
+                .'<folder uuid="uuid" l="l" path="path" />'
+            .'</GetFolderRequest>';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
+
+        $array = array(
+            'GetFolderRequest' => array(
+                'visible' => 1,
+                'needGranteeName' => 1,
+                'view' => 'view',
+                'depth' => 1,
+                'tr' => 1,
+                'folder' => array(
+                    'uuid' => 'uuid',
+                    'l' => 'l',
+                    'path' => 'path',
+                ),
+            )
+        );
+        $this->assertEquals($array, $req->toArray());
+    }
+
+    public function testGetFreeBusy()
+    {
+        $usr = new \Zimbra\Soap\Struct\FreeBusyUserSpec(
+            1, 'id', 'name'
+        );
+        $req = new \Zimbra\API\Mail\Request\GetFreeBusy(
+            1, 1, 'uid', 'id', 'name', 'excludeUid', array($usr)
+        );
+        $this->assertSame(1, $req->s());
+        $this->assertSame(1, $req->e());
+        $this->assertSame('uid', $req->uid());
+        $this->assertSame('id', $req->id());
+        $this->assertSame('name', $req->name());
+        $this->assertSame('excludeUid', $req->excludeUid());
+        $this->assertSame(array($usr), $req->usr()->all());
+        $req->s(1)
+            ->e(1)
+            ->uid('uid')
+            ->id('id')
+            ->name('name')
+            ->excludeUid('excludeUid')
+            ->addUsr($usr);
+        $this->assertSame(1, $req->s());
+        $this->assertSame(1, $req->e());
+        $this->assertSame('uid', $req->uid());
+        $this->assertSame('id', $req->id());
+        $this->assertSame('name', $req->name());
+        $this->assertSame('excludeUid', $req->excludeUid());
+        $this->assertSame(array($usr, $usr), $req->usr()->all());
+
+        $req->usr()->remove(1);
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<GetFreeBusyRequest s="1" e="1" uid="uid" id="id" name="name" excludeUid="excludeUid">'
+                .'<usr l="1" id="id" name="name" />'
+            .'</GetFreeBusyRequest>';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
+
+        $array = array(
+            'GetFreeBusyRequest' => array(
+                's' => 1,
+                'e' => 1,
+                'uid' => 'uid',
+                'id' => 'id',
+                'name' => 'name',
+                'excludeUid' => 'excludeUid',
+                'usr' => array(
+                    array(
+                        'l' => 1,
+                        'id' => 'id',
+                        'name' => 'name',
+                    ),
+                ),
+            )
+        );
+        $this->assertEquals($array, $req->toArray());
+    }
+
+    public function testGetICal()
+    {
+        $req = new \Zimbra\API\Mail\Request\GetICal(
+            'id', 1, 1
+        );
+        $this->assertSame('id', $req->id());
+        $this->assertSame(1, $req->s());
+        $this->assertSame(1, $req->e());
+        $req->s(1)
+            ->e(1)
+            ->id('id');
+        $this->assertSame('id', $req->id());
+        $this->assertSame(1, $req->s());
+        $this->assertSame(1, $req->e());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<GetICalRequest id="id" s="1" e="1" />';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
+
+        $array = array(
+            'GetICalRequest' => array(
+                'id' => 'id',
+                's' => 1,
+                'e' => 1,
+            )
+        );
+        $this->assertEquals($array, $req->toArray());
+    }
+
+    public function testGetImportStatus()
+    {
+        $req = new \Zimbra\API\Mail\Request\GetImportStatus();
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<GetImportStatusRequest />';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
+
+        $array = array(
+            'GetImportStatusRequest' => array()
+        );
+        $this->assertEquals($array, $req->toArray());
+    }
+
+    public function testGetItem()
+    {
+        $item = new \Zimbra\Soap\Struct\ItemSpec(
+            'id', 'l', 'name', 'path'
+        );
+        $req = new \Zimbra\API\Mail\Request\GetItem(
+            $item
+        );
+        $this->assertSame($item, $req->item());
+
+        $req->item($item);
+        $this->assertSame($item, $req->item());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<GetItemRequest>'
+                .'<item id="id" l="l" name="name" path="path" />'
+            .'</GetItemRequest>';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
+
+        $array = array(
+            'GetItemRequest' => array(
+                'item' => array(
+                    'id' => 'id',
+                    'l' => 'l',
+                    'name' => 'name',
+                    'path' => 'path',
+                ),
+            )
+        );
+        $this->assertEquals($array, $req->toArray());
+    }
+
+    public function testGetMailboxMetadata()
+    {
+        $meta = new \Zimbra\Soap\Struct\SectionAttr('section');
+        $req = new \Zimbra\API\Mail\Request\GetMailboxMetadata(
+            $meta
+        );
+        $this->assertSame($meta, $req->meta());
+
+        $req->meta($meta);
+        $this->assertSame($meta, $req->meta());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<GetMailboxMetadataRequest>'
+                .'<meta section="section" />'
+            .'</GetMailboxMetadataRequest>';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
+
+        $array = array(
+            'GetMailboxMetadataRequest' => array(
+                'meta' => array(
+                    'section' => 'section',
+                ),
+            )
+        );
+        $this->assertEquals($array, $req->toArray());
+    }
+
+    public function testGetMiniCal()
+    {
+        $standard = new \Zimbra\Soap\Struct\TzOnsetInfo(1, 2, 3, 4);
+        $daylight = new \Zimbra\Soap\Struct\TzOnsetInfo(4, 3, 2, 1);
+        $tz = new \Zimbra\Soap\Struct\CalTZInfo('id', 1, 1, 'stdname', 'dayname', $standard, $daylight);
+        $folder = new \Zimbra\Soap\Struct\Id('id');
+
+        $req = new \Zimbra\API\Mail\Request\GetMiniCal(
+            1, 1, array($folder), $tz
+        );
+        $this->assertSame(1, $req->s());
+        $this->assertSame(1, $req->e());
+        $this->assertSame(array($folder), $req->folder()->all());
+        $this->assertSame($tz, $req->tz());
+
+        $req->s(1)
+            ->e(1)
+            ->addFolder($folder)
+            ->tz($tz);
+        $this->assertSame(1, $req->s());
+        $this->assertSame(1, $req->e());
+        $this->assertSame(array($folder, $folder), $req->folder()->all());
+        $this->assertSame($tz, $req->tz());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<GetMiniCalRequest s="1" e="1">'
+                .'<folder id="id" />'
+                .'<folder id="id" />'
+                .'<tz id="id" stdoff="1" dayoff="1" stdname="stdname" dayname="dayname">'
+                    .'<standard mon="1" hour="2" min="3" sec="4" />'
+                    .'<daylight mon="4" hour="3" min="2" sec="1" />'
+                .'</tz>'
+            .'</GetMiniCalRequest>';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
+
+        $array = array(
+            'GetMiniCalRequest' => array(
+                's' => 1,
+                'e' => 1,
+                'folder' => array(
+                    array(
+                        'id' => 'id',
+                    ),
+                    array(
+                        'id' => 'id',
+                    ),
+                ),
+                'tz' => array(
+                    'id' => 'id',
+                    'stdoff' => 1,
+                    'dayoff' => 1,
+                    'stdname' => 'stdname',
+                    'dayname' => 'dayname',
+                    'standard' => array(
+                        'mon' => 1,
+                        'hour' => 2,
+                        'min' => 3,
+                        'sec' => 4,
+                    ),
+                    'daylight' => array(
+                        'mon' => 4,
+                        'hour' => 3,
+                        'min' => 2,
+                        'sec' => 1,
+                    ),
+                ),
+            )
+        );
+        $this->assertEquals($array, $req->toArray());
+    }
+
+    public function testGetMsg()
+    {
+        $header = new \Zimbra\Soap\Struct\AttributeName('attribute-name');
+        $m = new \Zimbra\Soap\Struct\MsgSpec(
+            'id', array($header), 'part', true, true, 1, true, true, 'ridZ', true
+        );
+        $req = new \Zimbra\API\Mail\Request\GetMsg(
+            $m
+        );
+        $this->assertSame($m, $req->m());
+
+        $req->m($m);
+        $this->assertSame($m, $req->m());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<GetMsgRequest>'
+                .'<m id="id" part="part" raw="1" read="1" max="1" html="1" neuter="1" ridZ="ridZ" needExp="1">'
+                    .'<header n="attribute-name" />'
+                .'</m>'
+            .'</GetMsgRequest>';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
+
+        $array = array(
+            'GetMsgRequest' => array(
+                'm' => array(
+                    'id' => 'id',
+                    'part' => 'part',
+                    'raw' => 1,
+                    'read' => 1,
+                    'max' => 1,
+                    'html' => 1,
+                    'neuter' => 1,
+                    'ridZ' => 'ridZ',
+                    'needExp' => 1,
+                    'header' => array(
+                        array(
+                            'n' => 'attribute-name',
+                        ),
+                    ),
+                ),
+            )
+        );
+        $this->assertEquals($array, $req->toArray());
+    }
+
+    public function testGetMsgMetadata()
+    {
+        $m = new \Zimbra\Soap\Struct\IdsAttr(
+            'ids'
+        );
+        $req = new \Zimbra\API\Mail\Request\GetMsgMetadata(
+            $m
+        );
+        $this->assertSame($m, $req->m());
+
+        $req->m($m);
+        $this->assertSame($m, $req->m());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<GetMsgMetadataRequest>'
+                .'<m ids="ids" />'
+            .'</GetMsgMetadataRequest>';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
+
+        $array = array(
+            'GetMsgMetadataRequest' => array(
+                'm' => array(
+                    'ids' => 'ids',
+                ),
+            )
+        );
+        $this->assertEquals($array, $req->toArray());
+    }
+
+    public function testGetNote()
+    {
+        $note = new \Zimbra\Soap\Struct\Id('id');
+        $req = new \Zimbra\API\Mail\Request\GetNote(
+            $note
+        );
+        $this->assertSame($note, $req->note());
+
+        $req->note($note);
+        $this->assertSame($note, $req->note());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<GetNoteRequest>'
+                .'<note id="id" />'
+            .'</GetNoteRequest>';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
+
+        $array = array(
+            'GetNoteRequest' => array(
+                'note' => array(
+                    'id' => 'id',
+                ),
+            )
+        );
+        $this->assertEquals($array, $req->toArray());
+    }
+
+    public function testGetNotifications()
+    {
+        $req = new \Zimbra\API\Mail\Request\GetNotifications(
+            true
+        );
+        $this->assertTrue($req->markSeen());
+
+        $req->markSeen(true);
+        $this->assertTrue($req->markSeen());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<GetNotificationsRequest markSeen="1" />';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
+
+        $array = array(
+            'GetNotificationsRequest' => array(
+                'markSeen' => 1,
+            )
+        );
+        $this->assertEquals($array, $req->toArray());
+    }
+
+    public function testGetOutgoingFilterRules()
+    {
+        $req = new \Zimbra\API\Mail\Request\GetOutgoingFilterRules();
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<GetOutgoingFilterRulesRequest />';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
+
+        $array = array(
+            'GetOutgoingFilterRulesRequest' => array()
+        );
+        $this->assertEquals($array, $req->toArray());
+    }
+
+    public function testGetPermission()
+    {
+        $ace = new \Zimbra\Soap\Struct\Right('right');
+        $req = new \Zimbra\API\Mail\Request\GetPermission(
+            array($ace)
+        );
+        $this->assertSame(array($ace), $req->ace()->all());
+
+        $req->addAce($ace);
+        $this->assertSame(array($ace, $ace), $req->ace()->all());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<GetPermissionRequest>'
+                .'<ace right="right" />'
+                .'<ace right="right" />'
+            .'</GetPermissionRequest>';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
+
+        $array = array(
+            'GetPermissionRequest' => array(
+                'ace' => array(
+                    array(
+                        'right' => 'right',
+                    ),
+                    array(
+                        'right' => 'right',
+                    ),
+                ),
+            )
+        );
+        $this->assertEquals($array, $req->toArray());
+    }
+
+    public function testGetRecur()
+    {
+        $req = new \Zimbra\API\Mail\Request\GetRecur(
+            'id'
+        );
+        $this->assertSame('id', $req->id());
+
+        $req->id('id');
+        $this->assertSame('id', $req->id());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<GetRecurRequest id="id" />';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
+
+        $array = array(
+            'GetRecurRequest' => array(
+                'id' => 'id',
+            )
+        );
+        $this->assertEquals($array, $req->toArray());
+    }
+
+    public function testGetSearchFolder()
+    {
+        $req = new \Zimbra\API\Mail\Request\GetSearchFolder();
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<GetSearchFolderRequest />';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
+
+        $array = array(
+            'GetSearchFolderRequest' => array()
+        );
+        $this->assertEquals($array, $req->toArray());
+    }
+
+    public function testGetShareDetails()
+    {
+        $item = new \Zimbra\Soap\Struct\Id('id');
+        $req = new \Zimbra\API\Mail\Request\GetShareDetails(
+            $item
+        );
+        $this->assertSame($item, $req->item());
+
+        $req->item($item);
+        $this->assertSame($item, $req->item());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<GetShareDetailsRequest>'
+                .'<item id="id" />'
+            .'</GetShareDetailsRequest>';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
+
+        $array = array(
+            'GetShareDetailsRequest' => array(
+                'item' => array(
+                    'id' => 'id',
+                ),
+            )
+        );
+        $this->assertEquals($array, $req->toArray());
+    }
+
+    public function testGetShareNotifications()
+    {
+        $req = new \Zimbra\API\Mail\Request\GetShareNotifications();
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<GetShareNotificationsRequest />';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
+
+        $array = array(
+            'GetShareNotificationsRequest' => array()
+        );
+        $this->assertEquals($array, $req->toArray());
+    }
+
+    public function testGetSpellDictionaries()
+    {
+        $req = new \Zimbra\API\Mail\Request\GetSpellDictionaries();
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<GetSpellDictionariesRequest />';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
+
+        $array = array(
+            'GetSpellDictionariesRequest' => array()
+        );
+        $this->assertEquals($array, $req->toArray());
+    }
+
+    public function testGetSystemRetentionPolicy()
+    {
+        $req = new \Zimbra\API\Mail\Request\GetSystemRetentionPolicy();
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<GetSystemRetentionPolicyRequest />';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
+
+        $array = array(
+            'GetSystemRetentionPolicyRequest' => array()
+        );
+        $this->assertEquals($array, $req->toArray());
+    }
+
+    public function testGetTag()
+    {
+        $req = new \Zimbra\API\Mail\Request\GetTag();
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<GetTagRequest />';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
+
+        $array = array(
+            'GetTagRequest' => array()
+        );
+        $this->assertEquals($array, $req->toArray());
+    }
 }

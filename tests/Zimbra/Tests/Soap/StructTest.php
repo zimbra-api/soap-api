@@ -8777,4 +8777,224 @@ class StructTest extends ZimbraTestCase
         );
         $this->assertEquals($array, $a->toArray());
     }
+
+    public function testConversationSpec()
+    {
+        $header = new \Zimbra\Soap\Struct\AttributeName('attribute-name');
+        $c = new \Zimbra\Soap\Struct\ConversationSpec(
+            'id', array($header), 'fetch', true, 1
+        );
+        $this->assertSame('id', $c->id());
+        $this->assertSame('fetch', $c->fetch());
+        $this->assertTrue($c->html());
+        $this->assertSame(1, $c->max());
+        $this->assertSame(array($header), $c->header()->all());
+
+        $c->id('id')
+          ->fetch('fetch')
+          ->html(true)
+          ->max(1)
+          ->addHeader($header);
+        $this->assertSame('id', $c->id());
+        $this->assertSame('fetch', $c->fetch());
+        $this->assertTrue($c->html());
+        $this->assertSame(1, $c->max());
+        $this->assertSame(array($header, $header), $c->header()->all());
+
+        $c->header()->remove(1);
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<c id="id" fetch="fetch" html="1" max="1">'
+                .'<header n="attribute-name" />'
+            .'</c>';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $c);
+
+        $array = array(
+            'c' => array(
+                'id' => 'id',
+                'fetch' => 'fetch',
+                'html' => 1,
+                'max' => 1,
+                'header' => array(
+                    array(
+                        'n' => 'attribute-name',
+                    ),
+                ),
+            ),
+        );
+        $this->assertEquals($array, $c->toArray());
+    }
+
+    public function testSectionAttr()
+    {
+        $meta = new \Zimbra\Soap\Struct\SectionAttr('section');
+        $this->assertSame('section', $meta->section());
+
+        $meta->section('section');
+        $this->assertSame('section', $meta->section());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<meta section="section" />';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $meta);
+
+        $array = array(
+            'meta' => array(
+                'section' => 'section',
+            ),
+        );
+        $this->assertEquals($array, $meta->toArray());
+    }
+
+    public function testItemSpec()
+    {
+        $item = new \Zimbra\Soap\Struct\ItemSpec(
+            'id', 'l', 'name', 'path'
+        );
+        $this->assertSame('id', $item->id());
+        $this->assertSame('l', $item->l());
+        $this->assertSame('name', $item->name());
+        $this->assertSame('path', $item->path());
+
+        $item->id('id')
+             ->l('l')
+             ->name('name')
+             ->path('path');
+        $this->assertSame('id', $item->id());
+        $this->assertSame('l', $item->l());
+        $this->assertSame('name', $item->name());
+        $this->assertSame('path', $item->path());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<item id="id" l="l" name="name" path="path" />';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $item);
+
+        $array = array(
+            'item' => array(
+                'id' => 'id',
+                'l' => 'l',
+                'name' => 'name',
+                'path' => 'path',
+            ),
+        );
+        $this->assertEquals($array, $item->toArray());
+    }
+
+    public function testFolderSpec()
+    {
+        $folder = new \Zimbra\Soap\Struct\FolderSpec(
+            'l'
+        );
+        $this->assertSame('l', $folder->l());
+
+        $folder->l('l');
+        $this->assertSame('l', $folder->l());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<folder l="l" />';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $folder);
+
+        $array = array(
+            'folder' => array(
+                'l' => 'l',
+            ),
+        );
+        $this->assertEquals($array, $folder->toArray());
+    }
+
+    public function testGetFolderSpec()
+    {
+        $folder = new \Zimbra\Soap\Struct\GetFolderSpec(
+            'uuid', 'l', 'path'
+        );
+        $this->assertSame('uuid', $folder->uuid());
+        $this->assertSame('l', $folder->l());
+        $this->assertSame('path', $folder->path());
+
+        $folder->uuid('uuid')
+               ->l('l')
+               ->path('path');
+        $this->assertSame('uuid', $folder->uuid());
+        $this->assertSame('l', $folder->l());
+        $this->assertSame('path', $folder->path());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<folder uuid="uuid" l="l" path="path" />';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $folder);
+
+        $array = array(
+            'folder' => array(
+                'uuid' => 'uuid',
+                'l' => 'l',
+                'path' => 'path',
+            ),
+        );
+        $this->assertEquals($array, $folder->toArray());
+    }
+
+    public function testMsgSpec()
+    {
+        $header = new \Zimbra\Soap\Struct\AttributeName('attribute-name');
+        $m = new \Zimbra\Soap\Struct\MsgSpec(
+            'id', array($header), 'part', true, true, 1, true, true, 'ridZ', true
+        );
+        $this->assertSame('id', $m->id());
+        $this->assertSame('part', $m->part());
+        $this->assertTrue($m->raw());
+        $this->assertTrue($m->read());
+        $this->assertSame(1, $m->max());
+        $this->assertTrue($m->html());
+        $this->assertTrue($m->neuter());
+        $this->assertSame('ridZ', $m->ridZ());
+        $this->assertTrue($m->needExp());
+        $this->assertSame(array($header), $m->header()->all());
+
+        $m->id('id')
+          ->part('part')
+          ->raw(true)
+          ->read(true)
+          ->max(1)
+          ->html(true)
+          ->neuter(true)
+          ->ridZ('ridZ')
+          ->needExp(true)
+          ->addHeader($header);
+        $this->assertSame('id', $m->id());
+        $this->assertSame('part', $m->part());
+        $this->assertTrue($m->raw());
+        $this->assertTrue($m->read());
+        $this->assertSame(1, $m->max());
+        $this->assertTrue($m->html());
+        $this->assertTrue($m->neuter());
+        $this->assertSame('ridZ', $m->ridZ());
+        $this->assertTrue($m->needExp());
+        $this->assertSame(array($header, $header), $m->header()->all());
+
+        $m->header()->remove(1);
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<m id="id" part="part" raw="1" read="1" max="1" html="1" neuter="1" ridZ="ridZ" needExp="1">'
+                .'<header n="attribute-name" />'
+            .'</m>';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $m);
+
+        $array = array(
+            'm' => array(
+                'id' => 'id',
+                'part' => 'part',
+                'raw' => 1,
+                'read' => 1,
+                'max' => 1,
+                'html' => 1,
+                'neuter' => 1,
+                'ridZ' => 'ridZ',
+                'needExp' => 1,
+                'header' => array(
+                    array(
+                        'n' => 'attribute-name',
+                    ),
+                ),
+            ),
+        );
+        $this->assertEquals($array, $m->toArray());
+    }
 }
