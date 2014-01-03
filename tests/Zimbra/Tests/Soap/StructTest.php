@@ -35,6 +35,7 @@ use Zimbra\Soap\Enum\InterestType;
 use Zimbra\Soap\Enum\InviteChange;
 use Zimbra\Soap\Enum\InviteClass;
 use Zimbra\Soap\Enum\InviteStatus;
+use Zimbra\Soap\Enum\ItemAction;
 use Zimbra\Soap\Enum\LoggingLevel;
 use Zimbra\Soap\Enum\MdsConnectionType;
 use Zimbra\Soap\Enum\Operation;
@@ -71,34 +72,34 @@ class StructTest extends ZimbraTestCase
         $this->assertFalse($ace->deny());
         $this->assertTrue($ace->chkgt());
 
-        $ace->gt(GranteeType::ALL())
-            ->right(AceRightType::VIEW_FREE_BUSY())
+        $ace->gt(GranteeType::USR())
+            ->right(AceRightType::INVITE())
             ->zid('zid')
-            ->d('dir')
+            ->d('d')
             ->key('key')
             ->pw('pw')
             ->deny(true)
             ->chkgt(false);
 
-        $this->assertTrue($ace->gt()->is('all'));
-        $this->assertTrue($ace->right()->is('viewFreeBusy'));
+        $this->assertTrue($ace->gt()->is('usr'));
+        $this->assertTrue($ace->right()->is('invite'));
         $this->assertSame('zid', $ace->zid());
-        $this->assertSame('dir', $ace->d());
+        $this->assertSame('d', $ace->d());
         $this->assertSame('key', $ace->key());
         $this->assertSame('pw', $ace->pw());
         $this->assertTrue($ace->deny());
         $this->assertFalse($ace->chkgt());
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<ace gt="all" right="viewFreeBusy" zid="zid" d="dir" key="key" pw="pw" deny="1" chkgt="0" />';
+            .'<ace gt="usr" right="invite" zid="zid" d="d" key="key" pw="pw" deny="1" chkgt="0" />';
         $this->assertXmlStringEqualsXmlString($xml, (string) $ace);
 
         $array = array(
             'ace' => array(
-                'gt' => 'all',
-                'right' => 'viewFreeBusy',
+                'gt' => 'usr',
+                'right' => 'invite',
                 'zid' => 'zid',
-                'd' => 'dir',
+                'd' => 'd',
                 'key' => 'key',
                 'pw' => 'pw',
                 'deny' => 1,
@@ -8996,5 +8997,291 @@ class StructTest extends ZimbraTestCase
             ),
         );
         $this->assertEquals($array, $m->toArray());
+    }
+
+    public function testContentSpec()
+    {
+        $content = new \Zimbra\Soap\Struct\ContentSpec(
+            'value', 'aid', 'mid', 'part'
+        );
+        $this->assertSame('value', $content->value());
+        $this->assertSame('aid', $content->aid());
+        $this->assertSame('mid', $content->mid());
+        $this->assertSame('part', $content->part());
+
+        $content->value('value')
+                ->aid('aid')
+                ->mid('mid')
+                ->part('part');
+        $this->assertSame('value', $content->value());
+        $this->assertSame('aid', $content->aid());
+        $this->assertSame('mid', $content->mid());
+        $this->assertSame('part', $content->part());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<content aid="aid" mid="mid" part="part">value</content>';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $content);
+
+        $array = array(
+            'content' => array(
+                '_' => 'value',
+                'aid' => 'aid',
+                'mid' => 'mid',
+                'part' => 'part',
+            ),
+        );
+        $this->assertEquals($array, $content->toArray());
+    }
+
+    public function testContent()
+    {
+        $content = new \Zimbra\Soap\Struct\Content(
+            'value', 'aid'
+        );
+        $this->assertSame('value', $content->value());
+        $this->assertSame('aid', $content->aid());
+
+        $content->value('value')
+                ->aid('aid');
+        $this->assertSame('value', $content->value());
+        $this->assertSame('aid', $content->aid());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<content aid="aid">value</content>';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $content);
+
+        $array = array(
+            'content' => array(
+                '_' => 'value',
+                'aid' => 'aid',
+            ),
+        );
+        $this->assertEquals($array, $content->toArray());
+    }
+
+    public function testItemActionSelector()
+    {
+        $action = new \Zimbra\Soap\Struct\ItemActionSelector(
+            ItemAction::MOVE(), 'id', 'tcon', 1, 'l', '#aabbcc', 1, 'name', 'f', 't', 'tn'
+        );
+        $this->assertTrue($action->op()->is('move'));
+        $this->assertSame('id', $action->id());
+        $this->assertSame('tcon', $action->tcon());
+        $this->assertSame(1, $action->tag());
+        $this->assertSame('l', $action->l());
+        $this->assertSame('#aabbcc', $action->rgb());
+        $this->assertSame(1, $action->color());
+        $this->assertSame('name', $action->name());
+        $this->assertSame('f', $action->f());
+        $this->assertSame('t', $action->t());
+        $this->assertSame('tn', $action->tn());
+
+        $action->op(ItemAction::MOVE())
+               ->id('id')
+               ->tcon('tcon')
+               ->tag(1)
+               ->l('l')
+               ->rgb('#aabbcc')
+               ->color(1)
+               ->name('name')
+               ->f('f')
+               ->t('t')
+               ->tn('tn');
+        $this->assertTrue($action->op()->is('move'));
+        $this->assertSame('id', $action->id());
+        $this->assertSame('tcon', $action->tcon());
+        $this->assertSame(1, $action->tag());
+        $this->assertSame('l', $action->l());
+        $this->assertSame('#aabbcc', $action->rgb());
+        $this->assertSame(1, $action->color());
+        $this->assertSame('name', $action->name());
+        $this->assertSame('f', $action->f());
+        $this->assertSame('t', $action->t());
+        $this->assertSame('tn', $action->tn());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<action op="move" id="id" tcon="tcon" tag="1" l="l" rgb="#aabbcc" color="1" name="name" f="f" t="t" tn="tn" />';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $action);
+
+        $array = array(
+            'action' => array(
+                'op' => 'move',
+                'id' => 'id',
+                'tcon' => 'tcon',
+                'tag' => 1,
+                'l' => 'l',
+                'rgb' => '#aabbcc',
+                'color' => 1,
+                'name' => 'name',
+                'f' => 'f',
+                't' => 't',
+                'tn' => 'tn',
+            ),
+        );
+        $this->assertEquals($array, $action->toArray());
+    }
+
+    public function testListDocumentRevisionsSpec()
+    {
+        $doc = new \Zimbra\Soap\Struct\ListDocumentRevisionsSpec(
+            'id', 1, 1
+        );
+        $this->assertSame('id', $doc->id());
+        $this->assertSame(1, $doc->ver());
+        $this->assertSame(1, $doc->count());
+
+        $doc->id('id')
+            ->ver(1)
+            ->count(1);
+        $this->assertSame('id', $doc->id());
+        $this->assertSame(1, $doc->ver());
+        $this->assertSame(1, $doc->count());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<doc id="id" ver="1" count="1" />';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $doc);
+
+        $array = array(
+            'doc' => array(
+                'id' => 'id',
+                'ver' => 1,
+                'count' => 1,
+            ),
+        );
+        $this->assertEquals($array, $doc->toArray());
+    }
+
+    public function testModifyContactAttr()
+    {
+        $a = new \Zimbra\Soap\Struct\ModifyContactAttr(
+            'n', 'value', 'aid', 1, 'part', 'op'
+        );
+        $this->assertSame('n', $a->n());
+        $this->assertSame('value', $a->value());
+        $this->assertSame('aid', $a->aid());
+        $this->assertSame(1, $a->id());
+        $this->assertSame('part', $a->part());
+        $this->assertSame('op', $a->op());
+
+        $a->n('n')
+          ->value('value')
+          ->aid('aid')
+          ->id(1)
+          ->part('part')
+          ->op('op');
+        $this->assertSame('n', $a->n());
+        $this->assertSame('value', $a->value());
+        $this->assertSame('aid', $a->aid());
+        $this->assertSame(1, $a->id());
+        $this->assertSame('part', $a->part());
+        $this->assertSame('op', $a->op());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<a n="n" aid="aid" id="1" part="part" op="op">value</a>';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $a);
+
+        $array = array(
+            'a' => array(
+                'n' => 'n',
+                '_' => 'value',
+                'aid' => 'aid',
+                'id' => 1,
+                'part' => 'part',
+                'op' => 'op',
+            ),
+        );
+        $this->assertEquals($array, $a->toArray());
+    }
+
+    public function testModifyContactGroupMember()
+    {
+        $m = new \Zimbra\Soap\Struct\ModifyContactGroupMember(
+            'C', 'value', 'reset'
+        );
+        $this->assertSame('C', $m->type());
+        $this->assertSame('value', $m->value());
+        $this->assertSame('reset', $m->op());
+
+        $m->type('C')
+          ->value('value')
+          ->op('reset');
+        $this->assertSame('C', $m->type());
+        $this->assertSame('value', $m->value());
+        $this->assertSame('reset', $m->op());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<m type="C" value="value" op="reset" />';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $m);
+
+        $array = array(
+            'm' => array(
+                'type' => 'C',
+                'value' => 'value',
+                'op' => 'reset',
+            ),
+        );
+        $this->assertEquals($array, $m->toArray());
+    }
+
+    public function testModifyContactSpec()
+    {
+        $a = new \Zimbra\Soap\Struct\ModifyContactAttr(
+            'n', 'value', 'aid', 1, 'part', 'op'
+        );
+        $m = new \Zimbra\Soap\Struct\ModifyContactGroupMember(
+            'C', 'value', 'reset'
+        );
+
+        $cn = new \Zimbra\Soap\Struct\ModifyContactSpec(
+            array($a), array($m), 1, 'tn'
+        );
+        $this->assertSame(array($a), $cn->a()->all());
+        $this->assertSame(array($m), $cn->m()->all());
+        $this->assertSame(1, $cn->id());
+        $this->assertSame('tn', $cn->tn());
+
+        $cn->addA($a)
+           ->addM($m)
+           ->id(1)
+           ->tn('tn');
+        $this->assertSame(array($a, $a), $cn->a()->all());
+        $this->assertSame(array($m, $m), $cn->m()->all());
+        $this->assertSame(1, $cn->id());
+        $this->assertSame('tn', $cn->tn());
+
+        $cn->a()->remove(1);
+        $cn->m()->remove(1);
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<cn id="1" tn="tn">'
+                .'<a n="n" aid="aid" id="1" part="part" op="op">value</a>'
+                .'<m type="C" value="value" op="reset" />'
+            .'</cn>';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $cn);
+
+        $array = array(
+            'cn' => array(
+                'id' => 1,
+                'tn' => 'tn',
+                'a' => array(
+                    array(
+                        'n' => 'n',
+                        '_' => 'value',
+                        'aid' => 'aid',
+                        'id' => 1,
+                        'part' => 'part',
+                        'op' => 'op',
+                    ),
+                ),
+                'm' => array(
+                    array(
+                        'type' => 'C',
+                        'value' => 'value',
+                        'op' => 'reset',
+                    ),
+                ),
+            ),
+        );
+        $this->assertEquals($array, $cn->toArray());
     }
 }

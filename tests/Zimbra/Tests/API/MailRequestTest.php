@@ -5,6 +5,7 @@ namespace Zimbra\Tests\API;
 use Zimbra\Tests\ZimbraTestCase;
 
 use Zimbra\Soap\Enum\AccountBy;
+use Zimbra\Soap\Enum\AceRightType;
 use Zimbra\Soap\Enum\BrowseBy;
 use Zimbra\Soap\Enum\ContactAction;
 use Zimbra\Soap\Enum\ConvAction;
@@ -15,6 +16,7 @@ use Zimbra\Soap\Enum\FolderAction;
 use Zimbra\Soap\Enum\GalSearchType;
 use Zimbra\Soap\Enum\GranteeType;
 use Zimbra\Soap\Enum\InterestType;
+use Zimbra\Soap\Enum\ItemAction;
 use Zimbra\Soap\Enum\MdsConnectionType;
 use Zimbra\Soap\Enum\ParticipationStatus;
 use Zimbra\Soap\Enum\SearchType;
@@ -5116,6 +5118,908 @@ class MailRequestTest extends ZimbraTestCase
 
         $array = array(
             'GetTagRequest' => array()
+        );
+        $this->assertEquals($array, $req->toArray());
+    }
+
+    public function testGetTask()
+    {
+        $req = new \Zimbra\API\Mail\Request\GetTask(
+            true, true, 'uid', 'id'
+        );
+        $this->assertTrue($req->sync());
+        $this->assertTrue($req->includeContent());
+        $this->assertSame('uid', $req->uid());
+        $this->assertSame('id', $req->id());
+
+        $req->sync(true)
+            ->includeContent(true)
+            ->uid('uid')
+            ->id('id');
+        $this->assertTrue($req->sync());
+        $this->assertTrue($req->includeContent());
+        $this->assertSame('uid', $req->uid());
+        $this->assertSame('id', $req->id());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<GetTaskRequest sync="1" includeContent="1" uid="uid" id="id" />';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
+
+        $array = array(
+            'GetTaskRequest' => array(
+                'sync' => 1,
+                'includeContent' => 1,
+                'uid' => 'uid',
+                'id' => 'id',
+            )
+        );
+        $this->assertEquals($array, $req->toArray());
+    }
+
+    public function testGetTaskSummaries()
+    {
+        $req = new \Zimbra\API\Mail\Request\GetTaskSummaries(
+            1, 1, 'l'
+        );
+        $this->assertSame(1, $req->s());
+        $this->assertSame(1, $req->e());
+        $this->assertSame('l', $req->l());
+        $req->s(1)
+            ->e(1)
+            ->l('l');
+        $this->assertSame(1, $req->s());
+        $this->assertSame(1, $req->e());
+        $this->assertSame('l', $req->l());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<GetTaskSummariesRequest s="1" e="1" l="l" />';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
+
+        $array = array(
+            'GetTaskSummariesRequest' => array(
+                's' => 1,
+                'e' => 1,
+                'l' => 'l',
+            )
+        );
+        $this->assertEquals($array, $req->toArray());
+    }
+
+    public function testGetWatchers()
+    {
+        $req = new \Zimbra\API\Mail\Request\GetWatchers();
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<GetWatchersRequest />';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
+
+        $array = array(
+            'GetWatchersRequest' => array()
+        );
+        $this->assertEquals($array, $req->toArray());
+    }
+
+    public function testGetWatchingItems()
+    {
+        $req = new \Zimbra\API\Mail\Request\GetWatchingItems();
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<GetWatchingItemsRequest />';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
+
+        $array = array(
+            'GetWatchingItemsRequest' => array()
+        );
+        $this->assertEquals($array, $req->toArray());
+    }
+
+    public function testGetWorkingHours()
+    {
+        $req = new \Zimbra\API\Mail\Request\GetWorkingHours(
+            1, 1, 'id', 'name'
+        );
+        $this->assertSame(1, $req->s());
+        $this->assertSame(1, $req->e());
+        $this->assertSame('id', $req->id());
+        $this->assertSame('name', $req->name());
+        $req->s(1)
+            ->e(1)
+            ->id('id')
+            ->name('name');
+
+        $this->assertSame(1, $req->s());
+        $this->assertSame(1, $req->e());
+        $this->assertSame('id', $req->id());
+        $this->assertSame('name', $req->name());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<GetWorkingHoursRequest s="1" e="1" id="id" name="name" />';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
+
+        $array = array(
+            'GetWorkingHoursRequest' => array(
+                's' => 1,
+                'e' => 1,
+                'id' => 'id',
+                'name' => 'name',
+            )
+        );
+        $this->assertEquals($array, $req->toArray());
+    }
+
+    public function testGetYahooAuthToken()
+    {
+        $req = new \Zimbra\API\Mail\Request\GetYahooAuthToken(
+            'user', 'password'
+        );
+        $this->assertSame('user', $req->user());
+        $this->assertSame('password', $req->password());
+        $req->user('user')
+            ->password('password');
+
+        $this->assertSame('user', $req->user());
+        $this->assertSame('password', $req->password());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<GetYahooAuthTokenRequest user="user" password="password" />';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
+
+        $array = array(
+            'GetYahooAuthTokenRequest' => array(
+                'user' => 'user',
+                'password' => 'password',
+            )
+        );
+        $this->assertEquals($array, $req->toArray());
+    }
+
+    public function testGetYahooCookie()
+    {
+        $req = new \Zimbra\API\Mail\Request\GetYahooCookie(
+            'user'
+        );
+        $this->assertSame('user', $req->user());
+        $req->user('user');
+        $this->assertSame('user', $req->user());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<GetYahooCookieRequest user="user" />';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
+
+        $array = array(
+            'GetYahooCookieRequest' => array(
+                'user' => 'user',
+            )
+        );
+        $this->assertEquals($array, $req->toArray());
+    }
+
+    public function testGrantPermission()
+    {
+        $ace = new \Zimbra\Soap\Struct\AccountACEInfo(
+            GranteeType::USR(), AceRightType::INVITE(), 'zid', 'd', 'key', 'pw', false, true
+        );
+        $req = new \Zimbra\API\Mail\Request\GrantPermission(
+            array($ace)
+        );
+        $this->assertSame(array($ace), $req->ace()->all());
+        $req->addAce($ace);
+        $this->assertSame(array($ace, $ace), $req->ace()->all());
+
+        $req->ace()->remove(1);
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<GrantPermissionRequest>'
+                .'<ace gt="usr" right="invite" zid="zid" d="d" key="key" pw="pw" deny="0" chkgt="1" />'
+            .'</GrantPermissionRequest>';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
+
+        $array = array(
+            'GrantPermissionRequest' => array(
+                'ace' => array(
+                    array(
+                        'gt' => 'usr',
+                        'right' => 'invite',
+                        'zid' => 'zid',
+                        'd' => 'd',
+                        'key' => 'key',
+                        'pw' => 'pw',
+                        'deny' => 0,
+                        'chkgt' => 1,
+                    ),
+                ),
+            )
+        );
+        $this->assertEquals($array, $req->toArray());
+    }
+
+    public function testICalReply()
+    {
+        $req = new \Zimbra\API\Mail\Request\ICalReply(
+            'ical'
+        );
+        $this->assertSame('ical', $req->ical());
+        $req->ical('ical');
+        $this->assertSame('ical', $req->ical());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<ICalReplyRequest>'
+                .'<ical>ical</ical>'
+            .'</ICalReplyRequest>';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
+
+        $array = array(
+            'ICalReplyRequest' => array(
+                'ical' => 'ical',
+            )
+        );
+        $this->assertEquals($array, $req->toArray());
+    }
+
+    public function testImportAppointments()
+    {
+        $content = new \Zimbra\Soap\Struct\ContentSpec(
+            'value', 'aid', 'mid', 'part'
+        );
+        $req = new \Zimbra\API\Mail\Request\ImportAppointments(
+            $content, 'ct', 'l'
+        );
+        $this->assertSame($content, $req->content());
+        $this->assertSame('ct', $req->ct());
+        $this->assertSame('l', $req->l());
+
+        $req->content($content)
+            ->ct('ct')
+            ->l('l');
+        $this->assertSame($content, $req->content());
+        $this->assertSame('ct', $req->ct());
+        $this->assertSame('l', $req->l());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<ImportAppointmentsRequest ct="ct" l="l">'
+                .'<content aid="aid" mid="mid" part="part">value</content>'
+            .'</ImportAppointmentsRequest>';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
+
+        $array = array(
+            'ImportAppointmentsRequest' => array(
+                'ct' => 'ct',
+                'l' => 'l',
+                'content' => array(
+                    '_' => 'value',
+                    'aid' => 'aid',
+                    'mid' => 'mid',
+                    'part' => 'part',
+                ),
+            )
+        );
+        $this->assertEquals($array, $req->toArray());
+    }
+
+    public function testImportContacts()
+    {
+        $content = new \Zimbra\Soap\Struct\Content(
+            'value', 'aid'
+        );
+        $req = new \Zimbra\API\Mail\Request\ImportContacts(
+            $content, 'ct', 'l', 'csvfmt', 'csvlocale'
+        );
+        $this->assertSame($content, $req->content());
+        $this->assertSame('ct', $req->ct());
+        $this->assertSame('l', $req->l());
+        $this->assertSame('csvfmt', $req->csvfmt());
+        $this->assertSame('csvlocale', $req->csvlocale());
+
+        $req->content($content)
+            ->ct('ct')
+            ->l('l')
+            ->csvfmt('csvfmt')
+            ->csvlocale('csvlocale');
+        $this->assertSame($content, $req->content());
+        $this->assertSame('ct', $req->ct());
+        $this->assertSame('l', $req->l());
+        $this->assertSame('csvfmt', $req->csvfmt());
+        $this->assertSame('csvlocale', $req->csvlocale());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<ImportContactsRequest ct="ct" l="l" csvfmt="csvfmt" csvlocale="csvlocale">'
+                .'<content aid="aid">value</content>'
+            .'</ImportContactsRequest>';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
+
+        $array = array(
+            'ImportContactsRequest' => array(
+                'ct' => 'ct',
+                'l' => 'l',
+                'csvfmt' => 'csvfmt',
+                'csvlocale' => 'csvlocale',
+                'content' => array(
+                    '_' => 'value',
+                    'aid' => 'aid',
+                ),
+            )
+        );
+        $this->assertEquals($array, $req->toArray());
+    }
+
+    public function testImportData()
+    {
+        $imap = new \Zimbra\Soap\Struct\ImapDataSourceNameOrId('name', 'id');
+        $pop3 = new \Zimbra\Soap\Struct\Pop3DataSourceNameOrId('name', 'id');
+        $caldav = new \Zimbra\Soap\Struct\CaldavDataSourceNameOrId('name', 'id');
+        $yab = new \Zimbra\Soap\Struct\YabDataSourceNameOrId('name', 'id');
+        $rss = new \Zimbra\Soap\Struct\RssDataSourceNameOrId('name', 'id');
+        $gal = new \Zimbra\Soap\Struct\GalDataSourceNameOrId('name', 'id');
+        $cal = new \Zimbra\Soap\Struct\CalDataSourceNameOrId('name', 'id');
+        $unknown = new \Zimbra\Soap\Struct\UnknownDataSourceNameOrId('name', 'id');
+
+        $req = new \Zimbra\API\Mail\Request\ImportData(
+            $imap, $pop3, $caldav, $yab, $rss, $gal, $cal, $unknown
+        );
+        $this->assertSame($imap, $req->imap());
+        $this->assertSame($pop3, $req->pop3());
+        $this->assertSame($caldav, $req->caldav());
+        $this->assertSame($yab, $req->yab());
+        $this->assertSame($rss, $req->rss());
+        $this->assertSame($gal, $req->gal());
+        $this->assertSame($cal, $req->cal());
+        $this->assertSame($unknown, $req->unknown());
+
+        $req->imap($imap)
+            ->pop3($pop3)
+            ->caldav($caldav)
+            ->yab($yab)
+            ->rss($rss)
+            ->gal($gal)
+            ->cal($cal)
+            ->unknown($unknown);
+        $this->assertSame($imap, $req->imap());
+        $this->assertSame($pop3, $req->pop3());
+        $this->assertSame($caldav, $req->caldav());
+        $this->assertSame($yab, $req->yab());
+        $this->assertSame($rss, $req->rss());
+        $this->assertSame($gal, $req->gal());
+        $this->assertSame($cal, $req->cal());
+        $this->assertSame($unknown, $req->unknown());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<ImportDataRequest>'
+                .'<imap name="name" id="id" />'
+                .'<pop3 name="name" id="id" />'
+                .'<caldav name="name" id="id" />'
+                .'<yab name="name" id="id" />'
+                .'<rss name="name" id="id" />'
+                .'<gal name="name" id="id" />'
+                .'<cal name="name" id="id" />'
+                .'<unknown name="name" id="id" />'
+            .'</ImportDataRequest>';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
+
+        $array = array(
+            'ImportDataRequest' => array(
+                'imap' => array(
+                    'name' => 'name',
+                    'id' => 'id',
+                ),
+                'pop3' => array(
+                    'name' => 'name',
+                    'id' => 'id',
+                ),
+                'caldav' => array(
+                    'name' => 'name',
+                    'id' => 'id',
+                ),
+                'yab' => array(
+                    'name' => 'name',
+                    'id' => 'id',
+                ),
+                'rss' => array(
+                    'name' => 'name',
+                    'id' => 'id',
+                ),
+                'gal' => array(
+                    'name' => 'name',
+                    'id' => 'id',
+                ),
+                'cal' => array(
+                    'name' => 'name',
+                    'id' => 'id',
+                ),
+                'unknown' => array(
+                    'name' => 'name',
+                    'id' => 'id',
+                ),
+            )
+        );
+        $this->assertEquals($array, $req->toArray());
+    }
+
+    public function testInvalidateReminderDevice()
+    {
+        $req = new \Zimbra\API\Mail\Request\InvalidateReminderDevice(
+            'device-email-address'
+        );
+        $this->assertSame('device-email-address', $req->a());
+        $req->a('a');
+        $this->assertSame('a', $req->a());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<InvalidateReminderDeviceRequest a="a" />';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
+
+        $array = array(
+            'InvalidateReminderDeviceRequest' => array(
+                'a' => 'a',
+            )
+        );
+        $this->assertEquals($array, $req->toArray());
+    }
+
+    public function testItemAction()
+    {
+        $action = new \Zimbra\Soap\Struct\ItemActionSelector(
+            ItemAction::MOVE(), 'id', 'tcon', 1, 'l', '#aabbcc', 1, 'name', 'f', 't', 'tn'
+        );
+        $req = new \Zimbra\API\Mail\Request\ItemAction(
+            $action
+        );
+        $this->assertSame($action, $req->action());
+
+        $req->action($action);
+        $this->assertSame($action, $req->action());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<ItemActionRequest>'
+                .'<action op="move" id="id" tcon="tcon" tag="1" l="l" rgb="#aabbcc" color="1" name="name" f="f" t="t" tn="tn" />'
+            .'</ItemActionRequest>';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
+
+        $array = array(
+            'ItemActionRequest' => array(
+                'action' => array(
+                    'op' => 'move',
+                    'id' => 'id',
+                    'tcon' => 'tcon',
+                    'tag' => 1,
+                    'l' => 'l',
+                    'rgb' => '#aabbcc',
+                    'color' => 1,
+                    'name' => 'name',
+                    'f' => 'f',
+                    't' => 't',
+                    'tn' => 'tn',
+                ),
+            )
+        );
+        $this->assertEquals($array, $req->toArray());
+    }
+
+    public function testListDocumentRevisions()
+    {
+        $doc = new \Zimbra\Soap\Struct\ListDocumentRevisionsSpec(
+            'id', 1, 1
+        );
+        $req = new \Zimbra\API\Mail\Request\ListDocumentRevisions(
+            $doc
+        );
+        $this->assertSame($doc, $req->doc());
+
+        $req->doc($doc);
+        $this->assertSame($doc, $req->doc());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<ListDocumentRevisionsRequest>'
+                .'<doc id="id" ver="1" count="1" />'
+            .'</ListDocumentRevisionsRequest>';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
+
+        $array = array(
+            'ListDocumentRevisionsRequest' => array(
+                'doc' => array(
+                    'id' => 'id',
+                    'ver' => 1,
+                    'count' => 1,
+                ),
+            )
+        );
+        $this->assertEquals($array, $req->toArray());
+    }
+
+    public function testModifyAppointment()
+    {
+        $mp = new \Zimbra\Soap\Struct\MimePartAttachSpec('mid', 'part', true);
+        $msg = new \Zimbra\Soap\Struct\MsgAttachSpec('id', false);
+        $cn = new \Zimbra\Soap\Struct\ContactAttachSpec('id', false);
+        $doc = new \Zimbra\Soap\Struct\DocAttachSpec('path', 'id', 1, true);
+        $info = new \Zimbra\Soap\Struct\MimePartInfo(array(), null, 'ct', 'content', 'ci');
+        $standard = new \Zimbra\Soap\Struct\TzOnsetInfo(1, 2, 3, 4);
+        $daylight = new \Zimbra\Soap\Struct\TzOnsetInfo(4, 3, 2, 1);
+
+        $header = new \Zimbra\Soap\Struct\Header('name', 'value');
+        $attach = new \Zimbra\Soap\Struct\AttachmentsInfo($mp, $msg, $cn, $doc, 'aid');
+        $mp = new \Zimbra\Soap\Struct\MimePartInfo(array($info), $attach, 'ct', 'content', 'ci');
+        $inv = new \Zimbra\Soap\Struct\InvitationInfo('method', 1, true);
+        $e = new \Zimbra\Soap\Struct\EmailAddrInfo('a', 't', 'p');
+        $tz = new \Zimbra\Soap\Struct\CalTZInfo('id', 1, 1, 'stdname', 'dayname', $standard, $daylight);
+
+        $m = new \Zimbra\Soap\Struct\Msg(
+            'aid',
+            'origid',
+            'rt',
+            'idnt',
+            'su',
+            'irt',
+            'l',
+            'f',
+            'content',
+            array($header),
+            $mp,
+            $attach,
+            $inv,
+            array($e),
+            array($tz),
+            'fr'
+        );
+
+        $req = new \Zimbra\API\Mail\Request\ModifyAppointment(
+            $m, 'id', 1, 1, 1, true, 1, true, true, true
+        );
+        $this->assertInstanceOf('Zimbra\API\Mail\Request\CalItemRequestBase', $req);
+        $this->assertSame($m, $req->m());
+        $this->assertSame('id', $req->id());
+        $this->assertSame(1, $req->comp());
+        $this->assertSame(1, $req->ms());
+        $this->assertSame(1, $req->rev());
+
+        $req->m($m)
+            ->id('id')
+            ->comp(1)
+            ->ms(1)
+            ->rev(1);
+        $this->assertSame($m, $req->m());
+        $this->assertSame('id', $req->id());
+        $this->assertSame(1, $req->comp());
+        $this->assertSame(1, $req->ms());
+        $this->assertSame(1, $req->rev());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<ModifyAppointmentRequest id="id" comp="1" ms="1" rev="1" echo="1" max="1" html="1" neuter="1" forcesend="1">'
+                .'<m aid="aid" origid="origid" rt="rt" idnt="idnt" su="su" irt="irt" l="l" f="f">'
+                    .'<content>content</content>'
+                    .'<header name="name">value</header>'
+                    .'<mp ct="ct" content="content" ci="ci">'
+                        .'<mp ct="ct" content="content" ci="ci" />'
+                        .'<attach aid="aid">'
+                            .'<mp mid="mid" part="part" optional="1" />'
+                            .'<m id="id" optional="0" />'
+                            .'<cn id="id" optional="0" />'
+                            .'<doc path="path" id="id" ver="1" optional="1" />'
+                        .'</attach>'
+                    .'</mp>'
+                    .'<attach aid="aid">'
+                        .'<mp mid="mid" part="part" optional="1" />'
+                        .'<m id="id" optional="0" />'
+                        .'<cn id="id" optional="0" />'
+                        .'<doc path="path" id="id" ver="1" optional="1" />'
+                    .'</attach>'
+                    .'<inv method="method" compNum="1" rsvp="1" />'
+                    .'<e a="a" t="t" p="p" />'
+                    .'<tz id="id" stdoff="1" dayoff="1" stdname="stdname" dayname="dayname">'
+                        .'<standard mon="1" hour="2" min="3" sec="4" />'
+                        .'<daylight mon="4" hour="3" min="2" sec="1" />'
+                    .'</tz>'
+                    .'<fr>fr</fr>'
+                .'</m>'
+            .'</ModifyAppointmentRequest>';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
+
+        $array = array(
+            'ModifyAppointmentRequest' => array(
+                'id' => 'id',
+                'comp' => 1,
+                'ms' => 1,
+                'rev' => 1,
+                'echo' => 1,
+                'max' => 1,
+                'html' => 1,
+                'neuter' => 1,
+                'forcesend' => 1,
+                'm' => array(
+                    'aid' => 'aid',
+                    'origid' => 'origid',
+                    'rt' => 'rt',
+                    'idnt' => 'idnt',
+                    'su' => 'su',
+                    'irt' => 'irt',
+                    'l' => 'l',
+                    'f' => 'f',
+                    'content' => 'content',
+                    'header' => array(
+                        array(
+                            'name' => 'name',
+                            '_' => 'value',
+                        ),
+                    ),
+                    'mp' => array(
+                        'ct' => 'ct',
+                        'content' => 'content',
+                        'ci' => 'ci',
+                        'mp' => array(
+                            array(
+                                'ct' => 'ct',
+                                'content' => 'content',
+                                'ci' => 'ci',
+                            ),
+                        ),
+                        'attach' => array(
+                            'aid' => 'aid',
+                            'mp' => array(
+                                'mid' => 'mid',
+                                'part' => 'part',
+                                'optional' => 1,
+                            ),
+                            'm' => array(
+                                'id' => 'id',
+                                'optional' => 0,
+                            ),
+                            'cn' => array(
+                                'id' => 'id',
+                                'optional' => 0,
+                            ),
+                            'doc' => array(
+                                'path' => 'path',
+                                'id' => 'id',
+                                'ver' => 1,
+                                'optional' => 1,
+                            ),
+                        ),
+                    ),
+                    'attach' => array(
+                        'aid' => 'aid',
+                        'mp' => array(
+                            'mid' => 'mid',
+                            'part' => 'part',
+                            'optional' => 1,
+                        ),
+                        'm' => array(
+                            'id' => 'id',
+                            'optional' => 0,
+                        ),
+                        'cn' => array(
+                            'id' => 'id',
+                            'optional' => 0,
+                        ),
+                        'doc' => array(
+                            'path' => 'path',
+                            'id' => 'id',
+                            'ver' => 1,
+                            'optional' => 1,
+                        ),
+                    ),
+                    'inv' => array(
+                        'method' => 'method',
+                        'compNum' => 1,
+                        'rsvp' => 1,
+                    ),
+                    'e' => array(
+                        array(
+                            'a' => 'a',
+                            't' => 't',
+                            'p' => 'p',
+                        ),
+                    ),
+                    'tz' => array(
+                        array(
+                            'id' => 'id',
+                            'stdoff' => 1,
+                            'dayoff' => 1,
+                            'stdname' => 'stdname',
+                            'dayname' => 'dayname',
+                            'standard' => array(
+                                'mon' => 1,
+                                'hour' => 2,
+                                'min' => 3,
+                                'sec' => 4,
+                            ),
+                            'daylight' => array(
+                                'mon' => 4,
+                                'hour' => 3,
+                                'min' => 2,
+                                'sec' => 1,
+                            ),
+                        ),
+                    ),
+                    'fr' => 'fr',
+                ),
+            ),
+        );
+        $this->assertEquals($array, $req->toArray());
+    }
+
+    public function testModifyContact()
+    {
+        $a = new \Zimbra\Soap\Struct\ModifyContactAttr(
+            'n', 'value', 'aid', 1, 'part', 'op'
+        );
+        $m = new \Zimbra\Soap\Struct\ModifyContactGroupMember(
+            'C', 'value', 'reset'
+        );
+        $cn = new \Zimbra\Soap\Struct\ModifyContactSpec(
+            array($a), array($m), 1, 'tn'
+        );
+
+        $req = new \Zimbra\API\Mail\Request\ModifyContact(
+            $cn, true, true
+        );
+        $this->assertSame($cn, $req->cn());
+        $this->assertTrue($req->replace());
+        $this->assertTrue($req->verbose());
+
+        $req->cn($cn)
+            ->replace(true)
+            ->verbose(true);
+        $this->assertSame($cn, $req->cn());
+        $this->assertTrue($req->replace());
+        $this->assertTrue($req->verbose());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<ModifyContactRequest replace="1" verbose="1">'
+                .'<cn id="1" tn="tn">'
+                    .'<a n="n" aid="aid" id="1" part="part" op="op">value</a>'
+                    .'<m type="C" value="value" op="reset" />'
+                .'</cn>'
+            .'</ModifyContactRequest>';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
+
+        $array = array(
+            'ModifyContactRequest' => array(
+                'replace' => 1,
+                'verbose' => 1,
+                'cn' => array(
+                    'id' => 1,
+                    'tn' => 'tn',
+                    'a' => array(
+                        array(
+                            'n' => 'n',
+                            '_' => 'value',
+                            'aid' => 'aid',
+                            'id' => 1,
+                            'part' => 'part',
+                            'op' => 'op',
+                        ),
+                    ),
+                    'm' => array(
+                        array(
+                            'type' => 'C',
+                            'value' => 'value',
+                            'op' => 'reset',
+                        ),
+                    ),
+                ),
+            )
+        );
+        $this->assertEquals($array, $req->toArray());
+    }
+
+    public function testModifyDataSource()
+    {
+        $imap = new \Zimbra\Soap\Struct\MailImapDataSource(
+            'id',
+            'name',
+            'l',
+            true,
+            true,
+            'host',
+            1,
+            MdsConnectionType::SSL(),
+            'username',
+            'password',
+            'pollingInterval',
+            'emailAddress',
+            true,
+            'defaultSignature',
+            'forwardReplySignature',
+            'fromDisplay',
+            'replyToAddress',
+            'replyToDisplay',
+            'importClass',
+            1,
+            'lastError',
+            array('a', 'b')
+        );
+        $pop3 = new \Zimbra\Soap\Struct\MailPop3DataSource(true);
+        $caldav = new \Zimbra\Soap\Struct\MailCaldavDataSource();
+        $yab = new \Zimbra\Soap\Struct\MailYabDataSource();
+        $rss = new \Zimbra\Soap\Struct\MailRssDataSource();
+        $gal = new \Zimbra\Soap\Struct\MailGalDataSource();
+        $cal = new \Zimbra\Soap\Struct\MailCalDataSource();
+        $unknown = new \Zimbra\Soap\Struct\MailUnknownDataSource();
+
+        $req = new \Zimbra\API\Mail\Request\ModifyDataSource(
+            $imap, $pop3, $caldav, $yab, $rss, $gal, $cal, $unknown
+        );
+        $this->assertSame($imap, $req->imap());
+        $this->assertSame($pop3, $req->pop3());
+        $this->assertSame($caldav, $req->caldav());
+        $this->assertSame($yab, $req->yab());
+        $this->assertSame($rss, $req->rss());
+        $this->assertSame($gal, $req->gal());
+        $this->assertSame($cal, $req->cal());
+        $this->assertSame($unknown, $req->unknown());
+
+        $req->imap($imap)
+            ->pop3($pop3)
+            ->caldav($caldav)
+            ->yab($yab)
+            ->rss($rss)
+            ->gal($gal)
+            ->cal($cal)
+            ->unknown($unknown);
+        $this->assertSame($imap, $req->imap());
+        $this->assertSame($pop3, $req->pop3());
+        $this->assertSame($caldav, $req->caldav());
+        $this->assertSame($yab, $req->yab());
+        $this->assertSame($rss, $req->rss());
+        $this->assertSame($gal, $req->gal());
+        $this->assertSame($cal, $req->cal());
+        $this->assertSame($unknown, $req->unknown());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<ModifyDataSourceRequest>'
+                .'<imap id="id" name="name" l="l" isEnabled="1" importOnly="1" host="host" port="1" '
+                .'connectionType="ssl" username="username" password="password" pollingInterval="pollingInterval" '
+                .'emailAddress="emailAddress" useAddressForForwardReply="1" defaultSignature="defaultSignature" '
+                .'forwardReplySignature="forwardReplySignature" fromDisplay="fromDisplay" replyToAddress="replyToAddress" '
+                .'replyToDisplay="replyToDisplay" importClass="importClass" failingSince="1">'
+                    .'<lastError>lastError</lastError>'
+                    .'<a>a</a>'
+                    .'<a>b</a>'
+                .'</imap>'
+                .'<pop3 leaveOnServer="1" />'
+                .'<caldav />'
+                .'<yab />'
+                .'<rss />'
+                .'<gal />'
+                .'<cal />'
+                .'<unknown />'
+            .'</ModifyDataSourceRequest>';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
+
+        $array = array(
+            'ModifyDataSourceRequest' => array(
+                'imap' => array(
+                    'id' => 'id',
+                    'name' => 'name',
+                    'l' => 'l',
+                    'isEnabled' => 1,
+                    'importOnly' => 1,
+                    'host' => 'host',
+                    'port' => 1,
+                    'connectionType' => 'ssl',
+                    'username' => 'username',
+                    'password' => 'password',
+                    'pollingInterval' => 'pollingInterval',
+                    'emailAddress' => 'emailAddress',
+                    'useAddressForForwardReply' => 1,
+                    'defaultSignature' => 'defaultSignature',
+                    'forwardReplySignature' => 'forwardReplySignature',
+                    'fromDisplay' => 'fromDisplay',
+                    'replyToAddress' => 'replyToAddress',
+                    'replyToDisplay' => 'replyToDisplay',
+                    'importClass' => 'importClass',
+                    'failingSince' => 1,
+                    'lastError' => 'lastError',
+                    'a' => array('a', 'b'),
+                ),
+                'pop3' => array(
+                    'leaveOnServer' => 1,
+                ),
+                'caldav' => array(),
+                'yab' => array(),
+                'rss' => array(),
+                'gal' => array(),
+                'cal' => array(),
+                'unknown' => array(),
+            )
         );
         $this->assertEquals($array, $req->toArray());
     }
