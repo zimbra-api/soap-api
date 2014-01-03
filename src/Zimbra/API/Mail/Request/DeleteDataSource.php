@@ -81,6 +81,13 @@ class DeleteDataSource extends Request
     /**
      * Constructor method for DeleteDataSource
      * @param  ImapDataSourceNameOrId $imap
+     * @param  Pop3DataSourceNameOrId $pop3
+     * @param  CaldavDataSourceNameOrId $caldav
+     * @param  YabDataSourceNameOrId $yab
+     * @param  RssDataSourceNameOrId $rss
+     * @param  GalDataSourceNameOrId $gal
+     * @param  CalDataSourceNameOrId $cal
+     * @param  UnknownDataSourceNameOrId $unknown
      * @return self
      */
     public function __construct(
