@@ -42,7 +42,7 @@ class AnnounceOrganizerChange extends Request
     /**
      * Get or set id
      *
-     * @param  string $ptst
+     * @param  string $id
      * @return string|self
      */
     public function id($id = null)
