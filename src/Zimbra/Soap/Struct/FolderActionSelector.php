@@ -138,12 +138,12 @@ class FolderActionSelector extends ActionSelector
         }
         if(null !== $recursive)
         {
-        	$this->_recursive = (bool) $recursive;
+            $this->_recursive = (bool) $recursive;
         }
         $this->_url = trim($url);
         if(null !== $excludeFreeBusy)
         {
-        	$this->_excludeFreeBusy = (bool) $excludeFreeBusy;
+            $this->_excludeFreeBusy = (bool) $excludeFreeBusy;
         }
         $this->_zid = trim($zid);
         $this->_gt = trim($gt);

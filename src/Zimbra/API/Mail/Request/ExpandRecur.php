@@ -74,17 +74,17 @@ class ExpandRecur extends Request
      * @return self
      */
     public function __construct(
-    	$s,
-    	$e,
-    	array $tz = array(),
-    	ExpandedRecurrenceInvite $comp = null,
-    	ExpandedRecurrenceException $except = null,
-    	ExpandedRecurrenceCancel $cancel = null
-	)
+        $s,
+        $e,
+        array $tz = array(),
+        ExpandedRecurrenceInvite $comp = null,
+        ExpandedRecurrenceException $except = null,
+        ExpandedRecurrenceCancel $cancel = null
+    )
     {
         parent::__construct();
-    	$this->_s = (int) $s;
-    	$this->_e = (int) $e;
+        $this->_s = (int) $s;
+        $this->_e = (int) $e;
 
         $this->_tz = new TypedSequence('Zimbra\Soap\Struct\CalTZInfo', $tz);
         if($comp instanceof ExpandedRecurrenceInvite)
@@ -244,7 +244,7 @@ class ExpandRecur extends Request
     public function toXml()
     {
         $this->xml->addAttribute('s', $this->_s)
-        		  ->addAttribute('e', $this->_e);
+                  ->addAttribute('e', $this->_e);
         foreach ($this->_tz as $tz)
         {
             $this->xml->append($tz->toXml('tz'));

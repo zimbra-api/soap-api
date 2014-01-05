@@ -180,9 +180,9 @@ class ActionSelector
     }
 
     /**
-     * Gets or sets zid
+     * Gets or sets tag
      *
-     * @param  int $zid
+     * @param  int $tag
      * @return int|self
      */
     public function tag($tag = null)

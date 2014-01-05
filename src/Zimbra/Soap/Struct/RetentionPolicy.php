@@ -102,9 +102,9 @@ class RetentionPolicy
     {
         $name = !empty($name) ? $name : 'retentionPolicy';
         $arr = array(
-        	'keep' => array(),
-        	'purge' => array(),
-    	);
+            'keep' => array(),
+            'purge' => array(),
+        );
         if(count($this->_keep))
         {
             $arr['keep']['policy'] = array();

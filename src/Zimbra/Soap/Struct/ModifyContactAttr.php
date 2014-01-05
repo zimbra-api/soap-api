@@ -25,7 +25,7 @@ class ModifyContactAttr
      * Attribute name
      * @var string
      */
-	private $_n;
+    private $_n;
 
     /**
      * Attribute data
@@ -55,7 +55,7 @@ class ModifyContactAttr
      * Operation 
      * @var string
      */
-	private $_op;
+    private $_op;
 
     /**
      * Constructor method for AccountACEInfo
@@ -68,7 +68,7 @@ class ModifyContactAttr
      * @return self
      */
     public function __construct(
-    	$n,
+        $n,
         $value = null,
         $aid = null,
         $id = null,
@@ -81,7 +81,7 @@ class ModifyContactAttr
         $this->_aid = trim($aid);
         if(null !== $id)
         {
-        	$this->_id = (int) $id;
+            $this->_id = (int) $id;
         }
         $this->_part = trim($part);
         $this->_op = trim($op);

@@ -180,8 +180,8 @@ class ConversationSpec
     {
         $name = !empty($name) ? $name : 'c';
         $arr = array(
-        	'id' => $this->_id,
-    	);
+            'id' => $this->_id,
+        );
         if(!empty($this->_fetch))
         {
             $arr['fetch'] = $this->_fetch;
@@ -220,7 +220,7 @@ class ConversationSpec
         $xml->addAttribute('id', $this->_id);
         if(!empty($this->_fetch))
         {
-        	$xml->addAttribute('fetch', $this->_fetch);
+            $xml->addAttribute('fetch', $this->_fetch);
         }
         if(is_bool($this->_html))
         {

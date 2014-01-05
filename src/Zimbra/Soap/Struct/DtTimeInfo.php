@@ -56,7 +56,7 @@ class DtTimeInfo
         $this->_tz = trim($tz);
         if(null !== $u)
         {
-	        $this->_u = (int) $u;
+            $this->_u = (int) $u;
         }
     }
 

@@ -292,7 +292,7 @@ class AddMsgSpec
         $xml = new SimpleXML('<'.$name.' />');
         if(!empty($this->_content))
         {
-        	$xml->addChild('content', $this->_content);
+            $xml->addChild('content', $this->_content);
         }
         if(!empty($this->_f))
         {

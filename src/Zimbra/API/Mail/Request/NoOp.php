@@ -59,11 +59,11 @@ class NoOp extends Request
      * @return self
      */
     public function __construct(
-    	$wait = null,
-    	$delegate = null,
-    	$limitToOneBlocked = null,
-    	$timeout = null
-	)
+        $wait = null,
+        $delegate = null,
+        $limitToOneBlocked = null,
+        $timeout = null
+    )
     {
         parent::__construct();
         if(null !== $wait)

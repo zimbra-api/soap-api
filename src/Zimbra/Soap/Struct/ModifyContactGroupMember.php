@@ -47,7 +47,7 @@ class ModifyContactGroupMember
      * @return self
      */
     public function __construct(
-    	$type,
+        $type,
         $value,
         $op = null
     )
@@ -137,7 +137,7 @@ class ModifyContactGroupMember
         $name = !empty($name) ? $name : 'm';
         $xml = new SimpleXML('<'.$name.' />');
         $xml->addAttribute('type', $this->_type)
-        	->addAttribute('value', $this->_value);
+            ->addAttribute('value', $this->_value);
         if(!empty($this->_op))
         {
             $xml->addAttribute('op', $this->_op);

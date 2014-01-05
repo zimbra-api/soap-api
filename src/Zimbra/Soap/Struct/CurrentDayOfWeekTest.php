@@ -35,10 +35,10 @@ class CurrentDayOfWeekTest extends FilterTest
      * @return self
      */
     public function __construct(
-    	$index, $value = null, $negative = null
-	)
+        $index, $value = null, $negative = null
+    )
     {
-    	parent::__construct($index, $negative);
+        parent::__construct($index, $negative);
         $this->_value = trim($value);
     }
 

@@ -32,7 +32,7 @@ class RedirectAction extends FilterAction
      */
     public function __construct($index, $a = null)
     {
-    	parent::__construct($index);
+        parent::__construct($index);
         $this->_a = trim($a);
     }
 

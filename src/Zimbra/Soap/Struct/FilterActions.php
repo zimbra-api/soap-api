@@ -21,51 +21,51 @@ use Zimbra\Utils\SimpleXML;
  */
 class FilterActions
 {
-	/**
-	 * The actionKeep
-	 * @var KeepAction
-	 */
-	private $_actionKeep;
-	/**
-	 * The actionDiscard
-	 * @var DiscardAction
-	 */
-	private $_actionDiscard;
-	/**
-	 * The actionFileInto
-	 * @var FileIntoAction
-	 */
-	private $_actionFileInto;
-	/**
-	 * The actionFlag
-	 * @var FlagAction
-	 */
-	private $_actionFlag;
-	/**
-	 * The actionTag
-	 * @var TagAction
-	 */
-	private $_actionTag;
-	/**
-	 * The actionRedirect
-	 * @var RedirectAction
-	 */
-	private $_actionRedirect;
-	/**
-	 * The actionReply
-	 * @var ReplyAction
-	 */
-	private $_actionReply;
-	/**
-	 * The actionNotify
-	 * @var NotifyAction
-	 */
-	private $_actionNotify;
-	/**
-	 * The actionStop
-	 * @var StopAction
-	 */
-	private $_actionStop;
+    /**
+     * The actionKeep
+     * @var KeepAction
+     */
+    private $_actionKeep;
+    /**
+     * The actionDiscard
+     * @var DiscardAction
+     */
+    private $_actionDiscard;
+    /**
+     * The actionFileInto
+     * @var FileIntoAction
+     */
+    private $_actionFileInto;
+    /**
+     * The actionFlag
+     * @var FlagAction
+     */
+    private $_actionFlag;
+    /**
+     * The actionTag
+     * @var TagAction
+     */
+    private $_actionTag;
+    /**
+     * The actionRedirect
+     * @var RedirectAction
+     */
+    private $_actionRedirect;
+    /**
+     * The actionReply
+     * @var ReplyAction
+     */
+    private $_actionReply;
+    /**
+     * The actionNotify
+     * @var NotifyAction
+     */
+    private $_actionNotify;
+    /**
+     * The actionStop
+     * @var StopAction
+     */
+    private $_actionStop;
 
     /**
      * Constructor method for FilterActions

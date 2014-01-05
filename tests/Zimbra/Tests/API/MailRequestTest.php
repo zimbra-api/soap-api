@@ -7339,4 +7339,536 @@ class MailRequestTest extends ZimbraTestCase
         );
         $this->assertEquals($array, $req->toArray());
     }
+
+    public function testSaveDocument()
+    {
+        $upload = new \Zimbra\Soap\Struct\Id('id');
+        $m = new \Zimbra\Soap\Struct\MessagePartSpec(
+            'id', 'part'
+        );
+        $docVer = new \Zimbra\Soap\Struct\IdVersion(
+            'id', 1
+        );
+        $doc = new \Zimbra\Soap\Struct\DocumentSpec(
+            $upload, $m, $docVer, 'name', 'ct', 'desc', 'l', 'id', 1, 'content', true, 'f'
+        );
+
+        $req = new \Zimbra\API\Mail\Request\SaveDocument(
+            $doc
+        );
+        $this->assertSame($doc, $req->doc());
+
+        $req->doc($doc);
+        $this->assertSame($doc, $req->doc());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<SaveDocumentRequest>'
+                .'<doc name="name" ct="ct" desc="desc" l="l" id="id" ver="1" content="content" descEnabled="1" f="f">'
+                    .'<upload id="id" />'
+                    .'<m id="id" part="part" />'
+                    .'<doc id="id" ver="1" />'
+                .'</doc>'
+            .'</SaveDocumentRequest>';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
+
+        $array = array(
+            'SaveDocumentRequest' => array(
+                'doc' => array(
+                    'name' => 'name',
+                    'ct' => 'ct',
+                    'desc' => 'desc',
+                    'l' => 'l',
+                    'id' => 'id',
+                    'ver' => 1,
+                    'content' => 'content',
+                    'descEnabled' => 1,
+                    'f' => 'f',
+                    'upload' => array(
+                        'id' => 'id',
+                    ),
+                    'm' => array(
+                        'id' => 'id',
+                        'part' => 'part',
+                    ),
+                    'doc' => array(
+                        'id' => 'id',
+                        'ver' => 1,
+                    ),
+                ),
+            ),
+        );
+        $this->assertEquals($array, $req->toArray());
+    }
+
+    public function testSaveDraft()
+    {
+        $m = new \Zimbra\Soap\Struct\SaveDraftMsg(
+            1, 'forAcct', 't', 'tn', '#aabbcc', 1, 1
+        );
+        $req = new \Zimbra\API\Mail\Request\SaveDraft(
+            $m
+        );
+        $this->assertSame($m, $req->m());
+
+        $req->m($m);
+        $this->assertSame($m, $req->m());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<SaveDraftRequest>'
+                .'<m id="1" forAcct="forAcct" t="t" tn="tn" rgb="#aabbcc" color="1" autoSendTime="1" />'
+            .'</SaveDraftRequest>';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
+
+        $array = array(
+            'SaveDraftRequest' => array(
+                'm' => array(
+                    'id' => 1,
+                    'forAcct' => 'forAcct',
+                    't' => 't',
+                    'tn' => 'tn',
+                    'rgb' => '#aabbcc',
+                    'color' => 1,
+                    'autoSendTime' => 1,
+                ),
+            ),
+        );
+        $this->assertEquals($array, $req->toArray());
+    }
+
+    public function testMailSearchParams()
+    {
+        $header = new \Zimbra\Soap\Struct\AttributeName('attribute-name');
+        $standard = new \Zimbra\Soap\Struct\TzOnsetInfo(1, 2, 3, 4);
+        $daylight = new \Zimbra\Soap\Struct\TzOnsetInfo(4, 3, 2, 1);
+        $tz = new \Zimbra\Soap\Struct\CalTZInfo('id', 1, 1, 'stdname', 'dayname', $standard, $daylight);
+        $cursor = new \Zimbra\Soap\Struct\CursorInfo('id','sortVal', 'endSortVal', true);
+
+        $req = new \Zimbra\API\Mail\Request\MailSearchParams(
+            'query',
+            array($header),
+            $tz,
+            'locale',
+            $cursor,
+            true,
+            true,
+            'allowableTaskStatus',
+            1,
+            1,
+            true,
+            'types',
+            'groupBy',
+            true,
+            'sortBy',
+            'fetch',
+            true,
+            1,
+            true,
+            true,
+            true,
+            true,
+            true,
+            'resultMode',
+            'field',
+            1,
+            1
+        );
+        $this->assertSame('query', $req->query());
+        $this->assertSame(array($header), $req->header()->all());
+        $this->assertSame($tz, $req->tz());
+        $this->assertSame('locale', $req->locale());
+        $this->assertSame($cursor, $req->cursor());
+        $this->assertTrue($req->includeTagDeleted());
+        $this->assertTrue($req->includeTagMuted());
+        $this->assertSame('allowableTaskStatus', $req->allowableTaskStatus());
+        $this->assertSame(1, $req->calExpandInstStart());
+        $this->assertSame(1, $req->calExpandInstEnd());
+        $this->assertTrue($req->inDumpster());
+        $this->assertSame('types', $req->types());
+        $this->assertSame('groupBy', $req->groupBy());
+        $this->assertTrue($req->quick());
+        $this->assertSame('sortBy', $req->sortBy());
+        $this->assertSame('fetch', $req->fetch());
+        $this->assertTrue($req->read());
+        $this->assertSame(1, $req->max());
+        $this->assertTrue($req->html());
+        $this->assertTrue($req->needExp());
+        $this->assertTrue($req->neuter());
+        $this->assertTrue($req->recip());
+        $this->assertTrue($req->prefetch());
+        $this->assertSame('resultMode', $req->resultMode());
+        $this->assertSame('field', $req->field());
+        $this->assertSame(1, $req->limit());
+        $this->assertSame(1, $req->offset());
+
+        $req->query('query')
+            ->addHeader($header)
+            ->tz($tz)
+            ->locale('locale')
+            ->cursor($cursor)
+            ->includeTagDeleted(true)
+            ->includeTagMuted(true)
+            ->allowableTaskStatus('allowableTaskStatus')
+            ->calExpandInstStart(1)
+            ->calExpandInstEnd(1)
+            ->inDumpster(true)
+            ->types('types')
+            ->groupBy('groupBy')
+            ->quick(true)
+            ->sortBy('sortBy')
+            ->fetch('fetch')
+            ->read(true)
+            ->max(1)
+            ->html(true)
+            ->needExp(true)
+            ->neuter(true)
+            ->recip(true)
+            ->prefetch(true)
+            ->resultMode('resultMode')
+            ->field('field')
+            ->limit(1)
+            ->offset(1);
+        $this->assertSame('query', $req->query());
+        $this->assertSame(array($header, $header), $req->header()->all());
+        $this->assertSame($tz, $req->tz());
+        $this->assertSame('locale', $req->locale());
+        $this->assertSame($cursor, $req->cursor());
+        $this->assertTrue($req->includeTagDeleted());
+        $this->assertTrue($req->includeTagMuted());
+        $this->assertSame('allowableTaskStatus', $req->allowableTaskStatus());
+        $this->assertSame(1, $req->calExpandInstStart());
+        $this->assertSame(1, $req->calExpandInstEnd());
+        $this->assertTrue($req->inDumpster());
+        $this->assertSame('types', $req->types());
+        $this->assertSame('groupBy', $req->groupBy());
+        $this->assertTrue($req->quick());
+        $this->assertSame('sortBy', $req->sortBy());
+        $this->assertSame('fetch', $req->fetch());
+        $this->assertTrue($req->read());
+        $this->assertSame(1, $req->max());
+        $this->assertTrue($req->html());
+        $this->assertTrue($req->needExp());
+        $this->assertTrue($req->neuter());
+        $this->assertTrue($req->recip());
+        $this->assertTrue($req->prefetch());
+        $this->assertSame('resultMode', $req->resultMode());
+        $this->assertSame('field', $req->field());
+        $this->assertSame(1, $req->limit());
+        $this->assertSame(1, $req->offset());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<MailSearchParamsRequest includeTagDeleted="1" includeTagMuted="1" allowableTaskStatus="allowableTaskStatus" calExpandInstStart="1" calExpandInstEnd="1" inDumpster="1" types="types" groupBy="groupBy" quick="1" sortBy="sortBy" fetch="fetch" read="1" max="1" html="1" needExp="1" neuter="1" recip="1" prefetch="1" resultMode="resultMode" field="field" limit="1" offset="1">'
+                .'<query>query</query>'
+                .'<header n="attribute-name" />'
+                .'<header n="attribute-name" />'
+                .'<tz id="id" stdoff="1" dayoff="1" stdname="stdname" dayname="dayname">'
+                    .'<standard mon="1" hour="2" min="3" sec="4" />'
+                    .'<daylight mon="4" hour="3" min="2" sec="1" />'
+                .'</tz>'
+                .'<locale>locale</locale>'
+                .'<cursor id="id" sortVal="sortVal" endSortVal="endSortVal" includeOffset="1" />'
+            .'</MailSearchParamsRequest>';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
+
+        $array = array(
+            'MailSearchParamsRequest' => array(
+                'query' => 'query',
+                'header' => array(
+                    array(
+                        'n' => 'attribute-name',
+                    ),
+                    array(
+                        'n' => 'attribute-name',
+                    ),
+                ),
+                'tz' => array(
+                    'id' => 'id',
+                    'stdoff' => 1,
+                    'dayoff' => 1,
+                    'stdname' => 'stdname',
+                    'dayname' => 'dayname',
+                    'standard' => array(
+                        'mon' => 1,
+                        'hour' => 2,
+                        'min' => 3,
+                        'sec' => 4,
+                    ),
+                    'daylight' => array(
+                        'mon' => 4,
+                        'hour' => 3,
+                        'min' => 2,
+                        'sec' => 1,
+                    ),
+                ),
+                'locale' => 'locale',
+                'cursor' => array(
+                    'id' => 'id',
+                    'sortVal' => 'sortVal',
+                    'endSortVal' => 'endSortVal',
+                    'includeOffset' => 1,
+                ),
+                'includeTagDeleted' => 1,
+                'includeTagMuted' => 1,
+                'allowableTaskStatus' => 'allowableTaskStatus',
+                'calExpandInstStart' => 1,
+                'calExpandInstEnd' => 1,
+                'inDumpster' => 1,
+                'types' => 'types',
+                'groupBy' => 'groupBy',
+                'quick' => 1,
+                'sortBy' => 'sortBy',
+                'fetch' => 'fetch',
+                'read' => 1,
+                'max' => 1,
+                'html' => 1,
+                'needExp' => 1,
+                'neuter' => 1,
+                'recip' => 1,
+                'prefetch' => 1,
+                'resultMode' => 'resultMode',
+                'field' => 'field',
+                'limit' => 1,
+                'offset' => 1,
+            )
+        );
+        $this->assertEquals($array, $req->toArray());
+    }
+
+    public function testSearch()
+    {
+        $header = new \Zimbra\Soap\Struct\AttributeName('attribute-name');
+        $standard = new \Zimbra\Soap\Struct\TzOnsetInfo(1, 2, 3, 4);
+        $daylight = new \Zimbra\Soap\Struct\TzOnsetInfo(4, 3, 2, 1);
+        $tz = new \Zimbra\Soap\Struct\CalTZInfo('id', 1, 1, 'stdname', 'dayname', $standard, $daylight);
+        $cursor = new \Zimbra\Soap\Struct\CursorInfo('id','sortVal', 'endSortVal', true);
+
+        $req = new \Zimbra\API\Mail\Request\Search(
+            true,
+            'query',
+            array($header),
+            $tz,
+            'locale',
+            $cursor,
+            true,
+            true,
+            'allowableTaskStatus',
+            1,
+            1,
+            true,
+            'types',
+            'groupBy',
+            true,
+            'sortBy',
+            'fetch',
+            true,
+            1,
+            true,
+            true,
+            true,
+            true,
+            true,
+            'resultMode',
+            'field',
+            1,
+            1
+        );
+        $this->assertTrue($req->warmup());
+        $req->warmup(true);
+        $this->assertTrue($req->warmup());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<SearchRequest warmup="1" includeTagDeleted="1" includeTagMuted="1" allowableTaskStatus="allowableTaskStatus" calExpandInstStart="1" calExpandInstEnd="1" inDumpster="1" types="types" groupBy="groupBy" quick="1" sortBy="sortBy" fetch="fetch" read="1" max="1" html="1" needExp="1" neuter="1" recip="1" prefetch="1" resultMode="resultMode" field="field" limit="1" offset="1">'
+                .'<query>query</query>'
+                .'<header n="attribute-name" />'
+                .'<tz id="id" stdoff="1" dayoff="1" stdname="stdname" dayname="dayname">'
+                    .'<standard mon="1" hour="2" min="3" sec="4" />'
+                    .'<daylight mon="4" hour="3" min="2" sec="1" />'
+                .'</tz>'
+                .'<locale>locale</locale>'
+                .'<cursor id="id" sortVal="sortVal" endSortVal="endSortVal" includeOffset="1" />'
+            .'</SearchRequest>';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
+
+        $array = array(
+            'SearchRequest' => array(
+                'query' => 'query',
+                'header' => array(
+                    array(
+                        'n' => 'attribute-name',
+                    ),
+                ),
+                'tz' => array(
+                    'id' => 'id',
+                    'stdoff' => 1,
+                    'dayoff' => 1,
+                    'stdname' => 'stdname',
+                    'dayname' => 'dayname',
+                    'standard' => array(
+                        'mon' => 1,
+                        'hour' => 2,
+                        'min' => 3,
+                        'sec' => 4,
+                    ),
+                    'daylight' => array(
+                        'mon' => 4,
+                        'hour' => 3,
+                        'min' => 2,
+                        'sec' => 1,
+                    ),
+                ),
+                'locale' => 'locale',
+                'cursor' => array(
+                    'id' => 'id',
+                    'sortVal' => 'sortVal',
+                    'endSortVal' => 'endSortVal',
+                    'includeOffset' => 1,
+                ),
+                'warmup' => 1,
+                'includeTagDeleted' => 1,
+                'includeTagMuted' => 1,
+                'allowableTaskStatus' => 'allowableTaskStatus',
+                'calExpandInstStart' => 1,
+                'calExpandInstEnd' => 1,
+                'inDumpster' => 1,
+                'types' => 'types',
+                'groupBy' => 'groupBy',
+                'quick' => 1,
+                'sortBy' => 'sortBy',
+                'fetch' => 'fetch',
+                'read' => 1,
+                'max' => 1,
+                'html' => 1,
+                'needExp' => 1,
+                'neuter' => 1,
+                'recip' => 1,
+                'prefetch' => 1,
+                'resultMode' => 'resultMode',
+                'field' => 'field',
+                'limit' => 1,
+                'offset' => 1,
+            )
+        );
+        $this->assertEquals($array, $req->toArray());
+    }
+
+    public function testSearchConv()
+    {
+        $header = new \Zimbra\Soap\Struct\AttributeName('attribute-name');
+        $standard = new \Zimbra\Soap\Struct\TzOnsetInfo(1, 2, 3, 4);
+        $daylight = new \Zimbra\Soap\Struct\TzOnsetInfo(4, 3, 2, 1);
+        $tz = new \Zimbra\Soap\Struct\CalTZInfo('id', 1, 1, 'stdname', 'dayname', $standard, $daylight);
+        $cursor = new \Zimbra\Soap\Struct\CursorInfo('id','sortVal', 'endSortVal', true);
+
+        $req = new \Zimbra\API\Mail\Request\SearchConv(
+            'cid',
+            true,
+            'query',
+            array($header),
+            $tz,
+            'locale',
+            $cursor,
+            true,
+            true,
+            'allowableTaskStatus',
+            1,
+            1,
+            true,
+            'types',
+            'groupBy',
+            true,
+            'sortBy',
+            'fetch',
+            true,
+            1,
+            true,
+            true,
+            true,
+            true,
+            true,
+            'resultMode',
+            'field',
+            1,
+            1
+        );
+        $this->assertSame('cid', $req->cid());
+        $this->assertTrue($req->nest());
+        $req->cid('cid')
+            ->nest(true);
+        $this->assertSame('cid', $req->cid());
+        $this->assertTrue($req->nest());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<SearchConvRequest cid="cid" nest="1" includeTagDeleted="1" includeTagMuted="1" allowableTaskStatus="allowableTaskStatus" calExpandInstStart="1" calExpandInstEnd="1" inDumpster="1" types="types" groupBy="groupBy" quick="1" sortBy="sortBy" fetch="fetch" read="1" max="1" html="1" needExp="1" neuter="1" recip="1" prefetch="1" resultMode="resultMode" field="field" limit="1" offset="1">'
+                .'<query>query</query>'
+                .'<header n="attribute-name" />'
+                .'<tz id="id" stdoff="1" dayoff="1" stdname="stdname" dayname="dayname">'
+                    .'<standard mon="1" hour="2" min="3" sec="4" />'
+                    .'<daylight mon="4" hour="3" min="2" sec="1" />'
+                .'</tz>'
+                .'<locale>locale</locale>'
+                .'<cursor id="id" sortVal="sortVal" endSortVal="endSortVal" includeOffset="1" />'
+            .'</SearchConvRequest>';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
+
+        $array = array(
+            'SearchConvRequest' => array(
+                'query' => 'query',
+                'header' => array(
+                    array(
+                        'n' => 'attribute-name',
+                    ),
+                ),
+                'tz' => array(
+                    'id' => 'id',
+                    'stdoff' => 1,
+                    'dayoff' => 1,
+                    'stdname' => 'stdname',
+                    'dayname' => 'dayname',
+                    'standard' => array(
+                        'mon' => 1,
+                        'hour' => 2,
+                        'min' => 3,
+                        'sec' => 4,
+                    ),
+                    'daylight' => array(
+                        'mon' => 4,
+                        'hour' => 3,
+                        'min' => 2,
+                        'sec' => 1,
+                    ),
+                ),
+                'locale' => 'locale',
+                'cursor' => array(
+                    'id' => 'id',
+                    'sortVal' => 'sortVal',
+                    'endSortVal' => 'endSortVal',
+                    'includeOffset' => 1,
+                ),
+                'cid' => 'cid',
+                'nest' => 1,
+                'includeTagDeleted' => 1,
+                'includeTagMuted' => 1,
+                'allowableTaskStatus' => 'allowableTaskStatus',
+                'calExpandInstStart' => 1,
+                'calExpandInstEnd' => 1,
+                'inDumpster' => 1,
+                'types' => 'types',
+                'groupBy' => 'groupBy',
+                'quick' => 1,
+                'sortBy' => 'sortBy',
+                'fetch' => 'fetch',
+                'read' => 1,
+                'max' => 1,
+                'html' => 1,
+                'needExp' => 1,
+                'neuter' => 1,
+                'recip' => 1,
+                'prefetch' => 1,
+                'resultMode' => 'resultMode',
+                'field' => 'field',
+                'limit' => 1,
+                'offset' => 1,
+            )
+        );
+        $this->assertEquals($array, $req->toArray());
+    }
 }

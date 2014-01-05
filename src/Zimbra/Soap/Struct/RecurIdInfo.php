@@ -166,7 +166,7 @@ class RecurIdInfo
         $name = !empty($name) ? $name : 'recur';
         $xml = new SimpleXML('<'.$name.' />');
         $xml->addAttribute('rangeType', $this->_rangeType)
-        	->addAttribute('recurId', $this->_recurId);
+            ->addAttribute('recurId', $this->_recurId);
         if(!empty($this->_tz))
         {
             $xml->addAttribute('tz', $this->_tz);

@@ -28,7 +28,7 @@ class RevokePermission extends Request
      * Specify Access Control Entries (ACEs)
      * @var TypedSequence<AccountACEInfo>
      */
-	private $_ace;
+    private $_ace;
 
     /**
      * Constructor method for RevokePermission

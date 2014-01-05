@@ -52,7 +52,7 @@ class MailPop3DataSource extends MailDataSource
      * @return self
      */
     public function __construct(
-    	$leaveOnServer = null,
+        $leaveOnServer = null,
         $id = null,
         $name = null,
         $l = null,
@@ -77,30 +77,30 @@ class MailPop3DataSource extends MailDataSource
         array $a = array()
     )
     {
-    	parent::__construct(
-	        $id,
-	        $name,
-	        $l,
-	        $isEnabled,
-	        $importOnly,
-	        $host,
-	        $port,
-	        $connectionType,
-	        $username,
-	        $password,
-	        $pollingInterval,
-	        $emailAddress,
-	        $useAddressForForwardReply,
-	        $defaultSignature,
-	        $forwardReplySignature,
-	        $fromDisplay,
-	        $replyToAddress,
-	        $replyToDisplay,
-	        $importClass,
-	        $failingSince,
-	        $lastError ,
-	        $a
-		);
+        parent::__construct(
+            $id,
+            $name,
+            $l,
+            $isEnabled,
+            $importOnly,
+            $host,
+            $port,
+            $connectionType,
+            $username,
+            $password,
+            $pollingInterval,
+            $emailAddress,
+            $useAddressForForwardReply,
+            $defaultSignature,
+            $forwardReplySignature,
+            $fromDisplay,
+            $replyToAddress,
+            $replyToDisplay,
+            $importClass,
+            $failingSince,
+            $lastError ,
+            $a
+        );
         if(null !== $leaveOnServer)
         {
             $this->_leaveOnServer = (bool) $leaveOnServer;

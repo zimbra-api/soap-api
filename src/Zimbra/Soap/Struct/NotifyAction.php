@@ -52,21 +52,21 @@ class NotifyAction extends FilterAction
      * @return self
      */
     public function __construct(
-    	$index,
-    	$content = null,
-    	$a = null,
-    	$su = null,
-    	$maxBodySize = null,
-    	$origHeaders = null
-	)
+        $index,
+        $content = null,
+        $a = null,
+        $su = null,
+        $maxBodySize = null,
+        $origHeaders = null
+    )
     {
-    	parent::__construct($index);
+        parent::__construct($index);
         $this->_content = trim($content);
         $this->_a = trim($a);
         $this->_su = trim($su);
         if(null !== $maxBodySize)
         {
-        	$this->_maxBodySize = (int) $maxBodySize;
+            $this->_maxBodySize = (int) $maxBodySize;
         }
         $this->_origHeaders = trim($origHeaders);
     }
@@ -174,7 +174,7 @@ class NotifyAction extends FilterAction
         }
         if(is_int($this->_maxBodySize))
         {
-        	$arr[$name]['maxBodySize'] = $this->_maxBodySize;
+            $arr[$name]['maxBodySize'] = $this->_maxBodySize;
         }
         if(!empty($this->_origHeaders))
         {
@@ -194,19 +194,19 @@ class NotifyAction extends FilterAction
         $xml = parent::toXml($name);
         if(!empty($this->_a))
         {
-        	$xml->addAttribute('a', $this->_a);
+            $xml->addAttribute('a', $this->_a);
         }
         if(!empty($this->_su))
         {
-        	$xml->addAttribute('su', $this->_su);
+            $xml->addAttribute('su', $this->_su);
         }
         if(is_int($this->_maxBodySize))
         {
-        	$xml->addAttribute('maxBodySize', $this->_maxBodySize);
+            $xml->addAttribute('maxBodySize', $this->_maxBodySize);
         }
         if(!empty($this->_origHeaders))
         {
-        	$xml->addAttribute('origHeaders', $this->_origHeaders);
+            $xml->addAttribute('origHeaders', $this->_origHeaders);
         }
         if(!empty($this->_content))
         {

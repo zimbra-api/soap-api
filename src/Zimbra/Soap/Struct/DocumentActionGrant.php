@@ -58,7 +58,7 @@ class DocumentActionGrant
         $this->_gt = $gt;
         if(null !== $expiry)
         {
-	        $this->_expiry = (int) $expiry;
+            $this->_expiry = (int) $expiry;
         }
     }
 
@@ -142,7 +142,7 @@ class DocumentActionGrant
         $name = !empty($name) ? $name : 'grant';
         $xml = new SimpleXML('<'.$name.' />');
         $xml->addAttribute('perm', (string) $this->_perm)
-        	->addAttribute('gt', (string) $this->_gt);
+            ->addAttribute('gt', (string) $this->_gt);
         if(is_int($this->_expiry))
         {
             $xml->addAttribute('expiry', $this->_expiry);

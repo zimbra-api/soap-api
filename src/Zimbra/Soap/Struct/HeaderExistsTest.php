@@ -35,10 +35,10 @@ class HeaderExistsTest extends FilterTest
      * @return self
      */
     public function __construct(
-    	$index, $header, $negative = null
-	)
+        $index, $header, $negative = null
+    )
     {
-    	parent::__construct($index, $negative);
+        parent::__construct($index, $negative);
         $this->_header = trim($header);
     }
 

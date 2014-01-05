@@ -50,19 +50,19 @@ class ConvActionSelector extends ActionSelector
         $tn = null
     )
     {
-    	parent::__construct(
-	        $op,
-	        $id,
-	        $tcon,
-	        $tag,
-	        $l,
-	        $rgb,
-	        $color,
-	        $name,
-	        $f,
-	        $t,
-	        $tn
-		);
+        parent::__construct(
+            $op,
+            $id,
+            $tcon,
+            $tag,
+            $l,
+            $rgb,
+            $color,
+            $name,
+            $f,
+            $t,
+            $tn
+        );
     }
 
     /**

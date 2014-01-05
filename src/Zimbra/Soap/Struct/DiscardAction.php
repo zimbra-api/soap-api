@@ -27,7 +27,7 @@ class DiscardAction extends FilterAction
     public function toArray($name = 'actionDiscard')
     {
         $name = !empty($name) ? $name : 'actionDiscard';
-    	return parent::toArray($name);
+        return parent::toArray($name);
     }
 
     /**
@@ -38,6 +38,6 @@ class DiscardAction extends FilterAction
     public function toXml($name = 'actionDiscard')
     {
         $name = !empty($name) ? $name : 'actionDiscard';
-    	return parent::toXml($name);
+        return parent::toXml($name);
     }
 }

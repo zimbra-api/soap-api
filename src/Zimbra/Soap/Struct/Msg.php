@@ -146,7 +146,7 @@ class Msg
      * @return self
      */
     public function __construct(
-    	$aid = null,
+        $aid = null,
         $origid = null,
         $rt = null,
         $idnt = null,
@@ -628,9 +628,12 @@ class Msg
         {
             $xml->addChild('content', $this->_content);
         }
-        foreach ($this->_header as $header)
+        if(count($this->_header))
         {
-            $xml->append($header->toXml('header'));
+            foreach ($this->_header as $header)
+            {
+                $xml->append($header->toXml('header'));
+            }
         }
         if($this->_mp instanceof MimePartInfo)
         {
@@ -644,13 +647,19 @@ class Msg
         {
             $xml->append($this->_inv->toXml('inv'));
         }
-        foreach ($this->_e as $e)
+        if(count($this->_e))
         {
-            $xml->append($e->toXml('e'));
+            foreach ($this->_e as $e)
+            {
+                $xml->append($e->toXml('e'));
+            }
         }
-        foreach ($this->_tz as $tz)
+        if(count($this->_tz))
         {
-            $xml->append($tz->toXml('tz'));
+            foreach ($this->_tz as $tz)
+            {
+                $xml->append($tz->toXml('tz'));
+            }
         }
         if(!empty($this->_fr))
         {

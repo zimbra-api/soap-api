@@ -36,10 +36,10 @@ class ImportanceTest extends FilterTest
      * @return self
      */
     public function __construct(
-    	$index, Importance $imp, $negative = null
-	)
+        $index, Importance $imp, $negative = null
+    )
     {
-    	parent::__construct($index, $negative);
+        parent::__construct($index, $negative);
         $this->_imp = $imp;
     }
 

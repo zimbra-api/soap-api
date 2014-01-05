@@ -257,7 +257,7 @@ class NewSearchFolderSpec
         $name = !empty($name) ? $name : 'search';
         $xml = new SimpleXML('<'.$name.' />');
         $xml->addAttribute('name', $this->_name)
-        	->addAttribute('query', $this->_query);
+            ->addAttribute('query', $this->_query);
         if(!empty($this->_types))
         {
             $xml->addAttribute('types', $this->_types);

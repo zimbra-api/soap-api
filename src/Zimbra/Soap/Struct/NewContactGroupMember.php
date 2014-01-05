@@ -113,7 +113,7 @@ class NewContactGroupMember
         $name = !empty($name) ? $name : 'm';
         $xml = new SimpleXML('<'.$name.' />');
         $xml->addAttribute('type', $this->_type)
-        	->addAttribute('value', $this->_value);
+            ->addAttribute('value', $this->_value);
         return $xml;
     }
 

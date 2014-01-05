@@ -35,10 +35,10 @@ class FlaggedTest extends FilterTest
      * @return self
      */
     public function __construct(
-    	$index, $flagName, $negative = null
-	)
+        $index, $flagName, $negative = null
+    )
     {
-    	parent::__construct($index, $negative);
+        parent::__construct($index, $negative);
         $this->_flagName = trim($flagName);
     }
 

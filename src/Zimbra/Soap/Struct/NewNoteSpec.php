@@ -170,7 +170,7 @@ class NewNoteSpec
         $name = !empty($name) ? $name : 'note';
         $xml = new SimpleXML('<'.$name.' />');
         $xml->addAttribute('l', $this->_l)
-        	->addAttribute('content', $this->_content);
+            ->addAttribute('content', $this->_content);
         if(is_int($this->_color))
         {
             $xml->addAttribute('color', $this->_color);

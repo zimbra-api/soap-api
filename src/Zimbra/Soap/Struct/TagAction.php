@@ -33,7 +33,7 @@ class TagAction extends FilterAction
      */
     public function __construct($index, $tagName = null)
     {
-    	parent::__construct($index);
+        parent::__construct($index);
         $this->_tagName = trim($tagName);
     }
 

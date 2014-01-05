@@ -68,8 +68,8 @@ class MailKeyValuePairs
      */
     public function toArray($name = 'kpv')
     {
-    	$name = !empty($name) ? $name : 'kpv';
-    	$arr = array();
+        $name = !empty($name) ? $name : 'kpv';
+        $arr = array();
         if(count($this->_a))
         {
             $arr['a'] = array();
@@ -90,8 +90,8 @@ class MailKeyValuePairs
      */
     public function toXml($name = 'kpv')
     {
-    	$name = !empty($name) ? $name : 'kpv';
-    	$xml = new SimpleXML('<'.$name.' />');
+        $name = !empty($name) ? $name : 'kpv';
+        $xml = new SimpleXML('<'.$name.' />');
         foreach ($this->_a as $a)
         {
             $xml->append($a->toXml('a'));

@@ -21,28 +21,28 @@ use Zimbra\Utils\SimpleXML;
  */
 class FilterRule
 {
-	/**
-	 * Rule name
-	 * @var string
-	 */
+    /**
+     * Rule name
+     * @var string
+     */
     private $_name;
 
-	/**
-	 * Active flag. Set by default.
-	 * @var bool
-	 */
+    /**
+     * Active flag. Set by default.
+     * @var bool
+     */
     private $_active;
 
-	/**
-	 * Filter tests
-	 * @var KeepAction
-	 */
+    /**
+     * Filter tests
+     * @var KeepAction
+     */
     private $_filterTests;
 
-	/**
-	 * Filter actions
-	 * @var FilterActions
-	 */
+    /**
+     * Filter actions
+     * @var FilterActions
+     */
     private $_filterActions;
 
     /**
@@ -60,8 +60,8 @@ class FilterRule
         FilterActions $filterActions = NULL
     )
     {
-    	$this->_name = trim($name);
-    	$this->_active = (bool) $active;
+        $this->_name = trim($name);
+        $this->_active = (bool) $active;
         $this->_filterTests = $filterTests;
         if($filterActions instanceof FilterActions)
         {
@@ -143,9 +143,9 @@ class FilterRule
     {
         $name = !empty($name) ? $name : 'filterRule';
         $arr = array(
-        	'name' => $this->_name,
-        	'active' => $this->_active ? 1 : 0,
-    	);
+            'name' => $this->_name,
+            'active' => $this->_active ? 1 : 0,
+        );
         $arr += $this->_filterTests->toArray('filterTests');
         if($this->_filterActions instanceof FilterActions)
         {

@@ -17,7 +17,7 @@ use Zimbra\Utils\SimpleXML;
  * @package   Zimbra
  * @category  Soap
  * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
- * @copypart Copypart © 2013 by Nguyen Van Nguyen.
+ * @copyright Copypart © 2013 by Nguyen Van Nguyen.
  */
 class MsgPartIds
 {
@@ -39,7 +39,7 @@ class MsgPartIds
      * @param string $part
      * @return self
      */
-    public function __construct($id,$part)
+    public function __construct($id, $part)
     {
         $this->_id = trim($id);
         $this->_part = trim($part);

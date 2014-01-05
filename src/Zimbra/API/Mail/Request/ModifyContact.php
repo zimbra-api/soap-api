@@ -51,10 +51,10 @@ class ModifyContact extends Request
      * @return self
      */
     public function __construct(
-    	ModifyContactSpec $cn,
-    	$replace = null,
-    	$verbose = null
-	)
+        ModifyContactSpec $cn,
+        $replace = null,
+        $verbose = null
+    )
     {
         parent::__construct();
         $this->_cn = $cn;

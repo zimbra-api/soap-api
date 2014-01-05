@@ -74,13 +74,13 @@ class CreateAppointmentException extends CalItemRequestBase
     )
     {
         parent::__construct(
-        	$m,
-	        $echo,
-	        $max,
-	        $html,
-	        $neuter,
-	        $forcesend
-    	);
+            $m,
+            $echo,
+            $max,
+            $html,
+            $neuter,
+            $forcesend
+        );
         $this->_id = trim($id);
         if(null !== $comp)
         {

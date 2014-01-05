@@ -323,8 +323,8 @@ class MsgSpec
     {
         $name = !empty($name) ? $name : 'm';
         $arr = array(
-        	'id' => $this->_id,
-    	);
+            'id' => $this->_id,
+        );
         if(!empty($this->_part))
         {
             $arr['part'] = $this->_part;
@@ -383,7 +383,7 @@ class MsgSpec
         $xml->addAttribute('id', $this->_id);
         if(!empty($this->_part))
         {
-        	$xml->addAttribute('part', $this->_part);
+            $xml->addAttribute('part', $this->_part);
         }
         if(is_bool($this->_raw))
         {
@@ -407,7 +407,7 @@ class MsgSpec
         }
         if(!empty($this->_ridZ))
         {
-        	$xml->addAttribute('ridZ', $this->_ridZ);
+            $xml->addAttribute('ridZ', $this->_ridZ);
         }
         if(is_bool($this->_needExp))
         {

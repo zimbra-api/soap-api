@@ -52,7 +52,7 @@ class DateTest extends FilterTest
         $this->_dateComparison = trim($dateComparison);
         if(null !== $d)
         {
-	        $this->_d = (int) $d;
+            $this->_d = (int) $d;
         }
     }
 

@@ -763,10 +763,10 @@ class StructTest extends ZimbraTestCase
 
     public function testCursorInfo()
     {
-        $cursor = new \Zimbra\Soap\Struct\CursorInfo('id','sort', 'end', false);
+        $cursor = new \Zimbra\Soap\Struct\CursorInfo('id','sortVal', 'endSortVal', false);
         $this->assertSame('id', $cursor->id());
-        $this->assertSame('sort', $cursor->sortVal());
-        $this->assertSame('end', $cursor->endSortVal());
+        $this->assertSame('sortVal', $cursor->sortVal());
+        $this->assertSame('endSortVal', $cursor->endSortVal());
         $this->assertFalse($cursor->includeOffset());
 
         $cursor->id('id')
@@ -11648,6 +11648,352 @@ class StructTest extends ZimbraTestCase
                 'id' => 'id',
                 'part' => 'part',
             )
+        );
+        $this->assertEquals($array, $m->toArray());
+    }
+
+    public function testIdVersion()
+    {
+        $doc = new \Zimbra\Soap\Struct\IdVersion(
+            'id', 1
+        );
+        $this->assertSame('id', $doc->id());
+        $this->assertSame(1, $doc->ver());
+
+        $doc->id('id')
+            ->ver(1);
+        $this->assertSame('id', $doc->id());
+        $this->assertSame(1, $doc->ver());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<doc id="id" ver="1" />';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $doc);
+
+        $array = array(
+            'doc' => array(
+                'id' => 'id',
+                'ver' => 1,
+            ),
+        );
+        $this->assertEquals($array, $doc->toArray());
+    }
+
+    public function testMessagePartSpec()
+    {
+        $m = new \Zimbra\Soap\Struct\MessagePartSpec(
+            'id', 'part'
+        );
+        $this->assertSame('id', $m->id());
+        $this->assertSame('part', $m->part());
+
+        $m->id('id')
+          ->part('part');
+        $this->assertSame('id', $m->id());
+        $this->assertSame('part', $m->part());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<m id="id" part="part" />';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $m);
+
+        $array = array(
+            'm' => array(
+                'id' => 'id',
+                'part' => 'part',
+            ),
+        );
+        $this->assertEquals($array, $m->toArray());
+    }
+
+    public function testDocumentSpec()
+    {
+        $upload = new \Zimbra\Soap\Struct\Id('id');
+        $m = new \Zimbra\Soap\Struct\MessagePartSpec(
+            'id', 'part'
+        );
+        $docVer = new \Zimbra\Soap\Struct\IdVersion(
+            'id', 1
+        );
+
+        $doc = new \Zimbra\Soap\Struct\DocumentSpec(
+            $upload, $m, $docVer, 'name', 'ct', 'desc', 'l', 'id', 1, 'content', true, 'f'
+        );
+        $this->assertSame($upload, $doc->upload());
+        $this->assertSame($m, $doc->m());
+        $this->assertSame($docVer, $doc->doc());
+        $this->assertSame('name', $doc->name());
+        $this->assertSame('ct', $doc->ct());
+        $this->assertSame('desc', $doc->desc());
+        $this->assertSame('l', $doc->l());
+        $this->assertSame('id', $doc->id());
+        $this->assertSame(1, $doc->ver());
+        $this->assertSame('content', $doc->content());
+        $this->assertTrue($doc->descEnabled());
+        $this->assertSame('f', $doc->f());
+
+        $doc->upload($upload)
+            ->m($m)
+            ->doc($docVer)
+            ->name('name')
+            ->ct('ct')
+            ->desc('desc')
+            ->l('l')
+            ->id('id')
+            ->ver(1)
+            ->content('content')
+            ->descEnabled(true)
+            ->f('f');
+        $this->assertSame($upload, $doc->upload());
+        $this->assertSame($m, $doc->m());
+        $this->assertSame($docVer, $doc->doc());
+        $this->assertSame('name', $doc->name());
+        $this->assertSame('ct', $doc->ct());
+        $this->assertSame('desc', $doc->desc());
+        $this->assertSame('l', $doc->l());
+        $this->assertSame('id', $doc->id());
+        $this->assertSame(1, $doc->ver());
+        $this->assertSame('content', $doc->content());
+        $this->assertTrue($doc->descEnabled());
+        $this->assertSame('f', $doc->f());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<doc name="name" ct="ct" desc="desc" l="l" id="id" ver="1" content="content" descEnabled="1" f="f">'
+                .'<upload id="id" />'
+                .'<m id="id" part="part" />'
+                .'<doc id="id" ver="1" />'
+            .'</doc>';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $doc);
+
+        $array = array(
+            'doc' => array(
+                'name' => 'name',
+                'ct' => 'ct',
+                'desc' => 'desc',
+                'l' => 'l',
+                'id' => 'id',
+                'ver' => 1,
+                'content' => 'content',
+                'descEnabled' => 1,
+                'f' => 'f',
+                'upload' => array(
+                    'id' => 'id',
+                ),
+                'm' => array(
+                    'id' => 'id',
+                    'part' => 'part',
+                ),
+                'doc' => array(
+                    'id' => 'id',
+                    'ver' => 1,
+                ),
+            )
+        );
+        $this->assertEquals($array, $doc->toArray());
+    }
+
+    public function testSaveDraftMsg()
+    {
+        $mp = new \Zimbra\Soap\Struct\MimePartAttachSpec('mid', 'part', true);
+        $m = new \Zimbra\Soap\Struct\MsgAttachSpec('id', false);
+        $cn = new \Zimbra\Soap\Struct\ContactAttachSpec('id', false);
+        $doc = new \Zimbra\Soap\Struct\DocAttachSpec('path', 'id', 1, true);
+        $info = new \Zimbra\Soap\Struct\MimePartInfo(array(), null, 'ct', 'content', 'ci');
+        $standard = new \Zimbra\Soap\Struct\TzOnsetInfo(1, 2, 3, 4);
+        $daylight = new \Zimbra\Soap\Struct\TzOnsetInfo(4, 3, 2, 1);
+
+        $header = new \Zimbra\Soap\Struct\Header('name', 'value');
+        $attach = new \Zimbra\Soap\Struct\AttachmentsInfo($mp, $m, $cn, $doc, 'aid');
+        $mp = new \Zimbra\Soap\Struct\MimePartInfo(array($info), $attach, 'ct', 'content', 'ci');
+        $inv = new \Zimbra\Soap\Struct\InvitationInfo('method', 1, true);
+        $e = new \Zimbra\Soap\Struct\EmailAddrInfo('a', 't', 'p');
+        $tz = new \Zimbra\Soap\Struct\CalTZInfo('id', 1, 1, 'stdname', 'dayname', $standard, $daylight);
+
+        $m = new \Zimbra\Soap\Struct\SaveDraftMsg(
+            1, 'forAcct', 't', 'tn', '#aabbcc', 1, 1,
+            'aid',
+            'origid',
+            'rt',
+            'idnt',
+            'su',
+            'irt',
+            'l',
+            'f',
+            'content',
+            array($header),
+            $mp,
+            $attach,
+            $inv,
+            array($e),
+            array($tz),
+            'fr'
+        );
+        $this->assertInstanceOf('Zimbra\Soap\Struct\Msg', $m);
+        $this->assertSame(1, $m->id());
+        $this->assertSame('forAcct', $m->forAcct());
+        $this->assertSame('t', $m->t());
+        $this->assertSame('tn', $m->tn());
+        $this->assertSame('#aabbcc', $m->rgb());
+        $this->assertSame(1, $m->color());
+        $this->assertSame(1, $m->autoSendTime());
+
+        $m->id(1)
+          ->forAcct('forAcct')
+          ->t('t')
+          ->tn('tn')
+          ->rgb('#aabbcc')
+          ->color(1)
+          ->autoSendTime(1);
+        $this->assertSame(1, $m->id());
+        $this->assertSame('forAcct', $m->forAcct());
+        $this->assertSame('t', $m->t());
+        $this->assertSame('tn', $m->tn());
+        $this->assertSame('#aabbcc', $m->rgb());
+        $this->assertSame(1, $m->color());
+        $this->assertSame(1, $m->autoSendTime());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<m id="1" forAcct="forAcct" t="t" tn="tn" rgb="#aabbcc" color="1" autoSendTime="1" aid="aid" origid="origid" rt="rt" idnt="idnt" su="su" irt="irt" l="l" f="f">'
+                .'<content>content</content>'
+                .'<header name="name">value</header>'
+                .'<mp ct="ct" content="content" ci="ci">'
+                    .'<mp ct="ct" content="content" ci="ci" />'
+                    .'<attach aid="aid">'
+                        .'<mp mid="mid" part="part" optional="1" />'
+                        .'<m id="id" optional="0" />'
+                        .'<cn id="id" optional="0" />'
+                        .'<doc path="path" id="id" ver="1" optional="1" />'
+                    .'</attach>'
+                .'</mp>'
+                .'<attach aid="aid">'
+                    .'<mp mid="mid" part="part" optional="1" />'
+                    .'<m id="id" optional="0" />'
+                    .'<cn id="id" optional="0" />'
+                    .'<doc path="path" id="id" ver="1" optional="1" />'
+                .'</attach>'
+                .'<inv method="method" compNum="1" rsvp="1" />'
+                .'<e a="a" t="t" p="p" />'
+                .'<tz id="id" stdoff="1" dayoff="1" stdname="stdname" dayname="dayname">'
+                    .'<standard mon="1" hour="2" min="3" sec="4" />'
+                    .'<daylight mon="4" hour="3" min="2" sec="1" />'
+                .'</tz>'
+                .'<fr>fr</fr>'
+            .'</m>';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $m);
+
+        $array = array(
+            'm' => array(
+                'id' => 1,
+                'forAcct' => 'forAcct',
+                't' => 't',
+                'tn' => 'tn',
+                'rgb' => '#aabbcc',
+                'color' => 1,
+                'autoSendTime' => 1,
+                'aid' => 'aid',
+                'origid' => 'origid',
+                'rt' => 'rt',
+                'idnt' => 'idnt',
+                'su' => 'su',
+                'irt' => 'irt',
+                'l' => 'l',
+                'f' => 'f',
+                'content' => 'content',
+                'header' => array(
+                    array(
+                        'name' => 'name',
+                        '_' => 'value',
+                    ),
+                ),
+                'mp' => array(
+                    'ct' => 'ct',
+                    'content' => 'content',
+                    'ci' => 'ci',
+                    'mp' => array(
+                        array(
+                            'ct' => 'ct',
+                            'content' => 'content',
+                            'ci' => 'ci',
+                        ),
+                    ),
+                    'attach' => array(
+                        'aid' => 'aid',
+                        'mp' => array(
+                            'mid' => 'mid',
+                            'part' => 'part',
+                            'optional' => 1,
+                        ),
+                        'm' => array(
+                            'id' => 'id',
+                            'optional' => 0,
+                        ),
+                        'cn' => array(
+                            'id' => 'id',
+                            'optional' => 0,
+                        ),
+                        'doc' => array(
+                            'path' => 'path',
+                            'id' => 'id',
+                            'ver' => 1,
+                            'optional' => 1,
+                        ),
+                    ),
+                ),
+                'attach' => array(
+                    'aid' => 'aid',
+                    'mp' => array(
+                        'mid' => 'mid',
+                        'part' => 'part',
+                        'optional' => 1,
+                    ),
+                    'm' => array(
+                        'id' => 'id',
+                        'optional' => 0,
+                    ),
+                    'cn' => array(
+                        'id' => 'id',
+                        'optional' => 0,
+                    ),
+                    'doc' => array(
+                        'path' => 'path',
+                        'id' => 'id',
+                        'ver' => 1,
+                        'optional' => 1,
+                    ),
+                ),
+                'inv' => array(
+                    'method' => 'method',
+                    'compNum' => 1,
+                    'rsvp' => 1,
+                ),
+                'e' => array(
+                    array(
+                        'a' => 'a',
+                        't' => 't',
+                        'p' => 'p',
+                    ),
+                ),
+                'tz' => array(
+                    array(
+                        'id' => 'id',
+                        'stdoff' => 1,
+                        'dayoff' => 1,
+                        'stdname' => 'stdname',
+                        'dayname' => 'dayname',
+                        'standard' => array(
+                            'mon' => 1,
+                            'hour' => 2,
+                            'min' => 3,
+                            'sec' => 4,
+                        ),
+                        'daylight' => array(
+                            'mon' => 4,
+                            'hour' => 3,
+                            'min' => 2,
+                            'sec' => 1,
+                        ),
+                    ),
+                ),
+                'fr' => 'fr',
+            ),
         );
         $this->assertEquals($array, $m->toArray());
     }

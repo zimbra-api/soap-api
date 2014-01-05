@@ -49,17 +49,17 @@ class CreateWaitSet extends Request
      * @return self
      */
     public function __construct(
-    	array $add = array(),
-    	array $defTypes = array(),
-    	$allAccounts = null
-	)
+        array $add = array(),
+        array $defTypes = array(),
+        $allAccounts = null
+    )
     {
         parent::__construct();
         $this->_add = new TypedSequence('Zimbra\Soap\Struct\WaitSetAddSpec', $add);
         $this->_defTypes = new TypedSequence('Zimbra\Soap\Enum\InterestType', $defTypes);
         if(null !== $allAccounts)
         {
-	        $this->_allAccounts = (bool) $allAccounts;
+            $this->_allAccounts = (bool) $allAccounts;
         }
     }
 
@@ -130,22 +130,22 @@ class CreateWaitSet extends Request
      */
     public function toArray()
     {
-    	$this->array['defTypes'] = $this->defTypes();
-    	if(is_bool($this->_allAccounts))
-    	{
-	    	$this->array['allAccounts'] = $this->_allAccounts ? 1 : 0;
-    	}
-    	$this->array['add'] = array();
-    	if(count($this->_add))
-    	{
-    		$arr['a'] = array();
-    		foreach ($this->_add as $add)
-    		{
-    			$addArr = $add->toArray('a');
-    			$arr['a'][] = $addArr['a'];
-    		}
-    		$this->array['add'] = $arr;
-    	}
+        $this->array['defTypes'] = $this->defTypes();
+        if(is_bool($this->_allAccounts))
+        {
+            $this->array['allAccounts'] = $this->_allAccounts ? 1 : 0;
+        }
+        $this->array['add'] = array();
+        if(count($this->_add))
+        {
+            $arr['a'] = array();
+            foreach ($this->_add as $add)
+            {
+                $addArr = $add->toArray('a');
+                $arr['a'][] = $addArr['a'];
+            }
+            $this->array['add'] = $arr;
+        }
         return parent::toArray();
     }
 
@@ -156,16 +156,16 @@ class CreateWaitSet extends Request
      */
     public function toXml()
     {
-    	$this->xml->addAttribute('defTypes', $this->defTypes());
-    	if(is_bool($this->_allAccounts))
-    	{
-	    	$this->xml->addAttribute('allAccounts', $this->_allAccounts ? 1 : 0);
-    	}
-    	$add = $this->xml->addChild('add');
-    	foreach ($this->_add as $a)
-    	{
-	        $add->append($a->toXml('a'));
-    	}
+        $this->xml->addAttribute('defTypes', $this->defTypes());
+        if(is_bool($this->_allAccounts))
+        {
+            $this->xml->addAttribute('allAccounts', $this->_allAccounts ? 1 : 0);
+        }
+        $add = $this->xml->addChild('add');
+        foreach ($this->_add as $a)
+        {
+            $add->append($a->toXml('a'));
+        }
         return parent::toXml();
     }
 }

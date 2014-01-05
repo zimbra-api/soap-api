@@ -108,7 +108,7 @@ class GetCustomMetadata extends Request
      */
     public function toXml()
     {
-    	$this->xml->addAttribute('id', $this->_id);
+        $this->xml->addAttribute('id', $this->_id);
         if($this->_meta instanceof SectionAttr)
         {
             $this->xml->append($this->_meta->toXml('meta'));

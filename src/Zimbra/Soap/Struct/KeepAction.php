@@ -27,7 +27,7 @@ class KeepAction extends FilterAction
     public function toArray($name = 'actionKeep')
     {
         $name = !empty($name) ? $name : 'actionKeep';
-    	return parent::toArray($name);
+        return parent::toArray($name);
     }
 
     /**
@@ -38,6 +38,6 @@ class KeepAction extends FilterAction
     public function toXml($name = 'actionKeep')
     {
         $name = !empty($name) ? $name : 'actionKeep';
-    	return parent::toXml($name);
+        return parent::toXml($name);
     }
 }

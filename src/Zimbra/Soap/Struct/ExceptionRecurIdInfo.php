@@ -54,7 +54,7 @@ class ExceptionRecurIdInfo
         $this->_tz = trim($tz);
         if(null !== $rangeType)
         {
-        	$this->_rangeType = in_array((int) $rangeType, array(-1, 2, 3)) ? (int) $rangeType : null;
+            $this->_rangeType = in_array((int) $rangeType, array(-1, 2, 3)) ? (int) $rangeType : null;
         }
     }
 
@@ -116,15 +116,15 @@ class ExceptionRecurIdInfo
     {
         $name = !empty($name) ? $name : 'exceptId';
         $arr = array(
-        	'd' => $this->_d
-    	);
+            'd' => $this->_d
+        );
         if(!empty($this->_tz))
         {
             $arr['tz'] = $this->_tz;
         }
         if(is_int($this->_rangeType))
         {
-        	$arr['rangeType'] = $this->_rangeType;
+            $arr['rangeType'] = $this->_rangeType;
         }
         return array($name => $arr);
     }
@@ -146,7 +146,7 @@ class ExceptionRecurIdInfo
         }
         if(is_int($this->_rangeType))
         {
-        	$xml->addAttribute('rangeType', $this->_rangeType);
+            $xml->addAttribute('rangeType', $this->_rangeType);
         }
         return $xml;
     }

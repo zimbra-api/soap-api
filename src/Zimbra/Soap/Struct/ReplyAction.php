@@ -33,7 +33,7 @@ class ReplyAction extends FilterAction
      */
     public function __construct($index, $content = null)
     {
-    	parent::__construct($index);
+        parent::__construct($index);
         $this->_content = trim($content);
     }
 

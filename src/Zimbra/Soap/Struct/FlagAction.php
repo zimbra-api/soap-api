@@ -33,7 +33,7 @@ class FlagAction extends FilterAction
      */
     public function __construct($index, $flagName = null)
     {
-    	parent::__construct($index);
+        parent::__construct($index);
         $this->_flagName = trim($flagName);
     }
 

@@ -58,25 +58,25 @@ class ExpandedRecurrenceComponent
      * @return self
      */
     public function __construct(
-    	InstanceRecurIdInfo $exceptId = null,
-    	DurationInfo $dur = null,
-    	RecurrenceInfo $recur = null,
-    	$s = null,
-    	$e = null
-	)
+        InstanceRecurIdInfo $exceptId = null,
+        DurationInfo $dur = null,
+        RecurrenceInfo $recur = null,
+        $s = null,
+        $e = null
+    )
     {
-    	if($exceptId instanceof InstanceRecurIdInfo)
-    	{
-    		$this->_exceptId = $exceptId;
-    	}
-    	if($dur instanceof DurationInfo)
-    	{
-    		$this->_dur = $dur;
-    	}
-    	if($recur instanceof RecurrenceInfo)
-    	{
-    		$this->_recur = $recur;
-    	}
+        if($exceptId instanceof InstanceRecurIdInfo)
+        {
+            $this->_exceptId = $exceptId;
+        }
+        if($dur instanceof DurationInfo)
+        {
+            $this->_dur = $dur;
+        }
+        if($recur instanceof RecurrenceInfo)
+        {
+            $this->_recur = $recur;
+        }
         if(null !== $s)
         {
             $this->_s = (int) $s;
@@ -186,18 +186,18 @@ class ExpandedRecurrenceComponent
             $arr['e'] = $this->_e;
         }
 
-    	if($this->_exceptId instanceof InstanceRecurIdInfo)
-    	{
-    		$arr += $this->_exceptId->toArray('exceptId');
-    	}
-    	if($this->_dur instanceof DurationInfo)
-    	{
-    		$arr += $this->_dur->toArray('dur');
-    	}
-    	if($this->_recur instanceof RecurrenceInfo)
-    	{
-    		$arr += $this->_recur->toArray('recur');
-    	}
+        if($this->_exceptId instanceof InstanceRecurIdInfo)
+        {
+            $arr += $this->_exceptId->toArray('exceptId');
+        }
+        if($this->_dur instanceof DurationInfo)
+        {
+            $arr += $this->_dur->toArray('dur');
+        }
+        if($this->_recur instanceof RecurrenceInfo)
+        {
+            $arr += $this->_recur->toArray('recur');
+        }
         return array($name => $arr);
     }
 
@@ -220,18 +220,18 @@ class ExpandedRecurrenceComponent
             $xml->addAttribute('e', $this->_e);
         }
 
-    	if($this->_exceptId instanceof InstanceRecurIdInfo)
-    	{
-    		$xml->append($this->_exceptId->toXml('exceptId'));
-    	}
-    	if($this->_dur instanceof DurationInfo)
-    	{
-    		$xml->append($this->_dur->toXml('dur'));
-    	}
-    	if($this->_recur instanceof RecurrenceInfo)
-    	{
-    		$xml->append($this->_recur->toXml('recur'));
-    	}
+        if($this->_exceptId instanceof InstanceRecurIdInfo)
+        {
+            $xml->append($this->_exceptId->toXml('exceptId'));
+        }
+        if($this->_dur instanceof DurationInfo)
+        {
+            $xml->append($this->_dur->toXml('dur'));
+        }
+        if($this->_recur instanceof RecurrenceInfo)
+        {
+            $xml->append($this->_recur->toXml('recur'));
+        }
         return $xml;
     }
 

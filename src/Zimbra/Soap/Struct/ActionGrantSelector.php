@@ -258,7 +258,7 @@ class ActionGrantSelector
         $name = !empty($name) ? $name : 'grant';
         $xml = new SimpleXML('<'.$name.' />');
         $xml->addAttribute('perm', $this->_perm)
-        	->addAttribute('gt', (string) $this->_gt);
+            ->addAttribute('gt', (string) $this->_gt);
         if(!empty($this->_zid))
         {
             $xml->addAttribute('zid', $this->_zid);

@@ -27,7 +27,7 @@ class StopAction extends FilterAction
     public function toArray($name = 'actionStop')
     {
         $name = !empty($name) ? $name : 'actionStop';
-    	return parent::toArray($name);
+        return parent::toArray($name);
     }
 
     /**
@@ -38,6 +38,6 @@ class StopAction extends FilterAction
     public function toXml($name = 'actionStop')
     {
         $name = !empty($name) ? $name : 'actionStop';
-    	return parent::toXml($name);
+        return parent::toXml($name);
     }
 }

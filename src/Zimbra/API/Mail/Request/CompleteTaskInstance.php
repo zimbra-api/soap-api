@@ -50,10 +50,10 @@ class CompleteTaskInstance extends Request
      * @return self
      */
     public function __construct(
-    	$id,
-    	DtTimeInfo $exceptId,
-    	CalTZInfo $tz = null
-	)
+        $id,
+        DtTimeInfo $exceptId,
+        CalTZInfo $tz = null
+    )
     {
         parent::__construct();
         $this->_id = trim($id);
