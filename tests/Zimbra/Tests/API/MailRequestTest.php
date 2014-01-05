@@ -7871,4 +7871,26 @@ class MailRequestTest extends ZimbraTestCase
         );
         $this->assertEquals($array, $req->toArray());
     }
+
+    public function testSendDeliveryReport()
+    {
+        $req = new \Zimbra\API\Mail\Request\SendDeliveryReport(
+            'mid'
+        );
+        $this->assertSame('mid', $req->mid());
+
+        $req->mid('mid');
+        $this->assertSame('mid', $req->mid());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<SendDeliveryReportRequest mid="mid" />';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
+
+        $array = array(
+            'SendDeliveryReportRequest' => array(
+                'mid' => 'mid',
+            )
+        );
+        $this->assertEquals($array, $req->toArray());
+    }
 }
