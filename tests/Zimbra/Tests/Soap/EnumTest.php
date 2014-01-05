@@ -1005,4 +1005,41 @@ class EnumTest extends ZimbraTestCase
             $this->assertTrue(\Zimbra\Soap\Enum\DocumentAction::has($value));
         }
     }
+
+    public function testImportance()
+    {
+        $values = array(
+            'high',
+            'normal',
+            'low',
+        );
+        foreach ($values as $value)
+        {
+            $this->assertTrue(\Zimbra\Soap\Enum\Importance::has($value));
+        }
+    }
+
+    public function testFilterCondition()
+    {
+        $values = array(
+            'allof',
+            'anyof',
+        );
+        foreach ($values as $value)
+        {
+            $this->assertTrue(\Zimbra\Soap\Enum\FilterCondition::has($value));
+        }
+    }
+
+    public function testRankingActionOp()
+    {
+        $values = array(
+            'reset',
+            'delete',
+        );
+        foreach ($values as $value)
+        {
+            $this->assertTrue(\Zimbra\Soap\Enum\RankingActionOp::has($value));
+        }
+    }
 }

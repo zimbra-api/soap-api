@@ -12,13 +12,17 @@ use Zimbra\Soap\Enum\ConvAction;
 use Zimbra\Soap\Enum\DocumentAction;
 use Zimbra\Soap\Enum\DocumentGrantType;
 use Zimbra\Soap\Enum\DocumentPermission;
+use Zimbra\Soap\Enum\FilterCondition;
 use Zimbra\Soap\Enum\FolderAction;
 use Zimbra\Soap\Enum\GalSearchType;
 use Zimbra\Soap\Enum\GranteeType;
+use Zimbra\Soap\Enum\Importance;
 use Zimbra\Soap\Enum\InterestType;
 use Zimbra\Soap\Enum\ItemAction;
 use Zimbra\Soap\Enum\MdsConnectionType;
+use Zimbra\Soap\Enum\MsgAction;
 use Zimbra\Soap\Enum\ParticipationStatus;
+use Zimbra\Soap\Enum\RankingActionOp;
 use Zimbra\Soap\Enum\SearchType;
 use Zimbra\Soap\Enum\TargetType;
 use Zimbra\Soap\Enum\Type;
@@ -6019,6 +6023,1318 @@ class MailRequestTest extends ZimbraTestCase
                 'gal' => array(),
                 'cal' => array(),
                 'unknown' => array(),
+            )
+        );
+        $this->assertEquals($array, $req->toArray());
+    }
+
+    public function testModifyFilterRules()
+    {
+        $addressBookTest = new \Zimbra\Soap\Struct\AddressBookTest(
+            1, 'header', true
+        );
+        $addressTest = new \Zimbra\Soap\Struct\AddressTest(
+            1, 'header', 'part', 'stringComparison', 'value', true, true
+        );
+        $attachmentTest = new \Zimbra\Soap\Struct\AttachmentTest(
+            1, true
+        );
+        $bodyTest = new \Zimbra\Soap\Struct\BodyTest(
+            1, 'value', true, true
+        );
+        $bulkTest = new \Zimbra\Soap\Struct\BulkTest(
+            1, true
+        );
+        $contactRankingTest = new \Zimbra\Soap\Struct\ContactRankingTest(
+            1, 'header', true
+        );
+        $conversationTest = new \Zimbra\Soap\Struct\ConversationTest(
+            1, 'where', true
+        );
+        $currentDayOfWeekTest = new \Zimbra\Soap\Struct\CurrentDayOfWeekTest(
+            1, 'value', true
+        );
+        $currentTimeTest = new \Zimbra\Soap\Struct\CurrentTimeTest(
+            1, 'dateComparison', 'time', true
+        );
+        $dateTest = new \Zimbra\Soap\Struct\DateTest(
+            1, 'dateComparison', 1, true
+        );
+        $facebookTest = new \Zimbra\Soap\Struct\FacebookTest(
+            1, true
+        );
+        $flaggedTest = new \Zimbra\Soap\Struct\FlaggedTest(
+            1, 'flagName', true
+        );
+        $headerExistsTest = new \Zimbra\Soap\Struct\HeaderExistsTest(
+            1, 'header', true
+        );
+        $headerTest = new \Zimbra\Soap\Struct\HeaderTest(
+            1, 'header', 'stringComparison', 'value', true, true
+        );
+        $importanceTest = new \Zimbra\Soap\Struct\ImportanceTest(
+            1, Importance::HIGH(), true
+        );
+        $inviteTest = new \Zimbra\Soap\Struct\InviteTest(
+            1, array('method'), true
+        );
+        $linkedinTest = new \Zimbra\Soap\Struct\LinkedInTest(
+            1, true
+        );
+        $listTest = new \Zimbra\Soap\Struct\ListTest(
+            1, true
+        );
+        $meTest = new \Zimbra\Soap\Struct\MeTest(
+            1, 'header', true
+        );
+        $mimeHeaderTest = new \Zimbra\Soap\Struct\MimeHeaderTest(
+            1, 'header', 'stringComparison', 'value', true, true
+        );
+        $sizeTest = new \Zimbra\Soap\Struct\SizeTest(
+            1, 'numberComparison', 's', true
+        );
+        $socialcastTest = new \Zimbra\Soap\Struct\SocialcastTest(
+            1, true
+        );
+        $trueTest = new \Zimbra\Soap\Struct\TrueTest(
+            1, true
+        );
+        $twitterTest = new \Zimbra\Soap\Struct\TwitterTest(
+            1, true
+        );
+        $filterTests = new \Zimbra\Soap\Struct\FilterTests(
+            FilterCondition::ALL_OF(),
+            $addressBookTest,
+            $addressTest,
+            $attachmentTest,
+            $bodyTest,
+            $bulkTest,
+            $contactRankingTest,
+            $conversationTest,
+            $currentDayOfWeekTest,
+            $currentTimeTest,
+            $dateTest,
+            $facebookTest,
+            $flaggedTest,
+            $headerExistsTest,
+            $headerTest,
+            $importanceTest,
+            $inviteTest,
+            $linkedinTest,
+            $listTest,
+            $meTest,
+            $mimeHeaderTest,
+            $sizeTest,
+            $socialcastTest,
+            $trueTest,
+            $twitterTest
+        );
+        $actionKeep = new \Zimbra\Soap\Struct\KeepAction(
+            1
+        );
+        $actionDiscard = new \Zimbra\Soap\Struct\DiscardAction(
+            1
+        );
+        $actionFileInto = new \Zimbra\Soap\Struct\FileIntoAction(
+            1, 'folderPath'
+        );
+        $actionFlag = new \Zimbra\Soap\Struct\FlagAction(
+            1, 'flagName'
+        );
+        $actionTag = new \Zimbra\Soap\Struct\TagAction(
+            1, 'tagName'
+        );
+        $actionRedirect = new \Zimbra\Soap\Struct\RedirectAction(
+            1, 'a'
+        );
+        $actionReply = new \Zimbra\Soap\Struct\ReplyAction(
+            1, 'content'
+        );
+        $actionNotify = new \Zimbra\Soap\Struct\NotifyAction(
+            1, 'content', 'a', 'su', 1, 'origHeaders'
+        );
+        $actionStop = new \Zimbra\Soap\Struct\StopAction(
+            1
+        );
+        $filterActions = new \Zimbra\Soap\Struct\FilterActions(
+            $actionKeep,
+            $actionDiscard,
+            $actionFileInto,
+            $actionFlag,
+            $actionTag,
+            $actionRedirect,
+            $actionReply,
+            $actionNotify,
+            $actionStop
+        );
+        $filterRule = new \Zimbra\Soap\Struct\FilterRule(
+            'name', true, $filterTests, $filterActions
+        );
+        $filterRules = new \Zimbra\Soap\Struct\FilterRules(
+            array($filterRule)
+        );
+
+        $req = new \Zimbra\API\Mail\Request\ModifyFilterRules(
+            $filterRules
+        );
+        $this->assertSame($filterRules, $req->filterRules());
+
+        $req->filterRules($filterRules);
+        $this->assertSame($filterRules, $req->filterRules());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<ModifyFilterRulesRequest>'
+                .'<filterRules>'
+                    .'<filterRule name="name" active="1">'
+                        .'<filterTests condition="allof">'
+                            .'<addressBookTest index="1" negative="1" header="header" />'
+                            .'<addressTest index="1" negative="1" header="header" part="part" stringComparison="stringComparison" value="value" caseSensitive="1" />'
+                            .'<attachmentTest index="1" negative="1" />'
+                            .'<bodyTest index="1" negative="1" value="value" caseSensitive="1" />'
+                            .'<bulkTest index="1" negative="1" />'
+                            .'<contactRankingTest index="1" negative="1" header="header" />'
+                            .'<conversationTest index="1" negative="1" where="where" />'
+                            .'<currentDayOfWeekTest index="1" negative="1" value="value" />'
+                            .'<currentTimeTest index="1" negative="1" dateComparison="dateComparison" time="time" />'
+                            .'<dateTest index="1" negative="1" dateComparison="dateComparison" d="1" />'
+                            .'<facebookTest index="1" negative="1" />'
+                            .'<flaggedTest index="1" negative="1" flagName="flagName" />'
+                            .'<headerExistsTest index="1" negative="1" header="header" />'
+                            .'<headerTest index="1" negative="1" header="header" stringComparison="stringComparison" value="value" caseSensitive="1" />'
+                            .'<importanceTest index="1" negative="1" imp="high" />'
+                            .'<inviteTest index="1" negative="1">'
+                                .'<method>method</method>'
+                            .'</inviteTest>'
+                            .'<linkedinTest index="1" negative="1" />'
+                            .'<listTest index="1" negative="1" />'
+                            .'<meTest index="1" negative="1" header="header" />'
+                            .'<mimeHeaderTest index="1" negative="1" header="header" stringComparison="stringComparison" value="value" caseSensitive="1" />'
+                            .'<sizeTest index="1" negative="1" numberComparison="numberComparison" s="s" />'
+                            .'<socialcastTest index="1" negative="1" />'
+                            .'<trueTest index="1" negative="1" />'
+                            .'<twitterTest index="1" negative="1" />'
+                        .'</filterTests>'
+                        .'<filterActions>'
+                            .'<actionKeep index="1" />'
+                            .'<actionDiscard index="1" />'
+                            .'<actionFileInto index="1" folderPath="folderPath" />'
+                            .'<actionFlag index="1" flagName="flagName" />'
+                            .'<actionTag index="1" tagName="tagName" />'
+                            .'<actionRedirect index="1" a="a" />'
+                            .'<actionReply index="1">'
+                                .'<content>content</content>'
+                            .'</actionReply>'
+                            .'<actionNotify index="1" a="a" su="su" maxBodySize="1" origHeaders="origHeaders">'
+                                .'<content>content</content>'
+                            .'</actionNotify>'
+                            .'<actionStop index="1" />'
+                        .'</filterActions>'
+                    .'</filterRule>'
+                .'</filterRules>'
+            .'</ModifyFilterRulesRequest>';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
+
+        $array = array(
+            'ModifyFilterRulesRequest' => array(
+                'filterRules' => array(
+                    'filterRule' => array(
+                        array(
+                            'name' => 'name',
+                            'active' => 1,
+                            'filterTests' => array(
+                                'condition' => 'allof',
+                                'addressBookTest' => array(
+                                    'index' => 1,
+                                    'negative' => 1,
+                                    'header' => 'header',
+                                ),
+                                'addressTest' => array(
+                                    'index' => 1,
+                                    'negative' => 1,
+                                    'header' => 'header',
+                                    'part' => 'part',
+                                    'stringComparison' => 'stringComparison',
+                                    'value' => 'value',
+                                    'caseSensitive' => 1,
+                                ),
+                                'attachmentTest' => array(
+                                    'index' => 1,
+                                    'negative' => 1,
+                                ),
+                                'bodyTest' => array(
+                                    'index' => 1,
+                                    'negative' => 1,
+                                    'value' => 'value',
+                                    'caseSensitive' => 1,
+                                ),
+                                'bulkTest' => array(
+                                    'index' => 1,
+                                    'negative' => 1,
+                                ),
+                                'contactRankingTest' => array(
+                                    'index' => 1,
+                                    'negative' => 1,
+                                    'header' => 'header',
+                                ),
+                                'conversationTest' => array(
+                                    'index' => 1,
+                                    'negative' => 1,
+                                    'where' => 'where',
+                                ),
+                                'currentDayOfWeekTest' => array(
+                                    'index' => 1,
+                                    'negative' => 1,
+                                    'value' => 'value',
+                                ),
+                                'currentTimeTest' => array(
+                                    'index' => 1,
+                                    'negative' => 1,
+                                    'dateComparison' => 'dateComparison',
+                                    'time' => 'time',
+                                ),
+                                'dateTest' => array(
+                                    'index' => 1,
+                                    'negative' => 1,
+                                    'dateComparison' => 'dateComparison',
+                                    'd' => 1,
+                                ),
+                                'facebookTest' => array(
+                                    'index' => 1,
+                                    'negative' => 1,
+                                ),
+                                'flaggedTest' => array(
+                                    'index' => 1,
+                                    'negative' => 1,
+                                    'flagName' => 'flagName',
+                                ),
+                                'headerExistsTest' => array(
+                                    'index' => 1,
+                                    'negative' => 1,
+                                    'header' => 'header',
+                                ),
+                                'headerTest' => array(
+                                    'index' => 1,
+                                    'negative' => 1,
+                                    'header' => 'header',
+                                    'stringComparison' => 'stringComparison',
+                                    'value' => 'value',
+                                    'caseSensitive' => 1,
+                                ),
+                                'importanceTest' => array(
+                                    'index' => 1,
+                                    'negative' => 1,
+                                    'imp' => 'high',
+                                ),
+                                'inviteTest' => array(
+                                    'index' => 1,
+                                    'negative' => 1,
+                                    'method' => array(
+                                        'method',
+                                    ),
+                                ),
+                                'linkedinTest' => array(
+                                    'index' => 1,
+                                    'negative' => 1,
+                                ),
+                                'listTest' => array(
+                                    'index' => 1,
+                                    'negative' => 1,
+                                ),
+                                'meTest' => array(
+                                    'index' => 1,
+                                    'negative' => 1,
+                                    'header' => 'header',
+                                ),
+                                'mimeHeaderTest' => array(
+                                    'index' => 1,
+                                    'negative' => 1,
+                                    'header' => 'header',
+                                    'stringComparison' => 'stringComparison',
+                                    'value' => 'value',
+                                    'caseSensitive' => 1,
+                                ),
+                                'sizeTest' => array(
+                                    'index' => 1,
+                                    'negative' => 1,
+                                    'numberComparison' => 'numberComparison',
+                                    's' => 's',
+                                ),
+                                'socialcastTest' => array(
+                                    'index' => 1,
+                                    'negative' => 1,
+                                ),
+                                'trueTest' => array(
+                                    'index' => 1,
+                                    'negative' => 1,
+                                ),
+                                'twitterTest' => array(
+                                    'index' => 1,
+                                    'negative' => 1,
+                                ),
+                            ),
+                            'filterActions' => array(
+                                'actionKeep' => array(
+                                    'index' => 1,
+                                ),
+                                'actionDiscard' => array(
+                                    'index' => 1,
+                                ),
+                                'actionFileInto' => array(
+                                    'index' => 1,
+                                    'folderPath' => 'folderPath',
+                                ),
+                                'actionFlag' => array(
+                                    'index' => 1,
+                                    'flagName' => 'flagName',
+                                ),
+                                'actionTag' => array(
+                                    'index' => 1,
+                                    'tagName' => 'tagName',
+                                ),
+                                'actionRedirect' => array(
+                                    'index' => 1,
+                                    'a' => 'a',
+                                ),
+                                'actionReply' => array(
+                                    'index' => 1,
+                                    'content' => 'content',
+                                ),
+                                'actionNotify' => array(
+                                    'index' => 1,
+                                    'content' => 'content',
+                                    'a' => 'a',
+                                    'su' => 'su',
+                                    'maxBodySize' => 1,
+                                    'origHeaders' => 'origHeaders',
+                                ),
+                                'actionStop' => array(
+                                    'index' => 1,
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+            )
+        );
+        $this->assertEquals($array, $req->toArray());
+    }
+
+    public function testModifyMailboxMetadataRequest()
+    {
+        $a = new \Zimbra\Soap\Struct\KeyValuePair('key', 'value');
+        $meta = new \Zimbra\Soap\Struct\MailCustomMetadata('section', array($a));
+        $req = new \Zimbra\API\Mail\Request\ModifyMailboxMetadata(
+            $meta
+        );
+        $this->assertSame($meta, $req->meta());
+
+        $req->meta($meta);
+        $this->assertSame($meta, $req->meta());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<ModifyMailboxMetadataRequest>'
+                .'<meta section="section">'
+                    .'<a n="key">value</a>'
+                .'</meta>'
+            .'</ModifyMailboxMetadataRequest>';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
+
+        $array = array(
+            'ModifyMailboxMetadataRequest' => array(
+                'meta' => array(
+                    'a' => array(
+                        array('n' => 'key', '_' => 'value')
+                    ),
+                    'section' => 'section',
+                ),
+            )
+        );
+        $this->assertEquals($array, $req->toArray());
+    }
+
+    public function testModifyOutgoingFilterRules()
+    {
+        $addressBookTest = new \Zimbra\Soap\Struct\AddressBookTest(
+            1, 'header', true
+        );
+        $addressTest = new \Zimbra\Soap\Struct\AddressTest(
+            1, 'header', 'part', 'stringComparison', 'value', true, true
+        );
+        $attachmentTest = new \Zimbra\Soap\Struct\AttachmentTest(
+            1, true
+        );
+        $bodyTest = new \Zimbra\Soap\Struct\BodyTest(
+            1, 'value', true, true
+        );
+        $bulkTest = new \Zimbra\Soap\Struct\BulkTest(
+            1, true
+        );
+        $contactRankingTest = new \Zimbra\Soap\Struct\ContactRankingTest(
+            1, 'header', true
+        );
+        $conversationTest = new \Zimbra\Soap\Struct\ConversationTest(
+            1, 'where', true
+        );
+        $currentDayOfWeekTest = new \Zimbra\Soap\Struct\CurrentDayOfWeekTest(
+            1, 'value', true
+        );
+        $currentTimeTest = new \Zimbra\Soap\Struct\CurrentTimeTest(
+            1, 'dateComparison', 'time', true
+        );
+        $dateTest = new \Zimbra\Soap\Struct\DateTest(
+            1, 'dateComparison', 1, true
+        );
+        $facebookTest = new \Zimbra\Soap\Struct\FacebookTest(
+            1, true
+        );
+        $flaggedTest = new \Zimbra\Soap\Struct\FlaggedTest(
+            1, 'flagName', true
+        );
+        $headerExistsTest = new \Zimbra\Soap\Struct\HeaderExistsTest(
+            1, 'header', true
+        );
+        $headerTest = new \Zimbra\Soap\Struct\HeaderTest(
+            1, 'header', 'stringComparison', 'value', true, true
+        );
+        $importanceTest = new \Zimbra\Soap\Struct\ImportanceTest(
+            1, Importance::HIGH(), true
+        );
+        $inviteTest = new \Zimbra\Soap\Struct\InviteTest(
+            1, array('method'), true
+        );
+        $linkedinTest = new \Zimbra\Soap\Struct\LinkedInTest(
+            1, true
+        );
+        $listTest = new \Zimbra\Soap\Struct\ListTest(
+            1, true
+        );
+        $meTest = new \Zimbra\Soap\Struct\MeTest(
+            1, 'header', true
+        );
+        $mimeHeaderTest = new \Zimbra\Soap\Struct\MimeHeaderTest(
+            1, 'header', 'stringComparison', 'value', true, true
+        );
+        $sizeTest = new \Zimbra\Soap\Struct\SizeTest(
+            1, 'numberComparison', 's', true
+        );
+        $socialcastTest = new \Zimbra\Soap\Struct\SocialcastTest(
+            1, true
+        );
+        $trueTest = new \Zimbra\Soap\Struct\TrueTest(
+            1, true
+        );
+        $twitterTest = new \Zimbra\Soap\Struct\TwitterTest(
+            1, true
+        );
+        $filterTests = new \Zimbra\Soap\Struct\FilterTests(
+            FilterCondition::ALL_OF(),
+            $addressBookTest,
+            $addressTest,
+            $attachmentTest,
+            $bodyTest,
+            $bulkTest,
+            $contactRankingTest,
+            $conversationTest,
+            $currentDayOfWeekTest,
+            $currentTimeTest,
+            $dateTest,
+            $facebookTest,
+            $flaggedTest,
+            $headerExistsTest,
+            $headerTest,
+            $importanceTest,
+            $inviteTest,
+            $linkedinTest,
+            $listTest,
+            $meTest,
+            $mimeHeaderTest,
+            $sizeTest,
+            $socialcastTest,
+            $trueTest,
+            $twitterTest
+        );
+        $actionKeep = new \Zimbra\Soap\Struct\KeepAction(
+            1
+        );
+        $actionDiscard = new \Zimbra\Soap\Struct\DiscardAction(
+            1
+        );
+        $actionFileInto = new \Zimbra\Soap\Struct\FileIntoAction(
+            1, 'folderPath'
+        );
+        $actionFlag = new \Zimbra\Soap\Struct\FlagAction(
+            1, 'flagName'
+        );
+        $actionTag = new \Zimbra\Soap\Struct\TagAction(
+            1, 'tagName'
+        );
+        $actionRedirect = new \Zimbra\Soap\Struct\RedirectAction(
+            1, 'a'
+        );
+        $actionReply = new \Zimbra\Soap\Struct\ReplyAction(
+            1, 'content'
+        );
+        $actionNotify = new \Zimbra\Soap\Struct\NotifyAction(
+            1, 'content', 'a', 'su', 1, 'origHeaders'
+        );
+        $actionStop = new \Zimbra\Soap\Struct\StopAction(
+            1
+        );
+        $filterActions = new \Zimbra\Soap\Struct\FilterActions(
+            $actionKeep,
+            $actionDiscard,
+            $actionFileInto,
+            $actionFlag,
+            $actionTag,
+            $actionRedirect,
+            $actionReply,
+            $actionNotify,
+            $actionStop
+        );
+        $filterRule = new \Zimbra\Soap\Struct\FilterRule(
+            'name', true, $filterTests, $filterActions
+        );
+        $filterRules = new \Zimbra\Soap\Struct\FilterRules(
+            array($filterRule)
+        );
+
+        $req = new \Zimbra\API\Mail\Request\ModifyOutgoingFilterRules(
+            $filterRules
+        );
+        $this->assertSame($filterRules, $req->filterRules());
+
+        $req->filterRules($filterRules);
+        $this->assertSame($filterRules, $req->filterRules());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<ModifyOutgoingFilterRulesRequest>'
+                .'<filterRules>'
+                    .'<filterRule name="name" active="1">'
+                        .'<filterTests condition="allof">'
+                            .'<addressBookTest index="1" negative="1" header="header" />'
+                            .'<addressTest index="1" negative="1" header="header" part="part" stringComparison="stringComparison" value="value" caseSensitive="1" />'
+                            .'<attachmentTest index="1" negative="1" />'
+                            .'<bodyTest index="1" negative="1" value="value" caseSensitive="1" />'
+                            .'<bulkTest index="1" negative="1" />'
+                            .'<contactRankingTest index="1" negative="1" header="header" />'
+                            .'<conversationTest index="1" negative="1" where="where" />'
+                            .'<currentDayOfWeekTest index="1" negative="1" value="value" />'
+                            .'<currentTimeTest index="1" negative="1" dateComparison="dateComparison" time="time" />'
+                            .'<dateTest index="1" negative="1" dateComparison="dateComparison" d="1" />'
+                            .'<facebookTest index="1" negative="1" />'
+                            .'<flaggedTest index="1" negative="1" flagName="flagName" />'
+                            .'<headerExistsTest index="1" negative="1" header="header" />'
+                            .'<headerTest index="1" negative="1" header="header" stringComparison="stringComparison" value="value" caseSensitive="1" />'
+                            .'<importanceTest index="1" negative="1" imp="high" />'
+                            .'<inviteTest index="1" negative="1">'
+                                .'<method>method</method>'
+                            .'</inviteTest>'
+                            .'<linkedinTest index="1" negative="1" />'
+                            .'<listTest index="1" negative="1" />'
+                            .'<meTest index="1" negative="1" header="header" />'
+                            .'<mimeHeaderTest index="1" negative="1" header="header" stringComparison="stringComparison" value="value" caseSensitive="1" />'
+                            .'<sizeTest index="1" negative="1" numberComparison="numberComparison" s="s" />'
+                            .'<socialcastTest index="1" negative="1" />'
+                            .'<trueTest index="1" negative="1" />'
+                            .'<twitterTest index="1" negative="1" />'
+                        .'</filterTests>'
+                        .'<filterActions>'
+                            .'<actionKeep index="1" />'
+                            .'<actionDiscard index="1" />'
+                            .'<actionFileInto index="1" folderPath="folderPath" />'
+                            .'<actionFlag index="1" flagName="flagName" />'
+                            .'<actionTag index="1" tagName="tagName" />'
+                            .'<actionRedirect index="1" a="a" />'
+                            .'<actionReply index="1">'
+                                .'<content>content</content>'
+                            .'</actionReply>'
+                            .'<actionNotify index="1" a="a" su="su" maxBodySize="1" origHeaders="origHeaders">'
+                                .'<content>content</content>'
+                            .'</actionNotify>'
+                            .'<actionStop index="1" />'
+                        .'</filterActions>'
+                    .'</filterRule>'
+                .'</filterRules>'
+            .'</ModifyOutgoingFilterRulesRequest>';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
+
+        $array = array(
+            'ModifyOutgoingFilterRulesRequest' => array(
+                'filterRules' => array(
+                    'filterRule' => array(
+                        array(
+                            'name' => 'name',
+                            'active' => 1,
+                            'filterTests' => array(
+                                'condition' => 'allof',
+                                'addressBookTest' => array(
+                                    'index' => 1,
+                                    'negative' => 1,
+                                    'header' => 'header',
+                                ),
+                                'addressTest' => array(
+                                    'index' => 1,
+                                    'negative' => 1,
+                                    'header' => 'header',
+                                    'part' => 'part',
+                                    'stringComparison' => 'stringComparison',
+                                    'value' => 'value',
+                                    'caseSensitive' => 1,
+                                ),
+                                'attachmentTest' => array(
+                                    'index' => 1,
+                                    'negative' => 1,
+                                ),
+                                'bodyTest' => array(
+                                    'index' => 1,
+                                    'negative' => 1,
+                                    'value' => 'value',
+                                    'caseSensitive' => 1,
+                                ),
+                                'bulkTest' => array(
+                                    'index' => 1,
+                                    'negative' => 1,
+                                ),
+                                'contactRankingTest' => array(
+                                    'index' => 1,
+                                    'negative' => 1,
+                                    'header' => 'header',
+                                ),
+                                'conversationTest' => array(
+                                    'index' => 1,
+                                    'negative' => 1,
+                                    'where' => 'where',
+                                ),
+                                'currentDayOfWeekTest' => array(
+                                    'index' => 1,
+                                    'negative' => 1,
+                                    'value' => 'value',
+                                ),
+                                'currentTimeTest' => array(
+                                    'index' => 1,
+                                    'negative' => 1,
+                                    'dateComparison' => 'dateComparison',
+                                    'time' => 'time',
+                                ),
+                                'dateTest' => array(
+                                    'index' => 1,
+                                    'negative' => 1,
+                                    'dateComparison' => 'dateComparison',
+                                    'd' => 1,
+                                ),
+                                'facebookTest' => array(
+                                    'index' => 1,
+                                    'negative' => 1,
+                                ),
+                                'flaggedTest' => array(
+                                    'index' => 1,
+                                    'negative' => 1,
+                                    'flagName' => 'flagName',
+                                ),
+                                'headerExistsTest' => array(
+                                    'index' => 1,
+                                    'negative' => 1,
+                                    'header' => 'header',
+                                ),
+                                'headerTest' => array(
+                                    'index' => 1,
+                                    'negative' => 1,
+                                    'header' => 'header',
+                                    'stringComparison' => 'stringComparison',
+                                    'value' => 'value',
+                                    'caseSensitive' => 1,
+                                ),
+                                'importanceTest' => array(
+                                    'index' => 1,
+                                    'negative' => 1,
+                                    'imp' => 'high',
+                                ),
+                                'inviteTest' => array(
+                                    'index' => 1,
+                                    'negative' => 1,
+                                    'method' => array(
+                                        'method',
+                                    ),
+                                ),
+                                'linkedinTest' => array(
+                                    'index' => 1,
+                                    'negative' => 1,
+                                ),
+                                'listTest' => array(
+                                    'index' => 1,
+                                    'negative' => 1,
+                                ),
+                                'meTest' => array(
+                                    'index' => 1,
+                                    'negative' => 1,
+                                    'header' => 'header',
+                                ),
+                                'mimeHeaderTest' => array(
+                                    'index' => 1,
+                                    'negative' => 1,
+                                    'header' => 'header',
+                                    'stringComparison' => 'stringComparison',
+                                    'value' => 'value',
+                                    'caseSensitive' => 1,
+                                ),
+                                'sizeTest' => array(
+                                    'index' => 1,
+                                    'negative' => 1,
+                                    'numberComparison' => 'numberComparison',
+                                    's' => 's',
+                                ),
+                                'socialcastTest' => array(
+                                    'index' => 1,
+                                    'negative' => 1,
+                                ),
+                                'trueTest' => array(
+                                    'index' => 1,
+                                    'negative' => 1,
+                                ),
+                                'twitterTest' => array(
+                                    'index' => 1,
+                                    'negative' => 1,
+                                ),
+                            ),
+                            'filterActions' => array(
+                                'actionKeep' => array(
+                                    'index' => 1,
+                                ),
+                                'actionDiscard' => array(
+                                    'index' => 1,
+                                ),
+                                'actionFileInto' => array(
+                                    'index' => 1,
+                                    'folderPath' => 'folderPath',
+                                ),
+                                'actionFlag' => array(
+                                    'index' => 1,
+                                    'flagName' => 'flagName',
+                                ),
+                                'actionTag' => array(
+                                    'index' => 1,
+                                    'tagName' => 'tagName',
+                                ),
+                                'actionRedirect' => array(
+                                    'index' => 1,
+                                    'a' => 'a',
+                                ),
+                                'actionReply' => array(
+                                    'index' => 1,
+                                    'content' => 'content',
+                                ),
+                                'actionNotify' => array(
+                                    'index' => 1,
+                                    'content' => 'content',
+                                    'a' => 'a',
+                                    'su' => 'su',
+                                    'maxBodySize' => 1,
+                                    'origHeaders' => 'origHeaders',
+                                ),
+                                'actionStop' => array(
+                                    'index' => 1,
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+            )
+        );
+        $this->assertEquals($array, $req->toArray());
+    }
+
+    public function testModifySearchFolder()
+    {
+        $search = new \Zimbra\Soap\Struct\ModifySearchFolderSpec(
+            'id', 'query', 'types', 'sortBy'
+        );
+        $req = new \Zimbra\API\Mail\Request\ModifySearchFolder(
+            $search
+        );
+        $this->assertSame($search, $req->search());
+
+        $req->search($search);
+        $this->assertSame($search, $req->search());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<ModifySearchFolderRequest>'
+                .'<search id="id" query="query" types="types" sortBy="sortBy" />'
+            .'</ModifySearchFolderRequest>';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
+
+        $array = array(
+            'ModifySearchFolderRequest' => array(
+                'search' => array(
+                    'id' => 'id',
+                    'query' => 'query',
+                    'types' => 'types',
+                    'sortBy' => 'sortBy',
+                ),
+            )
+        );
+        $this->assertEquals($array, $req->toArray());
+    }
+
+    public function testModifyTask()
+    {
+        $mp = new \Zimbra\Soap\Struct\MimePartAttachSpec('mid', 'part', true);
+        $msg = new \Zimbra\Soap\Struct\MsgAttachSpec('id', false);
+        $cn = new \Zimbra\Soap\Struct\ContactAttachSpec('id', false);
+        $doc = new \Zimbra\Soap\Struct\DocAttachSpec('path', 'id', 1, true);
+        $info = new \Zimbra\Soap\Struct\MimePartInfo(array(), null, 'ct', 'content', 'ci');
+        $standard = new \Zimbra\Soap\Struct\TzOnsetInfo(1, 2, 3, 4);
+        $daylight = new \Zimbra\Soap\Struct\TzOnsetInfo(4, 3, 2, 1);
+
+        $header = new \Zimbra\Soap\Struct\Header('name', 'value');
+        $attach = new \Zimbra\Soap\Struct\AttachmentsInfo($mp, $msg, $cn, $doc, 'aid');
+        $mp = new \Zimbra\Soap\Struct\MimePartInfo(array($info), $attach, 'ct', 'content', 'ci');
+        $inv = new \Zimbra\Soap\Struct\InvitationInfo('method', 1, true);
+        $e = new \Zimbra\Soap\Struct\EmailAddrInfo('a', 't', 'p');
+        $tz = new \Zimbra\Soap\Struct\CalTZInfo('id', 1, 1, 'stdname', 'dayname', $standard, $daylight);
+
+        $m = new \Zimbra\Soap\Struct\Msg(
+            'aid',
+            'origid',
+            'rt',
+            'idnt',
+            'su',
+            'irt',
+            'l',
+            'f',
+            'content',
+            array($header),
+            $mp,
+            $attach,
+            $inv,
+            array($e),
+            array($tz),
+            'fr'
+        );
+
+        $req = new \Zimbra\API\Mail\Request\ModifyTask(
+            $m, 'id', 1, 1, 1, true, 1, true, true, true
+        );
+        $this->assertInstanceOf('Zimbra\API\Mail\Request\ModifyAppointment', $req);
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<ModifyTaskRequest id="id" comp="1" ms="1" rev="1" echo="1" max="1" html="1" neuter="1" forcesend="1">'
+                .'<m aid="aid" origid="origid" rt="rt" idnt="idnt" su="su" irt="irt" l="l" f="f">'
+                    .'<content>content</content>'
+                    .'<header name="name">value</header>'
+                    .'<mp ct="ct" content="content" ci="ci">'
+                        .'<mp ct="ct" content="content" ci="ci" />'
+                        .'<attach aid="aid">'
+                            .'<mp mid="mid" part="part" optional="1" />'
+                            .'<m id="id" optional="0" />'
+                            .'<cn id="id" optional="0" />'
+                            .'<doc path="path" id="id" ver="1" optional="1" />'
+                        .'</attach>'
+                    .'</mp>'
+                    .'<attach aid="aid">'
+                        .'<mp mid="mid" part="part" optional="1" />'
+                        .'<m id="id" optional="0" />'
+                        .'<cn id="id" optional="0" />'
+                        .'<doc path="path" id="id" ver="1" optional="1" />'
+                    .'</attach>'
+                    .'<inv method="method" compNum="1" rsvp="1" />'
+                    .'<e a="a" t="t" p="p" />'
+                    .'<tz id="id" stdoff="1" dayoff="1" stdname="stdname" dayname="dayname">'
+                        .'<standard mon="1" hour="2" min="3" sec="4" />'
+                        .'<daylight mon="4" hour="3" min="2" sec="1" />'
+                    .'</tz>'
+                    .'<fr>fr</fr>'
+                .'</m>'
+            .'</ModifyTaskRequest>';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
+
+        $array = array(
+            'ModifyTaskRequest' => array(
+                'id' => 'id',
+                'comp' => 1,
+                'ms' => 1,
+                'rev' => 1,
+                'echo' => 1,
+                'max' => 1,
+                'html' => 1,
+                'neuter' => 1,
+                'forcesend' => 1,
+                'm' => array(
+                    'aid' => 'aid',
+                    'origid' => 'origid',
+                    'rt' => 'rt',
+                    'idnt' => 'idnt',
+                    'su' => 'su',
+                    'irt' => 'irt',
+                    'l' => 'l',
+                    'f' => 'f',
+                    'content' => 'content',
+                    'header' => array(
+                        array(
+                            'name' => 'name',
+                            '_' => 'value',
+                        ),
+                    ),
+                    'mp' => array(
+                        'ct' => 'ct',
+                        'content' => 'content',
+                        'ci' => 'ci',
+                        'mp' => array(
+                            array(
+                                'ct' => 'ct',
+                                'content' => 'content',
+                                'ci' => 'ci',
+                            ),
+                        ),
+                        'attach' => array(
+                            'aid' => 'aid',
+                            'mp' => array(
+                                'mid' => 'mid',
+                                'part' => 'part',
+                                'optional' => 1,
+                            ),
+                            'm' => array(
+                                'id' => 'id',
+                                'optional' => 0,
+                            ),
+                            'cn' => array(
+                                'id' => 'id',
+                                'optional' => 0,
+                            ),
+                            'doc' => array(
+                                'path' => 'path',
+                                'id' => 'id',
+                                'ver' => 1,
+                                'optional' => 1,
+                            ),
+                        ),
+                    ),
+                    'attach' => array(
+                        'aid' => 'aid',
+                        'mp' => array(
+                            'mid' => 'mid',
+                            'part' => 'part',
+                            'optional' => 1,
+                        ),
+                        'm' => array(
+                            'id' => 'id',
+                            'optional' => 0,
+                        ),
+                        'cn' => array(
+                            'id' => 'id',
+                            'optional' => 0,
+                        ),
+                        'doc' => array(
+                            'path' => 'path',
+                            'id' => 'id',
+                            'ver' => 1,
+                            'optional' => 1,
+                        ),
+                    ),
+                    'inv' => array(
+                        'method' => 'method',
+                        'compNum' => 1,
+                        'rsvp' => 1,
+                    ),
+                    'e' => array(
+                        array(
+                            'a' => 'a',
+                            't' => 't',
+                            'p' => 'p',
+                        ),
+                    ),
+                    'tz' => array(
+                        array(
+                            'id' => 'id',
+                            'stdoff' => 1,
+                            'dayoff' => 1,
+                            'stdname' => 'stdname',
+                            'dayname' => 'dayname',
+                            'standard' => array(
+                                'mon' => 1,
+                                'hour' => 2,
+                                'min' => 3,
+                                'sec' => 4,
+                            ),
+                            'daylight' => array(
+                                'mon' => 4,
+                                'hour' => 3,
+                                'min' => 2,
+                                'sec' => 1,
+                            ),
+                        ),
+                    ),
+                    'fr' => 'fr',
+                ),
+            ),
+        );
+        $this->assertEquals($array, $req->toArray());
+    }
+
+    public function testMsgAction()
+    {
+        $action = new \Zimbra\Soap\Struct\MsgActionSelector(
+            MsgAction::MOVE(), 'id', 'tcon', 1, 'l', '#aabbcc', 1, 'name', 'f', 't', 'tn'
+        );
+        $req = new \Zimbra\API\Mail\Request\MsgAction(
+            $action
+        );
+        $this->assertSame($action, $req->action());
+
+        $req->action($action);
+        $this->assertSame($action, $req->action());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<MsgActionRequest>'
+                .'<action op="move" id="id" tcon="tcon" tag="1" l="l" rgb="#aabbcc" color="1" name="name" f="f" t="t" tn="tn" />'
+            .'</MsgActionRequest>';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
+
+        $array = array(
+            'MsgActionRequest' => array(
+                'action' => array(
+                    'op' => 'move',
+                    'id' => 'id',
+                    'tcon' => 'tcon',
+                    'tag' => 1,
+                    'l' => 'l',
+                    'rgb' => '#aabbcc',
+                    'color' => 1,
+                    'name' => 'name',
+                    'f' => 'f',
+                    't' => 't',
+                    'tn' => 'tn',
+                ),
+            )
+        );
+        $this->assertEquals($array, $req->toArray());
+    }
+
+    public function testNoOp()
+    {
+        $req = new \Zimbra\API\Mail\Request\NoOp(
+            true, true, true, 1
+        );
+        $this->assertTrue($req->wait());
+        $this->assertTrue($req->delegate());
+        $this->assertTrue($req->limitToOneBlocked());
+        $this->assertSame(1, $req->timeout());
+
+        $req->wait(true)
+            ->delegate(true)
+            ->limitToOneBlocked(true)
+            ->timeout(1);
+        $this->assertTrue($req->wait());
+        $this->assertTrue($req->delegate());
+        $this->assertTrue($req->limitToOneBlocked());
+        $this->assertSame(1, $req->timeout());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<NoOpRequest wait="1" delegate="1" limitToOneBlocked="1" timeout="1" />';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
+
+        $array = array(
+            'NoOpRequest' => array(
+                'wait' => 1,
+                'delegate' => 1,
+                'limitToOneBlocked' => 1,
+                'timeout' => 1,
+            )
+        );
+        $this->assertEquals($array, $req->toArray());
+    }
+
+    public function testNoteAction()
+    {
+        $action = new \Zimbra\Soap\Struct\NoteActionSelector(
+            ItemAction::MOVE(), 'id', 'tcon', 1, 'l', '#aabbcc', 1, 'name', 'f', 't', 'tn', 'content', 'pos'
+        );
+        $req = new \Zimbra\API\Mail\Request\NoteAction(
+            $action
+        );
+        $this->assertSame($action, $req->action());
+
+        $req->action($action);
+        $this->assertSame($action, $req->action());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<NoteActionRequest>'
+                .'<action op="move" id="id" tcon="tcon" tag="1" l="l" rgb="#aabbcc" color="1" name="name" f="f" t="t" tn="tn" content="content" pos="pos" />'
+            .'</NoteActionRequest>';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
+
+        $array = array(
+            'NoteActionRequest' => array(
+                'action' => array(
+                    'op' => 'move',
+                    'id' => 'id',
+                    'tcon' => 'tcon',
+                    'tag' => 1,
+                    'l' => 'l',
+                    'rgb' => '#aabbcc',
+                    'color' => 1,
+                    'name' => 'name',
+                    'f' => 'f',
+                    't' => 't',
+                    'tn' => 'tn',
+                    'content' => 'content',
+                    'pos' => 'pos',
+                )
+            )
+        );
+        $this->assertEquals($array, $req->toArray());
+    }
+
+    public function testPurgeRevision()
+    {
+        $revision = new \Zimbra\Soap\Struct\PurgeRevisionSpec(
+            'id', 1, true
+        );
+        $req = new \Zimbra\API\Mail\Request\PurgeRevision(
+            $revision
+        );
+        $this->assertSame($revision, $req->revision());
+
+        $req->revision($revision);
+        $this->assertSame($revision, $req->revision());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<PurgeRevisionRequest>'
+                .'<revision id="id" ver="1" includeOlderRevisions="1" />'
+            .'</PurgeRevisionRequest>';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
+
+        $array = array(
+            'PurgeRevisionRequest' => array(
+                'revision' => array(
+                    'id' => 'id',
+                    'ver' => 1,
+                    'includeOlderRevisions' => 1,
+                )
+            )
+        );
+        $this->assertEquals($array, $req->toArray());
+    }
+
+    public function testRankingAction()
+    {
+        $action = new \Zimbra\Soap\Struct\RankingActionSpec(
+            RankingActionOp::RESET(), 'email'
+        );
+        $req = new \Zimbra\API\Mail\Request\RankingAction(
+            $action
+        );
+        $this->assertSame($action, $req->action());
+
+        $req->action($action);
+        $this->assertSame($action, $req->action());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<RankingActionRequest>'
+                .'<action op="reset" email="email" />'
+            .'</RankingActionRequest>';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
+
+        $array = array(
+            'RankingActionRequest' => array(
+                'action' => array(
+                    'op' => 'reset',
+                    'email' => 'email',
+                )
+            )
+        );
+        $this->assertEquals($array, $req->toArray());
+    }
+
+    public function testRegisterDevice()
+    {
+        $device = new \Zimbra\Soap\Struct\NamedElement('name');
+        $req = new \Zimbra\API\Mail\Request\RegisterDevice(
+            $device
+        );
+        $this->assertSame($device, $req->device());
+
+        $req->device($device);
+        $this->assertSame($device, $req->device());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<RegisterDeviceRequest>'
+                .'<device name="name" />'
+            .'</RegisterDeviceRequest>';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
+
+        $array = array(
+            'RegisterDeviceRequest' => array(
+                'device' => array(
+                    'name' => 'name',
+                )
+            )
+        );
+        $this->assertEquals($array, $req->toArray());
+    }
+
+    public function testRemoveAttachments()
+    {
+        $m = new \Zimbra\Soap\Struct\MsgPartIds(
+            'id', 'part'
+        );
+        $req = new \Zimbra\API\Mail\Request\RemoveAttachments(
+            $m
+        );
+        $this->assertSame($m, $req->m());
+
+        $req->m($m);
+        $this->assertSame($m, $req->m());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<RemoveAttachmentsRequest>'
+                .'<m id="id" part="part" />'
+            .'</RemoveAttachmentsRequest>';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
+
+        $array = array(
+            'RemoveAttachmentsRequest' => array(
+                'm' => array(
+                    'id' => 'id',
+                    'part' => 'part',
+                )
+            )
+        );
+        $this->assertEquals($array, $req->toArray());
+    }
+
+    public function testRevokePermission()
+    {
+        $ace = new \Zimbra\Soap\Struct\AccountACEInfo(
+            GranteeType::USR(), AceRightType::INVITE(), 'zid', 'd', 'key', 'pw', false, true
+        );
+        $req = new \Zimbra\API\Mail\Request\RevokePermission(
+            array($ace)
+        );
+        $this->assertSame(array($ace), $req->ace()->all());
+        $req->addAce($ace);
+        $this->assertSame(array($ace, $ace), $req->ace()->all());
+
+        $req->ace()->remove(1);
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<RevokePermissionRequest>'
+                .'<ace gt="usr" right="invite" zid="zid" d="d" key="key" pw="pw" deny="0" chkgt="1" />'
+            .'</RevokePermissionRequest>';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
+
+        $array = array(
+            'RevokePermissionRequest' => array(
+                'ace' => array(
+                    array(
+                        'gt' => 'usr',
+                        'right' => 'invite',
+                        'zid' => 'zid',
+                        'd' => 'd',
+                        'key' => 'key',
+                        'pw' => 'pw',
+                        'deny' => 0,
+                        'chkgt' => 1,
+                    ),
+                ),
             )
         );
         $this->assertEquals($array, $req->toArray());
