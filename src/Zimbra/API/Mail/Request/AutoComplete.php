@@ -37,7 +37,7 @@ class AutoComplete extends Request
 
     /**
      * Set if the "exp" flag is needed in the response for group entries. Default is unset.
-     * @var boolean
+     * @var bool
      */
     private $_needExp;
 
@@ -49,7 +49,7 @@ class AutoComplete extends Request
 
     /**
      * Flag whether to include Global Address Book (GAL)
-     * @var boolean
+     * @var bool
      */
     private $_includeGal;
 
@@ -62,7 +62,13 @@ class AutoComplete extends Request
      * @param  bool   $includeGal
      * @return self
      */
-    public function __construct($name, GalSearchType $t = null, $needExp = null, $folders = null, $includeGal = null)
+    public function __construct(
+        $name,
+        GalSearchType $t = null,
+        $needExp = null,
+        $folders = null,
+        $includeGal = null
+    )
     {
         parent::__construct();
         $this->_name = trim($name);

@@ -61,13 +61,13 @@ class AccountACEInfo
 
     /**
      * "1" if a right is specifically denied or "0" (default)
-     * @var boolean
+     * @var bool
      */
     private $_deny;
 
     /**
      * "1 (true)" if check grantee type or "0 (false)" (default)
-     * @var boolean
+     * @var bool
      */
     private $_chkgt;
 

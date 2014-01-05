@@ -10,9 +10,9 @@
 
 namespace Zimbra\Soap\Struct;
 
+use Zimbra\Soap\Enum\AlarmAction;
 use Zimbra\Utils\SimpleXML;
 use Zimbra\Utils\TypedSequence;
-use Zimbra\Soap\Enum\AlarmAction;
 
 /**
  * AlarmInfo struct class
