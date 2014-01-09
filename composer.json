@@ -12,12 +12,12 @@
         }
     ],
     "require": {
-        "guzzle/guzzle": "~3.7",
+        "guzzle/http": "~3.8",
         "phpcollection/phpcollection": "0.*",
         "ext-soap": "*"
     },
     "require-dev": {
-        "zendframework/zend-soap": "2.3.*",
+        "zendframework/zend-soap": "2.2.*",
         "react/http": "0.3.*"
     },
     "autoload": {
