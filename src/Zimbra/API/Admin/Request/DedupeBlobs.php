@@ -46,7 +46,7 @@ class DedupeBlobs extends Request
     public function __construct(DedupAction $action, array $volumes = array())
     {
         parent::__construct();
-		$this->_action = $action;
+        $this->_action = $action;
         $this->volumes($volumes);
     }
 
@@ -62,7 +62,7 @@ class DedupeBlobs extends Request
         {
             return $this->_action;
         }
-		$this->_action = $action;
+        $this->_action = $action;
         return $this;
     }
 

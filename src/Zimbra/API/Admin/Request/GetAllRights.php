@@ -55,7 +55,7 @@ class GetAllRights extends Request
     public function __construct($targetType = null, $expandAllAttrs = null, RightClass $rightClass = null)
     {
         parent::__construct();
-		$this->_targetType = trim($targetType);
+        $this->_targetType = trim($targetType);
         if(null !== $expandAllAttrs)
         {
             $this->_expandAllAttrs = (bool) $expandAllAttrs;
@@ -110,7 +110,7 @@ class GetAllRights extends Request
         {
             return $this->_rightClass;
         }
-		$this->_rightClass = $rightClass;
+        $this->_rightClass = $rightClass;
         return $this;
     }
 

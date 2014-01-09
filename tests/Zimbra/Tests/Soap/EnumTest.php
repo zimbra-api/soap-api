@@ -788,7 +788,7 @@ class EnumTest extends ZimbraTestCase
         }
     }
 
-    public function testContactAction()
+    public function testContactActionOp()
     {
         $values = array(
             'move',
@@ -800,11 +800,11 @@ class EnumTest extends ZimbraTestCase
         );
         foreach ($values as $value)
         {
-            $this->assertTrue(\Zimbra\Soap\Enum\ContactAction::has($value));
+            $this->assertTrue(\Zimbra\Soap\Enum\ContactActionOp::has($value));
         }
     }
 
-    public function testItemAction()
+    public function testItemActionOp()
     {
         $values = array(
             'delete',
@@ -825,7 +825,7 @@ class EnumTest extends ZimbraTestCase
         
         foreach ($values as $value)
         {
-            $this->assertTrue(\Zimbra\Soap\Enum\ItemAction::has($value));
+            $this->assertTrue(\Zimbra\Soap\Enum\ItemActionOp::has($value));
         }
     }
 
@@ -843,11 +843,11 @@ class EnumTest extends ZimbraTestCase
         );
         foreach ($values as $value)
         {
-            $this->assertTrue(\Zimbra\Soap\Enum\MsgAction::has($value));
+            $this->assertTrue(\Zimbra\Soap\Enum\MsgActionOp::has($value));
         }
     }
 
-    public function testConvAction()
+    public function testConvActionOp()
     {
         $values = array(
             'delete',
@@ -861,11 +861,11 @@ class EnumTest extends ZimbraTestCase
         );
         foreach ($values as $value)
         {
-            $this->assertTrue(\Zimbra\Soap\Enum\ConvAction::has($value));
+            $this->assertTrue(\Zimbra\Soap\Enum\ConvActionOp::has($value));
         }
     }
 
-    public function testFolderAction()
+    public function testFolderActionOp()
     {
         $values = array(
             'read',
@@ -893,11 +893,11 @@ class EnumTest extends ZimbraTestCase
         );
         foreach ($values as $value)
         {
-            $this->assertTrue(\Zimbra\Soap\Enum\FolderAction::has($value));
+            $this->assertTrue(\Zimbra\Soap\Enum\FolderActionOp::has($value));
         }
     }
 
-    public function testTagAction()
+    public function testTagActionOp()
     {
         $values = array(
             'read',
@@ -909,11 +909,11 @@ class EnumTest extends ZimbraTestCase
         );
         foreach ($values as $value)
         {
-            $this->assertTrue(\Zimbra\Soap\Enum\TagAction::has($value));
+            $this->assertTrue(\Zimbra\Soap\Enum\TagActionOp::has($value));
         }
     }
 
-    public function testDistributionListAction()
+    public function testDistributionListActionOp()
     {
         $values = array(
             'delete',
@@ -932,7 +932,7 @@ class EnumTest extends ZimbraTestCase
         );
         foreach ($values as $value)
         {
-            $this->assertTrue(\Zimbra\Soap\Enum\DistributionListAction::has($value));
+            $this->assertTrue(\Zimbra\Soap\Enum\DistributionListActionOp::has($value));
         }
     }
 
@@ -992,7 +992,7 @@ class EnumTest extends ZimbraTestCase
         }
     }
 
-    public function testDocumentAction()
+    public function testDocumentActionOp()
     {
         $values = array(
             'watch',
@@ -1002,7 +1002,7 @@ class EnumTest extends ZimbraTestCase
         );
         foreach ($values as $value)
         {
-            $this->assertTrue(\Zimbra\Soap\Enum\DocumentAction::has($value));
+            $this->assertTrue(\Zimbra\Soap\Enum\DocumentActionOp::has($value));
         }
     }
 

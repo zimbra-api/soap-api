@@ -87,7 +87,7 @@ class GetQuotaUsage extends Request
         $refresh = null)
     {
         parent::__construct();
-		$this->_domain = trim($domain);
+        $this->_domain = trim($domain);
         if(null !== $allServers)
         {
             $this->_allServers = (bool) $allServers;

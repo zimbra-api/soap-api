@@ -47,7 +47,7 @@ class GetXMPPComponent extends Request
     {
         parent::__construct();
         $this->_xmpp = $xmpp;
-		$this->_attrs = trim($attrs);
+        $this->_attrs = trim($attrs);
     }
 
     /**

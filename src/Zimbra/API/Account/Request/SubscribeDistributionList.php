@@ -45,7 +45,7 @@ class SubscribeDistributionList extends Request
     public function __construct(SubscribeOp $op, DistList $dl)
     {
         parent::__construct();
-		$this->_op = $op;
+        $this->_op = $op;
         $this->_dl = $dl;
     }
 
@@ -61,7 +61,7 @@ class SubscribeDistributionList extends Request
         {
             return $this->_op;
         }
-		$this->_op = $op;
+        $this->_op = $op;
         return $this;
     }
 

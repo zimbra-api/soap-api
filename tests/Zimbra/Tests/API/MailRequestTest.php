@@ -6,24 +6,26 @@ use Zimbra\Tests\ZimbraTestCase;
 
 use Zimbra\Soap\Enum\AccountBy;
 use Zimbra\Soap\Enum\AceRightType;
+use Zimbra\Soap\Enum\Action;
 use Zimbra\Soap\Enum\BrowseBy;
-use Zimbra\Soap\Enum\ContactAction;
-use Zimbra\Soap\Enum\ConvAction;
-use Zimbra\Soap\Enum\DocumentAction;
+use Zimbra\Soap\Enum\ContactActionOp;
+use Zimbra\Soap\Enum\ConvActionOp;
+use Zimbra\Soap\Enum\DocumentActionOp;
 use Zimbra\Soap\Enum\DocumentGrantType;
 use Zimbra\Soap\Enum\DocumentPermission;
 use Zimbra\Soap\Enum\FilterCondition;
-use Zimbra\Soap\Enum\FolderAction;
+use Zimbra\Soap\Enum\FolderActionOp;
 use Zimbra\Soap\Enum\GalSearchType;
 use Zimbra\Soap\Enum\GranteeType;
 use Zimbra\Soap\Enum\Importance;
 use Zimbra\Soap\Enum\InterestType;
-use Zimbra\Soap\Enum\ItemAction;
+use Zimbra\Soap\Enum\ItemActionOp;
 use Zimbra\Soap\Enum\MdsConnectionType;
-use Zimbra\Soap\Enum\MsgAction;
+use Zimbra\Soap\Enum\MsgActionOp;
 use Zimbra\Soap\Enum\ParticipationStatus;
 use Zimbra\Soap\Enum\RankingActionOp;
 use Zimbra\Soap\Enum\SearchType;
+use Zimbra\Soap\Enum\TagActionOp;
 use Zimbra\Soap\Enum\TargetType;
 use Zimbra\Soap\Enum\Type;
 
@@ -69,15 +71,15 @@ class MailRequestTest extends ZimbraTestCase
         );
 
         $req = new \Zimbra\API\Mail\Request\AddAppointmentInvite(
-            ParticipationStatus::NE(), $m
+            $m, ParticipationStatus::NE()
         );
-        $this->assertTrue($req->ptst()->is('NE'));
         $this->assertSame($m, $req->m());
+        $this->assertTrue($req->ptst()->is('NE'));
 
-        $req->ptst(ParticipationStatus::NE())
-            ->m($m);
-        $this->assertTrue($req->ptst()->is('NE'));
+        $req->m($m)
+            ->ptst(ParticipationStatus::NE());
         $this->assertSame($m, $req->m());
+        $this->assertTrue($req->ptst()->is('NE'));
 
         $xml = '<?xml version="1.0"?>'."\n"
             .'<AddAppointmentInviteRequest ptst="NE">'
@@ -332,15 +334,9 @@ class MailRequestTest extends ZimbraTestCase
         );
 
         $req = new \Zimbra\API\Mail\Request\AddTaskInvite(
-            ParticipationStatus::NE(), $m
+            $m, ParticipationStatus::NE()
         );
-        $this->assertTrue($req->ptst()->is('NE'));
-        $this->assertSame($m, $req->m());
-
-        $req->ptst(ParticipationStatus::NE())
-            ->m($m);
-        $this->assertTrue($req->ptst()->is('NE'));
-        $this->assertSame($m, $req->m());
+        $this->assertInstanceOf('Zimbra\API\Mail\Request\AddAppointmentInvite', $req);
 
         $xml = '<?xml version="1.0"?>'."\n"
             .'<AddTaskInviteRequest ptst="NE">'
@@ -1304,7 +1300,7 @@ class MailRequestTest extends ZimbraTestCase
             'n', 'value', 'aid', 'id', 'part'
         );
         $action = new \Zimbra\Soap\Struct\ContactActionSelector(
-            ContactAction::MOVE(), 'id', 'tcon', 1, 'l', '#aabbcc', 1, 'name', 'f', 't', 'tn', array($a)
+            ContactActionOp::MOVE(), 'id', 'tcon', 1, 'l', '#aabbcc', 1, 'name', 'f', 't', 'tn', array($a)
         );
         $req = new \Zimbra\API\Mail\Request\ContactAction(
             $action
@@ -1354,7 +1350,7 @@ class MailRequestTest extends ZimbraTestCase
     public function testConvAction()
     {
         $action = new \Zimbra\Soap\Struct\ConvActionSelector(
-            ConvAction::DELETE(), 'id', 'tcon', 1, 'l', '#aabbcc', 1, 'name', 'f', 't', 'tn'
+            ConvActionOp::DELETE(), 'id', 'tcon', 1, 'l', '#aabbcc', 1, 'name', 'f', 't', 'tn'
         );
         $req = new \Zimbra\API\Mail\Request\ConvAction(
             $action
@@ -2833,22 +2829,24 @@ class MailRequestTest extends ZimbraTestCase
     public function testCreateWaitSet()
     {
         $a = new \Zimbra\Soap\Struct\WaitSetAddSpec('name', 'id', 'token', array(InterestType::FOLDERS()));
+        $add = new \Zimbra\Soap\Struct\WaitSetAdd(array($a));
+
         $req = new \Zimbra\API\Mail\Request\CreateWaitSet(
-            array($a), array(InterestType::FOLDERS()), true
+            $add, array(InterestType::FOLDERS()), true
         );
-        $this->assertSame(array($a), $req->add()->all());
+        $this->assertSame($add, $req->add());
         $this->assertSame('f', $req->defTypes());
         $this->assertTrue($req->allAccounts());
 
-        $req->addWaitSet($a)
+        $req->add($add)
             ->addDefTypes(InterestType::MESSAGES())
             ->allAccounts(true);
-        $this->assertSame(array($a, $a), $req->add()->all());
+        $this->assertSame($add, $req->add());
         $this->assertSame('f,m', $req->defTypes());
         $this->assertTrue($req->allAccounts());
 
         $req = new \Zimbra\API\Mail\Request\CreateWaitSet(
-            array($a), array(InterestType::FOLDERS()), true
+            $add, array(InterestType::FOLDERS()), true
         );
         $xml = '<?xml version="1.0"?>'."\n"
             .'<CreateWaitSetRequest defTypes="f" allAccounts="1">'
@@ -3278,7 +3276,7 @@ class MailRequestTest extends ZimbraTestCase
             DocumentPermission::READ(), DocumentGrantType::ALL(), 1
         );
         $action = new \Zimbra\Soap\Struct\DocumentActionSelector(
-            DocumentAction::WATCH(), 'id', 'tcon', 1, 'l', '#aabbcc', 1, 'name', 'f', 't', 'tn', $grant, 'zid'
+            DocumentActionOp::WATCH(), 'id', 'tcon', 1, 'l', '#aabbcc', 1, 'name', 'f', 't', 'tn', $grant, 'zid'
         );
         $req = new \Zimbra\API\Mail\Request\DocumentAction(
             $action
@@ -3580,7 +3578,7 @@ class MailRequestTest extends ZimbraTestCase
             'perm', GranteeType::USR(), 'zid', 'd', 'args', 'pw', 'key'
         );
         $action = new \Zimbra\Soap\Struct\FolderActionSelector(
-            FolderAction::READ(),
+            FolderActionOp::READ(),
             'id',
             'tcon',
             1,
@@ -5558,10 +5556,10 @@ class MailRequestTest extends ZimbraTestCase
         $this->assertEquals($array, $req->toArray());
     }
 
-    public function testItemAction()
+    public function testItemActionOp()
     {
         $action = new \Zimbra\Soap\Struct\ItemActionSelector(
-            ItemAction::MOVE(), 'id', 'tcon', 1, 'l', '#aabbcc', 1, 'name', 'f', 't', 'tn'
+            ItemActionOp::MOVE(), 'id', 'tcon', 1, 'l', '#aabbcc', 1, 'name', 'f', 't', 'tn'
         );
         $req = new \Zimbra\API\Mail\Request\ItemAction(
             $action
@@ -6419,7 +6417,7 @@ class MailRequestTest extends ZimbraTestCase
         $this->assertEquals($array, $req->toArray());
     }
 
-    public function testModifyMailboxMetadataRequest()
+    public function testModifyMailboxMetadata()
     {
         $a = new \Zimbra\Soap\Struct\KeyValuePair('key', 'value');
         $meta = new \Zimbra\Soap\Struct\MailCustomMetadata('section', array($a));
@@ -7073,7 +7071,7 @@ class MailRequestTest extends ZimbraTestCase
     public function testMsgAction()
     {
         $action = new \Zimbra\Soap\Struct\MsgActionSelector(
-            MsgAction::MOVE(), 'id', 'tcon', 1, 'l', '#aabbcc', 1, 'name', 'f', 't', 'tn'
+            MsgActionOp::MOVE(), 'id', 'tcon', 1, 'l', '#aabbcc', 1, 'name', 'f', 't', 'tn'
         );
         $req = new \Zimbra\API\Mail\Request\MsgAction(
             $action
@@ -7146,7 +7144,7 @@ class MailRequestTest extends ZimbraTestCase
     public function testNoteAction()
     {
         $action = new \Zimbra\Soap\Struct\NoteActionSelector(
-            ItemAction::MOVE(), 'id', 'tcon', 1, 'l', '#aabbcc', 1, 'name', 'f', 't', 'tn', 'content', 'pos'
+            ItemActionOp::MOVE(), 'id', 'tcon', 1, 'l', '#aabbcc', 1, 'name', 'f', 't', 'tn', 'content', 'pos'
         );
         $req = new \Zimbra\API\Mail\Request\NoteAction(
             $action
@@ -7671,6 +7669,8 @@ class MailRequestTest extends ZimbraTestCase
             1,
             1
         );
+        $this->assertInstanceOf('Zimbra\API\Mail\Request\MailSearchParams', $req);
+
         $this->assertTrue($req->warmup());
         $req->warmup(true);
         $this->assertTrue($req->warmup());
@@ -7789,6 +7789,8 @@ class MailRequestTest extends ZimbraTestCase
             1,
             1
         );
+        $this->assertInstanceOf('Zimbra\API\Mail\Request\MailSearchParams', $req);
+
         $this->assertSame('cid', $req->cid());
         $this->assertTrue($req->nest());
         $req->cid('cid')
@@ -7889,6 +7891,1294 @@ class MailRequestTest extends ZimbraTestCase
         $array = array(
             'SendDeliveryReportRequest' => array(
                 'mid' => 'mid',
+            )
+        );
+        $this->assertEquals($array, $req->toArray());
+    }
+
+    public function testSendInviteReply()
+    {
+        $exceptId = new \Zimbra\Soap\Struct\DtTimeInfo(
+            '20120315T18302305Z', 'tz', 1000
+        );
+        $mp = new \Zimbra\Soap\Struct\MimePartAttachSpec('mid', 'part', true);
+        $msg = new \Zimbra\Soap\Struct\MsgAttachSpec('id', false);
+        $cn = new \Zimbra\Soap\Struct\ContactAttachSpec('id', false);
+        $doc = new \Zimbra\Soap\Struct\DocAttachSpec('path', 'id', 1, true);
+        $info = new \Zimbra\Soap\Struct\MimePartInfo(array(), null, 'ct', 'content', 'ci');
+        $standard = new \Zimbra\Soap\Struct\TzOnsetInfo(1, 2, 3, 4);
+        $daylight = new \Zimbra\Soap\Struct\TzOnsetInfo(4, 3, 2, 1);
+
+        $header = new \Zimbra\Soap\Struct\Header('name', 'value');
+        $attach = new \Zimbra\Soap\Struct\AttachmentsInfo($mp, $msg, $cn, $doc, 'aid');
+        $mp = new \Zimbra\Soap\Struct\MimePartInfo(array($info), $attach, 'ct', 'content', 'ci');
+        $inv = new \Zimbra\Soap\Struct\InvitationInfo('method', 1, true);
+        $e = new \Zimbra\Soap\Struct\EmailAddrInfo('a', 't', 'p');
+        $tz = new \Zimbra\Soap\Struct\CalTZInfo('id', 1, 1, 'stdname', 'dayname', $standard, $daylight);
+
+        $m = new \Zimbra\Soap\Struct\Msg(
+            'aid',
+            'origid',
+            'rt',
+            'idnt',
+            'su',
+            'irt',
+            'l',
+            'f',
+            'content',
+            array($header),
+            $mp,
+            $attach,
+            $inv,
+            array($e),
+            array($tz),
+            'fr'
+        );
+
+        $req = new \Zimbra\API\Mail\Request\SendInviteReply(
+            'id', 1, 'verb', $exceptId, $tz, $m, true, 'idnt'
+        );
+        $this->assertSame('id', $req->id());
+        $this->assertSame(1, $req->compNum());
+        $this->assertSame('verb', $req->verb());
+        $this->assertSame($exceptId, $req->exceptId());
+        $this->assertSame($tz, $req->tz());
+        $this->assertSame($m, $req->m());
+        $this->assertTrue($req->updateOrganizer());
+        $this->assertSame('idnt', $req->idnt());
+
+        $req->id('id')
+            ->compNum(1)
+            ->verb('verb')
+            ->exceptId($exceptId)
+            ->tz($tz)
+            ->m($m)
+            ->updateOrganizer(true)
+            ->idnt('idnt');
+        $this->assertSame('id', $req->id());
+        $this->assertSame(1, $req->compNum());
+        $this->assertSame('verb', $req->verb());
+        $this->assertSame($exceptId, $req->exceptId());
+        $this->assertSame($tz, $req->tz());
+        $this->assertSame($m, $req->m());
+        $this->assertTrue($req->updateOrganizer());
+        $this->assertSame('idnt', $req->idnt());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<SendInviteReplyRequest id="id" compNum="1" verb="verb" updateOrganizer="1" idnt="idnt">'
+                .'<exceptId d="20120315T18302305Z" tz="tz" u="1000" />'
+                .'<tz id="id" stdoff="1" dayoff="1" stdname="stdname" dayname="dayname">'
+                    .'<standard mon="1" hour="2" min="3" sec="4" />'
+                    .'<daylight mon="4" hour="3" min="2" sec="1" />'
+                .'</tz>'
+                .'<m aid="aid" origid="origid" rt="rt" idnt="idnt" su="su" irt="irt" l="l" f="f">'
+                    .'<content>content</content>'
+                    .'<header name="name">value</header>'
+                    .'<mp ct="ct" content="content" ci="ci">'
+                        .'<mp ct="ct" content="content" ci="ci" />'
+                        .'<attach aid="aid">'
+                            .'<mp mid="mid" part="part" optional="1" />'
+                            .'<m id="id" optional="0" />'
+                            .'<cn id="id" optional="0" />'
+                            .'<doc path="path" id="id" ver="1" optional="1" />'
+                        .'</attach>'
+                    .'</mp>'
+                    .'<attach aid="aid">'
+                        .'<mp mid="mid" part="part" optional="1" />'
+                        .'<m id="id" optional="0" />'
+                        .'<cn id="id" optional="0" />'
+                        .'<doc path="path" id="id" ver="1" optional="1" />'
+                    .'</attach>'
+                    .'<inv method="method" compNum="1" rsvp="1" />'
+                    .'<e a="a" t="t" p="p" />'
+                    .'<tz id="id" stdoff="1" dayoff="1" stdname="stdname" dayname="dayname">'
+                        .'<standard mon="1" hour="2" min="3" sec="4" />'
+                        .'<daylight mon="4" hour="3" min="2" sec="1" />'
+                    .'</tz>'
+                    .'<fr>fr</fr>'
+                .'</m>'
+            .'</SendInviteReplyRequest>';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
+
+        $array = array(
+            'SendInviteReplyRequest' => array(
+                'id' => 'id',
+                'compNum' => 1,
+                'verb' => 'verb',
+                'updateOrganizer' => 1,
+                'idnt' => 'idnt',
+                'exceptId' => array(
+                    'd' => '20120315T18302305Z',
+                    'tz' => 'tz',
+                    'u' => 1000,
+                ),
+                'tz' => array(
+                    'id' => 'id',
+                    'stdoff' => 1,
+                    'dayoff' => 1,
+                    'stdname' => 'stdname',
+                    'dayname' => 'dayname',
+                    'standard' => array(
+                        'mon' => 1,
+                        'hour' => 2,
+                        'min' => 3,
+                        'sec' => 4,
+                    ),
+                    'daylight' => array(
+                        'mon' => 4,
+                        'hour' => 3,
+                        'min' => 2,
+                        'sec' => 1,
+                    ),
+                ),
+                'm' => array(
+                    'aid' => 'aid',
+                    'origid' => 'origid',
+                    'rt' => 'rt',
+                    'idnt' => 'idnt',
+                    'su' => 'su',
+                    'irt' => 'irt',
+                    'l' => 'l',
+                    'f' => 'f',
+                    'content' => 'content',
+                    'header' => array(
+                        array(
+                            'name' => 'name',
+                            '_' => 'value',
+                        ),
+                    ),
+                    'mp' => array(
+                        'ct' => 'ct',
+                        'content' => 'content',
+                        'ci' => 'ci',
+                        'mp' => array(
+                            array(
+                                'ct' => 'ct',
+                                'content' => 'content',
+                                'ci' => 'ci',
+                            ),
+                        ),
+                        'attach' => array(
+                            'aid' => 'aid',
+                            'mp' => array(
+                                'mid' => 'mid',
+                                'part' => 'part',
+                                'optional' => 1,
+                            ),
+                            'm' => array(
+                                'id' => 'id',
+                                'optional' => 0,
+                            ),
+                            'cn' => array(
+                                'id' => 'id',
+                                'optional' => 0,
+                            ),
+                            'doc' => array(
+                                'path' => 'path',
+                                'id' => 'id',
+                                'ver' => 1,
+                                'optional' => 1,
+                            ),
+                        ),
+                    ),
+                    'attach' => array(
+                        'aid' => 'aid',
+                        'mp' => array(
+                            'mid' => 'mid',
+                            'part' => 'part',
+                            'optional' => 1,
+                        ),
+                        'm' => array(
+                            'id' => 'id',
+                            'optional' => 0,
+                        ),
+                        'cn' => array(
+                            'id' => 'id',
+                            'optional' => 0,
+                        ),
+                        'doc' => array(
+                            'path' => 'path',
+                            'id' => 'id',
+                            'ver' => 1,
+                            'optional' => 1,
+                        ),
+                    ),
+                    'inv' => array(
+                        'method' => 'method',
+                        'compNum' => 1,
+                        'rsvp' => 1,
+                    ),
+                    'e' => array(
+                        array(
+                            'a' => 'a',
+                            't' => 't',
+                            'p' => 'p',
+                        ),
+                    ),
+                    'tz' => array(
+                        array(
+                            'id' => 'id',
+                            'stdoff' => 1,
+                            'dayoff' => 1,
+                            'stdname' => 'stdname',
+                            'dayname' => 'dayname',
+                            'standard' => array(
+                                'mon' => 1,
+                                'hour' => 2,
+                                'min' => 3,
+                                'sec' => 4,
+                            ),
+                            'daylight' => array(
+                                'mon' => 4,
+                                'hour' => 3,
+                                'min' => 2,
+                                'sec' => 1,
+                            ),
+                        ),
+                    ),
+                    'fr' => 'fr',
+                ),
+            )
+        );
+        $this->assertEquals($array, $req->toArray());
+    }
+
+    public function testSendMsg()
+    {
+        $mp = new \Zimbra\Soap\Struct\MimePartAttachSpec('mid', 'part', true);
+        $m = new \Zimbra\Soap\Struct\MsgAttachSpec('id', false);
+        $cn = new \Zimbra\Soap\Struct\ContactAttachSpec('id', false);
+        $doc = new \Zimbra\Soap\Struct\DocAttachSpec('path', 'id', 1, true);
+        $info = new \Zimbra\Soap\Struct\MimePartInfo(array(), null, 'ct', 'content', 'ci');
+        $standard = new \Zimbra\Soap\Struct\TzOnsetInfo(1, 2, 3, 4);
+        $daylight = new \Zimbra\Soap\Struct\TzOnsetInfo(4, 3, 2, 1);
+
+        $header = new \Zimbra\Soap\Struct\Header('name', 'value');
+        $attach = new \Zimbra\Soap\Struct\AttachmentsInfo($mp, $m, $cn, $doc, 'aid');
+        $mp = new \Zimbra\Soap\Struct\MimePartInfo(array($info), $attach, 'ct', 'content', 'ci');
+        $inv = new \Zimbra\Soap\Struct\InvitationInfo('method', 1, true);
+        $e = new \Zimbra\Soap\Struct\EmailAddrInfo('a', 't', 'p');
+        $tz = new \Zimbra\Soap\Struct\CalTZInfo('id', 1, 1, 'stdname', 'dayname', $standard, $daylight);
+        $m = new \Zimbra\Soap\Struct\MsgToSend(
+            'did',
+            true,
+            'aid',
+            'origid',
+            'rt',
+            'idnt',
+            'su',
+            'irt',
+            'l',
+            'f',
+            'content',
+            array($header),
+            $mp,
+            $attach,
+            $inv,
+            array($e),
+            array($tz),
+            'fr'
+        );
+        $req = new \Zimbra\API\Mail\Request\SendMsg(
+            $m, true, true, true, 'suid'
+        );
+        $this->assertSame($m, $req->m());
+        $this->assertTrue($req->needCalendarSentByFixup());
+        $this->assertTrue($req->isCalendarForward());
+        $this->assertTrue($req->noSave());
+        $this->assertSame('suid', $req->suid());
+
+        $req->m($m)
+            ->needCalendarSentByFixup(true)
+            ->isCalendarForward(true)
+            ->noSave(true)
+            ->suid('suid');
+        $this->assertSame($m, $req->m());
+        $this->assertTrue($req->needCalendarSentByFixup());
+        $this->assertTrue($req->isCalendarForward());
+        $this->assertTrue($req->noSave());
+        $this->assertSame('suid', $req->suid());
+
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<SendMsgRequest needCalendarSentByFixup="1" isCalendarForward="1" noSave="1" suid="suid">'
+                .'<m did="did" sfd="1" aid="aid" origid="origid" rt="rt" idnt="idnt" su="su" irt="irt" l="l" f="f">'
+                    .'<content>content</content>'
+                    .'<header name="name">value</header>'
+                    .'<mp ct="ct" content="content" ci="ci">'
+                        .'<mp ct="ct" content="content" ci="ci" />'
+                        .'<attach aid="aid">'
+                            .'<mp mid="mid" part="part" optional="1" />'
+                            .'<m id="id" optional="0" />'
+                            .'<cn id="id" optional="0" />'
+                            .'<doc path="path" id="id" ver="1" optional="1" />'
+                        .'</attach>'
+                    .'</mp>'
+                    .'<attach aid="aid">'
+                        .'<mp mid="mid" part="part" optional="1" />'
+                        .'<m id="id" optional="0" />'
+                        .'<cn id="id" optional="0" />'
+                        .'<doc path="path" id="id" ver="1" optional="1" />'
+                    .'</attach>'
+                    .'<inv method="method" compNum="1" rsvp="1" />'
+                    .'<e a="a" t="t" p="p" />'
+                    .'<tz id="id" stdoff="1" dayoff="1" stdname="stdname" dayname="dayname">'
+                        .'<standard mon="1" hour="2" min="3" sec="4" />'
+                        .'<daylight mon="4" hour="3" min="2" sec="1" />'
+                    .'</tz>'
+                    .'<fr>fr</fr>'
+                .'</m>'
+            .'</SendMsgRequest>';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
+
+        $array = array(
+            'SendMsgRequest' => array(
+                'needCalendarSentByFixup' => 1,
+                'isCalendarForward' => 1,
+                'noSave' => 1,
+                'suid' => 'suid',
+                'm' => array(
+                    'did' => 'did',
+                    'sfd' => 1,
+                    'aid' => 'aid',
+                    'origid' => 'origid',
+                    'rt' => 'rt',
+                    'idnt' => 'idnt',
+                    'su' => 'su',
+                    'irt' => 'irt',
+                    'l' => 'l',
+                    'f' => 'f',
+                    'content' => 'content',
+                    'header' => array(
+                        array(
+                            'name' => 'name',
+                            '_' => 'value',
+                        ),
+                    ),
+                    'mp' => array(
+                        'ct' => 'ct',
+                        'content' => 'content',
+                        'ci' => 'ci',
+                        'mp' => array(
+                            array(
+                                'ct' => 'ct',
+                                'content' => 'content',
+                                'ci' => 'ci',
+                            ),
+                        ),
+                        'attach' => array(
+                            'aid' => 'aid',
+                            'mp' => array(
+                                'mid' => 'mid',
+                                'part' => 'part',
+                                'optional' => 1,
+                            ),
+                            'm' => array(
+                                'id' => 'id',
+                                'optional' => 0,
+                            ),
+                            'cn' => array(
+                                'id' => 'id',
+                                'optional' => 0,
+                            ),
+                            'doc' => array(
+                                'path' => 'path',
+                                'id' => 'id',
+                                'ver' => 1,
+                                'optional' => 1,
+                            ),
+                        ),
+                    ),
+                    'attach' => array(
+                        'aid' => 'aid',
+                        'mp' => array(
+                            'mid' => 'mid',
+                            'part' => 'part',
+                            'optional' => 1,
+                        ),
+                        'm' => array(
+                            'id' => 'id',
+                            'optional' => 0,
+                        ),
+                        'cn' => array(
+                            'id' => 'id',
+                            'optional' => 0,
+                        ),
+                        'doc' => array(
+                            'path' => 'path',
+                            'id' => 'id',
+                            'ver' => 1,
+                            'optional' => 1,
+                        ),
+                    ),
+                    'inv' => array(
+                        'method' => 'method',
+                        'compNum' => 1,
+                        'rsvp' => 1,
+                    ),
+                    'e' => array(
+                        array(
+                            'a' => 'a',
+                            't' => 't',
+                            'p' => 'p',
+                        ),
+                    ),
+                    'tz' => array(
+                        array(
+                            'id' => 'id',
+                            'stdoff' => 1,
+                            'dayoff' => 1,
+                            'stdname' => 'stdname',
+                            'dayname' => 'dayname',
+                            'standard' => array(
+                                'mon' => 1,
+                                'hour' => 2,
+                                'min' => 3,
+                                'sec' => 4,
+                            ),
+                            'daylight' => array(
+                                'mon' => 4,
+                                'hour' => 3,
+                                'min' => 2,
+                                'sec' => 1,
+                            ),
+                        ),
+                    ),
+                    'fr' => 'fr',
+                ),
+            )
+        );
+        $this->assertEquals($array, $req->toArray());
+    }
+
+    public function testSendShareNotification()
+    {
+        $item = new \Zimbra\Soap\Struct\Id('id');
+        $e = new \Zimbra\Soap\Struct\EmailAddrInfo('a', 't', 'p');
+
+        $req = new \Zimbra\API\Mail\Request\SendShareNotification(
+            $item, array($e), 'notes', Action::EDIT()
+        );
+        $this->assertSame($item, $req->item());
+        $this->assertSame(array($e), $req->e()->all());
+        $this->assertSame('notes', $req->notes());
+        $this->assertTrue($req->action()->is('edit'));
+
+        $req->item($item)
+            ->addE($e)
+            ->notes('notes')
+            ->action(Action::EDIT());
+        $this->assertSame($item, $req->item());
+        $this->assertSame(array($e, $e), $req->e()->all());
+        $this->assertSame('notes', $req->notes());
+        $this->assertTrue($req->action()->is('edit'));
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<SendShareNotificationRequest action="edit">'
+                .'<item id="id" />'
+                .'<e a="a" t="t" p="p" />'
+                .'<e a="a" t="t" p="p" />'
+                .'<notes>notes</notes>'
+            .'</SendShareNotificationRequest>';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
+
+        $array = array(
+            'SendShareNotificationRequest' => array(
+                'notes' => 'notes',
+                'action' => 'edit',
+                'item' => array('id' => 'id'),
+                'e' => array(
+                    array(
+                        'a' => 'a',
+                        't' => 't',
+                        'p' => 'p',
+                    ),
+                    array(
+                        'a' => 'a',
+                        't' => 't',
+                        'p' => 'p',
+                    ),
+                ),
+            ),
+        );
+        $this->assertEquals($array, $req->toArray());
+    }
+
+    public function testSendVerificationCode()
+    {
+        $req = new \Zimbra\API\Mail\Request\SendVerificationCode(
+            'a'
+        );
+        $this->assertSame('a', $req->a());
+
+        $req->a('a');
+        $this->assertSame('a', $req->a());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<SendVerificationCodeRequest a="a" />';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
+
+        $array = array(
+            'SendVerificationCodeRequest' => array(
+                'a' => 'a',
+            ),
+        );
+        $this->assertEquals($array, $req->toArray());
+    }
+
+    public function testSetAppointment()
+    {
+        $mp = new \Zimbra\Soap\Struct\MimePartAttachSpec('mid', 'part', true);
+        $msg = new \Zimbra\Soap\Struct\MsgAttachSpec('id', false);
+        $cn = new \Zimbra\Soap\Struct\ContactAttachSpec('id', false);
+        $doc = new \Zimbra\Soap\Struct\DocAttachSpec('path', 'id', 1, true);
+        $info = new \Zimbra\Soap\Struct\MimePartInfo(array(), null, 'ct', 'content', 'ci');
+        $standard = new \Zimbra\Soap\Struct\TzOnsetInfo(1, 2, 3, 4);
+        $daylight = new \Zimbra\Soap\Struct\TzOnsetInfo(4, 3, 2, 1);
+
+        $header = new \Zimbra\Soap\Struct\Header('name', 'value');
+        $attach = new \Zimbra\Soap\Struct\AttachmentsInfo($mp, $msg, $cn, $doc, 'aid');
+        $mp = new \Zimbra\Soap\Struct\MimePartInfo(array($info), $attach, 'ct', 'content', 'ci');
+        $inv = new \Zimbra\Soap\Struct\InvitationInfo('method', 1, true);
+        $e = new \Zimbra\Soap\Struct\EmailAddrInfo('a', 't', 'p');
+        $tz = new \Zimbra\Soap\Struct\CalTZInfo('id', 1, 1, 'stdname', 'dayname', $standard, $daylight);
+
+        $m = new \Zimbra\Soap\Struct\Msg(
+            'aid',
+            'origid',
+            'rt',
+            'idnt',
+            'su',
+            'irt',
+            'l',
+            'f',
+            'content',
+            array($header),
+            $mp,
+            $attach,
+            $inv,
+            array($e),
+            array($tz),
+            'fr'
+        );
+        $default = new \Zimbra\Soap\Struct\SetCalendarItemInfo(
+            $m, ParticipationStatus::NE()
+        );
+        $except = new \Zimbra\Soap\Struct\SetCalendarItemInfo();
+        $cancel = new \Zimbra\Soap\Struct\SetCalendarItemInfo();
+
+        $reply = new \Zimbra\Soap\Struct\CalReply(
+            'at', 1, 1, 1, '991231', 'sentBy', ParticipationStatus::NE(), 'tz', '991231000000'
+        );
+        $replies = new \Zimbra\Soap\Struct\Replies(
+            array($reply)
+        );
+
+        $req = new \Zimbra\API\Mail\Request\SetAppointment(
+            $default, array($except), array($cancel), $replies, 'f', 't', 'tn', 'l', true, 1
+        );
+        $this->assertSame($default, $req->default_());
+        $this->assertSame(array($except), $req->except()->all());
+        $this->assertSame(array($cancel), $req->cancel()->all());
+        $this->assertSame($replies, $req->replies());
+        $this->assertSame('f', $req->f());
+        $this->assertSame('t', $req->t());
+        $this->assertSame('tn', $req->tn());
+        $this->assertSame('l', $req->l());
+        $this->assertTrue($req->noNextAlarm());
+        $this->assertSame(1, $req->nextAlarm());
+
+        $req->default_($default)
+            ->addExcept($except)
+            ->addCancel($cancel)
+            ->replies($replies)
+            ->f('f')
+            ->t('t')
+            ->tn('tn')
+            ->l('l')
+            ->noNextAlarm(true)
+            ->nextAlarm(1);
+        $this->assertSame($default, $req->default_());
+        $this->assertSame(array($except, $except), $req->except()->all());
+        $this->assertSame(array($cancel, $cancel), $req->cancel()->all());
+        $this->assertSame($replies, $req->replies());
+        $this->assertSame('f', $req->f());
+        $this->assertSame('t', $req->t());
+        $this->assertSame('tn', $req->tn());
+        $this->assertSame('l', $req->l());
+        $this->assertTrue($req->noNextAlarm());
+        $this->assertSame(1, $req->nextAlarm());
+
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<SetAppointmentRequest f="f" t="t" tn="tn" l="l" noNextAlarm="1" nextAlarm="1">'
+                .'<default ptst="NE">'
+                    .'<m aid="aid" origid="origid" rt="rt" idnt="idnt" su="su" irt="irt" l="l" f="f">'
+                        .'<content>content</content>'
+                        .'<header name="name">value</header>'
+                        .'<mp ct="ct" content="content" ci="ci">'
+                            .'<mp ct="ct" content="content" ci="ci" />'
+                            .'<attach aid="aid">'
+                                .'<mp mid="mid" part="part" optional="1" />'
+                                .'<m id="id" optional="0" />'
+                                .'<cn id="id" optional="0" />'
+                                .'<doc path="path" id="id" ver="1" optional="1" />'
+                            .'</attach>'
+                        .'</mp>'
+                        .'<attach aid="aid">'
+                            .'<mp mid="mid" part="part" optional="1" />'
+                            .'<m id="id" optional="0" />'
+                            .'<cn id="id" optional="0" />'
+                            .'<doc path="path" id="id" ver="1" optional="1" />'
+                        .'</attach>'
+                        .'<inv method="method" compNum="1" rsvp="1" />'
+                        .'<e a="a" t="t" p="p" />'
+                        .'<tz id="id" stdoff="1" dayoff="1" stdname="stdname" dayname="dayname">'
+                            .'<standard mon="1" hour="2" min="3" sec="4" />'
+                            .'<daylight mon="4" hour="3" min="2" sec="1" />'
+                        .'</tz>'
+                        .'<fr>fr</fr>'
+                    .'</m>'
+                .'</default>'
+                .'<except /><except />'
+                .'<cancel /><cancel />'
+                .'<replies>'
+                    .'<reply at="at" seq="1" d="1" sentBy="sentBy" ptst="NE" rangeType="1" recurId="991231" tz="tz" ridZ="991231000000" />'
+                .'</replies>'
+            .'</SetAppointmentRequest>';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
+
+        $array = array(
+            'SetAppointmentRequest' => array(
+                'f' => 'f',
+                't' => 't',
+                'tn' => 'tn',
+                'l' => 'l',
+                'noNextAlarm' => 1,
+                'nextAlarm' => 1,
+                'default' => array(
+                    'ptst' => 'NE',
+                    'm' => array(
+                        'aid' => 'aid',
+                        'origid' => 'origid',
+                        'rt' => 'rt',
+                        'idnt' => 'idnt',
+                        'su' => 'su',
+                        'irt' => 'irt',
+                        'l' => 'l',
+                        'f' => 'f',
+                        'content' => 'content',
+                        'header' => array(
+                            array(
+                                'name' => 'name',
+                                '_' => 'value',
+                            ),
+                        ),
+                        'mp' => array(
+                            'ct' => 'ct',
+                            'content' => 'content',
+                            'ci' => 'ci',
+                            'mp' => array(
+                                array(
+                                    'ct' => 'ct',
+                                    'content' => 'content',
+                                    'ci' => 'ci',
+                                ),
+                            ),
+                            'attach' => array(
+                                'aid' => 'aid',
+                                'mp' => array(
+                                    'mid' => 'mid',
+                                    'part' => 'part',
+                                    'optional' => 1,
+                                ),
+                                'm' => array(
+                                    'id' => 'id',
+                                    'optional' => 0,
+                                ),
+                                'cn' => array(
+                                    'id' => 'id',
+                                    'optional' => 0,
+                                ),
+                                'doc' => array(
+                                    'path' => 'path',
+                                    'id' => 'id',
+                                    'ver' => 1,
+                                    'optional' => 1,
+                                ),
+                            ),
+                        ),
+                        'attach' => array(
+                            'aid' => 'aid',
+                            'mp' => array(
+                                'mid' => 'mid',
+                                'part' => 'part',
+                                'optional' => 1,
+                            ),
+                            'm' => array(
+                                'id' => 'id',
+                                'optional' => 0,
+                            ),
+                            'cn' => array(
+                                'id' => 'id',
+                                'optional' => 0,
+                            ),
+                            'doc' => array(
+                                'path' => 'path',
+                                'id' => 'id',
+                                'ver' => 1,
+                                'optional' => 1,
+                            ),
+                        ),
+                        'inv' => array(
+                            'method' => 'method',
+                            'compNum' => 1,
+                            'rsvp' => 1,
+                        ),
+                        'e' => array(
+                            array(
+                                'a' => 'a',
+                                't' => 't',
+                                'p' => 'p',
+                            ),
+                        ),
+                        'tz' => array(
+                            array(
+                                'id' => 'id',
+                                'stdoff' => 1,
+                                'dayoff' => 1,
+                                'stdname' => 'stdname',
+                                'dayname' => 'dayname',
+                                'standard' => array(
+                                    'mon' => 1,
+                                    'hour' => 2,
+                                    'min' => 3,
+                                    'sec' => 4,
+                                ),
+                                'daylight' => array(
+                                    'mon' => 4,
+                                    'hour' => 3,
+                                    'min' => 2,
+                                    'sec' => 1,
+                                ),
+                            ),
+                        ),
+                        'fr' => 'fr',
+                    ),
+                ),
+                'except' => array(
+                    array(),
+                    array(),
+                ),
+                'cancel' => array(
+                    array(),
+                    array(),
+                ),
+                'replies' => array(
+                    'reply' => array(
+                        array(
+                            'at' => 'at',
+                            'seq' => 1,
+                            'd' => 1,
+                            'sentBy' => 'sentBy',
+                            'ptst' => 'NE',
+                            'rangeType' => 1,
+                            'recurId' => '991231',
+                            'tz' => 'tz',
+                            'ridZ' => '991231000000',
+                        ),
+                    ),
+                ),
+            ),
+        );
+        $this->assertEquals($array, $req->toArray());
+    }
+
+    public function testSetCustomMetadata()
+    {
+        $a = new \Zimbra\Soap\Struct\KeyValuePair('key', 'value');
+        $meta = new \Zimbra\Soap\Struct\MailCustomMetadata('section', array($a));
+        $req = new \Zimbra\API\Mail\Request\SetCustomMetadata(
+            'id', $meta
+        );
+        $this->assertSame('id', $req->id());
+        $this->assertSame($meta, $req->meta());
+
+        $req->id('id')
+            ->meta($meta);
+        $this->assertSame('id', $req->id());
+        $this->assertSame($meta, $req->meta());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<SetCustomMetadataRequest id="id">'
+                .'<meta section="section">'
+                    .'<a n="key">value</a>'
+                .'</meta>'
+            .'</SetCustomMetadataRequest>';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
+
+        $array = array(
+            'SetCustomMetadataRequest' => array(
+                'id' => 'id',
+                'meta' => array(
+                    'a' => array(
+                        array('n' => 'key', '_' => 'value')
+                    ),
+                    'section' => 'section',
+                ),
+            )
+        );
+        $this->assertEquals($array, $req->toArray());
+    }
+
+    public function testSetMailboxMetadata()
+    {
+        $a = new \Zimbra\Soap\Struct\KeyValuePair('key', 'value');
+        $meta = new \Zimbra\Soap\Struct\MailCustomMetadata('section', array($a));
+        $req = new \Zimbra\API\Mail\Request\SetMailboxMetadata(
+            $meta
+        );
+        $this->assertSame($meta, $req->meta());
+
+        $req->meta($meta);
+        $this->assertSame($meta, $req->meta());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<SetMailboxMetadataRequest>'
+                .'<meta section="section">'
+                    .'<a n="key">value</a>'
+                .'</meta>'
+            .'</SetMailboxMetadataRequest>';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
+
+        $array = array(
+            'SetMailboxMetadataRequest' => array(
+                'meta' => array(
+                    'a' => array(
+                        array('n' => 'key', '_' => 'value')
+                    ),
+                    'section' => 'section',
+                ),
+            )
+        );
+        $this->assertEquals($array, $req->toArray());
+    }
+
+    public function testSetTask()
+    {
+        $req = new \Zimbra\API\Mail\Request\SetTask();
+        $this->assertInstanceOf('Zimbra\API\Mail\Request\SetAppointment', $req);
+    }
+
+    public function testSnoozeCalendarItemAlarm()
+    {
+        $appt = new \Zimbra\Soap\Struct\SnoozeAppointmentAlarm('id', 1);
+        $task = new \Zimbra\Soap\Struct\SnoozeTaskAlarm('id', 1);
+        $req = new \Zimbra\API\Mail\Request\SnoozeCalendarItemAlarm(
+            $appt, $task
+        );
+        $this->assertSame($appt, $req->appt());
+        $this->assertSame($task, $req->task());
+
+        $req->appt($appt)
+            ->task($task);
+        $this->assertSame($appt, $req->appt());
+        $this->assertSame($task, $req->task());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<SnoozeCalendarItemAlarmRequest>'
+                .'<appt id="id" until="1" />'
+                .'<task id="id" until="1" />'
+            .'</SnoozeCalendarItemAlarmRequest>';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
+
+        $array = array(
+            'SnoozeCalendarItemAlarmRequest' => array(
+                'appt' => array(
+                    'id' => 'id',
+                    'until' => 1,
+                ),
+                'task' => array(
+                    'id' => 'id',
+                    'until' => 1,
+                ),
+            )
+        );
+        $this->assertEquals($array, $req->toArray());
+    }
+
+    public function testSync()
+    {
+        $req = new \Zimbra\API\Mail\Request\Sync(
+            'token', 1, 'l', true
+        );
+        $this->assertSame('token', $req->token());
+        $this->assertSame(1, $req->calCutoff());
+        $this->assertSame('l', $req->l());
+        $this->assertTrue($req->typed());
+
+        $req->token('token')
+            ->calCutoff(1)
+            ->l('l')
+            ->typed(true);
+        $this->assertSame('token', $req->token());
+        $this->assertSame(1, $req->calCutoff());
+        $this->assertSame('l', $req->l());
+        $this->assertTrue($req->typed());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<SyncRequest token="token" calCutoff="1" l="l" typed="1" />';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
+
+        $array = array(
+            'SyncRequest' => array(
+                'token' => 'token',
+                'calCutoff' => 1,
+                'l' => 'l',
+                'typed' => 1,
+            )
+        );
+        $this->assertEquals($array, $req->toArray());
+    }
+
+    public function testTagAction()
+    {
+        $keep = new \Zimbra\Soap\Struct\Policy(Type::SYSTEM(), 'id', 'name', 'lifetime');
+        $purge = new \Zimbra\Soap\Struct\Policy(Type::USER(), 'id', 'name', 'lifetime');
+        $retentionPolicy = new \Zimbra\Soap\Struct\RetentionPolicy(
+            array($keep), array($purge)
+        );
+        $action = new \Zimbra\Soap\Struct\TagActionSelector(
+            TagActionOp::READ(), 'id', 'tcon', 1, 'l', '#aabbcc', 1, 'name', 'f', 't', 'tn', $retentionPolicy
+        );
+        $req = new \Zimbra\API\Mail\Request\TagAction(
+            $action
+        );
+        $this->assertSame($action, $req->action());
+
+        $req->action($action);
+        $this->assertSame($action, $req->action());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<TagActionRequest>'
+                .'<action op="read" id="id" tcon="tcon" tag="1" l="l" rgb="#aabbcc" color="1" name="name" f="f" t="t" tn="tn">'
+                    .'<retentionPolicy>'
+                        .'<keep>'
+                            .'<policy type="system" id="id" name="name" lifetime="lifetime" />'
+                        .'</keep>'
+                        .'<purge>'
+                            .'<policy type="user" id="id" name="name" lifetime="lifetime" />'
+                        .'</purge>'
+                    .'</retentionPolicy>'
+                .'</action>'
+            .'</TagActionRequest>';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
+
+        $array = array(
+            'TagActionRequest' => array(
+                'action' => array(
+                    'op' => 'read',
+                    'id' => 'id',
+                    'tcon' => 'tcon',
+                    'tag' => 1,
+                    'l' => 'l',
+                    'rgb' => '#aabbcc',
+                    'color' => 1,
+                    'name' => 'name',
+                    'f' => 'f',
+                    't' => 't',
+                    'tn' => 'tn',
+                    'retentionPolicy' => array(
+                        'keep' => array(
+                            'policy' => array(
+                                array(
+                                    'type' => 'system',
+                                    'id' => 'id',
+                                    'name' => 'name',
+                                    'lifetime' => 'lifetime',
+                                ),
+                            ),
+                        ),
+                        'purge' => array(
+                            'policy' => array(
+                                array(
+                                    'type' => 'user',
+                                    'id' => 'id',
+                                    'name' => 'name',
+                                    'lifetime' => 'lifetime',
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+            )
+        );
+        $this->assertEquals($array, $req->toArray());
+    }
+
+    public function testTestDataSource()
+    {
+        $imap = new \Zimbra\Soap\Struct\MailImapDataSource(
+            'id',
+            'name',
+            'l',
+            true,
+            true,
+            'host',
+            1,
+            MdsConnectionType::SSL(),
+            'username',
+            'password',
+            'pollingInterval',
+            'emailAddress',
+            true,
+            'defaultSignature',
+            'forwardReplySignature',
+            'fromDisplay',
+            'replyToAddress',
+            'replyToDisplay',
+            'importClass',
+            1,
+            'lastError',
+            array('a', 'b')
+        );
+        $pop3 = new \Zimbra\Soap\Struct\MailPop3DataSource(true);
+        $caldav = new \Zimbra\Soap\Struct\MailCaldavDataSource();
+        $yab = new \Zimbra\Soap\Struct\MailYabDataSource();
+        $rss = new \Zimbra\Soap\Struct\MailRssDataSource();
+        $gal = new \Zimbra\Soap\Struct\MailGalDataSource();
+        $cal = new \Zimbra\Soap\Struct\MailCalDataSource();
+        $unknown = new \Zimbra\Soap\Struct\MailUnknownDataSource();
+
+        $req = new \Zimbra\API\Mail\Request\TestDataSource(
+            $imap, $pop3, $caldav, $yab, $rss, $gal, $cal, $unknown
+        );
+        $this->assertSame($imap, $req->imap());
+        $this->assertSame($pop3, $req->pop3());
+        $this->assertSame($caldav, $req->caldav());
+        $this->assertSame($yab, $req->yab());
+        $this->assertSame($rss, $req->rss());
+        $this->assertSame($gal, $req->gal());
+        $this->assertSame($cal, $req->cal());
+        $this->assertSame($unknown, $req->unknown());
+
+        $req->imap($imap)
+            ->pop3($pop3)
+            ->caldav($caldav)
+            ->yab($yab)
+            ->rss($rss)
+            ->gal($gal)
+            ->cal($cal)
+            ->unknown($unknown);
+        $this->assertSame($imap, $req->imap());
+        $this->assertSame($pop3, $req->pop3());
+        $this->assertSame($caldav, $req->caldav());
+        $this->assertSame($yab, $req->yab());
+        $this->assertSame($rss, $req->rss());
+        $this->assertSame($gal, $req->gal());
+        $this->assertSame($cal, $req->cal());
+        $this->assertSame($unknown, $req->unknown());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<TestDataSourceRequest>'
+                .'<imap id="id" name="name" l="l" isEnabled="1" importOnly="1" host="host" port="1" '
+                .'connectionType="ssl" username="username" password="password" pollingInterval="pollingInterval" '
+                .'emailAddress="emailAddress" useAddressForForwardReply="1" defaultSignature="defaultSignature" '
+                .'forwardReplySignature="forwardReplySignature" fromDisplay="fromDisplay" replyToAddress="replyToAddress" '
+                .'replyToDisplay="replyToDisplay" importClass="importClass" failingSince="1">'
+                    .'<lastError>lastError</lastError>'
+                    .'<a>a</a>'
+                    .'<a>b</a>'
+                .'</imap>'
+                .'<pop3 leaveOnServer="1" />'
+                .'<caldav />'
+                .'<yab />'
+                .'<rss />'
+                .'<gal />'
+                .'<cal />'
+                .'<unknown />'
+            .'</TestDataSourceRequest>';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
+
+        $array = array(
+            'TestDataSourceRequest' => array(
+                'imap' => array(
+                    'id' => 'id',
+                    'name' => 'name',
+                    'l' => 'l',
+                    'isEnabled' => 1,
+                    'importOnly' => 1,
+                    'host' => 'host',
+                    'port' => 1,
+                    'connectionType' => 'ssl',
+                    'username' => 'username',
+                    'password' => 'password',
+                    'pollingInterval' => 'pollingInterval',
+                    'emailAddress' => 'emailAddress',
+                    'useAddressForForwardReply' => 1,
+                    'defaultSignature' => 'defaultSignature',
+                    'forwardReplySignature' => 'forwardReplySignature',
+                    'fromDisplay' => 'fromDisplay',
+                    'replyToAddress' => 'replyToAddress',
+                    'replyToDisplay' => 'replyToDisplay',
+                    'importClass' => 'importClass',
+                    'failingSince' => 1,
+                    'lastError' => 'lastError',
+                    'a' => array('a', 'b'),
+                ),
+                'pop3' => array(
+                    'leaveOnServer' => 1,
+                ),
+                'caldav' => array(),
+                'yab' => array(),
+                'rss' => array(),
+                'gal' => array(),
+                'cal' => array(),
+                'unknown' => array(),
+            )
+        );
+        $this->assertEquals($array, $req->toArray());
+    }
+
+    public function testUpdateDeviceStatus()
+    {
+        $device = new \Zimbra\Soap\Struct\IdStatus('id', 'status');
+        $req = new \Zimbra\API\Mail\Request\UpdateDeviceStatus(
+            $device
+        );
+        $this->assertSame($device, $req->device());
+
+        $req->device($device);
+        $this->assertSame($device, $req->device());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<UpdateDeviceStatusRequest>'
+                .'<device id="id" status="status" />'
+            .'</UpdateDeviceStatusRequest>';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
+
+        $array = array(
+            'UpdateDeviceStatusRequest' => array(
+                'device' => array(
+                    'id' => 'id',
+                    'status' => 'status',
+                ),
+            )
+        );
+        $this->assertEquals($array, $req->toArray());
+    }
+
+    public function testVerifyCode()
+    {
+        $req = new \Zimbra\API\Mail\Request\VerifyCode(
+            'a', 'code'
+        );
+        $this->assertSame('a', $req->a());
+        $this->assertSame('code', $req->code());
+
+        $req->a('a')
+            ->code('code');
+        $this->assertSame('a', $req->a());
+        $this->assertSame('code', $req->code());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<VerifyCodeRequest a="a" code="code" />';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
+
+        $array = array(
+            'VerifyCodeRequest' => array(
+                'a' => 'a',
+                'code' => 'code',
+            )
+        );
+        $this->assertEquals($array, $req->toArray());
+    }
+
+    public function testWaitSet()
+    {
+        $id = new \Zimbra\Soap\Struct\Id('id');
+        $waitSet = new \Zimbra\Soap\Struct\WaitSetAddSpec('name', 'id', 'token', array(InterestType::FOLDERS()));
+        $add = new \Zimbra\Soap\Struct\WaitSetAdd(array($waitSet));
+        $update = new \Zimbra\Soap\Struct\WaitSetAdd(array($waitSet));
+        $remove = new \Zimbra\Soap\Struct\WaitSetRemove(array($id));
+
+        $req = new \Zimbra\API\Mail\Request\WaitSet(
+            'waitSet', 'seq', $add, $update, $remove, true, array(InterestType::FOLDERS()), 1
+        );
+        $this->assertSame('waitSet', $req->waitSet());
+        $this->assertSame('seq', $req->seq());
+        $this->assertSame($add, $req->add());
+        $this->assertSame($update, $req->update());
+        $this->assertSame($remove, $req->remove());
+        $this->assertTrue($req->block());
+        $this->assertSame('f', $req->defTypes());
+        $this->assertSame(1, $req->timeout());
+
+        $req->waitSet('waitSet')
+            ->seq('seq')
+            ->add($add)
+            ->update($update)
+            ->remove($remove)
+            ->block(true)
+            ->addDefTypes(InterestType::MESSAGES())
+            ->timeout(1);
+        $this->assertSame('waitSet', $req->waitSet());
+        $this->assertSame('seq', $req->seq());
+        $this->assertSame($add, $req->add());
+        $this->assertSame($update, $req->update());
+        $this->assertSame($remove, $req->remove());
+        $this->assertTrue($req->block());
+        $this->assertSame('f,m', $req->defTypes());
+        $this->assertSame(1, $req->timeout());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<WaitSetRequest waitSet="waitSet" seq="seq" block="1" defTypes="f,m" timeout="1">'
+                .'<add>'
+                    .'<a name="name" id="id" token="token" types="f" />'
+                .'</add>'
+                .'<update>'
+                    .'<a name="name" id="id" token="token" types="f" />'
+                .'</update>'
+                .'<remove>'
+                    .'<a id="id" />'
+                .'</remove>'
+            .'</WaitSetRequest>';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
+
+        $array = array(
+            'WaitSetRequest' => array(
+                'waitSet' => 'waitSet',
+                'seq' => 'seq',
+                'block' => 1,
+                'defTypes' => 'f,m',
+                'timeout' => 1,
+                'add' => array(
+                    'a' => array(
+                        array(
+                            'name' => 'name',
+                            'id' => 'id',
+                            'token' => 'token',
+                            'types' => 'f',
+                        ),
+                    ),
+                ),
+                'update' => array(
+                    'a' => array(
+                        array(
+                            'name' => 'name',
+                            'id' => 'id',
+                            'token' => 'token',
+                            'types' => 'f',
+                        ),
+                    ),
+                ),
+                'remove' => array(
+                    'a' => array(
+                        array(
+                            'id' => 'id',
+                        ),
+                    ),
+                ),
             )
         );
         $this->assertEquals($array, $req->toArray());

@@ -171,9 +171,9 @@ class AddMsgSpec
     }
 
     /**
-     * Gets or sets zid
+     * Gets or sets l
      *
-     * @param  string $zid
+     * @param  string $l
      * @return string|self
      */
     public function l($l = null)

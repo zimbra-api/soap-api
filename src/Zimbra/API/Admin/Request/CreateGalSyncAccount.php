@@ -92,7 +92,7 @@ class CreateGalSyncAccount extends Attr
         parent::__construct($attrs);
         $this->_name = trim($name);
         $this->_domain = trim($domain);
-		$this->_type = $type;
+        $this->_type = $type;
         $this->_server = trim($server);
         $this->_account = $account;
         $this->_password = trim($password);
@@ -143,7 +143,7 @@ class CreateGalSyncAccount extends Attr
         {
             return $this->_type;
         }
-		$this->_type = $type;
+        $this->_type = $type;
         return $this;
     }
 

@@ -92,7 +92,7 @@ class GetAccountDistributionLists extends Request
         {
             return $this->_memberOf;
         }
-		$this->_memberOf = $memberOf;
+        $this->_memberOf = $memberOf;
         return $this;
     }
 

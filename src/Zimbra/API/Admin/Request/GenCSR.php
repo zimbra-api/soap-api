@@ -126,19 +126,19 @@ class GenCSR extends Request
         $this->_type = $type;
         $this->_keysize = $keysize;
 
-		$this->_c = trim($c);
-		$this->_sT = trim($sT);
-		$this->_l = trim($l);
-		$this->_o = trim($o);
-		$this->_oU = trim($oU);
-		$this->_cN = trim($cN);
+        $this->_c = trim($c);
+        $this->_sT = trim($sT);
+        $this->_l = trim($l);
+        $this->_o = trim($o);
+        $this->_oU = trim($oU);
+        $this->_cN = trim($cN);
         foreach ($subjectAltName as $subject)
         {
-			$subject = trim($subject);
-			if(!empty($subject))
-			{
-				$this->_subjectAltName[] = $subject;
-			}
+            $subject = trim($subject);
+            if(!empty($subject))
+            {
+                $this->_subjectAltName[] = $subject;
+            }
         }
     }
 
@@ -317,11 +317,11 @@ class GenCSR extends Request
         $this->_subjectAltName = array();
         foreach ($subjectAltName as $subject)
         {
-			$subject = trim($subject);
-			if(!empty($subject))
-			{
-				$this->_subjectAltName[] = $subject;
-			}
+            $subject = trim($subject);
+            if(!empty($subject))
+            {
+                $this->_subjectAltName[] = $subject;
+            }
         }
         return $this;
     }

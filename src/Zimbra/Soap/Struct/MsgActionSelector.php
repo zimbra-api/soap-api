@@ -10,7 +10,7 @@
 
 namespace Zimbra\Soap\Struct;
 
-use Zimbra\Soap\Enum\MsgAction;
+use Zimbra\Soap\Enum\MsgActionOp;
 
 /**
  * ActionSelector struct class
@@ -21,10 +21,9 @@ use Zimbra\Soap\Enum\MsgAction;
  */
 class MsgActionSelector extends ActionSelector
 {
-
     /**
      * Constructor method for AccountACEInfo
-     * @param MsgAction $op
+     * @param MsgActionOp $op
      * @param string $id
      * @param string $tcon
      * @param int    $tag
@@ -38,7 +37,7 @@ class MsgActionSelector extends ActionSelector
      * @return self
      */
     public function __construct(
-        MsgAction $op,
+        MsgActionOp $op,
         $id = null,
         $tcon = null,
         $tag = null,
@@ -69,10 +68,10 @@ class MsgActionSelector extends ActionSelector
     /**
      * Gets or sets op
      *
-     * @param  MsgAction $op
-     * @return MsgAction|self
+     * @param  MsgActionOp $op
+     * @return MsgActionOp|self
      */
-    public function op(MsgAction $op = null)
+    public function op(MsgActionOp $op = null)
     {
         if(null === $op)
         {

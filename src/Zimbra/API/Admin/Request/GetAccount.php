@@ -60,7 +60,7 @@ class GetAccount extends Request
         {
             $this->_applyCos = (bool) $applyCos;
         }
-		$this->_attrs = trim($attrs);
+        $this->_attrs = trim($attrs);
     }
 
     /**

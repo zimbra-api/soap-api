@@ -49,7 +49,7 @@ class GetCos extends Request
         {
             $this->_cos = $cos;
         }
-		$this->_attrs = trim($attrs);
+        $this->_attrs = trim($attrs);
     }
 
     /**

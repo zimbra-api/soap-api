@@ -10,9 +10,9 @@
 
 namespace Zimbra\API\Mail\Request;
 
+use Zimbra\Soap\Enum\ParticipationStatus;
 use Zimbra\Soap\Request;
 use Zimbra\Soap\Struct\Msg;
-use Zimbra\Soap\Enum\ParticipationStatus;
 
 /**
  * AddAppointmentInvite request class
@@ -25,6 +25,12 @@ use Zimbra\Soap\Enum\ParticipationStatus;
 class AddAppointmentInvite extends Request
 {
     /**
+     * Message
+     * @var Msg
+     */
+    private $_m;
+
+    /**
      * iCalendar PTST (Participation status)
      * Valid values: NE|AC|TE|DE|DG|CO|IN|WE|DF 
      * Meanings: 
@@ -34,44 +40,22 @@ class AddAppointmentInvite extends Request
     private $_ptst;
 
     /**
-     * Message
-     * @var Msg
-     */
-    private $_m;
-
-    /**
      * Constructor method for AddAppointmentInvite
-     * @param  ParticipationStatus $ptst
      * @param  Msg $m
+     * @param  ParticipationStatus $ptst
      * @return self
      */
-    public function __construct(ParticipationStatus $ptst = null, Msg $m = null)
+    public function __construct(Msg $m = null, ParticipationStatus $ptst = null)
     {
         parent::__construct();
-        if($ptst instanceof ParticipationStatus)
-        {
-            $this->_ptst = $ptst;
-        }
         if($m instanceof Msg)
         {
             $this->_m = $m;
         }
-    }
-
-    /**
-     * Get or set ptst
-     *
-     * @param  ParticipationStatus $ptst
-     * @return ParticipationStatus|self
-     */
-    public function ptst(ParticipationStatus $ptst = null)
-    {
-        if(null === $ptst)
+        if($ptst instanceof ParticipationStatus)
         {
-            return $this->_ptst;
+            $this->_ptst = $ptst;
         }
-        $this->_ptst = $ptst;
-        return $this;
     }
 
     /**
@@ -87,6 +71,22 @@ class AddAppointmentInvite extends Request
             return $this->_m;
         }
         $this->_m = $m;
+        return $this;
+    }
+
+    /**
+     * Get or set ptst
+     *
+     * @param  ParticipationStatus $ptst
+     * @return ParticipationStatus|self
+     */
+    public function ptst(ParticipationStatus $ptst = null)
+    {
+        if(null === $ptst)
+        {
+            return $this->_ptst;
+        }
+        $this->_ptst = $ptst;
         return $this;
     }
 

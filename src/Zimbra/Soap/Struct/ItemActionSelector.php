@@ -10,7 +10,7 @@
 
 namespace Zimbra\Soap\Struct;
 
-use Zimbra\Soap\Enum\ItemAction;
+use Zimbra\Soap\Enum\ItemActionOp;
 
 /**
  * ItemActionSelector struct class
@@ -23,7 +23,7 @@ class ItemActionSelector extends ActionSelector
 {
     /**
      * Constructor method for ItemActionSelector
-     * @param ItemAction $op
+     * @param ItemActionOp $op
      * @param string $id
      * @param string $tcon
      * @param int    $tag
@@ -37,7 +37,7 @@ class ItemActionSelector extends ActionSelector
      * @return self
      */
     public function __construct(
-        ItemAction $op,
+        ItemActionOp $op,
         $id = null,
         $tcon = null,
         $tag = null,
@@ -68,10 +68,10 @@ class ItemActionSelector extends ActionSelector
     /**
      * Gets or sets op
      *
-     * @param  ItemAction $op
-     * @return ItemAction|self
+     * @param  ItemActionOp $op
+     * @return ItemActionOp|self
      */
-    public function op(ItemAction $op = null)
+    public function op(ItemActionOp $op = null)
     {
         if(null === $op)
         {

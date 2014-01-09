@@ -10,7 +10,7 @@
 
 namespace Zimbra\Soap\Struct;
 
-use Zimbra\Soap\Enum\DocumentAction;
+use Zimbra\Soap\Enum\DocumentActionOp;
 
 /**
  * DocumentActionSelector struct class
@@ -35,7 +35,7 @@ class DocumentActionSelector extends ActionSelector
 
     /**
      * Constructor method for AccountACEInfo
-     * @param DocumentAction $op
+     * @param DocumentActionOp $op
      * @param string $id
      * @param string $tcon
      * @param int    $tag
@@ -51,7 +51,7 @@ class DocumentActionSelector extends ActionSelector
      * @return self
      */
     public function __construct(
-        DocumentAction $op,
+        DocumentActionOp $op,
         $id = null,
         $tcon = null,
         $tag = null,
@@ -89,10 +89,10 @@ class DocumentActionSelector extends ActionSelector
     /**
      * Gets or sets op
      *
-     * @param  DocumentAction $op
-     * @return DocumentAction|self
+     * @param  DocumentActionOp $op
+     * @return DocumentActionOp|self
      */
-    public function op(DocumentAction $op = null)
+    public function op(DocumentActionOp $op = null)
     {
         if(null === $op)
         {

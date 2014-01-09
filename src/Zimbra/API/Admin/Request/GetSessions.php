@@ -119,7 +119,7 @@ class GetSessions extends Request
         {
             return $this->_sortBy;
         }
-		$this->_sortBy = $sortBy;
+        $this->_sortBy = $sortBy;
         return $this;
     }
 

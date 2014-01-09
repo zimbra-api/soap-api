@@ -702,7 +702,7 @@ class InviteComponentCommon
      * @param  InviteClass $class
      * @return InviteClass|self
      */
-    public function klass(InviteClass $class = null)
+    public function class_(InviteClass $class = null)
     {
         if(null === $class)
         {

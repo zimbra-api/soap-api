@@ -44,7 +44,7 @@ class GetAllServers extends Request
     public function __construct($service = null, $applyConfig = null)
     {
         parent::__construct();
-		$this->_service = trim($service);
+        $this->_service = trim($service);
         if(null !== $applyConfig)
         {
             $this->_applyConfig = (bool) $applyConfig;

@@ -80,7 +80,7 @@ class GetLDAPEntries extends Request
         parent::__construct();
         $this->_query = trim($query);
         $this->_ldapSearchBase = trim($ldapSearchBase);
-		$this->_sortBy = trim($sortBy);
+        $this->_sortBy = trim($sortBy);
         if(null !== $sortAscending)
         {
             $this->_sortAscending = (bool) $sortAscending;

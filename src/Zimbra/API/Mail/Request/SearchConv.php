@@ -70,7 +70,7 @@ class SearchConv extends MailSearchParams
      * @return self
      */
     public function __construct(
-    	$cid,
+        $cid,
         $nest = null,
         $query = null,
         array $header = array(),
@@ -176,7 +176,7 @@ class SearchConv extends MailSearchParams
      */
     public function toArray()
     {
-    	$this->array['cid'] = $this->_cid;
+        $this->array['cid'] = $this->_cid;
         if(is_bool($this->_nest))
         {
             $this->array['nest'] = $this->_nest ? 1 : 0;
@@ -191,7 +191,7 @@ class SearchConv extends MailSearchParams
      */
     public function toXml()
     {
-    	$this->xml->addAttribute('cid', $this->_cid);
+        $this->xml->addAttribute('cid', $this->_cid);
         if(is_bool($this->_nest))
         {
             $this->xml->addAttribute('nest', $this->_nest ? 1 : 0);

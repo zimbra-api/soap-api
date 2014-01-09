@@ -10,7 +10,7 @@
 
 namespace Zimbra\Soap\Struct;
 
-use Zimbra\Soap\Enum\FolderAction;
+use Zimbra\Soap\Enum\FolderActionOp;
 use Zimbra\Utils\TypedSequence;
 
 /**
@@ -78,7 +78,7 @@ class FolderActionSelector extends ActionSelector
 
     /**
      * Constructor method for AccountACEInfo
-     * @param FolderAction $op
+     * @param FolderActionOp $op
      * @param string $id
      * @param string $tcon
      * @param int    $tag
@@ -92,7 +92,7 @@ class FolderActionSelector extends ActionSelector
      * @return self
      */
     public function __construct(
-        FolderAction $op,
+        FolderActionOp $op,
         $id = null,
         $tcon = null,
         $tag = null,
@@ -153,10 +153,10 @@ class FolderActionSelector extends ActionSelector
     /**
      * Gets or sets op
      *
-     * @param  FolderAction $op
-     * @return FolderAction|self
+     * @param  FolderActionOp $op
+     * @return FolderActionOp|self
      */
-    public function op(FolderAction $op = null)
+    public function op(FolderActionOp $op = null)
     {
         if(null === $op)
         {

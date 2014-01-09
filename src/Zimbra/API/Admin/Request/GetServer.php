@@ -60,7 +60,7 @@ class GetServer extends Request
         {
             $this->_applyConfig = (bool) $applyConfig;
         }
-		$this->_attrs = trim($attrs);
+        $this->_attrs = trim($attrs);
     }
 
     /**

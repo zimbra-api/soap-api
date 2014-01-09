@@ -12,7 +12,7 @@ namespace Zimbra\API\Mail\Request;
 
 use Zimbra\Soap\Request;
 use Zimbra\Soap\Enum\InterestType;
-use Zimbra\Soap\Struct\WaitSetAddSpec;
+use Zimbra\Soap\Struct\WaitSetAdd;
 use Zimbra\Utils\TypedSequence;
 
 /**
@@ -27,35 +27,41 @@ class CreateWaitSet extends Request
 {
     /**
      * WaitSet add specification
-     * @var TypedSequence<WaitSetAddSpec>
+     * @var WaitSetAdd
      */
     private $_add;
 
     /**
-     * WaitSet add specification
+     * Default interest types: comma-separated list
      * @var TypedSequence<InterestType>
      */
     private $_defTypes;
 
     /**
-     * WaitSet add specification
+     * If {all-accounts} is set, then all mailboxes on the system will be listened to,
+     * including any mailboxes which are created on the system while the WaitSet is in existence
      * @var bool
      */
     private $_allAccounts;
 
     /**
      * Constructor method for CreateWaitSet
-     * @param  WaitSetAddSpec $add
+     * @param  WaitSetAdd $add
+     * @param  array $defTypes
+     * @param  bool $allAccounts
      * @return self
      */
     public function __construct(
-        array $add = array(),
+        WaitSetAdd $add = null,
         array $defTypes = array(),
         $allAccounts = null
     )
     {
         parent::__construct();
-        $this->_add = new TypedSequence('Zimbra\Soap\Struct\WaitSetAddSpec', $add);
+        if($add instanceof WaitSetAdd)
+        {
+            $this->_add = $add;
+        }
         $this->_defTypes = new TypedSequence('Zimbra\Soap\Enum\InterestType', $defTypes);
         if(null !== $allAccounts)
         {
@@ -64,25 +70,19 @@ class CreateWaitSet extends Request
     }
 
     /**
-     * Get or set add
+     * Get or set add WaitSet
      *
-     * @param  WaitSetAddSpec $add
-     * @return self
+     * @param  WaitSetAdd $add
+     * @return WaitSetAdd|self
      */
-    public function addWaitSet(WaitSetAddSpec $add)
+    public function add(WaitSetAdd $add = null)
     {
-        $this->_add->add($add);
+        if(null === $add)
+        {
+            return $this->_add;
+        }
+        $this->_add = $add;
         return $this;
-    }
-
-    /**
-     * Get or set add
-     *
-     * @return TypedSequence<WaitSetAddSpec>
-     */
-    public function add()
-    {
-        return $this->_add;
     }
 
     /**
@@ -135,16 +135,9 @@ class CreateWaitSet extends Request
         {
             $this->array['allAccounts'] = $this->_allAccounts ? 1 : 0;
         }
-        $this->array['add'] = array();
-        if(count($this->_add))
+        if($this->_add instanceof WaitSetAdd)
         {
-            $arr['a'] = array();
-            foreach ($this->_add as $add)
-            {
-                $addArr = $add->toArray('a');
-                $arr['a'][] = $addArr['a'];
-            }
-            $this->array['add'] = $arr;
+            $this->array += $this->_add->toArray('add');
         }
         return parent::toArray();
     }
@@ -161,10 +154,9 @@ class CreateWaitSet extends Request
         {
             $this->xml->addAttribute('allAccounts', $this->_allAccounts ? 1 : 0);
         }
-        $add = $this->xml->addChild('add');
-        foreach ($this->_add as $a)
+        if($this->_add instanceof WaitSetAdd)
         {
-            $add->append($a->toXml('a'));
+            $this->xml->append($this->_add->toXml('add'));
         }
         return parent::toXml();
     }

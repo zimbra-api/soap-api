@@ -159,7 +159,7 @@ class SearchGal extends Request
         $offset = null)
     {
         parent::__construct();
-		$this->_locale = trim($locale);
+        $this->_locale = trim($locale);
         if($cursor instanceof CursorInfo)
         {
             $this->_cursor = $cursor;
@@ -301,7 +301,7 @@ class SearchGal extends Request
         {
             return $this->_type;
         }
-		$this->_type = $type;
+        $this->_type = $type;
         return $this;
     }
 
@@ -349,7 +349,7 @@ class SearchGal extends Request
         {
             return $this->_needIsMember;
         }
-		$this->_needIsMember = $needIsMember;
+        $this->_needIsMember = $needIsMember;
         return $this;
     }
 

@@ -49,7 +49,7 @@ class GetUCService extends Request
         {
             $this->_ucservice = $ucservice;
         }
-		$this->_attrs = trim($attrs);
+        $this->_attrs = trim($attrs);
     }
 
     /**

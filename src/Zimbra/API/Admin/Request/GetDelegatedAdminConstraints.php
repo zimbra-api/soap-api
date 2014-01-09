@@ -64,8 +64,8 @@ class GetDelegatedAdminConstraints extends Request
     {
         parent::__construct($attrs);
         $this->_type = $type;
-		$this->_id = trim($id);
-		$this->_name = trim($name);
+        $this->_id = trim($id);
+        $this->_name = trim($name);
         $this->_attrs = new TypedSequence('Zimbra\Soap\Struct\NamedElement', $attrs);
     }
 

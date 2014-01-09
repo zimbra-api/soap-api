@@ -37,7 +37,7 @@ class QueryWaitSet extends Request
     public function __construct($waitSet = null)
     {
         parent::__construct();
-		$this->_waitSet = trim($waitSet);
+        $this->_waitSet = trim($waitSet);
     }
 
     /**

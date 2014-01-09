@@ -10,7 +10,7 @@
 
 namespace Zimbra\Soap\Struct;
 
-use Zimbra\Soap\Enum\ConvAction;
+use Zimbra\Soap\Enum\ConvActionOp;
 
 /**
  * ConvActionSelector struct class
@@ -23,7 +23,7 @@ class ConvActionSelector extends ActionSelector
 {
     /**
      * Constructor method for ConvActionSelector
-     * @param ConvAction $op
+     * @param ConvActionOp $op
      * @param string $id
      * @param string $tcon
      * @param int    $tag
@@ -37,7 +37,7 @@ class ConvActionSelector extends ActionSelector
      * @return self
      */
     public function __construct(
-        ConvAction $op,
+        ConvActionOp $op,
         $id = null,
         $tcon = null,
         $tag = null,
@@ -68,10 +68,10 @@ class ConvActionSelector extends ActionSelector
     /**
      * Gets or sets op
      *
-     * @param  ConvAction $op
-     * @return ConvAction|self
+     * @param  ConvActionOp $op
+     * @return ConvActionOp|self
      */
-    public function op(ConvAction $op = null)
+    public function op(ConvActionOp $op = null)
     {
         if(null === $op)
         {

@@ -46,7 +46,7 @@ class GetZimlet extends Request
     {
         parent::__construct();
         $this->_zimlet = $zimlet;
-		$this->_attrs = trim($attrs);
+        $this->_attrs = trim($attrs);
     }
 
     /**

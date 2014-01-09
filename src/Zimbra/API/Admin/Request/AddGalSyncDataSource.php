@@ -76,7 +76,7 @@ class AddGalSyncDataSource extends Attr
         $this->_account = $account;
         $this->_name = trim($name);
         $this->_domain = trim($domain);
-		$this->_type = $type;
+        $this->_type = $type;
         $this->_folder = trim($folder);
     }
 
@@ -140,7 +140,7 @@ class AddGalSyncDataSource extends Attr
         {
             return $this->_type;
         }
-		$this->_type = $type;
+        $this->_type = $type;
         return $this;
     }
 

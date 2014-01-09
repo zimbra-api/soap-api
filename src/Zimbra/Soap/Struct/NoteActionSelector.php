@@ -10,7 +10,7 @@
 
 namespace Zimbra\Soap\Struct;
 
-use Zimbra\Soap\Enum\ItemAction;
+use Zimbra\Soap\Enum\ItemActionOp;
 
 /**
  * NoteActionSelector struct class
@@ -35,7 +35,7 @@ class NoteActionSelector extends ActionSelector
 
     /**
      * Constructor method for AccountACEInfo
-     * @param ItemAction $op
+     * @param ItemActionOp $op
      * @param string $id
      * @param string $tcon
      * @param int    $tag
@@ -51,7 +51,7 @@ class NoteActionSelector extends ActionSelector
      * @return self
      */
     public function __construct(
-        ItemAction $op,
+        ItemActionOp $op,
         $id = null,
         $tcon = null,
         $tag = null,
@@ -86,10 +86,10 @@ class NoteActionSelector extends ActionSelector
     /**
      * Gets or sets op
      *
-     * @param  ItemAction $op
-     * @return ItemAction|self
+     * @param  ItemActionOp $op
+     * @return ItemActionOp|self
      */
-    public function op(ItemAction $op = null)
+    public function op(ItemActionOp $op = null)
     {
         if(null === $op)
         {

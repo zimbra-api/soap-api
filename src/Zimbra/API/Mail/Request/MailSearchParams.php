@@ -26,11 +26,11 @@ use Zimbra\Utils\TypedSequence;
  */
 class MailSearchParams extends Request
 {
-     /**
+    /**
      * Query string
      * @var string
      */
-   private $_query;
+    private $_query;
 
     /**
      * if <header>s are requested, any matching headers are included in inlined message hits

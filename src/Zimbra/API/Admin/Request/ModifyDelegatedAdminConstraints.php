@@ -65,7 +65,7 @@ class ModifyDelegatedAdminConstraints extends Request
         array $attrs = array())
     {
         parent::__construct();
-		$this->_type = $type;
+        $this->_type = $type;
         $this->_id = trim($id);
         $this->_name = trim($name);
         $this->_attrs = new TypedSequence('Zimbra\Soap\Struct\ConstraintAttr', $attrs);
@@ -83,7 +83,7 @@ class ModifyDelegatedAdminConstraints extends Request
         {
             return $this->_type;
         }
-		$this->_type = $type;
+        $this->_type = $type;
         return $this;
     }
 

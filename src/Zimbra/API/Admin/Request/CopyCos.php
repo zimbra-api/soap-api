@@ -45,7 +45,7 @@ class CopyCos extends Request
     public function __construct($name = null, Cos $cos = null)
     {
         parent::__construct();
-		$this->_name = trim($name);
+        $this->_name = trim($name);
         if($cos instanceof Cos)
         {
             $this->_cos = $cos;

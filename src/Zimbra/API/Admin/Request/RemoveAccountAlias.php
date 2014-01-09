@@ -45,7 +45,7 @@ class RemoveAccountAlias extends Request
     {
         parent::__construct();
         $this->_alias = trim($alias);
-		$this->_id = trim($id);
+        $this->_id = trim($id);
     }
 
     /**

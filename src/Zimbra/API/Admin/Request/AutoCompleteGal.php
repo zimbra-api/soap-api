@@ -77,7 +77,7 @@ class AutoCompleteGal extends Request
         {
             $this->_type = $type;
         }
-		$this->_galAcctId = trim($galAcctId);
+        $this->_galAcctId = trim($galAcctId);
         if(null !== $limit)
         {
             $this->_limit = (int) $limit;
@@ -128,7 +128,7 @@ class AutoCompleteGal extends Request
         {
             return $this->_type;
         }
-		$this->_type = $type;
+        $this->_type = $type;
         return $this;
     }
 

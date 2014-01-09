@@ -47,7 +47,7 @@ class GetCSR extends Request
     public function __construct($server = null, CSRType $type = null)
     {
         parent::__construct();
-		$this->_server = trim($server);
+        $this->_server = trim($server);
         if($type instanceof CSRType)
         {
             $this->_type = $type;

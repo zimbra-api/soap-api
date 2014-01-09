@@ -54,7 +54,7 @@ class CountObjects extends Request
     public function __construct(ObjType $type, Domain $domain = null, UcService $ucservice = null)
     {
         parent::__construct();
-		$this->_type = $type;
+        $this->_type = $type;
         if($domain instanceof Domain)
         {
             $this->_domain = $domain;
@@ -77,7 +77,7 @@ class CountObjects extends Request
         {
             return $this->_type;
         }
-		$this->_type = $type;
+        $this->_type = $type;
         return $this;
     }
 

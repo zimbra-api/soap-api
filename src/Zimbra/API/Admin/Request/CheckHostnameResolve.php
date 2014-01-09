@@ -38,7 +38,7 @@ class CheckHostnameResolve extends Request
     public function __construct($hostname = null)
     {
         parent::__construct();
-		$this->_hostname = trim($hostname);
+        $this->_hostname = trim($hostname);
     }
 
     /**

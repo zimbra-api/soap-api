@@ -26,7 +26,7 @@ abstract class AttrsImpl
      * Attributes
      * @var TypedSequence<KeyValuePair>
      */
-    private $_attr = array();
+    private $_attr;
 
     /**
      * The array representation of this class 

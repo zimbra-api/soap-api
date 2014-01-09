@@ -10,7 +10,7 @@
 
 namespace Zimbra\Soap\Struct;
 
-use Zimbra\Soap\Enum\ContactAction;
+use Zimbra\Soap\Enum\ContactActionOp;
 use Zimbra\Utils\TypedSequence;
 
 /**
@@ -30,7 +30,7 @@ class ContactActionSelector extends ActionSelector
 
     /**
      * Constructor method for AccountACEInfo
-     * @param ContactAction $op
+     * @param ContactActionOp $op
      * @param string $id
      * @param string $tcon
      * @param int    $tag
@@ -45,7 +45,7 @@ class ContactActionSelector extends ActionSelector
      * @return self
      */
     public function __construct(
-        ContactAction $op,
+        ContactActionOp $op,
         $id = null,
         $tcon = null,
         $tag = null,
@@ -78,10 +78,10 @@ class ContactActionSelector extends ActionSelector
     /**
      * Gets or sets op
      *
-     * @param  ContactAction $op
-     * @return ContactAction|self
+     * @param  ContactActionOp $op
+     * @return ContactActionOp|self
      */
-    public function op(ContactAction $op = null)
+    public function op(ContactActionOp $op = null)
     {
         if(null === $op)
         {

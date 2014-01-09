@@ -24,7 +24,7 @@ use Zimbra\Soap\Struct\MailCustomMetadata;
 class ModifyMailboxMetadata extends Request
 {
     /**
-     * Added meta
+     * Metadata changes
      * @var MailCustomMetadata
      */
     private $_meta;

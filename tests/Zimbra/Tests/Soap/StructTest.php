@@ -13,8 +13,8 @@ use Zimbra\Soap\Enum\AuthScheme;
 use Zimbra\Soap\Enum\AutoProvPrincipalBy as PrincipalBy;
 use Zimbra\Soap\Enum\CacheEntryBy;
 use Zimbra\Soap\Enum\CalendarResourceBy as CalResBy;
-use Zimbra\Soap\Enum\ContactAction;
-use Zimbra\Soap\Enum\ConvAction;
+use Zimbra\Soap\Enum\ContactActionOp;
+use Zimbra\Soap\Enum\ConvActionOp;
 use Zimbra\Soap\Enum\ContentType;
 use Zimbra\Soap\Enum\CosBy;
 use Zimbra\Soap\Enum\DataSourceBy;
@@ -22,14 +22,14 @@ use Zimbra\Soap\Enum\DataSourceType;
 use Zimbra\Soap\Enum\DistributionListBy as DLBy;
 use Zimbra\Soap\Enum\DistributionListGranteeBy as DLGranteeBy;
 use Zimbra\Soap\Enum\DistributionListSubscribeOp as DLSubscribeOp;
-use Zimbra\Soap\Enum\DocumentAction;
+use Zimbra\Soap\Enum\DocumentActionOp;
 use Zimbra\Soap\Enum\DocumentGrantType;
 use Zimbra\Soap\Enum\DocumentPermission;
 use Zimbra\Soap\Enum\DomainBy;
 use Zimbra\Soap\Enum\FilterCondition;
 use Zimbra\Soap\Enum\FreeBusyStatus;
 use Zimbra\Soap\Enum\Frequency;
-use Zimbra\Soap\Enum\FolderAction;
+use Zimbra\Soap\Enum\FolderActionOp;
 use Zimbra\Soap\Enum\GranteeType;
 use Zimbra\Soap\Enum\GranteeBy;
 use Zimbra\Soap\Enum\Importance;
@@ -37,17 +37,18 @@ use Zimbra\Soap\Enum\InterestType;
 use Zimbra\Soap\Enum\InviteChange;
 use Zimbra\Soap\Enum\InviteClass;
 use Zimbra\Soap\Enum\InviteStatus;
-use Zimbra\Soap\Enum\ItemAction;
+use Zimbra\Soap\Enum\ItemActionOp;
 use Zimbra\Soap\Enum\LoggingLevel;
 use Zimbra\Soap\Enum\MdsConnectionType;
-use Zimbra\Soap\Enum\MsgAction;
+use Zimbra\Soap\Enum\MsgActionOp;
 use Zimbra\Soap\Enum\Operation;
-use Zimbra\Soap\Enum\ParticipationStatus as PartStatus;
+use Zimbra\Soap\Enum\ParticipationStatus as ParticipationStatus;
 use Zimbra\Soap\Enum\QueueAction;
 use Zimbra\Soap\Enum\QueueActionBy;
 use Zimbra\Soap\Enum\RankingActionOp;
 use Zimbra\Soap\Enum\SearchType;
 use Zimbra\Soap\Enum\ServerBy;
+use Zimbra\Soap\Enum\TagActionOp;
 use Zimbra\Soap\Enum\TargetType;
 use Zimbra\Soap\Enum\TargetBy;
 use Zimbra\Soap\Enum\Transparency;
@@ -358,7 +359,7 @@ class StructTest extends ZimbraTestCase
         $xparam1 = new \Zimbra\Soap\Struct\XParam('name1', 'value1');
         $xparam2 = new \Zimbra\Soap\Struct\XParam('name2', 'value2');
         $cal = new \Zimbra\Soap\Struct\CalendarAttendee(array($xparam1)
-            , 'a', 'url', 'd', 'sentBy', 'dir', 'lang', 'cutype', 'role', PartStatus::NE(), true, 'member', 'delTo', 'delFrom'
+            , 'a', 'url', 'd', 'sentBy', 'dir', 'lang', 'cutype', 'role', ParticipationStatus::NE(), true, 'member', 'delTo', 'delFrom'
         );
         $this->assertSame(array($xparam1), $cal->xparam()->all());
         $this->assertSame('a', $cal->a());
@@ -385,7 +386,7 @@ class StructTest extends ZimbraTestCase
             ->lang('lang')
             ->cutype('cutype')
             ->role('role')
-            ->ptst(PartStatus::AC())
+            ->ptst(ParticipationStatus::AC())
             ->rsvp(true)
             ->member('member')
             ->delTo('delTo')
@@ -3288,6 +3289,72 @@ class StructTest extends ZimbraTestCase
         $this->assertEquals($array, $waitSet->toArray());
     }
 
+    public function testWaitSetAdd()
+    {
+        $a = new \Zimbra\Soap\Struct\WaitSetAddSpec('name', 'id', 'token', array(InterestType::FOLDERS(), InterestType::MESSAGES()));
+        $add = new \Zimbra\Soap\Struct\WaitSetAdd(array($a));
+        $this->assertSame(array($a), $add->a()->all());
+        $add->addWaitSet($a);
+        $this->assertSame(array($a, $a), $add->a()->all());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<add>'
+                .'<a name="name" id="id" token="token" types="f,m" />'
+                .'<a name="name" id="id" token="token" types="f,m" />'
+            .'</add>';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $add);
+
+        $array = array(
+            'add' => array(
+                'a' => array(
+                    array(
+                        'name' => 'name',
+                        'id' => 'id',
+                        'token' => 'token',
+                        'types' => 'f,m',
+                    ),
+                    array(
+                        'name' => 'name',
+                        'id' => 'id',
+                        'token' => 'token',
+                        'types' => 'f,m',
+                    ),
+                ),
+            ),
+        );
+        $this->assertEquals($array, $add->toArray());
+    }
+
+    public function testWaitSetRemove()
+    {
+        $a = new \Zimbra\Soap\Struct\Id('id');
+        $remove = new \Zimbra\Soap\Struct\WaitSetRemove(array($a));
+        $this->assertSame(array($a), $remove->a()->all());
+        $remove->addWaitSet($a);
+        $this->assertSame(array($a, $a), $remove->a()->all());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<remove>'
+                .'<a id="id" />'
+                .'<a id="id" />'
+            .'</remove>';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $remove);
+
+        $array = array(
+            'remove' => array(
+                'a' => array(
+                    array(
+                        'id' => 'id',
+                    ),
+                    array(
+                        'id' => 'id',
+                    ),
+                ),
+            ),
+        );
+        $this->assertEquals($array, $remove->toArray());
+    }
+
     public function testXmppComponentSelector()
     {
         $xmpp = new \Zimbra\Soap\Struct\XmppComponentSelector(XmppBy::ID(), 'xmpp');
@@ -3964,7 +4031,7 @@ class StructTest extends ZimbraTestCase
 
         $xparam1 = new \Zimbra\Soap\Struct\XParam('name1', 'value1');
         $at = new \Zimbra\Soap\Struct\CalendarAttendee(array($xparam1)
-            , 'a', 'url', 'd', 'sentBy', 'dir', 'lang', 'cutype', 'role', PartStatus::NE(), true, 'member', 'delTo', 'delFrom'
+            , 'a', 'url', 'd', 'sentBy', 'dir', 'lang', 'cutype', 'role', ParticipationStatus::NE(), true, 'member', 'delTo', 'delFrom'
         );
         $xparam2 = new \Zimbra\Soap\Struct\XParam('name2', 'value2');
         $xprop = new \Zimbra\Soap\Struct\XProp('name', 'value', array($xparam2));
@@ -5427,7 +5494,7 @@ class StructTest extends ZimbraTestCase
         $this->assertSame('apptId', $comp->apptId());
         $this->assertSame('ciFolder', $comp->ciFolder());
         $this->assertTrue($comp->status()->is('COMP'));
-        $this->assertTrue($comp->klass()->is('PUB'));
+        $this->assertTrue($comp->class_()->is('PUB'));
         $this->assertSame('url', $comp->url());
         $this->assertTrue($comp->ex());
         $this->assertSame('ridZ', $comp->ridZ());
@@ -5457,7 +5524,7 @@ class StructTest extends ZimbraTestCase
              ->apptId('apptId')
              ->ciFolder('ciFolder')
              ->status(InviteStatus::COMP())
-             ->klass(InviteClass::PUB())
+             ->class_(InviteClass::PUB())
              ->url('url')
              ->ex(true)
              ->ridZ('ridZ')
@@ -5486,7 +5553,7 @@ class StructTest extends ZimbraTestCase
         $this->assertSame('apptId', $comp->apptId());
         $this->assertSame('ciFolder', $comp->ciFolder());
         $this->assertTrue($comp->status()->is('COMP'));
-        $this->assertTrue($comp->klass()->is('PUB'));
+        $this->assertTrue($comp->class_()->is('PUB'));
         $this->assertSame('url', $comp->url());
         $this->assertTrue($comp->ex());
         $this->assertSame('ridZ', $comp->ridZ());
@@ -5569,7 +5636,7 @@ class StructTest extends ZimbraTestCase
     {
         $xparam = new \Zimbra\Soap\Struct\XParam('name', 'value');
         $at = new \Zimbra\Soap\Struct\CalendarAttendee(array($xparam)
-            , 'a', 'url', 'd', 'sentBy', 'dir', 'lang', 'cutype', 'role', PartStatus::NE(), true, 'member', 'delTo', 'delFrom'
+            , 'a', 'url', 'd', 'sentBy', 'dir', 'lang', 'cutype', 'role', ParticipationStatus::NE(), true, 'member', 'delTo', 'delFrom'
         );
         $abs = new \Zimbra\Soap\Struct\DateAttr('20120315T18302305Z');
         $rel = new \Zimbra\Soap\Struct\DurationInfo(true, 1, 2, 3, 4, 5, 'START', 6);
@@ -7302,7 +7369,7 @@ class StructTest extends ZimbraTestCase
     public function testActionSelector()
     {
         $action = new \Zimbra\Soap\Struct\ActionSelector(
-            ContactAction::MOVE(), 'id', 'tcon', 1, 'l', '#aabbcc', 1, 'name', 'f', 't', 'tn'
+            ContactActionOp::MOVE(), 'id', 'tcon', 1, 'l', '#aabbcc', 1, 'name', 'f', 't', 'tn'
         );
         $this->assertSame('id', $action->id());
         $this->assertSame('tcon', $action->tcon());
@@ -7364,18 +7431,18 @@ class StructTest extends ZimbraTestCase
             'n', 'value', 'aid', 'id', 'part'
         );
         $action = new \Zimbra\Soap\Struct\ContactActionSelector(
-            ContactAction::MOVE(), 'id', 'tcon', 1, 'l', '#aabbcc', 1, 'name', 'f', 't', 'tn', array($a)
+            ContactActionOp::MOVE(), 'id', 'tcon', 1, 'l', '#aabbcc', 1, 'name', 'f', 't', 'tn', array($a)
         );
         $this->assertTrue($action->op()->is('move'));
         $this->assertSame(array($a), $action->a()->all());
 
-        $action->op(ContactAction::MOVE())
+        $action->op(ContactActionOp::MOVE())
                ->addA($a);
         $this->assertTrue($action->op()->is('move'));
         $this->assertSame(array($a, $a), $action->a()->all());
 
         $action = new \Zimbra\Soap\Struct\ContactActionSelector(
-            ContactAction::MOVE(), 'id', 'tcon', 1, 'l', '#aabbcc', 1, 'name', 'f', 't', 'tn', array($a)
+            ContactActionOp::MOVE(), 'id', 'tcon', 1, 'l', '#aabbcc', 1, 'name', 'f', 't', 'tn', array($a)
         );
 
         $xml = '<?xml version="1.0"?>'."\n"
@@ -7414,10 +7481,10 @@ class StructTest extends ZimbraTestCase
     public function testConvActionSelector()
     {
         $action = new \Zimbra\Soap\Struct\ConvActionSelector(
-            ConvAction::DELETE(), 'id', 'tcon', 1, 'l', '#aabbcc', 1, 'name', 'f', 't', 'tn'
+            ConvActionOp::DELETE(), 'id', 'tcon', 1, 'l', '#aabbcc', 1, 'name', 'f', 't', 'tn'
         );
         $this->assertTrue($action->op()->is('delete'));
-        $action->op(ConvAction::DELETE());
+        $action->op(ConvActionOp::DELETE());
         $this->assertTrue($action->op()->is('delete'));
 
         $xml = '<?xml version="1.0"?>'."\n"
@@ -8433,13 +8500,13 @@ class StructTest extends ZimbraTestCase
             DocumentPermission::READ(), DocumentGrantType::ALL(), 1
         );
         $action = new \Zimbra\Soap\Struct\DocumentActionSelector(
-            DocumentAction::WATCH(), 'id', 'tcon', 1, 'l', '#aabbcc', 1, 'name', 'f', 't', 'tn', $grant, 'zid'
+            DocumentActionOp::WATCH(), 'id', 'tcon', 1, 'l', '#aabbcc', 1, 'name', 'f', 't', 'tn', $grant, 'zid'
         );
         $this->assertTrue($action->op()->is('watch'));
         $this->assertSame($grant, $action->grant());
         $this->assertSame('zid', $action->zid());
 
-        $action->op(DocumentAction::WATCH())
+        $action->op(DocumentActionOp::WATCH())
                ->grant($grant)
                ->zid('zid');
         $this->assertTrue($action->op()->is('watch'));
@@ -8571,7 +8638,7 @@ class StructTest extends ZimbraTestCase
         );
 
         $action = new \Zimbra\Soap\Struct\FolderActionSelector(
-            FolderAction::READ(),
+            FolderActionOp::READ(),
             'id',
             'tcon',
             1,
@@ -8603,7 +8670,7 @@ class StructTest extends ZimbraTestCase
         $this->assertSame('gt', $action->gt());
         $this->assertSame('view', $action->view());
 
-        $action->op(FolderAction::READ())
+        $action->op(FolderActionOp::READ())
                ->grant($grant)
                ->addAcl($grant)
                ->retentionPolicy($retentionPolicy)
@@ -9066,7 +9133,7 @@ class StructTest extends ZimbraTestCase
     public function testItemActionSelector()
     {
         $action = new \Zimbra\Soap\Struct\ItemActionSelector(
-            ItemAction::MOVE(), 'id', 'tcon', 1, 'l', '#aabbcc', 1, 'name', 'f', 't', 'tn'
+            ItemActionOp::MOVE(), 'id', 'tcon', 1, 'l', '#aabbcc', 1, 'name', 'f', 't', 'tn'
         );
         $this->assertTrue($action->op()->is('move'));
         $this->assertSame('id', $action->id());
@@ -9080,7 +9147,7 @@ class StructTest extends ZimbraTestCase
         $this->assertSame('t', $action->t());
         $this->assertSame('tn', $action->tn());
 
-        $action->op(ItemAction::MOVE())
+        $action->op(ItemActionOp::MOVE())
                ->id('id')
                ->tcon('tcon')
                ->tag(1)
@@ -11500,11 +11567,11 @@ class StructTest extends ZimbraTestCase
     public function testMsgActionSelector()
     {
         $action = new \Zimbra\Soap\Struct\MsgActionSelector(
-            MsgAction::MOVE(), 'id', 'tcon', 1, 'l', '#aabbcc', 1, 'name', 'f', 't', 'tn'
+            MsgActionOp::MOVE(), 'id', 'tcon', 1, 'l', '#aabbcc', 1, 'name', 'f', 't', 'tn'
         );
         $this->assertTrue($action->op()->is('move'));
 
-        $action->op(MsgAction::MOVE());
+        $action->op(MsgActionOp::MOVE());
         $this->assertTrue($action->op()->is('move'));
 
         $xml = '<?xml version="1.0"?>'."\n"
@@ -11532,14 +11599,14 @@ class StructTest extends ZimbraTestCase
     public function testNoteActionSelector()
     {
         $action = new \Zimbra\Soap\Struct\NoteActionSelector(
-            ItemAction::MOVE(), 'id', 'tcon', 1, 'l', '#aabbcc', 1, 'name', 'f', 't', 'tn', 'content', 'pos'
+            ItemActionOp::MOVE(), 'id', 'tcon', 1, 'l', '#aabbcc', 1, 'name', 'f', 't', 'tn', 'content', 'pos'
         );
         $this->assertInstanceOf('\Zimbra\Soap\Struct\ActionSelector', $action);
         $this->assertTrue($action->op()->is('move'));
         $this->assertSame('content', $action->content());
         $this->assertSame('pos', $action->pos());
 
-        $action->op(ItemAction::MOVE())
+        $action->op(ItemActionOp::MOVE())
                ->content('content')
                ->pos('pos');
         $this->assertTrue($action->op()->is('move'));
@@ -11996,5 +12063,612 @@ class StructTest extends ZimbraTestCase
             ),
         );
         $this->assertEquals($array, $m->toArray());
+    }
+
+    public function testMsgToSend()
+    {
+        $mp = new \Zimbra\Soap\Struct\MimePartAttachSpec('mid', 'part', true);
+        $m = new \Zimbra\Soap\Struct\MsgAttachSpec('id', false);
+        $cn = new \Zimbra\Soap\Struct\ContactAttachSpec('id', false);
+        $doc = new \Zimbra\Soap\Struct\DocAttachSpec('path', 'id', 1, true);
+        $info = new \Zimbra\Soap\Struct\MimePartInfo(array(), null, 'ct', 'content', 'ci');
+        $standard = new \Zimbra\Soap\Struct\TzOnsetInfo(1, 2, 3, 4);
+        $daylight = new \Zimbra\Soap\Struct\TzOnsetInfo(4, 3, 2, 1);
+
+        $header = new \Zimbra\Soap\Struct\Header('name', 'value');
+        $attach = new \Zimbra\Soap\Struct\AttachmentsInfo($mp, $m, $cn, $doc, 'aid');
+        $mp = new \Zimbra\Soap\Struct\MimePartInfo(array($info), $attach, 'ct', 'content', 'ci');
+        $inv = new \Zimbra\Soap\Struct\InvitationInfo('method', 1, true);
+        $e = new \Zimbra\Soap\Struct\EmailAddrInfo('a', 't', 'p');
+        $tz = new \Zimbra\Soap\Struct\CalTZInfo('id', 1, 1, 'stdname', 'dayname', $standard, $daylight);
+
+        $m = new \Zimbra\Soap\Struct\MsgToSend(
+            'did',
+            true,
+            'aid',
+            'origid',
+            'rt',
+            'idnt',
+            'su',
+            'irt',
+            'l',
+            'f',
+            'content',
+            array($header),
+            $mp,
+            $attach,
+            $inv,
+            array($e),
+            array($tz),
+            'fr'
+        );
+        $this->assertInstanceOf('Zimbra\Soap\Struct\Msg', $m);
+
+        $this->assertSame('did', $m->did());
+        $this->assertTrue($m->sfd());
+
+        $m->did('did')
+          ->sfd(true);
+        $this->assertSame('did', $m->did());
+        $this->assertTrue($m->sfd());
+
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<m did="did" sfd="1" aid="aid" origid="origid" rt="rt" idnt="idnt" su="su" irt="irt" l="l" f="f">'
+                .'<content>content</content>'
+                .'<header name="name">value</header>'
+                .'<mp ct="ct" content="content" ci="ci">'
+                    .'<mp ct="ct" content="content" ci="ci" />'
+                    .'<attach aid="aid">'
+                        .'<mp mid="mid" part="part" optional="1" />'
+                        .'<m id="id" optional="0" />'
+                        .'<cn id="id" optional="0" />'
+                        .'<doc path="path" id="id" ver="1" optional="1" />'
+                    .'</attach>'
+                .'</mp>'
+                .'<attach aid="aid">'
+                    .'<mp mid="mid" part="part" optional="1" />'
+                    .'<m id="id" optional="0" />'
+                    .'<cn id="id" optional="0" />'
+                    .'<doc path="path" id="id" ver="1" optional="1" />'
+                .'</attach>'
+                .'<inv method="method" compNum="1" rsvp="1" />'
+                .'<e a="a" t="t" p="p" />'
+                .'<tz id="id" stdoff="1" dayoff="1" stdname="stdname" dayname="dayname">'
+                    .'<standard mon="1" hour="2" min="3" sec="4" />'
+                    .'<daylight mon="4" hour="3" min="2" sec="1" />'
+                .'</tz>'
+                .'<fr>fr</fr>'
+            .'</m>';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $m);
+
+        $array = array(
+            'm' => array(
+                'did' => 'did',
+                'sfd' => 1,
+                'aid' => 'aid',
+                'origid' => 'origid',
+                'rt' => 'rt',
+                'idnt' => 'idnt',
+                'su' => 'su',
+                'irt' => 'irt',
+                'l' => 'l',
+                'f' => 'f',
+                'content' => 'content',
+                'header' => array(
+                    array(
+                        'name' => 'name',
+                        '_' => 'value',
+                    ),
+                ),
+                'mp' => array(
+                    'ct' => 'ct',
+                    'content' => 'content',
+                    'ci' => 'ci',
+                    'mp' => array(
+                        array(
+                            'ct' => 'ct',
+                            'content' => 'content',
+                            'ci' => 'ci',
+                        ),
+                    ),
+                    'attach' => array(
+                        'aid' => 'aid',
+                        'mp' => array(
+                            'mid' => 'mid',
+                            'part' => 'part',
+                            'optional' => 1,
+                        ),
+                        'm' => array(
+                            'id' => 'id',
+                            'optional' => 0,
+                        ),
+                        'cn' => array(
+                            'id' => 'id',
+                            'optional' => 0,
+                        ),
+                        'doc' => array(
+                            'path' => 'path',
+                            'id' => 'id',
+                            'ver' => 1,
+                            'optional' => 1,
+                        ),
+                    ),
+                ),
+                'attach' => array(
+                    'aid' => 'aid',
+                    'mp' => array(
+                        'mid' => 'mid',
+                        'part' => 'part',
+                        'optional' => 1,
+                    ),
+                    'm' => array(
+                        'id' => 'id',
+                        'optional' => 0,
+                    ),
+                    'cn' => array(
+                        'id' => 'id',
+                        'optional' => 0,
+                    ),
+                    'doc' => array(
+                        'path' => 'path',
+                        'id' => 'id',
+                        'ver' => 1,
+                        'optional' => 1,
+                    ),
+                ),
+                'inv' => array(
+                    'method' => 'method',
+                    'compNum' => 1,
+                    'rsvp' => 1,
+                ),
+                'e' => array(
+                    array(
+                        'a' => 'a',
+                        't' => 't',
+                        'p' => 'p',
+                    ),
+                ),
+                'tz' => array(
+                    array(
+                        'id' => 'id',
+                        'stdoff' => 1,
+                        'dayoff' => 1,
+                        'stdname' => 'stdname',
+                        'dayname' => 'dayname',
+                        'standard' => array(
+                            'mon' => 1,
+                            'hour' => 2,
+                            'min' => 3,
+                            'sec' => 4,
+                        ),
+                        'daylight' => array(
+                            'mon' => 4,
+                            'hour' => 3,
+                            'min' => 2,
+                            'sec' => 1,
+                        ),
+                    ),
+                ),
+                'fr' => 'fr',
+            ),
+        );
+        $this->assertEquals($array, $m->toArray());
+    }
+
+    public function testSetCalendarItemInfo()
+    {
+        $mp = new \Zimbra\Soap\Struct\MimePartAttachSpec('mid', 'part', true);
+        $msg = new \Zimbra\Soap\Struct\MsgAttachSpec('id', false);
+        $cn = new \Zimbra\Soap\Struct\ContactAttachSpec('id', false);
+        $doc = new \Zimbra\Soap\Struct\DocAttachSpec('path', 'id', 1, true);
+        $info = new \Zimbra\Soap\Struct\MimePartInfo(array(), null, 'ct', 'content', 'ci');
+        $standard = new \Zimbra\Soap\Struct\TzOnsetInfo(1, 2, 3, 4);
+        $daylight = new \Zimbra\Soap\Struct\TzOnsetInfo(4, 3, 2, 1);
+
+        $header = new \Zimbra\Soap\Struct\Header('name', 'value');
+        $attach = new \Zimbra\Soap\Struct\AttachmentsInfo($mp, $msg, $cn, $doc, 'aid');
+        $mp = new \Zimbra\Soap\Struct\MimePartInfo(array($info), $attach, 'ct', 'content', 'ci');
+        $inv = new \Zimbra\Soap\Struct\InvitationInfo('method', 1, true);
+        $e = new \Zimbra\Soap\Struct\EmailAddrInfo('a', 't', 'p');
+        $tz = new \Zimbra\Soap\Struct\CalTZInfo('id', 1, 1, 'stdname', 'dayname', $standard, $daylight);
+
+        $m = new \Zimbra\Soap\Struct\Msg(
+            'aid',
+            'origid',
+            'rt',
+            'idnt',
+            'su',
+            'irt',
+            'l',
+            'f',
+            'content',
+            array($header),
+            $mp,
+            $attach,
+            $inv,
+            array($e),
+            array($tz),
+            'fr'
+        );
+
+        $item = new \Zimbra\Soap\Struct\SetCalendarItemInfo(
+            $m, ParticipationStatus::NE()
+        );
+        $this->assertSame($m, $item->m());
+        $this->assertTrue($item->ptst()->is('NE'));
+
+        $item->m($m)
+             ->ptst(ParticipationStatus::NE());
+        $this->assertSame($m, $item->m());
+        $this->assertTrue($item->ptst()->is('NE'));
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<item ptst="NE">'
+                .'<m aid="aid" origid="origid" rt="rt" idnt="idnt" su="su" irt="irt" l="l" f="f">'
+                    .'<content>content</content>'
+                    .'<header name="name">value</header>'
+                    .'<mp ct="ct" content="content" ci="ci">'
+                        .'<mp ct="ct" content="content" ci="ci" />'
+                        .'<attach aid="aid">'
+                            .'<mp mid="mid" part="part" optional="1" />'
+                            .'<m id="id" optional="0" />'
+                            .'<cn id="id" optional="0" />'
+                            .'<doc path="path" id="id" ver="1" optional="1" />'
+                        .'</attach>'
+                    .'</mp>'
+                    .'<attach aid="aid">'
+                        .'<mp mid="mid" part="part" optional="1" />'
+                        .'<m id="id" optional="0" />'
+                        .'<cn id="id" optional="0" />'
+                        .'<doc path="path" id="id" ver="1" optional="1" />'
+                    .'</attach>'
+                    .'<inv method="method" compNum="1" rsvp="1" />'
+                    .'<e a="a" t="t" p="p" />'
+                    .'<tz id="id" stdoff="1" dayoff="1" stdname="stdname" dayname="dayname">'
+                        .'<standard mon="1" hour="2" min="3" sec="4" />'
+                        .'<daylight mon="4" hour="3" min="2" sec="1" />'
+                    .'</tz>'
+                    .'<fr>fr</fr>'
+                .'</m>'
+            .'</item>';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $item);
+
+        $array = array(
+            'item' => array(
+                'ptst' => 'NE',
+                'm' => array(
+                    'aid' => 'aid',
+                    'origid' => 'origid',
+                    'rt' => 'rt',
+                    'idnt' => 'idnt',
+                    'su' => 'su',
+                    'irt' => 'irt',
+                    'l' => 'l',
+                    'f' => 'f',
+                    'content' => 'content',
+                    'header' => array(
+                        array(
+                            'name' => 'name',
+                            '_' => 'value',
+                        ),
+                    ),
+                    'mp' => array(
+                        'ct' => 'ct',
+                        'content' => 'content',
+                        'ci' => 'ci',
+                        'mp' => array(
+                            array(
+                                'ct' => 'ct',
+                                'content' => 'content',
+                                'ci' => 'ci',
+                            ),
+                        ),
+                        'attach' => array(
+                            'aid' => 'aid',
+                            'mp' => array(
+                                'mid' => 'mid',
+                                'part' => 'part',
+                                'optional' => 1,
+                            ),
+                            'm' => array(
+                                'id' => 'id',
+                                'optional' => 0,
+                            ),
+                            'cn' => array(
+                                'id' => 'id',
+                                'optional' => 0,
+                            ),
+                            'doc' => array(
+                                'path' => 'path',
+                                'id' => 'id',
+                                'ver' => 1,
+                                'optional' => 1,
+                            ),
+                        ),
+                    ),
+                    'attach' => array(
+                        'aid' => 'aid',
+                        'mp' => array(
+                            'mid' => 'mid',
+                            'part' => 'part',
+                            'optional' => 1,
+                        ),
+                        'm' => array(
+                            'id' => 'id',
+                            'optional' => 0,
+                        ),
+                        'cn' => array(
+                            'id' => 'id',
+                            'optional' => 0,
+                        ),
+                        'doc' => array(
+                            'path' => 'path',
+                            'id' => 'id',
+                            'ver' => 1,
+                            'optional' => 1,
+                        ),
+                    ),
+                    'inv' => array(
+                        'method' => 'method',
+                        'compNum' => 1,
+                        'rsvp' => 1,
+                    ),
+                    'e' => array(
+                        array(
+                            'a' => 'a',
+                            't' => 't',
+                            'p' => 'p',
+                        ),
+                    ),
+                    'tz' => array(
+                        array(
+                            'id' => 'id',
+                            'stdoff' => 1,
+                            'dayoff' => 1,
+                            'stdname' => 'stdname',
+                            'dayname' => 'dayname',
+                            'standard' => array(
+                                'mon' => 1,
+                                'hour' => 2,
+                                'min' => 3,
+                                'sec' => 4,
+                            ),
+                            'daylight' => array(
+                                'mon' => 4,
+                                'hour' => 3,
+                                'min' => 2,
+                                'sec' => 1,
+                            ),
+                        ),
+                    ),
+                    'fr' => 'fr',
+                ),
+            ),
+        );
+        $this->assertEquals($array, $item->toArray());
+    }
+
+    public function testCalReply()
+    {
+        $reply = new \Zimbra\Soap\Struct\CalReply(
+            'at', 1, 1, 1, '991231', 'sentBy', ParticipationStatus::NE(), 'tz', '991231000000'
+        );
+        $this->assertSame('at', $reply->at());
+        $this->assertSame(1, $reply->seq());
+        $this->assertSame(1, $reply->d());
+        $this->assertSame('sentBy', $reply->sentBy());
+        $this->assertTrue($reply->ptst()->is('NE'));
+
+        $reply->at('at')
+              ->seq(1)
+              ->d(1)
+              ->sentBy('sentBy')
+              ->ptst(ParticipationStatus::NE());
+        $this->assertSame('at', $reply->at());
+        $this->assertSame(1, $reply->seq());
+        $this->assertSame(1, $reply->d());
+        $this->assertSame('sentBy', $reply->sentBy());
+        $this->assertTrue($reply->ptst()->is('NE'));
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<reply at="at" seq="1" d="1" sentBy="sentBy" ptst="NE" rangeType="1" recurId="991231" tz="tz" ridZ="991231000000" />';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $reply);
+
+        $array = array(
+            'reply' => array(
+                'at' => 'at',
+                'seq' => 1,
+                'd' => 1,
+                'sentBy' => 'sentBy',
+                'ptst' => 'NE',
+                'rangeType' => 1,
+                'recurId' => '991231',
+                'tz' => 'tz',
+                'ridZ' => '991231000000',
+            ),
+        );
+        $this->assertEquals($array, $reply->toArray());
+    }
+
+    public function testReplies()
+    {
+        $reply = new \Zimbra\Soap\Struct\CalReply(
+            'at', 1, 1, 1, '991231', 'sentBy', ParticipationStatus::NE(), 'tz', '991231000000'
+        );
+        $replies = new \Zimbra\Soap\Struct\Replies(
+            array($reply)
+        );
+        $this->assertSame(array($reply), $replies->reply()->all());
+        $replies->addReply($reply);
+        $this->assertSame(array($reply, $reply), $replies->reply()->all());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<replies>'
+                .'<reply at="at" seq="1" d="1" sentBy="sentBy" ptst="NE" rangeType="1" recurId="991231" tz="tz" ridZ="991231000000" />'
+                .'<reply at="at" seq="1" d="1" sentBy="sentBy" ptst="NE" rangeType="1" recurId="991231" tz="tz" ridZ="991231000000" />'
+            .'</replies>';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $replies);
+
+        $array = array(
+            'replies' => array(
+                'reply' => array(
+                    array(
+                        'at' => 'at',
+                        'seq' => 1,
+                        'd' => 1,
+                        'sentBy' => 'sentBy',
+                        'ptst' => 'NE',
+                        'rangeType' => 1,
+                        'recurId' => '991231',
+                        'tz' => 'tz',
+                        'ridZ' => '991231000000',
+                    ),
+                    array(
+                        'at' => 'at',
+                        'seq' => 1,
+                        'd' => 1,
+                        'sentBy' => 'sentBy',
+                        'ptst' => 'NE',
+                        'rangeType' => 1,
+                        'recurId' => '991231',
+                        'tz' => 'tz',
+                        'ridZ' => '991231000000',
+                    ),
+                ),
+            ),
+        );
+        $this->assertEquals($array, $replies->toArray());
+    }
+
+    public function testSnoozeAlarm()
+    {
+        $alarm = new \Zimbra\Soap\Struct\SnoozeAlarm('id', 1);
+        $this->assertSame('id', $alarm->id());
+        $this->assertSame(1, $alarm->until());
+
+        $alarm->id('id')
+              ->until(1);
+        $this->assertSame('id', $alarm->id());
+        $this->assertSame(1, $alarm->until());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<alarm id="id" until="1" />';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $alarm);
+
+        $array = array(
+            'alarm' => array(
+                'id' => 'id',
+                'until' => 1,
+            ),
+        );
+        $this->assertEquals($array, $alarm->toArray());
+    }
+
+    public function testSnoozeAppointmentAlarm()
+    {
+        $appt = new \Zimbra\Soap\Struct\SnoozeAppointmentAlarm('id', 1);
+        $this->assertInstanceOf('Zimbra\Soap\Struct\SnoozeAlarm', $appt);
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<appt id="id" until="1" />';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $appt);
+
+        $array = array(
+            'appt' => array(
+                'id' => 'id',
+                'until' => 1,
+            ),
+        );
+        $this->assertEquals($array, $appt->toArray());
+    }
+
+    public function testSnoozeTaskAlarm()
+    {
+        $task = new \Zimbra\Soap\Struct\SnoozeTaskAlarm('id', 1);
+        $this->assertInstanceOf('Zimbra\Soap\Struct\SnoozeAlarm', $task);
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<task id="id" until="1" />';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $task);
+
+        $array = array(
+            'task' => array(
+                'id' => 'id',
+                'until' => 1,
+            ),
+        );
+        $this->assertEquals($array, $task->toArray());
+    }
+
+    public function testTagActionSelector()
+    {
+        $keep = new \Zimbra\Soap\Struct\Policy(Type::SYSTEM(), 'id', 'name', 'lifetime');
+        $purge = new \Zimbra\Soap\Struct\Policy(Type::USER(), 'id', 'name', 'lifetime');
+        $retentionPolicy = new \Zimbra\Soap\Struct\RetentionPolicy(
+            array($keep), array($purge)
+        );
+        $action = new \Zimbra\Soap\Struct\TagActionSelector(
+            TagActionOp::READ(), 'id', 'tcon', 1, 'l', '#aabbcc', 1, 'name', 'f', 't', 'tn', $retentionPolicy
+        );
+        $this->assertTrue($action->op()->is('read'));
+        $this->assertSame($retentionPolicy, $action->retentionPolicy());
+
+        $action->op(TagActionOp::READ())
+               ->retentionPolicy($retentionPolicy);
+        $this->assertTrue($action->op()->is('read'));
+        $this->assertSame($retentionPolicy, $action->retentionPolicy());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<action op="read" id="id" tcon="tcon" tag="1" l="l" rgb="#aabbcc" color="1" name="name" f="f" t="t" tn="tn">'
+                .'<retentionPolicy>'
+                    .'<keep>'
+                        .'<policy type="system" id="id" name="name" lifetime="lifetime" />'
+                    .'</keep>'
+                    .'<purge>'
+                        .'<policy type="user" id="id" name="name" lifetime="lifetime" />'
+                    .'</purge>'
+                .'</retentionPolicy>'
+            .'</action>';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $action);
+
+        $array = array(
+            'action' => array(
+                'op' => 'read',
+                'id' => 'id',
+                'tcon' => 'tcon',
+                'tag' => 1,
+                'l' => 'l',
+                'rgb' => '#aabbcc',
+                'color' => 1,
+                'name' => 'name',
+                'f' => 'f',
+                't' => 't',
+                'tn' => 'tn',
+                'retentionPolicy' => array(
+                    'keep' => array(
+                        'policy' => array(
+                            array(
+                                'type' => 'system',
+                                'id' => 'id',
+                                'name' => 'name',
+                                'lifetime' => 'lifetime',
+                            ),
+                        ),
+                    ),
+                    'purge' => array(
+                        'policy' => array(
+                            array(
+                                'type' => 'user',
+                                'id' => 'id',
+                                'name' => 'name',
+                                'lifetime' => 'lifetime',
+                            ),
+                        ),
+                    ),
+                ),
+            )
+        );
+        $this->assertEquals($array, $action->toArray());
     }
 }

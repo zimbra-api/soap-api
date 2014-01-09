@@ -73,7 +73,7 @@ class SendDeliveryReport extends Request
      */
     public function toXml()
     {
-    	$this->xml->addAttribute('mid', $this->_mid);
+        $this->xml->addAttribute('mid', $this->_mid);
         return parent::toXml();
     }
 }

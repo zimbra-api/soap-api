@@ -132,7 +132,7 @@ class AutoCompleteGal extends Request
         {
             return $this->_type;
         }
-		$this->_type = $type;
+        $this->_type = $type;
         return $this;
     }
 

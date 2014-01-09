@@ -45,17 +45,17 @@ abstract class Base
      */
     public function __construct($value = null)
     {
-    	if (is_null($value))
-    	{
-    		$value = static::$default;
-    	}
-    	static::initialize();
+        if (is_null($value))
+        {
+            $value = static::$default;
+        }
+        static::initialize();
 
-    	if (!in_array($value, static::enums()))
-    	{
-    		throw new \UnexpectedValueException("Value '$value' is not part of the enum " . get_called_class());
-    	}
-    	$this->_value = $value;
+        if (!in_array($value, static::enums()))
+        {
+            throw new \UnexpectedValueException("Value '$value' is not part of the enum " . get_called_class());
+        }
+        $this->_value = $value;
     }
 
     /**
@@ -64,11 +64,11 @@ abstract class Base
     protected static function initialize()
     {
         $className = get_called_class();
-    	if (!isset(self::$cache[$className]['values']))
-    	{
-    		$ref = new \ReflectionClass($className);
-    		self::$cache[$className]['values'] = $ref->getConstants();
-    	}
+        if (!isset(self::$cache[$className]['values']))
+        {
+            $ref = new \ReflectionClass($className);
+            self::$cache[$className]['values'] = $ref->getConstants();
+        }
     }
 
     /**
@@ -78,9 +78,9 @@ abstract class Base
      */
     public static function enums()
     {
-    	static::initialize();
+        static::initialize();
         $className = get_called_class();
-    	return self::$cache[$className]['values'];
+        return self::$cache[$className]['values'];
     }
 
     /**
@@ -93,13 +93,13 @@ abstract class Base
      */
     public static function __callStatic($name, $arguments)
     {
-    	$class = get_called_class();
-    	$const = $class . '::' . $name;
-    	if (!defined($const))
-    	{
-    		throw new \BadMethodCallException("No static method or enum constant '$name' in class " . $class());
-    	}
-    	return new static(constant($const));
+        $class = get_called_class();
+        $const = $class . '::' . $name;
+        if (!defined($const))
+        {
+            throw new \BadMethodCallException("No static method or enum constant '$name' in class " . $class());
+        }
+        return new static(constant($const));
     }
 
     /**
@@ -110,7 +110,7 @@ abstract class Base
      */
     public static function has($value)
     {
-    	return in_array($value, static::enums());
+        return in_array($value, static::enums());
     }
 
     /**
@@ -131,11 +131,11 @@ abstract class Base
      */
     public function is($value)
     {
-    	if ($value instanceof Base)
-    	{
-    		$value = $value->value();
-    	}
-    	return $value == $this->value();
+        if ($value instanceof Base)
+        {
+            $value = $value->value();
+        }
+        return $value == $this->value();
     }
 
     /**
@@ -164,6 +164,6 @@ abstract class Base
      */
     public function __toString()
     {
-    	return (string) $this->_value;
+        return (string) $this->_value;
     }
 }

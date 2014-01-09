@@ -45,8 +45,8 @@ class CreateCalendarResource extends Attr
     public function __construct($name = null, $password = null, array $attrs = array())
     {
         parent::__construct($attrs);
-		$this->_name = trim($name);
-		$this->_password = trim($password);
+        $this->_name = trim($name);
+        $this->_password = trim($password);
     }
 
     /**
