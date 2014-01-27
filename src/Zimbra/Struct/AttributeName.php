@@ -8,33 +8,27 @@
  * file that was distributed with this source code.
  */
 
-namespace Zimbra\Soap\Struct;
-
-use Zimbra\Utils\SimpleXML;
+namespace Zimbra\Struct;
 
 /**
- * AttributeName class
+ * AttributeName struct class
+ *
  * @package   Zimbra
- * @category  Soap
+ * @category  Struct
  * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright Copyright © 2013 by Nguyen Van Nguyen.
  */
-class AttributeName
+class AttributeName extends Base
 {
     /**
-     * Attribute name
-     * @var string
-     */
-    private $_n;
-
-    /**
      * Constructor method for AttributeName
-     * @param string $n
+     * @param string $n Attribute name
      * @return self
      */
     public function __construct($n)
     {
-        $this->_n = trim($n);
+        parent::__construct();
+        $this->property('n', trim($n));
     }
 
     /**
@@ -47,10 +41,9 @@ class AttributeName
     {
         if(null === $n)
         {
-            return $this->_n;
+            return $this->property('n');
         }
-        $this->_n = trim($n);
-        return $this;
+        return $this->property('n', trim($n));
     }
 
     /**
@@ -61,11 +54,7 @@ class AttributeName
      */
     public function toArray($name = 'a')
     {
-        $name = !empty($name) ? $name : 'a';
-        $arr =  array(
-            'n' => $this->_n,
-        );
-        return array($name => $arr);
+        return parent::toArray($name);
     }
 
     /**
@@ -76,19 +65,6 @@ class AttributeName
      */
     public function toXml($name = 'a')
     {
-        $name = !empty($name) ? $name : 'a';
-        $xml = new SimpleXML('<'.$name.' />');
-        $xml->addAttribute('n', $this->_n);
-        return $xml;
-    }
-
-    /**
-     * Method returning the xml string representation of this class
-     *
-     * @return string
-     */
-    public function __toString()
-    {
-        return $this->toXml()->asXml();
+        return parent::toXml($name);
     }
 }
