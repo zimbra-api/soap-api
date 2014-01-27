@@ -39,25 +39,16 @@ class CalTZInfo extends Base
         $id,
         $stdoff,
         $dayoff,
-        $stdname = null,
-        $dayname = null,
         TzOnsetInfo $standard = null,
-        TzOnsetInfo $daylight = null
+        TzOnsetInfo $daylight = null,
+        $stdname = null,
+        $dayname = null
     )
     {
         parent::__construct();
         $this->property('id', trim($id));
         $this->property('stdoff', (int) $stdoff);
         $this->property('dayoff', (int) $dayoff);
-
-        if(null !== $stdname)
-        {
-            $this->property('stdname', trim($stdname));
-        }
-        if(null !== $dayname)
-        {
-            $this->property('dayname', trim($dayname));
-        }
 
         if($standard instanceof TzOnsetInfo)
         {
@@ -66,6 +57,15 @@ class CalTZInfo extends Base
         if($daylight instanceof TzOnsetInfo)
         {
             $this->child('daylight', $daylight);
+        }
+
+        if(null !== $stdname)
+        {
+            $this->property('stdname', trim($stdname));
+        }
+        if(null !== $dayname)
+        {
+            $this->property('dayname', trim($dayname));
         }
     }
 
