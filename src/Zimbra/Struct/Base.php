@@ -10,9 +10,9 @@
 
 namespace Zimbra\Struct;
 
+use PhpCollection\Map;
 use Zimbra\Common\SimpleXML;
 use Zimbra\Common\TypedMap;
-use PhpCollection\Map;
 
 /**
  * Base struct class
@@ -56,6 +56,7 @@ abstract class Base
 
     /**
      * Constructor method for Base
+     *
      * @param  string $value
      * @return self
      */
@@ -295,7 +296,7 @@ abstract class Base
 				{
 					$xml->addChild($key, ($value === true) ? 1 : 0);
 				}
-                elseif (is_array($value) && count($value))
+                elseif (is_array($value))
                 {
                     foreach ($value as $child)
                     {
