@@ -41,7 +41,10 @@ abstract class Attr extends Request
 
         $this->addHook(function($sender)
         {
-            $sender->child('a', $sender->attr()->all());
+            if(count($sender->attr()))
+            {
+                $sender->child('a', $sender->attr()->all());
+            }
         });
     }
 
