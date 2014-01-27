@@ -49,10 +49,13 @@ abstract class Request extends Base
 
     /**
      * Request constructor
+     *
+     * @param  string $value
+     * @return self
      */
-    public function __construct()
+    public function __construct($value = null)
     {
-        parent::__construct();
+        parent::__construct($value);
         $ref = new \ReflectionObject($this);
         $this->_requestName = $ref->getShortName() . 'Request';
         $this->_responseName = $ref->getShortName() . 'Response';
@@ -107,7 +110,7 @@ abstract class Request extends Base
     /**
      * Returns the array representation of this class 
      *
-     * @param  array $array Child array.
+     * @param  string $name
      * @return array
      */
     public function toArray($name = null)
@@ -119,6 +122,7 @@ abstract class Request extends Base
     /**
      * Method returning the xml representation of this class
      *
+     * @param  string $name
      * @return SimpleXML
      */
     public function toXml($name = null)
