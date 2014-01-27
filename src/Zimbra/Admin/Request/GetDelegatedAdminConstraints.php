@@ -46,7 +46,7 @@ class GetDelegatedAdminConstraints extends Request
      */
     public function __construct(TargetType $type, $id = null, $name = null, array $attr = array())
     {
-        parent::__construct($attr);
+        parent::__construct();
         $this->property('type', $type);
         if(null !== $id)
         {
