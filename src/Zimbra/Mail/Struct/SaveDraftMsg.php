@@ -24,48 +24,6 @@ use Zimbra\Common\Text;
 class SaveDraftMsg extends Msg
 {
     /**
-     * Existing draft ID
-     * @var int
-     */
-    private $_id;
-
-    /**
-     * Account ID the draft is for
-     * @var string
-     */
-    private $_forAcct;
-
-    /**
-     * Tags - Comma separated list of integers. DEPRECATED - use "tn" instead
-     * @var string
-     */
-    private $_t;
-
-    /**
-     * Comma-separated list of id names
-     * @var string
-     */
-    private $_tn;
-
-    /**
-     * RGB color in format #rrggbb where r,g and b are hex digits
-     * @var string
-     */
-    private $_rgb;
-
-    /**
-     * Color numeric; range 0-127; defaults to 0 if not present; client can display only 0-7
-     * @var int
-     */
-    private $_color;
-
-    /**
-     * Auto send time in milliseconds since the epoch
-     * @var int
-     */
-    private $_autoSendTime;
-
-    /**
      * Constructor method for Msg
      * @param string $content
      * @param array $header

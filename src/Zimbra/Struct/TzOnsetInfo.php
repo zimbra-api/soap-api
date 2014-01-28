@@ -121,9 +121,9 @@ class TzOnsetInfo extends Base
      */
     public function min($min = null)
     {
-        if(null === $week)
+        if(null === $min)
         {
-            return $this->property('week');
+            return $this->property('min');
         }
         $min = in_array((int) $min, range(0, 59)) ? (int) $min : 0;
         return $this->property('min', $min);
@@ -137,9 +137,9 @@ class TzOnsetInfo extends Base
      */
     public function sec($sec = null)
     {
-        if(null === $week)
+        if(null === $sec)
         {
-            return $this->property('week');
+            return $this->property('sec');
         }
         $sec = in_array((int) $sec, range(0, 59)) ? (int) $sec : 0;
         return $this->property('sec', $sec);
