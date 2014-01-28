@@ -15,59 +15,25 @@ class Test extends Request
     public function __construct($foo, $bar)
     {
         parent::__construct();
-        $this->_foo = $foo;
-        $this->_bar = $bar;
+        $this->child('foo', trim($foo));
+        $this->child('bar', trim($bar));
     }
 
     public function foo($foo = NULL)
     {
         if(NULL === $foo)
         {
-            return $this->_foo;
+            return $this->child('foo');
         }
-        $this->_foo = trim($foo);
-        return $this;
+        return $this->child('foo', trim($foo));
     }
 
     public function bar($bar = NULL)
     {
         if(NULL === $bar)
         {
-            return $this->_bar;
+            return $this->child('bar');
         }
-        $this->_bar = trim($bar);
-        return $this;
-    }
-
-    /**
-     * Returns the array representation of this class 
-     *
-     * @return array
-     */
-    public function toArray()
-    {
-        $this->array = array(
-            'foo' => $this->_foo,
-            'bar' => $this->_bar,
-        );
-        return parent::toArray();
-    }
-
-    /**
-     * Method returning the xml representation of this class
-     *
-     * @return SimpleXML
-     */
-    public function toXml()
-    {
-        if(!empty($this->_foo))
-        {
-            $this->xml->addChild('foo', $this->_foo);
-        }
-        if(!empty($this->_foo))
-        {
-            $this->xml->addChild('bar', $this->_bar);
-        }
-        return parent::toXml();
+        return $this->child('bar', trim($bar));
     }
 }
