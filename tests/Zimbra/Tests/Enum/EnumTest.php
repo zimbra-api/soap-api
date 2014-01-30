@@ -1196,6 +1196,37 @@ class EnumTest extends ZimbraTestCase
         }
     }
 
+    public function testVoiceMsgActionOp()
+    {
+        $values = array(
+            'move',
+            'read',
+            '!read',
+            'empty',
+            'delete',
+        );
+        foreach ($values as $value)
+        {
+            $this->assertTrue(\Zimbra\Enum\VoiceMsgActionOp::has($value));
+        }
+    }
+
+    public function testVoiceSortBy()
+    {
+        $values = array(
+            'dateDesc',
+            'dateAsc',
+            'durDesc',
+            'durAsc',
+            'nameDesc',
+            'nameAsc',
+        );
+        foreach ($values as $value)
+        {
+            $this->assertTrue(\Zimbra\Enum\VoiceSortBy::has($value));
+        }
+    }
+
     public function testVolumeType()
     {
         $values = array(1, 2, 10);

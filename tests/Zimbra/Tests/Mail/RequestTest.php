@@ -30,7 +30,6 @@ use Zimbra\Enum\TagActionOp;
 use Zimbra\Enum\TargetType;
 use Zimbra\Enum\Type;
 
-
 /**
  * Testcase class for mail request.
  */
