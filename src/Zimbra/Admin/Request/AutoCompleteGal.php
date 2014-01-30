@@ -120,7 +120,7 @@ class AutoCompleteGal extends Request
     }
 
     /**
-     * Gets or sets int
+     * Gets or sets limit
      *
      * @param  int $limit
      * @return int|self

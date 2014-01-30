@@ -8,7 +8,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Zimbra\API;
+namespace Zimbra\Mail;
 
 /**
  * Mail soap api factory class

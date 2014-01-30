@@ -11,7 +11,7 @@
 namespace Zimbra\Enum;
 
 /**
- * ContactAction enum class
+ * ContactActionOp enum class
  *
  * @package   Zimbra
  * @category  Enum

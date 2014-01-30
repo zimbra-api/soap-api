@@ -19,7 +19,7 @@ use Zimbra\Common\Text;
  * @subpackage Mail
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
- * @copyright  Copyright © 2013 gt Nguyen Van Nguyen.
+ * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
  */
 class SaveDraftMsg extends Msg
 {
