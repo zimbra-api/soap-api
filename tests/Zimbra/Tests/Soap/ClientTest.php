@@ -22,16 +22,8 @@ class ClientTest extends ZimbraTestCase
         $this->assertInstanceOf('\SoapHeader', $client->soapHeader());
     }
 
-    /**
-     * @outputBuffering enabled
-     */
     public function testWsdlRequest()
     {
-        if (headers_sent($file, $line))
-        {
-            $this->markTestSkipped('Cannot run testWsdl() when headers have already been sent. Output started in '.$file.'@'.$line.' enable output buffering to run this test');
-            return;
-        }
         $server = new SoapServer(__DIR__.'/../TestData/test.wsdl');
         $server->setClass('\Zimbra\Tests\TestData\TestRequestServer');
         $this->assertContains('testRequest', $server->getFunctions());
@@ -69,9 +61,18 @@ class LocalClientWsdl extends Wsdl
 
     public function __doRequest($request, $location, $action, $version, $one_way = 0)
     {
-        ob_start();
+        /*ob_start();
         $this->_server->handle($request);
-        $response = ob_get_clean();
+        $response = ob_get_clean();*/
+        $response = '<?xml version="1.0" encoding="UTF-8"?>'."\n"
+            .'<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:enc="http://www.w3.org/2003/05/soap-encoding">'
+                .'<soap:Body xmlns:rpc="http://www.w3.org/2003/05/soap-rpc">'
+                    .'<TestResponse>'
+                        .'<foo>foo</foo>'
+                        .'<bar>bar</bar>'
+                    .'</TestResponse>'
+                .'</soap:Body>'
+            .'</soap:Envelope>';
         return $response;
     }
 }
