@@ -35,7 +35,7 @@ class CursorInfo extends Base
         $includeOffset = null
     )
     {
-		parent::__construct();
+        parent::__construct();
         if(null !== $id)
         {
             $this->property('id', trim($id));

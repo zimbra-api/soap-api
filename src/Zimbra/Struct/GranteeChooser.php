@@ -29,7 +29,7 @@ class GranteeChooser extends Base
      */
     public function __construct($type = null, $id = null, $name = null)
     {
-		parent::__construct();
+        parent::__construct();
         if(null !== $type)
         {
             $this->property('type', trim($type));

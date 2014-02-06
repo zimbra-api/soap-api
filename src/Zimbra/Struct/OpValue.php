@@ -28,10 +28,10 @@ class OpValue extends Base
      */
     public function __construct($op, $value = null)
     {
-		parent::__construct(trim($value));
+        parent::__construct(trim($value));
         if($op !== null and in_array(trim($op), array('+', '-')))
         {
-			$this->property('op', trim($op));
+            $this->property('op', trim($op));
         }
     }
 
@@ -45,11 +45,11 @@ class OpValue extends Base
     {
         if(null === $op)
         {
-			return $this->property('op');
+            return $this->property('op');
         }
         if(in_array(trim($op), array('+', '-')))
         {
-			$this->property('op', trim($op));
+            $this->property('op', trim($op));
         }
         return $this;
     }

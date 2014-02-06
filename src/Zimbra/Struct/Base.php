@@ -159,14 +159,14 @@ abstract class Base
      */
     protected function invokeHooks()
     {
-		foreach(array_reverse($this->_hookCallbacks) as $callback)
-		{
-			if($callback instanceof \Closure)
-			{
-				$callback($this);
-			}
-		}
-	}
+        foreach(array_reverse($this->_hookCallbacks) as $callback)
+        {
+            if($callback instanceof \Closure)
+            {
+                $callback($this);
+            }
+        }
+    }
 
     /**
      * Returns the array representation of this class 
@@ -176,7 +176,7 @@ abstract class Base
      */
     public function toArray($name = 'name')
     {
-		$this->invokeHooks();
+        $this->invokeHooks();
         $name = !empty($name) ? $name : 'name';
         $arr = array();
         if(null !== $this->_value)
@@ -206,14 +206,14 @@ abstract class Base
                 {
                     $arr += $value->toArray($key);
                 }
-				elseif($value instanceof \Zimbra\Enum\Base)
-				{
-					$arr[$key] = $value->value();
-				}
-				elseif(is_bool($value))
-				{
-					$arr[$key] = ($value === true) ? 1 : 0;
-				}
+                elseif($value instanceof \Zimbra\Enum\Base)
+                {
+                    $arr[$key] = $value->value();
+                }
+                elseif(is_bool($value))
+                {
+                    $arr[$key] = ($value === true) ? 1 : 0;
+                }
                 elseif (is_array($value) && count($value))
                 {
                     $arr[$key] = array();
@@ -224,10 +224,10 @@ abstract class Base
                             $vArr = $v->toArray($key);
                             $arr[$key][] = $vArr[$key];
                         }
-						elseif($v instanceof \Zimbra\Enum\Base)
-						{
-							$arr[$key] = $v->value();
-						}
+                        elseif($v instanceof \Zimbra\Enum\Base)
+                        {
+                            $arr[$key] = $v->value();
+                        }
                         elseif(is_bool($v))
                         {
                             $arr[$key][] = ($v === true) ? 1 : 0;
@@ -238,10 +238,10 @@ abstract class Base
                         }
                     }
                 }
-				else
-				{
-					$arr[$key] = $value;
-				}
+                else
+                {
+                    $arr[$key] = $value;
+                }
             }
         }
         return array($name => $arr);
@@ -255,7 +255,7 @@ abstract class Base
      */
     public function toXml($name = 'name')
     {
-		$this->invokeHooks();
+        $this->invokeHooks();
         $name = !empty($name) ? $name : 'name';
         if(null !== $this->_value)
         {
@@ -288,14 +288,14 @@ abstract class Base
                 {
                     $xml->append($value->toXml($key), $value->xmlNamespace());
                 }
-				elseif($value instanceof \Zimbra\Enum\Base)
-				{
-					$xml->addChild($key, $value->value());
-				}
-				elseif(is_bool($value))
-				{
-					$xml->addChild($key, ($value === true) ? 1 : 0);
-				}
+                elseif($value instanceof \Zimbra\Enum\Base)
+                {
+                    $xml->addChild($key, $value->value());
+                }
+                elseif(is_bool($value))
+                {
+                    $xml->addChild($key, ($value === true) ? 1 : 0);
+                }
                 elseif (is_array($value))
                 {
                     foreach ($value as $child)
@@ -304,10 +304,10 @@ abstract class Base
                         {
                             $xml->append($child->toXml($key), $child->xmlNamespace());
                         }
-						elseif($child instanceof \Zimbra\Enum\Base)
-						{
-							$xml->addChild($key, $child->value());
-						}
+                        elseif($child instanceof \Zimbra\Enum\Base)
+                        {
+                            $xml->addChild($key, $child->value());
+                        }
                         elseif(is_bool($child))
                         {
                             $xml->addChild($key, ($child === true) ? 1 : 0);
@@ -318,10 +318,10 @@ abstract class Base
                         }
                     }
                 }
-				else
-				{
-					$xml->addChild($key, $value);
-				}
+                else
+                {
+                    $xml->addChild($key, $value);
+                }
             }
         }
         return $xml;
