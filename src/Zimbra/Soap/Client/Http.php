@@ -19,6 +19,7 @@ use Guzzle\Plugin\Cookie\CookieJar\ArrayCookieJar;
 
 /**
  * Http is a class which provides a http client for SOAP servers
+ * 
  * @package   Zimbra
  * @category  Soap
  * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
@@ -27,17 +28,20 @@ use Guzzle\Plugin\Cookie\CookieJar\ArrayCookieJar;
 class Http implements ClientInterface
 {
     /**
-     * @var string Authentication token
+     * Authentication token
+     * @var string
      */
     protected $authToken;
 
     /**
-     * @var string Authentication identify
+     * Authentication session identify
+     * @var string
      */
     protected $sessionId;
 
     /**
-     * @var string Soap namespace
+     * Soap namespace
+     * @var string
      */
     protected $namespace = 'urn:zimbra';
 
@@ -47,22 +51,26 @@ class Http implements ClientInterface
     protected $soapMessage;
 
     /**
-     * @var HttpClient Http client
+     * Http client
+     * @var HttpClient
      */
     protected $httpClient;
 
     /**
-     * @var array Request headers
+     * Request headers
+     * @var array
      */
     protected $headers = array();
 
     /**
-     * @var string Server location
+     * Server location
+     * @var string
      */
     protected $location;
 
     /**
-     * @var string Last response message
+     * Last response message
+     * @var string
      */
     protected $response;
 
@@ -82,6 +90,13 @@ class Http implements ClientInterface
              ->addSubscriber(new CookiePlugin(new ArrayCookieJar));
     }
 
+    /**
+     * Performs SOAP request over HTTP.
+     *
+     * @param  string $request The XML SOAP request.
+     * @param  string $headers The HTTP request header.
+     * @return mixed
+     */
     public function __doRequest($request, array $headers = array())
     {
         $httpRequest = $this->httpClient->post(

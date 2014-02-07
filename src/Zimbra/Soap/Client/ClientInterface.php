@@ -14,6 +14,7 @@ use Zimbra\Soap\Request as SoapRequest;
 
 /**
  * ClientInterface is a interface which provides a client for SOAP servers
+ * 
  * @package   Zimbra
  * @category  Soap
  * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com

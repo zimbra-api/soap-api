@@ -15,6 +15,7 @@ use Zimbra\Common\Text;
 
 /**
  * Wsdl is a class which provides a client for SOAP 1.2 servers.
+ * 
  * @package   Zimbra
  * @category  Soap
  * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
@@ -23,12 +24,14 @@ use Zimbra\Common\Text;
 class Wsdl extends \SoapClient implements ClientInterface
 {
     /**
-     * @var array Authentication headers
+     * Soap headers
+     * @var array
      */
     private $_headers = array();
 
     /**
-     * @var array filter callbacks
+     * Filter callbacks
+     * @var array
      */
     private $_filters = array();
 
