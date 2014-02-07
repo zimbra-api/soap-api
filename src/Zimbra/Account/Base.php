@@ -87,8 +87,10 @@ abstract class Base extends API implements AccountInterface
             $persistAuthTokenCookie
         );
         $result = $this->_client->doRequest($request);
-        $authToken = $result->authToken;
-        if($authToken) $this->_client->authToken($authToken);
+        if(isset($result->authToken) && !empty($result->authToken))
+        {
+            $this->_client->authToken($result->authToken);
+        }
         return $result;
     }
 
