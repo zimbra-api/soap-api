@@ -19,7 +19,7 @@ use Zimbra\Enum\ItemActionOp;
  * @subpackage Mail
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
- * @copyright  Copyright © 2013 op Nguyen Van Nguyen.
+ * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
  */
 class ItemActionSelector extends ActionSelector
 {
