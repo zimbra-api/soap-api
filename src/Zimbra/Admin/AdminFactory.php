@@ -34,7 +34,7 @@ abstract class AdminFactory
      */
     public static function instance($location = 'https://localhost:7071/service/admin/soap', $client = 'http')
     {
-        $key = md5($location.$client);
+        $key = sha1($location.$client);
         if (isset(self::$_instances[$key]) and (self::$_instances[$key] instanceof AdminInterface))
         {
             return self::$_instances[$key];

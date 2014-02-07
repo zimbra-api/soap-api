@@ -34,7 +34,7 @@ abstract class VoiceFactory
      */
     public static function instance($location = 'https://localhost/service/soap', $client = 'http')
     {
-        $key = md5($location.$client);
+        $key = sha1($location.$client);
         if (isset(self::$_instances[$key]) and (self::$_instances[$key] instanceof VoiceInterface))
         {
             return self::$_instances[$key];
