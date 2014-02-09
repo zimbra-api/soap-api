@@ -30,6 +30,6 @@ class Wsdl extends Base
     public function __construct($location)
     {
         parent::__construct($location);
-        $this->_client = new ClientWsdl($this->_location);
+        $this->_client = ClientWsdl::instance($this->_location);
     }
 }
