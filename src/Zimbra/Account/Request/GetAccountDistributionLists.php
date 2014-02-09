@@ -11,7 +11,6 @@
 namespace Zimbra\Account\Request;
 
 use Zimbra\Enum\MemberOfSelector as MemberOf;
-use Zimbra\Soap\Request;
 
 /**
  * GetAccountDistributionLists request class
@@ -23,7 +22,7 @@ use Zimbra\Soap\Request;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
  */
-class GetAccountDistributionLists extends Request
+class GetAccountDistributionLists extends Base
 {
     /**
      * Constructor method for GetAccountDistributionLists

@@ -14,7 +14,6 @@ use Zimbra\Account\Struct\DistributionListSelector as DistList;
 use Zimbra\Account\Struct\DistributionListAction as Action;
 use Zimbra\Account\Struct\Attr;
 use Zimbra\Common\TypedSequence;
-use Zimbra\Soap\Request;
 
 /**
  * DistributionListAction request class
@@ -26,7 +25,7 @@ use Zimbra\Soap\Request;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
  */
-class DistributionListAction extends Request
+class DistributionListAction extends Base
 {
     /**
      * Attributes

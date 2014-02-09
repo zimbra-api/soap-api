@@ -11,7 +11,6 @@
 namespace Zimbra\Account\Request;
 
 use Zimbra\Enum\GalSearchType as SearchType;
-use Zimbra\Soap\Request;
 
 /**
  * AutoCompleteGal request class
@@ -23,7 +22,7 @@ use Zimbra\Soap\Request;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
  */
-class AutoCompleteGal extends Request
+class AutoCompleteGal extends Base
 {
     /**
      * Constructor method for AutoCompleteGal

@@ -10,8 +10,6 @@
 
 namespace Zimbra\Account\Request;
 
-use Zimbra\Soap\Request;
-
 /**
  * GetDistributionListMembers request class
  * Get the list of members of a distribution list.
@@ -22,7 +20,7 @@ use Zimbra\Soap\Request;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
  */
-class GetDistributionListMembers extends Request
+class GetDistributionListMembers extends Base
 {
     /**
      * Constructor method for GetDistributionListMembers

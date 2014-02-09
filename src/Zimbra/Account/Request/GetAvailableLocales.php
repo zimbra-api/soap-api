@@ -10,8 +10,6 @@
 
 namespace Zimbra\Account\Request;
 
-use Zimbra\Soap\Request;
-
 /**
  * GetAvailableLocales request class
  * Get the intersection of all translated locales installed on the server and the list specified in zimbraAvailableLocale.
@@ -23,6 +21,6 @@ use Zimbra\Soap\Request;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
  */
-class GetAvailableLocales extends Request
+class GetAvailableLocales extends Base
 {
 }

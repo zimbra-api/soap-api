@@ -10,8 +10,6 @@
 
 namespace Zimbra\Account\Request;
 
-use Zimbra\Soap\Request;
-
 /**
  * SyncGal request class
  * Synchronize with the Global Address List
@@ -21,7 +19,7 @@ use Zimbra\Soap\Request;
  * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright Copyright © 2013 by Nguyen Van Nguyen.
  */
-class SyncGal extends Request
+class SyncGal extends Base
 {
     /**
      * Constructor method for SyncGal

@@ -10,7 +10,6 @@
 
 namespace Zimbra\Account\Request;
 
-use Zimbra\Soap\Request;
 use Zimbra\Struct\AccountSelector as Account;
 use Zimbra\Struct\GranteeChooser as Grantee;
 
@@ -24,7 +23,7 @@ use Zimbra\Struct\GranteeChooser as Grantee;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
  */
-class GetShareInfo extends Request
+class GetShareInfo extends Base
 {
     /**
      * Constructor method for GetShareInfo

@@ -10,8 +10,6 @@
 
 namespace Zimbra\Account\Request;
 
-use Zimbra\Soap\Request;
-
 /**
  * GetWhiteBlackList request class
  * Get the anti-spam WhiteList and BlackList addresses
@@ -22,6 +20,6 @@ use Zimbra\Soap\Request;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
  */
-class GetWhiteBlackList extends Request
+class GetWhiteBlackList extends Base
 {
 }

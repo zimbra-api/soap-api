@@ -11,7 +11,6 @@
 namespace Zimbra\Account\Request;
 
 use Zimbra\Account\Struct\Signature;
-use Zimbra\Soap\Request;
 
 /**
  * ModifySignature request class
@@ -24,7 +23,7 @@ use Zimbra\Soap\Request;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
  */
-class ModifySignature extends Request
+class ModifySignature extends Base
 {
     /**
      * Constructor method for ModifySignature

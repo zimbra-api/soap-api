@@ -10,7 +10,6 @@
 
 namespace Zimbra\Account\Request;
 
-use Zimbra\Soap\Request;
 use PhpCollection\Sequence;
 
 /**
@@ -23,7 +22,7 @@ use PhpCollection\Sequence;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
  */
-class DiscoverRights extends Request
+class DiscoverRights extends Base
 {
     /**
      * The signature

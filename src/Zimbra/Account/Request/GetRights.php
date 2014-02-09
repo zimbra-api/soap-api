@@ -12,7 +12,6 @@ namespace Zimbra\Account\Request;
 
 use Zimbra\Account\Struct\Right as ACE;
 use Zimbra\Common\TypedSequence;
-use Zimbra\Soap\Request;
 
 /**
  * GetRights request class
@@ -24,7 +23,7 @@ use Zimbra\Soap\Request;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
  */
-class GetRights extends Request
+class GetRights extends Base
 {
     /**
      * Specify Access Control Entries

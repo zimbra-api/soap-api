@@ -10,8 +10,6 @@
 
 namespace Zimbra\Account\Request;
 
-use Zimbra\Soap\Request;
-
 /**
  * GetAvailableSkins request class
  * Get the intersection of installed skins on the server and the list specified in the zimbraAvailableSkin on an account (or its CoS).
@@ -24,6 +22,6 @@ use Zimbra\Soap\Request;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
  */
-class GetAvailableSkins extends Request
+class GetAvailableSkins extends Base
 {
 }

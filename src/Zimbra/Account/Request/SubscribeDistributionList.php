@@ -12,7 +12,6 @@ namespace Zimbra\Account\Request;
 
 use Zimbra\Account\Struct\DistributionListSelector as DistList;
 use Zimbra\Enum\DistributionListSubscribeOp as SubscribeOp;
-use Zimbra\Soap\Request;
 
 /**
  * SubscribeDistributionList request class
@@ -22,7 +21,7 @@ use Zimbra\Soap\Request;
  * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright Copyright © 2013 by Nguyen Van Nguyen.
  */
-class SubscribeDistributionList extends Request
+class SubscribeDistributionList extends Base
 {
     /**
      * Constructor method for subscribeDistributionList

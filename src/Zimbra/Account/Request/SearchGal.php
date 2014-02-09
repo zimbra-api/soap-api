@@ -14,7 +14,6 @@ use Zimbra\Account\Struct\EntrySearchFilterInfo as SearchFilter;
 use Zimbra\Enum\GalSearchType as SearchType;
 use Zimbra\Enum\MemberOfSelector as MemberOf;
 use Zimbra\Enum\SortBy;
-use Zimbra\Soap\Request;
 use Zimbra\Struct\CursorInfo;
 
 /**
@@ -27,7 +26,7 @@ use Zimbra\Struct\CursorInfo;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
  */
-class SearchGal extends Request
+class SearchGal extends Base
 {
     /**
      * Constructor method for searchGal

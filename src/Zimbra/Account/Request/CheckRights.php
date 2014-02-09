@@ -12,7 +12,6 @@ namespace Zimbra\Account\Request;
 
 use Zimbra\Account\Struct\CheckRightsTargetSpec as Target;
 use Zimbra\Common\TypedSequence;
-use Zimbra\Soap\Request;
 
 /**
  * CheckRights request class
@@ -24,7 +23,7 @@ use Zimbra\Soap\Request;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
  */
-class CheckRights extends Request
+class CheckRights extends Base
 {
     /**
      * The targets

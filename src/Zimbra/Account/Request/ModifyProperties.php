@@ -12,7 +12,6 @@ namespace Zimbra\Account\Request;
 
 use Zimbra\Account\Struct\Prop;
 use Zimbra\Common\TypedSequence;
-use Zimbra\Soap\Request;
 
 /**
  * ModifyProperties request class
@@ -24,7 +23,7 @@ use Zimbra\Soap\Request;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
  */
-class ModifyProperties extends Request
+class ModifyProperties extends Base
 {
     /**
      * Specify the properties to be modified

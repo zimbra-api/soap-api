@@ -12,7 +12,6 @@ namespace Zimbra\Account\Request;
 
 use Zimbra\Account\Struct\EntrySearchFilterInfo as SearchFilter;
 use Zimbra\Struct\CursorInfo;
-use Zimbra\Soap\Request;
 
 /**
  * SearchCalendarResources request class
@@ -25,7 +24,7 @@ use Zimbra\Soap\Request;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
  */
-class SearchCalendarResources extends Request
+class SearchCalendarResources extends Base
 {
     /**
      * Constructor method for searchCalendarResources

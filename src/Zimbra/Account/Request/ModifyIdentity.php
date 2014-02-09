@@ -11,7 +11,6 @@
 namespace Zimbra\Account\Request;
 
 use Zimbra\Account\Struct\Identity;
-use Zimbra\Soap\Request;
 
 /**
  * ModifyIdentity request class
@@ -23,7 +22,7 @@ use Zimbra\Soap\Request;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
  */
-class ModifyIdentity extends Request
+class ModifyIdentity extends Base
 {
     /**
      * Constructor method for ModifyIdentity

@@ -10,8 +10,6 @@
 
 namespace Zimbra\Account\Request;
 
-use Zimbra\Soap\Request;
-
 /**
  * EndSession request class
  * End the current session, removing it from all caches.
@@ -21,6 +19,6 @@ use Zimbra\Soap\Request;
  * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright Copyright © 2013 by Nguyen Van Nguyen.
  */
-class EndSession extends Request
+class EndSession extends Base
 {
 }

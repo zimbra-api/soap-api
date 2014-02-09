@@ -10,8 +10,6 @@
 
 namespace Zimbra\Account\Request;
 
-use Zimbra\Soap\Request;
-
 /**
  * GetAvailableCsvFormats request class
  * Returns the known CSV formats that can be used for import and export of addressbook.
@@ -22,6 +20,6 @@ use Zimbra\Soap\Request;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
  */
-class GetAvailableCsvFormats extends Request
+class GetAvailableCsvFormats extends Base
 {
 }

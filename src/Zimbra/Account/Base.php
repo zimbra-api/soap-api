@@ -46,7 +46,6 @@ abstract class Base extends API implements AccountInterface
     public function __construct($location)
     {
         $this->_location = $location;
-        $this->_namespace = 'urn:zimbraAccount';
     }
 
     /**
