@@ -24,6 +24,12 @@ use Zimbra\Struct\Base;
 abstract class Request extends Base
 {
     /**
+     * The request namespace
+     * @var string
+     */
+    private $_requestNamespace = 'urn:zimbra';
+
+    /**
      * The xml request name
      * @var string
      */
@@ -60,6 +66,22 @@ abstract class Request extends Base
         $this->_requestName = $ref->getShortName() . 'Request';
         $this->_responseName = $ref->getShortName() . 'Response';
         $this->xml = new SimpleXML('<'.$this->_requestName.' />');
+    }
+
+    /**
+     * Gets or sets requestNamespace
+     *
+     * @param  string $value
+     * @return string|self
+     */
+    public function requestNamespace($requestNamespace = null)
+    {
+        if(null === $requestNamespace)
+        {
+            return $this->_requestNamespace;
+        }
+        $this->_requestNamespace = trim($requestNamespace);
+        return $this;
     }
 
     /**

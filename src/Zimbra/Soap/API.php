@@ -33,12 +33,6 @@ abstract class API
     protected $_client;
 
     /**
-     * The soap namespace
-     * @var string
-     */
-    protected $_namespace = 'urn:zimbra';
-
-    /**
      * Get Zimbra api soap client.
      *
      * @return ClientInterface

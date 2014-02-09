@@ -31,8 +31,9 @@ abstract class Attr extends Request
     private $_attr;
 
     /**
-     * AttrRequest constructor
+     * Attr request constructor
      * @param array  $attrs
+     * @return self
      */
     public function __construct(array $attrs = array())
     {
