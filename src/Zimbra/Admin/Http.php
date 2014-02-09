@@ -30,6 +30,6 @@ class Http extends Base
     public function __construct($location)
     {
         parent::__construct($location);
-        $this->_client = new ClientHttp($this->_location, $this->_namespace);
+        $this->_client = new ClientHttp($this->_location);
     }
 }
