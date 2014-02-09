@@ -36,6 +36,11 @@ class Wsdl extends \SoapClient implements ClientInterface
     private $_filters = array();
 
     /**
+     * @var array
+     */
+    private static $_instances = array();
+
+    /**
      * Wsdl constructor
      *
      * @param string $location  The URL to request.
@@ -50,6 +55,26 @@ class Wsdl extends \SoapClient implements ClientInterface
             'cache_wsdl' => WSDL_CACHE_DISK,
         );
         parent::__construct($location, $options);
+    }
+
+    /**
+     * Creates a singleton of a ClientInterface base on parameters.
+     *
+     * @param  string $location The Zimbra api soap location.
+     * @return ClientInterface
+     */
+    public static function instance($location = 'https://localhost/service/soap')
+    {
+        $key = sha1($location);
+        if (isset(self::$_instances[$key]) and (self::$_instances[$key] instanceof ClientInterface))
+        {
+            return self::$_instances[$key];
+        }
+        else
+        {
+            self::$_instances[$key] = new self($location);
+            return self::$_instances[$key];
+        }
     }
 
     /**
