@@ -29,6 +29,5 @@ abstract class Base extends API implements VoiceInterface
     public function __construct($location)
     {
         $this->_location = $location;
-        $this->_namespace = 'urn:zimbraVoice';
     }
 }
