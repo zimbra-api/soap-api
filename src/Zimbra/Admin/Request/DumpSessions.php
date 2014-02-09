@@ -10,8 +10,6 @@
 
 namespace Zimbra\Admin\Request;
 
-use Zimbra\Soap\Request;
-
 /**
  * DumpSessions request class
  * Dump sessions.
@@ -22,7 +20,7 @@ use Zimbra\Soap\Request;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
  */
-class DumpSessions extends Request
+class DumpSessions extends Base
 {
     /**
      * Constructor method for DumpSessions

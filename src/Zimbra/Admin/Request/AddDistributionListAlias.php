@@ -10,8 +10,6 @@
 
 namespace Zimbra\Admin\Request;
 
-use Zimbra\Soap\Request;
-
 /**
  * AddDistributionListAlias request class
  * Add an alias for a distribution list
@@ -22,7 +20,7 @@ use Zimbra\Soap\Request;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
  */
-class AddDistributionListAlias extends Request
+class AddDistributionListAlias extends Base
 {
     /**
      * Constructor method for AddDistributionListAlias

@@ -10,8 +10,6 @@
 
 namespace Zimbra\Admin\Request;
 
-use Zimbra\Soap\Request;
-
 /**
  * DeleteAccount request class
  * Deletes the account with the given id.
@@ -22,7 +20,7 @@ use Zimbra\Soap\Request;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
  */
-class DeleteAccount extends Request
+class DeleteAccount extends Base
 {
     /**
      * Constructor method for DeleteAccount

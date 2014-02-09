@@ -10,8 +10,6 @@
 
 namespace Zimbra\Admin\Request;
 
-use Zimbra\Soap\Request\Attr;
-
 /**
  * CreateLDAPEntry request class
  * Create an LDAP entry.
@@ -22,7 +20,7 @@ use Zimbra\Soap\Request\Attr;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
  */
-class CreateLDAPEntry extends Attr
+class CreateLDAPEntry extends BaseAttr
 {
     /**
      * Constructor method for CreateLDAPEntry

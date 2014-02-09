@@ -12,7 +12,6 @@ namespace Zimbra\Admin\Request;
 
 use Zimbra\Admin\Struct\DomainSelector as Domain;
 use Zimbra\Admin\Struct\PrincipalSelector as Principal;
-use Zimbra\Soap\Request;
 
 /**
  * AutoProvAccount request class
@@ -24,7 +23,7 @@ use Zimbra\Soap\Request;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
  */
-class AutoProvAccount extends Request
+class AutoProvAccount extends Base
 {
     /**
      * Constructor method for AutoProvAccount

@@ -10,8 +10,6 @@
 
 namespace Zimbra\Admin\Request;
 
-use Zimbra\Soap\Request\Attr;
-
 /**
  * ModifyAccount request class
  * Modify an account.
@@ -22,7 +20,7 @@ use Zimbra\Soap\Request\Attr;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
  */
-class ModifyAccount extends Attr
+class ModifyAccount extends BaseAttr
 {
     /**
      * Constructor method for ModifyAccount

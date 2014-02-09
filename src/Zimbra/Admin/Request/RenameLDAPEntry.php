@@ -10,8 +10,6 @@
 
 namespace Zimbra\Admin\Request;
 
-use Zimbra\Soap\Request;
-
 /**
  * RenameLDAPEntry request class
  * Rename LDAP Entry.
@@ -22,7 +20,7 @@ use Zimbra\Soap\Request;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
  */
-class RenameLDAPEntry extends Request
+class RenameLDAPEntry extends Base
 {
     /**
      * Constructor method for RenameLDAPEntry

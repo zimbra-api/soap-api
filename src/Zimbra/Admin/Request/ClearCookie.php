@@ -12,7 +12,6 @@ namespace Zimbra\Admin\Request;
 
 use Zimbra\Admin\Struct\CookieSpec as Cookie;
 use Zimbra\Common\TypedSequence;
-use Zimbra\Soap\Request;
 
 /**
  * ClearCookie request class
@@ -24,7 +23,7 @@ use Zimbra\Soap\Request;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
  */
-class ClearCookie extends Request
+class ClearCookie extends Base
 {
     /**
      * Specifies cookies to clean

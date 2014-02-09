@@ -10,7 +10,6 @@
 
 namespace Zimbra\Admin\Request;
 
-use Zimbra\Soap\Request;
 use Zimbra\Admin\Struct\XmppComponentSelector as Xmpp;
 
 /**
@@ -24,7 +23,7 @@ use Zimbra\Admin\Struct\XmppComponentSelector as Xmpp;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
  */
-class GetXMPPComponent extends Request
+class GetXMPPComponent extends Base
 {
     /**
      * Constructor method for GetXMPPComponent

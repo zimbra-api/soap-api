@@ -10,8 +10,6 @@
 
 namespace Zimbra\Admin\Request;
 
-use Zimbra\Soap\Request\Attr;
-
 /**
  * ModifyConfig request class
  * Modify Configuration attributes.
@@ -22,6 +20,6 @@ use Zimbra\Soap\Request\Attr;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
  */
-class ModifyConfig extends Attr
+class ModifyConfig extends BaseAttr
 {
 }

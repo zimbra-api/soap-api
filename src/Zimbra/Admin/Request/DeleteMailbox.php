@@ -10,7 +10,6 @@
 
 namespace Zimbra\Admin\Request;
 
-use Zimbra\Soap\Request;
 use Zimbra\Admin\Struct\MailboxByAccountIdSelector as Mailbox;
 
 /**
@@ -23,7 +22,7 @@ use Zimbra\Admin\Struct\MailboxByAccountIdSelector as Mailbox;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
  */
-class DeleteMailbox extends Request
+class DeleteMailbox extends Base
 {
     /**
      * Constructor method for DeleteMailbox

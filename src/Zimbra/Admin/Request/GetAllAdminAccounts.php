@@ -10,8 +10,6 @@
 
 namespace Zimbra\Admin\Request;
 
-use Zimbra\Soap\Request;
-
 /**
  * GetAllAdminAccounts request class
  * Get all Admin accounts.
@@ -22,7 +20,7 @@ use Zimbra\Soap\Request;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
  */
-class GetAllAdminAccounts extends Request
+class GetAllAdminAccounts extends Base
 {
     /**
      * Constructor method for GetAllAdminAccounts

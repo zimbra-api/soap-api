@@ -10,8 +10,6 @@
 
 namespace Zimbra\Admin\Request;
 
-use Zimbra\Soap\Request;
-
 /**
  * DeleteLDAPEntry request class
  * Delete an LDAP entry.
@@ -22,7 +20,7 @@ use Zimbra\Soap\Request;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
  */
-class DeleteLDAPEntry extends Request
+class DeleteLDAPEntry extends Base
 {
     /**
      * Constructor method for DeleteLDAPEntry

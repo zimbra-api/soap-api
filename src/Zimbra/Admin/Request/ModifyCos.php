@@ -10,8 +10,6 @@
 
 namespace Zimbra\Admin\Request;
 
-use Zimbra\Soap\Request\Attr;
-
 /**
  * ModifyCos request class
  * Modify Class of Service (COS) attributes.
@@ -22,7 +20,7 @@ use Zimbra\Soap\Request\Attr;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
  */
-class ModifyCos extends Attr
+class ModifyCos extends BaseAttr
 {
     /**
      * Constructor method for ModifyCos

@@ -10,7 +10,6 @@
 
 namespace Zimbra\Admin\Request;
 
-use Zimbra\Soap\Request;
 use Zimbra\Struct\AccountSelector as Account;
 use Zimbra\Admin\Struct\DistributionListSelector as DistList;
 
@@ -24,7 +23,7 @@ use Zimbra\Admin\Struct\DistributionListSelector as DistList;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
  */
-class GetAdminConsoleUIComp extends Request
+class GetAdminConsoleUIComp extends Base
 {
     /**
      * Constructor method for GetAdminConsoleUIComp

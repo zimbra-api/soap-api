@@ -13,7 +13,6 @@ namespace Zimbra\Admin\Request;
 use PhpCollection\Sequence;
 use Zimbra\Enum\CSRType;
 use Zimbra\Enum\CSRKeySize;
-use Zimbra\Soap\Request;
 
 /**
  * GenCSR request class
@@ -25,7 +24,7 @@ use Zimbra\Soap\Request;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
  */
-class GenCSR extends Request
+class GenCSR extends Base
 {
     /**
      * Used to add the Subject Alt Name extension in the certificate, so multiple hosts can be supported

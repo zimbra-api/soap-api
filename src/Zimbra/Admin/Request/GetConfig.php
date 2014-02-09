@@ -10,8 +10,6 @@
 
 namespace Zimbra\Admin\Request;
 
-use Zimbra\Soap\Request\Attr;
-
 /**
  * GetConfig request class
  * Get Config request.
@@ -22,7 +20,7 @@ use Zimbra\Soap\Request\Attr;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
  */
-class GetConfig extends Attr
+class GetConfig extends BaseAttr
 {
     /**
      * Constructor method for GetConfig

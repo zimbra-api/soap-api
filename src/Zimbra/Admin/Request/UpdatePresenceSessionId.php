@@ -11,7 +11,6 @@
 namespace Zimbra\Admin\Request;
 
 use Zimbra\Admin\Struct\UcServiceSelector as UcService;
-use Zimbra\Soap\Request\Attr;
 
 /**
  * UpdatePresenceSessionId reqeust class
@@ -23,7 +22,7 @@ use Zimbra\Soap\Request\Attr;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
  */
-class UpdatePresenceSessionId extends Attr
+class UpdatePresenceSessionId extends BaseAttr
 {
     /**
      * Constructor method for UpdatePresenceSessionId

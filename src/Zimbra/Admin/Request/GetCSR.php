@@ -11,7 +11,6 @@
 namespace Zimbra\Admin\Request;
 
 use Zimbra\Enum\CSRType;
-use Zimbra\Soap\Request;
 
 /**
  * GetCSR request class
@@ -23,7 +22,7 @@ use Zimbra\Soap\Request;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
  */
-class GetCSR extends Request
+class GetCSR extends Base
 {
     /**
      * Server ID. Can be "--- All Servers ---" or the ID of a server

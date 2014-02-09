@@ -10,10 +10,9 @@
 
 namespace Zimbra\Admin\Request;
 
-use Zimbra\Soap\Request;
-use Zimbra\Enum\DedupAction;
 use Zimbra\Admin\Struct\IntIdAttr;
 use Zimbra\Common\TypedSequence;
+use Zimbra\Enum\DedupAction;
 
 /**
  * DedupeBlobs request class
@@ -25,7 +24,7 @@ use Zimbra\Common\TypedSequence;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
  */
-class DedupeBlobs extends Request
+class DedupeBlobs extends Base
 {
     /**
      * Volumes

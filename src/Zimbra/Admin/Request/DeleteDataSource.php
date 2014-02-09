@@ -10,7 +10,6 @@
 
 namespace Zimbra\Admin\Request;
 
-use Zimbra\Soap\Request\Attr;
 use Zimbra\Struct\Id;
 
 /**
@@ -23,7 +22,7 @@ use Zimbra\Struct\Id;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
  */
-class DeleteDataSource extends Attr
+class DeleteDataSource extends BaseAttr
 {
     /**
      * Constructor method for DeleteDataSource

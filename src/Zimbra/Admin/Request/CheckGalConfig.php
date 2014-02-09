@@ -12,7 +12,6 @@ namespace Zimbra\Admin\Request;
 
 use Zimbra\Admin\Struct\LimitedQuery as Query;
 use Zimbra\Enum\GalConfigAction as Action;
-use Zimbra\Soap\Request\Attr;
 
 /**
  * CheckGalConfig request class
@@ -29,7 +28,7 @@ use Zimbra\Soap\Request\Attr;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
  */
-class CheckGalConfig extends Attr
+class CheckGalConfig extends BaseAttr
 {
     /**
      * Constructor method for CheckGalConfig

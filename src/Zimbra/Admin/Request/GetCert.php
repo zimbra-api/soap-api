@@ -12,7 +12,6 @@ namespace Zimbra\Admin\Request;
 
 use Zimbra\Enum\CertType;
 use Zimbra\Enum\CSRType;
-use Zimbra\Soap\Request;
 
 /**
  * GetCert request class
@@ -24,7 +23,7 @@ use Zimbra\Soap\Request;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
  */
-class GetCert extends Request
+class GetCert extends Base
 {
     /**
      * Constructor method for GetCert

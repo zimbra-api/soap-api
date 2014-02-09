@@ -10,9 +10,8 @@
 
 namespace Zimbra\Admin\Request;
 
-use Zimbra\Soap\Request;
-use Zimbra\Struct\AccountSelector as Account;
 use Zimbra\Admin\Struct\IdStatus as Device;
+use Zimbra\Struct\AccountSelector as Account;
 
 /**
  * UpdateDeviceStatus reqeust class
@@ -24,7 +23,7 @@ use Zimbra\Admin\Struct\IdStatus as Device;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
  */
-class UpdateDeviceStatus extends Request
+class UpdateDeviceStatus extends Base
 {
     /**
      * Constructor method for SuspendDevice

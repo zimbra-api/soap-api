@@ -10,9 +10,8 @@
 
 namespace Zimbra\Admin\Request;
 
-use Zimbra\Admin\Struct\ServerSelector as Server;
 use Zimbra\Admin\Struct\DomainSelector as Domain;
-use Zimbra\Soap\Request;
+use Zimbra\Admin\Struct\ServerSelector as Server;
 
 /**
  * GetAllAccounts request class
@@ -24,7 +23,7 @@ use Zimbra\Soap\Request;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
  */
-class GetAllAccounts extends Request
+class GetAllAccounts extends Base
 {
     /**
      * Constructor method for GetAllAccounts

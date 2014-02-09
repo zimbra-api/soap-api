@@ -10,8 +10,6 @@
 
 namespace Zimbra\Admin\Request;
 
-use Zimbra\Soap\Request;
-
 /**
  * GetAllUCProviders request class
  * Returns all installed UC providers and applicable UC service attributes for each provider.
@@ -22,6 +20,6 @@ use Zimbra\Soap\Request;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
  */
-class GetAllUCProviders extends Request
+class GetAllUCProviders extends Base
 {
 }

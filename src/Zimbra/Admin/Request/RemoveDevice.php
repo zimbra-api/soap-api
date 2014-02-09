@@ -10,9 +10,8 @@
 
 namespace Zimbra\Admin\Request;
 
-use Zimbra\Soap\Request;
-use Zimbra\Struct\AccountSelector as Account;
 use Zimbra\Admin\Struct\DeviceId as Device;
+use Zimbra\Struct\AccountSelector as Account;
 
 /**
  * RemoveDevice request class
@@ -25,7 +24,7 @@ use Zimbra\Admin\Struct\DeviceId as Device;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
  */
-class RemoveDevice extends Request
+class RemoveDevice extends Base
 {
     /**
      * Constructor method for RemoveDevice

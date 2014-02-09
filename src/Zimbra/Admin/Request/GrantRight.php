@@ -10,7 +10,6 @@
 
 namespace Zimbra\Admin\Request;
 
-use Zimbra\Soap\Request;
 use Zimbra\Admin\Struct\EffectiveRightsTargetSelector as Target;
 use Zimbra\Admin\Struct\GranteeSelector as Grantee;
 use Zimbra\Admin\Struct\RightModifierInfo as Right;
@@ -25,7 +24,7 @@ use Zimbra\Admin\Struct\RightModifierInfo as Right;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
  */
-class GrantRight extends Request
+class GrantRight extends Base
 {
     /**
      * Constructor method for GrantRight

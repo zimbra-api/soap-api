@@ -11,7 +11,6 @@
 namespace Zimbra\Admin\Request;
 
 use Zimbra\Admin\Struct\DataSourceSpecifier as DataSource;
-use Zimbra\Soap\Request;
 
 /**
  * CreateDataSource request class
@@ -23,7 +22,7 @@ use Zimbra\Soap\Request;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
  */
-class CreateDataSource extends Request
+class CreateDataSource extends Base
 {
     /**
      * Id for an existing Account

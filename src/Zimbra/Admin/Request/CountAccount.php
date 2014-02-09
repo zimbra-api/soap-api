@@ -11,7 +11,6 @@
 namespace Zimbra\Admin\Request;
 
 use Zimbra\Admin\Struct\DomainSelector as Domain;
-use Zimbra\Soap\Request;
 
 /**
  * CountAccount request class
@@ -23,7 +22,7 @@ use Zimbra\Soap\Request;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
  */
-class CountAccount extends Request
+class CountAccount extends Base
 {
     /**
      * Constructor method for CountAccount

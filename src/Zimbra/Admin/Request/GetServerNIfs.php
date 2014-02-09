@@ -10,7 +10,6 @@
 
 namespace Zimbra\Admin\Request;
 
-use Zimbra\Soap\Request;
 use Zimbra\Admin\Struct\ServerSelector as Server;
 use Zimbra\Enum\IpType;
 
@@ -26,7 +25,7 @@ use Zimbra\Enum\IpType;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
  */
-class GetServerNIfs extends Request
+class GetServerNIfs extends Base
 {
     /**
      * Constructor method for GetServerNIfs

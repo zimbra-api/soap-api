@@ -12,7 +12,6 @@ namespace Zimbra\Admin\Request;
 
 use Zimbra\Enum\GetSessionsSortBy;
 use Zimbra\Enum\SessionType;
-use Zimbra\Soap\Request;
 
 /**
  * GetSessions request class
@@ -24,7 +23,7 @@ use Zimbra\Soap\Request;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
  */
-class GetSessions extends Request
+class GetSessions extends Base
 {
     /**
      * Constructor method for GetSessions

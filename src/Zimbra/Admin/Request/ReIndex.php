@@ -12,7 +12,6 @@ namespace Zimbra\Admin\Request;
 
 use Zimbra\Admin\Struct\ReindexMailboxInfo as Mailbox;
 use Zimbra\Enum\ReIndexAction as Action;
-use Zimbra\Soap\Request;
 
 /**
  * ReIndex request class
@@ -24,7 +23,7 @@ use Zimbra\Soap\Request;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
  */
-class ReIndex extends Request
+class ReIndex extends Base
 {
     /**
      * Constructor method for ReIndex

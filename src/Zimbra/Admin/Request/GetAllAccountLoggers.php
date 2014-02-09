@@ -10,8 +10,6 @@
 
 namespace Zimbra\Admin\Request;
 
-use Zimbra\Soap\Request;
-
 /**
  * GetAllAccountLoggers request class
  * Returns all account loggers that have been created on the given server since the last server start.
@@ -22,6 +20,6 @@ use Zimbra\Soap\Request;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
  */
-class GetAllAccountLoggers extends Request
+class GetAllAccountLoggers extends Base
 {
 }

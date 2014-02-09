@@ -10,8 +10,6 @@
 
 namespace Zimbra\Admin\Request;
 
-use Zimbra\Soap\Request;
-
 /**
  * PurgeAccountCalendarCache request class
  * Purge the calendar cache for an account .
@@ -22,7 +20,7 @@ use Zimbra\Soap\Request;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
  */
-class PurgeAccountCalendarCache extends Request
+class PurgeAccountCalendarCache extends Base
 {
     /**
      * Constructor method for PurgeAccountCalendarCache

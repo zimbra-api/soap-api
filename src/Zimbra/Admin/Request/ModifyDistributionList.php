@@ -10,8 +10,6 @@
 
 namespace Zimbra\Admin\Request;
 
-use Zimbra\Soap\Request\Attr;
-
 /**
  * ModifyDistributionList request class
  * Modify attributes for a Distribution List.
@@ -22,7 +20,7 @@ use Zimbra\Soap\Request\Attr;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
  */
-class ModifyDistributionList extends Attr
+class ModifyDistributionList extends BaseAttr
 {
     /**
      * Constructor method for ModifyDistributionList

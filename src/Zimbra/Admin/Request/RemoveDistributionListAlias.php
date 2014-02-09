@@ -10,8 +10,6 @@
 
 namespace Zimbra\Admin\Request;
 
-use Zimbra\Soap\Request;
-
 /**
  * RemoveDistributionListAlias request class
  * Remove Distribution List Alias.
@@ -22,7 +20,7 @@ use Zimbra\Soap\Request;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
  */
-class RemoveDistributionListAlias extends Request
+class RemoveDistributionListAlias extends Base
 {
     /**
      * Constructor method for RemoveDistributionListAlias

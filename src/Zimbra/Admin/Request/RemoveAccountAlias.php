@@ -10,8 +10,6 @@
 
 namespace Zimbra\Admin\Request;
 
-use Zimbra\Soap\Request;
-
 /**
  * RemoveAccountAlias request class
  * Remove Account Alias.
@@ -22,7 +20,7 @@ use Zimbra\Soap\Request;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
  */
-class RemoveAccountAlias extends Request
+class RemoveAccountAlias extends Base
 {
     /**
      * Constructor method for RemoveAccountAlias

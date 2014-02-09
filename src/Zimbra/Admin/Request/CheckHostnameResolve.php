@@ -10,8 +10,6 @@
 
 namespace Zimbra\Admin\Request;
 
-use Zimbra\Soap\Request;
-
 /**
  * CheckHostnameResolve request class
  * Check whether a hostname can be resolved.
@@ -22,7 +20,7 @@ use Zimbra\Soap\Request;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
  */
-class CheckHostnameResolve extends Request
+class CheckHostnameResolve extends Base
 {
     /**
      * Constructor method for CheckHostnameResolve

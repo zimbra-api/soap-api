@@ -10,8 +10,6 @@
 
 namespace Zimbra\Admin\Request;
 
-use Zimbra\Soap\Request;
-
 /**
  * GetAggregateQuotaUsageOnServer request class
  * Gets the aggregate quota usage for all domains on the server.
@@ -22,6 +20,6 @@ use Zimbra\Soap\Request;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
  */
-class GetAggregateQuotaUsageOnServer extends Request
+class GetAggregateQuotaUsageOnServer extends Base
 {
 }

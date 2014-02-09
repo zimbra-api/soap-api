@@ -12,7 +12,6 @@ namespace Zimbra\Admin\Request;
 
 use Zimbra\Admin\Struct\MailboxByAccountIdSelector as Mailbox;
 use Zimbra\Enum\CompactIndexAction as Action;
-use Zimbra\Soap\Request;
 
 /**
  * CompactIndex request class
@@ -24,7 +23,7 @@ use Zimbra\Soap\Request;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
  */
-class CompactIndex extends Request
+class CompactIndex extends Base
 {
     /**
      * Constructor method for CompactIndex

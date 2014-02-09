@@ -12,7 +12,6 @@ namespace Zimbra\Admin\Request;
 
 use Zimbra\Common\TypedSequence;
 use Zimbra\Enum\EntryType;
-use Zimbra\Soap\Request;
 
 /**
  * GetAttributeInfo request class
@@ -24,7 +23,7 @@ use Zimbra\Soap\Request;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
  */
-class GetAttributeInfo extends Request
+class GetAttributeInfo extends Base
 {
     /**
      * Comma separated list of entry types.

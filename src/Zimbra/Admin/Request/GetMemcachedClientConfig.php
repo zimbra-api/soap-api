@@ -10,8 +10,6 @@
 
 namespace Zimbra\Admin\Request;
 
-use Zimbra\Soap\Request;
-
 /**
  * GetMemcachedClientConfig request class
  * Returns the memcached client configuration on a mailbox server.
@@ -22,6 +20,6 @@ use Zimbra\Soap\Request;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
  */
-class GetMemcachedClientConfig extends Request
+class GetMemcachedClientConfig extends Base
 {
 }

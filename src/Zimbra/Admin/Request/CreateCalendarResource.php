@@ -10,8 +10,6 @@
 
 namespace Zimbra\Admin\Request;
 
-use Zimbra\Soap\Request\Attr;
-
 /**
  * CreateCalendarResource request class
  * Create a calendar resource.
@@ -22,7 +20,7 @@ use Zimbra\Soap\Request\Attr;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
  */
-class CreateCalendarResource extends Attr
+class CreateCalendarResource extends BaseAttr
 {
     /**
      * Constructor method for CreateCalendarResource

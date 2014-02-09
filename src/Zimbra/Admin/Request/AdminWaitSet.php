@@ -27,7 +27,7 @@ use Zimbra\Soap\Request;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
  */
-class AdminWaitSet extends Request
+class AdminWaitSet extends Base
 {
     /**
      * Default interest types

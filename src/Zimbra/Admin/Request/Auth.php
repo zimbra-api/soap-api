@@ -23,7 +23,7 @@ use Zimbra\Struct\AccountSelector as Account;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
  */
-class Auth extends Request
+class Auth extends Base
 {
     /**
      * Constructor method for Auth

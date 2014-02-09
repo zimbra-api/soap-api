@@ -10,8 +10,6 @@
 
 namespace Zimbra\Admin\Request;
 
-use Zimbra\Soap\Request;
-
 /**
  * DeleteCalendarResource request class
  * Deletes the calendar resource with the given id.
@@ -22,7 +20,7 @@ use Zimbra\Soap\Request;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
  */
-class DeleteCalendarResource extends Request
+class DeleteCalendarResource extends Base
 {
     /**
      * Constructor method for DeleteCalendarResource

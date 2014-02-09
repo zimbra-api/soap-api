@@ -12,7 +12,6 @@ namespace Zimbra\Admin\Request;
 
 use Zimbra\Admin\Struct\EffectiveRightsTargetSelector as Target;
 use Zimbra\Admin\Struct\GranteeSelector as Grantee;
-use Zimbra\Soap\Request\Attr;
 
 /**
  * CheckRight request class
@@ -24,7 +23,7 @@ use Zimbra\Soap\Request\Attr;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
  */
-class CheckRight extends Attr
+class CheckRight extends BaseAttr
 {
     /**
      * Constructor method for CheckRight

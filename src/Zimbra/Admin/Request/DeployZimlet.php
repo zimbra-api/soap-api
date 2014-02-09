@@ -12,7 +12,6 @@ namespace Zimbra\Admin\Request;
 
 use Zimbra\Admin\Struct\AttachmentIdAttrib as Attachment;
 use Zimbra\Enum\DeployZimletAction as Action;
-use Zimbra\Soap\Request;
 
 /**
  * DeployZimlet request class
@@ -24,7 +23,7 @@ use Zimbra\Soap\Request;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
  */
-class DeployZimlet extends Request
+class DeployZimlet extends Base
 {
     /**
      * Constructor method for DeployZimlet

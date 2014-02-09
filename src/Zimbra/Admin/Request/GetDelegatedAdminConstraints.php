@@ -10,10 +10,9 @@
 
 namespace Zimbra\Admin\Request;
 
-use Zimbra\Enum\TargetType;
 use Zimbra\Common\TypedSequence;
-use Zimbra\Soap\Request;
-use Zimbra\Struct\NamedElement as Attr;
+use Zimbra\Enum\TargetType;
+use Zimbra\Struct\NamedElement;
 
 /**
  * GetDelegatedAdminConstraints request class
@@ -28,7 +27,7 @@ use Zimbra\Struct\NamedElement as Attr;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
  */
-class GetDelegatedAdminConstraints extends Request
+class GetDelegatedAdminConstraints extends Base
 {
     /**
      * Attributes
@@ -112,10 +111,10 @@ class GetDelegatedAdminConstraints extends Request
     /**
      * Add an attr
      *
-     * @param  Attr $attr
+     * @param  NamedElement $attr
      * @return self
      */
-    public function addAttr(Attr $attr)
+    public function addAttr(NamedElement $attr)
     {
         $this->_attr->add($attr);
         return $this;

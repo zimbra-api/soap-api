@@ -11,7 +11,6 @@
 namespace Zimbra\Admin\Request;
 
 use Zimbra\Admin\Struct\Names;
-use Zimbra\Soap\Request;
 use Zimbra\Struct\Id;
 
 /**
@@ -24,7 +23,7 @@ use Zimbra\Struct\Id;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
  */
-class PushFreeBusy extends Request
+class PushFreeBusy extends Base
 {
     /**
      * Constructor method for PushFreeBusy

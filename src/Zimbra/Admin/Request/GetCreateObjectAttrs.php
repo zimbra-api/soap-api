@@ -10,10 +10,9 @@
 
 namespace Zimbra\Admin\Request;
 
-use Zimbra\Admin\Struct\TargetWithType as Target;
 use Zimbra\Admin\Struct\CosSelector as Cos;
 use Zimbra\Admin\Struct\DomainSelector as Domain;
-use Zimbra\Soap\Request;
+use Zimbra\Admin\Struct\TargetWithType as Target;
 
 /**
  * GetCreateObjectAttrs request class
@@ -25,7 +24,7 @@ use Zimbra\Soap\Request;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
  */
-class GetCreateObjectAttrs extends Request
+class GetCreateObjectAttrs extends Base
 {
     /**
      * Constructor method for GetCreateObjectAttrs

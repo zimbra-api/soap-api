@@ -11,7 +11,6 @@
 namespace Zimbra\Admin\Request;
 
 use Zimbra\Admin\Struct\DistributionListSelector as DistList;
-use Zimbra\Soap\Request\Attr;
 
 /**
  * GetDistributionList request class
@@ -23,7 +22,7 @@ use Zimbra\Soap\Request\Attr;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
  */
-class GetDistributionList extends Attr
+class GetDistributionList extends BaseAttr
 {
     /**
      * Constructor method for GetDistributionList

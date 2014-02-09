@@ -11,7 +11,6 @@
 namespace Zimbra\Admin\Request;
 
 use Zimbra\Enum\GalMode;
-use Zimbra\Soap\Request\Attr;
 use Zimbra\Struct\AccountSelector as Account;
 
 /**
@@ -24,7 +23,7 @@ use Zimbra\Struct\AccountSelector as Account;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
  */
-class CreateGalSyncAccount extends Attr
+class CreateGalSyncAccount extends BaseAttr
 {
    /**
      * Constructor method for CreateGalSyncAccount

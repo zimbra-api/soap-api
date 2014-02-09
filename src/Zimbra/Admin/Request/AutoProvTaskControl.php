@@ -10,7 +10,6 @@
 
 namespace Zimbra\Admin\Request;
 
-use Zimbra\Soap\Request;
 use Zimbra\Enum\AutoProvTaskAction as Action;
 
 /**
@@ -27,7 +26,7 @@ use Zimbra\Enum\AutoProvTaskAction as Action;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
  */
-class AutoProvTaskControl extends Request
+class AutoProvTaskControl extends Base
 {
     /**
      * Constructor method for AutoProvTaskControl
