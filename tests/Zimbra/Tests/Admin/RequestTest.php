@@ -61,6 +61,7 @@ class RequestTest extends ZimbraTestCase
     public function testAddAccountAlias()
     {
         $req = new \Zimbra\Admin\Request\AddAccountAlias('id', 'alias');
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
         $this->assertSame('id', $req->id());
         $this->assertSame('alias', $req->alias());
 
@@ -88,6 +89,7 @@ class RequestTest extends ZimbraTestCase
         $account = new \Zimbra\Struct\AccountSelector(AccountBy::NAME(), 'value');
 
         $req = new \Zimbra\Admin\Request\AddAccountLogger($logger, $account);
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
         $this->assertSame($logger, $req->logger());
         $this->assertSame($account, $req->account());
 
@@ -121,6 +123,7 @@ class RequestTest extends ZimbraTestCase
     public function testAddDistributionListAlias()
     {
         $req = new \Zimbra\Admin\Request\AddDistributionListAlias('id', 'alias');
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
         $this->assertSame('id', $req->id());
         $this->assertSame('alias', $req->alias());
 
@@ -145,6 +148,7 @@ class RequestTest extends ZimbraTestCase
     public function testAddDistributionListMember()
     {
         $req = new \Zimbra\Admin\Request\AddDistributionListMember('id', array('member1'));
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
         $this->assertSame('id', $req->id());
         $this->assertSame(array('member1'), $req->dlm()->all());
 
@@ -179,6 +183,7 @@ class RequestTest extends ZimbraTestCase
         $req = new \Zimbra\Admin\Request\AddGalSyncDataSource(
             $account, 'name', 'domain', GalMode::BOTH(), 'folder', array($attr)
         );
+        $this->assertInstanceOf('Zimbra\Admin\Request\BaseAttr', $req);
 
         $this->assertSame($account, $req->account());
         $this->assertSame('name', $req->name());
@@ -234,6 +239,7 @@ class RequestTest extends ZimbraTestCase
         $req = new \Zimbra\Admin\Request\AdminCreateWaitSet(
             $add, array(InterestType::FOLDERS()), false
         );
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
         $this->assertSame('f', $req->defTypes());
         $this->assertSame($add, $req->add());
         $this->assertFalse($req->allAccounts());
@@ -275,6 +281,7 @@ class RequestTest extends ZimbraTestCase
     public function testAdminDestroyWaitSet()
     {
         $req = new \Zimbra\Admin\Request\AdminDestroyWaitSet('waitSet');
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
         $this->assertSame('waitSet', $req->waitSet());
 
         $req->waitSet('waitSet');
@@ -305,6 +312,7 @@ class RequestTest extends ZimbraTestCase
         $req = new \Zimbra\Admin\Request\AdminWaitSet(
             'waitSet', 'seq', $add, $update, $remove, false, array(InterestType::FOLDERS()), 1000
         );
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
 
         $this->assertSame('waitSet', $req->waitSet());
         $this->assertSame('seq', $req->seq());
@@ -390,6 +398,7 @@ class RequestTest extends ZimbraTestCase
     {
         $account = new \Zimbra\Struct\AccountSelector(AccountBy::NAME(), 'value');
         $req = new \Zimbra\Admin\Request\Auth('name', 'password', 'authToken', $account, 'virtualHost', false);
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
 
         $this->assertSame('name', $req->name());
         $this->assertSame('password', $req->password());
@@ -440,6 +449,7 @@ class RequestTest extends ZimbraTestCase
         $req = new \Zimbra\Admin\Request\AutoCompleteGal(
             'domain', 'name', GalSearchType::ALL(), 'galAcctId', 100
         );
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
         $this->assertSame('domain', $req->domain());
         $this->assertSame('name', $req->name());
         $this->assertSame('all', $req->type()->value());
@@ -478,6 +488,7 @@ class RequestTest extends ZimbraTestCase
         $domain = new \Zimbra\Admin\Struct\DomainSelector(DomainBy::NAME(), 'value');
         $principal = new \Zimbra\Admin\Struct\PrincipalSelector(PrincipalBy::DN(), 'principal');
         $req = new \Zimbra\Admin\Request\AutoProvAccount($domain, $principal, 'password');
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
 
         $this->assertSame($domain, $req->domain());
         $this->assertSame($principal, $req->principal());
@@ -517,6 +528,7 @@ class RequestTest extends ZimbraTestCase
     public function testAutoProvTaskControl()
     {
         $req = new \Zimbra\Admin\Request\AutoProvTaskControl(TaskAction::START());
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
         $this->assertSame('start', $req->action()->value());
 
         $req->action(TaskAction::STATUS());
@@ -534,10 +546,22 @@ class RequestTest extends ZimbraTestCase
         $this->assertEquals($array, $req->toArray());
     }
 
+    public function testBaseRequest()
+    {
+        $req = $this->getMockForAbstractClass('\Zimbra\Admin\Request\Base');
+        $this->assertInstanceOf('Zimbra\Soap\Request', $req);
+        $this->assertEquals('urn:zimbraAdmin', $req->requestNamespace());
+
+        $req = $this->getMockForAbstractClass('\Zimbra\Admin\Request\BaseAttr');
+        $this->assertInstanceOf('Zimbra\Soap\Request', $req);
+        $this->assertEquals('urn:zimbraAdmin', $req->requestNamespace());
+    }
+
     public function testCheckAuthConfig()
     {
         $attr = new \Zimbra\Struct\KeyValuePair('key', 'value');
         $req = new \Zimbra\Admin\Request\CheckAuthConfig('name', 'password', array($attr));
+        $this->assertInstanceOf('Zimbra\Admin\Request\BaseAttr', $req);
         $this->assertSame('name', $req->name());
         $this->assertSame('password', $req->password());
 
@@ -573,6 +597,7 @@ class RequestTest extends ZimbraTestCase
         $mbox = new \Zimbra\Admin\Struct\IntIdAttr(1);
 
         $req = new \Zimbra\Admin\Request\CheckBlobConsistency(array($volume), array($mbox), true, false);
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
         $this->assertSame(array($volume), $req->volume()->all());
         $this->assertSame(array($mbox), $req->mbox()->all());
         $this->assertTrue($req->checkSize());
@@ -615,6 +640,7 @@ class RequestTest extends ZimbraTestCase
     {
         $dir = new \Zimbra\Admin\Struct\CheckDirSelector('path', true);
         $req = new \Zimbra\Admin\Request\CheckDirectory(array($dir));
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
         $this->assertSame(array($dir), $req->directory()->all());
 
         $req->addDirectory($dir);
@@ -644,6 +670,7 @@ class RequestTest extends ZimbraTestCase
     {
         $domain = new \Zimbra\Admin\Struct\DomainSelector(DomainBy::NAME(), 'value');
         $req = new \Zimbra\Admin\Request\CheckDomainMXRecord($domain);
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
         $this->assertSame($domain, $req->domain());
 
         $req->domain($domain);
@@ -672,6 +699,7 @@ class RequestTest extends ZimbraTestCase
             'url', 'user', 'pass', AuthScheme::FORM(), 'type'
         );
         $req = new \Zimbra\Admin\Request\CheckExchangeAuth($auth);
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
         $this->assertSame($auth, $req->auth());
 
         $req->auth($auth);
@@ -703,6 +731,7 @@ class RequestTest extends ZimbraTestCase
         $query = new \Zimbra\Admin\Struct\LimitedQuery(100, 'value');
 
         $req = new \Zimbra\Admin\Request\CheckGalConfig($query, GalConfigAction::AUTOCOMPLETE(), array($attr));
+        $this->assertInstanceOf('Zimbra\Admin\Request\BaseAttr', $req);
         $this->assertSame($query, $req->query());
         $this->assertTrue($req->action()->is('autocomplete'));
 
@@ -740,6 +769,7 @@ class RequestTest extends ZimbraTestCase
     public function testCheckHealth()
     {
         $req = new \Zimbra\Admin\Request\CheckHealth();
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
 
         $xml = '<?xml version="1.0"?>'."\n"
             .'<CheckHealthRequest />';
@@ -754,6 +784,7 @@ class RequestTest extends ZimbraTestCase
     public function testCheckHostnameResolve()
     {
         $req = new \Zimbra\Admin\Request\CheckHostnameResolve('hostname');
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
         $this->assertSame('hostname', $req->hostname());
         $req->hostname('hostname');
         $this->assertSame('hostname', $req->hostname());
@@ -773,6 +804,7 @@ class RequestTest extends ZimbraTestCase
     public function testCheckPasswordStrength()
     {
         $req = new \Zimbra\Admin\Request\CheckPasswordStrength('id', 'password');
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
         $this->assertSame('id', $req->id());
         $this->assertSame('password', $req->password());
 
@@ -805,6 +837,7 @@ class RequestTest extends ZimbraTestCase
         );
 
         $req = new \Zimbra\Admin\Request\CheckRight($target, $grantee, 'right', array($attr));
+        $this->assertInstanceOf('Zimbra\Admin\Request\BaseAttr', $req);
         $this->assertSame($target, $req->target());
         $this->assertSame($grantee, $req->grantee());
         $this->assertSame('right', $req->right());
@@ -855,6 +888,7 @@ class RequestTest extends ZimbraTestCase
     {
         $cookie = new \Zimbra\Admin\Struct\CookieSpec('name');
         $req = new \Zimbra\Admin\Request\ClearCookie(array($cookie));
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
         $this->assertSame(array($cookie), $req->cookie()->all());
 
         $req->addCookie($cookie);
@@ -881,6 +915,7 @@ class RequestTest extends ZimbraTestCase
     {
         $mbox = new \Zimbra\Admin\Struct\MailboxByAccountIdSelector('id');
         $req = new \Zimbra\Admin\Request\CompactIndex($mbox, IndexAction::START());
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
         $this->assertSame($mbox, $req->mbox());
         $this->assertSame('start', $req->action()->value());
 
@@ -909,6 +944,7 @@ class RequestTest extends ZimbraTestCase
     public function testComputeAggregateQuotaUsage()
     {
         $req = new \Zimbra\Admin\Request\ComputeAggregateQuotaUsage();
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
 
         $xml = '<?xml version="1.0"?>'."\n"
             .'<ComputeAggregateQuotaUsageRequest />';
@@ -924,6 +960,7 @@ class RequestTest extends ZimbraTestCase
     {
         $content = new \Zimbra\Admin\Struct\AttachmentIdAttrib('aid');
         $req = new \Zimbra\Admin\Request\ConfigureZimlet($content);
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
         $this->assertSame($content, $req->content());
 
         $req->content($content);
@@ -949,6 +986,7 @@ class RequestTest extends ZimbraTestCase
     {
         $cos = new \Zimbra\Admin\Struct\CosSelector(CosBy::NAME(), 'value');
         $req = new \Zimbra\Admin\Request\CopyCos('name', $cos);
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
         $this->assertSame('name', $req->name());
         $this->assertSame($cos, $req->cos());
 
@@ -981,6 +1019,7 @@ class RequestTest extends ZimbraTestCase
         $domain = new \Zimbra\Admin\Struct\DomainSelector(DomainBy::NAME(), 'value');
 
         $req = new \Zimbra\Admin\Request\CountAccount($domain);
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
         $this->assertSame($domain, $req->domain());
 
         $req->domain($domain);
@@ -1009,6 +1048,7 @@ class RequestTest extends ZimbraTestCase
         $ucservice = new \Zimbra\Admin\Struct\UcServiceSelector(UcServiceBy::NAME(), 'value');
 
         $req = new \Zimbra\Admin\Request\CountObjects(ObjType::USER_ACCOUNT(), $domain, $ucservice);
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
         $this->assertSame('userAccount', $req->type()->value());
         $this->assertSame($domain, $req->domain());
         $this->assertSame($ucservice, $req->ucservice());
@@ -1047,6 +1087,7 @@ class RequestTest extends ZimbraTestCase
     {
         $attr = new \Zimbra\Struct\KeyValuePair('key', 'value');
         $req = new \Zimbra\Admin\Request\CreateAccount('name', 'password', array($attr));
+        $this->assertInstanceOf('Zimbra\Admin\Request\BaseAttr', $req);
 
         $this->assertSame('name', $req->name());
         $this->assertSame('password', $req->password());
@@ -1081,6 +1122,7 @@ class RequestTest extends ZimbraTestCase
     {
         $attr = new \Zimbra\Struct\KeyValuePair('key', 'value');
         $req = new \Zimbra\Admin\Request\CreateCalendarResource('name', 'password', array($attr));
+        $this->assertInstanceOf('Zimbra\Admin\Request\BaseAttr', $req);
 
         $this->assertSame('name', $req->name());
         $this->assertSame('password', $req->password());
@@ -1115,6 +1157,7 @@ class RequestTest extends ZimbraTestCase
     {
         $attr = new \Zimbra\Struct\KeyValuePair('key', 'value');
         $req = new \Zimbra\Admin\Request\CreateCos('name', array($attr));
+        $this->assertInstanceOf('Zimbra\Admin\Request\BaseAttr', $req);
         $this->assertSame('name', $req->name());
 
         $req->name('name');
@@ -1147,6 +1190,7 @@ class RequestTest extends ZimbraTestCase
         $dataSource = new \Zimbra\Admin\Struct\DataSourceSpecifier(DataSourceType::POP3(), 'name', array($attr));
 
         $req = new \Zimbra\Admin\Request\CreateDataSource('id', $dataSource);
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
         $this->assertSame('id', $req->id());
         $this->assertSame($dataSource, $req->dataSource());
 
@@ -1185,6 +1229,7 @@ class RequestTest extends ZimbraTestCase
     {
         $attr = new \Zimbra\Struct\KeyValuePair('key', 'value');
         $req = new \Zimbra\Admin\Request\CreateDistributionList('name', false, array($attr));
+        $this->assertInstanceOf('Zimbra\Admin\Request\BaseAttr', $req);
 
         $this->assertSame('name', $req->name());
         $this->assertFalse($req->dynamic());
@@ -1219,6 +1264,7 @@ class RequestTest extends ZimbraTestCase
     {
         $attr = new \Zimbra\Struct\KeyValuePair('key', 'value');
         $req = new \Zimbra\Admin\Request\CreateDomain('name', array($attr));
+        $this->assertInstanceOf('Zimbra\Admin\Request\BaseAttr', $req);
         $this->assertSame('name', $req->name());
 
         $req->name('name');
@@ -1252,6 +1298,7 @@ class RequestTest extends ZimbraTestCase
         $req = new \Zimbra\Admin\Request\CreateGalSyncAccount(
             $account, 'name', 'domain', GalMode::BOTH(), 'server', 'password', 'folder', array($attr)
         );
+        $this->assertInstanceOf('Zimbra\Admin\Request\BaseAttr', $req);
         $this->assertSame('name', $req->name());
         $this->assertSame('domain', $req->domain());
         $this->assertSame('both', $req->type()->value());
@@ -1309,6 +1356,7 @@ class RequestTest extends ZimbraTestCase
     {
         $attr = new \Zimbra\Struct\KeyValuePair('key', 'value');
         $req = new \Zimbra\Admin\Request\CreateLDAPEntry('dn', array($attr));
+        $this->assertInstanceOf('Zimbra\Admin\Request\BaseAttr', $req);
         $this->assertSame('dn', $req->dn());
 
         $req->dn('dn');
@@ -1338,6 +1386,7 @@ class RequestTest extends ZimbraTestCase
     {
         $attr = new \Zimbra\Struct\KeyValuePair('key', 'value');
         $req = new \Zimbra\Admin\Request\CreateServer('name', array($attr));
+        $this->assertInstanceOf('Zimbra\Admin\Request\BaseAttr', $req);
         $this->assertSame('name', $req->name());
 
         $req->name('name');
@@ -1374,6 +1423,7 @@ class RequestTest extends ZimbraTestCase
         $purge = new \Zimbra\Admin\Struct\PolicyHolder($policy);
 
         $req = new \Zimbra\Admin\Request\CreateSystemRetentionPolicy($cos, $keep, $purge);
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
         $this->assertSame($cos, $req->cos());
         $this->assertSame($keep, $req->keep());
         $this->assertSame($purge, $req->purge());
@@ -1428,6 +1478,7 @@ class RequestTest extends ZimbraTestCase
     {
         $attr = new \Zimbra\Struct\KeyValuePair('key', 'value');
         $req = new \Zimbra\Admin\Request\CreateUCService('name', array($attr));
+        $this->assertInstanceOf('Zimbra\Admin\Request\BaseAttr', $req);
         $this->assertSame('name', $req->name());
 
         $req->name('name');
@@ -1458,6 +1509,7 @@ class RequestTest extends ZimbraTestCase
     {
         $volume = new \Zimbra\Admin\Struct\VolumeInfo(1, 2, 3, 4, 5, 6, 7, 'name', 'rootpath', false, true);
         $req = new \Zimbra\Admin\Request\CreateVolume($volume);
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
         $this->assertSame($volume, $req->volume());
 
         $req->volume($volume);
@@ -1508,6 +1560,7 @@ class RequestTest extends ZimbraTestCase
         $xmpp = new \Zimbra\Admin\Struct\XmppComponentSpec('name', $domain, $server, array($attr));
 
         $req = new \Zimbra\Admin\Request\CreateXMPPComponent($xmpp);
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
         $this->assertSame($xmpp, $req->xmpp());
 
         $req->xmpp($xmpp);
@@ -1551,6 +1604,7 @@ class RequestTest extends ZimbraTestCase
     {
         $attr = new \Zimbra\Struct\KeyValuePair('key', 'value');
         $req = new \Zimbra\Admin\Request\CreateZimlet('name', array($attr));
+        $this->assertInstanceOf('Zimbra\Admin\Request\BaseAttr', $req);
         $this->assertSame('name', $req->name());
 
         $req->name('name');
@@ -1580,6 +1634,7 @@ class RequestTest extends ZimbraTestCase
     {
         $volume = new \Zimbra\Admin\Struct\IntIdAttr(1);
         $req = new \Zimbra\Admin\Request\DedupeBlobs(DedupAction::START(), array($volume));
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
         $this->assertSame('start', $req->action()->value());
         $this->assertSame(array($volume), $req->volume()->all());
 
@@ -1615,6 +1670,7 @@ class RequestTest extends ZimbraTestCase
     {
         $account = new \Zimbra\Struct\AccountSelector(AccountBy::NAME(), 'value');
         $req = new \Zimbra\Admin\Request\DelegateAuth($account, 1000);
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
         $this->assertSame($account, $req->account());
         $this->assertSame(1000, $req->duration());
 
@@ -1644,6 +1700,7 @@ class RequestTest extends ZimbraTestCase
     public function testDeleteAccount()
     {
         $req = new \Zimbra\Admin\Request\DeleteAccount('id');
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
         $this->assertSame('id', $req->id());
 
         $req->id('id');
@@ -1664,6 +1721,7 @@ class RequestTest extends ZimbraTestCase
     public function testDeleteCalendarResource()
     {
         $req = new \Zimbra\Admin\Request\DeleteCalendarResource('id');
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
         $this->assertSame('id', $req->id());
 
         $req->id('id');
@@ -1684,6 +1742,7 @@ class RequestTest extends ZimbraTestCase
     public function testDeleteCos()
     {
         $req = new \Zimbra\Admin\Request\DeleteCos('id');
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
         $this->assertSame('id', $req->id());
 
         $req->id('id');
@@ -1709,6 +1768,7 @@ class RequestTest extends ZimbraTestCase
         $dataSource = new \Zimbra\Struct\Id('id');
 
         $req = new \Zimbra\Admin\Request\DeleteDataSource('id', $dataSource, array($attr));
+        $this->assertInstanceOf('Zimbra\Admin\Request\BaseAttr', $req);
         $this->assertSame('id', $req->id());
         $this->assertSame($dataSource, $req->dataSource());
 
@@ -1745,6 +1805,7 @@ class RequestTest extends ZimbraTestCase
     public function testDeleteDistributionList()
     {
         $req = new \Zimbra\Admin\Request\DeleteDistributionList('id');
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
         $this->assertSame('id', $req->id());
 
         $req->id('id');
@@ -1765,6 +1826,7 @@ class RequestTest extends ZimbraTestCase
     public function testDeleteDomain()
     {
         $req = new \Zimbra\Admin\Request\DeleteDomain('id');
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
         $this->assertSame('id', $req->id());
 
         $req->id('id');
@@ -1786,6 +1848,7 @@ class RequestTest extends ZimbraTestCase
     {
         $account = new \Zimbra\Struct\AccountSelector(AccountBy::NAME(), 'value');
         $req = new \Zimbra\Admin\Request\DeleteGalSyncAccount($account);
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
         $this->assertSame($account, $req->account());
 
         $req->account($account);
@@ -1811,6 +1874,7 @@ class RequestTest extends ZimbraTestCase
     public function testDeleteLDAPEntry()
     {
         $req = new \Zimbra\Admin\Request\DeleteLDAPEntry('dn');
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
         $this->assertSame('dn', $req->dn());
 
         $req->dn('dn');
@@ -1832,6 +1896,7 @@ class RequestTest extends ZimbraTestCase
     {
         $mbox = new \Zimbra\Admin\Struct\MailboxByAccountIdSelector('id');
         $req = new \Zimbra\Admin\Request\DeleteMailbox($mbox);
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
         $this->assertSame($mbox, $req->mbox());
 
         $req->mbox($mbox);
@@ -1856,6 +1921,7 @@ class RequestTest extends ZimbraTestCase
     public function testDeleteServer()
     {
         $req = new \Zimbra\Admin\Request\DeleteServer('id');
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
         $this->assertSame('id', $req->id());
 
         $req->id('id');
@@ -1879,6 +1945,7 @@ class RequestTest extends ZimbraTestCase
         $policy = new \Zimbra\Admin\Struct\Policy(Type::SYSTEM(), 'id', 'name', 'lifetime');
 
         $req = new \Zimbra\Admin\Request\DeleteSystemRetentionPolicy($policy, $cos);
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
         $this->assertSame($policy, $req->policy());
         $this->assertSame($cos, $req->cos());
 
@@ -1914,6 +1981,7 @@ class RequestTest extends ZimbraTestCase
     public function testDeleteUCService()
     {
         $req = new \Zimbra\Admin\Request\DeleteUCService('id');
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
         $this->assertSame('id', $req->id());
 
         $req->id('id');
@@ -1936,6 +2004,7 @@ class RequestTest extends ZimbraTestCase
     public function testDeleteVolume()
     {
         $req = new \Zimbra\Admin\Request\DeleteVolume(100);
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
         $this->assertSame(100, $req->id());
 
         $req->id(100);
@@ -1957,6 +2026,7 @@ class RequestTest extends ZimbraTestCase
     {
         $xmpp = new \Zimbra\Admin\Struct\XmppComponentSelector(XmppBy::NAME(), 'value');
         $req = new \Zimbra\Admin\Request\DeleteXMPPComponent($xmpp);
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
         $this->assertSame($xmpp, $req->xmpp());
 
         $req->xmpp($xmpp);
@@ -1983,6 +2053,7 @@ class RequestTest extends ZimbraTestCase
     {
         $zimlet = new \Zimbra\Struct\NamedElement('name');
         $req = new \Zimbra\Admin\Request\DeleteZimlet($zimlet);
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
         $this->assertSame($zimlet, $req->zimlet());
 
         $req->zimlet($zimlet);
@@ -2008,6 +2079,7 @@ class RequestTest extends ZimbraTestCase
     {
         $content = new \Zimbra\Admin\Struct\AttachmentIdAttrib('aid');
         $req = new \Zimbra\Admin\Request\DeployZimlet(DeployAction::DEPLOY_ALL(), $content, false, true);
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
         $this->assertSame('deployAll', $req->action()->value());
         $this->assertSame($content, $req->content());
         $this->assertFalse($req->flush());
@@ -2044,6 +2116,7 @@ class RequestTest extends ZimbraTestCase
     public function testDumpSessions()
     {
         $req = new \Zimbra\Admin\Request\DumpSessions(false, true);
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
         $this->assertFalse($req->listSessions());
         $this->assertTrue($req->groupByAccount());
 
@@ -2071,6 +2144,7 @@ class RequestTest extends ZimbraTestCase
         $mbox = new \Zimbra\Admin\Struct\ExportAndDeleteMailboxSpec(1, array($item));
 
         $req = new \Zimbra\Admin\Request\ExportAndDeleteItems($mbox, 'exportDir', 'exportFilenamePrefix');
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
         $this->assertSame($mbox, $req->mbox());
         $this->assertSame('exportDir', $req->exportDir());
         $this->assertSame('exportFilenamePrefix', $req->exportFilenamePrefix());
@@ -2113,6 +2187,7 @@ class RequestTest extends ZimbraTestCase
         $account = new \Zimbra\Struct\NamedElement('name');
 
         $req = new \Zimbra\Admin\Request\FixCalendarEndTime(false, array($account));
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
         $this->assertFalse($req->sync());
         $this->assertSame(array($account), $req->account()->all());
 
@@ -2146,6 +2221,7 @@ class RequestTest extends ZimbraTestCase
         $account = new \Zimbra\Struct\NamedElement('name');
 
         $req = new \Zimbra\Admin\Request\FixCalendarPriority(false, array($account));
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
         $this->assertFalse($req->sync());
         $this->assertSame(array($account), $req->account()->all());
 
@@ -2200,6 +2276,7 @@ class RequestTest extends ZimbraTestCase
         $account = new \Zimbra\Struct\NamedElement('name');
 
         $req = new \Zimbra\Admin\Request\FixCalendarTZ(array($account), $tzfixup, false, 1000);
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
         $this->assertSame(array($account), $req->account()->all());
         $this->assertSame($tzfixup, $req->tzfixup());
         $this->assertFalse($req->sync());
@@ -2326,6 +2403,7 @@ class RequestTest extends ZimbraTestCase
         $cache = new \Zimbra\Admin\Struct\CacheSelector('skin,account', true, array($entry));
 
         $req = new \Zimbra\Admin\Request\FlushCache($cache);
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
         $this->assertSame($cache, $req->cache());
         $req->cache($cache);
         $this->assertSame($cache, $req->cache());
@@ -2360,6 +2438,7 @@ class RequestTest extends ZimbraTestCase
         $req = new \Zimbra\Admin\Request\GenCSR(
             'server', false, CSRType::SELF(), CSRKeySize::SIZE_1024(), 'c', 'sT', 'l', 'o', 'oU', 'cN', array('subject1')
         );
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
         $this->assertSame('server', $req->server());
         $this->assertFalse($req->new_());
         $this->assertSame('self', $req->type()->value());
@@ -2433,6 +2512,7 @@ class RequestTest extends ZimbraTestCase
     {
         $account = new \Zimbra\Struct\AccountSelector(AccountBy::NAME(), 'value');
         $req = new \Zimbra\Admin\Request\GetAccount($account, false, 'attrs');
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
         $this->assertSame($account, $req->account());
         $this->assertFalse($req->applyCos());
         $this->assertSame('attrs', $req->attrs());
@@ -2467,6 +2547,7 @@ class RequestTest extends ZimbraTestCase
     {
         $account = new \Zimbra\Struct\AccountSelector(AccountBy::NAME(), 'value');
         $req = new \Zimbra\Admin\Request\GetAccountInfo($account);
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
         $this->assertSame($account, $req->account());
 
         $req->account($account);
@@ -2493,6 +2574,7 @@ class RequestTest extends ZimbraTestCase
     {
         $account = new \Zimbra\Struct\AccountSelector(AccountBy::NAME(), 'value');
         $req = new \Zimbra\Admin\Request\GetAccountLoggers($account);
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
         $this->assertSame($account, $req->account());
 
         $req->account($account);
@@ -2519,6 +2601,7 @@ class RequestTest extends ZimbraTestCase
     {
         $account = new \Zimbra\Struct\AccountSelector(AccountBy::NAME(), 'value');
         $req = new \Zimbra\Admin\Request\GetAccountMembership($account);
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
         $this->assertSame($account, $req->account());
 
         $req->account($account);
@@ -2547,6 +2630,7 @@ class RequestTest extends ZimbraTestCase
         $dl = new \Zimbra\Admin\Struct\DistributionListSelector(DLBy::NAME(), 'value');
 
         $req = new \Zimbra\Admin\Request\GetAdminConsoleUIComp($account, $dl);
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
         $this->assertSame($account, $req->account());
         $this->assertSame($dl, $req->dl());
 
@@ -2580,6 +2664,7 @@ class RequestTest extends ZimbraTestCase
     public function testGetAdminExtensionZimlets()
     {
         $req = new \Zimbra\Admin\Request\GetAdminExtensionZimlets();
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
 
         $xml = '<?xml version="1.0"?>'."\n"
             .'<GetAdminExtensionZimletsRequest />';
@@ -2595,6 +2680,7 @@ class RequestTest extends ZimbraTestCase
     {
         $search = new \Zimbra\Struct\NamedElement('name');
         $req = new \Zimbra\Admin\Request\GetAdminSavedSearches($search);
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
         $this->assertSame($search, $req->search());
 
         $req->search($search);
@@ -2619,6 +2705,7 @@ class RequestTest extends ZimbraTestCase
     public function testGetAggregateQuotaUsageOnServer()
     {
         $req = new \Zimbra\Admin\Request\GetAggregateQuotaUsageOnServer();
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
 
         $xml = '<?xml version="1.0"?>'."\n"
             .'<GetAggregateQuotaUsageOnServerRequest />';
@@ -2633,6 +2720,7 @@ class RequestTest extends ZimbraTestCase
     public function testGetAllAccountLoggers()
     {
         $req = new \Zimbra\Admin\Request\GetAllAccountLoggers();
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
 
         $xml = '<?xml version="1.0"?>'."\n"
             .'<GetAllAccountLoggersRequest />';
@@ -2650,6 +2738,7 @@ class RequestTest extends ZimbraTestCase
         $domain = new \Zimbra\Admin\Struct\DomainSelector(DomainBy::NAME(), 'value');
 
         $req = new \Zimbra\Admin\Request\GetAllAccounts($server, $domain);
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
         $this->assertSame($server, $req->server());
         $this->assertSame($domain, $req->domain());
 
@@ -2683,6 +2772,7 @@ class RequestTest extends ZimbraTestCase
     public function testGetAllAdminAccounts()
     {
         $req = new \Zimbra\Admin\Request\GetAllAdminAccounts(false);
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
         $this->assertFalse($req->applyCos());
         $req->applyCos(true);
         $this->assertTrue($req->applyCos());
@@ -2705,6 +2795,7 @@ class RequestTest extends ZimbraTestCase
         $domain = new \Zimbra\Admin\Struct\DomainSelector(DomainBy::NAME(), 'value');
 
         $req = new \Zimbra\Admin\Request\GetAllCalendarResources($server, $domain);
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
         $this->assertSame($server, $req->server());
         $this->assertSame($domain, $req->domain());
 
@@ -2738,6 +2829,7 @@ class RequestTest extends ZimbraTestCase
     public function testGetAllConfig()
     {
         $req = new \Zimbra\Admin\Request\GetAllConfig();
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
 
         $xml = '<?xml version="1.0"?>'."\n"
             .'<GetAllConfigRequest />';
@@ -2752,6 +2844,7 @@ class RequestTest extends ZimbraTestCase
     public function testGetAllCos()
     {
         $req = new \Zimbra\Admin\Request\GetAllCos();
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
 
         $xml = '<?xml version="1.0"?>'."\n"
             .'<GetAllCosRequest />';
@@ -2768,6 +2861,7 @@ class RequestTest extends ZimbraTestCase
         $domain = new \Zimbra\Admin\Struct\DomainSelector(DomainBy::NAME(), 'value');
 
         $req = new \Zimbra\Admin\Request\GetAllDistributionLists($domain);
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
         $this->assertSame($domain, $req->domain());
 
         $req->domain($domain);
@@ -2793,6 +2887,7 @@ class RequestTest extends ZimbraTestCase
     public function testGetAllDomains()
     {
         $req = new \Zimbra\Admin\Request\GetAllDomains(false);
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
         $this->assertFalse($req->applyConfig());
         $req->applyConfig(true);
         $this->assertTrue($req->applyConfig());
@@ -2816,6 +2911,7 @@ class RequestTest extends ZimbraTestCase
         );
 
         $req = new \Zimbra\Admin\Request\GetAllEffectiveRights($grantee, false);
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
         $this->assertSame($grantee, $req->grantee());
         $this->assertFalse($req->expandAllAttrs());
 
@@ -2848,6 +2944,7 @@ class RequestTest extends ZimbraTestCase
     public function testGetAllFreeBusyProviders()
     {
         $req = new \Zimbra\Admin\Request\GetAllFreeBusyProviders();
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
 
         $xml = '<?xml version="1.0"?>'."\n"
             .'<GetAllFreeBusyProvidersRequest />';
@@ -2862,6 +2959,7 @@ class RequestTest extends ZimbraTestCase
     public function testGetAllLocales()
     {
         $req = new \Zimbra\Admin\Request\GetAllLocales();
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
 
         $xml = '<?xml version="1.0"?>'."\n"
             .'<GetAllLocalesRequest />';
@@ -2876,6 +2974,7 @@ class RequestTest extends ZimbraTestCase
     public function testGetAllMailboxes()
     {
         $req = new \Zimbra\Admin\Request\GetAllMailboxes(100, 100);
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
         $this->assertSame(100, $req->limit());
         $this->assertSame(100, $req->offset());
 
@@ -2900,6 +2999,7 @@ class RequestTest extends ZimbraTestCase
     public function testGetAllRights()
     {
         $req = new \Zimbra\Admin\Request\GetAllRights('targetType', false, RightClass::ADMIN());
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
         $this->assertSame('targetType', $req->targetType());
         $this->assertFalse($req->expandAllAttrs());
         $this->assertSame('ADMIN', $req->rightClass()->value());
@@ -2928,6 +3028,7 @@ class RequestTest extends ZimbraTestCase
     public function testGetAllServers()
     {
         $req = new \Zimbra\Admin\Request\GetAllServers('service', false);
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
         $this->assertSame('service', $req->service());
         $this->assertFalse($req->applyConfig());
 
@@ -2952,6 +3053,7 @@ class RequestTest extends ZimbraTestCase
     public function testGetAllSkins()
     {
         $req = new \Zimbra\Admin\Request\GetAllSkins();
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
 
         $xml = '<?xml version="1.0"?>'."\n"
             .'<GetAllSkinsRequest />';
@@ -2966,6 +3068,7 @@ class RequestTest extends ZimbraTestCase
     public function testGetAllUCProviders()
     {
         $req = new \Zimbra\Admin\Request\GetAllUCProviders();
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
 
         $xml = '<?xml version="1.0"?>'."\n"
             .'<GetAllUCProvidersRequest />';
@@ -2980,6 +3083,7 @@ class RequestTest extends ZimbraTestCase
     public function testGetAllUCServices()
     {
         $req = new \Zimbra\Admin\Request\GetAllUCServices();
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
 
         $xml = '<?xml version="1.0"?>'."\n"
             .'<GetAllUCServicesRequest />';
@@ -2994,6 +3098,7 @@ class RequestTest extends ZimbraTestCase
     public function testGetAllVolumes()
     {
         $req = new \Zimbra\Admin\Request\GetAllVolumes();
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
 
         $xml = '<?xml version="1.0"?>'."\n"
             .'<GetAllVolumesRequest />';
@@ -3008,6 +3113,7 @@ class RequestTest extends ZimbraTestCase
     public function testGetAllXMPPComponents()
     {
         $req = new \Zimbra\Admin\Request\GetAllXMPPComponents();
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
 
         $xml = '<?xml version="1.0"?>'."\n"
             .'<GetAllXMPPComponentsRequest />';
@@ -3022,6 +3128,7 @@ class RequestTest extends ZimbraTestCase
     public function testGetAllZimlets()
     {
         $req = new \Zimbra\Admin\Request\GetAllZimlets(ExcludeType::EXTENSION());
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
         $this->assertSame('extension', $req->exclude()->value());
 
         $req->exclude(ExcludeType::MAIL());
@@ -3044,6 +3151,7 @@ class RequestTest extends ZimbraTestCase
         $req = new \Zimbra\Admin\Request\GetAttributeInfo(
             'attrs', array(EntryType::ACCOUNT(), EntryType::ACL_TARGET())
         );
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
         $this->assertSame('attrs', $req->attrs());
         $this->assertSame('account,aclTarget', $req->entryTypes());
 
@@ -3069,6 +3177,7 @@ class RequestTest extends ZimbraTestCase
     {
         $calResource = new \Zimbra\Admin\Struct\CalendarResourceSelector(CalResBy::NAME(), 'value');
         $req = new \Zimbra\Admin\Request\GetCalendarResource($calResource, false, 'attrs');
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
         $this->assertSame($calResource, $req->calResource());
         $this->assertFalse($req->applyCos());
         $this->assertSame('attrs', $req->attrs());
@@ -3102,6 +3211,7 @@ class RequestTest extends ZimbraTestCase
     public function testGetCert()
     {
         $req = new \Zimbra\Admin\Request\GetCert('server', CertType::ALL(), CSRType::SELF());
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
         $this->assertSame('server', $req->server());
         $this->assertSame('all', $req->type()->value());
         $this->assertSame('self', $req->option()->value());
@@ -3131,6 +3241,7 @@ class RequestTest extends ZimbraTestCase
     {
         $attr = new \Zimbra\Struct\KeyValuePair('key', 'value');
         $req = new \Zimbra\Admin\Request\GetConfig(array($attr));
+        $this->assertInstanceOf('Zimbra\Admin\Request\BaseAttr', $req);
 
         $xml = '<?xml version="1.0"?>'."\n"
             .'<GetConfigRequest>'
@@ -3155,6 +3266,7 @@ class RequestTest extends ZimbraTestCase
     {
         $cos = new \Zimbra\Admin\Struct\CosSelector(CosBy::NAME(), 'value');
         $req = new \Zimbra\Admin\Request\GetCos($cos, 'attrs');
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
         $this->assertSame($cos, $req->cos());
         $this->assertSame('attrs', $req->attrs());
 
@@ -3188,6 +3300,7 @@ class RequestTest extends ZimbraTestCase
         $domain = new \Zimbra\Admin\Struct\DomainSelector(DomainBy::NAME(), 'value');
 
         $req = new \Zimbra\Admin\Request\GetCreateObjectAttrs($target, $domain, $cos);
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
         $this->assertSame($target, $req->target());
         $this->assertSame($domain, $req->domain());
         $this->assertSame($cos, $req->cos());
@@ -3229,6 +3342,7 @@ class RequestTest extends ZimbraTestCase
     public function testGetCSR()
     {
         $req = new \Zimbra\Admin\Request\GetCSR('server', CSRType::SELF());
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
         $this->assertSame('server', $req->server());
         $this->assertSame('self', $req->type()->value());
 
@@ -3253,6 +3367,7 @@ class RequestTest extends ZimbraTestCase
     public function testGetCurrentVolumes()
     {
         $req = new \Zimbra\Admin\Request\GetCurrentVolumes();
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
 
         $xml = '<?xml version="1.0"?>'."\n"
             .'<GetCurrentVolumesRequest />';
@@ -3268,6 +3383,7 @@ class RequestTest extends ZimbraTestCase
     {
         $attr = new \Zimbra\Struct\KeyValuePair('key', 'value');
         $req = new \Zimbra\Admin\Request\GetDataSources('id', array($attr));
+        $this->assertInstanceOf('Zimbra\Admin\Request\BaseAttr', $req);
         $this->assertSame('id', $req->id());
 
         $req->id('id');
@@ -3296,10 +3412,10 @@ class RequestTest extends ZimbraTestCase
     public function testGetDelegatedAdminConstraints()
     {
         $attr = new \Zimbra\Struct\NamedElement('name');
-
         $req = new \Zimbra\Admin\Request\GetDelegatedAdminConstraints(
             TargetType::ACCOUNT(), 'id', 'name', array($attr)
         );
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
         $this->assertSame('account', $req->type()->value());
         $this->assertSame('id', $req->id());
         $this->assertSame('name', $req->name());
@@ -3340,6 +3456,7 @@ class RequestTest extends ZimbraTestCase
     {
         $account = new \Zimbra\Struct\AccountSelector(AccountBy::NAME(), 'value');
         $req = new \Zimbra\Admin\Request\GetDevices($account);
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
         $this->assertSame($account, $req->account());
 
         $req->account($account);
@@ -3367,6 +3484,7 @@ class RequestTest extends ZimbraTestCase
         $attr = new \Zimbra\Struct\KeyValuePair('key', 'value');
         $dl = new \Zimbra\Admin\Struct\DistributionListSelector(DLBy::NAME(), 'value');
         $req = new \Zimbra\Admin\Request\GetDistributionList($dl, 100, 100, false, array($attr));
+        $this->assertInstanceOf('Zimbra\Admin\Request\BaseAttr', $req);
         $this->assertSame($dl, $req->dl());
         $this->assertSame(100, $req->limit());
         $this->assertSame(100, $req->offset());
@@ -3413,6 +3531,7 @@ class RequestTest extends ZimbraTestCase
     {
         $dl = new \Zimbra\Admin\Struct\DistributionListSelector(DLBy::NAME(), 'value');
         $req = new \Zimbra\Admin\Request\GetDistributionListMembership($dl, 100, 100);
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
         $this->assertSame($dl, $req->dl());
         $this->assertSame(100, $req->limit());
         $this->assertSame(100, $req->offset());
@@ -3447,6 +3566,7 @@ class RequestTest extends ZimbraTestCase
     {
         $domain = new \Zimbra\Admin\Struct\DomainSelector(DomainBy::NAME(), 'value');
         $req = new \Zimbra\Admin\Request\GetDomain($domain, false, 'attrs');
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
         $this->assertSame($domain, $req->domain());
         $this->assertFalse($req->applyConfig());
         $this->assertSame('attrs', $req->attrs());
@@ -3481,6 +3601,7 @@ class RequestTest extends ZimbraTestCase
     {
         $domain = new \Zimbra\Admin\Struct\DomainSelector(DomainBy::NAME(), 'value');
         $req = new \Zimbra\Admin\Request\GetDomainInfo($domain, false);
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
         $this->assertSame($domain, $req->domain());
         $this->assertFalse($req->applyConfig());
 
@@ -3517,6 +3638,7 @@ class RequestTest extends ZimbraTestCase
         );
 
         $req = new \Zimbra\Admin\Request\GetEffectiveRights($target, $grantee, AttrMethod::GET_ATTRS());
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
         $this->assertSame($target, $req->target());
         $this->assertSame($grantee, $req->grantee());
         $this->assertSame('getAttrs', $req->expandAllAttrs()->value());
@@ -3559,6 +3681,7 @@ class RequestTest extends ZimbraTestCase
     {
         $provider = new \Zimbra\Struct\NamedElement('name');
         $req = new \Zimbra\Admin\Request\GetFreeBusyQueueInfo($provider);
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
         $this->assertSame($provider, $req->provider());
 
         $req->provider($provider);
@@ -3590,6 +3713,7 @@ class RequestTest extends ZimbraTestCase
         );
 
         $req = new \Zimbra\Admin\Request\GetGrants($target, $grantee);
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
         $this->assertSame($target, $req->target());
         $this->assertSame($grantee, $req->grantee());
 
@@ -3628,6 +3752,7 @@ class RequestTest extends ZimbraTestCase
     {
         $mbox = new \Zimbra\Admin\Struct\MailboxByAccountIdSelector('id');
         $req = new \Zimbra\Admin\Request\GetIndexStats($mbox);
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
         $this->assertSame($mbox, $req->mbox());
 
         $req->mbox($mbox);
@@ -3654,6 +3779,7 @@ class RequestTest extends ZimbraTestCase
         $req = new \Zimbra\Admin\Request\GetLDAPEntries(
             'query', 'ldapSearchBase', 'sortBy', false, 100, 100
         );
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
         $this->assertSame('query', $req->query());
         $this->assertSame('ldapSearchBase', $req->ldapSearchBase());
         $this->assertSame('sortBy', $req->sortBy());
@@ -3696,6 +3822,7 @@ class RequestTest extends ZimbraTestCase
     public function testGetLicenseInfo()
     {
         $req = new \Zimbra\Admin\Request\GetLicenseInfo();
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
 
         $xml = '<?xml version="1.0"?>'."\n"
             .'<GetLicenseInfoRequest />';
@@ -3718,6 +3845,7 @@ class RequestTest extends ZimbraTestCase
         $stats = new \Zimbra\Admin\Struct\StatsSpec($values, 'name', 'limit');
 
         $req = new \Zimbra\Admin\Request\GetLoggerStats($hostname, $stats, $startTime, $endTime);
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
         $this->assertSame($hostname, $req->hostname());
         $this->assertSame($stats, $req->stats());
         $this->assertSame($startTime, $req->startTime());
@@ -3774,6 +3902,7 @@ class RequestTest extends ZimbraTestCase
     {
         $mbox = new \Zimbra\Admin\Struct\MailboxByAccountIdSelector('account-id');
         $req = new \Zimbra\Admin\Request\GetMailbox($mbox);
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
         $this->assertSame($mbox, $req->mbox());
 
         $req->mbox($mbox);
@@ -3798,6 +3927,7 @@ class RequestTest extends ZimbraTestCase
     public function testGetMailboxStats()
     {
         $req = new \Zimbra\Admin\Request\GetMailboxStats();
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
 
         $xml = '<?xml version="1.0"?>'."\n"
             .'<GetMailboxStatsRequest />';
@@ -3818,6 +3948,7 @@ class RequestTest extends ZimbraTestCase
         $server = new \Zimbra\Admin\Struct\ServerMailQueueQuery($queue, 'name');
 
         $req = new \Zimbra\Admin\Request\GetMailQueue($server);
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
         $this->assertSame($server, $req->server());
         $req->server($server);
         $this->assertSame($server, $req->server());
@@ -3867,6 +3998,7 @@ class RequestTest extends ZimbraTestCase
     {
         $server = new \Zimbra\Struct\NamedElement('name');
         $req = new \Zimbra\Admin\Request\GetMailQueueInfo($server);
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
         $this->assertSame($server, $req->server());
         $req->server($server);
         $this->assertSame($server, $req->server());
@@ -3890,6 +4022,7 @@ class RequestTest extends ZimbraTestCase
     public function testGetMemcachedClientConfig()
     {
         $req = new \Zimbra\Admin\Request\GetMemcachedClientConfig();
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
 
         $xml = '<?xml version="1.0"?>'."\n"
             .'<GetMemcachedClientConfigRequest />';
@@ -3906,6 +4039,7 @@ class RequestTest extends ZimbraTestCase
         $req = new \Zimbra\Admin\Request\GetQuotaUsage(
             'domain', false, 100, 100, QuotaSortBy::PERCENT_USED(), false, true
         );
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
         $this->assertSame('domain', $req->domain());
         $this->assertFalse($req->allServers());
         $this->assertSame(100, $req->limit());
@@ -3957,6 +4091,7 @@ class RequestTest extends ZimbraTestCase
     public function testGetRight()
     {
         $req = new \Zimbra\Admin\Request\GetRight('right', false);
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
         $this->assertSame('right', $req->right());
         $this->assertFalse($req->expandAllAttrs());
 
@@ -3982,6 +4117,7 @@ class RequestTest extends ZimbraTestCase
     {
         $package = new \Zimbra\Admin\Struct\PackageSelector('name');
         $req = new \Zimbra\Admin\Request\GetRightsDoc(array($package));
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
         $this->assertSame(array($package), $req->package()->all());
 
         $req->addPackage($package);
@@ -4008,6 +4144,7 @@ class RequestTest extends ZimbraTestCase
     {
         $server = new \Zimbra\Admin\Struct\ServerSelector(ServerBy::NAME(), 'server');
         $req = new \Zimbra\Admin\Request\GetServer($server, false, 'attrs');
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
         $this->assertSame($server, $req->server());
         $this->assertFalse($req->applyConfig());
         $this->assertSame('attrs', $req->attrs());
@@ -4042,6 +4179,7 @@ class RequestTest extends ZimbraTestCase
     {
         $server = new \Zimbra\Admin\Struct\ServerSelector(ServerBy::NAME(), 'server');
         $req = new \Zimbra\Admin\Request\GetServerNIfs($server, IpType::BOTH());
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
         $this->assertSame($server, $req->server());
         $this->assertSame('both', $req->type()->value());
 
@@ -4072,6 +4210,7 @@ class RequestTest extends ZimbraTestCase
     {
         $stat = new \Zimbra\Admin\Struct\Stat('name', 'description');
         $req = new \Zimbra\Admin\Request\GetServerStats(array($stat));
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
         $this->assertSame(array($stat), $req->stat()->all());
         $req->addStat($stat);
         $this->assertSame(array($stat, $stat), $req->stat()->all());
@@ -4099,6 +4238,7 @@ class RequestTest extends ZimbraTestCase
     public function testGetServiceStatus()
     {
         $req = new \Zimbra\Admin\Request\GetServiceStatus();
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
 
         $xml = '<?xml version="1.0"?>'."\n"
             .'<GetServiceStatusRequest />';
@@ -4115,6 +4255,7 @@ class RequestTest extends ZimbraTestCase
         $req = new \Zimbra\Admin\Request\GetSessions(
             SessionType::SOAP(), SessionsSortBy::NAME_ASC(), 100, 100, false
         );
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
         $this->assertSame('soap', $req->type()->value());
         $this->assertSame('nameAsc', $req->sortBy()->value());
         $this->assertSame(100, $req->limit());
@@ -4159,6 +4300,7 @@ class RequestTest extends ZimbraTestCase
         $grantee = new \Zimbra\Struct\GranteeChooser('type', 'id', 'name');
      
         $req = new \Zimbra\Admin\Request\GetShareInfo($owner, $grantee);
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
         $this->assertSame($owner, $req->owner());
         $this->assertSame($grantee, $req->grantee());
 
@@ -4194,6 +4336,7 @@ class RequestTest extends ZimbraTestCase
     {
         $cos = new \Zimbra\Admin\Struct\CosSelector(CosBy::NAME(), 'value');
         $req = new \Zimbra\Admin\Request\GetSystemRetentionPolicy($cos);
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
         $this->assertSame($cos, $req->cos());
         $req->cos($cos);
         $this->assertSame($cos, $req->cos());
@@ -4219,6 +4362,7 @@ class RequestTest extends ZimbraTestCase
     {
         $ucservice = new \Zimbra\Admin\Struct\UcServiceSelector(UcServiceBy::NAME(), 'value');
         $req = new \Zimbra\Admin\Request\GetUCService($ucservice, 'attrs');
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
         $this->assertSame($ucservice, $req->ucservice());
         $this->assertSame('attrs', $req->attrs());
 
@@ -4248,6 +4392,7 @@ class RequestTest extends ZimbraTestCase
     public function testGetVersionInfo()
     {
         $req = new \Zimbra\Admin\Request\GetVersionInfo();
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
 
         $xml = '<?xml version="1.0"?>'."\n"
             .'<GetVersionInfoRequest />';
@@ -4262,6 +4407,7 @@ class RequestTest extends ZimbraTestCase
     public function testGetVolume()
     {
         $req = new \Zimbra\Admin\Request\GetVolume(100);
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
         $this->assertSame(100, $req->id());
         $req->id(100);
         $this->assertSame(100, $req->id());
@@ -4282,6 +4428,7 @@ class RequestTest extends ZimbraTestCase
     {
         $xmpp = new \Zimbra\Admin\Struct\XmppComponentSelector(XmppBy::NAME(), 'value');
         $req = new \Zimbra\Admin\Request\GetXMPPComponent($xmpp, 'attrs');
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
         $this->assertSame($xmpp, $req->xmpp());
         $this->assertSame('attrs', $req->attrs());
 
@@ -4312,6 +4459,7 @@ class RequestTest extends ZimbraTestCase
     {
         $zimlet = new \Zimbra\Struct\NamedElement('name');
         $req = new \Zimbra\Admin\Request\GetZimlet($zimlet, 'attrs');
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
         $this->assertSame($zimlet, $req->zimlet());
         $this->assertSame('attrs', $req->attrs());
 
@@ -4340,6 +4488,7 @@ class RequestTest extends ZimbraTestCase
     public function testGetZimletStatus()
     {
         $req = new \Zimbra\Admin\Request\GetZimletStatus();
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
 
         $xml = '<?xml version="1.0"?>'."\n"
             .'<GetZimletStatusRequest />';
@@ -4362,6 +4511,7 @@ class RequestTest extends ZimbraTestCase
         $right = new \Zimbra\Admin\Struct\RightModifierInfo('value', true, false, false, true);
 
         $req = new \Zimbra\Admin\Request\GrantRight($target, $grantee, $right);
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
         $this->assertSame($target, $req->target());
         $this->assertSame($grantee, $req->grantee());
         $this->assertSame($right, $req->right());
@@ -4417,6 +4567,7 @@ class RequestTest extends ZimbraTestCase
         $server = new \Zimbra\Admin\Struct\ServerWithQueueAction($queue, 'name');
 
         $req = new \Zimbra\Admin\Request\MailQueueAction($server);
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
         $this->assertSame($server, $req->server());
         $req->server($server);
         $this->assertSame($server, $req->server());
@@ -4470,6 +4621,7 @@ class RequestTest extends ZimbraTestCase
     {
         $server = new \Zimbra\Struct\NamedElement('name');
         $req = new \Zimbra\Admin\Request\MailQueueFlush($server);
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
         $this->assertSame($server, $req->server());
         $req->server($server);
         $this->assertSame($server, $req->server());
@@ -4494,6 +4646,7 @@ class RequestTest extends ZimbraTestCase
     {
         $migrate = new \Zimbra\Admin\Struct\IdAndAction('id', 'wiki');
         $req = new \Zimbra\Admin\Request\MigrateAccount($migrate);
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
         $this->assertSame($migrate, $req->migrate());
         $req->migrate($migrate);
         $this->assertSame($migrate, $req->migrate());
@@ -4519,6 +4672,7 @@ class RequestTest extends ZimbraTestCase
     {
         $attr = new \Zimbra\Struct\KeyValuePair('key', 'value');
         $req = new \Zimbra\Admin\Request\ModifyAccount('id', array($attr));
+        $this->assertInstanceOf('Zimbra\Admin\Request\BaseAttr', $req);
 
         $this->assertSame('id', $req->id());
 
@@ -4549,6 +4703,7 @@ class RequestTest extends ZimbraTestCase
     {
         $search = new \Zimbra\Struct\NamedValue('name', 'value');
         $req = new \Zimbra\Admin\Request\ModifyAdminSavedSearches(array($search));
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
         $this->assertSame(array($search), $req->search()->all());
 
         $req->addSearch($search);
@@ -4578,6 +4733,7 @@ class RequestTest extends ZimbraTestCase
     {
         $attr = new \Zimbra\Struct\KeyValuePair('key', 'value');
         $req = new \Zimbra\Admin\Request\ModifyCalendarResource('id', array($attr));
+        $this->assertInstanceOf('Zimbra\Admin\Request\BaseAttr', $req);
 
         $this->assertSame('id', $req->id());
 
@@ -4608,6 +4764,7 @@ class RequestTest extends ZimbraTestCase
     {
         $attr = new \Zimbra\Struct\KeyValuePair('key', 'value');
         $req = new \Zimbra\Admin\Request\ModifyConfig(array($attr));
+        $this->assertInstanceOf('Zimbra\Admin\Request\BaseAttr', $req);
 
         $xml = '<?xml version="1.0"?>'."\n"
             .'<ModifyConfigRequest>'
@@ -4632,6 +4789,7 @@ class RequestTest extends ZimbraTestCase
     {
         $attr = new \Zimbra\Struct\KeyValuePair('key', 'value');
         $req = new \Zimbra\Admin\Request\ModifyCos('id', array($attr));
+        $this->assertInstanceOf('Zimbra\Admin\Request\BaseAttr', $req);
 
         $this->assertSame('id', $req->id());
 
@@ -4664,6 +4822,7 @@ class RequestTest extends ZimbraTestCase
         $dataSource = new \Zimbra\Struct\Id('id');
         $attr = new \Zimbra\Struct\KeyValuePair('key', 'value');
         $req = new \Zimbra\Admin\Request\ModifyDataSource('id', $dataSource, array($attr));
+        $this->assertInstanceOf('Zimbra\Admin\Request\BaseAttr', $req);
 
         $this->assertSame('id', $req->id());
         $this->assertSame($dataSource, $req->dataSource());
@@ -4706,6 +4865,7 @@ class RequestTest extends ZimbraTestCase
         $req = new \Zimbra\Admin\Request\ModifyDelegatedAdminConstraints(
             TargetType::GROUP(), 'id', 'name', array($attr)
         );
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
         $this->assertSame('group', $req->type()->value());
         $this->assertSame('id', $req->id());
         $this->assertSame('name', $req->name());
@@ -4763,6 +4923,7 @@ class RequestTest extends ZimbraTestCase
     {
         $attr = new \Zimbra\Struct\KeyValuePair('key', 'value');
         $req = new \Zimbra\Admin\Request\ModifyDistributionList('id', array($attr));
+        $this->assertInstanceOf('Zimbra\Admin\Request\BaseAttr', $req);
 
         $this->assertSame('id', $req->id());
 
@@ -4793,6 +4954,7 @@ class RequestTest extends ZimbraTestCase
     {
         $attr = new \Zimbra\Struct\KeyValuePair('key', 'value');
         $req = new \Zimbra\Admin\Request\ModifyDomain('id', array($attr));
+        $this->assertInstanceOf('Zimbra\Admin\Request\BaseAttr', $req);
 
         $this->assertSame('id', $req->id());
 
@@ -4823,6 +4985,7 @@ class RequestTest extends ZimbraTestCase
     {
         $attr = new \Zimbra\Struct\KeyValuePair('key', 'value');
         $req = new \Zimbra\Admin\Request\ModifyLDAPEntry('dn', array($attr));
+        $this->assertInstanceOf('Zimbra\Admin\Request\BaseAttr', $req);
 
         $this->assertSame('dn', $req->dn());
 
@@ -4853,6 +5016,7 @@ class RequestTest extends ZimbraTestCase
     {
         $attr = new \Zimbra\Struct\KeyValuePair('key', 'value');
         $req = new \Zimbra\Admin\Request\ModifyServer('id', array($attr));
+        $this->assertInstanceOf('Zimbra\Admin\Request\BaseAttr', $req);
 
         $this->assertSame('id', $req->id());
 
@@ -4885,6 +5049,7 @@ class RequestTest extends ZimbraTestCase
         $policy = new \Zimbra\Admin\Struct\Policy(Type::SYSTEM(), 'id', 'name', 'lifetime');
 
         $req = new \Zimbra\Admin\Request\ModifySystemRetentionPolicy($policy, $cos);
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
         $this->assertSame($policy, $req->policy());
         $this->assertSame($cos, $req->cos());
 
@@ -4921,6 +5086,7 @@ class RequestTest extends ZimbraTestCase
     {
         $attr = new \Zimbra\Struct\KeyValuePair('key', 'value');
         $req = new \Zimbra\Admin\Request\ModifyUCService('id', array($attr));
+        $this->assertInstanceOf('Zimbra\Admin\Request\BaseAttr', $req);
         $this->assertSame('id', $req->id());
 
         $req->id('id');
@@ -4951,6 +5117,7 @@ class RequestTest extends ZimbraTestCase
     {
         $volume = new \Zimbra\Admin\Struct\VolumeInfo(1, 2, 3, 4, 5, 6, 7, 'name', 'rootpath', false, true);
         $req = new \Zimbra\Admin\Request\ModifyVolume(100, $volume);
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
         $this->assertSame(100, $req->id());
         $this->assertSame($volume, $req->volume());
 
@@ -5005,6 +5172,7 @@ class RequestTest extends ZimbraTestCase
         $zimlet = new \Zimbra\Admin\Struct\ZimletAclStatusPri('name', $acl, $status, $priority);
 
         $req = new \Zimbra\Admin\Request\ModifyZimlet($zimlet);
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
         $this->assertSame($zimlet, $req->zimlet());
         $req->zimlet($zimlet);
         $this->assertSame($zimlet, $req->zimlet());
@@ -5042,6 +5210,7 @@ class RequestTest extends ZimbraTestCase
     public function testNoOp()
     {
         $req = new \Zimbra\Admin\Request\NoOp();
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
 
         $xml = '<?xml version="1.0"?>'."\n"
             .'<NoOpRequest />';
@@ -5056,6 +5225,7 @@ class RequestTest extends ZimbraTestCase
     public function testPing()
     {
         $req = new \Zimbra\Admin\Request\Ping();
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
 
         $xml = '<?xml version="1.0"?>'."\n"
             .'<PingRequest />';
@@ -5070,6 +5240,7 @@ class RequestTest extends ZimbraTestCase
     public function testPurgeAccountCalendarCache()
     {
         $req = new \Zimbra\Admin\Request\PurgeAccountCalendarCache('id');
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
         $this->assertEquals('id', $req->id());
         $req->id('id');
         $this->assertEquals('id', $req->id());
@@ -5090,6 +5261,7 @@ class RequestTest extends ZimbraTestCase
     {
         $provider = new \Zimbra\Struct\NamedElement('name');
         $req = new \Zimbra\Admin\Request\PurgeFreeBusyQueue($provider);
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
         $this->assertEquals($provider, $req->provider());
         $req->provider($provider);
         $this->assertEquals($provider, $req->provider());
@@ -5114,6 +5286,7 @@ class RequestTest extends ZimbraTestCase
     {
         $mbox = new \Zimbra\Admin\Struct\MailboxByAccountIdSelector('id');
         $req = new \Zimbra\Admin\Request\PurgeMessages($mbox);
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
         $this->assertEquals($mbox, $req->mbox());
         $req->mbox($mbox);
         $this->assertEquals($mbox, $req->mbox());
@@ -5140,6 +5313,7 @@ class RequestTest extends ZimbraTestCase
         $account = new \Zimbra\Struct\Id('id');
 
         $req = new \Zimbra\Admin\Request\PushFreeBusy($domain, $account);
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
         $this->assertEquals($domain, $req->domain());
         $this->assertEquals($account, $req->account());
 
@@ -5171,6 +5345,7 @@ class RequestTest extends ZimbraTestCase
     public function testQueryWaitSet()
     {
         $req = new \Zimbra\Admin\Request\QueryWaitSet('waitSet');
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
         $this->assertEquals('waitSet', $req->waitSet());
         $req->waitSet('waitSet');
         $this->assertEquals('waitSet', $req->waitSet());
@@ -5191,6 +5366,7 @@ class RequestTest extends ZimbraTestCase
     {
         $mbox = new \Zimbra\Admin\Struct\MailboxByAccountIdSelector('id');
         $req = new \Zimbra\Admin\Request\RecalculateMailboxCounts($mbox);
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
         $this->assertEquals($mbox, $req->mbox());
         $req->mbox($mbox);
         $this->assertEquals($mbox, $req->mbox());
@@ -5215,6 +5391,7 @@ class RequestTest extends ZimbraTestCase
     {
         $mbox = new \Zimbra\Admin\Struct\ReindexMailboxInfo('id', 'task,note', 'abc,xyz');
         $req = new \Zimbra\Admin\Request\ReIndex($mbox, ReIndexAction::START());
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
         $this->assertEquals($mbox, $req->mbox());
         $this->assertEquals('start', $req->action()->value());
         $req->mbox($mbox)
@@ -5244,6 +5421,7 @@ class RequestTest extends ZimbraTestCase
     public function testReloadLocalConfig()
     {
         $req = new \Zimbra\Admin\Request\ReloadLocalConfig();
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
 
         $xml = '<?xml version="1.0"?>'."\n"
             .'<ReloadLocalConfigRequest />';
@@ -5258,6 +5436,7 @@ class RequestTest extends ZimbraTestCase
     public function testReloadMemcachedClientConfig()
     {
         $req = new \Zimbra\Admin\Request\ReloadMemcachedClientConfig();
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
 
         $xml = '<?xml version="1.0"?>'."\n"
             .'<ReloadMemcachedClientConfigRequest />';
@@ -5272,6 +5451,7 @@ class RequestTest extends ZimbraTestCase
     public function testRemoveAccountAlias()
     {
         $req = new \Zimbra\Admin\Request\RemoveAccountAlias('alias', 'id');
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
         $this->assertEquals('alias', $req->alias());
         $this->assertEquals('id', $req->id());
         $req->alias('alias')
@@ -5297,6 +5477,7 @@ class RequestTest extends ZimbraTestCase
         $account = new \Zimbra\Struct\AccountSelector(AccountBy::NAME(), 'value');
         $logger = new \Zimbra\Admin\Struct\LoggerInfo('category', LoggingLevel::ERROR());
         $req = new \Zimbra\Admin\Request\RemoveAccountLogger($account, $logger);
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
 
         $this->assertSame($account, $req->account());
         $this->assertSame($logger, $req->logger());
@@ -5332,6 +5513,7 @@ class RequestTest extends ZimbraTestCase
         $account = new \Zimbra\Struct\AccountSelector(AccountBy::NAME(), 'value');
         $device = new \Zimbra\Admin\Struct\DeviceId('id');
         $req = new \Zimbra\Admin\Request\RemoveDevice($account, $device);
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
 
         $this->assertSame($account, $req->account());
         $this->assertSame($device, $req->device());
@@ -5364,6 +5546,7 @@ class RequestTest extends ZimbraTestCase
     public function testRemoveDistributionListAlias()
     {
         $req = new \Zimbra\Admin\Request\RemoveDistributionListAlias('id', 'alias');
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
         $this->assertEquals('id', $req->id());
         $this->assertEquals('alias', $req->alias());
         $req->id('id')
@@ -5387,6 +5570,7 @@ class RequestTest extends ZimbraTestCase
     public function testRemoveDistributionListMember()
     {
         $req = new \Zimbra\Admin\Request\RemoveDistributionListMember('id', array('dlm'));
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
         $this->assertEquals('id', $req->id());
         $this->assertEquals(array('dlm'), $req->dlm()->all());
         $req->id('id')
@@ -5416,6 +5600,7 @@ class RequestTest extends ZimbraTestCase
     public function testRenameAccount()
     {
         $req = new \Zimbra\Admin\Request\RenameAccount('id', 'newName');
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
         $this->assertEquals('id', $req->id());
         $this->assertEquals('newName', $req->newName());
         $req->id('id')
@@ -5439,6 +5624,7 @@ class RequestTest extends ZimbraTestCase
     public function testRenameCalendarResource()
     {
         $req = new \Zimbra\Admin\Request\RenameCalendarResource('id', 'newName');
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
         $this->assertEquals('id', $req->id());
         $this->assertEquals('newName', $req->newName());
         $req->id('id')
@@ -5462,6 +5648,7 @@ class RequestTest extends ZimbraTestCase
     public function testRenameCos()
     {
         $req = new \Zimbra\Admin\Request\RenameCos('id', 'newName');
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
         $this->assertEquals('id', $req->id());
         $this->assertEquals('newName', $req->newName());
         $req->id('id')
@@ -5488,6 +5675,7 @@ class RequestTest extends ZimbraTestCase
     public function testRenameDistributionList()
     {
         $req = new \Zimbra\Admin\Request\RenameDistributionList('id', 'newName');
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
         $this->assertEquals('id', $req->id());
         $this->assertEquals('newName', $req->newName());
         $req->id('id')
@@ -5511,6 +5699,7 @@ class RequestTest extends ZimbraTestCase
     public function testRenameLDAPEntry()
     {
         $req = new \Zimbra\Admin\Request\RenameLDAPEntry('dn', 'new_dn');
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
         $this->assertEquals('dn', $req->dn());
         $this->assertEquals('new_dn', $req->new_dn());
         $req->dn('dn')
@@ -5534,6 +5723,7 @@ class RequestTest extends ZimbraTestCase
     public function testRenameUCService()
     {
         $req = new \Zimbra\Admin\Request\RenameUCService('id', 'newName');
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
         $this->assertEquals('id', $req->id());
         $this->assertEquals('newName', $req->newName());
         $req->id('id')
@@ -5560,6 +5750,7 @@ class RequestTest extends ZimbraTestCase
     public function testResetAllLoggers()
     {
         $req = new \Zimbra\Admin\Request\ResetAllLoggers;
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
 
         $xml = '<?xml version="1.0"?>'."\n"
             .'<ResetAllLoggersRequest />';
@@ -5576,6 +5767,7 @@ class RequestTest extends ZimbraTestCase
         $account = new \Zimbra\Struct\AccountSelector(AccountBy::NAME(), 'value');
         $device = new \Zimbra\Admin\Struct\DeviceId('id');
         $req = new \Zimbra\Admin\Request\ResumeDevice($account, $device);
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
 
         $this->assertSame($account, $req->account());
         $this->assertSame($device, $req->device());
@@ -5616,6 +5808,7 @@ class RequestTest extends ZimbraTestCase
         $right = new \Zimbra\Admin\Struct\RightModifierInfo('value', true, false, false, true);
 
         $req = new \Zimbra\Admin\Request\RevokeRight($target, $grantee, $right);
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
         $this->assertSame($target, $req->target());
         $this->assertSame($grantee, $req->grantee());
         $this->assertSame($right, $req->right());
@@ -5664,6 +5857,7 @@ class RequestTest extends ZimbraTestCase
     public function testRunUnitTests()
     {
         $req = new \Zimbra\Admin\Request\RunUnitTests(array('test'));
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
         $this->assertEquals(array('test'), $req->test()->all());
         $req->addTest('test1');
         $this->assertEquals(array('test', 'test1'), $req->test()->all());
@@ -5691,6 +5885,7 @@ class RequestTest extends ZimbraTestCase
         $req = new \Zimbra\Admin\Request\SearchAccounts(
             'query', 100, 100, 'domain', false, 'displayName', 'sortBy', 'resources', true 
         );
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
         $this->assertEquals('query', $req->query());
         $this->assertEquals(100, $req->limit());
         $this->assertEquals(100, $req->offset());
@@ -5756,6 +5951,7 @@ class RequestTest extends ZimbraTestCase
         $req = new \Zimbra\Admin\Request\SearchAutoProvDirectory(
             $domain, 'keyAttr', 'query', 'name', 100, 10, 0, false, 'attrs'
         );
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
         $this->assertEquals($domain, $req->domain());
         $this->assertEquals('keyAttr', $req->keyAttr());
         $this->assertEquals('query', $req->query());
@@ -5829,6 +6025,7 @@ class RequestTest extends ZimbraTestCase
         $req = new \Zimbra\Admin\Request\SearchCalendarResources(
             $searchFilter, 10, 0, 'domain', false, 'sortBy', true, 'attrs'
         );
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
         $this->assertEquals($searchFilter, $req->searchFilter());
         $this->assertEquals(10, $req->limit());
         $this->assertEquals(0, $req->offset());
@@ -5923,6 +6120,7 @@ class RequestTest extends ZimbraTestCase
         $req = new \Zimbra\Admin\Request\SearchDirectory(
             'query', 100, 10, 0, 'domain', false, true, array(DirSearchType::RESOURCES()), 'sortBy', true, false, 'attrs'
         );
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
         $this->assertEquals('query', $req->query());
         $this->assertEquals(100, $req->maxResults());
         $this->assertEquals(10, $req->limit());
@@ -6002,6 +6200,7 @@ class RequestTest extends ZimbraTestCase
         $req = new \Zimbra\Admin\Request\SearchGal(
             'domain', 'name', 10, GalSearchType::ALL(), 'galAcctId'
         );
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
         $this->assertEquals('domain', $req->domain());
         $this->assertEquals('name', $req->name());
         $this->assertEquals(10, $req->limit());
@@ -6044,6 +6243,7 @@ class RequestTest extends ZimbraTestCase
     public function testSetCurrentVolume()
     {
         $req = new \Zimbra\Admin\Request\SetCurrentVolume(100, VolumeType::PRIMARY());
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
         $this->assertEquals(100, $req->id());
         $this->assertEquals(1, $req->type()->value());
         $req->id(100)
@@ -6070,6 +6270,7 @@ class RequestTest extends ZimbraTestCase
     public function testSetPassword()
     {
         $req = new \Zimbra\Admin\Request\SetPassword('id', 'newPassword');
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
         $this->assertEquals('id', $req->id());
         $this->assertEquals('newPassword', $req->newPassword());
         $req->id('id')
@@ -6098,6 +6299,7 @@ class RequestTest extends ZimbraTestCase
         $account = new \Zimbra\Struct\AccountSelector(AccountBy::NAME(), 'value');
         $device = new \Zimbra\Admin\Struct\DeviceId('id');
         $req = new \Zimbra\Admin\Request\SuspendDevice($account, $device);
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
 
         $this->assertSame($account, $req->account());
         $this->assertSame($device, $req->device());
@@ -6133,6 +6335,7 @@ class RequestTest extends ZimbraTestCase
         $account = new \Zimbra\Admin\Struct\SyncGalAccountSpec('id', array($ds));
 
         $req = new \Zimbra\Admin\Request\SyncGalAccount($account);
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
         $this->assertSame($account, $req->account());
         $req->account($account);
         $this->assertSame($account, $req->account());
@@ -6166,6 +6369,7 @@ class RequestTest extends ZimbraTestCase
     public function testUndeployZimlet()
     {
         $req = new \Zimbra\Admin\Request\UndeployZimlet('name', 'action');
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
         $this->assertSame('name', $req->name());
         $this->assertSame('action', $req->action());
         $req->name('name')
@@ -6194,6 +6398,7 @@ class RequestTest extends ZimbraTestCase
         $account = new \Zimbra\Struct\AccountSelector(AccountBy::NAME(), 'value');
         $device = new \Zimbra\Admin\Struct\IdStatus('id', 'status');
         $req = new \Zimbra\Admin\Request\UpdateDeviceStatus($account, $device);
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
 
         $this->assertSame($account, $req->account());
         $this->assertSame($device, $req->device());
@@ -6231,6 +6436,7 @@ class RequestTest extends ZimbraTestCase
         $req = new \Zimbra\Admin\Request\UpdatePresenceSessionId(
             $ucservice, 'username', 'password', array($attr)
         );
+        $this->assertInstanceOf('Zimbra\Admin\Request\BaseAttr', $req);
 
         $this->assertSame($ucservice, $req->ucservice());
         $this->assertSame('username', $req->username());
@@ -6275,6 +6481,7 @@ class RequestTest extends ZimbraTestCase
         $req = new \Zimbra\Admin\Request\UploadDomCert(
             'certAid', 'certFilename', 'keyAid', 'keyFilename'
         );
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
         $this->assertEquals('certAid', $req->certAid());
         $this->assertEquals('certFilename', $req->certFilename());
         $this->assertEquals('keyAid', $req->keyAid());
@@ -6312,6 +6519,7 @@ class RequestTest extends ZimbraTestCase
     public function testUploadProxyCA()
     {
         $req = new \Zimbra\Admin\Request\UploadProxyCA('certAid', 'certFilename');
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
         $this->assertEquals('certAid', $req->certAid());
         $this->assertEquals('certFilename', $req->certFilename());
 
@@ -6339,6 +6547,7 @@ class RequestTest extends ZimbraTestCase
     public function testVerifyCertKey()
     {
         $req = new \Zimbra\Admin\Request\VerifyCertKey('cert', 'privkey');
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
         $this->assertEquals('cert', $req->cert());
         $this->assertEquals('privkey', $req->privkey());
 
@@ -6367,6 +6576,7 @@ class RequestTest extends ZimbraTestCase
     {
         $mbox = new \Zimbra\Admin\Struct\MailboxByAccountIdSelector('id');
         $req = new \Zimbra\Admin\Request\VerifyIndex($mbox);
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
         $this->assertSame($mbox, $req->mbox());
 
         $req->mbox($mbox);
@@ -6391,6 +6601,7 @@ class RequestTest extends ZimbraTestCase
     public function testVerifyStoreManager()
     {
         $req = new \Zimbra\Admin\Request\VerifyStoreManager(100, 100, false);
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
         $this->assertEquals(100, $req->fileSize());
         $this->assertEquals(100, $req->num());
         $this->assertFalse($req->checkBlobs());
@@ -6423,6 +6634,7 @@ class RequestTest extends ZimbraTestCase
     public function testVersionCheck()
     {
         $req = new \Zimbra\Admin\Request\VersionCheck(VersionCheckAction::STATUS());
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
         $this->assertEquals('status', $req->action());
         $req->action(VersionCheckAction::CHECK());
         $this->assertEquals('check', $req->action());

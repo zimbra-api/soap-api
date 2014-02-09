@@ -83,6 +83,7 @@ class RequestTest extends ZimbraTestCase
         $req = new \Zimbra\Mail\Request\AddAppointmentInvite(
             $m, ParticipationStatus::NE()
         );
+        $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
         $this->assertSame($m, $req->m());
         $this->assertTrue($req->ptst()->is('NE'));
 
@@ -243,6 +244,7 @@ class RequestTest extends ZimbraTestCase
         $req = new \Zimbra\Mail\Request\AddComment(
             $comment
         );
+        $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
         $this->assertSame($comment, $req->comment());
 
         $req->comment($comment);
@@ -273,6 +275,7 @@ class RequestTest extends ZimbraTestCase
         $req = new \Zimbra\Mail\Request\AddMsg(
             $m, true
         );
+        $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
         $this->assertSame($m, $req->m());
         $this->assertTrue($req->filterSent());
 
@@ -314,6 +317,7 @@ class RequestTest extends ZimbraTestCase
         $req = new \Zimbra\Mail\Request\AddTaskInvite(
             $m, ParticipationStatus::NE()
         );
+        $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
         $this->assertInstanceOf('Zimbra\Mail\Request\AddAppointmentInvite', $req);
 
         $xml = '<?xml version="1.0"?>'."\n"
@@ -467,6 +471,7 @@ class RequestTest extends ZimbraTestCase
         $req = new \Zimbra\Mail\Request\AnnounceOrganizerChange(
             'id'
         );
+        $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
         $this->assertSame('id', $req->id());
         $req->id('id');
         $this->assertSame('id', $req->id());
@@ -491,6 +496,7 @@ class RequestTest extends ZimbraTestCase
         $req = new \Zimbra\Mail\Request\ApplyFilterRules(
             $filterRules, $m, 'query'
         );
+        $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
         $this->assertSame($filterRules, $req->filterRules());
         $this->assertSame($m, $req->m());
         $this->assertSame('query', $req->query());
@@ -536,6 +542,7 @@ class RequestTest extends ZimbraTestCase
         $req = new \Zimbra\Mail\Request\ApplyOutgoingFilterRules(
             $filterRules, $m, 'query'
         );
+        $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
         $this->assertSame($filterRules, $req->filterRules());
         $this->assertSame($m, $req->m());
         $this->assertSame('query', $req->query());
@@ -578,6 +585,7 @@ class RequestTest extends ZimbraTestCase
         $req = new \Zimbra\Mail\Request\AutoComplete(
             'name', GalSearchType::ALL(), true, 'folders', true
         );
+        $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
         $this->assertSame('name', $req->name());
         $this->assertTrue($req->t()->is('all'));
         $this->assertTrue($req->needExp());
@@ -611,6 +619,13 @@ class RequestTest extends ZimbraTestCase
         $this->assertEquals($array, $req->toArray());
     }
 
+    public function testBaseRequest()
+    {
+        $req = $this->getMockForAbstractClass('\Zimbra\Mail\Request\Base');
+        $this->assertInstanceOf('Zimbra\Soap\Request', $req);
+        $this->assertEquals('urn:zimbraMail', $req->requestNamespace());
+    }
+
     public function testBounceMsg()
     {
         $e = new \Zimbra\Mail\Struct\EmailAddrInfo('a', 't', 'p');
@@ -618,6 +633,7 @@ class RequestTest extends ZimbraTestCase
         $req = new \Zimbra\Mail\Request\BounceMsg(
             $m
         );
+        $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
 
         $this->assertSame($m, $req->m());
         $req->m($m);
@@ -653,6 +669,7 @@ class RequestTest extends ZimbraTestCase
         $req = new \Zimbra\Mail\Request\Browse(
             BrowseBy::DOMAINS(), 'regex', 1
         );
+        $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
         $this->assertTrue($req->browseBy()->is('domains'));
         $this->assertSame('regex', $req->regex());
         $this->assertSame(1, $req->maxToReturn());
@@ -687,6 +704,7 @@ class RequestTest extends ZimbraTestCase
         $req = new \Zimbra\Mail\Request\CancelAppointment(
             $inst, $tz, $m, 'id', 1, 1, 1
         );
+        $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
         $this->assertSame($inst, $req->inst());
         $this->assertSame($tz, $req->tz());
         $this->assertSame($m, $req->m());
@@ -891,6 +909,7 @@ class RequestTest extends ZimbraTestCase
     public function testCancelTask()
     {
         $req = new \Zimbra\Mail\Request\CancelTask;
+        $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
         $this->assertInstanceOf('Zimbra\Mail\Request\CancelAppointment', $req);
 
         $xml = '<?xml version="1.0"?>'."\n"
@@ -907,6 +926,7 @@ class RequestTest extends ZimbraTestCase
     {
         $device = new \Zimbra\Struct\Id('id');
         $req = new \Zimbra\Mail\Request\CheckDeviceStatus($device);
+        $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
         $this->assertSame($device, $req->device());
         $req->device($device);
         $this->assertSame($device, $req->device());
@@ -933,6 +953,7 @@ class RequestTest extends ZimbraTestCase
             TargetType::ACCOUNT(), AccountBy::NAME(), 'value'
         );
         $req = new \Zimbra\Mail\Request\CheckPermission($target, array('right1'));
+        $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
         $this->assertSame($target, $req->target());
         $this->assertSame(array('right1'), $req->right()->all());
 
@@ -987,6 +1008,7 @@ class RequestTest extends ZimbraTestCase
         $req = new \Zimbra\Mail\Request\CheckRecurConflicts(
             array($tz), $cancel, $comp, $except, array($usr), 1, 1, true, 'excludeUid'
         );
+        $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
         $this->assertSame(array($tz), $req->tz()->all());
         $this->assertSame($cancel, $req->cancel());
         $this->assertSame($comp, $req->comp());
@@ -1019,6 +1041,7 @@ class RequestTest extends ZimbraTestCase
         $req = new \Zimbra\Mail\Request\CheckRecurConflicts(
             array($tz), $cancel, $comp, $except, array($usr), 1, 1, true, 'excludeUid'
         );
+        $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
 
         $xml = '<?xml version="1.0"?>'."\n"
             .'<CheckRecurConflictsRequest s="1" e="1" all="1" excludeUid="excludeUid">'
@@ -1149,6 +1172,7 @@ class RequestTest extends ZimbraTestCase
         $req = new \Zimbra\Mail\Request\CheckSpelling(
             'value', 'dictionary', 'ignore'
         );
+        $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
         $this->assertSame('value', $req->value());
         $this->assertSame('dictionary', $req->dictionary());
         $this->assertSame('ignore', $req->ignore());
@@ -1184,6 +1208,7 @@ class RequestTest extends ZimbraTestCase
         $req = new \Zimbra\Mail\Request\CompleteTaskInstance(
             'id', $exceptId, $tz
         );
+        $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
         $this->assertSame('id', $req->id());
         $this->assertSame($exceptId, $req->exceptId());
         $this->assertSame($tz, $req->tz());
@@ -1248,6 +1273,7 @@ class RequestTest extends ZimbraTestCase
         $req = new \Zimbra\Mail\Request\ContactAction(
             $action
         );
+        $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
         $this->assertSame($action, $req->action());
 
         $req->action($action);
@@ -1298,6 +1324,7 @@ class RequestTest extends ZimbraTestCase
         $req = new \Zimbra\Mail\Request\ConvAction(
             $action
         );
+        $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
         $this->assertSame($action, $req->action());
 
         $req->action($action);
@@ -1335,6 +1362,7 @@ class RequestTest extends ZimbraTestCase
         $req = new \Zimbra\Mail\Request\CounterAppointment(
             $m, 'id', 1, 1, 1
         );
+        $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
         $this->assertSame($m, $req->m());
         $this->assertSame('id', $req->id());
         $this->assertSame(1, $req->comp());
@@ -1505,6 +1533,7 @@ class RequestTest extends ZimbraTestCase
     {
         $m = $this->getMsg();
         $req = $this->getMockForAbstractClass('\Zimbra\Mail\Request\CalItemRequestBase');
+        $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
 
         $req->m($m)
             ->echo_(true)
@@ -1526,6 +1555,7 @@ class RequestTest extends ZimbraTestCase
         $req = new \Zimbra\Mail\Request\CreateAppointment(
             $m, true, 1, true, true, true
         );
+        $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
         $this->assertInstanceOf('Zimbra\Mail\Request\CalItemRequestBase', $req);
         $this->assertSame($m, $req->m());
         $this->assertTrue($req->echo_());
@@ -1691,6 +1721,7 @@ class RequestTest extends ZimbraTestCase
         $req = new \Zimbra\Mail\Request\CreateAppointmentException(
             $m, 'id', 1, 1, 1, true, 1, true, true, true
         );
+        $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
         $this->assertInstanceOf('Zimbra\Mail\Request\CalItemRequestBase', $req);
         $this->assertSame($m, $req->m());
         $this->assertSame('id', $req->id());
@@ -1881,6 +1912,7 @@ class RequestTest extends ZimbraTestCase
         $req = new \Zimbra\Mail\Request\CreateContact(
             $cn, true
         );
+        $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
         $this->assertSame($cn, $req->cn());
         $this->assertTrue($req->verbose());
 
@@ -1971,6 +2003,7 @@ class RequestTest extends ZimbraTestCase
         $req = new \Zimbra\Mail\Request\CreateDataSource(
             $imap, $pop3, $caldav, $yab, $rss, $gal, $cal, $unknown
         );
+        $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
         $this->assertSame($imap, $req->imap());
         $this->assertSame($pop3, $req->pop3());
         $this->assertSame($caldav, $req->caldav());
@@ -2072,6 +2105,7 @@ class RequestTest extends ZimbraTestCase
         $req = new \Zimbra\Mail\Request\CreateFolder(
             $folder
         );
+        $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
         $this->assertSame($folder, $req->folder());
 
         $req->folder($folder);
@@ -2126,6 +2160,7 @@ class RequestTest extends ZimbraTestCase
          $req = new \Zimbra\Mail\Request\CreateMountpoint(
             $link
         );
+        $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
         $this->assertSame($link, $req->link());
 
         $req->link($link);
@@ -2167,6 +2202,7 @@ class RequestTest extends ZimbraTestCase
          $req = new \Zimbra\Mail\Request\CreateNote(
             $note
         );
+        $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
         $this->assertSame($note, $req->note());
 
         $req->note($note);
@@ -2199,6 +2235,7 @@ class RequestTest extends ZimbraTestCase
         $req = new \Zimbra\Mail\Request\CreateSearchFolder(
             $search
         );
+        $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
         $this->assertSame($search, $req->search());
 
         $req->search($search);
@@ -2234,6 +2271,7 @@ class RequestTest extends ZimbraTestCase
         $req = new \Zimbra\Mail\Request\CreateTag(
             $tag
         );
+        $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
         $this->assertSame($tag, $req->tag());
 
         $req->tag($tag);
@@ -2264,6 +2302,7 @@ class RequestTest extends ZimbraTestCase
         $req = new \Zimbra\Mail\Request\CreateTask(
             $m, true, 1, true, true, true
         );
+        $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
         $this->assertInstanceOf('Zimbra\Mail\Request\CreateAppointment', $req);
 
         $xml = '<?xml version="1.0"?>'."\n"
@@ -2423,6 +2462,7 @@ class RequestTest extends ZimbraTestCase
         $req = new \Zimbra\Mail\Request\CreateTaskException(
             $m, 'id', 1, 1, 1, true, 1, true, true, true
         );
+        $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
         $this->assertInstanceOf('Zimbra\Mail\Request\CreateAppointmentException', $req);
 
         $xml = '<?xml version="1.0"?>'."\n"
@@ -2587,6 +2627,7 @@ class RequestTest extends ZimbraTestCase
         $req = new \Zimbra\Mail\Request\CreateWaitSet(
             $add, array(InterestType::FOLDERS()), true
         );
+        $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
         $this->assertSame($add, $req->add());
         $this->assertSame('f', $req->defTypes());
         $this->assertTrue($req->allAccounts());
@@ -2601,6 +2642,7 @@ class RequestTest extends ZimbraTestCase
         $req = new \Zimbra\Mail\Request\CreateWaitSet(
             $add, array(InterestType::FOLDERS()), true
         );
+        $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
         $xml = '<?xml version="1.0"?>'."\n"
             .'<CreateWaitSetRequest defTypes="f" allAccounts="1">'
                 .'<add>'
@@ -2635,6 +2677,7 @@ class RequestTest extends ZimbraTestCase
         $req = new \Zimbra\Mail\Request\DeclineCounterAppointment(
             $m
         );
+        $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
         $this->assertSame($m, $req->m());
         $req->m($m);
         $this->assertSame($m, $req->m());
@@ -2798,6 +2841,7 @@ class RequestTest extends ZimbraTestCase
         $req = new \Zimbra\Mail\Request\DeleteDataSource(
             $imap, $pop3, $caldav, $yab, $rss, $gal, $cal, $unknown
         );
+        $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
         $this->assertSame($imap, $req->imap());
         $this->assertSame($pop3, $req->pop3());
         $this->assertSame($caldav, $req->caldav());
@@ -2882,6 +2926,7 @@ class RequestTest extends ZimbraTestCase
         $req = new \Zimbra\Mail\Request\DeleteDevice(
             $device
         );
+        $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
         $this->assertSame($device, $req->device());
 
         $req->device($device);
@@ -2908,6 +2953,7 @@ class RequestTest extends ZimbraTestCase
         $req = new \Zimbra\Mail\Request\DestroyWaitSet(
             'waitSet'
         );
+        $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
         $this->assertSame('waitSet', $req->waitSet());
 
         $req->waitSet('waitSet');
@@ -2931,6 +2977,7 @@ class RequestTest extends ZimbraTestCase
         $req = new \Zimbra\Mail\Request\DiffDocument(
             $doc
         );
+        $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
         $this->assertSame($doc, $req->doc());
 
         $req->doc($doc);
@@ -2961,6 +3008,7 @@ class RequestTest extends ZimbraTestCase
         $req = new \Zimbra\Mail\Request\DismissCalendarItemAlarm(
             $appt, $task
         );
+        $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
         $this->assertSame($appt, $req->appt());
         $this->assertSame($task, $req->task());
 
@@ -3002,6 +3050,7 @@ class RequestTest extends ZimbraTestCase
         $req = new \Zimbra\Mail\Request\DocumentAction(
             $action
         );
+        $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
         $this->assertSame($action, $req->action());
 
         $req->action($action);
@@ -3044,6 +3093,7 @@ class RequestTest extends ZimbraTestCase
     public function testEmptyDumpster()
     {
         $req = new \Zimbra\Mail\Request\EmptyDumpster();
+        $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
 
         $xml = '<?xml version="1.0"?>'."\n"
             .'<EmptyDumpsterRequest />';
@@ -3063,6 +3113,7 @@ class RequestTest extends ZimbraTestCase
         $req = new \Zimbra\Mail\Request\EnableSharedReminder(
             $link
         );
+        $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
         $this->assertSame($link, $req->link());
 
         $req->link($link);
@@ -3110,6 +3161,7 @@ class RequestTest extends ZimbraTestCase
         $req = new \Zimbra\Mail\Request\ExpandRecur(
             1, 1, array($tz), $comp, $except, $cancel
         );
+        $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
         $this->assertSame(1, $req->s());
         $this->assertSame(1, $req->e());
         $this->assertSame(array($tz), $req->tz()->all());
@@ -3133,6 +3185,7 @@ class RequestTest extends ZimbraTestCase
         $req = new \Zimbra\Mail\Request\ExpandRecur(
             1, 1, array($tz), $comp, $except, $cancel
         );
+        $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
 
         $xml = '<?xml version="1.0"?>'."\n"
             .'<ExpandRecurRequest s="1" e="1">'
@@ -3253,6 +3306,7 @@ class RequestTest extends ZimbraTestCase
         $req = new \Zimbra\Mail\Request\ExportContacts(
             'ct', 'l', 'csvfmt', 'csvlocale', 'csvsep'
         );
+        $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
         $this->assertSame('ct', $req->ct());
         $this->assertSame('l', $req->l());
         $this->assertSame('csvfmt', $req->csvfmt());
@@ -3331,6 +3385,7 @@ class RequestTest extends ZimbraTestCase
         $req = new \Zimbra\Mail\Request\FolderAction(
             $action
         );
+        $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
         $this->assertSame($action, $req->action());
 
         $req->action($action);
@@ -3436,6 +3491,7 @@ class RequestTest extends ZimbraTestCase
         $req = new \Zimbra\Mail\Request\ForwardAppointment(
             $exceptId, $tz, $m, 'id'
         );
+        $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
         $this->assertSame($exceptId, $req->exceptId());
         $this->assertSame($tz, $req->tz());
         $this->assertSame($m, $req->m());
@@ -3632,6 +3688,7 @@ class RequestTest extends ZimbraTestCase
         $req = new \Zimbra\Mail\Request\ForwardAppointmentInvite(
             $m, 'id'
         );
+        $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
         $this->assertSame($m, $req->m());
         $this->assertSame('id', $req->id());
 
@@ -3789,6 +3846,7 @@ class RequestTest extends ZimbraTestCase
     public function testGenerateUUID()
     {
         $req = new \Zimbra\Mail\Request\GenerateUUID();
+        $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
 
         $xml = '<?xml version="1.0"?>'."\n"
             .'<GenerateUUIDRequest />';
@@ -3808,6 +3866,7 @@ class RequestTest extends ZimbraTestCase
         $req = new \Zimbra\Mail\Request\GetActivityStream(
             'id', $filter, 1, 1
         );
+        $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
         $this->assertSame('id', $req->id());
         $this->assertSame($filter, $req->filter());
         $this->assertSame(1, $req->offset());
@@ -3847,6 +3906,7 @@ class RequestTest extends ZimbraTestCase
     public function testGetAllDevices()
     {
         $req = new \Zimbra\Mail\Request\GetAllDevices();
+        $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
 
         $xml = '<?xml version="1.0"?>'."\n"
             .'<GetAllDevicesRequest />';
@@ -3863,6 +3923,7 @@ class RequestTest extends ZimbraTestCase
         $req = new \Zimbra\Mail\Request\GetAppointment(
             true, true, 'icalendar-uid', 'appointment-id'
         );
+        $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
         $this->assertTrue($req->sync());
         $this->assertTrue($req->includeContent());
         $this->assertSame('icalendar-uid', $req->uid());
@@ -3897,6 +3958,7 @@ class RequestTest extends ZimbraTestCase
         $req = new \Zimbra\Mail\Request\GetApptSummaries(
             1, 1, 'folder-id'
         );
+        $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
         $this->assertSame(1, $req->s());
         $this->assertSame(1, $req->e());
         $this->assertSame('folder-id', $req->l());
@@ -3927,6 +3989,7 @@ class RequestTest extends ZimbraTestCase
         $req = new \Zimbra\Mail\Request\GetCalendarItemSummaries(
             1, 1, 'folder-id'
         );
+        $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
         $this->assertSame(1, $req->s());
         $this->assertSame(1, $req->e());
         $this->assertSame('folder-id', $req->l());
@@ -3960,6 +4023,7 @@ class RequestTest extends ZimbraTestCase
         $req = new \Zimbra\Mail\Request\GetComments(
             $comment
         );
+        $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
         $this->assertSame($comment, $req->comment());
 
         $req->comment($comment);
@@ -3990,6 +4054,7 @@ class RequestTest extends ZimbraTestCase
         $req = new \Zimbra\Mail\Request\GetContacts(
             array($a), array($ma), array($cn), true, 'folder-id', 'sort-by', true, true, 1
         );
+        $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
         $this->assertSame(array($a), $req->a()->all());
         $this->assertSame(array($ma), $req->ma()->all());
         $this->assertSame(array($cn), $req->cn()->all());
@@ -4022,6 +4087,7 @@ class RequestTest extends ZimbraTestCase
         $req = new \Zimbra\Mail\Request\GetContacts(
             array($a), array($ma), array($cn), true, 'folder-id', 'sort-by', true, true, 1
         );
+        $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
 
         $xml = '<?xml version="1.0"?>'."\n"
             .'<GetContactsRequest sync="1" l="folder-id" sortBy="sort-by" derefGroupMember="1" returnHiddenAttrs="1" maxMembers="1">'
@@ -4068,6 +4134,7 @@ class RequestTest extends ZimbraTestCase
         $req = new \Zimbra\Mail\Request\GetConv(
             $c
         );
+        $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
         $this->assertSame($c, $req->c());
 
         $req->c($c);
@@ -4105,6 +4172,7 @@ class RequestTest extends ZimbraTestCase
         $req = new \Zimbra\Mail\Request\GetCustomMetadata(
             'id', $meta
         );
+        $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
         $this->assertSame('id', $req->id());
         $this->assertSame($meta, $req->meta());
 
@@ -4133,6 +4201,7 @@ class RequestTest extends ZimbraTestCase
     public function testGetDataSources()
     {
         $req = new \Zimbra\Mail\Request\GetDataSources();
+        $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
 
         $xml = '<?xml version="1.0"?>'."\n"
             .'<GetDataSourcesRequest />';
@@ -4152,6 +4221,7 @@ class RequestTest extends ZimbraTestCase
         $req = new \Zimbra\Mail\Request\GetDocumentShareURL(
             $item
         );
+        $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
         $this->assertSame($item, $req->item());
 
         $req->item($item);
@@ -4184,6 +4254,7 @@ class RequestTest extends ZimbraTestCase
         $req = new \Zimbra\Mail\Request\GetEffectiveFolderPerms(
             $folder
         );
+        $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
         $this->assertSame($folder, $req->folder());
 
         $req->folder($folder);
@@ -4208,6 +4279,7 @@ class RequestTest extends ZimbraTestCase
     public function testGetFilterRules()
     {
         $req = new \Zimbra\Mail\Request\GetFilterRules();
+        $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
 
         $xml = '<?xml version="1.0"?>'."\n"
             .'<GetFilterRulesRequest />';
@@ -4227,6 +4299,7 @@ class RequestTest extends ZimbraTestCase
         $req = new \Zimbra\Mail\Request\GetFolder(
             $folder, true, true, 'view', 1, true
         );
+        $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
         $this->assertSame($folder, $req->folder());
         $this->assertTrue($req->visible());
         $this->assertTrue($req->needGranteeName());
@@ -4278,6 +4351,7 @@ class RequestTest extends ZimbraTestCase
         $req = new \Zimbra\Mail\Request\GetFreeBusy(
             1, 1, 'uid', 'id', 'name', 'excludeUid', array($usr)
         );
+        $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
         $this->assertSame(1, $req->s());
         $this->assertSame(1, $req->e());
         $this->assertSame('uid', $req->uid());
@@ -4333,6 +4407,7 @@ class RequestTest extends ZimbraTestCase
         $req = new \Zimbra\Mail\Request\GetICal(
             'id', 1, 1
         );
+        $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
         $this->assertSame('id', $req->id());
         $this->assertSame(1, $req->s());
         $this->assertSame(1, $req->e());
@@ -4360,6 +4435,7 @@ class RequestTest extends ZimbraTestCase
     public function testGetImportStatus()
     {
         $req = new \Zimbra\Mail\Request\GetImportStatus();
+        $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
 
         $xml = '<?xml version="1.0"?>'."\n"
             .'<GetImportStatusRequest />';
@@ -4379,6 +4455,7 @@ class RequestTest extends ZimbraTestCase
         $req = new \Zimbra\Mail\Request\GetItem(
             $item
         );
+        $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
         $this->assertSame($item, $req->item());
 
         $req->item($item);
@@ -4409,6 +4486,7 @@ class RequestTest extends ZimbraTestCase
         $req = new \Zimbra\Mail\Request\GetMailboxMetadata(
             $meta
         );
+        $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
         $this->assertSame($meta, $req->meta());
 
         $req->meta($meta);
@@ -4438,6 +4516,7 @@ class RequestTest extends ZimbraTestCase
         $req = new \Zimbra\Mail\Request\GetMiniCal(
             1, 1, array($folder), $tz
         );
+        $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
         $this->assertSame(1, $req->s());
         $this->assertSame(1, $req->e());
         $this->assertSame(array($folder), $req->folder()->all());
@@ -4505,6 +4584,7 @@ class RequestTest extends ZimbraTestCase
         $req = new \Zimbra\Mail\Request\GetMsg(
             $m
         );
+        $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
         $this->assertSame($m, $req->m());
 
         $req->m($m);
@@ -4549,6 +4629,7 @@ class RequestTest extends ZimbraTestCase
         $req = new \Zimbra\Mail\Request\GetMsgMetadata(
             $m
         );
+        $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
         $this->assertSame($m, $req->m());
 
         $req->m($m);
@@ -4576,6 +4657,7 @@ class RequestTest extends ZimbraTestCase
         $req = new \Zimbra\Mail\Request\GetNote(
             $note
         );
+        $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
         $this->assertSame($note, $req->note());
 
         $req->note($note);
@@ -4602,6 +4684,7 @@ class RequestTest extends ZimbraTestCase
         $req = new \Zimbra\Mail\Request\GetNotifications(
             true
         );
+        $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
         $this->assertTrue($req->markSeen());
 
         $req->markSeen(true);
@@ -4622,6 +4705,7 @@ class RequestTest extends ZimbraTestCase
     public function testGetOutgoingFilterRules()
     {
         $req = new \Zimbra\Mail\Request\GetOutgoingFilterRules();
+        $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
 
         $xml = '<?xml version="1.0"?>'."\n"
             .'<GetOutgoingFilterRulesRequest />';
@@ -4639,6 +4723,7 @@ class RequestTest extends ZimbraTestCase
         $req = new \Zimbra\Mail\Request\GetPermission(
             array($ace)
         );
+        $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
         $this->assertSame(array($ace), $req->ace()->all());
 
         $req->addAce($ace);
@@ -4671,6 +4756,7 @@ class RequestTest extends ZimbraTestCase
         $req = new \Zimbra\Mail\Request\GetRecur(
             'id'
         );
+        $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
         $this->assertSame('id', $req->id());
 
         $req->id('id');
@@ -4691,6 +4777,7 @@ class RequestTest extends ZimbraTestCase
     public function testGetSearchFolder()
     {
         $req = new \Zimbra\Mail\Request\GetSearchFolder();
+        $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
 
         $xml = '<?xml version="1.0"?>'."\n"
             .'<GetSearchFolderRequest />';
@@ -4708,6 +4795,7 @@ class RequestTest extends ZimbraTestCase
         $req = new \Zimbra\Mail\Request\GetShareDetails(
             $item
         );
+        $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
         $this->assertSame($item, $req->item());
 
         $req->item($item);
@@ -4732,6 +4820,7 @@ class RequestTest extends ZimbraTestCase
     public function testGetShareNotifications()
     {
         $req = new \Zimbra\Mail\Request\GetShareNotifications();
+        $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
 
         $xml = '<?xml version="1.0"?>'."\n"
             .'<GetShareNotificationsRequest />';
@@ -4746,6 +4835,7 @@ class RequestTest extends ZimbraTestCase
     public function testGetSpellDictionaries()
     {
         $req = new \Zimbra\Mail\Request\GetSpellDictionaries();
+        $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
 
         $xml = '<?xml version="1.0"?>'."\n"
             .'<GetSpellDictionariesRequest />';
@@ -4760,6 +4850,7 @@ class RequestTest extends ZimbraTestCase
     public function testGetSystemRetentionPolicy()
     {
         $req = new \Zimbra\Mail\Request\GetSystemRetentionPolicy();
+        $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
 
         $xml = '<?xml version="1.0"?>'."\n"
             .'<GetSystemRetentionPolicyRequest />';
@@ -4774,6 +4865,7 @@ class RequestTest extends ZimbraTestCase
     public function testGetTag()
     {
         $req = new \Zimbra\Mail\Request\GetTag();
+        $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
 
         $xml = '<?xml version="1.0"?>'."\n"
             .'<GetTagRequest />';
@@ -4790,6 +4882,7 @@ class RequestTest extends ZimbraTestCase
         $req = new \Zimbra\Mail\Request\GetTask(
             true, true, 'uid', 'id'
         );
+        $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
         $this->assertTrue($req->sync());
         $this->assertTrue($req->includeContent());
         $this->assertSame('uid', $req->uid());
@@ -4824,6 +4917,7 @@ class RequestTest extends ZimbraTestCase
         $req = new \Zimbra\Mail\Request\GetTaskSummaries(
             1, 1, 'l'
         );
+        $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
         $this->assertSame(1, $req->s());
         $this->assertSame(1, $req->e());
         $this->assertSame('l', $req->l());
@@ -4851,6 +4945,7 @@ class RequestTest extends ZimbraTestCase
     public function testGetWatchers()
     {
         $req = new \Zimbra\Mail\Request\GetWatchers();
+        $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
 
         $xml = '<?xml version="1.0"?>'."\n"
             .'<GetWatchersRequest />';
@@ -4865,6 +4960,7 @@ class RequestTest extends ZimbraTestCase
     public function testGetWatchingItems()
     {
         $req = new \Zimbra\Mail\Request\GetWatchingItems();
+        $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
 
         $xml = '<?xml version="1.0"?>'."\n"
             .'<GetWatchingItemsRequest />';
@@ -4881,6 +4977,7 @@ class RequestTest extends ZimbraTestCase
         $req = new \Zimbra\Mail\Request\GetWorkingHours(
             1, 1, 'id', 'name'
         );
+        $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
         $this->assertSame(1, $req->s());
         $this->assertSame(1, $req->e());
         $this->assertSame('id', $req->id());
@@ -4915,6 +5012,7 @@ class RequestTest extends ZimbraTestCase
         $req = new \Zimbra\Mail\Request\GetYahooAuthToken(
             'user', 'password'
         );
+        $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
         $this->assertSame('user', $req->user());
         $this->assertSame('password', $req->password());
         $req->user('user')
@@ -4941,6 +5039,7 @@ class RequestTest extends ZimbraTestCase
         $req = new \Zimbra\Mail\Request\GetYahooCookie(
             'user'
         );
+        $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
         $this->assertSame('user', $req->user());
         $req->user('user');
         $this->assertSame('user', $req->user());
@@ -4965,6 +5064,7 @@ class RequestTest extends ZimbraTestCase
         $req = new \Zimbra\Mail\Request\GrantPermission(
             array($ace)
         );
+        $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
         $this->assertSame(array($ace), $req->ace()->all());
         $req->addAce($ace);
         $this->assertSame(array($ace, $ace), $req->ace()->all());
@@ -4999,6 +5099,7 @@ class RequestTest extends ZimbraTestCase
         $req = new \Zimbra\Mail\Request\ICalReply(
             'ical'
         );
+        $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
         $this->assertSame('ical', $req->ical());
         $req->ical('ical');
         $this->assertSame('ical', $req->ical());
@@ -5025,6 +5126,7 @@ class RequestTest extends ZimbraTestCase
         $req = new \Zimbra\Mail\Request\ImportAppointments(
             $content, 'ct', 'l'
         );
+        $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
         $this->assertSame($content, $req->content());
         $this->assertSame('ct', $req->ct());
         $this->assertSame('l', $req->l());
@@ -5065,6 +5167,7 @@ class RequestTest extends ZimbraTestCase
         $req = new \Zimbra\Mail\Request\ImportContacts(
             $content, 'ct', 'l', 'csvfmt', 'csvlocale'
         );
+        $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
         $this->assertSame($content, $req->content());
         $this->assertSame('ct', $req->ct());
         $this->assertSame('l', $req->l());
@@ -5117,6 +5220,7 @@ class RequestTest extends ZimbraTestCase
         $req = new \Zimbra\Mail\Request\ImportData(
             $imap, $pop3, $caldav, $yab, $rss, $gal, $cal, $unknown
         );
+        $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
         $this->assertSame($imap, $req->imap());
         $this->assertSame($pop3, $req->pop3());
         $this->assertSame($caldav, $req->caldav());
@@ -5200,6 +5304,7 @@ class RequestTest extends ZimbraTestCase
         $req = new \Zimbra\Mail\Request\InvalidateReminderDevice(
             'device-email-address'
         );
+        $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
         $this->assertSame('device-email-address', $req->a());
         $req->a('a');
         $this->assertSame('a', $req->a());
@@ -5224,6 +5329,7 @@ class RequestTest extends ZimbraTestCase
         $req = new \Zimbra\Mail\Request\ItemAction(
             $action
         );
+        $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
         $this->assertSame($action, $req->action());
 
         $req->action($action);
@@ -5263,6 +5369,7 @@ class RequestTest extends ZimbraTestCase
         $req = new \Zimbra\Mail\Request\ListDocumentRevisions(
             $doc
         );
+        $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
         $this->assertSame($doc, $req->doc());
 
         $req->doc($doc);
@@ -5321,6 +5428,7 @@ class RequestTest extends ZimbraTestCase
             1,
             1
         );
+        $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
         $this->assertSame('query', $req->query());
         $this->assertSame(array($header), $req->header()->all());
         $this->assertSame($tz, $req->tz());
@@ -5485,6 +5593,7 @@ class RequestTest extends ZimbraTestCase
         $req = new \Zimbra\Mail\Request\ModifyAppointment(
             $m, 'id', 1, 1, 1, true, 1, true, true, true
         );
+        $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
         $this->assertInstanceOf('Zimbra\Mail\Request\CalItemRequestBase', $req);
         $this->assertSame($m, $req->m());
         $this->assertSame('id', $req->id());
@@ -5672,6 +5781,7 @@ class RequestTest extends ZimbraTestCase
         $req = new \Zimbra\Mail\Request\ModifyContact(
             $cn, true, true
         );
+        $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
         $this->assertSame($cn, $req->cn());
         $this->assertTrue($req->replace());
         $this->assertTrue($req->verbose());
@@ -5759,6 +5869,7 @@ class RequestTest extends ZimbraTestCase
         $req = new \Zimbra\Mail\Request\ModifyDataSource(
             $imap, $pop3, $caldav, $yab, $rss, $gal, $cal, $unknown
         );
+        $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
         $this->assertSame($imap, $req->imap());
         $this->assertSame($pop3, $req->pop3());
         $this->assertSame($caldav, $req->caldav());
@@ -5995,6 +6106,7 @@ class RequestTest extends ZimbraTestCase
         $req = new \Zimbra\Mail\Request\ModifyFilterRules(
             $filterRules
         );
+        $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
         $this->assertSame($filterRules, $req->filterRules());
 
         $req->filterRules($filterRules);
@@ -6244,6 +6356,7 @@ class RequestTest extends ZimbraTestCase
         $req = new \Zimbra\Mail\Request\ModifyMailboxMetadata(
             $meta
         );
+        $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
         $this->assertSame($meta, $req->meta());
 
         $req->meta($meta);
@@ -6419,6 +6532,7 @@ class RequestTest extends ZimbraTestCase
         $req = new \Zimbra\Mail\Request\ModifyOutgoingFilterRules(
             $filterRules
         );
+        $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
         $this->assertSame($filterRules, $req->filterRules());
 
         $req->filterRules($filterRules);
@@ -6669,6 +6783,7 @@ class RequestTest extends ZimbraTestCase
         $req = new \Zimbra\Mail\Request\ModifySearchFolder(
             $search
         );
+        $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
         $this->assertSame($search, $req->search());
 
         $req->search($search);
@@ -6699,6 +6814,7 @@ class RequestTest extends ZimbraTestCase
         $req = new \Zimbra\Mail\Request\ModifyTask(
             $m, 'id', 1, 1, 1, true, 1, true, true, true
         );
+        $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
         $this->assertInstanceOf('Zimbra\Mail\Request\ModifyAppointment', $req);
 
         $xml = '<?xml version="1.0"?>'."\n"
@@ -6863,6 +6979,7 @@ class RequestTest extends ZimbraTestCase
         $req = new \Zimbra\Mail\Request\MsgAction(
             $action
         );
+        $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
         $this->assertSame($action, $req->action());
 
         $req->action($action);
@@ -6899,6 +7016,7 @@ class RequestTest extends ZimbraTestCase
         $req = new \Zimbra\Mail\Request\NoOp(
             true, true, true, 1
         );
+        $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
         $this->assertTrue($req->wait());
         $this->assertTrue($req->delegate());
         $this->assertTrue($req->limitToOneBlocked());
@@ -6936,6 +7054,7 @@ class RequestTest extends ZimbraTestCase
         $req = new \Zimbra\Mail\Request\NoteAction(
             $action
         );
+        $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
         $this->assertSame($action, $req->action());
 
         $req->action($action);
@@ -6977,6 +7096,7 @@ class RequestTest extends ZimbraTestCase
         $req = new \Zimbra\Mail\Request\PurgeRevision(
             $revision
         );
+        $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
         $this->assertSame($revision, $req->revision());
 
         $req->revision($revision);
@@ -7008,6 +7128,7 @@ class RequestTest extends ZimbraTestCase
         $req = new \Zimbra\Mail\Request\RankingAction(
             $action
         );
+        $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
         $this->assertSame($action, $req->action());
 
         $req->action($action);
@@ -7036,6 +7157,7 @@ class RequestTest extends ZimbraTestCase
         $req = new \Zimbra\Mail\Request\RegisterDevice(
             $device
         );
+        $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
         $this->assertSame($device, $req->device());
 
         $req->device($device);
@@ -7065,6 +7187,7 @@ class RequestTest extends ZimbraTestCase
         $req = new \Zimbra\Mail\Request\RemoveAttachments(
             $m
         );
+        $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
         $this->assertSame($m, $req->m());
 
         $req->m($m);
@@ -7095,6 +7218,7 @@ class RequestTest extends ZimbraTestCase
         $req = new \Zimbra\Mail\Request\RevokePermission(
             array($ace)
         );
+        $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
         $this->assertSame(array($ace), $req->ace()->all());
         $req->addAce($ace);
         $this->assertSame(array($ace, $ace), $req->ace()->all());
@@ -7140,6 +7264,7 @@ class RequestTest extends ZimbraTestCase
         $req = new \Zimbra\Mail\Request\SaveDocument(
             $doc
         );
+        $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
         $this->assertSame($doc, $req->doc());
 
         $req->doc($doc);
@@ -7191,6 +7316,7 @@ class RequestTest extends ZimbraTestCase
         $req = new \Zimbra\Mail\Request\SaveDraft(
             $m
         );
+        $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
         $this->assertSame($m, $req->m());
 
         $req->m($m);
@@ -7247,6 +7373,7 @@ class RequestTest extends ZimbraTestCase
             1
         );
         $this->assertInstanceOf('Zimbra\Mail\Request\MailSearchParams', $req);
+        $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
 
         $this->assertTrue($req->warmup());
         $req->warmup(true);
@@ -7365,6 +7492,7 @@ class RequestTest extends ZimbraTestCase
             1
         );
         $this->assertInstanceOf('Zimbra\Mail\Request\MailSearchParams', $req);
+        $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
 
         $this->assertSame('cid', $req->cid());
         $this->assertTrue($req->nest());
@@ -7454,6 +7582,7 @@ class RequestTest extends ZimbraTestCase
         $req = new \Zimbra\Mail\Request\SendDeliveryReport(
             'mid'
         );
+        $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
         $this->assertSame('mid', $req->mid());
 
         $req->mid('mid');
@@ -7482,6 +7611,7 @@ class RequestTest extends ZimbraTestCase
         $req = new \Zimbra\Mail\Request\SendInviteReply(
             'id', 1, 'verb', $exceptId, $tz, $m, true, 'idnt'
         );
+        $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
         $this->assertSame('id', $req->id());
         $this->assertSame(1, $req->compNum());
         $this->assertSame('verb', $req->verb());
@@ -7724,6 +7854,7 @@ class RequestTest extends ZimbraTestCase
         $req = new \Zimbra\Mail\Request\SendMsg(
             $m, true, true, true, 'suid'
         );
+        $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
         $this->assertSame($m, $req->m());
         $this->assertTrue($req->needCalendarSentByFixup());
         $this->assertTrue($req->isCalendarForward());
@@ -7901,6 +8032,7 @@ class RequestTest extends ZimbraTestCase
         $req = new \Zimbra\Mail\Request\SendShareNotification(
             $item, array($e), 'notes', Action::EDIT()
         );
+        $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
         $this->assertSame($item, $req->item());
         $this->assertSame(array($e), $req->e()->all());
         $this->assertSame('notes', $req->notes());
@@ -7946,6 +8078,7 @@ class RequestTest extends ZimbraTestCase
         $req = new \Zimbra\Mail\Request\SendVerificationCode(
             'a'
         );
+        $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
         $this->assertSame('a', $req->a());
 
         $req->a('a');
@@ -7982,6 +8115,7 @@ class RequestTest extends ZimbraTestCase
         $req = new \Zimbra\Mail\Request\SetAppointment(
             $default, array($except), array($cancel), $replies, 'f', 't', 'tn', 'l', true, 1
         );
+        $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
         $this->assertSame($default, $req->default_());
         $this->assertSame(array($except), $req->except()->all());
         $this->assertSame(array($cancel), $req->cancel()->all());
@@ -8206,6 +8340,7 @@ class RequestTest extends ZimbraTestCase
         $req = new \Zimbra\Mail\Request\SetCustomMetadata(
             'id', $meta
         );
+        $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
         $this->assertSame('id', $req->id());
         $this->assertSame($meta, $req->meta());
 
@@ -8243,6 +8378,7 @@ class RequestTest extends ZimbraTestCase
         $req = new \Zimbra\Mail\Request\SetMailboxMetadata(
             $meta
         );
+        $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
         $this->assertSame($meta, $req->meta());
 
         $req->meta($meta);
@@ -8272,6 +8408,7 @@ class RequestTest extends ZimbraTestCase
     public function testSetTask()
     {
         $req = new \Zimbra\Mail\Request\SetTask();
+        $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
         $this->assertInstanceOf('Zimbra\Mail\Request\SetAppointment', $req);
     }
 
@@ -8282,6 +8419,7 @@ class RequestTest extends ZimbraTestCase
         $req = new \Zimbra\Mail\Request\SnoozeCalendarItemAlarm(
             $appt, $task
         );
+        $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
         $this->assertSame($appt, $req->appt());
         $this->assertSame($task, $req->task());
 
@@ -8317,6 +8455,7 @@ class RequestTest extends ZimbraTestCase
         $req = new \Zimbra\Mail\Request\Sync(
             'token', 1, 'l', true
         );
+        $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
         $this->assertSame('token', $req->token());
         $this->assertSame(1, $req->calCutoff());
         $this->assertSame('l', $req->l());
@@ -8365,6 +8504,7 @@ class RequestTest extends ZimbraTestCase
         $req = new \Zimbra\Mail\Request\TagAction(
             $action
         );
+        $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
         $this->assertSame($action, $req->action());
 
         $req->action($action);
@@ -8464,6 +8604,7 @@ class RequestTest extends ZimbraTestCase
         $req = new \Zimbra\Mail\Request\TestDataSource(
             $imap, $pop3, $caldav, $yab, $rss, $gal, $cal, $unknown
         );
+        $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
         $this->assertSame($imap, $req->imap());
         $this->assertSame($pop3, $req->pop3());
         $this->assertSame($caldav, $req->caldav());
@@ -8557,6 +8698,7 @@ class RequestTest extends ZimbraTestCase
         $req = new \Zimbra\Mail\Request\UpdateDeviceStatus(
             $device
         );
+        $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
         $this->assertSame($device, $req->device());
 
         $req->device($device);
@@ -8584,6 +8726,7 @@ class RequestTest extends ZimbraTestCase
         $req = new \Zimbra\Mail\Request\VerifyCode(
             'a', 'code'
         );
+        $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
         $this->assertSame('a', $req->a());
         $this->assertSame('code', $req->code());
 
@@ -8616,6 +8759,7 @@ class RequestTest extends ZimbraTestCase
         $req = new \Zimbra\Mail\Request\WaitSet(
             'waitSet', 'seq', $add, $update, $remove, true, array(InterestType::FOLDERS()), 1
         );
+        $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
         $this->assertSame('waitSet', $req->waitSet());
         $this->assertSame('seq', $req->seq());
         $this->assertSame($add, $req->add());

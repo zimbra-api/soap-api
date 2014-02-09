@@ -12,11 +12,19 @@ use Zimbra\Enum\VoiceSortBy;
  */
 class RequestTest extends ZimbraTestCase
 {
+    public function testBaseRequest()
+    {
+        $req = $this->getMockForAbstractClass('\Zimbra\Voice\Request\Base');
+        $this->assertInstanceOf('Zimbra\Soap\Request', $req);
+        $this->assertEquals('urn:zimbraVoice', $req->requestNamespace());
+    }
+
     public function testChangeUCPassword()
     {
         $req = new \Zimbra\Voice\Request\ChangeUCPassword(
             'password'
         );
+        $this->assertInstanceOf('Zimbra\Voice\Request\Base', $req);
         $this->assertSame('password', $req->password());
         $req->password('password');
         $this->assertSame('password', $req->password());
@@ -36,6 +44,7 @@ class RequestTest extends ZimbraTestCase
     public function testGetUCInfo()
     {
         $req = new \Zimbra\Voice\Request\GetUCInfo();
+        $this->assertInstanceOf('Zimbra\Voice\Request\Base', $req);
 
         $xml = '<?xml version="1.0"?>'."\n"
             .'<GetUCInfoRequest />';
@@ -83,6 +92,7 @@ class RequestTest extends ZimbraTestCase
         $req = new \Zimbra\Voice\Request\GetVoiceFeatures(
             $storeprincipal, $phone
         );
+        $this->assertInstanceOf('Zimbra\Voice\Request\Base', $req);
         $this->assertSame($storeprincipal, $req->storeprincipal());
         $this->assertSame($phone, $req->phone());
         $req->storeprincipal($storeprincipal)
@@ -152,6 +162,7 @@ class RequestTest extends ZimbraTestCase
         $req = new \Zimbra\Voice\Request\GetVoiceFolder(
             $storeprincipal, array($phone)
         );
+        $this->assertInstanceOf('Zimbra\Voice\Request\Base', $req);
         $this->assertSame($storeprincipal, $req->storeprincipal());
         $this->assertSame(array($phone), $req->phone()->all());
         $req->storeprincipal($storeprincipal)
@@ -199,6 +210,7 @@ class RequestTest extends ZimbraTestCase
         $req = new \Zimbra\Voice\Request\GetVoiceInfo(
             array($phone)
         );
+        $this->assertInstanceOf('Zimbra\Voice\Request\Base', $req);
         $this->assertSame(array($phone), $req->phone()->all());
         $req->addPhone($phone);
         $this->assertSame(array($phone, $phone), $req->phone()->all());
@@ -240,6 +252,7 @@ class RequestTest extends ZimbraTestCase
         $req = new \Zimbra\Voice\Request\GetVoiceMailPrefs(
             $storeprincipal, $phone
         );
+        $this->assertInstanceOf('Zimbra\Voice\Request\Base', $req);
         $this->assertSame($storeprincipal, $req->storeprincipal());
         $this->assertSame($phone, $req->phone());
         $req->storeprincipal($storeprincipal)
@@ -288,6 +301,7 @@ class RequestTest extends ZimbraTestCase
         $req = new \Zimbra\Voice\Request\ModifyFromNum(
             $storeprincipal, $phone
         );
+        $this->assertInstanceOf('Zimbra\Voice\Request\Base', $req);
         $this->assertSame($storeprincipal, $req->storeprincipal());
         $this->assertSame($phone, $req->phone());
         $req->storeprincipal($storeprincipal)
@@ -375,6 +389,7 @@ class RequestTest extends ZimbraTestCase
         $req = new \Zimbra\Voice\Request\ModifyVoiceFeatures(
             $storeprincipal, $phone
         );
+        $this->assertInstanceOf('Zimbra\Voice\Request\Base', $req);
         $this->assertSame($storeprincipal, $req->storeprincipal());
         $this->assertSame($phone, $req->phone());
         $req->storeprincipal($storeprincipal)
@@ -504,6 +519,7 @@ class RequestTest extends ZimbraTestCase
         $req = new \Zimbra\Voice\Request\ModifyVoiceMailPin(
             $storeprincipal, $phone
         );
+        $this->assertInstanceOf('Zimbra\Voice\Request\Base', $req);
         $this->assertSame($storeprincipal, $req->storeprincipal());
         $this->assertSame($phone, $req->phone());
         $req->storeprincipal($storeprincipal)
@@ -546,6 +562,7 @@ class RequestTest extends ZimbraTestCase
         $req = new \Zimbra\Voice\Request\ModifyVoiceMailPrefs(
             $storeprincipal, $phone
         );
+        $this->assertInstanceOf('Zimbra\Voice\Request\Base', $req);
         $this->assertSame($storeprincipal, $req->storeprincipal());
         $this->assertSame($phone, $req->phone());
         $req->storeprincipal($storeprincipal)
@@ -614,6 +631,7 @@ class RequestTest extends ZimbraTestCase
         $req = new \Zimbra\Voice\Request\ResetVoiceFeatures(
             $storeprincipal, $phone
         );
+        $this->assertInstanceOf('Zimbra\Voice\Request\Base', $req);
         $this->assertSame($storeprincipal, $req->storeprincipal());
         $this->assertSame($phone, $req->phone());
         $req->storeprincipal($storeprincipal)
@@ -670,6 +688,7 @@ class RequestTest extends ZimbraTestCase
         $req = new \Zimbra\Voice\Request\SearchVoice(
             'query', $storeprincipal, 1, 1, 'types', VoiceSortBy::DATE_DESC()
         );
+        $this->assertInstanceOf('Zimbra\Voice\Request\Base', $req);
         $this->assertSame('query', $req->query());
         $this->assertSame($storeprincipal, $req->storeprincipal());
         $this->assertSame(1, $req->limit());
@@ -725,6 +744,7 @@ class RequestTest extends ZimbraTestCase
         $req = new \Zimbra\Voice\Request\UploadVoiceMail(
             $storeprincipal, $vm
         );
+        $this->assertInstanceOf('Zimbra\Voice\Request\Base', $req);
         $this->assertSame($storeprincipal, $req->storeprincipal());
         $this->assertSame($vm, $req->vm());
         $req->storeprincipal($storeprincipal)
@@ -767,6 +787,7 @@ class RequestTest extends ZimbraTestCase
         $req = new \Zimbra\Voice\Request\VoiceMsgAction(
             $action, $storeprincipal
         );
+        $this->assertInstanceOf('Zimbra\Voice\Request\Base', $req);
         $this->assertSame($storeprincipal, $req->storeprincipal());
         $this->assertSame($action, $req->action());
         $req->storeprincipal($storeprincipal)
