@@ -11,7 +11,6 @@
 namespace Zimbra\Voice\Request;
 
 use Zimbra\Common\TypedSequence;
-use Zimbra\Soap\Request;
 use Zimbra\Voice\Struct\PhoneSpec;
 use Zimbra\Voice\Struct\StorePrincipalSpec;
 
@@ -25,7 +24,7 @@ use Zimbra\Voice\Struct\StorePrincipalSpec;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
  */
-class GetVoiceFolder extends Request
+class GetVoiceFolder extends Base
 {
     /**
      * Phone specification

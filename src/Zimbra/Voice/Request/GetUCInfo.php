@@ -10,8 +10,6 @@
 
 namespace Zimbra\Voice\Request;
 
-use Zimbra\Soap\Request;
-
 /**
  * GetUCInfo request class
  * Get Unified Communications information 
@@ -22,6 +20,6 @@ use Zimbra\Soap\Request;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
  */
-class GetUCInfo extends Request
+class GetUCInfo extends Base
 {
 }

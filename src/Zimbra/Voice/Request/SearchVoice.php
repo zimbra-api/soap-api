@@ -13,7 +13,6 @@ namespace Zimbra\Voice\Request;
 use Zimbra\Enum\VoiceSortBy;
 use Zimbra\Voice\Struct\ResetPhoneVoiceFeaturesSpec;
 use Zimbra\Voice\Struct\StorePrincipalSpec;
-use Zimbra\Soap\Request;
 
 /**
  * SearchVoice request class
@@ -25,7 +24,7 @@ use Zimbra\Soap\Request;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
  */
-class SearchVoice extends Request
+class SearchVoice extends Base
 {
     /**
      * Constructor method for SearchVoice

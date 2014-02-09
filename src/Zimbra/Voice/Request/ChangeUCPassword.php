@@ -10,8 +10,6 @@
 
 namespace Zimbra\Voice\Request;
 
-use Zimbra\Soap\Request;
-
 /**
  * ChangeUCPassword request class
  * Update Zimbra's stored value of the password for unified communications 
@@ -22,7 +20,7 @@ use Zimbra\Soap\Request;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
  */
-class ChangeUCPassword extends Request
+class ChangeUCPassword extends Base
 {
     /**
      * Constructor method for ChangeUCPassword
