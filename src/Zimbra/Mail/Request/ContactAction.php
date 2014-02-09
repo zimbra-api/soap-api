@@ -11,7 +11,6 @@
 namespace Zimbra\Mail\Request;
 
 use Zimbra\Mail\Struct\ContactActionSelector;
-use Zimbra\Soap\Request;
 
 /**
  * ContactAction request class
@@ -23,7 +22,7 @@ use Zimbra\Soap\Request;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
  */
-class ContactAction extends Request
+class ContactAction extends Base
 {
     /**
      * Constructor method for ContactAction

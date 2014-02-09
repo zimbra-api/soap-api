@@ -10,8 +10,6 @@
 
 namespace Zimbra\Mail\Request;
 
-use Zimbra\Soap\Request;
-
 /**
  * ICalReply request class
  * Do an iCalendar Reply
@@ -22,7 +20,7 @@ use Zimbra\Soap\Request;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
  */
-class ICalReply extends Request
+class ICalReply extends Base
 {
     /**
      * Constructor method for ICalReply

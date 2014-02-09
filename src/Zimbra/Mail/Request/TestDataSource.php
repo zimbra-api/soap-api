@@ -10,7 +10,6 @@
 
 namespace Zimbra\Mail\Request;
 
-use Zimbra\Soap\Request;
 use Zimbra\Mail\Struct\MailImapDataSource;
 use Zimbra\Mail\Struct\MailPop3DataSource;
 use Zimbra\Mail\Struct\MailCaldavDataSource;
@@ -33,7 +32,7 @@ use Zimbra\Mail\Struct\MailUnknownDataSource;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
  */
-class TestDataSource extends Request
+class TestDataSource extends Base
 {
     /**
      * Constructor method for TestDataSource

@@ -10,8 +10,6 @@
 
 namespace Zimbra\Mail\Request;
 
-use Zimbra\Soap\Request;
-
 /**
  * GetFilterRules request class
  * Get filter rules
@@ -22,6 +20,6 @@ use Zimbra\Soap\Request;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
  */
-class GetFilterRules extends Request
+class GetFilterRules extends Base
 {
 }

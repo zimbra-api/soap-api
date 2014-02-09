@@ -10,7 +10,6 @@
 
 namespace Zimbra\Mail\Request;
 
-use Zimbra\Soap\Request;
 use Zimbra\Mail\Struct\CalTZInfo;
 use Zimbra\Mail\Struct\InstanceRecurIdInfo;
 use Zimbra\Mail\Struct\Msg;
@@ -26,7 +25,7 @@ use Zimbra\Mail\Struct\Msg;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
  */
-class CancelAppointment extends Request
+class CancelAppointment extends Base
 {
     /**
      * Constructor method for CancelAppointment

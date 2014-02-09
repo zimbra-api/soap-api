@@ -10,8 +10,6 @@
 
 namespace Zimbra\Mail\Request;
 
-use Zimbra\Soap\Request;
-
 /**
  * ExportContacts request class
  * Export contacts
@@ -22,7 +20,7 @@ use Zimbra\Soap\Request;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
  */
-class ExportContacts extends Request
+class ExportContacts extends Base
 {
     /**
      * Constructor method for ExportContacts

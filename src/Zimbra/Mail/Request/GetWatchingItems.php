@@ -10,8 +10,6 @@
 
 namespace Zimbra\Mail\Request;
 
-use Zimbra\Soap\Request;
-
 /**
  * GetWatchingItems request class
  * Returns a list of items the user is currently watching.
@@ -22,6 +20,6 @@ use Zimbra\Soap\Request;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
  */
-class GetWatchingItems extends Request
+class GetWatchingItems extends Base
 {
 }

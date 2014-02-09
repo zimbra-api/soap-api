@@ -11,7 +11,6 @@
 namespace Zimbra\Mail\Request;
 
 use Zimbra\Mail\Struct\ConvActionSelector;
-use Zimbra\Soap\Request;
 
 /**
  * ConvAction request class
@@ -23,7 +22,7 @@ use Zimbra\Soap\Request;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
  */
-class ConvAction extends Request
+class ConvAction extends Base
 {
     /**
      * Constructor method for ConvAction

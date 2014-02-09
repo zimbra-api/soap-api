@@ -18,7 +18,6 @@ use Zimbra\Mail\Struct\MailRssDataSource;
 use Zimbra\Mail\Struct\MailGalDataSource;
 use Zimbra\Mail\Struct\MailCalDataSource;
 use Zimbra\Mail\Struct\MailUnknownDataSource;
-use Zimbra\Soap\Request;
 
 /**
  * ModifyDataSource request class
@@ -33,7 +32,7 @@ use Zimbra\Soap\Request;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
  */
-class ModifyDataSource extends Request
+class ModifyDataSource extends Base
 {
     /**
      * Constructor method for ModifyDataSource

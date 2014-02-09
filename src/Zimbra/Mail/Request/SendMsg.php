@@ -11,7 +11,6 @@
 namespace Zimbra\Mail\Request;
 
 use Zimbra\Mail\Struct\MsgToSend;
-use Zimbra\Soap\Request;
 
 /**
  * SendMsg request class
@@ -23,7 +22,7 @@ use Zimbra\Soap\Request;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
  */
-class SendMsg extends Request
+class SendMsg extends Base
 {
     /**
      * Constructor method for SendMsg

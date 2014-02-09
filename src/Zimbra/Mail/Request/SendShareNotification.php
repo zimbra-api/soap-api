@@ -14,7 +14,6 @@ use Zimbra\Common\TypedSequence;
 use Zimbra\Enum\Action;
 use Zimbra\Mail\Struct\EmailAddrInfo;
 use Zimbra\Struct\Id;
-use Zimbra\Soap\Request;
 
 /**
  * SendShareNotification request class
@@ -27,7 +26,7 @@ use Zimbra\Soap\Request;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
  */
-class SendShareNotification extends Request
+class SendShareNotification extends Base
 {
     /**
      * Constructor method for SendShareNotification

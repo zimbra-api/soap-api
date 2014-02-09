@@ -10,8 +10,6 @@
 
 namespace Zimbra\Mail\Request;
 
-use Zimbra\Soap\Request;
-
 /**
  * DestroyWaitSet request class
  * Use this to close out the waitset.
@@ -24,7 +22,7 @@ use Zimbra\Soap\Request;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
  */
-class DestroyWaitSet extends Request
+class DestroyWaitSet extends Base
 {
     /**
      * Constructor method for DestroyWaitSet

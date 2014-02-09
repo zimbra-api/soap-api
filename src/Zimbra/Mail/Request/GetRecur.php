@@ -10,8 +10,6 @@
 
 namespace Zimbra\Mail\Request;
 
-use Zimbra\Soap\Request;
-
 /**
  * GetRecur request class
  * Retrieve the recurrence definition of an appointment
@@ -22,7 +20,7 @@ use Zimbra\Soap\Request;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
  */
-class GetRecur extends Request
+class GetRecur extends Base
 {
     /**
      * Constructor method for GetRecur

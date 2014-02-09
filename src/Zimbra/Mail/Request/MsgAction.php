@@ -11,7 +11,6 @@
 namespace Zimbra\Mail\Request;
 
 use Zimbra\Mail\Struct\MsgActionSelector;
-use Zimbra\Soap\Request;
 
 /**
  * MsgAction request class
@@ -25,7 +24,7 @@ use Zimbra\Soap\Request;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
  */
-class MsgAction extends Request
+class MsgAction extends Base
 {
     /**
      * Constructor method for MsgAction

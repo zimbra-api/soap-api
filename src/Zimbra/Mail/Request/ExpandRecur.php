@@ -15,7 +15,6 @@ use Zimbra\Mail\Struct\CalTZInfo;
 use Zimbra\Mail\Struct\ExpandedRecurrenceCancel;
 use Zimbra\Mail\Struct\ExpandedRecurrenceInvite;
 use Zimbra\Mail\Struct\ExpandedRecurrenceException;
-use Zimbra\Soap\Request;
 
 /**
  * ExpandRecur request class
@@ -27,7 +26,7 @@ use Zimbra\Soap\Request;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
  */
-class ExpandRecur extends Request
+class ExpandRecur extends Base
 {
     /**
      * Timezones

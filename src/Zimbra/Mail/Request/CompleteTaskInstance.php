@@ -12,7 +12,6 @@ namespace Zimbra\Mail\Request;
 
 use Zimbra\Mail\Struct\CalTZInfo;
 use Zimbra\Mail\Struct\DtTimeInfo;
-use Zimbra\Soap\Request;
 
 /**
  * CompleteTaskInstance request class
@@ -24,7 +23,7 @@ use Zimbra\Soap\Request;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
  */
-class CompleteTaskInstance extends Request
+class CompleteTaskInstance extends Base
 {
     /**
      * Constructor method for CompleteTaskInstance

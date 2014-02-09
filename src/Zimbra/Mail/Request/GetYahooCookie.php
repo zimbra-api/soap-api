@@ -10,8 +10,6 @@
 
 namespace Zimbra\Mail\Request;
 
-use Zimbra\Soap\Request;
-
 /**
  * GetYahooCookie request class
  * Get Yahoo cookie
@@ -22,7 +20,7 @@ use Zimbra\Soap\Request;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
  */
-class GetYahooCookie extends Request
+class GetYahooCookie extends Base
 {
     /**
      * Constructor method for GetYahooCookie

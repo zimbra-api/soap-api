@@ -12,7 +12,6 @@ namespace Zimbra\Mail\Request;
 
 use Zimbra\Mail\Struct\DismissAppointmentAlarm;
 use Zimbra\Mail\Struct\DismissTaskAlarm;
-use Zimbra\Soap\Request;
 
 /**
  * DismissCalendarItemAlarm request class
@@ -24,7 +23,7 @@ use Zimbra\Soap\Request;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
  */
-class DismissCalendarItemAlarm extends Request
+class DismissCalendarItemAlarm extends Base
 {
     /**
      * Constructor method for DismissCalendarItemAlarm

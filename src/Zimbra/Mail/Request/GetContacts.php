@@ -11,7 +11,6 @@
 namespace Zimbra\Mail\Request;
 
 use Zimbra\Common\TypedSequence;
-use Zimbra\Soap\Request;
 use Zimbra\Struct\AttributeName;
 use Zimbra\Struct\Id;
 
@@ -28,7 +27,7 @@ use Zimbra\Struct\Id;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
  */
-class GetContacts extends Request
+class GetContacts extends Base
 {
     /**
      * Attrs - if present, return only the specified attribute(s).

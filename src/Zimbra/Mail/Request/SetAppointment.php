@@ -13,7 +13,6 @@ namespace Zimbra\Mail\Request;
 use Zimbra\Common\TypedSequence;
 use Zimbra\Mail\Struct\SetCalendarItemInfo;
 use Zimbra\Mail\Struct\Replies;
-use Zimbra\Soap\Request;
 
 /**
  * SetAppointment request class
@@ -27,7 +26,7 @@ use Zimbra\Soap\Request;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
  */
-class SetAppointment extends Request
+class SetAppointment extends Base
 {
     /**
      * Constructor method for SetAppointment

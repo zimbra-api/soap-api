@@ -18,7 +18,6 @@ use Zimbra\Mail\Struct\RssDataSourceNameOrId;
 use Zimbra\Mail\Struct\GalDataSourceNameOrId;
 use Zimbra\Mail\Struct\CalDataSourceNameOrId;
 use Zimbra\Mail\Struct\UnknownDataSourceNameOrId;
-use Zimbra\Soap\Request;
 
 /**
  * ImportData request class
@@ -33,7 +32,7 @@ use Zimbra\Soap\Request;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
  */
-class ImportData extends Request
+class ImportData extends Base
 {
     /**
      * Constructor method for ImportData

@@ -10,8 +10,6 @@
 
 namespace Zimbra\Mail\Request;
 
-use Zimbra\Soap\Request;
-
 /**
  * GetWorkingHours request class
  * User's working hours within the given time range are expressed in a similar format to the format used for GetFreeBusy. 
@@ -24,7 +22,7 @@ use Zimbra\Soap\Request;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
  */
-class GetWorkingHours extends Request
+class GetWorkingHours extends Base
 {
     /**
      * Constructor method for GetWorkingHours

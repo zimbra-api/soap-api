@@ -12,7 +12,6 @@ namespace Zimbra\Mail\Request;
 
 use PhpCollection\Sequence;
 use Zimbra\Mail\Struct\TargetSpec;
-use Zimbra\Soap\Request;
 
 /**
  * CheckPermission request class
@@ -24,7 +23,7 @@ use Zimbra\Soap\Request;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
  */
-class CheckPermission extends Request
+class CheckPermission extends Base
 {
     /**
      * Rights to check

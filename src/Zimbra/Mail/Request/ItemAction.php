@@ -10,7 +10,6 @@
 
 namespace Zimbra\Mail\Request;
 
-use Zimbra\Soap\Request;
 use Zimbra\Mail\Struct\ItemActionSelector;
 
 /**
@@ -23,7 +22,7 @@ use Zimbra\Mail\Struct\ItemActionSelector;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
  */
-class ItemAction extends Request
+class ItemAction extends Base
 {
     /**
      * Constructor method for ItemAction

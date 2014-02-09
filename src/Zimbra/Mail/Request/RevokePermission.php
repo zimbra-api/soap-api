@@ -12,7 +12,6 @@ namespace Zimbra\Mail\Request;
 
 use Zimbra\Common\TypedSequence;
 use Zimbra\Mail\Struct\AccountACEinfo;
-use Zimbra\Soap\Request;
 
 /**
  * RevokePermission request class
@@ -25,7 +24,7 @@ use Zimbra\Soap\Request;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
  */
-class RevokePermission extends Request
+class RevokePermission extends Base
 {
     /**
      * Specify Access Control Entries (ACEs)

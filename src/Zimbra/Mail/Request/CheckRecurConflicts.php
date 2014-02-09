@@ -16,7 +16,6 @@ use Zimbra\Mail\Struct\ExpandedRecurrenceCancel;
 use Zimbra\Mail\Struct\ExpandedRecurrenceException;
 use Zimbra\Mail\Struct\ExpandedRecurrenceInvite;
 use Zimbra\Mail\Struct\FreeBusyUserSpec;
-use Zimbra\Soap\Request;
 
 /**
  * CheckRecurConflicts request class
@@ -30,7 +29,7 @@ use Zimbra\Soap\Request;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
  */
-class CheckRecurConflicts extends Request
+class CheckRecurConflicts extends Base
 {
     /**
      * Timezones

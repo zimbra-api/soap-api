@@ -11,7 +11,6 @@
 namespace Zimbra\Mail\Request;
 
 use Zimbra\Mail\Struct\MailCustomMetadata;
-use Zimbra\Soap\Request;
 
 /**
  * SetMailboxMetadata request class
@@ -24,7 +23,7 @@ use Zimbra\Soap\Request;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
  */
-class SetMailboxMetadata extends Request
+class SetMailboxMetadata extends Base
 {
     /**
      * Constructor method for SetMailboxMetadata

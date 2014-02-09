@@ -10,8 +10,6 @@
 
 namespace Zimbra\Mail\Request;
 
-use Zimbra\Soap\Request;
-
 /**
  * NoOp request class
  * A request that does nothing and always returns nothing.
@@ -29,7 +27,7 @@ use Zimbra\Soap\Request;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
  */
-class NoOp extends Request
+class NoOp extends Base
 {
     /**
      * Constructor method for AutoComplete

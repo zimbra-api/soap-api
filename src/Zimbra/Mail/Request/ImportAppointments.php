@@ -11,7 +11,6 @@
 namespace Zimbra\Mail\Request;
 
 use Zimbra\Mail\Struct\ContentSpec;
-use Zimbra\Soap\Request;
 
 /**
  * ImportAppointments request class
@@ -23,7 +22,7 @@ use Zimbra\Soap\Request;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
  */
-class ImportAppointments extends Request
+class ImportAppointments extends Base
 {
     /**
      * Constructor method for ImportAppointments

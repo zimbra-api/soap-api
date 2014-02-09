@@ -13,7 +13,6 @@ namespace Zimbra\Mail\Request;
 use Zimbra\Mail\Struct\DtTimeInfo;
 use Zimbra\Mail\Struct\CalTZInfo;
 use Zimbra\Mail\Struct\Msg;
-use Zimbra\Soap\Request;
 
 /**
  * SendInviteReply request class
@@ -25,7 +24,7 @@ use Zimbra\Soap\Request;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
  */
-class SendInviteReply extends Request
+class SendInviteReply extends Base
 {
     /**
      * Constructor method for MailSearchParams

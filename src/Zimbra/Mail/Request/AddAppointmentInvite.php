@@ -12,7 +12,6 @@ namespace Zimbra\Mail\Request;
 
 use Zimbra\Enum\ParticipationStatus;
 use Zimbra\Mail\Struct\Msg;
-use Zimbra\Soap\Request;
 
 /**
  * AddAppointmentInvite request class
@@ -27,7 +26,7 @@ use Zimbra\Soap\Request;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
  */
-class AddAppointmentInvite extends Request
+class AddAppointmentInvite extends Base
 {
     /**
      * Constructor method for AddAppointmentInvite

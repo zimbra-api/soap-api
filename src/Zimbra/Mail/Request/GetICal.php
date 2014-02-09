@@ -10,8 +10,6 @@
 
 namespace Zimbra\Mail\Request;
 
-use Zimbra\Soap\Request;
-
 /**
  * GetICal request class
  * Retrieve the unparsed (but XML-encoded (&quot)) iCalendar data for an Invite 
@@ -25,7 +23,7 @@ use Zimbra\Soap\Request;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
  */
-class GetICal extends Request
+class GetICal extends Base
 {
     /**
      * Constructor method for GetICal

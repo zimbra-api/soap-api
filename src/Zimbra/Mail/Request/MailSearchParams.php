@@ -15,7 +15,6 @@ use Zimbra\Enum\SortBy;
 use Zimbra\Mail\Struct\CalTZInfo;
 use Zimbra\Struct\AttributeName;
 use Zimbra\Struct\CursorInfo;
-use Zimbra\Soap\Request;
 
 /**
  * MailSearchParams request class
@@ -26,7 +25,7 @@ use Zimbra\Soap\Request;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
  */
-class MailSearchParams extends Request
+class MailSearchParams extends Base
 {
     /**
      * if <header>s are requested, any matching headers are included in inlined message hits

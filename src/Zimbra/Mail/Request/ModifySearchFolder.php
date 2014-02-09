@@ -10,7 +10,6 @@
 
 namespace Zimbra\Mail\Request;
 
-use Zimbra\Soap\Request;
 use Zimbra\Mail\Struct\ModifySearchFolderSpec;
 
 /**
@@ -23,7 +22,7 @@ use Zimbra\Mail\Struct\ModifySearchFolderSpec;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
  */
-class ModifySearchFolder extends Request
+class ModifySearchFolder extends Base
 {
     /**
      * Constructor method for ModifySearchFolder

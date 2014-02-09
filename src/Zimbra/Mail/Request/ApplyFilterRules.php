@@ -12,7 +12,6 @@ namespace Zimbra\Mail\Request;
 
 use Zimbra\Mail\Struct\IdsAttr;
 use Zimbra\Mail\Struct\NamedFilterRules;
-use Zimbra\Soap\Request;
 
 /**
  * ApplyFilterRules request class
@@ -27,7 +26,7 @@ use Zimbra\Soap\Request;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
  */
-class ApplyFilterRules extends Request
+class ApplyFilterRules extends Base
 {
     /**
      * Constructor method for ApplyFilterRules

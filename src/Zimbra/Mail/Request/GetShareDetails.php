@@ -11,7 +11,6 @@
 namespace Zimbra\Mail\Request;
 
 use Zimbra\Struct\Id;
-use Zimbra\Soap\Request;
 
 /**
  * GetShareDetails request class
@@ -23,7 +22,7 @@ use Zimbra\Soap\Request;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
  */
-class GetShareDetails extends Request
+class GetShareDetails extends Base
 {
     /**
      * Constructor method for GetShareDetails

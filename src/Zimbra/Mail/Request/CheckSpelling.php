@@ -10,8 +10,6 @@
 
 namespace Zimbra\Mail\Request;
 
-use Zimbra\Soap\Request;
-
 /**
  * CheckSpelling request class
  * Check spelling.
@@ -24,7 +22,7 @@ use Zimbra\Soap\Request;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
  */
-class CheckSpelling extends Request
+class CheckSpelling extends Base
 {
     /**
      * Constructor method for CheckSpelling

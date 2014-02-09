@@ -10,8 +10,6 @@
 
 namespace Zimbra\Mail\Request;
 
-use Zimbra\Soap\Request;
-
 /**
  * SendVerificationCode request class
  * SendVerificationCodeRequest results in a random verification code being generated and sent to a device.
@@ -22,7 +20,7 @@ use Zimbra\Soap\Request;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
  */
-class SendVerificationCode extends Request
+class SendVerificationCode extends Base
 {
     /**
      * Constructor method for SendVerificationCode

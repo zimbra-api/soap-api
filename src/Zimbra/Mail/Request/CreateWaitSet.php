@@ -13,7 +13,6 @@ namespace Zimbra\Mail\Request;
 use Zimbra\Common\TypedSequence;
 use Zimbra\Enum\InterestType;
 use Zimbra\Mail\Struct\WaitSetSpec;
-use Zimbra\Soap\Request;
 
 /**
  * CreateWaitSet request class
@@ -27,7 +26,7 @@ use Zimbra\Soap\Request;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
  */
-class CreateWaitSet extends Request
+class CreateWaitSet extends Base
 {
     /**
      * Constructor method for CreateWaitSet

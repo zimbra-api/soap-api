@@ -12,7 +12,6 @@ namespace Zimbra\Mail\Request;
 
 use Zimbra\Common\TypedSequence;
 use Zimbra\Mail\Struct\FreeBusyUserSpec;
-use Zimbra\Soap\Request;
 
 /**
  * GetFreeBusy request class
@@ -26,7 +25,7 @@ use Zimbra\Soap\Request;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
  */
-class GetFreeBusy extends Request
+class GetFreeBusy extends Base
 {
     /**
      * To view free/busy for a single name in particular accounts, use these.

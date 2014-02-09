@@ -12,7 +12,6 @@ namespace Zimbra\Mail\Request;
 
 use Zimbra\Mail\Struct\SnoozeAppointmentAlarm;
 use Zimbra\Mail\Struct\SnoozeTaskAlarm;
-use Zimbra\Soap\Request;
 
 /**
  * SnoozeCalendarItemAlarm request class
@@ -24,7 +23,7 @@ use Zimbra\Soap\Request;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
  */
-class SnoozeCalendarItemAlarm extends Request
+class SnoozeCalendarItemAlarm extends Base
 {
     /**
      * Constructor method for SnoozeCalendarItemAlarm
