@@ -10,6 +10,8 @@
 
 namespace Zimbra\Mail;
 
+use Zimbra\Account\AccountInterface;
+
 use Zimbra\Enum\Action;
 use Zimbra\Enum\BrowseBy;
 use Zimbra\Enum\GalSearchType;
@@ -101,12 +103,13 @@ use Zimbra\Mail\Struct\UnknownDataSourceNameOrId;
 
 /**
  * MailInterface is a interface which allows to connect Zimbra API mail functions via SOAP
+ *
  * @package   Zimbra
- * @category  API
+ * @category  Mail
  * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright Copyright © 2013 by Nguyen Van Nguyen.
  */
-interface MailInterface
+interface MailInterface extends AccountInterface
 {
     /**
      * Add an invite to an appointment.
