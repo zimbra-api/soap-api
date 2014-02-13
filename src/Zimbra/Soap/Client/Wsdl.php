@@ -58,7 +58,7 @@ class Wsdl extends \SoapClient implements ClientInterface
     }
 
     /**
-     * Creates a singleton of a ClientInterface base on parameters.
+     * Creates a singleton of a ClientInterface base on location.
      *
      * @param  string $location The Zimbra api soap location.
      * @return ClientInterface
