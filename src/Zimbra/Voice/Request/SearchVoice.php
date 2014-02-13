@@ -11,7 +11,6 @@
 namespace Zimbra\Voice\Request;
 
 use Zimbra\Enum\VoiceSortBy;
-use Zimbra\Voice\Struct\ResetPhoneVoiceFeaturesSpec;
 use Zimbra\Voice\Struct\StorePrincipalSpec;
 
 /**
@@ -30,6 +29,10 @@ class SearchVoice extends Base
      * Constructor method for SearchVoice
      * @param  string $query
      * @param  StorePrincipalSpec $storeprincipal
+     * @param  int $limit
+     * @param  int $offset
+     * @param  string $types
+     * @param  VoiceSortBy $sortBy
      * @return self
      */
     public function __construct(

@@ -8,14 +8,15 @@
  * file that was distributed with this source code.
  */
 
-namespace Zimbra\API\Voice;
+namespace Zimbra\Voice;
 
 use Zimbra\Soap\Client\Wsdl as ClientWsdl;
 
 /**
  * Wsdl is a class which allows to connect Zimbra API mail functions via PHP soap extension
+ *
  * @package   Zimbra
- * @category  API
+ * @category  Voice
  * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright Copyright © 2013 by Nguyen Van Nguyen.
  */

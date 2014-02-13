@@ -10,8 +10,8 @@
 
 namespace Zimbra\Voice\Request;
 
-use Zimbra\Voice\Struct\VoiceMsgUploadSpec;
 use Zimbra\Voice\Struct\StorePrincipalSpec;
+use Zimbra\Voice\Struct\VoiceMsgUploadSpec;
 
 /**
  * UploadVoiceMail request class

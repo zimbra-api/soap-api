@@ -33,14 +33,13 @@ class GetVoiceInfo extends Base
 
     /**
      * Constructor method for GetVoiceInfo
-     * @param  StorePrincipalSpec $storeprincipal
-     * @param  array $phone
+     * @param  array $phones
      * @return self
      */
-    public function __construct(array $phone = array())
+    public function __construct(array $phones = array())
     {
         parent::__construct();
-        $this->_phone = new TypedSequence('Zimbra\Voice\Struct\PhoneSpec', $phone);
+        $this->_phone = new TypedSequence('Zimbra\Voice\Struct\PhoneSpec', $phones);
 
         $this->addHook(function($sender)
         {

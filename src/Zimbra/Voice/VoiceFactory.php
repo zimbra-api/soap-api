@@ -14,7 +14,7 @@ namespace Zimbra\Voice;
  * Voice soap api factory class
  * 
  * @package   Zimbra
- * @category  Mail
+ * @category  Voice
  * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright Copyright © 2013 by Nguyen Van Nguyen.
  */
