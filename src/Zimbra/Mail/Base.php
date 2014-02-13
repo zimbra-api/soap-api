@@ -10,7 +10,7 @@
 
 namespace Zimbra\Mail;
 
-use Zimbra\Soap\API;
+use Zimbra\Account\Base as AccountBase;
 
 use Zimbra\Enum\Action;
 use Zimbra\Enum\BrowseBy;
@@ -103,12 +103,13 @@ use Zimbra\Mail\Struct\UnknownDataSourceNameOrId;
 
 /**
  * Base is a abstract class which allows to connect Zimbra API mail public functions via SOAP
+ *
  * @package   Zimbra
- * @category  API
+ * @category  Mail
  * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright Copyright © 2013 by Nguyen Van Nguyen.
  */
-abstract class Base extends API implements MailInterface
+abstract class Base extends AccountBase implements MailInterface
 {
     /**
      * Base constructor
@@ -135,7 +136,7 @@ abstract class Base extends API implements MailInterface
      */
     public function addAppointmentInvite(Msg $m = null, ParticipationStatus $ptst = null)
     {
-        $request = new \Zimbra\API\Mail\Request\AddAppointmentInvite(
+        $request = new \Zimbra\Mail\Request\AddAppointmentInvite(
             $m, $ptst
         );
         return $this->_client->doRequest($request);
@@ -149,7 +150,7 @@ abstract class Base extends API implements MailInterface
      */
     public function addComment(AddedComment $comment)
     {
-        $request = new \Zimbra\API\Mail\Request\AddComment(
+        $request = new \Zimbra\Mail\Request\AddComment(
             $comment
         );
         return $this->_client->doRequest($request);
@@ -164,7 +165,7 @@ abstract class Base extends API implements MailInterface
      */
     public function addMsg(AddMsgSpec $m, $filterSent = null)
     {
-        $request = new \Zimbra\API\Mail\Request\AddMsg(
+        $request = new \Zimbra\Mail\Request\AddMsg(
             $m, $filterSent
         );
         return $this->_client->doRequest($request);
@@ -179,7 +180,7 @@ abstract class Base extends API implements MailInterface
      */
     public function addTaskInvite(Msg $m = null, ParticipationStatus $ptst = null)
     {
-        $request = new \Zimbra\API\Mail\Request\AddTaskInvite(
+        $request = new \Zimbra\Mail\Request\AddTaskInvite(
             $m, $ptst
         );
         return $this->_client->doRequest($request);
@@ -193,7 +194,7 @@ abstract class Base extends API implements MailInterface
      */
     public function announceOrganizerChange($id)
     {
-        $request = new \Zimbra\API\Mail\Request\AnnounceOrganizerChange(
+        $request = new \Zimbra\Mail\Request\AnnounceOrganizerChange(
             $id
         );
         return $this->_client->doRequest($request);
@@ -216,7 +217,7 @@ abstract class Base extends API implements MailInterface
         $query = null
     )
     {
-        $request = new \Zimbra\API\Mail\Request\ApplyFilterRules(
+        $request = new \Zimbra\Mail\Request\ApplyFilterRules(
             $filterRules, $m, $query
         );
         return $this->_client->doRequest($request);
@@ -238,7 +239,7 @@ abstract class Base extends API implements MailInterface
         $query = null
     )
     {
-        $request = new \Zimbra\API\Mail\Request\ApplyOutgoingFilterRules(
+        $request = new \Zimbra\Mail\Request\ApplyOutgoingFilterRules(
             $filterRules, $m, $query
         );
         return $this->_client->doRequest($request);
@@ -262,7 +263,7 @@ abstract class Base extends API implements MailInterface
         $includeGal = null
     )
     {
-        $request = new \Zimbra\API\Mail\Request\AutoComplete(
+        $request = new \Zimbra\Mail\Request\AutoComplete(
             $name,
             $t,
             $needExp,
@@ -284,7 +285,7 @@ abstract class Base extends API implements MailInterface
      */
     public function bounceMsg(BounceMsgSpec $m)
     {
-        $request = new \Zimbra\API\Mail\Request\BounceMsg(
+        $request = new \Zimbra\Mail\Request\BounceMsg(
             $m
         );
         return $this->_client->doRequest($request);
@@ -300,7 +301,7 @@ abstract class Base extends API implements MailInterface
      */
     public function browse(BrowseBy $browseBy, $regex = null, $maxToReturn = null)
     {
-        $request = new \Zimbra\API\Mail\Request\Browse(
+        $request = new \Zimbra\Mail\Request\Browse(
             $browseBy, $regex, $maxToReturn
         );
         return $this->_client->doRequest($request);
@@ -330,7 +331,7 @@ abstract class Base extends API implements MailInterface
         $rev = null
     )
     {
-        $request = new \Zimbra\API\Mail\Request\CancelAppointment(
+        $request = new \Zimbra\Mail\Request\CancelAppointment(
             $inst,
             $tz,
             $m,
@@ -364,7 +365,7 @@ abstract class Base extends API implements MailInterface
         $rev = null
     )
     {
-        $request = new \Zimbra\API\Mail\Request\CancelTask(
+        $request = new \Zimbra\Mail\Request\CancelTask(
             $inst,
             $tz,
             $m,
@@ -384,7 +385,7 @@ abstract class Base extends API implements MailInterface
      */
     public function checkDeviceStatus(Id $device)
     {
-        $request = new \Zimbra\API\Mail\Request\CheckDeviceStatus(
+        $request = new \Zimbra\Mail\Request\CheckDeviceStatus(
             $device
         );
         return $this->_client->doRequest($request);
@@ -402,7 +403,7 @@ abstract class Base extends API implements MailInterface
      */
     public function checkPermission(TargetSpec $target = null, array $right = array())
     {
-        $request = new \Zimbra\API\Mail\Request\CheckPermission(
+        $request = new \Zimbra\Mail\Request\CheckPermission(
             $target, $right
         );
         return $this->_client->doRequest($request);
@@ -436,7 +437,7 @@ abstract class Base extends API implements MailInterface
         $excludeUid = null
     )
     {
-        $request = new \Zimbra\API\Mail\Request\CheckRecurConflicts(
+        $request = new \Zimbra\Mail\Request\CheckRecurConflicts(
             $tz,
             $cancel,
             $comp,
@@ -462,7 +463,7 @@ abstract class Base extends API implements MailInterface
      */
     public function checkSpelling($value = null, $dictionary = null, $ignore = null)
     {
-        $request = new \Zimbra\API\Mail\Request\CheckSpelling(
+        $request = new \Zimbra\Mail\Request\CheckSpelling(
             $value, $dictionary, $ignore
         );
         return $this->_client->doRequest($request);
@@ -482,7 +483,7 @@ abstract class Base extends API implements MailInterface
         CalTZInfo $tz = null
     )
     {
-        $request = new \Zimbra\API\Mail\Request\CompleteTaskInstance(
+        $request = new \Zimbra\Mail\Request\CompleteTaskInstance(
             $id, $exceptId, $tz
         );
         return $this->_client->doRequest($request);
@@ -496,7 +497,7 @@ abstract class Base extends API implements MailInterface
      */
     public function contactAction(ContactActionSelector $action)
     {
-        $request = new \Zimbra\API\Mail\Request\ContactAction(
+        $request = new \Zimbra\Mail\Request\ContactAction(
             $action
         );
         return $this->_client->doRequest($request);
@@ -510,7 +511,7 @@ abstract class Base extends API implements MailInterface
      */
     public function convAction(ConvActionSelector $action)
     {
-        $request = new \Zimbra\API\Mail\Request\ConvAction(
+        $request = new \Zimbra\Mail\Request\ConvAction(
             $action
         );
         return $this->_client->doRequest($request);
@@ -535,7 +536,7 @@ abstract class Base extends API implements MailInterface
         $rev = null
     )
     {
-        $request = new \Zimbra\API\Mail\Request\CounterAppointment(
+        $request = new \Zimbra\Mail\Request\CounterAppointment(
             $m,
             $id,
             $comp,
@@ -565,7 +566,7 @@ abstract class Base extends API implements MailInterface
         $forcesend = null
     )
     {
-        $request = new \Zimbra\API\Mail\Request\CreateAppointment(
+        $request = new \Zimbra\Mail\Request\CreateAppointment(
             $m,
             $echo,
             $max,
@@ -604,7 +605,7 @@ abstract class Base extends API implements MailInterface
         $forcesend = null
     )
     {
-        $request = new \Zimbra\API\Mail\Request\CreateAppointmentException(
+        $request = new \Zimbra\Mail\Request\CreateAppointmentException(
             $m,
             $id,
             $comp,
@@ -628,7 +629,7 @@ abstract class Base extends API implements MailInterface
      */
     public function createContact(ContactSpec $cn, $verbose = null)
     {
-        $request = new \Zimbra\API\Mail\Request\CreateContact(
+        $request = new \Zimbra\Mail\Request\CreateContact(
             $cn, $verbose
         );
         return $this->_client->doRequest($request);
@@ -660,7 +661,7 @@ abstract class Base extends API implements MailInterface
         MailUnknownDataSource $unknown = null
     )
     {
-        $request = new \Zimbra\API\Mail\Request\CreateDataSource(
+        $request = new \Zimbra\Mail\Request\CreateDataSource(
             $imap,
             $pop3,
             $caldav,
@@ -681,7 +682,7 @@ abstract class Base extends API implements MailInterface
      */
     public function createFolder(NewFolderSpec $folder)
     {
-        $request = new \Zimbra\API\Mail\Request\CreateFolder(
+        $request = new \Zimbra\Mail\Request\CreateFolder(
             $folder
         );
         return $this->_client->doRequest($request);
@@ -695,7 +696,7 @@ abstract class Base extends API implements MailInterface
      */
     public function createMountpoint(NewMountpointSpec $link)
     {
-        $request = new \Zimbra\API\Mail\Request\CreateMountpoint(
+        $request = new \Zimbra\Mail\Request\CreateMountpoint(
             $link
         );
         return $this->_client->doRequest($request);
@@ -709,7 +710,7 @@ abstract class Base extends API implements MailInterface
      */
     public function createNote(NewNoteSpec $note)
     {
-        $request = new \Zimbra\API\Mail\Request\CreateNote(
+        $request = new \Zimbra\Mail\Request\CreateNote(
             $note
         );
         return $this->_client->doRequest($request);
@@ -723,7 +724,7 @@ abstract class Base extends API implements MailInterface
      */
     public function createSearchFolder(NewSearchFolderSpec $search)
     {
-        $request = new \Zimbra\API\Mail\Request\CreateSearchFolder(
+        $request = new \Zimbra\Mail\Request\CreateSearchFolder(
             $search
         );
         return $this->_client->doRequest($request);
@@ -737,7 +738,7 @@ abstract class Base extends API implements MailInterface
      */
     public function createTag(TagSpec $tag)
     {
-        $request = new \Zimbra\API\Mail\Request\CreateTag(
+        $request = new \Zimbra\Mail\Request\CreateTag(
             $tag
         );
         return $this->_client->doRequest($request);
@@ -763,7 +764,7 @@ abstract class Base extends API implements MailInterface
         $forcesend = null
     )
     {
-        $request = new \Zimbra\API\Mail\Request\CreateTask(
+        $request = new \Zimbra\Mail\Request\CreateTask(
             $m,
             $echo,
             $max,
@@ -802,7 +803,7 @@ abstract class Base extends API implements MailInterface
         $forcesend = null
     )
     {
-        $request = new \Zimbra\API\Mail\Request\CreateTaskException(
+        $request = new \Zimbra\Mail\Request\CreateTaskException(
             $m,
             $id,
             $comp,
@@ -833,7 +834,7 @@ abstract class Base extends API implements MailInterface
         $allAccounts = null
     )
     {
-        $request = new \Zimbra\API\Mail\Request\CreateWaitSet(
+        $request = new \Zimbra\Mail\Request\CreateWaitSet(
             $add,
             $defTypes,
             $allAccounts
@@ -851,7 +852,7 @@ abstract class Base extends API implements MailInterface
      */
     public function declineCounterAppointment(Msg $m = null)
     {
-        $request = new \Zimbra\API\Mail\Request\DeclineCounterAppointment(
+        $request = new \Zimbra\Mail\Request\DeclineCounterAppointment(
             $m
         );
         return $this->_client->doRequest($request);
@@ -882,7 +883,7 @@ abstract class Base extends API implements MailInterface
         UnknownDataSourceNameOrId $unknown = null
     )
     {
-        $request = new \Zimbra\API\Mail\Request\DeleteDataSource(
+        $request = new \Zimbra\Mail\Request\DeleteDataSource(
             $imap,
             $pop3,
             $caldav,
@@ -903,7 +904,7 @@ abstract class Base extends API implements MailInterface
      */
     public function deleteDevice(Id $device)
     {
-        $request = new \Zimbra\API\Mail\Request\DeleteDevice(
+        $request = new \Zimbra\Mail\Request\DeleteDevice(
             $device
         );
         return $this->_client->doRequest($request);
@@ -919,7 +920,7 @@ abstract class Base extends API implements MailInterface
      */
     public function destroyWaitSet($waitSet)
     {
-        $request = new \Zimbra\API\Mail\Request\DestroyWaitSet(
+        $request = new \Zimbra\Mail\Request\DestroyWaitSet(
             $waitSet
         );
         return $this->_client->doRequest($request);
@@ -935,7 +936,7 @@ abstract class Base extends API implements MailInterface
      */
     public function diffDocument(DiffDocumentVersionSpec $doc)
     {
-        $request = new \Zimbra\API\Mail\Request\DiffDocument(
+        $request = new \Zimbra\Mail\Request\DiffDocument(
             $doc
         );
         return $this->_client->doRequest($request);
@@ -953,7 +954,7 @@ abstract class Base extends API implements MailInterface
         DismissTaskAlarm $task = null
     )
     {
-        $request = new \Zimbra\API\Mail\Request\DismissCalendarItemAlarm(
+        $request = new \Zimbra\Mail\Request\DismissCalendarItemAlarm(
             $appt, $task
         );
         return $this->_client->doRequest($request);
@@ -967,7 +968,7 @@ abstract class Base extends API implements MailInterface
      */
     public function documentAction(DocumentActionSelector $action)
     {
-        $request = new \Zimbra\API\Mail\Request\DocumentAction(
+        $request = new \Zimbra\Mail\Request\DocumentAction(
             $action
         );
         return $this->_client->doRequest($request);
@@ -980,7 +981,7 @@ abstract class Base extends API implements MailInterface
      */
     public function emptyDumpster()
     {
-        $request = new \Zimbra\API\Mail\Request\EmptyDumpster();
+        $request = new \Zimbra\Mail\Request\EmptyDumpster();
         return $this->_client->doRequest($request);
     }
 
@@ -992,7 +993,7 @@ abstract class Base extends API implements MailInterface
      */
     public function enableSharedReminder(SharedReminderMount $link)
     {
-        $request = new \Zimbra\API\Mail\Request\EnableSharedReminder(
+        $request = new \Zimbra\Mail\Request\EnableSharedReminder(
             $link
         );
         return $this->_client->doRequest($request);
@@ -1018,7 +1019,7 @@ abstract class Base extends API implements MailInterface
         ExpandedRecurrenceCancel $cancel = null
     )
     {
-        $request = new \Zimbra\API\Mail\Request\ExpandRecur(
+        $request = new \Zimbra\Mail\Request\ExpandRecur(
             $s,
             $e,
             $tz,
@@ -1047,7 +1048,7 @@ abstract class Base extends API implements MailInterface
         $csvsep = null
     )
     {
-        $request = new \Zimbra\API\Mail\Request\ExportContacts(
+        $request = new \Zimbra\Mail\Request\ExportContacts(
             $ct,
             $l,
             $csvfmt,
@@ -1065,7 +1066,7 @@ abstract class Base extends API implements MailInterface
      */
     public function folderAction(FolderActionSelector $action)
     {
-        $request = new \Zimbra\API\Mail\Request\FolderAction(
+        $request = new \Zimbra\Mail\Request\FolderAction(
             $action
         );
         return $this->_client->doRequest($request);
@@ -1087,7 +1088,7 @@ abstract class Base extends API implements MailInterface
         $id = null
     )
     {
-        $request = new \Zimbra\API\Mail\Request\ForwardAppointment(
+        $request = new \Zimbra\Mail\Request\ForwardAppointment(
             $exceptId,
             $tz,
             $m,
@@ -1106,7 +1107,7 @@ abstract class Base extends API implements MailInterface
      */
     public function forwardAppointmentInvite(Msg $m = null, $id = null)
     {
-        $request = new \Zimbra\API\Mail\Request\ForwardAppointmentInvite(
+        $request = new \Zimbra\Mail\Request\ForwardAppointmentInvite(
             $m, $id
         );
         return $this->_client->doRequest($request);
@@ -1120,7 +1121,7 @@ abstract class Base extends API implements MailInterface
      */
     public function generateUUID()
     {
-        $request = new \Zimbra\API\Mail\Request\GenerateUUID();
+        $request = new \Zimbra\Mail\Request\GenerateUUID();
         return $this->_client->doRequest($request);
     }
 
@@ -1140,7 +1141,7 @@ abstract class Base extends API implements MailInterface
         $limit = null
     )
     {
-        $request = new \Zimbra\API\Mail\Request\GetActivityStream(
+        $request = new \Zimbra\Mail\Request\GetActivityStream(
             $id,
             $filter,
             $offset,
@@ -1156,7 +1157,7 @@ abstract class Base extends API implements MailInterface
      */
     public function getAllDevices()
     {
-        $request = new \Zimbra\API\Mail\Request\GetAllDevices();
+        $request = new \Zimbra\Mail\Request\GetAllDevices();
         return $this->_client->doRequest($request);
     }
 
@@ -1177,7 +1178,7 @@ abstract class Base extends API implements MailInterface
         $id = null
     )
     {
-        $request = new \Zimbra\API\Mail\Request\GetAppointment(
+        $request = new \Zimbra\Mail\Request\GetAppointment(
             $sync,
             $includeContent,
             $uid,
@@ -1196,7 +1197,7 @@ abstract class Base extends API implements MailInterface
      */
     public function getApptSummaries($s, $e, $l = null)
     {
-        $request = new \Zimbra\API\Mail\Request\GetApptSummaries(
+        $request = new \Zimbra\Mail\Request\GetApptSummaries(
             $s, $e, $l
         );
         return $this->_client->doRequest($request);
@@ -1212,7 +1213,7 @@ abstract class Base extends API implements MailInterface
      */
     public function getCalendarItemSummaries($s, $e, $l = null)
     {
-        $request = new \Zimbra\API\Mail\Request\GetCalendarItemSummaries(
+        $request = new \Zimbra\Mail\Request\GetCalendarItemSummaries(
             $s, $e, $l
         );
         return $this->_client->doRequest($request);
@@ -1226,7 +1227,7 @@ abstract class Base extends API implements MailInterface
      */
     public function getComments(ParentId $comment)
     {
-        $request = new \Zimbra\API\Mail\Request\GetComments(
+        $request = new \Zimbra\Mail\Request\GetComments(
             $comment
         );
         return $this->_client->doRequest($request);
@@ -1265,7 +1266,7 @@ abstract class Base extends API implements MailInterface
         $maxMembers = null
     )
     {
-        $request = new \Zimbra\API\Mail\Request\GetContacts(
+        $request = new \Zimbra\Mail\Request\GetContacts(
             $a,
             $ma,
             $cn,
@@ -1292,7 +1293,7 @@ abstract class Base extends API implements MailInterface
      */
     public function getConv(ConversationSpec $c)
     {
-        $request = new \Zimbra\API\Mail\Request\GetConv(
+        $request = new \Zimbra\Mail\Request\GetConv(
             $c
         );
         return $this->_client->doRequest($request);
@@ -1307,7 +1308,7 @@ abstract class Base extends API implements MailInterface
      */
     public function getCustomMetadata($id, SectionAttr $meta = null)
     {
-        $request = new \Zimbra\API\Mail\Request\GetCustomMetadata(
+        $request = new \Zimbra\Mail\Request\GetCustomMetadata(
             $id, $meta
         );
         return $this->_client->doRequest($request);
@@ -1321,7 +1322,7 @@ abstract class Base extends API implements MailInterface
      */
     public function getDataSources()
     {
-        $request = new \Zimbra\API\Mail\Request\GetDataSources();
+        $request = new \Zimbra\Mail\Request\GetDataSources();
         return $this->_client->doRequest($request);
     }
 
@@ -1333,7 +1334,7 @@ abstract class Base extends API implements MailInterface
      */
     public function getDocumentShareURL(ItemSpec $item)
     {
-        $request = new \Zimbra\API\Mail\Request\GetDocumentShareURL(
+        $request = new \Zimbra\Mail\Request\GetDocumentShareURL(
             $item
         );
         return $this->_client->doRequest($request);
@@ -1347,7 +1348,7 @@ abstract class Base extends API implements MailInterface
      */
     public function getEffectiveFolderPerms(FolderSpec $folder)
     {
-        $request = new \Zimbra\API\Mail\Request\GetEffectiveFolderPerms(
+        $request = new \Zimbra\Mail\Request\GetEffectiveFolderPerms(
             $folder
         );
         return $this->_client->doRequest($request);
@@ -1360,7 +1361,7 @@ abstract class Base extends API implements MailInterface
      */
     public function getFilterRules()
     {
-        $request = new \Zimbra\API\Mail\Request\GetFilterRules();
+        $request = new \Zimbra\Mail\Request\GetFilterRules();
         return $this->_client->doRequest($request);
     }
 
@@ -1386,7 +1387,7 @@ abstract class Base extends API implements MailInterface
         $tr = null
     )
     {
-        $request = new \Zimbra\API\Mail\Request\GetFolder(
+        $request = new \Zimbra\Mail\Request\GetFolder(
             $folder,
             $visible,
             $needGranteeName,
@@ -1421,7 +1422,7 @@ abstract class Base extends API implements MailInterface
         array $usr = array()
     )
     {
-        $request = new \Zimbra\API\Mail\Request\GetFreeBusy(
+        $request = new \Zimbra\Mail\Request\GetFreeBusy(
             $s,
             $e,
             $uid,
@@ -1446,7 +1447,7 @@ abstract class Base extends API implements MailInterface
      */
     public function getICal($id = null, $s = null, $e = null)
     {
-        $request = new \Zimbra\API\Mail\Request\GetICal(
+        $request = new \Zimbra\Mail\Request\GetICal(
             $id, $s, $e
         );
         return $this->_client->doRequest($request);
@@ -1462,7 +1463,7 @@ abstract class Base extends API implements MailInterface
      */
     public function getImportStatus()
     {
-        $request = new \Zimbra\API\Mail\Request\GetImportStatus();
+        $request = new \Zimbra\Mail\Request\GetImportStatus();
         return $this->_client->doRequest($request);
     }
 
@@ -1477,7 +1478,7 @@ abstract class Base extends API implements MailInterface
      */
     public function getItem(ItemSpec $item)
     {
-        $request = new \Zimbra\API\Mail\Request\GetItem(
+        $request = new \Zimbra\Mail\Request\GetItem(
             $item
         );
         return $this->_client->doRequest($request);
@@ -1491,7 +1492,7 @@ abstract class Base extends API implements MailInterface
      */
     public function getMailboxMetadata(SectionAttr $meta = null)
     {
-        $request = new \Zimbra\API\Mail\Request\GetMailboxMetadata(
+        $request = new \Zimbra\Mail\Request\GetMailboxMetadata(
             $meta
         );
         return $this->_client->doRequest($request);
@@ -1516,7 +1517,7 @@ abstract class Base extends API implements MailInterface
         CalTZInfo $tz = null
     )
     {
-        $request = new \Zimbra\API\Mail\Request\GetMiniCal(
+        $request = new \Zimbra\Mail\Request\GetMiniCal(
             $s,
             $e,
             $folder,
@@ -1533,7 +1534,7 @@ abstract class Base extends API implements MailInterface
      */
     public function getMsg(MsgSpec $m)
     {
-        $request = new \Zimbra\API\Mail\Request\GetMsg(
+        $request = new \Zimbra\Mail\Request\GetMsg(
             $m
         );
         return $this->_client->doRequest($request);
@@ -1547,7 +1548,7 @@ abstract class Base extends API implements MailInterface
      */
     public function getMsgMetadata(IdsAttr $m)
     {
-        $request = new \Zimbra\API\Mail\Request\GetMsgMetadata(
+        $request = new \Zimbra\Mail\Request\GetMsgMetadata(
             $m
         );
         return $this->_client->doRequest($request);
@@ -1561,7 +1562,7 @@ abstract class Base extends API implements MailInterface
      */
     public function getNote(Id $note)
     {
-        $request = new \Zimbra\API\Mail\Request\GetNote(
+        $request = new \Zimbra\Mail\Request\GetNote(
             $note
         );
         return $this->_client->doRequest($request);
@@ -1575,7 +1576,7 @@ abstract class Base extends API implements MailInterface
      */
     public function getNotifications($markSeen = null)
     {
-        $request = new \Zimbra\API\Mail\Request\GetNotifications(
+        $request = new \Zimbra\Mail\Request\GetNotifications(
             $markSeen
         );
         return $this->_client->doRequest($request);
@@ -1588,7 +1589,7 @@ abstract class Base extends API implements MailInterface
      */
     public function getOutgoingFilterRules()
     {
-        $request = new \Zimbra\API\Mail\Request\GetOutgoingFilterRules();
+        $request = new \Zimbra\Mail\Request\GetOutgoingFilterRules();
         return $this->_client->doRequest($request);
     }
 
@@ -1602,7 +1603,7 @@ abstract class Base extends API implements MailInterface
      */
     public function getPermission(array $ace = array())
     {
-        $request = new \Zimbra\API\Mail\Request\GetPermission(
+        $request = new \Zimbra\Mail\Request\GetPermission(
             $ace
         );
         return $this->_client->doRequest($request);
@@ -1616,7 +1617,7 @@ abstract class Base extends API implements MailInterface
      */
     public function getRecur($id)
     {
-        $request = new \Zimbra\API\Mail\Request\GetRecur(
+        $request = new \Zimbra\Mail\Request\GetRecur(
             $id
         );
         return $this->_client->doRequest($request);
@@ -1629,7 +1630,7 @@ abstract class Base extends API implements MailInterface
      */
     public function getSearchFolder()
     {
-        $request = new \Zimbra\API\Mail\Request\GetSearchFolder();
+        $request = new \Zimbra\Mail\Request\GetSearchFolder();
         return $this->_client->doRequest($request);
     }
 
@@ -1641,7 +1642,7 @@ abstract class Base extends API implements MailInterface
      */
     public function getShareDetails(Id $item)
     {
-        $request = new \Zimbra\API\Mail\Request\GetShareDetails(
+        $request = new \Zimbra\Mail\Request\GetShareDetails(
             $item
         );
         return $this->_client->doRequest($request);
@@ -1654,7 +1655,7 @@ abstract class Base extends API implements MailInterface
      */
     public function getShareNotifications()
     {
-        $request = new \Zimbra\API\Mail\Request\GetShareNotifications();
+        $request = new \Zimbra\Mail\Request\GetShareNotifications();
         return $this->_client->doRequest($request);
     }
 
@@ -1665,7 +1666,7 @@ abstract class Base extends API implements MailInterface
      */
     public function getSpellDictionaries()
     {
-        $request = new \Zimbra\API\Mail\Request\GetSpellDictionaries();
+        $request = new \Zimbra\Mail\Request\GetSpellDictionaries();
         return $this->_client->doRequest($request);
     }
 
@@ -1676,7 +1677,7 @@ abstract class Base extends API implements MailInterface
      */
     public function getSystemRetentionPolicy()
     {
-        $request = new \Zimbra\API\Mail\Request\GetSystemRetentionPolicy();
+        $request = new \Zimbra\Mail\Request\GetSystemRetentionPolicy();
         return $this->_client->doRequest($request);
     }
 
@@ -1687,7 +1688,7 @@ abstract class Base extends API implements MailInterface
      */
     public function getTag()
     {
-        $request = new \Zimbra\API\Mail\Request\GetTag();
+        $request = new \Zimbra\Mail\Request\GetTag();
         return $this->_client->doRequest($request);
     }
 
@@ -1708,7 +1709,7 @@ abstract class Base extends API implements MailInterface
         $id = null
     )
     {
-        $request = new \Zimbra\API\Mail\Request\GetTask(
+        $request = new \Zimbra\Mail\Request\GetTask(
             $sync,
             $includeContent,
             $uid,
@@ -1727,7 +1728,7 @@ abstract class Base extends API implements MailInterface
      */
     public function getTaskSummaries($s, $e, $l = null)
     {
-        $request = new \Zimbra\API\Mail\Request\GetTaskSummaries(
+        $request = new \Zimbra\Mail\Request\GetTaskSummaries(
             $s, $e, $l
         );
         return $this->_client->doRequest($request);
@@ -1740,7 +1741,7 @@ abstract class Base extends API implements MailInterface
      */
     public function getWatchers()
     {
-        $request = new \Zimbra\API\Mail\Request\GetWatchers();
+        $request = new \Zimbra\Mail\Request\GetWatchers();
         return $this->_client->doRequest($request);
     }
 
@@ -1751,7 +1752,7 @@ abstract class Base extends API implements MailInterface
      */
     public function getWatchingItems()
     {
-        $request = new \Zimbra\API\Mail\Request\GetWatchingItems();
+        $request = new \Zimbra\Mail\Request\GetWatchingItems();
         return $this->_client->doRequest($request);
     }
 
@@ -1768,7 +1769,7 @@ abstract class Base extends API implements MailInterface
      */
     public function getWorkingHours($s, $e, $id = null, $name = null)
     {
-        $request = new \Zimbra\API\Mail\Request\GetWorkingHours(
+        $request = new \Zimbra\Mail\Request\GetWorkingHours(
             $s, $e, $id, $name
         );
         return $this->_client->doRequest($request);
@@ -1783,7 +1784,7 @@ abstract class Base extends API implements MailInterface
      */
     public function getYahooAuthToken($user, $password)
     {
-        $request = new \Zimbra\API\Mail\Request\GetYahooAuthToken(
+        $request = new \Zimbra\Mail\Request\GetYahooAuthToken(
             $user, $password
         );
         return $this->_client->doRequest($request);
@@ -1797,7 +1798,7 @@ abstract class Base extends API implements MailInterface
      */
     public function getYahooCookie($user)
     {
-        $request = new \Zimbra\API\Mail\Request\GetYahooCookie(
+        $request = new \Zimbra\Mail\Request\GetYahooCookie(
             $user
         );
         return $this->_client->doRequest($request);
@@ -1812,7 +1813,7 @@ abstract class Base extends API implements MailInterface
      */
     public function grantPermission(array $ace = array())
     {
-        $request = new \Zimbra\API\Mail\Request\GrantPermission(
+        $request = new \Zimbra\Mail\Request\GrantPermission(
             $ace
         );
         return $this->_client->doRequest($request);
@@ -1826,7 +1827,7 @@ abstract class Base extends API implements MailInterface
      */
     public function iCalReply($ical)
     {
-        $request = new \Zimbra\API\Mail\Request\ICalReply(
+        $request = new \Zimbra\Mail\Request\ICalReply(
             $ical
         );
         return $this->_client->doRequest($request);
@@ -1842,7 +1843,7 @@ abstract class Base extends API implements MailInterface
      */
     public function importAppointments(ContentSpec $content, $ct, $l = null)
     {
-        $request = new \Zimbra\API\Mail\Request\ImportAppointments(
+        $request = new \Zimbra\Mail\Request\ImportAppointments(
             $content, $ct, $l
         );
         return $this->_client->doRequest($request);
@@ -1866,7 +1867,7 @@ abstract class Base extends API implements MailInterface
         $csvlocale = null
     )
     {
-        $request = new \Zimbra\API\Mail\Request\ImportContacts(
+        $request = new \Zimbra\Mail\Request\ImportContacts(
             $content,
             $ct,
             $l,
@@ -1904,7 +1905,7 @@ abstract class Base extends API implements MailInterface
         UnknownDataSourceNameOrId $unknown = null
     )
     {
-        $request = new \Zimbra\API\Mail\Request\ImportData(
+        $request = new \Zimbra\Mail\Request\ImportData(
             $imap,
             $pop3,
             $caldav,
@@ -1925,7 +1926,7 @@ abstract class Base extends API implements MailInterface
      */
     public function invalidateReminderDevice($a)
     {
-        $request = new \Zimbra\API\Mail\Request\InvalidateReminderDevice(
+        $request = new \Zimbra\Mail\Request\InvalidateReminderDevice(
             $a
         );
         return $this->_client->doRequest($request);
@@ -1939,7 +1940,7 @@ abstract class Base extends API implements MailInterface
      */
     public function itemAction(ItemActionSelector $action)
     {
-        $request = new \Zimbra\API\Mail\Request\ItemAction(
+        $request = new \Zimbra\Mail\Request\ItemAction(
             $action
         );
         return $this->_client->doRequest($request);
@@ -1955,7 +1956,7 @@ abstract class Base extends API implements MailInterface
      */
     public function listDocumentRevisions(ListDocumentRevisionsSpec $doc)
     {
-        $request = new \Zimbra\API\Mail\Request\ListDocumentRevisions(
+        $request = new \Zimbra\Mail\Request\ListDocumentRevisions(
             $doc
         );
         return $this->_client->doRequest($request);
@@ -1992,7 +1993,7 @@ abstract class Base extends API implements MailInterface
         $forcesend = null
     )
     {
-        $request = new \Zimbra\API\Mail\Request\ModifyAppointment(
+        $request = new \Zimbra\Mail\Request\ModifyAppointment(
             $m,
             $id,
             $comp,
@@ -2023,7 +2024,7 @@ abstract class Base extends API implements MailInterface
         $verbose = null
     )
     {
-        $request = new \Zimbra\API\Mail\Request\ModifyContact(
+        $request = new \Zimbra\Mail\Request\ModifyContact(
             $cn,
             $replace,
             $verbose
@@ -2060,7 +2061,7 @@ abstract class Base extends API implements MailInterface
         MailUnknownDataSource $unknown = null
     )
     {
-        $request = new \Zimbra\API\Mail\Request\ModifyDataSource(
+        $request = new \Zimbra\Mail\Request\ModifyDataSource(
             $imap,
             $pop3,
             $caldav,
@@ -2081,7 +2082,7 @@ abstract class Base extends API implements MailInterface
      */
     public function modifyFilterRules(FilterRules $filterRules)
     {
-        $request = new \Zimbra\API\Mail\Request\ModifyFilterRules(
+        $request = new \Zimbra\Mail\Request\ModifyFilterRules(
             $filterRules
         );
         return $this->_client->doRequest($request);
@@ -2099,7 +2100,7 @@ abstract class Base extends API implements MailInterface
      */
     public function modifyMailboxMetadata(MailCustomMetadata $meta = null)
     {
-        $request = new \Zimbra\API\Mail\Request\ModifyMailboxMetadata(
+        $request = new \Zimbra\Mail\Request\ModifyMailboxMetadata(
             $meta
         );
         return $this->_client->doRequest($request);
@@ -2113,7 +2114,7 @@ abstract class Base extends API implements MailInterface
      */
     public function modifyOutgoingFilterRules(FilterRules $filterRules)
     {
-        $request = new \Zimbra\API\Mail\Request\ModifyOutgoingFilterRules(
+        $request = new \Zimbra\Mail\Request\ModifyOutgoingFilterRules(
             $filterRules
         );
         return $this->_client->doRequest($request);
@@ -2127,7 +2128,7 @@ abstract class Base extends API implements MailInterface
      */
     public function modifySearchFolder(ModifySearchFolderSpec $search)
     {
-        $request = new \Zimbra\API\Mail\Request\ModifySearchFolder(
+        $request = new \Zimbra\Mail\Request\ModifySearchFolder(
             $search
         );
         return $this->_client->doRequest($request);
@@ -2161,7 +2162,7 @@ abstract class Base extends API implements MailInterface
         $forcesend = null
     )
     {
-        $request = new \Zimbra\API\Mail\Request\ModifyTask(
+        $request = new \Zimbra\Mail\Request\ModifyTask(
             $m,
             $id,
             $comp,
@@ -2186,7 +2187,7 @@ abstract class Base extends API implements MailInterface
      */
     public function msgAction(MsgActionSelector $action)
     {
-        $request = new \Zimbra\API\Mail\Request\MsgAction(
+        $request = new \Zimbra\Mail\Request\MsgAction(
             $action
         );
         return $this->_client->doRequest($request);
@@ -2215,7 +2216,7 @@ abstract class Base extends API implements MailInterface
         $timeout = null
     )
     {
-        $request = new \Zimbra\API\Mail\Request\NoOp(
+        $request = new \Zimbra\Mail\Request\NoOp(
             $wait,
             $delegate,
             $limitToOneBlocked,
@@ -2232,7 +2233,7 @@ abstract class Base extends API implements MailInterface
      */
     public function noteAction(NoteActionSelector $action)
     {
-        $request = new \Zimbra\API\Mail\Request\NoteAction(
+        $request = new \Zimbra\Mail\Request\NoteAction(
             $action
         );
         return $this->_client->doRequest($request);
@@ -2246,7 +2247,7 @@ abstract class Base extends API implements MailInterface
      */
     public function purgeRevision(PurgeRevisionSpec $revision)
     {
-        $request = new \Zimbra\API\Mail\Request\PurgeRevision(
+        $request = new \Zimbra\Mail\Request\PurgeRevision(
             $revision
         );
         return $this->_client->doRequest($request);
@@ -2260,7 +2261,7 @@ abstract class Base extends API implements MailInterface
      */
     public function rankingAction(RankingActionSpec $action)
     {
-        $request = new \Zimbra\API\Mail\Request\RankingAction(
+        $request = new \Zimbra\Mail\Request\RankingAction(
             $action
         );
         return $this->_client->doRequest($request);
@@ -2274,7 +2275,7 @@ abstract class Base extends API implements MailInterface
      */
     public function registerDevice(NamedElement $device)
     {
-        $request = new \Zimbra\API\Mail\Request\RegisterDevice(
+        $request = new \Zimbra\Mail\Request\RegisterDevice(
             $device
         );
         return $this->_client->doRequest($request);
@@ -2289,7 +2290,7 @@ abstract class Base extends API implements MailInterface
      */
     public function removeAttachments(MsgPartIds $m)
     {
-        $request = new \Zimbra\API\Mail\Request\RemoveAttachments(
+        $request = new \Zimbra\Mail\Request\RemoveAttachments(
             $m
         );
         return $this->_client->doRequest($request);
@@ -2304,7 +2305,7 @@ abstract class Base extends API implements MailInterface
      */
     public function revokePermission(array $ace = array())
     {
-        $request = new \Zimbra\API\Mail\Request\RevokePermission(
+        $request = new \Zimbra\Mail\Request\RevokePermission(
             $ace
         );
         return $this->_client->doRequest($request);
@@ -2327,7 +2328,7 @@ abstract class Base extends API implements MailInterface
      */
     public function saveDocument(DocumentSpec $doc)
     {
-        $request = new \Zimbra\API\Mail\Request\SaveDocument(
+        $request = new \Zimbra\Mail\Request\SaveDocument(
             $doc
         );
         return $this->_client->doRequest($request);
@@ -2349,7 +2350,7 @@ abstract class Base extends API implements MailInterface
      */
     public function saveDraft(SaveDraftMsg $m)
     {
-        $request = new \Zimbra\API\Mail\Request\SaveDraft(
+        $request = new \Zimbra\Mail\Request\SaveDraft(
             $m
         );
         return $this->_client->doRequest($request);
@@ -2421,7 +2422,7 @@ abstract class Base extends API implements MailInterface
         $offset = null
     )
     {
-        $request = new \Zimbra\API\Mail\Request\Search(
+        $request = new \Zimbra\Mail\Request\Search(
             $warmup,
             $query,
             $header,
@@ -2520,7 +2521,7 @@ abstract class Base extends API implements MailInterface
         $offset = null
     )
     {
-        $request = new \Zimbra\API\Mail\Request\SearchConv(
+        $request = new \Zimbra\Mail\Request\SearchConv(
             $cid,
             $nest,
             $query,
@@ -2562,7 +2563,7 @@ abstract class Base extends API implements MailInterface
      */
     public function sendDeliveryReport($mid)
     {
-        $request = new \Zimbra\API\Mail\Request\SendDeliveryReport(
+        $request = new \Zimbra\Mail\Request\SendDeliveryReport(
             $mid
         );
         return $this->_client->doRequest($request);
@@ -2592,7 +2593,7 @@ abstract class Base extends API implements MailInterface
         $idnt = null
     )
     {
-        $request = new \Zimbra\API\Mail\Request\SendDeliveryReport(
+        $request = new \Zimbra\Mail\Request\SendDeliveryReport(
             $id,
             $compNum,
             $verb,
@@ -2634,7 +2635,7 @@ abstract class Base extends API implements MailInterface
         $suid = null
     )
     {
-        $request = new \Zimbra\API\Mail\Request\SendMsg(
+        $request = new \Zimbra\Mail\Request\SendMsg(
             $m,
             $needCalendarSentByFixup,
             $isCalendarForward,
@@ -2661,7 +2662,7 @@ abstract class Base extends API implements MailInterface
         Action $action = null
     )
     {
-        $request = new \Zimbra\API\Mail\Request\SendShareNotification(
+        $request = new \Zimbra\Mail\Request\SendShareNotification(
             $item,
             $e,
             $notes,
@@ -2678,7 +2679,7 @@ abstract class Base extends API implements MailInterface
      */
     public function sendVerificationCode($a = null)
     {
-        $request = new \Zimbra\API\Mail\Request\SendVerificationCode(
+        $request = new \Zimbra\Mail\Request\SendVerificationCode(
             $a
         );
         return $this->_client->doRequest($request);
@@ -2716,7 +2717,7 @@ abstract class Base extends API implements MailInterface
         $nextAlarm = null
     )
     {
-        $request = new \Zimbra\API\Mail\Request\SetAppointment(
+        $request = new \Zimbra\Mail\Request\SetAppointment(
             $default,
             $except,
             $cancel,
@@ -2741,7 +2742,7 @@ abstract class Base extends API implements MailInterface
      */
     public function setCustomMetadata($id, MailCustomMetadata $meta = null)
     {
-        $request = new \Zimbra\API\Mail\Request\SetCustomMetadata(
+        $request = new \Zimbra\Mail\Request\SetCustomMetadata(
             $id, $meta
         );
         return $this->_client->doRequest($request);
@@ -2758,7 +2759,7 @@ abstract class Base extends API implements MailInterface
      */
     public function setMailboxMetadata(MailCustomMetadata $meta = null)
     {
-        $request = new \Zimbra\API\Mail\Request\SetMailboxMetadata(
+        $request = new \Zimbra\Mail\Request\SetMailboxMetadata(
             $meta
         );
         return $this->_client->doRequest($request);
@@ -2793,7 +2794,7 @@ abstract class Base extends API implements MailInterface
         $nextAlarm = null
     )
     {
-        $request = new \Zimbra\API\Mail\Request\SetTask(
+        $request = new \Zimbra\Mail\Request\SetTask(
             $default,
             $except,
             $cancel,
@@ -2820,7 +2821,7 @@ abstract class Base extends API implements MailInterface
         SnoozeTaskAlarm $task = null
     )
     {
-        $request = new \Zimbra\API\Mail\Request\SnoozeCalendarItemAlarm(
+        $request = new \Zimbra\Mail\Request\SnoozeCalendarItemAlarm(
             $appt, $task
         );
         return $this->_client->doRequest($request);
@@ -2842,7 +2843,7 @@ abstract class Base extends API implements MailInterface
         $typed = null
     )
     {
-        $request = new \Zimbra\API\Mail\Request\Sync(
+        $request = new \Zimbra\Mail\Request\Sync(
             $token,
             $calCutoff,
             $l,
@@ -2859,7 +2860,7 @@ abstract class Base extends API implements MailInterface
      */
     public function tagAction(TagActionSelector $action)
     {
-        $request = new \Zimbra\API\Mail\Request\TagAction(
+        $request = new \Zimbra\Mail\Request\TagAction(
             $action
         );
         return $this->_client->doRequest($request);
@@ -2892,7 +2893,7 @@ abstract class Base extends API implements MailInterface
         MailUnknownDataSource $unknown = null
     )
     {
-        $request = new \Zimbra\API\Mail\Request\TestDataSource(
+        $request = new \Zimbra\Mail\Request\TestDataSource(
             $imap,
             $pop3,
             $caldav,
@@ -2913,7 +2914,7 @@ abstract class Base extends API implements MailInterface
      */
     public function updateDeviceStatus(IdStatus $device)
     {
-        $request = new \Zimbra\API\Mail\Request\UpdateDeviceStatus(
+        $request = new \Zimbra\Mail\Request\UpdateDeviceStatus(
             $device
         );
         return $this->_client->doRequest($request);
@@ -2929,7 +2930,7 @@ abstract class Base extends API implements MailInterface
      */
     public function verifyCode($a = null, $code = null)
     {
-        $request = new \Zimbra\API\Mail\Request\VerifyCode(
+        $request = new \Zimbra\Mail\Request\VerifyCode(
             $a, $code
         );
         return $this->_client->doRequest($request);
@@ -2966,7 +2967,7 @@ abstract class Base extends API implements MailInterface
         $timeout = null
     )
     {
-        $request = new \Zimbra\API\Mail\Request\WaitSet(
+        $request = new \Zimbra\Mail\Request\WaitSet(
             $waitSet,
             $seq,
             $add,
