@@ -72,17 +72,17 @@ class RequestTest extends ZimbraTestCase
         $this->assertTrue($req->persistAuthTokenCookie());
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<AuthRequest persistAuthTokenCookie="1">'
+            .'<AuthRequest persistAuthTokenCookie="true">'
                 .'<account by="name">value</account>'
                 .'<password>password</password>'
                 .'<preauth timestamp="1000" expiresTimestamp="1000">value</preauth>'
-                .'<authToken verifyAccount="1">value</authToken>'
+                .'<authToken verifyAccount="true">value</authToken>'
                 .'<virtualHost>virtualHost</virtualHost>'
                 .'<prefs>'
                     .'<pref name="name" modified="1000">value</pref>'
                 .'</prefs>'
                 .'<attrs>'
-                    .'<attr name="name" pd="1">value</attr>'
+                    .'<attr name="name" pd="true">value</attr>'
                 .'</attrs>'
                 .'<requestedSkin>requestedSkin</requestedSkin>'
             .'</AuthRequest>';
@@ -101,7 +101,7 @@ class RequestTest extends ZimbraTestCase
                     '_' => 'value',
                 ),
                 'authToken' => array(
-                    'verifyAccount' => 1,
+                    'verifyAccount' => true,
                     '_' => 'value',
                 ),
                 'virtualHost' => 'virtualHost',
@@ -118,13 +118,13 @@ class RequestTest extends ZimbraTestCase
                     'attr' => array(
                         array(
                             'name' => 'name',
-                            'pd' => 1,
+                            'pd' => true,
                             '_' => 'value',
                         ),
                     ),
                 ),
                 'requestedSkin' => 'requestedSkin',
-                'persistAuthTokenCookie' => 1,
+                'persistAuthTokenCookie' => true,
             ),
         );
         $this->assertEquals($array, $req->toArray());
@@ -153,13 +153,13 @@ class RequestTest extends ZimbraTestCase
 
         $xml = '<?xml version="1.0"?>'."\n"
             .'<AutoCompleteGalRequest '
-                .'name="name" needExp="0" type="account" galAcctId="galAcctId" limit="10" />';
+                .'needExp="false" name="name" type="account" galAcctId="galAcctId" limit="10" />';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
         $array = array(
             'AutoCompleteGalRequest' => array(
                 'name' => 'name',
-                'needExp' => 0,
+                'needExp' => false,
                 'type' => 'account',
                 'galAcctId' =>'galAcctId',
                 'limit' => 10,
@@ -279,7 +279,7 @@ class RequestTest extends ZimbraTestCase
         $this->assertTrue($req->dynamic());
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<CreateDistributionListRequest name="name" dynamic="1">'
+            .'<CreateDistributionListRequest name="name" dynamic="true">'
                 .'<a n="key">value</a>'
             .'</CreateDistributionListRequest>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
@@ -287,7 +287,7 @@ class RequestTest extends ZimbraTestCase
         $array = array(
             'CreateDistributionListRequest' => array(
                 'name' => 'name',
-                'dynamic' => 1,
+                'dynamic' => true,
                 'a' => array(
                     array('n' => 'key', '_' => 'value'),
                 ),
@@ -311,7 +311,7 @@ class RequestTest extends ZimbraTestCase
         $xml = '<?xml version="1.0"?>'."\n"
             .'<CreateIdentityRequest>'
                 .'<identity name="name" id="id">'
-                    .'<a name="name" pd="1">value</a>'
+                    .'<a name="name" pd="true">value</a>'
                 .'</identity>'
             .'</CreateIdentityRequest>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
@@ -322,7 +322,7 @@ class RequestTest extends ZimbraTestCase
                     'name' => 'name',
                     'id' => 'id',
                     'a' => array(
-                        array('name' => 'name', 'pd' => 1, '_' => 'value'),
+                        array('name' => 'name', 'pd' => true, '_' => 'value'),
                     ),
                 ),
             ),
@@ -480,7 +480,7 @@ class RequestTest extends ZimbraTestCase
                 .'<dl by="name">value</dl>'
                 .'<action op="modify">'
                     .'<newName>newName</newName>'
-                    .'<subsReq op="subscribe" bccOwners="1">value</subsReq>'
+                    .'<subsReq op="subscribe" bccOwners="true">value</subsReq>'
                     .'<dlm>dlm</dlm>'
                     .'<owner type="usr" by="id">value</owner>'
                     .'<right right="right">'
@@ -488,7 +488,7 @@ class RequestTest extends ZimbraTestCase
                     .'</right>'
                     .'<a n="key">value</a>'
                 .'</action>'
-                .'<a name="name" pd="1">value</a>'
+                .'<a name="name" pd="true">value</a>'
             .'</DistributionListActionRequest>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
@@ -504,7 +504,7 @@ class RequestTest extends ZimbraTestCase
                     'subsReq' => array(
                         'op' => 'subscribe',
                         '_' => 'value',
-                        'bccOwners' => 1,
+                        'bccOwners' => true,
                     ),
                     'dlm' => array('dlm'),
                     'owner' => array(
@@ -576,12 +576,12 @@ class RequestTest extends ZimbraTestCase
         $this->assertSame('attrs', $req->attrs());
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<GetAccountDistributionListsRequest ownerOf="1" memberOf="all" attrs="attrs" />';
+            .'<GetAccountDistributionListsRequest ownerOf="true" memberOf="all" attrs="attrs" />';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
         $array = array(
             'GetAccountDistributionListsRequest' => array(
-                'ownerOf' => 1,
+                'ownerOf' => true,
                 'memberOf' => 'all',
                 'attrs' => 'attrs',
             ),
@@ -700,22 +700,22 @@ class RequestTest extends ZimbraTestCase
         $req->attr()->remove(1);
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<GetDistributionListRequest needOwners="1" needRights="sendToDistList,viewDistList">'
+            .'<GetDistributionListRequest needOwners="true" needRights="sendToDistList,viewDistList">'
                 .'<dl by="name">value</dl>'
-                .'<a name="name" pd="1">value</a>'
+                .'<a name="name" pd="true">value</a>'
             .'</GetDistributionListRequest>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
         $array = array(
             'GetDistributionListRequest' => array(
-                'needOwners' => 1,
+                'needOwners' => true,
                 'needRights' => 'sendToDistList,viewDistList',
                 'dl' => array(
                     'by' => 'name',
                     '_' => 'value',
                 ),
                 'a' => array(
-                    array('name' => 'name', 'pd' => 1, '_' => 'value'),
+                    array('name' => 'name', 'pd' => true, '_' => 'value'),
                 ),
             ),
         );
@@ -724,11 +724,11 @@ class RequestTest extends ZimbraTestCase
 
     public function getGetDistributionListMembers()
     {
-        $req = new \Zimbra\Account\Request\GetDistributionListMembers('dl', 100, 0);
+        $req = new \Zimbra\Account\Request\GetDistributionListMembers('dl', 100, 100);
         $this->assertInstanceOf('Zimbra\Account\Request\Base', $req);
         $this->assertSame('dl', $req->dl());
         $this->assertSame(100, $req->limit());
-        $this->assertSame(0, $req->offset());
+        $this->assertSame(100, $req->offset());
 
         $req->dl('name')
             ->limit(10)
@@ -768,7 +768,7 @@ class RequestTest extends ZimbraTestCase
         $xml = '<?xml version="1.0"?>'."\n"
             .'<GetIdentitiesRequest>'
                 .'<identity name="name" id="id">'
-                    .'<a name="name" pd="1">value</a>'
+                    .'<a name="name" pd="true">value</a>'
                 .'</identity>'
             .'</GetIdentitiesRequest>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
@@ -783,7 +783,7 @@ class RequestTest extends ZimbraTestCase
                             array(
                                 'name' => 'name',
                                 '_' => 'value',
-                                'pd' => 1,
+                                'pd' => true,
                             ),
                         ),
                     ),
@@ -897,7 +897,7 @@ class RequestTest extends ZimbraTestCase
 
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<GetShareInfoRequest internal="0" includeSelf="1" >'
+            .'<GetShareInfoRequest internal="false" includeSelf="true" >'
                 .'<grantee type="type" id="id" name="name" />'
                 .'<owner by="name">value</owner>'
             .'</GetShareInfoRequest>';
@@ -905,8 +905,8 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'GetShareInfoRequest' => array(
-                'internal' => 0,
-                'includeSelf' => 1,
+                'internal' => false,
+                'includeSelf' => true,
                 'grantee' => array(
                     'type' => 'type',
                     'id' => 'id',
@@ -981,7 +981,7 @@ class RequestTest extends ZimbraTestCase
 
         $xml = '<?xml version="1.0"?>'."\n"
             .'<GrantRightsRequest>'
-                .'<ace gt="all" right="viewFreeBusy" zid="zid" d="dir" key="key" pw="pw" deny="1" chkgt="0" />'
+                .'<ace gt="all" right="viewFreeBusy" zid="zid" d="dir" key="key" pw="pw" deny="true" chkgt="false" />'
             .'</GrantRightsRequest>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
@@ -995,8 +995,8 @@ class RequestTest extends ZimbraTestCase
                         'd' => 'dir',
                         'key' => 'key',
                         'pw' => 'pw',
-                        'deny' => 1,
-                        'chkgt' => 0,
+                        'deny' => true,
+                        'chkgt' => false,
                     ),
                 ),
             ),
@@ -1018,7 +1018,7 @@ class RequestTest extends ZimbraTestCase
         $xml = '<?xml version="1.0"?>'."\n"
             .'<ModifyIdentityRequest>'
                 .'<identity name="name" id="id">'
-                    .'<a name="name" pd="1">value</a>'
+                    .'<a name="name" pd="true">value</a>'
                 .'</identity>'
             .'</ModifyIdentityRequest>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
@@ -1032,7 +1032,7 @@ class RequestTest extends ZimbraTestCase
                         array(
                             'name' => 'name',
                             '_' => 'value',
-                            'pd' => 1,
+                            'pd' => true,
                         ),
                     ),
                 ),
@@ -1231,7 +1231,7 @@ class RequestTest extends ZimbraTestCase
 
         $xml = '<?xml version="1.0"?>'."\n"
             .'<RevokeRightsRequest>'
-                .'<ace gt="all" right="viewFreeBusy" zid="zid" d="dir" key="key" pw="pw" deny="1" chkgt="0" />'
+                .'<ace gt="all" right="viewFreeBusy" zid="zid" d="dir" key="key" pw="pw" deny="true" chkgt="false" />'
             .'</RevokeRightsRequest>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
@@ -1245,8 +1245,8 @@ class RequestTest extends ZimbraTestCase
                         'd' => 'dir',
                         'key' => 'key',
                         'pw' => 'pw',
-                        'deny' => 1,
-                        'chkgt' => 0,
+                        'deny' => true,
+                        'chkgt' => false,
                     ),
                 ),
             ),
@@ -1259,9 +1259,9 @@ class RequestTest extends ZimbraTestCase
         $cursor = new \Zimbra\Struct\CursorInfo('id','sortVal', 'endSortVal', true);
 
         $otherCond = new \Zimbra\Account\Struct\EntrySearchFilterSingleCond('attr', CondOp::GE(), 'value', false);
-        $otherConds = new \Zimbra\Account\Struct\EntrySearchFilterMultiCond(0, 1, NULL, $otherCond);
+        $otherConds = new \Zimbra\Account\Struct\EntrySearchFilterMultiCond(false, true, NULL, $otherCond);
         $cond = new \Zimbra\Account\Struct\EntrySearchFilterSingleCond('a', CondOp::EQ(), 'v', true);
-        $conds = new \Zimbra\Account\Struct\EntrySearchFilterMultiCond(1, 0, $otherConds, $cond);
+        $conds = new \Zimbra\Account\Struct\EntrySearchFilterMultiCond(true, false, $otherConds, $cond);
         $filter = new \Zimbra\Account\Struct\EntrySearchFilterInfo($conds, $cond);
 
         $req = new \Zimbra\Account\Request\SearchCalendarResources(
@@ -1301,18 +1301,18 @@ class RequestTest extends ZimbraTestCase
         $this->assertSame('attrs', $req->attrs());
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<SearchCalendarResourcesRequest quick="1" sortBy="sortBy" limit="10" offset="10" galAcctId="galAcctId" attrs="attrs">'
+            .'<SearchCalendarResourcesRequest quick="true" sortBy="sortBy" limit="10" offset="10" galAcctId="galAcctId" attrs="attrs">'
             	.'<locale>locale</locale>'
-                .'<cursor id="id" sortVal="sortVal" endSortVal="endSortVal" includeOffset="1" />'
+                .'<cursor id="id" sortVal="sortVal" endSortVal="endSortVal" includeOffset="true" />'
                 .' <name>name</name>'
                 .'<searchFilter>'
-                    .'<conds not="1" or="0">'
-                        .'<conds not="0" or="1">'
-                            .'<cond attr="attr" op="ge" value="value" not="0" />'
+                    .'<conds not="true" or="false">'
+                        .'<conds not="false" or="true">'
+                            .'<cond attr="attr" op="ge" value="value" not="false" />'
                         .'</conds>'
-                        .'<cond attr="a" op="eq" value="v" not="1" />'
+                        .'<cond attr="a" op="eq" value="v" not="true" />'
                     .'</conds>'
-                    .'<cond attr="a" op="eq" value="v" not="1" />'
+                    .'<cond attr="a" op="eq" value="v" not="true" />'
                 .'</searchFilter>'
             .'</SearchCalendarResourcesRequest>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
@@ -1321,7 +1321,7 @@ class RequestTest extends ZimbraTestCase
             'SearchCalendarResourcesRequest' => array(
                 'name' => 'name',
                 'locale' => 'locale',
-                'quick' => 1,
+                'quick' => true,
                 'sortBy' => 'sortBy',
                 'limit' => 10,
                 'offset' => 10,
@@ -1331,34 +1331,34 @@ class RequestTest extends ZimbraTestCase
                     'id' => 'id',
                     'sortVal' => 'sortVal',
                     'endSortVal' => 'endSortVal',
-                    'includeOffset' => 1,
+                    'includeOffset' => true,
                 ),
                 'searchFilter' => array(
                     'conds' => array(
-                        'not' => 1,
-                        'or' => 0,
+                        'not' => true,
+                        'or' => false,
                         'conds' => array(
-                            'not' => 0,
-                            'or' => 1,
+                            'not' => false,
+                            'or' => true,
                             'cond' => array(
                                 'attr' => 'attr',
                                 'op' => 'ge',
                                 'value' => 'value',
-                                'not' => 0,
+                                'not' => false,
                             ),
                         ),
                         'cond' => array(
                             'attr' => 'a',
                             'op' => 'eq',
                             'value' => 'v',
-                            'not' => 1,
+                            'not' => true,
                         ),
                     ),
                     'cond' => array(
                         'attr' => 'a',
                         'op' => 'eq',
                         'value' => 'v',
-                        'not' => 1,
+                        'not' => true,
                     ),
                 ),
             ),
@@ -1371,9 +1371,9 @@ class RequestTest extends ZimbraTestCase
         $cursor = new \Zimbra\Struct\CursorInfo('id','sortVal', 'endSortVal', true);
 
         $otherCond = new \Zimbra\Account\Struct\EntrySearchFilterSingleCond('attr', CondOp::GE(), 'value', false);
-        $otherConds = new \Zimbra\Account\Struct\EntrySearchFilterMultiCond(0, 1, NULL, $otherCond);
+        $otherConds = new \Zimbra\Account\Struct\EntrySearchFilterMultiCond(false, true, NULL, $otherCond);
         $cond = new \Zimbra\Account\Struct\EntrySearchFilterSingleCond('a', CondOp::EQ(), 'v', true);
-        $conds = new \Zimbra\Account\Struct\EntrySearchFilterMultiCond(1, 0, $otherConds, $cond);
+        $conds = new \Zimbra\Account\Struct\EntrySearchFilterMultiCond(true, false, $otherConds, $cond);
         $filter = new \Zimbra\Account\Struct\EntrySearchFilterInfo($conds, $cond);
 
         $req = new \Zimbra\Account\Request\SearchGal(
@@ -1429,17 +1429,17 @@ class RequestTest extends ZimbraTestCase
         $this->assertSame(10, $req->offset());
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<SearchGalRequest ref="ref" name="name" type="account" needExp="1" needIsOwner="1" needIsMember="directOnly" needSMIMECerts="1" galAcctId="galAcctId" quick="1" sortBy="dateAsc" limit="10" offset="10">'
+            .'<SearchGalRequest ref="ref" name="name" type="account" needExp="true" needIsOwner="true" needIsMember="directOnly" needSMIMECerts="true" galAcctId="galAcctId" quick="true" sortBy="dateAsc" limit="10" offset="10">'
             	.'<locale>locale</locale>'
-                .'<cursor id="id" sortVal="sortVal" endSortVal="endSortVal" includeOffset="1" />'
+                .'<cursor id="id" sortVal="sortVal" endSortVal="endSortVal" includeOffset="true" />'
                 .'<searchFilter>'
-                    .'<conds not="1" or="0">'
-                        .'<conds not="0" or="1">'
-                            .'<cond attr="attr" op="ge" value="value" not="0" />'
+                    .'<conds not="true" or="false">'
+                        .'<conds not="false" or="true">'
+                            .'<cond attr="attr" op="ge" value="value" not="false" />'
                         .'</conds>'
-                        .'<cond attr="a" op="eq" value="v" not="1" />'
+                        .'<cond attr="a" op="eq" value="v" not="true" />'
                     .'</conds>'
-                    .'<cond attr="a" op="eq" value="v" not="1" />'
+                    .'<cond attr="a" op="eq" value="v" not="true" />'
                 .'</searchFilter>'
             .'</SearchGalRequest>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
@@ -1450,12 +1450,12 @@ class RequestTest extends ZimbraTestCase
                 'ref' => 'ref',
                 'name' => 'name',
                 'type' => 'account',
-                'needExp' => 1,
-                'needIsOwner' => 1,
+                'needExp' => true,
+                'needIsOwner' => true,
                 'needIsMember' => 'directOnly',
-                'needSMIMECerts' => 1,
+                'needSMIMECerts' => true,
                 'galAcctId' => 'galAcctId',
-                'quick' => 1,
+                'quick' => true,
                 'sortBy' => 'dateAsc',
                 'limit' => 10,
                 'offset' => 10,
@@ -1463,34 +1463,34 @@ class RequestTest extends ZimbraTestCase
                     'id' => 'id',
                     'sortVal' => 'sortVal',
                     'endSortVal' => 'endSortVal',
-                    'includeOffset' => 1,
+                    'includeOffset' => true,
                 ),
                 'searchFilter' => array(
                     'conds' => array(
-                        'not' => 1,
-                        'or' => 0,
+                        'not' => true,
+                        'or' => false,
                         'conds' => array(
-                            'not' => 0,
-                            'or' => 1,
+                            'not' => false,
+                            'or' => true,
                             'cond' => array(
                                 'attr' => 'attr',
                                 'op' => 'ge',
                                 'value' => 'value',
-                                'not' => 0,
+                                'not' => false,
                             ),
                         ),
                         'cond' => array(
                             'attr' => 'a',
                             'op' => 'eq',
                             'value' => 'v',
-                            'not' => 1,
+                            'not' => true,
                         ),
                     ),
                     'cond' => array(
                         'attr' => 'a',
                         'op' => 'eq',
                         'value' => 'v',
-                        'not' => 1,
+                        'not' => true,
                     ),
                 ),
             ),
@@ -1547,14 +1547,14 @@ class RequestTest extends ZimbraTestCase
 
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<SyncGalRequest token="token" galAcctId="galAcctId" idOnly="1" />';
+            .'<SyncGalRequest token="token" galAcctId="galAcctId" idOnly="true" />';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
         $array = array(
             'SyncGalRequest' => array(
                 'token' => 'token',
                 'galAcctId' => 'galAcctId',
-                'idOnly' => 1,
+                'idOnly' => true,
             )
         );
         $this->assertEquals($array, $req->toArray());

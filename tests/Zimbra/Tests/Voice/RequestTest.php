@@ -401,23 +401,23 @@ class RequestTest extends ZimbraTestCase
             .'<ModifyVoiceFeaturesRequest>'
                 .'<storeprincipal id="id" name="name" accountNumber="accountNumber" />'
                 .'<phone name="name">'
-                    .'<voicemailprefs s="1" a="0">'
+                    .'<voicemailprefs s="true" a="false">'
                         .'<pref name="name">value</pref>'
                     .'</voicemailprefs>'
-                    .'<anoncallrejection s="1" a="0" />'
-                    .'<calleridblocking s="1" a="0" />'
-                    .'<callforward s="1" a="0" ft="ft" />'
-                    .'<callforwardbusyline s="1" a="0" ft="ft" />'
-                    .'<callforwardnoanswer s="1" a="0" ft="ft" nr="nr" />'
-                    .'<callwaiting s="1" a="0" />'
-                    .'<selectivecallforward s="1" a="0" ft="ft">'
-                        .'<phone pn="pn" a="1" />'
+                    .'<anoncallrejection s="true" a="false" />'
+                    .'<calleridblocking s="true" a="false" />'
+                    .'<callforward s="true" a="false" ft="ft" />'
+                    .'<callforwardbusyline s="true" a="false" ft="ft" />'
+                    .'<callforwardnoanswer s="true" a="false" ft="ft" nr="nr" />'
+                    .'<callwaiting s="true" a="false" />'
+                    .'<selectivecallforward s="true" a="false" ft="ft">'
+                        .'<phone pn="pn" a="true" />'
                     .'</selectivecallforward>'
-                    .'<selectivecallacceptance s="1" a="0">'
-                        .'<phone pn="pn" a="1" />'
+                    .'<selectivecallacceptance s="true" a="false">'
+                        .'<phone pn="pn" a="true" />'
                     .'</selectivecallacceptance>'
-                    .'<selectivecallrejection s="1" a="0">'
-                        .'<phone pn="pn" a="1" />'
+                    .'<selectivecallrejection s="true" a="false">'
+                        .'<phone pn="pn" a="true" />'
                     .'</selectivecallrejection>'
                 .'</phone>'
             .'</ModifyVoiceFeaturesRequest>';
@@ -433,8 +433,8 @@ class RequestTest extends ZimbraTestCase
                 'phone' => array(
                     'name' => 'name',
                     'voicemailprefs' => array(
-                        's' => 1,
-                        'a' => 0,
+                        's' => true,
+                        'a' => false,
                         'pref' => array(
                             array(
                                 'name' => 'name',
@@ -443,61 +443,61 @@ class RequestTest extends ZimbraTestCase
                         ),
                     ),
                     'anoncallrejection' => array(
-                        's' => 1,
-                        'a' => 0,
+                        's' => true,
+                        'a' => false,
                     ),
                     'calleridblocking' => array(
-                        's' => 1,
-                        'a' => 0,
+                        's' => true,
+                        'a' => false,
                     ),
                     'callforward' => array(
-                        's' => 1,
-                        'a' => 0,
+                        's' => true,
+                        'a' => false,
                         'ft' => 'ft',
                     ),
                     'callforwardbusyline' => array(
-                        's' => 1,
-                        'a' => 0,
+                        's' => true,
+                        'a' => false,
                         'ft' => 'ft',
                     ),
                     'callforwardnoanswer' => array(
-                        's' => 1,
-                        'a' => 0,
+                        's' => true,
+                        'a' => false,
                         'ft' => 'ft',
                         'nr' => 'nr',
                     ),
                     'callwaiting' => array(
-                        's' => 1,
-                        'a' => 0,
+                        's' => true,
+                        'a' => false,
                     ),
                     'selectivecallforward' => array(
-                        's' => 1,
-                        'a' => 0,
+                        's' => true,
+                        'a' => false,
                         'ft' => 'ft',
                         'phone' => array(
                             array(
                                 'pn' => 'pn',
-                                'a' => 1,
+                                'a' => true,
                             ),
                         ),
                     ),
                     'selectivecallacceptance' => array(
-                        's' => 1,
-                        'a' => 0,
+                        's' => true,
+                        'a' => false,
                         'phone' => array(
                             array(
                                 'pn' => 'pn',
-                                'a' => 1,
+                                'a' => true,
                             ),
                         ),
                     ),
                     'selectivecallrejection' => array(
-                        's' => 1,
-                        'a' => 0,
+                        's' => true,
+                        'a' => false,
                         'phone' => array(
                             array(
                                 'pn' => 'pn',
-                                'a' => 1,
+                                'a' => true,
                             ),
                         ),
                     ),
@@ -686,31 +686,31 @@ class RequestTest extends ZimbraTestCase
             'id', 'name', 'accountNumber'
         );
         $req = new \Zimbra\Voice\Request\SearchVoice(
-            'query', $storeprincipal, 1, 1, 'types', VoiceSortBy::DATE_DESC()
+            'query', $storeprincipal, 100, 100, 'types', VoiceSortBy::DATE_DESC()
         );
         $this->assertInstanceOf('Zimbra\Voice\Request\Base', $req);
         $this->assertSame('query', $req->query());
         $this->assertSame($storeprincipal, $req->storeprincipal());
-        $this->assertSame(1, $req->limit());
-        $this->assertSame(1, $req->offset());
+        $this->assertSame(100, $req->limit());
+        $this->assertSame(100, $req->offset());
         $this->assertSame('types', $req->types());
         $this->assertTrue($req->sortBy()->is('dateDesc'));
 
         $req->query('query')
             ->storeprincipal($storeprincipal)
-            ->limit(1)
-            ->offset(1)
+            ->limit(10)
+            ->offset(10)
             ->types('types')
             ->sortBy(VoiceSortBy::DATE_DESC());
         $this->assertSame('query', $req->query());
         $this->assertSame($storeprincipal, $req->storeprincipal());
-        $this->assertSame(1, $req->limit());
-        $this->assertSame(1, $req->offset());
+        $this->assertSame(10, $req->limit());
+        $this->assertSame(10, $req->offset());
         $this->assertSame('types', $req->types());
         $this->assertTrue($req->sortBy()->is('dateDesc'));
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<SearchVoiceRequest query="query" limit="1" offset="1" types="types" sortBy="dateDesc">'
+            .'<SearchVoiceRequest query="query" limit="10" offset="10" types="types" sortBy="dateDesc">'
                 .'<storeprincipal id="id" name="name" accountNumber="accountNumber" />'
             .'</SearchVoiceRequest>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
@@ -718,8 +718,8 @@ class RequestTest extends ZimbraTestCase
         $array = array(
             'SearchVoiceRequest' => array(
                 'query' => 'query',
-                'limit' => 1,
-                'offset' => 1,
+                'limit' => 10,
+                'offset' => 10,
                 'types' =>'types',
                 'sortBy' =>'dateDesc',
                 'storeprincipal' => array(

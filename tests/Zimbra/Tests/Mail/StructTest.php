@@ -69,7 +69,7 @@ class StructTest extends ZimbraTestCase
         $this->assertTrue($ace->deny());
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<ace gt="usr" right="invite" zid="zid" d="d" key="key" pw="pw" deny="1" />';
+            .'<ace gt="usr" right="invite" zid="zid" d="d" key="key" pw="pw" deny="true" />';
         $this->assertXmlStringEqualsXmlString($xml, (string) $ace);
 
         $array = array(
@@ -80,7 +80,7 @@ class StructTest extends ZimbraTestCase
                 'd' => 'd',
                 'key' => 'key',
                 'pw' => 'pw',
-                'deny' => 1,
+                'deny' => true,
             ),
         );
         $this->assertEquals($array, $ace->toArray());
@@ -135,14 +135,14 @@ class StructTest extends ZimbraTestCase
     public function testActionSelector()
     {
         $action = new \Zimbra\Mail\Struct\ActionSelector(
-            ContactActionOp::MOVE(), 'id', 'tcon', 1, 'l', '#aabbcc', 1, 'name', 'f', 't', 'tn'
+            ContactActionOp::MOVE(), 'id', 'tcon', 100, 'l', '#aabbcc', 100, 'name', 'f', 't', 'tn'
         );
         $this->assertSame('id', $action->id());
         $this->assertSame('tcon', $action->tcon());
-        $this->assertSame(1, $action->tag());
+        $this->assertSame(100, $action->tag());
         $this->assertSame('l', $action->l());
         $this->assertSame('#aabbcc', $action->rgb());
-        $this->assertSame(1, $action->color());
+        $this->assertSame(100, $action->color());
         $this->assertSame('name', $action->name());
         $this->assertSame('f', $action->f());
         $this->assertSame('t', $action->t());
@@ -150,27 +150,27 @@ class StructTest extends ZimbraTestCase
 
         $action->id('id')
                ->tcon('tcon')
-               ->tag(1)
+               ->tag(10)
                ->l('l')
                ->rgb('#aabbcc')
-               ->color(1)
+               ->color(10)
                ->name('name')
                ->f('f')
                ->t('t')
                ->tn('tn');
         $this->assertSame('id', $action->id());
         $this->assertSame('tcon', $action->tcon());
-        $this->assertSame(1, $action->tag());
+        $this->assertSame(10, $action->tag());
         $this->assertSame('l', $action->l());
         $this->assertSame('#aabbcc', $action->rgb());
-        $this->assertSame(1, $action->color());
+        $this->assertSame(10, $action->color());
         $this->assertSame('name', $action->name());
         $this->assertSame('f', $action->f());
         $this->assertSame('t', $action->t());
         $this->assertSame('tn', $action->tn());
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<action op="move" id="id" tcon="tcon" tag="1" l="l" rgb="#aabbcc" color="1" name="name" f="f" t="t" tn="tn" />';
+            .'<action op="move" id="id" tcon="tcon" tag="10" l="l" rgb="#aabbcc" color="10" name="name" f="f" t="t" tn="tn" />';
         $this->assertXmlStringEqualsXmlString($xml, (string) $action);
 
         $array = array(
@@ -178,10 +178,10 @@ class StructTest extends ZimbraTestCase
                 'op' => 'move',
                 'id' => 'id',
                 'tcon' => 'tcon',
-                'tag' => 1,
+                'tag' => 10,
                 'l' => 'l',
                 'rgb' => '#aabbcc',
-                'color' => 1,
+                'color' => 10,
                 'name' => 'name',
                 'f' => 'f',
                 't' => 't',
@@ -277,7 +277,7 @@ class StructTest extends ZimbraTestCase
         $this->assertSame('aid', $m->aid());
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<m f="f" t="t" tn="tn" l="l" noICal="1" d="d" aid="aid">'
+            .'<m f="f" t="t" tn="tn" l="l" noICal="true" d="d" aid="aid">'
                 .'<content>content</content>'
             .'</m>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $m);
@@ -289,7 +289,7 @@ class StructTest extends ZimbraTestCase
                 't' => 't',
                 'tn' => 'tn',
                 'l' => 'l',
-                'noICal' => 1,
+                'noICal' => true,
                 'd' => 'd',
                 'aid' => 'aid',
             ),
@@ -315,7 +315,7 @@ class StructTest extends ZimbraTestCase
     public function testAddressBookTest()
     {
         $addressBookTest = new \Zimbra\Mail\Struct\AddressBookTest(
-            1, 'header', true
+            10, 'header', true
         );
         $this->assertInstanceOf('\Zimbra\Mail\Struct\FilterTest', $addressBookTest);
         $this->assertSame('header', $addressBookTest->header());
@@ -323,13 +323,13 @@ class StructTest extends ZimbraTestCase
         $this->assertSame('header', $addressBookTest->header());
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<addressBookTest index="1" negative="1" header="header" />';
+            .'<addressBookTest index="10" negative="true" header="header" />';
         $this->assertXmlStringEqualsXmlString($xml, (string) $addressBookTest);
 
         $array = array(
             'addressBookTest' => array(
-                'index' => 1,
-                'negative' => 1,
+                'index' => 10,
+                'negative' => true,
                 'header' => 'header',
             ),
         );
@@ -339,7 +339,7 @@ class StructTest extends ZimbraTestCase
     public function testAddressTest()
     {
         $addressTest = new \Zimbra\Mail\Struct\AddressTest(
-            1, 'header', 'part', 'stringComparison', 'value', true, true
+            10, 'header', 'part', 'stringComparison', 'value', true, true
         );
         $this->assertInstanceOf('\Zimbra\Mail\Struct\FilterTest', $addressTest);
         $this->assertSame('header', $addressTest->header());
@@ -360,18 +360,18 @@ class StructTest extends ZimbraTestCase
         $this->assertTrue($addressTest->caseSensitive());
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<addressTest index="1" negative="1" header="header" part="part" stringComparison="stringComparison" value="value" caseSensitive="1" />';
+            .'<addressTest index="10" negative="true" header="header" part="part" stringComparison="stringComparison" value="value" caseSensitive="true" />';
         $this->assertXmlStringEqualsXmlString($xml, (string) $addressTest);
 
         $array = array(
             'addressTest' => array(
-                'index' => 1,
-                'negative' => 1,
+                'index' => 10,
+                'negative' => true,
                 'header' => 'header',
                 'part' => 'part',
                 'stringComparison' => 'stringComparison',
                 'value' => 'value',
-                'caseSensitive' => 1,
+                'caseSensitive' => true,
             ),
         );
         $this->assertEquals($array, $addressTest->toArray());
@@ -380,10 +380,10 @@ class StructTest extends ZimbraTestCase
     function testAlarmInfo()
     {
         $abs = new \Zimbra\Mail\Struct\DateAttr('20120315T18302305Z');
-        $rel = new \Zimbra\Mail\Struct\DurationInfo(true, 1, 2, 3, 4, 5, 'START', 6);
+        $rel = new \Zimbra\Mail\Struct\DurationInfo(true, 7, 2, 3, 4, 5, 'START', 6);
         $trigger = new \Zimbra\Mail\Struct\AlarmTriggerInfo($abs, $rel);
 
-        $repeat = new \Zimbra\Mail\Struct\DurationInfo(false, 1, 2, 3, 4, 5, 'END', 6);
+        $repeat = new \Zimbra\Mail\Struct\DurationInfo(false, 7, 2, 3, 4, 5, 'END', 6);
         $attach = new \Zimbra\Mail\Struct\CalendarAttach('uri', 'ct', 'value');
 
         $xparam1 = new \Zimbra\Mail\Struct\XParam('name1', 'value1');
@@ -430,13 +430,13 @@ class StructTest extends ZimbraTestCase
             .'<alarm action="DISPLAY">'
                 .'<trigger>'
                     .'<abs d="20120315T18302305Z" />'
-                    .'<rel neg="1" w="1" d="2" h="3" m="4" s="5" related="START" count="6" />'
+                    .'<rel neg="true" w="7" d="2" h="3" m="4" s="5" related="START" count="6" />'
                 .'</trigger>'
-                .'<repeat neg="0" w="1" d="2" h="3" m="4" s="5" related="END" count="6" />'
+                .'<repeat neg="false" w="7" d="2" h="3" m="4" s="5" related="END" count="6" />'
                 .'<desc>desc</desc>'
                 .'<attach uri="uri" ct="ct">value</attach>'
                 .'<summary>summary</summary>'
-                .'<at a="a" url="url" d="d" sentBy="sentBy" dir="dir" lang="lang" cutype="cutype" role="role" ptst="NE" rsvp="1" member="member" delTo="delTo" delFrom="delFrom">'
+                .'<at a="a" url="url" d="d" sentBy="sentBy" dir="dir" lang="lang" cutype="cutype" role="role" ptst="NE" rsvp="true" member="member" delTo="delTo" delFrom="delFrom">'
                     .'<xparam name="name1" value="value1" />'
                 .'</at>'
                 .'<xprop name="name" value="value">'
@@ -453,8 +453,8 @@ class StructTest extends ZimbraTestCase
                         'd' => '20120315T18302305Z',
                     ),
                     'rel' => array(
-                        'neg' => 1,
-                        'w' => 1,
+                        'neg' => true,
+                        'w' => 7,
                         'd' => 2,
                         'h' => 3,
                         'm' => 4,
@@ -464,8 +464,8 @@ class StructTest extends ZimbraTestCase
                     ),
                 ),
                 'repeat' => array(
-                    'neg' => 0,
-                    'w' => 1,
+                    'neg' => false,
+                    'w' => 7,
                     'd' => 2,
                     'h' => 3,
                     'm' => 4,
@@ -491,7 +491,7 @@ class StructTest extends ZimbraTestCase
                         'cutype' => 'cutype',
                         'role' => 'role',
                         'ptst' => 'NE',
-                        'rsvp' => 1,
+                        'rsvp' => true,
                         'member' => 'member',
                         'delTo' => 'delTo',
                         'delFrom' => 'delFrom',
@@ -523,7 +523,7 @@ class StructTest extends ZimbraTestCase
     public function testAlarmTriggerInfo()
     {
         $abs = new \Zimbra\Mail\Struct\DateAttr('20120315T18302305Z');
-        $rel = new \Zimbra\Mail\Struct\DurationInfo(true, 1, 2, 3, 4, 5, 'START', 6);
+        $rel = new \Zimbra\Mail\Struct\DurationInfo(true, 7, 2, 3, 4, 5, 'START', 6);
         $trigger = new \Zimbra\Mail\Struct\AlarmTriggerInfo($abs, $rel);
 
         $this->assertSame($abs, $trigger->abs());
@@ -536,7 +536,7 @@ class StructTest extends ZimbraTestCase
         $xml = '<?xml version="1.0"?>'."\n"
             .'<trigger>'
                 .'<abs d="20120315T18302305Z" />'
-                .'<rel neg="1" w="1" d="2" h="3" m="4" s="5" related="START" count="6" />'
+                .'<rel neg="true" w="7" d="2" h="3" m="4" s="5" related="START" count="6" />'
             .'</trigger>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $trigger);
 
@@ -546,8 +546,8 @@ class StructTest extends ZimbraTestCase
                     'd' => '20120315T18302305Z',
                 ),
                 'rel' => array(
-                    'neg' => 1,
-                    'w' => 1,
+                    'neg' => true,
+                    'w' => 7,
                     'd' => 2,
                     'h' => 3,
                     'm' => 4,
@@ -565,7 +565,7 @@ class StructTest extends ZimbraTestCase
         $mp = new \Zimbra\Mail\Struct\MimePartAttachSpec('mid', 'part', true);
         $m = new \Zimbra\Mail\Struct\MsgAttachSpec('id', false);
         $cn = new \Zimbra\Mail\Struct\ContactAttachSpec('id', false);
-        $doc = new \Zimbra\Mail\Struct\DocAttachSpec('path', 'id', 1, true);
+        $doc = new \Zimbra\Mail\Struct\DocAttachSpec('path', 'id', 10, true);
 
         $attach = new \Zimbra\Mail\Struct\AttachmentsInfo;
         $attach->mp($mp)
@@ -581,10 +581,10 @@ class StructTest extends ZimbraTestCase
 
         $xml = '<?xml version="1.0"?>'."\n"
             .'<attach aid="aid">'
-                .'<mp mid="mid" part="part" optional="1" />'
-                .'<m id="id" optional="0" />'
-                .'<cn id="id" optional="0" />'
-                .'<doc path="path" id="id" ver="1" optional="1" />'
+                .'<mp mid="mid" part="part" optional="true" />'
+                .'<m id="id" optional="false" />'
+                .'<cn id="id" optional="false" />'
+                .'<doc path="path" id="id" ver="10" optional="true" />'
             .'</attach>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $attach);
 
@@ -594,21 +594,21 @@ class StructTest extends ZimbraTestCase
                 'mp' => array(
                     'mid' => 'mid',
                     'part' => 'part',
-                    'optional' => 1,
+                    'optional' => true,
                 ),
                 'm' => array(
                     'id' => 'id',
-                    'optional' => 0,
+                    'optional' => false,
                 ),
                 'cn' => array(
                     'id' => 'id',
-                    'optional' => 0,
+                    'optional' => false,
                 ),
                 'doc' => array(
                     'path' => 'path',
                     'id' => 'id',
-                    'ver' => 1,
-                    'optional' => 1,
+                    'ver' => 10,
+                    'optional' => true,
                 ),
             ),
         );
@@ -618,18 +618,18 @@ class StructTest extends ZimbraTestCase
     public function testAttachmentTest()
     {
         $attachmentTest = new \Zimbra\Mail\Struct\AttachmentTest(
-            1, true
+            10, true
         );
         $this->assertInstanceOf('\Zimbra\Mail\Struct\FilterTest', $attachmentTest);
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<attachmentTest index="1" negative="1" />';
+            .'<attachmentTest index="10" negative="true" />';
         $this->assertXmlStringEqualsXmlString($xml, (string) $attachmentTest);
 
         $array = array(
             'attachmentTest' => array(
-                'index' => 1,
-                'negative' => 1,
+                'index' => 10,
+                'negative' => true,
             ),
         );
         $this->assertEquals($array, $attachmentTest->toArray());
@@ -645,7 +645,7 @@ class StructTest extends ZimbraTestCase
     public function testBodyTest()
     {
         $bodyTest = new \Zimbra\Mail\Struct\BodyTest(
-            1, 'value', true, true
+            10, 'value', true, true
         );
         $this->assertInstanceOf('\Zimbra\Mail\Struct\FilterTest', $bodyTest);
         $this->assertSame('value', $bodyTest->value());
@@ -657,15 +657,15 @@ class StructTest extends ZimbraTestCase
         $this->assertTrue($bodyTest->caseSensitive());
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<bodyTest index="1" negative="1" value="value" caseSensitive="1" />';
+            .'<bodyTest index="10" negative="true" value="value" caseSensitive="true" />';
         $this->assertXmlStringEqualsXmlString($xml, (string) $bodyTest);
 
         $array = array(
             'bodyTest' => array(
-                'index' => 1,
-                'negative' => 1,
+                'index' => 10,
+                'negative' => true,
                 'value' => 'value',
-                'caseSensitive' => 1,
+                'caseSensitive' => true,
             ),
         );
         $this->assertEquals($array, $bodyTest->toArray());
@@ -709,18 +709,18 @@ class StructTest extends ZimbraTestCase
     public function testBulkTest()
     {
         $bulkTest = new \Zimbra\Mail\Struct\BulkTest(
-            1, true
+            10, true
         );
         $this->assertInstanceOf('\Zimbra\Mail\Struct\FilterTest', $bulkTest);
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<bulkTest index="1" negative="1" />';
+            .'<bulkTest index="10" negative="true" />';
         $this->assertXmlStringEqualsXmlString($xml, (string) $bulkTest);
 
         $array = array(
             'bulkTest' => array(
-                'index' => 1,
-                'negative' => 1,
+                'index' => 10,
+                'negative' => true,
             ),
         );
         $this->assertEquals($array, $bulkTest->toArray());
@@ -728,8 +728,8 @@ class StructTest extends ZimbraTestCase
 
     public function testByDayRule()
     {
-        $wkday1 = new \Zimbra\Mail\Struct\WkDay(WeekDay::SU(), 1);
-        $wkday2 = new \Zimbra\Mail\Struct\WkDay(WeekDay::MO(), 1);
+        $wkday1 = new \Zimbra\Mail\Struct\WkDay(WeekDay::SU(), 10);
+        $wkday2 = new \Zimbra\Mail\Struct\WkDay(WeekDay::MO(), 10);
 
         $byday = new \Zimbra\Mail\Struct\ByDayRule(array($wkday1));
         $this->assertSame(array($wkday1), $byday->wkday()->all());
@@ -738,8 +738,8 @@ class StructTest extends ZimbraTestCase
 
         $xml = '<?xml version="1.0"?>'."\n"
             .'<byday>'
-                .'<wkday day="SU" ordwk="1" />'
-                .'<wkday day="MO" ordwk="1" />'
+                .'<wkday day="SU" ordwk="10" />'
+                .'<wkday day="MO" ordwk="10" />'
             .'</byday>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $byday);
 
@@ -748,11 +748,11 @@ class StructTest extends ZimbraTestCase
                 'wkday' => array(
                     array(
                         'day' => 'SU',
-                        'ordwk' => 1,
+                        'ordwk' => 10,
                     ),
                     array(
                         'day' => 'MO',
-                        'ordwk' => 1,
+                        'ordwk' => 10,
                     ),
                 )
             ),
@@ -1028,7 +1028,7 @@ class StructTest extends ZimbraTestCase
         $this->assertSame('delFrom', $cal->delFrom());
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<at a="a" url="url" d="d" sentBy="sentBy" dir="dir" lang="lang" cutype="cutype" role="role" ptst="AC" rsvp="1" member="member" delTo="delTo" delFrom="delFrom">'
+            .'<at a="a" url="url" d="d" sentBy="sentBy" dir="dir" lang="lang" cutype="cutype" role="role" ptst="AC" rsvp="true" member="member" delTo="delTo" delFrom="delFrom">'
                 .'<xparam name="name1" value="value1" />'
                 .'<xparam name="name2" value="value2" />'
             .'</at>';
@@ -1045,7 +1045,7 @@ class StructTest extends ZimbraTestCase
                 'cutype' => 'cutype',
                 'role' => 'role',
                 'ptst' => 'AC',
-                'rsvp' => 1,
+                'rsvp' => true,
                 'member' => 'member',
                 'delTo' => 'delTo',
                 'delFrom' => 'delFrom',
@@ -1127,37 +1127,37 @@ class StructTest extends ZimbraTestCase
     public function testCalReply()
     {
         $reply = new \Zimbra\Mail\Struct\CalReply(
-            'at', 1, 1, 1, '991231', 'sentBy', ParticipationStatus::NE(), 'tz', '991231000000'
+            'at', 10, 10, 10, '991231', 'sentBy', ParticipationStatus::NE(), 'tz', '991231000000'
         );
         $this->assertSame('at', $reply->at());
-        $this->assertSame(1, $reply->seq());
-        $this->assertSame(1, $reply->d());
+        $this->assertSame(10, $reply->seq());
+        $this->assertSame(10, $reply->d());
         $this->assertSame('sentBy', $reply->sentBy());
         $this->assertTrue($reply->ptst()->is('NE'));
 
         $reply->at('at')
-              ->seq(1)
-              ->d(1)
+              ->seq(10)
+              ->d(10)
               ->sentBy('sentBy')
               ->ptst(ParticipationStatus::NE());
         $this->assertSame('at', $reply->at());
-        $this->assertSame(1, $reply->seq());
-        $this->assertSame(1, $reply->d());
+        $this->assertSame(10, $reply->seq());
+        $this->assertSame(10, $reply->d());
         $this->assertSame('sentBy', $reply->sentBy());
         $this->assertTrue($reply->ptst()->is('NE'));
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<reply at="at" seq="1" d="1" sentBy="sentBy" ptst="NE" rangeType="1" recurId="991231" tz="tz" ridZ="991231000000" />';
+            .'<reply at="at" seq="10" d="10" sentBy="sentBy" ptst="NE" rangeType="10" recurId="991231" tz="tz" ridZ="991231000000" />';
         $this->assertXmlStringEqualsXmlString($xml, (string) $reply);
 
         $array = array(
             'reply' => array(
                 'at' => 'at',
-                'seq' => 1,
-                'd' => 1,
+                'seq' => 10,
+                'd' => 10,
                 'sentBy' => 'sentBy',
                 'ptst' => 'NE',
-                'rangeType' => 1,
+                'rangeType' => 10,
                 'recurId' => '991231',
                 'tz' => 'tz',
                 'ridZ' => '991231000000',
@@ -1168,8 +1168,8 @@ class StructTest extends ZimbraTestCase
 
     public function testCalTZInfo()
     {
-        $standard = new \Zimbra\Struct\TzOnsetInfo(1, 2, 3, 4);
-        $daylight = new \Zimbra\Struct\TzOnsetInfo(4, 3, 2, 1);
+        $standard = new \Zimbra\Struct\TzOnsetInfo(12, 2, 3, 4);
+        $daylight = new \Zimbra\Struct\TzOnsetInfo(4, 3, 2, 10);
 
         $tzi = new \Zimbra\Mail\Struct\CalTZInfo('id', 2, 3, $daylight, $standard, 'std', 'day');
         $this->assertSame('id', $tzi->id());
@@ -1181,36 +1181,36 @@ class StructTest extends ZimbraTestCase
         $this->assertSame('day', $tzi->dayname());
 
         $tzi->id('id')
-            ->stdoff(1)
-            ->dayoff(1)
+            ->stdoff(10)
+            ->dayoff(10)
             ->standard($standard)
             ->daylight($daylight)
             ->stdname('stdname')
             ->dayname('dayname');
         $this->assertSame('id', $tzi->id());
-        $this->assertSame(1, $tzi->stdoff());
-        $this->assertSame(1, $tzi->dayoff());
+        $this->assertSame(10, $tzi->stdoff());
+        $this->assertSame(10, $tzi->dayoff());
         $this->assertSame($standard, $tzi->standard());
         $this->assertSame($daylight, $tzi->daylight());
         $this->assertSame('stdname', $tzi->stdname());
         $this->assertSame('dayname', $tzi->dayname());
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<tz id="id" stdoff="1" dayoff="1" stdname="stdname" dayname="dayname">'
-                .'<standard mon="1" hour="2" min="3" sec="4" />'
-                .'<daylight mon="4" hour="3" min="2" sec="1" />'
+            .'<tz id="id" stdoff="10" dayoff="10" stdname="stdname" dayname="dayname">'
+                .'<standard mon="12" hour="2" min="3" sec="4" />'
+                .'<daylight mon="4" hour="3" min="2" sec="10" />'
             .'</tz>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $tzi);
 
         $array = array(
             'tz' => array(
                 'id' => 'id',
-                'stdoff' => 1,
-                'dayoff' => 1,
+                'stdoff' => 10,
+                'dayoff' => 10,
                 'stdname' => 'stdname',
                 'dayname' => 'dayname',
                 'standard' => array(
-                    'mon' => 1,
+                    'mon' => 12,
                     'hour' => 2,
                     'min' => 3,
                     'sec' => 4,
@@ -1219,7 +1219,7 @@ class StructTest extends ZimbraTestCase
                     'mon' => 4,
                     'hour' => 3,
                     'min' => 2,
-                    'sec' => 1,
+                    'sec' => 10,
                 ),
             ),
         );
@@ -1229,29 +1229,29 @@ class StructTest extends ZimbraTestCase
     public function testCancelRuleInfo()
     {
         $cancel = new \Zimbra\Mail\Struct\CancelRuleInfo(
-            1, '991231', 'tz', '991231000000'
+            10, '991231', 'tz', '991231000000'
         );
-        $this->assertSame(1, $cancel->rangeType());
+        $this->assertSame(10, $cancel->rangeType());
         $this->assertSame('991231', $cancel->recurId());
         $this->assertSame('tz', $cancel->tz());
         $this->assertSame('991231000000', $cancel->ridZ());
 
-        $cancel->rangeType(1)
+        $cancel->rangeType(10)
                ->recurId('991231')
                ->tz('tz')
                ->ridZ('991231000000');
-        $this->assertSame(1, $cancel->rangeType());
+        $this->assertSame(10, $cancel->rangeType());
         $this->assertSame('991231', $cancel->recurId());
         $this->assertSame('tz', $cancel->tz());
         $this->assertSame('991231000000', $cancel->ridZ());
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<cancel rangeType="1" recurId="991231" tz="tz" ridZ="991231000000" />';
+            .'<cancel rangeType="10" recurId="991231" tz="tz" ridZ="991231000000" />';
         $this->assertXmlStringEqualsXmlString($xml, (string) $cancel);
 
         $array = array(
             'cancel' => array(
-                'rangeType' => 1,
+                'rangeType' => 10,
                 'recurId' => '991231',
                 'tz' => 'tz',
                 'ridZ' => '991231000000',
@@ -1266,7 +1266,7 @@ class StructTest extends ZimbraTestCase
             'n', 'value', 'aid', 'id', 'part'
         );
         $action = new \Zimbra\Mail\Struct\ContactActionSelector(
-            ContactActionOp::MOVE(), 'id', 'tcon', 1, 'l', '#aabbcc', 1, 'name', 'f', 't', 'tn', array($a)
+            ContactActionOp::MOVE(), 'id', 'tcon', 10, 'l', '#aabbcc', 10, 'name', 'f', 't', 'tn', array($a)
         );
         $this->assertInstanceOf('\Zimbra\Mail\Struct\ActionSelector', $action);
         $this->assertTrue($action->op()->is('move'));
@@ -1279,7 +1279,7 @@ class StructTest extends ZimbraTestCase
         $action->a()->remove(1);
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<action op="move" id="id" tcon="tcon" tag="1" l="l" rgb="#aabbcc" color="1" name="name" f="f" t="t" tn="tn">'
+            .'<action op="move" id="id" tcon="tcon" tag="10" l="l" rgb="#aabbcc" color="10" name="name" f="f" t="t" tn="tn">'
                 .'<a n="n" aid="aid" id="id" part="part">value</a>'
             .'</action>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $action);
@@ -1289,10 +1289,10 @@ class StructTest extends ZimbraTestCase
                 'op' => 'move',
                 'id' => 'id',
                 'tcon' => 'tcon',
-                'tag' => 1,
+                'tag' => 10,
                 'l' => 'l',
                 'rgb' => '#aabbcc',
-                'color' => 1,
+                'color' => 10,
                 'name' => 'name',
                 'f' => 'f',
                 't' => 't',
@@ -1322,13 +1322,13 @@ class StructTest extends ZimbraTestCase
         $this->assertSame('id', $cn->id());
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<cn id="id" optional="1" />';
+            .'<cn id="id" optional="true" />';
         $this->assertXmlStringEqualsXmlString($xml, (string) $cn);
 
         $array = array(
             'cn' => array(
                 'id' => 'id',
-                'optional' => 1,
+                'optional' => true,
             ),
         );
         $this->assertEquals($array, $cn->toArray());
@@ -1337,7 +1337,7 @@ class StructTest extends ZimbraTestCase
     public function testContactRankingTest()
     {
         $contactRankingTest = new \Zimbra\Mail\Struct\ContactRankingTest(
-            1, 'header', true
+            10, 'header', true
         );
         $this->assertInstanceOf('\Zimbra\Mail\Struct\FilterTest', $contactRankingTest);
         $this->assertSame('header', $contactRankingTest->header());
@@ -1345,13 +1345,13 @@ class StructTest extends ZimbraTestCase
         $this->assertSame('header', $contactRankingTest->header());
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<contactRankingTest index="1" negative="1" header="header" />';
+            .'<contactRankingTest index="10" negative="true" header="header" />';
         $this->assertXmlStringEqualsXmlString($xml, (string) $contactRankingTest);
 
         $array = array(
             'contactRankingTest' => array(
-                'index' => 1,
-                'negative' => 1,
+                'index' => 10,
+                'negative' => true,
                 'header' => 'header',
             ),
         );
@@ -1371,12 +1371,12 @@ class StructTest extends ZimbraTestCase
         );
 
         $cn = new \Zimbra\Mail\Struct\ContactSpec(
-            $vcard, array($a), array($m), 1, 'l', 't', 'tn'
+            $vcard, array($a), array($m), 10, 'l', 't', 'tn'
         );
         $this->assertSame($vcard, $cn->vcard());
         $this->assertSame(array($a), $cn->a()->all());
         $this->assertSame(array($m), $cn->m()->all());
-        $this->assertSame(1, $cn->id());
+        $this->assertSame(10, $cn->id());
         $this->assertSame('l', $cn->l());
         $this->assertSame('t', $cn->t());
         $this->assertSame('tn', $cn->tn());
@@ -1384,24 +1384,24 @@ class StructTest extends ZimbraTestCase
         $cn->vcard($vcard)
            ->addA($a)
            ->addM($m)
-           ->id(1)
+           ->id(10)
            ->l('l')
            ->t('t')
            ->tn('tn');
         $this->assertSame($vcard, $cn->vcard());
         $this->assertSame(array($a, $a), $cn->a()->all());
         $this->assertSame(array($m, $m), $cn->m()->all());
-        $this->assertSame(1, $cn->id());
+        $this->assertSame(10, $cn->id());
         $this->assertSame('l', $cn->l());
         $this->assertSame('t', $cn->t());
         $this->assertSame('tn', $cn->tn());
 
         $cn = new \Zimbra\Mail\Struct\ContactSpec(
-            $vcard, array($a), array($m), 1, 'l', 't', 'tn'
+            $vcard, array($a), array($m), 10, 'l', 't', 'tn'
         );
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<cn id="1" l="l" t="t" tn="tn">'
+            .'<cn id="10" l="l" t="t" tn="tn">'
                 .'<vcard mid="mid" part="part" aid="aid">value</vcard>'
                 .'<a n="n" aid="aid" id="id" part="part">value</a>'
                 .'<m type="type" value="value" />'
@@ -1410,7 +1410,7 @@ class StructTest extends ZimbraTestCase
 
         $array = array(
             'cn' => array(
-                'id' => 1,
+                'id' => 10,
                 'l' => 'l',
                 't' => 't',
                 'tn' => 'tn',
@@ -1503,7 +1503,7 @@ class StructTest extends ZimbraTestCase
     public function testConvActionSelector()
     {
         $action = new \Zimbra\Mail\Struct\ConvActionSelector(
-            ConvActionOp::DELETE(), 'id', 'tcon', 1, 'l', '#aabbcc', 1, 'name', 'f', 't', 'tn'
+            ConvActionOp::DELETE(), 'id', 'tcon', 10, 'l', '#aabbcc', 10, 'name', 'f', 't', 'tn'
         );
         $this->assertInstanceOf('\Zimbra\Mail\Struct\ActionSelector', $action);
         $this->assertTrue($action->op()->is('delete'));
@@ -1511,7 +1511,7 @@ class StructTest extends ZimbraTestCase
         $this->assertTrue($action->op()->is('delete'));
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<action op="delete" id="id" tcon="tcon" tag="1" l="l" rgb="#aabbcc" color="1" name="name" f="f" t="t" tn="tn" />';
+            .'<action op="delete" id="id" tcon="tcon" tag="10" l="l" rgb="#aabbcc" color="10" name="name" f="f" t="t" tn="tn" />';
         $this->assertXmlStringEqualsXmlString($xml, (string) $action);
 
         $array = array(
@@ -1519,10 +1519,10 @@ class StructTest extends ZimbraTestCase
                 'op' => 'delete',
                 'id' => 'id',
                 'tcon' => 'tcon',
-                'tag' => 1,
+                'tag' => 10,
                 'l' => 'l',
                 'rgb' => '#aabbcc',
-                'color' => 1,
+                'color' => 10,
                 'name' => 'name',
                 'f' => 'f',
                 't' => 't',
@@ -1536,29 +1536,29 @@ class StructTest extends ZimbraTestCase
     {
         $header = new \Zimbra\Struct\AttributeName('attribute-name');
         $c = new \Zimbra\Mail\Struct\ConversationSpec(
-            'id', array($header), 'fetch', true, 1
+            'id', array($header), 'fetch', true, 10
         );
         $this->assertSame('id', $c->id());
         $this->assertSame('fetch', $c->fetch());
         $this->assertTrue($c->html());
-        $this->assertSame(1, $c->max());
+        $this->assertSame(10, $c->max());
         $this->assertSame(array($header), $c->header()->all());
 
         $c->id('id')
           ->fetch('fetch')
           ->html(true)
-          ->max(1)
+          ->max(10)
           ->addHeader($header);
         $this->assertSame('id', $c->id());
         $this->assertSame('fetch', $c->fetch());
         $this->assertTrue($c->html());
-        $this->assertSame(1, $c->max());
+        $this->assertSame(10, $c->max());
         $this->assertSame(array($header, $header), $c->header()->all());
 
         $c->header()->remove(1);
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<c id="id" fetch="fetch" html="1" max="1">'
+            .'<c id="id" fetch="fetch" html="true" max="10">'
                 .'<header n="attribute-name" />'
             .'</c>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $c);
@@ -1567,8 +1567,8 @@ class StructTest extends ZimbraTestCase
             'c' => array(
                 'id' => 'id',
                 'fetch' => 'fetch',
-                'html' => 1,
-                'max' => 1,
+                'html' => true,
+                'max' => 10,
                 'header' => array(
                     array(
                         'n' => 'attribute-name',
@@ -1582,7 +1582,7 @@ class StructTest extends ZimbraTestCase
     public function testConversationTest()
     {
         $conversationTest = new \Zimbra\Mail\Struct\ConversationTest(
-            1, 'where', true
+            10, 'where', true
         );
         $this->assertInstanceOf('\Zimbra\Mail\Struct\FilterTest', $conversationTest);
         $this->assertSame('where', $conversationTest->where());
@@ -1590,13 +1590,13 @@ class StructTest extends ZimbraTestCase
         $this->assertSame('where', $conversationTest->where());
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<conversationTest index="1" negative="1" where="where" />';
+            .'<conversationTest index="10" negative="true" where="where" />';
         $this->assertXmlStringEqualsXmlString($xml, (string) $conversationTest);
 
         $array = array(
             'conversationTest' => array(
-                'index' => 1,
-                'negative' => 1,
+                'index' => 10,
+                'negative' => true,
                 'where' => 'where',
             ),
         );
@@ -1606,7 +1606,7 @@ class StructTest extends ZimbraTestCase
     public function testCurrentDayOfWeekTest()
     {
         $currentDayOfWeekTest = new \Zimbra\Mail\Struct\CurrentDayOfWeekTest(
-            1, 'value', true
+            10, 'value', true
         );
         $this->assertInstanceOf('\Zimbra\Mail\Struct\FilterTest', $currentDayOfWeekTest);
         $this->assertSame('value', $currentDayOfWeekTest->value());
@@ -1614,13 +1614,13 @@ class StructTest extends ZimbraTestCase
         $this->assertSame('value', $currentDayOfWeekTest->value());
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<currentDayOfWeekTest index="1" negative="1" value="value" />';
+            .'<currentDayOfWeekTest index="10" negative="true" value="value" />';
         $this->assertXmlStringEqualsXmlString($xml, (string) $currentDayOfWeekTest);
 
         $array = array(
             'currentDayOfWeekTest' => array(
-                'index' => 1,
-                'negative' => 1,
+                'index' => 10,
+                'negative' => true,
                 'value' => 'value',
             ),
         );
@@ -1630,7 +1630,7 @@ class StructTest extends ZimbraTestCase
     public function testCurrentTimeTest()
     {
         $currentTimeTest = new \Zimbra\Mail\Struct\CurrentTimeTest(
-            1, 'dateComparison', 'time', true
+            10, 'dateComparison', 'time', true
         );
         $this->assertInstanceOf('\Zimbra\Mail\Struct\FilterTest', $currentTimeTest);
         $this->assertSame('dateComparison', $currentTimeTest->dateComparison());
@@ -1640,13 +1640,13 @@ class StructTest extends ZimbraTestCase
                         ->time('time');
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<currentTimeTest index="1" negative="1" dateComparison="dateComparison" time="time" />';
+            .'<currentTimeTest index="10" negative="true" dateComparison="dateComparison" time="time" />';
         $this->assertXmlStringEqualsXmlString($xml, (string) $currentTimeTest);
 
         $array = array(
             'currentTimeTest' => array(
-                'index' => 1,
-                'negative' => 1,
+                'index' => 10,
+                'negative' => true,
                 'dateComparison' => 'dateComparison',
                 'time' => 'time',
             ),
@@ -1682,25 +1682,27 @@ class StructTest extends ZimbraTestCase
     public function testDateTest()
     {
         $dateTest = new \Zimbra\Mail\Struct\DateTest(
-            1, 'dateComparison', 1, true
+            10, 'dateComparison', 10, true
         );
         $this->assertInstanceOf('\Zimbra\Mail\Struct\FilterTest', $dateTest);
         $this->assertSame('dateComparison', $dateTest->dateComparison());
-        $this->assertSame(1, $dateTest->d());
+        $this->assertSame(10, $dateTest->d());
 
         $dateTest->dateComparison('dateComparison')
-                 ->d(1);
+                 ->d(10);
+        $this->assertSame('dateComparison', $dateTest->dateComparison());
+        $this->assertSame(10, $dateTest->d());
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<dateTest index="1" negative="1" dateComparison="dateComparison" d="1" />';
+            .'<dateTest index="10" negative="true" dateComparison="dateComparison" d="10" />';
         $this->assertXmlStringEqualsXmlString($xml, (string) $dateTest);
 
         $array = array(
             'dateTest' => array(
-                'index' => 1,
-                'negative' => 1,
+                'index' => 10,
+                'negative' => true,
                 'dateComparison' => 'dateComparison',
-                'd' => 1,
+                'd' => 10,
             ),
         );
         $this->assertEquals($array, $dateTest->toArray());
@@ -1727,26 +1729,26 @@ class StructTest extends ZimbraTestCase
 
     public function testDiffDocumentVersionSpec()
     {
-        $doc = new \Zimbra\Mail\Struct\DiffDocumentVersionSpec('id', 1, 2);
+        $doc = new \Zimbra\Mail\Struct\DiffDocumentVersionSpec('id', 10, 2);
         $this->assertSame('id', $doc->id());
-        $this->assertSame(1, $doc->v1());
+        $this->assertSame(10, $doc->v1());
         $this->assertSame(2, $doc->v2());
 
         $doc->id('id')
-            ->v1(1)
+            ->v1(10)
             ->v2(2);
         $this->assertSame('id', $doc->id());
-        $this->assertSame(1, $doc->v1());
+        $this->assertSame(10, $doc->v1());
         $this->assertSame(2, $doc->v2());
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<doc id="id" v1="1" v2="2" />';
+            .'<doc id="id" v1="10" v2="2" />';
         $this->assertXmlStringEqualsXmlString($xml, (string) $doc);
 
         $array = array(
             'doc' => array(
                 'id' => 'id',
-                'v1' => 1,
+                'v1' => 10,
                 'v2' => 2,
             ),
         );
@@ -1756,17 +1758,17 @@ class StructTest extends ZimbraTestCase
     public function testDiscardAction()
     {
         $actionDiscard = new \Zimbra\Mail\Struct\DiscardAction(
-            1
+            10
         );
         $this->assertInstanceOf('\Zimbra\Mail\Struct\FilterAction', $actionDiscard);
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<actionDiscard index="1" />';
+            .'<actionDiscard index="10" />';
         $this->assertXmlStringEqualsXmlString($xml, (string) $actionDiscard);
 
         $array = array(
             'actionDiscard' => array(
-                'index' => 1,
+                'index' => 10,
             ),
         );
         $this->assertEquals($array, $actionDiscard->toArray());
@@ -1774,23 +1776,23 @@ class StructTest extends ZimbraTestCase
 
     public function testDismissAlarm()
     {
-        $alarm = new \Zimbra\Mail\Struct\DismissAlarm('id', 1);
+        $alarm = new \Zimbra\Mail\Struct\DismissAlarm('id', 10);
         $this->assertSame('id', $alarm->id());
-        $this->assertSame(1, $alarm->dismissedAt());
+        $this->assertSame(10, $alarm->dismissedAt());
 
         $alarm->id('id')
-              ->dismissedAt(1);
+              ->dismissedAt(10);
         $this->assertSame('id', $alarm->id());
-        $this->assertSame(1, $alarm->dismissedAt());
+        $this->assertSame(10, $alarm->dismissedAt());
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<alarm id="id" dismissedAt="1" />';
+            .'<alarm id="id" dismissedAt="10" />';
         $this->assertXmlStringEqualsXmlString($xml, (string) $alarm);
 
         $array = array(
             'alarm' => array(
                 'id' => 'id',
-                'dismissedAt' => 1,
+                'dismissedAt' => 10,
             ),
         );
         $this->assertEquals($array, $alarm->toArray());
@@ -1798,17 +1800,17 @@ class StructTest extends ZimbraTestCase
 
     public function testDismissAppointmentAlarm()
     {
-        $appt = new \Zimbra\Mail\Struct\DismissAppointmentAlarm('id', 1);
+        $appt = new \Zimbra\Mail\Struct\DismissAppointmentAlarm('id', 10);
         $this->assertInstanceOf('Zimbra\Mail\Struct\DismissAlarm', $appt);
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<appt id="id" dismissedAt="1" />';
+            .'<appt id="id" dismissedAt="10" />';
         $this->assertXmlStringEqualsXmlString($xml, (string) $appt);
 
         $array = array(
             'appt' => array(
                 'id' => 'id',
-                'dismissedAt' => 1,
+                'dismissedAt' => 10,
             ),
         );
         $this->assertEquals($array, $appt->toArray());
@@ -1816,17 +1818,17 @@ class StructTest extends ZimbraTestCase
 
     public function testDismissTaskAlarm()
     {
-        $task = new \Zimbra\Mail\Struct\DismissTaskAlarm('id', 1);
+        $task = new \Zimbra\Mail\Struct\DismissTaskAlarm('id', 10);
         $this->assertInstanceOf('Zimbra\Mail\Struct\DismissAlarm', $task);
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<task id="id" dismissedAt="1" />';
+            .'<task id="id" dismissedAt="10" />';
         $this->assertXmlStringEqualsXmlString($xml, (string) $task);
 
         $array = array(
             'task' => array(
                 'id' => 'id',
-                'dismissedAt' => 1,
+                'dismissedAt' => 10,
             ),
         );
         $this->assertEquals($array, $task->toArray());
@@ -1842,22 +1844,22 @@ class StructTest extends ZimbraTestCase
 
         $doc->path('path')
             ->id('id')
-            ->ver(1)
+            ->ver(100)
             ->optional(true);
         $this->assertSame('path', $doc->path());
         $this->assertSame('id', $doc->id());
-        $this->assertSame(1, $doc->ver());
+        $this->assertSame(100, $doc->ver());
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<doc path="path" id="id" ver="1" optional="1" />';
+            .'<doc path="path" id="id" ver="100" optional="true" />';
         $this->assertXmlStringEqualsXmlString($xml, (string) $doc);
 
         $array = array(
             'doc' => array(
                 'path' => 'path',
                 'id' => 'id',
-                'ver' => 1,
-                'optional' => 1,
+                'ver' => 100,
+                'optional' => true,
             ),
         );
         $this->assertEquals($array, $doc->toArray());
@@ -1866,28 +1868,28 @@ class StructTest extends ZimbraTestCase
     public function testDocumentActionGrant()
     {
         $grant = new \Zimbra\Mail\Struct\DocumentActionGrant(
-            DocumentPermission::READ(), DocumentGrantType::ALL(), 1
+            DocumentPermission::READ(), DocumentGrantType::ALL(), 100
         );
         $this->assertTrue($grant->perm()->is('r'));
         $this->assertTrue($grant->gt()->is('all'));
-        $this->assertSame(1, $grant->expiry());
+        $this->assertSame(100, $grant->expiry());
 
         $grant->perm(DocumentPermission::READ())
               ->gt(DocumentGrantType::ALL())
-              ->expiry(1);
+              ->expiry(10);
         $this->assertTrue($grant->perm()->is('r'));
         $this->assertTrue($grant->gt()->is('all'));
-        $this->assertSame(1, $grant->expiry());
+        $this->assertSame(10, $grant->expiry());
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<grant perm="r" gt="all" expiry="1" />';
+            .'<grant perm="r" gt="all" expiry="10" />';
         $this->assertXmlStringEqualsXmlString($xml, (string) $grant);
 
         $array = array(
             'grant' => array(
                 'perm' => 'r',
                 'gt' => 'all',
-                'expiry' => 1,
+                'expiry' => 10,
             ),
         );
         $this->assertEquals($array, $grant->toArray());
@@ -1896,10 +1898,10 @@ class StructTest extends ZimbraTestCase
     public function testDocumentActionSelector()
     {
         $grant = new \Zimbra\Mail\Struct\DocumentActionGrant(
-            DocumentPermission::READ(), DocumentGrantType::ALL(), 1
+            DocumentPermission::READ(), DocumentGrantType::ALL(), 10
         );
         $action = new \Zimbra\Mail\Struct\DocumentActionSelector(
-            DocumentActionOp::WATCH(), $grant, 'zid', 'id', 'tcon', 1, 'l', '#aabbcc', 1, 'name', 'f', 't', 'tn'
+            DocumentActionOp::WATCH(), $grant, 'zid', 'id', 'tcon', 10, 'l', '#aabbcc', 10, 'name', 'f', 't', 'tn'
         );
         $this->assertTrue($action->op()->is('watch'));
         $this->assertSame($grant, $action->grant());
@@ -1913,8 +1915,8 @@ class StructTest extends ZimbraTestCase
         $this->assertSame('zid', $action->zid());
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<action op="watch" id="id" tcon="tcon" tag="1" l="l" rgb="#aabbcc" color="1" name="name" f="f" t="t" tn="tn" zid="zid">'
-                .'<grant perm="r" gt="all" expiry="1" />'
+            .'<action op="watch" id="id" tcon="tcon" tag="10" l="l" rgb="#aabbcc" color="10" name="name" f="f" t="t" tn="tn" zid="zid">'
+                .'<grant perm="r" gt="all" expiry="10" />'
             .'</action>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $action);
 
@@ -1923,10 +1925,10 @@ class StructTest extends ZimbraTestCase
                 'op' => 'watch',
                 'id' => 'id',
                 'tcon' => 'tcon',
-                'tag' => 1,
+                'tag' => 10,
                 'l' => 'l',
                 'rgb' => '#aabbcc',
-                'color' => 1,
+                'color' => 10,
                 'name' => 'name',
                 'f' => 'f',
                 't' => 't',
@@ -1935,7 +1937,7 @@ class StructTest extends ZimbraTestCase
                 'grant' => array(
                     'perm' => 'r',
                     'gt' => 'all',
-                    'expiry' => 1,
+                    'expiry' => 10,
                 ),
             )
         );
@@ -1949,11 +1951,11 @@ class StructTest extends ZimbraTestCase
             'id', 'part'
         );
         $docVer = new \Zimbra\Mail\Struct\IdVersion(
-            'id', 1
+            'id', 10
         );
 
         $doc = new \Zimbra\Mail\Struct\DocumentSpec(
-            $upload, $m, $docVer, 'name', 'ct', 'desc', 'l', 'id', 1, 'content', true, 'f'
+            $upload, $m, $docVer, 'name', 'ct', 'desc', 'l', 'id', 10, 'content', true, 'f'
         );
         $this->assertSame($upload, $doc->upload());
         $this->assertSame($m, $doc->m());
@@ -1963,7 +1965,7 @@ class StructTest extends ZimbraTestCase
         $this->assertSame('desc', $doc->desc());
         $this->assertSame('l', $doc->l());
         $this->assertSame('id', $doc->id());
-        $this->assertSame(1, $doc->ver());
+        $this->assertSame(10, $doc->ver());
         $this->assertSame('content', $doc->content());
         $this->assertTrue($doc->descEnabled());
         $this->assertSame('f', $doc->f());
@@ -1976,7 +1978,7 @@ class StructTest extends ZimbraTestCase
             ->desc('desc')
             ->l('l')
             ->id('id')
-            ->ver(1)
+            ->ver(10)
             ->content('content')
             ->descEnabled(true)
             ->f('f');
@@ -1988,16 +1990,16 @@ class StructTest extends ZimbraTestCase
         $this->assertSame('desc', $doc->desc());
         $this->assertSame('l', $doc->l());
         $this->assertSame('id', $doc->id());
-        $this->assertSame(1, $doc->ver());
+        $this->assertSame(10, $doc->ver());
         $this->assertSame('content', $doc->content());
         $this->assertTrue($doc->descEnabled());
         $this->assertSame('f', $doc->f());
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<doc name="name" ct="ct" desc="desc" l="l" id="id" ver="1" content="content" descEnabled="1" f="f">'
+            .'<doc name="name" ct="ct" desc="desc" l="l" id="id" ver="10" content="content" descEnabled="true" f="f">'
                 .'<upload id="id" />'
                 .'<m id="id" part="part" />'
-                .'<doc id="id" ver="1" />'
+                .'<doc id="id" ver="10" />'
             .'</doc>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $doc);
 
@@ -2008,9 +2010,9 @@ class StructTest extends ZimbraTestCase
                 'desc' => 'desc',
                 'l' => 'l',
                 'id' => 'id',
-                'ver' => 1,
+                'ver' => 10,
                 'content' => 'content',
-                'descEnabled' => 1,
+                'descEnabled' => true,
                 'f' => 'f',
                 'upload' => array(
                     'id' => 'id',
@@ -2021,7 +2023,7 @@ class StructTest extends ZimbraTestCase
                 ),
                 'doc' => array(
                     'id' => 'id',
-                    'ver' => 1,
+                    'ver' => 10,
                 ),
             )
         );
@@ -2066,9 +2068,7 @@ class StructTest extends ZimbraTestCase
         $e = new \Zimbra\Mail\Struct\DtTimeInfo(
             '20130315T18302305Z', 'tz', 2000
         );
-        $dur = new \Zimbra\Mail\Struct\DurationInfo(
-            true, 1, 2, 3, 4, 5, 'START', 6
-        );
+        $dur = new \Zimbra\Mail\Struct\DurationInfo(true, 7, 2, 3, 4, 5, 'START', 6);
 
         $dtval = new \Zimbra\Mail\Struct\DtVal($s, $e, $dur);
         $this->assertSame($s, $dtval->s());
@@ -2086,7 +2086,7 @@ class StructTest extends ZimbraTestCase
             .'<dtval>'
                 .'<s d="20120315T18302305Z" tz="tz" u="1000" />'
                 .'<e d="20130315T18302305Z" tz="tz" u="2000" />'
-                .'<dur neg="1" w="1" d="2" h="3" m="4" s="5" related="START" count="6" />'
+                .'<dur neg="true" w="7" d="2" h="3" m="4" s="5" related="START" count="6" />'
             .'</dtval>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $dtval);
 
@@ -2103,8 +2103,8 @@ class StructTest extends ZimbraTestCase
                     'u' => 2000,
                 ),
                 'dur' => array(
-                    'neg' => 1,
-                    'w' => 1,
+                    'neg' => true,
+                    'w' => 7,
                     'd' => 2,
                     'h' => 3,
                     'm' => 4,
@@ -2119,9 +2119,9 @@ class StructTest extends ZimbraTestCase
 
     public function testDurationInfo()
     {
-        $rel = new \Zimbra\Mail\Struct\DurationInfo(false, 1, 2, 3, 4, 5, 'END', 6);
+        $rel = new \Zimbra\Mail\Struct\DurationInfo(false, 7, 2, 3, 4, 5, 'END', 6);
         $this->assertFalse($rel->neg());
-        $this->assertSame(1, $rel->w());
+        $this->assertSame(7, $rel->w());
         $this->assertSame(2, $rel->d());
         $this->assertSame(3, $rel->h());
         $this->assertSame(4, $rel->m());
@@ -2130,7 +2130,7 @@ class StructTest extends ZimbraTestCase
         $this->assertSame(6, $rel->count());
 
         $rel->neg(true)
-            ->w(1)
+            ->w(7)
             ->d(2)
             ->h(3)
             ->m(4)
@@ -2138,7 +2138,7 @@ class StructTest extends ZimbraTestCase
             ->related('START')
             ->count(6);
         $this->assertTrue($rel->neg());
-        $this->assertSame(1, $rel->w());
+        $this->assertSame(7, $rel->w());
         $this->assertSame(2, $rel->d());
         $this->assertSame(3, $rel->h());
         $this->assertSame(4, $rel->m());
@@ -2147,13 +2147,13 @@ class StructTest extends ZimbraTestCase
         $this->assertSame(6, $rel->count());
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<rel neg="1" w="1" d="2" h="3" m="4" s="5" related="START" count="6" />';
+            .'<rel neg="true" w="7" d="2" h="3" m="4" s="5" related="START" count="6" />';
         $this->assertXmlStringEqualsXmlString($xml, (string) $rel);
 
         $array = array(
             'rel' => array(
-                'neg' => 1,
-                'w' => 1,
+                'neg' => true,
+                'w' => 7,
                 'd' => 2,
                 'h' => 3,
                 'm' => 4,
@@ -2204,20 +2204,20 @@ class StructTest extends ZimbraTestCase
 
         $exceptId->d('20120315T18302305Z')
                  ->tz('tz')
-                 ->rangeType(-1);
+                 ->rangeType(3);
         $this->assertSame('20120315T18302305Z', $exceptId->d());
         $this->assertSame('tz', $exceptId->tz());
-        $this->assertSame(-1, $exceptId->rangeType());
+        $this->assertSame(3, $exceptId->rangeType());
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<exceptId d="20120315T18302305Z" tz="tz" rangeType="-1" />';
+            .'<exceptId d="20120315T18302305Z" tz="tz" rangeType="3" />';
         $this->assertXmlStringEqualsXmlString($xml, (string) $exceptId);
 
         $array = array(
             'exceptId' => array(
                 'd' => '20120315T18302305Z',
                 'tz' => 'tz',
-                'rangeType' => -1,
+                'rangeType' => 3,
             ),
         );
         $this->assertEquals($array, $exceptId->toArray());
@@ -2228,7 +2228,7 @@ class StructTest extends ZimbraTestCase
         $add = new \Zimbra\Mail\Struct\RecurrenceInfo();
         $exclude = new \Zimbra\Mail\Struct\RecurrenceInfo();
         $except = new \Zimbra\Mail\Struct\ExceptionRuleInfo(
-        	1, '991231', $add, $exclude, 'tz', '991231000000'
+        	10, '991231', $add, $exclude, 'tz', '991231000000'
     	);
         $this->assertInstanceOf('\Zimbra\Mail\Struct\RecurIdInfo', $except);
         $this->assertSame($add, $except->add());
@@ -2240,7 +2240,7 @@ class StructTest extends ZimbraTestCase
         $this->assertSame($exclude, $except->exclude());
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<except rangeType="1" recurId="991231" tz="tz" ridZ="991231000000">'
+            .'<except rangeType="10" recurId="991231" tz="tz" ridZ="991231000000">'
             	.'<add />'
             	.'<exclude />'
             .'</except>';
@@ -2248,7 +2248,7 @@ class StructTest extends ZimbraTestCase
 
         $array = array(
             'except' => array(
-                'rangeType' => 1,
+                'rangeType' => 10,
                 'recurId' => '991231',
                 'tz' => 'tz',
                 'ridZ' => '991231000000',
@@ -2279,35 +2279,35 @@ class StructTest extends ZimbraTestCase
         $exceptId = new \Zimbra\Mail\Struct\InstanceRecurIdInfo(
             'range', '20130315T18302305Z', 'tz'
         );
-        $dur = new \Zimbra\Mail\Struct\DurationInfo(true, 1, 2, 3, 4, 5, 'START', 6);
+        $dur = new \Zimbra\Mail\Struct\DurationInfo(true, 7, 2, 3, 4, 5, 'START', 6);
         $recur = new \Zimbra\Mail\Struct\RecurrenceInfo;
 
         $cancel = new \Zimbra\Mail\Struct\ExpandedRecurrenceCancel(
-            $exceptId, $dur, $recur, 1, 1
+            $exceptId, $dur, $recur, 10, 10
         );
         $this->assertInstanceOf('Zimbra\Mail\Struct\ExpandedRecurrenceComponent', $cancel);
 
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<cancel s="1" e="1">'
+            .'<cancel s="10" e="10">'
                 .'<exceptId range="range" d="20130315T18302305Z" tz="tz" />'
-                .'<dur neg="1" w="1" d="2" h="3" m="4" s="5" related="START" count="6" />'
+                .'<dur neg="true" w="7" d="2" h="3" m="4" s="5" related="START" count="6" />'
                 .'<recur />'
             .'</cancel>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $cancel);
 
         $array = array(
             'cancel' => array(
-                's' => 1,
-                'e' => 1,
+                's' => 10,
+                'e' => 10,
                 'exceptId' => array(
                     'range' => 'range',
                     'd' => '20130315T18302305Z',
                     'tz' => 'tz',
                 ),
                 'dur' => array(
-                    'neg' => 1,
-                    'w' => 1,
+                    'neg' => true,
+                    'w' => 7,
                     'd' => 2,
                     'h' => 3,
                     'm' => 4,
@@ -2326,49 +2326,49 @@ class StructTest extends ZimbraTestCase
         $exceptId = new \Zimbra\Mail\Struct\InstanceRecurIdInfo(
             'range', '20130315T18302305Z', 'tz'
         );
-        $dur = new \Zimbra\Mail\Struct\DurationInfo(true, 1, 2, 3, 4, 5, 'START', 6);
+        $dur = new \Zimbra\Mail\Struct\DurationInfo(true, 7, 2, 3, 4, 5, 'START', 6);
         $recur = new \Zimbra\Mail\Struct\RecurrenceInfo;
 
         $comp = new \Zimbra\Mail\Struct\ExpandedRecurrenceComponent(
-            $exceptId, $dur, $recur, 1, 1
+            $exceptId, $dur, $recur, 10, 10
         );
         $this->assertSame($exceptId, $comp->exceptId());
         $this->assertSame($dur, $comp->dur());
         $this->assertSame($recur, $comp->recur());
-        $this->assertSame(1, $comp->s());
-        $this->assertSame(1, $comp->e());
+        $this->assertSame(10, $comp->s());
+        $this->assertSame(10, $comp->e());
 
         $comp->exceptId($exceptId)
              ->dur($dur)
              ->recur($recur)
-             ->s(1)
-             ->e(1);
+             ->s(10)
+             ->e(10);
         $this->assertSame($exceptId, $comp->exceptId());
         $this->assertSame($dur, $comp->dur());
         $this->assertSame($recur, $comp->recur());
-        $this->assertSame(1, $comp->s());
-        $this->assertSame(1, $comp->e());
+        $this->assertSame(10, $comp->s());
+        $this->assertSame(10, $comp->e());
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<comp s="1" e="1">'
+            .'<comp s="10" e="10">'
                 .'<exceptId range="range" d="20130315T18302305Z" tz="tz" />'
-                .'<dur neg="1" w="1" d="2" h="3" m="4" s="5" related="START" count="6" />'
+                .'<dur neg="true" w="7" d="2" h="3" m="4" s="5" related="START" count="6" />'
                 .'<recur />'
             .'</comp>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $comp);
 
         $array = array(
             'comp' => array(
-                's' => 1,
-                'e' => 1,
+                's' => 10,
+                'e' => 10,
                 'exceptId' => array(
                     'range' => 'range',
                     'd' => '20130315T18302305Z',
                     'tz' => 'tz',
                 ),
                 'dur' => array(
-                    'neg' => 1,
-                    'w' => 1,
+                    'neg' => true,
+                    'w' => 7,
                     'd' => 2,
                     'h' => 3,
                     'm' => 4,
@@ -2387,35 +2387,35 @@ class StructTest extends ZimbraTestCase
         $exceptId = new \Zimbra\Mail\Struct\InstanceRecurIdInfo(
             'range', '20130315T18302305Z', 'tz'
         );
-        $dur = new \Zimbra\Mail\Struct\DurationInfo(true, 1, 2, 3, 4, 5, 'START', 6);
+        $dur = new \Zimbra\Mail\Struct\DurationInfo(true, 7, 2, 3, 4, 5, 'START', 6);
         $recur = new \Zimbra\Mail\Struct\RecurrenceInfo;
 
         $except = new \Zimbra\Mail\Struct\ExpandedRecurrenceException(
-            $exceptId, $dur, $recur, 1, 1
+            $exceptId, $dur, $recur, 10, 10
         );
         $this->assertInstanceOf('Zimbra\Mail\Struct\ExpandedRecurrenceComponent', $except);
 
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<except s="1" e="1">'
+            .'<except s="10" e="10">'
                 .'<exceptId range="range" d="20130315T18302305Z" tz="tz" />'
-                .'<dur neg="1" w="1" d="2" h="3" m="4" s="5" related="START" count="6" />'
+                .'<dur neg="true" w="7" d="2" h="3" m="4" s="5" related="START" count="6" />'
                 .'<recur />'
             .'</except>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $except);
 
         $array = array(
             'except' => array(
-                's' => 1,
-                'e' => 1,
+                's' => 10,
+                'e' => 10,
                 'exceptId' => array(
                     'range' => 'range',
                     'd' => '20130315T18302305Z',
                     'tz' => 'tz',
                 ),
                 'dur' => array(
-                    'neg' => 1,
-                    'w' => 1,
+                    'neg' => true,
+                    'w' => 7,
                     'd' => 2,
                     'h' => 3,
                     'm' => 4,
@@ -2438,18 +2438,18 @@ class StructTest extends ZimbraTestCase
     public function testFacebookTest()
     {
         $facebookTest = new \Zimbra\Mail\Struct\FacebookTest(
-            1, true
+            10, true
         );
         $this->assertInstanceOf('\Zimbra\Mail\Struct\FilterTest', $facebookTest);
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<facebookTest index="1" negative="1" />';
+            .'<facebookTest index="10" negative="true" />';
         $this->assertXmlStringEqualsXmlString($xml, (string) $facebookTest);
 
         $array = array(
             'facebookTest' => array(
-                'index' => 1,
-                'negative' => 1,
+                'index' => 10,
+                'negative' => true,
             ),
         );
         $this->assertEquals($array, $facebookTest->toArray());
@@ -2458,7 +2458,7 @@ class StructTest extends ZimbraTestCase
     public function testFileIntoAction()
     {
         $actionFileInto = new \Zimbra\Mail\Struct\FileIntoAction(
-            1, 'folderPath'
+            10, 'folderPath'
         );
         $this->assertInstanceOf('\Zimbra\Mail\Struct\FilterAction', $actionFileInto);
         $this->assertSame('folderPath', $actionFileInto->folderPath());
@@ -2466,12 +2466,12 @@ class StructTest extends ZimbraTestCase
         $this->assertSame('folderPath', $actionFileInto->folderPath());
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<actionFileInto index="1" folderPath="folderPath" />';
+            .'<actionFileInto index="10" folderPath="folderPath" />';
         $this->assertXmlStringEqualsXmlString($xml, (string) $actionFileInto);
 
         $array = array(
             'actionFileInto' => array(
-                'index' => 1,
+                'index' => 10,
                 'folderPath' => 'folderPath',
             ),
         );
@@ -2481,19 +2481,19 @@ class StructTest extends ZimbraTestCase
     public function testFilterAction()
     {
         $actionFilter = new \Zimbra\Mail\Struct\FilterAction(
-            1
+            10
         );
-        $this->assertSame(1, $actionFilter->index());
-        $actionFilter->index(1);
-        $this->assertSame(1, $actionFilter->index());
+        $this->assertSame(10, $actionFilter->index());
+        $actionFilter->index(10);
+        $this->assertSame(10, $actionFilter->index());
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<actionFilter index="1" />';
+            .'<actionFilter index="10" />';
         $this->assertXmlStringEqualsXmlString($xml, (string) $actionFilter);
 
         $array = array(
             'actionFilter' => array(
-                'index' => 1,
+                'index' => 10,
             ),
         );
         $this->assertEquals($array, $actionFilter->toArray());
@@ -2502,31 +2502,31 @@ class StructTest extends ZimbraTestCase
     public function testFilterActions()
     {
         $actionKeep = new \Zimbra\Mail\Struct\KeepAction(
-            1
+            10
         );
         $actionDiscard = new \Zimbra\Mail\Struct\DiscardAction(
-            1
+            10
         );
         $actionFileInto = new \Zimbra\Mail\Struct\FileIntoAction(
-            1, 'folderPath'
+            10, 'folderPath'
         );
         $actionFlag = new \Zimbra\Mail\Struct\FlagAction(
-            1, 'flagName'
+            10, 'flagName'
         );
         $actionTag = new \Zimbra\Mail\Struct\TagAction(
-            1, 'tagName'
+            10, 'tagName'
         );
         $actionRedirect = new \Zimbra\Mail\Struct\RedirectAction(
-            1, 'a'
+            10, 'a'
         );
         $actionReply = new \Zimbra\Mail\Struct\ReplyAction(
-            1, 'content'
+            10, 'content'
         );
         $actionNotify = new \Zimbra\Mail\Struct\NotifyAction(
-            1, 'content', 'a', 'su', 1, 'origHeaders'
+            10, 'content', 'a', 'su', 10, 'origHeaders'
         );
         $actionStop = new \Zimbra\Mail\Struct\StopAction(
-            1
+            10
         );
 
         $filterActions = new \Zimbra\Mail\Struct\FilterActions(
@@ -2571,60 +2571,60 @@ class StructTest extends ZimbraTestCase
 
         $xml = '<?xml version="1.0"?>'."\n"
             .'<filterActions>'
-                .'<actionKeep index="1" />'
-                .'<actionDiscard index="1" />'
-                .'<actionFileInto index="1" folderPath="folderPath" />'
-                .'<actionFlag index="1" flagName="flagName" />'
-                .'<actionTag index="1" tagName="tagName" />'
-                .'<actionRedirect index="1" a="a" />'
-                .'<actionReply index="1">'
+                .'<actionKeep index="10" />'
+                .'<actionDiscard index="10" />'
+                .'<actionFileInto index="10" folderPath="folderPath" />'
+                .'<actionFlag index="10" flagName="flagName" />'
+                .'<actionTag index="10" tagName="tagName" />'
+                .'<actionRedirect index="10" a="a" />'
+                .'<actionReply index="10">'
                     .'<content>content</content>'
                 .'</actionReply>'
-                .'<actionNotify index="1" a="a" su="su" maxBodySize="1" origHeaders="origHeaders">'
+                .'<actionNotify index="10" a="a" su="su" maxBodySize="10" origHeaders="origHeaders">'
                     .'<content>content</content>'
                 .'</actionNotify>'
-                .'<actionStop index="1" />'
+                .'<actionStop index="10" />'
             .'</filterActions>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $filterActions);
 
         $array = array(
             'filterActions' => array(
                 'actionKeep' => array(
-                    'index' => 1,
+                    'index' => 10,
                 ),
                 'actionDiscard' => array(
-                    'index' => 1,
+                    'index' => 10,
                 ),
                 'actionFileInto' => array(
-                    'index' => 1,
+                    'index' => 10,
                     'folderPath' => 'folderPath',
                 ),
                 'actionFlag' => array(
-                    'index' => 1,
+                    'index' => 10,
                     'flagName' => 'flagName',
                 ),
                 'actionTag' => array(
-                    'index' => 1,
+                    'index' => 10,
                     'tagName' => 'tagName',
                 ),
                 'actionRedirect' => array(
-                    'index' => 1,
+                    'index' => 10,
                     'a' => 'a',
                 ),
                 'actionReply' => array(
-                    'index' => 1,
+                    'index' => 10,
                     'content' => 'content',
                 ),
                 'actionNotify' => array(
-                    'index' => 1,
+                    'index' => 10,
                     'content' => 'content',
                     'a' => 'a',
                     'su' => 'su',
-                    'maxBodySize' => 1,
+                    'maxBodySize' => 10,
                     'origHeaders' => 'origHeaders',
                 ),
                 'actionStop' => array(
-                    'index' => 1,
+                    'index' => 10,
                 ),
             ),
         );
@@ -2634,76 +2634,76 @@ class StructTest extends ZimbraTestCase
     public function testFilterRule()
     {
         $addressBookTest = new \Zimbra\Mail\Struct\AddressBookTest(
-            1, 'header', true
+            10, 'header', true
         );
         $addressTest = new \Zimbra\Mail\Struct\AddressTest(
-            1, 'header', 'part', 'stringComparison', 'value', true, true
+            10, 'header', 'part', 'stringComparison', 'value', true, true
         );
         $attachmentTest = new \Zimbra\Mail\Struct\AttachmentTest(
-            1, true
+            10, true
         );
         $bodyTest = new \Zimbra\Mail\Struct\BodyTest(
-            1, 'value', true, true
+            10, 'value', true, true
         );
         $bulkTest = new \Zimbra\Mail\Struct\BulkTest(
-            1, true
+            10, true
         );
         $contactRankingTest = new \Zimbra\Mail\Struct\ContactRankingTest(
-            1, 'header', true
+            10, 'header', true
         );
         $conversationTest = new \Zimbra\Mail\Struct\ConversationTest(
-            1, 'where', true
+            10, 'where', true
         );
         $currentDayOfWeekTest = new \Zimbra\Mail\Struct\CurrentDayOfWeekTest(
-            1, 'value', true
+            10, 'value', true
         );
         $currentTimeTest = new \Zimbra\Mail\Struct\CurrentTimeTest(
-            1, 'dateComparison', 'time', true
+            10, 'dateComparison', 'time', true
         );
         $dateTest = new \Zimbra\Mail\Struct\DateTest(
-            1, 'dateComparison', 1, true
+            10, 'dateComparison', 10, true
         );
         $facebookTest = new \Zimbra\Mail\Struct\FacebookTest(
-            1, true
+            10, true
         );
         $flaggedTest = new \Zimbra\Mail\Struct\FlaggedTest(
-            1, 'flagName', true
+            10, 'flagName', true
         );
         $headerExistsTest = new \Zimbra\Mail\Struct\HeaderExistsTest(
-            1, 'header', true
+            10, 'header', true
         );
         $headerTest = new \Zimbra\Mail\Struct\HeaderTest(
-            1, 'header', 'stringComparison', 'value', true, true
+            10, 'header', 'stringComparison', 'value', true, true
         );
         $importanceTest = new \Zimbra\Mail\Struct\ImportanceTest(
-            1, Importance::HIGH(), true
+            10, Importance::HIGH(), true
         );
         $inviteTest = new \Zimbra\Mail\Struct\InviteTest(
-            1, array('method'), true
+            10, array('method'), true
         );
         $linkedinTest = new \Zimbra\Mail\Struct\LinkedInTest(
-            1, true
+            10, true
         );
         $listTest = new \Zimbra\Mail\Struct\ListTest(
-            1, true
+            10, true
         );
         $meTest = new \Zimbra\Mail\Struct\MeTest(
-            1, 'header', true
+            10, 'header', true
         );
         $mimeHeaderTest = new \Zimbra\Mail\Struct\MimeHeaderTest(
-            1, 'header', 'stringComparison', 'value', true, true
+            10, 'header', 'stringComparison', 'value', true, true
         );
         $sizeTest = new \Zimbra\Mail\Struct\SizeTest(
-            1, 'numberComparison', 's', true
+            10, 'numberComparison', 's', true
         );
         $socialcastTest = new \Zimbra\Mail\Struct\SocialcastTest(
-            1, true
+            10, true
         );
         $trueTest = new \Zimbra\Mail\Struct\TrueTest(
-            1, true
+            10, true
         );
         $twitterTest = new \Zimbra\Mail\Struct\TwitterTest(
-            1, true
+            10, true
         );
         $filterTests = new \Zimbra\Mail\Struct\FilterTests(
             FilterCondition::ALL_OF(),
@@ -2734,31 +2734,31 @@ class StructTest extends ZimbraTestCase
         );
 
         $actionKeep = new \Zimbra\Mail\Struct\KeepAction(
-            1
+            10
         );
         $actionDiscard = new \Zimbra\Mail\Struct\DiscardAction(
-            1
+            10
         );
         $actionFileInto = new \Zimbra\Mail\Struct\FileIntoAction(
-            1, 'folderPath'
+            10, 'folderPath'
         );
         $actionFlag = new \Zimbra\Mail\Struct\FlagAction(
-            1, 'flagName'
+            10, 'flagName'
         );
         $actionTag = new \Zimbra\Mail\Struct\TagAction(
-            1, 'tagName'
+            10, 'tagName'
         );
         $actionRedirect = new \Zimbra\Mail\Struct\RedirectAction(
-            1, 'a'
+            10, 'a'
         );
         $actionReply = new \Zimbra\Mail\Struct\ReplyAction(
-            1, 'content'
+            10, 'content'
         );
         $actionNotify = new \Zimbra\Mail\Struct\NotifyAction(
-            1, 'content', 'a', 'su', 1, 'origHeaders'
+            10, 'content', 'a', 'su', 10, 'origHeaders'
         );
         $actionStop = new \Zimbra\Mail\Struct\StopAction(
-            1
+            10
         );
         $filterActions = new \Zimbra\Mail\Struct\FilterActions(
             $actionKeep,
@@ -2790,49 +2790,49 @@ class StructTest extends ZimbraTestCase
         $this->assertSame($filterActions, $filterRule->filterActions());
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<filterRule name="name" active="1">'
+            .'<filterRule name="name" active="true">'
                 .'<filterTests condition="allof">'
-                    .'<addressBookTest index="1" negative="1" header="header" />'
-                    .'<addressTest index="1" negative="1" header="header" part="part" stringComparison="stringComparison" value="value" caseSensitive="1" />'
-                    .'<attachmentTest index="1" negative="1" />'
-                    .'<bodyTest index="1" negative="1" value="value" caseSensitive="1" />'
-                    .'<bulkTest index="1" negative="1" />'
-                    .'<contactRankingTest index="1" negative="1" header="header" />'
-                    .'<conversationTest index="1" negative="1" where="where" />'
-                    .'<currentDayOfWeekTest index="1" negative="1" value="value" />'
-                    .'<currentTimeTest index="1" negative="1" dateComparison="dateComparison" time="time" />'
-                    .'<dateTest index="1" negative="1" dateComparison="dateComparison" d="1" />'
-                    .'<facebookTest index="1" negative="1" />'
-                    .'<flaggedTest index="1" negative="1" flagName="flagName" />'
-                    .'<headerExistsTest index="1" negative="1" header="header" />'
-                    .'<headerTest index="1" negative="1" header="header" stringComparison="stringComparison" value="value" caseSensitive="1" />'
-                    .'<importanceTest index="1" negative="1" imp="high" />'
-                    .'<inviteTest index="1" negative="1">'
+                    .'<addressBookTest index="10" negative="true" header="header" />'
+                    .'<addressTest index="10" negative="true" header="header" part="part" stringComparison="stringComparison" value="value" caseSensitive="true" />'
+                    .'<attachmentTest index="10" negative="true" />'
+                    .'<bodyTest index="10" negative="true" value="value" caseSensitive="true" />'
+                    .'<bulkTest index="10" negative="true" />'
+                    .'<contactRankingTest index="10" negative="true" header="header" />'
+                    .'<conversationTest index="10" negative="true" where="where" />'
+                    .'<currentDayOfWeekTest index="10" negative="true" value="value" />'
+                    .'<currentTimeTest index="10" negative="true" dateComparison="dateComparison" time="time" />'
+                    .'<dateTest index="10" negative="true" dateComparison="dateComparison" d="10" />'
+                    .'<facebookTest index="10" negative="true" />'
+                    .'<flaggedTest index="10" negative="true" flagName="flagName" />'
+                    .'<headerExistsTest index="10" negative="true" header="header" />'
+                    .'<headerTest index="10" negative="true" header="header" stringComparison="stringComparison" value="value" caseSensitive="true" />'
+                    .'<importanceTest index="10" negative="true" imp="high" />'
+                    .'<inviteTest index="10" negative="true">'
                         .'<method>method</method>'
                     .'</inviteTest>'
-                    .'<linkedinTest index="1" negative="1" />'
-                    .'<listTest index="1" negative="1" />'
-                    .'<meTest index="1" negative="1" header="header" />'
-                    .'<mimeHeaderTest index="1" negative="1" header="header" stringComparison="stringComparison" value="value" caseSensitive="1" />'
-                    .'<sizeTest index="1" negative="1" numberComparison="numberComparison" s="s" />'
-                    .'<socialcastTest index="1" negative="1" />'
-                    .'<trueTest index="1" negative="1" />'
-                    .'<twitterTest index="1" negative="1" />'
+                    .'<linkedinTest index="10" negative="true" />'
+                    .'<listTest index="10" negative="true" />'
+                    .'<meTest index="10" negative="true" header="header" />'
+                    .'<mimeHeaderTest index="10" negative="true" header="header" stringComparison="stringComparison" value="value" caseSensitive="true" />'
+                    .'<sizeTest index="10" negative="true" numberComparison="numberComparison" s="s" />'
+                    .'<socialcastTest index="10" negative="true" />'
+                    .'<trueTest index="10" negative="true" />'
+                    .'<twitterTest index="10" negative="true" />'
                 .'</filterTests>'
                 .'<filterActions>'
-                    .'<actionKeep index="1" />'
-                    .'<actionDiscard index="1" />'
-                    .'<actionFileInto index="1" folderPath="folderPath" />'
-                    .'<actionFlag index="1" flagName="flagName" />'
-                    .'<actionTag index="1" tagName="tagName" />'
-                    .'<actionRedirect index="1" a="a" />'
-                    .'<actionReply index="1">'
+                    .'<actionKeep index="10" />'
+                    .'<actionDiscard index="10" />'
+                    .'<actionFileInto index="10" folderPath="folderPath" />'
+                    .'<actionFlag index="10" flagName="flagName" />'
+                    .'<actionTag index="10" tagName="tagName" />'
+                    .'<actionRedirect index="10" a="a" />'
+                    .'<actionReply index="10">'
                         .'<content>content</content>'
                     .'</actionReply>'
-                    .'<actionNotify index="1" a="a" su="su" maxBodySize="1" origHeaders="origHeaders">'
+                    .'<actionNotify index="10" a="a" su="su" maxBodySize="10" origHeaders="origHeaders">'
                         .'<content>content</content>'
                     .'</actionNotify>'
-                    .'<actionStop index="1" />'
+                    .'<actionStop index="10" />'
                 .'</filterActions>'
             .'</filterRule>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $filterRule);
@@ -2840,175 +2840,175 @@ class StructTest extends ZimbraTestCase
         $array = array(
             'filterRule' => array(
                 'name' => 'name',
-                'active' => 1,
+                'active' => true,
                 'filterTests' => array(
                     'condition' => 'allof',
                     'addressBookTest' => array(
-                        'index' => 1,
-                        'negative' => 1,
+                        'index' => 10,
+                        'negative' => true,
                         'header' => 'header',
                     ),
                     'addressTest' => array(
-                        'index' => 1,
-                        'negative' => 1,
+                        'index' => 10,
+                        'negative' => true,
                         'header' => 'header',
                         'part' => 'part',
                         'stringComparison' => 'stringComparison',
                         'value' => 'value',
-                        'caseSensitive' => 1,
+                        'caseSensitive' => true,
                     ),
                     'attachmentTest' => array(
-                        'index' => 1,
-                        'negative' => 1,
+                        'index' => 10,
+                        'negative' => true,
                     ),
                     'bodyTest' => array(
-                        'index' => 1,
-                        'negative' => 1,
+                        'index' => 10,
+                        'negative' => true,
                         'value' => 'value',
-                        'caseSensitive' => 1,
+                        'caseSensitive' => true,
                     ),
                     'bulkTest' => array(
-                        'index' => 1,
-                        'negative' => 1,
+                        'index' => 10,
+                        'negative' => true,
                     ),
                     'contactRankingTest' => array(
-                        'index' => 1,
-                        'negative' => 1,
+                        'index' => 10,
+                        'negative' => true,
                         'header' => 'header',
                     ),
                     'conversationTest' => array(
-                        'index' => 1,
-                        'negative' => 1,
+                        'index' => 10,
+                        'negative' => true,
                         'where' => 'where',
                     ),
                     'currentDayOfWeekTest' => array(
-                        'index' => 1,
-                        'negative' => 1,
+                        'index' => 10,
+                        'negative' => true,
                         'value' => 'value',
                     ),
                     'currentTimeTest' => array(
-                        'index' => 1,
-                        'negative' => 1,
+                        'index' => 10,
+                        'negative' => true,
                         'dateComparison' => 'dateComparison',
                         'time' => 'time',
                     ),
                     'dateTest' => array(
-                        'index' => 1,
-                        'negative' => 1,
+                        'index' => 10,
+                        'negative' => true,
                         'dateComparison' => 'dateComparison',
-                        'd' => 1,
+                        'd' => 10,
                     ),
                     'facebookTest' => array(
-                        'index' => 1,
-                        'negative' => 1,
+                        'index' => 10,
+                        'negative' => true,
                     ),
                     'flaggedTest' => array(
-                        'index' => 1,
-                        'negative' => 1,
+                        'index' => 10,
+                        'negative' => true,
                         'flagName' => 'flagName',
                     ),
                     'headerExistsTest' => array(
-                        'index' => 1,
-                        'negative' => 1,
+                        'index' => 10,
+                        'negative' => true,
                         'header' => 'header',
                     ),
                     'headerTest' => array(
-                        'index' => 1,
-                        'negative' => 1,
+                        'index' => 10,
+                        'negative' => true,
                         'header' => 'header',
                         'stringComparison' => 'stringComparison',
                         'value' => 'value',
-                        'caseSensitive' => 1,
+                        'caseSensitive' => true,
                     ),
                     'importanceTest' => array(
-                        'index' => 1,
-                        'negative' => 1,
+                        'index' => 10,
+                        'negative' => true,
                         'imp' => 'high',
                     ),
                     'inviteTest' => array(
-                        'index' => 1,
-                        'negative' => 1,
+                        'index' => 10,
+                        'negative' => true,
                         'method' => array(
                             'method',
                         ),
                     ),
                     'linkedinTest' => array(
-                        'index' => 1,
-                        'negative' => 1,
+                        'index' => 10,
+                        'negative' => true,
                     ),
                     'listTest' => array(
-                        'index' => 1,
-                        'negative' => 1,
+                        'index' => 10,
+                        'negative' => true,
                     ),
                     'meTest' => array(
-                        'index' => 1,
-                        'negative' => 1,
+                        'index' => 10,
+                        'negative' => true,
                         'header' => 'header',
                     ),
                     'mimeHeaderTest' => array(
-                        'index' => 1,
-                        'negative' => 1,
+                        'index' => 10,
+                        'negative' => true,
                         'header' => 'header',
                         'stringComparison' => 'stringComparison',
                         'value' => 'value',
-                        'caseSensitive' => 1,
+                        'caseSensitive' => true,
                     ),
                     'sizeTest' => array(
-                        'index' => 1,
-                        'negative' => 1,
+                        'index' => 10,
+                        'negative' => true,
                         'numberComparison' => 'numberComparison',
                         's' => 's',
                     ),
                     'socialcastTest' => array(
-                        'index' => 1,
-                        'negative' => 1,
+                        'index' => 10,
+                        'negative' => true,
                     ),
                     'trueTest' => array(
-                        'index' => 1,
-                        'negative' => 1,
+                        'index' => 10,
+                        'negative' => true,
                     ),
                     'twitterTest' => array(
-                        'index' => 1,
-                        'negative' => 1,
+                        'index' => 10,
+                        'negative' => true,
                     ),
                 ),
                 'filterActions' => array(
                     'actionKeep' => array(
-                        'index' => 1,
+                        'index' => 10,
                     ),
                     'actionDiscard' => array(
-                        'index' => 1,
+                        'index' => 10,
                     ),
                     'actionFileInto' => array(
-                        'index' => 1,
+                        'index' => 10,
                         'folderPath' => 'folderPath',
                     ),
                     'actionFlag' => array(
-                        'index' => 1,
+                        'index' => 10,
                         'flagName' => 'flagName',
                     ),
                     'actionTag' => array(
-                        'index' => 1,
+                        'index' => 10,
                         'tagName' => 'tagName',
                     ),
                     'actionRedirect' => array(
-                        'index' => 1,
+                        'index' => 10,
                         'a' => 'a',
                     ),
                     'actionReply' => array(
-                        'index' => 1,
+                        'index' => 10,
                         'content' => 'content',
                     ),
                     'actionNotify' => array(
-                        'index' => 1,
+                        'index' => 10,
                         'content' => 'content',
                         'a' => 'a',
                         'su' => 'su',
-                        'maxBodySize' => 1,
+                        'maxBodySize' => 10,
                         'origHeaders' => 'origHeaders',
                     ),
                     'actionStop' => array(
-                        'index' => 1,
+                        'index' => 10,
                     ),
                 ),
             ),
@@ -3019,76 +3019,76 @@ class StructTest extends ZimbraTestCase
     public function testFilterRules()
     {
         $addressBookTest = new \Zimbra\Mail\Struct\AddressBookTest(
-            1, 'header', true
+            10, 'header', true
         );
         $addressTest = new \Zimbra\Mail\Struct\AddressTest(
-            1, 'header', 'part', 'stringComparison', 'value', true, true
+            10, 'header', 'part', 'stringComparison', 'value', true, true
         );
         $attachmentTest = new \Zimbra\Mail\Struct\AttachmentTest(
-            1, true
+            10, true
         );
         $bodyTest = new \Zimbra\Mail\Struct\BodyTest(
-            1, 'value', true, true
+            10, 'value', true, true
         );
         $bulkTest = new \Zimbra\Mail\Struct\BulkTest(
-            1, true
+            10, true
         );
         $contactRankingTest = new \Zimbra\Mail\Struct\ContactRankingTest(
-            1, 'header', true
+            10, 'header', true
         );
         $conversationTest = new \Zimbra\Mail\Struct\ConversationTest(
-            1, 'where', true
+            10, 'where', true
         );
         $currentDayOfWeekTest = new \Zimbra\Mail\Struct\CurrentDayOfWeekTest(
-            1, 'value', true
+            10, 'value', true
         );
         $currentTimeTest = new \Zimbra\Mail\Struct\CurrentTimeTest(
-            1, 'dateComparison', 'time', true
+            10, 'dateComparison', 'time', true
         );
         $dateTest = new \Zimbra\Mail\Struct\DateTest(
-            1, 'dateComparison', 1, true
+            10, 'dateComparison', 10, true
         );
         $facebookTest = new \Zimbra\Mail\Struct\FacebookTest(
-            1, true
+            10, true
         );
         $flaggedTest = new \Zimbra\Mail\Struct\FlaggedTest(
-            1, 'flagName', true
+            10, 'flagName', true
         );
         $headerExistsTest = new \Zimbra\Mail\Struct\HeaderExistsTest(
-            1, 'header', true
+            10, 'header', true
         );
         $headerTest = new \Zimbra\Mail\Struct\HeaderTest(
-            1, 'header', 'stringComparison', 'value', true, true
+            10, 'header', 'stringComparison', 'value', true, true
         );
         $importanceTest = new \Zimbra\Mail\Struct\ImportanceTest(
-            1, Importance::HIGH(), true
+            10, Importance::HIGH(), true
         );
         $inviteTest = new \Zimbra\Mail\Struct\InviteTest(
-            1, array('method'), true
+            10, array('method'), true
         );
         $linkedinTest = new \Zimbra\Mail\Struct\LinkedInTest(
-            1, true
+            10, true
         );
         $listTest = new \Zimbra\Mail\Struct\ListTest(
-            1, true
+            10, true
         );
         $meTest = new \Zimbra\Mail\Struct\MeTest(
-            1, 'header', true
+            10, 'header', true
         );
         $mimeHeaderTest = new \Zimbra\Mail\Struct\MimeHeaderTest(
-            1, 'header', 'stringComparison', 'value', true, true
+            10, 'header', 'stringComparison', 'value', true, true
         );
         $sizeTest = new \Zimbra\Mail\Struct\SizeTest(
-            1, 'numberComparison', 's', true
+            10, 'numberComparison', 's', true
         );
         $socialcastTest = new \Zimbra\Mail\Struct\SocialcastTest(
-            1, true
+            10, true
         );
         $trueTest = new \Zimbra\Mail\Struct\TrueTest(
-            1, true
+            10, true
         );
         $twitterTest = new \Zimbra\Mail\Struct\TwitterTest(
-            1, true
+            10, true
         );
         $filterTests = new \Zimbra\Mail\Struct\FilterTests(
             FilterCondition::ALL_OF(),
@@ -3119,31 +3119,31 @@ class StructTest extends ZimbraTestCase
         );
 
         $actionKeep = new \Zimbra\Mail\Struct\KeepAction(
-            1
+            10
         );
         $actionDiscard = new \Zimbra\Mail\Struct\DiscardAction(
-            1
+            10
         );
         $actionFileInto = new \Zimbra\Mail\Struct\FileIntoAction(
-            1, 'folderPath'
+            10, 'folderPath'
         );
         $actionFlag = new \Zimbra\Mail\Struct\FlagAction(
-            1, 'flagName'
+            10, 'flagName'
         );
         $actionTag = new \Zimbra\Mail\Struct\TagAction(
-            1, 'tagName'
+            10, 'tagName'
         );
         $actionRedirect = new \Zimbra\Mail\Struct\RedirectAction(
-            1, 'a'
+            10, 'a'
         );
         $actionReply = new \Zimbra\Mail\Struct\ReplyAction(
-            1, 'content'
+            10, 'content'
         );
         $actionNotify = new \Zimbra\Mail\Struct\NotifyAction(
-            1, 'content', 'a', 'su', 1, 'origHeaders'
+            10, 'content', 'a', 'su', 10, 'origHeaders'
         );
         $actionStop = new \Zimbra\Mail\Struct\StopAction(
-            1
+            10
         );
         $filterActions = new \Zimbra\Mail\Struct\FilterActions(
             $actionKeep,
@@ -3172,49 +3172,49 @@ class StructTest extends ZimbraTestCase
 
         $xml = '<?xml version="1.0"?>'."\n"
             .'<filterRules>'
-                .'<filterRule name="name" active="1">'
+                .'<filterRule name="name" active="true">'
                     .'<filterTests condition="allof">'
-                        .'<addressBookTest index="1" negative="1" header="header" />'
-                        .'<addressTest index="1" negative="1" header="header" part="part" stringComparison="stringComparison" value="value" caseSensitive="1" />'
-                        .'<attachmentTest index="1" negative="1" />'
-                        .'<bodyTest index="1" negative="1" value="value" caseSensitive="1" />'
-                        .'<bulkTest index="1" negative="1" />'
-                        .'<contactRankingTest index="1" negative="1" header="header" />'
-                        .'<conversationTest index="1" negative="1" where="where" />'
-                        .'<currentDayOfWeekTest index="1" negative="1" value="value" />'
-                        .'<currentTimeTest index="1" negative="1" dateComparison="dateComparison" time="time" />'
-                        .'<dateTest index="1" negative="1" dateComparison="dateComparison" d="1" />'
-                        .'<facebookTest index="1" negative="1" />'
-                        .'<flaggedTest index="1" negative="1" flagName="flagName" />'
-                        .'<headerExistsTest index="1" negative="1" header="header" />'
-                        .'<headerTest index="1" negative="1" header="header" stringComparison="stringComparison" value="value" caseSensitive="1" />'
-                        .'<importanceTest index="1" negative="1" imp="high" />'
-                        .'<inviteTest index="1" negative="1">'
+                        .'<addressBookTest index="10" negative="true" header="header" />'
+                        .'<addressTest index="10" negative="true" header="header" part="part" stringComparison="stringComparison" value="value" caseSensitive="true" />'
+                        .'<attachmentTest index="10" negative="true" />'
+                        .'<bodyTest index="10" negative="true" value="value" caseSensitive="true" />'
+                        .'<bulkTest index="10" negative="true" />'
+                        .'<contactRankingTest index="10" negative="true" header="header" />'
+                        .'<conversationTest index="10" negative="true" where="where" />'
+                        .'<currentDayOfWeekTest index="10" negative="true" value="value" />'
+                        .'<currentTimeTest index="10" negative="true" dateComparison="dateComparison" time="time" />'
+                        .'<dateTest index="10" negative="true" dateComparison="dateComparison" d="10" />'
+                        .'<facebookTest index="10" negative="true" />'
+                        .'<flaggedTest index="10" negative="true" flagName="flagName" />'
+                        .'<headerExistsTest index="10" negative="true" header="header" />'
+                        .'<headerTest index="10" negative="true" header="header" stringComparison="stringComparison" value="value" caseSensitive="true" />'
+                        .'<importanceTest index="10" negative="true" imp="high" />'
+                        .'<inviteTest index="10" negative="true">'
                             .'<method>method</method>'
                         .'</inviteTest>'
-                        .'<linkedinTest index="1" negative="1" />'
-                        .'<listTest index="1" negative="1" />'
-                        .'<meTest index="1" negative="1" header="header" />'
-                        .'<mimeHeaderTest index="1" negative="1" header="header" stringComparison="stringComparison" value="value" caseSensitive="1" />'
-                        .'<sizeTest index="1" negative="1" numberComparison="numberComparison" s="s" />'
-                        .'<socialcastTest index="1" negative="1" />'
-                        .'<trueTest index="1" negative="1" />'
-                        .'<twitterTest index="1" negative="1" />'
+                        .'<linkedinTest index="10" negative="true" />'
+                        .'<listTest index="10" negative="true" />'
+                        .'<meTest index="10" negative="true" header="header" />'
+                        .'<mimeHeaderTest index="10" negative="true" header="header" stringComparison="stringComparison" value="value" caseSensitive="true" />'
+                        .'<sizeTest index="10" negative="true" numberComparison="numberComparison" s="s" />'
+                        .'<socialcastTest index="10" negative="true" />'
+                        .'<trueTest index="10" negative="true" />'
+                        .'<twitterTest index="10" negative="true" />'
                     .'</filterTests>'
                     .'<filterActions>'
-                        .'<actionKeep index="1" />'
-                        .'<actionDiscard index="1" />'
-                        .'<actionFileInto index="1" folderPath="folderPath" />'
-                        .'<actionFlag index="1" flagName="flagName" />'
-                        .'<actionTag index="1" tagName="tagName" />'
-                        .'<actionRedirect index="1" a="a" />'
-                        .'<actionReply index="1">'
+                        .'<actionKeep index="10" />'
+                        .'<actionDiscard index="10" />'
+                        .'<actionFileInto index="10" folderPath="folderPath" />'
+                        .'<actionFlag index="10" flagName="flagName" />'
+                        .'<actionTag index="10" tagName="tagName" />'
+                        .'<actionRedirect index="10" a="a" />'
+                        .'<actionReply index="10">'
                             .'<content>content</content>'
                         .'</actionReply>'
-                        .'<actionNotify index="1" a="a" su="su" maxBodySize="1" origHeaders="origHeaders">'
+                        .'<actionNotify index="10" a="a" su="su" maxBodySize="10" origHeaders="origHeaders">'
                             .'<content>content</content>'
                         .'</actionNotify>'
-                        .'<actionStop index="1" />'
+                        .'<actionStop index="10" />'
                     .'</filterActions>'
                 .'</filterRule>'
             .'</filterRules>';
@@ -3225,175 +3225,175 @@ class StructTest extends ZimbraTestCase
                 'filterRule' => array(
                     array(
                         'name' => 'name',
-                        'active' => 1,
+                        'active' => true,
                         'filterTests' => array(
                             'condition' => 'allof',
                             'addressBookTest' => array(
-                                'index' => 1,
-                                'negative' => 1,
+                                'index' => 10,
+                                'negative' => true,
                                 'header' => 'header',
                             ),
                             'addressTest' => array(
-                                'index' => 1,
-                                'negative' => 1,
+                                'index' => 10,
+                                'negative' => true,
                                 'header' => 'header',
                                 'part' => 'part',
                                 'stringComparison' => 'stringComparison',
                                 'value' => 'value',
-                                'caseSensitive' => 1,
+                                'caseSensitive' => true,
                             ),
                             'attachmentTest' => array(
-                                'index' => 1,
-                                'negative' => 1,
+                                'index' => 10,
+                                'negative' => true,
                             ),
                             'bodyTest' => array(
-                                'index' => 1,
-                                'negative' => 1,
+                                'index' => 10,
+                                'negative' => true,
                                 'value' => 'value',
-                                'caseSensitive' => 1,
+                                'caseSensitive' => true,
                             ),
                             'bulkTest' => array(
-                                'index' => 1,
-                                'negative' => 1,
+                                'index' => 10,
+                                'negative' => true,
                             ),
                             'contactRankingTest' => array(
-                                'index' => 1,
-                                'negative' => 1,
+                                'index' => 10,
+                                'negative' => true,
                                 'header' => 'header',
                             ),
                             'conversationTest' => array(
-                                'index' => 1,
-                                'negative' => 1,
+                                'index' => 10,
+                                'negative' => true,
                                 'where' => 'where',
                             ),
                             'currentDayOfWeekTest' => array(
-                                'index' => 1,
-                                'negative' => 1,
+                                'index' => 10,
+                                'negative' => true,
                                 'value' => 'value',
                             ),
                             'currentTimeTest' => array(
-                                'index' => 1,
-                                'negative' => 1,
+                                'index' => 10,
+                                'negative' => true,
                                 'dateComparison' => 'dateComparison',
                                 'time' => 'time',
                             ),
                             'dateTest' => array(
-                                'index' => 1,
-                                'negative' => 1,
+                                'index' => 10,
+                                'negative' => true,
                                 'dateComparison' => 'dateComparison',
-                                'd' => 1,
+                                'd' => 10,
                             ),
                             'facebookTest' => array(
-                                'index' => 1,
-                                'negative' => 1,
+                                'index' => 10,
+                                'negative' => true,
                             ),
                             'flaggedTest' => array(
-                                'index' => 1,
-                                'negative' => 1,
+                                'index' => 10,
+                                'negative' => true,
                                 'flagName' => 'flagName',
                             ),
                             'headerExistsTest' => array(
-                                'index' => 1,
-                                'negative' => 1,
+                                'index' => 10,
+                                'negative' => true,
                                 'header' => 'header',
                             ),
                             'headerTest' => array(
-                                'index' => 1,
-                                'negative' => 1,
+                                'index' => 10,
+                                'negative' => true,
                                 'header' => 'header',
                                 'stringComparison' => 'stringComparison',
                                 'value' => 'value',
-                                'caseSensitive' => 1,
+                                'caseSensitive' => true,
                             ),
                             'importanceTest' => array(
-                                'index' => 1,
-                                'negative' => 1,
+                                'index' => 10,
+                                'negative' => true,
                                 'imp' => 'high',
                             ),
                             'inviteTest' => array(
-                                'index' => 1,
-                                'negative' => 1,
+                                'index' => 10,
+                                'negative' => true,
                                 'method' => array(
                                     'method',
                                 ),
                             ),
                             'linkedinTest' => array(
-                                'index' => 1,
-                                'negative' => 1,
+                                'index' => 10,
+                                'negative' => true,
                             ),
                             'listTest' => array(
-                                'index' => 1,
-                                'negative' => 1,
+                                'index' => 10,
+                                'negative' => true,
                             ),
                             'meTest' => array(
-                                'index' => 1,
-                                'negative' => 1,
+                                'index' => 10,
+                                'negative' => true,
                                 'header' => 'header',
                             ),
                             'mimeHeaderTest' => array(
-                                'index' => 1,
-                                'negative' => 1,
+                                'index' => 10,
+                                'negative' => true,
                                 'header' => 'header',
                                 'stringComparison' => 'stringComparison',
                                 'value' => 'value',
-                                'caseSensitive' => 1,
+                                'caseSensitive' => true,
                             ),
                             'sizeTest' => array(
-                                'index' => 1,
-                                'negative' => 1,
+                                'index' => 10,
+                                'negative' => true,
                                 'numberComparison' => 'numberComparison',
                                 's' => 's',
                             ),
                             'socialcastTest' => array(
-                                'index' => 1,
-                                'negative' => 1,
+                                'index' => 10,
+                                'negative' => true,
                             ),
                             'trueTest' => array(
-                                'index' => 1,
-                                'negative' => 1,
+                                'index' => 10,
+                                'negative' => true,
                             ),
                             'twitterTest' => array(
-                                'index' => 1,
-                                'negative' => 1,
+                                'index' => 10,
+                                'negative' => true,
                             ),
                         ),
                         'filterActions' => array(
                             'actionKeep' => array(
-                                'index' => 1,
+                                'index' => 10,
                             ),
                             'actionDiscard' => array(
-                                'index' => 1,
+                                'index' => 10,
                             ),
                             'actionFileInto' => array(
-                                'index' => 1,
+                                'index' => 10,
                                 'folderPath' => 'folderPath',
                             ),
                             'actionFlag' => array(
-                                'index' => 1,
+                                'index' => 10,
                                 'flagName' => 'flagName',
                             ),
                             'actionTag' => array(
-                                'index' => 1,
+                                'index' => 10,
                                 'tagName' => 'tagName',
                             ),
                             'actionRedirect' => array(
-                                'index' => 1,
+                                'index' => 10,
                                 'a' => 'a',
                             ),
                             'actionReply' => array(
-                                'index' => 1,
+                                'index' => 10,
                                 'content' => 'content',
                             ),
                             'actionNotify' => array(
-                                'index' => 1,
+                                'index' => 10,
                                 'content' => 'content',
                                 'a' => 'a',
                                 'su' => 'su',
-                                'maxBodySize' => 1,
+                                'maxBodySize' => 10,
                                 'origHeaders' => 'origHeaders',
                             ),
                             'actionStop' => array(
-                                'index' => 1,
+                                'index' => 10,
                             ),
                         ),
                     ),
@@ -3406,24 +3406,24 @@ class StructTest extends ZimbraTestCase
     public function testFilterTest()
     {
         $filterTest = new \Zimbra\Mail\Struct\FilterTest(
-            1, true
+            10, true
         );
-        $this->assertSame(1, $filterTest->index());
+        $this->assertSame(10, $filterTest->index());
         $this->assertTrue($filterTest->negative());
 
-        $filterTest->index(1)
+        $filterTest->index(10)
                    ->negative(true);
-        $this->assertSame(1, $filterTest->index());
+        $this->assertSame(10, $filterTest->index());
         $this->assertTrue($filterTest->negative());
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<filterTest index="1" negative="1" />';
+            .'<filterTest index="10" negative="true" />';
         $this->assertXmlStringEqualsXmlString($xml, (string) $filterTest);
 
         $array = array(
             'filterTest' => array(
-                'index' => 1,
-                'negative' => 1,
+                'index' => 10,
+                'negative' => true,
             ),
         );
         $this->assertEquals($array, $filterTest->toArray());
@@ -3432,76 +3432,76 @@ class StructTest extends ZimbraTestCase
     public function testFilterTests()
     {
         $addressBookTest = new \Zimbra\Mail\Struct\AddressBookTest(
-            1, 'header', true
+            10, 'header', true
         );
         $addressTest = new \Zimbra\Mail\Struct\AddressTest(
-            1, 'header', 'part', 'stringComparison', 'value', true, true
+            10, 'header', 'part', 'stringComparison', 'value', true, true
         );
         $attachmentTest = new \Zimbra\Mail\Struct\AttachmentTest(
-            1, true
+            10, true
         );
         $bodyTest = new \Zimbra\Mail\Struct\BodyTest(
-            1, 'value', true, true
+            10, 'value', true, true
         );
         $bulkTest = new \Zimbra\Mail\Struct\BulkTest(
-            1, true
+            10, true
         );
         $contactRankingTest = new \Zimbra\Mail\Struct\ContactRankingTest(
-            1, 'header', true
+            10, 'header', true
         );
         $conversationTest = new \Zimbra\Mail\Struct\ConversationTest(
-            1, 'where', true
+            10, 'where', true
         );
         $currentDayOfWeekTest = new \Zimbra\Mail\Struct\CurrentDayOfWeekTest(
-            1, 'value', true
+            10, 'value', true
         );
         $currentTimeTest = new \Zimbra\Mail\Struct\CurrentTimeTest(
-            1, 'dateComparison', 'time', true
+            10, 'dateComparison', 'time', true
         );
         $dateTest = new \Zimbra\Mail\Struct\DateTest(
-            1, 'dateComparison', 1, true
+            10, 'dateComparison', 10, true
         );
         $facebookTest = new \Zimbra\Mail\Struct\FacebookTest(
-            1, true
+            10, true
         );
         $flaggedTest = new \Zimbra\Mail\Struct\FlaggedTest(
-            1, 'flagName', true
+            10, 'flagName', true
         );
         $headerExistsTest = new \Zimbra\Mail\Struct\HeaderExistsTest(
-            1, 'header', true
+            10, 'header', true
         );
         $headerTest = new \Zimbra\Mail\Struct\HeaderTest(
-            1, 'header', 'stringComparison', 'value', true, true
+            10, 'header', 'stringComparison', 'value', true, true
         );
         $importanceTest = new \Zimbra\Mail\Struct\ImportanceTest(
-            1, Importance::HIGH(), true
+            10, Importance::HIGH(), true
         );
         $inviteTest = new \Zimbra\Mail\Struct\InviteTest(
-            1, array('method'), true
+            10, array('method'), true
         );
         $linkedinTest = new \Zimbra\Mail\Struct\LinkedInTest(
-            1, true
+            10, true
         );
         $listTest = new \Zimbra\Mail\Struct\ListTest(
-            1, true
+            10, true
         );
         $meTest = new \Zimbra\Mail\Struct\MeTest(
-            1, 'header', true
+            10, 'header', true
         );
         $mimeHeaderTest = new \Zimbra\Mail\Struct\MimeHeaderTest(
-            1, 'header', 'stringComparison', 'value', true, true
+            10, 'header', 'stringComparison', 'value', true, true
         );
         $sizeTest = new \Zimbra\Mail\Struct\SizeTest(
-            1, 'numberComparison', 's', true
+            10, 'numberComparison', 's', true
         );
         $socialcastTest = new \Zimbra\Mail\Struct\SocialcastTest(
-            1, true
+            10, true
         );
         $trueTest = new \Zimbra\Mail\Struct\TrueTest(
-            1, true
+            10, true
         );
         $twitterTest = new \Zimbra\Mail\Struct\TwitterTest(
-            1, true
+            10, true
         );
 
         $filterTests = new \Zimbra\Mail\Struct\FilterTests(
@@ -3610,32 +3610,32 @@ class StructTest extends ZimbraTestCase
 
         $xml = '<?xml version="1.0"?>'."\n"
             .'<filterTests condition="allof">'
-                .'<addressBookTest index="1" negative="1" header="header" />'
-                .'<addressTest index="1" negative="1" header="header" part="part" stringComparison="stringComparison" value="value" caseSensitive="1" />'
-                .'<attachmentTest index="1" negative="1" />'
-                .'<bodyTest index="1" negative="1" value="value" caseSensitive="1" />'
-                .'<bulkTest index="1" negative="1" />'
-                .'<contactRankingTest index="1" negative="1" header="header" />'
-                .'<conversationTest index="1" negative="1" where="where" />'
-                .'<currentDayOfWeekTest index="1" negative="1" value="value" />'
-                .'<currentTimeTest index="1" negative="1" dateComparison="dateComparison" time="time" />'
-                .'<dateTest index="1" negative="1" dateComparison="dateComparison" d="1" />'
-                .'<facebookTest index="1" negative="1" />'
-                .'<flaggedTest index="1" negative="1" flagName="flagName" />'
-                .'<headerExistsTest index="1" negative="1" header="header" />'
-                .'<headerTest index="1" negative="1" header="header" stringComparison="stringComparison" value="value" caseSensitive="1" />'
-                .'<importanceTest index="1" negative="1" imp="high" />'
-                .'<inviteTest index="1" negative="1">'
+                .'<addressBookTest index="10" negative="true" header="header" />'
+                .'<addressTest index="10" negative="true" header="header" part="part" stringComparison="stringComparison" value="value" caseSensitive="true" />'
+                .'<attachmentTest index="10" negative="true" />'
+                .'<bodyTest index="10" negative="true" value="value" caseSensitive="true" />'
+                .'<bulkTest index="10" negative="true" />'
+                .'<contactRankingTest index="10" negative="true" header="header" />'
+                .'<conversationTest index="10" negative="true" where="where" />'
+                .'<currentDayOfWeekTest index="10" negative="true" value="value" />'
+                .'<currentTimeTest index="10" negative="true" dateComparison="dateComparison" time="time" />'
+                .'<dateTest index="10" negative="true" dateComparison="dateComparison" d="10" />'
+                .'<facebookTest index="10" negative="true" />'
+                .'<flaggedTest index="10" negative="true" flagName="flagName" />'
+                .'<headerExistsTest index="10" negative="true" header="header" />'
+                .'<headerTest index="10" negative="true" header="header" stringComparison="stringComparison" value="value" caseSensitive="true" />'
+                .'<importanceTest index="10" negative="true" imp="high" />'
+                .'<inviteTest index="10" negative="true">'
                     .'<method>method</method>'
                 .'</inviteTest>'
-                .'<linkedinTest index="1" negative="1" />'
-                .'<listTest index="1" negative="1" />'
-                .'<meTest index="1" negative="1" header="header" />'
-                .'<mimeHeaderTest index="1" negative="1" header="header" stringComparison="stringComparison" value="value" caseSensitive="1" />'
-                .'<sizeTest index="1" negative="1" numberComparison="numberComparison" s="s" />'
-                .'<socialcastTest index="1" negative="1" />'
-                .'<trueTest index="1" negative="1" />'
-                .'<twitterTest index="1" negative="1" />'
+                .'<linkedinTest index="10" negative="true" />'
+                .'<listTest index="10" negative="true" />'
+                .'<meTest index="10" negative="true" header="header" />'
+                .'<mimeHeaderTest index="10" negative="true" header="header" stringComparison="stringComparison" value="value" caseSensitive="true" />'
+                .'<sizeTest index="10" negative="true" numberComparison="numberComparison" s="s" />'
+                .'<socialcastTest index="10" negative="true" />'
+                .'<trueTest index="10" negative="true" />'
+                .'<twitterTest index="10" negative="true" />'
             .'</filterTests>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $filterTests);
 
@@ -3643,132 +3643,132 @@ class StructTest extends ZimbraTestCase
             'filterTests' => array(
                 'condition' => 'allof',
                 'addressBookTest' => array(
-                    'index' => 1,
-                    'negative' => 1,
+                    'index' => 10,
+                    'negative' => true,
                     'header' => 'header',
                 ),
                 'addressTest' => array(
-                    'index' => 1,
-                    'negative' => 1,
+                    'index' => 10,
+                    'negative' => true,
                     'header' => 'header',
                     'part' => 'part',
                     'stringComparison' => 'stringComparison',
                     'value' => 'value',
-                    'caseSensitive' => 1,
+                    'caseSensitive' => true,
                 ),
                 'attachmentTest' => array(
-                    'index' => 1,
-                    'negative' => 1,
+                    'index' => 10,
+                    'negative' => true,
                 ),
                 'bodyTest' => array(
-                    'index' => 1,
-                    'negative' => 1,
+                    'index' => 10,
+                    'negative' => true,
                     'value' => 'value',
-                    'caseSensitive' => 1,
+                    'caseSensitive' => true,
                 ),
                 'bulkTest' => array(
-                    'index' => 1,
-                    'negative' => 1,
+                    'index' => 10,
+                    'negative' => true,
                 ),
                 'contactRankingTest' => array(
-                    'index' => 1,
-                    'negative' => 1,
+                    'index' => 10,
+                    'negative' => true,
                     'header' => 'header',
                 ),
                 'conversationTest' => array(
-                    'index' => 1,
-                    'negative' => 1,
+                    'index' => 10,
+                    'negative' => true,
                     'where' => 'where',
                 ),
                 'currentDayOfWeekTest' => array(
-                    'index' => 1,
-                    'negative' => 1,
+                    'index' => 10,
+                    'negative' => true,
                     'value' => 'value',
                 ),
                 'currentTimeTest' => array(
-                    'index' => 1,
-                    'negative' => 1,
+                    'index' => 10,
+                    'negative' => true,
                     'dateComparison' => 'dateComparison',
                     'time' => 'time',
                 ),
                 'dateTest' => array(
-                    'index' => 1,
-                    'negative' => 1,
+                    'index' => 10,
+                    'negative' => true,
                     'dateComparison' => 'dateComparison',
-                    'd' => 1,
+                    'd' => 10,
                 ),
                 'facebookTest' => array(
-                    'index' => 1,
-                    'negative' => 1,
+                    'index' => 10,
+                    'negative' => true,
                 ),
                 'flaggedTest' => array(
-                    'index' => 1,
-                    'negative' => 1,
+                    'index' => 10,
+                    'negative' => true,
                     'flagName' => 'flagName',
                 ),
                 'headerExistsTest' => array(
-                    'index' => 1,
-                    'negative' => 1,
+                    'index' => 10,
+                    'negative' => true,
                     'header' => 'header',
                 ),
                 'headerTest' => array(
-                    'index' => 1,
-                    'negative' => 1,
+                    'index' => 10,
+                    'negative' => true,
                     'header' => 'header',
                     'stringComparison' => 'stringComparison',
                     'value' => 'value',
-                    'caseSensitive' => 1,
+                    'caseSensitive' => true,
                 ),
                 'importanceTest' => array(
-                    'index' => 1,
-                    'negative' => 1,
+                    'index' => 10,
+                    'negative' => true,
                     'imp' => 'high',
                 ),
                 'inviteTest' => array(
-                    'index' => 1,
-                    'negative' => 1,
+                    'index' => 10,
+                    'negative' => true,
                     'method' => array(
                         'method',
                     ),
                 ),
                 'linkedinTest' => array(
-                    'index' => 1,
-                    'negative' => 1,
+                    'index' => 10,
+                    'negative' => true,
                 ),
                 'listTest' => array(
-                    'index' => 1,
-                    'negative' => 1,
+                    'index' => 10,
+                    'negative' => true,
                 ),
                 'meTest' => array(
-                    'index' => 1,
-                    'negative' => 1,
+                    'index' => 10,
+                    'negative' => true,
                     'header' => 'header',
                 ),
                 'mimeHeaderTest' => array(
-                    'index' => 1,
-                    'negative' => 1,
+                    'index' => 10,
+                    'negative' => true,
                     'header' => 'header',
                     'stringComparison' => 'stringComparison',
                     'value' => 'value',
-                    'caseSensitive' => 1,
+                    'caseSensitive' => true,
                 ),
                 'sizeTest' => array(
-                    'index' => 1,
-                    'negative' => 1,
+                    'index' => 10,
+                    'negative' => true,
                     'numberComparison' => 'numberComparison',
                     's' => 's',
                 ),
                 'socialcastTest' => array(
-                    'index' => 1,
-                    'negative' => 1,
+                    'index' => 10,
+                    'negative' => true,
                 ),
                 'trueTest' => array(
-                    'index' => 1,
-                    'negative' => 1,
+                    'index' => 10,
+                    'negative' => true,
                 ),
                 'twitterTest' => array(
-                    'index' => 1,
-                    'negative' => 1,
+                    'index' => 10,
+                    'negative' => true,
                 ),
             ),
         );
@@ -3778,7 +3778,7 @@ class StructTest extends ZimbraTestCase
     public function testFlagAction()
     {
         $actionFlag = new \Zimbra\Mail\Struct\FlagAction(
-            1, 'flagName'
+            10, 'flagName'
         );
         $this->assertInstanceOf('\Zimbra\Mail\Struct\FilterAction', $actionFlag);
         $this->assertSame('flagName', $actionFlag->flagName());
@@ -3786,12 +3786,12 @@ class StructTest extends ZimbraTestCase
         $this->assertSame('flagName', $actionFlag->flagName());
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<actionFlag index="1" flagName="flagName" />';
+            .'<actionFlag index="10" flagName="flagName" />';
         $this->assertXmlStringEqualsXmlString($xml, (string) $actionFlag);
 
         $array = array(
             'actionFlag' => array(
-                'index' => 1,
+                'index' => 10,
                 'flagName' => 'flagName',
             ),
         );
@@ -3801,7 +3801,7 @@ class StructTest extends ZimbraTestCase
     public function testFlaggedTest()
     {
         $flaggedTest = new \Zimbra\Mail\Struct\FlaggedTest(
-            1, 'flagName', true
+            10, 'flagName', true
         );
         $this->assertInstanceOf('\Zimbra\Mail\Struct\FilterTest', $flaggedTest);
         $this->assertSame('flagName', $flaggedTest->flagName());
@@ -3809,13 +3809,13 @@ class StructTest extends ZimbraTestCase
         $this->assertSame('flagName', $flaggedTest->flagName());
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<flaggedTest index="1" negative="1" flagName="flagName" />';
+            .'<flaggedTest index="10" negative="true" flagName="flagName" />';
         $this->assertXmlStringEqualsXmlString($xml, (string) $flaggedTest);
 
         $array = array(
             'flaggedTest' => array(
-                'index' => 1,
-                'negative' => 1,
+                'index' => 10,
+                'negative' => true,
                 'flagName' => 'flagName',
             ),
         );
@@ -3846,10 +3846,10 @@ class StructTest extends ZimbraTestCase
             FolderActionOp::READ(),
             'id',
             'tcon',
-            1,
+            10,
             'l',
             '#aabbcc',
-            1,
+            10,
             'name',
             'f',
             't',
@@ -3897,7 +3897,7 @@ class StructTest extends ZimbraTestCase
         $this->assertSame('view', $action->view());
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<action op="read" id="id" tcon="tcon" tag="1" l="l" rgb="#aabbcc" color="1" name="name" f="f" t="t" tn="tn" recursive="1" url="url" excludeFreeBusy="1" zid="zid" gt="gt" view="view">'
+            .'<action op="read" id="id" tcon="tcon" tag="10" l="l" rgb="#aabbcc" color="10" name="name" f="f" t="t" tn="tn" recursive="true" url="url" excludeFreeBusy="true" zid="zid" gt="gt" view="view">'
                 .'<grant perm="perm" gt="usr" zid="zid" d="d" args="args" pw="pw" key="key" />'
                 .'<acl>'
                     .'<grant perm="perm" gt="usr" zid="zid" d="d" args="args" pw="pw" key="key" />'
@@ -3918,17 +3918,17 @@ class StructTest extends ZimbraTestCase
                 'op' => 'read',
                 'id' => 'id',
                 'tcon' => 'tcon',
-                'tag' => 1,
+                'tag' => 10,
                 'l' => 'l',
                 'rgb' => '#aabbcc',
-                'color' => 1,
+                'color' => 10,
                 'name' => 'name',
                 'f' => 'f',
                 't' => 't',
                 'tn' => 'tn',
-                'recursive' => 1,
+                'recursive' => true,
                 'url' => 'url',
-                'excludeFreeBusy' => 1,
+                'excludeFreeBusy' => true,
                 'zid' => 'zid',
                 'gt' => 'gt',
                 'view' => 'view',
@@ -4043,26 +4043,26 @@ class StructTest extends ZimbraTestCase
     public function testFreeBusyUserSpec()
     {
         $usr = new \Zimbra\Mail\Struct\FreeBusyUserSpec(
-            1, 'id', 'name'
+            10, 'id', 'name'
         );
-        $this->assertSame(1, $usr->l());
+        $this->assertSame(10, $usr->l());
         $this->assertSame('id', $usr->id());
         $this->assertSame('name', $usr->name());
 
-        $usr->l(1)
-          ->id('id')
-          ->name('name');
-        $this->assertSame(1, $usr->l());
+        $usr->l(10)
+            ->id('id')
+            ->name('name');
+        $this->assertSame(10, $usr->l());
         $this->assertSame('id', $usr->id());
         $this->assertSame('name', $usr->name());
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<usr l="1" id="id" name="name" />';
+            .'<usr l="10" id="id" name="name" />';
         $this->assertXmlStringEqualsXmlString($xml, (string) $usr);
 
         $array = array(
             'usr' => array(
-                'l' => 1,
+                'l' => 10,
                 'id' => 'id',
                 'name' => 'name',
             ),
@@ -4168,7 +4168,7 @@ class StructTest extends ZimbraTestCase
     public function testHeaderExistsTest()
     {
         $headerExistsTest = new \Zimbra\Mail\Struct\HeaderExistsTest(
-            1, 'header', true
+            10, 'header', true
         );
         $this->assertInstanceOf('\Zimbra\Mail\Struct\FilterTest', $headerExistsTest);
         $this->assertSame('header', $headerExistsTest->header());
@@ -4176,13 +4176,13 @@ class StructTest extends ZimbraTestCase
         $this->assertSame('header', $headerExistsTest->header());
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<headerExistsTest index="1" negative="1" header="header" />';
+            .'<headerExistsTest index="10" negative="true" header="header" />';
         $this->assertXmlStringEqualsXmlString($xml, (string) $headerExistsTest);
 
         $array = array(
             'headerExistsTest' => array(
-                'index' => 1,
-                'negative' => 1,
+                'index' => 10,
+                'negative' => true,
                 'header' => 'header',
             ),
         );
@@ -4192,7 +4192,7 @@ class StructTest extends ZimbraTestCase
     public function testHeaderTest()
     {
         $headerTest = new \Zimbra\Mail\Struct\HeaderTest(
-            1, 'header', 'stringComparison', 'value', true, true
+            10, 'header', 'stringComparison', 'value', true, true
         );
         $this->assertInstanceOf('\Zimbra\Mail\Struct\FilterTest', $headerTest);
         $this->assertSame('header', $headerTest->header());
@@ -4210,17 +4210,17 @@ class StructTest extends ZimbraTestCase
         $this->assertTrue($headerTest->caseSensitive());
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<headerTest index="1" negative="1" header="header" stringComparison="stringComparison" value="value" caseSensitive="1" />';
+            .'<headerTest index="10" negative="true" header="header" stringComparison="stringComparison" value="value" caseSensitive="true" />';
         $this->assertXmlStringEqualsXmlString($xml, (string) $headerTest);
 
         $array = array(
             'headerTest' => array(
-                'index' => 1,
-                'negative' => 1,
+                'index' => 10,
+                'negative' => true,
                 'header' => 'header',
                 'stringComparison' => 'stringComparison',
                 'value' => 'value',
-                'caseSensitive' => 1,
+                'caseSensitive' => true,
             ),
         );
         $this->assertEquals($array, $headerTest->toArray());
@@ -4277,24 +4277,24 @@ class StructTest extends ZimbraTestCase
     public function testIdVersion()
     {
         $doc = new \Zimbra\Mail\Struct\IdVersion(
-            'id', 1
+            'id', 10
         );
         $this->assertSame('id', $doc->id());
-        $this->assertSame(1, $doc->ver());
+        $this->assertSame(10, $doc->ver());
 
         $doc->id('id')
-            ->ver(1);
+            ->ver(10);
         $this->assertSame('id', $doc->id());
-        $this->assertSame(1, $doc->ver());
+        $this->assertSame(10, $doc->ver());
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<doc id="id" ver="1" />';
+            .'<doc id="id" ver="10" />';
         $this->assertXmlStringEqualsXmlString($xml, (string) $doc);
 
         $array = array(
             'doc' => array(
                 'id' => 'id',
-                'ver' => 1,
+                'ver' => 10,
             ),
         );
         $this->assertEquals($array, $doc->toArray());
@@ -4320,7 +4320,7 @@ class StructTest extends ZimbraTestCase
     public function testImportanceTest()
     {
         $importanceTest = new \Zimbra\Mail\Struct\ImportanceTest(
-            1, Importance::HIGH(), true
+            10, Importance::HIGH(), true
         );
         $this->assertInstanceOf('\Zimbra\Mail\Struct\FilterTest', $importanceTest);
         $this->assertTrue($importanceTest->imp()->is('high'));
@@ -4328,13 +4328,13 @@ class StructTest extends ZimbraTestCase
         $this->assertTrue($importanceTest->imp()->is('high'));
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<importanceTest index="1" negative="1" imp="high" />';
+            .'<importanceTest index="10" negative="true" imp="high" />';
         $this->assertXmlStringEqualsXmlString($xml, (string) $importanceTest);
 
         $array = array(
             'importanceTest' => array(
-                'index' => 1,
-                'negative' => 1,
+                'index' => 10,
+                'negative' => true,
                 'imp' => 'high',
             ),
         );
@@ -4395,21 +4395,21 @@ class StructTest extends ZimbraTestCase
         $mp = new \Zimbra\Mail\Struct\MimePartAttachSpec('mid', 'part', true);
         $m = new \Zimbra\Mail\Struct\MsgAttachSpec('id', false);
         $cn = new \Zimbra\Mail\Struct\ContactAttachSpec('id', false);
-        $doc = new \Zimbra\Mail\Struct\DocAttachSpec('path', 'id', 1, true);
+        $doc = new \Zimbra\Mail\Struct\DocAttachSpec('path', 'id', 10, true);
         $info = new \Zimbra\Mail\Struct\MimePartInfo(array(), null, 'ct', 'content', 'ci');
 
-        $standard = new \Zimbra\Struct\TzOnsetInfo(1, 2, 3, 4);
-        $daylight = new \Zimbra\Struct\TzOnsetInfo(4, 3, 2, 1);
+        $standard = new \Zimbra\Struct\TzOnsetInfo(12, 2, 3, 4);
+        $daylight = new \Zimbra\Struct\TzOnsetInfo(4, 3, 2, 10);
 
         $content = new \Zimbra\Mail\Struct\RawInvite('uid', 'value', 'summary');
-        $tz = new \Zimbra\Mail\Struct\CalTZInfo('id', 1, 1, $standard, $daylight, 'stdname', 'dayname');
+        $tz = new \Zimbra\Mail\Struct\CalTZInfo('id', 10, 10, $standard, $daylight, 'stdname', 'dayname');
         $attach = new \Zimbra\Mail\Struct\AttachmentsInfo($mp, $m, $cn, $doc, 'aid');
         $mp = new \Zimbra\Mail\Struct\MimePartInfo(array($info), $attach, 'ct', 'content', 'ci');
-        $comp = new \Zimbra\Mail\Struct\InviteComponent('method', 1, true);
+        $comp = new \Zimbra\Mail\Struct\InviteComponent('method', 10, true);
 
         $inv = new \Zimbra\Mail\Struct\InvitationInfo(
             'method',
-            1,
+            10,
             true
         );
 
@@ -4432,25 +4432,25 @@ class StructTest extends ZimbraTestCase
         $this->assertSame('ci', $inv->ci());
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<inv method="method" compNum="1" rsvp="1" id="id" ct="ct" ci="ci">'
+            .'<inv method="method" compNum="10" rsvp="true" id="id" ct="ct" ci="ci">'
                 .'<content uid="uid" summary="summary">value</content>'
-                .'<comp method="method" compNum="1" rsvp="1" />'
+                .'<comp method="method" compNum="10" rsvp="true" />'
                 .'<attach aid="aid">'
-                    .'<mp optional="1" mid="mid" part="part" />'
-                    .'<m optional="0" id="id" />'
-                    .'<cn optional="0" id="id" />'
-                    .'<doc optional="1" path="path" id="id" ver="1" />'
+                    .'<mp optional="true" mid="mid" part="part" />'
+                    .'<m optional="false" id="id" />'
+                    .'<cn optional="false" id="id" />'
+                    .'<doc optional="true" path="path" id="id" ver="10" />'
                 .'</attach>'
-                .'<tz id="id" stdoff="1" dayoff="1" stdname="stdname" dayname="dayname">'
-                    .'<standard mon="1" hour="2" min="3" sec="4" />'
-                    .'<daylight mon="4" hour="3" min="2" sec="1" />'
+                .'<tz id="id" stdoff="10" dayoff="10" stdname="stdname" dayname="dayname">'
+                    .'<standard mon="12" hour="2" min="3" sec="4" />'
+                    .'<daylight mon="4" hour="3" min="2" sec="10" />'
                 .'</tz>'
                 .'<mp ct="ct" content="content" ci="ci">'
                     .'<attach aid="aid">'
-                        .'<mp optional="1" mid="mid" part="part" />'
-                        .'<m optional="0" id="id" />'
-                        .'<cn optional="0" id="id" />'
-                        .'<doc optional="1" path="path" id="id" ver="1" />'
+                        .'<mp optional="true" mid="mid" part="part" />'
+                        .'<m optional="false" id="id" />'
+                        .'<cn optional="false" id="id" />'
+                        .'<doc optional="true" path="path" id="id" ver="10" />'
                     .'</attach>'
                     .'<mp ct="ct" content="content" ci="ci" />'
                 .'</mp>'
@@ -4460,8 +4460,8 @@ class StructTest extends ZimbraTestCase
         $array = array(
             'inv' => array(
                 'method' => 'method',
-                'compNum' => 1,
-                'rsvp' => 1,
+                'compNum' => 10,
+                'rsvp' => true,
                 'id' => 'id',
                 'ct' => 'ct',
                 'ci' => 'ci',
@@ -4472,18 +4472,18 @@ class StructTest extends ZimbraTestCase
                 ),
                 'comp' => array(
                     'method' => 'method',
-                    'compNum' => 1,
-                    'rsvp' => 1,
+                    'compNum' => 10,
+                    'rsvp' => true,
                 ),
                 'tz' => array(
                     array(
                         'id' => 'id',
-                        'stdoff' => 1,
-                        'dayoff' => 1,
+                        'stdoff' => 10,
+                        'dayoff' => 10,
                         'stdname' => 'stdname',
                         'dayname' => 'dayname',
                         'standard' => array(
-                            'mon' => 1,
+                            'mon' => 12,
                             'hour' => 2,
                             'min' => 3,
                             'sec' => 4,
@@ -4492,7 +4492,7 @@ class StructTest extends ZimbraTestCase
                             'mon' => 4,
                             'hour' => 3,
                             'min' => 2,
-                            'sec' => 1,
+                            'sec' => 10,
                         ),
                     ),
                 ),
@@ -4513,21 +4513,21 @@ class StructTest extends ZimbraTestCase
                             'mp' => array(
                                 'mid' => 'mid',
                                 'part' => 'part',
-                                'optional' => 1,
+                                'optional' => true,
                             ),
                             'm' => array(
                                 'id' => 'id',
-                                'optional' => 0,
+                                'optional' => false,
                             ),
                             'cn' => array(
                                 'id' => 'id',
-                                'optional' => 0,
+                                'optional' => false,
                             ),
                             'doc' => array(
                                 'path' => 'path',
                                 'id' => 'id',
-                                'ver' => 1,
-                                'optional' => 1,
+                                'ver' => 10,
+                                'optional' => true,
                             ),
                         ),
                     ),
@@ -4537,21 +4537,21 @@ class StructTest extends ZimbraTestCase
                     'mp' => array(
                         'mid' => 'mid',
                         'part' => 'part',
-                        'optional' => 1,
+                        'optional' => true,
                     ),
                     'm' => array(
                         'id' => 'id',
-                        'optional' => 0,
+                        'optional' => false,
                     ),
                     'cn' => array(
                         'id' => 'id',
-                        'optional' => 0,
+                        'optional' => false,
                     ),
                     'doc' => array(
                         'path' => 'path',
                         'id' => 'id',
-                        'ver' => 1,
-                        'optional' => 1,
+                        'ver' => 10,
+                        'optional' => true,
                     ),
                 ),
             ),
@@ -4566,15 +4566,15 @@ class StructTest extends ZimbraTestCase
             , 'a', 'url', 'd', 'sentBy', 'dir', 'lang', 'cutype', 'role', ParticipationStatus::NE(), true, 'member', 'delTo', 'delFrom'
         );
         $abs = new \Zimbra\Mail\Struct\DateAttr('20120315T18302305Z');
-        $rel = new \Zimbra\Mail\Struct\DurationInfo(true, 1, 2, 3, 4, 5, 'START', 6);
+        $rel = new \Zimbra\Mail\Struct\DurationInfo(true, 7, 2, 3, 4, 5, 'START', 6);
         $trigger = new \Zimbra\Mail\Struct\AlarmTriggerInfo($abs, $rel);
-        $repeat = new \Zimbra\Mail\Struct\DurationInfo(false, 1, 2, 3, 4, 5, 'END', 6);
+        $repeat = new \Zimbra\Mail\Struct\DurationInfo(false, 7, 2, 3, 4, 5, 'START', 6);
         $attach = new \Zimbra\Mail\Struct\CalendarAttach('uri', 'ct', 'value');
         $except = new \Zimbra\Mail\Struct\ExceptionRuleInfo(
-            1, '991231', null, null, 'tz', '991231000000'
+            10, '991231', null, null, 'tz', '991231000000'
         );
         $cancel = new \Zimbra\Mail\Struct\CancelRuleInfo(
-            1, '991231', 'tz', '991231000000'
+            10, '991231', 'tz', '991231000000'
         );
         $s = new \Zimbra\Mail\Struct\DtTimeInfo(
             '20120315T18302305Z', 'tz', 1000
@@ -4582,12 +4582,10 @@ class StructTest extends ZimbraTestCase
         $e = new \Zimbra\Mail\Struct\DtTimeInfo(
             '20130315T18302305Z', 'tz', 2000
         );
-        $dur = new \Zimbra\Mail\Struct\DurationInfo(
-            true, 1, 2, 3, 4, 5, 'START', 6
-        );
+        $dur = new \Zimbra\Mail\Struct\DurationInfo(true, 7, 2, 3, 4, 5, 'START', 6);
         $dtval = new \Zimbra\Mail\Struct\DtVal($s, $e, $dur);
         $dates = new \Zimbra\Mail\Struct\SingleDates(array($dtval), 'tz');
-        $wkday = new \Zimbra\Mail\Struct\WkDay(WeekDay::SU(), 1);
+        $wkday = new \Zimbra\Mail\Struct\WkDay(WeekDay::SU(), 10);
         $until = new \Zimbra\Mail\Struct\DateTimeStringAttr('20120315T18302305Z');
         $count = new \Zimbra\Mail\Struct\NumAttr(20120315);
         $interval = new \Zimbra\Mail\Struct\IntervalRule(20120315);
@@ -4637,12 +4635,12 @@ class StructTest extends ZimbraTestCase
 
         $comp = new \Zimbra\Mail\Struct\InviteComponent(
             'method',
-            1,
+            10,
             true,
-            1,
+            10,
             'name',
             'loc',
-            1,
+            10,
             '20120315T18302305Z',
             true,
             FreeBusyStatus::F(),
@@ -4651,8 +4649,8 @@ class StructTest extends ZimbraTestCase
             true,
             'x_uid',
             'uid',
-            1,
-            1,
+            10,
+            10,
             'calItemId',
             'apptId',
             'ciFolder',
@@ -4735,12 +4733,12 @@ class StructTest extends ZimbraTestCase
 
         $comp = new \Zimbra\Mail\Struct\InviteComponent(
             'method',
-            1,
+            10,
             true,
-            1,
+            10,
             'name',
             'loc',
-            1,
+            10,
             '20120315T18302305Z',
             true,
             FreeBusyStatus::F(),
@@ -4749,8 +4747,8 @@ class StructTest extends ZimbraTestCase
             true,
             'x_uid',
             'uid',
-            1,
-            1,
+            10,
+            10,
             'calItemId',
             'apptId',
             'ciFolder',
@@ -4784,33 +4782,33 @@ class StructTest extends ZimbraTestCase
         $xml = '<?xml version="1.0"?>'."\n"
             .'<comp'
                 .' method="method"'
-                .' compNum="1"'
-                .' rsvp="1"'
-                .' priority="1"'
+                .' compNum="10"'
+                .' rsvp="true"'
+                .' priority="10"'
                 .' name="name"'
                 .' loc="loc"'
-                .' percentComplete="1"'
+                .' percentComplete="10"'
                 .' completed="20120315T18302305Z"'
-                .' noBlob="1"'
+                .' noBlob="true"'
                 .' fba="F"'
                 .' fb="F"'
                 .' transp="O"'
-                .' isOrg="1"'
+                .' isOrg="true"'
                 .' x_uid="x_uid"'
                 .' uid="uid"'
-                .' seq="1"'
-                .' d="1"'
+                .' seq="10"'
+                .' d="10"'
                 .' calItemId="calItemId"'
                 .' apptId="apptId"'
                 .' ciFolder="ciFolder"'
                 .' status="COMP"'
                 .' class="PUB"'
                 .' url="url"'
-                .' ex="1"'
+                .' ex="true"'
                 .' ridZ="ridZ"'
-                .' allDay="1"'
-                .' draft="1"'
-                .' neverSent="1"'
+                .' allDay="true"'
+                .' draft="true"'
+                .' neverSent="true"'
                 .' changes="subject,location,time">'
                 .'<geo lat="123.456" lon="654.321" />'
                 .'<fr>fr</fr>'
@@ -4821,13 +4819,13 @@ class StructTest extends ZimbraTestCase
                 .'</or>'
                 .'<recur>'
                     .'<add>'
-                        .'<except rangeType="1" recurId="991231" tz="tz" ridZ="991231000000" />'
-                        .'<cancel rangeType="1" recurId="991231" tz="tz" ridZ="991231000000" />'
+                        .'<except rangeType="10" recurId="991231" tz="tz" ridZ="991231000000" />'
+                        .'<cancel rangeType="10" recurId="991231" tz="tz" ridZ="991231000000" />'
                         .'<dates tz="tz">'
                             .'<dtval>'
                                 .'<s d="20120315T18302305Z" tz="tz" u="1000" />'
                                 .'<e d="20130315T18302305Z" tz="tz" u="2000" />'
-                                .'<dur neg="1" w="1" d="2" h="3" m="4" s="5" related="START" count="6" />'
+                                .'<dur neg="true" w="7" d="2" h="3" m="4" s="5" related="START" count="6" />'
                             .'</dtval>'
                         .'</dates>'
                         .'<rule freq="SEC">'
@@ -4838,7 +4836,7 @@ class StructTest extends ZimbraTestCase
                             .'<byminute minlist="10,20,30" />'
                             .'<byhour hrlist="5,10,15" />'
                             .'<byday>'
-                                .'<wkday day="SU" ordwk="1" />'
+                                .'<wkday day="SU" ordwk="10" />'
                             .'</byday>'
                             .'<bymonthday modaylist="5,10,15" />'
                             .'<byyearday yrdaylist="5,10,15" />'
@@ -4850,13 +4848,13 @@ class StructTest extends ZimbraTestCase
                         .'</rule>'
                     .'</add>'
                     .'<exclude>'
-                        .'<except rangeType="1" recurId="991231" tz="tz" ridZ="991231000000" />'
-                        .'<cancel rangeType="1" recurId="991231" tz="tz" ridZ="991231000000" />'
+                        .'<except rangeType="10" recurId="991231" tz="tz" ridZ="991231000000" />'
+                        .'<cancel rangeType="10" recurId="991231" tz="tz" ridZ="991231000000" />'
                         .'<dates tz="tz">'
                             .'<dtval>'
                                 .'<s d="20120315T18302305Z" tz="tz" u="1000" />'
                                 .'<e d="20130315T18302305Z" tz="tz" u="2000" />'
-                                .'<dur neg="1" w="1" d="2" h="3" m="4" s="5" related="START" count="6" />'
+                                .'<dur neg="true" w="7" d="2" h="3" m="4" s="5" related="START" count="6" />'
                             .'</dtval>'
                         .'</dates>'
                         .'<rule freq="SEC">'
@@ -4867,7 +4865,7 @@ class StructTest extends ZimbraTestCase
                             .'<byminute minlist="10,20,30" />'
                             .'<byhour hrlist="5,10,15" />'
                             .'<byday>'
-                                .'<wkday day="SU" ordwk="1" />'
+                                .'<wkday day="SU" ordwk="10" />'
                             .'</byday>'
                             .'<bymonthday modaylist="5,10,15" />'
                             .'<byyearday yrdaylist="5,10,15" />'
@@ -4878,13 +4876,13 @@ class StructTest extends ZimbraTestCase
                             .'<rule-x-name name="name" value="value" />'
                         .'</rule>'
                     .'</exclude>'
-                    .'<except rangeType="1" recurId="991231" tz="tz" ridZ="991231000000" />'
-                    .'<cancel rangeType="1" recurId="991231" tz="tz" ridZ="991231000000" />'
+                    .'<except rangeType="10" recurId="991231" tz="tz" ridZ="991231000000" />'
+                    .'<cancel rangeType="10" recurId="991231" tz="tz" ridZ="991231000000" />'
                     .'<dates tz="tz">'
                         .'<dtval>'
                             .'<s d="20120315T18302305Z" tz="tz" u="1000" />'
                             .'<e d="20130315T18302305Z" tz="tz" u="2000" />'
-                            .'<dur neg="1" w="1" d="2" h="3" m="4" s="5" related="START" count="6" />'
+                            .'<dur neg="true" w="7" d="2" h="3" m="4" s="5" related="START" count="6" />'
                         .'</dtval>'
                     .'</dates>'
                     .'<rule freq="SEC">'
@@ -4895,7 +4893,7 @@ class StructTest extends ZimbraTestCase
                         .'<byminute minlist="10,20,30" />'
                         .'<byhour hrlist="5,10,15" />'
                         .'<byday>'
-                            .'<wkday day="SU" ordwk="1" />'
+                            .'<wkday day="SU" ordwk="10" />'
                         .'</byday>'
                         .'<bymonthday modaylist="5,10,15" />'
                         .'<byyearday yrdaylist="5,10,15" />'
@@ -4909,26 +4907,26 @@ class StructTest extends ZimbraTestCase
                 .'<exceptId d="20120315T18302305Z" tz="tz" rangeType="-1" />'
                 .'<s d="20120315T18302305Z" tz="tz" u="1000" />'
                 .'<e d="20130315T18302305Z" tz="tz" u="2000" />'
-                .'<dur neg="1" w="1" d="2" h="3" m="4" s="5" related="START" count="6" />'
+                .'<dur neg="true" w="7" d="2" h="3" m="4" s="5" related="START" count="6" />'
                 .'<category>category1</category>'
                 .'<category>category2</category>'
                 .'<comment>comment1</comment>'
                 .'<comment>comment2</comment>'
                 .'<contact>contact1</contact>'
                 .'<contact>contact2</contact>'
-                .'<at a="a" url="url" d="d" sentBy="sentBy" dir="dir" lang="lang" cutype="cutype" role="role" ptst="NE" rsvp="1" member="member" delTo="delTo" delFrom="delFrom">'
+                .'<at a="a" url="url" d="d" sentBy="sentBy" dir="dir" lang="lang" cutype="cutype" role="role" ptst="NE" rsvp="true" member="member" delTo="delTo" delFrom="delFrom">'
                     .'<xparam name="name" value="value" />'
                 .'</at>'
                 .'<alarm action="DISPLAY">'
                     .'<trigger>'
                         .'<abs d="20120315T18302305Z" />'
-                        .'<rel neg="1" w="1" d="2" h="3" m="4" s="5" related="START" count="6" />'
+                        .'<rel neg="true" w="7" d="2" h="3" m="4" s="5" related="START" count="6" />'
                     .'</trigger>'
-                    .'<repeat neg="0" w="1" d="2" h="3" m="4" s="5" related="END" count="6" />'
+                    .'<repeat neg="false" w="7" d="2" h="3" m="4" s="5" related="START" count="6" />'
                     .'<desc>desc</desc>'
                     .'<attach uri="uri" ct="ct">value</attach>'
                     .'<summary>summary</summary>'
-                    .'<at a="a" url="url" d="d" sentBy="sentBy" dir="dir" lang="lang" cutype="cutype" role="role" ptst="NE" rsvp="1" member="member" delTo="delTo" delFrom="delFrom">'
+                    .'<at a="a" url="url" d="d" sentBy="sentBy" dir="dir" lang="lang" cutype="cutype" role="role" ptst="NE" rsvp="true" member="member" delTo="delTo" delFrom="delFrom">'
                         .'<xparam name="name" value="value" />'
                     .'</at>'
                     .'<xprop name="name" value="value">'
@@ -4944,33 +4942,33 @@ class StructTest extends ZimbraTestCase
         $array = array(
             'comp' => array(
                 'method' => 'method',
-                'compNum' => 1,
-                'rsvp' => 1,
-                'priority' => 1,
+                'compNum' => 10,
+                'rsvp' => true,
+                'priority' => 10,
                 'name' => 'name',
                 'loc' => 'loc',
-                'percentComplete' => 1,
+                'percentComplete' => 10,
                 'completed' => '20120315T18302305Z',
-                'noBlob' => 1,
+                'noBlob' => true,
                 'fba' => 'F',
                 'fb' => 'F',
                 'transp' => 'O',
-                'isOrg' => 1,
+                'isOrg' => true,
                 'x_uid' => 'x_uid',
                 'uid' => 'uid',
-                'seq' => 1,
-                'd' => 1,
+                'seq' => 10,
+                'd' => 10,
                 'calItemId' => 'calItemId',
                 'apptId' => 'apptId',
                 'ciFolder' => 'ciFolder',
                 'status' => 'COMP',
                 'class' => 'PUB',
                 'url' => 'url',
-                'ex' => 1,
+                'ex' => true,
                 'ridZ' => 'ridZ',
-                'allDay' => 1,
-                'draft' => 1,
-                'neverSent' => 1,
+                'allDay' => true,
+                'draft' => true,
+                'neverSent' => true,
                 'changes' => 'subject,location,time',
                 'category' => array(
                     'category1',
@@ -4999,7 +4997,7 @@ class StructTest extends ZimbraTestCase
                         'cutype' => 'cutype',
                         'role' => 'role',
                         'ptst' => 'NE',
-                        'rsvp' => 1,
+                        'rsvp' => true,
                         'member' => 'member',
                         'delTo' => 'delTo',
                         'delFrom' => 'delFrom',
@@ -5019,8 +5017,8 @@ class StructTest extends ZimbraTestCase
                                 'd' => '20120315T18302305Z',
                             ),
                             'rel' => array(
-                                'neg' => 1,
-                                'w' => 1,
+                                'neg' => true,
+                                'w' => 7,
                                 'd' => 2,
                                 'h' => 3,
                                 'm' => 4,
@@ -5030,13 +5028,13 @@ class StructTest extends ZimbraTestCase
                             ),
                         ),
                         'repeat' => array(
-                            'neg' => 0,
-                            'w' => 1,
+                            'neg' => false,
+                            'w' => 7,
                             'd' => 2,
                             'h' => 3,
                             'm' => 4,
                             's' => 5,
-                            'related' => 'END',
+                            'related' => 'START',
                             'count' => 6,
                         ),
                         'desc' => 'desc',
@@ -5057,7 +5055,7 @@ class StructTest extends ZimbraTestCase
                                 'cutype' => 'cutype',
                                 'role' => 'role',
                                 'ptst' => 'NE',
-                                'rsvp' => 1,
+                                'rsvp' => true,
                                 'member' => 'member',
                                 'delTo' => 'delTo',
                                 'delFrom' => 'delFrom',
@@ -5115,13 +5113,13 @@ class StructTest extends ZimbraTestCase
                 'recur' => array(
                     'add' => array(
                         'except' => array(
-                            'rangeType' => 1,
+                            'rangeType' => 10,
                             'recurId' => '991231',
                             'tz' => 'tz',
                             'ridZ' => '991231000000',
                         ),
                         'cancel' => array(
-                            'rangeType' => 1,
+                            'rangeType' => 10,
                             'recurId' => '991231',
                             'tz' => 'tz',
                             'ridZ' => '991231000000',
@@ -5141,8 +5139,8 @@ class StructTest extends ZimbraTestCase
                                         'u' => 2000,
                                     ),
                                     'dur' => array(
-                                        'neg' => 1,
-                                        'w' => 1,
+                                        'neg' => true,
+                                        'w' => 7,
                                         'd' => 2,
                                         'h' => 3,
                                         'm' => 4,
@@ -5177,7 +5175,7 @@ class StructTest extends ZimbraTestCase
                                 'wkday' => array(
                                     array(
                                         'day' => 'SU',
-                                        'ordwk' => 1,
+                                        'ordwk' => 10,
                                     ),
                                 )
                             ),
@@ -5209,13 +5207,13 @@ class StructTest extends ZimbraTestCase
                     ),
                     'exclude' => array(
                         'except' => array(
-                            'rangeType' => 1,
+                            'rangeType' => 10,
                             'recurId' => '991231',
                             'tz' => 'tz',
                             'ridZ' => '991231000000',
                         ),
                         'cancel' => array(
-                            'rangeType' => 1,
+                            'rangeType' => 10,
                             'recurId' => '991231',
                             'tz' => 'tz',
                             'ridZ' => '991231000000',
@@ -5235,8 +5233,8 @@ class StructTest extends ZimbraTestCase
                                         'u' => 2000,
                                     ),
                                     'dur' => array(
-                                        'neg' => 1,
-                                        'w' => 1,
+                                        'neg' => true,
+                                        'w' => 7,
                                         'd' => 2,
                                         'h' => 3,
                                         'm' => 4,
@@ -5271,7 +5269,7 @@ class StructTest extends ZimbraTestCase
                                 'wkday' => array(
                                     array(
                                         'day' => 'SU',
-                                        'ordwk' => 1,
+                                        'ordwk' => 10,
                                     ),
                                 )
                             ),
@@ -5302,13 +5300,13 @@ class StructTest extends ZimbraTestCase
                         ),
                     ),
                     'except' => array(
-                        'rangeType' => 1,
+                        'rangeType' => 10,
                         'recurId' => '991231',
                         'tz' => 'tz',
                         'ridZ' => '991231000000',
                     ),
                     'cancel' => array(
-                        'rangeType' => 1,
+                        'rangeType' => 10,
                         'recurId' => '991231',
                         'tz' => 'tz',
                         'ridZ' => '991231000000',
@@ -5328,8 +5326,8 @@ class StructTest extends ZimbraTestCase
                                     'u' => 2000,
                                 ),
                                 'dur' => array(
-                                    'neg' => 1,
-                                    'w' => 1,
+                                    'neg' => true,
+                                    'w' => 7,
                                     'd' => 2,
                                     'h' => 3,
                                     'm' => 4,
@@ -5364,7 +5362,7 @@ class StructTest extends ZimbraTestCase
                             'wkday' => array(
                                 array(
                                     'day' => 'SU',
-                                    'ordwk' => 1,
+                                    'ordwk' => 10,
                                 ),
                             )
                         ),
@@ -5410,8 +5408,8 @@ class StructTest extends ZimbraTestCase
                     'u' => 2000,
                 ),
                 'dur' => array(
-                    'neg' => 1,
-                    'w' => 1,
+                    'neg' => true,
+                    'w' => 7,
                     'd' => 2,
                     'h' => 3,
                     'm' => 4,
@@ -5431,12 +5429,12 @@ class StructTest extends ZimbraTestCase
         $time = InviteChange::TIME();
         $comp = new \Zimbra\Mail\Struct\InviteComponentCommon(
             'method',
-            1,
+            10,
             true,
-            1,
+            10,
             'name',
             'loc',
-            1,
+            10,
             '20120315T18302305Z',
             true,
             FreeBusyStatus::F(),
@@ -5445,8 +5443,8 @@ class StructTest extends ZimbraTestCase
             true,
             'x_uid',
             'uid',
-            1,
-            1,
+            10,
+            10,
             'calItemId',
             'apptId',
             'ciFolder',
@@ -5462,12 +5460,12 @@ class StructTest extends ZimbraTestCase
         );
 
         $this->assertSame('method', $comp->method());
-        $this->assertSame(1, $comp->compNum());
+        $this->assertSame(10, $comp->compNum());
         $this->assertTrue($comp->rsvp());
-        $this->assertSame(1, $comp->priority());
+        $this->assertSame(10, $comp->priority());
         $this->assertSame('name', $comp->name());
         $this->assertSame('loc', $comp->loc());
-        $this->assertSame(1, $comp->percentComplete());
+        $this->assertSame(10, $comp->percentComplete());
         $this->assertSame('20120315T18302305Z', $comp->completed());
         $this->assertTrue($comp->noBlob());
         $this->assertTrue($comp->fba()->is('F'));
@@ -5476,8 +5474,8 @@ class StructTest extends ZimbraTestCase
         $this->assertTrue($comp->isOrg());
         $this->assertSame('x_uid', $comp->x_uid());
         $this->assertSame('uid', $comp->uid());
-        $this->assertSame(1, $comp->seq());
-        $this->assertSame(1, $comp->d());
+        $this->assertSame(10, $comp->seq());
+        $this->assertSame(10, $comp->d());
         $this->assertSame('calItemId', $comp->calItemId());
         $this->assertSame('apptId', $comp->apptId());
         $this->assertSame('ciFolder', $comp->ciFolder());
@@ -5492,12 +5490,12 @@ class StructTest extends ZimbraTestCase
         $this->assertSame('subject,location', $comp->changes());
 
         $comp->method('method')
-             ->compNum(1)
+             ->compNum(10)
              ->rsvp(true)
-             ->priority(1)
+             ->priority(10)
              ->name('name')
              ->loc('loc')
-             ->percentComplete(1)
+             ->percentComplete(10)
              ->completed('20120315T18302305Z')
              ->noBlob(true)
              ->fba(FreeBusyStatus::F())
@@ -5506,8 +5504,8 @@ class StructTest extends ZimbraTestCase
              ->isOrg(true)
              ->x_uid('x_uid')
              ->uid('uid')
-             ->seq(1)
-             ->d(1)
+             ->seq(10)
+             ->d(10)
              ->calItemId('calItemId')
              ->apptId('apptId')
              ->ciFolder('ciFolder')
@@ -5521,12 +5519,12 @@ class StructTest extends ZimbraTestCase
              ->neverSent(true)
              ->addChange($time);
         $this->assertSame('method', $comp->method());
-        $this->assertSame(1, $comp->compNum());
+        $this->assertSame(10, $comp->compNum());
         $this->assertTrue($comp->rsvp());
-        $this->assertSame(1, $comp->priority());
+        $this->assertSame(10, $comp->priority());
         $this->assertSame('name', $comp->name());
         $this->assertSame('loc', $comp->loc());
-        $this->assertSame(1, $comp->percentComplete());
+        $this->assertSame(10, $comp->percentComplete());
         $this->assertSame('20120315T18302305Z', $comp->completed());
         $this->assertTrue($comp->noBlob());
         $this->assertTrue($comp->fba()->is('F'));
@@ -5535,8 +5533,8 @@ class StructTest extends ZimbraTestCase
         $this->assertTrue($comp->isOrg());
         $this->assertSame('x_uid', $comp->x_uid());
         $this->assertSame('uid', $comp->uid());
-        $this->assertSame(1, $comp->seq());
-        $this->assertSame(1, $comp->d());
+        $this->assertSame(10, $comp->seq());
+        $this->assertSame(10, $comp->d());
         $this->assertSame('calItemId', $comp->calItemId());
         $this->assertSame('apptId', $comp->apptId());
         $this->assertSame('ciFolder', $comp->ciFolder());
@@ -5553,33 +5551,33 @@ class StructTest extends ZimbraTestCase
         $xml = '<?xml version="1.0"?>'."\n"
             .'<comp'
                 .' method="method"'
-                .' compNum="1"'
-                .' rsvp="1"'
-                .' priority="1"'
+                .' compNum="10"'
+                .' rsvp="true"'
+                .' priority="10"'
                 .' name="name"'
                 .' loc="loc"'
-                .' percentComplete="1"'
+                .' percentComplete="10"'
                 .' completed="20120315T18302305Z"'
-                .' noBlob="1"'
+                .' noBlob="true"'
                 .' fba="F"'
                 .' fb="F"'
                 .' transp="O"'
-                .' isOrg="1"'
+                .' isOrg="true"'
                 .' x_uid="x_uid"'
                 .' uid="uid"'
-                .' seq="1"'
-                .' d="1"'
+                .' seq="10"'
+                .' d="10"'
                 .' calItemId="calItemId"'
                 .' apptId="apptId"'
                 .' ciFolder="ciFolder"'
                 .' status="COMP"'
                 .' class="PUB"'
                 .' url="url"'
-                .' ex="1"'
+                .' ex="true"'
                 .' ridZ="ridZ"'
-                .' allDay="1"'
-                .' draft="1"'
-                .' neverSent="1"'
+                .' allDay="true"'
+                .' draft="true"'
+                .' neverSent="true"'
                 .' changes="subject,location,time"'
             .' />';
         $this->assertXmlStringEqualsXmlString($xml, (string) $comp);
@@ -5587,33 +5585,33 @@ class StructTest extends ZimbraTestCase
         $array = array(
             'comp' => array(
                 'method' => 'method',
-                'compNum' => 1,
-                'rsvp' => 1,
-                'priority' => 1,
+                'compNum' => 10,
+                'rsvp' => true,
+                'priority' => 10,
                 'name' => 'name',
                 'loc' => 'loc',
-                'percentComplete' => 1,
+                'percentComplete' => 10,
                 'completed' => '20120315T18302305Z',
-                'noBlob' => 1,
+                'noBlob' => true,
                 'fba' => 'F',
                 'fb' => 'F',
                 'transp' => 'O',
-                'isOrg' => 1,
+                'isOrg' => true,
                 'x_uid' => 'x_uid',
                 'uid' => 'uid',
-                'seq' => 1,
-                'd' => 1,
+                'seq' => 10,
+                'd' => 10,
                 'calItemId' => 'calItemId',
                 'apptId' => 'apptId',
                 'ciFolder' => 'ciFolder',
                 'status' => 'COMP',
                 'class' => 'PUB',
                 'url' => 'url',
-                'ex' => 1,
+                'ex' => true,
                 'ridZ' => 'ridZ',
-                'allDay' => 1,
-                'draft' => 1,
-                'neverSent' => 1,
+                'allDay' => true,
+                'draft' => true,
+                'neverSent' => true,
                 'changes' => 'subject,location,time',
             ),
         );
@@ -5623,7 +5621,7 @@ class StructTest extends ZimbraTestCase
     public function testInviteTest()
     {
         $inviteTest = new \Zimbra\Mail\Struct\InviteTest(
-            1, array('method1'), true
+            10, array('method1'), true
         );
         $this->assertInstanceOf('\Zimbra\Mail\Struct\FilterTest', $inviteTest);
         $this->assertSame(array('method1'), $inviteTest->method()->all());
@@ -5631,7 +5629,7 @@ class StructTest extends ZimbraTestCase
         $this->assertSame(array('method1', 'method2'), $inviteTest->method()->all());
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<inviteTest index="1" negative="1">'
+            .'<inviteTest index="10" negative="true">'
                 .'<method>method1</method>'
                 .'<method>method2</method>'
             .'</inviteTest>';
@@ -5639,8 +5637,8 @@ class StructTest extends ZimbraTestCase
 
         $array = array(
             'inviteTest' => array(
-                'index' => 1,
-                'negative' => 1,
+                'index' => 10,
+                'negative' => true,
                 'method' => array(
                     'method1',
                     'method2',
@@ -5653,15 +5651,15 @@ class StructTest extends ZimbraTestCase
     public function testItemActionSelector()
     {
         $action = new \Zimbra\Mail\Struct\ItemActionSelector(
-            ItemActionOp::MOVE(), 'id', 'tcon', 1, 'l', '#aabbcc', 1, 'name', 'f', 't', 'tn'
+            ItemActionOp::MOVE(), 'id', 'tcon', 10, 'l', '#aabbcc', 10, 'name', 'f', 't', 'tn'
         );
         $this->assertTrue($action->op()->is('move'));
         $this->assertSame('id', $action->id());
         $this->assertSame('tcon', $action->tcon());
-        $this->assertSame(1, $action->tag());
+        $this->assertSame(10, $action->tag());
         $this->assertSame('l', $action->l());
         $this->assertSame('#aabbcc', $action->rgb());
-        $this->assertSame(1, $action->color());
+        $this->assertSame(10, $action->color());
         $this->assertSame('name', $action->name());
         $this->assertSame('f', $action->f());
         $this->assertSame('t', $action->t());
@@ -5670,10 +5668,10 @@ class StructTest extends ZimbraTestCase
         $action->op(ItemActionOp::MOVE())
                ->id('id')
                ->tcon('tcon')
-               ->tag(1)
+               ->tag(10)
                ->l('l')
                ->rgb('#aabbcc')
-               ->color(1)
+               ->color(10)
                ->name('name')
                ->f('f')
                ->t('t')
@@ -5681,17 +5679,17 @@ class StructTest extends ZimbraTestCase
         $this->assertTrue($action->op()->is('move'));
         $this->assertSame('id', $action->id());
         $this->assertSame('tcon', $action->tcon());
-        $this->assertSame(1, $action->tag());
+        $this->assertSame(10, $action->tag());
         $this->assertSame('l', $action->l());
         $this->assertSame('#aabbcc', $action->rgb());
-        $this->assertSame(1, $action->color());
+        $this->assertSame(10, $action->color());
         $this->assertSame('name', $action->name());
         $this->assertSame('f', $action->f());
         $this->assertSame('t', $action->t());
         $this->assertSame('tn', $action->tn());
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<action op="move" id="id" tcon="tcon" tag="1" l="l" rgb="#aabbcc" color="1" name="name" f="f" t="t" tn="tn" />';
+            .'<action op="move" id="id" tcon="tcon" tag="10" l="l" rgb="#aabbcc" color="10" name="name" f="f" t="t" tn="tn" />';
         $this->assertXmlStringEqualsXmlString($xml, (string) $action);
 
         $array = array(
@@ -5699,10 +5697,10 @@ class StructTest extends ZimbraTestCase
                 'op' => 'move',
                 'id' => 'id',
                 'tcon' => 'tcon',
-                'tag' => 1,
+                'tag' => 10,
                 'l' => 'l',
                 'rgb' => '#aabbcc',
-                'color' => 1,
+                'color' => 10,
                 'name' => 'name',
                 'f' => 'f',
                 't' => 't',
@@ -5749,17 +5747,17 @@ class StructTest extends ZimbraTestCase
     public function testKeepAction()
     {
         $actionKeep = new \Zimbra\Mail\Struct\KeepAction(
-            1
+            10
         );
         $this->assertInstanceOf('\Zimbra\Mail\Struct\FilterAction', $actionKeep);
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<actionKeep index="1" />';
+            .'<actionKeep index="10" />';
         $this->assertXmlStringEqualsXmlString($xml, (string) $actionKeep);
 
         $array = array(
             'actionKeep' => array(
-                'index' => 1,
+                'index' => 10,
             ),
         );
         $this->assertEquals($array, $actionKeep->toArray());
@@ -5768,18 +5766,18 @@ class StructTest extends ZimbraTestCase
     public function testLinkedInTest()
     {
         $linkedinTest = new \Zimbra\Mail\Struct\LinkedInTest(
-            1, true
+            10, true
         );
         $this->assertInstanceOf('\Zimbra\Mail\Struct\FilterTest', $linkedinTest);
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<linkedinTest index="1" negative="1" />';
+            .'<linkedinTest index="10" negative="true" />';
         $this->assertXmlStringEqualsXmlString($xml, (string) $linkedinTest);
 
         $array = array(
             'linkedinTest' => array(
-                'index' => 1,
-                'negative' => 1,
+                'index' => 10,
+                'negative' => true,
             ),
         );
         $this->assertEquals($array, $linkedinTest->toArray());
@@ -5788,28 +5786,28 @@ class StructTest extends ZimbraTestCase
     public function testListDocumentRevisionsSpec()
     {
         $doc = new \Zimbra\Mail\Struct\ListDocumentRevisionsSpec(
-            'id', 1, 1
+            'id', 10, 10
         );
         $this->assertSame('id', $doc->id());
-        $this->assertSame(1, $doc->ver());
-        $this->assertSame(1, $doc->count());
+        $this->assertSame(10, $doc->ver());
+        $this->assertSame(10, $doc->count());
 
         $doc->id('id')
-            ->ver(1)
-            ->count(1);
+            ->ver(10)
+            ->count(10);
         $this->assertSame('id', $doc->id());
-        $this->assertSame(1, $doc->ver());
-        $this->assertSame(1, $doc->count());
+        $this->assertSame(10, $doc->ver());
+        $this->assertSame(10, $doc->count());
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<doc id="id" ver="1" count="1" />';
+            .'<doc id="id" ver="10" count="10" />';
         $this->assertXmlStringEqualsXmlString($xml, (string) $doc);
 
         $array = array(
             'doc' => array(
                 'id' => 'id',
-                'ver' => 1,
-                'count' => 1,
+                'ver' => 10,
+                'count' => 10,
             ),
         );
         $this->assertEquals($array, $doc->toArray());
@@ -5818,18 +5816,18 @@ class StructTest extends ZimbraTestCase
     public function testListTest()
     {
         $listTest = new \Zimbra\Mail\Struct\ListTest(
-            1, true
+            10, true
         );
         $this->assertInstanceOf('\Zimbra\Mail\Struct\FilterTest', $listTest);
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<listTest index="1" negative="1" />';
+            .'<listTest index="10" negative="true" />';
         $this->assertXmlStringEqualsXmlString($xml, (string) $listTest);
 
         $array = array(
             'listTest' => array(
-                'index' => 1,
-                'negative' => 1,
+                'index' => 10,
+                'negative' => true,
             ),
         );
         $this->assertEquals($array, $listTest->toArray());
@@ -5900,7 +5898,7 @@ class StructTest extends ZimbraTestCase
             true,
             true,
             'host',
-            1,
+            10,
             MdsConnectionType::SSL(),
             'username',
             'password',
@@ -5913,7 +5911,7 @@ class StructTest extends ZimbraTestCase
             'replyToAddress',
             'replyToDisplay',
             'importClass',
-            1,
+            10,
             'lastError',
             array('a', 'b')
         );
@@ -5923,7 +5921,7 @@ class StructTest extends ZimbraTestCase
         $this->assertTrue($mail->isEnabled());
         $this->assertTrue($mail->importOnly());
         $this->assertSame('host', $mail->host());
-        $this->assertSame(1, $mail->port());
+        $this->assertSame(10, $mail->port());
         $this->assertTrue($mail->connectionType()->is('ssl'));
         $this->assertSame('username', $mail->username());
         $this->assertSame('password', $mail->password());
@@ -5936,7 +5934,7 @@ class StructTest extends ZimbraTestCase
         $this->assertSame('replyToAddress', $mail->replyToAddress());
         $this->assertSame('replyToDisplay', $mail->replyToDisplay());
         $this->assertSame('importClass', $mail->importClass());
-        $this->assertSame(1, $mail->failingSince());
+        $this->assertSame(10, $mail->failingSince());
         $this->assertSame('lastError', $mail->lastError());
         $this->assertSame(array('a', 'b'), $mail->a()->all());
 
@@ -5946,7 +5944,7 @@ class StructTest extends ZimbraTestCase
              ->isEnabled(true)
              ->importOnly(true)
              ->host('host')
-             ->port(1)
+             ->port(10)
              ->connectionType(MdsConnectionType::SSL())
              ->username('username')
              ->password('password')
@@ -5959,7 +5957,7 @@ class StructTest extends ZimbraTestCase
              ->replyToAddress('replyToAddress')
              ->replyToDisplay('replyToDisplay')
              ->importClass('importClass')
-             ->failingSince(1)
+             ->failingSince(10)
              ->lastError('lastError')
              ->addA('c');
         $this->assertSame('id', $mail->id());
@@ -5968,7 +5966,7 @@ class StructTest extends ZimbraTestCase
         $this->assertTrue($mail->isEnabled());
         $this->assertTrue($mail->importOnly());
         $this->assertSame('host', $mail->host());
-        $this->assertSame(1, $mail->port());
+        $this->assertSame(10, $mail->port());
         $this->assertTrue($mail->connectionType()->is('ssl'));
         $this->assertSame('username', $mail->username());
         $this->assertSame('password', $mail->password());
@@ -5981,16 +5979,16 @@ class StructTest extends ZimbraTestCase
         $this->assertSame('replyToAddress', $mail->replyToAddress());
         $this->assertSame('replyToDisplay', $mail->replyToDisplay());
         $this->assertSame('importClass', $mail->importClass());
-        $this->assertSame(1, $mail->failingSince());
+        $this->assertSame(10, $mail->failingSince());
         $this->assertSame('lastError', $mail->lastError());
         $this->assertSame(array('a', 'b', 'c'), $mail->a()->all());
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<mail id="id" name="name" l="l" isEnabled="1" importOnly="1" host="host" port="1" '
+            .'<mail id="id" name="name" l="l" isEnabled="true" importOnly="true" host="host" port="10" '
             .'connectionType="ssl" username="username" password="password" pollingInterval="pollingInterval" '
-            .'emailAddress="emailAddress" useAddressForForwardReply="1" defaultSignature="defaultSignature" '
+            .'emailAddress="emailAddress" useAddressForForwardReply="true" defaultSignature="defaultSignature" '
             .'forwardReplySignature="forwardReplySignature" fromDisplay="fromDisplay" replyToAddress="replyToAddress" '
-            .'replyToDisplay="replyToDisplay" importClass="importClass" failingSince="1">'
+            .'replyToDisplay="replyToDisplay" importClass="importClass" failingSince="10">'
                 .'<lastError>lastError</lastError>'
                 .'<a>a</a>'
                 .'<a>b</a>'
@@ -6003,23 +6001,23 @@ class StructTest extends ZimbraTestCase
                 'id' => 'id',
                 'name' => 'name',
                 'l' => 'l',
-                'isEnabled' => 1,
-                'importOnly' => 1,
+                'isEnabled' => true,
+                'importOnly' => true,
                 'host' => 'host',
-                'port' => 1,
+                'port' => 10,
                 'connectionType' => 'ssl',
                 'username' => 'username',
                 'password' => 'password',
                 'pollingInterval' => 'pollingInterval',
                 'emailAddress' => 'emailAddress',
-                'useAddressForForwardReply' => 1,
+                'useAddressForForwardReply' => true,
                 'defaultSignature' => 'defaultSignature',
                 'forwardReplySignature' => 'forwardReplySignature',
                 'fromDisplay' => 'fromDisplay',
                 'replyToAddress' => 'replyToAddress',
                 'replyToDisplay' => 'replyToDisplay',
                 'importClass' => 'importClass',
-                'failingSince' => 1,
+                'failingSince' => 10,
                 'lastError' => 'lastError',
                 'a' => array('a', 'b', 'c'),
             ),
@@ -6092,12 +6090,12 @@ class StructTest extends ZimbraTestCase
         $this->assertTrue($pop3->leaveOnServer());
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<pop3 leaveOnServer="1" />';
+            .'<pop3 leaveOnServer="true" />';
         $this->assertXmlStringEqualsXmlString($xml, (string) $pop3);
 
         $array = array(
             'pop3' => array(
-                'leaveOnServer' => 1,
+                'leaveOnServer' => true,
             ),
         );
         $this->assertEquals($array, $pop3->toArray());
@@ -6177,7 +6175,7 @@ class StructTest extends ZimbraTestCase
     public function testMeTest()
     {
         $meTest = new \Zimbra\Mail\Struct\MeTest(
-            1, 'header', true
+            10, 'header', true
         );
         $this->assertInstanceOf('\Zimbra\Mail\Struct\FilterTest', $meTest);
         $this->assertSame('header', $meTest->header());
@@ -6185,13 +6183,13 @@ class StructTest extends ZimbraTestCase
         $this->assertSame('header', $meTest->header());
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<meTest index="1" negative="1" header="header" />';
+            .'<meTest index="10" negative="true" header="header" />';
         $this->assertXmlStringEqualsXmlString($xml, (string) $meTest);
 
         $array = array(
             'meTest' => array(
-                'index' => 1,
-                'negative' => 1,
+                'index' => 10,
+                'negative' => true,
                 'header' => 'header',
             ),
         );
@@ -6201,7 +6199,7 @@ class StructTest extends ZimbraTestCase
     public function testMimeHeaderTest()
     {
         $mimeHeaderTest = new \Zimbra\Mail\Struct\MimeHeaderTest(
-            1, 'header', 'stringComparison', 'value', true, true
+            10, 'header', 'stringComparison', 'value', true, true
         );
         $this->assertInstanceOf('\Zimbra\Mail\Struct\FilterTest', $mimeHeaderTest);
         $this->assertSame('header', $mimeHeaderTest->header());
@@ -6219,17 +6217,17 @@ class StructTest extends ZimbraTestCase
         $this->assertTrue($mimeHeaderTest->caseSensitive());
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<mimeHeaderTest index="1" negative="1" header="header" stringComparison="stringComparison" value="value" caseSensitive="1" />';
+            .'<mimeHeaderTest index="10" negative="true" header="header" stringComparison="stringComparison" value="value" caseSensitive="true" />';
         $this->assertXmlStringEqualsXmlString($xml, (string) $mimeHeaderTest);
 
         $array = array(
             'mimeHeaderTest' => array(
-                'index' => 1,
-                'negative' => 1,
+                'index' => 10,
+                'negative' => true,
                 'header' => 'header',
                 'stringComparison' => 'stringComparison',
                 'value' => 'value',
-                'caseSensitive' => 1,
+                'caseSensitive' => true,
             ),
         );
         $this->assertEquals($array, $mimeHeaderTest->toArray());
@@ -6248,14 +6246,14 @@ class StructTest extends ZimbraTestCase
         $this->assertSame('part', $mp->part());
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<mp mid="mid" part="part" optional="1" />';
+            .'<mp mid="mid" part="part" optional="true" />';
         $this->assertXmlStringEqualsXmlString($xml, (string) $mp);
 
         $array = array(
             'mp' => array(
                 'mid' => 'mid',
                 'part' => 'part',
-                'optional' => 1,
+                'optional' => true,
             ),
         );
         $this->assertEquals($array, $mp->toArray());
@@ -6266,7 +6264,7 @@ class StructTest extends ZimbraTestCase
         $mp = new \Zimbra\Mail\Struct\MimePartAttachSpec('mid', 'part', true);
         $m = new \Zimbra\Mail\Struct\MsgAttachSpec('id', false);
         $cn = new \Zimbra\Mail\Struct\ContactAttachSpec('id', false);
-        $doc = new \Zimbra\Mail\Struct\DocAttachSpec('path', 'id', 1, true);
+        $doc = new \Zimbra\Mail\Struct\DocAttachSpec('path', 'id', 10, true);
         $attach = new \Zimbra\Mail\Struct\AttachmentsInfo($mp, $m, $cn, $doc, 'aid');
 
         $info = new \Zimbra\Mail\Struct\MimePartInfo(array(), null, 'ct', 'content', 'ci');
@@ -6293,10 +6291,10 @@ class StructTest extends ZimbraTestCase
         $xml = '<?xml version="1.0"?>'."\n"
             .'<mp ct="ct" content="content" ci="ci">'
                 .'<attach aid="aid">'
-                    .'<mp mid="mid" part="part" optional="1" />'
-                    .'<m id="id" optional="0" />'
-                    .'<cn id="id" optional="0" />'
-                    .'<doc path="path" id="id" ver="1" optional="1" />'
+                    .'<mp optional="true" mid="mid" part="part" />'
+                    .'<m optional="false" id="id" />'
+                    .'<cn optional="false" id="id" />'
+                    .'<doc optional="true" path="path" id="id" ver="10" />'
                 .'</attach>'
                 .'<mp ct="ct" content="content" ci="ci" />'
             .'</mp>';
@@ -6312,21 +6310,21 @@ class StructTest extends ZimbraTestCase
                     'mp' => array(
                         'mid' => 'mid',
                         'part' => 'part',
-                        'optional' => 1,
+                        'optional' => true,
                     ),
                     'm' => array(
                         'id' => 'id',
-                        'optional' => 0,
+                        'optional' => false,
                     ),
                     'cn' => array(
                         'id' => 'id',
-                        'optional' => 0,
+                        'optional' => false,
                     ),
                     'doc' => array(
                         'path' => 'path',
                         'id' => 'id',
-                        'ver' => 1,
-                        'optional' => 1,
+                        'ver' => 10,
+                        'optional' => true,
                     ),
                 ),
                 'mp' => array(
@@ -6344,30 +6342,30 @@ class StructTest extends ZimbraTestCase
     public function testModifyContactAttr()
     {
         $a = new \Zimbra\Mail\Struct\ModifyContactAttr(
-            'n', 'value', 'aid', 1, 'part', 'op'
+            'n', 'value', 'aid', 10, 'part', 'op'
         );
         $this->assertSame('n', $a->n());
         $this->assertSame('value', $a->value());
         $this->assertSame('aid', $a->aid());
-        $this->assertSame(1, $a->id());
+        $this->assertSame(10, $a->id());
         $this->assertSame('part', $a->part());
         $this->assertSame('op', $a->op());
 
         $a->n('n')
           ->value('value')
           ->aid('aid')
-          ->id(1)
+          ->id(10)
           ->part('part')
           ->op('op');
         $this->assertSame('n', $a->n());
         $this->assertSame('value', $a->value());
         $this->assertSame('aid', $a->aid());
-        $this->assertSame(1, $a->id());
+        $this->assertSame(10, $a->id());
         $this->assertSame('part', $a->part());
         $this->assertSame('op', $a->op());
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<a n="n" aid="aid" id="1" part="part" op="op">value</a>';
+            .'<a n="n" aid="aid" id="10" part="part" op="op">value</a>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $a);
 
         $array = array(
@@ -6375,7 +6373,7 @@ class StructTest extends ZimbraTestCase
                 'n' => 'n',
                 '_' => 'value',
                 'aid' => 'aid',
-                'id' => 1,
+                'id' => 10,
                 'part' => 'part',
                 'op' => 'op',
             ),
@@ -6416,49 +6414,49 @@ class StructTest extends ZimbraTestCase
     public function testModifyContactSpec()
     {
         $a = new \Zimbra\Mail\Struct\ModifyContactAttr(
-            'n', 'value', 'aid', 1, 'part', 'op'
+            'n', 'value', 'aid', 10, 'part', 'op'
         );
         $m = new \Zimbra\Mail\Struct\ModifyContactGroupMember(
             'C', 'value', 'reset'
         );
 
         $cn = new \Zimbra\Mail\Struct\ModifyContactSpec(
-            array($a), array($m), 1, 'tn'
+            array($a), array($m), 10, 'tn'
         );
         $this->assertSame(array($a), $cn->a()->all());
         $this->assertSame(array($m), $cn->m()->all());
-        $this->assertSame(1, $cn->id());
+        $this->assertSame(10, $cn->id());
         $this->assertSame('tn', $cn->tn());
 
         $cn->addA($a)
            ->addM($m)
-           ->id(1)
+           ->id(10)
            ->tn('tn');
         $this->assertSame(array($a, $a), $cn->a()->all());
         $this->assertSame(array($m, $m), $cn->m()->all());
-        $this->assertSame(1, $cn->id());
+        $this->assertSame(10, $cn->id());
         $this->assertSame('tn', $cn->tn());
 
         $cn->a()->remove(1);
         $cn->m()->remove(1);
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<cn id="1" tn="tn">'
-                .'<a n="n" aid="aid" id="1" part="part" op="op">value</a>'
+            .'<cn id="10" tn="tn">'
+                .'<a n="n" aid="aid" id="10" part="part" op="op">value</a>'
                 .'<m type="C" value="value" op="reset" />'
             .'</cn>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $cn);
 
         $array = array(
             'cn' => array(
-                'id' => 1,
+                'id' => 10,
                 'tn' => 'tn',
                 'a' => array(
                     array(
                         'n' => 'n',
                         '_' => 'value',
                         'aid' => 'aid',
-                        'id' => 1,
+                        'id' => 10,
                         'part' => 'part',
                         'op' => 'op',
                     ),
@@ -6514,17 +6512,17 @@ class StructTest extends ZimbraTestCase
         $mp = new \Zimbra\Mail\Struct\MimePartAttachSpec('mid', 'part', true);
         $m = new \Zimbra\Mail\Struct\MsgAttachSpec('id', false);
         $cn = new \Zimbra\Mail\Struct\ContactAttachSpec('id', false);
-        $doc = new \Zimbra\Mail\Struct\DocAttachSpec('path', 'id', 1, true);
+        $doc = new \Zimbra\Mail\Struct\DocAttachSpec('path', 'id', 10, true);
         $info = new \Zimbra\Mail\Struct\MimePartInfo(array(), null, 'ct', 'content', 'ci');
-        $standard = new \Zimbra\Struct\TzOnsetInfo(1, 2, 3, 4);
-        $daylight = new \Zimbra\Struct\TzOnsetInfo(4, 3, 2, 1);
+        $standard = new \Zimbra\Struct\TzOnsetInfo(12, 2, 3, 4);
+        $daylight = new \Zimbra\Struct\TzOnsetInfo(4, 3, 2, 10);
 
         $header = new \Zimbra\Mail\Struct\Header('name', 'value');
         $attach = new \Zimbra\Mail\Struct\AttachmentsInfo($mp, $m, $cn, $doc, 'aid');
         $mp = new \Zimbra\Mail\Struct\MimePartInfo(array($info), $attach, 'ct', 'content', 'ci');
-        $inv = new \Zimbra\Mail\Struct\InvitationInfo('method', 1, true);
+        $inv = new \Zimbra\Mail\Struct\InvitationInfo('method', 10, true);
         $e = new \Zimbra\Mail\Struct\EmailAddrInfo('a', 't', 'p');
-        $tz = new \Zimbra\Mail\Struct\CalTZInfo('id', 1, 1, $standard, $daylight, 'stdname', 'dayname');
+        $tz = new \Zimbra\Mail\Struct\CalTZInfo('id', 10, 10, $standard, $daylight, 'stdname', 'dayname');
 
         $m = new \Zimbra\Mail\Struct\Msg(
             'content',
@@ -6619,26 +6617,26 @@ class StructTest extends ZimbraTestCase
                 .'<content>content</content>'
                 .'<mp ct="ct" content="content" ci="ci">'
                     .'<attach aid="aid">'
-                        .'<mp optional="1" mid="mid" part="part" />'
-                        .'<m optional="0" id="id" />'
-                        .'<cn optional="0" id="id" />'
-                        .'<doc optional="1" path="path" id="id" ver="1" />'
+                        .'<mp optional="true" mid="mid" part="part" />'
+                        .'<m optional="false" id="id" />'
+                        .'<cn optional="false" id="id" />'
+                        .'<doc optional="true" path="path" id="id" ver="10" />'
                     .'</attach>'
                     .'<mp ct="ct" content="content" ci="ci" />'
                 .'</mp>'
                 .'<attach aid="aid">'
-                    .'<mp optional="1" mid="mid" part="part" />'
-                    .'<m optional="0" id="id" />'
-                    .'<cn optional="0" id="id" />'
-                    .'<doc optional="1" path="path" id="id" ver="1" />'
+                    .'<mp optional="true" mid="mid" part="part" />'
+                    .'<m optional="false" id="id" />'
+                    .'<cn optional="false" id="id" />'
+                    .'<doc optional="true" path="path" id="id" ver="10" />'
                 .'</attach>'
-                .'<inv method="method" compNum="1" rsvp="1" />'
+                .'<inv method="method" compNum="10" rsvp="true" />'
                 .'<fr>fr</fr>'
                 .'<header name="name">value</header>'
                 .'<e a="a" t="t" p="p" />'
-                .'<tz id="id" stdoff="1" dayoff="1" stdname="stdname" dayname="dayname">'
-                    .'<standard mon="1" hour="2" min="3" sec="4" />'
-                    .'<daylight mon="4" hour="3" min="2" sec="1" />'
+                .'<tz id="id" stdoff="10" dayoff="10" stdname="stdname" dayname="dayname">'
+                    .'<standard mon="12" hour="2" min="3" sec="4" />'
+                    .'<daylight mon="4" hour="3" min="2" sec="10" />'
                 .'</tz>'
             .'</m>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $m);
@@ -6676,21 +6674,21 @@ class StructTest extends ZimbraTestCase
                         'mp' => array(
                             'mid' => 'mid',
                             'part' => 'part',
-                            'optional' => 1,
+                            'optional' => true,
                         ),
                         'm' => array(
                             'id' => 'id',
-                            'optional' => 0,
+                            'optional' => false,
                         ),
                         'cn' => array(
                             'id' => 'id',
-                            'optional' => 0,
+                            'optional' => false,
                         ),
                         'doc' => array(
                             'path' => 'path',
                             'id' => 'id',
-                            'ver' => 1,
-                            'optional' => 1,
+                            'ver' => 10,
+                            'optional' => true,
                         ),
                     ),
                 ),
@@ -6699,27 +6697,27 @@ class StructTest extends ZimbraTestCase
                     'mp' => array(
                         'mid' => 'mid',
                         'part' => 'part',
-                        'optional' => 1,
+                        'optional' => true,
                     ),
                     'm' => array(
                         'id' => 'id',
-                        'optional' => 0,
+                        'optional' => false,
                     ),
                     'cn' => array(
                         'id' => 'id',
-                        'optional' => 0,
+                        'optional' => false,
                     ),
                     'doc' => array(
                         'path' => 'path',
                         'id' => 'id',
-                        'ver' => 1,
-                        'optional' => 1,
+                        'ver' => 10,
+                        'optional' => true,
                     ),
                 ),
                 'inv' => array(
                     'method' => 'method',
-                    'compNum' => 1,
-                    'rsvp' => 1,
+                    'compNum' => 10,
+                    'rsvp' => true,
                 ),
                 'e' => array(
                     array(
@@ -6731,12 +6729,12 @@ class StructTest extends ZimbraTestCase
                 'tz' => array(
                     array(
                         'id' => 'id',
-                        'stdoff' => 1,
-                        'dayoff' => 1,
+                        'stdoff' => 10,
+                        'dayoff' => 10,
                         'stdname' => 'stdname',
                         'dayname' => 'dayname',
                         'standard' => array(
-                            'mon' => 1,
+                            'mon' => 12,
                             'hour' => 2,
                             'min' => 3,
                             'sec' => 4,
@@ -6745,7 +6743,7 @@ class StructTest extends ZimbraTestCase
                             'mon' => 4,
                             'hour' => 3,
                             'min' => 2,
-                            'sec' => 1,
+                            'sec' => 10,
                         ),
                     ),
                 ),
@@ -6758,7 +6756,7 @@ class StructTest extends ZimbraTestCase
     public function testMsgActionSelector()
     {
         $action = new \Zimbra\Mail\Struct\MsgActionSelector(
-            MsgActionOp::MOVE(), 'id', 'tcon', 1, 'l', '#aabbcc', 1, 'name', 'f', 't', 'tn'
+            MsgActionOp::MOVE(), 'id', 'tcon', 10, 'l', '#aabbcc', 10, 'name', 'f', 't', 'tn'
         );
         $this->assertTrue($action->op()->is('move'));
 
@@ -6766,7 +6764,7 @@ class StructTest extends ZimbraTestCase
         $this->assertTrue($action->op()->is('move'));
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<action op="move" id="id" tcon="tcon" tag="1" l="l" rgb="#aabbcc" color="1" name="name" f="f" t="t" tn="tn" />';
+            .'<action op="move" id="id" tcon="tcon" tag="10" l="l" rgb="#aabbcc" color="10" name="name" f="f" t="t" tn="tn" />';
         $this->assertXmlStringEqualsXmlString($xml, (string) $action);
 
         $array = array(
@@ -6774,10 +6772,10 @@ class StructTest extends ZimbraTestCase
                 'op' => 'move',
                 'id' => 'id',
                 'tcon' => 'tcon',
-                'tag' => 1,
+                'tag' => 10,
                 'l' => 'l',
                 'rgb' => '#aabbcc',
-                'color' => 1,
+                'color' => 10,
                 'name' => 'name',
                 'f' => 'f',
                 't' => 't',
@@ -6797,13 +6795,13 @@ class StructTest extends ZimbraTestCase
         $this->assertSame('id', $m->id());
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<m id="id" optional="1" />';
+            .'<m id="id" optional="true" />';
         $this->assertXmlStringEqualsXmlString($xml, (string) $m);
 
         $array = array(
             'm' => array(
                 'id' => 'id',
-                'optional' => 1,
+                'optional' => true,
             ),
         );
         $this->assertEquals($array, $m->toArray());
@@ -6839,13 +6837,13 @@ class StructTest extends ZimbraTestCase
     {
         $header = new \Zimbra\Struct\AttributeName('attribute-name');
         $m = new \Zimbra\Mail\Struct\MsgSpec(
-            'id', array($header), 'part', true, true, 1, true, true, 'ridZ', true
+            'id', array($header), 'part', true, true, 10, true, true, 'ridZ', true
         );
         $this->assertSame('id', $m->id());
         $this->assertSame('part', $m->part());
         $this->assertTrue($m->raw());
         $this->assertTrue($m->read());
-        $this->assertSame(1, $m->max());
+        $this->assertSame(10, $m->max());
         $this->assertTrue($m->html());
         $this->assertTrue($m->neuter());
         $this->assertSame('ridZ', $m->ridZ());
@@ -6856,7 +6854,7 @@ class StructTest extends ZimbraTestCase
           ->part('part')
           ->raw(true)
           ->read(true)
-          ->max(1)
+          ->max(10)
           ->html(true)
           ->neuter(true)
           ->ridZ('ridZ')
@@ -6866,7 +6864,7 @@ class StructTest extends ZimbraTestCase
         $this->assertSame('part', $m->part());
         $this->assertTrue($m->raw());
         $this->assertTrue($m->read());
-        $this->assertSame(1, $m->max());
+        $this->assertSame(10, $m->max());
         $this->assertTrue($m->html());
         $this->assertTrue($m->neuter());
         $this->assertSame('ridZ', $m->ridZ());
@@ -6876,7 +6874,7 @@ class StructTest extends ZimbraTestCase
         $m->header()->remove(1);
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<m id="id" part="part" raw="1" read="1" max="1" html="1" neuter="1" ridZ="ridZ" needExp="1">'
+            .'<m id="id" part="part" raw="true" read="true" max="10" html="true" neuter="true" ridZ="ridZ" needExp="true">'
                 .'<header n="attribute-name" />'
             .'</m>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $m);
@@ -6885,13 +6883,13 @@ class StructTest extends ZimbraTestCase
             'm' => array(
                 'id' => 'id',
                 'part' => 'part',
-                'raw' => 1,
-                'read' => 1,
-                'max' => 1,
-                'html' => 1,
-                'neuter' => 1,
+                'raw' => true,
+                'read' => true,
+                'max' => 10,
+                'html' => true,
+                'neuter' => true,
                 'ridZ' => 'ridZ',
-                'needExp' => 1,
+                'needExp' => true,
                 'header' => array(
                     array(
                         'n' => 'attribute-name',
@@ -6907,17 +6905,17 @@ class StructTest extends ZimbraTestCase
         $mp = new \Zimbra\Mail\Struct\MimePartAttachSpec('mid', 'part', true);
         $m = new \Zimbra\Mail\Struct\MsgAttachSpec('id', false);
         $cn = new \Zimbra\Mail\Struct\ContactAttachSpec('id', false);
-        $doc = new \Zimbra\Mail\Struct\DocAttachSpec('path', 'id', 1, true);
+        $doc = new \Zimbra\Mail\Struct\DocAttachSpec('path', 'id', 10, true);
         $info = new \Zimbra\Mail\Struct\MimePartInfo(array(), null, 'ct', 'content', 'ci');
-        $standard = new \Zimbra\Struct\TzOnsetInfo(1, 2, 3, 4);
-        $daylight = new \Zimbra\Struct\TzOnsetInfo(4, 3, 2, 1);
+        $standard = new \Zimbra\Struct\TzOnsetInfo(12, 2, 3, 4);
+        $daylight = new \Zimbra\Struct\TzOnsetInfo(4, 3, 2, 10);
 
         $header = new \Zimbra\Mail\Struct\Header('name', 'value');
         $attach = new \Zimbra\Mail\Struct\AttachmentsInfo($mp, $m, $cn, $doc, 'aid');
         $mp = new \Zimbra\Mail\Struct\MimePartInfo(array($info), $attach, 'ct', 'content', 'ci');
-        $inv = new \Zimbra\Mail\Struct\InvitationInfo('method', 1, true);
+        $inv = new \Zimbra\Mail\Struct\InvitationInfo('method', 10, true);
         $e = new \Zimbra\Mail\Struct\EmailAddrInfo('a', 't', 'p');
-        $tz = new \Zimbra\Mail\Struct\CalTZInfo('id', 1, 1, $standard, $daylight, 'stdname', 'dayname');
+        $tz = new \Zimbra\Mail\Struct\CalTZInfo('id', 10, 10, $standard, $daylight, 'stdname', 'dayname');
 
         $m = new \Zimbra\Mail\Struct\MsgToSend(
             'content',
@@ -6951,30 +6949,30 @@ class StructTest extends ZimbraTestCase
 
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<m did="did" sfd="1" aid="aid" origid="origid" rt="rt" idnt="idnt" su="su" irt="irt" l="l" f="f">'
+            .'<m did="did" sfd="true" aid="aid" origid="origid" rt="rt" idnt="idnt" su="su" irt="irt" l="l" f="f">'
                 .'<content>content</content>'
                 .'<mp ct="ct" content="content" ci="ci">'
                     .'<attach aid="aid">'
-                        .'<mp optional="1" mid="mid" part="part" />'
-                        .'<m optional="0" id="id" />'
-                        .'<cn optional="0" id="id" />'
-                        .'<doc optional="1" path="path" id="id" ver="1" />'
+                        .'<mp optional="true" mid="mid" part="part" />'
+                        .'<m optional="false" id="id" />'
+                        .'<cn optional="false" id="id" />'
+                        .'<doc optional="true" path="path" id="id" ver="10" />'
                     .'</attach>'
                     .'<mp ct="ct" content="content" ci="ci" />'
                 .'</mp>'
                 .'<attach aid="aid">'
-                    .'<mp optional="1" mid="mid" part="part" />'
-                    .'<m optional="0" id="id" />'
-                    .'<cn optional="0" id="id" />'
-                    .'<doc optional="1" path="path" id="id" ver="1" />'
+                    .'<mp optional="true" mid="mid" part="part" />'
+                    .'<m optional="false" id="id" />'
+                    .'<cn optional="false" id="id" />'
+                    .'<doc optional="true" path="path" id="id" ver="10" />'
                 .'</attach>'
-                .'<inv method="method" compNum="1" rsvp="1" />'
+                .'<inv method="method" compNum="10" rsvp="true" />'
                 .'<fr>fr</fr>'
                 .'<header name="name">value</header>'
                 .'<e a="a" t="t" p="p" />'
-                .'<tz id="id" stdoff="1" dayoff="1" stdname="stdname" dayname="dayname">'
-                    .'<standard mon="1" hour="2" min="3" sec="4" />'
-                    .'<daylight mon="4" hour="3" min="2" sec="1" />'
+                .'<tz id="id" stdoff="10" dayoff="10" stdname="stdname" dayname="dayname">'
+                    .'<standard mon="12" hour="2" min="3" sec="4" />'
+                    .'<daylight mon="4" hour="3" min="2" sec="10" />'
                 .'</tz>'
             .'</m>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $m);
@@ -6982,7 +6980,7 @@ class StructTest extends ZimbraTestCase
         $array = array(
             'm' => array(
                 'did' => 'did',
-                'sfd' => 1,
+                'sfd' => true,
                 'aid' => 'aid',
                 'origid' => 'origid',
                 'rt' => 'rt',
@@ -7014,21 +7012,21 @@ class StructTest extends ZimbraTestCase
                         'mp' => array(
                             'mid' => 'mid',
                             'part' => 'part',
-                            'optional' => 1,
+                            'optional' => true,
                         ),
                         'm' => array(
                             'id' => 'id',
-                            'optional' => 0,
+                            'optional' => false,
                         ),
                         'cn' => array(
                             'id' => 'id',
-                            'optional' => 0,
+                            'optional' => false,
                         ),
                         'doc' => array(
                             'path' => 'path',
                             'id' => 'id',
-                            'ver' => 1,
-                            'optional' => 1,
+                            'ver' => 10,
+                            'optional' => true,
                         ),
                     ),
                 ),
@@ -7037,27 +7035,27 @@ class StructTest extends ZimbraTestCase
                     'mp' => array(
                         'mid' => 'mid',
                         'part' => 'part',
-                        'optional' => 1,
+                        'optional' => true,
                     ),
                     'm' => array(
                         'id' => 'id',
-                        'optional' => 0,
+                        'optional' => false,
                     ),
                     'cn' => array(
                         'id' => 'id',
-                        'optional' => 0,
+                        'optional' => false,
                     ),
                     'doc' => array(
                         'path' => 'path',
                         'id' => 'id',
-                        'ver' => 1,
-                        'optional' => 1,
+                        'ver' => 10,
+                        'optional' => true,
                     ),
                 ),
                 'inv' => array(
                     'method' => 'method',
-                    'compNum' => 1,
-                    'rsvp' => 1,
+                    'compNum' => 10,
+                    'rsvp' => true,
                 ),
                 'e' => array(
                     array(
@@ -7069,12 +7067,12 @@ class StructTest extends ZimbraTestCase
                 'tz' => array(
                     array(
                         'id' => 'id',
-                        'stdoff' => 1,
-                        'dayoff' => 1,
+                        'stdoff' => 10,
+                        'dayoff' => 10,
                         'stdname' => 'stdname',
                         'dayname' => 'dayname',
                         'standard' => array(
-                            'mon' => 1,
+                            'mon' => 12,
                             'hour' => 2,
                             'min' => 3,
                             'sec' => 4,
@@ -7083,7 +7081,7 @@ class StructTest extends ZimbraTestCase
                             'mon' => 4,
                             'hour' => 3,
                             'min' => 2,
-                            'sec' => 1,
+                            'sec' => 10,
                         ),
                     ),
                 ),
@@ -7216,13 +7214,13 @@ class StructTest extends ZimbraTestCase
             array($grant)
         );
         $folder = new \Zimbra\Mail\Struct\NewFolderSpec(
-            'name', $acl, SearchType::TASK(), 'f', 1, '#aabbcc', 'url', 'l', true, true
+            'name', $acl, SearchType::TASK(), 'f', 10, '#aabbcc', 'url', 'l', true, true
         );
         $this->assertSame('name', $folder->name());
         $this->assertSame($acl, $folder->acl());
         $this->assertTrue($folder->view()->is('task'));
         $this->assertSame('f', $folder->f());
-        $this->assertSame(1, $folder->color());
+        $this->assertSame(10, $folder->color());
         $this->assertSame('#aabbcc', $folder->rgb());
         $this->assertSame('url', $folder->url());
         $this->assertSame('l', $folder->l());
@@ -7233,7 +7231,7 @@ class StructTest extends ZimbraTestCase
                ->acl($acl)
                ->view(SearchType::TASK())
                ->f('f')
-               ->color(1)
+               ->color(10)
                ->rgb('#aabbcc')
                ->url('url')
                ->l('l')
@@ -7243,7 +7241,7 @@ class StructTest extends ZimbraTestCase
         $this->assertSame($acl, $folder->acl());
         $this->assertTrue($folder->view()->is('task'));
         $this->assertSame('f', $folder->f());
-        $this->assertSame(1, $folder->color());
+        $this->assertSame(10, $folder->color());
         $this->assertSame('#aabbcc', $folder->rgb());
         $this->assertSame('url', $folder->url());
         $this->assertSame('l', $folder->l());
@@ -7251,7 +7249,7 @@ class StructTest extends ZimbraTestCase
         $this->assertTrue($folder->sync());
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<folder name="name" view="task" f="f" color="1" rgb="#aabbcc" url="url" l="l" fie="1" sync="1">'
+            .'<folder name="name" view="task" f="f" color="10" rgb="#aabbcc" url="url" l="l" fie="true" sync="true">'
                 .'<acl>'
                     .'<grant perm="perm" gt="usr" zid="zid" d="d" args="args" pw="pw" key="key" />'
                 .'</acl>'
@@ -7263,12 +7261,12 @@ class StructTest extends ZimbraTestCase
                 'name' => 'name',
                 'view' => 'task',
                 'f' => 'f',
-                'color' => 1,
+                'color' => 10,
                 'rgb' => '#aabbcc',
                 'url' => 'url',
                 'l' => 'l',
-                'fie' => 1,
-                'sync' => 1,
+                'fie' => true,
+                'sync' => true,
                 'acl' => array(
                     'grant' => array(
                         array(
@@ -7327,12 +7325,12 @@ class StructTest extends ZimbraTestCase
     public function testNewMountpointSpec()
     {
         $link = new \Zimbra\Mail\Struct\NewMountpointSpec(
-            'name', SearchType::TASK(), 'f', 1, '#aabbcc', 'url', 'l', true, true, 'zid', 'owner', 1, 'path'
+            'name', SearchType::TASK(), 'f', 10, '#aabbcc', 'url', 'l', true, true, 'zid', 'owner', 10, 'path'
         );
         $this->assertSame('name', $link->name());
         $this->assertTrue($link->view()->is('task'));
         $this->assertSame('f', $link->f());
-        $this->assertSame(1, $link->color());
+        $this->assertSame(10, $link->color());
         $this->assertSame('#aabbcc', $link->rgb());
         $this->assertSame('url', $link->url());
         $this->assertSame('l', $link->l());
@@ -7340,13 +7338,13 @@ class StructTest extends ZimbraTestCase
         $this->assertTrue($link->reminder());
         $this->assertSame('zid', $link->zid());
         $this->assertSame('owner', $link->owner());
-        $this->assertSame(1, $link->rid());
+        $this->assertSame(10, $link->rid());
         $this->assertSame('path', $link->path());
 
         $link->name('name')
              ->view(SearchType::TASK())
              ->f('f')
-             ->color(1)
+             ->color(10)
              ->rgb('#aabbcc')
              ->url('url')
              ->l('l')
@@ -7354,12 +7352,12 @@ class StructTest extends ZimbraTestCase
              ->reminder(true)
              ->zid('zid')
              ->owner('owner')
-             ->rid(1)
+             ->rid(10)
              ->path('path');
         $this->assertSame('name', $link->name());
         $this->assertTrue($link->view()->is('task'));
         $this->assertSame('f', $link->f());
-        $this->assertSame(1, $link->color());
+        $this->assertSame(10, $link->color());
         $this->assertSame('#aabbcc', $link->rgb());
         $this->assertSame('url', $link->url());
         $this->assertSame('l', $link->l());
@@ -7367,11 +7365,11 @@ class StructTest extends ZimbraTestCase
         $this->assertTrue($link->reminder());
         $this->assertSame('zid', $link->zid());
         $this->assertSame('owner', $link->owner());
-        $this->assertSame(1, $link->rid());
+        $this->assertSame(10, $link->rid());
         $this->assertSame('path', $link->path());
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<link name="name" view="task" f="f" color="1" rgb="#aabbcc" url="url" l="l" fie="1" reminder="1" zid="zid" owner="owner" rid="1" path="path" />';
+            .'<link name="name" view="task" f="f" color="10" rgb="#aabbcc" url="url" l="l" fie="true" reminder="true" zid="zid" owner="owner" rid="10" path="path" />';
         $this->assertXmlStringEqualsXmlString($xml, (string) $link);
 
         $array = array(
@@ -7379,15 +7377,15 @@ class StructTest extends ZimbraTestCase
                 'name' => 'name',
                 'view' => 'task',
                 'f' => 'f',
-                'color' => 1,
+                'color' => 10,
                 'rgb' => '#aabbcc',
                 'url' => 'url',
                 'l' => 'l',
-                'fie' => 1,
-                'reminder' => 1,
+                'fie' => true,
+                'reminder' => true,
                 'zid' => 'zid',
                 'owner' => 'owner',
-                'rid' => 1,
+                'rid' => 10,
                 'path' => 'path',
             ),
         );
@@ -7397,31 +7395,31 @@ class StructTest extends ZimbraTestCase
     public function testNewNoteSpec()
     {
         $note = new \Zimbra\Mail\Struct\NewNoteSpec(
-            'l', 'content', 1, 'pos'
+            'l', 'content', 10, 'pos'
         );
         $this->assertSame('l', $note->l());
         $this->assertSame('content', $note->content());
-        $this->assertSame(1, $note->color());
+        $this->assertSame(10, $note->color());
         $this->assertSame('pos', $note->pos());
 
         $note->l('l')
              ->content('content')
-             ->color(1)
+             ->color(10)
              ->pos('pos');
         $this->assertSame('l', $note->l());
         $this->assertSame('content', $note->content());
-        $this->assertSame(1, $note->color());
+        $this->assertSame(10, $note->color());
         $this->assertSame('pos', $note->pos());
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<note l="l" content="content" color="1" pos="pos" />';
+            .'<note l="l" content="content" color="10" pos="pos" />';
         $this->assertXmlStringEqualsXmlString($xml, (string) $note);
 
         $array = array(
             'note' => array(
                 'l' => 'l',
                 'content' => 'content',
-                'color' => 1,
+                'color' => 10,
                 'pos' => 'pos',
             ),
         );
@@ -7431,14 +7429,14 @@ class StructTest extends ZimbraTestCase
     public function testNewSearchFolderSpec()
     {
         $search = new \Zimbra\Mail\Struct\NewSearchFolderSpec(
-            'name', 'query', 'types', 'sortBy', 'f', 1, 'l'
+            'name', 'query', 'types', 'sortBy', 'f', 10, 'l'
         );
         $this->assertSame('name', $search->name());
         $this->assertSame('query', $search->query());
         $this->assertSame('types', $search->types());
         $this->assertSame('sortBy', $search->sortBy());
         $this->assertSame('f', $search->f());
-        $this->assertSame(1, $search->color());
+        $this->assertSame(10, $search->color());
         $this->assertSame('l', $search->l());
 
         $search->name('name')
@@ -7446,18 +7444,18 @@ class StructTest extends ZimbraTestCase
                ->types('types')
                ->sortBy('sortBy')
                ->f('f')
-               ->color(1)
+               ->color(10)
                ->l('l');
         $this->assertSame('name', $search->name());
         $this->assertSame('query', $search->query());
         $this->assertSame('types', $search->types());
         $this->assertSame('sortBy', $search->sortBy());
         $this->assertSame('f', $search->f());
-        $this->assertSame(1, $search->color());
+        $this->assertSame(10, $search->color());
         $this->assertSame('l', $search->l());
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<search name="name" query="query" types="types" sortBy="sortBy" f="f" color="1" l="l" />';
+            .'<search name="name" query="query" types="types" sortBy="sortBy" f="f" color="10" l="l" />';
         $this->assertXmlStringEqualsXmlString($xml, (string) $search);
 
         $array = array(
@@ -7467,7 +7465,7 @@ class StructTest extends ZimbraTestCase
                 'types' => 'types',
                 'sortBy' => 'sortBy',
                 'f' => 'f',
-                'color' => 1,
+                'color' => 10,
                 'l' => 'l',
             ),
         );
@@ -7477,7 +7475,7 @@ class StructTest extends ZimbraTestCase
     public function testNoteActionSelector()
     {
         $action = new \Zimbra\Mail\Struct\NoteActionSelector(
-            ItemActionOp::MOVE(), 'id', 'tcon', 1, 'l', '#aabbcc', 1, 'name', 'f', 't', 'tn', 'content', 'pos'
+            ItemActionOp::MOVE(), 'id', 'tcon', 10, 'l', '#aabbcc', 10, 'name', 'f', 't', 'tn', 'content', 'pos'
         );
         $this->assertInstanceOf('\Zimbra\Mail\Struct\ActionSelector', $action);
         $this->assertTrue($action->op()->is('move'));
@@ -7492,7 +7490,7 @@ class StructTest extends ZimbraTestCase
         $this->assertSame('pos', $action->pos());
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<action op="move" id="id" tcon="tcon" l="l" rgb="#aabbcc" tag="1" color="1" name="name" f="f" t="t" tn="tn" content="content" pos="pos" />';
+            .'<action op="move" id="id" tcon="tcon" l="l" rgb="#aabbcc" tag="10" color="10" name="name" f="f" t="t" tn="tn" content="content" pos="pos" />';
         $this->assertXmlStringEqualsXmlString($xml, (string) $action);
 
         $array = array(
@@ -7500,10 +7498,10 @@ class StructTest extends ZimbraTestCase
                 'op' => 'move',
                 'id' => 'id',
                 'tcon' => 'tcon',
-                'tag' => 1,
+                'tag' => 10,
                 'l' => 'l',
                 'rgb' => '#aabbcc',
-                'color' => 1,
+                'color' => 10,
                 'name' => 'name',
                 'f' => 'f',
                 't' => 't',
@@ -7518,39 +7516,39 @@ class StructTest extends ZimbraTestCase
     public function testNotifyAction()
     {
         $actionNotify = new \Zimbra\Mail\Struct\NotifyAction(
-            1, 'content', 'a', 'su', 1, 'origHeaders'
+            10, 'content', 'a', 'su', 10, 'origHeaders'
         );
         $this->assertInstanceOf('\Zimbra\Mail\Struct\FilterAction', $actionNotify);
         $this->assertSame('content', $actionNotify->content());
         $this->assertSame('a', $actionNotify->a());
         $this->assertSame('su', $actionNotify->su());
-        $this->assertSame(1, $actionNotify->maxBodySize());
+        $this->assertSame(10, $actionNotify->maxBodySize());
         $this->assertSame('origHeaders', $actionNotify->origHeaders());
 
         $actionNotify->content('content')
                      ->a('a')
                      ->su('su')
-                     ->maxBodySize(1)
+                     ->maxBodySize(10)
                      ->origHeaders('origHeaders');
         $this->assertSame('content', $actionNotify->content());
         $this->assertSame('a', $actionNotify->a());
         $this->assertSame('su', $actionNotify->su());
-        $this->assertSame(1, $actionNotify->maxBodySize());
+        $this->assertSame(10, $actionNotify->maxBodySize());
         $this->assertSame('origHeaders', $actionNotify->origHeaders());
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<actionNotify index="1" a="a" su="su" maxBodySize="1" origHeaders="origHeaders">'
+            .'<actionNotify index="10" a="a" su="su" maxBodySize="10" origHeaders="origHeaders">'
                 .'<content>content</content>'
             .'</actionNotify>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $actionNotify);
 
         $array = array(
             'actionNotify' => array(
-                'index' => 1,
+                'index' => 10,
                 'content' => 'content',
                 'a' => 'a',
                 'su' => 'su',
-                'maxBodySize' => 1,
+                'maxBodySize' => 10,
                 'origHeaders' => 'origHeaders',
             ),
         );
@@ -7651,28 +7649,28 @@ class StructTest extends ZimbraTestCase
     public function testPurgeRevisionSpec()
     {
         $revision = new \Zimbra\Mail\Struct\PurgeRevisionSpec(
-            'id', 1, true
+            'id', 10, true
         );
         $this->assertSame('id', $revision->id());
-        $this->assertSame(1, $revision->ver());
+        $this->assertSame(10, $revision->ver());
         $this->assertTrue($revision->includeOlderRevisions());
 
         $revision->id('id')
-                 ->ver(1)
+                 ->ver(10)
                  ->includeOlderRevisions(true);
         $this->assertSame('id', $revision->id());
-        $this->assertSame(1, $revision->ver());
+        $this->assertSame(10, $revision->ver());
         $this->assertTrue($revision->includeOlderRevisions());
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<revision id="id" ver="1" includeOlderRevisions="1" />';
+            .'<revision id="id" ver="10" includeOlderRevisions="true" />';
         $this->assertXmlStringEqualsXmlString($xml, (string) $revision);
 
         $array = array(
             'revision' => array(
                 'id' => 'id',
-                'ver' => 1,
-                'includeOlderRevisions' => 1,
+                'ver' => 10,
+                'includeOlderRevisions' => true,
             )
         );
         $this->assertEquals($array, $revision->toArray());
@@ -7735,29 +7733,29 @@ class StructTest extends ZimbraTestCase
     public function testRecurIdInfo()
     {
         $recur = new \Zimbra\Mail\Struct\RecurIdInfo(
-            1, '991231', 'tz', '991231000000'
+            10, '991231', 'tz', '991231000000'
         );
-        $this->assertSame(1, $recur->rangeType());
+        $this->assertSame(10, $recur->rangeType());
         $this->assertSame('991231', $recur->recurId());
         $this->assertSame('tz', $recur->tz());
         $this->assertSame('991231000000', $recur->ridZ());
 
-        $recur->rangeType(1)
+        $recur->rangeType(10)
               ->recurId('991231')
               ->tz('tz')
               ->ridZ('991231000000');
-        $this->assertSame(1, $recur->rangeType());
+        $this->assertSame(10, $recur->rangeType());
         $this->assertSame('991231', $recur->recurId());
         $this->assertSame('tz', $recur->tz());
         $this->assertSame('991231000000', $recur->ridZ());
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<recur rangeType="1" recurId="991231" tz="tz" ridZ="991231000000" />';
+            .'<recur rangeType="10" recurId="991231" tz="tz" ridZ="991231000000" />';
         $this->assertXmlStringEqualsXmlString($xml, (string) $recur);
 
         $array = array(
             'recur' => array(
-                'rangeType' => 1,
+                'rangeType' => 10,
                 'recurId' => '991231',
                 'tz' => 'tz',
                 'ridZ' => '991231000000',
@@ -7769,10 +7767,10 @@ class StructTest extends ZimbraTestCase
     public function testRecurrenceInfo()
     {
         $except = new \Zimbra\Mail\Struct\ExceptionRuleInfo(
-            1, '991231', null, null, 'tz', '991231000000'
+            10, '991231', null, null, 'tz', '991231000000'
         );
         $cancel = new \Zimbra\Mail\Struct\CancelRuleInfo(
-            1, '991231', 'tz', '991231000000'
+            10, '991231', 'tz', '991231000000'
         );
 
         $s = new \Zimbra\Mail\Struct\DtTimeInfo(
@@ -7782,12 +7780,12 @@ class StructTest extends ZimbraTestCase
             '20130315T18302305Z', 'tz', 2000
         );
         $dur = new \Zimbra\Mail\Struct\DurationInfo(
-            true, 1, 2, 3, 4, 5, 'START', 6
+            true, 7, 2, 3, 4, 5, 'START', 6
         );
         $dtval = new \Zimbra\Mail\Struct\DtVal($s, $e, $dur);
         $dates = new \Zimbra\Mail\Struct\SingleDates(array($dtval), 'tz');
 
-        $wkday = new \Zimbra\Mail\Struct\WkDay(WeekDay::SU(), 1);
+        $wkday = new \Zimbra\Mail\Struct\WkDay(WeekDay::SU(), 10);
         $until = new \Zimbra\Mail\Struct\DateTimeStringAttr('20120315T18302305Z');
         $count = new \Zimbra\Mail\Struct\NumAttr(20120315);
         $interval = new \Zimbra\Mail\Struct\IntervalRule(20120315);
@@ -7847,13 +7845,13 @@ class StructTest extends ZimbraTestCase
         $xml = '<?xml version="1.0"?>'."\n"
             .'<recur>'
                 .'<add>'
-                    .'<except rangeType="1" recurId="991231" tz="tz" ridZ="991231000000" />'
-                    .'<cancel rangeType="1" recurId="991231" tz="tz" ridZ="991231000000" />'
+                    .'<except rangeType="10" recurId="991231" tz="tz" ridZ="991231000000" />'
+                    .'<cancel rangeType="10" recurId="991231" tz="tz" ridZ="991231000000" />'
                     .'<dates tz="tz">'
                         .'<dtval>'
                             .'<s d="20120315T18302305Z" tz="tz" u="1000" />'
                             .'<e d="20130315T18302305Z" tz="tz" u="2000" />'
-                            .'<dur neg="1" w="1" d="2" h="3" m="4" s="5" related="START" count="6" />'
+                            .'<dur neg="true" w="7" d="2" h="3" m="4" s="5" related="START" count="6" />'
                         .'</dtval>'
                     .'</dates>'
                     .'<rule freq="SEC">'
@@ -7864,7 +7862,7 @@ class StructTest extends ZimbraTestCase
                         .'<byminute minlist="10,20,30" />'
                         .'<byhour hrlist="5,10,15" />'
                         .'<byday>'
-                            .'<wkday day="SU" ordwk="1" />'
+                            .'<wkday day="SU" ordwk="10" />'
                         .'</byday>'
                         .'<bymonthday modaylist="5,10,15" />'
                         .'<byyearday yrdaylist="5,10,15" />'
@@ -7876,13 +7874,13 @@ class StructTest extends ZimbraTestCase
                     .'</rule>'
                 .'</add>'
                 .'<exclude>'
-                    .'<except rangeType="1" recurId="991231" tz="tz" ridZ="991231000000" />'
-                    .'<cancel rangeType="1" recurId="991231" tz="tz" ridZ="991231000000" />'
+                    .'<except rangeType="10" recurId="991231" tz="tz" ridZ="991231000000" />'
+                    .'<cancel rangeType="10" recurId="991231" tz="tz" ridZ="991231000000" />'
                     .'<dates tz="tz">'
                         .'<dtval>'
                             .'<s d="20120315T18302305Z" tz="tz" u="1000" />'
                             .'<e d="20130315T18302305Z" tz="tz" u="2000" />'
-                            .'<dur neg="1" w="1" d="2" h="3" m="4" s="5" related="START" count="6" />'
+                            .'<dur neg="true" w="7" d="2" h="3" m="4" s="5" related="START" count="6" />'
                         .'</dtval>'
                     .'</dates>'
                     .'<rule freq="SEC">'
@@ -7893,7 +7891,7 @@ class StructTest extends ZimbraTestCase
                         .'<byminute minlist="10,20,30" />'
                         .'<byhour hrlist="5,10,15" />'
                         .'<byday>'
-                            .'<wkday day="SU" ordwk="1" />'
+                            .'<wkday day="SU" ordwk="10" />'
                         .'</byday>'
                         .'<bymonthday modaylist="5,10,15" />'
                         .'<byyearday yrdaylist="5,10,15" />'
@@ -7904,13 +7902,13 @@ class StructTest extends ZimbraTestCase
                         .'<rule-x-name name="name" value="value" />'
                     .'</rule>'
                 .'</exclude>'
-                .'<except rangeType="1" recurId="991231" tz="tz" ridZ="991231000000" />'
-                .'<cancel rangeType="1" recurId="991231" tz="tz" ridZ="991231000000" />'
+                .'<except rangeType="10" recurId="991231" tz="tz" ridZ="991231000000" />'
+                .'<cancel rangeType="10" recurId="991231" tz="tz" ridZ="991231000000" />'
                 .'<dates tz="tz">'
                     .'<dtval>'
                         .'<s d="20120315T18302305Z" tz="tz" u="1000" />'
                         .'<e d="20130315T18302305Z" tz="tz" u="2000" />'
-                        .'<dur neg="1" w="1" d="2" h="3" m="4" s="5" related="START" count="6" />'
+                        .'<dur neg="true" w="7" d="2" h="3" m="4" s="5" related="START" count="6" />'
                     .'</dtval>'
                 .'</dates>'
                 .'<rule freq="SEC">'
@@ -7921,7 +7919,7 @@ class StructTest extends ZimbraTestCase
                     .'<byminute minlist="10,20,30" />'
                     .'<byhour hrlist="5,10,15" />'
                     .'<byday>'
-                        .'<wkday day="SU" ordwk="1" />'
+                        .'<wkday day="SU" ordwk="10" />'
                     .'</byday>'
                     .'<bymonthday modaylist="5,10,15" />'
                     .'<byyearday yrdaylist="5,10,15" />'
@@ -7938,13 +7936,13 @@ class StructTest extends ZimbraTestCase
             'recur' => array(
                 'add' => array(
                     'except' => array(
-                        'rangeType' => 1,
+                        'rangeType' => 10,
                         'recurId' => '991231',
                         'tz' => 'tz',
                         'ridZ' => '991231000000',
                     ),
                     'cancel' => array(
-                        'rangeType' => 1,
+                        'rangeType' => 10,
                         'recurId' => '991231',
                         'tz' => 'tz',
                         'ridZ' => '991231000000',
@@ -7964,8 +7962,8 @@ class StructTest extends ZimbraTestCase
                                     'u' => 2000,
                                 ),
                                 'dur' => array(
-                                    'neg' => 1,
-                                    'w' => 1,
+                                    'neg' => true,
+                                    'w' => 7,
                                     'd' => 2,
                                     'h' => 3,
                                     'm' => 4,
@@ -8000,7 +7998,7 @@ class StructTest extends ZimbraTestCase
                             'wkday' => array(
                                 array(
                                     'day' => 'SU',
-                                    'ordwk' => 1,
+                                    'ordwk' => 10,
                                 ),
                             )
                         ),
@@ -8032,13 +8030,13 @@ class StructTest extends ZimbraTestCase
                 ),
                 'exclude' => array(
                     'except' => array(
-                        'rangeType' => 1,
+                        'rangeType' => 10,
                         'recurId' => '991231',
                         'tz' => 'tz',
                         'ridZ' => '991231000000',
                     ),
                     'cancel' => array(
-                        'rangeType' => 1,
+                        'rangeType' => 10,
                         'recurId' => '991231',
                         'tz' => 'tz',
                         'ridZ' => '991231000000',
@@ -8058,8 +8056,8 @@ class StructTest extends ZimbraTestCase
                                     'u' => 2000,
                                 ),
                                 'dur' => array(
-                                    'neg' => 1,
-                                    'w' => 1,
+                                    'neg' => true,
+                                    'w' => 7,
                                     'd' => 2,
                                     'h' => 3,
                                     'm' => 4,
@@ -8094,7 +8092,7 @@ class StructTest extends ZimbraTestCase
                             'wkday' => array(
                                 array(
                                     'day' => 'SU',
-                                    'ordwk' => 1,
+                                    'ordwk' => 10,
                                 ),
                             )
                         ),
@@ -8125,13 +8123,13 @@ class StructTest extends ZimbraTestCase
                     ),
                 ),
                 'except' => array(
-                    'rangeType' => 1,
+                    'rangeType' => 10,
                     'recurId' => '991231',
                     'tz' => 'tz',
                     'ridZ' => '991231000000',
                 ),
                 'cancel' => array(
-                    'rangeType' => 1,
+                    'rangeType' => 10,
                     'recurId' => '991231',
                     'tz' => 'tz',
                     'ridZ' => '991231000000',
@@ -8151,8 +8149,8 @@ class StructTest extends ZimbraTestCase
                                 'u' => 2000,
                             ),
                             'dur' => array(
-                                'neg' => 1,
-                                'w' => 1,
+                                'neg' => true,
+                                'w' => 7,
                                 'd' => 2,
                                 'h' => 3,
                                 'm' => 4,
@@ -8187,7 +8185,7 @@ class StructTest extends ZimbraTestCase
                         'wkday' => array(
                             array(
                                 'day' => 'SU',
-                                'ordwk' => 1,
+                                'ordwk' => 10,
                             ),
                         )
                     ),
@@ -8224,7 +8222,7 @@ class StructTest extends ZimbraTestCase
     public function testRedirectAction()
     {
         $actionRedirect = new \Zimbra\Mail\Struct\RedirectAction(
-            1, 'a'
+            10, 'a'
         );
         $this->assertInstanceOf('\Zimbra\Mail\Struct\FilterAction', $actionRedirect);
         $this->assertSame('a', $actionRedirect->a());
@@ -8232,12 +8230,12 @@ class StructTest extends ZimbraTestCase
         $this->assertSame('a', $actionRedirect->a());
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<actionRedirect index="1" a="a" />';
+            .'<actionRedirect index="10" a="a" />';
         $this->assertXmlStringEqualsXmlString($xml, (string) $actionRedirect);
 
         $array = array(
             'actionRedirect' => array(
-                'index' => 1,
+                'index' => 10,
                 'a' => 'a',
             ),
         );
@@ -8247,7 +8245,7 @@ class StructTest extends ZimbraTestCase
     public function testReplies()
     {
         $reply = new \Zimbra\Mail\Struct\CalReply(
-            'at', 1, 1, 1, '991231', 'sentBy', ParticipationStatus::NE(), 'tz', '991231000000'
+            'at', 10, 10, 10, '991231', 'sentBy', ParticipationStatus::NE(), 'tz', '991231000000'
         );
         $replies = new \Zimbra\Mail\Struct\Replies(
             array($reply)
@@ -8258,8 +8256,8 @@ class StructTest extends ZimbraTestCase
 
         $xml = '<?xml version="1.0"?>'."\n"
             .'<replies>'
-                .'<reply at="at" seq="1" d="1" sentBy="sentBy" ptst="NE" rangeType="1" recurId="991231" tz="tz" ridZ="991231000000" />'
-                .'<reply at="at" seq="1" d="1" sentBy="sentBy" ptst="NE" rangeType="1" recurId="991231" tz="tz" ridZ="991231000000" />'
+                .'<reply at="at" seq="10" d="10" sentBy="sentBy" ptst="NE" rangeType="10" recurId="991231" tz="tz" ridZ="991231000000" />'
+                .'<reply at="at" seq="10" d="10" sentBy="sentBy" ptst="NE" rangeType="10" recurId="991231" tz="tz" ridZ="991231000000" />'
             .'</replies>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $replies);
 
@@ -8268,22 +8266,22 @@ class StructTest extends ZimbraTestCase
                 'reply' => array(
                     array(
                         'at' => 'at',
-                        'seq' => 1,
-                        'd' => 1,
+                        'seq' => 10,
+                        'd' => 10,
                         'sentBy' => 'sentBy',
                         'ptst' => 'NE',
-                        'rangeType' => 1,
+                        'rangeType' => 10,
                         'recurId' => '991231',
                         'tz' => 'tz',
                         'ridZ' => '991231000000',
                     ),
                     array(
                         'at' => 'at',
-                        'seq' => 1,
-                        'd' => 1,
+                        'seq' => 10,
+                        'd' => 10,
                         'sentBy' => 'sentBy',
                         'ptst' => 'NE',
-                        'rangeType' => 1,
+                        'rangeType' => 10,
                         'recurId' => '991231',
                         'tz' => 'tz',
                         'ridZ' => '991231000000',
@@ -8297,7 +8295,7 @@ class StructTest extends ZimbraTestCase
     public function testReplyAction()
     {
         $actionReply = new \Zimbra\Mail\Struct\ReplyAction(
-            1, 'content'
+            10, 'content'
         );
         $this->assertInstanceOf('\Zimbra\Mail\Struct\FilterAction', $actionReply);
         $this->assertSame('content', $actionReply->content());
@@ -8305,14 +8303,14 @@ class StructTest extends ZimbraTestCase
         $this->assertSame('content', $actionReply->content());
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<actionReply index="1">'
+            .'<actionReply index="10">'
                 .'<content>content</content>'
             .'</actionReply>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $actionReply);
 
         $array = array(
             'actionReply' => array(
-                'index' => 1,
+                'index' => 10,
                 'content' => 'content',
             ),
         );
@@ -8477,17 +8475,17 @@ class StructTest extends ZimbraTestCase
         $mp = new \Zimbra\Mail\Struct\MimePartAttachSpec('mid', 'part', true);
         $m = new \Zimbra\Mail\Struct\MsgAttachSpec('id', false);
         $cn = new \Zimbra\Mail\Struct\ContactAttachSpec('id', false);
-        $doc = new \Zimbra\Mail\Struct\DocAttachSpec('path', 'id', 1, true);
+        $doc = new \Zimbra\Mail\Struct\DocAttachSpec('path', 'id', 10, true);
         $info = new \Zimbra\Mail\Struct\MimePartInfo(array(), null, 'ct', 'content', 'ci');
-        $standard = new \Zimbra\Struct\TzOnsetInfo(1, 2, 3, 4);
-        $daylight = new \Zimbra\Struct\TzOnsetInfo(4, 3, 2, 1);
+        $standard = new \Zimbra\Struct\TzOnsetInfo(12, 2, 3, 4);
+        $daylight = new \Zimbra\Struct\TzOnsetInfo(4, 3, 2, 10);
 
         $header = new \Zimbra\Mail\Struct\Header('name', 'value');
         $attach = new \Zimbra\Mail\Struct\AttachmentsInfo($mp, $m, $cn, $doc, 'aid');
         $mp = new \Zimbra\Mail\Struct\MimePartInfo(array($info), $attach, 'ct', 'content', 'ci');
-        $inv = new \Zimbra\Mail\Struct\InvitationInfo('method', 1, true);
+        $inv = new \Zimbra\Mail\Struct\InvitationInfo('method', 10, true);
         $e = new \Zimbra\Mail\Struct\EmailAddrInfo('a', 't', 'p');
-        $tz = new \Zimbra\Mail\Struct\CalTZInfo('id', 1, 1, $standard, $daylight, 'stdname', 'dayname');
+        $tz = new \Zimbra\Mail\Struct\CalTZInfo('id', 10, 10, $standard, $daylight, 'stdname', 'dayname');
 
         $m = new \Zimbra\Mail\Struct\SaveDraftMsg(
             'content',
@@ -8498,7 +8496,7 @@ class StructTest extends ZimbraTestCase
             array($e),
             array($tz),
             'fr',
-            1, 'forAcct', 't', 'tn', '#aabbcc', 1, 1,
+            10, 'forAcct', 't', 'tn', '#aabbcc', 10, 10,
             'aid',
             'origid',
             'rt',
@@ -8509,67 +8507,67 @@ class StructTest extends ZimbraTestCase
             'f'
         );
         $this->assertInstanceOf('Zimbra\Mail\Struct\Msg', $m);
-        $this->assertSame(1, $m->id());
+        $this->assertSame(10, $m->id());
         $this->assertSame('forAcct', $m->forAcct());
         $this->assertSame('t', $m->t());
         $this->assertSame('tn', $m->tn());
         $this->assertSame('#aabbcc', $m->rgb());
-        $this->assertSame(1, $m->color());
-        $this->assertSame(1, $m->autoSendTime());
+        $this->assertSame(10, $m->color());
+        $this->assertSame(10, $m->autoSendTime());
 
-        $m->id(1)
+        $m->id(10)
           ->forAcct('forAcct')
           ->t('t')
           ->tn('tn')
           ->rgb('#aabbcc')
-          ->color(1)
-          ->autoSendTime(1);
-        $this->assertSame(1, $m->id());
+          ->color(10)
+          ->autoSendTime(10);
+        $this->assertSame(10, $m->id());
         $this->assertSame('forAcct', $m->forAcct());
         $this->assertSame('t', $m->t());
         $this->assertSame('tn', $m->tn());
         $this->assertSame('#aabbcc', $m->rgb());
-        $this->assertSame(1, $m->color());
-        $this->assertSame(1, $m->autoSendTime());
+        $this->assertSame(10, $m->color());
+        $this->assertSame(10, $m->autoSendTime());
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<m id="1" forAcct="forAcct" t="t" tn="tn" rgb="#aabbcc" color="1" autoSendTime="1" aid="aid" origid="origid" rt="rt" idnt="idnt" su="su" irt="irt" l="l" f="f">'
+            .'<m id="10" forAcct="forAcct" t="t" tn="tn" rgb="#aabbcc" color="10" autoSendTime="10" aid="aid" origid="origid" rt="rt" idnt="idnt" su="su" irt="irt" l="l" f="f">'
                 .'<content>content</content>'
                 .'<mp ct="ct" content="content" ci="ci">'
                     .'<attach aid="aid">'
-                        .'<mp optional="1" mid="mid" part="part" />'
-                        .'<m optional="0" id="id" />'
-                        .'<cn optional="0" id="id" />'
-                        .'<doc optional="1" path="path" id="id" ver="1" />'
+                        .'<mp optional="true" mid="mid" part="part" />'
+                        .'<m optional="false" id="id" />'
+                        .'<cn optional="false" id="id" />'
+                        .'<doc optional="true" path="path" id="id" ver="10" />'
                     .'</attach>'
                     .'<mp ct="ct" content="content" ci="ci" />'
                 .'</mp>'
                 .'<attach aid="aid">'
-                    .'<mp optional="1" mid="mid" part="part" />'
-                    .'<m optional="0" id="id" />'
-                    .'<cn optional="0" id="id" />'
-                    .'<doc optional="1" path="path" id="id" ver="1" />'
+                    .'<mp optional="true" mid="mid" part="part" />'
+                    .'<m optional="false" id="id" />'
+                    .'<cn optional="false" id="id" />'
+                    .'<doc optional="true" path="path" id="id" ver="10" />'
                 .'</attach>'
-                .'<inv method="method" compNum="1" rsvp="1" />'
+                .'<inv method="method" compNum="10" rsvp="true" />'
                 .'<fr>fr</fr>'
                 .'<header name="name">value</header>'
                 .'<e a="a" t="t" p="p" />'
-                .'<tz id="id" stdoff="1" dayoff="1" stdname="stdname" dayname="dayname">'
-                    .'<standard mon="1" hour="2" min="3" sec="4" />'
-                    .'<daylight mon="4" hour="3" min="2" sec="1" />'
+                .'<tz id="id" stdoff="10" dayoff="10" stdname="stdname" dayname="dayname">'
+                    .'<standard mon="12" hour="2" min="3" sec="4" />'
+                    .'<daylight mon="4" hour="3" min="2" sec="10" />'
                 .'</tz>'
             .'</m>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $m);
 
         $array = array(
             'm' => array(
-                'id' => 1,
+                'id' => 10,
                 'forAcct' => 'forAcct',
                 't' => 't',
                 'tn' => 'tn',
                 'rgb' => '#aabbcc',
-                'color' => 1,
-                'autoSendTime' => 1,
+                'color' => 10,
+                'autoSendTime' => 10,
                 'aid' => 'aid',
                 'origid' => 'origid',
                 'rt' => 'rt',
@@ -8601,21 +8599,21 @@ class StructTest extends ZimbraTestCase
                         'mp' => array(
                             'mid' => 'mid',
                             'part' => 'part',
-                            'optional' => 1,
+                            'optional' => true,
                         ),
                         'm' => array(
                             'id' => 'id',
-                            'optional' => 0,
+                            'optional' => false,
                         ),
                         'cn' => array(
                             'id' => 'id',
-                            'optional' => 0,
+                            'optional' => false,
                         ),
                         'doc' => array(
                             'path' => 'path',
                             'id' => 'id',
-                            'ver' => 1,
-                            'optional' => 1,
+                            'ver' => 10,
+                            'optional' => true,
                         ),
                     ),
                 ),
@@ -8624,27 +8622,27 @@ class StructTest extends ZimbraTestCase
                     'mp' => array(
                         'mid' => 'mid',
                         'part' => 'part',
-                        'optional' => 1,
+                        'optional' => true,
                     ),
                     'm' => array(
                         'id' => 'id',
-                        'optional' => 0,
+                        'optional' => false,
                     ),
                     'cn' => array(
                         'id' => 'id',
-                        'optional' => 0,
+                        'optional' => false,
                     ),
                     'doc' => array(
                         'path' => 'path',
                         'id' => 'id',
-                        'ver' => 1,
-                        'optional' => 1,
+                        'ver' => 10,
+                        'optional' => true,
                     ),
                 ),
                 'inv' => array(
                     'method' => 'method',
-                    'compNum' => 1,
-                    'rsvp' => 1,
+                    'compNum' => 10,
+                    'rsvp' => true,
                 ),
                 'e' => array(
                     array(
@@ -8656,12 +8654,12 @@ class StructTest extends ZimbraTestCase
                 'tz' => array(
                     array(
                         'id' => 'id',
-                        'stdoff' => 1,
-                        'dayoff' => 1,
+                        'stdoff' => 10,
+                        'dayoff' => 10,
                         'stdname' => 'stdname',
                         'dayname' => 'dayname',
                         'standard' => array(
-                            'mon' => 1,
+                            'mon' => 12,
                             'hour' => 2,
                             'min' => 3,
                             'sec' => 4,
@@ -8670,7 +8668,7 @@ class StructTest extends ZimbraTestCase
                             'mon' => 4,
                             'hour' => 3,
                             'min' => 2,
-                            'sec' => 1,
+                            'sec' => 10,
                         ),
                     ),
                 ),
@@ -8705,17 +8703,17 @@ class StructTest extends ZimbraTestCase
         $mp = new \Zimbra\Mail\Struct\MimePartAttachSpec('mid', 'part', true);
         $msg = new \Zimbra\Mail\Struct\MsgAttachSpec('id', false);
         $cn = new \Zimbra\Mail\Struct\ContactAttachSpec('id', false);
-        $doc = new \Zimbra\Mail\Struct\DocAttachSpec('path', 'id', 1, true);
+        $doc = new \Zimbra\Mail\Struct\DocAttachSpec('path', 'id', 10, true);
         $info = new \Zimbra\Mail\Struct\MimePartInfo(array(), null, 'ct', 'content', 'ci');
-        $standard = new \Zimbra\Struct\TzOnsetInfo(1, 2, 3, 4);
-        $daylight = new \Zimbra\Struct\TzOnsetInfo(4, 3, 2, 1);
+        $standard = new \Zimbra\Struct\TzOnsetInfo(12, 2, 3, 4);
+        $daylight = new \Zimbra\Struct\TzOnsetInfo(4, 3, 2, 10);
 
         $header = new \Zimbra\Mail\Struct\Header('name', 'value');
         $attach = new \Zimbra\Mail\Struct\AttachmentsInfo($mp, $msg, $cn, $doc, 'aid');
         $mp = new \Zimbra\Mail\Struct\MimePartInfo(array($info), $attach, 'ct', 'content', 'ci');
-        $inv = new \Zimbra\Mail\Struct\InvitationInfo('method', 1, true);
+        $inv = new \Zimbra\Mail\Struct\InvitationInfo('method', 10, true);
         $e = new \Zimbra\Mail\Struct\EmailAddrInfo('a', 't', 'p');
-        $tz = new \Zimbra\Mail\Struct\CalTZInfo('id', 1, 1, $standard, $daylight, 'stdname', 'dayname');
+        $tz = new \Zimbra\Mail\Struct\CalTZInfo('id', 10, 10, $standard, $daylight, 'stdname', 'dayname');
 
         $m = new \Zimbra\Mail\Struct\Msg(
             'content',
@@ -8753,26 +8751,26 @@ class StructTest extends ZimbraTestCase
                     .'<content>content</content>'
                     .'<mp ct="ct" content="content" ci="ci">'
                         .'<attach aid="aid">'
-                            .'<mp optional="1" mid="mid" part="part" />'
-                            .'<m optional="0" id="id" />'
-                            .'<cn optional="0" id="id" />'
-                            .'<doc optional="1" path="path" id="id" ver="1" />'
+                            .'<mp optional="true" mid="mid" part="part" />'
+                            .'<m optional="false" id="id" />'
+                            .'<cn optional="false" id="id" />'
+                            .'<doc optional="true" path="path" id="id" ver="10" />'
                         .'</attach>'
                         .'<mp ct="ct" content="content" ci="ci" />'
                     .'</mp>'
                     .'<attach aid="aid">'
-                        .'<mp optional="1" mid="mid" part="part" />'
-                        .'<m optional="0" id="id" />'
-                        .'<cn optional="0" id="id" />'
-                        .'<doc optional="1" path="path" id="id" ver="1" />'
+                        .'<mp optional="true" mid="mid" part="part" />'
+                        .'<m optional="false" id="id" />'
+                        .'<cn optional="false" id="id" />'
+                        .'<doc optional="true" path="path" id="id" ver="10" />'
                     .'</attach>'
-                    .'<inv method="method" compNum="1" rsvp="1" />'
+                    .'<inv method="method" compNum="10" rsvp="true" />'
                     .'<fr>fr</fr>'
                     .'<header name="name">value</header>'
                     .'<e a="a" t="t" p="p" />'
-                    .'<tz id="id" stdoff="1" dayoff="1" stdname="stdname" dayname="dayname">'
-                        .'<standard mon="1" hour="2" min="3" sec="4" />'
-                        .'<daylight mon="4" hour="3" min="2" sec="1" />'
+                    .'<tz id="id" stdoff="10" dayoff="10" stdname="stdname" dayname="dayname">'
+                        .'<standard mon="12" hour="2" min="3" sec="4" />'
+                        .'<daylight mon="4" hour="3" min="2" sec="10" />'
                     .'</tz>'
                 .'</m>'
             .'</item>';
@@ -8813,21 +8811,21 @@ class StructTest extends ZimbraTestCase
                             'mp' => array(
                                 'mid' => 'mid',
                                 'part' => 'part',
-                                'optional' => 1,
+                                'optional' => true,
                             ),
                             'm' => array(
                                 'id' => 'id',
-                                'optional' => 0,
+                                'optional' => false,
                             ),
                             'cn' => array(
                                 'id' => 'id',
-                                'optional' => 0,
+                                'optional' => false,
                             ),
                             'doc' => array(
                                 'path' => 'path',
                                 'id' => 'id',
-                                'ver' => 1,
-                                'optional' => 1,
+                                'ver' => 10,
+                                'optional' => true,
                             ),
                         ),
                     ),
@@ -8836,27 +8834,27 @@ class StructTest extends ZimbraTestCase
                         'mp' => array(
                             'mid' => 'mid',
                             'part' => 'part',
-                            'optional' => 1,
+                            'optional' => true,
                         ),
                         'm' => array(
                             'id' => 'id',
-                            'optional' => 0,
+                            'optional' => false,
                         ),
                         'cn' => array(
                             'id' => 'id',
-                            'optional' => 0,
+                            'optional' => false,
                         ),
                         'doc' => array(
                             'path' => 'path',
                             'id' => 'id',
-                            'ver' => 1,
-                            'optional' => 1,
+                            'ver' => 10,
+                            'optional' => true,
                         ),
                     ),
                     'inv' => array(
                         'method' => 'method',
-                        'compNum' => 1,
-                        'rsvp' => 1,
+                        'compNum' => 10,
+                        'rsvp' => true,
                     ),
                     'e' => array(
                         array(
@@ -8868,12 +8866,12 @@ class StructTest extends ZimbraTestCase
                     'tz' => array(
                         array(
                             'id' => 'id',
-                            'stdoff' => 1,
-                            'dayoff' => 1,
+                            'stdoff' => 10,
+                            'dayoff' => 10,
                             'stdname' => 'stdname',
                             'dayname' => 'dayname',
                             'standard' => array(
-                                'mon' => 1,
+                                'mon' => 12,
                                 'hour' => 2,
                                 'min' => 3,
                                 'sec' => 4,
@@ -8882,7 +8880,7 @@ class StructTest extends ZimbraTestCase
                                 'mon' => 4,
                                 'hour' => 3,
                                 'min' => 2,
-                                'sec' => 1,
+                                'sec' => 10,
                             ),
                         ),
                     ),
@@ -8907,13 +8905,13 @@ class StructTest extends ZimbraTestCase
         $this->assertTrue($link->reminder());
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<link id="id" reminder="1" />';
+            .'<link id="id" reminder="true" />';
         $this->assertXmlStringEqualsXmlString($xml, (string) $link);
 
         $array = array(
             'link' => array(
                 'id' => 'id',
-                'reminder' => 1,
+                'reminder' => true,
             ),
         );
         $this->assertEquals($array, $link->toArray());
@@ -8921,7 +8919,7 @@ class StructTest extends ZimbraTestCase
 
     public function testSimpleRepeatingRule()
     {
-        $wkday = new \Zimbra\Mail\Struct\WkDay(WeekDay::SU(), 1);
+        $wkday = new \Zimbra\Mail\Struct\WkDay(WeekDay::SU(), 10);
 
         $until = new \Zimbra\Mail\Struct\DateTimeStringAttr('20120315T18302305Z');
         $count = new \Zimbra\Mail\Struct\NumAttr(20120315);
@@ -9011,7 +9009,7 @@ class StructTest extends ZimbraTestCase
                 .'<byminute minlist="10,20,30" />'
                 .'<byhour hrlist="5,10,15" />'
                 .'<byday>'
-                    .'<wkday day="SU" ordwk="1" />'
+                    .'<wkday day="SU" ordwk="10" />'
                 .'</byday>'
                 .'<bymonthday modaylist="5,10,15" />'
                 .'<byyearday yrdaylist="5,10,15" />'
@@ -9049,7 +9047,7 @@ class StructTest extends ZimbraTestCase
                     'wkday' => array(
                         array(
                             'day' => 'SU',
-                            'ordwk' => 1,
+                            'ordwk' => 10,
                         ),
                     )
                 ),
@@ -9095,7 +9093,7 @@ class StructTest extends ZimbraTestCase
             '20130315T18302305Z', 'tz', 2000
         );
         $dur = new \Zimbra\Mail\Struct\DurationInfo(
-            true, 1, 2, 3, 4, 5, 'START', 6
+            true, 7, 2, 3, 4, 5, 'START', 6
         );
         $dtval = new \Zimbra\Mail\Struct\DtVal($s, $e, $dur);
 
@@ -9113,12 +9111,12 @@ class StructTest extends ZimbraTestCase
                 .'<dtval>'
                     .'<s d="20120315T18302305Z" tz="tz" u="1000" />'
                     .'<e d="20130315T18302305Z" tz="tz" u="2000" />'
-                    .'<dur neg="1" w="1" d="2" h="3" m="4" s="5" related="START" count="6" />'
+                    .'<dur neg="true" w="7" d="2" h="3" m="4" s="5" related="START" count="6" />'
                 .'</dtval>'
                 .'<dtval>'
                     .'<s d="20120315T18302305Z" tz="tz" u="1000" />'
                     .'<e d="20130315T18302305Z" tz="tz" u="2000" />'
-                    .'<dur neg="1" w="1" d="2" h="3" m="4" s="5" related="START" count="6" />'
+                    .'<dur neg="true" w="7" d="2" h="3" m="4" s="5" related="START" count="6" />'
                 .'</dtval>'
             .'</dates>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $dates);
@@ -9139,8 +9137,8 @@ class StructTest extends ZimbraTestCase
                             'u' => 2000,
                         ),
                         'dur' => array(
-                            'neg' => 1,
-                            'w' => 1,
+                            'neg' => true,
+                            'w' => 7,
                             'd' => 2,
                             'h' => 3,
                             'm' => 4,
@@ -9161,8 +9159,8 @@ class StructTest extends ZimbraTestCase
                             'u' => 2000,
                         ),
                         'dur' => array(
-                            'neg' => 1,
-                            'w' => 1,
+                            'neg' => true,
+                            'w' => 7,
                             'd' => 2,
                             'h' => 3,
                             'm' => 4,
@@ -9180,7 +9178,7 @@ class StructTest extends ZimbraTestCase
     public function testSizeTest()
     {
         $sizeTest = new \Zimbra\Mail\Struct\SizeTest(
-            1, 'numberComparison', 's', true
+            10, 'numberComparison', 's', true
         );
         $this->assertInstanceOf('\Zimbra\Mail\Struct\FilterTest', $sizeTest);
         $this->assertSame('numberComparison', $sizeTest->numberComparison());
@@ -9192,13 +9190,13 @@ class StructTest extends ZimbraTestCase
         $this->assertSame('s', $sizeTest->s());
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<sizeTest index="1" negative="1" numberComparison="numberComparison" s="s" />';
+            .'<sizeTest index="10" negative="true" numberComparison="numberComparison" s="s" />';
         $this->assertXmlStringEqualsXmlString($xml, (string) $sizeTest);
 
         $array = array(
             'sizeTest' => array(
-                'index' => 1,
-                'negative' => 1,
+                'index' => 10,
+                'negative' => true,
                 'numberComparison' => 'numberComparison',
                 's' => 's',
             ),
@@ -9208,23 +9206,23 @@ class StructTest extends ZimbraTestCase
 
     public function testSnoozeAlarm()
     {
-        $alarm = new \Zimbra\Mail\Struct\SnoozeAlarm('id', 1);
+        $alarm = new \Zimbra\Mail\Struct\SnoozeAlarm('id', 10);
         $this->assertSame('id', $alarm->id());
-        $this->assertSame(1, $alarm->until());
+        $this->assertSame(10, $alarm->until());
 
         $alarm->id('id')
-              ->until(1);
+              ->until(10);
         $this->assertSame('id', $alarm->id());
-        $this->assertSame(1, $alarm->until());
+        $this->assertSame(10, $alarm->until());
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<alarm id="id" until="1" />';
+            .'<alarm id="id" until="10" />';
         $this->assertXmlStringEqualsXmlString($xml, (string) $alarm);
 
         $array = array(
             'alarm' => array(
                 'id' => 'id',
-                'until' => 1,
+                'until' => 10,
             ),
         );
         $this->assertEquals($array, $alarm->toArray());
@@ -9232,17 +9230,17 @@ class StructTest extends ZimbraTestCase
 
     public function testSnoozeAppointmentAlarm()
     {
-        $appt = new \Zimbra\Mail\Struct\SnoozeAppointmentAlarm('id', 1);
+        $appt = new \Zimbra\Mail\Struct\SnoozeAppointmentAlarm('id', 10);
         $this->assertInstanceOf('Zimbra\Mail\Struct\SnoozeAlarm', $appt);
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<appt id="id" until="1" />';
+            .'<appt id="id" until="10" />';
         $this->assertXmlStringEqualsXmlString($xml, (string) $appt);
 
         $array = array(
             'appt' => array(
                 'id' => 'id',
-                'until' => 1,
+                'until' => 10,
             ),
         );
         $this->assertEquals($array, $appt->toArray());
@@ -9250,17 +9248,17 @@ class StructTest extends ZimbraTestCase
 
     public function testSnoozeTaskAlarm()
     {
-        $task = new \Zimbra\Mail\Struct\SnoozeTaskAlarm('id', 1);
+        $task = new \Zimbra\Mail\Struct\SnoozeTaskAlarm('id', 10);
         $this->assertInstanceOf('Zimbra\Mail\Struct\SnoozeAlarm', $task);
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<task id="id" until="1" />';
+            .'<task id="id" until="10" />';
         $this->assertXmlStringEqualsXmlString($xml, (string) $task);
 
         $array = array(
             'task' => array(
                 'id' => 'id',
-                'until' => 1,
+                'until' => 10,
             ),
         );
         $this->assertEquals($array, $task->toArray());
@@ -9269,18 +9267,18 @@ class StructTest extends ZimbraTestCase
     public function testSocialcastTest()
     {
         $socialcastTest = new \Zimbra\Mail\Struct\SocialcastTest(
-            1, true
+            10, true
         );
         $this->assertInstanceOf('\Zimbra\Mail\Struct\FilterTest', $socialcastTest);
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<socialcastTest index="1" negative="1" />';
+            .'<socialcastTest index="10" negative="true" />';
         $this->assertXmlStringEqualsXmlString($xml, (string) $socialcastTest);
 
         $array = array(
             'socialcastTest' => array(
-                'index' => 1,
-                'negative' => 1,
+                'index' => 10,
+                'negative' => true,
             ),
         );
         $this->assertEquals($array, $socialcastTest->toArray());
@@ -9289,17 +9287,17 @@ class StructTest extends ZimbraTestCase
     public function testStopAction()
     {
         $actionStop = new \Zimbra\Mail\Struct\StopAction(
-            1
+            10
         );
         $this->assertInstanceOf('\Zimbra\Mail\Struct\FilterAction', $actionStop);
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<actionStop index="1" />';
+            .'<actionStop index="10" />';
         $this->assertXmlStringEqualsXmlString($xml, (string) $actionStop);
 
         $array = array(
             'actionStop' => array(
-                'index' => 1,
+                'index' => 10,
             ),
         );
         $this->assertEquals($array, $actionStop->toArray());
@@ -9308,7 +9306,7 @@ class StructTest extends ZimbraTestCase
     public function testTagAction()
     {
         $actionTag = new \Zimbra\Mail\Struct\TagAction(
-            1, 'tagName'
+            10, 'tagName'
         );
         $this->assertInstanceOf('\Zimbra\Mail\Struct\FilterAction', $actionTag);
         $this->assertSame('tagName', $actionTag->tagName());
@@ -9316,12 +9314,12 @@ class StructTest extends ZimbraTestCase
         $this->assertSame('tagName', $actionTag->tagName());
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<actionTag index="1" tagName="tagName" />';
+            .'<actionTag index="10" tagName="tagName" />';
         $this->assertXmlStringEqualsXmlString($xml, (string) $actionTag);
 
         $array = array(
             'actionTag' => array(
-                'index' => 1,
+                'index' => 10,
                 'tagName' => 'tagName',
             ),
         );
@@ -9342,7 +9340,7 @@ class StructTest extends ZimbraTestCase
             $keep, $purge
         );
         $action = new \Zimbra\Mail\Struct\TagActionSelector(
-            $retentionPolicy, TagActionOp::READ(), 'id', 'tcon', 1, 'l', '#aabbcc', 1, 'name', 'f', 't', 'tn'
+            $retentionPolicy, TagActionOp::READ(), 'id', 'tcon', 10, 'l', '#aabbcc', 10, 'name', 'f', 't', 'tn'
         );
         $this->assertTrue($action->op()->is('read'));
         $this->assertSame($retentionPolicy, $action->retentionPolicy());
@@ -9353,7 +9351,7 @@ class StructTest extends ZimbraTestCase
         $this->assertSame($retentionPolicy, $action->retentionPolicy());
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<action op="read" id="id" tcon="tcon" l="l" rgb="#aabbcc" tag="1" color="1" name="name" f="f" t="t" tn="tn">'
+            .'<action op="read" id="id" tcon="tcon" l="l" rgb="#aabbcc" tag="10" color="10" name="name" f="f" t="t" tn="tn">'
                 .'<retentionPolicy>'
                     .'<keep>'
                         .'<policy type="system" id="id" name="name" lifetime="lifetime" />'
@@ -9370,10 +9368,10 @@ class StructTest extends ZimbraTestCase
                 'op' => 'read',
                 'id' => 'id',
                 'tcon' => 'tcon',
-                'tag' => 1,
+                'tag' => 10,
                 'l' => 'l',
                 'rgb' => '#aabbcc',
-                'color' => 1,
+                'color' => 10,
                 'name' => 'name',
                 'f' => 'f',
                 't' => 't',
@@ -9408,28 +9406,28 @@ class StructTest extends ZimbraTestCase
     public function testTagSpec()
     {
         $tag = new \Zimbra\Mail\Struct\TagSpec(
-            'name', '#aabbcc', 1
+            'name', '#aabbcc', 10
         );
         $this->assertSame('name', $tag->name());
         $this->assertSame('#aabbcc', $tag->rgb());
-        $this->assertSame(1, $tag->color());
+        $this->assertSame(10, $tag->color());
 
         $tag->name('name')
             ->rgb('#aabbcc')
-            ->color(1);
+            ->color(10);
         $this->assertSame('name', $tag->name());
         $this->assertSame('#aabbcc', $tag->rgb());
-        $this->assertSame(1, $tag->color());
+        $this->assertSame(10, $tag->color());
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<tag name="name" rgb="#aabbcc" color="1" />';
+            .'<tag name="name" rgb="#aabbcc" color="10" />';
         $this->assertXmlStringEqualsXmlString($xml, (string) $tag);
 
         $array = array(
             'tag' => array(
                 'name' => 'name',
                 'rgb' => '#aabbcc',
-                'color' => 1,
+                'color' => 10,
             ),
         );
         $this->assertEquals($array, $tag->toArray());
@@ -9468,18 +9466,18 @@ class StructTest extends ZimbraTestCase
     public function testTrueTest()
     {
         $trueTest = new \Zimbra\Mail\Struct\TrueTest(
-            1, true
+            10, true
         );
         $this->assertInstanceOf('\Zimbra\Mail\Struct\FilterTest', $trueTest);
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<trueTest index="1" negative="1" />';
+            .'<trueTest index="10" negative="true" />';
         $this->assertXmlStringEqualsXmlString($xml, (string) $trueTest);
 
         $array = array(
             'trueTest' => array(
-                'index' => 1,
-                'negative' => 1,
+                'index' => 10,
+                'negative' => true,
             ),
         );
         $this->assertEquals($array, $trueTest->toArray());
@@ -9488,18 +9486,18 @@ class StructTest extends ZimbraTestCase
     public function testTwitterTest()
     {
         $twitterTest = new \Zimbra\Mail\Struct\TwitterTest(
-            1, true
+            10, true
         );
         $this->assertInstanceOf('\Zimbra\Mail\Struct\FilterTest', $twitterTest);
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<twitterTest index="1" negative="1" />';
+            .'<twitterTest index="10" negative="true" />';
         $this->assertXmlStringEqualsXmlString($xml, (string) $twitterTest);
 
         $array = array(
             'twitterTest' => array(
-                'index' => 1,
-                'negative' => 1,
+                'index' => 10,
+                'negative' => true,
             ),
         );
         $this->assertEquals($array, $twitterTest->toArray());
@@ -9658,23 +9656,23 @@ class StructTest extends ZimbraTestCase
 
     public function testWkDay()
     {
-        $wkday = new \Zimbra\Mail\Struct\WkDay(WeekDay::SU(), 1);
+        $wkday = new \Zimbra\Mail\Struct\WkDay(WeekDay::SU(), 10);
         $this->assertSame('SU', (string) $wkday->day());
-        $this->assertSame(1, $wkday->ordwk());
+        $this->assertSame(10, $wkday->ordwk());
 
         $wkday->day(WeekDay::SU())
-              ->ordwk(1);
+              ->ordwk(10);
         $this->assertSame('SU', (string) $wkday->day());
-        $this->assertSame(1, $wkday->ordwk());
+        $this->assertSame(10, $wkday->ordwk());
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<wkday day="SU" ordwk="1" />';
+            .'<wkday day="SU" ordwk="10" />';
         $this->assertXmlStringEqualsXmlString($xml, (string) $wkday);
 
         $array = array(
             'wkday' => array(
                 'day' => 'SU',
-                'ordwk' => 1,
+                'ordwk' => 10,
             ),
         );
         $this->assertEquals($array, $wkday->toArray());

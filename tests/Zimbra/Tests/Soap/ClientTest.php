@@ -28,7 +28,7 @@ class ClientTest extends ZimbraTestCase
         $server->setClass('\Zimbra\Tests\TestData\TestRequestServer');
         $this->assertContains('testRequest', $server->getFunctions());
 
-        $client = new LocalClientWsdl($server, __DIR__.'/../TestData/test.wsdl');
+        $client = new LocalClientWsdl(__DIR__.'/../TestData/test.wsdl');
         $request = new \Zimbra\Tests\TestData\Test('foo', 'bar');
         $params = $request->toArray();
         $client->__soapCall($request->requestName(), $params[$request->requestName()]);
@@ -51,19 +51,8 @@ class ClientTest extends ZimbraTestCase
 
 class LocalClientWsdl extends Wsdl
 {
-    private $_server;
-
-    public function __construct(SoapServer $server, $location, $namespace = 'urn:zimbra')
-    {
-        parent::__construct($location, $namespace);
-        $this->_server = $server;
-    }
-
     public function __doRequest($request, $location, $action, $version, $one_way = 0)
     {
-        /*ob_start();
-        $this->_server->handle($request);
-        $response = ob_get_clean();*/
         $response = '<?xml version="1.0" encoding="UTF-8"?>'."\n"
             .'<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:enc="http://www.w3.org/2003/05/soap-encoding">'
                 .'<soap:Body xmlns:rpc="http://www.w3.org/2003/05/soap-rpc">'

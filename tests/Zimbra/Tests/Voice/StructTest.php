@@ -19,13 +19,13 @@ class StructTest extends ZimbraTestCase
         $this->assertInstanceOf('\Zimbra\Voice\Struct\CallFeatureInfo', $anoncallrejection);
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<anoncallrejection s="1" a="0" />';
+            .'<anoncallrejection s="true" a="false" />';
         $this->assertXmlStringEqualsXmlString($xml, (string) $anoncallrejection);
 
         $array = array(
             'anoncallrejection' => array(
-                's' => 1,
-                'a' => 0,
+                's' => true,
+                'a' => false,
             ),
         );
         $this->assertEquals($array, $anoncallrejection->toArray());
@@ -53,13 +53,13 @@ class StructTest extends ZimbraTestCase
         $this->assertInstanceOf('\Zimbra\Voice\Struct\CallFeatureInfo', $calleridblocking);
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<calleridblocking s="1" a="0" />';
+            .'<calleridblocking s="true" a="false" />';
         $this->assertXmlStringEqualsXmlString($xml, (string) $calleridblocking);
 
         $array = array(
             'calleridblocking' => array(
-                's' => 1,
-                'a' => 0,
+                's' => true,
+                'a' => false,
             ),
         );
         $this->assertEquals($array, $calleridblocking->toArray());
@@ -90,13 +90,13 @@ class StructTest extends ZimbraTestCase
         $this->assertTrue($phone->a());
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<phone pn="pn" a="1" />';
+            .'<phone pn="pn" a="true" />';
         $this->assertXmlStringEqualsXmlString($xml, (string) $phone);
 
         $array = array(
             'phone' => array(
                 'pn' => 'pn',
-                'a' => 1,
+                'a' => true,
             ),
         );
         $this->assertEquals($array, $phone->toArray());
@@ -124,13 +124,13 @@ class StructTest extends ZimbraTestCase
         $this->assertSame('ft', $callforwardbusyline->ft());
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<callforwardbusyline s="1" a="0" ft="ft" />';
+            .'<callforwardbusyline s="true" a="false" ft="ft" />';
         $this->assertXmlStringEqualsXmlString($xml, (string) $callforwardbusyline);
 
         $array = array(
             'callforwardbusyline' => array(
-                's' => 1,
-                'a' => 0,
+                's' => true,
+                'a' => false,
                 'ft' => 'ft',
             ),
         );
@@ -162,13 +162,13 @@ class StructTest extends ZimbraTestCase
         $this->assertSame('ft', $callforward->ft());
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<callforward s="1" a="0" ft="ft" />';
+            .'<callforward s="true" a="false" ft="ft" />';
         $this->assertXmlStringEqualsXmlString($xml, (string) $callforward);
 
         $array = array(
             'callforward' => array(
-                's' => 1,
-                'a' => 0,
+                's' => true,
+                'a' => false,
                 'ft' => 'ft',
             ),
         );
@@ -189,13 +189,13 @@ class StructTest extends ZimbraTestCase
         $this->assertSame('nr', $callforwardnoanswer->nr());
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<callforwardnoanswer s="1" a="0" ft="ft" nr="nr" />';
+            .'<callforwardnoanswer s="true" a="false" ft="ft" nr="nr" />';
         $this->assertXmlStringEqualsXmlString($xml, (string) $callforwardnoanswer);
 
         $array = array(
             'callforwardnoanswer' => array(
-                's' => 1,
-                'a' => 0,
+                's' => true,
+                'a' => false,
                 'ft' => 'ft',
                 'nr' => 'nr',
             ),
@@ -239,13 +239,13 @@ class StructTest extends ZimbraTestCase
         $this->assertInstanceOf('\Zimbra\Voice\Struct\CallFeatureInfo', $callwaiting);
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<callwaiting s="1" a="0" />';
+            .'<callwaiting s="true" a="false" />';
         $this->assertXmlStringEqualsXmlString($xml, (string) $callwaiting);
 
         $array = array(
             'callwaiting' => array(
-                's' => 1,
-                'a' => 0,
+                's' => true,
+                'a' => false,
             ),
         );
         $this->assertEquals($array, $callwaiting->toArray());
@@ -396,23 +396,23 @@ class StructTest extends ZimbraTestCase
 
         $xml = '<?xml version="1.0"?>'."\n"
             .'<phone name="name">'
-                .'<voicemailprefs s="1" a="0">'
+                .'<voicemailprefs s="true" a="false">'
                     .'<pref name="name">value</pref>'
                 .'</voicemailprefs>'
-                .'<anoncallrejection s="1" a="0" />'
-                .'<calleridblocking s="1" a="0" />'
-                .'<callforward s="1" a="0" ft="ft" />'
-                .'<callforwardbusyline s="1" a="0" ft="ft" />'
-                .'<callforwardnoanswer s="1" a="0" ft="ft" nr="nr" />'
-                .'<callwaiting s="1" a="0" />'
-                .'<selectivecallforward s="1" a="0" ft="ft">'
-                    .'<phone pn="pn" a="1" />'
+                .'<anoncallrejection s="true" a="false" />'
+                .'<calleridblocking s="true" a="false" />'
+                .'<callforward s="true" a="false" ft="ft" />'
+                .'<callforwardbusyline s="true" a="false" ft="ft" />'
+                .'<callforwardnoanswer s="true" a="false" ft="ft" nr="nr" />'
+                .'<callwaiting s="true" a="false" />'
+                .'<selectivecallforward s="true" a="false" ft="ft">'
+                    .'<phone pn="pn" a="true" />'
                 .'</selectivecallforward>'
-                .'<selectivecallacceptance s="1" a="0">'
-                    .'<phone pn="pn" a="1" />'
+                .'<selectivecallacceptance s="true" a="false">'
+                    .'<phone pn="pn" a="true" />'
                 .'</selectivecallacceptance>'
-                .'<selectivecallrejection s="1" a="0">'
-                    .'<phone pn="pn" a="1" />'
+                .'<selectivecallrejection s="true" a="false">'
+                    .'<phone pn="pn" a="true" />'
                 .'</selectivecallrejection>'
             .'</phone>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $phone);
@@ -421,8 +421,8 @@ class StructTest extends ZimbraTestCase
             'phone' => array(
                 'name' => 'name',
                 'voicemailprefs' => array(
-                    's' => 1,
-                    'a' => 0,
+                    's' => true,
+                    'a' => false,
                     'pref' => array(
                         array(
                             'name' => 'name',
@@ -431,61 +431,61 @@ class StructTest extends ZimbraTestCase
                     ),
                 ),
                 'anoncallrejection' => array(
-                    's' => 1,
-                    'a' => 0,
+                    's' => true,
+                    'a' => false,
                 ),
                 'calleridblocking' => array(
-                    's' => 1,
-                    'a' => 0,
+                    's' => true,
+                    'a' => false,
                 ),
                 'callforward' => array(
-                    's' => 1,
-                    'a' => 0,
+                    's' => true,
+                    'a' => false,
                     'ft' => 'ft',
                 ),
                 'callforwardbusyline' => array(
-                    's' => 1,
-                    'a' => 0,
+                    's' => true,
+                    'a' => false,
                     'ft' => 'ft',
                 ),
                 'callforwardnoanswer' => array(
-                    's' => 1,
-                    'a' => 0,
+                    's' => true,
+                    'a' => false,
                     'ft' => 'ft',
                     'nr' => 'nr',
                 ),
                 'callwaiting' => array(
-                    's' => 1,
-                    'a' => 0,
+                    's' => true,
+                    'a' => false,
                 ),
                 'selectivecallforward' => array(
-                    's' => 1,
-                    'a' => 0,
+                    's' => true,
+                    'a' => false,
                     'ft' => 'ft',
                     'phone' => array(
                         array(
                             'pn' => 'pn',
-                            'a' => 1,
+                            'a' => true,
                         ),
                     ),
                 ),
                 'selectivecallacceptance' => array(
-                    's' => 1,
-                    'a' => 0,
+                    's' => true,
+                    'a' => false,
                     'phone' => array(
                         array(
                             'pn' => 'pn',
-                            'a' => 1,
+                            'a' => true,
                         ),
                     ),
                 ),
                 'selectivecallrejection' => array(
-                    's' => 1,
-                    'a' => 0,
+                    's' => true,
+                    'a' => false,
                     'phone' => array(
                         array(
                             'pn' => 'pn',
-                            'a' => 1,
+                            'a' => true,
                         ),
                     ),
                 ),
@@ -829,19 +829,19 @@ class StructTest extends ZimbraTestCase
         $this->assertInstanceOf('\Zimbra\Voice\Struct\FeatureWithCallerList', $selectivecallacceptance);
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<selectivecallacceptance s="1" a="0">'
-                .'<phone pn="pn" a="1" />'
+            .'<selectivecallacceptance s="true" a="false">'
+                .'<phone pn="pn" a="true" />'
             .'</selectivecallacceptance>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $selectivecallacceptance);
 
         $array = array(
             'selectivecallacceptance' => array(
-                's' => 1,
-                'a' => 0,
+                's' => true,
+                'a' => false,
                 'phone' => array(
                     array(
                         'pn' => 'pn',
-                        'a' => 1,
+                        'a' => true,
                     ),
                 ),
             ),
@@ -873,20 +873,20 @@ class StructTest extends ZimbraTestCase
         $this->assertSame('ft', $selectivecallforward->ft());
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<selectivecallforward s="1" a="0" ft="ft">'
-                .'<phone pn="pn" a="1" />'
+            .'<selectivecallforward s="true" a="false" ft="ft">'
+                .'<phone pn="pn" a="true" />'
             .'</selectivecallforward>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $selectivecallforward);
 
         $array = array(
             'selectivecallforward' => array(
-                's' => 1,
-                'a' => 0,
+                's' => true,
+                'a' => false,
                 'ft' => 'ft',
                 'phone' => array(
                     array(
                         'pn' => 'pn',
-                        'a' => 1,
+                        'a' => true,
                     ),
                 ),
             ),
@@ -917,19 +917,19 @@ class StructTest extends ZimbraTestCase
         $this->assertInstanceOf('\Zimbra\Voice\Struct\FeatureWithCallerList', $selectivecallrejection);
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<selectivecallrejection s="1" a="0">'
-                .'<phone pn="pn" a="1" />'
+            .'<selectivecallrejection s="true" a="false">'
+                .'<phone pn="pn" a="true" />'
             .'</selectivecallrejection>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $selectivecallrejection);
 
         $array = array(
             'selectivecallrejection' => array(
-                's' => 1,
-                'a' => 0,
+                's' => true,
+                'a' => false,
                 'phone' => array(
                     array(
                         'pn' => 'pn',
-                        'a' => 1,
+                        'a' => true,
                     ),
                 ),
             ),
@@ -1012,15 +1012,15 @@ class StructTest extends ZimbraTestCase
         $voicemailprefs->pref()->remove(1);
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<voicemailprefs s="1" a="0">'
+            .'<voicemailprefs s="true" a="false">'
                 .'<pref name="name">value</pref>'
             .'</voicemailprefs>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $voicemailprefs);
 
         $array = array(
             'voicemailprefs' => array(
-                's' => 1,
-                'a' => 0,
+                's' => true,
+                'a' => false,
                 'pref' => array(
                     array(
                         'name' => 'name',

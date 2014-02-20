@@ -11,7 +11,6 @@ use Zimbra\Enum\AccountBy;
  */
 class StructTest extends ZimbraTestCase
 {
-
     public function testAccountSelector()
     {
         $acc = new \Zimbra\Struct\AccountSelector(AccountBy::ID(), 'value');
@@ -118,7 +117,7 @@ class StructTest extends ZimbraTestCase
         $this->assertTrue($cursor->includeOffset());
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<cursor id="id" sortVal="sortVal" endSortVal="endSortVal" includeOffset="1" />';
+            .'<cursor id="id" sortVal="sortVal" endSortVal="endSortVal" includeOffset="true" />';
         $this->assertXmlStringEqualsXmlString($xml, (string) $cursor);
 
         $array = array(
@@ -126,7 +125,7 @@ class StructTest extends ZimbraTestCase
                 'id' => 'id',
                 'sortVal' => 'sortVal',
                 'endSortVal' => 'endSortVal',
-                'includeOffset' => 1,
+                'includeOffset' => true,
             ),
         );
         $this->assertEquals($array, $cursor->toArray());
@@ -282,14 +281,14 @@ class StructTest extends ZimbraTestCase
         $this->assertSame(-1, $tzo->week());
         $this->assertSame(5, $tzo->wkday());
 
-        $tzo->mon(1)
+        $tzo->mon(10)
             ->hour(2)
             ->min(3)
             ->sec(4)
             ->mday(5)
             ->week(6)
             ->wkday(7);
-        $this->assertSame(1, $tzo->mon());
+        $this->assertSame(10, $tzo->mon());
         $this->assertSame(2, $tzo->hour());
         $this->assertSame(3, $tzo->min());
         $this->assertSame(4, $tzo->sec());
@@ -298,11 +297,11 @@ class StructTest extends ZimbraTestCase
         $this->assertSame(7, $tzo->wkday());
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<info mon="1" hour="2" min="3" sec="4" mday="5" week="-1" wkday="7" />';
+            .'<info mon="10" hour="2" min="3" sec="4" mday="5" week="-1" wkday="7" />';
         $this->assertXmlStringEqualsXmlString($xml, (string) $tzo);
         $array = array(
             'info' => array(
-                'mon' => 1,
+                'mon' => 10,
                 'hour' => 2,
                 'min' => 3,
                 'sec' => 4,

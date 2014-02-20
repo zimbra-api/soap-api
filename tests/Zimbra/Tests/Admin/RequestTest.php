@@ -252,7 +252,7 @@ class RequestTest extends ZimbraTestCase
         $this->assertTrue($req->allAccounts());
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<AdminCreateWaitSetRequest defTypes="f,m" allAccounts="1">'
+            .'<AdminCreateWaitSetRequest defTypes="f,m" allAccounts="true">'
                 .'<add>'
                     .'<a name="name" id="id" token="token" types="m,c" />'
                 .'</add>'
@@ -262,7 +262,7 @@ class RequestTest extends ZimbraTestCase
         $array = array(
             'AdminCreateWaitSetRequest' => array(
                 'defTypes' => 'f,m',
-                'allAccounts' => 1,
+                'allAccounts' => true,
                 'add' => array(
                     'a' => array(
                         array(
@@ -342,7 +342,7 @@ class RequestTest extends ZimbraTestCase
         $this->assertSame(1000, $req->timeout());
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<AdminWaitSetRequest waitSet="waitSet" seq="seq" block="1" defTypes="f,m,c" timeout="1000" >'
+            .'<AdminWaitSetRequest waitSet="waitSet" seq="seq" block="true" defTypes="f,m,c" timeout="1000" >'
                 .'<add>'
                     .'<a name="name" id="id" token="token" types="f,m,c" />'
                 .'</add>'
@@ -359,7 +359,7 @@ class RequestTest extends ZimbraTestCase
             'AdminWaitSetRequest' => array(
                 'waitSet' => 'waitSet',
                 'seq' => 'seq',
-                'block' => 1,
+                'block' => true,
                 'defTypes' => 'f,m,c',
                 'timeout' => 1000,
                 'add' => array(
@@ -421,7 +421,7 @@ class RequestTest extends ZimbraTestCase
         $this->assertTrue($req->persistAuthTokenCookie());
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<AuthRequest name="name" password="password" persistAuthTokenCookie="1">'
+            .'<AuthRequest name="name" password="password" persistAuthTokenCookie="true">'
                 .'<authToken>authToken</authToken>'
                 .'<account by="name">value</account>'
                 .'<virtualHost>virtualHost</virtualHost>'
@@ -438,7 +438,7 @@ class RequestTest extends ZimbraTestCase
                     '_' => 'value',
                 ),
                 'virtualHost' => 'virtualHost',
-                'persistAuthTokenCookie' => 1,
+                'persistAuthTokenCookie' => true,
             ),
         );
         $this->assertEquals($array, $req->toArray());
@@ -593,8 +593,8 @@ class RequestTest extends ZimbraTestCase
 
     public function testCheckBlobConsistency()
     {
-        $volume = new \Zimbra\Admin\Struct\IntIdAttr(1);
-        $mbox = new \Zimbra\Admin\Struct\IntIdAttr(1);
+        $volume = new \Zimbra\Admin\Struct\IntIdAttr(10);
+        $mbox = new \Zimbra\Admin\Struct\IntIdAttr(10);
 
         $req = new \Zimbra\Admin\Request\CheckBlobConsistency(array($volume), array($mbox), true, false);
         $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
@@ -615,21 +615,21 @@ class RequestTest extends ZimbraTestCase
         $req->mbox()->remove(1);
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<CheckBlobConsistencyRequest checkSize="0" reportUsedBlobs="1">'
-                .'<volume id="1" />'
-                .'<mbox id="1" />'
+            .'<CheckBlobConsistencyRequest checkSize="false" reportUsedBlobs="true">'
+                .'<volume id="10" />'
+                .'<mbox id="10" />'
             .'</CheckBlobConsistencyRequest>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
         $array = array(
             'CheckBlobConsistencyRequest' => array(
-                'checkSize' => 0,
-                'reportUsedBlobs' => 1,
+                'checkSize' => false,
+                'reportUsedBlobs' => true,
                 'volume' => array(
-                    array('id' => 1),
+                    array('id' => 10),
                 ),
                 'mbox' => array(
-                    array('id' => 1),
+                    array('id' => 10),
                 ),
             ),
         );
@@ -649,7 +649,7 @@ class RequestTest extends ZimbraTestCase
 
         $xml = '<?xml version="1.0"?>'."\n"
             .'<CheckDirectoryRequest>'
-                .'<directory path="path" create="1" />'
+                .'<directory path="path" create="true" />'
             .'</CheckDirectoryRequest>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
@@ -658,7 +658,7 @@ class RequestTest extends ZimbraTestCase
                 'directory' => array(
                     array(
                         'path' => 'path',
-                        'create' => 1,
+                        'create' => true,
                     ),
                 ),
             ),
@@ -852,7 +852,7 @@ class RequestTest extends ZimbraTestCase
         $xml = '<?xml version="1.0"?>'."\n"
             .'<CheckRightRequest>'
                 .'<target type="account" by="name">value</target>'
-                .'<grantee type="usr" by="id" secret="secret" all="1">value</grantee>'
+                .'<grantee type="usr" by="id" secret="secret" all="true">value</grantee>'
                 .'<right>right</right>'
                 .'<a n="key">value</a>'
             .'</CheckRightRequest>';
@@ -870,7 +870,7 @@ class RequestTest extends ZimbraTestCase
                     'type' => 'usr',
                     'by' => 'id',
                     'secret' => 'secret',
-                    'all' => 1,
+                    'all' => true,
                 ),
                 'right' => 'right',
                 'a' => array(
@@ -1240,7 +1240,7 @@ class RequestTest extends ZimbraTestCase
         $this->assertTrue($req->dynamic());
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<CreateDistributionListRequest name="name" dynamic="1">'
+            .'<CreateDistributionListRequest name="name" dynamic="true">'
                 .'<a n="key">value</a>'
             .'</CreateDistributionListRequest>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
@@ -1248,7 +1248,7 @@ class RequestTest extends ZimbraTestCase
         $array = array(
             'CreateDistributionListRequest' => array(
                 'name' => 'name',
-                'dynamic' => 1,
+                'dynamic' => true,
                 'a' => array(
                     array(
                         'n' => 'key',
@@ -1507,7 +1507,7 @@ class RequestTest extends ZimbraTestCase
 
     public function testCreateVolume()
     {
-        $volume = new \Zimbra\Admin\Struct\VolumeInfo(1, 2, 3, 4, 5, 6, 7, 'name', 'rootpath', false, true);
+        $volume = new \Zimbra\Admin\Struct\VolumeInfo(10, 2, 3, 4, 5, 6, 7, 'name', 'rootpath', false, true);
         $req = new \Zimbra\Admin\Request\CreateVolume($volume);
         $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
         $this->assertSame($volume, $req->volume());
@@ -1518,7 +1518,7 @@ class RequestTest extends ZimbraTestCase
         $xml = '<?xml version="1.0"?>'."\n"
             .'<CreateVolumeRequest>'
                 .'<volume '
-                    .'id="1" '
+                    .'id="10" '
                     .'type="2" '
                     .'compressionThreshold="3" '
                     .'mgbits="4" '
@@ -1527,15 +1527,15 @@ class RequestTest extends ZimbraTestCase
                     .'fbits="7" '
                     .'name="name" '
                     .'rootpath="rootpath" '
-                    .'compressBlobs="0" '
-                    .'isCurrent="1" />'
+                    .'compressBlobs="false" '
+                    .'isCurrent="true" />'
             .'</CreateVolumeRequest>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
         $array = array(
             'CreateVolumeRequest' => array(
                 'volume' => array(
-                    'id' => 1,
+                    'id' => 10,
                     'type' => 2,
                     'compressionThreshold' => 3,
                     'mgbits' => 4,
@@ -1544,8 +1544,8 @@ class RequestTest extends ZimbraTestCase
                     'fbits' => 7,
                     'name' => 'name',
                     'rootpath' => 'rootpath',
-                    'compressBlobs' => 0,
-                    'isCurrent' => 1,
+                    'compressBlobs' => false,
+                    'isCurrent' => true,
                 ),
             ),
         );
@@ -1632,7 +1632,7 @@ class RequestTest extends ZimbraTestCase
 
     public function testDedupeBlobs()
     {
-        $volume = new \Zimbra\Admin\Struct\IntIdAttr(1);
+        $volume = new \Zimbra\Admin\Struct\IntIdAttr(10);
         $req = new \Zimbra\Admin\Request\DedupeBlobs(DedupAction::START(), array($volume));
         $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
         $this->assertSame('start', $req->action()->value());
@@ -1645,8 +1645,8 @@ class RequestTest extends ZimbraTestCase
 
         $xml = '<?xml version="1.0"?>'."\n"
             .'<DedupeBlobsRequest action="status">'
-                .'<volume id="1" />'
-                .'<volume id="1" />'
+                .'<volume id="10" />'
+                .'<volume id="10" />'
             .'</DedupeBlobsRequest>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
@@ -1655,10 +1655,10 @@ class RequestTest extends ZimbraTestCase
                 'action' => 'status',
                 'volume' => array(
                     array(
-                        'id' => 1,
+                        'id' => 10,
                     ),
                     array(
-                        'id' => 1,
+                        'id' => 10,
                     ),
                 ),
             ),
@@ -2095,7 +2095,7 @@ class RequestTest extends ZimbraTestCase
         $this->assertFalse($req->synchronous());
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<DeployZimletRequest action="deployLocal" flush="1" synchronous="0">'
+            .'<DeployZimletRequest action="deployLocal" flush="true" synchronous="false">'
                 .'<content aid="aid" />'
             .'</DeployZimletRequest>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
@@ -2103,8 +2103,8 @@ class RequestTest extends ZimbraTestCase
         $array = array(
             'DeployZimletRequest' => array(
                 'action' => 'deployLocal',
-                'flush' => 1,
-                'synchronous' => 0,
+                'flush' => true,
+                'synchronous' => false,
                 'content' => array(
                     'aid' => 'aid',
                 ),
@@ -2126,13 +2126,13 @@ class RequestTest extends ZimbraTestCase
         $this->assertFalse($req->groupByAccount());
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<DumpSessionsRequest listSessions="1" groupByAccount="0" />';
+            .'<DumpSessionsRequest listSessions="true" groupByAccount="false" />';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
         $array = array(
             'DumpSessionsRequest' => array(
-                'listSessions' => 1,
-                'groupByAccount' => 0,
+                'listSessions' => true,
+                'groupByAccount' => false,
             ),
         );
         $this->assertEquals($array, $req->toArray());
@@ -2140,8 +2140,8 @@ class RequestTest extends ZimbraTestCase
 
     public function testExportAndDeleteItems()
     {
-        $item = new \Zimbra\Admin\Struct\ExportAndDeleteItemSpec(1, 2);
-        $mbox = new \Zimbra\Admin\Struct\ExportAndDeleteMailboxSpec(1, array($item));
+        $item = new \Zimbra\Admin\Struct\ExportAndDeleteItemSpec(2, 3);
+        $mbox = new \Zimbra\Admin\Struct\ExportAndDeleteMailboxSpec(10, array($item));
 
         $req = new \Zimbra\Admin\Request\ExportAndDeleteItems($mbox, 'exportDir', 'exportFilenamePrefix');
         $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
@@ -2158,8 +2158,8 @@ class RequestTest extends ZimbraTestCase
 
         $xml = '<?xml version="1.0"?>'."\n"
             .'<ExportAndDeleteItemsRequest exportDir="exportDir" exportFilenamePrefix="exportFilenamePrefix">'
-                .'<mbox id="1">'
-                    .'<item id="1" version="2" />'
+                .'<mbox id="10">'
+                    .'<item id="2" version="3" />'
                 .'</mbox>'
             .'</ExportAndDeleteItemsRequest>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
@@ -2169,11 +2169,11 @@ class RequestTest extends ZimbraTestCase
                 'exportDir' => 'exportDir',
                 'exportFilenamePrefix' => 'exportFilenamePrefix',
                 'mbox' => array(
-                    'id' => 1,
+                    'id' => 10,
                     'item' => array(
                         array(
-                            'id' => 1,
-                            'version' => 2,
+                            'id' => 2,
+                            'version' => 3,
                         ),
                     ),
                 ),
@@ -2198,14 +2198,14 @@ class RequestTest extends ZimbraTestCase
         $req->account()->remove(1);
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<FixCalendarEndTimeRequest sync="1">'
+            .'<FixCalendarEndTimeRequest sync="true">'
                 .'<account name="name" />'
             .'</FixCalendarEndTimeRequest>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
         $array = array(
             'FixCalendarEndTimeRequest' => array(
-                'sync' => 1,
+                'sync' => true,
                 'account' => array(
                     array(
                         'name' => 'name',
@@ -2232,14 +2232,14 @@ class RequestTest extends ZimbraTestCase
         $req->account()->remove(1);
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<FixCalendarPriorityRequest sync="1">'
+            .'<FixCalendarPriorityRequest sync="true">'
                 .'<account name="name" />'
             .'</FixCalendarPriorityRequest>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
         $array = array(
             'FixCalendarPriorityRequest' => array(
-                'sync' => 1,
+                'sync' => true,
                 'account' => array(
                     array(
                         'name' => 'name',
@@ -2255,18 +2255,18 @@ class RequestTest extends ZimbraTestCase
         $any = new \Zimbra\Admin\Struct\SimpleElement;
         $tzid = new \Zimbra\Struct\Id('id');
         $nonDst = new \Zimbra\Admin\Struct\Offset(100);
-        $standard = new \Zimbra\Admin\Struct\TzFixupRuleMatchRule(1, 2, 3);
-        $daylight = new \Zimbra\Admin\Struct\TzFixupRuleMatchRule(3, 2, 1);
-        $rules = new \Zimbra\Admin\Struct\TzFixupRuleMatchRules($standard, $daylight, 1, 1);
-        $standard = new \Zimbra\Admin\Struct\TzFixupRuleMatchDate(1, 1);
-        $daylight = new \Zimbra\Admin\Struct\TzFixupRuleMatchDate(2, 2);
-        $dates = new \Zimbra\Admin\Struct\TzFixupRuleMatchDates($standard, $daylight, 1, 1);
+        $standard = new \Zimbra\Admin\Struct\TzFixupRuleMatchRule(10, 2, 3);
+        $daylight = new \Zimbra\Admin\Struct\TzFixupRuleMatchRule(3, 2, 4);
+        $rules = new \Zimbra\Admin\Struct\TzFixupRuleMatchRules($standard, $daylight, 10, 10);
+        $standard = new \Zimbra\Admin\Struct\TzFixupRuleMatchDate(10, 10);
+        $daylight = new \Zimbra\Admin\Struct\TzFixupRuleMatchDate(12, 20);
+        $dates = new \Zimbra\Admin\Struct\TzFixupRuleMatchDates($standard, $daylight, 10, 10);
         $match = new \Zimbra\Admin\Struct\TzFixupRuleMatch($any, $tzid, $nonDst, $rules, $dates);
 
         $wellKnownTz = new \Zimbra\Struct\Id('id');
-        $standard = new \Zimbra\Struct\TzOnsetInfo(1, 2, 3, 4);
-        $daylight = new \Zimbra\Struct\TzOnsetInfo(4, 3, 2, 1);
-        $tz = new \Zimbra\Admin\Struct\CalTZInfo('id', 1, 1, $standard, $daylight, 'stdname', 'dayname');
+        $standard = new \Zimbra\Struct\TzOnsetInfo(12, 2, 3, 4);
+        $daylight = new \Zimbra\Struct\TzOnsetInfo(4, 3, 2, 10);
+        $tz = new \Zimbra\Admin\Struct\CalTZInfo('id', 10, 10, $standard, $daylight, 'stdname', 'dayname');
         $replace = new \Zimbra\Admin\Struct\TzReplaceInfo($wellKnownTz, $tz);
         
         $touch = new \Zimbra\Admin\Struct\SimpleElement;
@@ -2293,28 +2293,28 @@ class RequestTest extends ZimbraTestCase
         $req->account()->remove(1);
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<FixCalendarTZRequest sync="1" after="1000">'
+            .'<FixCalendarTZRequest sync="true" after="1000">'
                 .'<tzfixup>'
                     .'<fixupRule>'
                         .'<match>'
                             .'<any />'
                             .'<tzid id="id" />'
                             .'<nonDst offset="100" />'
-                            .'<rules stdoff="1" dayoff="1">'
-                                .'<standard mon="1" week="2" wkday="3" />'
-                                .'<daylight mon="3" week="2" wkday="1" />'
+                            .'<rules stdoff="10" dayoff="10">'
+                                .'<standard mon="10" week="2" wkday="3" />'
+                                .'<daylight mon="3" week="2" wkday="4" />'
                             .'</rules>'
-                            .'<dates stdoff="1" dayoff="1">'
-                                .'<standard mon="1" mday="1" />'
-                                .'<daylight mon="2" mday="2" />'
+                            .'<dates stdoff="10" dayoff="10">'
+                                .'<standard mon="10" mday="10" />'
+                                .'<daylight mon="12" mday="20" />'
                             .'</dates>'
                         .'</match>'
                         .'<touch />'
                         .'<replace>'
                             .'<wellKnownTz id="id" />'
-                            .'<tz id="id" stdoff="1" dayoff="1" stdname="stdname" dayname="dayname">'
-                                .'<standard mon="1" hour="2" min="3" sec="4" />'
-                                .'<daylight mon="4" hour="3" min="2" sec="1" />'
+                            .'<tz id="id" stdoff="10" dayoff="10" stdname="stdname" dayname="dayname">'
+                                .'<standard mon="12" hour="2" min="3" sec="4" />'
+                                .'<daylight mon="4" hour="3" min="2" sec="10" />'
                             .'</tz>'
                         .'</replace>'
                     .'</fixupRule>'
@@ -2325,7 +2325,7 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'FixCalendarTZRequest' => array(
-                'sync' => 1,
+                'sync' => true,
                 'after' => 1000,
                 'account' => array(
                     array(
@@ -2340,29 +2340,29 @@ class RequestTest extends ZimbraTestCase
                                 'tzid' => array('id' => 'id'),
                                 'nonDst' => array('offset' => 100),
                                 'rules' => array(
-                                    'stdoff' => 1,
-                                    'dayoff' => 1,
+                                    'stdoff' => 10,
+                                    'dayoff' => 10,
                                     'standard' => array(
-                                        'mon' => 1,
+                                        'mon' => 10,
                                         'week' => 2,
                                         'wkday' => 3,
                                     ),
                                     'daylight' => array(
                                         'mon' => 3,
                                         'week' => 2,
-                                        'wkday' => 1,
+                                        'wkday' => 4,
                                     ),
                                 ),
                                 'dates' => array(
-                                    'stdoff' => 1,
-                                    'dayoff' => 1,
+                                    'stdoff' => 10,
+                                    'dayoff' => 10,
                                     'standard' => array(
-                                        'mon' => 1,
-                                        'mday' => 1,
+                                        'mon' => 10,
+                                        'mday' => 10,
                                     ),
                                     'daylight' => array(
-                                        'mon' => 2,
-                                        'mday' => 2,
+                                        'mon' => 12,
+                                        'mday' => 20,
                                     ),
                                 ),
                             ),
@@ -2371,12 +2371,12 @@ class RequestTest extends ZimbraTestCase
                                 'wellKnownTz' => array('id' => 'id'),
                                 'tz' => array(
                                     'id' => 'id',
-                                    'stdoff' => 1,
-                                    'dayoff' => 1,
+                                    'stdoff' => 10,
+                                    'dayoff' => 10,
                                     'stdname' => 'stdname',
                                     'dayname' => 'dayname',
                                     'standard' => array(
-                                        'mon' => 1,
+                                        'mon' => 12,
                                         'hour' => 2,
                                         'min' => 3,
                                         'sec' => 4,
@@ -2385,7 +2385,7 @@ class RequestTest extends ZimbraTestCase
                                         'mon' => 4,
                                         'hour' => 3,
                                         'min' => 2,
-                                        'sec' => 1,
+                                        'sec' => 10,
                                     ),
                                 ),
                             ),
@@ -2410,7 +2410,7 @@ class RequestTest extends ZimbraTestCase
 
         $xml = '<?xml version="1.0"?>'."\n"
             .'<FlushCacheRequest>'
-                .'<cache type="skin,account" allServers="1">'
+                .'<cache type="skin,account" allServers="true">'
                     .'<entry by="name">value</entry>'
                 .'</cache>'
             .'</FlushCacheRequest>';
@@ -2420,7 +2420,7 @@ class RequestTest extends ZimbraTestCase
             'FlushCacheRequest' => array(
                 'cache' => array(
                     'type' => 'skin,account',
-                    'allServers' => 1,
+                    'allServers' => true,
                     'entry' => array(
                         array(
                             'by' => 'name',
@@ -2475,7 +2475,7 @@ class RequestTest extends ZimbraTestCase
         $this->assertSame(array('subject1', 'subject2'), $req->subjectAltName()->all());
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<GenCSRRequest server="server" new="1" type="comm" keysize="2048">'
+            .'<GenCSRRequest server="server" new="true" type="comm" keysize="2048">'
                 .'<C>c</C>'
                 .'<ST>st</ST>'
                 .'<L>l</L>'
@@ -2490,7 +2490,7 @@ class RequestTest extends ZimbraTestCase
         $array = array(
             'GenCSRRequest' => array(
                 'server' => 'server',
-                'new' => 1,
+                'new' => true,
                 'type' => 'comm',
                 'keysize' => 2048,
                 'C' => 'c',
@@ -2525,14 +2525,14 @@ class RequestTest extends ZimbraTestCase
         $this->assertSame('attrs', $req->attrs());
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<GetAccountRequest applyCos="1" attrs="attrs">'
+            .'<GetAccountRequest applyCos="true" attrs="attrs">'
                 .'<account by="name">value</account>'
             .'</GetAccountRequest>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
         $array = array(
             'GetAccountRequest' => array(
-                'applyCos' => 1,
+                'applyCos' => true,
                 'attrs' => 'attrs',
                 'account' => array(
                     'by' => 'name',
@@ -2778,7 +2778,7 @@ class RequestTest extends ZimbraTestCase
         $this->assertTrue($req->applyCos());
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<GetAllAdminAccountsRequest applyCos="1" />';
+            .'<GetAllAdminAccountsRequest applyCos="true" />';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
         $array = array(
@@ -2893,7 +2893,7 @@ class RequestTest extends ZimbraTestCase
         $this->assertTrue($req->applyConfig());
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<GetAllDomainsRequest applyConfig="1" />';
+            .'<GetAllDomainsRequest applyConfig="true" />';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
         $array = array(
@@ -2921,20 +2921,20 @@ class RequestTest extends ZimbraTestCase
         $this->assertTrue($req->expandAllAttrs());
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<GetAllEffectiveRightsRequest expandAllAttrs="1">'
-                .'<grantee type="usr" by="id" secret="secret" all="1">value</grantee>'
+            .'<GetAllEffectiveRightsRequest expandAllAttrs="true">'
+                .'<grantee type="usr" by="id" secret="secret" all="true">value</grantee>'
             .'</GetAllEffectiveRightsRequest>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
         $array = array(
             'GetAllEffectiveRightsRequest' => array(
-                'expandAllAttrs' => 1,
+                'expandAllAttrs' => true,
                 'grantee' => array(
                     '_' => 'value',
                     'type' => 'usr',
                     'by' => 'id',
                     'secret' => 'secret',
-                    'all' => 1,
+                    'all' => true,
                 ),
             ),
         );
@@ -3012,13 +3012,13 @@ class RequestTest extends ZimbraTestCase
         $this->assertSame('ALL', $req->rightClass()->value());
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<GetAllRightsRequest targetType="targetType" expandAllAttrs="1" rightClass="ALL" />';
+            .'<GetAllRightsRequest targetType="targetType" expandAllAttrs="true" rightClass="ALL" />';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
         $array = array(
             'GetAllRightsRequest' => array(
                 'targetType' => 'targetType',
-                'expandAllAttrs' => 1,
+                'expandAllAttrs' => true,
                 'rightClass' => 'ALL',
             ),
         );
@@ -3038,13 +3038,13 @@ class RequestTest extends ZimbraTestCase
         $this->assertTrue($req->applyConfig());
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<GetAllServersRequest service="service" applyConfig="1" />';
+            .'<GetAllServersRequest service="service" applyConfig="true" />';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
         $array = array(
             'GetAllServersRequest' => array(
                 'service' => 'service',
-                'applyConfig' => 1,
+                'applyConfig' => true,
             ),
         );
         $this->assertEquals($array, $req->toArray());
@@ -3190,14 +3190,14 @@ class RequestTest extends ZimbraTestCase
         $this->assertSame('attrs', $req->attrs());
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<GetCalendarResourceRequest applyCos="1" attrs="attrs">'
+            .'<GetCalendarResourceRequest applyCos="true" attrs="attrs">'
                 .'<calresource by="name">value</calresource>'
             .'</GetCalendarResourceRequest>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
         $array = array(
             'GetCalendarResourceRequest' => array(
-                'applyCos' => 1,
+                'applyCos' => true,
                 'attrs' => 'attrs',
                 'calresource' => array(
                     'by' => 'name',
@@ -3500,7 +3500,7 @@ class RequestTest extends ZimbraTestCase
         $this->assertTrue($req->sortAscending());
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<GetDistributionListRequest limit="100" offset="100" sortAscending="1">'
+            .'<GetDistributionListRequest limit="100" offset="100" sortAscending="true">'
                 .'<dl by="name">value</dl>'
                 .'<a n="key">value</a>'
             .'</GetDistributionListRequest>';
@@ -3510,7 +3510,7 @@ class RequestTest extends ZimbraTestCase
             'GetDistributionListRequest' => array(
                 'limit' => 100,
                 'offset' => 100,
-                'sortAscending' => 1,
+                'sortAscending' => true,
                 'dl' => array(
                     'by' => 'name',
                     '_' => 'value',
@@ -3579,14 +3579,14 @@ class RequestTest extends ZimbraTestCase
         $this->assertSame('attrs', $req->attrs());
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<GetDomainRequest applyConfig="1" attrs="attrs">'
+            .'<GetDomainRequest applyConfig="true" attrs="attrs">'
                 .'<domain by="name">value</domain>'
             .'</GetDomainRequest>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
         $array = array(
             'GetDomainRequest' => array(
-                'applyConfig' => 1,
+                'applyConfig' => true,
                 'attrs' => 'attrs',
                 'domain' => array(
                     'by' => 'name',
@@ -3611,14 +3611,14 @@ class RequestTest extends ZimbraTestCase
         $this->assertTrue($req->applyConfig());
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<GetDomainInfoRequest applyConfig="1">'
+            .'<GetDomainInfoRequest applyConfig="true">'
                 .'<domain by="name">value</domain>'
             .'</GetDomainInfoRequest>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
         $array = array(
             'GetDomainInfoRequest' => array(
-                'applyConfig' => 1,
+                'applyConfig' => true,
                 'domain' => array(
                     'by' => 'name',
                     '_' => 'value',
@@ -3653,7 +3653,7 @@ class RequestTest extends ZimbraTestCase
         $xml = '<?xml version="1.0"?>'."\n"
             .'<GetEffectiveRightsRequest expandAllAttrs="setAttrs">'
                 .'<target type="account" by="name">value</target>'
-                .'<grantee type="usr" by="id" secret="secret" all="1">value</grantee>'
+                .'<grantee type="usr" by="id" secret="secret" all="true">value</grantee>'
             .'</GetEffectiveRightsRequest>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
@@ -3670,7 +3670,7 @@ class RequestTest extends ZimbraTestCase
                     'type' => 'usr',
                     'by' => 'id',
                     'secret' => 'secret',
-                    'all' => 1,
+                    'all' => true,
                 ),
             ),
         );
@@ -3725,7 +3725,7 @@ class RequestTest extends ZimbraTestCase
         $xml = '<?xml version="1.0"?>'."\n"
             .'<GetGrantsRequest>'
                 .'<target type="account" by="name">value</target>'
-                .'<grantee type="usr" by="id" secret="secret" all="1">value</grantee>'
+                .'<grantee type="usr" by="id" secret="secret" all="true">value</grantee>'
             .'</GetGrantsRequest>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
@@ -3741,7 +3741,7 @@ class RequestTest extends ZimbraTestCase
                     'type' => 'usr',
                     'by' => 'id',
                     'secret' => 'secret',
-                    'all' => 1,
+                    'all' => true,
                 ),
             ),
         );
@@ -3801,7 +3801,7 @@ class RequestTest extends ZimbraTestCase
         $this->assertSame(100, $req->offset());
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<GetLDAPEntriesRequest query="query" sortBy="sortBy" sortAscending="1" limit="100" offset="100">'
+            .'<GetLDAPEntriesRequest query="query" sortBy="sortBy" sortAscending="true" limit="100" offset="100">'
                 .'<ldapSearchBase>ldapSearchBase</ldapSearchBase>'
             .'</GetLDAPEntriesRequest>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
@@ -3811,7 +3811,7 @@ class RequestTest extends ZimbraTestCase
                 'query' => 'query',
                 'ldapSearchBase' => 'ldapSearchBase',
                 'sortBy' => 'sortBy',
-                'sortAscending' => 1,
+                'sortAscending' => true,
                 'limit' => 100,
                 'offset' => 100,
             ),
@@ -3943,8 +3943,8 @@ class RequestTest extends ZimbraTestCase
     {
         $attr = new \Zimbra\Admin\Struct\ValueAttrib('value');
         $field = new \Zimbra\Admin\Struct\QueueQueryField('name', array($attr));
-        $query = new \Zimbra\Admin\Struct\QueueQuery(array($field), 100, 0);
-        $queue = new \Zimbra\Admin\Struct\MailQueueQuery($query, 'name', 0, 1);
+        $query = new \Zimbra\Admin\Struct\QueueQuery(array($field), 100, 100);
+        $queue = new \Zimbra\Admin\Struct\MailQueueQuery($query, 'name', false, 100);
         $server = new \Zimbra\Admin\Struct\ServerMailQueueQuery($queue, 'name');
 
         $req = new \Zimbra\Admin\Request\GetMailQueue($server);
@@ -3956,8 +3956,8 @@ class RequestTest extends ZimbraTestCase
         $xml = '<?xml version="1.0"?>'."\n"
             .'<GetMailQueueRequest>'
                 .'<server name="name">'
-                    .'<queue name="name" scan="0" wait="1">'
-                        .'<query limit="100" offset="0">'
+                    .'<queue name="name" scan="false" wait="100">'
+                        .'<query limit="100" offset="100">'
                             .'<field name="name">'
                                 .'<match value="value" />'
                             .'</field>'
@@ -3973,11 +3973,11 @@ class RequestTest extends ZimbraTestCase
                     'name' => 'name',
                     'queue' => array(
                         'name' => 'name',
-                        'scan' => 0,
-                        'wait' => 1,
+                        'scan' => false,
+                        'wait' => 100,
                         'query' => array(
                             'limit' => 100,
-                            'offset' => 0,
+                            'offset' => 100,
                             'field' => array(
                                 array(
                                     'name' => 'name',
@@ -4051,14 +4051,14 @@ class RequestTest extends ZimbraTestCase
         $req->domain('domain')
             ->allServers(true)
             ->limit(10)
-            ->offset(0)
+            ->offset(10)
             ->sortBy(QuotaSortBy::TOTAL_USED())
             ->sortAscending(true)
             ->refresh(false);
         $this->assertSame('domain', $req->domain());
         $this->assertTrue($req->allServers());
         $this->assertSame(10, $req->limit());
-        $this->assertSame(0, $req->offset());
+        $this->assertSame(10, $req->offset());
         $this->assertSame('totalUsed', $req->sortBy()->value());
         $this->assertTrue($req->sortAscending());
         $this->assertFalse($req->refresh());
@@ -4066,23 +4066,23 @@ class RequestTest extends ZimbraTestCase
         $xml = '<?xml version="1.0"?>'."\n"
             .'<GetQuotaUsageRequest '
                 .'domain="domain" '
-                .'allServers="1" '
+                .'allServers="true" '
                 .'limit="10" '
-                .'offset="0" '
+                .'offset="10" '
                 .'sortBy="totalUsed" '
-                .'sortAscending="1" '
-                .'refresh="0" />';
+                .'sortAscending="true" '
+                .'refresh="false" />';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
         $array = array(
             'GetQuotaUsageRequest' => array(
                 'domain' => 'domain',
-                'allServers' => 1,
+                'allServers' => true,
                 'limit' => 10,
-                'offset' => 0,
+                'offset' => 10,
                 'sortBy' => 'totalUsed',
-                'sortAscending' => 1,
-                'refresh' => 0,
+                'sortAscending' => true,
+                'refresh' => false,
             ),
         );
         $this->assertEquals($array, $req->toArray());
@@ -4101,13 +4101,13 @@ class RequestTest extends ZimbraTestCase
         $this->assertTrue($req->expandAllAttrs());
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<GetRightRequest right="right" expandAllAttrs="1" />';
+            .'<GetRightRequest right="right" expandAllAttrs="true" />';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
         $array = array(
             'GetRightRequest' => array(
                 'right' => 'right',
-                'expandAllAttrs' => 1,
+                'expandAllAttrs' => true,
             ),
         );
         $this->assertEquals($array, $req->toArray());
@@ -4157,14 +4157,14 @@ class RequestTest extends ZimbraTestCase
         $this->assertSame('attrs', $req->attrs());
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<GetServerRequest applyConfig="1" attrs="attrs">'
+            .'<GetServerRequest applyConfig="true" attrs="attrs">'
                 .'<server by="name">server</server>'
             .'</GetServerRequest>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
         $array = array(
             'GetServerRequest' => array(
-                'applyConfig' => 1,
+                'applyConfig' => true,
                 'attrs' => 'attrs',
                 'server' => array(
                     'by' => 'name',
@@ -4265,12 +4265,12 @@ class RequestTest extends ZimbraTestCase
         $req->type(SessionType::ADMIN())
             ->sortBy(SessionsSortBy::NAME_DESC())
             ->limit(10)
-            ->offset(0)
+            ->offset(10)
             ->refresh(true);
         $this->assertSame('admin', $req->type()->value());
         $this->assertSame('nameDesc', $req->sortBy()->value());
         $this->assertSame(10, $req->limit());
-        $this->assertSame(0, $req->offset());
+        $this->assertSame(10, $req->offset());
         $this->assertTrue($req->refresh());
 
         $xml = '<?xml version="1.0"?>'."\n"
@@ -4278,8 +4278,8 @@ class RequestTest extends ZimbraTestCase
                 .'type="admin" '
                 .'sortBy="nameDesc" '
                 .'limit="10" '
-                .'offset="0" '
-                .'refresh="1" />';
+                .'offset="10" '
+                .'refresh="true" />';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
         $array = array(
@@ -4287,8 +4287,8 @@ class RequestTest extends ZimbraTestCase
                 'type' => 'admin',
                 'sortBy' => 'nameDesc',
                 'limit' => 10,
-                'offset' => 0,
-                'refresh' => 1,
+                'offset' => 10,
+                'refresh' => true,
             ),
         );
         $this->assertEquals($array, $req->toArray());
@@ -4526,8 +4526,8 @@ class RequestTest extends ZimbraTestCase
         $xml = '<?xml version="1.0"?>'."\n"
             .'<GrantRightRequest>'
                 .'<target type="account" by="name">value</target>'
-                .'<grantee type="usr" by="id" secret="secret" all="1">value</grantee>'
-                .'<right deny="1" canDelegate="0" disinheritSubGroups="0" subDomain="1">value</right>'
+                .'<grantee type="usr" by="id" secret="secret" all="true">value</grantee>'
+                .'<right deny="true" canDelegate="false" disinheritSubGroups="false" subDomain="true">value</right>'
             .'</GrantRightRequest>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
@@ -4543,13 +4543,13 @@ class RequestTest extends ZimbraTestCase
                     'type' => 'usr',
                     'by' => 'id',
                     'secret' => 'secret',
-                    'all' => 1,
+                    'all' => true,
                 ),
                 'right' => array(
-                    'deny' => 1,
-                    'canDelegate' => 0,
-                    'disinheritSubGroups' => 0,
-                    'subDomain' => 1,
+                    'deny' => true,
+                    'canDelegate' => false,
+                    'disinheritSubGroups' => false,
+                    'subDomain' => true,
                     '_' => 'value',
                 ),
             ),
@@ -4561,7 +4561,7 @@ class RequestTest extends ZimbraTestCase
     {
         $attr = new \Zimbra\Admin\Struct\ValueAttrib('value');
         $field = new \Zimbra\Admin\Struct\QueueQueryField('name', array($attr));
-        $query = new \Zimbra\Admin\Struct\QueueQuery(array($field), 100, 0);
+        $query = new \Zimbra\Admin\Struct\QueueQuery(array($field), 100, 100);
         $action = new \Zimbra\Admin\Struct\MailQueueAction($query, QueueAction::HOLD(), QueueActionBy::QUERY());
         $queue = new \Zimbra\Admin\Struct\MailQueueWithAction($action, 'name');
         $server = new \Zimbra\Admin\Struct\ServerWithQueueAction($queue, 'name');
@@ -4577,7 +4577,7 @@ class RequestTest extends ZimbraTestCase
                 .'<server name="name">'
                     .'<queue name="name">'
                         .'<action op="hold" by="query">'
-                            .'<query limit="100" offset="0">'
+                            .'<query limit="100" offset="100">'
                                 .'<field name="name">'
                                     .'<match value="value" />'
                                 .'</field>'
@@ -4599,7 +4599,7 @@ class RequestTest extends ZimbraTestCase
                             'by' => 'query',
                             'query' => array(
                                 'limit' => 100,
-                                'offset' => 0,
+                                'offset' => 100,
                                 'field' => array(
                                     array(
                                         'name' => 'name',
@@ -5115,7 +5115,7 @@ class RequestTest extends ZimbraTestCase
 
     public function testModifyVolume()
     {
-        $volume = new \Zimbra\Admin\Struct\VolumeInfo(1, 2, 3, 4, 5, 6, 7, 'name', 'rootpath', false, true);
+        $volume = new \Zimbra\Admin\Struct\VolumeInfo(10, 2, 3, 4, 5, 6, 7, 'name', 'rootpath', false, true);
         $req = new \Zimbra\Admin\Request\ModifyVolume(100, $volume);
         $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
         $this->assertSame(100, $req->id());
@@ -5129,7 +5129,7 @@ class RequestTest extends ZimbraTestCase
         $xml = '<?xml version="1.0"?>'."\n"
             .'<ModifyVolumeRequest id="100">'
                 .'<volume '
-                    .'id="1" '
+                    .'id="10" '
                     .'type="2" '
                     .'compressionThreshold="3" '
                     .'mgbits="4" '
@@ -5138,8 +5138,8 @@ class RequestTest extends ZimbraTestCase
                     .'fbits="7" '
                     .'name="name" '
                     .'rootpath="rootpath" '
-                    .'compressBlobs="0" '
-                    .'isCurrent="1" />'
+                    .'compressBlobs="false" '
+                    .'isCurrent="true" />'
             .'</ModifyVolumeRequest>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
@@ -5147,7 +5147,7 @@ class RequestTest extends ZimbraTestCase
             'ModifyVolumeRequest' => array(
                 'id' => 100,
                 'volume' => array(
-                    'id' => 1,
+                    'id' => 10,
                     'type' => 2,
                     'compressionThreshold' => 3,
                     'mgbits' => 4,
@@ -5156,8 +5156,8 @@ class RequestTest extends ZimbraTestCase
                     'fbits' => 7,
                     'name' => 'name',
                     'rootpath' => 'rootpath',
-                    'compressBlobs' => 0,
-                    'isCurrent' => 1,
+                    'compressBlobs' => false,
+                    'isCurrent' => true,
                 ),
             ),
         );
@@ -5168,7 +5168,7 @@ class RequestTest extends ZimbraTestCase
     {
         $acl = new \Zimbra\Admin\Struct\ZimletAcl('cos', AclType::DENY());
         $status = new \Zimbra\Admin\Struct\ValueAttrib(ZimletStatus::DISABLED);
-        $priority = new \Zimbra\Admin\Struct\IntegerValueAttrib(1);
+        $priority = new \Zimbra\Admin\Struct\IntegerValueAttrib(10);
         $zimlet = new \Zimbra\Admin\Struct\ZimletAclStatusPri('name', $acl, $status, $priority);
 
         $req = new \Zimbra\Admin\Request\ModifyZimlet($zimlet);
@@ -5182,7 +5182,7 @@ class RequestTest extends ZimbraTestCase
                 .'<zimlet name="name">'
                     .'<acl cos="cos" acl="deny" />'
                     .'<status value="disabled" />'
-                    .'<priority value="1" />'
+                    .'<priority value="10" />'
                 .'</zimlet>'
             .'</ModifyZimletRequest>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
@@ -5199,7 +5199,7 @@ class RequestTest extends ZimbraTestCase
                         'value' => 'disabled',
                     ),
                     'priority' => array(
-                        'value' => 1,
+                        'value' => 10,
                     ),
                 ),
             ),
@@ -5823,8 +5823,8 @@ class RequestTest extends ZimbraTestCase
         $xml = '<?xml version="1.0"?>'."\n"
             .'<RevokeRightRequest>'
                 .'<target type="account" by="name">value</target>'
-                .'<grantee type="usr" by="id" secret="secret" all="1">value</grantee>'
-                .'<right deny="1" canDelegate="0" disinheritSubGroups="0" subDomain="1">value</right>'
+                .'<grantee type="usr" by="id" secret="secret" all="true">value</grantee>'
+                .'<right deny="true" canDelegate="false" disinheritSubGroups="false" subDomain="true">value</right>'
             .'</RevokeRightRequest>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
@@ -5840,13 +5840,13 @@ class RequestTest extends ZimbraTestCase
                     'type' => 'usr',
                     'by' => 'id',
                     'secret' => 'secret',
-                    'all' => 1,
+                    'all' => true,
                 ),
                 'right' => array(
-                    'deny' => 1,
-                    'canDelegate' => 0,
-                    'disinheritSubGroups' => 0,
-                    'subDomain' => 1,
+                    'deny' => true,
+                    'canDelegate' => false,
+                    'disinheritSubGroups' => false,
+                    'subDomain' => true,
                     '_' => 'value',
                 ),
             ),
@@ -5921,11 +5921,11 @@ class RequestTest extends ZimbraTestCase
                 .'limit="100" '
                 .'offset="100" '
                 .'domain="domain" '
-                .'applyCos="1" '
+                .'applyCos="true" '
                 .'attrs="zimbraId" '
                 .'sortBy="sortBy" '
                 .'types="accounts" '
-                .'sortAscending="0" '
+                .'sortAscending="false" '
             .'/>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
@@ -5935,11 +5935,11 @@ class RequestTest extends ZimbraTestCase
                 'limit' => 100,
                 'offset' => 100,
                 'domain' => 'domain',
-                'applyCos' => 1,
+                'applyCos' => true,
                 'attrs' => 'zimbraId',
                 'sortBy' => 'sortBy',
                 'types' => 'accounts',
-                'sortAscending' => 0,
+                'sortAscending' => false,
             ),
         );
         $this->assertEquals($array, $req->toArray());
@@ -5949,7 +5949,7 @@ class RequestTest extends ZimbraTestCase
     {
         $domain = new \Zimbra\Admin\Struct\DomainSelector(DomainBy::NAME(), 'value');
         $req = new \Zimbra\Admin\Request\SearchAutoProvDirectory(
-            $domain, 'keyAttr', 'query', 'name', 100, 10, 0, false, 'attrs'
+            $domain, 'keyAttr', 'query', 'name', 100, 100, 100, false, 'attrs'
         );
         $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
         $this->assertEquals($domain, $req->domain());
@@ -5957,8 +5957,8 @@ class RequestTest extends ZimbraTestCase
         $this->assertEquals('query', $req->query());
         $this->assertEquals('name', $req->name());
         $this->assertEquals(100, $req->maxResults());
-        $this->assertEquals(10, $req->limit());
-        $this->assertEquals(0, $req->offset());
+        $this->assertEquals(100, $req->limit());
+        $this->assertEquals(100, $req->offset());
         $this->assertFalse($req->refresh());
         $this->assertEquals('attrs', $req->attrs());
 
@@ -5966,18 +5966,18 @@ class RequestTest extends ZimbraTestCase
             ->keyAttr('keyAttr')
             ->query('query')
             ->name('name')
-            ->maxResults(100)
+            ->maxResults(10)
             ->limit(10)
-            ->offset(0)
+            ->offset(10)
             ->refresh(true)
             ->attrs('attrs');
         $this->assertEquals($domain, $req->domain());
         $this->assertEquals('keyAttr', $req->keyAttr());
         $this->assertEquals('query', $req->query());
         $this->assertEquals('name', $req->name());
-        $this->assertEquals(100, $req->maxResults());
+        $this->assertEquals(10, $req->maxResults());
         $this->assertEquals(10, $req->limit());
-        $this->assertEquals(0, $req->offset());
+        $this->assertEquals(10, $req->offset());
         $this->assertTrue($req->refresh());
         $this->assertEquals('attrs', $req->attrs());
 
@@ -5986,10 +5986,10 @@ class RequestTest extends ZimbraTestCase
                 .'keyAttr="keyAttr" '
                 .'query="query" '
                 .'name="name" '
-                .'maxResults="100" '
+                .'maxResults="10" '
                 .'limit="10" '
-                .'offset="0" '
-                .'refresh="1" '
+                .'offset="10" '
+                .'refresh="true" '
                 .'attrs="attrs">'
                 .'<domain by="name">value</domain>'
             .'</SearchAutoProvDirectoryRequest>';
@@ -6000,10 +6000,10 @@ class RequestTest extends ZimbraTestCase
                 'keyAttr' => 'keyAttr',
                 'query' => 'query',
                 'name' => 'name',
-                'maxResults' => 100,
+                'maxResults' => 10,
                 'limit' => 10,
-                'offset' => 0,
-                'refresh' => 1,
+                'offset' => 10,
+                'refresh' => true,
                 'attrs' => 'attrs',
                 'domain' => array(
                     'by' => 'name',
@@ -6017,18 +6017,18 @@ class RequestTest extends ZimbraTestCase
     public function testSearchCalendarResources()
     {
         $otherCond = new \Zimbra\Admin\Struct\EntrySearchFilterSingleCond('attr', CondOp::GE(), 'value', false);
-        $otherConds = new \Zimbra\Admin\Struct\EntrySearchFilterMultiCond(0, 1, NULL, $otherCond);
+        $otherConds = new \Zimbra\Admin\Struct\EntrySearchFilterMultiCond(false, true, NULL, $otherCond);
         $cond = new \Zimbra\Admin\Struct\EntrySearchFilterSingleCond('a', CondOp::EQ(), 'v', true);
-        $conds = new \Zimbra\Admin\Struct\EntrySearchFilterMultiCond(1, 0, $otherConds, $cond);
+        $conds = new \Zimbra\Admin\Struct\EntrySearchFilterMultiCond(true, false, $otherConds, $cond);
         $searchFilter = new \Zimbra\Admin\Struct\EntrySearchFilterInfo($conds, $cond);
         
         $req = new \Zimbra\Admin\Request\SearchCalendarResources(
-            $searchFilter, 10, 0, 'domain', false, 'sortBy', true, 'attrs'
+            $searchFilter, 100, 100, 'domain', false, 'sortBy', true, 'attrs'
         );
         $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
         $this->assertEquals($searchFilter, $req->searchFilter());
-        $this->assertEquals(10, $req->limit());
-        $this->assertEquals(0, $req->offset());
+        $this->assertEquals(100, $req->limit());
+        $this->assertEquals(100, $req->offset());
         $this->assertEquals('domain', $req->domain());
         $this->assertFalse($req->applyCos());
         $this->assertEquals('sortBy', $req->sortBy());
@@ -6037,7 +6037,7 @@ class RequestTest extends ZimbraTestCase
 
         $req->searchFilter($searchFilter)
             ->limit(10)
-            ->offset(0)
+            ->offset(10)
             ->domain('domain')
             ->applyCos(true)
             ->sortBy('sortBy')
@@ -6045,7 +6045,7 @@ class RequestTest extends ZimbraTestCase
             ->attrs('attrs');
         $this->assertEquals($searchFilter, $req->searchFilter());
         $this->assertEquals(10, $req->limit());
-        $this->assertEquals(0, $req->offset());
+        $this->assertEquals(10, $req->offset());
         $this->assertEquals('domain', $req->domain());
         $this->assertTrue($req->applyCos());
         $this->assertEquals('sortBy', $req->sortBy());
@@ -6055,20 +6055,20 @@ class RequestTest extends ZimbraTestCase
         $xml = '<?xml version="1.0"?>'."\n"
             .'<SearchCalendarResourcesRequest '
                 .'limit="10" '
-                .'offset="0" '
+                .'offset="10" '
                 .'domain="domain" '
-                .'applyCos="1" '
+                .'applyCos="true" '
                 .'sortBy="sortBy" '
-                .'sortAscending="0" '
+                .'sortAscending="false" '
                 .'attrs="attrs">'
                 .'<searchFilter>'
-                    .'<conds not="1" or="0">'
-                        .'<conds not="0" or="1">'
-                            .'<cond attr="attr" op="ge" value="value" not="0" />'
+                    .'<conds not="true" or="false">'
+                        .'<conds not="false" or="true">'
+                            .'<cond attr="attr" op="ge" value="value" not="false" />'
                         .'</conds>'
-                        .'<cond attr="a" op="eq" value="v" not="1" />'
+                        .'<cond attr="a" op="eq" value="v" not="true" />'
                     .'</conds>'
-                    .'<cond attr="a" op="eq" value="v" not="1" />'
+                    .'<cond attr="a" op="eq" value="v" not="true" />'
                 .'</searchFilter>'
             .'</SearchCalendarResourcesRequest>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
@@ -6076,38 +6076,38 @@ class RequestTest extends ZimbraTestCase
         $array = array(
             'SearchCalendarResourcesRequest' => array(
                 'limit' => 10,
-                'offset' => 0,
+                'offset' => 10,
                 'domain' => 'domain',
-                'applyCos' => 1,
+                'applyCos' => true,
                 'sortBy' => 'sortBy',
-                'sortAscending' => 0,
+                'sortAscending' => false,
                 'attrs' => 'attrs',
                 'searchFilter' => array(
                     'conds' => array(
-                        'not' => 1,
-                        'or' => 0,
+                        'not' => true,
+                        'or' => false,
                         'conds' => array(
-                            'not' => 0,
-                            'or' => 1,
+                            'not' => false,
+                            'or' => true,
                             'cond' => array(
                                 'attr' => 'attr',
                                 'op' => 'ge',
                                 'value' => 'value',
-                                'not' => 0,
+                                'not' => false,
                             ),
                         ),
                         'cond' => array(
                             'attr' => 'a',
                             'op' => 'eq',
                             'value' => 'v',
-                            'not' => 1,
+                            'not' => true,
                         ),
                     ),
                     'cond' => array(
                         'attr' => 'a',
                         'op' => 'eq',
                         'value' => 'v',
-                        'not' => 1,
+                        'not' => true,
                     ),
                 ),
             ),
@@ -6118,13 +6118,13 @@ class RequestTest extends ZimbraTestCase
     public function testSearchDirectory()
     {
         $req = new \Zimbra\Admin\Request\SearchDirectory(
-            'query', 100, 10, 0, 'domain', false, true, array(DirSearchType::RESOURCES()), 'sortBy', true, false, 'attrs'
+            'query', 100, 100, 100, 'domain', false, true, array(DirSearchType::RESOURCES()), 'sortBy', true, false, 'attrs'
         );
         $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
         $this->assertEquals('query', $req->query());
         $this->assertEquals(100, $req->maxResults());
-        $this->assertEquals(10, $req->limit());
-        $this->assertEquals(0, $req->offset());
+        $this->assertEquals(100, $req->limit());
+        $this->assertEquals(100, $req->offset());
         $this->assertEquals('domain', $req->domain());
         $this->assertFalse($req->applyCos());
         $this->assertTrue($req->applyConfig());
@@ -6135,9 +6135,9 @@ class RequestTest extends ZimbraTestCase
         $this->assertEquals('attrs', $req->attrs());
 
         $req->query('query')
-            ->maxResults(100)
+            ->maxResults(10)
             ->limit(10)
-            ->offset(0)
+            ->offset(10)
             ->domain('domain')
             ->applyCos(true)
             ->applyConfig(false)
@@ -6147,9 +6147,9 @@ class RequestTest extends ZimbraTestCase
             ->countOnly(true)
             ->attrs('attrs');
         $this->assertEquals('query', $req->query());
-        $this->assertEquals(100, $req->maxResults());
+        $this->assertEquals(10, $req->maxResults());
         $this->assertEquals(10, $req->limit());
-        $this->assertEquals(0, $req->offset());
+        $this->assertEquals(10, $req->offset());
         $this->assertEquals('domain', $req->domain());
         $this->assertTrue($req->applyCos());
         $this->assertFalse($req->applyConfig());
@@ -6162,16 +6162,16 @@ class RequestTest extends ZimbraTestCase
         $xml = '<?xml version="1.0"?>'."\n"
             .'<SearchDirectoryRequest '
                 .'query="query" '
-                .'maxResults="100" '
+                .'maxResults="10" '
                 .'limit="10" '
-                .'offset="0" '
+                .'offset="10" '
                 .'domain="domain" '
-                .'applyCos="1" '
-                .'applyConfig="0" '
+                .'applyCos="true" '
+                .'applyConfig="false" '
                 .'types="resources,accounts" '
                 .'sortBy="sortBy" '
-                .'sortAscending="0" '
-                .'countOnly="1" '
+                .'sortAscending="false" '
+                .'countOnly="true" '
                 .'attrs="attrs" '
             .'/>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
@@ -6179,16 +6179,16 @@ class RequestTest extends ZimbraTestCase
         $array = array(
             'SearchDirectoryRequest' => array(
                 'query' => 'query',
-                'maxResults' => 100,
+                'maxResults' => 10,
                 'limit' => 10,
-                'offset' => 0,
+                'offset' => 10,
                 'domain' => 'domain',
-                'applyCos' => 1,
-                'applyConfig' => 0,
+                'applyCos' => true,
+                'applyConfig' => false,
                 'types' => 'resources,accounts',
                 'sortBy' => 'sortBy',
-                'sortAscending' => 0,
-                'countOnly' => 1,
+                'sortAscending' => false,
+                'countOnly' => true,
                 'attrs' => 'attrs',
             ),
         );
@@ -6198,12 +6198,12 @@ class RequestTest extends ZimbraTestCase
     public function testSearchGal()
     {
         $req = new \Zimbra\Admin\Request\SearchGal(
-            'domain', 'name', 10, GalSearchType::ALL(), 'galAcctId'
+            'domain', 'name', 100, GalSearchType::ALL(), 'galAcctId'
         );
         $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
         $this->assertEquals('domain', $req->domain());
         $this->assertEquals('name', $req->name());
-        $this->assertEquals(10, $req->limit());
+        $this->assertEquals(100, $req->limit());
         $this->assertEquals('all', $req->type()->value());
         $this->assertEquals('galAcctId', $req->galAcctId());
 
@@ -6343,7 +6343,7 @@ class RequestTest extends ZimbraTestCase
         $xml = '<?xml version="1.0"?>'."\n"
             .'<SyncGalAccountRequest>'
                 .'<account id="id">'
-                    .'<datasource by="name" fullSync="0" reset="1">value</datasource>'
+                    .'<datasource by="name" fullSync="false" reset="true">value</datasource>'
                 .'</account>'
             .'</SyncGalAccountRequest>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
@@ -6355,8 +6355,8 @@ class RequestTest extends ZimbraTestCase
                     'datasource' => array(
                         array(
                             'by' => 'name',
-                            'fullSync' => 0,
-                            'reset' => 1,
+                            'fullSync' => false,
+                            'reset' => true,
                             '_' => 'value',
                         ),
                     ),
@@ -6617,7 +6617,7 @@ class RequestTest extends ZimbraTestCase
             .'<VerifyStoreManagerRequest '
                 .'fileSize="100" '
                 .'num="100" '
-                .'checkBlobs="1" '
+                .'checkBlobs="true" '
             .'/>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
@@ -6625,7 +6625,7 @@ class RequestTest extends ZimbraTestCase
             'VerifyStoreManagerRequest' => array(
                 'fileSize' => 100,
                 'num' => 100,
-                'checkBlobs' => 1,
+                'checkBlobs' => true,
             ),
         );
         $this->assertEquals($array, $req->toArray());

@@ -37,9 +37,9 @@ class RequestTest extends ZimbraTestCase
 {
     public function getTz()
     {
-        $standard = new \Zimbra\Struct\TzOnsetInfo(1, 2, 3, 4);
-        $daylight = new \Zimbra\Struct\TzOnsetInfo(4, 3, 2, 1);
-        return new \Zimbra\Mail\Struct\CalTZInfo('id', 1, 1, $standard, $daylight, 'stdname', 'dayname');
+        $standard = new \Zimbra\Struct\TzOnsetInfo(12, 2, 3, 4);
+        $daylight = new \Zimbra\Struct\TzOnsetInfo(4, 3, 2, 10);
+        return new \Zimbra\Mail\Struct\CalTZInfo('id', 10, 10, $standard, $daylight, 'stdname', 'dayname');
     }
 
     protected function getMsg()
@@ -47,13 +47,13 @@ class RequestTest extends ZimbraTestCase
         $mp = new \Zimbra\Mail\Struct\MimePartAttachSpec('mid', 'part', true);
         $msg = new \Zimbra\Mail\Struct\MsgAttachSpec('id', false);
         $cn = new \Zimbra\Mail\Struct\ContactAttachSpec('id', false);
-        $doc = new \Zimbra\Mail\Struct\DocAttachSpec('path', 'id', 1, true);
+        $doc = new \Zimbra\Mail\Struct\DocAttachSpec('path', 'id', 10, true);
         $info = new \Zimbra\Mail\Struct\MimePartInfo(array(), null, 'ct', 'content', 'ci');
 
         $header = new \Zimbra\Mail\Struct\Header('name', 'value');
         $attach = new \Zimbra\Mail\Struct\AttachmentsInfo($mp, $msg, $cn, $doc, 'aid');
         $mp = new \Zimbra\Mail\Struct\MimePartInfo(array($info), $attach, 'ct', 'content', 'ci');
-        $inv = new \Zimbra\Mail\Struct\InvitationInfo('method', 1, true);
+        $inv = new \Zimbra\Mail\Struct\InvitationInfo('method', 10, true);
         $e = new \Zimbra\Mail\Struct\EmailAddrInfo('a', 't', 'p');
         $tz = $this->getTz();
 
@@ -98,26 +98,26 @@ class RequestTest extends ZimbraTestCase
                     .'<content>content</content>'
                     .'<mp ct="ct" content="content" ci="ci">'
                         .'<attach aid="aid">'
-                            .'<mp optional="1" mid="mid" part="part" />'
-                            .'<m optional="0" id="id" />'
-                            .'<cn id="id" optional="0" />'
-                            .'<doc optional="1" path="path" id="id" ver="1" />'
+                            .'<mp optional="true" mid="mid" part="part" />'
+                            .'<m optional="false" id="id" />'
+                            .'<cn id="id" optional="false" />'
+                            .'<doc optional="true" path="path" id="id" ver="10" />'
                         .'</attach>'
                         .'<mp ct="ct" content="content" ci="ci" />'
                     .'</mp>'
                     .'<attach aid="aid">'
-                        .'<mp optional="1" mid="mid" part="part" />'
-                        .'<m optional="0" id="id" />'
-                        .'<cn optional="0" id="id" />'
-                        .'<doc optional="1" path="path" id="id" ver="1" />'
+                        .'<mp optional="true" mid="mid" part="part" />'
+                        .'<m optional="false" id="id" />'
+                        .'<cn optional="false" id="id" />'
+                        .'<doc optional="true" path="path" id="id" ver="10" />'
                     .'</attach>'
-                    .'<inv method="method" compNum="1" rsvp="1" />'
+                    .'<inv method="method" compNum="10" rsvp="true" />'
                     .'<fr>fr</fr>'
                     .'<header name="name">value</header>'
                     .'<e a="a" t="t" p="p" />'
-                    .'<tz id="id" stdoff="1" dayoff="1" stdname="stdname" dayname="dayname">'
-                        .'<standard mon="1" hour="2" min="3" sec="4" />'
-                        .'<daylight mon="4" hour="3" min="2" sec="1" />'
+                    .'<tz id="id" stdoff="10" dayoff="10" stdname="stdname" dayname="dayname">'
+                        .'<standard mon="12" hour="2" min="3" sec="4" />'
+                        .'<daylight mon="4" hour="3" min="2" sec="10" />'
                     .'</tz>'
                 .'</m>'
             .'</AddAppointmentInviteRequest>';
@@ -158,21 +158,21 @@ class RequestTest extends ZimbraTestCase
                             'mp' => array(
                                 'mid' => 'mid',
                                 'part' => 'part',
-                                'optional' => 1,
+                                'optional' => true,
                             ),
                             'm' => array(
                                 'id' => 'id',
-                                'optional' => 0,
+                                'optional' => false,
                             ),
                             'cn' => array(
                                 'id' => 'id',
-                                'optional' => 0,
+                                'optional' => false,
                             ),
                             'doc' => array(
                                 'path' => 'path',
                                 'id' => 'id',
-                                'ver' => 1,
-                                'optional' => 1,
+                                'ver' => 10,
+                                'optional' => true,
                             ),
                         ),
                     ),
@@ -181,27 +181,27 @@ class RequestTest extends ZimbraTestCase
                         'mp' => array(
                             'mid' => 'mid',
                             'part' => 'part',
-                            'optional' => 1,
+                            'optional' => true,
                         ),
                         'm' => array(
                             'id' => 'id',
-                            'optional' => 0,
+                            'optional' => false,
                         ),
                         'cn' => array(
                             'id' => 'id',
-                            'optional' => 0,
+                            'optional' => false,
                         ),
                         'doc' => array(
                             'path' => 'path',
                             'id' => 'id',
-                            'ver' => 1,
-                            'optional' => 1,
+                            'ver' => 10,
+                            'optional' => true,
                         ),
                     ),
                     'inv' => array(
                         'method' => 'method',
-                        'compNum' => 1,
-                        'rsvp' => 1,
+                        'compNum' => 10,
+                        'rsvp' => true,
                     ),
                     'e' => array(
                         array(
@@ -213,12 +213,12 @@ class RequestTest extends ZimbraTestCase
                     'tz' => array(
                         array(
                             'id' => 'id',
-                            'stdoff' => 1,
-                            'dayoff' => 1,
+                            'stdoff' => 10,
+                            'dayoff' => 10,
                             'stdname' => 'stdname',
                             'dayname' => 'dayname',
                             'standard' => array(
-                                'mon' => 1,
+                                'mon' => 12,
                                 'hour' => 2,
                                 'min' => 3,
                                 'sec' => 4,
@@ -227,7 +227,7 @@ class RequestTest extends ZimbraTestCase
                                 'mon' => 4,
                                 'hour' => 3,
                                 'min' => 2,
-                                'sec' => 1,
+                                'sec' => 10,
                             ),
                         ),
                     ),
@@ -285,8 +285,8 @@ class RequestTest extends ZimbraTestCase
         $this->assertTrue($req->filterSent());
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<AddMsgRequest filterSent="1">'
-                .'<m f="f" t="t" tn="tn" l="l" noICal="1" d="d" aid="aid">'
+            .'<AddMsgRequest filterSent="true">'
+                .'<m f="f" t="t" tn="tn" l="l" noICal="true" d="d" aid="aid">'
                     .'<content>content</content>'
                 .'</m>'
             .'</AddMsgRequest>';
@@ -294,14 +294,14 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'AddMsgRequest' => array(
-                'filterSent' => 1,
+                'filterSent' => true,
                 'm' => array(
                     'content' => 'content',
                     'f' => 'f',
                     't' => 't',
                     'tn' => 'tn',
                     'l' => 'l',
-                    'noICal' => 1,
+                    'noICal' => true,
                     'd' => 'd',
                     'aid' => 'aid',
                 ),
@@ -326,26 +326,26 @@ class RequestTest extends ZimbraTestCase
                     .'<content>content</content>'
                     .'<mp ct="ct" content="content" ci="ci">'
                         .'<attach aid="aid">'
-                            .'<mp optional="1" mid="mid" part="part" />'
-                            .'<m optional="0" id="id" />'
-                            .'<cn optional="0" id="id" />'
-                            .'<doc optional="1" path="path" id="id" ver="1" />'
+                            .'<mp optional="true" mid="mid" part="part" />'
+                            .'<m optional="false" id="id" />'
+                            .'<cn optional="false" id="id" />'
+                            .'<doc optional="true" path="path" id="id" ver="10" />'
                         .'</attach>'
                         .'<mp ct="ct" content="content" ci="ci" />'
                     .'</mp>'
                     .'<attach aid="aid">'
-                        .'<mp optional="1" mid="mid" part="part" />'
-                        .'<m optional="0" id="id" />'
-                        .'<cn optional="0" id="id" />'
-                        .'<doc optional="1" path="path" id="id" ver="1" />'
+                        .'<mp optional="true" mid="mid" part="part" />'
+                        .'<m optional="false" id="id" />'
+                        .'<cn optional="false" id="id" />'
+                        .'<doc optional="true" path="path" id="id" ver="10" />'
                     .'</attach>'
-                    .'<inv method="method" compNum="1" rsvp="1" />'
+                    .'<inv method="method" compNum="10" rsvp="true" />'
                     .'<fr>fr</fr>'
                     .'<header name="name">value</header>'
                     .'<e a="a" t="t" p="p" />'
-                    .'<tz id="id" stdoff="1" dayoff="1" stdname="stdname" dayname="dayname">'
-                        .'<standard mon="1" hour="2" min="3" sec="4" />'
-                        .'<daylight mon="4" hour="3" min="2" sec="1" />'
+                    .'<tz id="id" stdoff="10" dayoff="10" stdname="stdname" dayname="dayname">'
+                        .'<standard mon="12" hour="2" min="3" sec="4" />'
+                        .'<daylight mon="4" hour="3" min="2" sec="10" />'
                     .'</tz>'
                 .'</m>'
             .'</AddTaskInviteRequest>';
@@ -386,21 +386,21 @@ class RequestTest extends ZimbraTestCase
                             'mp' => array(
                                 'mid' => 'mid',
                                 'part' => 'part',
-                                'optional' => 1,
+                                'optional' => true,
                             ),
                             'm' => array(
                                 'id' => 'id',
-                                'optional' => 0,
+                                'optional' => false,
                             ),
                             'cn' => array(
                                 'id' => 'id',
-                                'optional' => 0,
+                                'optional' => false,
                             ),
                             'doc' => array(
                                 'path' => 'path',
                                 'id' => 'id',
-                                'ver' => 1,
-                                'optional' => 1,
+                                'ver' => 10,
+                                'optional' => true,
                             ),
                         ),
                     ),
@@ -409,27 +409,27 @@ class RequestTest extends ZimbraTestCase
                         'mp' => array(
                             'mid' => 'mid',
                             'part' => 'part',
-                            'optional' => 1,
+                            'optional' => true,
                         ),
                         'm' => array(
                             'id' => 'id',
-                            'optional' => 0,
+                            'optional' => false,
                         ),
                         'cn' => array(
                             'id' => 'id',
-                            'optional' => 0,
+                            'optional' => false,
                         ),
                         'doc' => array(
                             'path' => 'path',
                             'id' => 'id',
-                            'ver' => 1,
-                            'optional' => 1,
+                            'ver' => 10,
+                            'optional' => true,
                         ),
                     ),
                     'inv' => array(
                         'method' => 'method',
-                        'compNum' => 1,
-                        'rsvp' => 1,
+                        'compNum' => 10,
+                        'rsvp' => true,
                     ),
                     'e' => array(
                         array(
@@ -441,12 +441,12 @@ class RequestTest extends ZimbraTestCase
                     'tz' => array(
                         array(
                             'id' => 'id',
-                            'stdoff' => 1,
-                            'dayoff' => 1,
+                            'stdoff' => 10,
+                            'dayoff' => 10,
                             'stdname' => 'stdname',
                             'dayname' => 'dayname',
                             'standard' => array(
-                                'mon' => 1,
+                                'mon' => 12,
                                 'hour' => 2,
                                 'min' => 3,
                                 'sec' => 4,
@@ -455,7 +455,7 @@ class RequestTest extends ZimbraTestCase
                                 'mon' => 4,
                                 'hour' => 3,
                                 'min' => 2,
-                                'sec' => 1,
+                                'sec' => 10,
                             ),
                         ),
                     ),
@@ -604,16 +604,16 @@ class RequestTest extends ZimbraTestCase
         $this->assertTrue($req->includeGal());
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<AutoCompleteRequest name="name" t="all" needExp="1" folders="folders" includeGal="1" />';
+            .'<AutoCompleteRequest name="name" t="all" needExp="true" folders="folders" includeGal="true" />';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
         $array = array(
             'AutoCompleteRequest' => array(
                 'name' => 'name',
                 't' => 'all',
-                'needExp' => 1,
+                'needExp' => true,
                 'folders' => 'folders',
-                'includeGal' => 1,
+                'includeGal' => true,
             )
         );
         $this->assertEquals($array, $req->toArray());
@@ -667,29 +667,29 @@ class RequestTest extends ZimbraTestCase
     public function testBrowse()
     {
         $req = new \Zimbra\Mail\Request\Browse(
-            BrowseBy::DOMAINS(), 'regex', 1
+            BrowseBy::DOMAINS(), 'regex', 10
         );
         $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
         $this->assertTrue($req->browseBy()->is('domains'));
         $this->assertSame('regex', $req->regex());
-        $this->assertSame(1, $req->maxToReturn());
+        $this->assertSame(10, $req->maxToReturn());
 
         $req->browseBy(BrowseBy::DOMAINS())
             ->regex('regex')
-            ->maxToReturn(1);
+            ->maxToReturn(10);
         $this->assertTrue($req->browseBy()->is('domains'));
         $this->assertSame('regex', $req->regex());
-        $this->assertSame(1, $req->maxToReturn());
+        $this->assertSame(10, $req->maxToReturn());
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<BrowseRequest browseBy="domains" regex="regex" maxToReturn="1" />';
+            .'<BrowseRequest browseBy="domains" regex="regex" maxToReturn="10" />';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
         $array = array(
             'BrowseRequest' => array(
                 'browseBy' => 'domains',
                 'regex' => 'regex',
-                'maxToReturn' => 1,
+                'maxToReturn' => 10,
             )
         );
         $this->assertEquals($array, $req->toArray());
@@ -702,63 +702,63 @@ class RequestTest extends ZimbraTestCase
         $m = $this->getMsg();
 
         $req = new \Zimbra\Mail\Request\CancelAppointment(
-            $inst, $tz, $m, 'id', 1, 1, 1
+            $inst, $tz, $m, 'id', 10, 10, 10
         );
         $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
         $this->assertSame($inst, $req->inst());
         $this->assertSame($tz, $req->tz());
         $this->assertSame($m, $req->m());
         $this->assertSame('id', $req->id());
-        $this->assertSame(1, $req->comp());
-        $this->assertSame(1, $req->ms());
-        $this->assertSame(1, $req->rev());
+        $this->assertSame(10, $req->comp());
+        $this->assertSame(10, $req->ms());
+        $this->assertSame(10, $req->rev());
 
         $req->inst($inst)
             ->tz($tz)
             ->m($m)
             ->id('id')
-            ->comp(1)
-            ->ms(1)
-            ->rev(1);
+            ->comp(10)
+            ->ms(10)
+            ->rev(10);
         $this->assertSame($inst, $req->inst());
         $this->assertSame($tz, $req->tz());
         $this->assertSame($m, $req->m());
         $this->assertSame('id', $req->id());
-        $this->assertSame(1, $req->comp());
-        $this->assertSame(1, $req->ms());
-        $this->assertSame(1, $req->rev());
+        $this->assertSame(10, $req->comp());
+        $this->assertSame(10, $req->ms());
+        $this->assertSame(10, $req->rev());
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<CancelAppointmentRequest id="id" comp="1" ms="1" rev="1">'
+            .'<CancelAppointmentRequest id="id" comp="10" ms="10" rev="10">'
                 .'<inst range="range" d="20130315T18302305Z" tz="tz" />'
-                .'<tz id="id" stdoff="1" dayoff="1" stdname="stdname" dayname="dayname">'
-                    .'<standard mon="1" hour="2" min="3" sec="4" />'
-                    .'<daylight mon="4" hour="3" min="2" sec="1" />'
+                .'<tz id="id" stdoff="10" dayoff="10" stdname="stdname" dayname="dayname">'
+                    .'<standard mon="12" hour="2" min="3" sec="4" />'
+                    .'<daylight mon="4" hour="3" min="2" sec="10" />'
                 .'</tz>'
                 .'<m aid="aid" origid="origid" rt="rt" idnt="idnt" su="su" irt="irt" l="l" f="f">'
                     .'<content>content</content>'
                     .'<mp ct="ct" content="content" ci="ci">'
                         .'<attach aid="aid">'
-                            .'<mp optional="1" mid="mid" part="part" />'
-                            .'<m optional="0" id="id" />'
-                            .'<cn optional="0" id="id" />'
-                            .'<doc optional="1" path="path" id="id" ver="1" />'
+                            .'<mp optional="true" mid="mid" part="part" />'
+                            .'<m optional="false" id="id" />'
+                            .'<cn optional="false" id="id" />'
+                            .'<doc optional="true" path="path" id="id" ver="10" />'
                         .'</attach>'
                         .'<mp ct="ct" content="content" ci="ci" />'
                     .'</mp>'
                     .'<attach aid="aid">'
-                        .'<mp optional="1" mid="mid" part="part" />'
-                        .'<m optional="0" id="id" />'
-                        .'<cn optional="0" id="id" />'
-                        .'<doc optional="1" path="path" id="id" ver="1" />'
+                        .'<mp optional="true" mid="mid" part="part" />'
+                        .'<m optional="false" id="id" />'
+                        .'<cn optional="false" id="id" />'
+                        .'<doc optional="true" path="path" id="id" ver="10" />'
                     .'</attach>'
-                    .'<inv method="method" compNum="1" rsvp="1" />'
+                    .'<inv method="method" compNum="10" rsvp="true" />'
                     .'<fr>fr</fr>'
                     .'<header name="name">value</header>'
                     .'<e a="a" t="t" p="p" />'
-                    .'<tz id="id" stdoff="1" dayoff="1" stdname="stdname" dayname="dayname">'
-                        .'<standard mon="1" hour="2" min="3" sec="4" />'
-                        .'<daylight mon="4" hour="3" min="2" sec="1" />'
+                    .'<tz id="id" stdoff="10" dayoff="10" stdname="stdname" dayname="dayname">'
+                        .'<standard mon="12" hour="2" min="3" sec="4" />'
+                        .'<daylight mon="4" hour="3" min="2" sec="10" />'
                     .'</tz>'
                 .'</m>'
             .'</CancelAppointmentRequest>';
@@ -767,9 +767,9 @@ class RequestTest extends ZimbraTestCase
         $array = array(
             'CancelAppointmentRequest' => array(
                 'id' => 'id',
-                'comp' => 1,
-                'ms' => 1,
-                'rev' => 1,
+                'comp' => 10,
+                'ms' => 10,
+                'rev' => 10,
                 'inst' => array(
                     'range' => 'range',
                     'd' => '20130315T18302305Z',
@@ -777,12 +777,12 @@ class RequestTest extends ZimbraTestCase
                 ),
                 'tz' => array(
                     'id' => 'id',
-                    'stdoff' => 1,
-                    'dayoff' => 1,
+                    'stdoff' => 10,
+                    'dayoff' => 10,
                     'stdname' => 'stdname',
                     'dayname' => 'dayname',
                     'standard' => array(
-                        'mon' => 1,
+                        'mon' => 12,
                         'hour' => 2,
                         'min' => 3,
                         'sec' => 4,
@@ -791,7 +791,7 @@ class RequestTest extends ZimbraTestCase
                         'mon' => 4,
                         'hour' => 3,
                         'min' => 2,
-                        'sec' => 1,
+                        'sec' => 10,
                     ),
                 ),
                 'm' => array(
@@ -826,21 +826,21 @@ class RequestTest extends ZimbraTestCase
                             'mp' => array(
                                 'mid' => 'mid',
                                 'part' => 'part',
-                                'optional' => 1,
+                                'optional' => true,
                             ),
                             'm' => array(
                                 'id' => 'id',
-                                'optional' => 0,
+                                'optional' => false,
                             ),
                             'cn' => array(
                                 'id' => 'id',
-                                'optional' => 0,
+                                'optional' => false,
                             ),
                             'doc' => array(
                                 'path' => 'path',
                                 'id' => 'id',
-                                'ver' => 1,
-                                'optional' => 1,
+                                'ver' => 10,
+                                'optional' => true,
                             ),
                         ),
                     ),
@@ -849,27 +849,27 @@ class RequestTest extends ZimbraTestCase
                         'mp' => array(
                             'mid' => 'mid',
                             'part' => 'part',
-                            'optional' => 1,
+                            'optional' => true,
                         ),
                         'm' => array(
                             'id' => 'id',
-                            'optional' => 0,
+                            'optional' => false,
                         ),
                         'cn' => array(
                             'id' => 'id',
-                            'optional' => 0,
+                            'optional' => false,
                         ),
                         'doc' => array(
                             'path' => 'path',
                             'id' => 'id',
-                            'ver' => 1,
-                            'optional' => 1,
+                            'ver' => 10,
+                            'optional' => true,
                         ),
                     ),
                     'inv' => array(
                         'method' => 'method',
-                        'compNum' => 1,
-                        'rsvp' => 1,
+                        'compNum' => 10,
+                        'rsvp' => true,
                     ),
                     'e' => array(
                         array(
@@ -881,12 +881,12 @@ class RequestTest extends ZimbraTestCase
                     'tz' => array(
                         array(
                             'id' => 'id',
-                            'stdoff' => 1,
-                            'dayoff' => 1,
+                            'stdoff' => 10,
+                            'dayoff' => 10,
                             'stdname' => 'stdname',
                             'dayname' => 'dayname',
                             'standard' => array(
-                                'mon' => 1,
+                                'mon' => 12,
                                 'hour' => 2,
                                 'min' => 3,
                                 'sec' => 4,
@@ -895,7 +895,7 @@ class RequestTest extends ZimbraTestCase
                                 'mon' => 4,
                                 'hour' => 3,
                                 'min' => 2,
-                                'sec' => 1,
+                                'sec' => 10,
                             ),
                         ),
                     ),
@@ -988,25 +988,25 @@ class RequestTest extends ZimbraTestCase
         $exceptId = new \Zimbra\Mail\Struct\InstanceRecurIdInfo(
             'range', '20130315T18302305Z', 'tz'
         );
-        $dur = new \Zimbra\Mail\Struct\DurationInfo(true, 1, 2, 3, 4, 5, 'START', 6);
+        $dur = new \Zimbra\Mail\Struct\DurationInfo(true, 7, 2, 3, 4, 5, 'START', 6);
         $recur = new \Zimbra\Mail\Struct\RecurrenceInfo;
 
         $tz = $this->getTz();
         $cancel = new \Zimbra\Mail\Struct\ExpandedRecurrenceCancel(
-            $exceptId, $dur, $recur, 1, 1
+            $exceptId, $dur, $recur, 10, 10
         );
         $comp = new \Zimbra\Mail\Struct\ExpandedRecurrenceInvite(
-            $exceptId, $dur, $recur, 1, 1
+            $exceptId, $dur, $recur, 10, 10
         );
         $except = new \Zimbra\Mail\Struct\ExpandedRecurrenceException(
-            $exceptId, $dur, $recur, 1, 1
+            $exceptId, $dur, $recur, 10, 10
         );
         $usr = new \Zimbra\Mail\Struct\FreeBusyUserSpec(
-            1, 'id', 'name'
+            10, 'id', 'name'
         );
 
         $req = new \Zimbra\Mail\Request\CheckRecurConflicts(
-            array($tz), $cancel, $comp, $except, array($usr), 1, 1, true, 'excludeUid'
+            array($tz), $cancel, $comp, $except, array($usr), 10, 10, true, 'excludeUid'
         );
         $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
         $this->assertSame(array($tz), $req->tz()->all());
@@ -1014,8 +1014,8 @@ class RequestTest extends ZimbraTestCase
         $this->assertSame($comp, $req->comp());
         $this->assertSame($except, $req->except());
         $this->assertSame(array($usr), $req->usr()->all());
-        $this->assertSame(1, $req->s());
-        $this->assertSame(1, $req->e());
+        $this->assertSame(10, $req->s());
+        $this->assertSame(10, $req->e());
         $this->assertTrue($req->all());
         $this->assertSame('excludeUid', $req->excludeUid());
 
@@ -1024,8 +1024,8 @@ class RequestTest extends ZimbraTestCase
             ->comp($comp)
             ->except($except)
             ->addUsr($usr)
-            ->s(1)
-            ->e(1)
+            ->s(10)
+            ->e(10)
             ->all(true)
             ->excludeUid('excludeUid');
         $this->assertSame(array($tz, $tz), $req->tz()->all());
@@ -1033,56 +1033,56 @@ class RequestTest extends ZimbraTestCase
         $this->assertSame($comp, $req->comp());
         $this->assertSame($except, $req->except());
         $this->assertSame(array($usr, $usr), $req->usr()->all());
-        $this->assertSame(1, $req->s());
-        $this->assertSame(1, $req->e());
+        $this->assertSame(10, $req->s());
+        $this->assertSame(10, $req->e());
         $this->assertTrue($req->all());
         $this->assertSame('excludeUid', $req->excludeUid());
 
         $req = new \Zimbra\Mail\Request\CheckRecurConflicts(
-            array($tz), $cancel, $comp, $except, array($usr), 1, 1, true, 'excludeUid'
+            array($tz), $cancel, $comp, $except, array($usr), 10, 10, true, 'excludeUid'
         );
         $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<CheckRecurConflictsRequest s="1" e="1" all="1" excludeUid="excludeUid">'
-                .'<cancel s="1" e="1">'
+            .'<CheckRecurConflictsRequest s="10" e="10" all="true" excludeUid="excludeUid">'
+                .'<cancel s="10" e="10">'
                     .'<exceptId range="range" d="20130315T18302305Z" tz="tz" />'
-                    .'<dur neg="1" w="1" d="2" h="3" m="4" s="5" related="START" count="6" />'
+                    .'<dur neg="true" w="7" d="2" h="3" m="4" s="5" related="START" count="6" />'
                     .'<recur />'
                 .'</cancel>'
-                .'<comp s="1" e="1">'
+                .'<comp s="10" e="10">'
                     .'<exceptId range="range" d="20130315T18302305Z" tz="tz" />'
-                    .'<dur neg="1" w="1" d="2" h="3" m="4" s="5" related="START" count="6" />'
+                    .'<dur neg="true" w="7" d="2" h="3" m="4" s="5" related="START" count="6" />'
                     .'<recur />'
                 .'</comp>'
-                .'<except s="1" e="1">'
+                .'<except s="10" e="10">'
                     .'<exceptId range="range" d="20130315T18302305Z" tz="tz" />'
-                    .'<dur neg="1" w="1" d="2" h="3" m="4" s="5" related="START" count="6" />'
+                    .'<dur neg="true" w="7" d="2" h="3" m="4" s="5" related="START" count="6" />'
                     .'<recur />'
                 .'</except>'
-                .'<tz id="id" stdoff="1" dayoff="1" stdname="stdname" dayname="dayname">'
-                    .'<standard mon="1" hour="2" min="3" sec="4" />'
-                    .'<daylight mon="4" hour="3" min="2" sec="1" />'
+                .'<tz id="id" stdoff="10" dayoff="10" stdname="stdname" dayname="dayname">'
+                    .'<standard mon="12" hour="2" min="3" sec="4" />'
+                    .'<daylight mon="4" hour="3" min="2" sec="10" />'
                 .'</tz>'
-                .'<usr l="1" id="id" name="name" />'
+                .'<usr l="10" id="id" name="name" />'
             .'</CheckRecurConflictsRequest>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
         $array = array(
             'CheckRecurConflictsRequest' => array(
-                's' => 1,
-                'e' => 1,
-                'all' => 1,
+                's' => 10,
+                'e' => 10,
+                'all' => true,
                 'excludeUid' => 'excludeUid',
                 'tz' => array(
                     array(
                         'id' => 'id',
-                        'stdoff' => 1,
-                        'dayoff' => 1,
+                        'stdoff' => 10,
+                        'dayoff' => 10,
                         'stdname' => 'stdname',
                         'dayname' => 'dayname',
                         'standard' => array(
-                            'mon' => 1,
+                            'mon' => 12,
                             'hour' => 2,
                             'min' => 3,
                             'sec' => 4,
@@ -1091,21 +1091,21 @@ class RequestTest extends ZimbraTestCase
                             'mon' => 4,
                             'hour' => 3,
                             'min' => 2,
-                            'sec' => 1,
+                            'sec' => 10,
                         ),
                     ),
                 ),
                 'cancel' => array(
-                    's' => 1,
-                    'e' => 1,
+                    's' => 10,
+                    'e' => 10,
                     'exceptId' => array(
                         'range' => 'range',
                         'd' => '20130315T18302305Z',
                         'tz' => 'tz',
                     ),
                     'dur' => array(
-                        'neg' => 1,
-                        'w' => 1,
+                        'neg' => true,
+                        'w' => 7,
                         'd' => 2,
                         'h' => 3,
                         'm' => 4,
@@ -1116,16 +1116,16 @@ class RequestTest extends ZimbraTestCase
                     'recur' => array(),
                 ),
                 'comp' => array(
-                    's' => 1,
-                    'e' => 1,
+                    's' => 10,
+                    'e' => 10,
                     'exceptId' => array(
                         'range' => 'range',
                         'd' => '20130315T18302305Z',
                         'tz' => 'tz',
                     ),
                     'dur' => array(
-                        'neg' => 1,
-                        'w' => 1,
+                        'neg' => true,
+                        'w' => 7,
                         'd' => 2,
                         'h' => 3,
                         'm' => 4,
@@ -1136,16 +1136,16 @@ class RequestTest extends ZimbraTestCase
                     'recur' => array(),
                 ),
                 'except' => array(
-                    's' => 1,
-                    'e' => 1,
+                    's' => 10,
+                    'e' => 10,
                     'exceptId' => array(
                         'range' => 'range',
                         'd' => '20130315T18302305Z',
                         'tz' => 'tz',
                     ),
                     'dur' => array(
-                        'neg' => 1,
-                        'w' => 1,
+                        'neg' => true,
+                        'w' => 7,
                         'd' => 2,
                         'h' => 3,
                         'm' => 4,
@@ -1157,7 +1157,7 @@ class RequestTest extends ZimbraTestCase
                 ),
                 'usr' => array(
                     array(
-                        'l' => 1,
+                        'l' => 10,
                         'id' => 'id',
                         'name' => 'name',
                     ),
@@ -1223,9 +1223,9 @@ class RequestTest extends ZimbraTestCase
         $xml = '<?xml version="1.0"?>'."\n"
             .'<CompleteTaskInstanceRequest id="id">'
                 .'<exceptId d="20120315T18302305Z" tz="tz" u="1000" />'
-                .'<tz id="id" stdoff="1" dayoff="1" stdname="stdname" dayname="dayname">'
-                    .'<standard mon="1" hour="2" min="3" sec="4" />'
-                    .'<daylight mon="4" hour="3" min="2" sec="1" />'
+                .'<tz id="id" stdoff="10" dayoff="10" stdname="stdname" dayname="dayname">'
+                    .'<standard mon="12" hour="2" min="3" sec="4" />'
+                    .'<daylight mon="4" hour="3" min="2" sec="10" />'
                 .'</tz>'
             .'</CompleteTaskInstanceRequest>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
@@ -1240,12 +1240,12 @@ class RequestTest extends ZimbraTestCase
                 ),
                 'tz' => array(
                     'id' => 'id',
-                    'stdoff' => 1,
-                    'dayoff' => 1,
+                    'stdoff' => 10,
+                    'dayoff' => 10,
                     'stdname' => 'stdname',
                     'dayname' => 'dayname',
                     'standard' => array(
-                        'mon' => 1,
+                        'mon' => 12,
                         'hour' => 2,
                         'min' => 3,
                         'sec' => 4,
@@ -1254,7 +1254,7 @@ class RequestTest extends ZimbraTestCase
                         'mon' => 4,
                         'hour' => 3,
                         'min' => 2,
-                        'sec' => 1,
+                        'sec' => 10,
                     ),
                 ),
             )
@@ -1268,7 +1268,7 @@ class RequestTest extends ZimbraTestCase
             'n', 'value', 'aid', 'id', 'part'
         );
         $action = new \Zimbra\Mail\Struct\ContactActionSelector(
-            ContactActionOp::MOVE(), 'id', 'tcon', 1, 'l', '#aabbcc', 1, 'name', 'f', 't', 'tn', array($a)
+            ContactActionOp::MOVE(), 'id', 'tcon', 10, 'l', '#aabbcc', 10, 'name', 'f', 't', 'tn', array($a)
         );
         $req = new \Zimbra\Mail\Request\ContactAction(
             $action
@@ -1281,7 +1281,7 @@ class RequestTest extends ZimbraTestCase
 
         $xml = '<?xml version="1.0"?>'."\n"
             .'<ContactActionRequest>'
-                .'<action op="move" id="id" tcon="tcon" tag="1" l="l" rgb="#aabbcc" color="1" name="name" f="f" t="t" tn="tn">'
+                .'<action op="move" id="id" tcon="tcon" tag="10" l="l" rgb="#aabbcc" color="10" name="name" f="f" t="t" tn="tn">'
                     .'<a n="n" aid="aid" id="id" part="part">value</a>'
                 .'</action>'
             .'</ContactActionRequest>';
@@ -1293,10 +1293,10 @@ class RequestTest extends ZimbraTestCase
                     'op' => 'move',
                     'id' => 'id',
                     'tcon' => 'tcon',
-                    'tag' => 1,
+                    'tag' => 10,
                     'l' => 'l',
                     'rgb' => '#aabbcc',
-                    'color' => 1,
+                    'color' => 10,
                     'name' => 'name',
                     'f' => 'f',
                     't' => 't',
@@ -1319,7 +1319,7 @@ class RequestTest extends ZimbraTestCase
     public function testConvAction()
     {
         $action = new \Zimbra\Mail\Struct\ConvActionSelector(
-            ConvActionOp::DELETE(), 'id', 'tcon', 1, 'l', '#aabbcc', 1, 'name', 'f', 't', 'tn'
+            ConvActionOp::DELETE(), 'id', 'tcon', 10, 'l', '#aabbcc', 10, 'name', 'f', 't', 'tn'
         );
         $req = new \Zimbra\Mail\Request\ConvAction(
             $action
@@ -1332,7 +1332,7 @@ class RequestTest extends ZimbraTestCase
 
         $xml = '<?xml version="1.0"?>'."\n"
             .'<ConvActionRequest>'
-                .'<action op="delete" id="id" tcon="tcon" tag="1" l="l" rgb="#aabbcc" color="1" name="name" f="f" t="t" tn="tn" />'
+                .'<action op="delete" id="id" tcon="tcon" tag="10" l="l" rgb="#aabbcc" color="10" name="name" f="f" t="t" tn="tn" />'
             .'</ConvActionRequest>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
@@ -1342,10 +1342,10 @@ class RequestTest extends ZimbraTestCase
                     'op' => 'delete',
                     'id' => 'id',
                     'tcon' => 'tcon',
-                    'tag' => 1,
+                    'tag' => 10,
                     'l' => 'l',
                     'rgb' => '#aabbcc',
-                    'color' => 1,
+                    'color' => 10,
                     'name' => 'name',
                     'f' => 'f',
                     't' => 't',
@@ -1360,52 +1360,52 @@ class RequestTest extends ZimbraTestCase
     {
         $m = $this->getMsg();
         $req = new \Zimbra\Mail\Request\CounterAppointment(
-            $m, 'id', 1, 1, 1
+            $m, 'id', 10, 10, 10
         );
         $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
         $this->assertSame($m, $req->m());
         $this->assertSame('id', $req->id());
-        $this->assertSame(1, $req->comp());
-        $this->assertSame(1, $req->ms());
-        $this->assertSame(1, $req->rev());
+        $this->assertSame(10, $req->comp());
+        $this->assertSame(10, $req->ms());
+        $this->assertSame(10, $req->rev());
 
         $req->m($m)
             ->id('id')
-            ->comp(1)
-            ->ms(1)
-            ->rev(1);
+            ->comp(10)
+            ->ms(10)
+            ->rev(10);
         $this->assertSame($m, $req->m());
         $this->assertSame('id', $req->id());
-        $this->assertSame(1, $req->comp());
-        $this->assertSame(1, $req->ms());
-        $this->assertSame(1, $req->rev());
+        $this->assertSame(10, $req->comp());
+        $this->assertSame(10, $req->ms());
+        $this->assertSame(10, $req->rev());
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<CounterAppointmentRequest id="id" comp="1" ms="1" rev="1">'
+            .'<CounterAppointmentRequest id="id" comp="10" ms="10" rev="10">'
                 .'<m aid="aid" origid="origid" rt="rt" idnt="idnt" su="su" irt="irt" l="l" f="f">'
                     .'<content>content</content>'
                     .'<mp ct="ct" content="content" ci="ci">'
                         .'<attach aid="aid">'
-                            .'<mp optional="1" mid="mid" part="part" />'
-                            .'<m optional="0" id="id" />'
-                            .'<cn optional="0" id="id" />'
-                            .'<doc optional="1" path="path" id="id" ver="1" />'
+                            .'<mp optional="true" mid="mid" part="part" />'
+                            .'<m optional="false" id="id" />'
+                            .'<cn optional="false" id="id" />'
+                            .'<doc optional="true" path="path" id="id" ver="10" />'
                         .'</attach>'
                         .'<mp ct="ct" content="content" ci="ci" />'
                     .'</mp>'
                     .'<attach aid="aid">'
-                        .'<mp optional="1" mid="mid" part="part" />'
-                        .'<m optional="0" id="id" />'
-                        .'<cn optional="0" id="id" />'
-                        .'<doc optional="1" path="path" id="id" ver="1" />'
+                        .'<mp optional="true" mid="mid" part="part" />'
+                        .'<m optional="false" id="id" />'
+                        .'<cn optional="false" id="id" />'
+                        .'<doc optional="true" path="path" id="id" ver="10" />'
                     .'</attach>'
-                    .'<inv method="method" compNum="1" rsvp="1" />'
+                    .'<inv method="method" compNum="10" rsvp="true" />'
                     .'<fr>fr</fr>'
                     .'<header name="name">value</header>'
                     .'<e a="a" t="t" p="p" />'
-                    .'<tz id="id" stdoff="1" dayoff="1" stdname="stdname" dayname="dayname">'
-                        .'<standard mon="1" hour="2" min="3" sec="4" />'
-                        .'<daylight mon="4" hour="3" min="2" sec="1" />'
+                    .'<tz id="id" stdoff="10" dayoff="10" stdname="stdname" dayname="dayname">'
+                        .'<standard mon="12" hour="2" min="3" sec="4" />'
+                        .'<daylight mon="4" hour="3" min="2" sec="10" />'
                     .'</tz>'
                 .'</m>'
             .'</CounterAppointmentRequest>';
@@ -1414,9 +1414,9 @@ class RequestTest extends ZimbraTestCase
         $array = array(
             'CounterAppointmentRequest' => array(
                 'id' => 'id',
-                'comp' => 1,
-                'ms' => 1,
-                'rev' => 1,
+                'comp' => 10,
+                'ms' => 10,
+                'rev' => 10,
                 'm' => array(
                     'aid' => 'aid',
                     'origid' => 'origid',
@@ -1449,21 +1449,21 @@ class RequestTest extends ZimbraTestCase
                             'mp' => array(
                                 'mid' => 'mid',
                                 'part' => 'part',
-                                'optional' => 1,
+                                'optional' => true,
                             ),
                             'm' => array(
                                 'id' => 'id',
-                                'optional' => 0,
+                                'optional' => false,
                             ),
                             'cn' => array(
                                 'id' => 'id',
-                                'optional' => 0,
+                                'optional' => false,
                             ),
                             'doc' => array(
                                 'path' => 'path',
                                 'id' => 'id',
-                                'ver' => 1,
-                                'optional' => 1,
+                                'ver' => 10,
+                                'optional' => true,
                             ),
                         ),
                     ),
@@ -1472,27 +1472,27 @@ class RequestTest extends ZimbraTestCase
                         'mp' => array(
                             'mid' => 'mid',
                             'part' => 'part',
-                            'optional' => 1,
+                            'optional' => true,
                         ),
                         'm' => array(
                             'id' => 'id',
-                            'optional' => 0,
+                            'optional' => false,
                         ),
                         'cn' => array(
                             'id' => 'id',
-                            'optional' => 0,
+                            'optional' => false,
                         ),
                         'doc' => array(
                             'path' => 'path',
                             'id' => 'id',
-                            'ver' => 1,
-                            'optional' => 1,
+                            'ver' => 10,
+                            'optional' => true,
                         ),
                     ),
                     'inv' => array(
                         'method' => 'method',
-                        'compNum' => 1,
-                        'rsvp' => 1,
+                        'compNum' => 10,
+                        'rsvp' => true,
                     ),
                     'e' => array(
                         array(
@@ -1504,12 +1504,12 @@ class RequestTest extends ZimbraTestCase
                     'tz' => array(
                         array(
                             'id' => 'id',
-                            'stdoff' => 1,
-                            'dayoff' => 1,
+                            'stdoff' => 10,
+                            'dayoff' => 10,
                             'stdname' => 'stdname',
                             'dayname' => 'dayname',
                             'standard' => array(
-                                'mon' => 1,
+                                'mon' => 12,
                                 'hour' => 2,
                                 'min' => 3,
                                 'sec' => 4,
@@ -1518,7 +1518,7 @@ class RequestTest extends ZimbraTestCase
                                 'mon' => 4,
                                 'hour' => 3,
                                 'min' => 2,
-                                'sec' => 1,
+                                'sec' => 10,
                             ),
                         ),
                     ),
@@ -1537,13 +1537,13 @@ class RequestTest extends ZimbraTestCase
 
         $req->m($m)
             ->echo_(true)
-            ->max(1)
+            ->max(10)
             ->html(true)
             ->neuter(true)
             ->forcesend(true);
         $this->assertSame($m, $req->m());
         $this->assertTrue($req->echo_());
-        $this->assertSame(1, $req->max());
+        $this->assertSame(10, $req->max());
         $this->assertTrue($req->html());
         $this->assertTrue($req->neuter());
         $this->assertTrue($req->forcesend());
@@ -1553,43 +1553,43 @@ class RequestTest extends ZimbraTestCase
     {
         $m = $this->getMsg();
         $req = new \Zimbra\Mail\Request\CreateAppointment(
-            $m, true, 1, true, true, true
+            $m, true, 10, true, true, true
         );
         $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
         $this->assertInstanceOf('Zimbra\Mail\Request\CalItemRequestBase', $req);
         $this->assertSame($m, $req->m());
         $this->assertTrue($req->echo_());
-        $this->assertSame(1, $req->max());
+        $this->assertSame(10, $req->max());
         $this->assertTrue($req->html());
         $this->assertTrue($req->neuter());
         $this->assertTrue($req->forcesend());
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<CreateAppointmentRequest echo="1" max="1" html="1" neuter="1" forcesend="1">'
+            .'<CreateAppointmentRequest echo="true" max="10" html="true" neuter="true" forcesend="true">'
                 .'<m aid="aid" origid="origid" rt="rt" idnt="idnt" su="su" irt="irt" l="l" f="f">'
                     .'<content>content</content>'
                     .'<mp ct="ct" content="content" ci="ci">'
                         .'<attach aid="aid">'
-                            .'<mp optional="1" mid="mid" part="part" />'
-                            .'<m optional="0" id="id" />'
-                            .'<cn optional="0" id="id" />'
-                            .'<doc optional="1" path="path" id="id" ver="1" />'
+                            .'<mp optional="true" mid="mid" part="part" />'
+                            .'<m optional="false" id="id" />'
+                            .'<cn optional="false" id="id" />'
+                            .'<doc optional="true" path="path" id="id" ver="10" />'
                         .'</attach>'
                         .'<mp ct="ct" content="content" ci="ci" />'
                     .'</mp>'
                     .'<attach aid="aid">'
-                        .'<mp optional="1" mid="mid" part="part" />'
-                        .'<m optional="0" id="id" />'
-                        .'<cn optional="0" id="id" />'
-                        .'<doc optional="1" path="path" id="id" ver="1" />'
+                        .'<mp optional="true" mid="mid" part="part" />'
+                        .'<m optional="false" id="id" />'
+                        .'<cn optional="false" id="id" />'
+                        .'<doc optional="true" path="path" id="id" ver="10" />'
                     .'</attach>'
-                    .'<inv method="method" compNum="1" rsvp="1" />'
+                    .'<inv method="method" compNum="10" rsvp="true" />'
                     .'<fr>fr</fr>'
                     .'<header name="name">value</header>'
                     .'<e a="a" t="t" p="p" />'
-                    .'<tz id="id" stdoff="1" dayoff="1" stdname="stdname" dayname="dayname">'
-                        .'<standard mon="1" hour="2" min="3" sec="4" />'
-                        .'<daylight mon="4" hour="3" min="2" sec="1" />'
+                    .'<tz id="id" stdoff="10" dayoff="10" stdname="stdname" dayname="dayname">'
+                        .'<standard mon="12" hour="2" min="3" sec="4" />'
+                        .'<daylight mon="4" hour="3" min="2" sec="10" />'
                     .'</tz>'
                 .'</m>'
             .'</CreateAppointmentRequest>';
@@ -1597,11 +1597,11 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'CreateAppointmentRequest' => array(
-                'echo' => 1,
-                'max' => 1,
-                'html' => 1,
-                'neuter' => 1,
-                'forcesend' => 1,
+                'echo' => true,
+                'max' => 10,
+                'html' => true,
+                'neuter' => true,
+                'forcesend' => true,
                 'm' => array(
                     'aid' => 'aid',
                     'origid' => 'origid',
@@ -1634,21 +1634,21 @@ class RequestTest extends ZimbraTestCase
                             'mp' => array(
                                 'mid' => 'mid',
                                 'part' => 'part',
-                                'optional' => 1,
+                                'optional' => true,
                             ),
                             'm' => array(
                                 'id' => 'id',
-                                'optional' => 0,
+                                'optional' => false,
                             ),
                             'cn' => array(
                                 'id' => 'id',
-                                'optional' => 0,
+                                'optional' => false,
                             ),
                             'doc' => array(
                                 'path' => 'path',
                                 'id' => 'id',
-                                'ver' => 1,
-                                'optional' => 1,
+                                'ver' => 10,
+                                'optional' => true,
                             ),
                         ),
                     ),
@@ -1657,27 +1657,27 @@ class RequestTest extends ZimbraTestCase
                         'mp' => array(
                             'mid' => 'mid',
                             'part' => 'part',
-                            'optional' => 1,
+                            'optional' => true,
                         ),
                         'm' => array(
                             'id' => 'id',
-                            'optional' => 0,
+                            'optional' => false,
                         ),
                         'cn' => array(
                             'id' => 'id',
-                            'optional' => 0,
+                            'optional' => false,
                         ),
                         'doc' => array(
                             'path' => 'path',
                             'id' => 'id',
-                            'ver' => 1,
-                            'optional' => 1,
+                            'ver' => 10,
+                            'optional' => true,
                         ),
                     ),
                     'inv' => array(
                         'method' => 'method',
-                        'compNum' => 1,
-                        'rsvp' => 1,
+                        'compNum' => 10,
+                        'rsvp' => true,
                     ),
                     'e' => array(
                         array(
@@ -1689,12 +1689,12 @@ class RequestTest extends ZimbraTestCase
                     'tz' => array(
                         array(
                             'id' => 'id',
-                            'stdoff' => 1,
-                            'dayoff' => 1,
+                            'stdoff' => 10,
+                            'dayoff' => 10,
                             'stdname' => 'stdname',
                             'dayname' => 'dayname',
                             'standard' => array(
-                                'mon' => 1,
+                                'mon' => 12,
                                 'hour' => 2,
                                 'min' => 3,
                                 'sec' => 4,
@@ -1703,7 +1703,7 @@ class RequestTest extends ZimbraTestCase
                                 'mon' => 4,
                                 'hour' => 3,
                                 'min' => 2,
-                                'sec' => 1,
+                                'sec' => 10,
                             ),
                         ),
                     ),
@@ -1719,53 +1719,53 @@ class RequestTest extends ZimbraTestCase
         $m = $this->getMsg();
 
         $req = new \Zimbra\Mail\Request\CreateAppointmentException(
-            $m, 'id', 1, 1, 1, true, 1, true, true, true
+            $m, 'id', 10, 10, 10, true, 10, true, true, true
         );
         $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
         $this->assertInstanceOf('Zimbra\Mail\Request\CalItemRequestBase', $req);
         $this->assertSame($m, $req->m());
         $this->assertSame('id', $req->id());
-        $this->assertSame(1, $req->comp());
-        $this->assertSame(1, $req->ms());
-        $this->assertSame(1, $req->rev());
+        $this->assertSame(10, $req->comp());
+        $this->assertSame(10, $req->ms());
+        $this->assertSame(10, $req->rev());
 
         $req->m($m)
             ->id('id')
-            ->comp(1)
-            ->ms(1)
-            ->rev(1);
+            ->comp(10)
+            ->ms(10)
+            ->rev(10);
         $this->assertSame($m, $req->m());
         $this->assertSame('id', $req->id());
-        $this->assertSame(1, $req->comp());
-        $this->assertSame(1, $req->ms());
-        $this->assertSame(1, $req->rev());
+        $this->assertSame(10, $req->comp());
+        $this->assertSame(10, $req->ms());
+        $this->assertSame(10, $req->rev());
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<CreateAppointmentExceptionRequest id="id" comp="1" ms="1" rev="1" echo="1" max="1" html="1" neuter="1" forcesend="1">'
+            .'<CreateAppointmentExceptionRequest id="id" comp="10" ms="10" rev="10" echo="true" max="10" html="true" neuter="true" forcesend="true">'
                 .'<m aid="aid" origid="origid" rt="rt" idnt="idnt" su="su" irt="irt" l="l" f="f">'
                     .'<content>content</content>'
                     .'<mp ct="ct" content="content" ci="ci">'
                         .'<attach aid="aid">'
-                            .'<mp optional="1" mid="mid" part="part" />'
-                            .'<m optional="0" id="id" />'
-                            .'<cn optional="0" id="id" />'
-                            .'<doc optional="1" path="path" id="id" ver="1" />'
+                            .'<mp optional="true" mid="mid" part="part" />'
+                            .'<m optional="false" id="id" />'
+                            .'<cn optional="false" id="id" />'
+                            .'<doc optional="true" path="path" id="id" ver="10" />'
                         .'</attach>'
                         .'<mp ct="ct" content="content" ci="ci" />'
                     .'</mp>'
                     .'<attach aid="aid">'
-                        .'<mp optional="1" mid="mid" part="part" />'
-                        .'<m optional="0" id="id" />'
-                        .'<cn optional="0" id="id" />'
-                        .'<doc optional="1" path="path" id="id" ver="1" />'
+                        .'<mp optional="true" mid="mid" part="part" />'
+                        .'<m optional="false" id="id" />'
+                        .'<cn optional="false" id="id" />'
+                        .'<doc optional="true" path="path" id="id" ver="10" />'
                     .'</attach>'
-                    .'<inv method="method" compNum="1" rsvp="1" />'
+                    .'<inv method="method" compNum="10" rsvp="true" />'
                     .'<fr>fr</fr>'
                     .'<header name="name">value</header>'
                     .'<e a="a" t="t" p="p" />'
-                    .'<tz id="id" stdoff="1" dayoff="1" stdname="stdname" dayname="dayname">'
-                        .'<standard mon="1" hour="2" min="3" sec="4" />'
-                        .'<daylight mon="4" hour="3" min="2" sec="1" />'
+                    .'<tz id="id" stdoff="10" dayoff="10" stdname="stdname" dayname="dayname">'
+                        .'<standard mon="12" hour="2" min="3" sec="4" />'
+                        .'<daylight mon="4" hour="3" min="2" sec="10" />'
                     .'</tz>'
                 .'</m>'
             .'</CreateAppointmentExceptionRequest>';
@@ -1774,14 +1774,14 @@ class RequestTest extends ZimbraTestCase
         $array = array(
             'CreateAppointmentExceptionRequest' => array(
                 'id' => 'id',
-                'comp' => 1,
-                'ms' => 1,
-                'rev' => 1,
-                'echo' => 1,
-                'max' => 1,
-                'html' => 1,
-                'neuter' => 1,
-                'forcesend' => 1,
+                'comp' => 10,
+                'ms' => 10,
+                'rev' => 10,
+                'echo' => true,
+                'max' => 10,
+                'html' => true,
+                'neuter' => true,
+                'forcesend' => true,
                 'm' => array(
                     'aid' => 'aid',
                     'origid' => 'origid',
@@ -1814,21 +1814,21 @@ class RequestTest extends ZimbraTestCase
                             'mp' => array(
                                 'mid' => 'mid',
                                 'part' => 'part',
-                                'optional' => 1,
+                                'optional' => true,
                             ),
                             'm' => array(
                                 'id' => 'id',
-                                'optional' => 0,
+                                'optional' => false,
                             ),
                             'cn' => array(
                                 'id' => 'id',
-                                'optional' => 0,
+                                'optional' => false,
                             ),
                             'doc' => array(
                                 'path' => 'path',
                                 'id' => 'id',
-                                'ver' => 1,
-                                'optional' => 1,
+                                'ver' => 10,
+                                'optional' => true,
                             ),
                         ),
                     ),
@@ -1837,27 +1837,27 @@ class RequestTest extends ZimbraTestCase
                         'mp' => array(
                             'mid' => 'mid',
                             'part' => 'part',
-                            'optional' => 1,
+                            'optional' => true,
                         ),
                         'm' => array(
                             'id' => 'id',
-                            'optional' => 0,
+                            'optional' => false,
                         ),
                         'cn' => array(
                             'id' => 'id',
-                            'optional' => 0,
+                            'optional' => false,
                         ),
                         'doc' => array(
                             'path' => 'path',
                             'id' => 'id',
-                            'ver' => 1,
-                            'optional' => 1,
+                            'ver' => 10,
+                            'optional' => true,
                         ),
                     ),
                     'inv' => array(
                         'method' => 'method',
-                        'compNum' => 1,
-                        'rsvp' => 1,
+                        'compNum' => 10,
+                        'rsvp' => true,
                     ),
                     'e' => array(
                         array(
@@ -1869,12 +1869,12 @@ class RequestTest extends ZimbraTestCase
                     'tz' => array(
                         array(
                             'id' => 'id',
-                            'stdoff' => 1,
-                            'dayoff' => 1,
+                            'stdoff' => 10,
+                            'dayoff' => 10,
                             'stdname' => 'stdname',
                             'dayname' => 'dayname',
                             'standard' => array(
-                                'mon' => 1,
+                                'mon' => 12,
                                 'hour' => 2,
                                 'min' => 3,
                                 'sec' => 4,
@@ -1883,7 +1883,7 @@ class RequestTest extends ZimbraTestCase
                                 'mon' => 4,
                                 'hour' => 3,
                                 'min' => 2,
-                                'sec' => 1,
+                                'sec' => 10,
                             ),
                         ),
                     ),
@@ -1906,7 +1906,7 @@ class RequestTest extends ZimbraTestCase
             'type', 'value'
         );
         $cn = new \Zimbra\Mail\Struct\ContactSpec(
-            $vcard, array($a), array($m), 1, 'l', 't', 'tn'
+            $vcard, array($a), array($m), 10, 'l', 't', 'tn'
         );
 
         $req = new \Zimbra\Mail\Request\CreateContact(
@@ -1922,8 +1922,8 @@ class RequestTest extends ZimbraTestCase
         $this->assertTrue($req->verbose());
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<CreateContactRequest verbose="1">'
-                .'<cn id="1" l="l" t="t" tn="tn">'
+            .'<CreateContactRequest verbose="true">'
+                .'<cn id="10" l="l" t="t" tn="tn">'
                     .'<vcard mid="mid" part="part" aid="aid">value</vcard>'
                     .'<a n="n" aid="aid" id="id" part="part">value</a>'
                     .'<m type="type" value="value" />'
@@ -1933,9 +1933,9 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'CreateContactRequest' => array(
-                'verbose' => 1,
+                'verbose' => true,
                 'cn' => array(
-                    'id' => 1,
+                    'id' => 10,
                     'l' => 'l',
                     't' => 't',
                     'tn' => 'tn',
@@ -1975,7 +1975,7 @@ class RequestTest extends ZimbraTestCase
             true,
             true,
             'host',
-            1,
+            10,
             MdsConnectionType::SSL(),
             'username',
             'password',
@@ -1988,7 +1988,7 @@ class RequestTest extends ZimbraTestCase
             'replyToAddress',
             'replyToDisplay',
             'importClass',
-            1,
+            10,
             'lastError',
             array('a', 'b')
         );
@@ -2032,16 +2032,16 @@ class RequestTest extends ZimbraTestCase
 
         $xml = '<?xml version="1.0"?>'."\n"
             .'<CreateDataSourceRequest>'
-                .'<imap id="id" name="name" l="l" isEnabled="1" importOnly="1" host="host" port="1" '
+                .'<imap id="id" name="name" l="l" isEnabled="true" importOnly="true" host="host" port="10" '
                 .'connectionType="ssl" username="username" password="password" pollingInterval="pollingInterval" '
-                .'emailAddress="emailAddress" useAddressForForwardReply="1" defaultSignature="defaultSignature" '
+                .'emailAddress="emailAddress" useAddressForForwardReply="true" defaultSignature="defaultSignature" '
                 .'forwardReplySignature="forwardReplySignature" fromDisplay="fromDisplay" replyToAddress="replyToAddress" '
-                .'replyToDisplay="replyToDisplay" importClass="importClass" failingSince="1">'
+                .'replyToDisplay="replyToDisplay" importClass="importClass" failingSince="10">'
                     .'<lastError>lastError</lastError>'
                     .'<a>a</a>'
                     .'<a>b</a>'
                 .'</imap>'
-                .'<pop3 leaveOnServer="1" />'
+                .'<pop3 leaveOnServer="true" />'
                 .'<caldav />'
                 .'<yab />'
                 .'<rss />'
@@ -2057,28 +2057,28 @@ class RequestTest extends ZimbraTestCase
                     'id' => 'id',
                     'name' => 'name',
                     'l' => 'l',
-                    'isEnabled' => 1,
-                    'importOnly' => 1,
+                    'isEnabled' => true,
+                    'importOnly' => true,
                     'host' => 'host',
-                    'port' => 1,
+                    'port' => 10,
                     'connectionType' => 'ssl',
                     'username' => 'username',
                     'password' => 'password',
                     'pollingInterval' => 'pollingInterval',
                     'emailAddress' => 'emailAddress',
-                    'useAddressForForwardReply' => 1,
+                    'useAddressForForwardReply' => true,
                     'defaultSignature' => 'defaultSignature',
                     'forwardReplySignature' => 'forwardReplySignature',
                     'fromDisplay' => 'fromDisplay',
                     'replyToAddress' => 'replyToAddress',
                     'replyToDisplay' => 'replyToDisplay',
                     'importClass' => 'importClass',
-                    'failingSince' => 1,
+                    'failingSince' => 10,
                     'lastError' => 'lastError',
                     'a' => array('a', 'b'),
                 ),
                 'pop3' => array(
-                    'leaveOnServer' => 1,
+                    'leaveOnServer' => true,
                 ),
                 'caldav' => array(),
                 'yab' => array(),
@@ -2100,7 +2100,7 @@ class RequestTest extends ZimbraTestCase
             array($grant)
         );
         $folder = new \Zimbra\Mail\Struct\NewFolderSpec(
-            'name', $acl, SearchType::TASK(), 'f', 1, '#aabbcc', 'url', 'l', true, true
+            'name', $acl, SearchType::TASK(), 'f', 10, '#aabbcc', 'url', 'l', true, true
         );
         $req = new \Zimbra\Mail\Request\CreateFolder(
             $folder
@@ -2113,7 +2113,7 @@ class RequestTest extends ZimbraTestCase
 
         $xml = '<?xml version="1.0"?>'."\n"
             .'<CreateFolderRequest>'
-                .'<folder name="name" view="task" f="f" color="1" rgb="#aabbcc" url="url" l="l" fie="1" sync="1">'
+                .'<folder name="name" view="task" f="f" color="10" rgb="#aabbcc" url="url" l="l" fie="true" sync="true">'
                     .'<acl>'
                         .'<grant perm="perm" gt="usr" zid="zid" d="d" args="args" pw="pw" key="key" />'
                     .'</acl>'
@@ -2127,12 +2127,12 @@ class RequestTest extends ZimbraTestCase
                     'name' => 'name',
                     'view' => 'task',
                     'f' => 'f',
-                    'color' => 1,
+                    'color' => 10,
                     'rgb' => '#aabbcc',
                     'url' => 'url',
                     'l' => 'l',
-                    'fie' => 1,
-                    'sync' => 1,
+                    'fie' => true,
+                    'sync' => true,
                     'acl' => array(
                         'grant' => array(
                             array(
@@ -2155,7 +2155,7 @@ class RequestTest extends ZimbraTestCase
     public function testCreateMountpoint()
     {
         $link = new \Zimbra\Mail\Struct\NewMountpointSpec(
-            'name', SearchType::TASK(), 'f', 1, '#aabbcc', 'url', 'l', true, true, 'zid', 'owner', 1, 'path'
+            'name', SearchType::TASK(), 'f', 10, '#aabbcc', 'url', 'l', true, true, 'zid', 'owner', 10, 'path'
         );
          $req = new \Zimbra\Mail\Request\CreateMountpoint(
             $link
@@ -2168,7 +2168,7 @@ class RequestTest extends ZimbraTestCase
 
         $xml = '<?xml version="1.0"?>'."\n"
             .'<CreateMountpointRequest>'
-                .'<link name="name" view="task" f="f" color="1" rgb="#aabbcc" url="url" l="l" fie="1" reminder="1" zid="zid" owner="owner" rid="1" path="path" />'
+                .'<link name="name" view="task" f="f" color="10" rgb="#aabbcc" url="url" l="l" fie="true" reminder="true" zid="zid" owner="owner" rid="10" path="path" />'
             .'</CreateMountpointRequest>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
@@ -2178,15 +2178,15 @@ class RequestTest extends ZimbraTestCase
                     'name' => 'name',
                     'view' => 'task',
                     'f' => 'f',
-                    'color' => 1,
+                    'color' => 10,
                     'rgb' => '#aabbcc',
                     'url' => 'url',
                     'l' => 'l',
-                    'fie' => 1,
-                    'reminder' => 1,
+                    'fie' => true,
+                    'reminder' => true,
                     'zid' => 'zid',
                     'owner' => 'owner',
-                    'rid' => 1,
+                    'rid' => 10,
                     'path' => 'path',
                 ),
             )
@@ -2197,7 +2197,7 @@ class RequestTest extends ZimbraTestCase
     public function testCreateNote()
     {
         $note = new \Zimbra\Mail\Struct\NewNoteSpec(
-            'l', 'content', 1, 'pos'
+            'l', 'content', 10, 'pos'
         );
          $req = new \Zimbra\Mail\Request\CreateNote(
             $note
@@ -2210,7 +2210,7 @@ class RequestTest extends ZimbraTestCase
 
         $xml = '<?xml version="1.0"?>'."\n"
             .'<CreateNoteRequest>'
-                .'<note l="l" content="content" color="1" pos="pos" />'
+                .'<note l="l" content="content" color="10" pos="pos" />'
             .'</CreateNoteRequest>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
@@ -2219,7 +2219,7 @@ class RequestTest extends ZimbraTestCase
                 'note' => array(
                     'l' => 'l',
                     'content' => 'content',
-                    'color' => 1,
+                    'color' => 10,
                     'pos' => 'pos',
                 ),
             )
@@ -2230,7 +2230,7 @@ class RequestTest extends ZimbraTestCase
     public function testCreateSearchFolder()
     {
         $search = new \Zimbra\Mail\Struct\NewSearchFolderSpec(
-            'name', 'query', 'types', 'sortBy', 'f', 1, 'l'
+            'name', 'query', 'types', 'sortBy', 'f', 10, 'l'
         );
         $req = new \Zimbra\Mail\Request\CreateSearchFolder(
             $search
@@ -2243,7 +2243,7 @@ class RequestTest extends ZimbraTestCase
 
         $xml = '<?xml version="1.0"?>'."\n"
             .'<CreateSearchFolderRequest>'
-                .'<search name="name" query="query" types="types" sortBy="sortBy" f="f" color="1" l="l" />'
+                .'<search name="name" query="query" types="types" sortBy="sortBy" f="f" color="10" l="l" />'
             .'</CreateSearchFolderRequest>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
@@ -2255,7 +2255,7 @@ class RequestTest extends ZimbraTestCase
                     'types' => 'types',
                     'sortBy' => 'sortBy',
                     'f' => 'f',
-                    'color' => 1,
+                    'color' => 10,
                     'l' => 'l',
                 ),
             )
@@ -2266,7 +2266,7 @@ class RequestTest extends ZimbraTestCase
     public function testCreateTag()
     {
         $tag = new \Zimbra\Mail\Struct\TagSpec(
-            'name', '#aabbcc', 1
+            'name', '#aabbcc', 10
         );
         $req = new \Zimbra\Mail\Request\CreateTag(
             $tag
@@ -2279,7 +2279,7 @@ class RequestTest extends ZimbraTestCase
 
         $xml = '<?xml version="1.0"?>'."\n"
             .'<CreateTagRequest>'
-                .'<tag name="name" rgb="#aabbcc" color="1" />'
+                .'<tag name="name" rgb="#aabbcc" color="10" />'
             .'</CreateTagRequest>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
@@ -2288,7 +2288,7 @@ class RequestTest extends ZimbraTestCase
                 'tag' => array(
                     'name' => 'name',
                     'rgb' => '#aabbcc',
-                    'color' => 1,
+                    'color' => 10,
                 ),
             )
         );
@@ -2300,37 +2300,37 @@ class RequestTest extends ZimbraTestCase
         $m = $this->getMsg();
 
         $req = new \Zimbra\Mail\Request\CreateTask(
-            $m, true, 1, true, true, true
+            $m, true, 10, true, true, true
         );
         $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
         $this->assertInstanceOf('Zimbra\Mail\Request\CreateAppointment', $req);
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<CreateTaskRequest echo="1" max="1" html="1" neuter="1" forcesend="1">'
+            .'<CreateTaskRequest echo="true" max="10" html="true" neuter="true" forcesend="true">'
                 .'<m aid="aid" origid="origid" rt="rt" idnt="idnt" su="su" irt="irt" l="l" f="f">'
                     .'<content>content</content>'
                     .'<mp ct="ct" content="content" ci="ci">'
                         .'<attach aid="aid">'
-                            .'<mp optional="1" mid="mid" part="part" />'
-                            .'<m optional="0" id="id" />'
-                            .'<cn optional="0" id="id" />'
-                            .'<doc optional="1" path="path" id="id" ver="1" />'
+                            .'<mp optional="true" mid="mid" part="part" />'
+                            .'<m optional="false" id="id" />'
+                            .'<cn optional="false" id="id" />'
+                            .'<doc optional="true" path="path" id="id" ver="10" />'
                         .'</attach>'
                         .'<mp ct="ct" content="content" ci="ci" />'
                     .'</mp>'
                     .'<attach aid="aid">'
-                        .'<mp optional="1" mid="mid" part="part" />'
-                        .'<m optional="0" id="id" />'
-                        .'<cn optional="0" id="id" />'
-                        .'<doc optional="1" path="path" id="id" ver="1" />'
+                        .'<mp optional="true" mid="mid" part="part" />'
+                        .'<m optional="false" id="id" />'
+                        .'<cn optional="false" id="id" />'
+                        .'<doc optional="true" path="path" id="id" ver="10" />'
                     .'</attach>'
-                    .'<inv method="method" compNum="1" rsvp="1" />'
+                    .'<inv method="method" compNum="10" rsvp="true" />'
                     .'<fr>fr</fr>'
                     .'<header name="name">value</header>'
                     .'<e a="a" t="t" p="p" />'
-                    .'<tz id="id" stdoff="1" dayoff="1" stdname="stdname" dayname="dayname">'
-                        .'<standard mon="1" hour="2" min="3" sec="4" />'
-                        .'<daylight mon="4" hour="3" min="2" sec="1" />'
+                    .'<tz id="id" stdoff="10" dayoff="10" stdname="stdname" dayname="dayname">'
+                        .'<standard mon="12" hour="2" min="3" sec="4" />'
+                        .'<daylight mon="4" hour="3" min="2" sec="10" />'
                     .'</tz>'
                 .'</m>'
             .'</CreateTaskRequest>';
@@ -2338,11 +2338,11 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'CreateTaskRequest' => array(
-                'echo' => 1,
-                'max' => 1,
-                'html' => 1,
-                'neuter' => 1,
-                'forcesend' => 1,
+                'echo' => true,
+                'max' => 10,
+                'html' => true,
+                'neuter' => true,
+                'forcesend' => true,
                 'm' => array(
                     'aid' => 'aid',
                     'origid' => 'origid',
@@ -2375,21 +2375,21 @@ class RequestTest extends ZimbraTestCase
                             'mp' => array(
                                 'mid' => 'mid',
                                 'part' => 'part',
-                                'optional' => 1,
+                                'optional' => true,
                             ),
                             'm' => array(
                                 'id' => 'id',
-                                'optional' => 0,
+                                'optional' => false,
                             ),
                             'cn' => array(
                                 'id' => 'id',
-                                'optional' => 0,
+                                'optional' => false,
                             ),
                             'doc' => array(
                                 'path' => 'path',
                                 'id' => 'id',
-                                'ver' => 1,
-                                'optional' => 1,
+                                'ver' => 10,
+                                'optional' => true,
                             ),
                         ),
                     ),
@@ -2398,27 +2398,27 @@ class RequestTest extends ZimbraTestCase
                         'mp' => array(
                             'mid' => 'mid',
                             'part' => 'part',
-                            'optional' => 1,
+                            'optional' => true,
                         ),
                         'm' => array(
                             'id' => 'id',
-                            'optional' => 0,
+                            'optional' => false,
                         ),
                         'cn' => array(
                             'id' => 'id',
-                            'optional' => 0,
+                            'optional' => false,
                         ),
                         'doc' => array(
                             'path' => 'path',
                             'id' => 'id',
-                            'ver' => 1,
-                            'optional' => 1,
+                            'ver' => 10,
+                            'optional' => true,
                         ),
                     ),
                     'inv' => array(
                         'method' => 'method',
-                        'compNum' => 1,
-                        'rsvp' => 1,
+                        'compNum' => 10,
+                        'rsvp' => true,
                     ),
                     'e' => array(
                         array(
@@ -2430,12 +2430,12 @@ class RequestTest extends ZimbraTestCase
                     'tz' => array(
                         array(
                             'id' => 'id',
-                            'stdoff' => 1,
-                            'dayoff' => 1,
+                            'stdoff' => 10,
+                            'dayoff' => 10,
                             'stdname' => 'stdname',
                             'dayname' => 'dayname',
                             'standard' => array(
-                                'mon' => 1,
+                                'mon' => 12,
                                 'hour' => 2,
                                 'min' => 3,
                                 'sec' => 4,
@@ -2444,7 +2444,7 @@ class RequestTest extends ZimbraTestCase
                                 'mon' => 4,
                                 'hour' => 3,
                                 'min' => 2,
-                                'sec' => 1,
+                                'sec' => 10,
                             ),
                         ),
                     ),
@@ -2460,37 +2460,37 @@ class RequestTest extends ZimbraTestCase
         $m = $this->getMsg();
 
         $req = new \Zimbra\Mail\Request\CreateTaskException(
-            $m, 'id', 1, 1, 1, true, 1, true, true, true
+            $m, 'id', 10, 10, 10, true, 10, true, true, true
         );
         $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
         $this->assertInstanceOf('Zimbra\Mail\Request\CreateAppointmentException', $req);
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<CreateTaskExceptionRequest id="id" comp="1" ms="1" rev="1" echo="1" max="1" html="1" neuter="1" forcesend="1">'
+            .'<CreateTaskExceptionRequest id="id" comp="10" ms="10" rev="10" echo="true" max="10" html="true" neuter="true" forcesend="true">'
                 .'<m aid="aid" origid="origid" rt="rt" idnt="idnt" su="su" irt="irt" l="l" f="f">'
                     .'<content>content</content>'
                     .'<mp ct="ct" content="content" ci="ci">'
                         .'<attach aid="aid">'
-                            .'<mp optional="1" mid="mid" part="part" />'
-                            .'<m optional="0" id="id" />'
-                            .'<cn optional="0" id="id" />'
-                            .'<doc optional="1" path="path" id="id" ver="1" />'
+                            .'<mp optional="true" mid="mid" part="part" />'
+                            .'<m optional="false" id="id" />'
+                            .'<cn optional="false" id="id" />'
+                            .'<doc optional="true" path="path" id="id" ver="10" />'
                         .'</attach>'
                         .'<mp ct="ct" content="content" ci="ci" />'
                     .'</mp>'
                     .'<attach aid="aid">'
-                        .'<mp optional="1" mid="mid" part="part" />'
-                        .'<m optional="0" id="id" />'
-                        .'<cn optional="0" id="id" />'
-                        .'<doc optional="1" path="path" id="id" ver="1" />'
+                        .'<mp optional="true" mid="mid" part="part" />'
+                        .'<m optional="false" id="id" />'
+                        .'<cn optional="false" id="id" />'
+                        .'<doc optional="true" path="path" id="id" ver="10" />'
                     .'</attach>'
-                    .'<inv method="method" compNum="1" rsvp="1" />'
+                    .'<inv method="method" compNum="10" rsvp="true" />'
                     .'<fr>fr</fr>'
                     .'<header name="name">value</header>'
                     .'<e a="a" t="t" p="p" />'
-                    .'<tz id="id" stdoff="1" dayoff="1" stdname="stdname" dayname="dayname">'
-                        .'<standard mon="1" hour="2" min="3" sec="4" />'
-                        .'<daylight mon="4" hour="3" min="2" sec="1" />'
+                    .'<tz id="id" stdoff="10" dayoff="10" stdname="stdname" dayname="dayname">'
+                        .'<standard mon="12" hour="2" min="3" sec="4" />'
+                        .'<daylight mon="4" hour="3" min="2" sec="10" />'
                     .'</tz>'
                 .'</m>'
             .'</CreateTaskExceptionRequest>';
@@ -2499,14 +2499,14 @@ class RequestTest extends ZimbraTestCase
         $array = array(
             'CreateTaskExceptionRequest' => array(
                 'id' => 'id',
-                'comp' => 1,
-                'ms' => 1,
-                'rev' => 1,
-                'echo' => 1,
-                'max' => 1,
-                'html' => 1,
-                'neuter' => 1,
-                'forcesend' => 1,
+                'comp' => 10,
+                'ms' => 10,
+                'rev' => 10,
+                'echo' => true,
+                'max' => 10,
+                'html' => true,
+                'neuter' => true,
+                'forcesend' => true,
                 'm' => array(
                     'aid' => 'aid',
                     'origid' => 'origid',
@@ -2539,21 +2539,21 @@ class RequestTest extends ZimbraTestCase
                             'mp' => array(
                                 'mid' => 'mid',
                                 'part' => 'part',
-                                'optional' => 1,
+                                'optional' => true,
                             ),
                             'm' => array(
                                 'id' => 'id',
-                                'optional' => 0,
+                                'optional' => false,
                             ),
                             'cn' => array(
                                 'id' => 'id',
-                                'optional' => 0,
+                                'optional' => false,
                             ),
                             'doc' => array(
                                 'path' => 'path',
                                 'id' => 'id',
-                                'ver' => 1,
-                                'optional' => 1,
+                                'ver' => 10,
+                                'optional' => true,
                             ),
                         ),
                     ),
@@ -2562,27 +2562,27 @@ class RequestTest extends ZimbraTestCase
                         'mp' => array(
                             'mid' => 'mid',
                             'part' => 'part',
-                            'optional' => 1,
+                            'optional' => true,
                         ),
                         'm' => array(
                             'id' => 'id',
-                            'optional' => 0,
+                            'optional' => false,
                         ),
                         'cn' => array(
                             'id' => 'id',
-                            'optional' => 0,
+                            'optional' => false,
                         ),
                         'doc' => array(
                             'path' => 'path',
                             'id' => 'id',
-                            'ver' => 1,
-                            'optional' => 1,
+                            'ver' => 10,
+                            'optional' => true,
                         ),
                     ),
                     'inv' => array(
                         'method' => 'method',
-                        'compNum' => 1,
-                        'rsvp' => 1,
+                        'compNum' => 10,
+                        'rsvp' => true,
                     ),
                     'e' => array(
                         array(
@@ -2594,12 +2594,12 @@ class RequestTest extends ZimbraTestCase
                     'tz' => array(
                         array(
                             'id' => 'id',
-                            'stdoff' => 1,
-                            'dayoff' => 1,
+                            'stdoff' => 10,
+                            'dayoff' => 10,
                             'stdname' => 'stdname',
                             'dayname' => 'dayname',
                             'standard' => array(
-                                'mon' => 1,
+                                'mon' => 12,
                                 'hour' => 2,
                                 'min' => 3,
                                 'sec' => 4,
@@ -2608,7 +2608,7 @@ class RequestTest extends ZimbraTestCase
                                 'mon' => 4,
                                 'hour' => 3,
                                 'min' => 2,
-                                'sec' => 1,
+                                'sec' => 10,
                             ),
                         ),
                     ),
@@ -2644,7 +2644,7 @@ class RequestTest extends ZimbraTestCase
         );
         $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<CreateWaitSetRequest defTypes="f" allAccounts="1">'
+            .'<CreateWaitSetRequest defTypes="f" allAccounts="true">'
                 .'<add>'
                     .'<a name="name" id="id" token="token" types="f" />'
                 .'</add>'
@@ -2654,7 +2654,7 @@ class RequestTest extends ZimbraTestCase
         $array = array(
             'CreateWaitSetRequest' => array(
                 'defTypes' => 'f',
-                'allAccounts' => 1,
+                'allAccounts' => true,
                 'add' => array(
                     'a' => array(
                         array(
@@ -2688,26 +2688,26 @@ class RequestTest extends ZimbraTestCase
                     .'<content>content</content>'
                     .'<mp ct="ct" content="content" ci="ci">'
                         .'<attach aid="aid">'
-                            .'<mp optional="1" mid="mid" part="part" />'
-                            .'<m optional="0" id="id" />'
-                            .'<cn optional="0" id="id" />'
-                            .'<doc optional="1" path="path" id="id" ver="1" />'
+                            .'<mp optional="true" mid="mid" part="part" />'
+                            .'<m optional="false" id="id" />'
+                            .'<cn optional="false" id="id" />'
+                            .'<doc optional="true" path="path" id="id" ver="10" />'
                         .'</attach>'
                         .'<mp ct="ct" content="content" ci="ci" />'
                     .'</mp>'
                     .'<attach aid="aid">'
-                        .'<mp optional="1" mid="mid" part="part" />'
-                        .'<m optional="0" id="id" />'
-                        .'<cn optional="0" id="id" />'
-                        .'<doc optional="1" path="path" id="id" ver="1" />'
+                        .'<mp optional="true" mid="mid" part="part" />'
+                        .'<m optional="false" id="id" />'
+                        .'<cn optional="false" id="id" />'
+                        .'<doc optional="true" path="path" id="id" ver="10" />'
                     .'</attach>'
-                    .'<inv method="method" compNum="1" rsvp="1" />'
+                    .'<inv method="method" compNum="10" rsvp="true" />'
                     .'<fr>fr</fr>'
                     .'<header name="name">value</header>'
                     .'<e a="a" t="t" p="p" />'
-                    .'<tz id="id" stdoff="1" dayoff="1" stdname="stdname" dayname="dayname">'
-                        .'<standard mon="1" hour="2" min="3" sec="4" />'
-                        .'<daylight mon="4" hour="3" min="2" sec="1" />'
+                    .'<tz id="id" stdoff="10" dayoff="10" stdname="stdname" dayname="dayname">'
+                        .'<standard mon="12" hour="2" min="3" sec="4" />'
+                        .'<daylight mon="4" hour="3" min="2" sec="10" />'
                     .'</tz>'
                 .'</m>'
             .'</DeclineCounterAppointmentRequest>';
@@ -2747,21 +2747,21 @@ class RequestTest extends ZimbraTestCase
                             'mp' => array(
                                 'mid' => 'mid',
                                 'part' => 'part',
-                                'optional' => 1,
+                                'optional' => true,
                             ),
                             'm' => array(
                                 'id' => 'id',
-                                'optional' => 0,
+                                'optional' => false,
                             ),
                             'cn' => array(
                                 'id' => 'id',
-                                'optional' => 0,
+                                'optional' => false,
                             ),
                             'doc' => array(
                                 'path' => 'path',
                                 'id' => 'id',
-                                'ver' => 1,
-                                'optional' => 1,
+                                'ver' => 10,
+                                'optional' => true,
                             ),
                         ),
                     ),
@@ -2770,27 +2770,27 @@ class RequestTest extends ZimbraTestCase
                         'mp' => array(
                             'mid' => 'mid',
                             'part' => 'part',
-                            'optional' => 1,
+                            'optional' => true,
                         ),
                         'm' => array(
                             'id' => 'id',
-                            'optional' => 0,
+                            'optional' => false,
                         ),
                         'cn' => array(
                             'id' => 'id',
-                            'optional' => 0,
+                            'optional' => false,
                         ),
                         'doc' => array(
                             'path' => 'path',
                             'id' => 'id',
-                            'ver' => 1,
-                            'optional' => 1,
+                            'ver' => 10,
+                            'optional' => true,
                         ),
                     ),
                     'inv' => array(
                         'method' => 'method',
-                        'compNum' => 1,
-                        'rsvp' => 1,
+                        'compNum' => 10,
+                        'rsvp' => true,
                     ),
                     'e' => array(
                         array(
@@ -2802,12 +2802,12 @@ class RequestTest extends ZimbraTestCase
                     'tz' => array(
                         array(
                             'id' => 'id',
-                            'stdoff' => 1,
-                            'dayoff' => 1,
+                            'stdoff' => 10,
+                            'dayoff' => 10,
                             'stdname' => 'stdname',
                             'dayname' => 'dayname',
                             'standard' => array(
-                                'mon' => 1,
+                                'mon' => 12,
                                 'hour' => 2,
                                 'min' => 3,
                                 'sec' => 4,
@@ -2816,7 +2816,7 @@ class RequestTest extends ZimbraTestCase
                                 'mon' => 4,
                                 'hour' => 3,
                                 'min' => 2,
-                                'sec' => 1,
+                                'sec' => 10,
                             ),
                         ),
                     ),
@@ -2973,7 +2973,7 @@ class RequestTest extends ZimbraTestCase
 
     public function testDiffDocument()
     {
-        $doc = new \Zimbra\Mail\Struct\DiffDocumentVersionSpec('id', 1, 2);
+        $doc = new \Zimbra\Mail\Struct\DiffDocumentVersionSpec('id', 3, 2);
         $req = new \Zimbra\Mail\Request\DiffDocument(
             $doc
         );
@@ -2985,7 +2985,7 @@ class RequestTest extends ZimbraTestCase
 
         $xml = '<?xml version="1.0"?>'."\n"
             .'<DiffDocumentRequest>'
-                .'<doc id="id" v1="1" v2="2" />'
+                .'<doc id="id" v1="3" v2="2" />'
             .'</DiffDocumentRequest>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
@@ -2993,7 +2993,7 @@ class RequestTest extends ZimbraTestCase
             'DiffDocumentRequest' => array(
                 'doc' => array(
                     'id' => 'id',
-                    'v1' => 1,
+                    'v1' => 3,
                     'v2' => 2,
                 ),
             )
@@ -3003,8 +3003,8 @@ class RequestTest extends ZimbraTestCase
 
     public function testDismissCalendarItemAlarm()
     {
-        $appt = new \Zimbra\Mail\Struct\DismissAppointmentAlarm('id', 1);
-        $task = new \Zimbra\Mail\Struct\DismissTaskAlarm('id', 1);
+        $appt = new \Zimbra\Mail\Struct\DismissAppointmentAlarm('id', 10);
+        $task = new \Zimbra\Mail\Struct\DismissTaskAlarm('id', 10);
         $req = new \Zimbra\Mail\Request\DismissCalendarItemAlarm(
             $appt, $task
         );
@@ -3019,8 +3019,8 @@ class RequestTest extends ZimbraTestCase
 
         $xml = '<?xml version="1.0"?>'."\n"
             .'<DismissCalendarItemAlarmRequest>'
-                .'<appt id="id" dismissedAt="1" />'
-                .'<task id="id" dismissedAt="1" />'
+                .'<appt id="id" dismissedAt="10" />'
+                .'<task id="id" dismissedAt="10" />'
             .'</DismissCalendarItemAlarmRequest>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
@@ -3028,11 +3028,11 @@ class RequestTest extends ZimbraTestCase
             'DismissCalendarItemAlarmRequest' => array(
                 'appt' => array(
                     'id' => 'id',
-                    'dismissedAt' => 1,
+                    'dismissedAt' => 10,
                 ),
                 'task' => array(
                     'id' => 'id',
-                    'dismissedAt' => 1,
+                    'dismissedAt' => 10,
                 ),
             )
         );
@@ -3042,10 +3042,10 @@ class RequestTest extends ZimbraTestCase
     public function testDocumentAction()
     {
         $grant = new \Zimbra\Mail\Struct\DocumentActionGrant(
-            DocumentPermission::READ(), DocumentGrantType::ALL(), 1
+            DocumentPermission::READ(), DocumentGrantType::ALL(), 10
         );
         $action = new \Zimbra\Mail\Struct\DocumentActionSelector(
-            DocumentActionOp::WATCH(), $grant, 'zid', 'id', 'tcon', 1, 'l', '#aabbcc', 1, 'name', 'f', 't', 'tn'
+            DocumentActionOp::WATCH(), $grant, 'zid', 'id', 'tcon', 10, 'l', '#aabbcc', 10, 'name', 'f', 't', 'tn'
         );
         $req = new \Zimbra\Mail\Request\DocumentAction(
             $action
@@ -3058,8 +3058,8 @@ class RequestTest extends ZimbraTestCase
 
         $xml = '<?xml version="1.0"?>'."\n"
             .'<DocumentActionRequest>'
-                .'<action op="watch" id="id" tcon="tcon" tag="1" l="l" rgb="#aabbcc" color="1" name="name" f="f" t="t" tn="tn" zid="zid">'
-                    .'<grant perm="r" gt="all" expiry="1" />'
+                .'<action op="watch" id="id" tcon="tcon" tag="10" l="l" rgb="#aabbcc" color="10" name="name" f="f" t="t" tn="tn" zid="zid">'
+                    .'<grant perm="r" gt="all" expiry="10" />'
                 .'</action>'
             .'</DocumentActionRequest>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
@@ -3070,10 +3070,10 @@ class RequestTest extends ZimbraTestCase
                     'op' => 'watch',
                     'id' => 'id',
                     'tcon' => 'tcon',
-                    'tag' => 1,
+                    'tag' => 10,
                     'l' => 'l',
                     'rgb' => '#aabbcc',
-                    'color' => 1,
+                    'color' => 10,
                     'name' => 'name',
                     'f' => 'f',
                     't' => 't',
@@ -3082,7 +3082,7 @@ class RequestTest extends ZimbraTestCase
                     'grant' => array(
                         'perm' => 'r',
                         'gt' => 'all',
-                        'expiry' => 1,
+                        'expiry' => 10,
                     ),
                 ),
             )
@@ -3121,7 +3121,7 @@ class RequestTest extends ZimbraTestCase
 
         $xml = '<?xml version="1.0"?>'."\n"
             .'<EnableSharedReminderRequest>'
-                .'<link id="id" reminder="1" />'
+                .'<link id="id" reminder="true" />'
             .'</EnableSharedReminderRequest>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
@@ -3129,7 +3129,7 @@ class RequestTest extends ZimbraTestCase
             'EnableSharedReminderRequest' => array(
                 'link' => array(
                     'id' => 'id',
-                    'reminder' => 1,
+                    'reminder' => true,
                 ),
             )
         );
@@ -3141,89 +3141,89 @@ class RequestTest extends ZimbraTestCase
         $exceptId = new \Zimbra\Mail\Struct\InstanceRecurIdInfo(
             'range', '20130315T18302305Z', 'tz'
         );
-        $dur = new \Zimbra\Mail\Struct\DurationInfo(true, 1, 2, 3, 4, 5, 'START', 6);
+        $dur = new \Zimbra\Mail\Struct\DurationInfo(true, 7, 2, 3, 4, 5, 'START', 6);
         $recur = new \Zimbra\Mail\Struct\RecurrenceInfo;
 
         $tz = $this->getTz();
         $cancel = new \Zimbra\Mail\Struct\ExpandedRecurrenceCancel(
-            $exceptId, $dur, $recur, 1, 1
+            $exceptId, $dur, $recur, 10, 10
         );
         $comp = new \Zimbra\Mail\Struct\ExpandedRecurrenceInvite(
-            $exceptId, $dur, $recur, 1, 1
+            $exceptId, $dur, $recur, 10, 10
         );
         $except = new \Zimbra\Mail\Struct\ExpandedRecurrenceException(
-            $exceptId, $dur, $recur, 1, 1
+            $exceptId, $dur, $recur, 10, 10
         );
         $usr = new \Zimbra\Mail\Struct\FreeBusyUserSpec(
-            1, 'id', 'name'
+            10, 'id', 'name'
         );
 
         $req = new \Zimbra\Mail\Request\ExpandRecur(
-            1, 1, array($tz), $comp, $except, $cancel
+            10, 10, array($tz), $comp, $except, $cancel
         );
         $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
-        $this->assertSame(1, $req->s());
-        $this->assertSame(1, $req->e());
+        $this->assertSame(10, $req->s());
+        $this->assertSame(10, $req->e());
         $this->assertSame(array($tz), $req->tz()->all());
         $this->assertSame($comp, $req->comp());
         $this->assertSame($except, $req->except());
         $this->assertSame($cancel, $req->cancel());
 
-        $req->s(1)
-            ->e(1)
+        $req->s(10)
+            ->e(10)
             ->addTz($tz)
             ->comp($comp)
             ->except($except)
             ->cancel($cancel);
-        $this->assertSame(1, $req->s());
-        $this->assertSame(1, $req->e());
+        $this->assertSame(10, $req->s());
+        $this->assertSame(10, $req->e());
         $this->assertSame(array($tz, $tz), $req->tz()->all());
         $this->assertSame($comp, $req->comp());
         $this->assertSame($except, $req->except());
         $this->assertSame($cancel, $req->cancel());
 
         $req = new \Zimbra\Mail\Request\ExpandRecur(
-            1, 1, array($tz), $comp, $except, $cancel
+            10, 10, array($tz), $comp, $except, $cancel
         );
         $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<ExpandRecurRequest s="1" e="1">'
-                .'<comp s="1" e="1">'
+            .'<ExpandRecurRequest s="10" e="10">'
+                .'<comp s="10" e="10">'
                     .'<exceptId range="range" d="20130315T18302305Z" tz="tz" />'
-                    .'<dur neg="1" w="1" d="2" h="3" m="4" s="5" related="START" count="6" />'
+                    .'<dur neg="true" w="7" d="2" h="3" m="4" s="5" related="START" count="6" />'
                     .'<recur />'
                 .'</comp>'
-                .'<except s="1" e="1">'
+                .'<except s="10" e="10">'
                     .'<exceptId range="range" d="20130315T18302305Z" tz="tz" />'
-                    .'<dur neg="1" w="1" d="2" h="3" m="4" s="5" related="START" count="6" />'
+                    .'<dur neg="true" w="7" d="2" h="3" m="4" s="5" related="START" count="6" />'
                     .'<recur />'
                 .'</except>'
-                .'<cancel s="1" e="1">'
+                .'<cancel s="10" e="10">'
                     .'<exceptId range="range" d="20130315T18302305Z" tz="tz" />'
-                    .'<dur neg="1" w="1" d="2" h="3" m="4" s="5" related="START" count="6" />'
+                    .'<dur neg="true" w="7" d="2" h="3" m="4" s="5" related="START" count="6" />'
                     .'<recur />'
                 .'</cancel>'
-                .'<tz id="id" stdoff="1" dayoff="1" stdname="stdname" dayname="dayname">'
-                    .'<standard mon="1" hour="2" min="3" sec="4" />'
-                    .'<daylight mon="4" hour="3" min="2" sec="1" />'
+                .'<tz id="id" stdoff="10" dayoff="10" stdname="stdname" dayname="dayname">'
+                    .'<standard mon="12" hour="2" min="3" sec="4" />'
+                    .'<daylight mon="4" hour="3" min="2" sec="10" />'
                 .'</tz>'
             .'</ExpandRecurRequest>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
         $array = array(
             'ExpandRecurRequest' => array(
-                's' => 1,
-                'e' => 1,
+                's' => 10,
+                'e' => 10,
                 'tz' => array(
                     array(
                         'id' => 'id',
-                        'stdoff' => 1,
-                        'dayoff' => 1,
+                        'stdoff' => 10,
+                        'dayoff' => 10,
                         'stdname' => 'stdname',
                         'dayname' => 'dayname',
                         'standard' => array(
-                            'mon' => 1,
+                            'mon' => 12,
                             'hour' => 2,
                             'min' => 3,
                             'sec' => 4,
@@ -3232,21 +3232,21 @@ class RequestTest extends ZimbraTestCase
                             'mon' => 4,
                             'hour' => 3,
                             'min' => 2,
-                            'sec' => 1,
+                            'sec' => 10,
                         ),
                     ),
                 ),
                 'comp' => array(
-                    's' => 1,
-                    'e' => 1,
+                    's' => 10,
+                    'e' => 10,
                     'exceptId' => array(
                         'range' => 'range',
                         'd' => '20130315T18302305Z',
                         'tz' => 'tz',
                     ),
                     'dur' => array(
-                        'neg' => 1,
-                        'w' => 1,
+                        'neg' => true,
+                        'w' => 7,
                         'd' => 2,
                         'h' => 3,
                         'm' => 4,
@@ -3257,16 +3257,16 @@ class RequestTest extends ZimbraTestCase
                     'recur' => array(),
                 ),
                 'except' => array(
-                    's' => 1,
-                    'e' => 1,
+                    's' => 10,
+                    'e' => 10,
                     'exceptId' => array(
                         'range' => 'range',
                         'd' => '20130315T18302305Z',
                         'tz' => 'tz',
                     ),
                     'dur' => array(
-                        'neg' => 1,
-                        'w' => 1,
+                        'neg' => true,
+                        'w' => 7,
                         'd' => 2,
                         'h' => 3,
                         'm' => 4,
@@ -3277,16 +3277,16 @@ class RequestTest extends ZimbraTestCase
                     'recur' => array(),
                 ),
                 'cancel' => array(
-                    's' => 1,
-                    'e' => 1,
+                    's' => 10,
+                    'e' => 10,
                     'exceptId' => array(
                         'range' => 'range',
                         'd' => '20130315T18302305Z',
                         'tz' => 'tz',
                     ),
                     'dur' => array(
-                        'neg' => 1,
-                        'w' => 1,
+                        'neg' => true,
+                        'w' => 7,
                         'd' => 2,
                         'h' => 3,
                         'm' => 4,
@@ -3364,10 +3364,10 @@ class RequestTest extends ZimbraTestCase
             FolderActionOp::READ(),
             'id',
             'tcon',
-            1,
+            10,
             'l',
             '#aabbcc',
-            1,
+            10,
             'name',
             'f',
             't',
@@ -3393,7 +3393,7 @@ class RequestTest extends ZimbraTestCase
 
         $xml = '<?xml version="1.0"?>'."\n"
             .'<FolderActionRequest>'
-                .'<action op="read" id="id" tcon="tcon" tag="1" l="l" rgb="#aabbcc" color="1" name="name" f="f" t="t" tn="tn" recursive="1" url="url" excludeFreeBusy="1" zid="zid" gt="gt" view="view">'
+                .'<action op="read" id="id" tcon="tcon" tag="10" l="l" rgb="#aabbcc" color="10" name="name" f="f" t="t" tn="tn" recursive="true" url="url" excludeFreeBusy="true" zid="zid" gt="gt" view="view">'
                     .'<grant perm="perm" gt="usr" zid="zid" d="d" args="args" pw="pw" key="key" />'
                     .'<acl>'
                         .'<grant perm="perm" gt="usr" zid="zid" d="d" args="args" pw="pw" key="key" />'
@@ -3416,17 +3416,17 @@ class RequestTest extends ZimbraTestCase
                     'op' => 'read',
                     'id' => 'id',
                     'tcon' => 'tcon',
-                    'tag' => 1,
+                    'tag' => 10,
                     'l' => 'l',
                     'rgb' => '#aabbcc',
-                    'color' => 1,
+                    'color' => 10,
                     'name' => 'name',
                     'f' => 'f',
                     't' => 't',
                     'tn' => 'tn',
-                    'recursive' => 1,
+                    'recursive' => true,
                     'url' => 'url',
-                    'excludeFreeBusy' => 1,
+                    'excludeFreeBusy' => true,
                     'zid' => 'zid',
                     'gt' => 'gt',
                     'view' => 'view',
@@ -3509,34 +3509,34 @@ class RequestTest extends ZimbraTestCase
         $xml = '<?xml version="1.0"?>'."\n"
             .'<ForwardAppointmentRequest id="id">'
                 .'<exceptId d="20120315T18302305Z" tz="tz" u="1000" />'
-                .'<tz id="id" stdoff="1" dayoff="1" stdname="stdname" dayname="dayname">'
-                    .'<standard mon="1" hour="2" min="3" sec="4" />'
-                    .'<daylight mon="4" hour="3" min="2" sec="1" />'
+                .'<tz id="id" stdoff="10" dayoff="10" stdname="stdname" dayname="dayname">'
+                    .'<standard mon="12" hour="2" min="3" sec="4" />'
+                    .'<daylight mon="4" hour="3" min="2" sec="10" />'
                 .'</tz>'
                 .'<m aid="aid" origid="origid" rt="rt" idnt="idnt" su="su" irt="irt" l="l" f="f">'
                     .'<content>content</content>'
                     .'<mp ct="ct" content="content" ci="ci">'
                         .'<attach aid="aid">'
-                            .'<mp optional="1" mid="mid" part="part" />'
-                            .'<m optional="0" id="id" />'
-                            .'<cn id="id" optional="0" />'
-                            .'<doc optional="1" path="path" id="id" ver="1" />'
+                            .'<mp optional="true" mid="mid" part="part" />'
+                            .'<m optional="false" id="id" />'
+                            .'<cn id="id" optional="false" />'
+                            .'<doc optional="true" path="path" id="id" ver="10" />'
                         .'</attach>'
                         .'<mp ct="ct" content="content" ci="ci" />'
                     .'</mp>'
                     .'<attach aid="aid">'
-                        .'<mp optional="1" mid="mid" part="part" />'
-                        .'<m optional="0" id="id" />'
-                        .'<cn id="id" optional="0" />'
-                        .'<doc optional="1" path="path" id="id" ver="1" />'
+                        .'<mp optional="true" mid="mid" part="part" />'
+                        .'<m optional="false" id="id" />'
+                        .'<cn id="id" optional="false" />'
+                        .'<doc optional="true" path="path" id="id" ver="10" />'
                     .'</attach>'
-                    .'<inv method="method" compNum="1" rsvp="1" />'
+                    .'<inv method="method" compNum="10" rsvp="true" />'
                     .'<fr>fr</fr>'
                     .'<header name="name">value</header>'
                     .'<e a="a" t="t" p="p" />'
-                    .'<tz id="id" stdoff="1" dayoff="1" stdname="stdname" dayname="dayname">'
-                        .'<standard mon="1" hour="2" min="3" sec="4" />'
-                        .'<daylight mon="4" hour="3" min="2" sec="1" />'
+                    .'<tz id="id" stdoff="10" dayoff="10" stdname="stdname" dayname="dayname">'
+                        .'<standard mon="12" hour="2" min="3" sec="4" />'
+                        .'<daylight mon="4" hour="3" min="2" sec="10" />'
                     .'</tz>'
                 .'</m>'
             .'</ForwardAppointmentRequest>';
@@ -3552,12 +3552,12 @@ class RequestTest extends ZimbraTestCase
                 ),
                 'tz' => array(
                     'id' => 'id',
-                    'stdoff' => 1,
-                    'dayoff' => 1,
+                    'stdoff' => 10,
+                    'dayoff' => 10,
                     'stdname' => 'stdname',
                     'dayname' => 'dayname',
                     'standard' => array(
-                        'mon' => 1,
+                        'mon' => 12,
                         'hour' => 2,
                         'min' => 3,
                         'sec' => 4,
@@ -3566,7 +3566,7 @@ class RequestTest extends ZimbraTestCase
                         'mon' => 4,
                         'hour' => 3,
                         'min' => 2,
-                        'sec' => 1,
+                        'sec' => 10,
                     ),
                 ),
                 'm' => array(
@@ -3601,21 +3601,21 @@ class RequestTest extends ZimbraTestCase
                             'mp' => array(
                                 'mid' => 'mid',
                                 'part' => 'part',
-                                'optional' => 1,
+                                'optional' => true,
                             ),
                             'm' => array(
                                 'id' => 'id',
-                                'optional' => 0,
+                                'optional' => false,
                             ),
                             'cn' => array(
                                 'id' => 'id',
-                                'optional' => 0,
+                                'optional' => false,
                             ),
                             'doc' => array(
                                 'path' => 'path',
                                 'id' => 'id',
-                                'ver' => 1,
-                                'optional' => 1,
+                                'ver' => 10,
+                                'optional' => true,
                             ),
                         ),
                     ),
@@ -3624,27 +3624,27 @@ class RequestTest extends ZimbraTestCase
                         'mp' => array(
                             'mid' => 'mid',
                             'part' => 'part',
-                            'optional' => 1,
+                            'optional' => true,
                         ),
                         'm' => array(
                             'id' => 'id',
-                            'optional' => 0,
+                            'optional' => false,
                         ),
                         'cn' => array(
                             'id' => 'id',
-                            'optional' => 0,
+                            'optional' => false,
                         ),
                         'doc' => array(
                             'path' => 'path',
                             'id' => 'id',
-                            'ver' => 1,
-                            'optional' => 1,
+                            'ver' => 10,
+                            'optional' => true,
                         ),
                     ),
                     'inv' => array(
                         'method' => 'method',
-                        'compNum' => 1,
-                        'rsvp' => 1,
+                        'compNum' => 10,
+                        'rsvp' => true,
                     ),
                     'e' => array(
                         array(
@@ -3656,12 +3656,12 @@ class RequestTest extends ZimbraTestCase
                     'tz' => array(
                         array(
                             'id' => 'id',
-                            'stdoff' => 1,
-                            'dayoff' => 1,
+                            'stdoff' => 10,
+                            'dayoff' => 10,
                             'stdname' => 'stdname',
                             'dayname' => 'dayname',
                             'standard' => array(
-                                'mon' => 1,
+                                'mon' => 12,
                                 'hour' => 2,
                                 'min' => 3,
                                 'sec' => 4,
@@ -3670,7 +3670,7 @@ class RequestTest extends ZimbraTestCase
                                 'mon' => 4,
                                 'hour' => 3,
                                 'min' => 2,
-                                'sec' => 1,
+                                'sec' => 10,
                             ),
                         ),
                     ),
@@ -3703,26 +3703,26 @@ class RequestTest extends ZimbraTestCase
                     .'<content>content</content>'
                     .'<mp ct="ct" content="content" ci="ci">'
                         .'<attach aid="aid">'
-                            .'<mp optional="1" mid="mid" part="part" />'
-                            .'<m optional="0" id="id" />'
-                            .'<cn id="id" optional="0" />'
-                            .'<doc optional="1" path="path" id="id" ver="1" />'
+                            .'<mp optional="true" mid="mid" part="part" />'
+                            .'<m optional="false" id="id" />'
+                            .'<cn id="id" optional="false" />'
+                            .'<doc optional="true" path="path" id="id" ver="10" />'
                         .'</attach>'
                         .'<mp ct="ct" content="content" ci="ci" />'
                     .'</mp>'
                     .'<attach aid="aid">'
-                        .'<mp optional="1" mid="mid" part="part" />'
-                        .'<m optional="0" id="id" />'
-                        .'<cn id="id" optional="0" />'
-                        .'<doc optional="1" path="path" id="id" ver="1" />'
+                        .'<mp optional="true" mid="mid" part="part" />'
+                        .'<m optional="false" id="id" />'
+                        .'<cn id="id" optional="false" />'
+                        .'<doc optional="true" path="path" id="id" ver="10" />'
                     .'</attach>'
-                    .'<inv method="method" compNum="1" rsvp="1" />'
+                    .'<inv method="method" compNum="10" rsvp="true" />'
                     .'<fr>fr</fr>'
                     .'<header name="name">value</header>'
                     .'<e a="a" t="t" p="p" />'
-                    .'<tz id="id" stdoff="1" dayoff="1" stdname="stdname" dayname="dayname">'
-                        .'<standard mon="1" hour="2" min="3" sec="4" />'
-                        .'<daylight mon="4" hour="3" min="2" sec="1" />'
+                    .'<tz id="id" stdoff="10" dayoff="10" stdname="stdname" dayname="dayname">'
+                        .'<standard mon="12" hour="2" min="3" sec="4" />'
+                        .'<daylight mon="4" hour="3" min="2" sec="10" />'
                     .'</tz>'
                 .'</m>'
             .'</ForwardAppointmentInviteRequest>';
@@ -3763,21 +3763,21 @@ class RequestTest extends ZimbraTestCase
                             'mp' => array(
                                 'mid' => 'mid',
                                 'part' => 'part',
-                                'optional' => 1,
+                                'optional' => true,
                             ),
                             'm' => array(
                                 'id' => 'id',
-                                'optional' => 0,
+                                'optional' => false,
                             ),
                             'cn' => array(
                                 'id' => 'id',
-                                'optional' => 0,
+                                'optional' => false,
                             ),
                             'doc' => array(
                                 'path' => 'path',
                                 'id' => 'id',
-                                'ver' => 1,
-                                'optional' => 1,
+                                'ver' => 10,
+                                'optional' => true,
                             ),
                         ),
                     ),
@@ -3786,27 +3786,27 @@ class RequestTest extends ZimbraTestCase
                         'mp' => array(
                             'mid' => 'mid',
                             'part' => 'part',
-                            'optional' => 1,
+                            'optional' => true,
                         ),
                         'm' => array(
                             'id' => 'id',
-                            'optional' => 0,
+                            'optional' => false,
                         ),
                         'cn' => array(
                             'id' => 'id',
-                            'optional' => 0,
+                            'optional' => false,
                         ),
                         'doc' => array(
                             'path' => 'path',
                             'id' => 'id',
-                            'ver' => 1,
-                            'optional' => 1,
+                            'ver' => 10,
+                            'optional' => true,
                         ),
                     ),
                     'inv' => array(
                         'method' => 'method',
-                        'compNum' => 1,
-                        'rsvp' => 1,
+                        'compNum' => 10,
+                        'rsvp' => true,
                     ),
                     'e' => array(
                         array(
@@ -3818,12 +3818,12 @@ class RequestTest extends ZimbraTestCase
                     'tz' => array(
                         array(
                             'id' => 'id',
-                            'stdoff' => 1,
-                            'dayoff' => 1,
+                            'stdoff' => 10,
+                            'dayoff' => 10,
                             'stdname' => 'stdname',
                             'dayname' => 'dayname',
                             'standard' => array(
-                                'mon' => 1,
+                                'mon' => 12,
                                 'hour' => 2,
                                 'min' => 3,
                                 'sec' => 4,
@@ -3832,7 +3832,7 @@ class RequestTest extends ZimbraTestCase
                                 'mon' => 4,
                                 'hour' => 3,
                                 'min' => 2,
-                                'sec' => 1,
+                                'sec' => 10,
                             ),
                         ),
                     ),
@@ -3864,26 +3864,26 @@ class RequestTest extends ZimbraTestCase
             'account', 'op', 'session'
         );
         $req = new \Zimbra\Mail\Request\GetActivityStream(
-            'id', $filter, 1, 1
+            'id', $filter, 10, 10
         );
         $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
         $this->assertSame('id', $req->id());
         $this->assertSame($filter, $req->filter());
-        $this->assertSame(1, $req->offset());
-        $this->assertSame(1, $req->limit());
+        $this->assertSame(10, $req->offset());
+        $this->assertSame(10, $req->limit());
 
         $req->id('id')
             ->filter($filter)
-            ->offset(1)
-            ->limit(1);
+            ->offset(10)
+            ->limit(10);
         $this->assertSame($filter, $req->filter());
         $this->assertSame('id', $req->id());
         $this->assertSame($filter, $req->filter());
-        $this->assertSame(1, $req->offset());
-        $this->assertSame(1, $req->limit());
+        $this->assertSame(10, $req->offset());
+        $this->assertSame(10, $req->limit());
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<GetActivityStreamRequest id="id" offset="1" limit="1">'
+            .'<GetActivityStreamRequest id="id" offset="10" limit="10">'
                 .'<filter account="account" op="op" session="session" />'
             .'</GetActivityStreamRequest>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
@@ -3891,8 +3891,8 @@ class RequestTest extends ZimbraTestCase
         $array = array(
             'GetActivityStreamRequest' => array(
                 'id' => 'id',
-                'offset' => 1,
-                'limit' => 1,
+                'offset' => 10,
+                'limit' => 10,
                 'filter' => array(
                     'account' => 'account',
                     'op' => 'op',
@@ -3939,13 +3939,13 @@ class RequestTest extends ZimbraTestCase
         $this->assertSame('appointment-id', $req->id());
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<GetAppointmentRequest sync="1" includeContent="1" uid="icalendar-uid" id="appointment-id" />';
+            .'<GetAppointmentRequest sync="true" includeContent="true" uid="icalendar-uid" id="appointment-id" />';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
         $array = array(
             'GetAppointmentRequest' => array(
-                'sync' => 1,
-                'includeContent' => 1,
+                'sync' => true,
+                'includeContent' => true,
                 'uid' => 'icalendar-uid',
                 'id' => 'appointment-id',
             )
@@ -3956,28 +3956,28 @@ class RequestTest extends ZimbraTestCase
     public function testGetApptSummaries()
     {
         $req = new \Zimbra\Mail\Request\GetApptSummaries(
-            1, 1, 'folder-id'
+            10, 10, 'folder-id'
         );
         $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
-        $this->assertSame(1, $req->s());
-        $this->assertSame(1, $req->e());
+        $this->assertSame(10, $req->s());
+        $this->assertSame(10, $req->e());
         $this->assertSame('folder-id', $req->l());
 
-        $req->s(1)
-            ->e(1)
+        $req->s(10)
+            ->e(10)
             ->l('folder-id');
-        $this->assertSame(1, $req->s());
-        $this->assertSame(1, $req->e());
+        $this->assertSame(10, $req->s());
+        $this->assertSame(10, $req->e());
         $this->assertSame('folder-id', $req->l());
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<GetApptSummariesRequest s="1" e="1" l="folder-id" />';
+            .'<GetApptSummariesRequest s="10" e="10" l="folder-id" />';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
         $array = array(
             'GetApptSummariesRequest' => array(
-                's' => 1,
-                'e' => 1,
+                's' => 10,
+                'e' => 10,
                 'l' => 'folder-id',
             )
         );
@@ -3987,28 +3987,28 @@ class RequestTest extends ZimbraTestCase
     public function testGetCalendarItemSummaries()
     {
         $req = new \Zimbra\Mail\Request\GetCalendarItemSummaries(
-            1, 1, 'folder-id'
+            10, 10, 'folder-id'
         );
         $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
-        $this->assertSame(1, $req->s());
-        $this->assertSame(1, $req->e());
+        $this->assertSame(10, $req->s());
+        $this->assertSame(10, $req->e());
         $this->assertSame('folder-id', $req->l());
 
-        $req->s(1)
-            ->e(1)
+        $req->s(10)
+            ->e(10)
             ->l('folder-id');
-        $this->assertSame(1, $req->s());
-        $this->assertSame(1, $req->e());
+        $this->assertSame(10, $req->s());
+        $this->assertSame(10, $req->e());
         $this->assertSame('folder-id', $req->l());
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<GetCalendarItemSummariesRequest s="1" e="1" l="folder-id" />';
+            .'<GetCalendarItemSummariesRequest s="10" e="10" l="folder-id" />';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
         $array = array(
             'GetCalendarItemSummariesRequest' => array(
-                's' => 1,
-                'e' => 1,
+                's' => 10,
+                'e' => 10,
                 'l' => 'folder-id',
             )
         );
@@ -4052,7 +4052,7 @@ class RequestTest extends ZimbraTestCase
         $cn = new \Zimbra\Struct\Id('id');
 
         $req = new \Zimbra\Mail\Request\GetContacts(
-            array($a), array($ma), array($cn), true, 'folder-id', 'sort-by', true, true, 1
+            array($a), array($ma), array($cn), true, 'folder-id', 'sort-by', true, true, 10
         );
         $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
         $this->assertSame(array($a), $req->a()->all());
@@ -4063,7 +4063,7 @@ class RequestTest extends ZimbraTestCase
         $this->assertSame('sort-by', $req->sortBy());
         $this->assertTrue($req->derefGroupMember());
         $this->assertTrue($req->returnHiddenAttrs());
-        $this->assertSame(1, $req->maxMembers());
+        $this->assertSame(10, $req->maxMembers());
 
         $req->addA($a)
             ->addMa($ma)
@@ -4073,7 +4073,7 @@ class RequestTest extends ZimbraTestCase
             ->sortBy('sort-by')
             ->derefGroupMember(true)
             ->returnHiddenAttrs(true)
-            ->maxMembers(1);
+            ->maxMembers(10);
         $this->assertSame(array($a, $a), $req->a()->all());
         $this->assertSame(array($ma, $ma), $req->ma()->all());
         $this->assertSame(array($cn, $cn), $req->cn()->all());
@@ -4082,15 +4082,15 @@ class RequestTest extends ZimbraTestCase
         $this->assertSame('sort-by', $req->sortBy());
         $this->assertTrue($req->derefGroupMember());
         $this->assertTrue($req->returnHiddenAttrs());
-        $this->assertSame(1, $req->maxMembers());
+        $this->assertSame(10, $req->maxMembers());
 
         $req = new \Zimbra\Mail\Request\GetContacts(
-            array($a), array($ma), array($cn), true, 'folder-id', 'sort-by', true, true, 1
+            array($a), array($ma), array($cn), true, 'folder-id', 'sort-by', true, true, 10
         );
         $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<GetContactsRequest sync="1" l="folder-id" sortBy="sort-by" derefGroupMember="1" returnHiddenAttrs="1" maxMembers="1">'
+            .'<GetContactsRequest sync="true" l="folder-id" sortBy="sort-by" derefGroupMember="true" returnHiddenAttrs="true" maxMembers="10">'
                 .'<a n="attribute-name" />'
                 .'<ma n="attribute-name" />'
                 .'<cn id="id" />'
@@ -4099,12 +4099,12 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'GetContactsRequest' => array(
-                'sync' => 1,
+                'sync' => true,
                 'l' => 'folder-id',
                 'sortBy' => 'sort-by',
-                'derefGroupMember' => 1,
-                'returnHiddenAttrs' => 1,
-                'maxMembers' => 1,
+                'derefGroupMember' => true,
+                'returnHiddenAttrs' => true,
+                'maxMembers' => 10,
                 'a' => array(
                     array(
                         'n' => 'attribute-name',
@@ -4129,7 +4129,7 @@ class RequestTest extends ZimbraTestCase
     {
         $header = new \Zimbra\Struct\AttributeName('attribute-name');
         $c = new \Zimbra\Mail\Struct\ConversationSpec(
-            'id', array($header), 'fetch', true, 1
+            'id', array($header), 'fetch', true, 10
         );
         $req = new \Zimbra\Mail\Request\GetConv(
             $c
@@ -4142,7 +4142,7 @@ class RequestTest extends ZimbraTestCase
 
         $xml = '<?xml version="1.0"?>'."\n"
             .'<GetConvRequest>'
-                .'<c id="id" fetch="fetch" html="1" max="1">'
+                .'<c id="id" fetch="fetch" html="true" max="10">'
                     .'<header n="attribute-name" />'
                 .'</c>'
             .'</GetConvRequest>';
@@ -4153,8 +4153,8 @@ class RequestTest extends ZimbraTestCase
                 'c' => array(
                     'id' => 'id',
                     'fetch' => 'fetch',
-                    'html' => 1,
-                    'max' => 1,
+                    'html' => true,
+                    'max' => 10,
                     'header' => array(
                         array(
                             'n' => 'attribute-name',
@@ -4297,42 +4297,42 @@ class RequestTest extends ZimbraTestCase
             'uuid', 'l', 'path'
         );
         $req = new \Zimbra\Mail\Request\GetFolder(
-            $folder, true, true, 'view', 1, true
+            $folder, true, true, 'view', 10, true
         );
         $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
         $this->assertSame($folder, $req->folder());
         $this->assertTrue($req->visible());
         $this->assertTrue($req->needGranteeName());
         $this->assertSame('view', $req->view());
-        $this->assertSame(1, $req->depth());
+        $this->assertSame(10, $req->depth());
         $this->assertTrue($req->tr());
 
         $req->folder($folder)
             ->visible(true)
             ->needGranteeName(true)
             ->view('view')
-            ->depth(1)
+            ->depth(10)
             ->tr(true);
         $this->assertSame($folder, $req->folder());
         $this->assertTrue($req->visible());
         $this->assertTrue($req->needGranteeName());
         $this->assertSame('view', $req->view());
-        $this->assertSame(1, $req->depth());
+        $this->assertSame(10, $req->depth());
         $this->assertTrue($req->tr());
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<GetFolderRequest visible="1" needGranteeName="1" view="view" depth="1" tr="1">'
+            .'<GetFolderRequest visible="true" needGranteeName="true" view="view" depth="10" tr="true">'
                 .'<folder uuid="uuid" l="l" path="path" />'
             .'</GetFolderRequest>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
         $array = array(
             'GetFolderRequest' => array(
-                'visible' => 1,
-                'needGranteeName' => 1,
+                'visible' => true,
+                'needGranteeName' => true,
                 'view' => 'view',
-                'depth' => 1,
-                'tr' => 1,
+                'depth' => 10,
+                'tr' => true,
                 'folder' => array(
                     'uuid' => 'uuid',
                     'l' => 'l',
@@ -4346,28 +4346,28 @@ class RequestTest extends ZimbraTestCase
     public function testGetFreeBusy()
     {
         $usr = new \Zimbra\Mail\Struct\FreeBusyUserSpec(
-            1, 'id', 'name'
+            10, 'id', 'name'
         );
         $req = new \Zimbra\Mail\Request\GetFreeBusy(
-            1, 1, 'uid', 'id', 'name', 'excludeUid', array($usr)
+            10, 10, 'uid', 'id', 'name', 'excludeUid', array($usr)
         );
         $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
-        $this->assertSame(1, $req->s());
-        $this->assertSame(1, $req->e());
+        $this->assertSame(10, $req->s());
+        $this->assertSame(10, $req->e());
         $this->assertSame('uid', $req->uid());
         $this->assertSame('id', $req->id());
         $this->assertSame('name', $req->name());
         $this->assertSame('excludeUid', $req->excludeUid());
         $this->assertSame(array($usr), $req->usr()->all());
-        $req->s(1)
-            ->e(1)
+        $req->s(10)
+            ->e(10)
             ->uid('uid')
             ->id('id')
             ->name('name')
             ->excludeUid('excludeUid')
             ->addUsr($usr);
-        $this->assertSame(1, $req->s());
-        $this->assertSame(1, $req->e());
+        $this->assertSame(10, $req->s());
+        $this->assertSame(10, $req->e());
         $this->assertSame('uid', $req->uid());
         $this->assertSame('id', $req->id());
         $this->assertSame('name', $req->name());
@@ -4377,22 +4377,22 @@ class RequestTest extends ZimbraTestCase
         $req->usr()->remove(1);
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<GetFreeBusyRequest s="1" e="1" uid="uid" id="id" name="name" excludeUid="excludeUid">'
-                .'<usr l="1" id="id" name="name" />'
+            .'<GetFreeBusyRequest s="10" e="10" uid="uid" id="id" name="name" excludeUid="excludeUid">'
+                .'<usr l="10" id="id" name="name" />'
             .'</GetFreeBusyRequest>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
         $array = array(
             'GetFreeBusyRequest' => array(
-                's' => 1,
-                'e' => 1,
+                's' => 10,
+                'e' => 10,
                 'uid' => 'uid',
                 'id' => 'id',
                 'name' => 'name',
                 'excludeUid' => 'excludeUid',
                 'usr' => array(
                     array(
-                        'l' => 1,
+                        'l' => 10,
                         'id' => 'id',
                         'name' => 'name',
                     ),
@@ -4405,28 +4405,28 @@ class RequestTest extends ZimbraTestCase
     public function testGetICal()
     {
         $req = new \Zimbra\Mail\Request\GetICal(
-            'id', 1, 1
+            'id', 10, 10
         );
         $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
         $this->assertSame('id', $req->id());
-        $this->assertSame(1, $req->s());
-        $this->assertSame(1, $req->e());
-        $req->s(1)
-            ->e(1)
+        $this->assertSame(10, $req->s());
+        $this->assertSame(10, $req->e());
+        $req->s(10)
+            ->e(10)
             ->id('id');
         $this->assertSame('id', $req->id());
-        $this->assertSame(1, $req->s());
-        $this->assertSame(1, $req->e());
+        $this->assertSame(10, $req->s());
+        $this->assertSame(10, $req->e());
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<GetICalRequest id="id" s="1" e="1" />';
+            .'<GetICalRequest id="id" s="10" e="10" />';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
         $array = array(
             'GetICalRequest' => array(
                 'id' => 'id',
-                's' => 1,
-                'e' => 1,
+                's' => 10,
+                'e' => 10,
             )
         );
         $this->assertEquals($array, $req->toArray());
@@ -4514,29 +4514,29 @@ class RequestTest extends ZimbraTestCase
         $folder = new \Zimbra\Struct\Id('id');
 
         $req = new \Zimbra\Mail\Request\GetMiniCal(
-            1, 1, array($folder), $tz
+            10, 10, array($folder), $tz
         );
         $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
-        $this->assertSame(1, $req->s());
-        $this->assertSame(1, $req->e());
+        $this->assertSame(10, $req->s());
+        $this->assertSame(10, $req->e());
         $this->assertSame(array($folder), $req->folder()->all());
         $this->assertSame($tz, $req->tz());
 
-        $req->s(1)
-            ->e(1)
+        $req->s(10)
+            ->e(10)
             ->addFolder($folder)
             ->tz($tz);
-        $this->assertSame(1, $req->s());
-        $this->assertSame(1, $req->e());
+        $this->assertSame(10, $req->s());
+        $this->assertSame(10, $req->e());
         $this->assertSame(array($folder, $folder), $req->folder()->all());
         $this->assertSame($tz, $req->tz());
         $req->folder()->remove(1);
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<GetMiniCalRequest s="1" e="1">'
-                .'<tz id="id" stdoff="1" dayoff="1" stdname="stdname" dayname="dayname">'
-                    .'<standard mon="1" hour="2" min="3" sec="4" />'
-                    .'<daylight mon="4" hour="3" min="2" sec="1" />'
+            .'<GetMiniCalRequest s="10" e="10">'
+                .'<tz id="id" stdoff="10" dayoff="10" stdname="stdname" dayname="dayname">'
+                    .'<standard mon="12" hour="2" min="3" sec="4" />'
+                    .'<daylight mon="4" hour="3" min="2" sec="10" />'
                 .'</tz>'
                 .'<folder id="id" />'
             .'</GetMiniCalRequest>';
@@ -4544,8 +4544,8 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'GetMiniCalRequest' => array(
-                's' => 1,
-                'e' => 1,
+                's' => 10,
+                'e' => 10,
                 'folder' => array(
                     array(
                         'id' => 'id',
@@ -4553,12 +4553,12 @@ class RequestTest extends ZimbraTestCase
                 ),
                 'tz' => array(
                     'id' => 'id',
-                    'stdoff' => 1,
-                    'dayoff' => 1,
+                    'stdoff' => 10,
+                    'dayoff' => 10,
                     'stdname' => 'stdname',
                     'dayname' => 'dayname',
                     'standard' => array(
-                        'mon' => 1,
+                        'mon' => 12,
                         'hour' => 2,
                         'min' => 3,
                         'sec' => 4,
@@ -4567,7 +4567,7 @@ class RequestTest extends ZimbraTestCase
                         'mon' => 4,
                         'hour' => 3,
                         'min' => 2,
-                        'sec' => 1,
+                        'sec' => 10,
                     ),
                 ),
             )
@@ -4579,7 +4579,7 @@ class RequestTest extends ZimbraTestCase
     {
         $header = new \Zimbra\Struct\AttributeName('attribute-name');
         $m = new \Zimbra\Mail\Struct\MsgSpec(
-            'id', array($header), 'part', true, true, 1, true, true, 'ridZ', true
+            'id', array($header), 'part', true, true, 10, true, true, 'ridZ', true
         );
         $req = new \Zimbra\Mail\Request\GetMsg(
             $m
@@ -4592,7 +4592,7 @@ class RequestTest extends ZimbraTestCase
 
         $xml = '<?xml version="1.0"?>'."\n"
             .'<GetMsgRequest>'
-                .'<m id="id" part="part" raw="1" read="1" max="1" html="1" neuter="1" ridZ="ridZ" needExp="1">'
+                .'<m id="id" part="part" raw="true" read="true" max="10" html="true" neuter="true" ridZ="ridZ" needExp="true">'
                     .'<header n="attribute-name" />'
                 .'</m>'
             .'</GetMsgRequest>';
@@ -4603,13 +4603,13 @@ class RequestTest extends ZimbraTestCase
                 'm' => array(
                     'id' => 'id',
                     'part' => 'part',
-                    'raw' => 1,
-                    'read' => 1,
-                    'max' => 1,
-                    'html' => 1,
-                    'neuter' => 1,
+                    'raw' => true,
+                    'read' => true,
+                    'max' => 10,
+                    'html' => true,
+                    'neuter' => true,
                     'ridZ' => 'ridZ',
-                    'needExp' => 1,
+                    'needExp' => true,
                     'header' => array(
                         array(
                             'n' => 'attribute-name',
@@ -4691,12 +4691,12 @@ class RequestTest extends ZimbraTestCase
         $this->assertTrue($req->markSeen());
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<GetNotificationsRequest markSeen="1" />';
+            .'<GetNotificationsRequest markSeen="true" />';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
         $array = array(
             'GetNotificationsRequest' => array(
-                'markSeen' => 1,
+                'markSeen' => true,
             )
         );
         $this->assertEquals($array, $req->toArray());
@@ -4898,13 +4898,13 @@ class RequestTest extends ZimbraTestCase
         $this->assertSame('id', $req->id());
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<GetTaskRequest sync="1" includeContent="1" uid="uid" id="id" />';
+            .'<GetTaskRequest sync="true" includeContent="true" uid="uid" id="id" />';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
         $array = array(
             'GetTaskRequest' => array(
-                'sync' => 1,
-                'includeContent' => 1,
+                'sync' => true,
+                'includeContent' => true,
                 'uid' => 'uid',
                 'id' => 'id',
             )
@@ -4915,27 +4915,27 @@ class RequestTest extends ZimbraTestCase
     public function testGetTaskSummaries()
     {
         $req = new \Zimbra\Mail\Request\GetTaskSummaries(
-            1, 1, 'l'
+            10, 10, 'l'
         );
         $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
-        $this->assertSame(1, $req->s());
-        $this->assertSame(1, $req->e());
+        $this->assertSame(10, $req->s());
+        $this->assertSame(10, $req->e());
         $this->assertSame('l', $req->l());
-        $req->s(1)
-            ->e(1)
+        $req->s(10)
+            ->e(10)
             ->l('l');
-        $this->assertSame(1, $req->s());
-        $this->assertSame(1, $req->e());
+        $this->assertSame(10, $req->s());
+        $this->assertSame(10, $req->e());
         $this->assertSame('l', $req->l());
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<GetTaskSummariesRequest s="1" e="1" l="l" />';
+            .'<GetTaskSummariesRequest s="10" e="10" l="l" />';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
         $array = array(
             'GetTaskSummariesRequest' => array(
-                's' => 1,
-                'e' => 1,
+                's' => 10,
+                'e' => 10,
                 'l' => 'l',
             )
         );
@@ -4975,31 +4975,31 @@ class RequestTest extends ZimbraTestCase
     public function testGetWorkingHours()
     {
         $req = new \Zimbra\Mail\Request\GetWorkingHours(
-            1, 1, 'id', 'name'
+            10, 10, 'id', 'name'
         );
         $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
-        $this->assertSame(1, $req->s());
-        $this->assertSame(1, $req->e());
+        $this->assertSame(10, $req->s());
+        $this->assertSame(10, $req->e());
         $this->assertSame('id', $req->id());
         $this->assertSame('name', $req->name());
-        $req->s(1)
-            ->e(1)
+        $req->s(10)
+            ->e(10)
             ->id('id')
             ->name('name');
 
-        $this->assertSame(1, $req->s());
-        $this->assertSame(1, $req->e());
+        $this->assertSame(10, $req->s());
+        $this->assertSame(10, $req->e());
         $this->assertSame('id', $req->id());
         $this->assertSame('name', $req->name());
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<GetWorkingHoursRequest s="1" e="1" id="id" name="name" />';
+            .'<GetWorkingHoursRequest s="10" e="10" id="id" name="name" />';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
         $array = array(
             'GetWorkingHoursRequest' => array(
-                's' => 1,
-                'e' => 1,
+                's' => 10,
+                'e' => 10,
                 'id' => 'id',
                 'name' => 'name',
             )
@@ -5072,7 +5072,7 @@ class RequestTest extends ZimbraTestCase
         $req->ace()->remove(1);
         $xml = '<?xml version="1.0"?>'."\n"
             .'<GrantPermissionRequest>'
-                .'<ace gt="usr" right="invite" zid="zid" d="d" key="key" pw="pw" deny="0" />'
+                .'<ace gt="usr" right="invite" zid="zid" d="d" key="key" pw="pw" deny="false" />'
             .'</GrantPermissionRequest>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
@@ -5086,7 +5086,7 @@ class RequestTest extends ZimbraTestCase
                         'd' => 'd',
                         'key' => 'key',
                         'pw' => 'pw',
-                        'deny' => 0,
+                        'deny' => false,
                     ),
                 ),
             )
@@ -5324,7 +5324,7 @@ class RequestTest extends ZimbraTestCase
     public function testItemActionOp()
     {
         $action = new \Zimbra\Mail\Struct\ItemActionSelector(
-            ItemActionOp::MOVE(), 'id', 'tcon', 1, 'l', '#aabbcc', 1, 'name', 'f', 't', 'tn'
+            ItemActionOp::MOVE(), 'id', 'tcon', 10, 'l', '#aabbcc', 10, 'name', 'f', 't', 'tn'
         );
         $req = new \Zimbra\Mail\Request\ItemAction(
             $action
@@ -5337,7 +5337,7 @@ class RequestTest extends ZimbraTestCase
 
         $xml = '<?xml version="1.0"?>'."\n"
             .'<ItemActionRequest>'
-                .'<action op="move" id="id" tcon="tcon" tag="1" l="l" rgb="#aabbcc" color="1" name="name" f="f" t="t" tn="tn" />'
+                .'<action op="move" id="id" tcon="tcon" tag="10" l="l" rgb="#aabbcc" color="10" name="name" f="f" t="t" tn="tn" />'
             .'</ItemActionRequest>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
@@ -5347,10 +5347,10 @@ class RequestTest extends ZimbraTestCase
                     'op' => 'move',
                     'id' => 'id',
                     'tcon' => 'tcon',
-                    'tag' => 1,
+                    'tag' => 10,
                     'l' => 'l',
                     'rgb' => '#aabbcc',
-                    'color' => 1,
+                    'color' => 10,
                     'name' => 'name',
                     'f' => 'f',
                     't' => 't',
@@ -5364,7 +5364,7 @@ class RequestTest extends ZimbraTestCase
     public function testListDocumentRevisions()
     {
         $doc = new \Zimbra\Mail\Struct\ListDocumentRevisionsSpec(
-            'id', 1, 1
+            'id', 10, 10
         );
         $req = new \Zimbra\Mail\Request\ListDocumentRevisions(
             $doc
@@ -5377,7 +5377,7 @@ class RequestTest extends ZimbraTestCase
 
         $xml = '<?xml version="1.0"?>'."\n"
             .'<ListDocumentRevisionsRequest>'
-                .'<doc id="id" ver="1" count="1" />'
+                .'<doc id="id" ver="10" count="10" />'
             .'</ListDocumentRevisionsRequest>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
@@ -5385,8 +5385,8 @@ class RequestTest extends ZimbraTestCase
             'ListDocumentRevisionsRequest' => array(
                 'doc' => array(
                     'id' => 'id',
-                    'ver' => 1,
-                    'count' => 1,
+                    'ver' => 10,
+                    'count' => 10,
                 ),
             )
         );
@@ -5408,8 +5408,8 @@ class RequestTest extends ZimbraTestCase
             true,
             true,
             'allowableTaskStatus',
-            1,
-            1,
+            10,
+            10,
             true,
             'types',
             'groupBy',
@@ -5417,7 +5417,7 @@ class RequestTest extends ZimbraTestCase
             SortBy::DATE_DESC(),
             'fetch',
             true,
-            1,
+            10,
             true,
             true,
             true,
@@ -5425,8 +5425,8 @@ class RequestTest extends ZimbraTestCase
             true,
             'resultMode',
             'field',
-            1,
-            1
+            10,
+            10
         );
         $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
         $this->assertSame('query', $req->query());
@@ -5437,8 +5437,8 @@ class RequestTest extends ZimbraTestCase
         $this->assertTrue($req->includeTagDeleted());
         $this->assertTrue($req->includeTagMuted());
         $this->assertSame('allowableTaskStatus', $req->allowableTaskStatus());
-        $this->assertSame(1, $req->calExpandInstStart());
-        $this->assertSame(1, $req->calExpandInstEnd());
+        $this->assertSame(10, $req->calExpandInstStart());
+        $this->assertSame(10, $req->calExpandInstEnd());
         $this->assertTrue($req->inDumpster());
         $this->assertSame('types', $req->types());
         $this->assertSame('groupBy', $req->groupBy());
@@ -5446,7 +5446,7 @@ class RequestTest extends ZimbraTestCase
         $this->assertTrue($req->sortBy()->is('dateDesc'));
         $this->assertSame('fetch', $req->fetch());
         $this->assertTrue($req->read());
-        $this->assertSame(1, $req->max());
+        $this->assertSame(10, $req->max());
         $this->assertTrue($req->html());
         $this->assertTrue($req->needExp());
         $this->assertTrue($req->neuter());
@@ -5454,8 +5454,8 @@ class RequestTest extends ZimbraTestCase
         $this->assertTrue($req->prefetch());
         $this->assertSame('resultMode', $req->resultMode());
         $this->assertSame('field', $req->field());
-        $this->assertSame(1, $req->limit());
-        $this->assertSame(1, $req->offset());
+        $this->assertSame(10, $req->limit());
+        $this->assertSame(10, $req->offset());
 
         $req->query('query')
             ->addHeader($header)
@@ -5465,8 +5465,8 @@ class RequestTest extends ZimbraTestCase
             ->includeTagDeleted(true)
             ->includeTagMuted(true)
             ->allowableTaskStatus('allowableTaskStatus')
-            ->calExpandInstStart(1)
-            ->calExpandInstEnd(1)
+            ->calExpandInstStart(10)
+            ->calExpandInstEnd(10)
             ->inDumpster(true)
             ->types('types')
             ->groupBy('groupBy')
@@ -5474,7 +5474,7 @@ class RequestTest extends ZimbraTestCase
             ->sortBy(SortBy::DATE_DESC())
             ->fetch('fetch')
             ->read(true)
-            ->max(1)
+            ->max(10)
             ->html(true)
             ->needExp(true)
             ->neuter(true)
@@ -5482,8 +5482,8 @@ class RequestTest extends ZimbraTestCase
             ->prefetch(true)
             ->resultMode('resultMode')
             ->field('field')
-            ->limit(1)
-            ->offset(1);
+            ->limit(10)
+            ->offset(10);
         $this->assertSame('query', $req->query());
         $this->assertSame(array($header, $header), $req->header()->all());
         $this->assertSame($tz, $req->tz());
@@ -5492,8 +5492,8 @@ class RequestTest extends ZimbraTestCase
         $this->assertTrue($req->includeTagDeleted());
         $this->assertTrue($req->includeTagMuted());
         $this->assertSame('allowableTaskStatus', $req->allowableTaskStatus());
-        $this->assertSame(1, $req->calExpandInstStart());
-        $this->assertSame(1, $req->calExpandInstEnd());
+        $this->assertSame(10, $req->calExpandInstStart());
+        $this->assertSame(10, $req->calExpandInstEnd());
         $this->assertTrue($req->inDumpster());
         $this->assertSame('types', $req->types());
         $this->assertSame('groupBy', $req->groupBy());
@@ -5501,7 +5501,7 @@ class RequestTest extends ZimbraTestCase
         $this->assertTrue($req->sortBy()->is('dateDesc'));
         $this->assertSame('fetch', $req->fetch());
         $this->assertTrue($req->read());
-        $this->assertSame(1, $req->max());
+        $this->assertSame(10, $req->max());
         $this->assertTrue($req->html());
         $this->assertTrue($req->needExp());
         $this->assertTrue($req->neuter());
@@ -5509,19 +5509,19 @@ class RequestTest extends ZimbraTestCase
         $this->assertTrue($req->prefetch());
         $this->assertSame('resultMode', $req->resultMode());
         $this->assertSame('field', $req->field());
-        $this->assertSame(1, $req->limit());
-        $this->assertSame(1, $req->offset());
+        $this->assertSame(10, $req->limit());
+        $this->assertSame(10, $req->offset());
 
         $req->header()->remove(1);
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<MailSearchParamsRequest includeTagDeleted="1" includeTagMuted="1" allowableTaskStatus="allowableTaskStatus" calExpandInstStart="1" calExpandInstEnd="1" inDumpster="1" types="types" groupBy="groupBy" quick="1" sortBy="dateDesc" fetch="fetch" read="1" max="1" html="1" needExp="1" neuter="1" recip="1" prefetch="1" resultMode="resultMode" field="field" limit="1" offset="1">'
+            .'<MailSearchParamsRequest includeTagDeleted="true" includeTagMuted="true" allowableTaskStatus="allowableTaskStatus" calExpandInstStart="10" calExpandInstEnd="10" inDumpster="true" types="types" groupBy="groupBy" quick="true" sortBy="dateDesc" fetch="fetch" read="true" max="10" html="true" needExp="true" neuter="true" recip="true" prefetch="true" resultMode="resultMode" field="field" limit="10" offset="10">'
                 .'<query>query</query>'
-                .'<tz id="id" stdoff="1" dayoff="1" stdname="stdname" dayname="dayname">'
-                    .'<standard mon="1" hour="2" min="3" sec="4" />'
-                    .'<daylight mon="4" hour="3" min="2" sec="1" />'
+                .'<tz id="id" stdoff="10" dayoff="10" stdname="stdname" dayname="dayname">'
+                    .'<standard mon="12" hour="2" min="3" sec="4" />'
+                    .'<daylight mon="4" hour="3" min="2" sec="10" />'
                 .'</tz>'
                 .'<locale>locale</locale>'
-                .'<cursor id="id" sortVal="sortVal" endSortVal="endSortVal" includeOffset="1" />'
+                .'<cursor id="id" sortVal="sortVal" endSortVal="endSortVal" includeOffset="true" />'
                 .'<header n="attribute-name" />'
             .'</MailSearchParamsRequest>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
@@ -5536,12 +5536,12 @@ class RequestTest extends ZimbraTestCase
                 ),
                 'tz' => array(
                     'id' => 'id',
-                    'stdoff' => 1,
-                    'dayoff' => 1,
+                    'stdoff' => 10,
+                    'dayoff' => 10,
                     'stdname' => 'stdname',
                     'dayname' => 'dayname',
                     'standard' => array(
-                        'mon' => 1,
+                        'mon' => 12,
                         'hour' => 2,
                         'min' => 3,
                         'sec' => 4,
@@ -5550,7 +5550,7 @@ class RequestTest extends ZimbraTestCase
                         'mon' => 4,
                         'hour' => 3,
                         'min' => 2,
-                        'sec' => 1,
+                        'sec' => 10,
                     ),
                 ),
                 'locale' => 'locale',
@@ -5558,30 +5558,30 @@ class RequestTest extends ZimbraTestCase
                     'id' => 'id',
                     'sortVal' => 'sortVal',
                     'endSortVal' => 'endSortVal',
-                    'includeOffset' => 1,
+                    'includeOffset' => true,
                 ),
-                'includeTagDeleted' => 1,
-                'includeTagMuted' => 1,
+                'includeTagDeleted' => true,
+                'includeTagMuted' => true,
                 'allowableTaskStatus' => 'allowableTaskStatus',
-                'calExpandInstStart' => 1,
-                'calExpandInstEnd' => 1,
-                'inDumpster' => 1,
+                'calExpandInstStart' => 10,
+                'calExpandInstEnd' => 10,
+                'inDumpster' => true,
                 'types' => 'types',
                 'groupBy' => 'groupBy',
-                'quick' => 1,
+                'quick' => true,
                 'sortBy' => 'dateDesc',
                 'fetch' => 'fetch',
-                'read' => 1,
-                'max' => 1,
-                'html' => 1,
-                'needExp' => 1,
-                'neuter' => 1,
-                'recip' => 1,
-                'prefetch' => 1,
+                'read' => true,
+                'max' => 10,
+                'html' => true,
+                'needExp' => true,
+                'neuter' => true,
+                'recip' => true,
+                'prefetch' => true,
                 'resultMode' => 'resultMode',
                 'field' => 'field',
-                'limit' => 1,
-                'offset' => 1,
+                'limit' => 10,
+                'offset' => 10,
             )
         );
         $this->assertEquals($array, $req->toArray());
@@ -5591,53 +5591,53 @@ class RequestTest extends ZimbraTestCase
     {
         $m = $this->getMsg();
         $req = new \Zimbra\Mail\Request\ModifyAppointment(
-            $m, 'id', 1, 1, 1, true, 1, true, true, true
+            $m, 'id', 10, 10, 10, true, 10, true, true, true
         );
         $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
         $this->assertInstanceOf('Zimbra\Mail\Request\CalItemRequestBase', $req);
         $this->assertSame($m, $req->m());
         $this->assertSame('id', $req->id());
-        $this->assertSame(1, $req->comp());
-        $this->assertSame(1, $req->ms());
-        $this->assertSame(1, $req->rev());
+        $this->assertSame(10, $req->comp());
+        $this->assertSame(10, $req->ms());
+        $this->assertSame(10, $req->rev());
 
         $req->m($m)
             ->id('id')
-            ->comp(1)
-            ->ms(1)
-            ->rev(1);
+            ->comp(10)
+            ->ms(10)
+            ->rev(10);
         $this->assertSame($m, $req->m());
         $this->assertSame('id', $req->id());
-        $this->assertSame(1, $req->comp());
-        $this->assertSame(1, $req->ms());
-        $this->assertSame(1, $req->rev());
+        $this->assertSame(10, $req->comp());
+        $this->assertSame(10, $req->ms());
+        $this->assertSame(10, $req->rev());
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<ModifyAppointmentRequest id="id" comp="1" ms="1" rev="1" echo="1" max="1" html="1" neuter="1" forcesend="1">'
+            .'<ModifyAppointmentRequest id="id" comp="10" ms="10" rev="10" echo="true" max="10" html="true" neuter="true" forcesend="true">'
                 .'<m aid="aid" origid="origid" rt="rt" idnt="idnt" su="su" irt="irt" l="l" f="f">'
                     .'<content>content</content>'
                     .'<mp ct="ct" content="content" ci="ci">'
                         .'<attach aid="aid">'
-                            .'<mp optional="1" mid="mid" part="part" />'
-                            .'<m optional="0" id="id" />'
-                            .'<cn id="id" optional="0" />'
-                            .'<doc optional="1" path="path" id="id" ver="1" />'
+                            .'<mp optional="true" mid="mid" part="part" />'
+                            .'<m optional="false" id="id" />'
+                            .'<cn id="id" optional="false" />'
+                            .'<doc optional="true" path="path" id="id" ver="10" />'
                         .'</attach>'
                         .'<mp ct="ct" content="content" ci="ci" />'
                     .'</mp>'
                     .'<attach aid="aid">'
-                        .'<mp optional="1" mid="mid" part="part" />'
-                        .'<m optional="0" id="id" />'
-                        .'<cn id="id" optional="0" />'
-                        .'<doc optional="1" path="path" id="id" ver="1" />'
+                        .'<mp optional="true" mid="mid" part="part" />'
+                        .'<m optional="false" id="id" />'
+                        .'<cn id="id" optional="false" />'
+                        .'<doc optional="true" path="path" id="id" ver="10" />'
                     .'</attach>'
-                    .'<inv method="method" compNum="1" rsvp="1" />'
+                    .'<inv method="method" compNum="10" rsvp="true" />'
                     .'<fr>fr</fr>'
                     .'<header name="name">value</header>'
                     .'<e a="a" t="t" p="p" />'
-                    .'<tz id="id" stdoff="1" dayoff="1" stdname="stdname" dayname="dayname">'
-                        .'<standard mon="1" hour="2" min="3" sec="4" />'
-                        .'<daylight mon="4" hour="3" min="2" sec="1" />'
+                    .'<tz id="id" stdoff="10" dayoff="10" stdname="stdname" dayname="dayname">'
+                        .'<standard mon="12" hour="2" min="3" sec="4" />'
+                        .'<daylight mon="4" hour="3" min="2" sec="10" />'
                     .'</tz>'
                 .'</m>'
             .'</ModifyAppointmentRequest>';
@@ -5646,14 +5646,14 @@ class RequestTest extends ZimbraTestCase
         $array = array(
             'ModifyAppointmentRequest' => array(
                 'id' => 'id',
-                'comp' => 1,
-                'ms' => 1,
-                'rev' => 1,
-                'echo' => 1,
-                'max' => 1,
-                'html' => 1,
-                'neuter' => 1,
-                'forcesend' => 1,
+                'comp' => 10,
+                'ms' => 10,
+                'rev' => 10,
+                'echo' => true,
+                'max' => 10,
+                'html' => true,
+                'neuter' => true,
+                'forcesend' => true,
                 'm' => array(
                     'aid' => 'aid',
                     'origid' => 'origid',
@@ -5686,21 +5686,21 @@ class RequestTest extends ZimbraTestCase
                             'mp' => array(
                                 'mid' => 'mid',
                                 'part' => 'part',
-                                'optional' => 1,
+                                'optional' => true,
                             ),
                             'm' => array(
                                 'id' => 'id',
-                                'optional' => 0,
+                                'optional' => false,
                             ),
                             'cn' => array(
                                 'id' => 'id',
-                                'optional' => 0,
+                                'optional' => false,
                             ),
                             'doc' => array(
                                 'path' => 'path',
                                 'id' => 'id',
-                                'ver' => 1,
-                                'optional' => 1,
+                                'ver' => 10,
+                                'optional' => true,
                             ),
                         ),
                     ),
@@ -5709,27 +5709,27 @@ class RequestTest extends ZimbraTestCase
                         'mp' => array(
                             'mid' => 'mid',
                             'part' => 'part',
-                            'optional' => 1,
+                            'optional' => true,
                         ),
                         'm' => array(
                             'id' => 'id',
-                            'optional' => 0,
+                            'optional' => false,
                         ),
                         'cn' => array(
                             'id' => 'id',
-                            'optional' => 0,
+                            'optional' => false,
                         ),
                         'doc' => array(
                             'path' => 'path',
                             'id' => 'id',
-                            'ver' => 1,
-                            'optional' => 1,
+                            'ver' => 10,
+                            'optional' => true,
                         ),
                     ),
                     'inv' => array(
                         'method' => 'method',
-                        'compNum' => 1,
-                        'rsvp' => 1,
+                        'compNum' => 10,
+                        'rsvp' => true,
                     ),
                     'e' => array(
                         array(
@@ -5741,12 +5741,12 @@ class RequestTest extends ZimbraTestCase
                     'tz' => array(
                         array(
                             'id' => 'id',
-                            'stdoff' => 1,
-                            'dayoff' => 1,
+                            'stdoff' => 10,
+                            'dayoff' => 10,
                             'stdname' => 'stdname',
                             'dayname' => 'dayname',
                             'standard' => array(
-                                'mon' => 1,
+                                'mon' => 12,
                                 'hour' => 2,
                                 'min' => 3,
                                 'sec' => 4,
@@ -5755,7 +5755,7 @@ class RequestTest extends ZimbraTestCase
                                 'mon' => 4,
                                 'hour' => 3,
                                 'min' => 2,
-                                'sec' => 1,
+                                'sec' => 10,
                             ),
                         ),
                     ),
@@ -5769,13 +5769,13 @@ class RequestTest extends ZimbraTestCase
     public function testModifyContact()
     {
         $a = new \Zimbra\Mail\Struct\ModifyContactAttr(
-            'n', 'value', 'aid', 1, 'part', 'op'
+            'n', 'value', 'aid', 10, 'part', 'op'
         );
         $m = new \Zimbra\Mail\Struct\ModifyContactGroupMember(
             'C', 'value', 'reset'
         );
         $cn = new \Zimbra\Mail\Struct\ModifyContactSpec(
-            array($a), array($m), 1, 'tn'
+            array($a), array($m), 10, 'tn'
         );
 
         $req = new \Zimbra\Mail\Request\ModifyContact(
@@ -5794,9 +5794,9 @@ class RequestTest extends ZimbraTestCase
         $this->assertTrue($req->verbose());
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<ModifyContactRequest replace="1" verbose="1">'
-                .'<cn id="1" tn="tn">'
-                    .'<a n="n" aid="aid" id="1" part="part" op="op">value</a>'
+            .'<ModifyContactRequest replace="true" verbose="true">'
+                .'<cn id="10" tn="tn">'
+                    .'<a n="n" aid="aid" id="10" part="part" op="op">value</a>'
                     .'<m type="C" value="value" op="reset" />'
                 .'</cn>'
             .'</ModifyContactRequest>';
@@ -5804,17 +5804,17 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'ModifyContactRequest' => array(
-                'replace' => 1,
-                'verbose' => 1,
+                'replace' => true,
+                'verbose' => true,
                 'cn' => array(
-                    'id' => 1,
+                    'id' => 10,
                     'tn' => 'tn',
                     'a' => array(
                         array(
                             'n' => 'n',
                             '_' => 'value',
                             'aid' => 'aid',
-                            'id' => 1,
+                            'id' => 10,
                             'part' => 'part',
                             'op' => 'op',
                         ),
@@ -5841,7 +5841,7 @@ class RequestTest extends ZimbraTestCase
             true,
             true,
             'host',
-            1,
+            10,
             MdsConnectionType::SSL(),
             'username',
             'password',
@@ -5854,7 +5854,7 @@ class RequestTest extends ZimbraTestCase
             'replyToAddress',
             'replyToDisplay',
             'importClass',
-            1,
+            10,
             'lastError',
             array('a', 'b')
         );
@@ -5898,16 +5898,16 @@ class RequestTest extends ZimbraTestCase
 
         $xml = '<?xml version="1.0"?>'."\n"
             .'<ModifyDataSourceRequest>'
-                .'<imap id="id" name="name" l="l" isEnabled="1" importOnly="1" host="host" port="1" '
+                .'<imap id="id" name="name" l="l" isEnabled="true" importOnly="true" host="host" port="10" '
                 .'connectionType="ssl" username="username" password="password" pollingInterval="pollingInterval" '
-                .'emailAddress="emailAddress" useAddressForForwardReply="1" defaultSignature="defaultSignature" '
+                .'emailAddress="emailAddress" useAddressForForwardReply="true" defaultSignature="defaultSignature" '
                 .'forwardReplySignature="forwardReplySignature" fromDisplay="fromDisplay" replyToAddress="replyToAddress" '
-                .'replyToDisplay="replyToDisplay" importClass="importClass" failingSince="1">'
+                .'replyToDisplay="replyToDisplay" importClass="importClass" failingSince="10">'
                     .'<lastError>lastError</lastError>'
                     .'<a>a</a>'
                     .'<a>b</a>'
                 .'</imap>'
-                .'<pop3 leaveOnServer="1" />'
+                .'<pop3 leaveOnServer="true" />'
                 .'<caldav />'
                 .'<yab />'
                 .'<rss />'
@@ -5923,28 +5923,28 @@ class RequestTest extends ZimbraTestCase
                     'id' => 'id',
                     'name' => 'name',
                     'l' => 'l',
-                    'isEnabled' => 1,
-                    'importOnly' => 1,
+                    'isEnabled' => true,
+                    'importOnly' => true,
                     'host' => 'host',
-                    'port' => 1,
+                    'port' => 10,
                     'connectionType' => 'ssl',
                     'username' => 'username',
                     'password' => 'password',
                     'pollingInterval' => 'pollingInterval',
                     'emailAddress' => 'emailAddress',
-                    'useAddressForForwardReply' => 1,
+                    'useAddressForForwardReply' => true,
                     'defaultSignature' => 'defaultSignature',
                     'forwardReplySignature' => 'forwardReplySignature',
                     'fromDisplay' => 'fromDisplay',
                     'replyToAddress' => 'replyToAddress',
                     'replyToDisplay' => 'replyToDisplay',
                     'importClass' => 'importClass',
-                    'failingSince' => 1,
+                    'failingSince' => 10,
                     'lastError' => 'lastError',
                     'a' => array('a', 'b'),
                 ),
                 'pop3' => array(
-                    'leaveOnServer' => 1,
+                    'leaveOnServer' => true,
                 ),
                 'caldav' => array(),
                 'yab' => array(),
@@ -5960,76 +5960,76 @@ class RequestTest extends ZimbraTestCase
     public function testModifyFilterRules()
     {
         $addressBookTest = new \Zimbra\Mail\Struct\AddressBookTest(
-            1, 'header', true
+            10, 'header', true
         );
         $addressTest = new \Zimbra\Mail\Struct\AddressTest(
-            1, 'header', 'part', 'stringComparison', 'value', true, true
+            10, 'header', 'part', 'stringComparison', 'value', true, true
         );
         $attachmentTest = new \Zimbra\Mail\Struct\AttachmentTest(
-            1, true
+            10, true
         );
         $bodyTest = new \Zimbra\Mail\Struct\BodyTest(
-            1, 'value', true, true
+            10, 'value', true, true
         );
         $bulkTest = new \Zimbra\Mail\Struct\BulkTest(
-            1, true
+            10, true
         );
         $contactRankingTest = new \Zimbra\Mail\Struct\ContactRankingTest(
-            1, 'header', true
+            10, 'header', true
         );
         $conversationTest = new \Zimbra\Mail\Struct\ConversationTest(
-            1, 'where', true
+            10, 'where', true
         );
         $currentDayOfWeekTest = new \Zimbra\Mail\Struct\CurrentDayOfWeekTest(
-            1, 'value', true
+            10, 'value', true
         );
         $currentTimeTest = new \Zimbra\Mail\Struct\CurrentTimeTest(
-            1, 'dateComparison', 'time', true
+            10, 'dateComparison', 'time', true
         );
         $dateTest = new \Zimbra\Mail\Struct\DateTest(
-            1, 'dateComparison', 1, true
+            10, 'dateComparison', 10, true
         );
         $facebookTest = new \Zimbra\Mail\Struct\FacebookTest(
-            1, true
+            10, true
         );
         $flaggedTest = new \Zimbra\Mail\Struct\FlaggedTest(
-            1, 'flagName', true
+            10, 'flagName', true
         );
         $headerExistsTest = new \Zimbra\Mail\Struct\HeaderExistsTest(
-            1, 'header', true
+            10, 'header', true
         );
         $headerTest = new \Zimbra\Mail\Struct\HeaderTest(
-            1, 'header', 'stringComparison', 'value', true, true
+            10, 'header', 'stringComparison', 'value', true, true
         );
         $importanceTest = new \Zimbra\Mail\Struct\ImportanceTest(
-            1, Importance::HIGH(), true
+            10, Importance::HIGH(), true
         );
         $inviteTest = new \Zimbra\Mail\Struct\InviteTest(
-            1, array('method'), true
+            10, array('method'), true
         );
         $linkedinTest = new \Zimbra\Mail\Struct\LinkedInTest(
-            1, true
+            10, true
         );
         $listTest = new \Zimbra\Mail\Struct\ListTest(
-            1, true
+            10, true
         );
         $meTest = new \Zimbra\Mail\Struct\MeTest(
-            1, 'header', true
+            10, 'header', true
         );
         $mimeHeaderTest = new \Zimbra\Mail\Struct\MimeHeaderTest(
-            1, 'header', 'stringComparison', 'value', true, true
+            10, 'header', 'stringComparison', 'value', true, true
         );
         $sizeTest = new \Zimbra\Mail\Struct\SizeTest(
-            1, 'numberComparison', 's', true
+            10, 'numberComparison', 's', true
         );
         $socialcastTest = new \Zimbra\Mail\Struct\SocialcastTest(
-            1, true
+            10, true
         );
         $trueTest = new \Zimbra\Mail\Struct\TrueTest(
-            1, true
+            10, true
         );
         $twitterTest = new \Zimbra\Mail\Struct\TwitterTest(
-            1, true
+            10, true
         );
         $filterTests = new \Zimbra\Mail\Struct\FilterTests(
             FilterCondition::ALL_OF(),
@@ -6059,31 +6059,31 @@ class RequestTest extends ZimbraTestCase
             $twitterTest
         );
         $actionKeep = new \Zimbra\Mail\Struct\KeepAction(
-            1
+            10
         );
         $actionDiscard = new \Zimbra\Mail\Struct\DiscardAction(
-            1
+            10
         );
         $actionFileInto = new \Zimbra\Mail\Struct\FileIntoAction(
-            1, 'folderPath'
+            10, 'folderPath'
         );
         $actionFlag = new \Zimbra\Mail\Struct\FlagAction(
-            1, 'flagName'
+            10, 'flagName'
         );
         $actionTag = new \Zimbra\Mail\Struct\TagAction(
-            1, 'tagName'
+            10, 'tagName'
         );
         $actionRedirect = new \Zimbra\Mail\Struct\RedirectAction(
-            1, 'a'
+            10, 'a'
         );
         $actionReply = new \Zimbra\Mail\Struct\ReplyAction(
-            1, 'content'
+            10, 'content'
         );
         $actionNotify = new \Zimbra\Mail\Struct\NotifyAction(
-            1, 'content', 'a', 'su', 1, 'origHeaders'
+            10, 'content', 'a', 'su', 10, 'origHeaders'
         );
         $actionStop = new \Zimbra\Mail\Struct\StopAction(
-            1
+            10
         );
         $filterActions = new \Zimbra\Mail\Struct\FilterActions(
             $actionKeep,
@@ -6115,49 +6115,49 @@ class RequestTest extends ZimbraTestCase
         $xml = '<?xml version="1.0"?>'."\n"
             .'<ModifyFilterRulesRequest>'
                 .'<filterRules>'
-                    .'<filterRule name="name" active="1">'
+                    .'<filterRule name="name" active="true">'
                         .'<filterTests condition="allof">'
-                            .'<addressBookTest index="1" negative="1" header="header" />'
-                            .'<addressTest index="1" negative="1" header="header" part="part" stringComparison="stringComparison" value="value" caseSensitive="1" />'
-                            .'<attachmentTest index="1" negative="1" />'
-                            .'<bodyTest index="1" negative="1" value="value" caseSensitive="1" />'
-                            .'<bulkTest index="1" negative="1" />'
-                            .'<contactRankingTest index="1" negative="1" header="header" />'
-                            .'<conversationTest index="1" negative="1" where="where" />'
-                            .'<currentDayOfWeekTest index="1" negative="1" value="value" />'
-                            .'<currentTimeTest index="1" negative="1" dateComparison="dateComparison" time="time" />'
-                            .'<dateTest index="1" negative="1" dateComparison="dateComparison" d="1" />'
-                            .'<facebookTest index="1" negative="1" />'
-                            .'<flaggedTest index="1" negative="1" flagName="flagName" />'
-                            .'<headerExistsTest index="1" negative="1" header="header" />'
-                            .'<headerTest index="1" negative="1" header="header" stringComparison="stringComparison" value="value" caseSensitive="1" />'
-                            .'<importanceTest index="1" negative="1" imp="high" />'
-                            .'<inviteTest index="1" negative="1">'
+                            .'<addressBookTest index="10" negative="true" header="header" />'
+                            .'<addressTest index="10" negative="true" header="header" part="part" stringComparison="stringComparison" value="value" caseSensitive="true" />'
+                            .'<attachmentTest index="10" negative="true" />'
+                            .'<bodyTest index="10" negative="true" value="value" caseSensitive="true" />'
+                            .'<bulkTest index="10" negative="true" />'
+                            .'<contactRankingTest index="10" negative="true" header="header" />'
+                            .'<conversationTest index="10" negative="true" where="where" />'
+                            .'<currentDayOfWeekTest index="10" negative="true" value="value" />'
+                            .'<currentTimeTest index="10" negative="true" dateComparison="dateComparison" time="time" />'
+                            .'<dateTest index="10" negative="true" dateComparison="dateComparison" d="10" />'
+                            .'<facebookTest index="10" negative="true" />'
+                            .'<flaggedTest index="10" negative="true" flagName="flagName" />'
+                            .'<headerExistsTest index="10" negative="true" header="header" />'
+                            .'<headerTest index="10" negative="true" header="header" stringComparison="stringComparison" value="value" caseSensitive="true" />'
+                            .'<importanceTest index="10" negative="true" imp="high" />'
+                            .'<inviteTest index="10" negative="true">'
                                 .'<method>method</method>'
                             .'</inviteTest>'
-                            .'<linkedinTest index="1" negative="1" />'
-                            .'<listTest index="1" negative="1" />'
-                            .'<meTest index="1" negative="1" header="header" />'
-                            .'<mimeHeaderTest index="1" negative="1" header="header" stringComparison="stringComparison" value="value" caseSensitive="1" />'
-                            .'<sizeTest index="1" negative="1" numberComparison="numberComparison" s="s" />'
-                            .'<socialcastTest index="1" negative="1" />'
-                            .'<trueTest index="1" negative="1" />'
-                            .'<twitterTest index="1" negative="1" />'
+                            .'<linkedinTest index="10" negative="true" />'
+                            .'<listTest index="10" negative="true" />'
+                            .'<meTest index="10" negative="true" header="header" />'
+                            .'<mimeHeaderTest index="10" negative="true" header="header" stringComparison="stringComparison" value="value" caseSensitive="true" />'
+                            .'<sizeTest index="10" negative="true" numberComparison="numberComparison" s="s" />'
+                            .'<socialcastTest index="10" negative="true" />'
+                            .'<trueTest index="10" negative="true" />'
+                            .'<twitterTest index="10" negative="true" />'
                         .'</filterTests>'
                         .'<filterActions>'
-                            .'<actionKeep index="1" />'
-                            .'<actionDiscard index="1" />'
-                            .'<actionFileInto index="1" folderPath="folderPath" />'
-                            .'<actionFlag index="1" flagName="flagName" />'
-                            .'<actionTag index="1" tagName="tagName" />'
-                            .'<actionRedirect index="1" a="a" />'
-                            .'<actionReply index="1">'
+                            .'<actionKeep index="10" />'
+                            .'<actionDiscard index="10" />'
+                            .'<actionFileInto index="10" folderPath="folderPath" />'
+                            .'<actionFlag index="10" flagName="flagName" />'
+                            .'<actionTag index="10" tagName="tagName" />'
+                            .'<actionRedirect index="10" a="a" />'
+                            .'<actionReply index="10">'
                                 .'<content>content</content>'
                             .'</actionReply>'
-                            .'<actionNotify index="1" a="a" su="su" maxBodySize="1" origHeaders="origHeaders">'
+                            .'<actionNotify index="10" a="a" su="su" maxBodySize="10" origHeaders="origHeaders">'
                                 .'<content>content</content>'
                             .'</actionNotify>'
-                            .'<actionStop index="1" />'
+                            .'<actionStop index="10" />'
                         .'</filterActions>'
                     .'</filterRule>'
                 .'</filterRules>'
@@ -6170,175 +6170,175 @@ class RequestTest extends ZimbraTestCase
                     'filterRule' => array(
                         array(
                             'name' => 'name',
-                            'active' => 1,
+                            'active' => true,
                             'filterTests' => array(
                                 'condition' => 'allof',
                                 'addressBookTest' => array(
-                                    'index' => 1,
-                                    'negative' => 1,
+                                    'index' => 10,
+                                    'negative' => true,
                                     'header' => 'header',
                                 ),
                                 'addressTest' => array(
-                                    'index' => 1,
-                                    'negative' => 1,
+                                    'index' => 10,
+                                    'negative' => true,
                                     'header' => 'header',
                                     'part' => 'part',
                                     'stringComparison' => 'stringComparison',
                                     'value' => 'value',
-                                    'caseSensitive' => 1,
+                                    'caseSensitive' => true,
                                 ),
                                 'attachmentTest' => array(
-                                    'index' => 1,
-                                    'negative' => 1,
+                                    'index' => 10,
+                                    'negative' => true,
                                 ),
                                 'bodyTest' => array(
-                                    'index' => 1,
-                                    'negative' => 1,
+                                    'index' => 10,
+                                    'negative' => true,
                                     'value' => 'value',
-                                    'caseSensitive' => 1,
+                                    'caseSensitive' => true,
                                 ),
                                 'bulkTest' => array(
-                                    'index' => 1,
-                                    'negative' => 1,
+                                    'index' => 10,
+                                    'negative' => true,
                                 ),
                                 'contactRankingTest' => array(
-                                    'index' => 1,
-                                    'negative' => 1,
+                                    'index' => 10,
+                                    'negative' => true,
                                     'header' => 'header',
                                 ),
                                 'conversationTest' => array(
-                                    'index' => 1,
-                                    'negative' => 1,
+                                    'index' => 10,
+                                    'negative' => true,
                                     'where' => 'where',
                                 ),
                                 'currentDayOfWeekTest' => array(
-                                    'index' => 1,
-                                    'negative' => 1,
+                                    'index' => 10,
+                                    'negative' => true,
                                     'value' => 'value',
                                 ),
                                 'currentTimeTest' => array(
-                                    'index' => 1,
-                                    'negative' => 1,
+                                    'index' => 10,
+                                    'negative' => true,
                                     'dateComparison' => 'dateComparison',
                                     'time' => 'time',
                                 ),
                                 'dateTest' => array(
-                                    'index' => 1,
-                                    'negative' => 1,
+                                    'index' => 10,
+                                    'negative' => true,
                                     'dateComparison' => 'dateComparison',
-                                    'd' => 1,
+                                    'd' => 10,
                                 ),
                                 'facebookTest' => array(
-                                    'index' => 1,
-                                    'negative' => 1,
+                                    'index' => 10,
+                                    'negative' => true,
                                 ),
                                 'flaggedTest' => array(
-                                    'index' => 1,
-                                    'negative' => 1,
+                                    'index' => 10,
+                                    'negative' => true,
                                     'flagName' => 'flagName',
                                 ),
                                 'headerExistsTest' => array(
-                                    'index' => 1,
-                                    'negative' => 1,
+                                    'index' => 10,
+                                    'negative' => true,
                                     'header' => 'header',
                                 ),
                                 'headerTest' => array(
-                                    'index' => 1,
-                                    'negative' => 1,
+                                    'index' => 10,
+                                    'negative' => true,
                                     'header' => 'header',
                                     'stringComparison' => 'stringComparison',
                                     'value' => 'value',
-                                    'caseSensitive' => 1,
+                                    'caseSensitive' => true,
                                 ),
                                 'importanceTest' => array(
-                                    'index' => 1,
-                                    'negative' => 1,
+                                    'index' => 10,
+                                    'negative' => true,
                                     'imp' => 'high',
                                 ),
                                 'inviteTest' => array(
-                                    'index' => 1,
-                                    'negative' => 1,
+                                    'index' => 10,
+                                    'negative' => true,
                                     'method' => array(
                                         'method',
                                     ),
                                 ),
                                 'linkedinTest' => array(
-                                    'index' => 1,
-                                    'negative' => 1,
+                                    'index' => 10,
+                                    'negative' => true,
                                 ),
                                 'listTest' => array(
-                                    'index' => 1,
-                                    'negative' => 1,
+                                    'index' => 10,
+                                    'negative' => true,
                                 ),
                                 'meTest' => array(
-                                    'index' => 1,
-                                    'negative' => 1,
+                                    'index' => 10,
+                                    'negative' => true,
                                     'header' => 'header',
                                 ),
                                 'mimeHeaderTest' => array(
-                                    'index' => 1,
-                                    'negative' => 1,
+                                    'index' => 10,
+                                    'negative' => true,
                                     'header' => 'header',
                                     'stringComparison' => 'stringComparison',
                                     'value' => 'value',
-                                    'caseSensitive' => 1,
+                                    'caseSensitive' => true,
                                 ),
                                 'sizeTest' => array(
-                                    'index' => 1,
-                                    'negative' => 1,
+                                    'index' => 10,
+                                    'negative' => true,
                                     'numberComparison' => 'numberComparison',
                                     's' => 's',
                                 ),
                                 'socialcastTest' => array(
-                                    'index' => 1,
-                                    'negative' => 1,
+                                    'index' => 10,
+                                    'negative' => true,
                                 ),
                                 'trueTest' => array(
-                                    'index' => 1,
-                                    'negative' => 1,
+                                    'index' => 10,
+                                    'negative' => true,
                                 ),
                                 'twitterTest' => array(
-                                    'index' => 1,
-                                    'negative' => 1,
+                                    'index' => 10,
+                                    'negative' => true,
                                 ),
                             ),
                             'filterActions' => array(
                                 'actionKeep' => array(
-                                    'index' => 1,
+                                    'index' => 10,
                                 ),
                                 'actionDiscard' => array(
-                                    'index' => 1,
+                                    'index' => 10,
                                 ),
                                 'actionFileInto' => array(
-                                    'index' => 1,
+                                    'index' => 10,
                                     'folderPath' => 'folderPath',
                                 ),
                                 'actionFlag' => array(
-                                    'index' => 1,
+                                    'index' => 10,
                                     'flagName' => 'flagName',
                                 ),
                                 'actionTag' => array(
-                                    'index' => 1,
+                                    'index' => 10,
                                     'tagName' => 'tagName',
                                 ),
                                 'actionRedirect' => array(
-                                    'index' => 1,
+                                    'index' => 10,
                                     'a' => 'a',
                                 ),
                                 'actionReply' => array(
-                                    'index' => 1,
+                                    'index' => 10,
                                     'content' => 'content',
                                 ),
                                 'actionNotify' => array(
-                                    'index' => 1,
+                                    'index' => 10,
                                     'content' => 'content',
                                     'a' => 'a',
                                     'su' => 'su',
-                                    'maxBodySize' => 1,
+                                    'maxBodySize' => 10,
                                     'origHeaders' => 'origHeaders',
                                 ),
                                 'actionStop' => array(
-                                    'index' => 1,
+                                    'index' => 10,
                                 ),
                             ),
                         ),
@@ -6386,76 +6386,76 @@ class RequestTest extends ZimbraTestCase
     public function testModifyOutgoingFilterRules()
     {
         $addressBookTest = new \Zimbra\Mail\Struct\AddressBookTest(
-            1, 'header', true
+            10, 'header', true
         );
         $addressTest = new \Zimbra\Mail\Struct\AddressTest(
-            1, 'header', 'part', 'stringComparison', 'value', true, true
+            10, 'header', 'part', 'stringComparison', 'value', true, true
         );
         $attachmentTest = new \Zimbra\Mail\Struct\AttachmentTest(
-            1, true
+            10, true
         );
         $bodyTest = new \Zimbra\Mail\Struct\BodyTest(
-            1, 'value', true, true
+            10, 'value', true, true
         );
         $bulkTest = new \Zimbra\Mail\Struct\BulkTest(
-            1, true
+            10, true
         );
         $contactRankingTest = new \Zimbra\Mail\Struct\ContactRankingTest(
-            1, 'header', true
+            10, 'header', true
         );
         $conversationTest = new \Zimbra\Mail\Struct\ConversationTest(
-            1, 'where', true
+            10, 'where', true
         );
         $currentDayOfWeekTest = new \Zimbra\Mail\Struct\CurrentDayOfWeekTest(
-            1, 'value', true
+            10, 'value', true
         );
         $currentTimeTest = new \Zimbra\Mail\Struct\CurrentTimeTest(
-            1, 'dateComparison', 'time', true
+            10, 'dateComparison', 'time', true
         );
         $dateTest = new \Zimbra\Mail\Struct\DateTest(
-            1, 'dateComparison', 1, true
+            10, 'dateComparison', 10, true
         );
         $facebookTest = new \Zimbra\Mail\Struct\FacebookTest(
-            1, true
+            10, true
         );
         $flaggedTest = new \Zimbra\Mail\Struct\FlaggedTest(
-            1, 'flagName', true
+            10, 'flagName', true
         );
         $headerExistsTest = new \Zimbra\Mail\Struct\HeaderExistsTest(
-            1, 'header', true
+            10, 'header', true
         );
         $headerTest = new \Zimbra\Mail\Struct\HeaderTest(
-            1, 'header', 'stringComparison', 'value', true, true
+            10, 'header', 'stringComparison', 'value', true, true
         );
         $importanceTest = new \Zimbra\Mail\Struct\ImportanceTest(
-            1, Importance::HIGH(), true
+            10, Importance::HIGH(), true
         );
         $inviteTest = new \Zimbra\Mail\Struct\InviteTest(
-            1, array('method'), true
+            10, array('method'), true
         );
         $linkedinTest = new \Zimbra\Mail\Struct\LinkedInTest(
-            1, true
+            10, true
         );
         $listTest = new \Zimbra\Mail\Struct\ListTest(
-            1, true
+            10, true
         );
         $meTest = new \Zimbra\Mail\Struct\MeTest(
-            1, 'header', true
+            10, 'header', true
         );
         $mimeHeaderTest = new \Zimbra\Mail\Struct\MimeHeaderTest(
-            1, 'header', 'stringComparison', 'value', true, true
+            10, 'header', 'stringComparison', 'value', true, true
         );
         $sizeTest = new \Zimbra\Mail\Struct\SizeTest(
-            1, 'numberComparison', 's', true
+            10, 'numberComparison', 's', true
         );
         $socialcastTest = new \Zimbra\Mail\Struct\SocialcastTest(
-            1, true
+            10, true
         );
         $trueTest = new \Zimbra\Mail\Struct\TrueTest(
-            1, true
+            10, true
         );
         $twitterTest = new \Zimbra\Mail\Struct\TwitterTest(
-            1, true
+            10, true
         );
         $filterTests = new \Zimbra\Mail\Struct\FilterTests(
             FilterCondition::ALL_OF(),
@@ -6485,31 +6485,31 @@ class RequestTest extends ZimbraTestCase
             $twitterTest
         );
         $actionKeep = new \Zimbra\Mail\Struct\KeepAction(
-            1
+            10
         );
         $actionDiscard = new \Zimbra\Mail\Struct\DiscardAction(
-            1
+            10
         );
         $actionFileInto = new \Zimbra\Mail\Struct\FileIntoAction(
-            1, 'folderPath'
+            10, 'folderPath'
         );
         $actionFlag = new \Zimbra\Mail\Struct\FlagAction(
-            1, 'flagName'
+            10, 'flagName'
         );
         $actionTag = new \Zimbra\Mail\Struct\TagAction(
-            1, 'tagName'
+            10, 'tagName'
         );
         $actionRedirect = new \Zimbra\Mail\Struct\RedirectAction(
-            1, 'a'
+            10, 'a'
         );
         $actionReply = new \Zimbra\Mail\Struct\ReplyAction(
-            1, 'content'
+            10, 'content'
         );
         $actionNotify = new \Zimbra\Mail\Struct\NotifyAction(
-            1, 'content', 'a', 'su', 1, 'origHeaders'
+            10, 'content', 'a', 'su', 10, 'origHeaders'
         );
         $actionStop = new \Zimbra\Mail\Struct\StopAction(
-            1
+            10
         );
         $filterActions = new \Zimbra\Mail\Struct\FilterActions(
             $actionKeep,
@@ -6541,49 +6541,49 @@ class RequestTest extends ZimbraTestCase
         $xml = '<?xml version="1.0"?>'."\n"
             .'<ModifyOutgoingFilterRulesRequest>'
                 .'<filterRules>'
-                    .'<filterRule name="name" active="1">'
+                    .'<filterRule name="name" active="true">'
                         .'<filterTests condition="allof">'
-                            .'<addressBookTest index="1" negative="1" header="header" />'
-                            .'<addressTest index="1" negative="1" header="header" part="part" stringComparison="stringComparison" value="value" caseSensitive="1" />'
-                            .'<attachmentTest index="1" negative="1" />'
-                            .'<bodyTest index="1" negative="1" value="value" caseSensitive="1" />'
-                            .'<bulkTest index="1" negative="1" />'
-                            .'<contactRankingTest index="1" negative="1" header="header" />'
-                            .'<conversationTest index="1" negative="1" where="where" />'
-                            .'<currentDayOfWeekTest index="1" negative="1" value="value" />'
-                            .'<currentTimeTest index="1" negative="1" dateComparison="dateComparison" time="time" />'
-                            .'<dateTest index="1" negative="1" dateComparison="dateComparison" d="1" />'
-                            .'<facebookTest index="1" negative="1" />'
-                            .'<flaggedTest index="1" negative="1" flagName="flagName" />'
-                            .'<headerExistsTest index="1" negative="1" header="header" />'
-                            .'<headerTest index="1" negative="1" header="header" stringComparison="stringComparison" value="value" caseSensitive="1" />'
-                            .'<importanceTest index="1" negative="1" imp="high" />'
-                            .'<inviteTest index="1" negative="1">'
+                            .'<addressBookTest index="10" negative="true" header="header" />'
+                            .'<addressTest index="10" negative="true" header="header" part="part" stringComparison="stringComparison" value="value" caseSensitive="true" />'
+                            .'<attachmentTest index="10" negative="true" />'
+                            .'<bodyTest index="10" negative="true" value="value" caseSensitive="true" />'
+                            .'<bulkTest index="10" negative="true" />'
+                            .'<contactRankingTest index="10" negative="true" header="header" />'
+                            .'<conversationTest index="10" negative="true" where="where" />'
+                            .'<currentDayOfWeekTest index="10" negative="true" value="value" />'
+                            .'<currentTimeTest index="10" negative="true" dateComparison="dateComparison" time="time" />'
+                            .'<dateTest index="10" negative="true" dateComparison="dateComparison" d="10" />'
+                            .'<facebookTest index="10" negative="true" />'
+                            .'<flaggedTest index="10" negative="true" flagName="flagName" />'
+                            .'<headerExistsTest index="10" negative="true" header="header" />'
+                            .'<headerTest index="10" negative="true" header="header" stringComparison="stringComparison" value="value" caseSensitive="true" />'
+                            .'<importanceTest index="10" negative="true" imp="high" />'
+                            .'<inviteTest index="10" negative="true">'
                                 .'<method>method</method>'
                             .'</inviteTest>'
-                            .'<linkedinTest index="1" negative="1" />'
-                            .'<listTest index="1" negative="1" />'
-                            .'<meTest index="1" negative="1" header="header" />'
-                            .'<mimeHeaderTest index="1" negative="1" header="header" stringComparison="stringComparison" value="value" caseSensitive="1" />'
-                            .'<sizeTest index="1" negative="1" numberComparison="numberComparison" s="s" />'
-                            .'<socialcastTest index="1" negative="1" />'
-                            .'<trueTest index="1" negative="1" />'
-                            .'<twitterTest index="1" negative="1" />'
+                            .'<linkedinTest index="10" negative="true" />'
+                            .'<listTest index="10" negative="true" />'
+                            .'<meTest index="10" negative="true" header="header" />'
+                            .'<mimeHeaderTest index="10" negative="true" header="header" stringComparison="stringComparison" value="value" caseSensitive="true" />'
+                            .'<sizeTest index="10" negative="true" numberComparison="numberComparison" s="s" />'
+                            .'<socialcastTest index="10" negative="true" />'
+                            .'<trueTest index="10" negative="true" />'
+                            .'<twitterTest index="10" negative="true" />'
                         .'</filterTests>'
                         .'<filterActions>'
-                            .'<actionKeep index="1" />'
-                            .'<actionDiscard index="1" />'
-                            .'<actionFileInto index="1" folderPath="folderPath" />'
-                            .'<actionFlag index="1" flagName="flagName" />'
-                            .'<actionTag index="1" tagName="tagName" />'
-                            .'<actionRedirect index="1" a="a" />'
-                            .'<actionReply index="1">'
+                            .'<actionKeep index="10" />'
+                            .'<actionDiscard index="10" />'
+                            .'<actionFileInto index="10" folderPath="folderPath" />'
+                            .'<actionFlag index="10" flagName="flagName" />'
+                            .'<actionTag index="10" tagName="tagName" />'
+                            .'<actionRedirect index="10" a="a" />'
+                            .'<actionReply index="10">'
                                 .'<content>content</content>'
                             .'</actionReply>'
-                            .'<actionNotify index="1" a="a" su="su" maxBodySize="1" origHeaders="origHeaders">'
+                            .'<actionNotify index="10" a="a" su="su" maxBodySize="10" origHeaders="origHeaders">'
                                 .'<content>content</content>'
                             .'</actionNotify>'
-                            .'<actionStop index="1" />'
+                            .'<actionStop index="10" />'
                         .'</filterActions>'
                     .'</filterRule>'
                 .'</filterRules>'
@@ -6596,175 +6596,175 @@ class RequestTest extends ZimbraTestCase
                     'filterRule' => array(
                         array(
                             'name' => 'name',
-                            'active' => 1,
+                            'active' => true,
                             'filterTests' => array(
                                 'condition' => 'allof',
                                 'addressBookTest' => array(
-                                    'index' => 1,
-                                    'negative' => 1,
+                                    'index' => 10,
+                                    'negative' => true,
                                     'header' => 'header',
                                 ),
                                 'addressTest' => array(
-                                    'index' => 1,
-                                    'negative' => 1,
+                                    'index' => 10,
+                                    'negative' => true,
                                     'header' => 'header',
                                     'part' => 'part',
                                     'stringComparison' => 'stringComparison',
                                     'value' => 'value',
-                                    'caseSensitive' => 1,
+                                    'caseSensitive' => true,
                                 ),
                                 'attachmentTest' => array(
-                                    'index' => 1,
-                                    'negative' => 1,
+                                    'index' => 10,
+                                    'negative' => true,
                                 ),
                                 'bodyTest' => array(
-                                    'index' => 1,
-                                    'negative' => 1,
+                                    'index' => 10,
+                                    'negative' => true,
                                     'value' => 'value',
-                                    'caseSensitive' => 1,
+                                    'caseSensitive' => true,
                                 ),
                                 'bulkTest' => array(
-                                    'index' => 1,
-                                    'negative' => 1,
+                                    'index' => 10,
+                                    'negative' => true,
                                 ),
                                 'contactRankingTest' => array(
-                                    'index' => 1,
-                                    'negative' => 1,
+                                    'index' => 10,
+                                    'negative' => true,
                                     'header' => 'header',
                                 ),
                                 'conversationTest' => array(
-                                    'index' => 1,
-                                    'negative' => 1,
+                                    'index' => 10,
+                                    'negative' => true,
                                     'where' => 'where',
                                 ),
                                 'currentDayOfWeekTest' => array(
-                                    'index' => 1,
-                                    'negative' => 1,
+                                    'index' => 10,
+                                    'negative' => true,
                                     'value' => 'value',
                                 ),
                                 'currentTimeTest' => array(
-                                    'index' => 1,
-                                    'negative' => 1,
+                                    'index' => 10,
+                                    'negative' => true,
                                     'dateComparison' => 'dateComparison',
                                     'time' => 'time',
                                 ),
                                 'dateTest' => array(
-                                    'index' => 1,
-                                    'negative' => 1,
+                                    'index' => 10,
+                                    'negative' => true,
                                     'dateComparison' => 'dateComparison',
-                                    'd' => 1,
+                                    'd' => 10,
                                 ),
                                 'facebookTest' => array(
-                                    'index' => 1,
-                                    'negative' => 1,
+                                    'index' => 10,
+                                    'negative' => true,
                                 ),
                                 'flaggedTest' => array(
-                                    'index' => 1,
-                                    'negative' => 1,
+                                    'index' => 10,
+                                    'negative' => true,
                                     'flagName' => 'flagName',
                                 ),
                                 'headerExistsTest' => array(
-                                    'index' => 1,
-                                    'negative' => 1,
+                                    'index' => 10,
+                                    'negative' => true,
                                     'header' => 'header',
                                 ),
                                 'headerTest' => array(
-                                    'index' => 1,
-                                    'negative' => 1,
+                                    'index' => 10,
+                                    'negative' => true,
                                     'header' => 'header',
                                     'stringComparison' => 'stringComparison',
                                     'value' => 'value',
-                                    'caseSensitive' => 1,
+                                    'caseSensitive' => true,
                                 ),
                                 'importanceTest' => array(
-                                    'index' => 1,
-                                    'negative' => 1,
+                                    'index' => 10,
+                                    'negative' => true,
                                     'imp' => 'high',
                                 ),
                                 'inviteTest' => array(
-                                    'index' => 1,
-                                    'negative' => 1,
+                                    'index' => 10,
+                                    'negative' => true,
                                     'method' => array(
                                         'method',
                                     ),
                                 ),
                                 'linkedinTest' => array(
-                                    'index' => 1,
-                                    'negative' => 1,
+                                    'index' => 10,
+                                    'negative' => true,
                                 ),
                                 'listTest' => array(
-                                    'index' => 1,
-                                    'negative' => 1,
+                                    'index' => 10,
+                                    'negative' => true,
                                 ),
                                 'meTest' => array(
-                                    'index' => 1,
-                                    'negative' => 1,
+                                    'index' => 10,
+                                    'negative' => true,
                                     'header' => 'header',
                                 ),
                                 'mimeHeaderTest' => array(
-                                    'index' => 1,
-                                    'negative' => 1,
+                                    'index' => 10,
+                                    'negative' => true,
                                     'header' => 'header',
                                     'stringComparison' => 'stringComparison',
                                     'value' => 'value',
-                                    'caseSensitive' => 1,
+                                    'caseSensitive' => true,
                                 ),
                                 'sizeTest' => array(
-                                    'index' => 1,
-                                    'negative' => 1,
+                                    'index' => 10,
+                                    'negative' => true,
                                     'numberComparison' => 'numberComparison',
                                     's' => 's',
                                 ),
                                 'socialcastTest' => array(
-                                    'index' => 1,
-                                    'negative' => 1,
+                                    'index' => 10,
+                                    'negative' => true,
                                 ),
                                 'trueTest' => array(
-                                    'index' => 1,
-                                    'negative' => 1,
+                                    'index' => 10,
+                                    'negative' => true,
                                 ),
                                 'twitterTest' => array(
-                                    'index' => 1,
-                                    'negative' => 1,
+                                    'index' => 10,
+                                    'negative' => true,
                                 ),
                             ),
                             'filterActions' => array(
                                 'actionKeep' => array(
-                                    'index' => 1,
+                                    'index' => 10,
                                 ),
                                 'actionDiscard' => array(
-                                    'index' => 1,
+                                    'index' => 10,
                                 ),
                                 'actionFileInto' => array(
-                                    'index' => 1,
+                                    'index' => 10,
                                     'folderPath' => 'folderPath',
                                 ),
                                 'actionFlag' => array(
-                                    'index' => 1,
+                                    'index' => 10,
                                     'flagName' => 'flagName',
                                 ),
                                 'actionTag' => array(
-                                    'index' => 1,
+                                    'index' => 10,
                                     'tagName' => 'tagName',
                                 ),
                                 'actionRedirect' => array(
-                                    'index' => 1,
+                                    'index' => 10,
                                     'a' => 'a',
                                 ),
                                 'actionReply' => array(
-                                    'index' => 1,
+                                    'index' => 10,
                                     'content' => 'content',
                                 ),
                                 'actionNotify' => array(
-                                    'index' => 1,
+                                    'index' => 10,
                                     'content' => 'content',
                                     'a' => 'a',
                                     'su' => 'su',
-                                    'maxBodySize' => 1,
+                                    'maxBodySize' => 10,
                                     'origHeaders' => 'origHeaders',
                                 ),
                                 'actionStop' => array(
-                                    'index' => 1,
+                                    'index' => 10,
                                 ),
                             ),
                         ),
@@ -6812,37 +6812,37 @@ class RequestTest extends ZimbraTestCase
     {
         $m = $this->getMsg();
         $req = new \Zimbra\Mail\Request\ModifyTask(
-            $m, 'id', 1, 1, 1, true, 1, true, true, true
+            $m, 'id', 10, 10, 10, true, 10, true, true, true
         );
         $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
         $this->assertInstanceOf('Zimbra\Mail\Request\ModifyAppointment', $req);
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<ModifyTaskRequest id="id" comp="1" ms="1" rev="1" echo="1" max="1" html="1" neuter="1" forcesend="1">'
+            .'<ModifyTaskRequest id="id" comp="10" ms="10" rev="10" echo="true" max="10" html="true" neuter="true" forcesend="true">'
                 .'<m aid="aid" origid="origid" rt="rt" idnt="idnt" su="su" irt="irt" l="l" f="f">'
                     .'<content>content</content>'
                     .'<mp ct="ct" content="content" ci="ci">'
                         .'<attach aid="aid">'
-                            .'<mp optional="1" mid="mid" part="part" />'
-                            .'<m optional="0" id="id" />'
-                            .'<cn id="id" optional="0" />'
-                            .'<doc optional="1" path="path" id="id" ver="1" />'
+                            .'<mp optional="true" mid="mid" part="part" />'
+                            .'<m optional="false" id="id" />'
+                            .'<cn id="id" optional="false" />'
+                            .'<doc optional="true" path="path" id="id" ver="10" />'
                         .'</attach>'
                         .'<mp ct="ct" content="content" ci="ci" />'
                     .'</mp>'
                     .'<attach aid="aid">'
-                        .'<mp optional="1" mid="mid" part="part" />'
-                        .'<m optional="0" id="id" />'
-                        .'<cn id="id" optional="0" />'
-                        .'<doc optional="1" path="path" id="id" ver="1" />'
+                        .'<mp optional="true" mid="mid" part="part" />'
+                        .'<m optional="false" id="id" />'
+                        .'<cn id="id" optional="false" />'
+                        .'<doc optional="true" path="path" id="id" ver="10" />'
                     .'</attach>'
-                    .'<inv method="method" compNum="1" rsvp="1" />'
+                    .'<inv method="method" compNum="10" rsvp="true" />'
                     .'<fr>fr</fr>'
                     .'<header name="name">value</header>'
                     .'<e a="a" t="t" p="p" />'
-                    .'<tz id="id" stdoff="1" dayoff="1" stdname="stdname" dayname="dayname">'
-                        .'<standard mon="1" hour="2" min="3" sec="4" />'
-                        .'<daylight mon="4" hour="3" min="2" sec="1" />'
+                    .'<tz id="id" stdoff="10" dayoff="10" stdname="stdname" dayname="dayname">'
+                        .'<standard mon="12" hour="2" min="3" sec="4" />'
+                        .'<daylight mon="4" hour="3" min="2" sec="10" />'
                     .'</tz>'
                 .'</m>'
             .'</ModifyTaskRequest>';
@@ -6851,14 +6851,14 @@ class RequestTest extends ZimbraTestCase
         $array = array(
             'ModifyTaskRequest' => array(
                 'id' => 'id',
-                'comp' => 1,
-                'ms' => 1,
-                'rev' => 1,
-                'echo' => 1,
-                'max' => 1,
-                'html' => 1,
-                'neuter' => 1,
-                'forcesend' => 1,
+                'comp' => 10,
+                'ms' => 10,
+                'rev' => 10,
+                'echo' => true,
+                'max' => 10,
+                'html' => true,
+                'neuter' => true,
+                'forcesend' => true,
                 'm' => array(
                     'aid' => 'aid',
                     'origid' => 'origid',
@@ -6891,21 +6891,21 @@ class RequestTest extends ZimbraTestCase
                             'mp' => array(
                                 'mid' => 'mid',
                                 'part' => 'part',
-                                'optional' => 1,
+                                'optional' => true,
                             ),
                             'm' => array(
                                 'id' => 'id',
-                                'optional' => 0,
+                                'optional' => false,
                             ),
                             'cn' => array(
                                 'id' => 'id',
-                                'optional' => 0,
+                                'optional' => false,
                             ),
                             'doc' => array(
                                 'path' => 'path',
                                 'id' => 'id',
-                                'ver' => 1,
-                                'optional' => 1,
+                                'ver' => 10,
+                                'optional' => true,
                             ),
                         ),
                     ),
@@ -6914,27 +6914,27 @@ class RequestTest extends ZimbraTestCase
                         'mp' => array(
                             'mid' => 'mid',
                             'part' => 'part',
-                            'optional' => 1,
+                            'optional' => true,
                         ),
                         'm' => array(
                             'id' => 'id',
-                            'optional' => 0,
+                            'optional' => false,
                         ),
                         'cn' => array(
                             'id' => 'id',
-                            'optional' => 0,
+                            'optional' => false,
                         ),
                         'doc' => array(
                             'path' => 'path',
                             'id' => 'id',
-                            'ver' => 1,
-                            'optional' => 1,
+                            'ver' => 10,
+                            'optional' => true,
                         ),
                     ),
                     'inv' => array(
                         'method' => 'method',
-                        'compNum' => 1,
-                        'rsvp' => 1,
+                        'compNum' => 10,
+                        'rsvp' => true,
                     ),
                     'e' => array(
                         array(
@@ -6946,12 +6946,12 @@ class RequestTest extends ZimbraTestCase
                     'tz' => array(
                         array(
                             'id' => 'id',
-                            'stdoff' => 1,
-                            'dayoff' => 1,
+                            'stdoff' => 10,
+                            'dayoff' => 10,
                             'stdname' => 'stdname',
                             'dayname' => 'dayname',
                             'standard' => array(
-                                'mon' => 1,
+                                'mon' => 12,
                                 'hour' => 2,
                                 'min' => 3,
                                 'sec' => 4,
@@ -6960,7 +6960,7 @@ class RequestTest extends ZimbraTestCase
                                 'mon' => 4,
                                 'hour' => 3,
                                 'min' => 2,
-                                'sec' => 1,
+                                'sec' => 10,
                             ),
                         ),
                     ),
@@ -6974,7 +6974,7 @@ class RequestTest extends ZimbraTestCase
     public function testMsgAction()
     {
         $action = new \Zimbra\Mail\Struct\MsgActionSelector(
-            MsgActionOp::MOVE(), 'id', 'tcon', 1, 'l', '#aabbcc', 1, 'name', 'f', 't', 'tn'
+            MsgActionOp::MOVE(), 'id', 'tcon', 10, 'l', '#aabbcc', 10, 'name', 'f', 't', 'tn'
         );
         $req = new \Zimbra\Mail\Request\MsgAction(
             $action
@@ -6987,7 +6987,7 @@ class RequestTest extends ZimbraTestCase
 
         $xml = '<?xml version="1.0"?>'."\n"
             .'<MsgActionRequest>'
-                .'<action op="move" id="id" tcon="tcon" tag="1" l="l" rgb="#aabbcc" color="1" name="name" f="f" t="t" tn="tn" />'
+                .'<action op="move" id="id" tcon="tcon" tag="10" l="l" rgb="#aabbcc" color="10" name="name" f="f" t="t" tn="tn" />'
             .'</MsgActionRequest>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
@@ -6997,10 +6997,10 @@ class RequestTest extends ZimbraTestCase
                     'op' => 'move',
                     'id' => 'id',
                     'tcon' => 'tcon',
-                    'tag' => 1,
+                    'tag' => 10,
                     'l' => 'l',
                     'rgb' => '#aabbcc',
-                    'color' => 1,
+                    'color' => 10,
                     'name' => 'name',
                     'f' => 'f',
                     't' => 't',
@@ -7014,33 +7014,33 @@ class RequestTest extends ZimbraTestCase
     public function testNoOp()
     {
         $req = new \Zimbra\Mail\Request\NoOp(
-            true, true, true, 1
+            true, true, true, 10
         );
         $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
         $this->assertTrue($req->wait());
         $this->assertTrue($req->delegate());
         $this->assertTrue($req->limitToOneBlocked());
-        $this->assertSame(1, $req->timeout());
+        $this->assertSame(10, $req->timeout());
 
         $req->wait(true)
             ->delegate(true)
             ->limitToOneBlocked(true)
-            ->timeout(1);
+            ->timeout(10);
         $this->assertTrue($req->wait());
         $this->assertTrue($req->delegate());
         $this->assertTrue($req->limitToOneBlocked());
-        $this->assertSame(1, $req->timeout());
+        $this->assertSame(10, $req->timeout());
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<NoOpRequest wait="1" delegate="1" limitToOneBlocked="1" timeout="1" />';
+            .'<NoOpRequest wait="true" delegate="true" limitToOneBlocked="true" timeout="10" />';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
         $array = array(
             'NoOpRequest' => array(
-                'wait' => 1,
-                'delegate' => 1,
-                'limitToOneBlocked' => 1,
-                'timeout' => 1,
+                'wait' => true,
+                'delegate' => true,
+                'limitToOneBlocked' => true,
+                'timeout' => 10,
             )
         );
         $this->assertEquals($array, $req->toArray());
@@ -7049,7 +7049,7 @@ class RequestTest extends ZimbraTestCase
     public function testNoteAction()
     {
         $action = new \Zimbra\Mail\Struct\NoteActionSelector(
-            ItemActionOp::MOVE(), 'id', 'tcon', 1, 'l', '#aabbcc', 1, 'name', 'f', 't', 'tn', 'content', 'pos'
+            ItemActionOp::MOVE(), 'id', 'tcon', 10, 'l', '#aabbcc', 10, 'name', 'f', 't', 'tn', 'content', 'pos'
         );
         $req = new \Zimbra\Mail\Request\NoteAction(
             $action
@@ -7062,7 +7062,7 @@ class RequestTest extends ZimbraTestCase
 
         $xml = '<?xml version="1.0"?>'."\n"
             .'<NoteActionRequest>'
-                .'<action op="move" id="id" tcon="tcon" tag="1" l="l" rgb="#aabbcc" color="1" name="name" f="f" t="t" tn="tn" content="content" pos="pos" />'
+                .'<action op="move" id="id" tcon="tcon" tag="10" l="l" rgb="#aabbcc" color="10" name="name" f="f" t="t" tn="tn" content="content" pos="pos" />'
             .'</NoteActionRequest>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
@@ -7072,10 +7072,10 @@ class RequestTest extends ZimbraTestCase
                     'op' => 'move',
                     'id' => 'id',
                     'tcon' => 'tcon',
-                    'tag' => 1,
+                    'tag' => 10,
                     'l' => 'l',
                     'rgb' => '#aabbcc',
-                    'color' => 1,
+                    'color' => 10,
                     'name' => 'name',
                     'f' => 'f',
                     't' => 't',
@@ -7091,7 +7091,7 @@ class RequestTest extends ZimbraTestCase
     public function testPurgeRevision()
     {
         $revision = new \Zimbra\Mail\Struct\PurgeRevisionSpec(
-            'id', 1, true
+            'id', 10, true
         );
         $req = new \Zimbra\Mail\Request\PurgeRevision(
             $revision
@@ -7104,7 +7104,7 @@ class RequestTest extends ZimbraTestCase
 
         $xml = '<?xml version="1.0"?>'."\n"
             .'<PurgeRevisionRequest>'
-                .'<revision id="id" ver="1" includeOlderRevisions="1" />'
+                .'<revision id="id" ver="10" includeOlderRevisions="true" />'
             .'</PurgeRevisionRequest>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
@@ -7112,8 +7112,8 @@ class RequestTest extends ZimbraTestCase
             'PurgeRevisionRequest' => array(
                 'revision' => array(
                     'id' => 'id',
-                    'ver' => 1,
-                    'includeOlderRevisions' => 1,
+                    'ver' => 10,
+                    'includeOlderRevisions' => true,
                 )
             )
         );
@@ -7226,7 +7226,7 @@ class RequestTest extends ZimbraTestCase
         $req->ace()->remove(1);
         $xml = '<?xml version="1.0"?>'."\n"
             .'<RevokePermissionRequest>'
-                .'<ace gt="usr" right="invite" zid="zid" d="d" key="key" pw="pw" deny="0" />'
+                .'<ace gt="usr" right="invite" zid="zid" d="d" key="key" pw="pw" deny="false" />'
             .'</RevokePermissionRequest>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
@@ -7240,7 +7240,7 @@ class RequestTest extends ZimbraTestCase
                         'd' => 'd',
                         'key' => 'key',
                         'pw' => 'pw',
-                        'deny' => 0,
+                        'deny' => false,
                     ),
                 ),
             )
@@ -7255,10 +7255,10 @@ class RequestTest extends ZimbraTestCase
             'id', 'part'
         );
         $docVer = new \Zimbra\Mail\Struct\IdVersion(
-            'id', 1
+            'id', 10
         );
         $doc = new \Zimbra\Mail\Struct\DocumentSpec(
-            $upload, $m, $docVer, 'name', 'ct', 'desc', 'l', 'id', 1, 'content', true, 'f'
+            $upload, $m, $docVer, 'name', 'ct', 'desc', 'l', 'id', 10, 'content', true, 'f'
         );
 
         $req = new \Zimbra\Mail\Request\SaveDocument(
@@ -7272,10 +7272,10 @@ class RequestTest extends ZimbraTestCase
 
         $xml = '<?xml version="1.0"?>'."\n"
             .'<SaveDocumentRequest>'
-                .'<doc name="name" ct="ct" desc="desc" l="l" id="id" ver="1" content="content" descEnabled="1" f="f">'
+                .'<doc name="name" ct="ct" desc="desc" l="l" id="id" ver="10" content="content" descEnabled="true" f="f">'
                     .'<upload id="id" />'
                     .'<m id="id" part="part" />'
-                    .'<doc id="id" ver="1" />'
+                    .'<doc id="id" ver="10" />'
                 .'</doc>'
             .'</SaveDocumentRequest>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
@@ -7288,9 +7288,9 @@ class RequestTest extends ZimbraTestCase
                     'desc' => 'desc',
                     'l' => 'l',
                     'id' => 'id',
-                    'ver' => 1,
+                    'ver' => 10,
                     'content' => 'content',
-                    'descEnabled' => 1,
+                    'descEnabled' => true,
                     'f' => 'f',
                     'upload' => array(
                         'id' => 'id',
@@ -7301,7 +7301,7 @@ class RequestTest extends ZimbraTestCase
                     ),
                     'doc' => array(
                         'id' => 'id',
-                        'ver' => 1,
+                        'ver' => 10,
                     ),
                 ),
             ),
@@ -7352,8 +7352,8 @@ class RequestTest extends ZimbraTestCase
             true,
             true,
             'allowableTaskStatus',
-            1,
-            1,
+            10,
+            10,
             true,
             'types',
             'groupBy',
@@ -7361,7 +7361,7 @@ class RequestTest extends ZimbraTestCase
             SortBy::DATE_DESC(),
             'fetch',
             true,
-            1,
+            10,
             true,
             true,
             true,
@@ -7369,8 +7369,8 @@ class RequestTest extends ZimbraTestCase
             true,
             'resultMode',
             'field',
-            1,
-            1
+            10,
+            10
         );
         $this->assertInstanceOf('Zimbra\Mail\Request\MailSearchParams', $req);
         $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
@@ -7380,14 +7380,14 @@ class RequestTest extends ZimbraTestCase
         $this->assertTrue($req->warmup());
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<SearchRequest warmup="1" includeTagDeleted="1" includeTagMuted="1" allowableTaskStatus="allowableTaskStatus" calExpandInstStart="1" calExpandInstEnd="1" inDumpster="1" types="types" groupBy="groupBy" quick="1" sortBy="dateDesc" fetch="fetch" read="1" max="1" html="1" needExp="1" neuter="1" recip="1" prefetch="1" resultMode="resultMode" field="field" limit="1" offset="1">'
+            .'<SearchRequest warmup="true" includeTagDeleted="true" includeTagMuted="true" allowableTaskStatus="allowableTaskStatus" calExpandInstStart="10" calExpandInstEnd="10" inDumpster="true" types="types" groupBy="groupBy" quick="true" sortBy="dateDesc" fetch="fetch" read="true" max="10" html="true" needExp="true" neuter="true" recip="true" prefetch="true" resultMode="resultMode" field="field" limit="10" offset="10">'
                 .'<query>query</query>'
-                .'<tz id="id" stdoff="1" dayoff="1" stdname="stdname" dayname="dayname">'
-                    .'<standard mon="1" hour="2" min="3" sec="4" />'
-                    .'<daylight mon="4" hour="3" min="2" sec="1" />'
+                .'<tz id="id" stdoff="10" dayoff="10" stdname="stdname" dayname="dayname">'
+                    .'<standard mon="12" hour="2" min="3" sec="4" />'
+                    .'<daylight mon="4" hour="3" min="2" sec="10" />'
                 .'</tz>'
                 .'<locale>locale</locale>'
-                .'<cursor id="id" sortVal="sortVal" endSortVal="endSortVal" includeOffset="1" />'
+                .'<cursor id="id" sortVal="sortVal" endSortVal="endSortVal" includeOffset="true" />'
                 .'<header n="attribute-name" />'
             .'</SearchRequest>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
@@ -7402,12 +7402,12 @@ class RequestTest extends ZimbraTestCase
                 ),
                 'tz' => array(
                     'id' => 'id',
-                    'stdoff' => 1,
-                    'dayoff' => 1,
+                    'stdoff' => 10,
+                    'dayoff' => 10,
                     'stdname' => 'stdname',
                     'dayname' => 'dayname',
                     'standard' => array(
-                        'mon' => 1,
+                        'mon' => 12,
                         'hour' => 2,
                         'min' => 3,
                         'sec' => 4,
@@ -7416,7 +7416,7 @@ class RequestTest extends ZimbraTestCase
                         'mon' => 4,
                         'hour' => 3,
                         'min' => 2,
-                        'sec' => 1,
+                        'sec' => 10,
                     ),
                 ),
                 'locale' => 'locale',
@@ -7424,31 +7424,31 @@ class RequestTest extends ZimbraTestCase
                     'id' => 'id',
                     'sortVal' => 'sortVal',
                     'endSortVal' => 'endSortVal',
-                    'includeOffset' => 1,
+                    'includeOffset' => true,
                 ),
-                'warmup' => 1,
-                'includeTagDeleted' => 1,
-                'includeTagMuted' => 1,
+                'warmup' => true,
+                'includeTagDeleted' => true,
+                'includeTagMuted' => true,
                 'allowableTaskStatus' => 'allowableTaskStatus',
-                'calExpandInstStart' => 1,
-                'calExpandInstEnd' => 1,
-                'inDumpster' => 1,
+                'calExpandInstStart' => 10,
+                'calExpandInstEnd' => 10,
+                'inDumpster' => true,
                 'types' => 'types',
                 'groupBy' => 'groupBy',
-                'quick' => 1,
+                'quick' => true,
                 'sortBy' => 'dateDesc',
                 'fetch' => 'fetch',
-                'read' => 1,
-                'max' => 1,
-                'html' => 1,
-                'needExp' => 1,
-                'neuter' => 1,
-                'recip' => 1,
-                'prefetch' => 1,
+                'read' => true,
+                'max' => 10,
+                'html' => true,
+                'needExp' => true,
+                'neuter' => true,
+                'recip' => true,
+                'prefetch' => true,
                 'resultMode' => 'resultMode',
                 'field' => 'field',
-                'limit' => 1,
-                'offset' => 1,
+                'limit' => 10,
+                'offset' => 10,
             )
         );
         $this->assertEquals($array, $req->toArray());
@@ -7471,8 +7471,8 @@ class RequestTest extends ZimbraTestCase
             true,
             true,
             'allowableTaskStatus',
-            1,
-            1,
+            10,
+            10,
             true,
             'types',
             'groupBy',
@@ -7480,7 +7480,7 @@ class RequestTest extends ZimbraTestCase
             SortBy::DATE_ASC(),
             'fetch',
             true,
-            1,
+            10,
             true,
             true,
             true,
@@ -7488,8 +7488,8 @@ class RequestTest extends ZimbraTestCase
             true,
             'resultMode',
             'field',
-            1,
-            1
+            10,
+            10
         );
         $this->assertInstanceOf('Zimbra\Mail\Request\MailSearchParams', $req);
         $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
@@ -7502,14 +7502,14 @@ class RequestTest extends ZimbraTestCase
         $this->assertTrue($req->nest());
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<SearchConvRequest cid="cid" nest="1" includeTagDeleted="1" includeTagMuted="1" allowableTaskStatus="allowableTaskStatus" calExpandInstStart="1" calExpandInstEnd="1" inDumpster="1" types="types" groupBy="groupBy" quick="1" sortBy="dateAsc" fetch="fetch" read="1" max="1" html="1" needExp="1" neuter="1" recip="1" prefetch="1" resultMode="resultMode" field="field" limit="1" offset="1">'
+            .'<SearchConvRequest includeTagDeleted="true" includeTagMuted="true" allowableTaskStatus="allowableTaskStatus" calExpandInstStart="10" calExpandInstEnd="10" inDumpster="true" types="types" groupBy="groupBy" quick="true" sortBy="dateAsc" fetch="fetch" read="true" max="10" html="true" needExp="true" neuter="true" recip="true" prefetch="true" resultMode="resultMode" field="field" limit="10" offset="10" cid="cid" nest="true">'
                 .'<query>query</query>'
-                .'<tz id="id" stdoff="1" dayoff="1" stdname="stdname" dayname="dayname">'
-                    .'<standard mon="1" hour="2" min="3" sec="4" />'
-                    .'<daylight mon="4" hour="3" min="2" sec="1" />'
+                .'<tz id="id" stdoff="10" dayoff="10" stdname="stdname" dayname="dayname">'
+                    .'<standard mon="12" hour="2" min="3" sec="4" />'
+                    .'<daylight mon="4" hour="3" min="2" sec="10" />'
                 .'</tz>'
                 .'<locale>locale</locale>'
-                .'<cursor id="id" sortVal="sortVal" endSortVal="endSortVal" includeOffset="1" />'
+                .'<cursor id="id" sortVal="sortVal" endSortVal="endSortVal" includeOffset="true" />'
                 .'<header n="attribute-name" />'
             .'</SearchConvRequest>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
@@ -7524,12 +7524,12 @@ class RequestTest extends ZimbraTestCase
                 ),
                 'tz' => array(
                     'id' => 'id',
-                    'stdoff' => 1,
-                    'dayoff' => 1,
+                    'stdoff' => 10,
+                    'dayoff' => 10,
                     'stdname' => 'stdname',
                     'dayname' => 'dayname',
                     'standard' => array(
-                        'mon' => 1,
+                        'mon' => 12,
                         'hour' => 2,
                         'min' => 3,
                         'sec' => 4,
@@ -7538,7 +7538,7 @@ class RequestTest extends ZimbraTestCase
                         'mon' => 4,
                         'hour' => 3,
                         'min' => 2,
-                        'sec' => 1,
+                        'sec' => 10,
                     ),
                 ),
                 'locale' => 'locale',
@@ -7546,32 +7546,32 @@ class RequestTest extends ZimbraTestCase
                     'id' => 'id',
                     'sortVal' => 'sortVal',
                     'endSortVal' => 'endSortVal',
-                    'includeOffset' => 1,
+                    'includeOffset' => true,
                 ),
                 'cid' => 'cid',
-                'nest' => 1,
-                'includeTagDeleted' => 1,
-                'includeTagMuted' => 1,
+                'nest' => true,
+                'includeTagDeleted' => true,
+                'includeTagMuted' => true,
                 'allowableTaskStatus' => 'allowableTaskStatus',
-                'calExpandInstStart' => 1,
-                'calExpandInstEnd' => 1,
-                'inDumpster' => 1,
+                'calExpandInstStart' => 10,
+                'calExpandInstEnd' => 10,
+                'inDumpster' => true,
                 'types' => 'types',
                 'groupBy' => 'groupBy',
-                'quick' => 1,
+                'quick' => true,
                 'sortBy' => 'dateAsc',
                 'fetch' => 'fetch',
-                'read' => 1,
-                'max' => 1,
-                'html' => 1,
-                'needExp' => 1,
-                'neuter' => 1,
-                'recip' => 1,
-                'prefetch' => 1,
+                'read' => true,
+                'max' => 10,
+                'html' => true,
+                'needExp' => true,
+                'neuter' => true,
+                'recip' => true,
+                'prefetch' => true,
                 'resultMode' => 'resultMode',
                 'field' => 'field',
-                'limit' => 1,
-                'offset' => 1,
+                'limit' => 10,
+                'offset' => 10,
             )
         );
         $this->assertEquals($array, $req->toArray());
@@ -7609,11 +7609,11 @@ class RequestTest extends ZimbraTestCase
         $m = $this->getMsg();
 
         $req = new \Zimbra\Mail\Request\SendInviteReply(
-            'id', 1, 'verb', $exceptId, $tz, $m, true, 'idnt'
+            'id', 10, 'verb', $exceptId, $tz, $m, true, 'idnt'
         );
         $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
         $this->assertSame('id', $req->id());
-        $this->assertSame(1, $req->compNum());
+        $this->assertSame(10, $req->compNum());
         $this->assertSame('verb', $req->verb());
         $this->assertSame($exceptId, $req->exceptId());
         $this->assertSame($tz, $req->tz());
@@ -7622,7 +7622,7 @@ class RequestTest extends ZimbraTestCase
         $this->assertSame('idnt', $req->idnt());
 
         $req->id('id')
-            ->compNum(1)
+            ->compNum(10)
             ->verb('verb')
             ->exceptId($exceptId)
             ->tz($tz)
@@ -7630,7 +7630,7 @@ class RequestTest extends ZimbraTestCase
             ->updateOrganizer(true)
             ->idnt('idnt');
         $this->assertSame('id', $req->id());
-        $this->assertSame(1, $req->compNum());
+        $this->assertSame(10, $req->compNum());
         $this->assertSame('verb', $req->verb());
         $this->assertSame($exceptId, $req->exceptId());
         $this->assertSame($tz, $req->tz());
@@ -7639,36 +7639,36 @@ class RequestTest extends ZimbraTestCase
         $this->assertSame('idnt', $req->idnt());
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<SendInviteReplyRequest id="id" compNum="1" verb="verb" updateOrganizer="1" idnt="idnt">'
+            .'<SendInviteReplyRequest id="id" compNum="10" verb="verb" updateOrganizer="true" idnt="idnt">'
                 .'<exceptId d="20120315T18302305Z" tz="tz" u="1000" />'
-                .'<tz id="id" stdoff="1" dayoff="1" stdname="stdname" dayname="dayname">'
-                    .'<standard mon="1" hour="2" min="3" sec="4" />'
-                    .'<daylight mon="4" hour="3" min="2" sec="1" />'
+                .'<tz id="id" stdoff="10" dayoff="10" stdname="stdname" dayname="dayname">'
+                    .'<standard mon="12" hour="2" min="3" sec="4" />'
+                    .'<daylight mon="4" hour="3" min="2" sec="10" />'
                 .'</tz>'
                 .'<m aid="aid" origid="origid" rt="rt" idnt="idnt" su="su" irt="irt" l="l" f="f">'
                     .'<content>content</content>'
                     .'<mp ct="ct" content="content" ci="ci">'
                         .'<attach aid="aid">'
-                            .'<mp optional="1" mid="mid" part="part" />'
-                            .'<m optional="0" id="id" />'
-                            .'<cn id="id" optional="0" />'
-                            .'<doc optional="1" path="path" id="id" ver="1" />'
+                            .'<mp optional="true" mid="mid" part="part" />'
+                            .'<m optional="false" id="id" />'
+                            .'<cn id="id" optional="false" />'
+                            .'<doc optional="true" path="path" id="id" ver="10" />'
                         .'</attach>'
                         .'<mp ct="ct" content="content" ci="ci" />'
                     .'</mp>'
                     .'<attach aid="aid">'
-                        .'<mp optional="1" mid="mid" part="part" />'
-                        .'<m optional="0" id="id" />'
-                        .'<cn id="id" optional="0" />'
-                        .'<doc optional="1" path="path" id="id" ver="1" />'
+                        .'<mp optional="true" mid="mid" part="part" />'
+                        .'<m optional="false" id="id" />'
+                        .'<cn id="id" optional="false" />'
+                        .'<doc optional="true" path="path" id="id" ver="10" />'
                     .'</attach>'
-                    .'<inv method="method" compNum="1" rsvp="1" />'
+                    .'<inv method="method" compNum="10" rsvp="true" />'
                     .'<fr>fr</fr>'
                     .'<header name="name">value</header>'
                     .'<e a="a" t="t" p="p" />'
-                    .'<tz id="id" stdoff="1" dayoff="1" stdname="stdname" dayname="dayname">'
-                        .'<standard mon="1" hour="2" min="3" sec="4" />'
-                        .'<daylight mon="4" hour="3" min="2" sec="1" />'
+                    .'<tz id="id" stdoff="10" dayoff="10" stdname="stdname" dayname="dayname">'
+                        .'<standard mon="12" hour="2" min="3" sec="4" />'
+                        .'<daylight mon="4" hour="3" min="2" sec="10" />'
                     .'</tz>'
                 .'</m>'
             .'</SendInviteReplyRequest>';
@@ -7677,9 +7677,9 @@ class RequestTest extends ZimbraTestCase
         $array = array(
             'SendInviteReplyRequest' => array(
                 'id' => 'id',
-                'compNum' => 1,
+                'compNum' => 10,
                 'verb' => 'verb',
-                'updateOrganizer' => 1,
+                'updateOrganizer' => true,
                 'idnt' => 'idnt',
                 'exceptId' => array(
                     'd' => '20120315T18302305Z',
@@ -7688,12 +7688,12 @@ class RequestTest extends ZimbraTestCase
                 ),
                 'tz' => array(
                     'id' => 'id',
-                    'stdoff' => 1,
-                    'dayoff' => 1,
+                    'stdoff' => 10,
+                    'dayoff' => 10,
                     'stdname' => 'stdname',
                     'dayname' => 'dayname',
                     'standard' => array(
-                        'mon' => 1,
+                        'mon' => 12,
                         'hour' => 2,
                         'min' => 3,
                         'sec' => 4,
@@ -7702,7 +7702,7 @@ class RequestTest extends ZimbraTestCase
                         'mon' => 4,
                         'hour' => 3,
                         'min' => 2,
-                        'sec' => 1,
+                        'sec' => 10,
                     ),
                 ),
                 'm' => array(
@@ -7737,21 +7737,21 @@ class RequestTest extends ZimbraTestCase
                             'mp' => array(
                                 'mid' => 'mid',
                                 'part' => 'part',
-                                'optional' => 1,
+                                'optional' => true,
                             ),
                             'm' => array(
                                 'id' => 'id',
-                                'optional' => 0,
+                                'optional' => false,
                             ),
                             'cn' => array(
                                 'id' => 'id',
-                                'optional' => 0,
+                                'optional' => false,
                             ),
                             'doc' => array(
                                 'path' => 'path',
                                 'id' => 'id',
-                                'ver' => 1,
-                                'optional' => 1,
+                                'ver' => 10,
+                                'optional' => true,
                             ),
                         ),
                     ),
@@ -7760,27 +7760,27 @@ class RequestTest extends ZimbraTestCase
                         'mp' => array(
                             'mid' => 'mid',
                             'part' => 'part',
-                            'optional' => 1,
+                            'optional' => true,
                         ),
                         'm' => array(
                             'id' => 'id',
-                            'optional' => 0,
+                            'optional' => false,
                         ),
                         'cn' => array(
                             'id' => 'id',
-                            'optional' => 0,
+                            'optional' => false,
                         ),
                         'doc' => array(
                             'path' => 'path',
                             'id' => 'id',
-                            'ver' => 1,
-                            'optional' => 1,
+                            'ver' => 10,
+                            'optional' => true,
                         ),
                     ),
                     'inv' => array(
                         'method' => 'method',
-                        'compNum' => 1,
-                        'rsvp' => 1,
+                        'compNum' => 10,
+                        'rsvp' => true,
                     ),
                     'e' => array(
                         array(
@@ -7792,12 +7792,12 @@ class RequestTest extends ZimbraTestCase
                     'tz' => array(
                         array(
                             'id' => 'id',
-                            'stdoff' => 1,
-                            'dayoff' => 1,
+                            'stdoff' => 10,
+                            'dayoff' => 10,
                             'stdname' => 'stdname',
                             'dayname' => 'dayname',
                             'standard' => array(
-                                'mon' => 1,
+                                'mon' => 12,
                                 'hour' => 2,
                                 'min' => 3,
                                 'sec' => 4,
@@ -7806,7 +7806,7 @@ class RequestTest extends ZimbraTestCase
                                 'mon' => 4,
                                 'hour' => 3,
                                 'min' => 2,
-                                'sec' => 1,
+                                'sec' => 10,
                             ),
                         ),
                     ),
@@ -7822,13 +7822,13 @@ class RequestTest extends ZimbraTestCase
         $mp = new \Zimbra\Mail\Struct\MimePartAttachSpec('mid', 'part', true);
         $m = new \Zimbra\Mail\Struct\MsgAttachSpec('id', false);
         $cn = new \Zimbra\Mail\Struct\ContactAttachSpec('id', false);
-        $doc = new \Zimbra\Mail\Struct\DocAttachSpec('path', 'id', 1, true);
+        $doc = new \Zimbra\Mail\Struct\DocAttachSpec('path', 'id', 10, true);
         $info = new \Zimbra\Mail\Struct\MimePartInfo(array(), null, 'ct', 'content', 'ci');
 
         $header = new \Zimbra\Mail\Struct\Header('name', 'value');
         $attach = new \Zimbra\Mail\Struct\AttachmentsInfo($mp, $m, $cn, $doc, 'aid');
         $mp = new \Zimbra\Mail\Struct\MimePartInfo(array($info), $attach, 'ct', 'content', 'ci');
-        $inv = new \Zimbra\Mail\Struct\InvitationInfo('method', 1, true);
+        $inv = new \Zimbra\Mail\Struct\InvitationInfo('method', 10, true);
         $e = new \Zimbra\Mail\Struct\EmailAddrInfo('a', 't', 'p');
         $tz = $this->getTz();
         $m = new \Zimbra\Mail\Struct\MsgToSend(
@@ -7874,31 +7874,31 @@ class RequestTest extends ZimbraTestCase
 
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<SendMsgRequest needCalendarSentByFixup="1" isCalendarForward="1" noSave="1" suid="suid">'
-                .'<m did="did" sfd="1" aid="aid" origid="origid" rt="rt" idnt="idnt" su="su" irt="irt" l="l" f="f">'
+            .'<SendMsgRequest needCalendarSentByFixup="true" isCalendarForward="true" noSave="true" suid="suid">'
+                .'<m did="did" sfd="true" aid="aid" origid="origid" rt="rt" idnt="idnt" su="su" irt="irt" l="l" f="f">'
                     .'<content>content</content>'
                     .'<mp ct="ct" content="content" ci="ci">'
                         .'<attach aid="aid">'
-                            .'<mp optional="1" mid="mid" part="part" />'
-                            .'<m optional="0" id="id" />'
-                            .'<cn id="id" optional="0" />'
-                            .'<doc optional="1" path="path" id="id" ver="1" />'
+                            .'<mp optional="true" mid="mid" part="part" />'
+                            .'<m optional="false" id="id" />'
+                            .'<cn id="id" optional="false" />'
+                            .'<doc optional="true" path="path" id="id" ver="10" />'
                         .'</attach>'
                         .'<mp ct="ct" content="content" ci="ci" />'
                     .'</mp>'
                     .'<attach aid="aid">'
-                        .'<mp optional="1" mid="mid" part="part" />'
-                        .'<m optional="0" id="id" />'
-                        .'<cn id="id" optional="0" />'
-                        .'<doc optional="1" path="path" id="id" ver="1" />'
+                        .'<mp optional="true" mid="mid" part="part" />'
+                        .'<m optional="false" id="id" />'
+                        .'<cn id="id" optional="false" />'
+                        .'<doc optional="true" path="path" id="id" ver="10" />'
                     .'</attach>'
-                    .'<inv method="method" compNum="1" rsvp="1" />'
+                    .'<inv method="method" compNum="10" rsvp="true" />'
                     .'<fr>fr</fr>'
                     .'<header name="name">value</header>'
                     .'<e a="a" t="t" p="p" />'
-                    .'<tz id="id" stdoff="1" dayoff="1" stdname="stdname" dayname="dayname">'
-                        .'<standard mon="1" hour="2" min="3" sec="4" />'
-                        .'<daylight mon="4" hour="3" min="2" sec="1" />'
+                    .'<tz id="id" stdoff="10" dayoff="10" stdname="stdname" dayname="dayname">'
+                        .'<standard mon="12" hour="2" min="3" sec="4" />'
+                        .'<daylight mon="4" hour="3" min="2" sec="10" />'
                     .'</tz>'
                 .'</m>'
             .'</SendMsgRequest>';
@@ -7906,13 +7906,13 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'SendMsgRequest' => array(
-                'needCalendarSentByFixup' => 1,
-                'isCalendarForward' => 1,
-                'noSave' => 1,
+                'needCalendarSentByFixup' => true,
+                'isCalendarForward' => true,
+                'noSave' => true,
                 'suid' => 'suid',
                 'm' => array(
                     'did' => 'did',
-                    'sfd' => 1,
+                    'sfd' => true,
                     'aid' => 'aid',
                     'origid' => 'origid',
                     'rt' => 'rt',
@@ -7944,21 +7944,21 @@ class RequestTest extends ZimbraTestCase
                             'mp' => array(
                                 'mid' => 'mid',
                                 'part' => 'part',
-                                'optional' => 1,
+                                'optional' => true,
                             ),
                             'm' => array(
                                 'id' => 'id',
-                                'optional' => 0,
+                                'optional' => false,
                             ),
                             'cn' => array(
                                 'id' => 'id',
-                                'optional' => 0,
+                                'optional' => false,
                             ),
                             'doc' => array(
                                 'path' => 'path',
                                 'id' => 'id',
-                                'ver' => 1,
-                                'optional' => 1,
+                                'ver' => 10,
+                                'optional' => true,
                             ),
                         ),
                     ),
@@ -7967,27 +7967,27 @@ class RequestTest extends ZimbraTestCase
                         'mp' => array(
                             'mid' => 'mid',
                             'part' => 'part',
-                            'optional' => 1,
+                            'optional' => true,
                         ),
                         'm' => array(
                             'id' => 'id',
-                            'optional' => 0,
+                            'optional' => false,
                         ),
                         'cn' => array(
                             'id' => 'id',
-                            'optional' => 0,
+                            'optional' => false,
                         ),
                         'doc' => array(
                             'path' => 'path',
                             'id' => 'id',
-                            'ver' => 1,
-                            'optional' => 1,
+                            'ver' => 10,
+                            'optional' => true,
                         ),
                     ),
                     'inv' => array(
                         'method' => 'method',
-                        'compNum' => 1,
-                        'rsvp' => 1,
+                        'compNum' => 10,
+                        'rsvp' => true,
                     ),
                     'e' => array(
                         array(
@@ -7999,12 +7999,12 @@ class RequestTest extends ZimbraTestCase
                     'tz' => array(
                         array(
                             'id' => 'id',
-                            'stdoff' => 1,
-                            'dayoff' => 1,
+                            'stdoff' => 10,
+                            'dayoff' => 10,
                             'stdname' => 'stdname',
                             'dayname' => 'dayname',
                             'standard' => array(
-                                'mon' => 1,
+                                'mon' => 12,
                                 'hour' => 2,
                                 'min' => 3,
                                 'sec' => 4,
@@ -8013,7 +8013,7 @@ class RequestTest extends ZimbraTestCase
                                 'mon' => 4,
                                 'hour' => 3,
                                 'min' => 2,
-                                'sec' => 1,
+                                'sec' => 10,
                             ),
                         ),
                     ),
@@ -8106,14 +8106,14 @@ class RequestTest extends ZimbraTestCase
         $cancel = new \Zimbra\Mail\Struct\SetCalendarItemInfo();
 
         $reply = new \Zimbra\Mail\Struct\CalReply(
-            'at', 1, 1, 1, '991231', 'sentBy', ParticipationStatus::NE(), 'tz', '991231000000'
+            'at', 10, 10, 10, '991231', 'sentBy', ParticipationStatus::NE(), 'tz', '991231000000'
         );
         $replies = new \Zimbra\Mail\Struct\Replies(
             array($reply)
         );
 
         $req = new \Zimbra\Mail\Request\SetAppointment(
-            $default, array($except), array($cancel), $replies, 'f', 't', 'tn', 'l', true, 1
+            $default, array($except), array($cancel), $replies, 'f', 't', 'tn', 'l', true, 10
         );
         $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
         $this->assertSame($default, $req->default_());
@@ -8125,7 +8125,7 @@ class RequestTest extends ZimbraTestCase
         $this->assertSame('tn', $req->tn());
         $this->assertSame('l', $req->l());
         $this->assertTrue($req->noNextAlarm());
-        $this->assertSame(1, $req->nextAlarm());
+        $this->assertSame(10, $req->nextAlarm());
 
         $req->default_($default)
             ->addExcept($except)
@@ -8136,7 +8136,7 @@ class RequestTest extends ZimbraTestCase
             ->tn('tn')
             ->l('l')
             ->noNextAlarm(true)
-            ->nextAlarm(1);
+            ->nextAlarm(10);
         $this->assertSame($default, $req->default_());
         $this->assertSame(array($except, $except), $req->except()->all());
         $this->assertSame(array($cancel, $cancel), $req->cancel()->all());
@@ -8146,41 +8146,41 @@ class RequestTest extends ZimbraTestCase
         $this->assertSame('tn', $req->tn());
         $this->assertSame('l', $req->l());
         $this->assertTrue($req->noNextAlarm());
-        $this->assertSame(1, $req->nextAlarm());
+        $this->assertSame(10, $req->nextAlarm());
 
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<SetAppointmentRequest f="f" t="t" tn="tn" l="l" noNextAlarm="1" nextAlarm="1">'
+            .'<SetAppointmentRequest f="f" t="t" tn="tn" l="l" noNextAlarm="true" nextAlarm="10">'
                 .'<default ptst="NE">'
                     .'<m aid="aid" origid="origid" rt="rt" idnt="idnt" su="su" irt="irt" l="l" f="f">'
                         .'<content>content</content>'
                         .'<mp ct="ct" content="content" ci="ci">'
                             .'<attach aid="aid">'
-                                .'<mp optional="1" mid="mid" part="part" />'
-                                .'<m optional="0" id="id" />'
-                                .'<cn optional="0" id="id" />'
-                                .'<doc optional="1" path="path" id="id" ver="1" />'
+                                .'<mp optional="true" mid="mid" part="part" />'
+                                .'<m optional="false" id="id" />'
+                                .'<cn optional="false" id="id" />'
+                                .'<doc optional="true" path="path" id="id" ver="10" />'
                             .'</attach>'
                             .'<mp ct="ct" content="content" ci="ci" />'
                         .'</mp>'
                         .'<attach aid="aid">'
-                            .'<mp optional="1" mid="mid" part="part" />'
-                            .'<m optional="0" id="id" />'
-                            .'<cn optional="0" id="id" />'
-                            .'<doc optional="1" path="path" id="id" ver="1" />'
+                            .'<mp optional="true" mid="mid" part="part" />'
+                            .'<m optional="false" id="id" />'
+                            .'<cn optional="false" id="id" />'
+                            .'<doc optional="true" path="path" id="id" ver="10" />'
                         .'</attach>'
-                        .'<inv method="method" compNum="1" rsvp="1" />'
+                        .'<inv method="method" compNum="10" rsvp="true" />'
                         .'<fr>fr</fr>'
                         .'<header name="name">value</header>'
                         .'<e a="a" t="t" p="p" />'
-                        .'<tz id="id" stdoff="1" dayoff="1" stdname="stdname" dayname="dayname">'
-                            .'<standard mon="1" hour="2" min="3" sec="4" />'
-                            .'<daylight mon="4" hour="3" min="2" sec="1" />'
+                        .'<tz id="id" stdoff="10" dayoff="10" stdname="stdname" dayname="dayname">'
+                            .'<standard mon="12" hour="2" min="3" sec="4" />'
+                            .'<daylight mon="4" hour="3" min="2" sec="10" />'
                         .'</tz>'
                     .'</m>'
                 .'</default>'
                 .'<replies>'
-                    .'<reply at="at" seq="1" d="1" sentBy="sentBy" ptst="NE" rangeType="1" recurId="991231" tz="tz" ridZ="991231000000" />'
+                    .'<reply at="at" seq="10" d="10" sentBy="sentBy" ptst="NE" rangeType="10" recurId="991231" tz="tz" ridZ="991231000000" />'
                 .'</replies>'
                 .'<except /><except />'
                 .'<cancel /><cancel />'
@@ -8193,8 +8193,8 @@ class RequestTest extends ZimbraTestCase
                 't' => 't',
                 'tn' => 'tn',
                 'l' => 'l',
-                'noNextAlarm' => 1,
-                'nextAlarm' => 1,
+                'noNextAlarm' => true,
+                'nextAlarm' => 10,
                 'default' => array(
                     'ptst' => 'NE',
                     'm' => array(
@@ -8229,21 +8229,21 @@ class RequestTest extends ZimbraTestCase
                                 'mp' => array(
                                     'mid' => 'mid',
                                     'part' => 'part',
-                                    'optional' => 1,
+                                    'optional' => true,
                                 ),
                                 'm' => array(
                                     'id' => 'id',
-                                    'optional' => 0,
+                                    'optional' => false,
                                 ),
                                 'cn' => array(
                                     'id' => 'id',
-                                    'optional' => 0,
+                                    'optional' => false,
                                 ),
                                 'doc' => array(
                                     'path' => 'path',
                                     'id' => 'id',
-                                    'ver' => 1,
-                                    'optional' => 1,
+                                    'ver' => 10,
+                                    'optional' => true,
                                 ),
                             ),
                         ),
@@ -8252,27 +8252,27 @@ class RequestTest extends ZimbraTestCase
                             'mp' => array(
                                 'mid' => 'mid',
                                 'part' => 'part',
-                                'optional' => 1,
+                                'optional' => true,
                             ),
                             'm' => array(
                                 'id' => 'id',
-                                'optional' => 0,
+                                'optional' => false,
                             ),
                             'cn' => array(
                                 'id' => 'id',
-                                'optional' => 0,
+                                'optional' => false,
                             ),
                             'doc' => array(
                                 'path' => 'path',
                                 'id' => 'id',
-                                'ver' => 1,
-                                'optional' => 1,
+                                'ver' => 10,
+                                'optional' => true,
                             ),
                         ),
                         'inv' => array(
                             'method' => 'method',
-                            'compNum' => 1,
-                            'rsvp' => 1,
+                            'compNum' => 10,
+                            'rsvp' => true,
                         ),
                         'e' => array(
                             array(
@@ -8284,12 +8284,12 @@ class RequestTest extends ZimbraTestCase
                         'tz' => array(
                             array(
                                 'id' => 'id',
-                                'stdoff' => 1,
-                                'dayoff' => 1,
+                                'stdoff' => 10,
+                                'dayoff' => 10,
                                 'stdname' => 'stdname',
                                 'dayname' => 'dayname',
                                 'standard' => array(
-                                    'mon' => 1,
+                                    'mon' => 12,
                                     'hour' => 2,
                                     'min' => 3,
                                     'sec' => 4,
@@ -8298,7 +8298,7 @@ class RequestTest extends ZimbraTestCase
                                     'mon' => 4,
                                     'hour' => 3,
                                     'min' => 2,
-                                    'sec' => 1,
+                                    'sec' => 10,
                                 ),
                             ),
                         ),
@@ -8317,11 +8317,11 @@ class RequestTest extends ZimbraTestCase
                     'reply' => array(
                         array(
                             'at' => 'at',
-                            'seq' => 1,
-                            'd' => 1,
+                            'seq' => 10,
+                            'd' => 10,
                             'sentBy' => 'sentBy',
                             'ptst' => 'NE',
-                            'rangeType' => 1,
+                            'rangeType' => 10,
                             'recurId' => '991231',
                             'tz' => 'tz',
                             'ridZ' => '991231000000',
@@ -8414,8 +8414,8 @@ class RequestTest extends ZimbraTestCase
 
     public function testSnoozeCalendarItemAlarm()
     {
-        $appt = new \Zimbra\Mail\Struct\SnoozeAppointmentAlarm('id', 1);
-        $task = new \Zimbra\Mail\Struct\SnoozeTaskAlarm('id', 1);
+        $appt = new \Zimbra\Mail\Struct\SnoozeAppointmentAlarm('id', 10);
+        $task = new \Zimbra\Mail\Struct\SnoozeTaskAlarm('id', 10);
         $req = new \Zimbra\Mail\Request\SnoozeCalendarItemAlarm(
             $appt, $task
         );
@@ -8430,8 +8430,8 @@ class RequestTest extends ZimbraTestCase
 
         $xml = '<?xml version="1.0"?>'."\n"
             .'<SnoozeCalendarItemAlarmRequest>'
-                .'<appt id="id" until="1" />'
-                .'<task id="id" until="1" />'
+                .'<appt id="id" until="10" />'
+                .'<task id="id" until="10" />'
             .'</SnoozeCalendarItemAlarmRequest>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
@@ -8439,11 +8439,11 @@ class RequestTest extends ZimbraTestCase
             'SnoozeCalendarItemAlarmRequest' => array(
                 'appt' => array(
                     'id' => 'id',
-                    'until' => 1,
+                    'until' => 10,
                 ),
                 'task' => array(
                     'id' => 'id',
-                    'until' => 1,
+                    'until' => 10,
                 ),
             )
         );
@@ -8453,33 +8453,33 @@ class RequestTest extends ZimbraTestCase
     public function testSync()
     {
         $req = new \Zimbra\Mail\Request\Sync(
-            'token', 1, 'l', true
+            'token', 10, 'l', true
         );
         $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
         $this->assertSame('token', $req->token());
-        $this->assertSame(1, $req->calCutoff());
+        $this->assertSame(10, $req->calCutoff());
         $this->assertSame('l', $req->l());
         $this->assertTrue($req->typed());
 
         $req->token('token')
-            ->calCutoff(1)
+            ->calCutoff(10)
             ->l('l')
             ->typed(true);
         $this->assertSame('token', $req->token());
-        $this->assertSame(1, $req->calCutoff());
+        $this->assertSame(10, $req->calCutoff());
         $this->assertSame('l', $req->l());
         $this->assertTrue($req->typed());
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<SyncRequest token="token" calCutoff="1" l="l" typed="1" />';
+            .'<SyncRequest token="token" calCutoff="10" l="l" typed="true" />';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
         $array = array(
             'SyncRequest' => array(
                 'token' => 'token',
-                'calCutoff' => 1,
+                'calCutoff' => 10,
                 'l' => 'l',
-                'typed' => 1,
+                'typed' => true,
             )
         );
         $this->assertEquals($array, $req->toArray());
@@ -8499,7 +8499,7 @@ class RequestTest extends ZimbraTestCase
             $keep, $purge
         );
         $action = new \Zimbra\Mail\Struct\TagActionSelector(
-            $retentionPolicy, TagActionOp::READ(), 'id', 'tcon', 1, 'l', '#aabbcc', 1, 'name', 'f', 't', 'tn'
+            $retentionPolicy, TagActionOp::READ(), 'id', 'tcon', 10, 'l', '#aabbcc', 10, 'name', 'f', 't', 'tn'
         );
         $req = new \Zimbra\Mail\Request\TagAction(
             $action
@@ -8512,7 +8512,7 @@ class RequestTest extends ZimbraTestCase
 
         $xml = '<?xml version="1.0"?>'."\n"
             .'<TagActionRequest>'
-                .'<action op="read" id="id" tcon="tcon" tag="1" l="l" rgb="#aabbcc" color="1" name="name" f="f" t="t" tn="tn">'
+                .'<action op="read" id="id" tcon="tcon" tag="10" l="l" rgb="#aabbcc" color="10" name="name" f="f" t="t" tn="tn">'
                     .'<retentionPolicy>'
                         .'<keep>'
                             .'<policy type="system" id="id" name="name" lifetime="lifetime" />'
@@ -8531,10 +8531,10 @@ class RequestTest extends ZimbraTestCase
                     'op' => 'read',
                     'id' => 'id',
                     'tcon' => 'tcon',
-                    'tag' => 1,
+                    'tag' => 10,
                     'l' => 'l',
                     'rgb' => '#aabbcc',
-                    'color' => 1,
+                    'color' => 10,
                     'name' => 'name',
                     'f' => 'f',
                     't' => 't',
@@ -8576,7 +8576,7 @@ class RequestTest extends ZimbraTestCase
             true,
             true,
             'host',
-            1,
+            10,
             MdsConnectionType::SSL(),
             'username',
             'password',
@@ -8589,7 +8589,7 @@ class RequestTest extends ZimbraTestCase
             'replyToAddress',
             'replyToDisplay',
             'importClass',
-            1,
+            10,
             'lastError',
             array('a', 'b')
         );
@@ -8633,16 +8633,16 @@ class RequestTest extends ZimbraTestCase
 
         $xml = '<?xml version="1.0"?>'."\n"
             .'<TestDataSourceRequest>'
-                .'<imap id="id" name="name" l="l" isEnabled="1" importOnly="1" host="host" port="1" '
+                .'<imap id="id" name="name" l="l" isEnabled="true" importOnly="true" host="host" port="10" '
                 .'connectionType="ssl" username="username" password="password" pollingInterval="pollingInterval" '
-                .'emailAddress="emailAddress" useAddressForForwardReply="1" defaultSignature="defaultSignature" '
+                .'emailAddress="emailAddress" useAddressForForwardReply="true" defaultSignature="defaultSignature" '
                 .'forwardReplySignature="forwardReplySignature" fromDisplay="fromDisplay" replyToAddress="replyToAddress" '
-                .'replyToDisplay="replyToDisplay" importClass="importClass" failingSince="1">'
+                .'replyToDisplay="replyToDisplay" importClass="importClass" failingSince="10">'
                     .'<lastError>lastError</lastError>'
                     .'<a>a</a>'
                     .'<a>b</a>'
                 .'</imap>'
-                .'<pop3 leaveOnServer="1" />'
+                .'<pop3 leaveOnServer="true" />'
                 .'<caldav />'
                 .'<yab />'
                 .'<rss />'
@@ -8658,28 +8658,28 @@ class RequestTest extends ZimbraTestCase
                     'id' => 'id',
                     'name' => 'name',
                     'l' => 'l',
-                    'isEnabled' => 1,
-                    'importOnly' => 1,
+                    'isEnabled' => true,
+                    'importOnly' => true,
                     'host' => 'host',
-                    'port' => 1,
+                    'port' => 10,
                     'connectionType' => 'ssl',
                     'username' => 'username',
                     'password' => 'password',
                     'pollingInterval' => 'pollingInterval',
                     'emailAddress' => 'emailAddress',
-                    'useAddressForForwardReply' => 1,
+                    'useAddressForForwardReply' => true,
                     'defaultSignature' => 'defaultSignature',
                     'forwardReplySignature' => 'forwardReplySignature',
                     'fromDisplay' => 'fromDisplay',
                     'replyToAddress' => 'replyToAddress',
                     'replyToDisplay' => 'replyToDisplay',
                     'importClass' => 'importClass',
-                    'failingSince' => 1,
+                    'failingSince' => 10,
                     'lastError' => 'lastError',
                     'a' => array('a', 'b'),
                 ),
                 'pop3' => array(
-                    'leaveOnServer' => 1,
+                    'leaveOnServer' => true,
                 ),
                 'caldav' => array(),
                 'yab' => array(),
@@ -8757,7 +8757,7 @@ class RequestTest extends ZimbraTestCase
         $remove = new \Zimbra\Mail\Struct\WaitSetId(array($id));
 
         $req = new \Zimbra\Mail\Request\WaitSet(
-            'waitSet', 'seq', $add, $update, $remove, true, array(InterestType::FOLDERS()), 1
+            'waitSet', 'seq', $add, $update, $remove, true, array(InterestType::FOLDERS()), 10
         );
         $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
         $this->assertSame('waitSet', $req->waitSet());
@@ -8767,7 +8767,7 @@ class RequestTest extends ZimbraTestCase
         $this->assertSame($remove, $req->remove());
         $this->assertTrue($req->block());
         $this->assertSame('f', $req->defTypes());
-        $this->assertSame(1, $req->timeout());
+        $this->assertSame(10, $req->timeout());
 
         $req->waitSet('waitSet')
             ->seq('seq')
@@ -8776,7 +8776,7 @@ class RequestTest extends ZimbraTestCase
             ->remove($remove)
             ->block(true)
             ->addDefTypes(InterestType::MESSAGES())
-            ->timeout(1);
+            ->timeout(10);
         $this->assertSame('waitSet', $req->waitSet());
         $this->assertSame('seq', $req->seq());
         $this->assertSame($add, $req->add());
@@ -8784,10 +8784,10 @@ class RequestTest extends ZimbraTestCase
         $this->assertSame($remove, $req->remove());
         $this->assertTrue($req->block());
         $this->assertSame('f,m', $req->defTypes());
-        $this->assertSame(1, $req->timeout());
+        $this->assertSame(10, $req->timeout());
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<WaitSetRequest waitSet="waitSet" seq="seq" block="1" defTypes="f,m" timeout="1">'
+            .'<WaitSetRequest waitSet="waitSet" seq="seq" block="true" defTypes="f,m" timeout="10">'
                 .'<add>'
                     .'<a name="name" id="id" token="token" types="f" />'
                 .'</add>'
@@ -8804,9 +8804,9 @@ class RequestTest extends ZimbraTestCase
             'WaitSetRequest' => array(
                 'waitSet' => 'waitSet',
                 'seq' => 'seq',
-                'block' => 1,
+                'block' => true,
                 'defTypes' => 'f,m',
-                'timeout' => 1,
+                'timeout' => 10,
                 'add' => array(
                     'a' => array(
                         array(
