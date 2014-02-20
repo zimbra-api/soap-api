@@ -48,7 +48,13 @@ class PreAuth extends Base
     {
         if(null === $timestamp)
         {
-            return $this->property('timestamp');
+            $timestamp = $this->property('timestamp');
+            if($timestamp <= 0)
+            {
+                $timestamp = time();
+                $this->property('timestamp', (int) $timestamp);
+            }
+            return $timestamp;
         }
         return $this->property('timestamp', (int) $timestamp);
     }
