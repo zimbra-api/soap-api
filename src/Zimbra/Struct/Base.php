@@ -12,6 +12,7 @@ namespace Zimbra\Struct;
 
 use PhpCollection\Map;
 use Zimbra\Common\SimpleXML;
+use Zimbra\Common\Text;
 use Zimbra\Common\TypedMap;
 
 /**
@@ -189,10 +190,10 @@ abstract class Base
             {
                 $arr[$key] = $value->value();
             }
-            elseif(is_bool($value))
+            /*elseif(is_bool($value))
             {
                 $arr[$key] = ($value === true) ? 1 : 0;
-            }
+            }*/
             else
             {
                 $arr[$key] = $value;
@@ -210,10 +211,10 @@ abstract class Base
                 {
                     $arr[$key] = $value->value();
                 }
-                elseif(is_bool($value))
+                /*elseif(is_bool($value))
                 {
                     $arr[$key] = ($value === true) ? 1 : 0;
-                }
+                }*/
                 elseif (is_array($value) && count($value))
                 {
                     $arr[$key] = array();
@@ -228,10 +229,10 @@ abstract class Base
                         {
                             $arr[$key] = $v->value();
                         }
-                        elseif(is_bool($v))
+                        /*elseif(is_bool($v))
                         {
                             $arr[$key][] = ($v === true) ? 1 : 0;
-                        }
+                        }*/
                         else
                         {
                             $arr[$key][] = $v;
@@ -273,7 +274,7 @@ abstract class Base
             }
             elseif(is_bool($value))
             {
-                $xml->addAttribute($key, ($value === true) ? 1 : 0);
+                $xml->addAttribute($key, Text::boolToString($value));
             }
             else
             {
@@ -294,7 +295,7 @@ abstract class Base
                 }
                 elseif(is_bool($value))
                 {
-                    $xml->addChild($key, ($value === true) ? 1 : 0);
+                    $xml->addChild($key, Text::boolToString($value));
                 }
                 elseif (is_array($value))
                 {
@@ -310,7 +311,7 @@ abstract class Base
                         }
                         elseif(is_bool($child))
                         {
-                            $xml->addChild($key, ($child === true) ? 1 : 0);
+                            $xml->addChild($key, Text::boolToString($child));
                         }
                         else
                         {
