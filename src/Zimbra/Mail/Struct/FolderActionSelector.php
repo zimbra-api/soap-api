@@ -28,7 +28,7 @@ class FolderActionSelector extends ActionSelector
      * @param FolderActionOp $op
      * @param string $id
      * @param string $tcon
-     * @param int    $recursive
+     * @param int    $tag
      * @param string $l
      * @param string $rgb
      * @param int    $color
@@ -42,7 +42,7 @@ class FolderActionSelector extends ActionSelector
         FolderActionOp $op,
         $id = null,
         $tcon = null,
-        $recursive = null,
+        $tag = null,
         $l = null,
         $rgb = null,
         $color = null,
@@ -65,7 +65,7 @@ class FolderActionSelector extends ActionSelector
             $op,
             $id,
             $tcon,
-            $recursive,
+            $tag,
             $l,
             $rgb,
             $color,
