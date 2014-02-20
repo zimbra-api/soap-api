@@ -41,11 +41,11 @@ class AutoCompleteGal extends Base
         $limit = null)
     {
         parent::__construct();
-        $this->property('name', trim($name));
         if(null !== $needExp)
         {
             $this->property('needExp', (bool) $needExp);
         }
+        $this->property('name', trim($name));
         if($type instanceof SearchType)
         {
             $this->property('type', $type);
