@@ -13,7 +13,8 @@ namespace Zimbra\Soap;
 use Zimbra\Common\SimpleXML;
 
 /**
- * Message class
+ * Soap message class
+ *
  * @package   Zimbra
  * @category  Soap
  * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
@@ -42,29 +43,26 @@ class Message
     const NS_SOAP_1_2 = 'http://www.w3.org/2003/05/soap-envelope';
 
     /**
-     * @var SimpleXML
+     * Soap headers
+     * @var array
      */
-    private $_xml;
+    private $_headers = array();
 
     /**
-     * @var SimpleXML
-     */
-    private $_header;
-
-    /**
-     * @var string The xml namespace
+     * The xml namespace
+     * @var string
      */
     private $_namespace;
 
     /**
-     * @var string The soap version
+     * The soap version
+     * @var string
      */
     private $_version;
 
     /**
      * Content types for SOAP versions.
-     *
-     * @var array(string=>string)
+     * @var array
      */
     static protected $contentTypeMap = array(
         '1.1' => 'text/xml; charset=utf-8',
@@ -81,26 +79,6 @@ class Message
     {
         $this->_namespace = empty($namespace) ? 'urn:zimbra' : $namespace;
         $this->_version = in_array($version, array(self::SOAP_1_2, self::SOAP_1_1)) ? $version : self::SOAP_1_2;
-        $soapNamespace = ($this->_version === self::SOAP_1_2) ? self::NS_SOAP_1_2 : self::NS_SOAP_1_1;
-        if($this->_namespace === 'urn:zimbra')
-        {
-            $message = 
-                '<env:Envelope xmlns:env="'.$soapNamespace.'" '
-                             .'xmlns:urn="urn:zimbra">'
-                .'</env:Envelope>';
-        }
-        else
-        {
-            $message = 
-                '<env:Envelope xmlns:env="'.$soapNamespace.'" '
-                             .'xmlns:urn="urn:zimbra" '
-                             .'xmlns:urn1="'.$this->_namespace.'">'
-                .'</env:Envelope>';
-        }
-        $this->_xml = new SimpleXML($message);
-        $this->_header = $this->_xml->addChild('Header')
-                              ->addChild('context', null, 'urn:zimbra');
-        $this->_body = $this->_xml->addChild('Body');
     }
 
     /**
@@ -113,11 +91,9 @@ class Message
     {
         if(null === $body)
         {
-            return $this->_xml->children('env', true)->Body->children($this->_namespace);
+            return $this->_body;
         }
-        unset($this->_xml->children('env', true)->Body);
-        $child = $this->_xml->addChild('Body');
-        $child->append($body, $this->_namespace);
+        $this->_body = $body;
         return $this;
     }
 
@@ -139,14 +115,7 @@ class Message
         }
         else
         {
-            if(isset($this->_header->$name))
-            {
-                $this->_header->$name = $value;
-            }
-            else
-            {
-                $this->_header->addChild($name, $value);
-            }
+            $this->_headers[$name] = $value;
         }
         return $this;
     }
@@ -159,18 +128,13 @@ class Message
      */
     public function header($name = null)
     {
-        $headers = array();
-        foreach ($this->_header->children('urn', true) as $child)
-        {
-            $headers[$child->getName()] = (string) $child;
-        }
         if(null === $name)
         {
-            return $headers;
+            return $this->_headers;
         }
         else
         {
-            return isset($headers[$name]) ? $headers[$name] : null;
+            return isset($this->_headers[$name]) ? $this->_headers[$name] : null;
         }
     }
 
@@ -198,12 +162,50 @@ class Message
     }
 
     /**
+     * Method returning the xml representation of this class
+     *
+     * @return SimpleXML
+     */
+    public function toXml()
+    {
+        $soapNamespace = ($this->_version === self::SOAP_1_2) ? self::NS_SOAP_1_2 : self::NS_SOAP_1_1;
+        if($this->_namespace === 'urn:zimbra')
+        {
+            $message = 
+                '<env:Envelope xmlns:env="'.$soapNamespace.'" '
+                             .'xmlns:urn="urn:zimbra">'
+                .'</env:Envelope>';
+        }
+        else
+        {
+            $message = 
+                '<env:Envelope xmlns:env="'.$soapNamespace.'" '
+                             .'xmlns:urn="urn:zimbra" '
+                             .'xmlns:urn1="'.$this->_namespace.'">'
+                .'</env:Envelope>';
+        }
+        $xml = new SimpleXML($message);
+        if(count($this->_headers))
+        {
+            $header = $xml->addChild('Header')
+                          ->addChild('context', null, 'urn:zimbra');
+            foreach ($this->_headers as $name => $value)
+            {
+                $header->addChild($name, $value);
+            }
+        }
+        $body = $xml->addChild('Body');
+        $body->append($this->_body, $this->_namespace);
+        return $xml;
+    }
+
+    /**
      * Return a well-formed XML string.
      *
      * @return string Xml string
      */
     public function __toString()
     {
-        return trim($this->_xml->asXml());
+        return trim($this->toXml()->asXml());
     }
 }
