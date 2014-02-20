@@ -10,6 +10,8 @@
 
 namespace Zimbra\Account;
 
+use Zimbra\Account\Struct\AuthAttrs;
+use Zimbra\Account\Struct\AuthPrefs;
 use Zimbra\Account\Struct\AuthToken;
 use Zimbra\Account\Struct\DistributionListSelector as DLSelector;
 use Zimbra\Account\Struct\DistributionListAction as DLAction;
@@ -41,8 +43,8 @@ interface AccountInterface
      * @param  PreAuth   $key Pre authentication key
      * @param  AuthToken $token The authentication token.
      * @param  string    $virtualHost If specified (in conjunction with by="name"), virtual-host is used to determine the domain of the account name, if it does not include a domain component.
-     * @param  array     $prefs Preference.
-     * @param  array     $attrs The attributes.
+     * @param  AuthPrefs $prefs Preference.
+     * @param  AuthAttrs $attrs The attributes.
      * @param  string    $requestedSkin If specified the name of the skin requested by the client.
      * @param  string    $persistAuthTokenCookie Controls whether the auth token cookie in the response should be persisted when the browser exits.
      * @return authentication token
@@ -53,8 +55,8 @@ interface AccountInterface
         PreAuth $preauth = null,
         AuthToken $authToken = null,
         $virtualHost = null,
-        array $prefs = array(),
-        array $attrs = array(),
+        AuthPrefs $prefs = null,
+        AuthAttrs $attrs = null,
         $requestedSkin = null,
         $persistAuthTokenCookie = null
     );
