@@ -10,9 +10,6 @@
 
 namespace Zimbra\Account\Request;
 
-use Zimbra\Account\Struct\Identity;
-use Zimbra\Common\TypedSequence;
-
 /**
  * GetIdentities request class
  * Get the identities for the authed account.
@@ -25,47 +22,4 @@ use Zimbra\Common\TypedSequence;
  */
 class GetIdentities extends Base
 {
-    /**
-     * Identities
-     * @var Sequence
-     */
-    private $_identity;
-
-    /**
-     * Constructor method for GetIdentities
-     * @param array $identities Identities
-     * @return self
-     */
-    public function __construct(array $identities = array())
-    {
-        parent::__construct();
-        $this->_identity = new TypedSequence('Zimbra\Account\Struct\Identity', $identities);
-
-        $this->addHook(function($sender)
-        {
-            $sender->child('identity', $sender->identity()->all());
-        });
-    }
-
-    /**
-     * Gets or sets identity
-     *
-     * @param  Identity $identity
-     * @return self
-     */
-    public function addIdentity(Identity $identity)
-    {
-        $this->_identity->add($identity);
-        return $this;
-    }
-
-    /**
-     * Gets identity sequence
-     *
-     * @return Sequence
-     */
-    public function identity()
-    {
-        return $this->_identity;
-    }
 }
