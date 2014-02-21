@@ -755,40 +755,15 @@ class RequestTest extends ZimbraTestCase
 
     public function testGetIdentities()
     {
-        $attr = new \Zimbra\Account\Struct\Attr('name', 'value', true);
-        $identity = new \Zimbra\Account\Struct\Identity('name', 'id', array($attr));
-
-        $req = new \Zimbra\Account\Request\GetIdentities(array($identity));
+        $req = new \Zimbra\Account\Request\GetIdentities();
         $this->assertInstanceOf('Zimbra\Account\Request\Base', $req);
-        $this->assertSame(array($identity), $req->identity()->all());
-        $req->addIdentity($identity);
-        $this->assertSame(array($identity, $identity), $req->identity()->all());
-        $req->identity()->remove(1);
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<GetIdentitiesRequest>'
-                .'<identity name="name" id="id">'
-                    .'<a name="name" pd="true">value</a>'
-                .'</identity>'
-            .'</GetIdentitiesRequest>';
+            .'<GetIdentitiesRequest />';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
         $array = array(
-            'GetIdentitiesRequest' => array(
-                'identity' => array(
-                    array(
-                        'name' => 'name',
-                        'id' => 'id',
-                        'a' => array(
-                            array(
-                                'name' => 'name',
-                                '_' => 'value',
-                                'pd' => true,
-                            ),
-                        ),
-                    ),
-                ),
-            ),
+            'GetIdentitiesRequest' => array(),
         );
         $this->assertEquals($array, $req->toArray());
     }
@@ -820,7 +795,7 @@ class RequestTest extends ZimbraTestCase
 
     public function getGetPrefs()
     {
-        $pref = \Zimbra\Account\Struct\Pref('name', 'value', 1000);
+        $pref = new \Zimbra\Account\Struct\Pref('name', 'value', 1000);
         $req = new \Zimbra\Account\Request\GetPrefs(array($pref));
         $this->assertInstanceOf('Zimbra\Account\Request\Base', $req);
         $this->assertSame(array($pref), $req->pref()->all());
@@ -1304,7 +1279,7 @@ class RequestTest extends ZimbraTestCase
             .'<SearchCalendarResourcesRequest quick="true" sortBy="sortBy" limit="10" offset="10" galAcctId="galAcctId" attrs="attrs">'
             	.'<locale>locale</locale>'
                 .'<cursor id="id" sortVal="sortVal" endSortVal="endSortVal" includeOffset="true" />'
-                .' <name>name</name>'
+                .'<name>name</name>'
                 .'<searchFilter>'
                     .'<conds not="true" or="false">'
                         .'<conds not="false" or="true">'
