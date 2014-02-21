@@ -10,9 +10,15 @@
 
 namespace Zimbra\Account;
 
+use Zimbra\Enum\DistributionListSubscribeOp as SubscribeOp;
+use Zimbra\Enum\GalSearchType as SearchType;
+use Zimbra\Enum\MemberOfSelector as MemberOf;
+use Zimbra\Enum\SortBy;
+
 use Zimbra\Account\Struct\AuthAttrs;
 use Zimbra\Account\Struct\AuthPrefs;
 use Zimbra\Account\Struct\AuthToken;
+use Zimbra\Account\Struct\BlackList;
 use Zimbra\Account\Struct\DistributionListSelector as DLSelector;
 use Zimbra\Account\Struct\DistributionListAction as DLAction;
 use Zimbra\Account\Struct\EntrySearchFilterInfo as SearchFilter;
@@ -20,6 +26,7 @@ use Zimbra\Account\Struct\Identity;
 use Zimbra\Account\Struct\NameId;
 use Zimbra\Account\Struct\PreAuth;
 use Zimbra\Account\Struct\Signature;
+use Zimbra\Account\Struct\WhiteList;
 
 use Zimbra\Struct\AccountSelector;
 use Zimbra\Struct\CursorInfo;
@@ -321,10 +328,9 @@ interface AccountInterface
     /**
      * Get the identities for the authed account.
      *
-     * @param array $identities array of Identity
      * @return mixed
      */
-    function getIdentities(array $identities = array());
+    function getIdentities();
 
     /**
      * Get information about an account by sections.
@@ -439,13 +445,13 @@ interface AccountInterface
      * Modify the anti-spam WhiteList and BlackList addresses
      * Note: If no <addr> is present in a list, it means to remove all addresses in the list. 
      *
-     * @param  array $whiteList White list
-     * @param  array $blackList Black list
+     * @param  WhiteList $whiteList White list
+     * @param  BlackList $blackList Black list
      * @return mixed
      */
     function modifyWhiteBlackList(
-        array $whiteList,
-        array $blackList = array()
+        WhiteList $whiteList = null,
+        BlackList $blackList = null
     );
 
     /**
@@ -469,10 +475,10 @@ interface AccountInterface
      * "attrs" attribute - comma-separated list of attrs to
      * return ("displayName", "zimbraId", "zimbraCalResType")
      *
-     * @param CursorInfo $cursor Cursor specification
-     * @param SearchFilter $searchFilter Search filter specification
-     * @param string $name      If specified, passed through to the GAL search as the search key
      * @param string $locale    Client locale identification. 
+     * @param CursorInfo $cursor Cursor specification
+     * @param string $name      If specified, passed through to the GAL search as the search key
+     * @param SearchFilter $searchFilter Search filter specification
      * @param bool   $quick     "Quick" flag. 
      * @param string $sortBy    Name of attribute to sort on. default is the calendar resource name.
      * @param int    $limit     An integer specifying the 0-based offset into the results list to return as the first result for this search operation
@@ -482,10 +488,10 @@ interface AccountInterface
      * @return mixed
      */
     function searchCalendarResources(
-        CursorInfo $cursor = null,
-        SearchFilter $searchFilter = null,
-        $name = null,
         $locale = null,
+        CursorInfo $cursor = null,
+        $name = null,
+        SearchFilter $searchFilter = null,
         $quick = null,
         $sortBy = null,
         $limit = null,
@@ -497,15 +503,15 @@ interface AccountInterface
     /**
      * Search Global Address List (GAL)
      *
+     * @param string $locale      Client locale identification. 
      * @param CursorInfo $cursor  Cursor specification
      * @param SearchFilter $searchFilter Search filter specification
-     * @param string $locale      Client locale identification. 
      * @param string $ref         If set then search GAL by this ref, which is a dn. If specified then "name" attribute is ignored.
      * @param string $name        Query string. Note: ignored if {gal-search-ref-DN} is specified
-     * @param string $type        Type of addresses to auto-complete on
+     * @param SearchType $type        Type of addresses to auto-complete on
      * @param bool   $needExp     flag whether the {exp} flag is needed in the response for group entries. Default is unset.
      * @param bool   $needIsOwner Set this if the "isOwner" flag is needed in the response for group entries. Default is unset.
-     * @param string $needIsMember Specify if the "isMember" flag is needed in the response for group entries.
+     * @param MemberOf $needIsMember Specify if the "isMember" flag is needed in the response for group entries.
      * @param bool   $needSMIMECerts Internal attr, for proxied GSA search from GetSMIMEPublicCerts only
      * @param string $galAcctId   GAL Account ID
      * @param bool   $quick       "Quick" flag.
@@ -515,19 +521,19 @@ interface AccountInterface
      * @return mixed
      */
     function searchGal(
+        $locale = null,
         CursorInfo $cursor = null,
         SearchFilter $searchFilter = null,
-        $locale = null,
         $ref = null,
         $name = null,
-        $type = null,
+        SearchType $type = null,
         $needExp = null,
         $needIsOwner = null,
-        $needIsMember = null,
+        MemberOf $needIsMember = null,
         $needSMIMECerts = null,
         $galAcctId = null,
         $quick = null,
-        $sortBy = null,
+        SortBy $sortBy = null,
         $limit = null,
         $offset = null
     );
@@ -535,11 +541,11 @@ interface AccountInterface
     /**
      * Subscribe to a distribution list
      *
-     * @param string $op
+     * @param SubscribeOp $op
      * @param DLSelector $dl
      * @return mixed
      */
-    function subscribeDistributionList($op, DLSelector $dl);
+    function subscribeDistributionList(SubscribeOp $op, DLSelector $dl);
 
     /**
      * Synchronize with the Global Address List

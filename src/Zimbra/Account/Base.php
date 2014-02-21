@@ -14,17 +14,23 @@ use Zimbra\Soap\API;
 
 use Zimbra\Enum\AccountBy;
 use Zimbra\Enum\DistributionListBy as DistListBy;
+use Zimbra\Enum\DistributionListSubscribeOp as SubscribeOp;
+use Zimbra\Enum\GalSearchType as SearchType;
+use Zimbra\Enum\MemberOfSelector as MemberOf;
+use Zimbra\Enum\SortBy;
 
 use Zimbra\Account\Struct\AuthAttrs;
 use Zimbra\Account\Struct\AuthPrefs;
 use Zimbra\Account\Struct\AuthToken;
+use Zimbra\Account\Struct\BlackList;
 use Zimbra\Account\Struct\DistributionListSelector as DLSelector;
 use Zimbra\Account\Struct\DistributionListAction as DLAction;
-use Zimbra\Account\Struct\EntrySearchFilterInfo;
+use Zimbra\Account\Struct\EntrySearchFilterInfo as SearchFilter;
 use Zimbra\Account\Struct\Identity;
 use Zimbra\Account\Struct\NameId;
 use Zimbra\Account\Struct\PreAuth;
 use Zimbra\Account\Struct\Signature;
+use Zimbra\Account\Struct\WhiteList;
 
 use Zimbra\Struct\AccountSelector;
 use Zimbra\Struct\CursorInfo;
@@ -253,7 +259,7 @@ abstract class Base extends API implements AccountInterface
         $request = new \Zimbra\Account\Request\CreateSignature(
             $signature
         );
-        return $this->_client->doRequest($$request);
+        return $this->_client->doRequest($request);
     }
 
     /**
@@ -469,15 +475,12 @@ abstract class Base extends API implements AccountInterface
     /**
      * Get the identities for the authed account.
      *
-     * @param array $identities array of Identity
      * @return mixed
      */
-    public function getIdentities(array $identities = array())
+    public function getIdentities()
     {
-        $request = new \Zimbra\Account\Request\GetIdentities(
-            $identities
-        );
-        return $this->_client->doRequest(new GetIdentities($identities));
+        $request = new \Zimbra\Account\Request\GetIdentities();
+        return $this->_client->doRequest($request);
     }
 
     /**
@@ -659,13 +662,13 @@ abstract class Base extends API implements AccountInterface
      * Modify the anti-spam WhiteList and BlackList addresses
      * Note: If no <addr> is present in a list, it means to remove all addresses in the list. 
      *
-     * @param  array $whiteList White list
-     * @param  array $blackList Black list
+     * @param  WhiteList $whiteList White list
+     * @param  BlackList $blackList Black list
      * @return mixed
      */
     public function modifyWhiteBlackList(
-        array $whiteList,
-        array $blackList = array()
+        WhiteList $whiteList = null,
+        BlackList $blackList = null
     )
     {
         $request = new \Zimbra\Account\Request\ModifyWhiteBlackList(
@@ -707,10 +710,10 @@ abstract class Base extends API implements AccountInterface
      * "attrs" attribute - comma-separated list of attrs to
      * return ("displayName", "zimbraId", "zimbraCalResType")
      *
-     * @param CursorInfo $cursor Cursor specification
-     * @param EntrySearchFilterInfo $searchFilter Search filter specification
-     * @param string $name      If specified, passed through to the GAL search as the search key
      * @param string $locale    Client locale identification. 
+     * @param CursorInfo $cursor Cursor specification
+     * @param string $name      If specified, passed through to the GAL search as the search key
+     * @param SearchFilter $searchFilter Search filter specification
      * @param bool   $quick     "Quick" flag. 
      * @param string $sortBy    Name of attribute to sort on. default is the calendar resource name.
      * @param int    $limit     An integer specifying the 0-based offset into the results list to return as the first result for this search operation
@@ -720,10 +723,10 @@ abstract class Base extends API implements AccountInterface
      * @return mixed
      */
     public function searchCalendarResources(
-        CursorInfo $cursor = null,
-        EntrySearchFilterInfo $searchFilter = null,
-        $name = null,
         $locale = null,
+        CursorInfo $cursor = null,
+        $name = null,
+        SearchFilter $searchFilter = null,
         $quick = null,
         $sortBy = null,
         $limit = null,
@@ -733,7 +736,7 @@ abstract class Base extends API implements AccountInterface
     )
     {
         $request = new \Zimbra\Account\Request\SearchCalendarResources(
-            $cursor, $searchFilter, $name, $locale, $quick,
+            $locale, $cursor, $name, $searchFilter, $quick,
             $sortBy, $limit, $offset, $galAcctId, $attrs
         );
         return $this->_client->doRequest($request);
@@ -742,15 +745,15 @@ abstract class Base extends API implements AccountInterface
     /**
      * Search Global Address List (GAL)
      *
-     * @param CursorInfo $cursor  Cursor specification
-     * @param EntrySearchFilterInfo $searchFilter Search filter specification
      * @param string $locale      Client locale identification. 
+     * @param CursorInfo $cursor  Cursor specification
+     * @param SearchFilter $searchFilter Search filter specification
      * @param string $ref         If set then search GAL by this ref, which is a dn. If specified then "name" attribute is ignored.
      * @param string $name        Query string. Note: ignored if {gal-search-ref-DN} is specified
-     * @param string $type        Type of addresses to auto-complete on
+     * @param SearchType $type        Type of addresses to auto-complete on
      * @param bool   $needExp     flag whether the {exp} flag is needed in the response for group entries. Default is unset.
      * @param bool   $needIsOwner Set this if the "isOwner" flag is needed in the response for group entries. Default is unset.
-     * @param string $needIsMember Specify if the "isMember" flag is needed in the response for group entries.
+     * @param MemberOf $needIsMember Specify if the "isMember" flag is needed in the response for group entries.
      * @param bool   $needSMIMECerts Internal attr, for proxied GSA search from GetSMIMEPublicCerts only
      * @param string $galAcctId   GAL Account ID
      * @param bool   $quick       "Quick" flag.
@@ -760,25 +763,25 @@ abstract class Base extends API implements AccountInterface
      * @return mixed
      */
     public function searchGal(
-        CursorInfo $cursor = null,
-        EntrySearchFilterInfo $searchFilter = null,
         $locale = null,
+        CursorInfo $cursor = null,
+        SearchFilter $searchFilter = null,
         $ref = null,
         $name = null,
-        $type = null,
+        SearchType $type = null,
         $needExp = null,
         $needIsOwner = null,
-        $needIsMember = null,
+        MemberOf $needIsMember = null,
         $needSMIMECerts = null,
         $galAcctId = null,
         $quick = null,
-        $sortBy = null,
+        SortBy $sortBy = null,
         $limit = null,
         $offset = null
     )
     {
         $request = new \Zimbra\Account\Request\SearchGal(
-            $cursor, $searchFilter, $locale, $ref, $name, $type,
+            $locale, $cursor, $searchFilter, $ref, $name, $type,
             $needExp, $needIsOwner, $needIsMember, $needSMIMECerts,
             $galAcctId, $quick, $sortBy, $limit, $offset
         );
@@ -788,11 +791,11 @@ abstract class Base extends API implements AccountInterface
     /**
      * Subscribe to a distribution list
      *
-     * @param string $op
+     * @param SubscribeOp $op
      * @param DLSelector $dl
      * @return mixed
      */
-    public function subscribeDistributionList($op, DLSelector $dl)
+    public function subscribeDistributionList(SubscribeOp $op, DLSelector $dl)
     {
         $request = new \Zimbra\Account\Request\SubscribeDistributionList(
             $op, $dl
