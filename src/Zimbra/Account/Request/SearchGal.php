@@ -62,7 +62,8 @@ class SearchGal extends Base
         $quick = null,
         SortBy $sortBy = null,
         $limit = null,
-        $offset = null)
+        $offset = null
+    )
     {
         parent::__construct();
         if(null !== $locale)
