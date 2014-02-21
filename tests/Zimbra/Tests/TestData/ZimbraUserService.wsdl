@@ -1,0 +1,4067 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:svc="http://www.zimbra.com/wsdl/ZimbraService.wsdl" xmlns:zimbraAccount="urn:zimbraAccount" xmlns:zimbraMail="urn:zimbraMail" xmlns:zimbraRepl="urn:zimbraRepl" xmlns:zimbraSync="urn:zimbraSync" xmlns:zimbraVoice="urn:zimbraVoice" xmlns:zimbra="urn:zimbra" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.zimbra.com/wsdl/ZimbraService.wsdl" name="ZimbraService">
+  <wsdl:types>
+    <xsd:schema>
+      <xsd:import namespace="urn:zimbra" schemaLocation="zimbra.xsd"/>
+      <xsd:import namespace="urn:zimbraAccount" schemaLocation="zimbraAccount.xsd"/>
+      <xsd:import namespace="urn:zimbraMail" schemaLocation="zimbraMail.xsd"/>
+      <xsd:import namespace="urn:zimbraRepl" schemaLocation="zimbraRepl.xsd"/>
+      <xsd:import namespace="urn:zimbraSync" schemaLocation="zimbraSync.xsd"/>
+      <xsd:import namespace="urn:zimbraVoice" schemaLocation="zimbraVoice.xsd"/>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="AccountAuthRequestMessage">
+    <wsdl:part name="parameters" element="zimbraAccount:AuthRequest"/>
+  </wsdl:message>
+  <wsdl:message name="AccountAuthResponseMessage">
+    <wsdl:part name="parameters" element="zimbraAccount:AuthResponse"/>
+  </wsdl:message>
+  <wsdl:message name="AccountAutoCompleteGalRequestMessage">
+    <wsdl:part name="parameters" element="zimbraAccount:AutoCompleteGalRequest"/>
+  </wsdl:message>
+  <wsdl:message name="AccountAutoCompleteGalResponseMessage">
+    <wsdl:part name="parameters" element="zimbraAccount:AutoCompleteGalResponse"/>
+  </wsdl:message>
+  <wsdl:message name="AccountChangePasswordRequestMessage">
+    <wsdl:part name="parameters" element="zimbraAccount:ChangePasswordRequest"/>
+  </wsdl:message>
+  <wsdl:message name="AccountChangePasswordResponseMessage">
+    <wsdl:part name="parameters" element="zimbraAccount:ChangePasswordResponse"/>
+  </wsdl:message>
+  <wsdl:message name="AccountCheckLicenseRequestMessage">
+    <wsdl:part name="parameters" element="zimbraAccount:CheckLicenseRequest"/>
+  </wsdl:message>
+  <wsdl:message name="AccountCheckLicenseResponseMessage">
+    <wsdl:part name="parameters" element="zimbraAccount:CheckLicenseResponse"/>
+  </wsdl:message>
+  <wsdl:message name="AccountCheckRightsRequestMessage">
+    <wsdl:part name="parameters" element="zimbraAccount:CheckRightsRequest"/>
+  </wsdl:message>
+  <wsdl:message name="AccountCheckRightsResponseMessage">
+    <wsdl:part name="parameters" element="zimbraAccount:CheckRightsResponse"/>
+  </wsdl:message>
+  <wsdl:message name="AccountCreateDistributionListRequestMessage">
+    <wsdl:part name="parameters" element="zimbraAccount:CreateDistributionListRequest"/>
+  </wsdl:message>
+  <wsdl:message name="AccountCreateDistributionListResponseMessage">
+    <wsdl:part name="parameters" element="zimbraAccount:CreateDistributionListResponse"/>
+  </wsdl:message>
+  <wsdl:message name="AccountCreateIdentityRequestMessage">
+    <wsdl:part name="parameters" element="zimbraAccount:CreateIdentityRequest"/>
+  </wsdl:message>
+  <wsdl:message name="AccountCreateIdentityResponseMessage">
+    <wsdl:part name="parameters" element="zimbraAccount:CreateIdentityResponse"/>
+  </wsdl:message>
+  <wsdl:message name="AccountCreateSignatureRequestMessage">
+    <wsdl:part name="parameters" element="zimbraAccount:CreateSignatureRequest"/>
+  </wsdl:message>
+  <wsdl:message name="AccountCreateSignatureResponseMessage">
+    <wsdl:part name="parameters" element="zimbraAccount:CreateSignatureResponse"/>
+  </wsdl:message>
+  <wsdl:message name="AccountDeleteIdentityRequestMessage">
+    <wsdl:part name="parameters" element="zimbraAccount:DeleteIdentityRequest"/>
+  </wsdl:message>
+  <wsdl:message name="AccountDeleteIdentityResponseMessage">
+    <wsdl:part name="parameters" element="zimbraAccount:DeleteIdentityResponse"/>
+  </wsdl:message>
+  <wsdl:message name="AccountDeleteSignatureRequestMessage">
+    <wsdl:part name="parameters" element="zimbraAccount:DeleteSignatureRequest"/>
+  </wsdl:message>
+  <wsdl:message name="AccountDeleteSignatureResponseMessage">
+    <wsdl:part name="parameters" element="zimbraAccount:DeleteSignatureResponse"/>
+  </wsdl:message>
+  <wsdl:message name="AccountDiscoverRightsRequestMessage">
+    <wsdl:part name="parameters" element="zimbraAccount:DiscoverRightsRequest"/>
+  </wsdl:message>
+  <wsdl:message name="AccountDiscoverRightsResponseMessage">
+    <wsdl:part name="parameters" element="zimbraAccount:DiscoverRightsResponse"/>
+  </wsdl:message>
+  <wsdl:message name="AccountDistributionListActionRequestMessage">
+    <wsdl:part name="parameters" element="zimbraAccount:DistributionListActionRequest"/>
+  </wsdl:message>
+  <wsdl:message name="AccountDistributionListActionResponseMessage">
+    <wsdl:part name="parameters" element="zimbraAccount:DistributionListActionResponse"/>
+  </wsdl:message>
+  <wsdl:message name="AccountEndSessionRequestMessage">
+    <wsdl:part name="parameters" element="zimbraAccount:EndSessionRequest"/>
+  </wsdl:message>
+  <wsdl:message name="AccountEndSessionResponseMessage">
+    <wsdl:part name="parameters" element="zimbraAccount:EndSessionResponse"/>
+  </wsdl:message>
+  <wsdl:message name="AccountGetAccountDistributionListsRequestMessage">
+    <wsdl:part name="parameters" element="zimbraAccount:GetAccountDistributionListsRequest"/>
+  </wsdl:message>
+  <wsdl:message name="AccountGetAccountDistributionListsResponseMessage">
+    <wsdl:part name="parameters" element="zimbraAccount:GetAccountDistributionListsResponse"/>
+  </wsdl:message>
+  <wsdl:message name="AccountGetAccountInfoRequestMessage">
+    <wsdl:part name="parameters" element="zimbraAccount:GetAccountInfoRequest"/>
+  </wsdl:message>
+  <wsdl:message name="AccountGetAccountInfoResponseMessage">
+    <wsdl:part name="parameters" element="zimbraAccount:GetAccountInfoResponse"/>
+  </wsdl:message>
+  <wsdl:message name="AccountGetAllLocalesRequestMessage">
+    <wsdl:part name="parameters" element="zimbraAccount:GetAllLocalesRequest"/>
+  </wsdl:message>
+  <wsdl:message name="AccountGetAllLocalesResponseMessage">
+    <wsdl:part name="parameters" element="zimbraAccount:GetAllLocalesResponse"/>
+  </wsdl:message>
+  <wsdl:message name="AccountGetAvailableCsvFormatsRequestMessage">
+    <wsdl:part name="parameters" element="zimbraAccount:GetAvailableCsvFormatsRequest"/>
+  </wsdl:message>
+  <wsdl:message name="AccountGetAvailableCsvFormatsResponseMessage">
+    <wsdl:part name="parameters" element="zimbraAccount:GetAvailableCsvFormatsResponse"/>
+  </wsdl:message>
+  <wsdl:message name="AccountGetAvailableLocalesRequestMessage">
+    <wsdl:part name="parameters" element="zimbraAccount:GetAvailableLocalesRequest"/>
+  </wsdl:message>
+  <wsdl:message name="AccountGetAvailableLocalesResponseMessage">
+    <wsdl:part name="parameters" element="zimbraAccount:GetAvailableLocalesResponse"/>
+  </wsdl:message>
+  <wsdl:message name="AccountGetAvailableSkinsRequestMessage">
+    <wsdl:part name="parameters" element="zimbraAccount:GetAvailableSkinsRequest"/>
+  </wsdl:message>
+  <wsdl:message name="AccountGetAvailableSkinsResponseMessage">
+    <wsdl:part name="parameters" element="zimbraAccount:GetAvailableSkinsResponse"/>
+  </wsdl:message>
+  <wsdl:message name="AccountGetDistributionListMembersRequestMessage">
+    <wsdl:part name="parameters" element="zimbraAccount:GetDistributionListMembersRequest"/>
+  </wsdl:message>
+  <wsdl:message name="AccountGetDistributionListMembersResponseMessage">
+    <wsdl:part name="parameters" element="zimbraAccount:GetDistributionListMembersResponse"/>
+  </wsdl:message>
+  <wsdl:message name="AccountGetDistributionListRequestMessage">
+    <wsdl:part name="parameters" element="zimbraAccount:GetDistributionListRequest"/>
+  </wsdl:message>
+  <wsdl:message name="AccountGetDistributionListResponseMessage">
+    <wsdl:part name="parameters" element="zimbraAccount:GetDistributionListResponse"/>
+  </wsdl:message>
+  <wsdl:message name="AccountGetIdentitiesRequestMessage">
+    <wsdl:part name="parameters" element="zimbraAccount:GetIdentitiesRequest"/>
+  </wsdl:message>
+  <wsdl:message name="AccountGetIdentitiesResponseMessage">
+    <wsdl:part name="parameters" element="zimbraAccount:GetIdentitiesResponse"/>
+  </wsdl:message>
+  <wsdl:message name="AccountGetInfoRequestMessage">
+    <wsdl:part name="parameters" element="zimbraAccount:GetInfoRequest"/>
+  </wsdl:message>
+  <wsdl:message name="AccountGetInfoResponseMessage">
+    <wsdl:part name="parameters" element="zimbraAccount:GetInfoResponse"/>
+  </wsdl:message>
+  <wsdl:message name="AccountGetPrefsRequestMessage">
+    <wsdl:part name="parameters" element="zimbraAccount:GetPrefsRequest"/>
+  </wsdl:message>
+  <wsdl:message name="AccountGetPrefsResponseMessage">
+    <wsdl:part name="parameters" element="zimbraAccount:GetPrefsResponse"/>
+  </wsdl:message>
+  <wsdl:message name="AccountGetRightsRequestMessage">
+    <wsdl:part name="parameters" element="zimbraAccount:GetRightsRequest"/>
+  </wsdl:message>
+  <wsdl:message name="AccountGetRightsResponseMessage">
+    <wsdl:part name="parameters" element="zimbraAccount:GetRightsResponse"/>
+  </wsdl:message>
+  <wsdl:message name="AccountGetSMIMEPublicCertsRequestMessage">
+    <wsdl:part name="parameters" element="zimbraAccount:GetSMIMEPublicCertsRequest"/>
+  </wsdl:message>
+  <wsdl:message name="AccountGetSMIMEPublicCertsResponseMessage">
+    <wsdl:part name="parameters" element="zimbraAccount:GetSMIMEPublicCertsResponse"/>
+  </wsdl:message>
+  <wsdl:message name="AccountGetShareInfoRequestMessage">
+    <wsdl:part name="parameters" element="zimbraAccount:GetShareInfoRequest"/>
+  </wsdl:message>
+  <wsdl:message name="AccountGetShareInfoResponseMessage">
+    <wsdl:part name="parameters" element="zimbraAccount:GetShareInfoResponse"/>
+  </wsdl:message>
+  <wsdl:message name="AccountGetSignaturesRequestMessage">
+    <wsdl:part name="parameters" element="zimbraAccount:GetSignaturesRequest"/>
+  </wsdl:message>
+  <wsdl:message name="AccountGetSignaturesResponseMessage">
+    <wsdl:part name="parameters" element="zimbraAccount:GetSignaturesResponse"/>
+  </wsdl:message>
+  <wsdl:message name="AccountGetVersionInfoRequestMessage">
+    <wsdl:part name="parameters" element="zimbraAccount:GetVersionInfoRequest"/>
+  </wsdl:message>
+  <wsdl:message name="AccountGetVersionInfoResponseMessage">
+    <wsdl:part name="parameters" element="zimbraAccount:GetVersionInfoResponse"/>
+  </wsdl:message>
+  <wsdl:message name="AccountGetWhiteBlackListRequestMessage">
+    <wsdl:part name="parameters" element="zimbraAccount:GetWhiteBlackListRequest"/>
+  </wsdl:message>
+  <wsdl:message name="AccountGetWhiteBlackListResponseMessage">
+    <wsdl:part name="parameters" element="zimbraAccount:GetWhiteBlackListResponse"/>
+  </wsdl:message>
+  <wsdl:message name="AccountGrantRightsRequestMessage">
+    <wsdl:part name="parameters" element="zimbraAccount:GrantRightsRequest"/>
+  </wsdl:message>
+  <wsdl:message name="AccountGrantRightsResponseMessage">
+    <wsdl:part name="parameters" element="zimbraAccount:GrantRightsResponse"/>
+  </wsdl:message>
+  <wsdl:message name="AccountModifyIdentityRequestMessage">
+    <wsdl:part name="parameters" element="zimbraAccount:ModifyIdentityRequest"/>
+  </wsdl:message>
+  <wsdl:message name="AccountModifyIdentityResponseMessage">
+    <wsdl:part name="parameters" element="zimbraAccount:ModifyIdentityResponse"/>
+  </wsdl:message>
+  <wsdl:message name="AccountModifyPrefsRequestMessage">
+    <wsdl:part name="parameters" element="zimbraAccount:ModifyPrefsRequest"/>
+  </wsdl:message>
+  <wsdl:message name="AccountModifyPrefsResponseMessage">
+    <wsdl:part name="parameters" element="zimbraAccount:ModifyPrefsResponse"/>
+  </wsdl:message>
+  <wsdl:message name="AccountModifyPropertiesRequestMessage">
+    <wsdl:part name="parameters" element="zimbraAccount:ModifyPropertiesRequest"/>
+  </wsdl:message>
+  <wsdl:message name="AccountModifyPropertiesResponseMessage">
+    <wsdl:part name="parameters" element="zimbraAccount:ModifyPropertiesResponse"/>
+  </wsdl:message>
+  <wsdl:message name="AccountModifySignatureRequestMessage">
+    <wsdl:part name="parameters" element="zimbraAccount:ModifySignatureRequest"/>
+  </wsdl:message>
+  <wsdl:message name="AccountModifySignatureResponseMessage">
+    <wsdl:part name="parameters" element="zimbraAccount:ModifySignatureResponse"/>
+  </wsdl:message>
+  <wsdl:message name="AccountModifyWhiteBlackListRequestMessage">
+    <wsdl:part name="parameters" element="zimbraAccount:ModifyWhiteBlackListRequest"/>
+  </wsdl:message>
+  <wsdl:message name="AccountModifyWhiteBlackListResponseMessage">
+    <wsdl:part name="parameters" element="zimbraAccount:ModifyWhiteBlackListResponse"/>
+  </wsdl:message>
+  <wsdl:message name="AccountModifyZimletPrefsRequestMessage">
+    <wsdl:part name="parameters" element="zimbraAccount:ModifyZimletPrefsRequest"/>
+  </wsdl:message>
+  <wsdl:message name="AccountModifyZimletPrefsResponseMessage">
+    <wsdl:part name="parameters" element="zimbraAccount:ModifyZimletPrefsResponse"/>
+  </wsdl:message>
+  <wsdl:message name="AccountRevokeRightsRequestMessage">
+    <wsdl:part name="parameters" element="zimbraAccount:RevokeRightsRequest"/>
+  </wsdl:message>
+  <wsdl:message name="AccountRevokeRightsResponseMessage">
+    <wsdl:part name="parameters" element="zimbraAccount:RevokeRightsResponse"/>
+  </wsdl:message>
+  <wsdl:message name="AccountSearchCalendarResourcesRequestMessage">
+    <wsdl:part name="parameters" element="zimbraAccount:SearchCalendarResourcesRequest"/>
+  </wsdl:message>
+  <wsdl:message name="AccountSearchCalendarResourcesResponseMessage">
+    <wsdl:part name="parameters" element="zimbraAccount:SearchCalendarResourcesResponse"/>
+  </wsdl:message>
+  <wsdl:message name="AccountSearchGalRequestMessage">
+    <wsdl:part name="parameters" element="zimbraAccount:SearchGalRequest"/>
+  </wsdl:message>
+  <wsdl:message name="AccountSearchGalResponseMessage">
+    <wsdl:part name="parameters" element="zimbraAccount:SearchGalResponse"/>
+  </wsdl:message>
+  <wsdl:message name="AccountSubscribeDistributionListRequestMessage">
+    <wsdl:part name="parameters" element="zimbraAccount:SubscribeDistributionListRequest"/>
+  </wsdl:message>
+  <wsdl:message name="AccountSubscribeDistributionListResponseMessage">
+    <wsdl:part name="parameters" element="zimbraAccount:SubscribeDistributionListResponse"/>
+  </wsdl:message>
+  <wsdl:message name="AccountSyncGalRequestMessage">
+    <wsdl:part name="parameters" element="zimbraAccount:SyncGalRequest"/>
+  </wsdl:message>
+  <wsdl:message name="AccountSyncGalResponseMessage">
+    <wsdl:part name="parameters" element="zimbraAccount:SyncGalResponse"/>
+  </wsdl:message>
+  <wsdl:message name="MailAddAppointmentInviteRequestMessage">
+    <wsdl:part name="parameters" element="zimbraMail:AddAppointmentInviteRequest"/>
+  </wsdl:message>
+  <wsdl:message name="MailAddAppointmentInviteResponseMessage">
+    <wsdl:part name="parameters" element="zimbraMail:AddAppointmentInviteResponse"/>
+  </wsdl:message>
+  <wsdl:message name="MailAddCommentRequestMessage">
+    <wsdl:part name="parameters" element="zimbraMail:AddCommentRequest"/>
+  </wsdl:message>
+  <wsdl:message name="MailAddCommentResponseMessage">
+    <wsdl:part name="parameters" element="zimbraMail:AddCommentResponse"/>
+  </wsdl:message>
+  <wsdl:message name="MailAddMsgRequestMessage">
+    <wsdl:part name="parameters" element="zimbraMail:AddMsgRequest"/>
+  </wsdl:message>
+  <wsdl:message name="MailAddMsgResponseMessage">
+    <wsdl:part name="parameters" element="zimbraMail:AddMsgResponse"/>
+  </wsdl:message>
+  <wsdl:message name="MailAddTaskInviteRequestMessage">
+    <wsdl:part name="parameters" element="zimbraMail:AddTaskInviteRequest"/>
+  </wsdl:message>
+  <wsdl:message name="MailAddTaskInviteResponseMessage">
+    <wsdl:part name="parameters" element="zimbraMail:AddTaskInviteResponse"/>
+  </wsdl:message>
+  <wsdl:message name="MailAnnounceOrganizerChangeRequestMessage">
+    <wsdl:part name="parameters" element="zimbraMail:AnnounceOrganizerChangeRequest"/>
+  </wsdl:message>
+  <wsdl:message name="MailAnnounceOrganizerChangeResponseMessage">
+    <wsdl:part name="parameters" element="zimbraMail:AnnounceOrganizerChangeResponse"/>
+  </wsdl:message>
+  <wsdl:message name="MailApplyFilterRulesRequestMessage">
+    <wsdl:part name="parameters" element="zimbraMail:ApplyFilterRulesRequest"/>
+  </wsdl:message>
+  <wsdl:message name="MailApplyFilterRulesResponseMessage">
+    <wsdl:part name="parameters" element="zimbraMail:ApplyFilterRulesResponse"/>
+  </wsdl:message>
+  <wsdl:message name="MailApplyOutgoingFilterRulesRequestMessage">
+    <wsdl:part name="parameters" element="zimbraMail:ApplyOutgoingFilterRulesRequest"/>
+  </wsdl:message>
+  <wsdl:message name="MailApplyOutgoingFilterRulesResponseMessage">
+    <wsdl:part name="parameters" element="zimbraMail:ApplyOutgoingFilterRulesResponse"/>
+  </wsdl:message>
+  <wsdl:message name="MailAutoCompleteRequestMessage">
+    <wsdl:part name="parameters" element="zimbraMail:AutoCompleteRequest"/>
+  </wsdl:message>
+  <wsdl:message name="MailAutoCompleteResponseMessage">
+    <wsdl:part name="parameters" element="zimbraMail:AutoCompleteResponse"/>
+  </wsdl:message>
+  <wsdl:message name="MailBounceMsgRequestMessage">
+    <wsdl:part name="parameters" element="zimbraMail:BounceMsgRequest"/>
+  </wsdl:message>
+  <wsdl:message name="MailBounceMsgResponseMessage">
+    <wsdl:part name="parameters" element="zimbraMail:BounceMsgResponse"/>
+  </wsdl:message>
+  <wsdl:message name="MailBrowseRequestMessage">
+    <wsdl:part name="parameters" element="zimbraMail:BrowseRequest"/>
+  </wsdl:message>
+  <wsdl:message name="MailBrowseResponseMessage">
+    <wsdl:part name="parameters" element="zimbraMail:BrowseResponse"/>
+  </wsdl:message>
+  <wsdl:message name="MailCancelAppointmentRequestMessage">
+    <wsdl:part name="parameters" element="zimbraMail:CancelAppointmentRequest"/>
+  </wsdl:message>
+  <wsdl:message name="MailCancelAppointmentResponseMessage">
+    <wsdl:part name="parameters" element="zimbraMail:CancelAppointmentResponse"/>
+  </wsdl:message>
+  <wsdl:message name="MailCancelTaskRequestMessage">
+    <wsdl:part name="parameters" element="zimbraMail:CancelTaskRequest"/>
+  </wsdl:message>
+  <wsdl:message name="MailCancelTaskResponseMessage">
+    <wsdl:part name="parameters" element="zimbraMail:CancelTaskResponse"/>
+  </wsdl:message>
+  <wsdl:message name="MailCheckDeviceStatusRequestMessage">
+    <wsdl:part name="parameters" element="zimbraMail:CheckDeviceStatusRequest"/>
+  </wsdl:message>
+  <wsdl:message name="MailCheckDeviceStatusResponseMessage">
+    <wsdl:part name="parameters" element="zimbraMail:CheckDeviceStatusResponse"/>
+  </wsdl:message>
+  <wsdl:message name="MailCheckPermissionRequestMessage">
+    <wsdl:part name="parameters" element="zimbraMail:CheckPermissionRequest"/>
+  </wsdl:message>
+  <wsdl:message name="MailCheckPermissionResponseMessage">
+    <wsdl:part name="parameters" element="zimbraMail:CheckPermissionResponse"/>
+  </wsdl:message>
+  <wsdl:message name="MailCheckRecurConflictsRequestMessage">
+    <wsdl:part name="parameters" element="zimbraMail:CheckRecurConflictsRequest"/>
+  </wsdl:message>
+  <wsdl:message name="MailCheckRecurConflictsResponseMessage">
+    <wsdl:part name="parameters" element="zimbraMail:CheckRecurConflictsResponse"/>
+  </wsdl:message>
+  <wsdl:message name="MailCheckSpellingRequestMessage">
+    <wsdl:part name="parameters" element="zimbraMail:CheckSpellingRequest"/>
+  </wsdl:message>
+  <wsdl:message name="MailCheckSpellingResponseMessage">
+    <wsdl:part name="parameters" element="zimbraMail:CheckSpellingResponse"/>
+  </wsdl:message>
+  <wsdl:message name="MailCompleteTaskInstanceRequestMessage">
+    <wsdl:part name="parameters" element="zimbraMail:CompleteTaskInstanceRequest"/>
+  </wsdl:message>
+  <wsdl:message name="MailCompleteTaskInstanceResponseMessage">
+    <wsdl:part name="parameters" element="zimbraMail:CompleteTaskInstanceResponse"/>
+  </wsdl:message>
+  <wsdl:message name="MailContactActionRequestMessage">
+    <wsdl:part name="parameters" element="zimbraMail:ContactActionRequest"/>
+  </wsdl:message>
+  <wsdl:message name="MailContactActionResponseMessage">
+    <wsdl:part name="parameters" element="zimbraMail:ContactActionResponse"/>
+  </wsdl:message>
+  <wsdl:message name="MailConvActionRequestMessage">
+    <wsdl:part name="parameters" element="zimbraMail:ConvActionRequest"/>
+  </wsdl:message>
+  <wsdl:message name="MailConvActionResponseMessage">
+    <wsdl:part name="parameters" element="zimbraMail:ConvActionResponse"/>
+  </wsdl:message>
+  <wsdl:message name="MailCounterAppointmentRequestMessage">
+    <wsdl:part name="parameters" element="zimbraMail:CounterAppointmentRequest"/>
+  </wsdl:message>
+  <wsdl:message name="MailCounterAppointmentResponseMessage">
+    <wsdl:part name="parameters" element="zimbraMail:CounterAppointmentResponse"/>
+  </wsdl:message>
+  <wsdl:message name="MailCreateAppointmentExceptionRequestMessage">
+    <wsdl:part name="parameters" element="zimbraMail:CreateAppointmentExceptionRequest"/>
+  </wsdl:message>
+  <wsdl:message name="MailCreateAppointmentExceptionResponseMessage">
+    <wsdl:part name="parameters" element="zimbraMail:CreateAppointmentExceptionResponse"/>
+  </wsdl:message>
+  <wsdl:message name="MailCreateAppointmentRequestMessage">
+    <wsdl:part name="parameters" element="zimbraMail:CreateAppointmentRequest"/>
+  </wsdl:message>
+  <wsdl:message name="MailCreateAppointmentResponseMessage">
+    <wsdl:part name="parameters" element="zimbraMail:CreateAppointmentResponse"/>
+  </wsdl:message>
+  <wsdl:message name="MailCreateContactRequestMessage">
+    <wsdl:part name="parameters" element="zimbraMail:CreateContactRequest"/>
+  </wsdl:message>
+  <wsdl:message name="MailCreateContactResponseMessage">
+    <wsdl:part name="parameters" element="zimbraMail:CreateContactResponse"/>
+  </wsdl:message>
+  <wsdl:message name="MailCreateDataSourceRequestMessage">
+    <wsdl:part name="parameters" element="zimbraMail:CreateDataSourceRequest"/>
+  </wsdl:message>
+  <wsdl:message name="MailCreateDataSourceResponseMessage">
+    <wsdl:part name="parameters" element="zimbraMail:CreateDataSourceResponse"/>
+  </wsdl:message>
+  <wsdl:message name="MailCreateFolderRequestMessage">
+    <wsdl:part name="parameters" element="zimbraMail:CreateFolderRequest"/>
+  </wsdl:message>
+  <wsdl:message name="MailCreateFolderResponseMessage">
+    <wsdl:part name="parameters" element="zimbraMail:CreateFolderResponse"/>
+  </wsdl:message>
+  <wsdl:message name="MailCreateMountpointRequestMessage">
+    <wsdl:part name="parameters" element="zimbraMail:CreateMountpointRequest"/>
+  </wsdl:message>
+  <wsdl:message name="MailCreateMountpointResponseMessage">
+    <wsdl:part name="parameters" element="zimbraMail:CreateMountpointResponse"/>
+  </wsdl:message>
+  <wsdl:message name="MailCreateNoteRequestMessage">
+    <wsdl:part name="parameters" element="zimbraMail:CreateNoteRequest"/>
+  </wsdl:message>
+  <wsdl:message name="MailCreateNoteResponseMessage">
+    <wsdl:part name="parameters" element="zimbraMail:CreateNoteResponse"/>
+  </wsdl:message>
+  <wsdl:message name="MailCreateSearchFolderRequestMessage">
+    <wsdl:part name="parameters" element="zimbraMail:CreateSearchFolderRequest"/>
+  </wsdl:message>
+  <wsdl:message name="MailCreateSearchFolderResponseMessage">
+    <wsdl:part name="parameters" element="zimbraMail:CreateSearchFolderResponse"/>
+  </wsdl:message>
+  <wsdl:message name="MailCreateTagRequestMessage">
+    <wsdl:part name="parameters" element="zimbraMail:CreateTagRequest"/>
+  </wsdl:message>
+  <wsdl:message name="MailCreateTagResponseMessage">
+    <wsdl:part name="parameters" element="zimbraMail:CreateTagResponse"/>
+  </wsdl:message>
+  <wsdl:message name="MailCreateTaskExceptionRequestMessage">
+    <wsdl:part name="parameters" element="zimbraMail:CreateTaskExceptionRequest"/>
+  </wsdl:message>
+  <wsdl:message name="MailCreateTaskExceptionResponseMessage">
+    <wsdl:part name="parameters" element="zimbraMail:CreateTaskExceptionResponse"/>
+  </wsdl:message>
+  <wsdl:message name="MailCreateTaskRequestMessage">
+    <wsdl:part name="parameters" element="zimbraMail:CreateTaskRequest"/>
+  </wsdl:message>
+  <wsdl:message name="MailCreateTaskResponseMessage">
+    <wsdl:part name="parameters" element="zimbraMail:CreateTaskResponse"/>
+  </wsdl:message>
+  <wsdl:message name="MailCreateWaitSetRequestMessage">
+    <wsdl:part name="parameters" element="zimbraMail:CreateWaitSetRequest"/>
+  </wsdl:message>
+  <wsdl:message name="MailCreateWaitSetResponseMessage">
+    <wsdl:part name="parameters" element="zimbraMail:CreateWaitSetResponse"/>
+  </wsdl:message>
+  <wsdl:message name="MailDeclineCounterAppointmentRequestMessage">
+    <wsdl:part name="parameters" element="zimbraMail:DeclineCounterAppointmentRequest"/>
+  </wsdl:message>
+  <wsdl:message name="MailDeclineCounterAppointmentResponseMessage">
+    <wsdl:part name="parameters" element="zimbraMail:DeclineCounterAppointmentResponse"/>
+  </wsdl:message>
+  <wsdl:message name="MailDeleteDataSourceRequestMessage">
+    <wsdl:part name="parameters" element="zimbraMail:DeleteDataSourceRequest"/>
+  </wsdl:message>
+  <wsdl:message name="MailDeleteDataSourceResponseMessage">
+    <wsdl:part name="parameters" element="zimbraMail:DeleteDataSourceResponse"/>
+  </wsdl:message>
+  <wsdl:message name="MailDeleteDeviceRequestMessage">
+    <wsdl:part name="parameters" element="zimbraMail:DeleteDeviceRequest"/>
+  </wsdl:message>
+  <wsdl:message name="MailDeleteDeviceResponseMessage">
+    <wsdl:part name="parameters" element="zimbraMail:DeleteDeviceResponse"/>
+  </wsdl:message>
+  <wsdl:message name="MailDestroyWaitSetRequestMessage">
+    <wsdl:part name="parameters" element="zimbraMail:DestroyWaitSetRequest"/>
+  </wsdl:message>
+  <wsdl:message name="MailDestroyWaitSetResponseMessage">
+    <wsdl:part name="parameters" element="zimbraMail:DestroyWaitSetResponse"/>
+  </wsdl:message>
+  <wsdl:message name="MailDiffDocumentRequestMessage">
+    <wsdl:part name="parameters" element="zimbraMail:DiffDocumentRequest"/>
+  </wsdl:message>
+  <wsdl:message name="MailDiffDocumentResponseMessage">
+    <wsdl:part name="parameters" element="zimbraMail:DiffDocumentResponse"/>
+  </wsdl:message>
+  <wsdl:message name="MailDismissCalendarItemAlarmRequestMessage">
+    <wsdl:part name="parameters" element="zimbraMail:DismissCalendarItemAlarmRequest"/>
+  </wsdl:message>
+  <wsdl:message name="MailDismissCalendarItemAlarmResponseMessage">
+    <wsdl:part name="parameters" element="zimbraMail:DismissCalendarItemAlarmResponse"/>
+  </wsdl:message>
+  <wsdl:message name="MailDocumentActionRequestMessage">
+    <wsdl:part name="parameters" element="zimbraMail:DocumentActionRequest"/>
+  </wsdl:message>
+  <wsdl:message name="MailDocumentActionResponseMessage">
+    <wsdl:part name="parameters" element="zimbraMail:DocumentActionResponse"/>
+  </wsdl:message>
+  <wsdl:message name="MailEmptyDumpsterRequestMessage">
+    <wsdl:part name="parameters" element="zimbraMail:EmptyDumpsterRequest"/>
+  </wsdl:message>
+  <wsdl:message name="MailEmptyDumpsterResponseMessage">
+    <wsdl:part name="parameters" element="zimbraMail:EmptyDumpsterResponse"/>
+  </wsdl:message>
+  <wsdl:message name="MailEnableSharedReminderRequestMessage">
+    <wsdl:part name="parameters" element="zimbraMail:EnableSharedReminderRequest"/>
+  </wsdl:message>
+  <wsdl:message name="MailEnableSharedReminderResponseMessage">
+    <wsdl:part name="parameters" element="zimbraMail:EnableSharedReminderResponse"/>
+  </wsdl:message>
+  <wsdl:message name="MailExpandRecurRequestMessage">
+    <wsdl:part name="parameters" element="zimbraMail:ExpandRecurRequest"/>
+  </wsdl:message>
+  <wsdl:message name="MailExpandRecurResponseMessage">
+    <wsdl:part name="parameters" element="zimbraMail:ExpandRecurResponse"/>
+  </wsdl:message>
+  <wsdl:message name="MailExportContactsRequestMessage">
+    <wsdl:part name="parameters" element="zimbraMail:ExportContactsRequest"/>
+  </wsdl:message>
+  <wsdl:message name="MailExportContactsResponseMessage">
+    <wsdl:part name="parameters" element="zimbraMail:ExportContactsResponse"/>
+  </wsdl:message>
+  <wsdl:message name="MailFolderActionRequestMessage">
+    <wsdl:part name="parameters" element="zimbraMail:FolderActionRequest"/>
+  </wsdl:message>
+  <wsdl:message name="MailFolderActionResponseMessage">
+    <wsdl:part name="parameters" element="zimbraMail:FolderActionResponse"/>
+  </wsdl:message>
+  <wsdl:message name="MailForwardAppointmentInviteRequestMessage">
+    <wsdl:part name="parameters" element="zimbraMail:ForwardAppointmentInviteRequest"/>
+  </wsdl:message>
+  <wsdl:message name="MailForwardAppointmentInviteResponseMessage">
+    <wsdl:part name="parameters" element="zimbraMail:ForwardAppointmentInviteResponse"/>
+  </wsdl:message>
+  <wsdl:message name="MailForwardAppointmentRequestMessage">
+    <wsdl:part name="parameters" element="zimbraMail:ForwardAppointmentRequest"/>
+  </wsdl:message>
+  <wsdl:message name="MailForwardAppointmentResponseMessage">
+    <wsdl:part name="parameters" element="zimbraMail:ForwardAppointmentResponse"/>
+  </wsdl:message>
+  <wsdl:message name="MailGenerateUUIDRequestMessage">
+    <wsdl:part name="parameters" element="zimbraMail:GenerateUUIDRequest"/>
+  </wsdl:message>
+  <wsdl:message name="MailGenerateUUIDResponseMessage">
+    <wsdl:part name="parameters" element="zimbraMail:GenerateUUIDResponse"/>
+  </wsdl:message>
+  <wsdl:message name="MailGetActivityStreamRequestMessage">
+    <wsdl:part name="parameters" element="zimbraMail:GetActivityStreamRequest"/>
+  </wsdl:message>
+  <wsdl:message name="MailGetActivityStreamResponseMessage">
+    <wsdl:part name="parameters" element="zimbraMail:GetActivityStreamResponse"/>
+  </wsdl:message>
+  <wsdl:message name="MailGetAllDevicesRequestMessage">
+    <wsdl:part name="parameters" element="zimbraMail:GetAllDevicesRequest"/>
+  </wsdl:message>
+  <wsdl:message name="MailGetAllDevicesResponseMessage">
+    <wsdl:part name="parameters" element="zimbraMail:GetAllDevicesResponse"/>
+  </wsdl:message>
+  <wsdl:message name="MailGetAppointmentRequestMessage">
+    <wsdl:part name="parameters" element="zimbraMail:GetAppointmentRequest"/>
+  </wsdl:message>
+  <wsdl:message name="MailGetAppointmentResponseMessage">
+    <wsdl:part name="parameters" element="zimbraMail:GetAppointmentResponse"/>
+  </wsdl:message>
+  <wsdl:message name="MailGetApptSummariesRequestMessage">
+    <wsdl:part name="parameters" element="zimbraMail:GetApptSummariesRequest"/>
+  </wsdl:message>
+  <wsdl:message name="MailGetApptSummariesResponseMessage">
+    <wsdl:part name="parameters" element="zimbraMail:GetApptSummariesResponse"/>
+  </wsdl:message>
+  <wsdl:message name="MailGetCalendarItemSummariesRequestMessage">
+    <wsdl:part name="parameters" element="zimbraMail:GetCalendarItemSummariesRequest"/>
+  </wsdl:message>
+  <wsdl:message name="MailGetCalendarItemSummariesResponseMessage">
+    <wsdl:part name="parameters" element="zimbraMail:GetCalendarItemSummariesResponse"/>
+  </wsdl:message>
+  <wsdl:message name="MailGetCommentsRequestMessage">
+    <wsdl:part name="parameters" element="zimbraMail:GetCommentsRequest"/>
+  </wsdl:message>
+  <wsdl:message name="MailGetCommentsResponseMessage">
+    <wsdl:part name="parameters" element="zimbraMail:GetCommentsResponse"/>
+  </wsdl:message>
+  <wsdl:message name="MailGetContactsRequestMessage">
+    <wsdl:part name="parameters" element="zimbraMail:GetContactsRequest"/>
+  </wsdl:message>
+  <wsdl:message name="MailGetContactsResponseMessage">
+    <wsdl:part name="parameters" element="zimbraMail:GetContactsResponse"/>
+  </wsdl:message>
+  <wsdl:message name="MailGetConvRequestMessage">
+    <wsdl:part name="parameters" element="zimbraMail:GetConvRequest"/>
+  </wsdl:message>
+  <wsdl:message name="MailGetConvResponseMessage">
+    <wsdl:part name="parameters" element="zimbraMail:GetConvResponse"/>
+  </wsdl:message>
+  <wsdl:message name="MailGetCustomMetadataRequestMessage">
+    <wsdl:part name="parameters" element="zimbraMail:GetCustomMetadataRequest"/>
+  </wsdl:message>
+  <wsdl:message name="MailGetCustomMetadataResponseMessage">
+    <wsdl:part name="parameters" element="zimbraMail:GetCustomMetadataResponse"/>
+  </wsdl:message>
+  <wsdl:message name="MailGetDataSourcesRequestMessage">
+    <wsdl:part name="parameters" element="zimbraMail:GetDataSourcesRequest"/>
+  </wsdl:message>
+  <wsdl:message name="MailGetDataSourcesResponseMessage">
+    <wsdl:part name="parameters" element="zimbraMail:GetDataSourcesResponse"/>
+  </wsdl:message>
+  <wsdl:message name="MailGetDocumentShareURLRequestMessage">
+    <wsdl:part name="parameters" element="zimbraMail:GetDocumentShareURLRequest"/>
+  </wsdl:message>
+  <wsdl:message name="MailGetDocumentShareURLResponseMessage">
+    <wsdl:part name="parameters" element="zimbraMail:GetDocumentShareURLResponse"/>
+  </wsdl:message>
+  <wsdl:message name="MailGetEffectiveFolderPermsRequestMessage">
+    <wsdl:part name="parameters" element="zimbraMail:GetEffectiveFolderPermsRequest"/>
+  </wsdl:message>
+  <wsdl:message name="MailGetEffectiveFolderPermsResponseMessage">
+    <wsdl:part name="parameters" element="zimbraMail:GetEffectiveFolderPermsResponse"/>
+  </wsdl:message>
+  <wsdl:message name="MailGetFilterRulesRequestMessage">
+    <wsdl:part name="parameters" element="zimbraMail:GetFilterRulesRequest"/>
+  </wsdl:message>
+  <wsdl:message name="MailGetFilterRulesResponseMessage">
+    <wsdl:part name="parameters" element="zimbraMail:GetFilterRulesResponse"/>
+  </wsdl:message>
+  <wsdl:message name="MailGetFolderRequestMessage">
+    <wsdl:part name="parameters" element="zimbraMail:GetFolderRequest"/>
+  </wsdl:message>
+  <wsdl:message name="MailGetFolderResponseMessage">
+    <wsdl:part name="parameters" element="zimbraMail:GetFolderResponse"/>
+  </wsdl:message>
+  <wsdl:message name="MailGetFreeBusyRequestMessage">
+    <wsdl:part name="parameters" element="zimbraMail:GetFreeBusyRequest"/>
+  </wsdl:message>
+  <wsdl:message name="MailGetFreeBusyResponseMessage">
+    <wsdl:part name="parameters" element="zimbraMail:GetFreeBusyResponse"/>
+  </wsdl:message>
+  <wsdl:message name="MailGetICalRequestMessage">
+    <wsdl:part name="parameters" element="zimbraMail:GetICalRequest"/>
+  </wsdl:message>
+  <wsdl:message name="MailGetICalResponseMessage">
+    <wsdl:part name="parameters" element="zimbraMail:GetICalResponse"/>
+  </wsdl:message>
+  <wsdl:message name="MailGetImportStatusRequestMessage">
+    <wsdl:part name="parameters" element="zimbraMail:GetImportStatusRequest"/>
+  </wsdl:message>
+  <wsdl:message name="MailGetImportStatusResponseMessage">
+    <wsdl:part name="parameters" element="zimbraMail:GetImportStatusResponse"/>
+  </wsdl:message>
+  <wsdl:message name="MailGetItemRequestMessage">
+    <wsdl:part name="parameters" element="zimbraMail:GetItemRequest"/>
+  </wsdl:message>
+  <wsdl:message name="MailGetItemResponseMessage">
+    <wsdl:part name="parameters" element="zimbraMail:GetItemResponse"/>
+  </wsdl:message>
+  <wsdl:message name="MailGetMailboxMetadataRequestMessage">
+    <wsdl:part name="parameters" element="zimbraMail:GetMailboxMetadataRequest"/>
+  </wsdl:message>
+  <wsdl:message name="MailGetMailboxMetadataResponseMessage">
+    <wsdl:part name="parameters" element="zimbraMail:GetMailboxMetadataResponse"/>
+  </wsdl:message>
+  <wsdl:message name="MailGetMiniCalRequestMessage">
+    <wsdl:part name="parameters" element="zimbraMail:GetMiniCalRequest"/>
+  </wsdl:message>
+  <wsdl:message name="MailGetMiniCalResponseMessage">
+    <wsdl:part name="parameters" element="zimbraMail:GetMiniCalResponse"/>
+  </wsdl:message>
+  <wsdl:message name="MailGetMsgMetadataRequestMessage">
+    <wsdl:part name="parameters" element="zimbraMail:GetMsgMetadataRequest"/>
+  </wsdl:message>
+  <wsdl:message name="MailGetMsgMetadataResponseMessage">
+    <wsdl:part name="parameters" element="zimbraMail:GetMsgMetadataResponse"/>
+  </wsdl:message>
+  <wsdl:message name="MailGetMsgRequestMessage">
+    <wsdl:part name="parameters" element="zimbraMail:GetMsgRequest"/>
+  </wsdl:message>
+  <wsdl:message name="MailGetMsgResponseMessage">
+    <wsdl:part name="parameters" element="zimbraMail:GetMsgResponse"/>
+  </wsdl:message>
+  <wsdl:message name="MailGetNoteRequestMessage">
+    <wsdl:part name="parameters" element="zimbraMail:GetNoteRequest"/>
+  </wsdl:message>
+  <wsdl:message name="MailGetNoteResponseMessage">
+    <wsdl:part name="parameters" element="zimbraMail:GetNoteResponse"/>
+  </wsdl:message>
+  <wsdl:message name="MailGetNotificationsRequestMessage">
+    <wsdl:part name="parameters" element="zimbraMail:GetNotificationsRequest"/>
+  </wsdl:message>
+  <wsdl:message name="MailGetNotificationsResponseMessage">
+    <wsdl:part name="parameters" element="zimbraMail:GetNotificationsResponse"/>
+  </wsdl:message>
+  <wsdl:message name="MailGetOutgoingFilterRulesRequestMessage">
+    <wsdl:part name="parameters" element="zimbraMail:GetOutgoingFilterRulesRequest"/>
+  </wsdl:message>
+  <wsdl:message name="MailGetOutgoingFilterRulesResponseMessage">
+    <wsdl:part name="parameters" element="zimbraMail:GetOutgoingFilterRulesResponse"/>
+  </wsdl:message>
+  <wsdl:message name="MailGetPermissionRequestMessage">
+    <wsdl:part name="parameters" element="zimbraMail:GetPermissionRequest"/>
+  </wsdl:message>
+  <wsdl:message name="MailGetPermissionResponseMessage">
+    <wsdl:part name="parameters" element="zimbraMail:GetPermissionResponse"/>
+  </wsdl:message>
+  <wsdl:message name="MailGetRecurRequestMessage">
+    <wsdl:part name="parameters" element="zimbraMail:GetRecurRequest"/>
+  </wsdl:message>
+  <wsdl:message name="MailGetRecurResponseMessage">
+    <wsdl:part name="parameters" element="zimbraMail:GetRecurResponse"/>
+  </wsdl:message>
+  <wsdl:message name="MailGetSearchFolderRequestMessage">
+    <wsdl:part name="parameters" element="zimbraMail:GetSearchFolderRequest"/>
+  </wsdl:message>
+  <wsdl:message name="MailGetSearchFolderResponseMessage">
+    <wsdl:part name="parameters" element="zimbraMail:GetSearchFolderResponse"/>
+  </wsdl:message>
+  <wsdl:message name="MailGetShareDetailsRequestMessage">
+    <wsdl:part name="parameters" element="zimbraMail:GetShareDetailsRequest"/>
+  </wsdl:message>
+  <wsdl:message name="MailGetShareDetailsResponseMessage">
+    <wsdl:part name="parameters" element="zimbraMail:GetShareDetailsResponse"/>
+  </wsdl:message>
+  <wsdl:message name="MailGetShareNotificationsRequestMessage">
+    <wsdl:part name="parameters" element="zimbraMail:GetShareNotificationsRequest"/>
+  </wsdl:message>
+  <wsdl:message name="MailGetShareNotificationsResponseMessage">
+    <wsdl:part name="parameters" element="zimbraMail:GetShareNotificationsResponse"/>
+  </wsdl:message>
+  <wsdl:message name="MailGetSpellDictionariesRequestMessage">
+    <wsdl:part name="parameters" element="zimbraMail:GetSpellDictionariesRequest"/>
+  </wsdl:message>
+  <wsdl:message name="MailGetSpellDictionariesResponseMessage">
+    <wsdl:part name="parameters" element="zimbraMail:GetSpellDictionariesResponse"/>
+  </wsdl:message>
+  <wsdl:message name="MailGetSystemRetentionPolicyRequestMessage">
+    <wsdl:part name="parameters" element="zimbraMail:GetSystemRetentionPolicyRequest"/>
+  </wsdl:message>
+  <wsdl:message name="MailGetSystemRetentionPolicyResponseMessage">
+    <wsdl:part name="parameters" element="zimbraMail:GetSystemRetentionPolicyResponse"/>
+  </wsdl:message>
+  <wsdl:message name="MailGetTagRequestMessage">
+    <wsdl:part name="parameters" element="zimbraMail:GetTagRequest"/>
+  </wsdl:message>
+  <wsdl:message name="MailGetTagResponseMessage">
+    <wsdl:part name="parameters" element="zimbraMail:GetTagResponse"/>
+  </wsdl:message>
+  <wsdl:message name="MailGetTaskRequestMessage">
+    <wsdl:part name="parameters" element="zimbraMail:GetTaskRequest"/>
+  </wsdl:message>
+  <wsdl:message name="MailGetTaskResponseMessage">
+    <wsdl:part name="parameters" element="zimbraMail:GetTaskResponse"/>
+  </wsdl:message>
+  <wsdl:message name="MailGetTaskSummariesRequestMessage">
+    <wsdl:part name="parameters" element="zimbraMail:GetTaskSummariesRequest"/>
+  </wsdl:message>
+  <wsdl:message name="MailGetTaskSummariesResponseMessage">
+    <wsdl:part name="parameters" element="zimbraMail:GetTaskSummariesResponse"/>
+  </wsdl:message>
+  <wsdl:message name="MailGetWatchersRequestMessage">
+    <wsdl:part name="parameters" element="zimbraMail:GetWatchersRequest"/>
+  </wsdl:message>
+  <wsdl:message name="MailGetWatchersResponseMessage">
+    <wsdl:part name="parameters" element="zimbraMail:GetWatchersResponse"/>
+  </wsdl:message>
+  <wsdl:message name="MailGetWatchingItemsRequestMessage">
+    <wsdl:part name="parameters" element="zimbraMail:GetWatchingItemsRequest"/>
+  </wsdl:message>
+  <wsdl:message name="MailGetWatchingItemsResponseMessage">
+    <wsdl:part name="parameters" element="zimbraMail:GetWatchingItemsResponse"/>
+  </wsdl:message>
+  <wsdl:message name="MailGetWorkingHoursRequestMessage">
+    <wsdl:part name="parameters" element="zimbraMail:GetWorkingHoursRequest"/>
+  </wsdl:message>
+  <wsdl:message name="MailGetWorkingHoursResponseMessage">
+    <wsdl:part name="parameters" element="zimbraMail:GetWorkingHoursResponse"/>
+  </wsdl:message>
+  <wsdl:message name="MailGetYahooAuthTokenRequestMessage">
+    <wsdl:part name="parameters" element="zimbraMail:GetYahooAuthTokenRequest"/>
+  </wsdl:message>
+  <wsdl:message name="MailGetYahooAuthTokenResponseMessage">
+    <wsdl:part name="parameters" element="zimbraMail:GetYahooAuthTokenResponse"/>
+  </wsdl:message>
+  <wsdl:message name="MailGetYahooCookieRequestMessage">
+    <wsdl:part name="parameters" element="zimbraMail:GetYahooCookieRequest"/>
+  </wsdl:message>
+  <wsdl:message name="MailGetYahooCookieResponseMessage">
+    <wsdl:part name="parameters" element="zimbraMail:GetYahooCookieResponse"/>
+  </wsdl:message>
+  <wsdl:message name="MailGrantPermissionRequestMessage">
+    <wsdl:part name="parameters" element="zimbraMail:GrantPermissionRequest"/>
+  </wsdl:message>
+  <wsdl:message name="MailGrantPermissionResponseMessage">
+    <wsdl:part name="parameters" element="zimbraMail:GrantPermissionResponse"/>
+  </wsdl:message>
+  <wsdl:message name="MailICalReplyRequestMessage">
+    <wsdl:part name="parameters" element="zimbraMail:ICalReplyRequest"/>
+  </wsdl:message>
+  <wsdl:message name="MailICalReplyResponseMessage">
+    <wsdl:part name="parameters" element="zimbraMail:ICalReplyResponse"/>
+  </wsdl:message>
+  <wsdl:message name="MailImportAppointmentsRequestMessage">
+    <wsdl:part name="parameters" element="zimbraMail:ImportAppointmentsRequest"/>
+  </wsdl:message>
+  <wsdl:message name="MailImportAppointmentsResponseMessage">
+    <wsdl:part name="parameters" element="zimbraMail:ImportAppointmentsResponse"/>
+  </wsdl:message>
+  <wsdl:message name="MailImportContactsRequestMessage">
+    <wsdl:part name="parameters" element="zimbraMail:ImportContactsRequest"/>
+  </wsdl:message>
+  <wsdl:message name="MailImportContactsResponseMessage">
+    <wsdl:part name="parameters" element="zimbraMail:ImportContactsResponse"/>
+  </wsdl:message>
+  <wsdl:message name="MailImportDataRequestMessage">
+    <wsdl:part name="parameters" element="zimbraMail:ImportDataRequest"/>
+  </wsdl:message>
+  <wsdl:message name="MailImportDataResponseMessage">
+    <wsdl:part name="parameters" element="zimbraMail:ImportDataResponse"/>
+  </wsdl:message>
+  <wsdl:message name="MailInvalidateReminderDeviceRequestMessage">
+    <wsdl:part name="parameters" element="zimbraMail:InvalidateReminderDeviceRequest"/>
+  </wsdl:message>
+  <wsdl:message name="MailInvalidateReminderDeviceResponseMessage">
+    <wsdl:part name="parameters" element="zimbraMail:InvalidateReminderDeviceResponse"/>
+  </wsdl:message>
+  <wsdl:message name="MailItemActionRequestMessage">
+    <wsdl:part name="parameters" element="zimbraMail:ItemActionRequest"/>
+  </wsdl:message>
+  <wsdl:message name="MailItemActionResponseMessage">
+    <wsdl:part name="parameters" element="zimbraMail:ItemActionResponse"/>
+  </wsdl:message>
+  <wsdl:message name="MailListDocumentRevisionsRequestMessage">
+    <wsdl:part name="parameters" element="zimbraMail:ListDocumentRevisionsRequest"/>
+  </wsdl:message>
+  <wsdl:message name="MailListDocumentRevisionsResponseMessage">
+    <wsdl:part name="parameters" element="zimbraMail:ListDocumentRevisionsResponse"/>
+  </wsdl:message>
+  <wsdl:message name="MailModifyAppointmentRequestMessage">
+    <wsdl:part name="parameters" element="zimbraMail:ModifyAppointmentRequest"/>
+  </wsdl:message>
+  <wsdl:message name="MailModifyAppointmentResponseMessage">
+    <wsdl:part name="parameters" element="zimbraMail:ModifyAppointmentResponse"/>
+  </wsdl:message>
+  <wsdl:message name="MailModifyContactRequestMessage">
+    <wsdl:part name="parameters" element="zimbraMail:ModifyContactRequest"/>
+  </wsdl:message>
+  <wsdl:message name="MailModifyContactResponseMessage">
+    <wsdl:part name="parameters" element="zimbraMail:ModifyContactResponse"/>
+  </wsdl:message>
+  <wsdl:message name="MailModifyDataSourceRequestMessage">
+    <wsdl:part name="parameters" element="zimbraMail:ModifyDataSourceRequest"/>
+  </wsdl:message>
+  <wsdl:message name="MailModifyDataSourceResponseMessage">
+    <wsdl:part name="parameters" element="zimbraMail:ModifyDataSourceResponse"/>
+  </wsdl:message>
+  <wsdl:message name="MailModifyFilterRulesRequestMessage">
+    <wsdl:part name="parameters" element="zimbraMail:ModifyFilterRulesRequest"/>
+  </wsdl:message>
+  <wsdl:message name="MailModifyFilterRulesResponseMessage">
+    <wsdl:part name="parameters" element="zimbraMail:ModifyFilterRulesResponse"/>
+  </wsdl:message>
+  <wsdl:message name="MailModifyMailboxMetadataRequestMessage">
+    <wsdl:part name="parameters" element="zimbraMail:ModifyMailboxMetadataRequest"/>
+  </wsdl:message>
+  <wsdl:message name="MailModifyMailboxMetadataResponseMessage">
+    <wsdl:part name="parameters" element="zimbraMail:ModifyMailboxMetadataResponse"/>
+  </wsdl:message>
+  <wsdl:message name="MailModifyOutgoingFilterRulesRequestMessage">
+    <wsdl:part name="parameters" element="zimbraMail:ModifyOutgoingFilterRulesRequest"/>
+  </wsdl:message>
+  <wsdl:message name="MailModifyOutgoingFilterRulesResponseMessage">
+    <wsdl:part name="parameters" element="zimbraMail:ModifyOutgoingFilterRulesResponse"/>
+  </wsdl:message>
+  <wsdl:message name="MailModifySearchFolderRequestMessage">
+    <wsdl:part name="parameters" element="zimbraMail:ModifySearchFolderRequest"/>
+  </wsdl:message>
+  <wsdl:message name="MailModifySearchFolderResponseMessage">
+    <wsdl:part name="parameters" element="zimbraMail:ModifySearchFolderResponse"/>
+  </wsdl:message>
+  <wsdl:message name="MailModifyTaskRequestMessage">
+    <wsdl:part name="parameters" element="zimbraMail:ModifyTaskRequest"/>
+  </wsdl:message>
+  <wsdl:message name="MailModifyTaskResponseMessage">
+    <wsdl:part name="parameters" element="zimbraMail:ModifyTaskResponse"/>
+  </wsdl:message>
+  <wsdl:message name="MailMsgActionRequestMessage">
+    <wsdl:part name="parameters" element="zimbraMail:MsgActionRequest"/>
+  </wsdl:message>
+  <wsdl:message name="MailMsgActionResponseMessage">
+    <wsdl:part name="parameters" element="zimbraMail:MsgActionResponse"/>
+  </wsdl:message>
+  <wsdl:message name="MailNoOpRequestMessage">
+    <wsdl:part name="parameters" element="zimbraMail:NoOpRequest"/>
+  </wsdl:message>
+  <wsdl:message name="MailNoOpResponseMessage">
+    <wsdl:part name="parameters" element="zimbraMail:NoOpResponse"/>
+  </wsdl:message>
+  <wsdl:message name="MailNoteActionRequestMessage">
+    <wsdl:part name="parameters" element="zimbraMail:NoteActionRequest"/>
+  </wsdl:message>
+  <wsdl:message name="MailNoteActionResponseMessage">
+    <wsdl:part name="parameters" element="zimbraMail:NoteActionResponse"/>
+  </wsdl:message>
+  <wsdl:message name="MailPurgeRevisionRequestMessage">
+    <wsdl:part name="parameters" element="zimbraMail:PurgeRevisionRequest"/>
+  </wsdl:message>
+  <wsdl:message name="MailPurgeRevisionResponseMessage">
+    <wsdl:part name="parameters" element="zimbraMail:PurgeRevisionResponse"/>
+  </wsdl:message>
+  <wsdl:message name="MailRankingActionRequestMessage">
+    <wsdl:part name="parameters" element="zimbraMail:RankingActionRequest"/>
+  </wsdl:message>
+  <wsdl:message name="MailRankingActionResponseMessage">
+    <wsdl:part name="parameters" element="zimbraMail:RankingActionResponse"/>
+  </wsdl:message>
+  <wsdl:message name="MailRegisterDeviceRequestMessage">
+    <wsdl:part name="parameters" element="zimbraMail:RegisterDeviceRequest"/>
+  </wsdl:message>
+  <wsdl:message name="MailRegisterDeviceResponseMessage">
+    <wsdl:part name="parameters" element="zimbraMail:RegisterDeviceResponse"/>
+  </wsdl:message>
+  <wsdl:message name="MailRemoveAttachmentsRequestMessage">
+    <wsdl:part name="parameters" element="zimbraMail:RemoveAttachmentsRequest"/>
+  </wsdl:message>
+  <wsdl:message name="MailRemoveAttachmentsResponseMessage">
+    <wsdl:part name="parameters" element="zimbraMail:RemoveAttachmentsResponse"/>
+  </wsdl:message>
+  <wsdl:message name="MailRevokePermissionRequestMessage">
+    <wsdl:part name="parameters" element="zimbraMail:RevokePermissionRequest"/>
+  </wsdl:message>
+  <wsdl:message name="MailRevokePermissionResponseMessage">
+    <wsdl:part name="parameters" element="zimbraMail:RevokePermissionResponse"/>
+  </wsdl:message>
+  <wsdl:message name="MailSaveDocumentRequestMessage">
+    <wsdl:part name="parameters" element="zimbraMail:SaveDocumentRequest"/>
+  </wsdl:message>
+  <wsdl:message name="MailSaveDocumentResponseMessage">
+    <wsdl:part name="parameters" element="zimbraMail:SaveDocumentResponse"/>
+  </wsdl:message>
+  <wsdl:message name="MailSaveDraftRequestMessage">
+    <wsdl:part name="parameters" element="zimbraMail:SaveDraftRequest"/>
+  </wsdl:message>
+  <wsdl:message name="MailSaveDraftResponseMessage">
+    <wsdl:part name="parameters" element="zimbraMail:SaveDraftResponse"/>
+  </wsdl:message>
+  <wsdl:message name="MailSearchConvRequestMessage">
+    <wsdl:part name="parameters" element="zimbraMail:SearchConvRequest"/>
+  </wsdl:message>
+  <wsdl:message name="MailSearchConvResponseMessage">
+    <wsdl:part name="parameters" element="zimbraMail:SearchConvResponse"/>
+  </wsdl:message>
+  <wsdl:message name="MailSearchRequestMessage">
+    <wsdl:part name="parameters" element="zimbraMail:SearchRequest"/>
+  </wsdl:message>
+  <wsdl:message name="MailSearchResponseMessage">
+    <wsdl:part name="parameters" element="zimbraMail:SearchResponse"/>
+  </wsdl:message>
+  <wsdl:message name="MailSendDeliveryReportRequestMessage">
+    <wsdl:part name="parameters" element="zimbraMail:SendDeliveryReportRequest"/>
+  </wsdl:message>
+  <wsdl:message name="MailSendDeliveryReportResponseMessage">
+    <wsdl:part name="parameters" element="zimbraMail:SendDeliveryReportResponse"/>
+  </wsdl:message>
+  <wsdl:message name="MailSendInviteReplyRequestMessage">
+    <wsdl:part name="parameters" element="zimbraMail:SendInviteReplyRequest"/>
+  </wsdl:message>
+  <wsdl:message name="MailSendInviteReplyResponseMessage">
+    <wsdl:part name="parameters" element="zimbraMail:SendInviteReplyResponse"/>
+  </wsdl:message>
+  <wsdl:message name="MailSendMsgRequestMessage">
+    <wsdl:part name="parameters" element="zimbraMail:SendMsgRequest"/>
+  </wsdl:message>
+  <wsdl:message name="MailSendMsgResponseMessage">
+    <wsdl:part name="parameters" element="zimbraMail:SendMsgResponse"/>
+  </wsdl:message>
+  <wsdl:message name="MailSendShareNotificationRequestMessage">
+    <wsdl:part name="parameters" element="zimbraMail:SendShareNotificationRequest"/>
+  </wsdl:message>
+  <wsdl:message name="MailSendShareNotificationResponseMessage">
+    <wsdl:part name="parameters" element="zimbraMail:SendShareNotificationResponse"/>
+  </wsdl:message>
+  <wsdl:message name="MailSendVerificationCodeRequestMessage">
+    <wsdl:part name="parameters" element="zimbraMail:SendVerificationCodeRequest"/>
+  </wsdl:message>
+  <wsdl:message name="MailSendVerificationCodeResponseMessage">
+    <wsdl:part name="parameters" element="zimbraMail:SendVerificationCodeResponse"/>
+  </wsdl:message>
+  <wsdl:message name="MailSetAppointmentRequestMessage">
+    <wsdl:part name="parameters" element="zimbraMail:SetAppointmentRequest"/>
+  </wsdl:message>
+  <wsdl:message name="MailSetAppointmentResponseMessage">
+    <wsdl:part name="parameters" element="zimbraMail:SetAppointmentResponse"/>
+  </wsdl:message>
+  <wsdl:message name="MailSetCustomMetadataRequestMessage">
+    <wsdl:part name="parameters" element="zimbraMail:SetCustomMetadataRequest"/>
+  </wsdl:message>
+  <wsdl:message name="MailSetCustomMetadataResponseMessage">
+    <wsdl:part name="parameters" element="zimbraMail:SetCustomMetadataResponse"/>
+  </wsdl:message>
+  <wsdl:message name="MailSetMailboxMetadataRequestMessage">
+    <wsdl:part name="parameters" element="zimbraMail:SetMailboxMetadataRequest"/>
+  </wsdl:message>
+  <wsdl:message name="MailSetMailboxMetadataResponseMessage">
+    <wsdl:part name="parameters" element="zimbraMail:SetMailboxMetadataResponse"/>
+  </wsdl:message>
+  <wsdl:message name="MailSetTaskRequestMessage">
+    <wsdl:part name="parameters" element="zimbraMail:SetTaskRequest"/>
+  </wsdl:message>
+  <wsdl:message name="MailSetTaskResponseMessage">
+    <wsdl:part name="parameters" element="zimbraMail:SetTaskResponse"/>
+  </wsdl:message>
+  <wsdl:message name="MailSnoozeCalendarItemAlarmRequestMessage">
+    <wsdl:part name="parameters" element="zimbraMail:SnoozeCalendarItemAlarmRequest"/>
+  </wsdl:message>
+  <wsdl:message name="MailSnoozeCalendarItemAlarmResponseMessage">
+    <wsdl:part name="parameters" element="zimbraMail:SnoozeCalendarItemAlarmResponse"/>
+  </wsdl:message>
+  <wsdl:message name="MailSyncRequestMessage">
+    <wsdl:part name="parameters" element="zimbraMail:SyncRequest"/>
+  </wsdl:message>
+  <wsdl:message name="MailSyncResponseMessage">
+    <wsdl:part name="parameters" element="zimbraMail:SyncResponse"/>
+  </wsdl:message>
+  <wsdl:message name="MailTagActionRequestMessage">
+    <wsdl:part name="parameters" element="zimbraMail:TagActionRequest"/>
+  </wsdl:message>
+  <wsdl:message name="MailTagActionResponseMessage">
+    <wsdl:part name="parameters" element="zimbraMail:TagActionResponse"/>
+  </wsdl:message>
+  <wsdl:message name="MailTestDataSourceRequestMessage">
+    <wsdl:part name="parameters" element="zimbraMail:TestDataSourceRequest"/>
+  </wsdl:message>
+  <wsdl:message name="MailTestDataSourceResponseMessage">
+    <wsdl:part name="parameters" element="zimbraMail:TestDataSourceResponse"/>
+  </wsdl:message>
+  <wsdl:message name="MailUpdateDeviceStatusRequestMessage">
+    <wsdl:part name="parameters" element="zimbraMail:UpdateDeviceStatusRequest"/>
+  </wsdl:message>
+  <wsdl:message name="MailUpdateDeviceStatusResponseMessage">
+    <wsdl:part name="parameters" element="zimbraMail:UpdateDeviceStatusResponse"/>
+  </wsdl:message>
+  <wsdl:message name="MailVerifyCodeRequestMessage">
+    <wsdl:part name="parameters" element="zimbraMail:VerifyCodeRequest"/>
+  </wsdl:message>
+  <wsdl:message name="MailVerifyCodeResponseMessage">
+    <wsdl:part name="parameters" element="zimbraMail:VerifyCodeResponse"/>
+  </wsdl:message>
+  <wsdl:message name="MailWaitSetRequestMessage">
+    <wsdl:part name="parameters" element="zimbraMail:WaitSetRequest"/>
+  </wsdl:message>
+  <wsdl:message name="MailWaitSetResponseMessage">
+    <wsdl:part name="parameters" element="zimbraMail:WaitSetResponse"/>
+  </wsdl:message>
+  <wsdl:message name="ReplBecomeMasterRequestMessage">
+    <wsdl:part name="parameters" element="zimbraRepl:BecomeMasterRequest"/>
+  </wsdl:message>
+  <wsdl:message name="ReplBecomeMasterResponseMessage">
+    <wsdl:part name="parameters" element="zimbraRepl:BecomeMasterResponse"/>
+  </wsdl:message>
+  <wsdl:message name="ReplBringDownServiceIPRequestMessage">
+    <wsdl:part name="parameters" element="zimbraRepl:BringDownServiceIPRequest"/>
+  </wsdl:message>
+  <wsdl:message name="ReplBringDownServiceIPResponseMessage">
+    <wsdl:part name="parameters" element="zimbraRepl:BringDownServiceIPResponse"/>
+  </wsdl:message>
+  <wsdl:message name="ReplBringUpServiceIPRequestMessage">
+    <wsdl:part name="parameters" element="zimbraRepl:BringUpServiceIPRequest"/>
+  </wsdl:message>
+  <wsdl:message name="ReplBringUpServiceIPResponseMessage">
+    <wsdl:part name="parameters" element="zimbraRepl:BringUpServiceIPResponse"/>
+  </wsdl:message>
+  <wsdl:message name="ReplReplicationStatusRequestMessage">
+    <wsdl:part name="parameters" element="zimbraRepl:ReplicationStatusRequest"/>
+  </wsdl:message>
+  <wsdl:message name="ReplReplicationStatusResponseMessage">
+    <wsdl:part name="parameters" element="zimbraRepl:ReplicationStatusResponse"/>
+  </wsdl:message>
+  <wsdl:message name="ReplStartCatchupRequestMessage">
+    <wsdl:part name="parameters" element="zimbraRepl:StartCatchupRequest"/>
+  </wsdl:message>
+  <wsdl:message name="ReplStartCatchupResponseMessage">
+    <wsdl:part name="parameters" element="zimbraRepl:StartCatchupResponse"/>
+  </wsdl:message>
+  <wsdl:message name="ReplStartFailoverClientRequestMessage">
+    <wsdl:part name="parameters" element="zimbraRepl:StartFailoverClientRequest"/>
+  </wsdl:message>
+  <wsdl:message name="ReplStartFailoverClientResponseMessage">
+    <wsdl:part name="parameters" element="zimbraRepl:StartFailoverClientResponse"/>
+  </wsdl:message>
+  <wsdl:message name="ReplStartFailoverDaemonRequestMessage">
+    <wsdl:part name="parameters" element="zimbraRepl:StartFailoverDaemonRequest"/>
+  </wsdl:message>
+  <wsdl:message name="ReplStartFailoverDaemonResponseMessage">
+    <wsdl:part name="parameters" element="zimbraRepl:StartFailoverDaemonResponse"/>
+  </wsdl:message>
+  <wsdl:message name="ReplStopFailoverClientRequestMessage">
+    <wsdl:part name="parameters" element="zimbraRepl:StopFailoverClientRequest"/>
+  </wsdl:message>
+  <wsdl:message name="ReplStopFailoverClientResponseMessage">
+    <wsdl:part name="parameters" element="zimbraRepl:StopFailoverClientResponse"/>
+  </wsdl:message>
+  <wsdl:message name="ReplStopFailoverDaemonRequestMessage">
+    <wsdl:part name="parameters" element="zimbraRepl:StopFailoverDaemonRequest"/>
+  </wsdl:message>
+  <wsdl:message name="ReplStopFailoverDaemonResponseMessage">
+    <wsdl:part name="parameters" element="zimbraRepl:StopFailoverDaemonResponse"/>
+  </wsdl:message>
+  <wsdl:message name="SyncCancelPendingRemoteWipeRequestMessage">
+    <wsdl:part name="parameters" element="zimbraSync:CancelPendingRemoteWipeRequest"/>
+  </wsdl:message>
+  <wsdl:message name="SyncCancelPendingRemoteWipeResponseMessage">
+    <wsdl:part name="parameters" element="zimbraSync:CancelPendingRemoteWipeResponse"/>
+  </wsdl:message>
+  <wsdl:message name="SyncGetDeviceStatusRequestMessage">
+    <wsdl:part name="parameters" element="zimbraSync:GetDeviceStatusRequest"/>
+  </wsdl:message>
+  <wsdl:message name="SyncGetDeviceStatusResponseMessage">
+    <wsdl:part name="parameters" element="zimbraSync:GetDeviceStatusResponse"/>
+  </wsdl:message>
+  <wsdl:message name="SyncRemoteWipeRequestMessage">
+    <wsdl:part name="parameters" element="zimbraSync:RemoteWipeRequest"/>
+  </wsdl:message>
+  <wsdl:message name="SyncRemoteWipeResponseMessage">
+    <wsdl:part name="parameters" element="zimbraSync:RemoteWipeResponse"/>
+  </wsdl:message>
+  <wsdl:message name="SyncRemoveDeviceRequestMessage">
+    <wsdl:part name="parameters" element="zimbraSync:RemoveDeviceRequest"/>
+  </wsdl:message>
+  <wsdl:message name="SyncRemoveDeviceResponseMessage">
+    <wsdl:part name="parameters" element="zimbraSync:RemoveDeviceResponse"/>
+  </wsdl:message>
+  <wsdl:message name="SyncResumeDeviceRequestMessage">
+    <wsdl:part name="parameters" element="zimbraSync:ResumeDeviceRequest"/>
+  </wsdl:message>
+  <wsdl:message name="SyncResumeDeviceResponseMessage">
+    <wsdl:part name="parameters" element="zimbraSync:ResumeDeviceResponse"/>
+  </wsdl:message>
+  <wsdl:message name="SyncSuspendDeviceRequestMessage">
+    <wsdl:part name="parameters" element="zimbraSync:SuspendDeviceRequest"/>
+  </wsdl:message>
+  <wsdl:message name="SyncSuspendDeviceResponseMessage">
+    <wsdl:part name="parameters" element="zimbraSync:SuspendDeviceResponse"/>
+  </wsdl:message>
+  <wsdl:message name="VoiceChangeUCPasswordRequestMessage">
+    <wsdl:part name="parameters" element="zimbraVoice:ChangeUCPasswordRequest"/>
+  </wsdl:message>
+  <wsdl:message name="VoiceChangeUCPasswordResponseMessage">
+    <wsdl:part name="parameters" element="zimbraVoice:ChangeUCPasswordResponse"/>
+  </wsdl:message>
+  <wsdl:message name="VoiceGetUCInfoRequestMessage">
+    <wsdl:part name="parameters" element="zimbraVoice:GetUCInfoRequest"/>
+  </wsdl:message>
+  <wsdl:message name="VoiceGetUCInfoResponseMessage">
+    <wsdl:part name="parameters" element="zimbraVoice:GetUCInfoResponse"/>
+  </wsdl:message>
+  <wsdl:message name="VoiceGetVoiceFeaturesRequestMessage">
+    <wsdl:part name="parameters" element="zimbraVoice:GetVoiceFeaturesRequest"/>
+  </wsdl:message>
+  <wsdl:message name="VoiceGetVoiceFeaturesResponseMessage">
+    <wsdl:part name="parameters" element="zimbraVoice:GetVoiceFeaturesResponse"/>
+  </wsdl:message>
+  <wsdl:message name="VoiceGetVoiceFolderRequestMessage">
+    <wsdl:part name="parameters" element="zimbraVoice:GetVoiceFolderRequest"/>
+  </wsdl:message>
+  <wsdl:message name="VoiceGetVoiceFolderResponseMessage">
+    <wsdl:part name="parameters" element="zimbraVoice:GetVoiceFolderResponse"/>
+  </wsdl:message>
+  <wsdl:message name="VoiceGetVoiceInfoRequestMessage">
+    <wsdl:part name="parameters" element="zimbraVoice:GetVoiceInfoRequest"/>
+  </wsdl:message>
+  <wsdl:message name="VoiceGetVoiceInfoResponseMessage">
+    <wsdl:part name="parameters" element="zimbraVoice:GetVoiceInfoResponse"/>
+  </wsdl:message>
+  <wsdl:message name="VoiceGetVoiceMailPrefsRequestMessage">
+    <wsdl:part name="parameters" element="zimbraVoice:GetVoiceMailPrefsRequest"/>
+  </wsdl:message>
+  <wsdl:message name="VoiceGetVoiceMailPrefsResponseMessage">
+    <wsdl:part name="parameters" element="zimbraVoice:GetVoiceMailPrefsResponse"/>
+  </wsdl:message>
+  <wsdl:message name="VoiceModifyFromNumRequestMessage">
+    <wsdl:part name="parameters" element="zimbraVoice:ModifyFromNumRequest"/>
+  </wsdl:message>
+  <wsdl:message name="VoiceModifyFromNumResponseMessage">
+    <wsdl:part name="parameters" element="zimbraVoice:ModifyFromNumResponse"/>
+  </wsdl:message>
+  <wsdl:message name="VoiceModifyVoiceFeaturesRequestMessage">
+    <wsdl:part name="parameters" element="zimbraVoice:ModifyVoiceFeaturesRequest"/>
+  </wsdl:message>
+  <wsdl:message name="VoiceModifyVoiceFeaturesResponseMessage">
+    <wsdl:part name="parameters" element="zimbraVoice:ModifyVoiceFeaturesResponse"/>
+  </wsdl:message>
+  <wsdl:message name="VoiceModifyVoiceMailPinRequestMessage">
+    <wsdl:part name="parameters" element="zimbraVoice:ModifyVoiceMailPinRequest"/>
+  </wsdl:message>
+  <wsdl:message name="VoiceModifyVoiceMailPinResponseMessage">
+    <wsdl:part name="parameters" element="zimbraVoice:ModifyVoiceMailPinResponse"/>
+  </wsdl:message>
+  <wsdl:message name="VoiceModifyVoiceMailPrefsRequestMessage">
+    <wsdl:part name="parameters" element="zimbraVoice:ModifyVoiceMailPrefsRequest"/>
+  </wsdl:message>
+  <wsdl:message name="VoiceModifyVoiceMailPrefsResponseMessage">
+    <wsdl:part name="parameters" element="zimbraVoice:ModifyVoiceMailPrefsResponse"/>
+  </wsdl:message>
+  <wsdl:message name="VoiceResetVoiceFeaturesRequestMessage">
+    <wsdl:part name="parameters" element="zimbraVoice:ResetVoiceFeaturesRequest"/>
+  </wsdl:message>
+  <wsdl:message name="VoiceResetVoiceFeaturesResponseMessage">
+    <wsdl:part name="parameters" element="zimbraVoice:ResetVoiceFeaturesResponse"/>
+  </wsdl:message>
+  <wsdl:message name="VoiceSearchVoiceRequestMessage">
+    <wsdl:part name="parameters" element="zimbraVoice:SearchVoiceRequest"/>
+  </wsdl:message>
+  <wsdl:message name="VoiceSearchVoiceResponseMessage">
+    <wsdl:part name="parameters" element="zimbraVoice:SearchVoiceResponse"/>
+  </wsdl:message>
+  <wsdl:message name="VoiceUploadVoiceMailRequestMessage">
+    <wsdl:part name="parameters" element="zimbraVoice:UploadVoiceMailRequest"/>
+  </wsdl:message>
+  <wsdl:message name="VoiceUploadVoiceMailResponseMessage">
+    <wsdl:part name="parameters" element="zimbraVoice:UploadVoiceMailResponse"/>
+  </wsdl:message>
+  <wsdl:message name="VoiceVoiceMsgActionRequestMessage">
+    <wsdl:part name="parameters" element="zimbraVoice:VoiceMsgActionRequest"/>
+  </wsdl:message>
+  <wsdl:message name="VoiceVoiceMsgActionResponseMessage">
+    <wsdl:part name="parameters" element="zimbraVoice:VoiceMsgActionResponse"/>
+  </wsdl:message>
+  <wsdl:message name="soapHdrContext">
+    <wsdl:part name="context" element="zimbra:context"/>
+  </wsdl:message>
+  <wsdl:portType name="zcsPortType">
+    <wsdl:operation name="authRequest">
+      <wsdl:input message="svc:AccountAuthRequestMessage"/>
+      <wsdl:output message="svc:AccountAuthResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="autoCompleteGalRequest">
+      <wsdl:input message="svc:AccountAutoCompleteGalRequestMessage"/>
+      <wsdl:output message="svc:AccountAutoCompleteGalResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="changePasswordRequest">
+      <wsdl:input message="svc:AccountChangePasswordRequestMessage"/>
+      <wsdl:output message="svc:AccountChangePasswordResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="checkLicenseRequest">
+      <wsdl:input message="svc:AccountCheckLicenseRequestMessage"/>
+      <wsdl:output message="svc:AccountCheckLicenseResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="checkRightsRequest">
+      <wsdl:input message="svc:AccountCheckRightsRequestMessage"/>
+      <wsdl:output message="svc:AccountCheckRightsResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="createDistributionListRequest">
+      <wsdl:input message="svc:AccountCreateDistributionListRequestMessage"/>
+      <wsdl:output message="svc:AccountCreateDistributionListResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="createIdentityRequest">
+      <wsdl:input message="svc:AccountCreateIdentityRequestMessage"/>
+      <wsdl:output message="svc:AccountCreateIdentityResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="createSignatureRequest">
+      <wsdl:input message="svc:AccountCreateSignatureRequestMessage"/>
+      <wsdl:output message="svc:AccountCreateSignatureResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="deleteIdentityRequest">
+      <wsdl:input message="svc:AccountDeleteIdentityRequestMessage"/>
+      <wsdl:output message="svc:AccountDeleteIdentityResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="deleteSignatureRequest">
+      <wsdl:input message="svc:AccountDeleteSignatureRequestMessage"/>
+      <wsdl:output message="svc:AccountDeleteSignatureResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="discoverRightsRequest">
+      <wsdl:input message="svc:AccountDiscoverRightsRequestMessage"/>
+      <wsdl:output message="svc:AccountDiscoverRightsResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="distributionListActionRequest">
+      <wsdl:input message="svc:AccountDistributionListActionRequestMessage"/>
+      <wsdl:output message="svc:AccountDistributionListActionResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="endSessionRequest">
+      <wsdl:input message="svc:AccountEndSessionRequestMessage"/>
+      <wsdl:output message="svc:AccountEndSessionResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="getAccountDistributionListsRequest">
+      <wsdl:input message="svc:AccountGetAccountDistributionListsRequestMessage"/>
+      <wsdl:output message="svc:AccountGetAccountDistributionListsResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="getAccountInfoRequest">
+      <wsdl:input message="svc:AccountGetAccountInfoRequestMessage"/>
+      <wsdl:output message="svc:AccountGetAccountInfoResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="getAllLocalesRequest">
+      <wsdl:input message="svc:AccountGetAllLocalesRequestMessage"/>
+      <wsdl:output message="svc:AccountGetAllLocalesResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="getAvailableCsvFormatsRequest">
+      <wsdl:input message="svc:AccountGetAvailableCsvFormatsRequestMessage"/>
+      <wsdl:output message="svc:AccountGetAvailableCsvFormatsResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="getAvailableLocalesRequest">
+      <wsdl:input message="svc:AccountGetAvailableLocalesRequestMessage"/>
+      <wsdl:output message="svc:AccountGetAvailableLocalesResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="getAvailableSkinsRequest">
+      <wsdl:input message="svc:AccountGetAvailableSkinsRequestMessage"/>
+      <wsdl:output message="svc:AccountGetAvailableSkinsResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="getDistributionListMembersRequest">
+      <wsdl:input message="svc:AccountGetDistributionListMembersRequestMessage"/>
+      <wsdl:output message="svc:AccountGetDistributionListMembersResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="getDistributionListRequest">
+      <wsdl:input message="svc:AccountGetDistributionListRequestMessage"/>
+      <wsdl:output message="svc:AccountGetDistributionListResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="getIdentitiesRequest">
+      <wsdl:input message="svc:AccountGetIdentitiesRequestMessage"/>
+      <wsdl:output message="svc:AccountGetIdentitiesResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="getInfoRequest">
+      <wsdl:input message="svc:AccountGetInfoRequestMessage"/>
+      <wsdl:output message="svc:AccountGetInfoResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="getPrefsRequest">
+      <wsdl:input message="svc:AccountGetPrefsRequestMessage"/>
+      <wsdl:output message="svc:AccountGetPrefsResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="getRightsRequest">
+      <wsdl:input message="svc:AccountGetRightsRequestMessage"/>
+      <wsdl:output message="svc:AccountGetRightsResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="getSMIMEPublicCertsRequest">
+      <wsdl:input message="svc:AccountGetSMIMEPublicCertsRequestMessage"/>
+      <wsdl:output message="svc:AccountGetSMIMEPublicCertsResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="getShareInfoRequest">
+      <wsdl:input message="svc:AccountGetShareInfoRequestMessage"/>
+      <wsdl:output message="svc:AccountGetShareInfoResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="getSignaturesRequest">
+      <wsdl:input message="svc:AccountGetSignaturesRequestMessage"/>
+      <wsdl:output message="svc:AccountGetSignaturesResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="getVersionInfoRequest">
+      <wsdl:input message="svc:AccountGetVersionInfoRequestMessage"/>
+      <wsdl:output message="svc:AccountGetVersionInfoResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="getWhiteBlackListRequest">
+      <wsdl:input message="svc:AccountGetWhiteBlackListRequestMessage"/>
+      <wsdl:output message="svc:AccountGetWhiteBlackListResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="grantRightsRequest">
+      <wsdl:input message="svc:AccountGrantRightsRequestMessage"/>
+      <wsdl:output message="svc:AccountGrantRightsResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="modifyIdentityRequest">
+      <wsdl:input message="svc:AccountModifyIdentityRequestMessage"/>
+      <wsdl:output message="svc:AccountModifyIdentityResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="modifyPrefsRequest">
+      <wsdl:input message="svc:AccountModifyPrefsRequestMessage"/>
+      <wsdl:output message="svc:AccountModifyPrefsResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="modifyPropertiesRequest">
+      <wsdl:input message="svc:AccountModifyPropertiesRequestMessage"/>
+      <wsdl:output message="svc:AccountModifyPropertiesResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="modifySignatureRequest">
+      <wsdl:input message="svc:AccountModifySignatureRequestMessage"/>
+      <wsdl:output message="svc:AccountModifySignatureResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="modifyWhiteBlackListRequest">
+      <wsdl:input message="svc:AccountModifyWhiteBlackListRequestMessage"/>
+      <wsdl:output message="svc:AccountModifyWhiteBlackListResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="modifyZimletPrefsRequest">
+      <wsdl:input message="svc:AccountModifyZimletPrefsRequestMessage"/>
+      <wsdl:output message="svc:AccountModifyZimletPrefsResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="revokeRightsRequest">
+      <wsdl:input message="svc:AccountRevokeRightsRequestMessage"/>
+      <wsdl:output message="svc:AccountRevokeRightsResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="searchCalendarResourcesRequest">
+      <wsdl:input message="svc:AccountSearchCalendarResourcesRequestMessage"/>
+      <wsdl:output message="svc:AccountSearchCalendarResourcesResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="searchGalRequest">
+      <wsdl:input message="svc:AccountSearchGalRequestMessage"/>
+      <wsdl:output message="svc:AccountSearchGalResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="subscribeDistributionListRequest">
+      <wsdl:input message="svc:AccountSubscribeDistributionListRequestMessage"/>
+      <wsdl:output message="svc:AccountSubscribeDistributionListResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="syncGalRequest">
+      <wsdl:input message="svc:AccountSyncGalRequestMessage"/>
+      <wsdl:output message="svc:AccountSyncGalResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="addAppointmentInviteRequest">
+      <wsdl:input message="svc:MailAddAppointmentInviteRequestMessage"/>
+      <wsdl:output message="svc:MailAddAppointmentInviteResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="addCommentRequest">
+      <wsdl:input message="svc:MailAddCommentRequestMessage"/>
+      <wsdl:output message="svc:MailAddCommentResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="addMsgRequest">
+      <wsdl:input message="svc:MailAddMsgRequestMessage"/>
+      <wsdl:output message="svc:MailAddMsgResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="addTaskInviteRequest">
+      <wsdl:input message="svc:MailAddTaskInviteRequestMessage"/>
+      <wsdl:output message="svc:MailAddTaskInviteResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="announceOrganizerChangeRequest">
+      <wsdl:input message="svc:MailAnnounceOrganizerChangeRequestMessage"/>
+      <wsdl:output message="svc:MailAnnounceOrganizerChangeResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="applyFilterRulesRequest">
+      <wsdl:input message="svc:MailApplyFilterRulesRequestMessage"/>
+      <wsdl:output message="svc:MailApplyFilterRulesResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="applyOutgoingFilterRulesRequest">
+      <wsdl:input message="svc:MailApplyOutgoingFilterRulesRequestMessage"/>
+      <wsdl:output message="svc:MailApplyOutgoingFilterRulesResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="autoCompleteRequest">
+      <wsdl:input message="svc:MailAutoCompleteRequestMessage"/>
+      <wsdl:output message="svc:MailAutoCompleteResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="bounceMsgRequest">
+      <wsdl:input message="svc:MailBounceMsgRequestMessage"/>
+      <wsdl:output message="svc:MailBounceMsgResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="browseRequest">
+      <wsdl:input message="svc:MailBrowseRequestMessage"/>
+      <wsdl:output message="svc:MailBrowseResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="cancelAppointmentRequest">
+      <wsdl:input message="svc:MailCancelAppointmentRequestMessage"/>
+      <wsdl:output message="svc:MailCancelAppointmentResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="cancelTaskRequest">
+      <wsdl:input message="svc:MailCancelTaskRequestMessage"/>
+      <wsdl:output message="svc:MailCancelTaskResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="checkDeviceStatusRequest">
+      <wsdl:input message="svc:MailCheckDeviceStatusRequestMessage"/>
+      <wsdl:output message="svc:MailCheckDeviceStatusResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="checkPermissionRequest">
+      <wsdl:input message="svc:MailCheckPermissionRequestMessage"/>
+      <wsdl:output message="svc:MailCheckPermissionResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="checkRecurConflictsRequest">
+      <wsdl:input message="svc:MailCheckRecurConflictsRequestMessage"/>
+      <wsdl:output message="svc:MailCheckRecurConflictsResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="checkSpellingRequest">
+      <wsdl:input message="svc:MailCheckSpellingRequestMessage"/>
+      <wsdl:output message="svc:MailCheckSpellingResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="completeTaskInstanceRequest">
+      <wsdl:input message="svc:MailCompleteTaskInstanceRequestMessage"/>
+      <wsdl:output message="svc:MailCompleteTaskInstanceResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="contactActionRequest">
+      <wsdl:input message="svc:MailContactActionRequestMessage"/>
+      <wsdl:output message="svc:MailContactActionResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="convActionRequest">
+      <wsdl:input message="svc:MailConvActionRequestMessage"/>
+      <wsdl:output message="svc:MailConvActionResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="counterAppointmentRequest">
+      <wsdl:input message="svc:MailCounterAppointmentRequestMessage"/>
+      <wsdl:output message="svc:MailCounterAppointmentResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="createAppointmentExceptionRequest">
+      <wsdl:input message="svc:MailCreateAppointmentExceptionRequestMessage"/>
+      <wsdl:output message="svc:MailCreateAppointmentExceptionResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="createAppointmentRequest">
+      <wsdl:input message="svc:MailCreateAppointmentRequestMessage"/>
+      <wsdl:output message="svc:MailCreateAppointmentResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="createContactRequest">
+      <wsdl:input message="svc:MailCreateContactRequestMessage"/>
+      <wsdl:output message="svc:MailCreateContactResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="createDataSourceRequest">
+      <wsdl:input message="svc:MailCreateDataSourceRequestMessage"/>
+      <wsdl:output message="svc:MailCreateDataSourceResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="createFolderRequest">
+      <wsdl:input message="svc:MailCreateFolderRequestMessage"/>
+      <wsdl:output message="svc:MailCreateFolderResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="createMountpointRequest">
+      <wsdl:input message="svc:MailCreateMountpointRequestMessage"/>
+      <wsdl:output message="svc:MailCreateMountpointResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="createNoteRequest">
+      <wsdl:input message="svc:MailCreateNoteRequestMessage"/>
+      <wsdl:output message="svc:MailCreateNoteResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="createSearchFolderRequest">
+      <wsdl:input message="svc:MailCreateSearchFolderRequestMessage"/>
+      <wsdl:output message="svc:MailCreateSearchFolderResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="createTagRequest">
+      <wsdl:input message="svc:MailCreateTagRequestMessage"/>
+      <wsdl:output message="svc:MailCreateTagResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="createTaskExceptionRequest">
+      <wsdl:input message="svc:MailCreateTaskExceptionRequestMessage"/>
+      <wsdl:output message="svc:MailCreateTaskExceptionResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="createTaskRequest">
+      <wsdl:input message="svc:MailCreateTaskRequestMessage"/>
+      <wsdl:output message="svc:MailCreateTaskResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="createWaitSetRequest">
+      <wsdl:input message="svc:MailCreateWaitSetRequestMessage"/>
+      <wsdl:output message="svc:MailCreateWaitSetResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="declineCounterAppointmentRequest">
+      <wsdl:input message="svc:MailDeclineCounterAppointmentRequestMessage"/>
+      <wsdl:output message="svc:MailDeclineCounterAppointmentResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="deleteDataSourceRequest">
+      <wsdl:input message="svc:MailDeleteDataSourceRequestMessage"/>
+      <wsdl:output message="svc:MailDeleteDataSourceResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="deleteDeviceRequest">
+      <wsdl:input message="svc:MailDeleteDeviceRequestMessage"/>
+      <wsdl:output message="svc:MailDeleteDeviceResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="destroyWaitSetRequest">
+      <wsdl:input message="svc:MailDestroyWaitSetRequestMessage"/>
+      <wsdl:output message="svc:MailDestroyWaitSetResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="diffDocumentRequest">
+      <wsdl:input message="svc:MailDiffDocumentRequestMessage"/>
+      <wsdl:output message="svc:MailDiffDocumentResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="dismissCalendarItemAlarmRequest">
+      <wsdl:input message="svc:MailDismissCalendarItemAlarmRequestMessage"/>
+      <wsdl:output message="svc:MailDismissCalendarItemAlarmResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="documentActionRequest">
+      <wsdl:input message="svc:MailDocumentActionRequestMessage"/>
+      <wsdl:output message="svc:MailDocumentActionResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="emptyDumpsterRequest">
+      <wsdl:input message="svc:MailEmptyDumpsterRequestMessage"/>
+      <wsdl:output message="svc:MailEmptyDumpsterResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="enableSharedReminderRequest">
+      <wsdl:input message="svc:MailEnableSharedReminderRequestMessage"/>
+      <wsdl:output message="svc:MailEnableSharedReminderResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="expandRecurRequest">
+      <wsdl:input message="svc:MailExpandRecurRequestMessage"/>
+      <wsdl:output message="svc:MailExpandRecurResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="exportContactsRequest">
+      <wsdl:input message="svc:MailExportContactsRequestMessage"/>
+      <wsdl:output message="svc:MailExportContactsResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="folderActionRequest">
+      <wsdl:input message="svc:MailFolderActionRequestMessage"/>
+      <wsdl:output message="svc:MailFolderActionResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="forwardAppointmentInviteRequest">
+      <wsdl:input message="svc:MailForwardAppointmentInviteRequestMessage"/>
+      <wsdl:output message="svc:MailForwardAppointmentInviteResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="forwardAppointmentRequest">
+      <wsdl:input message="svc:MailForwardAppointmentRequestMessage"/>
+      <wsdl:output message="svc:MailForwardAppointmentResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="generateUUIDRequest">
+      <wsdl:input message="svc:MailGenerateUUIDRequestMessage"/>
+      <wsdl:output message="svc:MailGenerateUUIDResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="getActivityStreamRequest">
+      <wsdl:input message="svc:MailGetActivityStreamRequestMessage"/>
+      <wsdl:output message="svc:MailGetActivityStreamResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="getAllDevicesRequest">
+      <wsdl:input message="svc:MailGetAllDevicesRequestMessage"/>
+      <wsdl:output message="svc:MailGetAllDevicesResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="getAppointmentRequest">
+      <wsdl:input message="svc:MailGetAppointmentRequestMessage"/>
+      <wsdl:output message="svc:MailGetAppointmentResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="getApptSummariesRequest">
+      <wsdl:input message="svc:MailGetApptSummariesRequestMessage"/>
+      <wsdl:output message="svc:MailGetApptSummariesResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="getCalendarItemSummariesRequest">
+      <wsdl:input message="svc:MailGetCalendarItemSummariesRequestMessage"/>
+      <wsdl:output message="svc:MailGetCalendarItemSummariesResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="getCommentsRequest">
+      <wsdl:input message="svc:MailGetCommentsRequestMessage"/>
+      <wsdl:output message="svc:MailGetCommentsResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="getContactsRequest">
+      <wsdl:input message="svc:MailGetContactsRequestMessage"/>
+      <wsdl:output message="svc:MailGetContactsResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="getConvRequest">
+      <wsdl:input message="svc:MailGetConvRequestMessage"/>
+      <wsdl:output message="svc:MailGetConvResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="getCustomMetadataRequest">
+      <wsdl:input message="svc:MailGetCustomMetadataRequestMessage"/>
+      <wsdl:output message="svc:MailGetCustomMetadataResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="getDataSourcesRequest">
+      <wsdl:input message="svc:MailGetDataSourcesRequestMessage"/>
+      <wsdl:output message="svc:MailGetDataSourcesResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="getDocumentShareURLRequest">
+      <wsdl:input message="svc:MailGetDocumentShareURLRequestMessage"/>
+      <wsdl:output message="svc:MailGetDocumentShareURLResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="getEffectiveFolderPermsRequest">
+      <wsdl:input message="svc:MailGetEffectiveFolderPermsRequestMessage"/>
+      <wsdl:output message="svc:MailGetEffectiveFolderPermsResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="getFilterRulesRequest">
+      <wsdl:input message="svc:MailGetFilterRulesRequestMessage"/>
+      <wsdl:output message="svc:MailGetFilterRulesResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="getFolderRequest">
+      <wsdl:input message="svc:MailGetFolderRequestMessage"/>
+      <wsdl:output message="svc:MailGetFolderResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="getFreeBusyRequest">
+      <wsdl:input message="svc:MailGetFreeBusyRequestMessage"/>
+      <wsdl:output message="svc:MailGetFreeBusyResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="getICalRequest">
+      <wsdl:input message="svc:MailGetICalRequestMessage"/>
+      <wsdl:output message="svc:MailGetICalResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="getImportStatusRequest">
+      <wsdl:input message="svc:MailGetImportStatusRequestMessage"/>
+      <wsdl:output message="svc:MailGetImportStatusResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="getItemRequest">
+      <wsdl:input message="svc:MailGetItemRequestMessage"/>
+      <wsdl:output message="svc:MailGetItemResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="getMailboxMetadataRequest">
+      <wsdl:input message="svc:MailGetMailboxMetadataRequestMessage"/>
+      <wsdl:output message="svc:MailGetMailboxMetadataResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="getMiniCalRequest">
+      <wsdl:input message="svc:MailGetMiniCalRequestMessage"/>
+      <wsdl:output message="svc:MailGetMiniCalResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="getMsgMetadataRequest">
+      <wsdl:input message="svc:MailGetMsgMetadataRequestMessage"/>
+      <wsdl:output message="svc:MailGetMsgMetadataResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="getMsgRequest">
+      <wsdl:input message="svc:MailGetMsgRequestMessage"/>
+      <wsdl:output message="svc:MailGetMsgResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="getNoteRequest">
+      <wsdl:input message="svc:MailGetNoteRequestMessage"/>
+      <wsdl:output message="svc:MailGetNoteResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="getNotificationsRequest">
+      <wsdl:input message="svc:MailGetNotificationsRequestMessage"/>
+      <wsdl:output message="svc:MailGetNotificationsResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="getOutgoingFilterRulesRequest">
+      <wsdl:input message="svc:MailGetOutgoingFilterRulesRequestMessage"/>
+      <wsdl:output message="svc:MailGetOutgoingFilterRulesResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="getPermissionRequest">
+      <wsdl:input message="svc:MailGetPermissionRequestMessage"/>
+      <wsdl:output message="svc:MailGetPermissionResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="getRecurRequest">
+      <wsdl:input message="svc:MailGetRecurRequestMessage"/>
+      <wsdl:output message="svc:MailGetRecurResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="getSearchFolderRequest">
+      <wsdl:input message="svc:MailGetSearchFolderRequestMessage"/>
+      <wsdl:output message="svc:MailGetSearchFolderResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="getShareDetailsRequest">
+      <wsdl:input message="svc:MailGetShareDetailsRequestMessage"/>
+      <wsdl:output message="svc:MailGetShareDetailsResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="getShareNotificationsRequest">
+      <wsdl:input message="svc:MailGetShareNotificationsRequestMessage"/>
+      <wsdl:output message="svc:MailGetShareNotificationsResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="getSpellDictionariesRequest">
+      <wsdl:input message="svc:MailGetSpellDictionariesRequestMessage"/>
+      <wsdl:output message="svc:MailGetSpellDictionariesResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="getSystemRetentionPolicyRequest">
+      <wsdl:input message="svc:MailGetSystemRetentionPolicyRequestMessage"/>
+      <wsdl:output message="svc:MailGetSystemRetentionPolicyResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="getTagRequest">
+      <wsdl:input message="svc:MailGetTagRequestMessage"/>
+      <wsdl:output message="svc:MailGetTagResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="getTaskRequest">
+      <wsdl:input message="svc:MailGetTaskRequestMessage"/>
+      <wsdl:output message="svc:MailGetTaskResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="getTaskSummariesRequest">
+      <wsdl:input message="svc:MailGetTaskSummariesRequestMessage"/>
+      <wsdl:output message="svc:MailGetTaskSummariesResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="getWatchersRequest">
+      <wsdl:input message="svc:MailGetWatchersRequestMessage"/>
+      <wsdl:output message="svc:MailGetWatchersResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="getWatchingItemsRequest">
+      <wsdl:input message="svc:MailGetWatchingItemsRequestMessage"/>
+      <wsdl:output message="svc:MailGetWatchingItemsResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="getWorkingHoursRequest">
+      <wsdl:input message="svc:MailGetWorkingHoursRequestMessage"/>
+      <wsdl:output message="svc:MailGetWorkingHoursResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="getYahooAuthTokenRequest">
+      <wsdl:input message="svc:MailGetYahooAuthTokenRequestMessage"/>
+      <wsdl:output message="svc:MailGetYahooAuthTokenResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="getYahooCookieRequest">
+      <wsdl:input message="svc:MailGetYahooCookieRequestMessage"/>
+      <wsdl:output message="svc:MailGetYahooCookieResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="grantPermissionRequest">
+      <wsdl:input message="svc:MailGrantPermissionRequestMessage"/>
+      <wsdl:output message="svc:MailGrantPermissionResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="iCalReplyRequest">
+      <wsdl:input message="svc:MailICalReplyRequestMessage"/>
+      <wsdl:output message="svc:MailICalReplyResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="importAppointmentsRequest">
+      <wsdl:input message="svc:MailImportAppointmentsRequestMessage"/>
+      <wsdl:output message="svc:MailImportAppointmentsResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="importContactsRequest">
+      <wsdl:input message="svc:MailImportContactsRequestMessage"/>
+      <wsdl:output message="svc:MailImportContactsResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="importDataRequest">
+      <wsdl:input message="svc:MailImportDataRequestMessage"/>
+      <wsdl:output message="svc:MailImportDataResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="invalidateReminderDeviceRequest">
+      <wsdl:input message="svc:MailInvalidateReminderDeviceRequestMessage"/>
+      <wsdl:output message="svc:MailInvalidateReminderDeviceResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="itemActionRequest">
+      <wsdl:input message="svc:MailItemActionRequestMessage"/>
+      <wsdl:output message="svc:MailItemActionResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="listDocumentRevisionsRequest">
+      <wsdl:input message="svc:MailListDocumentRevisionsRequestMessage"/>
+      <wsdl:output message="svc:MailListDocumentRevisionsResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="modifyAppointmentRequest">
+      <wsdl:input message="svc:MailModifyAppointmentRequestMessage"/>
+      <wsdl:output message="svc:MailModifyAppointmentResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="modifyContactRequest">
+      <wsdl:input message="svc:MailModifyContactRequestMessage"/>
+      <wsdl:output message="svc:MailModifyContactResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="modifyDataSourceRequest">
+      <wsdl:input message="svc:MailModifyDataSourceRequestMessage"/>
+      <wsdl:output message="svc:MailModifyDataSourceResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="modifyFilterRulesRequest">
+      <wsdl:input message="svc:MailModifyFilterRulesRequestMessage"/>
+      <wsdl:output message="svc:MailModifyFilterRulesResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="modifyMailboxMetadataRequest">
+      <wsdl:input message="svc:MailModifyMailboxMetadataRequestMessage"/>
+      <wsdl:output message="svc:MailModifyMailboxMetadataResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="modifyOutgoingFilterRulesRequest">
+      <wsdl:input message="svc:MailModifyOutgoingFilterRulesRequestMessage"/>
+      <wsdl:output message="svc:MailModifyOutgoingFilterRulesResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="modifySearchFolderRequest">
+      <wsdl:input message="svc:MailModifySearchFolderRequestMessage"/>
+      <wsdl:output message="svc:MailModifySearchFolderResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="modifyTaskRequest">
+      <wsdl:input message="svc:MailModifyTaskRequestMessage"/>
+      <wsdl:output message="svc:MailModifyTaskResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="msgActionRequest">
+      <wsdl:input message="svc:MailMsgActionRequestMessage"/>
+      <wsdl:output message="svc:MailMsgActionResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="noOpRequest">
+      <wsdl:input message="svc:MailNoOpRequestMessage"/>
+      <wsdl:output message="svc:MailNoOpResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="noteActionRequest">
+      <wsdl:input message="svc:MailNoteActionRequestMessage"/>
+      <wsdl:output message="svc:MailNoteActionResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="purgeRevisionRequest">
+      <wsdl:input message="svc:MailPurgeRevisionRequestMessage"/>
+      <wsdl:output message="svc:MailPurgeRevisionResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="rankingActionRequest">
+      <wsdl:input message="svc:MailRankingActionRequestMessage"/>
+      <wsdl:output message="svc:MailRankingActionResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="registerDeviceRequest">
+      <wsdl:input message="svc:MailRegisterDeviceRequestMessage"/>
+      <wsdl:output message="svc:MailRegisterDeviceResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="removeAttachmentsRequest">
+      <wsdl:input message="svc:MailRemoveAttachmentsRequestMessage"/>
+      <wsdl:output message="svc:MailRemoveAttachmentsResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="revokePermissionRequest">
+      <wsdl:input message="svc:MailRevokePermissionRequestMessage"/>
+      <wsdl:output message="svc:MailRevokePermissionResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="saveDocumentRequest">
+      <wsdl:input message="svc:MailSaveDocumentRequestMessage"/>
+      <wsdl:output message="svc:MailSaveDocumentResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="saveDraftRequest">
+      <wsdl:input message="svc:MailSaveDraftRequestMessage"/>
+      <wsdl:output message="svc:MailSaveDraftResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="searchConvRequest">
+      <wsdl:input message="svc:MailSearchConvRequestMessage"/>
+      <wsdl:output message="svc:MailSearchConvResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="searchRequest">
+      <wsdl:input message="svc:MailSearchRequestMessage"/>
+      <wsdl:output message="svc:MailSearchResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="sendDeliveryReportRequest">
+      <wsdl:input message="svc:MailSendDeliveryReportRequestMessage"/>
+      <wsdl:output message="svc:MailSendDeliveryReportResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="sendInviteReplyRequest">
+      <wsdl:input message="svc:MailSendInviteReplyRequestMessage"/>
+      <wsdl:output message="svc:MailSendInviteReplyResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="sendMsgRequest">
+      <wsdl:input message="svc:MailSendMsgRequestMessage"/>
+      <wsdl:output message="svc:MailSendMsgResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="sendShareNotificationRequest">
+      <wsdl:input message="svc:MailSendShareNotificationRequestMessage"/>
+      <wsdl:output message="svc:MailSendShareNotificationResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="sendVerificationCodeRequest">
+      <wsdl:input message="svc:MailSendVerificationCodeRequestMessage"/>
+      <wsdl:output message="svc:MailSendVerificationCodeResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="setAppointmentRequest">
+      <wsdl:input message="svc:MailSetAppointmentRequestMessage"/>
+      <wsdl:output message="svc:MailSetAppointmentResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="setCustomMetadataRequest">
+      <wsdl:input message="svc:MailSetCustomMetadataRequestMessage"/>
+      <wsdl:output message="svc:MailSetCustomMetadataResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="setMailboxMetadataRequest">
+      <wsdl:input message="svc:MailSetMailboxMetadataRequestMessage"/>
+      <wsdl:output message="svc:MailSetMailboxMetadataResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="setTaskRequest">
+      <wsdl:input message="svc:MailSetTaskRequestMessage"/>
+      <wsdl:output message="svc:MailSetTaskResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="snoozeCalendarItemAlarmRequest">
+      <wsdl:input message="svc:MailSnoozeCalendarItemAlarmRequestMessage"/>
+      <wsdl:output message="svc:MailSnoozeCalendarItemAlarmResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="syncRequest">
+      <wsdl:input message="svc:MailSyncRequestMessage"/>
+      <wsdl:output message="svc:MailSyncResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="tagActionRequest">
+      <wsdl:input message="svc:MailTagActionRequestMessage"/>
+      <wsdl:output message="svc:MailTagActionResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="testDataSourceRequest">
+      <wsdl:input message="svc:MailTestDataSourceRequestMessage"/>
+      <wsdl:output message="svc:MailTestDataSourceResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="updateDeviceStatusRequest">
+      <wsdl:input message="svc:MailUpdateDeviceStatusRequestMessage"/>
+      <wsdl:output message="svc:MailUpdateDeviceStatusResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="verifyCodeRequest">
+      <wsdl:input message="svc:MailVerifyCodeRequestMessage"/>
+      <wsdl:output message="svc:MailVerifyCodeResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="waitSetRequest">
+      <wsdl:input message="svc:MailWaitSetRequestMessage"/>
+      <wsdl:output message="svc:MailWaitSetResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="becomeMasterRequest">
+      <wsdl:input message="svc:ReplBecomeMasterRequestMessage"/>
+      <wsdl:output message="svc:ReplBecomeMasterResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="bringDownServiceIPRequest">
+      <wsdl:input message="svc:ReplBringDownServiceIPRequestMessage"/>
+      <wsdl:output message="svc:ReplBringDownServiceIPResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="bringUpServiceIPRequest">
+      <wsdl:input message="svc:ReplBringUpServiceIPRequestMessage"/>
+      <wsdl:output message="svc:ReplBringUpServiceIPResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="replicationStatusRequest">
+      <wsdl:input message="svc:ReplReplicationStatusRequestMessage"/>
+      <wsdl:output message="svc:ReplReplicationStatusResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="startCatchupRequest">
+      <wsdl:input message="svc:ReplStartCatchupRequestMessage"/>
+      <wsdl:output message="svc:ReplStartCatchupResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="startFailoverClientRequest">
+      <wsdl:input message="svc:ReplStartFailoverClientRequestMessage"/>
+      <wsdl:output message="svc:ReplStartFailoverClientResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="startFailoverDaemonRequest">
+      <wsdl:input message="svc:ReplStartFailoverDaemonRequestMessage"/>
+      <wsdl:output message="svc:ReplStartFailoverDaemonResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="stopFailoverClientRequest">
+      <wsdl:input message="svc:ReplStopFailoverClientRequestMessage"/>
+      <wsdl:output message="svc:ReplStopFailoverClientResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="stopFailoverDaemonRequest">
+      <wsdl:input message="svc:ReplStopFailoverDaemonRequestMessage"/>
+      <wsdl:output message="svc:ReplStopFailoverDaemonResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="cancelPendingRemoteWipeRequest">
+      <wsdl:input message="svc:SyncCancelPendingRemoteWipeRequestMessage"/>
+      <wsdl:output message="svc:SyncCancelPendingRemoteWipeResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="getDeviceStatusRequest">
+      <wsdl:input message="svc:SyncGetDeviceStatusRequestMessage"/>
+      <wsdl:output message="svc:SyncGetDeviceStatusResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="remoteWipeRequest">
+      <wsdl:input message="svc:SyncRemoteWipeRequestMessage"/>
+      <wsdl:output message="svc:SyncRemoteWipeResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="removeDeviceRequest">
+      <wsdl:input message="svc:SyncRemoveDeviceRequestMessage"/>
+      <wsdl:output message="svc:SyncRemoveDeviceResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="resumeDeviceRequest">
+      <wsdl:input message="svc:SyncResumeDeviceRequestMessage"/>
+      <wsdl:output message="svc:SyncResumeDeviceResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="suspendDeviceRequest">
+      <wsdl:input message="svc:SyncSuspendDeviceRequestMessage"/>
+      <wsdl:output message="svc:SyncSuspendDeviceResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="changeUCPasswordRequest">
+      <wsdl:input message="svc:VoiceChangeUCPasswordRequestMessage"/>
+      <wsdl:output message="svc:VoiceChangeUCPasswordResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="getUCInfoRequest">
+      <wsdl:input message="svc:VoiceGetUCInfoRequestMessage"/>
+      <wsdl:output message="svc:VoiceGetUCInfoResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="getVoiceFeaturesRequest">
+      <wsdl:input message="svc:VoiceGetVoiceFeaturesRequestMessage"/>
+      <wsdl:output message="svc:VoiceGetVoiceFeaturesResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="getVoiceFolderRequest">
+      <wsdl:input message="svc:VoiceGetVoiceFolderRequestMessage"/>
+      <wsdl:output message="svc:VoiceGetVoiceFolderResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="getVoiceInfoRequest">
+      <wsdl:input message="svc:VoiceGetVoiceInfoRequestMessage"/>
+      <wsdl:output message="svc:VoiceGetVoiceInfoResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="getVoiceMailPrefsRequest">
+      <wsdl:input message="svc:VoiceGetVoiceMailPrefsRequestMessage"/>
+      <wsdl:output message="svc:VoiceGetVoiceMailPrefsResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="modifyFromNumRequest">
+      <wsdl:input message="svc:VoiceModifyFromNumRequestMessage"/>
+      <wsdl:output message="svc:VoiceModifyFromNumResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="modifyVoiceFeaturesRequest">
+      <wsdl:input message="svc:VoiceModifyVoiceFeaturesRequestMessage"/>
+      <wsdl:output message="svc:VoiceModifyVoiceFeaturesResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="modifyVoiceMailPinRequest">
+      <wsdl:input message="svc:VoiceModifyVoiceMailPinRequestMessage"/>
+      <wsdl:output message="svc:VoiceModifyVoiceMailPinResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="modifyVoiceMailPrefsRequest">
+      <wsdl:input message="svc:VoiceModifyVoiceMailPrefsRequestMessage"/>
+      <wsdl:output message="svc:VoiceModifyVoiceMailPrefsResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="resetVoiceFeaturesRequest">
+      <wsdl:input message="svc:VoiceResetVoiceFeaturesRequestMessage"/>
+      <wsdl:output message="svc:VoiceResetVoiceFeaturesResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="searchVoiceRequest">
+      <wsdl:input message="svc:VoiceSearchVoiceRequestMessage"/>
+      <wsdl:output message="svc:VoiceSearchVoiceResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="uploadVoiceMailRequest">
+      <wsdl:input message="svc:VoiceUploadVoiceMailRequestMessage"/>
+      <wsdl:output message="svc:VoiceUploadVoiceMailResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="voiceMsgActionRequest">
+      <wsdl:input message="svc:VoiceVoiceMsgActionRequestMessage"/>
+      <wsdl:output message="svc:VoiceVoiceMsgActionResponseMessage"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="zcsPortBinding" type="svc:zcsPortType">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+    <wsdl:operation name="authRequest">
+      <soap:operation soapAction="urn:zimbraAccount/Auth" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="autoCompleteGalRequest">
+      <soap:operation soapAction="urn:zimbraAccount/AutoCompleteGal" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="changePasswordRequest">
+      <soap:operation soapAction="urn:zimbraAccount/ChangePassword" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="checkLicenseRequest">
+      <soap:operation soapAction="urn:zimbraAccount/CheckLicense" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="checkRightsRequest">
+      <soap:operation soapAction="urn:zimbraAccount/CheckRights" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createDistributionListRequest">
+      <soap:operation soapAction="urn:zimbraAccount/CreateDistributionList" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createIdentityRequest">
+      <soap:operation soapAction="urn:zimbraAccount/CreateIdentity" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createSignatureRequest">
+      <soap:operation soapAction="urn:zimbraAccount/CreateSignature" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteIdentityRequest">
+      <soap:operation soapAction="urn:zimbraAccount/DeleteIdentity" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteSignatureRequest">
+      <soap:operation soapAction="urn:zimbraAccount/DeleteSignature" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="discoverRightsRequest">
+      <soap:operation soapAction="urn:zimbraAccount/DiscoverRights" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="distributionListActionRequest">
+      <soap:operation soapAction="urn:zimbraAccount/DistributionListAction" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="endSessionRequest">
+      <soap:operation soapAction="urn:zimbraAccount/EndSession" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAccountDistributionListsRequest">
+      <soap:operation soapAction="urn:zimbraAccount/GetAccountDistributionLists" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAccountInfoRequest">
+      <soap:operation soapAction="urn:zimbraAccount/GetAccountInfo" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAllLocalesRequest">
+      <soap:operation soapAction="urn:zimbraAccount/GetAllLocales" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAvailableCsvFormatsRequest">
+      <soap:operation soapAction="urn:zimbraAccount/GetAvailableCsvFormats" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAvailableLocalesRequest">
+      <soap:operation soapAction="urn:zimbraAccount/GetAvailableLocales" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAvailableSkinsRequest">
+      <soap:operation soapAction="urn:zimbraAccount/GetAvailableSkins" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDistributionListMembersRequest">
+      <soap:operation soapAction="urn:zimbraAccount/GetDistributionListMembers" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDistributionListRequest">
+      <soap:operation soapAction="urn:zimbraAccount/GetDistributionList" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getIdentitiesRequest">
+      <soap:operation soapAction="urn:zimbraAccount/GetIdentities" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getInfoRequest">
+      <soap:operation soapAction="urn:zimbraAccount/GetInfo" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPrefsRequest">
+      <soap:operation soapAction="urn:zimbraAccount/GetPrefs" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getRightsRequest">
+      <soap:operation soapAction="urn:zimbraAccount/GetRights" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSMIMEPublicCertsRequest">
+      <soap:operation soapAction="urn:zimbraAccount/GetSMIMEPublicCerts" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getShareInfoRequest">
+      <soap:operation soapAction="urn:zimbraAccount/GetShareInfo" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSignaturesRequest">
+      <soap:operation soapAction="urn:zimbraAccount/GetSignatures" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getVersionInfoRequest">
+      <soap:operation soapAction="urn:zimbraAccount/GetVersionInfo" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getWhiteBlackListRequest">
+      <soap:operation soapAction="urn:zimbraAccount/GetWhiteBlackList" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="grantRightsRequest">
+      <soap:operation soapAction="urn:zimbraAccount/GrantRights" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="modifyIdentityRequest">
+      <soap:operation soapAction="urn:zimbraAccount/ModifyIdentity" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="modifyPrefsRequest">
+      <soap:operation soapAction="urn:zimbraAccount/ModifyPrefs" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="modifyPropertiesRequest">
+      <soap:operation soapAction="urn:zimbraAccount/ModifyProperties" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="modifySignatureRequest">
+      <soap:operation soapAction="urn:zimbraAccount/ModifySignature" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="modifyWhiteBlackListRequest">
+      <soap:operation soapAction="urn:zimbraAccount/ModifyWhiteBlackList" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="modifyZimletPrefsRequest">
+      <soap:operation soapAction="urn:zimbraAccount/ModifyZimletPrefs" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="revokeRightsRequest">
+      <soap:operation soapAction="urn:zimbraAccount/RevokeRights" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="searchCalendarResourcesRequest">
+      <soap:operation soapAction="urn:zimbraAccount/SearchCalendarResources" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="searchGalRequest">
+      <soap:operation soapAction="urn:zimbraAccount/SearchGal" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="subscribeDistributionListRequest">
+      <soap:operation soapAction="urn:zimbraAccount/SubscribeDistributionList" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="syncGalRequest">
+      <soap:operation soapAction="urn:zimbraAccount/SyncGal" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addAppointmentInviteRequest">
+      <soap:operation soapAction="urn:zimbraMail/AddAppointmentInvite" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addCommentRequest">
+      <soap:operation soapAction="urn:zimbraMail/AddComment" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addMsgRequest">
+      <soap:operation soapAction="urn:zimbraMail/AddMsg" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addTaskInviteRequest">
+      <soap:operation soapAction="urn:zimbraMail/AddTaskInvite" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="announceOrganizerChangeRequest">
+      <soap:operation soapAction="urn:zimbraMail/AnnounceOrganizerChange" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="applyFilterRulesRequest">
+      <soap:operation soapAction="urn:zimbraMail/ApplyFilterRules" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="applyOutgoingFilterRulesRequest">
+      <soap:operation soapAction="urn:zimbraMail/ApplyOutgoingFilterRules" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="autoCompleteRequest">
+      <soap:operation soapAction="urn:zimbraMail/AutoComplete" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="bounceMsgRequest">
+      <soap:operation soapAction="urn:zimbraMail/BounceMsg" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="browseRequest">
+      <soap:operation soapAction="urn:zimbraMail/Browse" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="cancelAppointmentRequest">
+      <soap:operation soapAction="urn:zimbraMail/CancelAppointment" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="cancelTaskRequest">
+      <soap:operation soapAction="urn:zimbraMail/CancelTask" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="checkDeviceStatusRequest">
+      <soap:operation soapAction="urn:zimbraMail/CheckDeviceStatus" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="checkPermissionRequest">
+      <soap:operation soapAction="urn:zimbraMail/CheckPermission" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="checkRecurConflictsRequest">
+      <soap:operation soapAction="urn:zimbraMail/CheckRecurConflicts" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="checkSpellingRequest">
+      <soap:operation soapAction="urn:zimbraMail/CheckSpelling" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="completeTaskInstanceRequest">
+      <soap:operation soapAction="urn:zimbraMail/CompleteTaskInstance" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="contactActionRequest">
+      <soap:operation soapAction="urn:zimbraMail/ContactAction" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="convActionRequest">
+      <soap:operation soapAction="urn:zimbraMail/ConvAction" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="counterAppointmentRequest">
+      <soap:operation soapAction="urn:zimbraMail/CounterAppointment" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createAppointmentExceptionRequest">
+      <soap:operation soapAction="urn:zimbraMail/CreateAppointmentException" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createAppointmentRequest">
+      <soap:operation soapAction="urn:zimbraMail/CreateAppointment" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createContactRequest">
+      <soap:operation soapAction="urn:zimbraMail/CreateContact" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createDataSourceRequest">
+      <soap:operation soapAction="urn:zimbraMail/CreateDataSource" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createFolderRequest">
+      <soap:operation soapAction="urn:zimbraMail/CreateFolder" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createMountpointRequest">
+      <soap:operation soapAction="urn:zimbraMail/CreateMountpoint" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createNoteRequest">
+      <soap:operation soapAction="urn:zimbraMail/CreateNote" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createSearchFolderRequest">
+      <soap:operation soapAction="urn:zimbraMail/CreateSearchFolder" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createTagRequest">
+      <soap:operation soapAction="urn:zimbraMail/CreateTag" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createTaskExceptionRequest">
+      <soap:operation soapAction="urn:zimbraMail/CreateTaskException" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createTaskRequest">
+      <soap:operation soapAction="urn:zimbraMail/CreateTask" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createWaitSetRequest">
+      <soap:operation soapAction="urn:zimbraMail/CreateWaitSet" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="declineCounterAppointmentRequest">
+      <soap:operation soapAction="urn:zimbraMail/DeclineCounterAppointment" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteDataSourceRequest">
+      <soap:operation soapAction="urn:zimbraMail/DeleteDataSource" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteDeviceRequest">
+      <soap:operation soapAction="urn:zimbraMail/DeleteDevice" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="destroyWaitSetRequest">
+      <soap:operation soapAction="urn:zimbraMail/DestroyWaitSet" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="diffDocumentRequest">
+      <soap:operation soapAction="urn:zimbraMail/DiffDocument" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="dismissCalendarItemAlarmRequest">
+      <soap:operation soapAction="urn:zimbraMail/DismissCalendarItemAlarm" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="documentActionRequest">
+      <soap:operation soapAction="urn:zimbraMail/DocumentAction" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="emptyDumpsterRequest">
+      <soap:operation soapAction="urn:zimbraMail/EmptyDumpster" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="enableSharedReminderRequest">
+      <soap:operation soapAction="urn:zimbraMail/EnableSharedReminder" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="expandRecurRequest">
+      <soap:operation soapAction="urn:zimbraMail/ExpandRecur" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="exportContactsRequest">
+      <soap:operation soapAction="urn:zimbraMail/ExportContacts" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="folderActionRequest">
+      <soap:operation soapAction="urn:zimbraMail/FolderAction" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="forwardAppointmentInviteRequest">
+      <soap:operation soapAction="urn:zimbraMail/ForwardAppointmentInvite" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="forwardAppointmentRequest">
+      <soap:operation soapAction="urn:zimbraMail/ForwardAppointment" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="generateUUIDRequest">
+      <soap:operation soapAction="urn:zimbraMail/GenerateUUID" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getActivityStreamRequest">
+      <soap:operation soapAction="urn:zimbraMail/GetActivityStream" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAllDevicesRequest">
+      <soap:operation soapAction="urn:zimbraMail/GetAllDevices" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAppointmentRequest">
+      <soap:operation soapAction="urn:zimbraMail/GetAppointment" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getApptSummariesRequest">
+      <soap:operation soapAction="urn:zimbraMail/GetApptSummaries" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCalendarItemSummariesRequest">
+      <soap:operation soapAction="urn:zimbraMail/GetCalendarItemSummaries" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCommentsRequest">
+      <soap:operation soapAction="urn:zimbraMail/GetComments" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getContactsRequest">
+      <soap:operation soapAction="urn:zimbraMail/GetContacts" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getConvRequest">
+      <soap:operation soapAction="urn:zimbraMail/GetConv" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCustomMetadataRequest">
+      <soap:operation soapAction="urn:zimbraMail/GetCustomMetadata" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDataSourcesRequest">
+      <soap:operation soapAction="urn:zimbraMail/GetDataSources" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDocumentShareURLRequest">
+      <soap:operation soapAction="urn:zimbraMail/GetDocumentShareURL" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getEffectiveFolderPermsRequest">
+      <soap:operation soapAction="urn:zimbraMail/GetEffectiveFolderPerms" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getFilterRulesRequest">
+      <soap:operation soapAction="urn:zimbraMail/GetFilterRules" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getFolderRequest">
+      <soap:operation soapAction="urn:zimbraMail/GetFolder" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getFreeBusyRequest">
+      <soap:operation soapAction="urn:zimbraMail/GetFreeBusy" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getICalRequest">
+      <soap:operation soapAction="urn:zimbraMail/GetICal" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getImportStatusRequest">
+      <soap:operation soapAction="urn:zimbraMail/GetImportStatus" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getItemRequest">
+      <soap:operation soapAction="urn:zimbraMail/GetItem" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMailboxMetadataRequest">
+      <soap:operation soapAction="urn:zimbraMail/GetMailboxMetadata" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMiniCalRequest">
+      <soap:operation soapAction="urn:zimbraMail/GetMiniCal" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMsgMetadataRequest">
+      <soap:operation soapAction="urn:zimbraMail/GetMsgMetadata" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMsgRequest">
+      <soap:operation soapAction="urn:zimbraMail/GetMsg" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getNoteRequest">
+      <soap:operation soapAction="urn:zimbraMail/GetNote" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getNotificationsRequest">
+      <soap:operation soapAction="urn:zimbraMail/GetNotifications" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getOutgoingFilterRulesRequest">
+      <soap:operation soapAction="urn:zimbraMail/GetOutgoingFilterRules" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPermissionRequest">
+      <soap:operation soapAction="urn:zimbraMail/GetPermission" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getRecurRequest">
+      <soap:operation soapAction="urn:zimbraMail/GetRecur" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSearchFolderRequest">
+      <soap:operation soapAction="urn:zimbraMail/GetSearchFolder" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getShareDetailsRequest">
+      <soap:operation soapAction="urn:zimbraMail/GetShareDetails" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getShareNotificationsRequest">
+      <soap:operation soapAction="urn:zimbraMail/GetShareNotifications" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSpellDictionariesRequest">
+      <soap:operation soapAction="urn:zimbraMail/GetSpellDictionaries" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSystemRetentionPolicyRequest">
+      <soap:operation soapAction="urn:zimbraMail/GetSystemRetentionPolicy" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getTagRequest">
+      <soap:operation soapAction="urn:zimbraMail/GetTag" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getTaskRequest">
+      <soap:operation soapAction="urn:zimbraMail/GetTask" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getTaskSummariesRequest">
+      <soap:operation soapAction="urn:zimbraMail/GetTaskSummaries" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getWatchersRequest">
+      <soap:operation soapAction="urn:zimbraMail/GetWatchers" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getWatchingItemsRequest">
+      <soap:operation soapAction="urn:zimbraMail/GetWatchingItems" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getWorkingHoursRequest">
+      <soap:operation soapAction="urn:zimbraMail/GetWorkingHours" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getYahooAuthTokenRequest">
+      <soap:operation soapAction="urn:zimbraMail/GetYahooAuthToken" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getYahooCookieRequest">
+      <soap:operation soapAction="urn:zimbraMail/GetYahooCookie" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="grantPermissionRequest">
+      <soap:operation soapAction="urn:zimbraMail/GrantPermission" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="iCalReplyRequest">
+      <soap:operation soapAction="urn:zimbraMail/ICalReply" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="importAppointmentsRequest">
+      <soap:operation soapAction="urn:zimbraMail/ImportAppointments" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="importContactsRequest">
+      <soap:operation soapAction="urn:zimbraMail/ImportContacts" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="importDataRequest">
+      <soap:operation soapAction="urn:zimbraMail/ImportData" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="invalidateReminderDeviceRequest">
+      <soap:operation soapAction="urn:zimbraMail/InvalidateReminderDevice" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="itemActionRequest">
+      <soap:operation soapAction="urn:zimbraMail/ItemAction" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="listDocumentRevisionsRequest">
+      <soap:operation soapAction="urn:zimbraMail/ListDocumentRevisions" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="modifyAppointmentRequest">
+      <soap:operation soapAction="urn:zimbraMail/ModifyAppointment" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="modifyContactRequest">
+      <soap:operation soapAction="urn:zimbraMail/ModifyContact" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="modifyDataSourceRequest">
+      <soap:operation soapAction="urn:zimbraMail/ModifyDataSource" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="modifyFilterRulesRequest">
+      <soap:operation soapAction="urn:zimbraMail/ModifyFilterRules" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="modifyMailboxMetadataRequest">
+      <soap:operation soapAction="urn:zimbraMail/ModifyMailboxMetadata" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="modifyOutgoingFilterRulesRequest">
+      <soap:operation soapAction="urn:zimbraMail/ModifyOutgoingFilterRules" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="modifySearchFolderRequest">
+      <soap:operation soapAction="urn:zimbraMail/ModifySearchFolder" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="modifyTaskRequest">
+      <soap:operation soapAction="urn:zimbraMail/ModifyTask" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="msgActionRequest">
+      <soap:operation soapAction="urn:zimbraMail/MsgAction" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="noOpRequest">
+      <soap:operation soapAction="urn:zimbraMail/NoOp" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="noteActionRequest">
+      <soap:operation soapAction="urn:zimbraMail/NoteAction" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="purgeRevisionRequest">
+      <soap:operation soapAction="urn:zimbraMail/PurgeRevision" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="rankingActionRequest">
+      <soap:operation soapAction="urn:zimbraMail/RankingAction" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="registerDeviceRequest">
+      <soap:operation soapAction="urn:zimbraMail/RegisterDevice" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="removeAttachmentsRequest">
+      <soap:operation soapAction="urn:zimbraMail/RemoveAttachments" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="revokePermissionRequest">
+      <soap:operation soapAction="urn:zimbraMail/RevokePermission" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="saveDocumentRequest">
+      <soap:operation soapAction="urn:zimbraMail/SaveDocument" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="saveDraftRequest">
+      <soap:operation soapAction="urn:zimbraMail/SaveDraft" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="searchConvRequest">
+      <soap:operation soapAction="urn:zimbraMail/SearchConv" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="searchRequest">
+      <soap:operation soapAction="urn:zimbraMail/Search" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="sendDeliveryReportRequest">
+      <soap:operation soapAction="urn:zimbraMail/SendDeliveryReport" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="sendInviteReplyRequest">
+      <soap:operation soapAction="urn:zimbraMail/SendInviteReply" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="sendMsgRequest">
+      <soap:operation soapAction="urn:zimbraMail/SendMsg" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="sendShareNotificationRequest">
+      <soap:operation soapAction="urn:zimbraMail/SendShareNotification" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="sendVerificationCodeRequest">
+      <soap:operation soapAction="urn:zimbraMail/SendVerificationCode" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setAppointmentRequest">
+      <soap:operation soapAction="urn:zimbraMail/SetAppointment" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setCustomMetadataRequest">
+      <soap:operation soapAction="urn:zimbraMail/SetCustomMetadata" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setMailboxMetadataRequest">
+      <soap:operation soapAction="urn:zimbraMail/SetMailboxMetadata" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setTaskRequest">
+      <soap:operation soapAction="urn:zimbraMail/SetTask" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="snoozeCalendarItemAlarmRequest">
+      <soap:operation soapAction="urn:zimbraMail/SnoozeCalendarItemAlarm" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="syncRequest">
+      <soap:operation soapAction="urn:zimbraMail/Sync" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="tagActionRequest">
+      <soap:operation soapAction="urn:zimbraMail/TagAction" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="testDataSourceRequest">
+      <soap:operation soapAction="urn:zimbraMail/TestDataSource" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateDeviceStatusRequest">
+      <soap:operation soapAction="urn:zimbraMail/UpdateDeviceStatus" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="verifyCodeRequest">
+      <soap:operation soapAction="urn:zimbraMail/VerifyCode" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="waitSetRequest">
+      <soap:operation soapAction="urn:zimbraMail/WaitSet" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="becomeMasterRequest">
+      <soap:operation soapAction="urn:zimbraRepl/BecomeMaster" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="bringDownServiceIPRequest">
+      <soap:operation soapAction="urn:zimbraRepl/BringDownServiceIP" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="bringUpServiceIPRequest">
+      <soap:operation soapAction="urn:zimbraRepl/BringUpServiceIP" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="replicationStatusRequest">
+      <soap:operation soapAction="urn:zimbraRepl/ReplicationStatus" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="startCatchupRequest">
+      <soap:operation soapAction="urn:zimbraRepl/StartCatchup" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="startFailoverClientRequest">
+      <soap:operation soapAction="urn:zimbraRepl/StartFailoverClient" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="startFailoverDaemonRequest">
+      <soap:operation soapAction="urn:zimbraRepl/StartFailoverDaemon" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="stopFailoverClientRequest">
+      <soap:operation soapAction="urn:zimbraRepl/StopFailoverClient" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="stopFailoverDaemonRequest">
+      <soap:operation soapAction="urn:zimbraRepl/StopFailoverDaemon" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="cancelPendingRemoteWipeRequest">
+      <soap:operation soapAction="urn:zimbraSync/CancelPendingRemoteWipe" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDeviceStatusRequest">
+      <soap:operation soapAction="urn:zimbraSync/GetDeviceStatus" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="remoteWipeRequest">
+      <soap:operation soapAction="urn:zimbraSync/RemoteWipe" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="removeDeviceRequest">
+      <soap:operation soapAction="urn:zimbraSync/RemoveDevice" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="resumeDeviceRequest">
+      <soap:operation soapAction="urn:zimbraSync/ResumeDevice" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="suspendDeviceRequest">
+      <soap:operation soapAction="urn:zimbraSync/SuspendDevice" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="changeUCPasswordRequest">
+      <soap:operation soapAction="urn:zimbraVoice/ChangeUCPassword" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getUCInfoRequest">
+      <soap:operation soapAction="urn:zimbraVoice/GetUCInfo" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getVoiceFeaturesRequest">
+      <soap:operation soapAction="urn:zimbraVoice/GetVoiceFeatures" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getVoiceFolderRequest">
+      <soap:operation soapAction="urn:zimbraVoice/GetVoiceFolder" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getVoiceInfoRequest">
+      <soap:operation soapAction="urn:zimbraVoice/GetVoiceInfo" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getVoiceMailPrefsRequest">
+      <soap:operation soapAction="urn:zimbraVoice/GetVoiceMailPrefs" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="modifyFromNumRequest">
+      <soap:operation soapAction="urn:zimbraVoice/ModifyFromNum" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="modifyVoiceFeaturesRequest">
+      <soap:operation soapAction="urn:zimbraVoice/ModifyVoiceFeatures" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="modifyVoiceMailPinRequest">
+      <soap:operation soapAction="urn:zimbraVoice/ModifyVoiceMailPin" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="modifyVoiceMailPrefsRequest">
+      <soap:operation soapAction="urn:zimbraVoice/ModifyVoiceMailPrefs" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="resetVoiceFeaturesRequest">
+      <soap:operation soapAction="urn:zimbraVoice/ResetVoiceFeatures" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="searchVoiceRequest">
+      <soap:operation soapAction="urn:zimbraVoice/SearchVoice" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="uploadVoiceMailRequest">
+      <soap:operation soapAction="urn:zimbraVoice/UploadVoiceMail" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="voiceMsgActionRequest">
+      <soap:operation soapAction="urn:zimbraVoice/VoiceMsgAction" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="svc:soapHdrContext" part="context" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="zcsService">
+    <wsdl:port name="zcsServicePort" binding="svc:zcsPortBinding">
+      <soap:address location="https://mail.iwayvietnam.com:443/service/soap/"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
