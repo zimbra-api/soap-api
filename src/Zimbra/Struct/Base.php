@@ -51,7 +51,7 @@ abstract class Base
 
     /**
      * Xml namespace
-     * @var array
+     * @var string
      */
     private $_xmlNamespace = null;
 
