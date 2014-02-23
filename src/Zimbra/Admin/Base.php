@@ -31,7 +31,7 @@ use Zimbra\Admin\Struct\LimitedQuery;
 use Zimbra\Admin\Struct\LoggerInfo as Logger;
 use Zimbra\Admin\Struct\MailboxByAccountIdSelector as MailboxId;
 use Zimbra\Admin\Struct\Names;
-use Zimbra\Admin\Struct\Policy;
+use Zimbra\Admin\Struct\PolicyHolder;
 use Zimbra\Admin\Struct\PrincipalSelector as Principal;
 use Zimbra\Admin\Struct\ReindexMailboxInfo as ReindexMailbox;
 use Zimbra\Admin\Struct\RightModifierInfo as RightModifier;
@@ -44,6 +44,8 @@ use Zimbra\Admin\Struct\TargetWithType;
 use Zimbra\Admin\Struct\TimeAttr;
 use Zimbra\Admin\Struct\UcServiceSelector as UcService;
 use Zimbra\Admin\Struct\VolumeInfo as Volume;
+use Zimbra\Admin\Struct\WaitSetSpec;
+use Zimbra\Admin\Struct\WaitSetId;
 use Zimbra\Admin\Struct\XmppComponentSelector as XmppComponent;
 use Zimbra\Admin\Struct\XmppComponentSpec as Xmpp;
 use Zimbra\Admin\Struct\ZimletAclStatusPri as ZimletAcl;
@@ -205,18 +207,19 @@ abstract class Base extends API implements AdminInterface
      *   d. documents
      *   all. all types (equiv to "f,m,c,a,t,d")
      *
+     * @param  WaitSetSpec $waitSets The WaitSet add spec.
      * @param  array $defTypes Default interest types.
-     * @param  array $waitSets The WaitSet add spec array.
      * @param  bool  $allAccounts If all is set, then all mailboxes on the system will be listened to, including any mailboxes which are created on the system while the WaitSet is in existence.
      * @return mix
      */
     public function adminCreateWaitSet(
-        array $defTypes,
-        array $waitSets = array(),
-        $allAccounts = null)
+        WaitSetSpec $add = null,
+        array $defTypes = array(),
+        $allAccounts = null
+    )
     {
         $request = new \Zimbra\Admin\Request\AdminCreateWaitSet(
-            $defTypes, $allAccounts, $waitSets
+            $add, $defTypes, $allAccounts
         );
         return $this->_client->doRequest($request);
     }
@@ -263,16 +266,16 @@ abstract class Base extends API implements AdminInterface
     public function adminWaitSet(
         $waitSet,
         $seq,
+        WaitSetSpec $add = null,
+        WaitSetSpec $update = null,
+        WaitSetId $remove = null,
         $block = null,
         array $defTypes = array(),
-        $timeout = null,
-        array $addWaitSets = array(),
-        array $updateWaitSets = array(),
-        array $removeWaitSets = array())
+        $timeout = null
+    )
     {
         $request = new \Zimbra\Admin\Request\AdminWaitSet(
-            $waitSet, $seq, $block, $defTypes, $timeout,
-            $addWaitSets, $updateWaitSets, $removeWaitSets
+            $waitSet, $seq, $add, $update, $remove, $block, $defTypes, $timeout
         );
         return $this->_client->doRequest($request);
     }
@@ -332,12 +335,11 @@ abstract class Base extends API implements AdminInterface
      * Authenticate for an adminstration account.
      *
      * @param  string $token The authentication token.
-     * @param  string $vhost Virtual-host is used to determine the domain of the account name.
      * @return authentication token.
      */
-    public function authByToken($token, $vhost = null)
+    public function authByToken($token)
     {
-        return $this->auth(null, null, $token, null, $vhost, true);
+        return $this->auth(null, null, $token, null, null, true);
     }
 
     /**
@@ -579,13 +581,13 @@ abstract class Base extends API implements AdminInterface
      * @param array   $attrs   Attributes.
      * @return mix
      */
-    public function checkRights(
+    public function checkRight(
         Target $target,
         Grantee $grantee,
         $right,
         array $attrs = array())
     {
-        $request = new \Zimbra\Admin\Request\CheckRights(
+        $request = new \Zimbra\Admin\Request\CheckRight(
             $target, $grantee, $right, $attrs
         );
         return $this->_client->doRequest($request);
@@ -831,28 +833,29 @@ abstract class Base extends API implements AdminInterface
      *   5. passed in attrs in <a/> are used to initialize the gal data source.
      *   6. server is a required parameter and specifies the mailhost on which this account resides.
      *
+     * @param Account $account The name used to identify the account.
      * @param string $name Name of the data source.
      * @param string $domain Domain name.
      * @param GalMode $type GalMode type. Valid values: (both|ldap|zimbra).
      * @param string $server The mailhost on which this account resides.
-     * @param Account $account The name used to identify the account.
      * @param string $password Password.
      * @param string $folder Contact folder name.
      * @param array  $attrs Attributes.
      * @return mix
      */
     public function createGalSyncAccount(
+        Account $account,
         $name,
         $domain,
         GalMode $type,
         $server,
-        Account $account,
         $password = null,
         $folder = null,
-        array $attrs = array())
+        array $attrs = array()
+    )
     {
         $request = new \Zimbra\Admin\Request\CreateGalSyncAccount(
-            $name, $domain, $type, $server, $account, $password, $folder, $attrs
+            $account, $name, $domain, $type, $server, $password, $folder, $attrs
         );
         return $this->_client->doRequest($request);
     }
@@ -867,7 +870,7 @@ abstract class Base extends API implements AdminInterface
     public function createLDAPEntry($dn, array $attrs = array())
     {
         $request = new \Zimbra\Admin\Request\CreateLDAPEntry(
-            $name, $attrs
+            $dn, $attrs
         );
         return $this->_client->doRequest($request);
     }
@@ -894,14 +897,15 @@ abstract class Base extends API implements AdminInterface
      * to edit named system retention policies that users can apply to folders and tags.
      *
      * @param  string $cos   The name used to identify the COS.
-     * @param  Policy $keep  Keep policy details.
-     * @param  Policy $purge Purge policy details.
+     * @param  PolicyHolder $keep  Keep policy details.
+     * @param  PolicyHolder $purge Purge policy details.
      * @return mix
      */
     public function createSystemRetentionPolicy(
         Cos $cos = null,
-        Policy $keep = null,
-        Policy $purge = null)
+        PolicyHolder $keep = null,
+        PolicyHolder $purge = null
+    )
     {
         $request = new \Zimbra\Admin\Request\CreateSystemRetentionPolicy(
             $cos, $keep, $purge
