@@ -19,6 +19,7 @@ use Zimbra\Voice\Struct\ModifyVoiceMailPinSpec;
 use Zimbra\Voice\Struct\PhoneInfo;
 use Zimbra\Voice\Struct\PhoneSpec;
 use Zimbra\Voice\Struct\PhoneVoiceFeaturesSpec;
+use Zimbra\Voice\Struct\ResetPhoneVoiceFeaturesSpec;
 use Zimbra\Voice\Struct\StorePrincipalSpec;
 use Zimbra\Voice\Struct\VoiceMsgActionSpec;
 use Zimbra\Voice\Struct\VoiceMsgUploadSpec;
