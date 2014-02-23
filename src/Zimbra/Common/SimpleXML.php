@@ -78,6 +78,11 @@ class SimpleXML extends SimpleXMLElement
     public function append(SimpleXML $xml, $namespace = null)
     {
         $value = trim((string) $xml);
+        $namespaces = array_values($xml->getNamespaces());
+        if(isset($namespaces[0]))
+        {
+            $namespace = $namespaces[0];
+        }
         $newChild = $this->addChild($xml->getName(), !empty($value) ? $value : null, $namespace);
         foreach($xml->attributes() as $name => $value)
         {
