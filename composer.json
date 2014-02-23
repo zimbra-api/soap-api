@@ -14,12 +14,10 @@
     "require": {
         "guzzle/http": "3.*",
         "guzzle/plugin-cookie": "3.*",
-        "phpcollection/phpcollection": "0.*",
-        "ext-soap": "*"
+        "phpcollection/phpcollection": "0.*"
     },
-    "require-dev": {
-        "zendframework/zend-soap": "2.2.*",
-        "react/http": "0.3.*"
+    "suggest": {
+        "ext-soap": "*"
     },
     "autoload": {
         "psr-0": {
