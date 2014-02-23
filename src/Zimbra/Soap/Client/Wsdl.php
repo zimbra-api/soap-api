@@ -172,7 +172,8 @@ class Wsdl extends \SoapClient implements ClientInterface
     {
         $soapHeader = $this->soapHeader();
         $requestArr = $request->toArray();
-        $parameters = array('parameters' => $requestArr[$request->requestName()]);
+        $params = $this->_processParameters($requestArr[$request->requestName()]);
+        $parameters = array('parameters' => $params);
         if($soapHeader instanceof \SoapHeader)
         {
             return $this->__soapCall($request->requestName(), $parameters, null, $soapHeader);
@@ -221,5 +222,24 @@ class Wsdl extends \SoapClient implements ClientInterface
     public function lastResponseHeaders()
     {
         return Text::extractHeaders($this->__getLastResponseHeaders());
+    }
+
+    private function _processParameters(array $parameters = array())
+    {
+        foreach($parameters as $key => $value)
+        {
+            if(is_array($value))
+            {
+                if(count($value) === 0)
+                {
+                    $parameters[$key] = $key;
+                }
+                else
+                {
+                    $parameters[$key] = $this->_processParameters($value);
+                }
+            }
+        }
+        return $parameters;
     }
 }
