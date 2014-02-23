@@ -4,6 +4,8 @@ namespace Zimbra\Tests\Account;
 
 use Zimbra\Tests\ZimbraTestCase;
 
+use Zimbra\Account\AccountFactory;
+
 use Zimbra\Enum\AccountBy;
 use Zimbra\Enum\AceRightType;
 use Zimbra\Enum\ConditionOperator as CondOp;
@@ -23,11 +25,23 @@ use Zimbra\Enum\ZimletStatus;
 use Zimbra\Tests\Soap\LocalClientWsdl;
 use Zimbra\Tests\Soap\LocalClientHttp;
 use Zimbra\Account\Base as AccountBase;
+
 /**
- * Testcase class for account request.
+ * Api test case class for account request.
  */
 class ApiTest extends ZimbraTestCase
 {
+    public function testAccountFactory()
+    {
+        $httpApi = AccountFactory::instance();
+        $this->assertInstanceOf('\Zimbra\Account\Base', $httpApi);
+        $this->assertInstanceOf('\Zimbra\Account\Http', $httpApi);
+
+        $httpApi = AccountFactory::instance(__DIR__.'/../TestData/ZimbraUserService.wsdl', 'wsdl');
+        $this->assertInstanceOf('\Zimbra\Account\Base', $httpApi);
+        $this->assertInstanceOf('\Zimbra\Account\Wsdl', $httpApi);
+    }
+
     public function testAuth()
     {
         $account = new \Zimbra\Struct\AccountSelector(AccountBy::NAME(), 'value');

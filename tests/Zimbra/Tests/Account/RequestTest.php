@@ -1255,7 +1255,7 @@ class RequestTest extends ZimbraTestCase
         $this->assertSame('attrs', $req->attrs());
 
         $req->locale('locale')
-        	->cursor($cursor)
+            ->cursor($cursor)
             ->name('name')
             ->searchFilter($filter)
             ->quick(true)
@@ -1277,7 +1277,7 @@ class RequestTest extends ZimbraTestCase
 
         $xml = '<?xml version="1.0"?>'."\n"
             .'<SearchCalendarResourcesRequest quick="true" sortBy="sortBy" limit="10" offset="10" galAcctId="galAcctId" attrs="attrs">'
-            	.'<locale>locale</locale>'
+                .'<locale>locale</locale>'
                 .'<cursor id="id" sortVal="sortVal" endSortVal="endSortVal" includeOffset="true" />'
                 .'<name>name</name>'
                 .'<searchFilter>'
@@ -1373,7 +1373,7 @@ class RequestTest extends ZimbraTestCase
         $this->assertSame(100, $req->offset());
 
         $req->locale('locale')
-        	->cursor($cursor)
+            ->cursor($cursor)
             ->searchFilter($filter)
             ->ref('ref')
             ->name('name')
@@ -1405,7 +1405,7 @@ class RequestTest extends ZimbraTestCase
 
         $xml = '<?xml version="1.0"?>'."\n"
             .'<SearchGalRequest ref="ref" name="name" type="account" needExp="true" needIsOwner="true" needIsMember="directOnly" needSMIMECerts="true" galAcctId="galAcctId" quick="true" sortBy="dateAsc" limit="10" offset="10">'
-            	.'<locale>locale</locale>'
+                .'<locale>locale</locale>'
                 .'<cursor id="id" sortVal="sortVal" endSortVal="endSortVal" includeOffset="true" />'
                 .'<searchFilter>'
                     .'<conds not="true" or="false">'
