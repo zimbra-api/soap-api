@@ -233,8 +233,8 @@ class RequestTest extends ZimbraTestCase
     public function testAdminCreateWaitSet()
     {
         $a = new \Zimbra\Admin\Struct\WaitSetAddSpec(
-        	'name', 'id', 'token', array(InterestType::MESSAGES(), InterestType::CONTACTS())
-    	);
+            'name', 'id', 'token', array(InterestType::MESSAGES(), InterestType::CONTACTS())
+        );
         $add = new \Zimbra\Admin\Struct\WaitSetSpec(array($a));
         $req = new \Zimbra\Admin\Request\AdminCreateWaitSet(
             $add, array(InterestType::FOLDERS()), false
@@ -1165,7 +1165,7 @@ class RequestTest extends ZimbraTestCase
 
         $xml = '<?xml version="1.0"?>'."\n"
             .'<CreateCosRequest>'
-            	.'<name>name</name>'
+                .'<name>name</name>'
                 .'<a n="key">value</a>'
             .'</CreateCosRequest>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
@@ -1439,10 +1439,10 @@ class RequestTest extends ZimbraTestCase
             .'<CreateSystemRetentionPolicyRequest>'
                 .'<cos by="name">value</cos>'
                 .'<keep>'
-                    .'<policy type="system" id="id" name="name" lifetime="lifetime" />'
+                    .'<policy xmlns="urn:zimbraMail" type="system" id="id" name="name" lifetime="lifetime" />'
                 .'</keep>'
                 .'<purge>'
-                    .'<policy type="user" id="id" name="name" lifetime="lifetime" />'
+                    .'<policy xmlns="urn:zimbraMail" type="user" id="id" name="name" lifetime="lifetime" />'
                 .'</purge>'
             .'</CreateSystemRetentionPolicyRequest>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
