@@ -3240,8 +3240,11 @@ class RequestTest extends ZimbraTestCase
     public function testGetConfig()
     {
         $attr = new \Zimbra\Struct\KeyValuePair('key', 'value');
-        $req = new \Zimbra\Admin\Request\GetConfig(array($attr));
-        $this->assertInstanceOf('Zimbra\Admin\Request\BaseAttr', $req);
+        $req = new \Zimbra\Admin\Request\GetConfig($attr);
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
+        $this->assertSame($attr, $req->attr());
+        $req->attr($attr);
+        $this->assertSame($attr, $req->attr());
 
         $xml = '<?xml version="1.0"?>'."\n"
             .'<GetConfigRequest>'
@@ -3252,10 +3255,8 @@ class RequestTest extends ZimbraTestCase
         $array = array(
             'GetConfigRequest' => array(
                 'a' => array(
-                    array(
-                        'n' => 'key',
-                        '_' => 'value',
-                    ),
+                    'n' => 'key',
+                    '_' => 'value',
                 )
             ),
         );
@@ -3525,7 +3526,6 @@ class RequestTest extends ZimbraTestCase
         );
         $this->assertEquals($array, $req->toArray());
     }
-
 
     public function testGetDistributionListMembership()
     {
@@ -4101,7 +4101,9 @@ class RequestTest extends ZimbraTestCase
         $this->assertTrue($req->expandAllAttrs());
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<GetRightRequest right="right" expandAllAttrs="true" />';
+            .'<GetRightRequest expandAllAttrs="true">'
+                .'<right>right</right>'
+            .'</GetRightRequest>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
         $array = array(
