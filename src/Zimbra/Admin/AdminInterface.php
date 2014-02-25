@@ -30,6 +30,7 @@ use Zimbra\Admin\Struct\LoggerInfo as Logger;
 use Zimbra\Admin\Struct\LimitedQuery;
 use Zimbra\Admin\Struct\MailboxByAccountIdSelector as MailboxId;
 use Zimbra\Admin\Struct\Names;
+use Zimbra\Admin\Struct\Policy;
 use Zimbra\Admin\Struct\PolicyHolder;
 use Zimbra\Admin\Struct\PrincipalSelector as Principal;
 use Zimbra\Admin\Struct\ReindexMailboxInfo as ReindexMailbox;
@@ -41,6 +42,7 @@ use Zimbra\Admin\Struct\SyncGalAccountSpec as SyncGalAccount;
 use Zimbra\Admin\Struct\StatsSpec;
 use Zimbra\Admin\Struct\TargetWithType;
 use Zimbra\Admin\Struct\TimeAttr;
+use Zimbra\Admin\Struct\TzFixup;
 use Zimbra\Admin\Struct\UcServiceSelector as UcService;
 use Zimbra\Admin\Struct\VolumeInfo as Volume;
 use Zimbra\Admin\Struct\WaitSetSpec;
@@ -52,6 +54,7 @@ use Zimbra\Admin\Struct\ZimletAclStatusPri as ZimletAcl;
 use Zimbra\Struct\AccountSelector as Account;
 use Zimbra\Struct\GranteeChooser;
 use Zimbra\Struct\Id;
+use Zimbra\Struct\KeyValuePair;
 use Zimbra\Struct\NamedElement;
 
 use Zimbra\Enum\AutoProvTaskAction as TaskAction;
@@ -911,17 +914,17 @@ interface AdminInterface
      * Fix timezone definitions in appointments and tasks to reflect changes
      * in daylight savings time rules in various timezones.
      *
-     * @param  bool  $sync       Sync flag.
-     * @param  int   $after      Fix appts/tasks that have instances after this time, default = January 1, 2008 00:00:00 in GMT+13:00 timezone.
-     * @param  array $accounts   Account names.
-     * @param  array $fixupRules Fixup rules.
+     * @param  array $account Account names.
+     * @param  TzFixup $fixupRules Fixup rules.
+     * @param  bool  $sync    Sync flag.
+     * @param  int   $after   Fix appts/tasks that have instances after this time, default = January 1, 2008 00:00:00 in GMT+13:00 timezone.
      * @return mix
      */
     function fixCalendarTZ(
+        array $account = array(),
+        TzFixup $tzfixup = null,
         $sync = null,
-        $after = null,
-        array $accounts = array(),
-        array $fixupRules = array()
+        $after = null
     );
 
     /**
@@ -956,7 +959,8 @@ interface AdminInterface
      * @param array $subjectAltName Used to add the Subject Alt Name extension in the certificate, so multiple hosts can be supported
      * @return mix
      */
-    function genCSR($server,
+    function genCSR(
+        $server,
         $isNew,
         CSRType $type,
         CSRKeySize $keysize,
@@ -1115,7 +1119,7 @@ interface AdminInterface
      * Get all effective Admin rights.
      *
      * @param  Grantee $grantee The name used to identify the grantee.
-     * @param  string $expandAllAttrs Flags whether to include all attribute names if the right is meant for all attributes.
+     * @param  bool $expandAllAttrs Flags whether to include all attribute names if the right is meant for all attributes.
      * @return mix
      */
     function getAllEffectiveRights(Grantee $grantee = null, $expandAllAttrs = null);
@@ -1229,12 +1233,12 @@ interface AdminInterface
      * Get a calendar resource.
      * Access: domain admin sufficient.
      *
-     * @param  Calendar $calResource Specify calendar resource.
+     * @param  CalendarResource $calResource Specify calendar resource.
      * @param  bool $applyCos Flag whether to apply Class of Service (COS).
      * @param  string $attrs Comma separated list of attributes.
      * @return mix
      */
-    function getCalendarResource(Calendar $calResource = null, $applyCos = null, $attrs = null);
+    function getCalendarResource(CalendarResource $calResource = null, $applyCos = null, $attrs = null);
 
     /**
      * Get Certificate.
@@ -1251,10 +1255,10 @@ interface AdminInterface
     /**
      * Get Config request.
      *
-     * @param  array $attrs Array of attributes.
+     * @param  KeyValuePair $attr Attribute.
      * @return mix
      */
-    function getConfig(array $attrs = array());
+    function getConfig(KeyValuePair $attr = null);
 
     /**
      * Get Class Of Service (COS).
