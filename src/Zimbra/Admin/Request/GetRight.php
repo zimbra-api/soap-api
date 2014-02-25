@@ -31,7 +31,7 @@ class GetRight extends Base
     public function __construct($right, $expandAllAttrs = null)
     {
         parent::__construct();
-        $this->property('right', trim($right));
+        $this->child('right', trim($right));
         if(null !== $expandAllAttrs)
         {
             $this->property('expandAllAttrs', (bool) $expandAllAttrs);
@@ -48,9 +48,9 @@ class GetRight extends Base
     {
         if(null === $right)
         {
-            return $this->property('right');
+            return $this->child('right');
         }
-        return $this->property('right', trim($right));
+        return $this->child('right', trim($right));
     }
 
     /**
