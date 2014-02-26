@@ -2010,18 +2010,6 @@ interface AdminInterface
     function queryWaitSet($waitSet = null);
 
     /**
-     * ReIndex.
-     * Access: domain admin sufficient.
-     * Note: This request is by default proxied to the account's home server.
-     * Note: Only one of {ids} and {types} may be specified.
-     * 
-     * @param  ReindexMailbox $mbox  Specify reindexing to perform.
-     * @param  ReIndexAction $action Action to perform.
-     * @return mix
-     */
-    function reIndex(ReindexMailbox $mbox, ReIndexAction $action = null);
-
-    /**
      * Recalculate Mailbox counts.
      * Forces immediate recalculation of total mailbox quota usage and all folder unread
      * and size counts.
@@ -2032,6 +2020,18 @@ interface AdminInterface
      * @return mix
      */
     function recalculateMailboxCounts(MailboxId $mbox);
+
+    /**
+     * ReIndex.
+     * Access: domain admin sufficient.
+     * Note: This request is by default proxied to the account's home server.
+     * Note: Only one of {ids} and {types} may be specified.
+     * 
+     * @param  ReindexMailbox $mbox  Specify reindexing to perform.
+     * @param  ReIndexAction $action Action to perform.
+     * @return mix
+     */
+    function reIndex(ReindexMailbox $mbox, ReIndexAction $action = null);
 
     /**
      * Reload LocalConfig.
