@@ -55,6 +55,12 @@ class Message
     private $_namespace;
 
     /**
+     * The xml namespaces
+     * @var array
+     */
+    private $_namespaces = array('urn:zimbra');
+
+    /**
      * The soap version
      * @var string
      */
@@ -78,6 +84,10 @@ class Message
     public function __construct($namespace = 'urn:zimbra', $version = self::SOAP_1_2)
     {
         $this->_namespace = empty($namespace) ? 'urn:zimbra' : $namespace;
+        if(!in_array($namespace, $this->_namespaces) && !empty($namespace))
+        {
+            $this->_namespaces[] = (string) $namespace;
+        }
         $this->_version = in_array($version, array(self::SOAP_1_2, self::SOAP_1_1)) ? $version : self::SOAP_1_2;
     }
 
@@ -95,6 +105,24 @@ class Message
         }
         $this->_body = $body;
         return $this;
+    }
+
+    public function addNamespace($namespace)
+    {
+        if(is_array($namespace))
+        {
+            foreach ($namespace as $ns)
+            {
+                $this->addNamespace($ns);
+            }
+        }
+        else
+        {
+            if(!in_array($namespace, $this->_namespaces) && !empty($namespace))
+            {
+                $this->_namespaces[] = (string) $namespace;
+            }
+        }
     }
 
     /**
@@ -169,21 +197,19 @@ class Message
     public function toXml()
     {
         $soapNamespace = ($this->_version === self::SOAP_1_2) ? self::NS_SOAP_1_2 : self::NS_SOAP_1_1;
-        if($this->_namespace === 'urn:zimbra')
+        $nsString = 'xmlns:env="'.$soapNamespace.'"';
+        foreach ($this->_namespaces as $key => $ns)
         {
-            $message = 
-                '<env:Envelope xmlns:env="'.$soapNamespace.'" '
-                             .'xmlns:urn="urn:zimbra">'
-                .'</env:Envelope>';
+            if($key > 0)
+            {
+                $nsString .= sprintf(' xmlns:urn%d="%s"', $key, $ns);
+            }
+            else
+            {
+                $nsString .= sprintf(' xmlns:urn="%s"', $ns);
+            }
         }
-        else
-        {
-            $message = 
-                '<env:Envelope xmlns:env="'.$soapNamespace.'" '
-                             .'xmlns:urn="urn:zimbra" '
-                             .'xmlns:urn1="'.$this->_namespace.'">'
-                .'</env:Envelope>';
-        }
+        $message = sprintf('<env:Envelope %s></env:Envelope>', $nsString);
         $xml = new SimpleXML($message);
         if(count($this->_headers))
         {

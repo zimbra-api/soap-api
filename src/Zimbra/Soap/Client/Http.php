@@ -176,8 +176,10 @@ class Http implements ClientInterface
      */
     public function doRequest(SoapRequest $request)
     {
-        $requestXml = $request->toXml();
+        $xml = $request->toXml();
+        $namespaces = array_values($xml->getDocNamespaces(true));
         $this->soapMessage = new Message($request->requestNamespace());
+        $this->soapMessage->addNamespace($namespaces);
         if(!empty($this->authToken))
         {
             $this->soapMessage->addHeader('authToken', $this->authToken);
@@ -186,12 +188,12 @@ class Http implements ClientInterface
         {
             $this->soapMessage->addHeader('sessionId', $this->sessionId);
         }
-        $this->soapMessage->body($requestXml);
+        $this->soapMessage->body($xml);
         $response = $this->__doRequest($this->soapMessage->__toString(), array(
                 'Content-Type' => $this->soapMessage->contentType(),
                 'Method'       => 'POST',
                 'User-Agent'   => isset($_SERVER['HTTP_USER_AGENT']) ? $_SERVER['HTTP_USER_AGENT'] : 'PHP-Zimbra-Soap-API',
-                'SoapAction' => $request->requestNamespace().'#'.$requestXml->getName()
+                'SoapAction' => $request->requestNamespace().'#'.$xml->getName()
             )
         );
         return $request->processResponse($response);
