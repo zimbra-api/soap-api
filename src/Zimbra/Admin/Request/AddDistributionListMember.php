@@ -54,9 +54,12 @@ class AddDistributionListMember extends Base
             throw new \InvalidArgumentException('AddDistributionListMember must have at least one member');
         }
 
-        $this->addHook(function($sender)
+        $this->on('before', function(Base $sender)
         {
-            $sender->child('dlm', $sender->dlm()->all());
+            if($sender->dlm()->count())
+            {
+                $sender->child('dlm', $sender->dlm()->all());
+            }
         });
     }
 

@@ -63,10 +63,16 @@ class CheckBlobConsistency extends Base
             $this->property('reportUsedBlobs', (bool) $reportUsedBlobs);
         }
 
-        $this->addHook(function($sender)
+        $this->on('before', function(Base $sender)
         {
-            $sender->child('volume', $sender->volume()->all());
-            $sender->child('mbox', $sender->mbox()->all());
+            if($sender->volume()->count())
+            {
+                $sender->child('volume', $sender->volume()->all());
+            }
+            if($sender->mbox()->count())
+            {
+                $sender->child('mbox', $sender->mbox()->all());
+            }
         });
     }
 

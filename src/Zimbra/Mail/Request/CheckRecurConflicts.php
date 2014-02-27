@@ -100,13 +100,13 @@ class CheckRecurConflicts extends Base
             $this->property('excludeUid', trim($excludeUid));
         }
 
-        $this->addHook(function($sender)
+        $this->on('before', function(Base $sender)
         {
-            if(count($sender->tz()))
+            if($sender->tz()->count())
             {
                 $sender->child('tz', $sender->tz()->all());
             }
-            if(count($sender->usr()))
+            if($sender->usr()->count())
             {
                 $sender->child('usr', $sender->usr()->all());
             }

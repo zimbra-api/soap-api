@@ -79,9 +79,12 @@ class CalOrganizer extends Base
             $this->property('lang', trim($lang));
         }
 
-        $this->addHook(function($sender)
+        $this->on('before', function(Base $sender)
         {
-            $sender->child('xparam', $sender->xparam()->all());
+            if($sender->xparam()->count())
+            {
+                $sender->child('xparam', $sender->xparam()->all());
+            }
         });
     }
 

@@ -41,9 +41,12 @@ class ModifyAdminSavedSearches extends Base
         parent::__construct();
         $this->_search = new TypedSequence('Zimbra\Struct\NamedValue', $search);
 
-        $this->addHook(function($sender)
+        $this->on('before', function(Base $sender)
         {
-            $sender->child('search', $sender->search()->all());
+            if($sender->search()->count())
+            {
+                $sender->child('search', $sender->search()->all());
+            }
         });
     }
 

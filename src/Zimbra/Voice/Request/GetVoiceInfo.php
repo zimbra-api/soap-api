@@ -41,9 +41,9 @@ class GetVoiceInfo extends Base
         parent::__construct();
         $this->_phone = new TypedSequence('Zimbra\Voice\Struct\PhoneSpec', $phones);
 
-        $this->addHook(function($sender)
+        $this->on('before', function(Base $sender)
         {
-            if(count($sender->phone()))
+            if($sender->phone()->count())
             {
                 $sender->child('phone', $sender->phone()->all());
             }

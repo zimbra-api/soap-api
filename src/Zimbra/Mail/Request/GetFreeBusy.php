@@ -75,9 +75,9 @@ class GetFreeBusy extends Base
         }
         $this->_usr = new TypedSequence('Zimbra\Mail\Struct\FreeBusyUserSpec', $usr);
 
-        $this->addHook(function($sender)
+        $this->on('before', function(Base $sender)
         {
-            if(count($sender->usr()))
+            if($sender->usr()->count())
             {
                 $sender->child('usr', $sender->usr()->all());
             }

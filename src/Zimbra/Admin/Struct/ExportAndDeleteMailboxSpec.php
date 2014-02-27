@@ -45,9 +45,12 @@ class ExportAndDeleteMailboxSpec extends Base
             'Zimbra\Admin\Struct\ExportAndDeleteItemSpec', $items
         );
 
-        $this->addHook(function($sender)
+        $this->on('before', function(Base $sender)
         {
-            $sender->child('item', $sender->item()->all());
+            if($sender->item()->count())
+            {
+                $sender->child('item', $sender->item()->all());
+            }
         });
     }
 

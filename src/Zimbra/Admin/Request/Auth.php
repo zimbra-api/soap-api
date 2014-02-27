@@ -10,7 +10,6 @@
 
 namespace Zimbra\Admin\Request;
 
-use Zimbra\Soap\Request;
 use Zimbra\Struct\AccountSelector as Account;
 
 /**

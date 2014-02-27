@@ -41,9 +41,12 @@ class CheckDirectory extends Base
         parent::__construct();
         $this->_directory = new TypedSequence('Zimbra\Admin\Struct\CheckDirSelector', $directory);
 
-        $this->addHook(function($sender)
+        $this->on('before', function(Base $sender)
         {
-            $sender->child('directory', $sender->directory()->all());
+            if($sender->directory()->count())
+            {
+                $sender->child('directory', $sender->directory()->all());
+            }
         });
     }
 

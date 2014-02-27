@@ -66,9 +66,9 @@ class MimePartInfo extends Base
             $this->property('ci', trim($ci));
         }
 
-        $this->addHook(function($sender)
+        $this->on('before', function(Base $sender)
         {
-            if(count($sender->mp()))
+            if($sender->mp()->count())
             {
                 $sender->child('mp', $sender->mp()->all());
             }

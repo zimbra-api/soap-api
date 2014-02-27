@@ -124,9 +124,12 @@ class SimpleRepeatingRule extends Base
         }
         $this->_ruleXName = new TypedSequence('Zimbra\Mail\Struct\XNameRule', $ruleXNames);
 
-        $this->addHook(function($sender)
+        $this->on('before', function(Base $sender)
         {
-            $sender->child('rule-x-name', $sender->ruleXName()->all());
+            if($sender->ruleXName()->count())
+            {
+                $sender->child('rule-x-name', $sender->ruleXName()->all());
+            }
         });
     }
 

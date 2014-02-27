@@ -85,10 +85,16 @@ class AlarmInfo extends Base
         $this->_at = new TypedSequence('Zimbra\Mail\Struct\CalendarAttendee', $ats);
         $this->_xprop = new TypedSequence('Zimbra\Mail\Struct\XProp', $xprops);
 
-        $this->addHook(function($sender)
+        $this->on('before', function(Base $sender)
         {
-            $sender->child('at', $sender->at()->all());
-            $sender->child('xprop', $sender->xprop()->all());
+            if($sender->at()->count())
+            {
+                $sender->child('at', $sender->at()->all());
+            }
+            if($sender->xprop()->count())
+            {
+                $sender->child('xprop', $sender->xprop()->all());
+            }
         });
     }
 

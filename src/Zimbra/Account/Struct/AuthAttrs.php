@@ -40,9 +40,12 @@ class AuthAttrs extends Base
 		parent::__construct();
         $this->_attr = new TypedSequence('Zimbra\Account\Struct\Attr', $attrs);
 
-        $this->addHook(function($sender)
+        $this->on('before', function(Base $sender)
         {
-            $sender->child('attr', $sender->attr()->all());
+            if($sender->attr()->count())
+            {
+                $sender->child('attr', $sender->attr()->all());
+            }
         });
     }
 

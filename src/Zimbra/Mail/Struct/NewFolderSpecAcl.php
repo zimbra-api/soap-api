@@ -40,9 +40,9 @@ class NewFolderSpecAcl extends Base
         parent::__construct();
         $this->_grant = new TypedSequence('Zimbra\Mail\Struct\ActionGrantSelector', $grant);
 
-        $this->addHook(function($sender)
+        $this->on('before', function(Base $sender)
         {
-            if(count($sender->grant()))
+            if($sender->grant()->count())
             {
                 $sender->child('grant', $sender->grant()->all());
             }

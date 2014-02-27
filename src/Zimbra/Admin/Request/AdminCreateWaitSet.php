@@ -50,7 +50,7 @@ class AdminCreateWaitSet extends Base
         }
         $this->_defTypes = new TypedSequence('Zimbra\Enum\InterestType', $defTypes);
 
-        $this->addHook(function($sender)
+        $this->on('before', function(Base $sender)
         {
             $sender->property('defTypes', $sender->defTypes());
         });

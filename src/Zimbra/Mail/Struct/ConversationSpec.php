@@ -65,9 +65,12 @@ class ConversationSpec extends Base
             $this->property('max', (int) $max);
         }
 
-        $this->addHook(function($sender)
+        $this->on('before', function(Base $sender)
         {
-            $sender->child('header', $sender->header()->all());
+            if($sender->header()->count())
+            {
+                $sender->child('header', $sender->header()->all());
+            }
         });
     }
 

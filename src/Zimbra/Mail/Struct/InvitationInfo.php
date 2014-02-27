@@ -210,10 +210,16 @@ class InvitationInfo extends InviteComponent
             $this->property('ci', trim($ci));
         }
 
-        $this->addHook(function($sender)
+        $this->on('before', function(InviteComponent $sender)
         {
-            $sender->child('tz', $sender->tz()->all());
-            $sender->child('mp', $sender->mp()->all());
+            if($sender->tz()->count())
+            {
+                $sender->child('tz', $sender->tz()->all());
+            }
+            if($sender->mp()->count())
+            {
+                $sender->child('mp', $sender->mp()->all());
+            }
         });
     }
 

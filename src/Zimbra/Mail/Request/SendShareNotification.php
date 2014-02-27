@@ -58,9 +58,9 @@ class SendShareNotification extends Base
             $this->property('action', $action);
         }
 
-        $this->addHook(function($sender)
+        $this->on('before', function(Base $sender)
         {
-            if(count($sender->e()))
+            if($sender->e()->count())
             {
                 $sender->child('e', $sender->e()->all());
             }

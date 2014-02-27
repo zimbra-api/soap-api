@@ -47,9 +47,12 @@ class DistributionListAction extends Base
         $this->child('action', $action);
         $this->_attr = new TypedSequence('Zimbra\Account\Struct\Attr', $attrs);
 
-        $this->addHook(function($sender)
+        $this->on('before', function(Base $sender)
         {
-            $sender->child('a', $sender->attr()->all());
+            if($sender->attr()->count())
+            {
+                $sender->child('a', $sender->attr()->all());
+            }
         });
     }
 

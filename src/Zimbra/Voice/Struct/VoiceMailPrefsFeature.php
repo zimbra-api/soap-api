@@ -42,9 +42,9 @@ class VoiceMailPrefsFeature extends CallFeatureInfo
     	parent::__construct($s, $a);
         $this->_pref = new TypedSequence('Zimbra\Voice\Struct\PrefInfo', $prefs);
 
-        $this->addHook(function($sender)
+        $this->on('before', function(Base $sender)
         {
-            if(count($sender->pref()))
+            if($sender->pref()->count())
             {
                 $sender->child('pref', $sender->pref()->all());
             }

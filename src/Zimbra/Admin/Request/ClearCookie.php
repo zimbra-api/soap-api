@@ -41,9 +41,12 @@ class ClearCookie extends Base
         parent::__construct();
         $this->_cookie = new TypedSequence('Zimbra\Admin\Struct\CookieSpec', $cookie);
 
-        $this->addHook(function($sender)
+        $this->on('before', function(Base $sender)
         {
-            $sender->child('cookie', $sender->cookie()->all());
+            if($sender->cookie()->count())
+            {
+                $sender->child('cookie', $sender->cookie()->all());
+            }
         });
     }
 

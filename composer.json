@@ -1,7 +1,7 @@
 {
     "name": "Zimbra/API",
     "type": "library",
-    "description": "Zimbra API is a PHP soap client library for zimbra soap api (web service)",
+    "description": "PHP wrapper library around the Zimbra Soap API (web service)",
     "keywords": ["library", "soap", "web service", "client", "Zimbra API"],
     "license": "BSD (3-Clause) License",
     "authors": [
@@ -12,6 +12,8 @@
         }
     ],
     "require": {
+        "php": ">=5.3.0",
+        "evenement/evenement": "~1.0",
         "guzzle/http": "3.*",
         "guzzle/plugin-cookie": "3.*",
         "phpcollection/phpcollection": "0.*"

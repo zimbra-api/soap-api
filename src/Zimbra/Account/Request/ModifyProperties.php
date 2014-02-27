@@ -41,9 +41,12 @@ class ModifyProperties extends Base
         parent::__construct();
         $this->_prop = new TypedSequence('Zimbra\Account\Struct\Prop', $prop);
 
-        $this->addHook(function($sender)
+        $this->on('before', function(Base $sender)
         {
-            $sender->child('prop', $sender->prop()->all());
+            if($sender->prop()->count())
+            {
+                $sender->child('prop', $sender->prop()->all());
+            }
         });
     }
 

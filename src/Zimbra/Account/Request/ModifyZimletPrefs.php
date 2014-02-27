@@ -41,9 +41,12 @@ class ModifyZimletPrefs extends Base
         parent::__construct();
         $this->_zimlet = new TypedSequence('Zimbra\Account\Struct\ZimletPrefsSpec', $zimlet);
 
-        $this->addHook(function($sender)
+        $this->on('before', function(Base $sender)
         {
-            $sender->child('zimlet', $sender->zimlet()->all());
+            if($sender->zimlet()->count())
+            {
+                $sender->child('zimlet', $sender->zimlet()->all());
+            }
         });
     }
 

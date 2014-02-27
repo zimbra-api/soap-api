@@ -10,6 +10,7 @@
 
 namespace Zimbra\Struct;
 
+use Evenement\EventEmitter;
 use PhpCollection\Map;
 use Zimbra\Common\SimpleXML;
 use Zimbra\Common\Text;
@@ -23,7 +24,7 @@ use Zimbra\Common\TypedMap;
  * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright Copyright © 2013 by Nguyen Van Nguyen.
  */
-abstract class Base
+abstract class Base extends EventEmitter
 {
     /**
      * Struct properties
@@ -42,12 +43,6 @@ abstract class Base
      * @var string
      */
     private $_value;
-
-    /**
-     * Hook callbacks
-     * @var array
-     */
-    private $_hookCallbacks = array();
 
     /**
      * Xml namespace
@@ -144,32 +139,6 @@ abstract class Base
     }
 
     /**
-     * Add hook callback
-     *
-     * @param  Closure $callback
-     * @return self
-     */
-    protected function addHook(\Closure $callback)
-    {
-        $this->_hookCallbacks[] = $callback;
-        return $this;
-    }
-    
-    /**
-     * Invoke hook callbacks
-     */
-    protected function invokeHooks()
-    {
-        foreach(array_reverse($this->_hookCallbacks) as $callback)
-        {
-            if($callback instanceof \Closure)
-            {
-                $callback($this);
-            }
-        }
-    }
-
-    /**
      * Returns the array representation of this class 
      *
      * @param  string $name
@@ -177,7 +146,7 @@ abstract class Base
      */
     public function toArray($name = 'name')
     {
-        $this->invokeHooks();
+        $this->emit('before', array($this));
         $name = !empty($name) ? $name : 'name';
         $arr = array();
         if(null !== $this->_value)
@@ -233,6 +202,7 @@ abstract class Base
                 }
             }
         }
+        $this->emit('after.array', array($arr));
         return array($name => $arr);
     }
 
@@ -244,7 +214,7 @@ abstract class Base
      */
     public function toXml($name = 'name')
     {
-        $this->invokeHooks();
+        $this->emit('before', array($this));
         $name = !empty($name) ? $name : 'name';
         if(null !== $this->_value)
         {
@@ -313,6 +283,7 @@ abstract class Base
                 }
             }
         }
+        $this->emit('after.xml', array($xml));
         return $xml;
     }
 

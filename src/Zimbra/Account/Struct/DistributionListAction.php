@@ -17,6 +17,7 @@ use Zimbra\Account\Struct\DistributionListGranteeSelector as Grantee;
 use Zimbra\Account\Struct\DistributionListRightSpec as Right;
 use Zimbra\Common\TypedSequence;
 use Zimbra\Enum\Operation;
+use Zimbra\Struct\Base;
 
 /**
  * DistributionListAction struct class
@@ -80,11 +81,20 @@ class DistributionListAction extends AccountKeyValuePairs
         $this->_owner = new TypedSequence('Zimbra\Account\Struct\DistributionListGranteeSelector', $owners);
         $this->_right = new TypedSequence('Zimbra\Account\Struct\DistributionListRightSpec', $rights);
 
-        $this->addHook(function($sender)
+        $this->on('before', function(Base $sender)
         {
-            $sender->child('dlm', $sender->dlm()->all());
-            $sender->child('owner', $sender->owner()->all());
-            $sender->child('right', $sender->right()->all());
+            if($sender->dlm()->count())
+            {
+                $sender->child('dlm', $sender->dlm()->all());
+            }
+            if($sender->owner()->count())
+            {
+                $sender->child('owner', $sender->owner()->all());
+            }
+            if($sender->right()->count())
+            {
+                $sender->child('right', $sender->right()->all());
+            }
         });
     }
 

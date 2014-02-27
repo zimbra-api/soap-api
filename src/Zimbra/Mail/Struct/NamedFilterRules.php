@@ -41,9 +41,9 @@ class NamedFilterRules extends Base
         parent::__construct();
         $this->_filterRule = new TypedSequence('Zimbra\Struct\NamedElement', $filterRule);
 
-        $this->addHook(function($sender)
+        $this->on('before', function(Base $sender)
         {
-            if(count($sender->filterRule()))
+            if($sender->filterRule()->count())
             {
                 $sender->child('filterRule', $sender->filterRule()->all());
             }

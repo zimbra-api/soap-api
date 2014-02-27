@@ -55,9 +55,12 @@ class RemoveDistributionListMember extends Base
             throw new \InvalidArgumentException('RemoveDistributionListMember must have at least a member');
         }
 
-        $this->addHook(function($sender)
+        $this->on('before', function(Base $sender)
         {
-            $sender->child('dlm', $sender->dlm()->all());
+            if($sender->dlm()->count())
+            {
+                $sender->child('dlm', $sender->dlm()->all());
+            }
         });
     }
 

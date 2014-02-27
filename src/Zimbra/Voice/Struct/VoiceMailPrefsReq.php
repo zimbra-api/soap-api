@@ -40,9 +40,9 @@ class VoiceMailPrefsReq extends Base
         parent::__construct();
         $this->_pref = new TypedSequence('Zimbra\Voice\Struct\VoiceMailPrefName', $prefs);
 
-        $this->addHook(function($sender)
+        $this->on('before', function(Base $sender)
         {
-            if(count($sender->pref()))
+            if($sender->pref()->count())
             {
                 $sender->child('pref', $sender->pref()->all());
             }

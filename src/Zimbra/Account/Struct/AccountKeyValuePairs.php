@@ -41,9 +41,12 @@ abstract class AccountKeyValuePairs extends Base
         parent::__construct();
         $this->_attr = new TypedSequence('Zimbra\Struct\KeyValuePair', $attrs);
 
-        $this->addHook(function($sender)
+        $this->on('before', function(Base $sender)
         {
-            $sender->child('a', $sender->attr()->all());
+            if($sender->attr()->count())
+            {
+                $sender->child('a', $sender->attr()->all());
+            }
         });
     }
 

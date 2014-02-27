@@ -71,9 +71,9 @@ class ExpandRecur extends Base
             $this->child('cancel', $cancel);
         }
 
-        $this->addHook(function($sender)
+        $this->on('before', function(Base $sender)
         {
-            if(count($sender->tz()))
+            if($sender->tz()->count())
             {
                 $sender->child('tz', $sender->tz()->all());
             }

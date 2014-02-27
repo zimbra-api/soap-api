@@ -177,9 +177,9 @@ class MailDataSource extends Base
             }
         }
 
-        $this->addHook(function($sender)
+        $this->on('before', function(Base $sender)
         {
-            if(count($sender->a()))
+            if($sender->a()->count())
             {
                 $sender->child('a', $sender->a()->all());
             }

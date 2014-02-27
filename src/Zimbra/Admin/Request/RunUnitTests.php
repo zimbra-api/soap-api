@@ -48,9 +48,12 @@ class RunUnitTests extends Base
             }
         }
 
-        $this->addHook(function($sender)
+        $this->on('before', function(Base $sender)
         {
-            $sender->child('test', $sender->test()->all());
+            if($sender->test()->count())
+            {
+                $sender->child('test', $sender->test()->all());
+            }
         });
     }
 

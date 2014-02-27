@@ -40,9 +40,12 @@ class ByDayRule extends Base
         parent::__construct();
         $this->_wkday = new TypedSequence('Zimbra\Mail\Struct\WkDay', $wkdays);
 
-        $this->addHook(function($sender)
+        $this->on('before', function(Base $sender)
         {
-            $sender->child('wkday', $sender->wkday()->all());
+            if($sender->wkday()->count())
+            {
+                $sender->child('wkday', $sender->wkday()->all());
+            }
         });
     }
 

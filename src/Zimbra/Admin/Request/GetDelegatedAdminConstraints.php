@@ -57,9 +57,12 @@ class GetDelegatedAdminConstraints extends Base
         }
         $this->_attr = new TypedSequence('Zimbra\Struct\NamedElement', $attr);
 
-        $this->addHook(function($sender)
+        $this->on('before', function(Base $sender)
         {
-            $sender->child('a', $sender->attr()->all());
+            if($sender->attr()->count())
+            {
+                $sender->child('a', $sender->attr()->all());
+            }
         });
     }
 

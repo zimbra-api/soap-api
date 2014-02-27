@@ -45,9 +45,12 @@ class CheckRights extends Base
             throw new \InvalidArgumentException('CheckRights must have at least one target');
         }
 
-        $this->addHook(function($sender)
+        $this->on('before', function(Base $sender)
         {
-            $sender->child('target', $sender->target()->all());
+            if($sender->target()->count())
+            {
+                $sender->child('target', $sender->target()->all());
+            }
         });
     }
 

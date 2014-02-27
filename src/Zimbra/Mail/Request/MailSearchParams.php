@@ -201,9 +201,9 @@ class MailSearchParams extends Base
             $this->property('offset', (int) $offset);
         }
 
-        $this->addHook(function($sender)
+        $this->on('before', function(Base $sender)
         {
-            if(count($sender->header()))
+            if($sender->header()->count())
             {
                 $sender->child('header', $sender->header()->all());
             }

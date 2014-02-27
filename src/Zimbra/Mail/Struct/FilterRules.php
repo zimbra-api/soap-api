@@ -40,9 +40,12 @@ class FilterRules extends Base
         parent::__construct();
         $this->_filterRule = new TypedSequence('Zimbra\Mail\Struct\FilterRule', $filterRule);
 
-        $this->addHook(function($sender)
+        $this->on('before', function(Base $sender)
         {
-            $sender->child('filterRule', $sender->filterRule()->all());
+            if($sender->filterRule()->count())
+            {
+                $sender->child('filterRule', $sender->filterRule()->all());
+            }
         });
     }
 

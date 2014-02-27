@@ -49,9 +49,12 @@ class ConstraintInfoValues extends Base
         }
         $this->_values = new Sequence($arrValue);
 
-        $this->addHook(function($sender)
+        $this->on('before', function(Base $sender)
         {
-            $sender->child('v', $sender->values()->all());
+            if($sender->values()->count())
+            {
+                $sender->child('v', $sender->values()->all());
+            }
         });
     }
 

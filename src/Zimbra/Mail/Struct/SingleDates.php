@@ -48,9 +48,12 @@ class SingleDates extends Base
         }
         $this->_dtval = new TypedSequence('Zimbra\Mail\Struct\DtVal', $dtval);
 
-        $this->addHook(function($sender)
+        $this->on('before', function(Base $sender)
         {
-            $sender->child('dtval', $sender->dtval()->all());
+            if($sender->dtval()->count())
+            {
+                $sender->child('dtval', $sender->dtval()->all());
+            }
         });
     }
 

@@ -51,9 +51,12 @@ class InviteTest extends FilterTest
             }
         }
 
-        $this->addHook(function($sender)
+        $this->on('before', function(FilterTest $sender)
         {
-            $sender->child('method', $sender->method()->all());
+            if($sender->method()->count())
+            {
+                $sender->child('method', $sender->method()->all());
+            }
         });
     }
 

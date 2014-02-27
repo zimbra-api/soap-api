@@ -47,7 +47,7 @@ class GetAttributeInfo extends Base
         }
         $this->_entryTypes = new TypedSequence('Zimbra\Enum\EntryType', $entryTypes);
 
-        $this->addHook(function($sender)
+        $this->on('before', function(Base $sender)
         {
             $entryTypes = $sender->entryTypes();
             if(!empty($entryTypes))

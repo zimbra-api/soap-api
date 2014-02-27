@@ -102,9 +102,12 @@ class GenCSR extends Base
             }
         }
 
-        $this->addHook(function($sender)
+        $this->on('before', function(Base $sender)
         {
-            $sender->child('SubjectAltName', $sender->subjectAltName()->all());
+            if($sender->subjectAltName()->count())
+            {
+                $sender->child('SubjectAltName', $sender->subjectAltName()->all());
+            }
         });
     }
 

@@ -42,9 +42,12 @@ class BounceMsgSpec extends Base
         $this->property('id', trim($id));
         $this->_e = new TypedSequence('Zimbra\Mail\Struct\EmailAddrInfo', $e);
 
-        $this->addHook(function($sender)
+        $this->on('before', function(Base $sender)
         {
-            $sender->child('e', $sender->e()->all());
+            if($sender->e()->count())
+            {
+                $sender->child('e', $sender->e()->all());
+            }
         });
     }
 

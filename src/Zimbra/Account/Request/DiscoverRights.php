@@ -52,7 +52,7 @@ class DiscoverRights extends Base
             throw new \InvalidArgumentException('DiscoverRights must have at least one right');
         }
 
-        $this->addHook(function($sender)
+        $this->on('before', function(Base $sender)
         {
             $sender->child('right', $sender->right()->all());
         });

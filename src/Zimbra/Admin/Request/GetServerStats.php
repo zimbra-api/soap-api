@@ -44,9 +44,12 @@ class GetServerStats extends Base
         parent::__construct();
         $this->_stat = new TypedSequence('Zimbra\Admin\Struct\Stat', $stat);
 
-        $this->addHook(function($sender)
+        $this->on('before', function(Base $sender)
         {
-            $sender->child('stat', $sender->stat()->all());
+            if($sender->stat()->count())
+            {
+                $sender->child('stat', $sender->stat()->all());
+            }
         });
     }
 

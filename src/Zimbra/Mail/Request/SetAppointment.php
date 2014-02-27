@@ -91,13 +91,13 @@ class SetAppointment extends Base
             $this->property('nextAlarm', (int) $nextAlarm);
         }
 
-        $this->addHook(function($sender)
+        $this->on('before', function(Base $sender)
         {
-            if(count($sender->except()))
+            if($sender->except()->count())
             {
                 $sender->child('except', $sender->except()->all());
             }
-            if(count($sender->cancel()))
+            if($sender->cancel()->count())
             {
                 $sender->child('cancel', $sender->cancel()->all());
             }

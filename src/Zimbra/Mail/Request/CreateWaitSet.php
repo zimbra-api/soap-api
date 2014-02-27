@@ -52,7 +52,7 @@ class CreateWaitSet extends Base
             $this->property('allAccounts', (bool) $allAccounts);
         }
 
-        $this->addHook(function($sender)
+        $this->on('before', function(Base $sender)
         {
             $defTypes = $sender->defTypes();
             if(!empty($defTypes))

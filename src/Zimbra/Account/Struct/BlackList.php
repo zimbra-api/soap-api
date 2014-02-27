@@ -41,9 +41,12 @@ class BlackList extends Base
 		parent::__construct();
         $this->_addr = new TypedSequence('Zimbra\Struct\OpValue', $addrs);
 
-        $this->addHook(function($sender)
+        $this->on('before', function(Base $sender)
         {
-            $sender->child('addr', $sender->addr()->all());
+            if($sender->addr()->count())
+            {
+                $sender->child('addr', $sender->addr()->all());
+            }
         });
     }
 

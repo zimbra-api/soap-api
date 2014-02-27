@@ -58,9 +58,12 @@ class CacheSelector extends Base
         }
         $this->_entry = new TypedSequence('Zimbra\Admin\Struct\CacheEntrySelector', $entries);
 
-        $this->addHook(function($sender)
+        $this->on('before', function(Base $sender)
         {
-            $sender->child('entry', $sender->entry()->all());
+            if($sender->entry()->count())
+            {
+                $sender->child('entry', $sender->entry()->all());
+            }
         });
     }
 

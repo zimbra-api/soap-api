@@ -14,7 +14,6 @@ use Zimbra\Admin\Struct\WaitSetSpec;
 use Zimbra\Admin\Struct\WaitSetId;
 use Zimbra\Common\TypedSequence;
 use Zimbra\Enum\InterestType;
-use Zimbra\Soap\Request;
 
 /**
  * AdminWaitSet request class
@@ -77,7 +76,7 @@ class AdminWaitSet extends Base
             $this->property('timeout', (int) $timeout);
         }
 
-        $this->addHook(function($sender)
+        $this->on('before', function(Base $sender)
         {
             $defTypes = $sender->defTypes();
             if(!empty($defTypes))

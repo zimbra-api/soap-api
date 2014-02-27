@@ -14,6 +14,7 @@ use PhpCollection\Map;
 
 /**
  * TypedMap class
+ *
  * @package   Zimbra
  * @category  Common
  * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com

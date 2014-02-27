@@ -10,8 +10,6 @@
 
 namespace Zimbra\Admin\Request;
 
-use Zimbra\Soap\Request;
-
 /**
  * AdminDestroyWaitSet request class
  * Use this to close out the waitset.

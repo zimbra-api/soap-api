@@ -208,7 +208,7 @@ class InviteComponentCommon extends Base
 
         $this->_changes = new TypedSequence('Zimbra\Enum\InviteChange', $changes);
 
-        $this->addHook(function($sender)
+        $this->on('before', function(Base $sender)
         {
             $changes = $sender->changes();
             if(!empty($changes))

@@ -25,24 +25,6 @@ use Zimbra\Struct\Base;
 class Signature extends Base
 {
     /**
-     * ID for the signature
-     * @var string
-     */
-    private $_id;
-
-    /**
-     * Name for the signature
-     * @var string
-     */
-    private $_name;
-
-    /**
-     * Contact ID
-     * @var string
-     */
-    private $_cid;
-
-    /**
      * Content of the signature sequence
      * @var TypedSequence<SignatureContent>
      */
@@ -78,9 +60,12 @@ class Signature extends Base
         }
         $this->_content = new TypedSequence('Zimbra\Account\Struct\SignatureContent', $contents);
 
-        $this->addHook(function($sender)
+        $this->on('before', function(Base $sender)
         {
-            $sender->child('content', $sender->content()->all());
+            if($sender->content()->count())
+            {
+                $sender->child('content', $sender->content()->all());
+            }
         });
     }
 

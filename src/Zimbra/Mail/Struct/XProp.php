@@ -44,9 +44,12 @@ class XProp extends Base
         $this->property('value', trim($value));
         $this->_xparam = new TypedSequence('Zimbra\Mail\Struct\XParam', $xparams);
 
-        $this->addHook(function($sender)
+        $this->on('before', function(Base $sender)
         {
-            $sender->child('xparam', $sender->xparam()->all());
+            if($sender->xparam()->count())
+            {
+                $sender->child('xparam', $sender->xparam()->all());
+            }
         });
     }
 

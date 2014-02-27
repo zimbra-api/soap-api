@@ -122,9 +122,12 @@ class CalendarAttendee extends Base
             $this->property('delFrom', trim($delFrom));
         }
 
-        $this->addHook(function($sender)
+        $this->on('before', function(Base $sender)
         {
-            $sender->child('xparam', $sender->xparam()->all());
+            if($sender->xparam()->count())
+            {
+                $sender->child('xparam', $sender->xparam()->all());
+            }
         });
     }
 

@@ -50,9 +50,12 @@ class QueueQuery extends Base
             $this->property('offset', (int) $offset);
         }
 
-        $this->addHook(function($sender)
+        $this->on('before', function(Base $sender)
         {
-            $sender->child('field', $sender->field()->all());
+            if($sender->field()->count())
+            {
+                $sender->child('field', $sender->field()->all());
+            }
         });
     }
 

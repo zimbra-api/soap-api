@@ -10,12 +10,13 @@
 
 namespace Zimbra\Soap\Client;
 
-use Zimbra\Soap\Message;
-use Zimbra\Soap\Request as SoapRequest;
+use Evenement\EventEmitter;
 use Guzzle\Http\Client as HttpClient;
 use Guzzle\Http\Message\Response;
 use Guzzle\Plugin\Cookie\CookiePlugin;
 use Guzzle\Plugin\Cookie\CookieJar\ArrayCookieJar;
+use Zimbra\Soap\Message;
+use Zimbra\Soap\Request as SoapRequest;
 
 /**
  * Http is a class which provides a http client for SOAP servers
@@ -25,7 +26,7 @@ use Guzzle\Plugin\Cookie\CookieJar\ArrayCookieJar;
  * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright Copyright © 2013 by Nguyen Van Nguyen.
  */
-class Http implements ClientInterface
+class Http extends EventEmitter implements ClientInterface
 {
     /**
      * Authentication token

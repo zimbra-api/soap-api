@@ -81,9 +81,12 @@ class FixCalendarTZ extends Base
         }
         $this->_account = new TypedSequence('Zimbra\Struct\NamedElement', $account);
 
-        $this->addHook(function($sender)
+        $this->on('before', function(Base $sender)
         {
-            $sender->child('account', $sender->account()->all());
+            if($sender->account()->count())
+            {
+                $sender->child('account', $sender->account()->all());
+            }
         });
     }
 

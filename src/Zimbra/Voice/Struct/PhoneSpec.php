@@ -44,9 +44,9 @@ class PhoneSpec extends Base
         }
         $this->_pref = new TypedSequence('Zimbra\Voice\Struct\PrefSpec', $prefs);
 
-        $this->addHook(function($sender)
+        $this->on('before', function(Base $sender)
         {
-            if(count($sender->pref()))
+            if($sender->pref()->count())
             {
                 $sender->child('pref', $sender->pref()->all());
             }

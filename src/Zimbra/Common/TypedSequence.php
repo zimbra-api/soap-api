@@ -14,6 +14,7 @@ use PhpCollection\Sequence;
 
 /**
  * TypedSequence class
+ *
  * @package   Zimbra
  * @category  Common
  * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com

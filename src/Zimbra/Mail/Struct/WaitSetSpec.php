@@ -40,9 +40,12 @@ class WaitSetSpec extends Base
         parent::__construct();
         $this->_a = new TypedSequence('Zimbra\Mail\Struct\WaitSetAddSpec', $a);
 
-        $this->addHook(function($sender)
+        $this->on('before', function(Base $sender)
         {
-            $sender->child('a', $sender->a()->all());
+            if($sender->a()->count())
+            {
+                $sender->child('a', $sender->a()->all());
+            }
         });
     }
 

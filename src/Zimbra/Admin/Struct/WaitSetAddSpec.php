@@ -61,7 +61,7 @@ class WaitSetAddSpec extends Base
         }
         $this->_types = new TypedSequence('Zimbra\Enum\InterestType', $types);
 
-        $this->addHook(function($sender)
+        $this->on('before', function(Base $sender)
         {
             $types = $sender->types();
             if(!empty($types))

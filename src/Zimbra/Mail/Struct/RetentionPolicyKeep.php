@@ -40,9 +40,9 @@ class RetentionPolicyKeep extends Base
     	parent::__construct();
         $this->_policy = new TypedSequence('Zimbra\Mail\Struct\Policy', $policy);
 
-        $this->addHook(function($sender)
+        $this->on('before', function(Base $sender)
         {
-            if(count($sender->policy()))
+            if($sender->policy()->count())
             {
                 $sender->child('policy', $sender->policy()->all());
             }

@@ -83,7 +83,7 @@ class WaitSet extends Base
             $this->property('timeout', (int) $timeout);
         }
 
-        $this->addHook(function($sender)
+        $this->on('before', function(Base $sender)
         {
             $defTypes = $sender->defTypes();
             if(!empty($defTypes))

@@ -41,9 +41,12 @@ class WaitSetId extends Base
         parent::__construct();
         $this->_a = new TypedSequence('Zimbra\Struct\Id', $a);
 
-        $this->addHook(function($sender)
+        $this->on('before', function(Base $sender)
         {
-            $sender->child('a', $sender->a()->all());
+            if($sender->a()->count())
+            {
+                $sender->child('a', $sender->a()->all());
+            }
         });
     }
 

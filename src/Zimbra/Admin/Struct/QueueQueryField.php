@@ -42,9 +42,12 @@ class QueueQueryField extends Base
         $this->property('name', trim($name));
         $this->_match = new TypedSequence('Zimbra\Admin\Struct\ValueAttrib', $matches);
 
-        $this->addHook(function($sender)
+        $this->on('before', function(Base $sender)
         {
-            $sender->child('match', $sender->match()->all());
+            if($sender->match()->count())
+            {
+                $sender->child('match', $sender->match()->all());
+            }
         });
     }
 

@@ -41,9 +41,12 @@ class ModifyPrefs extends Base
         parent::__construct();
         $this->_pref = new TypedSequence('Zimbra\Account\Struct\Pref', $prefs);
 
-        $this->addHook(function($sender)
+        $this->on('before', function(Base $sender)
         {
-            $sender->child('pref', $sender->pref()->all());
+            if($sender->pref()->count())
+            {
+                $sender->child('pref', $sender->pref()->all());
+            }
         });
     }
 

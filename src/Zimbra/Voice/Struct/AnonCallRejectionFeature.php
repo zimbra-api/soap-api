@@ -10,9 +10,6 @@
 
 namespace Zimbra\Voice\Struct;
 
-use Zimbra\Common\TypedSequence;
-use Zimbra\Struct\Base;
-
 /**
  * AnonCallRejectionFeature struct class
  *

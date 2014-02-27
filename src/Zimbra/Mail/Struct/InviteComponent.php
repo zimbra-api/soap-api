@@ -265,29 +265,29 @@ class InviteComponent extends InviteComponentCommon
             $this->child('dur', $dur);
         }
 
-        $this->addHook(function($sender)
+        $this->on('before', function(InviteComponentCommon $sender)
         {
-            if(count($sender->category()))
+            if($sender->category()->count())
             {
                 $sender->child('category', $sender->category()->all());
             }
-            if(count($sender->comment()))
+            if($sender->comment()->count())
             {
                 $sender->child('comment', $sender->comment()->all());
             }
-            if(count($sender->contact()))
+            if($sender->contact()->count())
             {
                 $sender->child('contact', $sender->contact()->all());
             }
-            if(count($sender->at()))
+            if($sender->at()->count())
             {
                 $sender->child('at', $sender->at()->all());
             }
-            if(count($sender->alarm()))
+            if($sender->alarm()->count())
             {
                 $sender->child('alarm', $sender->alarm()->all());
             }
-            if(count($sender->xprop()))
+            if($sender->xprop()->count())
             {
                 $sender->child('xprop', $sender->xprop()->all());
             }

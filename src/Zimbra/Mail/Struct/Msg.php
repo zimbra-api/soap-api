@@ -150,21 +150,21 @@ class Msg extends Base
 
         $this->_any = new TypedSequence('Zimbra\Struct\Base', $any);
 
-        $this->addHook(function($sender)
+        $this->on('before', function(Base $sender)
         {
-            if(count($sender->header()))
+            if($sender->header()->count())
             {
                 $sender->child('header', $sender->header()->all());
             }
-            if(count($sender->e()))
+            if($sender->e()->count())
             {
                 $sender->child('e', $sender->e()->all());
             }
-            if(count($sender->tz()))
+            if($sender->tz()->count())
             {
                 $sender->child('tz', $sender->tz()->all());
             }
-            if(count($sender->any()))
+            if($sender->any()->count())
             {
                 $sender->child('any', $sender->any()->all());
             }

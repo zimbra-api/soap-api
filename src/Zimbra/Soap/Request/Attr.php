@@ -40,7 +40,7 @@ abstract class Attr extends Request
         parent::__construct();
         $this->_attr = new TypedSequence('Zimbra\Struct\KeyValuePair', $attrs);
 
-        $this->addHook(function($sender)
+        $this->on('before', function(Request $sender)
         {
             if(count($sender->attr()))
             {

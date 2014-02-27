@@ -45,9 +45,12 @@ class SyncGalAccountSpec extends Base
             'Zimbra\Admin\Struct\SyncGalAccountDataSourceSpec', $dataSources
         );
 
-        $this->addHook(function($sender)
+        $this->on('before', function(Base $sender)
         {
-            $sender->child('datasource', $sender->dataSource()->all());
+            if($sender->dataSource()->count())
+            {
+                $sender->child('datasource', $sender->dataSource()->all());
+            }
         });
     }
 

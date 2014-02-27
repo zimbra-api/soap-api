@@ -54,9 +54,9 @@ class CheckPermission extends Base
             }
         }
 
-        $this->addHook(function($sender)
+        $this->on('before', function(Base $sender)
         {
-            if(count($sender->right()))
+            if($sender->right()->count())
             {
                 $sender->child('right', $sender->right()->all());
             }

@@ -58,9 +58,9 @@ class GetMiniCal extends Base
             $this->child('tz', $tz);
         }
 
-        $this->addHook(function($sender)
+        $this->on('before', function(Base $sender)
         {
-            if(count($sender->folder()))
+            if($sender->folder()->count())
             {
                 $sender->child('folder', $sender->folder()->all());
             }

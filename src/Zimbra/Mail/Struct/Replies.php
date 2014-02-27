@@ -40,9 +40,9 @@ class Replies extends Base
         parent::__construct();
         $this->_reply = new TypedSequence('Zimbra\Mail\Struct\CalReply', $reply);
 
-        $this->addHook(function($sender)
+        $this->on('before', function(Base $sender)
         {
-            if(count($sender->reply()))
+            if($sender->reply()->count())
             {
                 $sender->child('reply', $sender->reply()->all());
             }

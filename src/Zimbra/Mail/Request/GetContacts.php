@@ -101,17 +101,17 @@ class GetContacts extends Base
             $this->property('maxMembers', (int) $maxMembers);
         }
 
-        $this->addHook(function($sender)
+        $this->on('before', function(Base $sender)
         {
-            if(count($sender->a()))
+            if($sender->a()->count())
             {
                 $sender->child('a', $sender->a()->all());
             }
-            if(count($sender->ma()))
+            if($sender->ma()->count())
             {
                 $sender->child('ma', $sender->ma()->all());
             }
-            if(count($sender->cn()))
+            if($sender->cn()->count())
             {
                 $sender->child('cn', $sender->cn()->all());
             }

@@ -41,9 +41,12 @@ class GrantRights extends Base
         parent::__construct();
         $this->_ace = new TypedSequence('Zimbra\Account\Struct\AccountACEInfo', $ace);
 
-        $this->addHook(function($sender)
+        $this->on('before', function(Base $sender)
         {
-            $sender->child('ace', $sender->ace()->all());
+            if($sender->ace()->count())
+            {
+                $sender->child('ace', $sender->ace()->all());
+            }
         });
     }
 

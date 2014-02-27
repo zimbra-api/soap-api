@@ -76,9 +76,12 @@ class ContactActionSelector extends ActionSelector
         );
         $this->_a = new TypedSequence('Zimbra\Mail\Struct\NewContactAttr', $a);
 
-        $this->addHook(function($sender)
+        $this->on('before', function(ActionSelector $sender)
         {
-            $sender->child('a', $sender->a()->all());
+            if($sender->a()->count())
+            {
+                $sender->child('a', $sender->a()->all());
+            }
         });
     }
 

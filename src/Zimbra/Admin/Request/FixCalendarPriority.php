@@ -46,9 +46,12 @@ class FixCalendarPriority extends Base
         }
         $this->_account = new TypedSequence('Zimbra\Struct\NamedElement', $account);
 
-        $this->addHook(function($sender)
+        $this->on('before', function(Base $sender)
         {
+            if($sender->account()->count())
+            {
             $sender->child('account', $sender->account()->all());
+            }
         });
     }
 

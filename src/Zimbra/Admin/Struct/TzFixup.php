@@ -40,9 +40,12 @@ class TzFixup extends Base
         parent::__construct();
         $this->_fixupRule = new TypedSequence('Zimbra\Admin\Struct\TzFixupRule', $fixupRule);
 
-        $this->addHook(function($sender)
+        $this->on('before', function(Base $sender)
         {
-            $sender->child('fixupRule', $sender->fixupRule()->all());
+            if($sender->fixupRule()->count())
+            {
+                $sender->child('fixupRule', $sender->fixupRule()->all());
+            }
         });
     }
 

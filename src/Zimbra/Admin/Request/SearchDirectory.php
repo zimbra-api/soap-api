@@ -112,7 +112,7 @@ class SearchDirectory extends Base
             $this->property('attrs', trim($attrs));
         }
 
-        $this->addHook(function($sender)
+        $this->on('before', function(Base $sender)
         {
             $types = $sender->types();
             if(!empty($types))

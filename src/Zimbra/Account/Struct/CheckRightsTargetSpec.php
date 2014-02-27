@@ -57,9 +57,12 @@ class CheckRightsTargetSpec extends Base
             }
         }
 
-        $this->addHook(function($sender)
+        $this->on('before', function(Base $sender)
         {
-            $sender->child('right', $sender->right()->all());
+            if($sender->right()->count())
+            {
+                $sender->child('right', $sender->right()->all());
+            }
         });
     }
 

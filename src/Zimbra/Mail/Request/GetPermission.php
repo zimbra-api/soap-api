@@ -43,9 +43,9 @@ class GetPermission extends Base
         parent::__construct();
         $this->_ace = new TypedSequence('Zimbra\Mail\Struct\Right', $ace);
 
-        $this->addHook(function($sender)
+        $this->on('before', function(Base $sender)
         {
-            if(count($sender->ace()))
+            if($sender->ace()->count())
             {
                 $sender->child('ace', $sender->ace()->all());
             }

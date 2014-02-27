@@ -64,13 +64,13 @@ class ModifyContactSpec extends Base
             $this->property('tn', trim($tn));
         }
 
-        $this->addHook(function($sender)
+        $this->on('before', function(Base $sender)
         {
-            if(count($sender->a()))
+            if($sender->a()->count())
             {
                 $sender->child('a', $sender->a()->all());
             }
-            if(count($sender->m()))
+            if($sender->m()->count())
             {
                 $sender->child('m', $sender->m()->all());
             }

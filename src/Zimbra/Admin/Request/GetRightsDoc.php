@@ -41,9 +41,12 @@ class GetRightsDoc extends Base
         parent::__construct();
         $this->_package = new TypedSequence('Zimbra\Admin\Struct\PackageSelector', $package);
 
-        $this->addHook(function($sender)
+        $this->on('before', function(Base $sender)
         {
-            $sender->child('package', $sender->package()->all());
+            if($sender->package()->count())
+            {
+                $sender->child('package', $sender->package()->all());
+            }
         });
     }
 

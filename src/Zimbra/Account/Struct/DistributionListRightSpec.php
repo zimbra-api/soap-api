@@ -26,11 +26,6 @@ use Zimbra\Struct\Base;
 class DistributionListRightSpec extends Base
 {
     /**
-     * The right
-     * @var string
-     */
-    private $_right;
-    /**
      * The sequence of grantee
      * @var TypedSequence
      */
@@ -50,9 +45,12 @@ class DistributionListRightSpec extends Base
             'Zimbra\Account\Struct\DistributionListGranteeSelector', $grantees
         );
 
-        $this->addHook(function($sender)
+        $this->on('before', function(Base $sender)
         {
-            $sender->child('grantee', $sender->grantee()->all());
+            if($sender->grantee()->count())
+            {
+                $sender->child('grantee', $sender->grantee()->all());
+            }
         });
     }
 

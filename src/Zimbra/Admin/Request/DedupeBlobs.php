@@ -44,9 +44,12 @@ class DedupeBlobs extends Base
         $this->property('action', $action);
         $this->_volume = new TypedSequence('Zimbra\Admin\Struct\IntIdAttr', $volume);
 
-        $this->addHook(function($sender)
+        $this->on('before', function(Base $sender)
         {
-            $sender->child('volume', $sender->volume()->all());
+            if($sender->volume()->count())
+            {
+                $sender->child('volume', $sender->volume()->all());
+            }
         });
     }
 

@@ -81,10 +81,16 @@ class ContactSpec extends Base
             $this->property('tn', trim($tn));
         }
 
-        $this->addHook(function($sender)
+        $this->on('before', function(Base $sender)
         {
-            $sender->child('a', $sender->a()->all());
-            $sender->child('m', $sender->m()->all());
+            if($sender->a()->count())
+            {
+                $sender->child('a', $sender->a()->all());
+            }
+            if($sender->m()->count())
+            {
+                $sender->child('m', $sender->m()->all());
+            }
         });
     }
 
