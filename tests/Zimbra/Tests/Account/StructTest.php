@@ -479,12 +479,12 @@ class StructTest extends ZimbraTestCase
             .'<action op="delete">'
                 .'<newName>newName</newName>'
                 .'<subsReq op="subscribe" bccOwners="true">value</subsReq>'
+                .'<a n="key">value</a>'
                 .'<dlm>dlm</dlm>'
                 .'<owner type="usr" by="id">value</owner>'
                 .'<right right="right">'
                     .'<grantee type="all" by="name">value</grantee>'
                 .'</right>'
-                .'<a n="key">value</a>'
             .'</action>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $dl);
 
