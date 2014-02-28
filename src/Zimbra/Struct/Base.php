@@ -63,6 +63,7 @@ abstract class Base extends EventEmitter
             $this->_value = trim($value);
         }
         $this->_children = new Map();
+        $this->emit('initialize', array($value));
     }
 
     /**
@@ -202,7 +203,7 @@ abstract class Base extends EventEmitter
                 }
             }
         }
-        $this->emit('after.array', array($arr));
+        $this->emit('after.array', array(&$arr));
         return array($name => $arr);
     }
 
