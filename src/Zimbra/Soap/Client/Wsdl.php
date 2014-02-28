@@ -10,6 +10,7 @@
 
 namespace Zimbra\Soap\Client;
 
+use Evenement\EventEmitter;
 use Zimbra\Soap\Request as SoapRequest;
 use Zimbra\Common\Text;
 
@@ -30,10 +31,10 @@ class Wsdl extends \SoapClient implements ClientInterface
     private $_headers = array();
 
     /**
-     * Filter callbacks
-     * @var array
+     * Event emitter
+     * @var EventEmitter
      */
-    private $_filters = array();
+    private $_emitter;
 
     /**
      * @var array
@@ -54,6 +55,7 @@ class Wsdl extends \SoapClient implements ClientInterface
             'user_agent' => isset($_SERVER['HTTP_USER_AGENT']) ? $_SERVER['HTTP_USER_AGENT'] : 'PHP-Zimbra-Soap-API',
             'cache_wsdl' => WSDL_CACHE_DISK,
         );
+        $this->_emitter = new EventEmitter;
         parent::__construct($location, $options);
     }
 
@@ -90,16 +92,20 @@ class Wsdl extends \SoapClient implements ClientInterface
      */
     public function __doRequest($request, $location, $action, $version, $one_way = 0)
     {
-        if ($this->_filters)
-        {
-            foreach ($this->_filters as $callback)
-            {
-                $request = call_user_func($callback, $request, $location, $action, $version, $one_way);
-            }
-        }
+        $this->emit('before.request', array(&$request));
 
         $this->__last_request = $request;
-        return parent::__doRequest($request, $location, $action, $version, $one_way);
+        try
+        {
+            $result = parent::__doRequest($request, $location, $action, $version, $one_way);
+            $this->emit('after.request', array($this->lastResponse(), $this->lastResponseHeaders()));
+        }
+        catch (\Exception $ex)
+        {
+            $this->emit('after.request', array($this->lastResponse(), $this->lastResponseHeaders()));
+            throw $ex;
+        }
+        return $result;
     }
 
     /**
@@ -116,18 +122,6 @@ class Wsdl extends \SoapClient implements ClientInterface
             $soapHeader = new \SoapHeader('urn:zimbra', 'context', $soapVar);
         }
         return $soapHeader;
-    }
-
-    /**
-     * Filters to be run before request are sent.
-     *
-     * @param  Closure $callback
-     * @return self
-     */
-    public function addFilter(\Closure $callback)
-    {
-        $this->_filters[] = $callback;
-        return $this;
     }
 
     /**
@@ -222,6 +216,21 @@ class Wsdl extends \SoapClient implements ClientInterface
     public function lastResponseHeaders()
     {
         return Text::extractHeaders($this->__getLastResponseHeaders());
+    }
+
+    public function once($event, $listener)
+    {
+        $this->_emitter->once($event, $listener);
+    }
+
+    public function on($event, $listener)
+    {
+        $this->_emitter->on($event, $listener);
+    }
+
+    public function emit($event, array $arguments = array())
+    {
+        $this->_emitter->emit($event, $arguments);
     }
 
     private function _processParameters(array $parameters = array())

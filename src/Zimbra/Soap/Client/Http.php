@@ -117,6 +117,7 @@ class Http extends EventEmitter implements ClientInterface
      */
     public function __doRequest($request, array $headers = array())
     {
+        $this->emit('before.request', array(&$request, &$headers));
         $httpRequest = $this->httpClient->post(
             $this->location,
             $headers,
@@ -127,10 +128,12 @@ class Http extends EventEmitter implements ClientInterface
         try
         {
             $this->response = $httpRequest->send();
+            $this->emit('after.request', array($this->lastResponse(), $this->lastResponseHeaders()));
         }
         catch (\Guzzle\Http\Exception\BadResponseException $ex)
         {
             $this->response = $ex->getResponse();
+            $this->emit('after.request', array($this->lastResponse(), $this->lastResponseHeaders()));
             throw $ex;
         }
         return $this->response->getBody(true);
@@ -245,6 +248,6 @@ class Http extends EventEmitter implements ClientInterface
         {
             return $this->response->getHeaders()->toArray();                
         }
-        return null;
+        return array();
     }
 }
