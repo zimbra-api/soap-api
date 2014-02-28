@@ -307,7 +307,12 @@ abstract class Base extends API implements AdminInterface
             $name, $password, $authToken, $account,
             $virtualHost, $persistAuthTokenCookie
         );
-        return $this->_client->doRequest($request);
+        $result = $this->_client->doRequest($request);
+        if(isset($result->authToken) && !empty($result->authToken))
+        {
+            $this->_client->authToken($result->authToken);
+        }
+        return $result;
     }
     /**
      * Authenticate for an adminstration account.
