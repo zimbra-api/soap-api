@@ -42,18 +42,6 @@ abstract class Request extends Base
     private $_responseName = 'Response';
 
     /**
-     * The xml representation of this class
-     * @var SimpleXML
-     */
-    protected $xml;
-
-    /**
-     * The array representation of this class 
-     * @var array
-     */
-    protected $array = array();
-
-    /**
      * Request constructor
      *
      * @param  string $value
@@ -65,7 +53,6 @@ abstract class Request extends Base
         $ref = new \ReflectionObject($this);
         $this->_requestName = $ref->getShortName() . 'Request';
         $this->_responseName = $ref->getShortName() . 'Response';
-        $this->xml = new SimpleXML('<'.$this->_requestName.' />');
     }
 
     /**
