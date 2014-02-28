@@ -59,7 +59,7 @@ use Zimbra\Tests\Soap\LocalClientWsdl;
 use Zimbra\Tests\Soap\LocalClientHttp;
 
 /**
- * Api test case class for admin request.
+ * Api test case class for admin api.
  */
 class ApiTest extends ZimbraTestCase
 {
@@ -6307,15 +6307,21 @@ class ApiTest extends ZimbraTestCase
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
-    public function testNoOp()
+    public function testNoOp_AuthToken()
     {
         $api = new LocalAdminWsdl(__DIR__.'/../TestData/ZimbraAdminService.wsdl');
+        $api->client()->authToken('authToken');
         $api->noOp();
 
         $client = $api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraAdmin">'
+            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraAdmin" xmlns:ns2="urn:zimbra">'
+                .'<env:Header>'
+                    .'<ns2:context>'
+                        .'<authToken>authToken</authToken>'
+                    .'</ns2:context>'
+                .'</env:Header>'
                 .'<env:Body>'
                     .'<ns1:NoOpRequest />'
                 .'</env:Body>'

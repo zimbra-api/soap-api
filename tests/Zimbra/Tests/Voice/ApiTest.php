@@ -13,7 +13,7 @@ use Zimbra\Tests\Soap\LocalClientHttp;
 use Zimbra\Voice\Base as VoiceBase;
 
 /**
- * Api test case class for voice request.
+ * Api test case class for voice api.
  */
 class ApiTest extends ZimbraTestCase
 {

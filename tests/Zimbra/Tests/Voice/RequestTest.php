@@ -8,7 +8,7 @@ use Zimbra\Enum\VoiceMsgActionOp;
 use Zimbra\Enum\VoiceSortBy;
 
 /**
- * Testcase class for mail request.
+ * Testcase class for voice request.
  */
 class RequestTest extends ZimbraTestCase
 {

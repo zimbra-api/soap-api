@@ -35,48 +35,6 @@ use Zimbra\Enum\Type;
  */
 class RequestTest extends ZimbraTestCase
 {
-    public function getTz()
-    {
-        $standard = new \Zimbra\Struct\TzOnsetInfo(12, 2, 3, 4);
-        $daylight = new \Zimbra\Struct\TzOnsetInfo(4, 3, 2, 10);
-        return new \Zimbra\Mail\Struct\CalTZInfo('id', 10, 10, $standard, $daylight, 'stdname', 'dayname');
-    }
-
-    protected function getMsg()
-    {
-        $mp = new \Zimbra\Mail\Struct\MimePartAttachSpec('mid', 'part', true);
-        $msg = new \Zimbra\Mail\Struct\MsgAttachSpec('id', false);
-        $cn = new \Zimbra\Mail\Struct\ContactAttachSpec('id', false);
-        $doc = new \Zimbra\Mail\Struct\DocAttachSpec('path', 'id', 10, true);
-        $info = new \Zimbra\Mail\Struct\MimePartInfo(array(), null, 'ct', 'content', 'ci');
-
-        $header = new \Zimbra\Mail\Struct\Header('name', 'value');
-        $attach = new \Zimbra\Mail\Struct\AttachmentsInfo($mp, $msg, $cn, $doc, 'aid');
-        $mp = new \Zimbra\Mail\Struct\MimePartInfo(array($info), $attach, 'ct', 'content', 'ci');
-        $inv = new \Zimbra\Mail\Struct\InvitationInfo('method', 10, true);
-        $e = new \Zimbra\Mail\Struct\EmailAddrInfo('a', 't', 'p');
-        $tz = $this->getTz();
-
-        return new \Zimbra\Mail\Struct\Msg(
-            'content',
-            array($header),
-            $mp,
-            $attach,
-            $inv,
-            array($e),
-            array($tz),
-            'fr',
-            'aid',
-            'origid',
-            'rt',
-            'idnt',
-            'su',
-            'irt',
-            'l',
-            'f'
-        );
-    }
-
     public function testAddAppointmentInvite()
     {
         $m = $this->getMsg();
@@ -273,11 +231,11 @@ class RequestTest extends ZimbraTestCase
             'content', 'f', 't', 'tn', 'l', true, 'd', 'aid'
         );
         $req = new \Zimbra\Mail\Request\AddMsg(
-            $m, true
+            $m, false
         );
         $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
         $this->assertSame($m, $req->m());
-        $this->assertTrue($req->filterSent());
+        $this->assertFalse($req->filterSent());
 
         $req->m($m)
             ->filterSent(true);
@@ -493,6 +451,7 @@ class RequestTest extends ZimbraTestCase
         $filterRule = new \Zimbra\Struct\NamedElement('name');
         $filterRules = new \Zimbra\Mail\Struct\NamedFilterRules(array($filterRule));
         $m = new \Zimbra\Mail\Struct\IdsAttr('ids');
+
         $req = new \Zimbra\Mail\Request\ApplyFilterRules(
             $filterRules, $m, 'query'
         );
@@ -537,8 +496,9 @@ class RequestTest extends ZimbraTestCase
     public function testApplyOutgoingFilterRules()
     {
         $filterRule = new \Zimbra\Struct\NamedElement('name');
-        $m = new \Zimbra\Mail\Struct\IdsAttr('ids');
         $filterRules = new \Zimbra\Mail\Struct\NamedFilterRules(array($filterRule));
+        $m = new \Zimbra\Mail\Struct\IdsAttr('ids');
+
         $req = new \Zimbra\Mail\Request\ApplyOutgoingFilterRules(
             $filterRules, $m, 'query'
         );

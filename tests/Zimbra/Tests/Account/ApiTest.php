@@ -27,7 +27,7 @@ use Zimbra\Tests\Soap\LocalClientHttp;
 use Zimbra\Account\Base as AccountBase;
 
 /**
- * Api test case class for account request.
+ * Api test case class for account api.
  */
 class ApiTest extends ZimbraTestCase
 {
