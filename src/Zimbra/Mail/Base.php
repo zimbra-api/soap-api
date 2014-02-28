@@ -46,7 +46,6 @@ use Zimbra\Mail\Struct\FreeBusyUserSpec;
 use Zimbra\Mail\Struct\FolderActionSelector;
 use Zimbra\Mail\Struct\FolderSpec;
 use Zimbra\Mail\Struct\GetFolderSpec;
-use Zimbra\Mail\Struct\Id;
 use Zimbra\Mail\Struct\IdsAttr;
 use Zimbra\Mail\Struct\IdStatus;
 use Zimbra\Mail\Struct\InstanceRecurIdInfo;
@@ -100,6 +99,8 @@ use Zimbra\Mail\Struct\RssDataSourceNameOrId;
 use Zimbra\Mail\Struct\GalDataSourceNameOrId;
 use Zimbra\Mail\Struct\CalDataSourceNameOrId;
 use Zimbra\Mail\Struct\UnknownDataSourceNameOrId;
+
+use Zimbra\Struct\Id;
 
 /**
  * Base is a abstract class which allows to connect Zimbra API mail public functions via SOAP
