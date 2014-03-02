@@ -81,7 +81,9 @@ use Zimbra\Mail\Struct\TagSpec;
 use Zimbra\Mail\Struct\TagActionSelector;
 use Zimbra\Mail\Struct\TargetSpec;
 use Zimbra\Mail\Struct\WaitSetAdd;
+use Zimbra\Mail\Struct\WaitSetSpec;
 
+use Zimbra\Mail\Struct\MailDataSource;
 use Zimbra\Mail\Struct\MailImapDataSource;
 use Zimbra\Mail\Struct\MailPop3DataSource;
 use Zimbra\Mail\Struct\MailCaldavDataSource;
@@ -641,38 +643,101 @@ abstract class Base extends AccountBase implements MailInterface
      * for example via the POP3 or IMAP protocols.
      * Only one data source is allowed per request.
      *
+     * @param  MailDataSource $ds Data source
+     * @return mix
+     */
+    public function createDataSource(MailDataSource $ds)
+    {
+        $request = new \Zimbra\Mail\Request\CreateDataSource($ds);
+        return $this->_client->doRequest($request);
+    }
+
+    /**
+     * Creates a imap data source that imports mail items into the specified folder.
+     *
      * @param  MailImapDataSource $imap Imap data source
+     * @return mix
+     */
+    public function createImapDataSource(MailImapDataSource $imap)
+    {
+        return $this->createDataSource($imap);
+    }
+
+    /**
+     * Creates a pop3 data source that imports mail items into the specified folder.
+     *
      * @param  MailPop3DataSource $pop3 Pop3 data source
+     * @return mix
+     */
+    public function createPop3DataSource(MailPop3DataSource $pop3)
+    {
+        return $this->createDataSource($pop3);
+    }
+
+    /**
+     * Creates a caldav data source that imports mail items into the specified folder.
+     *
      * @param  MailCaldavDataSource $caldav Caldav data source
-     * @param  MailYabDataSource $yab Yab data source
+     * @return mix
+     */
+    public function createCaldavDataSource(MailCaldavDataSource $caldav)
+    {
+        return $this->createDataSource($caldav);
+    }
+
+    /**
+     * Creates a yab data source that imports mail items into the specified folder.
+     *
+     * @param  MailYabDataSource $yab Caldav data source
+     * @return mix
+     */
+    public function createYabDataSource(MailYabDataSource $yab)
+    {
+        return $this->createDataSource($yab);
+    }
+
+    /**
+     * Creates a rss data source that imports mail items into the specified folder.
+     *
      * @param  MailRssDataSource $rss Rss data source
+     * @return mix
+     */
+    public function createRssDataSource(MailRssDataSource $rss)
+    {
+        return $this->createDataSource($rss);
+    }
+
+    /**
+     * Creates a gal data source that imports mail items into the specified folder.
+     *
      * @param  MailGalDataSource $gal Gal data source
+     * @return mix
+     */
+    public function createGalDataSource(MailGalDataSource $gal)
+    {
+        return $this->createDataSource($gal);
+    }
+
+    /**
+     * Creates a cal data source that imports mail items into the specified folder.
+     *
      * @param  MailCalDataSource $cal Cal data source
+     * @return mix
+     */
+    public function createCalDataSource(MailCalDataSource $cal)
+    {
+        return $this->createDataSource($cal);
+    }
+
+    /**
+     * Creates a unknown data source that imports mail items into the specified folder.
+     *
      * @param  MailUnknownDataSource $unknown Unknown data source
      * @return mix
      */
-    public function createDataSource(
-        MailImapDataSource $imap = null,
-        MailPop3DataSource $pop3 = null,
-        MailCaldavDataSource $caldav = null,
-        MailYabDataSource $yab = null,
-        MailRssDataSource $rss = null,
-        MailGalDataSource $gal = null,
-        MailCalDataSource $cal = null,
-        MailUnknownDataSource $unknown = null
-    )
+    public function createUnknownDataSource(MailUnknownDataSource $unknown)
     {
-        $request = new \Zimbra\Mail\Request\CreateDataSource(
-            $imap,
-            $pop3,
-            $caldav,
-            $yab,
-            $rss,
-            $gal,
-            $cal,
-            $unknown
-        );
-        return $this->_client->doRequest($request);
+        return $this->createDataSource($unknown);
     }
 
     /**
@@ -824,13 +889,13 @@ abstract class Base extends AccountBase implements MailInterface
      * Called once to initialize a WaitSet and to set its "default interest types"
      * WaitSet: scalable mechanism for listening for changes to one or more accounts
      *
-     * @param  WaitSetAdd $add WaitSet add specification.
+     * @param  WaitSetSpec $add WaitSet add specification.
      * @param  array $defTypes Default interest types: comma-separated list.
      * @param  bool  $allAccounts If {all-accounts} is set, then all mailboxes on the system will be listened to, including any mailboxes which are created on the system while the WaitSet is in existence.
      * @return mix
      */
     public function createWaitSet(
-        WaitSetAdd $add = null,
+        WaitSetSpec $add = null,
         array $defTypes = array(),
         $allAccounts = null
     )
