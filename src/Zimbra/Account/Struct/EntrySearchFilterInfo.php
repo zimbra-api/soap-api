@@ -13,6 +13,7 @@ namespace Zimbra\Account\Struct;
 use Zimbra\Account\Struct\EntrySearchFilterMultiCond as MultiCond;
 use Zimbra\Account\Struct\EntrySearchFilterSingleCond as SingleCond;
 use Zimbra\Struct\Base;
+use Zimbra\Struct\SearchFilterCondition;
 
 /**
  * EntrySearchFilterInfo struct class
@@ -27,21 +28,40 @@ class EntrySearchFilterInfo extends Base
 {
     /**
      * Constructor method for EntrySearchFilterInfo
-     * @param MultiCond $conds
-     * @param SingleCond $cond
+     * @param SearchFilterCondition $condition
      * @return self
      */
-    public function __construct(MultiCond $conds = null, SingleCond $cond = null)
+    public function __construct(SearchFilterCondition $condition = null)
     {
 		parent::__construct();
-        if($conds instanceof MultiCond)
+        if($condition instanceof MultiCond)
         {
-			$this->child('conds', $conds);
+			$this->child('conds', $condition);
         }
-        if($cond instanceof SingleCond)
+        if($condition instanceof SingleCond)
         {
-			$this->child('cond', $cond);
+			$this->child('cond', $condition);
         }
+    }
+
+    /**
+     * Gets or sets child
+     *
+     * @param  string $name
+     * @param  mix $value
+     * @return string|self
+     */
+    public function child($name, $value = null)
+    {
+        if($value instanceof SearchFilterCondition)
+        {
+            $conds = array('conds', 'cond');
+            foreach ($conds as $cond)
+            {
+                $this->removeChild($cond);
+            }
+        }
+        return parent::child($name, $value);
     }
 
     /**

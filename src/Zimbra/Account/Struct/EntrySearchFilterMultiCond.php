@@ -13,6 +13,7 @@ namespace Zimbra\Account\Struct;
 use Zimbra\Account\Struct\EntrySearchFilterMultiCond as MultiCond;
 use Zimbra\Account\Struct\EntrySearchFilterSingleCond as SingleCond;
 use Zimbra\Struct\Base;
+use Zimbra\Struct\SearchFilterCondition;
 
 /**
  * EntrySearchFilterMultiCond struct class
@@ -23,7 +24,7 @@ use Zimbra\Struct\Base;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
  */
-class EntrySearchFilterMultiCond extends Base
+class EntrySearchFilterMultiCond extends Base implements SearchFilterCondition
 {
     /**
      * Constructor method for entrySearchFilterMultiCond
