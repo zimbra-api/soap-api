@@ -31,6 +31,7 @@ class IdStatus extends Base
      */
     public function __construct($id = null, $status = null)
     {
+        parent::__construct();
         if(null !== $id)
         {
             $this->property('id', trim($id));

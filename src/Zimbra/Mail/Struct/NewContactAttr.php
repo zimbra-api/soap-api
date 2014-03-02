@@ -48,7 +48,7 @@ class NewContactAttr extends Base
         }
         if(null !== $id)
         {
-            $this->property('id', trim($id));
+            $this->property('id', (int) $id);
         }
         if(null !== $part)
         {
@@ -98,7 +98,7 @@ class NewContactAttr extends Base
         {
             return $this->property('id');
         }
-        return $this->property('id', trim($id));
+        return $this->property('id', (int) $id);
     }
 
     /**

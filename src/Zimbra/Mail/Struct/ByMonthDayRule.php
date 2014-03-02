@@ -37,6 +37,7 @@ class ByMonthDayRule extends Base
      */
     public function __construct($modaylist)
     {
+        parent::__construct();
         $modaylist = explode(',', $modaylist);
         $arr = array();
         foreach ($modaylist as $day)

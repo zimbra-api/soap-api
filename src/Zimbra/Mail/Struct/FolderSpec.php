@@ -30,6 +30,7 @@ class FolderSpec extends Base
      */
     public function __construct($l = null)
     {
+        parent::__construct();
         if(null !== $l)
         {
             $this->property('l', trim($l));
