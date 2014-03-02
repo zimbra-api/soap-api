@@ -30,6 +30,7 @@ class PrefSpec extends Base
      */
     public function __construct($name = null)
     {
+        parent::__construct();
         if(null !== $name)
         {
             $this->property('name', trim($name));

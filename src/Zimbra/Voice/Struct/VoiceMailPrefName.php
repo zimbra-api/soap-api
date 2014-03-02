@@ -30,6 +30,7 @@ class VoiceMailPrefName extends Base
      */
     public function __construct($name)
     {
+        parent::__construct();
         $this->property('name', trim($name));
     }
 

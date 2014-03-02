@@ -36,6 +36,7 @@ class ModifyVoiceMailPinSpec extends Base
         $name = null
     )
     {
+        parent::__construct();
     	$this->property('oldPin', trim($oldPin));
         $this->property('pin', trim($pin));
         if(null !== $name)

@@ -34,6 +34,7 @@ class VoiceMsgUploadSpec extends Base
         $phone = null
     )
     {
+        parent::__construct();
         $this->property('id', trim($id));
         $this->property('phone', trim($phone));
     }

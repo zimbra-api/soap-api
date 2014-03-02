@@ -36,6 +36,7 @@ class StorePrincipalSpec extends Base
         $accountNumber = null
     )
     {
+        parent::__construct();
         if(null !== $id)
         {
             $this->property('id', trim($id));
