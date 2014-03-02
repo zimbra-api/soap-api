@@ -30,7 +30,7 @@ abstract class Base extends EventEmitter
      * Struct properties
      * @var array
      */
-    private $_properties = array();
+    private $_properties;
 
     /**
      * Struct children
@@ -62,6 +62,7 @@ abstract class Base extends EventEmitter
         {
             $this->_value = trim($value);
         }
+        $this->_properties = new Map();
         $this->_children = new Map();
         $this->emit('initialize', array($value));
     }
@@ -102,16 +103,38 @@ abstract class Base extends EventEmitter
      * Gets or sets property
      *
      * @param  string $name
-     * @param  string $value
+     * @param  mix $value
      * @return string|self
      */
     public function property($name, $value = null)
     {
         if(null === $value)
         {
-            return isset($this->_properties[$name]) ? $this->_properties[$name] : null;
+            if($this->_properties->containsKey($name))
+            {
+                return $this->_properties->get($name)->get();
+            }
+            else
+            {
+                return null;
+            }
         }
-        $this->_properties[$name]  = $value;
+        $this->_properties->set($name, $value);
+        return $this;
+    }
+
+    /**
+     * Remove a property
+     *
+     * @param  string $name
+     * @return self
+     */
+    public function removeProperty($name)
+    {
+        if($this->_properties->containsKey($name))
+        {
+            $this->_properties->remove($name);
+        }
         return $this;
     }
 
@@ -119,7 +142,7 @@ abstract class Base extends EventEmitter
      * Gets or sets child
      *
      * @param  string $name
-     * @param  string $value
+     * @param  mix $value
      * @return string|self
      */
     public function child($name, $value = null)
@@ -136,6 +159,21 @@ abstract class Base extends EventEmitter
             }
         }
         $this->_children->set($name, $value);
+        return $this;
+    }
+
+    /**
+     * Remove a child
+     *
+     * @param  string $name
+     * @return self
+     */
+    public function removeChild($name)
+    {
+        if($this->_children->containsKey($name))
+        {
+            $this->_children->remove($name);
+        }
         return $this;
     }
 
