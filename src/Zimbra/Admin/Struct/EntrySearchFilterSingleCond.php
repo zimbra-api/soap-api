@@ -12,6 +12,7 @@ namespace Zimbra\Admin\Struct;
 
 use Zimbra\Enum\ConditionOperator as Op;
 use Zimbra\Struct\Base;
+use Zimbra\Struct\SearchFilterCondition;
 
 /**
  * EntrySearchFilterSingleCond struct class
@@ -22,7 +23,7 @@ use Zimbra\Struct\Base;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
  */
-class EntrySearchFilterSingleCond extends Base
+class EntrySearchFilterSingleCond extends Base implements SearchFilterCondition
 {
     /**
      * Constructor method for EntrySearchFilterSingleCond
