@@ -30,6 +30,7 @@ class HostName extends Base
      */
     public function __construct($hn)
     {
+        parent::__construct();
         $this->property('hn', trim($hn));
     }
 

@@ -33,6 +33,7 @@ class ReindexMailboxInfo extends Base
      */
     public function __construct($id, $types = null, $ids = null)
     {
+        parent::__construct();
         $this->property('id', trim($id));
         if(null !== $types)
         {

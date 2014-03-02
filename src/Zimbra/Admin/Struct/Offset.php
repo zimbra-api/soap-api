@@ -30,6 +30,7 @@ class Offset extends Base
      */
     public function __construct($offset)
     {
+        parent::__construct();
         $this->property('offset', (int) $offset);
     }
 

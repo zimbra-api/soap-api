@@ -32,6 +32,7 @@ class ZimletAcl extends Base
      */
     public function __construct($cos = null, AclType $acl = null)
     {
+        parent::__construct();
         $this->property('cos', trim($cos));
         if($acl instanceof AclType)
         {
