@@ -6022,7 +6022,7 @@ class RequestTest extends ZimbraTestCase
         $otherConds = new \Zimbra\Admin\Struct\EntrySearchFilterMultiCond(false, true, NULL, $otherCond);
         $cond = new \Zimbra\Admin\Struct\EntrySearchFilterSingleCond('a', CondOp::EQ(), 'v', true);
         $conds = new \Zimbra\Admin\Struct\EntrySearchFilterMultiCond(true, false, $otherConds, $cond);
-        $searchFilter = new \Zimbra\Admin\Struct\EntrySearchFilterInfo($conds, $cond);
+        $searchFilter = new \Zimbra\Admin\Struct\EntrySearchFilterInfo($conds);
         
         $req = new \Zimbra\Admin\Request\SearchCalendarResources(
             $searchFilter, 100, 100, 'domain', false, 'sortBy', true, 'attrs'
@@ -6070,7 +6070,6 @@ class RequestTest extends ZimbraTestCase
                         .'</conds>'
                         .'<cond attr="a" op="eq" value="v" not="true" />'
                     .'</conds>'
-                    .'<cond attr="a" op="eq" value="v" not="true" />'
                 .'</searchFilter>'
             .'</SearchCalendarResourcesRequest>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
@@ -6104,12 +6103,6 @@ class RequestTest extends ZimbraTestCase
                             'value' => 'v',
                             'not' => true,
                         ),
-                    ),
-                    'cond' => array(
-                        'attr' => 'a',
-                        'op' => 'eq',
-                        'value' => 'v',
-                        'not' => true,
                     ),
                 ),
             ),

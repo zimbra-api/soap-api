@@ -1326,6 +1326,7 @@ class ApiTest extends ZimbraTestCase
             .'</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
+
     public function testModifySignature()
     {
         $content = new \Zimbra\Account\Struct\SignatureContent('value', ContentType::TEXT_HTML());
@@ -1484,6 +1485,7 @@ class ApiTest extends ZimbraTestCase
             .'</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
+
     public function testSearchCalendarResources()
     {
         $cursor = new \Zimbra\Struct\CursorInfo('id','sortVal', 'endSortVal', true);
@@ -1521,7 +1523,7 @@ class ApiTest extends ZimbraTestCase
             .'</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
-        $filter = new \Zimbra\Account\Struct\EntrySearchFilterInfo(null, $cond);
+        $filter = new \Zimbra\Account\Struct\EntrySearchFilterInfo($cond);
         $api = new LocalAccountWsdl(__DIR__.'/../TestData/ZimbraUserService.wsdl');
         $api->searchCalendarResources(
             'locale', $cursor, 'name', $filter, true, 'sortBy', 10, 10, 'galAcctId', 'attrs'
@@ -1544,7 +1546,7 @@ class ApiTest extends ZimbraTestCase
             .'</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
-        $filter = new \Zimbra\Account\Struct\EntrySearchFilterInfo($conds, $cond);
+        $filter = new \Zimbra\Account\Struct\EntrySearchFilterInfo($conds);
         $api = new LocalAccountHttp(null);
         $api->searchCalendarResources(
             'locale', $cursor, 'name', $filter, true, 'sortBy', 10, 10, 'galAcctId', 'attrs'
@@ -1566,7 +1568,29 @@ class ApiTest extends ZimbraTestCase
                                 .'</urn1:conds>'
                                 .'<urn1:cond attr="a" op="eq" value="v" not="true" />'
                             .'</urn1:conds>'
-                            .'<urn1:cond attr="a" op="eq" value="v" not="true" />'
+                        .'</urn1:searchFilter>'
+                    .'</urn1:SearchCalendarResourcesRequest>'
+                .'</env:Body>'
+            .'</env:Envelope>';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
+
+        $filter = new \Zimbra\Account\Struct\EntrySearchFilterInfo($cond);
+        $api = new LocalAccountHttp(null);
+        $api->searchCalendarResources(
+            'locale', $cursor, 'name', $filter, true, 'sortBy', 10, 10, 'galAcctId', 'attrs'
+        );
+
+        $client = $api->client();
+        $req = $client->lastRequest();
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAccount">'
+                .'<env:Body>'
+                    .'<urn1:SearchCalendarResourcesRequest quick="true" sortBy="sortBy" limit="10" offset="10" galAcctId="galAcctId" attrs="attrs">'
+                        .'<urn1:locale>locale</urn1:locale>'
+                        .'<urn1:cursor id="id" sortVal="sortVal" endSortVal="endSortVal" includeOffset="true" />'
+                        .'<urn1:name>name</urn1:name>'
+                        .'<urn1:searchFilter>'
+                            .'<urn1:cond not="true" attr="a" op="eq" value="v" />'
                         .'</urn1:searchFilter>'
                     .'</urn1:SearchCalendarResourcesRequest>'
                 .'</env:Body>'
@@ -1611,7 +1635,7 @@ class ApiTest extends ZimbraTestCase
             .'</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
-        $filter = new \Zimbra\Account\Struct\EntrySearchFilterInfo(null, $cond);
+        $filter = new \Zimbra\Account\Struct\EntrySearchFilterInfo($cond);
         $api = new LocalAccountWsdl(__DIR__.'/../TestData/ZimbraUserService.wsdl');
         $api->searchGal(
             'locale', $cursor, $filter, 'ref', 'name', SearchType::ALL(),
@@ -1634,7 +1658,7 @@ class ApiTest extends ZimbraTestCase
             .'</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
-        $filter = new \Zimbra\Account\Struct\EntrySearchFilterInfo($conds, $cond);
+        $filter = new \Zimbra\Account\Struct\EntrySearchFilterInfo($conds);
         $api = new LocalAccountHttp(null);
         $api->searchGal(
             'locale', $cursor, $filter, 'ref', 'name', SearchType::ALL(),
@@ -1656,7 +1680,29 @@ class ApiTest extends ZimbraTestCase
                                 .'</urn1:conds>'
                                 .'<urn1:cond attr="a" op="eq" value="v" not="true" />'
                             .'</urn1:conds>'
-                            .'<urn1:cond attr="a" op="eq" value="v" not="true" />'
+                        .'</urn1:searchFilter>'
+                    .'</urn1:SearchGalRequest>'
+                .'</env:Body>'
+            .'</env:Envelope>';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
+
+        $filter = new \Zimbra\Account\Struct\EntrySearchFilterInfo($cond);
+        $api = new LocalAccountHttp(null);
+        $api->searchGal(
+            'locale', $cursor, $filter, 'ref', 'name', SearchType::ALL(),
+            true, false, MemberOf::ALL(), true, 'galAcctId', false, SortBy::NONE(), 10, 10
+        );
+
+        $client = $api->client();
+        $req = $client->lastRequest();
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAccount">'
+                .'<env:Body>'
+                    .'<urn1:SearchGalRequest ref="ref" name="name" type="all" needExp="true" needIsOwner="false" needIsMember="all" needSMIMECerts="true" galAcctId="galAcctId" quick="false" sortBy="none" limit="10" offset="10">'
+                        .'<urn1:locale>locale</urn1:locale>'
+                        .'<urn1:cursor id="id" sortVal="sortVal" endSortVal="endSortVal" includeOffset="true" />'
+                        .'<urn1:searchFilter>'
+                            .'<urn1:cond not="true" attr="a" op="eq" value="v" />'
                         .'</urn1:searchFilter>'
                     .'</urn1:SearchGalRequest>'
                 .'</env:Body>'

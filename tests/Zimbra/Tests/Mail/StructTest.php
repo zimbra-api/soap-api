@@ -1263,7 +1263,7 @@ class StructTest extends ZimbraTestCase
     public function testContactActionSelector()
     {
         $a = new \Zimbra\Mail\Struct\NewContactAttr(
-            'n', 'value', 'aid', 'id', 'part'
+            'n', 'value', 'aid', 10, 'part'
         );
         $action = new \Zimbra\Mail\Struct\ContactActionSelector(
             ContactActionOp::MOVE(), 'id', 'tcon', 10, 'l', '#aabbcc', 10, 'name', 'f', 't', 'tn', array($a)
@@ -1280,7 +1280,7 @@ class StructTest extends ZimbraTestCase
 
         $xml = '<?xml version="1.0"?>'."\n"
             .'<action op="move" id="id" tcon="tcon" tag="10" l="l" rgb="#aabbcc" color="10" name="name" f="f" t="t" tn="tn">'
-                .'<a n="n" aid="aid" id="id" part="part">value</a>'
+                .'<a n="n" aid="aid" id="10" part="part">value</a>'
             .'</action>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $action);
 
@@ -1302,7 +1302,7 @@ class StructTest extends ZimbraTestCase
                         'n' => 'n',
                         '_' => 'value',
                         'aid' => 'aid',
-                        'id' => 'id',
+                        'id' => 10,
                         'part' => 'part',
                     ),
                 ),
@@ -1364,7 +1364,7 @@ class StructTest extends ZimbraTestCase
             'value', 'mid', 'part', 'aid'
         );
         $a = new \Zimbra\Mail\Struct\NewContactAttr(
-            'n', 'value', 'aid', 'id', 'part'
+            'n', 'value', 'aid', 10, 'part'
         );
         $m = new \Zimbra\Mail\Struct\NewContactGroupMember(
             'type', 'value'
@@ -1403,7 +1403,7 @@ class StructTest extends ZimbraTestCase
         $xml = '<?xml version="1.0"?>'."\n"
             .'<cn id="10" l="l" t="t" tn="tn">'
                 .'<vcard mid="mid" part="part" aid="aid">value</vcard>'
-                .'<a n="n" aid="aid" id="id" part="part">value</a>'
+                .'<a n="n" aid="aid" id="10" part="part">value</a>'
                 .'<m type="type" value="value" />'
             .'</cn>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $cn);
@@ -1425,7 +1425,7 @@ class StructTest extends ZimbraTestCase
                         'n' => 'n',
                         '_' => 'value',
                         'aid' => 'aid',
-                        'id' => 'id',
+                        'id' => 10,
                         'part' => 'part',
                     ),
                 ),
@@ -7144,27 +7144,27 @@ class StructTest extends ZimbraTestCase
     public function testNewContactAttr()
     {
         $a = new \Zimbra\Mail\Struct\NewContactAttr(
-            'n', 'value', 'aid', 'id', 'part'
+            'n', 'value', 'aid', 10, 'part'
         );
         $this->assertSame('n', $a->n());
         $this->assertSame('value', $a->value());
         $this->assertSame('aid', $a->aid());
-        $this->assertSame('id', $a->id());
+        $this->assertSame(10, $a->id());
         $this->assertSame('part', $a->part());
 
         $a->n('n')
           ->value('value')
           ->aid('aid')
-          ->id('id')
+          ->id(10)
           ->part('part');
         $this->assertSame('n', $a->n());
         $this->assertSame('value', $a->value());
         $this->assertSame('aid', $a->aid());
-        $this->assertSame('id', $a->id());
+        $this->assertSame(10, $a->id());
         $this->assertSame('part', $a->part());
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<a n="n" aid="aid" id="id" part="part">value</a>';
+            .'<a n="n" aid="aid" id="10" part="part">value</a>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $a);
 
         $array = array(
@@ -7172,7 +7172,7 @@ class StructTest extends ZimbraTestCase
                 'n' => 'n',
                 '_' => 'value',
                 'aid' => 'aid',
-                'id' => 'id',
+                'id' => 10,
                 'part' => 'part',
             ),
         );

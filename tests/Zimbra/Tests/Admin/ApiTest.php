@@ -7330,7 +7330,7 @@ class ApiTest extends ZimbraTestCase
             .'</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
-        $searchFilter = new \Zimbra\Admin\Struct\EntrySearchFilterInfo(null, $cond);
+        $searchFilter = new \Zimbra\Admin\Struct\EntrySearchFilterInfo($cond);
         $api = new LocalAdminWsdl(__DIR__.'/../TestData/ZimbraAdminService.wsdl');
         $api->searchCalendarResources(
             $searchFilter, 10, 10, 'domain', true, 'sortBy', false, 'attrs'
@@ -7357,7 +7357,7 @@ class ApiTest extends ZimbraTestCase
             .'</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
-        $searchFilter = new \Zimbra\Admin\Struct\EntrySearchFilterInfo($conds, $cond);
+        $searchFilter = new \Zimbra\Admin\Struct\EntrySearchFilterInfo($conds);
         $api = new LocalAdminHttp(null);
         $api->searchCalendarResources(
             $searchFilter, 10, 10, 'domain', true, 'sortBy', false, 'attrs'
@@ -7383,6 +7383,32 @@ class ApiTest extends ZimbraTestCase
                                 .'</urn1:conds>'
                                 .'<urn1:cond attr="a" op="eq" value="v" not="true" />'
                             .'</urn1:conds>'
+                        .'</urn1:searchFilter>'
+                    .'</urn1:SearchCalendarResourcesRequest>'
+                .'</env:Body>'
+            .'</env:Envelope>';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
+
+        $searchFilter = new \Zimbra\Admin\Struct\EntrySearchFilterInfo($cond);
+        $api = new LocalAdminHttp(null);
+        $api->searchCalendarResources(
+            $searchFilter, 10, 10, 'domain', true, 'sortBy', false, 'attrs'
+        );
+
+        $client = $api->client();
+        $req = $client->lastRequest();
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                .'<env:Body>'
+                    .'<urn1:SearchCalendarResourcesRequest '
+                        .'limit="10" '
+                        .'offset="10" '
+                        .'domain="domain" '
+                        .'applyCos="true" '
+                        .'sortBy="sortBy" '
+                        .'sortAscending="false" '
+                        .'attrs="attrs">'
+                        .'<urn1:searchFilter>'
                             .'<urn1:cond attr="a" op="eq" value="v" not="true" />'
                         .'</urn1:searchFilter>'
                     .'</urn1:SearchCalendarResourcesRequest>'

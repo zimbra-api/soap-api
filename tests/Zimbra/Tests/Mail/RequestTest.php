@@ -1225,7 +1225,7 @@ class RequestTest extends ZimbraTestCase
     public function testContactAction()
     {
         $a = new \Zimbra\Mail\Struct\NewContactAttr(
-            'n', 'value', 'aid', 'id', 'part'
+            'n', 'value', 'aid', 10, 'part'
         );
         $action = new \Zimbra\Mail\Struct\ContactActionSelector(
             ContactActionOp::MOVE(), 'id', 'tcon', 10, 'l', '#aabbcc', 10, 'name', 'f', 't', 'tn', array($a)
@@ -1242,7 +1242,7 @@ class RequestTest extends ZimbraTestCase
         $xml = '<?xml version="1.0"?>'."\n"
             .'<ContactActionRequest>'
                 .'<action op="move" id="id" tcon="tcon" tag="10" l="l" rgb="#aabbcc" color="10" name="name" f="f" t="t" tn="tn">'
-                    .'<a n="n" aid="aid" id="id" part="part">value</a>'
+                    .'<a n="n" aid="aid" id="10" part="part">value</a>'
                 .'</action>'
             .'</ContactActionRequest>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
@@ -1266,7 +1266,7 @@ class RequestTest extends ZimbraTestCase
                             'n' => 'n',
                             '_' => 'value',
                             'aid' => 'aid',
-                            'id' => 'id',
+                            'id' => 10,
                             'part' => 'part',
                         ),
                     ),
@@ -1860,7 +1860,7 @@ class RequestTest extends ZimbraTestCase
             'value', 'mid', 'part', 'aid'
         );
         $a = new \Zimbra\Mail\Struct\NewContactAttr(
-            'n', 'value', 'aid', 'id', 'part'
+            'n', 'value', 'aid', 10, 'part'
         );
         $m = new \Zimbra\Mail\Struct\NewContactGroupMember(
             'type', 'value'
@@ -1885,7 +1885,7 @@ class RequestTest extends ZimbraTestCase
             .'<CreateContactRequest verbose="true">'
                 .'<cn id="10" l="l" t="t" tn="tn">'
                     .'<vcard mid="mid" part="part" aid="aid">value</vcard>'
-                    .'<a n="n" aid="aid" id="id" part="part">value</a>'
+                    .'<a n="n" aid="aid" id="10" part="part">value</a>'
                     .'<m type="type" value="value" />'
                 .'</cn>'
             .'</CreateContactRequest>';
@@ -1910,7 +1910,7 @@ class RequestTest extends ZimbraTestCase
                             'n' => 'n',
                             '_' => 'value',
                             'aid' => 'aid',
-                            'id' => 'id',
+                            'id' => 10,
                             'part' => 'part',
                         ),
                     ),
@@ -1928,6 +1928,62 @@ class RequestTest extends ZimbraTestCase
 
     public function testCreateDataSource()
     {
+        $pop3 = new \Zimbra\Mail\Struct\MailPop3DataSource(true);
+        $req = new \Zimbra\Mail\Request\CreateDataSource(
+            $pop3
+        );
+        $this->assertSame($pop3, $req->pop3());
+        $req->pop3($pop3);
+        $this->assertSame($pop3, $req->pop3());
+
+        $caldav = new \Zimbra\Mail\Struct\MailCaldavDataSource();
+        $req = new \Zimbra\Mail\Request\CreateDataSource(
+            $caldav
+        );
+        $this->assertSame($caldav, $req->caldav());
+        $req->caldav($caldav);
+        $this->assertSame($caldav, $req->caldav());
+
+        $yab = new \Zimbra\Mail\Struct\MailYabDataSource();
+        $req = new \Zimbra\Mail\Request\CreateDataSource(
+            $yab
+        );
+        $this->assertSame($yab, $req->yab());
+        $req->yab($yab);
+        $this->assertSame($yab, $req->yab());
+
+        $rss = new \Zimbra\Mail\Struct\MailRssDataSource();
+        $req = new \Zimbra\Mail\Request\CreateDataSource(
+            $rss
+        );
+        $this->assertSame($rss, $req->rss());
+        $req->rss($rss);
+        $this->assertSame($rss, $req->rss());
+
+        $gal = new \Zimbra\Mail\Struct\MailGalDataSource();
+        $req = new \Zimbra\Mail\Request\CreateDataSource(
+            $gal
+        );
+        $this->assertSame($gal, $req->gal());
+        $req->gal($gal);
+        $this->assertSame($gal, $req->gal());
+
+        $cal = new \Zimbra\Mail\Struct\MailCalDataSource();
+        $req = new \Zimbra\Mail\Request\CreateDataSource(
+            $cal
+        );
+        $this->assertSame($cal, $req->cal());
+        $req->cal($cal);
+        $this->assertSame($cal, $req->cal());
+
+        $unknown = new \Zimbra\Mail\Struct\MailUnknownDataSource();
+        $req = new \Zimbra\Mail\Request\CreateDataSource(
+            $unknown
+        );
+        $this->assertSame($unknown, $req->unknown());
+        $req->unknown($unknown);
+        $this->assertSame($unknown, $req->unknown());
+
         $imap = new \Zimbra\Mail\Struct\MailImapDataSource(
             'id',
             'name',
@@ -1952,44 +2008,13 @@ class RequestTest extends ZimbraTestCase
             'lastError',
             array('a', 'b')
         );
-        $pop3 = new \Zimbra\Mail\Struct\MailPop3DataSource(true);
-        $caldav = new \Zimbra\Mail\Struct\MailCaldavDataSource();
-        $yab = new \Zimbra\Mail\Struct\MailYabDataSource();
-        $rss = new \Zimbra\Mail\Struct\MailRssDataSource();
-        $gal = new \Zimbra\Mail\Struct\MailGalDataSource();
-        $cal = new \Zimbra\Mail\Struct\MailCalDataSource();
-        $unknown = new \Zimbra\Mail\Struct\MailUnknownDataSource();
-
         $req = new \Zimbra\Mail\Request\CreateDataSource(
-            $imap, $pop3, $caldav, $yab, $rss, $gal, $cal, $unknown
+            $imap
         );
         $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
         $this->assertSame($imap, $req->imap());
-        $this->assertSame($pop3, $req->pop3());
-        $this->assertSame($caldav, $req->caldav());
-        $this->assertSame($yab, $req->yab());
-        $this->assertSame($rss, $req->rss());
-        $this->assertSame($gal, $req->gal());
-        $this->assertSame($cal, $req->cal());
-        $this->assertSame($unknown, $req->unknown());
-
-        $req->imap($imap)
-            ->pop3($pop3)
-            ->caldav($caldav)
-            ->yab($yab)
-            ->rss($rss)
-            ->gal($gal)
-            ->cal($cal)
-            ->unknown($unknown);
+        $req->imap($imap);
         $this->assertSame($imap, $req->imap());
-        $this->assertSame($pop3, $req->pop3());
-        $this->assertSame($caldav, $req->caldav());
-        $this->assertSame($yab, $req->yab());
-        $this->assertSame($rss, $req->rss());
-        $this->assertSame($gal, $req->gal());
-        $this->assertSame($cal, $req->cal());
-        $this->assertSame($unknown, $req->unknown());
-
         $xml = '<?xml version="1.0"?>'."\n"
             .'<CreateDataSourceRequest>'
                 .'<imap id="id" name="name" l="l" isEnabled="true" importOnly="true" host="host" port="10" '
@@ -2001,13 +2026,6 @@ class RequestTest extends ZimbraTestCase
                     .'<a>a</a>'
                     .'<a>b</a>'
                 .'</imap>'
-                .'<pop3 leaveOnServer="true" />'
-                .'<caldav />'
-                .'<yab />'
-                .'<rss />'
-                .'<gal />'
-                .'<cal />'
-                .'<unknown />'
             .'</CreateDataSourceRequest>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
@@ -2037,15 +2055,6 @@ class RequestTest extends ZimbraTestCase
                     'lastError' => 'lastError',
                     'a' => array('a', 'b'),
                 ),
-                'pop3' => array(
-                    'leaveOnServer' => true,
-                ),
-                'caldav' => array(),
-                'yab' => array(),
-                'rss' => array(),
-                'gal' => array(),
-                'cal' => array(),
-                'unknown' => array(),
             )
         );
         $this->assertEquals($array, $req->toArray());
@@ -3881,33 +3890,33 @@ class RequestTest extends ZimbraTestCase
     public function testGetAppointment()
     {
         $req = new \Zimbra\Mail\Request\GetAppointment(
-            true, true, 'icalendar-uid', 'appointment-id'
+            true, true, 'uid', 'id'
         );
         $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
         $this->assertTrue($req->sync());
         $this->assertTrue($req->includeContent());
-        $this->assertSame('icalendar-uid', $req->uid());
-        $this->assertSame('appointment-id', $req->id());
+        $this->assertSame('uid', $req->uid());
+        $this->assertSame('id', $req->id());
 
         $req->sync(true)
             ->includeContent(true)
-            ->uid('icalendar-uid')
-            ->id('appointment-id');
+            ->uid('uid')
+            ->id('id');
         $this->assertTrue($req->sync());
         $this->assertTrue($req->includeContent());
-        $this->assertSame('icalendar-uid', $req->uid());
-        $this->assertSame('appointment-id', $req->id());
+        $this->assertSame('uid', $req->uid());
+        $this->assertSame('id', $req->id());
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<GetAppointmentRequest sync="true" includeContent="true" uid="icalendar-uid" id="appointment-id" />';
+            .'<GetAppointmentRequest sync="true" includeContent="true" uid="uid" id="id" />';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
         $array = array(
             'GetAppointmentRequest' => array(
                 'sync' => true,
                 'includeContent' => true,
-                'uid' => 'icalendar-uid',
-                'id' => 'appointment-id',
+                'uid' => 'uid',
+                'id' => 'id',
             )
         );
         $this->assertEquals($array, $req->toArray());
@@ -3978,7 +3987,7 @@ class RequestTest extends ZimbraTestCase
     public function testGetComments()
     {
         $comment = new \Zimbra\Mail\Struct\ParentId(
-            'item-id-of-parent'
+            'parentId'
         );
         $req = new \Zimbra\Mail\Request\GetComments(
             $comment
@@ -3991,14 +4000,14 @@ class RequestTest extends ZimbraTestCase
 
         $xml = '<?xml version="1.0"?>'."\n"
             .'<GetCommentsRequest>'
-                .'<comment parentId="item-id-of-parent" />'
+                .'<comment parentId="parentId" />'
             .'</GetCommentsRequest>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
         $array = array(
             'GetCommentsRequest' => array(
                 'comment' => array(
-                    'parentId' => 'item-id-of-parent',
+                    'parentId' => 'parentId',
                 ),
             )
         );

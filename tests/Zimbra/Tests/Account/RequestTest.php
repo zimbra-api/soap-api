@@ -1287,7 +1287,6 @@ class RequestTest extends ZimbraTestCase
                         .'</conds>'
                         .'<cond attr="a" op="eq" value="v" not="true" />'
                     .'</conds>'
-                    .'<cond attr="a" op="eq" value="v" not="true" />'
                 .'</searchFilter>'
             .'</SearchCalendarResourcesRequest>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
@@ -1328,12 +1327,6 @@ class RequestTest extends ZimbraTestCase
                             'value' => 'v',
                             'not' => true,
                         ),
-                    ),
-                    'cond' => array(
-                        'attr' => 'a',
-                        'op' => 'eq',
-                        'value' => 'v',
-                        'not' => true,
                     ),
                 ),
             ),
@@ -1414,7 +1407,6 @@ class RequestTest extends ZimbraTestCase
                         .'</conds>'
                         .'<cond attr="a" op="eq" value="v" not="true" />'
                     .'</conds>'
-                    .'<cond attr="a" op="eq" value="v" not="true" />'
                 .'</searchFilter>'
             .'</SearchGalRequest>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
@@ -1460,12 +1452,6 @@ class RequestTest extends ZimbraTestCase
                             'value' => 'v',
                             'not' => true,
                         ),
-                    ),
-                    'cond' => array(
-                        'attr' => 'a',
-                        'op' => 'eq',
-                        'value' => 'v',
-                        'not' => true,
                     ),
                 ),
             ),

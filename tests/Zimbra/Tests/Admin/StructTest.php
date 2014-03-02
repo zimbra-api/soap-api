@@ -642,13 +642,8 @@ class StructTest extends ZimbraTestCase
 
         $filter = new \Zimbra\Admin\Struct\EntrySearchFilterInfo($conds, $cond);
         $this->assertSame($conds, $filter->conds());
-        $this->assertSame($cond, $filter->cond());
-
-        $filter->conds($conds)
-               ->cond($cond);
-
+        $filter->conds($conds);
         $this->assertSame($conds, $filter->conds());
-        $this->assertSame($cond, $filter->cond());
 
         $xml = '<?xml version="1.0"?>'."\n"
             .'<searchFilter>'
@@ -658,7 +653,6 @@ class StructTest extends ZimbraTestCase
                     .'</conds>'
                     .'<cond attr="a" op="eq" value="v" not="true" />'
                 .'</conds>'
-                .'<cond attr="a" op="eq" value="v" not="true" />'
             .'</searchFilter>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $filter);
 
@@ -684,6 +678,23 @@ class StructTest extends ZimbraTestCase
                         'not' => true,
                     ),
                 ),
+            ),
+        );
+        $this->assertEquals($array, $filter->toArray());
+
+        $filter = new \Zimbra\Admin\Struct\EntrySearchFilterInfo($cond);
+        $this->assertSame($cond, $filter->cond());
+        $filter->cond($cond);
+        $this->assertSame($cond, $filter->cond());
+
+        $xml = '<?xml version="1.0"?>'."\n"
+            .'<searchFilter>'
+                .'<cond attr="a" op="eq" value="v" not="true" />'
+            .'</searchFilter>';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $filter);
+
+        $array = array(
+            'searchFilter' => array(
                 'cond' => array(
                     'attr' => 'a',
                     'op' => 'eq',

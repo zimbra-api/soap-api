@@ -73,14 +73,14 @@ class StructTest extends ZimbraTestCase
         $this->assertEquals($array, $base->toArray());
 
         $base = $this->getMockForAbstractClass('Zimbra\Struct\Base');
-        $this->invokeMethod($base, 'property', array('name', 'value'));
-        $this->assertSame('value', $this->invokeMethod($base, 'property', array('name')));
+        $base->property('name', 'value');
+        $this->assertSame('value', $base->property('name'));
 
         $child = $this->getMockForAbstractClass('Zimbra\Struct\Base');
         $child->value('value');
 
-        $this->invokeMethod($base, 'child', array('child', $child));
-        $this->assertSame($child, $this->invokeMethod($base, 'child', array('child')));
+        $base->child('child', $child);
+        $this->assertSame($child, $base->child('child'));
 
         $xml = '<?xml version="1.0"?>'."\n"
             .'<name name="value">'
