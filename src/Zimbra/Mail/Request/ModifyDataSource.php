@@ -10,6 +10,7 @@
 
 namespace Zimbra\Mail\Request;
 
+use Zimbra\Mail\Struct\MailDataSource;
 use Zimbra\Mail\Struct\MailImapDataSource;
 use Zimbra\Mail\Struct\MailPop3DataSource;
 use Zimbra\Mail\Struct\MailCaldavDataSource;
@@ -36,60 +37,64 @@ class ModifyDataSource extends Base
 {
     /**
      * Constructor method for ModifyDataSource
-     * @param  MailImapDataSource $imap
-     * @param  MailPop3DataSource $pop3
-     * @param  MailCaldavDataSource $caldav
-     * @param  MailYabDataSource $yab
-     * @param  MailRssDataSource $rss
-     * @param  MailGalDataSource $gal
-     * @param  MailCalDataSource $cal
-     * @param  MailUnknownDataSource $unknown
+     * @param  MailDataSource $ds
      * @return self
      */
-    public function __construct(
-        MailImapDataSource $imap = null,
-        MailPop3DataSource $pop3 = null,
-        MailCaldavDataSource $caldav = null,
-        MailYabDataSource $yab = null,
-        MailRssDataSource $rss = null,
-        MailGalDataSource $gal = null,
-        MailCalDataSource $cal = null,
-        MailUnknownDataSource $unknown = null
-    )
+    public function __construct(MailDataSource $ds = null)
     {
         parent::__construct();
-        if($imap instanceof MailImapDataSource)
+        if($ds instanceof MailImapDataSource)
         {
-            $this->child('imap', $imap);
+            $this->child('imap', $ds);
         }
-        if($pop3 instanceof MailPop3DataSource)
+        if($ds instanceof MailPop3DataSource)
         {
-            $this->child('pop3', $pop3);
+            $this->child('pop3', $ds);
         }
-        if($caldav instanceof MailCaldavDataSource)
+        if($ds instanceof MailCaldavDataSource)
         {
-            $this->child('caldav', $caldav);
+            $this->child('caldav', $ds);
         }
-        if($yab instanceof MailYabDataSource)
+        if($ds instanceof MailYabDataSource)
         {
-            $this->child('yab', $yab);
+            $this->child('yab', $ds);
         }
-        if($rss instanceof MailRssDataSource)
+        if($ds instanceof MailRssDataSource)
         {
-            $this->child('rss', $rss);
+            $this->child('rss', $ds);
         }
-        if($gal instanceof MailGalDataSource)
+        if($ds instanceof MailGalDataSource)
         {
-            $this->child('gal', $gal);
+            $this->child('gal', $ds);
         }
-        if($cal instanceof MailCalDataSource)
+        if($ds instanceof MailCalDataSource)
         {
-            $this->child('cal', $cal);
+            $this->child('cal', $ds);
         }
-        if($unknown instanceof MailUnknownDataSource)
+        if($ds instanceof MailUnknownDataSource)
         {
-            $this->child('unknown', $unknown);
+            $this->child('unknown', $ds);
         }
+    }
+
+    /**
+     * Gets or sets child
+     *
+     * @param  string $name
+     * @param  mix $value
+     * @return string|self
+     */
+    public function child($name, $value = null)
+    {
+        if($value instanceof MailDataSource)
+        {
+            $dataSources = array('imap', 'pop3', 'caldav', 'yab', 'rss', 'gal', 'cal', 'unknown');
+            foreach ($dataSources as $ds)
+            {
+                $this->removeChild($ds);
+            }
+        }
+        return parent::child($name, $value);
     }
 
     /**

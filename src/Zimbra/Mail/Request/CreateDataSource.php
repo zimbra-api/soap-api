@@ -38,7 +38,7 @@ class CreateDataSource extends Base
      * @param  MailDataSource $ds
      * @return self
      */
-    public function __construct(MailDataSource $ds)
+    public function __construct(MailDataSource $ds = null)
     {
         parent::__construct();
         if($ds instanceof MailImapDataSource)
