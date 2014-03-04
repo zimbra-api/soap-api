@@ -64,7 +64,7 @@ abstract class Base extends EventEmitter
         }
         $this->_properties = new Map();
         $this->_children = new Map();
-        $this->emit('initialize', array($value));
+        $this->emit('initialize', array($this));
     }
 
     /**
