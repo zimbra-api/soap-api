@@ -31,7 +31,6 @@ use Zimbra\Mail\Struct\Content;
 use Zimbra\Mail\Struct\ContentSpec;
 use Zimbra\Mail\Struct\ConvActionSelector;
 use Zimbra\Mail\Struct\ConversationSpec;
-use Zimbra\Mail\Struct\CursorInfo;
 use Zimbra\Mail\Struct\DiffDocumentVersionSpec;
 use Zimbra\Mail\Struct\DismissAppointmentAlarm;
 use Zimbra\Mail\Struct\DismissTaskAlarm;
@@ -60,7 +59,6 @@ use Zimbra\Mail\Struct\MsgActionSelector;
 use Zimbra\Mail\Struct\MsgPartIds;
 use Zimbra\Mail\Struct\MsgSpec;
 use Zimbra\Mail\Struct\MsgToSend;
-use Zimbra\Mail\Struct\NamedElement;
 use Zimbra\Mail\Struct\NamedFilterRules;
 use Zimbra\Mail\Struct\NewFolderSpec;
 use Zimbra\Mail\Struct\NewMountpointSpec;
@@ -82,6 +80,7 @@ use Zimbra\Mail\Struct\TagActionSelector;
 use Zimbra\Mail\Struct\TargetSpec;
 use Zimbra\Mail\Struct\WaitSetAdd;
 use Zimbra\Mail\Struct\WaitSetSpec;
+use Zimbra\Mail\Struct\WaitSetId;
 
 use Zimbra\Mail\Struct\MailDataSource;
 use Zimbra\Mail\Struct\MailImapDataSource;
@@ -102,7 +101,9 @@ use Zimbra\Mail\Struct\GalDataSourceNameOrId;
 use Zimbra\Mail\Struct\CalDataSourceNameOrId;
 use Zimbra\Mail\Struct\UnknownDataSourceNameOrId;
 
+use Zimbra\Struct\CursorInfo;
 use Zimbra\Struct\Id;
+use Zimbra\Struct\NamedElement;
 
 /**
  * MailInterface is a interface which allows to connect Zimbra API mail functions via SOAP
@@ -1390,26 +1391,74 @@ interface MailInterface extends AccountInterface
      * As a result, any previously downloaded messages that are still stored
      * on the remote server will be downloaded again.
      *
+     * @param  MailDataSource $ds Mail data source
+     * @return mix
+     */
+    function modifyDataSource(MailDataSource $ds = null);
+
+    /**
+     * Changes attributes of the imap data source.
+     *
      * @param  MailImapDataSource $imap Imap data source
+     * @return mix
+     */
+    function modifyImapDataSource(MailImapDataSource $imap = null);
+
+    /**
+     * Changes attributes of the pop3 data source.
+     *
      * @param  MailPop3DataSource $pop3 Pop3 data source
+     * @return mix
+     */
+    function modifyPop3DataSource(MailPop3DataSource $pop3 = null);
+
+    /**
+     * Changes attributes of the caldav data source.
+     *
      * @param  MailCaldavDataSource $caldav Caldav data source
+     * @return mix
+     */
+    function modifyCaldavDataSource(MailCaldavDataSource $caldav = null);
+
+    /**
+     * Changes attributes of the yab data source.
+     *
      * @param  MailYabDataSource $yab Yab data source
+     * @return mix
+     */
+    function modifyYabDataSource(MailYabDataSource $yab = null);
+
+    /**
+     * Changes attributes of the rss data source.
+     *
      * @param  MailRssDataSource $rss Rss data source
+     * @return mix
+     */
+    function modifyRssDataSource(MailRssDataSource $rss = null);
+
+    /**
+     * Changes attributes of the gal data source.
+     *
      * @param  MailGalDataSource $gal Gal data source
+     * @return mix
+     */
+    function modifyGalDataSource(MailGalDataSource $gal = null);
+
+    /**
+     * Changes attributes of the cal data source.
+     *
      * @param  MailCalDataSource $cal Cal data source
+     * @return mix
+     */
+    function modifyCalDataSource(MailCalDataSource $cal = null);
+
+    /**
+     * Changes attributes of the unknown data source.
+     *
      * @param  MailUnknownDataSource $unknown Unknown data source
      * @return mix
      */
-    function modifyDataSource(
-        MailImapDataSource $imap = null,
-        MailPop3DataSource $pop3 = null,
-        MailCaldavDataSource $caldav = null,
-        MailYabDataSource $yab = null,
-        MailRssDataSource $rss = null,
-        MailGalDataSource $gal = null,
-        MailCalDataSource $cal = null,
-        MailUnknownDataSource $unknown = null
-    );
+    function modifyUnknownDataSource(MailUnknownDataSource $unknown = null);
 
     /**
      * Modify Filter rules.
@@ -1943,16 +1992,71 @@ interface MailInterface extends AccountInterface
      * @param  MailUnknownDataSource $unknown Unknown data source
      * @return mix
      */
-    function testDataSource(
-        MailImapDataSource $imap = null,
-        MailPop3DataSource $pop3 = null,
-        MailCaldavDataSource $caldav = null,
-        MailYabDataSource $yab = null,
-        MailRssDataSource $rss = null,
-        MailGalDataSource $gal = null,
-        MailCalDataSource $cal = null,
-        MailUnknownDataSource $unknown = null
-    );
+    function testDataSource(MailDataSource $ds = null);
+
+    /**
+     * Tests the connection to the imap data source.
+     *
+     * @param  MailImapDataSource $imap Imap data source
+     * @return mix
+     */
+    function testImapDataSource(MailImapDataSource $imap);
+
+    /**
+     * Tests the connection to the pop3 data source.
+     *
+     * @param  MailPop3DataSource $pop3 Pop3 data source
+     * @return mix
+     */
+    function testPop3DataSource(MailPop3DataSource $pop3);
+
+    /**
+     * Tests the connection to the caldav data source.
+     *
+     * @param  MailCaldavDataSource $caldav Caldav data source
+     * @return mix
+     */
+    function testCaldavDataSource(MailCaldavDataSource $caldav);
+
+    /**
+     * Tests the connection to the yab data source.
+     *
+     * @param  MailYabDataSource $yab Caldav data source
+     * @return mix
+     */
+    function testYabDataSource(MailYabDataSource $yab);
+
+    /**
+     * Tests the connection to the rss data source.
+     *
+     * @param  MailRssDataSource $rss Rss data source
+     * @return mix
+     */
+    function testRssDataSource(MailRssDataSource $rss);
+
+    /**
+     * Tests the connection to the gal data source.
+     *
+     * @param  MailGalDataSource $gal Gal data source
+     * @return mix
+     */
+    function testGalDataSource(MailGalDataSource $gal);
+
+    /**
+     * Tests the connection to the cal data source.
+     *
+     * @param  MailCalDataSource $cal Cal data source
+     * @return mix
+     */
+    function testCalDataSource(MailCalDataSource $cal);
+
+    /**
+     * Tests the connection to the unknown data source.
+     *
+     * @param  MailUnknownDataSource $unknown Unknown data source
+     * @return mix
+     */
+    function testUnknownDataSource(MailUnknownDataSource $unknown);
 
     /**
      * Update device status.
@@ -1984,9 +2088,9 @@ interface MailInterface extends AccountInterface
      *
      * @param  string $waitSet Waitset ID
      * @param  string $seq Last known sequence number
-     * @param  WaitSetAdd $add WaitSet add specification
-     * @param  WaitSetAdd $update WaitSet update specification
-     * @param  WaitSetRemove $remove WaitSet remove specification
+     * @param  WaitSetSpec $add WaitSet add specification
+     * @param  WaitSetSpec $update WaitSet update specification
+     * @param  WaitSetId $remove WaitSet remove specification
      * @param  bool $block Flag whether or not to block until some account has new data
      * @param  array $defTypes Default interest types: comma-separated list.
      * @param  int $timeout Timeout length
@@ -1995,9 +2099,9 @@ interface MailInterface extends AccountInterface
     function waitSet(
         $waitSet,
         $seq,
-        WaitSetAdd $add = null,
-        WaitSetAdd $update = null,
-        WaitSetRemove $remove = null,
+        WaitSetSpec $add = null,
+        WaitSetSpec $update = null,
+        WaitSetId $remove = null,
         $block = null,
         array $defTypes = array(),
         $timeout = null
