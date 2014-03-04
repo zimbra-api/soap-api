@@ -5271,20 +5271,20 @@ class RequestTest extends ZimbraTestCase
     public function testInvalidateReminderDevice()
     {
         $req = new \Zimbra\Mail\Request\InvalidateReminderDevice(
-            'device-email-address'
+            'email'
         );
         $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
-        $this->assertSame('device-email-address', $req->a());
-        $req->a('a');
-        $this->assertSame('a', $req->a());
+        $this->assertSame('email', $req->a());
+        $req->a('email');
+        $this->assertSame('email', $req->a());
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<InvalidateReminderDeviceRequest a="a" />';
+            .'<InvalidateReminderDeviceRequest a="email" />';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
         $array = array(
             'InvalidateReminderDeviceRequest' => array(
-                'a' => 'a',
+                'a' => 'email',
             )
         );
         $this->assertEquals($array, $req->toArray());
@@ -5803,6 +5803,62 @@ class RequestTest extends ZimbraTestCase
 
     public function testModifyDataSource()
     {
+        $pop3 = new \Zimbra\Mail\Struct\MailPop3DataSource(true);
+        $req = new \Zimbra\Mail\Request\ModifyDataSource(
+            $pop3
+        );
+        $this->assertSame($pop3, $req->pop3());
+        $req->pop3($pop3);
+        $this->assertSame($pop3, $req->pop3());
+
+        $caldav = new \Zimbra\Mail\Struct\MailCaldavDataSource();
+        $req = new \Zimbra\Mail\Request\ModifyDataSource(
+            $caldav
+        );
+        $this->assertSame($caldav, $req->caldav());
+        $req->caldav($caldav);
+        $this->assertSame($caldav, $req->caldav());
+
+        $yab = new \Zimbra\Mail\Struct\MailYabDataSource();
+        $req = new \Zimbra\Mail\Request\ModifyDataSource(
+            $yab
+        );
+        $this->assertSame($yab, $req->yab());
+        $req->yab($yab);
+        $this->assertSame($yab, $req->yab());
+
+        $rss = new \Zimbra\Mail\Struct\MailRssDataSource();
+        $req = new \Zimbra\Mail\Request\ModifyDataSource(
+            $rss
+        );
+        $this->assertSame($rss, $req->rss());
+        $req->rss($rss);
+        $this->assertSame($rss, $req->rss());
+
+        $gal = new \Zimbra\Mail\Struct\MailGalDataSource();
+        $req = new \Zimbra\Mail\Request\ModifyDataSource(
+            $gal
+        );
+        $this->assertSame($gal, $req->gal());
+        $req->gal($gal);
+        $this->assertSame($gal, $req->gal());
+
+        $cal = new \Zimbra\Mail\Struct\MailCalDataSource();
+        $req = new \Zimbra\Mail\Request\ModifyDataSource(
+            $cal
+        );
+        $this->assertSame($cal, $req->cal());
+        $req->cal($cal);
+        $this->assertSame($cal, $req->cal());
+
+        $unknown = new \Zimbra\Mail\Struct\MailUnknownDataSource();
+        $req = new \Zimbra\Mail\Request\ModifyDataSource(
+            $unknown
+        );
+        $this->assertSame($unknown, $req->unknown());
+        $req->unknown($unknown);
+        $this->assertSame($unknown, $req->unknown());
+
         $imap = new \Zimbra\Mail\Struct\MailImapDataSource(
             'id',
             'name',
@@ -5827,44 +5883,13 @@ class RequestTest extends ZimbraTestCase
             'lastError',
             array('a', 'b')
         );
-        $pop3 = new \Zimbra\Mail\Struct\MailPop3DataSource(true);
-        $caldav = new \Zimbra\Mail\Struct\MailCaldavDataSource();
-        $yab = new \Zimbra\Mail\Struct\MailYabDataSource();
-        $rss = new \Zimbra\Mail\Struct\MailRssDataSource();
-        $gal = new \Zimbra\Mail\Struct\MailGalDataSource();
-        $cal = new \Zimbra\Mail\Struct\MailCalDataSource();
-        $unknown = new \Zimbra\Mail\Struct\MailUnknownDataSource();
-
         $req = new \Zimbra\Mail\Request\ModifyDataSource(
-            $imap, $pop3, $caldav, $yab, $rss, $gal, $cal, $unknown
+            $imap
         );
         $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
         $this->assertSame($imap, $req->imap());
-        $this->assertSame($pop3, $req->pop3());
-        $this->assertSame($caldav, $req->caldav());
-        $this->assertSame($yab, $req->yab());
-        $this->assertSame($rss, $req->rss());
-        $this->assertSame($gal, $req->gal());
-        $this->assertSame($cal, $req->cal());
-        $this->assertSame($unknown, $req->unknown());
-
-        $req->imap($imap)
-            ->pop3($pop3)
-            ->caldav($caldav)
-            ->yab($yab)
-            ->rss($rss)
-            ->gal($gal)
-            ->cal($cal)
-            ->unknown($unknown);
+        $req->imap($imap);
         $this->assertSame($imap, $req->imap());
-        $this->assertSame($pop3, $req->pop3());
-        $this->assertSame($caldav, $req->caldav());
-        $this->assertSame($yab, $req->yab());
-        $this->assertSame($rss, $req->rss());
-        $this->assertSame($gal, $req->gal());
-        $this->assertSame($cal, $req->cal());
-        $this->assertSame($unknown, $req->unknown());
-
         $xml = '<?xml version="1.0"?>'."\n"
             .'<ModifyDataSourceRequest>'
                 .'<imap id="id" name="name" l="l" isEnabled="true" importOnly="true" host="host" port="10" '
@@ -5876,13 +5901,6 @@ class RequestTest extends ZimbraTestCase
                     .'<a>a</a>'
                     .'<a>b</a>'
                 .'</imap>'
-                .'<pop3 leaveOnServer="true" />'
-                .'<caldav />'
-                .'<yab />'
-                .'<rss />'
-                .'<gal />'
-                .'<cal />'
-                .'<unknown />'
             .'</ModifyDataSourceRequest>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
@@ -5912,15 +5930,6 @@ class RequestTest extends ZimbraTestCase
                     'lastError' => 'lastError',
                     'a' => array('a', 'b'),
                 ),
-                'pop3' => array(
-                    'leaveOnServer' => true,
-                ),
-                'caldav' => array(),
-                'yab' => array(),
-                'rss' => array(),
-                'gal' => array(),
-                'cal' => array(),
-                'unknown' => array(),
             )
         );
         $this->assertEquals($array, $req->toArray());
@@ -8045,21 +8054,21 @@ class RequestTest extends ZimbraTestCase
     public function testSendVerificationCode()
     {
         $req = new \Zimbra\Mail\Request\SendVerificationCode(
-            'a'
+            'email'
         );
         $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
-        $this->assertSame('a', $req->a());
+        $this->assertSame('email', $req->a());
 
-        $req->a('a');
-        $this->assertSame('a', $req->a());
+        $req->a('email');
+        $this->assertSame('email', $req->a());
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<SendVerificationCodeRequest a="a" />';
+            .'<SendVerificationCodeRequest a="email" />';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
         $array = array(
             'SendVerificationCodeRequest' => array(
-                'a' => 'a',
+                'a' => 'email',
             ),
         );
         $this->assertEquals($array, $req->toArray());
@@ -8538,6 +8547,62 @@ class RequestTest extends ZimbraTestCase
 
     public function testTestDataSource()
     {
+        $pop3 = new \Zimbra\Mail\Struct\MailPop3DataSource(true);
+        $req = new \Zimbra\Mail\Request\TestDataSource(
+            $pop3
+        );
+        $this->assertSame($pop3, $req->pop3());
+        $req->pop3($pop3);
+        $this->assertSame($pop3, $req->pop3());
+
+        $caldav = new \Zimbra\Mail\Struct\MailCaldavDataSource();
+        $req = new \Zimbra\Mail\Request\TestDataSource(
+            $caldav
+        );
+        $this->assertSame($caldav, $req->caldav());
+        $req->caldav($caldav);
+        $this->assertSame($caldav, $req->caldav());
+
+        $yab = new \Zimbra\Mail\Struct\MailYabDataSource();
+        $req = new \Zimbra\Mail\Request\TestDataSource(
+            $yab
+        );
+        $this->assertSame($yab, $req->yab());
+        $req->yab($yab);
+        $this->assertSame($yab, $req->yab());
+
+        $rss = new \Zimbra\Mail\Struct\MailRssDataSource();
+        $req = new \Zimbra\Mail\Request\TestDataSource(
+            $rss
+        );
+        $this->assertSame($rss, $req->rss());
+        $req->rss($rss);
+        $this->assertSame($rss, $req->rss());
+
+        $gal = new \Zimbra\Mail\Struct\MailGalDataSource();
+        $req = new \Zimbra\Mail\Request\TestDataSource(
+            $gal
+        );
+        $this->assertSame($gal, $req->gal());
+        $req->gal($gal);
+        $this->assertSame($gal, $req->gal());
+
+        $cal = new \Zimbra\Mail\Struct\MailCalDataSource();
+        $req = new \Zimbra\Mail\Request\TestDataSource(
+            $cal
+        );
+        $this->assertSame($cal, $req->cal());
+        $req->cal($cal);
+        $this->assertSame($cal, $req->cal());
+
+        $unknown = new \Zimbra\Mail\Struct\MailUnknownDataSource();
+        $req = new \Zimbra\Mail\Request\TestDataSource(
+            $unknown
+        );
+        $this->assertSame($unknown, $req->unknown());
+        $req->unknown($unknown);
+        $this->assertSame($unknown, $req->unknown());
+
         $imap = new \Zimbra\Mail\Struct\MailImapDataSource(
             'id',
             'name',
@@ -8562,44 +8627,13 @@ class RequestTest extends ZimbraTestCase
             'lastError',
             array('a', 'b')
         );
-        $pop3 = new \Zimbra\Mail\Struct\MailPop3DataSource(true);
-        $caldav = new \Zimbra\Mail\Struct\MailCaldavDataSource();
-        $yab = new \Zimbra\Mail\Struct\MailYabDataSource();
-        $rss = new \Zimbra\Mail\Struct\MailRssDataSource();
-        $gal = new \Zimbra\Mail\Struct\MailGalDataSource();
-        $cal = new \Zimbra\Mail\Struct\MailCalDataSource();
-        $unknown = new \Zimbra\Mail\Struct\MailUnknownDataSource();
-
         $req = new \Zimbra\Mail\Request\TestDataSource(
-            $imap, $pop3, $caldav, $yab, $rss, $gal, $cal, $unknown
+            $imap
         );
         $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
         $this->assertSame($imap, $req->imap());
-        $this->assertSame($pop3, $req->pop3());
-        $this->assertSame($caldav, $req->caldav());
-        $this->assertSame($yab, $req->yab());
-        $this->assertSame($rss, $req->rss());
-        $this->assertSame($gal, $req->gal());
-        $this->assertSame($cal, $req->cal());
-        $this->assertSame($unknown, $req->unknown());
-
-        $req->imap($imap)
-            ->pop3($pop3)
-            ->caldav($caldav)
-            ->yab($yab)
-            ->rss($rss)
-            ->gal($gal)
-            ->cal($cal)
-            ->unknown($unknown);
+        $req->imap($imap);
         $this->assertSame($imap, $req->imap());
-        $this->assertSame($pop3, $req->pop3());
-        $this->assertSame($caldav, $req->caldav());
-        $this->assertSame($yab, $req->yab());
-        $this->assertSame($rss, $req->rss());
-        $this->assertSame($gal, $req->gal());
-        $this->assertSame($cal, $req->cal());
-        $this->assertSame($unknown, $req->unknown());
-
         $xml = '<?xml version="1.0"?>'."\n"
             .'<TestDataSourceRequest>'
                 .'<imap id="id" name="name" l="l" isEnabled="true" importOnly="true" host="host" port="10" '
@@ -8611,13 +8645,6 @@ class RequestTest extends ZimbraTestCase
                     .'<a>a</a>'
                     .'<a>b</a>'
                 .'</imap>'
-                .'<pop3 leaveOnServer="true" />'
-                .'<caldav />'
-                .'<yab />'
-                .'<rss />'
-                .'<gal />'
-                .'<cal />'
-                .'<unknown />'
             .'</TestDataSourceRequest>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
@@ -8647,15 +8674,6 @@ class RequestTest extends ZimbraTestCase
                     'lastError' => 'lastError',
                     'a' => array('a', 'b'),
                 ),
-                'pop3' => array(
-                    'leaveOnServer' => true,
-                ),
-                'caldav' => array(),
-                'yab' => array(),
-                'rss' => array(),
-                'gal' => array(),
-                'cal' => array(),
-                'unknown' => array(),
             )
         );
         $this->assertEquals($array, $req->toArray());
@@ -8693,24 +8711,24 @@ class RequestTest extends ZimbraTestCase
     public function testVerifyCode()
     {
         $req = new \Zimbra\Mail\Request\VerifyCode(
-            'a', 'code'
+            'email', 'code'
         );
         $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
-        $this->assertSame('a', $req->a());
+        $this->assertSame('email', $req->a());
         $this->assertSame('code', $req->code());
 
-        $req->a('a')
+        $req->a('email')
             ->code('code');
-        $this->assertSame('a', $req->a());
+        $this->assertSame('email', $req->a());
         $this->assertSame('code', $req->code());
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<VerifyCodeRequest a="a" code="code" />';
+            .'<VerifyCodeRequest a="email" code="code" />';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
         $array = array(
             'VerifyCodeRequest' => array(
-                'a' => 'a',
+                'a' => 'email',
                 'code' => 'code',
             )
         );
