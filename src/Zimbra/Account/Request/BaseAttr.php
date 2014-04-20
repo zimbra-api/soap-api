@@ -31,6 +31,6 @@ abstract class BaseAttr extends Attr
     public function __construct(array $attrs = array())
     {
         parent::__construct($attrs);
-        $this->requestNamespace('urn:zimbraAccount');
+        $this->xmlNamespace('urn:zimbraAccount');
     }
 }

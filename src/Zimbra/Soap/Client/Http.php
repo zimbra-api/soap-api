@@ -182,7 +182,7 @@ class Http extends EventEmitter implements ClientInterface
     {
         $xml = $request->toXml();
         $namespaces = array_values($xml->getDocNamespaces(true));
-        $this->soapMessage = new Message($request->requestNamespace());
+        $this->soapMessage = new Message($request->xmlNamespace());
         $this->soapMessage->addNamespace($namespaces);
         if(!empty($this->authToken))
         {
@@ -197,7 +197,7 @@ class Http extends EventEmitter implements ClientInterface
                 'Content-Type' => $this->soapMessage->contentType(),
                 'Method'       => 'POST',
                 'User-Agent'   => isset($_SERVER['HTTP_USER_AGENT']) ? $_SERVER['HTTP_USER_AGENT'] : 'PHP-Zimbra-Soap-API',
-                'SoapAction' => $request->requestNamespace().'#'.$xml->getName()
+                'SoapAction' => $request->xmlNamespace().'#'.$xml->getName()
             )
         );
         return $request->processResponse($response);
