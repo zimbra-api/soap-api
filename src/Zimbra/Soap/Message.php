@@ -11,6 +11,7 @@
 namespace Zimbra\Soap;
 
 use Zimbra\Common\SimpleXML;
+use Zimbra\Soap\Request;
 
 /**
  * Soap message class
@@ -49,10 +50,16 @@ class Message
     private $_headers = array();
 
     /**
-     * The xml namespace
-     * @var string
+     * Soap request
+     * @var Request
      */
-    private $_namespace;
+    private $_request;
+
+    /**
+     * Soap request body
+     * @var SimpleXML
+     */
+    private $_body;
 
     /**
      * The xml namespaces
@@ -78,33 +85,32 @@ class Message
     /**
      * Message constructor
      *
-     * @param string $namespace The xml namespace.
+     * @param string $version The soap version.
      * @return self
      */
-    public function __construct($namespace = 'urn:zimbra', $version = self::SOAP_1_2)
+    public function __construct($version = self::SOAP_1_2)
     {
-        $this->_namespace = empty($namespace) ? 'urn:zimbra' : $namespace;
-        if(!in_array($namespace, $this->_namespaces) && !empty($namespace))
-        {
-            $this->_namespaces[] = (string) $namespace;
-        }
         $this->_version = in_array($version, array(self::SOAP_1_2, self::SOAP_1_1)) ? $version : self::SOAP_1_2;
     }
 
     /**
-     * Get or set body
+     * Get or set request
      *
-     * @param  SimpleXML $body
-     * @return SimpleXML|self
+     * @param  Request $request
+     * @return Request|self
      */
-    public function body(SimpleXML $body = null)
+    public function request(Request $request = null)
     {
-        if(null === $body)
-        {
-            return $this->_body;
-        }
-        $this->_body = $body;
-        return $this;
+		if($request instanceof Request)
+		{
+			$this->_request = $request;
+			$this->addNamespace($this->_request->xmlNamespace());
+			$this->_body = $request->toXml();
+			$namespaces = array_values($this->_body->getDocNamespaces(true));
+			$this->addNamespace($namespaces);
+			return $this;
+		}
+		return $this->_request;
     }
 
     public function addNamespace($namespace)
@@ -221,7 +227,7 @@ class Message
             }
         }
         $body = $xml->addChild('Body');
-        $body->append($this->_body, $this->_namespace);
+        $body->append($this->_body, $this->_request->xmlNamespace());
         return $xml;
     }
 
