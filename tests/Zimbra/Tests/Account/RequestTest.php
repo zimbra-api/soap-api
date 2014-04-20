@@ -172,11 +172,11 @@ class RequestTest extends ZimbraTestCase
     {
         $req = $this->getMockForAbstractClass('\Zimbra\Account\Request\Base');
         $this->assertInstanceOf('Zimbra\Soap\Request', $req);
-        $this->assertEquals('urn:zimbraAccount', $req->requestNamespace());
+        $this->assertEquals('urn:zimbraAccount', $req->xmlNamespace());
 
         $req = $this->getMockForAbstractClass('\Zimbra\Account\Request\BaseAttr');
         $this->assertInstanceOf('Zimbra\Soap\Request', $req);
-        $this->assertEquals('urn:zimbraAccount', $req->requestNamespace());
+        $this->assertEquals('urn:zimbraAccount', $req->xmlNamespace());
     }
 
     public function testChangePassword()

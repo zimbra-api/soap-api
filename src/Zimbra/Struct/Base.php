@@ -178,6 +178,17 @@ abstract class Base extends EventEmitter
     }
 
     /**
+     * Returns name representation of this class 
+     *
+     * @return string
+     */
+    public function className()
+    {
+        $ref = new \ReflectionObject($this);
+        return $ref->getShortName();
+    }
+
+    /**
      * Returns the array representation of this class 
      *
      * @param  string $name
@@ -186,7 +197,7 @@ abstract class Base extends EventEmitter
     public function toArray($name = null)
     {
         $this->emit('before', array($this));
-        $name = !empty($name) ? $name : strtr(__CLASS__, array(__NAMESPACE__ => '', '\\' => ''));
+        $name = !empty($name) ? $name : $this->className();
         $arr = array();
         if(null !== $this->_value)
         {
@@ -254,7 +265,7 @@ abstract class Base extends EventEmitter
     public function toXml($name = null)
     {
         $this->emit('before', array($this));
-        $name = !empty($name) ? $name : strtr(__CLASS__, array(__NAMESPACE__ => '', '\\' => ''));
+        $name = !empty($name) ? $name : $this->className();
         if(null !== $this->_value)
         {
             $xml = new SimpleXML('<'.$name.'>'.$this->_value.'</'.$name.'>');

@@ -16,7 +16,7 @@ class RequestTest extends ZimbraTestCase
     {
         $req = $this->getMockForAbstractClass('\Zimbra\Voice\Request\Base');
         $this->assertInstanceOf('Zimbra\Soap\Request', $req);
-        $this->assertEquals('urn:zimbraVoice', $req->requestNamespace());
+        $this->assertEquals('urn:zimbraVoice', $req->xmlNamespace());
     }
 
     public function testChangeUCPassword()

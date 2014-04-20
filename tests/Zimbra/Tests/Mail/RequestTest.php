@@ -583,7 +583,7 @@ class RequestTest extends ZimbraTestCase
     {
         $req = $this->getMockForAbstractClass('\Zimbra\Mail\Request\Base');
         $this->assertInstanceOf('Zimbra\Soap\Request', $req);
-        $this->assertEquals('urn:zimbraMail', $req->requestNamespace());
+        $this->assertEquals('urn:zimbraMail', $req->xmlNamespace());
     }
 
     public function testBounceMsg()

@@ -18,9 +18,6 @@ class RequestTest extends ZimbraTestCase
         $this->assertStringEndsWith('Response', $stub->responseName());
         $this->assertEquals(array($stub->requestName() => array()), $stub->toArray());
 
-        $stub->requestNamespace('urn:zimbraMail');
-        $this->assertEquals('urn:zimbraMail', $stub->requestNamespace());
-
         $xml = '<?xml version="1.0"?>'."\n"
             .'<'.$stub->requestName().' />';
         $this->assertXmlStringEqualsXmlString($xml, $stub->toXml()->asXml());

@@ -44,9 +44,9 @@ abstract class Request extends Base
     public function __construct($value = null)
     {
         parent::__construct($value);
-        $ref = new \ReflectionObject($this);
-        $this->_requestName = $ref->getShortName() . 'Request';
-        $this->_responseName = $ref->getShortName() . 'Response';
+		$className = $this->className();
+        $this->_requestName = $className . 'Request';
+        $this->_responseName = $className . 'Response';
 		$this->xmlNamespace('urn:zimbra');
     }
 
