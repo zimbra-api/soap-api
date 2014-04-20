@@ -30,8 +30,7 @@ Now we can use autoloader from Composer by:
 {
     "require": {
         "nguyennv/zimbra-api": "*"
-    },
-    "minimum-stability": "dev"
+    }
 }
 ```
 
