@@ -26,7 +26,7 @@ abstract class AdminFactory
     private static $_instances = array();
 
     /**
-     * Creates a singleton of a AccountInterface base on parameters.
+     * Creates a singleton of a AdminInterface base on parameters.
      *
      * @param  string $location The Zimbra api soap location.
      * @param  string $client   Soap client
