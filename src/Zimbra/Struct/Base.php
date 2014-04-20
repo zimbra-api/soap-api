@@ -183,10 +183,10 @@ abstract class Base extends EventEmitter
      * @param  string $name
      * @return array
      */
-    public function toArray($name = 'name')
+    public function toArray($name = null)
     {
         $this->emit('before', array($this));
-        $name = !empty($name) ? $name : 'name';
+        $name = !empty($name) ? $name : strtr(__CLASS__, array(__NAMESPACE__ => '', '\\' => ''));
         $arr = array();
         if(null !== $this->_value)
         {
@@ -251,10 +251,10 @@ abstract class Base extends EventEmitter
      * @param  string $name
      * @return SimpleXML
      */
-    public function toXml($name = 'name')
+    public function toXml($name = null)
     {
         $this->emit('before', array($this));
-        $name = !empty($name) ? $name : 'name';
+        $name = !empty($name) ? $name : strtr(__CLASS__, array(__NAMESPACE__ => '', '\\' => ''));
         if(null !== $this->_value)
         {
             $xml = new SimpleXML('<'.$name.'>'.$this->_value.'</'.$name.'>');
