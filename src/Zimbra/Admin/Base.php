@@ -2155,7 +2155,7 @@ abstract class Base extends API implements AdminInterface
         $offset = null
     )
     {
-        $request = new \Zimbra\Admin\Request\getLDAPEntries(
+        $request = new \Zimbra\Admin\Request\GetLDAPEntries(
             $query, $ldapSearchBase, $sortBy, $sortAscending, $limit, $offset
         );
         return $this->_client->doRequest($request);
@@ -2434,7 +2434,7 @@ abstract class Base extends API implements AdminInterface
      */
     public function getShareInfo(Account $owner, GranteeChooser $grantee = null)
     {
-        $request = new \Zimbra\Admin\Request\getShareInfo(
+        $request = new \Zimbra\Admin\Request\GetShareInfo(
             $owner, $grantee
         );
         return $this->_client->doRequest($request);
@@ -2504,7 +2504,7 @@ abstract class Base extends API implements AdminInterface
      */
     public function getXMPPComponent(XmppComponent $xmpp, $attrs = null)
     {
-        $request = new \Zimbra\Admin\Request\getXMPPComponent($xmpp, $attrs);
+        $request = new \Zimbra\Admin\Request\GetXMPPComponent($xmpp, $attrs);
         return $this->_client->doRequest($request);
     }
 
@@ -3493,7 +3493,7 @@ abstract class Base extends API implements AdminInterface
      */
     public function undeployZimlet($name, $action = null)
     {
-        $request = new \Zimbra\Admin\Request\undeployZimlet(
+        $request = new \Zimbra\Admin\Request\UndeployZimlet(
             $name, $action
         );
         return $this->_client->doRequest($request);
