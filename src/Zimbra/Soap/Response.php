@@ -117,9 +117,10 @@ class Response
             throw new \RuntimeException($object->Body->Fault->Reason->Text);
         }
         $body = $object->Body;
-        $vars = get_object_vars($body);
-        $keys = array_keys($vars);
-        $name = isset($keys[0]) ? $keys[0] : 'Response';
+        $ref = new \ReflectionObject($body);
+        $props = $ref->getProperties(\ReflectionProperty::IS_PUBLIC);
+        $prop = current($props);
+        $name = ($prop instanceof \ReflectionProperty) ? $prop->getName() : 'Response';
         return isset($body->$name) ? $body->$name : null;
     }
 }
