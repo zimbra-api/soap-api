@@ -65,10 +65,7 @@ class SearchDirectory extends Base
     )
     {
         parent::__construct();
-        if(null !== $query)
-        {
-            $this->property('query', trim($query));
-        }
+        $this->property('query', trim($query));
         if(null !== $maxResults)
         {
             $this->property('maxResults', (int) $maxResults);
