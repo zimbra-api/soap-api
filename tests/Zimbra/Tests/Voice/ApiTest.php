@@ -5,12 +5,11 @@ namespace Zimbra\Tests\Voice;
 use Zimbra\Enum\VoiceMsgActionOp;
 use Zimbra\Enum\VoiceSortBy;
 
-use Zimbra\Voice\VoiceFactory;
-
 use Zimbra\Tests\ZimbraTestCase;
 use Zimbra\Tests\Soap\LocalClientWsdl;
 use Zimbra\Tests\Soap\LocalClientHttp;
 use Zimbra\Voice\Base as VoiceBase;
+use Zimbra\Voice\VoiceFactory;
 
 /**
  * Api test case class for voice api.

@@ -2,8 +2,8 @@
 
 namespace Zimbra\Tests\Soap;
 
-use Zimbra\Tests\ZimbraTestCase;
 use \SoapServer;
+use Zimbra\Tests\ZimbraTestCase;
 use Zimbra\Soap\Request;
 
 /**

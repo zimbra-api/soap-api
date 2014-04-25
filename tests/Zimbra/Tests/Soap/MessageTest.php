@@ -3,8 +3,8 @@
 namespace Zimbra\Tests\Soap;
 
 use Zimbra\Tests\ZimbraTestCase;
-use Zimbra\Soap\Message;
 use Zimbra\Common\SimpleXML;
+use Zimbra\Soap\Message;
 
 /**
  * Testcase class for soap message.
