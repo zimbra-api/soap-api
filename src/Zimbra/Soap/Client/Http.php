@@ -15,6 +15,7 @@ use Guzzle\Http\Client as HttpClient;
 use Guzzle\Http\Message\Response;
 use Guzzle\Plugin\Cookie\CookiePlugin;
 use Guzzle\Plugin\Cookie\CookieJar\ArrayCookieJar;
+use Zimbra\Enum\RequestFormat;
 use Zimbra\Soap\Message;
 use Zimbra\Soap\Request as SoapRequest;
 
@@ -39,6 +40,12 @@ class Http extends EventEmitter implements ClientInterface
      * @var string
      */
     protected $sessionId;
+
+    /**
+     * Request format
+     * @var string
+     */
+    protected $format;
 
     /**
      * @var Message
@@ -173,6 +180,22 @@ class Http extends EventEmitter implements ClientInterface
     }
 
     /**
+     * Gets or sets format
+     *
+     * @param  RequestFormat $format
+     * @return RequestFormat|self
+     */
+    public function format(RequestFormat $format = null)
+    {
+        if(null === $format)
+        {
+            return $this->format;
+        }
+        $this->format = $format;
+        return $this;
+    }
+
+    /**
      * Performs a SOAP request
      *
      * @param  Zimbra\Soap\Reques $request
@@ -180,10 +203,7 @@ class Http extends EventEmitter implements ClientInterface
      */
     public function doRequest(SoapRequest $request)
     {
-        $xml = $request->toXml();
-        $namespaces = array_values($xml->getDocNamespaces(true));
-        $this->soapMessage = new Message($request->requestNamespace());
-        $this->soapMessage->addNamespace($namespaces);
+        $this->soapMessage = new Message;
         if(!empty($this->authToken))
         {
             $this->soapMessage->addHeader('authToken', $this->authToken);
@@ -192,12 +212,16 @@ class Http extends EventEmitter implements ClientInterface
         {
             $this->soapMessage->addHeader('sessionId', $this->sessionId);
         }
-        $this->soapMessage->body($xml);
+        if($this->format instanceof RequestFormat)
+        {
+            $this->soapMessage->addHeader('format', $this->format->value());
+        }
+        $this->soapMessage->request($request);
         $response = $this->__doRequest($this->soapMessage->__toString(), array(
                 'Content-Type' => $this->soapMessage->contentType(),
                 'Method'       => 'POST',
                 'User-Agent'   => isset($_SERVER['HTTP_USER_AGENT']) ? $_SERVER['HTTP_USER_AGENT'] : 'PHP-Zimbra-Soap-API',
-                'SoapAction' => $request->requestNamespace().'#'.$xml->getName()
+                'SoapAction' => $request->xmlNamespace().'#'.$request->requestName()
             )
         );
         return $request->processResponse($response);
