@@ -10,6 +10,8 @@
 
 namespace Zimbra\Admin;
 
+use Zimbra\Enum\RequestFormat;
+
 /**
  * Admin soap api factory class
  * 
@@ -26,22 +28,22 @@ abstract class AdminFactory
     private static $_instances = array();
 
     /**
-     * Creates a singleton of a AccountInterface base on parameters.
+     * Creates a singleton of a AdminInterface base on parameters.
      *
      * @param  string $location The Zimbra api soap location.
-     * @param  string $client   Soap client
+     * @param  RequestFormat $format The request format.
      * @return AdminInterface
      */
-    public static function instance($location = 'https://localhost:7071/service/admin/soap', $client = 'http')
+    public static function instance($location = 'https://localhost:7071/service/admin/soap', RequestFormat $format = null)
     {
-        $key = sha1($location.$client);
+        $key = sha1($location);
         if (isset(self::$_instances[$key]) and (self::$_instances[$key] instanceof AdminInterface))
         {
             return self::$_instances[$key];
         }
         else
         {
-            self::$_instances[$key] = self::factory($location, $client);
+            self::$_instances[$key] = self::factory($location, $format);
             return self::$_instances[$key];            
         }
     }
@@ -50,17 +52,11 @@ abstract class AdminFactory
      * Returns a new AdminInterface object.
      *
      * @param  string $location The Zimbra api soap location.
-     * @param  string $client   Soap client
+     * @param  RequestFormat $format The request format.
      * @return AdminInterface
      */
-    public static function factory($location = 'https://localhost:7071/service/admin/soap', $client = 'http')
+    public static function factory($location = 'https://localhost:7071/service/admin/soap', RequestFormat $format = null)
     {
-        switch (strtolower($client))
-        {
-            case 'wsdl':
-                return new Wsdl($location);
-            default:
-                return new Http($location);
-        }
+        return new Http($location, $format);
     }
 }
