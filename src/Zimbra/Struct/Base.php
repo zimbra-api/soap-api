@@ -201,7 +201,7 @@ abstract class Base extends EventEmitter
         $arr = array();
         if(null !== $this->_value)
         {
-            $arr['_'] = $this->_value;
+            $arr['_content'] = $this->_value;
         }
         if(!empty($this->_xmlNamespace))
         {
