@@ -4,12 +4,11 @@ Zimbra-API
 This API A simple Object Oriented wrapper for the zimbra soap api (web service). It's written with PHP 5.3. It allows you to manage easily zimbra accounts, zimbra domains and zimbra servers.
 
 ## Requirement
-* PHP >= 5.3.2 with [cURL](http://php.net/manual/en/book.curl.php) extension,
+* PHP >= 5.3.x with [cURL](http://php.net/manual/en/book.curl.php) extension,
 * [Guzzle](https://github.com/guzzle/guzzle) library,
 * [Evenement](https://github.com/igorw/evenement) library,
 * [PhpCollection](https://github.com/schmittjoh/php-collection) library,
 * (optional) PHPUnit to run tests,
-* (optional) [Soap](http://www.php.net/manual/en/book.soap.php) extension for WSDL client and run tests.
 
 ## Autoload
 
@@ -30,8 +29,7 @@ Now we can use autoloader from Composer by:
 {
     "require": {
         "nguyennv/zimbra-api": "*"
-    },
-    "minimum-stability": "dev"
+    }
 }
 ```
 
