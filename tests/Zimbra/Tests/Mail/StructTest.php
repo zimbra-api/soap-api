@@ -477,7 +477,7 @@ class StructTest extends ZimbraTestCase
                 'attach' => array(
                     'uri' => 'uri',
                     'ct' => 'ct',
-                    '_' => 'value',
+                    '_content' => 'value',
                 ),
                 'summary' => 'summary',
                 'at' => array(
@@ -970,7 +970,7 @@ class StructTest extends ZimbraTestCase
             'attach' => array(
                 'uri' => 'uri',
                 'ct' => 'ct',
-                '_' => 'value',
+                '_content' => 'value',
             ),
         );
         $this->assertEquals($array, $ca->toArray());
@@ -1300,7 +1300,7 @@ class StructTest extends ZimbraTestCase
                 'a' => array(
                     array(
                         'n' => 'n',
-                        '_' => 'value',
+                        '_content' => 'value',
                         'aid' => 'aid',
                         'id' => 10,
                         'part' => 'part',
@@ -1415,7 +1415,7 @@ class StructTest extends ZimbraTestCase
                 't' => 't',
                 'tn' => 'tn',
                 'vcard' => array(
-                    '_' => 'value',
+                    '_content' => 'value',
                     'mid' => 'mid',
                     'part' => 'part',
                     'aid' => 'aid',
@@ -1423,7 +1423,7 @@ class StructTest extends ZimbraTestCase
                 'a' => array(
                     array(
                         'n' => 'n',
-                        '_' => 'value',
+                        '_content' => 'value',
                         'aid' => 'aid',
                         'id' => 10,
                         'part' => 'part',
@@ -1459,7 +1459,7 @@ class StructTest extends ZimbraTestCase
 
         $array = array(
             'content' => array(
-                '_' => 'value',
+                '_content' => 'value',
                 'aid' => 'aid',
             ),
         );
@@ -1491,7 +1491,7 @@ class StructTest extends ZimbraTestCase
 
         $array = array(
             'content' => array(
-                '_' => 'value',
+                '_content' => 'value',
                 'aid' => 'aid',
                 'mid' => 'mid',
                 'part' => 'part',
@@ -4159,7 +4159,7 @@ class StructTest extends ZimbraTestCase
         $array = array(
             'header' => array(
                 'name' => 'name',
-                '_' => 'value',
+                '_content' => 'value',
             ),
         );
         $this->assertEquals($array, $header->toArray());
@@ -4466,7 +4466,7 @@ class StructTest extends ZimbraTestCase
                 'ct' => 'ct',
                 'ci' => 'ci',
                 'content' => array(
-                    '_' => 'value',
+                    '_content' => 'value',
                     'uid' => 'uid',
                     'summary' => 'summary',
                 ),
@@ -5041,7 +5041,7 @@ class StructTest extends ZimbraTestCase
                         'attach' => array(
                             'uri' => 'uri',
                             'ct' => 'ct',
-                            '_' => 'value',
+                            '_content' => 'value',
                         ),
                         'summary' => 'summary',
                         'at' => array(
@@ -5881,7 +5881,7 @@ class StructTest extends ZimbraTestCase
         $array = array(
             'meta' => array(
                 'a' => array(
-                    array('n' => 'key', '_' => 'value')
+                    array('n' => 'key', '_content' => 'value')
                 ),
                 'section' => 'section',
             ),
@@ -6074,7 +6074,7 @@ class StructTest extends ZimbraTestCase
         $array = array(
             'kpv' => array(
                 'a' => array(
-                    array('n' => 'key', '_' => 'value')
+                    array('n' => 'key', '_content' => 'value')
                 ),
             ),
         );
@@ -6371,7 +6371,7 @@ class StructTest extends ZimbraTestCase
         $array = array(
             'a' => array(
                 'n' => 'n',
-                '_' => 'value',
+                '_content' => 'value',
                 'aid' => 'aid',
                 'id' => 10,
                 'part' => 'part',
@@ -6454,7 +6454,7 @@ class StructTest extends ZimbraTestCase
                 'a' => array(
                     array(
                         'n' => 'n',
-                        '_' => 'value',
+                        '_content' => 'value',
                         'aid' => 'aid',
                         'id' => 10,
                         'part' => 'part',
@@ -6655,7 +6655,7 @@ class StructTest extends ZimbraTestCase
                 'header' => array(
                     array(
                         'name' => 'name',
-                        '_' => 'value',
+                        '_content' => 'value',
                     ),
                 ),
                 'mp' => array(
@@ -6993,7 +6993,7 @@ class StructTest extends ZimbraTestCase
                 'header' => array(
                     array(
                         'name' => 'name',
-                        '_' => 'value',
+                        '_content' => 'value',
                     ),
                 ),
                 'mp' => array(
@@ -7170,7 +7170,7 @@ class StructTest extends ZimbraTestCase
         $array = array(
             'a' => array(
                 'n' => 'n',
-                '_' => 'value',
+                '_content' => 'value',
                 'aid' => 'aid',
                 'id' => 10,
                 'part' => 'part',
@@ -7722,7 +7722,7 @@ class StructTest extends ZimbraTestCase
 
         $array = array(
             'content' => array(
-                '_' => 'value',
+                '_content' => 'value',
                 'uid' => 'uid',
                 'summary' => 'summary',
             ),
@@ -8580,7 +8580,7 @@ class StructTest extends ZimbraTestCase
                 'header' => array(
                     array(
                         'name' => 'name',
-                        '_' => 'value',
+                        '_content' => 'value',
                     ),
                 ),
                 'mp' => array(
@@ -8792,7 +8792,7 @@ class StructTest extends ZimbraTestCase
                     'header' => array(
                         array(
                             'name' => 'name',
-                            '_' => 'value',
+                            '_content' => 'value',
                         ),
                     ),
                     'mp' => array(
@@ -9457,7 +9457,7 @@ class StructTest extends ZimbraTestCase
             'target' => array(
                 'type' => 'account',
                 'by' => 'name',
-                '_' => 'value',
+                '_content' => 'value',
             ),
         );
         $this->assertEquals($array, $target->toArray());
@@ -9546,7 +9546,7 @@ class StructTest extends ZimbraTestCase
 
         $array = array(
             'vcard' => array(
-                '_' => 'value',
+                '_content' => 'value',
                 'mid' => 'mid',
                 'part' => 'part',
                 'aid' => 'aid',

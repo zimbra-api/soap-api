@@ -3,7 +3,6 @@
 namespace Zimbra\Tests\Struct;
 
 use Zimbra\Tests\ZimbraTestCase;
-
 use Zimbra\Enum\AccountBy;
 
 /**
@@ -29,7 +28,7 @@ class StructTest extends ZimbraTestCase
         $array = array(
             'account' => array(
                 'by' => 'adminName',
-                '_' => 'name',
+                '_content' => 'name',
             ),
         );
         $this->assertEquals($array, $acc->toArray());
@@ -68,7 +67,7 @@ class StructTest extends ZimbraTestCase
 
         $array = array(
             $className => array(
-                '_' => 'value',
+                '_content' => 'value',
             ),
         );
         $this->assertEquals($array, $base->toArray());
@@ -93,7 +92,7 @@ class StructTest extends ZimbraTestCase
             $className => array(
                 'name' => 'value',
                 'child' => array(
-                    '_' => 'value',
+                    '_content' => 'value',
                 ),
             ),
         );
@@ -198,7 +197,7 @@ class StructTest extends ZimbraTestCase
         $array = array(
             'a' => array(
                 'n' => 'key',
-                '_' => 'value',
+                '_content' => 'value',
             ),
         );
         $this->assertEquals($array, $kpv->toArray());
@@ -241,7 +240,7 @@ class StructTest extends ZimbraTestCase
         $array = array(
             'named' => array(
                 'name' => 'name',
-                '_' => 'value',
+                '_content' => 'value',
             ),
         );
         $this->assertEquals($array, $named->toArray());
@@ -265,7 +264,7 @@ class StructTest extends ZimbraTestCase
         $array = array(
             'addr' => array(
                 'op' => '+',
-                '_' => 'value',
+                '_content' => 'value',
             ),
         );
         $this->assertEquals($array, $op->toArray());

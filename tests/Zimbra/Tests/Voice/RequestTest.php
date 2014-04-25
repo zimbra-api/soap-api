@@ -3,7 +3,6 @@
 namespace Zimbra\Tests\Voice;
 
 use Zimbra\Tests\ZimbraTestCase;
-
 use Zimbra\Enum\VoiceMsgActionOp;
 use Zimbra\Enum\VoiceSortBy;
 
@@ -447,7 +446,7 @@ class RequestTest extends ZimbraTestCase
                         'pref' => array(
                             array(
                                 'name' => 'name',
-                                '_' => 'value',
+                                '_content' => 'value',
                             ),
                         ),
                     ),
@@ -602,7 +601,7 @@ class RequestTest extends ZimbraTestCase
                     'pref' => array(
                         array(
                             'name' => 'name',
-                            '_' => 'value',
+                            '_content' => 'value',
                         ),
                     ),
                 ),

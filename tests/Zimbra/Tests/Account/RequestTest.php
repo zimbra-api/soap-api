@@ -93,17 +93,17 @@ class RequestTest extends ZimbraTestCase
                 '_jsns' => 'urn:zimbraAccount',
                 'account' => array(
                     'by' => 'name',
-                    '_' => 'value',
+                    '_content' => 'value',
                 ),
                 'password' => 'password',
                 'preauth' => array(
                     'timestamp' => 1000,
                     'expiresTimestamp' => 1000,
-                    '_' => 'value',
+                    '_content' => 'value',
                 ),
                 'authToken' => array(
                     'verifyAccount' => true,
-                    '_' => 'value',
+                    '_content' => 'value',
                 ),
                 'virtualHost' => 'virtualHost',
                 'prefs' => array(
@@ -111,7 +111,7 @@ class RequestTest extends ZimbraTestCase
                         array(
                             'name' => 'name',
                             'modified' => 1000,
-                            '_' => 'value',
+                            '_content' => 'value',
                         ),
                     ),
                 ),
@@ -120,7 +120,7 @@ class RequestTest extends ZimbraTestCase
                         array(
                             'name' => 'name',
                             'pd' => true,
-                            '_' => 'value',
+                            '_content' => 'value',
                         ),
                     ),
                 ),
@@ -218,7 +218,7 @@ class RequestTest extends ZimbraTestCase
                 '_jsns' => 'urn:zimbraAccount',
                 'account' => array(
                     'by' => 'name',
-                    '_' => 'value',
+                    '_content' => 'value',
                 ),
                 'oldPassword' => 'oldPassword',
                 'password' =>'password',
@@ -294,7 +294,7 @@ class RequestTest extends ZimbraTestCase
                 'name' => 'name',
                 'dynamic' => true,
                 'a' => array(
-                    array('n' => 'key', '_' => 'value'),
+                    array('n' => 'key', '_content' => 'value'),
                 ),
             ),
         );
@@ -328,7 +328,7 @@ class RequestTest extends ZimbraTestCase
                     'name' => 'name',
                     'id' => 'id',
                     'a' => array(
-                        array('name' => 'name', 'pd' => true, '_' => 'value'),
+                        array('name' => 'name', 'pd' => true, '_content' => 'value'),
                     ),
                 ),
             ),
@@ -365,7 +365,7 @@ class RequestTest extends ZimbraTestCase
                     'id' => 'id',
                     'cid' => 'cid',
                     'content' => array(
-                        array('type' => 'text/plain', '_' => 'value'),
+                        array('type' => 'text/plain', '_content' => 'value'),
                     ),
                 ),
             ),
@@ -507,21 +507,21 @@ class RequestTest extends ZimbraTestCase
                 '_jsns' => 'urn:zimbraAccount',
                 'dl' => array(
                     'by' => 'name',
-                    '_' => 'value',
+                    '_content' => 'value',
                 ),
                 'action' => array(
                     'op' => 'modify',
                     'newName' => 'newName',
                     'subsReq' => array(
                         'op' => 'subscribe',
-                        '_' => 'value',
+                        '_content' => 'value',
                         'bccOwners' => true,
                     ),
                     'dlm' => array('dlm'),
                     'owner' => array(
                         array(
                             'type' => 'usr',
-                            '_' => 'value',
+                            '_content' => 'value',
                             'by' => 'id',
                         ),
                     ),
@@ -531,7 +531,7 @@ class RequestTest extends ZimbraTestCase
                             'grantee' => array(
                                 array(
                                     'type' => 'all',
-                                    '_' => 'value',
+                                    '_content' => 'value',
                                     'by' => 'name',
                                 ),
                             ),
@@ -540,7 +540,7 @@ class RequestTest extends ZimbraTestCase
                     'a' => array(
                         array(
                             'n' => 'key',
-                            '_' => 'value',
+                            '_content' => 'value',
                         ),
                     ),
                 ),
@@ -548,7 +548,7 @@ class RequestTest extends ZimbraTestCase
                     array(
                         'name' => 'name',
                         'pd' => '1',
-                        '_' => 'value',
+                        '_content' => 'value',
                     ),
                 ),
             ),
@@ -625,7 +625,7 @@ class RequestTest extends ZimbraTestCase
                 '_jsns' => 'urn:zimbraAccount',
                 'account' => array(
                     'by' => 'name',
-                    '_' => 'value',
+                    '_content' => 'value',
                 ),
             ),
         );
@@ -736,10 +736,10 @@ class RequestTest extends ZimbraTestCase
                 'needRights' => 'sendToDistList,viewDistList',
                 'dl' => array(
                     'by' => 'name',
-                    '_' => 'value',
+                    '_content' => 'value',
                 ),
                 'a' => array(
-                    array('name' => 'name', 'pd' => true, '_' => 'value'),
+                    array('name' => 'name', 'pd' => true, '_content' => 'value'),
                 ),
             ),
         );
@@ -843,7 +843,7 @@ class RequestTest extends ZimbraTestCase
                 '_jsns' => 'urn:zimbraAccount',
                 'pref' => array(
                     array(
-                        'name' => 'name', 'modified' => 1000, '_' => 'value',
+                        'name' => 'name', 'modified' => 1000, '_content' => 'value',
                     ),
                 ),
             ),
@@ -920,7 +920,7 @@ class RequestTest extends ZimbraTestCase
                 ),
                 'owner' => array(
                     'by' => 'name',
-                    '_' => 'value',
+                    '_content' => 'value',
                 ),
             ),
         );
@@ -1045,7 +1045,7 @@ class RequestTest extends ZimbraTestCase
                     'a' => array(
                         array(
                             'name' => 'name',
-                            '_' => 'value',
+                            '_content' => 'value',
                             'pd' => true,
                         ),
                     ),
@@ -1077,7 +1077,7 @@ class RequestTest extends ZimbraTestCase
                 '_jsns' => 'urn:zimbraAccount',
                 'pref' => array(
                     array(
-                        'name' => 'name', 'modified' => 1000, '_' => 'value',
+                        'name' => 'name', 'modified' => 1000, '_content' => 'value',
                     ),
                 ),
             ),
@@ -1107,7 +1107,7 @@ class RequestTest extends ZimbraTestCase
                 '_jsns' => 'urn:zimbraAccount',
                 'prop' => array(
                     array(
-                        'zimlet' => 'zimlet', 'name' => 'name', '_' => 'value',
+                        'zimlet' => 'zimlet', 'name' => 'name', '_content' => 'value',
                     ),
                 ),
             ),
@@ -1145,7 +1145,7 @@ class RequestTest extends ZimbraTestCase
                     'content' => array(
                         array(
                             'type' => 'text/html',
-                            '_' => 'value',
+                            '_content' => 'value',
                         ),
                     ),
                 ),
@@ -1189,7 +1189,7 @@ class RequestTest extends ZimbraTestCase
                     'addr' => array(
                         array(
                             'op' => '+',
-                            '_' => 'white',
+                            '_content' => 'white',
                         ),
                     ),
                 ),
@@ -1197,7 +1197,7 @@ class RequestTest extends ZimbraTestCase
                     'addr' => array(
                         array(
                             'op' => '-',
-                            '_' => 'black',
+                            '_content' => 'black',
                         ),
                     ),
                 ),
@@ -1532,7 +1532,7 @@ class RequestTest extends ZimbraTestCase
                 'op' => 'subscribe',
                 'dl' => array(
                     'by' => 'name',
-                    '_' => 'value',
+                    '_content' => 'value',
                 ),
             )
         );

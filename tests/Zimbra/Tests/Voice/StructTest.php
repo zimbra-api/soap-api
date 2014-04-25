@@ -3,7 +3,6 @@
 namespace Zimbra\Tests\Voice;
 
 use Zimbra\Tests\ZimbraTestCase;
-
 use Zimbra\Enum\VoiceMsgActionOp;
 
 /**
@@ -426,7 +425,7 @@ class StructTest extends ZimbraTestCase
                     'pref' => array(
                         array(
                             'name' => 'name',
-                            '_' => 'value',
+                            '_content' => 'value',
                         ),
                     ),
                 ),
@@ -547,7 +546,7 @@ class StructTest extends ZimbraTestCase
                 'pref' => array(
                     array(
                         'name' => 'name',
-                        '_' => 'value',
+                        '_content' => 'value',
                     ),
                 ),
             ),
@@ -708,7 +707,7 @@ class StructTest extends ZimbraTestCase
         $array = array(
             'pref' => array(
                 'name' => 'name',
-                '_' => 'value',
+                '_content' => 'value',
             ),
         );
         $this->assertEquals($array, $pref->toArray());
@@ -1024,7 +1023,7 @@ class StructTest extends ZimbraTestCase
                 'pref' => array(
                     array(
                         'name' => 'name',
-                        '_' => 'value',
+                        '_content' => 'value',
                     ),
                 ),
             ),
