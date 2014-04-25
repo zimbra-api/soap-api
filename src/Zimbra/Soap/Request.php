@@ -71,31 +71,6 @@ abstract class Request extends Base
     }
 
     /**
-     * Process soap response body.
-     *
-     * @param  string $response Soap response message.
-     * @throws RuntimeException
-     * @return mix
-     */
-    public function processResponse($response)
-    {
-        if(empty($response))
-        {
-            throw new \UnexpectedValueException('Response string is empty.');
-        }
-        $xml = new SimpleXML($response);
-        $fault = $xml->children('soap', true)->Body->Fault;
-        if ($fault)
-        {
-            throw new \RuntimeException($fault->children('soap', true)->Reason->Text);
-        }
-
-        $result = $xml->children('soap', true)->Body->toObject();
-        $name = $this->_responseName;
-        return isset($result->$name) ? $result->$name : null;
-    }
-
-    /**
      * Returns the array representation of this class 
      *
      * @param  string $name
