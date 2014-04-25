@@ -998,6 +998,18 @@ class EnumTest extends ZimbraTestCase
         }
     }
 
+    public function testRequestFormat()
+    {
+        $values = array(
+            'xml',
+            'js',
+        );
+        foreach ($values as $value)
+        {
+            $this->assertTrue(\Zimbra\Enum\RequestFormat::has($value));
+        }
+    }
+
     public function testRightClass()
     {
         $values = array(

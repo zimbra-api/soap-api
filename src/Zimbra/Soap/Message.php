@@ -101,16 +101,16 @@ class Message
      */
     public function request(Request $request = null)
     {
-		if($request instanceof Request)
-		{
-			$this->_request = $request;
-			$this->addNamespace($this->_request->xmlNamespace());
-			$this->_body = $request->toXml();
-			$namespaces = array_values($this->_body->getDocNamespaces(true));
-			$this->addNamespace($namespaces);
-			return $this;
-		}
-		return $this->_request;
+        if($request instanceof Request)
+        {
+            $this->_request = $request;
+            $this->addNamespace($this->_request->xmlNamespace());
+            $this->_body = $request->toXml();
+            $namespaces = array_values($this->_body->getDocNamespaces(true));
+            $this->addNamespace($namespaces);
+            return $this;
+        }
+        return $this->_request;
     }
 
     public function addNamespace($namespace)
@@ -193,6 +193,35 @@ class Message
     public function version()
     {
         return $this->_version;
+    }
+
+    /**
+     * Returns the json encoded string representation of this class 
+     *
+     * @return string
+     */
+    public function toJson()
+    {
+        $array = array();
+        if(count($this->_headers))
+        {
+            $array['Header'] = array(
+                'context' => array(
+                    '_jsns' => 'urn:zimbra',
+                ),
+            );
+            foreach ($this->_headers as $name => $value)
+            {
+                $array['Header']['context'][$name] = $value;
+            }
+        }
+        if($this->_request instanceof Request)
+        {
+            $reqArray = $this->_request->toArray();
+            $reqName = $this->_request->requestName();
+            $array['Body'][$reqName] = $reqArray[$reqName];
+        }
+        return json_encode((object) $array);
     }
 
     /**

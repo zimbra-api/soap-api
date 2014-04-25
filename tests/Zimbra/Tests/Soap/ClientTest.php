@@ -2,44 +2,15 @@
 
 namespace Zimbra\Tests\Soap;
 
-use Zimbra\Tests\ZimbraTestCase;
 use \SoapServer;
+use Zimbra\Tests\ZimbraTestCase;
+use Zimbra\Soap\Request;
 
 /**
  * Testcase class for soap client.
  */
 class ClientTest extends ZimbraTestCase
 {
-    public function testWsdl()
-    {
-        $client = new LocalClientWsdl(__DIR__.'/../TestData/test.wsdl');
-        $lastRequest = '';
-        $client->on('before.request', function($request) use (&$lastRequest)
-        {
-            $lastRequest = $request;
-        });
-
-        $client->authToken('authToken')
-               ->sessionId('sessionId');
-        $this->assertSame('authToken', $client->authToken());
-        $this->assertSame('sessionId', $client->sessionId());
-        $this->assertInstanceOf('\SoapHeader', $client->soapHeader());
-
-        $request = new \Zimbra\Tests\TestData\Test('foo', 'bar');
-        $params = $request->toArray();
-        $client->__soapCall($request->requestName(), $params[$request->requestName()]);
-
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbra" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:enc="http://www.w3.org/2003/05/soap-encoding">'
-                .'<env:Body>'
-                    .'<ns1:testRequest env:encodingStyle="http://www.w3.org/2003/05/soap-encoding">'
-                        .'<foo xsi:type="xsd:string">foo</foo><bar xsi:type="xsd:string">bar</bar>'
-                    .'</ns1:testRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $lastRequest);
-    }
-
     public function testHttp()
     {
         $client = new LocalClientHttp(NULL);
@@ -53,7 +24,7 @@ class ClientTest extends ZimbraTestCase
             $lastRequest = $request;
         });
 
-        $request = new \Zimbra\Tests\TestData\Test('foo', 'bar');
+        $request = new Test('foo', 'bar');
         $response = $client->doRequest($request);
         $this->assertSame('foo', $response->foo);
         $this->assertSame('bar', $response->bar);
@@ -68,5 +39,36 @@ class ClientTest extends ZimbraTestCase
                 .'</env:Body>'
             .'</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $lastRequest);
+    }
+}
+
+class Test extends Request
+{
+    private $foo;
+    private $bar;
+
+    public function __construct($foo, $bar)
+    {
+        parent::__construct();
+        $this->child('foo', trim($foo));
+        $this->child('bar', trim($bar));
+    }
+
+    public function foo($foo = NULL)
+    {
+        if(NULL === $foo)
+        {
+            return $this->child('foo');
+        }
+        return $this->child('foo', trim($foo));
+    }
+
+    public function bar($bar = NULL)
+    {
+        if(NULL === $bar)
+        {
+            return $this->child('bar');
+        }
+        return $this->child('bar', trim($bar));
     }
 }

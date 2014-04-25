@@ -91,7 +91,7 @@ class StructTest extends ZimbraTestCase
                 'a' => array(
                     array(
                         'n' => 'key',
-                        '_' => 'value',
+                        '_content' => 'value',
                     ),
                 ),
             ),
@@ -120,7 +120,7 @@ class StructTest extends ZimbraTestCase
         $array = array(
             'attr' => array(
                 'name' => 'name',
-                '_' => 'value',
+                '_content' => 'value',
                 'pd' => true,
             ),
         );
@@ -146,7 +146,7 @@ class StructTest extends ZimbraTestCase
                 'a' => array(
                     array(
                         'name' => 'name',
-                        '_' => 'value',
+                        '_content' => 'value',
                         'pd' => true,
                     ),
                 ),
@@ -176,7 +176,7 @@ class StructTest extends ZimbraTestCase
                 'attr' => array(
                     array(
                         'name' => 'name',
-                        '_' => 'value',
+                        '_content' => 'value',
                         'pd' => true,
                     ),
                 ),
@@ -206,7 +206,7 @@ class StructTest extends ZimbraTestCase
                 'pref' => array(
                     array(
                         'name' => 'name',
-                        '_' => 'value',
+                        '_content' => 'value',
                         'modified' => 100,
                     ),
                 ),
@@ -233,7 +233,7 @@ class StructTest extends ZimbraTestCase
         $array = array(
             'authToken' => array(
                 'verifyAccount' => true,
-                '_' => 'token',
+                '_content' => 'token',
             ),
         );
         $this->assertEquals($array, $token->toArray());
@@ -260,7 +260,7 @@ class StructTest extends ZimbraTestCase
                 'addr' => array(
                     array(
                         'op' => '+',
-                        '_' => 'value',
+                        '_content' => 'value',
                     ),
                 ),
             ),
@@ -332,7 +332,7 @@ class StructTest extends ZimbraTestCase
         $array = array(
             'subsReq' => array(
                 'op' => 'subscribe',
-                '_' => 'value',
+                '_content' => 'value',
                 'bccOwners' => true,
             ),
         );
@@ -360,7 +360,7 @@ class StructTest extends ZimbraTestCase
         $array = array(
             'grantee' => array(
                 'type' => 'usr',
-                '_' => 'value',
+                '_content' => 'value',
                 'by' => 'name',
             ),
         );
@@ -396,17 +396,17 @@ class StructTest extends ZimbraTestCase
                 'grantee' => array(
                     array(
                         'type' => 'all',
-                        '_' => 'value1',
+                        '_content' => 'value1',
                         'by' => 'name',
                     ),
                     array(
                         'type' => 'usr',
-                        '_' => 'value2',
+                        '_content' => 'value2',
                         'by' => 'id',
                     ),
                     array(
                         'type' => 'grp',
-                        '_' => 'value3',
+                        '_content' => 'value3',
                         'by' => 'name',
                     ),
                 ),
@@ -433,7 +433,7 @@ class StructTest extends ZimbraTestCase
         $array = array(
             'dl' => array(
                 'by' => 'name',
-                '_' => 'value',
+                '_content' => 'value',
             ),
         );
         $this->assertEquals($array, $dl->toArray());
@@ -494,14 +494,14 @@ class StructTest extends ZimbraTestCase
                 'newName' => 'newName',
                 'subsReq' => array(
                     'op' => 'subscribe',
-                    '_' => 'value',
+                    '_content' => 'value',
                     'bccOwners' => true,
                 ),
                 'dlm' => array('dlm'),
                 'owner' => array(
                     array(
                         'type' => 'usr',
-                        '_' => 'value',
+                        '_content' => 'value',
                         'by' => 'id',
                     ),
                 ),
@@ -511,7 +511,7 @@ class StructTest extends ZimbraTestCase
                         'grantee' => array(
                             array(
                                 'type' => 'all',
-                                '_' => 'value',
+                                '_content' => 'value',
                                 'by' => 'name',
                             ),
                         ),
@@ -520,7 +520,7 @@ class StructTest extends ZimbraTestCase
                 'a' => array(
                     array(
                         'n' => 'key',
-                        '_' => 'value',
+                        '_content' => 'value',
                     ),
                 ),
             ),
@@ -723,17 +723,17 @@ class StructTest extends ZimbraTestCase
                 'a' => array(
                     array(
                         'name' => 'name1',
-                        '_' => 'value1',
+                        '_content' => 'value1',
                         'pd' => true,
                     ),
                     array(
                         'name' => 'name2',
-                        '_' => 'value2',
+                        '_content' => 'value2',
                         'pd' => false,
                     ),
                     array(
                         'name' => 'name3',
-                        '_' => 'value3',
+                        '_content' => 'value3',
                         'pd' => true,
                     ),
                 ),
@@ -793,7 +793,7 @@ class StructTest extends ZimbraTestCase
             'preauth' => array(
                 'timestamp' => $now + 1000,
                 'expiresTimestamp' => 1000,
-                '_' => $computeValue,
+                '_content' => $computeValue,
             ),
         );
         $this->assertEquals($array, $pre->toArray());
@@ -821,7 +821,7 @@ class StructTest extends ZimbraTestCase
             'pref' => array(
                 'name' => 'name',
                 'modified' => 1000,
-                '_' => 'value',
+                '_content' => 'value',
             ),
         );
         $this->assertEquals($array, $pref->toArray());
@@ -849,7 +849,7 @@ class StructTest extends ZimbraTestCase
             'prop' => array(
                 'zimlet' => 'zimlet',
                 'name' => 'name',
-                '_' => 'value',
+                '_content' => 'value',
             ),
         );
         $this->assertEquals($array, $prop->toArray());
@@ -893,7 +893,7 @@ class StructTest extends ZimbraTestCase
         $array = array(
             'content' => array(
                 'type' => 'text/html',
-                '_' => 'value',
+                '_content' => 'value',
             ),
         );
         $this->assertEquals($array, $content->toArray());
@@ -935,11 +935,11 @@ class StructTest extends ZimbraTestCase
                 'content' => array(
                     array(
                         'type' => 'text/plain',
-                        '_' => 'value1',
+                        '_content' => 'value1',
                     ),
                     array(
                         'type' => 'text/html',
-                        '_' => 'value2',
+                        '_content' => 'value2',
                     ),
                 ),
             ),
@@ -968,7 +968,7 @@ class StructTest extends ZimbraTestCase
                 'addr' => array(
                     array(
                         'op' => '+',
-                        '_' => 'value',
+                        '_content' => 'value',
                     ),
                 ),
             ),

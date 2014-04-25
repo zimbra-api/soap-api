@@ -3,7 +3,6 @@
 namespace Zimbra\Tests\Voice;
 
 use Zimbra\Tests\ZimbraTestCase;
-
 use Zimbra\Enum\VoiceMsgActionOp;
 use Zimbra\Enum\VoiceSortBy;
 
@@ -35,6 +34,7 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'ChangeUCPasswordRequest' => array(
+                '_jsns' => 'urn:zimbraVoice',
                 'password' =>'password',
             ),
         );
@@ -51,7 +51,9 @@ class RequestTest extends ZimbraTestCase
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
         $array = array(
-            'GetUCInfoRequest' => array(),
+            'GetUCInfoRequest' => array(
+                '_jsns' => 'urn:zimbraVoice',
+            ),
         );
         $this->assertEquals($array, $req->toArray());
     }
@@ -122,6 +124,7 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'GetVoiceFeaturesRequest' => array(
+                '_jsns' => 'urn:zimbraVoice',
                 'storeprincipal' => array(
                     'id' => 'id',
                     'name' => 'name',
@@ -182,6 +185,7 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'GetVoiceFolderRequest' => array(
+                '_jsns' => 'urn:zimbraVoice',
                 'storeprincipal' => array(
                     'id' => 'id',
                     'name' => 'name',
@@ -226,6 +230,7 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'GetVoiceInfoRequest' => array(
+                '_jsns' => 'urn:zimbraVoice',
                 'phone' => array(
                     array(
                         'name' => 'name',
@@ -271,6 +276,7 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'GetVoiceMailPrefsRequest' => array(
+                '_jsns' => 'urn:zimbraVoice',
                 'storeprincipal' => array(
                     'id' => 'id',
                     'name' => 'name',
@@ -318,6 +324,7 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'ModifyFromNumRequest' => array(
+                '_jsns' => 'urn:zimbraVoice',
                 'storeprincipal' => array(
                     'id' => 'id',
                     'name' => 'name',
@@ -425,6 +432,7 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'ModifyVoiceFeaturesRequest' => array(
+                '_jsns' => 'urn:zimbraVoice',
                 'storeprincipal' => array(
                     'id' => 'id',
                     'name' => 'name',
@@ -438,7 +446,7 @@ class RequestTest extends ZimbraTestCase
                         'pref' => array(
                             array(
                                 'name' => 'name',
-                                '_' => 'value',
+                                '_content' => 'value',
                             ),
                         ),
                     ),
@@ -536,6 +544,7 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'ModifyVoiceMailPinRequest' => array(
+                '_jsns' => 'urn:zimbraVoice',
                 'storeprincipal' => array(
                     'id' => 'id',
                     'name' => 'name',
@@ -581,6 +590,7 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'ModifyVoiceMailPrefsRequest' => array(
+                '_jsns' => 'urn:zimbraVoice',
                 'storeprincipal' => array(
                     'id' => 'id',
                     'name' => 'name',
@@ -591,7 +601,7 @@ class RequestTest extends ZimbraTestCase
                     'pref' => array(
                         array(
                             'name' => 'name',
-                            '_' => 'value',
+                            '_content' => 'value',
                         ),
                     ),
                 ),
@@ -658,6 +668,7 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'ResetVoiceFeaturesRequest' => array(
+                '_jsns' => 'urn:zimbraVoice',
                 'storeprincipal' => array(
                     'id' => 'id',
                     'name' => 'name',
@@ -717,6 +728,7 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'SearchVoiceRequest' => array(
+                '_jsns' => 'urn:zimbraVoice',
                 'query' => 'query',
                 'limit' => 10,
                 'offset' => 10,
@@ -761,6 +773,7 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'UploadVoiceMailRequest' => array(
+                '_jsns' => 'urn:zimbraVoice',
                 'storeprincipal' => array(
                     'id' => 'id',
                     'name' => 'name',
@@ -804,6 +817,7 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'VoiceMsgActionRequest' => array(
+                '_jsns' => 'urn:zimbraVoice',
                 'storeprincipal' => array(
                     'id' => 'id',
                     'name' => 'name',

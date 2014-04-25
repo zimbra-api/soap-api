@@ -15,6 +15,7 @@ use Guzzle\Http\Client as HttpClient;
 use Guzzle\Http\Message\Response;
 use Guzzle\Plugin\Cookie\CookiePlugin;
 use Guzzle\Plugin\Cookie\CookieJar\ArrayCookieJar;
+use Zimbra\Enum\RequestFormat;
 use Zimbra\Soap\Message;
 use Zimbra\Soap\Request as SoapRequest;
 use Zimbra\Soap\Response as SoapResponse;
@@ -42,6 +43,12 @@ class Http extends EventEmitter implements ClientInterface
     protected $sessionId;
 
     /**
+     * Request format
+     * @var string
+     */
+    protected $format;
+
+    /**
      * @var Message
      */
     protected $soapMessage;
@@ -65,8 +72,14 @@ class Http extends EventEmitter implements ClientInterface
     protected $location;
 
     /**
-     * Last response message
+     * Last request message
      * @var string
+     */
+    protected $request;
+
+    /**
+     * Last response message
+     * @var Response
      */
     protected $response;
 
@@ -153,7 +166,14 @@ class Http extends EventEmitter implements ClientInterface
         {
             return $this->authToken;
         }
-        $this->authToken = trim($authToken);
+        if(is_array($authToken))
+        {
+            $this->authToken = isset($authToken[0]->_content) ? $authToken[0]->_content : null;
+        }
+        else
+        {
+            $this->authToken = trim($authToken);
+        }
         return $this;
     }
 
@@ -174,6 +194,22 @@ class Http extends EventEmitter implements ClientInterface
     }
 
     /**
+     * Gets or sets format
+     *
+     * @param  RequestFormat $format
+     * @return RequestFormat|self
+     */
+    public function format(RequestFormat $format = null)
+    {
+        if(null === $format)
+        {
+            return $this->format;
+        }
+        $this->format = $format;
+        return $this;
+    }
+
+    /**
      * Performs a SOAP request
      *
      * @param  Zimbra\Soap\Reques $request
@@ -190,8 +226,19 @@ class Http extends EventEmitter implements ClientInterface
         {
             $this->soapMessage->addHeader('sessionId', $this->sessionId);
         }
+        $isJs = false;
+        if($this->format instanceof RequestFormat)
+        {
+            $this->soapMessage->addHeader('format', $this->format->value());
+            if($this->format->is(RequestFormat::JS()))
+            {
+                $isJs = true;
+            }
+        }
         $this->soapMessage->request($request);
-        $response = $this->__doRequest($this->soapMessage->__toString(), array(
+        $this->request = ($isJs) ? $this->soapMessage->toJson() : (string) $this->soapMessage;
+
+        $response = $this->__doRequest($this->request, array(
                 'Content-Type' => $this->soapMessage->contentType(),
                 'Method'       => 'POST',
                 'User-Agent'   => isset($_SERVER['HTTP_USER_AGENT']) ? $_SERVER['HTTP_USER_AGENT'] : 'PHP-Zimbra-Soap-API',
@@ -208,7 +255,7 @@ class Http extends EventEmitter implements ClientInterface
      */
     public function lastRequest()
     {
-        return (string) $this->soapMessage;
+        return (string) $this->request;
     }
 
     /**

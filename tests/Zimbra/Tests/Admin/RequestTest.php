@@ -76,6 +76,7 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'AddAccountAliasRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'id' => 'id',
                 'alias' => 'alias',
             ),
@@ -107,13 +108,14 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'AddAccountLoggerRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'logger' => array(
                     'category' => 'category',
                     'level' => 'error',
                 ),
                 'account' => array(
                     'by' => 'name',
-                    '_' => 'value',
+                    '_content' => 'value',
                 ),
             ),
         );
@@ -138,6 +140,7 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'AddDistributionListAliasRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'id' => 'id',
                 'alias' => 'alias',
             ),
@@ -166,6 +169,7 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'AddDistributionListMemberRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'id' => 'id',
                 'dlm' => array(
                     'member1',
@@ -211,18 +215,19 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'AddGalSyncDataSourceRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'name' => 'name',
                 'domain' => 'domain',
                 'type' => 'zimbra',
                 'folder' => 'folder',
                 'account' => array(
                     'by' => 'name',
-                    '_' => 'value',
+                    '_content' => 'value',
                 ),
                 'a' => array(
                     array(
                         'n' => 'key',
-                        '_' => 'value',
+                        '_content' => 'value',
                     ),
                 ),
             ),
@@ -261,6 +266,7 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'AdminCreateWaitSetRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'defTypes' => 'f,m',
                 'allAccounts' => true,
                 'add' => array(
@@ -293,6 +299,7 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'AdminDestroyWaitSetRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'waitSet' => 'waitSet',
             ),
         );
@@ -357,6 +364,7 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'AdminWaitSetRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'waitSet' => 'waitSet',
                 'seq' => 'seq',
                 'block' => true,
@@ -430,12 +438,13 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'AuthRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'name' => 'name',
                 'password' => 'password',
                 'authToken' => 'authToken',
                 'account' => array(
                     'by' => 'name',
-                    '_' => 'value',
+                    '_content' => 'value',
                 ),
                 'virtualHost' => 'virtualHost',
                 'persistAuthTokenCookie' => true,
@@ -473,6 +482,7 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'AutoCompleteGalRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'domain' => 'domain',
                 'name' => 'name',
                 'type' => 'account',
@@ -511,13 +521,14 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'AutoProvAccountRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'domain' => array(
                     'by' => 'name',
-                    '_' => 'value',
+                    '_content' => 'value',
                 ),
                 'principal' => array(
                     'by' => 'dn',
-                    '_' => 'principal',
+                    '_content' => 'principal',
                 ),
                 'password' => 'password',
             ),
@@ -540,6 +551,7 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'AutoProvTaskControlRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'action' => 'status',
             ),
         );
@@ -578,12 +590,13 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'CheckAuthConfigRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'name' => 'name',
                 'password' => 'password',
                 'a' => array(
                     array(
                         'n' => 'key',
-                        '_' => 'value',
+                        '_content' => 'value',
                     ),
                 )
             ),
@@ -623,6 +636,7 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'CheckBlobConsistencyRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'checkSize' => false,
                 'reportUsedBlobs' => true,
                 'volume' => array(
@@ -655,6 +669,7 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'CheckDirectoryRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'directory' => array(
                     array(
                         'path' => 'path',
@@ -684,9 +699,10 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'CheckDomainMXRecordRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'domain' => array(
                     'by' => 'name',
-                    '_' => 'value',
+                    '_content' => 'value',
                 ),
             ),
         );
@@ -713,6 +729,7 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'CheckExchangeAuthRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'auth' => array(
                     'url' => 'url',
                     'user' => 'user',
@@ -750,15 +767,16 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'CheckGalConfigRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'query' => array(
                     'limit' => 100,
-                    '_' => 'value',
+                    '_content' => 'value',
                 ),
                 'action' => 'search',
                 'a' => array(
                     array(
                         'n' => 'key',
-                        '_' => 'value',
+                        '_content' => 'value',
                     ),
                 ),
             ),
@@ -776,7 +794,9 @@ class RequestTest extends ZimbraTestCase
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
         $array = array(
-            'CheckHealthRequest' => array(),
+            'CheckHealthRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
+            ),
         );
         $this->assertEquals($array, $req->toArray());
     }
@@ -795,6 +815,7 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'CheckHostnameResolveRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'hostname' => 'hostname',
             ),
         );
@@ -819,6 +840,7 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'CheckPasswordStrengthRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'id' => 'id',
                 'password' => 'password',
             ),
@@ -860,13 +882,14 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'CheckRightRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'target' => array(
                     'type' => 'account',
-                    '_' => 'value',
+                    '_content' => 'value',
                     'by' => 'name',
                 ),
                 'grantee' => array(
-                    '_' => 'value',
+                    '_content' => 'value',
                     'type' => 'usr',
                     'by' => 'id',
                     'secret' => 'secret',
@@ -876,7 +899,7 @@ class RequestTest extends ZimbraTestCase
                 'a' => array(
                     array(
                         'n' => 'key',
-                        '_' => 'value',
+                        '_content' => 'value',
                     ),
                 ),
             ),
@@ -903,6 +926,7 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'ClearCookieRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'cookie' => array(
                     array('name' => 'name'),
                 ),
@@ -932,6 +956,7 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'CompactIndexRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'action' => 'status',
                 'mbox' => array(
                     'id' => 'id'
@@ -951,7 +976,9 @@ class RequestTest extends ZimbraTestCase
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
         $array = array(
-            'ComputeAggregateQuotaUsageRequest' => array(),
+            'ComputeAggregateQuotaUsageRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
+            ),
         );
         $this->assertEquals($array, $req->toArray());
     }
@@ -974,6 +1001,7 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'ConfigureZimletRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'content' => array(
                     'aid' => 'aid',
                 ),
@@ -1004,10 +1032,11 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'CopyCosRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'name' => 'name',
                 'cos' => array(
                     'by' => 'name',
-                    '_' => 'value',
+                    '_content' => 'value',
                 ),
             ),
         );
@@ -1033,9 +1062,10 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'CountAccountRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'domain' => array(
                     'by' => 'name',
-                    '_' => 'value',
+                    '_content' => 'value',
                 ),
             ),
         );
@@ -1069,14 +1099,15 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'CountObjectsRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'type' => 'account',
                 'domain' => array(
                     'by' => 'name',
-                    '_' => 'value',
+                    '_content' => 'value',
                 ),
                 'ucservice' => array(
                     'by' => 'name',
-                    '_' => 'value',
+                    '_content' => 'value',
                 ),
             ),
         );
@@ -1105,12 +1136,13 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'CreateAccountRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'name' => 'name',
                 'password' => 'password',
                 'a' => array(
                     array(
                         'n' => 'key',
-                        '_' => 'value',
+                        '_content' => 'value',
                     ),
                 ),
             ),
@@ -1140,12 +1172,13 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'CreateCalendarResourceRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'name' => 'name',
                 'password' => 'password',
                 'a' => array(
                     array(
                         'n' => 'key',
-                        '_' => 'value',
+                        '_content' => 'value',
                     ),
                 ),
             ),
@@ -1172,11 +1205,12 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'CreateCosRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'name' => 'name',
                 'a' => array(
                     array(
                         'n' => 'key',
-                        '_' => 'value',
+                        '_content' => 'value',
                     ),
                 ),
             ),
@@ -1209,6 +1243,7 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'CreateDataSourceRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'id' => 'id',
                 'dataSource' => array(
                     'type' => 'pop3',
@@ -1216,7 +1251,7 @@ class RequestTest extends ZimbraTestCase
                     'a' => array(
                         array(
                             'n' => 'key',
-                            '_' => 'value',
+                            '_content' => 'value',
                         ),
                     ),
                 ),
@@ -1247,12 +1282,13 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'CreateDistributionListRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'name' => 'name',
                 'dynamic' => true,
                 'a' => array(
                     array(
                         'n' => 'key',
-                        '_' => 'value',
+                        '_content' => 'value',
                     ),
                 ),
             ),
@@ -1278,11 +1314,12 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'CreateDomainRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'name' => 'name',
                 'a' => array(
                     array(
                         'n' => 'key',
-                        '_' => 'value',
+                        '_content' => 'value',
                     ),
                 ),
             ),
@@ -1331,6 +1368,7 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'CreateGalSyncAccountRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'name' => 'name',
                 'domain' => 'domain',
                 'type' => 'ldap',
@@ -1339,12 +1377,12 @@ class RequestTest extends ZimbraTestCase
                 'folder' => 'folder',
                 'account' => array(
                     'by' => 'name',
-                    '_' => 'value',
+                    '_content' => 'value',
                 ),
                 'a' => array(
                     array(
                         'n' => 'key',
-                        '_' => 'value',
+                        '_content' => 'value',
                     ),
                 ),
             ),
@@ -1370,11 +1408,12 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'CreateLDAPEntryRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'dn' => 'dn',
                 'a' => array(
                     array(
                         'n' => 'key',
-                        '_' => 'value',
+                        '_content' => 'value',
                     ),
                 ),
             ),
@@ -1400,11 +1439,12 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'CreateServerRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'name' => 'name',
                 'a' => array(
                     array(
                         'n' => 'key',
-                        '_' => 'value',
+                        '_content' => 'value',
                     ),
                 ),
             ),
@@ -1449,12 +1489,14 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'CreateSystemRetentionPolicyRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'cos' => array(
                     'by' => 'name',
-                    '_' => 'value',
+                    '_content' => 'value',
                 ),
                 'keep' => array(
                     'policy' => array(
+                        '_jsns' => 'urn:zimbraMail',
                         'type' => 'system',
                         'id' => 'id',
                         'name' => 'name',
@@ -1463,6 +1505,7 @@ class RequestTest extends ZimbraTestCase
                 ),
                 'purge' => array(
                     'policy' => array(
+                        '_jsns' => 'urn:zimbraMail',
                         'type' => 'user',
                         'id' => 'id',
                         'name' => 'name',
@@ -1493,11 +1536,12 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'CreateUCServiceRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'name' => 'name',
                 'a' => array(
                     array(
                         'n' => 'key',
-                        '_' => 'value',
+                        '_content' => 'value',
                     ),
                 ),
             ),
@@ -1534,6 +1578,7 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'CreateVolumeRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'volume' => array(
                     'id' => 10,
                     'type' => 2,
@@ -1578,20 +1623,21 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'CreateXMPPComponentRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'xmppcomponent' => array(
                     'name' => 'name',
                     'domain' => array(
                         'by' => 'name',
-                        '_' => 'domain',
+                        '_content' => 'domain',
                     ),
                     'server' => array(
                         'by' => 'name',
-                        '_' => 'server',
+                        '_content' => 'server',
                     ),
                     'a' => array(
                         array(
                             'n' => 'key',
-                            '_' => 'value',
+                            '_content' => 'value',
                         ),
                     ),
                 ),
@@ -1618,11 +1664,12 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'CreateZimletRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'name' => 'name',
                 'a' => array(
                     array(
                         'n' => 'key',
-                        '_' => 'value',
+                        '_content' => 'value',
                     ),
                 ),
             ),
@@ -1652,6 +1699,7 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'DedupeBlobsRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'action' => 'status',
                 'volume' => array(
                     array(
@@ -1687,10 +1735,11 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'DelegateAuthRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'duration' => 1000,
                 'account' => array(
                     'by' => 'name',
-                    '_' => 'value',
+                    '_content' => 'value',
                 ),
             ),
         );
@@ -1712,6 +1761,7 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'DeleteAccountRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'id' => 'id',
             ),
         );
@@ -1733,6 +1783,7 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'DeleteCalendarResourceRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'id' => 'id',
             ),
         );
@@ -1756,6 +1807,7 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'DeleteCosRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'id' => 'id',
             ),
         );
@@ -1787,6 +1839,7 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'DeleteDataSourceRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'id' => 'id',
                 'dataSource' => array(
                     'id' => 'id',
@@ -1794,7 +1847,7 @@ class RequestTest extends ZimbraTestCase
                 'a' => array(
                     array(
                         'n' => 'key',
-                        '_' => 'value',
+                        '_content' => 'value',
                     ),
                 )
             ),
@@ -1817,6 +1870,7 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'DeleteDistributionListRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'id' => 'id',
             ),
         );
@@ -1838,6 +1892,7 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'DeleteDomainRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'id' => 'id',
             ),
         );
@@ -1862,9 +1917,10 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'DeleteGalSyncAccountRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'account' => array(
                     'by' => 'name',
-                    '_' => 'value',
+                    '_content' => 'value',
                 ),
             ),
         );
@@ -1886,6 +1942,7 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'DeleteLDAPEntryRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'dn' => 'dn',
             ),
         );
@@ -1910,6 +1967,7 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'DeleteMailboxRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'mbox' => array(
                     'id' => 'id',
                 ),
@@ -1933,6 +1991,7 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'DeleteServerRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'id' => 'id',
             ),
         );
@@ -1963,7 +2022,9 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'DeleteSystemRetentionPolicyRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'policy' => array(
+                    '_jsns' => 'urn:zimbraMail',
                     'type' => 'system',
                     'id' => 'id',
                     'name' => 'name',
@@ -1971,7 +2032,7 @@ class RequestTest extends ZimbraTestCase
                 ),
                 'cos' => array(
                     'by' => 'name',
-                    '_' => 'value',
+                    '_content' => 'value',
                 ),
             ),
         );
@@ -1995,6 +2056,7 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'DeleteUCServiceRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'id' => 'id',
             ),
         );
@@ -2016,6 +2078,7 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'DeleteVolumeRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'id' => 100,
             ),
         );
@@ -2040,9 +2103,10 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'DeleteXMPPComponentRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'xmppcomponent' => array(
                     'by' => 'name',
-                    '_' => 'value',
+                    '_content' => 'value',
                 ),
             ),
         );
@@ -2067,6 +2131,7 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'DeleteZimletRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'zimlet' => array(
                     'name' => 'name',
                 ),
@@ -2102,6 +2167,7 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'DeployZimletRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'action' => 'deployLocal',
                 'flush' => true,
                 'synchronous' => false,
@@ -2131,6 +2197,7 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'DumpSessionsRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'listSessions' => true,
                 'groupByAccount' => false,
             ),
@@ -2166,6 +2233,7 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'ExportAndDeleteItemsRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'exportDir' => 'exportDir',
                 'exportFilenamePrefix' => 'exportFilenamePrefix',
                 'mbox' => array(
@@ -2205,6 +2273,7 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'FixCalendarEndTimeRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'sync' => true,
                 'account' => array(
                     array(
@@ -2239,6 +2308,7 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'FixCalendarPriorityRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'sync' => true,
                 'account' => array(
                     array(
@@ -2325,6 +2395,7 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'FixCalendarTZRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'sync' => true,
                 'after' => 1000,
                 'account' => array(
@@ -2418,13 +2489,14 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'FlushCacheRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'cache' => array(
                     'type' => 'skin,account',
                     'allServers' => true,
                     'entry' => array(
                         array(
                             'by' => 'name',
-                            '_' => 'value',
+                            '_content' => 'value',
                         ),
                     ),
                 ),
@@ -2489,6 +2561,7 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'GenCSRRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'server' => 'server',
                 'new' => true,
                 'type' => 'comm',
@@ -2532,11 +2605,12 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'GetAccountRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'applyCos' => true,
                 'attrs' => 'attrs',
                 'account' => array(
                     'by' => 'name',
-                    '_' => 'value',
+                    '_content' => 'value',
                 ),
             ),
         );
@@ -2561,9 +2635,10 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'GetAccountInfoRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'account' => array(
                     'by' => 'name',
-                    '_' => 'value',
+                    '_content' => 'value',
                 ),
             ),
         );
@@ -2588,9 +2663,10 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'GetAccountLoggersRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'account' => array(
                     'by' => 'name',
-                    '_' => 'value',
+                    '_content' => 'value',
                 ),
             ),
         );
@@ -2615,9 +2691,10 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'GetAccountMembershipRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'account' => array(
                     'by' => 'name',
-                    '_' => 'value',
+                    '_content' => 'value',
                 ),
             ),
         );
@@ -2648,13 +2725,14 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'GetAdminConsoleUICompRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'account' => array(
                     'by' => 'name',
-                    '_' => 'value',
+                    '_content' => 'value',
                 ),
                 'dl' => array(
                     'by' => 'name',
-                    '_' => 'value',
+                    '_content' => 'value',
                 ),
             ),
         );
@@ -2671,7 +2749,9 @@ class RequestTest extends ZimbraTestCase
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
         $array = array(
-            'GetAdminExtensionZimletsRequest' => array(),
+            'GetAdminExtensionZimletsRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
+            ),
         );
         $this->assertEquals($array, $req->toArray());
     }
@@ -2694,6 +2774,7 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'GetAdminSavedSearchesRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'search' => array(
                     'name' => 'name',
                 ),
@@ -2712,7 +2793,9 @@ class RequestTest extends ZimbraTestCase
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
         $array = array(
-            'GetAggregateQuotaUsageOnServerRequest' => array(),
+            'GetAggregateQuotaUsageOnServerRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
+            ),
         );
         $this->assertEquals($array, $req->toArray());
     }
@@ -2727,7 +2810,9 @@ class RequestTest extends ZimbraTestCase
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
         $array = array(
-            'GetAllAccountLoggersRequest' => array(),
+            'GetAllAccountLoggersRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
+            ),
         );
         $this->assertEquals($array, $req->toArray());
     }
@@ -2756,13 +2841,14 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'GetAllAccountsRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'server' => array(
                     'by' => 'name',
-                    '_' => 'value',
+                    '_content' => 'value',
                 ),
                 'domain' => array(
                     'by' => 'name',
-                    '_' => 'value',
+                    '_content' => 'value',
                 ),
             ),
         );
@@ -2783,6 +2869,7 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'GetAllAdminAccountsRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'applyCos' => 1
             ),
         );
@@ -2813,13 +2900,14 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'GetAllCalendarResourcesRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'server' => array(
                     'by' => 'name',
-                    '_' => 'value',
+                    '_content' => 'value',
                 ),
                 'domain' => array(
                     'by' => 'name',
-                    '_' => 'value',
+                    '_content' => 'value',
                 ),
             ),
         );
@@ -2836,7 +2924,9 @@ class RequestTest extends ZimbraTestCase
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
         $array = array(
-            'GetAllConfigRequest' => array(),
+            'GetAllConfigRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
+            ),
         );
         $this->assertEquals($array, $req->toArray());
     }
@@ -2851,7 +2941,9 @@ class RequestTest extends ZimbraTestCase
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
         $array = array(
-            'GetAllCosRequest' => array(),
+            'GetAllCosRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
+            ),
         );
         $this->assertEquals($array, $req->toArray());
     }
@@ -2875,9 +2967,10 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'GetAllDistributionListsRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'domain' => array(
                     'by' => 'name',
-                    '_' => 'value',
+                    '_content' => 'value',
                 ),
             ),
         );
@@ -2898,6 +2991,7 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'GetAllDomainsRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'applyConfig' => 1
             ),
         );
@@ -2928,9 +3022,10 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'GetAllEffectiveRightsRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'expandAllAttrs' => true,
                 'grantee' => array(
-                    '_' => 'value',
+                    '_content' => 'value',
                     'type' => 'usr',
                     'by' => 'id',
                     'secret' => 'secret',
@@ -2951,7 +3046,9 @@ class RequestTest extends ZimbraTestCase
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
         $array = array(
-            'GetAllFreeBusyProvidersRequest' => array(),
+            'GetAllFreeBusyProvidersRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
+            ),
         );
         $this->assertEquals($array, $req->toArray());
     }
@@ -2966,7 +3063,9 @@ class RequestTest extends ZimbraTestCase
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
         $array = array(
-            'GetAllLocalesRequest' => array(),
+            'GetAllLocalesRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
+            ),
         );
         $this->assertEquals($array, $req->toArray());
     }
@@ -2989,6 +3088,7 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'GetAllMailboxesRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'limit' => 100,
                 'offset' => 100,
             ),
@@ -3017,6 +3117,7 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'GetAllRightsRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'targetType' => 'targetType',
                 'expandAllAttrs' => true,
                 'rightClass' => 'ALL',
@@ -3043,6 +3144,7 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'GetAllServersRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'service' => 'service',
                 'applyConfig' => true,
             ),
@@ -3060,7 +3162,9 @@ class RequestTest extends ZimbraTestCase
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
         $array = array(
-            'GetAllSkinsRequest' => array(),
+            'GetAllSkinsRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
+            ),
         );
         $this->assertEquals($array, $req->toArray());
     }
@@ -3075,7 +3179,9 @@ class RequestTest extends ZimbraTestCase
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
         $array = array(
-            'GetAllUCProvidersRequest' => array(),
+            'GetAllUCProvidersRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
+            ),
         );
         $this->assertEquals($array, $req->toArray());
     }
@@ -3090,7 +3196,9 @@ class RequestTest extends ZimbraTestCase
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
         $array = array(
-            'GetAllUCServicesRequest' => array(),
+            'GetAllUCServicesRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
+            ),
         );
         $this->assertEquals($array, $req->toArray());
     }
@@ -3105,7 +3213,9 @@ class RequestTest extends ZimbraTestCase
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
         $array = array(
-            'GetAllVolumesRequest' => array(),
+            'GetAllVolumesRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
+            ),
         );
         $this->assertEquals($array, $req->toArray());
     }
@@ -3120,7 +3230,9 @@ class RequestTest extends ZimbraTestCase
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
         $array = array(
-            'GetAllXMPPComponentsRequest' => array(),
+            'GetAllXMPPComponentsRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
+            ),
         );
         $this->assertEquals($array, $req->toArray());
     }
@@ -3140,6 +3252,7 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'GetAllZimletsRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'exclude' => 'mail',
             ),
         );
@@ -3166,6 +3279,7 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'GetAttributeInfoRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'attrs' => 'attrs',
                 'entryTypes' => 'account,aclTarget,alias',
             ),
@@ -3197,11 +3311,12 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'GetCalendarResourceRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'applyCos' => true,
                 'attrs' => 'attrs',
                 'calresource' => array(
                     'by' => 'name',
-                    '_' => 'value',
+                    '_content' => 'value',
                 ),
             ),
         );
@@ -3229,6 +3344,7 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'GetCertRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'server' => 'server',
                 'type' => 'mta',
                 'option' => 'comm',
@@ -3254,9 +3370,10 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'GetConfigRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'a' => array(
                     'n' => 'key',
-                    '_' => 'value',
+                    '_content' => 'value',
                 )
             ),
         );
@@ -3284,10 +3401,11 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'GetCosRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'attrs' => 'attrs',
                 'cos' => array(
                     'by' => 'name',
-                    '_' => 'value',
+                    '_content' => 'value',
                 ),
             ),
         );
@@ -3323,17 +3441,18 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'GetCreateObjectAttrsRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'target' => array(
                     'type' => 'type',
-                    '_' => 'value',
+                    '_content' => 'value',
                 ),
                 'domain' => array(
                     'by' => 'name',
-                    '_' => 'value',
+                    '_content' => 'value',
                 ),
                 'cos' => array(
                     'by' => 'name',
-                    '_' => 'value',
+                    '_content' => 'value',
                 ),
             ),
         );
@@ -3358,6 +3477,7 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'GetCSRRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'server' => 'server',
                 'type' => 'comm',
             ),
@@ -3375,7 +3495,9 @@ class RequestTest extends ZimbraTestCase
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
         $array = array(
-            'GetCurrentVolumesRequest' => array(),
+            'GetCurrentVolumesRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
+            ),
         );
         $this->assertEquals($array, $req->toArray());
     }
@@ -3398,11 +3520,12 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'GetDataSourcesRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'id' => 'id',
                 'a' => array(
                     array(
                         'n' => 'key',
-                        '_' => 'value',
+                        '_content' => 'value',
                     ),
                 )
             ),
@@ -3440,6 +3563,7 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'GetDelegatedAdminConstraintsRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'type' => 'domain',
                 'id' => 'id',
                 'name' => 'name',
@@ -3471,9 +3595,10 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'GetDevicesRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'account' => array(
                     'by' => 'name',
-                    '_' => 'value',
+                    '_content' => 'value',
                 ),
             ),
         );
@@ -3509,17 +3634,18 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'GetDistributionListRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'limit' => 100,
                 'offset' => 100,
                 'sortAscending' => true,
                 'dl' => array(
                     'by' => 'name',
-                    '_' => 'value',
+                    '_content' => 'value',
                 ),
                 'a' => array(
                     array(
                         'n' => 'key',
-                        '_' => 'value',
+                        '_content' => 'value',
                     ),
                 )
             ),
@@ -3551,11 +3677,12 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'GetDistributionListMembershipRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'limit' => 100,
                 'offset' => 100,
                 'dl' => array(
                     'by' => 'name',
-                    '_' => 'value',
+                    '_content' => 'value',
                 ),
             ),
         );
@@ -3586,11 +3713,12 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'GetDomainRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'applyConfig' => true,
                 'attrs' => 'attrs',
                 'domain' => array(
                     'by' => 'name',
-                    '_' => 'value',
+                    '_content' => 'value',
                 ),
             ),
         );
@@ -3618,10 +3746,11 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'GetDomainInfoRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'applyConfig' => true,
                 'domain' => array(
                     'by' => 'name',
-                    '_' => 'value',
+                    '_content' => 'value',
                 ),
             ),
         );
@@ -3659,14 +3788,15 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'GetEffectiveRightsRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'expandAllAttrs' => 'setAttrs',
                 'target' => array(
                     'type' => 'account',
-                    '_' => 'value',
+                    '_content' => 'value',
                     'by' => 'name',
                 ),
                 'grantee' => array(
-                    '_' => 'value',
+                    '_content' => 'value',
                     'type' => 'usr',
                     'by' => 'id',
                     'secret' => 'secret',
@@ -3695,6 +3825,7 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'GetFreeBusyQueueInfoRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'provider' => array(
                     'name' => 'name',
                 ),
@@ -3731,13 +3862,14 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'GetGrantsRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'target' => array(
                     'type' => 'account',
-                    '_' => 'value',
+                    '_content' => 'value',
                     'by' => 'name',
                 ),
                 'grantee' => array(
-                    '_' => 'value',
+                    '_content' => 'value',
                     'type' => 'usr',
                     'by' => 'id',
                     'secret' => 'secret',
@@ -3766,6 +3898,7 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'GetIndexStatsRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'mbox' => array(
                     'id' => 'id',
                 ),
@@ -3808,6 +3941,7 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'GetLDAPEntriesRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'query' => 'query',
                 'ldapSearchBase' => 'ldapSearchBase',
                 'sortBy' => 'sortBy',
@@ -3829,7 +3963,9 @@ class RequestTest extends ZimbraTestCase
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
         $array = array(
-            'GetLicenseInfoRequest' => array(),
+            'GetLicenseInfoRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
+            ),
         );
         $this->assertEquals($array, $req->toArray());
     }
@@ -3875,6 +4011,7 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'GetLoggerStatsRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'hostname' => array(
                     'hn' => 'host',
                 ),
@@ -3916,6 +4053,7 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'GetMailboxRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'mbox' => array(
                     'id' => 'account-id',
                 ),
@@ -3934,7 +4072,9 @@ class RequestTest extends ZimbraTestCase
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
         $array = array(
-            'GetMailboxStatsRequest' => array(),
+            'GetMailboxStatsRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
+            ),
         );
         $this->assertEquals($array, $req->toArray());
     }
@@ -3969,6 +4109,7 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'GetMailQueueRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'server' => array(
                     'name' => 'name',
                     'queue' => array(
@@ -4011,6 +4152,7 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'GetMailQueueInfoRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'server' => array(
                     'name' => 'name',
                 ),
@@ -4029,7 +4171,9 @@ class RequestTest extends ZimbraTestCase
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
         $array = array(
-            'GetMemcachedClientConfigRequest' => array(),
+            'GetMemcachedClientConfigRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
+            ),
         );
         $this->assertEquals($array, $req->toArray());
     }
@@ -4076,6 +4220,7 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'GetQuotaUsageRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'domain' => 'domain',
                 'allServers' => true,
                 'limit' => 10,
@@ -4108,6 +4253,7 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'GetRightRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'right' => 'right',
                 'expandAllAttrs' => true,
             ),
@@ -4134,6 +4280,7 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'GetRightsDocRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'package' => array(
                     array('name' => 'name'),
                 ),
@@ -4166,11 +4313,12 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'GetServerRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'applyConfig' => true,
                 'attrs' => 'attrs',
                 'server' => array(
                     'by' => 'name',
-                    '_' => 'server',
+                    '_content' => 'server',
                 ),
             ),
         );
@@ -4198,10 +4346,11 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'GetServerNIfsRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'type' => 'ipV4',
                 'server' => array(
                     'by' => 'name',
-                    '_' => 'server',
+                    '_content' => 'server',
                 ),
             ),
         );
@@ -4226,6 +4375,7 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'GetServerStatsRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'stat' => array(
                     array(
                         'name' => 'name',
@@ -4247,7 +4397,9 @@ class RequestTest extends ZimbraTestCase
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
         $array = array(
-            'GetServiceStatusRequest' => array(),
+            'GetServiceStatusRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
+            ),
         );
         $this->assertEquals($array, $req->toArray());
     }
@@ -4286,6 +4438,7 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'GetSessionsRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'type' => 'admin',
                 'sortBy' => 'nameDesc',
                 'limit' => 10,
@@ -4320,9 +4473,10 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'GetShareInfoRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'owner' => array(
                     'by' => 'name',
-                    '_' => 'value',
+                    '_content' => 'value',
                 ),
                 'grantee' => array(
                     'type' => 'type',
@@ -4351,9 +4505,10 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'GetSystemRetentionPolicyRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'cos' => array(
                     'by' => 'name',
-                    '_' => 'value',
+                    '_content' => 'value',
                 ),
             ),
         );
@@ -4381,10 +4536,11 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'GetUCServiceRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'attrs' => 'attrs',
                 'ucservice' => array(
                     'by' => 'name',
-                    '_' => 'value',
+                    '_content' => 'value',
                 ),
             ),
         );
@@ -4401,7 +4557,9 @@ class RequestTest extends ZimbraTestCase
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
         $array = array(
-            'GetVersionInfoRequest' => array(),
+            'GetVersionInfoRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
+            ),
         );
         $this->assertEquals($array, $req->toArray());
     }
@@ -4420,6 +4578,7 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'GetVolumeRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'id' => 100
             ),
         );
@@ -4447,10 +4606,11 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'GetXMPPComponentRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'attrs' => 'attrs',
                 'xmppcomponent' => array(
                     'by' => 'name',
-                    '_' => 'value',
+                    '_content' => 'value',
                 ),
             ),
         );
@@ -4478,6 +4638,7 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'GetZimletRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'attrs' => 'attrs',
                 'zimlet' => array(
                     'name' => 'name',
@@ -4497,7 +4658,9 @@ class RequestTest extends ZimbraTestCase
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
         $array = array(
-            'GetZimletStatusRequest' => array(),
+            'GetZimletStatusRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
+            ),
         );
         $this->assertEquals($array, $req->toArray());
     }
@@ -4535,13 +4698,14 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'GrantRightRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'target' => array(
                     'type' => 'account',
-                    '_' => 'value',
+                    '_content' => 'value',
                     'by' => 'name',
                 ),
                 'grantee' => array(
-                    '_' => 'value',
+                    '_content' => 'value',
                     'type' => 'usr',
                     'by' => 'id',
                     'secret' => 'secret',
@@ -4552,7 +4716,7 @@ class RequestTest extends ZimbraTestCase
                     'canDelegate' => false,
                     'disinheritSubGroups' => false,
                     'subDomain' => true,
-                    '_' => 'value',
+                    '_content' => 'value',
                 ),
             ),
         );
@@ -4592,6 +4756,7 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'MailQueueActionRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'server' => array(
                     'name' => 'name',
                     'queue' => array(
@@ -4636,6 +4801,7 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'MailQueueFlushRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'server' => array(
                     'name' => 'name',
                 ),
@@ -4661,6 +4827,7 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'MigrateAccountRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'migrate' => array(
                     'id' => 'id',
                     'action' => 'wiki',
@@ -4689,11 +4856,12 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'ModifyAccountRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'id' => 'id',
                 'a' => array(
                     array(
                         'n' => 'key',
-                        '_' => 'value',
+                        '_content' => 'value',
                     ),
                 ),
             ),
@@ -4720,10 +4888,11 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'ModifyAdminSavedSearchesRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'search' => array(
                     array(
                         'name' => 'name',
-                        '_' => 'value',
+                        '_content' => 'value',
                     ),
                 ),
             ),
@@ -4750,11 +4919,12 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'ModifyCalendarResourceRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'id' => 'id',
                 'a' => array(
                     array(
                         'n' => 'key',
-                        '_' => 'value',
+                        '_content' => 'value',
                     ),
                 ),
             ),
@@ -4776,10 +4946,11 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'ModifyConfigRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'a' => array(
                     array(
                         'n' => 'key',
-                        '_' => 'value',
+                        '_content' => 'value',
                     ),
                 )
             ),
@@ -4807,11 +4978,12 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'ModifyCosRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'id' => 'id',
                 'a' => array(
                     array(
                         'n' => 'key',
-                        '_' => 'value',
+                        '_content' => 'value',
                     ),
                 ),
             ),
@@ -4843,6 +5015,7 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'ModifyDataSourceRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'id' => 'id',
                 'dataSource' => array(
                     'id' => 'id',
@@ -4850,7 +5023,7 @@ class RequestTest extends ZimbraTestCase
                 'a' => array(
                     array(
                         'n' => 'key',
-                        '_' => 'value',
+                        '_content' => 'value',
                     ),
                 ),
             ),
@@ -4899,6 +5072,7 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'ModifyDelegatedAdminConstraintsRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'type' => 'account',
                 'id' => 'id',
                 'name' => 'name',
@@ -4940,11 +5114,12 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'ModifyDistributionListRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'id' => 'id',
                 'a' => array(
                     array(
                         'n' => 'key',
-                        '_' => 'value',
+                        '_content' => 'value',
                     ),
                 ),
             ),
@@ -4971,11 +5146,12 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'ModifyDomainRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'id' => 'id',
                 'a' => array(
                     array(
                         'n' => 'key',
-                        '_' => 'value',
+                        '_content' => 'value',
                     ),
                 ),
             ),
@@ -5002,11 +5178,12 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'ModifyLDAPEntryRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'dn' => 'dn',
                 'a' => array(
                     array(
                         'n' => 'key',
-                        '_' => 'value',
+                        '_content' => 'value',
                     ),
                 ),
             ),
@@ -5033,11 +5210,12 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'ModifyServerRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'id' => 'id',
                 'a' => array(
                     array(
                         'n' => 'key',
-                        '_' => 'value',
+                        '_content' => 'value',
                     ),
                 ),
             ),
@@ -5069,7 +5247,9 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'ModifySystemRetentionPolicyRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'policy' => array(
+                    '_jsns' => 'urn:zimbraMail',
                     'type' => 'system',
                     'id' => 'id',
                     'name' => 'name',
@@ -5077,7 +5257,7 @@ class RequestTest extends ZimbraTestCase
                 ),
                 'cos' => array(
                     'by' => 'name',
-                    '_' => 'value',
+                    '_content' => 'value',
                 ),
             ),
         );
@@ -5103,11 +5283,12 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'ModifyUCServiceRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'id' => 'id',
                 'a' => array(
                     array(
                         'n' => 'key',
-                        '_' => 'value',
+                        '_content' => 'value',
                     ),
                 ),
             ),
@@ -5147,6 +5328,7 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'ModifyVolumeRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'id' => 100,
                 'volume' => array(
                     'id' => 10,
@@ -5191,6 +5373,7 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'ModifyZimletRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'zimlet' => array(
                     'name' => 'name',
                     'acl' => array(
@@ -5219,7 +5402,9 @@ class RequestTest extends ZimbraTestCase
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
         $array = array(
-            'NoOpRequest' => array(),
+            'NoOpRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
+            ),
         );
         $this->assertEquals($array, $req->toArray());
     }
@@ -5234,7 +5419,9 @@ class RequestTest extends ZimbraTestCase
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
         $array = array(
-            'PingRequest' => array(),
+            'PingRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
+            ),
         );
         $this->assertEquals($array, $req->toArray());
     }
@@ -5253,6 +5440,7 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'PurgeAccountCalendarCacheRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'id' => 'id',
             ),
         );
@@ -5276,6 +5464,7 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'PurgeFreeBusyQueueRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'provider' => array(
                     'name' => 'name',
                 ),
@@ -5301,6 +5490,7 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'PurgeMessagesRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'mbox' => array(
                     'id' => 'id',
                 ),
@@ -5333,6 +5523,7 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'PushFreeBusyRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'domain' => array(
                     'name' => 'name',
                 ),
@@ -5358,6 +5549,7 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'QueryWaitSetRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'waitSet' => 'waitSet',
             ),
         );
@@ -5381,6 +5573,7 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'RecalculateMailboxCountsRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'mbox' => array(
                     'id' => 'id',
                 ),
@@ -5409,6 +5602,7 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'ReIndexRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'action' => 'cancel',
                 'mbox' => array(
                     'id' => 'id',
@@ -5430,7 +5624,9 @@ class RequestTest extends ZimbraTestCase
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
         $array = array(
-            'ReloadLocalConfigRequest' => array(),
+            'ReloadLocalConfigRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
+            ),
         );
         $this->assertEquals($array, $req->toArray());
     }
@@ -5445,7 +5641,9 @@ class RequestTest extends ZimbraTestCase
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
         $array = array(
-            'ReloadMemcachedClientConfigRequest' => array(),
+            'ReloadMemcachedClientConfigRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
+            ),
         );
         $this->assertEquals($array, $req->toArray());
     }
@@ -5467,6 +5665,7 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'RemoveAccountAliasRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'alias' => 'alias',
                 'id' => 'id',
             ),
@@ -5497,9 +5696,10 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'RemoveAccountLoggerRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'account' => array(
                     'by' => 'name',
-                    '_' => 'value',
+                    '_content' => 'value',
                 ),
                 'logger' => array(
                     'category' => 'category',
@@ -5533,9 +5733,10 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'RemoveDeviceRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'account' => array(
                     'by' => 'name',
-                    '_' => 'value',
+                    '_content' => 'value',
                 ),
                 'device' => array(
                     'id' => 'id',
@@ -5562,6 +5763,7 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'RemoveDistributionListAliasRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'id' => 'id',
                 'alias' => 'alias',
             ),
@@ -5589,6 +5791,7 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'RemoveDistributionListMemberRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'id' => 'id',
                 'dlm' => array(
                     'dlm',
@@ -5616,6 +5819,7 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'RenameAccountRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'id' => 'id',
                 'newName' => 'newName',
             ),
@@ -5640,6 +5844,7 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'RenameCalendarResourceRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'id' => 'id',
                 'newName' => 'newName',
             ),
@@ -5667,6 +5872,7 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'RenameCosRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'id' => 'id',
                 'newName' => 'newName',
             ),
@@ -5691,6 +5897,7 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'RenameDistributionListRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'id' => 'id',
                 'newName' => 'newName',
             ),
@@ -5715,6 +5922,7 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'RenameLDAPEntryRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'dn' => 'dn',
                 'new_dn' => 'new_dn',
             ),
@@ -5742,6 +5950,7 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'RenameUCServiceRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'id' => 'id',
                 'newName' => 'newName',
             ),
@@ -5759,7 +5968,9 @@ class RequestTest extends ZimbraTestCase
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
         $array = array(
-            'ResetAllLoggersRequest' => array(),
+            'ResetAllLoggersRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
+            ),
         );
         $this->assertEquals($array, $req->toArray());
     }
@@ -5787,9 +5998,10 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'ResumeDeviceRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'account' => array(
                     'by' => 'name',
-                    '_' => 'value',
+                    '_content' => 'value',
                 ),
                 'device' => array(
                     'id' => 'id',
@@ -5832,13 +6044,14 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'RevokeRightRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'target' => array(
                     'type' => 'account',
-                    '_' => 'value',
+                    '_content' => 'value',
                     'by' => 'name',
                 ),
                 'grantee' => array(
-                    '_' => 'value',
+                    '_content' => 'value',
                     'type' => 'usr',
                     'by' => 'id',
                     'secret' => 'secret',
@@ -5849,7 +6062,7 @@ class RequestTest extends ZimbraTestCase
                     'canDelegate' => false,
                     'disinheritSubGroups' => false,
                     'subDomain' => true,
-                    '_' => 'value',
+                    '_content' => 'value',
                 ),
             ),
         );
@@ -5873,6 +6086,7 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'RunUnitTestsRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'test' => array(
                     'test',
                     'test1',
@@ -5933,6 +6147,7 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'SearchAccountsRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'query' => 'query',
                 'limit' => 100,
                 'offset' => 100,
@@ -5999,6 +6214,7 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'SearchAutoProvDirectoryRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'keyAttr' => 'keyAttr',
                 'query' => 'query',
                 'name' => 'name',
@@ -6009,7 +6225,7 @@ class RequestTest extends ZimbraTestCase
                 'attrs' => 'attrs',
                 'domain' => array(
                     'by' => 'name',
-                    '_' => 'value',
+                    '_content' => 'value',
                 ),
             ),
         );
@@ -6076,6 +6292,7 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'SearchCalendarResourcesRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'limit' => 10,
                 'offset' => 10,
                 'domain' => 'domain',
@@ -6173,6 +6390,7 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'SearchDirectoryRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'query' => 'query',
                 'maxResults' => 10,
                 'limit' => 10,
@@ -6225,6 +6443,7 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'SearchGalRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'domain' => 'domain',
                 'name' => 'name',
                 'limit' => 10,
@@ -6255,6 +6474,7 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'SetCurrentVolumeRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'id' => 100,
                 'type' => 2,
             ),
@@ -6282,6 +6502,7 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'SetPasswordRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'id' => 'id',
                 'newPassword' => 'newPassword',
             ),
@@ -6312,9 +6533,10 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'SuspendDeviceRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'account' => array(
                     'by' => 'name',
-                    '_' => 'value',
+                    '_content' => 'value',
                 ),
                 'device' => array(
                     'id' => 'id',
@@ -6345,6 +6567,7 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'SyncGalAccountRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'account' => array(
                     'id' => 'id',
                     'datasource' => array(
@@ -6352,7 +6575,7 @@ class RequestTest extends ZimbraTestCase
                             'by' => 'name',
                             'fullSync' => false,
                             'reset' => true,
-                            '_' => 'value',
+                            '_content' => 'value',
                         ),
                     ),
                 ),
@@ -6381,6 +6604,7 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'UndeployZimletRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'name' => 'name',
                 'action' => 'action',
             ),
@@ -6411,9 +6635,10 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'UpdateDeviceStatusRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'account' => array(
                     'by' => 'name',
-                    '_' => 'value',
+                    '_content' => 'value',
                 ),
                 'device' => array(
                     'id' => 'id',
@@ -6454,16 +6679,17 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'UpdatePresenceSessionIdRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'ucservice' => array(
                     'by' => 'name',
-                    '_' => 'value',
+                    '_content' => 'value',
                 ),
                 'username' => 'username',
                 'password' => 'password',
                 'a' => array(
                     array(
                         'n' => 'key',
-                        '_' => 'value',
+                        '_content' => 'value',
                     ),
                 ),
             ),
@@ -6502,6 +6728,7 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'UploadDomCertRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'cert.aid' => 'certAid',
                 'cert.filename' => 'certFilename',
                 'key.aid' => 'keyAid',
@@ -6532,6 +6759,7 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'UploadProxyCARequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'cert.aid' => 'certAid',
                 'cert.filename' => 'certFilename',
             ),
@@ -6560,6 +6788,7 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'VerifyCertKeyRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'cert' => 'cert',
                 'privkey' => 'privkey',
             ),
@@ -6585,6 +6814,7 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'VerifyIndexRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'mbox' => array(
                     'id' => 'id',
                 ),
@@ -6618,6 +6848,7 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'VerifyStoreManagerRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'fileSize' => 100,
                 'num' => 100,
                 'checkBlobs' => true,
@@ -6642,6 +6873,7 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'VersionCheckRequest' => array(
+                '_jsns' => 'urn:zimbraAdmin',
                 'action' => 'check',
             ),
         );

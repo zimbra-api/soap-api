@@ -10,6 +10,8 @@
 
 namespace Zimbra\Soap;
 
+use Zimbra\Soap\Request\Batch;
+
 /**
  * API is a base class which allows to manage Zimbra api
  * 
@@ -50,5 +52,19 @@ abstract class API
     public function location()
     {
         return $this->_location;
+    }
+
+    /**
+     * Perform a batch request.
+     *
+     * @param  array $requests
+     * @return mix
+     */
+    public function batch(array $requests = array())
+    {
+        $request = new \Zimbra\Soap\Request\Batch(
+            $requests
+        );
+        return $this->_client->doRequest($request);
     }
 }

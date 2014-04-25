@@ -3,8 +3,8 @@
 namespace Zimbra\Tests\Soap;
 
 use Zimbra\Tests\ZimbraTestCase;
-use Zimbra\Soap\Message;
 use Zimbra\Common\SimpleXML;
+use Zimbra\Soap\Message;
 
 /**
  * Testcase class for soap message.
@@ -45,7 +45,7 @@ class MessageTest extends ZimbraTestCase
 
     public function testRequest()
     {
-		$request = $this->getMockForAbstractClass('\Zimbra\Soap\Request');
+        $request = $this->getMockForAbstractClass('\Zimbra\Soap\Request');
         $message = new Message;
         $message->request($request);
         $this->assertEquals($request, $message->request());
@@ -53,9 +53,9 @@ class MessageTest extends ZimbraTestCase
 
     public function testToString()
     {
-		$request = $this->getMockForAbstractClass('\Zimbra\Soap\Request');
-		$request->property('foo', 'foo');
-		$request->child('bar', 'bar');
+        $request = $this->getMockForAbstractClass('\Zimbra\Soap\Request');
+        $request->property('foo', 'foo');
+        $request->child('bar', 'bar');
 
         $authToken = md5('authToken');
         $xml = '<?xml version="1.0"?>'."\n"
@@ -76,5 +76,22 @@ class MessageTest extends ZimbraTestCase
         $message->addHeader('authToken', $authToken);
         $message->request($request);
         $this->assertXmlStringEqualsXmlString($xml, (string) $message);
+
+        $json = '{'
+		    .'"Header":{'
+			    .'"context":{'
+			        .'"_jsns":"urn:zimbra",'
+			        .'"authToken":"'.$authToken.'"'
+			    .'}'
+		    .'},'
+		    .'"Body":{'
+		        .'"'. $request->requestName() .'":{'
+		            .'"_jsns":"urn:zimbra",'
+		            .'"foo":"foo",'
+		            .'"bar":"bar"'
+		        .'}'
+		    .'}'
+        .'}';
+        $this->assertEquals($json, $message->toJson());
     }
 }

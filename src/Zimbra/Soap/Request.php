@@ -44,10 +44,10 @@ abstract class Request extends Base
     public function __construct($value = null)
     {
         parent::__construct($value);
-		$className = $this->className();
+        $className = $this->className();
         $this->_requestName = $className . 'Request';
         $this->_responseName = $className . 'Response';
-		$this->xmlNamespace('urn:zimbra');
+        $this->xmlNamespace('urn:zimbra');
     }
 
     /**
