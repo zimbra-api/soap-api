@@ -21,7 +21,7 @@ use Zimbra\Soap\Request;
  * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright Copyright © 2013 by Nguyen Van Nguyen.
  */
-class Message /*implements JsonSerializable*/
+class Message
 {
     /**
      * Soap 1.1 const.
