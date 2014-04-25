@@ -17,6 +17,7 @@ use Guzzle\Plugin\Cookie\CookiePlugin;
 use Guzzle\Plugin\Cookie\CookieJar\ArrayCookieJar;
 use Zimbra\Soap\Message;
 use Zimbra\Soap\Request as SoapRequest;
+use Zimbra\Soap\Response as SoapResponse;
 
 /**
  * Http is a class which provides a http client for SOAP servers
@@ -136,7 +137,7 @@ class Http extends EventEmitter implements ClientInterface
             $this->emit('after.request', array($this->lastResponse(), $this->lastResponseHeaders()));
             throw $ex;
         }
-        return $this->response->getBody(true);
+        return $this->response;
 
     }
 
@@ -197,7 +198,7 @@ class Http extends EventEmitter implements ClientInterface
                 'SoapAction' => $request->xmlNamespace() . '#' . $request->requestName()
             )
         );
-        return $request->processResponse($response);
+        return new SoapResponse($response);
     }
 
     /**
