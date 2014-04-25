@@ -23,31 +23,10 @@ class ApiTest extends ZimbraTestCase
         $this->assertInstanceOf('\Zimbra\Account\Base', $httpApi);
         $this->assertInstanceOf('\Zimbra\Voice\Base', $httpApi);
         $this->assertInstanceOf('\Zimbra\Voice\Http', $httpApi);
-
-        $httpApi = VoiceFactory::instance(__DIR__.'/../TestData/ZimbraService.wsdl', 'wsdl');
-        $this->assertInstanceOf('\Zimbra\Account\Base', $httpApi);
-        $this->assertInstanceOf('\Zimbra\Voice\Base', $httpApi);
-        $this->assertInstanceOf('\Zimbra\Voice\Wsdl', $httpApi);
     }
 
     public function testChangeUCPassword()
     {
-        $api = new LocalVoiceWsdl(__DIR__.'/../TestData/ZimbraService.wsdl');
-        $api->changeUCPassword(
-            'password'
-        );
-
-        $client = $api->client();
-        $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraVoice">'
-                .'<env:Body>'
-                    .'<ns1:ChangeUCPasswordRequest '
-                        .'password="password" />'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
-
         $api = new LocalVoiceHttp(null);
         $api->changeUCPassword(
             'password'
@@ -67,19 +46,6 @@ class ApiTest extends ZimbraTestCase
 
     public function testGetUCInfo()
     {
-        $api = new LocalVoiceWsdl(__DIR__.'/../TestData/ZimbraService.wsdl');
-        $api->getUCInfo();
-
-        $client = $api->client();
-        $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraVoice">'
-                .'<env:Body>'
-                    .'<ns1:GetUCInfoRequest />'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
-
         $api = new LocalVoiceHttp(null);
         $api->getUCInfo();
 
@@ -127,37 +93,6 @@ class ApiTest extends ZimbraTestCase
             $selectivecallrejection
         );
 
-        $api = new LocalVoiceWsdl(__DIR__.'/../TestData/ZimbraService.wsdl');
-        $api->getVoiceFeatures(
-            $storeprincipal, $phone
-        );
-
-        $client = $api->client();
-        $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraVoice">'
-                .'<env:Body>'
-                    .'<ns1:GetVoiceFeaturesRequest>'
-                        .'<ns1:storeprincipal id="id" name="name" accountNumber="accountNumber" />'
-                        .'<ns1:phone name="name">'
-                            .'<ns1:voicemailprefs>'
-                                .'<ns1:pref name="name" />'
-                            .'</ns1:voicemailprefs>'
-                            .'<ns1:anoncallrejection />'
-                            .'<ns1:calleridblocking />'
-                            .'<ns1:callforward />'
-                            .'<ns1:callforwardbusyline />'
-                            .'<ns1:callforwardnoanswer />'
-                            .'<ns1:callwaiting />'
-                            .'<ns1:selectivecallforward />'
-                            .'<ns1:selectivecallacceptance />'
-                            .'<ns1:selectivecallrejection />'
-                        .'</ns1:phone>'
-                    .'</ns1:GetVoiceFeaturesRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
-
         $api = new LocalVoiceHttp(null);
         $api->getVoiceFeatures(
             $storeprincipal, $phone
@@ -198,24 +133,6 @@ class ApiTest extends ZimbraTestCase
         $pref = new \Zimbra\Voice\Struct\PrefSpec('name');
         $phone = new \Zimbra\Voice\Struct\PhoneSpec('name', array($pref));
 
-        $api = new LocalVoiceWsdl(__DIR__.'/../TestData/ZimbraService.wsdl');
-        $api->getVoiceFolder($storeprincipal, array($phone));
-
-        $client = $api->client();
-        $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraVoice">'
-                .'<env:Body>'
-                    .'<ns1:GetVoiceFolderRequest>'
-                        .'<ns1:storeprincipal id="id" name="name" accountNumber="accountNumber" />'
-                        .'<ns1:phone name="name">'
-                            .'<ns1:pref name="name" />'
-                        .'</ns1:phone>'
-                    .'</ns1:GetVoiceFolderRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
-
         $api = new LocalVoiceHttp(null);
         $api->getVoiceFolder($storeprincipal, array($phone));
 
@@ -239,23 +156,6 @@ class ApiTest extends ZimbraTestCase
     {
         $pref = new \Zimbra\Voice\Struct\PrefSpec('name');
         $phone = new \Zimbra\Voice\Struct\PhoneSpec('name', array($pref));
-
-        $api = new LocalVoiceWsdl(__DIR__.'/../TestData/ZimbraService.wsdl');
-        $api->getVoiceInfo(array($phone));
-
-        $client = $api->client();
-        $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraVoice">'
-                .'<env:Body>'
-                    .'<ns1:GetVoiceInfoRequest>'
-                        .'<ns1:phone name="name">'
-                            .'<ns1:pref name="name" />'
-                        .'</ns1:phone>'
-                    .'</ns1:GetVoiceInfoRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
         $api = new LocalVoiceHttp(null);
         $api->getVoiceInfo(array($phone));
@@ -282,24 +182,6 @@ class ApiTest extends ZimbraTestCase
         );
         $pref = new \Zimbra\Voice\Struct\PrefSpec('name');
         $phone = new \Zimbra\Voice\Struct\PhoneSpec('name', array($pref));
-
-        $api = new LocalVoiceWsdl(__DIR__.'/../TestData/ZimbraService.wsdl');
-        $api->getVoiceMailPrefs($storeprincipal, $phone);
-
-        $client = $api->client();
-        $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraVoice">'
-                .'<env:Body>'
-                    .'<ns1:GetVoiceMailPrefsRequest>'
-                        .'<ns1:storeprincipal id="id" name="name" accountNumber="accountNumber" />'
-                        .'<ns1:phone name="name">'
-                            .'<ns1:pref name="name" />'
-                        .'</ns1:phone>'
-                    .'</ns1:GetVoiceMailPrefsRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
         $api = new LocalVoiceHttp(null);
         $api->getVoiceMailPrefs($storeprincipal, $phone);
@@ -328,22 +210,6 @@ class ApiTest extends ZimbraTestCase
         $phone = new \Zimbra\Voice\Struct\ModifyFromNumSpec(
             'oldPhone', 'phone', 'id', 'label'
         );
-
-        $api = new LocalVoiceWsdl(__DIR__.'/../TestData/ZimbraService.wsdl');
-        $api->modifyFromNum($storeprincipal, $phone);
-
-        $client = $api->client();
-        $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraVoice">'
-                .'<env:Body>'
-                    .'<ns1:ModifyFromNumRequest>'
-                        .'<ns1:storeprincipal id="id" name="name" accountNumber="accountNumber" />'
-                        .'<ns1:phone oldPhone="oldPhone" phone="phone" id="id" label="label" />'
-                    .'</ns1:ModifyFromNumRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
         $api = new LocalVoiceHttp(null);
         $api->modifyFromNum($storeprincipal, $phone);
@@ -414,41 +280,6 @@ class ApiTest extends ZimbraTestCase
             $selectivecallrejection
         );
 
-        $api = new LocalVoiceWsdl(__DIR__.'/../TestData/ZimbraService.wsdl');
-        $api->modifyVoiceFeatures($storeprincipal, $phone);
-
-        $client = $api->client();
-        $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraVoice">'
-                .'<env:Body>'
-                    .'<ns1:ModifyVoiceFeaturesRequest>'
-                        .'<ns1:storeprincipal id="id" name="name" accountNumber="accountNumber" />'
-                        .'<ns1:phone name="name">'
-                            .'<ns1:voicemailprefs s="1" a="">'
-                                .'<ns1:pref name="name">value</ns1:pref>'
-                            .'</ns1:voicemailprefs>'
-                            .'<ns1:anoncallrejection s="1" a="" />'
-                            .'<ns1:calleridblocking s="1" a="" />'
-                            .'<ns1:callforward s="1" a="" ft="ft" />'
-                            .'<ns1:callforwardbusyline s="1" a="" ft="ft" />'
-                            .'<ns1:callforwardnoanswer s="1" a="" ft="ft" nr="nr" />'
-                            .'<ns1:callwaiting s="1" a="" />'
-                            .'<ns1:selectivecallforward s="1" a="" ft="ft">'
-                                .'<ns1:phone pn="pn" a="1" />'
-                            .'</ns1:selectivecallforward>'
-                            .'<ns1:selectivecallacceptance s="1" a="">'
-                                .'<ns1:phone pn="pn" a="1" />'
-                            .'</ns1:selectivecallacceptance>'
-                            .'<ns1:selectivecallrejection s="1" a="">'
-                                .'<ns1:phone pn="pn" a="1" />'
-                            .'</ns1:selectivecallrejection>'
-                        .'</ns1:phone>'
-                    .'</ns1:ModifyVoiceFeaturesRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
-
         $api = new LocalVoiceHttp(null);
         $api->modifyVoiceFeatures($storeprincipal, $phone);
 
@@ -494,22 +325,6 @@ class ApiTest extends ZimbraTestCase
             'oldPin', 'pin', 'name'
         );
 
-        $api = new LocalVoiceWsdl(__DIR__.'/../TestData/ZimbraService.wsdl');
-        $api->modifyVoiceMailPin($storeprincipal, $phone);
-
-        $client = $api->client();
-        $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraVoice">'
-                .'<env:Body>'
-                    .'<ns1:ModifyVoiceMailPinRequest>'
-                        .'<ns1:storeprincipal id="id" name="name" accountNumber="accountNumber" />'
-                        .'<ns1:phone oldPin="oldPin" pin="pin" name="name" />'
-                    .'</ns1:ModifyVoiceMailPinRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
-
         $api = new LocalVoiceHttp(null);
         $api->modifyVoiceMailPin($storeprincipal, $phone);
 
@@ -534,24 +349,6 @@ class ApiTest extends ZimbraTestCase
         );
         $pref = new \Zimbra\Voice\Struct\PrefInfo('name', 'value');
         $phone = new \Zimbra\Voice\Struct\PhoneInfo('name', array($pref));
-
-        $api = new LocalVoiceWsdl(__DIR__.'/../TestData/ZimbraService.wsdl');
-        $api->modifyVoiceMailPrefs($storeprincipal, $phone);
-
-        $client = $api->client();
-        $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraVoice">'
-                .'<env:Body>'
-                    .'<ns1:ModifyVoiceMailPrefsRequest>'
-                        .'<ns1:storeprincipal id="id" name="name" accountNumber="accountNumber" />'
-                        .'<ns1:phone name="name">'
-                            .'<ns1:pref name="name">value</ns1:pref>'
-                        .'</ns1:phone>'
-                    .'</ns1:ModifyVoiceMailPrefsRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
         $api = new LocalVoiceHttp(null);
         $api->modifyVoiceMailPrefs($storeprincipal, $phone);
@@ -600,34 +397,6 @@ class ApiTest extends ZimbraTestCase
             $selectivecallrejection
         );
 
-        $api = new LocalVoiceWsdl(__DIR__.'/../TestData/ZimbraService.wsdl');
-        $api->resetVoiceFeatures(
-            $storeprincipal, $phone
-        );
-
-        $client = $api->client();
-        $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraVoice">'
-                .'<env:Body>'
-                    .'<ns1:ResetVoiceFeaturesRequest>'
-                        .'<ns1:storeprincipal id="id" name="name" accountNumber="accountNumber" />'
-                        .'<ns1:phone name="name">'
-                            .'<ns1:anoncallrejection />'
-                            .'<ns1:calleridblocking />'
-                            .'<ns1:callforward />'
-                            .'<ns1:callforwardbusyline />'
-                            .'<ns1:callforwardnoanswer />'
-                            .'<ns1:callwaiting />'
-                            .'<ns1:selectivecallforward />'
-                            .'<ns1:selectivecallacceptance />'
-                            .'<ns1:selectivecallrejection />'
-                        .'</ns1:phone>'
-                    .'</ns1:ResetVoiceFeaturesRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
-
         $api = new LocalVoiceHttp(null);
         $api->resetVoiceFeatures(
             $storeprincipal, $phone
@@ -663,21 +432,6 @@ class ApiTest extends ZimbraTestCase
             'id', 'name', 'accountNumber'
         );
 
-        $api = new LocalVoiceWsdl(__DIR__.'/../TestData/ZimbraService.wsdl');
-        $api->searchVoice('query', $storeprincipal, 100, 100, 'types', VoiceSortBy::DATE_DESC());
-
-        $client = $api->client();
-        $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraVoice">'
-                .'<env:Body>'
-                    .'<ns1:SearchVoiceRequest query="query" limit="100" offset="100" types="types" sortBy="dateDesc">'
-                        .'<ns1:storeprincipal id="id" name="name" accountNumber="accountNumber" />'
-                    .'</ns1:SearchVoiceRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
-
         $api = new LocalVoiceHttp(null);
         $api->searchVoice('query', $storeprincipal, 100, 100, 'types', VoiceSortBy::DATE_DESC());
 
@@ -702,22 +456,6 @@ class ApiTest extends ZimbraTestCase
         $vm = new \Zimbra\Voice\Struct\VoiceMsgUploadSpec(
             'id', 'phone'
         );
-
-        $api = new LocalVoiceWsdl(__DIR__.'/../TestData/ZimbraService.wsdl');
-        $api->uploadVoiceMail($storeprincipal, $vm);
-
-        $client = $api->client();
-        $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraVoice">'
-                .'<env:Body>'
-                    .'<ns1:UploadVoiceMailRequest>'
-                        .'<ns1:storeprincipal id="id" name="name" accountNumber="accountNumber" />'
-                        .'<ns1:vm id="id" phone="phone" />'
-                    .'</ns1:UploadVoiceMailRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
         $api = new LocalVoiceHttp(null);
         $api->uploadVoiceMail($storeprincipal, $vm);
@@ -744,22 +482,6 @@ class ApiTest extends ZimbraTestCase
         $storeprincipal = new \Zimbra\Voice\Struct\StorePrincipalSpec(
             'id', 'name', 'accountNumber'
         );
-
-        $api = new LocalVoiceWsdl(__DIR__.'/../TestData/ZimbraService.wsdl');
-        $api->voiceMsgAction($action, $storeprincipal);
-
-        $client = $api->client();
-        $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraVoice">'
-                .'<env:Body>'
-                    .'<ns1:VoiceMsgActionRequest>'
-                        .'<ns1:storeprincipal id="id" name="name" accountNumber="accountNumber" />'
-                        .'<ns1:action op="move" phone="phone" id="id" l="l" />'
-                    .'</ns1:VoiceMsgActionRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
         $api = new LocalVoiceHttp(null);
         $api->voiceMsgAction($action, $storeprincipal);

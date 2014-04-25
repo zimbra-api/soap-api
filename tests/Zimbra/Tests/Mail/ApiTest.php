@@ -46,57 +46,11 @@ class ApiTest extends ZimbraTestCase
         $httpApi = MailFactory::instance();
         $this->assertInstanceOf('\Zimbra\Mail\Base', $httpApi);
         $this->assertInstanceOf('\Zimbra\Mail\Http', $httpApi);
-
-        $httpApi = MailFactory::instance(__DIR__.'/../TestData/ZimbraUserService.wsdl', 'wsdl');
-        $this->assertInstanceOf('\Zimbra\Mail\Base', $httpApi);
-        $this->assertInstanceOf('\Zimbra\Mail\Wsdl', $httpApi);
     }
 
     public function testAddAppointmentInvite()
     {
         $m = $this->getMsg();
-
-        $api = new LocalMailWsdl(__DIR__.'/../TestData/ZimbraUserService.wsdl');
-        $api->addAppointmentInvite(
-            $m, ParticipationStatus::NE()
-        );
-
-        $client = $api->client();
-        $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraMail">'
-                .'<env:Body>'
-                    .'<ns1:AddAppointmentInviteRequest ptst="NE">'
-                        .'<ns1:m aid="aid" origid="origid" rt="rt" idnt="idnt" su="su" irt="irt" l="l" f="f">'
-                            .'<ns1:content>content</ns1:content>'
-                            .'<ns1:header name="name">value</ns1:header>'
-                            .'<ns1:mp ct="ct" content="content" ci="ci">'
-                                .'<ns1:mp ct="ct" content="content" ci="ci" />'
-                                .'<ns1:attach aid="aid">'
-                                    .'<ns1:mp optional="true" mid="mid" part="part" />'
-                                    .'<ns1:m optional="false" id="id" />'
-                                    .'<ns1:cn optional="false" id="id" />'
-                                    .'<ns1:doc optional="true" path="path" id="id" ver="10" />'
-                                .'</ns1:attach>'
-                            .'</ns1:mp>'
-                            .'<ns1:attach aid="aid">'
-                                .'<ns1:mp optional="true" mid="mid" part="part" />'
-                                .'<ns1:m optional="false" id="id" />'
-                                .'<ns1:cn optional="false" id="id" />'
-                                .'<ns1:doc optional="true" path="path" id="id" ver="10" />'
-                            .'</ns1:attach>'
-                            .'<ns1:inv method="method" compNum="10" rsvp="true" />'
-                            .'<ns1:e a="a" t="t" p="p" />'
-                            .'<ns1:tz id="id" stdoff="10" dayoff="10" stdname="stdname" dayname="dayname">'
-                                .'<ns1:standard mon="12" hour="2" min="3" sec="4" />'
-                                .'<ns1:daylight mon="4" hour="3" min="2" sec="10" />'
-                            .'</ns1:tz>'
-                            .'<ns1:fr>fr</ns1:fr>'
-                        .'</ns1:m>'
-                    .'</ns1:AddAppointmentInviteRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
         $api = new LocalMailHttp(null);
         $api->addAppointmentInvite(
@@ -145,23 +99,6 @@ class ApiTest extends ZimbraTestCase
     {
         $comment = new \Zimbra\Mail\Struct\AddedComment('parentId', 'text');
 
-        $api = new LocalMailWsdl(__DIR__.'/../TestData/ZimbraUserService.wsdl');
-        $api->addComment(
-            $comment
-        );
-
-        $client = $api->client();
-        $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraMail">'
-                .'<env:Body>'
-                    .'<ns1:AddCommentRequest>'
-                        .'<ns1:comment parentId="parentId" text="text" />'
-                    .'</ns1:AddCommentRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
-
         $api = new LocalMailHttp(null);
         $api->addComment(
             $comment
@@ -186,25 +123,6 @@ class ApiTest extends ZimbraTestCase
             'content', 'f', 't', 'tn', 'l', true, 'd', 'aid'
         );
 
-        $api = new LocalMailWsdl(__DIR__.'/../TestData/ZimbraUserService.wsdl');
-        $api->addMsg(
-            $m, true
-        );
-
-        $client = $api->client();
-        $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraMail">'
-                .'<env:Body>'
-                    .'<ns1:AddMsgRequest filterSent="true">'
-                        .'<ns1:m f="f" t="t" tn="tn" l="l" noICal="true" d="d" aid="aid">'
-                            .'<ns1:content>content</ns1:content>'
-                        .'</ns1:m>'
-                    .'</ns1:AddMsgRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
-
         $api = new LocalMailHttp(null);
         $api->addMsg(
             $m, true
@@ -228,48 +146,6 @@ class ApiTest extends ZimbraTestCase
     public function testAddTaskInvite()
     {
         $m = $this->getMsg();
-
-        $api = new LocalMailWsdl(__DIR__.'/../TestData/ZimbraUserService.wsdl');
-        $api->addTaskInvite(
-            $m, ParticipationStatus::NE()
-        );
-
-        $client = $api->client();
-        $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraMail">'
-                .'<env:Body>'
-                    .'<ns1:AddTaskInviteRequest ptst="NE">'
-                        .'<ns1:m aid="aid" origid="origid" rt="rt" idnt="idnt" su="su" irt="irt" l="l" f="f">'
-                            .'<ns1:content>content</ns1:content>'
-                            .'<ns1:header name="name">value</ns1:header>'
-                            .'<ns1:mp ct="ct" content="content" ci="ci">'
-                                .'<ns1:mp ct="ct" content="content" ci="ci" />'
-                                .'<ns1:attach aid="aid">'
-                                    .'<ns1:mp optional="true" mid="mid" part="part" />'
-                                    .'<ns1:m optional="false" id="id" />'
-                                    .'<ns1:cn optional="false" id="id" />'
-                                    .'<ns1:doc optional="true" path="path" id="id" ver="10" />'
-                                .'</ns1:attach>'
-                            .'</ns1:mp>'
-                            .'<ns1:attach aid="aid">'
-                                .'<ns1:mp optional="true" mid="mid" part="part" />'
-                                .'<ns1:m optional="false" id="id" />'
-                                .'<ns1:cn optional="false" id="id" />'
-                                .'<ns1:doc optional="true" path="path" id="id" ver="10" />'
-                            .'</ns1:attach>'
-                            .'<ns1:inv method="method" compNum="10" rsvp="true" />'
-                            .'<ns1:e a="a" t="t" p="p" />'
-                            .'<ns1:tz id="id" stdoff="10" dayoff="10" stdname="stdname" dayname="dayname">'
-                                .'<ns1:standard mon="12" hour="2" min="3" sec="4" />'
-                                .'<ns1:daylight mon="4" hour="3" min="2" sec="10" />'
-                            .'</ns1:tz>'
-                            .'<ns1:fr>fr</ns1:fr>'
-                        .'</ns1:m>'
-                    .'</ns1:AddTaskInviteRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
         $api = new LocalMailHttp(null);
         $api->addTaskInvite(
@@ -316,21 +192,6 @@ class ApiTest extends ZimbraTestCase
 
     public function testAnnounceOrganizerChange()
     {
-        $api = new LocalMailWsdl(__DIR__.'/../TestData/ZimbraUserService.wsdl');
-        $api->announceOrganizerChange(
-            'id'
-        );
-
-        $client = $api->client();
-        $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraMail">'
-                .'<env:Body>'
-                    .'<ns1:AnnounceOrganizerChangeRequest id="id" />'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
-
         $api = new LocalMailHttp(null);
         $api->announceOrganizerChange(
            'id'
@@ -352,27 +213,6 @@ class ApiTest extends ZimbraTestCase
         $filterRule = new \Zimbra\Struct\NamedElement('name');
         $filterRules = new \Zimbra\Mail\Struct\NamedFilterRules(array($filterRule));
         $m = new \Zimbra\Mail\Struct\IdsAttr('ids');
-
-        $api = new LocalMailWsdl(__DIR__.'/../TestData/ZimbraUserService.wsdl');
-        $api->applyFilterRules(
-            $filterRules, $m, 'query'
-        );
-
-        $client = $api->client();
-        $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraMail">'
-                .'<env:Body>'
-                    .'<ns1:ApplyFilterRulesRequest>'
-                        .'<ns1:filterRules>'
-                            .'<ns1:filterRule name="name" />'
-                        .'</ns1:filterRules>'
-                        .'<ns1:m ids="ids" />'
-                        .'<ns1:query>query</ns1:query>'
-                    .'</ns1:ApplyFilterRulesRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
         $api = new LocalMailHttp(null);
         $api->applyFilterRules(
@@ -402,27 +242,6 @@ class ApiTest extends ZimbraTestCase
         $filterRules = new \Zimbra\Mail\Struct\NamedFilterRules(array($filterRule));
         $m = new \Zimbra\Mail\Struct\IdsAttr('ids');
 
-        $api = new LocalMailWsdl(__DIR__.'/../TestData/ZimbraUserService.wsdl');
-        $api->applyOutgoingFilterRules(
-            $filterRules, $m, 'query'
-        );
-
-        $client = $api->client();
-        $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraMail">'
-                .'<env:Body>'
-                    .'<ns1:ApplyOutgoingFilterRulesRequest>'
-                        .'<ns1:filterRules>'
-                            .'<ns1:filterRule name="name" />'
-                        .'</ns1:filterRules>'
-                        .'<ns1:m ids="ids" />'
-                        .'<ns1:query>query</ns1:query>'
-                    .'</ns1:ApplyOutgoingFilterRulesRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
-
         $api = new LocalMailHttp(null);
         $api->applyOutgoingFilterRules(
             $filterRules, $m, 'query'
@@ -447,21 +266,6 @@ class ApiTest extends ZimbraTestCase
 
     public function testAutoComplete()
     {
-        $api = new LocalMailWsdl(__DIR__.'/../TestData/ZimbraUserService.wsdl');
-        $api->autoComplete(
-            'name', GalSearchType::ALL(), true, 'folders', true
-        );
-
-        $client = $api->client();
-        $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraMail">'
-                .'<env:Body>'
-                    .'<ns1:AutoCompleteRequest name="name" t="all" needExp="true" folders="folders" includeGal="true" />'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
-
         $api = new LocalMailHttp(null);
         $api->autoComplete(
            'name', GalSearchType::ALL(), true, 'folders', true
@@ -482,25 +286,6 @@ class ApiTest extends ZimbraTestCase
     {
         $e = new \Zimbra\Mail\Struct\EmailAddrInfo('a', 't', 'p');
         $m = new \Zimbra\Mail\Struct\BounceMsgSpec('id', array($e));
-
-        $api = new LocalMailWsdl(__DIR__.'/../TestData/ZimbraUserService.wsdl');
-        $api->bounceMsg(
-            $m
-        );
-
-        $client = $api->client();
-        $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraMail">'
-                .'<env:Body>'
-                    .'<ns1:BounceMsgRequest>'
-                        .'<ns1:m id="id">'
-                            .'<ns1:e a="a" t="t" p="p" />'
-                        .'</ns1:m>'
-                    .'</ns1:BounceMsgRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
         $api = new LocalMailHttp(null);
         $api->bounceMsg(
@@ -524,21 +309,6 @@ class ApiTest extends ZimbraTestCase
 
     public function testBrowse()
     {
-        $api = new LocalMailWsdl(__DIR__.'/../TestData/ZimbraUserService.wsdl');
-        $api->browse(
-            BrowseBy::DOMAINS(), 'regex', 10
-        );
-
-        $client = $api->client();
-        $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraMail">'
-                .'<env:Body>'
-                    .'<ns1:BrowseRequest browseBy="domains" regex="regex" maxToReturn="10" />'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
-
         $api = new LocalMailHttp(null);
         $api->browse(
            BrowseBy::DOMAINS(), 'regex', 10
@@ -560,53 +330,6 @@ class ApiTest extends ZimbraTestCase
         $tz = $this->getTz();
         $inst = new \Zimbra\Mail\Struct\InstanceRecurIdInfo('range', '20130315T18302305Z', 'tz');
         $m = $this->getMsg();
-
-        $api = new LocalMailWsdl(__DIR__.'/../TestData/ZimbraUserService.wsdl');
-        $api->cancelAppointment(
-            $inst, $tz, $m, 'id', 10, 10, 10
-        );
-
-        $client = $api->client();
-        $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraMail">'
-                .'<env:Body>'
-                    .'<ns1:CancelAppointmentRequest id="id" comp="10" ms="10" rev="10">'
-                        .'<ns1:inst range="range" d="20130315T18302305Z" tz="tz" />'
-                        .'<ns1:tz id="id" stdoff="10" dayoff="10" stdname="stdname" dayname="dayname">'
-                            .'<ns1:standard mon="12" hour="2" min="3" sec="4" />'
-                            .'<ns1:daylight mon="4" hour="3" min="2" sec="10" />'
-                        .'</ns1:tz>'
-                        .'<ns1:m aid="aid" origid="origid" rt="rt" idnt="idnt" su="su" irt="irt" l="l" f="f">'
-                            .'<ns1:content>content</ns1:content>'
-                            .'<ns1:header name="name">value</ns1:header>'
-                            .'<ns1:mp ct="ct" content="content" ci="ci">'
-                                .'<ns1:mp ct="ct" content="content" ci="ci" />'
-                                .'<ns1:attach aid="aid">'
-                                    .'<ns1:mp optional="true" mid="mid" part="part" />'
-                                    .'<ns1:m optional="false" id="id" />'
-                                    .'<ns1:cn optional="false" id="id" />'
-                                    .'<ns1:doc optional="true" path="path" id="id" ver="10" />'
-                                .'</ns1:attach>'
-                            .'</ns1:mp>'
-                            .'<ns1:attach aid="aid">'
-                                .'<ns1:mp optional="true" mid="mid" part="part" />'
-                                .'<ns1:m optional="false" id="id" />'
-                                .'<ns1:cn optional="false" id="id" />'
-                                .'<ns1:doc optional="true" path="path" id="id" ver="10" />'
-                            .'</ns1:attach>'
-                            .'<ns1:inv method="method" compNum="10" rsvp="true" />'
-                            .'<ns1:e a="a" t="t" p="p" />'
-                            .'<ns1:tz id="id" stdoff="10" dayoff="10" stdname="stdname" dayname="dayname">'
-                                .'<ns1:standard mon="12" hour="2" min="3" sec="4" />'
-                                .'<ns1:daylight mon="4" hour="3" min="2" sec="10" />'
-                            .'</ns1:tz>'
-                            .'<ns1:fr>fr</ns1:fr>'
-                        .'</ns1:m>'
-                    .'</ns1:CancelAppointmentRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
         $api = new LocalMailHttp(null);
         $api->cancelAppointment(
@@ -662,53 +385,6 @@ class ApiTest extends ZimbraTestCase
         $inst = new \Zimbra\Mail\Struct\InstanceRecurIdInfo('range', '20130315T18302305Z', 'tz');
         $m = $this->getMsg();
 
-        $api = new LocalMailWsdl(__DIR__.'/../TestData/ZimbraUserService.wsdl');
-        $api->cancelTask(
-            $inst, $tz, $m, 'id', 10, 10, 10
-        );
-
-        $client = $api->client();
-        $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraMail">'
-                .'<env:Body>'
-                    .'<ns1:CancelTaskRequest id="id" comp="10" ms="10" rev="10">'
-                        .'<ns1:inst range="range" d="20130315T18302305Z" tz="tz" />'
-                        .'<ns1:tz id="id" stdoff="10" dayoff="10" stdname="stdname" dayname="dayname">'
-                            .'<ns1:standard mon="12" hour="2" min="3" sec="4" />'
-                            .'<ns1:daylight mon="4" hour="3" min="2" sec="10" />'
-                        .'</ns1:tz>'
-                        .'<ns1:m aid="aid" origid="origid" rt="rt" idnt="idnt" su="su" irt="irt" l="l" f="f">'
-                            .'<ns1:content>content</ns1:content>'
-                            .'<ns1:header name="name">value</ns1:header>'
-                            .'<ns1:mp ct="ct" content="content" ci="ci">'
-                                .'<ns1:mp ct="ct" content="content" ci="ci" />'
-                                .'<ns1:attach aid="aid">'
-                                    .'<ns1:mp optional="true" mid="mid" part="part" />'
-                                    .'<ns1:m optional="false" id="id" />'
-                                    .'<ns1:cn optional="false" id="id" />'
-                                    .'<ns1:doc optional="true" path="path" id="id" ver="10" />'
-                                .'</ns1:attach>'
-                            .'</ns1:mp>'
-                            .'<ns1:attach aid="aid">'
-                                .'<ns1:mp optional="true" mid="mid" part="part" />'
-                                .'<ns1:m optional="false" id="id" />'
-                                .'<ns1:cn optional="false" id="id" />'
-                                .'<ns1:doc optional="true" path="path" id="id" ver="10" />'
-                            .'</ns1:attach>'
-                            .'<ns1:inv method="method" compNum="10" rsvp="true" />'
-                            .'<ns1:e a="a" t="t" p="p" />'
-                            .'<ns1:tz id="id" stdoff="10" dayoff="10" stdname="stdname" dayname="dayname">'
-                                .'<ns1:standard mon="12" hour="2" min="3" sec="4" />'
-                                .'<ns1:daylight mon="4" hour="3" min="2" sec="10" />'
-                            .'</ns1:tz>'
-                            .'<ns1:fr>fr</ns1:fr>'
-                        .'</ns1:m>'
-                    .'</ns1:CancelTaskRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
-
         $api = new LocalMailHttp(null);
         $api->cancelTask(
             $inst, $tz, $m, 'id', 10, 10, 10
@@ -761,23 +437,6 @@ class ApiTest extends ZimbraTestCase
     {
         $device = new \Zimbra\Struct\Id('id');
 
-        $api = new LocalMailWsdl(__DIR__.'/../TestData/ZimbraUserService.wsdl');
-        $api->checkDeviceStatus(
-            $device
-        );
-
-        $client = $api->client();
-        $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraMail">'
-                .'<env:Body>'
-                    .'<ns1:CheckDeviceStatusRequest>'
-                        .'<ns1:device id="id" />'
-                    .'</ns1:CheckDeviceStatusRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
-
         $api = new LocalMailHttp(null);
         $api->checkDeviceStatus(
            $device
@@ -801,24 +460,6 @@ class ApiTest extends ZimbraTestCase
         $target = new \Zimbra\Mail\Struct\TargetSpec(
             TargetType::ACCOUNT(), AccountBy::NAME(), 'value'
         );
-
-        $api = new LocalMailWsdl(__DIR__.'/../TestData/ZimbraUserService.wsdl');
-        $api->checkPermission(
-            $target, array('right')
-        );
-
-        $client = $api->client();
-        $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraMail">'
-                .'<env:Body>'
-                    .'<ns1:CheckPermissionRequest>'
-                        .'<ns1:target type="account" by="name">value</ns1:target>'
-                        .'<ns1:right>right</ns1:right>'
-                    .'</ns1:CheckPermissionRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
         $api = new LocalMailHttp(null);
         $api->checkPermission(
@@ -861,42 +502,6 @@ class ApiTest extends ZimbraTestCase
             10, 'id', 'name'
         );
 
-        $api = new LocalMailWsdl(__DIR__.'/../TestData/ZimbraUserService.wsdl');
-        $api->checkRecurConflicts(
-            array($tz), $cancel, $comp, $except, array($usr), 10, 10, true, 'excludeUid'
-        );
-
-        $client = $api->client();
-        $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraMail">'
-                .'<env:Body>'
-                    .'<ns1:CheckRecurConflictsRequest s="10" e="10" all="true" excludeUid="excludeUid">'
-                        .'<ns1:tz id="id" stdoff="10" dayoff="10" stdname="stdname" dayname="dayname">'
-                            .'<ns1:standard mon="12" hour="2" min="3" sec="4" />'
-                            .'<ns1:daylight mon="4" hour="3" min="2" sec="10" />'
-                        .'</ns1:tz>'
-                        .'<ns1:cancel s="10" e="10">'
-                            .'<ns1:exceptId range="range" d="20130315T18302305Z" tz="tz" />'
-                            .'<ns1:dur neg="true" w="7" d="2" h="3" m="4" s="5" related="START" count="6" />'
-                            .'<ns1:recur />'
-                        .'</ns1:cancel>'
-                        .'<ns1:comp s="10" e="10">'
-                            .'<ns1:exceptId range="range" d="20130315T18302305Z" tz="tz" />'
-                            .'<ns1:dur neg="true" w="7" d="2" h="3" m="4" s="5" related="START" count="6" />'
-                            .'<ns1:recur />'
-                        .'</ns1:comp>'
-                        .'<ns1:except s="10" e="10">'
-                            .'<ns1:exceptId range="range" d="20130315T18302305Z" tz="tz" />'
-                            .'<ns1:dur neg="true" w="7" d="2" h="3" m="4" s="5" related="START" count="6" />'
-                            .'<ns1:recur />'
-                        .'</ns1:except>'
-                        .'<ns1:usr l="10" id="id" name="name" />'
-                    .'</ns1:CheckRecurConflictsRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
-
         $api = new LocalMailHttp(null);
         $api->checkRecurConflicts(
            array($tz), $cancel, $comp, $except, array($usr), 10, 10, true, 'excludeUid'
@@ -936,21 +541,6 @@ class ApiTest extends ZimbraTestCase
 
     public function testCheckSpelling()
     {
-        $api = new LocalMailWsdl(__DIR__.'/../TestData/ZimbraUserService.wsdl');
-        $api->checkSpelling(
-            'value', 'dictionary', 'ignore'
-        );
-
-        $client = $api->client();
-        $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraMail">'
-                .'<env:Body>'
-                    .'<ns1:CheckSpellingRequest dictionary="dictionary" ignore="ignore">value</ns1:CheckSpellingRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
-
         $api = new LocalMailHttp(null);
         $api->checkSpelling(
            'value', 'dictionary', 'ignore'
@@ -973,27 +563,6 @@ class ApiTest extends ZimbraTestCase
             '20120315T18302305Z', 'tz', 1000
         );
         $tz = $this->getTz();
-
-        $api = new LocalMailWsdl(__DIR__.'/../TestData/ZimbraUserService.wsdl');
-        $api->completeTaskInstance(
-            'id', $exceptId, $tz
-        );
-
-        $client = $api->client();
-        $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraMail">'
-                .'<env:Body>'
-                    .'<ns1:CompleteTaskInstanceRequest id="id">'
-                        .'<ns1:exceptId d="20120315T18302305Z" tz="tz" u="1000" />'
-                        .'<ns1:tz id="id" stdoff="10" dayoff="10" stdname="stdname" dayname="dayname">'
-                            .'<ns1:standard mon="12" hour="2" min="3" sec="4" />'
-                            .'<ns1:daylight mon="4" hour="3" min="2" sec="10" />'
-                        .'</ns1:tz>'
-                    .'</ns1:CompleteTaskInstanceRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
         $api = new LocalMailHttp(null);
         $api->completeTaskInstance(
@@ -1026,25 +595,6 @@ class ApiTest extends ZimbraTestCase
             ContactActionOp::MOVE(), 'id', 'tcon', 10, 'l', '#aabbcc', 10, 'name', 'f', 't', 'tn', array($a)
         );
 
-        $api = new LocalMailWsdl(__DIR__.'/../TestData/ZimbraUserService.wsdl');
-        $api->contactAction(
-            $action
-        );
-
-        $client = $api->client();
-        $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraMail">'
-                .'<env:Body>'
-                    .'<ns1:ContactActionRequest>'
-                        .'<ns1:action id="id" op="move" tcon="tcon" tag="10" l="l" rgb="#aabbcc" color="10" name="name" f="f" t="t" tn="tn">'
-                            .'<ns1:a n="n" aid="aid" id="10" part="part">value</ns1:a>'
-                        .'</ns1:action>'
-                    .'</ns1:ContactActionRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
-
         $api = new LocalMailHttp(null);
         $api->contactAction(
            $action
@@ -1071,23 +621,6 @@ class ApiTest extends ZimbraTestCase
             ConvActionOp::DELETE(), 'id', 'tcon', 10, 'l', '#aabbcc', 10, 'name', 'f', 't', 'tn'
         );
 
-        $api = new LocalMailWsdl(__DIR__.'/../TestData/ZimbraUserService.wsdl');
-        $api->convAction(
-            $action
-        );
-
-        $client = $api->client();
-        $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraMail">'
-                .'<env:Body>'
-                    .'<ns1:ConvActionRequest>'
-                        .'<ns1:action op="delete" id="id" tcon="tcon" tag="10" l="l" rgb="#aabbcc" color="10" name="name" f="f" t="t" tn="tn" />'
-                    .'</ns1:ConvActionRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
-
         $api = new LocalMailHttp(null);
         $api->convAction(
            $action
@@ -1109,48 +642,6 @@ class ApiTest extends ZimbraTestCase
     public function testCounterAppointment()
     {
         $m = $this->getMsg();
-
-        $api = new LocalMailWsdl(__DIR__.'/../TestData/ZimbraUserService.wsdl');
-        $api->counterAppointment(
-            $m, 'id', 10, 10, 10
-        );
-
-        $client = $api->client();
-        $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraMail">'
-                .'<env:Body>'
-                    .'<ns1:CounterAppointmentRequest id="id" comp="10" ms="10" rev="10">'
-                        .'<ns1:m aid="aid" origid="origid" rt="rt" idnt="idnt" su="su" irt="irt" l="l" f="f">'
-                            .'<ns1:content>content</ns1:content>'
-                            .'<ns1:header name="name">value</ns1:header>'
-                            .'<ns1:mp ct="ct" content="content" ci="ci">'
-                                .'<ns1:mp ct="ct" content="content" ci="ci" />'
-                                .'<ns1:attach aid="aid">'
-                                    .'<ns1:mp optional="true" mid="mid" part="part" />'
-                                    .'<ns1:m optional="false" id="id" />'
-                                    .'<ns1:cn optional="false" id="id" />'
-                                    .'<ns1:doc optional="true" path="path" id="id" ver="10" />'
-                                .'</ns1:attach>'
-                            .'</ns1:mp>'
-                            .'<ns1:attach aid="aid">'
-                                .'<ns1:mp optional="true" mid="mid" part="part" />'
-                                .'<ns1:m optional="false" id="id" />'
-                                .'<ns1:cn optional="false" id="id" />'
-                                .'<ns1:doc optional="true" path="path" id="id" ver="10" />'
-                            .'</ns1:attach>'
-                            .'<ns1:inv method="method" compNum="10" rsvp="true" />'
-                            .'<ns1:e a="a" t="t" p="p" />'
-                            .'<ns1:tz id="id" stdoff="10" dayoff="10" stdname="stdname" dayname="dayname">'
-                                .'<ns1:standard mon="12" hour="2" min="3" sec="4" />'
-                                .'<ns1:daylight mon="4" hour="3" min="2" sec="10" />'
-                            .'</ns1:tz>'
-                            .'<ns1:fr>fr</ns1:fr>'
-                        .'</ns1:m>'
-                    .'</ns1:CounterAppointmentRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
         $api = new LocalMailHttp(null);
         $api->counterAppointment(
@@ -1199,48 +690,6 @@ class ApiTest extends ZimbraTestCase
     {
         $m = $this->getMsg();
 
-        $api = new LocalMailWsdl(__DIR__.'/../TestData/ZimbraUserService.wsdl');
-        $api->createAppointment(
-            $m, true, 10, true, true, true
-        );
-
-        $client = $api->client();
-        $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraMail">'
-                .'<env:Body>'
-                    .'<ns1:CreateAppointmentRequest echo="true" max="10" html="true" neuter="true" forcesend="true">'
-                        .'<ns1:m aid="aid" origid="origid" rt="rt" idnt="idnt" su="su" irt="irt" l="l" f="f">'
-                            .'<ns1:content>content</ns1:content>'
-                            .'<ns1:header name="name">value</ns1:header>'
-                            .'<ns1:mp ct="ct" content="content" ci="ci">'
-                                .'<ns1:mp ct="ct" content="content" ci="ci" />'
-                                .'<ns1:attach aid="aid">'
-                                    .'<ns1:mp optional="true" mid="mid" part="part" />'
-                                    .'<ns1:m optional="false" id="id" />'
-                                    .'<ns1:cn optional="false" id="id" />'
-                                    .'<ns1:doc optional="true" path="path" id="id" ver="10" />'
-                                .'</ns1:attach>'
-                            .'</ns1:mp>'
-                            .'<ns1:attach aid="aid">'
-                                .'<ns1:mp optional="true" mid="mid" part="part" />'
-                                .'<ns1:m optional="false" id="id" />'
-                                .'<ns1:cn optional="false" id="id" />'
-                                .'<ns1:doc optional="true" path="path" id="id" ver="10" />'
-                            .'</ns1:attach>'
-                            .'<ns1:inv method="method" compNum="10" rsvp="true" />'
-                            .'<ns1:e a="a" t="t" p="p" />'
-                            .'<ns1:tz id="id" stdoff="10" dayoff="10" stdname="stdname" dayname="dayname">'
-                                .'<ns1:standard mon="12" hour="2" min="3" sec="4" />'
-                                .'<ns1:daylight mon="4" hour="3" min="2" sec="10" />'
-                            .'</ns1:tz>'
-                            .'<ns1:fr>fr</ns1:fr>'
-                        .'</ns1:m>'
-                    .'</ns1:CreateAppointmentRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
-
         $api = new LocalMailHttp(null);
         $api->createAppointment(
             $m, true, 10, true, true, true
@@ -1287,48 +736,6 @@ class ApiTest extends ZimbraTestCase
     public function testCreateAppointmentException()
     {
         $m = $this->getMsg();
-
-        $api = new LocalMailWsdl(__DIR__.'/../TestData/ZimbraUserService.wsdl');
-        $api->createAppointmentException(
-            $m, 'id', 10, 10, 10, true, 10, true, true, true
-        );
-
-        $client = $api->client();
-        $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraMail">'
-                .'<env:Body>'
-                    .'<ns1:CreateAppointmentExceptionRequest id="id" comp="10" ms="10" rev="10" echo="true" max="10" html="true" neuter="true" forcesend="true">'
-                        .'<ns1:m aid="aid" origid="origid" rt="rt" idnt="idnt" su="su" irt="irt" l="l" f="f">'
-                            .'<ns1:content>content</ns1:content>'
-                            .'<ns1:header name="name">value</ns1:header>'
-                            .'<ns1:mp ct="ct" content="content" ci="ci">'
-                                .'<ns1:mp ct="ct" content="content" ci="ci" />'
-                                .'<ns1:attach aid="aid">'
-                                    .'<ns1:mp optional="true" mid="mid" part="part" />'
-                                    .'<ns1:m optional="false" id="id" />'
-                                    .'<ns1:cn optional="false" id="id" />'
-                                    .'<ns1:doc optional="true" path="path" id="id" ver="10" />'
-                                .'</ns1:attach>'
-                            .'</ns1:mp>'
-                            .'<ns1:attach aid="aid">'
-                                .'<ns1:mp optional="true" mid="mid" part="part" />'
-                                .'<ns1:m optional="false" id="id" />'
-                                .'<ns1:cn optional="false" id="id" />'
-                                .'<ns1:doc optional="true" path="path" id="id" ver="10" />'
-                            .'</ns1:attach>'
-                            .'<ns1:inv method="method" compNum="10" rsvp="true" />'
-                            .'<ns1:e a="a" t="t" p="p" />'
-                            .'<ns1:tz id="id" stdoff="10" dayoff="10" stdname="stdname" dayname="dayname">'
-                                .'<ns1:standard mon="12" hour="2" min="3" sec="4" />'
-                                .'<ns1:daylight mon="4" hour="3" min="2" sec="10" />'
-                            .'</ns1:tz>'
-                            .'<ns1:fr>fr</ns1:fr>'
-                        .'</ns1:m>'
-                    .'</ns1:CreateAppointmentExceptionRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
         $api = new LocalMailHttp(null);
         $api->createAppointmentException(
@@ -1388,27 +795,6 @@ class ApiTest extends ZimbraTestCase
             $vcard, array($a), array($m), 10, 'l', 't', 'tn'
         );
 
-        $api = new LocalMailWsdl(__DIR__.'/../TestData/ZimbraUserService.wsdl');
-        $api->createContact(
-           $cn, true
-        );
-
-        $client = $api->client();
-        $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraMail">'
-                .'<env:Body>'
-                    .'<ns1:CreateContactRequest verbose="true">'
-                        .'<ns1:cn id="10" l="l" t="t" tn="tn">'
-                            .'<ns1:vcard mid="mid" part="part" aid="aid">value</ns1:vcard>'
-                            .'<ns1:a n="n" aid="aid" id="10" part="part">value</ns1:a>'
-                            .'<ns1:m type="type" value="value" />'
-                        .'</ns1:cn>'
-                    .'</ns1:CreateContactRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
-
         $api = new LocalMailHttp(null);
         $api->createContact(
            $cn, true
@@ -1464,135 +850,6 @@ class ApiTest extends ZimbraTestCase
         $gal = new \Zimbra\Mail\Struct\MailGalDataSource();
         $cal = new \Zimbra\Mail\Struct\MailCalDataSource();
         $unknown = new \Zimbra\Mail\Struct\MailUnknownDataSource();
-        $api = new LocalMailWsdl(__DIR__.'/../TestData/ZimbraUserService.wsdl');
-
-        $api->createImapDataSource(
-           $imap
-        );
-        $client = $api->client();
-        $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraMail">'
-                .'<env:Body>'
-                    .'<ns1:CreateDataSourceRequest>'
-                        .'<ns1:imap id="id" name="name" l="l" isEnabled="true" importOnly="true" host="host" port="10" '
-                        .'connectionType="ssl" username="username" password="password" pollingInterval="pollingInterval" '
-                        .'emailAddress="emailAddress" useAddressForForwardReply="true" defaultSignature="defaultSignature" '
-                        .'forwardReplySignature="forwardReplySignature" fromDisplay="fromDisplay" replyToAddress="replyToAddress" '
-                        .'replyToDisplay="replyToDisplay" importClass="importClass" failingSince="10">'
-                            .'<ns1:lastError>lastError</ns1:lastError>'
-                            .'<ns1:a>a</ns1:a>'
-                            .'<ns1:a>b</ns1:a>'
-                        .'</ns1:imap>'
-                    .'</ns1:CreateDataSourceRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
-
-        $api->createPop3DataSource(
-           $pop3
-        );
-        $client = $api->client();
-        $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraMail">'
-                .'<env:Body>'
-                    .'<ns1:CreateDataSourceRequest>'
-                        .'<ns1:pop3 leaveOnServer="true" />'
-                    .'</ns1:CreateDataSourceRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
-
-        $api->createCaldavDataSource(
-           $caldav
-        );
-        $client = $api->client();
-        $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraMail">'
-                .'<env:Body>'
-                    .'<ns1:CreateDataSourceRequest>'
-                        .'<ns1:caldav />'
-                    .'</ns1:CreateDataSourceRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
-
-        $api->createYabDataSource(
-           $yab
-        );
-        $client = $api->client();
-        $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraMail">'
-                .'<env:Body>'
-                    .'<ns1:CreateDataSourceRequest>'
-                        .'<ns1:yab />'
-                    .'</ns1:CreateDataSourceRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
-
-        $api->createRssDataSource(
-           $rss
-        );
-        $client = $api->client();
-        $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraMail">'
-                .'<env:Body>'
-                    .'<ns1:CreateDataSourceRequest>'
-                        .'<ns1:rss />'
-                    .'</ns1:CreateDataSourceRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
-
-        $api->createGalDataSource(
-           $gal
-        );
-        $client = $api->client();
-        $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraMail">'
-                .'<env:Body>'
-                    .'<ns1:CreateDataSourceRequest>'
-                        .'<ns1:gal />'
-                    .'</ns1:CreateDataSourceRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
-
-        $api->createCalDataSource(
-           $cal
-        );
-        $client = $api->client();
-        $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraMail">'
-                .'<env:Body>'
-                    .'<ns1:CreateDataSourceRequest>'
-                        .'<ns1:cal />'
-                    .'</ns1:CreateDataSourceRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
-
-        $api->createUnknownDataSource(
-           $unknown
-        );
-        $client = $api->client();
-        $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraMail">'
-                .'<env:Body>'
-                    .'<ns1:CreateDataSourceRequest>'
-                        .'<ns1:unknown />'
-                    .'</ns1:CreateDataSourceRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
         $api = new LocalMailHttp(null);
         $api->createImapDataSource(
@@ -1736,27 +993,6 @@ class ApiTest extends ZimbraTestCase
             'name', $acl, SearchType::TASK(), 'f', 10, '#aabbcc', 'url', 'l', true, true
         );
 
-        $api = new LocalMailWsdl(__DIR__.'/../TestData/ZimbraUserService.wsdl');
-        $api->createFolder(
-           $folder
-        );
-
-        $client = $api->client();
-        $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraMail">'
-                .'<env:Body>'
-                    .'<ns1:CreateFolderRequest>'
-                        .'<ns1:folder name="name" view="task" f="f" color="10" rgb="#aabbcc" url="url" l="l" fie="true" sync="true">'
-                            .'<ns1:acl>'
-                                .'<ns1:grant perm="perm" gt="usr" zid="zid" d="d" args="args" pw="pw" key="key" />'
-                            .'</ns1:acl>'
-                        .'</ns1:folder>'
-                    .'</ns1:CreateFolderRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
-
         $api = new LocalMailHttp(null);
         $api->createFolder(
            $folder
@@ -1785,23 +1021,6 @@ class ApiTest extends ZimbraTestCase
             'name', SearchType::TASK(), 'f', 10, '#aabbcc', 'url', 'l', true, true, 'zid', 'owner', 10, 'path'
         );
 
-        $api = new LocalMailWsdl(__DIR__.'/../TestData/ZimbraUserService.wsdl');
-        $api->createMountpoint(
-           $link
-        );
-
-        $client = $api->client();
-        $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraMail">'
-                .'<env:Body>'
-                    .'<ns1:CreateMountpointRequest>'
-                        .'<ns1:link name="name" view="task" f="f" color="10" rgb="#aabbcc" url="url" l="l" fie="true" reminder="true" zid="zid" owner="owner" rid="10" path="path" />'
-                    .'</ns1:CreateMountpointRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
-
         $api = new LocalMailHttp(null);
         $api->createMountpoint(
            $link
@@ -1825,23 +1044,6 @@ class ApiTest extends ZimbraTestCase
         $note = new \Zimbra\Mail\Struct\NewNoteSpec(
             'l', 'content', 10, 'pos'
         );
-
-        $api = new LocalMailWsdl(__DIR__.'/../TestData/ZimbraUserService.wsdl');
-        $api->createNote(
-           $note
-        );
-
-        $client = $api->client();
-        $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraMail">'
-                .'<env:Body>'
-                    .'<ns1:CreateNoteRequest>'
-                        .'<ns1:note l="l" content="content" color="10" pos="pos" />'
-                    .'</ns1:CreateNoteRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
         $api = new LocalMailHttp(null);
         $api->createNote(
@@ -1867,23 +1069,6 @@ class ApiTest extends ZimbraTestCase
             'name', 'query', 'types', 'sortBy', 'f', 10, 'l'
         );
 
-        $api = new LocalMailWsdl(__DIR__.'/../TestData/ZimbraUserService.wsdl');
-        $api->createSearchFolder(
-           $search
-        );
-
-        $client = $api->client();
-        $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraMail">'
-                .'<env:Body>'
-                    .'<ns1:CreateSearchFolderRequest>'
-                        .'<ns1:search name="name" query="query" types="types" sortBy="sortBy" f="f" color="10" l="l" />'
-                    .'</ns1:CreateSearchFolderRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
-
         $api = new LocalMailHttp(null);
         $api->createSearchFolder(
            $search
@@ -1908,23 +1093,6 @@ class ApiTest extends ZimbraTestCase
             'name', '#aabbcc', 10
         );
 
-        $api = new LocalMailWsdl(__DIR__.'/../TestData/ZimbraUserService.wsdl');
-        $api->createTag(
-           $tag
-        );
-
-        $client = $api->client();
-        $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraMail">'
-                .'<env:Body>'
-                    .'<ns1:CreateTagRequest>'
-                        .'<ns1:tag name="name" rgb="#aabbcc" color="10" />'
-                    .'</ns1:CreateTagRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
-
         $api = new LocalMailHttp(null);
         $api->createTag(
            $tag
@@ -1946,48 +1114,6 @@ class ApiTest extends ZimbraTestCase
     public function testCreateTask()
     {
         $m = $this->getMsg();
-
-        $api = new LocalMailWsdl(__DIR__.'/../TestData/ZimbraUserService.wsdl');
-        $api->createTask(
-            $m, true, 10, true, true, true
-        );
-
-        $client = $api->client();
-        $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraMail">'
-                .'<env:Body>'
-                    .'<ns1:CreateTaskRequest echo="true" max="10" html="true" neuter="true" forcesend="true">'
-                        .'<ns1:m aid="aid" origid="origid" rt="rt" idnt="idnt" su="su" irt="irt" l="l" f="f">'
-                            .'<ns1:content>content</ns1:content>'
-                            .'<ns1:header name="name">value</ns1:header>'
-                            .'<ns1:mp ct="ct" content="content" ci="ci">'
-                                .'<ns1:mp ct="ct" content="content" ci="ci" />'
-                                .'<ns1:attach aid="aid">'
-                                    .'<ns1:mp optional="true" mid="mid" part="part" />'
-                                    .'<ns1:m optional="false" id="id" />'
-                                    .'<ns1:cn optional="false" id="id" />'
-                                    .'<ns1:doc optional="true" path="path" id="id" ver="10" />'
-                                .'</ns1:attach>'
-                            .'</ns1:mp>'
-                            .'<ns1:attach aid="aid">'
-                                .'<ns1:mp optional="true" mid="mid" part="part" />'
-                                .'<ns1:m optional="false" id="id" />'
-                                .'<ns1:cn optional="false" id="id" />'
-                                .'<ns1:doc optional="true" path="path" id="id" ver="10" />'
-                            .'</ns1:attach>'
-                            .'<ns1:inv method="method" compNum="10" rsvp="true" />'
-                            .'<ns1:e a="a" t="t" p="p" />'
-                            .'<ns1:tz id="id" stdoff="10" dayoff="10" stdname="stdname" dayname="dayname">'
-                                .'<ns1:standard mon="12" hour="2" min="3" sec="4" />'
-                                .'<ns1:daylight mon="4" hour="3" min="2" sec="10" />'
-                            .'</ns1:tz>'
-                            .'<ns1:fr>fr</ns1:fr>'
-                        .'</ns1:m>'
-                    .'</ns1:CreateTaskRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
         $api = new LocalMailHttp(null);
         $api->createTask(
@@ -2035,48 +1161,6 @@ class ApiTest extends ZimbraTestCase
     public function testCreateTaskException()
     {
         $m = $this->getMsg();
-
-        $api = new LocalMailWsdl(__DIR__.'/../TestData/ZimbraUserService.wsdl');
-        $api->createTaskException(
-            $m, 'id', 10, 10, 10, true, 10, true, true, true
-        );
-
-        $client = $api->client();
-        $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraMail">'
-                .'<env:Body>'
-                    .'<ns1:CreateTaskExceptionRequest id="id" comp="10" ms="10" rev="10" echo="true" max="10" html="true" neuter="true" forcesend="true">'
-                        .'<ns1:m aid="aid" origid="origid" rt="rt" idnt="idnt" su="su" irt="irt" l="l" f="f">'
-                            .'<ns1:content>content</ns1:content>'
-                            .'<ns1:header name="name">value</ns1:header>'
-                            .'<ns1:mp ct="ct" content="content" ci="ci">'
-                                .'<ns1:mp ct="ct" content="content" ci="ci" />'
-                                .'<ns1:attach aid="aid">'
-                                    .'<ns1:mp optional="true" mid="mid" part="part" />'
-                                    .'<ns1:m optional="false" id="id" />'
-                                    .'<ns1:cn optional="false" id="id" />'
-                                    .'<ns1:doc optional="true" path="path" id="id" ver="10" />'
-                                .'</ns1:attach>'
-                            .'</ns1:mp>'
-                            .'<ns1:attach aid="aid">'
-                                .'<ns1:mp optional="true" mid="mid" part="part" />'
-                                .'<ns1:m optional="false" id="id" />'
-                                .'<ns1:cn optional="false" id="id" />'
-                                .'<ns1:doc optional="true" path="path" id="id" ver="10" />'
-                            .'</ns1:attach>'
-                            .'<ns1:inv method="method" compNum="10" rsvp="true" />'
-                            .'<ns1:e a="a" t="t" p="p" />'
-                            .'<ns1:tz id="id" stdoff="10" dayoff="10" stdname="stdname" dayname="dayname">'
-                                .'<ns1:standard mon="12" hour="2" min="3" sec="4" />'
-                                .'<ns1:daylight mon="4" hour="3" min="2" sec="10" />'
-                            .'</ns1:tz>'
-                            .'<ns1:fr>fr</ns1:fr>'
-                        .'</ns1:m>'
-                    .'</ns1:CreateTaskExceptionRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
         $api = new LocalMailHttp(null);
         $api->createTaskException(
@@ -2126,25 +1210,6 @@ class ApiTest extends ZimbraTestCase
         $a = new \Zimbra\Mail\Struct\WaitSetAddSpec('name', 'id', 'token', array(InterestType::FOLDERS()));
         $add = new \Zimbra\Mail\Struct\WaitSetSpec(array($a));
 
-        $api = new LocalMailWsdl(__DIR__.'/../TestData/ZimbraUserService.wsdl');
-        $api->createWaitSet(
-            $add, array(InterestType::FOLDERS()), true
-        );
-
-        $client = $api->client();
-        $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraMail">'
-                .'<env:Body>'
-                    .'<ns1:CreateWaitSetRequest defTypes="f" allAccounts="true">'
-                        .'<ns1:add>'
-                            .'<ns1:a name="name" id="id" token="token" types="f" />'
-                        .'</ns1:add>'
-                    .'</ns1:CreateWaitSetRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
-
         $api = new LocalMailHttp(null);
         $api->createWaitSet(
             $add, array(InterestType::FOLDERS()), true
@@ -2168,48 +1233,6 @@ class ApiTest extends ZimbraTestCase
     public function testDeclineCounterAppointment()
     {
         $m = $this->getMsg();
-
-        $api = new LocalMailWsdl(__DIR__.'/../TestData/ZimbraUserService.wsdl');
-        $api->declineCounterAppointment(
-            $m
-        );
-
-        $client = $api->client();
-        $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraMail">'
-                .'<env:Body>'
-                    .'<ns1:DeclineCounterAppointmentRequest>'
-                        .'<ns1:m aid="aid" origid="origid" rt="rt" idnt="idnt" su="su" irt="irt" l="l" f="f">'
-                            .'<ns1:content>content</ns1:content>'
-                            .'<ns1:header name="name">value</ns1:header>'
-                            .'<ns1:mp ct="ct" content="content" ci="ci">'
-                                .'<ns1:mp ct="ct" content="content" ci="ci" />'
-                                .'<ns1:attach aid="aid">'
-                                    .'<ns1:mp optional="true" mid="mid" part="part" />'
-                                    .'<ns1:m optional="false" id="id" />'
-                                    .'<ns1:cn optional="false" id="id" />'
-                                    .'<ns1:doc optional="true" path="path" id="id" ver="10" />'
-                                .'</ns1:attach>'
-                            .'</ns1:mp>'
-                            .'<ns1:attach aid="aid">'
-                                .'<ns1:mp optional="true" mid="mid" part="part" />'
-                                .'<ns1:m optional="false" id="id" />'
-                                .'<ns1:cn optional="false" id="id" />'
-                                .'<ns1:doc optional="true" path="path" id="id" ver="10" />'
-                            .'</ns1:attach>'
-                            .'<ns1:inv method="method" compNum="10" rsvp="true" />'
-                            .'<ns1:e a="a" t="t" p="p" />'
-                            .'<ns1:tz id="id" stdoff="10" dayoff="10" stdname="stdname" dayname="dayname">'
-                                .'<ns1:standard mon="12" hour="2" min="3" sec="4" />'
-                                .'<ns1:daylight mon="4" hour="3" min="2" sec="10" />'
-                            .'</ns1:tz>'
-                            .'<ns1:fr>fr</ns1:fr>'
-                        .'</ns1:m>'
-                    .'</ns1:DeclineCounterAppointmentRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
         $api = new LocalMailHttp(null);
         $api->declineCounterAppointment(
@@ -2265,30 +1288,6 @@ class ApiTest extends ZimbraTestCase
         $cal = new \Zimbra\Mail\Struct\CalDataSourceNameOrId('name', 'id');
         $unknown = new \Zimbra\Mail\Struct\UnknownDataSourceNameOrId('name', 'id');
 
-        $api = new LocalMailWsdl(__DIR__.'/../TestData/ZimbraUserService.wsdl');
-        $api->deleteDataSource(
-            $imap, $pop3, $caldav, $yab, $rss, $gal, $cal, $unknown
-        );
-
-        $client = $api->client();
-        $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraMail">'
-                .'<env:Body>'
-                    .'<ns1:DeleteDataSourceRequest>'
-                        .'<ns1:imap name="name" id="id" />'
-                        .'<ns1:pop3 name="name" id="id" />'
-                        .'<ns1:caldav name="name" id="id" />'
-                        .'<ns1:yab name="name" id="id" />'
-                        .'<ns1:rss name="name" id="id" />'
-                        .'<ns1:gal name="name" id="id" />'
-                        .'<ns1:cal name="name" id="id" />'
-                        .'<ns1:unknown name="name" id="id" />'
-                    .'</ns1:DeleteDataSourceRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
-
         $api = new LocalMailHttp(null);
         $api->deleteDataSource(
             $imap, $pop3, $caldav, $yab, $rss, $gal, $cal, $unknown
@@ -2318,23 +1317,6 @@ class ApiTest extends ZimbraTestCase
     {
         $device = new \Zimbra\Struct\Id('id');
 
-        $api = new LocalMailWsdl(__DIR__.'/../TestData/ZimbraUserService.wsdl');
-        $api->deleteDevice(
-            $device
-        );
-
-        $client = $api->client();
-        $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraMail">'
-                .'<env:Body>'
-                    .'<ns1:DeleteDeviceRequest>'
-                        .'<ns1:device id="id" />'
-                    .'</ns1:DeleteDeviceRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
-
         $api = new LocalMailHttp(null);
         $api->deleteDevice(
             $device
@@ -2355,21 +1337,6 @@ class ApiTest extends ZimbraTestCase
 
     public function testDestroyWaitSet()
     {
-        $api = new LocalMailWsdl(__DIR__.'/../TestData/ZimbraUserService.wsdl');
-        $api->destroyWaitSet(
-            'waitSet'
-        );
-
-        $client = $api->client();
-        $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraMail">'
-                .'<env:Body>'
-                    .'<ns1:DestroyWaitSetRequest waitSet="waitSet" />'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
-
         $api = new LocalMailHttp(null);
         $api->destroyWaitSet(
             'waitSet'
@@ -2389,23 +1356,6 @@ class ApiTest extends ZimbraTestCase
     public function testDiffDocument()
     {
         $doc = new \Zimbra\Mail\Struct\DiffDocumentVersionSpec('id', 3, 2);
-
-        $api = new LocalMailWsdl(__DIR__.'/../TestData/ZimbraUserService.wsdl');
-        $api->diffDocument(
-            $doc
-        );
-
-        $client = $api->client();
-        $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraMail">'
-                .'<env:Body>'
-                    .'<ns1:DiffDocumentRequest>'
-                        .'<ns1:doc id="id" v1="3" v2="2" />'
-                    .'</ns1:DiffDocumentRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
         $api = new LocalMailHttp(null);
         $api->diffDocument(
@@ -2429,24 +1379,6 @@ class ApiTest extends ZimbraTestCase
     {
         $appt = new \Zimbra\Mail\Struct\DismissAppointmentAlarm('id', 10);
         $task = new \Zimbra\Mail\Struct\DismissTaskAlarm('id', 10);
-
-        $api = new LocalMailWsdl(__DIR__.'/../TestData/ZimbraUserService.wsdl');
-        $api->dismissCalendarItemAlarm(
-            $appt, $task
-        );
-
-        $client = $api->client();
-        $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraMail">'
-                .'<env:Body>'
-                    .'<ns1:DismissCalendarItemAlarmRequest>'
-                        .'<ns1:appt id="id" dismissedAt="10" />'
-                        .'<ns1:task id="id" dismissedAt="10" />'
-                    .'</ns1:DismissCalendarItemAlarmRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
         $api = new LocalMailHttp(null);
         $api->dismissCalendarItemAlarm(
@@ -2476,25 +1408,6 @@ class ApiTest extends ZimbraTestCase
             DocumentActionOp::WATCH(), $grant, 'zid', 'id', 'tcon', 10, 'l', '#aabbcc', 10, 'name', 'f', 't', 'tn'
         );
 
-        $api = new LocalMailWsdl(__DIR__.'/../TestData/ZimbraUserService.wsdl');
-        $api->documentAction(
-            $action
-        );
-
-        $client = $api->client();
-        $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraMail">'
-                .'<env:Body>'
-                    .'<ns1:DocumentActionRequest>'
-                        .'<ns1:action op="watch" id="id" tcon="tcon" tag="10" l="l" rgb="#aabbcc" color="10" name="name" f="f" t="t" tn="tn" zid="zid">'
-                            .'<ns1:grant perm="r" gt="all" expiry="10" />'
-                        .'</ns1:action>'
-                    .'</ns1:DocumentActionRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
-
         $api = new LocalMailHttp(null);
         $api->documentAction(
             $action
@@ -2517,19 +1430,6 @@ class ApiTest extends ZimbraTestCase
 
     public function testEmptyDumpster()
     {
-        $api = new LocalMailWsdl(__DIR__.'/../TestData/ZimbraUserService.wsdl');
-        $api->emptyDumpster();
-
-        $client = $api->client();
-        $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraMail">'
-                .'<env:Body>'
-                    .'<ns1:EmptyDumpsterRequest />'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
-
         $api = new LocalMailHttp(null);
         $api->emptyDumpster();
 
@@ -2549,23 +1449,6 @@ class ApiTest extends ZimbraTestCase
         $link = new \Zimbra\Mail\Struct\SharedReminderMount(
             'id', true
         );
-
-        $api = new LocalMailWsdl(__DIR__.'/../TestData/ZimbraUserService.wsdl');
-        $api->enableSharedReminder(
-           $link
-        );
-
-        $client = $api->client();
-        $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraMail">'
-                .'<env:Body>'
-                    .'<ns1:EnableSharedReminderRequest>'
-                        .'<ns1:link id="id" reminder="true" />'
-                    .'</ns1:EnableSharedReminderRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
         $api = new LocalMailHttp(null);
         $api->enableSharedReminder(
@@ -2607,41 +1490,6 @@ class ApiTest extends ZimbraTestCase
             10, 'id', 'name'
         );
 
-        $api = new LocalMailWsdl(__DIR__.'/../TestData/ZimbraUserService.wsdl');
-        $api->expandRecur(
-           10, 10, array($tz), $comp, $except, $cancel
-        );
-
-        $client = $api->client();
-        $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraMail">'
-                .'<env:Body>'
-                    .'<ns1:ExpandRecurRequest s="10" e="10">'
-                        .'<ns1:tz id="id" stdoff="10" dayoff="10" stdname="stdname" dayname="dayname">'
-                            .'<ns1:standard mon="12" hour="2" min="3" sec="4" />'
-                            .'<ns1:daylight mon="4" hour="3" min="2" sec="10" />'
-                        .'</ns1:tz>'
-                        .'<ns1:comp s="10" e="10">'
-                            .'<ns1:exceptId range="range" d="20130315T18302305Z" tz="tz" />'
-                            .'<ns1:dur neg="true" w="7" d="2" h="3" m="4" s="5" related="START" count="6" />'
-                            .'<ns1:recur />'
-                        .'</ns1:comp>'
-                        .'<ns1:except s="10" e="10">'
-                            .'<ns1:exceptId range="range" d="20130315T18302305Z" tz="tz" />'
-                            .'<ns1:dur neg="true" w="7" d="2" h="3" m="4" s="5" related="START" count="6" />'
-                            .'<ns1:recur />'
-                        .'</ns1:except>'
-                        .'<ns1:cancel s="10" e="10">'
-                            .'<ns1:exceptId range="range" d="20130315T18302305Z" tz="tz" />'
-                            .'<ns1:dur neg="true" w="7" d="2" h="3" m="4" s="5" related="START" count="6" />'
-                            .'<ns1:recur />'
-                        .'</ns1:cancel>'
-                    .'</ns1:ExpandRecurRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
-
         $api = new LocalMailHttp(null);
         $api->expandRecur(
            10, 10, array($tz), $comp, $except, $cancel
@@ -2680,21 +1528,6 @@ class ApiTest extends ZimbraTestCase
 
     public function testExportContacts()
     {
-        $api = new LocalMailWsdl(__DIR__.'/../TestData/ZimbraUserService.wsdl');
-        $api->exportContacts(
-            'ct', 'l', 'csvfmt', 'csvlocale', 'csvsep'
-        );
-
-        $client = $api->client();
-        $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraMail">'
-                .'<env:Body>'
-                    .'<ns1:ExportContactsRequest ct="ct" l="l" csvfmt="csvfmt" csvlocale="csvlocale" csvsep="csvsep" />'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
-
         $api = new LocalMailHttp(null);
         $api->exportContacts(
             'ct', 'l', 'csvfmt', 'csvlocale', 'csvsep'
@@ -2754,36 +1587,6 @@ class ApiTest extends ZimbraTestCase
             'view'
         );
 
-        $api = new LocalMailWsdl(__DIR__.'/../TestData/ZimbraUserService.wsdl');
-        $api->folderAction(
-            $action
-        );
-
-        $client = $api->client();
-        $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraMail">'
-                .'<env:Body>'
-                    .'<ns1:FolderActionRequest>'
-                        .'<ns1:action op="read" id="id" tcon="tcon" tag="10" l="l" rgb="#aabbcc" color="10" name="name" f="f" t="t" tn="tn" recursive="true" url="url" excludeFreeBusy="true" zid="zid" gt="gt" view="view">'
-                            .'<ns1:grant perm="perm" gt="usr" zid="zid" d="d" args="args" pw="pw" key="key" />'
-                            .'<ns1:acl>'
-                                .'<ns1:grant perm="perm" gt="usr" zid="zid" d="d" args="args" pw="pw" key="key" />'
-                            .'</ns1:acl>'
-                            .'<ns1:retentionPolicy>'
-                                .'<ns1:keep>'
-                                    .'<ns1:policy type="system" id="id" name="name" lifetime="lifetime" />'
-                                .'</ns1:keep>'
-                                .'<ns1:purge>'
-                                    .'<ns1:policy type="user" id="id" name="name" lifetime="lifetime" />'
-                                .'</ns1:purge>'
-                            .'</ns1:retentionPolicy>'
-                        .'</ns1:action>'
-                    .'</ns1:FolderActionRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
-
         $api = new LocalMailHttp(null);
         $api->folderAction(
             $action
@@ -2822,53 +1625,6 @@ class ApiTest extends ZimbraTestCase
         );
         $tz = $this->getTz();
         $m = $this->getMsg();
-
-        $api = new LocalMailWsdl(__DIR__.'/../TestData/ZimbraUserService.wsdl');
-        $api->forwardAppointment(
-            $exceptId, $tz, $m, 'id'
-        );
-
-        $client = $api->client();
-        $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraMail">'
-                .'<env:Body>'
-                    .'<ns1:ForwardAppointmentRequest id="id">'
-                        .'<ns1:exceptId d="20120315T18302305Z" tz="tz" u="1000" />'
-                        .'<ns1:tz id="id" stdoff="10" dayoff="10" stdname="stdname" dayname="dayname">'
-                            .'<ns1:standard mon="12" hour="2" min="3" sec="4" />'
-                            .'<ns1:daylight mon="4" hour="3" min="2" sec="10" />'
-                        .'</ns1:tz>'
-                        .'<ns1:m aid="aid" origid="origid" rt="rt" idnt="idnt" su="su" irt="irt" l="l" f="f">'
-                            .'<ns1:content>content</ns1:content>'
-                            .'<ns1:header name="name">value</ns1:header>'
-                            .'<ns1:mp ct="ct" content="content" ci="ci">'
-                                .'<ns1:mp ct="ct" content="content" ci="ci" />'
-                                .'<ns1:attach aid="aid">'
-                                    .'<ns1:mp optional="true" mid="mid" part="part" />'
-                                    .'<ns1:m optional="false" id="id" />'
-                                    .'<ns1:cn optional="false" id="id" />'
-                                    .'<ns1:doc optional="true" path="path" id="id" ver="10" />'
-                                .'</ns1:attach>'
-                            .'</ns1:mp>'
-                            .'<ns1:attach aid="aid">'
-                                .'<ns1:mp optional="true" mid="mid" part="part" />'
-                                .'<ns1:m optional="false" id="id" />'
-                                .'<ns1:cn optional="false" id="id" />'
-                                .'<ns1:doc optional="true" path="path" id="id" ver="10" />'
-                            .'</ns1:attach>'
-                            .'<ns1:inv method="method" compNum="10" rsvp="true" />'
-                            .'<ns1:e a="a" t="t" p="p" />'
-                            .'<ns1:tz id="id" stdoff="10" dayoff="10" stdname="stdname" dayname="dayname">'
-                                .'<ns1:standard mon="12" hour="2" min="3" sec="4" />'
-                                .'<ns1:daylight mon="4" hour="3" min="2" sec="10" />'
-                            .'</ns1:tz>'
-                            .'<ns1:fr>fr</ns1:fr>'
-                        .'</ns1:m>'
-                    .'</ns1:ForwardAppointmentRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
         $api = new LocalMailHttp(null);
         $api->forwardAppointment(
@@ -2922,48 +1678,6 @@ class ApiTest extends ZimbraTestCase
     {
         $m = $this->getMsg();
 
-        $api = new LocalMailWsdl(__DIR__.'/../TestData/ZimbraUserService.wsdl');
-        $api->forwardAppointmentInvite(
-            $m, 'id'
-        );
-
-        $client = $api->client();
-        $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraMail">'
-                .'<env:Body>'
-                    .'<ns1:ForwardAppointmentInviteRequest id="id">'
-                        .'<ns1:m aid="aid" origid="origid" rt="rt" idnt="idnt" su="su" irt="irt" l="l" f="f">'
-                            .'<ns1:content>content</ns1:content>'
-                            .'<ns1:header name="name">value</ns1:header>'
-                            .'<ns1:mp ct="ct" content="content" ci="ci">'
-                                .'<ns1:mp ct="ct" content="content" ci="ci" />'
-                                .'<ns1:attach aid="aid">'
-                                    .'<ns1:mp optional="true" mid="mid" part="part" />'
-                                    .'<ns1:m optional="false" id="id" />'
-                                    .'<ns1:cn optional="false" id="id" />'
-                                    .'<ns1:doc optional="true" path="path" id="id" ver="10" />'
-                                .'</ns1:attach>'
-                            .'</ns1:mp>'
-                            .'<ns1:attach aid="aid">'
-                                .'<ns1:mp optional="true" mid="mid" part="part" />'
-                                .'<ns1:m optional="false" id="id" />'
-                                .'<ns1:cn optional="false" id="id" />'
-                                .'<ns1:doc optional="true" path="path" id="id" ver="10" />'
-                            .'</ns1:attach>'
-                            .'<ns1:inv method="method" compNum="10" rsvp="true" />'
-                            .'<ns1:e a="a" t="t" p="p" />'
-                            .'<ns1:tz id="id" stdoff="10" dayoff="10" stdname="stdname" dayname="dayname">'
-                                .'<ns1:standard mon="12" hour="2" min="3" sec="4" />'
-                                .'<ns1:daylight mon="4" hour="3" min="2" sec="10" />'
-                            .'</ns1:tz>'
-                            .'<ns1:fr>fr</ns1:fr>'
-                        .'</ns1:m>'
-                    .'</ns1:ForwardAppointmentInviteRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
-
         $api = new LocalMailHttp(null);
         $api->forwardAppointmentInvite(
             $m, 'id'
@@ -3009,19 +1723,6 @@ class ApiTest extends ZimbraTestCase
 
     public function testGenerateUUID()
     {
-        $api = new LocalMailWsdl(__DIR__.'/../TestData/ZimbraUserService.wsdl');
-        $api->generateUUID();
-
-        $client = $api->client();
-        $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraMail">'
-                .'<env:Body>'
-                    .'<ns1:GenerateUUIDRequest />'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
-
         $api = new LocalMailHttp(null);
         $api->generateUUID();
 
@@ -3042,21 +1743,6 @@ class ApiTest extends ZimbraTestCase
             'account', 'op', 'session'
         );
 
-        $api = new LocalMailWsdl(__DIR__.'/../TestData/ZimbraUserService.wsdl');
-        $api->getActivityStream('id', $filter, 10, 10);
-
-        $client = $api->client();
-        $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraMail">'
-                .'<env:Body>'
-                    .'<ns1:GetActivityStreamRequest id="id" offset="10" limit="10">'
-                        .'<ns1:filter account="account" op="op" session="session" />'
-                    .'</ns1:GetActivityStreamRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
-
         $api = new LocalMailHttp(null);
         $api->getActivityStream('id', $filter, 10, 10);
 
@@ -3075,19 +1761,6 @@ class ApiTest extends ZimbraTestCase
 
     public function testGetAllDevices()
     {
-        $api = new LocalMailWsdl(__DIR__.'/../TestData/ZimbraUserService.wsdl');
-        $api->getAllDevices();
-
-        $client = $api->client();
-        $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraMail">'
-                .'<env:Body>'
-                    .'<ns1:GetAllDevicesRequest />'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
-
         $api = new LocalMailHttp(null);
         $api->getAllDevices();
 
@@ -3104,19 +1777,6 @@ class ApiTest extends ZimbraTestCase
 
     public function testGetAppointment()
     {
-        $api = new LocalMailWsdl(__DIR__.'/../TestData/ZimbraUserService.wsdl');
-        $api->getAppointment(true, true, 'uid', 'id');
-
-        $client = $api->client();
-        $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraMail">'
-                .'<env:Body>'
-                    .'<ns1:GetAppointmentRequest sync="true" includeContent="true" uid="uid" id="id" />'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
-
         $api = new LocalMailHttp(null);
         $api->getAppointment(true, true, 'uid', 'id');
 
@@ -3133,19 +1793,6 @@ class ApiTest extends ZimbraTestCase
 
     public function testGetApptSummaries()
     {
-        $api = new LocalMailWsdl(__DIR__.'/../TestData/ZimbraUserService.wsdl');
-        $api->getApptSummaries(10, 10, 'folder-id');
-
-        $client = $api->client();
-        $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraMail">'
-                .'<env:Body>'
-                    .'<ns1:GetApptSummariesRequest s="10" e="10" l="folder-id" />'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
-
         $api = new LocalMailHttp(null);
         $api->getApptSummaries(10, 10, 'folder-id');
 
@@ -3162,19 +1809,6 @@ class ApiTest extends ZimbraTestCase
 
     public function testGetCalendarItemSummaries()
     {
-        $api = new LocalMailWsdl(__DIR__.'/../TestData/ZimbraUserService.wsdl');
-        $api->getCalendarItemSummaries(10, 10, 'folder-id');
-
-        $client = $api->client();
-        $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraMail">'
-                .'<env:Body>'
-                    .'<ns1:GetCalendarItemSummariesRequest s="10" e="10" l="folder-id" />'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
-
         $api = new LocalMailHttp(null);
         $api->getCalendarItemSummaries(10, 10, 'folder-id');
 
@@ -3194,23 +1828,6 @@ class ApiTest extends ZimbraTestCase
         $comment = new \Zimbra\Mail\Struct\ParentId(
             'parentId'
         );
-
-        $api = new LocalMailWsdl(__DIR__.'/../TestData/ZimbraUserService.wsdl');
-        $api->getComments(
-            $comment
-        );
-
-        $client = $api->client();
-        $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraMail">'
-                .'<env:Body>'
-                    .'<ns1:GetCommentsRequest>'
-                        .'<ns1:comment parentId="parentId" />'
-                    .'</ns1:GetCommentsRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
         $api = new LocalMailHttp(null);
         $api->getComments(
@@ -3235,25 +1852,6 @@ class ApiTest extends ZimbraTestCase
         $a = new \Zimbra\Struct\AttributeName('attribute-name');
         $ma = new \Zimbra\Struct\AttributeName('attribute-name');
         $cn = new \Zimbra\Struct\Id('id');
-
-        $api = new LocalMailWsdl(__DIR__.'/../TestData/ZimbraUserService.wsdl');
-        $api->getContacts(
-            array($a), array($ma), array($cn), true, 'folder-id', 'sort-by', true, true, 10
-        );
-
-        $client = $api->client();
-        $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraMail">'
-                .'<env:Body>'
-                    .'<ns1:GetContactsRequest sync="true" l="folder-id" sortBy="sort-by" derefGroupMember="true" returnHiddenAttrs="true" maxMembers="10">'
-                        .'<ns1:a n="attribute-name" />'
-                        .'<ns1:ma n="attribute-name" />'
-                        .'<ns1:cn id="id" />'
-                    .'</ns1:GetContactsRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
         $api = new LocalMailHttp(null);
         $api->getContacts(
@@ -3282,25 +1880,6 @@ class ApiTest extends ZimbraTestCase
             'id', array($header), 'fetch', true, 10
         );
 
-        $api = new LocalMailWsdl(__DIR__.'/../TestData/ZimbraUserService.wsdl');
-        $api->getConv(
-            $c
-        );
-
-        $client = $api->client();
-        $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraMail">'
-                .'<env:Body>'
-                    .'<ns1:GetConvRequest>'
-                        .'<ns1:c id="id" fetch="fetch" html="true" max="10">'
-                            .'<ns1:header n="attribute-name" />'
-                        .'</ns1:c>'
-                    .'</ns1:GetConvRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
-
         $api = new LocalMailHttp(null);
         $api->getConv(
             $c
@@ -3325,23 +1904,6 @@ class ApiTest extends ZimbraTestCase
     {
         $meta = new \Zimbra\Mail\Struct\SectionAttr('section');
 
-        $api = new LocalMailWsdl(__DIR__.'/../TestData/ZimbraUserService.wsdl');
-        $api->getCustomMetadata(
-            'id', $meta
-        );
-
-        $client = $api->client();
-        $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraMail">'
-                .'<env:Body>'
-                    .'<ns1:GetCustomMetadataRequest id="id">'
-                        .'<ns1:meta section="section" />'
-                    .'</ns1:GetCustomMetadataRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
-
         $api = new LocalMailHttp(null);
         $api->getCustomMetadata(
             'id', $meta
@@ -3362,19 +1924,6 @@ class ApiTest extends ZimbraTestCase
 
     public function testGetDataSources()
     {
-        $api = new LocalMailWsdl(__DIR__.'/../TestData/ZimbraUserService.wsdl');
-        $api->getDataSources();
-
-        $client = $api->client();
-        $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraMail">'
-                .'<env:Body>'
-                    .'<ns1:GetDataSourcesRequest />'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
-
         $api = new LocalMailHttp(null);
         $api->getDataSources();
 
@@ -3394,23 +1943,6 @@ class ApiTest extends ZimbraTestCase
         $item = new \Zimbra\Mail\Struct\ItemSpec(
             'id', 'l', 'name', 'path'
         );
-
-        $api = new LocalMailWsdl(__DIR__.'/../TestData/ZimbraUserService.wsdl');
-        $api->getDocumentShareURL(
-            $item
-        );
-
-        $client = $api->client();
-        $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraMail">'
-                .'<env:Body>'
-                    .'<ns1:GetDocumentShareURLRequest>'
-                        .'<ns1:item id="id" l="l" name="name" path="path" />'
-                    .'</ns1:GetDocumentShareURLRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
         $api = new LocalMailHttp(null);
         $api->getDocumentShareURL(
@@ -3436,23 +1968,6 @@ class ApiTest extends ZimbraTestCase
             'l'
         );
 
-        $api = new LocalMailWsdl(__DIR__.'/../TestData/ZimbraUserService.wsdl');
-        $api->getEffectiveFolderPerms(
-            $folder
-        );
-
-        $client = $api->client();
-        $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraMail">'
-                .'<env:Body>'
-                    .'<ns1:GetEffectiveFolderPermsRequest>'
-                        .'<ns1:folder l="l" />'
-                    .'</ns1:GetEffectiveFolderPermsRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
-
         $api = new LocalMailHttp(null);
         $api->getEffectiveFolderPerms(
             $folder
@@ -3473,19 +1988,6 @@ class ApiTest extends ZimbraTestCase
 
     public function testGetFilterRules()
     {
-        $api = new LocalMailWsdl(__DIR__.'/../TestData/ZimbraUserService.wsdl');
-        $api->getFilterRules();
-
-        $client = $api->client();
-        $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraMail">'
-                .'<env:Body>'
-                    .'<ns1:GetFilterRulesRequest />'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
-
         $api = new LocalMailHttp(null);
         $api->getFilterRules();
 
@@ -3505,23 +2007,6 @@ class ApiTest extends ZimbraTestCase
         $folder = new \Zimbra\Mail\Struct\GetFolderSpec(
             'uuid', 'l', 'path'
         );
-
-        $api = new LocalMailWsdl(__DIR__.'/../TestData/ZimbraUserService.wsdl');
-        $api->getFolder(
-            $folder, true, true, 'view', 10, true
-        );
-
-        $client = $api->client();
-        $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraMail">'
-                .'<env:Body>'
-                    .'<ns1:GetFolderRequest visible="true" needGranteeName="true" view="view" depth="10" tr="true">'
-                        .'<ns1:folder uuid="uuid" l="l" path="path" />'
-                    .'</ns1:GetFolderRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
         $api = new LocalMailHttp(null);
         $api->getFolder(
@@ -3547,23 +2032,6 @@ class ApiTest extends ZimbraTestCase
             10, 'id', 'name'
         );
 
-        $api = new LocalMailWsdl(__DIR__.'/../TestData/ZimbraUserService.wsdl');
-        $api->getFreeBusy(
-            10, 10, 'uid', 'id', 'name', 'excludeUid', array($usr)
-        );
-
-        $client = $api->client();
-        $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraMail">'
-                .'<env:Body>'
-                    .'<ns1:GetFreeBusyRequest s="10" e="10" uid="uid" id="id" name="name" excludeUid="excludeUid">'
-                        .'<ns1:usr l="10" id="id" name="name" />'
-                    .'</ns1:GetFreeBusyRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
-
         $api = new LocalMailHttp(null);
         $api->getFreeBusy(
             10, 10, 'uid', 'id', 'name', 'excludeUid', array($usr)
@@ -3584,21 +2052,6 @@ class ApiTest extends ZimbraTestCase
 
     public function testGetICal()
     {
-        $api = new LocalMailWsdl(__DIR__.'/../TestData/ZimbraUserService.wsdl');
-        $api->getICal(
-            'id', 10, 10
-        );
-
-        $client = $api->client();
-        $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraMail">'
-                .'<env:Body>'
-                    .'<ns1:GetICalRequest id="id" s="10" e="10" />'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
-
         $api = new LocalMailHttp(null);
         $api->getICal(
             'id', 10, 10
@@ -3617,19 +2070,6 @@ class ApiTest extends ZimbraTestCase
 
     public function testGetImportStatus()
     {
-        $api = new LocalMailWsdl(__DIR__.'/../TestData/ZimbraUserService.wsdl');
-        $api->getImportStatus();
-
-        $client = $api->client();
-        $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraMail">'
-                .'<env:Body>'
-                    .'<ns1:GetImportStatusRequest />'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
-
         $api = new LocalMailHttp(null);
         $api->getImportStatus();
 
@@ -3649,23 +2089,6 @@ class ApiTest extends ZimbraTestCase
         $item = new \Zimbra\Mail\Struct\ItemSpec(
             'id', 'l', 'name', 'path'
         );
-
-        $api = new LocalMailWsdl(__DIR__.'/../TestData/ZimbraUserService.wsdl');
-        $api->getItem(
-            $item
-        );
-
-        $client = $api->client();
-        $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraMail">'
-                .'<env:Body>'
-                    .'<ns1:GetItemRequest>'
-                        .'<ns1:item id="id" l="l" name="name" path="path" />'
-                    .'</ns1:GetItemRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
         $api = new LocalMailHttp(null);
         $api->getItem(
@@ -3689,23 +2112,6 @@ class ApiTest extends ZimbraTestCase
     {
         $meta = new \Zimbra\Mail\Struct\SectionAttr('section');
 
-        $api = new LocalMailWsdl(__DIR__.'/../TestData/ZimbraUserService.wsdl');
-        $api->getMailboxMetadata(
-            $meta
-        );
-
-        $client = $api->client();
-        $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraMail">'
-                .'<env:Body>'
-                    .'<ns1:GetMailboxMetadataRequest>'
-                        .'<ns1:meta section="section" />'
-                    .'</ns1:GetMailboxMetadataRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
-
         $api = new LocalMailHttp(null);
         $api->getMailboxMetadata(
             $meta
@@ -3728,27 +2134,6 @@ class ApiTest extends ZimbraTestCase
     {
         $tz = $this->getTz();
         $folder = new \Zimbra\Struct\Id('id');
-
-        $api = new LocalMailWsdl(__DIR__.'/../TestData/ZimbraUserService.wsdl');
-        $api->getMiniCal(
-            10, 10, array($folder), $tz
-        );
-
-        $client = $api->client();
-        $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraMail">'
-                .'<env:Body>'
-                    .'<ns1:GetMiniCalRequest s="10" e="10">'
-                        .'<ns1:folder id="id" />'
-                        .'<ns1:tz id="id" stdoff="10" dayoff="10" stdname="stdname" dayname="dayname">'
-                            .'<ns1:standard mon="12" hour="2" min="3" sec="4" />'
-                            .'<ns1:daylight mon="4" hour="3" min="2" sec="10" />'
-                        .'</ns1:tz>'
-                    .'</ns1:GetMiniCalRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
         $api = new LocalMailHttp(null);
         $api->getMiniCal(
@@ -3779,25 +2164,6 @@ class ApiTest extends ZimbraTestCase
             'id', array($header), 'part', true, true, 10, true, true, 'ridZ', true
         );
 
-        $api = new LocalMailWsdl(__DIR__.'/../TestData/ZimbraUserService.wsdl');
-        $api->getMsg(
-            $m
-        );
-
-        $client = $api->client();
-        $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraMail">'
-                .'<env:Body>'
-                    .'<ns1:GetMsgRequest>'
-                        .'<ns1:m id="id" part="part" raw="true" read="true" max="10" html="true" neuter="true" ridZ="ridZ" needExp="true">'
-                            .'<ns1:header n="attribute-name" />'
-                        .'</ns1:m>'
-                    .'</ns1:GetMsgRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
-
         $api = new LocalMailHttp(null);
         $api->getMsg(
             $m
@@ -3824,23 +2190,6 @@ class ApiTest extends ZimbraTestCase
             'ids'
         );
 
-        $api = new LocalMailWsdl(__DIR__.'/../TestData/ZimbraUserService.wsdl');
-        $api->getMsgMetadata(
-            $m
-        );
-
-        $client = $api->client();
-        $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraMail">'
-                .'<env:Body>'
-                    .'<ns1:GetMsgMetadataRequest>'
-                        .'<ns1:m ids="ids" />'
-                    .'</ns1:GetMsgMetadataRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
-
         $api = new LocalMailHttp(null);
         $api->getMsgMetadata(
             $m
@@ -3863,23 +2212,6 @@ class ApiTest extends ZimbraTestCase
     {
         $note = new \Zimbra\Struct\Id('id');
 
-        $api = new LocalMailWsdl(__DIR__.'/../TestData/ZimbraUserService.wsdl');
-        $api->getNote(
-            $note
-        );
-
-        $client = $api->client();
-        $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraMail">'
-                .'<env:Body>'
-                    .'<ns1:GetNoteRequest>'
-                        .'<ns1:note id="id" />'
-                    .'</ns1:GetNoteRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
-
         $api = new LocalMailHttp(null);
         $api->getNote(
             $note
@@ -3900,21 +2232,6 @@ class ApiTest extends ZimbraTestCase
 
     public function testGetNotifications()
     {
-        $api = new LocalMailWsdl(__DIR__.'/../TestData/ZimbraUserService.wsdl');
-        $api->getNotifications(
-            true
-        );
-
-        $client = $api->client();
-        $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraMail">'
-                .'<env:Body>'
-                    .'<ns1:GetNotificationsRequest markSeen="true" />'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
-
         $api = new LocalMailHttp(null);
         $api->getNotifications(
             true
@@ -3933,19 +2250,6 @@ class ApiTest extends ZimbraTestCase
 
     public function testGetOutgoingFilterRules()
     {
-        $api = new LocalMailWsdl(__DIR__.'/../TestData/ZimbraUserService.wsdl');
-        $api->getOutgoingFilterRules();
-
-        $client = $api->client();
-        $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraMail">'
-                .'<env:Body>'
-                    .'<ns1:GetOutgoingFilterRulesRequest />'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
-
         $api = new LocalMailHttp(null);
         $api->getOutgoingFilterRules();
 
@@ -3963,23 +2267,6 @@ class ApiTest extends ZimbraTestCase
     public function testGetPermission()
     {
         $ace = new \Zimbra\Mail\Struct\Right('right');
-
-        $api = new LocalMailWsdl(__DIR__.'/../TestData/ZimbraUserService.wsdl');
-        $api->getPermission(
-            array($ace)
-        );
-
-        $client = $api->client();
-        $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraMail">'
-                .'<env:Body>'
-                    .'<ns1:GetPermissionRequest>'
-                        .'<ns1:ace right="right" />'
-                    .'</ns1:GetPermissionRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
         $api = new LocalMailHttp(null);
         $api->getPermission(
@@ -4001,21 +2288,6 @@ class ApiTest extends ZimbraTestCase
 
     public function testGetRecur()
     {
-        $api = new LocalMailWsdl(__DIR__.'/../TestData/ZimbraUserService.wsdl');
-        $api->getRecur(
-            'id'
-        );
-
-        $client = $api->client();
-        $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraMail">'
-                .'<env:Body>'
-                    .'<ns1:GetRecurRequest id="id" />'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
-
         $api = new LocalMailHttp(null);
         $api->getRecur(
             'id'
@@ -4034,19 +2306,6 @@ class ApiTest extends ZimbraTestCase
 
     public function testGetSearchFolder()
     {
-        $api = new LocalMailWsdl(__DIR__.'/../TestData/ZimbraUserService.wsdl');
-        $api->getSearchFolder();
-
-        $client = $api->client();
-        $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraMail">'
-                .'<env:Body>'
-                    .'<ns1:GetSearchFolderRequest />'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
-
         $api = new LocalMailHttp(null);
         $api->getSearchFolder();
 
@@ -4064,23 +2323,6 @@ class ApiTest extends ZimbraTestCase
     public function testGetShareDetails()
     {
         $item = new \Zimbra\Struct\Id('id');
-
-        $api = new LocalMailWsdl(__DIR__.'/../TestData/ZimbraUserService.wsdl');
-        $api->getShareDetails(
-            $item
-        );
-
-        $client = $api->client();
-        $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraMail">'
-                .'<env:Body>'
-                    .'<ns1:GetShareDetailsRequest>'
-                        .'<ns1:item id="id" />'
-                    .'</ns1:GetShareDetailsRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
         $api = new LocalMailHttp(null);
         $api->getShareDetails(
@@ -4102,19 +2344,6 @@ class ApiTest extends ZimbraTestCase
 
     public function testGetShareNotifications()
     {
-        $api = new LocalMailWsdl(__DIR__.'/../TestData/ZimbraUserService.wsdl');
-        $api->getShareNotifications();
-
-        $client = $api->client();
-        $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraMail">'
-                .'<env:Body>'
-                    .'<ns1:GetShareNotificationsRequest />'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
-
         $api = new LocalMailHttp(null);
         $api->getShareNotifications();
 
@@ -4131,19 +2360,6 @@ class ApiTest extends ZimbraTestCase
 
     public function testGetSpellDictionaries()
     {
-        $api = new LocalMailWsdl(__DIR__.'/../TestData/ZimbraUserService.wsdl');
-        $api->getSpellDictionaries();
-
-        $client = $api->client();
-        $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraMail">'
-                .'<env:Body>'
-                    .'<ns1:GetSpellDictionariesRequest />'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
-
         $api = new LocalMailHttp(null);
         $api->getSpellDictionaries();
 
@@ -4160,19 +2376,6 @@ class ApiTest extends ZimbraTestCase
 
     public function testGetSystemRetentionPolicy()
     {
-        $api = new LocalMailWsdl(__DIR__.'/../TestData/ZimbraUserService.wsdl');
-        $api->getSystemRetentionPolicy();
-
-        $client = $api->client();
-        $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraMail">'
-                .'<env:Body>'
-                    .'<ns1:GetSystemRetentionPolicyRequest />'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
-
         $api = new LocalMailHttp(null);
         $api->getSystemRetentionPolicy();
 
@@ -4189,19 +2392,6 @@ class ApiTest extends ZimbraTestCase
 
     public function testGetTag()
     {
-        $api = new LocalMailWsdl(__DIR__.'/../TestData/ZimbraUserService.wsdl');
-        $api->getTag();
-
-        $client = $api->client();
-        $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraMail">'
-                .'<env:Body>'
-                    .'<ns1:GetTagRequest />'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
-
         $api = new LocalMailHttp(null);
         $api->getTag();
 
@@ -4218,19 +2408,6 @@ class ApiTest extends ZimbraTestCase
 
     public function testGetTask()
     {
-        $api = new LocalMailWsdl(__DIR__.'/../TestData/ZimbraUserService.wsdl');
-        $api->getTask(true, true, 'uid', 'id');
-
-        $client = $api->client();
-        $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraMail">'
-                .'<env:Body>'
-                    .'<ns1:GetTaskRequest sync="true" includeContent="true" uid="uid" id="id" />'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
-
         $api = new LocalMailHttp(null);
         $api->getTask(true, true, 'uid', 'id');
 
@@ -4247,19 +2424,6 @@ class ApiTest extends ZimbraTestCase
 
     public function testGetTaskSummaries()
     {
-        $api = new LocalMailWsdl(__DIR__.'/../TestData/ZimbraUserService.wsdl');
-        $api->getTaskSummaries(10, 10, 'l');
-
-        $client = $api->client();
-        $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraMail">'
-                .'<env:Body>'
-                    .'<ns1:GetTaskSummariesRequest s="10" e="10" l="l" />'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
-
         $api = new LocalMailHttp(null);
         $api->getTaskSummaries(10, 10, 'l');
 
@@ -4276,19 +2440,6 @@ class ApiTest extends ZimbraTestCase
 
     public function testGetWatchers()
     {
-        $api = new LocalMailWsdl(__DIR__.'/../TestData/ZimbraUserService.wsdl');
-        $api->getWatchers();
-
-        $client = $api->client();
-        $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraMail">'
-                .'<env:Body>'
-                    .'<ns1:GetWatchersRequest />'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
-
         $api = new LocalMailHttp(null);
         $api->getWatchers();
 
@@ -4305,19 +2456,6 @@ class ApiTest extends ZimbraTestCase
 
     public function testGetWatchingItems()
     {
-        $api = new LocalMailWsdl(__DIR__.'/../TestData/ZimbraUserService.wsdl');
-        $api->getWatchingItems();
-
-        $client = $api->client();
-        $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraMail">'
-                .'<env:Body>'
-                    .'<ns1:GetWatchingItemsRequest />'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
-
         $api = new LocalMailHttp(null);
         $api->getWatchingItems();
 
@@ -4334,19 +2472,6 @@ class ApiTest extends ZimbraTestCase
 
     public function testGetWorkingHours()
     {
-        $api = new LocalMailWsdl(__DIR__.'/../TestData/ZimbraUserService.wsdl');
-        $api->getWorkingHours(10, 10, 'id', 'name');
-
-        $client = $api->client();
-        $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraMail">'
-                .'<env:Body>'
-                    .'<ns1:GetWorkingHoursRequest s="10" e="10" id="id" name="name" />'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
-
         $api = new LocalMailHttp(null);
         $api->getWorkingHours(10, 10, 'id', 'name');
 
@@ -4363,19 +2488,6 @@ class ApiTest extends ZimbraTestCase
 
     public function testGetYahooAuthToken()
     {
-        $api = new LocalMailWsdl(__DIR__.'/../TestData/ZimbraUserService.wsdl');
-        $api->getYahooAuthToken('user', 'password');
-
-        $client = $api->client();
-        $req = $client->lastRequest('user', 'password');
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraMail">'
-                .'<env:Body>'
-                    .'<ns1:GetYahooAuthTokenRequest user="user" password="password" />'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
-
         $api = new LocalMailHttp(null);
         $api->getYahooAuthToken('user', 'password');
 
@@ -4392,19 +2504,6 @@ class ApiTest extends ZimbraTestCase
 
     public function testGetYahooCookie()
     {
-        $api = new LocalMailWsdl(__DIR__.'/../TestData/ZimbraUserService.wsdl');
-        $api->getYahooCookie('user');
-
-        $client = $api->client();
-        $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraMail">'
-                .'<env:Body>'
-                    .'<ns1:GetYahooCookieRequest user="user" />'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
-
         $api = new LocalMailHttp(null);
         $api->getYahooCookie('user');
 
@@ -4425,21 +2524,6 @@ class ApiTest extends ZimbraTestCase
             GranteeType::USR(), AceRightType::INVITE(), 'zid', 'd', 'key', 'pw', false
         );
 
-        $api = new LocalMailWsdl(__DIR__.'/../TestData/ZimbraUserService.wsdl');
-        $api->grantPermission(array($ace));
-
-        $client = $api->client();
-        $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraMail">'
-                .'<env:Body>'
-                    .'<ns1:GrantPermissionRequest>'
-                        .'<ns1:ace gt="usr" right="invite" zid="zid" d="d" key="key" pw="pw" deny="false" />'
-                    .'</ns1:GrantPermissionRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
-
         $api = new LocalMailHttp(null);
         $api->grantPermission(array($ace));
 
@@ -4458,21 +2542,6 @@ class ApiTest extends ZimbraTestCase
 
     public function testICalReply()
     {
-        $api = new LocalMailWsdl(__DIR__.'/../TestData/ZimbraUserService.wsdl');
-        $api->iCalReply('ical');
-
-        $client = $api->client();
-        $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraMail">'
-                .'<env:Body>'
-                    .'<ns1:ICalReplyRequest>'
-                        .'<ns1:ical>ical</ns1:ical>'
-                    .'</ns1:ICalReplyRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
-
         $api = new LocalMailHttp(null);
         $api->iCalReply('ical');
 
@@ -4495,21 +2564,6 @@ class ApiTest extends ZimbraTestCase
             'value', 'aid', 'mid', 'part'
         );
 
-        $api = new LocalMailWsdl(__DIR__.'/../TestData/ZimbraUserService.wsdl');
-        $api->importAppointments($content, 'ct', 'l');
-
-        $client = $api->client();
-        $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraMail">'
-                .'<env:Body>'
-                    .'<ns1:ImportAppointmentsRequest ct="ct" l="l">'
-                        .'<ns1:content aid="aid" mid="mid" part="part">value</ns1:content>'
-                    .'</ns1:ImportAppointmentsRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
-
         $api = new LocalMailHttp(null);
         $api->importAppointments($content, 'ct', 'l');
 
@@ -4531,23 +2585,6 @@ class ApiTest extends ZimbraTestCase
         $content = new \Zimbra\Mail\Struct\Content(
             'value', 'aid'
         );
-
-        $api = new LocalMailWsdl(__DIR__.'/../TestData/ZimbraUserService.wsdl');
-        $api->importContacts(
-            $content, 'ct', 'l', 'csvfmt', 'csvlocale'
-        );
-
-        $client = $api->client();
-        $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraMail">'
-                .'<env:Body>'
-                    .'<ns1:ImportContactsRequest ct="ct" l="l" csvfmt="csvfmt" csvlocale="csvlocale">'
-                        .'<ns1:content aid="aid">value</ns1:content>'
-                    .'</ns1:ImportContactsRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
         $api = new LocalMailHttp(null);
         $api->importContacts(
@@ -4578,30 +2615,6 @@ class ApiTest extends ZimbraTestCase
         $cal = new \Zimbra\Mail\Struct\CalDataSourceNameOrId('name', 'id');
         $unknown = new \Zimbra\Mail\Struct\UnknownDataSourceNameOrId('name', 'id');
 
-        $api = new LocalMailWsdl(__DIR__.'/../TestData/ZimbraUserService.wsdl');
-        $api->importData(
-            $imap, $pop3, $caldav, $yab, $rss, $gal, $cal, $unknown
-        );
-
-        $client = $api->client();
-        $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraMail">'
-                .'<env:Body>'
-                    .'<ns1:ImportDataRequest>'
-                        .'<ns1:imap name="name" id="id" />'
-                        .'<ns1:pop3 name="name" id="id" />'
-                        .'<ns1:caldav name="name" id="id" />'
-                        .'<ns1:yab name="name" id="id" />'
-                        .'<ns1:rss name="name" id="id" />'
-                        .'<ns1:gal name="name" id="id" />'
-                        .'<ns1:cal name="name" id="id" />'
-                        .'<ns1:unknown name="name" id="id" />'
-                    .'</ns1:ImportDataRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
-
         $api = new LocalMailHttp(null);
         $api->importData(
             $imap, $pop3, $caldav, $yab, $rss, $gal, $cal, $unknown
@@ -4629,19 +2642,6 @@ class ApiTest extends ZimbraTestCase
 
     public function testInvalidateReminderDevice()
     {
-        $api = new LocalMailWsdl(__DIR__.'/../TestData/ZimbraUserService.wsdl');
-        $api->invalidateReminderDevice('email');
-
-        $client = $api->client();
-        $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraMail">'
-                .'<env:Body>'
-                    .'<ns1:InvalidateReminderDeviceRequest a="email" />'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
-
         $api = new LocalMailHttp(null);
         $api->invalidateReminderDevice('email');
 
@@ -4661,23 +2661,6 @@ class ApiTest extends ZimbraTestCase
         $action = new \Zimbra\Mail\Struct\ItemActionSelector(
             ItemActionOp::MOVE(), 'id', 'tcon', 10, 'l', '#aabbcc', 10, 'name', 'f', 't', 'tn'
         );
-
-        $api = new LocalMailWsdl(__DIR__.'/../TestData/ZimbraUserService.wsdl');
-        $api->itemAction(
-            $action
-        );
-
-        $client = $api->client();
-        $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraMail">'
-                .'<env:Body>'
-                    .'<ns1:ItemActionRequest>'
-                        .'<ns1:action op="move" id="id" tcon="tcon" tag="10" l="l" rgb="#aabbcc" color="10" name="name" f="f" t="t" tn="tn" />'
-                    .'</ns1:ItemActionRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
         $api = new LocalMailHttp(null);
         $api->itemAction(
@@ -4703,23 +2686,6 @@ class ApiTest extends ZimbraTestCase
             'id', 10, 10
         );
 
-        $api = new LocalMailWsdl(__DIR__.'/../TestData/ZimbraUserService.wsdl');
-        $api->listDocumentRevisions(
-            $doc
-        );
-
-        $client = $api->client();
-        $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraMail">'
-                .'<env:Body>'
-                    .'<ns1:ListDocumentRevisionsRequest>'
-                        .'<ns1:doc id="id" ver="10" count="10" />'
-                    .'</ns1:ListDocumentRevisionsRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
-
         $api = new LocalMailHttp(null);
         $api->listDocumentRevisions(
             $doc
@@ -4741,48 +2707,6 @@ class ApiTest extends ZimbraTestCase
     public function testModifyAppointment()
     {
         $m = $this->getMsg();
-
-        $api = new LocalMailWsdl(__DIR__.'/../TestData/ZimbraUserService.wsdl');
-        $api->modifyAppointment(
-            $m, 'id', 10, 10, 10, true, 10, true, true, true
-        );
-
-        $client = $api->client();
-        $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraMail">'
-                .'<env:Body>'
-                    .'<ns1:ModifyAppointmentRequest id="id" comp="10" ms="10" rev="10" echo="true" max="10" html="true" neuter="true" forcesend="true">'
-                        .'<ns1:m aid="aid" origid="origid" rt="rt" idnt="idnt" su="su" irt="irt" l="l" f="f">'
-                            .'<ns1:content>content</ns1:content>'
-                            .'<ns1:header name="name">value</ns1:header>'
-                            .'<ns1:mp ct="ct" content="content" ci="ci">'
-                                .'<ns1:mp ct="ct" content="content" ci="ci" />'
-                                .'<ns1:attach aid="aid">'
-                                    .'<ns1:mp optional="true" mid="mid" part="part" />'
-                                    .'<ns1:m optional="false" id="id" />'
-                                    .'<ns1:cn optional="false" id="id" />'
-                                    .'<ns1:doc optional="true" path="path" id="id" ver="10" />'
-                                .'</ns1:attach>'
-                            .'</ns1:mp>'
-                            .'<ns1:attach aid="aid">'
-                                .'<ns1:mp optional="true" mid="mid" part="part" />'
-                                .'<ns1:m optional="false" id="id" />'
-                                .'<ns1:cn optional="false" id="id" />'
-                                .'<ns1:doc optional="true" path="path" id="id" ver="10" />'
-                            .'</ns1:attach>'
-                            .'<ns1:inv method="method" compNum="10" rsvp="true" />'
-                            .'<ns1:e a="a" t="t" p="p" />'
-                            .'<ns1:tz id="id" stdoff="10" dayoff="10" stdname="stdname" dayname="dayname">'
-                                .'<ns1:standard mon="12" hour="2" min="3" sec="4" />'
-                                .'<ns1:daylight mon="4" hour="3" min="2" sec="10" />'
-                            .'</ns1:tz>'
-                            .'<ns1:fr>fr</ns1:fr>'
-                        .'</ns1:m>'
-                    .'</ns1:ModifyAppointmentRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
         $api = new LocalMailHttp(null);
         $api->modifyAppointment(
@@ -4839,26 +2763,6 @@ class ApiTest extends ZimbraTestCase
             array($a), array($m), 10, 'tn'
         );
 
-        $api = new LocalMailWsdl(__DIR__.'/../TestData/ZimbraUserService.wsdl');
-        $api->modifyContact(
-            $cn, true, true
-        );
-
-        $client = $api->client();
-        $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraMail">'
-                .'<env:Body>'
-                    .'<ns1:ModifyContactRequest replace="true" verbose="true">'
-                        .'<ns1:cn id="10" tn="tn">'
-                            .'<ns1:a n="n" aid="aid" id="10" part="part" op="op">value</ns1:a>'
-                            .'<ns1:m type="C" value="value" op="reset" />'
-                        .'</ns1:cn>'
-                    .'</ns1:ModifyContactRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
-
         $api = new LocalMailHttp(null);
         $api->modifyContact(
             $cn, true, true
@@ -4913,135 +2817,6 @@ class ApiTest extends ZimbraTestCase
         $gal = new \Zimbra\Mail\Struct\MailGalDataSource();
         $cal = new \Zimbra\Mail\Struct\MailCalDataSource();
         $unknown = new \Zimbra\Mail\Struct\MailUnknownDataSource();
-        $api = new LocalMailWsdl(__DIR__.'/../TestData/ZimbraUserService.wsdl');
-
-        $api->modifyImapDataSource(
-           $imap
-        );
-        $client = $api->client();
-        $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraMail">'
-                .'<env:Body>'
-                    .'<ns1:ModifyDataSourceRequest>'
-                        .'<ns1:imap id="id" name="name" l="l" isEnabled="true" importOnly="true" host="host" port="10" '
-                        .'connectionType="ssl" username="username" password="password" pollingInterval="pollingInterval" '
-                        .'emailAddress="emailAddress" useAddressForForwardReply="true" defaultSignature="defaultSignature" '
-                        .'forwardReplySignature="forwardReplySignature" fromDisplay="fromDisplay" replyToAddress="replyToAddress" '
-                        .'replyToDisplay="replyToDisplay" importClass="importClass" failingSince="10">'
-                            .'<ns1:lastError>lastError</ns1:lastError>'
-                            .'<ns1:a>a</ns1:a>'
-                            .'<ns1:a>b</ns1:a>'
-                        .'</ns1:imap>'
-                    .'</ns1:ModifyDataSourceRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
-
-        $api->modifyPop3DataSource(
-           $pop3
-        );
-        $client = $api->client();
-        $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraMail">'
-                .'<env:Body>'
-                    .'<ns1:ModifyDataSourceRequest>'
-                        .'<ns1:pop3 leaveOnServer="true" />'
-                    .'</ns1:ModifyDataSourceRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
-
-        $api->modifyCaldavDataSource(
-           $caldav
-        );
-        $client = $api->client();
-        $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraMail">'
-                .'<env:Body>'
-                    .'<ns1:ModifyDataSourceRequest>'
-                        .'<ns1:caldav />'
-                    .'</ns1:ModifyDataSourceRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
-
-        $api->modifyYabDataSource(
-           $yab
-        );
-        $client = $api->client();
-        $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraMail">'
-                .'<env:Body>'
-                    .'<ns1:ModifyDataSourceRequest>'
-                        .'<ns1:yab />'
-                    .'</ns1:ModifyDataSourceRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
-
-        $api->modifyRssDataSource(
-           $rss
-        );
-        $client = $api->client();
-        $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraMail">'
-                .'<env:Body>'
-                    .'<ns1:ModifyDataSourceRequest>'
-                        .'<ns1:rss />'
-                    .'</ns1:ModifyDataSourceRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
-
-        $api->modifyGalDataSource(
-           $gal
-        );
-        $client = $api->client();
-        $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraMail">'
-                .'<env:Body>'
-                    .'<ns1:ModifyDataSourceRequest>'
-                        .'<ns1:gal />'
-                    .'</ns1:ModifyDataSourceRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
-
-        $api->modifyCalDataSource(
-           $cal
-        );
-        $client = $api->client();
-        $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraMail">'
-                .'<env:Body>'
-                    .'<ns1:ModifyDataSourceRequest>'
-                        .'<ns1:cal />'
-                    .'</ns1:ModifyDataSourceRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
-
-        $api->modifyUnknownDataSource(
-           $unknown
-        );
-        $client = $api->client();
-        $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraMail">'
-                .'<env:Body>'
-                    .'<ns1:ModifyDataSourceRequest>'
-                        .'<ns1:unknown />'
-                    .'</ns1:ModifyDataSourceRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
         $api = new LocalMailHttp(null);
         $api->modifyImapDataSource(
@@ -5319,69 +3094,6 @@ class ApiTest extends ZimbraTestCase
             array($filterRule)
         );
 
-        $api = new LocalMailWsdl(__DIR__.'/../TestData/ZimbraUserService.wsdl');
-        $api->modifyFilterRules(
-            $filterRules
-        );
-
-        $client = $api->client();
-        $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraMail">'
-                .'<env:Body>'
-                    .'<ns1:ModifyFilterRulesRequest>'
-                        .'<ns1:filterRules>'
-                            .'<ns1:filterRule name="name" active="true">'
-                                .'<ns1:filterTests condition="allof">'
-                                    .'<ns1:addressBookTest index="10" negative="true" header="header" />'
-                                    .'<ns1:addressTest index="10" negative="true" header="header" part="part" stringComparison="stringComparison" value="value" caseSensitive="true" />'
-                                    .'<ns1:attachmentTest index="10" negative="true" />'
-                                    .'<ns1:bodyTest index="10" negative="true" value="value" caseSensitive="true" />'
-                                    .'<ns1:bulkTest index="10" negative="true" />'
-                                    .'<ns1:contactRankingTest index="10" negative="true" header="header" />'
-                                    .'<ns1:conversationTest index="10" negative="true" where="where" />'
-                                    .'<ns1:currentDayOfWeekTest index="10" negative="true" value="value" />'
-                                    .'<ns1:currentTimeTest index="10" negative="true" dateComparison="dateComparison" time="time" />'
-                                    .'<ns1:dateTest index="10" negative="true" dateComparison="dateComparison" d="10" />'
-                                    .'<ns1:facebookTest index="10" negative="true" />'
-                                    .'<ns1:flaggedTest index="10" negative="true" flagName="flagName" />'
-                                    .'<ns1:headerExistsTest index="10" negative="true" header="header" />'
-                                    .'<ns1:headerTest index="10" negative="true" header="header" stringComparison="stringComparison" value="value" caseSensitive="true" />'
-                                    .'<ns1:importanceTest index="10" negative="true" imp="high" />'
-                                    .'<ns1:inviteTest index="10" negative="true">'
-                                        .'<ns1:method>method</ns1:method>'
-                                    .'</ns1:inviteTest>'
-                                    .'<ns1:linkedinTest index="10" negative="true" />'
-                                    .'<ns1:listTest index="10" negative="true" />'
-                                    .'<ns1:meTest index="10" negative="true" header="header" />'
-                                    .'<ns1:mimeHeaderTest index="10" negative="true" header="header" stringComparison="stringComparison" value="value" caseSensitive="true" />'
-                                    .'<ns1:sizeTest index="10" negative="true" numberComparison="numberComparison" s="s" />'
-                                    .'<ns1:socialcastTest index="10" negative="true" />'
-                                    .'<ns1:trueTest index="10" negative="true" />'
-                                    .'<ns1:twitterTest index="10" negative="true" />'
-                                .'</ns1:filterTests>'
-                                .'<ns1:filterActions>'
-                                    .'<ns1:actionKeep index="10" />'
-                                    .'<ns1:actionDiscard index="10" />'
-                                    .'<ns1:actionFileInto index="10" folderPath="folderPath" />'
-                                    .'<ns1:actionFlag index="10" flagName="flagName" />'
-                                    .'<ns1:actionTag index="10" tagName="tagName" />'
-                                    .'<ns1:actionRedirect index="10" a="a" />'
-                                    .'<ns1:actionReply index="10">'
-                                        .'<ns1:content>content</ns1:content>'
-                                    .'</ns1:actionReply>'
-                                    .'<ns1:actionNotify index="10" a="a" su="su" maxBodySize="10" origHeaders="origHeaders">'
-                                        .'<ns1:content>content</ns1:content>'
-                                    .'</ns1:actionNotify>'
-                                    .'<ns1:actionStop index="10" />'
-                                .'</ns1:filterActions>'
-                            .'</ns1:filterRule>'
-                        .'</ns1:filterRules>'
-                    .'</ns1:ModifyFilterRulesRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
-
         $api = new LocalMailHttp(null);
         $api->modifyFilterRules(
             $filterRules
@@ -5450,25 +3162,6 @@ class ApiTest extends ZimbraTestCase
     {
         $a = new \Zimbra\Struct\KeyValuePair('key', 'value');
         $meta = new \Zimbra\Mail\Struct\MailCustomMetadata('section', array($a));
-
-        $api = new LocalMailWsdl(__DIR__.'/../TestData/ZimbraUserService.wsdl');
-        $api->modifyMailboxMetadata(
-            $meta
-        );
-
-        $client = $api->client();
-        $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraMail">'
-                .'<env:Body>'
-                    .'<ns1:ModifyMailboxMetadataRequest>'
-                        .'<ns1:meta section="section">'
-                            .'<ns1:a n="key">value</ns1:a>'
-                        .'</ns1:meta>'
-                    .'</ns1:ModifyMailboxMetadataRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
         $api = new LocalMailHttp(null);
         $api->modifyMailboxMetadata(
@@ -5636,69 +3329,6 @@ class ApiTest extends ZimbraTestCase
             array($filterRule)
         );
 
-        $api = new LocalMailWsdl(__DIR__.'/../TestData/ZimbraUserService.wsdl');
-        $api->modifyOutgoingFilterRules(
-            $filterRules
-        );
-
-        $client = $api->client();
-        $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraMail">'
-                .'<env:Body>'
-                    .'<ns1:ModifyOutgoingFilterRulesRequest>'
-                        .'<ns1:filterRules>'
-                            .'<ns1:filterRule name="name" active="true">'
-                                .'<ns1:filterTests condition="allof">'
-                                    .'<ns1:addressBookTest index="10" negative="true" header="header" />'
-                                    .'<ns1:addressTest index="10" negative="true" header="header" part="part" stringComparison="stringComparison" value="value" caseSensitive="true" />'
-                                    .'<ns1:attachmentTest index="10" negative="true" />'
-                                    .'<ns1:bodyTest index="10" negative="true" value="value" caseSensitive="true" />'
-                                    .'<ns1:bulkTest index="10" negative="true" />'
-                                    .'<ns1:contactRankingTest index="10" negative="true" header="header" />'
-                                    .'<ns1:conversationTest index="10" negative="true" where="where" />'
-                                    .'<ns1:currentDayOfWeekTest index="10" negative="true" value="value" />'
-                                    .'<ns1:currentTimeTest index="10" negative="true" dateComparison="dateComparison" time="time" />'
-                                    .'<ns1:dateTest index="10" negative="true" dateComparison="dateComparison" d="10" />'
-                                    .'<ns1:facebookTest index="10" negative="true" />'
-                                    .'<ns1:flaggedTest index="10" negative="true" flagName="flagName" />'
-                                    .'<ns1:headerExistsTest index="10" negative="true" header="header" />'
-                                    .'<ns1:headerTest index="10" negative="true" header="header" stringComparison="stringComparison" value="value" caseSensitive="true" />'
-                                    .'<ns1:importanceTest index="10" negative="true" imp="high" />'
-                                    .'<ns1:inviteTest index="10" negative="true">'
-                                        .'<ns1:method>method</ns1:method>'
-                                    .'</ns1:inviteTest>'
-                                    .'<ns1:linkedinTest index="10" negative="true" />'
-                                    .'<ns1:listTest index="10" negative="true" />'
-                                    .'<ns1:meTest index="10" negative="true" header="header" />'
-                                    .'<ns1:mimeHeaderTest index="10" negative="true" header="header" stringComparison="stringComparison" value="value" caseSensitive="true" />'
-                                    .'<ns1:sizeTest index="10" negative="true" numberComparison="numberComparison" s="s" />'
-                                    .'<ns1:socialcastTest index="10" negative="true" />'
-                                    .'<ns1:trueTest index="10" negative="true" />'
-                                    .'<ns1:twitterTest index="10" negative="true" />'
-                                .'</ns1:filterTests>'
-                                .'<ns1:filterActions>'
-                                    .'<ns1:actionKeep index="10" />'
-                                    .'<ns1:actionDiscard index="10" />'
-                                    .'<ns1:actionFileInto index="10" folderPath="folderPath" />'
-                                    .'<ns1:actionFlag index="10" flagName="flagName" />'
-                                    .'<ns1:actionTag index="10" tagName="tagName" />'
-                                    .'<ns1:actionRedirect index="10" a="a" />'
-                                    .'<ns1:actionReply index="10">'
-                                        .'<ns1:content>content</ns1:content>'
-                                    .'</ns1:actionReply>'
-                                    .'<ns1:actionNotify index="10" a="a" su="su" maxBodySize="10" origHeaders="origHeaders">'
-                                        .'<ns1:content>content</ns1:content>'
-                                    .'</ns1:actionNotify>'
-                                    .'<ns1:actionStop index="10" />'
-                                .'</ns1:filterActions>'
-                            .'</ns1:filterRule>'
-                        .'</ns1:filterRules>'
-                    .'</ns1:ModifyOutgoingFilterRulesRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
-
         $api = new LocalMailHttp(null);
         $api->modifyOutgoingFilterRules(
             $filterRules
@@ -5769,23 +3399,6 @@ class ApiTest extends ZimbraTestCase
             'id', 'query', 'types', 'sortBy'
         );
 
-        $api = new LocalMailWsdl(__DIR__.'/../TestData/ZimbraUserService.wsdl');
-        $api->modifySearchFolder(
-            $search
-        );
-
-        $client = $api->client();
-        $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraMail">'
-                .'<env:Body>'
-                    .'<ns1:ModifySearchFolderRequest>'
-                        .'<ns1:search id="id" query="query" types="types" sortBy="sortBy" />'
-                    .'</ns1:ModifySearchFolderRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
-
         $api = new LocalMailHttp(null);
         $api->modifySearchFolder(
             $search
@@ -5807,48 +3420,6 @@ class ApiTest extends ZimbraTestCase
     public function testModifyTask()
     {
         $m = $this->getMsg();
-
-        $api = new LocalMailWsdl(__DIR__.'/../TestData/ZimbraUserService.wsdl');
-        $api->modifyTask(
-            $m, 'id', 10, 10, 10, true, 10, true, true, true
-        );
-
-        $client = $api->client();
-        $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraMail">'
-                .'<env:Body>'
-                    .'<ns1:ModifyTaskRequest id="id" comp="10" ms="10" rev="10" echo="true" max="10" html="true" neuter="true" forcesend="true">'
-                        .'<ns1:m aid="aid" origid="origid" rt="rt" idnt="idnt" su="su" irt="irt" l="l" f="f">'
-                            .'<ns1:content>content</ns1:content>'
-                            .'<ns1:header name="name">value</ns1:header>'
-                            .'<ns1:mp ct="ct" content="content" ci="ci">'
-                                .'<ns1:mp ct="ct" content="content" ci="ci" />'
-                                .'<ns1:attach aid="aid">'
-                                    .'<ns1:mp optional="true" mid="mid" part="part" />'
-                                    .'<ns1:m optional="false" id="id" />'
-                                    .'<ns1:cn optional="false" id="id" />'
-                                    .'<ns1:doc optional="true" path="path" id="id" ver="10" />'
-                                .'</ns1:attach>'
-                            .'</ns1:mp>'
-                            .'<ns1:attach aid="aid">'
-                                .'<ns1:mp optional="true" mid="mid" part="part" />'
-                                .'<ns1:m optional="false" id="id" />'
-                                .'<ns1:cn optional="false" id="id" />'
-                                .'<ns1:doc optional="true" path="path" id="id" ver="10" />'
-                            .'</ns1:attach>'
-                            .'<ns1:inv method="method" compNum="10" rsvp="true" />'
-                            .'<ns1:e a="a" t="t" p="p" />'
-                            .'<ns1:tz id="id" stdoff="10" dayoff="10" stdname="stdname" dayname="dayname">'
-                                .'<ns1:standard mon="12" hour="2" min="3" sec="4" />'
-                                .'<ns1:daylight mon="4" hour="3" min="2" sec="10" />'
-                            .'</ns1:tz>'
-                            .'<ns1:fr>fr</ns1:fr>'
-                        .'</ns1:m>'
-                    .'</ns1:ModifyTaskRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
         $api = new LocalMailHttp(null);
         $api->modifyTask(
@@ -5899,23 +3470,6 @@ class ApiTest extends ZimbraTestCase
             MsgActionOp::MOVE(), 'id', 'tcon', 10, 'l', '#aabbcc', 10, 'name', 'f', 't', 'tn'
         );
 
-        $api = new LocalMailWsdl(__DIR__.'/../TestData/ZimbraUserService.wsdl');
-        $api->msgAction(
-            $action
-        );
-
-        $client = $api->client();
-        $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraMail">'
-                .'<env:Body>'
-                    .'<ns1:MsgActionRequest>'
-                        .'<ns1:action op="move" id="id" tcon="tcon" tag="10" l="l" rgb="#aabbcc" color="10" name="name" f="f" t="t" tn="tn" />'
-                    .'</ns1:MsgActionRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
-
         $api = new LocalMailHttp(null);
         $api->msgAction(
             $action
@@ -5936,21 +3490,6 @@ class ApiTest extends ZimbraTestCase
 
     public function noOp()
     {
-        $api = new LocalMailWsdl(__DIR__.'/../TestData/ZimbraUserService.wsdl');
-        $api->msgAction(
-            true, true, true, 10
-        );
-
-        $client = $api->client();
-        $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraMail">'
-                .'<env:Body>'
-                    .'<ns1:NoOpRequest wait="true" delegate="true" limitToOneBlocked="true" timeout="10" />'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
-
         $api = new LocalMailHttp(null);
         $api->noOp(
             true, true, true, 10
@@ -5972,23 +3511,6 @@ class ApiTest extends ZimbraTestCase
         $action = new \Zimbra\Mail\Struct\NoteActionSelector(
             ItemActionOp::MOVE(), 'id', 'tcon', 10, 'l', '#aabbcc', 10, 'name', 'f', 't', 'tn', 'content', 'pos'
         );
-
-        $api = new LocalMailWsdl(__DIR__.'/../TestData/ZimbraUserService.wsdl');
-        $api->noteAction(
-            $action
-        );
-
-        $client = $api->client();
-        $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraMail">'
-                .'<env:Body>'
-                    .'<ns1:NoteActionRequest>'
-                        .'<ns1:action op="move" id="id" tcon="tcon" tag="10" l="l" rgb="#aabbcc" color="10" name="name" f="f" t="t" tn="tn" content="content" pos="pos" />'
-                    .'</ns1:NoteActionRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
         $api = new LocalMailHttp(null);
         $api->noteAction(
@@ -6014,23 +3536,6 @@ class ApiTest extends ZimbraTestCase
             'id', 10, true
         );
 
-        $api = new LocalMailWsdl(__DIR__.'/../TestData/ZimbraUserService.wsdl');
-        $api->purgeRevision(
-            $revision
-        );
-
-        $client = $api->client();
-        $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraMail">'
-                .'<env:Body>'
-                    .'<ns1:PurgeRevisionRequest>'
-                        .'<ns1:revision id="id" ver="10" includeOlderRevisions="true" />'
-                    .'</ns1:PurgeRevisionRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
-
         $api = new LocalMailHttp(null);
         $api->purgeRevision(
             $revision
@@ -6055,23 +3560,6 @@ class ApiTest extends ZimbraTestCase
             RankingActionOp::RESET(), 'email'
         );
 
-        $api = new LocalMailWsdl(__DIR__.'/../TestData/ZimbraUserService.wsdl');
-        $api->rankingAction(
-            $action
-        );
-
-        $client = $api->client();
-        $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraMail">'
-                .'<env:Body>'
-                    .'<ns1:RankingActionRequest>'
-                        .'<ns1:action op="reset" email="email" />'
-                    .'</ns1:RankingActionRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
-
         $api = new LocalMailHttp(null);
         $api->rankingAction(
             $action
@@ -6093,23 +3581,6 @@ class ApiTest extends ZimbraTestCase
     public function testRegisterDevice()
     {
         $device = new \Zimbra\Struct\NamedElement('name');
-
-        $api = new LocalMailWsdl(__DIR__.'/../TestData/ZimbraUserService.wsdl');
-        $api->registerDevice(
-            $device
-        );
-
-        $client = $api->client();
-        $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraMail">'
-                .'<env:Body>'
-                    .'<ns1:RegisterDeviceRequest>'
-                        .'<ns1:device name="name" />'
-                    .'</ns1:RegisterDeviceRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
         $api = new LocalMailHttp(null);
         $api->registerDevice(
@@ -6135,23 +3606,6 @@ class ApiTest extends ZimbraTestCase
             'id', 'part'
         );
 
-        $api = new LocalMailWsdl(__DIR__.'/../TestData/ZimbraUserService.wsdl');
-        $api->removeAttachments(
-            $m
-        );
-
-        $client = $api->client();
-        $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraMail">'
-                .'<env:Body>'
-                    .'<ns1:RemoveAttachmentsRequest>'
-                        .'<ns1:m id="id" part="part" />'
-                    .'</ns1:RemoveAttachmentsRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
-
         $api = new LocalMailHttp(null);
         $api->removeAttachments(
             $m
@@ -6175,23 +3629,6 @@ class ApiTest extends ZimbraTestCase
         $ace = new \Zimbra\Mail\Struct\AccountACEinfo(
             GranteeType::USR(), AceRightType::INVITE(), 'zid', 'd', 'key', 'pw', false
         );
-
-        $api = new LocalMailWsdl(__DIR__.'/../TestData/ZimbraUserService.wsdl');
-        $api->revokePermission(
-            array($ace)
-        );
-
-        $client = $api->client();
-        $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraMail">'
-                .'<env:Body>'
-                    .'<ns1:RevokePermissionRequest>'
-                        .'<ns1:ace gt="usr" right="invite" zid="zid" d="d" key="key" pw="pw" deny="false" />'
-                    .'</ns1:RevokePermissionRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
         $api = new LocalMailHttp(null);
         $api->revokePermission(
@@ -6223,27 +3660,6 @@ class ApiTest extends ZimbraTestCase
         $doc = new \Zimbra\Mail\Struct\DocumentSpec(
             $upload, $m, $docVer, 'name', 'ct', 'desc', 'l', 'id', 10, 'content', true, 'f'
         );
-
-        $api = new LocalMailWsdl(__DIR__.'/../TestData/ZimbraUserService.wsdl');
-        $api->saveDocument(
-            $doc
-        );
-
-        $client = $api->client();
-        $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraMail">'
-                .'<env:Body>'
-                    .'<ns1:SaveDocumentRequest>'
-                        .'<ns1:doc name="name" ct="ct" desc="desc" l="l" id="id" ver="10" content="content" descEnabled="true" f="f">'
-                            .'<ns1:upload id="id" />'
-                            .'<ns1:m id="id" part="part" />'
-                            .'<ns1:doc id="id" ver="10" />'
-                        .'</ns1:doc>'
-                    .'</ns1:SaveDocumentRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
         $api = new LocalMailHttp(null);
         $api->saveDocument(
@@ -6304,48 +3720,6 @@ class ApiTest extends ZimbraTestCase
             'f'
         );
 
-        $api = new LocalMailWsdl(__DIR__.'/../TestData/ZimbraUserService.wsdl');
-        $api->saveDraft(
-            $m
-        );
-
-        $client = $api->client();
-        $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraMail">'
-                .'<env:Body>'
-                    .'<ns1:SaveDraftRequest>'
-                        .'<ns1:m id="10" forAcct="forAcct" t="t" tn="tn" rgb="#aabbcc" color="10" autoSendTime="10" aid="aid" origid="origid" rt="rt" idnt="idnt" su="su" irt="irt" l="l" f="f">'
-                            .'<ns1:content>content</ns1:content>'
-                            .'<ns1:header name="name">value</ns1:header>'
-                            .'<ns1:mp ct="ct" content="content" ci="ci">'
-                                .'<ns1:mp ct="ct" content="content" ci="ci" />'
-                                .'<ns1:attach aid="aid">'
-                                    .'<ns1:mp optional="true" mid="mid" part="part" />'
-                                    .'<ns1:m optional="false" id="id" />'
-                                    .'<ns1:cn optional="false" id="id" />'
-                                    .'<ns1:doc optional="true" path="path" id="id" ver="10" />'
-                                .'</ns1:attach>'
-                            .'</ns1:mp>'
-                            .'<ns1:attach aid="aid">'
-                                .'<ns1:mp optional="true" mid="mid" part="part" />'
-                                .'<ns1:m optional="false" id="id" />'
-                                .'<ns1:cn optional="false" id="id" />'
-                                .'<ns1:doc optional="true" path="path" id="id" ver="10" />'
-                            .'</ns1:attach>'
-                            .'<ns1:inv method="method" compNum="10" rsvp="true" />'
-                            .'<ns1:e a="a" t="t" p="p" />'
-                            .'<ns1:tz id="id" stdoff="10" dayoff="10" stdname="stdname" dayname="dayname">'
-                                .'<ns1:standard mon="12" hour="2" min="3" sec="4" />'
-                                .'<ns1:daylight mon="4" hour="3" min="2" sec="10" />'
-                            .'</ns1:tz>'
-                            .'<ns1:fr>fr</ns1:fr>'
-                        .'</ns1:m>'
-                    .'</ns1:SaveDraftRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
-
         $api = new LocalMailHttp(null);
         $api->saveDraft(
             $m
@@ -6394,57 +3768,6 @@ class ApiTest extends ZimbraTestCase
         $header = new \Zimbra\Struct\AttributeName('attribute-name');
         $tz = $this->getTz();
         $cursor = new \Zimbra\Struct\CursorInfo('id','sortVal', 'endSortVal', true);
-
-        $api = new LocalMailWsdl(__DIR__.'/../TestData/ZimbraUserService.wsdl');
-        $api->search(
-            true,
-            'query',
-            array($header),
-            $tz,
-            'locale',
-            $cursor,
-            true,
-            true,
-            'allowableTaskStatus',
-            10,
-            10,
-            true,
-            'types',
-            'groupBy',
-            true,
-            SortBy::DATE_DESC(),
-            'fetch',
-            true,
-            10,
-            true,
-            true,
-            true,
-            true,
-            true,
-            'resultMode',
-            'field',
-            10,
-            10
-        );
-
-        $client = $api->client();
-        $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraMail">'
-                .'<env:Body>'
-                    .'<ns1:SearchRequest warmup="true" includeTagDeleted="true" includeTagMuted="true" allowableTaskStatus="allowableTaskStatus" calExpandInstStart="10" calExpandInstEnd="10" inDumpster="true" types="types" groupBy="groupBy" quick="true" sortBy="dateDesc" fetch="fetch" read="true" max="10" html="true" needExp="true" neuter="true" recip="true" prefetch="true" resultMode="resultMode" field="field" limit="10" offset="10">'
-                        .'<ns1:query>query</ns1:query>'
-                        .'<ns1:header n="attribute-name" />'
-                        .'<ns1:tz id="id" stdoff="10" dayoff="10" stdname="stdname" dayname="dayname">'
-                            .'<ns1:standard mon="12" hour="2" min="3" sec="4" />'
-                            .'<ns1:daylight mon="4" hour="3" min="2" sec="10" />'
-                        .'</ns1:tz>'
-                        .'<ns1:locale>locale</ns1:locale>'
-                        .'<ns1:cursor id="id" sortVal="sortVal" endSortVal="endSortVal" includeOffset="true" />'
-                    .'</ns1:SearchRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
         $api = new LocalMailHttp(null);
         $api->search(
@@ -6504,58 +3827,6 @@ class ApiTest extends ZimbraTestCase
         $tz = $this->getTz();
         $cursor = new \Zimbra\Struct\CursorInfo('id','sortVal', 'endSortVal', true);
 
-        $api = new LocalMailWsdl(__DIR__.'/../TestData/ZimbraUserService.wsdl');
-        $api->searchConv(
-            'cid',
-            true,
-            'query',
-            array($header),
-            $tz,
-            'locale',
-            $cursor,
-            true,
-            true,
-            'allowableTaskStatus',
-            10,
-            10,
-            true,
-            'types',
-            'groupBy',
-            true,
-            SortBy::DATE_ASC(),
-            'fetch',
-            true,
-            10,
-            true,
-            true,
-            true,
-            true,
-            true,
-            'resultMode',
-            'field',
-            10,
-            10
-        );
-
-        $client = $api->client();
-        $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraMail">'
-                .'<env:Body>'
-                    .'<ns1:SearchConvRequest includeTagDeleted="true" includeTagMuted="true" allowableTaskStatus="allowableTaskStatus" calExpandInstStart="10" calExpandInstEnd="10" inDumpster="true" types="types" groupBy="groupBy" quick="true" sortBy="dateAsc" fetch="fetch" read="true" max="10" html="true" needExp="true" neuter="true" recip="true" prefetch="true" resultMode="resultMode" field="field" limit="10" offset="10" cid="cid" nest="true">'
-                        .'<ns1:query>query</ns1:query>'
-                        .'<ns1:header n="attribute-name" />'
-                        .'<ns1:tz id="id" stdoff="10" dayoff="10" stdname="stdname" dayname="dayname">'
-                            .'<ns1:standard mon="12" hour="2" min="3" sec="4" />'
-                            .'<ns1:daylight mon="4" hour="3" min="2" sec="10" />'
-                        .'</ns1:tz>'
-                        .'<ns1:locale>locale</ns1:locale>'
-                        .'<ns1:cursor id="id" sortVal="sortVal" endSortVal="endSortVal" includeOffset="true" />'
-                    .'</ns1:SearchConvRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
-
         $api = new LocalMailHttp(null);
         $api->searchConv(
             'cid',
@@ -6611,19 +3882,6 @@ class ApiTest extends ZimbraTestCase
 
     public function testSendDeliveryReport()
     {
-        $api = new LocalMailWsdl(__DIR__.'/../TestData/ZimbraUserService.wsdl');
-        $api->sendDeliveryReport('mid');
-
-        $client = $api->client();
-        $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraMail">'
-                .'<env:Body>'
-                    .'<ns1:SendDeliveryReportRequest mid="mid" />'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
-
         $api = new LocalMailHttp(null);
         $api->sendDeliveryReport('mid');
 
@@ -6645,53 +3903,6 @@ class ApiTest extends ZimbraTestCase
         );
         $tz = $this->getTz();
         $m = $this->getMsg();
-
-        $api = new LocalMailWsdl(__DIR__.'/../TestData/ZimbraUserService.wsdl');
-        $api->sendInviteReply(
-            'id', 10, 'verb', $exceptId, $tz, $m, true, 'idnt'
-        );
-
-        $client = $api->client();
-        $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraMail">'
-                .'<env:Body>'
-                    .'<ns1:SendInviteReplyRequest id="id" compNum="10" verb="verb" updateOrganizer="true" idnt="idnt">'
-                        .'<ns1:exceptId d="20120315T18302305Z" tz="tz" u="1000" />'
-                        .'<ns1:tz id="id" stdoff="10" dayoff="10" stdname="stdname" dayname="dayname">'
-                            .'<ns1:standard mon="12" hour="2" min="3" sec="4" />'
-                            .'<ns1:daylight mon="4" hour="3" min="2" sec="10" />'
-                        .'</ns1:tz>'
-                        .'<ns1:m aid="aid" origid="origid" rt="rt" idnt="idnt" su="su" irt="irt" l="l" f="f">'
-                            .'<ns1:content>content</ns1:content>'
-                            .'<ns1:header name="name">value</ns1:header>'
-                            .'<ns1:mp ct="ct" content="content" ci="ci">'
-                                .'<ns1:mp ct="ct" content="content" ci="ci" />'
-                                .'<ns1:attach aid="aid">'
-                                    .'<ns1:mp optional="true" mid="mid" part="part" />'
-                                    .'<ns1:m optional="false" id="id" />'
-                                    .'<ns1:cn optional="false" id="id" />'
-                                    .'<ns1:doc optional="true" path="path" id="id" ver="10" />'
-                                .'</ns1:attach>'
-                            .'</ns1:mp>'
-                            .'<ns1:attach aid="aid">'
-                                .'<ns1:mp optional="true" mid="mid" part="part" />'
-                                .'<ns1:m optional="false" id="id" />'
-                                .'<ns1:cn optional="false" id="id" />'
-                                .'<ns1:doc optional="true" path="path" id="id" ver="10" />'
-                            .'</ns1:attach>'
-                            .'<ns1:inv method="method" compNum="10" rsvp="true" />'
-                            .'<ns1:e a="a" t="t" p="p" />'
-                            .'<ns1:tz id="id" stdoff="10" dayoff="10" stdname="stdname" dayname="dayname">'
-                                .'<ns1:standard mon="12" hour="2" min="3" sec="4" />'
-                                .'<ns1:daylight mon="4" hour="3" min="2" sec="10" />'
-                            .'</ns1:tz>'
-                            .'<ns1:fr>fr</ns1:fr>'
-                        .'</ns1:m>'
-                    .'</ns1:SendInviteReplyRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
         $api = new LocalMailHttp(null);
         $api->sendInviteReply(
@@ -6776,48 +3987,6 @@ class ApiTest extends ZimbraTestCase
             'f'
         );
 
-        $api = new LocalMailWsdl(__DIR__.'/../TestData/ZimbraUserService.wsdl');
-        $api->sendMsg(
-            $m, true, true, true, 'suid'
-        );
-
-        $client = $api->client();
-        $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraMail">'
-                .'<env:Body>'
-                    .'<ns1:SendMsgRequest needCalendarSentByFixup="true" isCalendarForward="true" noSave="true" suid="suid">'
-                        .'<ns1:m did="did" sfd="true" aid="aid" origid="origid" rt="rt" idnt="idnt" su="su" irt="irt" l="l" f="f">'
-                            .'<ns1:content>content</ns1:content>'
-                            .'<ns1:header name="name">value</ns1:header>'
-                            .'<ns1:mp ct="ct" content="content" ci="ci">'
-                                .'<ns1:mp ct="ct" content="content" ci="ci" />'
-                                .'<ns1:attach aid="aid">'
-                                    .'<ns1:mp optional="true" mid="mid" part="part" />'
-                                    .'<ns1:m optional="false" id="id" />'
-                                    .'<ns1:cn id="id" optional="false" />'
-                                    .'<ns1:doc optional="true" path="path" id="id" ver="10" />'
-                                .'</ns1:attach>'
-                            .'</ns1:mp>'
-                            .'<ns1:attach aid="aid">'
-                                .'<ns1:mp optional="true" mid="mid" part="part" />'
-                                .'<ns1:m optional="false" id="id" />'
-                                .'<ns1:cn id="id" optional="false" />'
-                                .'<ns1:doc optional="true" path="path" id="id" ver="10" />'
-                            .'</ns1:attach>'
-                            .'<ns1:inv method="method" compNum="10" rsvp="true" />'
-                            .'<ns1:e a="a" t="t" p="p" />'
-                            .'<ns1:tz id="id" stdoff="10" dayoff="10" stdname="stdname" dayname="dayname">'
-                                .'<ns1:standard mon="12" hour="2" min="3" sec="4" />'
-                                .'<ns1:daylight mon="4" hour="3" min="2" sec="10" />'
-                            .'</ns1:tz>'
-                            .'<ns1:fr>fr</ns1:fr>'
-                        .'</ns1:m>'
-                    .'</ns1:SendMsgRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
-
         $api = new LocalMailHttp(null);
         $api->sendMsg(
             $m, true, true, true, 'suid'
@@ -6866,25 +4035,6 @@ class ApiTest extends ZimbraTestCase
         $item = new \Zimbra\Struct\Id('id');
         $e = new \Zimbra\Mail\Struct\EmailAddrInfo('a', 't', 'p');
 
-        $api = new LocalMailWsdl(__DIR__.'/../TestData/ZimbraUserService.wsdl');
-        $api->sendShareNotification(
-            $item, array($e), 'notes', Action::EDIT()
-        );
-
-        $client = $api->client();
-        $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraMail">'
-                .'<env:Body>'
-                    .'<ns1:SendShareNotificationRequest action="edit">'
-                        .'<ns1:item id="id" />'
-                        .'<ns1:e a="a" t="t" p="p" />'
-                        .'<ns1:notes>notes</ns1:notes>'
-                    .'</ns1:SendShareNotificationRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
-
         $api = new LocalMailHttp(null);
         $api->sendShareNotification(
             $item, array($e), 'notes', Action::EDIT()
@@ -6907,19 +4057,6 @@ class ApiTest extends ZimbraTestCase
 
     public function testSendVerificationCode()
     {
-        $api = new LocalMailWsdl(__DIR__.'/../TestData/ZimbraUserService.wsdl');
-        $api->sendVerificationCode('email');
-
-        $client = $api->client();
-        $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraMail">'
-                .'<env:Body>'
-                    .'<ns1:SendVerificationCodeRequest a="email" />'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
-
         $api = new LocalMailHttp(null);
         $api->sendVerificationCode('email');
 
@@ -6949,55 +4086,6 @@ class ApiTest extends ZimbraTestCase
         $replies = new \Zimbra\Mail\Struct\Replies(
             array($reply)
         );
-
-        $api = new LocalMailWsdl(__DIR__.'/../TestData/ZimbraUserService.wsdl');
-        $api->setAppointment(
-            $default, array($except), array($cancel), $replies, 'f', 't', 'tn', 'l', true, 10
-        );
-
-        $client = $api->client();
-        $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraMail">'
-                .'<env:Body>'
-                    .'<ns1:SetAppointmentRequest f="f" t="t" tn="tn" l="l" noNextAlarm="true" nextAlarm="10">'
-                        .'<ns1:default ptst="NE">'
-                            .'<ns1:m aid="aid" origid="origid" rt="rt" idnt="idnt" su="su" irt="irt" l="l" f="f">'
-                                .'<ns1:content>content</ns1:content>'
-                                .'<ns1:header name="name">value</ns1:header>'
-                                .'<ns1:mp ct="ct" content="content" ci="ci">'
-                                    .'<ns1:mp ct="ct" content="content" ci="ci" />'
-                                    .'<ns1:attach aid="aid">'
-                                        .'<ns1:mp optional="true" mid="mid" part="part" />'
-                                        .'<ns1:m optional="false" id="id" />'
-                                        .'<ns1:cn optional="false" id="id" />'
-                                        .'<ns1:doc optional="true" path="path" id="id" ver="10" />'
-                                    .'</ns1:attach>'
-                                .'</ns1:mp>'
-                                .'<ns1:attach aid="aid">'
-                                    .'<ns1:mp optional="true" mid="mid" part="part" />'
-                                    .'<ns1:m optional="false" id="id" />'
-                                    .'<ns1:cn optional="false" id="id" />'
-                                    .'<ns1:doc optional="true" path="path" id="id" ver="10" />'
-                                .'</ns1:attach>'
-                                .'<ns1:inv method="method" compNum="10" rsvp="true" />'
-                                .'<ns1:e a="a" t="t" p="p" />'
-                                .'<ns1:tz id="id" stdoff="10" dayoff="10" stdname="stdname" dayname="dayname">'
-                                    .'<ns1:standard mon="12" hour="2" min="3" sec="4" />'
-                                    .'<ns1:daylight mon="4" hour="3" min="2" sec="10" />'
-                                .'</ns1:tz>'
-                                .'<ns1:fr>fr</ns1:fr>'
-                            .'</ns1:m>'
-                        .'</ns1:default>'
-                        .'<ns1:except />'
-                        .'<ns1:cancel />'
-                        .'<ns1:replies>'
-                            .'<ns1:reply at="at" seq="10" d="10" sentBy="sentBy" ptst="NE" rangeType="10" recurId="991231" tz="tz" ridZ="991231000000" />'
-                        .'</ns1:replies>'
-                    .'</ns1:SetAppointmentRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
         $api = new LocalMailHttp(null);
         $api->setAppointment(
@@ -7054,25 +4142,6 @@ class ApiTest extends ZimbraTestCase
         $a = new \Zimbra\Struct\KeyValuePair('key', 'value');
         $meta = new \Zimbra\Mail\Struct\MailCustomMetadata('section', array($a));
 
-        $api = new LocalMailWsdl(__DIR__.'/../TestData/ZimbraUserService.wsdl');
-        $api->setCustomMetadata(
-            'id', $meta
-        );
-
-        $client = $api->client();
-        $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraMail">'
-                .'<env:Body>'
-                    .'<ns1:SetCustomMetadataRequest id="id">'
-                        .'<ns1:meta section="section">'
-                            .'<ns1:a n="key">value</ns1:a>'
-                        .'</ns1:meta>'
-                    .'</ns1:SetCustomMetadataRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
-
         $api = new LocalMailHttp(null);
         $api->setCustomMetadata(
             'id', $meta
@@ -7097,25 +4166,6 @@ class ApiTest extends ZimbraTestCase
     {
         $a = new \Zimbra\Struct\KeyValuePair('key', 'value');
         $meta = new \Zimbra\Mail\Struct\MailCustomMetadata('section', array($a));
-
-        $api = new LocalMailWsdl(__DIR__.'/../TestData/ZimbraUserService.wsdl');
-        $api->setMailboxMetadata(
-            $meta
-        );
-
-        $client = $api->client();
-        $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraMail">'
-                .'<env:Body>'
-                    .'<ns1:SetMailboxMetadataRequest>'
-                        .'<ns1:meta section="section">'
-                            .'<ns1:a n="key">value</ns1:a>'
-                        .'</ns1:meta>'
-                    .'</ns1:SetMailboxMetadataRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
         $api = new LocalMailHttp(null);
         $api->setMailboxMetadata(
@@ -7152,55 +4202,6 @@ class ApiTest extends ZimbraTestCase
         $replies = new \Zimbra\Mail\Struct\Replies(
             array($reply)
         );
-
-        $api = new LocalMailWsdl(__DIR__.'/../TestData/ZimbraUserService.wsdl');
-        $api->setTask(
-            $default, array($except), array($cancel), $replies, 'f', 't', 'tn', 'l', true, 10
-        );
-
-        $client = $api->client();
-        $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraMail">'
-                .'<env:Body>'
-                    .'<ns1:SetTaskRequest f="f" t="t" tn="tn" l="l" noNextAlarm="true" nextAlarm="10">'
-                        .'<ns1:default ptst="NE">'
-                            .'<ns1:m aid="aid" origid="origid" rt="rt" idnt="idnt" su="su" irt="irt" l="l" f="f">'
-                                .'<ns1:content>content</ns1:content>'
-                                .'<ns1:header name="name">value</ns1:header>'
-                                .'<ns1:mp ct="ct" content="content" ci="ci">'
-                                    .'<ns1:mp ct="ct" content="content" ci="ci" />'
-                                    .'<ns1:attach aid="aid">'
-                                        .'<ns1:mp optional="true" mid="mid" part="part" />'
-                                        .'<ns1:m optional="false" id="id" />'
-                                        .'<ns1:cn optional="false" id="id" />'
-                                        .'<ns1:doc optional="true" path="path" id="id" ver="10" />'
-                                    .'</ns1:attach>'
-                                .'</ns1:mp>'
-                                .'<ns1:attach aid="aid">'
-                                    .'<ns1:mp optional="true" mid="mid" part="part" />'
-                                    .'<ns1:m optional="false" id="id" />'
-                                    .'<ns1:cn optional="false" id="id" />'
-                                    .'<ns1:doc optional="true" path="path" id="id" ver="10" />'
-                                .'</ns1:attach>'
-                                .'<ns1:inv method="method" compNum="10" rsvp="true" />'
-                                .'<ns1:e a="a" t="t" p="p" />'
-                                .'<ns1:tz id="id" stdoff="10" dayoff="10" stdname="stdname" dayname="dayname">'
-                                    .'<ns1:standard mon="12" hour="2" min="3" sec="4" />'
-                                    .'<ns1:daylight mon="4" hour="3" min="2" sec="10" />'
-                                .'</ns1:tz>'
-                                .'<ns1:fr>fr</ns1:fr>'
-                            .'</ns1:m>'
-                        .'</ns1:default>'
-                        .'<ns1:except />'
-                        .'<ns1:cancel />'
-                        .'<ns1:replies>'
-                            .'<ns1:reply at="at" seq="10" d="10" sentBy="sentBy" ptst="NE" rangeType="10" recurId="991231" tz="tz" ridZ="991231000000" />'
-                        .'</ns1:replies>'
-                    .'</ns1:SetTaskRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
         $api = new LocalMailHttp(null);
         $api->setTask(
@@ -7257,24 +4258,6 @@ class ApiTest extends ZimbraTestCase
         $appt = new \Zimbra\Mail\Struct\SnoozeAppointmentAlarm('id', 10);
         $task = new \Zimbra\Mail\Struct\SnoozeTaskAlarm('id', 10);
 
-        $api = new LocalMailWsdl(__DIR__.'/../TestData/ZimbraUserService.wsdl');
-        $api->snoozeCalendarItemAlarm(
-            $appt, $task
-        );
-
-        $client = $api->client();
-        $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraMail">'
-                .'<env:Body>'
-                    .'<ns1:SnoozeCalendarItemAlarmRequest>'
-                        .'<ns1:appt id="id" until="10" />'
-                        .'<ns1:task id="id" until="10" />'
-                    .'</ns1:SnoozeCalendarItemAlarmRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
-
         $api = new LocalMailHttp(null);
         $api->snoozeCalendarItemAlarm(
             $appt, $task
@@ -7296,19 +4279,6 @@ class ApiTest extends ZimbraTestCase
 
     public function testSync()
     {
-        $api = new LocalMailWsdl(__DIR__.'/../TestData/ZimbraUserService.wsdl');
-        $api->sync('token', 10, 'l', true);
-
-        $client = $api->client();
-        $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraMail">'
-                .'<env:Body>'
-                    .'<ns1:SyncRequest token="token" calCutoff="10" l="l" typed="true" />'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
-
         $api = new LocalMailHttp(null);
         $api->sync('token', 10, 'l', true);
 
@@ -7339,32 +4309,6 @@ class ApiTest extends ZimbraTestCase
         $action = new \Zimbra\Mail\Struct\TagActionSelector(
             $retentionPolicy, TagActionOp::READ(), 'id', 'tcon', 10, 'l', '#aabbcc', 10, 'name', 'f', 't', 'tn'
         );
-
-        $api = new LocalMailWsdl(__DIR__.'/../TestData/ZimbraUserService.wsdl');
-        $api->tagAction(
-            $action
-        );
-
-        $client = $api->client();
-        $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraMail">'
-                .'<env:Body>'
-                    .'<ns1:TagActionRequest>'
-                        .'<ns1:action op="read" id="id" tcon="tcon" tag="10" l="l" rgb="#aabbcc" color="10" name="name" f="f" t="t" tn="tn">'
-                            .'<ns1:retentionPolicy>'
-                                .'<ns1:keep>'
-                                    .'<ns1:policy type="system" id="id" name="name" lifetime="lifetime" />'
-                                .'</ns1:keep>'
-                                .'<ns1:purge>'
-                                    .'<ns1:policy type="user" id="id" name="name" lifetime="lifetime" />'
-                                .'</ns1:purge>'
-                            .'</ns1:retentionPolicy>'
-                        .'</ns1:action>'
-                    .'</ns1:TagActionRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
         $api = new LocalMailHttp(null);
         $api->tagAction(
@@ -7426,135 +4370,6 @@ class ApiTest extends ZimbraTestCase
         $gal = new \Zimbra\Mail\Struct\MailGalDataSource();
         $cal = new \Zimbra\Mail\Struct\MailCalDataSource();
         $unknown = new \Zimbra\Mail\Struct\MailUnknownDataSource();
-        $api = new LocalMailWsdl(__DIR__.'/../TestData/ZimbraUserService.wsdl');
-
-        $api->testImapDataSource(
-           $imap
-        );
-        $client = $api->client();
-        $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraMail">'
-                .'<env:Body>'
-                    .'<ns1:TestDataSourceRequest>'
-                        .'<ns1:imap id="id" name="name" l="l" isEnabled="true" importOnly="true" host="host" port="10" '
-                        .'connectionType="ssl" username="username" password="password" pollingInterval="pollingInterval" '
-                        .'emailAddress="emailAddress" useAddressForForwardReply="true" defaultSignature="defaultSignature" '
-                        .'forwardReplySignature="forwardReplySignature" fromDisplay="fromDisplay" replyToAddress="replyToAddress" '
-                        .'replyToDisplay="replyToDisplay" importClass="importClass" failingSince="10">'
-                            .'<ns1:lastError>lastError</ns1:lastError>'
-                            .'<ns1:a>a</ns1:a>'
-                            .'<ns1:a>b</ns1:a>'
-                        .'</ns1:imap>'
-                    .'</ns1:TestDataSourceRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
-
-        $api->testPop3DataSource(
-           $pop3
-        );
-        $client = $api->client();
-        $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraMail">'
-                .'<env:Body>'
-                    .'<ns1:TestDataSourceRequest>'
-                        .'<ns1:pop3 leaveOnServer="true" />'
-                    .'</ns1:TestDataSourceRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
-
-        $api->testCaldavDataSource(
-           $caldav
-        );
-        $client = $api->client();
-        $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraMail">'
-                .'<env:Body>'
-                    .'<ns1:TestDataSourceRequest>'
-                        .'<ns1:caldav />'
-                    .'</ns1:TestDataSourceRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
-
-        $api->testYabDataSource(
-           $yab
-        );
-        $client = $api->client();
-        $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraMail">'
-                .'<env:Body>'
-                    .'<ns1:TestDataSourceRequest>'
-                        .'<ns1:yab />'
-                    .'</ns1:TestDataSourceRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
-
-        $api->testRssDataSource(
-           $rss
-        );
-        $client = $api->client();
-        $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraMail">'
-                .'<env:Body>'
-                    .'<ns1:TestDataSourceRequest>'
-                        .'<ns1:rss />'
-                    .'</ns1:TestDataSourceRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
-
-        $api->testGalDataSource(
-           $gal
-        );
-        $client = $api->client();
-        $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraMail">'
-                .'<env:Body>'
-                    .'<ns1:TestDataSourceRequest>'
-                        .'<ns1:gal />'
-                    .'</ns1:TestDataSourceRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
-
-        $api->testCalDataSource(
-           $cal
-        );
-        $client = $api->client();
-        $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraMail">'
-                .'<env:Body>'
-                    .'<ns1:TestDataSourceRequest>'
-                        .'<ns1:cal />'
-                    .'</ns1:TestDataSourceRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
-
-        $api->testUnknownDataSource(
-           $unknown
-        );
-        $client = $api->client();
-        $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraMail">'
-                .'<env:Body>'
-                    .'<ns1:TestDataSourceRequest>'
-                        .'<ns1:unknown />'
-                    .'</ns1:TestDataSourceRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
         $api = new LocalMailHttp(null);
         $api->testImapDataSource(
@@ -7690,23 +4505,6 @@ class ApiTest extends ZimbraTestCase
     {
         $device = new \Zimbra\Mail\Struct\IdStatus('id', 'status');
 
-        $api = new LocalMailWsdl(__DIR__.'/../TestData/ZimbraUserService.wsdl');
-        $api->updateDeviceStatus(
-            $device
-        );
-
-        $client = $api->client();
-        $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraMail">'
-                .'<env:Body>'
-                    .'<ns1:UpdateDeviceStatusRequest>'
-                        .'<ns1:device id="id" status="status" />'
-                    .'</ns1:UpdateDeviceStatusRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
-
         $api = new LocalMailHttp(null);
         $api->updateDeviceStatus(
             $device
@@ -7727,19 +4525,6 @@ class ApiTest extends ZimbraTestCase
 
     public function testVerifyCode()
     {
-        $api = new LocalMailWsdl(__DIR__.'/../TestData/ZimbraUserService.wsdl');
-        $api->verifyCode('email', 'code');
-
-        $client = $api->client();
-        $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraMail">'
-                .'<env:Body>'
-                    .'<ns1:VerifyCodeRequest a="email" code="code" />'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
-
         $api = new LocalMailHttp(null);
         $api->verifyCode('email', 'code');
 
@@ -7761,31 +4546,6 @@ class ApiTest extends ZimbraTestCase
         $add = new \Zimbra\Mail\Struct\WaitSetSpec(array($waitSet));
         $update = new \Zimbra\Mail\Struct\WaitSetSpec(array($waitSet));
         $remove = new \Zimbra\Mail\Struct\WaitSetId(array($id));
-
-        $api = new LocalMailWsdl(__DIR__.'/../TestData/ZimbraUserService.wsdl');
-        $api->waitSet(
-            'waitSet', 'seq', $add, $update, $remove, true, array(InterestType::FOLDERS()), 10
-        );
-
-        $client = $api->client();
-        $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="urn:zimbraMail">'
-                .'<env:Body>'
-                    .'<ns1:WaitSetRequest waitSet="waitSet" seq="seq" block="true" defTypes="f" timeout="10" >'
-                        .'<ns1:add>'
-                            .'<ns1:a name="name" id="id" token="token" types="f" />'
-                        .'</ns1:add>'
-                        .'<ns1:update>'
-                            .'<ns1:a name="name" id="id" token="token" types="f" />'
-                        .'</ns1:update>'
-                        .'<ns1:remove>'
-                            .'<ns1:a id="id" />'
-                        .'</ns1:remove>'
-                    .'</ns1:WaitSetRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
         $api = new LocalMailHttp(null);
         $api->waitSet(
@@ -7811,15 +4571,6 @@ class ApiTest extends ZimbraTestCase
                 .'</env:Body>'
             .'</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
-    }
-}
-
-class LocalMailWsdl extends MailBase
-{
-    public function __construct($location)
-    {
-        parent::__construct($location);
-        $this->_client = new LocalClientWsdl($this->_location);
     }
 }
 

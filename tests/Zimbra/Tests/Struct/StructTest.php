@@ -60,13 +60,14 @@ class StructTest extends ZimbraTestCase
         $base = $this->getMockForAbstractClass('Zimbra\Struct\Base');
         $base->value('value');
         $this->assertSame('value', $base->value());
+		$className = $base->className();
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<name>value</name>';
+            .'<' . $className . '>value</' . $className . '>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $base);
 
         $array = array(
-            'name' => array(
+            $className => array(
                 '_' => 'value',
             ),
         );
@@ -83,13 +84,13 @@ class StructTest extends ZimbraTestCase
         $this->assertSame($child, $base->child('child'));
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<name name="value">'
+            .'<' . $className . ' name="value">'
                 .'<child>value</child>'
-            .'</name>';
+            .'</' . $className . '>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $base);
 
         $array = array(
-            'name' => array(
+            $className => array(
                 'name' => 'value',
                 'child' => array(
                     '_' => 'value',

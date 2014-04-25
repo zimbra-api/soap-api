@@ -32,7 +32,7 @@ class MessageTest extends ZimbraTestCase
         $message = new Message;
         $this->assertSame('1.2', $message->version());
 
-        $message = new Message(NULL, Message::SOAP_1_1);
+        $message = new Message(Message::SOAP_1_1);
         $this->assertSame('1.1', $message->version());
     }
 
@@ -43,57 +43,55 @@ class MessageTest extends ZimbraTestCase
         $this->assertSame('application/soap+xml; charset=utf-8', $message->contentType(Message::SOAP_1_2));
     }
 
-    public function testBody()
+    public function testRequest()
     {
-        $request = new SimpleXML('<Request />');
-        $params = array(
-            'param0' => 'Hello',
-            'param1' => array(
-                'title' => 'Mr',
-                '_' => 'Test',
-            )
-        );
-        $request->addArray($params);
-
+        $request = $this->getMockForAbstractClass('\Zimbra\Soap\Request');
         $message = new Message;
-        $message->body($request);
-        $bodyXml = str_replace('urn:', '', $message->body()->asXml());
-
-        $this->assertXmlStringEqualsXmlString($request->asXml(), $bodyXml);
+        $message->request($request);
+        $this->assertEquals($request, $message->request());
     }
 
     public function testToString()
     {
+        $request = $this->getMockForAbstractClass('\Zimbra\Soap\Request');
+        $request->property('foo', 'foo');
+        $request->child('bar', 'bar');
+
         $authToken = md5('authToken');
-        $request = '<?xml version="1.0"?>'."\n"
+        $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" '
-                         .'xmlns:urn="urn:zimbra" '
-                         .'xmlns:urn1="urn:zimbraAdmin">'
+                         .'xmlns:urn="urn:zimbra">'
                 .'<env:Header>'
                     .'<urn:context>'
                         .'<urn:authToken>'.$authToken.'</urn:authToken>'
                     .'</urn:context>'
                 .'</env:Header>'
                 .'<env:Body>'
-                    .'<urn1:Request echo="1">'
-                        .'<urn1:param0>Hello</urn1:param0>'
-                        .'<urn1:param1 title="Mr">Test</urn1:param1>'
-                    .'</urn1:Request>'
+                    .'<urn:'. $request->requestName() .' foo="foo">'
+                        .'<urn:bar>bar</urn:bar>'
+                    .'</urn:'. $request->requestName() .'>'
                 .'</env:Body>'
             .'</env:Envelope>';
-        $message = new Message('urn:zimbraAdmin');
+        $message = new Message;
         $message->addHeader('authToken', $authToken);
-        $body = new SimpleXML('<Request />');
-        $body->addAttribute('echo', '1');
-        $params = array(
-            'param0' => 'Hello',
-            'param1' => array(
-                'title' => 'Mr',
-                '_' => 'Test',
-            )
-        );
-        $body->addArray($params);
-        $message->body($body);
-        $this->assertXmlStringEqualsXmlString($request, (string) $message);
+        $message->request($request);
+        $this->assertXmlStringEqualsXmlString($xml, (string) $message);
+
+        $json = '{'
+		    .'"Header":{'
+			    .'"context":{'
+			        .'"_jsns":"urn:zimbra",'
+			        .'"authToken":"'.$authToken.'"'
+			    .'}'
+		    .'},'
+		    .'"Body":{'
+		        .'"'. $request->requestName() .'":{'
+		            .'"_jsns":"urn:zimbra",'
+		            .'"foo":"foo",'
+		            .'"bar":"bar"'
+		        .'}'
+		    .'}'
+        .'}';
+        $this->assertEquals($json, $message->toJson());
     }
 }

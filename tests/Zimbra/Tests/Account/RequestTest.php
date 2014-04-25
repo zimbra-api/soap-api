@@ -90,6 +90,7 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'AuthRequest' => array(
+                '_jsns' => 'urn:zimbraAccount',
                 'account' => array(
                     'by' => 'name',
                     '_' => 'value',
@@ -158,6 +159,7 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'AutoCompleteGalRequest' => array(
+                '_jsns' => 'urn:zimbraAccount',
                 'name' => 'name',
                 'needExp' => false,
                 'type' => 'account',
@@ -172,11 +174,11 @@ class RequestTest extends ZimbraTestCase
     {
         $req = $this->getMockForAbstractClass('\Zimbra\Account\Request\Base');
         $this->assertInstanceOf('Zimbra\Soap\Request', $req);
-        $this->assertEquals('urn:zimbraAccount', $req->requestNamespace());
+        $this->assertEquals('urn:zimbraAccount', $req->xmlNamespace());
 
         $req = $this->getMockForAbstractClass('\Zimbra\Account\Request\BaseAttr');
         $this->assertInstanceOf('Zimbra\Soap\Request', $req);
-        $this->assertEquals('urn:zimbraAccount', $req->requestNamespace());
+        $this->assertEquals('urn:zimbraAccount', $req->xmlNamespace());
     }
 
     public function testChangePassword()
@@ -213,6 +215,7 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'ChangePasswordRequest' => array(
+                '_jsns' => 'urn:zimbraAccount',
                 'account' => array(
                     'by' => 'name',
                     '_' => 'value',
@@ -249,6 +252,7 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'CheckRightsRequest' => array(
+                '_jsns' => 'urn:zimbraAccount',
                 'target' => array(
                     array(
                         'type' => 'domain',
@@ -286,6 +290,7 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'CreateDistributionListRequest' => array(
+                '_jsns' => 'urn:zimbraAccount',
                 'name' => 'name',
                 'dynamic' => true,
                 'a' => array(
@@ -318,6 +323,7 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'CreateIdentityRequest' => array(
+                '_jsns' => 'urn:zimbraAccount',
                 'identity' => array(
                     'name' => 'name',
                     'id' => 'id',
@@ -353,6 +359,7 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'CreateSignatureRequest' => array(
+                '_jsns' => 'urn:zimbraAccount',
                 'signature' => array(
                     'name' => 'name',
                     'id' => 'id',
@@ -384,6 +391,7 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'DeleteIdentityRequest' => array(
+                '_jsns' => 'urn:zimbraAccount',
                 'identity' => array(
                     'name' => 'name',
                     'id' => 'id',
@@ -411,6 +419,7 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'DeleteSignatureRequest' => array(
+                '_jsns' => 'urn:zimbraAccount',
                 'signature' => array(
                     'name' => 'name',
                     'id' => 'id',
@@ -439,6 +448,7 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'DiscoverRightsRequest' => array(
+                '_jsns' => 'urn:zimbraAccount',
                 'right' => array(
                     'right1',
                     'right2',
@@ -494,6 +504,7 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'DistributionListActionRequest' => array(
+                '_jsns' => 'urn:zimbraAccount',
                 'dl' => array(
                     'by' => 'name',
                     '_' => 'value',
@@ -555,7 +566,9 @@ class RequestTest extends ZimbraTestCase
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
         $array = array(
-            'EndSessionRequest' => array(),
+            'EndSessionRequest' => array(
+                '_jsns' => 'urn:zimbraAccount',
+            ),
         );
         $this->assertEquals($array, $req->toArray());
     }
@@ -581,6 +594,7 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'GetAccountDistributionListsRequest' => array(
+                '_jsns' => 'urn:zimbraAccount',
                 'ownerOf' => true,
                 'memberOf' => 'all',
                 'attrs' => 'attrs',
@@ -608,6 +622,7 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'GetAccountInfoRequest' => array(
+                '_jsns' => 'urn:zimbraAccount',
                 'account' => array(
                     'by' => 'name',
                     '_' => 'value',
@@ -627,7 +642,9 @@ class RequestTest extends ZimbraTestCase
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
         $array = array(
-            'GetAllLocalesRequest' => array(),
+            'GetAllLocalesRequest' => array(
+                '_jsns' => 'urn:zimbraAccount',
+            ),
         );
         $this->assertEquals($array, $req->toArray());
     }
@@ -642,7 +659,9 @@ class RequestTest extends ZimbraTestCase
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
         $array = array(
-            'GetAvailableCsvFormatsRequest' => array(),
+            'GetAvailableCsvFormatsRequest' => array(
+                '_jsns' => 'urn:zimbraAccount',
+            ),
         );
         $this->assertEquals($array, $req->toArray());
     }
@@ -657,7 +676,9 @@ class RequestTest extends ZimbraTestCase
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
         $array = array(
-            'GetAvailableLocalesRequest' => array(),
+            'GetAvailableLocalesRequest' => array(
+                '_jsns' => 'urn:zimbraAccount',
+            ),
         );
         $this->assertEquals($array, $req->toArray());
     }
@@ -672,7 +693,9 @@ class RequestTest extends ZimbraTestCase
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
         $array = array(
-            'GetAvailableSkinsRequest' => array(),
+            'GetAvailableSkinsRequest' => array(
+                '_jsns' => 'urn:zimbraAccount',
+            ),
         );
         $this->assertEquals($array, $req->toArray());
     }
@@ -708,6 +731,7 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'GetDistributionListRequest' => array(
+                '_jsns' => 'urn:zimbraAccount',
                 'needOwners' => true,
                 'needRights' => 'sendToDistList,viewDistList',
                 'dl' => array(
@@ -745,6 +769,7 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'GetDistributionListRequest' => array(
+                '_jsns' => 'urn:zimbraAccount',
                 'dl' => 'name',
                 'limit' => 10,
                 'offset' => 10,
@@ -763,7 +788,9 @@ class RequestTest extends ZimbraTestCase
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
         $array = array(
-            'GetIdentitiesRequest' => array(),
+            'GetIdentitiesRequest' => array(
+                '_jsns' => 'urn:zimbraAccount',
+            ),
         );
         $this->assertEquals($array, $req->toArray());
     }
@@ -786,6 +813,7 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'GetInfoRequest' => array(
+                '_jsns' => 'urn:zimbraAccount',
                 'sections' => 'attrs,zimlets',
                 'rights' => 'rights',
             ),
@@ -812,6 +840,7 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'GetPrefsRequest' => array(
+                '_jsns' => 'urn:zimbraAccount',
                 'pref' => array(
                     array(
                         'name' => 'name', 'modified' => 1000, '_' => 'value',
@@ -841,6 +870,7 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'GetRightsRequest' => array(
+                '_jsns' => 'urn:zimbraAccount',
                 'ace' => array(
                     array('right' => 'right'),
                 ),
@@ -880,6 +910,7 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'GetShareInfoRequest' => array(
+                '_jsns' => 'urn:zimbraAccount',
                 'internal' => false,
                 'includeSelf' => true,
                 'grantee' => array(
@@ -906,7 +937,9 @@ class RequestTest extends ZimbraTestCase
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
         $array = array(
-            'GetSignaturesRequest' => array(),
+            'GetSignaturesRequest' => array(
+                '_jsns' => 'urn:zimbraAccount',
+            ),
         );
         $this->assertEquals($array, $req->toArray());
     }
@@ -921,7 +954,9 @@ class RequestTest extends ZimbraTestCase
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
         $array = array(
-            'GetVersionInfoRequest' => array(),
+            'GetVersionInfoRequest' => array(
+                '_jsns' => 'urn:zimbraAccount',
+            ),
         );
         $this->assertEquals($array, $req->toArray());
     }
@@ -936,7 +971,9 @@ class RequestTest extends ZimbraTestCase
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
         $array = array(
-            'GetWhiteBlackListRequest' => array(),
+            'GetWhiteBlackListRequest' => array(
+                '_jsns' => 'urn:zimbraAccount',
+            ),
         );
         $this->assertEquals($array, $req->toArray());
     }
@@ -962,6 +999,7 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'GrantRightsRequest' => array(
+                '_jsns' => 'urn:zimbraAccount',
                 'ace' => array(
                     array(
                         'gt' => 'all',
@@ -1000,6 +1038,7 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'ModifyIdentityRequest' => array(
+                '_jsns' => 'urn:zimbraAccount',
                 'identity' => array(
                     'name' => 'name',
                     'id' => 'id',
@@ -1035,6 +1074,7 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'ModifyPrefsRequest' => array(
+                '_jsns' => 'urn:zimbraAccount',
                 'pref' => array(
                     array(
                         'name' => 'name', 'modified' => 1000, '_' => 'value',
@@ -1064,6 +1104,7 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'ModifyPropertiesRequest' => array(
+                '_jsns' => 'urn:zimbraAccount',
                 'prop' => array(
                     array(
                         'zimlet' => 'zimlet', 'name' => 'name', '_' => 'value',
@@ -1096,6 +1137,7 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'ModifySignatureRequest' => array(
+                '_jsns' => 'urn:zimbraAccount',
                 'signature' => array(
                     'name' => 'name',
                     'id' => 'id',
@@ -1142,6 +1184,7 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'ModifyWhiteBlackListRequest' => array(
+                '_jsns' => 'urn:zimbraAccount',
                 'whiteList' => array(
                     'addr' => array(
                         array(
@@ -1182,6 +1225,7 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'ModifyZimletPrefsRequest' => array(
+                '_jsns' => 'urn:zimbraAccount',
                 'zimlet' => array(
                     array(
                         'name' => 'name',
@@ -1212,6 +1256,7 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'RevokeRightsRequest' => array(
+                '_jsns' => 'urn:zimbraAccount',
                 'ace' => array(
                     array(
                         'gt' => 'all',
@@ -1293,6 +1338,7 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'SearchCalendarResourcesRequest' => array(
+                '_jsns' => 'urn:zimbraAccount',
                 'name' => 'name',
                 'locale' => 'locale',
                 'quick' => true,
@@ -1413,6 +1459,7 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'SearchGalRequest' => array(
+                '_jsns' => 'urn:zimbraAccount',
                 'locale' => 'locale',
                 'ref' => 'ref',
                 'name' => 'name',
@@ -1481,6 +1528,7 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'SubscribeDistributionListRequest' => array(
+                '_jsns' => 'urn:zimbraAccount',
                 'op' => 'subscribe',
                 'dl' => array(
                     'by' => 'name',
@@ -1513,6 +1561,7 @@ class RequestTest extends ZimbraTestCase
 
         $array = array(
             'SyncGalRequest' => array(
+                '_jsns' => 'urn:zimbraAccount',
                 'token' => 'token',
                 'galAcctId' => 'galAcctId',
                 'idOnly' => true,

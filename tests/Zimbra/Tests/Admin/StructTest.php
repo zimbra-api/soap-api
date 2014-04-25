@@ -1259,6 +1259,7 @@ class StructTest extends ZimbraTestCase
 
         $array = array(
             'policy' => array(
+                '_jsns' => 'urn:zimbraMail',
                 'type' => 'user',
                 'id' => 'id',
                 'name' => 'name',
@@ -1285,6 +1286,7 @@ class StructTest extends ZimbraTestCase
         $array = array(
             'holder' => array(
                 'policy' => array(
+                    '_jsns' => 'urn:zimbraMail',
                     'type' => 'system',
                     'id' => 'id',
                     'name' => 'name',
