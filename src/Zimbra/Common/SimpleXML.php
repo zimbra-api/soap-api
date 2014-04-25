@@ -41,7 +41,7 @@ class SimpleXML extends SimpleXMLElement
             $object = new \StdClass;
             foreach($attributes as $key => $value)
             {
-                $object->$key = (string)$value;
+                $object->$key = (string) $value;
             }
             if(!empty($textValue))
             {
