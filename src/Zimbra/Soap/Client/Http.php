@@ -194,7 +194,7 @@ class Http extends EventEmitter implements ClientInterface
                 'Content-Type' => $this->soapMessage->contentType(),
                 'Method'       => 'POST',
                 'User-Agent'   => isset($_SERVER['HTTP_USER_AGENT']) ? $_SERVER['HTTP_USER_AGENT'] : 'PHP-Zimbra-Soap-API',
-                'SoapAction' => $request->xmlNamespace().'#'.$request->requestName()
+                'SoapAction' => $request->xmlNamespace() . '#' . $request->requestName()
             )
         );
         return $request->processResponse($response);
