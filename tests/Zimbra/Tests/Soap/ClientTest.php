@@ -54,9 +54,9 @@ class ClientTest extends ZimbraTestCase
         });
 
         $request = new \Zimbra\Tests\TestData\Test('foo', 'bar');
-        $result = $client->doRequest($request);
-        $this->assertObjectHasAttribute('foo', $result);
-        $this->assertObjectHasAttribute('bar', $result);
+        $response = $client->doRequest($request);
+        $this->assertSame('foo', $response->foo);
+        $this->assertSame('bar', $response->bar);
 
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra">'

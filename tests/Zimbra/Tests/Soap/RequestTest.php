@@ -21,29 +21,6 @@ class RequestTest extends ZimbraTestCase
         $xml = '<?xml version="1.0"?>'."\n"
             .'<'.$stub->requestName().' />';
         $this->assertXmlStringEqualsXmlString($xml, $stub->toXml()->asXml());
-
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope">'
-                .'<soap:Header>'
-                    .'<context xmlns="urn:zimbra">'
-                        .'<change token="13696"/>'
-                    .'</context>'
-                .'</soap:Header>'
-                .'<soap:Body>'
-                    .'<'.$stub->responseName().' xmlns="urn:zimbraAccount">'
-                        .'<authToken>104cd8b8592b911f6a9c6705f560f3d698c51be2</authToken>'
-                        .'<lifetime>172800000</lifetime>'
-                        .'<skin>serenity</skin>'
-                    .'</'.$stub->responseName().'>'
-                .'</soap:Body>'
-            .'</soap:Envelope>';
-        $response = $stub->processResponse($xml);
-        $this->assertObjectHasAttribute('authToken', $response);
-        $this->assertSame('104cd8b8592b911f6a9c6705f560f3d698c51be2', $response->authToken);
-        $this->assertObjectHasAttribute('lifetime', $response);
-        $this->assertSame('172800000', $response->lifetime);
-        $this->assertObjectHasAttribute('skin', $response);
-        $this->assertSame('serenity', $response->skin);
     }
 
     public function testRequestAttr()
