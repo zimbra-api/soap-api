@@ -9,7 +9,6 @@
  */
 
 namespace Zimbra\Struct;
-use Zimbra\Struct\SearchFilterCondition;
 
 /**
  * SearchFilterCondition interface

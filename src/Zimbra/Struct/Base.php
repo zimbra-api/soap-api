@@ -14,7 +14,6 @@ use Evenement\EventEmitter;
 use PhpCollection\Map;
 use Zimbra\Common\SimpleXML;
 use Zimbra\Common\Text;
-use Zimbra\Common\TypedMap;
 
 /**
  * Base struct class
