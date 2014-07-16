@@ -89,7 +89,7 @@ class Http extends EventEmitter implements ClientInterface
     private static $_instances = array();
 
     /**
-     * Base constructor
+     * Http constructor
      *
      * @param string $location  The URL to request.
      */
@@ -151,7 +151,6 @@ class Http extends EventEmitter implements ClientInterface
             throw $ex;
         }
         return $this->response;
-
     }
 
     /**
