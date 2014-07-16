@@ -212,7 +212,7 @@ class Message
             );
             foreach ($this->_headers as $name => $value)
             {
-                $array['Header']['context'][$name] = $value;
+                $array['Header']['context'][$name] = array('_content' => $value);
             }
         }
         if($this->_request instanceof Request)
