@@ -14,6 +14,7 @@ use Evenement\EventEmitter;
 use PhpCollection\Map;
 use Zimbra\Common\SimpleXML;
 use Zimbra\Common\Text;
+use Zimbra\Common\TypedMap;
 
 /**
  * Base struct class
@@ -227,7 +228,7 @@ abstract class Base extends EventEmitter
                 }
                 elseif($value instanceof \Zimbra\Enum\Base)
                 {
-                    $arr[$key] = $value->value();
+                    $arr[$key] = array('_content' => $value->value());
                 }
                 elseif (is_array($value) && count($value))
                 {
@@ -241,17 +242,17 @@ abstract class Base extends EventEmitter
                         }
                         elseif($v instanceof \Zimbra\Enum\Base)
                         {
-                            $arr[$key] = $v->value();
+                            $arr[$key] = array('_content' => $v->value());
                         }
                         else
                         {
-                            $arr[$key][] = $v;
+                            $arr[$key][] = array('_content' => $v);
                         }
                     }
                 }
                 else
                 {
-                    $arr[$key] = $value;
+                    $arr[$key] = array('_content' => $value);
                 }
             }
         }
