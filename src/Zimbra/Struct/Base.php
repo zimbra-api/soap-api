@@ -242,7 +242,7 @@ abstract class Base extends EventEmitter
                         }
                         elseif($v instanceof \Zimbra\Enum\Base)
                         {
-                            $arr[$key] = array('_content' => $v->value());
+                            $arr[$key][] = array('_content' => $v->value());
                         }
                         else
                         {
