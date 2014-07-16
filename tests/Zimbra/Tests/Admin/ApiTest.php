@@ -328,10 +328,9 @@ class ApiTest extends ZimbraTestCase
 
     public function testAuthByToken()
     {
-        $account = new \Zimbra\Struct\AccountSelector(AccountBy::NAME(), 'value');
-
         $api = new LocalAdminHttp(null);
         $api->authByToken(
+            'name',
             'authToken'
         );
 
@@ -340,7 +339,7 @@ class ApiTest extends ZimbraTestCase
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
                 .'<env:Body>'
-                    .'<urn1:AuthRequest persistAuthTokenCookie="true">'
+                    .'<urn1:AuthRequest name="name" persistAuthTokenCookie="true">'
                         .'<urn1:authToken>authToken</urn1:authToken>'
                     .'</urn1:AuthRequest>'
                 .'</env:Body>'

@@ -278,8 +278,8 @@ class StructTest extends ZimbraTestCase
         $array = array(
             'values' => array(
                 'v' => array(
-                    'value',
-                    'value1',
+                    array('_content' => 'value'),
+                    array('_content' => 'value1'),
                 ),
             ),
         );
@@ -313,11 +313,11 @@ class StructTest extends ZimbraTestCase
 
         $array = array(
             'constraint' => array(
-                'min' => 'min',
-                'max' => 'max',
+                'min' => array('_content' => 'min'),
+                'max' => array('_content' => 'max'),
                 'values' => array(
                     'v' => array(
-                        'value',
+                        array('_content' => 'value'),
                     ),
                 ),
             ),
@@ -355,11 +355,11 @@ class StructTest extends ZimbraTestCase
             'a' => array(
                 'name' => 'name',
                 'constraint' => array(
-                    'min' => 'min',
-                    'max' => 'max',
+                    'min' => array('_content' => 'min'),
+                    'max' => array('_content' => 'max'),
                     'values' => array(
                         'v' => array(
-                            'value',
+                            array('_content' => 'value'),
                         ),
                     ),
                 ),

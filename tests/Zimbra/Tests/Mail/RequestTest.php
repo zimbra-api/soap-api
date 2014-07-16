@@ -94,7 +94,7 @@ class RequestTest extends ZimbraTestCase
                     'irt' => 'irt',
                     'l' => 'l',
                     'f' => 'f',
-                    'content' => 'content',
+                    'content' => array('_content' => 'content'),
                     'header' => array(
                         array(
                             'name' => 'name',
@@ -190,7 +190,7 @@ class RequestTest extends ZimbraTestCase
                             ),
                         ),
                     ),
-                    'fr' => 'fr',
+                    'fr' => array('_content' => 'fr'),
                 ),
             ),
         );
@@ -257,7 +257,7 @@ class RequestTest extends ZimbraTestCase
                 '_jsns' => 'urn:zimbraMail',
                 'filterSent' => true,
                 'm' => array(
-                    'content' => 'content',
+                    'content' => array('_content' => 'content'),
                     'f' => 'f',
                     't' => 't',
                     'tn' => 'tn',
@@ -325,7 +325,7 @@ class RequestTest extends ZimbraTestCase
                     'irt' => 'irt',
                     'l' => 'l',
                     'f' => 'f',
-                    'content' => 'content',
+                    'content' => array('_content' => 'content'),
                     'header' => array(
                         array(
                             'name' => 'name',
@@ -421,7 +421,7 @@ class RequestTest extends ZimbraTestCase
                             ),
                         ),
                     ),
-                    'fr' => 'fr',
+                    'fr' => array('_content' => 'fr'),
                 ),
             ),
         );
@@ -493,7 +493,7 @@ class RequestTest extends ZimbraTestCase
                 'm' => array(
                     'ids' => 'ids',
                 ),
-                'query' => 'query',
+                'query' => array('_content' => 'query'),
             )
         );
         $this->assertEquals($array, $req->toArray());
@@ -541,7 +541,7 @@ class RequestTest extends ZimbraTestCase
                 'm' => array(
                     'ids' => 'ids',
                 ),
-                'query' => 'query',
+                'query' => array('_content' => 'query'),
             )
         );
         $this->assertEquals($array, $req->toArray());
@@ -774,7 +774,7 @@ class RequestTest extends ZimbraTestCase
                     'irt' => 'irt',
                     'l' => 'l',
                     'f' => 'f',
-                    'content' => 'content',
+                    'content' => array('_content' => 'content'),
                     'header' => array(
                         array(
                             'name' => 'name',
@@ -870,7 +870,7 @@ class RequestTest extends ZimbraTestCase
                             ),
                         ),
                     ),
-                    'fr' => 'fr',
+                    'fr' => array('_content' => 'fr'),
                 ),
             )
         );
@@ -952,7 +952,10 @@ class RequestTest extends ZimbraTestCase
                     'by' => 'name',
                     '_content' => 'value',
                 ),
-                'right' => array('right1', 'right2')
+                'right' => array(
+                    array('_content' => 'right1'),
+                    array('_content' => 'right2'),
+                )
             )
         );
         $this->assertEquals($array, $req->toArray());
@@ -1407,7 +1410,7 @@ class RequestTest extends ZimbraTestCase
                     'irt' => 'irt',
                     'l' => 'l',
                     'f' => 'f',
-                    'content' => 'content',
+                    'content' => array('_content' => 'content'),
                     'header' => array(
                         array(
                             'name' => 'name',
@@ -1503,7 +1506,7 @@ class RequestTest extends ZimbraTestCase
                             ),
                         ),
                     ),
-                    'fr' => 'fr',
+                    'fr' => array('_content' => 'fr'),
                 ),
             ),
         );
@@ -1593,7 +1596,7 @@ class RequestTest extends ZimbraTestCase
                     'irt' => 'irt',
                     'l' => 'l',
                     'f' => 'f',
-                    'content' => 'content',
+                    'content' => array('_content' => 'content'),
                     'header' => array(
                         array(
                             'name' => 'name',
@@ -1689,7 +1692,7 @@ class RequestTest extends ZimbraTestCase
                             ),
                         ),
                     ),
-                    'fr' => 'fr',
+                    'fr' => array('_content' => 'fr'),
                 ),
             ),
         );
@@ -1774,7 +1777,7 @@ class RequestTest extends ZimbraTestCase
                     'irt' => 'irt',
                     'l' => 'l',
                     'f' => 'f',
-                    'content' => 'content',
+                    'content' => array('_content' => 'content'),
                     'header' => array(
                         array(
                             'name' => 'name',
@@ -1870,7 +1873,7 @@ class RequestTest extends ZimbraTestCase
                             ),
                         ),
                     ),
-                    'fr' => 'fr',
+                    'fr' => array('_content' => 'fr'),
                 ),
             ),
         );
@@ -2077,8 +2080,11 @@ class RequestTest extends ZimbraTestCase
                     'replyToDisplay' => 'replyToDisplay',
                     'importClass' => 'importClass',
                     'failingSince' => 10,
-                    'lastError' => 'lastError',
-                    'a' => array('a', 'b'),
+                    'lastError' => array('_content' => 'lastError'),
+                    'a' => array(
+                        array('_content' => 'a'),
+                        array('_content' => 'b'),
+                    ),
                 ),
             )
         );
@@ -2352,7 +2358,7 @@ class RequestTest extends ZimbraTestCase
                     'irt' => 'irt',
                     'l' => 'l',
                     'f' => 'f',
-                    'content' => 'content',
+                    'content' => array('_content' => 'content'),
                     'header' => array(
                         array(
                             'name' => 'name',
@@ -2448,7 +2454,7 @@ class RequestTest extends ZimbraTestCase
                             ),
                         ),
                     ),
-                    'fr' => 'fr',
+                    'fr' => array('_content' => 'fr'),
                 ),
             ),
         );
@@ -2517,7 +2523,7 @@ class RequestTest extends ZimbraTestCase
                     'irt' => 'irt',
                     'l' => 'l',
                     'f' => 'f',
-                    'content' => 'content',
+                    'content' => array('_content' => 'content'),
                     'header' => array(
                         array(
                             'name' => 'name',
@@ -2613,7 +2619,7 @@ class RequestTest extends ZimbraTestCase
                             ),
                         ),
                     ),
-                    'fr' => 'fr',
+                    'fr' => array('_content' => 'fr'),
                 ),
             ),
         );
@@ -2727,7 +2733,7 @@ class RequestTest extends ZimbraTestCase
                     'irt' => 'irt',
                     'l' => 'l',
                     'f' => 'f',
-                    'content' => 'content',
+                    'content' => array('_content' => 'content'),
                     'header' => array(
                         array(
                             'name' => 'name',
@@ -2823,7 +2829,7 @@ class RequestTest extends ZimbraTestCase
                             ),
                         ),
                     ),
-                    'fr' => 'fr',
+                    'fr' => array('_content' => 'fr'),
                 ),
             ),
         );
@@ -3594,7 +3600,7 @@ class RequestTest extends ZimbraTestCase
                     'irt' => 'irt',
                     'l' => 'l',
                     'f' => 'f',
-                    'content' => 'content',
+                    'content' => array('_content' => 'content'),
                     'header' => array(
                         array(
                             'name' => 'name',
@@ -3690,7 +3696,7 @@ class RequestTest extends ZimbraTestCase
                             ),
                         ),
                     ),
-                    'fr' => 'fr',
+                    'fr' => array('_content' => 'fr'),
                 ),
             )
         );
@@ -3757,7 +3763,7 @@ class RequestTest extends ZimbraTestCase
                     'irt' => 'irt',
                     'l' => 'l',
                     'f' => 'f',
-                    'content' => 'content',
+                    'content' => array('_content' => 'content'),
                     'header' => array(
                         array(
                             'name' => 'name',
@@ -3853,7 +3859,7 @@ class RequestTest extends ZimbraTestCase
                             ),
                         ),
                     ),
-                    'fr' => 'fr',
+                    'fr' => array('_content' => 'fr'),
                 ),
             )
         );
@@ -5185,7 +5191,7 @@ class RequestTest extends ZimbraTestCase
         $array = array(
             'ICalReplyRequest' => array(
                 '_jsns' => 'urn:zimbraMail',
-                'ical' => 'ical',
+                'ical' => array('_content' => 'ical'),
             )
         );
         $this->assertEquals($array, $req->toArray());
@@ -5608,7 +5614,7 @@ class RequestTest extends ZimbraTestCase
         $array = array(
             'MailSearchParamsRequest' => array(
                 '_jsns' => 'urn:zimbraMail',
-                'query' => 'query',
+                'query' => array('_content' => 'query'),
                 'header' => array(
                     array(
                         'n' => 'attribute-name',
@@ -5633,7 +5639,7 @@ class RequestTest extends ZimbraTestCase
                         'sec' => 10,
                     ),
                 ),
-                'locale' => 'locale',
+                'locale' => array('_content' => 'locale'),
                 'cursor' => array(
                     'id' => 'id',
                     'sortVal' => 'sortVal',
@@ -5744,7 +5750,7 @@ class RequestTest extends ZimbraTestCase
                     'irt' => 'irt',
                     'l' => 'l',
                     'f' => 'f',
-                    'content' => 'content',
+                    'content' => array('_content' => 'content'),
                     'header' => array(
                         array(
                             'name' => 'name',
@@ -5840,7 +5846,7 @@ class RequestTest extends ZimbraTestCase
                             ),
                         ),
                     ),
-                    'fr' => 'fr',
+                    'fr' => array('_content' => 'fr'),
                 ),
             ),
         );
@@ -6041,8 +6047,11 @@ class RequestTest extends ZimbraTestCase
                     'replyToDisplay' => 'replyToDisplay',
                     'importClass' => 'importClass',
                     'failingSince' => 10,
-                    'lastError' => 'lastError',
-                    'a' => array('a', 'b'),
+                    'lastError' => array('_content' => 'lastError'),
+                    'a' => array(
+                        array('_content' => 'a'),
+                        array('_content' => 'b'),
+                    ),
                 ),
             )
         );
@@ -6352,7 +6361,7 @@ class RequestTest extends ZimbraTestCase
                                     'index' => 10,
                                     'negative' => true,
                                     'method' => array(
-                                        'method',
+                                        array('_content' => 'method'),
                                     ),
                                 ),
                                 'linkedinTest' => array(
@@ -6420,11 +6429,11 @@ class RequestTest extends ZimbraTestCase
                                 ),
                                 'actionReply' => array(
                                     'index' => 10,
-                                    'content' => 'content',
+                                    'content' => array('_content' => 'content'),
                                 ),
                                 'actionNotify' => array(
                                     'index' => 10,
-                                    'content' => 'content',
+                                    'content' => array('_content' => 'content'),
                                     'a' => 'a',
                                     'su' => 'su',
                                     'maxBodySize' => 10,
@@ -6780,7 +6789,7 @@ class RequestTest extends ZimbraTestCase
                                     'index' => 10,
                                     'negative' => true,
                                     'method' => array(
-                                        'method',
+                                        array('_content' => 'method'),
                                     ),
                                 ),
                                 'linkedinTest' => array(
@@ -6848,11 +6857,11 @@ class RequestTest extends ZimbraTestCase
                                 ),
                                 'actionReply' => array(
                                     'index' => 10,
-                                    'content' => 'content',
+                                    'content' => array('_content' => 'content'),
                                 ),
                                 'actionNotify' => array(
                                     'index' => 10,
-                                    'content' => 'content',
+                                    'content' => array('_content' => 'content'),
                                     'a' => 'a',
                                     'su' => 'su',
                                     'maxBodySize' => 10,
@@ -6965,7 +6974,7 @@ class RequestTest extends ZimbraTestCase
                     'irt' => 'irt',
                     'l' => 'l',
                     'f' => 'f',
-                    'content' => 'content',
+                    'content' => array('_content' => 'content'),
                     'header' => array(
                         array(
                             'name' => 'name',
@@ -7061,7 +7070,7 @@ class RequestTest extends ZimbraTestCase
                             ),
                         ),
                     ),
-                    'fr' => 'fr',
+                    'fr' => array('_content' => 'fr'),
                 ),
             ),
         );
@@ -7502,7 +7511,7 @@ class RequestTest extends ZimbraTestCase
         $array = array(
             'SearchRequest' => array(
                 '_jsns' => 'urn:zimbraMail',
-                'query' => 'query',
+                'query' => array('_content' => 'query'),
                 'header' => array(
                     array(
                         'n' => 'attribute-name',
@@ -7527,7 +7536,7 @@ class RequestTest extends ZimbraTestCase
                         'sec' => 10,
                     ),
                 ),
-                'locale' => 'locale',
+                'locale' => array('_content' => 'locale'),
                 'cursor' => array(
                     'id' => 'id',
                     'sortVal' => 'sortVal',
@@ -7625,7 +7634,7 @@ class RequestTest extends ZimbraTestCase
         $array = array(
             'SearchConvRequest' => array(
                 '_jsns' => 'urn:zimbraMail',
-                'query' => 'query',
+                'query' => array('_content' => 'query'),
                 'header' => array(
                     array(
                         'n' => 'attribute-name',
@@ -7650,7 +7659,7 @@ class RequestTest extends ZimbraTestCase
                         'sec' => 10,
                     ),
                 ),
-                'locale' => 'locale',
+                'locale' => array('_content' => 'locale'),
                 'cursor' => array(
                     'id' => 'id',
                     'sortVal' => 'sortVal',
@@ -7825,7 +7834,7 @@ class RequestTest extends ZimbraTestCase
                     'irt' => 'irt',
                     'l' => 'l',
                     'f' => 'f',
-                    'content' => 'content',
+                    'content' => array('_content' => 'content'),
                     'header' => array(
                         array(
                             'name' => 'name',
@@ -7921,7 +7930,7 @@ class RequestTest extends ZimbraTestCase
                             ),
                         ),
                     ),
-                    'fr' => 'fr',
+                    'fr' => array('_content' => 'fr'),
                 ),
             )
         );
@@ -8033,7 +8042,7 @@ class RequestTest extends ZimbraTestCase
                     'irt' => 'irt',
                     'l' => 'l',
                     'f' => 'f',
-                    'content' => 'content',
+                    'content' => array('_content' => 'content'),
                     'header' => array(
                         array(
                             'name' => 'name',
@@ -8129,7 +8138,7 @@ class RequestTest extends ZimbraTestCase
                             ),
                         ),
                     ),
-                    'fr' => 'fr',
+                    'fr' => array('_content' => 'fr'),
                 ),
             )
         );
@@ -8171,7 +8180,7 @@ class RequestTest extends ZimbraTestCase
         $array = array(
             'SendShareNotificationRequest' => array(
                 '_jsns' => 'urn:zimbraMail',
-                'notes' => 'notes',
+                'notes' => array('_content' => 'notes'),
                 'action' => 'edit',
                 'item' => array('id' => 'id'),
                 'e' => array(
@@ -8321,7 +8330,7 @@ class RequestTest extends ZimbraTestCase
                         'irt' => 'irt',
                         'l' => 'l',
                         'f' => 'f',
-                        'content' => 'content',
+                        'content' => array('_content' => 'content'),
                         'header' => array(
                             array(
                                 'name' => 'name',
@@ -8417,7 +8426,7 @@ class RequestTest extends ZimbraTestCase
                                 ),
                             ),
                         ),
-                        'fr' => 'fr',
+                        'fr' => array('_content' => 'fr'),
                     ),
                 ),
                 'except' => array(
@@ -8814,8 +8823,11 @@ class RequestTest extends ZimbraTestCase
                     'replyToDisplay' => 'replyToDisplay',
                     'importClass' => 'importClass',
                     'failingSince' => 10,
-                    'lastError' => 'lastError',
-                    'a' => array('a', 'b'),
+                    'lastError' => array('_content' => 'lastError'),
+                    'a' => array(
+                        array('_content' => 'a'),
+                        array('_content' => 'b'),
+                    ),
                 ),
             )
         );

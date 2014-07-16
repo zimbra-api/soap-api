@@ -284,7 +284,7 @@ class StructTest extends ZimbraTestCase
 
         $array = array(
             'm' => array(
-                'content' => 'content',
+                'content' => array('_content' => 'content'),
                 'f' => 'f',
                 't' => 't',
                 'tn' => 'tn',
@@ -473,13 +473,13 @@ class StructTest extends ZimbraTestCase
                     'related' => 'END',
                     'count' => 6,
                 ),
-                'desc' => 'desc',
+                'desc' => array('_content' => 'desc'),
                 'attach' => array(
                     'uri' => 'uri',
                     'ct' => 'ct',
                     '_content' => 'value',
                 ),
-                'summary' => 'summary',
+                'summary' => array('_content' => 'summary'),
                 'at' => array(
                     array(
                         'a' => 'a',
@@ -2613,11 +2613,11 @@ class StructTest extends ZimbraTestCase
                 ),
                 'actionReply' => array(
                     'index' => 10,
-                    'content' => 'content',
+                    'content' => array('_content' => 'content'),
                 ),
                 'actionNotify' => array(
                     'index' => 10,
-                    'content' => 'content',
+                    'content' => array('_content' => 'content'),
                     'a' => 'a',
                     'su' => 'su',
                     'maxBodySize' => 10,
@@ -2929,7 +2929,7 @@ class StructTest extends ZimbraTestCase
                         'index' => 10,
                         'negative' => true,
                         'method' => array(
-                            'method',
+                            array('_content' => 'method'),
                         ),
                     ),
                     'linkedinTest' => array(
@@ -2997,11 +2997,11 @@ class StructTest extends ZimbraTestCase
                     ),
                     'actionReply' => array(
                         'index' => 10,
-                        'content' => 'content',
+                        'content' => array('_content' => 'content'),
                     ),
                     'actionNotify' => array(
                         'index' => 10,
-                        'content' => 'content',
+                        'content' => array('_content' => 'content'),
                         'a' => 'a',
                         'su' => 'su',
                         'maxBodySize' => 10,
@@ -3314,7 +3314,7 @@ class StructTest extends ZimbraTestCase
                                 'index' => 10,
                                 'negative' => true,
                                 'method' => array(
-                                    'method',
+                                    array('_content' => 'method'),
                                 ),
                             ),
                             'linkedinTest' => array(
@@ -3382,11 +3382,11 @@ class StructTest extends ZimbraTestCase
                             ),
                             'actionReply' => array(
                                 'index' => 10,
-                                'content' => 'content',
+                                'content' => array('_content' => 'content'),
                             ),
                             'actionNotify' => array(
                                 'index' => 10,
-                                'content' => 'content',
+                                'content' => array('_content' => 'content'),
                                 'a' => 'a',
                                 'su' => 'su',
                                 'maxBodySize' => 10,
@@ -3728,7 +3728,7 @@ class StructTest extends ZimbraTestCase
                     'index' => 10,
                     'negative' => true,
                     'method' => array(
-                        'method',
+                        array('_content' => 'method'),
                     ),
                 ),
                 'linkedinTest' => array(
@@ -4971,16 +4971,16 @@ class StructTest extends ZimbraTestCase
                 'neverSent' => true,
                 'changes' => 'subject,location,time',
                 'category' => array(
-                    'category1',
-                    'category2',
+                    array('_content' => 'category1'),
+                    array('_content' => 'category2'),
                 ),
                 'comment' => array(
-                    'comment1',
-                    'comment2',
+                    array('_content' => 'comment1'),
+                    array('_content' => 'comment2'),
                 ),
                 'contact' => array(
-                    'contact1',
-                    'contact2',
+                    array('_content' => 'contact1'),
+                    array('_content' => 'contact2'),
                 ),
                 'geo' => array(
                     'lat' => 123.456,
@@ -5037,13 +5037,13 @@ class StructTest extends ZimbraTestCase
                             'related' => 'START',
                             'count' => 6,
                         ),
-                        'desc' => 'desc',
+                        'desc' => array('_content' => 'desc'),
                         'attach' => array(
                             'uri' => 'uri',
                             'ct' => 'ct',
                             '_content' => 'value',
                         ),
-                        'summary' => 'summary',
+                        'summary' => array('_content' => 'summary'),
                         'at' => array(
                             array(
                                 'a' => 'a',
@@ -5093,9 +5093,9 @@ class StructTest extends ZimbraTestCase
                         ),
                     ),
                 ),
-                'fr' => 'fr',
-                'desc' => 'desc',
-                'descHtml' => 'descHtml',
+                'fr' => array('_content' => 'fr'),
+                'desc' => array('_content' => 'desc'),
+                'descHtml' => array('_content' => 'descHtml'),
                 'or' => array(
                     'a' => 'a',
                     'url' => 'url',
@@ -5640,8 +5640,8 @@ class StructTest extends ZimbraTestCase
                 'index' => 10,
                 'negative' => true,
                 'method' => array(
-                    'method1',
-                    'method2',
+                    array('_content' => 'method1'),
+                    array('_content' => 'method2'),
                 ),
             ),
         );
@@ -6018,8 +6018,12 @@ class StructTest extends ZimbraTestCase
                 'replyToDisplay' => 'replyToDisplay',
                 'importClass' => 'importClass',
                 'failingSince' => 10,
-                'lastError' => 'lastError',
-                'a' => array('a', 'b', 'c'),
+                'lastError' => array('_content' => 'lastError'),
+                'a' => array(
+                    array('_content' => 'a'),
+                    array('_content' => 'b'),
+                    array('_content' => 'c'),
+                ),
             ),
         );
         $this->assertEquals($array, $mail->toArray());
@@ -6651,7 +6655,7 @@ class StructTest extends ZimbraTestCase
                 'irt' => 'irt',
                 'l' => 'l',
                 'f' => 'f',
-                'content' => 'content',
+                'content' => array('_content' => 'content'),
                 'header' => array(
                     array(
                         'name' => 'name',
@@ -6747,7 +6751,7 @@ class StructTest extends ZimbraTestCase
                         ),
                     ),
                 ),
-                'fr' => 'fr',
+                'fr' => array('_content' => 'fr'),
             ),
         );
         $this->assertEquals($array, $m->toArray());
@@ -6989,7 +6993,7 @@ class StructTest extends ZimbraTestCase
                 'irt' => 'irt',
                 'l' => 'l',
                 'f' => 'f',
-                'content' => 'content',
+                'content' => array('_content' => 'content'),
                 'header' => array(
                     array(
                         'name' => 'name',
@@ -7085,7 +7089,7 @@ class StructTest extends ZimbraTestCase
                         ),
                     ),
                 ),
-                'fr' => 'fr',
+                'fr' => array('_content' => 'fr'),
             ),
         );
         $this->assertEquals($array, $m->toArray());
@@ -7545,7 +7549,7 @@ class StructTest extends ZimbraTestCase
         $array = array(
             'actionNotify' => array(
                 'index' => 10,
-                'content' => 'content',
+                'content' => array('_content' => 'content'),
                 'a' => 'a',
                 'su' => 'su',
                 'maxBodySize' => 10,
@@ -8311,7 +8315,7 @@ class StructTest extends ZimbraTestCase
         $array = array(
             'actionReply' => array(
                 'index' => 10,
-                'content' => 'content',
+                'content' => array('_content' => 'content'),
             ),
         );
         $this->assertEquals($array, $actionReply->toArray());
@@ -8576,7 +8580,7 @@ class StructTest extends ZimbraTestCase
                 'irt' => 'irt',
                 'l' => 'l',
                 'f' => 'f',
-                'content' => 'content',
+                'content' => array('_content' => 'content'),
                 'header' => array(
                     array(
                         'name' => 'name',
@@ -8672,7 +8676,7 @@ class StructTest extends ZimbraTestCase
                         ),
                     ),
                 ),
-                'fr' => 'fr',
+                'fr' => array('_content' => 'fr'),
             ),
         );
         $this->assertEquals($array, $m->toArray());
@@ -8788,7 +8792,7 @@ class StructTest extends ZimbraTestCase
                     'irt' => 'irt',
                     'l' => 'l',
                     'f' => 'f',
-                    'content' => 'content',
+                    'content' => array('_content' => 'content'),
                     'header' => array(
                         array(
                             'name' => 'name',
@@ -8884,7 +8888,7 @@ class StructTest extends ZimbraTestCase
                             ),
                         ),
                     ),
-                    'fr' => 'fr',
+                    'fr' => array('_content' => 'fr'),
                 ),
             ),
         );

@@ -172,8 +172,8 @@ class RequestTest extends ZimbraTestCase
                 '_jsns' => 'urn:zimbraAdmin',
                 'id' => 'id',
                 'dlm' => array(
-                    'member1',
-                    'member2',
+                    array('_content' => 'member1'),
+                    array('_content' => 'member2'),
                 ),
             ),
         );
@@ -441,12 +441,12 @@ class RequestTest extends ZimbraTestCase
                 '_jsns' => 'urn:zimbraAdmin',
                 'name' => 'name',
                 'password' => 'password',
-                'authToken' => 'authToken',
+                'authToken' => array('_content' => 'authToken'),
                 'account' => array(
                     'by' => 'name',
                     '_content' => 'value',
                 ),
-                'virtualHost' => 'virtualHost',
+                'virtualHost' => array('_content' => 'virtualHost'),
                 'persistAuthTokenCookie' => true,
             ),
         );
@@ -530,7 +530,7 @@ class RequestTest extends ZimbraTestCase
                     'by' => 'dn',
                     '_content' => 'principal',
                 ),
-                'password' => 'password',
+                'password' => array('_content' => 'password'),
             ),
         );
         $this->assertEquals($array, $req->toArray());
@@ -772,7 +772,7 @@ class RequestTest extends ZimbraTestCase
                     'limit' => 100,
                     '_content' => 'value',
                 ),
-                'action' => 'search',
+                'action' => array('_content' => 'search'),
                 'a' => array(
                     array(
                         'n' => 'key',
@@ -895,7 +895,7 @@ class RequestTest extends ZimbraTestCase
                     'secret' => 'secret',
                     'all' => true,
                 ),
-                'right' => 'right',
+                'right' => array('_content' => 'right'),
                 'a' => array(
                     array(
                         'n' => 'key',
@@ -1033,7 +1033,7 @@ class RequestTest extends ZimbraTestCase
         $array = array(
             'CopyCosRequest' => array(
                 '_jsns' => 'urn:zimbraAdmin',
-                'name' => 'name',
+                'name' => array('_content' => 'name'),
                 'cos' => array(
                     'by' => 'name',
                     '_content' => 'value',
@@ -1206,7 +1206,7 @@ class RequestTest extends ZimbraTestCase
         $array = array(
             'CreateCosRequest' => array(
                 '_jsns' => 'urn:zimbraAdmin',
-                'name' => 'name',
+                'name' => array('_content' => 'name'),
                 'a' => array(
                     array(
                         'n' => 'key',
@@ -1537,7 +1537,7 @@ class RequestTest extends ZimbraTestCase
         $array = array(
             'CreateUCServiceRequest' => array(
                 '_jsns' => 'urn:zimbraAdmin',
-                'name' => 'name',
+                'name' => array('_content' => 'name'),
                 'a' => array(
                     array(
                         'n' => 'key',
@@ -1808,7 +1808,7 @@ class RequestTest extends ZimbraTestCase
         $array = array(
             'DeleteCosRequest' => array(
                 '_jsns' => 'urn:zimbraAdmin',
-                'id' => 'id',
+                'id' => array('_content' => 'id'),
             ),
         );
         $this->assertEquals($array, $req->toArray());
@@ -2057,7 +2057,7 @@ class RequestTest extends ZimbraTestCase
         $array = array(
             'DeleteUCServiceRequest' => array(
                 '_jsns' => 'urn:zimbraAdmin',
-                'id' => 'id',
+                'id' => array('_content' => 'id'),
             ),
         );
         $this->assertEquals($array, $req->toArray());
@@ -2566,15 +2566,15 @@ class RequestTest extends ZimbraTestCase
                 'new' => true,
                 'type' => 'comm',
                 'keysize' => 2048,
-                'C' => 'c',
-                'ST' => 'st',
-                'L' => 'l',
-                'O' => 'o',
-                'OU' => 'ou',
-                'CN' => 'cn',
+                'C' => array('_content' => 'c'),
+                'ST' => array('_content' => 'st'),
+                'L' => array('_content' => 'l'),
+                'O' => array('_content' => 'o'),
+                'OU' => array('_content' => 'ou'),
+                'CN' => array('_content' => 'cn'),
                 'SubjectAltName' => array(
-                    'subject1',
-                    'subject2',
+                    array('_content' => 'subject1'),
+                    array('_content' => 'subject2'),
                 ),
             ),
         );
@@ -3943,7 +3943,7 @@ class RequestTest extends ZimbraTestCase
             'GetLDAPEntriesRequest' => array(
                 '_jsns' => 'urn:zimbraAdmin',
                 'query' => 'query',
-                'ldapSearchBase' => 'ldapSearchBase',
+                'ldapSearchBase' => array('_content' => 'ldapSearchBase'),
                 'sortBy' => 'sortBy',
                 'sortAscending' => true,
                 'limit' => 100,
@@ -4254,7 +4254,7 @@ class RequestTest extends ZimbraTestCase
         $array = array(
             'GetRightRequest' => array(
                 '_jsns' => 'urn:zimbraAdmin',
-                'right' => 'right',
+                'right' => array('_content' => 'right'),
                 'expandAllAttrs' => true,
             ),
         );
@@ -4979,7 +4979,7 @@ class RequestTest extends ZimbraTestCase
         $array = array(
             'ModifyCosRequest' => array(
                 '_jsns' => 'urn:zimbraAdmin',
-                'id' => 'id',
+                'id' => array('_content' => 'id'),
                 'a' => array(
                     array(
                         'n' => 'key',
@@ -5080,11 +5080,11 @@ class RequestTest extends ZimbraTestCase
                     array(
                         'name' => 'name',
                         'constraint' => array(
-                            'min' => 'min',
-                            'max' => 'max',
+                            'min' => array('_content' => 'min'),
+                            'max' => array('_content' => 'max'),
                             'values' => array(
                                 'v' => array(
-                                    'value',
+                                    array('_content' => 'value'),
                                 ),
                             ),
                         ),
@@ -5284,7 +5284,7 @@ class RequestTest extends ZimbraTestCase
         $array = array(
             'ModifyUCServiceRequest' => array(
                 '_jsns' => 'urn:zimbraAdmin',
-                'id' => 'id',
+                'id' => array('_content' => 'id'),
                 'a' => array(
                     array(
                         'n' => 'key',
@@ -5794,8 +5794,8 @@ class RequestTest extends ZimbraTestCase
                 '_jsns' => 'urn:zimbraAdmin',
                 'id' => 'id',
                 'dlm' => array(
-                    'dlm',
-                    'dlm1',
+                    array('_content' => 'dlm'),
+                    array('_content' => 'dlm1'),
                 ),
             ),
         );
@@ -5873,8 +5873,8 @@ class RequestTest extends ZimbraTestCase
         $array = array(
             'RenameCosRequest' => array(
                 '_jsns' => 'urn:zimbraAdmin',
-                'id' => 'id',
-                'newName' => 'newName',
+                'id' => array('_content' => 'id'),
+                'newName' => array('_content' => 'newName'),
             ),
         );
         $this->assertEquals($array, $req->toArray());
@@ -5951,8 +5951,8 @@ class RequestTest extends ZimbraTestCase
         $array = array(
             'RenameUCServiceRequest' => array(
                 '_jsns' => 'urn:zimbraAdmin',
-                'id' => 'id',
-                'newName' => 'newName',
+                'id' => array('_content' => 'id'),
+                'newName' => array('_content' => 'newName'),
             ),
         );
         $this->assertEquals($array, $req->toArray());
@@ -6088,8 +6088,8 @@ class RequestTest extends ZimbraTestCase
             'RunUnitTestsRequest' => array(
                 '_jsns' => 'urn:zimbraAdmin',
                 'test' => array(
-                    'test',
-                    'test1',
+                    array('_content' => 'test'),
+                    array('_content' => 'test1'),
                 ),
             ),
         );
@@ -6684,8 +6684,8 @@ class RequestTest extends ZimbraTestCase
                     'by' => 'name',
                     '_content' => 'value',
                 ),
-                'username' => 'username',
-                'password' => 'password',
+                'username' => array('_content' => 'username'),
+                'password' => array('_content' => 'password'),
                 'a' => array(
                     array(
                         'n' => 'key',

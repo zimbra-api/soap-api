@@ -302,9 +302,9 @@ class StructTest extends ZimbraTestCase
                 'by' => 'name',
                 'key' => 'key',
                 'right' => array(
-                    'right1',
-                    'right2',
-                    'right3',
+                    array('_content' => 'right1'),
+                    array('_content' => 'right2'),
+                    array('_content' => 'right3'),
                 ),
             ),
         );
@@ -491,13 +491,13 @@ class StructTest extends ZimbraTestCase
         $array = array(
             'action' => array(
                 'op' => 'delete',
-                'newName' => 'newName',
+                'newName' => array('_content' => 'newName'),
                 'subsReq' => array(
                     'op' => 'subscribe',
                     '_content' => 'value',
                     'bccOwners' => true,
                 ),
-                'dlm' => array('dlm'),
+                'dlm' => array(array('_content' => 'dlm')),
                 'owner' => array(
                     array(
                         'type' => 'usr',
@@ -931,7 +931,7 @@ class StructTest extends ZimbraTestCase
             'signature' => array(
                 'name' => 'name',
                 'id' => 'id',
-                'cid' => 'cid',
+                'cid' => array('_content' => 'cid'),
                 'content' => array(
                     array(
                         'type' => 'text/plain',
