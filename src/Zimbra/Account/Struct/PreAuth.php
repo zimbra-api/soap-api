@@ -27,8 +27,13 @@ class PreAuth extends Base
     /**
      * Constructor method for PreAuth
      * @param  int    $timestamp
+     *   Time stamp
      * @param  string $value
+     *   Computed preauth value
      * @param  int    $expiresTimestamp
+     *    Expiration time of the authtoken, in milliseconds.
+     *    Set to 0 to use the default expiration time for the account.
+     *    Can be used to sync the auth token expiration time with the external system's notion of expiration (like a Kerberos TGT lifetime, for example).
      * @return self
      */
     public function __construct($timestamp, $value = null, $expiresTimestamp = null)
@@ -40,7 +45,7 @@ class PreAuth extends Base
 
     /**
      * Gets or sets timestamp
-     *
+     * Time stamp
      * @param  int $timestamp
      * @return int|self
      */
@@ -61,6 +66,9 @@ class PreAuth extends Base
 
     /**
      * Gets or sets expiresTimestamp
+     * Expiration time of the authtoken, in milliseconds.
+     * Set to 0 to use the default expiration time for the account.
+     * Can be used to sync the auth token expiration time with the external system's notion of expiration (like a Kerberos TGT lifetime, for example).
      *
      * @param  int $expiresTimestamp
      * @return int|self
