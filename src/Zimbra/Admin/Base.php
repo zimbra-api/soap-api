@@ -314,6 +314,7 @@ abstract class Base extends API implements AdminInterface
         }
         return $result;
     }
+
     /**
      * Authenticate for an adminstration account.
      *
@@ -343,12 +344,14 @@ abstract class Base extends API implements AdminInterface
     /**
      * Authenticate for an adminstration account.
      *
+     * @param  string $name  Name. Only one of {auth-name} or <account> can be specified
      * @param  string $token The authentication token.
+     * @param  string $vhost Virtual-host is used to determine the domain of the account name.
      * @return authentication token.
      */
-    public function authByToken($token)
+    public function authByToken($name, $token, $vhost = null)
     {
-        return $this->auth(null, null, $token, null, null, true);
+        return $this->auth($name, null, $token, null, $vhost, true);
     }
 
     /**
@@ -3360,10 +3363,10 @@ abstract class Base extends API implements AdminInterface
      * @param  bool    $applyCos    Flag whether or not to apply the COS policy to account. Specify 0 (false) if only requesting attrs that aren't inherited from COS.
      * @param  bool    $applyConfig Whether or not to apply the global config attrs to account. specify 0 (false) if only requesting attrs that aren't inherited from global config.
      * @param  bool    $countOnly   Whether response should be count only. Default is 0 (false).
-     * @param  array   $attrs       Array of attributes.
      * @param  array   $types       Array of types to return. Legal values are: accounts|distributionlists|aliases|resources|domains|coses. (default is accounts)
      * @param  string  $sortBy      Name of attribute to sort on. Default is the account name.
      * @param  bool    $sortAscending Whether to sort in ascending order. Default is 1 (true).
+     * @param  array   $attrs       Comma separated list of attributes.
      * @return mix
      */
     public function searchDirectory(

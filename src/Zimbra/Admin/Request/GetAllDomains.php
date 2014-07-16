@@ -12,7 +12,7 @@ namespace Zimbra\Admin\Request;
 
 /**
  * GetAllDomains request class
- * Get all Admin accounts.
+ * Get all domains.
  *
  * @package    Zimbra
  * @subpackage Admin
@@ -23,14 +23,8 @@ namespace Zimbra\Admin\Request;
 class GetAllDomains extends Base
 {
     /**
-     * Apply config flag
-     * @var bool
-     */
-    private $_applyConfig;
-
-    /**
      * Constructor method for GetAllDomains
-     * @param  bool $applyConfig
+     * @param  bool $applyConfig Apply config flag
      * @return self
      */
     public function __construct($applyConfig = null)

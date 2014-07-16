@@ -12,7 +12,7 @@ namespace Zimbra\Admin\Request;
 
 /**
  * CreateDomain request class
- * Create a distribution list.
+ * Create a domain.
  *
  * @package    Zimbra
  * @subpackage Admin

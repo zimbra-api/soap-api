@@ -12,7 +12,7 @@ namespace Zimbra\Admin\Request;
 
 /**
  * CreateAccount request class
- * Create account.
+ * Create an account.
  *
  * @package    Zimbra
  * @subpackage Admin

@@ -12,7 +12,7 @@ namespace Zimbra\Admin\Request;
 
 /**
  * DeleteDistributionList request class
- * Delete a distribution list .
+ * Delete a distribution list.
  *
  * @package    Zimbra
  * @subpackage Admin

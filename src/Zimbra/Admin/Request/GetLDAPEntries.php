@@ -26,7 +26,7 @@ class GetLDAPEntries extends Base
      * Constructor method for GetLDAPEntries
      * @param string $query Query string. Should be an LDAP-style filter string (RFC 2254)
      * @param string $ldapSearchBase LDAP search base. An LDAP-style filter string that defines an LDAP search base (RFC 2254)
-     * @param string $ortBy Name of attribute to sort on. default is null
+     * @param string $sortBy Name of attribute to sort on. default is null
      * @param bool $sortAscending Flag whether to sort in ascending order 1 (true) is default
      * @param int $limit Limit - the maximum number of LDAP objects (records) to return (0 is default and means all)
      * @param int $offset The starting offset (0, 25, etc)
