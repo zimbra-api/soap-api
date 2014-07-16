@@ -26,7 +26,10 @@ class AuthToken extends Base
     /**
      * Constructor method for AuthToken
      * @param  string $value
+     *   Value for authorization token
      * @param  bool   $verifyAccount
+     *   If verifyAccount="1", account is required and the account in the auth token is compared to the named account.
+     *   If verifyAccount="0" (default), only the auth token is verified and any account element specified is ignored.
      * @return self
      */
     public function __construct($value, $verifyAccount = null)
@@ -40,6 +43,8 @@ class AuthToken extends Base
 
     /**
      * Gets or sets verifyAccount
+     * If verifyAccount="1", account is required and the account in the auth token is compared to the named account.
+     * If verifyAccount="0" (default), only the auth token is verified and any account element specified is ignored.
      *
      * @param  bool $verifyAccount
      * @return bool|self
