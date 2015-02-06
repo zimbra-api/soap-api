@@ -58,7 +58,7 @@ class SimpleXML extends SimpleXMLElement
                     }
                     else
                     {
-                        $object->$name = array($object->$name, $value->toObject());
+                        $object->$name = [$object->$name, $value->toObject()];
                     }
                 }
                 else
@@ -103,7 +103,7 @@ class SimpleXML extends SimpleXMLElement
      * @param  string $namespace.
      * @return void
      */
-    public function addArray(array $array = array(), $namespace = null)
+    public function addArray(array $array = [], $namespace = null)
     {
         foreach ($array as $name => $param)
         {
@@ -122,7 +122,7 @@ class SimpleXML extends SimpleXMLElement
                     {
                         if(is_array($value))
                         {
-                            $this->addArray(array($name => $value));
+                            $this->addArray([$name => $value]);
                         }
                         else
                         {
@@ -147,7 +147,7 @@ class SimpleXML extends SimpleXMLElement
                                 {
                                     if(is_array($v))
                                     {
-                                        $child->addArray(array($key => $v));
+                                        $child->addArray([$key => $v]);
                                     }
                                     else
                                     {
@@ -157,7 +157,7 @@ class SimpleXML extends SimpleXMLElement
                             }
                             else
                             {
-                                $child->addArray(array($key => $value));
+                                $child->addArray([$key => $value]);
                             }
                         }
                         else

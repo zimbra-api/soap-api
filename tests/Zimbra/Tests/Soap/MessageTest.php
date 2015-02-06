@@ -13,17 +13,22 @@ class MessageTest extends ZimbraTestCase
 {
     public function testAddHeader()
     {
-        $message = new Message;
-        $headers = array(
-            'testName' => 'otherValue',
-            'anotherName' => 'anotherValue',
-        );
+        $testName = self::randomName();
+        $testValue = self::randomString();
+        $anotherName = self::randomName();
+        $anotherValue = self::randomString();
 
-        $message->addHeader('testName', 'testValue');
-        $this->assertSame('testValue', $message->header('testName'));
+        $message = new Message;
+        $headers = [
+            $testName => $testValue,
+            $anotherName => $anotherValue,
+        ];
+
+        $message->addHeader($testName, $testValue);
+        $this->assertSame($testValue, $message->header($testName));
 
         $message->addHeader($headers);
-        $this->assertSame('otherValue', $message->header('testName'));
+        $this->assertSame($anotherValue, $message->header($anotherName));
         $this->assertSame($headers, $message->header());
     }
 
@@ -47,17 +52,19 @@ class MessageTest extends ZimbraTestCase
     {
         $request = $this->getMockForAbstractClass('\Zimbra\Soap\Request');
         $message = new Message;
-        $message->request($request);
-        $this->assertEquals($request, $message->request());
+        $message->setRequest($request);
+        $this->assertEquals($request, $message->getRequest());
     }
 
     public function testToString()
     {
+        $foo = md5(self::randomString(64));
+        $bar = md5(self::randomString(64));
         $request = $this->getMockForAbstractClass('\Zimbra\Soap\Request');
-        $request->property('foo', 'foo');
-        $request->child('bar', 'bar');
+        $request->property('foo', $foo);
+        $request->child('bar', $bar);
 
-        $authToken = md5('authToken');
+        $authToken = md5(self::randomString(64));
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" '
                          .'xmlns:urn="urn:zimbra">'
@@ -67,14 +74,14 @@ class MessageTest extends ZimbraTestCase
                     .'</urn:context>'
                 .'</env:Header>'
                 .'<env:Body>'
-                    .'<urn:'. $request->requestName() .' foo="foo">'
-                        .'<urn:bar>bar</urn:bar>'
+                    .'<urn:'. $request->requestName() .' foo="' . $foo . '">'
+                        .'<urn:bar>' . $bar . '</urn:bar>'
                     .'</urn:'. $request->requestName() .'>'
                 .'</env:Body>'
             .'</env:Envelope>';
         $message = new Message;
         $message->addHeader('authToken', $authToken);
-        $message->request($request);
+        $message->setRequest($request);
         $this->assertXmlStringEqualsXmlString($xml, (string) $message);
 
         $json = '{'
@@ -87,8 +94,8 @@ class MessageTest extends ZimbraTestCase
 		    .'"Body":{'
 		        .'"'. $request->requestName() .'":{'
 		            .'"_jsns":"urn:zimbra",'
-		            .'"foo":"foo",'
-		            .'"bar":"bar"'
+		            .'"foo":"' . $foo . '",'
+		            .'"bar":"' . $bar . '"'
 		        .'}'
 		    .'}'
         .'}';

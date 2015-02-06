@@ -47,7 +47,7 @@ class Message
      * Soap headers
      * @var array
      */
-    private $_headers = array();
+    private $_headers = [];
 
     /**
      * Soap request
@@ -65,7 +65,7 @@ class Message
      * The xml namespaces
      * @var array
      */
-    private $_namespaces = array('urn:zimbra');
+    private $_namespaces = ['urn:zimbra'];
 
     /**
      * The soap version
@@ -77,10 +77,10 @@ class Message
      * Content types for SOAP versions.
      * @var array
      */
-    static protected $contentTypeMap = array(
+    static protected $contentTypeMap = [
         '1.1' => 'text/xml; charset=utf-8',
         '1.2' => 'application/soap+xml; charset=utf-8'
-    );
+    ];
 
     /**
      * Message constructor
@@ -90,29 +90,41 @@ class Message
      */
     public function __construct($version = self::SOAP_1_2)
     {
-        $this->_version = in_array($version, array(self::SOAP_1_2, self::SOAP_1_1)) ? $version : self::SOAP_1_2;
+        $this->_version = in_array($version, [self::SOAP_1_2, self::SOAP_1_1]) ? $version : self::SOAP_1_2;
     }
 
     /**
-     * Get or set request
+     * Gets soap request
      *
-     * @param  Request $request
-     * @return Request|self
+     * @return Request
      */
-    public function request(Request $request = null)
+    public function getRequest()
     {
-        if($request instanceof Request)
-        {
-            $this->_request = $request;
-            $this->addNamespace($this->_request->xmlNamespace());
-            $this->_body = $request->toXml();
-            $namespaces = array_values($this->_body->getDocNamespaces(true));
-            $this->addNamespace($namespaces);
-            return $this;
-        }
         return $this->_request;
     }
 
+    /**
+     * Set soap request
+     *
+     * @param  Request $request
+     * @return self
+     */
+    public function setRequest(Request $request)
+    {
+        $this->_request = $request;
+        $this->addNamespace($this->_request->xmlNamespace());
+        $this->_body = $request->toXml();
+        $namespaces = array_values($this->_body->getDocNamespaces(true));
+        $this->addNamespace($namespaces);
+        return $this;
+    }
+
+    /**
+     * Add namespace.
+     *
+     * @param  string|array $namespace
+     * @return self
+     */
     public function addNamespace($namespace)
     {
         if(is_array($namespace))
@@ -129,6 +141,7 @@ class Message
                 $this->_namespaces[] = (string) $namespace;
             }
         }
+        return $this;
     }
 
     /**
@@ -170,6 +183,16 @@ class Message
         {
             return isset($this->_headers[$name]) ? $this->_headers[$name] : null;
         }
+    }
+
+    /**
+     * Get all soap headers.
+     *
+     * @return array
+     */
+    public function headers()
+    {
+        return $this->_headers;
     }
 
     /**

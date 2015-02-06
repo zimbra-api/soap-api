@@ -2,7 +2,8 @@
 
 namespace Zimbra\Tests\Soap;
 
-use Guzzle\Http\Message\Response as HttpResponse;
+use GuzzleHttp\Message\Response as HttpResponse;
+use GuzzleHttp\Stream\Stream;
 use Zimbra\Tests\ZimbraTestCase;
 use Zimbra\Soap\Response;
 
@@ -13,6 +14,8 @@ class ResponseTest extends ZimbraTestCase
 {
     public function testResponse()
     {
+        $authToken = md5(self::randomString(64));
+        $lifetime = mt_rand();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope">'
                 .'<soap:Header>'
@@ -22,15 +25,16 @@ class ResponseTest extends ZimbraTestCase
                 .'</soap:Header>'
                 .'<soap:Body>'
                     .'<AuthResponse xmlns="urn:zimbraAccount">'
-                        .'<authToken>104cd8b8592b911f6a9c6705f560f3d698c51be2</authToken>'
-                        .'<lifetime>172800000</lifetime>'
+                        .'<authToken>' . $authToken . '</authToken>'
+                        .'<lifetime>' . $lifetime . '</lifetime>'
                         .'<skin>serenity</skin>'
                     .'</AuthResponse>'
                 .'</soap:Body>'
             .'</soap:Envelope>';
-        $response = new Response(new HttpResponse(200, array(), $xml));
-        $this->assertSame('104cd8b8592b911f6a9c6705f560f3d698c51be2', $response->authToken);
-        $this->assertSame('172800000', $response->lifetime);
+        $stream = Stream::factory($xml);
+        $response = new Response(new HttpResponse(200, array(), $stream));
+        $this->assertSame($authToken, $response->authToken);
+        $this->assertSame($lifetime, (int) $response->lifetime);
         $this->assertSame('serenity', $response->skin);
     }
 }

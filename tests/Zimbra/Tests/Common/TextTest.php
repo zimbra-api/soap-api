@@ -60,20 +60,22 @@ class TextTest extends ZimbraTestCase
             'Transfer-encoding' => 'chunked',
             'Content-type' => 'text/html',
         );
-           $extractHeaders = Text::extractHeaders($headersString);
-           $this->assertCount(count($headers), $extractHeaders);
-           foreach ($headers as $key => $value)
-           {
-               $this->assertArrayHasKey($key, $extractHeaders);
-               $this->assertSame($value, $extractHeaders[$key]);
-           }
+       $extractHeaders = Text::extractHeaders($headersString);
+       $this->assertCount(count($headers), $extractHeaders);
+       foreach ($headers as $key => $value)
+       {
+           $this->assertArrayHasKey($key, $extractHeaders);
+           $this->assertSame($value, $extractHeaders[$key]);
+       }
     }
 
     public function testBoolToString()
     {
+        $number = mt_rand();
+        $string = self::randomString();
         $this->assertSame('true', Text::boolToString(true));
         $this->assertSame('false', Text::boolToString(false));
-        $this->assertSame(100, Text::boolToString(100));
-        $this->assertSame('foo-bar', Text::boolToString('foo-bar'));
+        $this->assertSame($number, Text::boolToString($number));
+        $this->assertSame($string, Text::boolToString($string));
     }
 }

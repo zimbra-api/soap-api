@@ -60,7 +60,7 @@ abstract class API
      * @param  array $requests
      * @return mix
      */
-    public function batch(array $requests = array())
+    public function batch(array $requests = [])
     {
         $request = new \Zimbra\Soap\Request\Batch(
             $requests

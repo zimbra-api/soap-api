@@ -34,7 +34,7 @@ class TypedSequence extends Sequence
      * @param array $elements
      * @return self
      */
-    public function __construct($type, array $elements = array())
+    public function __construct($type, array $elements = [])
     {
         $this->_type = $type;
         $this->addAll($elements);
@@ -109,6 +109,6 @@ class TypedSequence extends Sequence
             return $index;
         }
         else
-            return FALSE;
+            return false;
     }
 }

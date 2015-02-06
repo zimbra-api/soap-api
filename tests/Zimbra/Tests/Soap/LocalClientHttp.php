@@ -2,7 +2,8 @@
 
 namespace Zimbra\Tests\Soap;
 
-use Guzzle\Http\Message\Response;
+use GuzzleHttp\Message\Response;
+use GuzzleHttp\Stream\Stream;
 use Zimbra\Soap\Client\Http as ClientHttp;
 
 class LocalClientHttp extends ClientHttp
@@ -20,6 +21,7 @@ class LocalClientHttp extends ClientHttp
                     .'</TestResponse>'
                 .'</soap:Body>'
             .'</soap:Envelope>';
-        return new Response(200, array(), $xml);
+        $stream = Stream::factory($xml);
+        return new Response(200, array(), $stream);
     }
 }
