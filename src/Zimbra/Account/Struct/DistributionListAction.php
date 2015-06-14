@@ -77,9 +77,9 @@ class DistributionListAction extends AccountKeyValuePairs
         {
 			$this->setChild('subsReq', $subsReq);
         }
-        $this->_members = new Sequence($dlms);
-        $this->_owners = new TypedSequence('Zimbra\Account\Struct\DistributionListGranteeSelector', $owners);
-        $this->_rights = new TypedSequence('Zimbra\Account\Struct\DistributionListRightSpec', $rights);
+        $this->setMembers($dlms);
+        $this->setOwners($owners);
+        $this->setRights($rights);
 
         $this->on('before', function(Base $sender)
         {
@@ -180,6 +180,18 @@ class DistributionListAction extends AccountKeyValuePairs
     /**
      * Gets member sequence
      *
+     * @param array $dlms
+     * @return self
+     */
+    public function setMembers(array $dlms)
+    {
+        $this->_members = new Sequence($dlms);
+        return $this;
+    }
+
+    /**
+     * Gets member sequence
+     *
      * @return Sequence
      */
     public function getMembers()
@@ -196,6 +208,18 @@ class DistributionListAction extends AccountKeyValuePairs
     public function addOwner(Grantee $owner)
     {
         $this->_owners->add($owner);
+        return $this;
+    }
+
+    /**
+     * Sets owner sequence
+     *
+     * @param array $owners
+     * @return Sequence
+     */
+    public function setOwners(array $owners)
+    {
+        $this->_owners = new TypedSequence('Zimbra\Account\Struct\DistributionListGranteeSelector', $owners);
         return $this;
     }
 
@@ -218,6 +242,18 @@ class DistributionListAction extends AccountKeyValuePairs
     public function addRight(Right $right)
     {
         $this->_rights->add($right);
+        return $this;
+    }
+
+    /**
+     * Sets right sequence
+     *
+     * @param array $rights
+     * @return Sequence
+     */
+    public function setRights(array $rights)
+    {
+        $this->_rights = new TypedSequence('Zimbra\Account\Struct\DistributionListRightSpec', $rights);
         return $this;
     }
 

@@ -40,15 +40,7 @@ class EntrySearchFilterInfo extends Base
     public function __construct(SearchFilterCondition $condition = null)
     {
         parent::__construct();
-        $this->_condition = $condition;
-        if($this->_condition instanceof MultiCond)
-        {
-            $this->child('conds', $this->_condition);
-        }
-        if($this->_condition instanceof SingleCond)
-        {
-            $this->child('cond', $this->_condition);
-        }
+        $this->setCondition($condition);
     }
 
     /**

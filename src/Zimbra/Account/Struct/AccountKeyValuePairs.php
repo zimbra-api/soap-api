@@ -39,7 +39,7 @@ abstract class AccountKeyValuePairs extends Base
     public function __construct(array $attrs = [])
     {
         parent::__construct();
-        $this->_attrs = new TypedSequence('Zimbra\Struct\KeyValuePair', $attrs);
+        $this->setAttrs($attrs);
 
         $this->on('before', function(Base $sender)
         {

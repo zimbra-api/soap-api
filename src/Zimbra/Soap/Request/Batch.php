@@ -35,10 +35,10 @@ class Batch extends Request
      * @param  array $requests
      * @return self
      */
-    public function __construct(array $requests = array())
+    public function __construct(array $requests = [])
     {
         parent::__construct();
-        $this->_requests = new TypedSequence('Zimbra\Soap\Request', $requests);
+        $this->setRequests($requests);
     }
 
     /**

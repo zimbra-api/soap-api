@@ -39,7 +39,7 @@ class WhiteList extends Base
     public function __construct(array $addrs = [])
     {
 		parent::__construct();
-        $this->_addrs = new TypedSequence('Zimbra\Struct\OpValue', $addrs);
+        $this->setAddrs($addrs);
 
         $this->on('before', function(Base $sender)
         {

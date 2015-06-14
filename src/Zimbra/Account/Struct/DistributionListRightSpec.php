@@ -41,9 +41,7 @@ class DistributionListRightSpec extends Base
     {
 		parent::__construct();
 		$this->setProperty('right', trim($right));
-        $this->_grantees = new TypedSequence(
-            'Zimbra\Account\Struct\DistributionListGranteeSelector', $grantees
-        );
+        $this->setGrantees($grantees);
 
         $this->on('before', function(Base $sender)
         {

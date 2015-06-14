@@ -58,7 +58,7 @@ class Signature extends Base
         {
             $this->setChild('cid', trim($cid));
         }
-        $this->_contents = new TypedSequence('Zimbra\Account\Struct\SignatureContent', $contents);
+        $this->setContent($contents);
 
         $this->on('before', function(Base $sender)
         {
@@ -153,6 +153,7 @@ class Signature extends Base
     public function setContent(array $contents)
     {
         $this->_contents = new TypedSequence('Zimbra\Account\Struct\SignatureContent', $contents);
+        return $this;
     }
 
     /**

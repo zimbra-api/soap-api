@@ -35,10 +35,10 @@ abstract class Attr extends Request
      * @param array  $attrs
      * @return self
      */
-    public function __construct(array $attrs = array())
+    public function __construct(array $attrs = [])
     {
         parent::__construct();
-        $this->_attrs = new TypedSequence('Zimbra\Struct\KeyValuePair', $attrs);
+        $this->setAttrs($attrs);
 
         $this->on('before', function(Request $sender)
         {

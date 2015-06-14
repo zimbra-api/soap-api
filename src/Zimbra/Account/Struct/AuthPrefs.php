@@ -38,7 +38,7 @@ class AuthPrefs extends Base
     public function __construct(array $prefs = [])
     {
 		parent::__construct();
-        $this->_prefs = new TypedSequence('Zimbra\Account\Struct\Pref', $prefs);
+        $this->setPrefs($prefs);
 
         $this->on('before', function(Base $sender)
         {

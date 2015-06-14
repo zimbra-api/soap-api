@@ -46,16 +46,7 @@ class CheckRightsTargetSpec extends Base
         $this->setProperty('type', $type);
         $this->setProperty('by', $by);
         $this->setProperty('key', trim($key));
-
-        $this->_rights = new Sequence;
-        foreach ($rights as $right)
-        {
-            $right = trim($right);
-            if(!empty($right))
-            {
-                $this->_rights->add($right);
-            }
-        }
+        $this->setRights($rights);
 
         $this->on('before', function(Base $sender)
         {
@@ -141,6 +132,26 @@ class CheckRightsTargetSpec extends Base
         if(!empty($right))
         {
             $this->_rights->add($right);
+        }
+        return $this;
+    }
+
+    /**
+     * Sets rights
+     *
+     * @param  string $rights
+     * @return self
+     */
+    public function setRights(array $rights)
+    {
+        $this->_rights = new Sequence;
+        foreach ($rights as $right)
+        {
+            $right = trim($right);
+            if(!empty($right))
+            {
+                $this->_rights->add($right);
+            }
         }
         return $this;
     }

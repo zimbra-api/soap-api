@@ -55,9 +55,7 @@ class EntrySearchFilterMultiCond extends Base implements SearchFilterCondition
         {
             $this->setProperty('or', (bool) $or);
         }
-        $this->_conditions = new TypedSequence(
-            'Zimbra\Struct\SearchFilterCondition', $conditions
-        );
+        $this->setConditions($conditions);
         $this->on('before', function(Base $sender)
         {
             if($sender->getConditions()->count())

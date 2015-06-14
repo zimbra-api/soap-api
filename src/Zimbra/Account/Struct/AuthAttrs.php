@@ -38,7 +38,7 @@ class AuthAttrs extends Base
     public function __construct(array $attrs = [])
     {
 		parent::__construct();
-        $this->_attrs = new TypedSequence('Zimbra\Account\Struct\Attr', $attrs);
+        $this->setAttrs($attrs);
 
         $this->on('before', function(Base $sender)
         {
