@@ -25,7 +25,7 @@ abstract class AccountFactory
     /**
      * @var array
      */
-    private static $_instances = array();
+    private static $_instances = [];
 
     /**
      * Creates a singleton of a AccountInterface base on parameters.

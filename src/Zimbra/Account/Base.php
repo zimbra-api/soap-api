@@ -225,7 +225,7 @@ abstract class Base extends API implements AccountInterface
     public function createDistributionList(
         $name,
         $dynamic = null,
-        array $attrs = array()
+        array $attrs = []
     )
     {
         $request = new \Zimbra\Account\Request\CreateDistributionList(
@@ -321,7 +321,7 @@ abstract class Base extends API implements AccountInterface
     public function distributionListAction(
         DLSelector $dl,
         DLAction $action,
-        array $attrs = array()
+        array $attrs = []
     )
     {
         $request = new \Zimbra\Account\Request\DistributionListAction(
@@ -447,7 +447,7 @@ abstract class Base extends API implements AccountInterface
         DLSelector $dl,
         $needOwners = null,
         $needRights = null,
-        array $attrs = array()
+        array $attrs = []
     )
     {
         $request = new \Zimbra\Account\Request\GetDistributionList(
@@ -505,7 +505,7 @@ abstract class Base extends API implements AccountInterface
      * @param  array $prefs Array of preferences. 
      * @return mixed
      */
-    public function getPrefs(array $prefs = array())
+    public function getPrefs(array $prefs = [])
     {
         $request = new \Zimbra\Account\Request\GetPrefs(
             $prefs
@@ -519,7 +519,7 @@ abstract class Base extends API implements AccountInterface
      * @param  array $ace Specify Access Control Entries. 
      * @return mixed
      */
-    public function getRights(array $ace = array())
+    public function getRights(array $ace = [])
     {
         $request = new \Zimbra\Account\Request\GetRights(
             $ace
@@ -590,7 +590,7 @@ abstract class Base extends API implements AccountInterface
      * @param  array $ace Specify Access Control Entries
      * @return mixed
      */
-    public function grantRights(array $aces = array())
+    public function grantRights(array $aces = [])
     {
         $request = new \Zimbra\Account\Request\GrantRights(
             $aces
@@ -618,7 +618,7 @@ abstract class Base extends API implements AccountInterface
      * @param  array $pref Specify the preferences to be modified
      * @return mixed
      */
-    public function modifyPrefs(array $pref = array())
+    public function modifyPrefs(array $pref = [])
     {
         $request = new \Zimbra\Account\Request\ModifyPrefs(
             $pref
@@ -632,7 +632,7 @@ abstract class Base extends API implements AccountInterface
      * @param  array $prop Specify the properties to be modified
      * @return mixed
      */
-    public function modifyProperties(array $prop = array())
+    public function modifyProperties(array $prop = [])
     {
         $request = new \Zimbra\Account\Request\ModifyProperties(
             $prop
@@ -683,7 +683,7 @@ abstract class Base extends API implements AccountInterface
      * @param  array $zimlet Zimlet Preference Specifications
      * @return mixed
      */
-    public function modifyZimletPrefs(array $zimlet = array())
+    public function modifyZimletPrefs(array $zimlet = [])
     {
         $request = new \Zimbra\Account\Request\ModifyZimletPrefs(
             $zimlet
@@ -697,7 +697,7 @@ abstract class Base extends API implements AccountInterface
      * @param  array $ace Specify Access Control Entries
      * @return mixed
      */
-    function revokeRights(array $ace = array())
+    function revokeRights(array $ace = [])
     {
         $request = new \Zimbra\Account\Request\RevokeRights(
             $ace
