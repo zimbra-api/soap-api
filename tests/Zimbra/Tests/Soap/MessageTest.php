@@ -25,27 +25,27 @@ class MessageTest extends ZimbraTestCase
         ];
 
         $message->addHeader($testName, $testValue);
-        $this->assertSame($testValue, $message->header($testName));
+        $this->assertSame($testValue, $message->getHeader($testName));
 
         $message->addHeader($headers);
-        $this->assertSame($anotherValue, $message->header($anotherName));
-        $this->assertSame($headers, $message->header());
+        $this->assertSame($anotherValue, $message->getHeader($anotherName));
+        $this->assertSame($headers, $message->getHeaders());
     }
 
     public function testVersion()
     {
         $message = new Message;
-        $this->assertSame('1.2', $message->version());
+        $this->assertSame('1.2', $message->getVersion());
 
         $message = new Message(Message::SOAP_1_1);
-        $this->assertSame('1.1', $message->version());
+        $this->assertSame('1.1', $message->getVersion());
     }
 
     public function testContentType()
     {
         $message = new Message;
-        $this->assertSame('text/xml; charset=utf-8', $message->contentType(Message::SOAP_1_1));
-        $this->assertSame('application/soap+xml; charset=utf-8', $message->contentType(Message::SOAP_1_2));
+        $this->assertSame('text/xml; charset=utf-8', $message->getContentType(Message::SOAP_1_1));
+        $this->assertSame('application/soap+xml; charset=utf-8', $message->getContentType(Message::SOAP_1_2));
     }
 
     public function testRequest()
@@ -61,8 +61,8 @@ class MessageTest extends ZimbraTestCase
         $foo = md5(self::randomString(64));
         $bar = md5(self::randomString(64));
         $request = $this->getMockForAbstractClass('\Zimbra\Soap\Request');
-        $request->property('foo', $foo);
-        $request->child('bar', $bar);
+        $request->setProperty('foo', $foo);
+        $request->setChild('bar', $bar);
 
         $authToken = md5(self::randomString(64));
         $xml = '<?xml version="1.0"?>'."\n"

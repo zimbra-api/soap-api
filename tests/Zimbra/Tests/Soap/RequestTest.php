@@ -30,8 +30,8 @@ class RequestTest extends ZimbraTestCase
         $attr1 = new \Zimbra\Struct\KeyValuePair('key1', 'value1');
         $attr2 = new \Zimbra\Struct\KeyValuePair('key2', 'value2');
         $attr3 = new \Zimbra\Struct\KeyValuePair('key3', 'value3');
-        $stub->addAttr($attr1)->attr()->addAll(array($attr2, $attr3));
-        $this->assertEquals(array($attr1, $attr2, $attr3), $stub->attr()->all());
+        $stub->addAttr($attr1)->getAttrs()->addAll(array($attr2, $attr3));
+        $this->assertEquals(array($attr1, $attr2, $attr3), $stub->getAttrs()->all());
 
         $xml = '<?xml version="1.0"?>'."\n"
             .'<'.$stub->requestName().'>'
@@ -45,13 +45,13 @@ class RequestTest extends ZimbraTestCase
     public function testBatchRequest()
     {
         $req1 = $this->getMockForAbstractClass('\Zimbra\Soap\Request');
-        $req1->xmlNamespace('urn:zimbraMail');
+        $req1->setXmlNamespace('urn:zimbraMail');
 
         $req2 = $this->getMockForAbstractClass('\Zimbra\Soap\Request');
-        $req2->xmlNamespace('urn:zimbraAdmin');
+        $req2->setXmlNamespace('urn:zimbraAdmin');
 
         $batch = new Batch(array($req1, $req2));
-        $this->assertEquals(array($req1, $req2), $batch->requests()->all());
+        $this->assertEquals(array($req1, $req2), $batch->getRequests()->all());
  
          $xml = '<?xml version="1.0"?>'."\n"
                 .'<BatchRequest>'

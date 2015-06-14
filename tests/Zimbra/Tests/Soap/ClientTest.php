@@ -52,25 +52,25 @@ class Test extends Request
     public function __construct($foo, $bar)
     {
         parent::__construct();
-        $this->child('foo', trim($foo));
-        $this->child('bar', trim($bar));
+        $this->setChild('foo', trim($foo));
+        $this->setChild('bar', trim($bar));
     }
 
     public function foo($foo = NULL)
     {
         if(NULL === $foo)
         {
-            return $this->child('foo');
+            return $this->getChild('foo');
         }
-        return $this->child('foo', trim($foo));
+        return $this->setChild('foo', trim($foo));
     }
 
     public function bar($bar = NULL)
     {
         if(NULL === $bar)
         {
-            return $this->child('bar');
+            return $this->getChild('bar');
         }
-        return $this->child('bar', trim($bar));
+        return $this->setChild('bar', trim($bar));
     }
 }

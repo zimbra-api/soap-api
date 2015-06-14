@@ -12,12 +12,12 @@ class StructTest extends ZimbraTestCase
 {
     public function testAccountSelector()
     {
-        $value = ZimbraTestCase::randomName();
+        $value = md5(self::randomString());
         $acc = new \Zimbra\Struct\AccountSelector(AccountBy::ID(), $value);
         $this->assertTrue($acc->getBy()->is('id'));
         $this->assertSame($value, $acc->getValue());
 
-        $value = ZimbraTestCase::randomName();
+        $value = md5(self::randomString());
         $acc->setValue($value)
             ->setBy(AccountBy::ADMIN_NAME());
         $this->assertTrue($acc->getBy()->is('adminName'));
@@ -38,11 +38,11 @@ class StructTest extends ZimbraTestCase
 
     public function testAttributeName()
     {
-        $name = ZimbraTestCase::randomName();
+        $name = self::randomName();
         $a = new \Zimbra\Struct\AttributeName($name);
         $this->assertSame($name, $a->getName());
 
-        $name = ZimbraTestCase::randomName();
+        $name = self::randomName();
         $a->setName($name);
         $this->assertSame($name, $a->getName());
 
@@ -60,8 +60,8 @@ class StructTest extends ZimbraTestCase
 
     public function testBase()
     {
-        $value = ZimbraTestCase::randomName();
-        $name = ZimbraTestCase::randomName();
+        $value = md5(self::randomString());
+        $name = self::randomName();
 
         $base = $this->getMockForAbstractClass('Zimbra\Struct\Base');
         $base->setValue($value);
@@ -108,9 +108,9 @@ class StructTest extends ZimbraTestCase
 
     public function testCursorInfo()
     {
-        $id = ZimbraTestCase::randomName();
-        $sortVal = ZimbraTestCase::randomName();
-        $endSortVal = ZimbraTestCase::randomName();
+        $id = md5(self::randomString());
+        $sortVal = md5(self::randomString());
+        $endSortVal = md5(self::randomString());
 
         $cursor = new \Zimbra\Struct\CursorInfo($id,$sortVal, $endSortVal, false);
         $this->assertSame($id, $cursor->getId());
@@ -144,9 +144,9 @@ class StructTest extends ZimbraTestCase
 
     public function testGranteeChooser()
     {
-        $type = ZimbraTestCase::randomName();
-        $id = ZimbraTestCase::randomName();
-        $name = ZimbraTestCase::randomName();
+        $type = md5(self::randomString());
+        $id = md5(self::randomString());
+        $name = md5(self::randomString());
 
         $grantee = new \Zimbra\Struct\GranteeChooser($type, $id, $name);
         $this->assertSame($type, $grantee->getType());
@@ -176,7 +176,7 @@ class StructTest extends ZimbraTestCase
 
     public function testId()
     {
-        $value = ZimbraTestCase::randomName();
+        $value = md5(self::randomString());
 
         $id = new \Zimbra\Struct\Id($value);
         $this->assertSame($value, $id->getId());
@@ -198,8 +198,8 @@ class StructTest extends ZimbraTestCase
 
     public function testKeyValuePair()
     {
-        $key = ZimbraTestCase::randomName();
-        $value = ZimbraTestCase::randomName();
+        $key = self::randomName();
+        $value = md5(self::randomString());
 
         $kpv = new \Zimbra\Struct\KeyValuePair($key, $value);
         $this->assertSame($key, $kpv->getKey());
@@ -225,7 +225,7 @@ class StructTest extends ZimbraTestCase
 
     public function testNamedElement()
     {
-        $name = ZimbraTestCase::randomName();
+        $name = self::randomName();
         $named = new \Zimbra\Struct\NamedElement($name);
         $this->assertSame($name, $named->getName());
 
@@ -246,8 +246,8 @@ class StructTest extends ZimbraTestCase
 
     public function testNamedValue()
     {
-        $name = ZimbraTestCase::randomName();
-        $value = ZimbraTestCase::randomName();
+        $name = self::randomName();
+        $value = md5(self::randomString());
 
         $named = new \Zimbra\Struct\NamedValue($name, $value);
         $this->assertSame($name, $named->getName());
@@ -273,7 +273,7 @@ class StructTest extends ZimbraTestCase
 
     public function testOpValue()
     {
-        $value = ZimbraTestCase::randomName();
+        $value = self::randomName();
 
         $op = new \Zimbra\Struct\OpValue('-', $value);
         $this->assertSame('-', $op->getOp());
