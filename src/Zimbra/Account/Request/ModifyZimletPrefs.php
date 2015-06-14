@@ -29,23 +29,23 @@ class ModifyZimletPrefs extends Base
      * Zimlet Preference Specifications
      * @var TypedSequence<ZimletPrefsSpec>
      */
-    private $_zimlet;
+    private $_zimlets;
 
     /**
      * Constructor method for ModifyZimletPrefs
-     * @param array $zimlet Zimlet Preference Specifications
+     * @param array $zimlets Zimlet Preference Specifications
      * @return self
      */
-    public function __construct(array $zimlet = array())
+    public function __construct(array $zimlets = array())
     {
         parent::__construct();
-        $this->_zimlet = new TypedSequence('Zimbra\Account\Struct\ZimletPrefsSpec', $zimlet);
+        $this->setZimlets($zimlets);
 
         $this->on('before', function(Base $sender)
         {
-            if($sender->zimlet()->count())
+            if($sender->getZimlets()->count())
             {
-                $sender->child('zimlet', $sender->zimlet()->all());
+                $sender->child('zimlet', $sender->getZimlets()->all());
             }
         });
     }
@@ -58,7 +58,19 @@ class ModifyZimletPrefs extends Base
      */
     public function addZimlet(Zimlet $zimlet)
     {
-        $this->_zimlet->add($zimlet);
+        $this->_zimlets->add($zimlet);
+        return $this;
+    }
+
+    /**
+     * Sets zimlet sequence
+     *
+     * @param array $zimlets
+     * @return Sequence
+     */
+    function setZimlets(array $zimlets)
+    {
+        $this->_zimlets = new TypedSequence('Zimbra\Account\Struct\ZimletPrefsSpec', $zimlets);
         return $this;
     }
 
@@ -67,8 +79,8 @@ class ModifyZimletPrefs extends Base
      *
      * @return Sequence
      */
-    public function zimlet()
+    public function getZimlets()
     {
-        return $this->_zimlet;
+        return $this->_zimlets;
     }
 }

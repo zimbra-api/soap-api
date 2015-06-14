@@ -56,193 +56,253 @@ class SearchCalendarResources extends Base
         parent::__construct();
         if(null !== $locale)
         {
-            $this->child('locale', trim($locale));
+            $this->setChild('locale', trim($locale));
         }
         if($cursor instanceof CursorInfo)
         {
-            $this->child('cursor', $cursor);
+            $this->setChild('cursor', $cursor);
         }
         if(null !== $name)
         {
-            $this->child('name', trim($name));
+            $this->setChild('name', trim($name));
         }
         if($searchFilter instanceof SearchFilter)
         {
-            $this->child('searchFilter', $searchFilter);
+            $this->setChild('searchFilter', $searchFilter);
         }
         if(null !== $quick)
         {
-            $this->property('quick', (bool) $quick);
+            $this->setProperty('quick', (bool) $quick);
         }
         if(null !== $sortBy)
         {
-            $this->property('sortBy', trim($sortBy));
+            $this->setProperty('sortBy', trim($sortBy));
         }
         if(null !== $limit)
         {
-            $this->property('limit', (int) $limit);
+            $this->setProperty('limit', (int) $limit);
         }
         if(null !== $offset)
         {
-            $this->property('offset', (int) $offset);
+            $this->setProperty('offset', (int) $offset);
         }
         if(null !== $galAcctId)
         {
-            $this->property('galAcctId', trim($galAcctId));
+            $this->setProperty('galAcctId', trim($galAcctId));
         }
         if(null !== $attrs)
         {
-            $this->property('attrs', trim($attrs));
+            $this->setProperty('attrs', trim($attrs));
         }
     }
 
     /**
-     * Gets or sets locale
+     * Gets locale
+     *
+     * @return string
+     */
+    public function getLocale()
+    {
+        return $this->getChild('locale');
+    }
+
+    /**
+     * Sets locale
      *
      * @param  string $locale
-     * @return string|self
+     * @return self
      */
-    public function locale($locale = null)
+    public function setLocale($locale)
     {
-        if(null === $locale)
-        {
-            return $this->child('locale');
-        }
-        return $this->child('locale', trim($locale));
+        return $this->setChild('locale', trim($locale));
     }
 
     /**
-     * Gets or sets cursor
+     * Gets the cursor
+     *
+     * @return CursorInfo
+     */
+    public function getCursor()
+    {
+        return $this->getChild('cursor');
+    }
+
+    /**
+     * Sets the cursor
      *
      * @param  CursorInfo $cursor
-     * @return CursorInfo|self
+     * @return self
      */
-    public function cursor(CursorInfo $cursor = null)
+    public function setCursor(CursorInfo $cursor)
     {
-        if(null === $cursor)
-        {
-            return $this->child('cursor');
-        }
-        return $this->child('cursor', $cursor);
+        return $this->setChild('cursor', $cursor);
     }
 
     /**
-     * Gets or sets name
+     * Gets name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->getChild('name');
+    }
+
+    /**
+     * Sets name
      *
      * @param  string $name
-     * @return string|self
+     * @return self
      */
-    public function name($name = null)
+    public function setName($name)
     {
-        if(null === $name)
-        {
-            return $this->child('name');
-        }
-        return $this->child('name', trim($name));
+        return $this->setChild('name', trim($name));
     }
 
     /**
-     * Gets or sets searchFilter
+     * Gets the searchFilter
+     *
+     * @return SearchFilter
+     */
+    public function getSearchFilter()
+    {
+        return $this->getChild('searchFilter');
+    }
+
+    /**
+     * Sets the searchFilter
      *
      * @param  SearchFilter $searchFilter
-     * @return SearchFilter|self
+     * @return self
      */
-    public function searchFilter(SearchFilter $searchFilter = null)
+    public function setSearchFilter(SearchFilter $searchFilter)
     {
-        if(null === $searchFilter)
-        {
-            return $this->child('searchFilter');
-        }
-        return $this->child('searchFilter', $searchFilter);
+        return $this->setChild('searchFilter', $searchFilter);
     }
 
     /**
-     * Gets or sets quick
+     * Gets owner of
+     *
+     * @return bool
+     */
+    public function getQuick()
+    {
+        return $this->getProperty('quick');
+    }
+
+    /**
+     * Sets owner of
      *
      * @param  bool $quick
-     * @return bool|self
+     * @return self
      */
-    public function quick($quick = null)
+    public function setQuick($quick)
     {
-        if(null === $quick)
-        {
-            return $this->property('quick');
-        }
-        return $this->property('quick', (bool) $quick);
+        return $this->setProperty('quick', (bool) $quick);
     }
 
     /**
-     * Gets or sets sortBy
+     * Gets attributes
      *
-     * @param  string $sortBy
-     * @return string|self
+     * @return bool
      */
-    public function sortBy($sortBy = null)
+    public function getSortBy()
     {
-        if(null === $sortBy)
-        {
-            return $this->property('sortBy');
-        }
-        return $this->property('sortBy', trim($sortBy));
+        return $this->getProperty('sortBy');
     }
 
     /**
-     * Gets or sets limit
+     * Sets attributes
+     *
+     * @param  bool $sortBy
+     * @return self
+     */
+    public function setSortBy($sortBy)
+    {
+        return $this->setProperty('sortBy', trim($sortBy));
+    }
+
+    /**
+     * Gets limit
+     *
+     * @return int
+     */
+    public function getLimit()
+    {
+        return $this->getProperty('limit');
+    }
+
+    /**
+     * Sets limit
      *
      * @param  int $limit
-     * @return int|self
+     * @return self
      */
-    public function limit($limit = null)
+    public function setLimit($limit)
     {
-        if(null === $limit)
-        {
-            return $this->property('limit');
-        }
-        return $this->property('limit', (int) $limit);
+        return $this->setProperty('limit', (int) $limit);
     }
 
     /**
-     * Gets or sets offset
+     * Gets offset
+     *
+     * @return int
+     */
+    public function getOffset()
+    {
+        return $this->getProperty('offset');
+    }
+
+    /**
+     * Sets offset
      *
      * @param  int $offset
-     * @return int|self
+     * @return self
      */
-    public function offset($offset = null)
+    public function setOffset($offset)
     {
-        if(null === $offset)
-        {
-            return $this->property('offset');
-        }
-        return $this->property('offset', (int) $offset);
+        return $this->setProperty('offset', (int) $offset);
     }
 
     /**
-     * Gets or sets galAcctId
+     * Gets GAL account ID
      *
-     * @param  string $galAcctId
-     * @return string|self
+     * @return bool
      */
-    public function galAcctId($galAcctId = null)
+    public function getGalAccountId()
     {
-        if(null === $galAcctId)
-        {
-            return $this->property('galAcctId');
-        }
-        return $this->property('galAcctId', trim($galAcctId));
+        return $this->getProperty('galAcctId');
     }
 
     /**
-     * Gets or sets attrs.
+     * Sets GAL account ID
      *
-     * @param  string $attrs Comma separated list of attributes
-     * @return string|self
+     * @param  bool $galAcctId
+     * @return self
      */
-    public function attrs($attrs = null)
+    public function setGalAccountId($galAcctId)
     {
-        if(null === $attrs)
-        {
-            return $this->property('attrs');
-        }
-        return $this->property('attrs', trim($attrs));
+        return $this->setProperty('galAcctId', trim($galAcctId));
+    }
+
+    /**
+     * Gets attributes
+     *
+     * @return bool
+     */
+    public function getAttrs()
+    {
+        return $this->getProperty('attrs');
+    }
+
+    /**
+     * Sets attributes
+     *
+     * @param  bool $attrs
+     * @return self
+     */
+    public function setAttrs($attrs)
+    {
+        return $this->setProperty('attrs', trim($attrs));
     }
 }

@@ -35,42 +35,55 @@ class GetInfo extends Base
         parent::__construct();
         if(null !== $sections)
         {
-            $this->sections($sections);
+            $this->setSections($sections);
         }
         if(null !== $rights)
         {
-            $this->property('rights', trim($rights));
+            $this->setProperty('rights', trim($rights));
         }
     }
 
     /**
-     * Gets or sets rights
+     * Gets the rights
+     *
+     * @return string
+     */
+    public function getRights()
+    {
+        return $this->getChild('rights');
+    }
+
+    /**
+     * Sets the rights
      *
      * @param  string $rights
-     * @return string|self
+     * @return self
      */
-    public function rights($rights = null)
+    public function setRights($rights)
     {
-        if(null === $rights)
-        {
-            return $this->property('rights');
-        }
-        return $this->property('rights', trim($rights));
+        return $this->setChild('rights', trim($rights));
     }
 
     /**
-     * Gets or sets sections
+     * Gets sections
+     * Sections are: mbox,prefs,attrs,zimlets,props,idents,sigs,dsrcs,children
+     *
+     * @return string
+     */
+    public function getSections()
+    {
+        return $this->setProperty('sections');
+    }
+
+    /**
+     * Sets sections
      * Sections are: mbox,prefs,attrs,zimlets,props,idents,sigs,dsrcs,children
      *
      * @param  string $sections
-     * @return string|self
+     * @return self
      */
-    public function sections($sections = null)
+    public function setSections($sections)
     {
-        if(null === $sections)
-        {
-            return $this->property('sections');
-        }
         $secs = array();
         $sections = explode(',', $sections);
         foreach ($sections as $section)
@@ -81,6 +94,6 @@ class GetInfo extends Base
                 $secs[] = $section;
             }
         }
-        return $this->property('sections', implode(',', $secs));
+        return $this->setProperty('sections', implode(',', $secs));
     }
 }

@@ -32,59 +32,77 @@ class GetDistributionListMembers extends Base
     public function __construct($dl, $limit = null, $offset = null)
     {
         parent::__construct();
-        $this->child('dl', trim($dl));
+        $this->setChild('dl', trim($dl));
         if(null !== $limit)
         {
-            $this->property('limit', (int) $limit);
+            $this->setProperty('limit', (int) $limit);
         }
         if(null !== $offset)
         {
-            $this->property('offset', (int) $offset);
+            $this->setProperty('offset', (int) $offset);
         }
     }
 
     /**
-     * Gets or sets dl
+     * Gets the dl
      *
-     * @param  string $dl The name of the distribution list
-     * @return string|self
+     * @return string
      */
-    public function dl($dl = null)
+    public function getDl()
     {
-        if(null === $dl)
-        {
-            return $this->child('dl');
-        }
-        return $this->child('dl', trim($dl));
+        return $this->getChild('dl');
     }
 
     /**
-     * Gets or sets limit
+     * Sets the dl
      *
-     * @param  int $limit The number of members to return (0 is default and means all)
-     * @return int|self
+     * @param  Zimbra\Action\Struct\DistributionListSelector $dl
+     * @return self
      */
-    public function limit($limit = null)
+    public function setDl($dl)
     {
-        if(null === $limit)
-        {
-            return $this->property('limit');
-        }
-        return $this->property('limit', (int) $limit);
+        return $this->setChild('dl', trim($dl));
     }
 
     /**
-     * Gets or sets offset
+     * Gets limit
      *
-     * @param  int $offset The starting offset (0, 25, etc)
-     * @return int|self
+     * @return int
      */
-    public function offset($offset = null)
+    public function getLimit()
     {
-        if(null === $offset)
-        {
-            return $this->property('offset');
-        }
-        return $this->property('offset', (int) $offset);
+        return $this->getProperty('limit');
+    }
+
+    /**
+     * Sets limit
+     *
+     * @param  int $limit
+     * @return self
+     */
+    public function setLimit($limit)
+    {
+        return $this->setProperty('limit', (int) $limit);
+    }
+
+    /**
+     * Gets offset
+     *
+     * @return int
+     */
+    public function getOffset()
+    {
+        return $this->getProperty('offset');
+    }
+
+    /**
+     * Sets offset
+     *
+     * @param  int $offset
+     * @return self
+     */
+    public function setOffset($offset)
+    {
+        return $this->setProperty('offset', (int) $offset);
     }
 }

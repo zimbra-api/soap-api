@@ -43,95 +43,125 @@ class AutoCompleteGal extends Base
         parent::__construct();
         if(null !== $needExp)
         {
-            $this->property('needExp', (bool) $needExp);
+            $this->setProperty('needExp', (bool) $needExp);
         }
-        $this->property('name', trim($name));
+        $this->setProperty('name', trim($name));
         if($type instanceof SearchType)
         {
-            $this->property('type', $type);
+            $this->setProperty('type', $type);
         }
         if(null !== $galAcctId)
         {
-            $this->property('galAcctId', trim($galAcctId));
+            $this->setProperty('galAcctId', trim($galAcctId));
         }
         if(null !== $limit)
         {
-            $this->property('limit', (int) $limit);
+            $this->setProperty('limit', (int) $limit);
         }
     }
 
     /**
-     * Gets or sets name
+     * Gets name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->getProperty('name');
+    }
+
+    /**
+     * Sets name
      *
      * @param  string $name
-     * @return string|self
+     * @return self
      */
-    public function name($name = null)
+    public function setName($name)
     {
-        if(null === $name)
-        {
-            return $this->property('name');
-        }
-        return $this->property('name', trim($name));
+        return $this->setProperty('name', trim($name));
     }
 
     /**
-     * Gets or sets needExp
+     * Gets needExp
      *
-     * @param  bool $needExp
-     * @return bool|self
+     * @return string
      */
-    public function needExp($needExp = null)
+    public function getNeedExp()
     {
-        if(null === $needExp)
-        {
-            return $this->property('needExp');
-        }
-        return $this->property('needExp', (bool) $needExp);
+        return $this->getProperty('needExp');
     }
 
     /**
-     * Gets or sets type
+     * Sets needExp
      *
-     * @param  SearchType $type
-     * @return SearchType|self
+     * @param  string $needExp
+     * @return self
      */
-    public function type(SearchType $type = null)
+    public function setNeedExp($needExp)
     {
-        if(null === $type)
-        {
-            return $this->property('type');
-        }
-        return $this->property('type', $type);
+        return $this->setProperty('needExp', (bool) $needExp);
     }
 
     /**
-     * Gets or sets galAcctId
+     * Gets type
+     *
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->getProperty('type');
+    }
+
+    /**
+     * Sets type
+     *
+     * @param  string $type
+     * @return self
+     */
+    public function setType(SearchType $type)
+    {
+        return $this->setProperty('type', $type);
+    }
+
+    /**
+     * Gets GAL account Id
+     *
+     * @return string
+     */
+    public function getGalAccountId()
+    {
+        return $this->getProperty('galAcctId');
+    }
+
+    /**
+     * Sets GAL account Id
      *
      * @param  string $galAcctId
-     * @return string|self
+     * @return self
      */
-    public function galAcctId($galAcctId = null)
+    public function setGalAccountId($galAcctId)
     {
-        if(null === $galAcctId)
-        {
-            return $this->property('galAcctId');
-        }
-        return $this->property('galAcctId', trim($galAcctId));
+        return $this->setProperty('galAcctId', trim($galAcctId));
     }
 
     /**
-     * Gets or sets int
+     * Gets the maximum number of results to return
      *
-     * @param  int $limit
-     * @return int|self
+     * @return string
      */
-    public function limit($limit = null)
+    public function getLimit()
     {
-        if(null === $limit)
-        {
-            return $this->property('limit');
-        }
-        return $this->property('limit', (int) $limit);
+        return $this->getProperty('limit');
+    }
+
+    /**
+     * Sets the maximum number of results to return
+     *
+     * @param  string $limit
+     * @return self
+     */
+    public function setLimit($limit)
+    {
+        return $this->setProperty('limit', (int) $limit);
     }
 }

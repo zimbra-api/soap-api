@@ -18,7 +18,7 @@ use Zimbra\Account\Struct\WhiteList;
  * Modify the anti-spam WhiteList and BlackList addresses 
  *
  * @package    Zimbra
- * @subpackage Account
+ * @subpackage WhiteList
  * @category   Request
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
@@ -36,49 +36,61 @@ class ModifyWhiteBlackList extends Base
         parent::__construct();
         if($whiteList instanceof WhiteList)
         {
-            $this->child('whiteList', $whiteList);
+            $this->setChild('whiteList', $whiteList);
         }
         else
         {
-            $this->child('whiteList', new WhiteList);
+            $this->setChild('whiteList', new WhiteList);
         }
         if($blackList instanceof BlackList)
         {
-            $this->child('blackList', $blackList);
+            $this->setChild('blackList', $blackList);
         }
         else
         {
-            $this->child('blackList', new BlackList);
+            $this->setChild('blackList', new BlackList);
         }
     }
 
     /**
-     * Gets or sets whiteList
+     * Gets the white list
+     *
+     * @return WhiteList
+     */
+    public function getWhiteList()
+    {
+        return $this->getChild('whiteList');
+    }
+
+    /**
+     * Sets the white list
      *
      * @param  WhiteList $whiteList
-     * @return WhiteList|self
+     * @return self
      */
-    public function whiteList(WhiteList $whiteList = null)
+    public function setWhiteList(WhiteList $whiteList)
     {
-        if(null === $whiteList)
-        {
-            return $this->child('whiteList');
-        }
-        return $this->child('whiteList', $whiteList);
+        return $this->setChild('whiteList', $whiteList);
     }
 
     /**
-     * Gets or sets blackList
+     * Gets the black list
+     *
+     * @return BlackList
+     */
+    public function getBlackList()
+    {
+        return $this->getChild('blackList');
+    }
+
+    /**
+     * Sets the black list
      *
      * @param  BlackList $blackList
-     * @return BlackList|self
+     * @return self
      */
-    public function blackList(BlackList $blackList = null)
+    public function setBlackList(BlackList $blackList)
     {
-        if(null === $blackList)
-        {
-            return $this->child('blackList');
-        }
-        return $this->child('blackList', $blackList);
+        return $this->setChild('blackList', $blackList);
     }
 }

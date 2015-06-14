@@ -28,7 +28,7 @@ class DiscoverRights extends Base
      * The signature
      * @var Sequence
      */
-    private $_right;
+    private $_rights;
 
     /**
      * Constructor method for DiscoverRights
@@ -38,23 +38,11 @@ class DiscoverRights extends Base
     public function __construct(array $rights)
     {
         parent::__construct();
-        $this->_right = new Sequence;
-        foreach ($rights as $right)
-        {
-            $right = trim($right);
-            if(!empty($right))
-            {
-                $this->_right->add($right);
-            }
-        }
-        if(count($this->_right) === 0)
-        {
-            throw new \InvalidArgumentException('DiscoverRights must have at least one right');
-        }
+        $this->setRights($rights);
 
         $this->on('before', function(Base $sender)
         {
-            $sender->child('right', $sender->right()->all());
+            $sender->child('right', $sender->getRights()->all());
         });
     }
 
@@ -69,7 +57,25 @@ class DiscoverRights extends Base
         $right = trim($right);
         if(!empty($right))
         {
-            $this->_right->add($right);
+            $this->_rights->add($right);
+        }
+        return $this;
+    }
+
+    public function setRights(array $rights)
+    {
+        $this->_rights = new Sequence;
+        foreach ($rights as $right)
+        {
+            $right = trim($right);
+            if(!empty($right))
+            {
+                $this->_rights->add($right);
+            }
+        }
+        if(count($this->_rights) === 0)
+        {
+            throw new \InvalidArgumentException('DiscoverRights must have at least one right');
         }
         return $this;
     }
@@ -79,8 +85,8 @@ class DiscoverRights extends Base
      *
      * @return Sequence
      */
-    public function right()
+    public function getRights()
     {
-        return $this->_right;
+        return $this->_rights;
     }
 }

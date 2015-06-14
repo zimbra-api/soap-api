@@ -8,16 +8,16 @@
  * file that was distributed with this source code.
  */
 
-namespace Zimbra\Account\Request;
+namespace Zimbra\Identity\Request;
 
-use Zimbra\Account\Struct\NameId;
+use Zimbra\Identity\Struct\NameId;
 
 /**
  * DeleteIdentity request class
  * Delete an identity
  *
  * @package    Zimbra
- * @subpackage Account
+ * @subpackage Identity
  * @category   Request
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
@@ -32,21 +32,27 @@ class DeleteIdentity extends Base
     public function __construct(NameId $identity)
     {
         parent::__construct();
-        $this->child('identity', $identity);
+        $this->setProperty('identity', $identity);
     }
 
     /**
-     * Gets or sets identity
+     * Gets the identity
+     *
+     * @return Identity
+     */
+    public function getIdentity()
+    {
+        return $this->getChild('identity');
+    }
+
+    /**
+     * Sets the identity
      *
      * @param  NameId $identity
-     * @return NameId|self
+     * @return self
      */
-    public function identity(NameId $identity = null)
+    public function setIdentity(NameId $identity)
     {
-        if(null === $identity)
-        {
-            return $this->child('identity');
-        }
-        return $this->child('identity', $identity);
+        return $this->setChild('identity', $identity);
     }
 }

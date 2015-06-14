@@ -29,23 +29,23 @@ class GrantRights extends Base
      * Specify Access Control Entries
      * @var TypedSequence<AccountACEInfo>
      */
-    private  $_ace;
+    private  $_aces;
 
     /**
      * Constructor method for GrantRights
-     * @param array $ace Specify Access Control Entries
+     * @param array $aces Specify Access Control Entries
      * @return self
      */
-    public function __construct(array $ace = array())
+    public function __construct(array $aces = array())
     {
         parent::__construct();
-        $this->_ace = new TypedSequence('Zimbra\Account\Struct\AccountACEInfo', $ace);
+        $this->setAces($aces);
 
         $this->on('before', function(Base $sender)
         {
-            if($sender->ace()->count())
+            if($sender->getAces()->count())
             {
-                $sender->child('ace', $sender->ace()->all());
+                $sender->child('ace', $sender->getAces()->all());
             }
         });
     }
@@ -53,12 +53,24 @@ class GrantRights extends Base
     /**
      * Add an ace
      *
-     * @param  ACE $ace
+     * @param  ACE $aces
      * @return self
      */
-    public function addAce(ACE $ace)
+    public function addAce(ACE $aces)
     {
-        $this->_ace->add($ace);
+        $this->_aces->add($aces);
+        return $this;
+    }
+
+    /**
+     * Sets ace sequence
+     *
+     * @param  array $aces
+     * @return self
+     */
+    public function setAces(array $aces)
+    {
+        $this->_aces = new TypedSequence('Zimbra\Account\Struct\AccountACEInfo', $aces);
         return $this;
     }
 
@@ -67,8 +79,8 @@ class GrantRights extends Base
      *
      * @return Sequence
      */
-    public function ace()
+    public function getAces()
     {
-        return $this->_ace;
+        return $this->_aces;
     }
 }

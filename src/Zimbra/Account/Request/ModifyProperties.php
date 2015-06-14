@@ -29,23 +29,23 @@ class ModifyProperties extends Base
      * Specify the properties to be modified
      * @var TypedSequence<Prop>
      */
-    private $_prop;
+    private $_props;
 
     /**
      * Constructor method for ModifyProperties
-     * @param array $prop Specify the properties to be modified
+     * @param array $props Specify the properties to be modified
      * @return self
      */
-    public function __construct(array $prop = array())
+    public function __construct(array $props = array())
     {
         parent::__construct();
-        $this->_prop = new TypedSequence('Zimbra\Account\Struct\Prop', $prop);
+        $this->setProps($props);
 
         $this->on('before', function(Base $sender)
         {
-            if($sender->prop()->count())
+            if($sender->getProps()->count())
             {
-                $sender->child('prop', $sender->prop()->all());
+                $sender->child('prop', $sender->getProps()->all());
             }
         });
     }
@@ -58,7 +58,19 @@ class ModifyProperties extends Base
      */
     public function addProp(Prop $prop)
     {
-        $this->_prop->add($prop);
+        $this->_props->add($prop);
+        return $this;
+    }
+
+    /**
+     * Sets property sequence
+     *
+     * @param array $props
+     * @return Sequence
+     */
+    public function setProps(array $props)
+    {
+        $this->_props = new TypedSequence('Zimbra\Account\Struct\Prop', $props);
         return $this;
     }
 
@@ -67,8 +79,8 @@ class ModifyProperties extends Base
      *
      * @return Sequence
      */
-    public function prop()
+    public function getProps()
     {
-        return $this->_prop;
+        return $this->_props;
     }
 }

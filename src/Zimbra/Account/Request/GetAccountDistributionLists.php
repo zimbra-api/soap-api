@@ -36,60 +36,78 @@ class GetAccountDistributionLists extends Base
         parent::__construct();
         if(null !== $ownerOf)
         {
-            $this->property('ownerOf', (bool) $ownerOf);
+            $this->setProperty('ownerOf', (bool) $ownerOf);
         }
         if($memberOf instanceof MemberOf)
         {
-            $this->property('memberOf', $memberOf);
+            $this->setProperty('memberOf', $memberOf);
         }
         if(null !== $attrs)
         {
-            $this->property('attrs', trim($attrs));
+            $this->setProperty('attrs', trim($attrs));
         }
     }
 
     /**
-     * Gets or sets ownerOf
+     * Gets owner of
+     *
+     * @return bool
+     */
+    public function getOwnerOf()
+    {
+        return $this->getProperty('ownerOf');
+    }
+
+    /**
+     * Sets owner of
      *
      * @param  bool $ownerOf
-     * @return bool|self
+     * @return self
      */
-    public function ownerOf($ownerOf = null)
+    public function setOwnerOf($ownerOf)
     {
-        if(null === $ownerOf)
-        {
-            return $this->property('ownerOf');
-        }
-        return $this->property('ownerOf', (bool) $ownerOf);
+        return $this->setProperty('ownerOf', (bool) $ownerOf);
     }
 
     /**
-     * Gets or sets memberOf
+     * Sets account member of enum
+     *
+     * @return MemberOf
+     */
+    public function getMemberOf()
+    {
+        return $this->getProperty('memberOf');
+    }
+
+    /**
+     * Gets account member of enum
      *
      * @param  MemberOf $memberOf
-     * @return MemberOf|self
+     * @return self
      */
-    public function memberOf(MemberOf $memberOf = null)
+    public function setMemberOf(MemberOf $memberOf)
     {
-        if(null === $memberOf)
-        {
-            return $this->property('memberOf');
-        }
-        return $this->property('memberOf', $memberOf);
+        return $this->setProperty('memberOf', $memberOf);
     }
 
     /**
-     * Gets or sets attrs
+     * Gets attributes
      *
-     * @param  string $attrs
-     * @return string|self
+     * @return bool
      */
-    public function attrs($attrs = null)
+    public function getAttrs()
     {
-        if(null === $attrs)
-        {
-            return $this->property('attrs');
-        }
-        return $this->property('attrs', trim($attrs));
+        return $this->getProperty('attrs');
+    }
+
+    /**
+     * Sets attributes
+     *
+     * @param  bool $attrs
+     * @return self
+     */
+    public function setAttrs($attrs)
+    {
+        return $this->setProperty('attrs', trim($attrs));
     }
 }

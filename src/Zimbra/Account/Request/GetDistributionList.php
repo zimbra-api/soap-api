@@ -30,7 +30,7 @@ class GetDistributionList extends Base
      * The attribute
      * @var TypedSequence<Attr>
      */
-    private $_attr;
+    private $_attrs;
 
     /**
      * Constructor method for getDistributionList
@@ -47,7 +47,7 @@ class GetDistributionList extends Base
         array $attrs = array())
     {
         parent::__construct();
-        $this->child('dl', $dl);
+        $this->setChild('dl', $dl);
         if(null !== $needOwners)
         {
             $this->property('needOwners', (bool) $needOwners);
@@ -56,60 +56,78 @@ class GetDistributionList extends Base
         {
             $this->property('needRights', trim($needRights));
         }
-        $this->_attr = new TypedSequence('Zimbra\Account\Struct\Attr', $attrs);
+        $this->setAttrs($attrs);
 
         $this->on('before', function(Base $sender)
         {
-            if($sender->attr()->count())
+            if($sender->getAttrs()->count())
             {
-                $sender->child('a', $sender->attr()->all());
+                $sender->setChild('a', $sender->getAttrs()->all());
             }
         });
     }
 
     /**
-     * Gets or sets dl
+     * Gets the dl
      *
-     * @param  DistList $dl
-     * @return DistList|self
+     * @return Zimbra\Action\Struct\DistributionListSelector
      */
-    public function dl(DistList $dl = null)
+    public function getDl()
     {
-        if(null === $dl)
-        {
-            return $this->child('dl');
-        }
-        return $this->child('dl', $dl);
+        return $this->getChild('dl');
     }
 
     /**
-     * Gets or sets needOwners
+     * Sets the dl
      *
-     * @param  bool $ownerOf
-     * @return bool|self
+     * @param  Zimbra\Action\Struct\DistributionListSelector $dl
+     * @return self
      */
-    public function needOwners($needOwners = null)
+    public function setDl(DistList $dl)
     {
-        if(null === $needOwners)
-        {
-            return $this->property('needOwners');
-        }
-        return $this->property('needOwners', (bool) $needOwners);
+        return $this->setChild('dl', $dl);
     }
 
     /**
-     * Gets or sets needRights
+     * Gets controls whether the auth token cookie
+     *
+     * @return bool
+     */
+    public function getNeedOwners()
+    {
+        return $this->getProperty('needOwners');
+    }
+
+    /**
+     * Sets controls whether the auth token cookie
+     *
+     * @param  bool $needOwners
+     * @return self
+     */
+    public function setNeedOwners($needOwners)
+    {
+        return $this->setProperty('needOwners', (bool) $needOwners);
+    }
+
+    /**
+     * Gets need rights
+     *
+     * @return string
+     */
+    public function getNeedRights()
+    {
+        return $this->getProperty('needRights');
+    }
+
+    /**
+     * Sets need rights
      *
      * @param  string $needRights
-     * @return string|self
+     * @return self
      */
-    public function needRights($needRights = null)
+    public function setNeedRights($needRights)
     {
-        if(null === $needRights)
-        {
-            return $this->property('needRights');
-        }
-        return $this->property('needRights', trim($needRights));
+        return $this->setProperty('needRights', trim($needRights));
     }
 
     /**
@@ -120,7 +138,19 @@ class GetDistributionList extends Base
      */
     public function addAttr(Attr $attr)
     {
-        $this->_attr->add($attr);
+        $this->_attrs->add($attr);
+        return $this;
+    }
+
+    /**
+     * Sets attr sequence
+     *
+     * @param  array $attrs
+     * @return self
+     */
+    public function setAttrs(array $attrs)
+    {
+        $this->_attrs = new TypedSequence('Zimbra\Account\Struct\Attr', $attrs);
         return $this;
     }
 
@@ -129,8 +159,8 @@ class GetDistributionList extends Base
      *
      * @return Sequence
      */
-    public function attr()
+    public function getAttrs()
     {
-        return $this->_attr;
+        return $this->_attrs;
     }
 }

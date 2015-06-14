@@ -8,16 +8,16 @@
  * file that was distributed with this source code.
  */
 
-namespace Zimbra\Account\Request;
+namespace Zimbra\Signature\Request;
 
-use Zimbra\Account\Struct\Signature;
+use Zimbra\Signature\Struct\Signature;
 
 /**
  * CreateSignature request class
  * Create a signature.
  *
  * @package    Zimbra
- * @subpackage Account
+ * @subpackage Signature
  * @category   Request
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
@@ -32,21 +32,27 @@ class CreateSignature extends Base
     public function __construct(Signature $signature)
     {
         parent::__construct();
-        $this->child('signature', $signature);
+        $this->setChild('signature', $signature);
     }
 
     /**
-     * Gets or sets signature
+     * Gets the signature
+     *
+     * @return Signature
+     */
+    public function getSignature()
+    {
+        return $this->getChild('signature');
+    }
+
+    /**
+     * Sets the signature
      *
      * @param  Signature $signature
-     * @return Signature|self
+     * @return self
      */
-    public function signature(Signature $signature = null)
+    public function setSignature(Signature $signature)
     {
-        if(null === $signature)
-        {
-            return $this->child('signature');
-        }
-        return $this->child('signature', $signature);
+        return $this->setChild('signature', $signature);
     }
 }

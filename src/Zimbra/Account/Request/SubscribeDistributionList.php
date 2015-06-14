@@ -32,37 +32,49 @@ class SubscribeDistributionList extends Base
     public function __construct(SubscribeOp $op, DistList $dl)
     {
         parent::__construct();
-        $this->property('op', $op);
+        $this->setProperty('op', $op);
         $this->child('dl', $dl);
     }
 
     /**
-     * Gets or sets op
+     * Sets the operation to perform
      *
-     * @param  SubscribeOp $op
-     * @return SubscribeOp|self
+     * @return Op
      */
-    public function op(SubscribeOp $op = null)
+    public function getOp()
     {
-        if(null === $op)
-        {
-            return $this->property('op');
-        }
-        return $this->property('op', $op);
+        return $this->getProperty('op');
     }
 
     /**
-     * Gets or sets dl
+     * Gets the operation to perform
      *
-     * @param  DistList $dl
-     * @return DistList|self
+     * @param  Op $op
+     * @return self
      */
-    public function dl(DistList $dl = null)
+    public function setOp(SubscribeOp $op)
     {
-        if(null === $dl)
-        {
-            return $this->child('dl');
-        }
-        return $this->child('dl', $dl);
+        return $this->setProperty('op', $op);
+    }
+
+    /**
+     * Gets the dl
+     *
+     * @return Zimbra\Action\Struct\DistributionListSelector
+     */
+    public function getDl()
+    {
+        return $this->getChild('dl');
+    }
+
+    /**
+     * Sets the dl
+     *
+     * @param  Zimbra\Action\Struct\DistributionListSelector $dl
+     * @return self
+     */
+    public function setDl(DistList $dl)
+    {
+        return $this->setChild('dl', $dl);
     }
 }

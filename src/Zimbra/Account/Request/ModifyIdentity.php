@@ -8,16 +8,16 @@
  * file that was distributed with this source code.
  */
 
-namespace Zimbra\Account\Request;
+namespace Zimbra\Identity\Request;
 
-use Zimbra\Account\Struct\Identity;
+use Zimbra\Identity\Struct\Identity;
 
 /**
  * ModifyIdentity request class
  * Modify an Identity
  *
  * @package    Zimbra
- * @subpackage Account
+ * @subpackage Identity
  * @category   Request
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
@@ -32,21 +32,27 @@ class ModifyIdentity extends Base
     public function __construct(Identity $identity)
     {
         parent::__construct();
-        $this->child('identity', $identity);
+        $this->setChild('identity', $identity);
     }
 
     /**
-     * Gets or sets identity
+     * Gets the identity
+     *
+     * @return Identity
+     */
+    public function getIdentity()
+    {
+        return $this->getChild('identity');
+    }
+
+    /**
+     * Sets the identity
      *
      * @param  Identity $identity
-     * @return Identity|self
+     * @return self
      */
-    public function identity(Identity $identity = null)
+    public function setIdentity(Identity $identity)
     {
-        if(null === $identity)
-        {
-            return $this->child('identity');
-        }
-        return $this->child('identity', $identity);
+        return $this->setChild('identity', $identity);
     }
 }

@@ -29,7 +29,7 @@ class GetPrefs extends Base
      * Any of these are specified then only get these preferences
      * @var TypedSequence<Pref>
      */
-    private $_pref;
+    private $_prefs;
 
     /**
      * Constructor method for GetPrefs
@@ -39,13 +39,13 @@ class GetPrefs extends Base
     public function __construct(array $prefs = array())
     {
         parent::__construct();
-        $this->_pref = new TypedSequence('Zimbra\Account\Struct\Pref', $prefs);
+        $this->setPrefs($prefs);
     
         $this->on('before', function(Base $sender)
         {
-            if($sender->pref()->count())
+            if($sender->getPrefs()->count())
             {
-                $sender->child('pref', $sender->pref()->all());
+                $sender->setChild('pref', $sender->getPrefs()->all());
             }
         });
     }
@@ -58,7 +58,19 @@ class GetPrefs extends Base
      */
     public function addPref(Pref $pref)
     {
-        $this->_pref->add($pref);
+        $this->_prefs->add($pref);
+        return $this;
+    }
+
+    /**
+     * Set pref sequence
+     *
+     * @param  array $prefs
+     * @return self
+     */
+    public function setPrefs(array $prefs)
+    {
+        $this->_prefs = new TypedSequence('Zimbra\Account\Struct\Pref', $prefs);
         return $this;
     }
 
@@ -67,8 +79,8 @@ class GetPrefs extends Base
      *
      * @return Sequence
      */
-    public function pref()
+    public function getPrefs()
     {
-        return $this->_pref;
+        return $this->_prefs;
     }
 }
