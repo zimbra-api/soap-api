@@ -74,7 +74,7 @@ class OpValue extends Base
      * @param  string $name
      * @return array
      */
-    public function toArray($name = 'op')
+    public function toArray($name = 'addr')
     {
         return parent::toArray($name);
     }
@@ -85,7 +85,7 @@ class OpValue extends Base
      * @param  string $name
      * @return SimpleXML
      */
-    public function toXml($name = 'op')
+    public function toXml($name = 'addr')
     {
         return parent::toXml($name);
     }

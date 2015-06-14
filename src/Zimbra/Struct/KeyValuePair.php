@@ -49,7 +49,7 @@ class KeyValuePair extends Base
      * @param  string $key
      * @return self
      */
-    public function key($key)
+    public function setKey($key)
     {
         return $this->setProperty('n', $key);
     }
