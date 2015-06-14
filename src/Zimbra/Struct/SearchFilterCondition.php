@@ -22,10 +22,17 @@ use Zimbra\Struct\SearchFilterCondition;
 interface SearchFilterCondition
 {
     /**
-     * Gets or sets not flag
+     * Gets not flag
+     *
+     * @return bool
+     */
+    function getNot();
+
+    /**
+     * Sets not flag
      *
      * @param  bool $not
-     * @return bool|self
+     * @return self
      */
-	function notFlag($not = null);
+    function setNot($not);
 }

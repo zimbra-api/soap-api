@@ -38,20 +38,30 @@ class CursorInfo extends Base
         parent::__construct();
         if(null !== $id)
         {
-            $this->property('id', trim($id));
+            $this->setProperty('id', trim($id));
         }
         if(null !== $sortVal)
         {
-            $this->property('sortVal', trim($sortVal));
+            $this->setProperty('sortVal', trim($sortVal));
         }
         if(null !== $endSortVal)
         {
-            $this->property('endSortVal', trim($endSortVal));
+            $this->setProperty('endSortVal', trim($endSortVal));
         }
         if(null !== $includeOffset)
         {
-            $this->property('includeOffset', (bool) $includeOffset);
+            $this->setProperty('includeOffset', (bool) $includeOffset);
         }
+    }
+
+    /**
+     * Gets an id
+     *
+     * @return string
+     */
+    public function getId()
+    {
+        return $this->getProperty('id');
     }
 
     /**
@@ -60,58 +70,73 @@ class CursorInfo extends Base
      * @param  string $id
      * @return string|self
      */
-    public function id($id = null)
+    public function setId($id)
     {
-        if(null === $id)
-        {
-            return $this->property('id');
-        }
-        return $this->property('id', trim($id));
+        return $this->setProperty('id', trim($id));
+    }
+
+    /**
+     * Gets sortVal
+     *
+     * @return string
+     */
+    public function getSortVal()
+    {
+        return $this->getProperty('sortVal');
     }
 
     /**
      * Gets or sets sortVal
      *
      * @param  string $sortVal
-     * @return string|self
+     * @return self
      */
-    public function sortVal($sortVal = null)
+    public function setSortVal($sortVal)
     {
-        if(null === $sortVal)
-        {
-            return $this->property('sortVal');
-        }
-        return $this->property('sortVal', trim($sortVal));
+        return $this->setProperty('sortVal', trim($sortVal));
+    }
+
+    /**
+     * Gets an endSortVal
+     *
+     * @return string
+     */
+    public function getEndSortVal()
+    {
+        return $this->getProperty('endSortVal');
     }
 
     /**
      * Gets or sets endSortVal
      *
      * @param  string $endSortVal
-     * @return string|self
+     * @return self
      */
-    public function endSortVal($endSortVal = null)
+    public function setEndSortVal($endSortVal)
     {
-        if(null === $endSortVal)
-        {
-            return $this->property('endSortVal');
-        }
-        return $this->property('endSortVal', trim($endSortVal));
+        return $this->setProperty('endSortVal', trim($endSortVal));
+    }
+
+    /**
+     * Gets an includeOffset
+     *
+     * @param  bool $includeOffset
+     * @return bool
+     */
+    public function getIncludeOffset()
+    {
+        return $this->getProperty('includeOffset');
     }
 
     /**
      * Gets or sets includeOffset
      *
      * @param  bool $includeOffset
-     * @return bool|AccountACEInfo
+     * @return self
      */
-    public function includeOffset($includeOffset = null)
+    public function setIncludeOffset($includeOffset)
     {
-        if(null === $includeOffset)
-        {
-            return $this->property('includeOffset');
-        }
-        return $this->property('includeOffset', (bool) $includeOffset);
+        return $this->setProperty('includeOffset', (bool) $includeOffset);
     }
 
     /**

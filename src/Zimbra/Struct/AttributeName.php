@@ -22,28 +22,34 @@ class AttributeName extends Base
 {
     /**
      * Constructor method for AttributeName
-     * @param string $n Attribute name
+     * @param string $name Attribute name
      * @return self
      */
-    public function __construct($n)
+    public function __construct($name)
     {
         parent::__construct();
-        $this->property('n', trim($n));
+        $this->setProperty('n', trim($name));
     }
 
     /**
-     * Get or set n
+     * Gets attribute name
      *
-     * @param  string $n
-     * @return string|self
+     * @return string
      */
-    public function n($n = null)
+    public function getName()
     {
-        if(null === $n)
-        {
-            return $this->property('n');
-        }
-        return $this->property('n', trim($n));
+        return $this->getProperty('n');
+    }
+
+    /**
+     * Sets attribute name
+     *
+     * @param  string $name
+     * @return self
+     */
+    public function setName($name)
+    {
+        return $this->setProperty('n', trim($name));
     }
 
     /**

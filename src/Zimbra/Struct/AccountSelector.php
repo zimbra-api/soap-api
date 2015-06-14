@@ -31,22 +31,28 @@ class AccountSelector extends Base
     public function __construct(AccountBy $by, $value = null)
     {
         parent::__construct(trim($value));
-        $this->property('by', $by);
+        $this->setProperty('by', $by);
     }
 
     /**
-     * Gets or sets by
+     * Sets account by enum
+     *
+     * @return AccountBy
+     */
+    public function getBy()
+    {
+        return $this->getProperty('by');
+    }
+
+    /**
+     * Gets account by enum
      *
      * @param  AccountBy $by
-     * @return AccountBy|self
+     * @return self
      */
-    public function by(AccountBy $by = null)
+    public function setBy(AccountBy $by)
     {
-        if(null === $by)
-        {
-            return $this->property('by');
-        }
-        return $this->property('by', $by);
+        return $this->setProperty('by', $by);
     }
 
     /**
