@@ -112,7 +112,7 @@ class Message
     public function setRequest(Request $request)
     {
         $this->_request = $request;
-        $this->addNamespace($this->_request->xmlNamespace());
+        $this->addNamespace($this->_request->getXmlNamespace());
         $this->_body = $request->toXml();
         $namespaces = array_values($this->_body->getDocNamespaces(true));
         $this->addNamespace($namespaces);
@@ -279,7 +279,7 @@ class Message
             }
         }
         $body = $xml->addChild('Body');
-        $body->append($this->_body, $this->_request->xmlNamespace());
+        $body->append($this->_body, $this->_request->getXmlNamespace());
         return $xml;
     }
 

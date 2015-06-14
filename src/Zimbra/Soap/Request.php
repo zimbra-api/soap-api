@@ -47,7 +47,7 @@ abstract class Request extends Base
         $className = $this->className();
         $this->_requestName = $className . 'Request';
         $this->_responseName = $className . 'Response';
-        $this->xmlNamespace('urn:zimbra');
+        $this->setXmlNamespace('urn:zimbra');
     }
 
     /**

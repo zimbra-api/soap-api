@@ -28,7 +28,7 @@ abstract class Attr extends Request
      * Attributes specified as key value pairs
      * @var Sequence
      */
-    private $_attr;
+    private $_attrs;
 
     /**
      * Attr request constructor
@@ -38,36 +38,48 @@ abstract class Attr extends Request
     public function __construct(array $attrs = array())
     {
         parent::__construct();
-        $this->_attr = new TypedSequence('Zimbra\Struct\KeyValuePair', $attrs);
+        $this->_attrs = new TypedSequence('Zimbra\Struct\KeyValuePair', $attrs);
 
         $this->on('before', function(Request $sender)
         {
-            if(count($sender->getAttr()))
+            if(count($sender->getAttrs()))
             {
-                $sender->child('a', $sender->getAttr()->all());
+                $sender->setChild('a', $sender->getAttrs()->all());
             }
         });
     }
 
     /**
-     * Add an attr
+     * Add an attribute
      *
      * @param  KeyValuePair $attr
      * @return self
      */
     public function addAttr(KeyValuePair $attr)
     {
-        $this->_attr->add($attr);
+        $this->_attrs->add($attr);
         return $this;
     }
 
     /**
-     * Gets attr sequence
+     * Gets attribute sequence
+     *
+     * @param array  $attrs
+     * @return Sequence
+     */
+    public function setAttrs(array $attrs)
+    {
+        $this->_attrs = new TypedSequence('Zimbra\Struct\KeyValuePair', $attrs);
+        return $this;
+    }
+
+    /**
+     * Gets attribute sequence
      *
      * @return Sequence
      */
-    public function getAttr()
+    public function getAttrs()
     {
-        return $this->_attr;
+        return $this->_attrs;
     }
 }

@@ -75,6 +75,18 @@ class Batch extends Request
     }
 
     /**
+     * Set request sequence
+     *
+     * @param  array $requests
+     * @return Sequence
+     */
+    public function setRequests(array $requests)
+    {
+        $this->_requests = new TypedSequence('Zimbra\Soap\Request', $requests);
+        return $this;
+    }
+
+    /**
      * Gets request sequence
      *
      * @return Sequence
@@ -94,7 +106,7 @@ class Batch extends Request
     {
         $name = empty($name) ? $this->requestName() : $name;
         $arr = array(
-            '_jsns' => $this->xmlNamespace(),
+            '_jsns' => $this->getXmlNamespace(),
             'onerror' => $this->onerror(),
         );
         foreach ($this->_requests as $key => $request)
@@ -119,7 +131,7 @@ class Batch extends Request
         {
             $requestXml = $request->toXml();
             $requestXml->addAttribute('requestId', $key);
-            $xml->append($requestXml, $request->xmlNamespace());
+            $xml->append($requestXml, $request->getXmlNamespace());
         }
         return $xml;
     }
