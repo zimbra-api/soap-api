@@ -42,18 +42,24 @@ class Batch extends Request
     }
 
     /**
-     * Gets or sets onerror
+     * Gets on error
+     *
+     * @return string
+     */
+    public function getOnError()
+    {
+        return $this->getProperty('onerror');
+    }
+
+    /**
+     * Sets on error
      *
      * @param  string $onerror
-     * @return string|self
+     * @return self
      */
-    public function onerror($onerror = null)
+    public function setOnError($onerror = null)
     {
-        if(null === $onerror)
-        {
-            return $this->property('onerror');
-        }
-        return $this->property('onerror', trim($onerror));
+        return $this->setProperty('onerror', trim($onerror));
     }
 
     /**
@@ -73,7 +79,7 @@ class Batch extends Request
      *
      * @return Sequence
      */
-    public function requests()
+    public function getRequests()
     {
         return $this->_requests;
     }

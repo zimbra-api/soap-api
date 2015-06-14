@@ -173,7 +173,7 @@ class Message
      * @param  string $name
      * @return string|array
      */
-    public function header($name = null)
+    public function getHeader($name = null)
     {
         if(null === $name)
         {
@@ -190,7 +190,7 @@ class Message
      *
      * @return array
      */
-    public function headers()
+    public function getHeaders()
     {
         return $this->_headers;
     }
@@ -201,7 +201,7 @@ class Message
      * @param  string $version Soap version
      * @return string
      */
-    public function contentType($version = null)
+    public function getContentType($version = null)
     {
         $version = in_array($version, array(self::SOAP_1_2, self::SOAP_1_1)) ? $version : $this->_version;
         return self::$contentTypeMap[$version];
@@ -213,7 +213,7 @@ class Message
      * @param  string $version
      * @return string
      */
-    public function version()
+    public function getVersion()
     {
         return $this->_version;
     }

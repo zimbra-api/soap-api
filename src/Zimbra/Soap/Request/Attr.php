@@ -42,9 +42,9 @@ abstract class Attr extends Request
 
         $this->on('before', function(Request $sender)
         {
-            if(count($sender->attr()))
+            if(count($sender->getAttr()))
             {
-                $sender->child('a', $sender->attr()->all());
+                $sender->child('a', $sender->getAttr()->all());
             }
         });
     }
@@ -66,7 +66,7 @@ abstract class Attr extends Request
      *
      * @return Sequence
      */
-    public function attr()
+    public function getAttr()
     {
         return $this->_attr;
     }
