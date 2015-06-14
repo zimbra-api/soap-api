@@ -30,7 +30,7 @@ abstract class Base
      * Cache
      * @var array
      */
-    private static $cache = array();
+    private static $cache = [];
 
     /**
      * Default value
