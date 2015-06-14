@@ -26,50 +26,62 @@ use Zimbra\Struct\OpValue;
 class WhiteList extends Base
 {
     /**
-     * Attributes
+     * Email addresses sequence
      * @var TypedSequence<Attr>
      */
-    private $_addr;
+    private $_addrs;
 
     /**
      * Constructor method for WhiteList
      * @param array $addrs
      * @return self
      */
-    public function __construct(array $addrs = array())
+    public function __construct(array $addrs = [])
     {
 		parent::__construct();
-        $this->_addr = new TypedSequence('Zimbra\Struct\OpValue', $addrs);
+        $this->_addrs = new TypedSequence('Zimbra\Struct\OpValue', $addrs);
 
         $this->on('before', function(Base $sender)
         {
-            if($sender->addr()->count())
+            if($sender->getAddrs()->count())
             {
-                $sender->child('addr', $sender->addr()->all());
+                $sender->setChild('addr', $sender->getAddrs()->all());
             }
         });
     }
 
     /**
-     * Add an addr
+     * Add an email address
      *
      * @param  Attr $addr
      * @return self
      */
     public function addAddr(OpValue $addr)
     {
-        $this->_addr->add($addr);
+        $this->_addrs->add($addr);
         return $this;
     }
 
     /**
-     * Gets addr sequence
+     * Sets email address sequence
+     *
+     * @param array $addrs
+     * @return self
+     */
+    public function setAddrs(array $addrs)
+    {
+        $this->_addrs = new TypedSequence('Zimbra\Struct\OpValue', $addrs);
+        return $this;
+    }
+
+    /**
+     * Gets email address sequence
      *
      * @return Sequence
      */
-    public function addr()
+    public function getAddrs()
     {
-        return $this->_addr;
+        return $this->_addrs;
     }
 
     /**

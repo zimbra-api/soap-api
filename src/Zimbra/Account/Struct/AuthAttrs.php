@@ -28,23 +28,23 @@ class AuthAttrs extends Base
      * Attributes
      * @var TypedSequence<Attr>
      */
-    private $_attr;
+    private $_attrs;
 
     /**
      * Constructor method for AuthAttrs
      * @param array $attrs
      * @return self
      */
-    public function __construct(array $attrs = array())
+    public function __construct(array $attrs = [])
     {
 		parent::__construct();
-        $this->_attr = new TypedSequence('Zimbra\Account\Struct\Attr', $attrs);
+        $this->_attrs = new TypedSequence('Zimbra\Account\Struct\Attr', $attrs);
 
         $this->on('before', function(Base $sender)
         {
-            if($sender->attr()->count())
+            if($sender->getAttrs()->count())
             {
-                $sender->child('attr', $sender->attr()->all());
+                $sender->setChild('attr', $sender->getAttrs()->all());
             }
         });
     }
@@ -57,7 +57,19 @@ class AuthAttrs extends Base
      */
     public function addAttr(Attr $attr)
     {
-        $this->_attr->add($attr);
+        $this->_attrs->add($attr);
+        return $this;
+    }
+
+    /**
+     * Sets attr sequence
+     *
+     * @param  array $attrs
+     * @return self
+     */
+    public function setAttrs(array $attrs)
+    {
+        $this->_attrs = new TypedSequence('Zimbra\Account\Struct\Attr', $attrs);
         return $this;
     }
 
@@ -66,9 +78,9 @@ class AuthAttrs extends Base
      *
      * @return Sequence
      */
-    public function attr()
+    public function getAttrs()
     {
-        return $this->_attr;
+        return $this->_attrs;
     }
 
     /**

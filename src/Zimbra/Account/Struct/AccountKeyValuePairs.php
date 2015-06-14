@@ -29,23 +29,23 @@ abstract class AccountKeyValuePairs extends Base
      * Attributes
      * @var TypedSequence<KeyValuePair>
      */
-    private $_attr;
+    private $_attrs;
 
     /**
      * Constructor method for AccountKeyValuePairs
      * @param array $attrs
      * @return self
      */
-    public function __construct(array $attrs = array())
+    public function __construct(array $attrs = [])
     {
         parent::__construct();
-        $this->_attr = new TypedSequence('Zimbra\Struct\KeyValuePair', $attrs);
+        $this->_attrs = new TypedSequence('Zimbra\Struct\KeyValuePair', $attrs);
 
         $this->on('before', function(Base $sender)
         {
-            if($sender->attr()->count())
+            if($sender->getAttrs()->count())
             {
-                $sender->child('a', $sender->attr()->all());
+                $sender->setChild('a', $sender->getAttrs()->all());
             }
         });
     }
@@ -58,7 +58,19 @@ abstract class AccountKeyValuePairs extends Base
      */
     public function addAttr(KeyValuePair $attr)
     {
-        $this->_attr->add($attr);
+        $this->_attrs->add($attr);
+        return $this;
+    }
+
+    /**
+     * Sets attr sequence
+     *
+     * @param  array $attrs
+     * @return self
+     */
+    public function setAttrs(array $attrs)
+    {
+        $this->_attrs = new TypedSequence('Zimbra\Struct\KeyValuePair', $attrs);
         return $this;
     }
 
@@ -67,9 +79,9 @@ abstract class AccountKeyValuePairs extends Base
      *
      * @return Sequence
      */
-    public function attr()
+    public function getAttrs()
     {
-        return $this->_attr;
+        return $this->_attrs;
     }
 
     /**

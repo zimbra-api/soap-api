@@ -27,21 +27,58 @@ use Zimbra\Struct\SearchFilterCondition;
 class EntrySearchFilterInfo extends Base
 {
     /**
+     * Compound condition or simple condition
+     * @var SearchFilterCondition
+     */
+    private $_condition;
+
+    /**
      * Constructor method for EntrySearchFilterInfo
      * @param SearchFilterCondition $condition
      * @return self
      */
     public function __construct(SearchFilterCondition $condition = null)
     {
-		parent::__construct();
-        if($condition instanceof MultiCond)
+        parent::__construct();
+        $this->_condition = $condition;
+        if($this->_condition instanceof MultiCond)
         {
-			$this->child('conds', $condition);
+            $this->child('conds', $this->_condition);
         }
-        if($condition instanceof SingleCond)
+        if($this->_condition instanceof SingleCond)
         {
-			$this->child('cond', $condition);
+            $this->child('cond', $this->_condition);
         }
+    }
+
+    /**
+     * Gets search filter condition
+     *
+     * @return SearchFilterCondition
+     */
+    public function getCondition()
+    {
+        return $this->_condition;
+    }
+
+    /**
+     * Sets search filter condition
+     *
+     * @param  SearchFilterCondition $condition
+     * @return self
+     */
+    public function setCondition(SearchFilterCondition $condition)
+    {
+        $this->_condition = $condition;
+        if($this->_condition instanceof MultiCond)
+        {
+            $this->setChild('conds', $this->_condition);
+        }
+        if($this->_condition instanceof SingleCond)
+        {
+            $this->setChild('cond', $this->_condition);
+        }
+        return $this;
     }
 
     /**
@@ -51,47 +88,13 @@ class EntrySearchFilterInfo extends Base
      * @param  mix $value
      * @return string|self
      */
-    public function child($name, $value = null)
+    public function setChild($name, $value)
     {
         if($value instanceof SearchFilterCondition)
         {
-            $conds = array('conds', 'cond');
-            foreach ($conds as $cond)
-            {
-                $this->removeChild($cond);
-            }
+            $this->removeChild('conds')->removeChild('cond');
         }
-        return parent::child($name, $value);
-    }
-
-    /**
-     * Gets or sets conds
-     *
-     * @param  MultiCond $conds
-     * @return MultiCond|self
-     */
-    public function conds(MultiCond $conds = null)
-    {
-        if(null === $conds)
-        {
-            return $this->child('conds');
-        }
-        return $this->child('conds', $conds);
-    }
-
-    /**
-     * Gets or sets cond
-     *
-     * @param  SingleCond $cond
-     * @return SingleCond|self
-     */
-    public function cond(SingleCond $cond = null)
-    {
-        if(null === $cond)
-        {
-            return $this->child('cond');
-        }
-        return $this->child('cond', $cond);
+        return parent::setChild($name, $value);
     }
 
     /**

@@ -30,7 +30,7 @@ class CheckRightsTargetSpec extends Base
      * Array of right
      * @var Sequence
      */
-    private $_right = array();
+    private $_rights;
 
     /**
      * Constructor method for CheckRightsTargetSpec
@@ -40,75 +40,93 @@ class CheckRightsTargetSpec extends Base
      * @param  string $rights
      * @return self
      */
-    public function __construct(TargetType $type, TargetBy $by, $key, array $rights = array())
+    public function __construct(TargetType $type, TargetBy $by, $key, array $rights = [])
     {
 		parent::__construct();
-        $this->property('type', $type);
-        $this->property('by', $by);
-        $this->property('key', trim($key));
+        $this->setProperty('type', $type);
+        $this->setProperty('by', $by);
+        $this->setProperty('key', trim($key));
 
-        $this->_right = new Sequence;
+        $this->_rights = new Sequence;
         foreach ($rights as $right)
         {
             $right = trim($right);
             if(!empty($right))
             {
-                $this->_right->add($right);
+                $this->_rights->add($right);
             }
         }
 
         $this->on('before', function(Base $sender)
         {
-            if($sender->right()->count())
+            if($sender->getRights()->count())
             {
-                $sender->child('right', $sender->right()->all());
+                $sender->child('right', $sender->getRights()->all());
             }
         });
     }
 
     /**
-     * Gets or sets type
+     * Gets target type
+     *
+     * @return TargetType
+     */
+    public function getTargetType()
+    {
+        return $this->getProperty('type');
+    }
+
+    /**
+     * Sets target type
      *
      * @param  TargetType $type
-     * @return TargetType|self
+     * @return self
      */
-    public function type(TargetType $type = null)
+    public function setTargetType(TargetType $type)
     {
-        if(null === $type)
-        {
-            return $this->property('type');
-        }
-        return $this->property('type', $type);
+        return $this->setProperty('type', $type);
     }
 
     /**
-     * Gets or sets by
+     * Gets target by
+     *
+     * @return TargetBy
+     */
+    public function getTargetBy()
+    {
+        return $this->getProperty('by');
+    }
+
+    /**
+     * Sets target by
      *
      * @param  TargetBy $by
-     * @return TargetBy|self
+     * @return self
      */
-    public function by(TargetBy $by = null)
+    public function setTargetBy(TargetBy $by)
     {
-        if(null === $by)
-        {
-            return $this->property('by');
-        }
-        return $this->property('by', $by);
+        return $this->setProperty('by', $by);
     }
 
     /**
-     * Gets or sets key
+     * Gets target key
+     *
+     * @return string
+     */
+    public function getTargetKey()
+    {
+        return $this->getProperty('key');
+    }
+
+    /**
+     * Sets target key
      *
      * @param  string $key
-     * @return string|self
+     * @return self
      */
-    public function key($key = null)
+    public function setTargetKey($key = null)
     {
-        if(null === $key)
-        {
-            return $this->property('key');
-        }
-        return $this->property('key', trim($key));;
+        return $this->setProperty('key', trim($key));;
     }
 
     /**
@@ -122,7 +140,7 @@ class CheckRightsTargetSpec extends Base
         $right = trim($right);
         if(!empty($right))
         {
-            $this->_right->add($right);
+            $this->_rights->add($right);
         }
         return $this;
     }
@@ -132,9 +150,9 @@ class CheckRightsTargetSpec extends Base
      *
      * @return Sequence
      */
-    public function right()
+    public function getRights()
     {
-        return $this->_right;
+        return $this->_rights;
     }
 
     /**

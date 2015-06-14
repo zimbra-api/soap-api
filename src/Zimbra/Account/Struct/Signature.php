@@ -28,7 +28,7 @@ class Signature extends Base
      * Content of the signature sequence
      * @var TypedSequence<SignatureContent>
      */
-    private $_content = array();
+    private $_contents;
 
     /**
      * Constructor method for signature
@@ -42,76 +42,94 @@ class Signature extends Base
         $name = null,
         $id = null,
         $cid = null,
-        array $contents = array()
+        array $contents = []
 	)
     {
 		parent::__construct();
         if(null !== $name)
         {
-            $this->property('name', trim($name));
+            $this->setProperty('name', trim($name));
         }
         if(null !== $id)
         {
-            $this->property('id', trim($id));
+            $this->setProperty('id', trim($id));
         }
         if(null !== $cid)
         {
-            $this->child('cid', trim($cid));
+            $this->setChild('cid', trim($cid));
         }
-        $this->_content = new TypedSequence('Zimbra\Account\Struct\SignatureContent', $contents);
+        $this->_contents = new TypedSequence('Zimbra\Account\Struct\SignatureContent', $contents);
 
         $this->on('before', function(Base $sender)
         {
-            if($sender->content()->count())
+            if($sender->getContents()->count())
             {
-                $sender->child('content', $sender->content()->all());
+                $sender->setChild('content', $sender->getContents()->all());
             }
         });
     }
 
     /**
-     * Gets or sets id
+     * Gets ID for the signature
+     *
+     * @return string
+     */
+    public function getId()
+    {
+        return $this->getProperty('id');
+    }
+
+    /**
+     * Sets ID for the signature
      *
      * @param  string $id
-     * @return string|self
+     * @return self
      */
-    public function id($id = null)
+    public function setId($id)
     {
-        if(null === $id)
-        {
-            return $this->property('id');
-        }
-        return $this->property('id', trim($id));
+        return $this->setProperty('id', trim($id));
     }
 
     /**
-     * Gets or sets name
+     * Gets name for the signature
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->getProperty('name');
+    }
+
+    /**
+     * Sets name for the signature
      *
      * @param  string $name
-     * @return string|self
+     * @return self
      */
-    public function name($name = null)
+    public function setName($name)
     {
-        if(null === $name)
-        {
-            return $this->property('name');
-        }
-        return $this->property('name', trim($name));
+        return $this->setProperty('name', trim($name));
     }
 
     /**
-     * Gets or sets cid
+     * Gets contact ID
+     *
+     * @return string
+     */
+    public function getCid()
+    {
+        return $this->getProperty('cid');
+    }
+
+    /**
+     * Sets contact ID
      *
      * @param  string $cid
-     * @return string|self
+     * @return self
      */
-    public function cid($cid = null)
+    public function setCid($cid)
     {
-        if(null === $cid)
-        {
-            return $this->child('cid');
-        }
-        return $this->child('cid', trim($cid));
+        return $this->setProperty('cid', trim($cid));
     }
 
     /**
@@ -122,8 +140,19 @@ class Signature extends Base
      */
     public function addContent(SignatureContent $content)
     {
-        $this->_content->add($content);
+        $this->_contents->add($content);
         return $this;
+    }
+
+    /**
+     * Sets signature content sequence
+     *
+     * @param array  $contents
+     * @return self
+     */
+    public function setContent(array $contents)
+    {
+        $this->_contents = new TypedSequence('Zimbra\Account\Struct\SignatureContent', $contents);
     }
 
     /**
@@ -131,9 +160,9 @@ class Signature extends Base
      *
      * @return Sequence
      */
-    public function content()
+    public function getContents()
     {
-        return $this->_content;
+        return $this->_contents;
     }
 
     /**

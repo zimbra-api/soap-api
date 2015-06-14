@@ -12,6 +12,7 @@ namespace Zimbra\Account\Struct;
 
 use Zimbra\Account\Struct\EntrySearchFilterMultiCond as MultiCond;
 use Zimbra\Account\Struct\EntrySearchFilterSingleCond as SingleCond;
+use Zimbra\Common\TypedSequence;
 use Zimbra\Struct\Base;
 use Zimbra\Struct\SearchFilterCondition;
 
@@ -27,97 +28,140 @@ use Zimbra\Struct\SearchFilterCondition;
 class EntrySearchFilterMultiCond extends Base implements SearchFilterCondition
 {
     /**
-     * Constructor method for entrySearchFilterMultiCond
+     * The sequence of condition
+     * @var TypedSequence
+     */
+    private $_conditions = [];
+
+    /**
+     * Constructor method for EntrySearchFilterMultiCond
      * @param bool $not
      * @param bool $or
-     * @param MultiCond $conds
-     * @param SingleCond $cond
+     * @param array $conditions
      * @return self
      */
     public function __construct(
         $not = null,
         $or = null,
-        MultiCond $conds = null,
-        SingleCond $cond = null
-	)
+        array $conditions = []
+    )
     {
-		parent::__construct();
+        parent::__construct();
         if(null !== $not)
         {
-			$this->property('not', (bool) $not);
+            $this->setProperty('not', (bool) $not);
         }
         if(null !== $or)
         {
-			$this->property('or', (bool) $or);
+            $this->setProperty('or', (bool) $or);
         }
-        if($conds instanceof MultiCond)
+        $this->_conditions = new TypedSequence(
+            'Zimbra\Struct\SearchFilterCondition', $conditions
+        );
+        $this->on('before', function(Base $sender)
         {
-			$this->child('conds', $conds);
-        }
-        if($cond instanceof SingleCond)
-        {
-			$this->child('cond', $cond);
-        }
+            if($sender->getConditions()->count())
+            {
+                $conds = [];
+                $cond = [];
+                foreach ($sender->getConditions()->all() as $condition)
+                {
+                    if ($condition instanceof EntrySearchFilterMultiCond)
+                    {
+                        $conds[] = $condition;
+                    }
+                    if ($condition instanceof EntrySearchFilterSingleCond)
+                    {
+                        $cond[] = $condition;
+                    }
+                }
+                if (!empty($conds))
+                {
+                    $sender->setChild('conds', $conds);
+                }
+                if (!empty($conds))
+                {
+                    $sender->setChild('cond', $cond);
+                }
+            }
+        });
     }
 
     /**
-     * Gets or sets not flag
+     * Gets not flag
+     *
+     * @return bool
+     */
+    public function getNot()
+    {
+        return $this->getProperty('not');
+    }
+
+    /**
+     * Sets not flag
      *
      * @param  bool $not
-     * @return bool|self
+     * @return self
      */
-    public function notFlag($not = null)
+    public function setNot($not)
     {
-        if(null === $not)
-        {
-            return $this->property('not');
-        }
-        return $this->property('not', (bool) $not);
+        return $this->setProperty('not', (bool) $not);
     }
 
     /**
-     * Gets or sets or flag
+     * Gets or flag
+     *
+     * @return bool
+     */
+    public function getOr()
+    {
+        return $this->getProperty('or');
+    }
+
+    /**
+     * Sets or flag
      *
      * @param  bool $or
-     * @return bool|self
+     * @return self
      */
-    public function orFlag($or = null)
+    public function setOr($or)
     {
-        if(null === $or)
-        {
-            return $this->property('or');
-        }
-        return $this->property('or', (bool) $or);
+        return $this->setProperty('or', (bool) $or);
     }
 
     /**
-     * Gets or sets conds
+     * Add a condition
      *
-     * @param  MultiCond $conds
-     * @return EntrySearchFilterMultiCond
+     * @param  SearchFilterCondition $condition
+     * @return self
      */
-    public function conds(MultiCond $conds = null)
+    public function addCondition(SearchFilterCondition $condition)
     {
-        if(null === $conds)
-        {
-            return $this->child('conds');
-        }
-        return $this->child('conds', $conds);
+        $this->_conditions->add($condition);
+        return $this;
     }
 
     /**
-     * Gets or sets cond
+     * Sets condition sequence
      *
-     * @param  SingleCond $cond
-     * @return SingleCond|self
+     * @return self
      */
-    public function cond(SingleCond $cond = null)
+    public function setConditions(array $conditions)
     {
-        if(null === $cond)
-        {
-            return $this->child('cond');
-        }
-        return $this->child('cond', $cond);
+        $this->_conditions = new TypedSequence(
+            'Zimbra\Struct\SearchFilterCondition', $conditions
+        );
+        return $this;
+    }
+
+    /**
+     * Gets condition sequence
+     *
+     * @return Sequence
+     */
+    public function getConditions()
+    {
+        return $this->_conditions;
     }
 
     /**

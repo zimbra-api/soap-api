@@ -33,41 +33,54 @@ class Attr extends Base
     public function __construct($name, $value = null, $pd = null)
     {
         parent::__construct(trim($value));
-        $this->property('name', trim($name));
+        $this->setProperty('name', trim($name));
         if(null !== $pd)
         {
-            $this->property('pd', (bool) $pd);
+            $this->setProperty('pd', (bool) $pd);
         }
     }
 
     /**
-     * Gets or sets name
+     * Gets name of attribute
      *
      * @param  string $name
-     * @return string|self
+     * @return string
      */
-    public function name($name = null)
+    public function getName()
     {
-        if(null === $name)
-        {
-            return $this->property('name');
-        }
-        return $this->property('name', trim($name));
+        return $this->getProperty('name');
     }
 
     /**
-     * Gets or sets pd
+     * Sets name of attribute
+     *
+     * @param  string $name
+     * @return self
+     */
+    public function setName($name)
+    {
+        return $this->setProperty('name', trim($name));
+    }
+
+    /**
+     * Gets permission has been denied flag
+     *
+     * @return bool
+     */
+    public function getPermDenied()
+    {
+        return $this->getProperty('pd');
+    }
+
+    /**
+     * Sets permission has been denied flag
      *
      * @param  bool $pd
-     * @return bool|self
+     * @return self
      */
-    public function pd($pd = null)
+    public function setPermDenied($pd)
     {
-        if(null === $pd)
-        {
-            return $this->property('pd');
-        }
-        return $this->property('pd', (bool) $pd);
+        return $this->setProperty('pd', (bool) $pd);
     }
 
     /**

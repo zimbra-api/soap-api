@@ -33,45 +33,58 @@ class PreAuth extends Base
      */
     public function __construct($timestamp, $value = null, $expiresTimestamp = null)
     {
-		parent::__construct(trim($value));
-		$this->property('timestamp', (int) $timestamp);
-		$this->property('expiresTimestamp', (int) $expiresTimestamp);
+        parent::__construct(trim($value));
+        $timestamp = (int) $timestamp < 0 ? time() : (int) $timestamp;
+        $this->setProperty('timestamp', $timestamp);
+        if (null !== $expiresTimestamp)
+        {
+            $expiresTimestamp = (int) $expiresTimestamp < 0 ? time() : (int) $expiresTimestamp;
+            $this->setProperty('expiresTimestamp', $expiresTimestamp);
+        }
     }
 
     /**
-     * Gets or sets timestamp
+     * Gets time stamp
+     *
+     * @return int
+     */
+    public function getTimestamp()
+    {
+        $this->getProperty('timestamp');
+    }
+
+    /**
+     * Sets time stamp
      *
      * @param  int $timestamp
-     * @return int|self
+     * @return self
      */
-    public function timestamp($timestamp = null)
+    public function setTimestamp($timestamp)
     {
-        if(null === $timestamp)
-        {
-            $timestamp = $this->property('timestamp');
-            if($timestamp <= 0)
-            {
-                $timestamp = time();
-                $this->property('timestamp', (int) $timestamp);
-            }
-            return $timestamp;
-        }
-        return $this->property('timestamp', (int) $timestamp);
+        $timestamp = (int) $timestamp < 0 ? time() : (int) $timestamp;
+        return $this->setProperty('timestamp', $timestamp);
     }
 
     /**
-     * Gets or sets expiresTimestamp
+     * Gets expiration time of the authtoken
+     *
+     * @return int
+     */
+    public function getExpiresTimestamp()
+    {
+        return $this->getProperty('expiresTimestamp');
+    }
+
+    /**
+     * Gets or sets expiration time of the authtoken
      *
      * @param  int $expiresTimestamp
-     * @return int|self
+     * @return self
      */
-    public function expiresTimestamp($expiresTimestamp = null)
+    public function setExpiresTimestamp($expiresTimestamp)
     {
-        if(null === $expiresTimestamp)
-        {
-            return $this->property('expiresTimestamp');
-        }
-        return $this->property('expiresTimestamp', (int) $expiresTimestamp);
+        $timestamp = (int) $timestamp < 0 ? time() : (int) $timestamp;
+        return $this->setProperty('expiresTimestamp', (int) $expiresTimestamp);
     }
 
     /**
@@ -83,8 +96,8 @@ class PreAuth extends Base
      */
     public function computeValue($account, $key)
     {
-        $timestamp = ($this->timestamp() > 0) ? $this->timestamp() : time();
-        $expire = $this->expiresTimestamp();
+        $timestamp = ($this->getTimestamp() > 0) ? $this->getTimestamp() : time();
+        $expire = $this->getExpiresTimestamp();
         if($account instanceof AccountSelector)
         {
             $preauth = $account->value() . '|'. $account->by() . '|' . $expire . '|' . $timestamp;

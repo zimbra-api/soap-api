@@ -33,38 +33,50 @@ class ZimletPrefsSpec extends Base
     public function __construct($name, ZimletStatus $presence)
     {
         parent::__construct();
-        $this->property('name', trim($name));
-        $this->property('presence', $presence);
+        $this->setProperty('name', trim($name));
+        $this->setProperty('presence', $presence);
     }
 
     /**
-     * Gets or sets name
+     * Gets zimlet name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->getProperty('name');
+    }
+
+    /**
+     * Sets zimlet name
      *
      * @param  string $name
-     * @return string|self
+     * @return self
      */
-    public function name($name = null)
+    public function setName($name)
     {
-        if(null === $name)
-        {
-            return $this->property('name');
-        }
-        return $this->property('name', trim($name));
+        return $this->setProperty('name', trim($name));
     }
 
     /**
-     * Gets or sets presence
+     * Gets presence
+     *
+     * @return ZimletStatus
+     */
+    public function getPresence()
+    {
+        return $this->getProperty('presence');
+    }
+
+    /**
+     * Sets presence
      *
      * @param  ZimletStatus $presence
-     * @return ZimletStatus|self
+     * @return self
      */
-    public function presence(ZimletStatus $presence = null)
+    public function setPresence(ZimletStatus $presence)
     {
-        if(null === $presence)
-        {
-            return $this->property('presence');
-        }
-        return $this->property('presence', $presence);
+        return $this->setProperty('presence', $presence);
     }
 
     /**
