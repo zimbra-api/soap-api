@@ -34,8 +34,7 @@ class PreAuth extends Base
     public function __construct($timestamp, $value = null, $expiresTimestamp = null)
     {
         parent::__construct(trim($value));
-        $timestamp = (int) $timestamp < 0 ? time() : (int) $timestamp;
-        $this->setProperty('timestamp', $timestamp);
+        $this->setTimestamp($timestamp);
         if (null !== $expiresTimestamp)
         {
             $expiresTimestamp = (int) $expiresTimestamp < 0 ? time() : (int) $expiresTimestamp;
@@ -50,7 +49,7 @@ class PreAuth extends Base
      */
     public function getTimestamp()
     {
-        $this->getProperty('timestamp');
+        return $this->getProperty('timestamp');
     }
 
     /**
@@ -83,7 +82,7 @@ class PreAuth extends Base
      */
     public function setExpiresTimestamp($expiresTimestamp)
     {
-        $timestamp = (int) $timestamp < 0 ? time() : (int) $timestamp;
+        $expiresTimestamp = (int) $expiresTimestamp < 0 ? time() : (int) $expiresTimestamp;
         return $this->setProperty('expiresTimestamp', (int) $expiresTimestamp);
     }
 
@@ -100,13 +99,13 @@ class PreAuth extends Base
         $expire = $this->getExpiresTimestamp();
         if($account instanceof AccountSelector)
         {
-            $preauth = $account->value() . '|'. $account->by() . '|' . $expire . '|' . $timestamp;
+            $preauth = $account->getValue() . '|'. $account->getBy() . '|' . $expire . '|' . $timestamp;
         }
         else
         {
             $preauth = $account . '|name|' . $expire . '|' . $timestamp;
         }
-        $this->value(hash_hmac('sha1', $preauth, $key));
+        $this->setValue(hash_hmac('sha1', $preauth, $key));
         return $this;
     }
 

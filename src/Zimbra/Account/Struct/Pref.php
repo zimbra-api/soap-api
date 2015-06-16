@@ -66,7 +66,7 @@ class Pref extends Base
      *
      * @return int
      */
-    public function getModifiedTimestamp()
+    public function getModified()
     {
         return $this->getProperty('modified');
     }
@@ -77,7 +77,7 @@ class Pref extends Base
      * @param  int $modified
      * @return self
      */
-    public function setModifiedTimestamp($modified)
+    public function setModified($modified)
     {
         return $this->setProperty('modified', (int) $modified);
     }

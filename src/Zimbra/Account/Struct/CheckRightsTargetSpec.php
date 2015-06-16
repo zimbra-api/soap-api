@@ -52,7 +52,7 @@ class CheckRightsTargetSpec extends Base
         {
             if($sender->getRights()->count())
             {
-                $sender->child('right', $sender->getRights()->all());
+                $sender->setChild('right', $sender->getRights()->all());
             }
         });
     }

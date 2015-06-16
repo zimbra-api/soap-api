@@ -118,7 +118,7 @@ class Signature extends Base
      */
     public function getCid()
     {
-        return $this->getProperty('cid');
+        return $this->getChild('cid');
     }
 
     /**
@@ -129,7 +129,7 @@ class Signature extends Base
      */
     public function setCid($cid)
     {
-        return $this->setProperty('cid', trim($cid));
+        return $this->setChild('cid', trim($cid));
     }
 
     /**

@@ -56,6 +56,7 @@ class EntrySearchFilterMultiCond extends Base implements SearchFilterCondition
             $this->setProperty('or', (bool) $or);
         }
         $this->setConditions($conditions);
+
         $this->on('before', function(Base $sender)
         {
             if($sender->getConditions()->count())
@@ -64,11 +65,11 @@ class EntrySearchFilterMultiCond extends Base implements SearchFilterCondition
                 $cond = [];
                 foreach ($sender->getConditions()->all() as $condition)
                 {
-                    if ($condition instanceof EntrySearchFilterMultiCond)
+                    if ($condition instanceof MultiCond)
                     {
                         $conds[] = $condition;
                     }
-                    if ($condition instanceof EntrySearchFilterSingleCond)
+                    if ($condition instanceof SingleCond)
                     {
                         $cond[] = $condition;
                     }
@@ -77,7 +78,7 @@ class EntrySearchFilterMultiCond extends Base implements SearchFilterCondition
                 {
                     $sender->setChild('conds', $conds);
                 }
-                if (!empty($conds))
+                if (!empty($cond))
                 {
                     $sender->setChild('cond', $cond);
                 }

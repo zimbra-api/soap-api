@@ -54,7 +54,7 @@ class AuthToken extends Base
      * @param  bool $verifyAccount
      * @return self
      */
-    public function verifyAccount($verifyAccount = null)
+    public function setVerifyAccount($verifyAccount = null)
     {
         return $this->setProperty('verifyAccount', (bool) $verifyAccount);
     }

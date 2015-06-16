@@ -78,7 +78,7 @@ class Identity extends AttrsImpl
      * @param  string $id
      * @return self
      */
-    public function id($id = null)
+    public function setId($id = null)
     {
         return $this->setProperty('id', trim($id));
     }

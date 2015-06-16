@@ -52,7 +52,7 @@ class NameId extends Base
      * @param  string $name
      * @return self
      */
-    public function getName($name)
+    public function setName($name)
     {
         return $this->setProperty('name', trim($name));
     }

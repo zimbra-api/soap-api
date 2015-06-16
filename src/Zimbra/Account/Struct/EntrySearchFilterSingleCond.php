@@ -120,7 +120,7 @@ class EntrySearchFilterSingleCond extends Base implements SearchFilterCondition
      */
     public function getNot()
     {
-        return $this->property('not');
+        return $this->getProperty('not');
     }
 
     /**
@@ -131,7 +131,7 @@ class EntrySearchFilterSingleCond extends Base implements SearchFilterCondition
      */
     public function setNot($not)
     {
-        return $this->property('not', (bool) $not);
+        return $this->setProperty('not', (bool) $not);
     }
 
     /**
