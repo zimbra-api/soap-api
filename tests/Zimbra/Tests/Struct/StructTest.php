@@ -23,13 +23,13 @@ class StructTest extends ZimbraTestCase
         $this->assertTrue($acc->getBy()->is('adminName'));
         $this->assertSame($value, $acc->getValue());
 
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<account by="adminName">' . $value . '</account>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<account by="' . AccountBy::ADMIN_NAME()->value() . '">' . $value . '</account>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $acc);
 
         $array = array(
             'account' => array(
-                'by' => 'adminName',
+                'by' => AccountBy::ADMIN_NAME()->value(),
                 '_content' => $value,
             ),
         );
@@ -46,8 +46,8 @@ class StructTest extends ZimbraTestCase
         $a->setName($name);
         $this->assertSame($name, $a->getName());
 
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<a n="' . $name . '" />';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<a n="' . $name . '" />';
         $this->assertXmlStringEqualsXmlString($xml, (string) $a);
 
         $array = array(
@@ -68,8 +68,8 @@ class StructTest extends ZimbraTestCase
         $this->assertSame($value, $base->getValue());
 		$className = $base->className();
 
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<' . $className . '>' . $value . '</' . $className . '>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<' . $className . '>' . $value . '</' . $className . '>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $base);
 
         $array = array(
@@ -89,10 +89,10 @@ class StructTest extends ZimbraTestCase
         $base->setChild('child', $child);
         $this->assertSame($child, $base->getChild('child'));
 
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<' . $className . ' ' . $name . '="' . $value . '">'
-                .'<child>' . $value . '</child>'
-            .'</' . $className . '>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<' . $className . ' ' . $name . '="' . $value . '">'
+                . '<child>' . $value . '</child>'
+            . '</' . $className . '>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $base);
 
         $array = array(
@@ -127,8 +127,8 @@ class StructTest extends ZimbraTestCase
         $this->assertSame($endSortVal, $cursor->getEndSortVal());
         $this->assertTrue($cursor->getIncludeOffset());
 
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<cursor id="' . $id . '" sortVal="' . $sortVal . '" endSortVal="' . $endSortVal . '" includeOffset="true" />';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<cursor id="' . $id . '" sortVal="' . $sortVal . '" endSortVal="' . $endSortVal . '" includeOffset="true" />';
         $this->assertXmlStringEqualsXmlString($xml, (string) $cursor);
 
         $array = array(
@@ -160,8 +160,8 @@ class StructTest extends ZimbraTestCase
         $this->assertSame($id, $grantee->getId());
         $this->assertSame($name, $grantee->getName());
 
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<grantee type="' . $type . '" id="' . $id . '" name="' . $name . '" />';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<grantee type="' . $type . '" id="' . $id . '" name="' . $name . '" />';
         $this->assertXmlStringEqualsXmlString($xml, (string) $grantee);
 
         $array = array(
@@ -184,8 +184,8 @@ class StructTest extends ZimbraTestCase
         $id->setId($value);
         $this->assertSame($value, $id->getId());
 
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<id id="' . $value . '" />';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<id id="' . $value . '" />';
         $this->assertXmlStringEqualsXmlString($xml, (string) $id);
 
         $array = array(
@@ -210,8 +210,8 @@ class StructTest extends ZimbraTestCase
         $this->assertSame($key, $kpv->getKey());
         $this->assertSame($value, $kpv->getValue());
 
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<a n="' . $key . '">' . $value . '</a>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<a n="' . $key . '">' . $value . '</a>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $kpv);
 
         $array = array(
@@ -232,8 +232,8 @@ class StructTest extends ZimbraTestCase
         $named->setName($name);
         $this->assertSame($name, $named->getName());
 
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<named name="' . $name . '" />';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<named name="' . $name . '" />';
         $this->assertXmlStringEqualsXmlString($xml, (string) $named);
 
         $array = array(
@@ -258,8 +258,8 @@ class StructTest extends ZimbraTestCase
         $this->assertSame($name, $named->getName());
         $this->assertSame($value, $named->getValue());
 
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<named name="' . $name . '">' . $value . '</named>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<named name="' . $name . '">' . $value . '</named>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $named);
 
         $array = array(
@@ -284,8 +284,8 @@ class StructTest extends ZimbraTestCase
         $this->assertSame('+', $op->getOp());
         $this->assertSame($value, $op->getValue());
 
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<addr op="+">' . $value . '</addr>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<addr op="+">' . $value . '</addr>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $op);
 
         $array = array(
@@ -331,8 +331,8 @@ class StructTest extends ZimbraTestCase
         $this->assertSame($week, $tzo->getWeek());
         $this->assertSame($wkday, $tzo->getDayOfWeek());
 
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<info mon="' . $mon . '" hour="' . $hour . '" min="' . $min . '" sec="' . $sec . '" mday="' . $mday . '" week="' . $week . '" wkday="' . $wkday . '" />';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<info mon="' . $mon . '" hour="' . $hour . '" min="' . $min . '" sec="' . $sec . '" mday="' . $mday . '" week="' . $week . '" wkday="' . $wkday . '" />';
         $this->assertXmlStringEqualsXmlString($xml, (string) $tzo);
         $array = array(
             'info' => array(
