@@ -33,7 +33,7 @@ class SubscribeDistributionList extends Base
     {
         parent::__construct();
         $this->setProperty('op', $op);
-        $this->child('dl', $dl);
+        $this->setChild('dl', $dl);
     }
 
     /**

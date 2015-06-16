@@ -45,7 +45,7 @@ class ModifyPrefs extends Base
         {
             if($sender->getPrefs()->count())
             {
-                $sender->child('pref', $sender->getPrefs()->all());
+                $sender->setChild('pref', $sender->getPrefs()->all());
             }
         });
     }

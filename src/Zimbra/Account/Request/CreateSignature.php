@@ -8,16 +8,16 @@
  * file that was distributed with this source code.
  */
 
-namespace Zimbra\Signature\Request;
+namespace Zimbra\Account\Request;
 
-use Zimbra\Signature\Struct\Signature;
+use Zimbra\Account\Struct\Signature;
 
 /**
  * CreateSignature request class
  * Create a signature.
  *
  * @package    Zimbra
- * @subpackage Signature
+ * @subpackage Account
  * @category   Request
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.

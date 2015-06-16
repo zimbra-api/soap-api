@@ -42,7 +42,7 @@ class DiscoverRights extends Base
 
         $this->on('before', function(Base $sender)
         {
-            $sender->child('right', $sender->getRights()->all());
+            $sender->setChild('right', $sender->getRights()->all());
         });
     }
 

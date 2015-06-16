@@ -45,7 +45,7 @@ class ModifyProperties extends Base
         {
             if($sender->getProps()->count())
             {
-                $sender->child('prop', $sender->getProps()->all());
+                $sender->setChild('prop', $sender->getProps()->all());
             }
         });
     }

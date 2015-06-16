@@ -12,7 +12,7 @@ namespace Zimbra\Account\Request;
 
 use Zimbra\Account\Struct\EntrySearchFilterInfo as SearchFilter;
 use Zimbra\Enum\GalSearchType as SearchType;
-use Zimbra\Enum\TypeSelector as Type;
+use Zimbra\Enum\MemberOfSelector as MemberOf;
 use Zimbra\Enum\SortBy;
 use Zimbra\Struct\CursorInfo;
 
@@ -38,7 +38,7 @@ class SearchGal extends Base
      * @param SearchType $type Type of addresses to auto-complete on
      * @param bool   $needExp Flag whether the {exp} flag is needed in the response for group entries. Default is unset.
      * @param bool   $needIsOwner The needIsOwner. Set this if the "isOwner" flag is needed in the response for group entries. Default is unset.
-     * @param Type $needIsMember Specify if the "isMember" flag is needed in the response for group entries.
+     * @param MemberOf $needIsMember Specify if the "isMember" flag is needed in the response for group entries.
      * @param bool   $needSMIMECerts Internal attr, for proxied GSA search from GetSMIMEPublicCerts only
      * @param string $galAcctId GAL Account ID
      * @param bool   $quick "Quick" flag. 
@@ -56,7 +56,7 @@ class SearchGal extends Base
         SearchType $type = null,
         $needExp = null,
         $needIsOwner = null,
-        Type $needIsMember = null,
+        MemberOf $needIsMember = null,
         $needSMIMECerts = null,
         $galAcctId = null,
         $quick = null,
@@ -98,7 +98,7 @@ class SearchGal extends Base
         {
             $this->setProperty('needIsOwner', (bool) $needIsOwner);
         }
-        if($needIsMember instanceof Type)
+        if($needIsMember instanceof MemberOf)
         {
             $this->setProperty('needIsMember', $needIsMember);
         }
@@ -299,7 +299,7 @@ class SearchGal extends Base
     /**
      * Sets account member of enum
      *
-     * @return Type
+     * @return MemberOf
      */
     public function getNeedIsMember()
     {
@@ -309,10 +309,10 @@ class SearchGal extends Base
     /**
      * Gets account member of enum
      *
-     * @param  Type $needIsMember
+     * @param  MemberOf $needIsMember
      * @return self
      */
-    public function setNeedIsMember(Type $needIsMember)
+    public function setNeedIsMember(MemberOf $needIsMember)
     {
         return $this->setProperty('needIsMember', $needIsMember);
     }

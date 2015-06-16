@@ -50,7 +50,7 @@ class GetInfo extends Base
      */
     public function getRights()
     {
-        return $this->getChild('rights');
+        return $this->getProperty('rights');
     }
 
     /**
@@ -61,7 +61,7 @@ class GetInfo extends Base
      */
     public function setRights($rights)
     {
-        return $this->setChild('rights', trim($rights));
+        return $this->setProperty('rights', trim($rights));
     }
 
     /**

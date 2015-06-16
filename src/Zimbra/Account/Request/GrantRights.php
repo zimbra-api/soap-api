@@ -45,7 +45,7 @@ class GrantRights extends Base
         {
             if($sender->getAces()->count())
             {
-                $sender->child('ace', $sender->getAces()->all());
+                $sender->setChild('ace', $sender->getAces()->all());
             }
         });
     }

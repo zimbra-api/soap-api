@@ -8,11 +8,11 @@
  * file that was distributed with this source code.
  */
 
-namespace Zimbra\Action\Request;
+namespace Zimbra\Account\Request;
 
-use Zimbra\Action\Struct\DistributionListSelector as DistList;
-use Zimbra\Action\Struct\DistributionListAction as Action;
-use Zimbra\Action\Struct\Attr;
+use Zimbra\Account\Struct\DistributionListSelector as DistList;
+use Zimbra\Account\Struct\DistributionListAction as Action;
+use Zimbra\Account\Struct\Attr;
 use Zimbra\Common\TypedSequence;
 
 /**
@@ -20,7 +20,7 @@ use Zimbra\Common\TypedSequence;
  * Perform an action on a Distribution List 
  *
  * @package    Zimbra
- * @subpackage Action
+ * @subpackage Account
  * @category   Request
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
@@ -118,7 +118,7 @@ class DistributionListAction extends Base
      */
     public function setAttrs(array $attrs)
     {
-        $this->_attrs = new TypedSequence('Zimbra\Action\Struct\Attr', $attrs);
+        $this->_attrs = new TypedSequence('Zimbra\Account\Struct\Attr', $attrs);
         return $this;
     }
 

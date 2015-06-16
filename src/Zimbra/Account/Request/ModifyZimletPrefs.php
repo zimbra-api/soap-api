@@ -45,7 +45,7 @@ class ModifyZimletPrefs extends Base
         {
             if($sender->getZimlets()->count())
             {
-                $sender->child('zimlet', $sender->getZimlets()->all());
+                $sender->setChild('zimlet', $sender->getZimlets()->all());
             }
         });
     }

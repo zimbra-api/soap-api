@@ -8,16 +8,16 @@
  * file that was distributed with this source code.
  */
 
-namespace Zimbra\Identity\Request;
+namespace Zimbra\Account\Request;
 
-use Zimbra\Identity\Struct\Identity;
+use Zimbra\Account\Struct\Identity;
 
 /**
  * ModifyIdentity request class
  * Modify an Identity
  *
  * @package    Zimbra
- * @subpackage Identity
+ * @subpackage Account
  * @category   Request
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.

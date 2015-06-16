@@ -39,17 +39,13 @@ class CheckRights extends Base
     public function __construct(array $targets)
     {
         parent::__construct();
-        $this->_targets = new TypedSequence('Zimbra\Account\Struct\CheckRightsTargetSpec', $targets);
-        if(count($this->_targets) === 0)
-        {
-            throw new \InvalidArgumentException('CheckRights must have at least one target');
-        }
+        $this->setTargets($targets);
 
         $this->on('before', function(Base $sender)
         {
             if($sender->getTargets()->count())
             {
-                $sender->child('target', $sender->getTargets()->all());
+                $sender->setChild('target', $sender->getTargets()->all());
             }
         });
     }

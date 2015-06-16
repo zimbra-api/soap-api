@@ -50,11 +50,11 @@ class GetDistributionList extends Base
         $this->setChild('dl', $dl);
         if(null !== $needOwners)
         {
-            $this->property('needOwners', (bool) $needOwners);
+            $this->setProperty('needOwners', (bool) $needOwners);
         }
         if(null !== $needRights)
         {
-            $this->property('needRights', trim($needRights));
+            $this->setProperty('needRights', trim($needRights));
         }
         $this->setAttrs($attrs);
 
