@@ -32,38 +32,50 @@ class ExportAndDeleteItemSpec extends Base
     public function __construct($id, $version)
     {
         parent::__construct();
-        $this->property('id', (int) $id);
-        $this->property('version', (int) $version);
+        $this->setProperty('id', (int) $id);
+        $this->setProperty('version', (int) $version);
     }
 
     /**
-     * Gets or sets id
+     * Gets ID
+     *
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->getProperty('id');
+    }
+
+    /**
+     * Sets ID
      *
      * @param  int $id
-     * @return int|self
+     * @return self
      */
-    public function id($id = null)
+    public function setId($id)
     {
-        if(null === $id)
-        {
-            return $this->property('id');
-        }
-        return $this->property('id', (int) $id);
+        return $this->setProperty('id', (int) $id);
     }
 
     /**
-     * Gets or sets version
+     * Gets version
+     *
+     * @return int
+     */
+    public function getVersion()
+    {
+        return $this->getProperty('version');
+    }
+
+    /**
+     * Sets version
      *
      * @param  int $version
-     * @return int|self
+     * @return self
      */
-    public function version($version = null)
+    public function setVersion($version)
     {
-        if(null === $version)
-        {
-            return $this->property('version');
-        }
-        return $this->property('version', (int) $version);
+        return $this->setProperty('version', (int) $version);
     }
 
     /**

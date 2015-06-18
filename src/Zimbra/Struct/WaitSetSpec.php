@@ -8,10 +8,9 @@
  * file that was distributed with this source code.
  */
 
-namespace Zimbra\Mail\Struct;
+namespace Zimbra\Struct;
 
 use Zimbra\Common\TypedSequence;
-use Zimbra\Struct\Base;
 
 /**
  * WaitSetSpec struct class
@@ -28,23 +27,23 @@ class WaitSetSpec extends Base
      * Attributes
      * @var TypedSequence<WaitSetAddSpec>
      */
-    private $_a;
+    private $_accounts;
 
     /**
      * Constructor method for WaitSetAdd
-     * @param array $a
+     * @param array $accounts
      * @return self
      */
-    public function __construct(array $a = array())
+    public function __construct(array $accounts = array())
     {
         parent::__construct();
-        $this->_a = new TypedSequence('Zimbra\Mail\Struct\WaitSetAddSpec', $a);
+        $this->setAccounts($accounts);
 
         $this->on('before', function(Base $sender)
         {
-            if($sender->a()->count())
+            if($sender->getAccounts()->count())
             {
-                $sender->child('a', $sender->a()->all());
+                $sender->setChild('a', $sender->getAccounts()->all());
             }
         });
     }
@@ -52,23 +51,35 @@ class WaitSetSpec extends Base
     /**
      * Add WaitSet
      *
-     * @param  WaitSetAddSpec $a
+     * @param  WaitSetAddSpec $account
      * @return self
      */
-    public function addWaitSet(WaitSetAddSpec $a)
+    public function addAccount(WaitSetAddSpec $account)
     {
-        $this->_a->add($a);
+        $this->_accounts->add($account);
         return $this;
     }
 
     /**
-     * Get WaitSet sequence
+     * Sets WaitSet sequence
+     *
+     * @param array $accounts
+     * @return self
+     */
+    public function setAccounts(array $accounts)
+    {
+        $this->_accounts = new TypedSequence('Zimbra\Struct\WaitSetAddSpec', $accounts);
+        return $this;
+    }
+
+    /**
+     * Gets WaitSet sequence
      *
      * @return TypedSequence<WaitSetAddSpec>
      */
-    public function a()
+    public function getAccounts()
     {
-        return $this->_a;
+        return $this->_accounts;
     }
 
     /**

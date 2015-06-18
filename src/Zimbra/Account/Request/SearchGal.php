@@ -10,11 +10,11 @@
 
 namespace Zimbra\Account\Request;
 
-use Zimbra\Account\Struct\EntrySearchFilterInfo as SearchFilter;
 use Zimbra\Enum\GalSearchType as SearchType;
 use Zimbra\Enum\MemberOfSelector as MemberOf;
 use Zimbra\Enum\SortBy;
 use Zimbra\Struct\CursorInfo;
+use Zimbra\Struct\EntrySearchFilterInfo as SearchFilter;
 
 /**
  * SearchGal request class

@@ -8,18 +8,15 @@
  * file that was distributed with this source code.
  */
 
-namespace Zimbra\Account\Struct;
+namespace Zimbra\Struct;
 
-use Zimbra\Account\Struct\EntrySearchFilterMultiCond as MultiCond;
-use Zimbra\Account\Struct\EntrySearchFilterSingleCond as SingleCond;
-use Zimbra\Struct\Base;
-use Zimbra\Struct\SearchFilterCondition;
+use Zimbra\Struct\EntrySearchFilterMultiCond as MultiCond;
+use Zimbra\Struct\EntrySearchFilterSingleCond as SingleCond;
 
 /**
  * EntrySearchFilterInfo struct class
  *
  * @package    Zimbra
- * @subpackage Account
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.

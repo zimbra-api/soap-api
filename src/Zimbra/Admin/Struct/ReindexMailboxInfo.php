@@ -34,54 +34,56 @@ class ReindexMailboxInfo extends Base
     public function __construct($id, $types = null, $ids = null)
     {
         parent::__construct();
-        $this->property('id', trim($id));
+        $this->setProperty('id', trim($id));
         if(null !== $types)
         {
-            $arrType = array();
-            $types = explode(',', trim($types));
-            foreach ($types as $type)
-            {
-                $type = trim($type);
-                if(ReindexType::has($type) && !in_array($type, $arrType))
-                {
-                    $arrType[] = trim($type);
-                }
-            }
-            $this->property('types', implode(',', $arrType));
+            $this->setTypes($types);
         }
         if(null !== $ids)
         {
-            $this->property('ids', trim($ids));
+            $this->setProperty('ids', trim($ids));
         }
     }
 
     /**
-     * Gets or sets id
+     * Gets ID
+     *
+     * @return string
+     */
+    public function getId()
+    {
+        return $this->getProperty('id');
+    }
+
+    /**
+     * Sets ID
      *
      * @param  string $id
-     * @return string|self
+     * @return self
      */
-    public function id($id = null)
+    public function setId($id)
     {
-        if(null === $id)
-        {
-            return $this->property('id');
-        }
-        return $this->property('id', trim($id));
+        return $this->setProperty('id', trim($id));
     }
 
     /**
-     * Gets or sets types
+     * Gets types
+     *
+     * @return string
+     */
+    public function getTypes()
+    {
+        return $this->getProperty('types');
+    }
+
+    /**
+     * Sets types
      *
      * @param  string $types
-     * @return string|self
+     * @return self
      */
-    public function types($types = null)
+    public function setTypes($types)
     {
-        if(null === $types)
-        {
-            return $this->property('types');
-        }
         $arrType = array();
         $types = explode(',', trim($types));
         foreach ($types as $type)
@@ -92,22 +94,28 @@ class ReindexMailboxInfo extends Base
                 $arrType[] = trim($type);
             }
         }
-        return $this->property('types', implode(',', $arrType));
+        return $this->setProperty('types', implode(',', $arrType));
     }
 
     /**
-     * Gets or sets ids
+     * Sets the Standard Time component's timezone name
+     *
+     * @return string
+     */
+    public function getIds()
+    {
+        return $this->getProperty('ids');
+    }
+
+    /**
+     * Sets the Standard Time component's timezone name
      *
      * @param  string $ids
-     * @return string|self
+     * @return self
      */
-    public function ids($ids = null)
+    public function setIds($ids)
     {
-        if(null === $ids)
-        {
-            return $this->property('ids');
-        }
-        return $this->property('ids', trim($ids));
+        return $this->setProperty('ids', trim($ids));
     }
 
     /**

@@ -32,22 +32,28 @@ class TargetWithType extends Base
     public function __construct($type, $value = null)
     {
         parent::__construct(trim($value));
-        $this->property('type', trim($type));
+        $this->setProperty('type', trim($type));
     }
 
     /**
-     * Gets or sets type
+     * Gets type
+     *
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->getProperty('type');
+    }
+
+    /**
+     * Sets type
      *
      * @param  string $type
-     * @return string|self
+     * @return self
      */
-    public function type($type = null)
+    public function setType($type)
     {
-        if(null === $type)
-        {
-            return $this->property('type');
-        }
-        return $this->property('type', trim($type));
+        return $this->setProperty('type', trim($type));
     }
 
     /**

@@ -33,23 +33,29 @@ class IntegerValueAttrib extends Base
         parent::__construct();
         if(null !== $value)
         {
-            $this->property('value', (int) $value);
+            $this->setProperty('value', (int) $value);
         }
     }
 
     /**
-     * Gets or sets value
+     * Gets value
+     *
+     * @return int
+     */
+    public function getValue()
+    {
+        return $this->getProperty('value');
+    }
+
+    /**
+     * Sets value
      *
      * @param  int $value
-     * @return int|self
+     * @return self
      */
-    public function value($value = null)
+    public function setValue($value)
     {
-        if(null === $value)
-        {
-            return $this->property('value');
-        }
-        return $this->property('value', (int) $value);
+        return $this->setProperty('value', (int) $value);
     }
 
     /**

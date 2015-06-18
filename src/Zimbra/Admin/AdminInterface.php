@@ -19,7 +19,6 @@ use Zimbra\Admin\Struct\DeviceId as DeviceId;
 use Zimbra\Admin\Struct\DistributionListSelector as DistList;
 use Zimbra\Admin\Struct\DomainSelector as Domain;
 use Zimbra\Admin\Struct\EffectiveRightsTargetSelector as Target;
-use Zimbra\Admin\Struct\EntrySearchFilterInfo as SearchFilter;
 use Zimbra\Admin\Struct\ExchangeAuthSpec as Exchange;
 use Zimbra\Admin\Struct\ExportAndDeleteMailboxSpec as ExportMailbox;
 use Zimbra\Admin\Struct\GranteeSelector as Grantee;
@@ -52,6 +51,7 @@ use Zimbra\Admin\Struct\XmppComponentSpec as Xmpp;
 use Zimbra\Admin\Struct\ZimletAclStatusPri as ZimletAcl;
 
 use Zimbra\Struct\AccountSelector as Account;
+use Zimbra\Struct\EntrySearchFilterInfo as SearchFilter;
 use Zimbra\Struct\GranteeChooser;
 use Zimbra\Struct\Id;
 use Zimbra\Struct\KeyValuePair;

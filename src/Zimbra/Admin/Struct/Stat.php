@@ -25,51 +25,64 @@ class Stat extends Base
 {
     /**
      * Constructor method for Stat
+     * @param  string $value Stat value
      * @param  string $name Stat name
      * @param  string $description Stat description
      * @return self
      */
-    public function __construct($name = null, $description = null)
+    public function __construct($value = null, $name = null, $description = null)
     {
-        parent::__construct();
+        parent::__construct($value);
         if(null !== $name)
         {
-            $this->property('name', trim($name));
+            $this->setProperty('name', trim($name));
         }
         if(null !== $description)
         {
-            $this->property('description', trim($description));
+            $this->setProperty('description', trim($description));
         }
     }
 
     /**
-     * Gets or sets name
+     * Sets the name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->getProperty('name');
+    }
+
+    /**
+     * Sets the name
      *
      * @param  string $name
-     * @return string|self
+     * @return self
      */
-    public function name($name = null)
+    public function setName($name)
     {
-        if(null === $name)
-        {
-            return $this->property('name');
-        }
-        return $this->property('name', trim($name));
+        return $this->setProperty('name', trim($name));
     }
 
     /**
-     * Gets or sets description
+     * Sets the description
+     *
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->getProperty('description');
+    }
+
+    /**
+     * Sets the description
      *
      * @param  string $description
-     * @return string|self
+     * @return self
      */
-    public function description($description = null)
+    public function setDescription($description)
     {
-        if(null === $description)
-        {
-            return $this->property('description');
-        }
-        return $this->property('description', trim($description));
+        return $this->setProperty('description', trim($description));
     }
 
     /**

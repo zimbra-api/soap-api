@@ -33,22 +33,28 @@ class PrincipalSelector extends Base
     public function __construct(PrincipalBy $by, $value = null)
     {
         parent::__construct(trim($value));
-        $this->property('by', $by);
+        $this->setProperty('by', $by);
     }
 
     /**
-     * Gets or sets by
+     * Gets by enum
      *
-     * @param  PrincipalBy $by
-     * @return PrincipalBy|self
+     * @return Zimbra\Enum\PrincipalBy
      */
-    public function by(PrincipalBy $by = null)
+    public function getBy()
     {
-        if(null === $by)
-        {
-            return $this->property('by');
-        }
-        return $this->property('by', $by);
+        return $this->getProperty('by');
+    }
+
+    /**
+     * Sets by enum
+     *
+     * @param  Zimbra\Enum\PrincipalBy $by
+     * @return self
+     */
+    public function setBy(PrincipalBy $by)
+    {
+        return $this->setProperty('by', $by);
     }
 
     /**

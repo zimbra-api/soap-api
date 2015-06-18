@@ -24,24 +24,6 @@ use Zimbra\Struct\Base;
 class StatsSpec extends Base
 {
     /**
-     * Stats value wrapper
-     * @var StatsValueWrapper
-     */
-    private $_values;
-
-    /**
-     * Name
-     * @var string
-     */
-    private $_name;
-
-    /**
-     * if limit="true" is specified, attempt to reduce result set to under 500 records
-     * @var string
-     */
-    private $_limit;
-
-    /**
      * Constructor method for StatsSpec
      * @param  StatsValueWrapper $values
      * @param  string $name
@@ -51,60 +33,78 @@ class StatsSpec extends Base
     public function __construct(StatsValueWrapper $values, $name = null, $limit = null)
     {
         parent::__construct();
-        $this->child('values', $values);
+        $this->setChild('values', $values);
         if(null !== $name)
         {
-            $this->property('name', trim($name));
+            $this->setProperty('name', trim($name));
         }
         if(null !== $limit)
         {
-            $this->property('limit', trim($limit));
+            $this->setProperty('limit', trim($limit));
         }
     }
 
     /**
-     * Gets or sets values
+     * Sets the values.
+     *
+     * @return StatsValueWrapper
+     */
+    public function getValues()
+    {
+        return $this->getChild('values');
+    }
+
+    /**
+     * Sets the values.
      *
      * @param  StatsValueWrapper $values
-     * @return StatsValueWrapper|self
+     * @return self
      */
-    public function values(StatsValueWrapper $values = null)
+    public function setValues(StatsValueWrapper $values)
     {
-        if(null === $values)
-        {
-            return $this->child('values');
-        }
-        return $this->child('values', $values);
+        return $this->setChild('values', $values);
     }
 
     /**
-     * Gets or sets name
+     * Gets the name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->getProperty('name');
+    }
+
+    /**
+     * Sets the name
      *
      * @param  string $name
-     * @return string|self
+     * @return self
      */
-    public function name($name = null)
+    public function setName($name)
     {
-        if(null === $name)
-        {
-            return $this->property('name');
-        }
-        return $this->property('name', trim($name));
+        return $this->setProperty('name', trim($name));
     }
 
     /**
-     * Gets or sets limit
+     * Gets the limit
+     *
+     * @return string
+     */
+    public function getLimit()
+    {
+        return $this->getProperty('limit');
+    }
+
+    /**
+     * Sets the limit
      *
      * @param  string $limit
-     * @return string|self
+     * @return self
      */
-    public function limit($limit = null)
+    public function setLimit($limit)
     {
-        if(null === $limit)
-        {
-            return $this->property('limit');
-        }
-        return $this->property('limit', trim($limit));
+        return $this->setProperty('limit', trim($limit));
     }
 
     /**

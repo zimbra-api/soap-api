@@ -33,22 +33,28 @@ class XmppComponentSelector extends Base
     public function __construct(XmppBy $by, $value = null)
     {
         parent::__construct(trim($value));
-        $this->property('by', $by);
+        $this->setProperty('by', $by);
     }
 
     /**
-     * Gets or sets by
+     * Gets by enum
      *
-     * @param  XmppBy $by
-     * @return XmppBy|self
+     * @return Zimbra\Enum\XmppBy
      */
-    public function by(XmppBy $by = null)
+    public function getBy()
     {
-        if(null === $by)
-        {
-            return $this->property('by');
-        }
-        return $this->property('by', $by);
+        return $this->getProperty('by');
+    }
+
+    /**
+     * Sets by enum
+     *
+     * @param  Zimbra\Enum\XmppComponentBy $by
+     * @return self
+     */
+    public function setBy(XmppBy $by)
+    {
+        return $this->setProperty('by', $by);
     }
 
     /**

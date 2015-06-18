@@ -43,80 +43,104 @@ class RightModifierInfo extends Base
         parent::__construct(trim($value));
         if($deny !== null)
         {
-            $this->property('deny', (bool) $deny);
+            $this->setProperty('deny', (bool) $deny);
         }
         if($canDelegate !== null)
         {
-            $this->property('canDelegate', (bool) $canDelegate);
+            $this->setProperty('canDelegate', (bool) $canDelegate);
         }
         if($disinheritSubGroups !== null)
         {
-            $this->property('disinheritSubGroups', (bool) $disinheritSubGroups);
+            $this->setProperty('disinheritSubGroups', (bool) $disinheritSubGroups);
         }
         if($subDomain !== null)
         {
-            $this->property('subDomain', (bool) $subDomain);
+            $this->setProperty('subDomain', (bool) $subDomain);
         }
     }
 
     /**
-     * Gets or sets pw
+     * Gets the deny flag
      *
-     * @param  bool $pw
-     * @return bool|self
+     * @return bool
      */
-    public function deny($deny = null)
+    public function getDeny()
     {
-        if(null === $deny)
-        {
-            return $this->property('deny');
-        }
-        return $this->property('deny', (bool) $deny);
+        return $this->getProperty('deny');
     }
 
     /**
-     * Gets or sets canDelegate
+     * Sets the deny flag
+     *
+     * @param  bool $deny
+     * @return self
+     */
+    public function setDeny($deny)
+    {
+        return $this->setProperty('deny', (bool) $deny);
+    }
+
+    /**
+     * Gets the can delegate flag
+     *
+     * @return bool
+     */
+    public function getCanDelegate()
+    {
+        return $this->getProperty('canDelegate');
+    }
+
+    /**
+     * Sets the can delegate flag
      *
      * @param  bool $canDelegate
-     * @return bool|self
+     * @return self
      */
-    public function canDelegate($canDelegate = null)
+    public function setCanDelegate($canDelegate)
     {
-        if(null === $canDelegate)
-        {
-            return $this->property('canDelegate');
-        }
-        return $this->property('canDelegate', (bool) $canDelegate);
+        return $this->setProperty('canDelegate', (bool) $canDelegate);
     }
 
     /**
-     * Gets or sets disinheritSubGroups
+     * Gets the disinheritSubGroups flag
+     *
+     * @return bool
+     */
+    public function getDisinheritSubGroups()
+    {
+        return $this->getProperty('disinheritSubGroups');
+    }
+
+    /**
+     * Sets the disinheritSubGroups flag
      *
      * @param  bool $disinheritSubGroups
-     * @return bool|self
+     * @return self
      */
-    public function disinheritSubGroups($disinheritSubGroups = null)
+    public function setDisinheritSubGroups($disinheritSubGroups)
     {
-        if(null === $disinheritSubGroups)
-        {
-            return $this->property('disinheritSubGroups');
-        }
-        return $this->property('disinheritSubGroups', (bool) $disinheritSubGroups);
+        return $this->setProperty('disinheritSubGroups', (bool) $disinheritSubGroups);
     }
 
     /**
-     * Gets or sets subDomain
+     * Gets the sub domain flag
+     *
+     * @return bool
+     */
+    public function getSubDomain()
+    {
+        return $this->getProperty('subDomain');
+    }
+
+    /**
+     * Sets the sub domain flag
      *
      * @param  bool $subDomain
-     * @return bool|self
+     * @return self
      */
-    public function subDomain($subDomain = null)
+    public function setSubDomain($subDomain)
     {
-        if(null === $subDomain)
-        {
-            return $this->property('subDomain');
-        }
-        return $this->property('subDomain', (bool) $subDomain);
+        return $this->setProperty('subDomain', (bool) $subDomain);
     }
 
     /**

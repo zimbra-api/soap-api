@@ -8,11 +8,10 @@
  * file that was distributed with this source code.
  */
 
-namespace Zimbra\Mail\Struct;
+namespace Zimbra\Struct;
 
 use Zimbra\Common\TypedSequence;
 use Zimbra\Enum\InterestType;
-use Zimbra\Struct\Base;
 
 /**
  * WaitSetAddSpec struct class
@@ -29,91 +28,109 @@ class WaitSetAddSpec extends Base
      * Comma-separated list
      * @var string
      */
-    private $_types;
+    private $_interests;
 
     /**
      * Constructor method for waitSetAddSpec
      * @param string $name The name
      * @param string $id The id
      * @param string $token Last known sync token
-     * @param array $types Comma-separated list
+     * @param array $interests Comma-separated list
      * @return self
      */
     public function __construct(
         $name = null,
         $id = null,
         $token = null,
-        array $types = array()
+        array $interests  = array()
     )
     {
         parent::__construct();
         if(null !== $name)
         {
-            $this->property('name', trim($name));
+            $this->setProperty('name', trim($name));
         }
         if(null !== $id)
         {
-            $this->property('id', trim($id));
+            $this->setProperty('id', trim($id));
         }
         if(null !== $token)
         {
-            $this->property('token', trim($token));
+            $this->setProperty('token', trim($token));
         }
-        $this->_types = new TypedSequence('Zimbra\Enum\InterestType', $types);
+        $this->setInterests($interests);
 
         $this->on('before', function(Base $sender)
         {
-            $types = $sender->types();
-            if(!empty($types))
+            $interests = $sender->getInterests();
+            if(!empty($interests))
             {
-                $sender->property('types', $types);
+                $sender->setProperty('types', $interests);
             }
         });
     }
 
     /**
-     * Gets or sets name
+     * Sets the name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->getProperty('name');
+    }
+
+    /**
+     * Sets the name
      *
      * @param  string $name
-     * @return string|self
+     * @return self
      */
-    public function name($name = null)
+    public function setName($name)
     {
-        if(null === $name)
-        {
-            return $this->property('name');
-        }
-        return $this->property('name', trim($name));
+        return $this->setProperty('name', trim($name));
     }
 
     /**
-     * Gets or sets id
+     * Gets Id
+     *
+     * @return string
+     */
+    public function getId()
+    {
+        return $this->getProperty('id');
+    }
+
+    /**
+     * Sets Id
      *
      * @param  string $id
-     * @return string|self
+     * @return self
      */
-    public function id($id = null)
+    public function setId($id)
     {
-        if(null === $id)
-        {
-            return $this->property('id');
-        }
-        return $this->property('id', trim($id));
+        return $this->setProperty('id', trim($id));
     }
 
     /**
-     * Gets or sets token
+     * Sets the token
+     *
+     * @return string
+     */
+    public function getToken()
+    {
+        return $this->getProperty('token');
+    }
+
+    /**
+     * Sets the token
      *
      * @param  string $token
-     * @return string|self
+     * @return self
      */
-    public function token($token = null)
+    public function setToken($token)
     {
-        if(null === $token)
-        {
-            return $this->property('token');
-        }
-        return $this->property('token', trim($token));
+        return $this->setProperty('token', trim($token));
     }
 
     /**
@@ -122,20 +139,32 @@ class WaitSetAddSpec extends Base
      * @param  InterestType $type
      * @return self
      */
-    public function addType(InterestType $type)
+    public function addInterest(InterestType $type)
     {
-        $this->_types->add($type);
+        $this->_interests->add($type);
         return $this;
     }
 
     /**
-     * Gets types
+     * Sets interests
+     *
+     * @param array $interests Comma-separated list
+     * @return self
+     */
+    public function setInterests(array $interests)
+    {
+        $this->_interests = new TypedSequence('Zimbra\Enum\InterestType', $interests);
+        return $this;
+    }
+
+    /**
+     * Gets interests
      *
      * @return string
      */
-    public function types()
+    public function getInterests()
     {
-        return count($this->_types) ? implode(',', $this->_types->all()) : '';
+        return count($this->_interests) ? implode(',', $this->_interests->all()) : '';
     }
 
     /**

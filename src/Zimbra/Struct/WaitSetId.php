@@ -8,17 +8,16 @@
  * file that was distributed with this source code.
  */
 
-namespace Zimbra\Admin\Struct;
+namespace Zimbra\Struct;
 
 use Zimbra\Common\TypedSequence;
-use Zimbra\Struct\Base;
 use Zimbra\Struct\Id;
 
 /**
  * WaitSetRemove struct class
  *
  * @package    Zimbra
- * @subpackage Admin
+ * @subpackage Mail
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
@@ -29,23 +28,23 @@ class WaitSetId extends Base
      * Attributes
      * @var TypedSequence<Id>
      */
-    private $_a;
+    private $_ids;
 
     /**
      * Constructor method for WaitSetRemove
-     * @param array $a
+     * @param array $ids
      * @return self
      */
-    public function __construct(array $a = array())
+    public function __construct(array $ids = array())
     {
         parent::__construct();
-        $this->_a = new TypedSequence('Zimbra\Struct\Id', $a);
+        $this->setIds($ids);
 
         $this->on('before', function(Base $sender)
         {
-            if($sender->a()->count())
+            if($sender->getIds()->count())
             {
-                $sender->child('a', $sender->a()->all());
+                $sender->setChild('a', $sender->getIds()->all());
             }
         });
     }
@@ -58,18 +57,30 @@ class WaitSetId extends Base
      */
     public function addId(Id $a)
     {
-        $this->_a->add($a);
+        $this->_ids->add($a);
         return $this;
     }
 
     /**
-     * Get WaitSet sequence
+     * Get Id sequence
+     *
+     * @param array $ids
+     * @return self
+     */
+    public function setIds(array $ids)
+    {
+        $this->_ids = new TypedSequence('Zimbra\Struct\Id', $ids);
+        return $this;
+    }
+
+    /**
+     * Get Id sequence
      *
      * @return TypedSequence<Id>
      */
-    public function a()
+    public function getIds()
     {
-        return $this->_a;
+        return $this->_ids;
     }
 
     /**

@@ -44,99 +44,129 @@ class TzFixupRuleMatch extends Base
         parent::__construct();
         if($any instanceof SimpleElement)
         {
-            $this->child('any', $any);
+            $this->setChild('any', $any);
         }
         if($tzid instanceof Id)
         {
-            $this->child('tzid', $tzid);
+            $this->setChild('tzid', $tzid);
         }
         if($nonDst instanceof Offset)
         {
-            $this->child('nonDst', $nonDst);
+            $this->setChild('nonDst', $nonDst);
         }
         if($rules instanceof TzFixupRuleMatchRules)
         {
-            $this->child('rules', $rules);
+            $this->setChild('rules', $rules);
         }
         if($dates instanceof TzFixupRuleMatchDates)
         {
-            $this->child('dates', $dates);
+            $this->setChild('dates', $dates);
         }
     }
 
     /**
-     * Gets or sets any
+     * Sets the any.
+     *
+     * @return SimpleElement
+     */
+    public function getAny()
+    {
+        return $this->getChild('any');
+    }
+
+    /**
+     * Sets the any.
      *
      * @param  SimpleElement $any
-     * @return SimpleElement|self
+     * @return self
      */
-    public function any(SimpleElement $any = null)
+    public function setAny(SimpleElement $any)
     {
-        if(null === $any)
-        {
-            return $this->child('any');
-        }
-        return $this->child('any', $any);
+        return $this->setChild('any', $any);
     }
 
     /**
-     * Gets or sets tzid
+     * Sets the tzid.
+     *
+     * @return Id
+     */
+    public function getTzid()
+    {
+        return $this->getChild('tzid');
+    }
+
+    /**
+     * Sets the tzid.
      *
      * @param  Id $tzid
-     * @return Id|self
+     * @return self
      */
-    public function tzid(Id $tzid = null)
+    public function setTzid(Id $tzid)
     {
-        if(null === $tzid)
-        {
-            return $this->child('tzid');
-        }
-        return $this->child('tzid', $tzid);
+        return $this->setChild('tzid', $tzid);
     }
 
     /**
-     * Gets or sets nonDst
+     * Sets the nonDst.
+     *
+     * @return Offset
+     */
+    public function getNonDst()
+    {
+        return $this->getChild('nonDst');
+    }
+
+    /**
+     * Sets the nonDst.
      *
      * @param  Offset $nonDst
-     * @return Offset|self
+     * @return self
      */
-    public function nonDst(Offset $nonDst = null)
+    public function setNonDst(Offset $nonDst)
     {
-        if(null === $nonDst)
-        {
-            return $this->child('nonDst');
-        }
-        return $this->child('nonDst', $nonDst);
+        return $this->setChild('nonDst', $nonDst);
     }
 
     /**
-     * Gets or sets rules
+     * Sets the rules.
+     *
+     * @return TzFixupRuleMatchRules
+     */
+    public function getRules()
+    {
+        return $this->getChild('rules');
+    }
+
+    /**
+     * Sets the rules.
      *
      * @param  TzFixupRuleMatchRules $rules
-     * @return TzFixupRuleMatchRules|self
+     * @return self
      */
-    public function rules(TzFixupRuleMatchRules $rules = null)
+    public function setRules(TzFixupRuleMatchRules $rules)
     {
-        if(null === $rules)
-        {
-            return $this->child('rules');
-        }
-        return $this->child('rules', $rules);
+        return $this->setChild('rules', $rules);
     }
 
     /**
-     * Gets or sets dates
+     * Sets the dates.
+     *
+     * @return TzFixupRuleMatchDates
+     */
+    public function getDates()
+    {
+        return $this->getChild('dates');
+    }
+
+    /**
+     * Sets the dates.
      *
      * @param  TzFixupRuleMatchDates $dates
-     * @return TzFixupRuleMatchDates|self
+     * @return self
      */
-    public function dates(TzFixupRuleMatchDates $dates = null)
+    public function setDates(TzFixupRuleMatchDates $dates)
     {
-        if(null === $dates)
-        {
-            return $this->child('dates');
-        }
-        return $this->child('dates', $dates);
+        return $this->setChild('dates', $dates);
     }
 
     /**

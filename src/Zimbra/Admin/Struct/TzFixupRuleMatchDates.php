@@ -25,8 +25,8 @@ class TzFixupRuleMatchDates extends Base
 {
     /**
      * Constructor method for TzFixupRuleMatchDates
-     * @param TzFixupRuleMatchDate $standard Daylight saving match rule
-     * @param TzFixupRuleMatchDate $daylight Standard match rule
+     * @param TzFixupRuleMatchDate $standard Standard match date
+     * @param TzFixupRuleMatchDate $daylight Daylight saving match date
      * @param int $stdoff Offset from UTC in standard time; local = UTC + offset
      * @param int $dayoff Offset from UTC in daylight time; present only if DST is used
      * @return self
@@ -39,70 +39,94 @@ class TzFixupRuleMatchDates extends Base
     )
     {
         parent::__construct();
-        $this->child('standard', $standard);
-        $this->child('daylight', $daylight);
-        $this->property('stdoff', (int) $stdoff);
-        $this->property('dayoff', (int) $dayoff);
+        $this->setChild('standard', $standard);
+        $this->setChild('daylight', $daylight);
+        $this->setProperty('stdoff', (int) $stdoff);
+        $this->setProperty('dayoff', (int) $dayoff);
     }
 
     /**
-     * Gets or sets standard
+     * Sets the standard match date.
+     *
+     * @return TzFixupRuleMatchDate
+     */
+    public function getStandard()
+    {
+        return $this->getChild('standard');
+    }
+
+    /**
+     * Sets the standard match date.
      *
      * @param  TzFixupRuleMatchDate $standard
-     * @return TzFixupRuleMatchDate|self
+     * @return self
      */
-    public function standard(TzFixupRuleMatchDate $standard = null)
+    public function setStandard(TzFixupRuleMatchDate $standard)
     {
-        if(null === $standard)
-        {
-            return $this->child('standard');
-        }
-        return $this->child('standard', $standard);
+        return $this->setChild('standard', $standard);
     }
 
     /**
-     * Gets or sets daylight
+     * Sets the daylight match date.
+     *
+     * @return TzFixupRuleMatchDate
+     */
+    public function getDaylight()
+    {
+        return $this->getChild('daylight');
+    }
+
+    /**
+     * Sets the daylight match date.
      *
      * @param  TzFixupRuleMatchDate $daylight
-     * @return TzFixupRuleMatchDate|self
+     * @return self
      */
-    public function daylight(TzFixupRuleMatchDate $daylight = null)
+    public function setDaylight(TzFixupRuleMatchDate $daylight)
     {
-        if(null === $daylight)
-        {
-            return $this->child('daylight');
-        }
-        return $this->child('daylight', $daylight);
+        return $this->setChild('daylight', $daylight);
     }
 
     /**
-     * Gets or sets stdoff
+     * Gets the stdoff
+     *
+     * @return int
+     */
+    public function getStdOffset()
+    {
+        return $this->getProperty('stdoff');
+    }
+
+    /**
+     * Sets the stdoff
      *
      * @param  int $stdoff
-     * @return int|self
+     * @return self
      */
-    public function stdoff($stdoff = null)
+    public function setStdOffset($stdoff)
     {
-        if(null === $stdoff)
-        {
-            return $this->property('stdoff');
-        }
-        return $this->property('stdoff', (int) $stdoff);
+        return $this->setProperty('stdoff', (int) $stdoff);
     }
 
     /**
-     * Gets or sets dayoff
+     * Gets the dayoff
+     *
+     * @return int
+     */
+    public function getDstOffset()
+    {
+        return $this->getProperty('dayoff');
+    }
+
+    /**
+     * Sets the dayoff
      *
      * @param  int $dayoff
-     * @return int|self
+     * @return self
      */
-    public function dayoff($dayoff = null)
+    public function setDstOffset($dayoff)
     {
-        if(null === $dayoff)
-        {
-            return $this->property('dayoff');
-        }
-        return $this->property('dayoff', (int) $dayoff);
+        return $this->setProperty('dayoff', (int) $dayoff);
     }
 
     /**

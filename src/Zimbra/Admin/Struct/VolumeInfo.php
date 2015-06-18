@@ -53,198 +53,263 @@ class VolumeInfo extends Base
     )
     {
         parent::__construct();
-        $this->property('id', (int) $id);
-        $type = in_array((int) $type, array(1, 2, 10)) ? (int) $type : 1;
-        $this->property('type', $type);
-        $this->property('compressionThreshold', (int) $compressionThreshold);
-        $this->property('mgbits', (int) $mgbits);
-        $this->property('mbits', (int) $mbits);
-        $this->property('fgbits', (int) $fgbits);
-        $this->property('fbits', (int) $fbits);
+        $this->setProperty('id', (int) $id);
+        $this->setType($type);
+        $this->setProperty('compressionThreshold', (int) $compressionThreshold);
+        $this->setProperty('mgbits', (int) $mgbits);
+        $this->setProperty('mbits', (int) $mbits);
+        $this->setProperty('fgbits', (int) $fgbits);
+        $this->setProperty('fbits', (int) $fbits);
 
         if(null !== $name)
         {
-            $this->property('name', trim($name));
+            $this->setProperty('name', trim($name));
         }
         if(null !== $rootpath)
         {
-            $this->property('rootpath', trim($rootpath));
+            $this->setProperty('rootpath', trim($rootpath));
         }
 
         if(null !== $compressBlobs)
         {
-            $this->property('compressBlobs', (bool) $compressBlobs);
+            $this->setProperty('compressBlobs', (bool) $compressBlobs);
         }
         if(null !== $isCurrent)
         {
-            $this->property('isCurrent', (bool) $isCurrent);
+            $this->setProperty('isCurrent', (bool) $isCurrent);
         }
     }
 
     /**
-     * Gets or sets id
+     * Gets the Id
+     *
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->getProperty('id');
+    }
+
+    /**
+     * Sets the Id
      *
      * @param  int $id
-     * @return int|self
+     * @return self
      */
-    public function id($id = null)
+    public function setId($id)
     {
-        if(null === $id)
-        {
-            return $this->property('id');
-        }
-        return $this->property('id', (int) $id);
+        return $this->setProperty('id', (int) $id);
     }
 
     /**
-     * Gets or sets type
+     * Gets the type
+     *
+     * @return int
+     */
+    public function getType()
+    {
+        return $this->getProperty('type');
+    }
+
+    /**
+     * Sets the type
      *
      * @param  int $type
-     * @return int|self
+     * @return self
      */
-    public function type($type = null)
+    public function setType($type)
     {
-        if(null === $type)
-        {
-            return $this->property('type');
-        }
         $type = in_array((int) $type, array(1, 2, 10)) ? (int) $type : 1;
-        return $this->property('type', $type);
+        return $this->setProperty('type', $type);
     }
 
     /**
-     * Gets or sets compressionThreshold
+     * Gets the compression threshold
+     *
+     * @return int
+     */
+    public function getCompressionThreshold()
+    {
+        return $this->getProperty('compressionThreshold');
+    }
+
+    /**
+     * Sets the compression threshold
      *
      * @param  int $compressionThreshold
-     * @return int|self
+     * @return self
      */
-    public function compressionThreshold($compressionThreshold = null)
+    public function setCompressionThreshold($compressionThreshold)
     {
-        if(null === $compressionThreshold)
-        {
-            return $this->property('compressionThreshold');
-        }
-        return $this->property('compressionThreshold', (int) $compressionThreshold);
+        return $this->setProperty('compressionThreshold', (int) $compressionThreshold);
     }
 
     /**
-     * Gets or sets mgbits
+     * Gets the mgbits
+     *
+     * @return int
+     */
+    public function getMgbits()
+    {
+        return $this->getProperty('mgbits');
+    }
+
+    /**
+     * Sets the mgbits
      *
      * @param  int $mgbits
-     * @return int|self
+     * @return self
      */
-    public function mgbits($mgbits = null)
+    public function setMgbits($mgbits)
     {
-        if(null === $mgbits)
-        {
-            return $this->property('mgbits');
-        }
-        return $this->property('mgbits', (int) $mgbits);
+        return $this->setProperty('mgbits', (int) $mgbits);
     }
 
     /**
-     * Gets or sets mbits
+     * Gets the mbits
+     *
+     * @return int
+     */
+    public function getMbits()
+    {
+        return $this->getProperty('mbits');
+    }
+
+    /**
+     * Sets the mbits
      *
      * @param  int $mbits
-     * @return int|self
+     * @return self
      */
-    public function mbits($mbits = null)
+    public function setMbits($mbits)
     {
-        if(null === $mbits)
-        {
-            return $this->property('mbits');
-        }
-        return $this->property('mbits', (int) $mbits);
+        return $this->setProperty('mbits', (int) $mbits);
     }
 
     /**
-     * Gets or sets fgbits
+     * Gets the fgbits
+     *
+     * @return int
+     */
+    public function getFgbits()
+    {
+        return $this->getProperty('fgbits');
+    }
+
+    /**
+     * Sets the fgbits
      *
      * @param  int $fgbits
-     * @return int|self
+     * @return self
      */
-    public function fgbits($fgbits = null)
+    public function setFgbits($fgbits)
     {
-        if(null === $fgbits)
-        {
-            return $this->property('fgbits');
-        }
-        return $this->property('fgbits', (int) $fgbits);
+        return $this->setProperty('fgbits', (int) $fgbits);
     }
 
     /**
-     * Gets or sets fbits
+     * Gets the fbits
+     *
+     * @return int
+     */
+    public function getFbits()
+    {
+        return $this->getProperty('fbits');
+    }
+
+    /**
+     * Sets the fbits
      *
      * @param  int $fbits
-     * @return int|self
+     * @return self
      */
-    public function fbits($fbits = null)
+    public function setFbits($fbits)
     {
-        if(null === $fbits)
-        {
-            return $this->property('fbits');
-        }
-        return $this->property('fbits', (int) $fbits);
+        return $this->setProperty('fbits', (int) $fbits);
     }
 
     /**
-     * Gets or sets name
+     * Sets the name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->getProperty('name');
+    }
+
+    /**
+     * Sets the name
      *
      * @param  string $name
-     * @return string|self
+     * @return self
      */
-    public function name($name = null)
+    public function setName($name)
     {
-        if(null === $name)
-        {
-            return $this->property('name');
-        }
-        return $this->property('name', trim($name));
+        return $this->setProperty('name', trim($name));
     }
 
     /**
-     * Gets or sets rootpath
+     * Sets the root path
+     *
+     * @return string
+     */
+    public function getRootPath()
+    {
+        return $this->getProperty('rootpath');
+    }
+
+    /**
+     * Sets the root path
      *
      * @param  string $rootpath
-     * @return string|self
+     * @return self
      */
-    public function rootpath($rootpath = null)
+    public function setRootPath($rootpath)
     {
-        if(null === $rootpath)
-        {
-            return $this->property('rootpath');
-        }
-        return $this->property('rootpath', trim($rootpath));
+        return $this->setProperty('rootpath', trim($rootpath));
     }
 
     /**
-     * Gets or sets compressBlobs
+     * Gets the compress blobs
+     *
+     * @return bool
+     */
+    public function getCompressBlobs()
+    {
+        return $this->getProperty('compressBlobs');
+    }
+
+    /**
+     * Sets the compress blobs
      *
      * @param  bool $compressBlobs
-     * @return bool|self
+     * @return self
      */
-    public function compressBlobs($compressBlobs = null)
+    public function setCompressBlobs($compressBlobs)
     {
-        if(null === $compressBlobs)
-        {
-            return $this->property('compressBlobs');
-        }
-        return $this->property('compressBlobs', (bool) $compressBlobs);
+        return $this->setProperty('compressBlobs', (bool) $compressBlobs);
     }
 
     /**
-     * Gets or sets isCurrent
+     * Gets is current
+     *
+     * @return bool
+     */
+    public function isCurrent()
+    {
+        return $this->getProperty('isCurrent');
+    }
+
+    /**
+     * Sets the current
      *
      * @param  bool $isCurrent
-     * @return bool|self
+     * @return self
      */
-    public function isCurrent($isCurrent = null)
+    public function setCurrent($isCurrent)
     {
-        if(null === $isCurrent)
-        {
-            return $this->property('isCurrent');
-        }
-        return $this->property('isCurrent', (bool) $isCurrent);
+        return $this->setProperty('isCurrent', (bool) $isCurrent);
     }
 
     /**

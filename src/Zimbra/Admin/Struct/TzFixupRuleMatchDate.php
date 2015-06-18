@@ -32,43 +32,52 @@ class TzFixupRuleMatchDate extends Base
     public function __construct($mon, $mday)
     {
         parent::__construct();
-        $mon = in_array((int) $mon, range(1, 12)) ? (int) $mon : 1;
-        $this->property('mon', $mon);
-
-        $mday = in_array((int) $mday, range(1, 31)) ? (int) $mday : 1;
-        $this->property('mday', $mday);
+        $this->setMonth($mon)
+             ->setMonthDay($mday);
     }
 
     /**
-     * Gets or sets mon
+     * Gets the match month
+     *
+     * @return int
+     */
+    public function getMonth()
+    {
+        return $this->getProperty('mon');
+    }
+
+    /**
+     * Sets the match month
      *
      * @param  int $mon
-     * @return int|self
+     * @return self
      */
-    public function mon($mon = null)
+    public function setMonth($mon)
     {
-        if(null === $mon)
-        {
-            return $this->property('mon');
-        }
         $mon = in_array((int) $mon, range(1, 12)) ? (int) $mon : 1;
-        return $this->property('mon', $mon);
+        return $this->setProperty('mon', $mon);
     }
 
     /**
-     * Gets or sets mday
+     * Gets the match month day
+     *
+     * @return int
+     */
+    public function getMonthDay()
+    {
+        return $this->getProperty('mday');
+    }
+
+    /**
+     * Sets the match month day
      *
      * @param  int $mday
-     * @return int|self
+     * @return self
      */
-    public function mday($mday = null)
+    public function setMonthDay($mday)
     {
-        if(null === $mday)
-        {
-            return $this->property('mday');
-        }
         $mday = in_array((int) $mday, range(1, 31)) ? (int) $mday : 1;
-        return $this->property('mday', $mday);
+        return $this->setProperty('mday', $mday);
     }
 
     /**

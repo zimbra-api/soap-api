@@ -29,7 +29,7 @@ class StatsValueWrapper extends Base
      * Stats specification
      * @var TypedSequence
      */
-    private $_stat = array();
+    private $_stats = array();
 
     /**
      * Constructor method for StatsValueWrapper
@@ -39,13 +39,13 @@ class StatsValueWrapper extends Base
     public function __construct(array $stats = array())
     {
         parent::__construct();
-        $this->_stat = new TypedSequence('Zimbra\Struct\NamedElement', $stats);
+        $this->setStats($stats);
 
         $this->on('before', function(Base $sender)
         {
-            if($sender->stat()->count())
+            if($sender->getStats()->count())
             {
-                $sender->child('stat', $sender->stat()->all());
+                $sender->setChild('stat', $sender->getStats()->all());
             }
         });
     }
@@ -58,18 +58,30 @@ class StatsValueWrapper extends Base
      */
     public function addStat(NamedElement $stat)
     {
-        $this->_stat->add($stat);
+        $this->_stats->add($stat);
         return $this;
     }
 
     /**
-     * Gets stat equence
+     * Sets stat sequence
+     *
+     * @param  array $stats
+     * @return self
+     */
+    public function setStats(array $stats)
+    {
+        $this->_stats = new TypedSequence('Zimbra\Struct\NamedElement', $stats);
+        return $this;
+    }
+
+    /**
+     * Gets stat sequence
      *
      * @return Sequence
      */
-    public function stat()
+    public function getStats()
     {
-        return $this->_stat;
+        return $this->_stats;
     }
 
     /**

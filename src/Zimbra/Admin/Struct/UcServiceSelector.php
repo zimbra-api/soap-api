@@ -33,22 +33,28 @@ class UcServiceSelector extends Base
     public function __construct(UcServiceBy $by, $value = null)
     {
         parent::__construct(trim($value));
-        $this->property('by', $by);
+        $this->setProperty('by', $by);
     }
 
     /**
-     * Gets or sets by
+     * Gets by enum
      *
-     * @param  UcServiceBy $by
-     * @return UcServiceBy|self
+     * @return Zimbra\Enum\UcServiceBy
      */
-    public function by(UcServiceBy $by = null)
+    public function getBy()
     {
-        if(null === $by)
-        {
-            return $this->property('by');
-        }
-        return $this->property('by', $by);
+        return $this->getProperty('by');
+    }
+
+    /**
+     * Sets by enum
+     *
+     * @param  Zimbra\Enum\UcServiceBy $by
+     * @return self
+     */
+    public function setBy(UcServiceBy $by)
+    {
+        return $this->setProperty('by', $by);
     }
 
     /**

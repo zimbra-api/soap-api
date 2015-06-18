@@ -25,7 +25,6 @@ use Zimbra\Account\Struct\AuthToken;
 use Zimbra\Account\Struct\BlackList;
 use Zimbra\Account\Struct\DistributionListSelector as DLSelector;
 use Zimbra\Account\Struct\DistributionListAction as DLAction;
-use Zimbra\Account\Struct\EntrySearchFilterInfo as SearchFilter;
 use Zimbra\Account\Struct\Identity;
 use Zimbra\Account\Struct\NameId;
 use Zimbra\Account\Struct\PreAuth;
@@ -34,6 +33,7 @@ use Zimbra\Account\Struct\WhiteList;
 
 use Zimbra\Struct\AccountSelector;
 use Zimbra\Struct\CursorInfo;
+use Zimbra\Struct\EntrySearchFilterInfo as SearchFilter;
 use Zimbra\Struct\GranteeChooser;
 
 /**

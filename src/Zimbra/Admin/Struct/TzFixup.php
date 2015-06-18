@@ -28,23 +28,23 @@ class TzFixup extends Base
      * Attributes
      * @var TypedSequence<TzFixupRule>
      */
-    private $_fixupRule;
+    private $_fixupRules;
 
     /**
      * Constructor method for TzFixup
-     * @param array $fixupRule
+     * @param array $fixupRules
      * @return self
      */
-    public function __construct(array $fixupRule = array())
+    public function __construct(array $fixupRules = array())
     {
         parent::__construct();
-        $this->_fixupRule = new TypedSequence('Zimbra\Admin\Struct\TzFixupRule', $fixupRule);
+        $this->setFixupRules($fixupRules);
 
         $this->on('before', function(Base $sender)
         {
-            if($sender->fixupRule()->count())
+            if($sender->getFixupRules()->count())
             {
-                $sender->child('fixupRule', $sender->fixupRule()->all());
+                $sender->setChild('fixupRule', $sender->getFixupRules()->all());
             }
         });
     }
@@ -57,18 +57,30 @@ class TzFixup extends Base
      */
     public function addFixupRule(TzFixupRule $fixupRule)
     {
-        $this->_fixupRule->add($fixupRule);
+        $this->_fixupRules->add($fixupRule);
         return $this;
     }
 
     /**
-     * Get WaitSet sequence
+     * Sets fixup rule sequence
+     *
+     * @param array $fixupRules
+     * @return self
+     */
+    public function setFixupRules(array $fixupRules)
+    {
+        $this->_fixupRules = new TypedSequence('Zimbra\Admin\Struct\TzFixupRule', $fixupRules);
+        return $this;
+    }
+
+    /**
+     * Gets fixup rule sequence
      *
      * @return TypedSequence<TzFixupRule>
      */
-    public function fixupRule()
+    public function getFixupRules()
     {
-        return $this->_fixupRule;
+        return $this->_fixupRules;
     }
 
     /**

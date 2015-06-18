@@ -10,7 +10,7 @@
 
 namespace Zimbra\Admin\Request;
 
-use Zimbra\Admin\Struct\EntrySearchFilterInfo as SearchFilter;
+use Zimbra\Struct\EntrySearchFilterInfo as SearchFilter;
 
 /**
  * SearchCalendarResources request class

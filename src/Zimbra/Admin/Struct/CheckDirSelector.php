@@ -32,41 +32,53 @@ class CheckDirSelector extends Base
     public function __construct($path, $create = null)
     {
         parent::__construct();
-        $this->property('path', trim($path));
+        $this->setProperty('path', trim($path));
         if(null !== $create)
         {
-            $this->property('create', (bool) $create);
+            $this->setProperty('create', (bool) $create);
         }
     }
 
     /**
-     * Gets or sets path
+     * Gets the path
+     *
+     * @return string
+     */
+    public function getPath()
+    {
+        return $this->getProperty('path');
+    }
+
+    /**
+     * Sets the path
      *
      * @param  string $path
-     * @return string|self
+     * @return self
      */
-    public function path($path = null)
+    public function setPath($path)
     {
-        if(null === $path)
-        {
-            return $this->property('path');
-        }
-        return $this->property('path', trim($path));
+        return $this->setProperty('path', trim($path));
     }
 
     /**
-     * Gets or sets create
+     * Gets create flag
+     *
+     * @return bool
+     */
+    public function isCreate()
+    {
+        return $this->getProperty('create');
+    }
+
+    /**
+     * Sets create flag
      *
      * @param  bool $create
-     * @return bool|self
+     * @return self
      */
-    public function create($create = null)
+    public function setCreate($create)
     {
-        if(null === $create)
-        {
-            return $this->property('create');
-        }
-        return $this->property('create', (bool) $create);
+        return $this->setProperty('create', (bool) $create);
     }
 
     /**

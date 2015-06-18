@@ -29,23 +29,23 @@ abstract class AdminAttrsImpl extends Base
      * Attributes
      * @var TypedSequence<KeyValuePair>
      */
-    private $_attr;
+    private $_attrs;
 
     /**
-     * Constructor method for AccountKeyValuePairs
+     * Constructor method for AdminAttrsImpl
      * @param array $attrs
      * @return self
      */
     public function __construct(array $attrs = array())
     {
         parent::__construct();
-        $this->_attr = new TypedSequence('Zimbra\Struct\KeyValuePair', $attrs);
+        $this->setAttrs($attrs);
 
         $this->on('before', function(Base $sender)
         {
-            if($sender->attr()->count())
+            if($sender->getAttrs()->count())
             {
-                $sender->child('a', $sender->attr()->all());
+                $sender->setChild('a', $sender->getAttrs()->all());
             }
         });
     }
@@ -58,18 +58,30 @@ abstract class AdminAttrsImpl extends Base
      */
     public function addAttr(KeyValuePair $attr)
     {
-        $this->_attr->add($attr);
+        $this->_attrs->add($attr);
         return $this;
     }
 
     /**
-     * Gets attr sequence
+     * Sets attribute sequence
      *
+     * @return self
+     */
+    public function setAttrs(array $attrs)
+    {
+        $this->_attrs = new TypedSequence('Zimbra\Struct\KeyValuePair', $attrs);
+        return $this;
+    }
+
+    /**
+     * Gets attribute sequence
+     *
+     * @param array $attrs
      * @return Sequence
      */
-    public function attr()
+    public function getAttrs()
     {
-        return $this->_attr;
+        return $this->_attrs;
     }
 
     /**

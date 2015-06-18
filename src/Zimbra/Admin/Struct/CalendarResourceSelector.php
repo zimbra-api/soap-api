@@ -26,29 +26,35 @@ class CalendarResourceSelector extends Base
 {
     /**
      * Constructor method for CalendarResourceSelector
-     * @param  CalResBy $by Select the meaning of {cal-resource-selector-key}
+     * @param  Zimbra\Enum\CalendarResourceBy $by Select the meaning of {cal-resource-selector-key}
      * @param  string $value Specify calendar resource
      * @return self
      */
     public function __construct(CalResBy $by, $value = null)
     {
         parent::__construct(trim($value));
-        $this->property('by', $by);
+        $this->setProperty('by', $by);
     }
 
     /**
-     * Gets or sets by
+     * Gets by enum
      *
-     * @param  CalResBy $by
-     * @return CalResBy|self
+     * @return Zimbra\Enum\CalendarResourceBy
      */
-    public function by(CalResBy $by = null)
+    public function getBy()
     {
-        if(null === $by)
-        {
-            return $this->property('by');
-        }
-        return $this->property('by', $by);
+        return $this->getProperty('by');
+    }
+
+    /**
+     * Sets by enum
+     *
+     * @param  Zimbra\Enum\CalendarResourceBy $by
+     * @return self
+     */
+    public function setBy(CalResBy $by)
+    {
+        return $this->setProperty('by', $by);
     }
 
     /**

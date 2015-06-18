@@ -39,61 +39,79 @@ class TzFixupRule extends Base
         parent::__construct();
         if($match instanceof TzFixupRuleMatch)
         {
-            $this->child('match', $match);
+            $this->setChild('match', $match);
         }
         if($touch instanceof SimpleElement)
         {
-            $this->child('touch', $touch);
+            $this->setChild('touch', $touch);
         }
         if($replace instanceof TzReplaceInfo)
         {
-            $this->child('replace', $replace);
+            $this->setChild('replace', $replace);
         }
     }
 
     /**
-     * Gets or sets match
+     * Sets the match.
+     *
+     * @return TzFixupRuleMatch
+     */
+    public function getMatch()
+    {
+        return $this->getChild('match');
+    }
+
+    /**
+     * Sets the match.
      *
      * @param  TzFixupRuleMatch $match
-     * @return TzFixupRuleMatch|self
+     * @return self
      */
-    public function match(TzFixupRuleMatch $match = null)
+    public function setMatch(TzFixupRuleMatch $match)
     {
-        if(null === $match)
-        {
-            return $this->child('match');
-        }
-        return $this->child('match', $match);
+        return $this->setChild('match', $match);
     }
 
     /**
-     * Gets or sets touch
+     * Sets the touch.
+     *
+     * @return SimpleElement
+     */
+    public function getTouch()
+    {
+        return $this->getChild('touch');
+    }
+
+    /**
+     * Sets the touch.
      *
      * @param  SimpleElement $touch
-     * @return SimpleElement|self
+     * @return self
      */
-    public function touch(SimpleElement $touch = null)
+    public function setTouch(SimpleElement $touch)
     {
-        if(null === $touch)
-        {
-            return $this->child('touch');
-        }
-        return $this->child('touch', $touch);
+        return $this->setChild('touch', $touch);
     }
 
     /**
-     * Gets or sets replace
+     * Sets the replace.
+     *
+     * @return TzReplaceInfo
+     */
+    public function getReplace()
+    {
+        return $this->getChild('replace');
+    }
+
+    /**
+     * Sets the replace.
      *
      * @param  TzReplaceInfo $replace
-     * @return TzReplaceInfo|self
+     * @return self
      */
-    public function replace(TzReplaceInfo $replace = null)
+    public function setReplace(TzReplaceInfo $replace)
     {
-        if(null === $replace)
-        {
-            return $this->child('replace');
-        }
-        return $this->child('replace', $replace);
+        return $this->setChild('replace', $replace);
     }
 
     /**

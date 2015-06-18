@@ -26,29 +26,35 @@ class DistributionListSelector extends Base
 {
     /**
      * Constructor method for DistributionListSelector
-     * @param  DLBy $by Select the meaning of {dl-selector-key}
+     * @param  Zimbra\Enum\DistributionListBy $by Select the meaning of {dl-selector-key}
      * @param  string $value Identifies the distribution list to act upon
      * @return self
      */
     public function __construct(DLBy $by, $value = null)
     {
         parent::__construct(trim($value));
-        $this->property('by', $by);
+        $this->setProperty('by', $by);
     }
 
     /**
-     * Gets or sets by
+     * Gets by enum
      *
-     * @param  DLBy $by
-     * @return DLBy|self
+     * @return Zimbra\Enum\DistributionListBy
      */
-    public function by(DLBy $by = null)
+    public function getBy()
     {
-        if(null === $by)
-        {
-            return $this->property('by');
-        }
-        return $this->property('by', $by);
+        return $this->getProperty('by');
+    }
+
+    /**
+     * Sets by enum
+     *
+     * @param  Zimbra\Enum\DistributionListBy $by
+     * @return self
+     */
+    public function setBy(DLBy $by)
+    {
+        return $this->setProperty('by', $by);
     }
 
     /**

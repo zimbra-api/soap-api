@@ -29,56 +29,52 @@ class CacheSelector extends Base
      * The entry
      * @var TypedSequence<CacheEntrySelector>
      */
-    private $_entry = array();
+    private $_entries = array();
 
     /**
      * Constructor method for CacheSelector
-     * @param  string $type Comma separated list of cache types. e.g. from skin|locale|account|cos|domain|server|zimlet
+     * @param  string $types Comma separated list of cache types. e.g. from skin|locale|account|cos|domain|server|zimlet
      * @param  bool $allServers The allServers flag
      * @param  array $entries The entries
      * @return self
      */
-    public function __construct($type, $allServers = null, array $entries = array())
+    public function __construct($types, $allServers = null, array $entries = array())
     {
         parent::__construct();
-        $arrTypes = explode(',', $type);
-        $types = array();
-        foreach ($arrTypes as $type)
-        {
-            $type = trim($type);
-            if(CacheType::has($type) && !in_array($type, $types))
-            {
-                $types[] = $type;
-            }
-        }
-        $this->property('type', implode(',', $types));
+        $this->setTypes($types);
         if(null !== $allServers)
         {
-            $this->property('allServers', (bool) $allServers);
+            $this->setProperty('allServers', (bool) $allServers);
         }
-        $this->_entry = new TypedSequence('Zimbra\Admin\Struct\CacheEntrySelector', $entries);
+        $this->setEntries($entries);
 
         $this->on('before', function(Base $sender)
         {
-            if($sender->entry()->count())
+            if($sender->getEntries()->count())
             {
-                $sender->child('entry', $sender->entry()->all());
+                $sender->setChild('entry', $sender->getEntries()->all());
             }
         });
     }
 
     /**
-     * Gets or sets type
+     * Gets cache types
+     *
+     * @return string
+     */
+    public function getTypes()
+    {
+        return $this->getProperty('type');
+    }
+
+    /**
+     * Sets cache types
      *
      * @param  string $type
-     * @return string|self
+     * @return self
      */
-    public function type($type = null)
+    public function setTypes($type)
     {
-        if(null === $type)
-        {
-            return $this->property('type');
-        }
         $arrTypes = explode(',', $type);
         $types = array();
         foreach ($arrTypes as $type)
@@ -89,22 +85,28 @@ class CacheSelector extends Base
                 $types[] = $type;
             }
         }
-        return $this->property('type', implode(',', $types));
+        return $this->setProperty('type', implode(',', $types));
     }
 
     /**
-     * Gets or sets allServers
+     * Gets is all servers flag
+     *
+     * @return bool
+     */
+    public function isAllServers()
+    {
+        return $this->getProperty('allServers');
+    }
+
+    /**
+     * Sets is all servers flag
      *
      * @param  bool $allServers
-     * @return bool|self
+     * @return self
      */
-    public function allServers($allServers = null)
+    public function setAllServers($allServers = null)
     {
-        if(null === $allServers)
-        {
-            return $this->property('allServers');
-        }
-        return $this->property('allServers', (bool) $allServers);
+        return $this->setProperty('allServers', (bool) $allServers);
     }
 
     /**
@@ -115,19 +117,30 @@ class CacheSelector extends Base
      */
     public function addEntry(CacheEntrySelector $entry)
     {
-        $this->_entry->add($entry);
+        $this->_entries->add($entry);
         return $this;
     }
 
+    /**
+     * Sets entry sequence
+     *
+     * @param  array $entries The entries
+     * @return Sequence
+     */
+    public function setEntries(array $entries)
+    {
+        $this->_entries = new TypedSequence('Zimbra\Admin\Struct\CacheEntrySelector', $entries);
+        return $this;
+    }
 
     /**
      * Gets entry sequence
      *
      * @return Sequence
      */
-    public function entry()
+    public function getEntries()
     {
-        return $this->_entry;
+        return $this->_entries;
     }
 
     /**

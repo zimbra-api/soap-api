@@ -8,19 +8,16 @@
  * file that was distributed with this source code.
  */
 
-namespace Zimbra\Account\Struct;
+namespace Zimbra\Struct;
 
-use Zimbra\Account\Struct\EntrySearchFilterMultiCond as MultiCond;
-use Zimbra\Account\Struct\EntrySearchFilterSingleCond as SingleCond;
 use Zimbra\Common\TypedSequence;
-use Zimbra\Struct\Base;
-use Zimbra\Struct\SearchFilterCondition;
+use Zimbra\Struct\EntrySearchFilterMultiCond as MultiCond;
+use Zimbra\Struct\EntrySearchFilterSingleCond as SingleCond;
 
 /**
  * EntrySearchFilterMultiCond struct class
  *
  * @package    Zimbra
- * @subpackage Account
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
@@ -34,7 +31,7 @@ class EntrySearchFilterMultiCond extends Base implements SearchFilterCondition
     private $_conditions = [];
 
     /**
-     * Constructor method for EntrySearchFilterMultiCond
+     * Constructor method for entrySearchFilterMultiCond
      * @param bool $not
      * @param bool $or
      * @param array $conditions
@@ -44,16 +41,16 @@ class EntrySearchFilterMultiCond extends Base implements SearchFilterCondition
         $not = null,
         $or = null,
         array $conditions = []
-    )
+	)
     {
-        parent::__construct();
+		parent::__construct();
         if(null !== $not)
         {
-            $this->setProperty('not', (bool) $not);
+			$this->setProperty('not', (bool) $not);
         }
         if(null !== $or)
         {
-            $this->setProperty('or', (bool) $or);
+			$this->setProperty('or', (bool) $or);
         }
         $this->setConditions($conditions);
 

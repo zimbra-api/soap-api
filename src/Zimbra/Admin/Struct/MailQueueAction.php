@@ -35,54 +35,72 @@ class MailQueueAction extends Base
     public function __construct(QueueQuery $query, QueueAction $op, QueueActionBy $by)
     {
         parent::__construct();
-        $this->child('query', $query);
-        $this->property('op', $op);
-        $this->property('by', $by);
+        $this->setChild('query', $query);
+        $this->setProperty('op', $op);
+        $this->setProperty('by', $by);
     }
 
     /**
-     * Gets or sets query
+     * Sets the Time/rule for transitioning from daylight time to query time.
+     *
+     * @return QueueQuery
+     */
+    public function getQuery()
+    {
+        return $this->getChild('query');
+    }
+
+    /**
+     * Sets the Time/rule for transitioning from daylight time to query time.
      *
      * @param  QueueQuery $query
-     * @return QueueQuery|self
+     * @return self
      */
-    public function query(QueueQuery $query = null)
+    public function setQuery(QueueQuery $query)
     {
-        if(null === $query)
-        {
-            return $this->child('query');
-        }
-        return $this->child('query', $query);
+        return $this->setChild('query', $query);
     }
 
     /**
-     * Gets or sets op
+     * Gets op enum
      *
-     * @param  QueueAction $op
-     * @return QueueAction|self
+     * @return Zimbra\Enum\QueueAction
      */
-    public function op(QueueAction $op = null)
+    public function getOp()
     {
-        if(null === $op)
-        {
-            return $this->property('op');
-        }
-        return $this->property('op', $op);
+        return $this->getProperty('op');
     }
 
     /**
-     * Gets or sets by
+     * Sets op enum
      *
-     * @param  QueueActionBy $by
-     * @return QueueActionBy|self
+     * @param  Zimbra\Enum\QueueAction $op
+     * @return self
      */
-    public function by(QueueActionBy $by = null)
+    public function setOp(QueueAction $op)
     {
-        if(null === $by)
-        {
-            return $this->property('by');
-        }
-        return $this->property('by', $by);
+        return $this->setProperty('op', $op);
+    }
+
+    /**
+     * Gets by enum
+     *
+     * @return Zimbra\Enum\QueueActionBy
+     */
+    public function getBy()
+    {
+        return $this->getProperty('by');
+    }
+
+    /**
+     * Sets by enum
+     *
+     * @param  Zimbra\Enum\QueueActionBy $by
+     * @return self
+     */
+    public function setBy(QueueActionBy $by)
+    {
+        return $this->setProperty('by', $by);
     }
 
     /**

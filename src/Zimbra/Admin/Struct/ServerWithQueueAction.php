@@ -32,38 +32,50 @@ class ServerWithQueueAction extends Base
     public function __construct(MailQueueWithAction $queue, $name)
     {
         parent::__construct();
-        $this->child('queue', $queue);
-        $this->property('name', trim($name));
+        $this->setChild('queue', $queue);
+        $this->setProperty('name', trim($name));
     }
 
     /**
-     * Gets or sets queue
+     * Sets the queue.
+     *
+     * @return MailQueueWithAction
+     */
+    public function getQueue()
+    {
+        return $this->getChild('queue');
+    }
+
+    /**
+     * Sets the queue.
      *
      * @param  MailQueueWithAction $queue
-     * @return MailQueueWithAction|self
+     * @return self
      */
-    public function queue(MailQueueWithAction $queue = null)
+    public function setQueue(MailQueueWithAction $queue)
     {
-        if(null === $queue)
-        {
-            return $this->child('queue');
-        }
-        return $this->child('queue', $queue);
+        return $this->setChild('queue', $queue);
     }
 
     /**
-     * Gets or sets name
+     * Gets the name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->getProperty('name');
+    }
+
+    /**
+     * Sets the name
      *
      * @param  string $name
-     * @return string|self
+     * @return self
      */
-    public function name($name = null)
+    public function setName($name)
     {
-        if(null === $name)
-        {
-            return $this->property('name');
-        }
-        return $this->property('name', trim($name));
+        return $this->setProperty('name', trim($name));
     }
 
     /**

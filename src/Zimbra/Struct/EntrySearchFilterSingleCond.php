@@ -8,17 +8,14 @@
  * file that was distributed with this source code.
  */
 
-namespace Zimbra\Admin\Struct;
+namespace Zimbra\Struct;
 
 use Zimbra\Enum\ConditionOperator as Op;
-use Zimbra\Struct\Base;
-use Zimbra\Struct\SearchFilterCondition;
 
 /**
  * EntrySearchFilterSingleCond struct class
  *
  * @package    Zimbra
- * @subpackage Admin
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
@@ -41,73 +38,97 @@ class EntrySearchFilterSingleCond extends Base implements SearchFilterCondition
 	)
     {
 		parent::__construct();
-		$this->property('attr', trim($attr));
-		$this->property('op', $op);
-		$this->property('value', trim($value));
+		$this->setProperty('attr', trim($attr));
+		$this->setProperty('op', $op);
+		$this->setProperty('value', trim($value));
         if(null !== $not)
         {
-			$this->property('not', (bool) $not);
+			$this->setProperty('not', (bool) $not);
         }
     }
 
     /**
-     * Gets or sets attr
+     * Gets attribute name
+     *
+     * @return string
+     */
+    public function getAttr()
+    {
+        return $this->getProperty('attr');
+    }
+
+    /**
+     * Sets attribute name
      *
      * @param  string $attr
-     * @return string|self
+     * @return self
      */
-    public function attr($attr = null)
+    public function setAttr($attr)
     {
-        if(null === $attr)
-        {
-            return $this->property('attr');
-        }
-        return $this->property('attr', trim($attr));
+        return $this->setProperty('attr', trim($attr));
     }
 
     /**
-     * Gets or sets op
+     * Gets operator
      *
-     * @param  Op $op
-     * @return Op|self
+     * @return Zimbra\Enum\ConditionOperator
      */
-    public function op(Op $op = null)
+    public function getOp()
     {
-        if(null === $op)
-        {
-            return $this->property('op');
-        }
-        return $this->property('op', $op);
+        return $this->getProperty('op');
     }
 
     /**
-     * Gets or sets value
+     * Sets operator
+     *
+     * @param  Zimbra\Enum\ConditionOperator $op
+     * @return self
+     */
+    public function setOp(Op $op)
+    {
+        return $this->setProperty('op', $op);
+    }
+
+    /**
+     * Gets value
+     *
+     * @return string
+     */
+    public function getValue()
+    {
+        return $this->getProperty('value');
+    }
+
+    /**
+     * Sets value
      *
      * @param  string $value
-     * @return string|self
+     * @return self
      */
-    public function value($value = null)
+    public function setValue($value)
     {
-        if(null === $value)
-        {
-            return $this->property('value');
-        }
-        return $this->property('value', trim($value));
+        return $this->setProperty('value', trim($value));
     }
 
     /**
-     * Gets or sets not flag
+     * Gets not flag
+     *
+     * @return bool
+     */
+    public function getNot()
+    {
+        return $this->getProperty('not');
+    }
+
+    /**
+     * Sets not flag
      *
      * @param  bool $not
-     * @return bool|self
+     * @return self
      */
-    public function notFlag($not = null)
+    public function setNot($not)
     {
-        if(null === $not)
-        {
-            return $this->property('not');
-        }
-        return $this->property('not', (bool) $not);
+        return $this->setProperty('not', (bool) $not);
     }
 
     /**

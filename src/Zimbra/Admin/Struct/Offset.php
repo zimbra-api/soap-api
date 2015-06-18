@@ -31,22 +31,28 @@ class Offset extends Base
     public function __construct($offset)
     {
         parent::__construct();
-        $this->property('offset', (int) $offset);
+        $this->setProperty('offset', (int) $offset);
     }
 
     /**
-     * Gets or sets offset
+     * Gets the offset
+     *
+     * @return int
+     */
+    public function getOffset()
+    {
+        return $this->getProperty('offset');
+    }
+
+    /**
+     * Sets the offset
      *
      * @param  int $offset
-     * @return int|self
+     * @return self
      */
-    public function offset($offset = null)
+    public function setOffset($offset)
     {
-        if(null === $offset)
-        {
-            return $this->property('offset');
-        }
-        return $this->property('offset', (int) $offset);
+        return $this->setProperty('offset', (int) $offset);
     }
 
     /**
