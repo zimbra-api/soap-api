@@ -5,7 +5,6 @@ namespace Zimbra\Tests\Account;
 use Zimbra\Tests\ZimbraTestCase;
 
 use Zimbra\Enum\AceRightType;
-use Zimbra\Enum\ConditionOperator as CondOp;
 use Zimbra\Enum\ContentType;
 use Zimbra\Enum\DistributionListBy as DLBy;
 use Zimbra\Enum\DistributionListGranteeBy as DLGranteeBy;
@@ -118,10 +117,8 @@ class StructTest extends ZimbraTestCase
         $this->assertFalse($attr->getPermDenied());
 
         $attr->setName($name)
-             ->setValue($value)
              ->setPermDenied(true);
         $this->assertSame($name, $attr->getName());
-        $this->assertSame($value, $attr->getValue());
         $this->assertTrue($attr->getPermDenied());
 
         $xml = '<?xml version="1.0"?>' . "\n"
@@ -262,9 +259,7 @@ class StructTest extends ZimbraTestCase
         $this->assertSame($value, $token->getValue());
         $this->assertFalse($token->getVerifyAccount());
 
-        $token->setValue($value)
-              ->setVerifyAccount(true);
-        $this->assertSame($value, $token->getValue());
+        $token>setVerifyAccount(true);
         $this->assertTrue($token->getVerifyAccount());
 
         $xml = '<?xml version="1.0"?>' . "\n"
@@ -375,10 +370,8 @@ class StructTest extends ZimbraTestCase
         $this->assertFalse($subsReq->getBccOwners());
 
         $subsReq->setOp(DLSubscribeOp::SUBSCRIBE())
-                ->setValue($value)
                 ->setBccOwners(true);
         $this->assertTrue($subsReq->getOp()->is('subscribe'));
-        $this->assertSame($value, $subsReq->getValue());
         $this->assertTrue($subsReq->getBccOwners());
 
         $xml = '<?xml version="1.0"?>' . "\n"
@@ -404,11 +397,9 @@ class StructTest extends ZimbraTestCase
         $this->assertSame($value, $grantee->getValue());
 
         $grantee->setType(GranteeType::USR())
-                ->setBy(DLGranteeBy::NAME())
-                ->setValue($value);
+                ->setBy(DLGranteeBy::NAME());
         $this->assertTrue($grantee->getType()->is('usr'));
         $this->assertTrue($grantee->getBy()->is('name'));
-        $this->assertSame($value, $grantee->getValue());
 
         $xml = '<?xml version="1.0"?>' . "\n"
             . '<grantee type="' . GranteeType::USR() . '" by="' . DLGranteeBy::NAME() . '">' . $value . '</grantee>';
@@ -483,10 +474,8 @@ class StructTest extends ZimbraTestCase
         $this->assertTrue($dl->getBy()->is('id'));
         $this->assertSame($value, $dl->getValue());
 
-        $dl->setBy(DLBy::NAME())
-           ->setValue($value);
+        $dl->setBy(DLBy::NAME());
         $this->assertTrue($dl->getBy()->is('name'));
-        $this->assertSame($value, $dl->getValue());
 
         $xml = '<?xml version="1.0"?>' . "\n"
             . '<dl by="' . DLBy::NAME() . '">' . $value . '</dl>';
@@ -593,193 +582,6 @@ class StructTest extends ZimbraTestCase
         $this->assertEquals($array, $dl->toArray());
     }
 
-    public function testEntrySearchFilterSingleCond()
-    {
-        $attr = self::randomName();
-        $value = md5(self::randomString());
-
-        $cond = new \Zimbra\Account\Struct\EntrySearchFilterSingleCond($attr, CondOp::GE(), $value, false);
-        $this->assertSame($attr, $cond->getAttr());
-        $this->assertTrue($cond->getOp()->is('ge'));
-        $this->assertSame($value, $cond->getValue());
-        $this->assertFalse($cond->getNot());
-
-        $cond->setAttr($attr)
-             ->setOp(CondOp::EQ())
-             ->setValue($value)
-             ->setNot(true);
-        $this->assertSame($attr, $cond->getAttr());
-        $this->assertTrue($cond->getOp()->is('eq'));
-        $this->assertSame($value, $cond->getValue());
-        $this->assertTrue($cond->getNot());
-
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<cond attr="' . $attr . '" op="' . CondOp::EQ() . '" value="' . $value . '" not="true" />';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $cond);
-
-        $array = array(
-            'cond' => array(
-                'attr' => $attr,
-                'op' => CondOp::EQ()->value(),
-                'value' => $value,
-                'not' => true,
-            ),
-        );
-        $this->assertEquals($array, $cond->toArray());
-    }
-
-    public function testEntrySearchFilterMultiCond()
-    {
-        $attr = self::randomName();
-        $value = md5(self::randomString());
-
-        $cond = new \Zimbra\Account\Struct\EntrySearchFilterSingleCond($attr, CondOp::EQ(), $value, true);
-        $singleCond = new \Zimbra\Account\Struct\EntrySearchFilterSingleCond($attr, CondOp::GE(), $value, false);
-        $multiConds = new \Zimbra\Account\Struct\EntrySearchFilterMultiCond(false, true, array($singleCond));
-
-        $conds = new \Zimbra\Account\Struct\EntrySearchFilterMultiCond(false, true, array($cond, $multiConds));
-
-        $this->assertFalse($conds->getNot());
-        $this->assertTrue($conds->getOr());
-        $this->assertSame(array($cond, $multiConds), $conds->getConditions()->all());
-
-        $conds->setNot(true)
-              ->setOr(false)
-              ->addCondition($singleCond);
-    
-        $this->assertTrue($conds->getNot());
-        $this->assertFalse($conds->getOr());
-        $this->assertSame(array($cond, $multiConds, $singleCond), $conds->getConditions()->all());
-
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<conds not="true" or="false">'
-                . '<conds not="false" or="true">'
-                    . '<cond attr="' . $attr . '" op="' . CondOp::GE() . '" value="' . $value . '" not="false" />'
-                . '</conds>'
-                . '<cond attr="' . $attr . '" op="' . CondOp::EQ() . '" value="' . $value . '" not="true" />'
-                . '<cond attr="' . $attr . '" op="' . CondOp::GE() . '" value="' . $value . '" not="false" />'
-            . '</conds>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $conds);
-
-        $array = array(
-            'conds' => array(
-                'not' => true,
-                'or' => false,
-                'conds' => array(
-                    array(
-                        'not' => false,
-                        'or' => true,
-                        'cond' => array(
-                            array(
-                                'attr' => $attr,
-                                'op' => CondOp::GE()->value(),
-                                'value' => $value,
-                                'not' => false,
-                            ),
-                        ),                    
-                    ),
-                ),
-                'cond' => array(
-                    array(
-                        'attr' => $attr,
-                        'op' => CondOp::EQ()->value(),
-                        'value' => $value,
-                        'not' => true,
-                    ),
-                    array(
-                        'attr' => $attr,
-                        'op' => CondOp::GE()->value(),
-                        'value' => $value,
-                        'not' => false,
-                    ),
-                ),                    
-            ),
-        );
-        $this->assertEquals($array, $conds->toArray());
-    }
-
-    public function testEntrySearchFilterInfo()
-    {
-        $attr = self::randomName();
-        $value = md5(self::randomString());
-
-        $cond = new \Zimbra\Account\Struct\EntrySearchFilterSingleCond($attr, CondOp::EQ(), $value, true);
-        $singleCond = new \Zimbra\Account\Struct\EntrySearchFilterSingleCond($attr, CondOp::GE(), $value, false);
-        $multiConds = new \Zimbra\Account\Struct\EntrySearchFilterMultiCond(false, true, array($singleCond));
-        $conds = new \Zimbra\Account\Struct\EntrySearchFilterMultiCond(true, false, array($cond, $multiConds));
-
-        $filter = new \Zimbra\Account\Struct\EntrySearchFilterInfo($conds);
-        $this->assertSame($conds, $filter->getCondition());
-        $filter->setCondition($conds);
-        $this->assertSame($conds, $filter->getCondition());
-
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<searchFilter>'
-                . '<conds not="true" or="false">'
-                    . '<conds not="false" or="true">'
-                        . '<cond attr="' . $attr . '" op="' . CondOp::GE() . '" value="' . $value . '" not="false" />'
-                    . '</conds>'
-                    . '<cond attr="' . $attr . '" op="' . CondOp::EQ() . '" value="' . $value . '" not="true" />'
-                . '</conds>'
-            . '</searchFilter>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $filter);
-
-        $array = array(
-            'searchFilter' => array(
-                'conds' => array(
-                    'not' => true,
-                    'or' => false,
-                    'conds' => array(
-                        array(
-                            'not' => false,
-                            'or' => true,
-                            'cond' => array(
-                                array(
-                                    'attr' => $attr,
-                                    'op' => CondOp::GE()->value(),
-                                    'value' => $value,
-                                    'not' => false,
-                                ),
-                            ),
-                        ),
-                    ),
-                    'cond' => array(
-                        array(
-                            'attr' => $attr,
-                            'op' => CondOp::EQ()->value(),
-                            'value' => $value,
-                            'not' => true,
-                        ),
-                    ),
-                ),
-            ),
-        );
-        $this->assertEquals($array, $filter->toArray());
-
-        $filter = new \Zimbra\Account\Struct\EntrySearchFilterInfo($cond);
-        $this->assertSame($cond, $filter->getCondition());
-        $filter->setCondition($cond);
-        $this->assertSame($cond, $filter->getCondition());
-
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<searchFilter>'
-                . '<cond attr="' . $attr . '" op="' . CondOp::EQ() . '" value="' . $value . '" not="true" />'
-            . '</searchFilter>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $filter);
-
-        $array = array(
-            'searchFilter' => array(
-                'cond' => array(
-                    'attr' => $attr,
-                    'op' => CondOp::EQ()->value(),
-                    'value' => $value,
-                    'not' => true,
-                ),
-            ),
-        );
-        $this->assertEquals($array, $filter->toArray());
-    }
-
     public function testIdentity()
     {
         $name = self::randomName();
@@ -869,10 +671,8 @@ class StructTest extends ZimbraTestCase
         $this->assertSame($expire, $pre->getExpiresTimestamp());
 
         $pre->setTimestamp($now + 1000)
-            ->setValue($value)
             ->setExpiresTimestamp($expire);
         $this->assertSame($now + 1000, $pre->getTimestamp());
-        $this->assertSame($value, $pre->getValue());
         $this->assertSame($expire, $pre->getExpiresTimestamp());
 
         $preauth = 'account' . '|name|' . $pre->getExpiresTimestamp() . '|' . $pre->getTimestamp();
@@ -906,10 +706,8 @@ class StructTest extends ZimbraTestCase
 
         $modified = mt_rand(1, 1000);
         $pref->setName($name)
-             ->setValue($value)
              ->setModified($modified);
         $this->assertSame($name, $pref->getName());
-        $this->assertSame($value, $pref->getValue());
         $this->assertSame($modified, $pref->getModified());
 
         $xml = '<?xml version="1.0"?>' . "\n"
@@ -938,11 +736,9 @@ class StructTest extends ZimbraTestCase
         $this->assertSame($value, $prop->getValue());
 
         $prop->setZimlet($zimlet)
-             ->setName($name)
-             ->setValue($value);
+             ->setName($name);
         $this->assertSame($zimlet, $prop->getZimlet());
         $this->assertSame($name, $prop->getName());
-        $this->assertSame($value, $prop->getValue());
 
         $xml = '<?xml version="1.0"?>' . "\n"
             . '<prop zimlet="' . $zimlet . '" name="' . $name . '">'  .$value . '</prop>';
@@ -987,9 +783,7 @@ class StructTest extends ZimbraTestCase
         $this->assertSame($value, $content->getValue());
         $this->assertSame('text/plain', $content->getContentType()->value());
 
-        $content->setValue($value)
-                ->setContentType(ContentType::TEXT_HTML());
-        $this->assertSame($value, $content->getValue());
+        $content->setContentType(ContentType::TEXT_HTML());
         $this->assertSame('text/html', $content->getContentType()->value());
 
         $xml = '<?xml version="1.0"?>' . "\n"

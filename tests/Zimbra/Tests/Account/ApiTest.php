@@ -952,11 +952,11 @@ class ApiTest extends ZimbraTestCase
 
         $attr = self::randomName();
         $value = md5(self::randomString());
-        $cond = new \Zimbra\Account\Struct\EntrySearchFilterSingleCond($attr, CondOp::EQ(), $value, true);
-        $singleCond = new \Zimbra\Account\Struct\EntrySearchFilterSingleCond($attr, CondOp::GE(), $value, false);
-        $multiConds = new \Zimbra\Account\Struct\EntrySearchFilterMultiCond(false, true, array($singleCond));
-        $conds = new \Zimbra\Account\Struct\EntrySearchFilterMultiCond(true, false, array($cond, $multiConds));
-        $filter = new \Zimbra\Account\Struct\EntrySearchFilterInfo($conds);
+        $cond = new \Zimbra\Struct\EntrySearchFilterSingleCond($attr, CondOp::EQ(), $value, true);
+        $singleCond = new \Zimbra\Struct\EntrySearchFilterSingleCond($attr, CondOp::GE(), $value, false);
+        $multiConds = new \Zimbra\Struct\EntrySearchFilterMultiCond(false, true, array($singleCond));
+        $conds = new \Zimbra\Struct\EntrySearchFilterMultiCond(true, false, array($cond, $multiConds));
+        $filter = new \Zimbra\Struct\EntrySearchFilterInfo($conds);
 
         $locale = self::randomName();
         $name = self::randomName();
@@ -993,7 +993,7 @@ class ApiTest extends ZimbraTestCase
             . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
-        $filter = new \Zimbra\Account\Struct\EntrySearchFilterInfo($cond);
+        $filter = new \Zimbra\Struct\EntrySearchFilterInfo($cond);
         $api = new LocalAccountHttp(null);
         $api->searchCalendarResources(
             $locale, $cursor, $name, $filter, true, $sortBy, $limit, $offset, $galAcctId, $attrs
@@ -1026,11 +1026,11 @@ class ApiTest extends ZimbraTestCase
 
         $attr = self::randomName();
         $value = md5(self::randomString());
-        $cond = new \Zimbra\Account\Struct\EntrySearchFilterSingleCond($attr, CondOp::EQ(), $value, true);
-        $singleCond = new \Zimbra\Account\Struct\EntrySearchFilterSingleCond($attr, CondOp::GE(), $value, false);
-        $multiConds = new \Zimbra\Account\Struct\EntrySearchFilterMultiCond(false, true, array($singleCond));
-        $conds = new \Zimbra\Account\Struct\EntrySearchFilterMultiCond(true, false, array($cond, $multiConds));
-        $filter = new \Zimbra\Account\Struct\EntrySearchFilterInfo($conds);
+        $cond = new \Zimbra\Struct\EntrySearchFilterSingleCond($attr, CondOp::EQ(), $value, true);
+        $singleCond = new \Zimbra\Struct\EntrySearchFilterSingleCond($attr, CondOp::GE(), $value, false);
+        $multiConds = new \Zimbra\Struct\EntrySearchFilterMultiCond(false, true, array($singleCond));
+        $conds = new \Zimbra\Struct\EntrySearchFilterMultiCond(true, false, array($cond, $multiConds));
+        $filter = new \Zimbra\Struct\EntrySearchFilterInfo($conds);
 
         $locale = self::randomName();
         $ref = self::randomName();
@@ -1066,7 +1066,7 @@ class ApiTest extends ZimbraTestCase
             . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
-        $filter = new \Zimbra\Account\Struct\EntrySearchFilterInfo($cond);
+        $filter = new \Zimbra\Struct\EntrySearchFilterInfo($cond);
         $api = new LocalAccountHttp(null);
         $api->searchGal(
             $locale, $cursor, $filter, $ref, $name, SearchType::ALL(),

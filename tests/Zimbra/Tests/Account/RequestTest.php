@@ -1396,11 +1396,11 @@ class RequestTest extends ZimbraTestCase
 
         $attr = self::randomName();
         $value = md5(self::randomString());
-        $cond = new \Zimbra\Account\Struct\EntrySearchFilterSingleCond($attr, CondOp::EQ(), $value, true);
-        $singleCond = new \Zimbra\Account\Struct\EntrySearchFilterSingleCond($attr, CondOp::GE(), $value, false);
-        $multiConds = new \Zimbra\Account\Struct\EntrySearchFilterMultiCond(false, true, array($singleCond));
-        $conds = new \Zimbra\Account\Struct\EntrySearchFilterMultiCond(true, false, array($cond, $multiConds));
-        $filter = new \Zimbra\Account\Struct\EntrySearchFilterInfo($conds);
+        $cond = new \Zimbra\Struct\EntrySearchFilterSingleCond($attr, CondOp::EQ(), $value, true);
+        $singleCond = new \Zimbra\Struct\EntrySearchFilterSingleCond($attr, CondOp::GE(), $value, false);
+        $multiConds = new \Zimbra\Struct\EntrySearchFilterMultiCond(false, true, array($singleCond));
+        $conds = new \Zimbra\Struct\EntrySearchFilterMultiCond(true, false, array($cond, $multiConds));
+        $filter = new \Zimbra\Struct\EntrySearchFilterInfo($conds);
 
         $locale = self::randomName();
         $name = self::randomName();
@@ -1521,11 +1521,11 @@ class RequestTest extends ZimbraTestCase
 
         $attr = self::randomName();
         $value = md5(self::randomString());
-        $cond = new \Zimbra\Account\Struct\EntrySearchFilterSingleCond($attr, CondOp::EQ(), $value, true);
-        $singleCond = new \Zimbra\Account\Struct\EntrySearchFilterSingleCond($attr, CondOp::GE(), $value, false);
-        $multiConds = new \Zimbra\Account\Struct\EntrySearchFilterMultiCond(false, true, array($singleCond));
-        $conds = new \Zimbra\Account\Struct\EntrySearchFilterMultiCond(true, false, array($cond, $multiConds));
-        $filter = new \Zimbra\Account\Struct\EntrySearchFilterInfo($conds);
+        $cond = new \Zimbra\Struct\EntrySearchFilterSingleCond($attr, CondOp::EQ(), $value, true);
+        $singleCond = new \Zimbra\Struct\EntrySearchFilterSingleCond($attr, CondOp::GE(), $value, false);
+        $multiConds = new \Zimbra\Struct\EntrySearchFilterMultiCond(false, true, array($singleCond));
+        $conds = new \Zimbra\Struct\EntrySearchFilterMultiCond(true, false, array($cond, $multiConds));
+        $filter = new \Zimbra\Struct\EntrySearchFilterInfo($conds);
 
         $locale = self::randomName();
         $ref = self::randomName();
