@@ -37,7 +37,7 @@ class QueueQuery extends Base
      * @param  int $offset Offset
      * @return self
      */
-    public function __construct(array $fields = array(), $limit = null, $offset = null)
+    public function __construct(array $fields = [], $limit = null, $offset = null)
     {
         parent::__construct();
         $this->setFields($fields);

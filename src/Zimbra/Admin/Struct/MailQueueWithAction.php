@@ -37,7 +37,7 @@ class MailQueueWithAction extends Base
     }
 
     /**
-     * Sets the action.
+     * Gets the action.
      *
      * @return MailQueueAction
      */

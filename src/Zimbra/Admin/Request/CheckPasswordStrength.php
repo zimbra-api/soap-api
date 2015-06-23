@@ -32,37 +32,49 @@ class CheckPasswordStrength extends Base
     public function __construct($id, $password)
     {
         parent::__construct();
-        $this->property('id', trim($id));
-        $this->property('password', trim($password));
+        $this->setProperty('id', trim($id));
+        $this->setProperty('password', trim($password));
     }
 
     /**
-     * Gets or sets id
+     * Gets id
+     *
+     * @return string
+     */
+    public function getId()
+    {
+        return $this->getProperty('id');
+    }
+
+    /**
+     * Sets id
      *
      * @param  string $id
-     * @return string|self
+     * @return self
      */
-    public function id($id = null)
+    public function setId($id)
     {
-        if(null === $id)
-        {
-            return $this->property('id');
-        }
-        return $this->property('id', trim($id));
+        return $this->setProperty('id', trim($id));
     }
 
     /**
-     * Gets or sets password
+     * Gets password
+     *
+     * @return string
+     */
+    public function getPassword()
+    {
+        return $this->getProperty('password');
+    }
+
+    /**
+     * Sets password
      *
      * @param  string $password
-     * @return string|self
+     * @return self
      */
-    public function password($password = null)
+    public function setPassword($password)
     {
-        if(null === $password)
-        {
-            return $this->property('password');
-        }
-        return $this->property('password', trim($password));
+        return $this->setProperty('password', trim($password));
     }
 }

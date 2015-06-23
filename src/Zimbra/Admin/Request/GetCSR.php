@@ -25,20 +25,6 @@ use Zimbra\Enum\CSRType;
 class GetCSR extends Base
 {
     /**
-     * Server ID. Can be "--- All Servers ---" or the ID of a server
-     * @var string
-     */
-    private $_server;
-
-    /**
-     * Type of CSR (required)
-     * self: self-signed certificate
-     * comm: commercial certificate
-     * @var CSRType
-     */
-    private $_type;
-
-    /**
      * Constructor method for GetCSR
      * @param  string $server Server ID. Can be "--- All Servers ---" or the ID of a server
      * @param  CSRType $type Type of CSR. self: self-signed certificate. comm: commercial certificate
@@ -47,40 +33,52 @@ class GetCSR extends Base
     public function __construct($server = null, CSRType $type = null)
     {
         parent::__construct();
-        $this->property('server', trim($server));
+        $this->setProperty('server', trim($server));
         if($type instanceof CSRType)
         {
-            $this->property('type', $type);
+            $this->setProperty('type', $type);
         }
     }
 
     /**
-     * Gets or sets server
+     * Gets server
+     *
+     * @return string
+     */
+    public function getServer()
+    {
+        return $this->getProperty('server');
+    }
+
+    /**
+     * Sets server
      *
      * @param  string $server
-     * @return string|self
+     * @return self
      */
-    public function server($server = null)
+    public function setServer($server)
     {
-        if(null === $server)
-        {
-            return $this->property('server');
-        }
-        return $this->property('server', trim($server));
+        return $this->setProperty('server', trim($server));
     }
 
     /**
-     * Gets or sets type
+     * Gets type
+     *
+     * @return CSRType
+     */
+    public function getType()
+    {
+        return $this->getProperty('type');
+    }
+
+    /**
+     * Sets type
      *
      * @param  CSRType $type
-     * @return CSRType|self
+     * @return self
      */
-    public function type(CSRType $type = null)
+    public function setType(CSRType $type)
     {
-        if(null === $type)
-        {
-            return $this->property('type');
-        }
-        return $this->property('type', $type);
+        return $this->setProperty('type', $type);
     }
 }

@@ -28,7 +28,7 @@ class QueueQueryField extends Base
      * Match specifications
      * @var TypedSequence
      */
-    private $_matches = array();
+    private $_matches;
 
     /**
      * Constructor method for QueueQueryField

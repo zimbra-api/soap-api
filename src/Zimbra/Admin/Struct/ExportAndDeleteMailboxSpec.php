@@ -29,7 +29,7 @@ class ExportAndDeleteMailboxSpec extends Base
      * Items
      * @var TypedSequence
      */
-    private $_items = array();
+    private $_items;
 
     /**
      * Constructor method for ExportAndDeleteMailboxSpec
@@ -37,7 +37,7 @@ class ExportAndDeleteMailboxSpec extends Base
      * @param  int $items Items
      * @return self
      */
-    public function __construct($id, array $items = array())
+    public function __construct($id, array $items = [])
     {
         parent::__construct();
         $this->setProperty('id', (int) $id);

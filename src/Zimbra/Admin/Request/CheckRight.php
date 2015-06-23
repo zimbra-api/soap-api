@@ -37,56 +37,74 @@ class CheckRight extends BaseAttr
         Target $target,
         Grantee $grantee,
         $right,
-        array $attrs = array())
+        array $attrs = [])
     {
         parent::__construct($attrs);
-        $this->child('target', $target);
-        $this->child('grantee', $grantee);
-        $this->child('right', trim($right));
+        $this->setChild('target', $target);
+        $this->setChild('grantee', $grantee);
+        $this->setChild('right', trim($right));
     }
 
     /**
-     * Gets or sets target
+     * Gets the target.
      *
-     * @param  Target $action
-     * @return Target|self
+     * @return Target
      */
-    public function target(Target $target = null)
+    public function getTarget()
     {
-        if(null === $target)
-        {
-            return $this->child('target');
-        }
-        return $this->child('target', $target);
+        return $this->getChild('target');
     }
 
     /**
-     * Gets or sets grantee
+     * Sets the target.
      *
-     * @param  Grantee $action
-     * @return Grantee|self
+     * @param  Target $target
+     * @return self
      */
-    public function grantee(Grantee $grantee = null)
+    public function setTarget(Target $target)
     {
-        if(null === $grantee)
-        {
-            return $this->child('grantee');
-        }
-        return $this->child('grantee', $grantee);
+        return $this->setChild('target', $target);
     }
 
     /**
-     * Gets or sets right
+     * Gets the grantee.
      *
-     * @param  string $action
-     * @return string|self
+     * @return Grantee
      */
-    public function right($right = null)
+    public function getGrantee()
     {
-        if(null === $right)
-        {
-            return $this->child('right');
-        }
-        return $this->child('right', trim($right));
+        return $this->getChild('grantee');
+    }
+
+    /**
+     * Sets the grantee.
+     *
+     * @param  Grantee $grantee
+     * @return self
+     */
+    public function setGrantee(Grantee $grantee)
+    {
+        return $this->setChild('grantee', $grantee);
+    }
+
+    /**
+     * Gets the right
+     *
+     * @return string
+     */
+    public function getRight()
+    {
+        return $this->getChild('right');
+    }
+
+    /**
+     * Sets the right.
+     *
+     * @param  string $right
+     * @return self
+     */
+    public function setRight($right)
+    {
+        return $this->setChild('right', trim($right));
     }
 }

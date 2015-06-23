@@ -44,7 +44,7 @@ class TzReplaceInfo extends Base
     }
 
     /**
-     * Sets the wellKnownTz.
+     * Gets the wellKnownTz.
      *
      * @return Id
      */
@@ -65,7 +65,7 @@ class TzReplaceInfo extends Base
     }
 
     /**
-     * Sets the tz.
+     * Gets the tz.
      *
      * @return CalTzInfo
      */

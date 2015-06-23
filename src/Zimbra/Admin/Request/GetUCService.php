@@ -11,6 +11,8 @@
 namespace Zimbra\Admin\Request;
 
 use Zimbra\Admin\Struct\UcServiceSelector as UcService;
+use Zimbra\Struct\AttributeSelectorTrait;
+use Zimbra\Struct\AttributeSelector;
 
 /**
  * GetUCService request class
@@ -22,19 +24,9 @@ use Zimbra\Admin\Struct\UcServiceSelector as UcService;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
  */
-class GetUCService extends Base
+class GetUCService extends Base implements AttributeSelector
 {
-    /**
-     * UC Service
-     * @var UcService
-     */
-    private $_ucservice;
-
-    /**
-     * Comma separated list of attributes
-     * @var string
-     */
-    private $_attrs;
+    use AttributeSelectorTrait;
 
     /**
      * Constructor method for GetUCService
@@ -42,46 +34,43 @@ class GetUCService extends Base
      * @param  string $attrs
      * @return self
      */
-    public function __construct(UcService $ucservice = null, $attrs = null)
+    public function __construct(UcService $ucservice = null, array $attrs = [])
     {
         parent::__construct();
         if($ucservice instanceof UCService)
         {
-            $this->child('ucservice', $ucservice);
+            $this->setChild('ucservice', $ucservice);
         }
-        if(null !== $attrs)
+
+        $this->setAttrs($attrs);
+        $this->on('before', function(Base $sender)
         {
-            $this->property('attrs', trim($attrs));
-        }
+            $attrs = $sender->getAttrs();
+            if(!empty($attrs))
+            {
+                $sender->setProperty('attrs', $attrs);
+            }
+        });
     }
 
     /**
-     * Gets or sets ucservice
+     * Gets the ucservice.
+     *
+     * @return UcService
+     */
+    public function getUcService()
+    {
+        return $this->getChild('ucservice');
+    }
+
+    /**
+     * Sets the ucservice.
      *
      * @param  UcService $ucservice
-     * @return UcService|self
+     * @return self
      */
-    public function ucservice(UcService $ucservice = null)
+    public function setUcService(UcService $ucservice)
     {
-        if(null === $ucservice)
-        {
-            return $this->child('ucservice');
-        }
-        return $this->child('ucservice', $ucservice);
-    }
-
-    /**
-     * Gets or sets attrs
-     *
-     * @param  string $attrs
-     * @return string|self
-     */
-    public function attrs($attrs = null)
-    {
-        if(null === $attrs)
-        {
-            return $this->property('attrs');
-        }
-        return $this->property('attrs', trim($attrs));
+        return $this->setChild('ucservice', $ucservice);
     }
 }

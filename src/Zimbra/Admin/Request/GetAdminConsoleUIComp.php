@@ -36,41 +36,53 @@ class GetAdminConsoleUIComp extends Base
         parent::__construct();
         if($account instanceof Account)
         {
-            $this->child('account', $account);
+            $this->setChild('account', $account);
         }
         if($dl instanceof DistList)
         {
-            $this->child('dl', $dl);
+            $this->setChild('dl', $dl);
         }
     }
 
     /**
-     * Gets or sets account
+     * Gets the account.
+     *
+     * @return Account
+     */
+    public function getAccount()
+    {
+        return $this->getChild('account');
+    }
+
+    /**
+     * Sets the account.
      *
      * @param  Account $account
-     * @return Account|self
+     * @return self
      */
-    public function account(Account $account = null)
+    public function setAccount(Account $account)
     {
-        if(null === $account)
-        {
-            return $this->child('account');
-        }
-        return $this->child('account', $account);
+        return $this->setChild('account', $account);
     }
 
     /**
-     * Gets or sets dl
+     * Gets the dl.
+     *
+     * @return DistList
+     */
+    public function getDl()
+    {
+        return $this->getChild('dl');
+    }
+
+    /**
+     * Sets the dl.
      *
      * @param  DistList $dl
-     * @return DistList|self
+     * @return self
      */
-    public function dl(DistList $dl = null)
+    public function setDl(DistList $dl)
     {
-        if(null === $dl)
-        {
-            return $this->child('dl');
-        }
-        return $this->child('dl', $dl);
+        return $this->setChild('dl', $dl);
     }
 }

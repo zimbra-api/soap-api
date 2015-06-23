@@ -41,7 +41,7 @@ class MailQueueAction extends Base
     }
 
     /**
-     * Sets the Time/rule for transitioning from daylight time to query time.
+     * Gets the Time/rule for transitioning from daylight time to query time.
      *
      * @return QueueQuery
      */

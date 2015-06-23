@@ -36,7 +36,7 @@ abstract class AdminAttrsImpl extends Base
      * @param array $attrs
      * @return self
      */
-    public function __construct(array $attrs = array())
+    public function __construct(array $attrs = [])
     {
         parent::__construct();
         $this->setAttrs($attrs);

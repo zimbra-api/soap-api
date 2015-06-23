@@ -39,59 +39,77 @@ class GetEffectiveRights extends Base
         AttrMethod $expandAllAttrs = null)
     {
         parent::__construct();
-        $this->child('target', $target);
+        $this->setChild('target', $target);
         if($grantee instanceof Grantee)
         {
-            $this->child('grantee', $grantee);
+            $this->setChild('grantee', $grantee);
         }
         if($expandAllAttrs instanceof AttrMethod)
         {
-            $this->property('expandAllAttrs', $expandAllAttrs);
+            $this->setProperty('expandAllAttrs', $expandAllAttrs);
         }
     }
 
     /**
-     * Gets or sets target
+     * Gets the target.
+     *
+     * @return Target
+     */
+    public function getTarget()
+    {
+        return $this->getChild('target');
+    }
+
+    /**
+     * Sets the target.
      *
      * @param  Target $target
-     * @return Target|self
+     * @return self
      */
-    public function target(Target $target = null)
+    public function setTarget(Target $target)
     {
-        if(null === $target)
-        {
-            return $this->child('target');
-        }
-        return $this->child('target', $target);
+        return $this->setChild('target', $target);
     }
 
     /**
-     * Gets or sets grantee
+     * Gets the grantee.
+     *
+     * @return Grantee
+     */
+    public function getGrantee()
+    {
+        return $this->getChild('grantee');
+    }
+
+    /**
+     * Sets the grantee.
      *
      * @param  Grantee $grantee
-     * @return Grantee|self
+     * @return self
      */
-    public function grantee(Grantee $grantee = null)
+    public function setGrantee(Grantee $grantee)
     {
-        if(null === $grantee)
-        {
-            return $this->child('grantee');
-        }
-        return $this->child('grantee', $grantee);
+        return $this->setChild('grantee', $grantee);
     }
 
     /**
-     * Gets or sets expandAllAttrs
+     * Gets expandAllAttrs
      *
-     * @param  string $expandAllAttrs
-     * @return string|self
+     * @return AttrMethod
      */
-    public function expandAllAttrs(AttrMethod $expandAllAttrs = null)
+    public function getExpandAllAttrs()
     {
-        if(null === $expandAllAttrs)
-        {
-            return $this->property('expandAllAttrs');
-        }
-        return $this->property('expandAllAttrs', $expandAllAttrs);
+        return $this->getProperty('expandAllAttrs');
+    }
+
+    /**
+     * Sets expandAllAttrs
+     *
+     * @param  AttrMethod $expandAllAttrs
+     * @return self
+     */
+    public function setExpandAllAttrs(AttrMethod $expandAllAttrs)
+    {
+        return $this->setProperty('expandAllAttrs', $expandAllAttrs);
     }
 }

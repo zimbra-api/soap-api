@@ -26,26 +26,26 @@ use Zimbra\Struct\NamedValue;
 class ModifyAdminSavedSearches extends Base
 {
     /**
-     * Searchs
+     * Searches
      * @var TypedSequence<NamedValue>
      */
-    private $_search;
+    private $_searches;
 
     /**
      * Constructor method for ModifyAdminSavedSearches
-     * @param  array $search
+     * @param  array $searches
      * @return self
      */
-    public function __construct(array $search = array())
+    public function __construct(array $searches = [])
     {
         parent::__construct();
-        $this->_search = new TypedSequence('Zimbra\Struct\NamedValue', $search);
+        $this->setSearches($searches);
 
         $this->on('before', function(Base $sender)
         {
-            if($sender->search()->count())
+            if($sender->getSearches()->count())
             {
-                $sender->child('search', $sender->search()->all());
+                $sender->setChild('search', $sender->getSearches()->all());
             }
         });
     }
@@ -58,7 +58,19 @@ class ModifyAdminSavedSearches extends Base
      */
     public function addSearch(NamedValue $search)
     {
-        $this->_search->add($search);
+        $this->_searches->add($search);
+        return $this;
+    }
+
+    /**
+     * Sets search sequence
+     *
+     * @param  array $searches
+     * @return self
+     */
+    public function setSearches(array $searches)
+    {
+        $this->_searches = new TypedSequence('Zimbra\Struct\NamedValue', $searches);
         return $this;
     }
 
@@ -67,8 +79,8 @@ class ModifyAdminSavedSearches extends Base
      *
      * @return Sequence
      */
-    public function search()
+    public function getSearches()
     {
-        return $this->_search;
+        return $this->_searches;
     }
 }

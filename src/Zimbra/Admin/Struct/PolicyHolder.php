@@ -38,7 +38,7 @@ class PolicyHolder extends Base
     }
 
     /**
-     * Sets the policy.
+     * Gets the policy.
      *
      * @return Policy
      */

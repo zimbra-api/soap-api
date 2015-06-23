@@ -29,23 +29,23 @@ class GetRightsDoc extends Base
      * Packages
      * @var array
      */
-    private $_package;
+    private $_packages;
 
     /**
      * Constructor method for GetRightsDoc
-     * @param array $package
+     * @param array $packages
      * @return self
      */
-    public function __construct(array $package = array())
+    public function __construct(array $packages = [])
     {
         parent::__construct();
-        $this->_package = new TypedSequence('Zimbra\Admin\Struct\PackageSelector', $package);
+        $this->setPackages($packages);
 
         $this->on('before', function(Base $sender)
         {
-            if($sender->package()->count())
+            if($sender->getPackages()->count())
             {
-                $sender->child('package', $sender->package()->all());
+                $sender->setChild('package', $sender->getPackages()->all());
             }
         });
     }
@@ -58,7 +58,19 @@ class GetRightsDoc extends Base
      */
     public function addPackage(Package $package)
     {
-        $this->_package->add($package);
+        $this->_packages->add($package);
+        return $this;
+    }
+
+    /**
+     * Sets package sequence
+     *
+     * @param array $packages
+     * @return self
+     */
+    public function setPackages(array $packages)
+    {
+        $this->_packages = new TypedSequence('Zimbra\Admin\Struct\PackageSelector', $packages);
         return $this;
     }
 
@@ -67,8 +79,8 @@ class GetRightsDoc extends Base
      *
      * @return Sequence
      */
-    public function package()
+    public function getPackages()
     {
-        return $this->_package;
+        return $this->_packages;
     }
 }

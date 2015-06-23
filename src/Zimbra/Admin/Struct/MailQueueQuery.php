@@ -47,7 +47,7 @@ class MailQueueQuery extends Base
     }
 
     /**
-     * Sets query.
+     * Gets query.
      *
      * @return QueueQuery
      */
@@ -68,7 +68,7 @@ class MailQueueQuery extends Base
     }
 
     /**
-     * Sets the the queue name
+     * Gets the the queue name
      *
      * @return string
      */

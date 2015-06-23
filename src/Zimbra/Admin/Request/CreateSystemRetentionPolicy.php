@@ -41,60 +41,78 @@ class CreateSystemRetentionPolicy extends Base
         parent::__construct();
         if($cos instanceof Cos)
         {
-            $this->child('cos', $cos);
+            $this->setChild('cos', $cos);
         }
         if($keep instanceof PolicyHolder)
         {
-            $this->child('keep', $keep);
+            $this->setChild('keep', $keep);
         }
         if($purge instanceof PolicyHolder)
         {
-            $this->child('purge', $purge);
+            $this->setChild('purge', $purge);
         }
     }
 
     /**
-     * Gets or sets cos
+     * Gets the cos.
+     *
+     * @return Cos
+     */
+    public function getCos()
+    {
+        return $this->getChild('cos');
+    }
+
+    /**
+     * Sets the cos.
      *
      * @param  Cos $cos
-     * @return Cos|self
+     * @return self
      */
-    public function cos(Cos $cos = null)
+    public function setCos(Cos $cos)
     {
-        if(null === $cos)
-        {
-            return $this->child('cos');
-        }
-        return $this->child('cos', $cos);
+        return $this->setChild('cos', $cos);
     }
 
     /**
-     * Gets or sets keep
+     * Gets the keep keep policy.
+     *
+     * @return PolicyHolder
+     */
+    public function getKeepPolicy()
+    {
+        return $this->getChild('keep');
+    }
+
+    /**
+     * Sets the keep policy.
      *
      * @param  PolicyHolder $keep
-     * @return PolicyHolder|self
+     * @return self
      */
-    public function keep(PolicyHolder $keep = null)
+    public function setKeepPolicy(PolicyHolder $keep)
     {
-        if(null === $keep)
-        {
-            return $this->child('keep');
-        }
-        return $this->child('keep', $keep);
+        return $this->setChild('keep', $keep);
     }
 
     /**
-     * Gets or sets purge
+     * Gets the purge policy.
+     *
+     * @return PolicyHolder
+     */
+    public function getPurgePolicy()
+    {
+        return $this->getChild('purge');
+    }
+
+    /**
+     * Sets the purge policy.
      *
      * @param  PolicyHolder $purge
-     * @return PolicyHolder|self
+     * @return self
      */
-    public function purge(PolicyHolder $purge = null)
+    public function setPurgePolicy(PolicyHolder $purge)
     {
-        if(null === $purge)
-        {
-            return $this->child('purge');
-        }
-        return $this->child('purge', $purge);
+        return $this->setChild('purge', $purge);
     }
 }

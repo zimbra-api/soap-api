@@ -37,7 +37,7 @@ class ServerWithQueueAction extends Base
     }
 
     /**
-     * Sets the queue.
+     * Gets the queue.
      *
      * @return MailQueueWithAction
      */

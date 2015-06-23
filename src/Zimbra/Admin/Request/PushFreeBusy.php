@@ -36,41 +36,53 @@ class PushFreeBusy extends Base
         parent::__construct();
         if($domain instanceof Names)
         {
-            $this->child('domain', $domain);
+            $this->setChild('domain', $domain);
         }
         if($account instanceof Id)
         {
-            $this->child('account', $account);
+            $this->setChild('account', $account);
         }
     }
 
     /**
-     * Gets or sets cos
+     * Gets the domain.
      *
-     * @param  Names $cos
-     * @return Names|self
+     * @return Names
      */
-    public function domain(Names $domain = null)
+    public function getDomain()
     {
-        if(null === $domain)
-        {
-            return $this->child('domain');
-        }
-        return $this->child('domain', $domain);
+        return $this->getChild('domain');
     }
 
     /**
-     * Gets or sets account
+     * Sets the domain.
+     *
+     * @param  Names $domain
+     * @return self
+     */
+    public function setDomain(Names $domain)
+    {
+        return $this->setChild('domain', $domain);
+    }
+
+    /**
+     * Gets the account.
+     *
+     * @return Id
+     */
+    public function getAccount()
+    {
+        return $this->getChild('account');
+    }
+
+    /**
+     * Sets the account.
      *
      * @param  Id $account
-     * @return Id|self
+     * @return self
      */
-    public function account(Id $account = null)
+    public function setAccount(Id $account)
     {
-        if(null === $account)
-        {
-            return $this->child('account');
-        }
-        return $this->child('account', $account);
+        return $this->setChild('account', $account);
     }
 }

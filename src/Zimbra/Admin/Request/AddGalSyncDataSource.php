@@ -70,91 +70,121 @@ class AddGalSyncDataSource extends BaseAttr
         $domain,
         GalMode $type,
         $folder = null,
-        array $attrs = array())
+        array $attrs = [])
     {
         parent::__construct($attrs);
-        $this->child('account', $account);
-        $this->property('name', trim($name));
-        $this->property('domain', trim($domain));
-        $this->property('type', $type);
+        $this->setChild('account', $account);
+        $this->setProperty('name', trim($name));
+        $this->setProperty('domain', trim($domain));
+        $this->setProperty('type', $type);
         if(null !== $folder)
         {
-            $this->property('folder', trim($folder));
+            $this->setProperty('folder', trim($folder));
         }
     }
 
     /**
-     * Gets or sets account
+     * Gets the account.
+     *
+     * @return Account
+     */
+    public function getAccount()
+    {
+        return $this->getChild('account');
+    }
+
+    /**
+     * Sets the account.
      *
      * @param  Account $account
-     * @return Account|self
+     * @return self
      */
-    public function account(Account $account = null)
+    public function setAccount(Account $account)
     {
-        if(null === $account)
-        {
-            return $this->child('account');
-        }
-        return $this->child('account', $account);
+        return $this->setChild('account', $account);
     }
 
     /**
-     * Gets or sets name
+     * Gets name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->getProperty('name');
+    }
+
+    /**
+     * Sets name
      *
      * @param  string $name
-     * @return string|self
+     * @return self
      */
-    public function name($name = null)
+    public function setName($name)
     {
-        if(null === $name)
-        {
-            return $this->property('name');
-        }
-        return $this->property('name', trim($name));
+        return $this->setProperty('name', trim($name));
     }
 
     /**
-     * Gets or sets domain
+     * Gets domain
+     *
+     * @return string
+     */
+    public function getDomain()
+    {
+        return $this->getProperty('domain');
+    }
+
+    /**
+     * Sets domain
      *
      * @param  string $domain
-     * @return string|self
+     * @return self
      */
-    public function domain($domain = null)
+    public function setDomain($domain)
     {
-        if(null === $domain)
-        {
-            return $this->property('domain');
-        }
-        return $this->property('domain', trim($domain));
+        return $this->setProperty('domain', trim($domain));
     }
 
     /**
-     * Gets or sets type
+     * Gets type
+     *
+     * @return GalMode
+     */
+    public function getType()
+    {
+        return $this->getProperty('type');
+    }
+
+    /**
+     * Sets type
      *
      * @param  GalMode $type
-     * @return GalMode|self
+     * @return self
      */
-    public function type(GalMode $type = null)
+    public function setType(GalMode $type)
     {
-        if(null === $type)
-        {
-            return $this->property('type');
-        }
-        return $this->property('type', $type);
+        return $this->setProperty('type', $type);
     }
 
     /**
-     * Gets or sets folder
+     * Gets folder
+     *
+     * @return string
+     */
+    public function getFolder()
+    {
+        return $this->getProperty('folder');
+    }
+
+    /**
+     * Sets folder
      *
      * @param  string $folder
-     * @return string|self
+     * @return self
      */
-    public function folder($folder = null)
+    public function setFolder($folder)
     {
-        if(null === $folder)
-        {
-            return $this->property('folder');
-        }
-        return $this->property('folder', trim($folder));
+        return $this->setProperty('folder', trim($folder));
     }
 }

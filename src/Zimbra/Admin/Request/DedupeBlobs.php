@@ -30,42 +30,48 @@ class DedupeBlobs extends Base
      * Volumes
      * @var TypedSequence<IntIdAttr>
      */
-    private $_volume;
+    private $_volumes;
 
     /**
      * Constructor method for DedupeBlobs
      * @param  DedupAction $action Action to perform - one of start|status|stop
-     * @param  array  $volume Volumes
+     * @param  array  $volumes Volumes
      * @return DedupeBlobs
      */
-    public function __construct(DedupAction $action, array $volume = array())
+    public function __construct(DedupAction $action, array $volumes = [])
     {
         parent::__construct();
-        $this->property('action', $action);
-        $this->_volume = new TypedSequence('Zimbra\Admin\Struct\IntIdAttr', $volume);
+        $this->setProperty('action', $action);
+        $this->setVolumes($volumes);
 
         $this->on('before', function(Base $sender)
         {
-            if($sender->volume()->count())
+            if($sender->getVolumes()->count())
             {
-                $sender->child('volume', $sender->volume()->all());
+                $sender->setChild('volume', $sender->getVolumes()->all());
             }
         });
     }
 
     /**
-     * Gets or sets action
+     * Gets action
+     *
+     * @return DedupAction
+     */
+    public function getAction()
+    {
+        return $this->getProperty('action');
+    }
+
+    /**
+     * Sets action
      *
      * @param  DedupAction $action
-     * @return DedupAction|DedupeBlobs
+     * @return self
      */
-    public function action(DedupAction $action = null)
+    public function setAction(DedupAction $action)
     {
-        if(null === $action)
-        {
-            return $this->property('action');
-        }
-        return $this->property('action', $action);
+        return $this->setProperty('action', $action);
     }
 
 
@@ -77,7 +83,19 @@ class DedupeBlobs extends Base
      */
     public function addVolume(IntIdAttr $volume)
     {
-        $this->_volume->add($volume);
+        $this->_volumes->add($volume);
+        return $this;
+    }
+
+    /**
+     * Sets volume sequence
+     *
+     * @param  array  $volumes
+     * @return self
+     */
+    public function setVolumes(array $volumes)
+    {
+        $this->_volumes = new TypedSequence('Zimbra\Admin\Struct\IntIdAttr', $volumes);
         return $this;
     }
 
@@ -86,8 +104,8 @@ class DedupeBlobs extends Base
      *
      * @return Sequence
      */
-    public function volume()
+    public function getVolumes()
     {
-        return $this->_volume;
+        return $this->_volumes;
     }
 }

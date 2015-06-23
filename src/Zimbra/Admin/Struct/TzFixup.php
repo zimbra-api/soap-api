@@ -35,7 +35,7 @@ class TzFixup extends Base
      * @param array $fixupRules
      * @return self
      */
-    public function __construct(array $fixupRules = array())
+    public function __construct(array $fixupRules = [])
     {
         parent::__construct();
         $this->setFixupRules($fixupRules);

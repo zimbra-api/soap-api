@@ -84,7 +84,7 @@ class ReindexMailboxInfo extends Base
      */
     public function setTypes($types)
     {
-        $arrType = array();
+        $arrType = [];
         $types = explode(',', trim($types));
         foreach ($types as $type)
         {

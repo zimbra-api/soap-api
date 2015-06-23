@@ -31,37 +31,49 @@ class AddAccountAlias extends Base
     public function __construct($id, $alias)
     {
         parent::__construct();
-        $this->property('id', trim($id));
-        $this->property('alias', trim($alias));
+        $this->setProperty('id', trim($id));
+        $this->setProperty('alias', trim($alias));
     }
 
     /**
-     * Gets or sets id
+     * Gets Zimbra ID
+     *
+     * @return string
+     */
+    public function getId()
+    {
+        return $this->getProperty('id');
+    }
+
+    /**
+     * Sets Zimbra ID
      *
      * @param  string $id
-     * @return string|self
+     * @return self
      */
-    public function id($id = null)
+    public function setId($id)
     {
-        if(null === $id)
-        {
-            return $this->property('id');
-        }
-        return $this->property('id', trim($id));
+        return $this->setProperty('id', trim($id));
     }
 
     /**
-     * Gets or sets alias
+     * Gets alias
+     *
+     * @return string
+     */
+    public function getAlias()
+    {
+        return $this->getProperty('alias');
+    }
+
+    /**
+     * Sets alias
      *
      * @param  string $alias
-     * @return string|self
+     * @return self
      */
-    public function alias($alias = null)
+    public function setAlias($alias)
     {
-        if(null === $alias)
-        {
-            return $this->property('alias');
-        }
-        return $this->property('alias', trim($alias));
+        return $this->setProperty('alias', trim($alias));
     }
 }

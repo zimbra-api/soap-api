@@ -28,24 +28,30 @@ class CreateLDAPEntry extends BaseAttr
      * @param array  $attrs
      * @return self
      */
-    public function __construct($dn, array $attrs = array())
+    public function __construct($dn, array $attrs = [])
     {
         parent::__construct($attrs);
-        $this->property('dn', trim($dn));
+        $this->setProperty('dn', trim($dn));
     }
 
     /**
-     * Gets or sets dn
+     * Gets dn
+     *
+     * @return string
+     */
+    public function getDn()
+    {
+        return $this->getProperty('dn');
+    }
+
+    /**
+     * Sets dn
      *
      * @param  string $dn
-     * @return string|self
+     * @return self
      */
-    public function dn($dn = null)
+    public function setDn($dn)
     {
-        if(null === $dn)
-        {
-            return $this->property('dn');
-        }
-        return $this->property('dn', trim($dn));
+        return $this->setProperty('dn', trim($dn));
     }
 }

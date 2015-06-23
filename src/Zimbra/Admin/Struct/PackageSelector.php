@@ -38,7 +38,7 @@ class PackageSelector extends Base
     }
 
     /**
-     * Sets the name
+     * Gets the name
      *
      * @return string
      */

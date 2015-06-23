@@ -34,22 +34,28 @@ class GetConfig extends Base
         parent::__construct();
         if($attr instanceof KeyValuePair)
         {
-            $this->child('a', $attr);
+            $this->setChild('a', $attr);
         }
     }
 
     /**
-     * Gets or sets attr
+     * Gets the attr.
+     *
+     * @return KeyValuePair
+     */
+    public function getAttr()
+    {
+        return $this->getChild('a');
+    }
+
+    /**
+     * Sets the attr.
      *
      * @param  KeyValuePair $attr
-     * @return KeyValuePair|self
+     * @return self
      */
-    public function attr(KeyValuePair $attr = null)
+    public function setAttr(KeyValuePair $attr)
     {
-        if(null === $attr)
-        {
-            return $this->child('a');
-        }
-        return $this->child('a', $attr);
+        return $this->setChild('a', $attr);
     }
 }

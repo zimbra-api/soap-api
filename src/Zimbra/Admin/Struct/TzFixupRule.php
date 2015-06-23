@@ -52,7 +52,7 @@ class TzFixupRule extends Base
     }
 
     /**
-     * Sets the match.
+     * Gets the match.
      *
      * @return TzFixupRuleMatch
      */
@@ -73,7 +73,7 @@ class TzFixupRule extends Base
     }
 
     /**
-     * Sets the touch.
+     * Gets the touch.
      *
      * @return SimpleElement
      */
@@ -94,7 +94,7 @@ class TzFixupRule extends Base
     }
 
     /**
-     * Sets the replace.
+     * Gets the replace.
      *
      * @return TzReplaceInfo
      */

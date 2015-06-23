@@ -65,7 +65,7 @@ class TzFixupRuleMatch extends Base
     }
 
     /**
-     * Sets the any.
+     * Gets the any.
      *
      * @return SimpleElement
      */
@@ -86,7 +86,7 @@ class TzFixupRuleMatch extends Base
     }
 
     /**
-     * Sets the tzid.
+     * Gets the tzid.
      *
      * @return Id
      */
@@ -107,7 +107,7 @@ class TzFixupRuleMatch extends Base
     }
 
     /**
-     * Sets the nonDst.
+     * Gets the nonDst.
      *
      * @return Offset
      */
@@ -128,7 +128,7 @@ class TzFixupRuleMatch extends Base
     }
 
     /**
-     * Sets the rules.
+     * Gets the rules.
      *
      * @return TzFixupRuleMatchRules
      */
@@ -149,7 +149,7 @@ class TzFixupRuleMatch extends Base
     }
 
     /**
-     * Sets the dates.
+     * Gets the dates.
      *
      * @return TzFixupRuleMatchDates
      */

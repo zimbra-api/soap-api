@@ -28,24 +28,30 @@ class CreateZimlet extends BaseAttr
      * @param array  $attrs Attributes
      * @return self
      */
-    public function __construct($name, array $attrs = array())
+    public function __construct($name, array $attrs = [])
     {
         parent::__construct($attrs);
-        $this->property('name', trim($name));
+        $this->setProperty('name', trim($name));
     }
 
     /**
-     * Gets or sets name
+     * Gets name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->getProperty('name');
+    }
+
+    /**
+     * Sets name
      *
      * @param  string $name
-     * @return string|self
+     * @return self
      */
-    public function name($name = null)
+    public function setName($name)
     {
-        if(null === $name)
-        {
-            return $this->property('name');
-        }
-        return $this->property('name', trim($name));
+        return $this->setProperty('name', trim($name));
     }
 }

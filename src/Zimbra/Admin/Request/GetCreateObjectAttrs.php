@@ -36,59 +36,77 @@ class GetCreateObjectAttrs extends Base
     public function __construct(Target $target, Domain $domain = null, Cos $cos = null)
     {
         parent::__construct();
-        $this->child('target', $target);
+        $this->setChild('target', $target);
         if($domain instanceof Domain)
         {
-            $this->child('domain', $domain);
+            $this->setChild('domain', $domain);
         }
         if($cos instanceof Cos)
         {
-            $this->child('cos', $cos);
+            $this->setChild('cos', $cos);
         }
     }
 
     /**
-     * Gets or sets target
+     * Gets the target.
+     *
+     * @return Target
+     */
+    public function getTarget()
+    {
+        return $this->getChild('target');
+    }
+
+    /**
+     * Sets the target.
      *
      * @param  Target $target
-     * @return Target|self
+     * @return self
      */
-    public function target(Target $target = null)
+    public function setTarget(Target $target)
     {
-        if(null === $target)
-        {
-            return $this->child('target');
-        }
-        return $this->child('target', $target);
+        return $this->setChild('target', $target);
     }
 
     /**
-     * Gets or sets domain
+     * Gets the domain.
+     *
+     * @return Domain
+     */
+    public function getDomain()
+    {
+        return $this->getChild('domain');
+    }
+
+    /**
+     * Sets the domain.
      *
      * @param  Domain $domain
-     * @return Domain|self
+     * @return self
      */
-    public function domain(Domain $domain = null)
+    public function setDomain(Domain $domain)
     {
-        if(null === $domain)
-        {
-            return $this->child('domain');
-        }
-        return $this->child('domain', $domain);
+        return $this->setChild('domain', $domain);
     }
 
     /**
-     * Gets or sets cos
+     * Gets the cos.
+     *
+     * @return Cos
+     */
+    public function getCos()
+    {
+        return $this->getChild('cos');
+    }
+
+    /**
+     * Sets the cos.
      *
      * @param  Cos $cos
-     * @return Cos|self
+     * @return self
      */
-    public function cos(Cos $cos = null)
+    public function setCos(Cos $cos)
     {
-        if(null === $cos)
-        {
-            return $this->child('cos');
-        }
-        return $this->child('cos', $cos);
+        return $this->setChild('cos', $cos);
     }
 }

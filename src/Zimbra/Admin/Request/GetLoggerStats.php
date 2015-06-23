@@ -43,79 +43,103 @@ class GetLoggerStats extends Base
         parent::__construct();
         if($hostname instanceof HostName)
         {
-            $this->child('hostname', $hostname);
+            $this->setChild('hostname', $hostname);
         }
         if($stats instanceof StatsSpec)
         {
-            $this->child('stats', $stats);
+            $this->setChild('stats', $stats);
         }
         if($startTime instanceof TimeAttr)
         {
-            $this->child('startTime', $startTime);
+            $this->setChild('startTime', $startTime);
         }
         if($endTime instanceof TimeAttr)
         {
-            $this->child('endTime', $endTime);
+            $this->setChild('endTime', $endTime);
         }
     }
 
     /**
-     * Gets or sets hostname
+     * Gets the hostname.
+     *
+     * @return HostName
+     */
+    public function getHostName()
+    {
+        return $this->getChild('hostname');
+    }
+
+    /**
+     * Sets the hostname.
      *
      * @param  HostName $hostname
-     * @return HostName|self
+     * @return self
      */
-    public function hostname(HostName $hostname = null)
+    public function setHostName(HostName $hostname)
     {
-        if(null === $hostname)
-        {
-            return $this->child('hostname');
-        }
-        return $this->child('hostname', $hostname);
+        return $this->setChild('hostname', $hostname);
     }
 
     /**
-     * Gets or sets stats
+     * Gets the stats.
+     *
+     * @return StatsSpec
+     */
+    public function getStats()
+    {
+        return $this->getChild('stats');
+    }
+
+    /**
+     * Sets the stats.
      *
      * @param  StatsSpec $stats
-     * @return StatsSpec|self
+     * @return self
      */
-    public function stats(StatsSpec $stats = null)
+    public function setStats(StatsSpec $stats)
     {
-        if(null === $stats)
-        {
-            return $this->child('stats');
-        }
-        return $this->child('stats', $stats);
+        return $this->setChild('stats', $stats);
     }
 
     /**
-     * Gets or sets hostname
+     * Gets the startTime.
      *
-     * @param  TimeAttr $hostname
-     * @return TimeAttr|self
+     * @return TimeAttr
      */
-    public function startTime(TimeAttr $startTime = null)
+    public function getStartTime()
     {
-        if(null === $startTime)
-        {
-            return $this->child('startTime');
-        }
-        return $this->child('startTime', $startTime);
+        return $this->getChild('startTime');
     }
 
     /**
-     * Gets or sets endTime
+     * Sets the startTime.
+     *
+     * @param  TimeAttr $startTime
+     * @return self
+     */
+    public function setStartTime(TimeAttr $startTime)
+    {
+        return $this->setChild('startTime', $startTime);
+    }
+
+    /**
+     * Gets the endTime.
+     *
+     * @return TimeAttr
+     */
+    public function getEndTime()
+    {
+        return $this->getChild('endTime');
+    }
+
+    /**
+     * Sets the endTime.
      *
      * @param  TimeAttr $endTime
-     * @return TimeAttr|self
+     * @return self
      */
-    public function endTime(TimeAttr $endTime = null)
+    public function setEndTime(TimeAttr $endTime)
     {
-        if(null === $endTime)
-        {
-            return $this->child('endTime');
-        }
-        return $this->child('endTime', $endTime);
+        return $this->setChild('endTime', $endTime);
     }
 }

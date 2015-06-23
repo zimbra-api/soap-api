@@ -30,21 +30,27 @@ class DeleteUCService extends Base
     public function __construct($id)
     {
         parent::__construct();
-        $this->child('id', trim($id));
+        $this->setChild('id', trim($id));
     }
 
     /**
-     * Gets or sets id
+     * Gets id
+     *
+     * @return string
+     */
+    public function getId()
+    {
+        return $this->getChild('id');
+    }
+
+    /**
+     * Sets id
      *
      * @param  string $id
-     * @return string|self
+     * @return self
      */
-    public function id($id = null)
+    public function setId($id)
     {
-        if(null === $id)
-        {
-            return $this->child('id');
-        }
-        return $this->child('id', trim($id));
+        return $this->setChild('id', trim($id));
     }
 }

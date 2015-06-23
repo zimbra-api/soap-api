@@ -97,7 +97,7 @@ class Policy extends Base
     }
 
     /**
-     * Sets the name
+     * Gets the name
      *
      * @return string
      */
@@ -118,7 +118,7 @@ class Policy extends Base
     }
 
     /**
-     * Sets the lifetime
+     * Gets the lifetime
      *
      * @return string
      */

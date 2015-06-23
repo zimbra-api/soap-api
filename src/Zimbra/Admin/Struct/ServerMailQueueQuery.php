@@ -37,7 +37,7 @@ class ServerMailQueueQuery extends Base
     }
 
     /**
-     * Sets the mail queue query details.
+     * Gets the mail queue query details.
      *
      * @return MailQueueQuery
      */

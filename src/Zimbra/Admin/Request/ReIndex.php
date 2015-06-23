@@ -34,40 +34,52 @@ class ReIndex extends Base
     public function __construct(Mailbox $mbox, Action $action = null)
     {
         parent::__construct();
-        $this->child('mbox', $mbox);
+        $this->setChild('mbox', $mbox);
         if($action instanceof Action)
         {
-            $this->property('action', $action);
+            $this->setProperty('action', $action);
         }
     }
 
     /**
-     * Gets or sets mbox
+     * Gets the mail box.
+     *
+     * @return Mailbox
+     */
+    public function getMailbox()
+    {
+        return $this->getChild('mbox');
+    }
+
+    /**
+     * Sets the mail box.
      *
      * @param  Mailbox $mbox
-     * @return Mailbox|self
+     * @return self
      */
-    public function mbox(Mailbox $mbox = null)
+    public function setMailbox(Mailbox $mbox)
     {
-        if(null === $mbox)
-        {
-            return $this->child('mbox');
-        }
-        return $this->child('mbox', $mbox);
+        return $this->setChild('mbox', $mbox);
     }
 
     /**
-     * Gets or sets action
+     * Gets action
+     *
+     * @return Action
+     */
+    public function getAction()
+    {
+        return $this->getProperty('action');
+    }
+
+    /**
+     * Sets action
      *
      * @param  Action $action
-     * @return Action|self
+     * @return self
      */
-    public function action(Action $action = null)
+    public function setAction(Action $action)
     {
-        if(null === $action)
-        {
-            return $this->property('action');
-        }
-        return $this->property('action', $action);
+        return $this->setProperty('action', $action);
     }
 }

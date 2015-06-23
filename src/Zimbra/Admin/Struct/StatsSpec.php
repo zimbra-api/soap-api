@@ -45,7 +45,7 @@ class StatsSpec extends Base
     }
 
     /**
-     * Sets the values.
+     * Gets the values.
      *
      * @return StatsValueWrapper
      */

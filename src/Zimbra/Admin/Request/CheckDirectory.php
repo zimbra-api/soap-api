@@ -29,23 +29,23 @@ class CheckDirectory extends Base
      * Directories
      * @var TypedSequence<CheckDirSelector>
      */
-    private $_directory = array();
+    private $_directories;
 
     /**
      * Constructor method for CheckDirectory
-     * @param array $directory Directories
+     * @param array $directories Directories
      * @return self
      */
-    public function __construct(array $directory = array())
+    public function __construct(array $directories = [])
     {
         parent::__construct();
-        $this->_directory = new TypedSequence('Zimbra\Admin\Struct\CheckDirSelector', $directory);
+        $this->setDirectories($directories);
 
         $this->on('before', function(Base $sender)
         {
-            if($sender->directory()->count())
+            if($sender->getDirectories()->count())
             {
-                $sender->child('directory', $sender->directory()->all());
+                $sender->setChild('directory', $sender->getDirectories()->all());
             }
         });
     }
@@ -58,16 +58,29 @@ class CheckDirectory extends Base
      */
     public function addDirectory(CheckDir $directory)
     {
-        $this->_directory->add($directory);
+        $this->_directories->add($directory);
+        return $this;
     }
 
     /**
-     * Gets directory Sequence
+     * Sets directory sequence
+     *
+     * @param array $directories Directories
+     * @return self
+     */
+    public function setDirectories(array $directories)
+    {
+        $this->_directories = new TypedSequence('Zimbra\Admin\Struct\CheckDirSelector', $directories);
+        return $this;
+    }
+
+    /**
+     * Gets directory sequence
      *
      * @return Sequence
      */
-    public function directory()
+    public function getDirectories()
     {
-        return $this->_directory;
+        return $this->_directories;
     }
 }

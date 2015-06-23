@@ -39,60 +39,78 @@ class GetDistributionListMembership extends Base
         parent::__construct();
         if($dl instanceof DistList)
         {
-            $this->child('dl', $dl);
+            $this->setChild('dl', $dl);
         }
         if(null !== $limit)
         {
-            $this->property('limit', (int) $limit);
+            $this->setProperty('limit', (int) $limit);
         }
         if(null !== $offset)
         {
-            $this->property('offset', (int) $offset);
+            $this->setProperty('offset', (int) $offset);
         }
     }
 
     /**
-     * Gets or sets dl
+     * Gets the dl.
+     *
+     * @return DistList
+     */
+    public function getDl()
+    {
+        return $this->getChild('dl');
+    }
+
+    /**
+     * Sets the dl.
      *
      * @param  DistList $dl
-     * @return DistList|self
+     * @return self
      */
-    public function dl(DistList $dl = null)
+    public function setDl(DistList $dl)
     {
-        if(null === $dl)
-        {
-            return $this->child('dl');
-        }
-        return $this->child('dl', $dl);
+        return $this->setChild('dl', $dl);
     }
 
     /**
-     * Gets or sets limit
+     * Gets limit
+     *
+     * @return int
+     */
+    public function getLimit()
+    {
+        return $this->getProperty('limit');
+    }
+
+    /**
+     * Sets limit
      *
      * @param  int $limit
-     * @return int|self
+     * @return self
      */
-    public function limit($limit = null)
+    public function setLimit($limit)
     {
-        if(null === $limit)
-        {
-            return $this->property('limit');
-        }
-        return $this->property('limit', (int) $limit);
+        return $this->setProperty('limit', (int) $limit);
     }
 
     /**
-     * Gets or sets offset
+     * Gets offset
+     *
+     * @return int
+     */
+    public function getOffset()
+    {
+        return $this->getProperty('offset');
+    }
+
+    /**
+     * Sets offset
      *
      * @param  int $offset
-     * @return int|self
+     * @return self
      */
-    public function offset($offset = null)
+    public function setOffset($offset)
     {
-        if(null === $offset)
-        {
-            return $this->property('offset');
-        }
-        return $this->property('offset', (int) $offset);
+        return $this->setProperty('offset', (int) $offset);
     }
 }

@@ -34,40 +34,52 @@ class DelegateAuth extends Base
     public function __construct(Account $account, $duration = null)
     {
         parent::__construct();
-        $this->child('account', $account);
+        $this->setChild('account', $account);
         if(null !== $duration)
         {
-            $this->property('duration', (int) $duration);
+            $this->setProperty('duration', (int) $duration);
         }
     }
 
     /**
-     * Gets or sets account
+     * Gets the account.
+     *
+     * @return Account
+     */
+    public function getAccount()
+    {
+        return $this->getChild('account');
+    }
+
+    /**
+     * Sets the account.
      *
      * @param  Account $account
-     * @return Account|self
+     * @return self
      */
-    public function account(Account $account = null)
+    public function setAccount(Account $account)
     {
-        if(null === $account)
-        {
-            return $this->child('account');
-        }
-        return $this->child('account', $account);
+        return $this->setChild('account', $account);
     }
 
     /**
-     * Gets or sets duration
+     * Gets duration
+     *
+     * @return int
+     */
+    public function getDuration()
+    {
+        return $this->getProperty('duration');
+    }
+
+    /**
+     * Sets duration
      *
      * @param  int $duration
-     * @return int|self
+     * @return self
      */
-    public function duration($duration = null)
+    public function setDuration($duration)
     {
-        if(null === $duration)
-        {
-            return $this->property('duration');
-        }
-        return $this->property('duration', (int) $duration);
+        return $this->setProperty('duration', (int) $duration);
     }
 }

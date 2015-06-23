@@ -133,7 +133,7 @@ class CalTZInfo extends Base
     }
 
     /**
-     * Sets the Standard Time component's timezone name
+     * Gets the Standard Time component's timezone name
      *
      * @return string
      */
@@ -175,7 +175,7 @@ class CalTZInfo extends Base
     }
 
     /**
-     * Sets the Time/rule for transitioning from daylight time to standard time.
+     * Gets the Time/rule for transitioning from daylight time to standard time.
      *
      * @return TzOnsetInfo
      */

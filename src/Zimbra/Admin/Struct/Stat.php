@@ -44,7 +44,7 @@ class Stat extends Base
     }
 
     /**
-     * Sets the name
+     * Gets the name
      *
      * @return string
      */
@@ -65,7 +65,7 @@ class Stat extends Base
     }
 
     /**
-     * Sets the description
+     * Gets the description
      *
      * @return string
      */

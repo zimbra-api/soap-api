@@ -30,7 +30,7 @@ class DataSourceSpecifier extends AdminAttrsImpl
      * @param array $attrs Attributes
      * @return self
      */
-    public function __construct(DataSourceType $type, $name, array $attrs = array())
+    public function __construct(DataSourceType $type, $name, array $attrs = [])
     {
         parent::__construct($attrs);
         $this->setProperty('type', $type);

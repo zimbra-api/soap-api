@@ -41,47 +41,59 @@ class CheckGalConfig extends BaseAttr
     public function __construct(
         Query $query = null,
         Action $action = null,
-        array $attrs = array()
+        array $attrs = []
     )
     {
         parent::__construct($attrs);
         if($query instanceof Query)
         {
-            $this->child('query', $query);
+            $this->setChild('query', $query);
         }
         if($action instanceof Action)
         {
-            $this->child('action', $action);
+            $this->setChild('action', $action);
         }
     }
 
     /**
-     * Gets or sets query
+     * Gets the query.
+     *
+     * @return Query
+     */
+    public function getQuery()
+    {
+        return $this->getChild('query');
+    }
+
+    /**
+     * Sets the query.
      *
      * @param  Query $query
-     * @return Query|self
+     * @return self
      */
-    public function query(Query $query = null)
+    public function setQuery(Query $query)
     {
-        if(null === $query)
-        {
-            return $this->child('query');
-        }
-        return $this->child('query', $query);
+        return $this->setChild('query', $query);
     }
 
     /**
-     * Gets or sets action
+     * Gets the action.
+     *
+     * @return Action
+     */
+    public function getAction()
+    {
+        return $this->getChild('action');
+    }
+
+    /**
+     * Sets the action.
      *
      * @param  Action $action
-     * @return Action|self
+     * @return self
      */
-    public function action(Action $action = null)
+    public function setAction(Action $action)
     {
-        if(null === $action)
-        {
-            return $this->child('action');
-        }
-        return $this->child('action', $action);
+        return $this->setChild('action', $action);
     }
 }

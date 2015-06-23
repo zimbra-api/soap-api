@@ -40,22 +40,28 @@ class CheckDomainMXRecord extends Base
         parent::__construct();
         if($domain instanceof Domain)
         {
-            $this->child('domain', $domain);
+            $this->setChild('domain', $domain);
         }
     }
 
     /**
-     * Gets or sets domain
+     * Gets the domain.
+     *
+     * @return Domain
+     */
+    public function getDomain()
+    {
+        return $this->getChild('domain');
+    }
+
+    /**
+     * Sets the domain.
      *
      * @param  Domain $domain
-     * @return Domain|self
+     * @return self
      */
-    public function domain(Domain $domain = null)
+    public function setDomain(Domain $domain)
     {
-        if(null === $domain)
-        {
-            return $this->child('domain');
-        }
-        return $this->child('domain', $domain);
+        return $this->setChild('domain', $domain);
     }
 }

@@ -33,7 +33,7 @@ class XmppComponentSpec extends AdminAttrsImpl
         $name,
         DomainSelector $domain,
         ServerSelector $server,
-        array $attrs = array()
+        array $attrs = []
     )
     {
         parent::__construct($attrs);
@@ -64,7 +64,7 @@ class XmppComponentSpec extends AdminAttrsImpl
     }
 
     /**
-     * Sets the domain.
+     * Gets the domain.
      *
      * @return DomainSelector
      */

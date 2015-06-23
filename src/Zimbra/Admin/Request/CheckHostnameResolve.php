@@ -33,22 +33,28 @@ class CheckHostnameResolve extends Base
         parent::__construct();
         if(null !== $hostname)
         {
-            $this->property('hostname', trim($hostname));
+            $this->setProperty('hostname', trim($hostname));
         }
     }
 
     /**
-     * Gets or sets hostname
+     * Gets hostname
+     *
+     * @return string
+     */
+    public function getHostname()
+    {
+        return $this->getProperty('hostname');
+    }
+
+    /**
+     * Sets hostname
      *
      * @param  string $hostname
-     * @return string|self
+     * @return self
      */
-    public function hostname($hostname = null)
+    public function setHostname($hostname)
     {
-        if(null === $hostname)
-        {
-            return $this->property('hostname');
-        }
-        return $this->property('hostname', trim($hostname));
+        return $this->setProperty('hostname', trim($hostname));
     }
 }

@@ -46,7 +46,7 @@ class TzFixupRuleMatchDates extends Base
     }
 
     /**
-     * Sets the standard match date.
+     * Gets the standard match date.
      *
      * @return TzFixupRuleMatchDate
      */
@@ -67,7 +67,7 @@ class TzFixupRuleMatchDates extends Base
     }
 
     /**
-     * Sets the daylight match date.
+     * Gets the daylight match date.
      *
      * @return TzFixupRuleMatchDate
      */

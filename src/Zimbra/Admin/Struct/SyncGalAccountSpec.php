@@ -37,7 +37,7 @@ class SyncGalAccountSpec extends Base
      * @param array $dataSources SyncGalAccount data source specifications
      * @return self
      */
-    public function __construct($id, array $dataSources = array())
+    public function __construct($id, array $dataSources = [])
     {
         parent::__construct();
         $this->setProperty('id', trim($id));
@@ -86,7 +86,7 @@ class SyncGalAccountSpec extends Base
     }
 
     /**
-     * Gets data source sequence
+     * Sets data source sequence
      *
      * @param array $dataSources
      * @return self

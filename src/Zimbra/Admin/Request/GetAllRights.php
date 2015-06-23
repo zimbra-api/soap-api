@@ -36,60 +36,78 @@ class GetAllRights extends Base
         parent::__construct();
         if(null !== $targetType)
         {
-            $this->property('targetType', trim($targetType));
+            $this->setProperty('targetType', trim($targetType));
         }
         if(null !== $expandAllAttrs)
         {
-            $this->property('expandAllAttrs', (bool) $expandAllAttrs);
+            $this->setProperty('expandAllAttrs', (bool) $expandAllAttrs);
         }
         if($rightClass instanceof RightClass)
         {
-            $this->property('rightClass', $rightClass);
+            $this->setProperty('rightClass', $rightClass);
         }
     }
 
     /**
-     * Gets or sets targetType
+     * Gets targetType
+     *
+     * @return string
+     */
+    public function getTargetType()
+    {
+        return $this->getProperty('targetType');
+    }
+
+    /**
+     * Sets targetType
      *
      * @param  string $targetType
-     * @return string|self
+     * @return self
      */
-    public function targetType($targetType = null)
+    public function setTargetType($targetType)
     {
-        if(null === $targetType)
-        {
-            return $this->property('targetType');
-        }
-        return $this->property('targetType', trim($targetType));
+        return $this->setProperty('targetType', trim($targetType));
     }
 
     /**
-     * Gets or sets expandAllAttrs
+     * Gets expandAllAttrs
+     *
+     * @return bool
+     */
+    public function getExpandAllAttrs()
+    {
+        return $this->getProperty('expandAllAttrs');
+    }
+
+    /**
+     * Sets expandAllAttrs
      *
      * @param  bool $expandAllAttrs
-     * @return bool|self
+     * @return self
      */
-    public function expandAllAttrs($expandAllAttrs = null)
+    public function setExpandAllAttrs($expandAllAttrs)
     {
-        if(null === $expandAllAttrs)
-        {
-            return $this->property('expandAllAttrs');
-        }
-        return $this->property('expandAllAttrs', (bool) $expandAllAttrs);
+        return $this->setProperty('expandAllAttrs', (bool) $expandAllAttrs);
     }
 
     /**
-     * Gets or sets rightClass
+     * Gets rightClass
+     *
+     * @return RightClass
+     */
+    public function getRightClass()
+    {
+        return $this->getProperty('rightClass');
+    }
+
+    /**
+     * Sets rightClass
      *
      * @param  RightClass $rightClass
-     * @return RightClass|self
+     * @return self
      */
-    public function rightClass(RightClass $rightClass = null)
+    public function setRightClass(RightClass $rightClass)
     {
-        if(null === $rightClass)
-        {
-            return $this->property('rightClass');
-        }
-        return $this->property('rightClass', $rightClass);
+        return $this->setProperty('rightClass', $rightClass);
     }
 }

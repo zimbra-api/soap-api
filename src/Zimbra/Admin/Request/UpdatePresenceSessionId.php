@@ -36,57 +36,75 @@ class UpdatePresenceSessionId extends BaseAttr
         UcService $ucservice,
         $username,
         $password,
-        array $attrs = array()
+        array $attrs = []
     )
     {
         parent::__construct($attrs);
-        $this->child('ucservice', $ucservice);
-        $this->child('username', trim($username));
-        $this->child('password', trim($password));
+        $this->setChild('ucservice', $ucservice);
+        $this->setChild('username', trim($username));
+        $this->setChild('password', trim($password));
     }
 
     /**
-     * Gets or sets ucservice
+     * Gets the ucservice.
+     *
+     * @return UcService
+     */
+    public function getUcService()
+    {
+        return $this->getChild('ucservice');
+    }
+
+    /**
+     * Sets the ucservice.
      *
      * @param  UcService $ucservice
-     * @return UcService|self
+     * @return self
      */
-    public function ucservice(UcService $ucservice = null)
+    public function setUcService(UcService $ucservice)
     {
-        if(null === $ucservice)
-        {
-            return $this->child('ucservice');
-        }
-        return $this->child('ucservice', $ucservice);
+        return $this->setChild('ucservice', $ucservice);
     }
 
     /**
-     * Gets or sets username
+     * Gets username
+     *
+     * @return string
+     */
+    public function getUserName()
+    {
+        return $this->getChild('username');
+    }
+
+    /**
+     * Sets username
      *
      * @param  string $username
-     * @return string|self
+     * @return self
      */
-    public function username($username = null)
+    public function setUserName($username)
     {
-        if(null === $username)
-        {
-            return $this->child('username');
-        }
-        return $this->child('username', trim($username));
+        return $this->setChild('username', trim($username));
     }
 
     /**
-     * Gets or sets password
+     * Gets password
+     *
+     * @return string
+     */
+    public function getPassword()
+    {
+        return $this->getChild('password');
+    }
+
+    /**
+     * Sets password
      *
      * @param  string $password
-     * @return string|self
+     * @return self
      */
-    public function password($password = null)
+    public function setPassword($password)
     {
-        if(null === $password)
-        {
-            return $this->child('password');
-        }
-        return $this->child('password', trim($password));
+        return $this->setChild('password', trim($password));
     }
 }

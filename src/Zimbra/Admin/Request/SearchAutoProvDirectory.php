@@ -11,6 +11,8 @@
 namespace Zimbra\Admin\Request;
 
 use Zimbra\Admin\Struct\DomainSelector as Domain;
+use Zimbra\Struct\AttributeSelectorTrait;
+use Zimbra\Struct\AttributeSelector;
 
 /**
  * SearchAutoProvDirectory request class
@@ -22,8 +24,10 @@ use Zimbra\Admin\Struct\DomainSelector as Domain;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
  */
-class SearchAutoProvDirectory extends Base
+class SearchAutoProvDirectory extends Base implements AttributeSelector
 {
+    use AttributeSelectorTrait;
+
     /**
      * Constructor method for SearchAutoProvDirectory
      * @param Domain $domain Domain selector for the domain name to limit the search to (do not use if searching for domains)
@@ -46,174 +50,213 @@ class SearchAutoProvDirectory extends Base
         $limit = null,
         $offset = null,
         $refresh = null,
-        $attrs = null
+        array $attrs = []
     )
     {
         parent::__construct();
-        $this->child('domain', $domain);
-        $this->property('keyAttr', trim($keyAttr));
+        $this->setChild('domain', $domain);
+        $this->setProperty('keyAttr', trim($keyAttr));
         if(null !== $query)
         {
-            $this->property('query', trim($query));
+            $this->setProperty('query', trim($query));
         }
         if(null !== $name)
         {
-            $this->property('name', trim($name));
+            $this->setProperty('name', trim($name));
         }
         if(null !== $maxResults)
         {
-            $this->property('maxResults', (int) $maxResults);
+            $this->setProperty('maxResults', (int) $maxResults);
         }
         if(null !== $limit)
         {
-            $this->property('limit', (int) $limit);
+            $this->setProperty('limit', (int) $limit);
         }
         if(null !== $offset)
         {
-            $this->property('offset', (int) $offset);
+            $this->setProperty('offset', (int) $offset);
         }
         if(null !== $refresh)
         {
-            $this->property('refresh', (bool) $refresh);
+            $this->setProperty('refresh', (bool) $refresh);
         }
-        if(null !== $attrs)
+
+        $this->setAttrs($attrs);
+        $this->on('before', function(Base $sender)
         {
-            $this->property('attrs', trim($attrs));
-        }
+            $attrs = $sender->getAttrs();
+            if(!empty($attrs))
+            {
+                $sender->setProperty('attrs', $attrs);
+            }
+        });
     }
 
     /**
-     * Gets or sets domain
+     * Gets the domain.
+     *
+     * @return Domain
+     */
+    public function getDomain()
+    {
+        return $this->getChild('domain');
+    }
+
+    /**
+     * Sets the domain.
      *
      * @param  Domain $domain
-     * @return Domain|self
+     * @return self
      */
-    public function domain(Domain $domain = null)
+    public function setDomain(Domain $domain)
     {
-        if(null === $domain)
-        {
-            return $this->child('domain');
-        }
-        return $this->child('domain', $domain);
+        return $this->setChild('domain', $domain);
     }
 
     /**
-     * Gets or sets keyAttr
+     * Gets keyAttr
+     *
+     * @return string
+     */
+    public function getKeyAttr()
+    {
+        return $this->getProperty('keyAttr');
+    }
+
+    /**
+     * Sets keyAttr
      *
      * @param  string $keyAttr
-     * @return string|self
+     * @return self
      */
-    public function keyAttr($keyAttr = null)
+    public function setKeyAttr($keyAttr)
     {
-        if(null === $keyAttr)
-        {
-            return $this->property('keyAttr');
-        }
-        return $this->property('keyAttr', trim($keyAttr));
+        return $this->setProperty('keyAttr', trim($keyAttr));
     }
 
     /**
-     * Gets or sets query
+     * Gets query
+     *
+     * @return string
+     */
+    public function getQuery()
+    {
+        return $this->getProperty('query');
+    }
+
+    /**
+     * Sets query
      *
      * @param  string $query
-     * @return string|self
+     * @return self
      */
-    public function query($query = null)
+    public function setQuery($query)
     {
-        if(null === $query)
-        {
-            return $this->property('query');
-        }
-        return $this->property('query', trim($query));
+        return $this->setProperty('query', trim($query));
     }
 
     /**
-     * Gets or sets name
+     * Gets name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->getProperty('name');
+    }
+
+    /**
+     * Sets name
      *
      * @param  string $name
-     * @return string|self
+     * @return self
      */
-    public function name($name = null)
+    public function setName($name)
     {
-        if(null === $name)
-        {
-            return $this->property('name');
-        }
-        return $this->property('name', trim($name));
+        return $this->setProperty('name', trim($name));
     }
 
     /**
-     * Gets or sets maxResults
+     * Gets max results
+     *
+     * @return int
+     */
+    public function getMaxResults()
+    {
+        return $this->getProperty('maxResults');
+    }
+
+    /**
+     * Sets max results
      *
      * @param  int $maxResults
-     * @return int|self
+     * @return self
      */
-    public function maxResults($maxResults = null)
+    public function setMaxResults($maxResults)
     {
-        if(null === $maxResults)
-        {
-            return $this->property('maxResults');
-        }
-        return $this->property('maxResults', (int) $maxResults);
+        return $this->setProperty('maxResults', (int) $maxResults);
     }
 
     /**
-     * Gets or sets limit
+     * Gets limit
+     *
+     * @return int
+     */
+    public function getLimit()
+    {
+        return $this->getProperty('limit');
+    }
+
+    /**
+     * Sets limit
      *
      * @param  int $limit
-     * @return int|self
+     * @return self
      */
-    public function limit($limit = null)
+    public function setLimit($limit)
     {
-        if(null === $limit)
-        {
-            return $this->property('limit');
-        }
-        return $this->property('limit', (int) $limit);
+        return $this->setProperty('limit', (int) $limit);
     }
 
     /**
-     * Gets or sets offset
+     * Gets offset
+     *
+     * @return int
+     */
+    public function getOffset()
+    {
+        return $this->getProperty('offset');
+    }
+
+    /**
+     * Sets offset
      *
      * @param  int $offset
-     * @return int|self
+     * @return self
      */
-    public function offset($offset = null)
+    public function setOffset($offset)
     {
-        if(null === $offset)
-        {
-            return $this->property('offset');
-        }
-        return $this->property('offset', (int) $offset);
+        return $this->setProperty('offset', (int) $offset);
     }
 
     /**
-     * Gets or sets refresh
+     * Gets refresh
+     *
+     * @return bool
+     */
+    public function getRefresh()
+    {
+        return $this->getProperty('refresh');
+    }
+
+    /**
+     * Sets refresh
      *
      * @param  bool $refresh
-     * @return bool|self
+     * @return self
      */
-    public function refresh($refresh = null)
+    public function setRefresh($refresh)
     {
-        if(null === $refresh)
-        {
-            return $this->property('refresh');
-        }
-        return $this->property('refresh', (bool) $refresh);
-    }
-
-    /**
-     * Gets or sets attrs
-     *
-     * @param  string $attrs
-     * @return string|self
-     */
-    public function attrs($attrs = null)
-    {
-        if(null === $attrs)
-        {
-            return $this->property('attrs');
-        }
-        return $this->property('attrs', trim($attrs));
+        return $this->setProperty('refresh', (bool) $refresh);
     }
 }

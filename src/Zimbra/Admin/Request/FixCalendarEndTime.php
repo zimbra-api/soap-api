@@ -29,45 +29,51 @@ class FixCalendarEndTime extends Base
      * Accounts
      * @var TypedSequence<NamedElement>
      */
-    private $_account;
+    private $_accounts;
 
     /**
      * Constructor method for FixCalendarEndTime
      * @param  bool $sync Sync flag
-     * @param  array $account Accounts
+     * @param  array $accounts Accounts
      * @return self
      */
-    public function __construct($sync = null, array $account = array())
+    public function __construct($sync = null, array $accounts = [])
     {
         parent::__construct();
         if(null !== $sync)
         {
-            $this->property('sync', (bool) $sync);
+            $this->setProperty('sync', (bool) $sync);
         }
-        $this->_account = new TypedSequence('Zimbra\Struct\NamedElement', $account);
+        $this->setAccounts($accounts);
 
         $this->on('before', function(Base $sender)
         {
-            if($sender->account()->count())
+            if($sender->getAccounts()->count())
             {
-                $sender->child('account', $sender->account()->all());
+                $sender->setChild('account', $sender->getAccounts()->all());
             }
         });
     }
 
     /**
-     * Gets or sets sync
+     * Gets sync
+     *
+     * @return bool
+     */
+    public function getSync()
+    {
+        return $this->getProperty('sync');
+    }
+
+    /**
+     * Sets sync
      *
      * @param  bool $sync
-     * @return bool|self
+     * @return self
      */
-    public function sync($sync = null)
+    public function setSync($sync)
     {
-        if(null === $sync)
-        {
-            return $this->property('sync');
-        }
-        return $this->property('sync', (bool) $sync);
+        return $this->setProperty('sync', (bool) $sync);
     }
 
     /**
@@ -78,17 +84,29 @@ class FixCalendarEndTime extends Base
      */
     public function addAccount(Account $account)
     {
-        $this->_account->add($account);
+        $this->_accounts->add($account);
         return $this;
     }
 
     /**
-     * Gets account equence
+     * Sets account sequence
+     *
+     * @param  array $accounts
+     * @return self
+     */
+    public function setAccounts(array $accounts)
+    {
+        $this->_accounts = new TypedSequence('Zimbra\Struct\NamedElement', $accounts);
+        return $this;
+    }
+
+    /**
+     * Gets account sequence
      *
      * @return Sequence
      */
-    public function account()
+    public function getAccounts()
     {
-        return $this->_account;
+        return $this->_accounts;
     }
 }

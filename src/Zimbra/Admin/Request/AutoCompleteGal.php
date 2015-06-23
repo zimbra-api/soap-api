@@ -42,94 +42,145 @@ class AutoCompleteGal extends Base
     )
     {
         parent::__construct();
-        $this->property('domain', trim($domain));
-        $this->property('name', trim($name));
+        $this->setProperty('domain', trim($domain));
+        $this->setProperty('name', trim($name));
         if($type instanceof GalSearchType)
         {
-            $this->property('type', $type);
+            $this->setProperty('type', $type);
         }
         if(null !== $galAcctId)
         {
-            $this->property('galAcctId', trim($galAcctId));
+            $this->setProperty('galAcctId', trim($galAcctId));
         }
         if(null !== $limit)
         {
-            $this->property('limit', (int) $limit);
+            $this->setProperty('limit', (int) $limit);
         }
     }
 
     /**
-     * Gets or sets domain
+     * Gets domain
+     *
+     * @return string
+     */
+    public function getDomain()
+    {
+        return $this->getProperty('domain');
+    }
+
+    /**
+     * Sets domain
      *
      * @param  string $domain
-     * @return string|self
+     * @return self
      */
-    public function domain($domain = null)
+    public function setDomain($domain)
     {
-        if(null === $domain)
-        {
-            return $this->property('domain');
-        }
-        return $this->property('domain', trim($domain));
+        return $this->setProperty('domain', trim($domain));
     }
 
     /**
-     * Gets or sets name
+     * Gets name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->getProperty('name');
+    }
+
+    /**
+     * Sets name
      *
      * @param  string $name
-     * @return string|self
+     * @return self
      */
-    public function name($name = null)
+    public function setName($name)
     {
-        if(null === $name)
-        {
-            return $this->property('name');
-        }
-        return $this->property('name', trim($name));
+        return $this->setProperty('name', trim($name));
     }
 
     /**
-     * Gets or sets type
+     * Gets type of addresses
      *
-     * @param  GalSearchType $type
-     * @return GalSearchType|self
+     * @return string
      */
-    public function type(GalSearchType $type = null)
+    public function getAlias()
     {
-        if(null === $type)
-        {
-            return $this->property('type');
-        }
-        return $this->property('type', $type);
+        return $this->getProperty('type');
     }
 
     /**
-     * Gets or sets galAcctId
+     * Sets type of addresses
+     *
+     * @param  string $type
+     * @return self
+     */
+    public function setAlias($type)
+    {
+        return $this->setProperty('type', trim($type));
+    }
+
+    /**
+     * Gets type of addresses
+     *
+     * @return GalSearchType
+     */
+    public function getType()
+    {
+        return $this->getProperty('type');
+    }
+
+    /**
+     * Sets type of addresses
+     *
+     * @param  string $type
+     * @return self
+     */
+    public function setType(GalSearchType $type)
+    {
+        return $this->setProperty('type', $type);
+    }
+
+    /**
+     * Gets GAL account Id
+     *
+     * @return string
+     */
+    public function getGalAccountId()
+    {
+        return $this->getProperty('galAcctId');
+    }
+
+    /**
+     * Sets GAL account Id
      *
      * @param  string $galAcctId
-     * @return string|self
+     * @return self
      */
-    public function galAcctId($galAcctId = null)
+    public function setGalAccountId($galAcctId)
     {
-        if(null === $galAcctId)
-        {
-            return $this->property('galAcctId');
-        }
-        return $this->property('galAcctId', trim($galAcctId));
+        return $this->setProperty('galAcctId', trim($galAcctId));
     }
 
     /**
-     * Gets or sets limit
+     * Gets limit
+     *
+     * @return int
+     */
+    public function getLimit()
+    {
+        return $this->getProperty('limit');
+    }
+
+    /**
+     * Sets limit
      *
      * @param  int $limit
-     * @return int|self
+     * @return self
      */
-    public function limit($limit = null)
+    public function setLimit($limit)
     {
-        if(null === $limit)
-        {
-            return $this->property('limit');
-        }
-        return $this->property('limit', (int) $limit);
+        return $this->setProperty('limit', (int) $limit);
     }
 }

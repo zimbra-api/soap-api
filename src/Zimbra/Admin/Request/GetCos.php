@@ -11,6 +11,8 @@
 namespace Zimbra\Admin\Request;
 
 use Zimbra\Admin\Struct\CosSelector as Cos;
+use Zimbra\Struct\AttributeSelectorTrait;
+use Zimbra\Struct\AttributeSelector;
 
 /**
  * GetCos request class
@@ -22,54 +24,53 @@ use Zimbra\Admin\Struct\CosSelector as Cos;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
  */
-class GetCos extends Base
+class GetCos extends Base implements AttributeSelector
 {
+    use AttributeSelectorTrait;
+
     /**
      * Constructor method for GetCos
      * @param  Cos $cos Specify Class Of Service (COS)
-     * @param  string $attrs Comma separated list of attributes
+     * @param  string $attrs An array of attributes
      * @return self
      */
-    public function __construct(Cos $cos = null, $attrs = null)
+    public function __construct(Cos $cos = null, array $attrs = [])
     {
         parent::__construct();
         if($cos instanceof Cos)
         {
-            $this->child('cos', $cos);
+            $this->setChild('cos', $cos);
         }
-        if(null !== $attrs)
+
+        $this->setAttrs($attrs);
+        $this->on('before', function(Base $sender)
         {
-            $this->property('attrs', trim($attrs));
-        }
+            $attrs = $sender->getAttrs();
+            if(!empty($attrs))
+            {
+                $sender->setProperty('attrs', $attrs);
+            }
+        });
     }
 
     /**
-     * Gets or sets cos
+     * Gets the cos.
+     *
+     * @return Cos
+     */
+    public function getCos()
+    {
+        return $this->getChild('cos');
+    }
+
+    /**
+     * Sets the cos.
      *
      * @param  Cos $cos
-     * @return Cos|self
+     * @return self
      */
-    public function cos(Cos $cos = null)
+    public function setCos(Cos $cos)
     {
-        if(null === $cos)
-        {
-            return $this->child('cos');
-        }
-        return $this->child('cos', $cos);
-    }
-
-    /**
-     * Gets or sets attrs
-     *
-     * @param  string $attrs
-     * @return string|self
-     */
-    public function attrs($attrs = null)
-    {
-        if(null === $attrs)
-        {
-            return $this->property('attrs');
-        }
-        return $this->property('attrs', trim($attrs));
+        return $this->setChild('cos', $cos);
     }
 }

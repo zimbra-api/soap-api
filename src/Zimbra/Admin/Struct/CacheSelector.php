@@ -29,7 +29,7 @@ class CacheSelector extends Base
      * The entry
      * @var TypedSequence<CacheEntrySelector>
      */
-    private $_entries = array();
+    private $_entries;
 
     /**
      * Constructor method for CacheSelector
@@ -38,7 +38,7 @@ class CacheSelector extends Base
      * @param  array $entries The entries
      * @return self
      */
-    public function __construct($types, $allServers = null, array $entries = array())
+    public function __construct($types, $allServers = null, array $entries = [])
     {
         parent::__construct();
         $this->setTypes($types);
@@ -76,7 +76,7 @@ class CacheSelector extends Base
     public function setTypes($type)
     {
         $arrTypes = explode(',', $type);
-        $types = array();
+        $types = [];
         foreach ($arrTypes as $type)
         {
             $type = trim($type);

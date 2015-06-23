@@ -31,21 +31,27 @@ class AdminDestroyWaitSet extends Base
     public function __construct($waitSet)
     {
         parent::__construct();
-        $this->property('waitSet', trim($waitSet));
+        $this->setProperty('waitSet', trim($waitSet));
     }
 
     /**
-     * Gets or sets waitSet
+     * Gets Waitset ID
+     *
+     * @return string
+     */
+    public function getWaitSetId()
+    {
+        return $this->getProperty('waitSet');
+    }
+
+    /**
+     * Sets Waitset ID
      *
      * @param  string $waitSet
-     * @return string|self
+     * @return self
      */
-    public function waitSet($waitSet = null)
+    public function setWaitSetId($waitSet)
     {
-        if(null === $waitSet)
-        {
-            return $this->property('waitSet');
-        }
-        return $this->property('waitSet', trim($waitSet));
+        return $this->setProperty('waitSet', trim($waitSet));
     }
 }

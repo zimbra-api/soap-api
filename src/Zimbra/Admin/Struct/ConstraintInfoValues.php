@@ -28,14 +28,14 @@ class ConstraintInfoValues extends Base
      * Values
      * @var Sequence
      */
-    private $_values = array();
+    private $_values;
 
     /**
      * Constructor method for ConstraintInfoValues
      * @param  array $values
      * @return self
      */
-    public function __construct(array $values = array())
+    public function __construct(array $values = [])
     {
         parent::__construct();
         $this->setValues($values);
@@ -72,7 +72,7 @@ class ConstraintInfoValues extends Base
      */
     public function setValues(array $values)
     {
-        $arrValue = array();
+        $arrValue = [];
         foreach ($values as $value)
         {
             $value = trim($value);
