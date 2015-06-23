@@ -119,7 +119,7 @@ class VolumeInfo extends Base
      */
     public function setType($type)
     {
-        $type = in_array((int) $type, array(1, 2, 10)) ? (int) $type : 1;
+        $type = in_array((int) $type, [1, 2, 10]) ? (int) $type : 1;
         return $this->setProperty('type', $type);
     }
 
