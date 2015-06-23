@@ -52,14 +52,14 @@ class TextTest extends ZimbraTestCase
                        . 'Connection: close' . "\r\n"
                        . 'Transfer-encoding: chunked' . "\r\n"
                        . 'Content-type: text/html' . "\r\n";
-        $headers = array(
+        $headers =[
             'Date' => 'Sun, 25 Jun 2006 19:55:19 GMT',
             'Server' => 'Apache',
             'X-powered-by' => 'PHP/5.2.4',
             'Connection' => 'close',
             'Transfer-encoding' => 'chunked',
             'Content-type' => 'text/html',
-        );
+        ];
        $extractHeaders = Text::extractHeaders($headersString);
        $this->assertCount(count($headers), $extractHeaders);
        foreach ($headers as $key => $value)

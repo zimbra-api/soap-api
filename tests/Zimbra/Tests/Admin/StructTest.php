@@ -47,30 +47,30 @@ class StructTest extends ZimbraTestCase
         $attr1 = new \Zimbra\Struct\KeyValuePair($key1, $value1);
         $attr2 = new \Zimbra\Struct\KeyValuePair($key2, $value2);
         $attr3 = new \Zimbra\Struct\KeyValuePair($key3, $value3);
-        $stub->addAttr($attr1)->getAttrs()->addAll(array($attr2, $attr3));
+        $stub->addAttr($attr1)->getAttrs()->addAll([$attr2, $attr3]);
         foreach ($stub->getAttrs() as $attr)
         {
             $this->assertInstanceOf('\Zimbra\Struct\KeyValuePair', $attr);
         }
 
-        $arr = array(
-            'attrs' => array(
-                'a' => array(
-                    array(
+        $arr = [
+            'attrs' => [
+                'a' => [
+                    [
                         'n' => $key1,
                         '_content' => $value1,
-                    ),
-                    array(
+                    ],
+                    [
                         'n' => $key2,
                         '_content' => $value2,
-                    ),
-                    array(
+                    ],
+                    [
                         'n' => $key3,
                         '_content' => $value3,
-                    ),
-                )
-            ),
-        );
+                    ],
+                ],
+            ],
+        ];
         $this->assertEquals($arr, $stub->toArray());
 
         $xml = '<?xml version="1.0"?>' . "\n"
@@ -95,11 +95,11 @@ class StructTest extends ZimbraTestCase
             . '<content aid="' . $aid . '" />';
         $this->assertXmlStringEqualsXmlString($xml, (string) $content);
 
-        $array = array(
-            'content' => array(
+        $array = [
+            'content' => [
                 'aid' => $aid,
-            ),
-        );
+            ],
+        ];
         $this->assertEquals($array, $content->toArray());
     }
 
@@ -118,12 +118,12 @@ class StructTest extends ZimbraTestCase
             . '<entry by="' . CacheEntryBy::ID() . '">' . $value . '</entry>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $entry);
 
-        $array = array(
-            'entry' => array(
+        $array = [
+            'entry' => [
                 'by' => CacheEntryBy::ID()->value(),
                 '_content' => $value,
-            ),
-        );
+            ],
+        ];
         $this->assertEquals($array, $entry->toArray());
     }
 
@@ -131,44 +131,46 @@ class StructTest extends ZimbraTestCase
     {
         $value1 = md5(self::randomString());
         $value2 = md5(self::randomString());
+        $types = self::randomAttrs(\Zimbra\Enum\CacheType::enums());
+
         $entry1 = new \Zimbra\Admin\Struct\CacheEntrySelector(CacheEntryBy::ID(), $value1);
         $entry2 = new \Zimbra\Admin\Struct\CacheEntrySelector(CacheEntryBy::NAME(), $value2);
 
-        $cache = new \Zimbra\Admin\Struct\CacheSelector('skin,abc,locale,xyz,account', false, array($entry1));
-        $this->assertSame('skin,locale,account', $cache->getTypes());
+        $cache = new \Zimbra\Admin\Struct\CacheSelector($types, false, [$entry1]);
+        $this->assertSame($types, $cache->getTypes());
         $this->assertFalse($cache->isAllServers());
-        $this->assertSame(array($entry1), $cache->getEntries()->all());
+        $this->assertSame([$entry1], $cache->getEntries()->all());
 
-        $cache->setTypes('abc,skin,account,xyz')
+        $cache->setTypes($types)
               ->setAllServers(true)
               ->addEntry($entry2);
-        $this->assertSame('skin,account', $cache->getTypes());
+        $this->assertSame($types, $cache->getTypes());
         $this->assertTrue($cache->isAllServers());
-        $this->assertSame(array($entry1, $entry2), $cache->getEntries()->all());
+        $this->assertSame([$entry1, $entry2], $cache->getEntries()->all());
 
         $xml = '<?xml version="1.0"?>' . "\n"
-            . '<cache type="skin,account" allServers="true">'
+            . '<cache type="' . $types . '" allServers="true">'
                 . '<entry by="' . CacheEntryBy::ID() . '">' . $value1 . '</entry>'
                 . '<entry by="' . CacheEntryBy::NAME() . '">' . $value2 . '</entry>'
             . '</cache>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $cache);
 
-        $array = array(
-            'cache' => array(
-                'type' => 'skin,account',
+        $array = [
+            'cache' => [
+                'type' => $types,
                 'allServers' => true,
-                'entry' => array(
-                    array(
+                'entry' => [
+                    [
                         'by' => CacheEntryBy::ID()->value(),
                         '_content' => $value1,
-                    ),
-                    array(
+                    ],
+                    [
                         'by' => CacheEntryBy::NAME()->value(),
                         '_content' => $value2,
-                    ),
-                ),
-            ),
-        );
+                    ],
+                ],
+            ],
+        ];
         $this->assertEquals($array, $cache->toArray());
     }
 
@@ -186,12 +188,12 @@ class StructTest extends ZimbraTestCase
             . '<calresource by="' . CalResBy::NAME() . '">' . $value . '</calresource>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $cal);
 
-        $array = array(
-            'calresource' => array(
+        $array = [
+            'calresource' => [
                 'by' => CalResBy::NAME()->value(),
                 '_content' => $value,
-            ),
-        );
+            ],
+        ];
         $this->assertEquals($array, $cal->toArray());
     }
 
@@ -246,27 +248,27 @@ class StructTest extends ZimbraTestCase
             . '</tz>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $tzi);
 
-        $array = array(
-            'tz' => array(
+        $array = [
+            'tz' => [
                 'id' => $id,
                 'stdoff' => $stdoff,
                 'dayoff' => $dayoff,
                 'stdname' => $stdname,
                 'dayname' => $dayname,
-                'standard' => array(
+                'standard' => [
                     'mon' => $std_mon,
                     'hour' => $std_hour,
                     'min' => $std_min,
                     'sec' => $std_sec,
-                ),
-                'daylight' => array(
+                ],
+                'daylight' => [
                     'mon' => $day_mon,
                     'hour' => $day_hour,
                     'min' => $day_min,
                     'sec' => $day_sec,
-                ),
-            ),
-        );
+                ],
+            ],
+        ];
         $this->assertEquals($array, $tzi->toArray());
     }
 
@@ -286,12 +288,12 @@ class StructTest extends ZimbraTestCase
             . '<directory path="' . $path . '" create="true" />';
         $this->assertXmlStringEqualsXmlString($xml, (string) $dir);
 
-        $array = array(
-            'directory' => array(
+        $array = [
+            'directory' => [
                 'path' => $path,
                 'create' => true,
-            ),
-        );
+            ],
+        ];
         $this->assertEquals($array, $dir->toArray());
     }
 
@@ -300,10 +302,10 @@ class StructTest extends ZimbraTestCase
         $value1 = md5(self::randomString());
         $value2 = md5(self::randomString());
 
-        $values = new \Zimbra\Admin\Struct\ConstraintInfoValues(array($value1));
-        $this->assertSame(array($value1), $values->getValues()->all());
+        $values = new \Zimbra\Admin\Struct\ConstraintInfoValues([$value1]);
+        $this->assertSame([$value1], $values->getValues()->all());
         $values->addValue($value2);
-        $this->assertSame(array($value1, $value2), $values->getValues()->all());
+        $this->assertSame([$value1, $value2], $values->getValues()->all());
 
         $xml = '<?xml version="1.0"?>' . "\n"
                 . '<values>'
@@ -312,14 +314,14 @@ class StructTest extends ZimbraTestCase
                 . '</values>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $values);
 
-        $array = array(
-            'values' => array(
-                'v' => array(
+        $array = [
+            'values' => [
+                'v' => [
                     $value1,
                     $value2,
-                ),
-            ),
-        );
+                ],
+            ],
+        ];
         $this->assertEquals($array, $values->toArray());
     }
 
@@ -329,7 +331,7 @@ class StructTest extends ZimbraTestCase
         $max = md5(self::randomString());
         $min = md5(self::randomString());
 
-        $values = new \Zimbra\Admin\Struct\ConstraintInfoValues(array($value));
+        $values = new \Zimbra\Admin\Struct\ConstraintInfoValues([$value]);
         $constraint = new \Zimbra\Admin\Struct\ConstraintInfo($max, $min, $values);
         $this->assertSame($max, $constraint->getMin());
         $this->assertSame($min, $constraint->getMax());
@@ -352,17 +354,17 @@ class StructTest extends ZimbraTestCase
             . '</constraint>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $constraint);
 
-        $array = array(
-            'constraint' => array(
+        $array = [
+            'constraint' => [
                 'min' => $min,
                 'max' => $max,
-                'values' => array(
-                    'v' => array(
+                'values' => [
+                    'v' => [
                         $value,
-                    ),
-                ),
-            ),
-        );
+                    ],
+                ],
+            ],
+        ];
         $this->assertEquals($array, $constraint->toArray());
     }
 
@@ -373,7 +375,7 @@ class StructTest extends ZimbraTestCase
         $max = md5(self::randomString());
         $min = md5(self::randomString());
 
-        $values = new \Zimbra\Admin\Struct\ConstraintInfoValues(array($value));
+        $values = new \Zimbra\Admin\Struct\ConstraintInfoValues([$value]);
         $constraint = new \Zimbra\Admin\Struct\ConstraintInfo($min, $max, $values);
         $attr = new \Zimbra\Admin\Struct\ConstraintAttr($constraint, $name);
         $this->assertSame($name, $attr->getName());
@@ -397,20 +399,20 @@ class StructTest extends ZimbraTestCase
             . '</a>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $attr);
 
-        $array = array(
-            'a' => array(
+        $array = [
+            'a' => [
                 'name' => $name,
-                'constraint' => array(
+                'constraint' => [
                     'min' => $min,
                     'max' => $max,
-                    'values' => array(
-                        'v' => array(
+                    'values' => [
+                        'v' => [
                             $value,
-                        ),
-                    ),
-                ),
-            ),
-        );
+                        ],
+                    ],
+                ],
+            ],
+        ];
         $this->assertEquals($array, $attr->toArray());
     }
 
@@ -427,11 +429,11 @@ class StructTest extends ZimbraTestCase
             . '<cookie name="' . $name . '" />';
         $this->assertXmlStringEqualsXmlString($xml, (string) $cookie);
 
-        $array = array(
-            'cookie' => array(
+        $array = [
+            'cookie' => [
                 'name' => $name,
-            ),
-        );
+            ],
+        ];
         $this->assertEquals($array, $cookie->toArray());
     }
 
@@ -449,12 +451,12 @@ class StructTest extends ZimbraTestCase
             . '<cos by="' . CosBy::NAME() . '">' . $value . '</cos>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $cos);
 
-        $array = array(
-            'cos' => array(
+        $array = [
+            'cos' => [
                 'by' => CosBy::NAME()->value(),
                 '_content' => $value,
-            ),
-        );
+            ],
+        ];
         $this->assertEquals($array, $cos->toArray());
     }
 
@@ -481,18 +483,18 @@ class StructTest extends ZimbraTestCase
             . '</dataSource>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $ds);
 
-        $array = array(
-            'dataSource' => array(
+        $array = [
+            'dataSource' => [
                 'type' => DataSourceType::POP3()->value(),
                 'name' => $name,
-                'a' => array(
-                    array(
+                'a' => [
+                    [
                         'n' => $key,
                         '_content' => $value,
-                    ),
-                ),
-            ),
-        );
+                    ],
+                ],
+            ],
+        ];
         $this->assertEquals($array, $ds->toArray());
     }
 
@@ -509,11 +511,11 @@ class StructTest extends ZimbraTestCase
             . '<device id="' . $id . '" />';
         $this->assertXmlStringEqualsXmlString($xml, (string) $device);
 
-        $array = array(
-            'device' => array(
+        $array = [
+            'device' => [
                 'id' => $id,
-            ),
-        );
+            ],
+        ];
         $this->assertEquals($array, $device->toArray());
     }
 
@@ -531,12 +533,12 @@ class StructTest extends ZimbraTestCase
             . '<dl by="' . DLBy::NAME() . '">' . $value . '</dl>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $dl);
 
-        $array = array(
-            'dl' => array(
+        $array = [
+            'dl' => [
                 'by' => DLBy::NAME()->value(),
                 '_content' => $value,
-            ),
-        );
+            ],
+        ];
         $this->assertEquals($array, $dl->toArray());
     }
 
@@ -554,12 +556,12 @@ class StructTest extends ZimbraTestCase
             . '<domain by="' . DomainBy::NAME() . '">' . $value . '</domain>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $domain);
 
-        $array = array(
-            'domain' => array(
+        $array = [
+            'domain' => [
                 'by' => DomainBy::NAME()->value(),
                 '_content' => $value,
-            ),
-        );
+            ],
+        ];
         $this->assertEquals($array, $domain->toArray());
     }
 
@@ -583,13 +585,13 @@ class StructTest extends ZimbraTestCase
             . '<target type="' . TargetType::ACCOUNT() . '" by="' . TargetBy::NAME() . '">' . $value . '</target>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $target);
 
-        $array = array(
-            'target' => array(
+        $array = [
+            'target' => [
                 'type' => TargetType::ACCOUNT()->value(),
                 '_content' => $value,
                 'by' => TargetBy::NAME()->value(),
-            ),
-        );
+            ],
+        ];
         $this->assertEquals($array, $target->toArray());
     }
 
@@ -623,15 +625,15 @@ class StructTest extends ZimbraTestCase
             . '<auth url="' . $url . '" user="' . $user . '" pass="' . $pass . '" scheme="' . AuthScheme::FORM() . '" type="' . $type . '" />';
         $this->assertXmlStringEqualsXmlString($xml, (string) $exc);
 
-        $array = array(
-            'auth' => array(
+        $array = [
+            'auth' => [
                 'url' => $url,
                 'user' => $user,
                 'pass' => $pass,
                 'scheme' => AuthScheme::FORM()->value(),
                 'type' => $type,
-            ),
-        );
+            ],
+        ];
         $this->assertEquals($array, $exc->toArray());
     }
 
@@ -653,12 +655,12 @@ class StructTest extends ZimbraTestCase
             . '<item id="' . $id . '" version="' . $version . '" />';
         $this->assertXmlStringEqualsXmlString($xml, (string) $item);
 
-        $array = array(
-            'item' => array(
+        $array = [
+            'item' => [
                 'id' => $id,
                 'version' => $version,
-            ),
-        );
+            ],
+        ];
         $this->assertEquals($array, $item->toArray());
     }
 
@@ -669,15 +671,15 @@ class StructTest extends ZimbraTestCase
         $item1 = new \Zimbra\Admin\Struct\ExportAndDeleteItemSpec($id, $version);
         $item2 = new \Zimbra\Admin\Struct\ExportAndDeleteItemSpec($version, $id);
 
-        $mbox = new \Zimbra\Admin\Struct\ExportAndDeleteMailboxSpec($id, array($item1));
+        $mbox = new \Zimbra\Admin\Struct\ExportAndDeleteMailboxSpec($id, [$item1]);
         $this->assertSame($id, $mbox->getId());
-        $this->assertSame(array($item1), $mbox->getItems()->all());
+        $this->assertSame([$item1], $mbox->getItems()->all());
 
         $mbox->setId($id)
              ->addItem($item2);
 
         $this->assertSame($id, $mbox->getId());
-        $this->assertSame(array($item1, $item2), $mbox->getItems()->all());
+        $this->assertSame([$item1, $item2], $mbox->getItems()->all());
 
         $xml = '<?xml version="1.0"?>' . "\n"
             . '<mbox id="' . $id . '">'
@@ -686,21 +688,21 @@ class StructTest extends ZimbraTestCase
             . '</mbox>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $mbox);
 
-        $array = array(
-            'mbox' => array(
+        $array = [
+            'mbox' => [
                 'id' => $id,
-                'item' => array(
-                    array(
+                'item' => [
+                    [
                         'id' => $id,
                         'version' => $version,
-                    ),
-                    array(
+                    ],
+                    [
                         'id' => $version,
                         'version' => $id,
-                    ),
-                ),
-            ),
-        );
+                    ],
+                ],
+            ],
+        ];
         $this->assertEquals($array, $mbox->toArray());
     }
 
@@ -731,15 +733,15 @@ class StructTest extends ZimbraTestCase
             . '<grantee type="' . GranteeType::USR() . '" by="' . GranteeBy::ID() . '" secret="' . $secret . '" all="true">' . $value . '</grantee>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $grantee);
 
-        $array = array(
-            'grantee' => array(
+        $array = [
+            'grantee' => [
                 '_content' => $value,
                 'type' => GranteeType::USR()->value(),
                 'by' => GranteeBy::ID()->value(),
                 'secret' => $secret,
                 'all' => true,
-            ),
-        );
+            ],
+        ];
         $this->assertEquals($array, $grantee->toArray());
     }
 
@@ -756,19 +758,18 @@ class StructTest extends ZimbraTestCase
             . '<hostname hn="' . $name . '" />';
         $this->assertXmlStringEqualsXmlString($xml, (string) $host);
 
-        $array = array(
-            'hostname' => array(
+        $array = [
+            'hostname' => [
                 'hn' => $name,
-            ),
-        );
+            ],
+        ];
         $this->assertEquals($array, $host->toArray());
     }
 
     public function testIdAndAction()
     {
         $id = self::randomName();
-        $actions = array('bug72174', 'wiki', 'contactGroup');
-        $action = $actions[array_rand($actions, 1)];
+        $action = self::randomValue(['bug72174', 'wiki', 'contactGroup']);
 
         $ia = new \Zimbra\Admin\Struct\IdAndAction($id, $action);
         $this->assertSame($id, $ia->getId());
@@ -783,12 +784,12 @@ class StructTest extends ZimbraTestCase
             . '<ia id="' . $id . '" action="' . $action . '" />';
         $this->assertXmlStringEqualsXmlString($xml, (string) $ia);
 
-        $array = array(
-            'ia' => array(
+        $array = [
+            'ia' => [
                 'id' => $id,
                 'action' => $action,
-            ),
-        );
+            ],
+        ];
         $this->assertEquals($array, $ia->toArray());
     }
 
@@ -810,12 +811,12 @@ class StructTest extends ZimbraTestCase
             . '<device id="' . $id . '" status="' . $status . '" />';
         $this->assertXmlStringEqualsXmlString($xml, (string) $is);
 
-        $array = array(
-            'device' => array(
+        $array = [
+            'device' => [
                 'id' => $id,
                 'status' => $status,
-            ),
-        );
+            ],
+        ];
         $this->assertEquals($array, $is->toArray());
     }
 
@@ -832,11 +833,11 @@ class StructTest extends ZimbraTestCase
             . '<a value="' . $value . '" />';
         $this->assertXmlStringEqualsXmlString($xml, (string) $attr);
 
-        $array = array(
-            'a' => array(
+        $array = [
+            'a' => [
                 'value' => $value,
-            ),
-        );
+            ],
+        ];
         $this->assertEquals($array, $attr->toArray());
     }
 
@@ -853,11 +854,11 @@ class StructTest extends ZimbraTestCase
             . '<attr id="' . $value . '" />';
         $this->assertXmlStringEqualsXmlString($xml, (string) $attr);
 
-        $array = array(
-            'attr' => array(
+        $array = [
+            'attr' => [
                 'id' => $value,
-            ),
-        );
+            ],
+        ];
         $this->assertEquals($array, $attr->toArray());
     }
 
@@ -877,12 +878,12 @@ class StructTest extends ZimbraTestCase
             . '<query limit="' . $limit . '">' . $value . '</query>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $query);
 
-        $array = array(
-            'query' => array(
+        $array = [
+            'query' => [
                 'limit' => $limit,
                 '_content' => $value,
-            ),
-        );
+            ],
+        ];
         $this->assertEquals($array, $query->toArray());
     }
 
@@ -903,12 +904,12 @@ class StructTest extends ZimbraTestCase
             . '<logger category="' . $value . '" level="' . LoggingLevel::INFO() . '" />';
         $this->assertXmlStringEqualsXmlString($xml, (string) $logger);
 
-        $array = array(
-            'logger' => array(
+        $array = [
+            'logger' => [
                 'category' => $value,
                 'level' => LoggingLevel::INFO()->value(),
-            ),
-        );
+            ],
+        ];
         $this->assertEquals($array, $logger->toArray());
     }
 
@@ -925,11 +926,11 @@ class StructTest extends ZimbraTestCase
             . '<mbox id="' . $id . '" />';
         $this->assertXmlStringEqualsXmlString($xml, (string) $mbox);
 
-        $array = array(
-            'mbox' => array(
+        $array = [
+            'mbox' => [
                 'id' => $id,
-            ),
-        );
+            ],
+        ];
         $this->assertEquals($array, $mbox->toArray());
     }
 
@@ -941,8 +942,8 @@ class StructTest extends ZimbraTestCase
         $offset = mt_rand(0, 100);
 
         $attr = new \Zimbra\Admin\Struct\ValueAttrib($value);
-        $field = new \Zimbra\Admin\Struct\QueueQueryField($name, array($attr));
-        $query = new \Zimbra\Admin\Struct\QueueQuery(array($field), $limit, $offset);
+        $field = new \Zimbra\Admin\Struct\QueueQueryField($name, [$attr]);
+        $query = new \Zimbra\Admin\Struct\QueueQuery([$field], $limit, $offset);
         $action = new \Zimbra\Admin\Struct\MailQueueAction($query, QueueAction::REQUEUE(), QueueActionBy::ID());
 
         $this->assertSame($query, $action->getQuery());
@@ -967,24 +968,26 @@ class StructTest extends ZimbraTestCase
             . '</action>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $action);
 
-        $array = array(
-            'action' => array(
+        $array = [
+            'action' => [
                 'op' => QueueAction::HOLD()->value(),
                 'by' => QueueActionBy::QUERY()->value(),
-                'query' => array(
+                'query' => [
                     'limit' => $limit,
                     'offset' => $offset,
-                    'field' => array(
-                        array(
+                    'field' => [
+                        [
                             'name' => $name,
-                            'match' => array(
-                                array('value' => $value),
-                            )
-                        )
-                    ),
-                ),
-            ),
-        );
+                            'match' => [
+                                [
+                                    'value' => $value,
+                                ],
+                            ],
+                        ],
+                    ],
+                ],
+            ],
+        ];
         $this->assertEquals($array, $action->toArray());
     }
 
@@ -997,8 +1000,8 @@ class StructTest extends ZimbraTestCase
         $wait = mt_rand(0, 100);
 
         $attr = new \Zimbra\Admin\Struct\ValueAttrib($value);
-        $field = new \Zimbra\Admin\Struct\QueueQueryField($name, array($attr));
-        $query = new \Zimbra\Admin\Struct\QueueQuery(array($field), $limit, $offset);
+        $field = new \Zimbra\Admin\Struct\QueueQueryField($name, [$attr]);
+        $query = new \Zimbra\Admin\Struct\QueueQuery([$field], $limit, $offset);
 
         $queue = new \Zimbra\Admin\Struct\MailQueueQuery($query, $name, false, $wait);
         $this->assertSame($query, $queue->getQuery());
@@ -1025,25 +1028,27 @@ class StructTest extends ZimbraTestCase
             . '</queue>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $queue);
 
-        $array = array(
-            'queue' => array(
+        $array = [
+            'queue' => [
                 'name' => $name,
                 'scan' => true,
                 'wait' => $wait,
-                'query' => array(
+                'query' => [
                     'limit' => $limit,
                     'offset' => $offset,
-                    'field' => array(
-                        array(
+                    'field' => [
+                        [
                             'name' => $name,
-                            'match' => array(
-                                array('value' => $value),
-                            )
-                        )
-                    ),
-                ),
-            ),
-        );
+                            'match' => [
+                                [
+                                    'value' => $value,
+                                ],
+                            ],
+                        ],
+                    ],
+                ],
+            ],
+        ];
         $this->assertEquals($array, $queue->toArray());
     }
 
@@ -1055,8 +1060,8 @@ class StructTest extends ZimbraTestCase
         $offset = mt_rand(0, 100);
 
         $attr = new \Zimbra\Admin\Struct\ValueAttrib($value);
-        $field = new \Zimbra\Admin\Struct\QueueQueryField($name, array($attr));
-        $query = new \Zimbra\Admin\Struct\QueueQuery(array($field), $limit, $offset);
+        $field = new \Zimbra\Admin\Struct\QueueQueryField($name, [$attr]);
+        $query = new \Zimbra\Admin\Struct\QueueQuery([$field], $limit, $offset);
         $action = new \Zimbra\Admin\Struct\MailQueueAction($query, QueueAction::HOLD(), QueueActionBy::QUERY());
 
         $queue = new \Zimbra\Admin\Struct\MailQueueWithAction($action, $name);
@@ -1080,27 +1085,29 @@ class StructTest extends ZimbraTestCase
             . '</queue>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $queue);
 
-        $array = array(
-            'queue' => array(
+        $array = [
+            'queue' => [
                 'name' => $name,
-                'action' => array(
+                'action' => [
                     'op' => QueueAction::HOLD()->value(),
                     'by' => QueueActionBy::QUERY()->value(),
-                    'query' => array(
+                    'query' => [
                         'limit' => $limit,
                         'offset' => $offset,
-                        'field' => array(
-                            array(
+                        'field' => [
+                            [
                                 'name' => $name,
-                                'match' => array(
-                                    array('value' => $value),
-                                )
-                            )
-                        ),
-                    ),
-                ),
-            ),
-        );
+                                'match' => [
+                                    [
+                                        'value' => $value
+                                    ],
+                                ],
+                            ],
+                        ],
+                    ],
+                ],
+            ],
+        ];
         $this->assertEquals($array, $queue->toArray());
     }
 
@@ -1117,11 +1124,11 @@ class StructTest extends ZimbraTestCase
             . '<name name="' . $name . '" />';
         $this->assertXmlStringEqualsXmlString($xml, (string) $names);
 
-        $array = array(
-            'name' => array(
+        $array = [
+            'name' => [
                 'name' => $name,
-            ),
-        );
+            ],
+        ];
         $this->assertEquals($array, $names->toArray());
     }
 
@@ -1138,11 +1145,11 @@ class StructTest extends ZimbraTestCase
             . '<offset offset="' . $value . '" />';
         $this->assertXmlStringEqualsXmlString($xml, (string) $offset);
 
-        $array = array(
-            'offset' => array(
+        $array = [
+            'offset' => [
                 'offset' => $value,
-            ),
-        );
+            ],
+        ];
         $this->assertEquals($array, $offset->toArray());
     }
 
@@ -1159,11 +1166,11 @@ class StructTest extends ZimbraTestCase
             . '<package name="' . $name . '" />';
         $this->assertXmlStringEqualsXmlString($xml, (string) $package);
 
-        $array = array(
-            'package' => array(
+        $array = [
+            'package' => [
                 'name' => $name,
-            ),
-        );
+            ],
+        ];
         $this->assertEquals($array, $package->toArray());
     }
 
@@ -1192,15 +1199,15 @@ class StructTest extends ZimbraTestCase
             . '<policy type="' . Type::USER() . '" id="' . $id . '" name="' . $name . '" lifetime="' . $lifetime . '" />';
         $this->assertXmlStringEqualsXmlString($xml, (string) $policy);
 
-        $array = array(
-            'policy' => array(
+        $array = [
+            'policy' => [
                 '_jsns' => 'urn:zimbraMail',
                 'type' => Type::USER()->value(),
                 'id' => $id,
                 'name' => $name,
                 'lifetime' => $lifetime,
-            ),
-        );
+            ],
+        ];
         $this->assertEquals($array, $policy->toArray());
     }
 
@@ -1222,17 +1229,17 @@ class StructTest extends ZimbraTestCase
             . '</holder>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $holder);
 
-        $array = array(
-            'holder' => array(
-                'policy' => array(
+        $array = [
+            'holder' => [
+                'policy' => [
                     '_jsns' => 'urn:zimbraMail',
                     'type' => Type::SYSTEM()->value(),
                     'id' => $id,
                     'name' => $name,
                     'lifetime' => $lifetime,
-                ),
-            ),
-        );
+                ],
+            ],
+        ];
         $this->assertEquals($array, $holder->toArray());
     }
 
@@ -1251,12 +1258,12 @@ class StructTest extends ZimbraTestCase
             . '<principal by="' . PrincipalBy::NAME() . '">' . $value . '</principal>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $pri);
 
-        $array = array(
-            'principal' => array(
+        $array = [
+            'principal' => [
                 'by' => PrincipalBy::NAME()->value(),
                 '_content' => $value,
-            ),
-        );
+            ],
+        ];
         $this->assertEquals($array, $pri->toArray());
     }
 
@@ -1269,14 +1276,14 @@ class StructTest extends ZimbraTestCase
         $match1 = new \Zimbra\Admin\Struct\ValueAttrib($value1);
         $match2 = new \Zimbra\Admin\Struct\ValueAttrib($value2);
 
-        $field = new \Zimbra\Admin\Struct\QueueQueryField($name, array($match1));
+        $field = new \Zimbra\Admin\Struct\QueueQueryField($name, [$match1]);
         $this->assertSame($name, $field->getName());
-        $this->assertSame(array($match1), $field->getMatches()->all());
+        $this->assertSame([$match1], $field->getMatches()->all());
 
         $field->setName($name)
               ->addMatch($match2);
         $this->assertSame($name, $field->getName());
-        $this->assertSame(array($match1, $match2), $field->getMatches()->all());
+        $this->assertSame([$match1, $match2], $field->getMatches()->all());
 
         $xml = '<?xml version="1.0"?>' . "\n"
             . '<field name="' . $name . '">'
@@ -1285,15 +1292,19 @@ class StructTest extends ZimbraTestCase
             . '</field>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $field);
 
-        $array = array(
-            'field' => array(
+        $array = [
+            'field' => [
                 'name' => $name,
-                'match' => array(
-                    array('value' => $value1),
-                    array('value' => $value2),
-                )
-            ),
-        );
+                'match' => [
+                    [
+                        'value' => $value1,
+                    ],
+                    [
+                        'value' => $value2,
+                    ],
+                ],
+            ],
+        ];
         $this->assertEquals($array, $field->toArray());
     }
 
@@ -1305,19 +1316,19 @@ class StructTest extends ZimbraTestCase
         $offset = mt_rand(0, 100);
 
         $match = new \Zimbra\Admin\Struct\ValueAttrib($value);
-        $field = new \Zimbra\Admin\Struct\QueueQueryField($name, array($match));
+        $field = new \Zimbra\Admin\Struct\QueueQueryField($name, [$match]);
 
-        $query = new \Zimbra\Admin\Struct\QueueQuery(array($field), $limit, $offset);
+        $query = new \Zimbra\Admin\Struct\QueueQuery([$field], $limit, $offset);
         $this->assertSame($limit, $query->getLimit());
         $this->assertSame($offset, $query->getOffset());
-        $this->assertSame(array($field), $query->getFields()->all());
+        $this->assertSame([$field], $query->getFields()->all());
 
         $query->setLimit($limit)
               ->setOffset($offset)
               ->addField($field);
         $this->assertSame($limit, $query->getLimit());
         $this->assertSame($offset, $query->getOffset());
-        $this->assertSame(array($field, $field), $query->getFields()->all());
+        $this->assertSame([$field, $field], $query->getFields()->all());
 
         $xml = '<?xml version="1.0"?>' . "\n"
             . '<query limit="' . $limit . '" offset="' . $offset . '">'
@@ -1330,26 +1341,30 @@ class StructTest extends ZimbraTestCase
             . '</query>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $query);
 
-        $array = array(
-            'query' => array(
+        $array = [
+            'query' => [
                 'limit' => $limit,
                 'offset' => $offset,
-                'field' => array(
-                    array(
+                'field' => [
+                    [
                         'name' => $name,
-                        'match' => array(
-                            array('value' => $value),
-                        )
-                    ),
-                    array(
+                        'match' => [
+                            [
+                                'value' => $value,
+                            ],
+                        ],
+                    ],
+                    [
                         'name' => $name,
-                        'match' => array(
-                            array('value' => $value),
-                        )
-                    ),
-                ),
-            ),
-        );
+                        'match' => [
+                            [
+                                'value' => $value,
+                            ],
+                        ],
+                    ],
+                ],
+            ],
+        ];
         $this->assertEquals($array, $query->toArray());
     }
 
@@ -1357,30 +1372,31 @@ class StructTest extends ZimbraTestCase
     {
         $id = self::randomName();
         $ids = self::randomName();
+        $types = self::randomAttrs(\Zimbra\Enum\ReindexType::enums());
 
-        $mbox = new \Zimbra\Admin\Struct\ReindexMailboxInfo($id, 'contact, , appointment,xyz', $ids);
+        $mbox = new \Zimbra\Admin\Struct\ReindexMailboxInfo($id, $types, $ids);
         $this->assertSame($id, $mbox->getId());
-        $this->assertSame('contact,appointment', $mbox->getTypes());
+        $this->assertSame($types, $mbox->getTypes());
         $this->assertSame($ids, $mbox->getIds());
 
         $mbox->setId($id)
-             ->setTypes('task, , note,abc')
+             ->setTypes($types)
              ->setIds($ids);
         $this->assertSame($id, $mbox->getId());
-        $this->assertSame('task,note', $mbox->getTypes());
+        $this->assertSame($types, $mbox->getTypes());
         $this->assertSame($ids, $mbox->getIds());
 
         $xml = '<?xml version="1.0"?>' . "\n"
-            . '<mbox id="' . $id . '" types="task,note" ids="' . $ids . '" />';
+            . '<mbox id="' . $id . '" types="' . $types . '" ids="' . $ids . '" />';
         $this->assertXmlStringEqualsXmlString($xml, (string) $mbox);
 
-        $array = array(
-            'mbox' => array(
+        $array = [
+            'mbox' => [
                 'id' => $id,
-                'types' => 'task,note',
+                'types' => $types,
                 'ids' => $ids,
-            ),
-        );
+            ],
+        ];
         $this->assertEquals($array, $mbox->toArray());
     }
 
@@ -1407,15 +1423,15 @@ class StructTest extends ZimbraTestCase
             . '<right deny="true" canDelegate="false" disinheritSubGroups="false" subDomain="true">' . $value . '</right>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $right);
 
-        $array = array(
-            'right' => array(
+        $array = [
+            'right' => [
                 'deny' => true,
                 'canDelegate' => false,
                 'disinheritSubGroups' => false,
                 'subDomain' => true,
                 '_content' => $value,
-            ),
-        );
+            ],
+        ];
         $this->assertEquals($array, $right->toArray());
     }
 
@@ -1428,8 +1444,8 @@ class StructTest extends ZimbraTestCase
         $wait = mt_rand(0, 100);
 
         $attr = new \Zimbra\Admin\Struct\ValueAttrib($value);
-        $field = new \Zimbra\Admin\Struct\QueueQueryField($name, array($attr));
-        $query = new \Zimbra\Admin\Struct\QueueQuery(array($field), $limit, $offset);
+        $field = new \Zimbra\Admin\Struct\QueueQueryField($name, [$attr]);
+        $query = new \Zimbra\Admin\Struct\QueueQuery([$field], $limit, $offset);
         $queue = new \Zimbra\Admin\Struct\MailQueueQuery($query, $name, true, $wait);
 
         $server = new \Zimbra\Admin\Struct\ServerMailQueueQuery($queue, $name);
@@ -1453,28 +1469,30 @@ class StructTest extends ZimbraTestCase
             . '</server>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $server);
 
-        $array = array(
-            'server' => array(
+        $array = [
+            'server' => [
                 'name' => $name,
-                'queue' => array(
+                'queue' => [
                     'name' => $name,
                     'scan' => true,
                     'wait' => $wait,
-                    'query' => array(
+                    'query' => [
                         'limit' => $limit,
                         'offset' => $offset,
-                        'field' => array(
-                            array(
+                        'field' => [
+                            [
                                 'name' => $name,
-                                'match' => array(
-                                    array('value' => $value),
-                                )
-                            )
-                        ),
-                    ),
-                ),
-            ),
-        );
+                                'match' => [
+                                    [
+                                        'value' => $value
+                                    ],
+                                ],
+                            ],
+                        ],
+                    ],
+                ],
+            ],
+        ];
         $this->assertEquals($array, $server->toArray());
     }
 
@@ -1492,12 +1510,12 @@ class StructTest extends ZimbraTestCase
             . '<server by="' . ServerBy::NAME() . '">' . $value . '</server>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $server);
 
-        $array = array(
-            'server' => array(
+        $array = [
+            'server' => [
                 'by' => ServerBy::NAME()->value(),
                 '_content' => $value,
-            ),
-        );
+            ],
+        ];
         $this->assertEquals($array, $server->toArray());
     }
 
@@ -1509,8 +1527,8 @@ class StructTest extends ZimbraTestCase
         $offset = mt_rand(0, 100);
 
         $attr = new \Zimbra\Admin\Struct\ValueAttrib($value);
-        $field = new \Zimbra\Admin\Struct\QueueQueryField($name, array($attr));
-        $query = new \Zimbra\Admin\Struct\QueueQuery(array($field), $limit, $offset);
+        $field = new \Zimbra\Admin\Struct\QueueQueryField($name, [$attr]);
+        $query = new \Zimbra\Admin\Struct\QueueQuery([$field], $limit, $offset);
 
         $action = new \Zimbra\Admin\Struct\MailQueueAction($query, QueueAction::HOLD(), QueueActionBy::QUERY());
         $queue = new \Zimbra\Admin\Struct\MailQueueWithAction($action, $name);
@@ -1538,30 +1556,32 @@ class StructTest extends ZimbraTestCase
             . '</server>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $server);
 
-        $array = array(
-            'server' => array(
+        $array = [
+            'server' => [
                 'name' => $name,
-                'queue' => array(
+                'queue' => [
                     'name' => $name,
-                    'action' => array(
+                    'action' => [
                         'op' => QueueAction::HOLD()->value(),
                         'by' => QueueActionBy::QUERY()->value(),
-                        'query' => array(
+                        'query' => [
                             'limit' => $limit,
                             'offset' => $offset,
-                            'field' => array(
-                                array(
+                            'field' => [
+                                [
                                     'name' => $name,
-                                    'match' => array(
-                                        array('value' => $value),
-                                    )
-                                )
-                            ),
-                        ),
-                    ),
-                ),
-            ),
-        );
+                                    'match' => [
+                                        [
+                                            'value' => $value,
+                                        ],
+                                    ],
+                                ],
+                            ],
+                        ],
+                    ],
+                ],
+            ],
+        ];
         $this->assertEquals($array, $server->toArray());
     }
 
@@ -1573,9 +1593,9 @@ class StructTest extends ZimbraTestCase
             . '<any />';
         $this->assertXmlStringEqualsXmlString($xml, (string) $el);
 
-        $array = array(
-            'any' => array(),
-        );
+        $array = [
+            'any' => [],
+        ];
         $this->assertEquals($array, $el->toArray());
     }
 
@@ -1598,13 +1618,13 @@ class StructTest extends ZimbraTestCase
             . '<stat name="' . $name . '" description="' . $description . '">' . $value . '</stat>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $stat);
 
-        $array = array(
-            'stat' => array(
+        $array = [
+            'stat' => [
                 'name' => $name,
                 'description' => $description,
                 '_content' => $value,
-            ),
-        );
+            ],
+        ];
         $this->assertEquals($array, $stat->toArray());
     }
 
@@ -1614,7 +1634,7 @@ class StructTest extends ZimbraTestCase
         $limit = self::randomName();
 
         $stat = new \Zimbra\Struct\NamedElement($name);
-        $values = new \Zimbra\Admin\Struct\StatsValueWrapper(array($stat));
+        $values = new \Zimbra\Admin\Struct\StatsValueWrapper([$stat]);
 
         $stats = new \Zimbra\Admin\Struct\StatsSpec($values, $name, $limit);
         $this->assertSame($values, $stats->getValues());
@@ -1636,17 +1656,19 @@ class StructTest extends ZimbraTestCase
             . '</stats>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $stats);
 
-        $array = array(
-            'stats' => array(
+        $array = [
+            'stats' => [
                 'name' => $name,
                 'limit' => $limit,
-                'values' => array(
-                    'stat' => array(
-                        array('name' => $name),
-                    ),
-                ),
-            ),
-        );
+                'values' => [
+                    'stat' => [
+                        [
+                            'name' => $name
+                        ],
+                    ],
+                ],
+            ],
+        ];
         $this->assertEquals($array, $stats->toArray());
     }
 
@@ -1657,11 +1679,11 @@ class StructTest extends ZimbraTestCase
         $stat1 = new \Zimbra\Struct\NamedElement($name1);
         $stat2 = new \Zimbra\Struct\NamedElement($name2);
 
-        $wrapper = new \Zimbra\Admin\Struct\StatsValueWrapper(array($stat1));
-        $this->assertSame(array($stat1), $wrapper->getStats()->all());
+        $wrapper = new \Zimbra\Admin\Struct\StatsValueWrapper([$stat1]);
+        $this->assertSame([$stat1], $wrapper->getStats()->all());
 
         $wrapper->addStat($stat2);
-        $this->assertSame(array($stat1, $stat2), $wrapper->getStats()->all());
+        $this->assertSame([$stat1, $stat2], $wrapper->getStats()->all());
 
         $xml = '<?xml version="1.0"?>' . "\n"
             . '<values>'
@@ -1670,14 +1692,18 @@ class StructTest extends ZimbraTestCase
             . '</values>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $wrapper);
 
-        $array = array(
-            'values' => array(
-                'stat' => array(
-                    array('name' => $name1),
-                    array('name' => $name2),
-                ),
-            ),
-        );
+        $array = [
+            'values' => [
+                'stat' => [
+                    [
+                        'name' => $name1,
+                    ],
+                    [
+                        'name' => $name2,
+                    ],
+                ],
+            ],
+        ];
         $this->assertEquals($array, $wrapper->toArray());
     }
 
@@ -1702,14 +1728,14 @@ class StructTest extends ZimbraTestCase
             . '<datasource by="' . DataSourceBy::NAME() . '" fullSync="true" reset="false">' . $value . '</datasource>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $ds);
 
-        $array = array(
-            'datasource' => array(
+        $array = [
+            'datasource' => [
                 'by' => DataSourceBy::NAME()->value(),
                 'fullSync' => true,
                 'reset' => false,
                 '_content' => $value,
-            ),
-        );
+            ],
+        ];
         $this->assertEquals($array, $ds->toArray());
     }
 
@@ -1722,14 +1748,14 @@ class StructTest extends ZimbraTestCase
         $ds1 = new \Zimbra\Admin\Struct\SyncGalAccountDataSourceSpec(DataSourceBy::ID(), $value1, true, false);
         $ds2 = new \Zimbra\Admin\Struct\SyncGalAccountDataSourceSpec(DataSourceBy::NAME(), $value2, false, true);
 
-        $sync = new \Zimbra\Admin\Struct\SyncGalAccountSpec($id, array($ds1));
+        $sync = new \Zimbra\Admin\Struct\SyncGalAccountSpec($id, [$ds1]);
         $this->assertSame($id, $sync->getId());
-        $this->assertSame(array($ds1), $sync->getDataSources()->all());
+        $this->assertSame([$ds1], $sync->getDataSources()->all());
 
         $sync->setId($id)
              ->addDataSource($ds2);
         $this->assertSame($id, $sync->getId());
-        $this->assertSame(array($ds1, $ds2), $sync->getDataSources()->all());
+        $this->assertSame([$ds1, $ds2], $sync->getDataSources()->all());
 
         $xml = '<?xml version="1.0"?>' . "\n"
             . '<account id="' . $id . '">'
@@ -1738,25 +1764,25 @@ class StructTest extends ZimbraTestCase
             . '</account>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $sync);
 
-        $array = array(
-            'account' => array(
+        $array = [
+            'account' => [
                 'id' => $id,
-                'datasource' => array(
-                    array(
+                'datasource' => [
+                    [
                         'by' => DataSourceBy::ID()->value(),
                         'fullSync' => true,
                         'reset' => false,
                         '_content' => $value1,
-                    ),
-                    array(
+                    ],
+                    [
                         'by' => DataSourceBy::NAME()->value(),
                         'fullSync' => false,
                         'reset' => true,
                         '_content' => $value2,
-                    ),
-                ),
-            ),
-        );
+                    ],
+                ],
+            ],
+        ];
         $this->assertEquals($array, $sync->toArray());
     }
 
@@ -1775,12 +1801,12 @@ class StructTest extends ZimbraTestCase
             . '<target type="' . $type . '">' . $value . '</target>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $target);
 
-        $array = array(
-            'target' => array(
+        $array = [
+            'target' => [
                 'type' => $type,
                 '_content' => $value,
-            ),
-        );
+            ],
+        ];
         $this->assertEquals($array, $target->toArray());
     }
 
@@ -1797,11 +1823,11 @@ class StructTest extends ZimbraTestCase
             . '<attr time="' . $time . '" />';
         $this->assertXmlStringEqualsXmlString($xml, (string) $attr);
 
-        $array = array(
-            'attr' => array(
+        $array = [
+            'attr' => [
                 'time' => $time,
-            ),
-        );
+            ],
+        ];
         $this->assertEquals($array, $attr->toArray());
     }
 
@@ -1822,12 +1848,12 @@ class StructTest extends ZimbraTestCase
             . '<date mon="' . $mon . '" mday="' . $mday . '" />';
         $this->assertXmlStringEqualsXmlString($xml, (string) $date);
 
-        $array = array(
-            'date' => array(
+        $array = [
+            'date' => [
                 'mon' => $mon,
                 'mday' => $mday,
-            ),
-        );
+            ],
+        ];
         $this->assertEquals($array, $date->toArray());
     }
 
@@ -1865,20 +1891,20 @@ class StructTest extends ZimbraTestCase
             . '</dates>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $dates);
 
-        $array = array(
-            'dates' => array(
+        $array = [
+            'dates' => [
                 'stdoff' => $stdoff,
                 'dayoff' => $dayoff,
-                'standard' => array(
+                'standard' => [
                     'mon' => $std_mon,
                     'mday' => $std_mday,
-                ),
-                'daylight' => array(
+                ],
+                'daylight' => [
                     'mon' => $day_mon,
                     'mday' => $day_mday,
-                ),
-            ),
-        );
+                ],
+            ],
+        ];
         $this->assertEquals($array, $dates->toArray());
     }
 
@@ -1904,13 +1930,13 @@ class StructTest extends ZimbraTestCase
             . '<rule mon="' . $mon . '" week="' . $week . '" wkday="' . $wkday . '" />';
         $this->assertXmlStringEqualsXmlString($xml, (string) $rule);
 
-        $array = array(
-            'rule' => array(
+        $array = [
+            'rule' => [
                 'mon' => $mon,
                 'week' => $week,
                 'wkday' => $wkday,
-            ),
-        );
+            ],
+        ];
         $this->assertEquals($array, $rule->toArray());
     }
 
@@ -1950,22 +1976,22 @@ class StructTest extends ZimbraTestCase
             . '</rules>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $rules);
 
-        $array = array(
-            'rules' => array(
+        $array = [
+            'rules' => [
                 'stdoff' => $stdoff,
                 'dayoff' => $dayoff,
-                'standard' => array(
+                'standard' => [
                     'mon' => $std_mon,
                     'week' => $std_week,
                     'wkday' => $std_wkday,
-                ),
-                'daylight' => array(
+                ],
+                'daylight' => [
                     'mon' => $day_mon,
                     'week' => $day_week,
                     'wkday' => $day_wkday,
-                ),
-            ),
-        );
+                ],
+            ],
+        ];
         $this->assertEquals($array, $rules->toArray());
     }
 
@@ -2028,39 +2054,43 @@ class StructTest extends ZimbraTestCase
             . '</match>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $match);
 
-        $array = array(
-            'match' => array(
-                'any' => array(),
-                'tzid' => array('id' => $id),
-                'nonDst' => array('offset' => $offset),
-                'rules' => array(
+        $array = [
+            'match' => [
+                'any' => [],
+                'tzid' => [
+                    'id' => $id
+                ],
+                'nonDst' => [
+                    'offset' => $offset
+                ],
+                'rules' => [
                     'stdoff' => $rule_stdoff,
                     'dayoff' => $rule_dayoff,
-                    'standard' => array(
+                    'standard' => [
                         'mon' => $rule_mon,
                         'week' => $rule_week,
                         'wkday' => $rule_wkday,
-                    ),
-                    'daylight' => array(
+                    ],
+                    'daylight' => [
                         'mon' => $rule_mon,
                         'week' => $rule_week,
                         'wkday' => $rule_wkday,
-                    ),
-                ),
-                'dates' => array(
+                    ],
+                ],
+                'dates' => [
                     'stdoff' => $date_stdoff,
                     'dayoff' => $date_dayoff,
-                    'standard' => array(
+                    'standard' => [
                         'mon' => $date_mon,
                         'mday' => $date_mday,
-                    ),
-                    'daylight' => array(
+                    ],
+                    'daylight' => [
                         'mon' => $date_mon,
                         'mday' => $date_mday,
-                    ),
-                ),
-            ),
-        );
+                    ],
+                ],
+            ],
+        ];
         $this->assertEquals($array, $match->toArray());
     }
 
@@ -2145,64 +2175,70 @@ class StructTest extends ZimbraTestCase
             . '</fixupRule>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $fixupRule);
 
-        $array = array(
-            'fixupRule' => array(
-                'match' => array(
-                    'any' => array(),
-                    'tzid' => array('id' => $id),
-                    'nonDst' => array('offset' => $offset),
-                    'rules' => array(
+        $array = [
+            'fixupRule' => [
+                'match' => [
+                    'any' => [],
+                    'tzid' => [
+                        'id' => $id
+                    ],
+                    'nonDst' => [
+                        'offset' => $offset
+                    ],
+                    'rules' => [
                         'stdoff' => $rule_stdoff,
                         'dayoff' => $rule_dayoff,
-                        'standard' => array(
+                        'standard' => [
                             'mon' => $rule_mon,
                             'week' => $rule_week,
                             'wkday' => $rule_wkday,
-                        ),
-                        'daylight' => array(
+                        ],
+                        'daylight' => [
                             'mon' => $rule_mon,
                             'week' => $rule_week,
                             'wkday' => $rule_wkday,
-                        ),
-                    ),
-                    'dates' => array(
+                        ],
+                    ],
+                    'dates' => [
                         'stdoff' => $date_stdoff,
                         'dayoff' => $date_dayoff,
-                        'standard' => array(
+                        'standard' => [
                             'mon' => $date_mon,
                             'mday' => $date_mday,
-                        ),
-                        'daylight' => array(
+                        ],
+                        'daylight' => [
                             'mon' => $date_mon,
                             'mday' => $date_mday,
-                        ),
-                    ),
-                ),
-                'touch' => array(),
-                'replace' => array(
-                    'wellKnownTz' => array('id' => $id),
-                    'tz' => array(
+                        ],
+                    ],
+                ],
+                'touch' => [],
+                'replace' => [
+                    'wellKnownTz' => [
+                        'id' => $id
+                    ],
+                    'tz' => [
                         'id' => $id,
                         'stdoff' => $stdoff,
                         'dayoff' => $dayoff,
                         'stdname' => $stdname,
                         'dayname' => $dayname,
-                        'standard' => array(
+                        'standard' => [
                             'mon' => $mon,
                             'hour' => $hour,
                             'min' => $min,
                             'sec' => $sec,
-                        ),
-                        'daylight' => array(
+                        ],
+                        'daylight' => [
                             'mon' => $mon,
                             'hour' => $hour,
                             'min' => $min,
                             'sec' => $sec,
-                        ),
-                    ),
-                ),
-            ),
-        );
+                        ],
+                    ],
+                ],
+            ],
+        ];
         $this->assertEquals($array, $fixupRule->toArray());
     }
 
@@ -2251,10 +2287,10 @@ class StructTest extends ZimbraTestCase
         $touch = new \Zimbra\Admin\Struct\SimpleElement;
         $fixupRule = new \Zimbra\Admin\Struct\TzFixupRule($match, $touch, $replace);
 
-        $tzfixup = new \Zimbra\Admin\Struct\TzFixup(array($fixupRule));
-        $this->assertSame(array($fixupRule), $tzfixup->getFixupRules()->all());
+        $tzfixup = new \Zimbra\Admin\Struct\TzFixup([$fixupRule]);
+        $this->assertSame([$fixupRule], $tzfixup->getFixupRules()->all());
         $tzfixup->addFixupRule($fixupRule);
-        $this->assertSame(array($fixupRule, $fixupRule), $tzfixup->getFixupRules()->all());
+        $this->assertSame([$fixupRule, $fixupRule], $tzfixup->getFixupRules()->all());
         $tzfixup->getFixupRules()->remove(1);
 
         $xml = '<?xml version="1.0"?>' . "\n"
@@ -2285,68 +2321,74 @@ class StructTest extends ZimbraTestCase
             . '</tzfixup>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $tzfixup);
 
-        $array = array(
-            'tzfixup' => array(
-                'fixupRule' => array(
-                    array(
-                        'match' => array(
-                            'any' => array(),
-                            'tzid' => array('id' => $id),
-                            'nonDst' => array('offset' => $offset),
-                            'rules' => array(
+        $array = [
+            'tzfixup' => [
+                'fixupRule' => [
+                    [
+                        'match' => [
+                            'any' => [],
+                            'tzid' => [
+                                'id' => $id
+                            ],
+                            'nonDst' => [
+                                'offset' => $offset
+                            ],
+                            'rules' => [
                                 'stdoff' => $rule_stdoff,
                                 'dayoff' => $rule_dayoff,
-                                'standard' => array(
+                                'standard' => [
                                     'mon' => $rule_mon,
                                     'week' => $rule_week,
                                     'wkday' => $rule_wkday,
-                                ),
-                                'daylight' => array(
+                                ],
+                                'daylight' => [
                                     'mon' => $rule_mon,
                                     'week' => $rule_week,
                                     'wkday' => $rule_wkday,
-                                ),
-                            ),
-                            'dates' => array(
+                                ],
+                            ],
+                            'dates' => [
                                 'stdoff' => $date_stdoff,
                                 'dayoff' => $date_dayoff,
-                                'standard' => array(
+                                'standard' => [
                                     'mon' => $date_mon,
                                     'mday' => $date_mday,
-                                ),
-                                'daylight' => array(
+                                ],
+                                'daylight' => [
                                     'mon' => $date_mon,
                                     'mday' => $date_mday,
-                                ),
-                            ),
-                        ),
-                        'touch' => array(),
-                        'replace' => array(
-                            'wellKnownTz' => array('id' => $id),
-                            'tz' => array(
+                                ],
+                            ],
+                        ],
+                        'touch' => [],
+                        'replace' => [
+                            'wellKnownTz' => [
+                                'id' => $id
+                            ],
+                            'tz' => [
                                 'id' => $id,
                                 'stdoff' => $stdoff,
                                 'dayoff' => $dayoff,
                                 'stdname' => $stdname,
                                 'dayname' => $dayname,
-                                'standard' => array(
+                                'standard' => [
                                     'mon' => $mon,
                                     'hour' => $hour,
                                     'min' => $min,
                                     'sec' => $sec,
-                                ),
-                                'daylight' => array(
+                                ],
+                                'daylight' => [
                                     'mon' => $mon,
                                     'hour' => $hour,
                                     'min' => $min,
                                     'sec' => $sec,
-                                ),
-                            ),
-                        ),
-                    ),
-                ),
-            ),
-        );
+                                ],
+                            ],
+                        ],
+                    ],
+                ],
+            ],
+        ];
         $this->assertEquals($array, $tzfixup->toArray());
     }
 
@@ -2386,30 +2428,32 @@ class StructTest extends ZimbraTestCase
             . '</replace>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $replace);
 
-        $array = array(
-            'replace' => array(
-                'wellKnownTz' => array('id' => $id),
-                'tz' => array(
+        $array = [
+            'replace' => [
+                'wellKnownTz' => [
+                    'id' => $id,
+                ],
+                'tz' => [
                     'id' => $id,
                     'stdoff' => $stdoff,
                     'dayoff' => $dayoff,
                     'stdname' => $stdname,
                     'dayname' => $dayname,
-                    'standard' => array(
+                    'standard' => [
                         'mon' => $mon,
                         'hour' => $hour,
                         'min' => $min,
                         'sec' => $sec,
-                    ),
-                    'daylight' => array(
+                    ],
+                    'daylight' => [
                         'mon' => $mon,
                         'hour' => $hour,
                         'min' => $min,
                         'sec' => $sec,
-                    ),
-                ),
-            ),
-        );
+                    ],
+                ],
+            ],
+        ];
         $this->assertEquals($array, $replace->toArray());
     }
 
@@ -2426,12 +2470,12 @@ class StructTest extends ZimbraTestCase
             . '<ucservice by="' . UcServiceBy::NAME() . '">' . $value . '</ucservice>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $ucs);
 
-        $array = array(
-            'ucservice' => array(
+        $array = [
+            'ucservice' => [
                 'by' => UcServiceBy::NAME()->value(),
                 '_content' => $value,
-            ),
-        );
+            ],
+        ];
         $this->assertEquals($array, $ucs->toArray());
     }
 
@@ -2448,18 +2492,18 @@ class StructTest extends ZimbraTestCase
             . '<a value="' . $value  .'" />';
         $this->assertXmlStringEqualsXmlString($xml, (string) $attr);
 
-        $array = array(
-            'a' => array(
+        $array = [
+            'a' => [
                 'value' => $value,
-            ),
-        );
+            ],
+        ];
         $this->assertEquals($array, $attr->toArray());
     }
 
     public function testVolumeInfo()
     {
         $id = mt_rand(0, 10);
-        $compressionThreshold = mt_rand(0, 10);
+        $threshold = mt_rand(0, 10);
         $mgbits = mt_rand(0, 10);
         $mbits = mt_rand(0, 10);
         $fgbits = mt_rand(0, 10);
@@ -2468,11 +2512,11 @@ class StructTest extends ZimbraTestCase
         $rootpath = self::randomName();
 
         $volume = new \Zimbra\Admin\Struct\VolumeInfo(
-            $id, 2, $compressionThreshold, $mgbits, $mbits, $fgbits, $fbits, $name, $rootpath, false, true
+            $id, 2, $threshold, $mgbits, $mbits, $fgbits, $fbits, $name, $rootpath, false, true
         );
         $this->assertSame($id, $volume->getId());
         $this->assertSame(2, $volume->getType());
-        $this->assertSame($compressionThreshold, $volume->getCompressionThreshold());
+        $this->assertSame($threshold, $volume->getCompressionThreshold());
         $this->assertSame($mgbits, $volume->getMgbits());
         $this->assertSame($mbits, $volume->getMbits());
         $this->assertSame($fgbits, $volume->getFgbits());
@@ -2484,7 +2528,7 @@ class StructTest extends ZimbraTestCase
 
         $volume->setId($id)
                ->setType(10)
-               ->setCompressionThreshold($compressionThreshold)
+               ->setCompressionThreshold($threshold)
                ->setMgbits($mgbits)
                ->setMbits($mbits)
                ->setFgbits($fgbits)
@@ -2495,7 +2539,7 @@ class StructTest extends ZimbraTestCase
                ->setCurrent(false);
         $this->assertSame($id, $volume->getId());
         $this->assertSame(10, $volume->getType());
-        $this->assertSame($compressionThreshold, $volume->getCompressionThreshold());
+        $this->assertSame($threshold, $volume->getCompressionThreshold());
         $this->assertSame($mgbits, $volume->getMgbits());
         $this->assertSame($mbits, $volume->getMbits());
         $this->assertSame($fgbits, $volume->getFgbits());
@@ -2509,7 +2553,7 @@ class StructTest extends ZimbraTestCase
             . '<volume '
                 . 'id="' . $id . '" '
                 . 'type="10" '
-                . 'compressionThreshold="' . $compressionThreshold . '" '
+                . 'compressionThreshold="' . $threshold . '" '
                 . 'mgbits="' . $mgbits . '" '
                 . 'mbits="' . $mbits . '" '
                 . 'fgbits="' . $fgbits . '" '
@@ -2520,11 +2564,11 @@ class StructTest extends ZimbraTestCase
                 . 'isCurrent="false" />';
         $this->assertXmlStringEqualsXmlString($xml, (string) $volume);
 
-        $array = array(
-            'volume' => array(
+        $array = [
+            'volume' => [
                 'id' => $id,
                 'type' => 10,
-                'compressionThreshold' => $compressionThreshold,
+                'compressionThreshold' => $threshold,
                 'mgbits' => $mgbits,
                 'mbits' => $mbits,
                 'fgbits' => $fgbits,
@@ -2533,8 +2577,8 @@ class StructTest extends ZimbraTestCase
                 'rootpath' => $rootpath,
                 'compressBlobs' => true,
                 'isCurrent' => false,
-            ),
-        );
+            ],
+        ];
         $this->assertEquals($array, $volume->toArray());
     }
 
@@ -2552,12 +2596,12 @@ class StructTest extends ZimbraTestCase
             . '<xmppcomponent by="' . XmppBy::NAME() . '">' . $value . '</xmppcomponent>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $xmpp);
 
-        $array = array(
-            'xmppcomponent' => array(
+        $array = [
+            'xmppcomponent' => [
                 'by' => XmppBy::NAME()->value(),
                 '_content' => $value,
-            ),
-        );
+            ],
+        ];
         $this->assertEquals($array, $xmpp->toArray());
     }
 
@@ -2591,25 +2635,25 @@ class StructTest extends ZimbraTestCase
             . '</xmppcomponent>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $xmpp);
 
-        $array = array(
-            'xmppcomponent' => array(
+        $array = [
+            'xmppcomponent' => [
                 'name' => $name,
-                'domain' => array(
+                'domain' => [
                     'by' => ServerBy::NAME()->value(),
                     '_content' => $value,
-                ),
-                'server' => array(
+                ],
+                'server' => [
                     'by' => ServerBy::NAME()->value(),
                     '_content' => $value,
-                ),
-                'a' => array(
-                    array(
+                ],
+                'a' => [
+                    [
                         'n' => $name,
                         '_content' => $value,
-                    ),
-                ),
-            ),
-        );
+                    ],
+                ],
+            ],
+        ];
         $this->assertEquals($array, $xmpp->toArray());
     }
 
@@ -2629,12 +2673,12 @@ class StructTest extends ZimbraTestCase
             . '<acl cos="' . $cos . '" acl="' . AclType::GRANT() . '" />';
         $this->assertXmlStringEqualsXmlString($xml, (string) $acl);
 
-        $array = array(
-            'acl' => array(
+        $array = [
+            'acl' => [
                 'cos' => $cos,
                 'acl' => AclType::GRANT()->value(),
-            ),
-        );
+            ],
+        ];
         $this->assertEquals($array, $acl->toArray());
     }
 
@@ -2671,21 +2715,21 @@ class StructTest extends ZimbraTestCase
             . '</zimlet>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $zimlet);
 
-        $array = array(
-            'zimlet' => array(
+        $array = [
+            'zimlet' => [
                 'name' => $name,
-                'acl' => array(
+                'acl' => [
                     'cos' => $cos,
                     'acl' => AclType::DENY()->value(),
-                ),
-                'status' => array(
+                ],
+                'status' => [
                     'value' => ZimletStatus::ENABLED()->value(),
-                ),
-                'priority' => array(
+                ],
+                'priority' => [
                     'value' => $priority_value,
-                ),
-            ),
-        );
+                ],
+            ],
+        ];
         $this->assertEquals($array, $zimlet->toArray());
     }
 }

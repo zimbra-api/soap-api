@@ -22,7 +22,7 @@ class TypedSequenceTest extends ZimbraTestCase
         $this->assertSame([$object1, $object2], $sequence->all());
 
         $sequence->update(0, $object2)->update(1, $object1);
-        $this->assertSame(array($object2, $object1), $sequence->all());
+        $this->assertSame([$object2, $object1], $sequence->all());
 
         $sequence = new TypedSequence('\ArrayObject');
         $sequence->addAll([$object1, $object2]);

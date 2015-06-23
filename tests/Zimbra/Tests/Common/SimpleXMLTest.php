@@ -87,36 +87,36 @@ class SimpleXMLTest extends ZimbraTestCase
 
     public function testAddArray()
     {
-        $books = array(
-            'book' => array(
-                array(
+        $books = [
+            'book' => [
+                [
                     'title' => 'Book 01',
                     'public' => 1999,
                     'publisher' => 'Publisher 01',
-                    'author' => array(
-                        array('name' => 'Author 01'),
-                        array('name' => 'Author 02'),
-                    ),
-                ),
-                array(
+                    'author' => [
+                        ['name' => 'Author 01'],
+                        ['name' => 'Author 02'],
+                    ],
+                ],
+                [
                     'title' => 'Book 02',
                     'public' => 1999,
                     'publisher' => 'Publisher 02',
-                    'author' => array(
+                    'author' => [
                         'name' => 'Author 04',
-                    ),
-                ),
-                array(
+                    ],
+                ],
+                [
                     'title' => 'Book 03',
                     'public' => 1999,
                     'publisher' => 'Publisher 03',
-                    'author' => array(
-                        array('name' => 'Author 01'),
-                        array('name' => 'Author 03'),
-                    ),
-                ),
-            ),
-        );
+                    'author' => [
+                        ['name' => 'Author 01'],
+                        ['name' => 'Author 03'],
+                    ],
+                ],
+            ],
+        ];
         $xml = new SimpleXML('<books />');
         $xml->addArray($books);
         $this->assertXmlStringEqualsXmlString($this->_xmlString, $xml->asXml());

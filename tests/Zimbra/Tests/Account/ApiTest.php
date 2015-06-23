@@ -453,7 +453,7 @@ class ApiTest extends ZimbraTestCase
     {
         $attrs = self::randomName();
         $api = new LocalAccountHttp(null);
-        $api->getAccountDistributionLists(true, MemberOf::DIRECT_ONLY(), $attrs);
+        $api->getAccountDistributionLists(true, MemberOf::DIRECT_ONLY(), array($attrs));
 
         $client = $api->client();
         $req = $client->lastRequest();
@@ -968,7 +968,7 @@ class ApiTest extends ZimbraTestCase
 
         $api = new LocalAccountHttp(null);
         $api->searchCalendarResources(
-            $locale, $cursor, $name, $filter, true, $sortBy, $limit, $offset, $galAcctId, $attrs
+            $locale, $cursor, $name, $filter, true, $sortBy, $limit, $offset, $galAcctId, array($attrs)
         );
 
         $client = $api->client();
@@ -996,7 +996,7 @@ class ApiTest extends ZimbraTestCase
         $filter = new \Zimbra\Struct\EntrySearchFilterInfo($cond);
         $api = new LocalAccountHttp(null);
         $api->searchCalendarResources(
-            $locale, $cursor, $name, $filter, true, $sortBy, $limit, $offset, $galAcctId, $attrs
+            $locale, $cursor, $name, $filter, true, $sortBy, $limit, $offset, $galAcctId, array($attrs)
         );
 
         $client = $api->client();

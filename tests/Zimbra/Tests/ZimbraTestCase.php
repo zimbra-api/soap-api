@@ -9,7 +9,7 @@ use \PHPUnit_Framework_TestCase;
  */
 abstract class ZimbraTestCase extends PHPUnit_Framework_TestCase
 {
-	public function invokeMethod(&$object, $methodName, array $parameters = array())
+	public function invokeMethod(&$object, $methodName, array $parameters = [])
 	{
 		$reflection = new \ReflectionClass(get_class($object));
 		$method = $reflection->getMethod($methodName);
@@ -31,23 +31,23 @@ abstract class ZimbraTestCase extends PHPUnit_Framework_TestCase
         $msg = new \Zimbra\Mail\Struct\MsgAttachSpec('id', false);
         $cn = new \Zimbra\Mail\Struct\ContactAttachSpec('id', false);
         $doc = new \Zimbra\Mail\Struct\DocAttachSpec('path', 'id', 10, true);
-        $info = new \Zimbra\Mail\Struct\MimePartInfo(array(), null, 'ct', 'content', 'ci');
+        $info = new \Zimbra\Mail\Struct\MimePartInfo([], null, 'ct', 'content', 'ci');
 
         $header = new \Zimbra\Mail\Struct\Header('name', 'value');
         $attach = new \Zimbra\Mail\Struct\AttachmentsInfo($mp, $msg, $cn, $doc, 'aid');
-        $mp = new \Zimbra\Mail\Struct\MimePartInfo(array($info), $attach, 'ct', 'content', 'ci');
+        $mp = new \Zimbra\Mail\Struct\MimePartInfo([$info], $attach, 'ct', 'content', 'ci');
         $inv = new \Zimbra\Mail\Struct\InvitationInfo('method', 10, true);
         $e = new \Zimbra\Mail\Struct\EmailAddrInfo('a', 't', 'p');
         $tz = $this->getTz();
 
         return new \Zimbra\Mail\Struct\Msg(
             'content',
-            array($header),
+            [$header],
             $mp,
             $attach,
             $inv,
-            array($e),
-            array($tz),
+            [$e],
+            [$tz],
             'fr',
             'aid',
             'origid',
@@ -58,6 +58,30 @@ abstract class ZimbraTestCase extends PHPUnit_Framework_TestCase
             'l',
             'f'
         );
+    }
+
+    public static function randomValue(array $values)
+    {
+        $key = array_rand($values);
+        return $values[$key];
+    }
+
+    public static function randomAttrs(array $attrs)
+    {
+        $num = mt_rand(1, count($attrs));
+        $keys = array_rand($attrs, $num);
+        $values = array();
+        if (is_array($keys)) {
+            foreach ($keys as $key)
+            {
+                $values[] = $attrs[$key];
+            }
+        }
+        else
+        {
+            $values[] = $attrs[$keys];
+        }
+        return implode(',', $values);
     }
 
     public static function randomString($length = 8)
