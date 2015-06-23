@@ -42,7 +42,7 @@ abstract class Attr extends Request
 
         $this->on('before', function(Request $sender)
         {
-            if(count($sender->getAttrs()))
+            if($sender->getAttrs()->count())
             {
                 $sender->setChild('a', $sender->getAttrs()->all());
             }
@@ -62,10 +62,10 @@ abstract class Attr extends Request
     }
 
     /**
-     * Gets attribute sequence
+     * Sets attribute sequence
      *
      * @param array  $attrs
-     * @return Sequence
+     * @return self
      */
     public function setAttrs(array $attrs)
     {

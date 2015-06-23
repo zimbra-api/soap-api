@@ -65,7 +65,7 @@ class CursorInfo extends Base
     }
 
     /**
-     * Gets or sets id
+     * Sets an id
      *
      * @param  string $id
      * @return string|self
@@ -86,7 +86,7 @@ class CursorInfo extends Base
     }
 
     /**
-     * Gets or sets sortVal
+     * Sets sortVal
      *
      * @param  string $sortVal
      * @return self
@@ -107,7 +107,7 @@ class CursorInfo extends Base
     }
 
     /**
-     * Gets or sets endSortVal
+     * Sets endSortVal
      *
      * @param  string $endSortVal
      * @return self
@@ -129,7 +129,7 @@ class CursorInfo extends Base
     }
 
     /**
-     * Gets or sets includeOffset
+     * Sets includeOffset
      *
      * @param  bool $includeOffset
      * @return self

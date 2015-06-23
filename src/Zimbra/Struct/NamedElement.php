@@ -35,7 +35,7 @@ class NamedElement extends Base
     }
 
     /**
-     * Get a name
+     * Gets name
      *
      * @return string
      */
@@ -45,7 +45,7 @@ class NamedElement extends Base
     }
 
     /**
-     * Set a name
+     * Sets name
      *
      * @param  string $name
      * @return self

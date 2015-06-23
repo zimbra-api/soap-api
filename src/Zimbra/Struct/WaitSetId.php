@@ -35,7 +35,7 @@ class WaitSetId extends Base
      * @param array $ids
      * @return self
      */
-    public function __construct(array $ids = array())
+    public function __construct(array $ids = [])
     {
         parent::__construct();
         $this->setIds($ids);
@@ -62,7 +62,7 @@ class WaitSetId extends Base
     }
 
     /**
-     * Get Id sequence
+     * Sets Id sequence
      *
      * @param array $ids
      * @return self
@@ -74,7 +74,7 @@ class WaitSetId extends Base
     }
 
     /**
-     * Get Id sequence
+     * Gets Id sequence
      *
      * @return TypedSequence<Id>
      */

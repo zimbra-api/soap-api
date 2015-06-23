@@ -11,27 +11,35 @@
 namespace Zimbra\Struct;
 
 /**
- * SearchFilterCondition interface
+ * AttributeSelector interface
  *
  * @package   Zimbra
  * @category  Struct
  * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright Copyright © 2013 by Nguyen Van Nguyen.
  */
-interface SearchFilterCondition
+interface AttributeSelector
 {
     /**
-     * Gets not flag
+     * Gets attributes
      *
-     * @return bool
+     * @return string
      */
-    function getNot();
+    function getAttrs();
 
     /**
-     * Sets not flag
+     * Add an attribute
      *
-     * @param  bool $not
+     * @param  string $attr
      * @return self
      */
-    function setNot($not);
+    function addAttr($attr);
+
+    /**
+     * Gets attributes
+     *
+     * @param  array $attrs
+     * @return self
+     */
+    function setAttrs(array $attrs);
 }

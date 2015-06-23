@@ -33,7 +33,7 @@ class NamedValue extends Base
     }
 
     /**
-     * Get a name
+     * Gets name
      *
      * @return string
      */
@@ -43,7 +43,7 @@ class NamedValue extends Base
     }
 
     /**
-     * Set a name
+     * Sets name
      *
      * @param  string $name
      * @return self

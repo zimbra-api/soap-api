@@ -34,7 +34,7 @@ class WaitSetSpec extends Base
      * @param array $accounts
      * @return self
      */
-    public function __construct(array $accounts = array())
+    public function __construct(array $accounts = [])
     {
         parent::__construct();
         $this->setAccounts($accounts);

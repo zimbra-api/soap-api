@@ -42,7 +42,7 @@ class WaitSetAddSpec extends Base
         $name = null,
         $id = null,
         $token = null,
-        array $interests  = array()
+        array $interests  = []
     )
     {
         parent::__construct();
@@ -71,7 +71,7 @@ class WaitSetAddSpec extends Base
     }
 
     /**
-     * Sets the name
+     * Gets the name
      *
      * @return string
      */
@@ -113,7 +113,7 @@ class WaitSetAddSpec extends Base
     }
 
     /**
-     * Sets the token
+     * Gets the token
      *
      * @return string
      */

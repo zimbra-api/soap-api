@@ -105,16 +105,16 @@ class Batch extends Request
     public function toArray($name = null)
     {
         $name = empty($name) ? $this->requestName() : $name;
-        $arr = array(
+        $arr = [
             '_jsns' => $this->getXmlNamespace(),
             'onerror' => $this->onerror(),
-        );
+        ];
         foreach ($this->_requests as $key => $request)
         {
             $reqArr = $request->toArray();
             $arr[$request->requestName()] = $reqArr[$request->requestName()];
         }
-        return array($this->requestName() => $arr);
+        return [$this->requestName() => $arr];
     }
 
     /**

@@ -203,7 +203,7 @@ class Message
      */
     public function getContentType($version = null)
     {
-        $version = in_array($version, array(self::SOAP_1_2, self::SOAP_1_1)) ? $version : $this->_version;
+        $version = in_array($version, [self::SOAP_1_2, self::SOAP_1_1]) ? $version : $this->_version;
         return self::$contentTypeMap[$version];
     }
 
@@ -225,14 +225,14 @@ class Message
      */
     public function toJson()
     {
-        $array = array();
+        $array = [];
         if(count($this->_headers))
         {
-            $array['Header'] = array(
-                'context' => array(
+            $array['Header'] = [
+                'context' => [
                     '_jsns' => 'urn:zimbra',
-                ),
-            );
+                ],
+            ];
             foreach ($this->_headers as $name => $value)
             {
                 $array['Header']['context'][$name] = $value;

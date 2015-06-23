@@ -111,7 +111,7 @@ abstract class Base extends EventEmitter
     }
 
     /**
-     * Get a property
+     * Gets a property
      *
      * @param  string $name
      * @return mix
