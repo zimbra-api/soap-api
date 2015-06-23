@@ -25,8 +25,8 @@ class VoiceMsgUploadSpec extends Base
 {
     /**
      * Constructor method for VoiceMsgUploadSpec
-     * @param string $id
-     * @param string $phone
+     * @param string $id Message id of the voice mail.  It can only be a voice mail in the INBOX, not the trash folder.
+     * @param string $phone Phone number of the voice mail
      * @return self
      */
     public function __construct(
@@ -35,40 +35,50 @@ class VoiceMsgUploadSpec extends Base
     )
     {
         parent::__construct();
-        $this->property('id', trim($id));
-        $this->property('phone', trim($phone));
+        $this->setProperty('id', trim($id));
+        $this->setProperty('phone', trim($phone));
     }
 
     /**
-     * Gets or sets id
-     * ID of user in the backing store
+     * Gets id
+     *
+     * @return string
+     */
+    public function getId()
+    {
+        return $this->getProperty('id');
+    }
+
+    /**
+     * Sets id
      *
      * @param  string $id
-     * @return string|self
+     * @return self
      */
-    public function id($id = null)
+    public function setId($id)
     {
-        if(null === $id)
-        {
-            return $this->property('id');
-        }
-        return $this->property('id', trim($id));
+        return $this->setProperty('id', trim($id));
     }
 
     /**
-     * Gets or sets phone
-     * Account Number
+     * Gets phone
+     *
+     * @return string
+     */
+    public function getPhone()
+    {
+        return $this->getProperty('phone');
+    }
+
+    /**
+     * Sets phone
      *
      * @param  string $phone
-     * @return string|self
+     * @return self
      */
-    public function phone($phone = null)
+    public function setPhone($phone)
     {
-        if(null === $phone)
-        {
-            return $this->property('phone');
-        }
-        return $this->property('phone', trim($phone));
+        return $this->setProperty('phone', trim($phone));
     }
 
     /**

@@ -24,220 +24,125 @@ use Zimbra\Struct\Base;
 class ResetPhoneVoiceFeaturesSpec extends Base
 {
     /**
+     * Call features
+     * @var TypedSequence<CallFeatureReq>
+     */
+    private $_callFeatures;
+
+    /**
      * Constructor method for ResetPhoneVoiceFeaturesSpec
-     * @param string $name
-     * @param AnonCallRejectionReq $anoncallrejection
-     * @param CallerIdBlockingReq $calleridblocking
-     * @param CallForwardReq $callforward
-     * @param CallForwardBusyLineReq $callforwardbusyline
-     * @param CallForwardNoAnswerReq $callforwardnoanswer
-     * @param CallWaitingReq $callwaiting
-     * @param SelectiveCallForwardReq $selectivecallforward
-     * @param SelectiveCallAcceptanceReq $selectivecallacceptance
-     * @param SelectiveCallRejectionReq $selectivecallrejection
+     * @param string $name Phone name
+     * @param array $callFeatures Call features
      * @return self
      */
     public function __construct(
         $name,
-        AnonCallRejectionReq $anoncallrejection = null,
-        CallerIdBlockingReq $calleridblocking = null,
-        CallForwardReq $callforward = null,
-        CallForwardBusyLineReq $callforwardbusyline = null,
-        CallForwardNoAnswerReq $callforwardnoanswer = null,
-        CallWaitingReq $callwaiting = null,
-        SelectiveCallForwardReq $selectivecallforward = null,
-        SelectiveCallAcceptanceReq $selectivecallacceptance = null,
-        SelectiveCallRejectionReq $selectivecallrejection = null
+        array $callFeatures = []
     )
     {
         parent::__construct();
-        $this->property('name', trim($name));
-        if($anoncallrejection instanceof AnonCallRejectionReq)
+        $this->setProperty('name', trim($name));
+        $this->setCallFeatures($callFeatures);
+
+        $this->on('before', function(Base $sender)
         {
-            $this->child('anoncallrejection', $anoncallrejection);
-        }
-        if($calleridblocking instanceof CallerIdBlockingReq)
-        {
-            $this->child('calleridblocking', $calleridblocking);
-        }
-        if($callforward instanceof CallForwardReq)
-        {
-            $this->child('callforward', $callforward);
-        }
-        if($callforwardbusyline instanceof CallForwardBusyLineReq)
-        {
-            $this->child('callforwardbusyline', $callforwardbusyline);
-        }
-        if($callforwardnoanswer instanceof CallForwardNoAnswerReq)
-        {
-            $this->child('callforwardnoanswer', $callforwardnoanswer);
-        }
-        if($callwaiting instanceof CallWaitingReq)
-        {
-            $this->child('callwaiting', $callwaiting);
-        }
-        if($selectivecallforward instanceof SelectiveCallForwardReq)
-        {
-            $this->child('selectivecallforward', $selectivecallforward);
-        }
-        if($selectivecallacceptance instanceof SelectiveCallAcceptanceReq)
-        {
-            $this->child('selectivecallacceptance', $selectivecallacceptance);
-        }
-        if($selectivecallrejection instanceof SelectiveCallRejectionReq)
-        {
-            $this->child('selectivecallrejection', $selectivecallrejection);
-        }
+            if($sender->getCallFeatures()->count())
+            {
+                foreach ($sender->getCallFeatures()->all() as $callFeature)
+                {
+
+                    if($callFeature instanceof AnonCallRejectionReq)
+                    {
+                        $this->setChild('anoncallrejection', $callFeature);
+                    }
+                    if($callFeature instanceof CallerIdBlockingReq)
+                    {
+                        $this->setChild('calleridblocking', $callFeature);
+                    }
+                    if($callFeature instanceof CallForwardReq)
+                    {
+                        $this->setChild('callforward', $callFeature);
+                    }
+                    if($callFeature instanceof CallForwardBusyLineReq)
+                    {
+                        $this->setChild('callforwardbusyline', $callFeature);
+                    }
+                    if($callFeature instanceof CallForwardNoAnswerReq)
+                    {
+                        $this->setChild('callforwardnoanswer', $callFeature);
+                    }
+                    if($callFeature instanceof CallWaitingReq)
+                    {
+                        $this->setChild('callwaiting', $callFeature);
+                    }
+                    if($callFeature instanceof SelectiveCallForwardReq)
+                    {
+                        $this->setChild('selectivecallforward', $callFeature);
+                    }
+                    if($callFeature instanceof SelectiveCallAcceptanceReq)
+                    {
+                        $this->setChild('selectivecallacceptance', $callFeature);
+                    }
+                    if($callFeature instanceof SelectiveCallRejectionReq)
+                    {
+                        $this->setChild('selectivecallrejection', $callFeature);
+                    }
+                }
+            }
+        });
     }
 
     /**
-     * Get or set name
+     * Gets name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->getProperty('name');
+    }
+
+    /**
+     * Sets name
      *
      * @param  string $name
-     * @return string|self
+     * @return self
      */
-    public function name($name = null)
+    public function setName($name)
     {
-        if(null === $name)
-        {
-            return $this->property('name');
-        }
-        return $this->property('name', trim($name));
+        return $this->setProperty('name', trim($name));
     }
 
     /**
-     * Get or set anoncallrejection
+     * Add a call feature
      *
-     * @param  AnonCallRejectionReq $anoncallrejection
-     * @return AnonCallRejectionReq|self
+     * @param  CallFeatureReq $attr
+     * @return self
      */
-    public function anoncallrejection(AnonCallRejectionReq $anoncallrejection = null)
+    public function addCallFeature(CallFeatureReq $callFeature)
     {
-        if(null === $anoncallrejection)
-        {
-            return $this->child('anoncallrejection');
-        }
-        return $this->child('anoncallrejection', $anoncallrejection);
+        $this->_callFeatures->add($callFeature);
     }
 
     /**
-     * Get or set calleridblocking
+     * Sets call feature sequence
      *
-     * @param  CallerIdBlockingReq $calleridblocking
-     * @return CallerIdBlockingReq|self
+     * @return self
      */
-    public function calleridblocking(CallerIdBlockingReq $calleridblocking = null)
+    public function setCallFeatures(array $callFeatures)
     {
-        if(null === $calleridblocking)
-        {
-            return $this->child('calleridblocking');
-        }
-        return $this->child('calleridblocking', $calleridblocking);
+        $this->_callFeatures = new TypedSequence('Zimbra\Voice\Struct\CallFeatureReq', $callFeatures);
+        return $this;
     }
 
     /**
-     * Get or set callforward
+     * Gets call feature sequence
      *
-     * @param  CallForwardReq $callforward
-     * @return CallForwardReq|self
+     * @return Sequence
      */
-    public function callforward(CallForwardReq $callforward = null)
+    public function getCallFeatures()
     {
-        if(null === $callforward)
-        {
-            return $this->child('callforward');
-        }
-        return $this->child('callforward', $callforward);
-    }
-
-    /**
-     * Get or set callforwardbusyline
-     *
-     * @param  CallForwardBusyLineReq $callforwardbusyline
-     * @return CallForwardBusyLineReq|self
-     */
-    public function callforwardbusyline(CallForwardBusyLineReq $callforwardbusyline = null)
-    {
-        if(null === $callforwardbusyline)
-        {
-            return $this->child('callforwardbusyline');
-        }
-        return $this->child('callforwardbusyline', $callforwardbusyline);
-    }
-
-    /**
-     * Get or set callforwardnoanswer
-     *
-     * @param  CallForwardNoAnswerReq $callforwardnoanswer
-     * @return CallForwardNoAnswerReq|self
-     */
-    public function callforwardnoanswer(CallForwardNoAnswerReq $callforwardnoanswer = null)
-    {
-        if(null === $callforwardnoanswer)
-        {
-            return $this->child('callforwardnoanswer');
-        }
-        return $this->child('callforwardnoanswer', $callforwardnoanswer);
-    }
-
-    /**
-     * Get or set callwaiting
-     *
-     * @param  CallWaitingReq $callwaiting
-     * @return CallWaitingReq|self
-     */
-    public function callwaiting(CallWaitingReq $callwaiting = null)
-    {
-        if(null === $callwaiting)
-        {
-            return $this->child('callwaiting');
-        }
-        return $this->child('callwaiting', $callwaiting);
-    }
-
-    /**
-     * Get or set selectivecallforward
-     *
-     * @param  SelectiveCallForwardReq $selectivecallforward
-     * @return SelectiveCallForwardReq|self
-     */
-    public function selectivecallforward(SelectiveCallForwardReq $selectivecallforward = null)
-    {
-        if(null === $selectivecallforward)
-        {
-            return $this->child('selectivecallforward');
-        }
-        return $this->child('selectivecallforward', $selectivecallforward);
-    }
-
-    /**
-     * Get or set selectivecallacceptance
-     *
-     * @param  SelectiveCallAcceptanceReq $selectivecallacceptance
-     * @return SelectiveCallAcceptanceReq|self
-     */
-    public function selectivecallacceptance(SelectiveCallAcceptanceReq $selectivecallacceptance = null)
-    {
-        if(null === $selectivecallacceptance)
-        {
-            return $this->child('selectivecallacceptance');
-        }
-        return $this->child('selectivecallacceptance', $selectivecallacceptance);
-    }
-
-    /**
-     * Get or set selectivecallrejection
-     *
-     * @param  SelectiveCallRejectionReq $selectivecallrejection
-     * @return SelectiveCallRejectionReq|self
-     */
-    public function selectivecallrejection(SelectiveCallRejectionReq $selectivecallrejection = null)
-    {
-        if(null === $selectivecallrejection)
-        {
-            return $this->child('selectivecallrejection');
-        }
-        return $this->child('selectivecallrejection', $selectivecallrejection);
+        return $this->_callFeatures;
     }
 
     /**

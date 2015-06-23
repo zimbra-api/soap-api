@@ -41,43 +41,53 @@ class GetVoiceMailPrefs extends Base
         parent::__construct();
         if($storeprincipal instanceof StorePrincipalSpec)
         {
-            $this->child('storeprincipal', $storeprincipal);
+            $this->setChild('storeprincipal', $storeprincipal);
         }
         if($phone instanceof PhoneSpec)
         {
-            $this->child('phone', $phone);
+            $this->setChild('phone', $phone);
         }
     }
 
     /**
-     * Gets or sets storeprincipal
-     * Store Principal specification
+     * Gets the storeprincipal.
+     *
+     * @return StorePrincipalSpec
+     */
+    public function getStorePrincipal()
+    {
+        return $this->getChild('storeprincipal');
+    }
+
+    /**
+     * Sets the storeprincipal.
      *
      * @param  StorePrincipalSpec $storeprincipal
-     * @return StorePrincipalSpec|self
+     * @return self
      */
-    public function storeprincipal(StorePrincipalSpec $storeprincipal = null)
+    public function setStorePrincipal(StorePrincipalSpec $storeprincipal)
     {
-        if(null === $storeprincipal)
-        {
-            return $this->child('storeprincipal');
-        }
-        return $this->child('storeprincipal', $storeprincipal);
+        return $this->setChild('storeprincipal', $storeprincipal);
     }
 
     /**
-     * Gets or sets phone
-     * Phone specification
+     * Gets the phone.
+     *
+     * @return PhoneSpec
+     */
+    public function getPhone()
+    {
+        return $this->getChild('phone');
+    }
+
+    /**
+     * Sets the phone.
      *
      * @param  PhoneSpec $phone
-     * @return PhoneSpec|self
+     * @return self
      */
-    public function phone(PhoneSpec $phone = null)
+    public function setPhone(PhoneSpec $phone)
     {
-        if(null === $phone)
-        {
-            return $this->child('phone');
-        }
-        return $this->child('phone', $phone);
+        return $this->setChild('phone', $phone);
     }
 }

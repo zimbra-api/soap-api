@@ -30,22 +30,27 @@ class ChangeUCPassword extends Base
     public function __construct($password)
     {
         parent::__construct();
-        $this->property('password', trim($password));
+        $this->setProperty('password', trim($password));
     }
 
     /**
-     * Gets or sets password
-     * Updated Password
+     * Gets password
+     *
+     * @return string
+     */
+    public function getPassword()
+    {
+        return $this->getProperty('password');
+    }
+
+    /**
+     * Sets password
      *
      * @param  string $password
-     * @return string|self
+     * @return self
      */
-    public function password($password = null)
+    public function setPassword($password)
     {
-        if(null === $password)
-        {
-            return $this->property('password');
-        }
-        return $this->property('password', trim($password));
+        return $this->setProperty('password', trim($password));
     }
 }

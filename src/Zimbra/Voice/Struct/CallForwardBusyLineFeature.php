@@ -23,33 +23,39 @@ class CallForwardBusyLineFeature extends CallFeatureInfo
 {
     /**
      * Constructor method for CallForwardBusyLineFeature
-     * @param bool   $s
-     * @param bool   $a
-     * @param string $ft
+     * @param bool   $subscribed Flag whether subscribed or not
+     * @param bool   $active Flag whether active or not
+     * @param string $forwardTo Telephone number to forward calls to
      * @return self
      */
-    public function __construct($s, $a, $ft = null)
+    public function __construct($subscribed, $active, $ft = null)
     {
-    	parent::__construct($s, $a);
-        if(null !== $ft)
+    	parent::__construct($subscribed, $active);
+        if(null !== $forwardTo)
         {
-            $this->property('ft', trim($ft));
+            $this->property('ft', trim($forwardTo));
         }
     }
 
     /**
-     * Gets or sets ft
+     * Gets forward to
      *
-     * @param  string $ft
-     * @return string|self
+     * @return string
      */
-    public function ft($ft = null)
+    public function getForwardTo()
     {
-        if(null === $ft)
-        {
-            return $this->property('ft');
-        }
-        return $this->property('ft', trim($ft));
+        return $this->getProperty('ft');
+    }
+
+    /**
+     * Sets forward to
+     *
+     * @param  string $forwardTo
+     * @return self
+     */
+    public function setForwardTo($forwardTo)
+    {
+        return $this->setProperty('ft', trim($forwardTo));
     }
 
     /**

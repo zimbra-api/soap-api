@@ -25,10 +25,10 @@ class ModifyFromNumSpec extends Base
 {
     /**
      * Constructor method for ModifyFromNumSpec
-     * @param string $oldPhone
-     * @param string $phone
-     * @param string $id
-     * @param string $label
+     * @param string $oldPhone Old phone number
+     * @param string $phone New phone number
+     * @param string $id Phone ID
+     * @param string $label Phone label/name
      * @return self
      */
     public function __construct(
@@ -39,70 +39,94 @@ class ModifyFromNumSpec extends Base
     )
     {
     	parent::__construct();
-        $this->property('oldPhone', trim($oldPhone));
-        $this->property('phone', trim($phone));
-        $this->property('id', trim($id));
-        $this->property('label', trim($label));
+        $this->setProperty('oldPhone', trim($oldPhone));
+        $this->setProperty('phone', trim($phone));
+        $this->setProperty('id', trim($id));
+        $this->setProperty('label', trim($label));
     }
 
     /**
-     * Gets or sets oldPhone
+     * Gets old phone number
+     *
+     * @return string
+     */
+    public function getOldPhone()
+    {
+        return $this->getProperty('oldPhone');
+    }
+
+    /**
+     * Sets old phone number
      *
      * @param  string $oldPhone
-     * @return string|self
+     * @return self
      */
-    public function oldPhone($oldPhone = null)
+    public function setOldPhone($oldPhone)
     {
-        if(null === $oldPhone)
-        {
-            return $this->property('oldPhone');
-        }
-        return $this->property('oldPhone', trim($oldPhone));
+        return $this->setProperty('oldPhone', trim($oldPhone));
     }
 
     /**
-     * Gets or sets phone
+     * Gets new phone number
+     *
+     * @return string
+     */
+    public function getPhone()
+    {
+        return $this->getProperty('phone');
+    }
+
+    /**
+     * Sets new phone number
      *
      * @param  string $phone
-     * @return string|self
+     * @return self
      */
-    public function phone($phone = null)
+    public function setPhone($phone)
     {
-        if(null === $phone)
-        {
-            return $this->property('phone');
-        }
-        return $this->property('phone', trim($phone));
+        return $this->setProperty('phone', trim($phone));
     }
 
     /**
-     * Gets or sets id
+     * Gets id
+     *
+     * @return string
+     */
+    public function getId()
+    {
+        return $this->getProperty('id');
+    }
+
+    /**
+     * Sets id
      *
      * @param  string $id
-     * @return string|self
+     * @return self
      */
-    public function id($id = null)
+    public function setId($id)
     {
-        if(null === $id)
-        {
-            return $this->property('id');
-        }
-        return $this->property('id', trim($id));
+        return $this->setProperty('id', trim($id));
     }
 
     /**
-     * Gets or sets label
+     * Gets label
+     *
+     * @return string
+     */
+    public function getLabel()
+    {
+        return $this->getProperty('label');
+    }
+
+    /**
+     * Sets label
      *
      * @param  string $label
-     * @return string|self
+     * @return self
      */
-    public function label($label = null)
+    public function setLabel($label)
     {
-        if(null === $label)
-        {
-            return $this->property('label');
-        }
-        return $this->property('label', trim($label));
+        return $this->setProperty('label', trim($label));
     }
 
     /**

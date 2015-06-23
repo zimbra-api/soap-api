@@ -30,8 +30,8 @@ class VoiceMsgAction extends Base
 {
     /**
      * Constructor method for VoiceMsgAction
-     * @param  VoiceMsgActionSpec $action
-     * @param  StorePrincipalSpec $storeprincipal
+     * @param  VoiceMsgActionSpec $action Action specification
+     * @param  StorePrincipalSpec $storeprincipal Store principal specification
      * @return self
      */
     public function __construct(
@@ -48,34 +48,44 @@ class VoiceMsgAction extends Base
     }
 
     /**
-     * Gets or sets storeprincipal
-     * Store Principal specification
+     * Gets the storeprincipal.
      *
-     * @param  StorePrincipalSpec $storeprincipal
-     * @return StorePrincipalSpec|self
+     * @return StorePrincipalSpec
      */
-    public function storeprincipal(StorePrincipalSpec $storeprincipal = null)
+    public function getStorePrincipal()
     {
-        if(null === $storeprincipal)
-        {
-            return $this->child('storeprincipal');
-        }
-        return $this->child('storeprincipal', $storeprincipal);
+        return $this->getChild('storeprincipal');
     }
 
     /**
-     * Gets or sets action
-     * Phone specification
+     * Sets the storeprincipal.
+     *
+     * @param  StorePrincipalSpec $storeprincipal
+     * @return self
+     */
+    public function setStorePrincipal(StorePrincipalSpec $storeprincipal)
+    {
+        return $this->setChild('storeprincipal', $storeprincipal);
+    }
+
+    /**
+     * Gets the action.
+     *
+     * @return VoiceMsgActionSpec
+     */
+    public function getAction()
+    {
+        return $this->getChild('action');
+    }
+
+    /**
+     * Sets the action.
      *
      * @param  VoiceMsgActionSpec $action
-     * @return VoiceMsgActionSpec|self
+     * @return self
      */
-    public function action(VoiceMsgActionSpec $action = null)
+    public function setAction(VoiceMsgActionSpec $action)
     {
-        if(null === $action)
-        {
-            return $this->child('action');
-        }
-        return $this->child('action', $action);
+        return $this->setChild('action', $action);
     }
 }

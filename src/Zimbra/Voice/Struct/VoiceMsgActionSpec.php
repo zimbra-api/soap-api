@@ -21,93 +21,117 @@ use Zimbra\Struct\Base;
  * @subpackage Voice
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
- * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
+ * @copyright  Copyright © 2013 op Nguyen Van Nguyen.
  */
 class VoiceMsgActionSpec extends Base
 {
     /**
      * Constructor method for VoiceMsgActionSpec
-     * @param VoiceMsgActionOp $op
-     * @param string $phone
-     * @param string $id
-     * @param string $l
+     * @param VoiceMsgActionOp $op Operation
+     * @param string $phone Phone number
+     * @param string $id IDs list.
+     * @param string $folderId Folder ID of the destination location for the move
      * @return self
      */
     public function __construct(
         VoiceMsgActionOp $op,
         $phone,
         $id,
-        $l = null
+        $folderId = null
     )
     {
         parent::__construct();
-        $this->property('op', $op);
-        $this->property('phone', trim($phone));
-        $this->property('id', trim($id));
-        if(null !== $l)
+        $this->setProperty('op', $op);
+        $this->setProperty('phone', trim($phone));
+        $this->setProperty('id', trim($id));
+        if(null !== $folderId)
         {
-            $this->property('l', trim($l));
+            $this->setProperty('l', trim($folderId));
         }
     }
 
     /**
-     * Gets or sets op
+     * Sets operation enum
+     *
+     * @return VoiceMsgActionOp
+     */
+    public function getOperation()
+    {
+        return $this->getProperty('op');
+    }
+
+    /**
+     * Gets operation enum
      *
      * @param  VoiceMsgActionOp $op
-     * @return VoiceMsgActionOp|self
+     * @return self
      */
-    public function op(VoiceMsgActionOp $op = null)
+    public function setOperation(VoiceMsgActionOp $op)
     {
-        if(null === $op)
-        {
-            return $this->property('op');
-        }
-        return $this->property('op', $op);
+        return $this->setProperty('op', $op);
     }
 
     /**
-     * Gets or sets phone
+     * Gets phone
+     *
+     * @return string
+     */
+    public function getPhone()
+    {
+        return $this->getProperty('phone');
+    }
+
+    /**
+     * Sets phone
      *
      * @param  string $phone
-     * @return string|self
+     * @return self
      */
-    public function phone($phone = null)
+    public function setPhone($phone)
     {
-        if(null === $phone)
-        {
-            return $this->property('phone');
-        }
-        return $this->property('phone', trim($phone));
+        return $this->setProperty('phone', trim($phone));
     }
 
     /**
-     * Gets or sets id
+     * Gets id
+     *
+     * @return string
+     */
+    public function getId()
+    {
+        return $this->getProperty('id');
+    }
+
+    /**
+     * Sets id
      *
      * @param  string $id
-     * @return string|self
+     * @return self
      */
-    public function id($id = null)
+    public function setId($id)
     {
-        if(null === $id)
-        {
-            return $this->property('id');
-        }
-        return $this->property('id', trim($id));
+        return $this->setProperty('id', trim($id));
     }
 
     /**
-     * Gets or sets l
+     * Gets folderId
      *
-     * @param  string $l
-     * @return string|self
+     * @return string
      */
-    public function l($l = null)
+    public function getFolderId()
     {
-        if(null === $l)
-        {
-            return $this->property('l');
-        }
-        return $this->property('l', trim($l));
+        return $this->getProperty('l');
+    }
+
+    /**
+     * Sets folderId
+     *
+     * @param  string $folderId
+     * @return self
+     */
+    public function setFolderId($folderId)
+    {
+        return $this->setProperty('l', trim($folderId));
     }
 
     /**

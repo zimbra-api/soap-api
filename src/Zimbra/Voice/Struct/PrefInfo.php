@@ -25,8 +25,8 @@ class PrefInfo extends Base
 {
     /**
      * Constructor method for PrefInfo
-     * @param string $name
-     * @param string $value
+     * @param string $name Preference name
+     * @param string $value Preference value
      * @return self
      */
     public function __construct($name = null, $value = null)
@@ -34,23 +34,29 @@ class PrefInfo extends Base
     	parent::__construct($value);
         if(null !== $name)
         {
-            $this->property('name', trim($name));
+            $this->setProperty('name', trim($name));
         }
     }
 
     /**
-     * Get or set name
+     * Gets name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->getProperty('name');
+    }
+
+    /**
+     * Sets name
      *
      * @param  string $name
-     * @return string|self
+     * @return self
      */
-    public function name($name = null)
+    public function setName($name)
     {
-        if(null === $name)
-        {
-            return $this->property('name');
-        }
-        return $this->property('name', trim($name));
+        return $this->setProperty('name', trim($name));
     }
 
     /**

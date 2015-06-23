@@ -23,34 +23,40 @@ class SelectiveCallForwardFeature extends FeatureWithCallerList
 {
     /**
      * Constructor method for SelectiveCallForwardFeature
-     * @param bool   $s
-     * @param bool   $a
-     * @param array  $phone
-     * @param string $ft
+     * @param bool   $subscribed Flag whether subscribed or not
+     * @param bool   $active Flag whether active or not
+     * @param array  $phones Phones
+     * @param string $forwardTo Telephone number to forward calls to
      * @return self
      */
-    public function __construct($s, $a, array $phone = array(), $ft = null)
+    public function __construct($subscribed, $active, array $phones = [], $forwardTo = null)
     {
-    	parent::__construct($s, $a, $phone);
-        if(null !== $ft)
+    	parent::__construct($subscribed, $active, $phones);
+        if(null !== $forwardTo)
         {
-            $this->property('ft', trim($ft));
+            $this->property('ft', trim($forwardTo));
         }
     }
 
     /**
-     * Gets or sets ft
+     * Gets forward to
      *
-     * @param  string $ft
-     * @return string|self
+     * @return string
      */
-    public function ft($ft = null)
+    public function getForwardTo()
     {
-        if(null === $ft)
-        {
-            return $this->property('ft');
-        }
-        return $this->property('ft', trim($ft));
+        return $this->getProperty('ft');
+    }
+
+    /**
+     * Sets forward to
+     *
+     * @param  string $forwardTo
+     * @return self
+     */
+    public function setForwardTo($forwardTo)
+    {
+        return $this->setProperty('ft', trim($forwardTo));
     }
 
     /**
