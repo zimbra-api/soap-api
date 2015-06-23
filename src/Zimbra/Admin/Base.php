@@ -46,8 +46,6 @@ use Zimbra\Admin\Struct\TimeAttr;
 use Zimbra\Admin\Struct\TzFixup;
 use Zimbra\Admin\Struct\UcServiceSelector as UcService;
 use Zimbra\Admin\Struct\VolumeInfo as Volume;
-use Zimbra\Admin\Struct\WaitSetSpec;
-use Zimbra\Admin\Struct\WaitSetId;
 use Zimbra\Admin\Struct\XmppComponentSelector as XmppComponent;
 use Zimbra\Admin\Struct\XmppComponentSpec as Xmpp;
 use Zimbra\Admin\Struct\ZimletAclStatusPri as ZimletAcl;
@@ -58,6 +56,8 @@ use Zimbra\Struct\GranteeChooser;
 use Zimbra\Struct\Id;
 use Zimbra\Struct\KeyValuePair;
 use Zimbra\Struct\NamedElement;
+use Zimbra\Struct\WaitSetSpec;
+use Zimbra\Struct\WaitSetId;
 
 use Zimbra\Enum\AutoProvTaskAction as TaskAction;
 use Zimbra\Enum\AttrMethod;
@@ -1508,13 +1508,13 @@ abstract class Base extends API implements AdminInterface
      * Returns admin saved searches.
      * If no <search> is present server will return all saved searches.
      *
-     * @param  NamedElement $search The search name.
+     * @param  array $searches Array of search information
      * @return mix
      */
-    public function getAdminSavedSearches(NamedElement $search)
+    public function getAdminSavedSearches(array $searches = [])
     {
         $request = new \Zimbra\Admin\Request\GetAdminSavedSearches(
-            $search
+            $searches
         );
         return $this->_client->doRequest($request);
     }

@@ -44,8 +44,6 @@ use Zimbra\Admin\Struct\TimeAttr;
 use Zimbra\Admin\Struct\TzFixup;
 use Zimbra\Admin\Struct\UcServiceSelector as UcService;
 use Zimbra\Admin\Struct\VolumeInfo as Volume;
-use Zimbra\Admin\Struct\WaitSetSpec;
-use Zimbra\Admin\Struct\WaitSetId;
 use Zimbra\Admin\Struct\XmppComponentSelector as XmppComponent;
 use Zimbra\Admin\Struct\XmppComponentSpec as Xmpp;
 use Zimbra\Admin\Struct\ZimletAclStatusPri as ZimletAcl;
@@ -56,6 +54,8 @@ use Zimbra\Struct\GranteeChooser;
 use Zimbra\Struct\Id;
 use Zimbra\Struct\KeyValuePair;
 use Zimbra\Struct\NamedElement;
+use Zimbra\Struct\WaitSetSpec;
+use Zimbra\Struct\WaitSetId;
 
 use Zimbra\Enum\AutoProvTaskAction as TaskAction;
 use Zimbra\Enum\AttrMethod;
@@ -1036,10 +1036,10 @@ interface AdminInterface
      * Returns admin saved searches.
      * If no <search> is present server will return all saved searches.
      *
-     * @param  NamedElement $search The search name.
+     * @param  array $searches Array of search information
      * @return mix
      */
-    function getAdminSavedSearches(NamedElement $search);
+    function getAdminSavedSearches(array $searches = []);
 
     /**
      * Gets the aggregate quota usage for all domains on the server.
