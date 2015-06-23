@@ -62,6 +62,12 @@ class DiscoverRights extends Base
         return $this;
     }
 
+    /**
+     * Sets right sequence
+     *
+     * @param  array $rights
+     * @return self
+     */
     public function setRights(array $rights)
     {
         $this->_rights = new Sequence;

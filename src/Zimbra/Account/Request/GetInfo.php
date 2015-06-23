@@ -84,7 +84,7 @@ class GetInfo extends Base
      */
     public function setSections($sections)
     {
-        $secs = array();
+        $secs = [];
         $sections = explode(',', $sections);
         foreach ($sections as $section)
         {

@@ -44,7 +44,7 @@ class GetDistributionList extends Base
         DistList $dl,
         $needOwners = null,
         $needRights = null,
-        array $attrs = array())
+        array $attrs = [])
     {
         parent::__construct();
         $this->setChild('dl', $dl);

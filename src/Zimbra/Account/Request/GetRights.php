@@ -36,7 +36,7 @@ class GetRights extends Base
      * @param array $ace Specify Access Control Entries
      * @return self
      */
-    public function __construct(array $aces = array())
+    public function __construct(array $aces = [])
     {
         parent::__construct();
         $this->setAces($aces);

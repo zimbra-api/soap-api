@@ -36,7 +36,7 @@ class GetPrefs extends Base
      * @param array $prefs Any of these are specified then only get these preferences
      * @return self
      */
-    public function __construct(array $prefs = array())
+    public function __construct(array $prefs = [])
     {
         parent::__construct();
         $this->setPrefs($prefs);
@@ -63,7 +63,7 @@ class GetPrefs extends Base
     }
 
     /**
-     * Set pref sequence
+     * Sets pref sequence
      *
      * @param  array $prefs
      * @return self

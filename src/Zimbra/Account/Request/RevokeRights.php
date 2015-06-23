@@ -36,7 +36,7 @@ class RevokeRights extends Base
      * @param array $aces Specify Access Control Entries
      * @return self
      */
-    public function __construct(array $aces = array())
+    public function __construct(array $aces = [])
     {
         parent::__construct();
         $this->setAces($aces);

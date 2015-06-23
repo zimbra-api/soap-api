@@ -11,6 +11,8 @@
 namespace Zimbra\Account\Request;
 
 use Zimbra\Enum\MemberOfSelector as MemberOf;
+use Zimbra\Struct\AttributeSelectorTrait;
+use Zimbra\Struct\AttributeSelector;
 
 /**
  * GetAccountDistributionLists request class
@@ -22,16 +24,18 @@ use Zimbra\Enum\MemberOfSelector as MemberOf;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
  */
-class GetAccountDistributionLists extends Base
+class GetAccountDistributionLists extends Base implements AttributeSelector
 {
+    use AttributeSelectorTrait;
+
     /**
      * Constructor method for GetAccountDistributionLists
      * @param  bool $ownerOf The ownerOf
      * @param  MemberOf $memberOf The memberOf
-     * @param  string $attrs The attributes
+     * @param  array $attrs The attributes
      * @return self
      */
-    public function __construct($ownerOf = null, MemberOf $memberOf = null, $attrs = null)
+    public function __construct($ownerOf = null, MemberOf $memberOf = null, array $attrs = [])
     {
         parent::__construct();
         if(null !== $ownerOf)
@@ -42,10 +46,16 @@ class GetAccountDistributionLists extends Base
         {
             $this->setProperty('memberOf', $memberOf);
         }
-        if(null !== $attrs)
+
+        $this->setAttrs($attrs);
+        $this->on('before', function(Base $sender)
         {
-            $this->setProperty('attrs', trim($attrs));
-        }
+            $attrs = $sender->getAttrs();
+            if(!empty($attrs))
+            {
+                $sender->setProperty('attrs', $attrs);
+            }
+        });
     }
 
     /**
@@ -88,26 +98,5 @@ class GetAccountDistributionLists extends Base
     public function setMemberOf(MemberOf $memberOf)
     {
         return $this->setProperty('memberOf', $memberOf);
-    }
-
-    /**
-     * Gets attributes
-     *
-     * @return bool
-     */
-    public function getAttrs()
-    {
-        return $this->getProperty('attrs');
-    }
-
-    /**
-     * Sets attributes
-     *
-     * @param  bool $attrs
-     * @return self
-     */
-    public function setAttrs($attrs)
-    {
-        return $this->setProperty('attrs', trim($attrs));
     }
 }

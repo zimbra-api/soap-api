@@ -36,7 +36,7 @@ class ModifyPrefs extends Base
      * @param array $prefs Specify the preferences to be modified
      * @return self
      */
-    public function __construct(array $prefs = array())
+    public function __construct(array $prefs = [])
     {
         parent::__construct();
         $this->setPrefs($prefs);

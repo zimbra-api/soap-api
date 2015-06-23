@@ -36,7 +36,7 @@ class ModifyProperties extends Base
      * @param array $props Specify the properties to be modified
      * @return self
      */
-    public function __construct(array $props = array())
+    public function __construct(array $props = [])
     {
         parent::__construct();
         $this->setProps($props);

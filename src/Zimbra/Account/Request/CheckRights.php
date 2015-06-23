@@ -29,7 +29,7 @@ class CheckRights extends Base
      * The targets
      * @var TypedSequence<Target>
      */
-    private $_targets = array();
+    private $_targets;
 
     /**
      * Constructor method for CheckRights

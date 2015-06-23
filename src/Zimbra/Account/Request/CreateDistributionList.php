@@ -29,7 +29,7 @@ class CreateDistributionList extends BaseAttr
      * @param  array  $attrs   Attributes specified as key value pairs
      * @return self
      */
-    public function __construct($name, $dynamic = null, array $attrs = array())
+    public function __construct($name, $dynamic = null, array $attrs = [])
     {
         parent::__construct($attrs);
         $this->setProperty('name', trim($name));

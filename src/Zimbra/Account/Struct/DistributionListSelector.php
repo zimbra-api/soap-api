@@ -25,19 +25,6 @@ use Zimbra\Struct\Base;
 class DistributionListSelector extends Base
 {
     /**
-     * Select the meaning of {dl-selector-key}
-     * Valid values: id|name
-     * @var DLBy
-     */
-    private $_by;
-
-    /**
-     * Identifies the distribution list to act upon
-     * @var string
-     */
-    private $_value;
-
-    /**
      * Constructor method for DistributionListSelector
      * @param  DLBy $by
      * @param  string $value

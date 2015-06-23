@@ -36,7 +36,7 @@ class ModifyZimletPrefs extends Base
      * @param array $zimlets Zimlet Preference Specifications
      * @return self
      */
-    public function __construct(array $zimlets = array())
+    public function __construct(array $zimlets = [])
     {
         parent::__construct();
         $this->setZimlets($zimlets);

@@ -12,6 +12,8 @@ namespace Zimbra\Account\Request;
 
 use Zimbra\Struct\CursorInfo;
 use Zimbra\Struct\EntrySearchFilterInfo as SearchFilter;
+use Zimbra\Struct\AttributeSelectorTrait;
+use Zimbra\Struct\AttributeSelector;
 
 /**
  * SearchCalendarResources request class
@@ -24,8 +26,10 @@ use Zimbra\Struct\EntrySearchFilterInfo as SearchFilter;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
  */
-class SearchCalendarResources extends Base
+class SearchCalendarResources extends Base implements AttributeSelector
 {
+    use AttributeSelectorTrait;
+
     /**
      * Constructor method for searchCalendarResources
      * @param string $locale Client locale identification.
@@ -50,7 +54,7 @@ class SearchCalendarResources extends Base
         $limit = null,
         $offset = null,
         $galAcctId = null,
-        $attrs = null
+        array $attrs = []
     )
     {
         parent::__construct();
@@ -90,10 +94,16 @@ class SearchCalendarResources extends Base
         {
             $this->setProperty('galAcctId', trim($galAcctId));
         }
-        if(null !== $attrs)
+
+        $this->setAttrs($attrs);
+        $this->on('before', function(Base $sender)
         {
-            $this->setProperty('attrs', trim($attrs));
-        }
+            $attrs = $sender->getAttrs();
+            if(!empty($attrs))
+            {
+                $sender->setProperty('attrs', $attrs);
+            }
+        });
     }
 
     /**
@@ -283,26 +293,5 @@ class SearchCalendarResources extends Base
     public function setGalAccountId($galAcctId)
     {
         return $this->setProperty('galAcctId', trim($galAcctId));
-    }
-
-    /**
-     * Gets attributes
-     *
-     * @return bool
-     */
-    public function getAttrs()
-    {
-        return $this->getProperty('attrs');
-    }
-
-    /**
-     * Sets attributes
-     *
-     * @param  bool $attrs
-     * @return self
-     */
-    public function setAttrs($attrs)
-    {
-        return $this->setProperty('attrs', trim($attrs));
     }
 }
