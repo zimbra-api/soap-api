@@ -25,7 +25,7 @@ abstract class VoiceFactory
     /**
      * @var array
      */
-    private static $_instances = array();
+    private static $_instances = [];
 
     /**
      * Creates a singleton of a VoiceInterface base on parameters.

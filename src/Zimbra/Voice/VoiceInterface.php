@@ -74,7 +74,7 @@ interface VoiceInterface extends AccountInterface
      */
     function getVoiceFolder(
         StorePrincipalSpec $storeprincipal = null,
-        array $phone = array()
+        array $phone = []
     );
 
     /**
@@ -83,7 +83,7 @@ interface VoiceInterface extends AccountInterface
      * @param  array $phones
      * @return mix
      */
-    function getVoiceInfo(array $phones = array());
+    function getVoiceInfo(array $phones = []);
 
     /**
      * Get voice mail preferences.

@@ -25,7 +25,7 @@ abstract class MailFactory
     /**
      * @var array
      */
-    private static $_instances = array();
+    private static $_instances = [];
 
     /**
      * Creates a singleton of a MailInterface base on parameters.

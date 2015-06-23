@@ -189,7 +189,7 @@ abstract class Base extends API implements AdminInterface
         $domain,
         GalMode $type,
         $folder = null,
-        array $attrs = array()
+        array $attrs = []
     )
     {
         $request = new \Zimbra\Admin\Request\AddGalSyncDataSource(
@@ -218,7 +218,7 @@ abstract class Base extends API implements AdminInterface
      */
     public function adminCreateWaitSet(
         WaitSetSpec $add = null,
-        array $defTypes = array(),
+        array $defTypes = [],
         $allAccounts = null
     )
     {
@@ -274,7 +274,7 @@ abstract class Base extends API implements AdminInterface
         WaitSetSpec $update = null,
         WaitSetId $remove = null,
         $block = null,
-        array $defTypes = array(),
+        array $defTypes = [],
         $timeout = null
     )
     {
@@ -428,7 +428,7 @@ abstract class Base extends API implements AdminInterface
      * @param  array  $attrs    Attributes.
      * @return mix
      */
-    public function checkAuthConfig($name, $password, array $attrs = array())
+    public function checkAuthConfig($name, $password, array $attrs = [])
     {
         $request = new \Zimbra\Admin\Request\CheckAuthConfig(
             $name, $password, $attrs
@@ -452,8 +452,8 @@ abstract class Base extends API implements AdminInterface
      * @return mix
      */
     public function checkBlobConsistency(
-        array $volumes = array(),
-        array $mboxes = array(),
+        array $volumes = [],
+        array $mboxes = [],
         $checkSize = null,
         $reportUsedBlobs = null)
     {
@@ -469,7 +469,7 @@ abstract class Base extends API implements AdminInterface
      * @param  array $directories Directories.
      * @return mix
      */
-    public function checkDirectory(array $directories = array())
+    public function checkDirectory(array $directories = [])
     {
         $request = new \Zimbra\Admin\Request\CheckDirectory(
             $directories
@@ -528,7 +528,7 @@ abstract class Base extends API implements AdminInterface
     public function checkGalConfig(
         LimitedQuery $query = null,
         ConfigAction $action = null,
-        array $attrs = array())
+        array $attrs = [])
     {
         $request = new \Zimbra\Admin\Request\CheckGalConfig(
             $query, $action, $attrs
@@ -594,7 +594,7 @@ abstract class Base extends API implements AdminInterface
         Target $target,
         Grantee $grantee,
         $right,
-        array $attrs = array())
+        array $attrs = [])
     {
         $request = new \Zimbra\Admin\Request\CheckRight(
             $target, $grantee, $right, $attrs
@@ -608,7 +608,7 @@ abstract class Base extends API implements AdminInterface
      * @param  array $cookies Specifies cookies to clean.
      * @return mix
      */
-    public function clearCookie(array $cookies = array())
+    public function clearCookie(array $cookies = [])
     {
         $request = new \Zimbra\Admin\Request\ClearCookie(
             $cookies
@@ -732,7 +732,7 @@ abstract class Base extends API implements AdminInterface
      * @param  array  $attrs    Attributes.
      * @return mix
      */
-    public function createAccount($name, $password, array $attrs = array())
+    public function createAccount($name, $password, array $attrs = [])
     {
         $request = new \Zimbra\Admin\Request\CreateAccount(
             $name, $password, $attrs
@@ -752,7 +752,7 @@ abstract class Base extends API implements AdminInterface
      * @param  array  $attrs    Attributes.
      * @return mix
      */
-    public function createCalendarResource($name = null, $password = null, array $attrs = array())
+    public function createCalendarResource($name = null, $password = null, array $attrs = [])
     {
         $request = new \Zimbra\Admin\Request\CreateCalendarResource(
             $name, $password, $attrs
@@ -769,7 +769,7 @@ abstract class Base extends API implements AdminInterface
      * @param  array  $attrs Attributes.
      * @return mix
      */
-    public function createCos($name, array $attrs = array())
+    public function createCos($name, array $attrs = [])
     {
         $request = new \Zimbra\Admin\Request\CreateCos(
             $name, $attrs
@@ -807,7 +807,7 @@ abstract class Base extends API implements AdminInterface
      * @param  array  $attrs   Attributes.
      * @return mix
      */
-    public function createDistributionList($name, $dynamic = null, array $attrs = array())
+    public function createDistributionList($name, $dynamic = null, array $attrs = [])
     {
         $request = new \Zimbra\Admin\Request\CreateDistributionList(
             $name, $dynamic, $attrs
@@ -824,7 +824,7 @@ abstract class Base extends API implements AdminInterface
      * @param  array  $attrs Attributes.
      * @return mix
      */
-    public function createDomain($name, array $attrs = array())
+    public function createDomain($name, array $attrs = [])
     {
         $request = new \Zimbra\Admin\Request\CreateDomain(
             $name, $attrs
@@ -860,7 +860,7 @@ abstract class Base extends API implements AdminInterface
         $server,
         $password = null,
         $folder = null,
-        array $attrs = array()
+        array $attrs = []
     )
     {
         $request = new \Zimbra\Admin\Request\CreateGalSyncAccount(
@@ -876,7 +876,7 @@ abstract class Base extends API implements AdminInterface
      * @param  array  $attrs Attributes.
      * @return mix
      */
-    public function createLDAPEntry($dn, array $attrs = array())
+    public function createLDAPEntry($dn, array $attrs = [])
     {
         $request = new \Zimbra\Admin\Request\CreateLDAPEntry(
             $dn, $attrs
@@ -892,7 +892,7 @@ abstract class Base extends API implements AdminInterface
      * @param  array  $attrs Attributes.
      * @return mix
      */
-    public function createServer($name, array $attrs = array())
+    public function createServer($name, array $attrs = [])
     {
         $request = new \Zimbra\Admin\Request\CreateServer(
             $name, $attrs
@@ -929,7 +929,7 @@ abstract class Base extends API implements AdminInterface
      * @param  array  $attrs Attributes.
      * @return mix
      */
-    public function createUCService($name, array $attrs = array())
+    public function createUCService($name, array $attrs = [])
     {
         $request = new \Zimbra\Admin\Request\CreateUCService(
             $name, $attrs
@@ -972,7 +972,7 @@ abstract class Base extends API implements AdminInterface
      * @param  array  $attrs Attributes.
      * @return mix
      */
-    public function createZimlet($name, array $attrs = array())
+    public function createZimlet($name, array $attrs = [])
     {
         $request = new \Zimbra\Admin\Request\CreateZimlet(
             $name, $attrs
@@ -987,7 +987,7 @@ abstract class Base extends API implements AdminInterface
      * @param  array  $volumes Volumes.
      * @return mix
      */
-    public function dedupeBlobs(DedupAction $action, array $volumes = array())
+    public function dedupeBlobs(DedupAction $action, array $volumes = [])
     {
         $request = new \Zimbra\Admin\Request\DedupeBlobs(
             $action, $volumes
@@ -1069,7 +1069,7 @@ abstract class Base extends API implements AdminInterface
      * @param  array  $attrs  Attributes.
      * @return mix
      */
-    public function deleteDataSource($id, Id $dataSource, array $attrs = array())
+    public function deleteDataSource($id, Id $dataSource, array $attrs = [])
     {
         $request = new \Zimbra\Admin\Request\DeleteDataSource(
             $id, $dataSource, $attrs
@@ -1307,7 +1307,7 @@ abstract class Base extends API implements AdminInterface
      * @param  array $accounts Account names.
      * @return mix
      */
-    public function fixCalendarEndTime($sync = null, array $accounts = array())
+    public function fixCalendarEndTime($sync = null, array $accounts = [])
     {
         $request = new \Zimbra\Admin\Request\FixCalendarEndTime(
             $sync, $accounts
@@ -1322,7 +1322,7 @@ abstract class Base extends API implements AdminInterface
      * @param  array $accounts Account names.
      * @return mix
      */
-    public function fixCalendarPriority($sync = null, array $accounts = array())
+    public function fixCalendarPriority($sync = null, array $accounts = [])
     {
         $request = new \Zimbra\Admin\Request\FixCalendarPriority(
             $sync, $accounts
@@ -1341,7 +1341,7 @@ abstract class Base extends API implements AdminInterface
      * @return mix
      */
     function fixCalendarTZ(
-        array $account = array(),
+        array $account = [],
         TzFixup $tzfixup = null,
         $sync = null,
         $after = null
@@ -1402,7 +1402,7 @@ abstract class Base extends API implements AdminInterface
         $o = null,
         $oU = null,
         $cN = null,
-        array $subjectAltName = array()
+        array $subjectAltName = []
     )
     {
         $request = new \Zimbra\Admin\Request\GenCSR(
@@ -1810,7 +1810,7 @@ abstract class Base extends API implements AdminInterface
      * @param  array  $entryTypes Attributes on the specified entry types will be returned.
      * @return mix
      */
-    public function getAttributeInfo($attrs = null, array $entryTypes = array())
+    public function getAttributeInfo($attrs = null, array $entryTypes = [])
     {
         $request = new \Zimbra\Admin\Request\GetAttributeInfo(
             $attrs, $entryTypes
@@ -1935,7 +1935,7 @@ abstract class Base extends API implements AdminInterface
      * @param  array  $attrs Array of attributes.
      * @return mix
      */
-    public function getDataSources($id, array $attrs = array())
+    public function getDataSources($id, array $attrs = [])
     {
         $request = new \Zimbra\Admin\Request\GetDataSources($id, $attrs);
         return $this->_client->doRequest($request);
@@ -1958,7 +1958,7 @@ abstract class Base extends API implements AdminInterface
         TargetType $type,
         $id = null,
         $name = null,
-        array $attrs = array()
+        array $attrs = []
     )
     {
         $request = new \Zimbra\Admin\Request\GetDelegatedAdminConstraints(
@@ -1994,7 +1994,7 @@ abstract class Base extends API implements AdminInterface
         $limit = null,
         $offset = null,
         $sortAscending = null,
-        array $attrs = array()
+        array $attrs = []
     )
     {
         $request = new \Zimbra\Admin\Request\GetDistributionList(
@@ -2330,7 +2330,7 @@ abstract class Base extends API implements AdminInterface
      * @param  array $packages Packages.
      * @return mix
      */
-    public function getRightsDoc(array $packages = array())
+    public function getRightsDoc(array $packages = [])
     {
         $request = new \Zimbra\Admin\Request\GetRightsDoc($packages);
         return $this->_client->doRequest($request);
@@ -2380,7 +2380,7 @@ abstract class Base extends API implements AdminInterface
      * @param  array $stats Stats.
      * @return mix
      */
-    public function getServerStats(array $stats = array())
+    public function getServerStats(array $stats = [])
     {
         $request = new \Zimbra\Admin\Request\GetServerStats($stats);
         return $this->_client->doRequest($request);
@@ -2605,7 +2605,7 @@ abstract class Base extends API implements AdminInterface
      * @param  array  $attrs Attributes.
      * @return mix
      */
-    public function modifyAccount($id, array $attrs = array())
+    public function modifyAccount($id, array $attrs = [])
     {
         $request = new \Zimbra\Admin\Request\ModifyAccount($id, $attrs);
         return $this->_client->doRequest($request);
@@ -2621,7 +2621,7 @@ abstract class Base extends API implements AdminInterface
      * @param  array $searchs Array of NamedValue.
      * @return mix
      */
-    public function modifyAdminSavedSearches(array $searchs = array())
+    public function modifyAdminSavedSearches(array $searchs = [])
     {
         $request = new \Zimbra\Admin\Request\ModifyAdminSavedSearches($searchs);
         return $this->_client->doRequest($request);
@@ -2638,7 +2638,7 @@ abstract class Base extends API implements AdminInterface
      * @param  array  $attrs Attributes.
      * @return mix
      */
-    public function modifyCalendarResource($id, array $attrs = array())
+    public function modifyCalendarResource($id, array $attrs = [])
     {
         $request = new \Zimbra\Admin\Request\ModifyCalendarResource($id, $attrs);
         return $this->_client->doRequest($request);
@@ -2651,7 +2651,7 @@ abstract class Base extends API implements AdminInterface
      * @param  array $attrs Attributes.
      * @return mix
      */
-    public function modifyConfig(array $attrs = array())
+    public function modifyConfig(array $attrs = [])
     {
         $request = new \Zimbra\Admin\Request\ModifyConfig($attrs);
         return $this->_client->doRequest($request);
@@ -2665,7 +2665,7 @@ abstract class Base extends API implements AdminInterface
      * @param  array  $attrs Attributes.
      * @return mix
      */
-    public function modifyCos($id, array $attrs = array())
+    public function modifyCos($id, array $attrs = [])
     {
         $request = new \Zimbra\Admin\Request\ModifyCos($id, $attrs);
         return $this->_client->doRequest($request);
@@ -2682,7 +2682,7 @@ abstract class Base extends API implements AdminInterface
      * @param  array  $attrs  Attributes.
      * @return mix
      */
-    public function modifyDataSource($id, Id $dataSource, array $attrs = array())
+    public function modifyDataSource($id, Id $dataSource, array $attrs = [])
     {
         $request = new \Zimbra\Admin\Request\ModifyDataSource(
             $id, $dataSource, $attrs
@@ -2705,7 +2705,7 @@ abstract class Base extends API implements AdminInterface
         TargetType $type,
         $id = null,
         $name = null,
-        array $attrs = array()
+        array $attrs = []
     )
     {
         $request = new \Zimbra\Admin\Request\ModifyDelegatedAdminConstraints(
@@ -2723,7 +2723,7 @@ abstract class Base extends API implements AdminInterface
      * @param  array  $attrs Attributes.
      * @return mix
      */
-    public function modifyDistributionList($id, array $attrs = array())
+    public function modifyDistributionList($id, array $attrs = [])
     {
         $request = new \Zimbra\Admin\Request\ModifyDistributionList(
             $id, $attrs
@@ -2739,7 +2739,7 @@ abstract class Base extends API implements AdminInterface
      * @param  array  $attrs Attributes.
      * @return mix
      */
-    public function modifyDomain($id, array $attrs = array())
+    public function modifyDomain($id, array $attrs = [])
     {
         $request = new \Zimbra\Admin\Request\ModifyDomain(
             $id, $attrs
@@ -2754,7 +2754,7 @@ abstract class Base extends API implements AdminInterface
      * @param  array  $attrs Attributes.
      * @return mix
      */
-    public function modifyLDAPEntry($dn, array $attrs = array())
+    public function modifyLDAPEntry($dn, array $attrs = [])
     {
         $request = new \Zimbra\Admin\Request\ModifyLDAPEntry(
             $dn, $attrs
@@ -2772,7 +2772,7 @@ abstract class Base extends API implements AdminInterface
      * @param  array  $attrs Attributes.
      * @return mix
      */
-    public function modifyServer($id, array $attrs = array())
+    public function modifyServer($id, array $attrs = [])
     {
         $request = new \Zimbra\Admin\Request\ModifyServer(
             $id, $attrs
@@ -2803,7 +2803,7 @@ abstract class Base extends API implements AdminInterface
      * @param  array  $attrs Attributes.
      * @return mix
      */
-    public function modifyUCService($id, array $attrs = array())
+    public function modifyUCService($id, array $attrs = [])
     {
         $request = new \Zimbra\Admin\Request\ModifyUCService(
             $id, $attrs
@@ -3242,7 +3242,7 @@ abstract class Base extends API implements AdminInterface
      * @param  string $tests Array test name.
      * @return mix
      */
-    public function runUnitTests(array $tests = array())
+    public function runUnitTests(array $tests = [])
     {
         $request = new \Zimbra\Admin\Request\RunUnitTests(
             $tests
@@ -3374,7 +3374,7 @@ abstract class Base extends API implements AdminInterface
         $domain = null,
         $applyCos = null,
         $applyConfig = null,
-        array $types = array(),
+        array $types = [],
         $sortBy = null,
         $sortAscending = null,
         $countOnly = null,
@@ -3528,7 +3528,7 @@ abstract class Base extends API implements AdminInterface
         UcService $ucservice,
         $username,
         $password,
-        array $attrs = array()
+        array $attrs = []
     )
     {
         $request = new \Zimbra\Admin\Request\UpdatePresenceSessionId(

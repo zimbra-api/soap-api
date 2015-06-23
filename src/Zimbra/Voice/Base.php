@@ -100,7 +100,7 @@ abstract class Base extends AccountBase implements VoiceInterface
      */
     public function getVoiceFolder(
         StorePrincipalSpec $storeprincipal = null,
-        array $phone = array()
+        array $phone = []
     )
     {
         $request = new \Zimbra\Voice\Request\GetVoiceFolder(
@@ -115,7 +115,7 @@ abstract class Base extends AccountBase implements VoiceInterface
      * @param  array $phones
      * @return mix
      */
-    public function getVoiceInfo(array $phones = array())
+    public function getVoiceInfo(array $phones = [])
     {
         $request = new \Zimbra\Voice\Request\GetVoiceInfo(
             $phones

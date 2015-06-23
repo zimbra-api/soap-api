@@ -405,7 +405,7 @@ abstract class Base extends AccountBase implements MailInterface
      * @param  array $rights Rights to check.
      * @return mix
      */
-    public function checkPermission(TargetSpec $target = null, array $right = array())
+    public function checkPermission(TargetSpec $target = null, array $right = [])
     {
         $request = new \Zimbra\Mail\Request\CheckPermission(
             $target, $right
@@ -430,11 +430,11 @@ abstract class Base extends AccountBase implements MailInterface
      * @return mix
      */
     public function checkRecurConflicts(
-        array $tz = array(),
+        array $tz = [],
         ExpandedRecurrenceCancel $cancel = null,
         ExpandedRecurrenceInvite $comp = null,
         ExpandedRecurrenceException $except = null,
-        array $usr = array(),
+        array $usr = [],
         $s = null,
         $e = null,
         $all = null,
@@ -897,7 +897,7 @@ abstract class Base extends AccountBase implements MailInterface
      */
     public function createWaitSet(
         WaitSetSpec $add = null,
-        array $defTypes = array(),
+        array $defTypes = [],
         $allAccounts = null
     )
     {
@@ -1080,7 +1080,7 @@ abstract class Base extends AccountBase implements MailInterface
     public function expandRecur(
         $s,
         $e,
-        array $tz = array(),
+        array $tz = [],
         ExpandedRecurrenceInvite $comp = null,
         ExpandedRecurrenceException $except = null,
         ExpandedRecurrenceCancel $cancel = null
@@ -1322,9 +1322,9 @@ abstract class Base extends AccountBase implements MailInterface
      * @return mix
      */
     public function getContacts(
-        array $a = array(),
-        array $ma = array(),
-        array $cn = array(),
+        array $a = [],
+        array $ma = [],
+        array $cn = [],
         $sync = null,
         $l = null,
         $sortBy = null,
@@ -1486,7 +1486,7 @@ abstract class Base extends AccountBase implements MailInterface
         $id = null,
         $name = null,
         $excludeUid = null,
-        array $usr = array()
+        array $usr = []
     )
     {
         $request = new \Zimbra\Mail\Request\GetFreeBusy(
@@ -1580,7 +1580,7 @@ abstract class Base extends AccountBase implements MailInterface
     public function getMiniCal(
         $s,
         $e,
-        array $folder = array(),
+        array $folder = [],
         CalTZInfo $tz = null
     )
     {
@@ -1668,7 +1668,7 @@ abstract class Base extends AccountBase implements MailInterface
      * @param  array $rights Specification of rights.
      * @return mix
      */
-    public function getPermission(array $ace = array())
+    public function getPermission(array $ace = [])
     {
         $request = new \Zimbra\Mail\Request\GetPermission(
             $ace
@@ -1878,7 +1878,7 @@ abstract class Base extends AccountBase implements MailInterface
      * @param  array $ace Specify Access Control Entries (ACEs).
      * @return mix
      */
-    public function grantPermission(array $ace = array())
+    public function grantPermission(array $ace = [])
     {
         $request = new \Zimbra\Mail\Request\GrantPermission(
             $ace
@@ -2435,7 +2435,7 @@ abstract class Base extends AccountBase implements MailInterface
      * @param  array $ace Specify Access Control Entries (ACEs).
      * @return mix
      */
-    public function revokePermission(array $ace = array())
+    public function revokePermission(array $ace = [])
     {
         $request = new \Zimbra\Mail\Request\RevokePermission(
             $ace
@@ -2526,7 +2526,7 @@ abstract class Base extends AccountBase implements MailInterface
     public function search(
         $warmup = null,
         $query = null,
-        array $header = array(),
+        array $header = [],
         CalTZInfo $tz = null,
         $locale = null,
         CursorInfo $cursor = null,
@@ -2625,7 +2625,7 @@ abstract class Base extends AccountBase implements MailInterface
         $cid,
         $nest = null,
         $query = null,
-        array $header = array(),
+        array $header = [],
         CalTZInfo $tz = null,
         $locale = null,
         CursorInfo $cursor = null,
@@ -2789,7 +2789,7 @@ abstract class Base extends AccountBase implements MailInterface
      */
     public function sendShareNotification(
         Id $item = null,
-        array $e = array(),
+        array $e = [],
         $notes = null,
         Action $action = null
     )
@@ -2838,8 +2838,8 @@ abstract class Base extends AccountBase implements MailInterface
      */
     public function setAppointment(
         SetCalendarItemInfo $default = null,
-        array $except = array(),
-        array $cancel = array(),
+        array $except = [],
+        array $cancel = [],
         Replies $replies = null,
         $f = null,
         $t = null,
@@ -2915,8 +2915,8 @@ abstract class Base extends AccountBase implements MailInterface
      */
     public function setTask(
         SetCalendarItemInfo $default = null,
-        array $except = array(),
-        array $cancel = array(),
+        array $except = [],
+        array $cancel = [],
         Replies $replies = null,
         $f = null,
         $t = null,
@@ -3165,7 +3165,7 @@ abstract class Base extends AccountBase implements MailInterface
         WaitSetSpec $update = null,
         WaitSetId $remove = null,
         $block = null,
-        array $defTypes = array(),
+        array $defTypes = [],
         $timeout = null
     )
     {

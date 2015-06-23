@@ -301,7 +301,7 @@ interface MailInterface extends AccountInterface
      * @param  array $rights Rights to check.
      * @return mix
      */
-    function checkPermission(TargetSpec $target = null, array $right = array());
+    function checkPermission(TargetSpec $target = null, array $right = []);
 
     /**
      * Check conflicts in recurrence against list of users.
@@ -320,11 +320,11 @@ interface MailInterface extends AccountInterface
      * @return mix
      */
     function checkRecurConflicts(
-        array $tz = array(),
+        array $tz = [],
         ExpandedRecurrenceCancel $cancel = null,
         ExpandedRecurrenceInvite $comp = null,
         ExpandedRecurrenceException $except = null,
-        array $usr = array(),
+        array $usr = [],
         $s = null,
         $e = null,
         $all = null,
@@ -623,7 +623,7 @@ interface MailInterface extends AccountInterface
      */
     function createWaitSet(
         WaitSetSpec $add = null,
-        array $defTypes = array(),
+        array $defTypes = [],
         $allAccounts = null
     );
 
@@ -739,7 +739,7 @@ interface MailInterface extends AccountInterface
     function expandRecur(
         $s,
         $e,
-        array $tz = array(),
+        array $tz = [],
         ExpandedRecurrenceInvite $comp = null,
         ExpandedRecurrenceException $except = null,
         ExpandedRecurrenceCancel $cancel = null
@@ -895,9 +895,9 @@ interface MailInterface extends AccountInterface
      * @return mix
      */
     function getContacts(
-        array $a = array(),
-        array $ma = array(),
-        array $cn = array(),
+        array $a = [],
+        array $ma = [],
+        array $cn = [],
         $sync = null,
         $l = null,
         $sortBy = null,
@@ -1002,7 +1002,7 @@ interface MailInterface extends AccountInterface
         $id = null,
         $name = null,
         $excludeUid = null,
-        array $usr = array()
+        array $usr = []
     );
 
     /**
@@ -1062,7 +1062,7 @@ interface MailInterface extends AccountInterface
     function getMiniCal(
         $s,
         $e,
-        array $folder = array(),
+        array $folder = [],
         CalTZInfo $tz = null
     );
 
@@ -1113,7 +1113,7 @@ interface MailInterface extends AccountInterface
      * @param  array $rights Specification of rights.
      * @return mix
      */
-    function getPermission(array $ace = array());
+    function getPermission(array $ace = []);
 
     /**
      * Retrieve the recurrence definition of an appointment.
@@ -1244,7 +1244,7 @@ interface MailInterface extends AccountInterface
      * @param  array $ace Specify Access Control Entries (ACEs).
      * @return mix
      */
-    function grantPermission(array $ace = array());
+    function grantPermission(array $ace = []);
 
     /**
      * Do an iCalendar Reply.
@@ -1605,7 +1605,7 @@ interface MailInterface extends AccountInterface
      * @param  array $ace Specify Access Control Entries (ACEs).
      * @return mix
      */
-    function revokePermission(array $ace = array());
+    function revokePermission(array $ace = []);
 
     /**
      * Save Document.
@@ -1678,7 +1678,7 @@ interface MailInterface extends AccountInterface
     function search(
         $warmup = null,
         $query = null,
-        array $header = array(),
+        array $header = [],
         CalTZInfo $tz = null,
         $locale = null,
         CursorInfo $cursor = null,
@@ -1744,7 +1744,7 @@ interface MailInterface extends AccountInterface
         $cid,
         $nest = null,
         $query = null,
-        array $header = array(),
+        array $header = [],
         CalTZInfo $tz = null,
         $locale = null,
         CursorInfo $cursor = null,
@@ -1845,7 +1845,7 @@ interface MailInterface extends AccountInterface
      */
     function sendShareNotification(
         Id $item = null,
-        array $e = array(),
+        array $e = [],
         $notes = null,
         Action $action = null
     );
@@ -1879,8 +1879,8 @@ interface MailInterface extends AccountInterface
      */
     function setAppointment(
         SetCalendarItemInfo $default = null,
-        array $except = array(),
-        array $cancel = array(),
+        array $except = [],
+        array $cancel = [],
         Replies $replies = null,
         $f = null,
         $t = null,
@@ -1929,8 +1929,8 @@ interface MailInterface extends AccountInterface
      */
     function setTask(
         SetCalendarItemInfo $default = null,
-        array $except = array(),
-        array $cancel = array(),
+        array $except = [],
+        array $cancel = [],
         Replies $replies = null,
         $f = null,
         $t = null,
@@ -2103,7 +2103,7 @@ interface MailInterface extends AccountInterface
         WaitSetSpec $update = null,
         WaitSetId $remove = null,
         $block = null,
-        array $defTypes = array(),
+        array $defTypes = [],
         $timeout = null
     );
 }
