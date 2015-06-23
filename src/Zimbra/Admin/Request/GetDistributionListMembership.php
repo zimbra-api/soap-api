@@ -34,7 +34,8 @@ class GetDistributionListMembership extends Base
     public function __construct(
         DistList $dl = null,
         $limit = null,
-        $offset = null)
+        $offset = null
+    )
     {
         parent::__construct();
         if($dl instanceof DistList)
