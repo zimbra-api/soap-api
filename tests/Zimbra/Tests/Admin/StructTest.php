@@ -2503,6 +2503,7 @@ class StructTest extends ZimbraTestCase
     public function testVolumeInfo()
     {
         $id = mt_rand(0, 10);
+        $type = self::randomValue([1, 2, 10]);
         $threshold = mt_rand(0, 10);
         $mgbits = mt_rand(0, 10);
         $mbits = mt_rand(0, 10);
@@ -2512,10 +2513,10 @@ class StructTest extends ZimbraTestCase
         $rootpath = self::randomName();
 
         $volume = new \Zimbra\Admin\Struct\VolumeInfo(
-            $id, 2, $threshold, $mgbits, $mbits, $fgbits, $fbits, $name, $rootpath, false, true
+            $id, $type, $threshold, $mgbits, $mbits, $fgbits, $fbits, $name, $rootpath, false, true
         );
         $this->assertSame($id, $volume->getId());
-        $this->assertSame(2, $volume->getType());
+        $this->assertSame($type, $volume->getType());
         $this->assertSame($threshold, $volume->getCompressionThreshold());
         $this->assertSame($mgbits, $volume->getMgbits());
         $this->assertSame($mbits, $volume->getMbits());
@@ -2527,7 +2528,7 @@ class StructTest extends ZimbraTestCase
         $this->assertTrue($volume->isCurrent());
 
         $volume->setId($id)
-               ->setType(10)
+               ->setType($type)
                ->setCompressionThreshold($threshold)
                ->setMgbits($mgbits)
                ->setMbits($mbits)
@@ -2538,7 +2539,7 @@ class StructTest extends ZimbraTestCase
                ->setCompressBlobs(true)
                ->setCurrent(false);
         $this->assertSame($id, $volume->getId());
-        $this->assertSame(10, $volume->getType());
+        $this->assertSame($type, $volume->getType());
         $this->assertSame($threshold, $volume->getCompressionThreshold());
         $this->assertSame($mgbits, $volume->getMgbits());
         $this->assertSame($mbits, $volume->getMbits());
@@ -2552,7 +2553,7 @@ class StructTest extends ZimbraTestCase
         $xml = '<?xml version="1.0"?>' . "\n"
             . '<volume '
                 . 'id="' . $id . '" '
-                . 'type="10" '
+                . 'type="' . $type . '" '
                 . 'compressionThreshold="' . $threshold . '" '
                 . 'mgbits="' . $mgbits . '" '
                 . 'mbits="' . $mbits . '" '
@@ -2567,7 +2568,7 @@ class StructTest extends ZimbraTestCase
         $array = [
             'volume' => [
                 'id' => $id,
-                'type' => 10,
+                'type' => $type,
                 'compressionThreshold' => $threshold,
                 'mgbits' => $mgbits,
                 'mbits' => $mbits,

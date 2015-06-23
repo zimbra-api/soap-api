@@ -41,6 +41,14 @@ use Zimbra\Mail\Base as MailBase;
  */
 class ApiTest extends ZimbraTestCase
 {
+    private $_api;
+
+    public function __construct()
+    {
+        parent::__construct();
+        $this->_api = new LocalMailHttp(null);
+    }
+
     public function testMailFactory()
     {
         $httpApi = MailFactory::instance();
@@ -52,12 +60,11 @@ class ApiTest extends ZimbraTestCase
     {
         $m = $this->getMsg();
 
-        $api = new LocalMailHttp(null);
-        $api->addAppointmentInvite(
+        $this->_api->addAppointmentInvite(
             $m, ParticipationStatus::NE()
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraMail">'
@@ -99,12 +106,11 @@ class ApiTest extends ZimbraTestCase
     {
         $comment = new \Zimbra\Mail\Struct\AddedComment('parentId', 'text');
 
-        $api = new LocalMailHttp(null);
-        $api->addComment(
+        $this->_api->addComment(
             $comment
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraMail">'
@@ -123,12 +129,11 @@ class ApiTest extends ZimbraTestCase
             'content', 'f', 't', 'tn', 'l', true, 'd', 'aid'
         );
 
-        $api = new LocalMailHttp(null);
-        $api->addMsg(
+        $this->_api->addMsg(
             $m, true
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraMail">'
@@ -147,12 +152,11 @@ class ApiTest extends ZimbraTestCase
     {
         $m = $this->getMsg();
 
-        $api = new LocalMailHttp(null);
-        $api->addTaskInvite(
+        $this->_api->addTaskInvite(
             $m, ParticipationStatus::NE()
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraMail">'
@@ -192,12 +196,11 @@ class ApiTest extends ZimbraTestCase
 
     public function testAnnounceOrganizerChange()
     {
-        $api = new LocalMailHttp(null);
-        $api->announceOrganizerChange(
+        $this->_api->announceOrganizerChange(
            'id'
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraMail">'
@@ -214,12 +217,11 @@ class ApiTest extends ZimbraTestCase
         $filterRules = new \Zimbra\Mail\Struct\NamedFilterRules(array($filterRule));
         $m = new \Zimbra\Mail\Struct\IdsAttr('ids');
 
-        $api = new LocalMailHttp(null);
-        $api->applyFilterRules(
+        $this->_api->applyFilterRules(
             $filterRules, $m, 'query'
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraMail">'
@@ -242,12 +244,11 @@ class ApiTest extends ZimbraTestCase
         $filterRules = new \Zimbra\Mail\Struct\NamedFilterRules(array($filterRule));
         $m = new \Zimbra\Mail\Struct\IdsAttr('ids');
 
-        $api = new LocalMailHttp(null);
-        $api->applyOutgoingFilterRules(
+        $this->_api->applyOutgoingFilterRules(
             $filterRules, $m, 'query'
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraMail">'
@@ -266,12 +267,11 @@ class ApiTest extends ZimbraTestCase
 
     public function testAutoComplete()
     {
-        $api = new LocalMailHttp(null);
-        $api->autoComplete(
+        $this->_api->autoComplete(
            'name', GalSearchType::ALL(), true, 'folders', true
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraMail">'
@@ -287,12 +287,11 @@ class ApiTest extends ZimbraTestCase
         $e = new \Zimbra\Mail\Struct\EmailAddrInfo('a', 't', 'p');
         $m = new \Zimbra\Mail\Struct\BounceMsgSpec('id', array($e));
 
-        $api = new LocalMailHttp(null);
-        $api->bounceMsg(
+        $this->_api->bounceMsg(
            $m
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraMail">'
@@ -309,12 +308,11 @@ class ApiTest extends ZimbraTestCase
 
     public function testBrowse()
     {
-        $api = new LocalMailHttp(null);
-        $api->browse(
+        $this->_api->browse(
            BrowseBy::DOMAINS(), 'regex', 10
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraMail">'
@@ -331,12 +329,11 @@ class ApiTest extends ZimbraTestCase
         $inst = new \Zimbra\Mail\Struct\InstanceRecurIdInfo('range', '20130315T18302305Z', 'tz');
         $m = $this->getMsg();
 
-        $api = new LocalMailHttp(null);
-        $api->cancelAppointment(
+        $this->_api->cancelAppointment(
             $inst, $tz, $m, 'id', 10, 10, 10
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraMail">'
@@ -385,12 +382,11 @@ class ApiTest extends ZimbraTestCase
         $inst = new \Zimbra\Mail\Struct\InstanceRecurIdInfo('range', '20130315T18302305Z', 'tz');
         $m = $this->getMsg();
 
-        $api = new LocalMailHttp(null);
-        $api->cancelTask(
+        $this->_api->cancelTask(
             $inst, $tz, $m, 'id', 10, 10, 10
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraMail">'
@@ -437,12 +433,11 @@ class ApiTest extends ZimbraTestCase
     {
         $device = new \Zimbra\Struct\Id('id');
 
-        $api = new LocalMailHttp(null);
-        $api->checkDeviceStatus(
+        $this->_api->checkDeviceStatus(
            $device
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraMail">'
@@ -461,12 +456,11 @@ class ApiTest extends ZimbraTestCase
             TargetType::ACCOUNT(), AccountBy::NAME(), 'value'
         );
 
-        $api = new LocalMailHttp(null);
-        $api->checkPermission(
+        $this->_api->checkPermission(
            $target, array('right')
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraMail">'
@@ -502,12 +496,11 @@ class ApiTest extends ZimbraTestCase
             10, 'id', 'name'
         );
 
-        $api = new LocalMailHttp(null);
-        $api->checkRecurConflicts(
+        $this->_api->checkRecurConflicts(
            array($tz), $cancel, $comp, $except, array($usr), 10, 10, true, 'excludeUid'
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraMail">'
@@ -541,12 +534,11 @@ class ApiTest extends ZimbraTestCase
 
     public function testCheckSpelling()
     {
-        $api = new LocalMailHttp(null);
-        $api->checkSpelling(
+        $this->_api->checkSpelling(
            'value', 'dictionary', 'ignore'
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraMail">'
@@ -564,12 +556,11 @@ class ApiTest extends ZimbraTestCase
         );
         $tz = $this->getTz();
 
-        $api = new LocalMailHttp(null);
-        $api->completeTaskInstance(
+        $this->_api->completeTaskInstance(
            'id', $exceptId, $tz
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraMail">'
@@ -595,12 +586,11 @@ class ApiTest extends ZimbraTestCase
             ContactActionOp::MOVE(), 'id', 'tcon', 10, 'l', '#aabbcc', 10, 'name', 'f', 't', 'tn', array($a)
         );
 
-        $api = new LocalMailHttp(null);
-        $api->contactAction(
+        $this->_api->contactAction(
            $action
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraMail">'
@@ -621,12 +611,11 @@ class ApiTest extends ZimbraTestCase
             ConvActionOp::DELETE(), 'id', 'tcon', 10, 'l', '#aabbcc', 10, 'name', 'f', 't', 'tn'
         );
 
-        $api = new LocalMailHttp(null);
-        $api->convAction(
+        $this->_api->convAction(
            $action
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraMail">'
@@ -643,12 +632,11 @@ class ApiTest extends ZimbraTestCase
     {
         $m = $this->getMsg();
 
-        $api = new LocalMailHttp(null);
-        $api->counterAppointment(
+        $this->_api->counterAppointment(
             $m, 'id', 10, 10, 10
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraMail">'
@@ -690,12 +678,11 @@ class ApiTest extends ZimbraTestCase
     {
         $m = $this->getMsg();
 
-        $api = new LocalMailHttp(null);
-        $api->createAppointment(
+        $this->_api->createAppointment(
             $m, true, 10, true, true, true
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraMail">'
@@ -737,12 +724,11 @@ class ApiTest extends ZimbraTestCase
     {
         $m = $this->getMsg();
 
-        $api = new LocalMailHttp(null);
-        $api->createAppointmentException(
+        $this->_api->createAppointmentException(
             $m, 'id', 10, 10, 10, true, 10, true, true, true
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraMail">'
@@ -795,12 +781,11 @@ class ApiTest extends ZimbraTestCase
             $vcard, array($a), array($m), 10, 'l', 't', 'tn'
         );
 
-        $api = new LocalMailHttp(null);
-        $api->createContact(
+        $this->_api->createContact(
            $cn, true
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraMail">'
@@ -851,11 +836,10 @@ class ApiTest extends ZimbraTestCase
         $cal = new \Zimbra\Mail\Struct\MailCalDataSource();
         $unknown = new \Zimbra\Mail\Struct\MailUnknownDataSource();
 
-        $api = new LocalMailHttp(null);
-        $api->createImapDataSource(
+        $this->_api->createImapDataSource(
            $imap
         );
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraMail">'
@@ -875,10 +859,10 @@ class ApiTest extends ZimbraTestCase
             .'</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
-        $api->createPop3DataSource(
+        $this->_api->createPop3DataSource(
            $pop3
         );
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraMail">'
@@ -890,10 +874,10 @@ class ApiTest extends ZimbraTestCase
             .'</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
-        $api->createCaldavDataSource(
+        $this->_api->createCaldavDataSource(
            $caldav
         );
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraMail">'
@@ -905,10 +889,10 @@ class ApiTest extends ZimbraTestCase
             .'</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
-        $api->createYabDataSource(
+        $this->_api->createYabDataSource(
            $yab
         );
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraMail">'
@@ -920,10 +904,10 @@ class ApiTest extends ZimbraTestCase
             .'</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
-        $api->createRssDataSource(
+        $this->_api->createRssDataSource(
            $rss
         );
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraMail">'
@@ -935,10 +919,10 @@ class ApiTest extends ZimbraTestCase
             .'</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
-        $api->createGalDataSource(
+        $this->_api->createGalDataSource(
            $gal
         );
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraMail">'
@@ -950,10 +934,10 @@ class ApiTest extends ZimbraTestCase
             .'</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
-        $api->createCalDataSource(
+        $this->_api->createCalDataSource(
            $cal
         );
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraMail">'
@@ -965,10 +949,10 @@ class ApiTest extends ZimbraTestCase
             .'</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
-        $api->createUnknownDataSource(
+        $this->_api->createUnknownDataSource(
            $unknown
         );
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraMail">'
@@ -993,12 +977,11 @@ class ApiTest extends ZimbraTestCase
             'name', $acl, SearchType::TASK(), 'f', 10, '#aabbcc', 'url', 'l', true, true
         );
 
-        $api = new LocalMailHttp(null);
-        $api->createFolder(
+        $this->_api->createFolder(
            $folder
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraMail">'
@@ -1021,12 +1004,11 @@ class ApiTest extends ZimbraTestCase
             'name', SearchType::TASK(), 'f', 10, '#aabbcc', 'url', 'l', true, true, 'zid', 'owner', 10, 'path'
         );
 
-        $api = new LocalMailHttp(null);
-        $api->createMountpoint(
+        $this->_api->createMountpoint(
            $link
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraMail">'
@@ -1045,12 +1027,11 @@ class ApiTest extends ZimbraTestCase
             'l', 'content', 10, 'pos'
         );
 
-        $api = new LocalMailHttp(null);
-        $api->createNote(
+        $this->_api->createNote(
            $note
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraMail">'
@@ -1069,12 +1050,11 @@ class ApiTest extends ZimbraTestCase
             'name', 'query', 'types', 'sortBy', 'f', 10, 'l'
         );
 
-        $api = new LocalMailHttp(null);
-        $api->createSearchFolder(
+        $this->_api->createSearchFolder(
            $search
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraMail">'
@@ -1093,12 +1073,11 @@ class ApiTest extends ZimbraTestCase
             'name', '#aabbcc', 10
         );
 
-        $api = new LocalMailHttp(null);
-        $api->createTag(
+        $this->_api->createTag(
            $tag
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraMail">'
@@ -1115,12 +1094,11 @@ class ApiTest extends ZimbraTestCase
     {
         $m = $this->getMsg();
 
-        $api = new LocalMailHttp(null);
-        $api->createTask(
+        $this->_api->createTask(
             $m, true, 10, true, true, true
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraMail">'
@@ -1162,12 +1140,11 @@ class ApiTest extends ZimbraTestCase
     {
         $m = $this->getMsg();
 
-        $api = new LocalMailHttp(null);
-        $api->createTaskException(
+        $this->_api->createTaskException(
             $m, 'id', 10, 10, 10, true, 10, true, true, true
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraMail">'
@@ -1210,12 +1187,11 @@ class ApiTest extends ZimbraTestCase
         $a = new \Zimbra\Mail\Struct\WaitSetAddSpec('name', 'id', 'token', array(InterestType::FOLDERS()));
         $add = new \Zimbra\Mail\Struct\WaitSetSpec(array($a));
 
-        $api = new LocalMailHttp(null);
-        $api->createWaitSet(
+        $this->_api->createWaitSet(
             $add, array(InterestType::FOLDERS()), true
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraMail">'
@@ -1234,12 +1210,11 @@ class ApiTest extends ZimbraTestCase
     {
         $m = $this->getMsg();
 
-        $api = new LocalMailHttp(null);
-        $api->declineCounterAppointment(
+        $this->_api->declineCounterAppointment(
             $m
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraMail">'
@@ -1288,12 +1263,11 @@ class ApiTest extends ZimbraTestCase
         $cal = new \Zimbra\Mail\Struct\CalDataSourceNameOrId('name', 'id');
         $unknown = new \Zimbra\Mail\Struct\UnknownDataSourceNameOrId('name', 'id');
 
-        $api = new LocalMailHttp(null);
-        $api->deleteDataSource(
+        $this->_api->deleteDataSource(
             $imap, $pop3, $caldav, $yab, $rss, $gal, $cal, $unknown
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraMail">'
@@ -1317,12 +1291,11 @@ class ApiTest extends ZimbraTestCase
     {
         $device = new \Zimbra\Struct\Id('id');
 
-        $api = new LocalMailHttp(null);
-        $api->deleteDevice(
+        $this->_api->deleteDevice(
             $device
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraMail">'
@@ -1337,12 +1310,11 @@ class ApiTest extends ZimbraTestCase
 
     public function testDestroyWaitSet()
     {
-        $api = new LocalMailHttp(null);
-        $api->destroyWaitSet(
+        $this->_api->destroyWaitSet(
             'waitSet'
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraMail">'
@@ -1357,12 +1329,11 @@ class ApiTest extends ZimbraTestCase
     {
         $doc = new \Zimbra\Mail\Struct\DiffDocumentVersionSpec('id', 3, 2);
 
-        $api = new LocalMailHttp(null);
-        $api->diffDocument(
+        $this->_api->diffDocument(
             $doc
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraMail">'
@@ -1380,12 +1351,11 @@ class ApiTest extends ZimbraTestCase
         $appt = new \Zimbra\Mail\Struct\DismissAppointmentAlarm('id', 10);
         $task = new \Zimbra\Mail\Struct\DismissTaskAlarm('id', 10);
 
-        $api = new LocalMailHttp(null);
-        $api->dismissCalendarItemAlarm(
+        $this->_api->dismissCalendarItemAlarm(
             $appt, $task
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraMail">'
@@ -1408,12 +1378,11 @@ class ApiTest extends ZimbraTestCase
             DocumentActionOp::WATCH(), $grant, 'zid', 'id', 'tcon', 10, 'l', '#aabbcc', 10, 'name', 'f', 't', 'tn'
         );
 
-        $api = new LocalMailHttp(null);
-        $api->documentAction(
+        $this->_api->documentAction(
             $action
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraMail">'
@@ -1430,10 +1399,9 @@ class ApiTest extends ZimbraTestCase
 
     public function testEmptyDumpster()
     {
-        $api = new LocalMailHttp(null);
-        $api->emptyDumpster();
+        $this->_api->emptyDumpster();
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraMail">'
@@ -1450,12 +1418,11 @@ class ApiTest extends ZimbraTestCase
             'id', true
         );
 
-        $api = new LocalMailHttp(null);
-        $api->enableSharedReminder(
+        $this->_api->enableSharedReminder(
            $link
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraMail">'
@@ -1490,12 +1457,11 @@ class ApiTest extends ZimbraTestCase
             10, 'id', 'name'
         );
 
-        $api = new LocalMailHttp(null);
-        $api->expandRecur(
+        $this->_api->expandRecur(
            10, 10, array($tz), $comp, $except, $cancel
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraMail">'
@@ -1528,12 +1494,11 @@ class ApiTest extends ZimbraTestCase
 
     public function testExportContacts()
     {
-        $api = new LocalMailHttp(null);
-        $api->exportContacts(
+        $this->_api->exportContacts(
             'ct', 'l', 'csvfmt', 'csvlocale', 'csvsep'
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraMail">'
@@ -1587,12 +1552,11 @@ class ApiTest extends ZimbraTestCase
             'view'
         );
 
-        $api = new LocalMailHttp(null);
-        $api->folderAction(
+        $this->_api->folderAction(
             $action
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraMail">'
@@ -1626,12 +1590,11 @@ class ApiTest extends ZimbraTestCase
         $tz = $this->getTz();
         $m = $this->getMsg();
 
-        $api = new LocalMailHttp(null);
-        $api->forwardAppointment(
+        $this->_api->forwardAppointment(
             $exceptId, $tz, $m, 'id'
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraMail">'
@@ -1678,12 +1641,11 @@ class ApiTest extends ZimbraTestCase
     {
         $m = $this->getMsg();
 
-        $api = new LocalMailHttp(null);
-        $api->forwardAppointmentInvite(
+        $this->_api->forwardAppointmentInvite(
             $m, 'id'
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraMail">'
@@ -1723,10 +1685,9 @@ class ApiTest extends ZimbraTestCase
 
     public function testGenerateUUID()
     {
-        $api = new LocalMailHttp(null);
-        $api->generateUUID();
+        $this->_api->generateUUID();
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraMail">'
@@ -1743,10 +1704,9 @@ class ApiTest extends ZimbraTestCase
             'account', 'op', 'session'
         );
 
-        $api = new LocalMailHttp(null);
-        $api->getActivityStream('id', $filter, 10, 10);
+        $this->_api->getActivityStream('id', $filter, 10, 10);
 
-        $client = $api->client('id', $filter, 10, 10);
+        $client = $this->_api->client('id', $filter, 10, 10);
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraMail">'
@@ -1761,10 +1721,9 @@ class ApiTest extends ZimbraTestCase
 
     public function testGetAllDevices()
     {
-        $api = new LocalMailHttp(null);
-        $api->getAllDevices();
+        $this->_api->getAllDevices();
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraMail">'
@@ -1777,10 +1736,9 @@ class ApiTest extends ZimbraTestCase
 
     public function testGetAppointment()
     {
-        $api = new LocalMailHttp(null);
-        $api->getAppointment(true, true, 'uid', 'id');
+        $this->_api->getAppointment(true, true, 'uid', 'id');
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraMail">'
@@ -1793,10 +1751,9 @@ class ApiTest extends ZimbraTestCase
 
     public function testGetApptSummaries()
     {
-        $api = new LocalMailHttp(null);
-        $api->getApptSummaries(10, 10, 'folder-id');
+        $this->_api->getApptSummaries(10, 10, 'folder-id');
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraMail">'
@@ -1809,10 +1766,9 @@ class ApiTest extends ZimbraTestCase
 
     public function testGetCalendarItemSummaries()
     {
-        $api = new LocalMailHttp(null);
-        $api->getCalendarItemSummaries(10, 10, 'folder-id');
+        $this->_api->getCalendarItemSummaries(10, 10, 'folder-id');
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraMail">'
@@ -1829,12 +1785,11 @@ class ApiTest extends ZimbraTestCase
             'parentId'
         );
 
-        $api = new LocalMailHttp(null);
-        $api->getComments(
+        $this->_api->getComments(
             $comment
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraMail">'
@@ -1853,12 +1808,11 @@ class ApiTest extends ZimbraTestCase
         $ma = new \Zimbra\Struct\AttributeName('attribute-name');
         $cn = new \Zimbra\Struct\Id('id');
 
-        $api = new LocalMailHttp(null);
-        $api->getContacts(
+        $this->_api->getContacts(
             array($a), array($ma), array($cn), true, 'folder-id', 'sort-by', true, true, 10
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraMail">'
@@ -1880,12 +1834,11 @@ class ApiTest extends ZimbraTestCase
             'id', array($header), 'fetch', true, 10
         );
 
-        $api = new LocalMailHttp(null);
-        $api->getConv(
+        $this->_api->getConv(
             $c
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraMail">'
@@ -1904,12 +1857,11 @@ class ApiTest extends ZimbraTestCase
     {
         $meta = new \Zimbra\Mail\Struct\SectionAttr('section');
 
-        $api = new LocalMailHttp(null);
-        $api->getCustomMetadata(
+        $this->_api->getCustomMetadata(
             'id', $meta
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraMail">'
@@ -1924,10 +1876,9 @@ class ApiTest extends ZimbraTestCase
 
     public function testGetDataSources()
     {
-        $api = new LocalMailHttp(null);
-        $api->getDataSources();
+        $this->_api->getDataSources();
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraMail">'
@@ -1944,12 +1895,11 @@ class ApiTest extends ZimbraTestCase
             'id', 'l', 'name', 'path'
         );
 
-        $api = new LocalMailHttp(null);
-        $api->getDocumentShareURL(
+        $this->_api->getDocumentShareURL(
             $item
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraMail">'
@@ -1968,12 +1918,11 @@ class ApiTest extends ZimbraTestCase
             'l'
         );
 
-        $api = new LocalMailHttp(null);
-        $api->getEffectiveFolderPerms(
+        $this->_api->getEffectiveFolderPerms(
             $folder
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraMail">'
@@ -1988,10 +1937,9 @@ class ApiTest extends ZimbraTestCase
 
     public function testGetFilterRules()
     {
-        $api = new LocalMailHttp(null);
-        $api->getFilterRules();
+        $this->_api->getFilterRules();
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraMail">'
@@ -2008,12 +1956,11 @@ class ApiTest extends ZimbraTestCase
             'uuid', 'l', 'path'
         );
 
-        $api = new LocalMailHttp(null);
-        $api->getFolder(
+        $this->_api->getFolder(
             $folder, true, true, 'view', 10, true
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraMail">'
@@ -2032,12 +1979,11 @@ class ApiTest extends ZimbraTestCase
             10, 'id', 'name'
         );
 
-        $api = new LocalMailHttp(null);
-        $api->getFreeBusy(
+        $this->_api->getFreeBusy(
             10, 10, 'uid', 'id', 'name', 'excludeUid', array($usr)
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraMail">'
@@ -2052,12 +1998,11 @@ class ApiTest extends ZimbraTestCase
 
     public function testGetICal()
     {
-        $api = new LocalMailHttp(null);
-        $api->getICal(
+        $this->_api->getICal(
             'id', 10, 10
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraMail">'
@@ -2070,10 +2015,9 @@ class ApiTest extends ZimbraTestCase
 
     public function testGetImportStatus()
     {
-        $api = new LocalMailHttp(null);
-        $api->getImportStatus();
+        $this->_api->getImportStatus();
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraMail">'
@@ -2090,12 +2034,11 @@ class ApiTest extends ZimbraTestCase
             'id', 'l', 'name', 'path'
         );
 
-        $api = new LocalMailHttp(null);
-        $api->getItem(
+        $this->_api->getItem(
             $item
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraMail">'
@@ -2112,12 +2055,11 @@ class ApiTest extends ZimbraTestCase
     {
         $meta = new \Zimbra\Mail\Struct\SectionAttr('section');
 
-        $api = new LocalMailHttp(null);
-        $api->getMailboxMetadata(
+        $this->_api->getMailboxMetadata(
             $meta
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraMail">'
@@ -2135,12 +2077,11 @@ class ApiTest extends ZimbraTestCase
         $tz = $this->getTz();
         $folder = new \Zimbra\Struct\Id('id');
 
-        $api = new LocalMailHttp(null);
-        $api->getMiniCal(
+        $this->_api->getMiniCal(
             10, 10, array($folder), $tz
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraMail">'
@@ -2164,12 +2105,11 @@ class ApiTest extends ZimbraTestCase
             'id', array($header), 'part', true, true, 10, true, true, 'ridZ', true
         );
 
-        $api = new LocalMailHttp(null);
-        $api->getMsg(
+        $this->_api->getMsg(
             $m
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraMail">'
@@ -2190,12 +2130,11 @@ class ApiTest extends ZimbraTestCase
             'ids'
         );
 
-        $api = new LocalMailHttp(null);
-        $api->getMsgMetadata(
+        $this->_api->getMsgMetadata(
             $m
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraMail">'
@@ -2212,12 +2151,11 @@ class ApiTest extends ZimbraTestCase
     {
         $note = new \Zimbra\Struct\Id('id');
 
-        $api = new LocalMailHttp(null);
-        $api->getNote(
+        $this->_api->getNote(
             $note
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraMail">'
@@ -2232,12 +2170,11 @@ class ApiTest extends ZimbraTestCase
 
     public function testGetNotifications()
     {
-        $api = new LocalMailHttp(null);
-        $api->getNotifications(
+        $this->_api->getNotifications(
             true
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraMail">'
@@ -2250,10 +2187,9 @@ class ApiTest extends ZimbraTestCase
 
     public function testGetOutgoingFilterRules()
     {
-        $api = new LocalMailHttp(null);
-        $api->getOutgoingFilterRules();
+        $this->_api->getOutgoingFilterRules();
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraMail">'
@@ -2268,12 +2204,11 @@ class ApiTest extends ZimbraTestCase
     {
         $ace = new \Zimbra\Mail\Struct\Right('right');
 
-        $api = new LocalMailHttp(null);
-        $api->getPermission(
+        $this->_api->getPermission(
             array($ace)
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraMail">'
@@ -2288,12 +2223,11 @@ class ApiTest extends ZimbraTestCase
 
     public function testGetRecur()
     {
-        $api = new LocalMailHttp(null);
-        $api->getRecur(
+        $this->_api->getRecur(
             'id'
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraMail">'
@@ -2306,10 +2240,9 @@ class ApiTest extends ZimbraTestCase
 
     public function testGetSearchFolder()
     {
-        $api = new LocalMailHttp(null);
-        $api->getSearchFolder();
+        $this->_api->getSearchFolder();
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraMail">'
@@ -2324,12 +2257,11 @@ class ApiTest extends ZimbraTestCase
     {
         $item = new \Zimbra\Struct\Id('id');
 
-        $api = new LocalMailHttp(null);
-        $api->getShareDetails(
+        $this->_api->getShareDetails(
             $item
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraMail">'
@@ -2344,10 +2276,9 @@ class ApiTest extends ZimbraTestCase
 
     public function testGetShareNotifications()
     {
-        $api = new LocalMailHttp(null);
-        $api->getShareNotifications();
+        $this->_api->getShareNotifications();
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraMail">'
@@ -2360,10 +2291,9 @@ class ApiTest extends ZimbraTestCase
 
     public function testGetSpellDictionaries()
     {
-        $api = new LocalMailHttp(null);
-        $api->getSpellDictionaries();
+        $this->_api->getSpellDictionaries();
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraMail">'
@@ -2376,10 +2306,9 @@ class ApiTest extends ZimbraTestCase
 
     public function testGetSystemRetentionPolicy()
     {
-        $api = new LocalMailHttp(null);
-        $api->getSystemRetentionPolicy();
+        $this->_api->getSystemRetentionPolicy();
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraMail">'
@@ -2392,10 +2321,9 @@ class ApiTest extends ZimbraTestCase
 
     public function testGetTag()
     {
-        $api = new LocalMailHttp(null);
-        $api->getTag();
+        $this->_api->getTag();
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraMail">'
@@ -2408,10 +2336,9 @@ class ApiTest extends ZimbraTestCase
 
     public function testGetTask()
     {
-        $api = new LocalMailHttp(null);
-        $api->getTask(true, true, 'uid', 'id');
+        $this->_api->getTask(true, true, 'uid', 'id');
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraMail">'
@@ -2424,10 +2351,9 @@ class ApiTest extends ZimbraTestCase
 
     public function testGetTaskSummaries()
     {
-        $api = new LocalMailHttp(null);
-        $api->getTaskSummaries(10, 10, 'l');
+        $this->_api->getTaskSummaries(10, 10, 'l');
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraMail">'
@@ -2440,10 +2366,9 @@ class ApiTest extends ZimbraTestCase
 
     public function testGetWatchers()
     {
-        $api = new LocalMailHttp(null);
-        $api->getWatchers();
+        $this->_api->getWatchers();
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraMail">'
@@ -2456,10 +2381,9 @@ class ApiTest extends ZimbraTestCase
 
     public function testGetWatchingItems()
     {
-        $api = new LocalMailHttp(null);
-        $api->getWatchingItems();
+        $this->_api->getWatchingItems();
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraMail">'
@@ -2472,10 +2396,9 @@ class ApiTest extends ZimbraTestCase
 
     public function testGetWorkingHours()
     {
-        $api = new LocalMailHttp(null);
-        $api->getWorkingHours(10, 10, 'id', 'name');
+        $this->_api->getWorkingHours(10, 10, 'id', 'name');
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraMail">'
@@ -2488,10 +2411,9 @@ class ApiTest extends ZimbraTestCase
 
     public function testGetYahooAuthToken()
     {
-        $api = new LocalMailHttp(null);
-        $api->getYahooAuthToken('user', 'password');
+        $this->_api->getYahooAuthToken('user', 'password');
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraMail">'
@@ -2504,10 +2426,9 @@ class ApiTest extends ZimbraTestCase
 
     public function testGetYahooCookie()
     {
-        $api = new LocalMailHttp(null);
-        $api->getYahooCookie('user');
+        $this->_api->getYahooCookie('user');
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraMail">'
@@ -2524,10 +2445,9 @@ class ApiTest extends ZimbraTestCase
             GranteeType::USR(), AceRightType::INVITE(), 'zid', 'd', 'key', 'pw', false
         );
 
-        $api = new LocalMailHttp(null);
-        $api->grantPermission(array($ace));
+        $this->_api->grantPermission(array($ace));
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraMail">'
@@ -2542,10 +2462,9 @@ class ApiTest extends ZimbraTestCase
 
     public function testICalReply()
     {
-        $api = new LocalMailHttp(null);
-        $api->iCalReply('ical');
+        $this->_api->iCalReply('ical');
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraMail">'
@@ -2564,10 +2483,9 @@ class ApiTest extends ZimbraTestCase
             'value', 'aid', 'mid', 'part'
         );
 
-        $api = new LocalMailHttp(null);
-        $api->importAppointments($content, 'ct', 'l');
+        $this->_api->importAppointments($content, 'ct', 'l');
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraMail">'
@@ -2586,12 +2504,11 @@ class ApiTest extends ZimbraTestCase
             'value', 'aid'
         );
 
-        $api = new LocalMailHttp(null);
-        $api->importContacts(
+        $this->_api->importContacts(
             $content, 'ct', 'l', 'csvfmt', 'csvlocale'
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraMail">'
@@ -2615,12 +2532,11 @@ class ApiTest extends ZimbraTestCase
         $cal = new \Zimbra\Mail\Struct\CalDataSourceNameOrId('name', 'id');
         $unknown = new \Zimbra\Mail\Struct\UnknownDataSourceNameOrId('name', 'id');
 
-        $api = new LocalMailHttp(null);
-        $api->importData(
+        $this->_api->importData(
             $imap, $pop3, $caldav, $yab, $rss, $gal, $cal, $unknown
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraMail">'
@@ -2642,10 +2558,9 @@ class ApiTest extends ZimbraTestCase
 
     public function testInvalidateReminderDevice()
     {
-        $api = new LocalMailHttp(null);
-        $api->invalidateReminderDevice('email');
+        $this->_api->invalidateReminderDevice('email');
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraMail">'
@@ -2662,12 +2577,12 @@ class ApiTest extends ZimbraTestCase
             ItemActionOp::MOVE(), 'id', 'tcon', 10, 'l', '#aabbcc', 10, 'name', 'f', 't', 'tn'
         );
 
-        $api = new LocalMailHttp(null);
-        $api->itemAction(
+
+        $this->_api->itemAction(
             $action
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraMail">'
@@ -2686,12 +2601,11 @@ class ApiTest extends ZimbraTestCase
             'id', 10, 10
         );
 
-        $api = new LocalMailHttp(null);
-        $api->listDocumentRevisions(
+        $this->_api->listDocumentRevisions(
             $doc
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraMail">'
@@ -2708,12 +2622,11 @@ class ApiTest extends ZimbraTestCase
     {
         $m = $this->getMsg();
 
-        $api = new LocalMailHttp(null);
-        $api->modifyAppointment(
+        $this->_api->modifyAppointment(
             $m, 'id', 10, 10, 10, true, 10, true, true, true
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraMail">'
@@ -2763,12 +2676,11 @@ class ApiTest extends ZimbraTestCase
             array($a), array($m), 10, 'tn'
         );
 
-        $api = new LocalMailHttp(null);
-        $api->modifyContact(
+        $this->_api->modifyContact(
             $cn, true, true
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraMail">'
@@ -2818,11 +2730,10 @@ class ApiTest extends ZimbraTestCase
         $cal = new \Zimbra\Mail\Struct\MailCalDataSource();
         $unknown = new \Zimbra\Mail\Struct\MailUnknownDataSource();
 
-        $api = new LocalMailHttp(null);
-        $api->modifyImapDataSource(
+        $this->_api->modifyImapDataSource(
            $imap
         );
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraMail">'
@@ -2842,10 +2753,10 @@ class ApiTest extends ZimbraTestCase
             .'</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
-        $api->modifyPop3DataSource(
+        $this->_api->modifyPop3DataSource(
            $pop3
         );
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraMail">'
@@ -2857,10 +2768,10 @@ class ApiTest extends ZimbraTestCase
             .'</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
-        $api->modifyCaldavDataSource(
+        $this->_api->modifyCaldavDataSource(
            $caldav
         );
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraMail">'
@@ -2872,10 +2783,10 @@ class ApiTest extends ZimbraTestCase
             .'</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
-        $api->modifyYabDataSource(
+        $this->_api->modifyYabDataSource(
            $yab
         );
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraMail">'
@@ -2887,10 +2798,10 @@ class ApiTest extends ZimbraTestCase
             .'</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
-        $api->modifyRssDataSource(
+        $this->_api->modifyRssDataSource(
            $rss
         );
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraMail">'
@@ -2902,10 +2813,10 @@ class ApiTest extends ZimbraTestCase
             .'</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
-        $api->modifyGalDataSource(
+        $this->_api->modifyGalDataSource(
            $gal
         );
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraMail">'
@@ -2917,10 +2828,10 @@ class ApiTest extends ZimbraTestCase
             .'</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
-        $api->modifyCalDataSource(
+        $this->_api->modifyCalDataSource(
            $cal
         );
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraMail">'
@@ -2932,10 +2843,10 @@ class ApiTest extends ZimbraTestCase
             .'</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
-        $api->modifyUnknownDataSource(
+        $this->_api->modifyUnknownDataSource(
            $unknown
         );
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraMail">'
@@ -3094,12 +3005,11 @@ class ApiTest extends ZimbraTestCase
             array($filterRule)
         );
 
-        $api = new LocalMailHttp(null);
-        $api->modifyFilterRules(
+        $this->_api->modifyFilterRules(
             $filterRules
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraMail">'
@@ -3163,12 +3073,11 @@ class ApiTest extends ZimbraTestCase
         $a = new \Zimbra\Struct\KeyValuePair('key', 'value');
         $meta = new \Zimbra\Mail\Struct\MailCustomMetadata('section', array($a));
 
-        $api = new LocalMailHttp(null);
-        $api->modifyMailboxMetadata(
+        $this->_api->modifyMailboxMetadata(
             $meta
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraMail">'
@@ -3329,12 +3238,11 @@ class ApiTest extends ZimbraTestCase
             array($filterRule)
         );
 
-        $api = new LocalMailHttp(null);
-        $api->modifyOutgoingFilterRules(
+        $this->_api->modifyOutgoingFilterRules(
             $filterRules
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraMail">'
@@ -3399,12 +3307,11 @@ class ApiTest extends ZimbraTestCase
             'id', 'query', 'types', 'sortBy'
         );
 
-        $api = new LocalMailHttp(null);
-        $api->modifySearchFolder(
+        $this->_api->modifySearchFolder(
             $search
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraMail">'
@@ -3421,12 +3328,11 @@ class ApiTest extends ZimbraTestCase
     {
         $m = $this->getMsg();
 
-        $api = new LocalMailHttp(null);
-        $api->modifyTask(
+        $this->_api->modifyTask(
             $m, 'id', 10, 10, 10, true, 10, true, true, true
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraMail">'
@@ -3470,12 +3376,11 @@ class ApiTest extends ZimbraTestCase
             MsgActionOp::MOVE(), 'id', 'tcon', 10, 'l', '#aabbcc', 10, 'name', 'f', 't', 'tn'
         );
 
-        $api = new LocalMailHttp(null);
-        $api->msgAction(
+        $this->_api->msgAction(
             $action
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraMail">'
@@ -3490,12 +3395,11 @@ class ApiTest extends ZimbraTestCase
 
     public function noOp()
     {
-        $api = new LocalMailHttp(null);
-        $api->noOp(
+        $this->_api->noOp(
             true, true, true, 10
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraMail">'
@@ -3512,12 +3416,11 @@ class ApiTest extends ZimbraTestCase
             ItemActionOp::MOVE(), 'id', 'tcon', 10, 'l', '#aabbcc', 10, 'name', 'f', 't', 'tn', 'content', 'pos'
         );
 
-        $api = new LocalMailHttp(null);
-        $api->noteAction(
+        $this->_api->noteAction(
             $action
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraMail">'
@@ -3536,12 +3439,11 @@ class ApiTest extends ZimbraTestCase
             'id', 10, true
         );
 
-        $api = new LocalMailHttp(null);
-        $api->purgeRevision(
+        $this->_api->purgeRevision(
             $revision
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraMail">'
@@ -3560,12 +3462,11 @@ class ApiTest extends ZimbraTestCase
             RankingActionOp::RESET(), 'email'
         );
 
-        $api = new LocalMailHttp(null);
-        $api->rankingAction(
+        $this->_api->rankingAction(
             $action
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraMail">'
@@ -3582,12 +3483,11 @@ class ApiTest extends ZimbraTestCase
     {
         $device = new \Zimbra\Struct\NamedElement('name');
 
-        $api = new LocalMailHttp(null);
-        $api->registerDevice(
+        $this->_api->registerDevice(
             $device
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraMail">'
@@ -3606,12 +3506,11 @@ class ApiTest extends ZimbraTestCase
             'id', 'part'
         );
 
-        $api = new LocalMailHttp(null);
-        $api->removeAttachments(
+        $this->_api->removeAttachments(
             $m
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraMail">'
@@ -3630,12 +3529,11 @@ class ApiTest extends ZimbraTestCase
             GranteeType::USR(), AceRightType::INVITE(), 'zid', 'd', 'key', 'pw', false
         );
 
-        $api = new LocalMailHttp(null);
-        $api->revokePermission(
+        $this->_api->revokePermission(
             array($ace)
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraMail">'
@@ -3661,12 +3559,11 @@ class ApiTest extends ZimbraTestCase
             $upload, $m, $docVer, 'name', 'ct', 'desc', 'l', 'id', 10, 'content', true, 'f'
         );
 
-        $api = new LocalMailHttp(null);
-        $api->saveDocument(
+        $this->_api->saveDocument(
             $doc
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraMail">'
@@ -3720,12 +3617,11 @@ class ApiTest extends ZimbraTestCase
             'f'
         );
 
-        $api = new LocalMailHttp(null);
-        $api->saveDraft(
+        $this->_api->saveDraft(
             $m
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraMail">'
@@ -3769,8 +3665,7 @@ class ApiTest extends ZimbraTestCase
         $tz = $this->getTz();
         $cursor = new \Zimbra\Struct\CursorInfo('id','sortVal', 'endSortVal', true);
 
-        $api = new LocalMailHttp(null);
-        $api->search(
+        $this->_api->search(
             true,
             'query',
             array($header),
@@ -3801,7 +3696,7 @@ class ApiTest extends ZimbraTestCase
             10
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraMail">'
@@ -3827,8 +3722,7 @@ class ApiTest extends ZimbraTestCase
         $tz = $this->getTz();
         $cursor = new \Zimbra\Struct\CursorInfo('id','sortVal', 'endSortVal', true);
 
-        $api = new LocalMailHttp(null);
-        $api->searchConv(
+        $this->_api->searchConv(
             'cid',
             true,
             'query',
@@ -3860,7 +3754,7 @@ class ApiTest extends ZimbraTestCase
             10
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraMail">'
@@ -3882,10 +3776,9 @@ class ApiTest extends ZimbraTestCase
 
     public function testSendDeliveryReport()
     {
-        $api = new LocalMailHttp(null);
-        $api->sendDeliveryReport('mid');
+        $this->_api->sendDeliveryReport('mid');
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraMail">'
@@ -3904,12 +3797,11 @@ class ApiTest extends ZimbraTestCase
         $tz = $this->getTz();
         $m = $this->getMsg();
 
-        $api = new LocalMailHttp(null);
-        $api->sendInviteReply(
+        $this->_api->sendInviteReply(
             'id', 10, 'verb', $exceptId, $tz, $m, true, 'idnt'
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraMail">'
@@ -3987,12 +3879,11 @@ class ApiTest extends ZimbraTestCase
             'f'
         );
 
-        $api = new LocalMailHttp(null);
-        $api->sendMsg(
+        $this->_api->sendMsg(
             $m, true, true, true, 'suid'
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraMail">'
@@ -4035,12 +3926,11 @@ class ApiTest extends ZimbraTestCase
         $item = new \Zimbra\Struct\Id('id');
         $e = new \Zimbra\Mail\Struct\EmailAddrInfo('a', 't', 'p');
 
-        $api = new LocalMailHttp(null);
-        $api->sendShareNotification(
+        $this->_api->sendShareNotification(
             $item, array($e), 'notes', Action::EDIT()
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraMail">'
@@ -4057,10 +3947,9 @@ class ApiTest extends ZimbraTestCase
 
     public function testSendVerificationCode()
     {
-        $api = new LocalMailHttp(null);
-        $api->sendVerificationCode('email');
+        $this->_api->sendVerificationCode('email');
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraMail">'
@@ -4087,12 +3976,11 @@ class ApiTest extends ZimbraTestCase
             array($reply)
         );
 
-        $api = new LocalMailHttp(null);
-        $api->setAppointment(
+        $this->_api->setAppointment(
             $default, array($except), array($cancel), $replies, 'f', 't', 'tn', 'l', true, 10
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraMail">'
@@ -4142,12 +4030,11 @@ class ApiTest extends ZimbraTestCase
         $a = new \Zimbra\Struct\KeyValuePair('key', 'value');
         $meta = new \Zimbra\Mail\Struct\MailCustomMetadata('section', array($a));
 
-        $api = new LocalMailHttp(null);
-        $api->setCustomMetadata(
+        $this->_api->setCustomMetadata(
             'id', $meta
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraMail">'
@@ -4167,12 +4054,11 @@ class ApiTest extends ZimbraTestCase
         $a = new \Zimbra\Struct\KeyValuePair('key', 'value');
         $meta = new \Zimbra\Mail\Struct\MailCustomMetadata('section', array($a));
 
-        $api = new LocalMailHttp(null);
-        $api->setMailboxMetadata(
+        $this->_api->setMailboxMetadata(
             $meta
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraMail">'
@@ -4203,12 +4089,11 @@ class ApiTest extends ZimbraTestCase
             array($reply)
         );
 
-        $api = new LocalMailHttp(null);
-        $api->setTask(
+        $this->_api->setTask(
             $default, array($except), array($cancel), $replies, 'f', 't', 'tn', 'l', true, 10
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraMail">'
@@ -4258,12 +4143,11 @@ class ApiTest extends ZimbraTestCase
         $appt = new \Zimbra\Mail\Struct\SnoozeAppointmentAlarm('id', 10);
         $task = new \Zimbra\Mail\Struct\SnoozeTaskAlarm('id', 10);
 
-        $api = new LocalMailHttp(null);
-        $api->snoozeCalendarItemAlarm(
+        $this->_api->snoozeCalendarItemAlarm(
             $appt, $task
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraMail">'
@@ -4279,10 +4163,9 @@ class ApiTest extends ZimbraTestCase
 
     public function testSync()
     {
-        $api = new LocalMailHttp(null);
-        $api->sync('token', 10, 'l', true);
+        $this->_api->sync('token', 10, 'l', true);
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraMail">'
@@ -4310,12 +4193,11 @@ class ApiTest extends ZimbraTestCase
             $retentionPolicy, TagActionOp::READ(), 'id', 'tcon', 10, 'l', '#aabbcc', 10, 'name', 'f', 't', 'tn'
         );
 
-        $api = new LocalMailHttp(null);
-        $api->tagAction(
+        $this->_api->tagAction(
             $action
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraMail">'
@@ -4371,11 +4253,10 @@ class ApiTest extends ZimbraTestCase
         $cal = new \Zimbra\Mail\Struct\MailCalDataSource();
         $unknown = new \Zimbra\Mail\Struct\MailUnknownDataSource();
 
-        $api = new LocalMailHttp(null);
-        $api->testImapDataSource(
+        $this->_api->testImapDataSource(
            $imap
         );
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraMail">'
@@ -4395,10 +4276,10 @@ class ApiTest extends ZimbraTestCase
             .'</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
-        $api->testPop3DataSource(
+        $this->_api->testPop3DataSource(
            $pop3
         );
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraMail">'
@@ -4410,10 +4291,10 @@ class ApiTest extends ZimbraTestCase
             .'</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
-        $api->testCaldavDataSource(
+        $this->_api->testCaldavDataSource(
            $caldav
         );
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraMail">'
@@ -4425,10 +4306,10 @@ class ApiTest extends ZimbraTestCase
             .'</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
-        $api->testYabDataSource(
+        $this->_api->testYabDataSource(
            $yab
         );
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraMail">'
@@ -4440,10 +4321,10 @@ class ApiTest extends ZimbraTestCase
             .'</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
-        $api->testRssDataSource(
+        $this->_api->testRssDataSource(
            $rss
         );
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraMail">'
@@ -4455,10 +4336,10 @@ class ApiTest extends ZimbraTestCase
             .'</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
-        $api->testGalDataSource(
+        $this->_api->testGalDataSource(
            $gal
         );
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraMail">'
@@ -4470,10 +4351,10 @@ class ApiTest extends ZimbraTestCase
             .'</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
-        $api->testCalDataSource(
+        $this->_api->testCalDataSource(
            $cal
         );
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraMail">'
@@ -4485,10 +4366,10 @@ class ApiTest extends ZimbraTestCase
             .'</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
-        $api->testUnknownDataSource(
+        $this->_api->testUnknownDataSource(
            $unknown
         );
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraMail">'
@@ -4505,12 +4386,11 @@ class ApiTest extends ZimbraTestCase
     {
         $device = new \Zimbra\Mail\Struct\IdStatus('id', 'status');
 
-        $api = new LocalMailHttp(null);
-        $api->updateDeviceStatus(
+        $this->_api->updateDeviceStatus(
             $device
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraMail">'
@@ -4525,10 +4405,9 @@ class ApiTest extends ZimbraTestCase
 
     public function testVerifyCode()
     {
-        $api = new LocalMailHttp(null);
-        $api->verifyCode('email', 'code');
+        $this->_api->verifyCode('email', 'code');
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraMail">'
@@ -4547,12 +4426,11 @@ class ApiTest extends ZimbraTestCase
         $update = new \Zimbra\Mail\Struct\WaitSetSpec(array($waitSet));
         $remove = new \Zimbra\Mail\Struct\WaitSetId(array($id));
 
-        $api = new LocalMailHttp(null);
-        $api->waitSet(
+        $this->_api->waitSet(
             'waitSet', 'seq', $add, $update, $remove, true, array(InterestType::FOLDERS()), 10
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraMail">'

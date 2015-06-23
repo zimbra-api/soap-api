@@ -31,6 +31,14 @@ use Zimbra\Account\Base as AccountBase;
  */
 class ApiTest extends ZimbraTestCase
 {
+    private $_api;
+
+    public function __construct()
+    {
+        parent::__construct();
+        $this->_api = new LocalAccountHttp(null);
+    }
+
     public function testAccountFactory()
     {
         $httpApi = AccountFactory::instance();
@@ -57,13 +65,12 @@ class ApiTest extends ZimbraTestCase
         $pref = new \Zimbra\Account\Struct\Pref($name, $value, $time);
         $prefs = new \Zimbra\Account\Struct\AuthPrefs(array($pref));
 
-        $api = new LocalAccountHttp(null);
-        $api->auth(
+        $this->_api->auth(
             $account, $password, $preauth, $authToken, $virtualHost,
             $prefs, $attrs, $requestedSkin, false
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>' . "\n"
             . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAccount">'
@@ -95,12 +102,11 @@ class ApiTest extends ZimbraTestCase
 
         $account = new \Zimbra\Struct\AccountSelector(AccountBy::NAME(), $value);
 
-        $api = new LocalAccountHttp(null);
-        $api->authByAcount(
+        $this->_api->authByAcount(
             $account, $password, $virtualHost
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>' . "\n"
             . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAccount">'
@@ -125,12 +131,11 @@ class ApiTest extends ZimbraTestCase
         $account = new \Zimbra\Struct\AccountSelector(AccountBy::NAME(), $value);
         $authToken = new \Zimbra\Account\Struct\AuthToken($value, true);
 
-        $api = new LocalAccountHttp(null);
-        $api->authByToken(
+        $this->_api->authByToken(
             $account, $authToken, $virtualHost
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>' . "\n"
             . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAccount">'
@@ -153,12 +158,11 @@ class ApiTest extends ZimbraTestCase
         $galAcctId = self::randomName();
         $limit = mt_rand(0, 100);
 
-        $api = new LocalAccountHttp(null);
-        $api->autoCompleteGal(
+        $this->_api->autoCompleteGal(
             $name, true, SearchType::ALL(), $galAcctId, $limit
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>' . "\n"
             . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAccount">'
@@ -179,12 +183,11 @@ class ApiTest extends ZimbraTestCase
 
         $account = new \Zimbra\Struct\AccountSelector(AccountBy::NAME(), $value);
 
-        $api = new LocalAccountHttp(null);
-        $api->changePassword(
+        $this->_api->changePassword(
             $account, $oldPassword, $password, $virtualHost
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>' . "\n"
             . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAccount">'
@@ -210,12 +213,11 @@ class ApiTest extends ZimbraTestCase
             TargetType::DOMAIN(), TargetBy::ID(), $key, array($right1, $right2)
         );
 
-        $api = new LocalAccountHttp(null);
-        $api->checkRights(
+        $this->_api->checkRights(
             array($target)
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>' . "\n"
             . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAccount">'
@@ -238,12 +240,11 @@ class ApiTest extends ZimbraTestCase
         $value = md5(self::randomString());
         $attr = new \Zimbra\Struct\KeyValuePair($key, $value);
 
-        $api = new LocalAccountHttp(null);
-        $api->createDistributionList(
+        $this->_api->createDistributionList(
             $name, true, array($attr)
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>' . "\n"
             . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAccount">'
@@ -264,12 +265,11 @@ class ApiTest extends ZimbraTestCase
         $attr = new \Zimbra\Account\Struct\Attr($name, $value, true);
         $identity = new \Zimbra\Account\Struct\Identity($name, $id, array($attr));
 
-        $api = new LocalAccountHttp(null);
-        $api->createIdentity(
+        $this->_api->createIdentity(
             $identity
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>' . "\n"
             . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAccount">'
@@ -293,12 +293,11 @@ class ApiTest extends ZimbraTestCase
         $content = new \Zimbra\Account\Struct\SignatureContent($value, ContentType::TEXT_PLAIN());
         $signature = new \Zimbra\Account\Struct\Signature($name, $id, $cid, array($content));
 
-        $api = new LocalAccountHttp(null);
-        $api->createSignature(
+        $this->_api->createSignature(
             $signature
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>' . "\n"
             . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAccount">'
@@ -320,12 +319,11 @@ class ApiTest extends ZimbraTestCase
         $id = self::randomName();
         $identity = new \Zimbra\Account\Struct\NameId($name, $id);
 
-        $api = new LocalAccountHttp(null);
-        $api->deleteIdentity(
+        $this->_api->deleteIdentity(
             $identity
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>' . "\n"
             . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAccount">'
@@ -344,12 +342,11 @@ class ApiTest extends ZimbraTestCase
         $id = self::randomName();
         $signature = new \Zimbra\Account\Struct\NameId($name, $id);
 
-        $api = new LocalAccountHttp(null);
-        $api->deleteSignature(
+        $this->_api->deleteSignature(
             $signature
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>' . "\n"
             . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAccount">'
@@ -368,12 +365,11 @@ class ApiTest extends ZimbraTestCase
         $right2 = self::randomName();
         $right3 = self::randomName();
 
-        $api = new LocalAccountHttp(null);
-        $api->discoverRights(
+        $this->_api->discoverRights(
             array($right1, $right2, $right3)
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>' . "\n"
             . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAccount">'
@@ -404,12 +400,11 @@ class ApiTest extends ZimbraTestCase
         $dl = new \Zimbra\Account\Struct\DistributionListSelector(DLBy::NAME(), $value);
         $attr = new \Zimbra\Account\Struct\Attr($name, $value, true);
 
-        $api = new LocalAccountHttp(null);
-        $api->distributionListAction(
+        $this->_api->distributionListAction(
             $dl, $action, array($attr)
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>' . "\n"
             . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAccount">'
@@ -435,10 +430,9 @@ class ApiTest extends ZimbraTestCase
 
     public function testEndSession()
     {
-        $api = new LocalAccountHttp(null);
-        $api->endSession();
+        $this->_api->endSession();
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>' . "\n"
             . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAccount">'
@@ -452,10 +446,9 @@ class ApiTest extends ZimbraTestCase
     public function testGetAccountDistributionLists()
     {
         $attrs = self::randomName();
-        $api = new LocalAccountHttp(null);
-        $api->getAccountDistributionLists(true, MemberOf::DIRECT_ONLY(), array($attrs));
+        $this->_api->getAccountDistributionLists(true, MemberOf::DIRECT_ONLY(), array($attrs));
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>' . "\n"
             . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAccount">'
@@ -471,10 +464,9 @@ class ApiTest extends ZimbraTestCase
         $value = md5(self::randomString());
         $account = new \Zimbra\Struct\AccountSelector(AccountBy::NAME(), $value);
 
-        $api = new LocalAccountHttp(null);
-        $api->getAccountInfo($account);
+        $this->_api->getAccountInfo($account);
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>' . "\n"
             . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAccount">'
@@ -489,10 +481,9 @@ class ApiTest extends ZimbraTestCase
 
     public function testGetAllLocales()
     {
-        $api = new LocalAccountHttp(null);
-        $api->getAllLocales();
+        $this->_api->getAllLocales();
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>' . "\n"
             . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAccount">'
@@ -505,10 +496,9 @@ class ApiTest extends ZimbraTestCase
 
     public function testGetAvailableCsvFormats()
     {
-        $api = new LocalAccountHttp(null);
-        $api->getAvailableCsvFormats();
+        $this->_api->getAvailableCsvFormats();
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>' . "\n"
             . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAccount">'
@@ -521,10 +511,9 @@ class ApiTest extends ZimbraTestCase
 
     public function testGetAvailableLocales()
     {
-        $api = new LocalAccountHttp(null);
-        $api->getAvailableLocales();
+        $this->_api->getAvailableLocales();
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>' . "\n"
             . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAccount">'
@@ -537,10 +526,9 @@ class ApiTest extends ZimbraTestCase
 
     public function testGetAvailableSkins()
     {
-        $api = new LocalAccountHttp(null);
-        $api->getAvailableSkins();
+        $this->_api->getAvailableSkins();
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>' . "\n"
             . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAccount">'
@@ -558,10 +546,9 @@ class ApiTest extends ZimbraTestCase
         $dl = new \Zimbra\Account\Struct\DistributionListSelector(DLBy::NAME(), $value);
         $attr = new \Zimbra\Account\Struct\Attr($name, $value, true);
 
-        $api = new LocalAccountHttp(null);
-        $api->getDistributionList($dl, true, 'sendToDistList', array($attr));
+        $this->_api->getDistributionList($dl, true, 'sendToDistList', array($attr));
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>' . "\n"
             . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAccount">'
@@ -578,10 +565,9 @@ class ApiTest extends ZimbraTestCase
     public function testGetDistributionListMembers()
     {
         $name = self::randomName();
-        $api = new LocalAccountHttp(null);
-        $api->getDistributionListMembers($name, 100, 100);
+        $this->_api->getDistributionListMembers($name, 100, 100);
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>' . "\n"
             . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAccount">'
@@ -596,10 +582,9 @@ class ApiTest extends ZimbraTestCase
 
     public function testGetIdentities()
     {
-        $api = new LocalAccountHttp(null);
-        $api->getIdentities();
+        $this->_api->getIdentities();
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>' . "\n"
             . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAccount">'
@@ -613,10 +598,9 @@ class ApiTest extends ZimbraTestCase
     public function testGetInfo()
     {
         $name = self::randomName();
-        $api = new LocalAccountHttp(null);
-        $api->getInfo('x,attrs,y,zimlets,z', $name);
+        $this->_api->getInfo('x,attrs,y,zimlets,z', $name);
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>' . "\n"
             . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAccount">'
@@ -634,10 +618,9 @@ class ApiTest extends ZimbraTestCase
         $modified = mt_rand(0, 1000);
         $pref = new \Zimbra\Account\Struct\Pref($name, $value, $modified);
 
-        $api = new LocalAccountHttp(null);
-        $api->getPrefs(array($pref));
+        $this->_api->getPrefs(array($pref));
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>' . "\n"
             . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAccount">'
@@ -655,10 +638,9 @@ class ApiTest extends ZimbraTestCase
         $name = self::randomName();
         $ace = new \Zimbra\Account\Struct\Right($name);
 
-        $api = new LocalAccountHttp(null);
-        $api->getRights(array($ace));
+        $this->_api->getRights(array($ace));
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>' . "\n"
             . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAccount">'
@@ -680,10 +662,9 @@ class ApiTest extends ZimbraTestCase
         $owner = new \Zimbra\Struct\AccountSelector(AccountBy::NAME(), $value);
         $grantee = new \Zimbra\Struct\GranteeChooser($type, $id, $name);
 
-        $api = new LocalAccountHttp(null);
-        $api->getShareInfo($grantee, $owner, true, false);
+        $this->_api->getShareInfo($grantee, $owner, true, false);
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>' . "\n"
             . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAccount">'
@@ -699,10 +680,9 @@ class ApiTest extends ZimbraTestCase
 
     public function testGetSignatures()
     {
-        $api = new LocalAccountHttp(null);
-        $api->getSignatures();
+        $this->_api->getSignatures();
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>' . "\n"
             . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAccount">'
@@ -715,10 +695,9 @@ class ApiTest extends ZimbraTestCase
 
     public function testGetVersionInfo()
     {
-        $api = new LocalAccountHttp(null);
-        $api->getVersionInfo();
+        $this->_api->getVersionInfo();
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>' . "\n"
             . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAccount">'
@@ -731,10 +710,9 @@ class ApiTest extends ZimbraTestCase
 
     public function testGetWhiteBlackList()
     {
-        $api = new LocalAccountHttp(null);
-        $api->getWhiteBlackList();
+        $this->_api->getWhiteBlackList();
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>' . "\n"
             . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAccount">'
@@ -755,10 +733,9 @@ class ApiTest extends ZimbraTestCase
             GranteeType::ALL(), AceRightType::VIEW_FREE_BUSY(), $zid, $dir, $key, $pw, true, false
         );
 
-        $api = new LocalAccountHttp(null);
-        $api->grantRights(array($ace));
+        $this->_api->grantRights(array($ace));
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>' . "\n"
             . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAccount">'
@@ -779,10 +756,9 @@ class ApiTest extends ZimbraTestCase
         $attr = new \Zimbra\Account\Struct\Attr($name, $value, true);
         $identity = new \Zimbra\Account\Struct\Identity($name, $id, array($attr));
 
-        $api = new LocalAccountHttp(null);
-        $api->modifyIdentity($identity);
+        $this->_api->modifyIdentity($identity);
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>' . "\n"
             . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAccount">'
@@ -803,10 +779,9 @@ class ApiTest extends ZimbraTestCase
         $modified = mt_rand(0, 1000);
         $pref = new \Zimbra\Account\Struct\Pref($name, $value, $modified);
 
-        $api = new LocalAccountHttp(null);
-        $api->modifyPrefs(array($pref));
+        $this->_api->modifyPrefs(array($pref));
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>' . "\n"
             . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAccount">'
@@ -826,10 +801,9 @@ class ApiTest extends ZimbraTestCase
         $value = md5(self::randomString());
         $prop = new \Zimbra\Account\Struct\Prop($zimlet, $name, $value);
 
-        $api = new LocalAccountHttp(null);
-        $api->modifyProperties(array($prop));
+        $this->_api->modifyProperties(array($prop));
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>' . "\n"
             . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAccount">'
@@ -851,10 +825,9 @@ class ApiTest extends ZimbraTestCase
         $content = new \Zimbra\Account\Struct\SignatureContent($value, ContentType::TEXT_HTML());
         $signature = new \Zimbra\Account\Struct\Signature($name, $id, $cid, array($content));
 
-        $api = new LocalAccountHttp(null);
-        $api->modifySignature($signature);
+        $this->_api->modifySignature($signature);
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>' . "\n"
             . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAccount">'
@@ -877,10 +850,9 @@ class ApiTest extends ZimbraTestCase
         $whiteList = new \Zimbra\Account\Struct\WhiteList(array($white));
         $blackList = new \Zimbra\Account\Struct\BlackList(array($black));
 
-        $api = new LocalAccountHttp(null);
-        $api->modifyWhiteBlackList($whiteList, $blackList);
+        $this->_api->modifyWhiteBlackList($whiteList, $blackList);
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>' . "\n"
             . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAccount">'
@@ -903,10 +875,9 @@ class ApiTest extends ZimbraTestCase
         $name = self::randomName();
         $zimlet = new \Zimbra\Account\Struct\ZimletPrefsSpec($name, ZimletStatus::ENABLED());
 
-        $api = new LocalAccountHttp(null);
-        $api->modifyZimletPrefs(array($zimlet));
+        $this->_api->modifyZimletPrefs(array($zimlet));
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>' . "\n"
             . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAccount">'
@@ -927,10 +898,9 @@ class ApiTest extends ZimbraTestCase
         $pw = md5(self::randomString());
         $ace = new \Zimbra\Account\Struct\AccountACEInfo(GranteeType::ALL(), AceRightType::VIEW_FREE_BUSY(), $zid, $dir, $key, $pw, true, false);
 
-        $api = new LocalAccountHttp(null);
-        $api->revokeRights(array($ace));
+        $this->_api->revokeRights(array($ace));
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>' . "\n"
             . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAccount">'
@@ -966,12 +936,11 @@ class ApiTest extends ZimbraTestCase
         $limit = mt_rand(1, 100);
         $offset = mt_rand(0, 100);
 
-        $api = new LocalAccountHttp(null);
-        $api->searchCalendarResources(
+        $this->_api->searchCalendarResources(
             $locale, $cursor, $name, $filter, true, $sortBy, $limit, $offset, $galAcctId, array($attrs)
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>' . "\n"
             . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAccount">'
@@ -994,12 +963,11 @@ class ApiTest extends ZimbraTestCase
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
         $filter = new \Zimbra\Struct\EntrySearchFilterInfo($cond);
-        $api = new LocalAccountHttp(null);
-        $api->searchCalendarResources(
+        $this->_api->searchCalendarResources(
             $locale, $cursor, $name, $filter, true, $sortBy, $limit, $offset, $galAcctId, array($attrs)
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>' . "\n"
             . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAccount">'
@@ -1039,13 +1007,12 @@ class ApiTest extends ZimbraTestCase
         $limit = mt_rand(1, 100);
         $offset = mt_rand(0, 100);
 
-        $api = new LocalAccountHttp(null);
-        $api->searchGal(
+        $this->_api->searchGal(
             $locale, $cursor, $filter, $ref, $name, SearchType::ALL(),
             true, false, MemberOf::ALL(), true, $galAcctId, false, SortBy::NONE(), $limit, $offset
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>' . "\n"
             . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAccount">'
@@ -1067,13 +1034,12 @@ class ApiTest extends ZimbraTestCase
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
         $filter = new \Zimbra\Struct\EntrySearchFilterInfo($cond);
-        $api = new LocalAccountHttp(null);
-        $api->searchGal(
+        $this->_api->searchGal(
             $locale, $cursor, $filter, $ref, $name, SearchType::ALL(),
             true, false, MemberOf::ALL(), true, $galAcctId, false, SortBy::NONE(), $limit, $offset
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>' . "\n"
             . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAccount">'
@@ -1095,10 +1061,9 @@ class ApiTest extends ZimbraTestCase
         $value = md5(self::randomString());
         $dl = new \Zimbra\Account\Struct\DistributionListSelector(DLBy::NAME(), $value);
 
-        $api = new LocalAccountHttp(null);
-        $api->subscribeDistributionList(DLSubscribeOp::SUBSCRIBE(), $dl);
+        $this->_api->subscribeDistributionList(DLSubscribeOp::SUBSCRIBE(), $dl);
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>' . "\n"
             . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAccount">'
@@ -1115,10 +1080,9 @@ class ApiTest extends ZimbraTestCase
     {
         $token = self::randomName();
         $galAcctId = self::randomName();
-        $api = new LocalAccountHttp(null);
-        $api->syncGal($token, $galAcctId, true);
+        $this->_api->syncGal($token, $galAcctId, true);
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>' . "\n"
             . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAccount">'

@@ -63,6 +63,14 @@ use Zimbra\Tests\Soap\LocalClientHttp;
  */
 class ApiTest extends ZimbraTestCase
 {
+    private $_api;
+
+    public function __construct()
+    {
+        parent::__construct();
+        $this->_api = new LocalAdminHttp(null);
+    }
+
     public function testAdminFactory()
     {
         $httpApi = AdminFactory::instance();
@@ -72,4467 +80,4730 @@ class ApiTest extends ZimbraTestCase
 
     public function testAddAccountAlias()
     {
-        $api = new LocalAdminHttp(null);
-        $api->addAccountAlias(
-            'id', 'alias'
+        $id = self::randomName();
+        $alias = self::randomName();
+        $this->_api->addAccountAlias(
+            $id, $alias
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:AddAccountAliasRequest '
-                        .'id="id" alias="alias" />'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:AddAccountAliasRequest '
+                        . 'id="' . $id . '" alias="' . $alias . '" />'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testAddAccountLogger()
     {
-        $logger = new \Zimbra\Admin\Struct\LoggerInfo('category', LoggingLevel::ERROR());
-        $account = new \Zimbra\Struct\AccountSelector(AccountBy::NAME(), 'value');
+        $category = self::randomName();
+        $value = self::randomName();
 
-        $api = new LocalAdminHttp(null);
-        $api->addAccountLogger(
+        $logger = new \Zimbra\Admin\Struct\LoggerInfo($category, LoggingLevel::ERROR());
+        $account = new \Zimbra\Struct\AccountSelector(AccountBy::NAME(), $value);
+
+        $this->_api->addAccountLogger(
             $logger, $account
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:AddAccountLoggerRequest>'
-                        .'<urn1:logger category="category" level="error" />'
-                        .'<urn1:account by="name">value</urn1:account>'
-                    .'</urn1:AddAccountLoggerRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:AddAccountLoggerRequest>'
+                        . '<urn1:logger category="'  .$category . '" level="' . LoggingLevel::ERROR() . '" />'
+                        . '<urn1:account by="' . AccountBy::NAME() . '">' . $value . '</urn1:account>'
+                    . '</urn1:AddAccountLoggerRequest>'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testAddDistributionListAlias()
     {
-        $api = new LocalAdminHttp(null);
-        $api->addDistributionListAlias(
-            'id', 'alias'
+        $id = self::randomName();
+        $alias = self::randomName();
+        $this->_api->addDistributionListAlias(
+            $id, $alias
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:AddDistributionListAliasRequest '
-                        .'id="id" alias="alias" />'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:AddDistributionListAliasRequest '
+                        . 'id="' . $id . '" alias="' . $alias . '" />'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testAddDistributionListMember()
     {
-        $api = new LocalAdminHttp(null);
-        $api->addDistributionListMember(
-            'id', array('member1', 'member2')
+        $id = self::randomName();
+        $member1 = self::randomName();
+        $member2 = self::randomName();
+        $this->_api->addDistributionListMember(
+            $id, [$member1, $member2]
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:AddDistributionListMemberRequest id="id">'
-                        .'<urn1:dlm>member1</urn1:dlm>'
-                        .'<urn1:dlm>member2</urn1:dlm>'
-                    .'</urn1:AddDistributionListMemberRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:AddDistributionListMemberRequest id="' . $id . '">'
+                        . '<urn1:dlm>' . $member1 . '</urn1:dlm>'
+                        . '<urn1:dlm>' . $member2 . '</urn1:dlm>'
+                    . '</urn1:AddDistributionListMemberRequest>'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testAddGalSyncDataSource()
     {
-        $attr = new \Zimbra\Struct\KeyValuePair('key', 'value');
-        $account = new \Zimbra\Struct\AccountSelector(AccountBy::NAME(), 'value');
+        $key = self::randomName();
+        $value = self::randomName();
+        $name = self::randomName();
+        $domain = self::randomName();
+        $folder = self::randomName();
 
-        $api = new LocalAdminHttp(null);
-        $api->addGalSyncDataSource(
-            $account, 'name', 'domain', GalMode::BOTH(), 'folder', array($attr)
+        $attr = new \Zimbra\Struct\KeyValuePair($key, $value);
+        $account = new \Zimbra\Struct\AccountSelector(AccountBy::NAME(), $value);
+
+        $this->_api->addGalSyncDataSource(
+            $account, $name, $domain, GalMode::BOTH(), $folder, [$attr]
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:AddGalSyncDataSourceRequest name="name" domain="domain" type="both" folder="folder">'
-                        .'<urn1:account by="name">value</urn1:account>'
-                        .'<urn1:a n="key">value</urn1:a>'
-                    .'</urn1:AddGalSyncDataSourceRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:AddGalSyncDataSourceRequest name="' . $name . '" domain="' . $domain . '" type="' . GalMode::BOTH() . '" folder="' . $folder . '">'
+                        . '<urn1:account by="' . AccountBy::NAME() . '">' . $value . '</urn1:account>'
+                        . '<urn1:a n="' . $key . '">' . $value . '</urn1:a>'
+                    . '</urn1:AddGalSyncDataSourceRequest>'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testAdminCreateWaitSet()
     {
-        $a = new \Zimbra\Admin\Struct\WaitSetAddSpec(
-            'name', 'id', 'token', array(InterestType::MESSAGES(), InterestType::CONTACTS())
-        );
-        $add = new \Zimbra\Admin\Struct\WaitSetSpec(array($a));
+        $name = self::randomName();
+        $id = self::randomName();
+        $token = self::randomName();
 
-        $api = new LocalAdminHttp(null);
-        $api->adminCreateWaitSet(
-            $add, array(InterestType::FOLDERS(), InterestType::MESSAGES()), true
+        $a = new \Zimbra\Struct\WaitSetAddSpec(
+            $name, $id, $token, [InterestType::MESSAGES(), InterestType::CONTACTS()]
+        );
+        $add = new \Zimbra\Struct\WaitSetSpec([$a]);
+
+        $this->_api->adminCreateWaitSet(
+            $add, [InterestType::FOLDERS(), InterestType::MESSAGES()], true
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:AdminCreateWaitSetRequest defTypes="f,m" allAccounts="true">'
-                        .'<urn1:add>'
-                            .'<urn1:a name="name" id="id" token="token" types="m,c" />'
-                        .'</urn1:add>'
-                    .'</urn1:AdminCreateWaitSetRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:AdminCreateWaitSetRequest defTypes="f,m" allAccounts="true">'
+                        . '<urn1:add>'
+                            . '<urn1:a name="' . $name . '" id="' . $id . '" token="' . $token . '" types="m,c" />'
+                        . '</urn1:add>'
+                    . '</urn1:AdminCreateWaitSetRequest>'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testAdminDestroyWaitSet()
     {
-        $api = new LocalAdminHttp(null);
-        $api->adminDestroyWaitSet(
-            'waitSet'
+        $waitSet = self::randomName();
+        $this->_api->adminDestroyWaitSet(
+            $waitSet
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:AdminDestroyWaitSetRequest '
-                        .'waitSet="waitSet" />'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:AdminDestroyWaitSetRequest '
+                        . 'waitSet="' . $waitSet . '" />'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testAdminWaitSet()
     {
-        $a = new \Zimbra\Admin\Struct\WaitSetAddSpec(
-            'name', 'id', 'token', array(InterestType::FOLDERS(), InterestType::MESSAGES(), InterestType::CONTACTS())
-        );
-        $add = new \Zimbra\Admin\Struct\WaitSetSpec(array($a));
-        $update = new \Zimbra\Admin\Struct\WaitSetSpec(array($a));
-        $a = new \Zimbra\Struct\Id('id');
-        $remove = new \Zimbra\Admin\Struct\WaitSetId(array($a));
+        $name = self::randomName();
+        $id = self::randomName();
+        $token = self::randomName();
+        $waitSet = self::randomName();
+        $seq = self::randomName();
+        $timeout = mt_rand(0, 1000);
 
-        $api = new LocalAdminHttp(null);
-        $api->adminWaitSet(
-            'waitSet', 'seq', $add, $update, $remove, true, array(InterestType::FOLDERS(), InterestType::MESSAGES()), 1000
+        $a = new \Zimbra\Struct\WaitSetAddSpec(
+            $name, $id, $token, [InterestType::FOLDERS(), InterestType::MESSAGES(), InterestType::CONTACTS()]
+        );
+        $add = new \Zimbra\Struct\WaitSetSpec([$a]);
+        $update = new \Zimbra\Struct\WaitSetSpec([$a]);
+        $a = new \Zimbra\Struct\Id($id);
+        $remove = new \Zimbra\Struct\WaitSetId([$a]);
+
+        $this->_api->adminWaitSet(
+            $waitSet, $seq, $add, $update, $remove, true, [InterestType::FOLDERS(), InterestType::MESSAGES()], $timeout
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:AdminWaitSetRequest waitSet="waitSet" seq="seq" block="true" defTypes="f,m" timeout="1000" >'
-                        .'<urn1:add>'
-                            .'<urn1:a name="name" id="id" token="token" types="f,m,c" />'
-                        .'</urn1:add>'
-                        .'<urn1:update>'
-                            .'<urn1:a name="name" id="id" token="token" types="f,m,c" />'
-                        .'</urn1:update>'
-                        .'<urn1:remove>'
-                            .'<urn1:a id="id" />'
-                        .'</urn1:remove>'
-                    .'</urn1:AdminWaitSetRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:AdminWaitSetRequest waitSet="' . $waitSet . '" seq="' . $seq . '" block="true" defTypes="f,m" timeout="' . $timeout . '" >'
+                        . '<urn1:add>'
+                            . '<urn1:a name="' . $name . '" id="' . $id . '" token="' . $token . '" types="f,m,c" />'
+                        . '</urn1:add>'
+                        . '<urn1:update>'
+                            . '<urn1:a name="' . $name . '" id="' . $id . '" token="' . $token . '" types="f,m,c" />'
+                        . '</urn1:update>'
+                        . '<urn1:remove>'
+                            . '<urn1:a id="' . $id . '" />'
+                        . '</urn1:remove>'
+                    . '</urn1:AdminWaitSetRequest>'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testAuth()
     {
-        $account = new \Zimbra\Struct\AccountSelector(AccountBy::NAME(), 'value');
+        $name = self::randomName();
+        $password = self::randomName();
+        $authToken = self::randomName();
+        $virtualHost = self::randomName();
 
-        $api = new LocalAdminHttp(null);
-        $api->auth(
-            'name', 'password', 'authToken', $account, 'virtualHost', true
+        $account = new \Zimbra\Struct\AccountSelector(AccountBy::NAME(), $name);
+        $this->_api->auth(
+            $name, $password, $authToken, $account, $virtualHost, true
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:AuthRequest name="name" password="password" persistAuthTokenCookie="true">'
-                        .'<urn1:authToken>authToken</urn1:authToken>'
-                        .'<urn1:account by="name">value</urn1:account>'
-                        .'<urn1:virtualHost>virtualHost</urn1:virtualHost>'
-                    .'</urn1:AuthRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:AuthRequest name="' . $name . '" password="' . $password . '" persistAuthTokenCookie="true">'
+                        . '<urn1:authToken>' . $authToken . '</urn1:authToken>'
+                        . '<urn1:account by="' . AccountBy::NAME() . '">' . $name . '</urn1:account>'
+                        . '<urn1:virtualHost>' . $virtualHost . '</urn1:virtualHost>'
+                    . '</urn1:AuthRequest>'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testAuthByName()
     {
-        $api = new LocalAdminHttp(null);
-        $api->authByName(
-            'name', 'password', 'virtualHost'
+        $name = self::randomName();
+        $password = self::randomName();
+        $virtualHost = self::randomName();
+        $this->_api->authByName(
+            $name, $password, $virtualHost
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:AuthRequest name="name" password="password" persistAuthTokenCookie="true">'
-                        .'<urn1:virtualHost>virtualHost</urn1:virtualHost>'
-                    .'</urn1:AuthRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:AuthRequest name="' . $name . '" password="' . $password . '" persistAuthTokenCookie="true">'
+                        . '<urn1:virtualHost>' . $virtualHost . '</urn1:virtualHost>'
+                    . '</urn1:AuthRequest>'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testAuthByAccount()
     {
-        $account = new \Zimbra\Struct\AccountSelector(AccountBy::NAME(), 'value');
+        $name = self::randomName();
+        $password = self::randomName();
+        $virtualHost = self::randomName();
+        $account = new \Zimbra\Struct\AccountSelector(AccountBy::NAME(), $name);
 
-        $api = new LocalAdminHttp(null);
-        $api->authByAccount(
-            $account, 'password', 'virtualHost'
+        $this->_api->authByAccount(
+            $account, $password, $virtualHost
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:AuthRequest password="password" persistAuthTokenCookie="true">'
-                        .'<urn1:account by="name">value</urn1:account>'
-                        .'<urn1:virtualHost>virtualHost</urn1:virtualHost>'
-                    .'</urn1:AuthRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:AuthRequest password="' . $password . '" persistAuthTokenCookie="true">'
+                        . '<urn1:account by="' . AccountBy::NAME() . '">' . $name . '</urn1:account>'
+                        . '<urn1:virtualHost>' . $virtualHost . '</urn1:virtualHost>'
+                    . '</urn1:AuthRequest>'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testAuthByToken()
     {
-        $account = new \Zimbra\Struct\AccountSelector(AccountBy::NAME(), 'value');
-
-        $api = new LocalAdminHttp(null);
-        $api->authByToken(
-            'authToken'
+        $authToken = self::randomName();
+        $this->_api->authByToken(
+            $authToken
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:AuthRequest persistAuthTokenCookie="true">'
-                        .'<urn1:authToken>authToken</urn1:authToken>'
-                    .'</urn1:AuthRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:AuthRequest persistAuthTokenCookie="true">'
+                        . '<urn1:authToken>' . $authToken . '</urn1:authToken>'
+                    . '</urn1:AuthRequest>'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testAutoCompleteGal()
     {
-        $api = new LocalAdminHttp(null);
-        $api->autoCompleteGal(
-            'domain', 'name', GalSearchType::ACCOUNT(), 'galAcctId', 100
+        $domain = self::randomName();
+        $name = self::randomName();
+        $galAcctId = self::randomName();
+        $limit = mt_rand(0, 100);
+        $this->_api->autoCompleteGal(
+            $domain, $name, GalSearchType::ACCOUNT(), $galAcctId, $limit
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:AutoCompleteGalRequest '
-                        .'domain="domain" name="name" type="account" galAcctId="galAcctId" limit="100" />'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:AutoCompleteGalRequest '
+                        . 'domain="' . $domain . '" name="' . $name . '" type="' . GalSearchType::ACCOUNT() . '" galAcctId="' . $galAcctId . '" limit="' . $limit . '" />'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testAutoProvAccount()
     {
-        $domain = new \Zimbra\Admin\Struct\DomainSelector(DomainBy::NAME(), 'value');
-        $principal = new \Zimbra\Admin\Struct\PrincipalSelector(PrincipalBy::DN(), 'principal');
+        $value = self::randomName();
+        $password = self::randomName();
+        $domain = new \Zimbra\Admin\Struct\DomainSelector(DomainBy::NAME(), $value);
+        $principal = new \Zimbra\Admin\Struct\PrincipalSelector(PrincipalBy::DN(), $value);
 
-        $api = new LocalAdminHttp(null);
-        $api->autoProvAccount(
-            $domain, $principal, 'password'
+        $this->_api->autoProvAccount(
+            $domain, $principal, $password
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:AutoProvAccountRequest>'
-                        .'<urn1:domain by="name">value</urn1:domain>'
-                        .'<urn1:principal by="dn">principal</urn1:principal>'
-                        .'<urn1:password>password</urn1:password>'
-                    .'</urn1:AutoProvAccountRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:AutoProvAccountRequest>'
+                        . '<urn1:domain by="' . DomainBy::NAME() . '">' . $value . '</urn1:domain>'
+                        . '<urn1:principal by="' . PrincipalBy::DN() . '">' . $value . '</urn1:principal>'
+                        . '<urn1:password>' . $password . '</urn1:password>'
+                    . '</urn1:AutoProvAccountRequest>'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testAutoProvTaskControl()
     {
-        $api = new LocalAdminHttp(null);
-        $api->autoProvTaskControl(
+        $this->_api->autoProvTaskControl(
             TaskAction::STATUS()
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:AutoProvTaskControlRequest '
-                        .'action="status" />'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:AutoProvTaskControlRequest '
+                        . 'action="' . TaskAction::STATUS() . '" />'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testCheckAuthConfig()
     {
-        $attr = new \Zimbra\Struct\KeyValuePair('key', 'value');
+        $key = self::randomName();
+        $value = self::randomName();
+        $name = self::randomName();
+        $password = self::randomName();
+        $attr = new \Zimbra\Struct\KeyValuePair($key, $value);
 
-        $api = new LocalAdminHttp(null);
-        $api->checkAuthConfig(
-            'name', 'password', array($attr)
+        $this->_api->checkAuthConfig(
+            $name, $password, [$attr]
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:CheckAuthConfigRequest name="name" password="password">'
-                        .'<urn1:a n="key">value</urn1:a>'
-                    .'</urn1:CheckAuthConfigRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:CheckAuthConfigRequest name="' . $name . '" password="' . $password . '">'
+                        . '<urn1:a n="' . $key . '">' . $value . '</urn1:a>'
+                    . '</urn1:CheckAuthConfigRequest>'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testCheckBlobConsistency()
     {
-        $volume = new \Zimbra\Admin\Struct\IntIdAttr(10);
-        $mbox = new \Zimbra\Admin\Struct\IntIdAttr(10);
+        $id = mt_rand(0, 100);
+        $volume = new \Zimbra\Admin\Struct\IntIdAttr($id);
+        $mbox = new \Zimbra\Admin\Struct\IntIdAttr($id);
 
-        $api = new LocalAdminHttp(null);
-        $api->checkBlobConsistency(
-            array($volume), array($mbox), true, false
+        $this->_api->checkBlobConsistency(
+            [$volume], [$mbox], true, false
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:CheckBlobConsistencyRequest checkSize="true" reportUsedBlobs="false">'
-                        .'<urn1:volume id="10" />'
-                        .'<urn1:mbox id="10" />'
-                    .'</urn1:CheckBlobConsistencyRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:CheckBlobConsistencyRequest checkSize="true" reportUsedBlobs="false">'
+                        . '<urn1:volume id="' . $id . '" />'
+                        . '<urn1:mbox id="' . $id . '" />'
+                    . '</urn1:CheckBlobConsistencyRequest>'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testCheckDirectory()
     {
-        $dir = new \Zimbra\Admin\Struct\CheckDirSelector('path', true);
+        $path = self::randomName();
+        $dir = new \Zimbra\Admin\Struct\CheckDirSelector($path, true);
 
-        $api = new LocalAdminHttp(null);
-        $api->checkDirectory(
-            array($dir)
+        $this->_api->checkDirectory(
+            [$dir]
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:CheckDirectoryRequest>'
-                        .'<urn1:directory path="path" create="true" />'
-                    .'</urn1:CheckDirectoryRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:CheckDirectoryRequest>'
+                        . '<urn1:directory path="' . $path . '" create="true" />'
+                    . '</urn1:CheckDirectoryRequest>'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testCheckDomainMXRecord()
     {
-        $domain = new \Zimbra\Admin\Struct\DomainSelector(DomainBy::NAME(), 'value');
+        $value = self::randomName();
+        $domain = new \Zimbra\Admin\Struct\DomainSelector(DomainBy::NAME(), $value);
 
-        $api = new LocalAdminHttp(null);
-        $api->checkDomainMXRecord(
+        $this->_api->checkDomainMXRecord(
             $domain
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:CheckDomainMXRecordRequest>'
-                        .'<urn1:domain by="name">value</urn1:domain>'
-                    .'</urn1:CheckDomainMXRecordRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:CheckDomainMXRecordRequest>'
+                        . '<urn1:domain by="' . DomainBy::NAME() . '">' . $value . '</urn1:domain>'
+                    . '</urn1:CheckDomainMXRecordRequest>'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testCheckExchangeAuth()
     {
+        $url = self::randomName();
+        $user = self::randomName();
+        $pass = self::randomName();
+        $type = self::randomName();
         $auth = new \Zimbra\Admin\Struct\ExchangeAuthSpec(
-            'url', 'user', 'pass', AuthScheme::FORM(), 'type'
+            $url, $user, $pass, AuthScheme::FORM(), $type
         );
 
-        $api = new LocalAdminHttp(null);
-        $api->checkExchangeAuth(
+        $this->_api->checkExchangeAuth(
             $auth
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:CheckExchangeAuthRequest>'
-                        .'<urn1:auth url="url" user="user" pass="pass" scheme="form" type="type" />'
-                    .'</urn1:CheckExchangeAuthRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:CheckExchangeAuthRequest>'
+                        . '<urn1:auth url="' . $url . '" user="' . $user . '" pass="' . $pass . '" scheme="' . AuthScheme::FORM() . '" type="' . $type . '" />'
+                    . '</urn1:CheckExchangeAuthRequest>'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testCheckGalConfig()
     {
-        $attr = new \Zimbra\Struct\KeyValuePair('key', 'value');
-        $query = new \Zimbra\Admin\Struct\LimitedQuery(100, 'value');
+        $key = self::randomName();
+        $value = self::randomName();
+        $limit = mt_rand(0, 100);
+        $attr = new \Zimbra\Struct\KeyValuePair($key, $value);
+        $query = new \Zimbra\Admin\Struct\LimitedQuery($limit, $value);
 
-        $api = new LocalAdminHttp(null);
-        $api->checkGalConfig(
-            $query, GalConfigAction::SEARCH(), array($attr)
+        $this->_api->checkGalConfig(
+            $query, GalConfigAction::SEARCH(), [$attr]
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:CheckGalConfigRequest>'
-                        .'<urn1:query limit="100">value</urn1:query>'
-                        .'<urn1:action>search</urn1:action>'
-                        .'<urn1:a n="key">value</urn1:a>'
-                    .'</urn1:CheckGalConfigRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:CheckGalConfigRequest>'
+                        . '<urn1:query limit="' . $limit . '">' . $value . '</urn1:query>'
+                        . '<urn1:action>' . GalConfigAction::SEARCH() . '</urn1:action>'
+                        . '<urn1:a n="' . $key . '">' . $value . '</urn1:a>'
+                    . '</urn1:CheckGalConfigRequest>'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testCheckHealth()
     {
-        $api = new LocalAdminHttp(null);
-        $api->checkHealth();
+        $this->_api->checkHealth();
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:CheckHealthRequest />'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:CheckHealthRequest />'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testCheckHostnameResolve()
     {
-        $api = new LocalAdminHttp(null);
-        $api->checkHostnameResolve(
-            'hostname'
+        $hostname = self::randomName();
+        $this->_api->checkHostnameResolve(
+            $hostname
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:CheckHostnameResolveRequest '
-                        .'hostname="hostname" />'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:CheckHostnameResolveRequest '
+                        . 'hostname="' . $hostname . '" />'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testCheckPasswordStrength()
     {
-        $api = new LocalAdminHttp(null);
-        $api->checkPasswordStrength(
-            'id', 'password'
+        $id = self::randomName();
+        $password = self::randomName();
+        $this->_api->checkPasswordStrength(
+            $id, $password
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:CheckPasswordStrengthRequest '
-                        .'id="id" password="password" />'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:CheckPasswordStrengthRequest '
+                        . 'id="' . $id . '" password="' . $password . '" />'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testCheckRight()
     {
-        $attr = new \Zimbra\Struct\KeyValuePair('key', 'value');
+        $key = self::randomName();
+        $value = self::randomName();
+        $secret = self::randomName();
+        $right = self::randomName();
+        $attr = new \Zimbra\Struct\KeyValuePair($key, $value);
         $target = new \Zimbra\Admin\Struct\EffectiveRightsTargetSelector(
-            TargetType::ACCOUNT(), TargetBy::NAME(), 'value'
+            TargetType::ACCOUNT(), TargetBy::NAME(), $value
         );
         $grantee = new \Zimbra\Admin\Struct\GranteeSelector(
-            'value', GranteeType::USR(), GranteeBy::ID(), 'secret', true
+            $value, GranteeType::USR(), GranteeBy::ID(), $secret, true
         );
 
-        $api = new LocalAdminHttp(null);
-        $api->checkRight(
-            $target, $grantee, 'right', array($attr)
+        $this->_api->checkRight(
+            $target, $grantee, $right, [$attr]
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:CheckRightRequest>'
-                        .'<urn1:target type="account" by="name">value</urn1:target>'
-                        .'<urn1:grantee type="usr" by="id" secret="secret" all="true">value</urn1:grantee>'
-                        .'<urn1:right>right</urn1:right>'
-                        .'<urn1:a n="key">value</urn1:a>'
-                    .'</urn1:CheckRightRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:CheckRightRequest>'
+                        . '<urn1:target type="' . TargetType::ACCOUNT() . '" by="' . TargetBy::NAME() . '">' . $value . '</urn1:target>'
+                        . '<urn1:grantee type="' . GranteeType::USR() . '" by="' . GranteeBy::ID() . '" secret="' . $secret . '" all="true">' . $value . '</urn1:grantee>'
+                        . '<urn1:right>' . $right . '</urn1:right>'
+                        . '<urn1:a n="' . $key . '">' . $value . '</urn1:a>'
+                    . '</urn1:CheckRightRequest>'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testClearCookie()
     {
-        $cookie = new \Zimbra\Admin\Struct\CookieSpec('name');
+        $name = self::randomName();
+        $cookie = new \Zimbra\Admin\Struct\CookieSpec($name);
 
-        $api = new LocalAdminHttp(null);
-        $api->clearCookie(
-            array($cookie)
+        $this->_api->clearCookie(
+            [$cookie]
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:ClearCookieRequest>'
-                        .'<urn1:cookie name="name" />'
-                    .'</urn1:ClearCookieRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:ClearCookieRequest>'
+                        . '<urn1:cookie name="' . $name . '" />'
+                    . '</urn1:ClearCookieRequest>'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testCompactIndex()
     {
-        $mbox = new \Zimbra\Admin\Struct\MailboxByAccountIdSelector('id');
+        $id = self::randomName();
+        $mbox = new \Zimbra\Admin\Struct\MailboxByAccountIdSelector($id);
 
-        $api = new LocalAdminHttp(null);
-        $api->compactIndex(
+        $this->_api->compactIndex(
             $mbox, IndexAction::STATUS()
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:CompactIndexRequest action="status">'
-                        .'<urn1:mbox id="id" />'
-                    .'</urn1:CompactIndexRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:CompactIndexRequest action="status">'
+                        . '<urn1:mbox id="' . $id . '" />'
+                    . '</urn1:CompactIndexRequest>'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testComputeAggregateQuotaUsage()
     {
-        $api = new LocalAdminHttp(null);
-        $api->computeAggregateQuotaUsage();
+        $this->_api->computeAggregateQuotaUsage();
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:ComputeAggregateQuotaUsageRequest />'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:ComputeAggregateQuotaUsageRequest />'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testConfigureZimlet()
     {
-        $content = new \Zimbra\Admin\Struct\AttachmentIdAttrib('aid');
+        $aid = self::randomName();
+        $content = new \Zimbra\Admin\Struct\AttachmentIdAttrib($aid);
 
-        $api = new LocalAdminHttp(null);
-        $api->configureZimlet(
+        $this->_api->configureZimlet(
             $content
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:ConfigureZimletRequest>'
-                        .'<urn1:content aid="aid" />'
-                    .'</urn1:ConfigureZimletRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:ConfigureZimletRequest>'
+                        . '<urn1:content aid="' . $aid . '" />'
+                    . '</urn1:ConfigureZimletRequest>'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testCopyCos()
     {
-        $cos = new \Zimbra\Admin\Struct\CosSelector(CosBy::NAME(), 'value');
-
-        $api = new LocalAdminHttp(null);
-        $api->copyCos(
-            'name', $cos
+        $name = self::randomName();
+        $value = self::randomName();
+        $cos = new \Zimbra\Admin\Struct\CosSelector(CosBy::NAME(), $value);
+        $this->_api->copyCos(
+            $name, $cos
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:CopyCosRequest>'
-                        .'<urn1:name>name</urn1:name>'
-                        .'<urn1:cos by="name">value</urn1:cos>'
-                    .'</urn1:CopyCosRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:CopyCosRequest>'
+                        . '<urn1:name>' . $name . '</urn1:name>'
+                        . '<urn1:cos by="' . CosBy::NAME() . '">' . $value . '</urn1:cos>'
+                    . '</urn1:CopyCosRequest>'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testCountAccount()
     {
-        $domain = new \Zimbra\Admin\Struct\DomainSelector(DomainBy::NAME(), 'value');
-
-        $api = new LocalAdminHttp(null);
-        $api->countAccount(
+        $value = self::randomName();
+        $domain = new \Zimbra\Admin\Struct\DomainSelector(DomainBy::NAME(), $value);
+        $this->_api->countAccount(
             $domain
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:CountAccountRequest>'
-                        .'<urn1:domain by="name">value</urn1:domain>'
-                    .'</urn1:CountAccountRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:CountAccountRequest>'
+                        . '<urn1:domain by="' . DomainBy::NAME() . '">' . $value . '</urn1:domain>'
+                    . '</urn1:CountAccountRequest>'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testCountObjects()
     {
-        $domain = new \Zimbra\Admin\Struct\DomainSelector(DomainBy::NAME(), 'value');
-        $ucservice = new \Zimbra\Admin\Struct\UcServiceSelector(UcServiceBy::NAME(), 'value');
+        $value = self::randomName();
+        $domain = new \Zimbra\Admin\Struct\DomainSelector(DomainBy::NAME(), $value);
+        $ucservice = new \Zimbra\Admin\Struct\UcServiceSelector(UcServiceBy::NAME(), $value);
 
-        $api = new LocalAdminHttp(null);
-        $api->countObjects(
+        $this->_api->countObjects(
             ObjType::ACCOUNT(), $domain, $ucservice
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:CountObjectsRequest type="account">'
-                        .'<urn1:domain by="name">value</urn1:domain>'
-                        .'<urn1:ucservice by="name">value</urn1:ucservice>'
-                    .'</urn1:CountObjectsRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:CountObjectsRequest type="account">'
+                        . '<urn1:domain by="' . DomainBy::NAME() . '">' . $value . '</urn1:domain>'
+                        . '<urn1:ucservice by="' . UcServiceBy::NAME() . '">' . $value . '</urn1:ucservice>'
+                    . '</urn1:CountObjectsRequest>'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testCreateAccount()
     {
-        $attr = new \Zimbra\Struct\KeyValuePair('key', 'value');
-
-        $api = new LocalAdminHttp(null);
-        $api->createAccount(
-            'name', 'password', array($attr)
+        $key = self::randomName();
+        $value = self::randomName();
+        $name = self::randomName();
+        $password = self::randomName();
+        $attr = new \Zimbra\Struct\KeyValuePair($key, $value);
+        $this->_api->createAccount(
+            $name, $password, [$attr]
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:CreateAccountRequest name="name" password="password">'
-                        .'<urn1:a n="key">value</urn1:a>'
-                    .'</urn1:CreateAccountRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:CreateAccountRequest name="' . $name . '" password="' . $password . '">'
+                        . '<urn1:a n="' . $key . '">' . $value . '</urn1:a>'
+                    . '</urn1:CreateAccountRequest>'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testCreateCalendarResource()
     {
-        $attr = new \Zimbra\Struct\KeyValuePair('key', 'value');
-
-        $api = new LocalAdminHttp(null);
-        $api->createCalendarResource(
-            'name', 'password', array($attr)
+        $key = self::randomName();
+        $value = self::randomName();
+        $name = self::randomName();
+        $password = self::randomName();
+        $attr = new \Zimbra\Struct\KeyValuePair($key, $value);
+        $this->_api->createCalendarResource(
+            $name, $password, [$attr]
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:CreateCalendarResourceRequest name="name" password="password">'
-                        .'<urn1:a n="key">value</urn1:a>'
-                    .'</urn1:CreateCalendarResourceRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:CreateCalendarResourceRequest name="' . $name . '" password="' . $password . '">'
+                        . '<urn1:a n="' . $key . '">' . $value . '</urn1:a>'
+                    . '</urn1:CreateCalendarResourceRequest>'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testCreateCos()
     {
-        $attr = new \Zimbra\Struct\KeyValuePair('key', 'value');
+        $key = self::randomName();
+        $value = self::randomName();
+        $name = self::randomName();
+        $attr = new \Zimbra\Struct\KeyValuePair($key, $value);
 
-        $api = new LocalAdminHttp(null);
-        $api->createCos(
-            'name', array($attr)
+        $this->_api->createCos(
+            $name, [$attr]
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:CreateCosRequest>'
-                        .'<urn1:name>name</urn1:name>'
-                        .'<urn1:a n="key">value</urn1:a>'
-                    .'</urn1:CreateCosRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:CreateCosRequest>'
+                        . '<urn1:name>' . $name . '</urn1:name>'
+                        . '<urn1:a n="' . $key . '">' . $value . '</urn1:a>'
+                    . '</urn1:CreateCosRequest>'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testCreateDataSource()
     {
-        $attr = new \Zimbra\Struct\KeyValuePair('key', 'value');
-        $dataSource = new \Zimbra\Admin\Struct\DataSourceSpecifier(DataSourceType::POP3(), 'name', array($attr));
+        $key = self::randomName();
+        $value = self::randomName();
+        $name = self::randomName();
+        $id = self::randomName();
+        $attr = new \Zimbra\Struct\KeyValuePair($key, $value);
+        $dataSource = new \Zimbra\Admin\Struct\DataSourceSpecifier(DataSourceType::POP3(), $name, [$attr]);
 
-        $api = new LocalAdminHttp(null);
-        $api->createDataSource(
-            'id', $dataSource
+        $this->_api->createDataSource(
+            $id, $dataSource
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:CreateDataSourceRequest id="id">'
-                        .'<urn1:dataSource type="pop3" name="name">'
-                            .'<urn1:a n="key">value</urn1:a>'
-                        .'</urn1:dataSource>'
-                    .'</urn1:CreateDataSourceRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:CreateDataSourceRequest id="' . $id . '">'
+                        . '<urn1:dataSource type="' . DataSourceType::POP3() . '" name="' . $name . '">'
+                            . '<urn1:a n="' . $key . '">' . $value . '</urn1:a>'
+                        . '</urn1:dataSource>'
+                    . '</urn1:CreateDataSourceRequest>'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testCreateDistributionList()
     {
-        $attr = new \Zimbra\Struct\KeyValuePair('key', 'value');
+        $key = self::randomName();
+        $value = self::randomName();
+        $name = self::randomName();
+        $attr = new \Zimbra\Struct\KeyValuePair($key, $value);
 
-        $api = new LocalAdminHttp(null);
-        $api->createDistributionList(
-            'name', true, array($attr)
+        $this->_api->createDistributionList(
+            $name, true, [$attr]
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:CreateDistributionListRequest name="name" dynamic="true">'
-                        .'<urn1:a n="key">value</urn1:a>'
-                    .'</urn1:CreateDistributionListRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:CreateDistributionListRequest name="' . $name . '" dynamic="true">'
+                        . '<urn1:a n="' . $key . '">' . $value . '</urn1:a>'
+                    . '</urn1:CreateDistributionListRequest>'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testCreateDomain()
     {
-        $attr = new \Zimbra\Struct\KeyValuePair('key', 'value');
+        $key = self::randomName();
+        $value = self::randomName();
+        $name = self::randomName();
+        $attr = new \Zimbra\Struct\KeyValuePair($key, $value);
 
-        $api = new LocalAdminHttp(null);
-        $api->createDomain(
-            'name', array($attr)
+        $this->_api->createDomain(
+            $name, [$attr]
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:CreateDomainRequest name="name">'
-                        .'<urn1:a n="key">value</urn1:a>'
-                    .'</urn1:CreateDomainRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:CreateDomainRequest name="' . $name . '">'
+                        . '<urn1:a n="' . $key . '">' . $value . '</urn1:a>'
+                    . '</urn1:CreateDomainRequest>'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testCreateGalSyncAccount()
     {
-        $attr = new \Zimbra\Struct\KeyValuePair('key', 'value');
-        $account = new \Zimbra\Struct\AccountSelector(AccountBy::NAME(), 'value');
+        $key = self::randomName();
+        $value = self::randomName();
+        $name = self::randomName();
+        $domain = self::randomName();
+        $server = self::randomName();
+        $password = self::randomName();
+        $folder = self::randomName();
+        $attr = new \Zimbra\Struct\KeyValuePair($key, $value);
+        $account = new \Zimbra\Struct\AccountSelector(AccountBy::NAME(), $value);
 
-        $api = new LocalAdminHttp(null);
-        $api->createGalSyncAccount(
-            $account, 'name', 'domain', GalMode::LDAP(), 'server', 'password', 'folder', array($attr)
+        $this->_api->createGalSyncAccount(
+            $account, $name, $domain, GalMode::LDAP(), $server, $password, $folder, [$attr]
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:CreateGalSyncAccountRequest name="name" domain="domain" type="ldap" server="server" password="password" folder="folder">'
-                        .'<urn1:account by="name">value</urn1:account>'
-                        .'<urn1:a n="key">value</urn1:a>'
-                    .'</urn1:CreateGalSyncAccountRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:CreateGalSyncAccountRequest name="' . $name . '" domain="' . $domain . '" type="' . GalMode::LDAP() . '" server="' . $server . '" password="' . $password . '" folder="' . $folder . '">'
+                        . '<urn1:account by="' . AccountBy::NAME() . '">' . $value . '</urn1:account>'
+                        . '<urn1:a n="' . $key . '">' . $value . '</urn1:a>'
+                    . '</urn1:CreateGalSyncAccountRequest>'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testCreateLDAPEntry()
     {
-        $attr = new \Zimbra\Struct\KeyValuePair('key', 'value');
+        $key = self::randomName();
+        $value = self::randomName();
+        $dn = self::randomName();
+        $attr = new \Zimbra\Struct\KeyValuePair($key, $value);
 
-        $api = new LocalAdminHttp(null);
-        $api->createLDAPEntry(
-            'dn', array($attr)
+        $this->_api->createLDAPEntry(
+            $dn, [$attr]
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:CreateLDAPEntryRequest dn="dn">'
-                        .'<urn1:a n="key">value</urn1:a>'
-                    .'</urn1:CreateLDAPEntryRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:CreateLDAPEntryRequest dn="' . $dn . '">'
+                        . '<urn1:a n="' . $key . '">' . $value . '</urn1:a>'
+                    . '</urn1:CreateLDAPEntryRequest>'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testCreateServer()
     {
-        $attr = new \Zimbra\Struct\KeyValuePair('key', 'value');
+        $key = self::randomName();
+        $value = self::randomName();
+        $name = self::randomName();
+        $attr = new \Zimbra\Struct\KeyValuePair($key, $value);
 
-        $api = new LocalAdminHttp(null);
-        $api->createServer(
-            'name', array($attr)
+        $this->_api->createServer(
+            $name, [$attr]
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:CreateServerRequest name="name">'
-                        .'<urn1:a n="key">value</urn1:a>'
-                    .'</urn1:CreateServerRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:CreateServerRequest name="' . $name . '">'
+                        . '<urn1:a n="' . $key . '">' . $value . '</urn1:a>'
+                    . '</urn1:CreateServerRequest>'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testCreateSystemRetentionPolicy()
     {
-        $cos = new \Zimbra\Admin\Struct\CosSelector(CosBy::NAME(), 'value');
+        $value = self::randomName();
+        $id = self::randomName();
+        $name = self::randomName();
+        $lifetime = self::randomName();
 
-        $policy = new \Zimbra\Admin\Struct\Policy(Type::SYSTEM(), 'id', 'name', 'lifetime');
+        $cos = new \Zimbra\Admin\Struct\CosSelector(CosBy::NAME(), $value);
+
+        $policy = new \Zimbra\Admin\Struct\Policy(Type::SYSTEM(), $id, $name, $lifetime);
         $keep = new \Zimbra\Admin\Struct\PolicyHolder($policy);
 
-        $policy = new \Zimbra\Admin\Struct\Policy(Type::USER(), 'id', 'name', 'lifetime');
+        $policy = new \Zimbra\Admin\Struct\Policy(Type::USER(), $id, $name, $lifetime);
         $purge = new \Zimbra\Admin\Struct\PolicyHolder($policy);
 
-        $api = new LocalAdminHttp(null);
-        $api->createSystemRetentionPolicy(
+        $this->_api->createSystemRetentionPolicy(
             $cos, $keep, $purge
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin" xmlns:urn2="urn:zimbraMail">'
-                .'<env:Body>'
-                    .'<urn1:CreateSystemRetentionPolicyRequest>'
-                        .'<urn1:cos by="name">value</urn1:cos>'
-                        .'<urn1:keep>'
-                            .'<urn2:policy type="system" id="id" name="name" lifetime="lifetime" />'
-                        .'</urn1:keep>'
-                        .'<urn1:purge>'
-                            .'<urn2:policy type="user" id="id" name="name" lifetime="lifetime" />'
-                        .'</urn1:purge>'
-                    .'</urn1:CreateSystemRetentionPolicyRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin" xmlns:urn2="urn:zimbraMail">'
+                . '<env:Body>'
+                    . '<urn1:CreateSystemRetentionPolicyRequest>'
+                        . '<urn1:cos by="' . CosBy::NAME() . '">' . $value . '</urn1:cos>'
+                        . '<urn1:keep>'
+                            . '<urn2:policy type="' . Type::SYSTEM() . '" id="' . $id . '" name="' . $name . '" lifetime="' . $lifetime . '" />'
+                        . '</urn1:keep>'
+                        . '<urn1:purge>'
+                            . '<urn2:policy type="' . Type::USER() . '" id="' . $id . '" name="' . $name . '" lifetime="' . $lifetime . '" />'
+                        . '</urn1:purge>'
+                    . '</urn1:CreateSystemRetentionPolicyRequest>'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testCreateUCService()
     {
-        $attr = new \Zimbra\Struct\KeyValuePair('key', 'value');
+        $key = self::randomName();
+        $value = self::randomName();
+        $name = self::randomName();
+        $attr = new \Zimbra\Struct\KeyValuePair($key, $value);
 
-        $api = new LocalAdminHttp(null);
-        $api->createUCService(
-            'name', array($attr)
+        $this->_api->createUCService(
+            $name, [$attr]
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:CreateUCServiceRequest>'
-                        .'<urn1:name>name</urn1:name>'
-                        .'<urn1:a n="key">value</urn1:a>'
-                    .'</urn1:CreateUCServiceRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:CreateUCServiceRequest>'
+                        . '<urn1:name>' . $name . '</urn1:name>'
+                        . '<urn1:a n="' . $key . '">' . $value . '</urn1:a>'
+                    . '</urn1:CreateUCServiceRequest>'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testCreateVolume()
     {
-        $volume = new \Zimbra\Admin\Struct\VolumeInfo(10, 2, 3, 4, 5, 6, 7, 'name', 'rootpath', false, true);
+        $id = mt_rand(0, 10);
+        $type = self::randomValue([1, 2, 10]);
+        $threshold = mt_rand(0, 10);
+        $mgbits = mt_rand(0, 10);
+        $mbits = mt_rand(0, 10);
+        $fgbits = mt_rand(0, 10);
+        $fbits = mt_rand(0, 10);
+        $name = self::randomName();
+        $rootpath = self::randomName();
 
-        $api = new LocalAdminHttp(null);
-        $api->createVolume(
+        $volume = new \Zimbra\Admin\Struct\VolumeInfo(
+            $id, $type, $threshold, $mgbits, $mbits, $fgbits, $fbits, $name, $rootpath, false, true
+        );
+
+        $this->_api->createVolume(
             $volume
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:CreateVolumeRequest>'
-                        .'<urn1:volume '
-                            .'id="10" '
-                            .'type="2" '
-                            .'compressionThreshold="3" '
-                            .'mgbits="4" '
-                            .'mbits="5" '
-                            .'fgbits="6" '
-                            .'fbits="7" '
-                            .'name="name" '
-                            .'rootpath="rootpath" '
-                            .'compressBlobs="false" '
-                            .'isCurrent="true" />'
-                    .'</urn1:CreateVolumeRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:CreateVolumeRequest>'
+                        . '<urn1:volume '
+                            . 'id="' . $id . '" '
+                            . 'type="' . $type . '" '
+                            . 'compressionThreshold="' . $threshold . '" '
+                            . 'mgbits="' . $mgbits . '" '
+                            . 'mbits="' . $mbits . '" '
+                            . 'fgbits="' . $fgbits . '" '
+                            . 'fbits="' . $fbits . '" '
+                            . 'name="' . $name . '" '
+                            . 'rootpath="' . $rootpath . '" '
+                            . 'compressBlobs="false" '
+                            . 'isCurrent="true" />'
+                    . '</urn1:CreateVolumeRequest>'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testCreateXMPPComponent()
     {
-        $attr = new \Zimbra\Struct\KeyValuePair('key', 'value');
-        $domain = new \Zimbra\Admin\Struct\DomainSelector(DomainBy::NAME(), 'domain');
-        $server = new \Zimbra\Admin\Struct\ServerSelector(ServerBy::NAME(), 'server');
-        $xmpp = new \Zimbra\Admin\Struct\XmppComponentSpec('name', $domain, $server, array($attr));
+        $key = self::randomName();
+        $value = self::randomName();
+        $name = self::randomName();
 
-        $api = new LocalAdminHttp(null);
-        $api->createXMPPComponent(
+        $attr = new \Zimbra\Struct\KeyValuePair($key, $value);
+        $domain = new \Zimbra\Admin\Struct\DomainSelector(DomainBy::NAME(), $value);
+        $server = new \Zimbra\Admin\Struct\ServerSelector(ServerBy::NAME(), $value);
+        $xmpp = new \Zimbra\Admin\Struct\XmppComponentSpec($name, $domain, $server, [$attr]);
+
+        $this->_api->createXMPPComponent(
             $xmpp
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:CreateXMPPComponentRequest>'
-                        .'<urn1:xmppcomponent name="name">'
-                            .'<urn1:domain by="name">domain</urn1:domain>'
-                            .'<urn1:server by="name">server</urn1:server>'
-                            .'<urn1:a n="key">value</urn1:a>'
-                        .'</urn1:xmppcomponent>'
-                    .'</urn1:CreateXMPPComponentRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:CreateXMPPComponentRequest>'
+                        . '<urn1:xmppcomponent name="' . $name . '">'
+                            . '<urn1:domain by="' . DomainBy::NAME() . '">' . $value . '</urn1:domain>'
+                            . '<urn1:server by="' . ServerBy::NAME() . '">' . $value . '</urn1:server>'
+                            . '<urn1:a n="' . $key . '">' . $value . '</urn1:a>'
+                        . '</urn1:xmppcomponent>'
+                    . '</urn1:CreateXMPPComponentRequest>'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testCreateZimlet()
     {
-        $attr = new \Zimbra\Struct\KeyValuePair('key', 'value');
+        $key = self::randomName();
+        $value = self::randomName();
+        $name = self::randomName();
+        $attr = new \Zimbra\Struct\KeyValuePair($key, $value);
 
-        $api = new LocalAdminHttp(null);
-        $api->createZimlet(
-            'name', array($attr)
+        $this->_api->createZimlet(
+            $name, [$attr]
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:CreateZimletRequest name="name">'
-                        .'<urn1:a n="key">value</urn1:a>'
-                    .'</urn1:CreateZimletRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:CreateZimletRequest name="' . $name . '">'
+                        . '<urn1:a n="' . $key . '">' . $value . '</urn1:a>'
+                    . '</urn1:CreateZimletRequest>'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testDedupeBlobs()
     {
-        $volume = new \Zimbra\Admin\Struct\IntIdAttr(10);
+        $id = mt_rand(0, 100);
+        $volume = new \Zimbra\Admin\Struct\IntIdAttr($id);
 
-        $api = new LocalAdminHttp(null);
-        $api->dedupeBlobs(
-            DedupAction::STATUS(), array($volume)
+        $this->_api->dedupeBlobs(
+            DedupAction::STATUS(), [$volume]
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:DedupeBlobsRequest action="status">'
-                        .'<urn1:volume id="10" />'
-                    .'</urn1:DedupeBlobsRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:DedupeBlobsRequest action="' . DedupAction::STATUS() . '">'
+                        . '<urn1:volume id="' . $id . '" />'
+                    . '</urn1:DedupeBlobsRequest>'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testDelegateAuth()
     {
-        $account = new \Zimbra\Struct\AccountSelector(AccountBy::NAME(), 'value');
+        $value = self::randomName();
+        $duration = mt_rand(0, 1000);
+        $account = new \Zimbra\Struct\AccountSelector(AccountBy::NAME(), $value);
 
-        $api = new LocalAdminHttp(null);
-        $api->delegateAuth(
-            $account, 1000
+        $this->_api->delegateAuth(
+            $account, $duration
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:DelegateAuthRequest duration="1000">'
-                        .'<urn1:account by="name">value</urn1:account>'
-                    .'</urn1:DelegateAuthRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:DelegateAuthRequest duration="' . $duration . '">'
+                        . '<urn1:account by="' . AccountBy::NAME() . '">' . $value . '</urn1:account>'
+                    . '</urn1:DelegateAuthRequest>'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testDeleteAccount()
     {
-        $api = new LocalAdminHttp(null);
-        $api->deleteAccount(
-            'id'
+        $id = self::randomName();
+        $this->_api->deleteAccount(
+            $id
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:DeleteAccountRequest id="id" />'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:DeleteAccountRequest id="' . $id . '" />'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testDeleteCalendarResource()
     {
-        $api = new LocalAdminHttp(null);
-        $api->deleteCalendarResource(
-            'id'
+        $id = self::randomName();
+        $this->_api->deleteCalendarResource(
+            $id
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:DeleteCalendarResourceRequest id="id" />'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:DeleteCalendarResourceRequest id="' . $id . '" />'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testDeleteCos()
     {
-        $api = new LocalAdminHttp(null);
-        $api->deleteCos(
-            'id'
+        $id = self::randomName();
+        $this->_api->deleteCos(
+            $id
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:DeleteCosRequest>'
-                        .'<urn1:id>id</urn1:id>'
-                    .'</urn1:DeleteCosRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:DeleteCosRequest>'
+                        . '<urn1:id>' . $id . '</urn1:id>'
+                    . '</urn1:DeleteCosRequest>'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testDeleteDataSource()
     {
-        $attr = new \Zimbra\Struct\KeyValuePair('key', 'value');
-        $dataSource = new \Zimbra\Struct\Id('id');
+        $key = self::randomName();
+        $value = self::randomName();
+        $id = self::randomName();
+        $attr = new \Zimbra\Struct\KeyValuePair($key, $value);
+        $dataSource = new \Zimbra\Struct\Id($id);
 
-        $api = new LocalAdminHttp(null);
-        $api->deleteDataSource(
-            'id', $dataSource, array($attr)
+        $this->_api->deleteDataSource(
+            $id, $dataSource, [$attr]
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:DeleteDataSourceRequest id="id">'
-                        .'<urn1:dataSource id="id" />'
-                        .'<urn1:a n="key">value</urn1:a>'
-                    .'</urn1:DeleteDataSourceRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:DeleteDataSourceRequest id="' . $id . '">'
+                        . '<urn1:dataSource id="' . $id . '" />'
+                        . '<urn1:a n="' . $key . '">' . $value . '</urn1:a>'
+                    . '</urn1:DeleteDataSourceRequest>'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testDeleteDistributionList()
     {
-        $api = new LocalAdminHttp(null);
-        $api->deleteDistributionList(
-            'id'
+        $id = self::randomName();
+        $this->_api->deleteDistributionList(
+            $id
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:DeleteDistributionListRequest id="id" />'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:DeleteDistributionListRequest id="' . $id . '" />'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testDeleteDomain()
     {
-        $api = new LocalAdminHttp(null);
-        $api->deleteDomain(
-            'id'
+        $id = self::randomName();
+        $this->_api->deleteDomain(
+            $id
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:DeleteDomainRequest id="id" />'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:DeleteDomainRequest id="' . $id . '" />'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testDeleteGalSyncAccount()
     {
-        $account = new \Zimbra\Struct\AccountSelector(AccountBy::NAME(), 'value');
+        $value = self::randomName();
+        $account = new \Zimbra\Struct\AccountSelector(AccountBy::NAME(), $value);
 
-        $api = new LocalAdminHttp(null);
-        $api->deleteGalSyncAccount(
+        $this->_api->deleteGalSyncAccount(
             $account
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:DeleteGalSyncAccountRequest>'
-                        .'<urn1:account by="name">value</urn1:account>'
-                    .'</urn1:DeleteGalSyncAccountRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:DeleteGalSyncAccountRequest>'
+                        . '<urn1:account by="' . AccountBy::NAME() . '">' . $value . '</urn1:account>'
+                    . '</urn1:DeleteGalSyncAccountRequest>'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testDeleteLDAPEntry()
     {
-        $api = new LocalAdminHttp(null);
-        $api->deleteLDAPEntry(
-            'dn'
+        $dn = self::randomName();
+        $this->_api->deleteLDAPEntry(
+            $dn
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:DeleteLDAPEntryRequest dn="dn" />'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:DeleteLDAPEntryRequest dn="' . $dn . '" />'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testDeleteMailbox()
     {
-        $mbox = new \Zimbra\Admin\Struct\MailboxByAccountIdSelector('id');
+        $id = self::randomName();
+        $mbox = new \Zimbra\Admin\Struct\MailboxByAccountIdSelector($id);
 
-        $api = new LocalAdminHttp(null);
-        $api->deleteMailbox(
+        $this->_api->deleteMailbox(
             $mbox
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:DeleteMailboxRequest>'
-                        .'<urn1:mbox id="id" />'
-                    .'</urn1:DeleteMailboxRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:DeleteMailboxRequest>'
+                        . '<urn1:mbox id="' . $id . '" />'
+                    . '</urn1:DeleteMailboxRequest>'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testDeleteServer()
     {
-        $api = new LocalAdminHttp(null);
-        $api->deleteServer(
-            'id'
+        $id = self::randomName();
+        $this->_api->deleteServer(
+            $id
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:DeleteServerRequest id="id" />'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:DeleteServerRequest id="' . $id . '" />'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testDeleteSystemRetentionPolicy()
     {
-        $cos = new \Zimbra\Admin\Struct\CosSelector(CosBy::NAME(), 'value');
-        $policy = new \Zimbra\Admin\Struct\Policy(Type::SYSTEM(), 'id', 'name', 'lifetime');
+        $value = self::randomName();
+        $id = self::randomName();
+        $name = self::randomName();
+        $lifetime = self::randomName();
 
-        $api = new LocalAdminHttp(null);
-        $api->deleteSystemRetentionPolicy(
+        $cos = new \Zimbra\Admin\Struct\CosSelector(CosBy::NAME(), $value);
+        $policy = new \Zimbra\Admin\Struct\Policy(Type::SYSTEM(), $id, $name, $lifetime);
+
+        $this->_api->deleteSystemRetentionPolicy(
             $policy, $cos
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin" xmlns:urn2="urn:zimbraMail">'
-                .'<env:Body>'
-                    .'<urn1:DeleteSystemRetentionPolicyRequest>'
-                        .'<urn2:policy type="system" id="id" name="name" lifetime="lifetime" />'
-                        .'<urn1:cos by="name">value</urn1:cos>'
-                    .'</urn1:DeleteSystemRetentionPolicyRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin" xmlns:urn2="urn:zimbraMail">'
+                . '<env:Body>'
+                    . '<urn1:DeleteSystemRetentionPolicyRequest>'
+                        . '<urn2:policy type="' . Type::SYSTEM() . '" id="' . $id . '" name="' . $name . '" lifetime="' . $lifetime . '" />'
+                        . '<urn1:cos by="' . CosBy::NAME() . '">' . $value . '</urn1:cos>'
+                    . '</urn1:DeleteSystemRetentionPolicyRequest>'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testDeleteUCService()
     {
-        $api = new LocalAdminHttp(null);
-        $api->deleteUCService(
-            'id'
+        $id = self::randomName();
+        $this->_api->deleteUCService(
+            $id
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:DeleteUCServiceRequest>'
-                        .'<urn1:id>id</urn1:id>'
-                    .'</urn1:DeleteUCServiceRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:DeleteUCServiceRequest>'
+                        . '<urn1:id>' . $id . '</urn1:id>'
+                    . '</urn1:DeleteUCServiceRequest>'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testDeleteVolume()
     {
-        $api = new LocalAdminHttp(null);
-        $api->deleteVolume(
-            100
+        $id = mt_rand(0, 100);
+        $this->_api->deleteVolume(
+            $id
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:DeleteVolumeRequest id="100" />'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:DeleteVolumeRequest id="' . $id . '" />'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testDeleteXMPPComponent()
     {
-        $xmpp = new \Zimbra\Admin\Struct\XmppComponentSelector(XmppBy::NAME(), 'value');
+        $value = self::randomName();
+        $xmpp = new \Zimbra\Admin\Struct\XmppComponentSelector(XmppBy::NAME(), $value);
 
-        $api = new LocalAdminHttp(null);
-        $api->deleteXMPPComponent(
+        $this->_api->deleteXMPPComponent(
             $xmpp
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:DeleteXMPPComponentRequest>'
-                        .'<urn1:xmppcomponent by="name">value</urn1:xmppcomponent>'
-                    .'</urn1:DeleteXMPPComponentRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:DeleteXMPPComponentRequest>'
+                        . '<urn1:xmppcomponent by="' . XmppBy::NAME() . '">' . $value . '</urn1:xmppcomponent>'
+                    . '</urn1:DeleteXMPPComponentRequest>'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testDeleteZimlet()
     {
-        $zimlet = new \Zimbra\Struct\NamedElement('name');
+        $name = self::randomName();
+        $zimlet = new \Zimbra\Struct\NamedElement($name);
 
-        $api = new LocalAdminHttp(null);
-        $api->deleteZimlet(
+        $this->_api->deleteZimlet(
             $zimlet
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:DeleteZimletRequest>'
-                        .'<urn1:zimlet name="name" />'
-                    .'</urn1:DeleteZimletRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:DeleteZimletRequest>'
+                        . '<urn1:zimlet name="' . $name . '" />'
+                    . '</urn1:DeleteZimletRequest>'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testDeployZimlet()
     {
-        $content = new \Zimbra\Admin\Struct\AttachmentIdAttrib('aid');
+        $aid = self::randomName();
+        $content = new \Zimbra\Admin\Struct\AttachmentIdAttrib($aid);
 
-        $api = new LocalAdminHttp(null);
-        $api->deployZimlet(
+        $this->_api->deployZimlet(
             DeployAction::DEPLOY_LOCAL(), $content, true, false
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:DeployZimletRequest action="deployLocal" flush="true" synchronous="false">'
-                        .'<urn1:content aid="aid" />'
-                    .'</urn1:DeployZimletRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:DeployZimletRequest action="' . DeployAction::DEPLOY_LOCAL() . '" flush="true" synchronous="false">'
+                        . '<urn1:content aid="' . $aid . '" />'
+                    . '</urn1:DeployZimletRequest>'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testDumpSessions()
     {
-        $api = new LocalAdminHttp(null);
-        $api->dumpSessions(
+        $this->_api->dumpSessions(
             true, false
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:DumpSessionsRequest listSessions="true" groupByAccount="false" />'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:DumpSessionsRequest listSessions="true" groupByAccount="false" />'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testExportAndDeleteItems()
     {
-        $item = new \Zimbra\Admin\Struct\ExportAndDeleteItemSpec(2, 3);
-        $mbox = new \Zimbra\Admin\Struct\ExportAndDeleteMailboxSpec(10, array($item));
+        $id = mt_rand(1, 100);
+        $version = mt_rand(1, 100);
+        $exportDir = self::randomName();
+        $prefix = self::randomName();
 
-        $api = new LocalAdminHttp(null);
-        $api->exportAndDeleteItems(
-            $mbox, 'exportDir', 'exportFilenamePrefix'
+        $item = new \Zimbra\Admin\Struct\ExportAndDeleteItemSpec($id, $version);
+        $mbox = new \Zimbra\Admin\Struct\ExportAndDeleteMailboxSpec($id, [$item]);
+
+        $this->_api->exportAndDeleteItems(
+            $mbox, $exportDir, $prefix
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:ExportAndDeleteItemsRequest exportDir="exportDir" exportFilenamePrefix="exportFilenamePrefix">'
-                        .'<urn1:mbox id="10">'
-                            .'<urn1:item id="2" version="3" />'
-                        .'</urn1:mbox>'
-                    .'</urn1:ExportAndDeleteItemsRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:ExportAndDeleteItemsRequest exportDir="' . $exportDir . '" exportFilenamePrefix="' . $prefix . '">'
+                        . '<urn1:mbox id="' . $id . '">'
+                            . '<urn1:item id="' . $id . '" version="' . $version . '" />'
+                        . '</urn1:mbox>'
+                    . '</urn1:ExportAndDeleteItemsRequest>'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testFixCalendarEndTime()
     {
-        $account = new \Zimbra\Struct\NamedElement('name');
+        $name = self::randomName();
+        $account = new \Zimbra\Struct\NamedElement($name);
 
-        $api = new LocalAdminHttp(null);
-        $api->fixCalendarEndTime(
-            true, array($account)
+        $this->_api->fixCalendarEndTime(
+            true, [$account]
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:FixCalendarEndTimeRequest sync="true">'
-                        .'<urn1:account name="name" />'
-                    .'</urn1:FixCalendarEndTimeRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:FixCalendarEndTimeRequest sync="true">'
+                        . '<urn1:account name="' . $name . '" />'
+                    . '</urn1:FixCalendarEndTimeRequest>'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testFixCalendarPriority()
     {
-        $account = new \Zimbra\Struct\NamedElement('name');
+        $name = self::randomName();
+        $account = new \Zimbra\Struct\NamedElement($name);
 
-        $api = new LocalAdminHttp(null);
-        $api->fixCalendarPriority(
-            true, array($account)
+        $this->_api->fixCalendarPriority(
+            true, [$account]
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:FixCalendarPriorityRequest sync="true">'
-                        .'<urn1:account name="name" />'
-                    .'</urn1:FixCalendarPriorityRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:FixCalendarPriorityRequest sync="true">'
+                        . '<urn1:account name="' . $name . '" />'
+                    . '</urn1:FixCalendarPriorityRequest>'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testFixCalendarTZ()
     {
+        $after = mt_rand(0, 1000);
+        $name = self::randomName();
+        $id = self::randomName();
+        $offset = mt_rand(0, 100);
         $any = new \Zimbra\Admin\Struct\SimpleElement;
-        $tzid = new \Zimbra\Struct\Id('id');
-        $nonDst = new \Zimbra\Admin\Struct\Offset(100);
-        $standard = new \Zimbra\Admin\Struct\TzFixupRuleMatchRule(10, 2, 3);
-        $daylight = new \Zimbra\Admin\Struct\TzFixupRuleMatchRule(3, 2, 4);
-        $rules = new \Zimbra\Admin\Struct\TzFixupRuleMatchRules($standard, $daylight, 10, 10);
-        $standard = new \Zimbra\Admin\Struct\TzFixupRuleMatchDate(10, 10);
-        $daylight = new \Zimbra\Admin\Struct\TzFixupRuleMatchDate(12, 20);
-        $dates = new \Zimbra\Admin\Struct\TzFixupRuleMatchDates($standard, $daylight, 10, 10);
+        $tzid = new \Zimbra\Struct\Id($id);
+        $nonDst = new \Zimbra\Admin\Struct\Offset($offset);
+
+        $rule_mon = mt_rand(1, 12);
+        $rule_week = mt_rand(1, 4);
+        $rule_wkday = mt_rand(1, 7);
+        $rule_stdoff = mt_rand(1, 100);
+        $rule_dayoff = mt_rand(1, 100);
+        $rule_standard = new \Zimbra\Admin\Struct\TzFixupRuleMatchRule($rule_mon, $rule_week, $rule_wkday);
+        $rule_daylight = new \Zimbra\Admin\Struct\TzFixupRuleMatchRule($rule_mon, $rule_week, $rule_wkday);
+        $rules = new \Zimbra\Admin\Struct\TzFixupRuleMatchRules($rule_standard, $rule_daylight, $rule_stdoff, $rule_dayoff);
+
+        $date_mon = mt_rand(1, 12);
+        $date_mday = mt_rand(1, 31);
+        $date_stdoff = mt_rand(1, 100);
+        $date_dayoff = mt_rand(1, 100);
+        $date_standard = new \Zimbra\Admin\Struct\TzFixupRuleMatchDate($date_mon, $date_mday);
+        $date_daylight = new \Zimbra\Admin\Struct\TzFixupRuleMatchDate($date_mon, $date_mday);
+        $dates = new \Zimbra\Admin\Struct\TzFixupRuleMatchDates($date_standard, $date_daylight, $date_stdoff, $date_dayoff);
+
         $match = new \Zimbra\Admin\Struct\TzFixupRuleMatch($any, $tzid, $nonDst, $rules, $dates);
 
-        $wellKnownTz = new \Zimbra\Struct\Id('id');
-        $standard = new \Zimbra\Struct\TzOnsetInfo(12, 2, 3, 4);
-        $daylight = new \Zimbra\Struct\TzOnsetInfo(4, 3, 2, 10);
-        $tz = new \Zimbra\Admin\Struct\CalTZInfo('id', 10, 10, $standard, $daylight, 'stdname', 'dayname');
+        $mon = mt_rand(1, 12);
+        $hour = mt_rand(0, 23);
+        $min = mt_rand(0, 59);
+        $sec = mt_rand(0, 59);
+        $wellKnownTz = new \Zimbra\Struct\Id($id);
+        $standard = new \Zimbra\Struct\TzOnsetInfo($mon, $hour, $min, $sec);
+        $daylight = new \Zimbra\Struct\TzOnsetInfo($mon, $hour, $min, $sec);
+
+        $stdname = self::randomName();
+        $dayname = self::randomName();
+        $stdoff = mt_rand(0, 100);
+        $dayoff = mt_rand(0, 100);
+        $tz = new \Zimbra\Admin\Struct\CalTZInfo($id, $stdoff, $dayoff, $daylight, $standard, $stdname, $dayname);
         $replace = new \Zimbra\Admin\Struct\TzReplaceInfo($wellKnownTz, $tz);
         
         $touch = new \Zimbra\Admin\Struct\SimpleElement;
         $fixupRule = new \Zimbra\Admin\Struct\TzFixupRule($match, $touch, $replace);
 
-        $tzfixup = new \Zimbra\Admin\Struct\TzFixup(array($fixupRule));
-        $account = new \Zimbra\Struct\NamedElement('name');
+        $tzfixup = new \Zimbra\Admin\Struct\TzFixup([$fixupRule]);
+        $account = new \Zimbra\Struct\NamedElement($name);
 
-        $api = new LocalAdminHttp(null);
-        $api->fixCalendarTZ(
-            array($account), $tzfixup, true, 1000
+        $this->_api->fixCalendarTZ(
+            [$account], $tzfixup, true, $after
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:FixCalendarTZRequest sync="true" after="1000">'
-                        .'<urn1:tzfixup>'
-                            .'<urn1:fixupRule>'
-                                .'<urn1:match>'
-                                    .'<urn1:any />'
-                                    .'<urn1:tzid id="id" />'
-                                    .'<urn1:nonDst offset="100" />'
-                                    .'<urn1:rules stdoff="10" dayoff="10">'
-                                        .'<urn1:standard mon="10" week="2" wkday="3" />'
-                                        .'<urn1:daylight mon="3" week="2" wkday="4" />'
-                                    .'</urn1:rules>'
-                                    .'<urn1:dates stdoff="10" dayoff="10">'
-                                        .'<urn1:standard mon="10" mday="10" />'
-                                        .'<urn1:daylight mon="12" mday="20" />'
-                                    .'</urn1:dates>'
-                                .'</urn1:match>'
-                                .'<urn1:touch />'
-                                .'<urn1:replace>'
-                                    .'<urn1:wellKnownTz id="id" />'
-                                    .'<urn1:tz id="id" stdoff="10" dayoff="10" stdname="stdname" dayname="dayname">'
-                                        .'<urn1:standard mon="12" hour="2" min="3" sec="4" />'
-                                        .'<urn1:daylight mon="4" hour="3" min="2" sec="10" />'
-                                    .'</urn1:tz>'
-                                .'</urn1:replace>'
-                            .'</urn1:fixupRule>'
-                        .'</urn1:tzfixup>'
-                        .'<urn1:account name="name" />'
-                    .'</urn1:FixCalendarTZRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:FixCalendarTZRequest sync="true" after="' . $after . '">'
+                        . '<urn1:tzfixup>'
+                            . '<urn1:fixupRule>'
+                                . '<urn1:match>'
+                                    . '<urn1:any />'
+                                    . '<urn1:tzid id="' . $id . '" />'
+                                    . '<urn1:nonDst offset="' . $offset . '" />'
+                                    . '<urn1:rules stdoff="' . $rule_stdoff . '" dayoff="' . $rule_dayoff . '">'
+                                        . '<urn1:standard mon="' . $rule_mon . '" week="' . $rule_week . '" wkday="' . $rule_wkday . '" />'
+                                        . '<urn1:daylight mon="' . $rule_mon . '" week="' . $rule_week . '" wkday="' . $rule_wkday . '" />'
+                                    . '</urn1:rules>'
+                                    . '<urn1:dates stdoff="' . $date_stdoff . '" dayoff="' . $date_dayoff . '">'
+                                        . '<urn1:standard mon="' . $date_mon . '" mday="' . $date_mday . '" />'
+                                        . '<urn1:daylight mon="' . $date_mon . '" mday="' . $date_mday . '" />'
+                                    . '</urn1:dates>'
+                                . '</urn1:match>'
+                                . '<urn1:touch />'
+                                . '<urn1:replace>'
+                                    . '<urn1:wellKnownTz id="' . $id . '" />'
+                                    . '<urn1:tz id="' . $id . '" stdoff="' . $stdoff . '" dayoff="' . $dayoff . '" stdname="' . $stdname . '" dayname="' . $dayname . '">'
+                                        . '<urn1:standard mon="' . $mon . '" hour="' . $hour . '" min="' . $min . '" sec="' . $sec . '" />'
+                                        . '<urn1:daylight mon="' . $mon . '" hour="' . $hour . '" min="' . $min . '" sec="' . $sec . '" />'
+                                    . '</urn1:tz>'
+                                . '</urn1:replace>'
+                            . '</urn1:fixupRule>'
+                        . '</urn1:tzfixup>'
+                        . '<urn1:account name="' . $name . '" />'
+                    . '</urn1:FixCalendarTZRequest>'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testFlushCache()
     {
-        $entry = new \Zimbra\Admin\Struct\CacheEntrySelector(CacheEntryBy::NAME(), 'value');
-        $cache = new \Zimbra\Admin\Struct\CacheSelector('skin,account', true, array($entry));
+        $value = self::randomName();
+        $types = self::randomAttrs(\Zimbra\Enum\CacheType::enums());
 
-        $api = new LocalAdminHttp(null);
-        $api->flushCache(
+        $entry = new \Zimbra\Admin\Struct\CacheEntrySelector(CacheEntryBy::NAME(), $value);
+        $cache = new \Zimbra\Admin\Struct\CacheSelector($types, true, [$entry]);
+
+        $this->_api->flushCache(
             $cache
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:FlushCacheRequest>'
-                        .'<urn1:cache type="skin,account" allServers="true">'
-                            .'<urn1:entry by="name">value</urn1:entry>'
-                        .'</urn1:cache>'
-                    .'</urn1:FlushCacheRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:FlushCacheRequest>'
+                        . '<urn1:cache type="' . $types . '" allServers="true">'
+                            . '<urn1:entry by="' . CacheEntryBy::NAME() . '">' . $value . '</urn1:entry>'
+                        . '</urn1:cache>'
+                    . '</urn1:FlushCacheRequest>'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testGenCSR()
     {
-        $api = new LocalAdminHttp(null);
-        $api->genCSR(
-            'server', true, CSRType::COMM(), CSRKeySize::SIZE_2048(), 'c', 'st', 'l', 'o', 'ou', 'cn', array('subject')
+        $server = self::randomName();
+        $c = self::randomName();
+        $st = self::randomName();
+        $l = self::randomName();
+        $o = self::randomName();
+        $ou = self::randomName();
+        $cn = self::randomName();
+        $subject = self::randomName();
+
+        $this->_api->genCSR(
+            $server, true, CSRType::COMM(), CSRKeySize::SIZE_2048(), $c, $st, $l, $o, $ou, $cn, [$subject]
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:GenCSRRequest server="server" new="true" type="comm" keysize="2048">'
-                        .'<urn1:C>c</urn1:C>'
-                        .'<urn1:ST>st</urn1:ST>'
-                        .'<urn1:L>l</urn1:L>'
-                        .'<urn1:O>o</urn1:O>'
-                        .'<urn1:OU>ou</urn1:OU>'
-                        .'<urn1:CN>cn</urn1:CN>'
-                        .'<urn1:SubjectAltName>subject</urn1:SubjectAltName>'
-                    .'</urn1:GenCSRRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:GenCSRRequest server="' . $server . '" new="true" type="' . CSRType::COMM() . '" keysize="' . CSRKeySize::SIZE_2048() . '">'
+                        . '<urn1:C>' . $c . '</urn1:C>'
+                        . '<urn1:ST>' . $st . '</urn1:ST>'
+                        . '<urn1:L>' . $l . '</urn1:L>'
+                        . '<urn1:O>' . $o . '</urn1:O>'
+                        . '<urn1:OU>' . $ou . '</urn1:OU>'
+                        . '<urn1:CN>' . $cn . '</urn1:CN>'
+                        . '<urn1:SubjectAltName>' . $subject . '</urn1:SubjectAltName>'
+                    . '</urn1:GenCSRRequest>'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testGetAccount()
     {
-        $account = new \Zimbra\Struct\AccountSelector(AccountBy::NAME(), 'value');
+        $value = self::randomName();
+        $attrs = self::randomName();
+        $account = new \Zimbra\Struct\AccountSelector(AccountBy::NAME(), $value);
 
-        $api = new LocalAdminHttp(null);
-        $api->getAccount(
-            $account, true, 'attrs'
+        $this->_api->getAccount(
+            $account, true, [$attrs]
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:GetAccountRequest applyCos="true" attrs="attrs">'
-                        .'<urn1:account by="name">value</urn1:account>'
-                    .'</urn1:GetAccountRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:GetAccountRequest applyCos="true" attrs="' . $attrs . '">'
+                        . '<urn1:account by="' . AccountBy::NAME() . '">' . $value . '</urn1:account>'
+                    . '</urn1:GetAccountRequest>'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testGetAccountInfo()
     {
-        $account = new \Zimbra\Struct\AccountSelector(AccountBy::NAME(), 'value');
+        $value = self::randomName();
+        $account = new \Zimbra\Struct\AccountSelector(AccountBy::NAME(), $value);
 
-        $api = new LocalAdminHttp(null);
-        $api->getAccountInfo(
+        $this->_api->getAccountInfo(
             $account
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:GetAccountInfoRequest>'
-                        .'<urn1:account by="name">value</urn1:account>'
-                    .'</urn1:GetAccountInfoRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:GetAccountInfoRequest>'
+                        . '<urn1:account by="' . AccountBy::NAME() . '">' . $value . '</urn1:account>'
+                    . '</urn1:GetAccountInfoRequest>'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testGetAccountLoggers()
     {
-        $account = new \Zimbra\Struct\AccountSelector(AccountBy::NAME(), 'value');
+        $value = self::randomName();
+        $account = new \Zimbra\Struct\AccountSelector(AccountBy::NAME(), $value);
 
-        $api = new LocalAdminHttp(null);
-        $api->getAccountLoggers(
+        $this->_api->getAccountLoggers(
             $account
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:GetAccountLoggersRequest>'
-                        .'<urn1:account by="name">value</urn1:account>'
-                    .'</urn1:GetAccountLoggersRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:GetAccountLoggersRequest>'
+                        . '<urn1:account by="' . AccountBy::NAME() . '">' . $value . '</urn1:account>'
+                    . '</urn1:GetAccountLoggersRequest>'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testGetAccountMembership()
     {
-        $account = new \Zimbra\Struct\AccountSelector(AccountBy::NAME(), 'value');
+        $value = self::randomName();
+        $account = new \Zimbra\Struct\AccountSelector(AccountBy::NAME(), $value);
 
-        $api = new LocalAdminHttp(null);
-        $api->getAccountMembership(
+        $this->_api->getAccountMembership(
             $account
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:GetAccountMembershipRequest>'
-                        .'<urn1:account by="name">value</urn1:account>'
-                    .'</urn1:GetAccountMembershipRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:GetAccountMembershipRequest>'
+                        . '<urn1:account by="' . AccountBy::NAME() . '">' . $value . '</urn1:account>'
+                    . '</urn1:GetAccountMembershipRequest>'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testGetAdminConsoleUIComp()
     {
-        $account = new \Zimbra\Struct\AccountSelector(AccountBy::NAME(), 'value');
-        $dl = new \Zimbra\Admin\Struct\DistributionListSelector(DLBy::NAME(), 'value');
+        $value = self::randomName();
+        $account = new \Zimbra\Struct\AccountSelector(AccountBy::NAME(), $value);
+        $dl = new \Zimbra\Admin\Struct\DistributionListSelector(DLBy::NAME(), $value);
 
-        $api = new LocalAdminHttp(null);
-        $api->getAdminConsoleUIComp(
+        $this->_api->getAdminConsoleUIComp(
             $account, $dl
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:GetAdminConsoleUICompRequest>'
-                        .'<urn1:account by="name">value</urn1:account>'
-                        .'<urn1:dl by="name">value</urn1:dl>'
-                    .'</urn1:GetAdminConsoleUICompRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:GetAdminConsoleUICompRequest>'
+                        . '<urn1:account by="' . AccountBy::NAME() . '">' . $value . '</urn1:account>'
+                        . '<urn1:dl by="' . DLBy::NAME() . '">' . $value . '</urn1:dl>'
+                    . '</urn1:GetAdminConsoleUICompRequest>'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testGetAdminExtensionZimlets()
     {
-        $api = new LocalAdminHttp(null);
-        $api->getAdminExtensionZimlets();
+        $this->_api->getAdminExtensionZimlets();
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:GetAdminExtensionZimletsRequest />'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:GetAdminExtensionZimletsRequest />'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testGetAdminSavedSearches()
     {
-        $search = new \Zimbra\Struct\NamedElement('name');
+        $name = self::randomName();
+        $search = new \Zimbra\Struct\NamedElement($name);
 
-        $api = new LocalAdminHttp(null);
-        $api->getAdminSavedSearches(
-            $search
+        $this->_api->getAdminSavedSearches(
+            [$search]
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:GetAdminSavedSearchesRequest>'
-                        .'<urn1:search name="name" />'
-                    .'</urn1:GetAdminSavedSearchesRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:GetAdminSavedSearchesRequest>'
+                        . '<urn1:search name="' . $name . '" />'
+                    . '</urn1:GetAdminSavedSearchesRequest>'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testGetAggregateQuotaUsageOnServer()
     {
-        $api = new LocalAdminHttp(null);
-        $api->getAggregateQuotaUsageOnServer();
+        $this->_api->getAggregateQuotaUsageOnServer();
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:GetAggregateQuotaUsageOnServerRequest />'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:GetAggregateQuotaUsageOnServerRequest />'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testGetAllAccountLoggers()
     {
-        $api = new LocalAdminHttp(null);
-        $api->getAllAccountLoggers();
+        $this->_api->getAllAccountLoggers();
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:GetAllAccountLoggersRequest />'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:GetAllAccountLoggersRequest />'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testGetAllAccounts()
     {
-        $server = new \Zimbra\Admin\Struct\ServerSelector(ServerBy::NAME(), 'value');
-        $domain = new \Zimbra\Admin\Struct\DomainSelector(DomainBy::NAME(), 'value');
+        $value = self::randomName();
+        $server = new \Zimbra\Admin\Struct\ServerSelector(ServerBy::NAME(), $value);
+        $domain = new \Zimbra\Admin\Struct\DomainSelector(DomainBy::NAME(), $value);
 
-        $api = new LocalAdminHttp(null);
-        $api->getAllAccounts(
+        $this->_api->getAllAccounts(
             $server, $domain
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:GetAllAccountsRequest>'
-                        .'<urn1:server by="name">value</urn1:server>'
-                        .'<urn1:domain by="name">value</urn1:domain>'
-                    .'</urn1:GetAllAccountsRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:GetAllAccountsRequest>'
+                        . '<urn1:server by="' . ServerBy::NAME() . '">' . $value . '</urn1:server>'
+                        . '<urn1:domain by="' . DomainBy::NAME() . '">' . $value . '</urn1:domain>'
+                    . '</urn1:GetAllAccountsRequest>'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testGetAllAdminAccounts()
     {
-        $api = new LocalAdminHttp(null);
-        $api->getAllAdminAccounts(true);
+        $this->_api->getAllAdminAccounts(true);
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:GetAllAdminAccountsRequest applyCos="true" />'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:GetAllAdminAccountsRequest applyCos="true" />'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testGetAllCalendarResources()
     {
-        $server = new \Zimbra\Admin\Struct\ServerSelector(ServerBy::NAME(), 'value');
-        $domain = new \Zimbra\Admin\Struct\DomainSelector(DomainBy::NAME(), 'value');
+        $value = self::randomName();
+        $server = new \Zimbra\Admin\Struct\ServerSelector(ServerBy::NAME(), $value);
+        $domain = new \Zimbra\Admin\Struct\DomainSelector(DomainBy::NAME(), $value);
 
-        $api = new LocalAdminHttp(null);
-        $api->getAllCalendarResources(
+        $this->_api->getAllCalendarResources(
             $server, $domain
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:GetAllCalendarResourcesRequest>'
-                        .'<urn1:server by="name">value</urn1:server>'
-                        .'<urn1:domain by="name">value</urn1:domain>'
-                    .'</urn1:GetAllCalendarResourcesRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:GetAllCalendarResourcesRequest>'
+                        . '<urn1:server by="' . ServerBy::NAME() . '">' . $value . '</urn1:server>'
+                        . '<urn1:domain by="' . DomainBy::NAME() . '">' . $value . '</urn1:domain>'
+                    . '</urn1:GetAllCalendarResourcesRequest>'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testGetAllConfig()
     {
-        $api = new LocalAdminHttp(null);
-        $api->getAllConfig();
+        $this->_api->getAllConfig();
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:GetAllConfigRequest />'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:GetAllConfigRequest />'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testGetAllCos()
     {
-        $api = new LocalAdminHttp(null);
-        $api->getAllCos();
+        $this->_api->getAllCos();
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:GetAllCosRequest />'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:GetAllCosRequest />'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testGetAllDistributionLists()
     {
-        $domain = new \Zimbra\Admin\Struct\DomainSelector(DomainBy::NAME(), 'value');
+        $value = self::randomName();
+        $domain = new \Zimbra\Admin\Struct\DomainSelector(DomainBy::NAME(), $value);
 
-        $api = new LocalAdminHttp(null);
-        $api->getAllDistributionLists(
+        $this->_api->getAllDistributionLists(
             $domain
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:GetAllDistributionListsRequest>'
-                        .'<urn1:domain by="name">value</urn1:domain>'
-                    .'</urn1:GetAllDistributionListsRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:GetAllDistributionListsRequest>'
+                        . '<urn1:domain by="' . DomainBy::NAME() . '">' . $value . '</urn1:domain>'
+                    . '</urn1:GetAllDistributionListsRequest>'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testGetAllDomains()
     {
-        $api = new LocalAdminHttp(null);
-        $api->getAllDomains(true);
+        $this->_api->getAllDomains(true);
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:GetAllDomainsRequest applyConfig="true" />'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:GetAllDomainsRequest applyConfig="true" />'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testGetAllEffectiveRights()
     {
+        $value = self::randomName();
+        $secret = self::randomName();
         $grantee = new \Zimbra\Admin\Struct\GranteeSelector(
-            'value', GranteeType::USR(), GranteeBy::ID(), 'secret', true
+            $value, GranteeType::USR(), GranteeBy::ID(), $secret, true
         );
 
-        $api = new LocalAdminHttp(null);
-        $api->getAllEffectiveRights(
+        $this->_api->getAllEffectiveRights(
             $grantee, true
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:GetAllEffectiveRightsRequest expandAllAttrs="true">'
-                        .'<urn1:grantee type="usr" by="id" secret="secret" all="true">value</urn1:grantee>'
-                    .'</urn1:GetAllEffectiveRightsRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:GetAllEffectiveRightsRequest expandAllAttrs="true">'
+                        . '<urn1:grantee type="' . GranteeType::USR() . '" by="' . GranteeBy::ID() . '" secret="' . $secret . '" all="true">' . $value . '</urn1:grantee>'
+                    . '</urn1:GetAllEffectiveRightsRequest>'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testGetAllFreeBusyProviders()
     {
-        $api = new LocalAdminHttp(null);
-        $api->getAllFreeBusyProviders();
+        $this->_api->getAllFreeBusyProviders();
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:GetAllFreeBusyProvidersRequest />'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:GetAllFreeBusyProvidersRequest />'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testGetAllLocales()
     {
-        $api = new LocalAdminHttp(null);
-        $api->getAllLocales();
+        $this->_api->getAllLocales();
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:GetAllLocalesRequest />'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:GetAllLocalesRequest />'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testGetAllMailboxes()
     {
-        $api = new LocalAdminHttp(null);
-        $api->getAllMailboxes(100, 100);
+        $limit = mt_rand(0, 100);
+        $offset = mt_rand(0, 100);
+        $this->_api->getAllMailboxes($limit, $offset);
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:GetAllMailboxesRequest limit="100" offset="100" />'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:GetAllMailboxesRequest limit="' . $limit . '" offset="' . $offset . '" />'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testGetAllRights()
     {
-        $api = new LocalAdminHttp(null);
-        $api->getAllRights('targetType', true, RightClass::ALL());
+        $type = self::randomName();
+        $this->_api->getAllRights($type, true, RightClass::ALL());
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:GetAllRightsRequest targetType="targetType" expandAllAttrs="true" rightClass="ALL" />'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:GetAllRightsRequest targetType="' . $type . '" expandAllAttrs="true" rightClass="' . RightClass::ALL() . '" />'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testGetAllServers()
     {
-        $api = new LocalAdminHttp(null);
-        $api->getAllServers('service', true);
+        $service = self::randomName();
+        $this->_api->getAllServers($service, true);
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:GetAllServersRequest service="service" applyConfig="true" />'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:GetAllServersRequest service="' . $service . '" applyConfig="true" />'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testGetAllSkins()
     {
-        $api = new LocalAdminHttp(null);
-        $api->getAllSkins();
+        $this->_api->getAllSkins();
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:GetAllSkinsRequest />'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:GetAllSkinsRequest />'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testGetAllUCProviders()
     {
-        $api = new LocalAdminHttp(null);
-        $api->getAllUCProviders();
+        $this->_api->getAllUCProviders();
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:GetAllUCProvidersRequest />'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:GetAllUCProvidersRequest />'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testGetAllUCServices()
     {
-        $api = new LocalAdminHttp(null);
-        $api->getAllUCServices();
+        $this->_api->getAllUCServices();
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:GetAllUCServicesRequest />'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:GetAllUCServicesRequest />'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testGetAllVolumes()
     {
-        $api = new LocalAdminHttp(null);
-        $api->getAllVolumes();
+        $this->_api->getAllVolumes();
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:GetAllVolumesRequest />'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:GetAllVolumesRequest />'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testGetAllXMPPComponents()
     {
-        $api = new LocalAdminHttp(null);
-        $api->getAllXMPPComponents();
+        $this->_api->getAllXMPPComponents();
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:GetAllXMPPComponentsRequest />'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:GetAllXMPPComponentsRequest />'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testGetAllZimlets()
     {
-        $api = new LocalAdminHttp(null);
-        $api->getAllZimlets(ExcludeType::MAIL());
+        $this->_api->getAllZimlets(ExcludeType::MAIL());
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:GetAllZimletsRequest exclude="mail" />'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:GetAllZimletsRequest exclude="' . ExcludeType::MAIL() . '" />'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testGetAttributeInfo()
     {
-        $api = new LocalAdminHttp(null);
-        $api->getAttributeInfo('attrs', array(EntryType::ACCOUNT(), EntryType::ACL_TARGET()));
+        $attrs = self::randomName();
+        $this->_api->getAttributeInfo($attrs, [EntryType::ACCOUNT(), EntryType::ACL_TARGET()]);
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:GetAttributeInfoRequest attrs="attrs" entryTypes="account,aclTarget" />'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:GetAttributeInfoRequest attrs="' . $attrs  .'" entryTypes="account,aclTarget" />'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testGetCalendarResource()
     {
-        $calResource = new \Zimbra\Admin\Struct\CalendarResourceSelector(CalResBy::NAME(), 'value');
+        $value = self::randomName();
+        $attrs = self::randomName();
 
-        $api = new LocalAdminHttp(null);
-        $api->getCalendarResource($calResource, true, 'attrs');
+        $calResource = new \Zimbra\Admin\Struct\CalendarResourceSelector(CalResBy::NAME(), $value);
 
-        $client = $api->client();
+        $this->_api->getCalendarResource($calResource, true, [$attrs]);
+
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:GetCalendarResourceRequest applyCos="true" attrs="attrs">'
-                        .'<urn1:calresource by="name">value</urn1:calresource>'
-                    .'</urn1:GetCalendarResourceRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:GetCalendarResourceRequest applyCos="true" attrs="' . $attrs . '">'
+                        . '<urn1:calresource by="' . CalResBy::NAME() . '">' . $value . '</urn1:calresource>'
+                    . '</urn1:GetCalendarResourceRequest>'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testGetCert()
     {
-        $api = new LocalAdminHttp(null);
-        $api->getCert('server', CertType::MTA(), CSRType::COMM());
+        $server = self::randomName();
+        $this->_api->getCert($server, CertType::MTA(), CSRType::COMM());
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:GetCertRequest server="server" type="mta" option="comm" />'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:GetCertRequest server="' . $server . '" type="' . CertType::MTA() . '" option="' . CSRType::COMM() . '" />'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testGetConfig()
     {
-        $attr = new \Zimbra\Struct\KeyValuePair('key', 'value');
+        $key = self::randomName();
+        $value = self::randomName();
+        $attr = new \Zimbra\Struct\KeyValuePair($key, $value);
 
-        $api = new LocalAdminHttp(null);
-        $api->getConfig($attr);
+        $this->_api->getConfig($attr);
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:GetConfigRequest>'
-                        .'<urn1:a n="key">value</urn1:a>'
-                    .'</urn1:GetConfigRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:GetConfigRequest>'
+                        . '<urn1:a n="' . $key . '">' . $value . '</urn1:a>'
+                    . '</urn1:GetConfigRequest>'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testGetCos()
     {
-        $cos = new \Zimbra\Admin\Struct\CosSelector(CosBy::NAME(), 'value');
+        $attrs = self::randomName();
+        $value = self::randomName();
+        $cos = new \Zimbra\Admin\Struct\CosSelector(CosBy::NAME(), $value);
 
-        $api = new LocalAdminHttp(null);
-        $api->getCos($cos, 'attrs');
+        $this->_api->getCos($cos, [$attrs]);
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:GetCosRequest attrs="attrs">'
-                        .'<urn1:cos by="name">value</urn1:cos>'
-                    .'</urn1:GetCosRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:GetCosRequest attrs="' . $attrs . '">'
+                        . '<urn1:cos by="' . CosBy::NAME() . '">' . $value . '</urn1:cos>'
+                    . '</urn1:GetCosRequest>'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testGetCreateObjectAttrs()
     {
-        $target = new \Zimbra\Admin\Struct\TargetWithType('type', 'value');
-        $cos = new \Zimbra\Admin\Struct\CosSelector(CosBy::NAME(), 'value');
-        $domain = new \Zimbra\Admin\Struct\DomainSelector(DomainBy::NAME(), 'value');
+        $value = self::randomName();
+        $type = self::randomName();
+        $target = new \Zimbra\Admin\Struct\TargetWithType($type, $value);
+        $cos = new \Zimbra\Admin\Struct\CosSelector(CosBy::NAME(), $value);
+        $domain = new \Zimbra\Admin\Struct\DomainSelector(DomainBy::NAME(), $value);
 
-        $api = new LocalAdminHttp(null);
-        $api->getCreateObjectAttrs($target, $domain, $cos);
 
-        $client = $api->client();
+        $this->_api->getCreateObjectAttrs($target, $domain, $cos);
+
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:GetCreateObjectAttrsRequest>'
-                        .'<urn1:target type="type">value</urn1:target>'
-                        .'<urn1:domain by="name">value</urn1:domain>'
-                        .'<urn1:cos by="name">value</urn1:cos>'
-                    .'</urn1:GetCreateObjectAttrsRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:GetCreateObjectAttrsRequest>'
+                        . '<urn1:target type="' . $type . '">' . $value . '</urn1:target>'
+                        . '<urn1:domain by="' . DomainBy::NAME() . '">' . $value . '</urn1:domain>'
+                        . '<urn1:cos by="' . CosBy::NAME() . '">' . $value . '</urn1:cos>'
+                    . '</urn1:GetCreateObjectAttrsRequest>'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testGetCSR()
     {
-        $api = new LocalAdminHttp(null);
-        $api->getCSR('server', CSRType::COMM());
+        $server = self::randomName();
+        $this->_api->getCSR($server, CSRType::COMM());
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:GetCSRRequest server="server" type="comm" />'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:GetCSRRequest server="' . $server . '" type="' . CSRType::COMM() . '" />'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testGetCurrentVolumes()
     {
-        $api = new LocalAdminHttp(null);
-        $api->getCurrentVolumes();
+        $this->_api->getCurrentVolumes();
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:GetCurrentVolumesRequest />'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:GetCurrentVolumesRequest />'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testGetDataSources()
     {
-        $attr = new \Zimbra\Struct\KeyValuePair('key', 'value');
+        $key = self::randomName();
+        $value = self::randomName();
+        $id = self::randomName();
+        $attr = new \Zimbra\Struct\KeyValuePair($key, $value);
 
-        $api = new LocalAdminHttp(null);
-        $api->getDataSources('id', array($attr));
+        $this->_api->getDataSources($id, [$attr]);
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:GetDataSourcesRequest id="id">'
-                        .'<urn1:a n="key">value</urn1:a>'
-                    .'</urn1:GetDataSourcesRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:GetDataSourcesRequest id="' . $id . '">'
+                        . '<urn1:a n="' . $key . '">' . $value . '</urn1:a>'
+                    . '</urn1:GetDataSourcesRequest>'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testGetDelegatedAdminConstraints()
     {
-        $attr = new \Zimbra\Struct\NamedElement('name');
+        $name = self::randomName();
+        $id = self::randomName();
+        $attr = new \Zimbra\Struct\NamedElement($name);
 
-        $api = new LocalAdminHttp(null);
-        $api->getDelegatedAdminConstraints(
-            TargetType::DOMAIN(), 'id', 'name', array($attr)
+        $this->_api->getDelegatedAdminConstraints(
+            TargetType::DOMAIN(), $id, $name, [$attr]
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:GetDelegatedAdminConstraintsRequest type="domain" id="id" name="name">'
-                        .'<urn1:a name="name" />'
-                    .'</urn1:GetDelegatedAdminConstraintsRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:GetDelegatedAdminConstraintsRequest type="' . TargetType::DOMAIN() . '" id="' . $id . '" name="' . $name . '">'
+                        . '<urn1:a name="' . $name . '" />'
+                    . '</urn1:GetDelegatedAdminConstraintsRequest>'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testGetDevices()
     {
-        $account = new \Zimbra\Struct\AccountSelector(AccountBy::NAME(), 'value');
+        $value = self::randomName();
+        $account = new \Zimbra\Struct\AccountSelector(AccountBy::NAME(), $value);
 
-        $api = new LocalAdminHttp(null);
-        $api->getDevices(
+        $this->_api->getDevices(
             $account
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:GetDevicesRequest>'
-                        .'<urn1:account by="name">value</urn1:account>'
-                    .'</urn1:GetDevicesRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:GetDevicesRequest>'
+                        . '<urn1:account by="' . AccountBy::NAME() . '">' . $value . '</urn1:account>'
+                    . '</urn1:GetDevicesRequest>'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testGetDistributionList()
     {
-        $attr = new \Zimbra\Struct\KeyValuePair('key', 'value');
-        $dl = new \Zimbra\Admin\Struct\DistributionListSelector(DLBy::NAME(), 'value');
+        $key = self::randomName();
+        $value = self::randomName();
+        $limit = mt_rand(0, 100);
+        $offset = mt_rand(0, 100);
+        $attr = new \Zimbra\Struct\KeyValuePair($key, $value);
+        $dl = new \Zimbra\Admin\Struct\DistributionListSelector(DLBy::NAME(), $value);
 
-        $api = new LocalAdminHttp(null);
-        $api->getDistributionList(
-            $dl, 100, 100, true, array($attr)
+        $this->_api->getDistributionList(
+            $dl, $limit, $offset, true, [$attr]
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:GetDistributionListRequest limit="100" offset="100" sortAscending="true">'
-                        .'<urn1:dl by="name">value</urn1:dl>'
-                        .'<urn1:a n="key">value</urn1:a>'
-                    .'</urn1:GetDistributionListRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:GetDistributionListRequest limit="' . $limit . '" offset="' . $offset . '" sortAscending="true">'
+                        . '<urn1:dl by="' . DLBy::NAME() . '">' . $value . '</urn1:dl>'
+                        . '<urn1:a n="' . $key . '">' . $value . '</urn1:a>'
+                    . '</urn1:GetDistributionListRequest>'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testGetDistributionListMembership()
     {
-        $dl = new \Zimbra\Admin\Struct\DistributionListSelector(DLBy::NAME(), 'value');
+        $value = self::randomName();
+        $limit = mt_rand(0, 100);
+        $offset = mt_rand(0, 100);
+        $dl = new \Zimbra\Admin\Struct\DistributionListSelector(DLBy::NAME(), $value);
 
-        $api = new LocalAdminHttp(null);
-        $api->getDistributionListMembership(
-            $dl, 100, 100
+        $this->_api->getDistributionListMembership(
+            $dl, $limit, $offset
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:GetDistributionListMembershipRequest limit="100" offset="100">'
-                        .'<urn1:dl by="name">value</urn1:dl>'
-                    .'</urn1:GetDistributionListMembershipRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:GetDistributionListMembershipRequest limit="' . $limit . '" offset="' . $offset . '">'
+                        . '<urn1:dl by="' . DLBy::NAME() . '">' . $value . '</urn1:dl>'
+                    . '</urn1:GetDistributionListMembershipRequest>'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testGetDomain()
     {
-        $domain = new \Zimbra\Admin\Struct\DomainSelector(DomainBy::NAME(), 'value');
+        $value = self::randomName();
+        $attrs = self::randomName();
+        $domain = new \Zimbra\Admin\Struct\DomainSelector(DomainBy::NAME(), $value);
 
-        $api = new LocalAdminHttp(null);
-        $api->getDomain(
-            $domain, true, 'attrs'
+        $this->_api->getDomain(
+            $domain, true, [$attrs]
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:GetDomainRequest applyConfig="true" attrs="attrs">'
-                        .'<urn1:domain by="name">value</urn1:domain>'
-                    .'</urn1:GetDomainRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:GetDomainRequest applyConfig="true" attrs="' . $attrs . '">'
+                        . '<urn1:domain by="' . DomainBy::NAME() . '">' . $value . '</urn1:domain>'
+                    . '</urn1:GetDomainRequest>'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testGetDomainInfo()
     {
-        $domain = new \Zimbra\Admin\Struct\DomainSelector(DomainBy::NAME(), 'value');
+        $value = self::randomName();
+        $domain = new \Zimbra\Admin\Struct\DomainSelector(DomainBy::NAME(), $value);
 
-        $api = new LocalAdminHttp(null);
-        $api->getDomainInfo(
+        $this->_api->getDomainInfo(
             $domain, true
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:GetDomainInfoRequest applyConfig="true">'
-                        .'<urn1:domain by="name">value</urn1:domain>'
-                    .'</urn1:GetDomainInfoRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:GetDomainInfoRequest applyConfig="true">'
+                        . '<urn1:domain by="' . DomainBy::NAME() . '">' . $value . '</urn1:domain>'
+                    . '</urn1:GetDomainInfoRequest>'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testGetEffectiveRights()
     {
+        $value = self::randomName();
+        $secret = self::randomName();
         $target = new \Zimbra\Admin\Struct\EffectiveRightsTargetSelector(
-            TargetType::ACCOUNT(), TargetBy::NAME(), 'value'
+            TargetType::ACCOUNT(), TargetBy::NAME(), $value
         );
         $grantee = new \Zimbra\Admin\Struct\GranteeSelector(
-            'value', GranteeType::USR(), GranteeBy::ID(), 'secret', true
+            $value, GranteeType::USR(), GranteeBy::ID(), $secret, true
         );
 
-        $api = new LocalAdminHttp(null);
-        $api->getEffectiveRights(
+        $this->_api->getEffectiveRights(
             $target, $grantee, AttrMethod::SET_ATTRS()
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:GetEffectiveRightsRequest expandAllAttrs="setAttrs">'
-                        .'<urn1:target type="account" by="name">value</urn1:target>'
-                        .'<urn1:grantee type="usr" by="id" secret="secret" all="true">value</urn1:grantee>'
-                    .'</urn1:GetEffectiveRightsRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:GetEffectiveRightsRequest expandAllAttrs="' . AttrMethod::SET_ATTRS() . '">'
+                        . '<urn1:target type="' . TargetType::ACCOUNT() . '" by="' . TargetBy::NAME() . '">' . $value . '</urn1:target>'
+                        . '<urn1:grantee type="' . GranteeType::USR() . '" by="' . GranteeBy::ID() . '" secret="' . $secret . '" all="true">' . $value . '</urn1:grantee>'
+                    . '</urn1:GetEffectiveRightsRequest>'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testGetFreeBusyQueueInfo()
     {
-        $provider = new \Zimbra\Struct\NamedElement('name');
+        $name = self::randomName();
+        $provider = new \Zimbra\Struct\NamedElement($name);
 
-        $api = new LocalAdminHttp(null);
-        $api->getFreeBusyQueueInfo(
+        $this->_api->getFreeBusyQueueInfo(
             $provider
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:GetFreeBusyQueueInfoRequest>'
-                        .'<urn1:provider name="name" />'
-                    .'</urn1:GetFreeBusyQueueInfoRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:GetFreeBusyQueueInfoRequest>'
+                        . '<urn1:provider name="' . $name . '" />'
+                    . '</urn1:GetFreeBusyQueueInfoRequest>'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testGetGrants()
     {
+        $value = self::randomName();
+        $secret = self::randomName();
         $target = new \Zimbra\Admin\Struct\EffectiveRightsTargetSelector(
-            TargetType::ACCOUNT(), TargetBy::NAME(), 'value'
+            TargetType::ACCOUNT(), TargetBy::NAME(), $value
         );
         $grantee = new \Zimbra\Admin\Struct\GranteeSelector(
-            'value', GranteeType::USR(), GranteeBy::ID(), 'secret', true
+            $value, GranteeType::USR(), GranteeBy::ID(), $secret, true
         );
 
-        $api = new LocalAdminHttp(null);
-        $api->getGrants(
+        $this->_api->getGrants(
             $target, $grantee
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:GetGrantsRequest>'
-                        .'<urn1:target type="account" by="name">value</urn1:target>'
-                        .'<urn1:grantee type="usr" by="id" secret="secret" all="true">value</urn1:grantee>'
-                    .'</urn1:GetGrantsRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:GetGrantsRequest>'
+                        . '<urn1:target type="' . TargetType::ACCOUNT() . '" by="' . TargetBy::NAME() . '">' . $value . '</urn1:target>'
+                        . '<urn1:grantee type="' . GranteeType::USR() . '" by="' . GranteeBy::ID() . '" secret="' . $secret . '" all="true">' . $value . '</urn1:grantee>'
+                    . '</urn1:GetGrantsRequest>'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testGetIndexStats()
     {
-        $mbox = new \Zimbra\Admin\Struct\MailboxByAccountIdSelector('id');
+        $id = self::randomName();
+        $mbox = new \Zimbra\Admin\Struct\MailboxByAccountIdSelector($id);
 
-        $api = new LocalAdminHttp(null);
-        $api->getIndexStats(
+        $this->_api->getIndexStats(
             $mbox
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:GetIndexStatsRequest>'
-                        .'<urn1:mbox id="id" />'
-                    .'</urn1:GetIndexStatsRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:GetIndexStatsRequest>'
+                        . '<urn1:mbox id="' . $id  .'" />'
+                    . '</urn1:GetIndexStatsRequest>'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testGetLDAPEntries()
     {
-        $api = new LocalAdminHttp(null);
-        $api->getLDAPEntries(
-            'query', 'ldapSearchBase', 'sortBy', true, 100, 100
+        $query = self::randomName();
+        $searchBase = self::randomName();
+        $sortBy = self::randomName();
+        $limit = mt_rand(0, 100);
+        $offset = mt_rand(0, 100);
+        $this->_api->getLDAPEntries(
+            $query, $searchBase, $sortBy, true, $limit, $offset
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:GetLDAPEntriesRequest query="query" sortBy="sortBy" sortAscending="true" limit="100" offset="100">'
-                        .'<urn1:ldapSearchBase>ldapSearchBase</urn1:ldapSearchBase>'
-                    .'</urn1:GetLDAPEntriesRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:GetLDAPEntriesRequest query="' . $query . '" sortBy="' . $sortBy . '" sortAscending="true" limit="' . $limit . '" offset="' . $offset . '">'
+                        . '<urn1:ldapSearchBase>' . $searchBase . '</urn1:ldapSearchBase>'
+                    . '</urn1:GetLDAPEntriesRequest>'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testGetLicenseInfo()
     {
-        $api = new LocalAdminHttp(null);
-        $api->getLicenseInfo();
+        $this->_api->getLicenseInfo();
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:GetLicenseInfoRequest />'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:GetLicenseInfoRequest />'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testGetLoggerStats()
     {
-        $hostname = new \Zimbra\Admin\Struct\HostName('host');
-        $startTime = new \Zimbra\Admin\Struct\TimeAttr('time');
-        $endTime = new \Zimbra\Admin\Struct\TimeAttr('time');
+        $host = self::randomName();
+        $time = self::randomName();
+        $name = self::randomName();
+        $limit = self::randomName();
 
-        $stat = new \Zimbra\Struct\NamedElement('name');
-        $values = new \Zimbra\Admin\Struct\StatsValueWrapper(array($stat));
-        $stats = new \Zimbra\Admin\Struct\StatsSpec($values, 'name', 'limit');
+        $hostname = new \Zimbra\Admin\Struct\HostName($host);
+        $startTime = new \Zimbra\Admin\Struct\TimeAttr($time);
+        $endTime = new \Zimbra\Admin\Struct\TimeAttr($time);
 
-        $api = new LocalAdminHttp(null);
-        $api->getLoggerStats(
+        $stat = new \Zimbra\Struct\NamedElement($name);
+        $values = new \Zimbra\Admin\Struct\StatsValueWrapper([$stat]);
+        $stats = new \Zimbra\Admin\Struct\StatsSpec($values, $name, $limit);
+
+        $this->_api->getLoggerStats(
             $hostname, $stats, $startTime, $endTime
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:GetLoggerStatsRequest>'
-                        .'<urn1:hostname hn="host" />'
-                        .'<urn1:stats name="name" limit="limit">'
-                            .'<urn1:values>'
-                                .'<urn1:stat name="name" />'
-                            .'</urn1:values>'
-                        .'</urn1:stats>'
-                        .'<urn1:startTime time="time" />'
-                        .'<urn1:endTime time="time" />'
-                    .'</urn1:GetLoggerStatsRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:GetLoggerStatsRequest>'
+                        . '<urn1:hostname hn="' . $host . '" />'
+                        . '<urn1:stats name="' . $name . '" limit="' . $limit . '">'
+                            . '<urn1:values>'
+                                . '<urn1:stat name="' . $name . '" />'
+                            . '</urn1:values>'
+                        . '</urn1:stats>'
+                        . '<urn1:startTime time="' . $time . '" />'
+                        . '<urn1:endTime time="' . $time . '" />'
+                    . '</urn1:GetLoggerStatsRequest>'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testGetMailbox()
     {
-        $mbox = new \Zimbra\Admin\Struct\MailboxByAccountIdSelector('account-id');
+        $id = self::randomName();
+        $mbox = new \Zimbra\Admin\Struct\MailboxByAccountIdSelector($id);
 
-        $api = new LocalAdminHttp(null);
-        $api->getMailbox(
+        $this->_api->getMailbox(
             $mbox
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:GetMailboxRequest>'
-                        .'<urn1:mbox id="account-id" />'
-                    .'</urn1:GetMailboxRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:GetMailboxRequest>'
+                        . '<urn1:mbox id="' . $id . '" />'
+                    . '</urn1:GetMailboxRequest>'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testGetMailboxStats()
     {
-        $api = new LocalAdminHttp(null);
-        $api->getMailboxStats();
+        $this->_api->getMailboxStats();
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:GetMailboxStatsRequest />'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:GetMailboxStatsRequest />'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testGetMailQueue()
     {
-        $attr = new \Zimbra\Admin\Struct\ValueAttrib('value');
-        $field = new \Zimbra\Admin\Struct\QueueQueryField('name', array($attr));
-        $query = new \Zimbra\Admin\Struct\QueueQuery(array($field), 100, 100);
-        $queue = new \Zimbra\Admin\Struct\MailQueueQuery($query, 'name', false, 100);
-        $server = new \Zimbra\Admin\Struct\ServerMailQueueQuery($queue, 'name');
+        $name = self::randomName();
+        $value = self::randomName();
+        $limit = mt_rand(0, 100);
+        $offset = mt_rand(0, 100);
+        $wait = mt_rand(0, 100);
 
-        $api = new LocalAdminHttp(null);
-        $api->getMailQueue($server);
+        $attr = new \Zimbra\Admin\Struct\ValueAttrib($value);
+        $field = new \Zimbra\Admin\Struct\QueueQueryField($name, [$attr]);
+        $query = new \Zimbra\Admin\Struct\QueueQuery([$field], $limit, $offset);
+        $queue = new \Zimbra\Admin\Struct\MailQueueQuery($query, $name, false, $wait);
+        $server = new \Zimbra\Admin\Struct\ServerMailQueueQuery($queue, $name);
 
-        $client = $api->client();
+        $this->_api->getMailQueue($server);
+
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:GetMailQueueRequest>'
-                        .'<urn1:server name="name">'
-                            .'<urn1:queue name="name" scan="false" wait="100">'
-                                .'<urn1:query limit="100" offset="100">'
-                                    .'<urn1:field name="name">'
-                                        .'<urn1:match value="value" />'
-                                    .'</urn1:field>'
-                                .'</urn1:query>'
-                            .'</urn1:queue>'
-                        .'</urn1:server>'
-                    .'</urn1:GetMailQueueRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:GetMailQueueRequest>'
+                        . '<urn1:server name="' . $name . '">'
+                            . '<urn1:queue name="' . $name . '" scan="false" wait="' . $wait . '">'
+                                . '<urn1:query limit="' . $limit . '" offset="' . $offset . '">'
+                                    . '<urn1:field name="' . $name . '">'
+                                        . '<urn1:match value="' . $value . '" />'
+                                    . '</urn1:field>'
+                                . '</urn1:query>'
+                            . '</urn1:queue>'
+                        . '</urn1:server>'
+                    . '</urn1:GetMailQueueRequest>'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testGetMailQueueInfo()
     {
-        $server = new \Zimbra\Struct\NamedElement('name');
+        $name = self::randomName();
+        $server = new \Zimbra\Struct\NamedElement($name);
 
-        $api = new LocalAdminHttp(null);
-        $api->getMailQueueInfo(
+        $this->_api->getMailQueueInfo(
             $server
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:GetMailQueueInfoRequest>'
-                        .'<urn1:server name="name" />'
-                    .'</urn1:GetMailQueueInfoRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:GetMailQueueInfoRequest>'
+                        . '<urn1:server name="' . $name . '" />'
+                    . '</urn1:GetMailQueueInfoRequest>'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testGetMemcachedClientConfig()
     {
-        $api = new LocalAdminHttp(null);
-        $api->getMemcachedClientConfig();
+        $this->_api->getMemcachedClientConfig();
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:GetMemcachedClientConfigRequest />'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:GetMemcachedClientConfigRequest />'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testGetQuotaUsage()
     {
-        $api = new LocalAdminHttp(null);
-        $api->getQuotaUsage(
-            'domain', true, 10, 10, QuotaSortBy::TOTAL_USED(), true, false
+        $domain = self::randomName();
+        $limit = mt_rand(0, 100);
+        $offset = mt_rand(0, 100);
+        $this->_api->getQuotaUsage(
+            $domain, true, $limit, $offset, QuotaSortBy::TOTAL_USED(), true, false
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:GetQuotaUsageRequest '
-                        .'domain="domain" '
-                        .'allServers="true" '
-                        .'limit="10" '
-                        .'offset="10" '
-                        .'sortBy="totalUsed" '
-                        .'sortAscending="true" '
-                        .'refresh="false" />'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:GetQuotaUsageRequest '
+                        . 'domain="' . $domain . '" '
+                        . 'allServers="true" '
+                        . 'limit="' . $limit . '" '
+                        . 'offset="' . $offset . '" '
+                        . 'sortBy="' . QuotaSortBy::TOTAL_USED() . '" '
+                        . 'sortAscending="true" '
+                        . 'refresh="false" />'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testGetRight()
     {
-        $api = new LocalAdminHttp(null);
-        $api->getRight('right', true);
+        $right = self::randomName();
+        $this->_api->getRight($right, true);
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:GetRightRequest expandAllAttrs="true">'
-                        .'<urn1:right>right</urn1:right>'
-                    .'</urn1:GetRightRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:GetRightRequest expandAllAttrs="true">'
+                        . '<urn1:right>' . $right . '</urn1:right>'
+                    . '</urn1:GetRightRequest>'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testGetRightsDoc()
     {
-        $package = new \Zimbra\Admin\Struct\PackageSelector('name');
+        $name = self::randomName();
+        $package = new \Zimbra\Admin\Struct\PackageSelector($name);
 
-        $api = new LocalAdminHttp(null);
-        $api->getRightsDoc(array($package));
+        $this->_api->getRightsDoc([$package]);
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:GetRightsDocRequest>'
-                        .'<urn1:package name="name" />'
-                    .'</urn1:GetRightsDocRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:GetRightsDocRequest>'
+                        . '<urn1:package name="' . $name . '" />'
+                    . '</urn1:GetRightsDocRequest>'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testGetServer()
     {
-        $server = new \Zimbra\Admin\Struct\ServerSelector(ServerBy::NAME(), 'server');
+        $value = self::randomName();
+        $attrs = self::randomName();
+        $server = new \Zimbra\Admin\Struct\ServerSelector(ServerBy::NAME(), $value);
 
-        $api = new LocalAdminHttp(null);
-        $api->getServer($server, true, 'attrs');
+        $this->_api->getServer($server, true, [$attrs]);
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:GetServerRequest applyConfig="true" attrs="attrs">'
-                        .'<urn1:server by="name">server</urn1:server>'
-                    .'</urn1:GetServerRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:GetServerRequest applyConfig="true" attrs="' . $attrs . '">'
+                        . '<urn1:server by="' . ServerBy::NAME() . '">' . $value . '</urn1:server>'
+                    . '</urn1:GetServerRequest>'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testGetServerNIfs()
     {
-        $server = new \Zimbra\Admin\Struct\ServerSelector(ServerBy::NAME(), 'server');
+        $value = self::randomName();
+        $server = new \Zimbra\Admin\Struct\ServerSelector(ServerBy::NAME(), $value);
 
-        $api = new LocalAdminHttp(null);
-        $api->getServerNIfs($server, IpType::IPV4());
+        $this->_api->getServerNIfs($server, IpType::IPV4());
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:GetServerNIfsRequest type="ipV4">'
-                        .'<urn1:server by="name">server</urn1:server>'
-                    .'</urn1:GetServerNIfsRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:GetServerNIfsRequest type="' . IpType::IPV4() . '">'
+                        . '<urn1:server by="' . ServerBy::NAME() . '">' . $value . '</urn1:server>'
+                    . '</urn1:GetServerNIfsRequest>'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testGetServerStats()
     {
-        $stat = new \Zimbra\Admin\Struct\Stat('name', 'description');
+        $value = self::randomName();
+        $name = self::randomName();
+        $description = self::randomName();
 
-        $api = new LocalAdminHttp(null);
-        $api->getServerStats(array($stat));
+        $stat = new \Zimbra\Admin\Struct\Stat($value, $name, $description);
 
-        $client = $api->client();
+        $this->_api->getServerStats([$stat]);
+
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:GetServerStatsRequest>'
-                        .'<urn1:stat name="name" description="description" />'
-                    .'</urn1:GetServerStatsRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:GetServerStatsRequest>'
+                        . '<urn1:stat name="' . $name . '" description="' . $description . '">' . $value . '</urn1:stat>'
+                    . '</urn1:GetServerStatsRequest>'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testGetServiceStatus()
     {
-        $api = new LocalAdminHttp(null);
-        $api->getServiceStatus();
+        $this->_api->getServiceStatus();
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:GetServiceStatusRequest />'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:GetServiceStatusRequest />'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testGetSessions()
     {
-        $api = new LocalAdminHttp(null);
-        $api->getSessions(
-            SessionType::ADMIN(), SessionsSortBy::NAME_DESC(), 10, 10, true
+        $limit = mt_rand(0, 100);
+        $offset = mt_rand(0, 100);
+        $this->_api->getSessions(
+            SessionType::ADMIN(), SessionsSortBy::NAME_DESC(), $limit, $offset, true
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:GetSessionsRequest '
-                        .'type="admin" '
-                        .'sortBy="nameDesc" '
-                        .'limit="10" '
-                        .'offset="10" '
-                        .'refresh="true" />'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:GetSessionsRequest '
+                        . 'type="' . SessionType::ADMIN() . '" '
+                        . 'sortBy="' . SessionsSortBy::NAME_DESC() . '" '
+                        . 'limit="' . $limit . '" '
+                        . 'offset="' . $offset . '" '
+                        . 'refresh="true" />'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testGetShareInfo()
     {
-        $owner = new \Zimbra\Struct\AccountSelector(AccountBy::NAME(), 'value');
-        $grantee = new \Zimbra\Struct\GranteeChooser('type', 'id', 'name');
+        $value = self::randomName();
+        $type = self::randomName();
+        $id = self::randomName();
+        $name = self::randomName();
 
-        $api = new LocalAdminHttp(null);
-        $api->getShareInfo($owner, $grantee);
+        $owner = new \Zimbra\Struct\AccountSelector(AccountBy::NAME(), $value);
+        $grantee = new \Zimbra\Struct\GranteeChooser($type, $id, $name);
 
-        $client = $api->client();
+        $this->_api->getShareInfo($owner, $grantee);
+
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:GetShareInfoRequest>'
-                        .'<urn1:owner by="name">value</urn1:owner>'
-                        .'<urn1:grantee type="type" id="id" name="name" />'
-                    .'</urn1:GetShareInfoRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:GetShareInfoRequest>'
+                        . '<urn1:owner by="' . AccountBy::NAME() . '">' . $value . '</urn1:owner>'
+                        . '<urn1:grantee type="' . $type . '" id="' . $id . '" name="' . $name . '" />'
+                    . '</urn1:GetShareInfoRequest>'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testGetSystemRetentionPolicy()
     {
-        $cos = new \Zimbra\Admin\Struct\CosSelector(CosBy::NAME(), 'value');
+        $value = self::randomName();
+        $cos = new \Zimbra\Admin\Struct\CosSelector(CosBy::NAME(), $value);
 
-        $api = new LocalAdminHttp(null);
-        $api->getSystemRetentionPolicy($cos);
+        $this->_api->getSystemRetentionPolicy($cos);
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:GetSystemRetentionPolicyRequest>'
-                        .'<urn1:cos by="name">value</urn1:cos>'
-                    .'</urn1:GetSystemRetentionPolicyRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:GetSystemRetentionPolicyRequest>'
+                        . '<urn1:cos by="' . CosBy::NAME() . '">' . $value . '</urn1:cos>'
+                    . '</urn1:GetSystemRetentionPolicyRequest>'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testGetUCService()
     {
-        $ucservice = new \Zimbra\Admin\Struct\UcServiceSelector(UcServiceBy::NAME(), 'value');
+        $value = self::randomName();
+        $attrs = self::randomName();
+        $ucservice = new \Zimbra\Admin\Struct\UcServiceSelector(UcServiceBy::NAME(), $value);
 
-        $api = new LocalAdminHttp(null);
-        $api->getUCService($ucservice, 'attrs');
+        $this->_api->getUCService($ucservice, [$attrs]);
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:GetUCServiceRequest attrs="attrs">'
-                        .'<urn1:ucservice by="name">value</urn1:ucservice>'
-                    .'</urn1:GetUCServiceRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:GetUCServiceRequest attrs="' . $attrs . '">'
+                        . '<urn1:ucservice by="' . UcServiceBy::NAME() . '">' . $value . '</urn1:ucservice>'
+                    . '</urn1:GetUCServiceRequest>'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testGetVersionInfo()
     {
-        $api = new LocalAdminHttp(null);
-        $api->getVersionInfo();
+        $this->_api->getVersionInfo();
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:GetVersionInfoRequest />'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:GetVersionInfoRequest />'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testGetVolume()
     {
-        $api = new LocalAdminHttp(null);
-        $api->getVolume(100);
+        $id = mt_rand(0, 100);
+        $this->_api->getVolume($id);
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:GetVolumeRequest id="100" />'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:GetVolumeRequest id="' . $id . '" />'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testGetXMPPComponent()
     {
-        $xmpp = new \Zimbra\Admin\Struct\XmppComponentSelector(XmppBy::NAME(), 'value');
+        $value = self::randomName();
+        $attrs = self::randomName();
+        $xmpp = new \Zimbra\Admin\Struct\XmppComponentSelector(XmppBy::NAME(), $value);
 
-        $api = new LocalAdminHttp(null);
-        $api->getXMPPComponent(
-            $xmpp, 'attrs'
+        $this->_api->getXMPPComponent(
+            $xmpp, [$attrs]
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:GetXMPPComponentRequest attrs="attrs">'
-                        .'<urn1:xmppcomponent by="name">value</urn1:xmppcomponent>'
-                    .'</urn1:GetXMPPComponentRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:GetXMPPComponentRequest attrs="' . $attrs . '">'
+                        . '<urn1:xmppcomponent by="' . XmppBy::NAME() . '">' . $value . '</urn1:xmppcomponent>'
+                    . '</urn1:GetXMPPComponentRequest>'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testGetZimlet()
     {
-        $zimlet = new \Zimbra\Struct\NamedElement('name');
+        $name = self::randomName();
+        $attrs = self::randomName();
+        $zimlet = new \Zimbra\Struct\NamedElement($name);
 
-        $api = new LocalAdminHttp(null);
-        $api->getZimlet(
-            $zimlet, 'attrs'
+        $this->_api->getZimlet(
+            $zimlet, [$attrs]
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:GetZimletRequest attrs="attrs">'
-                        .'<urn1:zimlet name="name" />'
-                    .'</urn1:GetZimletRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:GetZimletRequest attrs="' . $attrs . '">'
+                        . '<urn1:zimlet name="' . $name . '" />'
+                    . '</urn1:GetZimletRequest>'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testGetZimletStatus()
     {
-        $api = new LocalAdminHttp(null);
-        $api->getZimletStatus();
+        $this->_api->getZimletStatus();
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:GetZimletStatusRequest />'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:GetZimletStatusRequest />'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testGrantRight()
     {
+        $value = self::randomName();
+        $secret = self::randomName();
+
         $target = new \Zimbra\Admin\Struct\EffectiveRightsTargetSelector(
-            TargetType::ACCOUNT(), TargetBy::NAME(), 'value'
+            TargetType::ACCOUNT(), TargetBy::NAME(), $value
         );
         $grantee = new \Zimbra\Admin\Struct\GranteeSelector(
-            'value', GranteeType::USR(), GranteeBy::ID(), 'secret', true
+            $value, GranteeType::USR(), GranteeBy::ID(), $secret, true
         );
-        $right = new \Zimbra\Admin\Struct\RightModifierInfo('value', true, false, false, true);
+        $right = new \Zimbra\Admin\Struct\RightModifierInfo($value, true, false, false, true);
 
-        $api = new LocalAdminHttp(null);
-        $api->grantRight(
+        $this->_api->grantRight(
             $target, $grantee, $right
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:GrantRightRequest>'
-                        .'<urn1:target type="account" by="name">value</urn1:target>'
-                        .'<urn1:grantee type="usr" by="id" secret="secret" all="true">value</urn1:grantee>'
-                        .'<urn1:right deny="true" canDelegate="false" disinheritSubGroups="false" subDomain="true">value</urn1:right>'
-                    .'</urn1:GrantRightRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:GrantRightRequest>'
+                        . '<urn1:target type="' . TargetType::ACCOUNT() . '" by="' . TargetBy::NAME() . '">' . $value . '</urn1:target>'
+                        . '<urn1:grantee type="' . GranteeType::USR() . '" by="' . GranteeBy::ID() . '" secret="' . $secret . '" all="true">' . $value . '</urn1:grantee>'
+                        . '<urn1:right deny="true" canDelegate="false" disinheritSubGroups="false" subDomain="true">' . $value . '</urn1:right>'
+                    . '</urn1:GrantRightRequest>'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testMailQueueAction()
     {
-        $attr = new \Zimbra\Admin\Struct\ValueAttrib('value');
-        $field = new \Zimbra\Admin\Struct\QueueQueryField('name', array($attr));
-        $query = new \Zimbra\Admin\Struct\QueueQuery(array($field), 100, 100);
+        $value = self::randomName();
+        $name = self::randomName();
+        $limit = mt_rand(0, 100);
+        $offset = mt_rand(0, 100);
+
+        $attr = new \Zimbra\Admin\Struct\ValueAttrib($value);
+        $field = new \Zimbra\Admin\Struct\QueueQueryField($name, [$attr]);
+        $query = new \Zimbra\Admin\Struct\QueueQuery([$field], $limit, $offset);
         $action = new \Zimbra\Admin\Struct\MailQueueAction($query, QueueAction::HOLD(), QueueActionBy::QUERY());
-        $queue = new \Zimbra\Admin\Struct\MailQueueWithAction($action, 'name');
-        $server = new \Zimbra\Admin\Struct\ServerWithQueueAction($queue, 'name');
+        $queue = new \Zimbra\Admin\Struct\MailQueueWithAction($action, $name);
+        $server = new \Zimbra\Admin\Struct\ServerWithQueueAction($queue, $name);
 
-        $api = new LocalAdminHttp(null);
-        $api->mailQueueAction($server);
+        $this->_api->mailQueueAction($server);
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:MailQueueActionRequest>'
-                        .'<urn1:server name="name">'
-                            .'<urn1:queue name="name">'
-                                .'<urn1:action op="hold" by="query">'
-                                    .'<urn1:query limit="100" offset="100">'
-                                        .'<urn1:field name="name">'
-                                            .'<urn1:match value="value" />'
-                                        .'</urn1:field>'
-                                    .'</urn1:query>'
-                                .'</urn1:action>'
-                            .'</urn1:queue>'
-                        .'</urn1:server>'
-                    .'</urn1:MailQueueActionRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:MailQueueActionRequest>'
+                        . '<urn1:server name="' . $name . '">'
+                            . '<urn1:queue name="' . $name . '">'
+                                . '<urn1:action op="' . QueueAction::HOLD() . '" by="' . QueueActionBy::QUERY() . '">'
+                                    . '<urn1:query limit="' . $limit . '" offset="' . $offset . '">'
+                                        . '<urn1:field name="' . $name . '">'
+                                            . '<urn1:match value="' . $value . '" />'
+                                        . '</urn1:field>'
+                                    . '</urn1:query>'
+                                . '</urn1:action>'
+                            . '</urn1:queue>'
+                        . '</urn1:server>'
+                    . '</urn1:MailQueueActionRequest>'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testMailQueueFlush()
     {
-        $server = new \Zimbra\Struct\NamedElement('name');
+        $name = self::randomName();
+        $server = new \Zimbra\Struct\NamedElement($name);
 
-        $api = new LocalAdminHttp(null);
-        $api->mailQueueFlush($server);
+        $this->_api->mailQueueFlush($server);
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:MailQueueFlushRequest>'
-                        .'<urn1:server name="name" />'
-                    .'</urn1:MailQueueFlushRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:MailQueueFlushRequest>'
+                        . '<urn1:server name="' . $name . '" />'
+                    . '</urn1:MailQueueFlushRequest>'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function migrateAccount()
     {
-        $migrate = new \Zimbra\Admin\Struct\IdAndAction('id', 'wiki');
+        $id = self::randomName();
+        $action = self::randomValue(['bug72174', 'wiki', 'contactGroup']);
+        $migrate = new \Zimbra\Admin\Struct\IdAndAction($id, $action);
 
-        $api = new LocalAdminHttp(null);
-        $api->migrateAccount($migrate);
+        $this->_api->migrateAccount($migrate);
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:MigrateAccountRequest>'
-                        .'<urn1:migrate id="id" action="wiki" />'
-                    .'</urn1:MigrateAccountRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:MigrateAccountRequest>'
+                        . '<urn1:migrate id="' . $id . '" action="' . $action . '" />'
+                    . '</urn1:MigrateAccountRequest>'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testModifyAccount()
     {
-        $attr = new \Zimbra\Struct\KeyValuePair('key', 'value');
+        $key = self::randomName();
+        $value = self::randomName();
+        $id = self::randomName();
+        $attr = new \Zimbra\Struct\KeyValuePair($key, $value);
 
-        $api = new LocalAdminHttp(null);
-        $api->modifyAccount(
-            'id', array($attr)
+        $this->_api->modifyAccount(
+            $id, [$attr]
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:ModifyAccountRequest id="id">'
-                        .'<urn1:a n="key">value</urn1:a>'
-                    .'</urn1:ModifyAccountRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:ModifyAccountRequest id="' . $id . '">'
+                        . '<urn1:a n="' . $key . '">' . $value . '</urn1:a>'
+                    . '</urn1:ModifyAccountRequest>'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testModifyAdminSavedSearches()
     {
-        $search = new \Zimbra\Struct\NamedValue('name', 'value');
+        $name = self::randomName();
+        $value = self::randomName();
+        $search = new \Zimbra\Struct\NamedValue($name, $value);
 
-        $api = new LocalAdminHttp(null);
-        $api->modifyAdminSavedSearches(
-            array($search)
+        $this->_api->modifyAdminSavedSearches(
+            [$search]
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:ModifyAdminSavedSearchesRequest>'
-                        .'<urn1:search name="name">value</urn1:search>'
-                    .'</urn1:ModifyAdminSavedSearchesRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:ModifyAdminSavedSearchesRequest>'
+                        . '<urn1:search name="' . $name . '">' . $value . '</urn1:search>'
+                    . '</urn1:ModifyAdminSavedSearchesRequest>'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testModifyCalendarResource()
     {
-        $attr = new \Zimbra\Struct\KeyValuePair('key', 'value');
+        $key = self::randomName();
+        $value = self::randomName();
+        $id = self::randomName();
+        $attr = new \Zimbra\Struct\KeyValuePair($key, $value);
 
-        $api = new LocalAdminHttp(null);
-        $api->modifyCalendarResource(
-            'id', array($attr)
+        $this->_api->modifyCalendarResource(
+            $id, [$attr]
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:ModifyCalendarResourceRequest id="id">'
-                        .'<urn1:a n="key">value</urn1:a>'
-                    .'</urn1:ModifyCalendarResourceRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:ModifyCalendarResourceRequest id="' . $id . '">'
+                        . '<urn1:a n="' . $key . '">' . $value . '</urn1:a>'
+                    . '</urn1:ModifyCalendarResourceRequest>'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testModifyConfig()
     {
-        $attr = new \Zimbra\Struct\KeyValuePair('key', 'value');
+        $key = self::randomName();
+        $value = self::randomName();
+        $attr = new \Zimbra\Struct\KeyValuePair($key, $value);
 
-        $api = new LocalAdminHttp(null);
-        $api->modifyConfig(
-            array($attr)
+        $this->_api->modifyConfig(
+            [$attr]
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:ModifyConfigRequest>'
-                        .'<urn1:a n="key">value</urn1:a>'
-                    .'</urn1:ModifyConfigRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:ModifyConfigRequest>'
+                        . '<urn1:a n="' . $key . '">' . $value . '</urn1:a>'
+                    . '</urn1:ModifyConfigRequest>'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testModifyCos()
     {
-        $attr = new \Zimbra\Struct\KeyValuePair('key', 'value');
+        $key = self::randomName();
+        $value = self::randomName();
+        $id = self::randomName();
+        $attr = new \Zimbra\Struct\KeyValuePair($key, $value);
 
-        $api = new LocalAdminHttp(null);
-        $api->modifyCos(
-            'id', array($attr)
+        $this->_api->modifyCos(
+            $id, [$attr]
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:ModifyCosRequest>'
-                        .'<urn1:id>id</urn1:id>'
-                        .'<urn1:a n="key">value</urn1:a>'
-                    .'</urn1:ModifyCosRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:ModifyCosRequest>'
+                        . '<urn1:id>' . $id . '</urn1:id>'
+                        . '<urn1:a n="' . $key . '">' . $value . '</urn1:a>'
+                    . '</urn1:ModifyCosRequest>'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testModifyDataSource()
     {
-        $dataSource = new \Zimbra\Struct\Id('id');
-        $attr = new \Zimbra\Struct\KeyValuePair('key', 'value');
+        $key = self::randomName();
+        $value = self::randomName();
+        $id = self::randomName();
+        $dataSource = new \Zimbra\Struct\Id($id);
+        $attr = new \Zimbra\Struct\KeyValuePair($key, $value);
 
-        $api = new LocalAdminHttp(null);
-        $api->modifyDataSource(
-            'id', $dataSource, array($attr)
+        $this->_api->modifyDataSource(
+            $id, $dataSource, [$attr]
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:ModifyDataSourceRequest id="id">'
-                        .'<urn1:dataSource id="id" />'
-                        .'<urn1:a n="key">value</urn1:a>'
-                    .'</urn1:ModifyDataSourceRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:ModifyDataSourceRequest id="' . $id . '">'
+                        . '<urn1:dataSource id="' . $id . '" />'
+                        . '<urn1:a n="' . $key . '">' . $value . '</urn1:a>'
+                    . '</urn1:ModifyDataSourceRequest>'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testModifyDelegatedAdminConstraints()
     {
-        $values = new \Zimbra\Admin\Struct\ConstraintInfoValues(array('value'));
-        $constraint = new \Zimbra\Admin\Struct\ConstraintInfo('min', 'max', $values);
-        $attr = new \Zimbra\Admin\Struct\ConstraintAttr($constraint, 'name');
+        $value = self::randomName();
+        $min = self::randomName();
+        $max = self::randomName();
+        $name = self::randomName();
+        $id = self::randomName();
 
-        $api = new LocalAdminHttp(null);
-        $api->modifyDelegatedAdminConstraints(
-            TargetType::ACCOUNT(), 'id', 'name', array($attr)
+        $values = new \Zimbra\Admin\Struct\ConstraintInfoValues([$value]);
+        $constraint = new \Zimbra\Admin\Struct\ConstraintInfo($min, $max, $values);
+        $attr = new \Zimbra\Admin\Struct\ConstraintAttr($constraint, $name);
+
+        $this->_api->modifyDelegatedAdminConstraints(
+            TargetType::ACCOUNT(), $id, $name, [$attr]
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:ModifyDelegatedAdminConstraintsRequest type="account" id="id" name="name">'
-                        .'<urn1:a name="name">'
-                            .'<urn1:constraint>'
-                                .'<urn1:min>min</urn1:min>'
-                                .'<urn1:max>max</urn1:max>'
-                                .'<urn1:values>'
-                                    .'<urn1:v>value</urn1:v>'
-                                .'</urn1:values>'
-                            .'</urn1:constraint>'
-                        .'</urn1:a>'
-                    .'</urn1:ModifyDelegatedAdminConstraintsRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:ModifyDelegatedAdminConstraintsRequest type="' . TargetType::ACCOUNT() . '" id="' . $id . '" name="' . $name . '">'
+                        . '<urn1:a name="' . $name . '">'
+                            . '<urn1:constraint>'
+                                . '<urn1:min>' . $min . '</urn1:min>'
+                                . '<urn1:max>' . $max . '</urn1:max>'
+                                . '<urn1:values>'
+                                    . '<urn1:v>' . $value . '</urn1:v>'
+                                . '</urn1:values>'
+                            . '</urn1:constraint>'
+                        . '</urn1:a>'
+                    . '</urn1:ModifyDelegatedAdminConstraintsRequest>'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testModifyDistributionList()
     {
-        $attr = new \Zimbra\Struct\KeyValuePair('key', 'value');
+        $key = self::randomName();
+        $value = self::randomName();
+        $id = self::randomName();
+        $attr = new \Zimbra\Struct\KeyValuePair($key, $value);
 
-        $api = new LocalAdminHttp(null);
-        $api->modifyDistributionList(
-            'id', array($attr)
+        $this->_api->modifyDistributionList(
+            $id, [$attr]
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:ModifyDistributionListRequest id="id">'
-                        .'<urn1:a n="key">value</urn1:a>'
-                    .'</urn1:ModifyDistributionListRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:ModifyDistributionListRequest id="' . $id . '">'
+                        . '<urn1:a n="' . $key . '">' . $value . '</urn1:a>'
+                    . '</urn1:ModifyDistributionListRequest>'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testModifyDomain()
     {
-        $attr = new \Zimbra\Struct\KeyValuePair('key', 'value');
+        $key = self::randomName();
+        $value = self::randomName();
+        $id = self::randomName();
+        $attr = new \Zimbra\Struct\KeyValuePair($key, $value);
 
-        $api = new LocalAdminHttp(null);
-        $api->modifyDomain(
-            'id', array($attr)
+        $this->_api->modifyDomain(
+            $id, [$attr]
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:ModifyDomainRequest id="id">'
-                        .'<urn1:a n="key">value</urn1:a>'
-                    .'</urn1:ModifyDomainRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:ModifyDomainRequest id="' . $id . '">'
+                        . '<urn1:a n="' . $key . '">' . $value . '</urn1:a>'
+                    . '</urn1:ModifyDomainRequest>'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testModifyLDAPEntry()
     {
-        $attr = new \Zimbra\Struct\KeyValuePair('key', 'value');
+        $key = self::randomName();
+        $value = self::randomName();
+        $dn = self::randomName();
+        $attr = new \Zimbra\Struct\KeyValuePair($key, $value);
 
-        $api = new LocalAdminHttp(null);
-        $api->modifyLDAPEntry(
-            'id', array($attr)
+        $this->_api->modifyLDAPEntry(
+            $dn, [$attr]
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:ModifyLDAPEntryRequest dn="id">'
-                        .'<urn1:a n="key">value</urn1:a>'
-                    .'</urn1:ModifyLDAPEntryRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:ModifyLDAPEntryRequest dn="' . $dn . '">'
+                        . '<urn1:a n="' . $key . '">' . $value . '</urn1:a>'
+                    . '</urn1:ModifyLDAPEntryRequest>'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testModifyServer()
     {
-        $attr = new \Zimbra\Struct\KeyValuePair('key', 'value');
+        $key = self::randomName();
+        $value = self::randomName();
+        $id = self::randomName();
+        $attr = new \Zimbra\Struct\KeyValuePair($key, $value);
 
-        $api = new LocalAdminHttp(null);
-        $api->modifyServer(
-            'id', array($attr)
+        $this->_api->modifyServer(
+            $id, [$attr]
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:ModifyServerRequest id="id">'
-                        .'<urn1:a n="key">value</urn1:a>'
-                    .'</urn1:ModifyServerRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:ModifyServerRequest id="' . $id . '">'
+                        . '<urn1:a n="' . $key . '">' . $value . '</urn1:a>'
+                    . '</urn1:ModifyServerRequest>'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testModifySystemRetentionPolicy()
     {
-        $cos = new \Zimbra\Admin\Struct\CosSelector(CosBy::NAME(), 'value');
-        $policy = new \Zimbra\Admin\Struct\Policy(Type::SYSTEM(), 'id', 'name', 'lifetime');
+        $value = self::randomName();
+        $id = self::randomName();
+        $name = self::randomName();
+        $lifetime = self::randomName();
 
-        $api = new LocalAdminHttp(null);
-        $api->modifySystemRetentionPolicy(
+        $cos = new \Zimbra\Admin\Struct\CosSelector(CosBy::NAME(), $value);
+        $policy = new \Zimbra\Admin\Struct\Policy(Type::SYSTEM(), $id, $name, $lifetime);
+
+        $this->_api->modifySystemRetentionPolicy(
             $policy, $cos
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin" xmlns:urn2="urn:zimbraMail">'
-                .'<env:Body>'
-                    .'<urn1:ModifySystemRetentionPolicyRequest>'
-                        .'<urn2:policy type="system" id="id" name="name" lifetime="lifetime" />'
-                        .'<urn1:cos by="name">value</urn1:cos>'
-                    .'</urn1:ModifySystemRetentionPolicyRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin" xmlns:urn2="urn:zimbraMail">'
+                . '<env:Body>'
+                    . '<urn1:ModifySystemRetentionPolicyRequest>'
+                        . '<urn2:policy type="' . Type::SYSTEM() . '" id="' . $id . '" name="' . $name . '" lifetime="' . $lifetime . '" />'
+                        . '<urn1:cos by="' . CosBy::NAME() . '">' . $value . '</urn1:cos>'
+                    . '</urn1:ModifySystemRetentionPolicyRequest>'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testModifyUCService()
     {
-        $attr = new \Zimbra\Struct\KeyValuePair('key', 'value');
+        $key = self::randomName();
+        $value = self::randomName();
+        $id = self::randomName();
+        $attr = new \Zimbra\Struct\KeyValuePair($key, $value);
 
-        $api = new LocalAdminHttp(null);
-        $api->modifyUCService(
-            'id', array($attr)
+        $this->_api->modifyUCService(
+            $id, [$attr]
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:ModifyUCServiceRequest>'
-                        .'<urn1:id>id</urn1:id>'
-                        .'<urn1:a n="key">value</urn1:a>'
-                    .'</urn1:ModifyUCServiceRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:ModifyUCServiceRequest>'
+                        . '<urn1:id>' . $id . '</urn1:id>'
+                        . '<urn1:a n="' . $key . '">' . $value . '</urn1:a>'
+                    . '</urn1:ModifyUCServiceRequest>'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testModifyVolume()
     {
-        $volume = new \Zimbra\Admin\Struct\VolumeInfo(10, 2, 3, 4, 5, 6, 7, 'name', 'rootpath', false, true);
+        $id = mt_rand(0, 100);
+        $type = self::randomValue([1, 2, 10]);
+        $threshold = mt_rand(0, 10);
+        $mgbits = mt_rand(0, 10);
+        $mbits = mt_rand(0, 10);
+        $fgbits = mt_rand(0, 10);
+        $fbits = mt_rand(0, 10);
+        $name = self::randomName();
+        $rootpath = self::randomName();
 
-        $api = new LocalAdminHttp(null);
-        $api->modifyVolume(
-            100, $volume
+        $volume = new \Zimbra\Admin\Struct\VolumeInfo(
+            $id, $type, $threshold, $mgbits, $mbits, $fgbits, $fbits, $name, $rootpath, false, true
         );
 
-        $client = $api->client();
+        $this->_api->modifyVolume(
+            $id, $volume
+        );
+
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:ModifyVolumeRequest id="100">'
-                        .'<urn1:volume '
-                            .'id="10" '
-                            .'type="2" '
-                            .'compressionThreshold="3" '
-                            .'mgbits="4" '
-                            .'mbits="5" '
-                            .'fgbits="6" '
-                            .'fbits="7" '
-                            .'name="name" '
-                            .'rootpath="rootpath" '
-                            .'compressBlobs="false" '
-                            .'isCurrent="true" />'
-                    .'</urn1:ModifyVolumeRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:ModifyVolumeRequest id="' . $id . '">'
+                        . '<urn1:volume '
+                            . 'id="' . $id . '" '
+                            . 'type="' . $type . '" '
+                            . 'compressionThreshold="' . $threshold . '" '
+                            . 'mgbits="' . $mgbits . '" '
+                            . 'mbits="' . $mbits . '" '
+                            . 'fgbits="' . $fgbits . '" '
+                            . 'fbits="' . $fbits . '" '
+                            . 'name="' . $name . '" '
+                            . 'rootpath="' . $rootpath . '" '
+                            . 'compressBlobs="false" '
+                            . 'isCurrent="true" />'
+                    . '</urn1:ModifyVolumeRequest>'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testModifyZimlet()
     {
-        $acl = new \Zimbra\Admin\Struct\ZimletAcl('cos', AclType::DENY());
-        $status = new \Zimbra\Admin\Struct\ValueAttrib(ZimletStatus::DISABLED);
-        $priority = new \Zimbra\Admin\Struct\IntegerValueAttrib(10);
-        $zimlet = new \Zimbra\Admin\Struct\ZimletAclStatusPri('name', $acl, $status, $priority);
+        $cos = self::randomName();
+        $name = self::randomName();
+        $value = mt_rand(0, 10);
 
-        $api = new LocalAdminHttp(null);
-        $api->modifyZimlet(
+        $acl = new \Zimbra\Admin\Struct\ZimletAcl($cos, AclType::DENY());
+        $status = new \Zimbra\Admin\Struct\ValueAttrib(ZimletStatus::DISABLED()->value());
+        $priority = new \Zimbra\Admin\Struct\IntegerValueAttrib($value);
+        $zimlet = new \Zimbra\Admin\Struct\ZimletAclStatusPri($name, $acl, $status, $priority);
+
+        $this->_api->modifyZimlet(
             $zimlet
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:ModifyZimletRequest>'
-                        .'<urn1:zimlet name="name">'
-                            .'<urn1:acl cos="cos" acl="deny" />'
-                            .'<urn1:status value="disabled" />'
-                            .'<urn1:priority value="10" />'
-                        .'</urn1:zimlet>'
-                    .'</urn1:ModifyZimletRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:ModifyZimletRequest>'
+                        . '<urn1:zimlet name="' . $name . '">'
+                            . '<urn1:acl cos="' . $cos . '" acl="' . AclType::DENY() . '" />'
+                            . '<urn1:status value="' . ZimletStatus::DISABLED() . '" />'
+                            . '<urn1:priority value="' . $value . '" />'
+                        . '</urn1:zimlet>'
+                    . '</urn1:ModifyZimletRequest>'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
-    public function testNoOp_AuthToken()
+    public function testNoOp()
     {
-        $api = new LocalAdminHttp(null);
-        $api->noOp();
+        $this->_api->noOp();
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:NoOpRequest />'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:NoOpRequest />'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testPing()
     {
-        $api = new LocalAdminHttp(null);
-        $api->ping();
+        $this->_api->ping();
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:PingRequest />'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:PingRequest />'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testPurgeAccountCalendarCache()
     {
-        $api = new LocalAdminHttp(null);
-        $api->purgeAccountCalendarCache('id');
+        $id = self::randomName();
+        $this->_api->purgeAccountCalendarCache($id);
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:PurgeAccountCalendarCacheRequest id="id" />'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:PurgeAccountCalendarCacheRequest id="' . $id . '" />'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testPurgeFreeBusyQueue()
     {
-        $provider = new \Zimbra\Struct\NamedElement('name');
+        $name = self::randomName();
+        $provider = new \Zimbra\Struct\NamedElement($name);
 
-        $api = new LocalAdminHttp(null);
-        $api->purgeFreeBusyQueue(
+        $this->_api->purgeFreeBusyQueue(
             $provider
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:PurgeFreeBusyQueueRequest>'
-                        .'<urn1:provider name="name" />'
-                    .'</urn1:PurgeFreeBusyQueueRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:PurgeFreeBusyQueueRequest>'
+                        . '<urn1:provider name="' . $name . '" />'
+                    . '</urn1:PurgeFreeBusyQueueRequest>'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testPurgeMessages()
     {
-        $mbox = new \Zimbra\Admin\Struct\MailboxByAccountIdSelector('id');
+        $id = self::randomName();
+        $mbox = new \Zimbra\Admin\Struct\MailboxByAccountIdSelector($id);
 
-        $api = new LocalAdminHttp(null);
-        $api->purgeMessages(
+        $this->_api->purgeMessages(
             $mbox
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:PurgeMessagesRequest>'
-                        .'<urn1:mbox id="id" />'
-                    .'</urn1:PurgeMessagesRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:PurgeMessagesRequest>'
+                        . '<urn1:mbox id="' . $id . '" />'
+                    . '</urn1:PurgeMessagesRequest>'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testPushFreeBusy()
     {
-        $domain = new \Zimbra\Admin\Struct\Names('name');
-        $account = new \Zimbra\Struct\Id('id');
+        $name = self::randomName();
+        $id = self::randomName();
+        $domain = new \Zimbra\Admin\Struct\Names($name);
+        $account = new \Zimbra\Struct\Id($id);
 
-        $api = new LocalAdminHttp(null);
-        $api->pushFreeBusy(
+        $this->_api->pushFreeBusy(
             $domain, $account
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:PushFreeBusyRequest>'
-                        .'<urn1:domain name="name" />'
-                        .'<urn1:account id="id" />'
-                    .'</urn1:PushFreeBusyRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:PushFreeBusyRequest>'
+                        . '<urn1:domain name="' . $name . '" />'
+                        . '<urn1:account id="' . $id . '" />'
+                    . '</urn1:PushFreeBusyRequest>'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testQueryWaitSet()
     {
-        $api = new LocalAdminHttp(null);
-        $api->queryWaitSet('waitSet');
+        $waitSet = self::randomName();
+        $this->_api->queryWaitSet($waitSet);
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:QueryWaitSetRequest waitSet="waitSet" />'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:QueryWaitSetRequest waitSet="' . $waitSet . '" />'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testRecalculateMailboxCounts()
     {
-        $mbox = new \Zimbra\Admin\Struct\MailboxByAccountIdSelector('id');
+        $id = self::randomName();
+        $mbox = new \Zimbra\Admin\Struct\MailboxByAccountIdSelector($id);
 
-        $api = new LocalAdminHttp(null);
-        $api->recalculateMailboxCounts(
+        $this->_api->recalculateMailboxCounts(
             $mbox
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:RecalculateMailboxCountsRequest>'
-                        .'<urn1:mbox id="id" />'
-                    .'</urn1:RecalculateMailboxCountsRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:RecalculateMailboxCountsRequest>'
+                        . '<urn1:mbox id="' . $id . '" />'
+                    . '</urn1:RecalculateMailboxCountsRequest>'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testReIndex()
     {
-        $mbox = new \Zimbra\Admin\Struct\ReindexMailboxInfo('id', 'task,note', 'abc,xyz');
+        $id = self::randomName();
+        $ids = self::randomName();
+        $types = self::randomAttrs(\Zimbra\Enum\ReindexType::enums());
+        $mbox = new \Zimbra\Admin\Struct\ReindexMailboxInfo($id, $types, $ids);
 
-        $api = new LocalAdminHttp(null);
-        $api->reIndex(
+        $this->_api->reIndex(
            $mbox, ReIndexAction::CANCEL()
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:ReIndexRequest action="cancel">'
-                        .'<urn1:mbox id="id" types="task,note" ids="abc,xyz" />'
-                    .'</urn1:ReIndexRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:ReIndexRequest action="' . ReIndexAction::CANCEL() . '">'
+                        . '<urn1:mbox id="' . $id . '" types="' . $types . '" ids="' . $ids . '" />'
+                    . '</urn1:ReIndexRequest>'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testReloadLocalConfig()
     {
-        $api = new LocalAdminHttp(null);
-        $api->reloadLocalConfig();
+        $this->_api->reloadLocalConfig();
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:ReloadLocalConfigRequest />'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:ReloadLocalConfigRequest />'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testReloadMemcachedClientConfig()
     {
-        $api = new LocalAdminHttp(null);
-        $api->reloadMemcachedClientConfig();
+        $this->_api->reloadMemcachedClientConfig();
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:ReloadMemcachedClientConfigRequest />'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:ReloadMemcachedClientConfigRequest />'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testRemoveAccountAlias()
     {
-        $api = new LocalAdminHttp(null);
-        $api->removeAccountAlias('alias', 'id');
+        $alias = self::randomName();
+        $id = self::randomName();
+        $this->_api->removeAccountAlias($alias, $id);
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:RemoveAccountAliasRequest alias="alias" id="id" />'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:RemoveAccountAliasRequest alias="' . $alias . '" id="' . $id . '" />'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testRemoveAccountLogger()
     {
-        $account = new \Zimbra\Struct\AccountSelector(AccountBy::NAME(), 'value');
-        $logger = new \Zimbra\Admin\Struct\LoggerInfo('category', LoggingLevel::ERROR());
+        $value = self::randomName();
+        $category = self::randomName();
+        $account = new \Zimbra\Struct\AccountSelector(AccountBy::NAME(), $value);
+        $logger = new \Zimbra\Admin\Struct\LoggerInfo($category, LoggingLevel::ERROR());
 
-        $api = new LocalAdminHttp(null);
-        $api->removeAccountLogger(
+        $this->_api->removeAccountLogger(
             $account, $logger
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:RemoveAccountLoggerRequest>'
-                        .'<urn1:account by="name">value</urn1:account>'
-                        .'<urn1:logger category="category" level="error" />'
-                    .'</urn1:RemoveAccountLoggerRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:RemoveAccountLoggerRequest>'
+                        . '<urn1:account by="' . AccountBy::NAME() . '">' . $value . '</urn1:account>'
+                        . '<urn1:logger category="' . $category . '" level="' . LoggingLevel::ERROR() . '" />'
+                    . '</urn1:RemoveAccountLoggerRequest>'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testRemoveDevice()
     {
-        $account = new \Zimbra\Struct\AccountSelector(AccountBy::NAME(), 'value');
-        $device = new \Zimbra\Admin\Struct\DeviceId('id');
+        $value = self::randomName();
+        $id = self::randomName();
+        $account = new \Zimbra\Struct\AccountSelector(AccountBy::NAME(), $value);
+        $device = new \Zimbra\Admin\Struct\DeviceId($id);
 
-        $api = new LocalAdminHttp(null);
-        $api->removeDevice(
+        $this->_api->removeDevice(
             $account, $device
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:RemoveDeviceRequest>'
-                        .'<urn1:account by="name">value</urn1:account>'
-                        .'<urn1:device id="id" />'
-                    .'</urn1:RemoveDeviceRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:RemoveDeviceRequest>'
+                        . '<urn1:account by="' . AccountBy::NAME() . '">' . $value . '</urn1:account>'
+                        . '<urn1:device id="' . $id . '" />'
+                    . '</urn1:RemoveDeviceRequest>'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testRemoveDistributionListAlias()
     {
-        $api = new LocalAdminHttp(null);
-        $api->removeDistributionListAlias('id', 'alias');
+        $id = self::randomName();
+        $alias = self::randomName();
+        $this->_api->removeDistributionListAlias($id, $alias);
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:RemoveDistributionListAliasRequest id="id" alias="alias" />'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:RemoveDistributionListAliasRequest id="' . $id . '" alias="' . $alias . '" />'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testRemoveDistributionListMember()
     {
-        $api = new LocalAdminHttp(null);
-        $api->removeDistributionListMember('id', array('dlm'));
+        $id = self::randomName();
+        $member1 = self::randomName();
+        $member2 = self::randomName();
+        $this->_api->removeDistributionListMember($id, [$member1, $member2]);
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:RemoveDistributionListMemberRequest id="id">'
-                        .'<urn1:dlm>dlm</urn1:dlm>'
-                    .'</urn1:RemoveDistributionListMemberRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:RemoveDistributionListMemberRequest id="' . $id . '">'
+                        . '<urn1:dlm>' . $member1 . '</urn1:dlm>'
+                        . '<urn1:dlm>' . $member2 . '</urn1:dlm>'
+                    . '</urn1:RemoveDistributionListMemberRequest>'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testRenameAccount()
     {
-        $api = new LocalAdminHttp(null);
-        $api->renameAccount('id', 'newName');
+        $id = self::randomName();
+        $newName = self::randomName();
+        $this->_api->renameAccount($id, $newName);
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:RenameAccountRequest id="id" newName="newName" />'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:RenameAccountRequest id="' . $id . '" newName="' . $newName . '" />'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testRenameCalendarResource()
     {
-        $api = new LocalAdminHttp(null);
-        $api->renameCalendarResource('id', 'newName');
+        $id = self::randomName();
+        $newName = self::randomName();
+        $this->_api->renameCalendarResource($id, $newName);
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:RenameCalendarResourceRequest id="id" newName="newName" />'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:RenameCalendarResourceRequest id="' . $id . '" newName="' . $newName . '" />'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testRenameCos()
     {
-        $api = new LocalAdminHttp(null);
-        $api->renameCos('id', 'newName');
+        $id = self::randomName();
+        $newName = self::randomName();
+        $this->_api->renameCos($id, $newName);
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:RenameCosRequest>'
-                        .'<urn1:id>id</urn1:id>'
-                        .'<urn1:newName>newName</urn1:newName>'
-                    .'</urn1:RenameCosRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:RenameCosRequest>'
+                        . '<urn1:id>' . $id . '</urn1:id>'
+                        . '<urn1:newName>' . $newName . '</urn1:newName>'
+                    . '</urn1:RenameCosRequest>'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testRenameDistributionList()
     {
-        $api = new LocalAdminHttp(null);
-        $api->renameDistributionList('id', 'newName');
+        $id = self::randomName();
+        $newName = self::randomName();
+        $this->_api->renameDistributionList($id, $newName);
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:RenameDistributionListRequest id="id" newName="newName" />'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:RenameDistributionListRequest id="' . $id . '" newName="' . $newName . '" />'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testRenameLDAPEntry()
     {
-        $api = new LocalAdminHttp(null);
-        $api->renameLDAPEntry('dn', 'new_dn');
+        $dn = self::randomName();
+        $newDn = self::randomName();
+        $this->_api->renameLDAPEntry($dn, $newDn);
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:RenameLDAPEntryRequest dn="dn" new_dn="new_dn" />'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:RenameLDAPEntryRequest dn="' . $dn . '" new_dn="' . $newDn . '" />'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testRenameUCService()
     {
-        $api = new LocalAdminHttp(null);
-        $api->renameUCService('id', 'newName');
+        $id = self::randomName();
+        $newName = self::randomName();
+        $this->_api->renameUCService($id, $newName);
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:RenameUCServiceRequest>'
-                        .'<urn1:id>id</urn1:id>'
-                        .'<urn1:newName>newName</urn1:newName>'
-                    .'</urn1:RenameUCServiceRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:RenameUCServiceRequest>'
+                        . '<urn1:id>' . $id . '</urn1:id>'
+                        . '<urn1:newName>' . $newName . '</urn1:newName>'
+                    . '</urn1:RenameUCServiceRequest>'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testResetAllLoggers()
     {
-        $api = new LocalAdminHttp(null);
-        $api->resetAllLoggers();
+        $this->_api->resetAllLoggers();
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:ResetAllLoggersRequest />'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:ResetAllLoggersRequest />'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testResumeDevice()
     {
-        $account = new \Zimbra\Struct\AccountSelector(AccountBy::NAME(), 'value');
-        $device = new \Zimbra\Admin\Struct\DeviceId('id');
+        $id = self::randomName();
+        $value = self::randomName();
+        $account = new \Zimbra\Struct\AccountSelector(AccountBy::NAME(), $value);
+        $device = new \Zimbra\Admin\Struct\DeviceId($id);
 
-        $api = new LocalAdminHttp(null);
-        $api->resumeDevice(
+        $this->_api->resumeDevice(
             $account, $device
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:ResumeDeviceRequest>'
-                        .'<urn1:account by="name">value</urn1:account>'
-                        .'<urn1:device id="id" />'
-                    .'</urn1:ResumeDeviceRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:ResumeDeviceRequest>'
+                        . '<urn1:account by="' . AccountBy::NAME() . '">' . $value . '</urn1:account>'
+                        . '<urn1:device id="' . $id . '" />'
+                    . '</urn1:ResumeDeviceRequest>'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testRevokeRight()
     {
+        $value = self::randomName();
+        $secret = self::randomName();
+
         $target = new \Zimbra\Admin\Struct\EffectiveRightsTargetSelector(
-            TargetType::ACCOUNT(), TargetBy::NAME(), 'value'
+            TargetType::ACCOUNT(), TargetBy::NAME(), $value
         );
         $grantee = new \Zimbra\Admin\Struct\GranteeSelector(
-            'value', GranteeType::USR(), GranteeBy::ID(), 'secret', true
+            $value, GranteeType::USR(), GranteeBy::ID(), $secret, true
         );
-        $right = new \Zimbra\Admin\Struct\RightModifierInfo('value', true, false, false, true);
+        $right = new \Zimbra\Admin\Struct\RightModifierInfo($value, true, false, false, true);
 
-        $api = new LocalAdminHttp(null);
-        $api->revokeRight(
+        $this->_api->revokeRight(
             $target, $grantee, $right
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:RevokeRightRequest>'
-                        .'<urn1:target type="account" by="name">value</urn1:target>'
-                        .'<urn1:grantee type="usr" by="id" secret="secret" all="true">value</urn1:grantee>'
-                        .'<urn1:right deny="true" canDelegate="false" disinheritSubGroups="false" subDomain="true">value</urn1:right>'
-                    .'</urn1:RevokeRightRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:RevokeRightRequest>'
+                        . '<urn1:target type="' . TargetType::ACCOUNT() . '" by="' . TargetBy::NAME() . '">' . $value . '</urn1:target>'
+                        . '<urn1:grantee type="' . GranteeType::USR() . '" by="' . GranteeBy::ID() . '" secret="' . $secret . '" all="true">' . $value . '</urn1:grantee>'
+                        . '<urn1:right deny="true" canDelegate="false" disinheritSubGroups="false" subDomain="true">' . $value . '</urn1:right>'
+                    . '</urn1:RevokeRightRequest>'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testRunUnitTests()
     {
-        $api = new LocalAdminHttp(null);
-        $api->runUnitTests(array('test'));
+        $test1 = self::randomName();
+        $test2 = self::randomName();
+        $this->_api->runUnitTests([$test1, $test2]);
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:RunUnitTestsRequest>'
-                        .'<urn1:test>test</urn1:test>'
-                    .'</urn1:RunUnitTestsRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:RunUnitTestsRequest>'
+                        . '<urn1:test>' . $test1 . '</urn1:test>'
+                        . '<urn1:test>' . $test2 . '</urn1:test>'
+                    . '</urn1:RunUnitTestsRequest>'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testSearchAccounts()
     {
-        $api = new LocalAdminHttp(null);
-        $api->searchAccounts(
-            'query', 100, 100, 'domain', true, 'displayName', 'sortBy', 'resources', false
+        $query = self::randomName();
+        $domain = self::randomName();
+        $attrs = self::randomAttrs(['displayName', 'zimbraId', 'zimbraAccountStatus']);
+        $sortBy = self::randomName();
+        $types = self::randomAttrs(['accounts', 'resources']);
+        $limit = mt_rand(0, 100);
+        $offset = mt_rand(0, 100);
+        $this->_api->searchAccounts(
+            $query, $limit, $offset, $domain, true, $attrs, $sortBy, $types, false 
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:SearchAccountsRequest '
-                        .'query="query" '
-                        .'limit="100" '
-                        .'offset="100" '
-                        .'domain="domain" '
-                        .'applyCos="true" '
-                        .'attrs="displayName" '
-                        .'sortBy="sortBy" '
-                        .'types="resources" '
-                        .'sortAscending="false" '
-                    .'/>'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:SearchAccountsRequest '
+                        . 'query="' . $query . '" '
+                        . 'limit="' . $limit . '" '
+                        . 'offset="' . $offset . '" '
+                        . 'domain="' . $domain . '" '
+                        . 'applyCos="true" '
+                        . 'attrs="' . $attrs . '" '
+                        . 'sortBy="' . $sortBy . '" '
+                        . 'types="' . $types . '" '
+                        . 'sortAscending="false" '
+                    . '/>'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testSearchAutoProvDirectory()
     {
-        $domain = new \Zimbra\Admin\Struct\DomainSelector(DomainBy::NAME(), 'value');
+        $value = self::randomName();
+        $keyAttr = self::randomName();
+        $query = self::randomName();
+        $name = self::randomName();
+        $attrs = self::randomName();
+        $maxResults = mt_rand(0, 100);
+        $limit = mt_rand(0, 100);
+        $offset = mt_rand(0, 100);
 
-        $api = new LocalAdminHttp(null);
-        $api->searchAutoProvDirectory(
-            $domain, 'keyAttr', 'query', 'name', 100, 100, 100, true, 'attrs'
+        $domain = new \Zimbra\Admin\Struct\DomainSelector(DomainBy::NAME(), $value);
+
+        $this->_api->searchAutoProvDirectory(
+            $domain, $keyAttr, $query, $name, $maxResults, $limit, $offset, true, [$attrs]
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:SearchAutoProvDirectoryRequest keyAttr="keyAttr" query="query" name="name" maxResults="100" limit="100" offset="100" refresh="true" attrs="attrs">'
-                        .'<urn1:domain by="name">value</urn1:domain>'
-                    .'</urn1:SearchAutoProvDirectoryRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:SearchAutoProvDirectoryRequest keyAttr="' . $keyAttr . '" query="' . $query . '" name="' . $name . '" maxResults="' . $maxResults . '" limit="' . $limit . '" offset="' . $offset . '" refresh="true" attrs="' . $attrs . '">'
+                        . '<urn1:domain by="' . DomainBy::NAME() . '">' . $value . '</urn1:domain>'
+                    . '</urn1:SearchAutoProvDirectoryRequest>'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testSearchCalendarResources()
     {
-        $otherCond = new \Zimbra\Admin\Struct\EntrySearchFilterSingleCond('attr', CondOp::GE(), 'value', false);
-        $otherConds = new \Zimbra\Admin\Struct\EntrySearchFilterMultiCond(false, true, NULL, $otherCond);
-        $cond = new \Zimbra\Admin\Struct\EntrySearchFilterSingleCond('a', CondOp::EQ(), 'v', true);
-        $conds = new \Zimbra\Admin\Struct\EntrySearchFilterMultiCond(true, false, $otherConds, $cond);
+        $attr = self::randomName();
+        $value = self::randomName();
+        $domain = self::randomName();
+        $sortBy = self::randomName();
+        $attrs = self::randomName();
+        $limit = mt_rand(0, 100);
+        $offset = mt_rand(0, 100);
 
-        $searchFilter = new \Zimbra\Admin\Struct\EntrySearchFilterInfo($conds);
-        $api = new LocalAdminHttp(null);
-        $api->searchCalendarResources(
-            $searchFilter, 10, 10, 'domain', true, 'sortBy', false, 'attrs'
+        $cond = new \Zimbra\Struct\EntrySearchFilterSingleCond($attr, CondOp::EQ(), $value, true);
+        $singleCond = new \Zimbra\Struct\EntrySearchFilterSingleCond($attr, CondOp::GE(), $value, false);
+        $multiConds = new \Zimbra\Struct\EntrySearchFilterMultiCond(false, true, [$singleCond]);
+        $conds = new \Zimbra\Struct\EntrySearchFilterMultiCond(true, false, [$cond, $multiConds]);
+        $searchFilter = new \Zimbra\Struct\EntrySearchFilterInfo($conds);
+
+        $this->_api->searchCalendarResources(
+            $searchFilter, $limit, $offset, $domain, true, $sortBy, false, [$attrs]
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:SearchCalendarResourcesRequest '
-                        .'limit="10" '
-                        .'offset="10" '
-                        .'domain="domain" '
-                        .'applyCos="true" '
-                        .'sortBy="sortBy" '
-                        .'sortAscending="false" '
-                        .'attrs="attrs">'
-                        .'<urn1:searchFilter>'
-                            .'<urn1:conds not="true" or="false">'
-                                .'<urn1:conds not="false" or="true">'
-                                    .'<urn1:cond attr="attr" op="ge" value="value" not="false" />'
-                                .'</urn1:conds>'
-                                .'<urn1:cond attr="a" op="eq" value="v" not="true" />'
-                            .'</urn1:conds>'
-                        .'</urn1:searchFilter>'
-                    .'</urn1:SearchCalendarResourcesRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:SearchCalendarResourcesRequest '
+                        . 'limit="' . $limit . '" '
+                        . 'offset="' . $offset . '" '
+                        . 'domain="' . $domain . '" '
+                        . 'applyCos="true" '
+                        . 'sortBy="' . $sortBy . '" '
+                        . 'sortAscending="false" '
+                        . 'attrs="' . $attrs . '">'
+                        . '<urn1:searchFilter>'
+                            . '<urn1:conds not="true" or="false">'
+                                . '<urn1:conds not="false" or="true">'
+                                    . '<urn1:cond attr="' . $attr . '" op="' . CondOp::GE() . '" value="' . $value . '" not="false" />'
+                                . '</urn1:conds>'
+                                . '<urn1:cond attr="' . $attr . '" op="' . CondOp::EQ() . '" value="' . $value . '" not="true" />'
+                            . '</urn1:conds>'
+                        . '</urn1:searchFilter>'
+                    . '</urn1:SearchCalendarResourcesRequest>'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
-        $searchFilter = new \Zimbra\Admin\Struct\EntrySearchFilterInfo($cond);
-        $api = new LocalAdminHttp(null);
-        $api->searchCalendarResources(
-            $searchFilter, 10, 10, 'domain', true, 'sortBy', false, 'attrs'
+        $searchFilter = new \Zimbra\Struct\EntrySearchFilterInfo($cond);
+        $this->_api->searchCalendarResources(
+            $searchFilter, $limit, $offset, $domain, true, $sortBy, false, [$attrs]
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:SearchCalendarResourcesRequest '
-                        .'limit="10" '
-                        .'offset="10" '
-                        .'domain="domain" '
-                        .'applyCos="true" '
-                        .'sortBy="sortBy" '
-                        .'sortAscending="false" '
-                        .'attrs="attrs">'
-                        .'<urn1:searchFilter>'
-                            .'<urn1:cond attr="a" op="eq" value="v" not="true" />'
-                        .'</urn1:searchFilter>'
-                    .'</urn1:SearchCalendarResourcesRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:SearchCalendarResourcesRequest '
+                        . 'limit="' . $limit . '" '
+                        . 'offset="' . $offset . '" '
+                        . 'domain="' . $domain . '" '
+                        . 'applyCos="true" '
+                        . 'sortBy="' . $sortBy . '" '
+                        . 'sortAscending="false" '
+                        . 'attrs="' . $attrs . '">'
+                        . '<urn1:searchFilter>'
+                            . '<urn1:cond attr="' . $attr . '" op="' . CondOp::EQ() . '" value="' . $value . '" not="true" />'
+                        . '</urn1:searchFilter>'
+                    . '</urn1:SearchCalendarResourcesRequest>'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testSearchDirectory()
     {
-        $api = new LocalAdminHttp(null);
-        $api->searchDirectory(
-            'query', 10, 10, 10, 'domain', true, false, array(DirSearchType::ACCOUNTS()), 'sortBy', false, true, 'attrs'
+        $query = self::randomName();
+        $domain = self::randomName();
+        $sortBy = self::randomName();
+        $attrs = self::randomName();
+        $maxResults = mt_rand(0, 100);
+        $limit = mt_rand(0, 100);
+        $offset = mt_rand(0, 100);
+
+        $this->_api->searchDirectory(
+            $query, $maxResults, $limit, $offset, $domain, true, false, [DirSearchType::ACCOUNTS()], $sortBy, false, true, [$attrs]
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:SearchDirectoryRequest '
-                        .'query="query" '
-                        .'maxResults="10" '
-                        .'limit="10" '
-                        .'offset="10" '
-                        .'domain="domain" '
-                        .'applyCos="true" '
-                        .'applyConfig="false" '
-                        .'types="accounts" '
-                        .'sortBy="sortBy" '
-                        .'sortAscending="false" '
-                        .'countOnly="true" '
-                        .'attrs="attrs" '
-                    .'/>'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:SearchDirectoryRequest '
+                        . 'query="' . $query . '" '
+                        . 'maxResults="' . $maxResults . '" '
+                        . 'limit="' . $limit . '" '
+                        . 'offset="' . $offset . '" '
+                        . 'domain="' . $domain . '" '
+                        . 'applyCos="true" '
+                        . 'applyConfig="false" '
+                        . 'types="' . DirSearchType::ACCOUNTS() . '" '
+                        . 'sortBy="' . $sortBy . '" '
+                        . 'sortAscending="false" '
+                        . 'countOnly="true" '
+                        . 'attrs="' . $attrs . '" '
+                    . '/>'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testSearchGal()
     {
-        $api = new LocalAdminHttp(null);
-        $api->searchGal(
-            'domain', 'name', 10, GalSearchType::ACCOUNT(), 'galAcctId'
+        $domain = self::randomName();
+        $name = self::randomName();
+        $galAcctId = self::randomName();
+        $limit = mt_rand(0, 100);
+        $this->_api->searchGal(
+            $domain, $name, $limit, GalSearchType::ACCOUNT(), $galAcctId
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:SearchGalRequest '
-                        .'domain="domain" '
-                        .'name="name" '
-                        .'limit="10" '
-                        .'type="account" '
-                        .'galAcctId="galAcctId" '
-                    .'/>'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:SearchGalRequest '
+                        . 'domain="' . $domain . '" '
+                        . 'name="' . $name . '" '
+                        . 'limit="' . $limit . '" '
+                        . 'type="' . GalSearchType::ACCOUNT() . '" '
+                        . 'galAcctId="' . $galAcctId . '" '
+                    . '/>'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testSetCurrentVolume()
     {
-        $api = new LocalAdminHttp(null);
-        $api->setCurrentVolume(
-            100, VolumeType::SECONDARY()
+        $id = mt_rand(0, 100);
+        $this->_api->setCurrentVolume(
+            $id, VolumeType::SECONDARY()
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:SetCurrentVolumeRequest '
-                        .'id="100" '
-                        .'type="2" '
-                    .'/>'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:SetCurrentVolumeRequest '
+                        . 'id="' . $id . '" '
+                        . 'type="' . VolumeType::SECONDARY() . '" '
+                    . '/>'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testSetPassword()
     {
-        $api = new LocalAdminHttp(null);
-        $api->setPassword('id', 'newPassword');
+        $id = self::randomName();
+        $newPassword = self::randomName();
+        $this->_api->setPassword($id, $newPassword);
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:SetPasswordRequest id="id" newPassword="newPassword" />'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:SetPasswordRequest id="' . $id . '" newPassword="' . $newPassword . '" />'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testSuspendDevice()
     {
-        $account = new \Zimbra\Struct\AccountSelector(AccountBy::NAME(), 'value');
-        $device = new \Zimbra\Admin\Struct\DeviceId('id');
+        $id = self::randomName();
+        $value = self::randomName();
+        $account = new \Zimbra\Struct\AccountSelector(AccountBy::NAME(), $value);
+        $device = new \Zimbra\Admin\Struct\DeviceId($id);
 
-        $api = new LocalAdminHttp(null);
-        $api->suspendDevice(
+        $this->_api->suspendDevice(
             $account, $device
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:SuspendDeviceRequest>'
-                        .'<urn1:account by="name">value</urn1:account>'
-                        .'<urn1:device id="id" />'
-                    .'</urn1:SuspendDeviceRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:SuspendDeviceRequest>'
+                        . '<urn1:account by="' . AccountBy::NAME() . '">' . $value . '</urn1:account>'
+                        . '<urn1:device id="' . $id . '" />'
+                    . '</urn1:SuspendDeviceRequest>'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testSyncGalAccount()
     {
-        $ds = new \Zimbra\Admin\Struct\SyncGalAccountDataSourceSpec(DataSourceBy::NAME(), 'value', false, true);
-        $account = new \Zimbra\Admin\Struct\SyncGalAccountSpec('id', array($ds));
+        $id = self::randomName();
+        $value = self::randomName();
 
-        $api = new LocalAdminHttp(null);
-        $api->syncGalAccount(
+        $ds = new \Zimbra\Admin\Struct\SyncGalAccountDataSourceSpec(DataSourceBy::NAME(), $value, false, true);
+        $account = new \Zimbra\Admin\Struct\SyncGalAccountSpec($id, [$ds]);
+
+        $this->_api->syncGalAccount(
             $account
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:SyncGalAccountRequest>'
-                        .'<urn1:account id="id">'
-                            .'<urn1:datasource by="name" fullSync="false" reset="true">value</urn1:datasource>'
-                        .'</urn1:account>'
-                    .'</urn1:SyncGalAccountRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:SyncGalAccountRequest>'
+                        . '<urn1:account id="' . $id . '">'
+                            . '<urn1:datasource by="' . DataSourceBy::NAME() . '" fullSync="false" reset="true">' . $value . '</urn1:datasource>'
+                        . '</urn1:account>'
+                    . '</urn1:SyncGalAccountRequest>'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testUndeployZimlet()
     {
-        $api = new LocalAdminHttp(null);
-        $api->undeployZimlet('name', 'action');
+        $name = self::randomName();
+        $action = self::randomName();
+        $this->_api->undeployZimlet($name, $action);
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:UndeployZimletRequest name="name" action="action" />'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:UndeployZimletRequest name="' . $name . '" action="' . $action . '" />'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testUpdateDeviceStatus()
     {
-        $account = new \Zimbra\Struct\AccountSelector(AccountBy::NAME(), 'value');
-        $device = new \Zimbra\Admin\Struct\IdStatus('id', 'status');
+        $value = self::randomName();
+        $id = self::randomName();
+        $status = self::randomName();
 
-        $api = new LocalAdminHttp(null);
-        $api->updateDeviceStatus(
+        $account = new \Zimbra\Struct\AccountSelector(AccountBy::NAME(), $value);
+        $device = new \Zimbra\Admin\Struct\IdStatus($id, $status);
+
+        $this->_api->updateDeviceStatus(
             $account, $device
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:UpdateDeviceStatusRequest>'
-                        .'<urn1:account by="name">value</urn1:account>'
-                        .'<urn1:device id="id" status="status" />'
-                    .'</urn1:UpdateDeviceStatusRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:UpdateDeviceStatusRequest>'
+                        . '<urn1:account by="' . AccountBy::NAME() . '">' . $value . '</urn1:account>'
+                        . '<urn1:device id="' . $id . '" status="' . $status . '" />'
+                    . '</urn1:UpdateDeviceStatusRequest>'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testUpdatePresenceSessionId()
     {
-        $attr = new \Zimbra\Struct\KeyValuePair('key', 'value');
-        $ucservice = new \Zimbra\Admin\Struct\UcServiceSelector(UcServiceBy::NAME(), 'value');
+        $key = self::randomName();
+        $value = self::randomName();
+        $username = self::randomName();
+        $password = self::randomName();
+        $attr = new \Zimbra\Struct\KeyValuePair($key, $value);
+        $ucservice = new \Zimbra\Admin\Struct\UcServiceSelector(UcServiceBy::NAME(), $value);
 
-        $api = new LocalAdminHttp(null);
-        $api->updatePresenceSessionId(
-            $ucservice, 'username', 'password', array($attr)
+        $this->_api->updatePresenceSessionId(
+            $ucservice, $username, $password, [$attr]
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:UpdatePresenceSessionIdRequest>'
-                        .'<urn1:ucservice by="name">value</urn1:ucservice>'
-                        .'<urn1:username>username</urn1:username>'
-                        .'<urn1:password>password</urn1:password>'
-                        .'<urn1:a n="key">value</urn1:a>'
-                    .'</urn1:UpdatePresenceSessionIdRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:UpdatePresenceSessionIdRequest>'
+                        . '<urn1:ucservice by="' . UcServiceBy::NAME() . '">' . $value . '</urn1:ucservice>'
+                        . '<urn1:username>' . $username . '</urn1:username>'
+                        . '<urn1:password>' . $password . '</urn1:password>'
+                        . '<urn1:a n="' . $key . '">' . $value . '</urn1:a>'
+                    . '</urn1:UpdatePresenceSessionIdRequest>'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testUploadDomCert()
     {
-        $api = new LocalAdminHttp(null);
-        $api->uploadDomCert(
-            'certAid', 'certFilename', 'keyAid', 'keyFilename'
+        $certAid = self::randomName();
+        $certFilename = self::randomName();
+        $keyAid = self::randomName();
+        $keyFilename = self::randomName();
+        $this->_api->uploadDomCert(
+            $certAid, $certFilename, $keyAid, $keyFilename
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:UploadDomCertRequest '
-                        .'cert.aid="certAid" '
-                        .'cert.filename="certFilename" '
-                        .'key.aid="keyAid" '
-                        .'key.filename="keyFilename" '
-                    .'/>'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:UploadDomCertRequest '
+                        . 'cert.aid="' . $certAid . '" '
+                        . 'cert.filename="' . $certFilename . '" '
+                        . 'key.aid="' . $keyAid . '" '
+                        . 'key.filename="' . $keyFilename . '" '
+                    . '/>'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testUploadProxyCA()
     {
-        $api = new LocalAdminHttp(null);
-        $api->uploadProxyCA(
-            'certAid', 'certFilename'
+        $certAid = self::randomName();
+        $certFilename = self::randomName();
+        $this->_api->uploadProxyCA(
+            $certAid, $certFilename
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:UploadProxyCARequest '
-                        .'cert.aid="certAid" '
-                        .'cert.filename="certFilename" '
-                    .'/>'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:UploadProxyCARequest '
+                        . 'cert.aid="' . $certAid . '" '
+                        . 'cert.filename="' . $certFilename . '" '
+                    . '/>'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testVerifyCertKey()
     {
-        $api = new LocalAdminHttp(null);
-        $api->verifyCertKey(
-            'cert', 'privkey'
+        $cert = self::randomName();
+        $privkey = self::randomName();
+        $this->_api->verifyCertKey(
+            $cert, $privkey
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:VerifyCertKeyRequest '
-                        .'cert="cert" '
-                        .'privkey="privkey" '
-                    .'/>'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:VerifyCertKeyRequest '
+                        . 'cert="' . $cert . '" '
+                        . 'privkey="' . $privkey . '" '
+                    . '/>'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testVerifyIndex()
     {
-        $mbox = new \Zimbra\Admin\Struct\MailboxByAccountIdSelector('id');
+        $id = self::randomName();
+        $mbox = new \Zimbra\Admin\Struct\MailboxByAccountIdSelector($id);
 
-        $api = new LocalAdminHttp(null);
-        $api->verifyIndex(
+        $this->_api->verifyIndex(
             $mbox
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:VerifyIndexRequest>'
-                        .'<urn1:mbox id="id" />'
-                    .'</urn1:VerifyIndexRequest>'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:VerifyIndexRequest>'
+                        . '<urn1:mbox id="' . $id . '" />'
+                    . '</urn1:VerifyIndexRequest>'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testVerifyStoreManager()
     {
-        $api = new LocalAdminHttp(null);
-        $api->verifyStoreManager(
-            100, 100, true
+        $size = mt_rand(0, 100);
+        $num = mt_rand(0, 100);
+        $this->_api->verifyStoreManager(
+            $size, $num, true
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:VerifyStoreManagerRequest '
-                        .'fileSize="100" '
-                        .'num="100" '
-                        .'checkBlobs="true" '
-                    .'/>'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:VerifyStoreManagerRequest '
+                        . 'fileSize="' . $size . '" '
+                        . 'num="' . $num . '" '
+                        . 'checkBlobs="true" '
+                    . '/>'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 
     public function testVersionCheck()
     {
-        $api = new LocalAdminHttp(null);
-        $api->versionCheck(
+        $this->_api->versionCheck(
             VersionCheckAction::CHECK()
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
-                .'<env:Body>'
-                    .'<urn1:VersionCheckRequest '
-                        .'action="check" '
-                    .'/>'
-                .'</env:Body>'
-            .'</env:Envelope>';
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
+                . '<env:Body>'
+                    . '<urn1:VersionCheckRequest '
+                        . 'action="' . VersionCheckAction::CHECK() . '" '
+                    . '/>'
+                . '</env:Body>'
+            . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
     }
 }

@@ -310,7 +310,6 @@ class RequestTest extends ZimbraTestCase
     public function testAdminDestroyWaitSet()
     {
         $waitSet = self::randomName();
-
         $req = new \Zimbra\Admin\Request\AdminDestroyWaitSet($waitSet);
         $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
         $this->assertSame($waitSet, $req->getWaitSetId());
@@ -1685,6 +1684,7 @@ class RequestTest extends ZimbraTestCase
     public function testCreateVolume()
     {
         $id = mt_rand(0, 10);
+        $type = self::randomValue([1, 2, 10]);
         $threshold = mt_rand(0, 10);
         $mgbits = mt_rand(0, 10);
         $mbits = mt_rand(0, 10);
@@ -1694,7 +1694,7 @@ class RequestTest extends ZimbraTestCase
         $rootpath = self::randomName();
 
         $volume = new \Zimbra\Admin\Struct\VolumeInfo(
-            $id, 2, $threshold, $mgbits, $mbits, $fgbits, $fbits, $name, $rootpath, false, true
+            $id, $type, $threshold, $mgbits, $mbits, $fgbits, $fbits, $name, $rootpath, false, true
         );
         $req = new \Zimbra\Admin\Request\CreateVolume($volume);
         $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
@@ -1707,7 +1707,7 @@ class RequestTest extends ZimbraTestCase
             . '<CreateVolumeRequest>'
                 . '<volume '
                     . 'id="' . $id . '" '
-                    . 'type="2" '
+                    . 'type="' . $type . '" '
                     . 'compressionThreshold="' . $threshold . '" '
                     . 'mgbits="' . $mgbits . '" '
                     . 'mbits="' . $mbits . '" '
@@ -1725,7 +1725,7 @@ class RequestTest extends ZimbraTestCase
                 '_jsns' => 'urn:zimbraAdmin',
                 'volume' => [
                     'id' => $id,
-                    'type' => 2,
+                    'type' => $type,
                     'compressionThreshold' => $threshold,
                     'mgbits' => $mgbits,
                     'mbits' => $mbits,
@@ -1748,8 +1748,8 @@ class RequestTest extends ZimbraTestCase
         $name = self::randomName();
 
         $attr = new \Zimbra\Struct\KeyValuePair($key, $value);
-        $domain = new \Zimbra\Admin\Struct\DomainSelector(DomainBy::NAME(), $name);
-        $server = new \Zimbra\Admin\Struct\ServerSelector(ServerBy::NAME(), $name);
+        $domain = new \Zimbra\Admin\Struct\DomainSelector(DomainBy::NAME(), $value);
+        $server = new \Zimbra\Admin\Struct\ServerSelector(ServerBy::NAME(), $value);
         $xmpp = new \Zimbra\Admin\Struct\XmppComponentSpec($name, $domain, $server, [$attr]);
 
         $req = new \Zimbra\Admin\Request\CreateXMPPComponent($xmpp);
@@ -1762,8 +1762,8 @@ class RequestTest extends ZimbraTestCase
         $xml = '<?xml version="1.0"?>' . "\n"
             . '<CreateXMPPComponentRequest>'
                 . '<xmppcomponent name="' . $name . '">'
-                    . '<domain by="' . DomainBy::NAME() . '">' . $name . '</domain>'
-                    . '<server by="' . ServerBy::NAME() . '">' . $name . '</server>'
+                    . '<domain by="' . DomainBy::NAME() . '">' . $value . '</domain>'
+                    . '<server by="' . ServerBy::NAME() . '">' . $value . '</server>'
                     . '<a n="' . $key . '">' . $value . '</a>'
                 . '</xmppcomponent>'
             . '</CreateXMPPComponentRequest>';
@@ -1776,11 +1776,11 @@ class RequestTest extends ZimbraTestCase
                     'name' => $name,
                     'domain' => [
                         'by' => DomainBy::NAME()->value(),
-                        '_content' => $name,
+                        '_content' => $value,
                     ],
                     'server' => [
                         'by' => ServerBy::NAME()->value(),
-                        '_content' => $name,
+                        '_content' => $value,
                     ],
                     'a' => [
                         [
@@ -5691,6 +5691,7 @@ class RequestTest extends ZimbraTestCase
     public function testModifyVolume()
     {
         $id = mt_rand(0, 100);
+        $type = self::randomValue([1, 2, 10]);
         $threshold = mt_rand(0, 10);
         $mgbits = mt_rand(0, 10);
         $mbits = mt_rand(0, 10);
@@ -5700,7 +5701,7 @@ class RequestTest extends ZimbraTestCase
         $rootpath = self::randomName();
 
         $volume = new \Zimbra\Admin\Struct\VolumeInfo(
-            $id, 2, $threshold, $mgbits, $mbits, $fgbits, $fbits, $name, $rootpath, false, true
+            $id, $type, $threshold, $mgbits, $mbits, $fgbits, $fbits, $name, $rootpath, false, true
         );
         $req = new \Zimbra\Admin\Request\ModifyVolume($id, $volume);
         $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
@@ -5716,7 +5717,7 @@ class RequestTest extends ZimbraTestCase
             . '<ModifyVolumeRequest id="' . $id . '">'
                 . '<volume '
                     . 'id="' . $id . '" '
-                    . 'type="2" '
+                    . 'type="' . $type . '" '
                     . 'compressionThreshold="' . $threshold . '" '
                     . 'mgbits="' . $mgbits . '" '
                     . 'mbits="' . $mbits . '" '
@@ -5735,7 +5736,7 @@ class RequestTest extends ZimbraTestCase
                 'id' => $id,
                 'volume' => [
                     'id' => $id,
-                    'type' => 2,
+                    'type' => $type,
                     'compressionThreshold' => $threshold,
                     'mgbits' => $mgbits,
                     'mbits' => $mbits,

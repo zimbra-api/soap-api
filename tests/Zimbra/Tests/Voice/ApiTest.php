@@ -16,6 +16,14 @@ use Zimbra\Voice\VoiceFactory;
  */
 class ApiTest extends ZimbraTestCase
 {
+    private $_api;
+
+    public function __construct()
+    {
+        parent::__construct();
+        $this->_api = new LocalVoiceHttp(null);
+    }
+
     public function testVoiceFactory()
     {
         $httpApi = VoiceFactory::instance();
@@ -26,12 +34,11 @@ class ApiTest extends ZimbraTestCase
 
     public function testChangeUCPassword()
     {
-        $api = new LocalVoiceHttp(null);
-        $api->changeUCPassword(
+        $this->_api->changeUCPassword(
             'password'
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraVoice">'
@@ -45,10 +52,9 @@ class ApiTest extends ZimbraTestCase
 
     public function testGetUCInfo()
     {
-        $api = new LocalVoiceHttp(null);
-        $api->getUCInfo();
+        $this->_api->getUCInfo();
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraVoice">'
@@ -92,12 +98,11 @@ class ApiTest extends ZimbraTestCase
             $selectivecallrejection
         );
 
-        $api = new LocalVoiceHttp(null);
-        $api->getVoiceFeatures(
+        $this->_api->getVoiceFeatures(
             $storeprincipal, $phone
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraVoice">'
@@ -132,10 +137,9 @@ class ApiTest extends ZimbraTestCase
         $pref = new \Zimbra\Voice\Struct\PrefSpec('name');
         $phone = new \Zimbra\Voice\Struct\PhoneSpec('name', array($pref));
 
-        $api = new LocalVoiceHttp(null);
-        $api->getVoiceFolder($storeprincipal, array($phone));
+        $this->_api->getVoiceFolder($storeprincipal, array($phone));
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraVoice">'
@@ -156,10 +160,9 @@ class ApiTest extends ZimbraTestCase
         $pref = new \Zimbra\Voice\Struct\PrefSpec('name');
         $phone = new \Zimbra\Voice\Struct\PhoneSpec('name', array($pref));
 
-        $api = new LocalVoiceHttp(null);
-        $api->getVoiceInfo(array($phone));
+        $this->_api->getVoiceInfo(array($phone));
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraVoice">'
@@ -182,10 +185,9 @@ class ApiTest extends ZimbraTestCase
         $pref = new \Zimbra\Voice\Struct\PrefSpec('name');
         $phone = new \Zimbra\Voice\Struct\PhoneSpec('name', array($pref));
 
-        $api = new LocalVoiceHttp(null);
-        $api->getVoiceMailPrefs($storeprincipal, $phone);
+        $this->_api->getVoiceMailPrefs($storeprincipal, $phone);
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraVoice">'
@@ -210,10 +212,9 @@ class ApiTest extends ZimbraTestCase
             'oldPhone', 'phone', 'id', 'label'
         );
 
-        $api = new LocalVoiceHttp(null);
-        $api->modifyFromNum($storeprincipal, $phone);
+        $this->_api->modifyFromNum($storeprincipal, $phone);
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraVoice">'
@@ -279,10 +280,9 @@ class ApiTest extends ZimbraTestCase
             $selectivecallrejection
         );
 
-        $api = new LocalVoiceHttp(null);
-        $api->modifyVoiceFeatures($storeprincipal, $phone);
+        $this->_api->modifyVoiceFeatures($storeprincipal, $phone);
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraVoice">'
@@ -324,10 +324,9 @@ class ApiTest extends ZimbraTestCase
             'oldPin', 'pin', 'name'
         );
 
-        $api = new LocalVoiceHttp(null);
-        $api->modifyVoiceMailPin($storeprincipal, $phone);
+        $this->_api->modifyVoiceMailPin($storeprincipal, $phone);
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraVoice">'
@@ -349,10 +348,9 @@ class ApiTest extends ZimbraTestCase
         $pref = new \Zimbra\Voice\Struct\PrefInfo('name', 'value');
         $phone = new \Zimbra\Voice\Struct\PhoneInfo('name', array($pref));
 
-        $api = new LocalVoiceHttp(null);
-        $api->modifyVoiceMailPrefs($storeprincipal, $phone);
+        $this->_api->modifyVoiceMailPrefs($storeprincipal, $phone);
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraVoice">'
@@ -396,12 +394,11 @@ class ApiTest extends ZimbraTestCase
             $selectivecallrejection
         );
 
-        $api = new LocalVoiceHttp(null);
-        $api->resetVoiceFeatures(
+        $this->_api->resetVoiceFeatures(
             $storeprincipal, $phone
         );
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraVoice">'
@@ -431,10 +428,9 @@ class ApiTest extends ZimbraTestCase
             'id', 'name', 'accountNumber'
         );
 
-        $api = new LocalVoiceHttp(null);
-        $api->searchVoice('query', $storeprincipal, 100, 100, 'types', VoiceSortBy::DATE_DESC());
+        $this->_api->searchVoice('query', $storeprincipal, 100, 100, 'types', VoiceSortBy::DATE_DESC());
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraVoice">'
@@ -456,10 +452,9 @@ class ApiTest extends ZimbraTestCase
             'id', 'phone'
         );
 
-        $api = new LocalVoiceHttp(null);
-        $api->uploadVoiceMail($storeprincipal, $vm);
+        $this->_api->uploadVoiceMail($storeprincipal, $vm);
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraVoice">'
@@ -482,10 +477,9 @@ class ApiTest extends ZimbraTestCase
             'id', 'name', 'accountNumber'
         );
 
-        $api = new LocalVoiceHttp(null);
-        $api->voiceMsgAction($action, $storeprincipal);
+        $this->_api->voiceMsgAction($action, $storeprincipal);
 
-        $client = $api->client();
+        $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraVoice">'
