@@ -12,7 +12,7 @@ namespace Zimbra\Mail\Request;
 
 use Zimbra\Common\TypedSequence;
 use Zimbra\Enum\InterestType;
-use Zimbra\Mail\Struct\WaitSetSpec;
+use Zimbra\Struct\WaitSetSpec;
 
 /**
  * CreateWaitSet request class

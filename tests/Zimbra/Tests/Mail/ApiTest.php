@@ -1184,8 +1184,8 @@ class ApiTest extends ZimbraTestCase
 
     public function testCreateWaitSet()
     {
-        $a = new \Zimbra\Mail\Struct\WaitSetAddSpec('name', 'id', 'token', array(InterestType::FOLDERS()));
-        $add = new \Zimbra\Mail\Struct\WaitSetSpec(array($a));
+        $a = new \Zimbra\Struct\WaitSetAddSpec('name', 'id', 'token', array(InterestType::FOLDERS()));
+        $add = new \Zimbra\Struct\WaitSetSpec(array($a));
 
         $this->_api->createWaitSet(
             $add, array(InterestType::FOLDERS()), true
@@ -4421,10 +4421,10 @@ class ApiTest extends ZimbraTestCase
     public function testWaitSet()
     {
         $id = new \Zimbra\Struct\Id('id');
-        $waitSet = new \Zimbra\Mail\Struct\WaitSetAddSpec('name', 'id', 'token', array(InterestType::FOLDERS()));
-        $add = new \Zimbra\Mail\Struct\WaitSetSpec(array($waitSet));
-        $update = new \Zimbra\Mail\Struct\WaitSetSpec(array($waitSet));
-        $remove = new \Zimbra\Mail\Struct\WaitSetId(array($id));
+        $waitSet = new \Zimbra\Struct\WaitSetAddSpec('name', 'id', 'token', array(InterestType::FOLDERS()));
+        $add = new \Zimbra\Struct\WaitSetSpec(array($waitSet));
+        $update = new \Zimbra\Struct\WaitSetSpec(array($waitSet));
+        $remove = new \Zimbra\Struct\WaitSetId(array($id));
 
         $this->_api->waitSet(
             'waitSet', 'seq', $add, $update, $remove, true, array(InterestType::FOLDERS()), 10

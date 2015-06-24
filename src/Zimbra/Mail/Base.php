@@ -78,9 +78,6 @@ use Zimbra\Mail\Struct\SnoozeTaskAlarm;
 use Zimbra\Mail\Struct\TagSpec;
 use Zimbra\Mail\Struct\TagActionSelector;
 use Zimbra\Mail\Struct\TargetSpec;
-use Zimbra\Mail\Struct\WaitSetAdd;
-use Zimbra\Mail\Struct\WaitSetSpec;
-use Zimbra\Mail\Struct\WaitSetId;
 
 use Zimbra\Mail\Struct\MailDataSource;
 use Zimbra\Mail\Struct\MailImapDataSource;
@@ -104,6 +101,9 @@ use Zimbra\Mail\Struct\UnknownDataSourceNameOrId;
 use Zimbra\Struct\CursorInfo;
 use Zimbra\Struct\Id;
 use Zimbra\Struct\NamedElement;
+use Zimbra\Struct\WaitSetAdd;
+use Zimbra\Struct\WaitSetSpec;
+use Zimbra\Struct\WaitSetId;
 
 /**
  * Base is a abstract class which allows to connect Zimbra API mail public functions via SOAP

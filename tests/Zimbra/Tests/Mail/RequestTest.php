@@ -591,7 +591,7 @@ class RequestTest extends ZimbraTestCase
     {
         $req = $this->getMockForAbstractClass('\Zimbra\Mail\Request\Base');
         $this->assertInstanceOf('Zimbra\Soap\Request', $req);
-        $this->assertEquals('urn:zimbraMail', $req->xmlNamespace());
+        $this->assertEquals('urn:zimbraMail', $req->getXmlNamespace());
     }
 
     public function testBounceMsg()
@@ -2622,8 +2622,8 @@ class RequestTest extends ZimbraTestCase
 
     public function testCreateWaitSet()
     {
-        $a = new \Zimbra\Mail\Struct\WaitSetAddSpec('name', 'id', 'token', array(InterestType::FOLDERS()));
-        $add = new \Zimbra\Mail\Struct\WaitSetSpec(array($a));
+        $a = new \Zimbra\Struct\WaitSetAddSpec('name', 'id', 'token', array(InterestType::FOLDERS()));
+        $add = new \Zimbra\Struct\WaitSetSpec(array($a));
 
         $req = new \Zimbra\Mail\Request\CreateWaitSet(
             $add, array(InterestType::FOLDERS()), true
@@ -8883,10 +8883,10 @@ class RequestTest extends ZimbraTestCase
     public function testWaitSet()
     {
         $id = new \Zimbra\Struct\Id('id');
-        $waitSet = new \Zimbra\Mail\Struct\WaitSetAddSpec('name', 'id', 'token', array(InterestType::FOLDERS()));
-        $add = new \Zimbra\Mail\Struct\WaitSetSpec(array($waitSet));
-        $update = new \Zimbra\Mail\Struct\WaitSetSpec(array($waitSet));
-        $remove = new \Zimbra\Mail\Struct\WaitSetId(array($id));
+        $waitSet = new \Zimbra\Struct\WaitSetAddSpec('name', 'id', 'token', array(InterestType::FOLDERS()));
+        $add = new \Zimbra\Struct\WaitSetSpec(array($waitSet));
+        $update = new \Zimbra\Struct\WaitSetSpec(array($waitSet));
+        $remove = new \Zimbra\Struct\WaitSetId(array($id));
 
         $req = new \Zimbra\Mail\Request\WaitSet(
             'waitSet', 'seq', $add, $update, $remove, true, array(InterestType::FOLDERS()), 10

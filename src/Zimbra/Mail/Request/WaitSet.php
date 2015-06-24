@@ -12,8 +12,8 @@ namespace Zimbra\Mail\Request;
 
 use Zimbra\Common\TypedSequence;
 use Zimbra\Enum\InterestType;
-use Zimbra\Mail\Struct\WaitSetSpec;
-use Zimbra\Mail\Struct\WaitSetId;
+use Zimbra\Struct\WaitSetSpec;
+use Zimbra\Struct\WaitSetId;
 
 /**
  * WaitSet request class
