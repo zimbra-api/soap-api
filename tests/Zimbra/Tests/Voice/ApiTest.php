@@ -34,8 +34,9 @@ class ApiTest extends ZimbraTestCase
 
     public function testChangeUCPassword()
     {
+        $password = self::randomName();
         $this->_api->changeUCPassword(
-            'password'
+            $password
         );
 
         $client = $this->_api->client();
@@ -44,7 +45,7 @@ class ApiTest extends ZimbraTestCase
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraVoice">'
                 .'<env:Body>'
                     .'<urn1:ChangeUCPasswordRequest '
-                        .'password="password" />'
+                        .'password="' . $password . '" />'
                 .'</env:Body>'
             .'</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
@@ -67,10 +68,15 @@ class ApiTest extends ZimbraTestCase
 
     public function testGetVoiceFeatures()
     {
-        $pref = new \Zimbra\Voice\Struct\VoiceMailPrefName('name');
-        $voicemailprefs = new \Zimbra\Voice\Struct\VoiceMailPrefsReq(
-            array($pref)
+        $id = self::randomName();
+        $name = self::randomName();
+        $accountNumber = self::randomName();
+        $storeprincipal = new \Zimbra\Voice\Struct\StorePrincipalSpec(
+            $id, $name, $accountNumber
         );
+
+        $pref = new \Zimbra\Voice\Struct\VoiceMailPrefName($name);
+        $voicemailprefs = new \Zimbra\Voice\Struct\VoiceMailPrefsReq([$pref]);
         $anoncallrejection = new \Zimbra\Voice\Struct\AnonCallRejectionReq();
         $calleridblocking = new \Zimbra\Voice\Struct\CallerIdBlockingReq();
         $callforward = new \Zimbra\Voice\Struct\CallForwardReq();
@@ -81,11 +87,7 @@ class ApiTest extends ZimbraTestCase
         $selectivecallacceptance = new \Zimbra\Voice\Struct\SelectiveCallAcceptanceReq();
         $selectivecallrejection = new \Zimbra\Voice\Struct\SelectiveCallRejectionReq();
 
-        $storeprincipal = new \Zimbra\Voice\Struct\StorePrincipalSpec(
-            'id', 'name', 'accountNumber'
-        );
-        $phone = new \Zimbra\Voice\Struct\PhoneVoiceFeaturesSpec(
-            'name',
+        $callFeatures = [
             $voicemailprefs,
             $anoncallrejection,
             $calleridblocking,
@@ -96,6 +98,9 @@ class ApiTest extends ZimbraTestCase
             $selectivecallforward,
             $selectivecallacceptance,
             $selectivecallrejection
+        ];
+        $phone = new \Zimbra\Voice\Struct\PhoneVoiceFeaturesSpec(
+            $name, $callFeatures
         );
 
         $this->_api->getVoiceFeatures(
@@ -108,10 +113,10 @@ class ApiTest extends ZimbraTestCase
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraVoice">'
                 .'<env:Body>'
                     .'<urn1:GetVoiceFeaturesRequest>'
-                        .'<urn1:storeprincipal id="id" name="name" accountNumber="accountNumber" />'
-                        .'<urn1:phone name="name">'
+                        .'<urn1:storeprincipal id="' . $id . '" name="' . $name . '" accountNumber="' . $accountNumber . '" />'
+                        .'<urn1:phone name="' . $name . '">'
                             .'<urn1:voicemailprefs>'
-                                .'<urn1:pref name="name" />'
+                                .'<urn1:pref name="' . $name . '" />'
                             .'</urn1:voicemailprefs>'
                             .'<urn1:anoncallrejection />'
                             .'<urn1:calleridblocking />'
@@ -131,11 +136,14 @@ class ApiTest extends ZimbraTestCase
 
     public function testGetVoiceFolder()
     {
+        $id = self::randomName();
+        $name = self::randomName();
+        $accountNumber = self::randomName();
         $storeprincipal = new \Zimbra\Voice\Struct\StorePrincipalSpec(
-            'id', 'name', 'accountNumber'
+            $id, $name, $accountNumber
         );
-        $pref = new \Zimbra\Voice\Struct\PrefSpec('name');
-        $phone = new \Zimbra\Voice\Struct\PhoneSpec('name', array($pref));
+        $pref = new \Zimbra\Voice\Struct\PrefSpec($name);
+        $phone = new \Zimbra\Voice\Struct\PhoneSpec($name, [$pref]);
 
         $this->_api->getVoiceFolder($storeprincipal, array($phone));
 
@@ -145,9 +153,9 @@ class ApiTest extends ZimbraTestCase
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraVoice">'
                 .'<env:Body>'
                     .'<urn1:GetVoiceFolderRequest>'
-                        .'<urn1:storeprincipal id="id" name="name" accountNumber="accountNumber" />'
-                        .'<urn1:phone name="name">'
-                            .'<urn1:pref name="name" />'
+                        .'<urn1:storeprincipal id="' . $id . '" name="' . $name . '" accountNumber="' . $accountNumber . '" />'
+                        .'<urn1:phone name="' . $name . '">'
+                            .'<urn1:pref name="' . $name . '" />'
                         .'</urn1:phone>'
                     .'</urn1:GetVoiceFolderRequest>'
                 .'</env:Body>'
@@ -157,8 +165,9 @@ class ApiTest extends ZimbraTestCase
 
     public function testGetVoiceInfo()
     {
-        $pref = new \Zimbra\Voice\Struct\PrefSpec('name');
-        $phone = new \Zimbra\Voice\Struct\PhoneSpec('name', array($pref));
+        $name = self::randomName();
+        $pref = new \Zimbra\Voice\Struct\PrefSpec($name);
+        $phone = new \Zimbra\Voice\Struct\PhoneSpec($name, [$pref]);
 
         $this->_api->getVoiceInfo(array($phone));
 
@@ -168,8 +177,8 @@ class ApiTest extends ZimbraTestCase
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraVoice">'
                 .'<env:Body>'
                     .'<urn1:GetVoiceInfoRequest>'
-                        .'<urn1:phone name="name">'
-                            .'<urn1:pref name="name" />'
+                        .'<urn1:phone name="' . $name . '">'
+                            .'<urn1:pref name="' . $name . '" />'
                         .'</urn1:phone>'
                     .'</urn1:GetVoiceInfoRequest>'
                 .'</env:Body>'
@@ -179,11 +188,14 @@ class ApiTest extends ZimbraTestCase
 
     public function testGetVoiceMailPrefs()
     {
+        $id = self::randomName();
+        $name = self::randomName();
+        $accountNumber = self::randomName();
         $storeprincipal = new \Zimbra\Voice\Struct\StorePrincipalSpec(
-            'id', 'name', 'accountNumber'
+            $id, $name, $accountNumber
         );
-        $pref = new \Zimbra\Voice\Struct\PrefSpec('name');
-        $phone = new \Zimbra\Voice\Struct\PhoneSpec('name', array($pref));
+        $pref = new \Zimbra\Voice\Struct\PrefSpec($name);
+        $phone = new \Zimbra\Voice\Struct\PhoneSpec($name, [$pref]);
 
         $this->_api->getVoiceMailPrefs($storeprincipal, $phone);
 
@@ -193,9 +205,9 @@ class ApiTest extends ZimbraTestCase
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraVoice">'
                 .'<env:Body>'
                     .'<urn1:GetVoiceMailPrefsRequest>'
-                        .'<urn1:storeprincipal id="id" name="name" accountNumber="accountNumber" />'
-                        .'<urn1:phone name="name">'
-                            .'<urn1:pref name="name" />'
+                        .'<urn1:storeprincipal id="' . $id . '" name="' . $name . '" accountNumber="' . $accountNumber . '" />'
+                        .'<urn1:phone name="' . $name . '">'
+                            .'<urn1:pref name="' . $name . '" />'
                         .'</urn1:phone>'
                     .'</urn1:GetVoiceMailPrefsRequest>'
                 .'</env:Body>'
@@ -205,11 +217,18 @@ class ApiTest extends ZimbraTestCase
 
     public function testModifyFromNum()
     {
+        $id = self::randomName();
+        $name = self::randomName();
+        $accountNumber = self::randomName();
         $storeprincipal = new \Zimbra\Voice\Struct\StorePrincipalSpec(
-            'id', 'name', 'accountNumber'
+            $id, $name, $accountNumber
         );
+
+        $oldPhone = self::randomName();
+        $newPhone = self::randomName();
+        $label = self::randomName();
         $phone = new \Zimbra\Voice\Struct\ModifyFromNumSpec(
-            'oldPhone', 'phone', 'id', 'label'
+            $oldPhone, $newPhone, $id, $label
         );
 
         $this->_api->modifyFromNum($storeprincipal, $phone);
@@ -220,8 +239,8 @@ class ApiTest extends ZimbraTestCase
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraVoice">'
                 .'<env:Body>'
                     .'<urn1:ModifyFromNumRequest>'
-                        .'<urn1:storeprincipal id="id" name="name" accountNumber="accountNumber" />'
-                        .'<urn1:phone oldPhone="oldPhone" phone="phone" id="id" label="label" />'
+                        .'<urn1:storeprincipal id="' . $id . '" name="' . $name . '" accountNumber="' . $accountNumber . '" />'
+                        .'<urn1:phone oldPhone="' . $oldPhone . '" phone="' . $newPhone . '" id="' . $id . '" label="' . $label . '" />'
                     .'</urn1:ModifyFromNumRequest>'
                 .'</env:Body>'
             .'</env:Envelope>';
@@ -230,10 +249,22 @@ class ApiTest extends ZimbraTestCase
 
     public function testModifyVoiceFeatures()
     {
-        $pref = new \Zimbra\Voice\Struct\PrefInfo('name', 'value');
-        $phone = new \Zimbra\Voice\Struct\CallerListEntry('pn', true);
+        $id = self::randomName();
+        $name = self::randomName();
+        $accountNumber = self::randomName();
+        $storeprincipal = new \Zimbra\Voice\Struct\StorePrincipalSpec(
+            $id, $name, $accountNumber
+        );
+
+        $value = self::randomName();
+        $pn = self::randomName();
+        $ft = self::randomName();
+        $nr = self::randomName();
+
+        $pref = new \Zimbra\Voice\Struct\PrefInfo($name, $value);
+        $entry = new \Zimbra\Voice\Struct\CallerListEntry($pn, true);
         $voicemailprefs = new \Zimbra\Voice\Struct\VoiceMailPrefsFeature(
-            true, false, array($pref)
+            true, false, [$pref]
         );
         $anoncallrejection = new \Zimbra\Voice\Struct\AnonCallRejectionFeature(
             true, false
@@ -242,32 +273,28 @@ class ApiTest extends ZimbraTestCase
             true, false
         );
         $callforward = new \Zimbra\Voice\Struct\CallForwardFeature(
-            true, false, 'ft'
+            true, false, $ft
         );
         $callforwardbusyline = new \Zimbra\Voice\Struct\CallForwardBusyLineFeature(
-            true, false, 'ft'
+            true, false, $ft
         );
         $callforwardnoanswer = new \Zimbra\Voice\Struct\CallForwardNoAnswerFeature(
-            true, false, 'ft', 'nr'
+            true, false, $ft, $nr
         );
         $callwaiting = new \Zimbra\Voice\Struct\CallWaitingFeature(
             true, false
         );
         $selectivecallforward = new \Zimbra\Voice\Struct\SelectiveCallForwardFeature(
-            true, false, array($phone), 'ft'
+            true, false, [$entry], $ft
         );
         $selectivecallacceptance = new \Zimbra\Voice\Struct\SelectiveCallAcceptanceFeature(
-            true, false, array($phone)
+            true, false, [$entry]
         );
         $selectivecallrejection = new \Zimbra\Voice\Struct\SelectiveCallRejectionFeature(
-            true, false, array($phone)
+            true, false, [$entry]
         );
 
-        $storeprincipal = new \Zimbra\Voice\Struct\StorePrincipalSpec(
-            'id', 'name', 'accountNumber'
-        );
-        $phone = new \Zimbra\Voice\Struct\ModifyVoiceFeaturesSpec(
-            'name',
+        $callFeatures = [
             $voicemailprefs,
             $anoncallrejection,
             $calleridblocking,
@@ -277,7 +304,10 @@ class ApiTest extends ZimbraTestCase
             $callwaiting,
             $selectivecallforward,
             $selectivecallacceptance,
-            $selectivecallrejection
+            $selectivecallrejection,
+        ];
+        $phone = new \Zimbra\Voice\Struct\ModifyVoiceFeaturesSpec(
+            $name, $callFeatures
         );
 
         $this->_api->modifyVoiceFeatures($storeprincipal, $phone);
@@ -288,25 +318,25 @@ class ApiTest extends ZimbraTestCase
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraVoice">'
                 .'<env:Body>'
                     .'<urn1:ModifyVoiceFeaturesRequest>'
-                        .'<urn1:storeprincipal id="id" name="name" accountNumber="accountNumber" />'
-                        .'<urn1:phone name="name">'
+                        .'<urn1:storeprincipal id="' . $id . '" name="' . $name . '" accountNumber="' . $accountNumber . '" />'
+                        .'<urn1:phone name="' . $name . '">'
                             .'<urn1:voicemailprefs s="true" a="false">'
-                                .'<urn1:pref name="name">value</urn1:pref>'
+                                .'<urn1:pref name="' . $name . '">' . $value . '</urn1:pref>'
                             .'</urn1:voicemailprefs>'
                             .'<urn1:anoncallrejection s="true" a="false" />'
                             .'<urn1:calleridblocking s="true" a="false" />'
-                            .'<urn1:callforward s="true" a="false" ft="ft" />'
-                            .'<urn1:callforwardbusyline s="true" a="false" ft="ft" />'
-                            .'<urn1:callforwardnoanswer s="true" a="false" ft="ft" nr="nr" />'
+                            .'<urn1:callforward s="true" a="false" ft="' . $ft . '" />'
+                            .'<urn1:callforwardbusyline s="true" a="false" ft="' . $ft . '" />'
+                            .'<urn1:callforwardnoanswer s="true" a="false" ft="' . $ft . '" nr="' . $nr . '" />'
                             .'<urn1:callwaiting s="true" a="false" />'
-                            .'<urn1:selectivecallforward s="true" a="false" ft="ft">'
-                                .'<urn1:phone pn="pn" a="true" />'
+                            .'<urn1:selectivecallforward s="true" a="false" ft="' . $ft . '">'
+                                .'<urn1:phone pn="' . $pn . '" a="true" />'
                             .'</urn1:selectivecallforward>'
                             .'<urn1:selectivecallacceptance s="true" a="false">'
-                                .'<urn1:phone pn="pn" a="true" />'
+                                .'<urn1:phone pn="' . $pn . '" a="true" />'
                             .'</urn1:selectivecallacceptance>'
                             .'<urn1:selectivecallrejection s="true" a="false">'
-                                .'<urn1:phone pn="pn" a="true" />'
+                                .'<urn1:phone pn="' . $pn . '" a="true" />'
                             .'</urn1:selectivecallrejection>'
                         .'</urn1:phone>'
                     .'</urn1:ModifyVoiceFeaturesRequest>'
@@ -317,11 +347,17 @@ class ApiTest extends ZimbraTestCase
 
     public function testModifyVoiceMailPin()
     {
+        $id = self::randomName();
+        $name = self::randomName();
+        $accountNumber = self::randomName();
         $storeprincipal = new \Zimbra\Voice\Struct\StorePrincipalSpec(
-            'id', 'name', 'accountNumber'
+            $id, $name, $accountNumber
         );
+
+        $oldPin = self::randomName();
+        $pin = self::randomName();
         $phone = new \Zimbra\Voice\Struct\ModifyVoiceMailPinSpec(
-            'oldPin', 'pin', 'name'
+            $oldPin, $pin, $name
         );
 
         $this->_api->modifyVoiceMailPin($storeprincipal, $phone);
@@ -332,8 +368,8 @@ class ApiTest extends ZimbraTestCase
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraVoice">'
                 .'<env:Body>'
                     .'<urn1:ModifyVoiceMailPinRequest>'
-                        .'<urn1:storeprincipal id="id" name="name" accountNumber="accountNumber" />'
-                        .'<urn1:phone oldPin="oldPin" pin="pin" name="name" />'
+                        .'<urn1:storeprincipal id="' . $id . '" name="' . $name . '" accountNumber="' . $accountNumber . '" />'
+                        .'<urn1:phone oldPin="' . $oldPin . '" pin="' . $pin . '" name="' . $name . '" />'
                     .'</urn1:ModifyVoiceMailPinRequest>'
                 .'</env:Body>'
             .'</env:Envelope>';
@@ -342,11 +378,15 @@ class ApiTest extends ZimbraTestCase
 
     public function testModifyVoiceMailPrefs()
     {
+        $id = self::randomName();
+        $name = self::randomName();
+        $accountNumber = self::randomName();
+        $value = self::randomName();
         $storeprincipal = new \Zimbra\Voice\Struct\StorePrincipalSpec(
-            'id', 'name', 'accountNumber'
+            $id, $name, $accountNumber
         );
-        $pref = new \Zimbra\Voice\Struct\PrefInfo('name', 'value');
-        $phone = new \Zimbra\Voice\Struct\PhoneInfo('name', array($pref));
+        $pref = new \Zimbra\Voice\Struct\PrefInfo($name, $value);
+        $phone = new \Zimbra\Voice\Struct\PhoneInfo($name, [$pref]);
 
         $this->_api->modifyVoiceMailPrefs($storeprincipal, $phone);
 
@@ -356,9 +396,9 @@ class ApiTest extends ZimbraTestCase
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraVoice">'
                 .'<env:Body>'
                     .'<urn1:ModifyVoiceMailPrefsRequest>'
-                        .'<urn1:storeprincipal id="id" name="name" accountNumber="accountNumber" />'
-                        .'<urn1:phone name="name">'
-                            .'<urn1:pref name="name">value</urn1:pref>'
+                        .'<urn1:storeprincipal id="' . $id . '" name="' . $name . '" accountNumber="' . $accountNumber . '" />'
+                        .'<urn1:phone name="' . $name . '">'
+                            .'<urn1:pref name="' . $name . '">' . $value . '</urn1:pref>'
                         .'</urn1:phone>'
                     .'</urn1:ModifyVoiceMailPrefsRequest>'
                 .'</env:Body>'
@@ -368,6 +408,13 @@ class ApiTest extends ZimbraTestCase
 
     public function testResetVoiceFeatures()
     {
+        $id = self::randomName();
+        $name = self::randomName();
+        $accountNumber = self::randomName();
+        $storeprincipal = new \Zimbra\Voice\Struct\StorePrincipalSpec(
+            $id, $name, $accountNumber
+        );
+
         $anoncallrejection = new \Zimbra\Voice\Struct\AnonCallRejectionReq();
         $calleridblocking = new \Zimbra\Voice\Struct\CallerIdBlockingReq();
         $callforward = new \Zimbra\Voice\Struct\CallForwardReq();
@@ -378,11 +425,7 @@ class ApiTest extends ZimbraTestCase
         $selectivecallacceptance = new \Zimbra\Voice\Struct\SelectiveCallAcceptanceReq();
         $selectivecallrejection = new \Zimbra\Voice\Struct\SelectiveCallRejectionReq();
 
-        $storeprincipal = new \Zimbra\Voice\Struct\StorePrincipalSpec(
-            'id', 'name', 'accountNumber'
-        );
-        $phone = new \Zimbra\Voice\Struct\ResetPhoneVoiceFeaturesSpec(
-            'name',
+        $callFeatures = [
             $anoncallrejection,
             $calleridblocking,
             $callforward,
@@ -391,7 +434,10 @@ class ApiTest extends ZimbraTestCase
             $callwaiting,
             $selectivecallforward,
             $selectivecallacceptance,
-            $selectivecallrejection
+            $selectivecallrejection,
+        ];
+        $phone = new \Zimbra\Voice\Struct\ResetPhoneVoiceFeaturesSpec(
+            $name, $callFeatures
         );
 
         $this->_api->resetVoiceFeatures(
@@ -404,8 +450,8 @@ class ApiTest extends ZimbraTestCase
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraVoice">'
                 .'<env:Body>'
                     .'<urn1:ResetVoiceFeaturesRequest>'
-                        .'<urn1:storeprincipal id="id" name="name" accountNumber="accountNumber" />'
-                        .'<urn1:phone name="name">'
+                        .'<urn1:storeprincipal id="' . $id . '" name="' . $name . '" accountNumber="' . $accountNumber . '" />'
+                        .'<urn1:phone name="' . $name . '">'
                             .'<urn1:anoncallrejection />'
                             .'<urn1:calleridblocking />'
                             .'<urn1:callforward />'
@@ -424,19 +470,29 @@ class ApiTest extends ZimbraTestCase
 
     public function testSearchVoice()
     {
+        $id = self::randomName();
+        $name = self::randomName();
+        $accountNumber = self::randomName();
+        $query = self::randomName();
+        $types = self::randomName();
+        $limit = mt_rand(0, 100);
+        $offset = mt_rand(0, 100);
+
         $storeprincipal = new \Zimbra\Voice\Struct\StorePrincipalSpec(
-            'id', 'name', 'accountNumber'
+            $id, $name, $accountNumber
         );
 
-        $this->_api->searchVoice('query', $storeprincipal, 100, 100, 'types', VoiceSortBy::DATE_DESC());
+        $this->_api->searchVoice(
+            $query, $storeprincipal, $limit, $offset, $types, VoiceSortBy::DATE_DESC()
+        );
 
         $client = $this->_api->client();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>'."\n"
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraVoice">'
                 .'<env:Body>'
-                    .'<urn1:SearchVoiceRequest query="query" limit="100" offset="100" types="types" sortBy="dateDesc">'
-                        .'<urn1:storeprincipal id="id" name="name" accountNumber="accountNumber" />'
+                    .'<urn1:SearchVoiceRequest query="' . $query . '" limit="' . $limit . '" offset="' . $offset . '" types="' . $types . '" sortBy="' . VoiceSortBy::DATE_DESC() . '">'
+                        .'<urn1:storeprincipal id="' . $id . '" name="' . $name . '" accountNumber="' . $accountNumber . '" />'
                     .'</urn1:SearchVoiceRequest>'
                 .'</env:Body>'
             .'</env:Envelope>';
@@ -445,11 +501,15 @@ class ApiTest extends ZimbraTestCase
 
     public function testUploadVoiceMail()
     {
+        $id = self::randomName();
+        $name = self::randomName();
+        $accountNumber = self::randomName();
+        $phone = self::randomName();
         $storeprincipal = new \Zimbra\Voice\Struct\StorePrincipalSpec(
-            'id', 'name', 'accountNumber'
+            $id, $name, $accountNumber
         );
         $vm = new \Zimbra\Voice\Struct\VoiceMsgUploadSpec(
-            'id', 'phone'
+            $id, $phone
         );
 
         $this->_api->uploadVoiceMail($storeprincipal, $vm);
@@ -460,8 +520,8 @@ class ApiTest extends ZimbraTestCase
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraVoice">'
                 .'<env:Body>'
                     .'<urn1:UploadVoiceMailRequest>'
-                        .'<urn1:storeprincipal id="id" name="name" accountNumber="accountNumber" />'
-                        .'<urn1:vm id="id" phone="phone" />'
+                        .'<urn1:storeprincipal id="' . $id . '" name="' . $name . '" accountNumber="' . $accountNumber . '" />'
+                        .'<urn1:vm id="' . $id . '" phone="' . $phone . '" />'
                     .'</urn1:UploadVoiceMailRequest>'
                 .'</env:Body>'
             .'</env:Envelope>';
@@ -470,11 +530,16 @@ class ApiTest extends ZimbraTestCase
 
     public function testVoiceMsgAction()
     {
+        $id = self::randomName();
+        $name = self::randomName();
+        $accountNumber = self::randomName();
+        $phone = self::randomName();
+        $folderId = self::randomName();
         $action = new \Zimbra\Voice\Struct\VoiceMsgActionSpec(
-            VoiceMsgActionOp::MOVE(), 'phone', 'id', 'l'
+            VoiceMsgActionOp::MOVE(), $phone, $id, $folderId
         );
         $storeprincipal = new \Zimbra\Voice\Struct\StorePrincipalSpec(
-            'id', 'name', 'accountNumber'
+            $id, $name, $accountNumber
         );
 
         $this->_api->voiceMsgAction($action, $storeprincipal);
@@ -485,8 +550,8 @@ class ApiTest extends ZimbraTestCase
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraVoice">'
                 .'<env:Body>'
                     .'<urn1:VoiceMsgActionRequest>'
-                        .'<urn1:storeprincipal id="id" name="name" accountNumber="accountNumber" />'
-                        .'<urn1:action op="move" phone="phone" id="id" l="l" />'
+                        .'<urn1:storeprincipal id="' . $id . '" name="' . $name . '" accountNumber="' . $accountNumber . '" />'
+                        .'<urn1:action op="' . VoiceMsgActionOp::MOVE() . '" phone="' . $phone . '" id="' . $id . '" l="' . $folderId . '" />'
                     .'</urn1:VoiceMsgActionRequest>'
                 .'</env:Body>'
             .'</env:Envelope>';

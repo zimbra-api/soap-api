@@ -15,29 +15,30 @@ class RequestTest extends ZimbraTestCase
     {
         $req = $this->getMockForAbstractClass('\Zimbra\Voice\Request\Base');
         $this->assertInstanceOf('Zimbra\Soap\Request', $req);
-        $this->assertEquals('urn:zimbraVoice', $req->xmlNamespace());
+        $this->assertEquals('urn:zimbraVoice', $req->getXmlNamespace());
     }
 
     public function testChangeUCPassword()
     {
+        $password = self::randomName();
         $req = new \Zimbra\Voice\Request\ChangeUCPassword(
-            'password'
+            $password
         );
         $this->assertInstanceOf('Zimbra\Voice\Request\Base', $req);
-        $this->assertSame('password', $req->password());
-        $req->password('password');
-        $this->assertSame('password', $req->password());
+        $this->assertSame($password, $req->getPassword());
+        $req->setPassword($password);
+        $this->assertSame($password, $req->getPassword());
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<ChangeUCPasswordRequest password="password" />';
+            .'<ChangeUCPasswordRequest password="' . $password . '" />';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
-        $array = array(
-            'ChangeUCPasswordRequest' => array(
+        $array = [
+            'ChangeUCPasswordRequest' => [
                 '_jsns' => 'urn:zimbraVoice',
-                'password' =>'password',
-            ),
-        );
+                'password' =>$password,
+            ],
+        ];
         $this->assertEquals($array, $req->toArray());
     }
 
@@ -50,20 +51,25 @@ class RequestTest extends ZimbraTestCase
             .'<GetUCInfoRequest />';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
-        $array = array(
-            'GetUCInfoRequest' => array(
+        $array = [
+            'GetUCInfoRequest' => [
                 '_jsns' => 'urn:zimbraVoice',
-            ),
-        );
+            ],
+        ];
         $this->assertEquals($array, $req->toArray());
     }
 
     public function testGetVoiceFeatures()
     {
-        $pref = new \Zimbra\Voice\Struct\VoiceMailPrefName('name');
-        $voicemailprefs = new \Zimbra\Voice\Struct\VoiceMailPrefsReq(
-            array($pref)
+        $id = self::randomName();
+        $name = self::randomName();
+        $accountNumber = self::randomName();
+        $storeprincipal = new \Zimbra\Voice\Struct\StorePrincipalSpec(
+            $id, $name, $accountNumber
         );
+
+        $pref = new \Zimbra\Voice\Struct\VoiceMailPrefName($name);
+        $voicemailprefs = new \Zimbra\Voice\Struct\VoiceMailPrefsReq([$pref]);
         $anoncallrejection = new \Zimbra\Voice\Struct\AnonCallRejectionReq();
         $calleridblocking = new \Zimbra\Voice\Struct\CallerIdBlockingReq();
         $callforward = new \Zimbra\Voice\Struct\CallForwardReq();
@@ -74,11 +80,7 @@ class RequestTest extends ZimbraTestCase
         $selectivecallacceptance = new \Zimbra\Voice\Struct\SelectiveCallAcceptanceReq();
         $selectivecallrejection = new \Zimbra\Voice\Struct\SelectiveCallRejectionReq();
 
-        $storeprincipal = new \Zimbra\Voice\Struct\StorePrincipalSpec(
-            'id', 'name', 'accountNumber'
-        );
-        $phone = new \Zimbra\Voice\Struct\PhoneVoiceFeaturesSpec(
-            'name',
+        $callFeatures = [
             $voicemailprefs,
             $anoncallrejection,
             $calleridblocking,
@@ -89,25 +91,28 @@ class RequestTest extends ZimbraTestCase
             $selectivecallforward,
             $selectivecallacceptance,
             $selectivecallrejection
+        ];
+        $phone = new \Zimbra\Voice\Struct\PhoneVoiceFeaturesSpec(
+            $name, $callFeatures
         );
 
         $req = new \Zimbra\Voice\Request\GetVoiceFeatures(
             $storeprincipal, $phone
         );
         $this->assertInstanceOf('Zimbra\Voice\Request\Base', $req);
-        $this->assertSame($storeprincipal, $req->storeprincipal());
-        $this->assertSame($phone, $req->phone());
-        $req->storeprincipal($storeprincipal)
-            ->phone($phone);
-        $this->assertSame($storeprincipal, $req->storeprincipal());
-        $this->assertSame($phone, $req->phone());
+        $this->assertSame($storeprincipal, $req->getStorePrincipal());
+        $this->assertSame($phone, $req->getPhone());
+        $req->setStorePrincipal($storeprincipal)
+            ->setPhone($phone);
+        $this->assertSame($storeprincipal, $req->getStorePrincipal());
+        $this->assertSame($phone, $req->getPhone());
 
         $xml = '<?xml version="1.0"?>'."\n"
             .'<GetVoiceFeaturesRequest>'
-                .'<storeprincipal id="id" name="name" accountNumber="accountNumber" />'
-                .'<phone name="name">'
+                .'<storeprincipal id="' . $id . '" name="' . $name . '" accountNumber="' . $accountNumber . '" />'
+                .'<phone name="' . $name . '">'
                     .'<voicemailprefs>'
-                        .'<pref name="name" />'
+                        .'<pref name="' . $name . '" />'
                     .'</voicemailprefs>'
                     .'<anoncallrejection />'
                     .'<calleridblocking />'
@@ -122,231 +127,257 @@ class RequestTest extends ZimbraTestCase
             .'</GetVoiceFeaturesRequest>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
-        $array = array(
-            'GetVoiceFeaturesRequest' => array(
+        $array = [
+            'GetVoiceFeaturesRequest' => [
                 '_jsns' => 'urn:zimbraVoice',
-                'storeprincipal' => array(
-                    'id' => 'id',
-                    'name' => 'name',
-                    'accountNumber' => 'accountNumber',
-                ),
-                'phone' => array(
-                    'name' => 'name',
-                    'voicemailprefs' => array(
-                        'pref' => array(
-                            array(
-                                'name' => 'name',
-                            ),
-                        ),
-                    ),
-                    'anoncallrejection' => array(),
-                    'calleridblocking' => array(),
-                    'callforward' => array(),
-                    'callforwardbusyline' => array(),
-                    'callforwardnoanswer' => array(),
-                    'callwaiting' => array(),
-                    'selectivecallforward' => array(),
-                    'selectivecallacceptance' => array(),
-                    'selectivecallrejection' => array(),
-                ),
-            ),
-        );
+                'storeprincipal' => [
+                    'id' => $id,
+                    'name' => $name,
+                    'accountNumber' => $accountNumber,
+                ],
+                'phone' => [
+                    'name' => $name,
+                    'voicemailprefs' => [
+                        'pref' => [
+                            [
+                                'name' => $name,
+                            ],
+                        ],
+                    ],
+                    'anoncallrejection' => [],
+                    'calleridblocking' => [],
+                    'callforward' => [],
+                    'callforwardbusyline' => [],
+                    'callforwardnoanswer' => [],
+                    'callwaiting' => [],
+                    'selectivecallforward' => [],
+                    'selectivecallacceptance' => [],
+                    'selectivecallrejection' => [],
+                ],
+            ],
+        ];
         $this->assertEquals($array, $req->toArray());
     }
 
     public function testGetVoiceFolder()
     {
+        $id = self::randomName();
+        $name = self::randomName();
+        $accountNumber = self::randomName();
         $storeprincipal = new \Zimbra\Voice\Struct\StorePrincipalSpec(
-            'id', 'name', 'accountNumber'
+            $id, $name, $accountNumber
         );
-        $pref = new \Zimbra\Voice\Struct\PrefSpec('name');
-        $phone = new \Zimbra\Voice\Struct\PhoneSpec('name', array($pref));
+        $pref = new \Zimbra\Voice\Struct\PrefSpec($name);
+        $phone = new \Zimbra\Voice\Struct\PhoneSpec($name, [$pref]);
 
         $req = new \Zimbra\Voice\Request\GetVoiceFolder(
-            $storeprincipal, array($phone)
+            $storeprincipal, [$phone]
         );
         $this->assertInstanceOf('Zimbra\Voice\Request\Base', $req);
-        $this->assertSame($storeprincipal, $req->storeprincipal());
-        $this->assertSame(array($phone), $req->phone()->all());
-        $req->storeprincipal($storeprincipal)
+        $this->assertSame($storeprincipal, $req->getStorePrincipal());
+        $this->assertSame([$phone], $req->getPhones()->all());
+        $req->setStorePrincipal($storeprincipal)
             ->addPhone($phone);
-        $this->assertSame($storeprincipal, $req->storeprincipal());
-        $this->assertSame(array($phone, $phone), $req->phone()->all());
-        $req->phone()->remove(1);
+        $this->assertSame($storeprincipal, $req->getStorePrincipal());
+        $this->assertSame([$phone, $phone], $req->getPhones()->all());
+        $req->getPhones()->remove(1);
 
         $xml = '<?xml version="1.0"?>'."\n"
             .'<GetVoiceFolderRequest>'
-                .'<storeprincipal id="id" name="name" accountNumber="accountNumber" />'
-                .'<phone name="name">'
-                    .'<pref name="name" />'
+                .'<storeprincipal id="' . $id . '" name="' . $name . '" accountNumber="' . $accountNumber . '" />'
+                .'<phone name="' . $name . '">'
+                    .'<pref name="' . $name . '" />'
                 .'</phone>'
             .'</GetVoiceFolderRequest>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
-        $array = array(
-            'GetVoiceFolderRequest' => array(
+        $array = [
+            'GetVoiceFolderRequest' => [
                 '_jsns' => 'urn:zimbraVoice',
-                'storeprincipal' => array(
-                    'id' => 'id',
-                    'name' => 'name',
-                    'accountNumber' => 'accountNumber',
-                ),
-                'phone' => array(
-                    array(
-                        'name' => 'name',
-                        'pref' => array(
-                            array(
-                                'name' => 'name',
-                            ),
-                        ),
-                    ),
-                ),
-            ),
-        );
+                'storeprincipal' => [
+                    'id' => $id,
+                    'name' => $name,
+                    'accountNumber' => $accountNumber,
+                ],
+                'phone' => [
+                    [
+                        'name' => $name,
+                        'pref' => [
+                            [
+                                'name' => $name,
+                            ],
+                        ],
+                    ],
+                ],
+            ],
+        ];
         $this->assertEquals($array, $req->toArray());
     }
 
     public function testGetVoiceInfo()
     {
-        $pref = new \Zimbra\Voice\Struct\PrefSpec('name');
-        $phone = new \Zimbra\Voice\Struct\PhoneSpec('name', array($pref));
+        $name = self::randomName();
+        $pref = new \Zimbra\Voice\Struct\PrefSpec($name);
+        $phone = new \Zimbra\Voice\Struct\PhoneSpec($name, [$pref]);
 
         $req = new \Zimbra\Voice\Request\GetVoiceInfo(
-            array($phone)
+            [$phone]
         );
         $this->assertInstanceOf('Zimbra\Voice\Request\Base', $req);
-        $this->assertSame(array($phone), $req->phone()->all());
+        $this->assertSame([$phone], $req->getPhones()->all());
         $req->addPhone($phone);
-        $this->assertSame(array($phone, $phone), $req->phone()->all());
-        $req->phone()->remove(1);
+        $this->assertSame([$phone, $phone], $req->getPhones()->all());
+        $req->getPhones()->remove(1);
 
         $xml = '<?xml version="1.0"?>'."\n"
             .'<GetVoiceInfoRequest>'
-                .'<phone name="name">'
-                    .'<pref name="name" />'
+                .'<phone name="' . $name . '">'
+                    .'<pref name="' . $name . '" />'
                 .'</phone>'
             .'</GetVoiceInfoRequest>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
-        $array = array(
-            'GetVoiceInfoRequest' => array(
+        $array = [
+            'GetVoiceInfoRequest' => [
                 '_jsns' => 'urn:zimbraVoice',
-                'phone' => array(
-                    array(
-                        'name' => 'name',
-                        'pref' => array(
-                            array(
-                                'name' => 'name',
-                            ),
-                        ),
-                    ),
-                ),
-            ),
-        );
+                'phone' => [
+                    [
+                        'name' => $name,
+                        'pref' => [
+                            [
+                                'name' => $name,
+                            ],
+                        ],
+                    ],
+                ],
+            ],
+        ];
         $this->assertEquals($array, $req->toArray());
     }
 
     public function testGetVoiceMailPrefs()
     {
+        $id = self::randomName();
+        $name = self::randomName();
+        $accountNumber = self::randomName();
         $storeprincipal = new \Zimbra\Voice\Struct\StorePrincipalSpec(
-            'id', 'name', 'accountNumber'
+            $id, $name, $accountNumber
         );
-        $pref = new \Zimbra\Voice\Struct\PrefSpec('name');
-        $phone = new \Zimbra\Voice\Struct\PhoneSpec('name', array($pref));
+        $pref = new \Zimbra\Voice\Struct\PrefSpec($name);
+        $phone = new \Zimbra\Voice\Struct\PhoneSpec($name, [$pref]);
 
         $req = new \Zimbra\Voice\Request\GetVoiceMailPrefs(
             $storeprincipal, $phone
         );
         $this->assertInstanceOf('Zimbra\Voice\Request\Base', $req);
-        $this->assertSame($storeprincipal, $req->storeprincipal());
-        $this->assertSame($phone, $req->phone());
-        $req->storeprincipal($storeprincipal)
-            ->phone($phone);
-        $this->assertSame($storeprincipal, $req->storeprincipal());
-        $this->assertSame($phone, $req->phone());
+        $this->assertSame($storeprincipal, $req->getStorePrincipal());
+        $this->assertSame($phone, $req->getPhone());
+        $req->setStorePrincipal($storeprincipal)
+            ->setPhone($phone);
+        $this->assertSame($storeprincipal, $req->getStorePrincipal());
+        $this->assertSame($phone, $req->getPhone());
 
         $xml = '<?xml version="1.0"?>'."\n"
             .'<GetVoiceMailPrefsRequest>'
-                .'<storeprincipal id="id" name="name" accountNumber="accountNumber" />'
-                .'<phone name="name">'
-                    .'<pref name="name" />'
+                .'<storeprincipal id="' . $id . '" name="' . $name . '" accountNumber="' . $accountNumber . '" />'
+                .'<phone name="' . $name . '">'
+                    .'<pref name="' . $name . '" />'
                 .'</phone>'
             .'</GetVoiceMailPrefsRequest>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
-        $array = array(
-            'GetVoiceMailPrefsRequest' => array(
+        $array = [
+            'GetVoiceMailPrefsRequest' => [
                 '_jsns' => 'urn:zimbraVoice',
-                'storeprincipal' => array(
-                    'id' => 'id',
-                    'name' => 'name',
-                    'accountNumber' => 'accountNumber',
-                ),
-                'phone' => array(
-                    'name' => 'name',
-                    'pref' => array(
-                        array(
-                            'name' => 'name',
-                        ),
-                    ),
-                ),
-            ),
-        );
+                'storeprincipal' => [
+                    'id' => $id,
+                    'name' => $name,
+                    'accountNumber' => $accountNumber,
+                ],
+                'phone' => [
+                    'name' => $name,
+                    'pref' => [
+                        [
+                            'name' => $name,
+                        ],
+                    ],
+                ],
+            ],
+        ];
         $this->assertEquals($array, $req->toArray());
     }
 
     public function testModifyFromNum()
     {
+        $id = self::randomName();
+        $name = self::randomName();
+        $accountNumber = self::randomName();
         $storeprincipal = new \Zimbra\Voice\Struct\StorePrincipalSpec(
-            'id', 'name', 'accountNumber'
+            $id, $name, $accountNumber
         );
+
+        $oldPhone = self::randomName();
+        $newPhone = self::randomName();
+        $label = self::randomName();
         $phone = new \Zimbra\Voice\Struct\ModifyFromNumSpec(
-            'oldPhone', 'phone', 'id', 'label'
+            $oldPhone, $newPhone, $id, $label
         );
 
         $req = new \Zimbra\Voice\Request\ModifyFromNum(
             $storeprincipal, $phone
         );
         $this->assertInstanceOf('Zimbra\Voice\Request\Base', $req);
-        $this->assertSame($storeprincipal, $req->storeprincipal());
-        $this->assertSame($phone, $req->phone());
-        $req->storeprincipal($storeprincipal)
-            ->phone($phone);
-        $this->assertSame($storeprincipal, $req->storeprincipal());
-        $this->assertSame($phone, $req->phone());
+        $this->assertSame($storeprincipal, $req->getStorePrincipal());
+        $this->assertSame($phone, $req->getPhone());
+        $req->setStorePrincipal($storeprincipal)
+            ->setPhone($phone);
+        $this->assertSame($storeprincipal, $req->getStorePrincipal());
+        $this->assertSame($phone, $req->getPhone());
 
         $xml = '<?xml version="1.0"?>'."\n"
             .'<ModifyFromNumRequest>'
-                .'<storeprincipal id="id" name="name" accountNumber="accountNumber" />'
-                .'<phone oldPhone="oldPhone" phone="phone" id="id" label="label" />'
+                .'<storeprincipal id="' . $id . '" name="' . $name . '" accountNumber="' . $accountNumber . '" />'
+                .'<phone oldPhone="' . $oldPhone . '" phone="' . $newPhone . '" id="' . $id . '" label="' . $label . '" />'
             .'</ModifyFromNumRequest>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
-        $array = array(
-            'ModifyFromNumRequest' => array(
+        $array = [
+            'ModifyFromNumRequest' => [
                 '_jsns' => 'urn:zimbraVoice',
-                'storeprincipal' => array(
-                    'id' => 'id',
-                    'name' => 'name',
-                    'accountNumber' => 'accountNumber',
-                ),
-                'phone' => array(
-                    'oldPhone' => 'oldPhone',
-                    'phone' => 'phone',
-                    'id' => 'id',
-                    'label' => 'label',
-                ),
-            ),
-        );
+                'storeprincipal' => [
+                    'id' => $id,
+                    'name' => $name,
+                    'accountNumber' => $accountNumber,
+                ],
+                'phone' => [
+                    'oldPhone' => $oldPhone,
+                    'phone' => $newPhone,
+                    'id' => $id,
+                    'label' => $label,
+                ],
+            ],
+        ];
         $this->assertEquals($array, $req->toArray());
     }
 
     public function testModifyVoiceFeatures()
     {
-        $pref = new \Zimbra\Voice\Struct\PrefInfo('name', 'value');
-        $phone = new \Zimbra\Voice\Struct\CallerListEntry('pn', true);
+        $id = self::randomName();
+        $name = self::randomName();
+        $accountNumber = self::randomName();
+        $storeprincipal = new \Zimbra\Voice\Struct\StorePrincipalSpec(
+            $id, $name, $accountNumber
+        );
+
+        $value = self::randomName();
+        $pn = self::randomName();
+        $ft = self::randomName();
+        $nr = self::randomName();
+
+        $pref = new \Zimbra\Voice\Struct\PrefInfo($name, $value);
+        $entry = new \Zimbra\Voice\Struct\CallerListEntry($pn, true);
         $voicemailprefs = new \Zimbra\Voice\Struct\VoiceMailPrefsFeature(
-            true, false, array($pref)
+            true, false, [$pref]
         );
         $anoncallrejection = new \Zimbra\Voice\Struct\AnonCallRejectionFeature(
             true, false
@@ -355,32 +386,28 @@ class RequestTest extends ZimbraTestCase
             true, false
         );
         $callforward = new \Zimbra\Voice\Struct\CallForwardFeature(
-            true, false, 'ft'
+            true, false, $ft
         );
         $callforwardbusyline = new \Zimbra\Voice\Struct\CallForwardBusyLineFeature(
-            true, false, 'ft'
+            true, false, $ft
         );
         $callforwardnoanswer = new \Zimbra\Voice\Struct\CallForwardNoAnswerFeature(
-            true, false, 'ft', 'nr'
+            true, false, $ft, $nr
         );
         $callwaiting = new \Zimbra\Voice\Struct\CallWaitingFeature(
             true, false
         );
         $selectivecallforward = new \Zimbra\Voice\Struct\SelectiveCallForwardFeature(
-            true, false, array($phone), 'ft'
+            true, false, [$entry], $ft
         );
         $selectivecallacceptance = new \Zimbra\Voice\Struct\SelectiveCallAcceptanceFeature(
-            true, false, array($phone)
+            true, false, [$entry]
         );
         $selectivecallrejection = new \Zimbra\Voice\Struct\SelectiveCallRejectionFeature(
-            true, false, array($phone)
+            true, false, [$entry]
         );
 
-        $storeprincipal = new \Zimbra\Voice\Struct\StorePrincipalSpec(
-            'id', 'name', 'accountNumber'
-        );
-        $phone = new \Zimbra\Voice\Struct\ModifyVoiceFeaturesSpec(
-            'name',
+        $callFeatures = [
             $voicemailprefs,
             $anoncallrejection,
             $calleridblocking,
@@ -390,228 +417,248 @@ class RequestTest extends ZimbraTestCase
             $callwaiting,
             $selectivecallforward,
             $selectivecallacceptance,
-            $selectivecallrejection
+            $selectivecallrejection,
+        ];
+        $phone = new \Zimbra\Voice\Struct\ModifyVoiceFeaturesSpec(
+            $name, $callFeatures
         );
 
         $req = new \Zimbra\Voice\Request\ModifyVoiceFeatures(
             $storeprincipal, $phone
         );
         $this->assertInstanceOf('Zimbra\Voice\Request\Base', $req);
-        $this->assertSame($storeprincipal, $req->storeprincipal());
-        $this->assertSame($phone, $req->phone());
-        $req->storeprincipal($storeprincipal)
-            ->phone($phone);
-        $this->assertSame($storeprincipal, $req->storeprincipal());
-        $this->assertSame($phone, $req->phone());
+        $this->assertSame($storeprincipal, $req->getStorePrincipal());
+        $this->assertSame($phone, $req->getPhone());
+        $req->setStorePrincipal($storeprincipal)
+            ->setPhone($phone);
+        $this->assertSame($storeprincipal, $req->getStorePrincipal());
+        $this->assertSame($phone, $req->getPhone());
 
         $xml = '<?xml version="1.0"?>'."\n"
             .'<ModifyVoiceFeaturesRequest>'
-                .'<storeprincipal id="id" name="name" accountNumber="accountNumber" />'
-                .'<phone name="name">'
+                .'<storeprincipal id="' . $id . '" name="' . $name . '" accountNumber="' . $accountNumber . '" />'
+                .'<phone name="' . $name . '">'
                     .'<voicemailprefs s="true" a="false">'
-                        .'<pref name="name">value</pref>'
+                        .'<pref name="' . $name . '">' . $value  .'</pref>'
                     .'</voicemailprefs>'
                     .'<anoncallrejection s="true" a="false" />'
                     .'<calleridblocking s="true" a="false" />'
-                    .'<callforward s="true" a="false" ft="ft" />'
-                    .'<callforwardbusyline s="true" a="false" ft="ft" />'
-                    .'<callforwardnoanswer s="true" a="false" ft="ft" nr="nr" />'
+                    .'<callforward s="true" a="false" ft="' . $ft . '" />'
+                    .'<callforwardbusyline s="true" a="false" ft="' . $ft . '" />'
+                    .'<callforwardnoanswer s="true" a="false" ft="' . $ft . '" nr="' . $nr . '" />'
                     .'<callwaiting s="true" a="false" />'
-                    .'<selectivecallforward s="true" a="false" ft="ft">'
-                        .'<phone pn="pn" a="true" />'
+                    .'<selectivecallforward s="true" a="false" ft="' . $ft . '">'
+                        .'<phone pn="' . $pn . '" a="true" />'
                     .'</selectivecallforward>'
                     .'<selectivecallacceptance s="true" a="false">'
-                        .'<phone pn="pn" a="true" />'
+                        .'<phone pn="' . $pn . '" a="true" />'
                     .'</selectivecallacceptance>'
                     .'<selectivecallrejection s="true" a="false">'
-                        .'<phone pn="pn" a="true" />'
+                        .'<phone pn="' . $pn . '" a="true" />'
                     .'</selectivecallrejection>'
                 .'</phone>'
             .'</ModifyVoiceFeaturesRequest>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
-        $array = array(
-            'ModifyVoiceFeaturesRequest' => array(
+        $array = [
+            'ModifyVoiceFeaturesRequest' => [
                 '_jsns' => 'urn:zimbraVoice',
-                'storeprincipal' => array(
-                    'id' => 'id',
-                    'name' => 'name',
-                    'accountNumber' => 'accountNumber',
-                ),
-                'phone' => array(
-                    'name' => 'name',
-                    'voicemailprefs' => array(
+                'storeprincipal' => [
+                    'id' => $id,
+                    'name' => $name,
+                    'accountNumber' => $accountNumber,
+                ],
+                'phone' => [
+                    'name' => $name,
+                    'voicemailprefs' => [
                         's' => true,
                         'a' => false,
-                        'pref' => array(
-                            array(
-                                'name' => 'name',
-                                '_content' => 'value',
-                            ),
-                        ),
-                    ),
-                    'anoncallrejection' => array(
+                        'pref' => [
+                            [
+                                'name' => $name,
+                                '_content' => $value,
+                            ],
+                        ],
+                    ],
+                    'anoncallrejection' => [
                         's' => true,
                         'a' => false,
-                    ),
-                    'calleridblocking' => array(
+                    ],
+                    'calleridblocking' => [
                         's' => true,
                         'a' => false,
-                    ),
-                    'callforward' => array(
+                    ],
+                    'callforward' => [
                         's' => true,
                         'a' => false,
-                        'ft' => 'ft',
-                    ),
-                    'callforwardbusyline' => array(
+                        'ft' => $ft,
+                    ],
+                    'callforwardbusyline' => [
                         's' => true,
                         'a' => false,
-                        'ft' => 'ft',
-                    ),
-                    'callforwardnoanswer' => array(
+                        'ft' => $ft,
+                    ],
+                    'callforwardnoanswer' => [
                         's' => true,
                         'a' => false,
-                        'ft' => 'ft',
-                        'nr' => 'nr',
-                    ),
-                    'callwaiting' => array(
+                        'ft' => $ft,
+                        'nr' => $nr,
+                    ],
+                    'callwaiting' => [
                         's' => true,
                         'a' => false,
-                    ),
-                    'selectivecallforward' => array(
+                    ],
+                    'selectivecallforward' => [
                         's' => true,
                         'a' => false,
-                        'ft' => 'ft',
-                        'phone' => array(
-                            array(
-                                'pn' => 'pn',
+                        'ft' => $ft,
+                        'phone' => [
+                            [
+                                'pn' => $pn,
                                 'a' => true,
-                            ),
-                        ),
-                    ),
-                    'selectivecallacceptance' => array(
+                            ],
+                        ],
+                    ],
+                    'selectivecallacceptance' => [
                         's' => true,
                         'a' => false,
-                        'phone' => array(
-                            array(
-                                'pn' => 'pn',
+                        'phone' => [
+                            [
+                                'pn' => $pn,
                                 'a' => true,
-                            ),
-                        ),
-                    ),
-                    'selectivecallrejection' => array(
+                            ],
+                        ],
+                    ],
+                    'selectivecallrejection' => [
                         's' => true,
                         'a' => false,
-                        'phone' => array(
-                            array(
-                                'pn' => 'pn',
+                        'phone' => [
+                            [
+                                'pn' => $pn,
                                 'a' => true,
-                            ),
-                        ),
-                    ),
-                ),
-            ),
-        );
+                            ],
+                        ],
+                    ],
+                ],
+            ],
+        ];
         $this->assertEquals($array, $req->toArray());
     }
 
     public function testModifyVoiceMailPin()
     {
+        $id = self::randomName();
+        $name = self::randomName();
+        $accountNumber = self::randomName();
         $storeprincipal = new \Zimbra\Voice\Struct\StorePrincipalSpec(
-            'id', 'name', 'accountNumber'
+            $id, $name, $accountNumber
         );
+
+        $oldPin = self::randomName();
+        $pin = self::randomName();
         $phone = new \Zimbra\Voice\Struct\ModifyVoiceMailPinSpec(
-            'oldPin', 'pin', 'name'
+            $oldPin, $pin, $name
         );
 
         $req = new \Zimbra\Voice\Request\ModifyVoiceMailPin(
             $storeprincipal, $phone
         );
         $this->assertInstanceOf('Zimbra\Voice\Request\Base', $req);
-        $this->assertSame($storeprincipal, $req->storeprincipal());
-        $this->assertSame($phone, $req->phone());
-        $req->storeprincipal($storeprincipal)
-            ->phone($phone);
-        $this->assertSame($storeprincipal, $req->storeprincipal());
-        $this->assertSame($phone, $req->phone());
+        $this->assertSame($storeprincipal, $req->getStorePrincipal());
+        $this->assertSame($phone, $req->getPhone());
+        $req->setStorePrincipal($storeprincipal)
+            ->setPhone($phone);
+        $this->assertSame($storeprincipal, $req->getStorePrincipal());
+        $this->assertSame($phone, $req->getPhone());
 
         $xml = '<?xml version="1.0"?>'."\n"
             .'<ModifyVoiceMailPinRequest>'
-                .'<storeprincipal id="id" name="name" accountNumber="accountNumber" />'
-                .'<phone oldPin="oldPin" pin="pin" name="name" />'
+                .'<storeprincipal id="' . $id . '" name="' . $name . '" accountNumber="' . $accountNumber . '" />'
+                .'<phone oldPin="' . $oldPin . '" pin="' . $pin . '" name="' . $name . '" />'
             .'</ModifyVoiceMailPinRequest>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
-        $array = array(
-            'ModifyVoiceMailPinRequest' => array(
+        $array = [
+            'ModifyVoiceMailPinRequest' => [
                 '_jsns' => 'urn:zimbraVoice',
-                'storeprincipal' => array(
-                    'id' => 'id',
-                    'name' => 'name',
-                    'accountNumber' => 'accountNumber',
-                ),
-                'phone' => array(
-                    'oldPin' => 'oldPin',
-                    'pin' => 'pin',
-                    'name' => 'name',
-                ),
-            ),
-        );
+                'storeprincipal' => [
+                    'id' => $id,
+                    'name' => $name,
+                    'accountNumber' => $accountNumber,
+                ],
+                'phone' => [
+                    'oldPin' => $oldPin,
+                    'pin' => $pin,
+                    'name' => $name,
+                ],
+            ],
+        ];
         $this->assertEquals($array, $req->toArray());
     }
 
     public function testModifyVoiceMailPrefs()
     {
+        $id = self::randomName();
+        $name = self::randomName();
+        $accountNumber = self::randomName();
+        $value = self::randomName();
         $storeprincipal = new \Zimbra\Voice\Struct\StorePrincipalSpec(
-            'id', 'name', 'accountNumber'
+            $id, $name, $accountNumber
         );
-        $pref = new \Zimbra\Voice\Struct\PrefInfo('name', 'value');
-        $phone = new \Zimbra\Voice\Struct\PhoneInfo('name', array($pref));
+        $pref = new \Zimbra\Voice\Struct\PrefInfo($name, $value);
+        $phone = new \Zimbra\Voice\Struct\PhoneInfo($name, [$pref]);
 
         $req = new \Zimbra\Voice\Request\ModifyVoiceMailPrefs(
             $storeprincipal, $phone
         );
         $this->assertInstanceOf('Zimbra\Voice\Request\Base', $req);
-        $this->assertSame($storeprincipal, $req->storeprincipal());
-        $this->assertSame($phone, $req->phone());
-        $req->storeprincipal($storeprincipal)
-            ->phone($phone);
-        $this->assertSame($storeprincipal, $req->storeprincipal());
-        $this->assertSame($phone, $req->phone());
+        $this->assertSame($storeprincipal, $req->getStorePrincipal());
+        $this->assertSame($phone, $req->getPhone());
+        $req->setStorePrincipal($storeprincipal)
+            ->setPhone($phone);
+        $this->assertSame($storeprincipal, $req->getStorePrincipal());
+        $this->assertSame($phone, $req->getPhone());
 
         $xml = '<?xml version="1.0"?>'."\n"
             .'<ModifyVoiceMailPrefsRequest>'
-                .'<storeprincipal id="id" name="name" accountNumber="accountNumber" />'
-                .'<phone name="name">'
-                    .'<pref name="name">value</pref>'
+                .'<storeprincipal id="' . $id . '" name="' . $name . '" accountNumber="' . $accountNumber . '" />'
+                .'<phone name="' . $name . '">'
+                    .'<pref name="' . $name . '">' . $value . '</pref>'
                 .'</phone>'
             .'</ModifyVoiceMailPrefsRequest>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
-        $array = array(
-            'ModifyVoiceMailPrefsRequest' => array(
+        $array = [
+            'ModifyVoiceMailPrefsRequest' => [
                 '_jsns' => 'urn:zimbraVoice',
-                'storeprincipal' => array(
-                    'id' => 'id',
-                    'name' => 'name',
-                    'accountNumber' => 'accountNumber',
-                ),
-                'phone' => array(
-                    'name' => 'name',
-                    'pref' => array(
-                        array(
-                            'name' => 'name',
-                            '_content' => 'value',
-                        ),
-                    ),
-                ),
-            ),
-        );
+                'storeprincipal' => [
+                    'id' => $id,
+                    'name' => $name,
+                    'accountNumber' => $accountNumber,
+                ],
+                'phone' => [
+                    'name' => $name,
+                    'pref' => [
+                        [
+                            'name' => $name,
+                            '_content' => $value,
+                        ],
+                    ],
+                ],
+            ],
+        ];
         $this->assertEquals($array, $req->toArray());
     }
 
     public function testResetVoiceFeatures()
     {
+        $id = self::randomName();
+        $name = self::randomName();
+        $accountNumber = self::randomName();
+        $storeprincipal = new \Zimbra\Voice\Struct\StorePrincipalSpec(
+            $id, $name, $accountNumber
+        );
+
         $anoncallrejection = new \Zimbra\Voice\Struct\AnonCallRejectionReq();
         $calleridblocking = new \Zimbra\Voice\Struct\CallerIdBlockingReq();
         $callforward = new \Zimbra\Voice\Struct\CallForwardReq();
@@ -622,11 +669,7 @@ class RequestTest extends ZimbraTestCase
         $selectivecallacceptance = new \Zimbra\Voice\Struct\SelectiveCallAcceptanceReq();
         $selectivecallrejection = new \Zimbra\Voice\Struct\SelectiveCallRejectionReq();
 
-        $storeprincipal = new \Zimbra\Voice\Struct\StorePrincipalSpec(
-            'id', 'name', 'accountNumber'
-        );
-        $phone = new \Zimbra\Voice\Struct\ResetPhoneVoiceFeaturesSpec(
-            'name',
+        $callFeatures = [
             $anoncallrejection,
             $calleridblocking,
             $callforward,
@@ -635,24 +678,27 @@ class RequestTest extends ZimbraTestCase
             $callwaiting,
             $selectivecallforward,
             $selectivecallacceptance,
-            $selectivecallrejection
+            $selectivecallrejection,
+        ];
+        $phone = new \Zimbra\Voice\Struct\ResetPhoneVoiceFeaturesSpec(
+            $name, $callFeatures
         );
 
         $req = new \Zimbra\Voice\Request\ResetVoiceFeatures(
             $storeprincipal, $phone
         );
         $this->assertInstanceOf('Zimbra\Voice\Request\Base', $req);
-        $this->assertSame($storeprincipal, $req->storeprincipal());
-        $this->assertSame($phone, $req->phone());
-        $req->storeprincipal($storeprincipal)
-            ->phone($phone);
-        $this->assertSame($storeprincipal, $req->storeprincipal());
-        $this->assertSame($phone, $req->phone());
+        $this->assertSame($storeprincipal, $req->getStorePrincipal());
+        $this->assertSame($phone, $req->getPhone());
+        $req->setStorePrincipal($storeprincipal)
+            ->setPhone($phone);
+        $this->assertSame($storeprincipal, $req->getStorePrincipal());
+        $this->assertSame($phone, $req->getPhone());
 
         $xml = '<?xml version="1.0"?>'."\n"
             .'<ResetVoiceFeaturesRequest>'
-                .'<storeprincipal id="id" name="name" accountNumber="accountNumber" />'
-                .'<phone name="name">'
+                .'<storeprincipal id="' . $id . '" name="' . $name . '" accountNumber="' . $accountNumber . '" />'
+                .'<phone name="' . $name . '">'
                     .'<anoncallrejection />'
                     .'<calleridblocking />'
                     .'<callforward />'
@@ -666,171 +712,188 @@ class RequestTest extends ZimbraTestCase
             .'</ResetVoiceFeaturesRequest>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
-        $array = array(
-            'ResetVoiceFeaturesRequest' => array(
+        $array = [
+            'ResetVoiceFeaturesRequest' => [
                 '_jsns' => 'urn:zimbraVoice',
-                'storeprincipal' => array(
-                    'id' => 'id',
-                    'name' => 'name',
-                    'accountNumber' => 'accountNumber',
-                ),
-                'phone' => array(
-                    'name' => 'name',
-                    'anoncallrejection' => array(),
-                    'calleridblocking' => array(),
-                    'callforward' => array(),
-                    'callforwardbusyline' => array(),
-                    'callforwardnoanswer' => array(),
-                    'callwaiting' => array(),
-                    'selectivecallforward' => array(),
-                    'selectivecallacceptance' => array(),
-                    'selectivecallrejection' => array(),
-                ),
-            ),
-        );
+                'storeprincipal' => [
+                    'id' => $id,
+                    'name' => $name,
+                    'accountNumber' => $accountNumber,
+                ],
+                'phone' => [
+                    'name' => $name,
+                    'anoncallrejection' => [],
+                    'calleridblocking' => [],
+                    'callforward' => [],
+                    'callforwardbusyline' => [],
+                    'callforwardnoanswer' => [],
+                    'callwaiting' => [],
+                    'selectivecallforward' => [],
+                    'selectivecallacceptance' => [],
+                    'selectivecallrejection' => [],
+                ],
+            ],
+        ];
         $this->assertEquals($array, $req->toArray());
     }
 
     public function testSearchVoice()
     {
+        $id = self::randomName();
+        $name = self::randomName();
+        $accountNumber = self::randomName();
+        $query = self::randomName();
+        $types = self::randomName();
+        $limit = mt_rand(0, 100);
+        $offset = mt_rand(0, 100);
+
         $storeprincipal = new \Zimbra\Voice\Struct\StorePrincipalSpec(
-            'id', 'name', 'accountNumber'
+            $id, $name, $accountNumber
         );
         $req = new \Zimbra\Voice\Request\SearchVoice(
-            'query', $storeprincipal, 100, 100, 'types', VoiceSortBy::DATE_DESC()
+            $query, $storeprincipal, $limit, $offset, $types, VoiceSortBy::DATE_DESC()
         );
         $this->assertInstanceOf('Zimbra\Voice\Request\Base', $req);
-        $this->assertSame('query', $req->query());
-        $this->assertSame($storeprincipal, $req->storeprincipal());
-        $this->assertSame(100, $req->limit());
-        $this->assertSame(100, $req->offset());
-        $this->assertSame('types', $req->types());
-        $this->assertTrue($req->sortBy()->is('dateDesc'));
+        $this->assertSame($query, $req->getQuery());
+        $this->assertSame($storeprincipal, $req->getStorePrincipal());
+        $this->assertSame($limit, $req->getLimit());
+        $this->assertSame($offset, $req->getOffset());
+        $this->assertSame($types, $req->getTypes());
+        $this->assertTrue($req->getSortBy()->is('dateDesc'));
 
-        $req->query('query')
-            ->storeprincipal($storeprincipal)
-            ->limit(10)
-            ->offset(10)
-            ->types('types')
-            ->sortBy(VoiceSortBy::DATE_DESC());
-        $this->assertSame('query', $req->query());
-        $this->assertSame($storeprincipal, $req->storeprincipal());
-        $this->assertSame(10, $req->limit());
-        $this->assertSame(10, $req->offset());
-        $this->assertSame('types', $req->types());
-        $this->assertTrue($req->sortBy()->is('dateDesc'));
+        $req->setQuery($query)
+            ->setStorePrincipal($storeprincipal)
+            ->setLimit($limit)
+            ->setOffset($offset)
+            ->setTypes($types)
+            ->setSortBy(VoiceSortBy::DATE_DESC());
+        $this->assertSame($query, $req->getQuery());
+        $this->assertSame($storeprincipal, $req->getStorePrincipal());
+        $this->assertSame($limit, $req->getLimit());
+        $this->assertSame($offset, $req->getOffset());
+        $this->assertSame($types, $req->getTypes());
+        $this->assertTrue($req->getSortBy()->is('dateDesc'));
 
         $xml = '<?xml version="1.0"?>'."\n"
-            .'<SearchVoiceRequest query="query" limit="10" offset="10" types="types" sortBy="dateDesc">'
-                .'<storeprincipal id="id" name="name" accountNumber="accountNumber" />'
+            .'<SearchVoiceRequest query="' . $query . '" limit="' . $limit . '" offset="' . $offset . '" types="' . $types . '" sortBy="' . VoiceSortBy::DATE_DESC() . '">'
+                .'<storeprincipal id="' . $id . '" name="' . $name . '" accountNumber="' . $accountNumber . '" />'
             .'</SearchVoiceRequest>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
-        $array = array(
-            'SearchVoiceRequest' => array(
+        $array = [
+            'SearchVoiceRequest' => [
                 '_jsns' => 'urn:zimbraVoice',
-                'query' => 'query',
-                'limit' => 10,
-                'offset' => 10,
-                'types' =>'types',
-                'sortBy' =>'dateDesc',
-                'storeprincipal' => array(
-                    'id' => 'id',
-                    'name' => 'name',
-                    'accountNumber' => 'accountNumber',
-                ),
-            ),
-        );
+                'query' => $query,
+                'limit' => $limit,
+                'offset' => $offset,
+                'types' => $types,
+                'sortBy' => VoiceSortBy::DATE_DESC()->value(),
+                'storeprincipal' => [
+                    'id' => $id,
+                    'name' => $name,
+                    'accountNumber' => $accountNumber,
+                ],
+            ],
+        ];
         $this->assertEquals($array, $req->toArray());
     }
 
     public function testUploadVoiceMail()
     {
+        $id = self::randomName();
+        $name = self::randomName();
+        $accountNumber = self::randomName();
+        $phone = self::randomName();
         $storeprincipal = new \Zimbra\Voice\Struct\StorePrincipalSpec(
-            'id', 'name', 'accountNumber'
+            $id, $name, $accountNumber
         );
         $vm = new \Zimbra\Voice\Struct\VoiceMsgUploadSpec(
-            'id', 'phone'
+            $id, $phone
         );
 
         $req = new \Zimbra\Voice\Request\UploadVoiceMail(
             $storeprincipal, $vm
         );
         $this->assertInstanceOf('Zimbra\Voice\Request\Base', $req);
-        $this->assertSame($storeprincipal, $req->storeprincipal());
-        $this->assertSame($vm, $req->vm());
-        $req->storeprincipal($storeprincipal)
-            ->vm($vm);
-        $this->assertSame($storeprincipal, $req->storeprincipal());
-        $this->assertSame($vm, $req->vm());
+        $this->assertSame($storeprincipal, $req->getStorePrincipal());
+        $this->assertSame($vm, $req->getVoiceMsg());
+        $req->setStorePrincipal($storeprincipal)
+            ->setVoiceMsg($vm);
+        $this->assertSame($storeprincipal, $req->getStorePrincipal());
+        $this->assertSame($vm, $req->getVoiceMsg());
 
         $xml = '<?xml version="1.0"?>'."\n"
             .'<UploadVoiceMailRequest>'
-                .'<storeprincipal id="id" name="name" accountNumber="accountNumber" />'
-                .'<vm id="id" phone="phone" />'
+                .'<storeprincipal id="' . $id . '" name="' . $name . '" accountNumber="' . $accountNumber . '" />'
+                .'<vm id="' . $id . '" phone="' . $phone . '" />'
             .'</UploadVoiceMailRequest>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
-        $array = array(
-            'UploadVoiceMailRequest' => array(
+        $array = [
+            'UploadVoiceMailRequest' => [
                 '_jsns' => 'urn:zimbraVoice',
-                'storeprincipal' => array(
-                    'id' => 'id',
-                    'name' => 'name',
-                    'accountNumber' => 'accountNumber',
-                ),
-                'vm' => array(
-                    'id' => 'id',
-                    'phone' => 'phone',
-                ),
-            ),
-        );
+                'storeprincipal' => [
+                    'id' => $id,
+                    'name' => $name,
+                    'accountNumber' => $accountNumber,
+                ],
+                'vm' => [
+                    'id' => $id,
+                    'phone' => $phone,
+                ],
+            ],
+        ];
         $this->assertEquals($array, $req->toArray());
     }
 
     public function testVoiceMsgAction()
     {
+        $id = self::randomName();
+        $name = self::randomName();
+        $accountNumber = self::randomName();
+        $phone = self::randomName();
+        $folderId = self::randomName();
         $action = new \Zimbra\Voice\Struct\VoiceMsgActionSpec(
-            VoiceMsgActionOp::MOVE(), 'phone', 'id', 'l'
+            VoiceMsgActionOp::MOVE(), $phone, $id, $folderId
         );
         $storeprincipal = new \Zimbra\Voice\Struct\StorePrincipalSpec(
-            'id', 'name', 'accountNumber'
+            $id, $name, $accountNumber
         );
 
         $req = new \Zimbra\Voice\Request\VoiceMsgAction(
             $action, $storeprincipal
         );
         $this->assertInstanceOf('Zimbra\Voice\Request\Base', $req);
-        $this->assertSame($storeprincipal, $req->storeprincipal());
-        $this->assertSame($action, $req->action());
-        $req->storeprincipal($storeprincipal)
-            ->action($action);
-        $this->assertSame($storeprincipal, $req->storeprincipal());
-        $this->assertSame($action, $req->action());
+        $this->assertSame($storeprincipal, $req->getStorePrincipal());
+        $this->assertSame($action, $req->getAction());
+        $req->setStorePrincipal($storeprincipal)
+            ->setAction($action);
+        $this->assertSame($storeprincipal, $req->getStorePrincipal());
+        $this->assertSame($action, $req->getAction());
 
         $xml = '<?xml version="1.0"?>'."\n"
             .'<VoiceMsgActionRequest>'
-                .'<storeprincipal id="id" name="name" accountNumber="accountNumber" />'
-                .'<action op="move" phone="phone" id="id" l="l" />'
+                .'<storeprincipal id="' . $id . '" name="' . $name . '" accountNumber="' . $accountNumber . '" />'
+                .'<action op="' . VoiceMsgActionOp::MOVE() . '" phone="' . $phone . '" id="' . $id . '" l="' . $folderId . '" />'
             .'</VoiceMsgActionRequest>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
-        $array = array(
-            'VoiceMsgActionRequest' => array(
+        $array = [
+            'VoiceMsgActionRequest' => [
                 '_jsns' => 'urn:zimbraVoice',
-                'storeprincipal' => array(
-                    'id' => 'id',
-                    'name' => 'name',
-                    'accountNumber' => 'accountNumber',
-                ),
-                'action' => array(
-                    'op' => 'move',
-                    'phone' => 'phone',
-                    'id' => 'id',
-                    'l' => 'l',
-                ),
-            ),
-        );
+                'storeprincipal' => [
+                    'id' => $id,
+                    'name' => $name,
+                    'accountNumber' => $accountNumber,
+                ],
+                'action' => [
+                    'op' => VoiceMsgActionOp::MOVE()->value(),
+                    'phone' => $phone,
+                    'id' => $id,
+                    'l' => $folderId,
+                ],
+            ],
+        ];
         $this->assertEquals($array, $req->toArray());
     }
 }
