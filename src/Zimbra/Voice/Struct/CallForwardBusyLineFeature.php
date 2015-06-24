@@ -28,12 +28,12 @@ class CallForwardBusyLineFeature extends CallFeatureInfo
      * @param string $forwardTo Telephone number to forward calls to
      * @return self
      */
-    public function __construct($subscribed, $active, $ft = null)
+    public function __construct($subscribed, $active, $forwardTo = null)
     {
     	parent::__construct($subscribed, $active);
         if(null !== $forwardTo)
         {
-            $this->property('ft', trim($forwardTo));
+            $this->setProperty('ft', trim($forwardTo));
         }
     }
 

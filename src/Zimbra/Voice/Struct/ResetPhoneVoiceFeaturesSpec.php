@@ -10,6 +10,7 @@
 
 namespace Zimbra\Voice\Struct;
 
+use Zimbra\Common\TypedSequence;
 use Zimbra\Struct\Base;
 
 /**
@@ -122,6 +123,7 @@ class ResetPhoneVoiceFeaturesSpec extends Base
     public function addCallFeature(CallFeatureReq $callFeature)
     {
         $this->_callFeatures->add($callFeature);
+        return $this;
     }
 
     /**

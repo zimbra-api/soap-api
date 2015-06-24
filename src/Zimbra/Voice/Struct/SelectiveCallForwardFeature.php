@@ -34,7 +34,7 @@ class SelectiveCallForwardFeature extends FeatureWithCallerList
     	parent::__construct($subscribed, $active, $phones);
         if(null !== $forwardTo)
         {
-            $this->property('ft', trim($forwardTo));
+            $this->setProperty('ft', trim($forwardTo));
         }
     }
 

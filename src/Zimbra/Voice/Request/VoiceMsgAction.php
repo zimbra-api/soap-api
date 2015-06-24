@@ -42,9 +42,9 @@ class VoiceMsgAction extends Base
         parent::__construct();
         if($storeprincipal instanceof StorePrincipalSpec)
         {
-            $this->child('storeprincipal', $storeprincipal);
+            $this->setChild('storeprincipal', $storeprincipal);
         }
-        $this->child('action', $action);
+        $this->setChild('action', $action);
     }
 
     /**

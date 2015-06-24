@@ -32,7 +32,7 @@ class CallForwardNoAnswerFeature extends CallFeatureInfo
     public function __construct($subscribed, $active, $forwardTo = null, $numRing = null)
     {
     	parent::__construct($subscribed, $active);
-        if(null !== $ft)
+        if(null !== $forwardTo)
         {
             $this->setProperty('ft', trim($forwardTo));
         }
