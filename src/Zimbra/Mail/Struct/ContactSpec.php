@@ -28,85 +28,175 @@ class ContactSpec extends Base
      * Contact attributes. Cannot specify <vcard> as well as these
      * @var TypedSequence<NewContactAttr>
      */
-    private $_a;
+    private $_attrs;
 
     /**
      * Contact group members. Valid only if the contact being created is a contact group (has attribute type="group")
      * @var TypedSequence<NewContactGroupMember>
      */
-    private $_m;
+    private $_members;
 
     /**
      * Constructor method for ContactSpec
-     * @param  VCardInfo $vcard Either a vcard or attributes can be specified but not both.
-     * @param  array $a Contact attributes. Cannot specify <vcard> as well as these
-     * @param  array $m Contact group members. Valid only if the contact being created is a contact group (has attribute type="group")
      * @param  int $id ID - specified when modifying a contact
-     * @param  string $l ID of folder to create contact in. Un-specified means use the default Contacts folder.
-     * @param  string $t Tags - Comma separated list of integers. DEPRECATED - use "tn" instead
-     * @param  string $tn Comma-separated list of id names
+     * @param  string $folder ID of folder to create contact in. Un-specified means use the default Contacts folder.
+     * @param  string $tags Tags - Comma separated list of integers. DEPRECATED - use "tn" instead
+     * @param  string $tagNames Comma-separated list of id names
+     * @param  VCardInfo $vcard Either a vcard or attributes can be specified but not both.
+     * @param  array $attrs Contact attributes. Cannot specify <vcard> as well as these
+     * @param  array $members Contact group members. Valid only if the contact being created is a contact group (has attribute type="group")
      * @return self
      */
     public function __construct(
-        VCardInfo $vcard = null,
-        array $a = array(),
-        array $m = array(),
         $id = null,
-        $l = null,
-        $t = null,
-        $tn = null
+        $folder = null,
+        $tags = null,
+        $tagNames = null,
+        VCardInfo $vcard = null,
+        array $attrs = [],
+        array $members = []
     )
     {
         parent::__construct();
-        if($vcard instanceof VCardInfo)
-        {
-            $this->child('vcard', $vcard);
-        }
-        $this->_a = new TypedSequence('Zimbra\Mail\Struct\NewContactAttr', $a);
-        $this->_m = new TypedSequence('Zimbra\Mail\Struct\NewContactGroupMember', $m);
         if(null !== $id)
         {
-            $this->property('id', (int) $id);
+            $this->setProperty('id', (int) $id);
         }
-        if(null !== $l)
+        if(null !== $folder)
         {
-            $this->property('l', trim($l));
+            $this->setProperty('l', trim($folder));
         }
-        if(null !== $t)
+        if(null !== $tags)
         {
-            $this->property('t', trim($t));
+            $this->setProperty('t', trim($tags));
         }
-        if(null !== $tn)
+        if(null !== $tagNames)
         {
-            $this->property('tn', trim($tn));
+            $this->setProperty('tn', trim($tagNames));
+        }
+        if($vcard instanceof VCardInfo)
+        {
+            $this->setChild('vcard', $vcard);
         }
 
+        $this->setAttrs($attrs)
+            ->setGroupMembers($members);
         $this->on('before', function(Base $sender)
         {
-            if($sender->a()->count())
+            if($sender->getAttrs()->count())
             {
-                $sender->child('a', $sender->a()->all());
+                $sender->setChild('a', $sender->getAttrs()->all());
             }
-            if($sender->m()->count())
+            if($sender->getGroupMembers()->count())
             {
-                $sender->child('m', $sender->m()->all());
+                $sender->setChild('m', $sender->getGroupMembers()->all());
             }
         });
     }
 
     /**
-     * Gets or sets vcard
+     * Gets id
+     *
+     * @return string
+     */
+    public function getId()
+    {
+        return $this->getProperty('id');
+    }
+
+    /**
+     * Sets id
+     *
+     * @param  string $id
+     * @return self
+     */
+    public function setId($id)
+    {
+        return $this->setProperty('id', trim($id));
+    }
+
+    /**
+     * Gets folder
+     *
+     * @return string
+     */
+    public function getFolder()
+    {
+        return $this->getProperty('l');
+    }
+
+    /**
+     * Sets folder
+     *
+     * @param  string $folder
+     * @return self
+     */
+    public function setFolder($folder)
+    {
+        return $this->setProperty('l', trim($folder));
+    }
+
+    /**
+     * Gets tags
+     *
+     * @return string
+     */
+    public function getTags()
+    {
+        return $this->getProperty('t');
+    }
+
+    /**
+     * Sets tags
+     *
+     * @param  string $tags
+     * @return self
+     */
+    public function setTags($tags)
+    {
+        return $this->setProperty('t', trim($tags));
+    }
+
+    /**
+     * Gets tag names
+     *
+     * @return string
+     */
+    public function getTagNames()
+    {
+        return $this->getProperty('t');
+    }
+
+    /**
+     * Sets tag names
+     *
+     * @param  string $tagNames
+     * @return self
+     */
+    public function setTagNames($tagNames)
+    {
+        return $this->setProperty('t', trim($tagNames));
+    }
+
+    /**
+     * Gets vcard
+     *
+     * @return VCardInfo
+     */
+    public function getVCard()
+    {
+        return $this->getChild('vcard');
+    }
+
+    /**
+     * Sets vcard
      *
      * @param  VCardInfo $vcard
-     * @return VCardInfo|self
+     * @return self
      */
-    public function vcard(VCardInfo $vcard = null)
+    public function setVCard(VCardInfo $vcard)
     {
-        if(null === $vcard)
-        {
-            return $this->child('vcard');
-        }
-        return $this->child('vcard', $vcard);
+        return $this->setChild('vcard', $vcard);
     }
 
     /**
@@ -115,9 +205,21 @@ class ContactSpec extends Base
      * @param  NewContactAttr $attr
      * @return self
      */
-    public function addA(NewContactAttr $a)
+    public function addAttr(NewContactAttr $attr)
     {
-        $this->_a->add($a);
+        $this->_attrs->add($attr);
+        return $this;
+    }
+
+    /**
+     * Sets contact attribute sequence
+     *
+     * @param  array $attrs
+     * @return self
+     */
+    function setAttrs(array $attrs)
+    {
+        $this->_attrs = new TypedSequence('Zimbra\Mail\Struct\NewContactAttr', $attrs);
         return $this;
     }
 
@@ -126,20 +228,32 @@ class ContactSpec extends Base
      *
      * @return Sequence
      */
-    public function a()
+    public function getAttrs()
     {
-        return $this->_a;
+        return $this->_attrs;
     }
 
     /**
      * Add a contact group member
      *
-     * @param  NewContactGroupMember $m
+     * @param  NewContactGroupMember $member
      * @return self
      */
-    public function addM(NewContactGroupMember $m)
+    public function addGroupMember(NewContactGroupMember $member)
     {
-        $this->_m->add($m);
+        $this->_members->add($member);
+        return $this;
+    }
+
+    /**
+     * Sets contact group member sequence
+     *
+     * @param  array $members
+     * @return self
+     */
+    function setGroupMembers(array $members)
+    {
+        $this->_members = new TypedSequence('Zimbra\Mail\Struct\NewContactGroupMember', $members);
         return $this;
     }
 
@@ -148,69 +262,9 @@ class ContactSpec extends Base
      *
      * @return Sequence
      */
-    public function m()
+    public function getGroupMembers()
     {
-        return $this->_m;
-    }
-
-    /**
-     * Gets or sets id
-     *
-     * @param  int $id
-     * @return int|self
-     */
-    public function id($id = null)
-    {
-        if(null === $id)
-        {
-            return $this->property('id');
-        }
-        return $this->property('id', (int) $id);
-    }
-
-    /**
-     * Gets or sets l
-     *
-     * @param  string $l
-     * @return string|self
-     */
-    public function l($l = null)
-    {
-        if(null === $l)
-        {
-            return $this->property('l');
-        }
-        return $this->property('l', trim($l));
-    }
-
-    /**
-     * Gets or sets t
-     *
-     * @param  string $t
-     * @return string|self
-     */
-    public function t($t = null)
-    {
-        if(null === $t)
-        {
-            return $this->property('t');
-        }
-        return $this->property('t', trim($t));
-    }
-
-    /**
-     * Gets or sets tn
-     *
-     * @param  string $tn
-     * @return string|self
-     */
-    public function tn($tn = null)
-    {
-        if(null === $tn)
-        {
-            return $this->property('tn');
-        }
-        return $this->property('tn', trim($tn));
+        return $this->_members;
     }
 
     /**

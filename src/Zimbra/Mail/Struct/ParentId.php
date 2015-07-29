@@ -31,22 +31,28 @@ class ParentId extends Base
     public function __construct($parentId)
     {
         parent::__construct();
-        $this->property('parentId', trim($parentId));
+        $this->setProperty('parentId', trim($parentId));
     }
 
     /**
-     * Gets or sets parentId
+     * Gets parentId
+     *
+     * @return string
+     */
+    public function getParentId()
+    {
+        return $this->getProperty('parentId');
+    }
+
+    /**
+     * Sets parentId
      *
      * @param  string $parentId
-     * @return string|self
+     * @return self
      */
-    public function parentId($parentId = null)
+    public function setParentId($parentId)
     {
-        if(null === $parentId)
-        {
-            return $this->property('parentId');
-        }
-        return $this->property('parentId', trim($parentId));
+        return $this->setProperty('parentId', trim($parentId));
     }
 
     /**

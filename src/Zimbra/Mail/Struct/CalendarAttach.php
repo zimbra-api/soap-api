@@ -35,42 +35,54 @@ class CalendarAttach extends Base
         parent::__construct(trim($value));
         if(null !== $uri)
         {
-            $this->property('uri', trim($uri));
+            $this->setProperty('uri', trim($uri));
         }
         if(null !== $ct)
         {
-            $this->property('ct', trim($ct));
+            $this->setProperty('ct', trim($ct));
         }
     }
 
     /**
-     * Gets or sets uri
+     * Gets uri
+     *
+     * @return string
+     */
+    public function getUri()
+    {
+        return $this->getProperty('uri');
+    }
+
+    /**
+     * Sets uri
      *
      * @param  string $uri
-     * @return string|self
+     * @return self
      */
-    public function uri($uri = null)
+    public function setUri($uri)
     {
-        if(null === $uri)
-        {
-            return $this->property('uri');
-        }
-        return $this->property('uri', trim($uri));
+        return $this->setProperty('uri', trim($uri));
     }
 
     /**
-     * Gets or sets ct
+     * Gets content type
+     *
+     * @return string
+     */
+    public function getContentType()
+    {
+        return $this->getProperty('ct');
+    }
+
+    /**
+     * Sets content type
      *
      * @param  string $ct
-     * @return string|self
+     * @return self
      */
-    public function ct($ct = null)
+    public function setContentType($ct)
     {
-        if(null === $ct)
-        {
-            return $this->property('ct');
-        }
-        return $this->property('ct', trim($ct));
+        return $this->setProperty('ct', trim($ct));
     }
 
     /**

@@ -26,7 +26,7 @@ class AddressTest extends FilterTest
      * @param int $index Index - specifies a guaranteed order for the test elements
      * @param string $header Header
      * @param string $part Part
-     * @param string $stringComparison String comparison
+     * @param string $comparison String comparison
      * @param string $value Value
      * @param bool $caseSensitive Case sensitive
      * @param bool $negative Specifies a "not" condition for the test
@@ -36,96 +36,126 @@ class AddressTest extends FilterTest
         $index,
         $header,
         $part,
-        $stringComparison,
+        $comparison,
         $value,
         $caseSensitive = null,
         $negative = null
     )
     {
         parent::__construct($index, $negative);
-        $this->property('header', trim($header));
-        $this->property('part', trim($part));
-        $this->property('stringComparison', trim($stringComparison));
-        $this->property('value', trim($value));
+        $this->setProperty('header', trim($header));
+        $this->setProperty('part', trim($part));
+        $this->setProperty('stringComparison', trim($comparison));
+        $this->setProperty('value', trim($value));
         if(null !== $caseSensitive)
         {
-            $this->property('caseSensitive', (bool) $caseSensitive);
+            $this->setProperty('caseSensitive', (bool) $caseSensitive);
         }
     }
 
     /**
-     * Gets or sets header
+     * Gets header
+     *
+     * @return string
+     */
+    public function getHeader()
+    {
+        return $this->getProperty('header');
+    }
+
+    /**
+     * Sets header
      *
      * @param  string $header
-     * @return string|self
+     * @return self
      */
-    public function header($header = null)
+    public function setHeader($header)
     {
-        if(null === $header)
-        {
-            return $this->property('header');
-        }
-        return $this->property('header', trim($header));
+        return $this->setProperty('header', trim($header));
     }
 
     /**
-     * Gets or sets part
+     * Gets part
+     *
+     * @return string
+     */
+    public function getPart()
+    {
+        return $this->getProperty('part');
+    }
+
+    /**
+     * Sets part
      *
      * @param  string $part
-     * @return string|self
+     * @return self
      */
-    public function part($part = null)
+    public function setPart($part)
     {
-        if(null === $part)
-        {
-            return $this->property('part');
-        }
-        return $this->property('part', trim($part));
+        return $this->setProperty('part', trim($part));
     }
 
     /**
-     * Gets or sets stringComparison
+     * Gets comparison
      *
-     * @param  string $stringComparison
-     * @return string|self
+     * @return string
      */
-    public function stringComparison($stringComparison = null)
+    public function getComparison()
     {
-        if(null === $stringComparison)
-        {
-            return $this->property('stringComparison');
-        }
-        return $this->property('stringComparison', trim($stringComparison));
+        return $this->getProperty('stringComparison');
     }
 
     /**
-     * Gets or sets value
+     * Sets comparison
+     *
+     * @param  string $comparison
+     * @return self
+     */
+    public function setComparison($comparison)
+    {
+        return $this->setProperty('stringComparison', trim($comparison));
+    }
+
+    /**
+     * Gets value
+     *
+     * @return string
+     */
+    public function getValue()
+    {
+        return $this->getProperty('value');
+    }
+
+    /**
+     * Sets value
      *
      * @param  string $value
-     * @return string|self
+     * @return self
      */
-    public function value($value = null)
+    public function setValue($value)
     {
-        if(null === $value)
-        {
-            return $this->property('value');
-        }
-        return $this->property('value', trim($value));
+        return $this->setProperty('value', trim($value));
     }
 
     /**
-     * Gets or sets caseSensitive
+     * Gets case sensitive setting
+     *
+     * @return bool
+     */
+    public function getCaseSensitive()
+    {
+        return $this->getProperty('caseSensitive');
+    }
+
+    /**
+     * Sets case sensitive setting
      *
      * @param  bool $caseSensitive
-     * @return bool|self
+     * @return self
      */
-    public function caseSensitive($caseSensitive = null)
+    public function setCaseSensitive($caseSensitive)
     {
-        if(null === $caseSensitive)
-        {
-            return $this->property('caseSensitive');
-        }
-        return $this->property('caseSensitive', (bool) $caseSensitive);
+        return $this->setProperty('caseSensitive', (bool) $caseSensitive);
     }
 
     /**

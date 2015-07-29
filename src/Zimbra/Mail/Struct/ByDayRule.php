@@ -26,38 +26,50 @@ class ByDayRule extends Base
 {
     /**
      * By day weekday rule specification
-     * @var TypedSequence
+     * @var TypedSequence<WkDay>
      */
-    private $_wkday;
+    private $days;
 
     /**
      * Constructor method for ByDayRule
-     * @param  array $wkdays By day weekday rule specification
+     * @param  array $days By day weekday rule specification
      * @return self
      */
-    public function __construct(array $wkdays = array())
+    public function __construct(array $days = array())
     {
         parent::__construct();
-        $this->_wkday = new TypedSequence('Zimbra\Mail\Struct\WkDay', $wkdays);
+        $this->days = new TypedSequence('Zimbra\Mail\Struct\WkDay', $days);
 
         $this->on('before', function(Base $sender)
         {
-            if($sender->wkday()->count())
+            if($sender->getDays()->count())
             {
-                $sender->child('wkday', $sender->wkday()->all());
+                $sender->setChild('wkday', $sender->getDays()->all());
             }
         });
     }
 
     /**
-     * Add xparam
+     * Add week day
      *
-     * @param  WkDay $xparam
+     * @param  WkDay $day
      * @return self
      */
-    public function addWkDay(WkDay $wkday)
+    public function addDay(WkDay $day)
     {
-        $this->_wkday->add($wkday);
+        $this->days->add($day);
+        return $this;
+    }
+
+    /**
+     * Sets wkday sequence
+     *
+     * @param  array $days
+     * @return self
+     */
+    public function setDays(array $days)
+    {
+        $this->days = new TypedSequence('Zimbra\Mail\Struct\WkDay', $days);
         return $this;
     }
 
@@ -66,9 +78,9 @@ class ByDayRule extends Base
      *
      * @return Sequence
      */
-    public function wkday()
+    public function getDays()
     {
-        return $this->_wkday;
+        return $this->days;
     }
 
     /**

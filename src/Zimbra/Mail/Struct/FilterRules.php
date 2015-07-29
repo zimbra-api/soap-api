@@ -25,26 +25,25 @@ use Zimbra\Struct\Base;
 class FilterRules extends Base
 {
     /**
-     * Filter rule
+     * Filter rules
      * @var TypedSequence<FilterRule>
      */
-    private $_filterRule;
+    private $_rules;
 
     /**
      * Constructor method for FilterRules
-     * @param  array $filterRule Filter rule
+     * @param  array $rules Filter rules
      * @return self
      */
-    public function __construct(array $filterRule = array())
+    public function __construct(array $rules = [])
     {
         parent::__construct();
-        $this->_filterRule = new TypedSequence('Zimbra\Mail\Struct\FilterRule', $filterRule);
-
+        $this->setRules($rules);
         $this->on('before', function(Base $sender)
         {
-            if($sender->filterRule()->count())
+            if($sender->getRules()->count())
             {
-                $sender->child('filterRule', $sender->filterRule()->all());
+                $sender->child('filterRule', $sender->getRules()->all());
             }
         });
     }
@@ -55,9 +54,21 @@ class FilterRules extends Base
      * @param  FilterRule $filterRule
      * @return self
      */
-    public function addFilterRule(FilterRule $filterRule)
+    public function addRule(FilterRule $filterRule)
     {
-        $this->_filterRule->add($filterRule);
+        $this->_rules->add($filterRule);
+        return $this;
+    }
+
+    /**
+     * Sets filter rule sequence
+     *
+     * @param  array $rules
+     * @return self
+     */
+    public function setRules(array $rules)
+    {
+        $this->_rules = new TypedSequence('Zimbra\Mail\Struct\FilterRule', $rules);
         return $this;
     }
 
@@ -66,9 +77,9 @@ class FilterRules extends Base
      *
      * @return Sequence
      */
-    public function filterRule()
+    public function getRules()
     {
-        return $this->_filterRule;
+        return $this->_rules;
     }
 
     /**

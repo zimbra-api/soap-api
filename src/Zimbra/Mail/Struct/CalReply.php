@@ -25,25 +25,25 @@ class CalReply extends RecurIdInfo
 {
     /**
      * Constructor method for CalReply
-     * @param string $at Address of attendee who replied
-     * @param int $seq Sequence
-     * @param int $d Timestamp of reply
+     * @param string $attendee Address of attendee who replied
+     * @param int $sequence Sequence
+     * @param int $date Timestamp of reply
      * @param int $rangeType Recurrence range type
      * @param string $recurId Recurrence ID in format : YYMMDD[THHMMSS[Z]]
      * @param string $sentBy SENT-BY
-     * @param ParticipationStatus $ptst iCalendar PTST (Participation status) 
+     * @param ParticipationStatus $partStat iCalendar PTST (Participation status) 
      * @param string $tz Timezone name
      * @param string $ridZ Recurrence-id in UTC time zone; used in non-all-day appointments only. Format: YYMMDDTHHMMSSZ
      * @return self
      */
     public function __construct(
-        $at,
-        $seq,
-        $d,
+        $attendee,
+        $sequence,
+        $date,
         $rangeType,
         $recurId,
         $sentBy = null,
-        ParticipationStatus $ptst = null,
+        ParticipationStatus $partStat = null,
         $tz = null,
         $ridZ = null
     )
@@ -54,92 +54,122 @@ class CalReply extends RecurIdInfo
             $tz,
             $ridZ
         );
-        $this->property('at', trim($at));
-        $this->property('seq', (int) $seq);
-        $this->property('d', (int) $d);
+        $this->setProperty('at', trim($attendee));
+        $this->setProperty('seq', (int) $sequence);
+        $this->setProperty('d', (int) $date);
         if(null !== $sentBy)
         {
-            $this->property('sentBy', trim($sentBy));
+            $this->setProperty('sentBy', trim($sentBy));
         }
-        if($ptst instanceof ParticipationStatus)
+        if($partStat instanceof ParticipationStatus)
         {
-            $this->property('ptst', $ptst);
+            $this->setProperty('ptst', $partStat);
         }
     }
 
     /**
-     * Gets or sets at
+     * Gets attendee
      *
-     * @param  string $at
-     * @return string|self
+     * @return string
      */
-    public function at($at = null)
+    public function getAttendee()
     {
-        if(null === $at)
-        {
-            return $this->property('at');
-        }
-        return $this->property('at', trim($at));
+        return $this->getProperty('at');
     }
 
     /**
-     * Gets or sets sentBy
+     * Sets attendee
+     *
+     * @param  string $attendee
+     * @return self
+     */
+    public function setAttendee($attendee)
+    {
+        return $this->setProperty('at', trim($attendee));
+    }
+
+    /**
+     * Gets sent by
+     *
+     * @return string
+     */
+    public function getSentBy()
+    {
+        return $this->getProperty('sentBy');
+    }
+
+    /**
+     * Sets sent by
      *
      * @param  string $sentBy
-     * @return string|self
+     * @return self
      */
-    public function sentBy($sentBy = null)
+    public function setSentBy($sentBy)
     {
-        if(null === $sentBy)
-        {
-            return $this->property('sentBy');
-        }
-        return $this->property('sentBy', trim($sentBy));
+        return $this->setProperty('sentBy', trim($sentBy));
     }
 
     /**
-     * Get or set ptst
+     * Gets participation status
      *
-     * @param  ParticipationStatus $ptst
-     * @return ParticipationStatus|self
+     * @return ParticipationStatus
      */
-    public function ptst(ParticipationStatus $ptst = null)
+    public function getPartStat()
     {
-        if(null === $ptst)
-        {
-            return $this->property('ptst');
-        }
-        return $this->property('ptst', $ptst);
+        return $this->getProperty('ptst');
     }
 
     /**
-     * Gets or sets seq
+     * Sets participation status
      *
-     * @param  int $seq
-     * @return int|self
+     * @param  ParticipationStatus $partStat
+     * @return self
      */
-    public function seq($seq = null)
+    public function setPartStat(ParticipationStatus $partStat)
     {
-        if(null === $seq)
-        {
-            return $this->property('seq');
-        }
-        return $this->property('seq', (int) $seq);
+        return $this->setProperty('ptst', $partStat);
     }
 
     /**
-     * Gets or sets d
+     * Gets sequence
      *
-     * @param  int $d
-     * @return int|self
+     * @return int
      */
-    public function d($d = null)
+    public function getSequence()
     {
-        if(null === $d)
-        {
-            return $this->property('d');
-        }
-        return $this->property('d', (int) $d);
+        return $this->getProperty('seq');
+    }
+
+    /**
+     * Sets sequence
+     *
+     * @param  bool $sequence
+     * @return self
+     */
+    public function setSequence($sequence)
+    {
+        return $this->setProperty('seq', (int) $sequence);
+    }
+
+    /**
+     * Gets date
+     *
+     * @return int
+     */
+    public function getDate()
+    {
+        return $this->getProperty('d');
+    }
+
+    /**
+     * Sets date
+     *
+     * @param  bool $date
+     * @return self
+     */
+    public function setDate($date)
+    {
+        return $this->setProperty('d', (int) $date);
     }
 
     /**

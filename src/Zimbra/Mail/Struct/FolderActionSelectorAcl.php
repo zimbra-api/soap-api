@@ -28,23 +28,22 @@ class FolderActionSelectorAcl extends Base
      * Access control list
      * @var TypedSequence<ActionGrantSelector>
      */
-    private $_grant;
+    private $_grants;
 
     /**
      * Constructor method for FolderActionSelectorAcl
-     * @param array $grant Access control list
+     * @param array $grants Access control list
      * @return self
      */
-    public function __construct(array $grant = array())
+    public function __construct(array $grants = [])
     {
         parent::__construct();
-        $this->_grant = new TypedSequence('Zimbra\Mail\Struct\ActionGrantSelector', $grant);
-
+        $this->setGrants($grants);
         $this->on('before', function(Base $sender)
         {
-            if($sender->grant()->count())
+            if($sender->getGrants()->count())
             {
-                $sender->child('grant', $sender->grant()->all());
+                $sender->setChild('grant', $sender->getGrants()->all());
             }
         });
     }
@@ -57,7 +56,19 @@ class FolderActionSelectorAcl extends Base
      */
     public function addGrant(ActionGrantSelector $grant)
     {
-        $this->_grant->add($grant);
+        $this->_grants->add($grant);
+        return $this;
+    }
+
+    /**
+     * Sets grant sequence
+     *
+     * @param  array $grants
+     * @return self
+     */
+    public function setGrants(array $grants)
+    {
+        $this->_grants = new TypedSequence('Zimbra\Mail\Struct\ActionGrantSelector', $grants);
         return $this;
     }
 
@@ -66,9 +77,9 @@ class FolderActionSelectorAcl extends Base
      *
      * @return Sequence
      */
-    public function grant()
+    public function getGrants()
     {
-        return $this->_grant;
+        return $this->_grants;
     }
 
     /**

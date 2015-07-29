@@ -44,49 +44,61 @@ class DateTest extends FilterTest
     public function __construct(
         $index,
         $dateComparison = null,
-        $d = null,
+        $date = null,
         $negative = null
     )
     {
         parent::__construct($index, $negative);
         if(null !== $dateComparison)
         {
-            $this->property('dateComparison', trim($dateComparison));
+            $this->setProperty('dateComparison', trim($dateComparison));
         }
-        if(null !== $d)
+        if(null !== $date)
         {
-            $this->property('d', (int) $d);
+            $this->setProperty('d', (int) $date);
         }
     }
 
     /**
-     * Gets or sets dateComparison
+     * Gets dateComparison
+     *
+     * @return string
+     */
+    public function getDateComparison()
+    {
+        return $this->getProperty('dateComparison');
+    }
+
+    /**
+     * Sets dateComparison
      *
      * @param  string $dateComparison
-     * @return string|self
+     * @return self
      */
-    public function dateComparison($dateComparison = null)
+    public function setDateComparison($dateComparison)
     {
-        if(null === $dateComparison)
-        {
-            return $this->property('dateComparison');
-        }
-        return $this->property('dateComparison', trim($dateComparison));
+        return $this->setProperty('dateComparison', trim($dateComparison));
     }
 
     /**
-     * Gets or sets d
+     * Gets date
      *
-     * @param  int $d
-     * @return int|self
+     * @return int
      */
-    public function d($d = null)
+    public function getDate()
     {
-        if(null === $d)
-        {
-            return $this->property('d');
-        }
-        return $this->property('d', (int) $d);
+        return $this->getProperty('d');
+    }
+
+    /**
+     * Sets date
+     *
+     * @param  int $date
+     * @return self
+     */
+    public function setDate($date)
+    {
+        return $this->setProperty('d', (int) $date);
     }
 
     /**

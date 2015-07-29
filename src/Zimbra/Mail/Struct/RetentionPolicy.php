@@ -32,39 +32,50 @@ class RetentionPolicy extends Base
     public function __construct(RetentionPolicyKeep $keep, RetentionPolicyPurge $purge)
     {
         parent::__construct();
-        $this->child('keep', $keep);
-        $this->child('purge', $purge);
+        $this->setChild('keep', $keep);
+        $this->setChild('purge', $purge);
     }
 
+    /**
+     * Gets retention keep
+     *
+     * @return RetentionPolicyKeep
+     */
+    public function getKeep()
+    {
+        return $this->getChild('keep');
+    }
 
     /**
-     * Gets or sets keep
+     * Sets retention keep
      *
      * @param  RetentionPolicyKeep $keep
-     * @return RetentionPolicyKeep|self
+     * @return self
      */
-    public function keep(RetentionPolicyKeep $keep = null)
+    public function setKeep(RetentionPolicyKeep $keep)
     {
-        if(null === $keep)
-        {
-            return $this->child('keep');
-        }
-        return $this->child('keep', $keep);
+        return $this->setChild('keep', $keep);
     }
 
     /**
-     * Gets or sets purge
+     * Gets retention purge
+     *
+     * @return RetentionPolicyPurge
+     */
+    public function getPurge()
+    {
+        return $this->getChild('purge');
+    }
+
+    /**
+     * Sets retention purge
      *
      * @param  RetentionPolicyPurge $purge
-     * @return RetentionPolicyPurge|self
+     * @return self
      */
-    public function purge(RetentionPolicyPurge $purge = null)
+    public function setPurge(RetentionPolicyPurge $purge)
     {
-        if(null === $purge)
-        {
-            return $this->child('purge');
-        }
-        return $this->child('purge', $purge);
+        return $this->setChild('purge', $purge);
     }
 
     /**

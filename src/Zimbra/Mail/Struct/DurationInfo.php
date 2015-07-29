@@ -49,157 +49,208 @@ class DurationInfo extends Base
         parent::__construct();
         if(null !== $neg)
         {
-            $this->property('neg', (bool) $neg);
+            $this->setProperty('neg', (bool) $neg);
         }
         if(null !== $w)
         {
-            $this->property('w', (int) $w);
+            $this->setProperty('w', (int) $w);
         }
         if(null !== $d)
         {
-            $this->property('d', (int) $d);
+            $this->setProperty('d', (int) $d);
         }
         if(null !== $h)
         {
-            $this->property('h', (int) $h);
+            $this->setProperty('h', (int) $h);
         }
         if(null !== $m)
         {
-            $this->property('m', (int) $m);
+            $this->setProperty('m', (int) $m);
         }
         if(null !== $s)
         {
-            $this->property('s', (int) $s);
+            $this->setProperty('s', (int) $s);
         }
         if(null !== $related)
         {
-            $this->property('related', in_array(trim($related), array('START', 'END')) ? trim($related) : '');
+            $this->setRelated($related);
         }
         if(null !== $count)
         {
-            $this->property('count', (int) $count);
+            $this->setProperty('count', (int) $count);
         }
     }
 
     /**
-     * Gets or sets neg
+     * Gets duration is negative
+     *
+     * @return bool
+     */
+    public function getDurationNegative()
+    {
+        return $this->getProperty('neg');
+    }
+
+    /**
+     * Sets duration is negative
      *
      * @param  bool $neg
-     * @return bool|self
+     * @return self
      */
-    public function neg($neg = null)
+    public function setDurationNegative($neg)
     {
-        if(null === $neg)
-        {
-            return $this->property('neg');
-        }
-        return $this->property('neg', (bool) $neg);
+        return $this->setProperty('neg', (bool) $neg);
     }
 
     /**
-     * Gets or sets w
+     * Gets weeks component
+     *
+     * @return int
+     */
+    public function getWeeks()
+    {
+        return $this->getProperty('w');
+    }
+
+    /**
+     * Sets weeks component
      *
      * @param  int $w
-     * @return int|self
+     * @return self
      */
-    public function w($w = null)
+    public function setWeeks($w)
     {
-        if(null === $w)
-        {
-            return $this->property('w');
-        }
-        return $this->property('w', (int) $w);
+        return $this->setProperty('w', (int) $w);
     }
 
     /**
-     * Gets or sets d
+     * Gets days component
+     *
+     * @return int
+     */
+    public function getDays()
+    {
+        return $this->getProperty('d');
+    }
+
+    /**
+     * Sets days component
      *
      * @param  int $d
-     * @return int|self
+     * @return self
      */
-    public function d($d = null)
+    public function setDays($d)
     {
-        if(null === $d)
-        {
-            return $this->property('d');
-        }
-        return $this->property('d', (int) $d);
+        return $this->setProperty('d', (int) $d);
     }
 
     /**
-     * Gets or sets h
+     * Gets hours component
+     *
+     * @return int
+     */
+    public function getHours()
+    {
+        return $this->getProperty('h');
+    }
+
+    /**
+     * Sets hours component
      *
      * @param  int $h
-     * @return int|self
+     * @return self
      */
-    public function h($h = null)
+    public function setHours($h)
     {
-        if(null === $h)
-        {
-            return $this->property('h');
-        }
-        return $this->property('h', (int) $h);
+        return $this->setProperty('h', (int) $h);
     }
 
     /**
-     * Gets or sets m
+     * Gets minutes component
+     *
+     * @return int
+     */
+    public function getMinutes()
+    {
+        return $this->getProperty('m');
+    }
+
+    /**
+     * Sets minutes component
      *
      * @param  int $m
-     * @return int|self
+     * @return self
      */
-    public function m($m = null)
+    public function setMinutes($m)
     {
-        if(null === $m)
-        {
-            return $this->property('m');
-        }
-        return $this->property('m', (int) $m);
+        return $this->setProperty('m', (int) $m);
     }
 
     /**
-     * Gets or sets s
+     * Gets seconds component
+     *
+     * @return int
+     */
+    public function getSeconds()
+    {
+        return $this->getProperty('s');
+    }
+
+    /**
+     * Sets seconds component
      *
      * @param  int $s
-     * @return int|self
+     * @return self
      */
-    public function s($s = null)
+    public function setSeconds($s)
     {
-        if(null === $s)
-        {
-            return $this->property('s');
-        }
-        return $this->property('s', (int) $s);
+        return $this->setProperty('s', (int) $s);
     }
 
     /**
-     * Gets or sets related
+     * Gets related
      *
-     * @param  int $related
-     * @return int|self
+     * @return string
      */
-    public function related($related = null)
+    public function getRelated()
     {
-        if(null === $related)
+        return $this->getProperty('related');
+    }
+
+    /**
+     * Sets related
+     *
+     * @param  string $related
+     * @return self
+     */
+    public function setRelated($related)
+    {
+        if (in_array(trim($related), array('START', 'END')))
         {
-            return $this->property('related');
+            $this->setProperty('related', trim($related));
         }
-        return $this->property('related', in_array(trim($related), array('START', 'END')) ? trim($related) : '');
         return $this;
     }
 
     /**
-     * Gets or sets count
+     * Gets repeat count
+     *
+     * @return int
+     */
+    public function getRepeatCount()
+    {
+        return $this->getProperty('count');
+    }
+
+    /**
+     * Sets repeat count
      *
      * @param  int $count
-     * @return int|self
+     * @return self
      */
-    public function count($count = null)
+    public function setRepeatCount($count)
     {
-        if(null === $count)
-        {
-            return $this->property('count');
-        }
-        return $this->property('count', (int) $count);
+        return $this->setProperty('count', (int) $count);
     }
 
     /**

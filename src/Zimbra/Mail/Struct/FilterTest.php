@@ -32,41 +32,53 @@ class FilterTest extends Base
     public function __construct($index, $negative = null)
     {
         parent::__construct();
-        $this->property('index', (int) $index);
+        $this->setProperty('index', (int) $index);
         if(null !== $negative)
         {
-            $this->property('negative', (bool) $negative);
+            $this->setProperty('negative', (bool) $negative);
         }
     }
 
     /**
-     * Gets or sets index
+     * Gets index
      *
-     * @param  string $index
-     * @return string|self
+     * @return int
      */
-    public function index($index = null)
+    public function getIndex()
     {
-        if(null === $index)
-        {
-            return $this->property('index');
-        }
-        return $this->property('index', (int) $index);
+        return $this->getProperty('index');
     }
 
     /**
-     * Gets or sets negative
+     * Sets index
+     *
+     * @param  int $index
+     * @return self
+     */
+    public function setIndex($index)
+    {
+        return $this->setProperty('index', (int) $index);
+    }
+
+    /**
+     * Gets negative
+     *
+     * @return bool
+     */
+    public function getNegative()
+    {
+        return $this->getProperty('negative');
+    }
+
+    /**
+     * Sets negative
      *
      * @param  bool $negative
-     * @return bool|self
+     * @return self
      */
-    public function negative($negative = null)
+    public function setNegative($negative)
     {
-        if(null === $negative)
-        {
-            return $this->property('negative');
-        }
-        return $this->property('negative', (bool) $negative);
+        return $this->setProperty('negative', (bool) $negative);
     }
 
     /**

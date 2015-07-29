@@ -33,60 +33,78 @@ class ExceptionRecurIdInfo extends Base
     public function __construct($d, $tz = null, $rangeType = null)
     {
         parent::__construct();
-        $this->property('d', trim($d));
+        $this->setProperty('d', trim($d));
         if(null !== $tz)
         {
-            $this->property('tz', trim($tz));
+            $this->setProperty('tz', trim($tz));
         }
         if(null !== $rangeType)
         {
-            $this->property('rangeType', in_array((int) $rangeType, array(-1, 2, 3)) ? (int) $rangeType : null);
+            $this->setProperty('rangeType', in_array((int) $rangeType, array(-1, 2, 3)) ? (int) $rangeType : null);
         }
     }
 
     /**
-     * Gets or sets d
+     * Gets date time
+     *
+     * @return string
+     */
+    public function getDateTime()
+    {
+        return $this->getProperty('d');
+    }
+
+    /**
+     * Sets date time
      *
      * @param  string $d
-     * @return string|self
+     * @return self
      */
-    public function d($d = null)
+    public function setDateTime($d)
     {
-        if(null === $d)
-        {
-            return $this->property('d');
-        }
-        return $this->property('d', trim($d));
+        return $this->setProperty('d', trim($d));
     }
 
     /**
-     * Gets or sets tz
+     * Gets timezone
+     *
+     * @return string
+     */
+    public function getTimezone()
+    {
+        return $this->getProperty('tz');
+    }
+
+    /**
+     * Sets timezone
      *
      * @param  string $tz
-     * @return string|self
+     * @return self
      */
-    public function tz($tz = null)
+    public function setTimezone($tz)
     {
-        if(null === $tz)
-        {
-            return $this->property('tz');
-        }
-        return $this->property('tz', trim($tz));
+        return $this->setProperty('tz', trim($tz));
     }
 
     /**
-     * Gets or sets rangeType
+     * Gets range type
      *
-     * @param  int $rangeType
-     * @return int|self
+     * @return string
      */
-    public function rangeType($rangeType = null)
+    public function getRangeType()
     {
-        if(null === $rangeType)
-        {
-            return $this->property('rangeType');
-        }
-        return $this->property('rangeType', in_array((int) $rangeType, array(-1, 2, 3)) ? (int) $rangeType : null);
+        return $this->getProperty('rangeType');
+    }
+
+    /**
+     * Sets range type
+     *
+     * @param  string $rangeType
+     * @return self
+     */
+    public function setRangeType($rangeType)
+    {
+        return $this->setProperty('rangeType', trim($rangeType));
     }
 
     /**

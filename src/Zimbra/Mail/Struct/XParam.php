@@ -33,38 +33,50 @@ class XParam extends Base
     public function __construct($name, $value)
     {
         parent::__construct();
-        $this->property('name', trim($name));
-        $this->property('value', trim($value));
+        $this->setProperty('name', trim($name));
+        $this->setProperty('value', trim($value));
     }
 
     /**
-     * Gets or sets xParam name
+     * Gets name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->getProperty('name');
+    }
+
+    /**
+     * Sets name
      *
      * @param  string $name
-     * @return string|self
+     * @return self
      */
-    public function name($name = null)
+    public function setName($name)
     {
-        if(null === $name)
-        {
-            return $this->property('name');
-        }
-        return $this->property('name', trim($name));
+        return $this->setProperty('name', trim($name));
     }
 
     /**
-     * Gets or sets xParam value
+     * Gets value
+     *
+     * @return string
+     */
+    public function getValue()
+    {
+        return $this->getProperty('value');
+    }
+
+    /**
+     * Sets value
      *
      * @param  string $value
-     * @return string|self
+     * @return self
      */
-    public function value($value = null)
+    public function setValue($value)
     {
-        if(null === $value)
-        {
-            return $this->property('value');
-        }
-        return $this->property('value', trim($value));
+        return $this->setProperty('value', trim($value));
     }
 
     /**

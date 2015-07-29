@@ -69,38 +69,50 @@ class TagActionSelector extends ActionSelector
         );
         if($retentionPolicy instanceof RetentionPolicy)
         {
-            $this->child('retentionPolicy', $retentionPolicy);
+            $this->setChild('retentionPolicy', $retentionPolicy);
         }
     }
 
     /**
-     * Gets or sets op
+     * Gets operation
+     *
+     * @return TagActionOp
+     */
+    public function getOperation()
+    {
+        return $this->getProperty('op');
+    }
+
+    /**
+     * Sets operation
      *
      * @param  TagActionOp $op
-     * @return TagActionOp|self
+     * @return self
      */
-    public function op(TagActionOp $op = null)
+    public function setOperation(TagActionOp $op)
     {
-        if(null === $op)
-        {
-            return $this->property('op');
-        }
-        return $this->property('op', $op);
+        return $this->setProperty('op', $op);
     }
 
     /**
-     * Gets or sets retentionPolicy
+     * Gets retention policy
+     *
+     * @return RetentionPolicy
+     */
+    public function getRetentionPolicy()
+    {
+        return $this->getChild('retentionPolicy');
+    }
+
+    /**
+     * Sets retention policy
      *
      * @param  RetentionPolicy $retentionPolicy
-     * @return RetentionPolicy|self
+     * @return self
      */
-    public function retentionPolicy(RetentionPolicy $retentionPolicy = null)
+    public function setRetentionPolicy(RetentionPolicy $retentionPolicy)
     {
-        if(null === $retentionPolicy)
-        {
-            return $this->child('retentionPolicy');
-        }
-        return $this->child('retentionPolicy', $retentionPolicy);
+        return $this->setChild('retentionPolicy', $retentionPolicy);
     }
 
     /**

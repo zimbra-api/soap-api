@@ -26,12 +26,12 @@ class SaveDraftMsg extends Msg
     /**
      * Constructor method for Msg
      * @param string $content
-     * @param array $header
+     * @param array $headers
      * @param MimePartInfo $mp
      * @param AttachmentsInfo $attach
      * @param InvitationInfo $inv
-     * @param array $e
-     * @param array $tz
+     * @param array $emails
+     * @param array $timezones
      * @param string $fr
      * @param int $id
      * @param string $forAcct
@@ -48,17 +48,14 @@ class SaveDraftMsg extends Msg
      * @param string $irt
      * @param string $l
      * @param string $f
-     * @param array $any
+     * @param array $extras
      * @return self
      */
     public function __construct(
         $content = null,
-        array $header = array(),
         MimePartInfo $mp = null,
         AttachmentsInfo $attach = null,
         InvitationInfo $inv = null,
-        array $e = array(),
-        array $tz = array(),
         $fr = null,
         $id = null,
         $forAcct = null,
@@ -75,17 +72,17 @@ class SaveDraftMsg extends Msg
         $irt = null,
         $l = null,
         $f = null,
-        array $any = array()
+        array $headers = array(),
+        array $emails = array(),
+        array $timezones = array(),
+        array $extras = array()
     )
     {
         parent::__construct(
             $content,
-            $header,
             $mp,
             $attach,
             $inv,
-            $e,
-            $tz,
             $fr,
             $aid,
             $origid,
@@ -95,141 +92,187 @@ class SaveDraftMsg extends Msg
             $irt,
             $l,
             $f,
-            $any
+            $headers,
+            $emails,
+            $timezones,
+            $extras
         );
         if(null !== $id)
         {
-            $this->property('id', (int) $id);
+            $this->setProperty('id', (int) $id);
         }
         if(null !== $forAcct)
         {
-            $this->property('forAcct', trim($forAcct));
+            $this->setProperty('forAcct', trim($forAcct));
         }
         if(null !== $t)
         {
-            $this->property('t', trim($t));
+            $this->setProperty('t', trim($t));
         }
         if(null !== $tn)
         {
-            $this->property('tn', trim($tn));
+            $this->setProperty('tn', trim($tn));
         }
         if(null !== $rgb && Text::isRgb(trim($rgb)))
         {
-            $this->property('rgb', trim($rgb));
+            $this->setProperty('rgb', trim($rgb));
         }
         if(null !== $color)
         {
             $color = (int) $color;
-            $this->property('color', ($color > 0 && $color < 128) ? $color : 0);
+            $this->setProperty('color', ($color > 0 && $color < 128) ? $color : 0);
         }
         if(null !== $autoSendTime)
         {
-            $this->property('autoSendTime', (int) $autoSendTime);
+            $this->setProperty('autoSendTime', (int) $autoSendTime);
         }
     }
 
     /**
-     * Gets or sets id
+     * Gets id
+     *
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->getProperty('id');
+    }
+
+    /**
+     * Sets id
      *
      * @param  int $id
-     * @return int|self
+     * @return self
      */
-    public function id($id = null)
+    public function setId($id)
     {
-        if(null === $id)
-        {
-            return $this->property('id');
-        }
-        return $this->property('id', (int) $id);
+        return $this->setProperty('id', (int) $id);
     }
 
     /**
-     * Gets or sets forAcct
+     * Gets account ID the draft is for
+     *
+     * @return string
+     */
+    public function getDraftAccountId()
+    {
+        return $this->getProperty('forAcct');
+    }
+
+    /**
+     * Sets account ID the draft is for
      *
      * @param  string $forAcct
-     * @return string|self
+     * @return self
      */
-    public function forAcct($forAcct = null)
+    public function setDraftAccountId($forAcct)
     {
-        if(null === $forAcct)
-        {
-            return $this->property('forAcct');
-        }
-        return $this->property('forAcct', trim($forAcct));
+        return $this->setProperty('forAcct', trim($forAcct));
     }
 
     /**
-     * Gets or sets t
+     * Gets tags
+     *
+     * @return string
+     */
+    public function getTags()
+    {
+        return $this->getProperty('t');
+    }
+
+    /**
+     * Sets tags
      *
      * @param  string $t
-     * @return string|self
+     * @return self
      */
-    public function t($t = null)
+    public function setTags($t)
     {
-        if(null === $t)
-        {
-            return $this->property('t');
-        }
-        return $this->property('t', trim($t));
+        return $this->setProperty('t', trim($t));
     }
 
     /**
-     * Gets or sets tn
+     * Gets tag names
+     *
+     * @return string
+     */
+    public function getTagNames()
+    {
+        return $this->getProperty('tn');
+    }
+
+    /**
+     * Sets tag names
      *
      * @param  string $tn
-     * @return string|self
+     * @return self
      */
-    public function tn($tn = null)
+    public function setTagNames($tn)
     {
-        if(null === $tn)
-        {
-            return $this->property('tn');
-        }
-        return $this->property('tn', trim($tn));
+        return $this->setProperty('tn', trim($tn));
     }
 
     /**
-     * Gets or sets rgb
+     * Gets rgb
+     *
+     * @return string
+     */
+    public function getRgb()
+    {
+        return $this->getProperty('rgb');
+    }
+
+    /**
+     * Sets rgb
      *
      * @param  string $rgb
-     * @return string|self
+     * @return self
      */
-    public function rgb($rgb = null)
+    public function setRgb($rgb)
     {
-        if(null === $rgb)
-        {
-            return $this->property('rgb');
-        }
-        return $this->property('rgb', Text::isRgb(trim($rgb)) ? trim($rgb) : '');
+        return $this->setProperty('rgb', Text::isRgb(trim($rgb)) ? trim($rgb) : '');
     }
 
     /**
-     * Gets or sets color
+     * Gets color
+     *
+     * @return int
+     */
+    public function getColor()
+    {
+        return $this->getProperty('color');
+    }
+
+    /**
+     * Sets color
      *
      * @param  int $color
-     * @return int|self
+     * @return self
      */
-    public function color($color = null)
+    public function setColor($color)
     {
-        if(null === $color)
-        {
-            return $this->property('color');
-        }
-        return $this->property('color', ($color > 0 && $color < 128) ? $color : 0);
+        $color = (int) $color;
+        return $this->setProperty('color', ($color > 0 && $color < 128) ? $color : 0);
     }
 
     /**
-     * Gets or sets autoSendTime
+     * Gets autoSendTime
+     *
+     * @return int
+     */
+    public function getAutoSendTime()
+    {
+        return $this->getProperty('autoSendTime');
+    }
+
+    /**
+     * Sets autoSendTime
      *
      * @param  int $autoSendTime
-     * @return int|self
+     * @return self
      */
-    public function autoSendTime($autoSendTime = null)
+    public function setAutoSendTime($autoSendTime)
     {
-        if(null === $autoSendTime)
-        {
-            return $this->property('autoSendTime');
-        }
-        return $this->property('autoSendTime', (int) $autoSendTime);
+        return $this->setProperty('autoSendTime', (int) $autoSendTime);
     }
 }

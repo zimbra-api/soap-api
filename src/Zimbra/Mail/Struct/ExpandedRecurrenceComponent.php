@@ -43,99 +43,129 @@ class ExpandedRecurrenceComponent extends Base
         parent::__construct();
         if($exceptId instanceof InstanceRecurIdInfo)
         {
-            $this->child('exceptId', $exceptId);
+            $this->setChild('exceptId', $exceptId);
         }
         if($dur instanceof DurationInfo)
         {
-            $this->child('dur', $dur);
+            $this->setChild('dur', $dur);
         }
         if($recur instanceof RecurrenceInfo)
         {
-            $this->child('recur', $recur);
+            $this->setChild('recur', $recur);
         }
         if(null !== $s)
         {
-            $this->property('s', (int) $s);
+            $this->setProperty('s', (int) $s);
         }
         if(null !== $e)
         {
-            $this->property('e', (int) $e);
+            $this->setProperty('e', (int) $e);
         }
     }
 
     /**
-     * Gets or sets exceptId
+     * Gets exception id
+     *
+     * @return InstanceRecurIdInfo
+     */
+    public function getExceptionId()
+    {
+        return $this->getChild('exceptId');
+    }
+
+    /**
+     * Sets exception id
      *
      * @param  InstanceRecurIdInfo $exceptId
-     * @return InstanceRecurIdInfo|self
+     * @return self
      */
-    public function exceptId(InstanceRecurIdInfo $exceptId = null)
+    public function setExceptionId(InstanceRecurIdInfo $exceptId)
     {
-        if(null === $exceptId)
-        {
-            return $this->child('exceptId');
-        }
-        return $this->child('exceptId', $exceptId);
+        return $this->setChild('exceptId', $exceptId);
     }
 
     /**
-     * Gets or sets dur
+     * Gets duration
+     *
+     * @return DurationInfo
+     */
+    public function getDuration()
+    {
+        return $this->getChild('dur');
+    }
+
+    /**
+     * Sets duration
      *
      * @param  DurationInfo $dur
-     * @return DurationInfo|self
+     * @return self
      */
-    public function dur(DurationInfo $dur = null)
+    public function setDuration(DurationInfo $dur)
     {
-        if(null === $dur)
-        {
-            return $this->child('dur');
-        }
-        return $this->child('dur', $dur);
+        return $this->setChild('dur', $dur);
     }
 
     /**
-     * Gets or sets recur
+     * Gets recurrence
+     *
+     * @return RecurrenceInfo
+     */
+    public function getRecurrence()
+    {
+        return $this->getChild('recur');
+    }
+
+    /**
+     * Sets recurrence
      *
      * @param  RecurrenceInfo $recur
-     * @return RecurrenceInfo|self
+     * @return self
      */
-    public function recur(RecurrenceInfo $recur = null)
+    public function setRecurrence(RecurrenceInfo $recur)
     {
-        if(null === $recur)
-        {
-            return $this->child('recur');
-        }
-        return $this->child('recur', $recur);
+        return $this->setChild('recur', $recur);
     }
 
     /**
-     * Gets or sets s
+     * Gets start time
+     *
+     * @return int
+     */
+    public function getStartTime()
+    {
+        return $this->getProperty('s');
+    }
+
+    /**
+     * Sets start time
      *
      * @param  int $s
-     * @return int|self
+     * @return self
      */
-    public function s($s = null)
+    public function setStartTime($s)
     {
-        if(null === $s)
-        {
-            return $this->property('s');
-        }
-        return $this->property('s', (int) $s);
+        return $this->setProperty('s', (int) $s);
     }
 
     /**
-     * Gets or sets e
+     * Gets end time
+     *
+     * @return int
+     */
+    public function getEndTime()
+    {
+        return $this->getProperty('e');
+    }
+
+    /**
+     * Sets end time
      *
      * @param  int $e
-     * @return int|self
+     * @return self
      */
-    public function e($e = null)
+    public function setEndTime($e)
     {
-        if(null === $e)
-        {
-            return $this->property('e');
-        }
-        return $this->property('e', (int) $e);
+        return $this->setProperty('e', (int) $e);
     }
 
     /**

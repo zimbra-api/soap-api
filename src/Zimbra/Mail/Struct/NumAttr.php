@@ -31,22 +31,28 @@ class NumAttr extends Base
     public function __construct($num)
     {
         parent::__construct();
-        $this->property('num', (int) $num);
+        $this->setProperty('num', (int) $num);
     }
 
     /**
-     * Gets or sets num
+     * Gets number
      *
-     * @param  int $num
-     * @return int|self
+     * @return bool
      */
-    public function num($num = null)
+    public function getNum()
     {
-        if(null === $num)
-        {
-            return $this->property('num');
-        }
-        return $this->property('num', (int) $num);
+        return $this->getProperty('num');
+    }
+
+    /**
+     * Sets number
+     *
+     * @param  bool $num
+     * @return self
+     */
+    public function setNum($num)
+    {
+        return $this->setProperty('num', (bool) $num);
     }
 
     /**

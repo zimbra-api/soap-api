@@ -25,535 +25,182 @@ use Zimbra\Struct\Base;
 class FilterTests extends Base
 {
     /**
+     * Filter tests
+     * @var TypedSequence<FilterTest>
+     */
+    private $_tests;
+
+    /**
      * Constructor method for FilterTests
      * @param FilterCondition $condition Condition - allof|anyof
-     * @param AddressBookTest $addressBookTest
-     * @param AddressTest $addressTest
-     * @param AttachmentTest $attachmentTest
-     * @param BodyTest $bodyTest
-     * @param BulkTest $bulkTest
-     * @param ContactRankingTest $contactRankingTest
-     * @param ConversationTest $conversationTest
-     * @param CurrentDayOfWeekTest $currentDayOfWeekTest
-     * @param CurrentTimeTest $currentTimeTest
-     * @param DateTest $dateTest
-     * @param FacebookTest $facebookTest
-     * @param FlaggedTest $flaggedTest
-     * @param HeaderExistsTest $headerExistsTest
-     * @param HeaderTest $headerTest
-     * @param ImportanceTest $importanceTest
-     * @param InviteTest $inviteTest
-     * @param LinkedInTest $linkedinTest
-     * @param ListTest $listTest
-     * @param MeTest $meTest
-     * @param MimeHeaderTest $mimeHeaderTest
-     * @param SizeTest $sizeTest
-     * @param SocialcastTest $socialcastTest
-     * @param TrueTest $trueTest
-     * @param TwitterTest $twitterTest
+     * @param array $tests
      * @return self
      */
-    public function __construct(
-        FilterCondition $condition,
-        AddressBookTest $addressBookTest = NULL,
-        AddressTest $addressTest = NULL,
-        AttachmentTest $attachmentTest = NULL,
-        BodyTest $bodyTest = NULL,
-        BulkTest $bulkTest = NULL,
-        ContactRankingTest $contactRankingTest = NULL,
-        ConversationTest $conversationTest = NULL,
-        CurrentDayOfWeekTest $currentDayOfWeekTest = NULL,
-        CurrentTimeTest $currentTimeTest = NULL,
-        DateTest $dateTest = NULL,
-        FacebookTest $facebookTest = NULL,
-        FlaggedTest $flaggedTest = NULL,
-        HeaderExistsTest $headerExistsTest = NULL,
-        HeaderTest $headerTest = NULL,
-        ImportanceTest $importanceTest = NULL,
-        InviteTest $inviteTest = NULL,
-        LinkedInTest $linkedinTest = NULL,
-        ListTest $listTest = NULL,
-        MeTest $meTest = NULL,
-        MimeHeaderTest $mimeHeaderTest = NULL,
-        SizeTest $sizeTest = NULL,
-        SocialcastTest $socialcastTest = NULL,
-        TrueTest $trueTest = NULL,
-        TwitterTest $twitterTest = NULL
-    )
+    public function __construct(FilterCondition $condition, array $tests = [])
     {
         parent::__construct();
-        $this->property('condition', $condition);
-        if($addressBookTest instanceof AddressBookTest)
+        $this->setProperty('condition', $condition)
+            ->setTests($tests);
+        $this->on('before', function(Base $sender)
         {
-            $this->child('addressBookTest', $addressBookTest);
-        }
-        if($addressTest instanceof AddressTest)
-        {
-            $this->child('addressTest', $addressTest);
-        }
-        if($attachmentTest instanceof AttachmentTest)
-        {
-            $this->child('attachmentTest', $attachmentTest);
-        }
-        if($bodyTest instanceof BodyTest)
-        {
-            $this->child('bodyTest', $bodyTest);
-        }
-        if($bulkTest instanceof BulkTest)
-        {
-            $this->child('bulkTest', $bulkTest);
-        }
-        if($contactRankingTest instanceof ContactRankingTest)
-        {
-            $this->child('contactRankingTest', $contactRankingTest);
-        }
-        if($conversationTest instanceof ConversationTest)
-        {
-            $this->child('conversationTest', $conversationTest);
-        }
-        if($currentDayOfWeekTest instanceof CurrentDayOfWeekTest)
-        {
-            $this->child('currentDayOfWeekTest', $currentDayOfWeekTest);
-        }
-        if($currentTimeTest instanceof CurrentTimeTest)
-        {
-            $this->child('currentTimeTest', $currentTimeTest);
-        }
-        if($dateTest instanceof DateTest)
-        {
-            $this->child('dateTest', $dateTest);
-        }
-        if($facebookTest instanceof FacebookTest)
-        {
-            $this->child('facebookTest', $facebookTest);
-        }
-        if($flaggedTest instanceof FlaggedTest)
-        {
-            $this->child('flaggedTest', $flaggedTest);
-        }
-        if($headerExistsTest instanceof HeaderExistsTest)
-        {
-            $this->child('headerExistsTest', $headerExistsTest);
-        }
-        if($headerTest instanceof HeaderTest)
-        {
-            $this->child('headerTest', $headerTest);
-        }
-        if($importanceTest instanceof ImportanceTest)
-        {
-            $this->child('importanceTest', $importanceTest);
-        }
-        if($inviteTest instanceof InviteTest)
-        {
-            $this->child('inviteTest', $inviteTest);
-        }
-        if($linkedinTest instanceof LinkedInTest)
-        {
-            $this->child('linkedinTest', $linkedinTest);
-        }
-        if($listTest instanceof ListTest)
-        {
-            $this->child('listTest', $listTest);
-        }
-        if($meTest instanceof MeTest)
-        {
-            $this->child('meTest', $meTest);
-        }
-        if($mimeHeaderTest instanceof MimeHeaderTest)
-        {
-            $this->child('mimeHeaderTest', $mimeHeaderTest);
-        }
-        if($sizeTest instanceof SizeTest)
-        {
-            $this->child('sizeTest', $sizeTest);
-        }
-        if($socialcastTest instanceof SocialcastTest)
-        {
-            $this->child('socialcastTest', $socialcastTest);
-        }
-        if($trueTest instanceof TrueTest)
-        {
-            $this->child('trueTest', $trueTest);
-        }
-        if($twitterTest instanceof TwitterTest)
-        {
-            $this->child('twitterTest', $twitterTest);
-        }
+            if($sender->getTests()->count())
+            {
+                foreach ($sender->getTests()->all() as $test)
+                {
+                    if($test instanceof AddressBookTest)
+                    {
+                        $this->setChild('addressBookTest', $test);
+                    }
+                    if($test instanceof AddressTest)
+                    {
+                        $this->setChild('addressTest', $test);
+                    }
+                    if($test instanceof AttachmentTest)
+                    {
+                        $this->setChild('attachmentTest', $test);
+                    }
+                    if($test instanceof BodyTest)
+                    {
+                        $this->setChild('bodyTest', $test);
+                    }
+                    if($test instanceof BulkTest)
+                    {
+                        $this->setChild('bulkTest', $test);
+                    }
+                    if($test instanceof ContactRankingTest)
+                    {
+                        $this->setChild('contactRankingTest', $test);
+                    }
+                    if($test instanceof ConversationTest)
+                    {
+                        $this->setChild('conversationTest', $test);
+                    }
+                    if($test instanceof CurrentDayOfWeekTest)
+                    {
+                        $this->setChild('currentDayOfWeekTest', $test);
+                    }
+                    if($test instanceof CurrentTimeTest)
+                    {
+                        $this->setChild('currentTimeTest', $test);
+                    }
+                    if($test instanceof DateTest)
+                    {
+                        $this->setChild('dateTest', $test);
+                    }
+                    if($test instanceof FacebookTest)
+                    {
+                        $this->setChild('facebookTest', $test);
+                    }
+                    if($test instanceof FlaggedTest)
+                    {
+                        $this->setChild('flaggedTest', $test);
+                    }
+                    if($test instanceof HeaderExistsTest)
+                    {
+                        $this->setChild('headerExistsTest', $test);
+                    }
+                    if($test instanceof HeaderTest)
+                    {
+                        $this->setChild('headerTest', $test);
+                    }
+                    if($test instanceof ImportanceTest)
+                    {
+                        $this->setChild('importanceTest', $test);
+                    }
+                    if($test instanceof InviteTest)
+                    {
+                        $this->setChild('inviteTest', $test);
+                    }
+                    if($test instanceof LinkedInTest)
+                    {
+                        $this->setChild('linkedinTest', $test);
+                    }
+                    if($test instanceof ListTest)
+                    {
+                        $this->setChild('listTest', $test);
+                    }
+                    if($test instanceof MeTest)
+                    {
+                        $this->setChild('meTest', $test);
+                    }
+                    if($test instanceof MimeHeaderTest)
+                    {
+                        $this->setChild('mimeHeaderTest', $test);
+                    }
+                    if($test instanceof SizeTest)
+                    {
+                        $this->setChild('sizeTest', $test);
+                    }
+                    if($test instanceof SocialcastTest)
+                    {
+                        $this->setChild('socialcastTest', $test);
+                    }
+                    if($test instanceof TrueTest)
+                    {
+                        $this->setChild('trueTest', $test);
+                    }
+                    if($test instanceof TwitterTest)
+                    {
+                        $this->setChild('twitterTest', $test);
+                    }
+                }
+            }
+        });
     }
 
     /**
-     * Gets or sets condition
+     * Gets condition
+     *
+     * @return FilterCondition
+     */
+    public function getCondition()
+    {
+        return $this->getProperty('condition');
+    }
+
+    /**
+     * Sets condition
      *
      * @param  FilterCondition $condition
-     * @return FilterCondition|self
+     * @return self
      */
-    public function condition(FilterCondition $condition = null)
+    public function setCondition(FilterCondition $condition)
     {
-        if(null === $condition)
-        {
-            return $this->property('condition');
-        }
-        return $this->property('condition', $condition);
+        return $this->setProperty('condition', $condition);
     }
 
     /**
-     * Gets or sets addressBookTest
+     * Add a call test
      *
-     * @param  AddressBookTest $addressBookTest
-     * @return AddressBookTest|self
+     * @param  FilterTest $test
+     * @return self
      */
-    public function addressBookTest(AddressBookTest $addressBookTest = null)
+    public function addTest(FilterTest $test)
     {
-        if(null === $addressBookTest)
-        {
-            return $this->child('addressBookTest');
-        }
-        return $this->child('addressBookTest', $addressBookTest);
+        $this->_tests->add($test);
+        return $this;
     }
 
     /**
-     * Gets or sets addressTest
+     * Sets call test sequence
      *
-     * @param  AddressTest $addressTest
-     * @return AddressTest|self
+     * @param  array $tests
+     * @return self
      */
-    public function addressTest(AddressTest $addressTest = null)
+    public function setTests(array $tests)
     {
-        if(null === $addressTest)
-        {
-            return $this->child('addressTest');
-        }
-        return $this->child('addressTest', $addressTest);
+        $this->_tests = new TypedSequence('Zimbra\Mail\Struct\FilterTest', $tests);
+        return $this;
     }
 
     /**
-     * Gets or sets attachmentTest
+     * Gets call test sequence
      *
-     * @param  AttachmentTest $attachmentTest
-     * @return AttachmentTest|self
+     * @return Sequence
      */
-    public function attachmentTest(AttachmentTest $attachmentTest = null)
+    public function getTests()
     {
-        if(null === $attachmentTest)
-        {
-            return $this->child('attachmentTest');
-        }
-        return $this->child('attachmentTest', $attachmentTest);
-    }
-
-    /**
-     * Gets or sets bodyTest
-     *
-     * @param  BodyTest $bodyTest
-     * @return BodyTest|self
-     */
-    public function bodyTest(BodyTest $bodyTest = null)
-    {
-        if(null === $bodyTest)
-        {
-            return $this->child('bodyTest');
-        }
-        return $this->child('bodyTest', $bodyTest);
-    }
-
-    /**
-     * Gets or sets bulkTest
-     *
-     * @param  BulkTest $bulkTest
-     * @return BulkTest|self
-     */
-    public function bulkTest(BulkTest $bulkTest = null)
-    {
-        if(null === $bulkTest)
-        {
-            return $this->child('bulkTest');
-        }
-        return $this->child('bulkTest', $bulkTest);
-    }
-
-    /**
-     * Gets or sets contactRankingTest
-     *
-     * @param  ContactRankingTest $contactRankingTest
-     * @return ContactRankingTest|self
-     */
-    public function contactRankingTest(ContactRankingTest $contactRankingTest = null)
-    {
-        if(null === $contactRankingTest)
-        {
-            return $this->child('contactRankingTest');
-        }
-        return $this->child('contactRankingTest', $contactRankingTest);
-    }
-
-    /**
-     * Gets or sets conversationTest
-     *
-     * @param  ConversationTest $conversationTest
-     * @return ConversationTest|self
-     */
-    public function conversationTest(ConversationTest $conversationTest = null)
-    {
-        if(null === $conversationTest)
-        {
-            return $this->child('conversationTest');
-        }
-        return $this->child('conversationTest', $conversationTest);
-    }
-
-    /**
-     * Gets or sets currentDayOfWeekTest
-     *
-     * @param  CurrentDayOfWeekTest $currentDayOfWeekTest
-     * @return CurrentDayOfWeekTest|self
-     */
-    public function currentDayOfWeekTest(CurrentDayOfWeekTest $currentDayOfWeekTest = null)
-    {
-        if(null === $currentDayOfWeekTest)
-        {
-            return $this->child('currentDayOfWeekTest');
-        }
-        return $this->child('currentDayOfWeekTest', $currentDayOfWeekTest);
-    }
-
-    /**
-     * Gets or sets currentTimeTest
-     *
-     * @param  CurrentTimeTest $currentTimeTest
-     * @return CurrentTimeTest|self
-     */
-    public function currentTimeTest(CurrentTimeTest $currentTimeTest = null)
-    {
-        if(null === $currentTimeTest)
-        {
-            return $this->child('currentTimeTest');
-        }
-        return $this->child('currentTimeTest', $currentTimeTest);
-    }
-
-    /**
-     * Gets or sets dateTest
-     *
-     * @param  DateTest $dateTest
-     * @return DateTest|self
-     */
-    public function dateTest(DateTest $dateTest = null)
-    {
-        if(null === $dateTest)
-        {
-            return $this->child('dateTest');
-        }
-        return $this->child('dateTest', $dateTest);
-    }
-
-    /**
-     * Gets or sets facebookTest
-     *
-     * @param  FacebookTest $facebookTest
-     * @return FacebookTest|self
-     */
-    public function facebookTest(FacebookTest $facebookTest = null)
-    {
-        if(null === $facebookTest)
-        {
-            return $this->child('facebookTest');
-        }
-        return $this->child('facebookTest', $facebookTest);
-    }
-
-    /**
-     * Gets or sets flaggedTest
-     *
-     * @param  FlaggedTest $flaggedTest
-     * @return FlaggedTest|self
-     */
-    public function flaggedTest(FlaggedTest $flaggedTest = null)
-    {
-        if(null === $flaggedTest)
-        {
-            return $this->child('flaggedTest');
-        }
-        return $this->child('flaggedTest', $flaggedTest);
-    }
-
-    /**
-     * Gets or sets headerExistsTest
-     *
-     * @param  HeaderExistsTest $headerExistsTest
-     * @return HeaderExistsTest|self
-     */
-    public function headerExistsTest(HeaderExistsTest $headerExistsTest = null)
-    {
-        if(null === $headerExistsTest)
-        {
-            return $this->child('headerExistsTest');
-        }
-        return $this->child('headerExistsTest', $headerExistsTest);
-    }
-
-    /**
-     * Gets or sets headerTest
-     *
-     * @param  HeaderTest $headerTest
-     * @return HeaderTest|self
-     */
-    public function headerTest(HeaderTest $headerTest = null)
-    {
-        if(null === $headerTest)
-        {
-            return $this->child('headerTest');
-        }
-        return $this->child('headerTest', $headerTest);
-    }
-
-    /**
-     * Gets or sets importanceTest
-     *
-     * @param  ImportanceTest $importanceTest
-     * @return ImportanceTest|self
-     */
-    public function importanceTest(ImportanceTest $importanceTest = null)
-    {
-        if(null === $importanceTest)
-        {
-            return $this->child('importanceTest');
-        }
-        return $this->child('importanceTest', $importanceTest);
-    }
-
-    /**
-     * Gets or sets inviteTest
-     *
-     * @param  InviteTest $inviteTest
-     * @return InviteTest|self
-     */
-    public function inviteTest(InviteTest $inviteTest = null)
-    {
-        if(null === $inviteTest)
-        {
-            return $this->child('inviteTest');
-        }
-        return $this->child('inviteTest', $inviteTest);
-    }
-
-    /**
-     * Gets or sets linkedinTest
-     *
-     * @param  LinkedInTest $linkedinTest
-     * @return LinkedInTest|self
-     */
-    public function linkedinTest(LinkedInTest $linkedinTest = null)
-    {
-        if(null === $linkedinTest)
-        {
-            return $this->child('linkedinTest');
-        }
-        return $this->child('linkedinTest', $linkedinTest);
-    }
-
-    /**
-     * Gets or sets listTest
-     *
-     * @param  ListTest $listTest
-     * @return ListTest|self
-     */
-    public function listTest(ListTest $listTest = null)
-    {
-        if(null === $listTest)
-        {
-            return $this->child('listTest');
-        }
-        return $this->child('listTest', $listTest);
-    }
-
-    /**
-     * Gets or sets meTest
-     *
-     * @param  MeTest $meTest
-     * @return MeTest|self
-     */
-    public function meTest(MeTest $meTest = null)
-    {
-        if(null === $meTest)
-        {
-            return $this->child('meTest');
-        }
-        return $this->child('meTest', $meTest);
-    }
-
-    /**
-     * Gets or sets mimeHeaderTest
-     *
-     * @param  MimeHeaderTest $mimeHeaderTest
-     * @return MimeHeaderTest|self
-     */
-    public function mimeHeaderTest(MimeHeaderTest $mimeHeaderTest = null)
-    {
-        if(null === $mimeHeaderTest)
-        {
-            return $this->child('mimeHeaderTest');
-        }
-        return $this->child('mimeHeaderTest', $mimeHeaderTest);
-    }
-
-    /**
-     * Gets or sets sizeTest
-     *
-     * @param  SizeTest $sizeTest
-     * @return SizeTest|self
-     */
-    public function sizeTest(SizeTest $sizeTest = null)
-    {
-        if(null === $sizeTest)
-        {
-            return $this->child('sizeTest');
-        }
-        return $this->child('sizeTest', $sizeTest);
-    }
-
-    /**
-     * Gets or sets socialcastTest
-     *
-     * @param  SocialcastTest $socialcastTest
-     * @return SocialcastTest|self
-     */
-    public function socialcastTest(SocialcastTest $socialcastTest = null)
-    {
-        if(null === $socialcastTest)
-        {
-            return $this->child('socialcastTest');
-        }
-        return $this->child('socialcastTest', $socialcastTest);
-    }
-
-    /**
-     * Gets or sets trueTest
-     *
-     * @param  TrueTest $trueTest
-     * @return TrueTest|self
-     */
-    public function trueTest(TrueTest $trueTest = null)
-    {
-        if(null === $trueTest)
-        {
-            return $this->child('trueTest');
-        }
-        return $this->child('trueTest', $trueTest);
-    }
-
-    /**
-     * Gets or sets twitterTest
-     *
-     * @param  TwitterTest $twitterTest
-     * @return TwitterTest|self
-     */
-    public function twitterTest(TwitterTest $twitterTest = null)
-    {
-        if(null === $twitterTest)
-        {
-            return $this->child('twitterTest');
-        }
-        return $this->child('twitterTest', $twitterTest);
+        return $this->_tests;
     }
 
     /**

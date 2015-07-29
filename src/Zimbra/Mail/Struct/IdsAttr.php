@@ -31,22 +31,28 @@ class IdsAttr extends Base
     public function __construct($ids)
     {
         parent::__construct();
-        $this->property('ids', trim($ids));
+        $this->setProperty('ids', trim($ids));
     }
 
     /**
-     * Gets or sets ids
+     * Gets ids
+     *
+     * @return string
+     */
+    public function getIds()
+    {
+        return $this->getProperty('ids');
+    }
+
+    /**
+     * Sets ids
      *
      * @param  string $ids
-     * @return string|self
+     * @return self
      */
-    public function ids($ids = null)
+    public function setIds($ids)
     {
-        if(null === $ids)
-        {
-            return $this->property('ids');
-        }
-        return $this->property('ids', trim($ids));
+        return $this->setProperty('ids', trim($ids));
     }
 
     /**

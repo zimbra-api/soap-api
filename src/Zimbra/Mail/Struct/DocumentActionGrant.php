@@ -39,57 +39,75 @@ class DocumentActionGrant extends Base
     )
     {
         parent::__construct();
-        $this->property('perm', $perm);
-        $this->property('gt', $gt);
+        $this->setProperty('perm', $perm);
+        $this->setProperty('gt', $gt);
         if(null !== $expiry)
         {
-            $this->property('expiry', (int) $expiry);
+            $this->setProperty('expiry', (int) $expiry);
         }
     }
 
     /**
-     * Gets or sets perm
+     * Gets permissions
+     *
+     * @return DocumentPermission
+     */
+    public function getRights()
+    {
+        return $this->getProperty('perm');
+    }
+
+    /**
+     * Sets permissions
      *
      * @param  DocumentPermission $perm
-     * @return DocumentPermission|self
+     * @return self
      */
-    public function perm(DocumentPermission $perm = null)
+    public function setRights(DocumentPermission $perm)
     {
-        if(null === $perm)
-        {
-            return $this->property('perm');
-        }
-        return $this->property('perm', $perm);
+        return $this->setProperty('perm', $perm);
     }
 
     /**
-     * Gets or sets gt
+     * Gets grant type
+     *
+     * @return DocumentGrantType
+     */
+    public function getGrantType()
+    {
+        return $this->getProperty('gt');
+    }
+
+    /**
+     * Sets grant type
      *
      * @param  DocumentGrantType $gt
-     * @return DocumentGrantType|self
+     * @return self
      */
-    public function gt(DocumentGrantType $gt = null)
+    public function setGrantType(DocumentGrantType $gt)
     {
-        if(null === $gt)
-        {
-            return $this->property('gt');
-        }
-        return $this->property('gt', $gt);
+        return $this->setProperty('gt', $gt);
     }
 
     /**
-     * Gets or sets expiry
+     * Gets expiry
+     *
+     * @return int
+     */
+    public function getExpiry()
+    {
+        return $this->getProperty('expiry');
+    }
+
+    /**
+     * Sets expiry
      *
      * @param  int $expiry
-     * @return int|self
+     * @return self
      */
-    public function expiry($expiry = null)
+    public function setExpiry($expiry)
     {
-        if(null === $expiry)
-        {
-            return $this->property('expiry');
-        }
-        return $this->property('expiry', (int) $expiry);
+        return $this->setProperty('expiry', (int) $expiry);
     }
 
     /**

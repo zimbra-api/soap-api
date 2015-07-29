@@ -33,60 +33,78 @@ class EmailAddrInfo extends Base
     public function __construct($a, $t = null, $p = null)
     {
         parent::__construct();
-        $this->property('a', trim($a));
+        $this->setProperty('a', trim($a));
         if(null !== $t)
         {
-            $this->property('t', trim($t));
+            $this->setProperty('t', trim($t));
         }
         if(null !== $p)
         {
-            $this->property('p', trim($p));
+            $this->setProperty('p', trim($p));
         }
     }
 
     /**
-     * Gets or sets a
+     * Gets address
+     *
+     * @return string
+     */
+    public function getAddress()
+    {
+        return $this->getProperty('a');
+    }
+
+    /**
+     * Sets address
      *
      * @param  string $a
-     * @return string|self
+     * @return self
      */
-    public function a($a = null)
+    public function setAddress($a)
     {
-        if(null === $a)
-        {
-            return $this->property('a');
-        }
-        return $this->property('a', trim($a));
+        return $this->setProperty('a', trim($a));
     }
 
     /**
-     * Gets or sets t
+     * Gets address type
+     *
+     * @return string
+     */
+    public function getAddressType()
+    {
+        return $this->getProperty('t');
+    }
+
+    /**
+     * Sets address type
      *
      * @param  string $t
-     * @return string|self
+     * @return self
      */
-    public function t($t = null)
+    public function setAddressType($t)
     {
-        if(null === $t)
-        {
-            return $this->property('t');
-        }
-        return $this->property('t', trim($t));
+        return $this->setProperty('t', trim($t));
     }
 
     /**
-     * Gets or sets p
+     * Gets personal
+     *
+     * @return string
+     */
+    public function getPersonal()
+    {
+        return $this->getProperty('p');
+    }
+
+    /**
+     * Sets personal
      *
      * @param  string $p
-     * @return string|self
+     * @return self
      */
-    public function p($p = null)
+    public function setPersonal($p)
     {
-        if(null === $p)
-        {
-            return $this->property('p');
-        }
-        return $this->property('p', trim($p));
+        return $this->setProperty('p', trim($p));
     }
 
     /**

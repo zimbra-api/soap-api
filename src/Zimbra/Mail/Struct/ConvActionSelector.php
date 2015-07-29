@@ -68,17 +68,23 @@ class ConvActionSelector extends ActionSelector
     }
 
     /**
-     * Gets or sets op
+     * Gets operation
+     *
+     * @return ConvActionOp
+     */
+    public function getOperation()
+    {
+        return $this->getProperty('op');
+    }
+
+    /**
+     * Sets operation
      *
      * @param  ConvActionOp $op
-     * @return ConvActionOp|self
+     * @return self
      */
-    public function op(ConvActionOp $op = null)
+    public function setOperation(ConvActionOp $op)
     {
-        if(null === $op)
-        {
-            return $this->property('op');
-        }
-        return $this->property('op', $op);
+        return $this->setProperty('op', $op);
     }
 }

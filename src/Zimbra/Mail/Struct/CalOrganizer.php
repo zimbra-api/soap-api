@@ -28,62 +28,62 @@ class CalOrganizer extends Base
      * Non-standard parameters (XPARAMs)
      * @var Sequence
      */
-    private $_xparam;
+    private $_xparams;
 
     /**
      * Constructor method for CalOrganizer
-     * @param array $xparams
-     * @param string $a Email address (without "MAILTO:")
+     * @param string $address Email address (without "MAILTO:")
      * @param string $url URL - has same value as {email-address}. 
-     * @param string $d Friendly name - "CN" in iCalendar
+     * @param string $displayName Friendly name - "CN" in iCalendar
      * @param string $sentBy iCalendar SENT-BY
-     * @param string $dir iCalendar DIR - Reference to a directory entry associated with the calendar user. the property.
+     * @param string $dir iCalendar DIR - Reference to a directory entry associated with the calendar user. the setProperty.
      * @param string $lang iCalendar LANGUAGE - As defined in RFC5646 * (e.g. "en-US")
+     * @param array $xparams Non-standard parameters
      * @return self
      */
     public function __construct(
-        array $xparams = array(),
-        $a = null,
+        $address = null,
         $url = null,
-        $d = null,
+        $displayName = null,
         $sentBy = null,
         $dir = null,
-        $lang = null
+        $lang = null,
+        array $xparams = []
     )
     {
         parent::__construct();
-        $this->_xparam = new TypedSequence('Zimbra\Mail\Struct\XParam', $xparams);
 
-        if(null !== $a)
+        if(null !== $address)
         {
-            $this->property('a', trim($a));
+            $this->setProperty('a', trim($address));
         }
         if(null !== $url)
         {
-            $this->property('url', trim($url));
+            $this->setProperty('url', trim($url));
         }
-        if(null !== $d)
+        if(null !== $displayName)
         {
-            $this->property('d', trim($d));
+            $this->setProperty('d', trim($displayName));
         }
         if(null !== $sentBy)
         {
-            $this->property('sentBy', trim($sentBy));
+            $this->setProperty('sentBy', trim($sentBy));
         }
         if(null !== $dir)
         {
-            $this->property('dir', trim($dir));
+            $this->setProperty('dir', trim($dir));
         }
         if(null !== $lang)
         {
-            $this->property('lang', trim($lang));
+            $this->setProperty('lang', trim($lang));
         }
 
+        $this->setXParams($xparams);
         $this->on('before', function(Base $sender)
         {
-            if($sender->xparam()->count())
+            if($sender->getXParams()->count())
             {
-                $sender->child('xparam', $sender->xparam()->all());
+                $sender->setChild('xparam', $sender->getXParams()->all());
             }
         });
     }
@@ -96,7 +96,19 @@ class CalOrganizer extends Base
      */
     public function addXParam(XParam $xparam)
     {
-        $this->_xparam->add($xparam);
+        $this->_xparams->add($xparam);
+        return $this;
+    }
+
+    /**
+     * sets xparam sequence
+     *
+     * @param  array $xparams
+     * @return self
+     */
+    public function setXParams(array $xparams)
+    {
+        $this->_xparams = new TypedSequence('Zimbra\Mail\Struct\XParam', $xparams);
         return $this;
     }
 
@@ -105,99 +117,135 @@ class CalOrganizer extends Base
      *
      * @return Sequence
      */
-    public function xparam()
+    public function getXParams()
     {
-        return $this->_xparam;
+        return $this->_xparams;
     }
 
     /**
-     * Gets or sets email address
+     * Gets address
      *
-     * @param  string $a email address
-     * @return string|self
+     * @return string
      */
-    public function a($a = null)
+    public function getAddress()
     {
-        if(null === $a)
-        {
-            return $this->property('a');
-        }
-        return $this->property('a', trim($a));
+        return $this->getProperty('a');
     }
 
     /**
-     * Gets or sets url value
+     * Sets address
      *
-     * @param  string $a url url value
-     * @return string|self
+     * @param  string $address
+     * @return self
      */
-    public function url($url = null)
+    public function setAddress($address)
     {
-        if(null === $url)
-        {
-            return $this->property('url');
-        }
-        return $this->property('url', trim($url));
+        return $this->setProperty('a', trim($address));
     }
 
     /**
-     * Gets or sets friendly name
+     * Gets url
      *
-     * @param  string $d friendly name
-     * @return string|self
+     * @return string
      */
-    public function d($d = null)
+    public function getUrl()
     {
-        if(null === $d)
-        {
-            return $this->property('d');
-        }
-        return $this->property('d', trim($d));
+        return $this->getProperty('url');
     }
 
     /**
-     * Gets or sets iCalendar SENT-BY
+     * Sets url
      *
-     * @param  string $sentBy iCalendar SENT-BY
-     * @return string|self
+     * @param  string $url
+     * @return self
      */
-    public function sentBy($sentBy = null)
+    public function setUrl($url)
     {
-        if(null === $sentBy)
-        {
-            return $this->property('sentBy');
-        }
-        return $this->property('sentBy', trim($sentBy));
+        return $this->setProperty('url', trim($url));
     }
 
     /**
-     * Gets or sets iCalendar DIR
+     * Gets display name
      *
-     * @param  string $dir iCalendar DIR
-     * @return string|self
+     * @return string
      */
-    public function dir($dir = null)
+    public function getDisplayName()
     {
-        if(null === $dir)
-        {
-            return $this->property('dir');
-        }
-        return $this->property('dir', trim($dir));
+        return $this->getProperty('d');
     }
 
     /**
-     * Gets or sets iCalendar LANGUAGE
+     * Sets display name
      *
-     * @param  string $lang iCalendar LANGUAGE
-     * @return string|self
+     * @param  string $displayName
+     * @return self
      */
-    public function lang($lang = null)
+    public function setDisplayName($displayName)
     {
-        if(null === $lang)
-        {
-            return $this->property('lang');
-        }
-        return $this->property('lang', trim($lang));
+        return $this->setProperty('d', trim($displayName));
+    }
+
+    /**
+     * Gets sent by
+     *
+     * @return string
+     */
+    public function getSentBy()
+    {
+        return $this->getProperty('sentBy');
+    }
+
+    /**
+     * Sets sent by
+     *
+     * @param  string $sentBy
+     * @return self
+     */
+    public function setSentBy($sentBy)
+    {
+        return $this->setProperty('sentBy', trim($sentBy));
+    }
+
+    /**
+     * Gets dir
+     *
+     * @return string
+     */
+    public function getDir()
+    {
+        return $this->getProperty('dir');
+    }
+
+    /**
+     * Sets dir
+     *
+     * @param  string $dir
+     * @return self
+     */
+    public function setDir($dir)
+    {
+        return $this->setProperty('dir', trim($dir));
+    }
+
+    /**
+     * Gets lang
+     *
+     * @return string
+     */
+    public function getLang()
+    {
+        return $this->getProperty('lang');
+    }
+
+    /**
+     * Sets lang
+     *
+     * @param  string $lang
+     * @return self
+     */
+    public function setLang($lang)
+    {
+        return $this->setProperty('lang', trim($lang));
     }
 
     /**

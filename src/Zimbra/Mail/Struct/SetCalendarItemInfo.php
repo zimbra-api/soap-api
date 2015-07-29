@@ -35,42 +35,54 @@ class SetCalendarItemInfo extends Base
         parent::__construct();
         if($m instanceof Msg)
         {
-            $this->child('m', $m);
+            $this->setChild('m', $m);
         }
         if($ptst instanceof ParticipationStatus)
         {
-            $this->property('ptst', $ptst);
+            $this->setProperty('ptst', $ptst);
         }
     }
 
     /**
-     * Get or set m
+     * Gets message
+     *
+     * @return Msg
+     */
+    public function getMsg()
+    {
+        return $this->getChild('m');
+    }
+
+    /**
+     * Sets message
      *
      * @param  Msg $m
-     * @return Msg|self
+     * @return self
      */
-    public function m(Msg $m = null)
+    public function setMsg(Msg $m)
     {
-        if(null === $m)
-        {
-            return $this->child('m');
-        }
-        return $this->child('m', $m);
+        return $this->setChild('m', $m);
     }
 
     /**
-     * Get or set ptst
+     * Gets participation status
+     *
+     * @return ParticipationStatus
+     */
+    public function getPartStat()
+    {
+        return $this->getProperty('ptst');
+    }
+
+    /**
+     * Sets participation status
      *
      * @param  ParticipationStatus $ptst
-     * @return ParticipationStatus|self
+     * @return self
      */
-    public function ptst(ParticipationStatus $ptst = null)
+    public function setPartStat(ParticipationStatus $ptst)
     {
-        if(null === $ptst)
-        {
-            return $this->property('ptst');
-        }
-        return $this->property('ptst', $ptst);
+        return $this->setProperty('ptst', $ptst);
     }
 
     /**

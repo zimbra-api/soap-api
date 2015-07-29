@@ -24,31 +24,37 @@ class MailCustomMetadata extends MailKeyValuePairs
     /**
      * Constructor method for MailKeyValuePairs
      * @param string $section Section. Normally present. If absent this indicates that CustomMetadata info is present but there are no sections to report on.
-     * @param array $a
+     * @param array $pairs Key value pairs
      * @return self
      */
-    public function __construct($section = null, array $a = array())
+    public function __construct($section = null, array $pairs = [])
     {
-        parent::__construct($a);
+        parent::__construct($pairs);
         if(null !== $section)
         {
-            $this->property('section', trim($section));
+            $this->setProperty('section', trim($section));
         }
     }
 
     /**
-     * Gets or sets section
+     * Gets section
+     *
+     * @return string
+     */
+    public function getSection()
+    {
+        return $this->getProperty('section');
+    }
+
+    /**
+     * Sets section
      *
      * @param  string $section
-     * @return string|self
+     * @return self
      */
-    public function section($section = null)
+    public function setSection($section)
     {
-        if(null === $section)
-        {
-            return $this->property('section');
-        }
-        return $this->property('section', trim($section));
+        return $this->setProperty('section', trim($section));
     }
 
     /**

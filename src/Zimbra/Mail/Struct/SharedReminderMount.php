@@ -32,41 +32,53 @@ class SharedReminderMount extends Base
     public function __construct($id, $reminder = null)
     {
         parent::__construct();
-        $this->property('id', trim($id));
+        $this->setProperty('id', trim($id));
         if(null !== $reminder)
         {
-            $this->property('reminder', (bool) $reminder);
+            $this->setProperty('reminder', (bool) $reminder);
         }
     }
 
     /**
-     * Get or set id
+     * Gets id
+     *
+     * @return string
+     */
+    public function getId()
+    {
+        return $this->getProperty('id');
+    }
+
+    /**
+     * Sets id
      *
      * @param  string $id
-     * @return string|self
+     * @return self
      */
-    public function id($id = null)
+    public function setId($id)
     {
-        if(null === $id)
-        {
-            return $this->property('id');
-        }
-        return $this->property('id', trim($id));
+        return $this->setProperty('id', trim($id));
     }
 
     /**
-     * Get or set reminder
+     * Gets show reminders flag
+     *
+     * @return bool
+     */
+    public function getShowReminders()
+    {
+        return $this->getProperty('reminder');
+    }
+
+    /**
+     * Sets show reminders flag
      *
      * @param  bool $reminder
-     * @return bool|self
+     * @return self
      */
-    public function reminder($reminder = null)
+    public function setShowReminders($reminder)
     {
-        if(null === $reminder)
-        {
-            return $this->property('reminder');
-        }
-        return $this->property('reminder', (bool) $reminder);
+        return $this->setProperty('reminder', (bool) $reminder);
     }
 
     /**

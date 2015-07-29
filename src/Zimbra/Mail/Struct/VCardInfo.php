@@ -41,61 +41,79 @@ class VCardInfo extends Base
         parent::__construct(trim($value));
         if(null !== $mid)
         {
-            $this->property('mid', trim($mid));
+            $this->setProperty('mid', trim($mid));
         }
         if(null !== $part)
         {
-            $this->property('part', trim($part));
+            $this->setProperty('part', trim($part));
         }
         if(null !== $aid)
         {
-            $this->property('aid', trim($aid));
+            $this->setProperty('aid', trim($aid));
         }
     }
 
     /**
-     * Gets or sets mid
+     * Gets message Id
+     *
+     * @return string
+     */
+    public function getMessageId()
+    {
+        return $this->getProperty('mid');
+    }
+
+    /**
+     * Sets message Id
      *
      * @param  string $mid
-     * @return string|self
+     * @return self
      */
-    public function mid($mid = null)
+    public function setMessageId($mid)
     {
-        if(null === $mid)
-        {
-            return $this->property('mid');
-        }
-        return $this->property('mid', trim($mid));
+        return $this->setProperty('mid', trim($mid));
     }
 
     /**
-     * Gets or sets part
+     * Gets part
+     *
+     * @return string
+     */
+    public function getPart()
+    {
+        return $this->getProperty('part');
+    }
+
+    /**
+     * Sets part
      *
      * @param  string $part
-     * @return string|self
+     * @return self
      */
-    public function part($part = null)
+    public function setPart($part)
     {
-        if(null === $part)
-        {
-            return $this->property('part');
-        }
-        return $this->property('part', trim($part));
+        return $this->setProperty('part', trim($part));
     }
 
     /**
-     * Gets or sets aid
+     * Gets attach Id
+     *
+     * @return string
+     */
+    public function getAttachId()
+    {
+        return $this->getProperty('aid');
+    }
+
+    /**
+     * Sets attach Id
      *
      * @param  string $aid
-     * @return string|self
+     * @return self
      */
-    public function aid($aid = null)
+    public function setAttachId($aid)
     {
-        if(null === $aid)
-        {
-            return $this->property('aid');
-        }
-        return $this->property('aid', trim($aid));
+        return $this->setProperty('aid', trim($aid));
     }
 
     /**

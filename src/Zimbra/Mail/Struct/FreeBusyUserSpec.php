@@ -39,61 +39,79 @@ class FreeBusyUserSpec extends Base
         parent::__construct();
         if(null !== $l)
         {
-            $this->property('l', (int) $l);
+            $this->setProperty('l', (int) $l);
         }
         if(null !== $id)
         {
-            $this->property('id', trim($id));
+            $this->setProperty('id', trim($id));
         }
         if(null !== $name)
         {
-            $this->property('name', trim($name));
+            $this->setProperty('name', trim($name));
         }
     }
 
     /**
-     * Gets or sets l
+     * Gets folder Id
      *
-     * @param  int $l
-     * @return int|self
+     * @return string
      */
-    public function l($l = null)
+    public function getFolderId()
     {
-        if(null === $l)
-        {
-            return $this->property('l');
-        }
-        return $this->property('l', (int) $l);
+        return $this->getProperty('l');
     }
 
     /**
-     * Gets or sets id
+     * Sets folder Id
+     *
+     * @param  string $l
+     * @return self
+     */
+    public function setFolderId($l)
+    {
+        return $this->setProperty('l', trim($l));
+    }
+
+    /**
+     * Gets Zimbra Id
+     *
+     * @return string
+     */
+    public function getId()
+    {
+        return $this->getProperty('id');
+    }
+
+    /**
+     * Sets Zimbra Id
      *
      * @param  string $id
-     * @return string|self
+     * @return self
      */
-    public function id($id = null)
+    public function setId($id)
     {
-        if(null === $id)
-        {
-            return $this->property('id');
-        }
-        return $this->property('id', trim($id));
+        return $this->setProperty('id', trim($id));
     }
 
     /**
-     * Gets or sets name
+     * Gets name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->getProperty('name');
+    }
+
+    /**
+     * Sets name
      *
      * @param  string $name
-     * @return string|self
+     * @return self
      */
-    public function name($name = null)
+    public function setName($name)
     {
-        if(null === $name)
-        {
-            return $this->property('name');
-        }
-        return $this->property('name', trim($name));
+        return $this->setProperty('name', trim($name));
     }
 
     /**

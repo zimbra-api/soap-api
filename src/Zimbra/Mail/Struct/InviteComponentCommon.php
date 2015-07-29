@@ -98,552 +98,711 @@ class InviteComponentCommon extends Base
         $allDay = null,
         $draft = null,
         $neverSent = null,
-        array $changes = array()
+        array $changes = []
     )
     {
         parent::__construct();
-        $this->property('method', trim($method));
-        $this->property('compNum', (int) $compNum);
-        $this->property('rsvp', (bool) $rsvp);
+        $this->setProperty('method', trim($method));
+        $this->setProperty('compNum', (int) $compNum);
+        $this->setProperty('rsvp', (bool) $rsvp);
         if(null !== $priority)
         {
-            $this->property('priority', ((int) $priority > 0 or (int) $priority < 10) ? (int) $priority : 0);
+            $this->setProperty('priority', ((int) $priority > 0 or (int) $priority < 10) ? (int) $priority : 0);
         }
         if(null !== $name)
         {
-            $this->property('name', trim($name));
+            $this->setProperty('name', trim($name));
         }
         if(null !== $loc)
         {
-            $this->property('loc', trim($loc));
+            $this->setProperty('loc', trim($loc));
         }
         if(null !== $percentComplete)
         {
-            $this->property('percentComplete', ((int) $percentComplete > 0 or (int) $percentComplete <= 100) ? (int) $percentComplete : 0);
+            $this->setProperty('percentComplete', ((int) $percentComplete > 0 or (int) $percentComplete <= 100) ? (int) $percentComplete : 0);
         }
         if(null !== $completed)
         {
-            $this->property('completed', trim($completed));
+            $this->setProperty('completed', trim($completed));
         }
         if(null !== $noBlob)
         {
-            $this->property('noBlob', (bool) $noBlob);
+            $this->setProperty('noBlob', (bool) $noBlob);
         }
         if($fba instanceof FreeBusyStatus)
         {
-            $this->property('fba', $fba);
+            $this->setProperty('fba', $fba);
         }
         if($fb instanceof FreeBusyStatus)
         {
-            $this->property('fb', $fb);
+            $this->setProperty('fb', $fb);
         }
         if($transp instanceof Transparency)
         {
-            $this->property('transp', $transp);
+            $this->setProperty('transp', $transp);
         }
         if(null !== $isOrg)
         {
-            $this->property('isOrg', (bool) $isOrg);
+            $this->setProperty('isOrg', (bool) $isOrg);
         }
         if(null !== $x_uid)
         {
-            $this->property('x_uid', trim($x_uid));
+            $this->setProperty('x_uid', trim($x_uid));
         }
         if(null !== $uid)
         {
-            $this->property('uid', trim($uid));
+            $this->setProperty('uid', trim($uid));
         }
         if(null !== $seq)
         {
-            $this->property('seq', (int) $seq);
+            $this->setProperty('seq', (int) $seq);
         }
         if(null !== $d)
         {
-            $this->property('d', (int) $d);
+            $this->setProperty('d', (int) $d);
         }
         if(null !== $calItemId)
         {
-            $this->property('calItemId', trim($calItemId));
+            $this->setProperty('calItemId', trim($calItemId));
         }
         if(null !== $apptId)
         {
-            $this->property('apptId', trim($apptId));
+            $this->setProperty('apptId', trim($apptId));
         }
         if(null !== $ciFolder)
         {
-            $this->property('ciFolder', trim($ciFolder));
+            $this->setProperty('ciFolder', trim($ciFolder));
         }
         if($status instanceof InviteStatus)
         {
-            $this->property('status', $status);
+            $this->setProperty('status', $status);
         }
         if($class instanceof InviteClass)
         {
-            $this->property('class', $class);
+            $this->setProperty('class', $class);
         }
         if(null !== $url)
         {
-            $this->property('url', trim($url));
+            $this->setProperty('url', trim($url));
         }
         if(null !== $ex)
         {
-            $this->property('ex', (bool) $ex);
+            $this->setProperty('ex', (bool) $ex);
         }
         if(null !== $ridZ)
         {
-            $this->property('ridZ', trim($ridZ));
+            $this->setProperty('ridZ', trim($ridZ));
         }
         if(null !== $allDay)
         {
-            $this->property('allDay', (bool) $allDay);
+            $this->setProperty('allDay', (bool) $allDay);
         }
         if(null !== $draft)
         {
-            $this->property('draft', (bool) $draft);
+            $this->setProperty('draft', (bool) $draft);
         }
         if(null !== $neverSent)
         {
-            $this->property('neverSent', (bool) $neverSent);
+            $this->setProperty('neverSent', (bool) $neverSent);
         }
 
-        $this->_changes = new TypedSequence('Zimbra\Enum\InviteChange', $changes);
-
+        $this->setChanges($changes);
         $this->on('before', function(Base $sender)
         {
-            $changes = $sender->changes();
+            $changes = $sender->getChanges();
             if(!empty($changes))
             {
-                $sender->property('changes', $sender->changes());
+                $sender->setProperty('changes', $sender->getChanges());
             }
         });
     }
 
     /**
-     * Gets or sets method
+     * Gets method
+     *
+     * @return string
+     */
+    public function getMethod()
+    {
+        return $this->getProperty('method');
+    }
+
+    /**
+     * Sets method
      *
      * @param  string $method
-     * @return string|self
+     * @return self
      */
-    public function method($method = null)
+    public function setMethod($method)
     {
-        if(null === $method)
-        {
-            return $this->property('method');
-        }
-        return $this->property('method', trim($method));
+        return $this->setProperty('method', trim($method));
     }
 
     /**
-     * Gets or sets compNum
+     * Gets component number
+     *
+     * @return int
+     */
+    public function getComponentNum()
+    {
+        return $this->getProperty('compNum');
+    }
+
+    /**
+     * Sets component number
      *
      * @param  int $compNum
-     * @return int|self
+     * @return self
      */
-    public function compNum($compNum = null)
+    public function setComponentNum($compNum)
     {
-        if(null === $compNum)
-        {
-            return $this->property('compNum');
-        }
-        return $this->property('compNum', (int) $compNum);
+        return $this->setProperty('compNum', (int) $compNum);
     }
 
     /**
-     * Gets or sets rsvp
+     * Gets rsvp
+     *
+     * @return bool
+     */
+    public function getRsvp()
+    {
+        return $this->getProperty('rsvp');
+    }
+
+    /**
+     * Sets rsvp
      *
      * @param  bool $rsvp
-     * @return bool|self
+     * @return self
      */
-    public function rsvp($rsvp = null)
+    public function setRsvp($rsvp)
     {
-        if(null === $rsvp)
-        {
-            return $this->property('rsvp');
-        }
-        return $this->property('rsvp', (bool) $rsvp);
+        return $this->setProperty('rsvp', (bool) $rsvp);
     }
 
     /**
-     * Gets or sets priority
+     * Gets priority
+     *
+     * @return int
+     */
+    public function getPriority()
+    {
+        return $this->getProperty('priority');
+    }
+
+    /**
+     * Sets priority
      *
      * @param  int $priority
-     * @return int|self
+     * @return self
      */
-    public function priority($priority = null)
+    public function setPriority($priority)
     {
-        if(null === $priority)
-        {
-            return $this->property('priority');
-        }
-        return $this->property('priority', ((int) $priority > 0 or (int) $priority < 10) ? (int) $priority : 0);
+        return $this->setProperty('priority', (int) $priority);
     }
 
     /**
-     * Gets or sets name
+     * Gets name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->getProperty('name');
+    }
+
+    /**
+     * Sets name
      *
      * @param  string $name
-     * @return string|self
+     * @return self
      */
-    public function name($name = null)
+    public function setName($name)
     {
-        if(null === $name)
-        {
-            return $this->property('name');
-        }
-        return $this->property('name', trim($name));
+        return $this->setProperty('name', trim($name));
     }
 
     /**
-     * Gets or sets loc
+     * Gets location
+     *
+     * @return string
+     */
+    public function getLocation()
+    {
+        return $this->getProperty('loc');
+    }
+
+    /**
+     * Sets location
      *
      * @param  string $loc
-     * @return string|self
+     * @return self
      */
-    public function loc($loc = null)
+    public function setLocation($loc)
     {
-        if(null === $loc)
-        {
-            return $this->property('loc');
-        }
-        return $this->property('loc', trim($loc));
+        return $this->setProperty('loc', trim($loc));
     }
 
     /**
-     * Gets or sets seq
+     * Gets percent complete
      *
-     * @param  int $seq
-     * @return int|self
+     * @return int
      */
-    public function percentComplete($percentComplete = null)
+    public function getPercentComplete()
     {
-        if(null === $percentComplete)
-        {
-            return $this->property('percentComplete');
-        }
-        return $this->property('percentComplete', ((int) $percentComplete > 0 or (int) $percentComplete <= 100) ? (int) $percentComplete : 0);
+        return $this->getProperty('percentComplete');
     }
 
     /**
-     * Gets or sets completed
-     * VTODO COMPLETED DATE-TIME in format yyyyMMddThhmmssZ
+     * Sets percent complete
+     *
+     * @param  int $percentComplete
+     * @return self
+     */
+    public function setPercentComplete($percentComplete)
+    {
+        return $this->setProperty('percentComplete', ((int) $percentComplete > 0 or (int) $percentComplete <= 100) ? (int) $percentComplete : 0);
+    }
+
+    /**
+     * Gets completed
+     *
+     * @return string
+     */
+    public function getCompleted()
+    {
+        return $this->getProperty('completed');
+    }
+
+    /**
+     * Sets completed
      *
      * @param  string $completed
-     * @return string|self
+     * @return self
      */
-    public function completed($completed = null)
+    public function setCompleted($completed)
     {
-        if(null === $completed)
-        {
-            return $this->property('completed');
-        }
-        return $this->property('completed', trim($completed));
+        return $this->setProperty('completed', trim($completed));
     }
 
     /**
-     * Gets or sets noBlob
+     * Gets no blob
      *
-     * @param  boolean $noBlob
-     * @return boolean|self
+     * @return bool
      */
-    public function noBlob($noBlob = null)
+    public function getNoBlob()
     {
-        if(null === $noBlob)
-        {
-            return $this->property('noBlob');
-        }
-        return $this->property('noBlob', (bool) $noBlob);
+        return $this->getProperty('noBlob');
     }
 
     /**
-     * Gets or sets "actual" free-busy status
-     * Valid values - F|B|T|U. i.e. Free, Busy (default), busy-Tentative, OutOfOffice (busy-unavailable)
+     * Sets no blob
+     *
+     * @param  bool $noBlob
+     * @return self
+     */
+    public function setNoBlob($noBlob)
+    {
+        return $this->setProperty('noBlob', (bool) $noBlob);
+    }
+
+    /**
+     * Gets freebusy actual
+     *
+     * @return FreeBusyStatus
+     */
+    public function getFreeBusyActual()
+    {
+        return $this->getProperty('fba');
+    }
+
+    /**
+     * Sets freebusy actual
+     *
+     * @param  FreeBusyStatus $fba
+     * @return self
+     */
+    public function setFreeBusyActual(FreeBusyStatus $fba)
+    {
+        return $this->setProperty('fba', $fba);
+    }
+
+    /**
+     * Gets freebusy
+     *
+     * @return FreeBusyStatus
+     */
+    public function getFreeBusy()
+    {
+        return $this->getProperty('fb');
+    }
+
+    /**
+     * Sets freebusy
      *
      * @param  FreeBusyStatus $fb
-     * @return FreeBusyStatus|self
+     * @return self
      */
-    public function fba(FreeBusyStatus $fba = null)
+    public function setFreeBusy(FreeBusyStatus $fb)
     {
-        if(null === $fba)
-        {
-            return $this->property('fba');
-        }
-        return $this->property('fba', $fba);
+        return $this->setProperty('fb', $fb);
     }
 
     /**
-     * Gets or sets FreeBusy setting
-     * Valid values: F|B|T|U 
-     * i.e. Free, Busy (default), busy-Tentative, OutOfOffice (busy-unavailable)
+     * Gets freebusy
      *
-     * @param  FreeBusyStatus $fb
-     * @return FreeBusyStatus|self
+     * @return Transparency
      */
-    public function fb(FreeBusyStatus $fb = null)
+    public function getTransparency()
     {
-        if(null === $fb)
-        {
-            return $this->property('fb');
-        }
-        return $this->property('fb', $fb);
+        return $this->getProperty('transp');
     }
 
     /**
-     * Gets or sets transparency
-     * Valid values: O|T. i.e. Opaque or Transparent
+     * Sets freebusy
      *
      * @param  Transparency $transp
-     * @return Transparency|self
+     * @return self
      */
-    public function transp(Transparency $transp = null)
+    public function setTransparency(Transparency $transp)
     {
-        if(null === $transp)
-        {
-            return $this->property('transp');
-        }
-        return $this->property('transp', $transp);
+        return $this->setProperty('transp', $transp);
     }
 
     /**
-     * Gets or sets isOrg
+     * Gets is organizer
      *
-     * @param  boolean $isOrg
-     * @return boolean|self
+     * @return bool
      */
-    public function isOrg($isOrg = null)
+    public function getIsOrganizer()
     {
-        if(null === $isOrg)
-        {
-            return $this->property('isOrg');
-        }
-        return $this->property('isOrg', (bool) $isOrg);
+        return $this->getProperty('isOrg');
     }
 
     /**
-     * Gets or sets x_uid
+     * Sets is organizer
      *
-     * @param  string $x_uid
-     * @return string|self
+     * @param  bool $isOrg
+     * @return self
      */
-    public function x_uid($x_uid = null)
+    public function setIsOrganizer($isOrg)
     {
-        if(null === $x_uid)
-        {
-            return $this->property('x_uid');
-        }
-        return $this->property('x_uid', trim($x_uid));
+        return $this->setProperty('isOrg', (bool) $isOrg);
     }
 
     /**
-     * Gets or sets uid
+     * Gets x uid
+     *
+     * @return string
+     */
+    public function getXUid()
+    {
+        return $this->getProperty('x_uid');
+    }
+
+    /**
+     * Sets x uid
+     *
+     * @param  string $xUid
+     * @return self
+     */
+    public function setXUid($xUid)
+    {
+        return $this->setProperty('x_uid', trim($xUid));
+    }
+
+    /**
+     * Gets uid
+     *
+     * @return string
+     */
+    public function getUid()
+    {
+        return $this->getProperty('uid');
+    }
+
+    /**
+     * Sets uid
      *
      * @param  string $uid
-     * @return string|self
+     * @return self
      */
-    public function uid($uid = null)
+    public function setUid($uid)
     {
-        if(null === $uid)
-        {
-            return $this->property('uid');
-        }
-        return $this->property('uid', trim($uid));
+        return $this->setProperty('uid', trim($uid));
     }
 
     /**
-     * Gets or sets seq
+     * Gets sequence
+     *
+     * @return int
+     */
+    public function getSequence()
+    {
+        return $this->getProperty('seq');
+    }
+
+    /**
+     * Sets sequence
      *
      * @param  int $seq
-     * @return int|self
+     * @return self
      */
-    public function seq($seq = null)
+    public function setSequence($seq)
     {
-        if(null === $seq)
-        {
-            return $this->property('seq');
-        }
-        return $this->property('seq', (int) $seq);
+        return $this->setProperty('seq', (int) $seq);
     }
 
     /**
-     * Gets or sets d
+     * Gets date time
+     *
+     * @return int
+     */
+    public function getDateTime()
+    {
+        return $this->getProperty('d');
+    }
+
+    /**
+     * Sets date time
      *
      * @param  int $d
-     * @return int|self
+     * @return self
      */
-    public function d($d = null)
+    public function setDateTime($d)
     {
-        if(null === $d)
-        {
-            return $this->property('d');
-        }
-        return $this->property('d', (int) $d);
+        return $this->setProperty('d', (int) $d);
     }
 
     /**
-     * Gets or sets calItemId
+     * Gets mail item ID
+     *
+     * @return string
+     */
+    public function getCalItemId()
+    {
+        return $this->getProperty('calItemId');
+    }
+
+    /**
+     * Sets mail item ID
      *
      * @param  string $calItemId
-     * @return string|self
+     * @return self
      */
-    public function calItemId($calItemId = null)
+    public function setCalItemId($calItemId)
     {
-        if(null === $calItemId)
-        {
-            return $this->property('calItemId');
-        }
-        return $this->property('calItemId', trim($calItemId));
+        return $this->setProperty('calItemId', trim($calItemId));
     }
 
     /**
-     * Gets or sets apptId
+     * Gets appointment ID
+     *
+     * @return string
+     */
+    public function getApptId()
+    {
+        return $this->getProperty('apptId');
+    }
+
+    /**
+     * Sets appointment ID
      *
      * @param  string $apptId
-     * @return string|self
+     * @return self
      */
-    public function apptId($apptId = null)
+    public function setApptId($apptId)
     {
-        if(null === $apptId)
-        {
-            return $this->property('apptId');
-        }
-        return $this->property('apptId', trim($apptId));
+        return $this->setProperty('apptId', trim($apptId));
     }
 
     /**
-     * Gets or sets ciFolder
+     * Gets folder of appointment
+     *
+     * @return string
+     */
+    public function getCalItemFolder()
+    {
+        return $this->getProperty('ciFolder');
+    }
+
+    /**
+     * Sets folder of appointment
      *
      * @param  string $ciFolder
-     * @return string|self
+     * @return self
      */
-    public function ciFolder($ciFolder = null)
+    public function setCalItemFolder($ciFolder)
     {
-        if(null === $ciFolder)
-        {
-            return $this->property('ciFolder');
-        }
-        return $this->property('ciFolder', trim($ciFolder));
+        return $this->setProperty('ciFolder', trim($ciFolder));
     }
 
     /**
-     * Gets or sets status
-     * Valid values: TENT|CONF|CANC|NEED|COMP|INPR|WAITING|DEFERRED
-     * i.e. TENTative, CONFirmed, CANCelled, COMPleted, INPRogress, WAITING, DEFERRED where waiting and Deferred are custom values not found in the iCalendar spec.
+     * Gets status
+     *
+     * @return InviteStatus
+     */
+    public function getStatus()
+    {
+        return $this->getProperty('status');
+    }
+
+    /**
+     * Sets status
      *
      * @param  InviteStatus $status
-     * @return InviteStatus|self
+     * @return self
      */
-    public function status(InviteStatus $status = null)
+    public function setStatus(InviteStatus $status)
     {
-        if(null === $status)
-        {
-            return $this->property('status');
-        }
-        return $this->property('status', $status);
+        return $this->setProperty('status', $status);
     }
 
     /**
-     * Gets or sets class
-     * Valid values: PUB|PRI|CON
+     * Gets class
+     *
+     * @return InviteClass
+     */
+    public function getCalClass()
+    {
+        return $this->getProperty('class');
+    }
+
+    /**
+     * Sets class
      *
      * @param  InviteClass $class
-     * @return InviteClass|self
+     * @return self
      */
-    public function class_(InviteClass $class = null)
+    public function setCalClass(InviteClass $class)
     {
-        if(null === $class)
-        {
-            return $this->property('class');
-        }
-        return $this->property('class', $class);
+        return $this->setProperty('class', $class);
     }
 
     /**
-     * Gets or sets url
+     * Gets url
+     *
+     * @return string
+     */
+    public function getUrl()
+    {
+        return $this->getProperty('url');
+    }
+
+    /**
+     * Sets url
      *
      * @param  string $url
-     * @return string|self
+     * @return self
      */
-    public function url($url = null)
+    public function setUrl($url)
     {
-        if(null === $url)
-        {
-            return $this->property('url');
-        }
-        return $this->property('url', trim($url));
+        return $this->setProperty('url', trim($url));
     }
 
     /**
-     * Gets or sets ex
+     * Gets is an exception
      *
-     * @param  boolean $ex
-     * @return boolean|self
+     * @return bool
      */
-    public function ex($ex = null)
+    public function getIsException()
     {
-        if(null === $ex)
-        {
-            return $this->property('ex');
-        }
-        return $this->property('ex', (bool) $ex);
+        return $this->getProperty('ex');
     }
 
     /**
-     * Gets or sets ridZ
+     * Sets is an exception
+     *
+     * @param  bool $ex
+     * @return self
+     */
+    public function setIsException($ex)
+    {
+        return $this->setProperty('ex', (bool) $ex);
+    }
+
+    /**
+     * Gets recurrence id
+     *
+     * @return string
+     */
+    public function getRecurIdZ()
+    {
+        return $this->getProperty('ridZ');
+    }
+
+    /**
+     * Sets recurrence id
      *
      * @param  string $ridZ
-     * @return string|self
+     * @return self
      */
-    public function ridZ($ridZ = null)
+    public function setRecurIdZ($ridZ)
     {
-        if(null === $ridZ)
-        {
-            return $this->property('ridZ');
-        }
-        return $this->property('ridZ', trim($ridZ));
+        return $this->setProperty('ridZ', trim($ridZ));
     }
 
     /**
-     * Gets or sets allDay
+     * Gets is an all day appointment
+     *
+     * @return bool
+     */
+    public function getIsAllDay()
+    {
+        return $this->getProperty('allDay');
+    }
+
+    /**
+     * Sets is an all day appointment
      *
      * @param  bool $allDay
-     * @return bool|self
+     * @return self
      */
-    public function allDay($allDay = null)
+    public function setIsAllDay($allDay)
     {
-        if(null === $allDay)
-        {
-            return $this->property('allDay');
-        }
-        return $this->property('allDay', (bool) $allDay);
+        return $this->setProperty('allDay', (bool) $allDay);
     }
 
     /**
-     * Gets or sets draft
+     * Gets is draft appointment
      *
-     * @param  boolean $draft
-     * @return boolean|self
+     * @return bool
      */
-    public function draft($draft = null)
+    public function getIsDraft()
     {
-        if(null === $draft)
-        {
-            return $this->property('draft');
-        }
-        return $this->property('draft', (bool) $draft);
+        return $this->getProperty('draft');
     }
 
     /**
-     * Gets or sets neverSent
+     * Sets is draft appointment
      *
-     * @param  boolean $neverSent
-     * @return boolean|self
+     * @param  bool $draft
+     * @return self
      */
-    public function neverSent($neverSent = null)
+    public function setIsDraft($draft)
     {
-        if(null === $neverSent)
-        {
-            return $this->property('neverSent');
-        }
-        return $this->property('neverSent', (bool) $neverSent);
+        return $this->setProperty('draft', (bool) $draft);
+    }
+
+    /**
+     * Gets is never sent
+     *
+     * @return bool
+     */
+    public function getNeverSent()
+    {
+        return $this->getProperty('neverSent');
+    }
+
+    /**
+     * Sets is never sent
+     *
+     * @param  bool $neverSent
+     * @return self
+     */
+    public function setNeverSent($neverSent)
+    {
+        return $this->setProperty('neverSent', (bool) $neverSent);
     }
 
     /**
@@ -660,11 +819,23 @@ class InviteComponentCommon extends Base
     }
 
     /**
+     * Set sequence of change
+     *
+     * @param  array $changes
+     * @return self
+     */
+    public function setChanges(array $changes)
+    {
+        $this->_changes = new TypedSequence('Zimbra\Enum\InviteChange', $changes);
+        return $this;
+    }
+
+    /**
      * Get string of change
      *
      * @return string
      */
-    public function changes()
+    public function getChanges()
     {
         return count($this->_changes) ? implode(',', $this->_changes->all()) : '';
     }

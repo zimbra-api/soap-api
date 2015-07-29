@@ -28,23 +28,22 @@ class RetentionPolicyKeep extends Base
      * Keep policies
      * @var TypedSequence<Policy>
      */
-    private $_policy;
+    private $_policies;
 
     /**
      * Constructor method for RetentionPolicyKeep
-     * @param array $policy Keep Policies
+     * @param array $policies Keep Policies
      * @return self
      */
-    public function __construct(array $policy = array())
+    public function __construct(array $policies = array())
     {
     	parent::__construct();
-        $this->_policy = new TypedSequence('Zimbra\Mail\Struct\Policy', $policy);
-
+        $this->setPolicies($policies);
         $this->on('before', function(Base $sender)
         {
-            if($sender->policy()->count())
+            if($sender->getPolicies()->count())
             {
-                $sender->child('policy', $sender->policy()->all());
+                $sender->setChild('policy', $sender->getPolicies()->all());
             }
         });
     }
@@ -57,7 +56,19 @@ class RetentionPolicyKeep extends Base
      */
     public function addPolicy(Policy $policy)
     {
-        $this->_policy->add($policy);
+        $this->_policies->add($policy);
+        return $this;
+    }
+
+    /**
+     * Sets policy sequence
+     *
+     * @param  array $policies
+     * @return self
+     */
+    public function setPolicies(array $policies)
+    {
+        $this->_policies = new TypedSequence('Zimbra\Mail\Struct\Policy', $policies);
         return $this;
     }
 
@@ -66,9 +77,9 @@ class RetentionPolicyKeep extends Base
      *
      * @return Sequence
      */
-    public function policy()
+    public function getPolicies()
     {
-        return $this->_policy;
+        return $this->_policies;
     }
 
     /**

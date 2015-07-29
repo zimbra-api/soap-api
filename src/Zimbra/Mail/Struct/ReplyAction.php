@@ -32,23 +32,29 @@ class ReplyAction extends FilterAction
         parent::__construct($index);
         if(null !== $content)
         {
-            $this->child('content', trim($content));
+            $this->setChild('content', trim($content));
         }
     }
 
     /**
-     * Gets or sets content
+     * Gets content
+     *
+     * @return string
+     */
+    public function getContent()
+    {
+        return $this->getChild('content');
+    }
+
+    /**
+     * Sets content
      *
      * @param  string $content
-     * @return string|self
+     * @return self
      */
-    public function content($content = null)
+    public function setContent($content)
     {
-        if(null === $content)
-        {
-            return $this->child('content');
-        }
-        return $this->child('content', trim($content));
+        return $this->setChild('content', trim($content));
     }
 
     /**

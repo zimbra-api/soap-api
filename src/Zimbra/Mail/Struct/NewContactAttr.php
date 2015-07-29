@@ -41,79 +41,103 @@ class NewContactAttr extends Base
     )
     {
         parent::__construct(trim($value));
-        $this->property('n', trim($n));
+        $this->setProperty('n', trim($n));
         if(null !== $aid)
         {
-            $this->property('aid', trim($aid));
+            $this->setProperty('aid', trim($aid));
         }
         if(null !== $id)
         {
-            $this->property('id', (int) $id);
+            $this->setProperty('id', (int) $id);
         }
         if(null !== $part)
         {
-            $this->property('part', trim($part));
+            $this->setProperty('part', trim($part));
         }
     }
 
     /**
-     * Gets or sets n
+     * Gets name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->getProperty('n');
+    }
+
+    /**
+     * Sets name
      *
      * @param  string $n
-     * @return string|self
+     * @return self
      */
-    public function n($n = null)
+    public function setName($n)
     {
-        if(null === $n)
-        {
-            return $this->property('n');
-        }
-        return $this->property('n', trim($n));
+        return $this->setProperty('n', trim($n));
     }
 
     /**
-     * Gets or sets aid
+     * Gets upload ID
+     *
+     * @return string
+     */
+    public function getAttachId()
+    {
+        return $this->getProperty('aid');
+    }
+
+    /**
+     * Sets upload ID
      *
      * @param  string $aid
-     * @return string|self
+     * @return self
      */
-    public function aid($aid = null)
+    public function setAttachId($aid)
     {
-        if(null === $aid)
-        {
-            return $this->property('aid');
-        }
-        return $this->property('aid', trim($aid));
+        return $this->setProperty('aid', trim($aid));
     }
 
     /**
-     * Gets or sets id
+     * Gets id
+     *
+     * @return string
+     */
+    public function getId()
+    {
+        return $this->getProperty('id');
+    }
+
+    /**
+     * Sets id
      *
      * @param  string $id
-     * @return string|self
+     * @return self
      */
-    public function id($id = null)
+    public function setId($id)
     {
-        if(null === $id)
-        {
-            return $this->property('id');
-        }
-        return $this->property('id', (int) $id);
+        return $this->setProperty('id', trim($id));
     }
 
     /**
-     * Gets or sets part
+     * Gets part
+     *
+     * @return string
+     */
+    public function getPart()
+    {
+        return $this->getProperty('part');
+    }
+
+    /**
+     * Sets part
      *
      * @param  string $part
-     * @return string|self
+     * @return self
      */
-    public function part($part = null)
+    public function setPart($part)
     {
-        if(null === $part)
-        {
-            return $this->property('part');
-        }
-        return $this->property('part', trim($part));
+        return $this->setProperty('part', trim($part));
     }
 
     /**

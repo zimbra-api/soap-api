@@ -25,41 +25,34 @@ class BySecondRule extends Base
 {
     /**
      * Constructor method for BySecondRule
-     * @param  string $seclist Comma separated list of seconds where second is a number between 0 and 59
+     * @param  string $list Comma separated list of seconds where second is a number between 0 and 59
      * @return self
      */
-    public function __construct($seclist)
+    public function __construct($list)
     {
         parent::__construct();
-        $seclist = explode(',', $seclist);
-        $arr = array();
-        foreach ($seclist as $sec)
-        {
-            if(is_numeric($sec))
-            {
-                $sec = (int) $sec;
-                if($sec >= 0 && $sec < 60 && !in_array($sec, $arr))
-                {
-                    $arr[] = $sec;
-                }
-            }
-        }
-        $this->property('seclist', implode(',', $arr));
+        $this->setList($list);
     }
 
     /**
-     * Gets or sets seclist
+     * Gets list
      *
-     * @param  string $seclist
-     * @return string|self
+     * @return string
      */
-    public function seclist($seclist = null)
+    public function getList()
     {
-        if(null === $seclist)
-        {
-            return $this->property('seclist');
-        }
-        $seclist = explode(',', $seclist);
+        return $this->getProperty('seclist');
+    }
+
+    /**
+     * Sets list
+     *
+     * @param  string $list
+     * @return self
+     */
+    public function setList($list)
+    {
+        $seclist = explode(',', $list);
         $arr = array();
         foreach ($seclist as $sec)
         {
@@ -72,7 +65,7 @@ class BySecondRule extends Base
                 }
             }
         }
-        return $this->property('seclist', implode(',', $arr));
+        return $this->setProperty('seclist', implode(',', $arr));
     }
 
     /**

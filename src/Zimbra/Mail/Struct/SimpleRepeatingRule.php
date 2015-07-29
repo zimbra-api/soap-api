@@ -23,13 +23,13 @@ use Zimbra\Struct\Base;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
  */
-class SimpleRepeatingRule extends Base
+class SimpleRepeatingRule extends Base implements RecurRuleBase
 {
     /**
      * X Name rules
      * @var TypedSequence
      */
-    private $_ruleXName;
+    private $_ruleXNames;
 
     /**
      * Constructor method for SimpleRepeatingRule
@@ -65,282 +65,366 @@ class SimpleRepeatingRule extends Base
         ByMonthRule $bymonth = null,
         BySetPosRule $bysetpos = null,
         WkstRule $wkst = null,
-        array $ruleXNames = array()
+        array $ruleXNames = []
     )
     {
         parent::__construct();
-        $this->property('freq', $freq);
+        $this->setProperty('freq', $freq);
         if($until instanceof DateTimeStringAttr)
         {
-            $this->child('until', $until);
+            $this->setChild('until', $until);
         }
         if($count instanceof NumAttr)
         {
-            $this->child('count', $count);
+            $this->setChild('count', $count);
         }
         if($interval instanceof IntervalRule)
         {
-            $this->child('interval', $interval);
+            $this->setChild('interval', $interval);
         }
         if($bysecond instanceof BySecondRule)
         {
-            $this->child('bysecond', $bysecond);
+            $this->setChild('bysecond', $bysecond);
         }
         if($byminute instanceof ByMinuteRule)
         {
-            $this->child('byminute', $byminute);
+            $this->setChild('byminute', $byminute);
         }
         if($byhour instanceof ByHourRule)
         {
-            $this->child('byhour', $byhour);
+            $this->setChild('byhour', $byhour);
         }
         if($byday instanceof ByDayRule)
         {
-            $this->child('byday', $byday);
+            $this->setChild('byday', $byday);
         }
         if($bymonthday instanceof ByMonthDayRule)
         {
-            $this->child('bymonthday', $bymonthday);
+            $this->setChild('bymonthday', $bymonthday);
         }
         if($byyearday instanceof ByYearDayRule)
         {
-            $this->child('byyearday', $byyearday);
+            $this->setChild('byyearday', $byyearday);
         }
         if($byweekno instanceof ByWeekNoRule)
         {
-            $this->child('byweekno', $byweekno);
+            $this->setChild('byweekno', $byweekno);
         }
         if($bymonth instanceof ByMonthRule)
         {
-            $this->child('bymonth', $bymonth);
+            $this->setChild('bymonth', $bymonth);
         }
         if($bysetpos instanceof BySetPosRule)
         {
-            $this->child('bysetpos', $bysetpos);
+            $this->setChild('bysetpos', $bysetpos);
         }
         if($wkst instanceof WkstRule)
         {
-            $this->child('wkst', $wkst);
+            $this->setChild('wkst', $wkst);
         }
-        $this->_ruleXName = new TypedSequence('Zimbra\Mail\Struct\XNameRule', $ruleXNames);
 
+        $this->setRuleXNames($ruleXNames);
         $this->on('before', function(Base $sender)
         {
-            if($sender->ruleXName()->count())
+            if($sender->getRuleXNames()->count())
             {
-                $sender->child('rule-x-name', $sender->ruleXName()->all());
+                $sender->setChild('rule-x-name', $sender->getRuleXNames()->all());
             }
         });
     }
 
     /**
-     * Gets or sets freq
+     * Gets freq
      *
-     * @param  Frequency $ptst
-     * @return Frequency|self
+     * @return Frequency
      */
-    public function freq(Frequency $freq = null)
+    public function getFrequency()
     {
-        if(null === $freq)
-        {
-            return $this->property('freq');
-        }
-        return $this->property('freq', $freq);
+        return $this->getProperty('freq');
     }
 
     /**
-     * Gets or sets until
+     * Sets freq
+     *
+     * @param  Frequency $freq
+     * @return self
+     */
+    public function setFrequency(Frequency $freq)
+    {
+        return $this->setProperty('freq', $freq);
+    }
+
+    /**
+     * Gets until
+     *
+     * @return DateTimeStringAttr
+     */
+    public function getUntil()
+    {
+        return $this->getChild('until');
+    }
+
+    /**
+     * Sets until
      *
      * @param  DateTimeStringAttr $until
-     * @return DateTimeStringAttr|self
+     * @return self
      */
-    public function until(DateTimeStringAttr $until = null)
+    public function setUntil(DateTimeStringAttr $until)
     {
-        if(null === $until)
-        {
-            return $this->child('until');
-        }
-        return $this->child('until', $until);
+        return $this->setChild('until', $until);
     }
 
     /**
-     * Gets or sets count
+     * Gets count of instances to generate
+     *
+     * @return NumAttr
+     */
+    public function getCount()
+    {
+        return $this->getChild('count');
+    }
+
+    /**
+     * Sets count of instances to generate
      *
      * @param  NumAttr $count
-     * @return NumAttr|self
+     * @return self
      */
-    public function count(NumAttr $count = null)
+    public function setCount(NumAttr $count)
     {
-        if(null === $count)
-        {
-            return $this->child('count');
-        }
-        return $this->child('count', $count);
+        return $this->setChild('count', $count);
     }
 
     /**
-     * Gets or sets interval
+     * Gets interval
+     *
+     * @return IntervalRule
+     */
+    public function getInterval()
+    {
+        return $this->getChild('interval');
+    }
+
+    /**
+     * Sets interval
      *
      * @param  IntervalRule $interval
-     * @return IntervalRule|self
+     * @return self
      */
-    public function interval(IntervalRule $interval = null)
+    public function setInterval(IntervalRule $interval)
     {
-        if(null === $interval)
-        {
-            return $this->child('interval');
-        }
-        return $this->child('interval', $interval);
+        return $this->setChild('interval', $interval);
     }
 
     /**
-     * Gets or sets bysecond
+     * Gets by second rule
+     *
+     * @return BySecondRule
+     */
+    public function getBySecond()
+    {
+        return $this->getChild('bysecond');
+    }
+
+    /**
+     * Sets by second rule
      *
      * @param  BySecondRule $bysecond
-     * @return BySecondRule|self
+     * @return self
      */
-    public function bysecond(BySecondRule $bysecond = null)
+    public function setBySecond(BySecondRule $bysecond)
     {
-        if(null === $bysecond)
-        {
-            return $this->child('bysecond');
-        }
-        return $this->child('bysecond', $bysecond);
+        return $this->setChild('bysecond', $bysecond);
     }
 
     /**
-     * Gets or sets byminute
+     * Gets by minute rule
+     *
+     * @return ByMinuteRule
+     */
+    public function getByMinute()
+    {
+        return $this->getChild('byminute');
+    }
+
+    /**
+     * Sets by minute rule
      *
      * @param  ByMinuteRule $byminute
-     * @return ByMinuteRule|self
+     * @return self
      */
-    public function byminute(ByMinuteRule $byminute = null)
+    public function setByMinute(ByMinuteRule $byminute)
     {
-        if(null === $byminute)
-        {
-            return $this->child('byminute');
-        }
-        return $this->child('byminute', $byminute);
+        return $this->setChild('byminute', $byminute);
     }
 
     /**
-     * Gets or sets byhour
+     * Gets by hour rule
+     *
+     * @return ByHourRule
+     */
+    public function getByHour()
+    {
+        return $this->getChild('byhour');
+    }
+
+    /**
+     * Sets by hour rule
      *
      * @param  ByHourRule $byhour
-     * @return ByHourRule|self
+     * @return self
      */
-    public function byhour(ByHourRule $byhour = null)
+    public function setByHour(ByHourRule $byhour)
     {
-        if(null === $byhour)
-        {
-            return $this->child('byhour');
-        }
-        return $this->child('byhour', $byhour);
+        return $this->setChild('byhour', $byhour);
     }
 
     /**
-     * Gets or sets byday
+     * Gets by day rule
+     *
+     * @return ByDayRule
+     */
+    public function getByDay()
+    {
+        return $this->getChild('byday');
+    }
+
+    /**
+     * Sets by day rule
      *
      * @param  ByDayRule $byday
-     * @return ByDayRule|self
+     * @return self
      */
-    public function byday(ByDayRule $byday = null)
+    public function setByDay(ByDayRule $byday)
     {
-        if(null === $byday)
-        {
-            return $this->child('byday');
-        }
-        return $this->child('byday', $byday);
+        return $this->setChild('byday', $byday);
     }
 
     /**
-     * Gets or sets bymonthday
+     * Gets by month day rule
+     *
+     * @return ByMonthDayRule
+     */
+    public function getByMonthDay()
+    {
+        return $this->getChild('bymonthday');
+    }
+
+    /**
+     * Sets by month day rule
      *
      * @param  ByMonthDayRule $bymonthday
-     * @return ByMonthDayRule|self
+     * @return self
      */
-    public function bymonthday(ByMonthDayRule $bymonthday = null)
+    public function setByMonthDay(ByMonthDayRule $bymonthday)
     {
-        if(null === $bymonthday)
-        {
-            return $this->child('bymonthday');
-        }
-        return $this->child('bymonthday', $bymonthday);
+        return $this->setChild('bymonthday', $bymonthday);
     }
 
     /**
-     * Gets or sets byyearday
+     * Gets by year day rule
+     *
+     * @return ByYearDayRule
+     */
+    public function getByYearDay()
+    {
+        return $this->getChild('byyearday');
+    }
+
+    /**
+     * Sets by year day rule
      *
      * @param  ByYearDayRule $byyearday
-     * @return ByYearDayRule|self
+     * @return self
      */
-    public function byyearday(ByYearDayRule $byyearday = null)
+    public function setByYearDay(ByYearDayRule $byyearday)
     {
-        if(null === $byyearday)
-        {
-            return $this->child('byyearday');
-        }
-        return $this->child('byyearday', $byyearday);
+        return $this->setChild('byyearday', $byyearday);
     }
 
     /**
-     * Gets or sets byweekno
+     * Gets by week no rule
+     *
+     * @return ByWeekNoRule
+     */
+    public function getByWeekNo()
+    {
+        return $this->getChild('byweekno');
+    }
+
+    /**
+     * Sets by week no rule
      *
      * @param  ByWeekNoRule $byweekno
-     * @return ByWeekNoRule|self
+     * @return self
      */
-    public function byweekno(ByWeekNoRule $byweekno = null)
+    public function setByWeekNo(ByWeekNoRule $byweekno)
     {
-        if(null === $byweekno)
-        {
-            return $this->child('byweekno');
-        }
-        return $this->child('byweekno', $byweekno);
+        return $this->setChild('byweekno', $byweekno);
     }
 
     /**
-     * Gets or sets bymonth
+     * Gets by month rule
+     *
+     * @return ByMonthRule
+     */
+    public function getByMonth()
+    {
+        return $this->getChild('bymonth');
+    }
+
+    /**
+     * Sets by by month rule
      *
      * @param  ByMonthRule $bymonth
-     * @return ByMonthRule|self
+     * @return self
      */
-    public function bymonth(ByMonthRule $bymonth = null)
+    public function setByMonth(ByMonthRule $bymonth)
     {
-        if(null === $bymonth)
-        {
-            return $this->child('bymonth');
-        }
-        return $this->child('bymonth', $bymonth);
+        return $this->setChild('bymonth', $bymonth);
     }
 
     /**
-     * Gets or sets bysetpos
+     * Gets by set pos rule
+     *
+     * @return BySetPosRule
+     */
+    public function getBySetPos()
+    {
+        return $this->getChild('bysetpos');
+    }
+
+    /**
+     * Sets by set pos rule
      *
      * @param  BySetPosRule $bysetpos
-     * @return BySetPosRule|self
+     * @return self
      */
-    public function bysetpos(BySetPosRule $bysetpos = null)
+    public function setBySetPos(BySetPosRule $bysetpos)
     {
-        if(null === $bysetpos)
-        {
-            return $this->child('bysetpos');
-        }
-        return $this->child('bysetpos', $bysetpos);
+        return $this->setChild('bysetpos', $bysetpos);
     }
 
     /**
-     * Gets or sets wkst
+     * Gets week start day
+     *
+     * @return WkstRule
+     */
+    public function getWeekStart()
+    {
+        return $this->getChild('wkst');
+    }
+
+    /**
+     * Sets week start day
      *
      * @param  WkstRule $wkst
-     * @return WkstRule|self
+     * @return self
      */
-    public function wkst(WkstRule $wkst = null)
+    public function setWeekStart(WkstRule $wkst)
     {
-        if(null === $wkst)
-        {
-            return $this->child('wkst');
-        }
-        return $this->child('wkst', $wkst);
+        return $this->setChild('wkst', $wkst);
     }
 
     /**
@@ -351,7 +435,19 @@ class SimpleRepeatingRule extends Base
      */
     public function addXNameRule(XNameRule $ruleXName)
     {
-        $this->_ruleXName->add($ruleXName);
+        $this->_ruleXNames->add($ruleXName);
+        return $this;
+    }
+
+    /**
+     * Sets ruleXName sequence
+     *
+     * @param  array $ruleXNames
+     * @return self
+     */
+    public function setRuleXNames(array $ruleXNames)
+    {
+        $this->_ruleXNames = new TypedSequence('Zimbra\Mail\Struct\XNameRule', $ruleXNames);
         return $this;
     }
 
@@ -360,9 +456,9 @@ class SimpleRepeatingRule extends Base
      *
      * @return Sequence
      */
-    public function ruleXName()
+    public function getRuleXNames()
     {
-        return $this->_ruleXName;
+        return $this->_ruleXNames;
     }
 
     /**

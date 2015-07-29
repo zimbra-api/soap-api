@@ -25,28 +25,34 @@ class DateTimeStringAttr extends Base
 {
     /**
      * Constructor method for DateTimeStringAttr
-     * @param  string $d Date in format : YYYYMMDD[ThhmmssZ]
+     * @param  string $dateTime Date in format : YYYYMMDD[ThhmmssZ]
      * @return self
      */
-    public function __construct($d)
+    public function __construct($dateTime)
     {
         parent::__construct();
-        $this->property('d', trim($d));
+        $this->setProperty('d', trim($dateTime));
     }
 
     /**
-     * Gets or sets d
+     * Gets date time
      *
-     * @param  string $d
-     * @return string|self
+     * @return int
      */
-    public function d($d = null)
+    public function getDateTime()
     {
-        if(null === $d)
-        {
-            return $this->property('d');
-        }
-        return $this->property('d', trim($d));
+        return $this->getProperty('d');
+    }
+
+    /**
+     * Sets date time
+     *
+     * @param  int $dateTime
+     * @return self
+     */
+    public function setDateTime($dateTime)
+    {
+        return $this->setProperty('d', trim($dateTime));
     }
 
     /**

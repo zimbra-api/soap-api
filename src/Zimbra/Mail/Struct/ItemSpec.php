@@ -41,80 +41,104 @@ class ItemSpec extends Base
         parent::__construct();
         if(null !== $id)
         {
-            $this->property('id', trim($id));
+            $this->setProperty('id', trim($id));
         }
         if(null !== $l)
         {
-            $this->property('l', trim($l));
+            $this->setProperty('l', trim($l));
         }
         if(null !== $name)
         {
-            $this->property('name', trim($name));
+            $this->setProperty('name', trim($name));
         }
         if(null !== $path)
         {
-            $this->property('path', trim($path));
+            $this->setProperty('path', trim($path));
         }
     }
 
     /**
-     * Gets or sets id
+     * Gets id
+     *
+     * @return string
+     */
+    public function getId()
+    {
+        return $this->getProperty('id');
+    }
+
+    /**
+     * Sets id
      *
      * @param  string $id
-     * @return string|self
+     * @return self
      */
-    public function id($id = null)
+    public function setId($id)
     {
-        if(null === $id)
-        {
-            return $this->property('id');
-        }
-        return $this->property('id', trim($id));
+        return $this->setProperty('id', trim($id));
     }
 
     /**
-     * Gets or sets l
+     * Gets folder
+     *
+     * @return string
+     */
+    public function getFolder()
+    {
+        return $this->getProperty('l');
+    }
+
+    /**
+     * Sets folder
      *
      * @param  string $l
-     * @return string|self
+     * @return self
      */
-    public function l($l = null)
+    public function setFolder($l)
     {
-        if(null === $l)
-        {
-            return $this->property('l');
-        }
-        return $this->property('l', trim($l));
+        return $this->setProperty('l', trim($l));
     }
 
     /**
-     * Gets or sets name
+     * Gets name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->getProperty('name');
+    }
+
+    /**
+     * Sets name
      *
      * @param  string $name
-     * @return string|self
+     * @return self
      */
-    public function name($name = null)
+    public function setName($name)
     {
-        if(null === $name)
-        {
-            return $this->property('name');
-        }
-        return $this->property('name', trim($name));
+        return $this->setProperty('name', trim($name));
     }
 
     /**
-     * Gets or sets path
+     * Gets path
+     *
+     * @return string
+     */
+    public function getPath()
+    {
+        return $this->getProperty('path');
+    }
+
+    /**
+     * Sets path
      *
      * @param  string $path
-     * @return string|self
+     * @return self
      */
-    public function path($path = null)
+    public function setPath($path)
     {
-        if(null === $path)
-        {
-            return $this->property('path');
-        }
-        return $this->property('path', trim($path));
+        return $this->setProperty('path', trim($path));
     }
 
     /**

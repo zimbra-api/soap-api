@@ -19,7 +19,7 @@ namespace Zimbra\Mail\Struct;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
  */
-class ExceptionRuleInfo extends RecurIdInfo
+class ExceptionRuleInfo extends RecurIdInfo implements RecurRuleBase
 {
     /**
      * Constructor method for RecurIdInfo
@@ -43,42 +43,54 @@ class ExceptionRuleInfo extends RecurIdInfo
         parent::__construct($rangeType, $recurId, $tz, $ridZ);
         if($add instanceof RecurrenceInfo)
         {
-            $this->child('add', $add);
+            $this->setChild('add', $add);
         }
         if($exclude instanceof RecurrenceInfo)
         {
-            $this->child('exclude', $exclude);
+            $this->setChild('exclude', $exclude);
         }
     }
 
     /**
-     * Gets or sets add
+     * Gets add
+     *
+     * @return RecurrenceInfo
+     */
+    public function getAdd()
+    {
+        return $this->getChild('add');
+    }
+
+    /**
+     * Sets add
      *
      * @param  RecurrenceInfo $add
-     * @return RecurrenceInfo|self
+     * @return self
      */
-    public function add(RecurrenceInfo $add = null)
+    public function setAdd(RecurrenceInfo $add)
     {
-        if(null === $add)
-        {
-            return $this->child('add');
-        }
-        return $this->child('add', $add);
+        return $this->setChild('add', $add);
     }
 
     /**
-     * Gets or sets exclude
+     * Gets exclude
+     *
+     * @return RecurrenceInfo
+     */
+    public function getExclude()
+    {
+        return $this->getChild('exclude');
+    }
+
+    /**
+     * Sets exclude
      *
      * @param  RecurrenceInfo $exclude
-     * @return RecurrenceInfo|self
+     * @return self
      */
-    public function exclude(RecurrenceInfo $exclude = null)
+    public function setExclude(RecurrenceInfo $exclude)
     {
-        if(null === $exclude)
-        {
-            return $this->child('exclude');
-        }
-        return $this->child('exclude', $exclude);
+        return $this->setChild('exclude', $exclude);
     }
 
     /**

@@ -59,251 +59,330 @@ class NewMountpointSpec extends Base
     )
     {
         parent::__construct();
-        $this->property('name', trim($name));
+        $this->setProperty('name', trim($name));
         if($view instanceof SearchType)
         {
-            $this->property('view', $view);
+            $this->setProperty('view', $view);
         }
         if(null !== $f)
         {
-            $this->property('f', trim($f));
+            $this->setProperty('f', trim($f));
         }
         if(null !== $color)
         {
             $color = (int) $color;
-            $this->property('color', ($color > 0 && $color < 128) ? $color : 0);
+            $this->setProperty('color', ($color > 0 && $color < 128) ? $color : 0);
         }
         if(null !== $rgb && Text::isRgb(trim($rgb)))
         {
-            $this->property('rgb', trim($rgb));
+            $this->setProperty('rgb', trim($rgb));
         }
         if(null !== $url)
         {
-            $this->property('url', trim($url));
+            $this->setProperty('url', trim($url));
         }
         if(null !== $l)
         {
-            $this->property('l', trim($l));
+            $this->setProperty('l', trim($l));
         }
         if(null !== $fie)
         {
-            $this->property('fie', (bool) $fie);
+            $this->setProperty('fie', (bool) $fie);
         }
         if(null !== $reminder)
         {
-            $this->property('reminder', (bool) $reminder);
+            $this->setProperty('reminder', (bool) $reminder);
         }
         if(null !== $zid)
         {
-            $this->property('zid', trim($zid));
+            $this->setProperty('zid', trim($zid));
         }
         if(null !== $owner)
         {
-            $this->property('owner', trim($owner));
+            $this->setProperty('owner', trim($owner));
         }
         if(null !== $rid)
         {
-            $this->property('rid', (int) $rid);
+            $this->setProperty('rid', (int) $rid);
         }
         if(null !== $path)
         {
-            $this->property('path', trim($path));
+            $this->setProperty('path', trim($path));
         }
     }
 
     /**
-     * Gets or sets name
+     * Gets name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->getProperty('name');
+    }
+
+    /**
+     * Sets name
      *
      * @param  string $name
-     * @return string|self
+     * @return self
      */
-    public function name($name = null)
+    public function setName($name)
     {
-        if(null === $name)
-        {
-            return $this->property('name');
-        }
-        return $this->property('name', trim($name));
+        return $this->setProperty('name', trim($name));
     }
 
     /**
-     * Gets or sets view
+     * Gets default type for the folder
+     *
+     * @return SearchType
+     */
+    public function getView()
+    {
+        return $this->getProperty('view');
+    }
+
+    /**
+     * Sets default type for the folder
      *
      * @param  SearchType $view
-     * @return SearchType|self
+     * @return self
      */
-    public function view(SearchType $view = null)
+    public function setView(SearchType $view)
     {
-        if(null === $view)
-        {
-            return $this->property('view');
-        }
-        return $this->property('view', $view);
+        return $this->setProperty('view', $view);
     }
 
     /**
-     * Gets or sets f
+     * Gets flags
+     *
+     * @return string
+     */
+    public function getFlags()
+    {
+        return $this->getProperty('f');
+    }
+
+    /**
+     * Sets flags
      *
      * @param  string $f
-     * @return string|self
+     * @return self
      */
-    public function f($f = null)
+    public function setFlags($f)
     {
-        if(null === $f)
-        {
-            return $this->property('f');
-        }
-        return $this->property('f', trim($f));
+        return $this->setProperty('f', trim($f));
     }
 
     /**
-     * Gets or sets color
+     * Gets color
+     *
+     * @return int
+     */
+    public function getColor()
+    {
+        return $this->getProperty('color');
+    }
+
+    /**
+     * Sets color
      *
      * @param  int $color
-     * @return int|self
+     * @return self
      */
-    public function color($color = null)
+    public function setColor($color)
     {
-        if(null === $color)
-        {
-            return $this->property('color');
-        }
-        return $this->property('color', ($color > 0 && $color < 128) ? $color : 0);
+        $color = (int) $color;
+        return $this->setProperty('color', ($color > 0 && $color < 128) ? $color : 0);
     }
 
     /**
-     * Gets or sets rgb
+     * Gets RGB color in format
+     *
+     * @return string
+     */
+    public function getRgb()
+    {
+        return $this->getProperty('rgb');
+    }
+
+    /**
+     * Sets RGB color in format
      *
      * @param  string $rgb
-     * @return string|self
+     * @return self
      */
-    public function rgb($rgb = null)
+    public function setRgb($rgb)
     {
-        if(null === $rgb)
-        {
-            return $this->property('rgb');
-        }
-        return $this->property('rgb', Text::isRgb(trim($rgb)) ? trim($rgb) : '');
+        return $this->setProperty('rgb', Text::isRgb(trim($rgb)) ? trim($rgb) : '');
     }
 
     /**
-     * Gets or sets url
+     * Gets url
+     *
+     * @return string
+     */
+    public function getUrl()
+    {
+        return $this->getProperty('url');
+    }
+
+    /**
+     * Sets url
      *
      * @param  string $url
-     * @return string|self
+     * @return self
      */
-    public function url($url = null)
+    public function setUrl($url)
     {
-        if(null === $url)
-        {
-            return $this->property('url');
-        }
-        return $this->property('url', trim($url));
+        return $this->setProperty('url', trim($url));
     }
 
     /**
-     * Gets or sets l
+     * Gets parent folder ID
+     *
+     * @return string
+     */
+    public function getParentFolderId()
+    {
+        return $this->getProperty('l');
+    }
+
+    /**
+     * Sets parent folder ID
      *
      * @param  string $l
-     * @return string|self
+     * @return self
      */
-    public function l($l = null)
+    public function setParentFolderId($l)
     {
-        if(null === $l)
-        {
-            return $this->property('l');
-        }
-        return $this->property('l', trim($l));
+        return $this->setProperty('l', trim($l));
     }
 
     /**
-     * Gets or sets fie
+     * Gets fetch if exists
+     *
+     * @return bool
+     */
+    public function getFetchIfExists()
+    {
+        return $this->getProperty('fie');
+    }
+
+    /**
+     * Sets fetch if exists
      *
      * @param  bool $fie
-     * @return bool|self
+     * @return self
      */
-    public function fie($fie = null)
+    public function setFetchIfExists($fie)
     {
-        if(null === $fie)
-        {
-            return $this->property('fie');
-        }
-        return $this->property('fie', (bool) $fie);
+        return $this->setProperty('fie', (bool) $fie);
     }
 
     /**
-     * Gets or sets reminder
+     * Gets reminder
+     *
+     * @return bool
+     */
+    public function getReminderEnabled()
+    {
+        return $this->getProperty('reminder');
+    }
+
+    /**
+     * Sets reminder
      *
      * @param  bool $reminder
-     * @return bool|self
+     * @return self
      */
-    public function reminder($reminder = null)
+    public function setReminderEnabled($reminder)
     {
-        if(null === $reminder)
-        {
-            return $this->property('reminder');
-        }
-        return $this->property('reminder', (bool) $reminder);
+        return $this->setProperty('reminder', (bool) $reminder);
     }
 
     /**
-     * Gets or sets zid
+     * Gets owner zimbra ID
+     *
+     * @return string
+     */
+    public function getOwnerId()
+    {
+        return $this->getProperty('zid');
+    }
+
+    /**
+     * Sets owner zimbra ID
      *
      * @param  string $zid
-     * @return string|self
+     * @return self
      */
-    public function zid($zid = null)
+    public function setOwnerId($zid)
     {
-        if(null === $zid)
-        {
-            return $this->property('zid');
-        }
-        return $this->property('zid', trim($zid));
+        return $this->setProperty('zid', trim($zid));
     }
 
     /**
-     * Gets or sets owner
+     * Gets owner name
+     *
+     * @return string
+     */
+    public function getOwnerName()
+    {
+        return $this->getProperty('owner');
+    }
+
+    /**
+     * Sets owner name
      *
      * @param  string $owner
-     * @return string|self
+     * @return self
      */
-    public function owner($owner = null)
+    public function setOwnerName($owner)
     {
-        if(null === $owner)
-        {
-            return $this->property('owner');
-        }
-        return $this->property('owner', trim($owner));
+        return $this->setProperty('owner', trim($owner));
     }
 
     /**
-     * Gets or sets rid
+     * Gets id of shared item
      *
-     * @param  int $rid
-     * @return int|self
+     * @return string
      */
-    public function rid($rid = null)
+    public function getRemoteId()
     {
-        if(null === $rid)
-        {
-            return $this->property('rid');
-        }
-        return $this->property('rid', (int) $rid);
+        return $this->getProperty('rid');
     }
 
     /**
-     * Gets or sets path
+     * Sets id of shared item
+     *
+     * @param  string $rid
+     * @return self
+     */
+    public function setRemoteId($rid)
+    {
+        return $this->setProperty('rid', trim($rid));
+    }
+
+    /**
+     * Gets path
+     *
+     * @return string
+     */
+    public function getPath()
+    {
+        return $this->getProperty('path');
+    }
+
+    /**
+     * Sets path
      *
      * @param  string $path
-     * @return string|self
+     * @return self
      */
-    public function path($path = null)
+    public function setPath($path)
     {
-        if(null === $path)
-        {
-            return $this->property('path');
-        }
-        return $this->property('path', trim($path));
+        return $this->setProperty('path', trim($path));
     }
 
     /**

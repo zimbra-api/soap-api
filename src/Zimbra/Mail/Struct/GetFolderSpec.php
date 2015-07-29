@@ -39,61 +39,79 @@ class GetFolderSpec extends Base
         parent::__construct();
         if(null !== $uuid)
         {
-            $this->property('uuid', trim($uuid));
+            $this->setProperty('uuid', trim($uuid));
         }
         if(null !== $l)
         {
-            $this->property('l', trim($l));
+            $this->setProperty('l', trim($l));
         }
         if(null !== $path)
         {
-            $this->property('path', trim($path));
+            $this->setProperty('path', trim($path));
         }
     }
 
     /**
-     * Gets or sets uuid
+     * Gets uuid
+     *
+     * @return string
+     */
+    public function getUuid()
+    {
+        return $this->getProperty('uuid');
+    }
+
+    /**
+     * Sets uuid
      *
      * @param  string $uuid
-     * @return string|self
+     * @return self
      */
-    public function uuid($uuid = null)
+    public function setUuid($uuid)
     {
-        if(null === $uuid)
-        {
-            return $this->property('uuid');
-        }
-        return $this->property('uuid', trim($uuid));
+        return $this->setProperty('uuid', trim($uuid));
     }
 
     /**
-     * Gets or sets l
+     * Gets folder Id
+     *
+     * @return string
+     */
+    public function getFolderId()
+    {
+        return $this->getProperty('l');
+    }
+
+    /**
+     * Sets folder Id
      *
      * @param  string $l
-     * @return string|self
+     * @return self
      */
-    public function l($l = null)
+    public function setFolderId($l)
     {
-        if(null === $l)
-        {
-            return $this->property('l');
-        }
-        return $this->property('l', trim($l));
+        return $this->setProperty('l', trim($l));
     }
 
     /**
-     * Gets or sets path
+     * Gets path
+     *
+     * @return string
+     */
+    public function getPath()
+    {
+        return $this->getProperty('path');
+    }
+
+    /**
+     * Sets path
      *
      * @param  string $path
-     * @return string|self
+     * @return self
      */
-    public function path($path = null)
+    public function setPath($path)
     {
-        if(null === $path)
-        {
-            return $this->property('path');
-        }
-        return $this->property('path', trim($path));
+        return $this->setProperty('path', trim($path));
     }
 
     /**

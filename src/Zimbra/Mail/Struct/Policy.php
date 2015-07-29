@@ -37,80 +37,104 @@ class Policy extends Base
         parent::__construct();
         if($type instanceof Type)
         {
-            $this->property('type', $type);
+            $this->setProperty('type', $type);
         }
         if(null !== $id)
         {
-            $this->property('id', trim($id));
+            $this->setProperty('id', trim($id));
         }
         if(null !== $name)
         {
-            $this->property('name', trim($name));
+            $this->setProperty('name', trim($name));
         }
         if(null !== $lifetime)
         {
-            $this->property('lifetime', trim($lifetime));
+            $this->setProperty('lifetime', trim($lifetime));
         }
     }
 
     /**
-     * Gets or sets type
+     * Gets retention policy type
+     *
+     * @return Type
+     */
+    public function getType()
+    {
+        return $this->getProperty('type');
+    }
+
+    /**
+     * Sets retention policy type
      *
      * @param  Type $type
-     * @return Type|self
+     * @return self
      */
-    public function type(Type $type = null)
+    public function setType(Type $type)
     {
-        if(null === $type)
-        {
-            return $this->property('type');
-        }
-        return $this->property('type', $type);
+        return $this->setProperty('type', $type);
     }
 
     /**
-     * Gets or sets id
+     * Gets id
+     *
+     * @return string
+     */
+    public function getId()
+    {
+        return $this->getProperty('id');
+    }
+
+    /**
+     * Sets id
      *
      * @param  string $id
-     * @return string|self
+     * @return self
      */
-    public function id($id = null)
+    public function setId($id)
     {
-        if(null === $id)
-        {
-            return $this->property('id');
-        }
-        return $this->property('id', trim($id));
+        return $this->setProperty('id', trim($id));
     }
 
     /**
-     * Gets or sets name
+     * Gets name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->getProperty('name');
+    }
+
+    /**
+     * Sets name
      *
      * @param  string $name
-     * @return string|self
+     * @return self
      */
-    public function name($name = null)
+    public function setName($name)
     {
-        if(null === $name)
-        {
-            return $this->property('name');
-        }
-        return $this->property('name', trim($name));
+        return $this->setProperty('name', trim($name));
     }
 
     /**
-     * Gets or sets lifetime
+     * Gets policy duration
+     *
+     * @return string
+     */
+    public function getLifetime()
+    {
+        return $this->getProperty('lifetime');
+    }
+
+    /**
+     * Sets policy duration
      *
      * @param  string $lifetime
-     * @return string|self
+     * @return self
      */
-    public function lifetime($lifetime = null)
+    public function setLifetime($lifetime)
     {
-        if(null === $lifetime)
-        {
-            return $this->property('lifetime');
-        }
-        return $this->property('lifetime', trim($lifetime));
+        return $this->setProperty('lifetime', trim($lifetime));
     }
 
     /**

@@ -39,42 +39,54 @@ class BodyTest extends FilterTest
         parent::__construct($index, $negative);
         if(null !== $value)
         {
-            $this->property('value', trim($value));
+            $this->setProperty('value', trim($value));
         }
         if(null !== $caseSensitive)
         {
-            $this->property('caseSensitive', (bool) $caseSensitive);
+            $this->setProperty('caseSensitive', (bool) $caseSensitive);
         }
     }
 
     /**
-     * Gets or sets value
+     * Gets value
+     *
+     * @return string
+     */
+    public function getValue()
+    {
+        return $this->getProperty('value');
+    }
+
+    /**
+     * Sets value
      *
      * @param  string $value
-     * @return string|self
+     * @return self
      */
-    public function value($value = null)
+    public function setValue($value)
     {
-        if(null === $value)
-        {
-            return $this->property('value');
-        }
-        return $this->property('value', trim($value));
+        return $this->setProperty('value', trim($value));
     }
 
     /**
-     * Gets or sets caseSensitive
+     * Gets case sensitive
+     *
+     * @return bool
+     */
+    public function getCaseSensitive()
+    {
+        return $this->getProperty('caseSensitive');
+    }
+
+    /**
+     * Sets case sensitive
      *
      * @param  bool $caseSensitive
-     * @return bool|self
+     * @return self
      */
-    public function caseSensitive($caseSensitive = null)
+    public function setCaseSensitive($caseSensitive)
     {
-        if(null === $caseSensitive)
-        {
-            return $this->property('caseSensitive');
-        }
-        return $this->property('caseSensitive', (bool) $caseSensitive);
+        return $this->setProperty('caseSensitive', (bool) $caseSensitive);
     }
 
     /**

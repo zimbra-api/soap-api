@@ -28,53 +28,71 @@ class BounceMsgSpec extends Base
      * Email addresses
      * @var TypedSequence<EmailAddrInfo>
      */
-    protected $_e;
+    protected $_emailAddresses;
 
     /**
      * Constructor method for BounceMsgSpec
      * @param  string $id ID of message to resend
-     * @param  array  $e
+     * @param  array  $addresses Email addresses
      * @return self
      */
-    public function __construct($id, array $e = array())
+    public function __construct($id, array $addresses = [])
     {
         parent::__construct();
         $this->property('id', trim($id));
-        $this->_e = new TypedSequence('Zimbra\Mail\Struct\EmailAddrInfo', $e);
+        $this->_emailAddresses = new TypedSequence('Zimbra\Mail\Struct\EmailAddrInfo', $addresses);
 
         $this->on('before', function(Base $sender)
         {
-            if($sender->e()->count())
+            if($sender->getEmailAddresses()->count())
             {
-                $sender->child('e', $sender->e()->all());
+                $sender->setChild('e', $sender->getEmailAddresses()->all());
             }
         });
     }
 
     /**
-     * Gets or sets id
+     * Gets id
+     *
+     * @return string
+     */
+    public function getId()
+    {
+        return $this->getProperty('id');
+    }
+
+    /**
+     * Sets id
      *
      * @param  string $id
-     * @return string|self
+     * @return self
      */
-    public function id($id = null)
+    public function setId($id)
     {
-        if(null === $id)
-        {
-            return $this->property('id');
-        }
-        return $this->property('id', trim($id));
+        return $this->setProperty('id', trim($id));
     }
 
     /**
      * Add an email address
      *
-     * @param  EmailAddrInfo $xparam
+     * @param  EmailAddrInfo $e
      * @return self
      */
-    public function addE(EmailAddrInfo $e)
+    public function addEmailAddresses(EmailAddrInfo $e)
     {
-        $this->_e->add($e);
+        $this->_emailAddresses->add($e);
+        return $this;
+    }
+
+    /**
+     * Sets email address sequence
+     *
+     * @param  array $addresses
+     * @return self
+     */
+    public function setEmailAddresses(array $addresses)
+    {
+        $this->_emailAddresses = new TypedSequence('Zimbra\Mail\Struct\EmailAddrInfo', $addresses);
         return $this;
     }
 
@@ -83,9 +101,9 @@ class BounceMsgSpec extends Base
      *
      * @return Sequence
      */
-    public function e()
+    public function getEmailAddresses()
     {
-        return $this->_e;
+        return $this->_emailAddresses;
     }
 
     /**

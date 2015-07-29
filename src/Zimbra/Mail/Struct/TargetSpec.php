@@ -39,38 +39,50 @@ class TargetSpec extends Base
     )
     {
         parent::__construct(trim($value));
-        $this->property('type', $type);
-        $this->property('by', $by);
+        $this->setProperty('type', $type);
+        $this->setProperty('by', $by);
     }
 
     /**
-     * Gets or sets type
+     * Gets target type
+     *
+     * @return TargetType
+     */
+    public function getTargetType()
+    {
+        return $this->getProperty('type');
+    }
+
+    /**
+     * Sets target type
      *
      * @param  TargetType $type
-     * @return TargetType|self
+     * @return self
      */
-    public function type(TargetType $type = null)
+    public function setTargetType(TargetType $type)
     {
-        if(null === $type)
-        {
-            return $this->property('type');
-        }
-        return $this->property('type', $type);
+        return $this->setProperty('type', $type);
     }
 
     /**
-     * Gets or sets by
+     * Gets account by
+     *
+     * @return AccountBy
+     */
+    public function getAccountBy()
+    {
+        return $this->getProperty('by');
+    }
+
+    /**
+     * Sets account by
      *
      * @param  AccountBy $by
-     * @return AccountBy|self
+     * @return self
      */
-    public function by(AccountBy $by = null)
+    public function setAccountBy(AccountBy $by)
     {
-        if(null === $by)
-        {
-            return $this->property('by');
-        }
-        return $this->property('by', $by);
+        return $this->setProperty('by', $by);
     }
 
     /**

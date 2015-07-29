@@ -24,49 +24,37 @@ use Zimbra\Struct\Base;
 class ByMonthDayRule extends Base
 {
     /**
-     * Comma separated list of day numbers from either the start (positive) or the end (negative) of the month - format : [[+]|-]num[,...] where num between 1 to 31 
-     * e.g. modaylist="1,+2,-7" means first day of the month, plus the 2nd day of the month, plus the 7th from last day of the month.
-     * @var string
-     */
-    private $_modaylist;
-
-    /**
      * Constructor method for ByMonthDayRule
-     * @param  string $modaylist
+     * @param  string $list
+     *   Comma separated list of day numbers from either the start (positive) or the end (negative) of the month - format : [[+]|-]num[,...] where num between 1 to 31 
+     *   e.g. modaylist="1,+2,-7" means first day of the month, plus the 2nd day of the month, plus the 7th from last day of the month.
      * @return self
      */
-    public function __construct($modaylist)
+    public function __construct($list)
     {
         parent::__construct();
-        $modaylist = explode(',', $modaylist);
-        $arr = array();
-        foreach ($modaylist as $day)
-        {
-            if(is_numeric($day))
-            {
-                $day = (int) $day;
-                if($day != 0 && $day > -32 && $day < 32 && !in_array($day, $arr))
-                {
-                    $arr[] = $day;
-                }
-            }
-        }
-        $this->property('modaylist', implode(',', $arr));
+        $this->setList($list);
     }
 
     /**
-     * Gets or sets modaylist
+     * Gets list
      *
-     * @param  string $modaylist
-     * @return string|self
+     * @return string
      */
-    public function modaylist($modaylist = null)
+    public function getList()
     {
-        if(null === $modaylist)
-        {
-            return $this->property('modaylist');
-        }
-        $modaylist = explode(',', $modaylist);
+        return $this->getProperty('modaylist');
+    }
+
+    /**
+     * Sets list
+     *
+     * @param  string $list
+     * @return self
+     */
+    public function setList($list)
+    {
+        $modaylist = explode(',', $list);
         $arr = array();
         foreach ($modaylist as $day)
         {
@@ -79,7 +67,7 @@ class ByMonthDayRule extends Base
                 }
             }
         }
-        return $this->property('modaylist', implode(',', $arr));
+        return $this->setProperty('modaylist', implode(',', $arr));
     }
 
     /**

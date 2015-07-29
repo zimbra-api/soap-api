@@ -39,77 +39,102 @@ class NewNoteSpec extends Base
     )
     {
         parent::__construct();
-        $this->property('l', trim($l));
-        $this->property('content', trim($content));
+        $this->setProperty('l', trim($l));
+        $this->setProperty('content', trim($content));
         if(null !== $color)
         {
             $color = (int) $color;
-            $this->property('color', ($color > 0 && $color < 128) ? $color : 0);
+            $this->setProperty('color', ($color > 0 && $color < 128) ? $color : 0);
         }
         if(null !== $pos)
         {
-            $this->property('pos', trim($pos));
+            $this->setProperty('pos', trim($pos));
         }
     }
 
     /**
-     * Gets or sets l
+     * Gets folder
+     *
+     * @return string
+     */
+    public function getFolder()
+    {
+        return $this->getProperty('l');
+    }
+
+    /**
+     * Sets folder
      *
      * @param  string $l
-     * @return string|self
+     * @return self
      */
-    public function l($l = null)
+    public function setFolder($l)
     {
-        if(null === $l)
-        {
-            return $this->property('l');
-        }
-        return $this->property('l', trim($l));
+        return $this->setProperty('l', trim($l));
     }
 
     /**
-     * Gets or sets content
+     * Gets content
+     *
+     * @return string
+     */
+    public function getContent()
+    {
+        return $this->getProperty('content');
+    }
+
+    /**
+     * Sets content
      *
      * @param  string $content
-     * @return string|self
+     * @return self
      */
-    public function content($content = null)
+    public function setContent($content)
     {
-        if(null === $content)
-        {
-            return $this->property('content');
-        }
-        return $this->property('content', trim($content));
+        return $this->setProperty('content', trim($content));
     }
 
     /**
-     * Gets or sets color
+     * Gets color
+     *
+     * @return int
+     */
+    public function getColor()
+    {
+        return $this->getProperty('color');
+    }
+
+    /**
+     * Sets color
      *
      * @param  int $color
-     * @return int|self
+     * @return self
      */
-    public function color($color = null)
+    public function setColor($color)
     {
-        if(null === $color)
-        {
-            return $this->property('color');
-        }
-        return $this->property('color', ($color > 0 && $color < 128) ? $color : 0);
+        $color = (int) $color;
+        return $this->setProperty('color', ($color > 0 && $color < 128) ? $color : 0);
     }
 
     /**
-     * Gets or sets pos
+     * Gets bounds - x,y [width,height]
+     *
+     * @return string
+     */
+    public function getBounds()
+    {
+        return $this->getProperty('pos');
+    }
+
+    /**
+     * Sets bounds - x,y [width,height]
      *
      * @param  string $pos
-     * @return string|self
+     * @return self
      */
-    public function pos($pos = null)
+    public function setBounds($pos)
     {
-        if(null === $pos)
-        {
-            return $this->property('pos');
-        }
-        return $this->property('pos', trim($pos));
+        return $this->setProperty('pos', trim($pos));
     }
 
     /**

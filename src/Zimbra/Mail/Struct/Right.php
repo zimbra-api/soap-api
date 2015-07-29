@@ -31,22 +31,28 @@ class Right extends Base
     public function __construct($right)
     {
         parent::__construct();
-        $this->property('right', trim($right));
+        $this->setProperty('right', trim($right));
     }
 
     /**
-     * Gets or sets right
+     * Gets name for right
+     *
+     * @return string
+     */
+    public function getRight()
+    {
+        return $this->getProperty('right');
+    }
+
+    /**
+     * Sets name for right
      *
      * @param  string $right
-     * @return string|self
+     * @return self
      */
-    public function right($right = null)
+    public function setRight($right)
     {
-        if(null === $right)
-        {
-            return $this->property('right');
-        }
-        return $this->property('right', trim($right));
+        return $this->setProperty('right', trim($right));
     }
 
     /**

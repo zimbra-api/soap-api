@@ -28,38 +28,31 @@ class ByMinuteRule extends Base
      * @param  string $minlist Comma separated list of minutes where minute is a number between 0 and 59
      * @return self
      */
-    public function __construct($minlist)
+    public function __construct($list)
     {
         parent::__construct();
-        $minlist = explode(',', $minlist);
-        $arr = array();
-        foreach ($minlist as $min)
-        {
-            if(is_numeric($min))
-            {
-                $min = (int) $min;
-                if($min >= 0 && $min < 60 && !in_array($min, $arr))
-                {
-                    $arr[] = $min;
-                }
-            }
-        }
-        $this->property('minlist', implode(',', $arr));
+        $this->setList($list);
     }
 
     /**
-     * Gets or sets minlist
+     * Gets list
      *
-     * @param  string $minlist
-     * @return string|self
+     * @return string
      */
-    public function minlist($minlist = null)
+    public function getList()
     {
-        if(null === $minlist)
-        {
-            return $this->property('minlist');
-        }
-        $minlist = explode(',', $minlist);
+        return $this->getProperty('minlist');
+    }
+
+    /**
+     * Sets list
+     *
+     * @param  string $list
+     * @return self
+     */
+    public function setList($list)
+    {
+        $minlist = explode(',', $list);
         $arr = array();
         foreach ($minlist as $min)
         {
@@ -72,7 +65,7 @@ class ByMinuteRule extends Base
                 }
             }
         }
-        return $this->property('minlist', implode(',', $arr));
+        return $this->setProperty('minlist', implode(',', $arr));
     }
 
     /**

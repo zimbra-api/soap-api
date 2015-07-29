@@ -22,54 +22,59 @@ use Zimbra\Struct\Base;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
  */
-class SingleDates extends Base
+class SingleDates extends Base implements RecurRuleBase
 {
     /**
      * Information on start date/time and end date/time or duration
      * @var TypedSequence<DtVal>
      */
-    private $_dtval;
+    private $_dtVals;
 
     /**
      * Constructor method for SingleDates
-     * @param array $dtval
      * @param string $tz
+     * @param array $dtval
      * @return self
      */
     public function __construct(
-        array $dtval = array(),
-        $tz = null
+        $tz = null,
+        array $dtVals = []
     )
     {
         parent::__construct();
         if(null !== $tz)
         {
-            $this->property('tz', trim($tz));
+            $this->setProperty('tz', trim($tz));
         }
-        $this->_dtval = new TypedSequence('Zimbra\Mail\Struct\DtVal', $dtval);
-
+        $this->setDtVals($dtVals);
         $this->on('before', function(Base $sender)
         {
-            if($sender->dtval()->count())
+            if($sender->getDtVals()->count())
             {
-                $sender->child('dtval', $sender->dtval()->all());
+                $sender->setChild('dtval', $sender->getDtVals()->all());
             }
         });
     }
 
     /**
-     * Gets or sets tz
+     * Gets timezone
+     *
+     * @return string
+     */
+    public function getTimezone()
+    {
+        return $this->getProperty('tz');
+    }
+
+    /**
+     * Sets timezone
      *
      * @param  string $tz
-     * @return string|self
+     * @return self
      */
-    public function tz($tz = null)
+    public function setTimezone($tz)
     {
-        if(null === $tz)
-        {
-            return $this->property('tz');
-        }
-        return $this->property('tz', trim($tz));
+        return $this->setProperty('tz', trim($tz));
     }
 
     /**
@@ -80,7 +85,19 @@ class SingleDates extends Base
      */
     public function addDtVal(DtVal $dtval)
     {
-        $this->_dtval->add($dtval);
+        $this->_dtVals->add($dtval);
+        return $this;
+    }
+
+    /**
+     * Sets dtval sequence
+     *
+     * @param  array $dtVals
+     * @return self
+     */
+    public function setDtVals(array $dtVals)
+    {
+        $this->_dtVals = new TypedSequence('Zimbra\Mail\Struct\DtVal', $dtVals);
         return $this;
     }
 
@@ -89,9 +106,9 @@ class SingleDates extends Base
      *
      * @return Sequence
      */
-    public function dtval()
+    public function getDtVals()
     {
-        return $this->_dtval;
+        return $this->_dtVals;
     }
 
     /**

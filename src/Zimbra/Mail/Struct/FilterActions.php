@@ -24,202 +24,99 @@ use Zimbra\Struct\Base;
 class FilterActions extends Base
 {
     /**
+     * Filter actions
+     * @var TypedSequence<FilterAction>
+     */
+    private $_actions;
+
+    /**
      * Constructor method for FilterActions
-     * @param KeepAction $actionKeep
-     * @param DiscardAction $actionDiscard
-     * @param FileIntoAction $actionFileInto
-     * @param FlagAction $actionFlag
-     * @param TagAction $actionTag
-     * @param RedirectAction $actionRedirect
-     * @param ReplyAction $actionReply
-     * @param NotifyAction $actionNotify
-     * @param StopAction $actionStop
+     * @param array $actions
      * @return self
      */
-    public function __construct(
-        KeepAction $actionKeep = NULL,
-        DiscardAction $actionDiscard = NULL,
-        FileIntoAction $actionFileInto = NULL,
-        FlagAction $actionFlag = NULL,
-        TagAction $actionTag = NULL,
-        RedirectAction $actionRedirect = NULL,
-        ReplyAction $actionReply = NULL,
-        NotifyAction $actionNotify = NULL,
-        StopAction $actionStop = NULL
-    )
+    public function __construct(array $actions = [])
     {
         parent::__construct();
-        if($actionKeep instanceof KeepAction)
+        $this->setActions($actions);
+        $this->on('before', function(Base $sender)
         {
-            $this->child('actionKeep', $actionKeep);
-        }
-        if($actionDiscard instanceof DiscardAction)
-        {
-            $this->child('actionDiscard', $actionDiscard);
-        }
-        if($actionFileInto instanceof FileIntoAction)
-        {
-            $this->child('actionFileInto', $actionFileInto);
-        }
-        if($actionFlag instanceof FlagAction)
-        {
-            $this->child('actionFlag', $actionFlag);
-        }
-        if($actionTag instanceof TagAction)
-        {
-            $this->child('actionTag', $actionTag);
-        }
-        if($actionRedirect instanceof RedirectAction)
-        {
-            $this->child('actionRedirect', $actionRedirect);
-        }
-        if($actionReply instanceof ReplyAction)
-        {
-            $this->child('actionReply', $actionReply);
-        }
-        if($actionNotify instanceof NotifyAction)
-        {
-            $this->child('actionNotify', $actionNotify);
-        }
-        if($actionStop instanceof StopAction)
-        {
-            $this->child('actionStop', $actionStop);
-        }
+            if($sender->getActions()->count())
+            {
+                foreach ($sender->getActions()->all() as $action)
+                {
+                    if($action instanceof KeepAction)
+                    {
+                        $this->setChild('actionKeep', $action);
+                    }
+                    if($action instanceof DiscardAction)
+                    {
+                        $this->setChild('actionDiscard', $action);
+                    }
+                    if($action instanceof FileIntoAction)
+                    {
+                        $this->setChild('actionFileInto', $action);
+                    }
+                    if($action instanceof FlagAction)
+                    {
+                        $this->setChild('actionFlag', $action);
+                    }
+                    if($action instanceof TagAction)
+                    {
+                        $this->setChild('actionTag', $action);
+                    }
+                    if($action instanceof RedirectAction)
+                    {
+                        $this->setChild('actionRedirect', $action);
+                    }
+                    if($action instanceof ReplyAction)
+                    {
+                        $this->setChild('actionReply', $action);
+                    }
+                    if($action instanceof NotifyAction)
+                    {
+                        $this->setChild('actionNotify', $action);
+                    }
+                    if($action instanceof StopAction)
+                    {
+                        $this->setChild('actionStop', $action);
+                    }
+                }
+            }
+        });
     }
 
     /**
-     * Gets or sets actionKeep
+     * Add a call action
      *
-     * @param  KeepAction $actionKeep
-     * @return KeepAction|self
+     * @param  FilterAction $action
+     * @return self
      */
-    public function actionKeep(KeepAction $actionKeep = null)
+    public function addAction(FilterAction $action)
     {
-        if(null === $actionKeep)
-        {
-            return $this->child('actionKeep');
-        }
-        return $this->child('actionKeep', $actionKeep);
+        $this->_actions->add($action);
+        return $this;
     }
 
     /**
-     * Gets or sets actionDiscard
+     * Sets call action sequence
      *
-     * @param  DiscardAction $actionDiscard
-     * @return DiscardAction|self
+     * @param  array $actions
+     * @return self
      */
-    public function actionDiscard(DiscardAction $actionDiscard = null)
+    public function setActions(array $actions)
     {
-        if(null === $actionDiscard)
-        {
-            return $this->child('actionDiscard');
-        }
-        return $this->child('actionDiscard', $actionDiscard);
+        $this->_actions = new TypedSequence('Zimbra\Mail\Struct\FilterAction', $actions);
+        return $this;
     }
 
     /**
-     * Gets or sets actionFileInto
+     * Gets call action sequence
      *
-     * @param  FileIntoAction $actionFileInto
-     * @return FileIntoAction|self
+     * @return Sequence
      */
-    public function actionFileInto(FileIntoAction $actionFileInto = null)
+    public function getActions()
     {
-        if(null === $actionFileInto)
-        {
-            return $this->child('actionFileInto');
-        }
-        return $this->child('actionFileInto', $actionFileInto);
-    }
-
-    /**
-     * Gets or sets actionFlag
-     *
-     * @param  FlagAction $actionFlag
-     * @return FlagAction|self
-     */
-    public function actionFlag(FlagAction $actionFlag = null)
-    {
-        if(null === $actionFlag)
-        {
-            return $this->child('actionFlag');
-        }
-        return $this->child('actionFlag', $actionFlag);
-    }
-
-    /**
-     * Gets or sets actionTag
-     *
-     * @param  TagAction $actionTag
-     * @return TagAction|self
-     */
-    public function actionTag(TagAction $actionTag = null)
-    {
-        if(null === $actionTag)
-        {
-            return $this->child('actionTag');
-        }
-        return $this->child('actionTag', $actionTag);
-    }
-
-    /**
-     * Gets or sets actionRedirect
-     *
-     * @param  RedirectAction $actionRedirect
-     * @return RedirectAction|self
-     */
-    public function actionRedirect(RedirectAction $actionRedirect = null)
-    {
-        if(null === $actionRedirect)
-        {
-            return $this->child('actionRedirect');
-        }
-        return $this->child('actionRedirect', $actionRedirect);
-    }
-
-    /**
-     * Gets or sets actionReply
-     *
-     * @param  ReplyAction $actionReply
-     * @return ReplyAction|self
-     */
-    public function actionReply(ReplyAction $actionReply = null)
-    {
-        if(null === $actionReply)
-        {
-            return $this->child('actionReply');
-        }
-        return $this->child('actionReply', $actionReply);
-    }
-
-    /**
-     * Gets or sets actionNotify
-     *
-     * @param  NotifyAction $actionNotify
-     * @return NotifyAction|self
-     */
-    public function actionNotify(NotifyAction $actionNotify = null)
-    {
-        if(null === $actionNotify)
-        {
-            return $this->child('actionNotify');
-        }
-        return $this->child('actionNotify', $actionNotify);
-    }
-
-    /**
-     * Gets or sets actionStop
-     *
-     * @param  StopAction $actionStop
-     * @return StopAction|self
-     */
-    public function actionStop(StopAction $actionStop = null)
-    {
-        if(null === $actionStop)
-        {
-            return $this->child('actionStop');
-        }
-        return $this->child('actionStop', $actionStop);
+        return $this->_actions;
     }
 
     /**

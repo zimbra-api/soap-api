@@ -43,99 +43,129 @@ class NotifyAction extends FilterAction
         parent::__construct($index);
         if(null !== $content)
         {
-            $this->child('content', trim($content));
+            $this->setChild('content', trim($content));
         }
         if(null !== $a)
         {
-            $this->property('a', trim($a));
+            $this->setProperty('a', trim($a));
         }
         if(null !== $su)
         {
-            $this->property('su', trim($su));
+            $this->setProperty('su', trim($su));
         }
         if(null !== $maxBodySize)
         {
-            $this->property('maxBodySize', (int) $maxBodySize);
+            $this->setProperty('maxBodySize', (int) $maxBodySize);
         }
         if(null !== $origHeaders)
         {
-            $this->property('origHeaders', trim($origHeaders));
+            $this->setProperty('origHeaders', trim($origHeaders));
         }
     }
 
     /**
-     * Gets or sets content
+     * Gets content
+     *
+     * @return string
+     */
+    public function getContent()
+    {
+        return $this->getChild('content');
+    }
+
+    /**
+     * Sets content
      *
      * @param  string $content
-     * @return string|self
+     * @return self
      */
-    public function content($content = null)
+    public function setContent($content)
     {
-        if(null === $content)
-        {
-            return $this->child('content');
-        }
-        return $this->child('content', trim($content));
+        return $this->setChild('content', trim($content));
     }
 
     /**
-     * Gets or sets a
+     * Gets address
+     *
+     * @return string
+     */
+    public function getAddress()
+    {
+        return $this->getProperty('a');
+    }
+
+    /**
+     * Sets address
      *
      * @param  string $a
-     * @return string|self
+     * @return self
      */
-    public function a($a = null)
+    public function setAddress($a)
     {
-        if(null === $a)
-        {
-            return $this->property('a');
-        }
-        return $this->property('a', trim($a));
+        return $this->setProperty('a', trim($a));
     }
 
     /**
-     * Gets or sets su
+     * Gets subject
+     *
+     * @return string
+     */
+    public function getSubject()
+    {
+        return $this->getProperty('su');
+    }
+
+    /**
+     * Sets subject
      *
      * @param  string $su
-     * @return string|self
+     * @return self
      */
-    public function su($su = null)
+    public function setSubject($su)
     {
-        if(null === $su)
-        {
-            return $this->property('su');
-        }
-        return $this->property('su', trim($su));
+        return $this->setProperty('su', trim($su));
     }
 
     /**
-     * Gets or sets maxBodySize
+     * Gets maximum body size in bytes
+     *
+     * @return int
+     */
+    public function getMaxBodySize()
+    {
+        return $this->getProperty('maxBodySize');
+    }
+
+    /**
+     * Sets maximum body size in bytes
      *
      * @param  int $maxBodySize
-     * @return int|self
+     * @return self
      */
-    public function maxBodySize($maxBodySize = null)
+    public function setMaxBodySize($maxBodySize)
     {
-        if(null === $maxBodySize)
-        {
-            return $this->property('maxBodySize');
-        }
-        return $this->property('maxBodySize', (int) $maxBodySize);
+        return $this->setProperty('maxBodySize', (int) $maxBodySize);
     }
 
     /**
-     * Gets or sets origHeaders
+     * Gets comma-separated list of header names
+     *
+     * @return string
+     */
+    public function getOrigHeaders()
+    {
+        return $this->getProperty('origHeaders');
+    }
+
+    /**
+     * Sets comma-separated list of header names
      *
      * @param  string $origHeaders
-     * @return string|self
+     * @return self
      */
-    public function origHeaders($origHeaders = null)
+    public function setOrigHeaders($origHeaders)
     {
-        if(null === $origHeaders)
-        {
-            return $this->property('origHeaders');
-        }
-        return $this->property('origHeaders', trim($origHeaders));
+        return $this->setProperty('origHeaders', trim($origHeaders));
     }
 
     /**

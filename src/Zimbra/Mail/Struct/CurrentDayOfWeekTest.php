@@ -24,7 +24,7 @@ class CurrentDayOfWeekTest extends FilterTest
     /**
      * Constructor method for CurrentDayOfWeekTest
      * @param int $index
-     * @param string $value
+     * @param string $value Comma separated day of week indices
      * @param bool $negative
      * @return self
      */
@@ -33,22 +33,28 @@ class CurrentDayOfWeekTest extends FilterTest
     )
     {
         parent::__construct($index, $negative);
-        $this->property('value', trim($value));
+        $this->setProperty('value', trim($value));
     }
 
     /**
-     * Gets or sets value
+     * Gets values
+     *
+     * @return string
+     */
+    public function getValues()
+    {
+        return $this->getProperty('value');
+    }
+
+    /**
+     * Sets values
      *
      * @param  string $value
-     * @return string|self
+     * @return self
      */
-    public function value($value = null)
+    public function setValues($value)
     {
-        if(null === $value)
-        {
-            return $this->property('value');
-        }
-        return $this->property('value', trim($value));
+        return $this->setProperty('value', trim($value));
     }
 
     /**

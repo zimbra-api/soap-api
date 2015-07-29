@@ -25,41 +25,34 @@ class ByHourRule extends Base
 {
     /**
      * Constructor method for ByHourRule
-     * @param  string $hrlist Comma separated list of hours where hour is a number between 0 and 23
+     * @param  string $list Comma separated list of hours where hour is a number between 0 and 23
      * @return self
      */
-    public function __construct($hrlist)
+    public function __construct($list)
     {
         parent::__construct();
-        $hrlist = explode(',', $hrlist);
-        $arr = array();
-        foreach ($hrlist as $hr)
-        {
-            if(is_numeric($hr))
-            {
-                $hr = (int) $hr;
-                if($hr >= 0 && $hr < 24 && !in_array($hr, $arr))
-                {
-                    $arr[] = $hr;
-                }
-            }
-        }
-        $this->property('hrlist', implode(',', $arr));
+        $this->setList($list);
     }
 
     /**
-     * Gets or sets hrlist
+     * Gets list
      *
-     * @param  string $hrlist
-     * @return string|self
+     * @return string
      */
-    public function hrlist($hrlist = null)
+    public function getList()
     {
-        if(null === $hrlist)
-        {
-            return $this->property('hrlist');
-        }
-        $hrlist = explode(',', $hrlist);
+        return $this->getProperty('hrlist');
+    }
+
+    /**
+     * Sets list
+     *
+     * @param  string $list
+     * @return self
+     */
+    public function setList($list)
+    {
+        $hrlist = explode(',', $list);
         $arr = array();
         foreach ($hrlist as $hr)
         {
@@ -72,7 +65,7 @@ class ByHourRule extends Base
                 }
             }
         }
-        return $this->property('hrlist', implode(',', $arr));
+        return $this->setProperty('hrlist', implode(',', $arr));
     }
 
     /**

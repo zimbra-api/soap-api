@@ -41,61 +41,79 @@ class ContentSpec extends Base
         parent::__construct(trim($value));
         if(null !== $aid)
         {
-            $this->property('aid', trim($aid));
+            $this->setProperty('aid', trim($aid));
         }
         if(null !== $mid)
         {
-            $this->property('mid', trim($mid));
+            $this->setProperty('mid', trim($mid));
         }
         if(null !== $part)
         {
-            $this->property('part', trim($part));
+            $this->setProperty('part', trim($part));
         }
     }
 
     /**
-     * Gets or sets aid
+     * Gets aid
      *
-     * @param  string $aid
-     * @return string|self
+     * @return string
      */
-    public function aid($aid = null)
+    public function getAttachmentId()
     {
-        if(null === $aid)
-        {
-            return $this->property('aid');
-        }
-        return $this->property('aid', trim($aid));
+        return $this->getProperty('aid');
     }
 
     /**
-     * Gets or sets mid
+     * Sets aid
      *
-     * @param  string $mid
-     * @return string|self
+     * @param  string $attachmentId
+     * @return self
      */
-    public function mid($mid = null)
+    public function setAttachmentId($attachmentId)
     {
-        if(null === $mid)
-        {
-            return $this->property('mid');
-        }
-        return $this->property('mid', trim($mid));
+        return $this->setProperty('aid', trim($attachmentId));
     }
 
     /**
-     * Gets or sets part
+     * Gets mid
+     *
+     * @return string
+     */
+    public function getMessageId()
+    {
+        return $this->getProperty('mid');
+    }
+
+    /**
+     * Sets mid
+     *
+     * @param  string $messageId
+     * @return self
+     */
+    public function setMessageId($messageId)
+    {
+        return $this->setProperty('mid', trim($messageId));
+    }
+
+    /**
+     * Gets part
+     *
+     * @return string
+     */
+    public function getPart()
+    {
+        return $this->getProperty('part');
+    }
+
+    /**
+     * Sets part
      *
      * @param  string $part
-     * @return string|self
+     * @return self
      */
-    public function part($part = null)
+    public function setPart($part)
     {
-        if(null === $part)
-        {
-            return $this->property('part');
-        }
-        return $this->property('part', trim($part));
+        return $this->setProperty('part', trim($part));
     }
 
     /**

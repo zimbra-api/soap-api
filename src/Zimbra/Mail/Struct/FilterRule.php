@@ -39,73 +39,97 @@ class FilterRule extends Base
     )
     {
         parent::__construct();
-        $this->property('name', trim($name));
-        $this->property('active', (bool) $active);
-        $this->child('filterTests', $filterTests);
+        $this->setProperty('name', trim($name));
+        $this->setProperty('active', (bool) $active);
+        $this->setChild('filterTests', $filterTests);
         if($filterActions instanceof FilterActions)
         {
-            $this->child('filterActions', $filterActions);
+            $this->setChild('filterActions', $filterActions);
         }
     }
 
     /**
-     * Gets or sets name
+     * Gets name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->getProperty('name');
+    }
+
+    /**
+     * Sets name
      *
      * @param  string $name
-     * @return string|self
+     * @return self
      */
-    public function name($name = null)
+    public function setName($name)
     {
-        if(null === $name)
-        {
-            return $this->property('name');
-        }
-        return $this->property('name', trim($name));
+        return $this->setProperty('name', trim($name));
     }
 
     /**
-     * Gets or sets active
+     * Gets active
+     *
+     * @return bool
+     */
+    public function getActive()
+    {
+        return $this->getProperty('active');
+    }
+
+    /**
+     * Sets active
      *
      * @param  bool $active
-     * @return bool|self
+     * @return self
      */
-    public function active($active = null)
+    public function setActive($active)
     {
-        if(null === $active)
-        {
-            return $this->property('active');
-        }
-        return $this->property('active', (bool) $active);
+        return $this->setProperty('active', (bool) $active);
     }
 
     /**
-     * Gets or sets filterTests
+     * Gets filter tests
+     *
+     * @return FilterTests
+     */
+    public function getFilterTests()
+    {
+        return $this->getChild('filterTests');
+    }
+
+    /**
+     * Sets filter tests
      *
      * @param  FilterTests $filterTests
-     * @return FilterTests|self
+     * @return self
      */
-    public function filterTests(FilterTests $filterTests = null)
+    public function setFilterTests(FilterTests $filterTests)
     {
-        if(null === $filterTests)
-        {
-            return $this->child('filterTests');
-        }
-        return $this->child('filterTests', $filterTests);
+        return $this->setChild('filterTests', $filterTests);
     }
 
     /**
-     * Gets or sets filterActions
+     * Gets filter actions
+     *
+     * @return FilterActions
+     */
+    public function getFilterActions()
+    {
+        return $this->getChild('filterActions');
+    }
+
+    /**
+     * Sets filter actions
      *
      * @param  FilterActions $filterActions
-     * @return FilterActions|self
+     * @return self
      */
-    public function filterActions(FilterActions $filterActions = null)
+    public function setFilterActions(FilterActions $filterActions)
     {
-        if(null === $filterActions)
-        {
-            return $this->child('filterActions');
-        }
-        return $this->child('filterActions', $filterActions);
+        return $this->setChild('filterActions', $filterActions);
     }
 
     /**

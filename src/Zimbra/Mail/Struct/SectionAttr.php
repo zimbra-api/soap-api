@@ -31,22 +31,28 @@ class SectionAttr extends Base
     public function __construct($section)
     {
         parent::__construct();
-        $this->property('section', trim($section));
+        $this->setProperty('section', trim($section));
     }
 
     /**
-     * Get or set section
+     * Gets section
+     *
+     * @return string
+     */
+    public function getSection()
+    {
+        return $this->getProperty('section');
+    }
+
+    /**
+     * Sets section
      *
      * @param  string $section
-     * @return string|self
+     * @return self
      */
-    public function section($section = null)
+    public function setSection($section)
     {
-        if(null === $section)
-        {
-            return $this->property('section');
-        }
-        return $this->property('section', trim($section));
+        return $this->setProperty('section', trim($section));
     }
 
     /**

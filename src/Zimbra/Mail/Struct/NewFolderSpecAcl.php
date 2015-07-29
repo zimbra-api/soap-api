@@ -28,23 +28,22 @@ class NewFolderSpecAcl extends Base
      * Action grant selectors
      * @var TypedSequence<ActionGrantSelector>
      */
-    private $_grant;
+    private $_grants;
 
     /**
      * Constructor method for NewFolderSpecAcl
      * @param array $grant Action grant selectors
      * @return self
      */
-    public function __construct(array $grant = array())
+    public function __construct(array $grants = array())
     {
         parent::__construct();
-        $this->_grant = new TypedSequence('Zimbra\Mail\Struct\ActionGrantSelector', $grant);
-
+        $this->setGrants($grants);
         $this->on('before', function(Base $sender)
         {
-            if($sender->grant()->count())
+            if($sender->getGrants()->count())
             {
-                $sender->child('grant', $sender->grant()->all());
+                $sender->child('grant', $sender->getGrants()->all());
             }
         });
     }
@@ -57,7 +56,19 @@ class NewFolderSpecAcl extends Base
      */
     public function addGrant(ActionGrantSelector $grant)
     {
-        $this->_grant->add($grant);
+        $this->_grants->add($grant);
+        return $this;
+    }
+
+    /**
+     * Sets grant sequence
+     *
+     * @param  array $grants
+     * @return self
+     */
+    public function setGrants(array $grants)
+    {
+        $this->_grants = new TypedSequence('Zimbra\Mail\Struct\ActionGrantSelector', $grants);
         return $this;
     }
 
@@ -66,9 +77,9 @@ class NewFolderSpecAcl extends Base
      *
      * @return Sequence
      */
-    public function grant()
+    public function getGrants()
     {
-        return $this->_grant;
+        return $this->_grants;
     }
 
     /**

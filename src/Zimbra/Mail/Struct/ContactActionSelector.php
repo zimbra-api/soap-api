@@ -28,7 +28,7 @@ class ContactActionSelector extends ActionSelector
      * New Contact attributes
      * @var TypedSequence<NewContactAttr>
      */
-    private $_a;
+    private $_attrs;
 
     /**
      * Constructor method for AccountACEInfo
@@ -58,7 +58,7 @@ class ContactActionSelector extends ActionSelector
         $f = null,
         $t = null,
         $tn = null,
-        array $a = array()
+        array $attrs = []
     )
     {
         parent::__construct(
@@ -74,30 +74,36 @@ class ContactActionSelector extends ActionSelector
             $t,
             $tn
         );
-        $this->_a = new TypedSequence('Zimbra\Mail\Struct\NewContactAttr', $a);
 
+        $this->setAttrs($attrs);
         $this->on('before', function(ActionSelector $sender)
         {
-            if($sender->a()->count())
+            if($sender->getAttrs()->count())
             {
-                $sender->child('a', $sender->a()->all());
+                $sender->setChild('a', $sender->getAttrs()->all());
             }
         });
     }
 
     /**
-     * Gets or sets op
+     * Gets operation
+     *
+     * @return ContactActionOp
+     */
+    public function getOperation()
+    {
+        return $this->getProperty('op');
+    }
+
+    /**
+     * Sets operation
      *
      * @param  ContactActionOp $op
-     * @return ContactActionOp|self
+     * @return self
      */
-    public function op(ContactActionOp $op = null)
+    public function setOperation(ContactActionOp $op)
     {
-        if(null === $op)
-        {
-            return $this->property('op');
-        }
-        return $this->property('op', $op);
+        return $this->setProperty('op', $op);
     }
 
     /**
@@ -106,9 +112,21 @@ class ContactActionSelector extends ActionSelector
      * @param  NewContactAttr $a
      * @return self
      */
-    public function addA(NewContactAttr $a)
+    public function addAttr(NewContactAttr $a)
     {
-        $this->_a->add($a);
+        $this->_attrs->add($a);
+        return $this;
+    }
+
+    /**
+     * Sets new contact attribute sequence
+     *
+     * @param  array $attrs
+     * @return self
+     */
+    public function setAttrs(array $attrs)
+    {
+        $this->_attrs = new TypedSequence('Zimbra\Mail\Struct\NewContactAttr', $attrs);
         return $this;
     }
 
@@ -117,9 +135,9 @@ class ContactActionSelector extends ActionSelector
      *
      * @return Sequence
      */
-    public function a()
+    public function getAttrs()
     {
-        return $this->_a;
+        return $this->_attrs;
     }
 
     /**

@@ -43,33 +43,45 @@ class GeoInfo extends Base
     }
 
     /**
-     * Gets or sets lat
+     * Gets latitude
      *
-     * @param  float $lat
-     * @return float|self
+     * @return float
      */
-    public function lat($lat = null)
+    public function getLatitude()
     {
-        if(null === $lat)
-        {
-            return $this->property('lat');
-        }
-        return $this->property('lat', (float) $lat);
+        return $this->getProperty('lat');
     }
 
     /**
-     * Gets or sets lon
+     * Sets latitude
+     *
+     * @param  float $lat
+     * @return self
+     */
+    public function setLatitude($lat)
+    {
+        return $this->setProperty('lat', (float) $lat);
+    }
+
+    /**
+     * Gets longitude
+     *
+     * @return float
+     */
+    public function getLongitude()
+    {
+        return $this->getProperty('lon');
+    }
+
+    /**
+     * Sets longitude
      *
      * @param  float $lon
-     * @return float|self
+     * @return self
      */
-    public function lon($lon = null)
+    public function setLongitude($lon)
     {
-        if(null === $lon)
-        {
-            return $this->property('lon');
-        }
-        return $this->property('lon', (float) $lon);
+        return $this->setProperty('lon', (float) $lon);
     }
 
     /**
