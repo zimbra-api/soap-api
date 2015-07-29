@@ -10,8 +10,7 @@
 
 namespace Zimbra\Account\Request;
 
-use Zimbra\Account\Struct\Pref;
-use Zimbra\Common\TypedSequence;
+use Zimbra\Account\Struct\PrefsImplTrail;
 
 /**
  * GetPrefs request class
@@ -25,62 +24,5 @@ use Zimbra\Common\TypedSequence;
  */
 class GetPrefs extends Base
 {
-    /**
-     * Any of these are specified then only get these preferences
-     * @var TypedSequence<Pref>
-     */
-    private $_prefs;
-
-    /**
-     * Constructor method for GetPrefs
-     * @param array $prefs Any of these are specified then only get these preferences
-     * @return self
-     */
-    public function __construct(array $prefs = [])
-    {
-        parent::__construct();
-        $this->setPrefs($prefs);
-    
-        $this->on('before', function(Base $sender)
-        {
-            if($sender->getPrefs()->count())
-            {
-                $sender->setChild('pref', $sender->getPrefs()->all());
-            }
-        });
-    }
-
-    /**
-     * Add a pref
-     *
-     * @param  Pref $pref
-     * @return self
-     */
-    public function addPref(Pref $pref)
-    {
-        $this->_prefs->add($pref);
-        return $this;
-    }
-
-    /**
-     * Sets pref sequence
-     *
-     * @param  array $prefs
-     * @return self
-     */
-    public function setPrefs(array $prefs)
-    {
-        $this->_prefs = new TypedSequence('Zimbra\Account\Struct\Pref', $prefs);
-        return $this;
-    }
-
-    /**
-     * Gets pref sequence
-     *
-     * @return Sequence
-     */
-    public function getPrefs()
-    {
-        return $this->_prefs;
-    }
+    use PrefsImplTrail;
 }

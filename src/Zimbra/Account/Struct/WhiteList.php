@@ -11,7 +11,6 @@
 namespace Zimbra\Account\Struct;
 
 use Zimbra\Common\TypedSequence;
-use Zimbra\Struct\Base;
 use Zimbra\Struct\OpValue;
 
 /**
@@ -23,67 +22,8 @@ use Zimbra\Struct\OpValue;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
  */
-class WhiteList extends Base
+class WhiteList extends BlackList
 {
-    /**
-     * Email addresses sequence
-     * @var TypedSequence<Attr>
-     */
-    private $_addrs;
-
-    /**
-     * Constructor method for WhiteList
-     * @param array $addrs
-     * @return self
-     */
-    public function __construct(array $addrs = [])
-    {
-		parent::__construct();
-        $this->setAddrs($addrs);
-
-        $this->on('before', function(Base $sender)
-        {
-            if($sender->getAddrs()->count())
-            {
-                $sender->setChild('addr', $sender->getAddrs()->all());
-            }
-        });
-    }
-
-    /**
-     * Add an email address
-     *
-     * @param  Attr $addr
-     * @return self
-     */
-    public function addAddr(OpValue $addr)
-    {
-        $this->_addrs->add($addr);
-        return $this;
-    }
-
-    /**
-     * Sets email address sequence
-     *
-     * @param array $addrs
-     * @return self
-     */
-    public function setAddrs(array $addrs)
-    {
-        $this->_addrs = new TypedSequence('Zimbra\Struct\OpValue', $addrs);
-        return $this;
-    }
-
-    /**
-     * Gets email address sequence
-     *
-     * @return Sequence
-     */
-    public function getAddrs()
-    {
-        return $this->_addrs;
-    }
-
     /**
      * Returns the array representation of this class 
      *

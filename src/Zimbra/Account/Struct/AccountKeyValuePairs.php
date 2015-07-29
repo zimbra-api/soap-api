@@ -10,9 +10,8 @@
 
 namespace Zimbra\Account\Struct;
 
-use Zimbra\Common\TypedSequence;
+use Zimbra\Struct\AttrsImplTrait;
 use Zimbra\Struct\Base;
-use Zimbra\Struct\KeyValuePair;
 
 /**
  * AccountKeyValuePairs struct class
@@ -25,64 +24,7 @@ use Zimbra\Struct\KeyValuePair;
  */
 abstract class AccountKeyValuePairs extends Base
 {
-    /**
-     * Attributes
-     * @var TypedSequence<KeyValuePair>
-     */
-    private $_attrs;
-
-    /**
-     * Constructor method for AccountKeyValuePairs
-     * @param array $attrs
-     * @return self
-     */
-    public function __construct(array $attrs = [])
-    {
-        parent::__construct();
-        $this->setAttrs($attrs);
-
-        $this->on('before', function(Base $sender)
-        {
-            if($sender->getAttrs()->count())
-            {
-                $sender->setChild('a', $sender->getAttrs()->all());
-            }
-        });
-    }
-
-    /**
-     * Add an attr
-     *
-     * @param  KeyValuePair $attr
-     * @return self
-     */
-    public function addAttr(KeyValuePair $attr)
-    {
-        $this->_attrs->add($attr);
-        return $this;
-    }
-
-    /**
-     * Sets attr sequence
-     *
-     * @param  array $attrs
-     * @return self
-     */
-    public function setAttrs(array $attrs)
-    {
-        $this->_attrs = new TypedSequence('Zimbra\Struct\KeyValuePair', $attrs);
-        return $this;
-    }
-
-    /**
-     * Gets attr sequence
-     *
-     * @return Sequence
-     */
-    public function getAttrs()
-    {
-        return $this->_attrs;
-    }
+    use AttrsImplTrait;
 
     /**
      * Returns the array representation of this class 

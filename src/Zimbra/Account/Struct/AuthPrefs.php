@@ -24,64 +24,7 @@ use Zimbra\Struct\Base;
  */
 class AuthPrefs extends Base
 {
-    /**
-     * Prefibutes
-     * @var TypedSequence<Pref>
-     */
-    private $_prefs;
-
-    /**
-     * Constructor method for AuthPrefs
-     * @param array $prefs
-     * @return self
-     */
-    public function __construct(array $prefs = [])
-    {
-		parent::__construct();
-        $this->setPrefs($prefs);
-
-        $this->on('before', function(Base $sender)
-        {
-            if($sender->getPrefs()->count())
-            {
-                $sender->setChild('pref', $sender->getPrefs()->all());
-            }
-        });
-    }
-
-    /**
-     * Add an pref
-     *
-     * @param  Pref $pref
-     * @return self
-     */
-    public function addPref(Pref $pref)
-    {
-        $this->_prefs->add($pref);
-        return $this;
-    }
-
-    /**
-     * Sets pref sequence
-     *
-     * @param  array $prefs
-     * @return self
-     */
-    public function setPrefs(array $prefs)
-    {
-        $this->_prefs = new TypedSequence('Zimbra\Account\Struct\Pref', $prefs);
-        return $this;
-    }
-
-    /**
-     * Gets pref sequence
-     *
-     * @return Sequence
-     */
-    public function getPrefs()
-    {
-        return $this->_prefs;
-    }
+    use PrefsImplTrail;
 
     /**
      * Returns the array representation of this class 

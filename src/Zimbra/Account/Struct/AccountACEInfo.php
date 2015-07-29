@@ -88,7 +88,7 @@ class AccountACEInfo extends Base
     }
 
     /**
-     * sets the type of grantee
+     * Sets the type of grantee
      *
      * @param  GranteeType $granteeType
      * @return self
