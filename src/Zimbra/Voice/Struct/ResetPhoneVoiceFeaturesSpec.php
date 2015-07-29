@@ -117,7 +117,7 @@ class ResetPhoneVoiceFeaturesSpec extends Base
     /**
      * Add a call feature
      *
-     * @param  CallFeatureReq $attr
+     * @param  CallFeatureReq $callFeature
      * @return self
      */
     public function addCallFeature(CallFeatureReq $callFeature)
@@ -129,6 +129,7 @@ class ResetPhoneVoiceFeaturesSpec extends Base
     /**
      * Sets call feature sequence
      *
+     * @param  array $callFeatures
      * @return self
      */
     public function setCallFeatures(array $callFeatures)

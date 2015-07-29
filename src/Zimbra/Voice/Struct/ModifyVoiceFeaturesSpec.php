@@ -120,7 +120,7 @@ class ModifyVoiceFeaturesSpec extends Base
     /**
      * Add a call feature
      *
-     * @param  CallFeatureInfo $attr
+     * @param  CallFeatureInfo $callFeature
      * @return self
      */
     public function addCallFeature(CallFeatureInfo $callFeature)
@@ -132,6 +132,7 @@ class ModifyVoiceFeaturesSpec extends Base
     /**
      * Sets call feature sequence
      *
+     * @param  array $callFeatures
      * @return self
      */
     public function setCallFeatures(array $callFeatures)
