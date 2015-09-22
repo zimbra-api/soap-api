@@ -293,7 +293,7 @@ abstract class Base extends API implements AdminInterface
      * @param Account $account The account
      * @param string  $virtualHost Virtual host
      * @param bool    $persistAuthTokenCookie Controls whether the auth token cookie in the response should be persisted when the browser exits.
-     * @return authentication token
+     * @return \Zimbra\Soap\Request Authentication token
      */
     public function auth(
         $name = null,
@@ -310,7 +310,7 @@ abstract class Base extends API implements AdminInterface
         $result = $this->_client->doRequest($request);
         if(isset($result->authToken) && !empty($result->authToken))
         {
-            $this->_client->authToken($result->authToken);
+            $this->_client->setAuthToken($result->authToken);
         }
         return $result;
     }
