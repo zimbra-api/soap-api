@@ -293,7 +293,7 @@ abstract class Base extends API implements AdminInterface
      * @param Account $account The account
      * @param string  $virtualHost Virtual host
      * @param bool    $persistAuthTokenCookie Controls whether the auth token cookie in the response should be persisted when the browser exits.
-     * @return \Zimbra\Soap\Request Authentication token
+     * @return \Zimbra\Soap\Response Authentication token
      */
     public function auth(
         $name = null,
@@ -516,7 +516,7 @@ abstract class Base extends API implements AdminInterface
      *      - Default is none if either BindDn or BindPassword are NOT provided.
      *   5. BindDn/BindPassword are required if AuthMech is "simple".
      *   6. Kerberos5Principal/Kerberos5Keytab are required only if AuthMech is "kerberos5".
-     *   7. zimbraGalSyncLdapXXX attributes are for GAL sync. They are ignored if <action> is not sync. 
+     *   7. zimbraGalSyncLdapXXX attributes are for GAL sync. They are ignored if <action> is not sync.
      *      For GAL sync, if a zimbraGalSyncLdapXXX attribute is not set,
      *      server will fallback to the corresponding zimbraGalLdapXXX attribute.
      *
@@ -579,9 +579,9 @@ abstract class Base extends API implements AdminInterface
     }
 
     /**
-     * Check if a principal has the specified right on target. 
+     * Check if a principal has the specified right on target.
      * A successful return means the principal specified by the <grantee>
-     * is allowed for the specified right on the * target object. 
+     * is allowed for the specified right on the * target object.
      * Note: this request is by default proxied to the account's home server
      *
      * @param Target  $target  The target
@@ -695,7 +695,7 @@ abstract class Base extends API implements AdminInterface
     }
 
     /**
-     * Count number of objects. 
+     * Count number of objects.
      * Returns number of objects of requested type.
      * Note: For account/alias/dl, if a domain is specified,
      *       only entries on the specified domain are counted.
@@ -1140,7 +1140,7 @@ abstract class Base extends API implements AdminInterface
      * The request includes the account ID (uuid) of the target mailbox on success,
      * the response includes the mailbox ID (numeric) of the deleted mailbox
      * the <mbox> element is left out of the response if no mailbox existed for that account.
-     * Note: this request is by default proxied to the account's home server 
+     * Note: this request is by default proxied to the account's home server
      * Access: domain admin sufficient
      *
      * @param  MailboxId $id Account ID.
@@ -1357,8 +1357,8 @@ abstract class Base extends API implements AdminInterface
      * FixFlush memory cache for specified LDAP or directory scan type/entries.
      * Directory scan caches(source of data is on local disk of the server): skin|locale
      * LDAP caches(source of data is LDAP): account|cos|domain|server|zimlet.
-     * 
-     * For LDAP caches, one or more optional <entry> can be specified. 
+     *
+     * For LDAP caches, one or more optional <entry> can be specified.
      * If <entry>(s) are specified, only the specified entries will be flushed.
      * If no <entry> is given, all enties of the type will be flushed from cache.
      * Type can contain a combination of skin, locale and zimlet.
@@ -1413,8 +1413,8 @@ abstract class Base extends API implements AdminInterface
 
     /**
      * Get attributes related to an account.
-     * {request-attrs} - comma-seperated list of attrs to return 
-     * Note: this request is by default proxied to the account's home server 
+     * {request-attrs} - comma-seperated list of attrs to return
+     * Note: this request is by default proxied to the account's home server
      * Access: domain admin sufficient
      *
      * @param  Account $account  The name used to identify the account.
@@ -1434,7 +1434,7 @@ abstract class Base extends API implements AdminInterface
      * Get information about an account.
      * Currently only 2 attrs are returned:
      *   zimbraId    the unique UUID of the zimbra account
-     *   zimbraMailHost  the server on which this user's mail resides 
+     *   zimbraMailHost  the server on which this user's mail resides
      * Access: domain admin sufficient
      *
      * @param  Account $account The name used to identify the account.
@@ -1715,7 +1715,7 @@ abstract class Base extends API implements AdminInterface
      * Get all servers defined in the system or all servers that
      * have a particular service enabled (eg, mta, antispam, spell).
      * If {apply} is 1 (true), then certain unset attrs on a server
-     * will get their value from the global config. 
+     * will get their value from the global config.
      * If {apply} is 0 (false), then only attributes directly set on the server will be returned
      *
      * @param  string $service Service name. e.g. mta, antispam, spell.
@@ -2025,7 +2025,7 @@ abstract class Base extends API implements AdminInterface
 
     /**
      * Get information about a domain.
-     * 
+     *
      * @param  Domain $domain The name used to identify the domain.
      * @param  bool   $applyConfig Apply config flag. True, then certain unset attrs on a domain will get their values from the global config. False, then only attributes directly set on the domain will be returned.
      * @param  string $attrs  Attributes.
@@ -2049,7 +2049,7 @@ abstract class Base extends API implements AdminInterface
      * It returns attributes that are pertinent to domain settings
      * for cases when the user is not authenticated.
      * For example, URL to direct the user to upon logging out or when auth token is expired.
-     * 
+     *
      * @param  Domain $domain The name used to identify the domain.
      * @param  bool   $applyConfig Apply config flag. True, then certain unset attrs on a domain will get their values from the global config. False, then only attributes directly set on the domain will be returned.
      * @return mix
@@ -2067,7 +2067,7 @@ abstract class Base extends API implements AdminInterface
      * Effective rights are the rights the admin is actually allowed.
      * It is the net result of applying ACL checking rules given the target and grantee.
      * Specifically denied rights will not be returned.
-     * 
+     *
      * @param  Target $target  The name used to identify the target.
      * @param  string $type    Target type. Valid values: (account|calresource|cos|dl|group|domain|server|ucservice|xmppcomponent|zimlet|config|global).
      * @param  Grantee  $grantee Grantee.
@@ -2094,7 +2094,7 @@ abstract class Base extends API implements AdminInterface
      * Get Free/Busy provider information.
      * If the optional element <provider/> is present in the request, the response contains the requested provider only.
      * If no provider is supplied in the request, the response contains all the providers.
-     * 
+     *
      * @param  NamedElement $provider Provider name.
      * @return mix
      */
@@ -2106,13 +2106,13 @@ abstract class Base extends API implements AdminInterface
 
     /**
      * Returns all grants on the specified target entry,
-     * or all grants granted to the specified grantee entry. 
+     * or all grants granted to the specified grantee entry.
      * The authenticated admin must have an effective "viewGrants"
-     * (TBD) system right on the specified target/grantee. 
+     * (TBD) system right on the specified target/grantee.
      * At least one of <target> or <grantee> must be specified.
      * If both <target> and <grantee> are specified, only grants that are granted
      * on the target to the grantee are returned.
-     * 
+     *
      * @param  Target $target The name used to identify the target.
      * @param  Grantee $grantee Grantee.
      * @return mix
@@ -2125,7 +2125,7 @@ abstract class Base extends API implements AdminInterface
 
     /**
      * Get index statistics.
-     * 
+     *
      * @param  MailboxId $id  Mailbox account ID.
      * @return mix
      */
@@ -2137,7 +2137,7 @@ abstract class Base extends API implements AdminInterface
 
     /**
      * Get index statistics.
-     * 
+     *
      * @param  string  $query Query string. Should be an LDAP-style filter string (RFC 2254).
      * @param  string  $ldapSearchBase LDAP search base. An LDAP-style filter string that defines an LDAP search base (RFC 2254).
      * @param  string  $sortBy Name of attribute to sort on. default is null.
@@ -2163,7 +2163,7 @@ abstract class Base extends API implements AdminInterface
 
     /**
      * Get License information.
-     * 
+     *
      * @return mix
      */
     public function getLicenseInfo()
@@ -2183,7 +2183,7 @@ abstract class Base extends API implements AdminInterface
      *      Result: all of the statistics for the given host/group are returned,
      *      if start and end are specified, limit/expand the timerange to the given setting.
      *      If limit=true is specified, attempt to reduce result set to under 500 records
-     * 
+     *
      * @param  HostName $hostname Hostname.
      * @param  StatsSpec $stats Stats specification.
      * @param  TimeAttr $startTime Start time.
@@ -2205,7 +2205,7 @@ abstract class Base extends API implements AdminInterface
     /**
      * Get a Mailbox.
      * Note: this request is by default proxied to the account's home server.
-     * 
+     *
      * @param  MailboxId $id Mailbox account ID.
      * @return mix
      */
@@ -2219,7 +2219,7 @@ abstract class Base extends API implements AdminInterface
 
     /**
      * Get MailBox Statistics.
-     * 
+     *
      * @return mix
      */
     public function getMailboxStats()
@@ -2242,9 +2242,9 @@ abstract class Base extends API implements AdminInterface
      * This allows us to let the user dictate when to do a queue scan.
      * The scan-flag in the response indicates that the server has not completed scanning
      * the MTA queue, and that this scan is in progress,
-     * and the client should ask again in a little while. 
+     * and the client should ask again in a little while.
      * The more-flag in the response indicates that more qi's are available past the limit specified in the request.
-     * 
+     *
      * @param  ServerMail  $server Server Mail Queue Query.
      * @return mix
      */
@@ -2258,7 +2258,7 @@ abstract class Base extends API implements AdminInterface
      * Get a count of all the mail queues by counting the number of files in the queue directories.
      * Note that the admin server waits for queue counting to complete before responding
      * - client should invoke requests for different servers in parallel.
-     * 
+     *
      * @param  NamedElement $server MTA server name.
      * @return mix
      */
@@ -2270,7 +2270,7 @@ abstract class Base extends API implements AdminInterface
 
     /**
      * Returns the memcached client configuration on a mailbox server.
-     * 
+     *
      * @return mix
      */
     public function getMemcachedClientConfig()
@@ -2281,7 +2281,7 @@ abstract class Base extends API implements AdminInterface
 
     /**
      * Returns the memcached client configuration on a mailbox server.
-     * 
+     *
      * @param  string  $domain Domain - the domain name to limit the search to.
      * @param  bool    $allServers Whether to fetch quota usage for all domain accounts from across all mailbox servers, default is false, applicable when domain attribute is specified.
      * @param  integer $limit Limit - the number of accounts to return (0 is default and means all).
@@ -2309,7 +2309,7 @@ abstract class Base extends API implements AdminInterface
 
     /**
      * Get definition of a right.
-     * 
+     *
      * @param  string $right  Right name.
      * @param  bool   $expandAllAttrs Whether to include all attribute names in the <attrs> elements in the response if the right is meant for all attributes.
      *                        0 (false) [default] default, do not include all attribute names in the <attrs> elements.
@@ -2326,7 +2326,7 @@ abstract class Base extends API implements AdminInterface
 
     /**
      * Get Rights Document.
-     * 
+     *
      * @param  array $packages Packages.
      * @return mix
      */
@@ -2338,10 +2338,10 @@ abstract class Base extends API implements AdminInterface
 
     /**
      * Get Server.
-     * 
+     *
      * @param  Server $server Server.
      * @param  bool   $applyConfig Apply config flag.
-     *                        If {apply} is 1 (true), then certain unset attrs on a server will get their values from the global config. 
+     *                        If {apply} is 1 (true), then certain unset attrs on a server will get their values from the global config.
      *                        if {apply} is 0 (false), then only attributes directly set on the server will be returned.
      * @param  string  $attrs Comma separated list of attributes.
      * @return mix
@@ -2358,7 +2358,7 @@ abstract class Base extends API implements AdminInterface
      * Get Network Interface information for a server.
      * Get server's network interfaces. Returns IP addresses and net masks.
      * This call will use zmrcd to call /opt/zimbra/libexec/zmserverips
-     * 
+     *
      * @param  Server $server Server name.
      * @param  IpType $type   Specifics the ipAddress type (ipV4/ipV6/both). default is ipv4.
      * @return mix
@@ -2376,7 +2376,7 @@ abstract class Base extends API implements AdminInterface
      * These are the same stats that are logged to mailboxd.csv.
      * If no <stat> element is specified, all server stats are returned.
      * If the stat name is invalid, returns a SOAP fault.
-     * 
+     *
      * @param  array $stats Stats.
      * @return mix
      */
@@ -2388,7 +2388,7 @@ abstract class Base extends API implements AdminInterface
 
     /**
      * Get Service Status.
-     * 
+     *
      * @return mix
      */
     public function getServiceStatus()
@@ -2400,7 +2400,7 @@ abstract class Base extends API implements AdminInterface
     /**
      * Get Sessions.
      * Access: domain admin sufficient (though a domain admin can't specify "domains" as a type).
-     * 
+     *
      * @param  SessionType  $type Type - valid values soap|imap|admin.
      * @param  GetSessionsSortBy $sortBy Sort by - valid values nameAsc|nameDesc|createdAsc|createdDesc|accessedAsc|accessedDesc.
      * @param  integer $limit Limit - the number of sessions to return per page (0 is default and means all).
@@ -2425,7 +2425,7 @@ abstract class Base extends API implements AdminInterface
     /**
      * Iterate through all folders of the owner's mailbox and return shares
      * that match grantees specified by the <grantee> specifier.
-     * 
+     *
      * @param  string $owner The name used to identify the account.
      * @param  string $type  If specified, filters the result by the specified grantee type.
      * @param  string $name  If specified, filters the result by the specified grantee name.
@@ -2444,7 +2444,7 @@ abstract class Base extends API implements AdminInterface
      * Get System Retention Policy.
      * The system retention policy SOAP APIs allow the administrator
      * to edit named system retention policies that users can apply to folders and tags.
-     * 
+     *
      * @param  string $cos The name used to identify the COS.
      * @return mix
      */
@@ -2458,7 +2458,7 @@ abstract class Base extends API implements AdminInterface
 
     /**
      * Get UC Service.
-     * 
+     *
      * @param  UcService $ucservice UC Service name.
      * @param  string $attrs Comma separated list of attributes.
      * @return mix
@@ -2473,7 +2473,7 @@ abstract class Base extends API implements AdminInterface
 
     /**
      * Get Version information.
-     * 
+     *
      * @return mix
      */
     public function getVersionInfo()
@@ -2484,7 +2484,7 @@ abstract class Base extends API implements AdminInterface
 
     /**
      * Get Volume.
-     * 
+     *
      * @param  int $id ID of volume.
      * @return mix
      */
@@ -2497,7 +2497,7 @@ abstract class Base extends API implements AdminInterface
     /**
      * Get XMPP Component.
      * XMPP stands for Extensible Messaging and Presence Protocol.
-     * 
+     *
      * @param  XmppComponent $xmpp XMPP Component selector.
      * @param  string $attrs Comma separated list of attributes.
      * @return mix
@@ -2510,7 +2510,7 @@ abstract class Base extends API implements AdminInterface
 
     /**
      * Retreives a list of search tasks running or cached on a server.
-     * 
+     *
      * @param  NamedElement $name Zimlet name.
      * @param  string $attrs Comma separated list of attributes.
      * @return mix
@@ -2529,7 +2529,7 @@ abstract class Base extends API implements AdminInterface
      * on what other Zimlets priorities are.
      * The same Zimlet will show priority 0 if all by itself,
      * or priority 3 if there are three other Zimlets with higher priority.
-     * 
+     *
      * @return mix
      */
     public function getZimletStatus()
@@ -2540,7 +2540,7 @@ abstract class Base extends API implements AdminInterface
 
     /**
      * Grant a right on a target to an individual or group grantee.
-     * 
+     *
      * @param  Target $target  Target selector. The name used to identify the target.
      * @param  Grantee  $grantee Grantee selector.
      * @param  RightModifier  $right   Right selector.
@@ -2562,7 +2562,7 @@ abstract class Base extends API implements AdminInterface
      * Command to act on invidual queue files.
      * This proxies through to postsuper.
      * list-of-ids can be ALL.
-     * 
+     *
      * @param  ServerQueue $server Server Mail Queue Query.
      * @return mix
      */
@@ -2576,7 +2576,7 @@ abstract class Base extends API implements AdminInterface
      * Command to invoke postqueue -f.
      * All queues cached in the server are stale after invoking this because
      * this is a global operation to all the queues in a given server.
-     * 
+     *
      * @param  NamedElement $server MTA server.
      * @return mix
      */
@@ -2588,7 +2588,7 @@ abstract class Base extends API implements AdminInterface
 
     /**
      * Migrate an account.
-     * 
+     *
      * @param  IdAndAction $migrate Specification for the migration.
      * @return mix
      */
@@ -2600,7 +2600,7 @@ abstract class Base extends API implements AdminInterface
 
     /**
      * Modify an account.
-     * 
+     *
      * @param  string $id    Zimbra ID of account.
      * @param  array  $attrs Attributes.
      * @return mix
@@ -2617,7 +2617,7 @@ abstract class Base extends API implements AdminInterface
      * If {search-query} is empty => delete the search if it exists.
      * If {search-name} already exists => replace with new {search-query}.
      * If {search-name} does not exist => save as a new search.
-     * 
+     *
      * @param  array $searchs Array of NamedValue.
      * @return mix
      */
@@ -2633,7 +2633,7 @@ abstract class Base extends API implements AdminInterface
      *   1. an empty attribute value removes the specified attr.
      *   2. this request is by default proxied to the resources's home server.
      * Access: domain admin sufficient. limited set of attributes that can be updated by a domain admin.
-     * 
+     *
      * @param  string $id    Zimbra ID.
      * @param  array  $attrs Attributes.
      * @return mix
@@ -2647,7 +2647,7 @@ abstract class Base extends API implements AdminInterface
     /**
      * Modify Configuration attributes.
      * Note: an empty attribute value removes the specified attr.
-     * 
+     *
      * @param  array $attrs Attributes.
      * @return mix
      */
@@ -2660,7 +2660,7 @@ abstract class Base extends API implements AdminInterface
     /**
      * Modify Class of Service (COS) attributes.
      * Note: an empty attribute value removes the specified attr.
-     * 
+     *
      * @param  string $id    Zimbra ID.
      * @param  array  $attrs Attributes.
      * @return mix
@@ -2676,7 +2676,7 @@ abstract class Base extends API implements AdminInterface
      * Only the attributes specified in the request are modified.
      * To change the name, specify "zimbraDataSourceName" as an attribute.
      * Note: this request is by default proxied to the account's home server
-     * 
+     *
      * @param  string $id     Existing account ID.
      * @param  Id $dataSource Data source  ID.
      * @param  array  $attrs  Attributes.
@@ -2694,7 +2694,7 @@ abstract class Base extends API implements AdminInterface
      * Modify constraint (zimbraConstraint) for delegated admin on global config or a COS.
      * If constraints for an attribute already exists, it will be replaced by the new constraints.
      * I <constraint> is an empty element, constraints for the attribute will be removed.
-     * 
+     *
      * @param  TargetType $type  Target type. Valid values: (account|calresource|cos|dl|group|domain|server|ucservice|xmppcomponent|zimlet|config|global).
      * @param  string $id    ID.
      * @param  string $name  Name.
@@ -2718,7 +2718,7 @@ abstract class Base extends API implements AdminInterface
      * Modify attributes for a Distribution List.
      * Notes: an empty attribute value removes the specified attr.
      * Access: domain admin sufficient.
-     * 
+     *
      * @param  string $id    Zimbra ID.
      * @param  array  $attrs Attributes.
      * @return mix
@@ -2734,7 +2734,7 @@ abstract class Base extends API implements AdminInterface
     /**
      * Modify attributes for a domain.
      * Note: an empty attribute value removes the specified attr.
-     * 
+     *
      * @param  string $id    Zimbra ID.
      * @param  array  $attrs Attributes.
      * @return mix
@@ -2749,7 +2749,7 @@ abstract class Base extends API implements AdminInterface
 
     /**
      * Modify an LDAP Entry.
-     * 
+     *
      * @param  string $dn    A valid LDAP DN String (RFC 2253) that identifies the LDAP object.
      * @param  array  $attrs Attributes.
      * @return mix
@@ -2767,7 +2767,7 @@ abstract class Base extends API implements AdminInterface
      * Notes:
      *   1. An empty attribute value removes the specified attr.
      *   2. His request is by default proxied to the referenced server.
-     * 
+     *
      * @param  string $id    Zimbra ID.
      * @param  array  $attrs Attributes.
      * @return mix
@@ -2782,7 +2782,7 @@ abstract class Base extends API implements AdminInterface
 
     /**
      * Modify system retention policy.
-     * 
+     *
      * @param  Policy $policy New policy.
      * @param  Cos $cos The name used to identify the COS.
      * @return mix
@@ -2798,7 +2798,7 @@ abstract class Base extends API implements AdminInterface
     /**
      * Modify attributes for a UC service.
      * Notes: An empty attribute value removes the specified attr
-     * 
+     *
      * @param  string $id    Zimbra ID.
      * @param  array  $attrs Attributes.
      * @return mix
@@ -2813,7 +2813,7 @@ abstract class Base extends API implements AdminInterface
 
     /**
      * Modify volume.
-     * 
+     *
      * @param  string $id     Zimbra ID.
      * @param  Volume $volume Volume information.
      * @return mix
@@ -2828,7 +2828,7 @@ abstract class Base extends API implements AdminInterface
 
     /**
      * Modify Zimlet.
-     * 
+     *
      * @param  ZimletAcl $zimlet Zimlet information.
      * @return mix
      */
@@ -2843,7 +2843,7 @@ abstract class Base extends API implements AdminInterface
     /**
      * A request that does nothing and always returns nothing.
      * Used to keep an admin session alive.
-     * 
+     *
      * @return mix
      */
     public function noOp()
@@ -2854,7 +2854,7 @@ abstract class Base extends API implements AdminInterface
 
     /**
      * Ping.
-     * 
+     *
      * @return mix
      */
     public function ping()
@@ -2866,7 +2866,7 @@ abstract class Base extends API implements AdminInterface
     /**
      * Purge the calendar cache for an account.
      * Access: domain admin sufficient.
-     * 
+     *
      * @param  string $id Zimbra ID.
      * @return mix
      */
@@ -2880,7 +2880,7 @@ abstract class Base extends API implements AdminInterface
 
     /**
      * Purges the queue for the given freebusy provider on the current host.
-     * 
+     *
      * @param  NamedElement $provider Provider name.
      * @return mix
      */
@@ -2895,7 +2895,7 @@ abstract class Base extends API implements AdminInterface
     /**
      * Purges aged messages out of trash, spam, and entire mailbox.
      * (if <mbox> element is omitted, purges all mailboxes on server).
-     * 
+     *
      * @param  MailboxId $mbox Mailbox Account ID.
      * @return mix
      */
@@ -2914,7 +2914,7 @@ abstract class Base extends API implements AdminInterface
      * the free/busy for all the accounts in the domain to the configured free/busy providers.
      * When <account/> list is specified, the server will push the free/busy for
      * the listed accounts to the providers.
-     * 
+     *
      * @param  Names $domains Domain names specification.
      * @param  Id $account Account ID.
      * @return mix
@@ -2933,7 +2933,7 @@ abstract class Base extends API implements AdminInterface
      * It is intended for debugging use only and should not be used for production uses.
      * This API is not guaranteed to be stable between releases in any way
      * and might be removed without warning.
-     * 
+     *
      * @param  string $waitSet WaitSet ID.
      * @return mix
      */
@@ -2950,7 +2950,7 @@ abstract class Base extends API implements AdminInterface
      * Access: domain admin sufficient.
      * Note: This request is by default proxied to the account's home server.
      * Note: Only one of {ids} and {types} may be specified.
-     * 
+     *
      * @param  ReindexMailbox $mbox  Specify reindexing to perform.
      * @param  ReIndexAction $action Action to perform.
      * @return mix
@@ -2969,7 +2969,7 @@ abstract class Base extends API implements AdminInterface
      * and size counts.
      * Access: domain admin sufficient.
      * Note: this request is by default proxied to the account's home server.
-     * 
+     *
      * @param  MailboxId $mbox Specify reindexing to perform.
      * @return mix
      */
@@ -2983,7 +2983,7 @@ abstract class Base extends API implements AdminInterface
 
     /**
      * Reload LocalConfig.
-     * 
+     *
      * @return mix
      */
     public function reloadLocalConfig()
@@ -2996,7 +2996,7 @@ abstract class Base extends API implements AdminInterface
      * Reloads the memcached client configuration on this server.
      * Memcached client layer is reinitialized accordingly.
      * Call this command after updating the memcached server list, for example.
-     * 
+     *
      * @return mix
      */
     public function reloadMemcachedClientConfig()
@@ -3009,7 +3009,7 @@ abstract class Base extends API implements AdminInterface
      * Remove Account Alias.
      * Access: domain admin sufficient.
      * Note: this request is by default proxied to the account's home server.
-     * 
+     *
      * @param  string $alias Account alias.
      * @param  string $id    Zimbra ID.
      * @return mix
@@ -3030,7 +3030,7 @@ abstract class Base extends API implements AdminInterface
      * If only the logger is specified, removes that custom logger from all accounts.
      * If neither element is specified, removes all custom loggers from all accounts
      * on the server that receives the request.
-     * 
+     *
      * @param  Account $account Use to select account.
      * @param  Logger  $logger  Logger category.
      * @return mix
@@ -3046,7 +3046,7 @@ abstract class Base extends API implements AdminInterface
     /**
      * Remove a device or remove all devices attached to an account.
      * This will not cause a reset of sync data, but will cause a reset of policies on the next sync.
-     * 
+     *
      * @param  Account  $account  Use to select account.
      * @param  DeviceId $deviceId Device specification - Note - if not supplied ALL devices will be removed.
      * @return mix
@@ -3062,7 +3062,7 @@ abstract class Base extends API implements AdminInterface
     /**
      * Remove Distribution List Alias.
      * Access: domain admin sufficient.
-     * 
+     *
      * @param  string $id    Zimbra ID
      * @param  string $alias Distribution list alias.
      * @return mix
@@ -3077,9 +3077,9 @@ abstract class Base extends API implements AdminInterface
 
     /**
      * Remove Distribution List Member.
-     * Unlike add, remove of a non-existent member causes an exception and no modification to the list. 
+     * Unlike add, remove of a non-existent member causes an exception and no modification to the list.
      * Access: domain admin sufficient.
-     * 
+     *
      * @param  string $id   Zimbra ID
      * @param  array  $dlms Members.
      * @return mix
@@ -3095,8 +3095,8 @@ abstract class Base extends API implements AdminInterface
     /**
      * Rename Account.
      * Access: domain admin sufficient.
-     * Note: this request is by default proxied to the account's home server. 
-     * 
+     * Note: this request is by default proxied to the account's home server.
+     *
      * @param  string $id      Zimbra ID
      * @param  array  $newName New account name.
      * @return mix
@@ -3112,8 +3112,8 @@ abstract class Base extends API implements AdminInterface
     /**
      * Rename Calendar Resource.
      * Access: domain admin sufficient.
-     * Note: this request is by default proxied to the account's home server. 
-     * 
+     * Note: this request is by default proxied to the account's home server.
+     *
      * @param  string $id      Zimbra ID
      * @param  array  $newName New Calendar Resource name.
      * @return mix
@@ -3128,7 +3128,7 @@ abstract class Base extends API implements AdminInterface
 
     /**
      * Rename Class of Service (COS).
-     * 
+     *
      * @param  string $id      Zimbra ID
      * @param  array  $newName New COS name.
      * @return mix
@@ -3144,7 +3144,7 @@ abstract class Base extends API implements AdminInterface
     /**
      * Rename Distribution List.
      * Access: domain admin sufficient.
-     * 
+     *
      * @param  string $id      Zimbra ID
      * @param  array  $newName New Distribution List name.
      * @return mix
@@ -3159,7 +3159,7 @@ abstract class Base extends API implements AdminInterface
 
     /**
      * Rename LDAP Entry.
-     * 
+     *
      * @param  string $dn     A valid LDAP DN String (RFC 2253) that identifies the LDAP object
      * @param  array  $new_dn New DN - a valid LDAP DN String (RFC 2253) that describes the new DN to be given to the LDAP object.
      * @return mix
@@ -3174,7 +3174,7 @@ abstract class Base extends API implements AdminInterface
 
     /**
      * Rename Unified Communication Service.
-     * 
+     *
      * @param  string $id      Zimbra ID
      * @param  array  $newName New UC Service name.
      * @return mix
@@ -3189,7 +3189,7 @@ abstract class Base extends API implements AdminInterface
 
     /**
      * Removes all account loggers and reloads /opt/zimbra/conf/log4j.properties.
-     * 
+     *
      * @return mix
      */
     public function resetAllLoggers()
@@ -3201,7 +3201,7 @@ abstract class Base extends API implements AdminInterface
     /**
      * Resume sync with a device or all devices attached to an account if currently suspended.
      * This will cause a policy reset, but will not reset sync data.
-     * 
+     *
      * @param  Account  $account The name used to identify the account.
      * @param  DeviceId $device  Device ID.
      * @return mix
@@ -3216,7 +3216,7 @@ abstract class Base extends API implements AdminInterface
 
     /**
      * Revoke a right from a target that was previously granted to an individual or group grantee.
-     * 
+     *
      * @param  Target $target Target selector. The name used to identify the target.
      * @param  Grantee $grantee Grantee selector.
      * @param  RightModifier $right Right selector.
@@ -3238,7 +3238,7 @@ abstract class Base extends API implements AdminInterface
      * Runs the server-side unit test suite.
      * If <test>'s are specified, then run the requested tests (instead of the standard test suite).
      * Otherwise the standard test suite is run.
-     * 
+     *
      * @param  string $tests Array test name.
      * @return mix
      */
@@ -3253,7 +3253,7 @@ abstract class Base extends API implements AdminInterface
     /**
      * Search Accounts.
      * Access: domain admin sufficient (a domain admin can't specify "domains" as a type).
-     * 
+     *
      * @param  string  $query  Query string - should be an LDAP-style filter string (RFC 2254).
      * @param  integer $limit  The maximum number of accounts to return (0 is default and means all).
      * @param  integer $offset The starting offset (0, 25, etc).
@@ -3287,7 +3287,7 @@ abstract class Base extends API implements AdminInterface
      * Search Auto Prov Directory.
      * Only one of <name> or <query> can be provided.
      * If neither is provided, the configured search filter for auto provision will be used.
-     * 
+     *
      * @param  Domain  $domain  Domain name to limit the search to (do not use if searching for domains).
      * @param  string  $keyAttr Name of attribute for the key.
      * @param  string  $query   Query string - should be an LDAP-style filter string (RFC 2254).
@@ -3320,7 +3320,7 @@ abstract class Base extends API implements AdminInterface
     /**
      * Search for Calendar Resources.
      * Access: domain admin sufficient.
-     * 
+     *
      * @param  SearchFilter  $searchFilter Search filter condition.
      * @param  integer $limit  The maximum number of calendar resources to return (0 is default and means all).
      * @param  integer $offset The starting offset (0, 25, etc).
@@ -3351,7 +3351,7 @@ abstract class Base extends API implements AdminInterface
     /**
      * Search directory.
      * Access: domain admin sufficient (though a domain admin can't specify "domains" as a type).
-     * 
+     *
      * @param  string  $query       Query string - should be an LDAP-style filter string (RFC 2254).
      * @param  integer $maxResults         Maximum results that the backend will attempt to fetch from the directory before returning an account.TOO_MANY_SEARCH_RESULTS error.
      * @param  integer $limit       The maximum number of accounts to return (0 is default and means all).
@@ -3391,7 +3391,7 @@ abstract class Base extends API implements AdminInterface
     /**
      * Search Global Address Book (GAL).
      * Notes: admin verison of mail equiv. Used for testing via zmprov.
-     * 
+     *
      * @param  string  $domain    Domain name.
      * @param  string  $name      Name.
      * @param  integer $limit     The maximum number of entries to return (0 is default and means all).
@@ -3416,7 +3416,7 @@ abstract class Base extends API implements AdminInterface
     /**
      * Set current volume.
      * Notes: Each SetCurrentVolumeRequest can set only one current volume type.
-     * 
+     *
      * @param  integer $id   ID.
      * @param  VolumeType $type Volume type: 1 (primary message), 2 (secondary message) or 10 (index).
      * @return mix
@@ -3433,7 +3433,7 @@ abstract class Base extends API implements AdminInterface
      * Set Password.
      * Access: domain admin sufficient.
      * Note: this request is by default proxied to the account's home server.
-     * 
+     *
      * @param  string $id          Zimbra ID.
      * @param  string $newPassword New password.
      * @return mix
@@ -3448,7 +3448,7 @@ abstract class Base extends API implements AdminInterface
 
     /**
      * Suspend a device or all devices attached to an account from further sync actions.
-     * 
+     *
      * @param  Account  $account The name used to identify the account.
      * @param  DeviceId $device  Device ID.
      * @return mix
@@ -3472,7 +3472,7 @@ abstract class Base extends API implements AdminInterface
      *      regardless of the status since last sync.
      *      Reset needs to be done when there is a significant change in the configuration,
      *      such as filter, attribute map, or search base.
-     * 
+     *
      * @param  SyncGalAccount  $galAccounts SyncGalAccount data source specifications.
      * @return mix
      */
@@ -3486,7 +3486,7 @@ abstract class Base extends API implements AdminInterface
 
     /**
      * Undeploy Zimlet.
-     * 
+     *
      * @param  string $name   Zimlet name.
      * @param  string $action Action.
      * @return mix
@@ -3501,7 +3501,7 @@ abstract class Base extends API implements AdminInterface
 
     /**
      * Update device status.
-     * 
+     *
      * @param  Account $account  Account selector.
      * @param  IdStatus $device  Information on new device status.
      * @return mix
@@ -3517,7 +3517,7 @@ abstract class Base extends API implements AdminInterface
     /**
      * Generate a new Cisco Presence server session ID and persist the newly generated session id
      * in zimbraUCCiscoPresenceSessionId attribute for the specified UC service..
-     * 
+     *
      * @param  UcService $ucservice The UC service.
      * @param  string $username  App username.
      * @param  string $password  App password.
@@ -3539,7 +3539,7 @@ abstract class Base extends API implements AdminInterface
 
     /**
      * Upload domain certificate.
-     * 
+     *
      * @param  string $certAid      Certificate attach ID.
      * @param  string $certFilename Certificate name.
      * @param  string $keyAid       Key attach ID.
@@ -3561,7 +3561,7 @@ abstract class Base extends API implements AdminInterface
 
     /**
      * Upload proxy CA.
-     * 
+     *
      * @param  string $certAid      Certificate attach ID.
      * @param  string $certFilename Certificate name.
      * @return mix
@@ -3576,7 +3576,7 @@ abstract class Base extends API implements AdminInterface
 
     /**
      * Verify Certificate Key.
-     * 
+     *
      * @param  string $cert    Certificate.
      * @param  string $privkey Private key.
      * @return mix
@@ -3591,7 +3591,7 @@ abstract class Base extends API implements AdminInterface
 
     /**
      * Mailbox selector.
-     * 
+     *
      * @param  MailboxId $id Account ID.
      * @return mix
      */
@@ -3605,7 +3605,7 @@ abstract class Base extends API implements AdminInterface
 
     /**
      * Verify Store Manager.
-     * 
+     *
      * @param  int  $fileSize.
      * @param  int  $num.
      * @param  bool $checkBlobs.
@@ -3621,7 +3621,7 @@ abstract class Base extends API implements AdminInterface
 
     /**
      * Version Check.
-     * 
+     *
      * @param  VersionCheckAction $action Action. Either check or status.
      * @return mix
      */
