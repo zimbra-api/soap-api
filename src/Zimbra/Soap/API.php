@@ -10,11 +10,12 @@
 
 namespace Zimbra\Soap;
 
+use Zimbra\Soap\Client\ClientInterface;
 use Zimbra\Soap\Request\Batch;
 
 /**
  * API is a base class which allows to manage Zimbra api
- * 
+ *
  * @package   Zimbra
  * @category  Soap
  * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
