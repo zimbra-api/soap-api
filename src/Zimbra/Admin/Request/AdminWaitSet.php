@@ -62,9 +62,18 @@ class AdminWaitSet extends Base
         $this->setProperty('waitSet', trim($waitSet));
         $this->setProperty('seq', trim($seq));
 
-        $this->setChild('add', $addAccounts);
-        $this->setChild('update', $updateAccounts);
-        $this->setChild('remove', $removeAccounts);
+        if($addAccounts instanceof WaitSetSpec)
+        {
+            $this->child('add', $addAccounts);
+        }
+        if($updateAccounts instanceof WaitSetSpec)
+        {
+            $this->child('update', $updateAccounts);
+        }
+        if($removeAccounts instanceof WaitSetId)
+        {
+            $this->child('remove', $removeAccounts);
+        }
 
         if(null !== $block)
         {
