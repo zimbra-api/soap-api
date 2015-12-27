@@ -72,7 +72,7 @@ class GetInfo extends Base
      */
     public function getSections()
     {
-        return $this->setProperty('sections');
+        return $this->getProperty('sections');
     }
 
     /**
