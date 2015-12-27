@@ -24,41 +24,41 @@ class Frequency extends Base
      * Constant for value 'SEC'
      * @return string 'SEC'
      */
-    const SEC = 'SEC';
+    const SECOND = 'SEC';
 
     /**
      * Constant for value 'MIN'
      * @return string 'MIN'
      */
-    const MIN = 'MIN';
+    const MINUTE = 'MIN';
 
     /**
      * Constant for value 'HOU'
      * @return string 'HOU'
      */
-    const HOU = 'HOU';
+    const HOUR = 'HOU';
 
     /**
      * Constant for value 'DAI'
      * @return string 'DAI'
      */
-    const DAI = 'DAI';
+    const DAY = 'DAI';
 
     /**
      * Constant for value 'WEE'
      * @return string 'WEE'
      */
-    const WEE = 'WEE';
+    const WEEK = 'WEE';
 
     /**
      * Constant for value 'MON'
      * @return string 'MON'
      */
-    const MON = 'MON';
+    const MONTH = 'MON';
 
     /**
      * Constant for value 'YEA'
      * @return string 'YEA'
      */
-    const YEA = 'YEA';
+    const YEAR = 'YEA';
 }

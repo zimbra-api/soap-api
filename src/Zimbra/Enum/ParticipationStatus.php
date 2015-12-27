@@ -24,53 +24,53 @@ class ParticipationStatus extends Base
      * Constant for value 'Needs-action'
      * @return string 'NE'
      */
-    const NE = 'NE';
+    const NEEDS_ACTION = 'NE';
 
     /**
      * Constant for value 'Accept'
      * @return string 'AC'
      */
-    const AC = 'AC';
+    const ACCEPT = 'AC';
 
     /**
      * Constant for value 'Tentative'
      * @return string 'TE'
      */
-    const TE = 'TE';
+    const TENTATIVE = 'TE';
 
     /**
      * Constant for value 'Declined'
      * @return string 'DE'
      */
-    const DE = 'DE';
+    const DECLINED = 'DE';
 
     /**
      * Constant for value 'delegated'
      * @return string 'DG'
      */
-    const DG = 'DG';
+    const DELEGATED = 'DG';
 
     /**
      * Constant for value 'Completed'
      * @return string 'CO'
      */
-    const CO = 'CO';
+    const COMPLETED = 'CO';
 
     /**
      * Constant for value 'In-process'
      * @return string 'IN'
      */
-    const IN = 'IN';
+    const IN_PROCESS = 'IN';
 
     /**
      * Constant for value 'Waiting'
      * @return string 'WE'
      */
-    const WE = 'WE';
+    const WAITING = 'WE';
 
     /**
      * Constant for value 'Deferred'
      * @return string 'DF'
      */
-    const DF = 'DF';
+    const DEFERRED = 'DF';
 }

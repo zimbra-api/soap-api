@@ -44,7 +44,7 @@ abstract class Base
      * @param mixed $value
      * @throws \UnexpectedValueException if incompatible type is given.
      */
-    public function __construct($value = null)
+    protected function __construct($value = null)
     {
         if (is_null($value))
         {

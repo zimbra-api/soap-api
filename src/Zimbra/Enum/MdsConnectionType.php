@@ -24,7 +24,7 @@ class MdsConnectionType extends Base
      * Constant for value 'cleartext'
      * @return string 'cleartext'
      */
-    const CLEARTEXT = 'cleartext';
+    const CLEAR_TEXT = 'cleartext';
 
     /**
      * Constant for value 'ssl'

@@ -24,23 +24,23 @@ class FreeBusyStatus extends Base
      * Constant for value 'Free'
      * @return string 'F'
      */
-    const F = 'F';
+    const FREE = 'F';
 
     /**
      * Constant for value 'Busy'
      * @return string 'B'
      */
-    const B = 'B';
+    const BUSY = 'B';
 
     /**
      * Constant for value 'Busy-Tentative'
      * @return string 'T'
      */
-    const T = 'T';
+    const TENTATIVE = 'T';
 
     /**
      * Constant for value 'OutOfOffice' (busy-unavailable)
      * @return string 'U'
      */
-    const U = 'U';
+    const OUT_OF_OFFICE = 'U';
 }

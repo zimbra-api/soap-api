@@ -90,11 +90,11 @@ class Operation extends Base
      * Constant for value 'acceptSubsReq'
      * @return string 'acceptSubsReq'
      */
-    const ACCEPT_SUBSREQ = 'acceptSubsReq';
+    const ACCEPT_SUBS_REQ = 'acceptSubsReq';
 
     /**
      * Constant for value 'rejectSubsReq'
      * @return string 'rejectSubsReq'
      */
-    const REJECT_SUBSREQ = 'rejectSubsReq';
+    const REJECT_SUBS_REQ = 'rejectSubsReq';
 }

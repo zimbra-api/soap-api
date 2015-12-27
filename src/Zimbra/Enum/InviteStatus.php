@@ -24,31 +24,31 @@ class InviteStatus extends Base
      * Constant for value 'Tentative'
      * @return string 'TENT'
      */
-    const TENT = 'TENT';
+    const TENTATIVE = 'TENT';
 
     /**
      * Constant for value 'Confirmed'
      * @return string 'CONF'
      */
-    const CONF = 'CONF';
+    const CONFIRMED = 'CONF';
 
     /**
      * Constant for value 'Cancelled'
      * @return string 'CANC'
      */
-    const CANC = 'CANC';
+    const CANCELLED = 'CANC';
 
     /**
      * Constant for value 'Completed'
      * @return string 'COMP'
      */
-    const COMP = 'COMP';
+    const COMPLETED = 'COMP';
 
     /**
      * Constant for value 'Inprogress'
      * @return string 'INPR'
      */
-    const INPR = 'INPR';
+    const INPROGRESS = 'INPR';
 
     /**
      * Constant for value 'Waiting'
