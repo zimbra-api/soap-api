@@ -11,24 +11,30 @@
 namespace Zimbra\Enum;
 
 /**
- * Transparency enum class
+ * VerbType enum class
  *
  * @package   Zimbra
  * @category  Enum
  * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright Copyright © 2013 by Nguyen Van Nguyen.
  */
-class Transparency extends Base
+class VerbType extends Base
 {
     /**
-     * Constant for value 'Opaque'
-     * @return string 'O'
+     * Constant for value 'ACCEPT'
+     * @return string 'ACCEPT'
      */
-    const OPAQUE = 'O';
+    const ACCEPT = 'ACCEPT';
 
     /**
-     * Constant for value 'Transparent'
-     * @return string 'T'
+     * Constant for value 'DECLINE'
+     * @return string 'DECLINE'
      */
-    const TRANSPARENT = 'T';
+    const DECLINE = 'DECLINE';
+
+    /**
+     * Constant for value 'TENTATIVE'
+     * @return string 'TENTATIVE'
+     */
+    const TENTATIVE = 'TENTATIVE';
 }
