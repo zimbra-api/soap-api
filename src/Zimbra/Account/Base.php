@@ -53,7 +53,7 @@ abstract class Base extends API implements AccountInterface
      */
     public function __construct($location)
     {
-        $this->_location = $location;
+        $this->setLocation($location);
     }
 
     /**
@@ -93,10 +93,14 @@ abstract class Base extends API implements AccountInterface
             $requestedSkin,
             $persistAuthTokenCookie
         );
-        $result = $this->_client->doRequest($request);
+        $result = $this->getClient()->doRequest($request);
         if(isset($result->authToken) && !empty($result->authToken))
         {
-            $this->_client->authToken($result->authToken);
+            $this->getClient()->setAuthToken($result->authToken);
+        }
+        elseif($authToken)
+        {
+            $this->getClient()->setAuthToken($authToken->getValue());
         }
         return $result;
     }
@@ -176,7 +180,7 @@ abstract class Base extends API implements AccountInterface
         $request = new \Zimbra\Account\Request\AutoCompleteGal(
             $name, $needExp, $type, $galAcctId, $limit
         );
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -198,7 +202,7 @@ abstract class Base extends API implements AccountInterface
         $request = new \Zimbra\Account\Request\ChangePassword(
             $account, $oldPassword, $password, $virtualHost
         );
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -210,7 +214,7 @@ abstract class Base extends API implements AccountInterface
     public function checkRights(array $targets)
     {
         $request = new \Zimbra\Account\Request\CheckRights($targets);
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -231,7 +235,7 @@ abstract class Base extends API implements AccountInterface
         $request = new \Zimbra\Account\Request\CreateDistributionList(
             $name, $dynamic, $attrs
         );
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -245,7 +249,7 @@ abstract class Base extends API implements AccountInterface
         $request = new \Zimbra\Account\Request\CreateIdentity(
             $identity
         );
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -259,7 +263,7 @@ abstract class Base extends API implements AccountInterface
         $request = new \Zimbra\Account\Request\CreateSignature(
             $signature
         );
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -273,7 +277,7 @@ abstract class Base extends API implements AccountInterface
         $request = new \Zimbra\Account\Request\DeleteIdentity(
             $identity
         );
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -287,7 +291,7 @@ abstract class Base extends API implements AccountInterface
         $request = new \Zimbra\Account\Request\DeleteSignature(
             $signature
         );
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -301,7 +305,7 @@ abstract class Base extends API implements AccountInterface
         $request = new \Zimbra\Account\Request\DiscoverRights(
             $rights
         );
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -327,7 +331,7 @@ abstract class Base extends API implements AccountInterface
         $request = new \Zimbra\Account\Request\DistributionListAction(
             $dl, $action, $attrs
         );
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -340,7 +344,7 @@ abstract class Base extends API implements AccountInterface
     public function endSession()
     {
         $request = new \Zimbra\Account\Request\EndSession;
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -367,7 +371,7 @@ abstract class Base extends API implements AccountInterface
         $request = new \Zimbra\Account\Request\GetAccountDistributionLists(
             $ownerOf, $memberOf, $attrs
         );
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -381,7 +385,7 @@ abstract class Base extends API implements AccountInterface
         $request = new \Zimbra\Account\Request\GetAccountInfo(
             $account
         );
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -392,7 +396,7 @@ abstract class Base extends API implements AccountInterface
     public function getAllLocales()
     {
         $request = new \Zimbra\Account\Request\GetAllLocales;
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -403,7 +407,7 @@ abstract class Base extends API implements AccountInterface
     public function getAvailableCsvFormats()
     {
         $request = new \Zimbra\Account\Request\GetAvailableCsvFormats;
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -416,7 +420,7 @@ abstract class Base extends API implements AccountInterface
     public function getAvailableLocales()
     {
         $request = new \Zimbra\Account\Request\GetAvailableLocales;
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -431,7 +435,7 @@ abstract class Base extends API implements AccountInterface
     public function getAvailableSkins()
     {
         $request = new \Zimbra\Account\Request\GetAvailableSkins;
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -453,7 +457,7 @@ abstract class Base extends API implements AccountInterface
         $request = new \Zimbra\Account\Request\GetDistributionList(
             $dl, $needOwners, $needRights, $attrs
         );
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -469,7 +473,7 @@ abstract class Base extends API implements AccountInterface
         $request = new \Zimbra\Account\Request\GetDistributionListMembers(
             $dl, $limit, $offset
         );
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -480,7 +484,7 @@ abstract class Base extends API implements AccountInterface
     public function getIdentities()
     {
         $request = new \Zimbra\Account\Request\GetIdentities();
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -496,7 +500,7 @@ abstract class Base extends API implements AccountInterface
         $request = new \Zimbra\Account\Request\GetInfo(
             $sections, $rights
         );
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -510,7 +514,7 @@ abstract class Base extends API implements AccountInterface
         $request = new \Zimbra\Account\Request\GetPrefs(
             $prefs
         );
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -524,7 +528,7 @@ abstract class Base extends API implements AccountInterface
         $request = new \Zimbra\Account\Request\GetRights(
             $ace
         );
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -546,7 +550,7 @@ abstract class Base extends API implements AccountInterface
         $request = new \Zimbra\Account\Request\GetShareInfo(
             $grantee, $owner, $internal, $includeSelf
         );
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -557,7 +561,7 @@ abstract class Base extends API implements AccountInterface
     public function getSignatures()
     {
         $request = new \Zimbra\Account\Request\GetSignatures;
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -570,7 +574,7 @@ abstract class Base extends API implements AccountInterface
     public function getVersionInfo()
     {
         $request = new \Zimbra\Account\Request\GetVersionInfo;
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -581,7 +585,7 @@ abstract class Base extends API implements AccountInterface
     public function getWhiteBlackList()
     {
         $request = new \Zimbra\Account\Request\GetWhiteBlackList;
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -595,7 +599,7 @@ abstract class Base extends API implements AccountInterface
         $request = new \Zimbra\Account\Request\GrantRights(
             $aces
         );
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -609,7 +613,7 @@ abstract class Base extends API implements AccountInterface
         $request = new \Zimbra\Account\Request\ModifyIdentity(
             $identity
         );
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -623,7 +627,7 @@ abstract class Base extends API implements AccountInterface
         $request = new \Zimbra\Account\Request\ModifyPrefs(
             $pref
         );
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -637,7 +641,7 @@ abstract class Base extends API implements AccountInterface
         $request = new \Zimbra\Account\Request\ModifyProperties(
             $prop
         );
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -655,7 +659,7 @@ abstract class Base extends API implements AccountInterface
         $request = new \Zimbra\Account\Request\ModifySignature(
             $signature
         );
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -674,7 +678,7 @@ abstract class Base extends API implements AccountInterface
         $request = new \Zimbra\Account\Request\ModifyWhiteBlackList(
             $whiteList, $blackList
         );
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -688,7 +692,7 @@ abstract class Base extends API implements AccountInterface
         $request = new \Zimbra\Account\Request\ModifyZimletPrefs(
             $zimlet
         );
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -702,7 +706,7 @@ abstract class Base extends API implements AccountInterface
         $request = new \Zimbra\Account\Request\RevokeRights(
             $ace
         );
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -739,7 +743,7 @@ abstract class Base extends API implements AccountInterface
             $locale, $cursor, $name, $searchFilter, $quick,
             $sortBy, $limit, $offset, $galAcctId, $attrs
         );
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -785,7 +789,7 @@ abstract class Base extends API implements AccountInterface
             $needExp, $needIsOwner, $needIsMember, $needSMIMECerts,
             $galAcctId, $quick, $sortBy, $limit, $offset
         );
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -800,7 +804,7 @@ abstract class Base extends API implements AccountInterface
         $request = new \Zimbra\Account\Request\SubscribeDistributionList(
             $op, $dl
         );
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -816,6 +820,6 @@ abstract class Base extends API implements AccountInterface
         $request = new \Zimbra\Account\Request\SyncGal(
             $token, $galAcctId, $idOnly
         );
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 }
