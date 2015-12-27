@@ -10,6 +10,7 @@
 
 namespace Zimbra\Soap;
 
+use Zimbra\Soap\Client\ClientInterface;
 use Zimbra\Soap\Request\Batch;
 
 /**
@@ -26,22 +27,33 @@ abstract class API
      * The Zimbra api soap location
      * @var string
      */
-    protected $_location = 'https://localhost/service/soap';
+    private $_location = 'https://localhost/service/soap';
 
     /**
      * Zimbra api soap client
      * @var ClientInterface
      */
-    protected $_client;
+    private $_client;
 
     /**
      * Get Zimbra api soap client.
      *
      * @return ClientInterface
      */
-    public function client()
+    public function getClient()
     {
         return $this->_client;
+    }
+
+    /**
+     * Set Zimbra api soap client.
+     *
+     * @return self
+     */
+    public function setClient(ClientInterface $client)
+    {
+        $this->_client = $client;
+        return $this;
     }
 
     /**
@@ -49,9 +61,20 @@ abstract class API
      *
      * @return string
      */
-    public function location()
+    public function getLocation()
     {
         return $this->_location;
+    }
+
+    /**
+     * set Zimbra api soap location.
+     *
+     * @return self
+     */
+    public function setLocation($location)
+    {
+        $this->_location = $location;
+        return $this;
     }
 
     /**
@@ -65,6 +88,6 @@ abstract class API
         $request = new \Zimbra\Soap\Request\Batch(
             $requests
         );
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 }

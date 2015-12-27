@@ -32,19 +32,19 @@ class Http extends EventEmitter implements ClientInterface
      * Authentication token
      * @var string
      */
-    protected $authToken;
+    private $_authToken;
 
     /**
      * Authentication session identify
      * @var string
      */
-    protected $sessionId;
+    private $_sessionId;
 
     /**
      * Request format
      * @var string
      */
-    protected $format;
+    private $_format;
 
     /**
      * @var Message
@@ -164,7 +164,7 @@ class Http extends EventEmitter implements ClientInterface
      */
     function getAuthToken()
     {
-        return $this->authToken;
+        return $this->_authToken;
     }
 
     /**
@@ -177,11 +177,11 @@ class Http extends EventEmitter implements ClientInterface
     {
         if(is_array($authToken))
         {
-            $this->authToken = !empty($authToken[0]->_content) ? $authToken[0]->_content : null;
+            $this->_authToken = !empty($authToken[0]->_content) ? $authToken[0]->_content : null;
         }
         else
         {
-            $this->authToken = trim($authToken);
+            $this->_authToken = trim($authToken);
         }
         return $this;
     }
@@ -193,7 +193,7 @@ class Http extends EventEmitter implements ClientInterface
      */
     public function getSessionId()
     {
-        return $this->sessionId;
+        return $this->_sessionId;
     }
 
     /**
@@ -204,7 +204,7 @@ class Http extends EventEmitter implements ClientInterface
      */
     public function setSessionId($sessionId)
     {
-        $this->sessionId = trim($sessionId);
+        $this->_sessionId = trim($sessionId);
         return $this;
     }
 
@@ -215,7 +215,7 @@ class Http extends EventEmitter implements ClientInterface
      */
     public function getFormat()
     {
-        return $this->format;
+        return $this->_format;
     }
 
     /**
@@ -226,7 +226,7 @@ class Http extends EventEmitter implements ClientInterface
      */
     public function setFormat(RequestFormat $format)
     {
-        $this->format = $format;
+        $this->_format = $format;
         return $this;
     }
 
@@ -239,19 +239,19 @@ class Http extends EventEmitter implements ClientInterface
     public function doRequest(SoapRequest $request)
     {
         $this->soapMessage = new SoapMessage;
-        if(!empty($this->authToken))
+        if(!empty($this->_authToken))
         {
-            $this->soapMessage->addHeader('authToken', $this->authToken);
+            $this->soapMessage->addHeader('authToken', $this->_authToken);
         }
-        if(!empty($this->sessionId))
+        if(!empty($this->_sessionId))
         {
-            $this->soapMessage->addHeader('sessionId', $this->sessionId);
+            $this->soapMessage->addHeader('sessionId', $this->_sessionId);
         }
         $isJs = false;
-        if($this->format instanceof RequestFormat)
+        if($this->_format instanceof RequestFormat)
         {
-            $this->soapMessage->addHeader('format', $this->format->value());
-            if($this->format->is(RequestFormat::JS()))
+            $this->soapMessage->addHeader('format', $this->_format->value());
+            if($this->_format->is(RequestFormat::JS()))
             {
                 $isJs = true;
             }
