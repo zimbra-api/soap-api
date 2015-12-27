@@ -25,7 +25,7 @@ class DtTimeInfo extends Base
 {
     /**
      * Constructor method for DtTimeInfo
-     * @param string $d Date and/or time. Format is : YYYYMMDD['T'HHMMSS[Z]] 
+     * @param string $date Date and/or time. Format is : YYYYMMDD['T'HHMMSS[Z]] 
      * @param string $tz Java timezone identifier
      * @param int $u UTC time as milliseconds since the epoch. Set if non-all-day
      * @return self

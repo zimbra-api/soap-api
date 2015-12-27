@@ -40,7 +40,7 @@ class ExceptionRecurIdInfo extends Base
         }
         if(null !== $rangeType)
         {
-            $this->setProperty('rangeType', in_array((int) $rangeType, array(-1, 2, 3)) ? (int) $rangeType : null);
+            $this->setProperty('rangeType', in_array((int) $rangeType, [-1, 2, 3]) ? (int) $rangeType : null);
         }
     }
 
@@ -99,12 +99,12 @@ class ExceptionRecurIdInfo extends Base
     /**
      * Sets range type
      *
-     * @param  string $rangeType
+     * @param  int $rangeType
      * @return self
      */
     public function setRangeType($rangeType)
     {
-        return $this->setProperty('rangeType', trim($rangeType));
+        return $this->setProperty('rangeType', in_array((int) $rangeType, [-1, 2, 3]) ? (int) $rangeType : null);
     }
 
     /**

@@ -27,9 +27,9 @@ class ActionSelector extends Base
 {
     /**
      * Constructor method for AccountACEInfo
-     * @param EnumBase $op Operation
-     * @param string $id Comma separated list of item IDs to act on.
-     * @param string $tcon List of characters; constrains the set of affected items in a conversation
+     * @param EnumBase $operation Operation
+     * @param string $ids Comma separated list of item IDs to act on.
+     * @param string $constraint List of characters; constrains the set of affected items in a conversation
      * @param int    $tag Tag. Deprecated - use "tn" instead
      * @param string $folder Folder ID
      * @param string $rgb RGB color in format #rrggbb where r,g and b are hex digits
@@ -41,9 +41,9 @@ class ActionSelector extends Base
      * @return self
      */
     public function __construct(
-        EnumBase $op,
-        $id = null,
-        $tcon = null,
+        EnumBase $operation,
+        $ids = null,
+        $constraint = null,
         $tag = null,
         $folder = null,
         $rgb = null,
@@ -55,15 +55,19 @@ class ActionSelector extends Base
     )
     {
         parent::__construct();
-        $this->setProperty('op', $op);
+        $this->setProperty('op', $operation);
 
-        if(null !== $id)
+        if(null !== $ids)
         {
-            $this->setProperty('id', trim($id));
+            $this->setProperty('id', trim($ids));
         }
-        if(null !== $tcon)
+        if(null !== $constraint)
         {
-            $this->setProperty('tcon', trim($tcon));
+            $this->setProperty('tcon', trim($constraint));
+        }
+        if(null !== $tag)
+        {
+            $this->setProperty('tag', (int) $tag);
         }
         if(null !== $folder)
         {
@@ -72,10 +76,6 @@ class ActionSelector extends Base
         if(null !== $rgb && Text::isRgb(trim($rgb)))
         {
             $this->setProperty('rgb', trim($rgb));
-        }
-        if(null !== $tag)
-        {
-            $this->setProperty('tag', (int) $tag);
         }
         if(null !== $color)
         {

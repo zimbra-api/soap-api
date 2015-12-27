@@ -26,6 +26,7 @@ class GetAppointment extends Base
      * Constructor method for GetAppointment
      * @param  bool   $sync
      * @param  bool   $includeContent
+     * @param  bool   $includeInvites
      * @param  string $uid
      * @param  string $id
      * @return self
@@ -33,6 +34,7 @@ class GetAppointment extends Base
     public function __construct(
         $sync = null,
         $includeContent = null,
+        $includeInvites = null,
         $uid = null,
         $id = null
     )
@@ -40,86 +42,128 @@ class GetAppointment extends Base
         parent::__construct();
         if(null !== $sync)
         {
-            $this->property('sync', (bool) $sync);
+            $this->setProperty('sync', (bool) $sync);
         }
         if(null !== $includeContent)
         {
-            $this->property('includeContent', (bool) $includeContent);
+            $this->setProperty('includeContent', (bool) $includeContent);
+        }
+        if(null !== $includeInvites)
+        {
+            $this->setProperty('includeInvites', (bool) $includeInvites);
         }
         if(null !== $uid)
         {
-            $this->property('uid', trim($uid));
+            $this->setProperty('uid', trim($uid));
         }
         if(null !== $id)
         {
-            $this->property('id', trim($id));
+            $this->setProperty('id', trim($id));
         }
     }
 
     /**
-     * Get or set sync
-     * FlagSet this to return the modified date (md) on the appointment.
+     * Gets sync
+     *
+     * @return bool
+     */
+    public function getSync()
+    {
+        return $this->getProperty('sync');
+    }
+
+    /**
+     * Sets sync
      *
      * @param  bool $sync
-     * @return bool|self
+     * @return self
      */
-    public function sync($sync = null)
+    public function setSync($sync)
     {
-        if(null === $sync)
-        {
-            return $this->property('sync');
-        }
-        return $this->property('sync', (bool) $sync);
+        return $this->setProperty('sync', (bool) $sync);
     }
 
     /**
-     * Get or set includeContent
-     * SetIf set, MIME parts for body content are returned; default unset
+     * Gets include content
+     *
+     * @return bool
+     */
+    public function getIncludeContent()
+    {
+        return $this->getProperty('includeContent');
+    }
+
+    /**
+     * Sets include content
      *
      * @param  bool $includeContent
-     * @return bool|self
+     * @return self
      */
-    public function includeContent($includeContent = null)
+    public function setIncludeContent($includeContent)
     {
-        if(null === $includeContent)
-        {
-            return $this->property('includeContent');
-        }
-        return $this->property('includeContent', (bool) $includeContent);
+        return $this->setProperty('includeContent', (bool) $includeContent);
     }
 
     /**
-     * Get or set uid
-     * CommaiCalendar UID.
-     * Either id or uid should be specified, but not both
+     * Gets include invites
+     *
+     * @return bool
+     */
+    public function getIncludeInvites()
+    {
+        return $this->getProperty('includeInvites');
+    }
+
+    /**
+     * Sets include invites
+     *
+     * @param  bool $includeInvites
+     * @return self
+     */
+    public function setIncludeInvites($includeInvites)
+    {
+        return $this->setProperty('includeInvites', (bool) $includeInvites);
+    }
+
+    /**
+     * Gets iCalendar UID
+     *
+     * @return string
+     */
+    public function getUid()
+    {
+        return $this->getProperty('uid');
+    }
+
+    /**
+     * Sets iCalendar UID
      *
      * @param  string $uid
-     * @return string|self
+     * @return self
      */
-    public function uid($uid = null)
+    public function setUid($uid)
     {
-        if(null === $uid)
-        {
-            return $this->property('uid');
-        }
-        return $this->property('uid', trim($uid));
+        return $this->setProperty('uid', trim($uid));
     }
 
     /**
-     * Get or set id
-     * Appointment ID.
-     * Either id or uid should be specified, but not both
-     * @var string
+     * Gets appointment ID
+     *
+     * @return string
+     */
+    public function getId()
+    {
+        return $this->getProperty('id');
+    }
+
+    /**
+     * Sets appointment ID
      *
      * @param  string $id
-     * @return string|self
+     * @return self
      */
-    public function id($id = null)
+    public function setId($id)
     {
-        if(null === $id)
-        {
-            return $this->property('id');
-        }
-        return $this->property('id', trim($id));
+        return $this->setProperty('id', trim($id));
     }
 }

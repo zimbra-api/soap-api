@@ -31,12 +31,12 @@ class GetFreeBusy extends Base
      * To view free/busy for a single name in particular accounts, use these.
      * @var TypedSequence<FreeBusyUserSpec>
      */
-    private $_usr;
+    private $_freebusyUsers;
 
     /**
      * Constructor method for GetFolder
-     * @param  int $s
-     * @param  int $e
+     * @param  int $startTime
+     * @param  int $endTime
      * @param  string $uid
      * @param  string $id
      * @param  string $name
@@ -45,154 +45,202 @@ class GetFreeBusy extends Base
      * @return self
      */
     public function __construct(
-        $s,
-        $e,
+        $startTime,
+        $endTime,
         $uid = null,
         $id = null,
         $name = null,
         $excludeUid = null,
-        array $usr = array()
+        array $users = array()
     )
     {
         parent::__construct();
-        $this->property('s', (int) $s);
-        $this->property('e', (int) $e);
+        $this->setProperty('s', (int) $startTime);
+        $this->setProperty('endTime', (int) $endTime);
         if(null !== $uid)
         {
-            $this->property('uid', trim($uid));
+            $this->setProperty('uid', trim($uid));
         }
         if(null !== $id)
         {
-            $this->property('id', trim($id));
+            $this->setProperty('id', trim($id));
         }
         if(null !== $name)
         {
-            $this->property('name', trim($name));
+            $this->setProperty('name', trim($name));
         }
         if(null !== $excludeUid)
         {
-            $this->property('excludeUid', trim($excludeUid));
+            $this->setProperty('excludeUid', trim($excludeUid));
         }
-        $this->_usr = new TypedSequence('Zimbra\Mail\Struct\FreeBusyUserSpec', $usr);
+        $this->setFreebusyUsers($users);
 
         $this->on('before', function(Base $sender)
         {
-            if($sender->usr()->count())
+            if($sender->getFreebusyUsers()->count())
             {
-                $sender->child('usr', $sender->usr()->all());
+                $sender->setChild('usr', $sender->getFreebusyUsers()->all());
             }
         });
     }
 
     /**
-     * Get or set s
+     * Gets range start in milliseconds
      *
-     * @param  int $s
-     * @return int|self
+     * @return int
      */
-    public function s($s = null)
+    public function getStartTime()
     {
-        if(null === $s)
-        {
-            return $this->property('s');
-        }
-        return $this->property('s', (int) $s);
+        return $this->getProperty('s');
     }
 
     /**
-     * Get or set e
+     * Sets range start in milliseconds
      *
-     * @param  int $e
-     * @return int|self
-     */
-    public function e($e = null)
-    {
-        if(null === $e)
-        {
-            return $this->property('e');
-        }
-        return $this->property('e', (int) $e);
-    }
-
-    /**
-     * Gets or sets uid
-     *
-     * @param  string $uid
-     * @return string|self
-     */
-    public function uid($uid = null)
-    {
-        if(null === $uid)
-        {
-            return $this->property('uid');
-        }
-        return $this->property('uid', trim($uid));
-    }
-
-    /**
-     * Gets or sets id
-     *
-     * @param  string $id
-     * @return string|self
-     */
-    public function id($id = null)
-    {
-        if(null === $id)
-        {
-            return $this->property('id');
-        }
-        return $this->property('id', trim($id));
-    }
-
-    /**
-     * Gets or sets name
-     *
-     * @param  string $name
-     * @return string|self
-     */
-    public function name($name = null)
-    {
-        if(null === $name)
-        {
-            return $this->property('name');
-        }
-        return $this->property('name', trim($name));
-    }
-
-    /**
-     * Gets or sets excludeUid
-     *
-     * @param  string $excludeUid
-     * @return string|self
-     */
-    public function excludeUid($excludeUid = null)
-    {
-        if(null === $excludeUid)
-        {
-            return $this->property('excludeUid');
-        }
-        return $this->property('excludeUid', trim($excludeUid));
-    }
-
-    /**
-     * Add usr
-     *
-     * @param  FreeBusyUserSpec $usr
+     * @param  int $startTime
      * @return self
      */
-    public function addUsr(FreeBusyUserSpec $usr)
+    public function setStartTime($startTime)
     {
-        $this->_usr->add($usr);
+        return $this->setProperty('s', (int) $startTime);
+    }
+
+    /**
+     * Gets range end in milliseconds
+     *
+     * @return int
+     */
+    public function getEndTime()
+    {
+        return $this->getProperty('s');
+    }
+
+    /**
+     * Sets range end in milliseconds
+     *
+     * @param  int $endTime
+     * @return self
+     */
+    public function setEndTime($endTime)
+    {
+        return $this->setProperty('s', (int) $endTime);
+    }
+
+    /**
+     * Gets uid
+     *
+     * @return string
+     */
+    public function getUid()
+    {
+        return $this->getProperty('uid');
+    }
+
+    /**
+     * Sets uid
+     *
+     * @param  string $uid
+     * @return self
+     */
+    public function setUid($uid)
+    {
+        return $this->setProperty('uid', trim($uid));
+    }
+
+    /**
+     * Gets id
+     *
+     * @return string
+     */
+    public function getId()
+    {
+        return $this->getProperty('id');
+    }
+
+    /**
+     * Sets id
+     *
+     * @param  string $id
+     * @return self
+     */
+    public function setId($id)
+    {
+        return $this->setProperty('id', trim($id));
+    }
+
+    /**
+     * Gets name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->getProperty('name');
+    }
+
+    /**
+     * Sets name
+     *
+     * @param  string $name
+     * @return self
+     */
+    public function setName($name)
+    {
+        return $this->setProperty('name', trim($name));
+    }
+
+    /**
+     * Gets exclude uid
+     *
+     * @return string
+     */
+    public function getExcludeUid()
+    {
+        return $this->getProperty('excludeUid');
+    }
+
+    /**
+     * Sets exclude uid
+     *
+     * @param  string $excludeUid
+     * @return self
+     */
+    public function setExcludeUid($excludeUid)
+    {
+        return $this->setProperty('excludeUid', trim($excludeUid));
+    }
+
+    /**
+     * Add user spec
+     *
+     * @param  FreeBusyUserSpec $user
+     * @return self
+     */
+    public function addFreebusyUser(FreeBusyUserSpec $user)
+    {
+        $this->_freebusyUsers->add($user);
         return $this;
     }
 
     /**
-     * Gets filter rule sequence
+     * Sets user spec sequence
+     *
+     * @param  array $users
+     * @return self
+     */
+    public function setFreebusyUsers(array $users)
+    {
+        $this->_freebusyUsers = new TypedSequence('Zimbra\Mail\Struct\FreeBusyUserSpec', $users);
+        return $this;
+    }
+
+    /**
+     * Gets user spec sequence
      *
      * @return Sequence
      */
-    public function usr()
+    public function getFreebusyUsers()
     {
-        return $this->_usr;
+        return $this->_freebusyUsers;
     }
 }

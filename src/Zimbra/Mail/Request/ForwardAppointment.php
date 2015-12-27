@@ -28,99 +28,119 @@ class ForwardAppointment extends Base
 {
     /**
      * Constructor method for ForwardAppointment
-     * @param  DtTimeInfo $exceptId
-     * @param  CalTZInfo $tz
-     * @param  Msg $m
      * @param  string $id
+     * @param  DtTimeInfo $exceptionId
+     * @param  CalTZInfo $timezone
+     * @param  Msg $msg
      * @return self
      */
     public function __construct(
-        DtTimeInfo $exceptId = null,
-        CalTZInfo $tz = null,
-        Msg $m = null,
-        $id = null
+        $id = null,
+        DtTimeInfo $exceptionId = null,
+        CalTZInfo $timezone = null,
+        Msg $msg = null
     )
     {
         parent::__construct();
-        if($exceptId instanceof DtTimeInfo)
-        {
-            $this->child('exceptId', $exceptId);
-        }
-        if($tz instanceof CalTZInfo)
-        {
-            $this->child('tz', $tz);
-        }
-        if($m instanceof Msg)
-        {
-            $this->child('m', $m);
-        }
         if(null !== $id)
         {
-            $this->property('id', trim($id));
+            $this->setProperty('id', trim($id));
         }
-    }
-
-    /**
-     * Get or set exceptId
-     * RECURRENCE-ID information if forwarding a single instance of a recurring appointment
-     *
-     * @param  DtTimeInfo $exceptId
-     * @return DtTimeInfo|self
-     */
-    public function exceptId(DtTimeInfo $exceptId = null)
-    {
-        if(null === $exceptId)
+        if($exceptionId instanceof DtTimeInfo)
         {
-            return $this->child('exceptId');
+            $this->setChild('exceptId', $exceptionId);
         }
-        return $this->child('exceptId', $exceptId);
-    }
-
-    /**
-     * Get or set tz
-     * Definition for TZID referenced by DATETIME in <exceptId>
-     *
-     * @param  CalTZInfo $tz
-     * @return CalTZInfo|self
-     */
-    public function tz(CalTZInfo $tz = null)
-    {
-        if(null === $tz)
+        if($timezone instanceof CalTZInfo)
         {
-            return $this->child('tz');
+            $this->setChild('tz', $timezone);
         }
-        return $this->child('tz', $tz);
-    }
-
-    /**
-     * Get or set m
-     * Details of the appointment.
-     *
-     * @param  Msg $m
-     * @return Msg|self
-     */
-    public function m(Msg $m = null)
-    {
-        if(null === $m)
+        if($msg instanceof Msg)
         {
-            return $this->child('m');
+            $this->setChild('m', $msg);
         }
-        return $this->child('m', $m);
     }
 
     /**
-     * Get or set id
-     * Appointment item ID
+     * Gets appointment item ID
+     *
+     * @return string
+     */
+    public function getId()
+    {
+        return $this->getProperty('id');
+    }
+
+    /**
+     * Sets appointment item ID
      *
      * @param  string $id
-     * @return string|self
+     * @return self
      */
-    public function id($id = null)
+    public function setId($id)
     {
-        if(null === $id)
-        {
-            return $this->property('id');
-        }
-        return $this->property('id', trim($id));
+        return $this->setProperty('id', trim($id));
+    }
+
+    /**
+     * Gets exception Id
+     *
+     * @return DtTimeInfo
+     */
+    public function getExceptionId()
+    {
+        return $this->getChild('exceptId');
+    }
+
+    /**
+     * Sets exception Id
+     *
+     * @param  DtTimeInfo $exceptionId
+     * @return self
+     */
+    public function setExceptionId(DtTimeInfo $exceptionId)
+    {
+        return $this->setChild('exceptId', $exceptionId);
+    }
+
+    /**
+     * Gets timezone
+     *
+     * @return CalTZInfo
+     */
+    public function getTimezone()
+    {
+        return $this->getChild('tz');
+    }
+
+    /**
+     * Sets timezone
+     *
+     * @param  CalTZInfo $timezone
+     * @return self
+     */
+    public function setTimezone(CalTZInfo $timezone)
+    {
+        return $this->setChild('tz', $timezone);
+    }
+
+    /**
+     * Gets details of the appointment.
+     *
+     * @return Msg
+     */
+    public function getMsg()
+    {
+        return $this->getChild('m');
+    }
+
+    /**
+     * Sets details of the appointment.
+     *
+     * @param  Msg $msg
+     * @return self
+     */
+    public function setMsg(Msg $msg)
+    {
+        return $this->setChild('m', $msg);
     }
 }

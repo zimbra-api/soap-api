@@ -30,22 +30,27 @@ class ICalReply extends Base
     public function __construct($ical)
     {
         parent::__construct();
-        $this->child('ical', trim($ical));
+        $this->setChild('ical', trim($ical));
     }
 
     /**
-     * Gets or sets ical
-     * iCalendar text containing components with method REPLY
+     * Gets ical
+     *
+     * @return string
+     */
+    public function getIcal()
+    {
+        return $this->getChild('ical');
+    }
+
+    /**
+     * Sets ical
      *
      * @param  string $ical
-     * @return string|self
+     * @return self
      */
-    public function ical($ical = null)
+    public function setIcal($ical)
     {
-        if(null === $ical)
-        {
-            return $this->child('ical');
-        }
-        return $this->child('ical', trim($ical));
+        return $this->setChild('ical', trim($ical));
     }
 }

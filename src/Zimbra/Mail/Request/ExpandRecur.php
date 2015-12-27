@@ -32,150 +32,173 @@ class ExpandRecur extends Base
      * Timezones
      * @var TypedSequence<CalTZInfo>
      */
-    private $_tz;
+    private $_timezones;
 
     /**
-     * Constructor method for CheckRecurConflicts
-     * @param  int $s
+     * Components
+     * @var TypedSequence<ExpandedRecurrenceComponent>
+     */
+    private $_components;
+
+    /**
+     * Constructor method for ExpandRecur
+     * @param  int $startTime
      * @param  int $e
-     * @param  array $tz
-     * @param  ExpandedRecurrenceInvite $comp
-     * @param  ExpandedRecurrenceException $except
-     * @param  ExpandedRecurrenceCancel $cancel
+     * @param  array $timezones
+     * @param  array $components
      * @return self
      */
     public function __construct(
-        $s,
-        $e,
-        array $tz = array(),
-        ExpandedRecurrenceInvite $comp = null,
-        ExpandedRecurrenceException $except = null,
-        ExpandedRecurrenceCancel $cancel = null
+        $startTime,
+        $endTime,
+        array $timezones = array(),
+        array $components = array()
     )
     {
         parent::__construct();
-        $this->property('s', (int) $s);
-        $this->property('e', (int) $e);
+        $this->setProperty('s', (int) $startTime);
+        $this->setProperty('e', (int) $endTime);
 
-        $this->_tz = new TypedSequence('Zimbra\Mail\Struct\CalTZInfo', $tz);
-        if($comp instanceof ExpandedRecurrenceInvite)
-        {
-            $this->child('comp', $comp);
-        }
-        if($except instanceof ExpandedRecurrenceException)
-        {
-            $this->child('except', $except);
-        }
-        if($cancel instanceof ExpandedRecurrenceCancel)
-        {
-            $this->child('cancel', $cancel);
-        }
+        $this->setTimezones($timezones);
+        $this->setComponents($components);
 
         $this->on('before', function(Base $sender)
         {
-            if($sender->tz()->count())
+            if($sender->getTimezones()->count())
             {
-                $sender->child('tz', $sender->tz()->all());
+                $sender->setChild('tz', $sender->getTimezones()->all());
+            }
+
+            if($sender->getComponents()->count())
+            {
+                foreach ($sender->getComponents()->all() as $component)
+                {
+                    if($component instanceof ExpandedRecurrenceInvite)
+                    {
+                        $this->setChild('comp', $component);
+                    }
+                    if($component instanceof ExpandedRecurrenceException)
+                    {
+                        $this->setChild('except', $component);
+                    }
+                    if($component instanceof ExpandedRecurrenceCancel)
+                    {
+                        $this->setChild('cancel', $component);
+                    }
+                }
             }
         });
     }
 
     /**
-     * Gets or sets s
-     * End time in milliseconds
+     * Gets start time
      *
-     * @param  int $s
-     * @return int|self
+     * @return int
      */
-    public function s($s = null)
+    public function getStartTime()
     {
-        if(null === $s)
-        {
-            return $this->property('s');
-        }
-        return $this->property('s', (int) $s);
+        return $this->getProperty('startTime');
     }
 
     /**
-     * Gets or sets e
-     * Start time in milliseconds
+     * Sets start time
      *
-     * @param  int $e
-     * @return int|self
+     * @param  int $startTime
+     *    Start time in milliseconds
+     * @return self
      */
-    public function e($e = null)
+    public function setStartTime($startTime)
     {
-        if(null === $e)
-        {
-            return $this->property('e');
-        }
-        return $this->property('e', (int) $e);
+        return $this->setProperty('startTime', (int) $startTime);
     }
 
     /**
-     * Add tz
+     * Gets end time
+     *
+     * @return int
+     */
+    public function getEndTime()
+    {
+        return $this->getProperty('endTime');
+    }
+
+    /**
+     * Sets end time
+     *
+     * @param  int $endTime
+     *    End time in milliseconds
+     * @return self
+     */
+    public function setEndTime($endTime)
+    {
+        return $this->setProperty('endTime', (int) $endTime);
+    }
+
+    /**
+     * Add timezone
      *
      * @param  CalTZInfo $tz
      * @return self
      */
-    public function addTz(CalTZInfo $tz)
+    public function addTimezone(CalTZInfo $tz)
     {
-        $this->_tz->add($tz);
+        $this->_timezones->add($tz);
         return $this;
     }
 
     /**
-     * Gets tz sequence
+     * Sets timezone sequence
+     *
+     * @param  array $timezones
+     * @return self
+     */
+    public function setTimezones(array $timezones)
+    {
+        $this->_timezones = new TypedSequence('Zimbra\Mail\Struct\CalTZInfo', $timezones);
+        return $this;
+    }
+
+    /**
+     * Gets timezone sequence
      *
      * @return Sequence
      */
-    public function tz()
+    public function getTimezones()
     {
-        return $this->_tz;
+        return $this->_timezones;
     }
 
     /**
-     * Gets or sets comp
+     * Add component
      *
-     * @param  ExpandedRecurrenceInvite $comp
-     * @return ExpandedRecurrenceInvite|self
+     * @param  ExpandedRecurrenceComponent $component
+     * @return self
      */
-    public function comp(ExpandedRecurrenceInvite $comp = null)
+    public function addComponent(ExpandedRecurrenceComponent $component)
     {
-        if(null === $comp)
-        {
-            return $this->child('comp');
-        }
-        return $this->child('comp', $comp);
+        $this->_components->add($component);
+        return $this;
     }
 
     /**
-     * Gets or sets except
+     * Sets component sequence
      *
-     * @param  ExpandedRecurrenceException $except
-     * @return ExpandedRecurrenceException|self
+     * @param  array $components
+     * @return self
      */
-    public function except(ExpandedRecurrenceException $except = null)
+    public function setComponents(array $components)
     {
-        if(null === $except)
-        {
-            return $this->child('except');
-        }
-        return $this->child('except', $except);
+        $this->_components = new TypedSequence('Zimbra\Mail\Struct\ExpandedRecurrenceComponent', $components);
+        return $this;
     }
 
     /**
-     * Gets or sets cancel
+     * Gets component sequence
      *
-     * @param  ExpandedRecurrenceCancel $cancel
-     * @return ExpandedRecurrenceCancel|self
+     * @return Sequence
      */
-    public function cancel(ExpandedRecurrenceCancel $cancel = null)
+    public function getComponents()
     {
-        if(null === $cancel)
-        {
-            return $this->child('cancel');
-        }
-        return $this->child('cancel', $cancel);
+        return $this->_components;
     }
 }

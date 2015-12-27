@@ -28,69 +28,87 @@ class GetICal extends Base
     /**
      * Constructor method for GetICal
      * @param  string $id
-     * @param  int $s
-     * @param  int $e
+     * @param  int $startTime
+     * @param  int $endTime
      * @return self
      */
-    public function __construct($id = null, $s = null, $e = null)
+    public function __construct($id = null, $startTime = null, $endTime = null)
     {
         parent::__construct();
         if(null !== $id)
         {
-            $this->property('id', trim($id));
+            $this->setProperty('id', trim($id));
         }
-        if(null !== $s)
+        if(null !== $startTime)
         {
-            $this->property('s', (int) $s);
+            $this->setProperty('s', (int) $startTime);
         }
-        if(null !== $e)
+        if(null !== $endTime)
         {
-            $this->property('e', (int) $e);
+            $this->setProperty('e', (int) $endTime);
         }
     }
 
     /**
-     * Gets or sets id
+     * Gets id
+     *
+     * @return string
+     */
+    public function getId()
+    {
+        return $this->getProperty('id');
+    }
+
+    /**
+     * Sets id
      *
      * @param  string $id
-     * @return string|self
+     * @return self
      */
-    public function id($id = null)
+    public function setId($id)
     {
-        if(null === $id)
-        {
-            return $this->property('id');
-        }
-        return $this->property('id', trim($id));
+        return $this->setProperty('id', trim($id));
     }
 
     /**
-     * Get or set s
+     * Gets range start in milliseconds
      *
-     * @param  int $s
-     * @return int|self
+     * @return int
      */
-    public function s($s = null)
+    public function getStartTime()
     {
-        if(null === $s)
-        {
-            return $this->property('s');
-        }
-        return $this->property('s', (int) $s);
+        return $this->getProperty('s');
     }
 
     /**
-     * Get or set e
+     * Sets range start in milliseconds
      *
-     * @param  int $e
-     * @return int|self
+     * @param  int $startTime
+     * @return self
      */
-    public function e($e = null)
+    public function setStartTime($startTime)
     {
-        if(null === $e)
-        {
-            return $this->property('e');
-        }
-        return $this->property('e', (int) $e);
+        return $this->setProperty('s', (int) $startTime);
+    }
+
+    /**
+     * Gets range end in milliseconds
+     *
+     * @return int
+     */
+    public function getEndTime()
+    {
+        return $this->getProperty('s');
+    }
+
+    /**
+     * Sets range end in milliseconds
+     *
+     * @param  int $endTime
+     * @return self
+     */
+    public function setEndTime($endTime)
+    {
+        return $this->setProperty('s', (int) $endTime);
     }
 }

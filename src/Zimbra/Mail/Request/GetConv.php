@@ -27,28 +27,33 @@ class GetConv extends Base
 {
     /**
      * Constructor method for GetConv
-     * @param  ConversationSpec $c
+     * @param  ConversationSpec $conversation
      * @return self
      */
-    public function __construct(ConversationSpec $c)
+    public function __construct(ConversationSpec $conversation)
     {
         parent::__construct();
-        $this->child('c', $c);
+        $this->setChild('c', $conversation);
     }
 
     /**
-     * Get or set c
-     * Conversation specification
+     * Gets conversation specification
      *
-     * @param  ConversationSpec $c
-     * @return ConversationSpec|self
+     * @return ConversationSpec
      */
-    public function c(ConversationSpec $c = null)
+    public function getConversation()
     {
-        if(null === $c)
-        {
-            return $this->child('c');
-        }
-        return $this->child('c', $c);
+        return $this->getChild('c');
+    }
+
+    /**
+     * Sets conversation specification
+     *
+     * @param  ConversationSpec $conversation
+     * @return self
+     */
+    public function setConversation(ConversationSpec $conversation)
+    {
+        return $this->setChild('c', $conversation);
     }
 }

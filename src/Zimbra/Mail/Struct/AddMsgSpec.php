@@ -32,7 +32,7 @@ class AddMsgSpec extends Base
      * @param string $folder Folder pathname (starts with '/') or folder ID
      * @param bool   $noICal If set, then don't process iCal attachments. Default is unset.
      * @param int $dateReceived Time the message was originally received, in MILLISECONDS since the epoch
-     * @param string $aid Uploaded MIME body ID - ID of message uploaded via FileUploadServlet
+     * @param string $attachmentId Uploaded MIME body ID - ID of message uploaded via FileUploadServlet
      * @return self
      */
     public function __construct(
@@ -43,7 +43,7 @@ class AddMsgSpec extends Base
         $folder = null,
         $noICal = null,
         $dateReceived = null,
-        $aid = null
+        $attachmentId = null
     )
     {
         parent::__construct();
@@ -75,9 +75,9 @@ class AddMsgSpec extends Base
         {
             $this->setProperty('d', (int) $dateReceived);
         }
-        if(null !== $aid)
+        if(null !== $attachmentId)
         {
-            $this->setProperty('aid', trim($aid));
+            $this->setProperty('aid', trim($attachmentId));
         }
     }
 

@@ -25,50 +25,62 @@ class VerifyCode extends Base
 {
     /**
      * Constructor method for VerifyCode
-     * @param  string $a
+     * @param  string $address
      * @param  string $code
      * @return self
      */
-    public function __construct($a = null, $code = null)
+    public function __construct($address = null, $code = null)
     {
         parent::__construct();
-        if(null !== $a)
+        if(null !== $address)
         {
-            $this->property('a', trim($a));
+            $this->setProperty('a', trim($address));
         }
         if(null !== $code)
         {
-            $this->property('code', trim($code));
+            $this->setProperty('code', trim($code));
         }
     }
 
     /**
-     * Get or set a
+     * Gets address
      *
-     * @param  string $a
-     * @return string|self
+     * @return string
      */
-    public function a($a = null)
+    public function getAddress()
     {
-        if(null === $a)
-        {
-            return $this->property('a');
-        }
-        return $this->property('a', trim($a));
+        return $this->getProperty('a');
     }
 
     /**
-     * Get or set code
+     * Sets address
      *
-     * @param  string $code
-     * @return string|self
+     * @param  string $address
+     * @return self
      */
-    public function code($code = null)
+    public function setAddress($address)
     {
-        if(null === $code)
-        {
-            return $this->property('code');
-        }
-        return $this->property('code', trim($code));
+        return $this->setProperty('a', trim($address));
+    }
+
+    /**
+     * Gets verification code
+     *
+     * @return string
+     */
+    public function getVerificationCode()
+    {
+        return $this->getProperty('code');
+    }
+
+    /**
+     * Sets verification code
+     *
+     * @param  string $verificationCode
+     * @return self
+     */
+    public function setVerificationCode($verificationCode)
+    {
+        return $this->setProperty('code', trim($verificationCode));
     }
 }

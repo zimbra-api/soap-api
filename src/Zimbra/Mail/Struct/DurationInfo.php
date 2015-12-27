@@ -26,50 +26,50 @@ class DurationInfo extends Base
     /**
      * Constructor method for DurationInfo
      * @param  bool   $neg Set if the duration is negative.
-     * @param  int    $w Weeks component of the duration
-     * @param  int    $d Days component of the duration.
-     * @param  int    $h Hours component of the duration.
-     * @param  int    $m Minutes component of the duration.
-     * @param  int    $s Seconds component of the duration.
+     * @param  int    $weeks Weeks component of the duration
+     * @param  int    $days Days component of the duration.
+     * @param  int    $hours Hours component of the duration.
+     * @param  int    $minutes Minutes component of the duration.
+     * @param  int    $seconds Seconds component of the duration.
      * @param  string $related Specifies whether the alarm is related to the start of end. Valid values are : START|END
      * @param  int    $count Alarm repeat count
      * @return self
      */
     public function __construct(
-        $neg = null,
-        $w = null,
-        $d = null,
-        $h = null,
-        $m = null,
-        $s = null,
+        $negative = null,
+        $weeks = null,
+        $days = null,
+        $hours = null,
+        $minutes = null,
+        $seconds = null,
         $related = null,
         $count = null
     )
     {
         parent::__construct();
-        if(null !== $neg)
+        if(null !== $negative)
         {
-            $this->setProperty('neg', (bool) $neg);
+            $this->setProperty('neg', (bool) $negative);
         }
-        if(null !== $w)
+        if(null !== $weeks)
         {
-            $this->setProperty('w', (int) $w);
+            $this->setProperty('w', (int) $weeks);
         }
-        if(null !== $d)
+        if(null !== $days)
         {
-            $this->setProperty('d', (int) $d);
+            $this->setProperty('d', (int) $days);
         }
-        if(null !== $h)
+        if(null !== $hours)
         {
-            $this->setProperty('h', (int) $h);
+            $this->setProperty('h', (int) $hours);
         }
-        if(null !== $m)
+        if(null !== $minutes)
         {
-            $this->setProperty('m', (int) $m);
+            $this->setProperty('m', (int) $minutes);
         }
-        if(null !== $s)
+        if(null !== $seconds)
         {
-            $this->setProperty('s', (int) $s);
+            $this->setProperty('s', (int) $seconds);
         }
         if(null !== $related)
         {
@@ -94,12 +94,12 @@ class DurationInfo extends Base
     /**
      * Sets duration is negative
      *
-     * @param  bool $neg
+     * @param  bool $negative
      * @return self
      */
-    public function setDurationNegative($neg)
+    public function setDurationNegative($negative)
     {
-        return $this->setProperty('neg', (bool) $neg);
+        return $this->setProperty('neg', (bool) $negative);
     }
 
     /**
@@ -115,12 +115,12 @@ class DurationInfo extends Base
     /**
      * Sets weeks component
      *
-     * @param  int $w
+     * @param  int $weeks
      * @return self
      */
-    public function setWeeks($w)
+    public function setWeeks($weeks)
     {
-        return $this->setProperty('w', (int) $w);
+        return $this->setProperty('w', (int) $weeks);
     }
 
     /**
@@ -136,12 +136,12 @@ class DurationInfo extends Base
     /**
      * Sets days component
      *
-     * @param  int $d
+     * @param  int $days
      * @return self
      */
-    public function setDays($d)
+    public function setDays($days)
     {
-        return $this->setProperty('d', (int) $d);
+        return $this->setProperty('d', (int) $days);
     }
 
     /**
@@ -157,12 +157,12 @@ class DurationInfo extends Base
     /**
      * Sets hours component
      *
-     * @param  int $h
+     * @param  int $hours
      * @return self
      */
-    public function setHours($h)
+    public function setHours($hours)
     {
-        return $this->setProperty('h', (int) $h);
+        return $this->setProperty('h', (int) $hours);
     }
 
     /**
@@ -178,12 +178,12 @@ class DurationInfo extends Base
     /**
      * Sets minutes component
      *
-     * @param  int $m
+     * @param  int $minutes
      * @return self
      */
-    public function setMinutes($m)
+    public function setMinutes($minutes)
     {
-        return $this->setProperty('m', (int) $m);
+        return $this->setProperty('m', (int) $minutes);
     }
 
     /**
@@ -202,9 +202,9 @@ class DurationInfo extends Base
      * @param  int $s
      * @return self
      */
-    public function setSeconds($s)
+    public function setSeconds($seconds)
     {
-        return $this->setProperty('s', (int) $s);
+        return $this->setProperty('s', (int) $seconds);
     }
 
     /**
@@ -225,7 +225,7 @@ class DurationInfo extends Base
      */
     public function setRelated($related)
     {
-        if (in_array(trim($related), array('START', 'END')))
+        if (in_array(trim($related), ['START', 'END']))
         {
             $this->setProperty('related', trim($related));
         }

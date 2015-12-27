@@ -36,24 +36,28 @@ class DeclineCounterAppointment extends Base
         parent::__construct();
         if($m instanceof Msg)
         {
-            $this->child('m', $m);
+            $this->setChild('m', $m);
         }
     }
 
     /**
-     * Get or set m
-     * Details of the Decline Counter.
-     * Should have an <inv> which encodes an iCalendar DECLINECOUNTER object.
+     * Gets details of the Decline Counter
      *
-     * @param  Msg $m
-     * @return Msg|self
+     * @return Msg
      */
-    public function m(Msg $m = null)
+    public function getMsg()
     {
-        if(null === $m)
-        {
-            return $this->child('m');
-        }
-        return $this->child('m', $m);
+        return $this->getChild('m');
+    }
+
+    /**
+     * Sets details of the Decline Counter
+     *
+     * @param  Msg $msg
+     * @return self
+     */
+    public function setMsg(Msg $msg)
+    {
+        return $this->setChild('m', $msg);
     }
 }

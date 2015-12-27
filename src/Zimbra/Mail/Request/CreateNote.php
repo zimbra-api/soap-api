@@ -32,22 +32,27 @@ class CreateNote extends Base
     public function __construct(NewNoteSpec $note)
     {
         parent::__construct();
-        $this->child('note', $note);
+        $this->setChild('note', $note);
     }
 
     /**
-     * Get or set note
-     * New note specification.
+     * Gets note specification
+     *
+     * @return NewNoteSpec
+     */
+    public function getNote()
+    {
+        return $this->getChild('note');
+    }
+
+    /**
+     * Sets note specification
      *
      * @param  NewNoteSpec $note
-     * @return NewNoteSpec|self
+     * @return self
      */
-    public function note(NewNoteSpec $note = null)
+    public function setNote(NewNoteSpec $note)
     {
-        if(null === $note)
-        {
-            return $this->child('note');
-        }
-        return $this->child('note', $note);
+        return $this->setChild('note', $note);
     }
 }

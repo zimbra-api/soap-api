@@ -34,9 +34,9 @@ class CalendarAttendee extends Base
     /**
      * Constructor method for CalendarAttendee
      * @param array $xparams Non-standard parameters (XPARAMs)
-     * @param string $a Email address (without "MAILTO:")
+     * @param string $address Email address (without "MAILTO:")
      * @param string $url URL - has same value as {email-address}. 
-     * @param string $d Friendly name - "CN" in iCalendar
+     * @param string $displayName Friendly name - "CN" in iCalendar
      * @param string $sentBy iCalendar SENT-BY
      * @param string $dir iCalendar DIR - Reference to a directory entry associated with the calendar user. the setProperty.
      * @param string $lang iCalendar LANGUAGE - As defined in RFC5646 * (e.g. "en-US")
@@ -50,15 +50,15 @@ class CalendarAttendee extends Base
      * @return self
      */
     public function __construct(
-        $a = null,
+        $address = null,
         $url = null,
-        $d = null,
+        $displayName = null,
         $sentBy = null,
         $dir = null,
         $lang = null,
         $cutype = null,
         $role = null,
-        ParticipationStatus $ptst = null,
+        ParticipationStatus $partStat = null,
         $rsvp = null,
         $member = null,
         $delTo = null,
@@ -68,17 +68,17 @@ class CalendarAttendee extends Base
     {
         parent::__construct();
 
-        if(null !== $a)
+        if(null !== $address)
         {
-            $this->setProperty('a', trim($a));
+            $this->setProperty('a', trim($address));
         }
         if(null !== $url)
         {
             $this->setProperty('url', trim($url));
         }
-        if(null !== $d)
+        if(null !== $displayName)
         {
-            $this->setProperty('d', trim($d));
+            $this->setProperty('d', trim($displayName));
         }
         if(null !== $sentBy)
         {
@@ -100,9 +100,9 @@ class CalendarAttendee extends Base
         {
             $this->setProperty('role', trim($role));
         }
-        if($ptst instanceof ParticipationStatus)
+        if($partStat instanceof ParticipationStatus)
         {
-            $this->setProperty('ptst', $ptst);
+            $this->setProperty('ptst', $partStat);
         }
         if(null !== $rsvp)
         {

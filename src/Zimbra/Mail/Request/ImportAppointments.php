@@ -26,68 +26,82 @@ class ImportAppointments extends Base
 {
     /**
      * Constructor method for ImportAppointments
+     * @param  string $contentType
      * @param  ContentSpec $content
-     * @param  string $ct
-     * @param  string $l
+     * @param  string $folderId
      * @return self
      */
-    public function __construct(ContentSpec $content, $ct, $l = null)
+    public function __construct($contentType, ContentSpec $content, $folderId = null)
     {
         parent::__construct();
-        $this->child('content', $content);
-        $this->property('ct', trim($ct));
-        if(null !== $l)
+        $this->setProperty('ct', trim($contentType));
+        $this->setChild('content', $content);
+        if(null !== $folderId)
         {
-            $this->property('l', trim($l));
+            $this->setProperty('l', trim($folderId));
         }
     }
 
     /**
-     * Get or set content
-     * Content specification
+     * Gets content type
+     *
+     * @return string
+     */
+    public function getContentType()
+    {
+        return $this->getProperty('ct');
+    }
+
+    /**
+     * Sets content type
+     *
+     * @param  string $contentType
+     * @return self
+     */
+    public function setContentType($contentType)
+    {
+        return $this->setProperty('ct', trim($contentType));
+    }
+
+    /**
+     * Gets content specification
+     *
+     * @return ContentSpec
+     */
+    public function getContent()
+    {
+        return $this->getChild('content');
+    }
+
+    /**
+     * Sets content specification
      *
      * @param  ContentSpec $content
-     * @return ContentSpec|self
+     * @return self
      */
-    public function content(ContentSpec $content = null)
+    public function setContent(ContentSpec $content)
     {
-        if(null === $content)
-        {
-            return $this->child('content');
-        }
-        return $this->child('content', $content);
+        return $this->setChild('content', $content);
     }
 
     /**
-     * Get or set ct
-     * Content type
-     * Only currently supported content type is "text/calendar" (and its nickname "ics")
+     * Gets folder ID
      *
-     * @param  string $ct
-     * @return string|self
+     * @return string
      */
-    public function ct($ct = null)
+    public function getFolderId()
     {
-        if(null === $ct)
-        {
-            return $this->property('ct');
-        }
-        return $this->property('ct', trim($ct));
+        return $this->getProperty('l');
     }
 
     /**
-     * Gets or sets l
-     * Optional folder ID to import appointments into
+     * Sets folder ID
      *
-     * @param  string $l
-     * @return string|self
+     * @param  string $folderId
+     * @return self
      */
-    public function l($l = null)
+    public function setFolderId($folderId)
     {
-        if(null === $l)
-        {
-            return $this->property('l');
-        }
-        return $this->property('l', trim($l));
+        return $this->setProperty('l', trim($folderId));
     }
 }

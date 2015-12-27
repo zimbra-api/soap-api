@@ -35,22 +35,28 @@ class BounceMsg extends Base
     public function __construct(BounceMsgSpec $m)
     {
         parent::__construct();
-        $this->child('m', $m);
+        $this->setChild('m', $m);
     }
 
     /**
-     * Get or set m
-     * Specification of message to be resent
+     * Gets message
+     *
+     * @return BounceMsgSpec
+     */
+    public function getMsg()
+    {
+        return $this->getChild('m');
+    }
+
+    /**
+     * Sets message
      *
      * @param  BounceMsgSpec $m
-     * @return BounceMsgSpec|self
+     *     Specification of message to be resent
+     * @return self
      */
-    public function m(BounceMsgSpec $m = null)
+    public function setMsg(BounceMsgSpec $m)
     {
-        if(null === $m)
-        {
-            return $this->child('m');
-        }
-        return $this->child('m', $m);
+        return $this->setChild('m', $m);
     }
 }

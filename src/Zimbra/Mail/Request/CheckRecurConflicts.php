@@ -35,235 +35,281 @@ class CheckRecurConflicts extends Base
      * Timezones
      * @var TypedSequence<CalTZInfo>
      */
-    private $_tz;
+    private $_timezones;
+
+    /**
+     * Expanded recurrences
+     * @var TypedSequence<ExpandedRecurrenceComponent>
+     */
+    private $_components;
 
     /**
      * Freebusy user specifications
      * @var TypedSequence<FreeBusyUserSpec>
      */
-    private $_usr;
+    private $_freebusyUsers;
 
     /**
      * Constructor method for CheckRecurConflicts
-     * @param  array $tz
-     * @param  ExpandedRecurrenceCancel $cancel
-     * @param  ExpandedRecurrenceInvite $comp
-     * @param  ExpandedRecurrenceException $except
-     * @param  array $usr
      * @param  int $s
      * @param  int $e
      * @param  bool $all
      * @param  string $excludeUid
+     * @param  array $timezones
+     * @param  array $timezones
+     * @param  array $users
      * @return self
      */
     public function __construct(
-        array $tz = array(),
-        ExpandedRecurrenceCancel $cancel = null,
-        ExpandedRecurrenceInvite $comp = null,
-        ExpandedRecurrenceException $except = null,
-        array $usr = array(),
         $s = null,
         $e = null,
         $all = null,
-        $excludeUid = null
+        $excludeUid = null,
+        array $timezones = [],
+        array $component = [],
+        array $users = []
     )
     {
         parent::__construct();
-        $this->_tz = new TypedSequence('Zimbra\Mail\Struct\CalTZInfo', $tz);
-        if($cancel instanceof ExpandedRecurrenceCancel)
-        {
-            $this->child('cancel', $cancel);
-        }
-        if($comp instanceof ExpandedRecurrenceInvite)
-        {
-            $this->child('comp', $comp);
-        }
-        if($except instanceof ExpandedRecurrenceException)
-        {
-            $this->child('except', $except);
-        }
-        $this->_usr = new TypedSequence('Zimbra\Mail\Struct\FreeBusyUserSpec', $usr);
         if(null !== $s)
         {
-            $this->property('s', (int) $s);
+            $this->setProperty('s', (int) $s);
         }
         if(null !== $e)
         {
-            $this->property('e', (int) $e);
+            $this->setProperty('e', (int) $e);
         }
         if(null !== $all)
         {
-            $this->property('all', (bool) $all);
+            $this->setProperty('all', (bool) $all);
         }
         if(null !== $excludeUid)
         {
-            $this->property('excludeUid', trim($excludeUid));
+            $this->setProperty('excludeUid', trim($excludeUid));
         }
 
+        $this->setTimezones($timezones)
+            ->setComponents($component);
+            ->setFreebusyUsers($users);
         $this->on('before', function(Base $sender)
         {
-            if($sender->tz()->count())
+            if($sender->getTimezones()->count())
             {
-                $sender->child('tz', $sender->tz()->all());
+                $sender->setChild('tz', $sender->getTimezones()->all());
             }
-            if($sender->usr()->count())
+            if($sender->getComponents()->count())
             {
-                $sender->child('usr', $sender->usr()->all());
+                foreach ($sender->getComponents()->all() as $component)
+                {
+                    if($component instanceof ExpandedRecurrenceCancel)
+                    {
+                        $this->setChild('cancel', $component);
+                    }
+                    if($component instanceof ExpandedRecurrenceInvite)
+                    {
+                        $this->setChild('comp', $component);
+                    }
+                    if($component instanceof ExpandedRecurrenceException)
+                    {
+                        $this->setChild('except', $component);
+                    }
+                }
+            }
+            if($sender->getFreebusyUsers()->count())
+            {
+                $sender->setChild('usr', $sender->getFreebusyUsers()->all());
             }
         });
     }
 
     /**
-     * Add tz
+     * Add timezone
      *
      * @param  CalTZInfo $tz
      * @return self
      */
-    public function addTz(CalTZInfo $tz)
+    public function addTimezone(CalTZInfo $tz)
     {
-        $this->_tz->add($tz);
+        $this->_timezones->add($tz);
         return $this;
     }
 
     /**
-     * Gets tz sequence
+     * Sets timezone sequence
+     *
+     * @param  array $timezones
+     * @return self
+     */
+    public function setTimezones(array $timezones)
+    {
+        $this->_timezones = new TypedSequence('Zimbra\Mail\Struct\CalTZInfo', $timezones);
+        return $this;
+    }
+
+    /**
+     * Gets timezone sequence
      *
      * @return Sequence
      */
-    public function tz()
+    public function getTimezones()
     {
-        return $this->_tz;
+        return $this->_timezones;
     }
 
     /**
-     * Gets or sets cancel
+     * Add expanded recurrence
      *
-     * @param  ExpandedRecurrenceCancel $cancel
-     * @return ExpandedRecurrenceCancel|self
+     * @param  FreeBusyUserSpec $tz
+     * @return self
      */
-    public function cancel(ExpandedRecurrenceCancel $cancel = null)
+    public function addComponent(FreeBusyUserSpec $tz)
     {
-        if(null === $cancel)
-        {
-            return $this->child('cancel');
-        }
-        return $this->child('cancel', $cancel);
+        $this->_components->add($tz);
+        return $this;
     }
 
     /**
-     * Gets or sets comp
+     * Sets expanded recurrence sequence
      *
-     * @param  ExpandedRecurrenceInvite $comp
-     * @return ExpandedRecurrenceInvite|self
+     * @param  array $components
+     * @return self
      */
-    public function comp(ExpandedRecurrenceInvite $comp = null)
+    public function setComponents(array $components)
     {
-        if(null === $comp)
-        {
-            return $this->child('comp');
-        }
-        return $this->child('comp', $comp);
+        $this->_components = new TypedSequence('Zimbra\Mail\Struct\FreeBusyUserSpec', $components);
+        return $this;
     }
 
     /**
-     * Gets or sets except
+     * Gets expanded recurrence sequence
      *
-     * @param  ExpandedRecurrenceException $except
-     * @return ExpandedRecurrenceException|self
+     * @return Sequence
      */
-    public function except(ExpandedRecurrenceException $except = null)
+    public function getComponents()
     {
-        if(null === $except)
-        {
-            return $this->child('except');
-        }
-        return $this->child('except', $except);
+        return $this->_components;
     }
 
     /**
-     * Add usr
+     * Add freebusy user
      *
      * @param  FreeBusyUserSpec $usr
      * @return self
      */
-    public function addUsr(FreeBusyUserSpec $usr)
+    public function addFreebusyUser(FreeBusyUserSpec $usr)
     {
-        $this->_usr->add($usr);
+        $this->_freebusyUsers->add($usr);
         return $this;
     }
 
     /**
-     * Gets usr sequence
+     * Sets freebusy user sequence
+     *
+     * @param  array $users
+     * @return self
+     */
+    public function setFreebusyUsers(array $users)
+    {
+        $this->_freebusyUsers = new TypedSequence('Zimbra\Mail\Struct\FreeBusyUserSpec', $users);
+        return $this;
+    }
+
+    /**
+     * Gets freebusy user sequence
      *
      * @return Sequence
      */
-    public function usr()
+    public function getFreebusyUsers()
     {
-        return $this->_usr;
+        return $this->_freebusyUsers;
     }
 
     /**
-     * Gets or sets s
-     * Start time in millis. If not specified, defaults to current time
+     * Gets start time in millis
+     *
+     * @return int
+     */
+    public function getStartTime()
+    {
+        return $this->getProperty('s');
+    }
+
+    /**
+     * Sets start time in millis
      *
      * @param  int $s
-     * @return int|self
+     *     If not specified, defaults to current time
+     * @return self
      */
-    public function s($s = null)
+    public function setStartTime($s)
     {
-        if(null === $s)
-        {
-            return $this->property('s');
-        }
-        return $this->property('s', (int) $s);
+        return $this->setProperty('s', (int) $s);
     }
 
     /**
-     * Gets or sets e
-     * End time in millis. If not specified, unlimited
+     * Gets end time in millis
+     *
+     * @return int
+     */
+    public function getEndTime()
+    {
+        return $this->getProperty('e');
+    }
+
+    /**
+     * Sets end time in millis
      *
      * @param  int $e
-     * @return int|self
+     *     If not specified, unlimited
+     * @return self
      */
-    public function e($e = null)
+    public function setEndTime($e)
     {
-        if(null === $e)
-        {
-            return $this->property('e');
-        }
-        return $this->property('e', (int) $e);
+        return $this->setProperty('e', (int) $e);
     }
 
     /**
-     * Gets or sets all
-     * Set this to get all instances, even those without conflicts.
-     * By default only instances that have conflicts are returned.
+     * Gets all
+     *
+     * @return bool
+     */
+    public function getAllInstances()
+    {
+        return $this->getProperty('all');
+    }
+
+    /**
+     * Sets all
      *
      * @param  bool $all
-     * @return bool|self
+     *     Set this to get all instances, even those without conflicts.
+     *     By default only instances that have conflicts are returned.
+     * @return self
      */
-    public function all($all = null)
+    public function setAllInstances($all)
     {
-        if(null === $all)
-        {
-            return $this->property('all');
-        }
-        return $this->property('all', (bool) $all);
+        return $this->setProperty('all', (bool) $all);
     }
 
     /**
-     * Gets or sets excludeUid
-     * UID of appointment to exclude from free/busy search
+     * Gets exclude uid
+     *
+     * @return string
+     */
+    public function getExcludeUid()
+    {
+        return $this->getProperty('excludeUid');
+    }
+
+    /**
+     * Sets exclude uid
      *
      * @param  string $excludeUid
-     * @return string|self
+     *     UID of appointment to exclude from free/busy search
+     * @return self
      */
-    public function excludeUid($excludeUid = null)
+    public function setExcludeUid($excludeUid)
     {
-        if(null === $excludeUid)
-        {
-            return $this->property('excludeUid');
-        }
-        return $this->property('excludeUid', trim($excludeUid));
+        return $this->setProperty('excludeUid', trim($excludeUid));
     }
 }

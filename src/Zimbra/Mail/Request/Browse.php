@@ -34,63 +34,81 @@ class Browse extends Base
     public function __construct(BrowseBy $browseBy, $regex = null, $maxToReturn = null)
     {
         parent::__construct();
-        $this->property('browseBy', $browseBy);
+        $this->setProperty('browseBy', $browseBy);
         if(null !== $regex)
         {
-            $this->property('regex', trim($regex));
+            $this->setProperty('regex', trim($regex));
         }
         if(null !== $maxToReturn)
         {
-            $this->property('maxToReturn', (int) $maxToReturn);
+            $this->setProperty('maxToReturn', (int) $maxToReturn);
         }
     }
 
     /**
-     * Get or set browseBy
-     * Browse by setting - domains|attachments|objects
+     * Gets browse by setting
+     *
+     * @return BrowseBy
+     */
+    public function getBrowseBy()
+    {
+        return $this->getProperty('browseBy');
+    }
+
+    /**
+     * Sets browse by setting
      *
      * @param  BrowseBy $browseBy
-     * @return BrowseBy|self
+     *     Browse by setting - domains|attachments|objects
+     * @return self
      */
-    public function browseBy(BrowseBy $browseBy = null)
+    public function setBrowseBy(BrowseBy $browseBy)
     {
-        if(null === $browseBy)
-        {
-            return $this->property('browseBy');
-        }
-        return $this->property('browseBy', $browseBy);
+        return $this->setProperty('browseBy', $browseBy);
     }
 
     /**
-     * Get or set regex
-     * Regex string. Return only those results which match the specified regular expression
+     * Gets regex string
+     *
+     * @return string
+     */
+    public function getRegex()
+    {
+        return $this->getProperty('regex');
+    }
+
+    /**
+     * Sets regex string
      *
      * @param  string $regex
-     * @return string|self
+     *     Regex string. Return only those results which match the specified regular expression
+     * @return self
      */
-    public function regex($regex = null)
+    public function setRegex($regex)
     {
-        if(null === $regex)
-        {
-            return $this->property('regex');
-        }
-        return $this->property('regex', trim($regex));
+        return $this->setProperty('regex', trim($regex));
     }
 
     /**
-     * Get or set maxToReturn
-     * Return only a maximum number of entries as requested.
-     * If more than {max-entries} results exist, the server will return the first {max-entries}, sorted by frequency
+     * Gets max entries
+     *
+     * @return int
+     */
+    public function getMax()
+    {
+        return $this->getProperty('maxToReturn');
+    }
+
+    /**
+     * Sets max entries
      *
      * @param  int $maxToReturn
-     * @return int|self
+     *     Return only a maximum number of entries as requested.
+     *     If more than {max-entries} results exist, the server will return the first {max-entries}, sorted by frequency
+     * @return self
      */
-    public function maxToReturn($maxToReturn = null)
+    public function setMax($maxToReturn)
     {
-        if(null === $maxToReturn)
-        {
-            return $this->property('maxToReturn');
-        }
-        return $this->property('maxToReturn', (int) $maxToReturn);
+        return $this->setProperty('maxToReturn', (int) $maxToReturn);
     }
 }

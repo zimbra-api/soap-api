@@ -10,6 +10,7 @@
 
 namespace Zimbra\Mail\Request;
 
+use Zimbra\Enum\VerbType;
 use Zimbra\Mail\Struct\DtTimeInfo;
 use Zimbra\Mail\Struct\CalTZInfo;
 use Zimbra\Mail\Struct\Msg;
@@ -30,180 +31,218 @@ class SendInviteReply extends Base
      * Constructor method for MailSearchParams
      * @param  string $id
      * @param  int $compNum
-     * @param  string $verb
-     * @param  DtTimeInfo $exceptId
-     * @param  CalTZInfo $tz
-     * @param  Msg $m
+     * @param  VerbType $verb
      * @param  bool $updateOrganizer
-     * @param  string $idnt
+     * @param  string $identityId
+     * @param  DtTimeInfo $exceptionId
+     * @param  CalTZInfo $timezone
+     * @param  Msg $msg
      * @return self
      */
     public function __construct(
         $id,
         $compNum,
-        $verb,
-        DtTimeInfo $exceptId = null,
-        CalTZInfo $tz = null,
-        Msg $m = null,
+        VerbType $verb,
         $updateOrganizer = null,
-        $idnt = null
+        $identityId = null,
+        DtTimeInfo $exceptionId = null,
+        CalTZInfo $timezone = null,
+        Msg $msg = null
     )
     {
         parent::__construct();
-        $this->property('id', trim($id));
-        $this->property('compNum', (int) $compNum);
-        $this->property('verb', trim($verb));
-        if($exceptId instanceof DtTimeInfo)
-        {
-            $this->child('exceptId', $exceptId);
-        }
-        if($tz instanceof CalTZInfo)
-        {
-            $this->child('tz', $tz);
-        }
-        if($m instanceof Msg)
-        {
-            $this->child('m', $m);
-        }
+        $this->setProperty('id', trim($id));
+        $this->setProperty('compNum', (int) $compNum);
+        $this->setProperty('verb', trim($verb));
         if(null !== $updateOrganizer)
         {
-            $this->property('updateOrganizer', (bool) $updateOrganizer);
+            $this->setProperty('updateOrganizer', (bool) $updateOrganizer);
         }
-        if(null !== $idnt)
+        if(null !== $identityId)
         {
-            $this->property('idnt', trim($idnt));
+            $this->setProperty('idnt', trim($identityId));
+        }
+        if($exceptionId instanceof DtTimeInfo)
+        {
+            $this->setChild('exceptId', $exceptionId);
+        }
+        if($timezone instanceof CalTZInfo)
+        {
+            $this->setChild('tz', $timezone);
+        }
+        if($msg instanceof Msg)
+        {
+            $this->setChild('m', $msg);
         }
     }
 
     /**
-     * Get or set id
-     * Unique ID of the invite (and component therein) you are replying to
+     * Gets Id
+     *
+     * @return string
+     */
+    public function getId()
+    {
+        return $this->getProperty('id');
+    }
+
+    /**
+     * Sets Id
      *
      * @param  string $id
-     * @return string|self
+     * @return self
      */
-    public function id($id = null)
+    public function setId($id)
     {
-        if(null === $id)
-        {
-            return $this->property('id');
-        }
-        return $this->property('id', trim($id));
+        return $this->setProperty('id', trim($id));
     }
 
     /**
-     * Gets or sets compNum
-     * Component number of the invite
+     * Gets component number of the invite
      *
-     * @param  int $compNum
-     * @return int|self
+     * @return bool
      */
-    public function compNum($compNum = null)
+    public function getComponentNum()
     {
-        if(null === $compNum)
-        {
-            return $this->property('compNum');
-        }
-        return $this->property('compNum', (int) $compNum);
+        return $this->getProperty('compNum');
     }
 
     /**
-     * Get or set verb
+     * Sets component number of the invite
+     *
+     * @param  bool $componentNum
+     * @return self
+     */
+    public function setComponentNum($componentNum)
+    {
+        return $this->setProperty('compNum', (bool) $componentNum);
+    }
+
+    /**
+     * Gets verb
      * Verb - ACCEPT, DECLINE, TENTATIVE, COMPLETED, DELEGATED (Completed/Delegated are NOT supported as of 9/12/2005)
      *
-     * @param  string $verb
-     * @return string|self
+     * @return VerbType
      */
-    public function verb($verb = null)
+    public function getVerb()
     {
-        if(null === $verb)
-        {
-            return $this->property('verb');
-        }
-        return $this->property('verb', trim($verb));
+        return $this->getProperty('verb');
     }
 
     /**
-     * Get or set exceptId
-     * If supplied then reply to just one instance of the specified Invite (default is all instances)
+     * Sets verb
+     * Verb - ACCEPT, DECLINE, TENTATIVE, COMPLETED, DELEGATED (Completed/Delegated are NOT supported as of 9/12/2005)
      *
-     * @param  DtTimeInfo $exceptId
-     * @return DtTimeInfo|self
+     * @param  VerbType $verb
+     * @return self
      */
-    public function exceptId(DtTimeInfo $exceptId = null)
+    public function setVerb(VerbType $verb)
     {
-        if(null === $exceptId)
-        {
-            return $this->child('exceptId');
-        }
-        return $this->child('exceptId', $exceptId);
+        return $this->setProperty('verb', $verb);
     }
 
     /**
-     * Get or set tz
-     * Definition for TZID referenced by DATETIME in <exceptId>
+     * Gets update organizer
      *
-     * @param  CalTZInfo $tz
-     * @return CalTZInfo|self
+     * @return bool
      */
-    public function tz(CalTZInfo $tz = null)
+    public function getUpdateOrganizer()
     {
-        if(null === $tz)
-        {
-            return $this->child('tz');
-        }
-        return $this->child('tz', $tz);
+        return $this->getProperty('updateOrganizer');
     }
 
     /**
-     * Get or set m
-     * Embedded message, if the user wants to send a custom update message.
-     * The client is responsible for setting the message recipient list in this case
-     * (which should include Organizer, if the client wants to tell the organizer about this response)
-     *
-     * @param  Msg $m
-     * @return Msg|self
-     */
-    public function m(Msg $m = null)
-    {
-        if(null === $m)
-        {
-            return $this->child('m');
-        }
-        return $this->child('m', $m);
-    }
-
-    /**
-     * Get or set updateOrganizer
-     * Update organizer. Set by default.
-     * If unset then only make the update locally.
-     * This parameter has no effect if an <m> element is present.
+     * Sets update organizer
      *
      * @param  bool $updateOrganizer
-     * @return bool|self
+     * @return self
      */
-    public function updateOrganizer($updateOrganizer = null)
+    public function setUpdateOrganizer($updateOrganizer)
     {
-        if(null === $updateOrganizer)
-        {
-            return $this->property('updateOrganizer');
-        }
-        return $this->property('updateOrganizer', (bool) $updateOrganizer);
+        return $this->setProperty('updateOrganizer', (bool) $updateOrganizer);
     }
 
     /**
-     * Get or set idnt
-     * Identity ID to use to send reply
+     * Gets identity Id
      *
-     * @param  string $idnt
-     * @return string|self
+     * @return string
      */
-    public function idnt($idnt = null)
+    public function getIdentityId()
     {
-        if(null === $idnt)
-        {
-            return $this->property('idnt');
-        }
-        return $this->property('idnt', trim($idnt));
+        return $this->getProperty('idnt');
+    }
+
+    /**
+     * Sets identity Id
+     *
+     * @param  string $identityId
+     * @return self
+     */
+    public function setIdentityId($identityId)
+    {
+        return $this->setProperty('idnt', trim($identityId));
+    }
+
+    /**
+     * Gets exception id
+     *
+     * @return DtTimeInfo
+     */
+    public function getExceptionId()
+    {
+        return $this->getChild('exceptId');
+    }
+
+    /**
+     * Sets exception id
+     *
+     * @param  DtTimeInfo $exceptionId
+     * @return self
+     */
+    public function setExceptionId(DtTimeInfo $exceptionId)
+    {
+        return $this->setChild('exceptId', $exceptionId);
+    }
+
+    /**
+     * Gets timezone
+     *
+     * @return CalTZInfo
+     */
+    public function getTimezone()
+    {
+        return $this->getChild('tz');
+    }
+
+    /**
+     * Sets timezone
+     *
+     * @param  CalTZInfo $timezone
+     * @return self
+     */
+    public function setTimezone(CalTZInfo $timezone)
+    {
+        return $this->setChild('tz', $timezone);
+    }
+
+    /**
+     * Gets embedded message
+     *
+     * @return Msg
+     */
+    public function getMsg()
+    {
+        return $this->getChild('m');
+    }
+
+    /**
+     * Sets embedded message
+     *
+     * @param  Msg $msg
+     * @return self
+     */
+    public function setMsg(Msg $msg)
+    {
+        return $this->setChild('m', $msg);
     }
 }

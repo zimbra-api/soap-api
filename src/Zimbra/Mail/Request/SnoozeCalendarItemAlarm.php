@@ -10,6 +10,7 @@
 
 namespace Zimbra\Mail\Request;
 
+use Zimbra\Mail\Struct\SnoozeAlarm;
 use Zimbra\Mail\Struct\SnoozeAppointmentAlarm;
 use Zimbra\Mail\Struct\SnoozeTaskAlarm;
 
@@ -26,54 +27,70 @@ use Zimbra\Mail\Struct\SnoozeTaskAlarm;
 class SnoozeCalendarItemAlarm extends Base
 {
     /**
+     * Details of alarms.
+     * @var TypedSequence<SnoozeAlarm>
+     */
+    private $_alarms;
+
+    /**
      * Constructor method for SnoozeCalendarItemAlarm
-     * @param  SnoozeAppointmentAlarm $appt
-     * @param  SnoozeTaskAlarm $task
+     * @param  array $alarms
      * @return self
      */
-    public function __construct(
-        SnoozeAppointmentAlarm $appt = null,
-        SnoozeTaskAlarm $task = null
-    )
+    public function __construct(array $alarms = [])
     {
         parent::__construct();
-        if($appt instanceof SnoozeAppointmentAlarm)
+        $this->_alarms = new TypedSequence('Zimbra\Mail\Struct\SnoozeAlarm', $alarms);
+        $this->on('before', function(Base $sender)
         {
-            $this->child('appt', $appt);
-        }
-        if($task instanceof SnoozeTaskAlarm)
-        {
-            $this->child('task', $task);
-        }
+            if($sender->getAlarms()->count())
+            {
+                foreach ($sender->getAlarms()->all() as $alarm)
+                {
+                    if($alarm instanceof SnoozeAppointmentAlarm)
+                    {
+                        $this->setChild('appt', $alarm);
+                    }
+                    if($alarm instanceof SnoozeTaskAlarm)
+                    {
+                        $this->setChild('task', $alarm);
+                    }
+                }
+            }
+        });
     }
 
     /**
-     * Get or set appt
+     * Add an alarm
      *
-     * @param  SnoozeAppointmentAlarm $appt
-     * @return SnoozeAppointmentAlarm|self
+     * @param  SnoozeAlarm $alarm
+     * @return self
      */
-    public function appt(SnoozeAppointmentAlarm $appt = null)
+    public function addAlarm(SnoozeAlarm $alarm)
     {
-        if(null === $appt)
-        {
-            return $this->child('appt');
-        }
-        return $this->child('appt', $appt);
+        $this->_alarms->add($alarm);
+        return $this;
     }
 
     /**
-     * Get or set task
+     * Sets alarms
      *
-     * @param  SnoozeTaskAlarm $task
-     * @return SnoozeTaskAlarm|self
+     * @param  array $alarms
+     * @return self
      */
-    public function task(SnoozeTaskAlarm $task = null)
+    public function setAlarms(array $alarms)
     {
-        if(null === $task)
-        {
-            return $this->child('task');
-        }
-        return $this->child('task', $task);
+        $this->_alarms = new TypedSequence('Zimbra\Mail\Struct\SnoozeAlarm', $alarms);
+        return $this;
+    }
+
+    /**
+     * Gets alarms
+     *
+     * @return Sequence
+     */
+    public function getAlarms()
+    {
+        return $this->_alarms;
     }
 }

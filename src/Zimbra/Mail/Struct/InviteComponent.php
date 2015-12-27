@@ -84,7 +84,7 @@ class InviteComponent extends InviteComponentCommon
      * @param string $x_uid
      * @param string $uid
      * @param int    $seq
-     * @param int    $d
+     * @param int    $date
      * @param string $calItemId
      * @param string $apptId
      * @param string $ciFolder
@@ -131,7 +131,7 @@ class InviteComponent extends InviteComponentCommon
         $x_uid = null,
         $uid = null,
         $seq = null,
-        $d = null,
+        $date = null,
         $calItemId = null,
         $apptId = null,
         $ciFolder = null,
@@ -179,7 +179,7 @@ class InviteComponent extends InviteComponentCommon
             $x_uid,
             $uid,
             $seq,
-            $d,
+            $date,
             $calItemId,
             $apptId,
             $ciFolder,

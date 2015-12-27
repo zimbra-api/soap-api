@@ -41,21 +41,27 @@ class SaveDocument extends Base
     public function __construct(DocumentSpec $doc)
     {
         parent::__construct();
-        $this->child('doc', $doc);
+        $this->setChild('doc', $doc);
     }
 
     /**
-     * Get or set doc
+     * Gets document specification
+     *
+     * @return DocumentSpec
+     */
+    public function getDoc()
+    {
+        return $this->getChild('doc');
+    }
+
+    /**
+     * Sets document specification
      *
      * @param  DocumentSpec $doc
-     * @return DocumentSpec|self
+     * @return self
      */
-    public function doc(DocumentSpec $doc = null)
+    public function setDoc(DocumentSpec $doc)
     {
-        if(null === $doc)
-        {
-            return $this->child('doc');
-        }
-        return $this->child('doc', $doc);
+        return $this->setChild('doc', $doc);
     }
 }

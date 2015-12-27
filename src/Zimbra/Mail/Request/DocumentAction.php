@@ -32,23 +32,27 @@ class DocumentAction extends Base
     public function __construct(DocumentActionSelector $action)
     {
         parent::__construct();
-        $this->child('action', $action);
+        $this->setChild('action', $action);
     }
 
     /**
-     * Get or set action
-     * Document action selector.
-     * Document specific operations : watch|!watch|grant|!grant.
+     * Gets document specific operations
+     *
+     * @return DocumentActionSelector
+     */
+    public function getAction()
+    {
+        return $this->getChild('action');
+    }
+
+    /**
+     * Sets document specific operations
      *
      * @param  DocumentActionSelector $action
-     * @return DocumentActionSelector|self
+     * @return self
      */
-    public function action(DocumentActionSelector $action = null)
+    public function setAction(DocumentActionSelector $action)
     {
-        if(null === $action)
-        {
-            return $this->child('action');
-        }
-        return $this->child('action', $action);
+        return $this->setChild('action', $action);
     }
 }

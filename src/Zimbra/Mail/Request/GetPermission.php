@@ -31,47 +31,58 @@ class GetPermission extends Base
      * Specification of rights.
      * @var TypedSequence<Right>
      */
-    private $_ace;
+    private $_aces;
 
     /**
      * Constructor method for GetPermission
      * @param  Right $ace
      * @return self
      */
-    public function __construct(array $ace = array())
+    public function __construct(array $aces = [])
     {
         parent::__construct();
-        $this->_ace = new TypedSequence('Zimbra\Mail\Struct\Right', $ace);
-
+        $this->setAces($aces);
         $this->on('before', function(Base $sender)
         {
-            if($sender->ace()->count())
+            if($sender->getAces()->count())
             {
-                $sender->child('ace', $sender->ace()->all());
+                $sender->setChild('ace', $sender->getAces()->all());
             }
         });
     }
 
     /**
-     * Add an ace
+     * Add a specification of right
      *
      * @param  Right $ace
      * @return self
      */
     public function addAce(Right $ace)
     {
-        $this->_ace->add($ace);
+        $this->_aces->add($ace);
         return $this;
     }
 
     /**
-     * Gets ace sequence
+     * Sets specification of right sequence
+     *
+     * @param  array $aces
+     * @return self
+     */
+    public function setAces(array $aces)
+    {
+        $this->_aces = new TypedSequence('Zimbra\Mail\Struct\Right', $aces);
+        return $this;
+    }
+
+    /**
+     * Gets specification of right sequence
      * Specification of rights.
      *
      * @return Sequence
      */
-    public function ace()
+    public function getAces()
     {
-        return $this->_ace;
+        return $this->_aces;
     }
 }

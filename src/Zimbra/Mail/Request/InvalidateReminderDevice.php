@@ -24,27 +24,33 @@ class InvalidateReminderDevice extends Base
 {
     /**
      * Constructor method for InvalidateReminderDevice
-     * @param  string $a
+     * @param  string $address
      * @return self
      */
-    public function __construct($a)
+    public function __construct($address)
     {
         parent::__construct();
-        $this->property('a', trim($a));
+        $this->setProperty('a', trim($address));
     }
 
     /**
-     * Gets or sets a
+     * Gets address
      *
-     * @param  string $a
-     * @return string|self
+     * @return string
      */
-    public function a($a = null)
+    public function getAddress()
     {
-        if(null === $a)
-        {
-            return $this->property('a');
-        }
-        return $this->property('a', trim($a));
+        return $this->getProperty('a');
+    }
+
+    /**
+     * Sets address
+     *
+     * @param  string $address
+     * @return self
+     */
+    public function setAddress($address)
+    {
+        return $this->setProperty('a', trim($address));
     }
 }

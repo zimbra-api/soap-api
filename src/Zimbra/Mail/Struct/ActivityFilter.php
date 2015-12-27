@@ -26,14 +26,14 @@ class ActivityFilter extends Base
     /**
      * Constructor method for ActivityFilter
      * @param string $account Account ID
-     * @param string $op Comma separated list of mailbox operations
-     * @param string $session Session ID
+     * @param string $ops Comma separated list of mailbox operations
+     * @param string $sessionId Session ID
      * @return self
      */
     public function __construct(
         $account = null,
-        $op = null,
-        $session = null
+        $ops = null,
+        $sessionId = null
     )
     {
         parent::__construct();
@@ -41,13 +41,13 @@ class ActivityFilter extends Base
         {
             $this->setProperty('account', trim($account));
         }
-        if(null !== $op)
+        if(null !== $ops)
         {
-            $this->setProperty('op', trim($op));
+            $this->setProperty('op', trim($ops));
         }
-        if(null !== $session)
+        if(null !== $sessionId)
         {
-            $this->setProperty('session', trim($session));
+            $this->setProperty('session', trim($sessionId));
         }
     }
 
@@ -77,7 +77,7 @@ class ActivityFilter extends Base
      *
      * @return string
      */
-    public function getOp()
+    public function getOps()
     {
         return $this->getProperty('op');
     }
@@ -85,12 +85,12 @@ class ActivityFilter extends Base
     /**
      * Sets mailbox operations
      *
-     * @param  string $op
+     * @param  string $ops
      * @return self
      */
-    public function setOp($op)
+    public function setOps($ops)
     {
-        return $this->setProperty('op', trim($op));
+        return $this->setProperty('op', trim($ops));
     }
 
     /**
@@ -98,7 +98,7 @@ class ActivityFilter extends Base
      *
      * @return string
      */
-    public function getSession()
+    public function getSessionId()
     {
         return $this->getSession('session');
     }
@@ -106,12 +106,12 @@ class ActivityFilter extends Base
     /**
      * Sets session id
      *
-     * @param  string $session
+     * @param  string $sessionId
      * @return self
      */
-    public function setSession($session)
+    public function setSessionId($sessionId)
     {
-        return $this->setSession('session', trim($session));
+        return $this->setSession('session', trim($sessionId));
     }
 
     /**

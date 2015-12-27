@@ -29,20 +29,20 @@ class AccountACEinfo extends Base
      * Constructor method for AccountACEinfo
      * @param GranteeType $gt The type of grantee
      * @param AceRightType $right The right
-     * @param string $zid Zimbra ID of the grantee
-     * @param string $d Name or email address of the grantee.
-     * @param string $key Optional access key when {grantee-type} is "key"
-     * @param string $pw Password when {grantee-type} is "gst" (not yet supported)
+     * @param string $zimbraId Zimbra ID of the grantee
+     * @param string $displayName Name or email address of the grantee.
+     * @param string $accessKey Optional access key when {grantee-type} is "key"
+     * @param string $password Password when {grantee-type} is "gst" (not yet supported)
      * @param bool $deny "1" if a right is specifically denied or "0" (default)
      * @return self
      */
     public function __construct(
         GranteeType $gt,
         AceRightType $right,
-        $zid = null,
-        $d = null,
-        $key = null,
-        $pw = null,
+        $zimbraId = null,
+        $displayName = null,
+        $accessKey = null,
+        $password = null,
         $deny = null
     )
     {
@@ -50,21 +50,21 @@ class AccountACEinfo extends Base
         $this->setProperty('gt', $gt);
         $this->setProperty('right', $right);
 
-        if(null !== $zid)
+        if(null !== $zimbraId)
         {
-            $this->setProperty('zid', trim($zid));
+            $this->setProperty('zid', trim($zimbraId));
         }
-        if(null !== $d)
+        if(null !== $displayName)
         {
-            $this->setProperty('d', trim($d));
+            $this->setProperty('d', trim($displayName));
         }
-        if(null !== $key)
+        if(null !== $accessKey)
         {
-            $this->setProperty('key', trim($key));
+            $this->setProperty('key', trim($accessKey));
         }
-        if(null !== $pw)
+        if(null !== $password)
         {
-            $this->setProperty('pw', trim($pw));
+            $this->setProperty('pw', trim($password));
         }
         if(null !== $deny)
         {
@@ -112,21 +112,6 @@ class AccountACEinfo extends Base
     public function setRight(AceRightType $right)
     {
         return $this->setProperty('gt', $right);
-    }
-
-    /**
-     * Gets or sets right
-     *
-     * @param  AceRightType $right
-     * @return AceRightType|self
-     */
-    public function right(AceRightType $right = null)
-    {
-        if(null === $right)
-        {
-            return $this->setProperty('right');
-        }
-        return $this->setProperty('right', $right);
     }
 
     /**

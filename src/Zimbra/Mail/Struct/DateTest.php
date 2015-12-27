@@ -22,18 +22,6 @@ namespace Zimbra\Mail\Struct;
 class DateTest extends FilterTest
 {
     /**
-     * Date comparison
-     * @var string
-     */
-    private $_dateComparison;
-
-    /**
-     * Date
-     * @var string
-     */
-    private $_d;
-
-    /**
      * Constructor method for DateTest
      * @param int $index
      * @param string $dateComparison

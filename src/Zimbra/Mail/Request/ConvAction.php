@@ -32,21 +32,27 @@ class ConvAction extends Base
     public function __construct(ConvActionSelector $action)
     {
         parent::__construct();
-        $this->child('action', $action);
+        $this->setChild('action', $action);
     }
 
     /**
-     * Get or set action
+     * Gets action selector
+     *
+     * @return ConvActionSelector
+     */
+    public function getAction()
+    {
+        return $this->getChild('action');
+    }
+
+    /**
+     * Sets action selector
      *
      * @param  ConvActionSelector $action
-     * @return ConvActionSelector|self
+     * @return self
      */
-    public function action(ConvActionSelector $action = null)
+    public function setAction(ConvActionSelector $action)
     {
-        if(null === $action)
-        {
-            return $this->child('action');
-        }
-        return $this->child('action', $action);
+        return $this->setChild('action', $action);
     }
 }

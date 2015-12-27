@@ -26,51 +26,62 @@ class AddMsg extends Base
 {
     /**
      * Constructor method for AddMsg
-     * @param  AddMsgSpec $m
-     * @param  bool $filterSent
+     * @param  AddMsgSpec $m Specification of the message to add
+     * @param  bool $filterSent Filter sent
      * @return self
      */
     public function __construct(AddMsgSpec $m, $filterSent = null)
     {
         parent::__construct();
-        $this->child('m', $m);
+        $this->setChild('m', $m);
         if(null !== $filterSent)
         {
-            $this->property('filterSent', (bool) $filterSent);
+            $this->setProperty('filterSent', (bool) $filterSent);
         }
     }
 
     /**
-     * Get or set m
-     * Specification of the message to add
+     * Gets message
+     *
+     * @return AddMsgSpec
+     */
+    public function getMsg()
+    {
+        return $this->getChild('m');
+    }
+
+    /**
+     * Sets message
      *
      * @param  AddMsgSpec $m
-     * @return AddMsgSpec|self
+     * @return self
      */
-    public function m(AddMsgSpec $m = null)
+    public function setMsg(AddMsgSpec $m)
     {
-        if(null === $m)
-        {
-            return $this->child('m');
-        }
-        return $this->child('m', $m);
+        return $this->setChild('m', $m);
     }
 
     /**
-     * Get or set filterSent
-     * If set, then do outgoing message filtering if the msg is being added to
-     * the Sent folder and has been flagged as sent.
-     * Default is unset.
+     * Gets filter sent
+     *
+     * @return bool
+     */
+    public function getFilterSent()
+    {
+        return $this->getProperty('filterSent');
+    }
+
+    /**
+     * Sets filter sent
      *
      * @param  bool $filterSent
-     * @return bool|self
+     *     If set, then do outgoing message filtering if the msg is being added to
+     *     the Sent folder and has been flagged as sent.
+     *     Default is unset.
+     * @return self
      */
-    public function filterSent($filterSent = null)
+    public function setFilterSent($filterSent)
     {
-        if(null === $filterSent)
-        {
-            return $this->property('filterSent');
-        }
-        return $this->property('filterSent', (bool) $filterSent);
+        return $this->setProperty('filterSent', (bool) $filterSent);
     }
 }

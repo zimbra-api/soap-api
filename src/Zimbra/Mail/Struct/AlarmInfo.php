@@ -42,7 +42,7 @@ class AlarmInfo extends Base
      * @param  AlarmAction $action Alarm action
      * @param  AlarmTriggerInfo $trigger Alarm trigger information
      * @param  DurationInfo $repeat Alarm repeat information 
-     * @param  string $desc Alarm description
+     * @param  string $description Alarm description
      * @param  CalendarAttach $attach Information on attachment
      * @param  string $summary Alarm summary
      * @param  array $ats Attendee information 
@@ -53,11 +53,11 @@ class AlarmInfo extends Base
         AlarmAction $action,
         AlarmTriggerInfo $trigger = null,
         DurationInfo $repeat = null,
-        $desc = null,
+        $description = null,
         CalendarAttach $attach = null,
         $summary = null,
-        array $ats = array(),
-        array $xprops = array()
+        array $ats = [],
+        array $xprops = []
     )
     {
         parent::__construct();
@@ -70,9 +70,9 @@ class AlarmInfo extends Base
         {
             $this->setChild('repeat', $repeat);
         }
-        if(null !== $desc)
+        if(null !== $description)
         {
-            $this->setChild('desc', trim($desc));
+            $this->setChild('desc', trim($description));
         }
         if($attach instanceof CalendarAttach)
         {
@@ -209,7 +209,7 @@ class AlarmInfo extends Base
      */
     public function getSummary()
     {
-        return $this->getProperty('summary');
+        return $this->getChild('summary');
     }
 
     /**
@@ -220,7 +220,7 @@ class AlarmInfo extends Base
      */
     public function setSummary($summary)
     {
-        return $this->setProperty('summary', trim($summary));
+        return $this->setChild('summary', trim($summary));
     }
 
     /**

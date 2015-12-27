@@ -26,13 +26,13 @@ class GetFolderSpec extends Base
     /**
      * Constructor method for GetFolderSpec
      * @param string $uuid Base folder UUID
-     * @param string $l Base folder ID
+     * @param string $folder Base folder ID
      * @param string $path Fully qualified path
      * @return self
      */
     public function __construct(
         $uuid = null,
-        $l = null,
+        $folder = null,
         $path = null
     )
     {
@@ -41,9 +41,9 @@ class GetFolderSpec extends Base
         {
             $this->setProperty('uuid', trim($uuid));
         }
-        if(null !== $l)
+        if(null !== $folder)
         {
-            $this->setProperty('l', trim($l));
+            $this->setProperty('l', trim($folder));
         }
         if(null !== $path)
         {

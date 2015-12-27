@@ -26,28 +26,33 @@ class SaveDraft extends Base
 {
     /**
      * Constructor method for SaveDraft
-     * @param  SaveDraftMsg $m
+     * @param  SaveDraftMsg $msg
      * @return self
      */
-    public function __construct(SaveDraftMsg $m)
+    public function __construct(SaveDraftMsg $msg)
     {
         parent::__construct();
-        $this->child('m', $m);
+        $this->setChild('m', $msg);
     }
 
     /**
-     * Get or set m
-     * Details of Draft to save
+     * Gets details of Draft to save
      *
-     * @param  SaveDraftMsg $m
-     * @return SaveDraftMsg|self
+     * @return SaveDraftMsg
      */
-    public function m(SaveDraftMsg $m = null)
+    public function getMsg()
     {
-        if(null === $m)
-        {
-            return $this->child('m');
-        }
-        return $this->child('m', $m);
+        return $this->getChild('msg');
+    }
+
+    /**
+     * Sets details of Draft to save
+     *
+     * @param  SaveDraftMsg $msg
+     * @return self
+     */
+    public function setMsg(SaveDraftMsg $msg)
+    {
+        return $this->setChild('msg', $msg);
     }
 }

@@ -29,7 +29,7 @@ class ConvActionSelector extends ActionSelector
      * @param string $id
      * @param string $tcon
      * @param int    $tag
-     * @param string $l
+     * @param string $folder
      * @param string $rgb
      * @param int    $color
      * @param string $name
@@ -43,7 +43,7 @@ class ConvActionSelector extends ActionSelector
         $id = null,
         $tcon = null,
         $tag = null,
-        $l = null,
+        $folder = null,
         $rgb = null,
         $color = null,
         $name = null,
@@ -57,7 +57,7 @@ class ConvActionSelector extends ActionSelector
             $id,
             $tcon,
             $tag,
-            $l,
+            $folder,
             $rgb,
             $color,
             $name,

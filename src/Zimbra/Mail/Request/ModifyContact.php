@@ -40,64 +40,77 @@ class ModifyContact extends Base
     )
     {
         parent::__construct();
-        $this->child('cn', $cn);
+        $this->setChild('cn', $cn);
         if(null !== $replace)
         {
-            $this->property('replace', (bool) $replace);
+            $this->setProperty('replace', (bool) $replace);
         }
         if(null !== $verbose)
         {
-            $this->property('verbose', (bool) $verbose);
+            $this->setProperty('verbose', (bool) $verbose);
         }
     }
 
     /**
-     * Get or set cn
-     * Specification of contact modifications
+     * Gets specification of contact modifications
      *
-     * @param  ModifyContactSpec $cn
-     * @return ModifyContactSpec|self
+     * @return ModifyContactSpec
      */
-    public function cn(ModifyContactSpec $cn = null)
+    public function getContact()
     {
-        if(null === $cn)
-        {
-            return $this->child('cn');
-        }
-        return $this->child('cn', $cn);
+        return $this->getChild('cn');
     }
 
     /**
-     * Get or set replace
-     * If set, all attrs and group members in the specified contact are replaced with specified attrs and group members,
-     * otherwise the attrs and group members are merged with the existing contact.
-     * Unset by default.
+     * Sets specification of contact modifications
+     *
+     * @param  ModifyContactSpec $contact
+     * @return self
+     */
+    public function setContact(ModifyContactSpec $contact)
+    {
+        return $this->setChild('cn', $contact);
+    }
+
+    /**
+     * Gets replace mode
+     *
+     * @return bool
+     */
+    public function getReplace()
+    {
+        return $this->getProperty('replace');
+    }
+
+    /**
+     * Sets replace mode
      *
      * @param  bool $replace
-     * @return bool|self
+     * @return self
      */
-    public function replace($replace = null)
+    public function setReplace($replace)
     {
-        if(null === $replace)
-        {
-            return $this->property('replace');
-        }
-        return $this->property('replace', (bool) $replace);
+        return $this->setProperty('replace', (bool) $replace);
     }
 
     /**
-     * Get or set verbose
-     * If unset, the returned <cn> is just a placeholder containing the contact ID (i.e. <cn id="{id}"/>). {verbose} is set by default.
+     * Gets verbose
+     *
+     * @return bool
+     */
+    public function getVerbose()
+    {
+        return $this->getProperty('verbose');
+    }
+
+    /**
+     * Sets verbose
      *
      * @param  bool $verbose
-     * @return bool|self
+     * @return self
      */
-    public function verbose($verbose = null)
+    public function setVerbose($verbose)
     {
-        if(null === $verbose)
-        {
-            return $this->property('verbose');
-        }
-        return $this->property('verbose', (bool) $verbose);
+        return $this->setProperty('verbose', (bool) $verbose);
     }
 }

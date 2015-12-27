@@ -39,11 +39,11 @@ class DismissCalendarItemAlarm extends Base
         parent::__construct();
         if($appt instanceof DismissAppointmentAlarm)
         {
-            $this->child('appt', $appt);
+            $this->setChild('appt', $appt);
         }
         if($task instanceof DismissTaskAlarm)
         {
-            $this->child('task', $task);
+            $this->setChild('task', $task);
         }
     }
 
@@ -58,9 +58,9 @@ class DismissCalendarItemAlarm extends Base
     {
         if(null === $appt)
         {
-            return $this->child('appt');
+            return $this->setChild('appt');
         }
-        return $this->child('appt', $appt);
+        return $this->setChild('appt', $appt);
     }
 
     /**
@@ -74,8 +74,8 @@ class DismissCalendarItemAlarm extends Base
     {
         if(null === $task)
         {
-            return $this->child('task');
+            return $this->setChild('task');
         }
-        return $this->child('task', $task);
+        return $this->setChild('task', $task);
     }
 }

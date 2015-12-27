@@ -29,12 +29,12 @@ class FolderActionSelector extends ActionSelector
      * @param string $id
      * @param string $tcon
      * @param int    $tag
-     * @param string $l
+     * @param string $folder
      * @param string $rgb
      * @param int    $color
      * @param string $name
-     * @param string $f
-     * @param string $t
+     * @param string $flags
+     * @param string $tags
      * @param string $tn
      * @return self
      */
@@ -43,13 +43,13 @@ class FolderActionSelector extends ActionSelector
         $id = null,
         $tcon = null,
         $tag = null,
-        $l = null,
+        $folder = null,
         $rgb = null,
         $color = null,
         $name = null,
-        $f = null,
-        $t = null,
-        $tn = null,
+        $flags = null,
+        $tags = null,
+        $tagNames = null,
         ActionGrantSelector $grant = null,
         FolderActionSelectorAcl $acl = null,
         RetentionPolicy $retentionPolicy = null,
@@ -66,13 +66,13 @@ class FolderActionSelector extends ActionSelector
             $id,
             $tcon,
             $tag,
-            $l,
+            $folder,
             $rgb,
             $color,
             $name,
-            $f,
-            $t,
-            $tn
+            $flags,
+            $tags,
+            $tagNames
         );
         if($grant instanceof ActionGrantSelector)
         {

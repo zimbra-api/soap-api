@@ -26,84 +26,108 @@ class GetWorkingHours extends Base
 {
     /**
      * Constructor method for GetWorkingHours
-     * @param  int $s
-     * @param  int $e
+     * @param  int $startTime
+     * @param  int $endTime
      * @param  string $id
      * @param  string $name
      * @return self
      */
-    public function __construct($s, $e, $id = null, $name = null)
+    public function __construct($startTime, $endTime, $id = null, $name = null)
     {
         parent::__construct();
-        $this->property('s', (int) $s);
-        $this->property('e', (int) $e);
+        $this->setProperty('s', (int) $startTime);
+        $this->setProperty('e', (int) $endTime);
         if(null !== $id)
         {
-            $this->property('id', trim($id));
+            $this->setProperty('id', trim($id));
         }
         if(null !== $name)
         {
-            $this->property('name', trim($name));
+            $this->setProperty('name', trim($name));
         }
     }
 
     /**
-     * Get or set s
+     * Gets range start in milliseconds since the epoch
      *
-     * @param  int $s
-     * @return int|self
+     * @return int
      */
-    public function s($s = null)
+    public function getStartTime()
     {
-        if(null === $s)
-        {
-            return $this->property('s');
-        }
-        return $this->property('s', (int) $s);
+        return $this->getProperty('s');
     }
 
     /**
-     * Get or set e
+     * Sets range start in milliseconds since the epoch
      *
-     * @param  int $e
-     * @return int|self
+     * @param  int $startTime
+     * @return self
      */
-    public function e($e = null)
+    public function setStartTime($startTime)
     {
-        if(null === $e)
-        {
-            return $this->property('e');
-        }
-        return $this->property('e', (int) $e);
+        return $this->setProperty('s', (int) $startTime);
     }
 
     /**
-     * Gets or sets id
+     * Gets range end in milliseconds since the epoch
+     *
+     * @return int
+     */
+    public function getEndTime()
+    {
+        return $this->getProperty('s');
+    }
+
+    /**
+     * Sets range end in milliseconds since the epoch
+     *
+     * @param  int $endTime
+     * @return self
+     */
+    public function setEndTime($endTime)
+    {
+        return $this->setProperty('s', (int) $endTime);
+    }
+
+    /**
+     * Gets comma-separated list of Zimbra IDs
+     *
+     * @return string
+     */
+    public function getId()
+    {
+        return $this->getProperty('id');
+    }
+
+    /**
+     * Sets comma-separated list of Zimbra IDs
      *
      * @param  string $id
-     * @return string|self
+     * @return self
      */
-    public function id($id = null)
+    public function setId($id)
     {
-        if(null === $id)
-        {
-            return $this->property('id');
-        }
-        return $this->property('id', trim($id));
+        return $this->setProperty('id', trim($id));
     }
 
     /**
-     * Gets or sets name
+     * Gets comma-separated list of email addresses
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->getProperty('name');
+    }
+
+    /**
+     * Sets comma-separated list of email addresses
      *
      * @param  string $name
-     * @return string|self
+     * @return self
      */
-    public function name($name = null)
+    public function setName($name)
     {
-        if(null === $name)
-        {
-            return $this->property('name');
-        }
-        return $this->property('name', trim($name));
+        return $this->setProperty('name', trim($name));
     }
 }

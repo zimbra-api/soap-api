@@ -32,21 +32,27 @@ class PurgeRevision extends Base
     public function __construct(PurgeRevisionSpec $revision)
     {
         parent::__construct();
-        $this->child('revision', $revision);
+        $this->setChild('revision', $revision);
     }
 
     /**
-     * Get or set revision
+     * Gets specification or revision to purge
+     *
+     * @return PurgeRevisionSpec
+     */
+    public function getRevision()
+    {
+        return $this->getChild('revision');
+    }
+
+    /**
+     * Sets specification or revision to purge
      *
      * @param  PurgeRevisionSpec $revision
-     * @return PurgeRevisionSpec|self
+     * @return self
      */
-    public function revision(PurgeRevisionSpec $revision = null)
+    public function setRevision(PurgeRevisionSpec $revision)
     {
-        if(null === $revision)
-        {
-            return $this->child('revision');
-        }
-        return $this->child('revision', $revision);
+        return $this->setChild('revision', $revision);
     }
 }

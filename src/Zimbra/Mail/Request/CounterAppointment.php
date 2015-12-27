@@ -46,106 +46,133 @@ class CounterAppointment extends Base
         parent::__construct();
         if($m instanceof Msg)
         {
-            $this->child('m', $m);
+            $this->setChild('m', $m);
         }
         if(null !== $id)
         {
-            $this->property('id', trim($id));
+            $this->setProperty('id', trim($id));
         }
         if(null !== $comp)
         {
-            $this->property('comp', (int) $comp);
+            $this->setProperty('comp', (int) $comp);
         }
         if(null !== $ms)
         {
-            $this->property('ms', (int) $ms);
+            $this->setProperty('ms', (int) $ms);
         }
         if(null !== $rev)
         {
-            $this->property('rev', (int) $rev);
+            $this->setProperty('rev', (int) $rev);
         }
     }
 
     /**
-     * Get or set m
-     * Details of counter proposal.
+     * Gets message
+     *
+     * @return Msg
+     */
+    public function getMsg()
+    {
+        return $this->getChild('m');
+    }
+
+    /**
+     * Sets message
      *
      * @param  Msg $m
-     * @return Msg|self
+     *     Details of counter proposal.
+     * @return self
      */
-    public function m(Msg $m = null)
+    public function setMsg(Msg $m)
     {
-        if(null === $m)
-        {
-            return $this->child('m');
-        }
-        return $this->child('m', $m);
+        return $this->setChild('m', $m);
     }
 
     /**
-     * Get or set id
-     * Invite ID of default invite
+     * Gets id
+     *
+     * @return string
+     */
+    public function getId()
+    {
+        return $this->getProperty('id');
+    }
+
+    /**
+     * Sets id
      *
      * @param  string $id
-     * @return string|self
+     *     Invite ID of default invite
+     * @return self
      */
-    public function id($id = null)
+    public function setId($id)
     {
-        if(null === $id)
-        {
-            return $this->property('id');
-        }
-        return $this->property('id', trim($id));
+        return $this->setProperty('id', trim($id));
     }
 
     /**
-     * Get or set comp
-     * Component number of default component
+     * Gets component number of default component
+     *
+     * @return int
+     */
+    public function getComponentNum()
+    {
+        return $this->getProperty('comp');
+    }
+
+    /**
+     * Sets component number of default component
      *
      * @param  int $comp
-     * @return int|self
+     * @return self
      */
-    public function comp($comp = null)
+    public function setComponentNum($comp)
     {
-        if(null === $comp)
-        {
-            return $this->property('comp');
-        }
-        return $this->property('comp', (int) $comp);
+        return $this->setProperty('comp', (int) $comp);
     }
 
     /**
-     * Get or set ms
-     * Changed sequence of fetched version.
-     * Used for conflict detection.
-     * By setting this, the request indicates which version of the appointment it is attempting to propose.
-     * If the appointment was updated on the server between the fetch and modify, an INVITE_OUT_OF_DATE exception will be thrown.
+     * Gets changed sequence of fetched version
+     *
+     * @return int
+     */
+    public function getModifiedSequence()
+    {
+        return $this->getProperty('ms');
+    }
+
+    /**
+     * Sets changed sequence of fetched version
      *
      * @param  int $ms
-     * @return int|self
+     *     Used for conflict detection.
+     *     By setting this, the request indicates which version of the appointment it is attempting to propose.
+     *     If the appointment was updated on the server between the fetch and modify, an INVITE_OUT_OF_DATE exception will be thrown.
+     * @return self
      */
-    public function ms($ms = null)
+    public function setModifiedSequence($ms)
     {
-        if(null === $ms)
-        {
-            return $this->property('ms');
-        }
-        return $this->property('ms', (int) $ms);
+        return $this->setProperty('ms', (int) $ms);
     }
 
     /**
-     * Get or set rev
-     * Revision
+     * Gets revision
+     *
+     * @return int
+     */
+    public function getRevision()
+    {
+        return $this->getProperty('rev');
+    }
+
+    /**
+     * Sets revision
      *
      * @param  int $rev
-     * @return int|self
+     * @return self
      */
-    public function rev($rev = null)
+    public function setRevision($rev)
     {
-        if(null === $rev)
-        {
-            return $this->property('rev');
-        }
-        return $this->property('rev', (int) $rev);
+        return $this->setProperty('rev', (int) $rev);
     }
 }

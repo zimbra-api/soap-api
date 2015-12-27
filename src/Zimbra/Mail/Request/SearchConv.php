@@ -24,14 +24,16 @@ use Zimbra\Struct\CursorInfo;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
  */
-class SearchConv extends MailSearchParams
+class SearchConv extends Base
 {
+    use MailSearchParams;
+
     /**
      * Constructor method for SearchConv
      * @param  string $cid
      * @param  string $nest
      * @param  string $query
-     * @param  array $header
+     * @param  array $headers
      * @param  CalTZInfo $tz
      * @param  string $locale
      * @param  CursorInfo $cursor
@@ -54,6 +56,7 @@ class SearchConv extends MailSearchParams
      * @param  bool $recip
      * @param  bool $prefetch
      * @param  string $resultMode
+     * @param  bool $fullConversation
      * @param  string $field
      * @param  int $limit
      * @param  int $offset
@@ -63,7 +66,7 @@ class SearchConv extends MailSearchParams
         $cid,
         $nest = null,
         $query = null,
-        array $header = array(),
+        array $headers = [],
         CalTZInfo $tz = null,
         $locale = null,
         CursorInfo $cursor = null,
@@ -86,6 +89,7 @@ class SearchConv extends MailSearchParams
         $recip = null,
         $prefetch = null,
         $resultMode = null,
+        $fullConversation = null,
         $field = null,
         $limit = null,
         $offset = null
@@ -93,7 +97,7 @@ class SearchConv extends MailSearchParams
     {
         parent::__construct(
             $query,
-            $header,
+            $headers,
             $tz,
             $locale,
             $cursor,
@@ -116,47 +120,57 @@ class SearchConv extends MailSearchParams
             $recip,
             $prefetch,
             $resultMode,
+            $fullConversation,
             $field,
             $limit,
             $offset
         );
-        $this->property('cid', trim($cid));
+        $this->setProperty('cid', trim($cid));
         if(null !== $nest)
         {
-            $this->property('nest', (bool) $nest);
+            $this->setProperty('nest', (bool) $nest);
         }
     }
 
     /**
-     * Gets or sets cid
-     * The ID of the conversation to search within. REQUIRED.
+     * Gets conversation Id
      *
-     * @param  string $cid
-     * @return string|self
+     * @return string
      */
-    public function cid($cid = null)
+    public function getConversationId()
     {
-        if(null === $cid)
-        {
-            return $this->property('cid');
-        }
-        return $this->property('cid', trim($cid));
+        return $this->getProperty('cid');
     }
 
     /**
-     * Get or set nest
-     * If set then the response will contain a top level <c element representing the conversation with child <m> elements representing messages in the conversation.
-     * If unset, no <c> element is included - <m> elements will be top level elements.
+     * Sets conversation Id
      *
-     * @param  bool $nest
-     * @return bool|self
+     * @param  string $conversationId
+     * @return self
      */
-    public function nest($nest = null)
+    public function setConversationId($conversationId)
     {
-        if(null === $nest)
-        {
-            return $this->property('nest');
-        }
-        return $this->property('nest', (bool) $nest);
+        return $this->setProperty('cid', trim($conversationId));
+    }
+
+    /**
+     * Gets nest messages
+     *
+     * @return bool
+     */
+    public function getNestMessages()
+    {
+        return $this->getProperty('nest');
+    }
+
+    /**
+     * Sets nest messages
+     *
+     * @param  bool $nestMessages
+     * @return self
+     */
+    public function setNestMessages($nestMessages)
+    {
+        return $this->setProperty('nest', (bool) $nestMessages);
     }
 }

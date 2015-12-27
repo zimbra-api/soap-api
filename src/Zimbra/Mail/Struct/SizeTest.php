@@ -25,14 +25,14 @@ class SizeTest extends FilterTest
      * Constructor method for SizeTest
      * @param int $index
      * @param string $numberComparison Number comparison setting - over|under
-     * @param string $s Size value
+     * @param string $size Size value
      *    Value can be specified in bytes (no suffix), kilobytes (50K), megabytes (50M) or gigabytes (2G)
      * @return self
      */
     public function __construct(
         $index,
         $numberComparison = null,
-        $s = null,
+        $size = null,
         $negative = null
     )
     {
@@ -42,9 +42,9 @@ class SizeTest extends FilterTest
             $this->setProperty('numberComparison', trim($numberComparison));
         }
         $this->_numberComparison = trim($numberComparison);
-        if(null !== $s)
+        if(null !== $size)
         {
-            $this->setProperty('s', trim($s));
+            $this->setProperty('s', trim($size));
         }
     }
 

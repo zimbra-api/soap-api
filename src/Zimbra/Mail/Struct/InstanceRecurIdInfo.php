@@ -32,7 +32,7 @@ class InstanceRecurIdInfo extends Base
      */
     public function __construct(
         $range = null,
-        $d = null,
+        $date = null,
         $tz = null
     )
     {
@@ -41,9 +41,9 @@ class InstanceRecurIdInfo extends Base
         {
             $this->setProperty('range', trim($range));
         }
-        if(null !== $d)
+        if(null !== $date)
         {
-            $this->setProperty('d', trim($d));
+            $this->setProperty('d', trim($date));
         }
         if(null !== $tz)
         {

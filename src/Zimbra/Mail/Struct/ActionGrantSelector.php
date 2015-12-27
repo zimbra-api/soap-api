@@ -28,46 +28,46 @@ class ActionGrantSelector extends Base
      * Constructor method for ActionGrantSelector
      * @param string $rights Rights
      * @param GranteeType $gt Grantee Type - usr | grp | cos | dom | all | pub | guest | key
-     * @param string $zid Zimbra ID
-     * @param string $d Name or email address of the grantee. Not present if {grantee-type} is "all" or "pub"
+     * @param string $zimbraId Zimbra ID
+     * @param string $displayName Name or email address of the grantee. Not present if {grantee-type} is "all" or "pub"
      * @param string $args Retained for backwards compatibility. Old way of specifying password
-     * @param string $pw Password when {grantee-type} is "gst" (not yet supported)
-     * @param string $key Access key when {grantee-type} is "key"
+     * @param string $password Password when {grantee-type} is "gst" (not yet supported)
+     * @param string $accessKey Access key when {grantee-type} is "key"
      * @return self
      */
     public function __construct(
         $rights,
         GranteeType $gt,
-        $zid = null,
-        $d = null,
+        $zimbraId = null,
+        $displayName = null,
         $args = null,
-        $pw = null,
-        $key = null
+        $password = null,
+        $accessKey = null
     )
     {
         parent::__construct();
         $this->setProperty('perm', trim($rights));
         $this->setProperty('gt', $gt);
 
-        if(null !== $zid)
+        if(null !== $zimbraId)
         {
-            $this->setProperty('zid', trim($zid));
+            $this->setProperty('zid', trim($zimbraId));
         }
-        if(null !== $d)
+        if(null !== $displayName)
         {
-            $this->setProperty('d', trim($d));
+            $this->setProperty('d', trim($displayName));
         }
         if(null !== $args)
         {
             $this->setProperty('args', trim($args));
         }
-        if(null !== $pw)
+        if(null !== $password)
         {
-            $this->setProperty('pw', trim($pw));
+            $this->setProperty('pw', trim($password));
         }
-        if(null !== $key)
+        if(null !== $accessKey)
         {
-            $this->setProperty('key', trim($key));
+            $this->setProperty('key', trim($accessKey));
         }
     }
 

@@ -51,142 +51,178 @@ class CancelAppointment extends Base
         parent::__construct();
         if($inst instanceof InstanceRecurIdInfo)
         {
-            $this->child('inst', $inst);
+            $this->setChild('inst', $inst);
         }
         if($tz instanceof CalTZInfo)
         {
-            $this->child('tz', $tz);
+            $this->setChild('tz', $tz);
         }
         if($m instanceof Msg)
         {
-            $this->child('m', $m);
+            $this->setChild('m', $m);
         }
         if(null !== $id)
         {
-            $this->property('id', trim($id));
+            $this->setProperty('id', trim($id));
         }
         if(null !== $comp)
         {
-            $this->property('comp', (int) $comp);
+            $this->setProperty('comp', (int) $comp);
         }
         if(null !== $ms)
         {
-            $this->property('ms', (int) $ms);
+            $this->setProperty('ms', (int) $ms);
         }
         if(null !== $rev)
         {
-            $this->property('rev', (int) $rev);
+            $this->setProperty('rev', (int) $rev);
         }
     }
 
     /**
-     * Get or set inst
-     * Instance recurrence ID information
+     * Gets instance recurrence ID information
+     *
+     * @return InstanceRecurIdInfo
+     */
+    public function getInstance()
+    {
+        return $this->getChild('inst');
+    }
+
+    /**
+     * Sets instance recurrence ID information
      *
      * @param  InstanceRecurIdInfo $inst
-     * @return InstanceRecurIdInfo|self
+     * @return self
      */
-    public function inst(InstanceRecurIdInfo $inst = null)
+    public function setInstance(InstanceRecurIdInfo $inst)
     {
-        if(null === $inst)
-        {
-            return $this->child('inst');
-        }
-        return $this->child('inst', $inst);
+        return $this->setChild('inst', $inst);
     }
 
     /**
-     * Get or set tz
-     * Definition for TZID referenced by DATETIME in <inst>
+     * Gets timezone
+     *
+     * @return CalTZInfo
+     */
+    public function getTimezone()
+    {
+        return $this->getChild('tz');
+    }
+
+    /**
+     * Sets timezone
      *
      * @param  CalTZInfo $tz
-     * @return CalTZInfo|self
+     * @return self
      */
-    public function tz(CalTZInfo $tz = null)
+    public function setTimezone(CalTZInfo $tz)
     {
-        if(null === $tz)
-        {
-            return $this->child('tz');
-        }
-        return $this->child('tz', $tz);
+        return $this->setChild('tz', $tz);
     }
 
     /**
-     * Get or set m
+     * Gets message
      *
-     * @param  Msg $m
-     * @return Msg|self
+     * @return AddMsgSpec
      */
-    public function m(Msg $m = null)
+    public function getMsg()
     {
-        if(null === $m)
-        {
-            return $this->child('m');
-        }
-        return $this->child('m', $m);
+        return $this->getChild('m');
     }
 
     /**
-     * Gets or sets id
-     * ID of default invite
+     * Sets message
+     *
+     * @param  AddMsgSpec $m
+     * @return self
+     */
+    public function setMsg(AddMsgSpec $m)
+    {
+        return $this->setChild('m', $m);
+    }
+
+    /**
+     * Gets id
+     *
+     * @return string
+     */
+    public function getId()
+    {
+        return $this->getProperty('id');
+    }
+
+    /**
+     * Sets id
      *
      * @param  string $id
-     * @return string|self
+     * @return self
      */
-    public function id($id = null)
+    public function setId($id)
     {
-        if(null === $id)
-        {
-            return $this->property('id');
-        }
-        return $this->property('id', trim($id));
+        return $this->setProperty('id', trim($id));
     }
 
     /**
-     * Gets or sets comp
-     * Component number of default invite
+     * Gets component number of default invite
+     *
+     * @return int
+     */
+    public function getComponentNum()
+    {
+        return $this->getProperty('comp');
+    }
+
+    /**
+     * Sets component number of default invite
      *
      * @param  int $comp
-     * @return int|self
+     * @return self
      */
-    public function comp($comp = null)
+    public function setComponentNum($comp)
     {
-        if(null === $comp)
-        {
-            return $this->property('comp');
-        }
-        return $this->property('comp', (int) $comp);
+        return $this->setProperty('comp', (int) $comp);
     }
 
     /**
-     * Gets or sets ms
-     * Modified sequence
+     * Gets modified sequence
+     *
+     * @return int
+     */
+    public function getModifiedSequence()
+    {
+        return $this->getProperty('ms');
+    }
+
+    /**
+     * Sets modified sequence
      *
      * @param  int $ms
-     * @return int|self
+     * @return self
      */
-    public function ms($ms = null)
+    public function setModifiedSequence($ms)
     {
-        if(null === $ms)
-        {
-            return $this->property('ms');
-        }
-        return $this->property('ms', (int) $ms);
+        return $this->setProperty('ms', (int) $ms);
     }
 
     /**
-     * Gets or sets rev
-     * Revision
+     * Gets revision
+     *
+     * @return int
+     */
+    public function getRevision()
+    {
+        return $this->getProperty('rev');
+    }
+
+    /**
+     * Sets revision
      *
      * @param  int $rev
-     * @return int|self
+     * @return self
      */
-    public function rev($rev = null)
+    public function setRevision($rev)
     {
-        if(null === $rev)
-        {
-            return $this->property('rev');
-        }
-        return $this->property('rev', (int) $rev);
+        return $this->setProperty('rev', (int) $rev);
     }
 }

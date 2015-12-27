@@ -26,13 +26,15 @@ use Zimbra\Struct\CursorInfo;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
  */
-class Search extends MailSearchParams
+class Search extends Base
 {
+    use MailSearchParams;
+
     /**
      * Constructor method for Search
      * @param  bool $warmup
      * @param  string $query
-     * @param  array $header
+     * @param  array $headers
      * @param  CalTZInfo $tz
      * @param  string $locale
      * @param  CursorInfo $cursor
@@ -55,6 +57,7 @@ class Search extends MailSearchParams
      * @param  bool $recip
      * @param  bool $prefetch
      * @param  string $resultMode
+     * @param  bool $fullConversation
      * @param  string $field
      * @param  int $limit
      * @param  int $offset
@@ -63,7 +66,7 @@ class Search extends MailSearchParams
     public function __construct(
         $warmup = null,
         $query = null,
-        array $header = array(),
+        array $headers = array(),
         CalTZInfo $tz = null,
         $locale = null,
         CursorInfo $cursor = null,
@@ -86,6 +89,7 @@ class Search extends MailSearchParams
         $recip = null,
         $prefetch = null,
         $resultMode = null,
+        $fullConversation = null,
         $field = null,
         $limit = null,
         $offset = null
@@ -93,7 +97,7 @@ class Search extends MailSearchParams
     {
         parent::__construct(
             $query,
-            $header,
+            $headers,
             $tz,
             $locale,
             $cursor,
@@ -116,33 +120,35 @@ class Search extends MailSearchParams
             $recip,
             $prefetch,
             $resultMode,
+            $fullConversation,
             $field,
             $limit,
             $offset
         );
         if(null !== $warmup)
         {
-            $this->property('warmup', (bool) $warmup);
+            $this->setProperty('warmup', (bool) $warmup);
         }
     }
 
     /**
-     * Get or set warmup
-     * Warmup: When this option is specified, all other options are simply ignored, so you can't include this option in regular search requests.
-     * This option gives a hint to the index system to open the index data and primes it for search.
-     * The client should send this warm-up request as soon as the user puts the cursor on the search bar.
-     * This will not only prime the index but also opens a persistent HTTP connection (HTTP 1.1 Keep-Alive) to the server, hence smaller latencies in subseqent search requests.
-     * Sending this warm-up request too early (e.g. login time) will be in vain in most cases because the index data is evicted from the cache due to inactivity timeout by the time you actually send a search request.
+     * Gets warmup
+     *
+     * @return bool
+     */
+    public function getWarmup()
+    {
+        return $this->getProperty('warmup');
+    }
+
+    /**
+     * Sets warmup
      *
      * @param  bool $warmup
-     * @return bool|self
+     * @return self
      */
-    public function warmup($warmup = null)
+    public function setWarmup($warmup)
     {
-        if(null === $warmup)
-        {
-            return $this->property('warmup');
-        }
-        return $this->property('warmup', (bool) $warmup);
+        return $this->setProperty('warmup', (bool) $warmup);
     }
 }

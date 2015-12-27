@@ -35,10 +35,10 @@ class ByDayRule extends Base
      * @param  array $days By day weekday rule specification
      * @return self
      */
-    public function __construct(array $days = array())
+    public function __construct(array $days = [])
     {
         parent::__construct();
-        $this->days = new TypedSequence('Zimbra\Mail\Struct\WkDay', $days);
+        $this->setDays($days);
 
         $this->on('before', function(Base $sender)
         {

@@ -39,58 +39,74 @@ class CompleteTaskInstance extends Base
     )
     {
         parent::__construct();
-        $this->property('id', trim($id));
-        $this->child('exceptId', $exceptId);
+        $this->setProperty('id', trim($id));
+        $this->setChild('exceptId', $exceptId);
         if($tz instanceof CalTZInfo)
         {
-            $this->child('tz', $tz);
+            $this->setChild('tz', $tz);
         }
     }
 
     /**
-     * Gets or sets id
+     * Gets id
+     *
+     * @return string
+     */
+    public function getId()
+    {
+        return $this->getProperty('id');
+    }
+
+    /**
+     * Sets id
      *
      * @param  string $id
-     * @return string|self
+     * @return self
      */
-    public function id($id = null)
+    public function setId($id)
     {
-        if(null === $id)
-        {
-            return $this->property('id');
-        }
-        return $this->property('id', trim($id));
+        return $this->setProperty('id', trim($id));
     }
 
     /**
-     * Gets or sets exceptId
-     * Exception ID
+     * Gets exception ID
+     *
+     * @return DtTimeInfo
+     */
+    public function getExceptionId()
+    {
+        return $this->getChild('exceptId');
+    }
+
+    /**
+     * Sets exception ID
      *
      * @param  DtTimeInfo $exceptId
-     * @return DtTimeInfo|self
+     * @return self
      */
-    public function exceptId(DtTimeInfo $exceptId = null)
+    public function setExceptionId(DtTimeInfo $exceptId)
     {
-        if(null === $exceptId)
-        {
-            return $this->child('exceptId');
-        }
-        return $this->child('exceptId', $exceptId);
+        return $this->setChild('exceptId', $exceptId);
     }
 
     /**
-     * Gets or sets tz
-     * Timezone information
+     * Gets timezone information
+     *
+     * @return CalTZInfo
+     */
+    public function getTimezone()
+    {
+        return $this->getChild('tz');
+    }
+
+    /**
+     * Sets timezone information
      *
      * @param  CalTZInfo $tz
-     * @return CalTZInfo|self
+     * @return self
      */
-    public function tz(CalTZInfo $tz = null)
+    public function setTimezone(CalTZInfo $tz)
     {
-        if(null === $tz)
-        {
-            return $this->child('tz');
-        }
-        return $this->child('tz', $tz);
+        return $this->setChild('tz', $tz);
     }
 }

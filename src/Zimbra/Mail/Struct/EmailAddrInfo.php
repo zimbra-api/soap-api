@@ -26,7 +26,7 @@ class EmailAddrInfo extends Base
     /**
      * Constructor method for EmailAddrInfo
      * @param  string $a Email address
-     * @param  string $t  Address type - (f)rom, (t)o, (c)c, (b)cc, (r)eply-to, (s)ender, read-receipt (n)otification, (rf) resent-from
+     * @param  string $t Address type - (f)rom, (t)o, (c)c, (b)cc, (r)eply-to, (s)ender, read-receipt (n)otification, (rf) resent-from
      * @param  string $p The comment/name part of an address
      * @return self
      */

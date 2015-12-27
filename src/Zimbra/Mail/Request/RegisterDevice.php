@@ -32,21 +32,27 @@ class RegisterDevice extends Base
     public function __construct(NamedElement $device)
     {
         parent::__construct();
-        $this->child('device', $device);
+        $this->setChild('device', $device);
     }
 
     /**
-     * Get or set device
+     * Gets specify the device
+     *
+     * @return NamedElement
+     */
+    public function getDevice()
+    {
+        return $this->getChild('device');
+    }
+
+    /**
+     * Sets specify the device
      *
      * @param  NamedElement $device
-     * @return NamedElement|self
+     * @return self
      */
-    public function device(NamedElement $device = null)
+    public function setDevice(NamedElement $device)
     {
-        if(null === $device)
-        {
-            return $this->child('device');
-        }
-        return $this->child('device', $device);
+        return $this->setChild('device', $device);
     }
 }

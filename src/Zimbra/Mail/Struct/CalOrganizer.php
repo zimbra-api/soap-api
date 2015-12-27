@@ -232,7 +232,7 @@ class CalOrganizer extends Base
      *
      * @return string
      */
-    public function getLang()
+    public function getLanguage()
     {
         return $this->getProperty('lang');
     }
@@ -243,7 +243,7 @@ class CalOrganizer extends Base
      * @param  string $lang
      * @return self
      */
-    public function setLang($lang)
+    public function setLanguage($lang)
     {
         return $this->setProperty('lang', trim($lang));
     }

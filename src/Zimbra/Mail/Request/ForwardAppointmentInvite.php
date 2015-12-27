@@ -27,52 +27,62 @@ class ForwardAppointmentInvite extends Base
 {
     /**
      * Constructor method for ForwardAppointmentInvite
-     * @param  Msg $m
+     * @param  string $id
+     * @param  Msg $msg
+     * @return self
+     */
+    public function __construct($id = null, Msg $msg = null)
+    {
+        parent::__construct();
+        if(null !== $id)
+        {
+            $this->setProperty('id', trim($id));
+        }
+        if($msg instanceof Msg)
+        {
+            $this->setChild('m', $msg);
+        }
+    }
+
+    /**
+     * Gets invite message item ID
+     *
+     * @return string
+     */
+    public function getId()
+    {
+        return $this->getProperty('id');
+    }
+
+    /**
+     * Sets invite message item ID
+     *
      * @param  string $id
      * @return self
      */
-    public function __construct(Msg $m = null, $id = null)
+    public function setId($id)
     {
-        parent::__construct();
-        if($m instanceof Msg)
-        {
-            $this->child('m', $m);
-        }
-        if(null !== $id)
-        {
-            $this->property('id', trim($id));
-        }
+        return $this->setProperty('id', trim($id));
     }
 
     /**
-     * Get or set m
-     * Details of the appointment.
+     * Gets details of the invite.
      *
-     * @param  Msg $m
-     * @return Msg|self
+     * @return Msg
      */
-    public function m(Msg $m = null)
+    public function getMsg()
     {
-        if(null === $m)
-        {
-            return $this->child('m');
-        }
-        return $this->child('m', $m);
+        return $this->getChild('m');
     }
 
     /**
-     * Get or set id
-     * Appointment item ID
+     * Sets details of the invite.
      *
-     * @param  string $id
-     * @return string|self
+     * @param  Msg $msg
+     * @return self
      */
-    public function id($id = null)
+    public function setMsg(Msg $msg)
     {
-        if(null === $id)
-        {
-            return $this->property('id');
-        }
-        return $this->property('id', trim($id));
+        return $this->setChild('m', $msg);
     }
 }

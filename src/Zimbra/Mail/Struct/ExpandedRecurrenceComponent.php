@@ -28,16 +28,16 @@ class ExpandedRecurrenceComponent extends Base
      * @param  InstanceRecurIdInfo $exceptId RECURRENCE ID
      * @param  DurationInfo $dur DURATION
      * @param  RecurrenceInfo $recur RRULE/RDATE/EXDATE information
-     * @param  int $s DTSTART time in milliseconds since the Epoch
-     * @param  int $e DTEND time in milliseconds since the Epoch
+     * @param  int $start DTSTART time in milliseconds since the Epoch
+     * @param  int $end DTEND time in milliseconds since the Epoch
      * @return self
      */
     public function __construct(
         InstanceRecurIdInfo $exceptId = null,
         DurationInfo $dur = null,
         RecurrenceInfo $recur = null,
-        $s = null,
-        $e = null
+        $start = null,
+        $end = null
     )
     {
         parent::__construct();
@@ -53,13 +53,13 @@ class ExpandedRecurrenceComponent extends Base
         {
             $this->setChild('recur', $recur);
         }
-        if(null !== $s)
+        if(null !== $start)
         {
-            $this->setProperty('s', (int) $s);
+            $this->setProperty('s', (int) $start);
         }
-        if(null !== $e)
+        if(null !== $end)
         {
-            $this->setProperty('e', (int) $e);
+            $this->setProperty('e', (int) $end);
         }
     }
 

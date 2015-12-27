@@ -25,15 +25,15 @@ class FolderSpec extends Base
 {
     /**
      * Constructor method for FolderSpec
-     * @param string $l Folder ID
+     * @param string $folder Folder ID
      * @return self
      */
-    public function __construct($l = null)
+    public function __construct($folder = null)
     {
         parent::__construct();
-        if(null !== $l)
+        if(null !== $folder)
         {
-            $this->setProperty('l', trim($l));
+            $this->setProperty('l', trim($folder));
         }
     }
 

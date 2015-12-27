@@ -25,7 +25,7 @@ class NewContactAttr extends Base
 {
     /**
      * Constructor method for NewContactAttr
-     * @param string $n Attribute name
+     * @param string $name Attribute name
      * @param string $value Attribute data
      * @param string $aid Upload ID
      * @param string $id Item ID. Used in combination with subpart-name
@@ -33,7 +33,7 @@ class NewContactAttr extends Base
      * @return self
      */
     public function __construct(
-        $n,
+        $name,
         $value = null,
         $aid = null,
         $id = null,
@@ -41,7 +41,7 @@ class NewContactAttr extends Base
     )
     {
         parent::__construct(trim($value));
-        $this->setProperty('n', trim($n));
+        $this->setProperty('n', trim($name));
         if(null !== $aid)
         {
             $this->setProperty('aid', trim($aid));
@@ -69,12 +69,12 @@ class NewContactAttr extends Base
     /**
      * Sets name
      *
-     * @param  string $n
+     * @param  string $name
      * @return self
      */
-    public function setName($n)
+    public function setName($name)
     {
-        return $this->setProperty('n', trim($n));
+        return $this->setProperty('n', trim($name));
     }
 
     /**

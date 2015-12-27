@@ -55,7 +55,7 @@ class InviteComponentCommon extends Base
      * @param string $x_uid The x_uid
      * @param string $uid UID to use when creating appointment. Optional: client can request the UID to use
      * @param int    $seq Sequence number (default = 0)
-     * @param int    $d Date - used for zdsync
+     * @param int    $date Date - used for zdsync
      * @param string $calItemId Mail item ID of appointment
      * @param string $apptId Appointment ID (deprecated)
      * @param string $ciFolder Folder of appointment
@@ -86,7 +86,7 @@ class InviteComponentCommon extends Base
         $x_uid = null,
         $uid = null,
         $seq = null,
-        $d = null,
+        $date = null,
         $calItemId = null,
         $apptId = null,
         $ciFolder = null,
@@ -157,9 +157,9 @@ class InviteComponentCommon extends Base
         {
             $this->setProperty('seq', (int) $seq);
         }
-        if(null !== $d)
+        if(null !== $date)
         {
-            $this->setProperty('d', (int) $d);
+            $this->setProperty('d', (int) $date);
         }
         if(null !== $calItemId)
         {

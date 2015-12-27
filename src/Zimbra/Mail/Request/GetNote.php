@@ -32,21 +32,27 @@ class GetNote extends Base
     public function __construct(Id $note)
     {
         parent::__construct();
-        $this->child('note', $note);
+        $this->setChild('note', $note);
     }
 
     /**
-     * Get or set note
+     * Gets specification for note
+     *
+     * @return Id
+     */
+    public function getNote()
+    {
+        return $this->getChild('note');
+    }
+
+    /**
+     * Sets specification for note
      *
      * @param  Id $note
-     * @return Id|self
+     * @return self
      */
-    public function note(Id $note = null)
+    public function setNote(Id $note)
     {
-        if(null === $note)
-        {
-            return $this->child('note');
-        }
-        return $this->child('note', $note);
+        return $this->setChild('note', $note);
     }
 }

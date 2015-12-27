@@ -32,21 +32,27 @@ class UpdateDeviceStatus extends Base
     public function __construct(IdStatus $device)
     {
         parent::__construct();
-        $this->child('device', $device);
+        $this->setChild('device', $device);
     }
 
     /**
-     * Get or set device
+     * Gets information about device status
+     *
+     * @return IdStatus
+     */
+    public function getDevice()
+    {
+        return $this->getChild('device');
+    }
+
+    /**
+     * Sets information about device status
      *
      * @param  IdStatus $device
-     * @return IdStatus|self
+     * @return self
      */
-    public function device(IdStatus $device = null)
+    public function setDevice(IdStatus $device)
     {
-        if(null === $device)
-        {
-            return $this->child('device');
-        }
-        return $this->child('device', $device);
+        return $this->setChild('device', $device);
     }
 }

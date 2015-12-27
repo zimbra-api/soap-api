@@ -66,12 +66,12 @@ class ContentSpec extends Base
     /**
      * Sets aid
      *
-     * @param  string $attachmentId
+     * @param  string $aid
      * @return self
      */
-    public function setAttachmentId($attachmentId)
+    public function setAttachmentId($aid)
     {
-        return $this->setProperty('aid', trim($attachmentId));
+        return $this->setProperty('aid', trim($aid));
     }
 
     /**
@@ -87,12 +87,12 @@ class ContentSpec extends Base
     /**
      * Sets mid
      *
-     * @param  string $messageId
+     * @param  string $mid
      * @return self
      */
-    public function setMessageId($messageId)
+    public function setMessageId($mid)
     {
-        return $this->setProperty('mid', trim($messageId));
+        return $this->setProperty('mid', trim($mid));
     }
 
     /**

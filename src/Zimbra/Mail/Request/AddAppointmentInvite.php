@@ -12,6 +12,7 @@ namespace Zimbra\Mail\Request;
 
 use Zimbra\Enum\ParticipationStatus;
 use Zimbra\Mail\Struct\Msg;
+use Zimbra\Mail\Struct\SetCalendarItemInfoTrail;
 
 /**
  * AddAppointmentInvite request class
@@ -28,56 +29,5 @@ use Zimbra\Mail\Struct\Msg;
  */
 class AddAppointmentInvite extends Base
 {
-    /**
-     * Constructor method for AddAppointmentInvite
-     * @param  Msg $m
-     * @param  ParticipationStatus $ptst
-     * @return self
-     */
-    public function __construct(Msg $m = null, ParticipationStatus $ptst = null)
-    {
-        parent::__construct();
-        if($m instanceof Msg)
-        {
-            $this->child('m', $m);
-        }
-        if($ptst instanceof ParticipationStatus)
-        {
-            $this->property('ptst', $ptst);
-        }
-    }
-
-    /**
-     * Get or set m
-     *
-     * @param  Msg $m
-     * @return Msg|self
-     */
-    public function m(Msg $m = null)
-    {
-        if(null === $m)
-        {
-            return $this->child('m');
-        }
-        return $this->child('m', $m);
-    }
-
-    /**
-     * Get or set ptst
-     * iCalendar PTST (Participation status)
-     * Valid values: NE|AC|TE|DE|DG|CO|IN|WE|DF 
-     * Meanings: 
-     *   "NE"eds-action, "TE"ntative, "AC"cept, "DE"clined, "DG" (delegated), "CO"mpleted (todo), "IN"-process (todo), "WA"iting (custom value only for todo), "DF" (deferred; custom value only for todo)
-     *
-     * @param  ParticipationStatus $ptst
-     * @return ParticipationStatus|self
-     */
-    public function ptst(ParticipationStatus $ptst = null)
-    {
-        if(null === $ptst)
-        {
-            return $this->property('ptst');
-        }
-        return $this->property('ptst', $ptst);
-    }
+    use SetCalendarItemInfoTrail;
 }

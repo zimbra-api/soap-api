@@ -36,14 +36,14 @@ class ContactActionSelector extends ActionSelector
      * @param string $id
      * @param string $tcon
      * @param int    $tag
-     * @param string $l
+     * @param string $folder
      * @param string $rgb
      * @param int    $color
      * @param string $name
-     * @param string $f
-     * @param string $t
-     * @param string $tn
-     * @param array $a
+     * @param string $flags
+     * @param string $tags
+     * @param string $tagNames
+     * @param array $attrs
      * @return self
      */
     public function __construct(
@@ -51,13 +51,13 @@ class ContactActionSelector extends ActionSelector
         $id = null,
         $tcon = null,
         $tag = null,
-        $l = null,
+        $folder = null,
         $rgb = null,
         $color = null,
         $name = null,
-        $f = null,
-        $t = null,
-        $tn = null,
+        $flags = null,
+        $tags = null,
+        $tagNames = null,
         array $attrs = []
     )
     {
@@ -66,13 +66,13 @@ class ContactActionSelector extends ActionSelector
             $id,
             $tcon,
             $tag,
-            $l,
+            $folder,
             $rgb,
             $color,
             $name,
-            $f,
-            $t,
-            $tn
+            $flags,
+            $tags,
+            $tagNames
         );
 
         $this->setAttrs($attrs);

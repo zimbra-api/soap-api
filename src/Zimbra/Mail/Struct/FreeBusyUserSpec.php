@@ -31,15 +31,15 @@ class FreeBusyUserSpec extends Base
      * @return self
      */
     public function __construct(
-        $l = null,
+        $folder = null,
         $id = null,
         $name = null
     )
     {
         parent::__construct();
-        if(null !== $l)
+        if(null !== $folder)
         {
-            $this->setProperty('l', (int) $l);
+            $this->setProperty('l', (int) $folder);
         }
         if(null !== $id)
         {

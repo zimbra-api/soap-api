@@ -122,7 +122,7 @@ abstract class Base extends AccountBase implements MailInterface
      */
     public function __construct($location)
     {
-        $this->_location = $location;
+        parent::__construct($location);
     }
 
     /**
@@ -143,7 +143,7 @@ abstract class Base extends AccountBase implements MailInterface
         $request = new \Zimbra\Mail\Request\AddAppointmentInvite(
             $m, $ptst
         );
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -157,7 +157,7 @@ abstract class Base extends AccountBase implements MailInterface
         $request = new \Zimbra\Mail\Request\AddComment(
             $comment
         );
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -172,7 +172,7 @@ abstract class Base extends AccountBase implements MailInterface
         $request = new \Zimbra\Mail\Request\AddMsg(
             $m, $filterSent
         );
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -187,7 +187,7 @@ abstract class Base extends AccountBase implements MailInterface
         $request = new \Zimbra\Mail\Request\AddTaskInvite(
             $m, $ptst
         );
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -201,7 +201,7 @@ abstract class Base extends AccountBase implements MailInterface
         $request = new \Zimbra\Mail\Request\AnnounceOrganizerChange(
             $id
         );
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -224,7 +224,7 @@ abstract class Base extends AccountBase implements MailInterface
         $request = new \Zimbra\Mail\Request\ApplyFilterRules(
             $filterRules, $m, $query
         );
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -246,7 +246,7 @@ abstract class Base extends AccountBase implements MailInterface
         $request = new \Zimbra\Mail\Request\ApplyOutgoingFilterRules(
             $filterRules, $m, $query
         );
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -274,7 +274,7 @@ abstract class Base extends AccountBase implements MailInterface
             $folders,
             $includeGal
         );
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -284,15 +284,15 @@ abstract class Base extends AccountBase implements MailInterface
      * which are prepended to copy of existing message) 
      * Aside from these prepended headers, message is reinjected verbatim
      *
-     * @param  BounceMsgSpec $m Specification of message to be resent.
+     * @param  BounceMsgSpec $msg Specification of message to be resent.
      * @return mix
      */
-    public function bounceMsg(BounceMsgSpec $m)
+    public function bounceMsg(BounceMsgSpec $msg)
     {
         $request = new \Zimbra\Mail\Request\BounceMsg(
-            $m
+            $msg
         );
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -308,7 +308,7 @@ abstract class Base extends AccountBase implements MailInterface
         $request = new \Zimbra\Mail\Request\Browse(
             $browseBy, $regex, $maxToReturn
         );
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -344,7 +344,7 @@ abstract class Base extends AccountBase implements MailInterface
             $ms,
             $rev
         );
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -378,7 +378,7 @@ abstract class Base extends AccountBase implements MailInterface
             $ms,
             $rev
         );
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -392,7 +392,7 @@ abstract class Base extends AccountBase implements MailInterface
         $request = new \Zimbra\Mail\Request\CheckDeviceStatus(
             $device
         );
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -410,7 +410,7 @@ abstract class Base extends AccountBase implements MailInterface
         $request = new \Zimbra\Mail\Request\CheckPermission(
             $target, $right
         );
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -452,7 +452,7 @@ abstract class Base extends AccountBase implements MailInterface
             $all,
             $excludeUid
         );
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -470,7 +470,7 @@ abstract class Base extends AccountBase implements MailInterface
         $request = new \Zimbra\Mail\Request\CheckSpelling(
             $value, $dictionary, $ignore
         );
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -490,7 +490,7 @@ abstract class Base extends AccountBase implements MailInterface
         $request = new \Zimbra\Mail\Request\CompleteTaskInstance(
             $id, $exceptId, $tz
         );
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -504,7 +504,7 @@ abstract class Base extends AccountBase implements MailInterface
         $request = new \Zimbra\Mail\Request\ContactAction(
             $action
         );
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -518,7 +518,7 @@ abstract class Base extends AccountBase implements MailInterface
         $request = new \Zimbra\Mail\Request\ConvAction(
             $action
         );
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -547,7 +547,7 @@ abstract class Base extends AccountBase implements MailInterface
             $ms,
             $rev
         );
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -578,7 +578,7 @@ abstract class Base extends AccountBase implements MailInterface
             $neuter,
             $forcesend
         );
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -621,7 +621,7 @@ abstract class Base extends AccountBase implements MailInterface
             $neuter,
             $forcesend
         );
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -636,7 +636,7 @@ abstract class Base extends AccountBase implements MailInterface
         $request = new \Zimbra\Mail\Request\CreateContact(
             $cn, $verbose
         );
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -650,7 +650,7 @@ abstract class Base extends AccountBase implements MailInterface
     public function createDataSource(MailDataSource $ds)
     {
         $request = new \Zimbra\Mail\Request\CreateDataSource($ds);
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -752,7 +752,7 @@ abstract class Base extends AccountBase implements MailInterface
         $request = new \Zimbra\Mail\Request\CreateFolder(
             $folder
         );
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -766,7 +766,7 @@ abstract class Base extends AccountBase implements MailInterface
         $request = new \Zimbra\Mail\Request\CreateMountpoint(
             $link
         );
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -780,7 +780,7 @@ abstract class Base extends AccountBase implements MailInterface
         $request = new \Zimbra\Mail\Request\CreateNote(
             $note
         );
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -794,7 +794,7 @@ abstract class Base extends AccountBase implements MailInterface
         $request = new \Zimbra\Mail\Request\CreateSearchFolder(
             $search
         );
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -808,7 +808,7 @@ abstract class Base extends AccountBase implements MailInterface
         $request = new \Zimbra\Mail\Request\CreateTag(
             $tag
         );
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -839,7 +839,7 @@ abstract class Base extends AccountBase implements MailInterface
             $neuter,
             $forcesend
         );
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -882,7 +882,7 @@ abstract class Base extends AccountBase implements MailInterface
             $neuter,
             $forcesend
         );
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -906,7 +906,7 @@ abstract class Base extends AccountBase implements MailInterface
             $defTypes,
             $allAccounts
         );
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -922,7 +922,7 @@ abstract class Base extends AccountBase implements MailInterface
         $request = new \Zimbra\Mail\Request\DeclineCounterAppointment(
             $m
         );
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -960,7 +960,7 @@ abstract class Base extends AccountBase implements MailInterface
             $cal,
             $unknown
         );
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -974,7 +974,7 @@ abstract class Base extends AccountBase implements MailInterface
         $request = new \Zimbra\Mail\Request\DeleteDevice(
             $device
         );
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -990,7 +990,7 @@ abstract class Base extends AccountBase implements MailInterface
         $request = new \Zimbra\Mail\Request\DestroyWaitSet(
             $waitSet
         );
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -1006,7 +1006,7 @@ abstract class Base extends AccountBase implements MailInterface
         $request = new \Zimbra\Mail\Request\DiffDocument(
             $doc
         );
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -1024,7 +1024,7 @@ abstract class Base extends AccountBase implements MailInterface
         $request = new \Zimbra\Mail\Request\DismissCalendarItemAlarm(
             $appt, $task
         );
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -1038,7 +1038,7 @@ abstract class Base extends AccountBase implements MailInterface
         $request = new \Zimbra\Mail\Request\DocumentAction(
             $action
         );
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -1049,7 +1049,7 @@ abstract class Base extends AccountBase implements MailInterface
     public function emptyDumpster()
     {
         $request = new \Zimbra\Mail\Request\EmptyDumpster();
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -1063,7 +1063,7 @@ abstract class Base extends AccountBase implements MailInterface
         $request = new \Zimbra\Mail\Request\EnableSharedReminder(
             $link
         );
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -1094,7 +1094,7 @@ abstract class Base extends AccountBase implements MailInterface
             $except,
             $cancel
         );
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -1122,7 +1122,7 @@ abstract class Base extends AccountBase implements MailInterface
             $csvlocale,
             $csvsep
         );
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -1136,7 +1136,7 @@ abstract class Base extends AccountBase implements MailInterface
         $request = new \Zimbra\Mail\Request\FolderAction(
             $action
         );
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -1161,7 +1161,7 @@ abstract class Base extends AccountBase implements MailInterface
             $m,
             $id
         );
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -1177,7 +1177,7 @@ abstract class Base extends AccountBase implements MailInterface
         $request = new \Zimbra\Mail\Request\ForwardAppointmentInvite(
             $m, $id
         );
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -1189,7 +1189,7 @@ abstract class Base extends AccountBase implements MailInterface
     public function generateUUID()
     {
         $request = new \Zimbra\Mail\Request\GenerateUUID();
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -1214,7 +1214,7 @@ abstract class Base extends AccountBase implements MailInterface
             $offset,
             $limit
         );
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -1225,7 +1225,7 @@ abstract class Base extends AccountBase implements MailInterface
     public function getAllDevices()
     {
         $request = new \Zimbra\Mail\Request\GetAllDevices();
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -1251,7 +1251,7 @@ abstract class Base extends AccountBase implements MailInterface
             $uid,
             $id
         );
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -1267,7 +1267,7 @@ abstract class Base extends AccountBase implements MailInterface
         $request = new \Zimbra\Mail\Request\GetApptSummaries(
             $s, $e, $l
         );
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -1283,7 +1283,7 @@ abstract class Base extends AccountBase implements MailInterface
         $request = new \Zimbra\Mail\Request\GetCalendarItemSummaries(
             $s, $e, $l
         );
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -1297,7 +1297,7 @@ abstract class Base extends AccountBase implements MailInterface
         $request = new \Zimbra\Mail\Request\GetComments(
             $comment
         );
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -1344,7 +1344,7 @@ abstract class Base extends AccountBase implements MailInterface
             $returnHiddenAttrs,
             $maxMembers
         );
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -1363,7 +1363,7 @@ abstract class Base extends AccountBase implements MailInterface
         $request = new \Zimbra\Mail\Request\GetConv(
             $c
         );
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -1378,7 +1378,7 @@ abstract class Base extends AccountBase implements MailInterface
         $request = new \Zimbra\Mail\Request\GetCustomMetadata(
             $id, $meta
         );
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -1390,7 +1390,7 @@ abstract class Base extends AccountBase implements MailInterface
     public function getDataSources()
     {
         $request = new \Zimbra\Mail\Request\GetDataSources();
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -1404,7 +1404,7 @@ abstract class Base extends AccountBase implements MailInterface
         $request = new \Zimbra\Mail\Request\GetDocumentShareURL(
             $item
         );
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -1418,7 +1418,7 @@ abstract class Base extends AccountBase implements MailInterface
         $request = new \Zimbra\Mail\Request\GetEffectiveFolderPerms(
             $folder
         );
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -1429,7 +1429,7 @@ abstract class Base extends AccountBase implements MailInterface
     public function getFilterRules()
     {
         $request = new \Zimbra\Mail\Request\GetFilterRules();
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -1462,7 +1462,7 @@ abstract class Base extends AccountBase implements MailInterface
             $depth,
             $tr
         );
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -1498,7 +1498,7 @@ abstract class Base extends AccountBase implements MailInterface
             $excludeUid,
             $usr
         );
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -1517,7 +1517,7 @@ abstract class Base extends AccountBase implements MailInterface
         $request = new \Zimbra\Mail\Request\GetICal(
             $id, $s, $e
         );
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -1531,7 +1531,7 @@ abstract class Base extends AccountBase implements MailInterface
     public function getImportStatus()
     {
         $request = new \Zimbra\Mail\Request\GetImportStatus();
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -1548,7 +1548,7 @@ abstract class Base extends AccountBase implements MailInterface
         $request = new \Zimbra\Mail\Request\GetItem(
             $item
         );
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -1562,7 +1562,7 @@ abstract class Base extends AccountBase implements MailInterface
         $request = new \Zimbra\Mail\Request\GetMailboxMetadata(
             $meta
         );
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -1590,7 +1590,7 @@ abstract class Base extends AccountBase implements MailInterface
             $folder,
             $tz
         );
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -1604,7 +1604,7 @@ abstract class Base extends AccountBase implements MailInterface
         $request = new \Zimbra\Mail\Request\GetMsg(
             $m
         );
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -1618,7 +1618,7 @@ abstract class Base extends AccountBase implements MailInterface
         $request = new \Zimbra\Mail\Request\GetMsgMetadata(
             $m
         );
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -1632,7 +1632,7 @@ abstract class Base extends AccountBase implements MailInterface
         $request = new \Zimbra\Mail\Request\GetNote(
             $note
         );
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -1646,7 +1646,7 @@ abstract class Base extends AccountBase implements MailInterface
         $request = new \Zimbra\Mail\Request\GetNotifications(
             $markSeen
         );
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -1657,7 +1657,7 @@ abstract class Base extends AccountBase implements MailInterface
     public function getOutgoingFilterRules()
     {
         $request = new \Zimbra\Mail\Request\GetOutgoingFilterRules();
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -1673,7 +1673,7 @@ abstract class Base extends AccountBase implements MailInterface
         $request = new \Zimbra\Mail\Request\GetPermission(
             $ace
         );
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -1687,7 +1687,7 @@ abstract class Base extends AccountBase implements MailInterface
         $request = new \Zimbra\Mail\Request\GetRecur(
             $id
         );
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -1698,7 +1698,7 @@ abstract class Base extends AccountBase implements MailInterface
     public function getSearchFolder()
     {
         $request = new \Zimbra\Mail\Request\GetSearchFolder();
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -1712,7 +1712,7 @@ abstract class Base extends AccountBase implements MailInterface
         $request = new \Zimbra\Mail\Request\GetShareDetails(
             $item
         );
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -1723,7 +1723,7 @@ abstract class Base extends AccountBase implements MailInterface
     public function getShareNotifications()
     {
         $request = new \Zimbra\Mail\Request\GetShareNotifications();
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -1734,7 +1734,7 @@ abstract class Base extends AccountBase implements MailInterface
     public function getSpellDictionaries()
     {
         $request = new \Zimbra\Mail\Request\GetSpellDictionaries();
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -1745,7 +1745,7 @@ abstract class Base extends AccountBase implements MailInterface
     public function getSystemRetentionPolicy()
     {
         $request = new \Zimbra\Mail\Request\GetSystemRetentionPolicy();
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -1756,7 +1756,7 @@ abstract class Base extends AccountBase implements MailInterface
     public function getTag()
     {
         $request = new \Zimbra\Mail\Request\GetTag();
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -1782,7 +1782,7 @@ abstract class Base extends AccountBase implements MailInterface
             $uid,
             $id
         );
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -1798,7 +1798,7 @@ abstract class Base extends AccountBase implements MailInterface
         $request = new \Zimbra\Mail\Request\GetTaskSummaries(
             $s, $e, $l
         );
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -1809,7 +1809,7 @@ abstract class Base extends AccountBase implements MailInterface
     public function getWatchers()
     {
         $request = new \Zimbra\Mail\Request\GetWatchers();
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -1820,7 +1820,7 @@ abstract class Base extends AccountBase implements MailInterface
     public function getWatchingItems()
     {
         $request = new \Zimbra\Mail\Request\GetWatchingItems();
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -1839,7 +1839,7 @@ abstract class Base extends AccountBase implements MailInterface
         $request = new \Zimbra\Mail\Request\GetWorkingHours(
             $s, $e, $id, $name
         );
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -1854,7 +1854,7 @@ abstract class Base extends AccountBase implements MailInterface
         $request = new \Zimbra\Mail\Request\GetYahooAuthToken(
             $user, $password
         );
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -1868,7 +1868,7 @@ abstract class Base extends AccountBase implements MailInterface
         $request = new \Zimbra\Mail\Request\GetYahooCookie(
             $user
         );
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -1883,7 +1883,7 @@ abstract class Base extends AccountBase implements MailInterface
         $request = new \Zimbra\Mail\Request\GrantPermission(
             $ace
         );
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -1897,7 +1897,7 @@ abstract class Base extends AccountBase implements MailInterface
         $request = new \Zimbra\Mail\Request\ICalReply(
             $ical
         );
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -1913,7 +1913,7 @@ abstract class Base extends AccountBase implements MailInterface
         $request = new \Zimbra\Mail\Request\ImportAppointments(
             $content, $ct, $l
         );
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -1941,7 +1941,7 @@ abstract class Base extends AccountBase implements MailInterface
             $csvfmt,
             $csvlocale
         );
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -1982,7 +1982,7 @@ abstract class Base extends AccountBase implements MailInterface
             $cal,
             $unknown
         );
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -1996,7 +1996,7 @@ abstract class Base extends AccountBase implements MailInterface
         $request = new \Zimbra\Mail\Request\InvalidateReminderDevice(
             $a
         );
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -2010,7 +2010,7 @@ abstract class Base extends AccountBase implements MailInterface
         $request = new \Zimbra\Mail\Request\ItemAction(
             $action
         );
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -2026,7 +2026,7 @@ abstract class Base extends AccountBase implements MailInterface
         $request = new \Zimbra\Mail\Request\ListDocumentRevisions(
             $doc
         );
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -2072,7 +2072,7 @@ abstract class Base extends AccountBase implements MailInterface
             $neuter,
             $forcesend
         );
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -2096,7 +2096,7 @@ abstract class Base extends AccountBase implements MailInterface
             $replace,
             $verbose
         );
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -2115,7 +2115,7 @@ abstract class Base extends AccountBase implements MailInterface
         $request = new \Zimbra\Mail\Request\ModifyDataSource(
             $ds
         );
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -2217,7 +2217,7 @@ abstract class Base extends AccountBase implements MailInterface
         $request = new \Zimbra\Mail\Request\ModifyFilterRules(
             $filterRules
         );
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -2235,7 +2235,7 @@ abstract class Base extends AccountBase implements MailInterface
         $request = new \Zimbra\Mail\Request\ModifyMailboxMetadata(
             $meta
         );
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -2249,7 +2249,7 @@ abstract class Base extends AccountBase implements MailInterface
         $request = new \Zimbra\Mail\Request\ModifyOutgoingFilterRules(
             $filterRules
         );
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -2263,7 +2263,7 @@ abstract class Base extends AccountBase implements MailInterface
         $request = new \Zimbra\Mail\Request\ModifySearchFolder(
             $search
         );
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -2306,7 +2306,7 @@ abstract class Base extends AccountBase implements MailInterface
             $neuter,
             $forcesend
         );
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -2322,7 +2322,7 @@ abstract class Base extends AccountBase implements MailInterface
         $request = new \Zimbra\Mail\Request\MsgAction(
             $action
         );
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -2354,7 +2354,7 @@ abstract class Base extends AccountBase implements MailInterface
             $limitToOneBlocked,
             $timeout
         );
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -2368,7 +2368,7 @@ abstract class Base extends AccountBase implements MailInterface
         $request = new \Zimbra\Mail\Request\NoteAction(
             $action
         );
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -2382,7 +2382,7 @@ abstract class Base extends AccountBase implements MailInterface
         $request = new \Zimbra\Mail\Request\PurgeRevision(
             $revision
         );
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -2396,7 +2396,7 @@ abstract class Base extends AccountBase implements MailInterface
         $request = new \Zimbra\Mail\Request\RankingAction(
             $action
         );
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -2410,7 +2410,7 @@ abstract class Base extends AccountBase implements MailInterface
         $request = new \Zimbra\Mail\Request\RegisterDevice(
             $device
         );
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -2425,7 +2425,7 @@ abstract class Base extends AccountBase implements MailInterface
         $request = new \Zimbra\Mail\Request\RemoveAttachments(
             $m
         );
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -2440,7 +2440,7 @@ abstract class Base extends AccountBase implements MailInterface
         $request = new \Zimbra\Mail\Request\RevokePermission(
             $ace
         );
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -2463,7 +2463,7 @@ abstract class Base extends AccountBase implements MailInterface
         $request = new \Zimbra\Mail\Request\SaveDocument(
             $doc
         );
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -2485,7 +2485,7 @@ abstract class Base extends AccountBase implements MailInterface
         $request = new \Zimbra\Mail\Request\SaveDraft(
             $m
         );
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -2584,7 +2584,7 @@ abstract class Base extends AccountBase implements MailInterface
             $limit,
             $offset
         );
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -2684,7 +2684,7 @@ abstract class Base extends AccountBase implements MailInterface
             $limit,
             $offset
         );
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -2698,7 +2698,7 @@ abstract class Base extends AccountBase implements MailInterface
         $request = new \Zimbra\Mail\Request\SendDeliveryReport(
             $mid
         );
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -2735,7 +2735,7 @@ abstract class Base extends AccountBase implements MailInterface
             $updateOrganizer,
             $idnt
         );
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -2774,7 +2774,7 @@ abstract class Base extends AccountBase implements MailInterface
             $noSave,
             $suid
         );
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -2800,7 +2800,7 @@ abstract class Base extends AccountBase implements MailInterface
             $notes,
             $action
         );
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -2814,7 +2814,7 @@ abstract class Base extends AccountBase implements MailInterface
         $request = new \Zimbra\Mail\Request\SendVerificationCode(
             $a
         );
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -2861,7 +2861,7 @@ abstract class Base extends AccountBase implements MailInterface
             $noNextAlarm,
             $nextAlarm
         );
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -2877,7 +2877,7 @@ abstract class Base extends AccountBase implements MailInterface
         $request = new \Zimbra\Mail\Request\SetCustomMetadata(
             $id, $meta
         );
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -2894,7 +2894,7 @@ abstract class Base extends AccountBase implements MailInterface
         $request = new \Zimbra\Mail\Request\SetMailboxMetadata(
             $meta
         );
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -2938,7 +2938,7 @@ abstract class Base extends AccountBase implements MailInterface
             $noNextAlarm,
             $nextAlarm
         );
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -2956,7 +2956,7 @@ abstract class Base extends AccountBase implements MailInterface
         $request = new \Zimbra\Mail\Request\SnoozeCalendarItemAlarm(
             $appt, $task
         );
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -2981,7 +2981,7 @@ abstract class Base extends AccountBase implements MailInterface
             $l,
             $typed
         );
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -2995,7 +2995,7 @@ abstract class Base extends AccountBase implements MailInterface
         $request = new \Zimbra\Mail\Request\TagAction(
             $action
         );
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -3017,7 +3017,7 @@ abstract class Base extends AccountBase implements MailInterface
     public function testDataSource(MailDataSource $ds = null)
     {
         $request = new \Zimbra\Mail\Request\TestDataSource($ds);
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -3119,7 +3119,7 @@ abstract class Base extends AccountBase implements MailInterface
         $request = new \Zimbra\Mail\Request\UpdateDeviceStatus(
             $device
         );
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -3135,7 +3135,7 @@ abstract class Base extends AccountBase implements MailInterface
         $request = new \Zimbra\Mail\Request\VerifyCode(
             $a, $code
         );
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -3179,6 +3179,6 @@ abstract class Base extends AccountBase implements MailInterface
             $defTypes,
             $timeout
         );
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 }

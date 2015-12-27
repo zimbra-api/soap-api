@@ -25,19 +25,19 @@ use Zimbra\Struct\CursorInfo;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
  */
-class MailSearchParams extends Base
+trait MailSearchParams
 {
     /**
      * if <header>s are requested, any matching headers are included in inlined message hits
      * @var TypedSequence<AttributeName>
      */
-    private $_header;
+    private $_headers;
 
     /**
      * Constructor method for MailSearchParams
      * @param  string $query
      * @param  array $header
-     * @param  CalTZInfo $tz
+     * @param  CalTZInfo $calTz
      * @param  string $locale
      * @param  CursorInfo $cursor
      * @param  bool $includeTagDeleted
@@ -59,6 +59,7 @@ class MailSearchParams extends Base
      * @param  bool $recip
      * @param  bool $prefetch
      * @param  string $resultMode
+     * @param  bool $fullConversation
      * @param  string $field
      * @param  int $limit
      * @param  int $offset
@@ -66,8 +67,8 @@ class MailSearchParams extends Base
      */
     public function __construct(
         $query = null,
-        array $header = array(),
-        CalTZInfo $tz = null,
+        array $headers = [],
+        CalTZInfo $calTz = null,
         $locale = null,
         CursorInfo $cursor = null,
         $includeTagDeleted = null,
@@ -89,6 +90,7 @@ class MailSearchParams extends Base
         $recip = null,
         $prefetch = null,
         $resultMode = null,
+        $fullConversation = null,
         $field = null,
         $limit = null,
         $offset = null
@@ -97,132 +99,142 @@ class MailSearchParams extends Base
         parent::__construct();
         if(null !== $query)
         {
-            $this->child('query', trim($query));
+            $this->setChild('query', trim($query));
         }
-        $this->_header = new TypedSequence('Zimbra\Struct\AttributeName', $header);
-        if($tz instanceof CalTZInfo)
+        $this->setHeaders($headers);
+        if($calTz instanceof CalTZInfo)
         {
-            $this->child('tz', $tz);
+            $this->setChild('tz', $calTz);
         }
         if(null !== $locale)
         {
-            $this->child('locale', trim($locale));
+            $this->setChild('locale', trim($locale));
         }
         if($cursor instanceof CursorInfo)
         {
-            $this->child('cursor', $cursor);
+            $this->setChild('cursor', $cursor);
         }
         if(null !== $includeTagDeleted)
         {
-            $this->property('includeTagDeleted', (bool) $includeTagDeleted);
+            $this->setProperty('includeTagDeleted', (bool) $includeTagDeleted);
         }
         if(null !== $includeTagMuted)
         {
-            $this->property('includeTagMuted', (bool) $includeTagMuted);
+            $this->setProperty('includeTagMuted', (bool) $includeTagMuted);
         }
         if(null !== $allowableTaskStatus)
         {
-            $this->property('allowableTaskStatus', trim($allowableTaskStatus));
+            $this->setProperty('allowableTaskStatus', trim($allowableTaskStatus));
         }
         if(null !== $calExpandInstStart)
         {
-            $this->property('calExpandInstStart', (int) $calExpandInstStart);
+            $this->setProperty('calExpandInstStart', (int) $calExpandInstStart);
         }
         if(null !== $calExpandInstEnd)
         {
-            $this->property('calExpandInstEnd', (int) $calExpandInstEnd);
+            $this->setProperty('calExpandInstEnd', (int) $calExpandInstEnd);
         }
         if(null !== $inDumpster)
         {
-            $this->property('inDumpster', (bool) $inDumpster);
+            $this->setProperty('inDumpster', (bool) $inDumpster);
         }
         if(null !== $types)
         {
-            $this->property('types', trim($types));
+            $this->setProperty('types', trim($types));
         }
         if(null !== $groupBy)
         {
-            $this->property('groupBy', trim($groupBy));
+            $this->setProperty('groupBy', trim($groupBy));
         }
         if(null !== $quick)
         {
-            $this->property('quick', (bool) $quick);
+            $this->setProperty('quick', (bool) $quick);
         }
         if($sortBy instanceof SortBy)
         {
-            $this->property('sortBy', $sortBy);
+            $this->setProperty('sortBy', $sortBy);
         }
         if(null !== $fetch)
         {
-            $this->property('fetch', trim($fetch));
+            $this->setProperty('fetch', trim($fetch));
         }
         if(null !== $read)
         {
-            $this->property('read', (bool) $read);
+            $this->setProperty('read', (bool) $read);
         }
         if(null !== $max)
         {
-            $this->property('max', (int) $max);
+            $this->setProperty('max', (int) $max);
         }
         if(null !== $html)
         {
-            $this->property('html', (bool) $html);
+            $this->setProperty('html', (bool) $html);
         }
         if(null !== $needExp)
         {
-            $this->property('needExp', (bool) $needExp);
+            $this->setProperty('needExp', (bool) $needExp);
         }
         if(null !== $neuter)
         {
-            $this->property('neuter', (bool) $neuter);
+            $this->setProperty('neuter', (bool) $neuter);
         }
         if(null !== $recip)
         {
-            $this->property('recip', (bool) $recip);
+            $this->setProperty('recip', (bool) $recip);
         }
         if(null !== $prefetch)
         {
-            $this->property('prefetch', (bool) $prefetch);
+            $this->setProperty('prefetch', (bool) $prefetch);
         }
         if(null !== $resultMode)
         {
-            $this->property('resultMode', trim($resultMode));
+            $this->setProperty('resultMode', trim($resultMode));
+        }
+        if(null !== $fullConversation)
+        {
+            $this->setProperty('fullConversation', (bool) $fullConversation);
         }
         if(null !== $field)
         {
-            $this->property('field', trim($field));
+            $this->setProperty('field', trim($field));
         }
         if(null !== $limit)
         {
-            $this->property('limit', (int) $limit);
+            $this->setProperty('limit', (int) $limit);
         }
         if(null !== $offset)
         {
-            $this->property('offset', (int) $offset);
+            $this->setProperty('offset', (int) $offset);
         }
 
         $this->on('before', function(Base $sender)
         {
-            if($sender->header()->count())
+            if($sender->getHeaders()->count())
             {
-                $sender->child('header', $sender->header()->all());
+                $sender->setChild('header', $sender->getHeaders()->all());
             }
         });
     }
 
     /**
-     * Get or set query
+     * Gets query
+     *
+     * @return string
+     */
+    public function getQuery()
+    {
+        return $this->getChild('desc');
+    }
+
+    /**
+     * Sets query
      *
      * @param  string $query
-     * @return string|self
+     * @return self
      */
-    public function query($query = null)
+    public function setQuery($query)
     {
-        if(null === $query)
-        {
-            return $this->child('query');
-        }
-        return $this->child('query', trim($query));
+        return $this->setChild('desc', trim($query));
     }
 
     /**
@@ -233,7 +245,19 @@ class MailSearchParams extends Base
      */
     public function addHeader(AttributeName $header)
     {
-        $this->_header->add($header);
+        $this->_headers->add($header);
+        return $this;
+    }
+
+    /**
+     * Sets header sequence
+     *
+     * @param  array $headers
+     * @return self
+     */
+    public function setHeaders(array $headers)
+    {
+        $this->_headers = new TypedSequence('Zimbra\Struct\AttributeName', $headers);
         return $this;
     }
 
@@ -242,383 +266,554 @@ class MailSearchParams extends Base
      *
      * @return Sequence
      */
-    public function header()
+    public function getHeaders()
     {
-        return $this->_header;
+        return $this->_headers;
     }
 
     /**
-     * Get or set tz
+     * Gets timezone specification
      *
-     * @param  CalTZInfo $tz
-     * @return CalTZInfo|self
+     * @return CalTZInfo
      */
-    public function tz(CalTZInfo $tz = null)
+    public function getCalTz()
     {
-        if(null === $tz)
-        {
-            return $this->child('tz');
-        }
-        return $this->child('tz', $tz);
+        return $this->getChild('tz');
     }
 
     /**
-     * Get or set locale
+     * Sets timezone specification
+     *
+     * @param  CalTZInfo $calTz
+     * @return self
+     */
+    public function setCalTz(CalTZInfo $calTz)
+    {
+        return $this->setChild('tz', $calTz);
+    }
+
+    /**
+     * Gets locale
+     *
+     * @return string
+     */
+    public function getLocale()
+    {
+        return $this->getChild('locale');
+    }
+
+    /**
+     * Sets locale
      *
      * @param  string $locale
-     * @return string|self
+     * @return self
      */
-    public function locale($locale = null)
+    public function setLocale($locale)
     {
-        if(null === $locale)
-        {
-            return $this->child('locale');
-        }
-        return $this->child('locale', trim($locale));
+        return $this->setChild('locale', trim($locale));
     }
 
     /**
-     * Get or set cursor
+     * Gets cursor
+     *
+     * @return CursorInfo
+     */
+    public function getCursor()
+    {
+        return $this->getChild('cursor');
+    }
+
+    /**
+     * Sets cursor
      *
      * @param  CursorInfo $cursor
-     * @return CursorInfo|self
+     * @return self
      */
-    public function cursor(CursorInfo $cursor = null)
+    public function setCursor(CursorInfo $cursor)
     {
-        if(null === $cursor)
-        {
-            return $this->child('cursor');
-        }
-        return $this->child('cursor', $cursor);
+        return $this->setChild('cursor', $cursor);
     }
 
     /**
-     * Get or set includeTagDeleted
+     * Gets include tag deleted
+     *
+     * @return bool
+     */
+    public function getIncludeTagDeleted()
+    {
+        return $this->getProperty('includeTagDeleted');
+    }
+
+    /**
+     * Sets include tag deleted
      *
      * @param  bool $includeTagDeleted
-     * @return bool|self
+     * @return self
      */
-    public function includeTagDeleted($includeTagDeleted = null)
+    public function setIncludeTagDeleted($includeTagDeleted)
     {
-        if(null === $includeTagDeleted)
-        {
-            return $this->property('includeTagDeleted');
-        }
-        return $this->property('includeTagDeleted', (bool) $includeTagDeleted);
+        return $this->setProperty('includeTagDeleted', (bool) $includeTagDeleted);
     }
 
     /**
-     * Get or set includeTagMuted
+     * Gets include tag muted
+     *
+     * @return bool
+     */
+    public function getIncludeTagMuted()
+    {
+        return $this->getProperty('includeTagMuted');
+    }
+
+    /**
+     * Sets include tag muted
      *
      * @param  bool $includeTagMuted
-     * @return bool|self
+     * @return self
      */
-    public function includeTagMuted($includeTagMuted = null)
+    public function setIncludeTagMuted($includeTagMuted)
     {
-        if(null === $includeTagMuted)
-        {
-            return $this->property('includeTagMuted');
-        }
-        return $this->property('includeTagMuted', (bool) $includeTagMuted);
+        return $this->setProperty('includeTagMuted', (bool) $includeTagMuted);
     }
 
     /**
-     * Get or set allowableTaskStatus
+     * Gets allowable task status
+     *
+     * @return string
+     */
+    public function getAllowableTaskStatus()
+    {
+        return $this->getProperty('allowableTaskStatus');
+    }
+
+    /**
+     * Sets allowable task status
      *
      * @param  string $allowableTaskStatus
-     * @return string|self
+     * @return self
      */
-    public function allowableTaskStatus($allowableTaskStatus = null)
+    public function setAllowableTaskStatus($allowableTaskStatus)
     {
-        if(null === $allowableTaskStatus)
-        {
-            return $this->property('allowableTaskStatus');
-        }
-        return $this->property('allowableTaskStatus', trim($allowableTaskStatus));
+        return $this->setProperty('allowableTaskStatus', trim($allowableTaskStatus));
     }
 
     /**
-     * Gets or sets calExpandInstStart
+     * Gets cal expand inst start
+     *
+     * @return int
+     */
+    public function getCalExpandInstStart()
+    {
+        return $this->getProperty('calExpandInstStart');
+    }
+
+    /**
+     * Sets cal expand inst start
      *
      * @param  int $calExpandInstStart
-     * @return int|self
+     * @return self
      */
-    public function calExpandInstStart($calExpandInstStart = null)
+    public function setCalExpandInstStart($calExpandInstStart)
     {
-        if(null === $calExpandInstStart)
-        {
-            return $this->property('calExpandInstStart');
-        }
-        return $this->property('calExpandInstStart', (int) $calExpandInstStart);
+        return $this->setProperty('calExpandInstStart', (int) $calExpandInstStart);
     }
 
     /**
-     * Gets or sets calExpandInstEnd
+     * Gets cal expand inst end
+     *
+     * @return int
+     */
+    public function getCalExpandInstEnd()
+    {
+        return $this->getProperty('calExpandInstEnd');
+    }
+
+    /**
+     * Sets cal expand inst end
      *
      * @param  int $calExpandInstEnd
-     * @return int|self
+     * @return self
      */
-    public function calExpandInstEnd($calExpandInstEnd = null)
+    public function setCalExpandInstEnd($calExpandInstEnd)
     {
-        if(null === $calExpandInstEnd)
-        {
-            return $this->property('calExpandInstEnd');
-        }
-        return $this->property('calExpandInstEnd', (int) $calExpandInstEnd);
+        return $this->setProperty('calExpandInstEnd', (int) $calExpandInstEnd);
     }
 
     /**
-     * Get or set inDumpster
+     * Gets in dumpster
+     *
+     * @return bool
+     */
+    public function getInDumpster()
+    {
+        return $this->getProperty('inDumpster');
+    }
+
+    /**
+     * Sets in dumpster
      *
      * @param  bool $inDumpster
-     * @return bool|self
+     * @return self
      */
-    public function inDumpster($inDumpster = null)
+    public function setInDumpster($inDumpster)
     {
-        if(null === $inDumpster)
-        {
-            return $this->property('inDumpster');
-        }
-        return $this->property('inDumpster', (bool) $inDumpster);
+        return $this->setProperty('inDumpster', (bool) $inDumpster);
     }
 
     /**
-     * Get or set types
+     * Gets search types
      *
-     * @param  string $types
-     * @return string|self
+     * @return string
      */
-    public function types($types = null)
+    public function getSearchTypes()
     {
-        if(null === $types)
-        {
-            return $this->property('types');
-        }
-        return $this->property('types', trim($types));
+        return $this->getProperty('types');
     }
 
     /**
-     * Gets or sets groupBy
+     * Sets search types
+     *
+     * @param  string $searchTypes
+     * @return self
+     */
+    public function setSearchTypes($searchTypes)
+    {
+        return $this->setProperty('types', trim($searchTypes));
+    }
+
+    /**
+     * Gets group by
+     *
+     * @return string
+     */
+    public function getGroupBy()
+    {
+        return $this->getProperty('groupBy');
+    }
+
+    /**
+     * Sets group by
      *
      * @param  string $groupBy
-     * @return string|self
+     * @return self
      */
-    public function groupBy($groupBy = null)
+    public function setGroupBy($groupBy)
     {
-        if(null === $groupBy)
-        {
-            return $this->property('groupBy');
-        }
-        return $this->property('groupBy', trim($groupBy));
+        return $this->setProperty('groupBy', trim($groupBy));
     }
 
     /**
-     * Get or set quick
+     * Gets quick
+     *
+     * @return bool
+     */
+    public function getQuick()
+    {
+        return $this->getProperty('quick');
+    }
+
+    /**
+     * Sets quick
      *
      * @param  bool $quick
-     * @return bool|self
+     * @return self
      */
-    public function quick($quick = null)
+    public function setQuick($quick)
     {
-        if(null === $quick)
-        {
-            return $this->property('quick');
-        }
-        return $this->property('quick', (bool) $quick);
+        return $this->setProperty('quick', (bool) $quick);
     }
 
     /**
-     * Gets or sets sortBy
+     * Gets sort by
      *
-     * @param  SortBy $sortBy
-     * @return SortBy|self
+     * @return string
      */
-    public function sortBy(SortBy $sortBy = null)
+    public function getSortBy()
     {
-        if(null === $sortBy)
-        {
-            return $this->property('sortBy');
-        }
-        return $this->property('sortBy', $sortBy);
+        return $this->getProperty('sortBy');
     }
 
     /**
-     * Gets or sets fetch
+     * Sets sort by
+     *
+     * @param  string $sortBy
+     * @return self
+     */
+    public function setSortBy($sortBy)
+    {
+        return $this->setProperty('sortBy', trim($sortBy));
+    }
+
+    /**
+     * Gets select setting for hit expansion
+     *
+     * @return string
+     */
+    public function getFetch()
+    {
+        return $this->getProperty('fetch');
+    }
+
+    /**
+     * Sets select setting for hit expansion
      *
      * @param  string $fetch
-     * @return string|self
+     * @return self
      */
-    public function fetch($fetch = null)
+    public function setFetch($fetch)
     {
-        if(null === $fetch)
-        {
-            return $this->property('fetch');
-        }
-        return $this->property('fetch', trim($fetch));
+        return $this->setProperty('fetch', trim($fetch));
     }
 
     /**
-     * Get or set read
+     * Gets mark as read
      *
-     * @param  bool $read
-     * @return bool|self
+     * @return bool
      */
-    public function read($read = null)
+    public function getMarkRead()
     {
-        if(null === $read)
-        {
-            return $this->property('read');
-        }
-        return $this->property('read', (bool) $read);
+        return $this->getProperty('read');
     }
 
     /**
-     * Gets or sets max
+     * Sets mark as read
      *
-     * @param  int $max
-     * @return int|self
+     * @param  bool $markRead
+     * @return self
      */
-    public function max($max = null)
+    public function setMarkRead($markRead)
     {
-        if(null === $max)
-        {
-            return $this->property('max');
-        }
-        return $this->property('max', (int) $max);
+        return $this->setProperty('read', (bool) $markRead);
     }
 
     /**
-     * Get or set html
+     * Gets max inlined length
      *
-     * @param  bool $html
-     * @return bool|self
+     * @return int
      */
-    public function html($html = null)
+    public function getMaxInlinedLength()
     {
-        if(null === $html)
-        {
-            return $this->property('html');
-        }
-        return $this->property('html', (bool) $html);
+        return $this->getProperty('max');
     }
 
     /**
-     * Get or set needExp
+     * Sets max inlined length
      *
-     * @param  bool $needExp
-     * @return bool|self
+     * @param  int $maxInlinedLength
+     * @return self
      */
-    public function needExp($needExp = null)
+    public function setMaxInlinedLength($maxInlinedLength)
     {
-        if(null === $needExp)
-        {
-            return $this->property('needExp');
-        }
-        return $this->property('needExp', (bool) $needExp);
+        return $this->setProperty('max', (int) $maxInlinedLength);
     }
 
     /**
-     * Get or set neuter
+     * Gets want html
      *
-     * @param  bool $neuter
-     * @return bool|self
+     * @return bool
      */
-    public function neuter($neuter = null)
+    public function getWantHtml()
     {
-        if(null === $neuter)
-        {
-            return $this->property('neuter');
-        }
-        return $this->property('neuter', (bool) $neuter);
+        return $this->getProperty('html');
     }
 
     /**
-     * Get or set recip
+     * Sets want html
      *
-     * @param  bool $recip
-     * @return bool|self
+     * @param  bool $wantHtml
+     * @return self
      */
-    public function recip($recip = null)
+    public function setWantHtml($wantHtml)
     {
-        if(null === $recip)
-        {
-            return $this->property('recip');
-        }
-        return $this->property('recip', (bool) $recip);
+        return $this->setProperty('html', (bool) $wantHtml);
     }
 
     /**
-     * Get or set prefetch
+     * Gets need can expand
+     *
+     * @return bool
+     */
+    public function getNeedCanExpand()
+    {
+        return $this->getProperty('needExp');
+    }
+
+    /**
+     * Sets need can expand
+     *
+     * @param  bool $needCanExpand
+     * @return self
+     */
+    public function setNeedCanExpand($needCanExpand)
+    {
+        return $this->setProperty('needExp', (bool) $needCanExpand);
+    }
+
+    /**
+     * Gets neuter images
+     *
+     * @return bool
+     */
+    public function getNeuterImages()
+    {
+        return $this->getProperty('neuter');
+    }
+
+    /**
+     * Sets neuter images
+     *
+     * @param  bool $neuterImages
+     * @return self
+     */
+    public function setNeuterImages($neuterImages)
+    {
+        return $this->setProperty('neuter', (bool) $neuterImages);
+    }
+
+    /**
+     * Gets want recipients
+     *
+     * @return bool
+     */
+    public function getWantRecipients()
+    {
+        return $this->getProperty('recip');
+    }
+
+    /**
+     * Sets want recipients
+     *
+     * @param  bool $wantRecipients
+     * @return self
+     */
+    public function setWantRecipients($wantRecipients)
+    {
+        return $this->setProperty('recip', (bool) $wantRecipients);
+    }
+
+    /**
+     * Gets prefetch
+     *
+     * @return bool
+     */
+    public function getPrefetch()
+    {
+        return $this->getProperty('prefetch');
+    }
+
+    /**
+     * Sets prefetch
      *
      * @param  bool $prefetch
-     * @return bool|self
+     * @return self
      */
-    public function prefetch($prefetch = null)
+    public function setPrefetch($prefetch)
     {
-        if(null === $prefetch)
-        {
-            return $this->property('prefetch');
-        }
-        return $this->property('prefetch', (bool) $prefetch);
+        return $this->setProperty('prefetch', (bool) $prefetch);
     }
 
     /**
-     * Gets or sets resultMode
+     * Gets result mode
+     *
+     * @return string
+     */
+    public function getResultMode()
+    {
+        return $this->getProperty('resultMode');
+    }
+
+    /**
+     * Sets result mode
      *
      * @param  string $resultMode
-     * @return string|self
+     * @return self
      */
-    public function resultMode($resultMode = null)
+    public function setResultMode($resultMode)
     {
-        if(null === $resultMode)
-        {
-            return $this->property('resultMode');
-        }
-        return $this->property('resultMode', trim($resultMode));
+        return $this->setProperty('resultMode', trim($resultMode));
     }
 
     /**
-     * Gets or sets field
+     * Gets full conversation
+     *
+     * @return bool
+     */
+    public function getFullConversation()
+    {
+        return $this->getProperty('fullConversation');
+    }
+
+    /**
+     * Sets full conversation
+     *
+     * @param  bool $fullConversation
+     * @return self
+     */
+    public function setFullConversation($fullConversation)
+    {
+        return $this->setProperty('fullConversation', (bool) $fullConversation);
+    }
+
+    /**
+     * Gets field
+     *
+     * @return string
+     */
+    public function getField()
+    {
+        return $this->getProperty('field');
+    }
+
+    /**
+     * Sets field
      *
      * @param  string $field
-     * @return string|self
+     * @return self
      */
-    public function field($field = null)
+    public function setField($field)
     {
-        if(null === $field)
-        {
-            return $this->property('field');
-        }
-        return $this->property('field', trim($field));
+        return $this->setProperty('field', trim($field));
     }
 
     /**
-     * Gets or sets limit
+     * Gets limit
+     *
+     * @return int
+     */
+    public function getLimit()
+    {
+        return $this->getProperty('limit');
+    }
+
+    /**
+     * Sets limit
      *
      * @param  int $limit
-     * @return int|self
+     * @return self
      */
-    public function limit($limit = null)
+    public function setLimit($limit)
     {
-        if(null === $limit)
-        {
-            return $this->property('limit');
-        }
-        return $this->property('limit', (int) $limit);
+        return $this->setProperty('limit', (int) $limit);
     }
 
     /**
-     * Gets or sets offset
+     * Gets offset
+     *
+     * @return int
+     */
+    public function getOffset()
+    {
+        return $this->getProperty('offset');
+    }
+
+    /**
+     * Sets offset
      *
      * @param  int $offset
-     * @return int|self
+     * @return self
      */
-    public function offset($offset = null)
+    public function setOffset($offset)
     {
-        if(null === $offset)
-        {
-            return $this->property('offset');
-        }
-        return $this->property('offset', (int) $offset);
+        return $this->setProperty('offset', (int) $offset);
     }
 }

@@ -21,17 +21,6 @@ namespace Zimbra\Mail\Struct;
  */
 class CurrentTimeTest extends FilterTest
 {
-    /**
-     * Date comparison
-     * @var string
-     */
-    private $_dateComparison;
-
-    /**
-     * Time
-     * @var string
-     */
-    private $_time;
 
     /**
      * Constructor method for CurrentTimeTest

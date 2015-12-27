@@ -33,100 +33,238 @@ class GetContacts extends Base
      * Attrs - if present, return only the specified attribute(s).
      * @var TypedSequence<AttributeName>
      */
-    private $_a;
+    private $_attributes;
 
     /**
      * If present, return only the specified attribute(s) for derefed members, applicable only when derefGroupMember is set.
      * @var TypedSequence<AttributeName>
      */
-    private $_ma;
+    private $_memberAttributes;
 
     /**
      * If present, only get the specified contact(s).
      * @var TypedSequence<Id>
      */
-    private $_cn;
+    private $_contacts;
 
     /**
      * Constructor method for GetContacts
-     * @param  array  $a
-     * @param  array  $ma
-     * @param  array  $cn
      * @param  bool   $sync
-     * @param  string $l
+     * @param  string $folderId
      * @param  string $sortBy
      * @param  bool   $derefGroupMember
      * @param  bool   $returnHiddenAttrs
-     * @param  int    $max 
+     * @param  int    $maxMembers 
+     * @param  array  $attributes
+     * @param  array  $memberAttributes
+     * @param  array  $contacts
      * @return self
      */
     public function __construct(
-        array $a = array(),
-        array $ma = array(),
-        array $cn = array(),
         $sync = null,
-        $l = null,
+        $folderId = null,
         $sortBy = null,
         $derefGroupMember = null,
         $returnHiddenAttrs = null,
-        $maxMembers = null
+        $maxMembers = null,
+        array $attributes = array(),
+        array $memberAttributes = array(),
+        array $contacts = array()
     )
     {
         parent::__construct();
-        $this->_a = new TypedSequence('Zimbra\Struct\AttributeName', $a);
-        $this->_ma = new TypedSequence('Zimbra\Struct\AttributeName', $ma);
-        $this->_cn = new TypedSequence('Zimbra\Struct\Id', $cn);
         if(null !== $sync)
         {
-            $this->property('sync', (bool) $sync);
+            $this->setProperty('sync', (bool) $sync);
         }
-        if(null !== $l)
+        if(null !== $folderId)
         {
-            $this->property('l', trim($l));
+            $this->setProperty('l', trim($folderId));
         }
         if(null !== $sortBy)
         {
-            $this->property('sortBy', trim($sortBy));
+            $this->setProperty('sortBy', trim($sortBy));
         }
         if(null !== $derefGroupMember)
         {
-            $this->property('derefGroupMember', (bool) $derefGroupMember);
+            $this->setProperty('derefGroupMember', (bool) $derefGroupMember);
         }
         if(null !== $returnHiddenAttrs)
         {
-            $this->property('returnHiddenAttrs', (bool) $returnHiddenAttrs);
+            $this->setProperty('returnHiddenAttrs', (bool) $returnHiddenAttrs);
         }
         if(null !== $maxMembers)
         {
-            $this->property('maxMembers', (int) $maxMembers);
+            $this->setProperty('maxMembers', (int) $maxMembers);
         }
+        $this->setAttributes($attributes);
+        $this->setMemberAttributes($memberAttributes);
+        $this->setContacts($contacts);
 
         $this->on('before', function(Base $sender)
         {
-            if($sender->a()->count())
+            if($sender->getAttributes()->count())
             {
-                $sender->child('a', $sender->a()->all());
+                $sender->setChild('a', $sender->getAttributes()->all());
             }
-            if($sender->ma()->count())
+            if($sender->getMemberAttributes()->count())
             {
-                $sender->child('ma', $sender->ma()->all());
+                $sender->setChild('ma', $sender->getMemberAttributes()->all());
             }
-            if($sender->cn()->count())
+            if($sender->getContacts()->count())
             {
-                $sender->child('cn', $sender->cn()->all());
+                $sender->setChild('cn', $sender->getContacts()->all());
             }
         });
     }
 
     /**
-     * Add an attribute
+     * Gets sync
      *
-     * @param  AttributeName $a
+     * @return bool
+     */
+    public function getSync()
+    {
+        return $this->getProperty('sync');
+    }
+
+    /**
+     * Sets sync
+     *
+     * @param  bool $sync
      * @return self
      */
-    public function addA(AttributeName $a)
+    public function setSync($sync)
     {
-        $this->_a->add($a);
+        return $this->setProperty('sync', (bool) $sync);
+    }
+
+    /**
+     * Gets folder Id
+     *
+     * @return string
+     */
+    public function getFolderId()
+    {
+        return $this->getProperty('l');
+    }
+
+    /**
+     * Sets folder Id
+     *
+     * @param  string $folderId
+     * @return self
+     */
+    public function setFolderId($folderId)
+    {
+        return $this->setProperty('l', trim($folderId));
+    }
+
+    /**
+     * Gets sort by
+     *
+     * @return string
+     */
+    public function getSortBy()
+    {
+        return $this->getProperty('sortBy');
+    }
+
+    /**
+     * Sets sort by
+     *
+     * @param  string $sortBy
+     * @return self
+     */
+    public function setSortBy($sortBy)
+    {
+        return $this->setProperty('sortBy', trim($sortBy));
+    }
+
+    /**
+     * Gets deref contact group members
+     *
+     * @return bool
+     */
+    public function getDerefGroupMember()
+    {
+        return $this->getProperty('derefGroupMember');
+    }
+
+    /**
+     * Sets deref contact group members
+     *
+     * @param  bool $derefGroupMember
+     * @return self
+     */
+    public function setDerefGroupMember($derefGroupMember)
+    {
+        return $this->setProperty('derefGroupMember', (bool) $derefGroupMember);
+    }
+
+    /**
+     * Gets return hidden attrs
+     *
+     * @return bool
+     */
+    public function getReturnHiddenAttrs()
+    {
+        return $this->getProperty('returnHiddenAttrs');
+    }
+
+    /**
+     * Sets return hidden attrs
+     *
+     * @param  bool $returnHiddenAttrs
+     * @return self
+     */
+    public function setReturnHiddenAttrs($returnHiddenAttrs)
+    {
+        return $this->setProperty('returnHiddenAttrs', (bool) $returnHiddenAttrs);
+    }
+
+    /**
+     * Gets max members
+     *
+     * @return int
+     */
+    public function getMaxMembers()
+    {
+        return $this->getProperty('maxMembers');
+    }
+
+    /**
+     * Sets max members
+     *
+     * @param  int $maxMembers
+     * @return self
+     */
+    public function setMaxMembers($maxMembers)
+    {
+        return $this->setProperty('maxMembers', (int) $maxMembers);
+    }
+
+    /**
+     * Add an attribute
+     *
+     * @param  AttributeName $attribute
+     * @return self
+     */
+    public function addAttribute(AttributeName $attribute)
+    {
+        $this->_attributes->add($a);
+        return $this;
+    }
+
+    /**
+     * Sets attribute sequence
+     *
+     * @param  array $attributes
+     * @return self
+     */
+    public function setAttributes(array $attributes)
+    {
+        $this->_attributes = new TypedSequence('Zimbra\Struct\AttributeName', $attributes);
         return $this;
     }
 
@@ -135,20 +273,32 @@ class GetContacts extends Base
      *
      * @return Sequence
      */
-    public function a()
+    public function getAttributes()
     {
-        return $this->_a;
+        return $this->_attributes;
     }
 
     /**
      * Add a member attribute
      *
-     * @param  AttributeName $ma
+     * @param  AttributeName $attribute
      * @return self
      */
-    public function addMa(AttributeName $ma)
+    public function addMemberAttribute(AttributeName $attribute)
     {
-        $this->_ma->add($ma);
+        $this->_memberAttributes->add($attribute);
+        return $this;
+    }
+
+    /**
+     * Gets member attribute sequence
+     *
+     * @param  array $memberAttributes
+     * @return self
+     */
+    public function setMemberAttributes(array $memberAttributes)
+    {
+        $this->_memberAttributes = new TypedSequence('Zimbra\Struct\AttributeName', $memberAttributes);
         return $this;
     }
 
@@ -157,9 +307,9 @@ class GetContacts extends Base
      *
      * @return Sequence
      */
-    public function ma()
+    public function getMemberAttributes()
     {
-        return $this->_ma;
+        return $this->_memberAttributes;
     }
 
     /**
@@ -168,9 +318,21 @@ class GetContacts extends Base
      * @param  Id $cn
      * @return self
      */
-    public function addCn(Id $cn)
+    public function addContact(Id $contact)
     {
-        $this->_cn->add($cn);
+        $this->_contacts->add($contact);
+        return $this;
+    }
+
+    /**
+     * Sets contact sequence
+     *
+     * @param  array $contacts
+     * @return self
+     */
+    public function setContacts(array $contacts)
+    {
+        $this->_contacts = new TypedSequence('Zimbra\Struct\Id', $contacts);
         return $this;
     }
 
@@ -179,107 +341,8 @@ class GetContacts extends Base
      *
      * @return Sequence
      */
-    public function cn()
+    public function getContacts()
     {
-        return $this->_cn;
-    }
-
-    /**
-     * Get or set sync
-     * If set, return modified date (md) on contacts.
-     *
-     * @param  bool $sync
-     * @return bool|self
-     */
-    public function sync($sync = null)
-    {
-        if(null === $sync)
-        {
-            return $this->property('sync');
-        }
-        return $this->property('sync', (bool) $sync);
-    }
-
-    /**
-     * Get or set l
-     * If is present, return only contacts in the specified folder.
-     *
-     * @param  string $l
-     * @return string|self
-     */
-    public function l($l = null)
-    {
-        if(null === $l)
-        {
-            return $this->property('l');
-        }
-        return $this->property('l', trim($l));
-    }
-
-    /**
-     * Get or set sortBy
-     *
-     * @param  string $sortBy
-     * @return string|self
-     */
-    public function sortBy($sortBy = null)
-    {
-        if(null === $sortBy)
-        {
-            return $this->property('sortBy');
-        }
-        return $this->property('sortBy', trim($sortBy));
-    }
-
-    /**
-     * Get or set derefGroupMember
-     * If set, deref contact group members.
-     * Contact members can be:
-     *   for contact ref (type="C"): the fileAs field of the Contact
-     *   for GAL ref (type="G"): email address of the GAL entry
-     *   for inlined member (type="I"): the value
-     *
-     * @param  bool $derefGroupMember
-     * @return bool|self
-     */
-    public function derefGroupMember($derefGroupMember = null)
-    {
-        if(null === $derefGroupMember)
-        {
-            return $this->property('derefGroupMember');
-        }
-        return $this->property('derefGroupMember', (bool) $derefGroupMember);
-    }
-
-    /**
-     * Get or set returnHiddenAttrs
-     * Whether to return contact hidden attrs defined in zimbraContactHiddenAttributes ignored if <a> is present.
-     *
-     * @param  bool $returnHiddenAttrs
-     * @return bool|self
-     */
-    public function returnHiddenAttrs($returnHiddenAttrs = null)
-    {
-        if(null === $returnHiddenAttrs)
-        {
-            return $this->property('returnHiddenAttrs');
-        }
-        return $this->property('returnHiddenAttrs', (bool) $returnHiddenAttrs);
-    }
-
-    /**
-     * Get or set maxMembers
-     * Max members
-     *
-     * @param  int $maxMembers
-     * @return int|self
-     */
-    public function maxMembers($maxMembers = null)
-    {
-        if(null === $maxMembers)
-        {
-            return $this->property('maxMembers');
-        }
-        return $this->property('maxMembers', (int) $maxMembers);
+        return $this->_contacts;
     }
 }

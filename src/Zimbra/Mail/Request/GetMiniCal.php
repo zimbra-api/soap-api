@@ -32,69 +32,81 @@ class GetMiniCal extends Base
      * Local and/or remote calendar folders
      * @var TypedSequence<Id>
      */
-    private $_folder;
+    private $_folders;
 
     /**
      * Constructor method for GetMiniCal
-     * @param  int $s
-     * @param  int $e
-     * @param  array $folder
-     * @param  CalTZInfo $tz
+     * @param  int $startTime
+     * @param  int $endTime
+     * @param  array $folders
+     * @param  CalTZInfo $timezone
      * @return self
      */
     public function __construct(
-        $s,
-        $e,
-        array $folder = array(),
-        CalTZInfo $tz = null
+        $startTime,
+        $endTime,
+        array $folders = [],
+        CalTZInfo $timezone = null
     )
     {
         parent::__construct();
-        $this->property('s', (int) $s);
-        $this->property('e', (int) $e);
-        $this->_folder = new TypedSequence('Zimbra\Struct\Id', $folder);
-        if($tz instanceof CalTZInfo)
+        $this->setProperty('s', (int) $startTime);
+        $this->setProperty('e', (int) $endTime);
+        if($timezone instanceof CalTZInfo)
         {
-            $this->child('tz', $tz);
+            $this->setChild('tz', $timezone);
         }
 
+        $this->setFolders($folders);
         $this->on('before', function(Base $sender)
         {
-            if($sender->folder()->count())
+            if($sender->getFolders()->count())
             {
-                $sender->child('folder', $sender->folder()->all());
+                $sender->setChild('folder', $sender->getFolders()->all());
             }
         });
     }
 
     /**
-     * Get or set s
+     * Gets range start in milliseconds
      *
-     * @param  int $s
-     * @return int|self
+     * @return int
      */
-    public function s($s = null)
+    public function getStartTime()
     {
-        if(null === $s)
-        {
-            return $this->property('s');
-        }
-        return $this->property('s', (int) $s);
+        return $this->getProperty('s');
     }
 
     /**
-     * Get or set e
+     * Sets range start in milliseconds
      *
-     * @param  int $e
-     * @return int|self
+     * @param  int $startTime
+     * @return self
      */
-    public function e($e = null)
+    public function setStartTime($startTime)
     {
-        if(null === $e)
-        {
-            return $this->property('e');
-        }
-        return $this->property('e', (int) $e);
+        return $this->setProperty('s', (int) $startTime);
+    }
+
+    /**
+     * Gets range end in milliseconds
+     *
+     * @return int
+     */
+    public function getEndTime()
+    {
+        return $this->getProperty('s');
+    }
+
+    /**
+     * Sets range end in milliseconds
+     *
+     * @param  int $endTime
+     * @return self
+     */
+    public function setEndTime($endTime)
+    {
+        return $this->setProperty('s', (int) $endTime);
     }
 
     /**
@@ -105,7 +117,19 @@ class GetMiniCal extends Base
      */
     public function addFolder(Id $folder)
     {
-        $this->_folder->add($folder);
+        $this->_folders->add($folder);
+        return $this;
+    }
+
+    /**
+     * Sets folder sequence
+     *
+     * @param  array $folders
+     * @return self
+     */
+    public function setFolders(array $folders)
+    {
+        $this->_folders = new TypedSequence('Zimbra\Struct\Id', $folders);
         return $this;
     }
 
@@ -114,25 +138,29 @@ class GetMiniCal extends Base
      *
      * @return Sequence
      */
-    public function folder()
+    public function getFolders()
     {
-        return $this->_folder;
+        return $this->_folders;
     }
 
     /**
-     * Get or set tz
-     * Optional timezone specifier.
-     * References an existing server-known timezone by ID or the full specification of a custom timezone
+     * Gets timezone specifier
      *
-     * @param  CalTZInfo $tz
-     * @return CalTZInfo|self
+     * @return CalTZInfo
      */
-    public function tz(CalTZInfo $tz = null)
+    public function getTimezone()
     {
-        if(null === $tz)
-        {
-            return $this->child('tz');
-        }
-        return $this->child('tz', $tz);
+        return $this->getChild('tz');
+    }
+
+    /**
+     * Sets timezone specifier
+     *
+     * @param  CalTZInfo $timezone
+     * @return self
+     */
+    public function setTimezone(CalTZInfo $timezone)
+    {
+        return $this->setChild('tz', $timezone);
     }
 }
