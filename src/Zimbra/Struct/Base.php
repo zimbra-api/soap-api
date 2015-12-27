@@ -14,7 +14,6 @@ use Evenement\EventEmitter;
 use PhpCollection\Map;
 use Zimbra\Common\SimpleXML;
 use Zimbra\Common\Text;
-use Zimbra\Common\TypedMap;
 
 /**
  * Base struct class
@@ -350,11 +349,11 @@ abstract class Base extends EventEmitter
         $name = !empty($name) ? $name : $this->className();
         if(null !== $this->_value)
         {
-            $xml = new SimpleXML('<'.$name.'>'.$this->_value.'</'.$name.'>');
+            $xml = new SimpleXML('<' . $name . '>' . $this->_value . '</' . $name . '>');
         }
         else
         {
-            $xml = new SimpleXML('<'.$name.' />');
+            $xml = new SimpleXML('<' . $name . ' />');
         }
         foreach ($this->_properties as $key => $value)
         {
