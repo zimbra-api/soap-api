@@ -9,7 +9,6 @@ This API A simple Object Oriented wrapper for the zimbra soap api (web service).
 * [Evenement](https://github.com/igorw/evenement) library,
 * [PhpCollection](https://github.com/schmittjoh/php-collection) library,
 * (optional) PHPUnit to run tests,
-* (optional) [Soap](http://www.php.net/manual/en/book.soap.php) extension for WSDL client and run tests.
 
 ## Autoload
 
@@ -47,7 +46,7 @@ require_once 'vendor/autoload.php';
 $api = new \Zimbra\AdminFactory::instance('https://localhost:7071/service/admin/soap');
 $authToken = $api->auth('username', 'password');
 $api->auth('username', 'password');
-$account = new \Zimbra\Struct\AccountSelector(AccountBy::NAME(), 'username');
+$account = new \Zimbra\Struct\AccountSelector(\Zimbra\Enum\AccountBy::NAME(), 'username');
 $accountInfo = $api->getAccountInfo($account);
 ```
 
