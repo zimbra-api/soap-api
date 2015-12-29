@@ -39,7 +39,7 @@ class AuthTest extends ZimbraAccountApiTestCase
 
         $req = new Auth(
             $account, $password, $preauth, $authToken, $virtualHost,
-            $prefs, $attrs, $requestedSkin, false
+            $prefs, $attrs, $requestedSkin, false, true
         );
         $this->assertInstanceOf('Zimbra\Account\Request\Base', $req);
         $this->assertSame($account, $req->getAccount());
@@ -51,6 +51,7 @@ class AuthTest extends ZimbraAccountApiTestCase
         $this->assertSame($attrs, $req->getAttrs());
         $this->assertSame($requestedSkin, $req->getRequestedSkin());
         $this->assertFalse($req->getPersistAuthTokenCookie());
+        $this->assertTrue($req->getCsrfTokenSecured());
 
         $req->setAccount($account)
             ->setPassword($password)
@@ -60,7 +61,8 @@ class AuthTest extends ZimbraAccountApiTestCase
             ->setPrefs($prefs)
             ->setAttrs($attrs)
             ->setRequestedSkin($requestedSkin)
-            ->setPersistAuthTokenCookie(true);
+            ->setPersistAuthTokenCookie(true)
+            ->setCsrfTokenSecured(false);
         $this->assertSame($account, $req->getAccount());
         $this->assertSame($password, $req->getPassword());
         $this->assertSame($preauth, $req->getPreAuth());
@@ -70,9 +72,10 @@ class AuthTest extends ZimbraAccountApiTestCase
         $this->assertSame($attrs, $req->getAttrs());
         $this->assertSame($requestedSkin, $req->getRequestedSkin());
         $this->assertTrue($req->getPersistAuthTokenCookie());
+        $this->assertFalse($req->getCsrfTokenSecured());
 
         $xml = '<?xml version="1.0"?>' . "\n"
-            . '<AuthRequest persistAuthTokenCookie="true">'
+            . '<AuthRequest persistAuthTokenCookie="true" csrfTokenSecured="false">'
                 . '<account by="' . AccountBy::NAME() . '">' . $value . '</account>'
                 . '<password>' . $password . '</password>'
                 . '<preauth timestamp="' . $time . '" expiresTimestamp="' . $time . '">' . $value . '</preauth>'
@@ -126,6 +129,7 @@ class AuthTest extends ZimbraAccountApiTestCase
                 ],
                 'requestedSkin' => $requestedSkin,
                 'persistAuthTokenCookie' => true,
+                'csrfTokenSecured' => false,
             ],
         ];
         $this->assertEquals($array, $req->toArray());
@@ -152,7 +156,7 @@ class AuthTest extends ZimbraAccountApiTestCase
 
         $this->api->auth(
             $account, $password, $preauth, $authToken, $virtualHost,
-            $prefs, $attrs, $requestedSkin, false
+            $prefs, $attrs, $requestedSkin, false, false
         );
 
         $client = $this->api->getClient();
@@ -160,7 +164,7 @@ class AuthTest extends ZimbraAccountApiTestCase
         $xml = '<?xml version="1.0"?>' . "\n"
             . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAccount">'
                 . '<env:Body>'
-                    . '<urn1:AuthRequest persistAuthTokenCookie="false">'
+                    . '<urn1:AuthRequest persistAuthTokenCookie="false" csrfTokenSecured="false">'
                         . '<urn1:account by="' . AccountBy::NAME() . '">' . $value . '</urn1:account>'
                         . '<urn1:password>' . $password . '</urn1:password>'
                         . '<urn1:preauth timestamp="' . $time . '" expiresTimestamp="' . $time . '">' . $value . '</urn1:preauth>'

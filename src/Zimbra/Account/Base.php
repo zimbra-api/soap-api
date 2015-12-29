@@ -68,6 +68,7 @@ abstract class Base extends API implements AccountInterface
      * @param  AuthAttrs $attrs The attributes.
      * @param  string    $requestedSkin If specified the name of the skin requested by the client.
      * @param  string    $persistAuthTokenCookie Controls whether the auth token cookie in the response should be persisted when the browser exits.
+     * @param  bool      $csrfTokenSecured Controls whether the client supports CSRF token.
      * @return authentication token
      */
     public function auth(
@@ -79,7 +80,8 @@ abstract class Base extends API implements AccountInterface
         AuthPrefs $prefs = null,
         AuthAttrs $attrs = null,
         $requestedSkin = null,
-        $persistAuthTokenCookie = null
+        $persistAuthTokenCookie = null,
+        $csrfTokenSecured = null
     )
     {
         $request = new \Zimbra\Account\Request\Auth(
@@ -91,7 +93,8 @@ abstract class Base extends API implements AccountInterface
             $prefs,
             $attrs,
             $requestedSkin,
-            $persistAuthTokenCookie
+            $persistAuthTokenCookie,
+            $csrfTokenSecured
         );
         $result = $this->getClient()->doRequest($request);
         if(isset($result->authToken) && !empty($result->authToken))

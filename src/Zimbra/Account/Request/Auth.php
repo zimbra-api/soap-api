@@ -38,7 +38,7 @@ class Auth extends Base
      * @param  AuthPrefs $prefs Preference
      * @param  AuthAttrs $attrs The attributes
      * @param  string    $requestedSkin The requestedSkin. If specified the name of the skin requested by the client.
-     * @param  bool      $persistAuthTokenCookie Controls whether the auth token cookie in the response should be persisted when the browser exits.
+     * @param  bool      $csrfTokenSecured Controls whether the client supports CSRF token.
      * @return self
      */
     public function __construct(
@@ -50,7 +50,8 @@ class Auth extends Base
         AuthPrefs $prefs = null,
         AuthAttrs $attrs = null,
         $requestedSkin = null,
-        $persistAuthTokenCookie = null
+        $persistAuthTokenCookie = null,
+        $csrfTokenSecured = null
     )
     {
         parent::__construct();
@@ -97,6 +98,10 @@ class Auth extends Base
         if(null !== $persistAuthTokenCookie)
         {
             $this->setProperty('persistAuthTokenCookie', (bool) $persistAuthTokenCookie);
+        }
+        if(null !== $persistAuthTokenCookie)
+        {
+            $this->setProperty('csrfTokenSecured', (bool) $csrfTokenSecured);
         }
     }
 
@@ -287,5 +292,26 @@ class Auth extends Base
     public function setPersistAuthTokenCookie($persistAuthTokenCookie)
     {
         return $this->setProperty('persistAuthTokenCookie', (bool) $persistAuthTokenCookie);
+    }
+
+    /**
+     * Gets controls whether the client supports CSRF token
+     *
+     * @return bool
+     */
+    public function getCsrfTokenSecured()
+    {
+        return $this->getProperty('csrfTokenSecured');
+    }
+
+    /**
+     * Sets controls whether the client supports CSRF token
+     *
+     * @param  bool $csrfTokenSecured
+     * @return self
+     */
+    public function setCsrfTokenSecured($csrfTokenSecured)
+    {
+        return $this->setProperty('csrfTokenSecured', (bool) $csrfTokenSecured);
     }
 }
