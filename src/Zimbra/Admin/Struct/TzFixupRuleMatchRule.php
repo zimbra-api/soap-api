@@ -78,7 +78,7 @@ class TzFixupRuleMatchRule extends Base
      */
     public function setWeek($week)
     {
-        $week = in_array((int) $week, array(1, 2, 3, 4)) ? (int) $week : -1;
+        $week = in_array((int) $week, [1, 2, 3, 4]) ? (int) $week : -1;
         return $this->setProperty('week', $week);
     }
 

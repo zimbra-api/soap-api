@@ -75,7 +75,7 @@ class IdAndAction extends Base
      */
     public function setAction($action)
     {
-        if(in_array($action, array('bug72174', 'wiki', 'contactGroup')))
+        if(in_array($action, ['bug72174', 'wiki', 'contactGroup']))
         {
             $this->setProperty('action', trim($action));
         }

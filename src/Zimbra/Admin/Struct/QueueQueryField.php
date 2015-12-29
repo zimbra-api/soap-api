@@ -36,7 +36,7 @@ class QueueQueryField extends Base
      * @param  array $matches Match specifications
      * @return self
      */
-    public function __construct($name, array $matches = array())
+    public function __construct($name, array $matches = [])
     {
         parent::__construct();
         $this->setProperty('name', trim($name));

@@ -29,7 +29,7 @@ class StatsValueWrapper extends Base
      * Stats specification
      * @var TypedSequence
      */
-    private $_stats = array();
+    private $_stats = [];
 
     /**
      * Constructor method for StatsValueWrapper
