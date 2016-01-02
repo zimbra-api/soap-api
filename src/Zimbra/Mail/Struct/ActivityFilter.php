@@ -100,7 +100,7 @@ class ActivityFilter extends Base
      */
     public function getSessionId()
     {
-        return $this->getSession('session');
+        return $this->getProperty('session');
     }
 
     /**
@@ -111,7 +111,7 @@ class ActivityFilter extends Base
      */
     public function setSessionId($sessionId)
     {
-        return $this->setSession('session', trim($sessionId));
+        return $this->setProperty('session', trim($sessionId));
     }
 
     /**
