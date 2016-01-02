@@ -106,7 +106,7 @@ class DocAttachSpec extends AttachSpec
      */
     public function setVersion($ver)
     {
-        return $this->setProperty('ver', (bool) $ver);
+        return $this->setProperty('ver', (int) $ver);
     }
 
     /**

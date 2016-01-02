@@ -155,7 +155,7 @@ class ConversationSpec extends Base
      */
     public function setMaxInlinedLength($maxInlinedLength)
     {
-        return $this->setProperty('max', (bool) $maxInlinedLength);
+        return $this->setProperty('max', (int) $maxInlinedLength);
     }
 
     /**
