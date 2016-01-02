@@ -112,7 +112,7 @@ class ContactSpec extends Base
      */
     public function setId($id)
     {
-        return $this->setProperty('id', trim($id));
+        return $this->setProperty('id', (int) $id);
     }
 
     /**
@@ -164,7 +164,7 @@ class ContactSpec extends Base
      */
     public function getTagNames()
     {
-        return $this->getProperty('t');
+        return $this->getProperty('tn');
     }
 
     /**
@@ -175,7 +175,7 @@ class ContactSpec extends Base
      */
     public function setTagNames($tagNames)
     {
-        return $this->setProperty('t', trim($tagNames));
+        return $this->setProperty('tn', trim($tagNames));
     }
 
     /**
