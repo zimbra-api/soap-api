@@ -100,7 +100,7 @@ class AccountACEinfo extends Base
      */
     public function getRight()
     {
-        return $this->getProperty('gt');
+        return $this->getProperty('right');
     }
 
     /**
@@ -111,7 +111,7 @@ class AccountACEinfo extends Base
      */
     public function setRight(AceRightType $right)
     {
-        return $this->setProperty('gt', $right);
+        return $this->setProperty('right', $right);
     }
 
     /**
