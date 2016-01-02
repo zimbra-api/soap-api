@@ -82,7 +82,7 @@ class AlarmInfo extends Base
         {
             $this->setChild('summary', trim($summary));
         }
-        $this->setAttendees()->setXProps($xprops);
+        $this->setAttendees($ats)->setXProps($xprops);
 
         $this->on('before', function(Base $sender)
         {
