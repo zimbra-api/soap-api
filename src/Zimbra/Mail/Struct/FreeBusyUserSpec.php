@@ -54,7 +54,7 @@ class FreeBusyUserSpec extends Base
     /**
      * Gets folder Id
      *
-     * @return string
+     * @return int
      */
     public function getFolderId()
     {
@@ -64,12 +64,12 @@ class FreeBusyUserSpec extends Base
     /**
      * Sets folder Id
      *
-     * @param  string $l
+     * @param  int $folder
      * @return self
      */
-    public function setFolderId($l)
+    public function setFolderId($folder)
     {
-        return $this->setProperty('l', trim($l));
+        return $this->setProperty('l', (int) $folder);
     }
 
     /**
