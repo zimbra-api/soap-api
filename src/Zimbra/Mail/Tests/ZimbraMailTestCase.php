@@ -16,4 +16,13 @@ abstract class ZimbraMailTestCase extends PHPUnit_Framework_TestCase
     {
         $this->faker = FakerFactory::create();
     }
+
+    public static function randomRange($start, $end, $quantity)
+    {
+        static $faker;
+        if (empty($faker)) {
+            $faker = FakerFactory::create();
+        }
+        return $faker->randomElements(range($start, $end), $quantity);
+    }
 }
