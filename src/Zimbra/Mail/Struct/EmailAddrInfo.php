@@ -10,6 +10,7 @@
 
 namespace Zimbra\Mail\Struct;
 
+use Zimbra\Enum\AddressType;
 use Zimbra\Struct\Base;
 
 /**
@@ -25,18 +26,18 @@ class EmailAddrInfo extends Base
 {
     /**
      * Constructor method for EmailAddrInfo
-     * @param  string $a Email address
-     * @param  string $t Address type - (f)rom, (t)o, (c)c, (b)cc, (r)eply-to, (s)ender, read-receipt (n)otification, (rf) resent-from
-     * @param  string $p The comment/name part of an address
+     * @param  string      $a Email address
+     * @param  AddressType $t Address type - (f)rom, (t)o, (c)c, (b)cc, (r)eply-to, (s)ender, read-receipt (n)otification, (rf) resent-from
+     * @param  string      $p The comment/name part of an address
      * @return self
      */
-    public function __construct($a, $t = null, $p = null)
+    public function __construct($a, AddressType $t = null, $p = null)
     {
         parent::__construct();
         $this->setProperty('a', trim($a));
         if(null !== $t)
         {
-            $this->setProperty('t', trim($t));
+            $this->setProperty('t', $t);
         }
         if(null !== $p)
         {
@@ -68,7 +69,7 @@ class EmailAddrInfo extends Base
     /**
      * Gets address type
      *
-     * @return string
+     * @return AddressType
      */
     public function getAddressType()
     {
@@ -78,12 +79,12 @@ class EmailAddrInfo extends Base
     /**
      * Sets address type
      *
-     * @param  string $t
+     * @param  AddressType $t
      * @return self
      */
-    public function setAddressType($t)
+    public function setAddressType(AddressType $t)
     {
-        return $this->setProperty('t', trim($t));
+        return $this->setProperty('t', $t);
     }
 
     /**
