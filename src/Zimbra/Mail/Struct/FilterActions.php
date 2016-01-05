@@ -10,6 +10,7 @@
 
 namespace Zimbra\Mail\Struct;
 
+use Zimbra\Common\TypedSequence;
 use Zimbra\Struct\Base;
 
 /**

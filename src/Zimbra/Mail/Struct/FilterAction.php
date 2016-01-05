@@ -52,7 +52,7 @@ class FilterAction extends Base
      */
     public function setIndex($index)
     {
-        return $this->setProperty('index', (bool) $index);
+        return $this->setProperty('index', (int) $index);
     }
 
     /**
