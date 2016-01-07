@@ -10,6 +10,7 @@
 
 namespace Zimbra\Mail\Struct;
 
+use Zimbra\Enum\MemberType;
 use Zimbra\Struct\Base;
 
 /**
@@ -25,13 +26,13 @@ class ModifyContactGroupMember extends Base
 {
     /**
      * Constructor method for ModifyContactGroupMember
-     * @param string $type Member type
+     * @param MemberType $type Member type
      * @param string $value Member value
      * @param string $op Operation - +|-|reset
      * @return self
      */
     public function __construct(
-        $type,
+        MemberType $type,
         $value,
         $op = null
     )
@@ -61,9 +62,9 @@ class ModifyContactGroupMember extends Base
      * @param  string $type
      * @return self
      */
-    public function setType($type)
+    public function setType(MemberType $type)
     {
-        return $this->setProperty('type', in_array(trim($type), array('C', 'G', 'I')) ? trim($type) : '');
+        return $this->setProperty('type', $type);
     }
 
     /**
