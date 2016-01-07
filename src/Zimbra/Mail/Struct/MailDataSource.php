@@ -35,7 +35,7 @@ class MailDataSource extends Base
      * Constructor method for MailDataSource
      * @param string $id Unique ID for data source
      * @param string $name Name for data source
-     * @param string $l Folder ID for data source
+     * @param string $folder Folder ID for data source
      * @param bool $isEnabled Flag whether or not the data source is enabled
      * @param bool $importOnly Indicates that this datasource is used for one way (incoming) import versus two-way sync
      * @param string $host Name of server
@@ -60,7 +60,7 @@ class MailDataSource extends Base
     public function __construct(
         $id = null,
         $name = null,
-        $l = null,
+        $folder = null,
         $isEnabled = null,
         $importOnly = null,
         $host = null,
@@ -91,9 +91,9 @@ class MailDataSource extends Base
         {
             $this->setProperty('name', trim($name));
         }
-        if(null !== $l)
+        if(null !== $folder)
         {
-            $this->setProperty('l', trim($l));
+            $this->setProperty('l', trim($folder));
         }
         if(null !== $isEnabled)
         {
@@ -605,7 +605,7 @@ class MailDataSource extends Base
      */
     public function getLastError()
     {
-        return $this->getProperty('lastError');
+        return $this->getChild('lastError');
     }
 
     /**
@@ -616,7 +616,7 @@ class MailDataSource extends Base
      */
     public function setLastError($lastError)
     {
-        return $this->setProperty('lastError', trim($lastError));
+        return $this->setChild('lastError', trim($lastError));
     }
 
     /**

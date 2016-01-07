@@ -407,7 +407,7 @@ class InviteComponentCommon extends Base
     }
 
     /**
-     * Gets freebusy actual
+     * Gets free busy actual
      *
      * @return FreeBusyStatus
      */
@@ -417,7 +417,7 @@ class InviteComponentCommon extends Base
     }
 
     /**
-     * Sets freebusy actual
+     * Sets free busy actual
      *
      * @param  FreeBusyStatus $fba
      * @return self
@@ -428,7 +428,7 @@ class InviteComponentCommon extends Base
     }
 
     /**
-     * Gets freebusy
+     * Gets free busy
      *
      * @return FreeBusyStatus
      */
@@ -438,7 +438,7 @@ class InviteComponentCommon extends Base
     }
 
     /**
-     * Sets freebusy
+     * Sets free busy
      *
      * @param  FreeBusyStatus $fb
      * @return self
@@ -449,7 +449,7 @@ class InviteComponentCommon extends Base
     }
 
     /**
-     * Gets freebusy
+     * Gets transparency
      *
      * @return Transparency
      */
@@ -459,7 +459,7 @@ class InviteComponentCommon extends Base
     }
 
     /**
-     * Sets freebusy
+     * Sets transparency
      *
      * @param  Transparency $transp
      * @return self
@@ -837,7 +837,7 @@ class InviteComponentCommon extends Base
      */
     public function getChanges()
     {
-        return count($this->_changes) ? implode(',', $this->_changes->all()) : '';
+        return count($this->_changes) ? implode(',', $this->_changes->all()) : NULL;
     }
 
     /**

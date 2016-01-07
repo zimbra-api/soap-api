@@ -26,14 +26,14 @@ class ItemSpec extends Base
     /**
      * Constructor method for ItemSpec
      * @param string $id Item ID
-     * @param string $l Folder ID
+     * @param string $folder Folder ID
      * @param string $name Name
      * @param string $path Fully qualified path
      * @return self
      */
     public function __construct(
         $id = null,
-        $l = null,
+        $folder = null,
         $name = null,
         $path = null
     )
@@ -43,9 +43,9 @@ class ItemSpec extends Base
         {
             $this->setProperty('id', trim($id));
         }
-        if(null !== $l)
+        if(null !== $folder)
         {
-            $this->setProperty('l', trim($l));
+            $this->setProperty('l', trim($folder));
         }
         if(null !== $name)
         {
@@ -91,12 +91,12 @@ class ItemSpec extends Base
     /**
      * Sets folder
      *
-     * @param  string $l
+     * @param  string $folder
      * @return self
      */
-    public function setFolder($l)
+    public function setFolder($folder)
     {
-        return $this->setProperty('l', trim($l));
+        return $this->setProperty('l', trim($folder));
     }
 
     /**
