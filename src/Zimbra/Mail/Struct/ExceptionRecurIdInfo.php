@@ -10,6 +10,7 @@
 
 namespace Zimbra\Mail\Struct;
 
+use Zimbra\Enum\RangeType;
 use Zimbra\Struct\Base;
 
 /**
@@ -27,10 +28,10 @@ class ExceptionRecurIdInfo extends Base
      * Constructor method for ExceptionRecurIdInfo
      * @param  string $d Date and/or time. Format is : YYYYMMDD['T'HHMMSS[Z]]
      * @param  string $tz Java timezone identifier
-     * @param  int    $rangeType Range type - 1 means NONE, 2 means THISANDFUTURE, 3 means THISANDPRIOR
+     * @param  RangeType $rangeType Range type - 1 means NONE, 2 means THISANDFUTURE, 3 means THISANDPRIOR
      * @return self
      */
-    public function __construct($d, $tz = null, $rangeType = null)
+    public function __construct($d, $tz = null, RangeType $rangeType = null)
     {
         parent::__construct();
         $this->setProperty('d', trim($d));
@@ -40,7 +41,7 @@ class ExceptionRecurIdInfo extends Base
         }
         if(null !== $rangeType)
         {
-            $this->setProperty('rangeType', in_array((int) $rangeType, [-1, 2, 3]) ? (int) $rangeType : null);
+            $this->setProperty('rangeType', $rangeType);
         }
     }
 
@@ -89,7 +90,7 @@ class ExceptionRecurIdInfo extends Base
     /**
      * Gets range type
      *
-     * @return string
+     * @return RangeType
      */
     public function getRangeType()
     {
@@ -99,12 +100,12 @@ class ExceptionRecurIdInfo extends Base
     /**
      * Sets range type
      *
-     * @param  int $rangeType
+     * @param  RangeType $rangeType
      * @return self
      */
-    public function setRangeType($rangeType)
+    public function setRangeType(RangeType $rangeType)
     {
-        return $this->setProperty('rangeType', in_array((int) $rangeType, [-1, 2, 3]) ? (int) $rangeType : null);
+        return $this->setProperty('rangeType', $rangeType);
     }
 
     /**
