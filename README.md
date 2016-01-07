@@ -44,7 +44,6 @@ Now we can use autoloader from Composer by:
 require_once 'vendor/autoload.php';
 
 $api = new \Zimbra\AdminFactory::instance('https://localhost:7071/service/admin/soap');
-$authToken = $api->auth('username', 'password');
 $api->auth('username', 'password');
 $account = new \Zimbra\Struct\AccountSelector(\Zimbra\Enum\AccountBy::NAME(), 'username');
 $accountInfo = $api->getAccountInfo($account);

@@ -49,7 +49,7 @@ class ModifyContactGroupMember extends Base
     /**
      * Gets type
      *
-     * @return string
+     * @return MemberType
      */
     public function getType()
     {
@@ -59,7 +59,7 @@ class ModifyContactGroupMember extends Base
     /**
      * Sets type
      *
-     * @param  string $type
+     * @param  MemberType $type
      * @return self
      */
     public function setType(MemberType $type)
