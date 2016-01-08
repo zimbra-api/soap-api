@@ -106,7 +106,7 @@ class ModifyContactGroupMember extends Base
      */
     public function setOperation($op)
     {
-        return $this->setProperty('op', in_array(trim($op), array('+', '-', 'reset')) ? trim($op) : '');
+        return $this->setProperty('op', in_array(trim($op), ['+', '-', 'reset']) ? trim($op) : '');
     }
 
     /**

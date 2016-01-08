@@ -122,7 +122,7 @@ class ModifyContactAttr extends Base
      */
     public function setId($id)
     {
-        return $this->setProperty('id', trim($id));
+        return $this->setProperty('id', (int) $id);
     }
 
     /**
