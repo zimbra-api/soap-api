@@ -11,6 +11,7 @@
 namespace Zimbra\Mail\Struct;
 
 use Zimbra\Common\TypedSequence;
+use Zimbra\Enum\ReplyType;
 use Zimbra\Struct\Base;
 
 /**
@@ -57,7 +58,7 @@ class Msg extends Base
      * @param string $fr First few bytes of the message (probably between 40 and 100 bytes)
      * @param string $aid Uploaded MIME body ID
      * @param string $origid Original ID
-     * @param string $rt Reply type - r|w. (r)eplied or for(w)arded.
+     * @param ReplyType $rt Reply type - r|w. (r)eplied or for(w)arded.
      * @param string $idnt Identity ID. The identity referenced by {identity-id} specifies the folder where the sent message is saved.
      * @param string $su Subject
      * @param string $irt Message-ID header for message being replied to
@@ -77,7 +78,7 @@ class Msg extends Base
         $fr = null,
         $aid = null,
         $origid = null,
-        $rt = null,
+        ReplyType $rt = null,
         $idnt = null,
         $su = null,
         $irt = null,
@@ -122,7 +123,7 @@ class Msg extends Base
         }
         if(null !== $rt)
         {
-            $this->setProperty('rt', trim($rt));
+            $this->setProperty('rt', $rt);
         }
         if(null !== $idnt)
         {
@@ -422,7 +423,7 @@ class Msg extends Base
     /**
      * Gets reply type
      *
-     * @return string
+     * @return ReplyType
      */
     public function getReplyType()
     {
@@ -432,12 +433,12 @@ class Msg extends Base
     /**
      * Sets reply type
      *
-     * @param  string $rt
+     * @param  ReplyType $rt
      * @return self
      */
-    public function setReplyType($rt)
+    public function setReplyType(ReplyType $rt)
     {
-        return $this->setProperty('rt', trim($rt));
+        return $this->setProperty('rt', $rt);
     }
 
     /**
