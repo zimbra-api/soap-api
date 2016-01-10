@@ -55,9 +55,9 @@ class TagSpec extends Base
      *
      * @return string
      */
-    public function getSection()
+    public function getName()
     {
-        return $this->getName('name');
+        return $this->getProperty('name');
     }
 
     /**
@@ -66,9 +66,9 @@ class TagSpec extends Base
      * @param  string $name
      * @return self
      */
-    public function setSection($name)
+    public function setName($name)
     {
-        return $this->setName('name', trim($name));
+        return $this->setProperty('name', trim($name));
     }
 
     /**
@@ -78,7 +78,7 @@ class TagSpec extends Base
      */
     public function getRgb()
     {
-        return $this->getName('rgb');
+        return $this->getProperty('rgb');
     }
 
     /**

@@ -61,7 +61,7 @@ class SectionAttr extends Base
      * @param  string $name
      * @return array
      */
-    public function toArray($name = 'meta')
+    public function toArray($name = 'attr')
     {
         return parent::toArray($name);
     }
@@ -72,7 +72,7 @@ class SectionAttr extends Base
      * @param  string $name
      * @return SimpleXML
      */
-    public function toXml($name = 'meta')
+    public function toXml($name = 'attr')
     {
         return parent::toXml($name);
     }
