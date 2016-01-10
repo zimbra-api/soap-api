@@ -61,7 +61,7 @@ class ParentId extends Base
      * @param  string $name
      * @return array
      */
-    public function toArray($name = 'comment')
+    public function toArray($name = 'parent')
     {
         return parent::toArray($name);
     }
@@ -72,7 +72,7 @@ class ParentId extends Base
      * @param  string $name
      * @return SimpleXML
      */
-    public function toXml($name = 'comment')
+    public function toXml($name = 'parent')
     {
         return parent::toXml($name);
     }
