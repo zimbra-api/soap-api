@@ -69,7 +69,7 @@ class RecurIdInfo extends Base
      */
     public function setRecurrenceRangeType($rangeType)
     {
-        return $this->setProperty('rangeType', trim($rangeType));
+        return $this->setProperty('rangeType', (int) $rangeType);
     }
 
     /**

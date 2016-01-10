@@ -41,7 +41,7 @@ class RetentionPolicy extends Base
      *
      * @return RetentionPolicyKeep
      */
-    public function getKeep()
+    public function getKeepPolicy()
     {
         return $this->getChild('keep');
     }
@@ -52,7 +52,7 @@ class RetentionPolicy extends Base
      * @param  RetentionPolicyKeep $keep
      * @return self
      */
-    public function setKeep(RetentionPolicyKeep $keep)
+    public function setKeepPolicy(RetentionPolicyKeep $keep)
     {
         return $this->setChild('keep', $keep);
     }
@@ -62,7 +62,7 @@ class RetentionPolicy extends Base
      *
      * @return RetentionPolicyPurge
      */
-    public function getPurge()
+    public function getPurgePolicy()
     {
         return $this->getChild('purge');
     }
@@ -73,7 +73,7 @@ class RetentionPolicy extends Base
      * @param  RetentionPolicyPurge $purge
      * @return self
      */
-    public function setPurge(RetentionPolicyPurge $purge)
+    public function setPurgePolicy(RetentionPolicyPurge $purge)
     {
         return $this->setChild('purge', $purge);
     }

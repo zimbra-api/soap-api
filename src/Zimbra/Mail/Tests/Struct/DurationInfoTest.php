@@ -20,8 +20,8 @@ class DurationInfoTest extends ZimbraMailTestCase
         $related = $this->faker->randomElement(['START', 'END']);
         $count = mt_rand(0, 99);
         $rel = new DurationInfo(
-        	false, $weeks, $days, $hours, $minutes, $seconds, $related, $count
-    	);
+            false, $weeks, $days, $hours, $minutes, $seconds, $related, $count
+        );
 
         $this->assertFalse($rel->getDurationNegative());
         $this->assertSame($weeks, $rel->getWeeks());
