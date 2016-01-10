@@ -52,7 +52,7 @@ class NumAttr extends Base
      */
     public function setNum($num)
     {
-        return $this->setProperty('num', (bool) $num);
+        return $this->setProperty('num', (int) $num);
     }
 
     /**

@@ -346,7 +346,7 @@ class NewMountpointSpec extends Base
     /**
      * Gets id of shared item
      *
-     * @return string
+     * @return int
      */
     public function getRemoteId()
     {
@@ -356,12 +356,12 @@ class NewMountpointSpec extends Base
     /**
      * Sets id of shared item
      *
-     * @param  string $rid
+     * @param  int $rid
      * @return self
      */
     public function setRemoteId($rid)
     {
-        return $this->setProperty('rid', trim($rid));
+        return $this->setProperty('rid', (int) $rid);
     }
 
     /**

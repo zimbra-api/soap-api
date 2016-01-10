@@ -28,7 +28,7 @@ class NewContactAttr extends Base
      * @param string $name Attribute name
      * @param string $value Attribute data
      * @param string $aid Upload ID
-     * @param string $id Item ID. Used in combination with subpart-name
+     * @param int $id Item ID. Used in combination with subpart-name
      * @param string $part Subpart Name
      * @return self
      */
@@ -101,7 +101,7 @@ class NewContactAttr extends Base
     /**
      * Gets id
      *
-     * @return string
+     * @return int
      */
     public function getId()
     {
@@ -111,12 +111,12 @@ class NewContactAttr extends Base
     /**
      * Sets id
      *
-     * @param  string $id
+     * @param  int $id
      * @return self
      */
     public function setId($id)
     {
-        return $this->setProperty('id', trim($id));
+        return $this->setProperty('id', (int) $id);
     }
 
     /**

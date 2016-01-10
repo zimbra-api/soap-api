@@ -14,7 +14,7 @@ class ActionGrantSelectorTest extends ZimbraMailTestCase
     public function testActionGrantSelector()
     {
         $rights = $this->faker->word;
-        $zimbraId = $this->faker->word;
+        $zimbraId = $this->faker->uuid;
         $displayName = $this->faker->word;
         $args = $this->faker->word;
         $password = $this->faker->word;
