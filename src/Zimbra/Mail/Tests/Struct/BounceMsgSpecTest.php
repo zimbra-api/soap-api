@@ -14,7 +14,7 @@ class BounceMsgSpecTest extends ZimbraMailTestCase
 {
     public function testBounceMsgSpec()
     {
-        $id = $this->faker->word;
+        $id = $this->faker->uuid;
         $address = $this->faker->word;
         $personal = $this->faker->word;
 

@@ -24,7 +24,7 @@ class NoteActionSelectorTest extends ZimbraMailTestCase
         $content = $this->faker->word;
         $pos = $this->faker->word;
         $tag = mt_rand(1, 10);
-        $color = mt_rand(1, 128);
+        $color = mt_rand(1, 127);
 
         $action = new NoteActionSelector(
             ItemActionOp::MOVE(), $id, $tcon, $tag, $l, $rgb, $color, $name, $f, $t, $tn, $content, $pos

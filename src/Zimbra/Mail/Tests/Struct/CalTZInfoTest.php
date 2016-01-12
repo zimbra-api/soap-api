@@ -35,7 +35,7 @@ class CalTZInfoTest extends ZimbraMailTestCase
         	$day_mon, $day_hour, $day_min, $day_sec, $day_mday, $day_week, $day_wkday
     	);
 
-        $id = $this->faker->word;
+        $id = $this->faker->uuid;
         $stdoff = mt_rand(1, 10);
         $dayoff = mt_rand(1, 10);
         $stdname = $this->faker->word;

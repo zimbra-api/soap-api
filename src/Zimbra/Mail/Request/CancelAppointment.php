@@ -124,7 +124,7 @@ class CancelAppointment extends Base
     /**
      * Gets message
      *
-     * @return AddMsgSpec
+     * @return Msg
      */
     public function getMsg()
     {
@@ -134,10 +134,10 @@ class CancelAppointment extends Base
     /**
      * Sets message
      *
-     * @param  AddMsgSpec $m
+     * @param  Msg $m
      * @return self
      */
-    public function setMsg(AddMsgSpec $m)
+    public function setMsg(Msg $m)
     {
         return $this->setChild('m', $m);
     }

@@ -20,7 +20,10 @@ class RemoveDistributionListMemberTest extends ZimbraAdminApiTestCase
         $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
         $this->assertEquals($id, $req->getId());
         $this->assertEquals([$member1], $req->getMembers()->all());
+
+        $req = new RemoveDistributionListMember('', [$this->faker->word]);
         $req->setId($id)
+            ->setMembers([$member1])
             ->addMember($member2);
         $this->assertEquals($id, $req->getId());
         $this->assertEquals([$member1, $member2], $req->getMembers()->all());

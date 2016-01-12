@@ -109,6 +109,7 @@ class RemoveDistributionListMember extends Base
         {
             throw new \InvalidArgumentException('RemoveDistributionListMember must have at least a member');
         }
+        return $this;
     }
 
     /**

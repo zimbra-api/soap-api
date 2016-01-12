@@ -21,7 +21,7 @@ class NewMountpointSpecTest extends ZimbraMailTestCase
         $zid = $this->faker->uuid;
         $owner = $this->faker->word;
         $path = $this->faker->word;
-        $color = mt_rand(1, 128);
+        $color = mt_rand(1, 127);
         $rid = mt_rand(1, 10);
 
         $link = new NewMountpointSpec(

@@ -28,7 +28,7 @@ class NewFolderSpecTest extends ZimbraMailTestCase
         $rgb = $this->faker->hexcolor;
         $url = $this->faker->word;
         $l = $this->faker->word;
-        $color = mt_rand(1, 128);
+        $color = mt_rand(1, 127);
 
         $grant = new ActionGrantSelector(
             $rights, GranteeType::USR(), $zimbraId, $displayName, $args, $password, $accessKey

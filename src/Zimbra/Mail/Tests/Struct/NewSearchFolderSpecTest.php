@@ -18,7 +18,7 @@ class NewSearchFolderSpecTest extends ZimbraMailTestCase
         $sortBy = $this->faker->word;
         $f = $this->faker->word;
         $l = $this->faker->word;
-        $color = mt_rand(1, 128);
+        $color = mt_rand(1, 127);
 
         $search = new NewSearchFolderSpec(
             $name, $query, $types, $sortBy, $f, $color, $l

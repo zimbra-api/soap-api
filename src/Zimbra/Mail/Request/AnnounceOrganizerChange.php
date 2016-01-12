@@ -40,7 +40,7 @@ class AnnounceOrganizerChange extends Base
      */
     public function getId()
     {
-        return $this->getProperty('pw');
+        return $this->getProperty('id');
     }
 
     /**
@@ -51,6 +51,6 @@ class AnnounceOrganizerChange extends Base
      */
     public function setId($id)
     {
-        return $this->setProperty('pw', trim($id));
+        return $this->setProperty('id', trim($id));
     }
 }

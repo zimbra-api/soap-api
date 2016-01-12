@@ -18,9 +18,9 @@ class AddMsgSpecTest extends ZimbraMailTestCase
         $tagNames = $this->faker->word;
         $folder = $this->faker->word;
         $dateReceived = mt_rand(1, 100);
-        $attachmentId = $this->faker->word;
+        $attachmentId = $this->faker->uuid;
 
-        $m = new \Zimbra\Mail\Struct\AddMsgSpec(
+        $m = new AddMsgSpec(
             $content, $flags, $tags, $tagNames, $folder, true, $dateReceived, $attachmentId
         );
         $this->assertSame($content, $m->getContent());

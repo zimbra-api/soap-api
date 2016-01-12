@@ -15,7 +15,7 @@ class NewNoteSpecTest extends ZimbraMailTestCase
         $l = $this->faker->word;
         $content = $this->faker->uuid;
         $pos = $this->faker->word;
-        $color = mt_rand(1, 128);
+        $color = mt_rand(1, 127);
         $note = new NewNoteSpec(
             $l, $content, $color, $pos
         );
