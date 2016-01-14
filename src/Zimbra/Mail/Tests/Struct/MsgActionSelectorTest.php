@@ -22,7 +22,7 @@ class MsgActionSelectorTest extends ZimbraMailTestCase
         $t = $this->faker->word;
         $tn = $this->faker->word;
         $tag = mt_rand(1, 10);
-        $color = mt_rand(1, 128);
+        $color = mt_rand(1, 127);
 
         $action = new MsgActionSelector(
             MsgActionOp::MOVE(), $id, $tcon, $tag, $l, $rgb, $color, $name, $f, $t, $tn
