@@ -14,7 +14,7 @@ class WaitSetSpecTest extends ZimbraStructTestCase
     public function testWaitSetSpec()
     {
         $name = $this->faker->word;
-        $id = $this->faker->word;
+        $id = $this->faker->uuid;
         $token = $this->faker->word;
         $a = new WaitSetAddSpec($name, $id, $token, [InterestType::FOLDERS(), InterestType::MESSAGES()]);
         $add = new WaitSetSpec([$a]);
