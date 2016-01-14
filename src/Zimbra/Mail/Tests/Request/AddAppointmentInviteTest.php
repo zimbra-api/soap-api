@@ -64,11 +64,11 @@ class AddAppointmentInviteTest extends ZimbraMailApiTestCase
         $array = array(
             'AddAppointmentInviteRequest' => array(
                 '_jsns' => 'urn:zimbraMail',
-                'ptst' => ParticipationStatus::NEEDS_ACTION(),
+                'ptst' => ParticipationStatus::NEEDS_ACTION()->value(),
                 'm' => array(
                     'aid' => $aid,
                     'origid' => $origid,
-                    'rt' => ReplyType::REPLIED(),
+                    'rt' => ReplyType::REPLIED()->value(),
                     'idnt' => $idnt,
                     'su' => $su,
                     'irt' => $irt,

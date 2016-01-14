@@ -15,6 +15,7 @@ use Zimbra\Mail\Struct\CalTZInfo;
 use Zimbra\Mail\Struct\ExpandedRecurrenceCancel;
 use Zimbra\Mail\Struct\ExpandedRecurrenceException;
 use Zimbra\Mail\Struct\ExpandedRecurrenceInvite;
+use Zimbra\Mail\Struct\ExpandedRecurrenceComponent;
 use Zimbra\Mail\Struct\FreeBusyUserSpec;
 
 /**
@@ -51,13 +52,13 @@ class CheckRecurConflicts extends Base
 
     /**
      * Constructor method for CheckRecurConflicts
-     * @param  int $s
-     * @param  int $e
-     * @param  bool $all
-     * @param  string $excludeUid
-     * @param  array $timezones
-     * @param  array $timezones
-     * @param  array $users
+     * @param  int $s Start time in millis.  If not specified, defaults to current time
+     * @param  int $e End time in millis.  If not specified, unlimited
+     * @param  bool $all Set this to get all instances, even those without conflicts. By default only instances that have conflicts are returned.
+     * @param  string $excludeUid UID of appointment to exclude from free/busy search
+     * @param  array $timezones Timezones
+     * @param  array $component Expanded recurrences
+     * @param  array $users Freebusy user specifications
      * @return self
      */
     public function __construct(
@@ -89,7 +90,7 @@ class CheckRecurConflicts extends Base
         }
 
         $this->setTimezones($timezones)
-            ->setComponents($component);
+            ->setComponents($component)
             ->setFreebusyUsers($users);
         $this->on('before', function(Base $sender)
         {
@@ -159,12 +160,12 @@ class CheckRecurConflicts extends Base
     /**
      * Add expanded recurrence
      *
-     * @param  FreeBusyUserSpec $tz
+     * @param  ExpandedRecurrenceComponent $component
      * @return self
      */
-    public function addComponent(FreeBusyUserSpec $tz)
+    public function addComponent(ExpandedRecurrenceComponent $component)
     {
-        $this->_components->add($tz);
+        $this->_components->add($component);
         return $this;
     }
 
@@ -176,7 +177,7 @@ class CheckRecurConflicts extends Base
      */
     public function setComponents(array $components)
     {
-        $this->_components = new TypedSequence('Zimbra\Mail\Struct\FreeBusyUserSpec', $components);
+        $this->_components = new TypedSequence('Zimbra\Mail\Struct\ExpandedRecurrenceComponent', $components);
         return $this;
     }
 

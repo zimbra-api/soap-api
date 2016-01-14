@@ -309,26 +309,23 @@ interface MailInterface extends AccountInterface
      * By default only instances that have conflicts are returned.
      *
      * @param  array $tz Timezones
-     * @param  ExpandedRecurrenceCancel $cancel
-     * @param  ExpandedRecurrenceInvite $comp
-     * @param  ExpandedRecurrenceException $except
-     * @param  array $usr Freebusy user specifications
-     * @param  int $s Start time in millis. If not specified, defaults to current time
-     * @param  int $e End time in millis. If not specified, unlimited
-     * @param  bool $all Set this to get all instances, even those without conflicts.
+     * @param  int $s Start time in millis.  If not specified, defaults to current time
+     * @param  int $e End time in millis.  If not specified, unlimited
+     * @param  bool $all Set this to get all instances, even those without conflicts. By default only instances that have conflicts are returned.
      * @param  string $excludeUid UID of appointment to exclude from free/busy search
+     * @param  array $timezones Timezones
+     * @param  array $component Expanded recurrences
+     * @param  array $users Freebusy user specifications
      * @return mix
      */
     function checkRecurConflicts(
-        array $tz = [],
-        ExpandedRecurrenceCancel $cancel = null,
-        ExpandedRecurrenceInvite $comp = null,
-        ExpandedRecurrenceException $except = null,
-        array $usr = [],
         $s = null,
         $e = null,
         $all = null,
-        $excludeUid = null
+        $excludeUid = null,
+        array $timezones = [],
+        array $component = [],
+        array $users = []
     );
 
     /**

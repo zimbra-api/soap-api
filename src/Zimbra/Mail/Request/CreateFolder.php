@@ -10,7 +10,7 @@
 
 namespace Zimbra\Mail\Request;
 
-use Zimbra\Mail\Struct\NewNewFolderSpec;
+use Zimbra\Mail\Struct\NewFolderSpec;
 
 /**
  * CreateFolder request class
@@ -26,10 +26,10 @@ class CreateFolder extends Base
 {
     /**
      * Constructor method for CreateFolder
-     * @param  NewNewFolderSpec $folder
+     * @param  NewFolderSpec $folder
      * @return self
      */
-    public function __construct(NewNewFolderSpec $folder)
+    public function __construct(NewFolderSpec $folder)
     {
         parent::__construct();
         $this->setChild('folder', $folder);
