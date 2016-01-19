@@ -10,6 +10,7 @@
 
 namespace Zimbra\Mail\Request;
 
+use Zimbra\Mail\Struct\DataSourceNameOrId;
 use Zimbra\Mail\Struct\ImapDataSourceNameOrId;
 use Zimbra\Mail\Struct\Pop3DataSourceNameOrId;
 use Zimbra\Mail\Struct\CaldavDataSourceNameOrId;
@@ -100,10 +101,10 @@ class DeleteDataSource extends Base
     /**
      * Sets data source
      *
-     * @param  DataSourceNameOrId $dataSource
+     * @param  DataSourceNameOrId $ds
      * @return self
      */
-    public function setDataSource(DataSourceNameOrId $dataSource)
+    public function setDataSource(DataSourceNameOrId $ds)
     {
         $this->_dataSource = $ds;
         return $this;

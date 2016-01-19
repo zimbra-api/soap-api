@@ -1006,17 +1006,13 @@ abstract class Base extends AccountBase implements MailInterface
     /**
      * Dismiss calendar item alarm.
      *
-     * @param  DismissAppointmentAlarm $appt Dismiss appointment alarm.
-     * @param  DismissTaskAlarm $task Dismiss task alarm.
+     * @param  array $alarms Details of alarms to dismiss.
      * @return mix
      */
-    public function dismissCalendarItemAlarm(
-        DismissAppointmentAlarm $appt = null,
-        DismissTaskAlarm $task = null
-    )
+    public function dismissCalendarItemAlarm(array $alarms)
     {
         $request = new \Zimbra\Mail\Request\DismissCalendarItemAlarm(
-            $appt, $task
+            $alarms
         );
         return $this->getClient()->doRequest($request);
     }

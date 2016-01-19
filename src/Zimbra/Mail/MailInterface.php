@@ -690,14 +690,10 @@ interface MailInterface extends AccountInterface
     /**
      * Dismiss calendar item alarm.
      *
-     * @param  DismissAppointmentAlarm $appt Dismiss appointment alarm.
-     * @param  DismissTaskAlarm $task Dismiss task alarm.
+     * @param  array $alarms Details of alarms to dismiss.
      * @return mix
      */
-    function dismissCalendarItemAlarm(
-        DismissAppointmentAlarm $appt = null,
-        DismissTaskAlarm $task = null
-    );
+    function dismissCalendarItemAlarm(array $alarms);
 
     /**
      * Document action.
