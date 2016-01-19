@@ -41,7 +41,7 @@ class ExportContacts extends Base
     {
         parent::__construct();
         $this->setProperty('ct', trim($contentType));
-        if(null !== $l)
+        if(null !== $folderId)
         {
             $this->setProperty('l', trim($folderId));
         }

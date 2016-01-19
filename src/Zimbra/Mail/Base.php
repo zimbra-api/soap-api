@@ -1059,30 +1059,24 @@ abstract class Base extends AccountBase implements MailInterface
     /**
      * Expand recurrences.
      *
-     * @param  int $s Start time in milliseconds
-     * @param  int $e End time in milliseconds
-     * @param  array $tz Timezones
-     * @param  ExpandedRecurrenceInvite $comp
-     * @param  ExpandedRecurrenceException $except
-     * @param  ExpandedRecurrenceCancel $cancel
+     * @param  int $startTime Start time in milliseconds
+     * @param  int $endTime End time in milliseconds
+     * @param  array $timezones Timezone definitions
+     * @param  array $components Specifications for series, modified instances and canceled instances
      * @return mix
      */
     public function expandRecur(
-        $s,
-        $e,
-        array $tz = [],
-        ExpandedRecurrenceInvite $comp = null,
-        ExpandedRecurrenceException $except = null,
-        ExpandedRecurrenceCancel $cancel = null
+        $startTime,
+        $endTime,
+        array $timezones = [],
+        array $components = []
     )
     {
         $request = new \Zimbra\Mail\Request\ExpandRecur(
-            $s,
-            $e,
-            $tz,
-            $comp,
-            $except,
-            $cancel
+            $startTime,
+            $endTime,
+            $timezones,
+            $components
         );
         return $this->getClient()->doRequest($request);
     }
@@ -1132,24 +1126,24 @@ abstract class Base extends AccountBase implements MailInterface
     /**
      * Used by an attendee to forward an instance or entire appointment to another user who is not already an attendee.
      *
+     * @param  string $id Appointment item ID
      * @param  DtTimeInfo $exceptId RECURRENCE-ID information if forwarding a single instance of a recurring appointment
      * @param  CalTZInfo $tz Definition for TZID referenced by DATETIME in <exceptId>
      * @param  Msg $m Details of the appointment.
-     * @param  string $id Appointment item ID
      * @return mix
      */
     public function forwardAppointment(
+        $id = null,
         DtTimeInfo $exceptId = null,
         CalTZInfo $tz = null,
-        Msg $m = null,
-        $id = null
+        Msg $m = null
     )
     {
         $request = new \Zimbra\Mail\Request\ForwardAppointment(
+            $id,
             $exceptId,
             $tz,
-            $m,
-            $id
+            $m
         );
         return $this->getClient()->doRequest($request);
     }
@@ -1158,14 +1152,14 @@ abstract class Base extends AccountBase implements MailInterface
      * Used by an attendee to forward an appointment invite email to another user who is not already an attendee.
      * To forward an appointment item, use ForwardAppointmentRequest instead.
      *
-     * @param  Msg $m Details of the appointment.
      * @param  string $id Appointment item ID
+     * @param  Msg $m Details of the appointment.
      * @return mix
      */
-    public function forwardAppointmentInvite(Msg $m = null, $id = null)
+    public function forwardAppointmentInvite($id = null, Msg $m = null)
     {
         $request = new \Zimbra\Mail\Request\ForwardAppointmentInvite(
-            $m, $id
+            $id, $m
         );
         return $this->getClient()->doRequest($request);
     }
@@ -1186,23 +1180,23 @@ abstract class Base extends AccountBase implements MailInterface
      * Get activity stream.
      *
      * @param  string $id Item ID. If the id is for a Document, the response will include the activities for the requested Document. if it is for a Folder, the response will include the activities for all the Documents in the folder and subfolders.
-     * @param  ActivityFilter $filter  Optionally <filter> can be used to filter the response based on the user that performed the activity, operation, or both. the server will cache previously established filter search results, and return the identifier in session attribute. The client is expected to reuse the session identifier in the subsequent filter search to improve the performance.
      * @param  int    $limit Limit - maximum number of activities to be returned
      * @param  int    $offset Offset - for getting the next page worth of activities.
+     * @param  ActivityFilter $filter  Optionally <filter> can be used to filter the response based on the user that performed the activity, operation, or both. the server will cache previously established filter search results, and return the identifier in session attribute. The client is expected to reuse the session identifier in the subsequent filter search to improve the performance.
      * @return mix
      */
     public function getActivityStream(
         $id,
-        ActivityFilter $filter = null,
         $offset = null,
-        $limit = null
+        $limit = null,
+        ActivityFilter $filter = null
     )
     {
         $request = new \Zimbra\Mail\Request\GetActivityStream(
             $id,
-            $filter,
             $offset,
-            $limit
+            $limit,
+            $filter
         );
         return $this->getClient()->doRequest($request);
     }
@@ -1224,6 +1218,7 @@ abstract class Base extends AccountBase implements MailInterface
      *
      * @param  bool   $sync    Set this to return the modified date (md) on the appointment.
      * @param  bool   $includeContent If true, MIME parts for body content are returned; default false.
+     * @param  bool   $includeInvites If set, information for each invite is included.
      * @param  string $uid     iCalendar UID Either id or uid should be specified, but not both.
      * @param  string $id      Appointment ID. Either id or uid should be specified, but not both.
      * @return mix
@@ -1231,6 +1226,7 @@ abstract class Base extends AccountBase implements MailInterface
     public function getAppointment(
         $sync = null,
         $includeContent = null,
+        $includeInvites = null,
         $uid = null,
         $id = null
     )
@@ -1238,6 +1234,7 @@ abstract class Base extends AccountBase implements MailInterface
         $request = new \Zimbra\Mail\Request\GetAppointment(
             $sync,
             $includeContent,
+            $includeInvites,
             $uid,
             $id
         );
@@ -1300,39 +1297,39 @@ abstract class Base extends AccountBase implements MailInterface
      *   2. for GAL ref (type="G"): email address of the GAL entry
      *   3. for inlined member (type="I"): the value
      *
-     * @param  array  $a      Attributes - if present, return only the specified attribute(s).
-     * @param  array  $ma     If present, return only the specified attribute(s) for derefed members, applicable only when derefGroupMember is set.
-     * @param  array  $cn     If present, only get the specified contact(s)..
      * @param  bool   $sync   If set, return modified date (md) on contacts.
      * @param  string $l      If is present, return only contacts in the specified folder.
      * @param  string $sortBy Sort by.
      * @param  bool   $derefGroupMember If set, deref contact group members.
      * @param  bool   $returnHiddenAttrs Whether to return contact hidden attrs defined in zimbraContactHiddenAttributes ignored if <a> is present..
      * @param  int    $maxMembers Max members.
+     * @param  array  $a      Attributes - if present, return only the specified attribute(s).
+     * @param  array  $ma     If present, return only the specified attribute(s) for derefed members, applicable only when derefGroupMember is set.
+     * @param  array  $cn     If present, only get the specified contact(s)..
      * @return mix
      */
     public function getContacts(
-        array $a = [],
-        array $ma = [],
-        array $cn = [],
         $sync = null,
         $l = null,
         $sortBy = null,
         $derefGroupMember = null,
         $returnHiddenAttrs = null,
-        $maxMembers = null
+        $maxMembers = null,
+        array $a = [],
+        array $ma = [],
+        array $cn = []
     )
     {
         $request = new \Zimbra\Mail\Request\GetContacts(
-            $a,
-            $ma,
-            $cn,
             $sync,
             $l,
             $sortBy,
             $derefGroupMember,
             $returnHiddenAttrs,
-            $maxMembers
+            $maxMembers,
+            $a,
+            $ma,
+            $cn
         );
         return $this->getClient()->doRequest($request);
     }

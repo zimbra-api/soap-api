@@ -721,21 +721,17 @@ interface MailInterface extends AccountInterface
     /**
      * Expand recurrences.
      *
-     * @param  int $s Start time in milliseconds
-     * @param  int $e End time in milliseconds
-     * @param  array $tz Timezones
-     * @param  ExpandedRecurrenceInvite $comp
-     * @param  ExpandedRecurrenceException $except
-     * @param  ExpandedRecurrenceCancel $cancel
+     * @param  int $startTime Start time in milliseconds
+     * @param  int $endTime End time in milliseconds
+     * @param  array $timezones Timezone definitions
+     * @param  array $components Specifications for series, modified instances and canceled instances
      * @return mix
      */
     function expandRecur(
-        $s,
-        $e,
-        array $tz = [],
-        ExpandedRecurrenceInvite $comp = null,
-        ExpandedRecurrenceException $except = null,
-        ExpandedRecurrenceCancel $cancel = null
+        $startTime,
+        $endTime,
+        array $timezones = [],
+        array $components = []
     );
 
     /**
@@ -767,28 +763,28 @@ interface MailInterface extends AccountInterface
     /**
      * Used by an attendee to forward an instance or entire appointment to another user who is not already an attendee.
      *
+     * @param  string $id Appointment item ID
      * @param  DtTimeInfo $exceptId RECURRENCE-ID information if forwarding a single instance of a recurring appointment
      * @param  CalTZInfo $tz Definition for TZID referenced by DATETIME in <exceptId>
      * @param  Msg $m Details of the appointment.
-     * @param  string $id Appointment item ID
      * @return mix
      */
     function forwardAppointment(
+        $id = null,
         DtTimeInfo $exceptId = null,
         CalTZInfo $tz = null,
-        Msg $m = null,
-        $id = null
+        Msg $m = null
     );
 
     /**
      * Used by an attendee to forward an appointment invite email to another user who is not already an attendee.
      * To forward an appointment item, use ForwardAppointmentRequest instead.
      *
-     * @param  Msg $m Details of the appointment.
      * @param  string $id Appointment item ID
+     * @param  Msg $m Details of the appointment.
      * @return mix
      */
-    function forwardAppointmentInvite(Msg $m = null, $id = null);
+    function forwardAppointmentInvite($id = null, Msg $m = null);
 
     /**
      * Ajax client can use this request to ask the server for help in generating a proper,
@@ -802,16 +798,16 @@ interface MailInterface extends AccountInterface
      * Get activity stream.
      *
      * @param  string $id Item ID. If the id is for a Document, the response will include the activities for the requested Document. if it is for a Folder, the response will include the activities for all the Documents in the folder and subfolders.
-     * @param  ActivityFilter $filter  Optionally <filter> can be used to filter the response based on the user that performed the activity, operation, or both. the server will cache previously established filter search results, and return the identifier in session attribute. The client is expected to reuse the session identifier in the subsequent filter search to improve the performance.
      * @param  int    $limit Limit - maximum number of activities to be returned
      * @param  int    $offset Offset - for getting the next page worth of activities.
+     * @param  ActivityFilter $filter  Optionally <filter> can be used to filter the response based on the user that performed the activity, operation, or both. the server will cache previously established filter search results, and return the identifier in session attribute. The client is expected to reuse the session identifier in the subsequent filter search to improve the performance.
      * @return mix
      */
     function getActivityStream(
         $id,
-        ActivityFilter $filter = null,
         $offset = null,
-        $limit = null
+        $limit = null,
+        ActivityFilter $filter = null
     );
 
     /**
@@ -827,6 +823,7 @@ interface MailInterface extends AccountInterface
      *
      * @param  bool   $sync    Set this to return the modified date (md) on the appointment.
      * @param  bool   $includeContent If true, MIME parts for body content are returned; default false.
+     * @param  bool   $includeInvites If set, information for each invite is included.
      * @param  string $uid     iCalendar UID Either id or uid should be specified, but not both.
      * @param  string $id      Appointment ID. Either id or uid should be specified, but not both.
      * @return mix
@@ -834,6 +831,7 @@ interface MailInterface extends AccountInterface
     function getAppointment(
         $sync = null,
         $includeContent = null,
+        $includeInvites = null,
         $uid = null,
         $id = null
     );
@@ -876,27 +874,27 @@ interface MailInterface extends AccountInterface
      *   2. for GAL ref (type="G"): email address of the GAL entry
      *   3. for inlined member (type="I"): the value
      *
-     * @param  array  $a      Attributes - if present, return only the specified attribute(s).
-     * @param  array  $ma     If present, return only the specified attribute(s) for derefed members, applicable only when derefGroupMember is set.
-     * @param  array  $cn     If present, only get the specified contact(s)..
      * @param  bool   $sync   If set, return modified date (md) on contacts.
      * @param  string $l      If is present, return only contacts in the specified folder.
      * @param  string $sortBy Sort by.
      * @param  bool   $derefGroupMember If set, deref contact group members.
      * @param  bool   $returnHiddenAttrs Whether to return contact hidden attrs defined in zimbraContactHiddenAttributes ignored if <a> is present..
      * @param  int    $maxMembers Max members.
+     * @param  array  $a      Attributes - if present, return only the specified attribute(s).
+     * @param  array  $ma     If present, return only the specified attribute(s) for derefed members, applicable only when derefGroupMember is set.
+     * @param  array  $cn     If present, only get the specified contact(s)..
      * @return mix
      */
     function getContacts(
-        array $a = [],
-        array $ma = [],
-        array $cn = [],
         $sync = null,
         $l = null,
         $sortBy = null,
         $derefGroupMember = null,
         $returnHiddenAttrs = null,
-        $maxMembers = null
+        $maxMembers = null,
+        array $a = [],
+        array $ma = [],
+        array $cn = []
     );
 
     /**

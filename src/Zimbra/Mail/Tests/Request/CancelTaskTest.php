@@ -17,7 +17,6 @@ class CancelTaskTest extends ZimbraMailApiTestCase
     public function testCancelTaskRequest()
     {
         $req = new CancelTask;
-        $this->assertInstanceOf('Zimbra\Mail\Request\Base', $req);
         $this->assertInstanceOf('Zimbra\Mail\Request\CancelAppointment', $req);
 
         $xml = '<?xml version="1.0"?>'."\n"

@@ -17,7 +17,7 @@ class ItemSpecTest extends ZimbraMailTestCase
         $name = $this->faker->word;
         $path = $this->faker->word;
 
-        $item = new \Zimbra\Mail\Struct\ItemSpec(
+        $item = new ItemSpec(
             $id, $folder, $name, $path
         );
         $this->assertSame($id, $item->getId());

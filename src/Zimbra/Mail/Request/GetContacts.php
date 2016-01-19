@@ -252,7 +252,7 @@ class GetContacts extends Base
      */
     public function addAttribute(AttributeName $attribute)
     {
-        $this->_attributes->add($a);
+        $this->_attributes->add($attribute);
         return $this;
     }
 

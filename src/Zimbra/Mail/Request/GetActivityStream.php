@@ -27,27 +27,27 @@ class GetActivityStream extends Base
     /**
      * Constructor method for GetActivityStream
      * @param  string $id
-     * @param  int $queryOffset
-     * @param  int $queryLimit
+     * @param  int $offset
+     * @param  int $limit
      * @param  ActivityFilter $filter
      * @return self
      */
     public function __construct(
         $id,
-        $queryOffset = null,
-        $queryLimit = null,
+        $offset = null,
+        $limit = null,
         ActivityFilter $filter = null
     )
     {
         parent::__construct();
         $this->setProperty('id', trim($id));
-        if(null !== $queryOffset)
+        if(null !== $offset)
         {
-            $this->setProperty('offset', (int) $queryOffset);
+            $this->setProperty('offset', (int) $offset);
         }
-        if(null !== $queryLimit)
+        if(null !== $limit)
         {
-            $this->setProperty('limit', (int) $queryLimit);
+            $this->setProperty('limit', (int) $limit);
         }
         if($filter instanceof ActivityFilter)
         {
@@ -89,12 +89,12 @@ class GetActivityStream extends Base
     /**
      * Sets offset
      *
-     * @param  int $queryOffset
+     * @param  int $offset
      * @return self
      */
-    public function setQueryOffset($queryOffset)
+    public function setQueryOffset($offset)
     {
-        return $this->setProperty('offset', (int) $queryOffset);
+        return $this->setProperty('offset', (int) $offset);
     }
 
     /**
@@ -110,12 +110,12 @@ class GetActivityStream extends Base
     /**
      * Sets limit
      *
-     * @param  int $queryLimit
+     * @param  int $limit
      * @return self
      */
-    public function setQueryLimit($queryLimit)
+    public function setQueryLimit($limit)
     {
-        return $this->setProperty('limit', (int) $queryLimit);
+        return $this->setProperty('limit', (int) $limit);
     }
 
     /**

@@ -12,6 +12,7 @@ namespace Zimbra\Mail\Request;
 
 use Zimbra\Common\TypedSequence;
 use Zimbra\Mail\Struct\CalTZInfo;
+use Zimbra\Mail\Struct\ExpandedRecurrenceComponent;
 use Zimbra\Mail\Struct\ExpandedRecurrenceCancel;
 use Zimbra\Mail\Struct\ExpandedRecurrenceInvite;
 use Zimbra\Mail\Struct\ExpandedRecurrenceException;
@@ -43,7 +44,7 @@ class ExpandRecur extends Base
     /**
      * Constructor method for ExpandRecur
      * @param  int $startTime
-     * @param  int $e
+     * @param  int $endTime
      * @param  array $timezones
      * @param  array $components
      * @return self
@@ -51,8 +52,8 @@ class ExpandRecur extends Base
     public function __construct(
         $startTime,
         $endTime,
-        array $timezones = array(),
-        array $components = array()
+        array $timezones = [],
+        array $components = []
     )
     {
         parent::__construct();
@@ -97,7 +98,7 @@ class ExpandRecur extends Base
      */
     public function getStartTime()
     {
-        return $this->getProperty('startTime');
+        return $this->getProperty('s');
     }
 
     /**
@@ -109,7 +110,7 @@ class ExpandRecur extends Base
      */
     public function setStartTime($startTime)
     {
-        return $this->setProperty('startTime', (int) $startTime);
+        return $this->setProperty('s', (int) $startTime);
     }
 
     /**
@@ -119,7 +120,7 @@ class ExpandRecur extends Base
      */
     public function getEndTime()
     {
-        return $this->getProperty('endTime');
+        return $this->getProperty('e');
     }
 
     /**
@@ -131,7 +132,7 @@ class ExpandRecur extends Base
      */
     public function setEndTime($endTime)
     {
-        return $this->setProperty('endTime', (int) $endTime);
+        return $this->setProperty('e', (int) $endTime);
     }
 
     /**

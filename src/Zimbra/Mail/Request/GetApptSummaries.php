@@ -68,7 +68,7 @@ class GetApptSummaries extends Base
      */
     public function getEndTime()
     {
-        return $this->getProperty('s');
+        return $this->getProperty('e');
     }
 
     /**
@@ -79,7 +79,7 @@ class GetApptSummaries extends Base
      */
     public function setEndTime($endTime)
     {
-        return $this->setProperty('s', (int) $endTime);
+        return $this->setProperty('e', (int) $endTime);
     }
 
     /**
