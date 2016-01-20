@@ -2,18 +2,11 @@
 
 namespace Zimbra\Admin\Tests;
 
-use \PHPUnit_Framework_TestCase;
-use Faker\Factory as FakerFactory;
+use Zimbra\Struct\Tests\ZimbraStructTestCase;
 
 /**
  * Base testcase class for all Zimbra Admin testcases.
  */
-abstract class ZimbraAdminTestCase extends PHPUnit_Framework_TestCase
+abstract class ZimbraAdminTestCase extends ZimbraStructTestCase
 {
-    protected $faker;
-
-    protected function setUp()
-    {
-        $this->faker = FakerFactory::create();
-    }
 }

@@ -8,7 +8,7 @@ use Zimbra\Mail\Request\GetSystemRetentionPolicy;
 /**
  * Testcase class for GetSystemRetentionPolicy.
  */
-class GetSystemRetentionPolicyTest extends ZimbraMailApiTestCase
+class MailGetSystemRetentionPolicyTest extends ZimbraMailApiTestCase
 {
     public function testGetSystemRetentionPolicyRequest()
     {

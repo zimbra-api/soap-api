@@ -11,37 +11,36 @@ use Zimbra\Common\Text;
  */
 class TextTest extends PHPUnit_Framework_TestCase
 {
+    protected $faker;
+
+    protected function setUp()
+    {
+        $this->faker = FakerFactory::create();
+    }
+
     public function testIsRgb()
     {
-        $this->assertTrue(Text::isRgb('#112233'));
-        $this->assertTrue(Text::isRgb('#1122ff'));
-        $this->assertTrue(Text::isRgb('#11ff33'));
-        $this->assertTrue(Text::isRgb('#ff2233'));
-        $this->assertTrue(Text::isRgb('#aabbcc'));
-
-        $this->assertFalse(Text::isRgb('#1122gg'));
-        $this->assertFalse(Text::isRgb('#11gg33'));
-        $this->assertFalse(Text::isRgb('#gg2233'));
-        $this->assertFalse(Text::isRgb('#aabbgg'));
-        $this->assertFalse(Text::isRgb('#aaggcc'));
-        $this->assertFalse(Text::isRgb('#ggbbcc'));
+        $color = $this->faker->hexcolor;
+        $this->assertTrue(Text::isRgb($color));
+        $this->assertFalse(Text::isRgb('#' . $this->faker->word));
     }
     public function testIsValidTagName()
     {
-        $this->assertTrue(Text::isValidTagName('name'));
-        $this->assertTrue(Text::isValidTagName('_name'));
-        $this->assertTrue(Text::isValidTagName('ns:name'));
-        $this->assertTrue(Text::isValidTagName('year2000'));
-        $this->assertTrue(Text::isValidTagName('year_2000'));
-        $this->assertTrue(Text::isValidTagName('year-2000'));
-        $this->assertTrue(Text::isValidTagName('year.2000'));
-        $this->assertTrue(Text::isValidTagName('year 2000'));
+        $name = $this->faker->word;
+        $this->assertTrue(Text::isValidTagName($name));
+        $this->assertTrue(Text::isValidTagName('_' . $name));
+        $this->assertTrue(Text::isValidTagName('ns:' . $name));
+        $this->assertTrue(Text::isValidTagName($name . '2000'));
+        $this->assertTrue(Text::isValidTagName($name . '_2000'));
+        $this->assertTrue(Text::isValidTagName($name . '-2000'));
+        $this->assertTrue(Text::isValidTagName($name . '.2000'));
+        $this->assertTrue(Text::isValidTagName($name . ' 2000'));
 
-        $this->assertFalse(Text::isValidTagName(':name'));
-        $this->assertFalse(Text::isValidTagName('.name'));
-        $this->assertFalse(Text::isValidTagName(' name'));
-        $this->assertFalse(Text::isValidTagName('-name'));
-        $this->assertFalse(Text::isValidTagName('2000'));
+        $this->assertFalse(Text::isValidTagName(':' . $name));
+        $this->assertFalse(Text::isValidTagName('.' . $name));
+        $this->assertFalse(Text::isValidTagName(' ' . $name));
+        $this->assertFalse(Text::isValidTagName('-' . $name));
+        $this->assertFalse(Text::isValidTagName(mt_rand(1, 100)));
     }
 
     public function tesTextractHeaders()
@@ -72,9 +71,8 @@ class TextTest extends PHPUnit_Framework_TestCase
 
     public function testBoolToString()
     {
-        $faker = FakerFactory::create();
-        $number = mt_rand();
-        $string = $faker->word;
+        $number = mt_rand(1, 100);
+        $string = $this->faker->word;
         $this->assertSame('true', Text::boolToString(true));
         $this->assertSame('false', Text::boolToString(false));
         $this->assertSame($number, Text::boolToString($number));
