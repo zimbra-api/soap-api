@@ -26,7 +26,7 @@ class ImportContacts extends Base
 {
     /**
      * Constructor method for ImportContacts
-     * @param  string $contentType
+     * @param  string $ct
      * @param  Content $content
      * @param  string $folderId
      * @param  string $csvFormat
@@ -42,7 +42,7 @@ class ImportContacts extends Base
     )
     {
         parent::__construct();
-        $this->setProperty('contentType', trim($contentType));
+        $this->setProperty('ct', trim($ct));
         $this->setChild('content', $content);
         if(null !== $folderId)
         {
@@ -82,7 +82,7 @@ class ImportContacts extends Base
     /**
      * Gets content specification
      *
-     * @return ContentSpec
+     * @return Content
      */
     public function getContent()
     {
@@ -92,10 +92,10 @@ class ImportContacts extends Base
     /**
      * Sets content specification
      *
-     * @param  ContentSpec $content
+     * @param  Content $content
      * @return self
      */
-    public function setContent(ContentSpec $content)
+    public function setContent(Content $content)
     {
         return $this->setChild('content', $content);
     }

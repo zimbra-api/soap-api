@@ -10,6 +10,7 @@
 
 namespace Zimbra\Mail\Request;
 
+use Zimbra\Common\TypedSequence;
 use Zimbra\Mail\Struct\DataSourceNameOrId;
 use Zimbra\Mail\Struct\ImapDataSourceNameOrId;
 use Zimbra\Mail\Struct\Pop3DataSourceNameOrId;

@@ -1752,6 +1752,7 @@ abstract class Base extends AccountBase implements MailInterface
      *
      * @param  bool   $sync Set this to return the modified date (md) on the appointment..
      * @param  bool   $includeContent If set, MIME parts for body content are returned; default false.
+     * @param  bool   $includeInvites If set, information for each invite is included. default false.
      * @param  string $uid  iCalendar UID Either id or uid should be specified, but not both.
      * @param  string $id   Appointment ID. Either id or uid should be specified, but not both.
      * @return mix
@@ -1759,6 +1760,7 @@ abstract class Base extends AccountBase implements MailInterface
     public function getTask(
         $sync = null,
         $includeContent = null,
+        $includeInvites = null,
         $uid = null,
         $id = null
     )
@@ -1766,6 +1768,7 @@ abstract class Base extends AccountBase implements MailInterface
         $request = new \Zimbra\Mail\Request\GetTask(
             $sync,
             $includeContent,
+            $includeInvites,
             $uid,
             $id
         );
@@ -1890,15 +1893,15 @@ abstract class Base extends AccountBase implements MailInterface
     /**
      * Import appointments.
      *
-     * @param  ContentSpec $content Content specification
      * @param  string $ct Content type
+     * @param  ContentSpec $content Content specification
      * @param  string $l Optional folder ID to import appointments into
      * @return mix
      */
-    public function importAppointments(ContentSpec $content, $ct, $l = null)
+    public function importAppointments($ct, ContentSpec $content, $l = null)
     {
         $request = new \Zimbra\Mail\Request\ImportAppointments(
-            $content, $ct, $l
+            $ct, $content, $l
         );
         return $this->getClient()->doRequest($request);
     }
@@ -1906,24 +1909,24 @@ abstract class Base extends AccountBase implements MailInterface
     /**
      * Import appointments.
      *
-     * @param  Content $content Content specification.
      * @param  string $ct Content type. Only currenctly supported content type is "csv".
+     * @param  Content $content Content specification.
      * @param  string $l Optional Folder ID to import contacts to.
      * @param  string $csvfmt The format of csv being imported. when it's not defined, Zimbra format is assumed. the supported formats are defined in $ZIMBRA_HOME/conf/zimbra-contact-fields.xml.
      * @param  string $csvlocale The locale to use when there are multiple {csv-format} locales defined. When it is not specified, the {csv-format} with no locale specification is used.
      * @return mix
      */
     public function importContacts(
-        Content $content,
         $ct,
+        Content $content,
         $l = null,
         $csvfmt = null,
         $csvlocale = null
     )
     {
         $request = new \Zimbra\Mail\Request\ImportContacts(
-            $content,
             $ct,
+            $content,
             $l,
             $csvfmt,
             $csvlocale
@@ -1938,37 +1941,12 @@ abstract class Base extends AccountBase implements MailInterface
      * If the server receives an <ImportDataRequest> while an import is already running
      * for a given data source, the second request is ignored.
      *
-     * @param  ImapDataSourceNameOrId $imap
-     * @param  Pop3DataSourceNameOrId $pop3
-     * @param  CaldavDataSourceNameOrId $caldav
-     * @param  YabDataSourceNameOrId $yab
-     * @param  RssDataSourceNameOrId $rss
-     * @param  GalDataSourceNameOrId $gal
-     * @param  CalDataSourceNameOrId $cal
-     * @param  UnknownDataSourceNameOrId $unknown
+     * @param  array $dataSources
      * @return mix
      */
-    public function importData(
-        ImapDataSourceNameOrId $imap = null,
-        Pop3DataSourceNameOrId $pop3 = null,
-        CaldavDataSourceNameOrId $caldav = null,
-        YabDataSourceNameOrId $yab = null,
-        RssDataSourceNameOrId $rss = null,
-        GalDataSourceNameOrId $gal = null,
-        CalDataSourceNameOrId $cal = null,
-        UnknownDataSourceNameOrId $unknown = null
-    )
+    public function importData(array $dataSources)
     {
-        $request = new \Zimbra\Mail\Request\ImportData(
-            $imap,
-            $pop3,
-            $caldav,
-            $yab,
-            $rss,
-            $gal,
-            $cal,
-            $unknown
-        );
+        $request = new \Zimbra\Mail\Request\ImportData($dataSources);
         return $this->getClient()->doRequest($request);
     }
 
