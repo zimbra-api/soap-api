@@ -56,7 +56,7 @@ class GetFreeBusy extends Base
     {
         parent::__construct();
         $this->setProperty('s', (int) $startTime);
-        $this->setProperty('endTime', (int) $endTime);
+        $this->setProperty('e', (int) $endTime);
         if(null !== $uid)
         {
             $this->setProperty('uid', trim($uid));
@@ -112,7 +112,7 @@ class GetFreeBusy extends Base
      */
     public function getEndTime()
     {
-        return $this->getProperty('s');
+        return $this->getProperty('e');
     }
 
     /**
@@ -123,7 +123,7 @@ class GetFreeBusy extends Base
      */
     public function setEndTime($endTime)
     {
-        return $this->setProperty('s', (int) $endTime);
+        return $this->setProperty('e', (int) $endTime);
     }
 
     /**

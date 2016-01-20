@@ -955,21 +955,21 @@ interface MailInterface extends AccountInterface
      * A {base-folder-id}, a {base-folder-uuid} or a {fully-qualified-path} can optionally be specified in the folder element; if none is present, the descent of the folder hierarchy begins at the mailbox's root folder (id 1).
      * If {fully-qualified-path} is present and {base-folder-id} or {base-folder-uuid} is also present, the path is treated as relative to the folder that was specified by id/uuid. {base-folder-id} is ignored if {base-folder-uuid} is present.
      *
-     * @param  GetFolderSpec $folder Folder specification
      * @param  bool $visible If set we include all visible subfolders of the specified folder.
      * @param  bool $needGranteeName If set then grantee names are supplied in the d attribute in <grant>.
      * @param  string $view If "view" is set then only the folders with matching view will be returned.
      * @param  int $depth If "depth" is set to a non-negative number, we include that many levels of subfolders in the response.
      * @param  bool $tr If true, one level of mountpoints are traversed and the target folder's counts are applied to the local mountpoint.
+     * @param  GetFolderSpec $folder Folder specification
      * @return mix
      */
     function getFolder(
-        GetFolderSpec $folder = null,
         $visible = null,
         $needGranteeName = null,
         $view = null,
         $depth = null,
-        $tr = null
+        $tr = null,
+        GetFolderSpec $folder = null
     );
 
     /**
