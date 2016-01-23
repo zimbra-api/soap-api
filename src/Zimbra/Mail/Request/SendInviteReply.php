@@ -53,7 +53,7 @@ class SendInviteReply extends Base
         parent::__construct();
         $this->setProperty('id', trim($id));
         $this->setProperty('compNum', (int) $compNum);
-        $this->setProperty('verb', trim($verb));
+        $this->setProperty('verb', $verb);
         if(null !== $updateOrganizer)
         {
             $this->setProperty('updateOrganizer', (bool) $updateOrganizer);
@@ -100,7 +100,7 @@ class SendInviteReply extends Base
     /**
      * Gets component number of the invite
      *
-     * @return bool
+     * @return int
      */
     public function getComponentNum()
     {
@@ -110,12 +110,12 @@ class SendInviteReply extends Base
     /**
      * Sets component number of the invite
      *
-     * @param  bool $componentNum
+     * @param  int $componentNum
      * @return self
      */
     public function setComponentNum($componentNum)
     {
-        return $this->setProperty('compNum', (bool) $componentNum);
+        return $this->setProperty('compNum', (int) $componentNum);
     }
 
     /**

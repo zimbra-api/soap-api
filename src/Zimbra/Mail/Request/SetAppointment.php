@@ -226,7 +226,7 @@ class SetAppointment extends Base
     /**
      * Gets next alarm
      *
-     * @return bool
+     * @return int
      */
     public function getNextAlarm()
     {
@@ -236,12 +236,12 @@ class SetAppointment extends Base
     /**
      * Sets next alarm
      *
-     * @param  bool $nextAlarm
+     * @param  int $nextAlarm
      * @return self
      */
     public function setNextAlarm($nextAlarm)
     {
-        return $this->setProperty('nextAlarm', (bool) $nextAlarm);
+        return $this->setProperty('nextAlarm', (int) $nextAlarm);
     }
 
     /**
@@ -340,7 +340,7 @@ class SetAppointment extends Base
      */
     public function getReplies()
     {
-        return $this->getChild('default');
+        return $this->getChild('replies');
     }
 
     /**
@@ -351,6 +351,6 @@ class SetAppointment extends Base
      */
     public function setReplies(Replies $replies)
     {
-        return $this->setChild('default', $replies);
+        return $this->setChild('replies', $replies);
     }
 }

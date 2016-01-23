@@ -51,7 +51,7 @@ class SaveDraftMsgTest extends ZimbraMailTestCase
         $sec = mt_rand(0, 59);
         $stdoff = mt_rand(1, 10);
         $dayoff = mt_rand(1, 10);
-        $color = mt_rand(1, 128);
+        $color = mt_rand(1, 127);
         $autoSendTime = mt_rand(1, 100);
 
         $mp = new \Zimbra\Mail\Struct\MimePartAttachSpec($mid, $part, true);

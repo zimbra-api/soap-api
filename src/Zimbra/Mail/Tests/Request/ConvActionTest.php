@@ -19,7 +19,7 @@ class ConvActionTest extends ZimbraMailApiTestCase
         $tag = mt_rand(0, 10);
         $folder = $this->faker->word;
         $rgb = $this->faker->hexcolor;
-        $color = mt_rand(0, 128);
+        $color = mt_rand(1, 127);
         $name = $this->faker->word;
         $flags = $this->faker->word;
         $tags = $this->faker->word;
@@ -69,7 +69,7 @@ class ConvActionTest extends ZimbraMailApiTestCase
         $tag = mt_rand(0, 10);
         $folder = $this->faker->word;
         $rgb = $this->faker->hexcolor;
-        $color = mt_rand(0, 128);
+        $color = mt_rand(1, 127);
         $name = $this->faker->word;
         $flags = $this->faker->word;
         $tags = $this->faker->word;

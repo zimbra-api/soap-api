@@ -10,6 +10,7 @@
 
 namespace Zimbra\Mail\Request;
 
+use Zimbra\Common\TypedSequence;
 use Zimbra\Mail\Struct\SnoozeAlarm;
 use Zimbra\Mail\Struct\SnoozeAppointmentAlarm;
 use Zimbra\Mail\Struct\SnoozeTaskAlarm;

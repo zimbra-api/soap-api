@@ -2483,6 +2483,7 @@ abstract class Base extends AccountBase implements MailInterface
      * @param  bool $recip Want recipients setting. 
      * @param  bool $prefetch Prefetch
      * @param  string $resultMode Specifies the type of result.
+     * @param  bool $fullConversation Full conversation
      * @param  string $field By default, text without an operator searches the CONTENT field.
      * @param  int $limit The maximum number of results to return.
      * @param  int $offset Specifies the 0-based offset into the results list to return as the first result for this search operation.
@@ -2514,6 +2515,7 @@ abstract class Base extends AccountBase implements MailInterface
         $recip = null,
         $prefetch = null,
         $resultMode = null,
+        $fullConversation = null,
         $field = null,
         $limit = null,
         $offset = null
@@ -2545,6 +2547,7 @@ abstract class Base extends AccountBase implements MailInterface
             $recip,
             $prefetch,
             $resultMode,
+            $fullConversation,
             $field,
             $limit,
             $offset
@@ -2581,6 +2584,7 @@ abstract class Base extends AccountBase implements MailInterface
      * @param  bool $recip Want recipients setting. 
      * @param  bool $prefetch Prefetch
      * @param  string $resultMode Specifies the type of result.
+     * @param  bool $fullConversation Full conversation
      * @param  string $field By default, text without an operator searches the CONTENT field.
      * @param  int $limit The maximum number of results to return.
      * @param  int $offset Specifies the 0-based offset into the results list to return as the first result for this search operation.
@@ -2613,6 +2617,7 @@ abstract class Base extends AccountBase implements MailInterface
         $recip = null,
         $prefetch = null,
         $resultMode = null,
+        $fullConversation = null,
         $field = null,
         $limit = null,
         $offset = null
@@ -2645,6 +2650,7 @@ abstract class Base extends AccountBase implements MailInterface
             $recip,
             $prefetch,
             $resultMode,
+            $fullConversation,
             $field,
             $limit,
             $offset
@@ -2672,33 +2678,33 @@ abstract class Base extends AccountBase implements MailInterface
      * @param  string $id Unique ID of the invite (and component therein) you are replying to
      * @param  int $compNum Component number of the invite
      * @param  string $verb Verb - ACCEPT, DECLINE, TENTATIVE, COMPLETED, DELEGATED (Completed/Delegated are NOT supported as of 9/12/2005)
+     * @param  bool $updateOrganizer Update organizer. Set by default.
+     * @param  string $idnt Identity ID to use to send reply
      * @param  DtTimeInfo $exceptId If supplied then reply to just one instance of the specified Invite (default is all instances)
      * @param  CalTZInfo $tz Definition for TZID referenced by DATETIME in <exceptId>
      * @param  Msg $m Embedded message, if the user wants to send a custom update message.
-     * @param  bool $updateOrganizer Update organizer. Set by default.
-     * @param  string $idnt Identity ID to use to send reply
      * @return mix
      */
     public function sendInviteReply(
         $id,
         $compNum,
         $verb,
+        $updateOrganizer = null,
+        $idnt = null,
         DtTimeInfo $exceptId = null,
         CalTZInfo $tz = null,
-        Msg $m = null,
-        $updateOrganizer = null,
-        $idnt = null
+        Msg $m = null
     )
     {
         $request = new \Zimbra\Mail\Request\SendInviteReply(
             $id,
             $compNum,
             $verb,
+            $updateOrganizer,
+            $idnt,
             $exceptId,
             $tz,
-            $m,
-            $updateOrganizer,
-            $idnt
+            $m
         );
         return $this->getClient()->doRequest($request);
     }
@@ -2789,42 +2795,42 @@ abstract class Base extends AccountBase implements MailInterface
      * Need way to add message WITHOUT processing it for calendar parts.
      * Need to generate and patch-in the iCalendar for the <inv> but w/o actually processing the <inv> as a new request.
      *
-     * @param  SetCalendarItemInfo $m Default calendar item information
-     * @param  array $except Calendar item information for exceptions 
-     * @param  array $cancel Calendar item information for cancellations 
-     * @param  Replies $replies Replies
      * @param  string $f Flags
      * @param  string $t Tags (Deprecated - use {tag-names} instead)
      * @param  string $tn Comma separated list of tag names
      * @param  string $l ID of folder to create appointment in
      * @param  bool $noNextAlarm Set if all alarms have been dismissed; if this is set, nextAlarm should not be set
      * @param  int $nextAlarm If specified, time when next alarm should go off. 
+     * @param  SetCalendarItemInfo $default Default calendar item information
+     * @param  array $except Calendar item information for exceptions 
+     * @param  array $cancel Calendar item information for cancellations 
+     * @param  Replies $replies Replies
      * @return mix
      */
     public function setAppointment(
-        SetCalendarItemInfo $default = null,
-        array $except = [],
-        array $cancel = [],
-        Replies $replies = null,
         $f = null,
         $t = null,
         $tn = null,
         $l = null,
         $noNextAlarm = null,
-        $nextAlarm = null
+        $nextAlarm = null,
+        SetCalendarItemInfo $default = null,
+        array $except = [],
+        array $cancel = [],
+        Replies $replies = null
     )
     {
         $request = new \Zimbra\Mail\Request\SetAppointment(
-            $default,
-            $except,
-            $cancel,
-            $replies,
             $f,
             $t,
             $tn,
             $l,
             $noNextAlarm,
-            $nextAlarm
+            $nextAlarm,
+            $default,
+            $except,
+            $cancel,
+            $replies
         );
         return $this->getClient()->doRequest($request);
     }
@@ -2866,42 +2872,42 @@ abstract class Base extends AccountBase implements MailInterface
      * Directly set status of an entire task.
      * See SetAppointment for more information.
      *
-     * @param  SetCalendarItemInfo $m Default calendar item information
-     * @param  array $except Calendar item information for exceptions 
-     * @param  array $cancel Calendar item information for cancellations 
-     * @param  Replies $replies Replies
      * @param  string $f Flags
      * @param  string $t Tags (Deprecated - use {tag-names} instead)
      * @param  string $tn Comma separated list of tag names
      * @param  string $l ID of folder to create appointment in
      * @param  bool $noNextAlarm Set if all alarms have been dismissed; if this is set, nextAlarm should not be set
      * @param  int $nextAlarm If specified, time when next alarm should go off. 
+     * @param  SetCalendarItemInfo $m Default calendar item information
+     * @param  array $except Calendar item information for exceptions 
+     * @param  array $cancel Calendar item information for cancellations 
+     * @param  Replies $replies Replies
      * @return mix
      */
     public function setTask(
-        SetCalendarItemInfo $default = null,
-        array $except = [],
-        array $cancel = [],
-        Replies $replies = null,
         $f = null,
         $t = null,
         $tn = null,
         $l = null,
         $noNextAlarm = null,
-        $nextAlarm = null
+        $nextAlarm = null,
+        SetCalendarItemInfo $default = null,
+        array $except = [],
+        array $cancel = [],
+        Replies $replies = null
     )
     {
         $request = new \Zimbra\Mail\Request\SetTask(
-            $default,
-            $except,
-            $cancel,
-            $replies,
             $f,
             $t,
             $tn,
             $l,
             $noNextAlarm,
-            $nextAlarm
+            $nextAlarm,
+            $default,
+            $except,
+            $cancel,
+            $replies
         );
         return $this->getClient()->doRequest($request);
     }
@@ -2909,17 +2915,13 @@ abstract class Base extends AccountBase implements MailInterface
     /**
      * Snooze alarm(s) for appointments or tasks.
      *
-     * @param  SnoozeAppointmentAlarm $appt Snooze appointment alarm.
-     * @param  SnoozeTaskAlarm $task Snooze task alarm.
+     * @param  array $alarms.
      * @return mix
      */
-    public function snoozeCalendarItemAlarm(
-        SnoozeAppointmentAlarm $appt = null,
-        SnoozeTaskAlarm $task = null
-    )
+    public function snoozeCalendarItemAlarm(array $alarms = [])
     {
         $request = new \Zimbra\Mail\Request\SnoozeCalendarItemAlarm(
-            $appt, $task
+            $alarms
         );
         return $this->getClient()->doRequest($request);
     }

@@ -90,20 +90,20 @@ class SendMsg extends Base
      *
      * @return bool
      */
-    public function getNeedCalendarSentbyFixup()
+    public function getNeedCalendarSentByFixup()
     {
-        return $this->getProperty('needCalendarSentbyFixup');
+        return $this->getProperty('needCalendarSentByFixup');
     }
 
     /**
      * Sets need calendar sent by fixup
      *
-     * @param  bool $needCalendarSentbyFixup
+     * @param  bool $needCalendarSentByFixup
      * @return self
      */
-    public function setNeedCalendarSentbyFixup($needCalendarSentbyFixup)
+    public function setNeedCalendarSentByFixup($needCalendarSentByFixup)
     {
-        return $this->setProperty('needCalendarSentbyFixup', (bool) $needCalendarSentbyFixup);
+        return $this->setProperty('needCalendarSentByFixup', (bool) $needCalendarSentByFixup);
     }
 
     /**

@@ -42,7 +42,7 @@ class SaveDraft extends Base
      */
     public function getMsg()
     {
-        return $this->getChild('msg');
+        return $this->getChild('m');
     }
 
     /**
@@ -53,6 +53,6 @@ class SaveDraft extends Base
      */
     public function setMsg(SaveDraftMsg $msg)
     {
-        return $this->setChild('msg', $msg);
+        return $this->setChild('m', $msg);
     }
 }

@@ -34,196 +34,13 @@ trait MailSearchParams
     private $_headers;
 
     /**
-     * Constructor method for MailSearchParams
-     * @param  string $query
-     * @param  array $header
-     * @param  CalTZInfo $calTz
-     * @param  string $locale
-     * @param  CursorInfo $cursor
-     * @param  bool $includeTagDeleted
-     * @param  bool $includeTagMuted
-     * @param  string $allowableTaskStatus
-     * @param  int $calExpandInstStart
-     * @param  int $calExpandInstEnd
-     * @param  bool $inDumpster
-     * @param  string $types
-     * @param  string $groupBy
-     * @param  bool $quick
-     * @param  SortBy $sortBy
-     * @param  string $fetch
-     * @param  bool $read
-     * @param  int $max
-     * @param  bool $html
-     * @param  bool $needExp
-     * @param  bool $neuter
-     * @param  bool $recip
-     * @param  bool $prefetch
-     * @param  string $resultMode
-     * @param  bool $fullConversation
-     * @param  string $field
-     * @param  int $limit
-     * @param  int $offset
-     * @return self
-     */
-    public function __construct(
-        $query = null,
-        array $headers = [],
-        CalTZInfo $calTz = null,
-        $locale = null,
-        CursorInfo $cursor = null,
-        $includeTagDeleted = null,
-        $includeTagMuted = null,
-        $allowableTaskStatus = null,
-        $calExpandInstStart = null,
-        $calExpandInstEnd = null,
-        $inDumpster = null,
-        $types = null,
-        $groupBy = null,
-        $quick = null,
-        SortBy $sortBy = null,
-        $fetch = null,
-        $read = null,
-        $max = null,
-        $html = null,
-        $needExp = null,
-        $neuter = null,
-        $recip = null,
-        $prefetch = null,
-        $resultMode = null,
-        $fullConversation = null,
-        $field = null,
-        $limit = null,
-        $offset = null
-    )
-    {
-        parent::__construct();
-        if(null !== $query)
-        {
-            $this->setChild('query', trim($query));
-        }
-        $this->setHeaders($headers);
-        if($calTz instanceof CalTZInfo)
-        {
-            $this->setChild('tz', $calTz);
-        }
-        if(null !== $locale)
-        {
-            $this->setChild('locale', trim($locale));
-        }
-        if($cursor instanceof CursorInfo)
-        {
-            $this->setChild('cursor', $cursor);
-        }
-        if(null !== $includeTagDeleted)
-        {
-            $this->setProperty('includeTagDeleted', (bool) $includeTagDeleted);
-        }
-        if(null !== $includeTagMuted)
-        {
-            $this->setProperty('includeTagMuted', (bool) $includeTagMuted);
-        }
-        if(null !== $allowableTaskStatus)
-        {
-            $this->setProperty('allowableTaskStatus', trim($allowableTaskStatus));
-        }
-        if(null !== $calExpandInstStart)
-        {
-            $this->setProperty('calExpandInstStart', (int) $calExpandInstStart);
-        }
-        if(null !== $calExpandInstEnd)
-        {
-            $this->setProperty('calExpandInstEnd', (int) $calExpandInstEnd);
-        }
-        if(null !== $inDumpster)
-        {
-            $this->setProperty('inDumpster', (bool) $inDumpster);
-        }
-        if(null !== $types)
-        {
-            $this->setProperty('types', trim($types));
-        }
-        if(null !== $groupBy)
-        {
-            $this->setProperty('groupBy', trim($groupBy));
-        }
-        if(null !== $quick)
-        {
-            $this->setProperty('quick', (bool) $quick);
-        }
-        if($sortBy instanceof SortBy)
-        {
-            $this->setProperty('sortBy', $sortBy);
-        }
-        if(null !== $fetch)
-        {
-            $this->setProperty('fetch', trim($fetch));
-        }
-        if(null !== $read)
-        {
-            $this->setProperty('read', (bool) $read);
-        }
-        if(null !== $max)
-        {
-            $this->setProperty('max', (int) $max);
-        }
-        if(null !== $html)
-        {
-            $this->setProperty('html', (bool) $html);
-        }
-        if(null !== $needExp)
-        {
-            $this->setProperty('needExp', (bool) $needExp);
-        }
-        if(null !== $neuter)
-        {
-            $this->setProperty('neuter', (bool) $neuter);
-        }
-        if(null !== $recip)
-        {
-            $this->setProperty('recip', (bool) $recip);
-        }
-        if(null !== $prefetch)
-        {
-            $this->setProperty('prefetch', (bool) $prefetch);
-        }
-        if(null !== $resultMode)
-        {
-            $this->setProperty('resultMode', trim($resultMode));
-        }
-        if(null !== $fullConversation)
-        {
-            $this->setProperty('fullConversation', (bool) $fullConversation);
-        }
-        if(null !== $field)
-        {
-            $this->setProperty('field', trim($field));
-        }
-        if(null !== $limit)
-        {
-            $this->setProperty('limit', (int) $limit);
-        }
-        if(null !== $offset)
-        {
-            $this->setProperty('offset', (int) $offset);
-        }
-
-        $this->on('before', function(Base $sender)
-        {
-            if($sender->getHeaders()->count())
-            {
-                $sender->setChild('header', $sender->getHeaders()->all());
-            }
-        });
-    }
-
-    /**
      * Gets query
      *
      * @return string
      */
     public function getQuery()
     {
-        return $this->getChild('desc');
+        return $this->getChild('query');
     }
 
     /**
@@ -234,7 +51,7 @@ trait MailSearchParams
      */
     public function setQuery($query)
     {
-        return $this->setChild('desc', trim($query));
+        return $this->setChild('query', trim($query));
     }
 
     /**
@@ -284,12 +101,12 @@ trait MailSearchParams
     /**
      * Sets timezone specification
      *
-     * @param  CalTZInfo $calTz
+     * @param  CalTZInfo $tz
      * @return self
      */
-    public function setCalTz(CalTZInfo $calTz)
+    public function setCalTz(CalTZInfo $tz)
     {
-        return $this->setChild('tz', $calTz);
+        return $this->setChild('tz', $tz);
     }
 
     /**
@@ -526,7 +343,7 @@ trait MailSearchParams
     /**
      * Gets sort by
      *
-     * @return string
+     * @return SortBy
      */
     public function getSortBy()
     {
@@ -536,12 +353,12 @@ trait MailSearchParams
     /**
      * Sets sort by
      *
-     * @param  string $sortBy
+     * @param  SortBy $sortBy
      * @return self
      */
-    public function setSortBy($sortBy)
+    public function setSortBy(SortBy $sortBy)
     {
-        return $this->setProperty('sortBy', trim($sortBy));
+        return $this->setProperty('sortBy', $sortBy);
     }
 
     /**

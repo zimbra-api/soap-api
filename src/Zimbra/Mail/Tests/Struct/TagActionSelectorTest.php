@@ -100,7 +100,7 @@ class TagActionSelectorTest extends ZimbraMailTestCase
                         ),
                     ),
                 ),
-            )
+            ),
         );
         $this->assertEquals($array, $action->toArray());
     }

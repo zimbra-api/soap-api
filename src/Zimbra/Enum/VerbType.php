@@ -37,4 +37,16 @@ class VerbType extends Base
      * @return string 'TENTATIVE'
      */
     const TENTATIVE = 'TENTATIVE';
+
+    /**
+     * Constant for value 'COMPLETED'
+     * @return string 'COMPLETED'
+     */
+    const COMPLETED = 'COMPLETED';
+
+    /**
+     * Constant for value 'DELEGATED'
+     * @return string 'DELEGATED'
+     */
+    const DELEGATED = 'DELEGATED';
 }
