@@ -57,8 +57,12 @@ class Batch extends Request
      * @param  string $onerror
      * @return self
      */
-    public function setOnError($onerror = null)
+    public function setOnError($onerror = 'continue')
     {
+        if (!in_array('continue', 'stop'))
+        {
+            $onerror = 'continue'
+        }
         return $this->setProperty('onerror', trim($onerror));
     }
 
