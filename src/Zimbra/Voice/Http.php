@@ -35,7 +35,7 @@ class Http extends Base
         $this->setClient(ClientHttp::instance($this->getLocation()));
         if($format instanceof RequestFormat)
         {
-            $this->getClient()->format($format);
+            $this->getClient()->setFormat($format);
         }
     }
 }

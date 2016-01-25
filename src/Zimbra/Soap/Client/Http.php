@@ -42,7 +42,7 @@ class Http extends EventEmitter implements ClientInterface
 
     /**
      * Request format
-     * @var string
+     * @var RequestFormat
      */
     private $_format;
 
