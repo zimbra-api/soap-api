@@ -31,19 +31,19 @@ class EntrySearchFilterSingleCond extends Base implements SearchFilterCondition
      * @return self
      */
     public function __construct(
-		$attr,
-		Op $op,
-		$value,
-		$not = null
-	)
+        $attr,
+        Op $op,
+        $value,
+        $not = null
+    )
     {
-		parent::__construct();
-		$this->setProperty('attr', trim($attr));
-		$this->setProperty('op', $op);
-		$this->setProperty('value', trim($value));
+        parent::__construct();
+        $this->setProperty('attr', trim($attr));
+        $this->setProperty('op', $op);
+        $this->setProperty('value', trim($value));
         if(null !== $not)
         {
-			$this->setProperty('not', (bool) $not);
+            $this->setProperty('not', (bool) $not);
         }
     }
 

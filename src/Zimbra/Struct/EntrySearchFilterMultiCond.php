@@ -41,16 +41,16 @@ class EntrySearchFilterMultiCond extends Base implements SearchFilterCondition
         $not = null,
         $or = null,
         array $conditions = []
-	)
+    )
     {
-		parent::__construct();
+        parent::__construct();
         if(null !== $not)
         {
-			$this->setProperty('not', (bool) $not);
+            $this->setProperty('not', (bool) $not);
         }
         if(null !== $or)
         {
-			$this->setProperty('or', (bool) $or);
+            $this->setProperty('or', (bool) $or);
         }
         $this->setConditions($conditions);
 
