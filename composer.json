@@ -1,5 +1,5 @@
 {
-    "name": "zimbra/soap-api",
+    "name": "zimbra-api/soap-api",
     "type": "library",
     "description": "PHP wrapper library around the Zimbra Soap API (web service)",
     "keywords": ["library", "soap", "web service", "client", "Zimbra API"],
