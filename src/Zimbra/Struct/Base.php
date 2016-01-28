@@ -89,19 +89,6 @@ abstract class Base extends EventEmitter
     }
 
     /**
-     * @deprecated
-     */
-    public function value($value = null)
-    {
-        if(null === $value)
-        {
-            return $this->_value;
-        }
-        $this->_value = trim($value);
-        return $this;
-    }
-
-    /**
      * Gets value
      *
      * @return string
@@ -119,26 +106,6 @@ abstract class Base extends EventEmitter
     public function setValue($value)
     {
         $this->_value = trim($value);
-        return $this;
-    }
-
-    /**
-     * @deprecated
-     */
-    public function property($name, $value = null)
-    {
-        if(null === $value)
-        {
-            if($this->_properties->containsKey($name))
-            {
-                return $this->_properties->get($name)->get();
-            }
-            else
-            {
-                return null;
-            }
-        }
-        $this->_properties->set($name, $value);
         return $this;
     }
 
@@ -185,26 +152,6 @@ abstract class Base extends EventEmitter
         {
             $this->_properties->remove($name);
         }
-        return $this;
-    }
-
-    /**
-     * @deprecated
-     */
-    public function child($name, $value = null)
-    {
-        if(null === $value)
-        {
-            if($this->_children->containsKey($name))
-            {
-                return $this->_children->get($name)->get();
-            }
-            else
-            {
-                return null;
-            }
-        }
-        $this->_children->set($name, $value);
         return $this;
     }
 

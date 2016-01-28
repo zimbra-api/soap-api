@@ -45,7 +45,7 @@ class NamedFilterRules extends Base
         {
             if($sender->getFilterRules()->count())
             {
-                $sender->child('filterRule', $sender->getFilterRules()->all());
+                $sender->setChild('filterRule', $sender->getFilterRules()->all());
             }
         });
     }

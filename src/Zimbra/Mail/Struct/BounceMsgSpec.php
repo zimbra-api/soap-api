@@ -39,7 +39,7 @@ class BounceMsgSpec extends Base
     public function __construct($id, array $addresses = [])
     {
         parent::__construct();
-        $this->property('id', trim($id));
+        $this->setProperty('id', trim($id));
         $this->_emailAddresses = new TypedSequence('Zimbra\Mail\Struct\EmailAddrInfo', $addresses);
 
         $this->on('before', function(Base $sender)

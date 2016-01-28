@@ -34,11 +34,11 @@ class GeoInfo extends Base
         parent::__construct();
         if(null !== $lat)
         {
-            $this->property('lat', (float) $lat);
+            $this->setProperty('lat', (float) $lat);
         }
         if(null !== $lon)
         {
-            $this->property('lon', (float) $lon);
+            $this->setProperty('lon', (float) $lon);
         }
     }
 

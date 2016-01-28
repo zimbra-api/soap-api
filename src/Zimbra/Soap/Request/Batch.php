@@ -61,7 +61,7 @@ class Batch extends Request
     {
         if (!in_array('continue', 'stop'))
         {
-            $onerror = 'continue'
+            $onerror = 'continue';
         }
         return $this->setProperty('onerror', trim($onerror));
     }

@@ -50,18 +50,18 @@ class ConversationSpec extends Base
     )
     {
         parent::__construct();
-        $this->property('id', trim($id));
+        $this->setProperty('id', trim($id));
         if(null !== $fetch)
         {
-            $this->property('fetch', trim($fetch));
+            $this->setProperty('fetch', trim($fetch));
         }
         if(null !== $html)
         {
-            $this->property('html', (bool) $html);
+            $this->setProperty('html', (bool) $html);
         }
         if(null !== $max)
         {
-            $this->property('max', (int) $max);
+            $this->setProperty('max', (int) $max);
         }
 
         $this->setHeaders($headers);

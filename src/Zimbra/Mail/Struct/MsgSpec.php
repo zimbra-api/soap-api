@@ -99,7 +99,7 @@ class MsgSpec extends Base
         {
             if($sender->getHeaders()->count())
             {
-                $sender->child('header', $sender->getHeaders()->all());
+                $sender->setChild('header', $sender->getHeaders()->all());
             }
         });
     }

@@ -33,7 +33,7 @@ class HeaderExistsTest extends FilterTest
     )
     {
         parent::__construct($index, $negative);
-        $this->property('header', trim($header));
+        $this->setProperty('header', trim($header));
     }
 
     /**

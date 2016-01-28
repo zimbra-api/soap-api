@@ -13,6 +13,7 @@ namespace Zimbra\Soap\Client;
 use Evenement\EventEmitter;
 use GuzzleHttp\Client as HttpClient;
 use GuzzleHttp\Message\Response;
+use GuzzleHttp\Exception\BadResponseException;
 use Zimbra\Enum\RequestFormat;
 use Zimbra\Soap\Message as SoapMessage;
 use Zimbra\Soap\Request as SoapRequest;
@@ -144,7 +145,7 @@ class Http extends EventEmitter implements ClientInterface
             $this->response = $this->httpClient->send($httpRequest);
             $this->emit('after.request', [$this->lastResponse(), $this->lastResponseHeaders()]);
         }
-        catch (\GuzzleHttp\Exception\BadResponseException $ex)
+        catch (BadResponseException $ex)
         {
             if ($ex->hasResponse())
             {

@@ -44,7 +44,7 @@ class MailKeyValuePairs extends Base
         {
             if($sender->getKeyValuePairs()->count())
             {
-                $sender->child('a', $sender->getKeyValuePairs()->all());
+                $sender->setChild('a', $sender->getKeyValuePairs()->all());
             }
         });
     }

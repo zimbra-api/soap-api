@@ -64,15 +64,15 @@ class AdminWaitSet extends Base
 
         if($addAccounts instanceof WaitSetSpec)
         {
-            $this->child('add', $addAccounts);
+            $this->setChild('add', $addAccounts);
         }
         if($updateAccounts instanceof WaitSetSpec)
         {
-            $this->child('update', $updateAccounts);
+            $this->setChild('update', $updateAccounts);
         }
         if($removeAccounts instanceof WaitSetId)
         {
-            $this->child('remove', $removeAccounts);
+            $this->setChild('remove', $removeAccounts);
         }
 
         if(null !== $block)

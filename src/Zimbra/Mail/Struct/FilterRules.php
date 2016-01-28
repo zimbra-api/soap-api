@@ -43,7 +43,7 @@ class FilterRules extends Base
         {
             if($sender->getRules()->count())
             {
-                $sender->child('filterRule', $sender->getRules()->all());
+                $sender->setChild('filterRule', $sender->getRules()->all());
             }
         });
     }

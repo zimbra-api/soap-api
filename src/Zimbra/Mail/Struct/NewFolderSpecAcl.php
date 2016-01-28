@@ -43,7 +43,7 @@ class NewFolderSpecAcl extends Base
         {
             if($sender->getGrants()->count())
             {
-                $sender->child('grant', $sender->getGrants()->all());
+                $sender->setChild('grant', $sender->getGrants()->all());
             }
         });
     }

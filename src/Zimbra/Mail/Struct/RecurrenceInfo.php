@@ -47,27 +47,27 @@ class RecurrenceInfo extends Base implements RecurRuleBase
                 {
                     if($rule instanceof AddRecurrenceInfo)
                     {
-                        $this->child('add', $rule);
+                        $this->setChild('add', $rule);
                     }
                     if($rule instanceof ExcludeRecurrenceInfo)
                     {
-                        $this->child('exclude', $rule);
+                        $this->setChild('exclude', $rule);
                     }
                     if($rule instanceof ExceptionRuleInfo)
                     {
-                        $this->child('except', $rule);
+                        $this->setChild('except', $rule);
                     }
                     if($rule instanceof CancelRuleInfo)
                     {
-                        $this->child('cancel', $rule);
+                        $this->setChild('cancel', $rule);
                     }
                     if($rule instanceof SingleDates)
                     {
-                        $this->child('dates', $rule);
+                        $this->setChild('dates', $rule);
                     }
                     if($rule instanceof SimpleRepeatingRule)
                     {
-                        $this->child('rule', $rule);
+                        $this->setChild('rule', $rule);
                     }
                 }
             }

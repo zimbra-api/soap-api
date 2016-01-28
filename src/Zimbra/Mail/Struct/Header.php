@@ -32,7 +32,7 @@ class Header extends Base
     public function __construct($name, $value = null)
     {
         parent::__construct(trim($value));
-        $this->property('name', trim($name));
+        $this->setProperty('name', trim($name));
     }
 
     /**

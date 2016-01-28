@@ -43,7 +43,7 @@ class Replies extends Base
         {
             if($sender->getReplies()->count())
             {
-                $sender->child('reply', $sender->getReplies()->all());
+                $sender->setChild('reply', $sender->getReplies()->all());
             }
         });
     }
