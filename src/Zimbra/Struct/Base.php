@@ -23,7 +23,7 @@ use Zimbra\Common\Text;
  * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright Copyright © 2013 by Nguyen Van Nguyen.
  */
-abstract class Base extends EventEmitter
+abstract class Base extends EventEmitter implements StructInterface
 {
     /**
      * Struct properties
@@ -246,7 +246,7 @@ abstract class Base extends EventEmitter
         {
             foreach ($this->_children as $key => $value)
             {
-                if($value instanceof \Zimbra\Struct\Base)
+                if($value instanceof StructInterface)
                 {
                     $arr += $value->toArray($key);
                 }
@@ -259,7 +259,7 @@ abstract class Base extends EventEmitter
                     $arr[$key] = [];
                     foreach ($value as $v)
                     {
-                        if($v instanceof \Zimbra\Struct\Base)
+                        if($v instanceof StructInterface)
                         {
                             $vArr = $v->toArray($key);
                             $arr[$key][] = $vArr[$key];
@@ -321,7 +321,7 @@ abstract class Base extends EventEmitter
         {
             foreach ($this->_children as $key => $value)
             {
-                if($value instanceof \Zimbra\Struct\Base)
+                if($value instanceof StructInterface)
                 {
                     $xml->append($value->toXml($key), $value->GetXmlNamespace());
                 }
@@ -337,7 +337,7 @@ abstract class Base extends EventEmitter
                 {
                     foreach ($value as $child)
                     {
-                        if($child instanceof \Zimbra\Struct\Base)
+                        if($child instanceof StructInterface)
                         {
                             $xml->append($child->toXml($key), $child->GetXmlNamespace());
                         }
