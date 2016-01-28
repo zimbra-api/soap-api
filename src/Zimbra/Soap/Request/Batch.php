@@ -111,7 +111,7 @@ class Batch extends Request
         $name = empty($name) ? $this->requestName() : $name;
         $arr = [
             '_jsns' => $this->getXmlNamespace(),
-            'onerror' => $this->onerror(),
+            'onerror' => $this->getOnError(),
         ];
         foreach ($this->_requests as $key => $request)
         {
