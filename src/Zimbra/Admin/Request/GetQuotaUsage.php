@@ -46,7 +46,10 @@ class GetQuotaUsage extends Base
     )
     {
         parent::__construct();
-        $this->setProperty('domain', trim($domain));
+        if (null !== $domain)
+        {
+            $this->setProperty('domain', trim($domain));
+        }
         if(null !== $allServers)
         {
             $this->setProperty('allServers', (bool) $allServers);
