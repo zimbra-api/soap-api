@@ -33,7 +33,7 @@ Now we can use autoloader from Composer by:
 }
 ```
 
-> `zimbra-api` follows the PSR-0 convention names for its classes, which means you can easily integrate `zimbra-api` classes loading in your own autoloader.
+> `zimbra-api` follows the PSR-4 convention names for its classes, which means you can easily integrate `zimbra-api` classes loading in your own autoloader.
 
 ## Basic usage of `zimbra-api` admin client
 
