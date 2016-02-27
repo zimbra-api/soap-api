@@ -266,7 +266,7 @@ abstract class Base extends EventEmitter implements StructInterface
                         }
                         elseif($v instanceof \Zimbra\Enum\Base)
                         {
-                            $arr[$key] = $v->value();
+                            $arr[$key][] = $v->value();
                         }
                         else
                         {
