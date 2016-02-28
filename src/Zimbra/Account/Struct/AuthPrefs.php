@@ -24,15 +24,17 @@ use Zimbra\Struct\Base;
  */
 class AuthPrefs extends Base
 {
-    use PrefsImplTrail;
+    use PrefsImplTrail {
+        PrefsImplTrail::__construct as private __prefsConstruct;
+    }
 
     /**
      * AuthPrefs constructor.
-     * @param null|string $value
+     * @param array $prefs
      */
-    public function __construct($value)
+    public function __construct(array $prefs = [])
     {
-        parent::__construct($value);
+        $this->__prefsConstruct($prefs);
     }
     
     /**
