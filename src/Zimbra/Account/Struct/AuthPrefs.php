@@ -27,6 +27,15 @@ class AuthPrefs extends Base
     use PrefsImplTrail;
 
     /**
+     * AuthPrefs constructor.
+     * @param null|string $value
+     */
+    public function __construct($value)
+    {
+        parent::__construct($value);
+    }
+    
+    /**
      * Returns the array representation of this class 
      *
      * @param  string $name
