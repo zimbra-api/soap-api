@@ -267,12 +267,10 @@ interface AdminInterface
     /**
      * Authenticate for an adminstration account.
      *
-     * @param  string $name  Name. Only one of {auth-name} or <account> can be specified
      * @param  string $token The authentication token.
-     * @param  string $vhost Virtual-host is used to determine the domain of the account name.
      * @return authentication token.
      */
-    function authByToken($name, $token, $vhost = null);
+    function authByToken($token);
 
     /**
      * Perform an autocomplete for a name against the Global Address List
@@ -723,7 +721,7 @@ interface AdminInterface
      *      the mailbox is deleted as well.
      *   1. this request is by default proxied to the account's home server.
      *
-     * @param  string $id Zimbra identify.
+     * @param  string $id  Zimbra identify.
      * @return mix
      */
     function deleteAccount($id);
@@ -741,7 +739,7 @@ interface AdminInterface
     /**
      * Delete a Class of Service (COS).
      *
-     * @param  string $id Zimbra identify.
+     * @param  string $id  Zimbra identify.
      * @return mix
      */
     function deleteCos($id);
@@ -1455,8 +1453,7 @@ interface AdminInterface
     function getIndexStats(MailboxId $mbox);
 
     /**
-     * Get LDAP entries.
-	 * GetLDAPEntriesRequest fetches ldap entry (or entries) by a search-base ({ldap-search-base}) and a search query ({query}). 
+     * Get index statistics.
      * 
      * @param  string  $query Query string. Should be an LDAP-style filter string (RFC 2254).
      * @param  string  $ldapSearchBase LDAP search base. An LDAP-style filter string that defines an LDAP search base (RFC 2254).
