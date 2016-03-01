@@ -29,55 +29,65 @@ class UploadVoiceMail extends Base
 {
     /**
      * Constructor method for UploadVoiceMail
-     * @param  StorePrincipalSpec $storeprincipal
-     * @param  VoiceMsgUploadSpec $vm
+     * @param  StorePrincipalSpec $storeprincipal Store principal specification
+     * @param  VoiceMsgUploadSpec $vm Specification of voice message to upload
      * @return self
      */
     public function __construct(
         StorePrincipalSpec $storeprincipal = null,
-        VoiceMsgUploadSpec $vm = null
+        VoiceMsgUploadSpec $voiceMsg = null
     )
     {
         parent::__construct();
         if($storeprincipal instanceof StorePrincipalSpec)
         {
-            $this->child('storeprincipal', $storeprincipal);
+            $this->setChild('storeprincipal', $storeprincipal);
         }
-        if($vm instanceof VoiceMsgUploadSpec)
+        if($voiceMsg instanceof VoiceMsgUploadSpec)
         {
-            $this->child('vm', $vm);
+            $this->setChild('vm', $voiceMsg);
         }
     }
 
     /**
-     * Gets or sets storeprincipal
-     * Store Principal specification
+     * Gets the storeprincipal.
+     *
+     * @return StorePrincipalSpec
+     */
+    public function getStorePrincipal()
+    {
+        return $this->getChild('storeprincipal');
+    }
+
+    /**
+     * Sets the storeprincipal.
      *
      * @param  StorePrincipalSpec $storeprincipal
-     * @return StorePrincipalSpec|self
+     * @return self
      */
-    public function storeprincipal(StorePrincipalSpec $storeprincipal = null)
+    public function setStorePrincipal(StorePrincipalSpec $storeprincipal)
     {
-        if(null === $storeprincipal)
-        {
-            return $this->child('storeprincipal');
-        }
-        return $this->child('storeprincipal', $storeprincipal);
+        return $this->setChild('storeprincipal', $storeprincipal);
     }
 
     /**
-     * Gets or sets vm
-     * Phone specification
+     * Gets the voice message.
      *
-     * @param  VoiceMsgUploadSpec $vm
-     * @return VoiceMsgUploadSpec|self
+     * @return VoiceMsgUploadSpec
      */
-    public function vm(VoiceMsgUploadSpec $vm = null)
+    public function getVoiceMsg()
     {
-        if(null === $vm)
-        {
-            return $this->child('vm');
-        }
-        return $this->child('vm', $vm);
+        return $this->getChild('vm');
+    }
+
+    /**
+     * Sets the voice message.
+     *
+     * @param  VoiceMsgUploadSpec $voiceMsg
+     * @return self
+     */
+    public function setVoiceMsg(VoiceMsgUploadSpec $voiceMsg)
+    {
+        return $this->setChild('vm', $voiceMsg);
     }
 }

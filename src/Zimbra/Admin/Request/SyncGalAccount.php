@@ -34,22 +34,28 @@ class SyncGalAccount extends Base
         parent::__construct();
         if($account instanceof Account)
         {
-            $this->child('account', $account);
+            $this->setChild('account', $account);
         }
     }
 
     /**
-     * Gets or sets account
+     * Sets the account.
+     *
+     * @return Account
+     */
+    public function getAccount()
+    {
+        return $this->getChild('account');
+    }
+
+    /**
+     * Sets the account.
      *
      * @param  Account $account
-     * @return Account|self
+     * @return self
      */
-    public function account(Account $account = null)
+    public function setAccount(Account $account)
     {
-        if(null === $account)
-        {
-            return $this->child('account');
-        }
-        return $this->child('account', $account);
+        return $this->setChild('account', $account);
     }
 }

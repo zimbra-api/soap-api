@@ -32,38 +32,50 @@ class ServerMailQueueQuery extends Base
     public function __construct(MailQueueQuery $queue, $name)
     {
         parent::__construct();
-        $this->child('queue', $queue);
-        $this->property('name', trim($name));
+        $this->setChild('queue', $queue);
+        $this->setProperty('name', trim($name));
     }
 
     /**
-     * Gets or sets queue
+     * Gets the mail queue query details.
+     *
+     * @return MailQueueQuery
+     */
+    public function getQueue()
+    {
+        return $this->getChild('queue');
+    }
+
+    /**
+     * Sets the mail queue query details.
      *
      * @param  MailQueueQuery $queue
-     * @return MailQueueQuery|self
+     * @return self
      */
-    public function queue(MailQueueQuery $queue = null)
+    public function setQueue(MailQueueQuery $queue)
     {
-        if(null === $queue)
-        {
-            return $this->child('queue');
-        }
-        return $this->child('queue', $queue);
+        return $this->setChild('queue', $queue);
     }
 
     /**
-     * Gets or sets name
+     * Gets the MTA Server
+     *
+     * @return string
+     */
+    public function getServerName()
+    {
+        return $this->getProperty('name');
+    }
+
+    /**
+     * Sets the MTA Server
      *
      * @param  string $name
-     * @return string|self
+     * @return self
      */
-    public function name($name = null)
+    public function setServerName($name)
     {
-        if(null === $name)
-        {
-            return $this->property('name');
-        }
-        return $this->property('name', trim($name));
+        return $this->setProperty('name', trim($name));
     }
 
     /**

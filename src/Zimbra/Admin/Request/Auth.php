@@ -45,117 +45,153 @@ class Auth extends Base
         parent::__construct();
         if(null !== $name)
         {
-            $this->property('name', trim($name));
+            $this->setProperty('name', trim($name));
         }
         if(null !== $password)
         {
-            $this->property('password', trim($password));
+            $this->setProperty('password', trim($password));
         }
         if(null !== $authToken)
         {
-            $this->child('authToken', trim($authToken));
+            $this->setChild('authToken', trim($authToken));
         }
         if($account instanceof Account)
         {
-            $this->child('account', $account);
+            $this->setChild('account', $account);
         }
         if(null !== $virtualHost)
         {
-            $this->child('virtualHost', trim($virtualHost));
+            $this->setChild('virtualHost', trim($virtualHost));
         }
         if(null !== $persistAuthTokenCookie)
         {
-            $this->property('persistAuthTokenCookie', (bool) $persistAuthTokenCookie);
+            $this->setProperty('persistAuthTokenCookie', (bool) $persistAuthTokenCookie);
         }
     }
 
     /**
-     * Gets or sets name
+     * Gets name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->getProperty('name');
+    }
+
+    /**
+     * Sets name
      *
      * @param  string $name
-     * @return string|self
+     * @return self
      */
-    public function name($name = null)
+    public function setName($name)
     {
-        if(null === $name)
-        {
-            return $this->property('name');
-        }
-        return $this->property('name', trim($name));
+        return $this->setProperty('name', trim($name));
     }
 
     /**
-     * Gets or sets password
+     * Gets password
+     *
+     * @return string
+     */
+    public function getPassword()
+    {
+        return $this->getProperty('password');
+    }
+
+    /**
+     * Sets password
      *
      * @param  string $password
-     * @return string|self
+     * @return self
      */
-    public function password($password = null)
+    public function setPassword($password)
     {
-        if(null === $password)
-        {
-            return $this->property('password');
-        }
-        return $this->property('password', trim($password));
+        return $this->setProperty('password', trim($password));
     }
 
     /**
-     * Gets or sets authToken
+     * Gets auth token
+     *
+     * @return string
+     */
+    public function getAuthToken()
+    {
+        return $this->getChild('authToken');
+    }
+
+    /**
+     * Sets auth token
      *
      * @param  string $authToken
-     * @return string|self
+     * @return self
      */
-    public function authToken($authToken = null)
+    public function setAuthToken($authToken)
     {
-        if(null === $authToken)
-        {
-            return $this->child('authToken');
-        }
-        return $this->child('authToken', trim($authToken));
+        return $this->setChild('authToken', trim($authToken));
     }
 
     /**
-     * Gets or sets account
+     * Gets the account.
+     *
+     * @return Account
+     */
+    public function getAccount()
+    {
+        return $this->getChild('account');
+    }
+
+    /**
+     * Sets the account.
      *
      * @param  Account $account
-     * @return Account|self
+     * @return self
      */
-    public function account(Account $account = null)
+    public function setAccount(Account $account)
     {
-        if(null === $account)
-        {
-            return $this->child('account');
-        }
-        return $this->child('account', $account);
+        return $this->setChild('account', $account);
     }
 
     /**
-     * Gets or sets virtualHost
+     * Gets virtual host
+     *
+     * @return string
+     */
+    public function getVirtualHost()
+    {
+        return $this->getChild('virtualHost');
+    }
+
+    /**
+     * Sets virtual host
      *
      * @param  string $virtualHost
-     * @return string|self
+     * @return self
      */
-    public function virtualHost($virtualHost = null)
+    public function setVirtualHost($virtualHost)
     {
-        if(null === $virtualHost)
-        {
-            return $this->child('virtualHost');
-        }
-        return $this->child('virtualHost', trim($virtualHost));
+        return $this->setChild('virtualHost', trim($virtualHost));
     }
 
     /**
-     * Gets or sets persistAuthTokenCookie
+     * Gets persistAuthTokenCookie flag
+     *
+     * @return bool
+     */
+    public function getPersistAuthTokenCookie()
+    {
+        return $this->getProperty('persistAuthTokenCookie');
+    }
+
+    /**
+     * Sets persistAuthTokenCookie flag
      *
      * @param  bool $persistAuthTokenCookie
-     * @return bool|self
+     * @return self
      */
-    public function persistAuthTokenCookie($persistAuthTokenCookie = null)
+    public function setPersistAuthTokenCookie($persistAuthTokenCookie)
     {
-        if(null === $persistAuthTokenCookie)
-        {
-            return $this->property('persistAuthTokenCookie');
-        }
-        return $this->property('persistAuthTokenCookie', (bool) $persistAuthTokenCookie);
+        return $this->setProperty('persistAuthTokenCookie', (bool) $persistAuthTokenCookie);
     }
 }

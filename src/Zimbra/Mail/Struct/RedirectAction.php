@@ -32,23 +32,29 @@ class RedirectAction extends FilterAction
         parent::__construct($index);
         if(null !== $a)
         {
-            $this->property('a', trim($a));
+            $this->setProperty('a', trim($a));
         }
     }
 
     /**
-     * Gets or sets a
+     * Gets address
+     *
+     * @return string
+     */
+    public function getAddress()
+    {
+        return $this->getProperty('a');
+    }
+
+    /**
+     * Sets address
      *
      * @param  string $a
-     * @return string|self
+     * @return self
      */
-    public function a($a = null)
+    public function setAddress($a)
     {
-        if(null === $a)
-        {
-            return $this->property('a');
-        }
-        return $this->property('a', trim($a));
+        return $this->setProperty('a', trim($a));
     }
 
     /**

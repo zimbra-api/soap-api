@@ -10,6 +10,8 @@
 
 namespace Zimbra\Mail\Request;
 
+use Zimbra\Common\TypedSequence;
+use Zimbra\Mail\Struct\DataSourceNameOrId;
 use Zimbra\Mail\Struct\ImapDataSourceNameOrId;
 use Zimbra\Mail\Struct\Pop3DataSourceNameOrId;
 use Zimbra\Mail\Struct\CaldavDataSourceNameOrId;
@@ -35,180 +37,94 @@ use Zimbra\Mail\Struct\UnknownDataSourceNameOrId;
 class ImportData extends Base
 {
     /**
+     * Data sources
+     * @var TypedSequence<DataSourceNameOrId>
+     */
+    private $_dataSources;
+
+    /**
      * Constructor method for ImportData
-     * @param  ImapDataSourceNameOrId $imap
-     * @param  Pop3DataSourceNameOrId $pop3
-     * @param  CaldavDataSourceNameOrId $caldav
-     * @param  YabDataSourceNameOrId $yab
-     * @param  RssDataSourceNameOrId $rss
-     * @param  GalDataSourceNameOrId $gal
-     * @param  CalDataSourceNameOrId $cal
-     * @param  UnknownDataSourceNameOrId $unknown
+     * @param  array $dataSources
      * @return self
      */
-    public function __construct(
-        ImapDataSourceNameOrId $imap = null,
-        Pop3DataSourceNameOrId $pop3 = null,
-        CaldavDataSourceNameOrId $caldav = null,
-        YabDataSourceNameOrId $yab = null,
-        RssDataSourceNameOrId $rss = null,
-        GalDataSourceNameOrId $gal = null,
-        CalDataSourceNameOrId $cal = null,
-        UnknownDataSourceNameOrId $unknown = null
-    )
+    public function __construct(array $dataSources = [])
     {
         parent::__construct();
-        if($imap instanceof ImapDataSourceNameOrId)
+        $this->setDataSources($dataSources);
+        $this->on('before', function(Base $sender)
         {
-            $this->child('imap', $imap);
-        }
-        if($pop3 instanceof Pop3DataSourceNameOrId)
-        {
-            $this->child('pop3', $pop3);
-        }
-        if($caldav instanceof CaldavDataSourceNameOrId)
-        {
-            $this->child('caldav', $caldav);
-        }
-        if($yab instanceof YabDataSourceNameOrId)
-        {
-            $this->child('yab', $yab);
-        }
-        if($rss instanceof RssDataSourceNameOrId)
-        {
-            $this->child('rss', $rss);
-        }
-        if($gal instanceof GalDataSourceNameOrId)
-        {
-            $this->child('gal', $gal);
-        }
-        if($cal instanceof CalDataSourceNameOrId)
-        {
-            $this->child('cal', $cal);
-        }
-        if($unknown instanceof UnknownDataSourceNameOrId)
-        {
-            $this->child('unknown', $unknown);
-        }
+            if($sender->getDataSources()->count())
+            {
+                foreach ($sender->getDataSources()->all() as $dataSource)
+                {
+                    if($dataSource instanceof ImapDataSourceNameOrId)
+                    {
+                        $this->setChild('imap', $dataSource);
+                    }
+                    if($dataSource instanceof Pop3DataSourceNameOrId)
+                    {
+                        $this->setChild('pop3', $dataSource);
+                    }
+                    if($dataSource instanceof CaldavDataSourceNameOrId)
+                    {
+                        $this->setChild('caldav', $dataSource);
+                    }
+                    if($dataSource instanceof YabDataSourceNameOrId)
+                    {
+                        $this->setChild('yab', $dataSource);
+                    }
+                    if($dataSource instanceof RssDataSourceNameOrId)
+                    {
+                        $this->setChild('rss', $dataSource);
+                    }
+                    if($dataSource instanceof GalDataSourceNameOrId)
+                    {
+                        $this->setChild('gal', $dataSource);
+                    }
+                    if($dataSource instanceof CalDataSourceNameOrId)
+                    {
+                        $this->setChild('cal', $dataSource);
+                    }
+                    if($dataSource instanceof UnknownDataSourceNameOrId)
+                    {
+                        $this->setChild('unknown', $dataSource);
+                    }
+                }
+            }
+        });
     }
 
     /**
-     * Get or set imap
+     * Add a data source
      *
-     * @param  ImapDataSourceNameOrId $imap
-     * @return ImapDataSourceNameOrId|self
+     * @param  DataSourceInfo $dataSource
+     * @return self
      */
-    public function imap(ImapDataSourceNameOrId $imap = null)
+    public function addDataSource(DataSourceNameOrId $dataSource)
     {
-        if(null === $imap)
-        {
-            return $this->child('imap');
-        }
-        return $this->child('imap', $imap);
+        $this->_dataSources->add($dataSource);
+        return $this;
     }
 
     /**
-     * Get or set pop3
+     * Sets data sources
      *
-     * @param  Pop3DataSourceNameOrId $pop3
-     * @return Pop3DataSourceNameOrId|self
+     * @param  array $dataSources
+     * @return self
      */
-    public function pop3(Pop3DataSourceNameOrId $pop3 = null)
+    public function setDataSources(array $dataSources)
     {
-        if(null === $pop3)
-        {
-            return $this->child('pop3');
-        }
-        return $this->child('pop3', $pop3);
+        $this->_dataSources = new TypedSequence('Zimbra\Mail\Struct\DataSourceNameOrId', $dataSources);
+        return $this;
     }
 
     /**
-     * Get or set caldav
+     * Gets data sources
      *
-     * @param  CaldavDataSourceNameOrId $caldav
-     * @return CaldavDataSourceNameOrId|self
+     * @return Sequence
      */
-    public function caldav(CaldavDataSourceNameOrId $caldav = null)
+    public function getDataSources()
     {
-        if(null === $caldav)
-        {
-            return $this->child('caldav');
-        }
-        return $this->child('caldav', $caldav);
-    }
-
-    /**
-     * Get or set yab
-     *
-     * @param  YabDataSourceNameOrId $yab
-     * @return YabDataSourceNameOrId|self
-     */
-    public function yab(YabDataSourceNameOrId $yab = null)
-    {
-        if(null === $yab)
-        {
-            return $this->child('yab');
-        }
-        return $this->child('yab', $yab);
-    }
-
-    /**
-     * Get or set rss
-     *
-     * @param  RssDataSourceNameOrId $rss
-     * @return RssDataSourceNameOrId|self
-     */
-    public function rss(RssDataSourceNameOrId $rss = null)
-    {
-        if(null === $rss)
-        {
-            return $this->child('rss');
-        }
-        return $this->child('rss', $rss);
-    }
-
-    /**
-     * Get or set gal
-     *
-     * @param  GalDataSourceNameOrId $gal
-     * @return GalDataSourceNameOrId|self
-     */
-    public function gal(GalDataSourceNameOrId $gal = null)
-    {
-        if(null === $gal)
-        {
-            return $this->child('gal');
-        }
-        return $this->child('gal', $gal);
-    }
-
-    /**
-     * Get or set cal
-     *
-     * @param  CalDataSourceNameOrId $cal
-     * @return CalDataSourceNameOrId|self
-     */
-    public function cal(CalDataSourceNameOrId $cal = null)
-    {
-        if(null === $cal)
-        {
-            return $this->child('cal');
-        }
-        return $this->child('cal', $cal);
-    }
-
-    /**
-     * Get or set unknown
-     *
-     * @param  UnknownDataSourceNameOrId $unknown
-     * @return UnknownDataSourceNameOrId|self
-     */
-    public function unknown(UnknownDataSourceNameOrId $unknown = null)
-    {
-        if(null === $unknown)
-        {
-            return $this->child('unknown');
-        }
-        return $this->child('unknown', $unknown);
+        return $this->_dataSources;
     }
 }

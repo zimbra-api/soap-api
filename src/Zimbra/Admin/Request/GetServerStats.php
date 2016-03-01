@@ -32,23 +32,23 @@ class GetServerStats extends Base
      * Stats
      * @var Stat
      */
-    private $_stat = array();
+    private $_stats;
 
     /**
      * Constructor method for GetServerStats
-     * @param  array $stat
+     * @param  array $stats
      * @return self
      */
-    public function __construct(array $stat = array())
+    public function __construct(array $stats = [])
     {
         parent::__construct();
-        $this->_stat = new TypedSequence('Zimbra\Admin\Struct\Stat', $stat);
+        $this->setStats($stats);
 
         $this->on('before', function(Base $sender)
         {
-            if($sender->stat()->count())
+            if($sender->getStats()->count())
             {
-                $sender->child('stat', $sender->stat()->all());
+                $sender->setChild('stat', $sender->getStats()->all());
             }
         });
     }
@@ -61,7 +61,19 @@ class GetServerStats extends Base
      */
     public function addStat(Stat $stat)
     {
-        $this->_stat->add($stat);
+        $this->_stats->add($stat);
+        return $this;
+    }
+
+    /**
+     * Sets stat Sequence
+     *
+     * @param  array $stats
+     * @return self
+     */
+    public function setStats(array $stats)
+    {
+        $this->_stats = new TypedSequence('Zimbra\Admin\Struct\Stat', $stats);
         return $this;
     }
 
@@ -70,8 +82,8 @@ class GetServerStats extends Base
      *
      * @return Sequence
      */
-    public function stat()
+    public function getStats()
     {
-        return $this->_stat;
+        return $this->_stats;
     }
 }

@@ -30,108 +30,132 @@ class ConversationSpec extends Base
      * If <header>s are requested, any matching headers are inlined into the response (not available when raw is set)
      * @var TypedSequence<AttributeName>
      */
-    private $_header;
+    private $_headers;
 
     /**
      * Constructor method for ConversationSpec
      * @param string $id Conversation ID
-     * @param array  $header Requested headers.
      * @param string $fetch If value is "1" or "all" the full expanded message structure is inlined for the first (or for all) messages in the conversation.
      * @param bool   $html Set to return defanged HTML content by default. (default is unset)
      * @param int    $max Maximum inlined length
+     * @param array  $headers Requested headers.
      * @return self
      */
     public function __construct(
         $id,
-        array $header = array(),
         $fetch = null,
         $html = null,
-        $max = null
+        $max = null,
+        array $headers = []
     )
     {
         parent::__construct();
-        $this->property('id', trim($id));
-        $this->_header = new TypedSequence('Zimbra\Struct\AttributeName', $header);
+        $this->setProperty('id', trim($id));
         if(null !== $fetch)
         {
-            $this->property('fetch', trim($fetch));
+            $this->setProperty('fetch', trim($fetch));
         }
         if(null !== $html)
         {
-            $this->property('html', (bool) $html);
+            $this->setProperty('html', (bool) $html);
         }
         if(null !== $max)
         {
-            $this->property('max', (int) $max);
+            $this->setProperty('max', (int) $max);
         }
 
+        $this->setHeaders($headers);
         $this->on('before', function(Base $sender)
         {
-            if($sender->header()->count())
+            if($sender->getHeaders()->count())
             {
-                $sender->child('header', $sender->header()->all());
+                $sender->setChild('header', $sender->getHeaders()->all());
             }
         });
     }
 
     /**
-     * Gets or sets id
+     * Gets id
+     *
+     * @return string
+     */
+    public function getId()
+    {
+        return $this->getProperty('id');
+    }
+
+    /**
+     * Sets id
      *
      * @param  string $id
-     * @return string|self
+     * @return self
      */
-    public function id($id = null)
+    public function setId($id)
     {
-        if(null === $id)
-        {
-            return $this->property('id');
-        }
-        return $this->property('id', trim($id));
+        return $this->setProperty('id', trim($id));
     }
 
     /**
-     * Gets or sets fetch
+     * Gets fetch
      *
-     * @param  string $fetch
-     * @return string|self
+     * @return string
      */
-    public function fetch($fetch = null)
+    public function getInlineRule()
     {
-        if(null === $fetch)
-        {
-            return $this->property('fetch');
-        }
-        return $this->property('fetch', trim($fetch));
+        return $this->getProperty('fetch');
     }
 
     /**
-     * Gets or sets html
+     * Sets fetch
      *
-     * @param  bool $html
-     * @return bool|self
+     * @param  string $inlineRule
+     * @return self
      */
-    public function html($html = null)
+    public function setInlineRule($inlineRule)
     {
-        if(null === $html)
-        {
-            return $this->property('html');
-        }
-        return $this->property('html', (bool) $html);
+        return $this->setProperty('fetch', trim($inlineRule));
     }
 
     /**
-     * Gets or sets max
+     * Gets want html
      *
-     * @param  int $max
-     * @return int|self
+     * @return bool
      */
-    public function max($max = null)
+    public function getWantHtml()
     {
-        if(null === $max)
-        {
-            return $this->property('max');
-        }
-        return $this->property('max', (int) $max);
+        return $this->getProperty('html');
+    }
+
+    /**
+     * Sets want html
+     *
+     * @param  bool $wantHtml
+     * @return self
+     */
+    public function setWantHtml($wantHtml)
+    {
+        return $this->setProperty('html', (bool) $wantHtml);
+    }
+
+    /**
+     * Gets max
+     *
+     * @return bool
+     */
+    public function getMaxInlinedLength()
+    {
+        return $this->getProperty('max');
+    }
+
+    /**
+     * Sets max
+     *
+     * @param  bool $maxInlinedLength
+     * @return self
+     */
+    public function setMaxInlinedLength($maxInlinedLength)
+    {
+        return $this->setProperty('max', (int) $maxInlinedLength);
     }
 
     /**
@@ -142,7 +166,19 @@ class ConversationSpec extends Base
      */
     public function addHeader(AttributeName $header)
     {
-        $this->_header->add($header);
+        $this->_headers->add($header);
+        return $this;
+    }
+
+    /**
+     * Sets header sequence
+     *
+     * @param  array $headers
+     * @return self
+     */
+    function setHeaders(array $headers)
+    {
+        $this->_headers = new TypedSequence('Zimbra\Struct\AttributeName', $headers);
         return $this;
     }
 
@@ -151,9 +187,9 @@ class ConversationSpec extends Base
      *
      * @return Sequence
      */
-    public function header()
+    public function getHeaders()
     {
-        return $this->_header;
+        return $this->_headers;
     }
 
     /**

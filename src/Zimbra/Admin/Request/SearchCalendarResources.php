@@ -10,7 +10,9 @@
 
 namespace Zimbra\Admin\Request;
 
-use Zimbra\Admin\Struct\EntrySearchFilterInfo as SearchFilter;
+use Zimbra\Struct\EntrySearchFilterInfo as SearchFilter;
+use Zimbra\Struct\AttributeSelectorTrait;
+use Zimbra\Struct\AttributeSelector;
 
 /**
  * SearchCalendarResources request class
@@ -22,8 +24,10 @@ use Zimbra\Admin\Struct\EntrySearchFilterInfo as SearchFilter;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
  */
-class SearchCalendarResources extends Base
+class SearchCalendarResources extends Base implements AttributeSelector
 {
+    use AttributeSelectorTrait;
+
     /**
      * Constructor method for SearchCalendarResources
      * @param EntrySearchFilterInfo $searchFilter Search filter specification
@@ -44,161 +48,194 @@ class SearchCalendarResources extends Base
         $applyCos = null,
         $sortBy = null,
         $sortAscending = null,
-        $attrs = null
+        array $attrs = []
     )
     {
         parent::__construct();
         if($searchFilter instanceof SearchFilter)
         {
-            $this->child('searchFilter', $searchFilter);
+            $this->setChild('searchFilter', $searchFilter);
         }
         if(null !== $limit)
         {
-            $this->property('limit', (int) $limit);
+            $this->setProperty('limit', (int) $limit);
         }
         if(null !== $offset)
         {
-            $this->property('offset', (int) $offset);
+            $this->setProperty('offset', (int) $offset);
         }
         if(null !== $domain)
         {
-            $this->property('domain', trim($domain));
+            $this->setProperty('domain', trim($domain));
         }
         if(null !== $applyCos)
         {
-            $this->property('applyCos', (bool) $applyCos);
+            $this->setProperty('applyCos', (bool) $applyCos);
         }
         if(null !== $sortBy)
         {
-            $this->property('sortBy', trim($sortBy));
+            $this->setProperty('sortBy', trim($sortBy));
         }
         if(null !== $sortAscending)
         {
-            $this->property('sortAscending', (bool) $sortAscending);
+            $this->setProperty('sortAscending', (bool) $sortAscending);
         }
-        if(null !== $attrs)
+
+        $this->setAttrs($attrs);
+        $this->on('before', function(Base $sender)
         {
-            $this->property('attrs', trim($attrs));
-        }
+            $attrs = $sender->getAttrs();
+            if(!empty($attrs))
+            {
+                $sender->setProperty('attrs', $attrs);
+            }
+        });
     }
 
     /**
-     * Gets or sets searchFilter
+     * Gets the searchFilter.
+     *
+     * @return SearchFilter
+     */
+    public function getSearchFilter()
+    {
+        return $this->getChild('searchFilter');
+    }
+
+    /**
+     * Sets the searchFilter.
      *
      * @param  SearchFilter $searchFilter
-     * @return SearchFilter|self
+     * @return self
      */
-    public function searchFilter(SearchFilter $searchFilter = null)
+    public function setSearchFilter(SearchFilter $searchFilter)
     {
-        if(null === $searchFilter)
-        {
-            return $this->child('searchFilter');
-        }
-        return $this->child('searchFilter', $searchFilter);
+        return $this->setChild('searchFilter', $searchFilter);
     }
 
     /**
-     * Gets or sets limit
+     * Gets limit
+     *
+     * @return int
+     */
+    public function getLimit()
+    {
+        return $this->getProperty('limit');
+    }
+
+    /**
+     * Sets limit
      *
      * @param  int $limit
-     * @return int|self
+     * @return self
      */
-    public function limit($limit = null)
+    public function setLimit($limit)
     {
-        if(null === $limit)
-        {
-            return $this->property('limit');
-        }
-        return $this->property('limit', (int) $limit);
+        return $this->setProperty('limit', (int) $limit);
     }
 
     /**
-     * Gets or sets offset
+     * Gets offset
+     *
+     * @return int
+     */
+    public function getOffset()
+    {
+        return $this->getProperty('offset');
+    }
+
+    /**
+     * Sets offset
      *
      * @param  int $offset
-     * @return int|self
+     * @return self
      */
-    public function offset($offset = null)
+    public function setOffset($offset)
     {
-        if(null === $offset)
-        {
-            return $this->property('offset');
-        }
-        return $this->property('offset', (int) $offset);
+        return $this->setProperty('offset', (int) $offset);
     }
 
     /**
-     * Gets or sets domain
+     * Gets domain
+     *
+     * @return string
+     */
+    public function getDomain()
+    {
+        return $this->getProperty('domain');
+    }
+
+    /**
+     * Sets domain
      *
      * @param  string $domain
-     * @return string|self
+     * @return self
      */
-    public function domain($domain = null)
+    public function setDomain($domain)
     {
-        if(null === $domain)
-        {
-            return $this->property('domain');
-        }
-        return $this->property('domain', trim($domain));
+        return $this->setProperty('domain', trim($domain));
     }
 
     /**
-     * Gets or sets applyCos
+     * Gets applyCos
+     *
+     * @return bool
+     */
+    public function getApplyCos()
+    {
+        return $this->getProperty('applyCos');
+    }
+
+    /**
+     * Sets applyCos
      *
      * @param  bool $applyCos
-     * @return bool|self
+     * @return self
      */
-    public function applyCos($applyCos = null)
+    public function setApplyCos($applyCos)
     {
-        if(null === $applyCos)
-        {
-            return $this->property('applyCos');
-        }
-        return $this->property('applyCos', (bool) $applyCos);
+        return $this->setProperty('applyCos', (bool) $applyCos);
     }
 
     /**
-     * Gets or sets sortBy
+     * Gets sortBy
+     *
+     * @return string
+     */
+    public function getSortBy()
+    {
+        return $this->getProperty('sortBy');
+    }
+
+    /**
+     * Sets sortBy
      *
      * @param  string $sortBy
-     * @return string|self
+     * @return self
      */
-    public function sortBy($sortBy = null)
+    public function setSortBy($sortBy)
     {
-        if(null === $sortBy)
-        {
-            return $this->property('sortBy');
-        }
-        return $this->property('sortBy', trim($sortBy));
+        return $this->setProperty('sortBy', trim($sortBy));
     }
 
     /**
-     * Gets or sets sortAscending
+     * Gets sortAscending
+     *
+     * @return bool
+     */
+    public function getSortAscending()
+    {
+        return $this->getProperty('sortAscending');
+    }
+
+    /**
+     * Sets sortAscending
      *
      * @param  bool $sortAscending
-     * @return bool|self
+     * @return self
      */
-    public function sortAscending($sortAscending = null)
+    public function setSortAscending($sortAscending)
     {
-        if(null === $sortAscending)
-        {
-            return $this->property('sortAscending');
-        }
-        return $this->property('sortAscending', (bool) $sortAscending);
-    }
-
-    /**
-     * Gets or sets attrs.
-     *
-     * @param  string $attrs
-     * @return string|self
-     */
-    public function attrs($attrs = null)
-    {
-        if(null === $attrs)
-        {
-            return $this->property('attrs');
-        }
-        return $this->property('attrs', trim($attrs));
+        return $this->setProperty('sortAscending', (bool) $sortAscending);
     }
 }

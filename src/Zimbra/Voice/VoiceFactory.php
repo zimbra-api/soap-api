@@ -10,6 +10,8 @@
 
 namespace Zimbra\Voice;
 
+use Zimbra\Enum\RequestFormat;
+
 /**
  * Voice soap api factory class
  * 
@@ -23,25 +25,25 @@ abstract class VoiceFactory
     /**
      * @var array
      */
-    private static $_instances = array();
+    private static $_instances = [];
 
     /**
      * Creates a singleton of a VoiceInterface base on parameters.
      *
      * @param  string $location The Zimbra api soap location.
-     * @param  string $client   Soap client
+     * @param  RequestFormat $format The request format.
      * @return VoiceInterface
      */
-    public static function instance($location = 'https://localhost/service/soap', $client = 'http')
+    public static function instance($location = 'https://localhost/service/soap', RequestFormat $format = null)
     {
-        $key = sha1($location.$client);
+        $key = sha1($location);
         if (isset(self::$_instances[$key]) and (self::$_instances[$key] instanceof VoiceInterface))
         {
             return self::$_instances[$key];
         }
         else
         {
-            self::$_instances[$key] = self::factory($location, $client);
+            self::$_instances[$key] = self::factory($location, $format);
             return self::$_instances[$key];            
         }
     }
@@ -50,17 +52,11 @@ abstract class VoiceFactory
      * Returns a new VoiceInterface object.
      *
      * @param  string $location The Zimbra api soap location.
-     * @param  string $client   Soap client
+     * @param  RequestFormat $format The request format.
      * @return VoiceInterface
      */
-    public static function factory($location = 'https://localhost/service/soap', $client = 'http')
+    public static function factory($location = 'https://localhost/service/soap', RequestFormat $format = null)
     {
-        switch (strtolower($client))
-        {
-            case 'wsdl':
-                return new Wsdl($location);
-            default:
-                return new Http($location);
-        }
+        return new Http($location, $format);
     }
 }

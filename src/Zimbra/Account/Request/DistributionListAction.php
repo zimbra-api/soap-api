@@ -31,7 +31,7 @@ class DistributionListAction extends Base
      * Attributes
      * @var TypedSequence<Attr>
      */
-    private $_attr;
+    private $_attrs;
 
     /**
      * Constructor method for DistributionListAction
@@ -40,50 +40,62 @@ class DistributionListAction extends Base
      * @param  array $attrs Attributes
      * @return self
      */
-    public function __construct(DistList $dl, Action $action, array $attrs = array())
+    public function __construct(DistList $dl, Action $action, array $attrs = [])
     {
         parent::__construct();
-        $this->child('dl', $dl);
-        $this->child('action', $action);
-        $this->_attr = new TypedSequence('Zimbra\Account\Struct\Attr', $attrs);
+        $this->setChild('dl', $dl);
+        $this->setChild('action', $action);
+        $this->setAttrs($attrs);
 
         $this->on('before', function(Base $sender)
         {
-            if($sender->attr()->count())
+            if($sender->getAttrs()->count())
             {
-                $sender->child('a', $sender->attr()->all());
+                $sender->setChild('a', $sender->getAttrs()->all());
             }
         });
     }
 
     /**
-     * Gets or sets dl
+     * Gets the dl
      *
-     * @param  DistList $dl
-     * @return DistList|self
+     * @return Zimbra\Action\Struct\DistributionListSelector
      */
-    public function dl(DistList $dl = null)
+    public function getDl()
     {
-        if(null === $dl)
-        {
-            return $this->child('dl');
-        }
-        return $this->child('dl', $dl);
+        return $this->getChild('dl');
     }
 
     /**
-     * Gets or sets action
+     * Sets the dl
      *
-     * @param  Action $action
-     * @return Action|self
+     * @param  Zimbra\Action\Struct\DistributionListSelector $dl
+     * @return self
      */
-    public function action(Action $action = null)
+    public function setDl(DistList $dl)
     {
-        if(null === $action)
-        {
-            return $this->child('action');
-        }
-        return $this->child('action', $action);
+        return $this->setChild('dl', $dl);
+    }
+
+    /**
+     * Gets the action
+     *
+     * @return Zimbra\Action\Struct\DistributionListAction
+     */
+    public function getAction()
+    {
+        return $this->getChild('action');
+    }
+
+    /**
+     * Sets the action
+     *
+     * @param  Zimbra\Action\Struct\DistributionListAction $action
+     * @return self
+     */
+    public function setAction(Action $action)
+    {
+        return $this->setChild('action', $action);
     }
 
     /**
@@ -94,17 +106,29 @@ class DistributionListAction extends Base
      */
     public function addAttr(Attr $attr)
     {
-        $this->_attr->add($attr);
+        $this->_attrs->add($attr);
         return $this;
     }
 
     /**
-     * Gets attr sequence
+     * Sets attribute sequence
+     *
+     * @param  array $attrs
+     * @return self
+     */
+    public function setAttrs(array $attrs)
+    {
+        $this->_attrs = new TypedSequence('Zimbra\Account\Struct\Attr', $attrs);
+        return $this;
+    }
+
+    /**
+     * Gets attribute sequence
      *
      * @return Sequence
      */
-    public function attr()
+    public function getAttrs()
     {
-        return $this->_attr;
+        return $this->_attrs;
     }
 }

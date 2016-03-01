@@ -10,6 +10,7 @@
 
 namespace Zimbra\Mail;
 
+use Zimbra\Enum\RequestFormat;
 use Zimbra\Soap\Client\Http as ClientHttp;
 
 /**
@@ -25,10 +26,15 @@ class Http extends Base
      * Http constructor.
      *
      * @param string $location The Zimbra api soap location.
+     * @param RequestFormat $format The request format.
      */
-    public function __construct($location)
+    public function __construct($location, RequestFormat $format = null)
     {
         parent::__construct($location);
-        $this->_client = ClientHttp::instance($this->_location);
+        $this->setClient(ClientHttp::instance($this->getLocation()));
+        if($format instanceof RequestFormat)
+        {
+            $this->getClient()->setFormat($format);
+        }
     }
 }

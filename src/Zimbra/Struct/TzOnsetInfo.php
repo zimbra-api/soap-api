@@ -43,106 +43,141 @@ class TzOnsetInfo extends Base
     {
         parent::__construct();
         $mon = in_array((int) $mon, range(1, 12)) ? (int) $mon : 1;
-        $this->property('mon', $mon);
+        $this->setProperty('mon', $mon);
         $hour = in_array((int) $hour, range(0, 23)) ? (int) $hour : 0;
-        $this->property('hour', $hour);
+        $this->setProperty('hour', $hour);
         $min = in_array((int) $min, range(0, 59)) ? (int) $min : 0;
-        $this->property('min', $min);
+        $this->setProperty('min', $min);
         $sec = in_array((int) $sec, range(0, 59)) ? (int) $sec : 0;
-        $this->property('sec', $sec);
+        $this->setProperty('sec', $sec);
 
         if(is_int($mday) and in_array((int) $mday, range(1, 31)))
         {
-            $this->property('mday', (int) $mday);
+            $this->setProperty('mday', (int) $mday);
         }
-        if(is_int($week) and in_array((int) $week, array(-1, 1, 2, 3, 4)))
+        if(is_int($week) and in_array((int) $week, [-1, 1, 2, 3, 4]))
         {
-            $this->property('week', (int) $week);
+            $this->setProperty('week', (int) $week);
         }
         if(is_int($wkday) and in_array((int) $wkday, range(1, 7)))
         {
-            $this->property('wkday', (int) $wkday);
+            $this->setProperty('wkday', (int) $wkday);
         }
     }
 
     /**
-     * Gets or sets mon
+     * Gets month
+     *
+     * @return int
+     */
+    public function getMonth()
+    {
+        return $this->getProperty('mon');
+    }
+
+    /**
+     * Sets month
      *
      * @param  int $mon
-     * @return int|self
+     * @return self
      */
-    public function mon($mon = null)
+    public function setMonth($mon)
     {
-        if(null === $mon)
-        {
-            return $this->property('mon');
-        }
         $mon = in_array((int) $mon, range(1, 12)) ? (int) $mon : 1;
-        return $this->property('mon', $mon);
+        return $this->setProperty('mon', $mon);
     }
 
     /**
-     * Gets or sets mday
+     * Gets day of month
+     *
+     * @return int
+     */
+    public function getDayOfMonth()
+    {
+        return $this->getProperty('mday');
+    }
+
+    /**
+     * Sets day of month
      *
      * @param  int $mday
-     * @return int|self
+     * @return self
      */
-    public function mday($mday = null)
+    public function setDayOfMonth($mday)
     {
-        if(null === $mday)
-        {
-            return $this->property('mday');
-        }
         $mday = in_array((int) $mday, range(1, 31)) ? (int) $mday : 1;
-        return $this->property('mday', $mday);
+        return $this->setProperty('mday', $mday);
     }
 
     /**
-     * Gets or sets hour
+     * Gets hour
+     *
+     * @return int
+     */
+    public function getHour()
+    {
+        return $this->getProperty('hour');
+    }
+
+    /**
+     * Sets hour
      *
      * @param  int $hour
-     * @return int|self
+     * @return self
      */
-    public function hour($hour = null)
+    public function setHour($hour)
     {
-        if(null === $hour)
-        {
-            return $this->property('hour');
-        }
         $hour = in_array((int) $hour, range(0, 23)) ? (int) $hour : 0;
-        return $this->property('hour', $hour);
+        return $this->setProperty('hour', $hour);
     }
 
     /**
-     * Gets or sets min
+     * Gets minute
+     *
+     * @return int
+     */
+    public function getMinute()
+    {
+        return $this->getProperty('min');
+    }
+
+    /**
+     * Sets minute
      *
      * @param  int $min
-     * @return int|self
+     * @return self
      */
-    public function min($min = null)
+    public function setMinute($min)
     {
-        if(null === $min)
-        {
-            return $this->property('min');
-        }
         $min = in_array((int) $min, range(0, 59)) ? (int) $min : 0;
-        return $this->property('min', $min);
+        return $this->setProperty('min', $min);
     }
 
     /**
-     * Gets or sets sec
+     * Gets second
+     *
+     * @return int
+     */
+    public function getSecond()
+    {
+        return $this->getProperty('sec');
+    }
+
+    /**
+     * Sets second
      *
      * @param  int $sec
-     * @return int|self
+     * @return self
      */
-    public function sec($sec = null)
+    public function setSecond($sec)
     {
-        if(null === $sec)
-        {
-            return $this->property('sec');
-        }
         $sec = in_array((int) $sec, range(0, 59)) ? (int) $sec : 0;
-        return $this->property('sec', $sec);
+        return $this->setProperty('sec', $sec);
+    }
+
+    public function getWeek()
+    {
+        return $this->getProperty('week');
     }
 
     /**
@@ -151,30 +186,32 @@ class TzOnsetInfo extends Base
      * @param  int $week
      * @return int|self
      */
-    public function week($week = null)
+    public function setWeek($week)
     {
-        if(null === $week)
-        {
-            return $this->property('week');
-        }
-        $week = in_array((int) $week, array(-1, 1, 2, 3, 4)) ? (int) $week : -1;
-        return $this->property('week', $week);
+        $week = in_array((int) $week, [-1, 1, 2, 3, 4]) ? (int) $week : -1;
+        return $this->setProperty('week', $week);
+    }
+
+    /**
+     * Gets day of week
+     *
+     * @return int
+     */
+    public function getDayOfWeek()
+    {
+        return $this->getProperty('wkday');
     }
 
     /**
      * Gets or sets mon
      *
-     * @param  int $mon
-     * @return int|self
+     * @param  int $wkday
+     * @return self
      */
-    public function wkday($wkday = null)
+    public function setDayOfWeek($wkday)
     {
-        if(null === $wkday)
-        {
-            return $this->property('wkday');
-        }
         $wkday = in_array((int) $wkday, range(1, 7)) ? (int) $wkday : 1;
-        return $this->property('wkday', $wkday);
+        return $this->setProperty('wkday', $wkday);
     }
 
     /**

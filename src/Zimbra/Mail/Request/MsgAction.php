@@ -34,21 +34,27 @@ class MsgAction extends Base
     public function __construct(MsgActionSelector $action)
     {
         parent::__construct();
-        $this->child('action', $action);
+        $this->setChild('action', $action);
     }
 
     /**
-     * Get or set action
+     * Gets specify the action to perform
+     *
+     * @return MsgActionSelector
+     */
+    public function getAction()
+    {
+        return $this->getChild('action');
+    }
+
+    /**
+     * Sets specify the action to perform
      *
      * @param  MsgActionSelector $action
-     * @return MsgActionSelector|self
+     * @return self
      */
-    public function action(MsgActionSelector $action = null)
+    public function setAction(MsgActionSelector $action)
     {
-        if(null === $action)
-        {
-            return $this->child('action');
-        }
-        return $this->child('action', $action);
+        return $this->setChild('action', $action);
     }
 }

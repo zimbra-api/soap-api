@@ -27,7 +27,7 @@ class GranteeSelector extends Base
 {
     /**
      * Constructor method for GranteeSelector
-     * @param string $value The key used to identify the grantee
+     * @param string $value The key used to secretentify the grantee
      * @param GranteeType $type Grantee type
      * @param GranteeBy $by Grantee by
      * @param string $secret Password for guest grantee or the access key for key grantee For user right only
@@ -45,80 +45,104 @@ class GranteeSelector extends Base
         parent::__construct(trim($value));
         if($type instanceof GranteeType)
         {
-            $this->property('type', $type);
+            $this->setProperty('type', $type);
         }
         if($by instanceof GranteeBy)
         {
-            $this->property('by', $by);
+            $this->setProperty('by', $by);
         }
         if(null !== $secret)
         {
-            $this->property('secret', trim($secret));
+            $this->setProperty('secret', trim($secret));
         }
         if(null !== $all)
         {
-            $this->property('all', (bool) $all);
+            $this->setProperty('all', (bool) $all);
         }
     }
 
     /**
-     * Gets or sets type
+     * Gets type enum
      *
-     * @param  GranteeType $type
-     * @return GranteeType|self
+     * @return Zimbra\Enum\GranteeType
      */
-    public function type(GranteeType $type = null)
+    public function getType()
     {
-        if(null === $type)
-        {
-            return $this->property('type');
-        }
-        return $this->property('type', $type);
+        return $this->getProperty('type');
     }
 
     /**
-     * Gets or sets by
+     * Sets type enum
      *
-     * @param  GranteeBy $by
-     * @return GranteeBy|self
+     * @param  Zimbra\Enum\GranteeType $type
+     * @return self
      */
-    public function by(GranteeBy $by = null)
+    public function setType(GranteeType $type)
     {
-        if(null === $by)
-        {
-            return $this->property('by');
-        }
-        return $this->property('by', $by);
+        return $this->setProperty('type', $type);
     }
 
     /**
-     * Gets or sets secret
+     * Gets by enum
+     *
+     * @return Zimbra\Enum\GranteeBy
+     */
+    public function getBy()
+    {
+        return $this->getProperty('by');
+    }
+
+    /**
+     * Sets by enum
+     *
+     * @param  Zimbra\Enum\GranteeBy $by
+     * @return self
+     */
+    public function setBy(GranteeBy $by)
+    {
+        return $this->setProperty('by', $by);
+    }
+
+    /**
+     * Gets timezone ID
+     *
+     * @return string
+     */
+    public function getSecret()
+    {
+        return $this->getProperty('secret');
+    }
+
+    /**
+     * Sets timezone ID
      *
      * @param  string $secret
-     * @return string|self
+     * @return self
      */
-    public function secret($secret = null)
+    public function setSecret($secret)
     {
-        if(null === $secret)
-        {
-            return $this->property('secret');
-        }
-        return $this->property('secret', trim($secret));
+        return $this->setProperty('secret', trim($secret));
     }
 
     /**
-     * Gets or sets all
+     * Gets all flag
+     *
+     * @return bool
+     */
+    public function getAll()
+    {
+        return $this->getProperty('all');
+    }
+
+    /**
+     * Sets all flag
      *
      * @param  bool $all
-     * @return bool|self
+     * @return self
      */
-    public function all($all = null)
+    public function setAll($all)
     {
-        if(null === $all)
-        {
-            return $this->property('all');
-        }
-        return $this->property('all', (bool) $all);
+        return $this->setProperty('all', (bool) $all);
     }
 
     /**

@@ -25,28 +25,28 @@ use Zimbra\Struct\Base;
 class FeatureWithCallerList extends CallFeatureInfo
 {
     /**
-     * Preferences
+     * Phones
      * @var TypedSequence<CallerListEntry>
      */
-    private $_phone;
+    private $_phones;
 
     /**
      * Constructor method for FeatureWithCallerList
-     * @param bool  $s
-     * @param bool  $a
-     * @param array $phone
+     * @param bool $subscribed Flag whether subscribed or not
+     * @param bool $active Flag whether active or not
+     * @param array $phones
      * @return self
      */
-    public function __construct($s, $a, array $phone = array())
+    public function __construct($subscribed, $active, array $phones = [])
     {
-    	parent::__construct($s, $a);
-        $this->_phone = new TypedSequence('Zimbra\Voice\Struct\CallerListEntry', $phone);
+    	parent::__construct($subscribed, $active);
+        $this->setPhones($phones);
 
         $this->on('before', function(Base $sender)
         {
-            if($sender->phone()->count())
+            if($sender->getPhones()->count())
             {
-                $sender->child('phone', $sender->phone()->all());
+                $sender->setChild('phone', $sender->getPhones()->all());
             }
         });
     }
@@ -60,7 +60,19 @@ class FeatureWithCallerList extends CallFeatureInfo
      */
     public function addPhone(CallerListEntry $phone)
     {
-        $this->_phone->add($phone);
+        $this->_phones->add($phone);
+        return $this;
+    }
+
+    /**
+     * Sets phone sequence
+     *
+     * @param array $phones
+     * @return self
+     */
+    public function setPhones(array $phones)
+    {
+        $this->_phones = new TypedSequence('Zimbra\Voice\Struct\CallerListEntry', $phones);
         return $this;
     }
 
@@ -69,8 +81,8 @@ class FeatureWithCallerList extends CallFeatureInfo
      *
      * @return Sequence
      */
-    public function phone()
+    public function getPhones()
     {
-        return $this->_phone;
+        return $this->_phones;
     }
 }

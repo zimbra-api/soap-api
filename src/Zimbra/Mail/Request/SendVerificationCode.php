@@ -24,30 +24,36 @@ class SendVerificationCode extends Base
 {
     /**
      * Constructor method for SendVerificationCode
-     * @param  string $a
+     * @param  string $address
      * @return self
      */
-    public function __construct($a = null)
+    public function __construct($address = null)
     {
         parent::__construct();
-        if(null !== $a)
+        if(null !== $address)
         {
-            $this->property('a', trim($a));
+            $this->setProperty('a', trim($address));
         }
     }
 
     /**
-     * Get or set a
+     * Gets device email address
      *
-     * @param  string $a
-     * @return string|self
+     * @return string
      */
-    public function a($a = null)
+    public function getAddress()
     {
-        if(null === $a)
-        {
-            return $this->property('a');
-        }
-        return $this->property('a', trim($a));
+        return $this->getProperty('a');
+    }
+
+    /**
+     * Sets device email address
+     *
+     * @param  string $address
+     * @return self
+     */
+    public function setAddress($address)
+    {
+        return $this->setProperty('a', trim($address));
     }
 }

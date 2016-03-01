@@ -32,21 +32,27 @@ class RankingAction extends Base
     public function __construct(RankingActionSpec $action)
     {
         parent::__construct();
-        $this->child('action', $action);
+        $this->setChild('action', $action);
     }
 
     /**
-     * Get or set action
+     * Gets specify the action to perform
+     *
+     * @return RankingActionSpec
+     */
+    public function getAction()
+    {
+        return $this->getChild('action');
+    }
+
+    /**
+     * Sets specify the action to perform
      *
      * @param  RankingActionSpec $action
-     * @return RankingActionSpec|self
+     * @return self
      */
-    public function action(RankingActionSpec $action = null)
+    public function setAction(RankingActionSpec $action)
     {
-        if(null === $action)
-        {
-            return $this->child('action');
-        }
-        return $this->child('action', $action);
+        return $this->setChild('action', $action);
     }
 }

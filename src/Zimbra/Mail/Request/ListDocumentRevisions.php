@@ -33,22 +33,27 @@ class ListDocumentRevisions extends Base
     public function __construct(ListDocumentRevisionsSpec $doc)
     {
         parent::__construct();
-        $this->child('doc', $doc);
+        $this->setChild('doc', $doc);
     }
 
     /**
-     * Get or set doc
-     * Specification for the list of document revisions
+     * Gets specification for the list of document revisions
+     *
+     * @return ListDocumentRevisionsSpec
+     */
+    public function getDoc()
+    {
+        return $this->getChild('doc');
+    }
+
+    /**
+     * Sets specification for the list of document revisions
      *
      * @param  ListDocumentRevisionsSpec $doc
-     * @return ListDocumentRevisionsSpec|self
+     * @return self
      */
-    public function doc(ListDocumentRevisionsSpec $doc = null)
+    public function setDoc(ListDocumentRevisionsSpec $doc)
     {
-        if(null === $doc)
-        {
-            return $this->child('doc');
-        }
-        return $this->child('doc', $doc);
+        return $this->setChild('doc', $doc);
     }
 }

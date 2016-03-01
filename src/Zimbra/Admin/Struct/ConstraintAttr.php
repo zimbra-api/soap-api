@@ -32,38 +32,50 @@ class ConstraintAttr extends Base
     public function __construct(ConstraintInfo $constraint, $name)
     {
         parent::__construct();
-        $this->child('constraint', $constraint);
-        $this->property('name', trim($name));
+        $this->setChild('constraint', $constraint);
+        $this->setProperty('name', trim($name));
     }
 
     /**
-     * Gets or sets constraint
+     * Gets constraint information
+     *
+     * @return ConstraintInfo
+     */
+    public function getConstraint()
+    {
+        return $this->getChild('constraint');
+    }
+
+    /**
+     * Sets constraint information
      *
      * @param  ConstraintInfo $constraint
-     * @return ConstraintInfo|self
+     * @return self
      */
-    public function constraint(ConstraintInfo $constraint = null)
+    public function setConstraint(ConstraintInfo $constraint)
     {
-        if(null === $constraint)
-        {
-            return $this->child('constraint');
-        }
-        return $this->child('constraint', $constraint);
+        return $this->setChild('constraint', $constraint);
     }
 
     /**
-     * Gets or sets name
+     * Gets the name
+     *
+     * @return string|
+     */
+    public function getName()
+    {
+        return $this->getProperty('name');
+    }
+
+    /**
+     * Sets the name
      *
      * @param  string $name
-     * @return string|self
+     * @return self
      */
-    public function name($name = null)
+    public function setName($name)
     {
-        if(null === $name)
-        {
-            return $this->property('name');
-        }
-        return $this->property('name', trim($name));
+        return $this->setProperty('name', trim($name));
     }
 
     /**

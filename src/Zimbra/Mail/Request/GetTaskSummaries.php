@@ -24,64 +24,82 @@ class GetTaskSummaries extends Base
 {
     /**
      * Constructor method for GetTaskSummaries
-     * @param  int $s
-     * @param  int $e
-     * @param  string $l
+     * @param  int $startTime
+     * @param  int $endTime
+     * @param  string $folderId
      * @return self
      */
-    public function __construct($s, $e, $l = null)
+    public function __construct($startTime, $endTime, $folderId = null)
     {
         parent::__construct();
-        $this->property('s', (int) $s);
-        $this->property('e', (int) $e);
-        if(null !== $l)
+        $this->setProperty('s', (int) $startTime);
+        $this->setProperty('e', (int) $endTime);
+        if(null !== $folderId)
         {
-            $this->property('l', trim($l));
+            $this->setProperty('l', trim($folderId));
         }
     }
 
     /**
-     * Get or set s
+     * Gets range start
      *
-     * @param  int $s
-     * @return int|self
+     * @return int
      */
-    public function s($s = null)
+    public function getStartTime()
     {
-        if(null === $s)
-        {
-            return $this->property('s');
-        }
-        return $this->property('s', (int) $s);
+        return $this->getProperty('s');
     }
 
     /**
-     * Get or set e
+     * Sets range start
      *
-     * @param  int $e
-     * @return int|self
+     * @param  int $startTime
+     * @return self
      */
-    public function e($e = null)
+    public function setStartTime($startTime)
     {
-        if(null === $e)
-        {
-            return $this->property('e');
-        }
-        return $this->property('e', (int) $e);
+        return $this->setProperty('s', (int) $startTime);
     }
 
     /**
-     * Gets or sets l
+     * Gets range end
      *
-     * @param  string $l
-     * @return string|self
+     * @return int
      */
-    public function l($l = null)
+    public function getEndTime()
     {
-        if(null === $l)
-        {
-            return $this->property('l');
-        }
-        return $this->property('l', trim($l));
+        return $this->getProperty('e');
+    }
+
+    /**
+     * Sets range end
+     *
+     * @param  int $endTime
+     * @return self
+     */
+    public function setEndTime($endTime)
+    {
+        return $this->setProperty('e', (int) $endTime);
+    }
+
+    /**
+     * Gets folder Id
+     *
+     * @return string
+     */
+    public function getFolderId()
+    {
+        return $this->getProperty('l');
+    }
+
+    /**
+     * Sets folder Id
+     *
+     * @param  string $folderId
+     * @return self
+     */
+    public function setFolderId($folderId)
+    {
+        return $this->setProperty('l', trim($folderId));
     }
 }

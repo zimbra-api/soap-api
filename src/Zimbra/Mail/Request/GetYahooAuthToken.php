@@ -31,37 +31,49 @@ class GetYahooAuthToken extends Base
     public function __construct($user, $password)
     {
         parent::__construct();
-        $this->property('user', trim($user));
-        $this->property('password', trim($password));
+        $this->setProperty('user', trim($user));
+        $this->setProperty('password', trim($password));
     }
 
     /**
-     * Gets or sets user
+     * Gets user
+     *
+     * @return string
+     */
+    public function getUser()
+    {
+        return $this->getProperty('user');
+    }
+
+    /**
+     * Sets user
      *
      * @param  string $user
-     * @return string|self
+     * @return self
      */
-    public function user($user = null)
+    public function setUser($user)
     {
-        if(null === $user)
-        {
-            return $this->property('user');
-        }
-        return $this->property('user', trim($user));
+        return $this->setProperty('user', trim($user));
     }
 
     /**
-     * Gets or sets password
+     * Gets password
+     *
+     * @return string
+     */
+    public function getPassword()
+    {
+        return $this->getProperty('password');
+    }
+
+    /**
+     * Sets password
      *
      * @param  string $password
-     * @return string|self
+     * @return self
      */
-    public function password($password = null)
+    public function setPassword($password)
     {
-        if(null === $password)
-        {
-            return $this->property('password');
-        }
-        return $this->property('password', trim($password));
+        return $this->setProperty('password', trim($password));
     }
 }

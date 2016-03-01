@@ -32,21 +32,27 @@ class GetShareDetails extends Base
     public function __construct(Id $item)
     {
         parent::__construct();
-        $this->child('item', $item);
+        $this->setChild('item', $item);
     }
 
     /**
-     * Get or set item
+     * Gets item ID
+     *
+     * @return Id
+     */
+    public function getItem()
+    {
+        return $this->getChild('item');
+    }
+
+    /**
+     * Sets item ID
      *
      * @param  Id $item
-     * @return Id|self
+     * @return self
      */
-    public function item(Id $item = null)
+    public function setItem(Id $item)
     {
-        if(null === $item)
-        {
-            return $this->child('item');
-        }
-        return $this->child('item', $item);
+        return $this->setChild('item', $item);
     }
 }

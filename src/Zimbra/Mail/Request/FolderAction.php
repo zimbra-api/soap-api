@@ -32,22 +32,27 @@ class FolderAction extends Base
     public function __construct(FolderActionSelector $action)
     {
         parent::__construct();
-        $this->child('action', $action);
+        $this->setChild('action', $action);
     }
 
     /**
-     * Get or set action
-     * Select action to perform on folder
+     * Gets action to perform on folder
+     *
+     * @return FolderActionSelector
+     */
+    public function getAction()
+    {
+        return $this->getChild('action');
+    }
+
+    /**
+     * Sets action to perform on folder
      *
      * @param  FolderActionSelector $action
-     * @return FolderActionSelector|self
+     * @return self
      */
-    public function action(FolderActionSelector $action = null)
+    public function setAction(FolderActionSelector $action)
     {
-        if(null === $action)
-        {
-            return $this->child('action');
-        }
-        return $this->child('action', $action);
+        return $this->setChild('action', $action);
     }
 }

@@ -34,40 +34,52 @@ class SetCustomMetadata extends Base
     public function __construct($id, MailCustomMetadata $meta = null)
     {
         parent::__construct();
-        $this->property('id', trim($id));
+        $this->setProperty('id', trim($id));
         if($meta instanceof MailCustomMetadata)
         {
-            $this->child('meta', $meta);
+            $this->setChild('meta', $meta);
         }
     }
 
     /**
-     * Gets or sets id
+     * Gets item id
+     *
+     * @return string
+     */
+    public function getId()
+    {
+        return $this->getProperty('id');
+    }
+
+    /**
+     * Sets item id
      *
      * @param  string $id
-     * @return string|self
+     * @return self
      */
-    public function id($id = null)
+    public function setId($id)
     {
-        if(null === $id)
-        {
-            return $this->property('id');
-        }
-        return $this->property('id', trim($id));
+        return $this->setProperty('id', trim($id));
     }
 
     /**
-     * Get or set meta
+     * Gets metadata
      *
-     * @param  MailCustomMetadata $meta
-     * @return MailCustomMetadata|self
+     * @return MailCustomMetadata
      */
-    public function meta(MailCustomMetadata $meta = null)
+    public function getMetadata()
     {
-        if(null === $meta)
-        {
-            return $this->child('meta');
-        }
-        return $this->child('meta', $meta);
+        return $this->getChild('meta');
+    }
+
+    /**
+     * Sets metadata
+     *
+     * @param  MailCustomMetadata $metadata
+     * @return self
+     */
+    public function setMetadata(MailCustomMetadata $metadata)
+    {
+        return $this->setChild('meta', $metadata);
     }
 }

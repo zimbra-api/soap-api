@@ -32,23 +32,29 @@ class TagAction extends FilterAction
         parent::__construct($index);
         if(null !== $tagName)
         {
-            $this->property('tagName', trim($tagName));
+            $this->setProperty('tagName', trim($tagName));
         }
     }
 
     /**
-     * Gets or sets tagName
+     * Gets tag name
+     *
+     * @return string
+     */
+    public function getTag()
+    {
+        return $this->getProperty('tagName');
+    }
+
+    /**
+     * Sets tag name
      *
      * @param  string $tagName
-     * @return string|self
+     * @return self
      */
-    public function tagName($tagName = null)
+    public function setTag($tagName)
     {
-        if(null === $tagName)
-        {
-            return $this->property('tagName');
-        }
-        return $this->property('tagName', trim($tagName));
+        return $this->setProperty('tagName', trim($tagName));
     }
 
     /**

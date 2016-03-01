@@ -34,40 +34,52 @@ class DeleteSystemRetentionPolicy extends Base
     public function __construct(Policy $policy, Cos $cos = null)
     {
         parent::__construct();
-        $this->child('policy', $policy);
+        $this->setChild('policy', $policy);
         if($cos instanceof Cos)
         {
-            $this->child('cos', $cos);
+            $this->setChild('cos', $cos);
         }
     }
 
     /**
-     * Gets or sets policy
+     * Gets the policy.
+     *
+     * @return Policy
+     */
+    public function getPolicy()
+    {
+        return $this->getChild('policy');
+    }
+
+    /**
+     * Sets the policy.
      *
      * @param  Policy $policy
-     * @return Policy|self
+     * @return self
      */
-    public function policy(Policy $policy = null)
+    public function setPolicy(Policy $policy)
     {
-        if(null === $policy)
-        {
-            return $this->child('policy');
-        }
-        return $this->child('policy', $policy);
+        return $this->setChild('policy', $policy);
     }
 
     /**
-     * Gets or sets cos
+     * Gets the cos.
+     *
+     * @return Cos
+     */
+    public function getCos()
+    {
+        return $this->getChild('cos');
+    }
+
+    /**
+     * Sets the cos.
      *
      * @param  Cos $cos
-     * @return Cos|self
+     * @return self
      */
-    public function cos(Cos $cos = null)
+    public function setCos(Cos $cos)
     {
-        if(null === $cos)
-        {
-            return $this->child('cos');
-        }
-        return $this->child('cos', $cos);
+        return $this->setChild('cos', $cos);
     }
 }

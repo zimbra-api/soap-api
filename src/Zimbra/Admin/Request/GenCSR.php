@@ -30,7 +30,7 @@ class GenCSR extends Base
      * Used to add the Subject Alt Name extension in the certificate, so multiple hosts can be supported
      * @var array
      */
-    private $_subjectAltName = array();
+    private $_subjectAltNames;
 
     /**
      * Constructor method for GenCSR
@@ -38,13 +38,13 @@ class GenCSR extends Base
      * @param bool $new If value is "1" then force to create a new CSR, the previous one will be overwrited
      * @param CSRType $type Type of CSR (self|comm)
      * @param CSRKeySize $keysize Key size - 1024 or 2048
-     * @param string $C Subject attr C
-     * @param string $ST Subject attr ST
+     * @param string $c Subject attr C
+     * @param string $st Subject attr ST
      * @param string $L Subject attr L
      * @param string $O Subject attr O
      * @param string $OU Subject attr OU
      * @param string $CN Subject attr CN
-     * @param array $subjectAltName Used to add the Subject Alt Name extension in the certificate, so multiple hosts can be supported
+     * @param array $subjectAltNames Used to add the Subject Alt Name extension in the certificate, so multiple hosts can be supported
      * @return self
      */
     public function __construct(
@@ -52,215 +52,265 @@ class GenCSR extends Base
         $new,
         CSRType $type,
         CSRKeySize $keysize,
-        $C = null,
-        $ST = null,
-        $L = null,
-        $O = null,
-        $OU = null,
-        $CN = null,
-        array $subjectAltName = array()
+        $c = null,
+        $st = null,
+        $l = null,
+        $o = null,
+        $ou = null,
+        $cn = null,
+        array $subjectAltNames = []
     )
     {
         parent::__construct();
-        $this->property('server', trim($server));
-        $this->property('new', (bool) $new);
-        $this->property('type', $type);
-        $this->property('keysize', $keysize);
+        $this->setProperty('server', trim($server));
+        $this->setProperty('new', (bool) $new);
+        $this->setProperty('type', $type);
+        $this->setProperty('keysize', $keysize);
 
-        if(null !== $C)
+        if(null !== $c)
         {
-            $this->child('C', trim($C));
+            $this->setChild('C', trim($c));
         }
-        if(null !== $ST)
+        if(null !== $st)
         {
-            $this->child('ST', trim($ST));
+            $this->setChild('ST', trim($st));
         }
-        if(null !== $L)
+        if(null !== $l)
         {
-            $this->child('L', trim($L));
+            $this->setChild('L', trim($l));
         }
-        if(null !== $O)
+        if(null !== $o)
         {
-            $this->child('O', trim($O));
+            $this->setChild('O', trim($o));
         }
-        if(null !== $OU)
+        if(null !== $ou)
         {
-            $this->child('OU', trim($OU));
+            $this->setChild('OU', trim($ou));
         }
-        if(null !== $CN)
+        if(null !== $cn)
         {
-            $this->child('CN', trim($CN));
+            $this->setChild('CN', trim($cn));
         }
-
-        $this->_subjectAltName = new Sequence();
-        foreach ($subjectAltName as $subject)
-        {
-            $subject = trim($subject);
-            if(!empty($subject) && !$this->_subjectAltName->contains($subject))
-            {
-                $this->_subjectAltName->add($subject);
-            }
-        }
+        $this->setSubjectAltNames($subjectAltNames);
 
         $this->on('before', function(Base $sender)
         {
-            if($sender->subjectAltName()->count())
+            if($sender->getSubjectAltNames()->count())
             {
-                $sender->child('SubjectAltName', $sender->subjectAltName()->all());
+                $sender->setChild('SubjectAltName', $sender->getSubjectAltNames()->all());
             }
         });
     }
 
     /**
-     * Gets or sets server
+     * Gets server
+     *
+     * @return string
+     */
+    public function getServer()
+    {
+        return $this->getProperty('server');
+    }
+
+    /**
+     * Sets server
      *
      * @param  string $server
-     * @return string|self
+     * @return self
      */
-    public function server($server = null)
+    public function setServer($server)
     {
-        if(null === $server)
-        {
-            return $this->property('server');
-        }
-        return $this->property('server', trim($server));
+        return $this->setProperty('server', trim($server));
     }
 
     /**
-     * Gets or sets new
+     * Gets new flag
+     *
+     * @return bool
+     */
+    public function getNewCSR()
+    {
+        return $this->getProperty('new');
+    }
+
+    /**
+     * Sets new flag
      *
      * @param  bool $new
-     * @return bool|self
+     * @return self
      */
-    public function new_($new = null)
+    public function setNewCSR($new)
     {
-        if(null === $new)
-        {
-            return $this->property('new');
-        }
-        return $this->property('new', (bool) $new);
+        return $this->setProperty('new', (bool) $new);
     }
 
     /**
-     * Gets or sets type
+     * Gets type
+     *
+     * @return CSRType
+     */
+    public function getType()
+    {
+        return $this->getProperty('type');
+    }
+
+    /**
+     * Sets type
      *
      * @param  CSRType $type
-     * @return CSRType|self
+     * @return self
      */
-    public function type(CSRType $type = null)
+    public function setType(CSRType $type)
     {
-        if(null === $type)
-        {
-            return $this->property('type');
-        }
-        return $this->property('type', $type);
+        return $this->setProperty('type', $type);
     }
 
     /**
-     * Gets or sets keysize
+     * Gets keysize
+     *
+     * @return CSRKeySize
+     */
+    public function getKeySize()
+    {
+        return $this->getProperty('keysize');
+    }
+
+    /**
+     * Sets keysize
      *
      * @param  CSRKeySize $keysize
-     * @return CSRKeySize|self
+     * @return self
      */
-    public function keysize(CSRKeySize $keysize = null)
+    public function setKeySize(CSRKeySize $keysize)
     {
-        if(null === $keysize)
-        {
-            return $this->property('keysize');
-        }
-        return $this->property('keysize', $keysize);
+        return $this->setProperty('keysize', $keysize);
     }
 
     /**
-     * Gets or sets C
+     * Gets C attribute
      *
-     * @param  string $C
-     * @return string|self
+     * @return string
      */
-    public function C($C = null)
+    public function getC()
     {
-        if(null === $C)
-        {
-            return $this->child('C');
-        }
-        return $this->child('C', trim($C));
+        return $this->getChild('C');
     }
 
     /**
-     * Gets or sets ST
+     * Sets C attribute
      *
-     * @param  string $ST
-     * @return string|self
+     * @param  string $c
+     * @return self
      */
-    public function ST($ST = null)
+    public function setC($c)
     {
-        if(null === $ST)
-        {
-            return $this->child('ST');
-        }
-        return $this->child('ST', trim($ST));
+        return $this->setChild('C', trim($c));
     }
 
     /**
-     * Gets or sets L
+     * Gets ST attribute
      *
-     * @param  string $L
-     * @return string|self
+     * @return string
      */
-    public function L($L = null)
+    public function getSt()
     {
-        if(null === $L)
-        {
-            return $this->child('L');
-        }
-        return $this->child('L', trim($L));
+        return $this->getChild('ST');
     }
 
     /**
-     * Gets or sets O
+     * Sets ST attribute
      *
-     * @param  string $O
-     * @return string|self
+     * @param  string $st
+     * @return self
      */
-    public function O($O = null)
+    public function setSt($st)
     {
-        if(null === $O)
-        {
-            return $this->child('O');
-        }
-        return $this->child('O', trim($O));
+        return $this->setChild('ST', trim($st));
     }
 
     /**
-     * Gets or sets OU
+     * Gets L attribute
      *
-     * @param  string $OU
-     * @return string|self
+     * @return string
      */
-    public function OU($OU = null)
+    public function getL()
     {
-        if(null === $OU)
-        {
-            return $this->child('OU');
-        }
-        return $this->child('OU', trim($OU));
+        return $this->getChild('L');
     }
 
     /**
-     * Gets or sets CN
+     * Sets L attribute
      *
-     * @param  string $CN
-     * @return string|self
+     * @param  string $l
+     * @return self
      */
-    public function CN($CN = null)
+    public function setL($l)
     {
-        if(null === $CN)
-        {
-            return $this->child('CN');
-        }
-        return $this->child('CN', trim($CN));
+        return $this->setChild('L', trim($l));
     }
 
+    /**
+     * Gets O attribute
+     *
+     * @return string
+     */
+    public function getO()
+    {
+        return $this->getChild('O');
+    }
+
+    /**
+     * Sets O attribute
+     *
+     * @param  string $o
+     * @return self
+     */
+    public function setO($o)
+    {
+        return $this->setChild('O', trim($o));
+    }
+
+    /**
+     * Gets OU attribute
+     *
+     * @return string
+     */
+    public function getOu()
+    {
+        return $this->getChild('OU');
+    }
+
+    /**
+     * Sets OU attribute
+     *
+     * @param  string $ou
+     * @return self
+     */
+    public function setOu($ou)
+    {
+        return $this->setChild('OU', trim($ou));
+    }
+
+    /**
+     * Gets CN attribute
+     *
+     * @return string
+     */
+    public function getCn()
+    {
+        return $this->getChild('CN');
+    }
+
+    /**
+     * Sets CN attribute
+     *
+     * @param  string $cn
+     * @return self
+     */
+    public function setCn($cn)
+    {
+        return $this->setChild('CN', trim($cn));
+    }
 
     /**
      * Add a subjectAltName
@@ -270,9 +320,29 @@ class GenCSR extends Base
      */
     public function addSubjectAltName($subject)
     {
-        if(!empty($subject) && !$this->_subjectAltName->contains($subject))
+        if(!empty($subject) && !$this->_subjectAltNames->contains($subject))
         {
-            $this->_subjectAltName->add(trim($subject));
+            $this->_subjectAltNames->add(trim($subject));
+        }
+        return $this;
+    }
+
+    /**
+     * Sets subjectAltName sequence
+     *
+     * @param array $subjectAltNames
+     * @return self
+     */
+    public function setSubjectAltNames(array $subjectAltNames)
+    {
+        $this->_subjectAltNames = new Sequence();
+        foreach ($subjectAltNames as $subject)
+        {
+            $subject = trim($subject);
+            if(!empty($subject) && !$this->_subjectAltNames->contains($subject))
+            {
+                $this->_subjectAltNames->add($subject);
+            }
         }
         return $this;
     }
@@ -282,8 +352,8 @@ class GenCSR extends Base
      *
      * @return Sequence
      */
-    public function subjectAltName()
+    public function getSubjectAltNames()
     {
-        return $this->_subjectAltName;
+        return $this->_subjectAltNames;
     }
 }

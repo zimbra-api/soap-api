@@ -34,40 +34,52 @@ class GetShareInfo extends Base
     public function __construct(Owner $owner, Grantee $grantee = null)
     {
         parent::__construct();
-        $this->child('owner', $owner);
+        $this->setChild('owner', $owner);
         if($grantee instanceof Grantee)
         {
-            $this->child('grantee', $grantee);
+            $this->setChild('grantee', $grantee);
         }
     }
 
     /**
-     * Gets or sets owner
+     * Gets the owner.
+     *
+     * @return Owner
+     */
+    public function getOwner()
+    {
+        return $this->getChild('owner');
+    }
+
+    /**
+     * Sets the owner.
      *
      * @param  Owner $owner
-     * @return Owner|self
+     * @return self
      */
-    public function owner(Owner $owner = null)
+    public function setOwner(Owner $owner)
     {
-        if(null === $owner)
-        {
-            return $this->child('owner');
-        }
-        return $this->child('owner', $owner);
+        return $this->setChild('owner', $owner);
     }
 
     /**
-     * Gets or sets grantee
+     * Sets the grantee.
+     *
+     * @return Grantee
+     */
+    public function getGrantee()
+    {
+        return $this->getChild('grantee');
+    }
+
+    /**
+     * Sets the grantee.
      *
      * @param  Grantee $grantee
-     * @return Grantee|self
+     * @return self
      */
-    public function grantee(Grantee $grantee = null)
+    public function setGrantee(Grantee $grantee)
     {
-        if(null === $grantee)
-        {
-            return $this->child('grantee');
-        }
-        return $this->child('grantee', $grantee);
+        return $this->setChild('grantee', $grantee);
     }
 }

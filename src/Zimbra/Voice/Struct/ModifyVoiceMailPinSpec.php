@@ -25,9 +25,9 @@ class ModifyVoiceMailPinSpec extends Base
 {
     /**
      * Constructor method for ModifyVoiceMailPinSpec
-     * @param string $oldPin
-     * @param string $pin
-     * @param string $name
+     * @param string $oldPin Old PIN
+     * @param string $pin New PIN
+     * @param string $name Phone name
      * @return self
      */
     public function __construct(
@@ -37,59 +37,75 @@ class ModifyVoiceMailPinSpec extends Base
     )
     {
         parent::__construct();
-    	$this->property('oldPin', trim($oldPin));
-        $this->property('pin', trim($pin));
+    	$this->setProperty('oldPin', trim($oldPin));
+        $this->setProperty('pin', trim($pin));
         if(null !== $name)
         {
-            $this->property('name', trim($name));
+            $this->setProperty('name', trim($name));
         }
     }
 
     /**
-     * Gets or sets oldPin
+     * Gets old pin
+     *
+     * @return string
+     */
+    public function getOldPin()
+    {
+        return $this->getProperty('oldPin');
+    }
+
+    /**
+     * Sets old pin
      *
      * @param  string $oldPin
-     * @return string|self
+     * @return self
      */
-    public function oldPin($oldPin = null)
+    public function setOldPin($oldPin)
     {
-        if(null === $oldPin)
-        {
-            return $this->property('oldPin');
-        }
-        return $this->property('oldPin', trim($oldPin));
+        return $this->setProperty('oldPin', trim($oldPin));
     }
 
     /**
-     * Gets or sets pin
-     * Name of user in the backing store
+     * Gets new pin
+     *
+     * @return string
+     */
+    public function getPin()
+    {
+        return $this->getProperty('pin');
+    }
+
+    /**
+     * Sets new pin
      *
      * @param  string $pin
-     * @return string|self
+     * @return self
      */
-    public function pin($pin = null)
+    public function setPin($pin)
     {
-        if(null === $pin)
-        {
-            return $this->property('pin');
-        }
-        return $this->property('pin', trim($pin));
+        return $this->setProperty('pin', trim($pin));
     }
 
     /**
-     * Gets or sets name
-     * Account Number
+     * Gets name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->getProperty('name');
+    }
+
+    /**
+     * Sets name
      *
      * @param  string $name
-     * @return string|self
+     * @return self
      */
-    public function name($name = null)
+    public function setName($name)
     {
-        if(null === $name)
-        {
-            return $this->property('name');
-        }
-        return $this->property('name', trim($name));
+        return $this->setProperty('name', trim($name));
     }
 
     /**

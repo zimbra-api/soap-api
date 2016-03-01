@@ -43,79 +43,103 @@ class GetShareInfo extends Base
         parent::__construct();
         if($grantee instanceof Grantee)
         {
-            $this->child('grantee', $grantee);
+            $this->setChild('grantee', $grantee);
         }
         if($owner instanceof Account)
         {
-            $this->child('owner', $owner);
+            $this->setChild('owner', $owner);
         }
         if(null !== $internal)
         {
-            $this->property('internal', (bool) $internal);
+            $this->setProperty('internal', (bool) $internal);
         }
         if(null !== $includeSelf)
         {
-            $this->property('includeSelf', (bool) $includeSelf);
+            $this->setProperty('includeSelf', (bool) $includeSelf);
         }
     }
 
     /**
-     * Gets or sets grantee
+     * Gets the grantee
+     *
+     * @return Grantee
+     */
+    public function getGrantee()
+    {
+        return $this->getChild('grantee');
+    }
+
+    /**
+     * Sets the grantee
      *
      * @param  Grantee $grantee
-     * @return Grantee|self
+     * @return self
      */
-    public function grantee(Grantee $grantee = null)
+    public function setGrantee(Grantee $grantee)
     {
-        if(null === $grantee)
-        {
-            return $this->child('grantee');
-        }
-        return $this->child('grantee', $grantee);
+        return $this->setChild('grantee', $grantee);
     }
 
     /**
-     * Gets or sets owner
+     * Gets the owner
+     *
+     * @return Account
+     */
+    public function getOwner()
+    {
+        return $this->getChild('owner');
+    }
+
+    /**
+     * Sets the owner
      *
      * @param  Account $owner
-     * @return Account|self
+     * @return self
      */
-    public function owner(Account $owner = null)
+    public function setOwner(Account $owner)
     {
-        if(null === $owner)
-        {
-            return $this->child('owner');
-        }
-        return $this->child('owner', $owner);
+        return $this->setChild('owner', $owner);
     }
 
     /**
-     * Gets or sets internal
+     * Gets internal
+     *
+     * @return bool
+     */
+    public function getInternal()
+    {
+        return $this->getProperty('internal');
+    }
+
+    /**
+     * Sets internal
      *
      * @param  bool $internal
-     * @return bool|self
+     * @return self
      */
-    public function internal($internal = null)
+    public function setInternal($internal)
     {
-        if(null === $internal)
-        {
-            return $this->property('internal');
-        }
-        return $this->property('internal', (bool) $internal);
+        return $this->setProperty('internal', (bool) $internal);
     }
 
     /**
-     * Gets or sets includeSelf
+     * Gets include self
+     *
+     * @return bool
+     */
+    public function getIncludeSelf()
+    {
+        return $this->getProperty('includeSelf');
+    }
+
+    /**
+     * Sets include self
      *
      * @param  bool $includeSelf
-     * @return bool|self
+     * @return self
      */
-    public function includeSelf($includeSelf = null)
+    public function setIncludeSelf($includeSelf)
     {
-        if(null === $includeSelf)
-        {
-            return $this->property('includeSelf');
-        }
-        return $this->property('includeSelf', (bool) $includeSelf);
+        return $this->setProperty('includeSelf', (bool) $includeSelf);
     }
 }

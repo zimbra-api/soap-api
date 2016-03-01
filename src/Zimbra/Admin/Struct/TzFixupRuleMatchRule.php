@@ -33,62 +33,75 @@ class TzFixupRuleMatchRule extends Base
     public function __construct($mon, $week, $wkday)
     {
         parent::__construct();
-        $mon = in_array((int) $mon, range(1, 12)) ? (int) $mon : 1;
-        $this->property('mon', $mon);
-
-        $week = in_array((int) $week, array(1, 2, 3, 4)) ? (int) $week : -1;
-        $this->property('week', $week);
-
-        $wkday = in_array((int) $wkday, range(1, 7)) ? (int) $wkday : 1;
-        $this->property('wkday', $wkday);
+        $this->setMonth($mon)
+             ->setWeek($week)
+             ->setWeekDay($wkday);
     }
 
     /**
-     * Gets or sets mon
+     * Gets the match month
+     *
+     * @return int
+     */
+    public function getMonth()
+    {
+        return $this->getProperty('mon');
+    }
+
+    /**
+     * Sets the match month
      *
      * @param  int $mon
-     * @return int|self
+     * @return self
      */
-    public function mon($mon = null)
+    public function setMonth($mon)
     {
-        if(null === $mon)
-        {
-            return $this->property('mon');
-        }
         $mon = in_array((int) $mon, range(1, 12)) ? (int) $mon : 1;
-        return $this->property('mon', $mon);
+        return $this->setProperty('mon', $mon);
     }
 
     /**
-     * Gets or sets week
+     * Gets the match week
+     *
+     * @return int
+     */
+    public function getWeek()
+    {
+        return $this->getProperty('week');
+    }
+
+    /**
+     * Sets the match week
      *
      * @param  int $week
-     * @return int|self
+     * @return self
      */
-    public function week($week = null)
+    public function setWeek($week)
     {
-        if(null === $week)
-        {
-            return $this->property('week');
-        }
-        $week = in_array((int) $week, array(1, 2, 3, 4)) ? (int) $week : -1;
-        return $this->property('week', $week);
+        $week = in_array((int) $week, [1, 2, 3, 4]) ? (int) $week : -1;
+        return $this->setProperty('week', $week);
     }
 
     /**
-     * Gets or sets wkday
+     * Gets the match week day
+     *
+     * @return int
+     */
+    public function getWeekDay()
+    {
+        return $this->getProperty('wkday');
+    }
+
+    /**
+     * Sets the match week day
      *
      * @param  int $wkday
-     * @return int|self
+     * @return self
      */
-    public function wkday($wkday = null)
+    public function setWeekDay($wkday)
     {
-        if(null === $wkday)
-        {
-            return $this->property('wkday');
-        }
         $wkday = in_array((int) $wkday, range(1, 7)) ? (int) $wkday : 1;
-        return $this->property('wkday', $wkday);
+        return $this->setProperty('wkday', $wkday);
     }
 
     /**

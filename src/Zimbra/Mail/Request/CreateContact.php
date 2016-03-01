@@ -25,18 +25,6 @@ use Zimbra\Mail\Struct\ContactSpec;
 class CreateContact extends Base
 {
     /**
-     * Contact specification
-     * @var ContactSpec
-     */
-    private $_cn;
-
-    /**
-     * If set (defaults to unset) The returned <cn> is just a placeholder containing the new contact ID (i.e. <cn id="{id}"/>)
-     * @var bool
-     */
-    private $_verbose;
-
-    /**
      * Constructor method for CreateContact
      * @param  ContactSpec $cn
      * @param  bool $verbose
@@ -45,40 +33,52 @@ class CreateContact extends Base
     public function __construct(ContactSpec $cn, $verbose = null)
     {
         parent::__construct();
-        $this->child('cn', $cn);
+        $this->setChild('cn', $cn);
         if(null !== $verbose)
         {
-            $this->property('verbose', (bool) $verbose);
+            $this->setProperty('verbose', (bool) $verbose);
         }
     }
 
     /**
-     * Get or set cn
+     * Gets contact specification
+     *
+     * @return ContactSpec
+     */
+    public function getContact()
+    {
+        return $this->getChild('cn');
+    }
+
+    /**
+     * Sets contact specification
      *
      * @param  ContactSpec $cn
-     * @return ContactSpec|self
+     * @return self
      */
-    public function cn(ContactSpec $cn = null)
+    public function setContact(ContactSpec $cn)
     {
-        if(null === $cn)
-        {
-            return $this->child('cn');
-        }
-        return $this->child('cn', $cn);
+        return $this->setChild('cn', $cn);
     }
 
     /**
-     * Get or set verbose
+     * Gets verbose
+     *
+     * @return bool
+     */
+    public function getVerbose()
+    {
+        return $this->getProperty('verbose');
+    }
+
+    /**
+     * Sets verbose
      *
      * @param  bool $verbose
-     * @return bool|self
+     * @return self
      */
-    public function verbose($verbose = null)
+    public function setVerbose($verbose)
     {
-        if(null === $verbose)
-        {
-            return $this->property('verbose');
-        }
-        return $this->property('verbose', (bool) $verbose);
+        return $this->setProperty('verbose', (bool) $verbose);
     }
 }

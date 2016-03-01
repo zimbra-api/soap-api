@@ -11,8 +11,7 @@
 namespace Zimbra\Soap\Request;
 
 use Zimbra\Soap\Request;
-use Zimbra\Struct\KeyValuePair;
-use Zimbra\Common\TypedSequence;
+use Zimbra\Struct\AttrsImplTrait;
 
 /**
  * Attr class in Zimbra API PHP, not to be instantiated.
@@ -24,50 +23,17 @@ use Zimbra\Common\TypedSequence;
  */
 abstract class Attr extends Request
 {
-    /**
-     * Attributes specified as key value pairs
-     * @var Sequence
-     */
-    private $_attr;
-
-    /**
-     * Attr request constructor
-     * @param array  $attrs
-     * @return self
-     */
-    public function __construct(array $attrs = array())
-    {
-        parent::__construct();
-        $this->_attr = new TypedSequence('Zimbra\Struct\KeyValuePair', $attrs);
-
-        $this->on('before', function(Request $sender)
-        {
-            if(count($sender->attr()))
-            {
-                $sender->child('a', $sender->attr()->all());
-            }
-        });
+    use AttrsImplTrait {
+        AttrsImplTrait::__construct as private __attrConstruct;
     }
 
     /**
-     * Add an attr
-     *
-     * @param  KeyValuePair $attr
+     * Constructor method for AttrsImpl
+     * @param array $attrs
      * @return self
      */
-    public function addAttr(KeyValuePair $attr)
+    public function __construct(array $attrs = [])
     {
-        $this->_attr->add($attr);
-        return $this;
-    }
-
-    /**
-     * Gets attr sequence
-     *
-     * @return Sequence
-     */
-    public function attr()
-    {
-        return $this->_attr;
+        $this->__attrConstruct($attrs);
     }
 }

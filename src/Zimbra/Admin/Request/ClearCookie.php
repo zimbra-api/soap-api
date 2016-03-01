@@ -29,23 +29,23 @@ class ClearCookie extends Base
      * Specifies cookies to clean
      * @var TypedSequence<CookieSpec>
      */
-    private $_cookie;
+    private $_cookies;
 
     /**
      * Constructor method for ClearCookie
-     * @param array $cookie
+     * @param array $cookies
      * @return self
      */
-    public function __construct(array $cookie = array())
+    public function __construct(array $cookies = [])
     {
         parent::__construct();
-        $this->_cookie = new TypedSequence('Zimbra\Admin\Struct\CookieSpec', $cookie);
+        $this->setCookies($cookies);
 
         $this->on('before', function(Base $sender)
         {
-            if($sender->cookie()->count())
+            if($sender->getCookies()->count())
             {
-                $sender->child('cookie', $sender->cookie()->all());
+                $sender->setChild('cookie', $sender->getCookies()->all());
             }
         });
     }
@@ -58,7 +58,19 @@ class ClearCookie extends Base
      */
     public function addCookie(Cookie $cookie)
     {
-        $this->_cookie->add($cookie);
+        $this->_cookies->add($cookie);
+        return $this;
+    }
+
+    /**
+     * Sets cookie sequence
+     *
+     * @param array $cookies
+     * @return Sequence
+     */
+    public function setCookies(array $cookies)
+    {
+        $this->_cookies = new TypedSequence('Zimbra\Admin\Struct\CookieSpec', $cookies);
         return $this;
     }
 
@@ -67,8 +79,8 @@ class ClearCookie extends Base
      *
      * @return Sequence
      */
-    public function cookie()
+    public function getCookies()
     {
-        return $this->_cookie;
+        return $this->_cookies;
     }
 }

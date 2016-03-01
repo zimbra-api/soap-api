@@ -32,38 +32,50 @@ class IdStatus extends Base
     public function __construct($id = null, $status = null)
     {
         parent::__construct();
-        $this->property('id', trim($id));
-        $this->property('status', trim($status));
+        $this->setProperty('id', trim($id));
+        $this->setProperty('status', trim($status));
     }
 
     /**
-     * Gets or sets id
+     * Gets Zimbra ID
+     *
+     * @return string
+     */
+    public function getId()
+    {
+        return $this->getProperty('id');
+    }
+
+    /**
+     * Sets Zimbra ID
      *
      * @param  string $id
-     * @return string|self
+     * @return self
      */
-    public function id($id = null)
+    public function setId($id)
     {
-        if(null === $id)
-        {
-            return $this->property('id');
-        }
-        return $this->property('id', trim($id));
+        return $this->setProperty('id', trim($id));
     }
 
     /**
-     * Gets or sets status
+     * Gets status
+     *
+     * @return string
+     */
+    public function getStatus()
+    {
+        return $this->getProperty('status');
+    }
+
+    /**
+     * Sets status
      *
      * @param  string $status
-     * @return string|self
+     * @return self
      */
-    public function status($status = null)
+    public function setStatus($status)
     {
-        if(null === $status)
-        {
-            return $this->property('status');
-        }
-        return $this->property('status', trim($status));
+        return $this->setProperty('status', trim($status));
     }
 
     /**

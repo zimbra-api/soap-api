@@ -21,7 +21,7 @@ use Zimbra\Struct\Base;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
  */
-class CallForwardReq extends Base
+class CallForwardReq extends Base implements CallFeatureReq
 {
     /**
      * Returns the array representation of this class 

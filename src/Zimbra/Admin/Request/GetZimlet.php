@@ -11,6 +11,8 @@
 namespace Zimbra\Admin\Request;
 
 use Zimbra\Struct\NamedElement as Zimlet;
+use Zimbra\Struct\AttributeSelectorTrait;
+use Zimbra\Struct\AttributeSelector;
 
 /**
  * GetZimlet request class
@@ -22,51 +24,50 @@ use Zimbra\Struct\NamedElement as Zimlet;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
  */
-class GetZimlet extends Base
+class GetZimlet extends Base implements AttributeSelector
 {
+    use AttributeSelectorTrait;
+
     /**
      * Constructor method for GetZimlet
      * @param  Zimlet $zimlet Zimlet selector
      * @param  string $attrs Comma separated list of attributes
      * @return self
      */
-    public function __construct(Zimlet $zimlet, $attrs = null)
+    public function __construct(Zimlet $zimlet, array $attrs = [])
     {
         parent::__construct();
-        $this->child('zimlet', $zimlet);
-        if(null !== $attrs)
+        $this->setChild('zimlet', $zimlet);
+
+        $this->setAttrs($attrs);
+        $this->on('before', function(Base $sender)
         {
-            $this->property('attrs', trim($attrs));
-        }
+            $attrs = $sender->getAttrs();
+            if(!empty($attrs))
+            {
+                $sender->setProperty('attrs', $attrs);
+            }
+        });
     }
 
     /**
-     * Gets or sets zimlet
+     * Gets the zimlet.
+     *
+     * @return Zimlet
+     */
+    public function getZimlet()
+    {
+        return $this->getChild('zimlet');
+    }
+
+    /**
+     * Sets the zimlet.
      *
      * @param  Zimlet $zimlet
-     * @return Zimlet|self
+     * @return self
      */
-    public function zimlet(Zimlet $zimlet = null)
+    public function setZimlet(Zimlet $zimlet)
     {
-        if(null === $zimlet)
-        {
-            return $this->child('zimlet');
-        }
-        return $this->child('zimlet', $zimlet);
-    }
-
-    /**
-     * Gets or sets attrs
-     *
-     * @param  string $attrs
-     * @return string|self
-     */
-    public function attrs($attrs = null)
-    {
-        if(null === $attrs)
-        {
-            return $this->property('attrs');
-        }
-        return $this->property('attrs', trim($attrs));
+        return $this->setChild('zimlet', $zimlet);
     }
 }

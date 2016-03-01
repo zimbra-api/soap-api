@@ -42,96 +42,128 @@ class SearchGal extends Base
     )
     {
         parent::__construct();
-        $this->property('domain', trim($domain));
+        $this->setProperty('domain', trim($domain));
         if(null !== $name)
         {
-            $this->property('name', trim($name));
+            $this->setProperty('name', trim($name));
         }
         if(null !== $limit)
         {
-            $this->property('limit', (int) $limit);
+            $this->setProperty('limit', (int) $limit);
         }
         if($type instanceof GalSearchType)
         {
-            $this->property('type', $type);
+            $this->setProperty('type', $type);
         }
         if(null !== $galAcctId)
         {
-            $this->property('galAcctId', trim($galAcctId));
+            $this->setProperty('galAcctId', trim($galAcctId));
         }
     }
+
+
     /**
-     * Gets or sets domain
+     * Gets domain
+     *
+     * @return string
+     */
+    public function getDomain()
+    {
+        return $this->getProperty('domain');
+    }
+
+    /**
+     * Sets domain
      *
      * @param  string $domain
-     * @return string|self
+     * @return self
      */
-    public function domain($domain = null)
+    public function setDomain($domain)
     {
-        if(null === $domain)
-        {
-            return $this->property('domain');
-        }
-        return $this->property('domain', trim($domain));
+        return $this->setProperty('domain', trim($domain));
     }
 
     /**
-     * Gets or sets name
+     * Gets name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->getProperty('name');
+    }
+
+    /**
+     * Sets name
      *
      * @param  string $name
-     * @return string|self
+     * @return self
      */
-    public function name($name = null)
+    public function setName($name)
     {
-        if(null === $name)
-        {
-            return $this->property('name');
-        }
-        return $this->property('name', trim($name));
+        return $this->setProperty('name', trim($name));
     }
 
     /**
-     * Gets or sets limit
+     * Gets limit
+     *
+     * @return int
+     */
+    public function getLimit()
+    {
+        return $this->getProperty('limit');
+    }
+
+    /**
+     * Sets limit
      *
      * @param  int $limit
-     * @return int|self
+     * @return self
      */
-    public function limit($limit = null)
+    public function setLimit($limit)
     {
-        if(null === $limit)
-        {
-            return $this->property('limit');
-        }
-        return $this->property('limit', (int) $limit);
+        return $this->setProperty('limit', (int) $limit);
     }
 
     /**
-     * Gets or sets type
+     * Gets type
+     *
+     * @return GalSearchType
+     */
+    public function getType()
+    {
+        return $this->getProperty('type');
+    }
+
+    /**
+     * Sets type
      *
      * @param  GalSearchType $type
-     * @return GalSearchType|self
+     * @return self
      */
-    public function type(GalSearchType $type = null)
+    public function setType(GalSearchType $type)
     {
-        if(null === $type)
-        {
-            return $this->property('type');
-        }
-        return $this->property('type', $type);
+        return $this->setProperty('type', $type);
     }
 
     /**
-     * Gets or sets galAcctId
+     * Gets galAcctId
+     *
+     * @return string
+     */
+    public function getGalAccounttId()
+    {
+        return $this->getProperty('galAcctId');
+    }
+
+    /**
+     * Sets galAcctId
      *
      * @param  string $galAcctId
-     * @return string|self
+     * @return self
      */
-    public function galAcctId($galAcctId = null)
+    public function setGalAccounttId($galAcctId)
     {
-        if(null === $galAcctId)
-        {
-            return $this->property('galAcctId');
-        }
-        return $this->property('galAcctId', trim($galAcctId));
+        return $this->setProperty('galAcctId', trim($galAcctId));
     }
 }

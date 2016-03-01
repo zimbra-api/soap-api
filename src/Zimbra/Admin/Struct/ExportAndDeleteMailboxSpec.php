@@ -29,7 +29,7 @@ class ExportAndDeleteMailboxSpec extends Base
      * Items
      * @var TypedSequence
      */
-    private $_item = array();
+    private $_items;
 
     /**
      * Constructor method for ExportAndDeleteMailboxSpec
@@ -37,36 +37,40 @@ class ExportAndDeleteMailboxSpec extends Base
      * @param  int $items Items
      * @return self
      */
-    public function __construct($id, array $items = array())
+    public function __construct($id, array $items = [])
     {
         parent::__construct();
-        $this->property('id', (int) $id);
-        $this->_item = new TypedSequence(
-            'Zimbra\Admin\Struct\ExportAndDeleteItemSpec', $items
-        );
+        $this->setProperty('id', (int) $id);
+        $this->setItems($items);
 
         $this->on('before', function(Base $sender)
         {
-            if($sender->item()->count())
+            if($sender->getItems()->count())
             {
-                $sender->child('item', $sender->item()->all());
+                $sender->setChild('item', $sender->getItems()->all());
             }
         });
     }
 
     /**
-     * Gets or sets id
+     * Gets ID
+     *
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->getProperty('id');
+    }
+
+    /**
+     * Sets ID
      *
      * @param  int $id
-     * @return int|self
+     * @return self
      */
-    public function id($id = null)
+    public function setId($id)
     {
-        if(null === $id)
-        {
-            return $this->property('id');
-        }
-        return $this->property('id', (int) $id);
+        return $this->setProperty('id', (int) $id);
     }
 
     /**
@@ -77,7 +81,21 @@ class ExportAndDeleteMailboxSpec extends Base
      */
     public function addItem(ItemSpec $item)
     {
-        $this->_item->add($item);
+        $this->_items->add($item);
+        return $this;
+    }
+
+    /**
+     * Sets item sequence
+     *
+     * @param  int $items Items
+     * @return self
+     */
+    public function setItems(array $items)
+    {
+        $this->_items = new TypedSequence(
+            'Zimbra\Admin\Struct\ExportAndDeleteItemSpec', $items
+        );
         return $this;
     }
 
@@ -86,9 +104,9 @@ class ExportAndDeleteMailboxSpec extends Base
      *
      * @return Sequence
      */
-    public function item()
+    public function getItems()
     {
-        return $this->_item;
+        return $this->_items;
     }
 
     /**

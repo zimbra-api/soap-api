@@ -26,13 +26,15 @@ use Zimbra\Struct\CursorInfo;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
  */
-class Search extends MailSearchParams
+class Search extends Base
 {
+    use MailSearchParams;
+
     /**
      * Constructor method for Search
      * @param  bool $warmup
      * @param  string $query
-     * @param  array $header
+     * @param  array $headers
      * @param  CalTZInfo $tz
      * @param  string $locale
      * @param  CursorInfo $cursor
@@ -55,6 +57,7 @@ class Search extends MailSearchParams
      * @param  bool $recip
      * @param  bool $prefetch
      * @param  string $resultMode
+     * @param  bool $fullConversation
      * @param  string $field
      * @param  int $limit
      * @param  int $offset
@@ -63,7 +66,7 @@ class Search extends MailSearchParams
     public function __construct(
         $warmup = null,
         $query = null,
-        array $header = array(),
+        array $headers = [],
         CalTZInfo $tz = null,
         $locale = null,
         CursorInfo $cursor = null,
@@ -86,63 +89,154 @@ class Search extends MailSearchParams
         $recip = null,
         $prefetch = null,
         $resultMode = null,
+        $fullConversation = null,
         $field = null,
         $limit = null,
         $offset = null
     )
     {
-        parent::__construct(
-            $query,
-            $header,
-            $tz,
-            $locale,
-            $cursor,
-            $includeTagDeleted,
-            $includeTagMuted,
-            $allowableTaskStatus,
-            $calExpandInstStart,
-            $calExpandInstEnd,
-            $inDumpster,
-            $types,
-            $groupBy,
-            $quick,
-            $sortBy,
-            $fetch,
-            $read,
-            $max,
-            $html,
-            $needExp,
-            $neuter,
-            $recip,
-            $prefetch,
-            $resultMode,
-            $field,
-            $limit,
-            $offset
-        );
+        parent::__construct();
         if(null !== $warmup)
         {
-            $this->property('warmup', (bool) $warmup);
+            $this->setProperty('warmup', (bool) $warmup);
         }
+        if(null !== $query)
+        {
+            $this->setChild('query', trim($query));
+        }
+        $this->setHeaders($headers);
+        if($tz instanceof CalTZInfo)
+        {
+            $this->setChild('tz', $tz);
+        }
+        if(null !== $locale)
+        {
+            $this->setChild('locale', trim($locale));
+        }
+        if($cursor instanceof CursorInfo)
+        {
+            $this->setChild('cursor', $cursor);
+        }
+        if(null !== $includeTagDeleted)
+        {
+            $this->setProperty('includeTagDeleted', (bool) $includeTagDeleted);
+        }
+        if(null !== $includeTagMuted)
+        {
+            $this->setProperty('includeTagMuted', (bool) $includeTagMuted);
+        }
+        if(null !== $allowableTaskStatus)
+        {
+            $this->setProperty('allowableTaskStatus', trim($allowableTaskStatus));
+        }
+        if(null !== $calExpandInstStart)
+        {
+            $this->setProperty('calExpandInstStart', (int) $calExpandInstStart);
+        }
+        if(null !== $calExpandInstEnd)
+        {
+            $this->setProperty('calExpandInstEnd', (int) $calExpandInstEnd);
+        }
+        if(null !== $inDumpster)
+        {
+            $this->setProperty('inDumpster', (bool) $inDumpster);
+        }
+        if(null !== $types)
+        {
+            $this->setProperty('types', trim($types));
+        }
+        if(null !== $groupBy)
+        {
+            $this->setProperty('groupBy', trim($groupBy));
+        }
+        if(null !== $quick)
+        {
+            $this->setProperty('quick', (bool) $quick);
+        }
+        if($sortBy instanceof SortBy)
+        {
+            $this->setProperty('sortBy', $sortBy);
+        }
+        if(null !== $fetch)
+        {
+            $this->setProperty('fetch', trim($fetch));
+        }
+        if(null !== $read)
+        {
+            $this->setProperty('read', (bool) $read);
+        }
+        if(null !== $max)
+        {
+            $this->setProperty('max', (int) $max);
+        }
+        if(null !== $html)
+        {
+            $this->setProperty('html', (bool) $html);
+        }
+        if(null !== $needExp)
+        {
+            $this->setProperty('needExp', (bool) $needExp);
+        }
+        if(null !== $neuter)
+        {
+            $this->setProperty('neuter', (bool) $neuter);
+        }
+        if(null !== $recip)
+        {
+            $this->setProperty('recip', (bool) $recip);
+        }
+        if(null !== $prefetch)
+        {
+            $this->setProperty('prefetch', (bool) $prefetch);
+        }
+        if(null !== $resultMode)
+        {
+            $this->setProperty('resultMode', trim($resultMode));
+        }
+        if(null !== $fullConversation)
+        {
+            $this->setProperty('fullConversation', (bool) $fullConversation);
+        }
+        if(null !== $field)
+        {
+            $this->setProperty('field', trim($field));
+        }
+        if(null !== $limit)
+        {
+            $this->setProperty('limit', (int) $limit);
+        }
+        if(null !== $offset)
+        {
+            $this->setProperty('offset', (int) $offset);
+        }
+
+        $this->on('before', function(Base $sender)
+        {
+            if($sender->getHeaders()->count())
+            {
+                $sender->setChild('header', $sender->getHeaders()->all());
+            }
+        });
     }
 
     /**
-     * Get or set warmup
-     * Warmup: When this option is specified, all other options are simply ignored, so you can't include this option in regular search requests.
-     * This option gives a hint to the index system to open the index data and primes it for search.
-     * The client should send this warm-up request as soon as the user puts the cursor on the search bar.
-     * This will not only prime the index but also opens a persistent HTTP connection (HTTP 1.1 Keep-Alive) to the server, hence smaller latencies in subseqent search requests.
-     * Sending this warm-up request too early (e.g. login time) will be in vain in most cases because the index data is evicted from the cache due to inactivity timeout by the time you actually send a search request.
+     * Gets warmup
+     *
+     * @return bool
+     */
+    public function getWarmup()
+    {
+        return $this->getProperty('warmup');
+    }
+
+    /**
+     * Sets warmup
      *
      * @param  bool $warmup
-     * @return bool|self
+     * @return self
      */
-    public function warmup($warmup = null)
+    public function setWarmup($warmup)
     {
-        if(null === $warmup)
-        {
-            return $this->property('warmup');
-        }
-        return $this->property('warmup', (bool) $warmup);
+        return $this->setProperty('warmup', (bool) $warmup);
     }
 }

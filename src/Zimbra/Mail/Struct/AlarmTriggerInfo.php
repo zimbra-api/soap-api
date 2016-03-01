@@ -34,42 +34,54 @@ class AlarmTriggerInfo extends Base
         parent::__construct();
         if($abs instanceof DateAttr)
         {
-            $this->child('abs', $abs);
+            $this->setChild('abs', $abs);
         }
         if($rel instanceof DurationInfo)
         {
-            $this->child('rel', $rel);
+            $this->setChild('rel', $rel);
         }
     }
 
     /**
-     * Gets or sets abs
+     * Gets absolute trigger information
      *
-     * @param  DateAttr $abs
-     * @return DateAttr|self
+     * @return DateAttr
      */
-    public function abs(DateAttr $abs = null)
+    public function getAbsolute()
     {
-        if(null === $abs)
-        {
-            return $this->child('abs');
-        }
-        return $this->child('abs', $abs);
+        return $this->getChild('abs');
     }
 
     /**
-     * Gets or sets rel
+     * Sets absolute trigger information
      *
-     * @param  DurationInfo $rel
-     * @return DurationInfo|self
+     * @param  DateAttr $absolute
+     * @return self
      */
-    public function rel(DurationInfo $rel = null)
+    public function setAbsolute(DateAttr $absolute)
     {
-        if(null === $rel)
-        {
-            return $this->child('rel');
-        }
-        return $this->child('rel', $rel);
+        return $this->setChild('abs', $absolute);
+    }
+
+    /**
+     * Gets relative trigger information
+     *
+     * @return DurationInfo
+     */
+    public function getRelative()
+    {
+        return $this->getChild('rel');
+    }
+
+    /**
+     * Sets relative trigger information
+     *
+     * @param  DurationInfo $relative
+     * @return self
+     */
+    public function setRelative(DurationInfo $relative)
+    {
+        return $this->setChild('rel', $relative);
     }
 
     /**

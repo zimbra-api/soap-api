@@ -28,153 +28,173 @@ class GetFolder extends Base
 {
     /**
      * Constructor method for GetFolder
-     * @param  GetFolderSpec $folder
-     * @param  bool $visible
+     * @param  bool $isVisible
      * @param  bool $needGranteeName
-     * @param  string $view
-     * @param  int $depth
-     * @param  bool $tr
+     * @param  string $viewConstraint
+     * @param  int $treeDepth
+     * @param  bool $traverseMountpoints
+     * @param  GetFolderSpec $folder
      * @return self
      */
     public function __construct(
-        GetFolderSpec $folder = null,
-        $visible = null,
+        $isVisible = null,
         $needGranteeName = null,
-        $view = null,
-        $depth = null,
-        $tr = null
+        $viewConstraint = null,
+        $treeDepth = null,
+        $traverseMountpoints = null,
+        GetFolderSpec $folder = null
     )
     {
         parent::__construct();
-        if($folder instanceof GetFolderSpec)
+        if(null !== $isVisible)
         {
-            $this->child('folder', $folder);
-        }
-        if(null !== $visible)
-        {
-            $this->property('visible', (bool) $visible);
+            $this->setProperty('visible', (bool) $isVisible);
         }
         if(null !== $needGranteeName)
         {
-            $this->property('needGranteeName', (bool) $needGranteeName);
+            $this->setProperty('needGranteeName', (bool) $needGranteeName);
         }
-        if(null !== $view)
+        if(null !== $viewConstraint)
         {
-            $this->property('view', trim($view));
+            $this->setProperty('view', trim($viewConstraint));
         }
-        if(null !== $depth)
+        if(null !== $treeDepth)
         {
-            $this->property('depth', (int) $depth);
+            $this->setProperty('depth', (int) $treeDepth);
         }
-        if(null !== $tr)
+        if(null !== $traverseMountpoints)
         {
-            $this->property('tr', (bool) $tr);
+            $this->setProperty('tr', (bool) $traverseMountpoints);
+        }
+        if($folder instanceof GetFolderSpec)
+        {
+            $this->setChild('folder', $folder);
         }
     }
 
     /**
-     * Get or set folder
+     * Gets is visible
      *
-     * @param  GetFolderSpec $folder
-     * @return GetFolderSpec|self
+     * @return bool
      */
-    public function folder(GetFolderSpec $folder = null)
+    public function getIsVisible()
     {
-        if(null === $folder)
-        {
-            return $this->child('folder');
-        }
-        return $this->child('folder', $folder);
+        return $this->getProperty('visible');
     }
 
     /**
-     * Get or set visible
-     * If set we include all visible subfolders of the specified folder.
-     * When you have full rights on the mailbox, this is indistinguishable from the normal <GetFolderResponse> 
-     * When you don't:
-     *   - folders you can see appear normally,
-     *   - folders you can't see (and can't see any subfolders) are omitted
-     *   - folders you can't see (but *can* see >=1 subfolder) appear as <folder id="{id}" name="{name}"> hierarchy placeholders
+     * Sets is visible
      *
-     * @param  bool $visible
-     * @return bool|self
+     * @param  bool $isVisible
+     * @return self
      */
-    public function visible($visible = null)
+    public function setIsVisible($isVisible)
     {
-        if(null === $visible)
-        {
-            return $this->property('visible');
-        }
-        return $this->property('visible', (bool) $visible);
+        return $this->setProperty('visible', (bool) $isVisible);
     }
 
     /**
-     * Get or set needGranteeName
-     * If set then grantee names are supplied in the d attribute in <grant>.
-     * Default: unset
+     * Gets need grantee name
+     *
+     * @return bool
+     */
+    public function getNeedGranteeName()
+    {
+        return $this->getProperty('needGranteeName');
+    }
+
+    /**
+     * Sets is need grantee name
      *
      * @param  bool $needGranteeName
-     * @return bool|self
+     * @return self
      */
-    public function needGranteeName($needGranteeName = null)
+    public function setNeedGranteeName($needGranteeName)
     {
-        if(null === $needGranteeName)
-        {
-            return $this->property('needGranteeName');
-        }
-        return $this->property('needGranteeName', (bool) $needGranteeName);
+        return $this->setProperty('needGranteeName', (bool) $needGranteeName);
     }
 
     /**
-     * Get or set view
-     * If "view" is set then only the folders with matching view will be returned.
-     * Otherwise folders with any default views will be returned.
+     * Gets view constraint
      *
-     * @param  string $view
-     * @return string|self
+     * @return string
      */
-    public function view($view = null)
+    public function getViewConstraint()
     {
-        if(null === $view)
-        {
-            return $this->property('view');
-        }
-        return $this->property('view', trim($view));
+        return $this->getProperty('view');
     }
 
     /**
-     * Get or set depth
-     * If "depth" is set to a non-negative number, we include that many levels of subfolders in the response.
-     * (so if depth="1", we'll include only the folder and its direct subfolders)
-     * If depth is missing or negative, the entire folder hierarchy is returned
+     * Sets view constraint
      *
-     * @param  int $depth
-     * @return int|self
+     * @param  string $viewConstraint
+     * @return self
      */
-    public function depth($depth = null)
+    public function setViewConstraint($viewConstraint)
     {
-        if(null === $depth)
-        {
-            return $this->property('depth');
-        }
-        return $this->property('depth', (int) $depth);
+        return $this->setProperty('view', trim($viewConstraint));
     }
 
     /**
-     * Get or set tr
-     * If true, one level of mountpoints are traversed and the target folder's counts are applied to the local mountpoint.
-     * If the root folder as referenced by {base-folder-id} and/or {fully-qualified-path} is a mountpoint, "tr" is regarded as being automatically set.
-     * Mountpoints under mountpoints are not themselves expanded.
+     * Gets treeDepth
      *
-     * @param  bool $tr
-     * @return bool|self
+     * @return int
      */
-    public function tr($tr = null)
+    public function getTreeDepth()
     {
-        if(null === $tr)
-        {
-            return $this->property('tr');
-        }
-        return $this->property('tr', (bool) $tr);
+        return $this->getProperty('depth');
+    }
+
+    /**
+     * Sets treeDepth
+     *
+     * @param  int $treeDepth
+     * @return self
+     */
+    public function setTreeDepth($treeDepth)
+    {
+        return $this->setProperty('depth', (int) $treeDepth);
+    }
+
+    /**
+     * Gets traverse mountpoints
+     *
+     * @return bool
+     */
+    public function getTraverseMountpoints()
+    {
+        return $this->getProperty('tr');
+    }
+
+    /**
+     * Sets traverse mountpoints
+     *
+     * @param  bool $traverseMountpoints
+     * @return self
+     */
+    public function setTraverseMountpoints($traverseMountpoints)
+    {
+        return $this->setProperty('tr', (bool) $traverseMountpoints);
+    }
+
+    /**
+     * Gets folder specification
+     *
+     * @return GetFolderSpec
+     */
+    public function getFolder()
+    {
+        return $this->getChild('folder');
+    }
+
+    /**
+     * Sets folder specification
+     *
+     * @param  GetFolderSpec $folder
+     * @return self
+     */
+    public function setFolder(GetFolderSpec $folder)
+    {
+        return $this->setChild('folder', $folder);
     }
 }

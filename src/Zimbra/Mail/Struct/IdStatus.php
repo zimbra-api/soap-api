@@ -34,42 +34,54 @@ class IdStatus extends Base
         parent::__construct();
         if(null !== $id)
         {
-            $this->property('id', trim($id));
+            $this->setProperty('id', trim($id));
         }
         if(null !== $status)
         {
-            $this->property('status', trim($status));
+            $this->setProperty('status', trim($status));
         }
     }
 
     /**
-     * Gets or sets id
+     * Gets id
+     *
+     * @return string
+     */
+    public function getId()
+    {
+        return $this->getProperty('id');
+    }
+
+    /**
+     * Sets id
      *
      * @param  string $id
-     * @return string|self
+     * @return self
      */
-    public function id($id = null)
+    public function setId($id)
     {
-        if(null === $id)
-        {
-            return $this->property('id');
-        }
-        return $this->property('id', trim($id));
+        return $this->setProperty('id', trim($id));
     }
 
     /**
-     * Gets or sets status
+     * Gets status
+     *
+     * @return string
+     */
+    public function getStatus()
+    {
+        return $this->getProperty('status');
+    }
+
+    /**
+     * Sets status
      *
      * @param  string $status
-     * @return string|self
+     * @return self
      */
-    public function status($status = null)
+    public function setStatus($status)
     {
-        if(null === $status)
-        {
-            return $this->property('status');
-        }
-        return $this->property('status', trim($status));
+        return $this->setProperty('status', trim($status));
     }
 
     /**

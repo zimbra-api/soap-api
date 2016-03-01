@@ -32,22 +32,27 @@ class CreateTag extends Base
     public function __construct(TagSpec $tag)
     {
         parent::__construct();
-        $this->child('tag', $tag);
+        $this->setChild('tag', $tag);
     }
 
     /**
-     * Get or set tag
-     * Tag specification
+     * Gets tag specification
+     *
+     * @return TagSpec
+     */
+    public function getTag()
+    {
+        return $this->getChild('tag');
+    }
+
+    /**
+     * Sets tag specification
      *
      * @param  TagSpec $tag
-     * @return TagSpec|self
+     * @return self
      */
-    public function tag(TagSpec $tag = null)
+    public function setTag(TagSpec $tag)
     {
-        if(null === $tag)
-        {
-            return $this->child('tag');
-        }
-        return $this->child('tag', $tag);
+        return $this->setChild('tag', $tag);
     }
 }

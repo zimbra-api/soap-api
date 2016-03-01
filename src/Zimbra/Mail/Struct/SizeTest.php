@@ -24,57 +24,70 @@ class SizeTest extends FilterTest
     /**
      * Constructor method for SizeTest
      * @param int $index
-     * @param string $numberComparison
-     * @param string $s
+     * @param string $numberComparison Number comparison setting - over|under
+     * @param string $size Size value
+     *    Value can be specified in bytes (no suffix), kilobytes (50K), megabytes (50M) or gigabytes (2G)
      * @return self
      */
     public function __construct(
         $index,
         $numberComparison = null,
-        $s = null,
+        $size = null,
         $negative = null
     )
     {
         parent::__construct($index, $negative);
         if(null !== $numberComparison)
         {
-            $this->property('numberComparison', trim($numberComparison));
+            $this->setProperty('numberComparison', trim($numberComparison));
         }
         $this->_numberComparison = trim($numberComparison);
-        if(null !== $s)
+        if(null !== $size)
         {
-            $this->property('s', trim($s));
+            $this->setProperty('s', trim($size));
         }
     }
 
     /**
-     * Gets or sets numberComparison
+     * Gets number comparison setting
+     *
+     * @return string
+     */
+    public function getNumberComparison()
+    {
+        return $this->getProperty('numberComparison');
+    }
+
+    /**
+     * Sets number comparison setting
      *
      * @param  string $numberComparison
-     * @return string|self
+     * @return self
      */
-    public function numberComparison($numberComparison = null)
+    public function setNumberComparison($numberComparison)
     {
-        if(null === $numberComparison)
-        {
-            return $this->property('numberComparison');
-        }
-        return $this->property('numberComparison', trim($numberComparison));
+        return $this->setProperty('numberComparison', trim($numberComparison));
     }
 
     /**
-     * Gets or sets s
+     * Gets size
+     *
+     * @return string
+     */
+    public function getSize()
+    {
+        return $this->getProperty('s');
+    }
+
+    /**
+     * Sets size
      *
      * @param  string $s
-     * @return string|self
+     * @return self
      */
-    public function s($s = null)
+    public function setSize($s)
     {
-        if(null === $s)
-        {
-            return $this->property('s');
-        }
-        return $this->property('s', trim($s));
+        return $this->setProperty('s', trim($s));
     }
 
     /**

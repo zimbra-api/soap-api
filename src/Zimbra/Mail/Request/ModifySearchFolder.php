@@ -26,27 +26,33 @@ class ModifySearchFolder extends Base
 {
     /**
      * Constructor method for ModifySearchFolder
-     * @param  ModifySearchFolderSpec $search
+     * @param  ModifySearchFolderSpec $searchFolder
      * @return self
      */
-    public function __construct(ModifySearchFolderSpec $search)
+    public function __construct(ModifySearchFolderSpec $searchFolder)
     {
         parent::__construct();
-        $this->child('search', $search);
+        $this->setChild('search', $searchFolder);
     }
 
     /**
-     * Get or set search
+     * Gets specification of search folder modifications
      *
-     * @param  ModifySearchFolderSpec $search
-     * @return ModifySearchFolderSpec|self
+     * @return ModifySearchFolderSpec
      */
-    public function search(ModifySearchFolderSpec $search = null)
+    public function getSearchFolder()
     {
-        if(null === $search)
-        {
-            return $this->child('search');
-        }
-        return $this->child('search', $search);
+        return $this->getChild('search');
+    }
+
+    /**
+     * Sets specification of search folder modifications
+     *
+     * @param  ModifySearchFolderSpec $searchFolder
+     * @return self
+     */
+    public function setSearchFolder(ModifySearchFolderSpec $searchFolder)
+    {
+        return $this->setChild('search', $searchFolder);
     }
 }

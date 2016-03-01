@@ -30,21 +30,27 @@ class SendDeliveryReport extends Base
     public function __construct($mid)
     {
         parent::__construct();
-        $this->property('mid', trim($mid));
+        $this->setProperty('mid', trim($mid));
     }
 
     /**
-     * Get or set mid
+     * Gets message Id
      *
-     * @param  string $mid
-     * @return string|self
+     * @return string
      */
-    public function mid($mid = null)
+    public function getMessageId()
     {
-        if(null === $mid)
-        {
-            return $this->property('mid');
-        }
-        return $this->property('mid', trim($mid));
+        return $this->getProperty('mid');
+    }
+
+    /**
+     * Sets message Id
+     *
+     * @param  string $messageId
+     * @return self
+     */
+    public function setMessageId($messageId)
+    {
+        return $this->setProperty('mid', trim($messageId));
     }
 }

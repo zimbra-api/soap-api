@@ -26,27 +26,33 @@ class DeleteSignature extends Base
 {
     /**
      * Constructor method for DeleteSignature
-     * @param NameId $identity The signature to delete
+     * @param NameId $signature The signature to delete
      * @return self
      */
     public function __construct(NameId $signature)
     {
         parent::__construct();
-        $this->child('signature', $signature);
+        $this->setChild('signature', $signature);
     }
 
     /**
-     * Gets or sets signature
+     * Gets the signature
+     *
+     * @return Signature
+     */
+    public function getSignature()
+    {
+        return $this->getChild('signature');
+    }
+
+    /**
+     * Sets the signature
      *
      * @param  NameId $signature
-     * @return NameId|self
+     * @return self
      */
-    public function signature(NameId $signature = null)
+    public function setSignature(NameId $signature)
     {
-        if(null === $signature)
-        {
-            return $this->child('signature');
-        }
-        return $this->child('signature', $signature);
+        return $this->setChild('signature', $signature);
     }
 }

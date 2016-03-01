@@ -32,21 +32,27 @@ class NoteAction extends Base
     public function __construct(NoteActionSelector $action)
     {
         parent::__construct();
-        $this->child('action', $action);
+        $this->setChild('action', $action);
     }
 
     /**
-     * Get or set action
+     * Gets specify the action to perform
+     *
+     * @return NoteActionSelector
+     */
+    public function getAction()
+    {
+        return $this->getChild('action');
+    }
+
+    /**
+     * Sets specify the action to perform
      *
      * @param  NoteActionSelector $action
-     * @return NoteActionSelector|self
+     * @return self
      */
-    public function action(NoteActionSelector $action = null)
+    public function setAction(NoteActionSelector $action)
     {
-        if(null === $action)
-        {
-            return $this->child('action');
-        }
-        return $this->child('action', $action);
+        return $this->setChild('action', $action);
     }
 }

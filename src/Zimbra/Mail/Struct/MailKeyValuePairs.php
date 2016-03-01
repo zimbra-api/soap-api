@@ -29,23 +29,22 @@ class MailKeyValuePairs extends Base
      * Key value pairs
      * @var TypedSequence<KeyValuePair>
      */
-    private $_a = array();
+    private $_pairs = array();
 
     /**
      * Constructor method for MailKeyValuePairs
      * @param array $a Key value pairs
      * @return self
      */
-    public function __construct(array $a = array())
+    public function __construct(array $pairs = [])
     {
         parent::__construct();
-        $this->_a = new TypedSequence('Zimbra\Struct\KeyValuePair', $a);
-
+        $this->setKeyValuePairs($pairs);
         $this->on('before', function(Base $sender)
         {
-            if($sender->a()->count())
+            if($sender->getKeyValuePairs()->count())
             {
-                $sender->child('a', $sender->a()->all());
+                $sender->setChild('a', $sender->getKeyValuePairs()->all());
             }
         });
     }
@@ -53,12 +52,24 @@ class MailKeyValuePairs extends Base
     /**
      * Add key value pair
      *
-     * @param  KeyValuePair $a
+     * @param  KeyValuePair $pair
      * @return self
      */
-    public function addA(KeyValuePair $a)
+    public function addKeyValuePair(KeyValuePair $pair)
     {
-        $this->_a->add($a);
+        $this->_pairs->add($pair);
+        return $this;
+    }
+
+    /**
+     * Sets key value pair sequence
+     *
+     * @param  array $pairs
+     * @return self
+     */
+    public function setKeyValuePairs(array $pairs)
+    {
+        $this->_pairs = new TypedSequence('Zimbra\Struct\KeyValuePair', $pairs);
         return $this;
     }
 
@@ -67,9 +78,9 @@ class MailKeyValuePairs extends Base
      *
      * @return Sequence
      */
-    public function a()
+    public function getKeyValuePairs()
     {
-        return $this->_a;
+        return $this->_pairs;
     }
 
     /**

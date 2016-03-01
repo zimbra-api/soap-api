@@ -24,11 +24,11 @@ class Transparency extends Base
      * Constant for value 'Opaque'
      * @return string 'O'
      */
-    const O = 'O';
+    const OPAQUE = 'O';
 
     /**
      * Constant for value 'Transparent'
      * @return string 'T'
      */
-    const T = 'T';
+    const TRANSPARENT = 'T';
 }

@@ -25,41 +25,34 @@ class ByMonthRule extends Base
 {
     /**
      * Constructor method for ByMonthRule
-     * @param  string $molist Comma separated list of months where month is a number between 1 and 12
+     * @param  string $list Comma separated list of months where month is a number between 1 and 12
      * @return self
      */
-    public function __construct($molist)
+    public function __construct($list)
     {
         parent::__construct();
-        $molist = explode(',', $molist);
-        $arr = array();
-        foreach ($molist as $mo)
-        {
-            if(is_numeric($mo))
-            {
-                $mo = (int) $mo;
-                if($mo > 0 && $mo < 13 && !in_array($mo, $arr))
-                {
-                    $arr[] = $mo;
-                }
-            }
-        }
-        $this->property('molist', implode(',', $arr));
+        $this->setList($list);
     }
 
     /**
-     * Gets or sets molist
+     * Gets list
      *
-     * @param  string $molist
-     * @return string|self
+     * @return string
      */
-    public function molist($molist = null)
+    public function getList()
     {
-        if(null === $molist)
-        {
-            return $this->property('molist');
-        }
-        $molist = explode(',', $molist);
+        return $this->getProperty('molist');
+    }
+
+    /**
+     * Sets list
+     *
+     * @param  string $list
+     * @return self
+     */
+    public function setList($list)
+    {
+        $molist = explode(',', $list);
         $arr = array();
         foreach ($molist as $mo)
         {
@@ -72,7 +65,7 @@ class ByMonthRule extends Base
                 }
             }
         }
-        return $this->property('molist', implode(',', $arr));
+        return $this->setProperty('molist', implode(',', $arr));
     }
 
     /**

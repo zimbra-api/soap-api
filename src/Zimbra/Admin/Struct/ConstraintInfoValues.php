@@ -28,32 +28,23 @@ class ConstraintInfoValues extends Base
      * Values
      * @var Sequence
      */
-    private $_values = array();
+    private $_values;
 
     /**
      * Constructor method for ConstraintInfoValues
      * @param  array $values
      * @return self
      */
-    public function __construct(array $values = array())
+    public function __construct(array $values = [])
     {
         parent::__construct();
-        $arrValue = array();
-        foreach ($values as $value)
-        {
-        	$value = trim($value);
-            if(!empty($value) && !in_array($value, $arrValue))
-            {
-            	$arrValue[] = $value;
-            }
-        }
-        $this->_values = new Sequence($arrValue);
+        $this->setValues($values);
 
         $this->on('before', function(Base $sender)
         {
-            if($sender->values()->count())
+            if($sender->getValues()->count())
             {
-                $sender->child('v', $sender->values()->all());
+                $sender->setChild('v', $sender->getValues()->all());
             }
         });
     }
@@ -74,11 +65,32 @@ class ConstraintInfoValues extends Base
     }
 
     /**
+     * Sets values sequence
+     *
+     * @param  array $values
+     * @return self
+     */
+    public function setValues(array $values)
+    {
+        $arrValue = [];
+        foreach ($values as $value)
+        {
+            $value = trim($value);
+            if(!empty($value) && !in_array($value, $arrValue))
+            {
+                $arrValue[] = $value;
+            }
+        }
+        $this->_values = new Sequence($arrValue);
+        return $this;
+    }
+
+    /**
      * Gets values sequence
      *
      * @return Sequence
      */
-    public function values()
+    public function getValues()
     {
         return $this->_values;
     }

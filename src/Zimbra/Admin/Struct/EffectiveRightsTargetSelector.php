@@ -35,38 +35,53 @@ class EffectiveRightsTargetSelector extends Base
     public function __construct(TargetType $type, TargetBy $by = null, $value = null)
     {
         parent::__construct(trim($value));
-        $this->property('type', $type);
-        $this->property('by', $by);
+        $this->setProperty('type', $type);
+        if ($by instanceof TargetBy)
+        {
+            $this->setProperty('by', $by);
+        }
     }
 
     /**
-     * Gets or sets type
+     * Gets type enum
      *
-     * @param  TargetType $type
-     * @return TargetType|self
+     * @return Zimbra\Enum\TargetType
      */
-    public function type(TargetType $type = null)
+    public function getType()
     {
-        if(null === $type)
-        {
-            return $this->property('type');
-        }
-        return $this->property('type', $type);
+        return $this->getProperty('type');
     }
 
     /**
-     * Gets or sets by
+     * Sets type enum
      *
-     * @param  TargetBy $by
-     * @return TargetBy|self
+     * @param  Zimbra\Enum\TargetType $type
+     * @return self
      */
-    public function by(TargetBy $by = null)
+    public function setType(TargetType $type)
     {
-        if(null === $by)
-        {
-            return $this->property('by');
-        }
-        return $this->property('by', $by);
+        return $this->setProperty('type', $type);
+    }
+
+    /**
+     * Gets by enum
+     *
+     * @return Zimbra\Enum\TargetBy
+     */
+    public function getBy()
+    {
+        return $this->getProperty('by');
+    }
+
+    /**
+     * Sets by enum
+     *
+     * @param  Zimbra\Enum\TargetBy $by
+     * @return self
+     */
+    public function setBy(TargetBy $by)
+    {
+        return $this->setProperty('by', $by);
     }
 
     /**

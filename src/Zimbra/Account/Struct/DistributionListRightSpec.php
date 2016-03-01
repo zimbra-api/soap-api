@@ -29,7 +29,7 @@ class DistributionListRightSpec extends Base
      * The sequence of grantee
      * @var TypedSequence
      */
-    private $_grantee = array();
+    private $_grantees;
 
     /**
      * Constructor method for DistributionListRightSpec
@@ -37,58 +37,75 @@ class DistributionListRightSpec extends Base
      * @param array $grantees
      * @return self
      */
-    public function __construct($right, array $grantees = array())
+    public function __construct($right, array $grantees = [])
     {
 		parent::__construct();
-		$this->property('right', trim($right));
-        $this->_grantee = new TypedSequence(
-            'Zimbra\Account\Struct\DistributionListGranteeSelector', $grantees
-        );
+		$this->setProperty('right', trim($right));
+        $this->setGrantees($grantees);
 
         $this->on('before', function(Base $sender)
         {
-            if($sender->grantee()->count())
+            if($sender->getGrantees()->count())
             {
-                $sender->child('grantee', $sender->grantee()->all());
+                $sender->setChild('grantee', $sender->getGrantees()->all());
             }
         });
     }
 
     /**
-     * Gets or sets right
+     * Gets right
+     *
+     * @return string
+     */
+    public function getRight()
+    {
+        return $this->getProperty('right');
+    }
+
+    /**
+     * Sets right
      *
      * @param  string $right
-     * @return string|self
+     * @return self
      */
-    public function right($right = null)
+    public function setRight($right)
     {
-        if(null === $right)
-        {
-            return $this->property('right');
-        }
-        return $this->property('right', trim($right));
+        return $this->setProperty('right', trim($right));
     }
 
     /**
      * Add a grantee
      *
      * @param  GranteeSelector $grantee
-     * @return GranteeSelector
+     * @return self
      */
     public function addGrantee(GranteeSelector $grantee)
     {
-        $this->_grantee->add($grantee);
+        $this->_grantees->add($grantee);
         return $this;
     }
 
     /**
-     * Gets grantee Sequence
+     * Sets grantee sequence
+     *
+     * @return self
+     */
+    public function setGrantees(array $grantees)
+    {
+        $this->_grantees = new TypedSequence(
+            'Zimbra\Account\Struct\DistributionListGranteeSelector', $grantees
+        );
+        return $this;
+    }
+
+    /**
+     * Gets grantee sequence
      *
      * @return Sequence
      */
-    public function grantee()
+    public function getGrantees()
     {
-        return $this->_grantee;
+        return $this->_grantees;
     }
 
     /**

@@ -1,0 +1,35 @@
+{
+    "name": "zimbra-api/struct",
+    "homepage": "https://github.com/zimbra-api",
+    "description": "Struct libraries used by Zimbra Api",
+    "keywords": ["struct"],
+    "license": "BSD (3-Clause) License",
+    "authors": [
+        {
+            "name": "Nguyen Van Nguyen",
+            "email": "nguyennv1981@gmail.com",
+            "homepage": "https://github.com/nguyennv"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0",
+        "evenement/evenement": "~2.0",
+        "zimbra-api/common": "self.version",
+        "zimbra-api/enum": "self.version"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~4.0",
+        "fzaninotto/faker": "~v1.5.0"
+    },
+    "autoload": {
+        "psr-4": { "Zimbra\\Struct\\": "" },
+        "exclude-from-classmap": [
+            "/Tests/"
+        ]
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0.x-dev"
+        }
+    }
+}

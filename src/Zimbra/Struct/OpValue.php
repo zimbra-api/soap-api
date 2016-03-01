@@ -26,30 +26,44 @@ class OpValue extends Base
      * @param  string $value
      * @return self
      */
-    public function __construct($op, $value = null)
+    public function __construct($op = '+', $value = null)
     {
         parent::__construct(trim($value));
-        if($op !== null and in_array(trim($op), array('+', '-')))
+        if(in_array(trim($op), ['+', '-']))
         {
-            $this->property('op', trim($op));
+            $this->setProperty('op', trim($op));
+        }
+        else
+        {
+            $this->setProperty('op', '+');
         }
     }
 
     /**
-     * Gets or sets op
+     * Gets operation
+     *
+     * @return string
+     */
+    public function getOp()
+    {
+        return $this->getProperty('op');
+    }
+
+    /**
+     * sets operation
      *
      * @param  string $op
-     * @return string|self
+     * @return self
      */
-    public function op($op = null)
+    public function setOp($op = '+')
     {
-        if(null === $op)
+        if(in_array(trim($op), ['+', '-']))
         {
-            return $this->property('op');
+            $this->setProperty('op', trim($op));
         }
-        if(in_array(trim($op), array('+', '-')))
+        else
         {
-            $this->property('op', trim($op));
+            $this->setProperty('op', '+');
         }
         return $this;
     }

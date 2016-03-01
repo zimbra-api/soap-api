@@ -31,37 +31,49 @@ class RemoveDistributionListAlias extends Base
     public function __construct($id, $alias)
     {
         parent::__construct();
-        $this->property('id', trim($id));
-        $this->property('alias', trim($alias));
+        $this->setProperty('id', trim($id));
+        $this->setProperty('alias', trim($alias));
     }
 
     /**
-     * Gets or sets alias
+     * Gets Zimbra ID
      *
-     * @param  string $alias
-     * @return string|self
+     * @return string
      */
-    public function alias($alias = null)
+    public function getId()
     {
-        if(null === $alias)
-        {
-            return $this->property('alias');
-        }
-        return $this->property('alias', trim($alias));
+        return $this->getProperty('id');
     }
 
     /**
-     * Gets or sets id
+     * Sets Zimbra ID
      *
      * @param  string $id
-     * @return string|self
+     * @return self
      */
-    public function id($id = null)
+    public function setId($id)
     {
-        if(null === $id)
-        {
-            return $this->property('id');
-        }
-        return $this->property('id', trim($id));
+        return $this->setProperty('id', trim($id));
+    }
+
+    /**
+     * Gets alias
+     *
+     * @return string
+     */
+    public function getAlias()
+    {
+        return $this->getProperty('alias');
+    }
+
+    /**
+     * Sets alias
+     *
+     * @param  string $alias
+     * @return self
+     */
+    public function setAlias($alias)
+    {
+        return $this->setProperty('alias', trim($alias));
     }
 }

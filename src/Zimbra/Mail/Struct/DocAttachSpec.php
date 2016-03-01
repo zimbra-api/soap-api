@@ -34,61 +34,79 @@ class DocAttachSpec extends AttachSpec
         parent::__construct($optional);
         if(null !== $path)
         {
-            $this->property('path', trim($path));
+            $this->setProperty('path', trim($path));
         }
         if(null !== $id)
         {
-            $this->property('id', trim($id));
+            $this->setProperty('id', trim($id));
         }
         if(null !== $ver)
         {
-            $this->property('ver', (int) $ver);
+            $this->setProperty('ver', (int) $ver);
         }
     }
 
     /**
-     * Gets or sets path
+     * Gets path
+     *
+     * @return string
+     */
+    public function getPath()
+    {
+        return $this->getProperty('path');
+    }
+
+    /**
+     * Sets path
      *
      * @param  string $path
-     * @return string|self
+     * @return self
      */
-    public function path($path = null)
+    public function setPath($path)
     {
-        if(null === $path)
-        {
-            return $this->property('path');
-        }
-        return $this->property('path', trim($path));
+        return $this->setProperty('path', trim($path));
     }
 
     /**
-     * Gets or sets id
+     * Gets id
+     *
+     * @return string
+     */
+    public function getId()
+    {
+        return $this->getProperty('id');
+    }
+
+    /**
+     * Sets id
      *
      * @param  string $id
-     * @return string|self
+     * @return self
      */
-    public function id($id = null)
+    public function setId($id)
     {
-        if(null === $id)
-        {
-            return $this->property('id');
-        }
-        return $this->property('id', trim($id));
+        return $this->setProperty('id', trim($id));
     }
 
     /**
-     * Gets or sets ver
+     * Gets version
      *
-     * @param  int $ver
-     * @return int|self
+     * @return bool
      */
-    public function ver($ver = null)
+    public function getVersion()
     {
-        if(null === $ver)
-        {
-            return $this->property('ver');
-        }
-        return $this->property('ver', (int) $ver);
+        return $this->getProperty('ver');
+    }
+
+    /**
+     * Sets version
+     *
+     * @param  bool $ver
+     * @return self
+     */
+    public function setVersion($ver)
+    {
+        return $this->setProperty('ver', (int) $ver);
     }
 
     /**

@@ -32,22 +32,27 @@ class GetDocumentShareURL extends Base
     public function __construct(ItemSpec $item)
     {
         parent::__construct();
-        $this->child('item', $item);
+        $this->setChild('item', $item);
     }
 
     /**
-     * Get or set item
-     * Item specification
+     * Gets item specification
+     *
+     * @return ItemSpec
+     */
+    public function getItem()
+    {
+        return $this->getChild('item');
+    }
+
+    /**
+     * Sets item specification
      *
      * @param  ItemSpec $item
-     * @return ItemSpec|self
+     * @return self
      */
-    public function item(ItemSpec $item = null)
+    public function setItem(ItemSpec $item)
     {
-        if(null === $item)
-        {
-            return $this->child('item');
-        }
-        return $this->child('item', $item);
+        return $this->setChild('item', $item);
     }
 }

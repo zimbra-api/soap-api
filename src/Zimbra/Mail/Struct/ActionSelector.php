@@ -27,228 +27,287 @@ class ActionSelector extends Base
 {
     /**
      * Constructor method for AccountACEInfo
-     * @param EnumBase $op Operation
-     * @param string $id Comma separated list of item IDs to act on.
-     * @param string $tcon List of characters; constrains the set of affected items in a conversation
+     * @param EnumBase $operation Operation
+     * @param string $ids Comma separated list of item IDs to act on.
+     * @param string $constraint List of characters; constrains the set of affected items in a conversation
      * @param int    $tag Tag. Deprecated - use "tn" instead
-     * @param string $l Folder ID
+     * @param string $folder Folder ID
      * @param string $rgb RGB color in format #rrggbb where r,g and b are hex digits
      * @param int    $color Color numeric; range 0-127; defaults to 0 if not present; client can display only 0-7
      * @param string $name Name
-     * @param string $f Flags
-     * @param string $t Tags - Comma separated list of integers. DEPRECATED - use "tn" instead
-     * @param string $tn Comma-separated list of tag names
+     * @param string $flags Flags
+     * @param string $tags Tags - Comma separated list of integers. DEPRECATED - use "tn" instead
+     * @param string $tagNames Comma-separated list of tag names
      * @return self
      */
     public function __construct(
-        EnumBase $op,
-        $id = null,
-        $tcon = null,
+        EnumBase $operation,
+        $ids = null,
+        $constraint = null,
         $tag = null,
-        $l = null,
+        $folder = null,
         $rgb = null,
         $color = null,
         $name = null,
-        $f = null,
-        $t = null,
-        $tn = null
+        $flags = null,
+        $tags = null,
+        $tagNames = null
     )
     {
         parent::__construct();
-        $this->property('op', $op);
+        $this->setProperty('op', $operation);
 
-        if(null !== $id)
+        if(null !== $ids)
         {
-            $this->property('id', trim($id));
+            $this->setProperty('id', trim($ids));
         }
-        if(null !== $tcon)
+        if(null !== $constraint)
         {
-            $this->property('tcon', trim($tcon));
-        }
-        if(null !== $l)
-        {
-            $this->property('l', trim($l));
-        }
-        if(null !== $rgb && Text::isRgb(trim($rgb)))
-        {
-            $this->property('rgb', trim($rgb));
+            $this->setProperty('tcon', trim($constraint));
         }
         if(null !== $tag)
         {
-            $this->property('tag', (int) $tag);
+            $this->setProperty('tag', (int) $tag);
+        }
+        if(null !== $folder)
+        {
+            $this->setProperty('l', trim($folder));
+        }
+        if(null !== $rgb && Text::isRgb(trim($rgb)))
+        {
+            $this->setProperty('rgb', trim($rgb));
         }
         if(null !== $color)
         {
             $color = (int) $color;
-            $this->property('color', ($color > 0 && $color < 128) ? $color : 0);
+            $this->setProperty('color', ($color > 0 && $color < 128) ? $color : 0);
         }
         if(null !== $name)
         {
-            $this->property('name', trim($name));
+            $this->setProperty('name', trim($name));
         }
-        if(null !== $f)
+        if(null !== $flags)
         {
-            $this->property('f', trim($f));
+            $this->setProperty('f', trim($flags));
         }
-        if(null !== $t)
+        if(null !== $tags)
         {
-            $this->property('t', trim($t));
+            $this->setProperty('t', trim($tags));
         }
-        if(null !== $tn)
+        if(null !== $tagNames)
         {
-            $this->property('tn', trim($tn));
+            $this->setProperty('tn', trim($tagNames));
         }
     }
 
     /**
-     * Gets or sets id
+     * Gets ids
      *
-     * @param  string $id
+     * @return string
+     */
+    public function getIds()
+    {
+        return $this->getProperty('id');
+    }
+
+    /**
+     * Sets ids
+     *
+     * @param  string $ids
+     * @return self
+     */
+    public function setIds($ids)
+    {
+        return $this->setProperty('id', trim($ids));
+    }
+
+    /**
+     * Gets constraint
+     *
+     * @return string
+     */
+    public function getConstraint()
+    {
+        return $this->getProperty('tcon');
+    }
+
+    /**
+     * Sets constraint
+     *
+     * @param  string $constraint
      * @return string|self
      */
-    public function id($id = null)
+    public function setConstraint($constraint)
     {
-        if(null === $id)
-        {
-            return $this->property('id');
-        }
-        return $this->property('id', trim($id));
+        return $this->setProperty('tcon', trim($constraint));
     }
 
     /**
-     * Gets or sets tcon
+     * Gets tag
      *
-     * @param  string $tcon
-     * @return string|self
+     * @return int
      */
-    public function tcon($tcon = null)
+    public function getTag()
     {
-        if(null === $tcon)
-        {
-            return $this->property('tcon');
-        }
-        return $this->property('tcon', trim($tcon));
+        return $this->getProperty('tag');
     }
 
     /**
-     * Gets or sets tag
+     * Sets tag
      *
      * @param  int $tag
-     * @return int|self
+     * @return self
      */
-    public function tag($tag = null)
+    public function setTag($tag)
     {
-        if(null === $tag)
-        {
-            return $this->property('tag');
-        }
-        return $this->property('tag', (int) $tag);
+        return $this->setProperty('tag', (int) $tag);
     }
 
     /**
-     * Gets or sets l
+     * Gets folder id
      *
-     * @param  string $l
-     * @return string|self
+     * @return string
      */
-    public function l($l = null)
+    public function getFolder()
     {
-        if(null === $l)
-        {
-            return $this->property('l');
-        }
-        return $this->property('l', trim($l));
+        return $this->getProperty('l');
     }
 
     /**
-     * Gets or sets rgb
+     * Sets folder id
+     *
+     * @param  string $folder
+     * @return self
+     */
+    public function setFolder($folder)
+    {
+        return $this->setProperty('l', trim($folder));
+    }
+
+    /**
+     * Gets rgb color
+     *
+     * @return string
+     */
+    public function getRgb()
+    {
+        return $this->getProperty('rgb');
+    }
+
+    /**
+     * Sets rgb color
      *
      * @param  string $rgb
-     * @return string|self
+     * @return self
      */
-    public function rgb($rgb = null)
+    public function setRgb($rgb)
     {
-        if(null === $rgb)
-        {
-            return $this->property('rgb');
-        }
-        return $this->property('rgb', Text::isRgb(trim($rgb)) ? trim($rgb) : '');
+        return $this->setProperty('rgb', Text::isRgb(trim($rgb)) ? trim($rgb) : '');
     }
 
     /**
-     * Gets or sets color
+     * Gets color
+     *
+     * @return int
+     */
+    public function getColor()
+    {
+        return $this->getProperty('color');
+    }
+
+    /**
+     * Sets color
      *
      * @param  int $color
-     * @return int|self
+     * @return self
      */
-    public function color($color = null)
+    public function setColor($color)
     {
-        if(null === $color)
-        {
-            return $this->property('color');
-        }
-        $color = (int) $color;
-        return $this->property('color', ($color > 0 && $color < 128) ? $color : 0);
+        return $this->setProperty('color', ($color > 0 && $color < 128) ? $color : 0);
     }
 
     /**
-     * Gets or sets name
+     * Gets tag name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->getProperty('name');
+    }
+
+    /**
+     * Sets tag name
      *
      * @param  string $name
-     * @return string|self
+     * @return self
      */
-    public function name($name = null)
+    public function setName($name)
     {
-        if(null === $name)
-        {
-            return $this->property('name');
-        }
-        return $this->property('name', trim($name));
+        return $this->setProperty('name', trim($name));
     }
 
     /**
-     * Gets or sets f
+     * Gets flags
      *
-     * @param  string $f
-     * @return string|self
+     * @return string
      */
-    public function f($f = null)
+    public function getFlags()
     {
-        if(null === $f)
-        {
-            return $this->property('f');
-        }
-        return $this->property('f', trim($f));
+        return $this->getProperty('f');
     }
 
     /**
-     * Gets or sets t
+     * Sets flags
      *
-     * @param  string $t
-     * @return string|self
+     * @param  string $flags
+     * @return self
      */
-    public function t($t = null)
+    public function setFlags($flags)
     {
-        if(null === $t)
-        {
-            return $this->property('t');
-        }
-        return $this->property('t', trim($t));
+        return $this->setProperty('f', trim($flags));
     }
 
     /**
-     * Gets or sets tn
+     * Gets tags
      *
-     * @param  string $tn
-     * @return string|self
+     * @return string
      */
-    public function tn($tn = null)
+    public function getTags()
     {
-        if(null === $tn)
-        {
-            return $this->property('tn');
-        }
-        return $this->property('tn', trim($tn));
+        return $this->getProperty('t');
+    }
+
+    /**
+     * Sets tags
+     *
+     * @param  string $tags
+     * @return self
+     */
+    public function setTags($tags)
+    {
+        return $this->setProperty('t', trim($tags));
+    }
+
+    /**
+     * Gets tag names
+     *
+     * @return string
+     */
+    public function getTagNames()
+    {
+        return $this->getProperty('tn');
+    }
+
+    /**
+     * Sets tag names
+     *
+     * @param  string $tagNames
+     * @return self
+     */
+    public function setTagNames($tagNames)
+    {
+        return $this->setProperty('tn', trim($tagNames));
     }
 
     /**

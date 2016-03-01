@@ -32,38 +32,50 @@ class DismissAlarm extends Base
     public function __construct($id, $dismissedAt)
     {
         parent::__construct();
-        $this->property('id', trim($id));
-        $this->property('dismissedAt', (int) $dismissedAt);
+        $this->setProperty('id', trim($id));
+        $this->setProperty('dismissedAt', (int) $dismissedAt);
     }
 
     /**
-     * Get or set id
+     * Gets id
+     *
+     * @return string
+     */
+    public function getId()
+    {
+        return $this->getProperty('id');
+    }
+
+    /**
+     * Sets id
      *
      * @param  string $id
-     * @return string|self
+     * @return self
      */
-    public function id($id = null)
+    public function setId($id)
     {
-        if(null === $id)
-        {
-            return $this->property('id');
-        }
-        return $this->property('id', trim($id));
+        return $this->setProperty('id', trim($id));
     }
 
     /**
-     * Get or set dismissedAt
+     * Gets version2
+     *
+     * @return int
+     */
+    public function getDismissedAt()
+    {
+        return $this->getProperty('dismissedAt');
+    }
+
+    /**
+     * Sets version2
      *
      * @param  int $dismissedAt
-     * @return int|self
+     * @return self
      */
-    public function dismissedAt($dismissedAt = null)
+    public function setDismissedAt($dismissedAt)
     {
-        if(null === $dismissedAt)
-        {
-            return $this->property('dismissedAt');
-        }
-        return $this->property('dismissedAt', (int) $dismissedAt);
+        return $this->setProperty('dismissedAt', (int) $dismissedAt);
     }
 
     /**

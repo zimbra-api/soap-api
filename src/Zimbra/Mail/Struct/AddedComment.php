@@ -33,38 +33,50 @@ class AddedComment extends Base
     public function __construct($parentId, $text)
     {
         parent::__construct();
-        $this->property('parentId', trim($parentId));
-        $this->property('text', trim($text));
+        $this->setProperty('parentId', trim($parentId));
+        $this->setProperty('text', trim($text));
     }
 
     /**
-     * Gets or sets parentId
+     * Gets parent id
+     *
+     * @return string
+     */
+    public function getParentId()
+    {
+        return $this->getProperty('parentId');
+    }
+
+    /**
+     * Sets parent id
      *
      * @param  string $parentId
-     * @return string|self
+     * @return self
      */
-    public function parentId($parentId = null)
+    public function setParentId($parentId)
     {
-        if(null === $parentId)
-        {
-            return $this->property('parentId');
-        }
-        return $this->property('parentId', trim($parentId));
+        return $this->setProperty('parentId', trim($parentId));
     }
 
     /**
-     * Gets or sets text
+     * Gets text
+     *
+     * @return string
+     */
+    public function getText()
+    {
+        return $this->getProperty('text');
+    }
+
+    /**
+     * Sets text
      *
      * @param  string $text
-     * @return string|self
+     * @return self
      */
-    public function text($text = null)
+    public function setText($text)
     {
-        if(null === $text)
-        {
-            return $this->property('text');
-        }
-        return $this->property('text', trim($text));
+        return $this->setProperty('text', trim($text));
     }
 
     /**

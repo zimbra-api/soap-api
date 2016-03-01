@@ -33,37 +33,37 @@ class InviteComponent extends InviteComponentCommon
      * Categories - for iCalendar CATEGORY properties
      * @var array
      */
-    private $_category;
+    private $_categories;
 
     /**
      * Comments - for iCalendar COMMENT properties
      * @var array
      */
-    private $_comment;
+    private $_comments;
 
     /**
      * Contacts - for iCalendar CONTACT properties
      * @var array
      */
-    private $_contact;
+    private $_contacts;
 
     /**
      * Attendees
      * @var TypedSequence
      */
-    private $_at;
+    private $_attendees;
 
     /**
      * Alarm information
      * @var TypedSequence
      */
-    private $_alarm;
+    private $_alarms;
 
     /**
      * iCalender XPROP properties 
      * @var TypedSequence
      */
-    private $_xprop;
+    private $_xprops;
 
     /**
      * Constructor method for InviteComponent
@@ -84,7 +84,7 @@ class InviteComponent extends InviteComponentCommon
      * @param string $x_uid
      * @param string $uid
      * @param int    $seq
-     * @param int    $d
+     * @param int    $date
      * @param string $calItemId
      * @param string $apptId
      * @param string $ciFolder
@@ -96,14 +96,14 @@ class InviteComponent extends InviteComponentCommon
      * @param bool   $allDay
      * @param bool   $draft
      * @param bool   $neverSent
-     * @param array  $change
-     * @param array  $category
-     * @param array  $comment
-     * @param array  $contact
+     * @param array  $changes
+     * @param array  $categories
+     * @param array  $comments
+     * @param array  $contacts
      * @param GeoInfo $geo for iCalendar GEO property
-     * @param array  $at
-     * @param array  $alarm
-     * @param array  $xprop
+     * @param array  $attendees
+     * @param array  $alarms
+     * @param array  $xprops
      * @param string $fr Fragment
      * @param string $desc Description
      * @param string $descHtml Html description
@@ -131,7 +131,7 @@ class InviteComponent extends InviteComponentCommon
         $x_uid = null,
         $uid = null,
         $seq = null,
-        $d = null,
+        $date = null,
         $calItemId = null,
         $apptId = null,
         $ciFolder = null,
@@ -143,14 +143,14 @@ class InviteComponent extends InviteComponentCommon
         $allDay = null,
         $draft = null,
         $neverSent = null,
-        array $change = array(),
-        array $category = array(),
-        array $comment = array(),
-        array $contact = array(),
+        array $changes = [],
+        array $categories = [],
+        array $comments = [],
+        array $contacts = [],
         GeoInfo $geo = null,
-        array $at = array(),
-        array $alarm = array(),
-        array $xprop = array(),
+        array $attendees = [],
+        array $alarms = [],
+        array $xprops = [],
         $fr = null,
         $desc = null,
         $descHtml = null,
@@ -179,7 +179,7 @@ class InviteComponent extends InviteComponentCommon
             $x_uid,
             $uid,
             $seq,
-            $d,
+            $date,
             $calItemId,
             $apptId,
             $ciFolder,
@@ -191,105 +191,81 @@ class InviteComponent extends InviteComponentCommon
             $allDay,
             $draft,
             $neverSent,
-            $change
+            $changes
         );
 
-        $this->_category = new Sequence();
-        foreach ($category as $value)
-        {
-            $value = trim($value);
-            if(!$this->_category->contains($value))
-            {
-                $this->_category->add($value);
-            }
-        }
-        $this->_comment = new Sequence();
-        foreach ($comment as $value)
-        {
-            $value = trim($value);
-            if(!$this->_comment->contains($value))
-            {
-                $this->_comment->add($value);
-            }
-        }
-        $this->_contact = new Sequence();
-        foreach ($contact as $value)
-        {
-            $value = trim($value);
-            if(!$this->_contact->contains($value))
-            {
-                $this->_contact->add($value);
-            }
-        }
         if($geo instanceof GeoInfo)
         {
-            $this->child('geo', $geo);
+            $this->setChild('geo', $geo);
         }
-        $this->_at = new TypedSequence('Zimbra\Mail\Struct\CalendarAttendee', $at);
-        $this->_alarm = new TypedSequence('Zimbra\Mail\Struct\AlarmInfo', $alarm);
-        $this->_xprop = new TypedSequence('Zimbra\Mail\Struct\XProp', $xprop);
         if(null !== $fr)
         {
-            $this->child('fr', trim($fr));
+            $this->setChild('fr', trim($fr));
         }
         if(null !== $desc)
         {
-            $this->child('desc', trim($desc));
+            $this->setChild('desc', trim($desc));
         }
         if(null !== $descHtml)
         {
-            $this->child('descHtml', trim($descHtml));
+            $this->setChild('descHtml', trim($descHtml));
         }
         if($or instanceof CalOrganizer)
         {
-            $this->child('or', $or);
+            $this->setChild('or', $or);
         }
         if($recur instanceof RecurrenceInfo)
         {
-            $this->child('recur', $recur);
+            $this->setChild('recur', $recur);
         }
         if($exceptId instanceof ExceptionRecurIdInfo)
         {
-            $this->child('exceptId', $exceptId);
+            $this->setChild('exceptId', $exceptId);
         }
         if($s instanceof DtTimeInfo)
         {
-            $this->child('s', $s);
+            $this->setChild('s', $s);
         }
         if($e instanceof DtTimeInfo)
         {
-            $this->child('e', $e);
+            $this->setChild('e', $e);
         }
         if($dur instanceof DurationInfo)
         {
-            $this->child('dur', $dur);
+            $this->setChild('dur', $dur);
         }
 
+        $this->setCategories($categories)
+            ->setComments($comments)
+            ->setContacts($contacts)
+            ->setAttendees($attendees)
+            ->setAlarms($alarms)
+            ->setXProps($xprops);
         $this->on('before', function(InviteComponentCommon $sender)
         {
-            if($sender->category()->count())
+            if($sender->getCategories()->count())
             {
-                $sender->child('category', $sender->category()->all());
+                $sender->setChild('category', $sender->getCategories()->all());
             }
-            if($sender->comment()->count())
+            if($sender->getComments()->count())
             {
-                $sender->child('comment', $sender->comment()->all());
+                $sender->setChild('comment', $sender->getComments()->all());
             }
-            if($sender->contact()->count())
+            if($sender->getContacts()->count())
             {
-                $sender->child('contact', $sender->contact()->all());
+                $sender->setChild('contact', $sender->getContacts()->all());
             }
-            if($sender->at()->count())
+            if($sender->getAttendees()->count())
             {
-                $sender->child('at', $sender->at()->all());
+                $sender->setChild('at', $sender->getAttendees()->all());
             }
-            if($sender->alarm()->count())
+            if($sender->getAlarms()->count())
             {
-                $sender->child('alarm', $sender->alarm()->all());
+                $sender->setChild('alarm', $sender->getAlarms()->all());
             }
-            if($sender->xprop()->count())
+            if($sender->getXProps()->count())
             {
-                $sender->child('xprop', $sender->xprop()->all());
+                $sender->setChild('xprop', $sender->getXProps()->all());
             }
         });
     }
@@ -302,7 +278,27 @@ class InviteComponent extends InviteComponentCommon
      */
     public function addCategory($category)
     {
-        $this->_category->add(trim($category));
+        $this->_categories->add(trim($category));
+        return $this;
+    }
+
+    /**
+     * Sets category sequence
+     *
+     * @param  array $categories
+     * @return self
+     */
+    public function setCategories(array $categories)
+    {
+        $this->_categories = new Sequence();
+        foreach ($categories as $value)
+        {
+            $value = trim($value);
+            if(!$this->_categories->contains($value))
+            {
+                $this->_categories->add($value);
+            }
+        }
         return $this;
     }
 
@@ -311,9 +307,9 @@ class InviteComponent extends InviteComponentCommon
      *
      * @return Sequence
      */
-    public function category()
+    public function getCategories()
     {
-        return $this->_category;
+        return $this->_categories;
     }
 
     /**
@@ -324,7 +320,27 @@ class InviteComponent extends InviteComponentCommon
      */
     public function addComment($comment)
     {
-        $this->_comment->add(trim($comment));
+        $this->_comments->add(trim($comment));
+        return $this;
+    }
+
+    /**
+     * Sets comment sequence
+     *
+     * @param  array $comments
+     * @return self
+     */
+    public function setComments(array $comments)
+    {
+        $this->_comments = new Sequence();
+        foreach ($comments as $value)
+        {
+            $value = trim($value);
+            if(!$this->_comments->contains($value))
+            {
+                $this->_comments->add($value);
+            }
+        }
         return $this;
     }
 
@@ -333,9 +349,9 @@ class InviteComponent extends InviteComponentCommon
      *
      * @return Sequence
      */
-    public function comment()
+    public function getComments()
     {
-        return $this->_comment;
+        return $this->_comments;
     }
 
     /**
@@ -346,7 +362,27 @@ class InviteComponent extends InviteComponentCommon
      */
     public function addContact($contact)
     {
-        $this->_contact->add(trim($contact));
+        $this->_contacts->add(trim($contact));
+        return $this;
+    }
+
+    /**
+     * Sets contact sequence
+     *
+     * @param  array $contacts
+     * @return self
+     */
+    public function setContacts(array $contacts)
+    {
+        $this->_contacts = new Sequence();
+        foreach ($contacts as $value)
+        {
+            $value = trim($value);
+            if(!$this->_contacts->contains($value))
+            {
+                $this->_contacts->add($value);
+            }
+        }
         return $this;
     }
 
@@ -355,57 +391,87 @@ class InviteComponent extends InviteComponentCommon
      *
      * @return Sequence
      */
-    public function contact()
+    public function getContacts()
     {
-        return $this->_contact;
+        return $this->_contacts;
     }
 
     /**
-     * Gets or sets geo
+     * Gets geo
+     *
+     * @return GeoInfo
+     */
+    public function getGeo()
+    {
+        return $this->getChild('geo');
+    }
+
+    /**
+     * Sets geo
      *
      * @param  GeoInfo $geo
-     * @return GeoInfo|self
+     * @return self
      */
-    public function geo(GeoInfo $geo = null)
+    public function setGeo(GeoInfo $geo)
     {
-        if(null === $geo)
-        {
-            return $this->child('geo');
-        }
-        return $this->child('geo', $geo);
+        return $this->setChild('geo', $geo);
     }
 
     /**
      * Add an attendee
      *
-     * @param  CalendarAttendee $change
+     * @param  CalendarAttendee $attendee
      * @return self
      */
-    public function addAt(CalendarAttendee $at)
+    public function addAttendee(CalendarAttendee $attendee)
     {
-        $this->_at->add($at);
+        $this->_attendees->add($attendee);
         return $this;
     }
 
     /**
-     * Get sequence of at
+     * Set sequence of attendee
+     *
+     * @param  array $attendees
+     * @return self
+     */
+    public function setAttendees(array $attendees)
+    {
+        $this->_attendees = new TypedSequence('Zimbra\Mail\Struct\CalendarAttendee', $attendees);
+        return $this;
+    }
+
+    /**
+     * Get sequence of attendee
      *
      * @return Sequence
      */
-    public function at()
+    public function getAttendees()
     {
-        return $this->_at;
+        return $this->_attendees;
     }
 
     /**
      * Add an alarm
      *
-     * @param  AlarmInfo $change
+     * @param  AlarmInfo $alarm
      * @return self
      */
     public function addAlarm(AlarmInfo $alarm)
     {
-        $this->_alarm->add($alarm);
+        $this->_alarms->add($alarm);
+        return $this;
+    }
+
+    /**
+     * Set sequence of alarm
+     *
+     * @param  array $alarms
+     * @return self
+     */
+    public function setAlarms(array $alarms)
+    {
+        $this->_alarms = new TypedSequence('Zimbra\Mail\Struct\AlarmInfo', $alarms);
         return $this;
     }
 
@@ -414,9 +480,9 @@ class InviteComponent extends InviteComponentCommon
      *
      * @return Sequence
      */
-    public function alarm()
+    public function getAlarms()
     {
-        return $this->_alarm;
+        return $this->_alarms;
     }
 
     /**
@@ -427,7 +493,19 @@ class InviteComponent extends InviteComponentCommon
      */
     public function addXProp(XProp $xprop)
     {
-        $this->_xprop->add($xprop);
+        $this->_xprops->add($xprop);
+        return $this;
+    }
+
+    /**
+     * Set sequence of xprop
+     *
+     * @param  array $xprops
+     * @return self
+     */
+    public function setXProps(array $xprops)
+    {
+        $this->_xprops = new TypedSequence('Zimbra\Mail\Struct\XProp', $xprops);
         return $this;
     }
 
@@ -436,144 +514,198 @@ class InviteComponent extends InviteComponentCommon
      *
      * @return Sequence
      */
-    public function xprop()
+    public function getXProps()
     {
-        return $this->_xprop;
+        return $this->_xprops;
     }
 
     /**
-     * Gets or sets fr
+     * Gets fragment
+     *
+     * @return string
+     */
+    public function getFragment()
+    {
+        return $this->getChild('fr');
+    }
+
+    /**
+     * Sets fragment
      *
      * @param  string $fr
-     * @return string|self
+     * @return self
      */
-    public function fr($fr = null)
+    public function setFragment($fr)
     {
-        if(null === $fr)
-        {
-            return $this->child('fr');
-        }
-        return $this->child('fr', trim($fr));
+        return $this->setChild('fr', trim($fr));
     }
 
     /**
-     * Gets or sets desc
+     * Gets description
      *
-     * @param  string $desc
-     * @return string|self
+     * @return string
      */
-    public function desc($desc = null)
+    public function getDescription()
     {
-        if(null === $desc)
-        {
-            return $this->child('desc');
-        }
-        return $this->child('desc', $desc);
+        return $this->getChild('desc');
     }
 
     /**
-     * Gets or sets descHtml
+     * Sets description
+     *
+     * @param  string $description
+     * @return self
+     */
+    public function setDescription($description)
+    {
+        return $this->setChild('desc', trim($description));
+    }
+
+    /**
+     * Gets HTML description
+     *
+     * @return string
+     */
+    public function getHtmlDescription()
+    {
+        return $this->getChild('descHtml');
+    }
+
+    /**
+     * Sets HTML description
      *
      * @param  string $descHtml
-     * @return string|self
+     * @return self
      */
-    public function descHtml($descHtml = null)
+    public function setHtmlDescription($descHtml)
     {
-        if(null === $descHtml)
-        {
-            return $this->child('descHtml');
-        }
-        return $this->child('descHtml', trim($descHtml));
+        return $this->setChild('descHtml', trim($descHtml));
     }
 
     /**
-     * Gets or sets or
+     * Gets organizer
+     *
+     * @return CalOrganizer
+     */
+    public function getOrganizer()
+    {
+        return $this->getChild('or');
+    }
+
+    /**
+     * Sets organizer
      *
      * @param  CalOrganizer $or
-     * @return CalOrganizer|self
+     * @return self
      */
-    public function org(CalOrganizer $or = null)
+    public function setOrganizer(CalOrganizer $or)
     {
-        if(null === $or)
-        {
-            return $this->child('or');
-        }
-        return $this->child('or', $or);
+        return $this->setChild('or', $or);
     }
 
     /**
-     * Gets or sets recur
+     * Gets recurrence information
+     *
+     * @return RecurrenceInfo
+     */
+    public function getRecurrence()
+    {
+        return $this->getChild('recur');
+    }
+
+    /**
+     * Sets recurrence information
      *
      * @param  RecurrenceInfo $recur
-     * @return RecurrenceInfo|self
+     * @return self
      */
-    public function recur(RecurrenceInfo $recur = null)
+    public function setRecurrence(RecurrenceInfo $recur)
     {
-        if(null === $recur)
-        {
-            return $this->child('recur');
-        }
-        return $this->child('recur', $recur);
+        return $this->setChild('recur', $recur);
     }
 
     /**
-     * Gets or sets exceptId
+     * Gets exception Id
+     *
+     * @return ExceptionRecurIdInfo
+     */
+    public function getExceptionId()
+    {
+        return $this->getChild('exceptId');
+    }
+
+    /**
+     * Sets exception Id
      *
      * @param  ExceptionRecurIdInfo $exceptId
-     * @return ExceptionRecurIdInfo|self
+     * @return self
      */
-    public function exceptId(ExceptionRecurIdInfo $exceptId = null)
+    public function setExceptionId(ExceptionRecurIdInfo $exceptId)
     {
-        if(null === $exceptId)
-        {
-            return $this->child('exceptId');
-        }
-        return $this->child('exceptId', $exceptId);
+        return $this->setChild('exceptId', $exceptId);
     }
 
     /**
-     * Gets or sets s
+     * Gets start date-time
+     *
+     * @return DtTimeInfo
+     */
+    public function getDtStart()
+    {
+        return $this->getChild('s');
+    }
+
+    /**
+     * Sets start date-time
      *
      * @param  DtTimeInfo $s
-     * @return DtTimeInfo|self
+     * @return self
      */
-    public function s(DtTimeInfo $s = null)
+    public function setDtStart(DtTimeInfo $s)
     {
-        if(null === $s)
-        {
-            return $this->child('s');
-        }
-        return $this->child('s', $s);
+        return $this->setChild('s', $s);
     }
 
     /**
-     * Gets or sets e
+     * Gets end date-time
+     *
+     * @return DtTimeInfo
+     */
+    public function getDtEnd()
+    {
+        return $this->getChild('e');
+    }
+
+    /**
+     * Sets end date-time
      *
      * @param  DtTimeInfo $e
-     * @return DtTimeInfo|self
+     * @return self
      */
-    public function e(DtTimeInfo $e = null)
+    public function setDtEnd(DtTimeInfo $e)
     {
-        if(null === $e)
-        {
-            return $this->child('e');
-        }
-        return $this->child('e', $e);
+        return $this->setChild('e', $e);
     }
 
     /**
-     * Gets or sets dur
+     * Gets duration
+     *
+     * @return DurationInfo
+     */
+    public function getDuration()
+    {
+        return $this->getChild('dur');
+    }
+
+    /**
+     * Sets duration
      *
      * @param  DurationInfo $dur
-     * @return DurationInfo|self
+     * @return self
      */
-    public function dur(DurationInfo $dur = null)
+    public function setDuration(DurationInfo $dur)
     {
-        if(null === $dur)
-        {
-            return $this->child('dur');
-        }
-        return $this->child('dur', $dur);
+        return $this->setChild('dur', $dur);
     }
 
     /**

@@ -33,22 +33,28 @@ class MeTest extends FilterTest
     )
     {
         parent::__construct($index, $negative);
-        $this->property('header', trim($header));
+        $this->setProperty('header', trim($header));
     }
 
     /**
-     * Gets or sets header
+     * Gets header
+     *
+     * @return string
+     */
+    public function getHeader()
+    {
+        return $this->getProperty('header');
+    }
+
+    /**
+     * Sets header
      *
      * @param  string $header
-     * @return string|self
+     * @return self
      */
-    public function header($header = null)
+    public function setHeader($header)
     {
-        if(null === $header)
-        {
-            return $this->property('header');
-        }
-        return $this->property('header', trim($header));
+        return $this->setProperty('header', trim($header));
     }
 
     /**

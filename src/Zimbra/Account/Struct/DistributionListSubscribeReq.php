@@ -34,41 +34,55 @@ class DistributionListSubscribeReq extends Base
     public function __construct(SubscribeOp $op, $value = null, $bccOwners = null)
     {
 		parent::__construct(trim($value));
-		$this->property('op', $op);
+		$this->setProperty('op', $op);
         if(null !== $bccOwners)
         {
-			$this->property('bccOwners', (bool) $bccOwners);
+			$this->setProperty('bccOwners', (bool) $bccOwners);
         }
     }
 
     /**
-     * Gets or sets op
+     * Gets operation
+     *
+     * @return SubscribeOp
+     */
+    public function getOp()
+    {
+        return $this->getProperty('op');
+    }
+
+    /**
+     * Sets operation
      *
      * @param  SubscribeOp $op
-     * @return SubscribeOp|self
+     * @return self
      */
-    public function op(SubscribeOp $op = null)
+    public function setOp(SubscribeOp $op)
     {
-        if(null === $op)
-        {
-            return $this->property('op');
-        }
-        return $this->property('op', $op);
+        return $this->setProperty('op', $op);
     }
 
     /**
-     * Gets or sets bccOwners
+     * Gets bccOwners flag
+     * Flag whether to bcc all other owners on the accept/reject notification emails.
+     *
+     * @return bool
+     */
+    public function getBccOwners()
+    {
+        return $this->getProperty('bccOwners');
+    }
+
+    /**
+     * Sets bccOwners flag
+     * Flag whether to bcc all other owners on the accept/reject notification emails.
      *
      * @param  bool $bccOwners
      * @return bool|self
      */
-    public function bccOwners($bccOwners = null)
+    public function setBccOwners($bccOwners)
     {
-        if(null === $bccOwners)
-        {
-			return $this->property('bccOwners');
-        }
-        return $this->property('bccOwners', (bool) $bccOwners);
+        return $this->setProperty('bccOwners', (bool) $bccOwners);
     }
 
     /**

@@ -32,22 +32,27 @@ class CreateSearchFolder extends Base
     public function __construct(NewSearchFolderSpec $search)
     {
         parent::__construct();
-        $this->child('search', $search);
+        $this->setChild('search', $search);
     }
 
     /**
-     * Get or set search
-     * New search folder specification
+     * Gets search folder specification
+     *
+     * @return NewSearchFolderSpec
+     */
+    public function getSearchFolder()
+    {
+        return $this->getChild('search');
+    }
+
+    /**
+     * Sets search folder specification
      *
      * @param  NewSearchFolderSpec $search
-     * @return NewSearchFolderSpec|self
+     * @return self
      */
-    public function search(NewSearchFolderSpec $search = null)
+    public function setSearchFolder(NewSearchFolderSpec $search)
     {
-        if(null === $search)
-        {
-            return $this->child('search');
-        }
-        return $this->child('search', $search);
+        return $this->setChild('search', $search);
     }
 }

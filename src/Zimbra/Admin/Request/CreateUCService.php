@@ -34,24 +34,30 @@ class CreateUCService extends BaseAttr
      * @param array  $attrs
      * @return self
      */
-    public function __construct($name, array $attrs = array())
+    public function __construct($name, array $attrs = [])
     {
         parent::__construct($attrs);
-        $this->child('name', trim($name));
+        $this->setChild('name', trim($name));
     }
 
     /**
-     * Gets or sets name
+     * Gets name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->getChild('name');
+    }
+
+    /**
+     * Sets name
      *
      * @param  string $name
-     * @return string|self
+     * @return self
      */
-    public function name($name = null)
+    public function setName($name)
     {
-        if(null === $name)
-        {
-            return $this->child('name');
-        }
-        return $this->child('name', trim($name));
+        return $this->setChild('name', trim($name));
     }
 }

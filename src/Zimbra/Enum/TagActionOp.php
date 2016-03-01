@@ -54,5 +54,5 @@ class TagActionOp extends Base
      * Constant for value 'retentionpolicy'
      * @return string 'retentionpolicy'
      */
-    const RETENTION_POLICY = 'retentionpolicy';
+    const RETENTION = 'retentionpolicy';
 }

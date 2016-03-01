@@ -26,27 +26,33 @@ class GetMsgMetadata extends Base
 {
     /**
      * Constructor method for GetMsgMetadata
-     * @param  IdsAttr $m
+     * @param  IdsAttr $msgIds
      * @return self
      */
-    public function __construct(IdsAttr $m)
+    public function __construct(IdsAttr $msgIds)
     {
         parent::__construct();
-        $this->child('m', $m);
+        $this->setChild('m', $msgIds);
     }
 
     /**
-     * Get or set m
+     * Gets messages selector
      *
-     * @param  IdsAttr $m
-     * @return IdsAttr|self
+     * @return IdsAttr
      */
-    public function m(IdsAttr $m = null)
+    public function getMsgIds()
     {
-        if(null === $m)
-        {
-            return $this->child('m');
-        }
-        return $this->child('m', $m);
+        return $this->getChild('m');
+    }
+
+    /**
+     * Sets message selector
+     *
+     * @param  IdsAttr $msgIds
+     * @return self
+     */
+    public function setMsgIds(IdsAttr $msgIds)
+    {
+        return $this->setChild('m', $msgIds);
     }
 }

@@ -27,25 +27,25 @@ class BlackList extends Base
 {
     /**
      * Attributes
-     * @var TypedSequence<Attr>
+     * @var TypedSequence<OpValue>
      */
-    private $_addr;
+    private $_addrs;
 
     /**
      * Constructor method for BlackList
      * @param array $addrs
      * @return self
      */
-    public function __construct(array $addrs = array())
+    public function __construct(array $addrs = [])
     {
 		parent::__construct();
-        $this->_addr = new TypedSequence('Zimbra\Struct\OpValue', $addrs);
+        $this->setAddrs($addrs);
 
         $this->on('before', function(Base $sender)
         {
-            if($sender->addr()->count())
+            if($sender->getAddrs()->count())
             {
-                $sender->child('addr', $sender->addr()->all());
+                $sender->setChild('addr', $sender->getAddrs()->all());
             }
         });
     }
@@ -58,7 +58,19 @@ class BlackList extends Base
      */
     public function addAddr(OpValue $addr)
     {
-        $this->_addr->add($addr);
+        $this->_addrs->add($addr);
+        return $this;
+    }
+
+    /**
+     * Sets addr sequence
+     *
+     * @param array $addrs
+     * @return self
+     */
+    public function setAddrs(array $addrs)
+    {
+        $this->_addrs = new TypedSequence('Zimbra\Struct\OpValue', $addrs);
         return $this;
     }
 
@@ -67,9 +79,9 @@ class BlackList extends Base
      *
      * @return Sequence
      */
-    public function addr()
+    public function getAddrs()
     {
-        return $this->_addr;
+        return $this->_addrs;
     }
 
     /**

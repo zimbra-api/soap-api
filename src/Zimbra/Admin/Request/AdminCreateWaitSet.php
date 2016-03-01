@@ -10,9 +10,9 @@
 
 namespace Zimbra\Admin\Request;
 
-use Zimbra\Admin\Struct\WaitSetSpec;
 use Zimbra\Common\TypedSequence;
 use Zimbra\Enum\InterestType;
+use Zimbra\Struct\WaitSetSpec;
 
 /**
  * AdminCreateWaitSet request class
@@ -35,76 +35,100 @@ class AdminCreateWaitSet extends Base
 
     /**
      * Constructor method for AdminCreateWaitSet
-     * @param  WaitSetSpec $add The WaitSet add spec
+     * @param  WaitSetSpec $accounts The WaitSet add spec
      * @param  array $defTypes Default interest types
      * @param  bool  $allAccounts The allAccounts
      * @return self
      */
-    public function __construct(WaitSetSpec $add = null, array $defTypes = array(), $allAccounts = null)
+    public function __construct(WaitSetSpec $accounts = null, array $defTypes = [], $allAccounts = null)
     {
         parent::__construct();
-        $this->child('add', $add);
+        $this->setChild('add', $accounts);
         if(null !== $allAccounts)
         {
-            $this->property('allAccounts', (bool) $allAccounts);
+            $this->setProperty('allAccounts', (bool) $allAccounts);
         }
-        $this->_defTypes = new TypedSequence('Zimbra\Enum\InterestType', $defTypes);
+        $this->setDefaultInterests($defTypes);
 
         $this->on('before', function(Base $sender)
         {
-            $sender->property('defTypes', $sender->defTypes());
+            $sender->setProperty('defTypes', $sender->getDefaultInterests());
         });
     }
 
     /**
-     * Gets or sets add
+     * Gets the account.
      *
-     * @param  WaitSetSpec $add
-     * @return WaitSetSpec|self
+     * @return Account
      */
-    public function add(WaitSetSpec $add = null)
+    public function getAccounts()
     {
-        if(null === $add)
-        {
-            return $this->child('add');
-        }
-        return $this->child('add', $add);
+        return $this->getChild('add');
     }
 
     /**
-     * Add a type
+     * Sets the account.
+     *
+     * @param  Account $account
+     * @return self
+     */
+    public function setAccounts(WaitSetSpec $account)
+    {
+        return $this->setChild('add', $account);
+    }
+
+    /**
+     * Add a default interest type
      *
      * @param  InterestType $type
      * @return self
      */
-    public function addDefType(InterestType $type)
+    public function addDefaultInterest(InterestType $type)
     {
         $this->_defTypes->add($type);
         return $this;
     }
 
     /**
-     * Gets defTypes
+     * Sets default interest types
+     *
+     * @param  array $defTypes
+     * @return self
+     */
+    public function setDefaultInterests(array $defTypes)
+    {
+        $this->_defTypes = new TypedSequence('Zimbra\Enum\InterestType', $defTypes);
+        return $this;
+    }
+
+    /**
+     * Gets default interest types
      *
      * @return string
      */
-    public function defTypes()
+    public function getDefaultInterests()
     {
         return count($this->_defTypes) ? implode(',', $this->_defTypes->all()) : 'all';
     }
 
     /**
-     * Gets or sets allAccounts
+     * Gets all accounts flag
      *
-     * @param  bool $allAccounts
-     * @return bool|self
+     * @return bool
      */
-    public function allAccounts($allAccounts = null)
+    public function getAllAccounts()
     {
-        if(null === $allAccounts)
-        {
-            return $this->property('allAccounts');
-        }
-        return $this->property('allAccounts', (bool) $allAccounts);
+        return $this->getProperty('allAccounts');
+    }
+
+    /**
+     * Sets all accounts flag
+     *
+     * @param  string $allAccounts
+     * @return self
+     */
+    public function setAllAccounts($allAccounts)
+    {
+        return $this->setProperty('allAccounts', (bool) $allAccounts);
     }
 }

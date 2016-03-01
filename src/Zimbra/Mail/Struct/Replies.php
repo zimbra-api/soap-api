@@ -28,23 +28,22 @@ class Replies extends Base
      * Attributes
      * @var TypedSequence<CalReply>
      */
-    private $_reply;
+    private $_replies;
 
     /**
      * Constructor method for Replies
-     * @param array $reply
+     * @param array $replies
      * @return self
      */
-    public function __construct(array $reply = array())
+    public function __construct(array $replies = [])
     {
         parent::__construct();
-        $this->_reply = new TypedSequence('Zimbra\Mail\Struct\CalReply', $reply);
-
+        $this->_replies = new TypedSequence('Zimbra\Mail\Struct\CalReply', $replies);
         $this->on('before', function(Base $sender)
         {
-            if($sender->reply()->count())
+            if($sender->getReplies()->count())
             {
-                $sender->child('reply', $sender->reply()->all());
+                $sender->setChild('reply', $sender->getReplies()->all());
             }
         });
     }
@@ -57,7 +56,7 @@ class Replies extends Base
      */
     public function addReply(CalReply $reply)
     {
-        $this->_reply->add($reply);
+        $this->_replies->add($reply);
         return $this;
     }
 
@@ -66,9 +65,9 @@ class Replies extends Base
      *
      * @return Sequence
      */
-    public function reply()
+    public function getReplies()
     {
-        return $this->_reply;
+        return $this->_replies;
     }
 
     /**

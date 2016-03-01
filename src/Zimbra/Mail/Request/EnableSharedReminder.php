@@ -26,28 +26,33 @@ class EnableSharedReminder extends Base
 {
     /**
      * Constructor method for EnableSharedReminder
-     * @param  SharedReminderMount $link
+     * @param  SharedReminderMount $mount
      * @return self
      */
-    public function __construct(SharedReminderMount $link)
+    public function __construct(SharedReminderMount $mount)
     {
         parent::__construct();
-        $this->child('link', $link);
+        $this->setChild('link', $mount);
     }
 
     /**
-     * Get or set link
-     * Specification for mountpoint
+     * Gets specification for mount point
+     *
+     * @return SharedReminderMount
+     */
+    public function getMount()
+    {
+        return $this->getChild('link');
+    }
+
+    /**
+     * Sets specification for mount point
      *
      * @param  SharedReminderMount $link
-     * @return SharedReminderMount|self
+     * @return self
      */
-    public function link(SharedReminderMount $link = null)
+    public function setMount(SharedReminderMount $mount)
     {
-        if(null === $link)
-        {
-            return $this->child('link');
-        }
-        return $this->child('link', $link);
+        return $this->setChild('link', $mount);
     }
 }

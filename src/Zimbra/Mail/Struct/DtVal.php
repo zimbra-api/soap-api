@@ -39,61 +39,79 @@ class DtVal extends Base
         parent::__construct();
         if($s instanceof DtTimeInfo)
         {
-            $this->child('s', $s);
+            $this->setChild('s', $s);
         }
         if($e instanceof DtTimeInfo)
         {
-            $this->child('e', $e);
+            $this->setChild('e', $e);
         }
         if($dur instanceof DurationInfo)
         {
-            $this->child('dur', $dur);
+            $this->setChild('dur', $dur);
         }
     }
 
     /**
-     * Gets or sets s
+     * Gets start time
+     *
+     * @return DtTimeInfo
+     */
+    public function getStartTime()
+    {
+        return $this->getChild('s');
+    }
+
+    /**
+     * Sets start time
      *
      * @param  DtTimeInfo $s
-     * @return DtTimeInfo|self
+     * @return self
      */
-    public function s(DtTimeInfo $s = null)
+    public function setStartTime(DtTimeInfo $s)
     {
-        if(null === $s)
-        {
-            return $this->child('s');
-        }
-        return $this->child('s', $s);
+        return $this->setChild('s', $s);
     }
 
     /**
-     * Gets or sets e
+     * Gets end time
+     *
+     * @return DtTimeInfo
+     */
+    public function getEndTime()
+    {
+        return $this->getChild('e');
+    }
+
+    /**
+     * Sets end time
      *
      * @param  DtTimeInfo $e
-     * @return DtTimeInfo|self
+     * @return self
      */
-    public function e(DtTimeInfo $e = null)
+    public function setEndTime(DtTimeInfo $e)
     {
-        if(null === $e)
-        {
-            return $this->child('e');
-        }
-        return $this->child('e', $e);
+        return $this->setChild('e', $e);
     }
 
     /**
-     * Gets or sets dur
+     * Gets duration
+     *
+     * @return DurationInfo
+     */
+    public function getDuration()
+    {
+        return $this->getChild('dur');
+    }
+
+    /**
+     * Sets duration
      *
      * @param  DurationInfo $dur
-     * @return DurationInfo|self
+     * @return self
      */
-    public function dur(DurationInfo $dur = null)
+    public function setDuration(DurationInfo $dur)
     {
-        if(null === $dur)
-        {
-            return $this->child('dur');
-        }
-        return $this->child('dur', $dur);
+        return $this->setChild('dur', $dur);
     }
 
     /**

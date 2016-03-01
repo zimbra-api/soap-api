@@ -32,22 +32,28 @@ class GetAllAdminAccounts extends Base
         parent::__construct();
         if(null !== $applyCos)
         {
-            $this->property('applyCos', (bool) $applyCos);
+            $this->setProperty('applyCos', (bool) $applyCos);
         }
     }
 
     /**
-     * Gets or sets applyCos
+     * Gets applyCos
+     *
+     * @return bool
+     */
+    public function getApplyCos()
+    {
+        return $this->getProperty('applyCos');
+    }
+
+    /**
+     * Sets applyCos
      *
      * @param  bool $applyCos
-     * @return bool|self
+     * @return self
      */
-    public function applyCos($applyCos = null)
+    public function setApplyCos($applyCos)
     {
-        if(null === $applyCos)
-        {
-            return $this->property('applyCos');
-        }
-        return $this->property('applyCos', (bool) $applyCos);
+        return $this->setProperty('applyCos', (bool) $applyCos);
     }
 }

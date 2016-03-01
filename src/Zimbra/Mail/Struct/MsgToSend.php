@@ -24,12 +24,9 @@ class MsgToSend extends Msg
     /**
      * Constructor method for Msg
      * @param string $content
-     * @param array $header
      * @param MimePartInfo $mp
      * @param AttachmentsInfo $attach
      * @param InvitationInfo $inv
-     * @param array $e
-     * @param array $tz
      * @param string $fr
      * @param string $did
      * @param bool   $sfd
@@ -41,17 +38,17 @@ class MsgToSend extends Msg
      * @param string $irt
      * @param string $l
      * @param string $f
-     * @param array $any
+     * @param array $headers
+     * @param array $emails
+     * @param array $timezones
+     * @param array $extras
      * @return self
      */
     public function __construct(
         $content = null,
-        array $header = array(),
         MimePartInfo $mp = null,
         AttachmentsInfo $attach = null,
         InvitationInfo $inv = null,
-        array $e = array(),
-        array $tz = array(),
         $fr = null,
         $did = null,
         $sfd = null,
@@ -63,17 +60,17 @@ class MsgToSend extends Msg
         $irt = null,
         $l = null,
         $f = null,
-        array $any = array()
+        array $headers = [],
+        array $emails = [],
+        array $timezones = [],
+        array $extras = []
     )
     {
         parent::__construct(
             $content,
-            $header,
             $mp,
             $attach,
             $inv,
-            $e,
-            $tz,
             $fr,
             $aid,
             $origid,
@@ -83,46 +80,61 @@ class MsgToSend extends Msg
             $irt,
             $l,
             $f,
-            $any
+            $headers,
+            $emails,
+            $timezones,
+            $extras
         );
         if(null !== $did)
         {
-            $this->property('did', trim($did));
+            $this->setProperty('did', trim($did));
         }
         if(null !== $sfd)
         {
-            return $this->property('sfd', (bool) $sfd);
+            return $this->setProperty('sfd', (bool) $sfd);
         }
     }
 
     /**
-     * Gets or sets did
+     * Gets saved draft ID
+     *
+     * @return string
+     */
+    public function getDraftId()
+    {
+        return $this->getProperty('did');
+    }
+
+    /**
+     * Sets saved draft ID
      *
      * @param  string $did
-     * @return string|self
+     * @return self
      */
-    public function did($did = null)
+    public function setDraftId($did)
     {
-        if(null === $did)
-        {
-            return $this->property('did');
-        }
-        return $this->property('did', trim($did));
+        return $this->setProperty('did', trim($did));
     }
 
     /**
-     * Gets or sets sfd
+     * Gets send from draft
+     *
+     * @return bool
+     */
+    public function getSendFromDraft()
+    {
+        return $this->getProperty('sfd');
+    }
+
+    /**
+     * Sets send from draft
      *
      * @param  bool $sfd
-     * @return bool|self
+     * @return self
      */
-    public function sfd($sfd = null)
+    public function setSendFromDraft($sfd)
     {
-        if(null === $sfd)
-        {
-            return $this->property('sfd');
-        }
-        return $this->property('sfd', (bool) $sfd);
+        return $this->setProperty('sfd', (bool) $sfd);
     }
 
     /**

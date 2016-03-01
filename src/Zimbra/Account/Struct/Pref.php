@@ -13,7 +13,7 @@ namespace Zimbra\Account\Struct;
 use Zimbra\Struct\Base;
 
 /**
- * Pref struct class
+ * Preference struct class
  *
  * @package    Zimbra
  * @subpackage Account
@@ -24,7 +24,7 @@ use Zimbra\Struct\Base;
 class Pref extends Base
 {
     /**
-     * Constructor method for pref
+     * Constructor method for preference
      * @param  string $name
      * @param  string $value
      * @param  int   $modified
@@ -33,41 +33,53 @@ class Pref extends Base
     public function __construct($name, $value = null, $modified = null)
     {
 		parent::__construct(trim($value));
-        $this->property('name', trim($name));
+        $this->setProperty('name', trim($name));
         if(null !== $modified)
         {
-            $this->property('modified', (int) $modified);
+            $this->setProperty('modified', (int) $modified);
         }
     }
 
     /**
-     * Gets or sets name
+     * Gets preference name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->getProperty('name');
+    }
+
+    /**
+     * Sets preference name
      *
      * @param  string $name
-     * @return string|self
+     * @return self
      */
-    public function name($name = null)
+    public function setName($name)
     {
-        if(null === $name)
-        {
-            return $this->property('name');
-        }
-        return $this->property('name', trim($name));
+        return $this->setProperty('name', trim($name));
     }
 
     /**
-     * Gets or sets modified
+     * Get preference modified time
+     *
+     * @return int
+     */
+    public function getModified()
+    {
+        return $this->getProperty('modified');
+    }
+
+    /**
+     * Sets preference modified time
      *
      * @param  int $modified
-     * @return int|self
+     * @return self
      */
-    public function modified($modified = null)
+    public function setModified($modified)
     {
-        if(null === $modified)
-        {
-            return $this->property('modified');
-        }
-        return $this->property('modified', (int) $modified);
+        return $this->setProperty('modified', (int) $modified);
     }
 
     /**

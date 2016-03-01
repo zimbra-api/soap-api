@@ -34,42 +34,54 @@ class GeoInfo extends Base
         parent::__construct();
         if(null !== $lat)
         {
-            $this->property('lat', (float) $lat);
+            $this->setProperty('lat', (float) $lat);
         }
         if(null !== $lon)
         {
-            $this->property('lon', (float) $lon);
+            $this->setProperty('lon', (float) $lon);
         }
     }
 
     /**
-     * Gets or sets lat
+     * Gets latitude
+     *
+     * @return float
+     */
+    public function getLatitude()
+    {
+        return $this->getProperty('lat');
+    }
+
+    /**
+     * Sets latitude
      *
      * @param  float $lat
-     * @return float|self
+     * @return self
      */
-    public function lat($lat = null)
+    public function setLatitude($lat)
     {
-        if(null === $lat)
-        {
-            return $this->property('lat');
-        }
-        return $this->property('lat', (float) $lat);
+        return $this->setProperty('lat', (float) $lat);
     }
 
     /**
-     * Gets or sets lon
+     * Gets longitude
+     *
+     * @return float
+     */
+    public function getLongitude()
+    {
+        return $this->getProperty('lon');
+    }
+
+    /**
+     * Sets longitude
      *
      * @param  float $lon
-     * @return float|self
+     * @return self
      */
-    public function lon($lon = null)
+    public function setLongitude($lon)
     {
-        if(null === $lon)
-        {
-            return $this->property('lon');
-        }
-        return $this->property('lon', (float) $lon);
+        return $this->setProperty('lon', (float) $lon);
     }
 
     /**

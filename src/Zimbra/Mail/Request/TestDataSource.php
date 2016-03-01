@@ -36,184 +36,80 @@ use Zimbra\Mail\Struct\MailUnknownDataSource;
 class TestDataSource extends Base
 {
     /**
+     * Specify the datasources to create
+     * @var  MailDataSource
+     */
+    private $_dataSource;
+
+    /**
      * Constructor method for TestDataSource
-     * @param  MailDataSource $ds
+     * @param  MailDataSource $dataSource
      * @return self
      */
-    public function __construct(MailDataSource $ds = null)
+    public function __construct(MailDataSource $dataSource = null)
     {
         parent::__construct();
-        if($ds instanceof MailImapDataSource)
+        if ($dataSource instanceof MailDataSource)
         {
-            $this->child('imap', $ds);
+            $this->_dataSource = $dataSource;
         }
-        if($ds instanceof MailPop3DataSource)
-        {
-            $this->child('pop3', $ds);
-        }
-        if($ds instanceof MailCaldavDataSource)
-        {
-            $this->child('caldav', $ds);
-        }
-        if($ds instanceof MailYabDataSource)
-        {
-            $this->child('yab', $ds);
-        }
-        if($ds instanceof MailRssDataSource)
-        {
-            $this->child('rss', $ds);
-        }
-        if($ds instanceof MailGalDataSource)
-        {
-            $this->child('gal', $ds);
-        }
-        if($ds instanceof MailCalDataSource)
-        {
-            $this->child('cal', $ds);
-        }
-        if($ds instanceof MailUnknownDataSource)
-        {
-            $this->child('unknown', $ds);
-        }
-    }
 
-    /**
-     * Gets or sets child
-     *
-     * @param  string $name
-     * @param  mix $value
-     * @return string|self
-     */
-    public function child($name, $value = null)
-    {
-        if($value instanceof MailDataSource)
+        $this->on('before', function(Base $sender)
         {
-            $dataSources = array('imap', 'pop3', 'caldav', 'yab', 'rss', 'gal', 'cal', 'unknown');
-            foreach ($dataSources as $ds)
+            if($this->_dataSource instanceof MailImapDataSource)
             {
-                $this->removeChild($ds);
+                $this->setChild('imap', $this->_dataSource);
             }
-        }
-        return parent::child($name, $value);
+            if($this->_dataSource instanceof MailPop3DataSource)
+            {
+                $this->setChild('pop3', $this->_dataSource);
+            }
+            if($this->_dataSource instanceof MailCaldavDataSource)
+            {
+                $this->setChild('caldav', $this->_dataSource);
+            }
+            if($this->_dataSource instanceof MailYabDataSource)
+            {
+                $this->setChild('yab', $this->_dataSource);
+            }
+            if($this->_dataSource instanceof MailRssDataSource)
+            {
+                $this->setChild('rss', $this->_dataSource);
+            }
+            if($this->_dataSource instanceof MailGalDataSource)
+            {
+                $this->setChild('gal', $this->_dataSource);
+            }
+            if($this->_dataSource instanceof MailCalDataSource)
+            {
+                $this->setChild('cal', $this->_dataSource);
+            }
+            if($this->_dataSource instanceof MailUnknownDataSource)
+            {
+                $this->setChild('unknown', $this->_dataSource);
+            }
+        });
     }
 
     /**
-     * Get or set imap
+     * Gets data source
      *
-     * @param  MailImapDataSource $imap
-     * @return MailImapDataSource|self
+     * @return MailDataSource
      */
-    public function imap(MailImapDataSource $imap = null)
+    public function getDataSource()
     {
-        if(null === $imap)
-        {
-            return $this->child('imap');
-        }
-        return $this->child('imap', $imap);
+        return $this->_dataSource;
     }
 
     /**
-     * Get or set pop3
+     * Sets data source
      *
-     * @param  MailPop3DataSource $pop3
-     * @return MailPop3DataSource|self
+     * @param  MailDataSource $dataSource
+     * @return self
      */
-    public function pop3(MailPop3DataSource $pop3 = null)
+    public function setDataSource(MailDataSource $dataSource)
     {
-        if(null === $pop3)
-        {
-            return $this->child('pop3');
-        }
-        return $this->child('pop3', $pop3);
-    }
-
-    /**
-     * Get or set caldav
-     *
-     * @param  MailCaldavDataSource $caldav
-     * @return MailCaldavDataSource|self
-     */
-    public function caldav(MailCaldavDataSource $caldav = null)
-    {
-        if(null === $caldav)
-        {
-            return $this->child('caldav');
-        }
-        return $this->child('caldav', $caldav);
-    }
-
-    /**
-     * Get or set yab
-     *
-     * @param  MailYabDataSource $yab
-     * @return MailYabDataSource|self
-     */
-    public function yab(MailYabDataSource $yab = null)
-    {
-        if(null === $yab)
-        {
-            return $this->child('yab');
-        }
-        return $this->child('yab', $yab);
-    }
-
-    /**
-     * Get or set rss
-     *
-     * @param  MailRssDataSource $rss
-     * @return MailRssDataSource|self
-     */
-    public function rss(MailRssDataSource $rss = null)
-    {
-        if(null === $rss)
-        {
-            return $this->child('rss');
-        }
-        return $this->child('rss', $rss);
-    }
-
-    /**
-     * Get or set gal
-     *
-     * @param  MailGalDataSource $gal
-     * @return MailGalDataSource|self
-     */
-    public function gal(MailGalDataSource $gal = null)
-    {
-        if(null === $gal)
-        {
-            return $this->child('gal');
-        }
-        return $this->child('gal', $gal);
-    }
-
-    /**
-     * Get or set cal
-     *
-     * @param  MailCalDataSource $cal
-     * @return MailCalDataSource|self
-     */
-    public function cal(MailCalDataSource $cal = null)
-    {
-        if(null === $cal)
-        {
-            return $this->child('cal');
-        }
-        return $this->child('cal', $cal);
-    }
-
-    /**
-     * Get or set unknown
-     *
-     * @param  MailUnknownDataSource $unknown
-     * @return MailUnknownDataSource|self
-     */
-    public function unknown(MailUnknownDataSource $unknown = null)
-    {
-        if(null === $unknown)
-        {
-            return $this->child('unknown');
-        }
-        return $this->child('unknown', $unknown);
+        $this->_dataSource = $dataSource;
+        return $this;
     }
 }

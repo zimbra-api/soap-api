@@ -10,6 +10,7 @@
 
 namespace Zimbra\Mail\Struct;
 
+use Zimbra\Enum\AddressType;
 use Zimbra\Struct\Base;
 
 /**
@@ -25,68 +26,86 @@ class EmailAddrInfo extends Base
 {
     /**
      * Constructor method for EmailAddrInfo
-     * @param  string $a Email address
-     * @param  string $t  Address type - (f)rom, (t)o, (c)c, (b)cc, (r)eply-to, (s)ender, read-receipt (n)otification, (rf) resent-from
-     * @param  string $p The comment/name part of an address
+     * @param  string      $a Email address
+     * @param  AddressType $t Address type - (f)rom, (t)o, (c)c, (b)cc, (r)eply-to, (s)ender, read-receipt (n)otification, (rf) resent-from
+     * @param  string      $p The comment/name part of an address
      * @return self
      */
-    public function __construct($a, $t = null, $p = null)
+    public function __construct($a, AddressType $t = null, $p = null)
     {
         parent::__construct();
-        $this->property('a', trim($a));
+        $this->setProperty('a', trim($a));
         if(null !== $t)
         {
-            $this->property('t', trim($t));
+            $this->setProperty('t', $t);
         }
         if(null !== $p)
         {
-            $this->property('p', trim($p));
+            $this->setProperty('p', trim($p));
         }
     }
 
     /**
-     * Gets or sets a
+     * Gets address
+     *
+     * @return string
+     */
+    public function getAddress()
+    {
+        return $this->getProperty('a');
+    }
+
+    /**
+     * Sets address
      *
      * @param  string $a
-     * @return string|self
+     * @return self
      */
-    public function a($a = null)
+    public function setAddress($a)
     {
-        if(null === $a)
-        {
-            return $this->property('a');
-        }
-        return $this->property('a', trim($a));
+        return $this->setProperty('a', trim($a));
     }
 
     /**
-     * Gets or sets t
+     * Gets address type
      *
-     * @param  string $t
-     * @return string|self
+     * @return AddressType
      */
-    public function t($t = null)
+    public function getAddressType()
     {
-        if(null === $t)
-        {
-            return $this->property('t');
-        }
-        return $this->property('t', trim($t));
+        return $this->getProperty('t');
     }
 
     /**
-     * Gets or sets p
+     * Sets address type
+     *
+     * @param  AddressType $t
+     * @return self
+     */
+    public function setAddressType(AddressType $t)
+    {
+        return $this->setProperty('t', $t);
+    }
+
+    /**
+     * Gets personal
+     *
+     * @return string
+     */
+    public function getPersonal()
+    {
+        return $this->getProperty('p');
+    }
+
+    /**
+     * Sets personal
      *
      * @param  string $p
-     * @return string|self
+     * @return self
      */
-    public function p($p = null)
+    public function setPersonal($p)
     {
-        if(null === $p)
-        {
-            return $this->property('p');
-        }
-        return $this->property('p', trim($p));
+        return $this->setProperty('p', trim($p));
     }
 
     /**

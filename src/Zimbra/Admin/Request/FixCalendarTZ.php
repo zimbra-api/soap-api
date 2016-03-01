@@ -27,40 +27,21 @@ use Zimbra\Struct\NamedElement;
 class FixCalendarTZ extends Base
 {
     /**
-     * Sync flag
-     * @var bool
-     */
-    private $_sync;
-
-    /**
-     * Fix appts/tasks that have instances after this time
-     * default = January 1, 2008 00:00:00 in GMT+13:00 timezone.
-     * @var int
-     */
-    private $_after;
-
-    /**
      * Accounts
      * @var TypedSequence<NamedElement>
      */
-    private $_account;
-
-    /**
-     * Fixup rules
-     * @var TzFixup
-     */
-    private $_tzfixup;
+    private $_accounts;
 
     /**
      * Constructor method for FixCalendarTZ
-     * @param  bool  $sync
-     * @param  int   $after
-     * @param  array $account
-     * @param  array $tzfixup
+     * @param  array $accounts Accounts
+     * @param  array $tzfixup Fixup rules
+     * @param  bool  $sync Sync flag
+     * @param  int   $after Fix appts/tasks that have instances after this time.
      * @return self
      */
     public function __construct(
-        array $account = array(),
+        array $accounts = [],
         TzFixup $tzfixup = null,
         $sync = null,
         $after = null
@@ -69,23 +50,23 @@ class FixCalendarTZ extends Base
         parent::__construct();
         if($tzfixup instanceof TzFixup)
         {
-            $this->child('tzfixup', $tzfixup);
+            $this->setChild('tzfixup', $tzfixup);
         }
         if(null !== $sync)
         {
-            $this->property('sync', (bool) $sync);
+            $this->setProperty('sync', (bool) $sync);
         }
         if(null !== $after)
         {
-            $this->property('after', (int) $after);
+            $this->setProperty('after', (int) $after);
         }
-        $this->_account = new TypedSequence('Zimbra\Struct\NamedElement', $account);
+        $this->setAccounts($accounts);
 
         $this->on('before', function(Base $sender)
         {
-            if($sender->account()->count())
+            if($sender->getAccounts()->count())
             {
-                $sender->child('account', $sender->account()->all());
+                $sender->setChild('account', $sender->getAccounts()->all());
             }
         });
     }
@@ -98,7 +79,19 @@ class FixCalendarTZ extends Base
      */
     public function addAccount(NamedElement $account)
     {
-        $this->_account->add($account);
+        $this->_accounts->add($account);
+        return $this;
+    }
+
+    /**
+     * Sets account sequence
+     *
+     * @param  array $accounts
+     * @return self
+     */
+    public function setAccounts(array $accounts)
+    {
+        $this->_accounts = new TypedSequence('Zimbra\Struct\NamedElement', $accounts);
         return $this;
     }
 
@@ -107,53 +100,71 @@ class FixCalendarTZ extends Base
      *
      * @return Sequence
      */
-    public function account()
+    public function getAccounts()
     {
-        return $this->_account;
+        return $this->_accounts;
     }
 
     /**
-     * Gets or sets tzfixup
+     * Gets the tzfixup.
+     *
+     * @return TzFixup
+     */
+    public function getTzFixup()
+    {
+        return $this->getChild('tzfixup');
+    }
+
+    /**
+     * Sets the tzfixup.
      *
      * @param  TzFixup $tzfixup
-     * @return TzFixup|self
+     * @return self
      */
-    public function tzfixup(TzFixup $tzfixup = null)
+    public function setTzFixup(TzFixup $tzfixup)
     {
-        if(null === $tzfixup)
-        {
-            return $this->child('tzfixup');
-        }
-        return $this->child('tzfixup', $tzfixup);
+        return $this->setChild('tzfixup', $tzfixup);
     }
 
     /**
-     * Gets or sets sync
+     * Gets sync
+     *
+     * @return bool
+     */
+    public function getSync()
+    {
+        return $this->getProperty('sync');
+    }
+
+    /**
+     * Sets sync
      *
      * @param  bool $sync
-     * @return bool|self
+     * @return self
      */
-    public function sync($sync = null)
+    public function setSync($sync)
     {
-        if(null === $sync)
-        {
-            return $this->property('sync');
-        }
-        return $this->property('sync', (bool) $sync);
+        return $this->setProperty('sync', (bool) $sync);
     }
 
     /**
-     * Gets or sets after
+     * Gets after
+     *
+     * @return int
+     */
+    public function getAfter()
+    {
+        return $this->getProperty('after');
+    }
+
+    /**
+     * Sets after
      *
      * @param  int $after
-     * @return int|self
+     * @return self
      */
-    public function after($after = null)
+    public function setAfter($after)
     {
-        if(null === $after)
-        {
-            return $this->property('after');
-        }
-        return $this->property('after', (int) $after);
+        return $this->setProperty('after', (int) $after);
     }
 }

@@ -35,22 +35,28 @@ class SetMailboxMetadata extends Base
         parent::__construct();
         if($meta instanceof MailCustomMetadata)
         {
-            $this->child('meta', $meta);
+            $this->setChild('meta', $meta);
         }
     }
 
     /**
-     * Get or set meta
+     * Gets metadata
      *
-     * @param  MailCustomMetadata $meta
-     * @return MailCustomMetadata|self
+     * @return MailCustomMetadata
      */
-    public function meta(MailCustomMetadata $meta = null)
+    public function getMetadata()
     {
-        if(null === $meta)
-        {
-            return $this->child('meta');
-        }
-        return $this->child('meta', $meta);
+        return $this->getChild('meta');
+    }
+
+    /**
+     * Sets metadata
+     *
+     * @param  MailCustomMetadata $metadata
+     * @return self
+     */
+    public function setMetadata(MailCustomMetadata $metadata)
+    {
+        return $this->setChild('meta', $metadata);
     }
 }

@@ -35,38 +35,50 @@ class DistributionListGranteeSelector extends Base
     public function __construct(GranteeType $type, GranteeBy $by, $value = null)
     {
 		parent::__construct(trim($value));
-		$this->property('type', $type);
-		$this->property('by', $by);
+		$this->setProperty('type', $type);
+		$this->setProperty('by', $by);
     }
 
     /**
-     * Gets or sets type
+     * Gets grantee type
+     *
+     * @return GranteeType
+     */
+    public function getType()
+    {
+        return $this->getProperty('type');
+    }
+
+    /**
+     * Sets grantee type
      *
      * @param  GranteeType $type
-     * @return GranteeType|self
+     * @return self
      */
-    public function type(GranteeType $type = null)
+    public function setType(GranteeType $type)
     {
-        if(null === $type)
-        {
-            return $this->property('type');
-        }
-        return $this->property('type', $type);
+        return $this->setProperty('type', $type);
     }
 
     /**
-     * Gets or sets by
+     * Gets grantee by
+     *
+     * @return GranteeBy
+     */
+    public function getBy()
+    {
+        return $this->getProperty('by');
+    }
+
+    /**
+     * Sets grantee by
      *
      * @param  GranteeBy $by
-     * @return GranteeBy|self
+     * @return self
      */
-    public function by(GranteeBy $by = null)
+    public function setBy(GranteeBy $by = null)
     {
-        if(null === $by)
-        {
-            return $this->property('by');
-        }
-        return $this->property('by', $by);
+        return $this->setProperty('by', $by);
     }
 
     /**

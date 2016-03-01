@@ -32,21 +32,27 @@ class ItemAction extends Base
     public function __construct(ItemActionSelector $action)
     {
         parent::__construct();
-        $this->child('action', $action);
+        $this->setChild('action', $action);
     }
 
     /**
-     * Get or set action
+     * Gets action to perform on item
+     *
+     * @return ItemActionSelector
+     */
+    public function getAction()
+    {
+        return $this->getChild('action');
+    }
+
+    /**
+     * Sets action to perform on item
      *
      * @param  ItemActionSelector $action
-     * @return ItemActionSelector|self
+     * @return self
      */
-    public function action(ItemActionSelector $action = null)
+    public function setAction(ItemActionSelector $action)
     {
-        if(null === $action)
-        {
-            return $this->child('action');
-        }
-        return $this->child('action', $action);
+        return $this->setChild('action', $action);
     }
 }

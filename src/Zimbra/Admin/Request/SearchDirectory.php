@@ -12,6 +12,8 @@ namespace Zimbra\Admin\Request;
 
 use Zimbra\Common\TypedSequence;
 use Zimbra\Enum\DirectorySearchType as SearchType;
+use Zimbra\Struct\AttributeSelectorTrait;
+use Zimbra\Struct\AttributeSelector;
 
 /**
  * SearchDirectory request class
@@ -23,8 +25,10 @@ use Zimbra\Enum\DirectorySearchType as SearchType;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
  */
-class SearchDirectory extends Base
+class SearchDirectory extends Base implements AttributeSelector
 {
+    use AttributeSelectorTrait;
+
     /**
      * Comma-separated list of types to return. Legal values are:
      * accounts|distributionlists|aliases|resources|domains|coses
@@ -42,7 +46,7 @@ class SearchDirectory extends Base
      * @param string $domain The domain name to limit the search to.
      * @param bool $applyCos Flag whether or not to apply the COS policy to account.
      * @param bool $applyConfig Whether or not to apply the global config attrs to account.
-     * @param array $types Comma-separated list of types to return.
+     * @param array $types An array of types to return.
      * @param string $sortBy Name of attribute to sort on. Default is the account name.
      * @param bool $sortAscending Whether to sort in ascending order. Default is 1 (true).
      * @param bool $countOnly Whether response should be count only. Default is 0 (false)
@@ -57,171 +61,215 @@ class SearchDirectory extends Base
         $domain = null,
         $applyCos = null,
         $applyConfig = null,
-        array $types = array(),
+        array $types = [],
         $sortBy = null,
         $sortAscending = null,
         $countOnly = null,
-        $attrs = null
+        array $attrs = []
     )
     {
         parent::__construct();
-        $this->property('query', trim($query));
+        $this->setProperty('query', trim($query));
         if(null !== $maxResults)
         {
-            $this->property('maxResults', (int) $maxResults);
+            $this->setProperty('maxResults', (int) $maxResults);
         }
         if(null !== $limit)
         {
-            $this->property('limit', (int) $limit);
+            $this->setProperty('limit', (int) $limit);
         }
         if(null !== $offset)
         {
-            $this->property('offset', (int) $offset);
+            $this->setProperty('offset', (int) $offset);
         }
         if(null !== $domain)
         {
-            $this->property('domain', trim($domain));
+            $this->setProperty('domain', trim($domain));
         }
         if(null !== $applyCos)
         {
-            $this->property('applyCos', (bool) $applyCos);
+            $this->setProperty('applyCos', (bool) $applyCos);
         }
         if(null !== $applyConfig)
         {
-            $this->property('applyConfig', (bool) $applyConfig);
+            $this->setProperty('applyConfig', (bool) $applyConfig);
         }
         $this->_types = new TypedSequence('Zimbra\Enum\DirectorySearchType', $types);
         if(null !== $sortBy)
         {
-            $this->property('sortBy', trim($sortBy));
+            $this->setProperty('sortBy', trim($sortBy));
         }
 
         if(null !== $sortAscending)
         {
-            $this->property('sortAscending', (bool) $sortAscending);
+            $this->setProperty('sortAscending', (bool) $sortAscending);
         }
         if(null !== $countOnly)
         {
-            $this->property('countOnly', (bool) $countOnly);
+            $this->setProperty('countOnly', (bool) $countOnly);
         }
-        if(null !== $attrs)
-        {
-            $this->property('attrs', trim($attrs));
-        }
+        $this->setAttrs($attrs);
 
         $this->on('before', function(Base $sender)
         {
-            $types = $sender->types();
+            $types = $sender->getTypes();
             if(!empty($types))
             {
-                $sender->property('types', $sender->types());
+                $sender->setProperty('types', $sender->getTypes());
+            }
+            $attrs = $sender->getAttrs();
+            if(!empty($attrs))
+            {
+                $sender->setProperty('attrs', $attrs);
             }
         });
     }
 
     /**
-     * Gets or sets query
+     * Gets query
+     *
+     * @return string
+     */
+    public function getQuery()
+    {
+        return $this->getProperty('query');
+    }
+
+    /**
+     * Sets query
      *
      * @param  string $query
-     * @return string|self
+     * @return self
      */
-    public function query($query = null)
+    public function setQuery($query)
     {
-        if(null === $query)
-        {
-            return $this->property('query');
-        }
-        return $this->property('query', trim($query));
+        return $this->setProperty('query', trim($query));
     }
 
     /**
-     * Gets or sets maxResults
+     * Gets max results
+     *
+     * @return int
+     */
+    public function getMaxResults()
+    {
+        return $this->getProperty('maxResults');
+    }
+
+    /**
+     * Sets max results
      *
      * @param  int $maxResults
-     * @return int|self
+     * @return self
      */
-    public function maxResults($maxResults = null)
+    public function setMaxResults($maxResults)
     {
-        if(null === $maxResults)
-        {
-            return $this->property('maxResults');
-        }
-        return $this->property('maxResults', (int) $maxResults);
+        return $this->setProperty('maxResults', (int) $maxResults);
     }
 
     /**
-     * Gets or sets limit
+     * Gets limit
+     *
+     * @return int
+     */
+    public function getLimit()
+    {
+        return $this->getProperty('limit');
+    }
+
+    /**
+     * Sets limit
      *
      * @param  int $limit
-     * @return int|self
+     * @return self
      */
-    public function limit($limit = null)
+    public function setLimit($limit)
     {
-        if(null === $limit)
-        {
-            return $this->property('limit');
-        }
-        return $this->property('limit', (int) $limit);
+        return $this->setProperty('limit', (int) $limit);
     }
 
     /**
-     * Gets or sets offset
+     * Gets offset
+     *
+     * @return int
+     */
+    public function getOffset()
+    {
+        return $this->getProperty('offset');
+    }
+
+    /**
+     * Sets offset
      *
      * @param  int $offset
-     * @return int|self
+     * @return self
      */
-    public function offset($offset = null)
+    public function setOffset($offset)
     {
-        if(null === $offset)
-        {
-            return $this->property('offset');
-        }
-        return $this->property('offset', (int) $offset);
+        return $this->setProperty('offset', (int) $offset);
     }
 
     /**
-     * Gets or sets domain
+     * Gets domain
+     *
+     * @return string
+     */
+    public function getDomain()
+    {
+        return $this->getProperty('domain');
+    }
+
+    /**
+     * Sets domain
      *
      * @param  string $domain
-     * @return string|self
+     * @return self
      */
-    public function domain($domain = null)
+    public function setDomain($domain)
     {
-        if(null === $domain)
-        {
-            return $this->property('domain');
-        }
-        return $this->property('domain', trim($domain));
+        return $this->setProperty('domain', trim($domain));
     }
 
     /**
-     * Gets or sets applyCos
+     * Gets applyCos
+     *
+     * @return bool
+     */
+    public function getApplyCos()
+    {
+        return $this->getProperty('applyCos');
+    }
+
+    /**
+     * Sets applyCos
      *
      * @param  bool $applyCos
-     * @return bool|self
+     * @return self
      */
-    public function applyCos($applyCos = null)
+    public function setApplyCos($applyCos)
     {
-        if(null === $applyCos)
-        {
-            return $this->property('applyCos');
-        }
-        return $this->property('applyCos', (bool) $applyCos);
+        return $this->setProperty('applyCos', (bool) $applyCos);
     }
 
     /**
-     * Gets or sets applyConfig
+     * Gets applyConfig
+     *
+     * @return bool
+     */
+    public function getApplyConfig()
+    {
+        return $this->getProperty('applyConfig');
+    }
+
+    /**
+     * Sets applyConfig
      *
      * @param  bool $applyConfig
-     * @return bool|self
+     * @return self
      */
-    public function applyConfig($applyConfig = null)
+    public function setApplyConfig($applyConfig)
     {
-        if(null === $applyConfig)
-        {
-            return $this->property('applyConfig');
-        }
-        return $this->property('applyConfig', (bool) $applyConfig);
+        return $this->setProperty('applyConfig', (bool) $applyConfig);
     }
 
     /**
@@ -237,73 +285,87 @@ class SearchDirectory extends Base
     }
 
     /**
-     * Gets or sets types
+     * Sets types
      *
-     * @param  string $types
-     * @return string|self
+     * @param array $types An array of types to return.
+     * @return self
      */
-    public function types()
+    public function setTypes(array $types)
+    {
+        $this->_types = new TypedSequence('Zimbra\Enum\DirectorySearchType', $types);
+        return $this;
+    }
+
+    /**
+     * Gets types
+     *
+     * @return string
+     */
+    public function getTypes()
     {
         return implode(',', $this->_types->all());
     }
 
     /**
-     * Gets or sets sortBy
+     * Gets sortBy
+     *
+     * @return string
+     */
+    public function getSortBy()
+    {
+        return $this->getProperty('sortBy');
+    }
+
+    /**
+     * Sets sortBy
      *
      * @param  string $sortBy
-     * @return string|self
+     * @return self
      */
-    public function sortBy($sortBy = null)
+    public function setSortBy($sortBy)
     {
-        if(null === $sortBy)
-        {
-            return $this->property('sortBy');
-        }
-        return $this->property('sortBy', trim($sortBy));
+        return $this->setProperty('sortBy', trim($sortBy));
     }
 
     /**
-     * Gets or sets sortAscending
+     * Gets sortAscending
+     *
+     * @return bool
+     */
+    public function getSortAscending()
+    {
+        return $this->getProperty('sortAscending');
+    }
+
+    /**
+     * Sets sortAscending
      *
      * @param  bool $sortAscending
-     * @return bool|self
+     * @return self
      */
-    public function sortAscending($sortAscending = null)
+    public function setSortAscending($sortAscending)
     {
-        if(null === $sortAscending)
-        {
-            return $this->property('sortAscending');
-        }
-        return $this->property('sortAscending', (bool) $sortAscending);
+        return $this->setProperty('sortAscending', (bool) $sortAscending);
     }
 
     /**
-     * Gets or sets countOnly
+     * Gets countOnly
+     *
+     * @return bool
+     */
+    public function getCountOnly()
+    {
+        return $this->getProperty('countOnly');
+    }
+
+    /**
+     * Sets countOnly
      *
      * @param  bool $countOnly
-     * @return bool|self
+     * @return self
      */
-    public function countOnly($countOnly = null)
+    public function setCountOnly($countOnly)
     {
-        if(null === $countOnly)
-        {
-            return $this->property('countOnly');
-        }
-        return $this->property('countOnly', (bool) $countOnly);
-    }
-
-    /**
-     * Gets or sets attrs
-     *
-     * @param  string $attrs
-     * @return string|self
-     */
-    public function attrs($attrs = null)
-    {
-        if(null === $attrs)
-        {
-            return $this->property('attrs');
-        }
-        return $this->property('attrs', trim($attrs));
+        return $this->setProperty('countOnly', (bool) $countOnly);
     }
 }

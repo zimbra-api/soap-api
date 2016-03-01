@@ -29,16 +29,16 @@ class CalendarAttendee extends Base
      * Non-standard parameters (XPARAMs)
      * @var TypedSequence<XParam>
      */
-    private $_xparam;
+    private $_xparams;
 
     /**
      * Constructor method for CalendarAttendee
      * @param array $xparams Non-standard parameters (XPARAMs)
-     * @param string $a Email address (without "MAILTO:")
+     * @param string $address Email address (without "MAILTO:")
      * @param string $url URL - has same value as {email-address}. 
-     * @param string $d Friendly name - "CN" in iCalendar
+     * @param string $displayName Friendly name - "CN" in iCalendar
      * @param string $sentBy iCalendar SENT-BY
-     * @param string $dir iCalendar DIR - Reference to a directory entry associated with the calendar user. the property.
+     * @param string $dir iCalendar DIR - Reference to a directory entry associated with the calendar user. the setProperty.
      * @param string $lang iCalendar LANGUAGE - As defined in RFC5646 * (e.g. "en-US")
      * @param string $cutype iCalendar CUTYPE (Calendar user type)
      * @param string $role iCalendar ROLE
@@ -50,83 +50,83 @@ class CalendarAttendee extends Base
      * @return self
      */
     public function __construct(
-        array $xparams = array(),
-        $a = null,
+        $address = null,
         $url = null,
-        $d = null,
+        $displayName = null,
         $sentBy = null,
         $dir = null,
         $lang = null,
         $cutype = null,
         $role = null,
-        ParticipationStatus $ptst = null,
+        ParticipationStatus $partStat = null,
         $rsvp = null,
         $member = null,
         $delTo = null,
-        $delFrom = null
+        $delFrom = null,
+        array $xparams = []
     )
     {
         parent::__construct();
-        $this->_xparam = new TypedSequence('Zimbra\Mail\Struct\XParam', $xparams);
 
-        if(null !== $a)
+        if(null !== $address)
         {
-            $this->property('a', trim($a));
+            $this->setProperty('a', trim($address));
         }
         if(null !== $url)
         {
-            $this->property('url', trim($url));
+            $this->setProperty('url', trim($url));
         }
-        if(null !== $d)
+        if(null !== $displayName)
         {
-            $this->property('d', trim($d));
+            $this->setProperty('d', trim($displayName));
         }
         if(null !== $sentBy)
         {
-            $this->property('sentBy', trim($sentBy));
+            $this->setProperty('sentBy', trim($sentBy));
         }
         if(null !== $dir)
         {
-            $this->property('dir', trim($dir));
+            $this->setProperty('dir', trim($dir));
         }
         if(null !== $lang)
         {
-            $this->property('lang', trim($lang));
+            $this->setProperty('lang', trim($lang));
         }
         if(null !== $cutype)
         {
-            $this->property('cutype', trim($cutype));
+            $this->setProperty('cutype', trim($cutype));
         }
         if(null !== $role)
         {
-            $this->property('role', trim($role));
+            $this->setProperty('role', trim($role));
         }
-        if($ptst instanceof ParticipationStatus)
+        if($partStat instanceof ParticipationStatus)
         {
-            $this->property('ptst', $ptst);
+            $this->setProperty('ptst', $partStat);
         }
         if(null !== $rsvp)
         {
-            $this->property('rsvp', (bool) $rsvp);
+            $this->setProperty('rsvp', (bool) $rsvp);
         }
         if(null !== $member)
         {
-            $this->property('member', trim($member));
+            $this->setProperty('member', trim($member));
         }
         if(null !== $delTo)
         {
-            $this->property('delTo', trim($delTo));
+            $this->setProperty('delTo', trim($delTo));
         }
         if(null !== $delFrom)
         {
-            $this->property('delFrom', trim($delFrom));
+            $this->setProperty('delFrom', trim($delFrom));
         }
 
+        $this->setXParams($xparams);
         $this->on('before', function(Base $sender)
         {
-            if($sender->xparam()->count())
+            if($sender->getXParams()->count())
             {
-                $sender->child('xparam', $sender->xparam()->all());
+                $sender->setChild('xparam', $sender->getXParams()->all());
             }
         });
     }
@@ -139,7 +139,19 @@ class CalendarAttendee extends Base
      */
     public function addXParam(XParam $xparam)
     {
-        $this->_xparam->add($xparam);
+        $this->_xparams->add($xparam);
+        return $this;
+    }
+
+    /**
+     * Sets xparam sequence
+     *
+     * @param  array $xparams
+     * @return self
+     */
+    public function setXParams(array $xparams)
+    {
+        $this->_xparams = new TypedSequence('Zimbra\Mail\Struct\XParam', $xparams);
         return $this;
     }
 
@@ -148,205 +160,282 @@ class CalendarAttendee extends Base
      *
      * @return Sequence
      */
-    public function xparam()
+    public function getXParams()
     {
-        return $this->_xparam;
+        return $this->_xparams;
     }
 
     /**
-     * Gets or sets email address
+     * Gets address
      *
-     * @param  string $a email address
-     * @return string|self
+     * @return string
      */
-    public function a($a = null)
+    public function getAddress()
     {
-        if(null === $a)
-        {
-            return $this->property('a');
-        }
-        return $this->property('a', trim($a));
+        return $this->getProperty('a');
     }
 
     /**
-     * Gets or sets url value
+     * Sets address
      *
-     * @param  string $a url url value
-     * @return string|self
+     * @param  string $address
+     * @return self
      */
-    public function url($url = null)
+    public function setAddress($address)
     {
-        if(null === $url)
-        {
-            return $this->property('url');
-        }
-        return $this->property('url', trim($url));
+        return $this->setProperty('a', trim($address));
     }
 
     /**
-     * Gets or sets friendly name
+     * Gets url
      *
-     * @param  string $d friendly name
-     * @return string|self
+     * @return string
      */
-    public function d($d = null)
+    public function getUrl()
     {
-        if(null === $d)
-        {
-            return $this->property('d');
-        }
-        return $this->property('d', trim($d));
+        return $this->getProperty('url');
     }
 
     /**
-     * Gets or sets iCalendar SENT-BY
+     * Sets url
      *
-     * @param  string $sentBy iCalendar SENT-BY
-     * @return string|self
+     * @param  string $url
+     * @return self
      */
-    public function sentBy($sentBy = null)
+    public function setUrl($url)
     {
-        if(null === $sentBy)
-        {
-            return $this->property('sentBy');
-        }
-        return $this->property('sentBy', trim($sentBy));
+        return $this->setProperty('url', trim($url));
     }
 
     /**
-     * Gets or sets iCalendar DIR
+     * Gets display name
      *
-     * @param  string $dir iCalendar DIR
-     * @return string|self
+     * @return string
      */
-    public function dir($dir = null)
+    public function getDisplayName()
     {
-        if(null === $dir)
-        {
-            return $this->property('dir');
-        }
-        return $this->property('dir', trim($dir));
+        return $this->getProperty('d');
     }
 
     /**
-     * Gets or sets iCalendar LANGUAGE
+     * Sets display name
      *
-     * @param  string $lang iCalendar LANGUAGE
-     * @return string|self
+     * @param  string $displayName
+     * @return self
      */
-    public function lang($lang = null)
+    public function setDisplayName($displayName)
     {
-        if(null === $lang)
-        {
-            return $this->property('lang');
-        }
-        return $this->property('lang', trim($lang));
+        return $this->setProperty('d', trim($displayName));
     }
 
     /**
-     * Gets or sets iCalendar CUTYPE
+     * Gets sent by
      *
-     * @param  string $cutype iCalendar CUTYPE
-     * @return string|self
+     * @return string
      */
-    public function cutype($cutype = null)
+    public function getSentBy()
     {
-        if(null === $cutype)
-        {
-            return $this->property('cutype');
-        }
-        return $this->property('cutype', trim($cutype));
+        return $this->getProperty('sentBy');
     }
 
     /**
-     * Gets or sets iCalendar ROLE
+     * Sets sent by
      *
-     * @param  string $cutype iCalendar ROLE
-     * @return string|self
+     * @param  string $sentBy
+     * @return self
      */
-    public function role($role = null)
+    public function setSentBy($sentBy)
     {
-        if(null === $role)
-        {
-            return $this->property('role');
-        }
-        return $this->property('role', trim($role));
+        return $this->setProperty('sentBy', trim($sentBy));
     }
 
     /**
-     * Gets or sets iCalendar PTST
-     * Valid values: NE|AC|TE|DE|DG|CO|IN|WE|DF
+     * Gets sent by
+     *
+     * @return string
+     */
+    public function getDir()
+    {
+        return $this->getProperty('dir');
+    }
+
+    /**
+     * Sets sent by
+     *
+     * @param  string $dir
+     * @return self
+     */
+    public function setDir($dir)
+    {
+        return $this->setProperty('dir', trim($dir));
+    }
+
+    /**
+     * Gets lang
+     *
+     * @return string
+     */
+    public function getLanguage()
+    {
+        return $this->getProperty('lang');
+    }
+
+    /**
+     * Sets lang
+     *
+     * @param  string $lang
+     * @return self
+     */
+    public function setLanguage($lang)
+    {
+        return $this->setProperty('lang', trim($lang));
+    }
+
+    /**
+     * Gets cutype
+     *
+     * @return string
+     */
+    public function getCuType()
+    {
+        return $this->getProperty('cutype');
+    }
+
+    /**
+     * Sets cutype
+     *
+     * @param  string $cutype
+     * @return self
+     */
+    public function setCuType($cutype)
+    {
+        return $this->setProperty('cutype', trim($cutype));
+    }
+
+    /**
+     * Gets role
+     *
+     * @return string
+     */
+    public function getRole()
+    {
+        return $this->getProperty('role');
+    }
+
+    /**
+     * Sets role
+     *
+     * @param  string $role
+     * @return self
+     */
+    public function setRole($role)
+    {
+        return $this->setProperty('role', trim($role));
+    }
+
+    /**
+     * Gets ptst
+     *
+     * @return ParticipationStatus
+     */
+    public function getPartStat()
+    {
+        return $this->getProperty('ptst');
+    }
+
+    /**
+     * Sets ptst
      *
      * @param  ParticipationStatus $ptst
-     * @return ParticipationStatus|self
+     * @return self
      */
-    public function ptst(ParticipationStatus $ptst = null)
+    public function setPartStat(ParticipationStatus $ptst)
     {
-        if(null === $ptst)
-        {
-            return $this->property('ptst');
-        }
-        return $this->property('ptst', $ptst);
+        return $this->setProperty('ptst', $ptst);
     }
 
     /**
-     * Gets or sets iCalendar RSVP
+     * Gets rsvp
      *
-     * @param  bool $rsvp iCalendar RSVP
-     * @return bool|self
+     * @return bool
      */
-    public function rsvp($rsvp = null)
+    public function getRsvp()
     {
-        if(null === $rsvp)
-        {
-            return $this->property('rsvp');
-        }
-        return $this->property('rsvp', (bool) $rsvp);
+        return $this->getProperty('rsvp');
     }
 
     /**
-     * Gets or sets iCalendar MEMBER
+     * Sets rsvp
      *
-     * @param  string $member iCalendar MEMBER
-     * @return string|self
+     * @param  bool $rsvp
+     * @return self
      */
-    public function member($member = null)
+    public function setRsvp($rsvp)
     {
-        if(null === $member)
-        {
-            return $this->property('member');
-        }
-        return $this->property('member', trim($member));
+        return $this->setProperty('rsvp', (bool) $rsvp);
     }
 
     /**
-     * Gets or sets iCalendar DELEGATED-TO
+     * Gets member
      *
-     * @param  string $delTo iCalendar DELEGATED-TO
-     * @return string|self
+     * @return string
      */
-    public function delTo($delTo = null)
+    public function getMember()
     {
-        if(null === $delTo)
-        {
-            return $this->property('delTo');
-        }
-        return $this->property('delTo', trim($delTo));
+        return $this->getProperty('member');
     }
 
     /**
-     * Gets or sets iCalendar DELEGATED-FROM
+     * Sets member
      *
-     * @param  string $delTo iCalendar DELEGATED-FROM
-     * @return string|self
+     * @param  string $member
+     * @return self
      */
-    public function delFrom($delFrom = null)
+    public function setMember($member)
     {
-        if(null === $delFrom)
-        {
-            return $this->property('delFrom');
-        }
-        return $this->property('delFrom', trim($delFrom));
+        return $this->setProperty('member', trim($member));
+    }
+
+    /**
+     * Gets delTo
+     *
+     * @return string
+     */
+    public function getDelegatedTo()
+    {
+        return $this->getProperty('delTo');
+    }
+
+    /**
+     * Sets delTo
+     *
+     * @param  string $delTo
+     * @return self
+     */
+    public function setDelegatedTo($delTo)
+    {
+        return $this->setProperty('delTo', trim($delTo));
+    }
+
+    /**
+     * Gets delFrom
+     *
+     * @return string
+     */
+    public function getDelegatedFrom()
+    {
+        return $this->getProperty('delFrom');
+    }
+
+    /**
+     * Sets delFrom
+     *
+     * @param  string $delFrom
+     * @return self
+     */
+    public function setDelegatedFrom($delFrom)
+    {
+        return $this->setProperty('delFrom', trim($delFrom));
     }
 
     /**

@@ -26,7 +26,7 @@ class Content extends Base
     /**
      * Constructor method for AccountACEInfo
      * @param string $value Inlined content data. Ignored if "aid" is specified
-     * @param string $aid AttachmentAttachment upload ID of uploaded object to use
+     * @param string $aid Attachment upload ID of uploaded object to use
      * @return self
      */
     public function __construct(
@@ -37,23 +37,29 @@ class Content extends Base
         parent::__construct(trim($value));
         if(null !== $aid)
         {
-            $this->property('aid', trim($aid));
+            $this->setProperty('aid', trim($aid));
         }
     }
 
     /**
-     * Gets or sets aid
+     * Gets aid
+     *
+     * @return string
+     */
+    public function getAttachUploadId()
+    {
+        return $this->getProperty('aid');
+    }
+
+    /**
+     * Sets aid
      *
      * @param  string $aid
-     * @return string|self
+     * @return self
      */
-    public function aid($aid = null)
+    public function setAttachUploadId($aid)
     {
-        if(null === $aid)
-        {
-            return $this->property('aid');
-        }
-        return $this->property('aid', trim($aid));
+        return $this->setProperty('aid', trim($aid));
     }
 
     /**

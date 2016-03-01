@@ -26,29 +26,35 @@ class CosSelector extends Base
 {
     /**
      * Constructor method for CosSelector
-     * @param  CosBy $by Select the meaning of {cos-selector-key}
+     * @param  Zimbra\Enum\CosBy $by Select the meaning of {cos-selector-key}
      * @param  string $value The key used to identify the COS
      * @return self
      */
     public function __construct(CosBy $by, $value = null)
     {
         parent::__construct(trim($value));
-        $this->property('by', $by);
+        $this->setProperty('by', $by);
     }
 
     /**
-     * Gets or sets by
+     * Gets by enum
      *
-     * @param  CosBy $by
-     * @return CosBy|self
+     * @return Zimbra\Enum\CosBy
      */
-    public function by(CosBy $by = null)
+    public function getBy()
     {
-        if(null === $by)
-        {
-            return $this->property('by');
-        }
-        return $this->property('by', $by);
+        return $this->getProperty('by');
+    }
+
+    /**
+     * Sets by enum
+     *
+     * @param  Zimbra\Enum\CosBy $by
+     * @return self
+     */
+    public function setBy(CosBy $by = null)
+    {
+        return $this->setProperty('by', $by);
     }
 
     /**

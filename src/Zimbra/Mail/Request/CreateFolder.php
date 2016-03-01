@@ -32,22 +32,27 @@ class CreateFolder extends Base
     public function __construct(NewFolderSpec $folder)
     {
         parent::__construct();
-        $this->child('folder', $folder);
+        $this->setChild('folder', $folder);
     }
 
     /**
-     * Get or set folder
-     * New folder specification
+     * Gets folder specification
+     *
+     * @return NewFolderSpec
+     */
+    public function getFolder()
+    {
+        return $this->getChild('folder');
+    }
+
+    /**
+     * Sets folder specification
      *
      * @param  NewFolderSpec $folder
-     * @return NewFolderSpec|self
+     * @return self
      */
-    public function folder(NewFolderSpec $folder = null)
+    public function setFolder(NewFolderSpec $folder)
     {
-        if(null === $folder)
-        {
-            return $this->child('folder');
-        }
-        return $this->child('folder', $folder);
+        return $this->setChild('folder', $folder);
     }
 }

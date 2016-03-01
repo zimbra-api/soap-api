@@ -10,7 +10,7 @@
 
 namespace Zimbra\Soap;
 
-use Guzzle\Http\Message\Response as HttpResponse;
+use GuzzleHttp\Message\Response as HttpResponse;
 use Zimbra\Common\SimpleXML;
 
 /**
@@ -35,9 +35,15 @@ class Response
      * @param  HttpResponse $httpResponse
      * @return self
      */
-    public function __construct(HttpResponse $httpResponse = null)
+    public function __construct(HttpResponse $httpResponse)
     {
-		$this->_response = $this->processXml($httpResponse->getBody(true));
+        if (stripos($httpResponse->getHeader('Content-Type'), 'text/javascript') !== false) {
+            $this->_response = $this->processJson($httpResponse->getBody());
+        }
+        else
+        {
+            $this->_response = $this->processXml($httpResponse->getBody());
+        }
     }
 
     /**
@@ -89,5 +95,31 @@ class Response
         }
 
         return $xml->children('soap', true)->Body->children()->toObject();
+    }
+
+    /**
+     * Process soap response json.
+     *
+     * @param  string $json Soap response message in json format.
+     * @throws RuntimeException
+     * @return mix
+     */
+    protected function processJson($json)
+    {
+        if(empty($json))
+        {
+            throw new \UnexpectedValueException('Response string is empty.');
+        }
+        $object = json_decode($json);
+        if(isset($object->Body->Fault))
+        {
+            throw new \RuntimeException($object->Body->Fault->Reason->Text);
+        }
+        $body = $object->Body;
+        $ref = new \ReflectionObject($body);
+        $props = $ref->getProperties(\ReflectionProperty::IS_PUBLIC);
+        $prop = current($props);
+        $name = ($prop instanceof \ReflectionProperty) ? $prop->getName() : 'Response';
+        return isset($body->$name) ? $body->$name : null;
     }
 }

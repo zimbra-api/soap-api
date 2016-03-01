@@ -23,57 +23,57 @@ namespace Zimbra\Admin\Request;
 class UndeployZimlet extends Base
 {
     /**
-     * Zimlet name
-     * @var string
-     */
-    private $_name;
-
-    /**
-     * Action
-     * @var string
-     */
-    private $_action;
-
-    /**
      * Constructor method for UndeployZimlet
-     * @param string $name
-     * @param string $action
+     * @param string $name Zimlet name
+     * @param string $action Action
      * @return self
      */
     public function __construct($name, $action = null)
     {
         parent::__construct();
-        $this->property('name', trim($name));
-        $this->property('action', trim($action));
+        $this->setProperty('name', trim($name));
+        $this->setProperty('action', trim($action));
     }
 
     /**
-     * Gets or sets name
+     * Gets name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->getProperty('name');
+    }
+
+    /**
+     * Sets name
      *
      * @param  string $name
-     * @return string|self
+     * @return self
      */
-    public function name($name = null)
+    public function setName($name)
     {
-        if(null === $name)
-        {
-            return $this->property('name');
-        }
-        return $this->property('name', trim($name));
+        return $this->setProperty('name', trim($name));
     }
 
     /**
-     * Gets or sets action
+     * Gets action
+     *
+     * @return string
+     */
+    public function getAction()
+    {
+        return $this->getProperty('action');
+    }
+
+    /**
+     * Sets action
      *
      * @param  string $action
-     * @return string|self
+     * @return self
      */
-    public function action($action = null)
+    public function setAction($action)
     {
-        if(null === $action)
-        {
-            return $this->property('action');
-        }
-        return $this->property('action', trim($action));
+        return $this->setProperty('action', trim($action));
     }
 }

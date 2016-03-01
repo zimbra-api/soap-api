@@ -11,6 +11,8 @@
 namespace Zimbra\Admin\Request;
 
 use Zimbra\Admin\Struct\ServerSelector as Server;
+use Zimbra\Struct\AttributeSelectorTrait;
+use Zimbra\Struct\AttributeSelector;
 
 /**
  * GetServer request class
@@ -22,74 +24,79 @@ use Zimbra\Admin\Struct\ServerSelector as Server;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
  */
-class GetServer extends Base
+class GetServer extends Base implements AttributeSelector
 {
+    use AttributeSelectorTrait;
+
     /**
      * Constructor method for GetServer
      * @param  Server $server Server
      * @param  bool $applyConfig Apply config flag
-     * @param  string $attrs Comma separated list of attributes
+     * @param  string $attrs An array of attributes
      * @return self
      */
-    public function __construct(Server $server = null, $applyConfig = null, $attrs = null)
+    public function __construct(Server $server = null, $applyConfig = null, array $attrs = [])
     {
         parent::__construct();
         if($server instanceof Server)
         {
-            $this->child('server', $server);
+            $this->setChild('server', $server);
         }
         if(null !== $applyConfig)
         {
-            $this->property('applyConfig', (bool) $applyConfig);
+            $this->setProperty('applyConfig', (bool) $applyConfig);
         }
-        if(null !== $attrs)
+
+        $this->setAttrs($attrs);
+        $this->on('before', function(Base $sender)
         {
-            $this->property('attrs', trim($attrs));
-        }
+            $attrs = $sender->getAttrs();
+            if(!empty($attrs))
+            {
+                $sender->setProperty('attrs', $attrs);
+            }
+        });
     }
 
     /**
-     * Gets or sets server
+     * Gets the server.
+     *
+     * @return Server
+     */
+    public function getServer()
+    {
+        return $this->getChild('server');
+    }
+
+    /**
+     * Sets the server.
      *
      * @param  Server $server
-     * @return Server|self
+     * @return self
      */
-    public function server(Server $server = null)
+    public function setServer(Server $server)
     {
-        if(null === $server)
-        {
-            return $this->child('server');
-        }
-        return $this->child('server', $server);
+        return $this->setChild('server', $server);
     }
 
     /**
-     * Gets or sets applyConfig
+     * Gets applyConfig
+     *
+     * @return bool
+     */
+    public function getApplyConfig()
+    {
+        return $this->getProperty('applyConfig');
+    }
+
+    /**
+     * Sets applyConfig
      *
      * @param  bool $applyConfig
-     * @return bool|self
+     * @return self
      */
-    public function applyConfig($applyConfig = null)
+    public function setApplyConfig($applyConfig)
     {
-        if(null === $applyConfig)
-        {
-            return $this->property('applyConfig');
-        }
-        return $this->property('applyConfig', (bool) $applyConfig);
-    }
-
-    /**
-     * Gets or sets attrs
-     *
-     * @param  string $attrs
-     * @return string|self
-     */
-    public function attrs($attrs = null)
-    {
-        if(null === $attrs)
-        {
-            return $this->property('attrs');
-        }
-        return $this->property('attrs', trim($attrs));
+        return $this->setProperty('applyConfig', (bool) $applyConfig);
     }
 }

@@ -33,21 +33,27 @@ class GetMailQueueInfo extends Base
     public function __construct(NamedElement $server)
     {
         parent::__construct();
-        $this->child('server', $server);
+        $this->setChild('server', $server);
     }
 
     /**
-     * Gets or sets server
+     * Gets the server.
+     *
+     * @return NamedElement
+     */
+    public function getServer()
+    {
+        return $this->getChild('server');
+    }
+
+    /**
+     * Sets the server.
      *
      * @param  NamedElement $server
-     * @return NamedElement|self
+     * @return self
      */
-    public function server(NamedElement $server = null)
+    public function setServer(NamedElement $server)
     {
-        if(null === $server)
-        {
-            return $this->child('server');
-        }
-        return $this->child('server', $server);
+        return $this->setChild('server', $server);
     }
 }

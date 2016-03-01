@@ -33,37 +33,49 @@ class SetCurrentVolume extends Base
     public function __construct($id, VolumeType $type)
     {
         parent::__construct();
-        $this->property('id', (int) $id);
-        $this->property('type', $type);
+        $this->setProperty('id', (int) $id);
+        $this->setProperty('type', $type);
     }
 
     /**
-     * Gets or sets id
+     * Gets ID
+     *
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->getProperty('id');
+    }
+
+    /**
+     * Sets ID
      *
      * @param  int $id
-     * @return int|self
+     * @return self
      */
-    public function id($id = null)
+    public function setId($id)
     {
-        if(null === $id)
-        {
-            return $this->property('id');
-        }
-        return $this->property('id', (int) $id);
+        return $this->setProperty('id', (int) $id);
     }
 
     /**
-     * Gets or sets type
+     * Gets type
+     *
+     * @return VolumeType
+     */
+    public function getType()
+    {
+        return $this->getProperty('type');
+    }
+
+    /**
+     * Sets type
      *
      * @param  VolumeType $type
-     * @return VolumeType|self
+     * @return self
      */
-    public function type(VolumeType $type = null)
+    public function setType(VolumeType $type)
     {
-        if(null === $type)
-        {
-            return $this->property('type');
-        }
-        return $this->property('type', $type);
+        return $this->setProperty('type', $type);
     }
 }

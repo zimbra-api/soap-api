@@ -27,99 +27,115 @@ class GetActivityStream extends Base
     /**
      * Constructor method for GetActivityStream
      * @param  string $id
-     * @param  ActivityFilter $filter
      * @param  int $offset
      * @param  int $limit
+     * @param  ActivityFilter $filter
      * @return self
      */
     public function __construct(
         $id,
-        ActivityFilter $filter = null,
         $offset = null,
-        $limit = null
+        $limit = null,
+        ActivityFilter $filter = null
     )
     {
         parent::__construct();
-        $this->property('id', trim($id));
-        if($filter instanceof ActivityFilter)
-        {
-            $this->child('filter', $filter);
-        }
+        $this->setProperty('id', trim($id));
         if(null !== $offset)
         {
-            $this->property('offset', (int) $offset);
+            $this->setProperty('offset', (int) $offset);
         }
         if(null !== $limit)
         {
-            $this->property('limit', (int) $limit);
+            $this->setProperty('limit', (int) $limit);
+        }
+        if($filter instanceof ActivityFilter)
+        {
+            $this->setChild('filter', $filter);
         }
     }
 
     /**
-     * Get or set id
-     * Item ID. If the id is for a Document, the response will include the activities for the requested Document.
-     * If it is for a Folder, the response will include the activities for all the Documents in the folder and subid.
+     * Gets item ID
+     *
+     * @return string
+     */
+    public function getId()
+    {
+        return $this->getProperty('id');
+    }
+
+    /**
+     * Sets item ID
      *
      * @param  string $id
-     * @return string|self
+     * @return self
      */
-    public function id($id = null)
+    public function setId($id)
     {
-        if(null === $id)
-        {
-            return $this->property('id');
-        }
-        return $this->property('id', trim($id));
+        return $this->setProperty('id', trim($id));
     }
 
     /**
-     * Get or set filter
-     * Optionally <filter> can be used to filter the response based on the user that performed the activity,
-     * operation, or both. the server will cache poffsetiously established filter search results,
-     * and return the identifier in session attribute.
-     * The client is expected to reuse the session identifier in the subsequent filter search to improve the performance.
+     * Gets offset
      *
-     * @param  ActivityFilter $filter
-     * @return ActivityFilter|self
+     * @return int
      */
-    public function filter(ActivityFilter $filter = null)
+    public function getQueryOffset()
     {
-        if(null === $filter)
-        {
-            return $this->child('filter');
-        }
-        return $this->child('filter', $filter);
+        return $this->getProperty('offset');
     }
 
     /**
-     * Get or set offset
-     * Offset - for getting the next page worth of activities
+     * Sets offset
      *
      * @param  int $offset
-     * @return int|self
+     * @return self
      */
-    public function offset($offset = null)
+    public function setQueryOffset($offset)
     {
-        if(null === $offset)
-        {
-            return $this->property('offset');
-        }
-        return $this->property('offset', (int) $offset);
+        return $this->setProperty('offset', (int) $offset);
     }
 
     /**
-     * Get or set limit
-     * Limit - maximum number of activities to be returned
+     * Gets limit
+     *
+     * @return int
+     */
+    public function getQueryLimit()
+    {
+        return $this->getProperty('limit');
+    }
+
+    /**
+     * Sets limit
      *
      * @param  int $limit
-     * @return int|self
+     * @return self
      */
-    public function limit($limit = null)
+    public function setQueryLimit($limit)
     {
-        if(null === $limit)
-        {
-            return $this->property('limit');
-        }
-        return $this->property('limit', (int) $limit);
+        return $this->setProperty('limit', (int) $limit);
+    }
+
+    /**
+     * Gets filter
+     *
+     * @return ActivityFilter
+     */
+    public function getFilter()
+    {
+        return $this->getChild('filter');
+    }
+
+    /**
+     * Sets filter
+     *
+     * @param  ActivityFilter $filter
+     * @return self
+     */
+    public function setFilter(ActivityFilter $filter)
+    {
+        return $this->setChild('filter', $filter);
     }
 }

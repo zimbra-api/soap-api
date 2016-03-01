@@ -33,21 +33,28 @@ abstract class AttachSpec extends Base
         parent::__construct();
         if(null !== $optional)
         {
-            $this->property('optional', (bool) $optional);
+            $this->setProperty('optional', (bool) $optional);
         }
     }
+
     /**
-     * Gets or sets part
+     * Gets optional
+     *
+     * @return bool
+     */
+    public function getOptional()
+    {
+        return $this->getProperty('optional');
+    }
+
+    /**
+     * Sets optional
      *
      * @param  bool $optional
-     * @return bool|optional
+     * @return self
      */
-    public function optional($optional = null)
+    public function setOptional($optional)
     {
-        if(null === $optional)
-        {
-            return $this->property('optional');
-        }
-        return $this->property('optional', (bool) $optional);
+        return $this->setProperty('optional', (bool) $optional);
     }
 }

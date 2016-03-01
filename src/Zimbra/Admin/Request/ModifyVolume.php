@@ -33,37 +33,49 @@ class ModifyVolume extends Base
     public function __construct($id, Volume $volume)
     {
         parent::__construct();
-        $this->property('id', (int) $id);
-        $this->child('volume', $volume);
+        $this->setProperty('id', (int) $id);
+        $this->setChild('volume', $volume);
     }
 
     /**
-     * Gets or sets id
+     * Gets Volume ID
+     *
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->getProperty('id');
+    }
+
+    /**
+     * Sets Volume ID
      *
      * @param  int $id
-     * @return int|self
+     * @return self
      */
-    public function id($id = null)
+    public function setId($id)
     {
-        if(null === $id)
-        {
-            return $this->property('id');
-        }
-        return $this->property('id', (int) $id);
+        return $this->setProperty('id', (int) $id);
     }
 
     /**
-     * Gets or sets volume
+     * Gets the volume.
+     *
+     * @return Volume
+     */
+    public function getVolume()
+    {
+        return $this->getChild('volume');
+    }
+
+    /**
+     * Sets the volume.
      *
      * @param  Volume $volume
-     * @return Volume|self
+     * @return self
      */
-    public function volume(Volume $volume = null)
+    public function setVolume(Volume $volume)
     {
-        if(null === $volume)
-        {
-            return $this->child('volume');
-        }
-        return $this->child('volume', $volume);
+        return $this->setChild('volume', $volume);
     }
 }

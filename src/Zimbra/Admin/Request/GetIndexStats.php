@@ -31,21 +31,27 @@ class GetIndexStats extends Base
     public function __construct(Mailbox $mbox)
     {
         parent::__construct();
-        $this->child('mbox', $mbox);
+        $this->setChild('mbox', $mbox);
     }
 
     /**
-     * Gets or sets mbox
+     * Gets the mail box.
+     *
+     * @return Mailbox
+     */
+    public function getMailbox()
+    {
+        return $this->getChild('mbox');
+    }
+
+    /**
+     * Sets the mail box.
      *
      * @param  Mailbox $mbox
-     * @return Mailbox|self
+     * @return self
      */
-    public function mbox(Mailbox $mbox = null)
+    public function setMailbox(Mailbox $mbox)
     {
-        if(null === $mbox)
-        {
-            return $this->child('mbox');
-        }
-        return $this->child('mbox', $mbox);
+        return $this->setChild('mbox', $mbox);
     }
 }

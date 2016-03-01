@@ -32,21 +32,27 @@ class CreateXMPPComponent extends Base
     public function __construct(Xmpp $xmpp)
     {
         parent::__construct();
-        $this->child('xmppcomponent', $xmpp);
+        $this->setChild('xmppcomponent', $xmpp);
     }
 
     /**
-     * Gets or sets xmpp
+     * Gets the xmpp component.
+     *
+     * @return Xmpp
+     */
+    public function getComponent()
+    {
+        return $this->getChild('xmppcomponent');
+    }
+
+    /**
+     * Sets the xmpp component.
      *
      * @param  Xmpp $xmpp
-     * @return Xmpp|self
+     * @return self
      */
-    public function xmpp(Xmpp $xmpp = null)
+    public function setComponent(Xmpp $xmpp)
     {
-        if(null === $xmpp)
-        {
-            return $this->child('xmppcomponent');
-        }
-        return $this->child('xmppcomponent', $xmpp);
+        return $this->setChild('xmppcomponent', $xmpp);
     }
 }

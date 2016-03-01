@@ -33,58 +33,76 @@ class XmppComponentSpec extends AdminAttrsImpl
         $name,
         DomainSelector $domain,
         ServerSelector $server,
-        array $attrs = array()
+        array $attrs = []
     )
     {
         parent::__construct($attrs);
-        $this->property('name', trim($name));
-        $this->child('domain', $domain);
-        $this->child('server', $server);
+        $this->setProperty('name', trim($name));
+        $this->setChild('domain', $domain);
+        $this->setChild('server', $server);
     }
 
     /**
-     * Gets or sets name
+     * Gets the name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->getProperty('name');
+    }
+
+    /**
+     * Sets the name
      *
      * @param  string $name
-     * @return string|self
+     * @return self
      */
-    public function name($name = null)
+    public function setName($name)
     {
-        if(null === $name)
-        {
-            return $this->property('name');
-        }
-        return $this->property('name', trim($name));
+        return $this->setProperty('name', trim($name));
     }
 
     /**
-     * Gets or sets domain
+     * Gets the domain.
+     *
+     * @return DomainSelector
+     */
+    public function getDomain()
+    {
+        return $this->getChild('domain');
+    }
+
+    /**
+     * Sets the domain.
      *
      * @param  DomainSelector $domain
-     * @return DomainSelector|self
+     * @return self
      */
-    public function domain(DomainSelector $domain = null)
+    public function setDomain(DomainSelector $domain)
     {
-        if(null === $domain)
-        {
-            return $this->child('domain');
-        }
-        return $this->child('domain', $domain);
+        return $this->setChild('domain', $domain);
     }
 
     /**
-     * Gets or sets server
+     * Sets the server.
+     *
+     * @return ServerSelector
+     */
+    public function getServer()
+    {
+        return $this->getChild('server');
+    }
+
+    /**
+     * Sets the server.
      *
      * @param  ServerSelector $server
-     * @return ServerSelector|self
+     * @return self
      */
-    public function server(ServerSelector $server = null)
+    public function setServer(ServerSelector $server)
     {
-        if(null === $server)
-        {
-            return $this->child('server');
-        }
-        return $this->child('server', $server);
+        return $this->setChild('server', $server);
     }
 
     /**

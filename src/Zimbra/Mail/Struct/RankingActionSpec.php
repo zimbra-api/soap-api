@@ -36,44 +36,53 @@ class RankingActionSpec extends Base
     )
     {
         parent::__construct();
-        $this->property('op', $op);
+        $this->setProperty('op', $op);
         if(null !== $email)
         {
-            $this->property('email', trim($email));
+            $this->setProperty('email', trim($email));
         }
     }
 
     /**
-     * Gets or sets op
-     * Action to perform - reset|delete.
-     * reset: resets the contact ranking table for the account
-     * delete: delete the ranking information for the email address
+     * Gets operation
+     *
+     * @return RankingActionOp
+     */
+    public function getOperation()
+    {
+        return $this->getProperty('op');
+    }
+
+    /**
+     * Sets operation
      *
      * @param  RankingActionOp $op
-     * @return RankingActionOp|self
+     * @return self
      */
-    public function op(RankingActionOp $op = null)
+    public function setOperation(RankingActionOp $op)
     {
-        if(null === $op)
-        {
-            return $this->property('op');
-        }
-        return $this->property('op', $op);
+        return $this->setProperty('op', $op);
     }
 
     /**
-     * Gets or sets email
+     * Gets email
+     *
+     * @return string
+     */
+    public function getEmail()
+    {
+        return $this->getProperty('email');
+    }
+
+    /**
+     * Sets email
      *
      * @param  string $email
-     * @return string|self
+     * @return self
      */
-    public function email($email = null)
+    public function setEmail($email)
     {
-        if(null === $email)
-        {
-            return $this->property('email');
-        }
-        return $this->property('email', trim($email));
+        return $this->setProperty('email', trim($email));
     }
 
     /**

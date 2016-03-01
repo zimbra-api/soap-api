@@ -10,6 +10,7 @@
 
 namespace Zimbra\Mail\Struct;
 
+use Zimbra\Common\TypedSequence;
 use Zimbra\Struct\Base;
 
 /**
@@ -24,118 +25,107 @@ use Zimbra\Struct\Base;
 class AttachmentsInfo extends Base
 {
     /**
+     * Attachment details
+     * @var TypedSequence<AttachSpec>
+     */
+    private $_attachments;
+
+    /**
      * Constructor method for AttachmentsInfo
+     * @param  string $aid Attachment upload ID
      * @param  MimePartAttachSpec $mp MimePart Attach Spec
      * @param  MsgAttachSpec $m Msg Attach Spec
      * @param  ContactAttachSpec $cn Contact Attach Spec
      * @param  DocAttachSpec $doc Doc Attach Spec
-     * @param  string $aid Attachment upload ID
      * @return self
      */
-    public function __construct(
-        MimePartAttachSpec $mp = null,
-        MsgAttachSpec $m = null,
-        ContactAttachSpec $cn = null,
-        DocAttachSpec $doc = null,
-        $aid = null
-    )
+    public function __construct($aid = null, array $attachments = [])
     {
         parent::__construct();
-        if($mp instanceof MimePartAttachSpec)
+        parent::__construct();
+        $this->setProperty('aid', trim($aid));
+        $this->setAttachments($attachments);
+
+        $this->on('before', function(Base $sender)
         {
-            $this->child('mp', $mp);
-        }
-        if($m instanceof MsgAttachSpec)
-        {
-            $this->child('m', $m);
-        }
-        if($cn instanceof ContactAttachSpec)
-        {
-            $this->child('cn', $cn);
-        }
-        if($doc instanceof DocAttachSpec)
-        {
-            $this->child('doc', $doc);
-        }
-        if(null !== $aid)
-        {
-            $this->property('aid', trim($aid));
-        }
+            if($sender->getAttachments()->count())
+            {
+                foreach ($sender->getAttachments()->all() as $attachment)
+                {
+                    if($attachment instanceof MimePartAttachSpec)
+                    {
+                        $this->setChild('mp', $attachment);
+                    }
+                    if($attachment instanceof MsgAttachSpec)
+                    {
+                        $this->setChild('m', $attachment);
+                    }
+                    if($attachment instanceof ContactAttachSpec)
+                    {
+                        $this->setChild('cn', $attachment);
+                    }
+                    if($attachment instanceof DocAttachSpec)
+                    {
+                        $this->setChild('doc', $attachment);
+                    }
+                }
+            }
+        });
     }
 
     /**
-     * Gets or sets mp
+     * Gets attachment id
      *
-     * @param  MimePartAttachSpec $mp
-     * @return MimePartAttachSpec|self
+     * @return string
      */
-    public function mp(MimePartAttachSpec $mp = null)
+    public function getAttachmentId()
     {
-        if(null === $mp)
-        {
-            return $this->child('mp');
-        }
-        return $this->child('mp', $mp);
+        return $this->getProperty('aid');
     }
 
     /**
-     * Gets or sets m
+     * Sets attachment id
      *
-     * @param  MsgAttachSpec $m
-     * @return MsgAttachSpec|m
+     * @param  string $attachmentId
+     * @return self
      */
-    public function m(MsgAttachSpec $m = null)
+    public function setAttachmentId($attachmentId)
     {
-        if(null === $m)
-        {
-            return $this->child('m');
-        }
-        return $this->child('m', $m);
+        return $this->setProperty('aid', trim($attachmentId));
     }
 
     /**
-     * Gets or sets cn
+     * Add a attachment
      *
-     * @param  ContactAttachSpec $cn
-     * @return ContactAttachSpec|self
+     * @param  AttachSpec $attr
+     * @return self
      */
-    public function cn(ContactAttachSpec $cn = null)
+    public function addAttachment(AttachSpec $attachment)
     {
-        if(null === $cn)
-        {
-            return $this->child('cn');
-        }
-        return $this->child('cn', $cn);
+        $this->_attachments->add($attachment);
+        return $this;
     }
 
     /**
-     * Gets or sets doc
+     * Sets attachment sequence
      *
-     * @param  DocAttachSpec $doc
-     * @return DocAttachSpec|self
+     * @param  array $attachments
+     * @return self
      */
-    public function doc(DocAttachSpec $doc = null)
+    public function setAttachments(array $attachments)
     {
-        if(null === $doc)
-        {
-            return $this->child('doc');
-        }
-        return $this->child('doc', $doc);
+        $this->_attachments = new TypedSequence('Zimbra\Mail\Struct\AttachSpec', $attachments);
+        return $this;
     }
 
     /**
-     * Gets or sets aid
+     * Gets attachment sequence
      *
-     * @param  string $aid
-     * @return string|self
+     * @return Sequence
      */
-    public function aid($aid = null)
+    public function getAttachments()
     {
-        if(null === $aid)
-        {
-            return $this->property('aid');
-        }
-        return $this->property('aid', trim($aid));
+        return $this->_attachments;
     }
 
     /**

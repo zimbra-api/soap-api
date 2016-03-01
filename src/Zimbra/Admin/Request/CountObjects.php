@@ -36,59 +36,77 @@ class CountObjects extends Base
     public function __construct(ObjType $type, Domain $domain = null, UcService $ucservice = null)
     {
         parent::__construct();
-        $this->property('type', $type);
+        $this->setProperty('type', $type);
         if($domain instanceof Domain)
         {
-            $this->child('domain', $domain);
+            $this->setChild('domain', $domain);
         }
         if($ucservice instanceof UcService)
         {
-            $this->child('ucservice', $ucservice);
+            $this->setChild('ucservice', $ucservice);
         }
     }
 
     /**
-     * Gets or sets type
+     * Gets object type
+     *
+     * @return ObjType
+     */
+    public function getType()
+    {
+        return $this->getProperty('type');
+    }
+
+    /**
+     * Sets object type
      *
      * @param  ObjType $type
-     * @return ObjType|self
+     * @return self
      */
-    public function type(ObjType $type = null)
+    public function setType(ObjType $type)
     {
-        if(null === $type)
-        {
-            return $this->property('type');
-        }
-        return $this->property('type', $type);
+        return $this->setProperty('type', $type);
     }
 
     /**
-     * Gets or sets domain
+     * Gets the domain.
+     *
+     * @return Domain
+     */
+    public function getDomain()
+    {
+        return $this->getChild('domain');
+    }
+
+    /**
+     * Sets the domain.
      *
      * @param  Domain $domain
-     * @return Domain|self
+     * @return self
      */
-    public function domain(Domain $domain = null)
+    public function setDomain(Domain $domain)
     {
-        if(null === $domain)
-        {
-            return $this->child('domain');
-        }
-        return $this->child('domain', $domain);
+        return $this->setChild('domain', $domain);
     }
 
     /**
-     * Gets or sets ucservice
+     * Gets the ucservice.
+     *
+     * @return UcService
+     */
+    public function getUcService()
+    {
+        return $this->getChild('ucservice');
+    }
+
+    /**
+     * Sets the ucservice.
      *
      * @param  UcService $ucservice
-     * @return UcService|self
+     * @return self
      */
-    public function ucservice(UcService $ucservice = null)
+    public function setUcService(UcService $ucservice)
     {
-        if(null === $ucservice)
-        {
-            return $this->child('ucservice');
-        }
-        return $this->child('ucservice', $ucservice);
+        return $this->setChild('ucservice', $ucservice);
     }
 }

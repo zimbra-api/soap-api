@@ -25,43 +25,55 @@ class SetPassword extends Base
     /**
      * Constructor method for SetPassword
      * @param string $id Zimbra ID
-     * @param string $newPassword New Password
+     * @param string $newPassword New password
      * @return self
      */
     public function __construct($id, $newPassword)
     {
         parent::__construct();
-        $this->property('id', trim($id));
-        $this->property('newPassword', trim($newPassword));
+        $this->setProperty('id', trim($id));
+        $this->setProperty('newPassword', trim($newPassword));
     }
 
     /**
-     * Gets or sets id
+     * Gets Zimbra ID
+     *
+     * @return string
+     */
+    public function getId()
+    {
+        return $this->getProperty('id');
+    }
+
+    /**
+     * Sets Zimbra ID
      *
      * @param  string $id
-     * @return string|self
+     * @return self
      */
-    public function id($id = null)
+    public function setId($id)
     {
-        if(null === $id)
-        {
-            return $this->property('id');
-        }
-        return $this->property('id', trim($id));
+        return $this->setProperty('id', trim($id));
     }
 
     /**
-     * Gets or sets newPassword
+     * Gets new password
+     *
+     * @return string
+     */
+    public function getNewPassword()
+    {
+        return $this->getProperty('newPassword');
+    }
+
+    /**
+     * Sets new password
      *
      * @param  string $newPassword
-     * @return string|self
+     * @return self
      */
-    public function newPassword($newPassword = null)
+    public function setNewPassword($newPassword)
     {
-        if(null === $newPassword)
-        {
-            return $this->property('newPassword');
-        }
-        return $this->property('newPassword', trim($newPassword));
+        return $this->setProperty('newPassword', trim($newPassword));
     }
 }

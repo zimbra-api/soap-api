@@ -21,18 +21,6 @@ namespace Zimbra\Struct;
 class KeyValuePair extends Base
 {
     /**
-     * The key
-     * @var string
-     */
-    private $_key;
-
-    /**
-     * The value
-     * @var string
-     */
-    private $_value;
-
-    /**
      * Constructor method for KeyValuePair
      * @param string $key
      * @param string $value
@@ -41,22 +29,29 @@ class KeyValuePair extends Base
     public function __construct($key, $value = null)
     {
         parent::__construct($value);
-        $this->property('n', $key);
+        $this->setProperty('n', $key);
     }
 
     /**
-     * Gets or sets key
+     * Gets a key
      *
      * @param  string $key
-     * @return string|self
+     * @return string
      */
-    public function key($key = null)
+    public function getKey()
     {
-        if(null === $key)
-        {
-            return $this->property('n');
-        }
-        return $this->property('n', $key);
+        return $this->getProperty('n');
+    }
+
+    /**
+     * Sets a key
+     *
+     * @param  string $key
+     * @return self
+     */
+    public function setKey($key)
+    {
+        return $this->setProperty('n', $key);
     }
 
     /**

@@ -35,23 +35,29 @@ class ConversationTest extends FilterTest
         parent::__construct($index, $negative);
         if(null !== $where)
         {
-            $this->property('where', trim($where));
+            $this->setProperty('where', trim($where));
         }
     }
 
     /**
-     * Gets or sets where
+     * Gets where
+     *
+     * @return string
+     */
+    public function getWhere()
+    {
+        return $this->getProperty('where');
+    }
+
+    /**
+     * Sets where
      *
      * @param  string $where
-     * @return string|self
+     * @return self
      */
-    public function where($where = null)
+    public function setWhere($where)
     {
-        if(null === $where)
-        {
-            return $this->property('where');
-        }
-        return $this->property('where', trim($where));
+        return $this->setProperty('where', trim($where));
     }
 
     /**

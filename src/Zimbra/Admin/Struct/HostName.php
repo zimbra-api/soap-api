@@ -31,22 +31,28 @@ class HostName extends Base
     public function __construct($hn)
     {
         parent::__construct();
-        $this->property('hn', trim($hn));
+        $this->setProperty('hn', trim($hn));
     }
 
     /**
-     * Gets or sets hn
+     * Gets hostname
+     *
+     * @return string
+     */
+    public function getHostName()
+    {
+        return $this->getProperty('hn');
+    }
+
+    /**
+     * Sets hostname
      *
      * @param  string $hn
-     * @return string|self
+     * @return self
      */
-    public function hn($hn = null)
+    public function setHostName($hn)
     {
-        if(null === $hn)
-        {
-            return $this->property('hn');
-        }
-        return $this->property('hn', trim($hn));
+        return $this->setProperty('hn', trim($hn));
     }
 
     /**

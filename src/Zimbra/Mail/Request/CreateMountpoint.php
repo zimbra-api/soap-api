@@ -32,22 +32,27 @@ class CreateMountpoint extends Base
     public function __construct(NewMountpointSpec $link)
     {
         parent::__construct();
-        $this->child('link', $link);
+        $this->setChild('link', $link);
     }
 
     /**
-     * Get or set link
-     * New mountpoint specification
+     * Gets mountpoint specification
+     *
+     * @return NewMountpointSpec
+     */
+    public function getFolder()
+    {
+        return $this->getChild('link');
+    }
+
+    /**
+     * Sets mountpoint specification
      *
      * @param  NewMountpointSpec $link
-     * @return NewMountpointSpec|self
+     * @return self
      */
-    public function link(NewMountpointSpec $link = null)
+    public function setFolder(NewMountpointSpec $link)
     {
-        if(null === $link)
-        {
-            return $this->child('link');
-        }
-        return $this->child('link', $link);
+        return $this->setChild('link', $link);
     }
 }

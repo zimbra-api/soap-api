@@ -46,135 +46,180 @@ class GetQuotaUsage extends Base
     )
     {
         parent::__construct();
-        $this->property('domain', trim($domain));
+        if (null !== $domain)
+        {
+            $this->setProperty('domain', trim($domain));
+        }
         if(null !== $allServers)
         {
-            $this->property('allServers', (bool) $allServers);
+            $this->setProperty('allServers', (bool) $allServers);
         }
         if(null !== $limit)
         {
-            $this->property('limit', (int) $limit);
+            $this->setProperty('limit', (int) $limit);
         }
         if(null !== $offset)
         {
-            $this->property('offset', (int) $offset);
+            $this->setProperty('offset', (int) $offset);
         }
         if($sortBy instanceof QuotaSortBy)
         {
-            $this->property('sortBy', $sortBy);
+            $this->setProperty('sortBy', $sortBy);
         }
         if(null !== $sortAscending)
         {
-            $this->property('sortAscending', (bool) $sortAscending);
+            $this->setProperty('sortAscending', (bool) $sortAscending);
         }
         if(null !== $refresh)
         {
-            $this->property('refresh', (bool) $refresh);
+            $this->setProperty('refresh', (bool) $refresh);
         }
     }
 
     /**
-     * Gets or sets domain
+     * Gets domain
+     *
+     * @return string
+     */
+    public function getDomain()
+    {
+        return $this->getProperty('domain');
+    }
+
+    /**
+     * Sets domain
      *
      * @param  string $domain
-     * @return string|self
+     * @return self
      */
-    public function domain($domain = null)
+    public function setDomain($domain)
     {
-        if(null === $domain)
-        {
-            return $this->property('domain');
-        }
-        return $this->property('domain', trim($domain));
+        return $this->setProperty('domain', trim($domain));
     }
 
     /**
-     * Gets or sets allServers
+     * Gets allServers
+     *
+     * @return bool
+     */
+    public function getAllServers()
+    {
+        return $this->getProperty('allServers');
+    }
+
+    /**
+     * Sets allServers
      *
      * @param  bool $allServers
-     * @return bool|self
+     * @return self
      */
-    public function allServers($allServers = null)
+    public function setAllServers($allServers)
     {
-        if(null === $allServers)
-        {
-            return $this->property('allServers');
-        }
-        return $this->property('allServers', (bool) $allServers);
+        return $this->setProperty('allServers', (bool) $allServers);
     }
 
     /**
-     * Gets or sets limit
+     * Gets limit
+     *
+     * @return int
+     */
+    public function getLimit()
+    {
+        return $this->getProperty('limit');
+    }
+
+    /**
+     * Sets limit
      *
      * @param  int $limit
-     * @return int|self
+     * @return self
      */
-    public function limit($limit = null)
+    public function setLimit($limit)
     {
-        if(null === $limit)
-        {
-            return $this->property('limit');
-        }
-        return $this->property('limit', (int) $limit);
+        return $this->setProperty('limit', (int) $limit);
     }
 
     /**
-     * Gets or sets offset
+     * Gets offset
+     *
+     * @return int
+     */
+    public function getOffset()
+    {
+        return $this->getProperty('offset');
+    }
+
+    /**
+     * Sets offset
      *
      * @param  int $offset
-     * @return int|self
+     * @return self
      */
-    public function offset($offset = null)
+    public function setOffset($offset)
     {
-        if(null === $offset)
-        {
-            return $this->property('offset');
-        }
-        return $this->property('offset', (int) $offset);
+        return $this->setProperty('offset', (int) $offset);
     }
 
     /**
-     * Gets or sets sortBy
+     * Gets sortBy
+     *
+     * @return QuotaSortBy
+     */
+    public function getSortBy()
+    {
+        return $this->getProperty('sortBy');
+    }
+
+    /**
+     * Sets sortBy
      *
      * @param  QuotaSortBy $sortBy
-     * @return QuotaSortBy|self
+     * @return self
      */
-    public function sortBy(QuotaSortBy $sortBy = null)
+    public function setSortBy(QuotaSortBy $sortBy)
     {
-        if(null === $sortBy)
-        {
-            return $this->property('sortBy');
-        }
-        return $this->property('sortBy', $sortBy);
+        return $this->setProperty('sortBy', $sortBy);
     }
 
     /**
-     * Gets or sets sortAscending
+     * Gets sortAscending
+     *
+     * @return bool
+     */
+    public function getSortAscending()
+    {
+        return $this->getProperty('sortAscending');
+    }
+
+    /**
+     * Sets sortAscending
      *
      * @param  bool $sortAscending
-     * @return bool|self
+     * @return self
      */
-    public function sortAscending($sortAscending = null)
+    public function setSortAscending($sortAscending)
     {
-        if(null === $sortAscending)
-        {
-            return $this->property('sortAscending');
-        }
-        return $this->property('sortAscending', (bool) $sortAscending);
+        return $this->setProperty('sortAscending', (bool) $sortAscending);
     }
 
     /**
-     * Gets or sets refresh
+     * Gets refresh
+     *
+     * @return bool
+     */
+    public function getRefresh()
+    {
+        return $this->getProperty('refresh');
+    }
+
+    /**
+     * Sets refresh
      *
      * @param  bool $refresh
-     * @return bool|self
+     * @return self
      */
-    public function refresh($refresh = null)
+    public function setRefresh($refresh)
     {
-        if(null === $refresh)
-        {
-            return $this->property('refresh');
-        }
-        return $this->property('refresh', (bool) $refresh);
+        return $this->setProperty('refresh', (bool) $refresh);
     }
 }

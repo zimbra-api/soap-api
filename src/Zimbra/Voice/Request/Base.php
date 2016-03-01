@@ -31,6 +31,6 @@ abstract class Base extends Request
     public function __construct($value = null)
     {
         parent::__construct($value);
-        $this->xmlNamespace('urn:zimbraVoice');
+        $this->setXmlNamespace('urn:zimbraVoice');
     }
 }

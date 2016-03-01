@@ -29,16 +29,22 @@ use Zimbra\Struct\Id;
 class SendShareNotification extends Base
 {
     /**
+     * Email addresses.
+     * @var TypedSequence<EmailAddrInfo>
+     */
+    private $_emailAddresses;
+
+    /**
      * Constructor method for SendShareNotification
      * @param  Id $m
-     * @param  array $e
+     * @param  array $addresses
      * @param  string $notes
      * @param  Action $action
      * @return self
      */
     public function __construct(
         Id $item = null,
-        array $e = array(),
+        array $addresses = array(),
         $notes = null,
         Action $action = null
     )
@@ -46,51 +52,69 @@ class SendShareNotification extends Base
         parent::__construct();
         if($item instanceof Id)
         {
-            $this->child('item', $item);
+            $this->setChild('item', $item);
         }
-        $this->_e = new TypedSequence('Zimbra\Mail\Struct\EmailAddrInfo', $e);
         if(null !== $notes)
         {
-            $this->child('notes', trim($notes));
+            $this->setChild('notes', trim($notes));
         }
         if($action instanceof Action)
         {
-            $this->property('action', $action);
+            $this->setProperty('action', $action);
         }
 
+        $this->setEmailAddresses($addresses);
         $this->on('before', function(Base $sender)
         {
-            if($sender->e()->count())
+            if($sender->getEmailAddresses()->count())
             {
-                $sender->child('e', $sender->e()->all());
+                $sender->setChild('e', $sender->getEmailAddresses()->all());
             }
         });
     }
 
     /**
-     * Get or set item
+     * Gets item ID
+     *
+     * @return Id
+     */
+    public function getItem()
+    {
+        return $this->getChild('item');
+    }
+
+    /**
+     * Sets item ID
      *
      * @param  Id $item
-     * @return Id|self
+     * @return self
      */
-    public function item(Id $item = null)
+    public function setItem(Id $item)
     {
-        if(null === $item)
-        {
-            return $this->child('item');
-        }
-        return $this->child('item', $item);
+        return $this->setChild('item', $item);
     }
 
     /**
      * Add an email address
      *
-     * @param  EmailAddrInfo $e
+     * @param  EmailAddrInfo $address
      * @return self
      */
-    public function addE(EmailAddrInfo $e)
+    public function addEmailAddress(EmailAddrInfo $address)
     {
-        $this->_e->add($e);
+        $this->_emailAddresses->add($address);
+        return $this;
+    }
+
+    /**
+     * Sets email address sequence
+     *
+     * @param  array $addresses
+     * @return self
+     */
+    public function setEmailAddresses(array $addresses)
+    {
+        $this->_emailAddresses = new TypedSequence('Zimbra\Mail\Struct\EmailAddrInfo', $addresses);
         return $this;
     }
 
@@ -99,38 +123,50 @@ class SendShareNotification extends Base
      *
      * @return Sequence
      */
-    public function e()
+    public function getEmailAddresses()
     {
-        return $this->_e;
+        return $this->_emailAddresses;
     }
 
     /**
-     * Get or set notes
+     * Gets notes
+     *
+     * @return string
+     */
+    public function getNotes()
+    {
+        return $this->getChild('notes');
+    }
+
+    /**
+     * Sets notes
      *
      * @param  string $notes
-     * @return string|self
+     * @return self
      */
-    public function notes($notes = null)
+    public function setNotes($notes)
     {
-        if(null === $notes)
-        {
-            return $this->child('notes');
-        }
-        return $this->child('notes', trim($notes));
+        return $this->setChild('notes', trim($notes));
     }
 
     /**
-     * Get or set action
+     * Gets action
+     *
+     * @return Action
+     */
+    public function getAction()
+    {
+        return $this->getProperty('action');
+    }
+
+    /**
+     * Sets action
      *
      * @param  Action $action
-     * @return Action|self
+     * @return self
      */
-    public function action(Action $action = null)
+    public function setAction(Action $action)
     {
-        if(null === $action)
-        {
-            return $this->property('action');
-        }
-        return $this->property('action', $action);
+        return $this->setProperty('action', $action);
     }
 }

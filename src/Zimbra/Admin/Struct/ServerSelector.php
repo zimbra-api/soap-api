@@ -33,22 +33,28 @@ class ServerSelector extends Base
     public function __construct(ServerBy $by, $value = null)
     {
         parent::__construct(trim($value));
-        $this->property('by', $by);
+        $this->setProperty('by', $by);
     }
 
     /**
-     * Gets or sets by
+     * Gets by enum
      *
-     * @param  ServerBy $by
-     * @return ServerBy|self
+     * @return Zimbra\Enum\ServerBy
      */
-    public function by(ServerBy $by = null)
+    public function getBy()
     {
-        if(null === $by)
-        {
-            return $this->property('by');
-        }
-        return $this->property('by', $by);
+        return $this->getProperty('by');
+    }
+
+    /**
+     * Sets by enum
+     *
+     * @param  Zimbra\Enum\ServerBy $by
+     * @return self
+     */
+    public function setBy(ServerBy $by)
+    {
+        return $this->setProperty('by', $by);
     }
 
     /**

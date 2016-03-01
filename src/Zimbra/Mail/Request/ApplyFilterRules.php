@@ -38,62 +38,77 @@ class ApplyFilterRules extends Base
     public function __construct(NamedFilterRules $filterRules, IdsAttr $m = null, $query = null)
     {
         parent::__construct();
-        $this->child('filterRules', $filterRules);
+        $this->setChild('filterRules', $filterRules);
         if($m instanceof IdsAttr)
         {
-            $this->child('m', $m);
+            $this->setChild('m', $m);
         }
         if(null !== $query)
         {
-            $this->child('query', trim($query));
+            $this->setChild('query', trim($query));
         }
     }
 
     /**
-     * Gets or sets filterRules
-     * Filter rules
+     * Gets filter rules
+     *
+     * @return NamedFilterRules
+     */
+    public function getFilterRules()
+    {
+        return $this->getChild('filterRules');
+    }
+
+    /**
+     * Sets filter rules
      *
      * @param  NamedFilterRules $filterRules
-     * @return NamedFilterRules|self
+     * @return self
      */
-    public function filterRules(NamedFilterRules $filterRules = null)
+    public function setFilterRules(NamedFilterRules $filterRules)
     {
-        if(null === $filterRules)
-        {
-            return $this->child('filterRules');
-        }
-        return $this->child('filterRules', $filterRules);
+        return $this->setChild('filterRules', $filterRules);
     }
 
     /**
-     * Gets or sets m
-     * Comma-separated list of message IDs
+     * Gets comma-separated list of message IDs
+     *
+     * @return IdsAttr
+     */
+    public function getMsgIds()
+    {
+        return $this->getChild('m');
+    }
+
+    /**
+     * Sets comma-separated list of message IDs
      *
      * @param  IdsAttr $m
-     * @return IdsAttr|self
+     * @return self
      */
-    public function m(IdsAttr $m = null)
+    public function setMsgIds(IdsAttr $m)
     {
-        if(null === $m)
-        {
-            return $this->child('m');
-        }
-        return $this->child('m', $m);
+        return $this->setChild('m', $m);
     }
 
     /**
-     * Gets or sets query
-     * Query string
+     * Gets query
+     *
+     * @return string
+     */
+    public function getQuery()
+    {
+        return $this->getChild('query');
+    }
+
+    /**
+     * Sets query
      *
      * @param  string $query
-     * @return string|self
+     * @return self
      */
-    public function query($query = null)
+    public function setQuery($query)
     {
-        if(null === $query)
-        {
-            return $this->child('query');
-        }
-        return $this->child('query', trim($query));
+        return $this->setChild('query', trim($query));
     }
 }

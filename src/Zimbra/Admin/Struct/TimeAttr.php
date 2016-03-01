@@ -25,28 +25,34 @@ class TimeAttr extends Base
 {
     /**
      * Constructor method for TimeAttr
-     * @param  string $time timestamp
+     * @param  string $time end time
      * @return self
      */
     public function __construct($time)
     {
         parent::__construct();
-        $this->property('time', trim($time));
+        $this->setProperty('time', trim($time));
     }
 
     /**
-     * Gets or sets time
+     * Gets end time
+     *
+     * @return string
+     */
+    public function getTime()
+    {
+        return $this->getProperty('time');
+    }
+
+    /**
+     * Sets end time
      *
      * @param  string $time
-     * @return string|self
+     * @return self
      */
-    public function time($time = null)
+    public function setTime($time)
     {
-        if(null === $time)
-        {
-            return $this->property('time');
-        }
-        return $this->property('time', trim($time));
+        return $this->setProperty('time', trim($time));
     }
 
     /**

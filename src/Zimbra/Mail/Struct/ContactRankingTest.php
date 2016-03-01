@@ -23,9 +23,9 @@ class ContactRankingTest extends FilterTest
 {
     /**
      * Constructor method for ContactRankingTest
-     * @param int $index
-     * @param string $header
-     * @param bool $negative
+     * @param int $index Index - specifies a guaranteed order for the test elements
+     * @param string $header Header name
+     * @param bool $negative Specifies a "not" condition for the test
      * @return self
      */
     public function __construct(
@@ -33,22 +33,28 @@ class ContactRankingTest extends FilterTest
     )
     {
         parent::__construct($index, $negative);
-        $this->property('header', trim($header));
+        $this->setProperty('header', trim($header));
     }
 
     /**
-     * Gets or sets header
+     * Gets header name
+     *
+     * @return string
+     */
+    public function getHeader()
+    {
+        return $this->getProperty('header');
+    }
+
+    /**
+     * Sets header name
      *
      * @param  string $header
-     * @return string|self
+     * @return self
      */
-    public function header($header = null)
+    public function setHeader($header)
     {
-        if(null === $header)
-        {
-            return $this->property('header');
-        }
-        return $this->property('header', trim($header));
+        return $this->setProperty('header', trim($header));
     }
 
     /**

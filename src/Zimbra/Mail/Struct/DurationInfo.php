@@ -26,180 +26,231 @@ class DurationInfo extends Base
     /**
      * Constructor method for DurationInfo
      * @param  bool   $neg Set if the duration is negative.
-     * @param  int    $w Weeks component of the duration
-     * @param  int    $d Days component of the duration.
-     * @param  int    $h Hours component of the duration.
-     * @param  int    $m Minutes component of the duration.
-     * @param  int    $s Seconds component of the duration.
+     * @param  int    $weeks Weeks component of the duration
+     * @param  int    $days Days component of the duration.
+     * @param  int    $hours Hours component of the duration.
+     * @param  int    $minutes Minutes component of the duration.
+     * @param  int    $seconds Seconds component of the duration.
      * @param  string $related Specifies whether the alarm is related to the start of end. Valid values are : START|END
      * @param  int    $count Alarm repeat count
      * @return self
      */
     public function __construct(
-        $neg = null,
-        $w = null,
-        $d = null,
-        $h = null,
-        $m = null,
-        $s = null,
+        $negative = null,
+        $weeks = null,
+        $days = null,
+        $hours = null,
+        $minutes = null,
+        $seconds = null,
         $related = null,
         $count = null
     )
     {
         parent::__construct();
-        if(null !== $neg)
+        if(null !== $negative)
         {
-            $this->property('neg', (bool) $neg);
+            $this->setProperty('neg', (bool) $negative);
         }
-        if(null !== $w)
+        if(null !== $weeks)
         {
-            $this->property('w', (int) $w);
+            $this->setProperty('w', (int) $weeks);
         }
-        if(null !== $d)
+        if(null !== $days)
         {
-            $this->property('d', (int) $d);
+            $this->setProperty('d', (int) $days);
         }
-        if(null !== $h)
+        if(null !== $hours)
         {
-            $this->property('h', (int) $h);
+            $this->setProperty('h', (int) $hours);
         }
-        if(null !== $m)
+        if(null !== $minutes)
         {
-            $this->property('m', (int) $m);
+            $this->setProperty('m', (int) $minutes);
         }
-        if(null !== $s)
+        if(null !== $seconds)
         {
-            $this->property('s', (int) $s);
+            $this->setProperty('s', (int) $seconds);
         }
         if(null !== $related)
         {
-            $this->property('related', in_array(trim($related), array('START', 'END')) ? trim($related) : '');
+            $this->setRelated($related);
         }
         if(null !== $count)
         {
-            $this->property('count', (int) $count);
+            $this->setProperty('count', (int) $count);
         }
     }
 
     /**
-     * Gets or sets neg
+     * Gets duration is negative
      *
-     * @param  bool $neg
-     * @return bool|self
+     * @return bool
      */
-    public function neg($neg = null)
+    public function getDurationNegative()
     {
-        if(null === $neg)
-        {
-            return $this->property('neg');
-        }
-        return $this->property('neg', (bool) $neg);
+        return $this->getProperty('neg');
     }
 
     /**
-     * Gets or sets w
+     * Sets duration is negative
      *
-     * @param  int $w
-     * @return int|self
+     * @param  bool $negative
+     * @return self
      */
-    public function w($w = null)
+    public function setDurationNegative($negative)
     {
-        if(null === $w)
-        {
-            return $this->property('w');
-        }
-        return $this->property('w', (int) $w);
+        return $this->setProperty('neg', (bool) $negative);
     }
 
     /**
-     * Gets or sets d
+     * Gets weeks component
      *
-     * @param  int $d
-     * @return int|self
+     * @return int
      */
-    public function d($d = null)
+    public function getWeeks()
     {
-        if(null === $d)
-        {
-            return $this->property('d');
-        }
-        return $this->property('d', (int) $d);
+        return $this->getProperty('w');
     }
 
     /**
-     * Gets or sets h
+     * Sets weeks component
      *
-     * @param  int $h
-     * @return int|self
+     * @param  int $weeks
+     * @return self
      */
-    public function h($h = null)
+    public function setWeeks($weeks)
     {
-        if(null === $h)
-        {
-            return $this->property('h');
-        }
-        return $this->property('h', (int) $h);
+        return $this->setProperty('w', (int) $weeks);
     }
 
     /**
-     * Gets or sets m
+     * Gets days component
      *
-     * @param  int $m
-     * @return int|self
+     * @return int
      */
-    public function m($m = null)
+    public function getDays()
     {
-        if(null === $m)
-        {
-            return $this->property('m');
-        }
-        return $this->property('m', (int) $m);
+        return $this->getProperty('d');
     }
 
     /**
-     * Gets or sets s
+     * Sets days component
+     *
+     * @param  int $days
+     * @return self
+     */
+    public function setDays($days)
+    {
+        return $this->setProperty('d', (int) $days);
+    }
+
+    /**
+     * Gets hours component
+     *
+     * @return int
+     */
+    public function getHours()
+    {
+        return $this->getProperty('h');
+    }
+
+    /**
+     * Sets hours component
+     *
+     * @param  int $hours
+     * @return self
+     */
+    public function setHours($hours)
+    {
+        return $this->setProperty('h', (int) $hours);
+    }
+
+    /**
+     * Gets minutes component
+     *
+     * @return int
+     */
+    public function getMinutes()
+    {
+        return $this->getProperty('m');
+    }
+
+    /**
+     * Sets minutes component
+     *
+     * @param  int $minutes
+     * @return self
+     */
+    public function setMinutes($minutes)
+    {
+        return $this->setProperty('m', (int) $minutes);
+    }
+
+    /**
+     * Gets seconds component
+     *
+     * @return int
+     */
+    public function getSeconds()
+    {
+        return $this->getProperty('s');
+    }
+
+    /**
+     * Sets seconds component
      *
      * @param  int $s
-     * @return int|self
+     * @return self
      */
-    public function s($s = null)
+    public function setSeconds($seconds)
     {
-        if(null === $s)
-        {
-            return $this->property('s');
-        }
-        return $this->property('s', (int) $s);
+        return $this->setProperty('s', (int) $seconds);
     }
 
     /**
-     * Gets or sets related
+     * Gets related
      *
-     * @param  int $related
-     * @return int|self
+     * @return string
      */
-    public function related($related = null)
+    public function getRelated()
     {
-        if(null === $related)
+        return $this->getProperty('related');
+    }
+
+    /**
+     * Sets related
+     *
+     * @param  string $related
+     * @return self
+     */
+    public function setRelated($related)
+    {
+        if (in_array(trim($related), ['START', 'END']))
         {
-            return $this->property('related');
+            $this->setProperty('related', trim($related));
         }
-        return $this->property('related', in_array(trim($related), array('START', 'END')) ? trim($related) : '');
         return $this;
     }
 
     /**
-     * Gets or sets count
+     * Gets repeat count
+     *
+     * @return int
+     */
+    public function getRepeatCount()
+    {
+        return $this->getProperty('count');
+    }
+
+    /**
+     * Sets repeat count
      *
      * @param  int $count
-     * @return int|self
+     * @return self
      */
-    public function count($count = null)
+    public function setRepeatCount($count)
     {
-        if(null === $count)
-        {
-            return $this->property('count');
-        }
-        return $this->property('count', (int) $count);
+        return $this->setProperty('count', (int) $count);
     }
 
     /**

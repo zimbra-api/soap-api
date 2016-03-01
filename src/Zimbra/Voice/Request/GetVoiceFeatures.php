@@ -31,8 +31,8 @@ class GetVoiceFeatures extends Base
 {
     /**
      * Constructor method for GetVoiceFeatures
-     * @param  StorePrincipalSpec $storeprincipal
-     * @param  PhoneVoiceFeaturesSpec $phone
+     * @param  StorePrincipalSpec $storeprincipal Store principal specification
+     * @param  PhoneVoiceFeaturesSpec $phone Phone specification
      * @return self
      */
     public function __construct(
@@ -43,42 +43,53 @@ class GetVoiceFeatures extends Base
         parent::__construct();
         if($storeprincipal instanceof StorePrincipalSpec)
         {
-            $this->child('storeprincipal', $storeprincipal);
+            $this->setChild('storeprincipal', $storeprincipal);
         }
         if($phone instanceof PhoneVoiceFeaturesSpec)
         {
-            $this->child('phone', $phone);
+            $this->setChild('phone', $phone);
         }
     }
 
     /**
-     * Gets or sets storeprincipal
-     * Store Principal specification
+     * Gets the storeprincipal.
+     *
+     * @return StorePrincipalSpec
+     */
+    public function getStorePrincipal()
+    {
+        return $this->getChild('storeprincipal');
+    }
+
+    /**
+     * Sets the storeprincipal.
      *
      * @param  StorePrincipalSpec $storeprincipal
-     * @return StorePrincipalSpec|self
+     * @return self
      */
-    public function storeprincipal(StorePrincipalSpec $storeprincipal = null)
+    public function setStorePrincipal(StorePrincipalSpec $storeprincipal)
     {
-        if(null === $storeprincipal)
-        {
-            return $this->child('storeprincipal');
-        }
-        return $this->child('storeprincipal', $storeprincipal);
+        return $this->setChild('storeprincipal', $storeprincipal);
     }
 
     /**
-     * Gets or sets phone
+     * Gets the phone.
+     *
+     * @return PhoneVoiceFeaturesSpec
+     */
+    public function getPhone()
+    {
+        return $this->getChild('phone');
+    }
+
+    /**
+     * Sets the phone.
      *
      * @param  PhoneVoiceFeaturesSpec $phone
-     * @return PhoneVoiceFeaturesSpec|self
+     * @return self
      */
-    public function phone(PhoneVoiceFeaturesSpec $phone = null)
+    public function setPhone(PhoneVoiceFeaturesSpec $phone)
     {
-        if(null === $phone)
-        {
-            return $this->child('phone');
-        }
-        return $this->child('phone', $phone);
+        return $this->setChild('phone', $phone);
     }
 }

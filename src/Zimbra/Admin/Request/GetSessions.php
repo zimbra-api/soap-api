@@ -10,7 +10,7 @@
 
 namespace Zimbra\Admin\Request;
 
-use Zimbra\Enum\GetSessionsSortBy;
+use Zimbra\Enum\GetSessionsSortBy as SortBy;
 use Zimbra\Enum\SessionType;
 
 /**
@@ -28,7 +28,7 @@ class GetSessions extends Base
     /**
      * Constructor method for GetSessions
      * @param SessionType $type Type - valid values soap|imap|admin
-     * @param GetSessionsSortBy $sortBy The sortBy
+     * @param SortBy $sortBy The sortBy
      * @param int $limit Limit - the number of sessions to return per page (0 is default and means all)
      * @param int $offset Offset - the starting offset (0, 25, etc)
      * @param bool $refresh Refresh. If 1 (true), ignore any cached results and start fresh.
@@ -36,104 +36,134 @@ class GetSessions extends Base
      */
     public function __construct(
         SessionType $type,
-        GetSessionsSortBy $sortBy = null,
+        SortBy $sortBy = null,
         $limit = null,
         $offset = null,
         $refresh = null
     )
     {
         parent::__construct();
-        $this->property('type', $type);
-        if($sortBy instanceof GetSessionsSortBy)
+        $this->setProperty('type', $type);
+        if($sortBy instanceof SortBy)
         {
-            $this->property('sortBy', $sortBy);
+            $this->setProperty('sortBy', $sortBy);
         }
         if(null !== $limit)
         {
-            $this->property('limit', (int) $limit);
+            $this->setProperty('limit', (int) $limit);
         }
         if(null !== $offset)
         {
-            $this->property('offset', (int) $offset);
+            $this->setProperty('offset', (int) $offset);
         }
         if(null !== $refresh)
         {
-            $this->property('refresh', (bool) $refresh);
+            $this->setProperty('refresh', (bool) $refresh);
         }
     }
 
     /**
-     * Gets or sets type
+     * Gets type
+     *
+     * @return SessionType
+     */
+    public function getType()
+    {
+        return $this->getProperty('type');
+    }
+
+    /**
+     * Sets type
      *
      * @param  SessionType $type
-     * @return SessionType|self
+     * @return self
      */
-    public function type(SessionType $type = null)
+    public function setType(SessionType $type)
     {
-        if(null === $type)
-        {
-            return $this->property('type');
-        }
-        return $this->property('type', $type);
+        return $this->setProperty('type', $type);
     }
 
     /**
-     * Gets or sets sortBy
+     * Gets sortBy
      *
-     * @param  GetSessionsSortBy $sortBy
-     * @return GetSessionsSortBy|self
+     * @return SortBy
      */
-    public function sortBy(GetSessionsSortBy $sortBy = null)
+    public function getSortBy()
     {
-        if(null === $sortBy)
-        {
-            return $this->property('sortBy');
-        }
-        return $this->property('sortBy', $sortBy);
+        return $this->getProperty('sortBy');
     }
 
     /**
-     * Gets or sets offset
+     * Sets sortBy
+     *
+     * @param  SortBy $sortBy
+     * @return self
+     */
+    public function setSortBy(SortBy $sortBy)
+    {
+        return $this->setProperty('sortBy', $sortBy);
+    }
+
+    /**
+     * Gets offset
+     *
+     * @return int
+     */
+    public function getOffset()
+    {
+        return $this->getProperty('offset');
+    }
+
+    /**
+     * Sets offset
      *
      * @param  int $offset
-     * @return int|self
+     * @return self
      */
-    public function offset($offset = null)
+    public function setOffset($offset)
     {
-        if(null === $offset)
-        {
-            return $this->property('offset');
-        }
-        return $this->property('offset', (int) $offset);
+        return $this->setProperty('offset', (int) $offset);
     }
 
     /**
-     * Gets or sets limit
+     * Gets limit
+     *
+     * @return int
+     */
+    public function getLimit()
+    {
+        return $this->getProperty('limit');
+    }
+
+    /**
+     * Sets limit
      *
      * @param  int $limit
-     * @return int|self
+     * @return self
      */
-    public function limit($limit = null)
+    public function setLimit($limit)
     {
-        if(null === $limit)
-        {
-            return $this->property('limit');
-        }
-        return $this->property('limit', (int) $limit);
+        return $this->setProperty('limit', (int) $limit);
     }
 
     /**
-     * Gets or sets refresh
+     * Gets refresh
+     *
+     * @return bool
+     */
+    public function getRefresh()
+    {
+        return $this->getProperty('refresh');
+    }
+
+    /**
+     * Sets refresh
      *
      * @param  bool $refresh
-     * @return bool|self
+     * @return self
      */
-    public function refresh($refresh = null)
+    public function setRefresh($refresh)
     {
-        if(null === $refresh)
-        {
-            return $this->property('refresh');
-        }
-        return $this->property('refresh', (bool) $refresh);
+        return $this->setProperty('refresh', (bool) $refresh);
     }
 }

@@ -30,108 +30,138 @@ class ModifyDelegatedAdminConstraints extends Base
      * Constaint attributes
      * @var array
      */
-    private $_attr = array();
+    private $_attrs;
 
     /**
      * Constructor method for ModifyDelegatedAdminConstraints
      * @param TargetType $type Target type
      * @param string $id Id
      * @param string $name Name
-     * @param array  $attr Constaint attributes
+     * @param array  $attrs Constaint attributes
      * @return self
      */
     public function __construct(
         TargetType $type,
         $id = null,
         $name = null,
-        array $attr = array()
+        array $attrs = []
     )
     {
         parent::__construct();
-        $this->property('type', $type);
+        $this->setProperty('type', $type);
         if(null !== $id)
         {
-            $this->property('id', trim($id));
+            $this->setProperty('id', trim($id));
         }
         if(null !== $name)
         {
-            $this->property('name', trim($name));
+            $this->setProperty('name', trim($name));
         }
-        $this->_attr = new TypedSequence('Zimbra\Admin\Struct\ConstraintAttr', $attr);
+        $this->_attrs = new TypedSequence('Zimbra\Admin\Struct\ConstraintAttr', $attrs);
 
         $this->on('before', function(Base $sender)
         {
-            if($sender->attr()->count())
+            if($sender->getAttrs()->count())
             {
-                $sender->child('a', $sender->attr()->all());
+                $sender->setChild('a', $sender->getAttrs()->all());
             }
         });
     }
 
     /**
-     * Gets or sets type
+     * Gets type
+     *
+     * @return TargetType
+     */
+    public function getType()
+    {
+        return $this->getProperty('type');
+    }
+
+    /**
+     * Sets type
      *
      * @param  TargetType $type
-     * @return TargetType|self
+     * @return self
      */
-    public function type(TargetType $type = null)
+    public function setType(TargetType $type)
     {
-        if(null === $type)
-        {
-            return $this->property('type');
-        }
-        return $this->property('type', $type);
+        return $this->setProperty('type', $type);
     }
 
     /**
-     * Gets or sets id
+     * Gets Zimbra ID
+     *
+     * @return string
+     */
+    public function getId()
+    {
+        return $this->getProperty('id');
+    }
+
+    /**
+     * Sets Zimbra ID
      *
      * @param  string $id
-     * @return string|self
+     * @return self
      */
-    public function id($id = null)
+    public function setId($id)
     {
-        if(null === $id)
-        {
-            return $this->property('id');
-        }
-        return $this->property('id', trim($id));
+        return $this->setProperty('id', trim($id));
     }
 
     /**
-     * Gets or sets name
+     * Gets name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->getProperty('name');
+    }
+
+    /**
+     * Sets name
      *
      * @param  string $name
-     * @return string|self
+     * @return self
      */
-    public function name($name = null)
+    public function setName($name)
     {
-        if(null === $name)
-        {
-            return $this->property('name');
-        }
-        return $this->property('name', trim($name));
+        return $this->setProperty('name', trim($name));
     }
 
     /**
      * Add an attr
      *
      * @param  Attr $attr
-     * @return ModifyDelegatedAdminConstraints
+     * @return self
      */
     public function addAttr(Attr $attr)
     {
-        $this->_attr->add($attr);
+        $this->_attrs->add($attr);
         return $this;
     }
 
     /**
-     * Gets attr Sequence
+     * Sets attribute sequence
+     *
+     * @param array  $attrs
+     * @return self
+     */
+    public function setAttrs(array $attrs)
+    {
+        $this->_attrs = new TypedSequence('Zimbra\Admin\Struct\ConstraintAttr', $attrs);
+        return $this;
+    }
+
+    /**
+     * Gets attribute sequence
      *
      * @return Sequence
      */
-    public function attr()
+    public function getAttrs()
     {
-        return $this->_attr;
+        return $this->_attrs;
     }
 }

@@ -40,88 +40,107 @@ class ZimletAclStatusPri extends Base
     )
     {
         parent::__construct();
-        $this->property('name', trim($name));
+        $this->setProperty('name', trim($name));
         if($acl instanceof ZimletAcl)
         {
-            $this->child('acl', $acl);
+            $this->setChild('acl', $acl);
         }
         if($status instanceof ValueAttrib)
         {
-            $value = $status->value();
-            if(ZimletStatus::has($value))
-            {
-                $this->child('status', $status);
-            }
+            $this->setStatus($status);
         }
         if($priority instanceof IntegerValueAttrib)
         {
-            $this->child('priority', $priority);
+            $this->setChild('priority', $priority);
         }
     }
 
     /**
-     * Gets or sets name
+     * Gets the name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->getProperty('name');
+    }
+
+    /**
+     * Sets the name
      *
      * @param  string $name
-     * @return string|self
+     * @return self
      */
-    public function name($name = null)
+    public function setName($name)
     {
-        if(null === $name)
-        {
-            return $this->property('name');
-        }
-        return $this->property('name', trim($name));
+        return $this->setProperty('name', trim($name));
     }
 
     /**
-     * Gets or sets acl
+     * Gets the acl
+     *
+     * @return ZimletAcl
+     */
+    public function getAcl()
+    {
+        return $this->getChild('acl');
+    }
+
+    /**
+     * Sets the acl
      *
      * @param  ZimletAcl $acl
-     * @return ZimletAcl|self
+     * @return self
      */
-    public function acl(ZimletAcl $acl = null)
+    public function setAcl(ZimletAcl $acl)
     {
-        if(null === $acl)
-        {
-            return $this->child('acl');
-        }
-        return $this->child('acl', $acl);
+        return $this->setChild('acl', $acl);
     }
 
     /**
-     * Gets or sets status
+     * Gets the status
+     *
+     * @return ValueAttrib
+     */
+    public function getStatus()
+    {
+        return $this->getChild('status');
+    }
+
+    /**
+     * Sets the status
      *
      * @param  ValueAttrib $status
-     * @return ValueAttrib|self
+     * @return self
      */
-    public function status(ValueAttrib $status = null)
+    public function setStatus(ValueAttrib $status)
     {
-        if(null === $status)
+        if(ZimletStatus::has($status->getValue()))
         {
-            return $this->child('status');
-        }
-        $value = $status->value();
-        if(ZimletStatus::has($value))
-        {
-            $this->child('status', $status);
+            $this->setChild('status', $status);
         }
         return $this;
     }
 
     /**
-     * Gets or sets priority
+     * Gets the priority
+     *
+     * @return IntegerValueAttrib
+     */
+    public function getPriority()
+    {
+        return $this->getChild('priority');
+    }
+
+    /**
+     * Sets the priority
      *
      * @param  IntegerValueAttrib $priority
-     * @return IntegerValueAttrib|self
+     * @return self
      */
-    public function priority(IntegerValueAttrib $priority = null)
+    public function setPriority(IntegerValueAttrib $priority)
     {
-        if(null === $priority)
-        {
-            return $this->child('priority');
-        }
-        return $this->child('priority', $priority);
+        return $this->setChild('priority', $priority);
     }
 
     /**

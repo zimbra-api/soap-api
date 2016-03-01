@@ -32,21 +32,27 @@ class GetMailQueue extends Base
     public function __construct(Server $server)
     {
         parent::__construct();
-        $this->child('server', $server);
+        $this->setChild('server', $server);
     }
 
     /**
-     * Gets or sets server
+     * Gets the server.
+     *
+     * @return Server
+     */
+    public function getServer()
+    {
+        return $this->getChild('server');
+    }
+
+    /**
+     * Sets the server.
      *
      * @param  Server $server
-     * @return Server|self
+     * @return self
      */
-    public function server(Server $server = null)
+    public function setServer(Server $server)
     {
-        if(null === $server)
-        {
-            return $this->child('server');
-        }
-        return $this->child('server', $server);
+        return $this->setChild('server', $server);
     }
 }

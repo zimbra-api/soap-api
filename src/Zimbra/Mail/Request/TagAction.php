@@ -32,21 +32,27 @@ class TagAction extends Base
     public function __construct(TagActionSelector $action)
     {
         parent::__construct();
-        $this->child('action', $action);
+        $this->setChild('action', $action);
     }
 
     /**
-     * Get or set action
+     * Gets action
+     *
+     * @return TagActionSelector
+     */
+    public function getAction()
+    {
+        return $this->getChild('action');
+    }
+
+    /**
+     * Sets action
      *
      * @param  TagActionSelector $action
-     * @return TagActionSelector|self
+     * @return self
      */
-    public function action(TagActionSelector $action = null)
+    public function setAction(TagActionSelector $action)
     {
-        if(null === $action)
-        {
-            return $this->child('action');
-        }
-        return $this->child('action', $action);
+        return $this->setChild('action', $action);
     }
 }

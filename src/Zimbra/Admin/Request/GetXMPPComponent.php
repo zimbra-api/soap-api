@@ -11,6 +11,8 @@
 namespace Zimbra\Admin\Request;
 
 use Zimbra\Admin\Struct\XmppComponentSelector as Xmpp;
+use Zimbra\Struct\AttributeSelectorTrait;
+use Zimbra\Struct\AttributeSelector;
 
 /**
  * GetXMPPComponent request class
@@ -23,51 +25,50 @@ use Zimbra\Admin\Struct\XmppComponentSelector as Xmpp;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
  */
-class GetXMPPComponent extends Base
+class GetXMPPComponent extends Base implements AttributeSelector
 {
+    use AttributeSelectorTrait;
+
     /**
      * Constructor method for GetXMPPComponent
      * @param  Xmpp $xmpp XMPP Component selector
-     * @param  string $attrs Comma separated list of attributes
+     * @param  array $attrs An array of attributes
      * @return self
      */
-    public function __construct(Xmpp $xmpp, $attrs = null)
+    public function __construct(Xmpp $xmpp, array $attrs = [])
     {
         parent::__construct();
-        $this->child('xmppcomponent', $xmpp);
-        if(null !== $attrs)
+        $this->setChild('xmppcomponent', $xmpp);
+
+        $this->setAttrs($attrs);
+        $this->on('before', function(Base $sender)
         {
-            $this->property('attrs', trim($attrs));
-        }
+            $attrs = $sender->getAttrs();
+            if(!empty($attrs))
+            {
+                $sender->setProperty('attrs', $attrs);
+            }
+        });
     }
 
     /**
-     * Gets or sets xmpp
+     * Gets the xmpp component.
+     *
+     * @return Xmpp
+     */
+    public function getComponent()
+    {
+        return $this->getChild('xmppcomponent');
+    }
+
+    /**
+     * Sets the xmpp component.
      *
      * @param  Xmpp $xmpp
-     * @return Xmpp|self
+     * @return self
      */
-    public function xmpp(Xmpp $xmpp = null)
+    public function setComponent(Xmpp $xmpp)
     {
-        if(null === $xmpp)
-        {
-            return $this->child('xmppcomponent');
-        }
-        return $this->child('xmppcomponent', $xmpp);
-    }
-
-    /**
-     * Gets or sets attrs
-     *
-     * @param  string $attrs
-     * @return string|self
-     */
-    public function attrs($attrs = null)
-    {
-        if(null === $attrs)
-        {
-            return $this->property('attrs');
-        }
-        return $this->property('attrs', trim($attrs));
+        return $this->setChild('xmppcomponent', $xmpp);
     }
 }

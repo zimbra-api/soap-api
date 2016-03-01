@@ -29,43 +29,55 @@ class CreateDistributionList extends BaseAttr
      * @param array  $attrs
      * @return self
      */
-    public function __construct($name, $dynamic = null, array $attrs = array())
+    public function __construct($name, $dynamic = null, array $attrs = [])
     {
         parent::__construct($attrs);
-        $this->property('name', trim($name));
+        $this->setProperty('name', trim($name));
         if(null !== $dynamic)
         {
-            $this->property('dynamic', (bool) $dynamic);
+            $this->setProperty('dynamic', (bool) $dynamic);
         }
     }
 
     /**
-     * Gets or sets name
+     * Gets name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->getProperty('name');
+    }
+
+    /**
+     * Sets name
      *
      * @param  string $name
-     * @return string|self
+     * @return self
      */
-    public function name($name = null)
+    public function setName($name)
     {
-        if(null === $name)
-        {
-            return $this->property('name');
-        }
-        return $this->property('name', trim($name));
+        return $this->setProperty('name', trim($name));
     }
 
     /**
-     * Gets or sets dynamic
+     * Gets dynamic
+     *
+     * @return bool
+     */
+    public function getDynamic()
+    {
+        return $this->getProperty('dynamic');
+    }
+
+    /**
+     * Sets dynamic
      *
      * @param  bool $dynamic
-     * @return bool|self
+     * @return self
      */
-    public function dynamic($dynamic = null)
+    public function setDynamic($dynamic)
     {
-        if(null === $dynamic)
-        {
-            return $this->property('dynamic');
-        }
-        return $this->property('dynamic', (bool) $dynamic);
+        return $this->setProperty('dynamic', (bool) $dynamic);
     }
 }

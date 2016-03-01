@@ -35,23 +35,29 @@ class SignatureContent extends Base
 		parent::__construct(trim($value));
         if($type instanceof ContentType)
         {
-			$this->property('type', $type);
+			$this->setProperty('type', $type);
         }
     }
 
     /**
-     * Gets or sets type
+     * Gets content type
      *
-     * @param  ContentType $type
-     * @return ContentType|self
+     * @return string
      */
-    public function type(ContentType $type = null)
+    public function getContentType()
     {
-        if(null === $type)
-        {
-            return $this->property('type');
-        }
-        return $this->property('type', $type);
+        return $this->getProperty('type');
+    }
+
+    /**
+     * Sets content type
+     *
+     * @param  string $type
+     * @return self
+     */
+    public function setContentType(ContentType $type)
+    {
+        return $this->setProperty('type', $type);
     }
 
     /**

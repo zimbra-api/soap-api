@@ -10,7 +10,7 @@
 
 namespace Zimbra\Admin\Struct;
 
-use Zimbra\Enum\CacheEntryBy;
+use Zimbra\Enum\CacheEntryBy as EntryBy;
 use Zimbra\Struct\Base;
 
 /**
@@ -25,43 +25,36 @@ use Zimbra\Struct\Base;
 class CacheEntrySelector extends Base
 {
     /**
-     * Select the meaning of {acct-selector-key}
-     * Valid values: adminName|appAdminName|id|foreignPrincipal|name|krb5Principal
-     * @var CacheEntryBy
-     */
-    private $_by;
-
-    /**
-     * Specifies the account to authenticate against
-     * @var string
-     */
-    private $_value;
-
-    /**
      * Constructor method for CacheEntrySelector
-     * @param  CacheEntryBy $by Select the meaning of {cache-entry-key}
+     * @param  Zimbra\Enum\CacheEntryBy $by Select the meaning of {cache-entry-key}
      * @param  string $value The key used to identify the cache entry
      * @return self
      */
-    public function __construct(CacheEntryBy $by, $value = null)
+    public function __construct(EntryBy $by, $value = null)
     {
         parent::__construct(trim($value));
-        $this->property('by', $by);
+        $this->setProperty('by', $by);
     }
 
     /**
-     * Gets or sets by
+     * Gets by enum
      *
-     * @param  CacheEntryBy $by
-     * @return CacheEntryBy|self
+     * @return Zimbra\Enum\CacheEntryBy
      */
-    public function by(CacheEntryBy $by = null)
+    public function getBy()
     {
-        if(null === $by)
-        {
-            return $this->property('by');
-        }
-        return $this->property('by', $by);
+        return $this->getProperty('by');
+    }
+
+    /**
+     * Sets by enum
+     *
+     * @param  Zimbra\Enum\CacheEntryBy $by
+     * @return self
+     */
+    public function setBy(EntryBy $by)
+    {
+        return $this->setProperty('by', $by);
     }
 
     /**

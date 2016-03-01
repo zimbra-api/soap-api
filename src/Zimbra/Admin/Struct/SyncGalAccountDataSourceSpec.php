@@ -40,60 +40,78 @@ class SyncGalAccountDataSourceSpec extends Base
     )
     {
         parent::__construct(trim($value));
-        $this->property('by', $by);
+        $this->setProperty('by', $by);
         if(null !== $fullSync)
         {
-            $this->property('fullSync', (bool) $fullSync);
+            $this->setProperty('fullSync', (bool) $fullSync);
         }
         if(null !== $reset)
         {
-            $this->property('reset', (bool) $reset);
+            $this->setProperty('reset', (bool) $reset);
         }
     }
 
     /**
-     * Gets or sets by
+     * Gets by enum
      *
-     * @param  DataSourceBy $by
-     * @return DataSourceBy|self
+     * @return Zimbra\Enum\DataSourceBy
      */
-    public function by(DataSourceBy $by = null)
+    public function getBy()
     {
-        if(null === $by)
-        {
-            return $this->property('by');
-        }
-        return $this->property('by', $by);
+        return $this->getProperty('by');
     }
 
     /**
-     * Gets or sets fullSync
+     * Sets by enum
+     *
+     * @param  Zimbra\Enum\DataSourceBy $by
+     * @return self
+     */
+    public function setBy(DataSourceBy $by)
+    {
+        return $this->setProperty('by', $by);
+    }
+
+    /**
+     * Gets the full sync flag
+     *
+     * @return bool
+     */
+    public function getFullSync()
+    {
+        return $this->getProperty('fullSync');
+    }
+
+    /**
+     * Sets the full sync flag
      *
      * @param  bool $fullSync
-     * @return bool|self
+     * @return self
      */
-    public function fullSync($fullSync = null)
+    public function setFullSync($fullSync)
     {
-        if(null === $fullSync)
-        {
-            return $this->property('fullSync');
-        }
-        return $this->property('fullSync', (bool) $fullSync);
+        return $this->setProperty('fullSync', (bool) $fullSync);
     }
 
     /**
-     * Gets or sets reset
+     * Gets the reset flag
+     *
+     * @return bool
+     */
+    public function getReset()
+    {
+        return $this->getProperty('reset');
+    }
+
+    /**
+     * Sets the reset flag
      *
      * @param  bool $reset
-     * @return bool|self
+     * @return self
      */
-    public function reset($reset = null)
+    public function setReset($reset)
     {
-        if(null === $reset)
-        {
-            return $this->property('reset');
-        }
-        return $this->property('reset', (bool) $reset);
+        return $this->setProperty('reset', (bool) $reset);
     }
 
     /**

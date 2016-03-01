@@ -31,37 +31,49 @@ class RenameLDAPEntry extends Base
     public function __construct($dn, $new_dn)
     {
         parent::__construct();
-        $this->property('dn', trim($dn));
-        $this->property('new_dn', trim($new_dn));
+        $this->setProperty('dn', trim($dn));
+        $this->setProperty('new_dn', trim($new_dn));
     }
 
     /**
-     * Gets or sets dn
+     * Gets dn
+     *
+     * @return string
+     */
+    public function getDn()
+    {
+        return $this->getProperty('dn');
+    }
+
+    /**
+     * Sets dn
      *
      * @param  string $dn
-     * @return string|self
+     * @return self
      */
-    public function dn($dn = null)
+    public function setDn($dn)
     {
-        if(null === $dn)
-        {
-            return $this->property('dn');
-        }
-        return $this->property('dn', trim($dn));
+        return $this->setProperty('dn', trim($dn));
     }
 
     /**
-     * Gets or sets new_dn
+     * Gets new dn
+     *
+     * @return string
+     */
+    public function getNewDn()
+    {
+        return $this->getProperty('new_dn');
+    }
+
+    /**
+     * Sets new dn
      *
      * @param  string $new_dn
-     * @return string|self
+     * @return self
      */
-    public function new_dn($new_dn = null)
+    public function setNewDn($new_dn)
     {
-        if(null === $new_dn)
-        {
-            return $this->property('new_dn');
-        }
-        return $this->property('new_dn', trim($new_dn));
+        return $this->setProperty('new_dn', trim($new_dn));
     }
 }

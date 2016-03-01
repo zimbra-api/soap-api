@@ -32,21 +32,27 @@ class MigrateAccount extends Base
     public function __construct(Migrate $migrate)
     {
         parent::__construct();
-        $this->child('migrate', $migrate);
+        $this->setChild('migrate', $migrate);
     }
 
     /**
-     * Gets or sets migrate
+     * Gets the migrate.
+     *
+     * @return Migrate
+     */
+    public function getMigrate()
+    {
+        return $this->getChild('migrate');
+    }
+
+    /**
+     * Sets the migrate.
      *
      * @param  Migrate $migrate
-     * @return Migrate|self
+     * @return self
      */
-    public function migrate(Migrate $migrate = null)
+    public function setMigrate(Migrate $migrate)
     {
-        if(null === $migrate)
-        {
-            return $this->child('migrate');
-        }
-        return $this->child('migrate', $migrate);
+        return $this->setChild('migrate', $migrate);
     }
 }

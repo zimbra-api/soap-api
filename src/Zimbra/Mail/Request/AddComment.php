@@ -33,21 +33,27 @@ class AddComment extends Base
     public function __construct(AddedComment $comment)
     {
         parent::__construct();
-        $this->child('comment', $comment);
+        $this->setChild('comment', $comment);
     }
 
     /**
-     * Get or set comment
+     * Gets comment
+     *
+     * @return AddedComment
+     */
+    public function getComment()
+    {
+        return $this->getChild('comment');
+    }
+
+    /**
+     * Sets comment
      *
      * @param  AddedComment $comment
-     * @return AddedComment|self
+     * @return self
      */
-    public function comment(AddedComment $comment = null)
+    public function setComment(AddedComment $comment)
     {
-        if(null === $comment)
-        {
-            return $this->child('comment');
-        }
-        return $this->child('comment', $comment);
+        return $this->setChild('comment', $comment);
     }
 }

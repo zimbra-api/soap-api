@@ -35,41 +35,53 @@ class CopyCos extends Base
         parent::__construct();
         if(null !== $name)
         {
-            $this->child('name', trim($name));
+            $this->setChild('name', trim($name));
         }
         if($cos instanceof Cos)
         {
-            $this->child('cos', $cos);
+            $this->setChild('cos', $cos);
         }
     }
 
     /**
-     * Gets or sets name
+     * Gets new name
      *
-     * @param  string $name
-     * @return string|self
+     * @return string
      */
-    public function name($name = null)
+    public function getNewName()
     {
-        if(null === $name)
-        {
-            return $this->child('name');
-        }
-        return $this->child('name', trim($name));
+        return $this->getChild('name');
     }
 
     /**
-     * Gets or sets cos
+     * Sets new name
+     *
+     * @param  string $name new name
+     * @return self
+     */
+    public function setNewName($name)
+    {
+        return $this->setChild('name', trim($name));
+    }
+
+    /**
+     * Gets the cos.
+     *
+     * @return Cos
+     */
+    public function getCos()
+    {
+        return $this->getChild('cos');
+    }
+
+    /**
+     * Sets the cos.
      *
      * @param  Cos $cos
-     * @return Cos|self
+     * @return self
      */
-    public function cos(Cos $cos = null)
+    public function setCos(Cos $cos)
     {
-        if(null === $cos)
-        {
-            return $this->child('cos');
-        }
-        return $this->child('cos', $cos);
+        return $this->setChild('cos', $cos);
     }
 }

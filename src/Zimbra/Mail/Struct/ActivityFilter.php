@@ -26,74 +26,92 @@ class ActivityFilter extends Base
     /**
      * Constructor method for ActivityFilter
      * @param string $account Account ID
-     * @param string $op Comma separated list of Mailbox operations
-     * @param string $session Session ID
+     * @param string $ops Comma separated list of mailbox operations
+     * @param string $sessionId Session ID
      * @return self
      */
     public function __construct(
         $account = null,
-        $op = null,
-        $session = null
+        $ops = null,
+        $sessionId = null
     )
     {
         parent::__construct();
         if(null !== $account)
         {
-            $this->property('account', trim($account));
+            $this->setProperty('account', trim($account));
         }
-        if(null !== $op)
+        if(null !== $ops)
         {
-            $this->property('op', trim($op));
+            $this->setProperty('op', trim($ops));
         }
-        if(null !== $session)
+        if(null !== $sessionId)
         {
-            $this->property('session', trim($session));
+            $this->setProperty('session', trim($sessionId));
         }
     }
 
     /**
-     * Gets or sets account
+     * Gets acount id
+     *
+     * @return string
+     */
+    public function getAccount()
+    {
+        return $this->getProperty('account');
+    }
+
+    /**
+     * Sets acount id
      *
      * @param  string $account
-     * @return string|self
+     * @return self
      */
-    public function account($account = null)
+    public function setAccount($account)
     {
-        if(null === $account)
-        {
-            return $this->property('account');
-        }
-        return $this->property('account', trim($account));
+        return $this->setProperty('account', trim($account));
     }
 
     /**
-     * Gets or sets op
+     * Gets mailbox operations
      *
-     * @param  string $op
-     * @return string|self
+     * @return string
      */
-    public function op($op = null)
+    public function getOps()
     {
-        if(null === $op)
-        {
-            return $this->property('op');
-        }
-        return $this->property('op', trim($op));
+        return $this->getProperty('op');
     }
 
     /**
-     * Gets or sets session
+     * Sets mailbox operations
      *
-     * @param  string $session
-     * @return string|self
+     * @param  string $ops
+     * @return self
      */
-    public function session($session = null)
+    public function setOps($ops)
     {
-        if(null === $session)
-        {
-            return $this->property('session');
-        }
-        return $this->property('session', trim($session));
+        return $this->setProperty('op', trim($ops));
+    }
+
+    /**
+     * Gets session id
+     *
+     * @return string
+     */
+    public function getSessionId()
+    {
+        return $this->getProperty('session');
+    }
+
+    /**
+     * Sets session id
+     *
+     * @param  string $sessionId
+     * @return self
+     */
+    public function setSessionId($sessionId)
+    {
+        return $this->setProperty('session', trim($sessionId));
     }
 
     /**

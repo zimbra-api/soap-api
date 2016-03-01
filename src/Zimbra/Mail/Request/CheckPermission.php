@@ -29,53 +29,50 @@ class CheckPermission extends Base
      * Rights to check
      * @var Sequence
      */
-    private $_right;
+    private $_rights;
 
     /**
      * Constructor method for CheckPermission
      * @param  TargetSpec $target
-     * @param  array $right
+     * @param  array $rights rights to check
      * @return self
      */
-    public function __construct(TargetSpec $target = null, array $right = array())
+    public function __construct(TargetSpec $target = null, array $rights = array())
     {
         parent::__construct();
         if($target instanceof TargetSpec)
         {
-            $this->child('target', $target);
+            $this->setChild('target', $target);
         }
-        $this->_right = new Sequence();
-        foreach ($right as $value)
-        {
-            $value = trim($value);
-            if(!$this->_right->contains($value))
-            {
-                $this->_right->add($value);
-            }
-        }
-
+        $this->setRights($rights);
         $this->on('before', function(Base $sender)
         {
-            if($sender->right()->count())
+            if($sender->getRights()->count())
             {
-                $sender->child('right', $sender->right()->all());
+                $sender->setChild('right', $sender->getRights()->all());
             }
         });
     }
 
     /**
-     * Get or set target
+     * Gets target specification
+     *
+     * @return TargetSpec
+     */
+    public function getTarget()
+    {
+        return $this->getChild('target');
+    }
+
+    /**
+     * Sets target specification
      *
      * @param  TargetSpec $target
-     * @return TargetSpec|self
+     * @return self
      */
-    public function target(TargetSpec $target = null)
+    public function setTarget(TargetSpec $target)
     {
-        if(null === $target)
-        {
-            return $this->child('target');
-        }
-        return $this->child('target', $target);
+        return $this->setChild('target', $target);
     }
 
     /**
@@ -86,17 +83,37 @@ class CheckPermission extends Base
      */
     public function addRight($right)
     {
-        $this->_right->add(trim($right));
+        $this->_rights->add(trim($right));
         return $this;
     }
 
     /**
-     * Get right Sequence
+     * Set right sequence
+     *
+     * @param  array $rights
+     * @return self
+     */
+    public function setRights(array $rights)
+    {
+        $this->_rights = new Sequence();
+        foreach ($rights as $value)
+        {
+            $value = trim($value);
+            if(!$this->_rights->contains($value))
+            {
+                $this->_rights->add($value);
+            }
+        }
+        return $this;
+    }
+
+    /**
+     * Get right sequence
      *
      * @return Sequence
      */
-    public function right()
+    public function getRights()
     {
-        return $this->_right;
+        return $this->_rights;
     }
 }

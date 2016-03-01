@@ -28,24 +28,30 @@ class ModifyCos extends BaseAttr
      * @param array  $attrs
      * @return self
      */
-    public function __construct($id = null, array $attrs = array())
+    public function __construct($id = null, array $attrs = [])
     {
         parent::__construct($attrs);
-        $this->child('id', trim($id));
+        $this->setChild('id', trim($id));
     }
 
     /**
-     * Gets or sets id
+     * Gets Zimbra ID
+     *
+     * @return string
+     */
+    public function getId()
+    {
+        return $this->getChild('id');
+    }
+
+    /**
+     * Sets Zimbra ID
      *
      * @param  string $id
-     * @return string|self
+     * @return self
      */
-    public function id($id = null)
+    public function setId($id)
     {
-        if(null === $id)
-        {
-            return $this->child('id');
-        }
-        return $this->child('id', trim($id));
+        return $this->setChild('id', trim($id));
     }
 }

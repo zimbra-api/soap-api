@@ -23,20 +23,34 @@ use Zimbra\Soap\Request as SoapRequest;
 interface ClientInterface
 {
     /**
-     * Set or get authentication token.
+     * Gets authentication token.
      *
-     * @param  string $authToken Authentication token
-     * @return string|self
+     * @return string
      */
-    function authToken($authToken = null);
+    function getAuthToken();
 
     /**
-     * Set or get authentication session identify.
+     * Sets authentication token.
+     *
+     * @param  string $authToken Authentication token
+     * @return self
+     */
+    function setAuthToken($authToken);
+
+    /**
+     * Gets authentication session identify.
+     *
+     * @return string
+     */
+    function getSessionId();
+
+    /**
+     * Sets authentication session identify.
      *
      * @param  string $sessionId Authentication session identify
-     * @return string|self
+     * @return self
      */
-    function sessionId($sessionId = null);
+    function setSessionId($sessionId);
 
     /**
      * Performs a SOAP request

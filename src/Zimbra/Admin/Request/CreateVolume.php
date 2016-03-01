@@ -32,21 +32,27 @@ class CreateVolume extends Base
     public function __construct(Volume $volume)
     {
         parent::__construct();
-        $this->child('volume', $volume);
+        $this->setChild('volume', $volume);
     }
 
     /**
-     * Gets or sets volume
+     * Gets the volume.
+     *
+     * @return Volume
+     */
+    public function getVolume()
+    {
+        return $this->getChild('volume');
+    }
+
+    /**
+     * Sets the volume.
      *
      * @param  Volume $volume
-     * @return Volume|self
+     * @return self
      */
-    public function volume(Volume $volume = null)
+    public function setVolume(Volume $volume)
     {
-        if(null === $volume)
-        {
-            return $this->child('volume');
-        }
-        return $this->child('volume', $volume);
+        return $this->setChild('volume', $volume);
     }
 }

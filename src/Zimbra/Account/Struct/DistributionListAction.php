@@ -32,21 +32,21 @@ class DistributionListAction extends AccountKeyValuePairs
      * Group members
      * @var Sequence
      */
-    private $_dlm;
+    private $_members;
 
     /**
      * The owner
      * Grantee sequence
      * @var TypedSequence
      */
-    private $_owner;
+    private $_owners;
 
     /**
      * The right
      * Right sequence
      * @var TypedSequence
      */
-    private $_right;
+    private $_rights;
 
     /**
      * Constructor method for DistributionListAction
@@ -63,99 +63,129 @@ class DistributionListAction extends AccountKeyValuePairs
         Operation $op,
         $newName = null,
         Subscribe $subsReq = null,
-        array $dlms = array(),
-        array $owners = array(),
-        array $rights = array(),
-        array $attrs = array()
+        array $dlms = [],
+        array $owners = [],
+        array $rights = [],
+        array $attrs = []
     )
     {
         parent::__construct($attrs);
-        $this->property('op', $op);
-        $this->child('newName', trim($newName));
+        $this->setProperty('op', $op);
+        $this->setChild('newName', trim($newName));
 
         if($subsReq instanceof Subscribe)
         {
-			$this->child('subsReq', $subsReq);
+			$this->setChild('subsReq', $subsReq);
         }
-        $this->_dlm = new Sequence($dlms);
-        $this->_owner = new TypedSequence('Zimbra\Account\Struct\DistributionListGranteeSelector', $owners);
-        $this->_right = new TypedSequence('Zimbra\Account\Struct\DistributionListRightSpec', $rights);
+        $this->setMembers($dlms);
+        $this->setOwners($owners);
+        $this->setRights($rights);
 
         $this->on('before', function(Base $sender)
         {
-            if($sender->dlm()->count())
+            if($sender->getMembers()->count())
             {
-                $sender->child('dlm', $sender->dlm()->all());
+                $sender->setChild('dlm', $sender->getMembers()->all());
             }
-            if($sender->owner()->count())
+            if($sender->getOwners()->count())
             {
-                $sender->child('owner', $sender->owner()->all());
+                $sender->setChild('owner', $sender->getOwners()->all());
             }
-            if($sender->right()->count())
+            if($sender->getRights()->count())
             {
-                $sender->child('right', $sender->right()->all());
+                $sender->setChild('right', $sender->getRights()->all());
             }
         });
     }
 
     /**
-     * Gets or sets op
+     * Sets operation to perform
+     *
+     * @return Operation
+     */
+    public function getOp()
+    {
+        return $this->getProperty('op');
+    }
+
+    /**
+     * Sets operation to perform
      *
      * @param  Operation $op
-     * @return Operation|self
+     * @return self
      */
-    public function op(Operation $op = null)
+    public function setOp(Operation $op)
     {
-        if(null === $op)
-        {
-			return $this->property('op');
-        }
-        return $this->property('op', $op);
+        return $this->setProperty('op', $op);
     }
 
     /**
-     * Gets or sets newName
+     * Gets new name
+     *
+     * @return string
+     */
+    public function getNewName()
+    {
+        return $this->getChild('newName');
+    }
+
+    /**
+     * Sets new name
      *
      * @param  string $newName
-     * @return string|self
+     * @return self
      */
-    public function newName($newName = null)
+    public function setNewName($newName)
     {
-        if(null === $newName)
-        {
-			return $this->child('newName');
-        }
-        return $this->child('newName', trim($newName));
+        return $this->setChild('newName', trim($newName));
     }
 
     /**
-     * Gets or sets subsReq
+     * Gets subscription request
+     *
+     * @return Subscribe
+     */
+    public function getSubsReq()
+    {
+        return $this->getChild('subsReq');
+    }
+
+    /**
+     * Sets subscription request
      *
      * @param  Subscribe $subsReq
-     * @return Subscribe|self
+     * @return self
      */
-    public function subsReq(Subscribe $subsReq = null)
+    public function setSubsReq(Subscribe $subsReq)
     {
-        if(null === $subsReq)
-        {
-			return $this->child('subsReq');
-        }
-        return $this->child('subsReq', $subsReq);
+        return $this->setChild('subsReq', $subsReq);
     }
 
     /**
      * Add a member
      *
-     * @param  string $dlm
+     * @param  string $member
      * @return self
      */
-    public function addDlm($dlm)
+    public function addMember($member)
     {
-        $dlm = trim($dlm);
-        if(!empty($dlm))
+        $member = trim($member);
+        if(!empty($member))
         {
-            $this->_dlm->add($dlm);
+            $this->_members->add($member);
         }
+        return $this;
+    }
+
+    /**
+     * Gets member sequence
+     *
+     * @param array $dlms
+     * @return self
+     */
+    public function setMembers(array $dlms)
+    {
+        $this->_members = new Sequence($dlms);
         return $this;
     }
 
@@ -164,9 +194,9 @@ class DistributionListAction extends AccountKeyValuePairs
      *
      * @return Sequence
      */
-    public function dlm()
+    public function getMembers()
     {
-        return $this->_dlm;
+        return $this->_members;
     }
 
     /**
@@ -177,7 +207,19 @@ class DistributionListAction extends AccountKeyValuePairs
      */
     public function addOwner(Grantee $owner)
     {
-        $this->_owner->add($owner);
+        $this->_owners->add($owner);
+        return $this;
+    }
+
+    /**
+     * Sets owner sequence
+     *
+     * @param array $owners
+     * @return Sequence
+     */
+    public function setOwners(array $owners)
+    {
+        $this->_owners = new TypedSequence('Zimbra\Account\Struct\DistributionListGranteeSelector', $owners);
         return $this;
     }
 
@@ -186,9 +228,9 @@ class DistributionListAction extends AccountKeyValuePairs
      *
      * @return Sequence
      */
-    public function owner()
+    public function getOwners()
     {
-        return $this->_owner;
+        return $this->_owners;
     }
 
     /**
@@ -199,7 +241,19 @@ class DistributionListAction extends AccountKeyValuePairs
      */
     public function addRight(Right $right)
     {
-        $this->_right->add($right);
+        $this->_rights->add($right);
+        return $this;
+    }
+
+    /**
+     * Sets right sequence
+     *
+     * @param array $rights
+     * @return Sequence
+     */
+    public function setRights(array $rights)
+    {
+        $this->_rights = new TypedSequence('Zimbra\Account\Struct\DistributionListRightSpec', $rights);
         return $this;
     }
 
@@ -208,9 +262,9 @@ class DistributionListAction extends AccountKeyValuePairs
      *
      * @return Sequence
      */
-    public function right()
+    public function getRights()
     {
-        return $this->_right;
+        return $this->_rights;
     }
 
     /**

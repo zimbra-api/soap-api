@@ -30,7 +30,7 @@ abstract class Base
      * Cache
      * @var array
      */
-    private static $cache = array();
+    private static $cache = [];
 
     /**
      * Default value
@@ -44,7 +44,7 @@ abstract class Base
      * @param mixed $value
      * @throws \UnexpectedValueException if incompatible type is given.
      */
-    public function __construct($value = null)
+    protected function __construct($value = null)
     {
         if (is_null($value))
         {
