@@ -70,7 +70,7 @@ class MailPop3DataSource extends MailDataSource
         $importClass = null,
         $failingSince = null,
         $lastError = null,
-        array $a = array()
+        array $attrs = []
     )
     {
         parent::__construct(
@@ -95,27 +95,33 @@ class MailPop3DataSource extends MailDataSource
             $importClass,
             $failingSince,
             $lastError ,
-            $a
+            $attrs
         );
         if(null !== $leaveOnServer)
         {
-            $this->property('leaveOnServer', (bool) $leaveOnServer);
+            $this->setProperty('leaveOnServer', (bool) $leaveOnServer);
         }
     }
 
     /**
-     * Gets or sets leaveOnServer
+     * Gets leave messages on the server
+     *
+     * @return bool
+     */
+    public function getLeaveOnServer()
+    {
+        return $this->getProperty('leaveOnServer');
+    }
+
+    /**
+     * Sets leave messages on the server
      *
      * @param  bool $leaveOnServer
-     * @return bool|self
+     * @return self
      */
-    public function leaveOnServer($leaveOnServer = null)
+    public function setLeaveOnServer($leaveOnServer)
     {
-        if(null === $leaveOnServer)
-        {
-            return $this->property('leaveOnServer');
-        }
-        return $this->property('leaveOnServer', (bool) $leaveOnServer);
+        return $this->setProperty('leaveOnServer', (bool) $leaveOnServer);
     }
 
     /**

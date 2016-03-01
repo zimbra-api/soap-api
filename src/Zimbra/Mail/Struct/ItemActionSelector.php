@@ -68,17 +68,23 @@ class ItemActionSelector extends ActionSelector
     }
 
     /**
-     * Gets or sets op
+     * Gets operation
+     *
+     * @return ItemActionOp
+     */
+    public function getOperation()
+    {
+        return $this->getProperty('op');
+    }
+
+    /**
+     * Sets operation
      *
      * @param  ItemActionOp $op
-     * @return ItemActionOp|self
+     * @return self
      */
-    public function op(ItemActionOp $op = null)
+    public function setOperation(ItemActionOp $op)
     {
-        if(null === $op)
-        {
-            return $this->property('op');
-        }
-        return $this->property('op', $op);
+        return $this->setProperty('op', $op);
     }
 }

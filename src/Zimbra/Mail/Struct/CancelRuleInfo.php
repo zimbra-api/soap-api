@@ -19,7 +19,7 @@ namespace Zimbra\Mail\Struct;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
  */
-class CancelRuleInfo extends RecurIdInfo
+class CancelRuleInfo extends RecurIdInfo implements RecurRuleBase
 {
     /**
      * Returns the array representation of this class 

@@ -11,6 +11,8 @@
 namespace Zimbra\Admin\Request;
 
 use Zimbra\Struct\AccountSelector as Account;
+use Zimbra\Struct\AttributeSelectorTrait;
+use Zimbra\Struct\AttributeSelector;
 
 /**
  * GetAccount request class
@@ -22,74 +24,79 @@ use Zimbra\Struct\AccountSelector as Account;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
  */
-class GetAccount extends Base
+class GetAccount extends Base implements AttributeSelector
 {
+    use AttributeSelectorTrait;
+
     /**
      * Constructor method for GetAccount
      * @param  Account $account Account
      * @param  bool $applyCos Flag whether or not to apply class of service (COS) rules
-     * @param  string $attrs Comma separated list of attributes
+     * @param  array $attrs An array of attributes
      * @return self
      */
-    public function __construct(Account $account = null, $applyCos = null, $attrs = null)
+    public function __construct(Account $account = null, $applyCos = null, array $attrs = [])
     {
         parent::__construct();
         if($account instanceof Account)
         {
-            $this->child('account', $account);
+            $this->setChild('account', $account);
         }
         if(null !== $applyCos)
         {
-            $this->property('applyCos', (bool) $applyCos);
+            $this->setProperty('applyCos', (bool) $applyCos);
         }
-        if(null !== $attrs)
+
+        $this->setAttrs($attrs);
+        $this->on('before', function(Base $sender)
         {
-            $this->property('attrs', trim($attrs));
-        }
+            $attrs = $sender->getAttrs();
+            if(!empty($attrs))
+            {
+                $sender->setProperty('attrs', $attrs);
+            }
+        });
     }
 
     /**
-     * Gets or sets account
+     * Gets the account.
+     *
+     * @return Account
+     */
+    public function getAccount()
+    {
+        return $this->getChild('account');
+    }
+
+    /**
+     * Sets the account.
      *
      * @param  Account $account
-     * @return Account|self
+     * @return self
      */
-    public function account(Account $account = null)
+    public function setAccount(Account $account)
     {
-        if(null === $account)
-        {
-            return $this->child('account');
-        }
-        return $this->child('account', $account);
+        return $this->setChild('account', $account);
     }
 
     /**
-     * Gets or sets applyCos
+     * Gets applyCos
+     *
+     * @return bool
+     */
+    public function getApplyCos()
+    {
+        return $this->getProperty('applyCos');
+    }
+
+    /**
+     * Sets applyCos
      *
      * @param  bool $applyCos
-     * @return bool|self
+     * @return self
      */
-    public function applyCos($applyCos = null)
+    public function setApplyCos($applyCos)
     {
-        if(null === $applyCos)
-        {
-            return $this->property('applyCos');
-        }
-        return $this->property('applyCos', (bool) $applyCos);
-    }
-
-    /**
-     * Gets or sets attrs
-     *
-     * @param  string $attrs
-     * @return string|self
-     */
-    public function attrs($attrs = null)
-    {
-        if(null === $attrs)
-        {
-            return $this->property('attrs');
-        }
-        return $this->property('attrs', trim($attrs));
+        return $this->setProperty('applyCos', (bool) $applyCos);
     }
 }

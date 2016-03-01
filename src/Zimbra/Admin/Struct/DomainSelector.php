@@ -33,22 +33,28 @@ class DomainSelector extends Base
     public function __construct(DomainBy $by, $value = null)
     {
         parent::__construct(trim($value));
-        $this->property('by', $by);
+        $this->setProperty('by', $by);
     }
 
     /**
-     * Gets or sets by
+     * Gets by enum
      *
-     * @param  DomainBy $by
-     * @return DomainBy|self
+     * @return Zimbra\Enum\DomainBy
      */
-    public function by(DomainBy $by = null)
+    public function getBy()
     {
-        if(null === $by)
-        {
-            return $this->property('by');
-        }
-        return $this->property('by', $by);
+        return $this->getProperty('by');
+    }
+
+    /**
+     * Sets by enum
+     *
+     * @param  Zimbra\Enum\DomainBy $by
+     * @return self
+     */
+    public function setBy(DomainBy $by)
+    {
+        return $this->setProperty('by', $by);
     }
 
     /**

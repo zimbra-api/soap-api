@@ -26,154 +26,196 @@ class ActionGrantSelector extends Base
 {
     /**
      * Constructor method for ActionGrantSelector
-     * @param string $perm Rights
+     * @param string $rights Rights
      * @param GranteeType $gt Grantee Type - usr | grp | cos | dom | all | pub | guest | key
-     * @param string $zid Zimbra ID
-     * @param string $d Name or email address of the grantee. Not present if {grantee-type} is "all" or "pub"
+     * @param string $zimbraId Zimbra ID
+     * @param string $displayName Name or email address of the grantee. Not present if {grantee-type} is "all" or "pub"
      * @param string $args Retained for backwards compatibility. Old way of specifying password
-     * @param string $pw Password when {grantee-type} is "gst" (not yet supported)
-     * @param string $key Access key when {grantee-type} is "key"
+     * @param string $password Password when {grantee-type} is "gst" (not yet supported)
+     * @param string $accessKey Access key when {grantee-type} is "key"
      * @return self
      */
     public function __construct(
-        $perm,
+        $rights,
         GranteeType $gt,
-        $zid = null,
-        $d = null,
+        $zimbraId = null,
+        $displayName = null,
         $args = null,
-        $pw = null,
-        $key = null
+        $password = null,
+        $accessKey = null
     )
     {
         parent::__construct();
-        $this->property('perm', trim($perm));
-        $this->property('gt', $gt);
+        $this->setProperty('perm', trim($rights));
+        $this->setProperty('gt', $gt);
 
-        if(null !== $zid)
+        if(null !== $zimbraId)
         {
-            $this->property('zid', trim($zid));
+            $this->setProperty('zid', trim($zimbraId));
         }
-        if(null !== $d)
+        if(null !== $displayName)
         {
-            $this->property('d', trim($d));
+            $this->setProperty('d', trim($displayName));
         }
         if(null !== $args)
         {
-            $this->property('args', trim($args));
+            $this->setProperty('args', trim($args));
         }
-        if(null !== $pw)
+        if(null !== $password)
         {
-            $this->property('pw', trim($pw));
+            $this->setProperty('pw', trim($password));
         }
-        if(null !== $key)
+        if(null !== $accessKey)
         {
-            $this->property('key', trim($key));
+            $this->setProperty('key', trim($accessKey));
         }
     }
 
     /**
-     * Gets or sets perm
+     * Gets rights
      *
-     * @param  string $perm
+     * @return string
+     */
+    public function getRights()
+    {
+        return $this->getProperty('perm');
+    }
+
+    /**
+     * Sets rights
+     *
+     * @param  string $rights
+     * @return self
+     */
+    public function setRights($rights)
+    {
+        return $this->setProperty('perm', trim($rights));
+    }
+
+    /**
+     * Gets the type of grantee
+     *
+     * @return GranteeType
+     */
+    public function getGranteeType()
+    {
+        return $this->getProperty('gt');
+    }
+
+    /**
+     * Sets the type of grantee
+     *
+     * @param  GranteeType $granteeType
+     * @return self
+     */
+    public function setGranteeType(GranteeType $granteeType)
+    {
+        return $this->setProperty('gt', $granteeType);
+    }
+
+    /**
+     * Gets Zimbra Id
+     *
+     * @return string
+     */
+    public function getZimbraId()
+    {
+        return $this->getProperty('zid');
+    }
+
+    /**
+     * Sets Zimbra Id
+     *
+     * @param  string $zimbraId
+     * @return self
+     */
+    public function setZimbraId($zimbraId)
+    {
+        return $this->setProperty('zid', trim($zimbraId));
+    }
+
+    /**
+     * Gets display name
+     *
+     * @return string
+     */
+    public function getDisplayName()
+    {
+        return $this->getProperty('d');
+    }
+
+    /**
+     * Sets display name
+     *
+     * @param  string $displayName
      * @return string|self
      */
-    public function perm($perm = null)
+    public function setDisplayName($displayName)
     {
-        if(null === $perm)
-        {
-            return $this->property('perm');
-        }
-        return $this->property('perm', trim($perm));
+        return $this->setProperty('d', trim($displayName));
     }
 
     /**
-     * Gets or sets gt
+     * Gets args
      *
-     * @param  GranteeType $gt
-     * @return GranteeType|self
+     * @return string
      */
-    public function gt(GranteeType $gt = null)
+    public function getArgs()
     {
-        if(null === $gt)
-        {
-            return $this->property('gt');
-        }
-        return $this->property('gt', $gt);
+        return $this->getProperty('args');
     }
 
     /**
-     * Gets or sets zid
-     *
-     * @param  string $zid
-     * @return string|self
-     */
-    public function zid($zid = null)
-    {
-        if(null === $zid)
-        {
-            return $this->property('zid');
-        }
-        return $this->property('zid', trim($zid));
-    }
-
-    /**
-     * Gets or sets d
-     *
-     * @param  string $d
-     * @return string|self
-     */
-    public function d($d = null)
-    {
-        if(null === $d)
-        {
-            return $this->property('d');
-        }
-        return $this->property('d', trim($d));
-    }
-
-    /**
-     * Gets or sets args
+     * Sets args
      *
      * @param  string $args
      * @return string|self
      */
-    public function args($args = null)
+    public function setArgs($args)
     {
-        if(null === $args)
-        {
-            return $this->property('args');
-        }
-        return $this->property('args', trim($args));
+        return $this->setProperty('args', trim($args));
     }
 
     /**
-     * Gets or sets pw
+     * Gets password
      *
-     * @param  string $pw
-     * @return string|self
+     * @return string
      */
-    public function pw($pw = null)
+    public function getPassword()
     {
-        if(null === $pw)
-        {
-            return $this->property('pw');
-        }
-        return $this->property('pw', trim($pw));
+        return $this->getProperty('pw');
     }
 
     /**
-     * Gets or sets key
+     * Sets password
      *
-     * @param  string $key
-     * @return string|self
+     * @param  string $password
+     * @return self
      */
-    public function key($key = null)
+    public function setPassword($password)
     {
-        if(null === $key)
-        {
-            return $this->property('key');
-        }
-        return $this->property('key', trim($key));
+        return $this->setProperty('pw', trim($password));
+    }
+
+    /**
+     * Gets access key
+     *
+     * @return string
+     */
+    public function getAccessKey()
+    {
+        return $this->getProperty('key');
+    }
+
+    /**
+     * Sets access key
+     *
+     * @param  string $accessKey
+     * @return self
+     */
+    public function setAccessKey($accessKey)
+    {
+        return $this->setProperty('key', trim($accessKey));
     }
 
     /**

@@ -25,7 +25,7 @@ abstract class AdminFactory
     /**
      * @var array
      */
-    private static $_instances = array();
+    private static $_instances = [];
 
     /**
      * Creates a singleton of a AdminInterface base on parameters.

@@ -32,21 +32,27 @@ class ConfigureZimlet extends Base
     public function __construct(Attachment $content)
     {
         parent::__construct();
-        $this->child('content', $content);
+        $this->setChild('content', $content);
     }
 
     /**
-     * Gets or sets content
+     * Gets the content.
+     *
+     * @return Attachment
+     */
+    public function getContent()
+    {
+        return $this->getChild('content');
+    }
+
+    /**
+     * Sets the content.
      *
      * @param  Attachment $content
-     * @return Attachment|self
+     * @return self
      */
-    public function content(Attachment $content = null)
+    public function setContent(Attachment $content)
     {
-        if(null === $content)
-        {
-            return $this->child('content');
-        }
-        return $this->child('content', $content);
+        return $this->setChild('content', $content);
     }
 }

@@ -32,21 +32,27 @@ class DeleteIdentity extends Base
     public function __construct(NameId $identity)
     {
         parent::__construct();
-        $this->child('identity', $identity);
+        $this->setChild('identity', $identity);
     }
 
     /**
-     * Gets or sets identity
+     * Gets the identity
+     *
+     * @return Identity
+     */
+    public function getIdentity()
+    {
+        return $this->getChild('identity');
+    }
+
+    /**
+     * Sets the identity
      *
      * @param  NameId $identity
-     * @return NameId|self
+     * @return self
      */
-    public function identity(NameId $identity = null)
+    public function setIdentity(NameId $identity)
     {
-        if(null === $identity)
-        {
-            return $this->child('identity');
-        }
-        return $this->child('identity', $identity);
+        return $this->setChild('identity', $identity);
     }
 }

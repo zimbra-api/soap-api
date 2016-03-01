@@ -35,41 +35,53 @@ class GetDomainInfo extends Base
         parent::__construct();
         if($domain instanceof Domain)
         {
-            $this->child('domain', $domain);
+            $this->setChild('domain', $domain);
         }
         if(null !== $applyConfig)
         {
-            $this->property('applyConfig', (bool) $applyConfig);
+            $this->setProperty('applyConfig', (bool) $applyConfig);
         }
     }
 
     /**
-     * Gets or sets domain
+     * Gets the domain.
+     *
+     * @return Domain
+     */
+    public function getDomain()
+    {
+        return $this->getChild('domain');
+    }
+
+    /**
+     * Sets the domain.
      *
      * @param  Domain $domain
-     * @return Domain|self
+     * @return self
      */
-    public function domain(Domain $domain = null)
+    public function setDomain(Domain $domain)
     {
-        if(null === $domain)
-        {
-            return $this->child('domain');
-        }
-        return $this->child('domain', $domain);
+        return $this->setChild('domain', $domain);
     }
 
     /**
-     * Gets or sets applyConfig
+     * Gets applyConfig
+     *
+     * @return bool
+     */
+    public function getApplyConfig()
+    {
+        return $this->getProperty('applyConfig');
+    }
+
+    /**
+     * Sets applyConfig
      *
      * @param  bool $applyConfig
-     * @return bool|self
+     * @return self
      */
-    public function applyConfig($applyConfig = null)
+    public function setApplyConfig($applyConfig)
     {
-        if(null === $applyConfig)
-        {
-            return $this->property('applyConfig');
-        }
-        return $this->property('applyConfig', (bool) $applyConfig);
+        return $this->setProperty('applyConfig', (bool) $applyConfig);
     }
 }

@@ -39,76 +39,100 @@ class ModifySearchFolderSpec extends Base
     )
     {
         parent::__construct();
-        $this->property('id', trim($id));
-        $this->property('query', trim($query));
+        $this->setProperty('id', trim($id));
+        $this->setProperty('query', trim($query));
         if(null !== $types)
         {
-            $this->property('types', trim($types));
+            $this->setProperty('types', trim($types));
         }
         if(null !== $sortBy)
         {
-            $this->property('sortBy', trim($sortBy));
+            $this->setProperty('sortBy', trim($sortBy));
         }
     }
 
     /**
-     * Gets or sets id
+     * Gets id
+     *
+     * @return string
+     */
+    public function getId()
+    {
+        return $this->getProperty('id');
+    }
+
+    /**
+     * Sets id
      *
      * @param  string $id
-     * @return string|self
+     * @return self
      */
-    public function id($id = null)
+    public function setId($id)
     {
-        if(null === $id)
-        {
-            return $this->property('id');
-        }
-        return $this->property('id', trim($id));
+        return $this->setProperty('id', trim($id));
     }
 
     /**
-     * Gets or sets query
+     * Gets query
+     *
+     * @return string
+     */
+    public function getQuery()
+    {
+        return $this->getProperty('query');
+    }
+
+    /**
+     * Sets query
      *
      * @param  string $query
-     * @return string|self
+     * @return self
      */
-    public function query($query = null)
+    public function setQuery($query)
     {
-        if(null === $query)
-        {
-            return $this->property('query');
-        }
-        return $this->property('query', trim($query));
+        return $this->setProperty('query', trim($query));
     }
 
     /**
-     * Gets or sets types
+     * Gets search types
      *
-     * @param  bool $types
-     * @return bool|self
+     * @return string
      */
-    public function types($types = null)
+    public function getSearchTypes()
     {
-        if(null === $types)
-        {
-            return $this->property('types');
-        }
-        return $this->property('types', trim($types));
+        return $this->getProperty('types');
     }
 
     /**
-     * Gets or sets sortBy
+     * Sets search types
      *
-     * @param  int $sortBy
-     * @return int|self
+     * @param  string $types
+     * @return self
      */
-    public function sortBy($sortBy = null)
+    public function setSearchTypes($types)
     {
-        if(null === $sortBy)
-        {
-            return $this->property('sortBy');
-        }
-        return $this->property('sortBy', trim($sortBy));
+        return $this->setProperty('types', trim($types));
+    }
+
+    /**
+     * Gets sort by
+     *
+     * @return string
+     */
+    public function getSortBy()
+    {
+        return $this->getProperty('sortBy');
+    }
+
+    /**
+     * Sets sort by
+     *
+     * @param  string $sortBy
+     * @return self
+     */
+    public function setSortBy($sortBy)
+    {
+        return $this->setProperty('sortBy', trim($sortBy));
     }
 
     /**

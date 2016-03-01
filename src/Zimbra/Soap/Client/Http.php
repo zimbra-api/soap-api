@@ -11,12 +11,11 @@
 namespace Zimbra\Soap\Client;
 
 use Evenement\EventEmitter;
-use Guzzle\Http\Client as HttpClient;
-use Guzzle\Http\Message\Response;
-use Guzzle\Plugin\Cookie\CookiePlugin;
-use Guzzle\Plugin\Cookie\CookieJar\ArrayCookieJar;
+use GuzzleHttp\Client as HttpClient;
+use GuzzleHttp\Message\Response;
+use GuzzleHttp\Exception\BadResponseException;
 use Zimbra\Enum\RequestFormat;
-use Zimbra\Soap\Message;
+use Zimbra\Soap\Message as SoapMessage;
 use Zimbra\Soap\Request as SoapRequest;
 use Zimbra\Soap\Response as SoapResponse;
 
@@ -34,19 +33,19 @@ class Http extends EventEmitter implements ClientInterface
      * Authentication token
      * @var string
      */
-    protected $authToken;
+    private $_authToken;
 
     /**
      * Authentication session identify
      * @var string
      */
-    protected $sessionId;
+    private $_sessionId;
 
     /**
      * Request format
-     * @var string
+     * @var RequestFormat
      */
-    protected $format;
+    private $_format;
 
     /**
      * @var Message
@@ -63,7 +62,7 @@ class Http extends EventEmitter implements ClientInterface
      * Request headers
      * @var array
      */
-    protected $headers = array();
+    protected $headers = [];
 
     /**
      * Server location
@@ -86,7 +85,7 @@ class Http extends EventEmitter implements ClientInterface
     /**
      * @var array
      */
-    private static $_instances = array();
+    private static $_instances = [];
 
     /**
      * Http constructor
@@ -97,9 +96,6 @@ class Http extends EventEmitter implements ClientInterface
     {
         $this->location = $location;
         $this->httpClient = new HttpClient;
-        $this->httpClient
-             ->setSslVerification(false)
-             ->addSubscriber(new CookiePlugin(new ArrayCookieJar));
     }
 
     /**
@@ -108,7 +104,7 @@ class Http extends EventEmitter implements ClientInterface
      * @param  string $location The Zimbra api soap location.
      * @return ClientInterface
      */
-    public static function instance($location = 'https://localhost/service/soap')
+    public static function instance($location = null)
     {
         $key = sha1($location);
         if (isset(self::$_instances[$key]) and (self::$_instances[$key] instanceof ClientInterface))
@@ -129,82 +125,108 @@ class Http extends EventEmitter implements ClientInterface
      * @param  string $headers The HTTP request header.
      * @return mixed
      */
-    public function __doRequest($request, array $headers = array())
+    public function __doRequest($request, array $headers = [])
     {
-        $this->emit('before.request', array(&$request, &$headers));
-        $httpRequest = $this->httpClient->post(
+        $this->emit('before.request', [&$request, &$headers]);
+        $httpRequest = $this->httpClient->createRequest(
+            'POST',
             $this->location,
-            $headers,
-            (string) $request
+            [
+                'headers' => $headers,
+                'body' => (string) $request,
+                'cookies' => true,
+                'verify' => false,
+            ]
         );
 
-        $this->headers = $httpRequest->getHeaders()->toArray();
+        $this->headers = $httpRequest->getHeaders();
         try
         {
-            $this->response = $httpRequest->send();
-            $this->emit('after.request', array($this->lastResponse(), $this->lastResponseHeaders()));
+            $this->response = $this->httpClient->send($httpRequest);
+            $this->emit('after.request', [$this->lastResponse(), $this->lastResponseHeaders()]);
         }
-        catch (\Guzzle\Http\Exception\BadResponseException $ex)
+        catch (BadResponseException $ex)
         {
-            $this->response = $ex->getResponse();
-            $this->emit('after.request', array($this->lastResponse(), $this->lastResponseHeaders()));
+            if ($ex->hasResponse())
+            {
+                $this->response = $ex->getResponse();
+                $this->emit('after.request', [$this->lastResponse(), $this->lastResponseHeaders()]);
+            }
             throw $ex;
         }
         return $this->response;
     }
 
     /**
-     * Set or get authentication token.
+     * Gets authentication token.
      *
-     * @param  string $authToken Authentication token
-     * @return string|self
+     * @return string
      */
-    public function authToken($authToken = null)
+    function getAuthToken()
     {
-        if(null === $authToken)
-        {
-            return $this->authToken;
-        }
+        return $this->_authToken;
+    }
+
+    /**
+     * Sets authentication token.
+     *
+     * @param  string|array $authToken Authentication token
+     * @return self
+     */
+    function setAuthToken($authToken)
+    {
         if(is_array($authToken))
         {
-            $this->authToken = isset($authToken[0]->_content) ? $authToken[0]->_content : null;
+            $this->_authToken = !empty($authToken[0]->_content) ? $authToken[0]->_content : null;
         }
         else
         {
-            $this->authToken = trim($authToken);
+            $this->_authToken = trim($authToken);
         }
         return $this;
     }
 
     /**
-     * Set or get authentication session identify.
+     * Gets authentication session identify.
+     *
+     * @return string
+     */
+    public function getSessionId()
+    {
+        return $this->_sessionId;
+    }
+
+    /**
+     * Sets authentication session identify.
      *
      * @param  string $sessionId Authentication session identify
-     * @return string|self
+     * @return self
      */
-    public function sessionId($sessionId = null)
+    public function setSessionId($sessionId)
     {
-        if(null === $sessionId)
-        {
-            return $this->sessionId;
-        }
-        $this->sessionId = trim($sessionId);
+        $this->_sessionId = trim($sessionId);
         return $this;
     }
 
     /**
-     * Gets or sets format
+     * Gets request format
+     *
+     * @return RequestFormat
+     */
+    public function getFormat()
+    {
+        return $this->_format;
+    }
+
+    /**
+     * Sets request format
      *
      * @param  RequestFormat $format
-     * @return RequestFormat|self
+     * @return self
      */
-    public function format(RequestFormat $format = null)
+    public function setFormat(RequestFormat $format)
     {
-        if(null === $format)
-        {
-            return $this->format;
-        }
-        $this->format = $format;
+        $this->_format = $format;
         return $this;
     }
 
@@ -216,34 +238,33 @@ class Http extends EventEmitter implements ClientInterface
      */
     public function doRequest(SoapRequest $request)
     {
-        $this->soapMessage = new Message;
-        if(!empty($this->authToken))
+        $this->soapMessage = new SoapMessage;
+        if(!empty($this->_authToken))
         {
-            $this->soapMessage->addHeader('authToken', $this->authToken);
+            $this->soapMessage->addHeader('authToken', $this->_authToken);
         }
-        if(!empty($this->sessionId))
+        if(!empty($this->_sessionId))
         {
-            $this->soapMessage->addHeader('sessionId', $this->sessionId);
+            $this->soapMessage->addHeader('sessionId', $this->_sessionId);
         }
         $isJs = false;
-        if($this->format instanceof RequestFormat)
+        if($this->_format instanceof RequestFormat)
         {
-            $this->soapMessage->addHeader('format', $this->format->value());
-            if($this->format->is(RequestFormat::JS()))
+            $this->soapMessage->addHeader('format', $this->_format->value());
+            if($this->_format->is(RequestFormat::JS()))
             {
                 $isJs = true;
             }
         }
-        $this->soapMessage->request($request);
+        $this->soapMessage->setRequest($request);
         $this->request = ($isJs) ? $this->soapMessage->toJson() : (string) $this->soapMessage;
 
-        $response = $this->__doRequest($this->request, array(
-                'Content-Type' => $this->soapMessage->contentType(),
-                'Method'       => 'POST',
-                'User-Agent'   => isset($_SERVER['HTTP_USER_AGENT']) ? $_SERVER['HTTP_USER_AGENT'] : 'PHP-Zimbra-Soap-API',
-                'SoapAction' => $request->xmlNamespace() . '#' . $request->requestName()
-            )
-        );
+        $response = $this->__doRequest($this->request, [
+            'Content-Type' => $this->soapMessage->getContentType(),
+            'Method'       => 'POST',
+            'User-Agent'   => isset($_SERVER['HTTP_USER_AGENT']) ? $_SERVER['HTTP_USER_AGENT'] : 'PHP-Zimbra-Soap-API',
+            'SoapAction' => $request->getXmlNamespace() . '#' . $request->requestName()
+        ]);
         return new SoapResponse($response);
     }
 
@@ -276,7 +297,7 @@ class Http extends EventEmitter implements ClientInterface
     {
         if($this->response instanceof Response)
         {
-            return $this->response->getBody(true);
+            return $this->response->getBody();
         }
         return null;
     }
@@ -290,8 +311,8 @@ class Http extends EventEmitter implements ClientInterface
     {
         if($this->response instanceof Response)
         {
-            return $this->response->getHeaders()->toArray();                
+            return $this->response->getHeaders();                
         }
-        return array();
+        return [];
     }
 }

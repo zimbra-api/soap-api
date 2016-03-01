@@ -29,7 +29,7 @@ class CheckRights extends Base
      * The targets
      * @var TypedSequence<Target>
      */
-    private $_target = array();
+    private $_targets;
 
     /**
      * Constructor method for CheckRights
@@ -39,17 +39,13 @@ class CheckRights extends Base
     public function __construct(array $targets)
     {
         parent::__construct();
-        $this->_target = new TypedSequence('Zimbra\Account\Struct\CheckRightsTargetSpec', $targets);
-        if(count($this->_target) === 0)
-        {
-            throw new \InvalidArgumentException('CheckRights must have at least one target');
-        }
+        $this->setTargets($targets);
 
         $this->on('before', function(Base $sender)
         {
-            if($sender->target()->count())
+            if($sender->getTargets()->count())
             {
-                $sender->child('target', $sender->target()->all());
+                $sender->setChild('target', $sender->getTargets()->all());
             }
         });
     }
@@ -62,7 +58,23 @@ class CheckRights extends Base
      */
     public function addTarget(Target $target)
     {
-        $this->_target->add($target);
+        $this->_targets->add($target);
+        return $this;
+    }
+
+    /**
+     * Set target sequence
+     *
+     * @param array $targets
+     * @return self
+     */
+    public function setTargets(array $targets)
+    {
+        $this->_targets = new TypedSequence('Zimbra\Account\Struct\CheckRightsTargetSpec', $targets);
+        if(count($this->_targets) === 0)
+        {
+            throw new \InvalidArgumentException('CheckRights must have at least one target');
+        }
         return $this;
     }
 
@@ -71,8 +83,8 @@ class CheckRights extends Base
      *
      * @return Sequence
      */
-    public function target()
+    public function getTargets()
     {
-        return $this->_target;
+        return $this->_targets;
     }
 }

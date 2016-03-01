@@ -10,6 +10,7 @@
 
 namespace Zimbra\Mail\Struct;
 
+use Zimbra\Enum\MemberType;
 use Zimbra\Struct\Base;
 
 /**
@@ -25,69 +26,87 @@ class ModifyContactGroupMember extends Base
 {
     /**
      * Constructor method for ModifyContactGroupMember
-     * @param string $type Member type
+     * @param MemberType $type Member type
      * @param string $value Member value
      * @param string $op Operation - +|-|reset
      * @return self
      */
     public function __construct(
-        $type,
+        MemberType $type,
         $value,
         $op = null
     )
     {
         parent::__construct();
-        $this->property('type', in_array(trim($type), array('C', 'G', 'I')) ? trim($type) : '');
-        $this->property('value', trim($value));
+        $this->setType($type)
+            ->setValue($value);
         if(null !== $op)
         {
-            $this->property('op', in_array(trim($op), array('+', '-', 'reset')) ? trim($op) : '');
+            $this->setOperation($op);
         }
     }
 
     /**
-     * Gets or sets type
+     * Gets type
      *
-     * @param  string $type
-     * @return string|self
+     * @return MemberType
      */
-    public function type($type = null)
+    public function getType()
     {
-        if(null === $type)
-        {
-            return $this->property('type');
-        }
-        return $this->property('type', in_array(trim($type), array('C', 'G', 'I')) ? trim($type) : '');
+        return $this->getProperty('type');
     }
 
     /**
-     * Gets or sets value
+     * Sets type
+     *
+     * @param  MemberType $type
+     * @return self
+     */
+    public function setType(MemberType $type)
+    {
+        return $this->setProperty('type', $type);
+    }
+
+    /**
+     * Gets value
+     *
+     * @return string
+     */
+    public function getValue()
+    {
+        return $this->getProperty('value');
+    }
+
+    /**
+     * Sets value
      *
      * @param  string $value
-     * @return string|self
+     * @return self
      */
-    public function value($value = null)
+    public function setValue($value)
     {
-        if(null === $value)
-        {
-            return $this->property('value');
-        }
-        return $this->property('value', trim($value));
+        return $this->setProperty('value', trim($value));
     }
 
     /**
-     * Gets or sets op
+     * Gets operation
+     *
+     * @return string
+     */
+    public function getOperation()
+    {
+        return $this->getProperty('op');
+    }
+
+    /**
+     * Sets operation
      *
      * @param  string $op
-     * @return string|self
+     * @return self
      */
-    public function op($op = null)
+    public function setOperation($op)
     {
-        if(null === $op)
-        {
-            return $this->property('op');
-        }
-        return $this->property('op', in_array(trim($op), array('+', '-', 'reset')) ? trim($op) : '');
+        return $this->setProperty('op', in_array(trim($op), ['+', '-', 'reset']) ? trim($op) : '');
     }
 
     /**

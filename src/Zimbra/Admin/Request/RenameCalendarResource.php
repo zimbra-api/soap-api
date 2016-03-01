@@ -23,18 +23,6 @@ namespace Zimbra\Admin\Request;
 class RenameCalendarResource extends Base
 {
     /**
-     * Zimbra ID
-     * @var string
-     */
-    private $_id;
-
-    /**
-     * New Calendar Resource name
-     * @var string
-     */
-    private $_newName;
-
-    /**
      * Constructor method for RenameCalendarResource
      * @param string $id
      * @param string $newName
@@ -43,37 +31,49 @@ class RenameCalendarResource extends Base
     public function __construct($id, $newName)
     {
         parent::__construct();
-        $this->property('id', trim($id));
-        $this->property('newName', trim($newName));
+        $this->setProperty('id', trim($id));
+        $this->setProperty('newName', trim($newName));
     }
 
     /**
-     * Gets or sets id
+     * Gets Zimbra ID
+     *
+     * @return string
+     */
+    public function getId()
+    {
+        return $this->getProperty('id');
+    }
+
+    /**
+     * Sets Zimbra ID
      *
      * @param  string $id
-     * @return string|self
+     * @return self
      */
-    public function id($id = null)
+    public function setId($id)
     {
-        if(null === $id)
-        {
-            return $this->property('id');
-        }
-        return $this->property('id', trim($id));
+        return $this->setProperty('id', trim($id));
     }
 
     /**
-     * Gets or sets newName
+     * Gets new name
+     *
+     * @return string
+     */
+    public function getNewName()
+    {
+        return $this->getProperty('newName');
+    }
+
+    /**
+     * Sets new name
      *
      * @param  string $newName
-     * @return string|self
+     * @return self
      */
-    public function newName($newName = null)
+    public function setNewName($newName)
     {
-        if(null === $newName)
-        {
-            return $this->property('newName');
-        }
-        return $this->property('newName', trim($newName));
+        return $this->setProperty('newName', trim($newName));
     }
 }

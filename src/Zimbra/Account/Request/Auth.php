@@ -38,7 +38,7 @@ class Auth extends Base
      * @param  AuthPrefs $prefs Preference
      * @param  AuthAttrs $attrs The attributes
      * @param  string    $requestedSkin The requestedSkin. If specified the name of the skin requested by the client.
-     * @param  bool      $persistAuthTokenCookie Controls whether the auth token cookie in the response should be persisted when the browser exits.
+     * @param  bool      $csrfTokenSecured Controls whether the client supports CSRF token.
      * @return self
      */
     public function __construct(
@@ -50,188 +50,268 @@ class Auth extends Base
         AuthPrefs $prefs = null,
         AuthAttrs $attrs = null,
         $requestedSkin = null,
-        $persistAuthTokenCookie = null
+        $persistAuthTokenCookie = null,
+        $csrfTokenSecured = null
     )
     {
         parent::__construct();
         if($account instanceof Account)
         {
-            $this->child('account', $account);
+            $this->setChild('account', $account);
         }
         if(null !== $password)
         {
-            $this->child('password', trim($password));
+            $this->setChild('password', trim($password));
         }
         if($preauth instanceof PreAuth)
         {
-            $this->child('preauth', $preauth);
+            $this->setChild('preauth', $preauth);
         }
         if($authToken instanceof AuthToken)
         {
-            $this->child('authToken', $authToken);
+            $this->setChild('authToken', $authToken);
         }
         if(null !== $virtualHost)
         {
-            $this->child('virtualHost', trim($virtualHost));
+            $this->setChild('virtualHost', trim($virtualHost));
         }
         if($prefs instanceof AuthPrefs)
         {
-            $this->child('prefs', $prefs);
+            $this->setChild('prefs', $prefs);
         }
         else
         {
-            $this->child('prefs', new AuthPrefs());
+            $this->setChild('prefs', new AuthPrefs());
         }
         if($attrs instanceof AuthAttrs)
         {
-            $this->child('attrs', $attrs);
+            $this->setChild('attrs', $attrs);
         }
         else
         {
-            $this->child('attrs', new AuthAttrs());
+            $this->setChild('attrs', new AuthAttrs());
         }
         if(null !== $requestedSkin)
         {
-            $this->child('requestedSkin', trim($requestedSkin));
+            $this->setChild('requestedSkin', trim($requestedSkin));
         }
         if(null !== $persistAuthTokenCookie)
         {
-            $this->property('persistAuthTokenCookie', (bool) $persistAuthTokenCookie);
+            $this->setProperty('persistAuthTokenCookie', (bool) $persistAuthTokenCookie);
+        }
+        if(null !== $persistAuthTokenCookie)
+        {
+            $this->setProperty('csrfTokenSecured', (bool) $csrfTokenSecured);
         }
     }
 
     /**
-     * Gets or sets account
+     * Gets the account
+     *
+     * @return Account
+     */
+    public function getAccount()
+    {
+        return $this->getChild('account');
+    }
+
+    /**
+     * Sets the account
      *
      * @param  Account $account
-     * @return Account|self
+     * @return self
      */
-    public function account(Account $account = null)
+    public function setAccount(Account $account)
     {
-        if(null === $account)
-        {
-            return $this->child('account');
-        }
-        return $this->child('account', $account);
+        return $this->setChild('account', $account);
     }
 
     /**
-     * Gets or sets password
+     * Gets password
+     *
+     * @return string
+     */
+    public function getPassword()
+    {
+        return $this->getChild('password');
+    }
+
+    /**
+     * Sets password
      *
      * @param  string $password
-     * @return string|self
+     * @return self
      */
-    public function password($password = null)
+    public function setPassword($password)
     {
-        if(null === $password)
-        {
-            return $this->child('password');
-        }
-        return $this->child('password', trim($password));
+        return $this->setChild('password', trim($password));
     }
 
     /**
-     * Gets or sets preauth
+     * Gets the preauth
+     *
+     * @return PreAuth
+     */
+    public function getPreAuth()
+    {
+        return $this->getChild('preauth');
+    }
+
+    /**
+     * Sets the preauth
      *
      * @param  PreAuth $preauth
-     * @return PreAuth|self
+     * @return self
      */
-    public function preauth(PreAuth $preauth = null)
+    public function setPreAuth(PreAuth $preauth)
     {
-        if(null === $preauth)
-        {
-            return $this->child('preauth');
-        }
-        return $this->child('preauth', $preauth);
+        return $this->setChild('preauth', $preauth);
     }
 
     /**
-     * Gets or sets authToken
+     * Gets the auth token
+     *
+     * @return AuthToken
+     */
+    public function getAuthToken()
+    {
+        return $this->getChild('authToken');
+    }
+
+    /**
+     * Sets the auth token
      *
      * @param  AuthToken $authToken
-     * @return AuthToken|self
+     * @return self
      */
-    public function authToken(AuthToken $authToken = null)
+    public function setAuthToken(AuthToken $authToken)
     {
-        if(null === $authToken)
-        {
-            return $this->child('authToken');
-        }
-        return $this->child('authToken', $authToken);
+        return $this->setChild('authToken', $authToken);
     }
 
     /**
-     * Gets or sets virtualHost
+     * Gets virtual host
+     *
+     * @return string
+     */
+    public function getVirtualHost()
+    {
+        return $this->getChild('virtualHost');
+    }
+
+    /**
+     * Sets virtual host
      *
      * @param  string $virtualHost
-     * @return string|self
+     * @return self
      */
-    public function virtualHost($virtualHost = null)
+    public function setVirtualHost($virtualHost)
     {
-        if(null === $virtualHost)
-        {
-            return $this->child('virtualHost');
-        }
-        return $this->child('virtualHost', trim($virtualHost));
+        return $this->setChild('virtualHost', trim($virtualHost));
     }
 
     /**
-     * Gets or sets prefs
+     * Gets the preference settings
+     *
+     * @return AuthPrefs
+     */
+    public function getPrefs()
+    {
+        return $this->getChild('prefs');
+    }
+
+    /**
+     * Sets the preference settings
      *
      * @param  AuthPrefs $prefs
-     * @return AuthPrefs|self
+     * @return self
      */
-    public function prefs(AuthPrefs $prefs = null)
+    public function setPrefs(AuthPrefs $prefs)
     {
-        if(null === $prefs)
-        {
-            return $this->child('prefs');
-        }
-        return $this->child('prefs', $prefs);
+        return $this->setChild('prefs', $prefs);
     }
 
     /**
-     * Gets or sets attrs
+     * Gets the attribute settings
+     *
+     * @return AuthAttrs
+     */
+    public function getAttrs()
+    {
+        return $this->getChild('attrs');
+    }
+
+    /**
+     * Sets the attribute settings
      *
      * @param  AuthAttrs $attrs
-     * @return AuthAttrs|self
+     * @return self
      */
-    public function attrs(AuthAttrs $attrs = null)
+    public function setAttrs(AuthAttrs $attrs)
     {
-        if(null === $attrs)
-        {
-            return $this->child('attrs');
-        }
-        return $this->child('attrs', $attrs);
+        return $this->setChild('attrs', $attrs);
     }
 
     /**
-     * Gets or sets requestedSkin
+     * Gets the name of the skin requested
+     *
+     * @return string
+     */
+    public function getRequestedSkin()
+    {
+        return $this->getChild('requestedSkin');
+    }
+
+    /**
+     * Sets the name of the skin requested
      *
      * @param  string $requestedSkin
-     * @return string|self
+     * @return self
      */
-    public function requestedSkin($requestedSkin = null)
+    public function setRequestedSkin($requestedSkin)
     {
-        if(null === $requestedSkin)
-        {
-            return $this->child('requestedSkin');
-        }
-        return $this->child('requestedSkin', trim($requestedSkin));
+        return $this->setChild('requestedSkin', trim($requestedSkin));
     }
 
     /**
-     * Gets or sets persistAuthTokenCookie
+     * Gets controls whether the auth token cookie
+     *
+     * @return bool
+     */
+    public function getPersistAuthTokenCookie()
+    {
+        return $this->getProperty('persistAuthTokenCookie');
+    }
+
+    /**
+     * Sets controls whether the auth token cookie
      *
      * @param  bool $persistAuthTokenCookie
-     * @return bool|self
+     * @return self
      */
-    public function persistAuthTokenCookie($persistAuthTokenCookie = null)
+    public function setPersistAuthTokenCookie($persistAuthTokenCookie)
     {
-        if(null === $persistAuthTokenCookie)
-        {
-            return $this->property('persistAuthTokenCookie');
-        }
-        return $this->property('persistAuthTokenCookie', (bool) $persistAuthTokenCookie);
+        return $this->setProperty('persistAuthTokenCookie', (bool) $persistAuthTokenCookie);
+    }
+
+    /**
+     * Gets controls whether the client supports CSRF token
+     *
+     * @return bool
+     */
+    public function getCsrfTokenSecured()
+    {
+        return $this->getProperty('csrfTokenSecured');
+    }
+
+    /**
+     * Sets controls whether the client supports CSRF token
+     *
+     * @param  bool $csrfTokenSecured
+     * @return self
+     */
+    public function setCsrfTokenSecured($csrfTokenSecured)
+    {
+        return $this->setProperty('csrfTokenSecured', (bool) $csrfTokenSecured);
     }
 }

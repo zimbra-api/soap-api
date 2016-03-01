@@ -68,17 +68,23 @@ class MsgActionSelector extends ActionSelector
     }
 
     /**
-     * Gets or sets op
+     * Gets operation
+     *
+     * @return MsgActionOp
+     */
+    public function getOperation()
+    {
+        return $this->getProperty('op');
+    }
+
+    /**
+     * Sets operation
      *
      * @param  MsgActionOp $op
-     * @return MsgActionOp|self
+     * @return self
      */
-    public function op(MsgActionOp $op = null)
+    public function setOperation(MsgActionOp $op)
     {
-        if(null === $op)
-        {
-            return $this->property('op');
-        }
-        return $this->property('op', $op);
+        return $this->setProperty('op', $op);
     }
 }

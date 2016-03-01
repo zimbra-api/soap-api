@@ -21,7 +21,7 @@ use Zimbra\Voice\Struct\StorePrincipalSpec;
  * @subpackage Voice
  * @category   Request
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
- * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
+ * @copyright  Copyright © 2013 sortBy Nguyen Van Nguyen.
  */
 class SearchVoice extends Base
 {
@@ -45,122 +45,152 @@ class SearchVoice extends Base
     )
     {
         parent::__construct();
-        $this->property('query', trim($query));
+        $this->setProperty('query', trim($query));
         if($storeprincipal instanceof StorePrincipalSpec)
         {
-            $this->child('storeprincipal', $storeprincipal);
+            $this->setChild('storeprincipal', $storeprincipal);
         }
         if(null !== $limit)
         {
-            $this->property('limit', (int) $limit);
+            $this->setProperty('limit', (int) $limit);
         }
         if(null !== $offset)
         {
-            $this->property('offset', (int) $offset);
+            $this->setProperty('offset', (int) $offset);
         }
         if(null !== $types)
         {
-            $this->property('types', trim($types));
+            $this->setProperty('types', trim($types));
         }
         if($sortBy instanceof VoiceSortBy)
         {
-            $this->property('sortBy', $sortBy);
+            $this->setProperty('sortBy', $sortBy);
         }
     }
 
     /**
-     * Gets or sets query
+     * Gets query
+     *
+     * @return string
+     */
+    public function getQuery()
+    {
+        return $this->getProperty('query');
+    }
+
+    /**
+     * Sets query
      *
      * @param  string $query
-     * @return string|self
+     * @return self
      */
-    public function query($query = null)
+    public function setQuery($query)
     {
-        if(null === $query)
-        {
-            return $this->property('query');
-        }
-        return $this->property('query', trim($query));
+        return $this->setProperty('query', trim($query));
     }
 
     /**
-     * Gets or sets storeprincipal
-     * Store Principal specification
+     * Gets the storeprincipal.
+     *
+     * @return StorePrincipalSpec
+     */
+    public function getStorePrincipal()
+    {
+        return $this->getChild('storeprincipal');
+    }
+
+    /**
+     * Sets the storeprincipal.
      *
      * @param  StorePrincipalSpec $storeprincipal
-     * @return StorePrincipalSpec|self
+     * @return self
      */
-    public function storeprincipal(StorePrincipalSpec $storeprincipal = null)
+    public function setStorePrincipal(StorePrincipalSpec $storeprincipal)
     {
-        if(null === $storeprincipal)
-        {
-            return $this->child('storeprincipal');
-        }
-        return $this->child('storeprincipal', $storeprincipal);
+        return $this->setChild('storeprincipal', $storeprincipal);
     }
 
     /**
-     * Gets or sets limit
-     * The maximum number of results to return. It defaults to 10 if not specified, and is capped by 1000
+     * Gets limit
+     *
+     * @return int
+     */
+    public function getLimit()
+    {
+        return $this->getProperty('limit');
+    }
+
+    /**
+     * Sets limit
      *
      * @param  int $limit
-     * @return int|self
+     * @return self
      */
-    public function limit($limit = null)
+    public function setLimit($limit)
     {
-        if(null === $limit)
-        {
-            return $this->property('limit');
-        }
-        return $this->property('limit', (int) $limit);
+        return $this->setProperty('limit', (int) $limit);
     }
 
     /**
-     * Gets or sets offset
-     * Specifies the 0-based offset into the results list to return as the first result for this search operation. 
+     * Gets offset
+     *
+     * @return int
+     */
+    public function getOffset()
+    {
+        return $this->getProperty('offset');
+    }
+
+    /**
+     * Sets offset
      *
      * @param  int $offset
-     * @return int|self
+     * @return self
      */
-    public function offset($offset = null)
+    public function setOffset($offset)
     {
-        if(null === $offset)
-        {
-            return $this->property('offset');
-        }
-        return $this->property('offset', (int) $offset);
+        return $this->setProperty('offset', (int) $offset);
     }
 
     /**
-     * Gets or sets types
-     * Comma-separated list of search types. Legal values are: voicemail|calllog
-     * (default is "voicemail")
+     * Gets types
+     *
+     * @return string
+     */
+    public function getTypes()
+    {
+        return $this->getProperty('types');
+    }
+
+    /**
+     * Sets types
      *
      * @param  string $types
-     * @return string|self
+     * @return self
      */
-    public function types($types = null)
+    public function setTypes($types)
     {
-        if(null === $types)
-        {
-            return $this->property('types');
-        }
-        return $this->property('types', trim($types));
+        return $this->setProperty('types', trim($types));
     }
 
     /**
-     * Gets or sets sortBy
-     * Sort by: dateDesc|dateAsc|durDesc|durAsc|nameDesc|nameAsc [default:"dateDesc"] 
+     * Sets account sortBy enum
+     *
+     * @return VoiceSortBy
+     */
+    public function getSortBy()
+    {
+        return $this->getProperty('sortBy');
+    }
+
+    /**
+     * Gets account sortBy enum
      *
      * @param  VoiceSortBy $sortBy
-     * @return VoiceSortBy|self
+     * @return self
      */
-    public function sortBy(VoiceSortBy $sortBy = null)
+    public function setSortBy(VoiceSortBy $sortBy)
     {
-        if(null === $sortBy)
-        {
-            return $this->property('sortBy');
-        }
-        return $this->property('sortBy', $sortBy);
+        return $this->setProperty('sortBy', $sortBy);
     }
 }

@@ -38,62 +38,80 @@ class TagSpec extends Base
     )
     {
         parent::__construct();
-        $this->property('name', trim($name));
+        $this->setProperty('name', trim($name));
         if(null !== $rgb && Text::isRgb(trim($rgb)))
         {
-            $this->property('rgb', trim($rgb));
+            $this->setProperty('rgb', trim($rgb));
         }
         if(null !== $color)
         {
             $color = (int) $color;
-            $this->property('color', ($color > 0 && $color < 128) ? $color : 0);
+            $this->setProperty('color', ($color > 0 && $color < 128) ? $color : 0);
         }
     }
 
     /**
-     * Gets or sets name
+     * Gets name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->getProperty('name');
+    }
+
+    /**
+     * Sets name
      *
      * @param  string $name
-     * @return string|self
+     * @return self
      */
-    public function name($name = null)
+    public function setName($name)
     {
-        if(null === $name)
-        {
-            return $this->property('name');
-        }
-        return $this->property('name', trim($name));
+        return $this->setProperty('name', trim($name));
     }
 
     /**
-     * Gets or sets rgb
+     * Gets rgb
+     *
+     * @return string
+     */
+    public function getRgb()
+    {
+        return $this->getProperty('rgb');
+    }
+
+    /**
+     * Sets rgb
      *
      * @param  string $rgb
-     * @return string|self
+     * @return self
      */
-    public function rgb($rgb = null)
+    public function setRgb($rgb)
     {
-        if(null === $rgb)
-        {
-            return $this->property('rgb');
-        }
-        return $this->property('rgb', Text::isRgb(trim($rgb)) ? trim($rgb) : '');
+        return $this->setProperty('rgb', Text::isRgb(trim($rgb)) ? trim($rgb) : '');
     }
 
     /**
-     * Gets or sets color
+     * Gets color
+     *
+     * @return int
+     */
+    public function getColor()
+    {
+        return $this->getProperty('color');
+    }
+
+    /**
+     * Sets color
      *
      * @param  int $color
-     * @return int|self
+     * @return self
      */
-    public function color($color = null)
+    public function setColor($color)
     {
-        if(null === $color)
-        {
-            return $this->property('color');
-        }
         $color = (int) $color;
-        return $this->property('color', ($color > 0 && $color < 128) ? $color : 0);
+        return $this->setProperty('color', ($color > 0 && $color < 128) ? $color : 0);
     }
 
     /**

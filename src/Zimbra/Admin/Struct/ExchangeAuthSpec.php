@@ -20,7 +20,7 @@ use Zimbra\Struct\Base;
  * @subpackage Admin
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
- * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
+ * @copyright  Copyright © 2013 scheme Nguyen Van Nguyen.
  */
 class ExchangeAuthSpec extends Base
 {
@@ -42,89 +42,119 @@ class ExchangeAuthSpec extends Base
     )
     {
         parent::__construct();
-        $this->property('url', trim($url));
-        $this->property('user', trim($user));
-        $this->property('pass', trim($pass));
-        $this->property('scheme', $scheme);
+        $this->setProperty('url', trim($url));
+        $this->setProperty('user', trim($user));
+        $this->setProperty('pass', trim($pass));
+        $this->setProperty('scheme', $scheme);
         if(null !== $type)
         {
-            $this->property('type', trim($type));
+            $this->setProperty('type', trim($type));
         }
     }
 
     /**
-     * Gets or sets url
+     * Gets URL to Exchange server
+     *
+     * @return string
+     */
+    public function getUrl()
+    {
+        return $this->getProperty('url');
+    }
+
+    /**
+     * Sets URL to Exchange server
      *
      * @param  string $url
-     * @return string|self
+     * @return self
      */
-    public function url($url = null)
+    public function setUrl($url)
     {
-        if(null === $url)
-        {
-            return $this->property('url');
-        }
-        return $this->property('url', trim($url));
+        return $this->setProperty('url', trim($url));
     }
 
     /**
-     * Gets or sets user
+     * Gets exchange user
+     *
+     * @return string
+     */
+    public function getAuthUserName()
+    {
+        return $this->getProperty('user');
+    }
+
+    /**
+     * Sets exchange user
      *
      * @param  string $user
-     * @return string|self
+     * @return self
      */
-    public function user($user = null)
+    public function setAuthUserName($user)
     {
-        if(null === $user)
-        {
-            return $this->property('user');
-        }
-        return $this->property('user', trim($user));
+        return $this->setProperty('user', trim($user));
     }
 
     /**
-     * Gets or sets pass
+     * Gets exchange password
+     *
+     * @return string
+     */
+    public function getAuthPassword()
+    {
+        return $this->getProperty('pass');
+    }
+
+    /**
+     * Sets exchange password
      *
      * @param  string $pass
-     * @return string|self
+     * @return self
      */
-    public function pass($pass = null)
+    public function setAuthPassword($pass)
     {
-        if(null === $pass)
-        {
-            return $this->property('pass');
-        }
-        return $this->property('pass', trim($pass));
+        return $this->setProperty('pass', trim($pass));
     }
 
     /**
-     * Gets or sets scheme
+     * Gets scheme enum
      *
-     * @param  AuthScheme $scheme
-     * @return AuthScheme|self
+     * @return Zimbra\Enum\AuthScheme
      */
-    public function scheme(AuthScheme $scheme = null)
+    public function getAuthScheme()
     {
-        if(null === $scheme)
-        {
-            return $this->property('scheme');
-        }
-        return $this->property('scheme', $scheme);
+        return $this->getProperty('scheme');
     }
 
     /**
-     * Gets or sets type
+     * Sets scheme enum
+     *
+     * @param  Zimbra\Enum\AuthScheme $scheme
+     * @return self
+     */
+    public function setAuthScheme(AuthScheme $scheme)
+    {
+        return $this->setProperty('scheme', $scheme);
+    }
+
+    /**
+     * Gets auth type
+     *
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->getProperty('type');
+    }
+
+    /**
+     * Sets auth type
      *
      * @param  string $type
-     * @return string|self
+     * @return self
      */
-    public function type($type = null)
+    public function setType($type)
     {
-        if(null === $type)
-        {
-            return $this->property('type');
-        }
-        return $this->property('type', trim($type));
+        return $this->setProperty('type', trim($type));
     }
 
     /**

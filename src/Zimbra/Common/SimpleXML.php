@@ -58,7 +58,7 @@ class SimpleXML extends SimpleXMLElement
                     }
                     else
                     {
-                        $object->$name = array($object->$name, $value->toObject());
+                        $object->$name = [$object->$name, $value->toObject()];
                     }
                 }
                 else
@@ -103,7 +103,7 @@ class SimpleXML extends SimpleXMLElement
      * @param  string $namespace.
      * @return void
      */
-    public function addArray(array $array = array(), $namespace = null)
+    public function addArray(array $array = [], $namespace = null)
     {
         foreach ($array as $name => $param)
         {
@@ -122,7 +122,7 @@ class SimpleXML extends SimpleXMLElement
                     {
                         if(is_array($value))
                         {
-                            $this->addArray(array($name => $value));
+                            $this->addArray([$name => $value]);
                         }
                         else
                         {
@@ -147,7 +147,7 @@ class SimpleXML extends SimpleXMLElement
                                 {
                                     if(is_array($v))
                                     {
-                                        $child->addArray(array($key => $v));
+                                        $child->addArray([$key => $v]);
                                     }
                                     else
                                     {
@@ -157,7 +157,7 @@ class SimpleXML extends SimpleXMLElement
                             }
                             else
                             {
-                                $child->addArray(array($key => $value));
+                                $child->addArray([$key => $value]);
                             }
                         }
                         else
@@ -182,14 +182,30 @@ class SimpleXML extends SimpleXMLElement
     /**
      * Adds an attribute to the SimpleXML element.
      *
-     * @param  string $name The name of the attribute to add..
-     * @param  string $value The value of the attribute..
+     * @param  string $name The name of the attribute to add.
+     * @param  string $value The value of the attribute.
      * @param  string $namespace If specified, the namespace to which the attribute belongs.
      * @return self
      */
     public function addAttribute($name, $value = null, $namespace = null)
     {
         parent::addAttribute($name, $value, $namespace);
+        return $this;
+    }
+
+    /**
+     * Adds an array of attributes to the SimpleXML element.
+     *
+     * @param  array $attrs The array of attributes.
+     * @param  string $namespace If specified, the namespace to which the attribute belongs.
+     * @return self
+     */
+    public function addAttributes(array $attrs = array(), $namespace = null)
+    {
+        foreach ($attrs as $name => $value)
+        {
+            parent::addAttribute($name, $value, $namespace);
+        }
         return $this;
     }
 }

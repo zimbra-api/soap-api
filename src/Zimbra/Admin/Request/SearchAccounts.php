@@ -27,13 +27,13 @@ class SearchAccounts extends Base
      * Valid attributes
      * @var array
      */
-    private static $_validAttrs = array('displayName', 'zimbraId', 'zimbraAccountStatus');
+    private static $_validAttrs = ['displayName', 'zimbraId', 'zimbraAccountStatus'];
 
     /**
      * Valid types
      * @var array
      */
-    private static $_validTypes = array('accounts', 'resources');
+    private static $_validTypes = ['accounts', 'resources'];
 
     /**
      * Constructor method for SearchAccounts
@@ -62,154 +62,167 @@ class SearchAccounts extends Base
     )
     {
         parent::__construct();
-        $this->property('query', trim($query));
+        $this->setProperty('query', trim($query));
         if(null !== $limit)
         {
-            $this->property('limit', (int) $limit);
+            $this->setProperty('limit', (int) $limit);
         }
         if(null !== $offset)
         {
-            $this->property('offset', (int) $offset);
+            $this->setProperty('offset', (int) $offset);
         }
         if(null !== $domain)
         {
-            $this->property('domain', trim($domain));
+            $this->setProperty('domain', trim($domain));
         }
         if(null !== $applyCos)
         {
-            $this->property('applyCos', (bool) $applyCos);
+            $this->setProperty('applyCos', (bool) $applyCos);
         }
 
-        $attrs = explode(',', $attrs);
-        $arrAttr = array();
-        foreach ($attrs as $attr)
-        {
-            $attr = trim($attr);
-            if(in_array($attr, self::$_validAttrs) && !in_array($attr, $arrAttr))
-            {
-                $arrAttr[] = $attr;
-            }
-        }
-        if(count($arrAttr))
-        {
-            $this->property('attrs', implode(',', $arrAttr));
-        }
+        $this->setAttrs(trim($attrs));
 
         if(null !== $sortBy)
         {
-            $this->property('sortBy', trim($sortBy));
+            $this->setProperty('sortBy', trim($sortBy));
         }
 
-        $types = explode(',', trim($types));
-        $arrType = array();
-        foreach ($types as $type)
+        if(null !== $types)
         {
-            $type = trim($type);
-            if(in_array($type, self::$_validTypes) && !in_array($type, $arrType))
-            {
-                $arrType[] = $type;
-            }
-        }
-        if(count($arrType))
-        {
-            $this->property('types', implode(',', $arrType));
+            $this->setTypes(trim($types));
         }
 
         if(null !== $sortAscending)
         {
-            $this->property('sortAscending', (bool) $sortAscending);
+            $this->setProperty('sortAscending', (bool) $sortAscending);
         }
     }
 
     /**
-     * Gets or sets name
+     * Gets query
      *
-     * @param  string $name
-     * @return string|self
+     * @return string
      */
-    public function query($query = null)
+    public function getQuery()
     {
-        if(null === $query)
-        {
-            return $this->property('query');
-        }
-        return $this->property('query', trim($query));
+        return $this->getProperty('query');
     }
 
     /**
-     * Gets or sets limit
+     * Sets query
+     *
+     * @param  string $query
+     * @return self
+     */
+    public function setQuery($query)
+    {
+        return $this->setProperty('query', trim($query));
+    }
+
+    /**
+     * Gets limit
+     *
+     * @return int
+     */
+    public function getLimit()
+    {
+        return $this->getProperty('limit');
+    }
+
+    /**
+     * Sets limit
      *
      * @param  int $limit
-     * @return int|self
+     * @return self
      */
-    public function limit($limit = null)
+    public function setLimit($limit)
     {
-        if(null === $limit)
-        {
-            return $this->property('limit');
-        }
-        return $this->property('limit', (int) $limit);
+        return $this->setProperty('limit', (int) $limit);
     }
 
     /**
-     * Gets or sets offset
+     * Gets offset
+     *
+     * @return int
+     */
+    public function getOffset()
+    {
+        return $this->getProperty('offset');
+    }
+
+    /**
+     * Sets offset
      *
      * @param  int $offset
-     * @return int|self
+     * @return self
      */
-    public function offset($offset = null)
+    public function setOffset($offset)
     {
-        if(null === $offset)
-        {
-            return $this->property('offset');
-        }
-        return $this->property('offset', (int) $offset);
+        return $this->setProperty('offset', (int) $offset);
     }
 
     /**
-     * Gets or sets domain
+     * Gets domain
+     *
+     * @return string
+     */
+    public function getDomain()
+    {
+        return $this->getProperty('domain');
+    }
+
+    /**
+     * Sets domain
      *
      * @param  string $domain
-     * @return string|self
+     * @return self
      */
-    public function domain($domain = null)
+    public function setDomain($domain)
     {
-        if(null === $domain)
-        {
-            return $this->property('domain');
-        }
-        return $this->property('domain', trim($domain));
+        return $this->setProperty('domain', trim($domain));
     }
 
     /**
-     * Gets or sets applyCos
+     * Gets applyCos
+     *
+     * @return bool
+     */
+    public function getApplyCos()
+    {
+        return $this->getProperty('applyCos');
+    }
+
+    /**
+     * Sets applyCos
      *
      * @param  bool $applyCos
-     * @return bool|self
+     * @return self
      */
-    public function applyCos($applyCos = null)
+    public function setApplyCos($applyCos)
     {
-        if(null === $applyCos)
-        {
-            return $this->property('applyCos');
-        }
-        return $this->property('applyCos', (bool) $applyCos);
+        return $this->setProperty('applyCos', (bool) $applyCos);
     }
 
     /**
-     * Gets or sets attrs
+     * Gets attrs
+     *
+     * @return string
+     */
+    public function getAttrs()
+    {
+        return $this->getProperty('attrs');
+    }
+
+    /**
+     * Sets attrs
      *
      * @param  string $attrs
-     * @return string|self
+     * @return self
      */
-    public function attrs($attrs = null)
+    public function setAttrs($attrs)
     {
-        if(null === $attrs)
-        {
-            return $this->property('attrs');
-        }
         $attrs = explode(',', $attrs);
-        $arrAttr = array();
+        $arrAttr = [];
         foreach ($attrs as $attr)
         {
             $attr = trim($attr);
@@ -218,38 +231,54 @@ class SearchAccounts extends Base
                 $arrAttr[] = $attr;
             }
         }
-        return $this->property('attrs', implode(',', $arrAttr));
+        if (!empty($arrAttr))
+        {
+            $this->setProperty('attrs', implode(',', $arrAttr));
+        }
+        return $this;
     }
 
     /**
-     * Gets or sets sortBy
+     * Gets sortBy
+     *
+     * @return string
+     */
+    public function getSortBy()
+    {
+        return $this->getProperty('sortBy');
+    }
+
+    /**
+     * Sets sortBy
      *
      * @param  string $sortBy
-     * @return string|self
+     * @return self
      */
-    public function sortBy($sortBy = null)
+    public function setSortBy($sortBy)
     {
-        if(null === $sortBy)
-        {
-            return $this->property('sortBy');
-        }
-        return $this->property('sortBy', trim($sortBy));
+        return $this->setProperty('sortBy', trim($sortBy));
     }
 
     /**
-     * Gets or sets types
+     * Gets types
+     *
+     * @return string
+     */
+    public function getTypes()
+    {
+        return $this->getProperty('types');
+    }
+
+    /**
+     * Sets types
      *
      * @param  string $types
-     * @return string|self
+     * @return self
      */
-    public function types($types = null)
+    public function setTypes($types)
     {
-        if(null === $types)
-        {
-            return $this->property('types');
-        }
         $types = explode(',', trim($types));
-        $arrType = array();
+        $arrType = [];
         foreach ($types as $type)
         {
             $type = trim($type);
@@ -258,21 +287,31 @@ class SearchAccounts extends Base
                 $arrType[] = $type;
             }
         }
-        return $this->property('types', implode(',', $arrType));
+        if (!empty($arrType))
+        {
+            return $this->setProperty('types', implode(',', $arrType));
+        }
+        return $this;
     }
 
     /**
-     * Gets or sets sortAscending
+     * Gets sortAscending
+     *
+     * @return bool
+     */
+    public function getSortAscending()
+    {
+        return $this->getProperty('sortAscending');
+    }
+
+    /**
+     * Sets sortAscending
      *
      * @param  bool $sortAscending
-     * @return bool|self
+     * @return self
      */
-    public function sortAscending($sortAscending = null)
+    public function setSortAscending($sortAscending)
     {
-        if(null === $sortAscending)
-        {
-            return $this->property('sortAscending');
-        }
-        return $this->property('sortAscending', (bool) $sortAscending);
+        return $this->setProperty('sortAscending', (bool) $sortAscending);
     }
 }

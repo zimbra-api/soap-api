@@ -29,27 +29,33 @@ class GetMailboxMetadata extends Base
      * @param  SectionAttr $meta
      * @return self
      */
-    public function __construct(SectionAttr $meta = null)
+    public function __construct(SectionAttr $metadata = null)
     {
         parent::__construct();
-        if($meta instanceof SectionAttr)
+        if($metadata instanceof SectionAttr)
         {
-            $this->child('meta', $meta);
+            $this->setChild('meta', $metadata);
         }
     }
 
     /**
-     * Get or set meta
+     * Gets metadata section specification
      *
-     * @param  SectionAttr $meta
-     * @return SectionAttr|self
+     * @return SectionAttr
      */
-    public function meta(SectionAttr $meta = null)
+    public function getMetadata()
     {
-        if(null === $meta)
-        {
-            return $this->child('meta');
-        }
-        return $this->child('meta', $meta);
+        return $this->getChild('meta');
+    }
+
+    /**
+     * Sets metadata section specification
+     *
+     * @param  SectionAttr $metadata
+     * @return self
+     */
+    public function setMetadata(SectionAttr $metadata)
+    {
+        return $this->setChild('meta', $metadata);
     }
 }

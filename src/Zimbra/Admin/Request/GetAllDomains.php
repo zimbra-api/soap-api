@@ -32,22 +32,28 @@ class GetAllDomains extends Base
         parent::__construct();
         if(null !== $applyConfig)
         {
-            $this->property('applyConfig', (bool) $applyConfig);
+            $this->setProperty('applyConfig', (bool) $applyConfig);
         }
     }
 
     /**
-     * Gets or sets applyConfig
+     * Gets applyConfig
+     *
+     * @return bool
+     */
+    public function getApplyConfig()
+    {
+        return $this->getProperty('applyConfig');
+    }
+
+    /**
+     * Sets applyConfig
      *
      * @param  bool $applyConfig
-     * @return bool|self
+     * @return self
      */
-    public function applyConfig($applyConfig = null)
+    public function setApplyConfig($applyConfig)
     {
-        if(null === $applyConfig)
-        {
-            return $this->property('applyConfig');
-        }
-        return $this->property('applyConfig', (bool) $applyConfig);
+        return $this->setProperty('applyConfig', (bool) $applyConfig);;
     }
 }

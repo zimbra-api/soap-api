@@ -26,12 +26,6 @@ use Zimbra\Admin\Struct\CosSelector as Cos;
 class GetSystemRetentionPolicy extends Base
 {
     /**
-     * Cos
-     * @var Cos
-     */
-    private $_cos;
-
-    /**
      * Constructor method for GetSystemRetentionPolicy
      * @param  Cos $cos
      * @return self
@@ -41,22 +35,28 @@ class GetSystemRetentionPolicy extends Base
         parent::__construct();
         if($cos instanceof Cos)
         {
-            $this->child('cos', $cos);
+            $this->setChild('cos', $cos);
         }
     }
 
     /**
-     * Gets or sets cos
+     * Gets the cos.
+     *
+     * @return Cos
+     */
+    public function getCos()
+    {
+        return $this->getChild('cos');
+    }
+
+    /**
+     * Sets the cos.
      *
      * @param  Cos $cos
-     * @return Cos|self
+     * @return self
      */
-    public function cos(Cos $cos = null)
+    public function setCos(Cos $cos)
     {
-        if(null === $cos)
-        {
-            return $this->child('cos');
-        }
-        return $this->child('cos', $cos);
+        return $this->setChild('cos', $cos);
     }
 }

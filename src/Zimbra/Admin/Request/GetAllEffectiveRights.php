@@ -35,41 +35,53 @@ class GetAllEffectiveRights extends Base
         parent::__construct();
         if($grantee instanceof Grantee)
         {
-            $this->child('grantee', $grantee);
+            $this->setChild('grantee', $grantee);
         }
         if(null !== $expandAllAttrs)
         {
-            $this->property('expandAllAttrs', (bool) $expandAllAttrs);
+            $this->setProperty('expandAllAttrs', (bool) $expandAllAttrs);
         }
     }
 
     /**
-     * Gets or sets grantee
+     * Gets the grantee.
+     *
+     * @return Grantee
+     */
+    public function getGrantee()
+    {
+        return $this->getChild('grantee');
+    }
+
+    /**
+     * Sets the grantee.
      *
      * @param  Grantee $grantee
-     * @return Grantee|self
+     * @return self
      */
-    public function grantee(Grantee $grantee = null)
+    public function setGrantee(Grantee $grantee)
     {
-        if(null === $grantee)
-        {
-            return $this->child('grantee');
-        }
-        return $this->child('grantee', $grantee);
+        return $this->setChild('grantee', $grantee);
     }
 
     /**
-     * Gets or sets expandAllAttrs
+     * Gets expandAllAttrs
      *
-     * @param  string $expandAllAttrs
-     * @return string|self
+     * @return bool
      */
-    public function expandAllAttrs($expandAllAttrs = null)
+    public function getExpandAllAttrs()
     {
-        if(null === $expandAllAttrs)
-        {
-            return $this->property('expandAllAttrs');
-        }
-        return $this->property('expandAllAttrs', (bool) $expandAllAttrs);
+        return $this->getProperty('expandAllAttrs');
+    }
+
+    /**
+     * Sets expandAllAttrs
+     *
+     * @param  bool $expandAllAttrs
+     * @return self
+     */
+    public function setExpandAllAttrs($expandAllAttrs)
+    {
+        return $this->setProperty('expandAllAttrs', (bool) $expandAllAttrs);;
     }
 }

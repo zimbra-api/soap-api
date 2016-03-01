@@ -26,179 +26,227 @@ class AddMsgSpec extends Base
     /**
      * Constructor method for AddMsgSpec
      * @param string $content The entire message's content. (Omit if you specify an "aid" attribute.)
-     * @param string $f Flags - (u)nread, (f)lagged, has (a)ttachment, (r)eplied, (s)ent by me, for(w)arded, (d)raft, deleted (x), (n)otification sent
-     * @param string $t Tags - Comma separated list of integers. DEPRECATED - use "tn" instead
-     * @param string $tn Comma-separated list of tag names
-     * @param string $l Folder pathname (starts with '/') or folder ID
+     * @param string $flags Flags - (u)nread, (f)lagged, has (a)ttachment, (r)eplied, (s)ent by me, for(w)arded, (d)raft, deleted (x), (n)otification sent
+     * @param string $tags Tags - Comma separated list of integers. DEPRECATED - use "tn" instead
+     * @param string $tagNames Comma-separated list of tag names
+     * @param string $folder Folder pathname (starts with '/') or folder ID
      * @param bool   $noICal If set, then don't process iCal attachments. Default is unset.
-     * @param string $d Time the message was originally received, in MILLISECONDS since the epoch
-     * @param string $aid Uploaded MIME body ID - ID of message uploaded via FileUploadServlet
+     * @param int $dateReceived Time the message was originally received, in MILLISECONDS since the epoch
+     * @param string $attachmentId Uploaded MIME body ID - ID of message uploaded via FileUploadServlet
      * @return self
      */
     public function __construct(
         $content = null,
-        $f = null,
-        $t = null,
-        $tn = null,
-        $l = null,
+        $flags = null,
+        $tags = null,
+        $tagNames = null,
+        $folder = null,
         $noICal = null,
-        $d = null,
-        $aid = null
+        $dateReceived = null,
+        $attachmentId = null
     )
     {
         parent::__construct();
         if(null !== $content)
         {
-            $this->child('content', trim($content));
+            $this->setChild('content', trim($content));
         }
-        if(null !== $f)
+        if(null !== $flags)
         {
-            $this->property('f', trim($f));
+            $this->setProperty('f', trim($flags));
         }
-        if(null !== $t)
+        if(null !== $tags)
         {
-            $this->property('t', trim($t));
+            $this->setProperty('t', trim($tags));
         }
-        if(null !== $tn)
+        if(null !== $tagNames)
         {
-            $this->property('tn', trim($tn));
+            $this->setProperty('tn', trim($tagNames));
         }
-        if(null !== $l)
+        if(null !== $folder)
         {
-            $this->property('l', trim($l));
+            $this->setProperty('l', trim($folder));
         }
         if(null !== $noICal)
         {
-            $this->property('noICal', (bool) $noICal);
+            $this->setProperty('noICal', (bool) $noICal);
         }
-        if(null !== $d)
+        if(null !== $dateReceived)
         {
-            $this->property('d', trim($d));
+            $this->setProperty('d', (int) $dateReceived);
         }
-        if(null !== $aid)
+        if(null !== $attachmentId)
         {
-            $this->property('aid', trim($aid));
+            $this->setProperty('aid', trim($attachmentId));
         }
     }
 
     /**
-     * Gets or sets content
+     * Gets content
+     *
+     * @return string
+     */
+    public function getContent()
+    {
+        return $this->getChild('content');
+    }
+
+    /**
+     * Sets content
      *
      * @param  string $content
-     * @return string|self
+     * @return self
      */
-    public function content($content = null)
+    public function setContent($content)
     {
-        if(null === $content)
-        {
-            return $this->child('content');
-        }
-        return $this->child('content', trim($content));
+        return $this->setChild('content', trim($content));
     }
 
     /**
-     * Gets or sets f
+     * Gets flags
      *
-     * @param  string $f
-     * @return string|self
+     * @return string
      */
-    public function f($f = null)
+    public function getFlags()
     {
-        if(null === $f)
-        {
-            return $this->property('f');
-        }
-        return $this->property('f', trim($f));
+        return $this->getProperty('f');
     }
 
     /**
-     * Gets or sets t
+     * Sets flags
      *
-     * @param  string $t
+     * @param  string $flags
      * @return string|self
      */
-    public function t($t = null)
+    public function setFlags($flags)
     {
-        if(null === $t)
-        {
-            return $this->property('t');
-        }
-        return $this->property('t', trim($t));
+        return $this->setProperty('f', trim($flags));
     }
 
     /**
-     * Gets or sets tn
+     * Gets tags
      *
-     * @param  string $tn
-     * @return string|self
+     * @return string
      */
-    public function tn($tn = null)
+    public function getTags()
     {
-        if(null === $tn)
-        {
-            return $this->property('tn');
-        }
-        return $this->property('tn', trim($tn));
+        return $this->getProperty('t');
     }
 
     /**
-     * Gets or sets l
+     * Sets tags
      *
-     * @param  string $l
+     * @param  string $tags
      * @return string|self
      */
-    public function l($l = null)
+    public function setTags($tags)
     {
-        if(null === $l)
-        {
-            return $this->property('l');
-        }
-        return $this->property('l', trim($l));
+        return $this->setProperty('t', trim($tags));
     }
 
     /**
-     * Gets or sets noICal
+     * Gets tag names
+     *
+     * @return string
+     */
+    public function getTagNames()
+    {
+        return $this->getProperty('tn');
+    }
+
+    /**
+     * Sets tag names
+     *
+     * @param  string $tagNames
+     * @return string|self
+     */
+    public function setTagNames($tagNames)
+    {
+        return $this->setProperty('tn', trim($tagNames));
+    }
+
+    /**
+     * Gets folder
+     *
+     * @return string
+     */
+    public function getFolder()
+    {
+        return $this->getProperty('l');
+    }
+
+    /**
+     * Sets folder
+     *
+     * @param  string $folder
+     * @return self
+     */
+    public function setFolder($folder)
+    {
+        return $this->setProperty('l', trim($folder));
+    }
+
+    /**
+     * Gets noICal flag
+     *
+     * @return bool
+     */
+    public function getNoICal()
+    {
+        return $this->getProperty('noICal');
+    }
+
+    /**
+     * Sets noICal flag
      *
      * @param  bool $noICal
-     * @return bool|self
+     * @return self
      */
-    public function noICal($noICal = null)
+    public function setNoICal($noICal)
     {
-        if(null === $noICal)
-        {
-            return $this->property('noICal');
-        }
-        return $this->property('noICal', (bool) $noICal);
+        return $this->setProperty('noICal', (bool) $noICal);
     }
 
     /**
-     * Gets or sets d
+     * Gets time received
      *
-     * @param  string $d
-     * @return string|self
+     * @return int
      */
-    public function d($d = null)
+    public function getDateReceived()
     {
-        if(null === $d)
-        {
-            return $this->property('d');
-        }
-        return $this->property('d', trim($d));
+        return $this->getProperty('d');
     }
 
     /**
-     * Gets or sets aid
+     * Sets time received
      *
-     * @param  string $aid
-     * @return string|self
+     * @param  int $dateReceived
+     * @return self
      */
-    public function aid($aid = null)
+    public function setDateReceived($dateReceived)
     {
-        if(null === $aid)
-        {
-            return $this->property('aid');
-        }
-        return $this->property('aid', trim($aid));
+        return $this->setProperty('d', (int) $dateReceived);
+    }
+
+    /**
+     * Gets attachment id
+     *
+     * @return string
+     */
+    public function getAttachmentId()
+    {
+        return $this->getProperty('aid');
+    }
+
+    /**
+     * Sets attachment id
+     *
+     * @param  string $attachmentId
+     * @return self
+     */
+    public function setAttachmentId($attachmentId)
+    {
+        return $this->setProperty('aid', trim($attachmentId));
     }
 
     /**

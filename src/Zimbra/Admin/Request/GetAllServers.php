@@ -33,41 +33,53 @@ class GetAllServers extends Base
         parent::__construct();
         if(null !== $service)
         {
-            $this->property('service', trim($service));
+            $this->setProperty('service', trim($service));
         }
         if(null !== $applyConfig)
         {
-            $this->property('applyConfig', (bool) $applyConfig);
+            $this->setProperty('applyConfig', (bool) $applyConfig);
         }
     }
 
     /**
-     * Gets or sets service
+     * Gets service
+     *
+     * @return string
+     */
+    public function getService()
+    {
+        return $this->getProperty('service');
+    }
+
+    /**
+     * Sets service
      *
      * @param  string $service
-     * @return string|self
+     * @return self
      */
-    public function service($service = null)
+    public function setService($service)
     {
-        if(null === $service)
-        {
-            return $this->property('service');
-        }
-        return $this->property('service', trim($service));
+        return $this->setProperty('service', trim($service));
     }
 
     /**
-     * Gets or sets applyConfig
+     * Gets applyConfig
+     *
+     * @return bool
+     */
+    public function getApplyConfig()
+    {
+        return $this->getProperty('applyConfig');
+    }
+
+    /**
+     * Sets applyConfig
      *
      * @param  bool $applyConfig
-     * @return bool|self
+     * @return self
      */
-    public function applyConfig($applyConfig = null)
+    public function setApplyConfig($applyConfig)
     {
-        if(null === $applyConfig)
-        {
-            return $this->property('applyConfig');
-        }
-        return $this->property('applyConfig', (bool) $applyConfig);
+        return $this->setProperty('applyConfig', (bool) $applyConfig);
     }
 }

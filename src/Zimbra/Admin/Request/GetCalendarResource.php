@@ -11,6 +11,8 @@
 namespace Zimbra\Admin\Request;
 
 use Zimbra\Admin\Struct\CalendarResourceSelector as Calendar;
+use Zimbra\Struct\AttributeSelectorTrait;
+use Zimbra\Struct\AttributeSelector;
 
 /**
  * GetCalendarResource request class
@@ -22,8 +24,10 @@ use Zimbra\Admin\Struct\CalendarResourceSelector as Calendar;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
  */
-class GetCalendarResource extends Base
+class GetCalendarResource extends Base implements AttributeSelector
 {
+    use AttributeSelectorTrait;
+
     /**
      * Constructor method for GetCalendarResource
      * @param  Calendar $calResource Specify calendar resource
@@ -31,65 +35,68 @@ class GetCalendarResource extends Base
      * @param  string $attrs Comma separated list of attributes
      * @return self
      */
-    public function __construct(Calendar $calResource = null, $applyCos = null, $attrs = null)
+    public function __construct(Calendar $calResource = null, $applyCos = null, array $attrs = [])
     {
         parent::__construct();
         if($calResource instanceof Calendar)
         {
-            $this->child('calresource', $calResource);
+            $this->setChild('calresource', $calResource);
         }
         if(null !== $applyCos)
         {
-            $this->property('applyCos', (bool) $applyCos);
+            $this->setProperty('applyCos', (bool) $applyCos);
         }
-        if(null !== $attrs)
+
+        $this->setAttrs($attrs);
+        $this->on('before', function(Base $sender)
         {
-            $this->property('attrs', trim($attrs));
-        }
+            $attrs = $sender->getAttrs();
+            if(!empty($attrs))
+            {
+                $sender->setProperty('attrs', $attrs);
+            }
+        });
     }
 
     /**
-     * Gets or sets calResource
+     * Gets the calResource.
+     *
+     * @return Calendar
+     */
+    public function getCalResource()
+    {
+        return $this->getChild('calresource');
+    }
+
+    /**
+     * Sets the calResource.
      *
      * @param  Calendar $calResource
-     * @return Calendar|self
+     * @return self
      */
-    public function calResource(Calendar $calResource = null)
+    public function setCalResource(Calendar $calResource)
     {
-        if(null === $calResource)
-        {
-            return $this->child('calresource');
-        }
-        return $this->child('calresource', $calResource);
+        return $this->setChild('calresource', $calResource);
     }
 
     /**
-     * Gets or sets applyCos
+     * Gets applyCos
+     *
+     * @return bool
+     */
+    public function getApplyCos()
+    {
+        return $this->getProperty('applyCos');
+    }
+
+    /**
+     * Sets applyCos
      *
      * @param  bool $applyCos
-     * @return bool|self
+     * @return self
      */
-    public function applyCos($applyCos = null)
+    public function setApplyCos($applyCos)
     {
-        if(null === $applyCos)
-        {
-            return $this->property('applyCos');
-        }
-        return $this->property('applyCos', (bool) $applyCos);
-    }
-
-    /**
-     * Gets or sets attrs
-     *
-     * @param  string $attrs
-     * @return string|self
-     */
-    public function attrs($attrs = null)
-    {
-        if(null === $attrs)
-        {
-            return $this->property('attrs');
-        }
-        return $this->property('attrs', trim($attrs));
+        return $this->setProperty('applyCos', (bool) $applyCos);
     }
 }

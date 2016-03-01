@@ -24,121 +24,143 @@ class ExportContacts extends Base
 {
     /**
      * Constructor method for ExportContacts
-     * @param  string $ct
-     * @param  string $l
+     * @param  string $contentType
+     * @param  string $folderId
      * @param  string $csvfmt
      * @param  string $csvlocale
-     * @param  string $csvsep
+     * @param  string $csvDelimiter
      * @return self
      */
     public function __construct(
-        $ct,
-        $l = null,
-        $csvfmt = null,
-        $csvlocale = null,
-        $csvsep = null
+        $contentType,
+        $folderId = null,
+        $csvFormat = null,
+        $csvLocale = null,
+        $csvDelimiter = null
     )
     {
         parent::__construct();
-        $this->property('ct', trim($ct));
-        if(null !== $l)
+        $this->setProperty('ct', trim($contentType));
+        if(null !== $folderId)
         {
-            $this->property('l', trim($l));
+            $this->setProperty('l', trim($folderId));
         }
-        if(null !== $csvlocale)
+        if(null !== $csvFormat)
         {
-            $this->property('csvlocale', trim($csvlocale));
+            $this->setProperty('csvfmt', trim($csvFormat));
         }
-        if(null !== $csvfmt)
+        if(null !== $csvLocale)
         {
-            $this->property('csvfmt', trim($csvfmt));
+            $this->setProperty('csvlocale', trim($csvLocale));
         }
-        if(null !== $csvsep)
+        if(null !== $csvDelimiter)
         {
-            $this->property('csvsep', trim($csvsep));
+            $this->setProperty('csvsep', trim($csvDelimiter));
         }
     }
 
     /**
-     * Get or set ct
-     * Content type.
-     * Currently, the only supported content type is "csv" (comma-separated values)
+     * Gets content type
      *
-     * @param  string $ct
-     * @return string|self
+     * @return string
      */
-    public function ct($ct = null)
+    public function getContentType()
     {
-        if(null === $ct)
-        {
-            return $this->property('ct');
-        }
-        return $this->property('ct', trim($ct));
+        return $this->getProperty('ct');
     }
 
     /**
-     * Get or set l
-     * Optional folder id to export contacts from
+     * Sets content type
      *
-     * @param  string $l
-     * @return string|self
+     * @param  string $contentType
+     * @return self
      */
-    public function l($l = null)
+    public function setContentType($contentType)
     {
-        if(null === $l)
-        {
-            return $this->property('l');
-        }
-        return $this->property('l', trim($l));
+        return $this->setProperty('ct', trim($contentType));
     }
 
     /**
-     * Get or set csvfmt
-     * Optional csv format for exported contacts.
-     * The supported formats are defined in $ZIMBRA_HOME/conf/zimbra-contact-fields.xml
+     * Gets folder Id
      *
-     * @param  string $csvfmt
-     * @return string|self
+     * @return string
      */
-    public function csvfmt($csvfmt = null)
+    public function getFolderId()
     {
-        if(null === $csvfmt)
-        {
-            return $this->property('csvfmt');
-        }
-        return $this->property('csvfmt', trim($csvfmt));
+        return $this->getProperty('l');
     }
 
     /**
-     * Get or set csvlocale
-     * The locale to use when there are multiple {csv-format} locales defined.
-     * When it is not specified, the {csv-format} with no locale specification is used.
+     * Sets folder Id
      *
-     * @param  string $csvlocale
-     * @return string|self
+     * @param  string $folderId
+     * @return self
      */
-    public function csvlocale($csvlocale = null)
+    public function setFolderId($folderId)
     {
-        if(null === $csvlocale)
-        {
-            return $this->property('csvlocale');
-        }
-        return $this->property('csvlocale', trim($csvlocale));
+        return $this->setProperty('l', trim($folderId));
     }
 
     /**
-     * Get or set csvsep
-     * Optional delimiter character to use in the resulting csv file - usually "," or ";"
+     * Gets csv format
      *
-     * @param  string $csvsep
-     * @return string|self
+     * @return string
      */
-    public function csvsep($csvsep = null)
+    public function getCsvFormat()
     {
-        if(null === $csvsep)
-        {
-            return $this->property('csvsep');
-        }
-        return $this->property('csvsep', trim($csvsep));
+        return $this->getProperty('csvfmt');
+    }
+
+    /**
+     * Sets csv format
+     *
+     * @param  string $csvFormat
+     * @return self
+     */
+    public function setCsvFormat($csvFormat)
+    {
+        return $this->setProperty('csvfmt', trim($csvFormat));
+    }
+
+    /**
+     * Gets csv locale
+     *
+     * @return string
+     */
+    public function getCsvLocale()
+    {
+        return $this->getProperty('csvlocale');
+    }
+
+    /**
+     * Sets csv locale
+     *
+     * @param  string $csvFormat
+     * @return self
+     */
+    public function setCsvLocale($csvFormat)
+    {
+        return $this->setProperty('csvlocale', trim($csvFormat));
+    }
+
+    /**
+     * Gets csv delimiter
+     *
+     * @return string
+     */
+    public function getCsvDelimiter()
+    {
+        return $this->getProperty('csvsep');
+    }
+
+    /**
+     * Sets csv delimiter
+     *
+     * @param  string $csvDelimiter
+     * @return self
+     */
+    public function setCsvDelimiter($csvDelimiter)
+    {
+        return $this->setProperty('csvsep', trim($csvDelimiter));
     }
 }

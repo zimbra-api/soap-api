@@ -32,47 +32,52 @@ class IdAndAction extends Base
     public function __construct($id, $action)
     {
         parent::__construct();
-        $this->property('id', trim($id));
-        if(in_array($action, array('bug72174', 'wiki', 'contactGroup')))
-        {
-            $this->property('action', trim($action));
-        }
-        else
-        {
-            throw new \InvalidArgumentException('Action is bug72174 or wiki or contactGroup');
-        }
+        $this->setProperty('id', trim($id));
+        $this->setAction($action);
     }
 
     /**
-     * Get or set id
+     * Gets Zimbra ID of account
+     *
+     * @return string
+     */
+    public function getId()
+    {
+        return $this->getProperty('id');
+    }
+
+    /**
+     * Sets Zimbra ID of account
      *
      * @param  string $id
-     * @return string|self
+     * @return self
      */
-    public function id($id = null)
+    public function setId($id)
     {
-        if(null === $id)
-        {
-            return $this->property('id');
-        }
-        return $this->property('id', trim($id));
+        return $this->setProperty('id', trim($id));
     }
 
     /**
-     * Get or set action
+     * Gets action
+     *
+     * @return string
+     */
+    public function getAction()
+    {
+        return $this->getProperty('action');
+    }
+
+    /**
+     * Sets action
      *
      * @param  string $action
-     * @return string|self
+     * @return self
      */
-    public function action($action = null)
+    public function setAction($action)
     {
-        if(null === $action)
+        if(in_array($action, ['bug72174', 'wiki', 'contactGroup']))
         {
-            return $this->property('action');
-        }
-        if(in_array($action, array('bug72174', 'wiki', 'contactGroup')))
-        {
-            $this->property('action', trim($action));
+            $this->setProperty('action', trim($action));
         }
         else
         {

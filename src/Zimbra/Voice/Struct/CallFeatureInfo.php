@@ -25,46 +25,56 @@ abstract class CallFeatureInfo extends Base
 {
     /**
      * Constructor method for CallFeatureInfo
-     * @param bool $s
-     * @param bool $a
+     * @param bool $subscribed Flag whether subscribed or not
+     * @param bool $active Flag whether active or not
      * @return self
      */
-    public function __construct($s, $a)
+    public function __construct($subscribed, $active)
     {
         parent::__construct();
-        $this->property('s', (bool) $s);
-        $this->property('a', (bool) $a);
+        $this->setProperty('s', (bool) $subscribed);
+        $this->setProperty('a', (bool) $active);
     }
 
     /**
-     * Gets or sets s
-     * Flag whether subscribed or not
+     * Gets subscribed
      *
-     * @param  bool $s
-     * @return bool|self
+     * @return bool
      */
-    public function s($s = null)
+    public function getSubscribed()
     {
-        if(null === $s)
-        {
-            return $this->property('s');
-        }
-        return $this->property('s', (bool) $s);
+        return $this->getProperty('s');
     }
 
     /**
-     * Gets or sets a
-     * Flag whether active or not
+     * Sets subscribed
      *
-     * @param  bool $a
-     * @return bool|self
+     * @param  bool $subscribed
+     * @return self
      */
-    public function a($a = null)
+    public function setSubscribed($subscribed)
     {
-        if(null === $a)
-        {
-            return $this->property('a');
-        }
-        return $this->property('a', (bool) $a);
+        return $this->setProperty('s', (bool) $subscribed);
+    }
+
+    /**
+     * Gets active
+     *
+     * @return string
+     */
+    public function getActive()
+    {
+        return $this->getProperty('a');
+    }
+
+    /**
+     * Sets active
+     *
+     * @param  string $active
+     * @return self
+     */
+    public function setActive($active)
+    {
+        return $this->setProperty('a', (bool) $active);
     }
 }

@@ -14,7 +14,6 @@ use Evenement\EventEmitter;
 use PhpCollection\Map;
 use Zimbra\Common\SimpleXML;
 use Zimbra\Common\Text;
-use Zimbra\Common\TypedMap;
 
 /**
  * Base struct class
@@ -24,7 +23,7 @@ use Zimbra\Common\TypedMap;
  * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright Copyright © 2013 by Nguyen Van Nguyen.
  */
-abstract class Base extends EventEmitter
+abstract class Base extends EventEmitter implements StructInterface
 {
     /**
      * Struct properties
@@ -64,61 +63,79 @@ abstract class Base extends EventEmitter
         }
         $this->_properties = new Map();
         $this->_children = new Map();
-        $this->emit('initialize', array($this));
+        $this->emit('initialize', [$this]);
     }
 
     /**
-     * Gets or sets xmlNamespace
+     * Gets xml namespace
      *
-     * @param  string $value
-     * @return string|self
+     * @return string
      */
-    public function xmlNamespace($xmlNamespace = null)
+    public function getXmlNamespace()
     {
-        if(null === $xmlNamespace)
-        {
-            return $this->_xmlNamespace;
-        }
-        $this->_xmlNamespace = trim($xmlNamespace);
+        return $this->_xmlNamespace;
+    }
+
+    /**
+     * Sets xml namespace
+     *
+     * @param  string $namespace
+     * @return self
+     */
+    public function setXmlNamespace($namespace)
+    {
+        $this->_xmlNamespace = trim($namespace);
         return $this;
     }
 
     /**
-     * Gets or sets value
+     * Gets value
      *
-     * @param  string $value
-     * @return string|self
+     * @return string
      */
-    public function value($value = null)
+    public function getValue()
     {
-        if(null === $value)
-        {
-            return $this->_value;
-        }
+        return $this->_value;
+    }
+
+    /**
+     * Sets value
+     *
+     * @return self
+     */
+    public function setValue($value)
+    {
         $this->_value = trim($value);
         return $this;
     }
 
     /**
-     * Gets or sets property
+     * Gets a property
+     *
+     * @param  string $name
+     * @return mix
+     */
+    public function getProperty($name)
+    {
+        if($this->_properties->containsKey($name))
+        {
+            return $this->_properties->get($name)->get();
+        }
+        else
+        {
+            return null;
+        }
+    }
+
+    /**
+     * Sets a property
      *
      * @param  string $name
      * @param  mix $value
-     * @return string|self
+     * @return self
      */
-    public function property($name, $value = null)
+    public function setProperty($name, $value)
     {
-        if(null === $value)
-        {
-            if($this->_properties->containsKey($name))
-            {
-                return $this->_properties->get($name)->get();
-            }
-            else
-            {
-                return null;
-            }
-        }
         $this->_properties->set($name, $value);
         return $this;
     }
@@ -139,25 +156,32 @@ abstract class Base extends EventEmitter
     }
 
     /**
-     * Gets or sets child
+     * Gets a child
+     *
+     * @param  string $name
+     * @return mix
+     */
+    public function getChild($name)
+    {
+        if($this->_children->containsKey($name))
+        {
+            return $this->_children->get($name)->get();
+        }
+        else
+        {
+            return null;
+        }
+    }
+
+    /**
+     * Sets a child
      *
      * @param  string $name
      * @param  mix $value
-     * @return string|self
+     * @return self
      */
-    public function child($name, $value = null)
+    public function setChild($name, $value)
     {
-        if(null === $value)
-        {
-            if($this->_children->containsKey($name))
-            {
-                return $this->_children->get($name)->get();
-            }
-            else
-            {
-                return null;
-            }
-        }
         $this->_children->set($name, $value);
         return $this;
     }
@@ -196,9 +220,9 @@ abstract class Base extends EventEmitter
      */
     public function toArray($name = null)
     {
-        $this->emit('before', array($this));
+        $this->emit('before', [$this]);
         $name = !empty($name) ? $name : $this->className();
-        $arr = array();
+        $arr = [];
         if(null !== $this->_value)
         {
             $arr['_content'] = $this->_value;
@@ -222,42 +246,42 @@ abstract class Base extends EventEmitter
         {
             foreach ($this->_children as $key => $value)
             {
-                if($value instanceof \Zimbra\Struct\Base)
+                if($value instanceof StructInterface)
                 {
                     $arr += $value->toArray($key);
                 }
                 elseif($value instanceof \Zimbra\Enum\Base)
                 {
-                    $arr[$key] = array('_content' => $value->value());
+                    $arr[$key] = $value->value();
                 }
                 elseif (is_array($value) && count($value))
                 {
-                    $arr[$key] = array();
+                    $arr[$key] = [];
                     foreach ($value as $v)
                     {
-                        if($v instanceof \Zimbra\Struct\Base)
+                        if($v instanceof StructInterface)
                         {
                             $vArr = $v->toArray($key);
                             $arr[$key][] = $vArr[$key];
                         }
                         elseif($v instanceof \Zimbra\Enum\Base)
                         {
-                            $arr[$key][] = array('_content' => $v->value());
+                            $arr[$key][] = $v->value();
                         }
                         else
                         {
-                            $arr[$key][] = array('_content' => $v);
+                            $arr[$key][] = $v;
                         }
                     }
                 }
                 else
                 {
-                    $arr[$key] = array('_content' => $value);
+                    $arr[$key] = $value;
                 }
             }
         }
-        $this->emit('after.array', array(&$arr));
-        return array($name => $arr);
+        $this->emit('after.array', [&$arr]);
+        return [$name => $arr];
     }
 
     /**
@@ -268,15 +292,15 @@ abstract class Base extends EventEmitter
      */
     public function toXml($name = null)
     {
-        $this->emit('before', array($this));
+        $this->emit('before', [$this]);
         $name = !empty($name) ? $name : $this->className();
         if(null !== $this->_value)
         {
-            $xml = new SimpleXML('<'.$name.'>'.$this->_value.'</'.$name.'>');
+            $xml = new SimpleXML('<' . $name . '>' . $this->_value . '</' . $name . '>');
         }
         else
         {
-            $xml = new SimpleXML('<'.$name.' />');
+            $xml = new SimpleXML('<' . $name . ' />');
         }
         foreach ($this->_properties as $key => $value)
         {
@@ -297,9 +321,9 @@ abstract class Base extends EventEmitter
         {
             foreach ($this->_children as $key => $value)
             {
-                if($value instanceof \Zimbra\Struct\Base)
+                if($value instanceof StructInterface)
                 {
-                    $xml->append($value->toXml($key), $value->xmlNamespace());
+                    $xml->append($value->toXml($key), $value->GetXmlNamespace());
                 }
                 elseif($value instanceof \Zimbra\Enum\Base)
                 {
@@ -313,9 +337,9 @@ abstract class Base extends EventEmitter
                 {
                     foreach ($value as $child)
                     {
-                        if($child instanceof \Zimbra\Struct\Base)
+                        if($child instanceof StructInterface)
                         {
-                            $xml->append($child->toXml($key), $child->xmlNamespace());
+                            $xml->append($child->toXml($key), $child->GetXmlNamespace());
                         }
                         elseif($child instanceof \Zimbra\Enum\Base)
                         {
@@ -337,7 +361,7 @@ abstract class Base extends EventEmitter
                 }
             }
         }
-        $this->emit('after.xml', array($xml));
+        $this->emit('after.xml', [$xml]);
         return $xml;
     }
 

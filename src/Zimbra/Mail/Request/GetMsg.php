@@ -26,27 +26,33 @@ class GetMsg extends Base
 {
     /**
      * Constructor method for GetMsg
-     * @param  MsgSpec $m
+     * @param  MsgSpec $msg
      * @return self
      */
-    public function __construct(MsgSpec $m)
+    public function __construct(MsgSpec $msg)
     {
         parent::__construct();
-        $this->child('m', $m);
+        $this->setChild('m', $msg);
     }
 
     /**
-     * Get or set m
+     * Gets message specification
      *
-     * @param  MsgSpec $m
-     * @return MsgSpec|self
+     * @return MsgSpec
      */
-    public function m(MsgSpec $m = null)
+    public function getMsg()
     {
-        if(null === $m)
-        {
-            return $this->child('m');
-        }
-        return $this->child('m', $m);
+        return $this->getChild('m');
+    }
+
+    /**
+     * Sets message specification
+     *
+     * @param  MsgSpec $msg
+     * @return self
+     */
+    public function setMsg(MsgSpec $msg)
+    {
+        return $this->setChild('m', $msg);
     }
 }

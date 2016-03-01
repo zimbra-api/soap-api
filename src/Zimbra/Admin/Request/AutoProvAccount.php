@@ -35,56 +35,74 @@ class AutoProvAccount extends Base
     public function __construct(Domain $domain, Principal $principal , $password = null)
     {
         parent::__construct();
-        $this->child('domain', $domain);
-        $this->child('principal', $principal);
+        $this->setChild('domain', $domain);
+        $this->setChild('principal', $principal);
         if(null !== $password)
         {
-            $this->child('password', trim($password));
+            $this->setChild('password', trim($password));
         }
     }
 
     /**
-     * Gets or sets domain
+     * Gets the domain.
+     *
+     * @return Domain
+     */
+    public function getDomain()
+    {
+        return $this->getChild('domain');
+    }
+
+    /**
+     * Sets the domain.
      *
      * @param  Domain $domain
-     * @return Domain|self
+     * @return self
      */
-    public function domain(Domain $domain = null)
+    public function setDomain(Domain $domain)
     {
-        if(null === $domain)
-        {
-            return $this->child('domain');
-        }
-        return $this->child('domain', $domain);
+        return $this->setChild('domain', $domain);
     }
 
     /**
-     * Gets or sets principal
+     * Gets the principal.
+     *
+     * @return Principal
+     */
+    public function getPrincipal()
+    {
+        return $this->getChild('principal');
+    }
+
+    /**
+     * Sets the principal.
      *
      * @param  Principal $principal
-     * @return Principal|self
+     * @return self
      */
-    public function principal(Principal $principal = null)
+    public function setPrincipal(Principal $principal)
     {
-        if(null === $principal)
-        {
-            return $this->child('principal');
-        }
-        return $this->child('principal', $principal);
+        return $this->setChild('principal', $principal);
     }
 
     /**
-     * Gets or sets password
+     * Gets password
+     *
+     * @return string
+     */
+    public function getPassword()
+    {
+        return $this->getChild('password');
+    }
+
+    /**
+     * Sets password
      *
      * @param  string $password
-     * @return string|self
+     * @return self
      */
-    public function password($password = null)
+    public function setPassword($password)
     {
-        if(null === $password)
-        {
-            return $this->child('password');
-        }
-        return $this->child('password', trim($password));
+        return $this->setChild('password', trim($password));
     }
 }

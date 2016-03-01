@@ -10,6 +10,7 @@
 
 namespace Zimbra\Admin\Request;
 
+use Zimbra\Common\TypedSequence;
 use Zimbra\Struct\NamedElement;
 
 /**
@@ -25,31 +26,61 @@ use Zimbra\Struct\NamedElement;
 class GetAdminSavedSearches extends Base
 {
     /**
+     * Search sequence
+     * @var Sequence
+     */
+    private $_searches;
+
+    /**
      * Constructor method for GetAdminSavedSearches
-     * @param  NamedElement $search Search information
+     * @param  array $searches Array of search information
      * @return self
      */
-    public function __construct(NamedElement $search = null)
+    public function __construct(array $searches = [])
     {
         parent::__construct();
-        if($search instanceof NamedElement)
+        $this->setSearches($searches);
+
+        $this->on('before', function(Base $sender)
         {
-            $this->child('search', $search);
-        }
+            if($sender->getSearches()->count())
+            {
+                $sender->setChild('search', $sender->getSearches()->all());
+            }
+        });
     }
 
     /**
-     * Gets or sets search
+     * Add search
      *
      * @param  NamedElement $search
-     * @return NamedElement|self
+     * @return self
      */
-    public function search(NamedElement $search = null)
+    public function addSearch(NamedElement $search)
     {
-        if(null === $search)
-        {
-            return $this->child('search');
-        }
-        return $this->child('search', $search);
+        $this->_searches->add($search);
+        return $this;
+    }
+
+    /**
+     * Sets search sequence
+     *
+     * @param array  $searches
+     * @return self
+     */
+    public function setSearches(array $searches)
+    {
+        $this->_searches = new TypedSequence('Zimbra\Struct\NamedElement', $searches);
+        return $this;
+    }
+
+    /**
+     * Gets search sequence
+     *
+     * @return Sequence
+     */
+    public function getSearches()
+    {
+        return $this->_searches;
     }
 }

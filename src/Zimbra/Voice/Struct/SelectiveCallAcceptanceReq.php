@@ -21,7 +21,7 @@ use Zimbra\Struct\Base;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
  */
-class SelectiveCallAcceptanceReq extends Base
+class SelectiveCallAcceptanceReq extends Base implements CallFeatureReq
 {
     /**
      * Returns the array representation of this class 

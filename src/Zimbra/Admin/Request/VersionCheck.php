@@ -32,21 +32,27 @@ class VersionCheck extends Base
     public function __construct(Action $action)
     {
         parent::__construct();
-        $this->property('action', $action);
+        $this->setProperty('action', $action);
     }
 
     /**
-     * Gets or sets action
+     * Gets action
+     *
+     * @return Action
+     */
+    public function getAction()
+    {
+        return $this->getProperty('action');
+    }
+
+    /**
+     * Sets action
      *
      * @param  Action $action
-     * @return Action|self
+     * @return self
      */
-    public function action(Action $action = null)
+    public function setAction(Action $action)
     {
-        if(null === $action)
-        {
-            return $this->property('action');
-        }
-        return $this->property('action', $action);
+        return $this->setProperty('action', $action);
     }
 }

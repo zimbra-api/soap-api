@@ -29,12 +29,12 @@ class FolderActionSelector extends ActionSelector
      * @param string $id
      * @param string $tcon
      * @param int    $tag
-     * @param string $l
+     * @param string $folder
      * @param string $rgb
      * @param int    $color
      * @param string $name
-     * @param string $f
-     * @param string $t
+     * @param string $flags
+     * @param string $tags
      * @param string $tn
      * @return self
      */
@@ -43,13 +43,13 @@ class FolderActionSelector extends ActionSelector
         $id = null,
         $tcon = null,
         $tag = null,
-        $l = null,
+        $folder = null,
         $rgb = null,
         $color = null,
         $name = null,
-        $f = null,
-        $t = null,
-        $tn = null,
+        $flags = null,
+        $tags = null,
+        $tagNames = null,
         ActionGrantSelector $grant = null,
         FolderActionSelectorAcl $acl = null,
         RetentionPolicy $retentionPolicy = null,
@@ -66,201 +66,260 @@ class FolderActionSelector extends ActionSelector
             $id,
             $tcon,
             $tag,
-            $l,
+            $folder,
             $rgb,
             $color,
             $name,
-            $f,
-            $t,
-            $tn
+            $flags,
+            $tags,
+            $tagNames
         );
         if($grant instanceof ActionGrantSelector)
         {
-            $this->child('grant', $grant);
+            $this->setChild('grant', $grant);
         }
         if($acl instanceof FolderActionSelectorAcl)
         {
-            $this->child('acl', $acl);
+            $this->setChild('acl', $acl);
         }
         if($retentionPolicy instanceof RetentionPolicy)
         {
-            $this->child('retentionPolicy', $retentionPolicy);
+            $this->setChild('retentionPolicy', $retentionPolicy);
         }
         if(null !== $recursive)
         {
-            $this->property('recursive', (bool) $recursive);
+            $this->setProperty('recursive', (bool) $recursive);
         }
         if(null !== $url)
         {
-            $this->property('url', trim($url));
+            $this->setProperty('url', trim($url));
         }
         if(null !== $excludeFreeBusy)
         {
-            $this->property('excludeFreeBusy', (bool) $excludeFreeBusy);
+            $this->setProperty('excludeFreeBusy', (bool) $excludeFreeBusy);
         }
         if(null !== $zid)
         {
-            $this->property('zid', trim($zid));
+            $this->setProperty('zid', trim($zid));
         }
         if(null !== $gt)
         {
-            $this->property('gt', trim($gt));
+            $this->setProperty('gt', trim($gt));
         }
         if(null !== $view)
         {
-            $this->property('view', trim($view));
+            $this->setProperty('view', trim($view));
         }
     }
 
     /**
-     * Gets or sets op
+     * Gets operation
      *
-     * @param  FolderActionOp $op
-     * @return FolderActionOp|self
+     * @return string
      */
-    public function op(FolderActionOp $op = null)
+    public function getOperation()
     {
-        if(null === $op)
-        {
-            return $this->property('op');
-        }
-        return $this->property('op', $op);
+        return $this->getProperty('op');
     }
 
     /**
-     * Gets or sets grant
+     * Sets operation
+     *
+     * @param  string $op
+     * @return self
+     */
+    public function setOperation(FolderActionOp $op)
+    {
+        return $this->setProperty('op', $op);
+    }
+
+    /**
+     * Gets grant
+     *
+     * @return ActionGrantSelector
+     */
+    public function getGrant()
+    {
+        return $this->getChild('grant');
+    }
+
+    /**
+     * Sets grant
      *
      * @param  ActionGrantSelector $grant
-     * @return ActionGrantSelector|self
+     * @return self
      */
-    public function grant(ActionGrantSelector $grant = null)
+    public function setGrant(ActionGrantSelector $grant)
     {
-        if(null === $grant)
-        {
-            return $this->child('grant');
-        }
-        return $this->child('grant', $grant);
+        return $this->setChild('grant', $grant);
     }
 
+    /**
+     * Gets acl
+     *
+     * @return FolderActionSelectorAcl
+     */
+    public function getAcl()
+    {
+        return $this->getChild('acl');
+    }
 
     /**
-     * Gets or sets acl
+     * Sets acl
      *
      * @param  FolderActionSelectorAcl $acl
-     * @return FolderActionSelectorAcl|self
+     * @return self
      */
-    public function acl(FolderActionSelectorAcl $acl = null)
+    public function setAcl(FolderActionSelectorAcl $acl)
     {
-        if(null === $acl)
-        {
-            return $this->child('acl');
-        }
-        return $this->child('acl', $acl);
+        return $this->setChild('acl', $acl);
     }
 
     /**
-     * Gets or sets retentionPolicy
+     * Gets retention policy
+     *
+     * @return RetentionPolicy
+     */
+    public function getRetentionPolicy()
+    {
+        return $this->getChild('retentionPolicy');
+    }
+
+    /**
+     * Sets retention policy
      *
      * @param  RetentionPolicy $retentionPolicy
-     * @return RetentionPolicy|self
+     * @return self
      */
-    public function retentionPolicy(RetentionPolicy $retentionPolicy = null)
+    public function setRetentionPolicy(RetentionPolicy $retentionPolicy)
     {
-        if(null === $retentionPolicy)
-        {
-            return $this->child('retentionPolicy');
-        }
-        return $this->child('retentionPolicy', $retentionPolicy);
+        return $this->setChild('retentionPolicy', $retentionPolicy);
     }
 
     /**
-     * Gets or sets recursive
+     * Gets recursive
+     *
+     * @return bool
+     */
+    public function getRecursive()
+    {
+        return $this->getProperty('recursive');
+    }
+
+    /**
+     * Sets recursive
      *
      * @param  bool $recursive
-     * @return bool|self
+     * @return self
      */
-    public function recursive($recursive = null)
+    public function setRecursive($recursive)
     {
-        if(null === $recursive)
-        {
-            return $this->property('recursive');
-        }
-        return $this->property('recursive', (bool) $recursive);
+        return $this->setProperty('recursive', (bool) $recursive);
     }
 
     /**
-     * Gets or sets url
+     * Gets url
+     *
+     * @return string
+     */
+    public function getUrl()
+    {
+        return $this->getProperty('url');
+    }
+
+    /**
+     * Sets url
      *
      * @param  string $url
-     * @return string|self
+     * @return self
      */
-    public function url($url = null)
+    public function setUrl($url)
     {
-        if(null === $url)
-        {
-            return $this->property('url');
-        }
-        return $this->property('url', trim($url));
+        return $this->setProperty('url', trim($url));
     }
 
     /**
-     * Gets or sets excludeFreeBusy
+     * Gets excludeFreeBusy
+     *
+     * @return bool
+     */
+    public function getExcludeFreeBusy()
+    {
+        return $this->getProperty('excludeFreeBusy');
+    }
+
+    /**
+     * Sets excludeFreeBusy
      *
      * @param  bool $excludeFreeBusy
-     * @return bool|self
+     * @return self
      */
-    public function excludeFreeBusy($excludeFreeBusy = null)
+    public function setExcludeFreeBusy($excludeFreeBusy)
     {
-        if(null === $excludeFreeBusy)
-        {
-            return $this->property('excludeFreeBusy');
-        }
-        return $this->property('excludeFreeBusy', (bool) $excludeFreeBusy);
+        return $this->setProperty('excludeFreeBusy', (bool) $excludeFreeBusy);
     }
 
     /**
-     * Gets or sets zid
+     * Gets Zimbra Id
+     *
+     * @return string
+     */
+    public function getZimbraId()
+    {
+        return $this->getProperty('zid');
+    }
+
+    /**
+     * Sets Zimbra Id
      *
      * @param  string $zid
-     * @return string|self
+     * @return self
      */
-    public function zid($zid = null)
+    public function setZimbraId($zid)
     {
-        if(null === $zid)
-        {
-            return $this->property('zid');
-        }
-        return $this->property('zid', trim($zid));
+        return $this->setProperty('zid', trim($zid));
     }
 
     /**
-     * Gets or sets gt
+     * Gets grant type
+     *
+     * @return string
+     */
+    public function getGrantType()
+    {
+        return $this->getProperty('gt');
+    }
+
+    /**
+     * Sets grant type
      *
      * @param  string $gt
-     * @return string|self
+     * @return self
      */
-    public function gt($gt = null)
+    public function setGrantType($gt)
     {
-        if(null === $gt)
-        {
-            return $this->property('gt');
-        }
-        return $this->property('gt', trim($gt));
+        return $this->setProperty('gt', trim($gt));
     }
 
     /**
-     * Gets or sets view
+     * Gets view
+     *
+     * @return string
+     */
+    public function getView()
+    {
+        return $this->getProperty('view');
+    }
+
+    /**
+     * Sets view
      *
      * @param  string $view
-     * @return string|self
+     * @return self
      */
-    public function view($view = null)
+    public function setView($view)
     {
-        if(null === $view)
-        {
-            return $this->property('view');
-        }
-        return $this->property('view', trim($view));
+        return $this->setProperty('view', trim($view));
     }
 
     /**

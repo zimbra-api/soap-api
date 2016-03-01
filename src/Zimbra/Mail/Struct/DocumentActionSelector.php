@@ -71,57 +71,75 @@ class DocumentActionSelector extends ActionSelector
         );
         if($grant instanceof DocumentActionGrant)
         {
-            $this->child('grant', $grant);
+            $this->setChild('grant', $grant);
         }
         if(null !== $zid)
         {
-            $this->property('zid', trim($zid));
+            $this->setProperty('zid', trim($zid));
         }
     }
 
     /**
-     * Gets or sets op
+     * Gets operation
+     *
+     * @return DocumentActionOp
+     */
+    public function getOperation()
+    {
+        return $this->getProperty('op');
+    }
+
+    /**
+     * Sets operation
      *
      * @param  DocumentActionOp $op
-     * @return DocumentActionOp|self
+     * @return self
      */
-    public function op(DocumentActionOp $op = null)
+    public function setOperation(DocumentActionOp $op)
     {
-        if(null === $op)
-        {
-            return $this->property('op');
-        }
-        return $this->property('op', $op);
+        return $this->setProperty('op', $op);
     }
 
     /**
-     * Gets or sets grant
+     * Gets grant
+     *
+     * @return DocumentActionGrant
+     */
+    public function getGrant()
+    {
+        return $this->getChild('grant');
+    }
+
+    /**
+     * Sets grant
      *
      * @param  DocumentActionGrant $grant
-     * @return DocumentActionGrant|self
+     * @return self
      */
-    public function grant(DocumentActionGrant $grant = null)
+    public function setGrant(DocumentActionGrant $grant)
     {
-        if(null === $grant)
-        {
-            return $this->child('grant');
-        }
-        return $this->child('grant', $grant);
+        return $this->setChild('grant', $grant);
     }
 
     /**
-     * Gets or sets zid
+     * Gets Zimbra ID
+     *
+     * @return string
+     */
+    public function getZimbraId()
+    {
+        return $this->getProperty('zid');
+    }
+
+    /**
+     * Sets Zimbra ID
      *
      * @param  string $zid
-     * @return string|self
+     * @return self
      */
-    public function zid($zid = null)
+    public function setZimbraId($zid)
     {
-        if(null === $zid)
-        {
-            return $this->property('zid');
-        }
-        return $this->property('zid', trim($zid));
+        return $this->setProperty('zid', trim($zid));
     }
 
     /**

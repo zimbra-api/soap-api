@@ -11,7 +11,6 @@
 namespace Zimbra\Account\Struct;
 
 use Zimbra\Common\TypedSequence;
-use Zimbra\Struct\Base;
 use Zimbra\Struct\OpValue;
 
 /**
@@ -23,55 +22,8 @@ use Zimbra\Struct\OpValue;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
  */
-class WhiteList extends Base
+class WhiteList extends BlackList
 {
-    /**
-     * Attributes
-     * @var TypedSequence<Attr>
-     */
-    private $_addr;
-
-    /**
-     * Constructor method for WhiteList
-     * @param array $addrs
-     * @return self
-     */
-    public function __construct(array $addrs = array())
-    {
-		parent::__construct();
-        $this->_addr = new TypedSequence('Zimbra\Struct\OpValue', $addrs);
-
-        $this->on('before', function(Base $sender)
-        {
-            if($sender->addr()->count())
-            {
-                $sender->child('addr', $sender->addr()->all());
-            }
-        });
-    }
-
-    /**
-     * Add an addr
-     *
-     * @param  Attr $addr
-     * @return self
-     */
-    public function addAddr(OpValue $addr)
-    {
-        $this->_addr->add($addr);
-        return $this;
-    }
-
-    /**
-     * Gets addr sequence
-     *
-     * @return Sequence
-     */
-    public function addr()
-    {
-        return $this->_addr;
-    }
-
     /**
      * Returns the array representation of this class 
      *

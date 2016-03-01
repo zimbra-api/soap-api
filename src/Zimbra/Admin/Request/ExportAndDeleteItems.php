@@ -27,66 +27,84 @@ class ExportAndDeleteItems extends Base
     /**
      * Constructor method for ExportAndDeleteItemSpec
      * @param  Mailbox $mbox Mailbox
-     * @param  string $exportDir Export filename prefix
-     * @param  string $exportFilenamePrefix Path for export dir
+     * @param  string $exportDir Path for export dir
+     * @param  string $prefix Export filename prefix
      * @return self
      */
-    public function __construct(Mailbox $mbox, $exportDir = null, $exportFilenamePrefix = null)
+    public function __construct(Mailbox $mbox, $exportDir = null, $prefix = null)
     {
         parent::__construct();
-        $this->child('mbox', $mbox);
+        $this->setChild('mbox', $mbox);
         if(null !== $exportDir)
         {
-            $this->property('exportDir', trim($exportDir));
+            $this->setProperty('exportDir', trim($exportDir));
         }
-        if(null !== $exportFilenamePrefix)
+        if(null !== $prefix)
         {
-            $this->property('exportFilenamePrefix', trim($exportFilenamePrefix));
+            $this->setProperty('exportFilenamePrefix', trim($prefix));
         }
     }
 
     /**
-     * Gets or sets mbox
+     * Gets the mail box.
+     *
+     * @return Mailbox
+     */
+    public function getMailbox()
+    {
+        return $this->getChild('mbox');
+    }
+
+    /**
+     * Sets the mail box.
      *
      * @param  Mailbox $mbox
-     * @return Mailbox|self
+     * @return self
      */
-    public function mbox(Mailbox $mbox = null)
+    public function setMailbox(Mailbox $mbox)
     {
-        if(null === $mbox)
-        {
-            return $this->child('mbox');
-        }
-        return $this->child('mbox', $mbox);
+        return $this->setChild('mbox', $mbox);
     }
 
     /**
-     * Gets or sets exportDir
+     * Gets export dir
+     *
+     * @return string
+     */
+    public function getExportDir()
+    {
+        return $this->getProperty('exportDir');
+    }
+
+    /**
+     * Sets export dir
      *
      * @param  string $exportDir
-     * @return string|self
+     * @return self
      */
-    public function exportDir($exportDir = null)
+    public function setExportDir($exportDir)
     {
-        if(null === $exportDir)
-        {
-            return $this->property('exportDir');
-        }
-        return $this->property('exportDir', trim($exportDir));
+        return $this->setProperty('exportDir', trim($exportDir));
     }
 
     /**
-     * Gets or sets exportFilenamePrefix
+     * Gets export filename prefix
      *
-     * @param  string $exportFilenamePrefix
-     * @return string|self
+     * @return string
      */
-    public function exportFilenamePrefix($exportFilenamePrefix = null)
+    public function getExportFilenamePrefix()
     {
-        if(null === $exportFilenamePrefix)
-        {
-            return $this->property('exportFilenamePrefix');
-        }
-        return $this->property('exportFilenamePrefix', trim($exportFilenamePrefix));
+        return $this->getProperty('exportFilenamePrefix');
+    }
+
+    /**
+     * Sets export filename prefix
+     *
+     * @param  string $prefix
+     * @return self
+     */
+    public function setExportFilenamePrefix($prefix)
+    {
+        return $this->setProperty('exportFilenamePrefix', trim($prefix));
     }
 }

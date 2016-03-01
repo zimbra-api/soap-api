@@ -36,40 +36,52 @@ class GetServerNIfs extends Base
     public function __construct(Server $server, IpType $type = null)
     {
         parent::__construct();
-        $this->child('server', $server);
+        $this->setChild('server', $server);
         if($type instanceof IpType)
         {
-            $this->property('type', $type);
+            $this->setProperty('type', $type);
         }
     }
 
     /**
-     * Gets or sets server
+     * Gets the server.
+     *
+     * @return Server
+     */
+    public function getServer()
+    {
+        return $this->getChild('server');
+    }
+
+    /**
+     * Sets the server.
      *
      * @param  Server $server
-     * @return Server|self
+     * @return self
      */
-    public function server(Server $server = null)
+    public function setServer(Server $server)
     {
-        if(null === $server)
-        {
-            return $this->child('server');
-        }
-        return $this->child('server', $server);
+        return $this->setChild('server', $server);
     }
 
     /**
-     * Gets or sets type
+     * Gets type
+     *
+     * @return IpType
+     */
+    public function getType()
+    {
+        return $this->getProperty('type');
+    }
+
+    /**
+     * Sets type
      *
      * @param  IpType $type
-     * @return IpType|self
+     * @return self
      */
-    public function type(IpType $type = null)
+    public function setType(IpType $type)
     {
-        if(null === $type)
-        {
-            return $this->property('type');
-        }
-        return $this->property('type', $type);
+        return $this->setProperty('type', $type);
     }
 }

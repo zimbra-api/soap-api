@@ -25,7 +25,7 @@ abstract class CalItemRequestBase extends Base
 {
     /**
      * Constructor method for CalItemRequestBase
-     * @param  Msg $m
+     * @param  Msg $msg
      * @param  bool $echo
      * @param  int $max
      * @param  bool $html
@@ -34,7 +34,7 @@ abstract class CalItemRequestBase extends Base
      * @return self
      */
     public function __construct(
-        Msg $m = null,
+        Msg $msg = null,
         $echo = null,
         $max = null,
         $html = null,
@@ -43,126 +43,161 @@ abstract class CalItemRequestBase extends Base
     )
     {
         parent::__construct();
-        if($m instanceof Msg)
+        if($msg instanceof Msg)
         {
-            $this->child('m', $m);
+            $this->setChild('m', $msg);
         }
         if(null !== $echo)
         {
-            $this->property('echo', (bool) $echo);
+            $this->setProperty('echo', (bool) $echo);
         }
         if(null !== $max)
         {
-            $this->property('max', (int) $max);
+            $this->setProperty('max', (int) $max);
         }
         if(null !== $html)
         {
-            $this->property('html', (bool) $html);
+            $this->setProperty('html', (bool) $html);
         }
         if(null !== $neuter)
         {
-            $this->property('neuter', (bool) $neuter);
+            $this->setProperty('neuter', (bool) $neuter);
         }
         if(null !== $forcesend)
         {
-            $this->property('forcesend', (bool) $forcesend);
+            $this->setProperty('forcesend', (bool) $forcesend);
         }
     }
 
     /**
-     * Get or set m
+     * Gets message
+     *
+     * @return Msg
+     */
+    public function getMsg()
+    {
+        return $this->getChild('m');
+    }
+
+    /**
+     * Sets message
      *
      * @param  Msg $m
-     * @return Msg|self
+     * @return self
      */
-    public function m(Msg $m = null)
+    public function setMsg(Msg $msg)
     {
-        if(null === $m)
-        {
-            return $this->child('m');
-        }
-        return $this->child('m', $m);
+        return $this->setChild('m', $msg);
     }
 
     /**
-     * Get or set echo
-     * If specified, the created appointment is echoed back in the response as if a GetMsgRequest was made
+     * Gets echo
+     *
+     * @return bool
+     */
+    public function getEcho()
+    {
+        return $this->getProperty('echo');
+    }
+
+    /**
+     * Sets echo
      *
      * @param  bool $echo
-     * @return bool|self
+     *     If specified, the created appointment is echoed back in the response as if a GetMsgRequest was made
+     * @return self
      */
-    public function echo_($echo = null)
+    public function setEcho($echo)
     {
-        if(null === $echo)
-        {
-            return $this->property('echo');
-        }
-        return $this->property('echo', (bool) $echo);
+        return $this->setProperty('echo', (bool) $echo);
     }
 
     /**
-     * Get or set max
-     * Maximum inlined length
+     * Gets maximum inlined length
+     *
+     * @return int
+     */
+    public function getMaxSize()
+    {
+        return $this->getProperty('max');
+    }
+
+    /**
+     * Sets maximum inlined length
      *
      * @param  int $max
-     * @return int|self
+     * @return self
      */
-    public function max($max = null)
+    public function setMaxSize($max)
     {
-        if(null === $max)
-        {
-            return $this->property('max');
-        }
-        return $this->property('max', (int) $max);
+        return $this->setProperty('max', (int) $max);
     }
 
     /**
-     * Get or set html
-     * Set if want HTML included in echoing
+     * Gets want html
+     *
+     * @return bool
+     */
+    public function getWantHtml()
+    {
+        return $this->getProperty('html');
+    }
+
+    /**
+     * Sets want html
      *
      * @param  bool $html
-     * @return bool|self
+     *    Set if want HTML included in echoing
+     * @return self
      */
-    public function html($html = null)
+    public function setWantHtml($html)
     {
-        if(null === $html)
-        {
-            return $this->property('html');
-        }
-        return $this->property('html', (bool) $html);
+        return $this->setProperty('html', (bool) $html);
     }
 
     /**
-     * Get or set neuter
-     * Set if want "neuter" set for echoed response
+     * Gets neuter
+     *
+     * @return bool
+     */
+    public function getNeuter()
+    {
+        return $this->getProperty('neuter');
+    }
+
+    /**
+     * Sets neuter
      *
      * @param  bool $neuter
-     * @return bool|self
+     *     Set if want "neuter" set for echoed response
+     * @return self
      */
-    public function neuter($neuter = null)
+    public function setNeuter($neuter)
     {
-        if(null === $neuter)
-        {
-            return $this->property('neuter');
-        }
-        return $this->property('neuter', (bool) $neuter);
+        return $this->setProperty('neuter', (bool) $neuter);
     }
 
     /**
-     * Get or set forcesend
-     * If set, ignore smtp 550 errors when sending the notification to attendees.
-     * If unset, throw the soapfaultexception with invalid addresses so that client can give the forcesend option to the end user.
-     * The default is 1.
+     * Gets force send
+     *
+     * @return bool
+     */
+    public function getForceSend()
+    {
+        return $this->getProperty('forcesend');
+    }
+
+    /**
+     * Sets force send
      *
      * @param  bool $forcesend
-     * @return bool|self
+     *     If set, ignore smtp 550 errors when sending the notification to attendees.
+     *     If unset, throw the soapfaultexception with invalid addresses so that client can give the forcesend option to the end user.
+     *     The default is 1.
+     * @return self
      */
-    public function forcesend($forcesend = null)
+    public function setForceSend($forcesend)
     {
-        if(null === $forcesend)
-        {
-            return $this->property('forcesend');
-        }
-        return $this->property('forcesend', (bool) $forcesend);
+        return $this->setProperty('forcesend', (bool) $forcesend);
     }
 }

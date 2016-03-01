@@ -24,54 +24,7 @@ use Zimbra\Struct\Base;
  */
 class SetCalendarItemInfo extends Base
 {
-    /**
-     * Constructor method for SetCalendarItemInfo
-     * @param  Msg $m Message
-     * @param  ParticipationStatus $ptst iCalendar PTST (Participation status)
-     * @return self
-     */
-    public function __construct(Msg $m = null, ParticipationStatus $ptst = null)
-    {
-        parent::__construct();
-        if($m instanceof Msg)
-        {
-            $this->child('m', $m);
-        }
-        if($ptst instanceof ParticipationStatus)
-        {
-            $this->property('ptst', $ptst);
-        }
-    }
-
-    /**
-     * Get or set m
-     *
-     * @param  Msg $m
-     * @return Msg|self
-     */
-    public function m(Msg $m = null)
-    {
-        if(null === $m)
-        {
-            return $this->child('m');
-        }
-        return $this->child('m', $m);
-    }
-
-    /**
-     * Get or set ptst
-     *
-     * @param  ParticipationStatus $ptst
-     * @return ParticipationStatus|self
-     */
-    public function ptst(ParticipationStatus $ptst = null)
-    {
-        if(null === $ptst)
-        {
-            return $this->property('ptst');
-        }
-        return $this->property('ptst', $ptst);
-    }
+    use SetCalendarItemInfoTrail;
 
     /**
      * Returns the array representation of this class 

@@ -25,7 +25,7 @@ class DtTimeInfo extends Base
 {
     /**
      * Constructor method for DtTimeInfo
-     * @param string $d Date and/or time. Format is : YYYYMMDD['T'HHMMSS[Z]] 
+     * @param string $date Date and/or time. Format is : YYYYMMDD['T'HHMMSS[Z]] 
      * @param string $tz Java timezone identifier
      * @param int $u UTC time as milliseconds since the epoch. Set if non-all-day
      * @return self
@@ -39,61 +39,79 @@ class DtTimeInfo extends Base
         parent::__construct();
         if(null !== $d)
         {
-            $this->property('d', trim($d));
+            $this->setProperty('d', trim($d));
         }
         if(null !== $tz)
         {
-            $this->property('tz', trim($tz));
+            $this->setProperty('tz', trim($tz));
         }
         if(null !== $u)
         {
-            $this->property('u', (int) $u);
+            $this->setProperty('u', (int) $u);
         }
     }
 
     /**
-     * Gets or sets d
+     * Gets date time
+     *
+     * @return string
+     */
+    public function getDateTime()
+    {
+        return $this->getProperty('d');
+    }
+
+    /**
+     * Sets date time
      *
      * @param  string $d
-     * @return string|self
+     * @return self
      */
-    public function d($d = null)
+    public function setDateTime($d)
     {
-        if(null === $d)
-        {
-            return $this->property('d');
-        }
-        return $this->property('d', trim($d));
+        return $this->setProperty('d', trim($d));
     }
 
     /**
-     * Gets or sets tz
+     * Gets time zone
+     *
+     * @return string
+     */
+    public function getTimezone()
+    {
+        return $this->getProperty('tz');
+    }
+
+    /**
+     * Sets time zone
      *
      * @param  string $tz
-     * @return string|self
+     * @return self
      */
-    public function tz($tz = null)
+    public function setTimezone($tz)
     {
-        if(null === $tz)
-        {
-            return $this->property('tz');
-        }
-        return $this->property('tz', trim($tz));
+        return $this->setProperty('tz', trim($tz));
     }
 
     /**
-     * Gets or sets u
+     * Gets utc time
+     *
+     * @return int
+     */
+    public function getUtcTime()
+    {
+        return $this->getProperty('u');
+    }
+
+    /**
+     * Sets utc time
      *
      * @param  int $u
-     * @return int|self
+     * @return self
      */
-    public function u($u = null)
+    public function setUtcTime($u)
     {
-        if(null === $u)
-        {
-            return $this->property('u');
-        }
-        return $this->property('u', (int) $u);
+        return $this->setProperty('u', (int) $u);
     }
 
     /**

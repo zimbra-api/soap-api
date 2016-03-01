@@ -39,81 +39,96 @@ class ChangePassword extends Base
     )
     {
         parent::__construct();
-        if($account instanceof Account)
-        {
-            $this->child('account', $account);
-        }
-        if(null !== $oldPassword)
-        {
-            $this->child('oldPassword', trim($oldPassword));
-        }
-        if(null !== $password)
-        {
-            $this->child('password', trim($password));
-        }
+        $this->setChild('account', $account);
+        $this->setChild('oldPassword', trim($oldPassword));
+        $this->setChild('password', trim($password));
         if(null !== $virtualHost)
         {
-            $this->child('virtualHost', trim($virtualHost));
+            $this->setChild('virtualHost', trim($virtualHost));
         }
     }
 
     /**
-     * Gets or sets account
+     * Gets the account
+     *
+     * @return Account
+     */
+    public function getAccount()
+    {
+        return $this->getChild('account');
+    }
+
+    /**
+     * Sets the account
      *
      * @param  Account $account
-     * @return Account|self
+     * @return self
      */
-    public function account(Account $account = null)
+    public function setAccount(Account $account)
     {
-        if(null === $account)
-        {
-            return $this->child('account');
-        }
-        return $this->child('account', $account);
+        return $this->setChild('account', $account);
     }
 
     /**
-     * Gets or sets oldPassword
+     * Gets old password
+     *
+     * @return string
+     */
+    public function getOldPassword()
+    {
+        return $this->getChild('oldPassword');
+    }
+
+    /**
+     * Sets old password
      *
      * @param  string $oldPassword
-     * @return string|self
+     * @return self
      */
-    public function oldPassword($oldPassword = null)
+    public function setOldPassword($oldPassword)
     {
-        if(null === $oldPassword)
-        {
-            return $this->child('oldPassword');
-        }
-        return $this->child('oldPassword', trim($oldPassword));
+        return $this->setChild('oldPassword', trim($oldPassword));
     }
 
     /**
-     * Gets or sets password
+     * Gets password
+     *
+     * @return string
+     */
+    public function getPassword()
+    {
+        return $this->getChild('password');
+    }
+
+    /**
+     * Sets password
      *
      * @param  string $password
-     * @return string|self
+     * @return self
      */
-    public function password($password = null)
+    public function setPassword($password)
     {
-        if(null === $password)
-        {
-            return $this->child('password');
-        }
-        return $this->child('password', trim($password));
+        return $this->setChild('password', trim($password));
     }
 
     /**
-     * Gets or sets virtualHost
+     * Gets virtual host
+     *
+     * @return string
+     */
+    public function getVirtualHost()
+    {
+        return $this->getChild('virtualHost');
+    }
+
+    /**
+     * Sets virtual host
      *
      * @param  string $virtualHost
-     * @return string|self
+     * @return self
      */
-    public function virtualHost($virtualHost = null)
+    public function setVirtualHost($virtualHost)
     {
-        if(null === $virtualHost)
-        {
-            return $this->child('virtualHost');
-        }
-        return $this->child('virtualHost', trim($virtualHost));
+        return $this->setChild('virtualHost', trim($virtualHost));
     }
 }

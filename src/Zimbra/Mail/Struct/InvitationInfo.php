@@ -23,6 +23,19 @@ use Zimbra\Common\TypedSequence;
  */
 class InvitationInfo extends InviteComponent
 {
+
+    /**
+     * Timezones
+     * @var TypedSequence
+     */
+    private $_timezones;
+
+    /**
+     * Meeting notes parts
+     * @var TypedSequence
+     */
+    private $_mimeParts;
+
     /**
      * Constructor method for InviteComponent
      *
@@ -54,14 +67,14 @@ class InvitationInfo extends InviteComponent
      * @param bool   $allDay
      * @param bool   $draft
      * @param bool   $neverSent
-     * @param array  $change
-     * @param array  $category
-     * @param array  $comment
-     * @param array  $contact
+     * @param array  $changes
+     * @param array  $categories
+     * @param array  $comments
+     * @param array  $contacts
      * @param GeoInfo $geo
-     * @param array  $at
-     * @param array  $alarm
-     * @param array  $xprop
+     * @param array  $attendees
+     * @param array  $alarms
+     * @param array  $xprops
      * @param string $fr
      * @param string $desc
      * @param string $descHtml
@@ -73,8 +86,8 @@ class InvitationInfo extends InviteComponent
      * @param DurationInfo $dur
      * @param RawInvite $content
      * @param InviteComponent $comp
-     * @param array $tz
-     * @param array $mp
+     * @param array $timezones
+     * @param array $mimeParts
      * @param AttachmentsInfo $attach
      * @param string $id
      * @param string $ct
@@ -109,14 +122,14 @@ class InvitationInfo extends InviteComponent
         $allDay = null,
         $draft = null,
         $neverSent = null,
-        array $change = array(),
-        array $category = array(),
-        array $comment = array(),
-        array $contact = array(),
+        array $changes = [],
+        array $categories = [],
+        array $comments = [],
+        array $contacts = [],
         GeoInfo $geo = null,
-        array $at = array(),
-        array $alarm = array(),
-        array $xprop = array(),
+        array $attendees = [],
+        array $alarms = [],
+        array $xprops = [],
         $fr = null,
         $desc = null,
         $descHtml = null,
@@ -128,8 +141,8 @@ class InvitationInfo extends InviteComponent
         DurationInfo $dur = null,
         RawInvite $content = null,
         InviteComponent $comp = null,
-        array $tz = array(),
-        array $mp = array(),
+        array $timezones = [],
+        array $mimeParts = [],
         AttachmentsInfo $attach = null,
         $id = null,
         $ct = null,
@@ -165,14 +178,14 @@ class InvitationInfo extends InviteComponent
             $allDay,
             $draft,
             $neverSent,
-            $change,
-            $category,
-            $comment,
-            $contact,
+            $changes,
+            $categories,
+            $comments,
+            $contacts,
             $geo,
-            $at,
-            $alarm,
-            $xprop,
+            $attendees,
+            $alarms,
+            $xprops,
             $fr,
             $desc,
             $descHtml,
@@ -185,176 +198,236 @@ class InvitationInfo extends InviteComponent
         );
         if($content instanceof RawInvite)
         {
-            $this->child('content', $content);
+            $this->setChild('content', $content);
         }
         if($comp instanceof InviteComponent)
         {
-            $this->child('comp', $comp);
+            $this->setChild('comp', $comp);
         }
-        $this->_tz = new TypedSequence('Zimbra\Mail\Struct\CalTZInfo', $tz);
-        $this->_mp = new TypedSequence('Zimbra\Mail\Struct\MimePartInfo', $mp);
         if($attach instanceof AttachmentsInfo)
         {
-            $this->child('attach', $attach);
+            $this->setChild('attach', $attach);
         }
         if(null !== $id)
         {
-            $this->property('id', trim($id));
+            $this->setProperty('id', trim($id));
         }
         if(null !== $ct)
         {
-            $this->property('ct', trim($ct));
+            $this->setProperty('ct', trim($ct));
         }
         if(null !== $ci)
         {
-            $this->property('ci', trim($ci));
+            $this->setProperty('ci', trim($ci));
         }
 
+        $this->setTimezones($timezones)
+            ->setMimeParts($mimeParts);
         $this->on('before', function(InviteComponent $sender)
         {
-            if($sender->tz()->count())
+            if($sender->getTimezones()->count())
             {
-                $sender->child('tz', $sender->tz()->all());
+                $sender->setChild('tz', $sender->getTimezones()->all());
             }
-            if($sender->mp()->count())
+            if($sender->getMimeParts()->count())
             {
-                $sender->child('mp', $sender->mp()->all());
+                $sender->setChild('mp', $sender->getMimeParts()->all());
             }
         });
     }
 
     /**
-     * Gets or sets content
+     * Gets content
+     *
+     * @return RawInvite
+     */
+    public function getContent()
+    {
+        return $this->getChild('content');
+    }
+
+    /**
+     * Sets content
      *
      * @param  RawInvite $content
-     * @return RawInvite|self
+     * @return self
      */
-    public function content(RawInvite $content = null)
+    public function setContent(RawInvite $content)
     {
-        if(null === $content)
-        {
-            return $this->child('content');
-        }
-        return $this->child('content', $content);
+        return $this->setChild('content', $content);
     }
 
     /**
-     * Gets or sets comp
+     * Gets invite component
+     *
+     * @return InviteComponent
+     */
+    public function getInviteComponent()
+    {
+        return $this->getChild('comp');
+    }
+
+    /**
+     * Sets invite component
      *
      * @param  InviteComponent $comp
-     * @return InviteComponent|self
+     * @return self
      */
-    public function comp(InviteComponent $comp = null)
+    public function setInviteComponent(InviteComponent $comp)
     {
-        if(null === $comp)
-        {
-            return $this->child('comp');
-        }
-        return $this->child('comp', $comp);
+        return $this->setChild('comp', $comp);
     }
 
     /**
-     * Add a tz
+     * Add a timezone
      *
      * @param  CalTZInfo $tz
      * @return self
      */
-    public function addTz(CalTZInfo $tz)
+    public function addTimezone(CalTZInfo $tz)
     {
-        $this->_tz->add($tz);
+        $this->_timezones->add($tz);
         return $this;
     }
 
     /**
-     * Get sequence of tz
+     * Set sequence of timezone
      *
-     * @return Sequence
+     * @param  array $timezones
+     * @return self
      */
-    public function tz()
+    public function setTimezones(array $timezones)
     {
-        return $this->_tz;
+        $this->_timezones = new TypedSequence('Zimbra\Mail\Struct\CalTZInfo', $timezones);
+        return $this;
     }
 
     /**
-     * Add a mp
+     * Get sequence of timezone
+     *
+     * @return Sequence
+     */
+    public function getTimezones()
+    {
+        return $this->_timezones;
+    }
+
+    /**
+     * Add a mime part
      *
      * @param  MimePartInfo $mp
      * @return self
      */
-    public function addMp(MimePartInfo $mp)
+    public function addMimePart(MimePartInfo $mp)
     {
-        $this->_mp->add($mp);
+        $this->_mimeParts->add($mp);
         return $this;
     }
 
     /**
-     * Get sequence of mp
+     * Set sequence of mime part
+     *
+     * @param  array $mimeParts
+     * @return self
+     */
+    public function setMimeParts(array $mimeParts)
+    {
+        $this->_mimeParts = new TypedSequence('Zimbra\Mail\Struct\MimePartInfo', $mimeParts);
+        return $this;
+    }
+
+    /**
+     * Get sequence of mime part
      *
      * @return Sequence
      */
-    public function mp()
+    public function getMimeParts()
     {
-        return $this->_mp;
+        return $this->_mimeParts;
     }
 
     /**
-     * Gets or sets attach
+     * Gets attachments
+     *
+     * @return AttachmentsInfo
+     */
+    public function getAttachments()
+    {
+        return $this->getChild('attach');
+    }
+
+    /**
+     * Sets attachments
      *
      * @param  AttachmentsInfo $attach
-     * @return AttachmentsInfo|self
+     * @return self
      */
-    public function attach(AttachmentsInfo $attach = null)
+    public function setAttachments(AttachmentsInfo $attach)
     {
-        if(null === $attach)
-        {
-            return $this->child('attach');
-        }
-        return $this->child('attach', $attach);
+        return $this->setChild('attach', $attach);
     }
 
     /**
-     * Gets or sets id
+     * Gets id
+     *
+     * @return string
+     */
+    public function getId()
+    {
+        return $this->getProperty('id');
+    }
+
+    /**
+     * Sets id
      *
      * @param  string $id
-     * @return string|self
+     * @return self
      */
-    public function id($id = null)
+    public function setId($id)
     {
-        if(null === $id)
-        {
-            return $this->property('id');
-        }
-        return $this->property('id', trim($id));
+        return $this->setProperty('id', trim($id));
     }
 
     /**
-     * Gets or sets ct
+     * Gets content type
+     *
+     * @return string
+     */
+    public function getContentType()
+    {
+        return $this->getProperty('ct');
+    }
+
+    /**
+     * Sets content type
      *
      * @param  string $ct
-     * @return string|self
+     * @return self
      */
-    public function ct($ct = null)
+    public function setContentType($ct)
     {
-        if(null === $ct)
-        {
-            return $this->property('ct');
-        }
-        return $this->property('ct', trim($ct));
+        return $this->setProperty('ct', trim($ct));
     }
 
     /**
-     * Gets or sets ci
+     * Gets content Id
+     *
+     * @return string
+     */
+    public function getContentId()
+    {
+        return $this->getProperty('ci');
+    }
+
+    /**
+     * Sets content Id
      *
      * @param  string $ci
-     * @return string|self
+     * @return self
      */
-    public function ci($ci = null)
+    public function setContentId($ci)
     {
-        if(null === $ci)
-        {
-            return $this->property('ci');
-        }
-        return $this->property('ci', trim($ci));
+        return $this->setProperty('ci', trim($ci));
     }
 
     /**

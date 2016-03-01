@@ -27,174 +27,223 @@ class AccountACEInfo extends Base
 {
     /**
      * Constructor method for AccountACEInfo
-     * @param GranteeType $gt
+     * @param GranteeType $granteeType
      * @param AceRightType $right
-     * @param string $zid
-     * @param string $d
-     * @param string $key
-     * @param string $pw
+     * @param string $zimbraId
+     * @param string $displayName
+     * @param string $accessKey
+     * @param string $password
      * @param bool $deny
-     * @param bool $chkgt
+     * @param bool $checkGranteeType
      * @return self
      */
     public function __construct(
-        GranteeType $gt,
+        GranteeType $granteeType,
         AceRightType $right,
-        $zid = null,
-        $d = null,
-        $key = null,
-        $pw = null,
+        $zimbraId = null,
+        $displayName = null,
+        $accessKey = null,
+        $password = null,
         $deny = null,
-        $chkgt = null
+        $checkGranteeType = null
     )
     {
         parent::__construct();
-        $this->property('gt', $gt);
-        $this->property('right', $right);
-        if(null !== $zid)
+        $this->setProperty('gt', $granteeType);
+        $this->setProperty('right', $right);
+        if(null !== $zimbraId)
         {
-            $this->property('zid', trim($zid));
+            $this->setProperty('zid', trim($zimbraId));
         }
-        if(null !== $d)
+        if(null !== $displayName)
         {
-            $this->property('d', trim($d));
+            $this->setProperty('d', trim($displayName));
         }
-        if(null !== $key)
+        if(null !== $accessKey)
         {
-            $this->property('key', trim($key));
+            $this->setProperty('key', trim($accessKey));
         }
-        if(null !== $pw)
+        if(null !== $password)
         {
-            $this->property('pw', trim($pw));
+            $this->setProperty('pw', trim($password));
         }
         if(null !== $deny)
         {
-            $this->property('deny', (bool) $deny);
+            $this->setProperty('deny', (bool) $deny);
         }
-        if(null !== $chkgt)
+        if(null !== $checkGranteeType)
         {
-            $this->property('chkgt', (bool) $chkgt);
+            $this->setProperty('chkgt', (bool) $checkGranteeType);
         }
     }
 
     /**
-     * Gets or sets gt
+     * Gets the type of grantee
      *
-     * @param  GranteeType $gt
-     * @return GranteeType|self
+     * @return GranteeType
      */
-    public function gt(GranteeType $gt = null)
+    public function getGranteeType()
     {
-        if(null === $gt)
-        {
-            return $this->property('gt');
-        }
-        return $this->property('gt', $gt);
+        return $this->getProperty('gt');
     }
 
     /**
-     * Gets or sets right
+     * Sets the type of grantee
+     *
+     * @param  GranteeType $granteeType
+     * @return self
+     */
+    public function setGranteeType(GranteeType $granteeType)
+    {
+        return $this->setProperty('gt', $granteeType);
+    }
+
+    /**
+     * Gets the right enum
      *
      * @param  AceRightType $right
-     * @return AceRightType|self
+     * @return AceRightType
      */
-    public function right(AceRightType $right = null)
+    public function getRight()
     {
-        if(null === $right)
-        {
-            return $this->property('right');
-        }
-        return $this->property('right', $right);
+        return $this->getProperty('right');
     }
 
     /**
-     * Gets or sets zid
+     * Sets the right enum
      *
-     * @param  string $zid
+     * @param  AceRightType $right
+     * @return self
+     */
+    public function setRight(AceRightType $right)
+    {
+        return $this->setProperty('right', $right);
+    }
+
+    /**
+     * Gets Zimbra Id
+     *
+     * @return string
+     */
+    public function getZimbraId()
+    {
+        return $this->getProperty('zid');
+    }
+
+    /**
+     * Sets Zimbra Id
+     *
+     * @param  string $zimbraId
+     * @return self
+     */
+    public function setZimbraId($zimbraId)
+    {
+        return $this->setProperty('zid', trim($zimbraId));
+    }
+
+    /**
+     * Gets display name
+     *
+     * @return string
+     */
+    public function getDisplayName()
+    {
+        return $this->getProperty('d');
+    }
+
+    /**
+     * Sets display name
+     *
+     * @param  string $displayName
      * @return string|self
      */
-    public function zid($zid = null)
+    public function setDisplayName($displayName)
     {
-        if(null === $zid)
-        {
-            return $this->property('zid');
-        }
-        return $this->property('zid', trim($zid));
+        return $this->setProperty('d', trim($displayName));
     }
 
     /**
-     * Gets or sets d
+     * Gets access key
      *
-     * @param  string $d
-     * @return string|self
+     * @return string
      */
-    public function d($d = null)
+    public function getAccessKey()
     {
-        if(null === $d)
-        {
-            return $this->property('d');
-        }
-        return $this->property('d', trim($d));
+        return $this->getProperty('key');
     }
 
     /**
-     * Gets or sets key
+     * Sets access key
      *
-     * @param  string $key
-     * @return string|self
+     * @param  string $accessKey
+     * @return self
      */
-    public function key($key = null)
+    public function setAccessKey($accessKey)
     {
-        if(null === $key)
-        {
-            return $this->property('key');
-        }
-        return $this->property('key', trim($key));
+        return $this->setProperty('key', trim($accessKey));
     }
 
     /**
-     * Gets or sets pw
+     * Gets password
      *
-     * @param  string $pw
-     * @return string|self
+     * @return string
      */
-    public function pw($pw = null)
+    public function getPassword()
     {
-        if(null === $pw)
-        {
-            return $this->property('pw');
-        }
-        return $this->property('pw', trim($pw));
+        return $this->getProperty('pw');
     }
 
     /**
-     * Gets or sets deny
+     * Sets password
+     *
+     * @param  string $password
+     * @return self
+     */
+    public function setPassword($password)
+    {
+        return $this->setProperty('pw', trim($password));
+    }
+
+    /**
+     * Gets deny specifically of right
+     *
+     * @return bool
+     */
+    public function getDeny()
+    {
+        return $this->getProperty('deny');
+    }
+
+    /**
+     * Sets deny specifically of right
      *
      * @param  bool $deny
-     * @return bool|self
+     * @return self
      */
-    public function deny($deny = null)
+    public function setDeny($deny)
     {
-        if(null === $deny)
-        {
-            return $this->property('deny');
-        }
-        return $this->property('deny', (bool) $deny);
+        return $this->setProperty('deny', (bool) $deny);
     }
 
     /**
-     * Gets or sets chkgt
+     * Gets check grantee type status
      *
-     * @param  bool $chkgt
-     * @return bool|self
+     * @return bool
      */
-    public function chkgt($chkgt = null)
+    public function getCheckGranteeType()
     {
-        if(null === $chkgt)
-        {
-            return $this->property('chkgt');
-        }
-        return $this->property('chkgt', (bool) $chkgt);
+        return $this->getProperty('chkgt');
+    }
+
+    /**
+     * Sets check grantee type status
+     *
+     * @param  bool $checkGranteeType
+     * @return self
+     */
+    public function setCheckGranteeType($checkGranteeType)
+    {
+        return $this->setProperty('chkgt', (bool) $checkGranteeType);
     }
 
     /**

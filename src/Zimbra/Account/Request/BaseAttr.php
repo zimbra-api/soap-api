@@ -28,9 +28,9 @@ abstract class BaseAttr extends Attr
      * @param array $attrs
      * @return self
      */
-    public function __construct(array $attrs = array())
+    public function __construct(array $attrs = [])
     {
         parent::__construct($attrs);
-        $this->xmlNamespace('urn:zimbraAccount');
+        $this->setXmlNamespace('urn:zimbraAccount');
     }
 }

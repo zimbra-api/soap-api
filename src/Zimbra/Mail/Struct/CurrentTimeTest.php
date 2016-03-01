@@ -21,17 +21,6 @@ namespace Zimbra\Mail\Struct;
  */
 class CurrentTimeTest extends FilterTest
 {
-    /**
-     * Date comparison
-     * @var string
-     */
-    private $_dateComparison;
-
-    /**
-     * Time
-     * @var string
-     */
-    private $_time;
 
     /**
      * Constructor method for CurrentTimeTest
@@ -51,42 +40,54 @@ class CurrentTimeTest extends FilterTest
         parent::__construct($index, $negative);
         if(null !== $dateComparison)
         {
-            $this->property('dateComparison', trim($dateComparison));
+            $this->setProperty('dateComparison', trim($dateComparison));
         }
         if(null !== $time)
         {
-            $this->property('time', trim($time));
+            $this->setProperty('time', trim($time));
         }
     }
 
     /**
-     * Gets or sets dateComparison
+     * Gets date comparison setting
+     *
+     * @return string
+     */
+    public function getDateComparison()
+    {
+        return $this->getProperty('dateComparison');
+    }
+
+    /**
+     * Sets date comparison setting
      *
      * @param  string $dateComparison
-     * @return string|self
+     * @return self
      */
-    public function dateComparison($dateComparison = null)
+    public function setDateComparison($dateComparison)
     {
-        if(null === $dateComparison)
-        {
-            return $this->property('dateComparison');
-        }
-        return $this->property('dateComparison', trim($dateComparison));
+        return $this->setProperty('dateComparison', trim($dateComparison));
     }
 
     /**
-     * Gets or sets time
+     * Gets time
+     *
+     * @return string
+     */
+    public function getTime()
+    {
+        return $this->getProperty('time');
+    }
+
+    /**
+     * Sets time
      *
      * @param  string $time
-     * @return string|self
+     * @return self
      */
-    public function time($time = null)
+    public function setTime($time)
     {
-        if(null === $time)
-        {
-            return $this->property('time');
-        }
-        return $this->property('time', trim($time));
+        return $this->setProperty('time', trim($time));
     }
 
     /**

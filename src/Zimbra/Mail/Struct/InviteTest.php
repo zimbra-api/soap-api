@@ -27,7 +27,7 @@ class InviteTest extends FilterTest
      * Method
      * @var Sequence
      */
-    private $_method;
+    private $_methods;
 
     /**
      * Constructor method for InviteTest
@@ -37,25 +37,16 @@ class InviteTest extends FilterTest
      * @return self
      */
     public function __construct(
-        $index, array $method = array(), $negative = null
+        $index, array $methods = [], $negative = null
     )
     {
         parent::__construct($index, $negative);
-        $this->_method = new Sequence();
-        foreach ($method as $value)
-        {
-            $value = trim($value);
-            if(!$this->_method->contains($value))
-            {
-                $this->_method->add($value);
-            }
-        }
-
+        $this->setMethods($methods);
         $this->on('before', function(FilterTest $sender)
         {
-            if($sender->method()->count())
+            if($sender->getMethods()->count())
             {
-                $sender->child('method', $sender->method()->all());
+                $sender->setChild('method', $sender->getMethods()->all());
             }
         });
     }
@@ -68,7 +59,27 @@ class InviteTest extends FilterTest
      */
     public function addMethod($method)
     {
-        $this->_method->add($method);
+        $this->_methods->add($method);
+        return $this;
+    }
+
+    /**
+     * Sets method sequence
+     *
+     * @param  array $methods
+     * @return self
+     */
+    public function setMethods(array $methods)
+    {
+        $this->_methods = new Sequence();
+        foreach ($methods as $value)
+        {
+            $value = trim($value);
+            if(!$this->_methods->contains($value))
+            {
+                $this->_methods->add($value);
+            }
+        }
         return $this;
     }
 
@@ -77,9 +88,9 @@ class InviteTest extends FilterTest
      *
      * @return Sequence
      */
-    public function method()
+    public function getMethods()
     {
-        return $this->_method;
+        return $this->_methods;
     }
 
     /**

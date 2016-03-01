@@ -26,9 +26,6 @@ class DocumentSpec extends Base
 {
     /**
      * Constructor method for DocumentSpec
-     * @param Id $upload Upload specification
-     * @param MessagePartSpec $m MessageMessage part specification
-     * @param IdVersion $doc Information on document version to restore to
      * @param string $name File name
      * @param string $ct Content Type
      * @param string $desc Description
@@ -38,12 +35,12 @@ class DocumentSpec extends Base
      * @param string $content Inlined document content string
      * @param bool   $descEnabled Desc enabled flag
      * @param string $f  - Any of the flags specified in soap.txt, with the addition of "t", which specifies that the document is a note.
+     * @param Id $upload Upload specification
+     * @param MessagePartSpec $m MessageMessage part specification
+     * @param IdVersion $doc Information on document version to restore to
      * @return self
      */
     public function __construct(
-        Id $upload = null,
-        MessagePartSpec $m = null,
-        IdVersion $doc = null,
         $name = null,
         $ct = null,
         $desc = null,
@@ -52,238 +49,313 @@ class DocumentSpec extends Base
         $ver = null,
         $content = null,
         $descEnabled = null,
-        $f = null
+        $f = null,
+        Id $upload = null,
+        MessagePartSpec $m = null,
+        IdVersion $doc = null
     )
     {
         parent::__construct();
-        if($upload instanceof Id)
-        {
-            $this->child('upload', $upload);
-        }
-        if($m instanceof MessagePartSpec)
-        {
-            $this->child('m', $m);
-        }
-        if($doc instanceof IdVersion)
-        {
-            $this->child('doc', $doc);
-        }
         if(null !== $name)
         {
-            $this->property('name', trim($name));
+            $this->setProperty('name', trim($name));
         }
         if(null !== $ct)
         {
-            $this->property('ct', trim($ct));
+            $this->setProperty('ct', trim($ct));
         }
         if(null !== $desc)
         {
-            $this->property('desc', trim($desc));
+            $this->setProperty('desc', trim($desc));
         }
         if(null !== $l)
         {
-            $this->property('l', trim($l));
+            $this->setProperty('l', trim($l));
         }
         if(null !== $id)
         {
-            $this->property('id', trim($id));
+            $this->setProperty('id', trim($id));
         }
         if(null !== $ver)
         {
-            $this->property('ver', (int) $ver);
+            $this->setProperty('ver', (int) $ver);
         }
         if(null !== $content)
         {
-            $this->property('content', trim($content));
+            $this->setProperty('content', trim($content));
         }
         if(null !== $descEnabled)
         {
-            $this->property('descEnabled', (bool) $descEnabled);
+            $this->setProperty('descEnabled', (bool) $descEnabled);
         }
         if(null !== $f)
         {
-            $this->property('f', trim($f));
+            $this->setProperty('f', trim($f));
+        }
+        if($upload instanceof Id)
+        {
+            $this->setChild('upload', $upload);
+        }
+        if($m instanceof MessagePartSpec)
+        {
+            $this->setChild('m', $m);
+        }
+        if($doc instanceof IdVersion)
+        {
+            $this->setChild('doc', $doc);
         }
     }
 
     /**
-     * Gets or sets upload
+     * Gets upload
+     *
+     * @return Id
+     */
+    public function getUpload()
+    {
+        return $this->getChild('upload');
+    }
+
+    /**
+     * Sets upload
      *
      * @param  Id $upload
-     * @return Id|self
+     * @return self
      */
-    public function upload(Id $upload = null)
+    public function setUpload(Id $upload)
     {
-        if(null === $upload)
-        {
-            return $this->child('upload');
-        }
-        return $this->child('upload', $upload);
+        return $this->setChild('upload', $upload);
     }
 
     /**
-     * Gets or sets m
+     * Gets message part
+     *
+     * @return MessagePartSpec
+     */
+    public function getMessagePart()
+    {
+        return $this->getChild('m');
+    }
+
+    /**
+     * Sets message part
      *
      * @param  MessagePartSpec $m
-     * @return MessagePartSpec|self
+     * @return self
      */
-    public function m(MessagePartSpec $m = null)
+    public function setMessagePart(MessagePartSpec $m)
     {
-        if(null === $m)
-        {
-            return $this->child('m');
-        }
-        return $this->child('m', $m);
+        return $this->setChild('m', $m);
     }
 
     /**
-     * Gets or sets doc
+     * Gets document version
+     *
+     * @return IdVersion
+     */
+    public function getDocRevision()
+    {
+        return $this->getChild('doc');
+    }
+
+    /**
+     * Sets document version
      *
      * @param  IdVersion $doc
-     * @return IdVersion|self
+     * @return self
      */
-    public function doc(IdVersion $doc = null)
+    public function setDocRevision(IdVersion $doc)
     {
-        if(null === $doc)
-        {
-            return $this->child('doc');
-        }
-        return $this->child('doc', $doc);
+        return $this->setChild('doc', $doc);
     }
 
     /**
-     * Gets or sets name
+     * Gets name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->getProperty('name');
+    }
+
+    /**
+     * Sets name
      *
      * @param  string $name
-     * @return string|self
+     * @return self
      */
-    public function name($name = null)
+    public function setName($name)
     {
-        if(null === $name)
-        {
-            return $this->property('name');
-        }
-        return $this->property('name', trim($name));
+        return $this->setProperty('name', trim($name));
     }
 
     /**
-     * Gets or sets ct
+     * Gets content type
+     *
+     * @return string
+     */
+    public function getContentType()
+    {
+        return $this->getProperty('ct');
+    }
+
+    /**
+     * Sets content type
      *
      * @param  string $ct
-     * @return string|self
+     * @return self
      */
-    public function ct($ct = null)
+    public function setContentType($ct)
     {
-        if(null === $ct)
-        {
-            return $this->property('ct');
-        }
-        return $this->property('ct', trim($ct));
+        return $this->setProperty('ct', trim($ct));
     }
 
     /**
-     * Gets or sets desc
+     * Gets description
+     *
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->getProperty('desc');
+    }
+
+    /**
+     * Sets description
      *
      * @param  string $desc
-     * @return string|self
+     * @return self
      */
-    public function desc($desc = null)
+    public function setDescription($desc)
     {
-        if(null === $desc)
-        {
-            return $this->property('desc');
-        }
-        return $this->property('desc', trim($desc));
+        return $this->setProperty('desc', trim($desc));
     }
 
     /**
-     * Gets or sets l
+     * Gets folder ID
+     *
+     * @return string
+     */
+    public function getFolderId()
+    {
+        return $this->getProperty('l');
+    }
+
+    /**
+     * Sets folder ID
      *
      * @param  string $l
-     * @return string|self
+     * @return self
      */
-    public function l($l = null)
+    public function setFolderId($l)
     {
-        if(null === $l)
-        {
-            return $this->property('l');
-        }
-        return $this->property('l', trim($l));
+        return $this->setProperty('l', trim($l));
     }
 
     /**
-     * Gets or sets id
+     * Gets item id
+     *
+     * @return string
+     */
+    public function getId()
+    {
+        return $this->getProperty('id');
+    }
+
+    /**
+     * Sets item id
      *
      * @param  string $id
-     * @return string|self
+     * @return self
      */
-    public function id($id = null)
+    public function setId($id)
     {
-        if(null === $id)
-        {
-            return $this->property('id');
-        }
-        return $this->property('id', trim($id));
+        return $this->setProperty('id', trim($id));
     }
 
     /**
-     * Gets or sets ver
+     * Gets ver
+     *
+     * @return int
+     */
+    public function getVersion()
+    {
+        return $this->getProperty('ver');
+    }
+
+    /**
+     * Sets ver
      *
      * @param  int $ver
-     * @return int|self
+     * @return self
      */
-    public function ver($ver = null)
+    public function setVersion($ver)
     {
-        if(null === $ver)
-        {
-            return $this->property('ver');
-        }
-        return $this->property('ver', (int) $ver);
+        return $this->setProperty('ver', (int) $ver);
     }
 
     /**
-     * Gets or sets content
+     * Gets content
+     *
+     * @return string
+     */
+    public function getContent()
+    {
+        return $this->getProperty('content');
+    }
+
+    /**
+     * Sets content
      *
      * @param  string $content
-     * @return string|self
+     * @return self
      */
-    public function content($content = null)
+    public function setContent($content)
     {
-        if(null === $content)
-        {
-            return $this->property('content');
-        }
-        return $this->property('content', trim($content));
+        return $this->setProperty('content', trim($content));
     }
 
     /**
-     * Gets or sets descEnabled
+     * Gets desc enabled flag
+     *
+     * @return bool
+     */
+    public function getDescEnabled()
+    {
+        return $this->getProperty('descEnabled');
+    }
+
+    /**
+     * Sets desc enabled flag
      *
      * @param  bool $descEnabled
-     * @return bool|self
+     * @return self
      */
-    public function descEnabled($descEnabled = null)
+    public function setDescEnabled($descEnabled)
     {
-        if(null === $descEnabled)
-        {
-            return $this->property('descEnabled');
-        }
-        return $this->property('descEnabled', (bool) $descEnabled);
+        return $this->setProperty('descEnabled', (bool) $descEnabled);
     }
 
     /**
-     * Gets or sets f
+     * Gets flags
+     *
+     * @return string
+     */
+    public function getFlags()
+    {
+        return $this->getProperty('f');
+    }
+
+    /**
+     * Sets flags
      *
      * @param  string $f
-     * @return string|self
+     * @return self
      */
-    public function f($f = null)
+    public function setFlags($f)
     {
-        if(null === $f)
-        {
-            return $this->property('f');
-        }
-        return $this->property('f', trim($f));
+        return $this->setProperty('f', trim($f));
     }
 
     /**

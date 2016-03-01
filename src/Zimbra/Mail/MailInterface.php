@@ -78,9 +78,6 @@ use Zimbra\Mail\Struct\SnoozeTaskAlarm;
 use Zimbra\Mail\Struct\TagSpec;
 use Zimbra\Mail\Struct\TagActionSelector;
 use Zimbra\Mail\Struct\TargetSpec;
-use Zimbra\Mail\Struct\WaitSetAdd;
-use Zimbra\Mail\Struct\WaitSetSpec;
-use Zimbra\Mail\Struct\WaitSetId;
 
 use Zimbra\Mail\Struct\MailDataSource;
 use Zimbra\Mail\Struct\MailImapDataSource;
@@ -104,6 +101,9 @@ use Zimbra\Mail\Struct\UnknownDataSourceNameOrId;
 use Zimbra\Struct\CursorInfo;
 use Zimbra\Struct\Id;
 use Zimbra\Struct\NamedElement;
+use Zimbra\Struct\WaitSetAdd;
+use Zimbra\Struct\WaitSetSpec;
+use Zimbra\Struct\WaitSetId;
 
 /**
  * MailInterface is a interface which allows to connect Zimbra API mail functions via SOAP
@@ -301,7 +301,7 @@ interface MailInterface extends AccountInterface
      * @param  array $rights Rights to check.
      * @return mix
      */
-    function checkPermission(TargetSpec $target = null, array $right = array());
+    function checkPermission(TargetSpec $target = null, array $right = []);
 
     /**
      * Check conflicts in recurrence against list of users.
@@ -309,26 +309,23 @@ interface MailInterface extends AccountInterface
      * By default only instances that have conflicts are returned.
      *
      * @param  array $tz Timezones
-     * @param  ExpandedRecurrenceCancel $cancel
-     * @param  ExpandedRecurrenceInvite $comp
-     * @param  ExpandedRecurrenceException $except
-     * @param  array $usr Freebusy user specifications
-     * @param  int $s Start time in millis. If not specified, defaults to current time
-     * @param  int $e End time in millis. If not specified, unlimited
-     * @param  bool $all Set this to get all instances, even those without conflicts.
+     * @param  int $s Start time in millis.  If not specified, defaults to current time
+     * @param  int $e End time in millis.  If not specified, unlimited
+     * @param  bool $all Set this to get all instances, even those without conflicts. By default only instances that have conflicts are returned.
      * @param  string $excludeUid UID of appointment to exclude from free/busy search
+     * @param  array $timezones Timezones
+     * @param  array $component Expanded recurrences
+     * @param  array $users Freebusy user specifications
      * @return mix
      */
     function checkRecurConflicts(
-        array $tz = array(),
-        ExpandedRecurrenceCancel $cancel = null,
-        ExpandedRecurrenceInvite $comp = null,
-        ExpandedRecurrenceException $except = null,
-        array $usr = array(),
         $s = null,
         $e = null,
         $all = null,
-        $excludeUid = null
+        $excludeUid = null,
+        array $timezones = [],
+        array $component = [],
+        array $users = []
     );
 
     /**
@@ -623,7 +620,7 @@ interface MailInterface extends AccountInterface
      */
     function createWaitSet(
         WaitSetSpec $add = null,
-        array $defTypes = array(),
+        array $defTypes = [],
         $allAccounts = null
     );
 
@@ -693,14 +690,10 @@ interface MailInterface extends AccountInterface
     /**
      * Dismiss calendar item alarm.
      *
-     * @param  DismissAppointmentAlarm $appt Dismiss appointment alarm.
-     * @param  DismissTaskAlarm $task Dismiss task alarm.
+     * @param  array $alarms Details of alarms to dismiss.
      * @return mix
      */
-    function dismissCalendarItemAlarm(
-        DismissAppointmentAlarm $appt = null,
-        DismissTaskAlarm $task = null
-    );
+    function dismissCalendarItemAlarm(array $alarms);
 
     /**
      * Document action.
@@ -728,21 +721,17 @@ interface MailInterface extends AccountInterface
     /**
      * Expand recurrences.
      *
-     * @param  int $s Start time in milliseconds
-     * @param  int $e End time in milliseconds
-     * @param  array $tz Timezones
-     * @param  ExpandedRecurrenceInvite $comp
-     * @param  ExpandedRecurrenceException $except
-     * @param  ExpandedRecurrenceCancel $cancel
+     * @param  int $startTime Start time in milliseconds
+     * @param  int $endTime End time in milliseconds
+     * @param  array $timezones Timezone definitions
+     * @param  array $components Specifications for series, modified instances and canceled instances
      * @return mix
      */
     function expandRecur(
-        $s,
-        $e,
-        array $tz = array(),
-        ExpandedRecurrenceInvite $comp = null,
-        ExpandedRecurrenceException $except = null,
-        ExpandedRecurrenceCancel $cancel = null
+        $startTime,
+        $endTime,
+        array $timezones = [],
+        array $components = []
     );
 
     /**
@@ -774,28 +763,28 @@ interface MailInterface extends AccountInterface
     /**
      * Used by an attendee to forward an instance or entire appointment to another user who is not already an attendee.
      *
+     * @param  string $id Appointment item ID
      * @param  DtTimeInfo $exceptId RECURRENCE-ID information if forwarding a single instance of a recurring appointment
      * @param  CalTZInfo $tz Definition for TZID referenced by DATETIME in <exceptId>
      * @param  Msg $m Details of the appointment.
-     * @param  string $id Appointment item ID
      * @return mix
      */
     function forwardAppointment(
+        $id = null,
         DtTimeInfo $exceptId = null,
         CalTZInfo $tz = null,
-        Msg $m = null,
-        $id = null
+        Msg $m = null
     );
 
     /**
      * Used by an attendee to forward an appointment invite email to another user who is not already an attendee.
      * To forward an appointment item, use ForwardAppointmentRequest instead.
      *
-     * @param  Msg $m Details of the appointment.
      * @param  string $id Appointment item ID
+     * @param  Msg $m Details of the appointment.
      * @return mix
      */
-    function forwardAppointmentInvite(Msg $m = null, $id = null);
+    function forwardAppointmentInvite($id = null, Msg $m = null);
 
     /**
      * Ajax client can use this request to ask the server for help in generating a proper,
@@ -809,16 +798,16 @@ interface MailInterface extends AccountInterface
      * Get activity stream.
      *
      * @param  string $id Item ID. If the id is for a Document, the response will include the activities for the requested Document. if it is for a Folder, the response will include the activities for all the Documents in the folder and subfolders.
-     * @param  ActivityFilter $filter  Optionally <filter> can be used to filter the response based on the user that performed the activity, operation, or both. the server will cache previously established filter search results, and return the identifier in session attribute. The client is expected to reuse the session identifier in the subsequent filter search to improve the performance.
      * @param  int    $limit Limit - maximum number of activities to be returned
      * @param  int    $offset Offset - for getting the next page worth of activities.
+     * @param  ActivityFilter $filter  Optionally <filter> can be used to filter the response based on the user that performed the activity, operation, or both. the server will cache previously established filter search results, and return the identifier in session attribute. The client is expected to reuse the session identifier in the subsequent filter search to improve the performance.
      * @return mix
      */
     function getActivityStream(
         $id,
-        ActivityFilter $filter = null,
         $offset = null,
-        $limit = null
+        $limit = null,
+        ActivityFilter $filter = null
     );
 
     /**
@@ -834,6 +823,7 @@ interface MailInterface extends AccountInterface
      *
      * @param  bool   $sync    Set this to return the modified date (md) on the appointment.
      * @param  bool   $includeContent If true, MIME parts for body content are returned; default false.
+     * @param  bool   $includeInvites If set, information for each invite is included.
      * @param  string $uid     iCalendar UID Either id or uid should be specified, but not both.
      * @param  string $id      Appointment ID. Either id or uid should be specified, but not both.
      * @return mix
@@ -841,6 +831,7 @@ interface MailInterface extends AccountInterface
     function getAppointment(
         $sync = null,
         $includeContent = null,
+        $includeInvites = null,
         $uid = null,
         $id = null
     );
@@ -883,27 +874,27 @@ interface MailInterface extends AccountInterface
      *   2. for GAL ref (type="G"): email address of the GAL entry
      *   3. for inlined member (type="I"): the value
      *
-     * @param  array  $a      Attributes - if present, return only the specified attribute(s).
-     * @param  array  $ma     If present, return only the specified attribute(s) for derefed members, applicable only when derefGroupMember is set.
-     * @param  array  $cn     If present, only get the specified contact(s)..
      * @param  bool   $sync   If set, return modified date (md) on contacts.
      * @param  string $l      If is present, return only contacts in the specified folder.
      * @param  string $sortBy Sort by.
      * @param  bool   $derefGroupMember If set, deref contact group members.
      * @param  bool   $returnHiddenAttrs Whether to return contact hidden attrs defined in zimbraContactHiddenAttributes ignored if <a> is present..
      * @param  int    $maxMembers Max members.
+     * @param  array  $a      Attributes - if present, return only the specified attribute(s).
+     * @param  array  $ma     If present, return only the specified attribute(s) for derefed members, applicable only when derefGroupMember is set.
+     * @param  array  $cn     If present, only get the specified contact(s)..
      * @return mix
      */
     function getContacts(
-        array $a = array(),
-        array $ma = array(),
-        array $cn = array(),
         $sync = null,
         $l = null,
         $sortBy = null,
         $derefGroupMember = null,
         $returnHiddenAttrs = null,
-        $maxMembers = null
+        $maxMembers = null,
+        array $a = [],
+        array $ma = [],
+        array $cn = []
     );
 
     /**
@@ -964,21 +955,21 @@ interface MailInterface extends AccountInterface
      * A {base-folder-id}, a {base-folder-uuid} or a {fully-qualified-path} can optionally be specified in the folder element; if none is present, the descent of the folder hierarchy begins at the mailbox's root folder (id 1).
      * If {fully-qualified-path} is present and {base-folder-id} or {base-folder-uuid} is also present, the path is treated as relative to the folder that was specified by id/uuid. {base-folder-id} is ignored if {base-folder-uuid} is present.
      *
-     * @param  GetFolderSpec $folder Folder specification
      * @param  bool $visible If set we include all visible subfolders of the specified folder.
      * @param  bool $needGranteeName If set then grantee names are supplied in the d attribute in <grant>.
      * @param  string $view If "view" is set then only the folders with matching view will be returned.
      * @param  int $depth If "depth" is set to a non-negative number, we include that many levels of subfolders in the response.
      * @param  bool $tr If true, one level of mountpoints are traversed and the target folder's counts are applied to the local mountpoint.
+     * @param  GetFolderSpec $folder Folder specification
      * @return mix
      */
     function getFolder(
-        GetFolderSpec $folder = null,
         $visible = null,
         $needGranteeName = null,
         $view = null,
         $depth = null,
-        $tr = null
+        $tr = null,
+        GetFolderSpec $folder = null
     );
 
     /**
@@ -1002,7 +993,7 @@ interface MailInterface extends AccountInterface
         $id = null,
         $name = null,
         $excludeUid = null,
-        array $usr = array()
+        array $usr = []
     );
 
     /**
@@ -1062,7 +1053,7 @@ interface MailInterface extends AccountInterface
     function getMiniCal(
         $s,
         $e,
-        array $folder = array(),
+        array $folder = [],
         CalTZInfo $tz = null
     );
 
@@ -1113,7 +1104,7 @@ interface MailInterface extends AccountInterface
      * @param  array $rights Specification of rights.
      * @return mix
      */
-    function getPermission(array $ace = array());
+    function getPermission(array $ace = []);
 
     /**
      * Retrieve the recurrence definition of an appointment.
@@ -1170,8 +1161,9 @@ interface MailInterface extends AccountInterface
      * Get Task.
      * Similar to GetAppointmentRequest/GetAppointmentResponse
      *
-     * @param  bool   $sync Set this to return the modified date (md) on the appointment..
-     * @param  bool   $includeContent If set, MIME parts for body content are returned; default false.
+     * @param  bool   $sync Set this to return the modified date (md) on the appointment.
+     * @param  bool   $includeContent If set, MIME parts for body content are returned. default false.
+     * @param  bool   $includeInvites If set, information for each invite is included. default false.
      * @param  string $uid  iCalendar UID Either id or uid should be specified, but not both.
      * @param  string $id   Appointment ID. Either id or uid should be specified, but not both.
      * @return mix
@@ -1179,6 +1171,7 @@ interface MailInterface extends AccountInterface
     function getTask(
         $sync = null,
         $includeContent = null,
+        $includeInvites = null,
         $uid = null,
         $id = null
     );
@@ -1244,7 +1237,7 @@ interface MailInterface extends AccountInterface
      * @param  array $ace Specify Access Control Entries (ACEs).
      * @return mix
      */
-    function grantPermission(array $ace = array());
+    function grantPermission(array $ace = []);
 
     /**
      * Do an iCalendar Reply.
@@ -1257,26 +1250,26 @@ interface MailInterface extends AccountInterface
     /**
      * Import appointments.
      *
-     * @param  ContentSpec $content Content specification
      * @param  string $ct Content type
+     * @param  ContentSpec $content Content specification
      * @param  string $l Optional folder ID to import appointments into
      * @return mix
      */
-    function importAppointments(ContentSpec $content, $ct, $l = null);
+    function importAppointments($ct, ContentSpec $content, $l = null);
 
     /**
      * Import appointments.
      *
-     * @param  Content $content Content specification.
      * @param  string $ct Content type. Only currenctly supported content type is "csv".
+     * @param  Content $content Content specification.
      * @param  string $l Optional Folder ID to import contacts to.
      * @param  string $csvfmt The format of csv being imported. when it's not defined, Zimbra format is assumed. the supported formats are defined in $ZIMBRA_HOME/conf/zimbra-contact-fields.xml.
      * @param  string $csvlocale The locale to use when there are multiple {csv-format} locales defined. When it is not specified, the {csv-format} with no locale specification is used.
      * @return mix
      */
     function importContacts(
-        Content $content,
         $ct,
+        Content $content,
         $l = null,
         $csvfmt = null,
         $csvlocale = null
@@ -1289,26 +1282,10 @@ interface MailInterface extends AccountInterface
      * If the server receives an <ImportDataRequest> while an import is already running
      * for a given data source, the second request is ignored.
      *
-     * @param  ImapDataSourceNameOrId $imap
-     * @param  Pop3DataSourceNameOrId $pop3
-     * @param  CaldavDataSourceNameOrId $caldav
-     * @param  YabDataSourceNameOrId $yab
-     * @param  RssDataSourceNameOrId $rss
-     * @param  GalDataSourceNameOrId $gal
-     * @param  CalDataSourceNameOrId $cal
-     * @param  UnknownDataSourceNameOrId $unknown
+     * @param  array $dataSources
      * @return mix
      */
-    function importData(
-        ImapDataSourceNameOrId $imap = null,
-        Pop3DataSourceNameOrId $pop3 = null,
-        CaldavDataSourceNameOrId $caldav = null,
-        YabDataSourceNameOrId $yab = null,
-        RssDataSourceNameOrId $rss = null,
-        GalDataSourceNameOrId $gal = null,
-        CalDataSourceNameOrId $cal = null,
-        UnknownDataSourceNameOrId $unknown = null
-    );
+    function importData(array $dataSources);
 
     /**
      * Invalidate reminder device.
@@ -1605,7 +1582,7 @@ interface MailInterface extends AccountInterface
      * @param  array $ace Specify Access Control Entries (ACEs).
      * @return mix
      */
-    function revokePermission(array $ace = array());
+    function revokePermission(array $ace = []);
 
     /**
      * Save Document.
@@ -1670,6 +1647,7 @@ interface MailInterface extends AccountInterface
      * @param  bool $recip Want recipients setting. 
      * @param  bool $prefetch Prefetch
      * @param  string $resultMode Specifies the type of result.
+     * @param  bool $fullConversation Full conversation
      * @param  string $field By default, text without an operator searches the CONTENT field.
      * @param  int $limit The maximum number of results to return.
      * @param  int $offset Specifies the 0-based offset into the results list to return as the first result for this search operation.
@@ -1678,7 +1656,7 @@ interface MailInterface extends AccountInterface
     function search(
         $warmup = null,
         $query = null,
-        array $header = array(),
+        array $header = [],
         CalTZInfo $tz = null,
         $locale = null,
         CursorInfo $cursor = null,
@@ -1701,6 +1679,7 @@ interface MailInterface extends AccountInterface
         $recip = null,
         $prefetch = null,
         $resultMode = null,
+        $fullConversation = null,
         $field = null,
         $limit = null,
         $offset = null
@@ -1735,6 +1714,7 @@ interface MailInterface extends AccountInterface
      * @param  bool $recip Want recipients setting. 
      * @param  bool $prefetch Prefetch
      * @param  string $resultMode Specifies the type of result.
+     * @param  bool $fullConversation Full conversation
      * @param  string $field By default, text without an operator searches the CONTENT field.
      * @param  int $limit The maximum number of results to return.
      * @param  int $offset Specifies the 0-based offset into the results list to return as the first result for this search operation.
@@ -1744,7 +1724,7 @@ interface MailInterface extends AccountInterface
         $cid,
         $nest = null,
         $query = null,
-        array $header = array(),
+        array $header = [],
         CalTZInfo $tz = null,
         $locale = null,
         CursorInfo $cursor = null,
@@ -1767,6 +1747,7 @@ interface MailInterface extends AccountInterface
         $recip = null,
         $prefetch = null,
         $resultMode = null,
+        $fullConversation = null,
         $field = null,
         $limit = null,
         $offset = null
@@ -1786,22 +1767,22 @@ interface MailInterface extends AccountInterface
      * @param  string $id Unique ID of the invite (and component therein) you are replying to
      * @param  int $compNum Component number of the invite
      * @param  string $verb Verb - ACCEPT, DECLINE, TENTATIVE, COMPLETED, DELEGATED (Completed/Delegated are NOT supported as of 9/12/2005)
+     * @param  bool $updateOrganizer Update organizer. Set by default.
+     * @param  string $idnt Identity ID to use to send reply
      * @param  DtTimeInfo $exceptId If supplied then reply to just one instance of the specified Invite (default is all instances)
      * @param  CalTZInfo $tz Definition for TZID referenced by DATETIME in <exceptId>
      * @param  Msg $m Embedded message, if the user wants to send a custom update message.
-     * @param  bool $updateOrganizer Update organizer. Set by default.
-     * @param  string $idnt Identity ID to use to send reply
      * @return mix
      */
     function sendInviteReply(
         $id,
         $compNum,
         $verb,
+        $updateOrganizer = null,
+        $idnt = null,
         DtTimeInfo $exceptId = null,
         CalTZInfo $tz = null,
-        Msg $m = null,
-        $updateOrganizer = null,
-        $idnt = null
+        Msg $m = null
     );
 
     /**
@@ -1845,7 +1826,7 @@ interface MailInterface extends AccountInterface
      */
     function sendShareNotification(
         Id $item = null,
-        array $e = array(),
+        array $e = [],
         $notes = null,
         Action $action = null
     );
@@ -1865,29 +1846,29 @@ interface MailInterface extends AccountInterface
      * Need way to add message WITHOUT processing it for calendar parts.
      * Need to generate and patch-in the iCalendar for the <inv> but w/o actually processing the <inv> as a new request.
      *
-     * @param  SetCalendarItemInfo $m Default calendar item information
-     * @param  array $except Calendar item information for exceptions 
-     * @param  array $cancel Calendar item information for cancellations 
-     * @param  Replies $replies Replies
      * @param  string $f Flags
      * @param  string $t Tags (Deprecated - use {tag-names} instead)
      * @param  string $tn Comma separated list of tag names
      * @param  string $l ID of folder to create appointment in
      * @param  bool $noNextAlarm Set if all alarms have been dismissed; if this is set, nextAlarm should not be set
      * @param  int $nextAlarm If specified, time when next alarm should go off. 
+     * @param  SetCalendarItemInfo $m Default calendar item information
+     * @param  array $except Calendar item information for exceptions 
+     * @param  array $cancel Calendar item information for cancellations 
+     * @param  Replies $replies Replies
      * @return mix
      */
     function setAppointment(
-        SetCalendarItemInfo $default = null,
-        array $except = array(),
-        array $cancel = array(),
-        Replies $replies = null,
         $f = null,
         $t = null,
         $tn = null,
         $l = null,
         $noNextAlarm = null,
-        $nextAlarm = null
+        $nextAlarm = null,
+        SetCalendarItemInfo $default = null,
+        array $except = [],
+        array $cancel = [],
+        Replies $replies = null
     );
 
     /**
@@ -1915,42 +1896,38 @@ interface MailInterface extends AccountInterface
      * Directly set status of an entire task.
      * See SetAppointment for more information.
      *
-     * @param  SetCalendarItemInfo $m Default calendar item information
-     * @param  array $except Calendar item information for exceptions 
-     * @param  array $cancel Calendar item information for cancellations 
-     * @param  Replies $replies Replies
      * @param  string $f Flags
      * @param  string $t Tags (Deprecated - use {tag-names} instead)
      * @param  string $tn Comma separated list of tag names
      * @param  string $l ID of folder to create appointment in
      * @param  bool $noNextAlarm Set if all alarms have been dismissed; if this is set, nextAlarm should not be set
      * @param  int $nextAlarm If specified, time when next alarm should go off. 
+     * @param  SetCalendarItemInfo $m Default calendar item information
+     * @param  array $except Calendar item information for exceptions 
+     * @param  array $cancel Calendar item information for cancellations 
+     * @param  Replies $replies Replies
      * @return mix
      */
     function setTask(
-        SetCalendarItemInfo $default = null,
-        array $except = array(),
-        array $cancel = array(),
-        Replies $replies = null,
         $f = null,
         $t = null,
         $tn = null,
         $l = null,
         $noNextAlarm = null,
-        $nextAlarm = null
+        $nextAlarm = null,
+        SetCalendarItemInfo $default = null,
+        array $except = [],
+        array $cancel = [],
+        Replies $replies = null
     );
 
     /**
      * Snooze alarm(s) for appointments or tasks.
      *
-     * @param  SnoozeAppointmentAlarm $appt Snooze appointment alarm.
-     * @param  SnoozeTaskAlarm $task Snooze task alarm.
+     * @param  array $alarms.
      * @return mix
      */
-    function snoozeCalendarItemAlarm(
-        SnoozeAppointmentAlarm $appt = null,
-        SnoozeTaskAlarm $task = null
-    );
+    function snoozeCalendarItemAlarm(array $alarms = []);
 
     /**
      * Snooze alarm(s) for appointments or tasks.
@@ -2103,7 +2080,7 @@ interface MailInterface extends AccountInterface
         WaitSetSpec $update = null,
         WaitSetId $remove = null,
         $block = null,
-        array $defTypes = array(),
+        array $defTypes = [],
         $timeout = null
     );
 }

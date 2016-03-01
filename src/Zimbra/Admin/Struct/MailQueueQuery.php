@@ -34,76 +34,100 @@ class MailQueueQuery extends Base
     public function __construct(QueueQuery $query, $name, $scan = null, $wait = null)
     {
         parent::__construct();
-        $this->child('query', $query);
-        $this->property('name', trim($name));
+        $this->setChild('query', $query);
+        $this->setProperty('name', trim($name));
         if(null !== $scan)
         {
-            $this->property('scan', (bool) $scan);
+            $this->setProperty('scan', (bool) $scan);
         }
         if(null !== $wait)
         {
-            $this->property('wait', (int) $wait);
+            $this->setProperty('wait', (int) $wait);
         }
     }
 
     /**
-     * Gets or sets query
+     * Gets query.
+     *
+     * @return QueueQuery
+     */
+    public function getQuery()
+    {
+        return $this->getChild('query');
+    }
+
+    /**
+     * Sets query.
      *
      * @param  QueueQuery $query
-     * @return QueueQuery|self
+     * @return self
      */
-    public function query(QueueQuery $query = null)
+    public function setQuery(QueueQuery $query)
     {
-        if(null === $query)
-        {
-            return $this->child('query');
-        }
-        return $this->child('query', $query);
+        return $this->setChild('query', $query);
     }
 
     /**
-     * Gets or sets name
+     * Gets the the queue name
+     *
+     * @return string
+     */
+    public function getQueueName()
+    {
+        return $this->getProperty('name');
+    }
+
+    /**
+     * Sets the queue name
      *
      * @param  string $name
-     * @return string|self
+     * @return self
      */
-    public function name($name = null)
+    public function setQueueName($name)
     {
-        if(null === $name)
-        {
-            return $this->property('name');
-        }
-        return $this->property('name', trim($name));
+        return $this->setProperty('name', trim($name));
     }
 
     /**
-     * Gets or sets scan
+     * Gets queue scan
+     *
+     * @return bool
+     */
+    public function getScan()
+    {
+        return $this->getProperty('scan');
+    }
+
+    /**
+     * Sets queue scan
      *
      * @param  bool $scan
-     * @return bool|self
+     * @return self
      */
-    public function scan($scan = null)
+    public function setScan($scan)
     {
-        if(null === $scan)
-        {
-            return $this->property('scan');
-        }
-        return $this->property('scan', (bool) $scan);
+        return $this->setProperty('scan', (bool) $scan);
     }
 
     /**
-     * Gets or sets wait
+     * Gets the time to wait
+     *
+     * @return int
+     */
+    public function getWaitSeconds()
+    {
+        return $this->getProperty('wait');
+    }
+
+    /**
+     * Sets the time to wait
      *
      * @param  int $wait
-     * @return int|self
+     * @return self
      */
-    public function wait($wait = null)
+    public function setWaitSeconds($wait)
     {
-        if(null === $wait)
-        {
-            return $this->property('wait');
-        }
-        return $this->property('wait', (int) $wait);
+        return $this->setProperty('wait', (int) $wait);
     }
 
     /**

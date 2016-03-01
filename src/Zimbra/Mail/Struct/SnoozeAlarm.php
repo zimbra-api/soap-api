@@ -32,38 +32,50 @@ class SnoozeAlarm extends Base
     public function __construct($id, $until)
     {
         parent::__construct();
-        $this->property('id', trim($id));
-        $this->property('until', (int) $until);
+        $this->setProperty('id', trim($id));
+        $this->setProperty('until', (int) $until);
     }
 
     /**
-     * Get or set id
+     * Gets id
+     *
+     * @return string
+     */
+    public function getId()
+    {
+        return $this->getProperty('id');
+    }
+
+    /**
+     * Sets id
      *
      * @param  string $id
-     * @return string|self
+     * @return self
      */
-    public function id($id = null)
+    public function setId($id)
     {
-        if(null === $id)
-        {
-            return $this->property('id');
-        }
-        return $this->property('id', trim($id));
+        return $this->setProperty('id', trim($id));
     }
 
     /**
-     * Get or set until
+     * Gets until
+     *
+     * @return int
+     */
+    public function getSnoozeUntil()
+    {
+        return $this->getProperty('until');
+    }
+
+    /**
+     * Sets until
      *
      * @param  int $until
-     * @return int|self
+     * @return self
      */
-    public function until($until = null)
+    public function setSnoozeUntil($until)
     {
-        if(null === $until)
-        {
-            return $this->property('until');
-        }
-        return $this->property('until', (int) $until);
+        return $this->setProperty('until', (int) $until);
     }
 
     /**

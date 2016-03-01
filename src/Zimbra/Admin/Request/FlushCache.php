@@ -35,22 +35,28 @@ class FlushCache extends Base
         parent::__construct();
         if($cache instanceof Cache)
         {
-            $this->child('cache', $cache);
+            $this->setChild('cache', $cache);
         }
     }
 
     /**
-     * Gets or sets cache
+     * Gets the cache.
+     *
+     * @return Cache
+     */
+    public function getCache()
+    {
+        return $this->getChild('cache');
+    }
+
+    /**
+     * Sets the cache.
      *
      * @param  Cache $cache
-     * @return Cache|self
+     * @return self
      */
-    public function cache(Cache $cache = null)
+    public function setCache(Cache $cache)
     {
-        if(null === $cache)
-        {
-            return $this->child('cache');
-        }
-        return $this->child('cache', $cache);
+        return $this->setChild('cache', $cache);
     }
 }

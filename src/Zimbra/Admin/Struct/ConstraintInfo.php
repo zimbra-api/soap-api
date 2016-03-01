@@ -27,60 +27,78 @@ class ConstraintInfo extends Base
      * Constructor method for ConstraintInfo
      * @param  string $min Minimum value
      * @param  string $max Maximum value
-     * @param  ConstraintInfoValues $values Values
+     * @param  ConstraintInfoValues $values Acceptable values
      * @return self
      */
     public function __construct($min = null, $max = null, ConstraintInfoValues $values = null)
     {
         parent::__construct();
-        $this->child('min', trim($min));
-        $this->child('max', trim($max));
-        $this->child('values', $values);
+        $this->setChild('min', trim($min));
+        $this->setChild('max', trim($max));
+        $this->setChild('values', $values);
     }
 
     /**
-     * Gets or sets min
+     * Gets minimum value
+     *
+     * @return string
+     */
+    public function getMin()
+    {
+        return $this->getChild('min');
+    }
+
+    /**
+     * Sets minimum value
      *
      * @param  string $min
      * @return string|self
      */
-    public function min($min = null)
+    public function setMin($min)
     {
-        if(null === $min)
-        {
-            return $this->child('min');
-        }
-        return $this->child('min', trim($min));
+        return $this->setChild('min', trim($min));
     }
 
     /**
-     * Gets or sets max
+     * Gets maximum value
+     *
+     * @return string
+     */
+    public function getMax()
+    {
+        return $this->getChild('max');
+    }
+
+    /**
+     * Sets maximum value
      *
      * @param  string $max
-     * @return string|self
+     * @return self
      */
-    public function max($max = null)
+    public function setMax($max)
     {
-        if(null === $max)
-        {
-            return $this->child('max');
-        }
-        return $this->child('max', trim($max));
+        return $this->setChild('max', trim($max));
     }
 
     /**
-     * Gets or sets values
+     * Gets acceptable values
+     *
+     * @return ConstraintInfoValues
+     */
+    public function getValues()
+    {
+        return $this->getChild('values');
+    }
+
+    /**
+     * Sets acceptable values
      *
      * @param  ConstraintInfoValues $values
-     * @return ConstraintInfoValues|self
+     * @return self
      */
-    public function values(ConstraintInfoValues $values = null)
+    public function setValues(ConstraintInfoValues $values)
     {
-        if(null === $values)
-        {
-            return $this->child('values');
-        }
-        return $this->child('values', $values);
+        return $this->setChild('values', $values);
     }
 
     /**

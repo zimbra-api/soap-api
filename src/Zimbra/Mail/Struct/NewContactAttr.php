@@ -25,15 +25,15 @@ class NewContactAttr extends Base
 {
     /**
      * Constructor method for NewContactAttr
-     * @param string $n Attribute name
+     * @param string $name Attribute name
      * @param string $value Attribute data
      * @param string $aid Upload ID
-     * @param string $id Item ID. Used in combination with subpart-name
+     * @param int $id Item ID. Used in combination with subpart-name
      * @param string $part Subpart Name
      * @return self
      */
     public function __construct(
-        $n,
+        $name,
         $value = null,
         $aid = null,
         $id = null,
@@ -41,79 +41,103 @@ class NewContactAttr extends Base
     )
     {
         parent::__construct(trim($value));
-        $this->property('n', trim($n));
+        $this->setProperty('n', trim($name));
         if(null !== $aid)
         {
-            $this->property('aid', trim($aid));
+            $this->setProperty('aid', trim($aid));
         }
         if(null !== $id)
         {
-            $this->property('id', (int) $id);
+            $this->setProperty('id', (int) $id);
         }
         if(null !== $part)
         {
-            $this->property('part', trim($part));
+            $this->setProperty('part', trim($part));
         }
     }
 
     /**
-     * Gets or sets n
+     * Gets name
      *
-     * @param  string $n
-     * @return string|self
+     * @return string
      */
-    public function n($n = null)
+    public function getName()
     {
-        if(null === $n)
-        {
-            return $this->property('n');
-        }
-        return $this->property('n', trim($n));
+        return $this->getProperty('n');
     }
 
     /**
-     * Gets or sets aid
+     * Sets name
+     *
+     * @param  string $name
+     * @return self
+     */
+    public function setName($name)
+    {
+        return $this->setProperty('n', trim($name));
+    }
+
+    /**
+     * Gets upload ID
+     *
+     * @return string
+     */
+    public function getAttachId()
+    {
+        return $this->getProperty('aid');
+    }
+
+    /**
+     * Sets upload ID
      *
      * @param  string $aid
-     * @return string|self
+     * @return self
      */
-    public function aid($aid = null)
+    public function setAttachId($aid)
     {
-        if(null === $aid)
-        {
-            return $this->property('aid');
-        }
-        return $this->property('aid', trim($aid));
+        return $this->setProperty('aid', trim($aid));
     }
 
     /**
-     * Gets or sets id
+     * Gets id
      *
-     * @param  string $id
-     * @return string|self
+     * @return int
      */
-    public function id($id = null)
+    public function getId()
     {
-        if(null === $id)
-        {
-            return $this->property('id');
-        }
-        return $this->property('id', (int) $id);
+        return $this->getProperty('id');
     }
 
     /**
-     * Gets or sets part
+     * Sets id
+     *
+     * @param  int $id
+     * @return self
+     */
+    public function setId($id)
+    {
+        return $this->setProperty('id', (int) $id);
+    }
+
+    /**
+     * Gets part
+     *
+     * @return string
+     */
+    public function getPart()
+    {
+        return $this->getProperty('part');
+    }
+
+    /**
+     * Sets part
      *
      * @param  string $part
-     * @return string|self
+     * @return self
      */
-    public function part($part = null)
+    public function setPart($part)
     {
-        if(null === $part)
-        {
-            return $this->property('part');
-        }
-        return $this->property('part', trim($part));
+        return $this->setProperty('part', trim($part));
     }
 
     /**

@@ -1,0 +1,32 @@
+{
+    "name": "zimbra-api/enum",
+    "type": "library",
+    "keywords": ["enum"],
+    "description": "Enum libraries used by Zimbra Api",
+    "homepage": "https://github.com/zimbra-api",
+    "license": "BSD (3-Clause) License",
+    "authors": [
+        {
+            "name": "Nguyen Van Nguyen",
+            "email": "nguyennv1981@gmail.com",
+            "homepage": "https://github.com/nguyennv"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~4.0"
+    },
+    "autoload": {
+        "psr-4": { "Zimbra\\Enum\\": "" },
+        "exclude-from-classmap": [
+            "/Tests/"
+        ]
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0.x-dev"
+        }
+    }
+}

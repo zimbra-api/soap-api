@@ -36,41 +36,53 @@ class GetGrants extends Base
         parent::__construct();
         if($target instanceof Target)
         {
-            $this->child('target', $target);
+            $this->setChild('target', $target);
         }
         if($grantee instanceof Grantee)
         {
-            $this->child('grantee', $grantee);
+            $this->setChild('grantee', $grantee);
         }
     }
 
     /**
-     * Gets or sets target
+     * Gets the target.
+     *
+     * @return Target
+     */
+    public function getTarget()
+    {
+        return $this->getChild('target');
+    }
+
+    /**
+     * Sets the target.
      *
      * @param  Target $target
-     * @return Target|self
+     * @return self
      */
-    public function target(Target $target = null)
+    public function setTarget(Target $target)
     {
-        if(null === $target)
-        {
-            return $this->child('target');
-        }
-        return $this->child('target', $target);
+        return $this->setChild('target', $target);
     }
 
     /**
-     * Gets or sets grantee
+     * Gets the grantee.
+     *
+     * @return Grantee
+     */
+    public function getGrantee()
+    {
+        return $this->getChild('grantee');
+    }
+
+    /**
+     * Sets the grantee.
      *
      * @param  Grantee $grantee
-     * @return Grantee|self
+     * @return self
      */
-    public function grantee(Grantee $grantee = null)
+    public function setGrantee(Grantee $grantee)
     {
-        if(null === $grantee)
-        {
-            return $this->child('grantee');
-        }
-        return $this->child('grantee', $grantee);
+        return $this->setChild('grantee', $grantee);
     }
 }

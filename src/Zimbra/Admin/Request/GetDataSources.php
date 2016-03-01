@@ -29,24 +29,30 @@ class GetDataSources extends BaseAttr
      * @param  array $attrs
      * @return self
      */
-    public function __construct($id, array $attrs = array())
+    public function __construct($id, array $attrs = [])
     {
         parent::__construct($attrs);
-        $this->property('id', trim($id));
+        $this->setProperty('id', trim($id));
     }
 
     /**
-     * Gets or sets id
+     * Gets id
+     *
+     * @return string
+     */
+    public function getId()
+    {
+        return $this->getProperty('id');
+    }
+
+    /**
+     * Sets id
      *
      * @param  string $id
-     * @return string|self
+     * @return self
      */
-    public function id($id = null)
+    public function setId($id)
     {
-        if(null === $id)
-        {
-            return $this->property('id');
-        }
-        return $this->property('id', trim($id));
+        return $this->setProperty('id', trim($id));
     }
 }

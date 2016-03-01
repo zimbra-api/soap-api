@@ -25,19 +25,6 @@ use Zimbra\Struct\Base;
 class DistributionListSelector extends Base
 {
     /**
-     * Select the meaning of {dl-selector-key}
-     * Valid values: id|name
-     * @var DLBy
-     */
-    private $_by;
-
-    /**
-     * Identifies the distribution list to act upon
-     * @var string
-     */
-    private $_value;
-
-    /**
      * Constructor method for DistributionListSelector
      * @param  DLBy $by
      * @param  string $value
@@ -46,22 +33,28 @@ class DistributionListSelector extends Base
     public function __construct(DLBy $by, $value = null)
     {
 		parent::__construct(trim($value));
-		$this->property('by', $by);
+		$this->setProperty('by', $by);
     }
 
     /**
-     * Gets or sets by
+     * Gets by selector
      *
-     * @param  DLBy $by
-     * @return DLBy|self
+     * @return Zimbra\Enum\DistributionListBy
      */
-    public function by(DLBy $by = null)
+    public function getBy()
     {
-        if(null === $by)
-        {
-            return $this->property('by');
-        }
-        return $this->property('by', $by);
+        return $this->getProperty('by');
+    }
+
+    /**
+     * Sets by selector
+     *
+     * @param  Zimbra\Enum\DistributionListBy $by
+     * @return self
+     */
+    public function setBy(DLBy $by)
+    {
+        return $this->setProperty('by', $by);
     }
 
     /**

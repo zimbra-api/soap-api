@@ -41,78 +41,102 @@ class DeployZimlet extends Base
     )
     {
         parent::__construct();
-        $this->property('action', $action);
+        $this->setProperty('action', $action);
         if($content instanceof Attachment)
         {
-            $this->child('content', $content);
+            $this->setChild('content', $content);
         }
         if(null !== $flush)
         {
-            $this->property('flush', (bool) $flush);
+            $this->setProperty('flush', (bool) $flush);
         }
         if(null !== $synchronous)
         {
-            $this->property('synchronous', (bool) $synchronous);
+            $this->setProperty('synchronous', (bool) $synchronous);
         }
     }
 
     /**
-     * Gets or sets action
+     * Gets action
+     *
+     * @return Action
+     */
+    public function getAction()
+    {
+        return $this->getProperty('action');
+    }
+
+    /**
+     * Sets action
      *
      * @param  Action $action
-     * @return Action|self
+     * @return self
      */
-    public function action(Action $action = null)
+    public function setAction(Action $action)
     {
-        if(null === $action)
-        {
-            return $this->property('action');
-        }
-        return $this->property('action', $action);
+        return $this->setProperty('action', $action);
     }
 
     /**
-     * Gets or sets content
+     * Gets the content.
+     *
+     * @return Attachment
+     */
+    public function getContent()
+    {
+        return $this->getChild('content');
+    }
+
+    /**
+     * Sets the content.
      *
      * @param  Attachment $content
-     * @return Attachment|self
+     * @return self
      */
-    public function content(Attachment $content = null)
+    public function setContent(Attachment $content)
     {
-        if(null === $content)
-        {
-            return $this->child('content');
-        }
-        return $this->child('content', $content);
+        return $this->setChild('content', $content);
     }
 
     /**
-     * Gets or sets flush
+     * Gets flush
+     *
+     * @return bool
+     */
+    public function getFlushCache()
+    {
+        return $this->getProperty('flush');
+    }
+
+    /**
+     * Sets flush
      *
      * @param  bool $flush
-     * @return bool|self
+     * @return self
      */
-    public function flush($flush = null)
+    public function setFlushCache($flush)
     {
-        if(null === $flush)
-        {
-            return $this->property('flush');
-        }
-        return $this->property('flush', (bool) $flush);
+        return $this->setProperty('flush', (bool) $flush);
     }
 
     /**
-     * Gets or sets synchronous
+     * Gets synchronous
+     *
+     * @return bool
+     */
+    public function getSynchronous()
+    {
+        return $this->getProperty('synchronous');
+    }
+
+    /**
+     * Sets synchronous
      *
      * @param  bool $synchronous
-     * @return bool|self
+     * @return self
      */
-    public function synchronous($synchronous = null)
+    public function setSynchronous($synchronous)
     {
-        if(null === $synchronous)
-        {
-            return $this->property('synchronous');
-        }
-        return $this->property('synchronous', (bool) $synchronous);
+        return $this->setProperty('synchronous', (bool) $synchronous);
     }
 }

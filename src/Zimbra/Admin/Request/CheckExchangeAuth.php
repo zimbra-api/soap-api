@@ -32,21 +32,27 @@ class CheckExchangeAuth extends Base
     public function __construct(Exchange $auth)
     {
         parent::__construct();
-        $this->child('auth', $auth);
+        $this->setChild('auth', $auth);
     }
 
     /**
-     * Gets or sets auth
+     * Gets the auth.
+     *
+     * @return Exchange
+     */
+    public function getAuth()
+    {
+        return $this->getChild('auth');
+    }
+
+    /**
+     * Sets the auth.
      *
      * @param  Exchange $auth
-     * @return Exchange|self
+     * @return self
      */
-    public function auth(Exchange $auth = null)
+    public function setAuth(Exchange $auth)
     {
-        if(null === $auth)
-        {
-            return $this->child('auth');
-        }
-        return $this->child('auth', $auth);
+        return $this->setChild('auth', $auth);
     }
 }

@@ -4,7 +4,7 @@
  *
  * © Nguyen Van Nguyen <nguyennv1981@gmail.com>
  *
- * For the full copyright and license information, please view the LICENSE
+ * For the full copyzimlet and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
@@ -13,7 +13,7 @@ namespace Zimbra\Account\Struct;
 use Zimbra\Struct\Base;
 
 /**
- * Prop struct class
+ * Property struct class
  *
  * @package    Zimbra
  * @subpackage Account
@@ -24,7 +24,7 @@ use Zimbra\Struct\Base;
 class Prop extends Base
 {
     /**
-     * Constructor method for Prop
+     * Constructor method for property
      * @param  string $name
      * @param  string $value
      * @param  long   $modified
@@ -33,38 +33,50 @@ class Prop extends Base
     public function __construct($zimlet, $name, $value = null)
     {
 		parent::__construct(trim($value));
-        $this->property('zimlet', trim($zimlet));
-        $this->property('name', trim($name));
+        $this->setProperty('zimlet', trim($zimlet));
+        $this->setProperty('name', trim($name));
     }
 
     /**
-     * Gets or sets zimlet
+     * Gets zimlet name
      *
-     * @param  int $zimlet
-     * @return int|self
+     * @return string
      */
-    public function zimlet($zimlet = null)
+    public function getZimlet()
     {
-        if(null === $zimlet)
-        {
-            return $this->property('zimlet');
-        }
-        return $this->property('zimlet', trim($zimlet));
+        return $this->getProperty('zimlet');
     }
 
     /**
-     * Gets or sets name
+     * Sets zimlet name
+     *
+     * @param  string $zimlet
+     * @return self
+     */
+    public function setZimlet($zimlet)
+    {
+        return $this->setProperty('zimlet', trim($zimlet));
+    }
+
+    /**
+     * Gets property name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->getProperty('name');
+    }
+
+    /**
+     * Sets property name
      *
      * @param  string $name
-     * @return string|self
+     * @return self
      */
-    public function name($name = null)
+    public function setName($name)
     {
-        if(null === $name)
-        {
-            return $this->property('name');
-        }
-        return $this->property('name', trim($name));
+        return $this->setProperty('name', trim($name));
     }
 
     /**

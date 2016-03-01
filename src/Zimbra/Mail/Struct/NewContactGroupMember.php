@@ -25,53 +25,57 @@ class NewContactGroupMember extends Base
 {
     /**
      * Constructor method for NewContactGroupMember
-     * @param string $type
-     * @param string $value
+     * @param string $type Member type
+     * @param string $value Member value
      * @return self
      */
     public function __construct($type, $value)
     {
         parent::__construct();
-        $this->property('type', trim($type));
-        $this->property('value', trim($value));
+        $this->setProperty('type', trim($type));
+        $this->setProperty('value', trim($value));
     }
 
     /**
-     * Gets or sets type
-     * Member type
-     * C: reference to another contact
-     * G: reference to a GAL entry
-     * I: inlined member (member name and email address is embeded in the contact group)
+     * Gets type
+     *
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->getProperty('type');
+    }
+
+    /**
+     * Sets type
      *
      * @param  string $type
-     * @return string|self
+     * @return self
      */
-    public function type($type = null)
+    public function setType($type)
     {
-        if(null === $type)
-        {
-            return $this->property('type');
-        }
-        return $this->property('type', trim($type));
+        return $this->setProperty('type', trim($type));
     }
 
     /**
-     * Gets or sets value
-     * Member value
-     * type="C": Item ID of another contact. If the referenced contact is in a shared folder, the item ID must be qualified by zimbraId of the owner. e.g. {zimbraId}:{itemId}
-     * type="G": GAL entry reference (returned in SearchGalResponse)
-     * type="I": name and email address in the form of: "{name}" <{email}>
+     * Gets value
+     *
+     * @return string
+     */
+    public function getValue()
+    {
+        return $this->getProperty('value');
+    }
+
+    /**
+     * Sets value
      *
      * @param  string $value
-     * @return string|self
+     * @return self
      */
-    public function value($value = null)
+    public function setValue($value)
     {
-        if(null === $value)
-        {
-            return $this->property('value');
-        }
-        return $this->property('value', trim($value));
+        return $this->setProperty('value', trim($value));
     }
 
     /**

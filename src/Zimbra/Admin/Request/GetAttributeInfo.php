@@ -35,41 +35,47 @@ class GetAttributeInfo extends Base
     /**
      * Constructor method for GetAttributeInfo
      * @param  string $attrs Comma separated list of attributes to return
-     * @param  string $entryTypes Comma separated list of entry types. Attributes on the specified entry types will be returned.
+     * @param  array $entryTypes An array of entry types. Attributes on the specified entry types will be returned.
      * @return self
      */
-    public function __construct($attrs = null, array $entryTypes = array())
+    public function __construct($attrs = null, array $entryTypes = [])
     {
         parent::__construct();
         if(null !== $attrs)
         {
-            $this->property('attrs', trim($attrs));
+            $this->setProperty('attrs', trim($attrs));
         }
-        $this->_entryTypes = new TypedSequence('Zimbra\Enum\EntryType', $entryTypes);
+        $this->setEntryTypes($entryTypes);
 
         $this->on('before', function(Base $sender)
         {
-            $entryTypes = $sender->entryTypes();
+            $entryTypes = $sender->getEntryTypes();
             if(!empty($entryTypes))
             {
-                $sender->property('entryTypes', $sender->entryTypes());
+                $sender->setProperty('entryTypes', $entryTypes);
             }
         });
     }
 
     /**
-     * Gets or sets attrs
+     * Gets attrs
+     *
+     * @return string
+     */
+    public function getAttrs()
+    {
+        return $this->getProperty('attrs');
+    }
+
+    /**
+     * Sets attrs
      *
      * @param  string $attrs
-     * @return string|self
+     * @return self
      */
-    public function attrs($attrs = null)
+    public function setAttrs($attrs)
     {
-        if(null === $attrs)
-        {
-            return $this->property('attrs');
-        }
-        return $this->property('attrs', trim($attrs));
+        return $this->setProperty('attrs', trim($attrs));
     }
 
     /**
@@ -85,11 +91,24 @@ class GetAttributeInfo extends Base
     }
 
     /**
+     * Sets entryTypes
+     *
+     * @param  string $entryTypes
+     * @return self
+     */
+    public function setEntryTypes(array $entryTypes)
+    {
+        $this->_entryTypes = new TypedSequence('Zimbra\Enum\EntryType', $entryTypes);
+        return $this;
+    }
+
+    /**
      * Gets entryTypes
+     * Comma separated list of entry types. Attributes on the specified entry types will be returned.
      *
      * @return Sequence
      */
-    public function entryTypes()
+    public function getEntryTypes()
     {
         return count($this->_entryTypes) ? implode(',', $this->_entryTypes->all()) : '';
     }

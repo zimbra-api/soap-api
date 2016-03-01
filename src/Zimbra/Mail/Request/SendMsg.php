@@ -26,7 +26,7 @@ class SendMsg extends Base
 {
     /**
      * Constructor method for SendMsg
-     * @param  MsgToSend $m
+     * @param  MsgToSend $msg
      * @param  bool $needCalendarSentByFixup
      * @param  bool $isCalendarForward
      * @param  bool $noSave
@@ -34,7 +34,7 @@ class SendMsg extends Base
      * @return self
      */
     public function __construct(
-        MsgToSend $m = null,
+        MsgToSend $msg = null,
         $needCalendarSentByFixup = null,
         $isCalendarForward = null,
         $noSave = null,
@@ -42,100 +42,130 @@ class SendMsg extends Base
     )
     {
         parent::__construct();
-        if($m instanceof MsgToSend)
+        if($msg instanceof MsgToSend)
         {
-            $this->child('m', $m);
+            $this->setChild('m', $msg);
         }
         if(null !== $needCalendarSentByFixup)
         {
-            $this->property('needCalendarSentByFixup', (bool) $needCalendarSentByFixup);
+            $this->setProperty('needCalendarSentByFixup', (bool) $needCalendarSentByFixup);
         }
         if(null !== $isCalendarForward)
         {
-            $this->property('isCalendarForward', (bool) $isCalendarForward);
+            $this->setProperty('isCalendarForward', (bool) $isCalendarForward);
         }
         if(null !== $noSave)
         {
-            $this->property('noSave', (bool) $noSave);
+            $this->setProperty('noSave', (bool) $noSave);
         }
         if(null !== $suid)
         {
-            $this->property('suid', trim($suid));
+            $this->setProperty('suid', trim($suid));
         }
     }
 
     /**
-     * Get or set m
+     * Gets embedded message
      *
-     * @param  MsgToSend $m
-     * @return MsgToSend|self
+     * @return MsgToSend
      */
-    public function m(MsgToSend $m = null)
+    public function getMsg()
     {
-        if(null === $m)
-        {
-            return $this->child('m');
-        }
-        return $this->child('m', $m);
+        return $this->getChild('m');
     }
 
     /**
-     * Get or set needCalendarSentByFixup
+     * Sets embedded message
+     *
+     * @param  MsgToSend $msg
+     * @return self
+     */
+    public function setMsg(MsgToSend $msg)
+    {
+        return $this->setChild('m', $msg);
+    }
+
+    /**
+     * Gets need calendar sent by fixup
+     *
+     * @return bool
+     */
+    public function getNeedCalendarSentByFixup()
+    {
+        return $this->getProperty('needCalendarSentByFixup');
+    }
+
+    /**
+     * Sets need calendar sent by fixup
      *
      * @param  bool $needCalendarSentByFixup
-     * @return bool|self
+     * @return self
      */
-    public function needCalendarSentByFixup($needCalendarSentByFixup = null)
+    public function setNeedCalendarSentByFixup($needCalendarSentByFixup)
     {
-        if(null === $needCalendarSentByFixup)
-        {
-            return $this->property('needCalendarSentByFixup');
-        }
-        return $this->property('needCalendarSentByFixup', (bool) $needCalendarSentByFixup);
+        return $this->setProperty('needCalendarSentByFixup', (bool) $needCalendarSentByFixup);
     }
 
     /**
-     * Get or set isCalendarForward
+     * Gets is calendar forward
+     *
+     * @return bool
+     */
+    public function getIsCalendarForward()
+    {
+        return $this->getProperty('isCalendarForward');
+    }
+
+    /**
+     * Sets is calendar forward
      *
      * @param  bool $isCalendarForward
-     * @return bool|self
+     * @return self
      */
-    public function isCalendarForward($isCalendarForward = null)
+    public function setIsCalendarForward($isCalendarForward)
     {
-        if(null === $isCalendarForward)
-        {
-            return $this->property('isCalendarForward');
-        }
-        return $this->property('isCalendarForward', (bool) $isCalendarForward);
+        return $this->setProperty('isCalendarForward', (bool) $isCalendarForward);
     }
 
     /**
-     * Get or set noSave
+     * Gets no save to sent
      *
-     * @param  bool $noSave
-     * @return bool|self
+     * @return bool
      */
-    public function noSave($noSave = null)
+    public function getNoSaveToSent()
     {
-        if(null === $noSave)
-        {
-            return $this->property('noSave');
-        }
-        return $this->property('noSave', (bool) $noSave);
+        return $this->getProperty('noSave');
     }
 
     /**
-     * Get or set suid
+     * Sets no save to sent
      *
-     * @param  string $suid
-     * @return string|self
+     * @param  bool $noSaveToSent
+     * @return self
      */
-    public function suid($suid = null)
+    public function setNoSaveToSent($noSaveToSent)
     {
-        if(null === $suid)
-        {
-            return $this->property('suid');
-        }
-        return $this->property('suid', trim($suid));
+        return $this->setProperty('noSave', (bool) $noSaveToSent);
+    }
+
+    /**
+     * Gets send UID
+     *
+     * @return string
+     */
+    public function getSendUid()
+    {
+        return $this->getProperty('suid');
+    }
+
+    /**
+     * Sets send UID
+     *
+     * @param  string $sendUid
+     * @return self
+     */
+    public function setSendUid($sendUid)
+    {
+        return $this->setProperty('suid', trim($sendUid));
     }
 }

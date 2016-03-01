@@ -25,47 +25,57 @@ class CallerListEntry extends Base
 {
     /**
      * Constructor method for CallerListEntry
-     * @param string $pn
-     * @param bool $a
+     * @param string $phoneNumber Caller number from which the call should be forwarded to the forward to number
+     * @param bool $active Flag whether phone number is active in the list - "true" or "false"
      * @return self
      */
-    public function __construct($pn, $a)
+    public function __construct($phoneNumber, $active)
     {
         parent::__construct();
-        $this->property('pn', trim($pn));
-        $this->property('a', (bool) $a);
+        $this->setProperty('pn', trim($phoneNumber));
+        $this->setProperty('a', (bool) $active);
     }
 
     /**
-     * Gets or sets pn
-     * Caller number from which the call should be forwarded to the {forward-to} number
+     * Gets phone number
      *
-     * @param  bool $pn
-     * @return bool|self
+     * @return string
      */
-    public function pn($pn = null)
+    public function getPhoneNumber()
     {
-        if(null === $pn)
-        {
-            return $this->property('pn');
-        }
-        return $this->property('pn', trim($pn));
+        return $this->getProperty('pn');
     }
 
     /**
-     * Gets or sets a
-     * Flag whether {phone-number} is active in the list - "true" or "false"
+     * Sets phone number
      *
-     * @param  bool $a
-     * @return bool|self
+     * @param  string $phoneNumber
+     * @return self
      */
-    public function a($a = null)
+    public function setPhoneNumber($phoneNumber)
     {
-        if(null === $a)
-        {
-            return $this->property('a');
-        }
-        return $this->property('a', (bool) $a);
+        return $this->setProperty('pn', trim($phoneNumber));
+    }
+
+    /**
+     * Gets active
+     *
+     * @return string
+     */
+    public function getActive()
+    {
+        return $this->getProperty('a');
+    }
+
+    /**
+     * Sets active
+     *
+     * @param  string $active
+     * @return self
+     */
+    public function setActive($active)
+    {
+        return $this->setProperty('a', (bool) $active);
     }
 
     /**

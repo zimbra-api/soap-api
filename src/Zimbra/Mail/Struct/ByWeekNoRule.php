@@ -25,41 +25,34 @@ class ByWeekNoRule extends Base
 {
     /**
      * Constructor method for ByWeekNoRule
-     * @param  string $wklist BYWEEKNO Week list. Format : [[+]|-]num[,...] where num is between 1 and 53
+     * @param  string $list BYWEEKNO Week list. Format : [[+]|-]num[,...] where num is between 1 and 53
      * @return self
      */
-    public function __construct($wklist)
+    public function __construct($list)
     {
         parent::__construct();
-        $wklist = explode(',', $wklist);
-        $arr = array();
-        foreach ($wklist as $wk)
-        {
-            if(is_numeric($wk))
-            {
-                $wk = (int) $wk;
-                if($wk != 0 && $wk > -54 && $wk < 54 && !in_array($wk, $arr))
-                {
-                    $arr[] = $wk;
-                }
-            }
-        }
-        $this->property('wklist', implode(',', $arr));
+        $this->setList($list);
     }
 
     /**
-     * Gets or sets wklist
+     * Gets list
      *
-     * @param  string $wklist
-     * @return string|self
+     * @return string
      */
-    public function wklist($wklist = null)
+    public function getList()
     {
-        if(null === $wklist)
-        {
-            return $this->property('wklist');
-        }
-        $wklist = explode(',', $wklist);
+        return $this->getProperty('wklist');
+    }
+
+    /**
+     * Sets list
+     *
+     * @param  string $list
+     * @return self
+     */
+    public function setList($list)
+    {
+        $wklist = explode(',', $list);
         $arr = array();
         foreach ($wklist as $wk)
         {
@@ -72,7 +65,7 @@ class ByWeekNoRule extends Base
                 }
             }
         }
-        return $this->property('wklist', implode(',', $arr));
+        return $this->setProperty('wklist', implode(',', $arr));
     }
 
     /**

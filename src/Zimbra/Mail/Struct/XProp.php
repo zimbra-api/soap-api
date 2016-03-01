@@ -26,9 +26,9 @@ class XProp extends Base
 {
     /**
      * XPARAMs
-     * @var Sequence
+     * @var TypedSequence<XParam>
      */
-    private $_xparam;
+    private $_xparams;
 
     /**
      * Constructor method for XProp
@@ -37,50 +37,62 @@ class XProp extends Base
      * @param string $value
      * @return self
      */
-    public function __construct($name, $value, array $xparams = array())
+    public function __construct($name, $value, array $xparams = [])
     {
         parent::__construct();
-        $this->property('name', trim($name));
-        $this->property('value', trim($value));
-        $this->_xparam = new TypedSequence('Zimbra\Mail\Struct\XParam', $xparams);
+        $this->setProperty('name', trim($name))
+            ->setProperty('value', trim($value))
+            ->setXParams($xparams);
 
         $this->on('before', function(Base $sender)
         {
-            if($sender->xparam()->count())
+            if($sender->getXParams()->count())
             {
-                $sender->child('xparam', $sender->xparam()->all());
+                $sender->setChild('xparam', $sender->getXParams()->all());
             }
         });
     }
 
     /**
-     * Gets or sets xParam name
+     * Gets name
      *
-     * @param  string $name
-     * @return string|self
+     * @return string
      */
-    public function name($name = null)
+    public function getName()
     {
-        if(null === $name)
-        {
-            return $this->property('name');
-        }
-        return $this->property('name', trim($name));
+        return $this->getProperty('name');
     }
 
     /**
-     * Gets or sets xParam value
+     * Sets name
+     *
+     * @param  string $name
+     * @return self
+     */
+    public function setName($name)
+    {
+        return $this->setProperty('name', trim($name));
+    }
+
+    /**
+     * Gets value
+     *
+     * @return string
+     */
+    public function getValue()
+    {
+        return $this->getProperty('value');
+    }
+
+    /**
+     * Sets value
      *
      * @param  string $value
-     * @return string|self
+     * @return self
      */
-    public function value($value = null)
+    public function setValue($value)
     {
-        if(null === $value)
-        {
-            return $this->property('value');
-        }
-        return $this->property('value', trim($value));
+        return $this->setProperty('value', trim($value));
     }
 
     /**
@@ -91,7 +103,19 @@ class XProp extends Base
      */
     public function addXParam(XParam $xparam)
     {
-        $this->_xparam->add($xparam);
+        $this->_xparams->add($xparam);
+        return $this;
+    }
+
+    /**
+     * Sets xparam sequence
+     *
+     * @param  array $xparams
+     * @return self
+     */
+    public function setXParams(array $xparams)
+    {
+        $this->_xparams = new TypedSequence('Zimbra\Mail\Struct\XParam', $xparams);
         return $this;
     }
 
@@ -100,9 +124,9 @@ class XProp extends Base
      *
      * @return Sequence
      */
-    public function xparam()
+    public function getXParams()
     {
-        return $this->_xparam;
+        return $this->_xparams;
     }
 
     /**

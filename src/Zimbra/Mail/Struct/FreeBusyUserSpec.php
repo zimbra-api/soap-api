@@ -31,69 +31,87 @@ class FreeBusyUserSpec extends Base
      * @return self
      */
     public function __construct(
-        $l = null,
+        $folder = null,
         $id = null,
         $name = null
     )
     {
         parent::__construct();
-        if(null !== $l)
+        if(null !== $folder)
         {
-            $this->property('l', (int) $l);
+            $this->setProperty('l', (int) $folder);
         }
         if(null !== $id)
         {
-            $this->property('id', trim($id));
+            $this->setProperty('id', trim($id));
         }
         if(null !== $name)
         {
-            $this->property('name', trim($name));
+            $this->setProperty('name', trim($name));
         }
     }
 
     /**
-     * Gets or sets l
+     * Gets folder Id
      *
-     * @param  int $l
-     * @return int|self
+     * @return int
      */
-    public function l($l = null)
+    public function getFolderId()
     {
-        if(null === $l)
-        {
-            return $this->property('l');
-        }
-        return $this->property('l', (int) $l);
+        return $this->getProperty('l');
     }
 
     /**
-     * Gets or sets id
+     * Sets folder Id
+     *
+     * @param  int $folder
+     * @return self
+     */
+    public function setFolderId($folder)
+    {
+        return $this->setProperty('l', (int) $folder);
+    }
+
+    /**
+     * Gets Zimbra Id
+     *
+     * @return string
+     */
+    public function getId()
+    {
+        return $this->getProperty('id');
+    }
+
+    /**
+     * Sets Zimbra Id
      *
      * @param  string $id
-     * @return string|self
+     * @return self
      */
-    public function id($id = null)
+    public function setId($id)
     {
-        if(null === $id)
-        {
-            return $this->property('id');
-        }
-        return $this->property('id', trim($id));
+        return $this->setProperty('id', trim($id));
     }
 
     /**
-     * Gets or sets name
+     * Gets name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->getProperty('name');
+    }
+
+    /**
+     * Sets name
      *
      * @param  string $name
-     * @return string|self
+     * @return self
      */
-    public function name($name = null)
+    public function setName($name)
     {
-        if(null === $name)
-        {
-            return $this->property('name');
-        }
-        return $this->property('name', trim($name));
+        return $this->setProperty('name', trim($name));
     }
 
     /**

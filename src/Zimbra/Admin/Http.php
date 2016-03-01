@@ -32,10 +32,10 @@ class Http extends Base
     public function __construct($location, RequestFormat $format = null)
     {
         parent::__construct($location);
-        $this->_client = new ClientHttp($this->_location);
+        $this->setClient(new ClientHttp($this->getLocation()));
         if($format instanceof RequestFormat)
         {
-            $this->_client->format($format);
+            $this->getClient()->setFormat($format);
         }
     }
 }

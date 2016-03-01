@@ -21,7 +21,6 @@ use Zimbra\Account\Struct\AuthToken;
 use Zimbra\Account\Struct\BlackList;
 use Zimbra\Account\Struct\DistributionListSelector as DLSelector;
 use Zimbra\Account\Struct\DistributionListAction as DLAction;
-use Zimbra\Account\Struct\EntrySearchFilterInfo as SearchFilter;
 use Zimbra\Account\Struct\Identity;
 use Zimbra\Account\Struct\NameId;
 use Zimbra\Account\Struct\PreAuth;
@@ -30,6 +29,7 @@ use Zimbra\Account\Struct\WhiteList;
 
 use Zimbra\Struct\AccountSelector;
 use Zimbra\Struct\CursorInfo;
+use Zimbra\Struct\EntrySearchFilterInfo as SearchFilter;
 use Zimbra\Struct\GranteeChooser;
 
 /**
@@ -164,7 +164,7 @@ interface AccountInterface
     function createDistributionList(
         $name,
         $dynamic = null,
-        array $attrs = array()
+        array $attrs = []
     );
 
     /**
@@ -224,7 +224,7 @@ interface AccountInterface
     function distributionListAction(
         DLSelector $dl,
         DLAction $action,
-        array $attrs = array()
+        array $attrs = []
     );
 
     /**
@@ -312,7 +312,7 @@ interface AccountInterface
         DLSelector $dl,
         $needOwners = null,
         $needRights = null,
-        array $attrs = array()
+        array $attrs = []
     );
 
     /**
@@ -348,7 +348,7 @@ interface AccountInterface
      * @param  array $prefs Array of preferences. 
      * @return mixed
      */
-    function getPrefs(array $prefs = array());
+    function getPrefs(array $prefs = []);
 
     /**
      * Get account level rights. 
@@ -356,7 +356,7 @@ interface AccountInterface
      * @param  array $ace Specify Access Control Entries. 
      * @return mixed
      */
-    function getRights(array $ace = array());
+    function getRights(array $ace = []);
 
     /**
      * Get information about published shares
@@ -403,7 +403,7 @@ interface AccountInterface
      * @param  array $ace Specify Access Control Entries
      * @return mixed
      */
-    function grantRights(array $aces = array());
+    function grantRights(array $aces = []);
 
     /**
      * Modify an Identity
@@ -419,7 +419,7 @@ interface AccountInterface
      * @param  array $pref Specify the preferences to be modified
      * @return mixed
      */
-    function modifyPrefs(array $pref = array());
+    function modifyPrefs(array $pref = []);
 
     /**
      * Modify properties related to zimlets
@@ -427,7 +427,7 @@ interface AccountInterface
      * @param  array $prop Specify the properties to be modified
      * @return mixed
      */
-    function modifyProperties(array $prop = array());
+    function modifyProperties(array $prop = []);
 
     /**
      * Change attributes of the given signature
@@ -460,7 +460,7 @@ interface AccountInterface
      * @param  array $zimlet Zimlet Preference Specifications
      * @return mixed
      */
-    function modifyZimletPrefs(array $zimlet = array());
+    function modifyZimletPrefs(array $zimlet = []);
 
     /**
      * Revoke account level rights
@@ -468,7 +468,7 @@ interface AccountInterface
      * @param  array $ace Specify Access Control Entries
      * @return mixed
      */
-    function revokeRights(array $ace = array());
+    function revokeRights(array $ace = []);
 
     /**
      * Search Global Address List (GAL) for calendar resources

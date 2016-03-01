@@ -34,22 +34,28 @@ class GetAllZimlets extends Base
         parent::__construct();
         if($exclude instanceof ExcludeType)
         {
-            $this->property('exclude', $exclude);
+            $this->setProperty('exclude', $exclude);
         }
     }
 
     /**
-     * Gets or sets exclude
+     * Gets exclude
+     *
+     * @return ExcludeType
+     */
+    public function getExclude()
+    {
+        return $this->getProperty('exclude');
+    }
+
+    /**
+     * Sets exclude
      *
      * @param  ExcludeType $exclude
-     * @return ExcludeType|self
+     * @return self
      */
-    public function exclude(ExcludeType $exclude = null)
+    public function setExclude(ExcludeType $exclude)
     {
-        if(null === $exclude)
-        {
-            return $this->property('exclude');
-        }
-        return $this->property('exclude', $exclude);
+        return $this->setProperty('exclude', $exclude);
     }
 }

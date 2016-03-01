@@ -27,46 +27,58 @@ class GetCustomMetadata extends Base
     /**
      * Constructor method for GetCustomMetadata
      * @param  string $id
-     * @param  SectionAttr $meta
+     * @param  SectionAttr $metadata
      * @return self
      */
-    public function __construct($id, SectionAttr $meta = null)
+    public function __construct($id, SectionAttr $metadata = null)
     {
         parent::__construct();
-        $this->property('id', trim($id));
-        if($meta instanceof SectionAttr)
+        $this->setProperty('id', trim($id));
+        if($metadata instanceof SectionAttr)
         {
-            $this->child('meta', $meta);
+            $this->setChild('meta', $metadata);
         }
     }
 
     /**
-     * Get or set id
+     * Gets id
+     *
+     * @return string
+     */
+    public function getId()
+    {
+        return $this->getProperty('id');
+    }
+
+    /**
+     * Sets id
      *
      * @param  string $id
-     * @return string|self
+     * @return self
      */
-    public function id($id = null)
+    public function setId($id)
     {
-        if(null === $id)
-        {
-            return $this->property('id');
-        }
-        return $this->property('id', trim($id));
+        return $this->setProperty('id', trim($id));
     }
 
     /**
-     * Get or set meta
+     * Gets metadata section selector
      *
-     * @param  SectionAttr $meta
-     * @return SectionAttr|self
+     * @return SectionAttr
      */
-    public function meta(SectionAttr $meta = null)
+    public function getMetadata()
     {
-        if(null === $meta)
-        {
-            return $this->child('meta');
-        }
-        return $this->child('meta', $meta);
+        return $this->getChild('meta');
+    }
+
+    /**
+     * Sets metadata section selector
+     *
+     * @param  SectionAttr $metadata
+     * @return self
+     */
+    public function setMetadata(SectionAttr $metadata)
+    {
+        return $this->setChild('meta', $metadata);
     }
 }

@@ -1,0 +1,35 @@
+{
+    "name": "zimbra-api/upload",
+    "homepage": "https://github.com/zimbra-api",
+    "description": "Upload client used by Zimbra Api",
+    "keywords": ["upload"],
+    "license": "BSD (3-Clause) License",
+    "authors": [
+        {
+            "name": "Nguyen Van Nguyen",
+            "email": "nguyennv1981@gmail.com",
+            "homepage": "https://github.com/nguyennv"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0",
+        "evenement/evenement": "~2.0",
+        "guzzlehttp/guzzle": "5.*",
+        "phpcollection/phpcollection": "0.*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~4.0",
+        "fzaninotto/faker": "~v1.5.0"
+    },
+    "autoload": {
+        "psr-4": { "Zimbra\\Upload\\": "" },
+        "exclude-from-classmap": [
+            "/Tests/"
+        ]
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0.x-dev"
+        }
+    }
+}

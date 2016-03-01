@@ -29,40 +29,52 @@ class CreateAccount extends BaseAttr
      * @param array  $attrs
      * @return self
      */
-    public function __construct($name, $password, array $attrs = array())
+    public function __construct($name, $password, array $attrs = [])
     {
         parent::__construct($attrs);
-        $this->property('name', trim($name));
-        $this->property('password', trim($password));
+        $this->setProperty('name', trim($name));
+        $this->setProperty('password', trim($password));
     }
 
     /**
-     * Gets or sets name
+     * Gets name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->getProperty('name');
+    }
+
+    /**
+     * Sets name
      *
      * @param  string $name
-     * @return string|self
+     * @return self
      */
-    public function name($name = null)
+    public function setName($name)
     {
-        if(null === $name)
-        {
-            return $this->property('name');
-        }
-        return $this->property('name', trim($name));
+        return $this->setProperty('name', trim($name));
     }
 
     /**
-     * Gets or sets password
+     * Gets password
+     *
+     * @return string
+     */
+    public function getPassword()
+    {
+        return $this->getProperty('password');
+    }
+
+    /**
+     * Sets password
      *
      * @param  string $password
-     * @return string|self
+     * @return self
      */
-    public function password($password = null)
+    public function setPassword($password)
     {
-        if(null === $password)
-        {
-            return $this->property('password');
-        }
-        return $this->property('password', trim($password));
+        return $this->setProperty('password', trim($password));
     }
 }

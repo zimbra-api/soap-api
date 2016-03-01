@@ -42,102 +42,128 @@ class AutoComplete extends Base
     )
     {
         parent::__construct();
-        $this->property('name', trim($name));
+        $this->setProperty('name', trim($name));
         if($t instanceof GalSearchType)
         {
-            $this->property('t', $t);
+            $this->setProperty('t', $t);
         }
         if(null !== $needExp)
         {
-            $this->property('needExp', (bool) $needExp);
+            $this->setProperty('needExp', (bool) $needExp);
         }
         if(null !== $folders)
         {
-            $this->property('folders', trim($folders));
+            $this->setProperty('folders', trim($folders));
         }
         if(null !== $includeGal)
         {
-            $this->property('includeGal', (bool) $includeGal);
+            $this->setProperty('includeGal', (bool) $includeGal);
         }
     }
 
     /**
-     * Get or set name
-     * The name to test for autocompletion
+     * Gets name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->getProperty('name');
+    }
+
+    /**
+     * Sets name
      *
      * @param  string $name
-     * @return string|self
+     * @return self
      */
-    public function name($name = null)
+    public function setName($name)
     {
-        if(null === $name)
-        {
-            return $this->property('name');
-        }
-        return $this->property('name', trim($name));
+        return $this->setProperty('name', trim($name));
     }
 
     /**
-     * Get or set t
-     * GAL Search type - default value is "account"
+     * Gets search type
      *
-     * @param  GalSearchType $t
-     * @return GalSearchType|self
+     * @return GalSearchType
      */
-    public function t(GalSearchType $t = null)
+    public function getType()
     {
-        if(null === $t)
-        {
-            return $this->property('t');
-        }
-        return $this->property('t', $t);
+        return $this->getProperty('t');
     }
 
     /**
-     * Get or set needExp
-     * Set if the "exp" flag is needed in the response for group entries. Default is unset.
+     * Sets search type
+     *
+     * @param  GalSearchType $type
+     * @return self
+     */
+    public function setType(GalSearchType $type)
+    {
+        return $this->setProperty('t', $type);
+    }
+
+    /**
+     * Gets need expand
+     *
+     * @return bool
+     */
+    public function getNeedCanExpand()
+    {
+        return $this->getProperty('needExp');
+    }
+
+    /**
+     * Sets need expand
      *
      * @param  bool $needExp
-     * @return bool|self
+     * @return self
      */
-    public function needExp($needExp = null)
+    public function setNeedCanExpand($needExp)
     {
-        if(null === $needExp)
-        {
-            return $this->property('needExp');
-        }
-        return $this->property('needExp', (bool) $needExp);
+        return $this->setProperty('needExp', (bool) $needExp);
     }
 
     /**
-     * Get or set folders
-     * Comma separated list of folder IDs
+     * Gets comma separated list of folder IDs
      *
-     * @param  string $folders
-     * @return string|self
+     * @return string
      */
-    public function folders($folders = null)
+    public function getFolderList()
     {
-        if(null === $folders)
-        {
-            return $this->property('folders');
-        }
-        return $this->property('folders', trim($folders));
+        return $this->getProperty('folders');
     }
 
     /**
-     * Get or set includeGal
-     * Flag whether to include Global Address Book (GAL)
+     * Sets comma separated list of folder IDs
+     *
+     * @param  string $folderList
+     * @return self
+     */
+    public function setFolderList($folderList)
+    {
+        return $this->setProperty('folders', trim($folderList));
+    }
+
+    /**
+     * Gets include Gal
+     *
+     * @return bool
+     */
+    public function getIncludeGal()
+    {
+        return $this->getProperty('includeGal');
+    }
+
+    /**
+     * Sets include Gal
      *
      * @param  bool $includeGal
-     * @return bool|self
+     *     Flag whether to include Global Address Book (GAL)
+     * @return self
      */
-    public function includeGal($includeGal = null)
+    public function setIncludeGal($includeGal)
     {
-        if(null === $includeGal)
-        {
-            return $this->property('includeGal');
-        }
-        return $this->property('includeGal', (bool) $includeGal);
+        return $this->setProperty('includeGal', (bool) $includeGal);
     }
 }

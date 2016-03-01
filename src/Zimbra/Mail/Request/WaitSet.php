@@ -12,8 +12,8 @@ namespace Zimbra\Mail\Request;
 
 use Zimbra\Common\TypedSequence;
 use Zimbra\Enum\InterestType;
-use Zimbra\Mail\Struct\WaitSetSpec;
-use Zimbra\Mail\Struct\WaitSetId;
+use Zimbra\Struct\WaitSetSpec;
+use Zimbra\Struct\WaitSetId;
 
 /**
  * WaitSet request class
@@ -36,188 +36,242 @@ class WaitSet extends Base
 
     /**
      * Constructor method for WaitSet
-     * @param  string $waitSet
-     * @param  string $seq
-     * @param  WaitSetSpec $add
-     * @param  WaitSetSpec $update
-     * @param  WaitSetId $remove
-     * @param  bool $block
-     * @param  array $defTypes
-     * @param  int $timeout
+     * @param string $waitSet Waitset ID
+     * @param string $seq Last known sequence number
+     * @param WaitSetSpec $addAccounts The WaitSet add spec
+     * @param WaitSetSpec $updateAccounts The WaitSet update spec
+     * @param WaitSetId $removeAccounts The WaitSet remove spec
+     * @param bool   $block Flag whether or not to block until some account has new data
+     * @param array  $defTypes Default interest types. Comma-separated list
+     * @param int    $timeout Timeout length
      * @return self
      */
     public function __construct(
         $waitSet,
         $seq,
-        WaitSetSpec $add = null,
-        WaitSetSpec $update = null,
-        WaitSetId $remove = null,
+        WaitSetSpec $addAccounts = null,
+        WaitSetSpec $updateAccounts = null,
+        WaitSetId $removeAccounts = null,
         $block = null,
-        array $defTypes = array(),
+        array $defTypes = [],
         $timeout = null
     )
     {
         parent::__construct();
-        $this->property('waitSet', trim($waitSet));
-        $this->property('seq', trim($seq));
+        $this->setProperty('waitSet', trim($waitSet));
+        $this->setProperty('seq', trim($seq));
 
-        if($add instanceof WaitSetSpec)
+        if($addAccounts instanceof WaitSetSpec)
         {
-            $this->child('add', $add);
+            $this->setChild('add', $addAccounts);
         }
-        if($update instanceof WaitSetSpec)
+        if($updateAccounts instanceof WaitSetSpec)
         {
-            $this->child('update', $update);
+            $this->setChild('update', $updateAccounts);
         }
-        if($remove instanceof WaitSetId)
+        if($removeAccounts instanceof WaitSetId)
         {
-            $this->child('remove', $remove);
+            $this->setChild('remove', $removeAccounts);
         }
+
         if(null !== $block)
         {
-            $this->property('block', (bool) $block);
+            $this->setProperty('block', (bool) $block);
         }
-        $this->_defTypes = new TypedSequence('Zimbra\Enum\InterestType', $defTypes);
         if(null !== $timeout)
         {
-            $this->property('timeout', (int) $timeout);
+            $this->setProperty('timeout', (int) $timeout);
         }
+        $this->setDefaultInterests($defTypes);
 
         $this->on('before', function(Base $sender)
         {
-            $defTypes = $sender->defTypes();
+            $defTypes = $sender->getDefaultInterests();
             if(!empty($defTypes))
             {
-                $sender->property('defTypes', $defTypes);
+                $sender->setProperty('defTypes', $defTypes);
             }
         });
     }
 
     /**
-     * Gets or sets waitSet
+     * Gets Waitset ID
+     *
+     * @return string
+     */
+    public function getWaitSetId()
+    {
+        return $this->getProperty('waitSet');
+    }
+
+    /**
+     * Sets Waitset ID
      *
      * @param  string $waitSet
-     * @return string|self
+     * @return self
      */
-    public function waitSet($waitSet = null)
+    public function setWaitSetId($waitSet)
     {
-        if(null === $waitSet)
-        {
-            return $this->property('waitSet');
-        }
-        return $this->property('waitSet', trim($waitSet));
+        return $this->setProperty('waitSet', trim($waitSet));
     }
 
     /**
-     * Gets or sets seq
+     * Gets last known sequence number
+     *
+     * @return string
+     */
+    public function getLastKnownSeqNo()
+    {
+        return $this->getProperty('seq');
+    }
+
+    /**
+     * Sets last known sequence number
      *
      * @param  string $seq
-     * @return string|self
+     * @return self
      */
-    public function seq($seq = null)
+    public function setLastKnownSeqNo($seq)
     {
-        if(null === $seq)
-        {
-            return $this->property('seq');
-        }
-        return $this->property('seq', trim($seq));
+        return $this->setProperty('seq', trim($seq));
     }
 
     /**
-     * Get or set add WaitSet
+     * Gets the waitsets to add.
+     *
+     * @return WaitSetSpec
+     */
+    public function getAddAccounts()
+    {
+        return $this->getChild('add');
+    }
+
+    /**
+     * Sets the waitsets to add.
      *
      * @param  WaitSetSpec $add
-     * @return WaitSetSpec|self
+     * @return self
      */
-    public function add(WaitSetSpec $add = null)
+    public function setAddAccounts(WaitSetSpec $add)
     {
-        if(null === $add)
-        {
-            return $this->child('add');
-        }
-        return $this->child('add', $add);
+        return $this->setChild('add', $add);
     }
 
     /**
-     * Get or set update WaitSet
+     * Gets the waitsets to update.
+     *
+     * @return WaitSetSpec
+     */
+    public function getUpdateAccounts()
+    {
+        return $this->getChild('update');
+    }
+
+    /**
+     * Sets the waitsets to update.
      *
      * @param  WaitSetSpec $update
-     * @return WaitSetSpec|self
+     * @return self
      */
-    public function update(WaitSetSpec $update = null)
+    public function setUpdateAccounts(WaitSetSpec $update)
     {
-        if(null === $update)
-        {
-            return $this->child('update');
-        }
-        return $this->child('update', $update);
+        return $this->setChild('update', $update);
     }
 
+    /**
+     * Gets the waitsets to remove.
+     *
+     * @return WaitSetId
+     */
+    public function getRemoveAccounts()
+    {
+        return $this->getChild('remove');
+    }
 
     /**
-     * Get or set remove WaitSet
+     * Sets the waitsets to remove.
      *
      * @param  WaitSetId $remove
-     * @return WaitSetId|self
+     * @return self
      */
-    public function remove(WaitSetId $remove = null)
+    public function setRemoveAccounts(WaitSetId $remove)
     {
-        if(null === $remove)
-        {
-            return $this->child('remove');
-        }
-        return $this->child('remove', $remove);
+        return $this->setChild('remove', $remove);
     }
 
     /**
-     * Gets or sets block
+     * Gets block
+     *
+     * @return bool
+     */
+    public function getBlock()
+    {
+        return $this->getProperty('block');
+    }
+
+    /**
+     * Sets block
      *
      * @param  bool $block
-     * @return bool|self
+     * @return self
      */
-    public function block($block = null)
+    public function setBlock($block)
     {
-        if(null === $block)
-        {
-            return $this->property('block');
-        }
-        return $this->property('block', (bool) $block);
+        return $this->setProperty('block', (bool) $block);
     }
 
     /**
-     * Add a type
+     * Gets timeout
+     *
+     * @return int
+     */
+    public function getTimeout()
+    {
+        return $this->getProperty('timeout');
+    }
+
+    /**
+     * Sets timeout
+     *
+     * @param  string $timeout
+     * @return int
+     */
+    public function setTimeout($timeout)
+    {
+        return $this->setProperty('timeout', (int) $timeout);
+    }
+
+    /**
+     * Add a default interest type
      *
      * @param  InterestType $type
      * @return self
      */
-    public function addDefTypes(InterestType $type)
+    public function addDefaultInterest(InterestType $type)
     {
         $this->_defTypes->add($type);
         return $this;
     }
 
     /**
-     * Gets types
+     * Sets default interest types
      *
-     * @return string
+     * @param  array $defTypes
+     * @return self
      */
-    public function defTypes()
+    public function setDefaultInterests(array $defTypes)
     {
-        return count($this->_defTypes) ? implode(',', $this->_defTypes->all()) : '';
+        $this->_defTypes = new TypedSequence('Zimbra\Enum\InterestType', $defTypes);
+        return $this;
     }
 
     /**
-     * Get or set timeout
+     * Gets default interest types
      *
-     * @param  int $timeout
-     * @return int|self
+     * @return string
      */
-    public function timeout($timeout = null)
+    public function getDefaultInterests()
     {
-        if(null === $timeout)
-        {
-            return $this->property('timeout');
-        }
-        return $this->property('timeout', (int) $timeout);
+        return count($this->_defTypes) ? implode(',', $this->_defTypes->all()) : 'all';
     }
 }

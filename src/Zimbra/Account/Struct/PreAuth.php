@@ -38,48 +38,57 @@ class PreAuth extends Base
      */
     public function __construct($timestamp, $value = null, $expiresTimestamp = null)
     {
-		parent::__construct(trim($value));
-		$this->property('timestamp', (int) $timestamp);
-		$this->property('expiresTimestamp', (int) $expiresTimestamp);
-    }
-
-    /**
-     * Gets or sets timestamp
-     * Time stamp
-     * @param  int $timestamp
-     * @return int|self
-     */
-    public function timestamp($timestamp = null)
-    {
-        if(null === $timestamp)
+        parent::__construct(trim($value));
+        $this->setTimestamp($timestamp);
+        if (null !== $expiresTimestamp)
         {
-            $timestamp = $this->property('timestamp');
-            if($timestamp <= 0)
-            {
-                $timestamp = time();
-                $this->property('timestamp', (int) $timestamp);
-            }
-            return $timestamp;
+            $expiresTimestamp = (int) $expiresTimestamp < 0 ? time() : (int) $expiresTimestamp;
+            $this->setProperty('expiresTimestamp', $expiresTimestamp);
         }
-        return $this->property('timestamp', (int) $timestamp);
     }
 
     /**
-     * Gets or sets expiresTimestamp
-     * Expiration time of the authtoken, in milliseconds.
-     * Set to 0 to use the default expiration time for the account.
-     * Can be used to sync the auth token expiration time with the external system's notion of expiration (like a Kerberos TGT lifetime, for example).
+     * Gets time stamp
+     *
+     * @return int
+     */
+    public function getTimestamp()
+    {
+        return $this->getProperty('timestamp');
+    }
+
+    /**
+     * Sets time stamp
+     *
+     * @param  int $timestamp
+     * @return self
+     */
+    public function setTimestamp($timestamp)
+    {
+        $timestamp = (int) $timestamp < 0 ? time() : (int) $timestamp;
+        return $this->setProperty('timestamp', $timestamp);
+    }
+
+    /**
+     * Gets expiration time of the authtoken
+     *
+     * @return int
+     */
+    public function getExpiresTimestamp()
+    {
+        return $this->getProperty('expiresTimestamp');
+    }
+
+    /**
+     * Sets expiration time of the authtoken
      *
      * @param  int $expiresTimestamp
-     * @return int|self
+     * @return self
      */
-    public function expiresTimestamp($expiresTimestamp = null)
+    public function setExpiresTimestamp($expiresTimestamp)
     {
-        if(null === $expiresTimestamp)
-        {
-            return $this->property('expiresTimestamp');
-        }
-        return $this->property('expiresTimestamp', (int) $expiresTimestamp);
+        $expiresTimestamp = (int) $expiresTimestamp < 0 ? time() : (int) $expiresTimestamp;
+        return $this->setProperty('expiresTimestamp', (int) $expiresTimestamp);
     }
 
     /**
@@ -91,17 +100,17 @@ class PreAuth extends Base
      */
     public function computeValue($account, $key)
     {
-        $timestamp = ($this->timestamp() > 0) ? $this->timestamp() : time();
-        $expire = $this->expiresTimestamp();
+        $timestamp = ($this->getTimestamp() > 0) ? $this->getTimestamp() : time();
+        $expire = $this->getExpiresTimestamp();
         if($account instanceof AccountSelector)
         {
-            $preauth = $account->value() . '|'. $account->by() . '|' . $expire . '|' . $timestamp;
+            $preauth = $account->getValue() . '|'. $account->getBy() . '|' . $expire . '|' . $timestamp;
         }
         else
         {
             $preauth = $account . '|name|' . $expire . '|' . $timestamp;
         }
-        $this->value(hash_hmac('sha1', $preauth, $key));
+        $this->setValue(hash_hmac('sha1', $preauth, $key));
         return $this;
     }
 

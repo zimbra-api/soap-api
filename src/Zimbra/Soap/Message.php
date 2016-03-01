@@ -47,7 +47,7 @@ class Message
      * Soap headers
      * @var array
      */
-    private $_headers = array();
+    private $_headers = [];
 
     /**
      * Soap request
@@ -65,7 +65,7 @@ class Message
      * The xml namespaces
      * @var array
      */
-    private $_namespaces = array('urn:zimbra');
+    private $_namespaces = ['urn:zimbra'];
 
     /**
      * The soap version
@@ -77,10 +77,10 @@ class Message
      * Content types for SOAP versions.
      * @var array
      */
-    static protected $contentTypeMap = array(
+    static protected $contentTypeMap = [
         '1.1' => 'text/xml; charset=utf-8',
         '1.2' => 'application/soap+xml; charset=utf-8'
-    );
+    ];
 
     /**
      * Message constructor
@@ -90,29 +90,41 @@ class Message
      */
     public function __construct($version = self::SOAP_1_2)
     {
-        $this->_version = in_array($version, array(self::SOAP_1_2, self::SOAP_1_1)) ? $version : self::SOAP_1_2;
+        $this->_version = in_array($version, [self::SOAP_1_2, self::SOAP_1_1]) ? $version : self::SOAP_1_2;
     }
 
     /**
-     * Get or set request
+     * Gets soap request
      *
-     * @param  Request $request
-     * @return Request|self
+     * @return Request
      */
-    public function request(Request $request = null)
+    public function getRequest()
     {
-        if($request instanceof Request)
-        {
-            $this->_request = $request;
-            $this->addNamespace($this->_request->xmlNamespace());
-            $this->_body = $request->toXml();
-            $namespaces = array_values($this->_body->getDocNamespaces(true));
-            $this->addNamespace($namespaces);
-            return $this;
-        }
         return $this->_request;
     }
 
+    /**
+     * Set soap request
+     *
+     * @param  Request $request
+     * @return self
+     */
+    public function setRequest(Request $request)
+    {
+        $this->_request = $request;
+        $this->addNamespace($this->_request->getXmlNamespace());
+        $this->_body = $request->toXml();
+        $namespaces = array_values($this->_body->getDocNamespaces(true));
+        $this->addNamespace($namespaces);
+        return $this;
+    }
+
+    /**
+     * Add namespace.
+     *
+     * @param  string|array $namespace
+     * @return self
+     */
     public function addNamespace($namespace)
     {
         if(is_array($namespace))
@@ -129,6 +141,7 @@ class Message
                 $this->_namespaces[] = (string) $namespace;
             }
         }
+        return $this;
     }
 
     /**
@@ -160,7 +173,7 @@ class Message
      * @param  string $name
      * @return string|array
      */
-    public function header($name = null)
+    public function getHeader($name = null)
     {
         if(null === $name)
         {
@@ -173,14 +186,24 @@ class Message
     }
 
     /**
+     * Get all soap headers.
+     *
+     * @return array
+     */
+    public function getHeaders()
+    {
+        return $this->_headers;
+    }
+
+    /**
      * Gets content type
      *
      * @param  string $version Soap version
      * @return string
      */
-    public function contentType($version = null)
+    public function getContentType($version = null)
     {
-        $version = in_array($version, array(self::SOAP_1_2, self::SOAP_1_1)) ? $version : $this->_version;
+        $version = in_array($version, [self::SOAP_1_2, self::SOAP_1_1]) ? $version : $this->_version;
         return self::$contentTypeMap[$version];
     }
 
@@ -190,7 +213,7 @@ class Message
      * @param  string $version
      * @return string
      */
-    public function version()
+    public function getVersion()
     {
         return $this->_version;
     }
@@ -202,14 +225,14 @@ class Message
      */
     public function toJson()
     {
-        $array = array();
+        $array = [];
         if(count($this->_headers))
         {
-            $array['Header'] = array(
-                'context' => array(
+            $array['Header'] = [
+                'context' => [
                     '_jsns' => 'urn:zimbra',
-                ),
-            );
+                ],
+            ];
             foreach ($this->_headers as $name => $value)
             {
                 $array['Header']['context'][$name] = array('_content' => $value);
@@ -256,7 +279,7 @@ class Message
             }
         }
         $body = $xml->addChild('Body');
-        $body->append($this->_body, $this->_request->xmlNamespace());
+        $body->append($this->_body, $this->_request->getXmlNamespace());
         return $xml;
     }
 

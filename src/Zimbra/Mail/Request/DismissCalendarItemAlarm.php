@@ -10,6 +10,8 @@
 
 namespace Zimbra\Mail\Request;
 
+use Zimbra\Common\TypedSequence;
+use Zimbra\Mail\Struct\DismissAlarm;
 use Zimbra\Mail\Struct\DismissAppointmentAlarm;
 use Zimbra\Mail\Struct\DismissTaskAlarm;
 
@@ -26,56 +28,70 @@ use Zimbra\Mail\Struct\DismissTaskAlarm;
 class DismissCalendarItemAlarm extends Base
 {
     /**
+     * Details of alarms to dismiss
+     * @var TypedSequence<Zimbra\Mail\Struct\DismissAlarm>
+     */
+    private $_alarms;
+
+    /**
      * Constructor method for DismissCalendarItemAlarm
-     * @param  DismissAppointmentAlarm $appt
-     * @param  DismissTaskAlarm $task
+     * @param  array $alarms Details of alarms to dismiss
      * @return self
      */
-    public function __construct(
-        DismissAppointmentAlarm $appt = null,
-        DismissTaskAlarm $task = null
-    )
+    public function __construct(array $alarms = [])
     {
         parent::__construct();
-        if($appt instanceof DismissAppointmentAlarm)
+        $this->setAlarms($alarms);
+        $this->on('before', function(Base $sender)
         {
-            $this->child('appt', $appt);
-        }
-        if($task instanceof DismissTaskAlarm)
-        {
-            $this->child('task', $task);
-        }
+            if($sender->getAlarms()->count())
+            {
+                foreach ($sender->getAlarms()->all() as $alarm)
+                {
+                    if($alarm instanceof DismissAppointmentAlarm)
+                    {
+                        $this->setChild('appt', $alarm);
+                    }
+                    if($alarm instanceof DismissTaskAlarm)
+                    {
+                        $this->setChild('task', $alarm);
+                    }
+                }
+            }
+        });
     }
 
     /**
-     * Get or set appt
-     * Dismiss appointment alarm
+     * Add a dismiss alarm
      *
-     * @param  DismissAppointmentAlarm $appt
-     * @return DismissAppointmentAlarm|self
+     * @param  DismissAlarm $alarm
+     * @return self
      */
-    public function appt(DismissAppointmentAlarm $appt = null)
+    public function addAlarm(DismissAlarm $alarm)
     {
-        if(null === $appt)
-        {
-            return $this->child('appt');
-        }
-        return $this->child('appt', $appt);
+        $this->_alarms->add($alarm);
+        return $this;
     }
 
     /**
-     * Get or set task
-     * Dismiss task alarm
+     * Sets dismiss alarm sequence
      *
-     * @param  DismissTaskAlarm $task
-     * @return DismissTaskAlarm|self
+     * @param  array $alarms
+     * @return self
      */
-    public function task(DismissTaskAlarm $task = null)
+    public function setAlarms(array $alarms)
     {
-        if(null === $task)
-        {
-            return $this->child('task');
-        }
-        return $this->child('task', $task);
+        $this->_alarms = new TypedSequence('Zimbra\Mail\Struct\DismissAlarm', $alarms);
+        return $this;
+    }
+
+    /**
+     * Gets dismiss alarm sequence
+     *
+     * @return Sequence
+     */
+    public function getAlarms()
+    {
+        return $this->_alarms;
     }
 }

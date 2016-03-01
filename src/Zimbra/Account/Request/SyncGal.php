@@ -33,60 +33,78 @@ class SyncGal extends Base
         parent::__construct();
         if(null !== $token)
         {
-            $this->property('token', trim($token));
+            $this->setProperty('token', trim($token));
         }
         if(null !== $galAcctId)
         {
-            $this->property('galAcctId', trim($galAcctId));
+            $this->setProperty('galAcctId', trim($galAcctId));
         }
         if(null !== $idOnly)
         {
-            $this->property('idOnly', (bool) $idOnly);
+            $this->setProperty('idOnly', (bool) $idOnly);
         }
     }
 
     /**
-     * Gets or sets token
+     * Gets token
      *
-     * @param  string $token
-     * @return string|self
+     * @return bool
      */
-    public function token($token = null)
+    public function getToken()
     {
-        if(null === $token)
-        {
-            return $this->property('token');
-        }
-        return $this->property('token', trim($token));
+        return $this->getProperty('token');
     }
 
     /**
-     * Gets or sets galAcctId
+     * Sets token
      *
-     * @param  string $galAcctId
-     * @return string|self
+     * @param  bool $token
+     * @return self
      */
-    public function galAcctId($galAcctId = null)
+    public function setToken($token)
     {
-        if(null === $galAcctId)
-        {
-            return $this->property('galAcctId');
-        }
-        return $this->property('galAcctId', trim($galAcctId));
+        return $this->setProperty('token', trim($token));
     }
 
     /**
-     * Gets or sets idOnly
+     * Gets GAL sync account ID
+     *
+     * @return bool
+     */
+    public function getGalAccountId()
+    {
+        return $this->getProperty('galAcctId');
+    }
+
+    /**
+     * Sets GAL sync account ID
+     *
+     * @param  bool $galAcctId
+     * @return self
+     */
+    public function setGalAccountId($galAcctId)
+    {
+        return $this->setProperty('galAcctId', trim($galAcctId));
+    }
+
+    /**
+     * Gets ID only flag
+     *
+     * @return bool
+     */
+    public function getIdOnly()
+    {
+        return $this->getProperty('idOnly');
+    }
+
+    /**
+     * Sets ID only flag
      *
      * @param  bool $idOnly
-     * @return bool|self
+     * @return self
      */
-    public function idOnly($idOnly = null)
+    public function setIdOnly($idOnly)
     {
-        if(null === $idOnly)
-        {
-            return $this->property('idOnly');
-        }
-        return $this->property('idOnly', (bool) $idOnly);
+        return $this->setProperty('idOnly', (bool) $idOnly);
     }
 }

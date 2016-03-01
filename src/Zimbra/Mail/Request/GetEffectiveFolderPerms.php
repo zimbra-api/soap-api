@@ -32,22 +32,27 @@ class GetEffectiveFolderPerms extends Base
     public function __construct(FolderSpec $folder)
     {
         parent::__construct();
-        $this->child('folder', $folder);
+        $this->setChild('folder', $folder);
     }
 
     /**
-     * Get or set folder
-     * Folder specification
+     * Gets folder specification
+     *
+     * @return FolderSpec
+     */
+    public function getFolder()
+    {
+        return $this->getChild('folder');
+    }
+
+    /**
+     * Sets folder specification
      *
      * @param  FolderSpec $folder
-     * @return FolderSpec|self
+     * @return self
      */
-    public function folder(FolderSpec $folder = null)
+    public function setFolder(FolderSpec $folder)
     {
-        if(null === $folder)
-        {
-            return $this->child('folder');
-        }
-        return $this->child('folder', $folder);
+        return $this->setChild('folder', $folder);
     }
 }

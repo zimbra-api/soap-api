@@ -29,7 +29,7 @@ class ConvActionSelector extends ActionSelector
      * @param string $id
      * @param string $tcon
      * @param int    $tag
-     * @param string $l
+     * @param string $folder
      * @param string $rgb
      * @param int    $color
      * @param string $name
@@ -43,7 +43,7 @@ class ConvActionSelector extends ActionSelector
         $id = null,
         $tcon = null,
         $tag = null,
-        $l = null,
+        $folder = null,
         $rgb = null,
         $color = null,
         $name = null,
@@ -57,7 +57,7 @@ class ConvActionSelector extends ActionSelector
             $id,
             $tcon,
             $tag,
-            $l,
+            $folder,
             $rgb,
             $color,
             $name,
@@ -68,17 +68,23 @@ class ConvActionSelector extends ActionSelector
     }
 
     /**
-     * Gets or sets op
+     * Gets operation
+     *
+     * @return ConvActionOp
+     */
+    public function getOperation()
+    {
+        return $this->getProperty('op');
+    }
+
+    /**
+     * Sets operation
      *
      * @param  ConvActionOp $op
-     * @return ConvActionOp|self
+     * @return self
      */
-    public function op(ConvActionOp $op = null)
+    public function setOperation(ConvActionOp $op)
     {
-        if(null === $op)
-        {
-            return $this->property('op');
-        }
-        return $this->property('op', $op);
+        return $this->setProperty('op', $op);
     }
 }

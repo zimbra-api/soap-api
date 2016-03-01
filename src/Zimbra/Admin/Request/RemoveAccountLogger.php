@@ -41,60 +41,78 @@ class RemoveAccountLogger extends Base
         parent::__construct();
         if($account instanceof Account)
         {
-            $this->child('account', $account);
+            $this->setChild('account', $account);
         }
         if($logger instanceof Logger)
         {
-            $this->child('logger', $logger);
+            $this->setChild('logger', $logger);
         }
         if(null !== $id)
         {
-            $this->child('id', trim($id));
+            $this->setChild('id', trim($id));
         }
     }
 
     /**
-     * Gets or sets account
+     * Gets the logger.
      *
-     * @param  Account $account
-     * @return Account|self
+     * @return Logger
      */
-    public function account(Account $account = null)
+    public function getLogger()
     {
-        if(null === $account)
-        {
-            return $this->child('account');
-        }
-        return $this->child('account', $account);
+        return $this->getChild('logger');
     }
 
     /**
-     * Gets or sets logger
+     * Sets the logger.
      *
      * @param  Logger $logger
-     * @return Logger|self
+     * @return self
      */
-    public function logger(Logger $logger = null)
+    public function setLogger(Logger $logger)
     {
-        if(null === $logger)
-        {
-            return $this->child('logger');
-        }
-        return $this->child('logger', $logger);
+        return $this->setChild('logger', $logger);
     }
 
     /**
-     * Gets or sets id
+     * Sets the account.
+     *
+     * @return Account
+     */
+    public function getAccount()
+    {
+        return $this->getChild('account');
+    }
+
+    /**
+     * Sets the account.
+     *
+     * @param  Account $account
+     * @return self
+     */
+    public function setAccount(Account $account)
+    {
+        return $this->setChild('account', $account);
+    }
+
+    /**
+     * Gets id
+     *
+     * @return string
+     */
+    public function getId()
+    {
+        return $this->getChild('id');
+    }
+
+    /**
+     * Sets id
      *
      * @param  string $id
-     * @return string|self
+     * @return self
      */
-    public function id($id = null)
+    public function setId($id)
     {
-        if(null === $id)
-        {
-            return $this->child('id');
-        }
-        return $this->child('id', trim($id));
+        return $this->setChild('id', trim($id));
     }
 }

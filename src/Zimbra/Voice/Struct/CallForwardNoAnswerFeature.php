@@ -23,53 +23,65 @@ class CallForwardNoAnswerFeature extends CallFeatureInfo
 {
     /**
      * Constructor method for CallForwardNoAnswerFeature
-     * @param bool   $s
-     * @param bool   $a
-     * @param string $ft
-     * @param string $nr
+     * @param bool   $subscribed Flag whether subscribed or not
+     * @param bool   $active Flag whether active or not
+     * @param string $forwardTo Telephone number to forward calls to
+     * @param string $numRing The number of ring cycles before forwarding calls.
      * @return self
      */
-    public function __construct($s, $a, $ft = null, $nr = null)
+    public function __construct($subscribed, $active, $forwardTo = null, $numRing = null)
     {
-    	parent::__construct($s, $a);
-        if(null !== $ft)
+    	parent::__construct($subscribed, $active);
+        if(null !== $forwardTo)
         {
-            $this->property('ft', trim($ft));
+            $this->setProperty('ft', trim($forwardTo));
         }
-        if(null !== $nr)
+        if(null !== $numRing)
         {
-            $this->property('nr', trim($nr));
+            $this->setProperty('nr', trim($numRing));
         }
     }
 
     /**
-     * Gets or sets ft
+     * Gets forward to
      *
-     * @param  string $ft
-     * @return string|self
+     * @return string
      */
-    public function ft($ft = null)
+    public function getForwardTo()
     {
-        if(null === $ft)
-        {
-            return $this->property('ft');
-        }
-        return $this->property('ft', trim($ft));
+        return $this->getProperty('ft');
     }
 
     /**
-     * Gets or sets nr
+     * Sets forward to
      *
-     * @param  string $nr
-     * @return string|self
+     * @param  string $forwardTo
+     * @return self
      */
-    public function nr($nr = null)
+    public function setForwardTo($forwardTo)
     {
-        if(null === $nr)
-        {
-            return $this->property('nr');
-        }
-        return $this->property('nr', trim($nr));
+        return $this->setProperty('ft', trim($forwardTo));
+    }
+
+    /**
+     * Gets number of ring cycles
+     *
+     * @return string
+     */
+    public function getNumRingCycles()
+    {
+        return $this->getProperty('nr');
+    }
+
+    /**
+     * Sets number of ring cycles
+     *
+     * @param  string $numRing
+     * @return self
+     */
+    public function setNumRingCycles($numRing)
+    {
+        return $this->setProperty('nr', trim($numRing));
     }
 
     /**

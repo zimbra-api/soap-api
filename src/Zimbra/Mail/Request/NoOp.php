@@ -47,87 +47,103 @@ class NoOp extends Base
         parent::__construct();
         if(null !== $wait)
         {
-            $this->property('wait', (bool) $wait);
+            $this->setProperty('wait', (bool) $wait);
         }
         if(null !== $delegate)
         {
-            $this->property('delegate', (bool) $delegate);
+            $this->setProperty('delegate', (bool) $delegate);
         }
         if(null !== $limitToOneBlocked)
         {
-            $this->property('limitToOneBlocked', (bool) $limitToOneBlocked);
+            $this->setProperty('limitToOneBlocked', (bool) $limitToOneBlocked);
         }
         if(null !== $timeout)
         {
-            $this->property('timeout', (int) $timeout);
+            $this->setProperty('timeout', (int) $timeout);
         }
     }
 
     /**
-     * Get or set wait
-     * Wait setting
+     * Gets wait setting
      *
-     * @param  bool $wait
-     * @return bool|self
+     * @return bool
      */
-    public function wait($wait = null)
+    public function getWait()
     {
-        if(null === $wait)
-        {
-            return $this->property('wait');
-        }
-        return $this->property('wait', (bool) $wait);
+        return $this->getProperty('wait');
     }
 
     /**
-     * Get or set delegate
-     * If "wait" is set, the caller can use this setting to determine whether notifications on delegate sessions will cause the operation to return.
-     * If "delegate" is unset, delegate mailbox notifications will be ignored.
-     * "delegate" is set by default.
+     * Sets wait setting
+     *
+     * @param  bool $wait 
+     * @return self
+     */
+    public function setWait($wait)
+    {
+        return $this->setProperty('wait', (bool) $wait);
+    }
+
+    /**
+     * Gets delegate
+     *
+     * @return bool
+     */
+    public function getIncludeDelegates()
+    {
+        return $this->getProperty('delegate');
+    }
+
+    /**
+     * Sets delegate
      *
      * @param  bool $delegate
-     * @return bool|self
+     * @return self
      */
-    public function delegate($delegate = null)
+    public function setIncludeDelegates($delegate)
     {
-        if(null === $delegate)
-        {
-            return $this->property('delegate');
-        }
-        return $this->property('delegate', (bool) $delegate);
+        return $this->setProperty('delegate', (bool) $delegate);
     }
 
     /**
-     * Get or set limitToOneBlocked
-     * If specified, the server will only allow a given user to have one single waiting-NoOp on the server at a time,
-     * it will complete (with waitDisallowed set) any existing limited hanging NoOpRequests when a new request comes in.
+     * Gets enforce limit
+     *
+     * @return bool
+     */
+    public function getEnforceLimit()
+    {
+        return $this->getProperty('limitToOneBlocked');
+    }
+
+    /**
+     * Sets enforce limit
      *
      * @param  bool $limitToOneBlocked
-     * @return bool|self
+     * @return self
      */
-    public function limitToOneBlocked($limitToOneBlocked = null)
+    public function setEnforceLimit($limitToOneBlocked)
     {
-        if(null === $limitToOneBlocked)
-        {
-            return $this->property('limitToOneBlocked');
-        }
-        return $this->property('limitToOneBlocked', (bool) $limitToOneBlocked);
+        return $this->setProperty('limitToOneBlocked', (bool) $limitToOneBlocked);
     }
 
     /**
-     * Get or set timeout
-     * The client may specify a custom timeout-length for their request if they know something about the particular underlying network.
-     * The server may or may not honor this request (depending on server configured max/min values: see LocalConfig variables zimbra_noop_default_timeout, zimbra_noop_min_timeout and zimbra_noop_max_timeout)
+     * Gets timeout
+     *
+     * @return int
+     */
+    public function getTimeout()
+    {
+        return $this->getProperty('timeout');
+    }
+
+    /**
+     * Sets timeout
      *
      * @param  int $timeout
-     * @return int|self
+     * @return self
      */
-    public function timeout($timeout = null)
+    public function setTimeout($timeout)
     {
-        if(null === $timeout)
-        {
-            return $this->property('timeout');
-        }
-        return $this->property('timeout', (int) $timeout);
+        return $this->setProperty('timeout', (int) $timeout);
     }
 }

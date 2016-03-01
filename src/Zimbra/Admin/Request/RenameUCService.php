@@ -31,37 +31,49 @@ class RenameUCService extends Base
     public function __construct($id, $newName)
     {
         parent::__construct();
-        $this->child('id', trim($id));
-        $this->child('newName', trim($newName));
+        $this->setChild('id', trim($id));
+        $this->setChild('newName', trim($newName));
     }
 
     /**
-     * Gets or sets id
+     * Gets Zimbra ID
+     *
+     * @return string
+     */
+    public function getId()
+    {
+        return $this->getChild('id');
+    }
+
+    /**
+     * Sets Zimbra ID
      *
      * @param  string $id
-     * @return string|self
+     * @return self
      */
-    public function id($id = null)
+    public function setId($id)
     {
-        if(null === $id)
-        {
-            return $this->child('id');
-        }
-        return $this->child('id', trim($id));
+        return $this->setChild('id', trim($id));
     }
 
     /**
-     * Gets or sets newName
+     * Gets new name
+     *
+     * @return string
+     */
+    public function getNewName()
+    {
+        return $this->getChild('newName');
+    }
+
+    /**
+     * Sets new name
      *
      * @param  string $newName
-     * @return string|self
+     * @return self
      */
-    public function newName($newName = null)
+    public function setNewName($newName)
     {
-        if(null === $newName)
-        {
-            return $this->child('newName');
-        }
-        return $this->child('newName', trim($newName));
+        return $this->setChild('newName', trim($newName));
     }
 }

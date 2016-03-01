@@ -30,7 +30,7 @@ class ConditionOperator extends Base
      * Constant for value 'has'
      * @return string 'has'
      */
-    const HAS_CONST = 'has';
+    const HAVE = 'has';
 
     /**
      * Constant for value 'ge'

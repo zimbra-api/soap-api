@@ -39,76 +39,100 @@ class RecurIdInfo extends Base
     )
     {
         parent::__construct();
-        $this->property('rangeType', (int) $rangeType);
-        $this->property('recurId', trim($recurId));
+        $this->setProperty('rangeType', (int) $rangeType);
+        $this->setProperty('recurId', trim($recurId));
         if(null !== $tz)
         {
-            $this->property('tz', trim($tz));
+            $this->setProperty('tz', trim($tz));
         }
         if(null !== $ridZ)
         {
-            $this->property('ridZ', trim($ridZ));
+            $this->setProperty('ridZ', trim($ridZ));
         }
     }
 
     /**
-     * Gets or sets rangeType
+     * Gets recurrence range type
      *
-     * @param  int $rangeType
-     * @return int|self
+     * @return string
      */
-    public function rangeType($rangeType = null)
+    public function getRecurrenceRangeType()
     {
-        if(null === $rangeType)
-        {
-            return $this->property('rangeType');
-        }
-        return $this->property('rangeType', (int) $rangeType);
+        return $this->getProperty('rangeType');
     }
 
     /**
-     * Gets or sets recurId
+     * Sets recurrence range type
+     *
+     * @param  string $rangeType
+     * @return self
+     */
+    public function setRecurrenceRangeType($rangeType)
+    {
+        return $this->setProperty('rangeType', (int) $rangeType);
+    }
+
+    /**
+     * Gets recurrence ID
+     *
+     * @return string
+     */
+    public function getRecurrenceId()
+    {
+        return $this->getProperty('recurId');
+    }
+
+    /**
+     * Sets recurrence ID
      *
      * @param  string $recurId
-     * @return string|self
+     * @return self
      */
-    public function recurId($recurId = null)
+    public function setRecurrenceId($recurId)
     {
-        if(null === $recurId)
-        {
-            return $this->property('recurId');
-        }
-        return $this->property('recurId', trim($recurId));
+        return $this->setProperty('recurId', trim($recurId));
     }
 
     /**
-     * Gets or sets tz
+     * Gets timezone
+     *
+     * @return string
+     */
+    public function getTimezone()
+    {
+        return $this->getProperty('tz');
+    }
+
+    /**
+     * Sets timezone
      *
      * @param  string $tz
-     * @return string|self
+     * @return self
      */
-    public function tz($tz = null)
+    public function setTimezone($tz)
     {
-        if(null === $tz)
-        {
-            return $this->property('tz');
-        }
-        return $this->property('tz', trim($tz));
+        return $this->setProperty('tz', trim($tz));
     }
 
     /**
-     * Gets or sets ridZ
+     * Gets recurrence-id in UTC time zone
+     *
+     * @return string
+     */
+    public function getRecurIdZ()
+    {
+        return $this->getProperty('ridZ');
+    }
+
+    /**
+     * Sets recurrence-id in UTC time zone
      *
      * @param  string $ridZ
-     * @return string|self
+     * @return self
      */
-    public function ridZ($ridZ = null)
+    public function setRecurIdZ($ridZ)
     {
-        if(null === $ridZ)
-        {
-            return $this->property('ridZ');
-        }
-        return $this->property('ridZ', trim($ridZ));
+        return $this->setProperty('ridZ', trim($ridZ));
     }
 
     /**

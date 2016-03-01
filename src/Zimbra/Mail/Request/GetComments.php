@@ -32,22 +32,27 @@ class GetComments extends Base
     public function __construct(ParentId $comment)
     {
         parent::__construct();
-        $this->child('comment', $comment);
+        $this->setChild('comment', $comment);
     }
 
     /**
-     * Get or set comment
-     * Select parent for comments
+     * Gets comment
+     *
+     * @return ParentId
+     */
+    public function getComment()
+    {
+        return $this->getChild('comment');
+    }
+
+    /**
+     * Sets comment
      *
      * @param  ParentId $comment
-     * @return ParentId|self
+     * @return self
      */
-    public function comment(ParentId $comment = null)
+    public function setComment(ParentId $comment)
     {
-        if(null === $comment)
-        {
-            return $this->child('comment');
-        }
-        return $this->child('comment', $comment);
+        return $this->setChild('comment', $comment);
     }
 }

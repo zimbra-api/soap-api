@@ -35,25 +35,35 @@ class Batch extends Request
      * @param  array $requests
      * @return self
      */
-    public function __construct(array $requests = array())
+    public function __construct(array $requests = [])
     {
         parent::__construct();
-        $this->_requests = new TypedSequence('Zimbra\Soap\Request', $requests);
+        $this->setRequests($requests);
     }
 
     /**
-     * Gets or sets onerror
+     * Gets on error
+     *
+     * @return string
+     */
+    public function getOnError()
+    {
+        return $this->getProperty('onerror');
+    }
+
+    /**
+     * Sets on error
      *
      * @param  string $onerror
-     * @return string|self
+     * @return self
      */
-    public function onerror($onerror = null)
+    public function setOnError($onerror = 'continue')
     {
-        if(null === $onerror)
+        if (!in_array('continue', 'stop'))
         {
-            return $this->property('onerror');
+            $onerror = 'continue';
         }
-        return $this->property('onerror', trim($onerror));
+        return $this->setProperty('onerror', trim($onerror));
     }
 
     /**
@@ -69,11 +79,23 @@ class Batch extends Request
     }
 
     /**
+     * Set request sequence
+     *
+     * @param  array $requests
+     * @return Sequence
+     */
+    public function setRequests(array $requests)
+    {
+        $this->_requests = new TypedSequence('Zimbra\Soap\Request', $requests);
+        return $this;
+    }
+
+    /**
      * Gets request sequence
      *
      * @return Sequence
      */
-    public function requests()
+    public function getRequests()
     {
         return $this->_requests;
     }
@@ -87,16 +109,16 @@ class Batch extends Request
     public function toArray($name = null)
     {
         $name = empty($name) ? $this->requestName() : $name;
-        $arr = array(
-            '_jsns' => $this->xmlNamespace(),
-            'onerror' => $this->onerror(),
-        );
+        $arr = [
+            '_jsns' => $this->getXmlNamespace(),
+            'onerror' => $this->getOnError(),
+        ];
         foreach ($this->_requests as $key => $request)
         {
             $reqArr = $request->toArray();
             $arr[$request->requestName()] = $reqArr[$request->requestName()];
         }
-        return array($this->requestName() => $arr);
+        return [$this->requestName() => $arr];
     }
 
     /**
@@ -113,7 +135,7 @@ class Batch extends Request
         {
             $requestXml = $request->toXml();
             $requestXml->addAttribute('requestId', $key);
-            $xml->append($requestXml, $request->xmlNamespace());
+            $xml->append($requestXml, $request->getXmlNamespace());
         }
         return $xml;
     }

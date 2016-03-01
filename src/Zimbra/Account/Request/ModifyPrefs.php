@@ -10,8 +10,7 @@
 
 namespace Zimbra\Account\Request;
 
-use Zimbra\Account\Struct\Pref;
-use Zimbra\Common\TypedSequence;
+use Zimbra\Account\Struct\PrefsImplTrail;
 
 /**
  * ModifyPrefs request class
@@ -25,50 +24,5 @@ use Zimbra\Common\TypedSequence;
  */
 class ModifyPrefs extends Base
 {
-    /**
-     * Specify the preferences to be modified
-     * @var TypedSequence<Pref>
-     */
-    private $_pref;
-
-    /**
-     * Constructor method for ModifyPrefs
-     * @param array $prefs Specify the preferences to be modified
-     * @return self
-     */
-    public function __construct(array $prefs = array())
-    {
-        parent::__construct();
-        $this->_pref = new TypedSequence('Zimbra\Account\Struct\Pref', $prefs);
-
-        $this->on('before', function(Base $sender)
-        {
-            if($sender->pref()->count())
-            {
-                $sender->child('pref', $sender->pref()->all());
-            }
-        });
-    }
-
-    /**
-     * Add a pref
-     *
-     * @param  Pref $pref
-     * @return self
-     */
-    public function addPref(Pref $pref)
-    {
-        $this->_pref->add($pref);
-        return $this;
-    }
-
-    /**
-     * Gets pref Sequence
-     *
-     * @return Sequence
-     */
-    public function pref()
-    {
-        return $this->_pref;
-    }
+    use PrefsImplTrail;
 }

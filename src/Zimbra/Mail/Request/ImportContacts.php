@@ -26,118 +26,140 @@ class ImportContacts extends Base
 {
     /**
      * Constructor method for ImportContacts
-     * @param  Content $content
      * @param  string $ct
-     * @param  string $l
-     * @param  string $csvfmt
-     * @param  string $csvlocale
+     * @param  Content $content
+     * @param  string $folderId
+     * @param  string $csvFormat
+     * @param  string $csvLocale
      * @return self
      */
     public function __construct(
-        Content $content,
         $ct,
-        $l = null,
-        $csvfmt = null,
-        $csvlocale = null
+        Content $content,
+        $folderId = null,
+        $csvFormat = null,
+        $csvLocale = null
     )
     {
         parent::__construct();
-        $this->child('content', $content);
-        $this->property('ct', trim($ct));
-        if(null !== $l)
+        $this->setProperty('ct', trim($ct));
+        $this->setChild('content', $content);
+        if(null !== $folderId)
         {
-            $this->property('l', trim($l));
+            $this->setProperty('l', trim($folderId));
         }
-        if(null !== $csvfmt)
+        if(null !== $csvFormat)
         {
-            $this->property('csvfmt', trim($csvfmt));
+            $this->setProperty('csvfmt', trim($csvFormat));
         }
-        if(null !== $csvlocale)
+        if(null !== $csvLocale)
         {
-            $this->property('csvlocale', trim($csvlocale));
+            $this->setProperty('csvlocale', trim($csvLocale));
         }
     }
 
     /**
-     * Get or set content
-     * Content specification
+     * Gets content type
+     *
+     * @return string
+     */
+    public function getContentType()
+    {
+        return $this->getProperty('ct');
+    }
+
+    /**
+     * Sets content type
+     *
+     * @param  string $contentType
+     * @return self
+     */
+    public function setContentType($contentType)
+    {
+        return $this->setProperty('ct', trim($contentType));
+    }
+
+    /**
+     * Gets content specification
+     *
+     * @return Content
+     */
+    public function getContent()
+    {
+        return $this->getChild('content');
+    }
+
+    /**
+     * Sets content specification
      *
      * @param  Content $content
-     * @return Content|self
+     * @return self
      */
-    public function content(Content $content = null)
+    public function setContent(Content $content)
     {
-        if(null === $content)
-        {
-            return $this->child('content');
-        }
-        return $this->child('content', $content);
+        return $this->setChild('content', $content);
     }
 
     /**
-     * Get or set ct
-     * Content type.
-     * Only currenctly supported content type is "csv"
+     * Gets folder ID
      *
-     * @param  string $ct
-     * @return string|self
+     * @return string
      */
-    public function ct($ct = null)
+    public function getFolderId()
     {
-        if(null === $ct)
-        {
-            return $this->property('ct');
-        }
-        return $this->property('ct', trim($ct));
+        return $this->getProperty('l');
     }
 
     /**
-     * Gets or sets l
-     * Optional Folder ID to import contacts to
+     * Sets folder ID
      *
-     * @param  string $l
-     * @return string|self
+     * @param  string $folderId
+     * @return self
      */
-    public function l($l = null)
+    public function setFolderId($folderId)
     {
-        if(null === $l)
-        {
-            return $this->property('l');
-        }
-        return $this->property('l', trim($l));
+        return $this->setProperty('l', trim($folderId));
     }
 
     /**
-     * Get or set csvfmt
-     * The format of csv being imported. when it's not defined, Zimbra format is assumed.
-     * The supported formats are defined in $ZIMBRA_HOME/conf/zimbra-contact-fields.xml
+     * Gets csv format
      *
-     * @param  string $csvfmt
-     * @return string|self
+     * @return string
      */
-    public function csvfmt($csvfmt = null)
+    public function getCsvFormat()
     {
-        if(null === $csvfmt)
-        {
-            return $this->property('csvfmt');
-        }
-        return $this->property('csvfmt', trim($csvfmt));
+        return $this->getProperty('csvfmt');
     }
 
     /**
-     * Get or set csvlocale
-     * The locale to use when there are multiple {csv-format} locales defined.
-     * When it is not specified, the {csv-format} with no locale specification is used.
+     * Sets csv format
      *
-     * @param  string $csvlocale
-     * @return string|self
+     * @param  string $csvFormat
+     * @return self
      */
-    public function csvlocale($csvlocale = null)
+    public function setCsvFormat($csvFormat)
     {
-        if(null === $csvlocale)
-        {
-            return $this->property('csvlocale');
-        }
-        return $this->property('csvlocale', trim($csvlocale));
+        return $this->setProperty('csvfmt', trim($csvFormat));
+    }
+
+    /**
+     * Gets csv locale
+     *
+     * @return string
+     */
+    public function getCsvLocale()
+    {
+        return $this->getProperty('csvlocale');
+    }
+
+    /**
+     * Sets csv locale
+     *
+     * @param  string $csvLocale
+     * @return self
+     */
+    public function setCsvLocale($csvLocale)
+    {
+        return $this->setProperty('csvlocale', trim($csvLocale));
     }
 }

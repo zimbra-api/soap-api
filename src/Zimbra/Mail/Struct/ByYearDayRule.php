@@ -25,41 +25,34 @@ class ByYearDayRule extends Base
 {
     /**
      * Constructor method for ByYearDayRule
-     * @param  string $yrdaylist BYYEARDAY yearday list. Format : [[+]|-]num[,...]" where num is between 1 and 366
+     * @param  string $list BYYEARDAY yearday list. Format : [[+]|-]num[,...]" where num is between 1 and 366
      * @return self
      */
-    public function __construct($yrdaylist)
+    public function __construct($list)
     {
         parent::__construct();
-        $yrdaylist = explode(',', $yrdaylist);
-        $arr = array();
-        foreach ($yrdaylist as $day)
-        {
-            if(is_numeric($day))
-            {
-                $day = (int) $day;
-                if($day != 0 && $day > -367 && $day < 367 && !in_array($day, $arr))
-                {
-                    $arr[] = $day;
-                }
-            }
-        }
-        $this->property('yrdaylist', implode(',', $arr));
+        $this->setList($list);
     }
 
     /**
-     * Gets or sets yrdaylist
+     * Gets list
      *
-     * @param  string $yrdaylist
-     * @return string|self
+     * @return string
      */
-    public function yrdaylist($yrdaylist = null)
+    public function getList()
     {
-        if(null === $yrdaylist)
-        {
-            return $this->property('yrdaylist');
-        }
-        $yrdaylist = explode(',', $yrdaylist);
+        return $this->getProperty('yrdaylist');
+    }
+
+    /**
+     * Sets list
+     *
+     * @param  string $list
+     * @return self
+     */
+    public function setList($list)
+    {
+        $yrdaylist = explode(',', $list);
         $arr = array();
         foreach ($yrdaylist as $day)
         {
@@ -72,7 +65,7 @@ class ByYearDayRule extends Base
                 }
             }
         }
-        return $this->property('yrdaylist', implode(',', $arr));
+        return $this->setProperty('yrdaylist', implode(',', $arr));
     }
 
     /**

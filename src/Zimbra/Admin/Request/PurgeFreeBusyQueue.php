@@ -34,22 +34,28 @@ class PurgeFreeBusyQueue extends Base
         parent::__construct();
         if($provider instanceof NamedElement)
         {
-            $this->child('provider', $provider);
+            $this->setChild('provider', $provider);
         }
     }
 
     /**
-     * Gets or sets provider
+     * Gets the provider.
+     *
+     * @return NamedElement
+     */
+    public function getProvider()
+    {
+        return $this->getChild('provider');
+    }
+
+    /**
+     * Sets the provider.
      *
      * @param  NamedElement $provider
-     * @return NamedElement|self
+     * @return self
      */
-    public function provider(NamedElement $provider = null)
+    public function setProvider(NamedElement $provider)
     {
-        if(null === $provider)
-        {
-            return $this->child('provider');
-        }
-        return $this->child('provider', $provider);
+        return $this->setChild('provider', $provider);
     }
 }

@@ -33,23 +33,29 @@ class PolicyHolder extends Base
         parent::__construct();
         if($policy instanceof Policy)
         {
-            $this->child('policy', $policy);
+            $this->setChild('policy', $policy);
         }
     }
 
     /**
-     * Gets or sets policy
+     * Gets the policy.
+     *
+     * @return Policy
+     */
+    public function getPolicy()
+    {
+        return $this->getChild('policy');
+    }
+
+    /**
+     * Sets the policy.
      *
      * @param  Policy $policy
-     * @return Policy|self
+     * @return self
      */
-    public function policy(Policy $policy = null)
+    public function setPolicy(Policy $policy)
     {
-        if(null === $policy)
-        {
-            return $this->child('policy');
-        }
-        return $this->child('policy', $policy);
+        return $this->setChild('policy', $policy);
     }
 
     /**

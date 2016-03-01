@@ -28,54 +28,48 @@ class AddDistributionListMember extends Base
      * Members
      * @var Sequence
      */
-    private $_dlm = array();
+    private $_members;
 
     /**
      * Constructor method for AddDistributionListMember
      * @param  string $id Zimbra ID
-     * @param  array  $dlms Members
+     * @param  array  $members Members
      * @return self
      */
-    public function __construct($id, array $dlms)
+    public function __construct($id, array $members)
     {
         parent::__construct();
-        $this->property('id', trim($id));
-        $this->_dlm = new Sequence;
-        foreach ($dlms as $dlm)
-        {
-            $dlm = trim($dlm);
-            if(!empty($dlm) && !$this->_dlm->contains($dlm))
-            {
-                $this->_dlm->add($dlm);
-            }
-        }
-        if(count($this->_dlm) === 0)
-        {
-            throw new \InvalidArgumentException('AddDistributionListMember must have at least one member');
-        }
+        $this->setProperty('id', trim($id));
+        $this->setMembers($members);
 
         $this->on('before', function(Base $sender)
         {
-            if($sender->dlm()->count())
+            if($sender->getMembers()->count())
             {
-                $sender->child('dlm', $sender->dlm()->all());
+                $sender->setChild('dlm', $sender->getMembers()->all());
             }
         });
     }
 
     /**
-     * Gets or sets id
+     * Gets Zimbra ID
+     *
+     * @return string
+     */
+    public function getId()
+    {
+        return $this->getProperty('id');
+    }
+
+    /**
+     * Sets Zimbra ID
      *
      * @param  string $id
-     * @return string|self
+     * @return self
      */
-    public function id($id = null)
+    public function setId($id)
     {
-        if(null === $id)
-        {
-            return $this->property('id');
-        }
-        return $this->property('id', trim($id));
+        return $this->setProperty('id', trim($id));
     }
 
     /**
@@ -84,23 +78,47 @@ class AddDistributionListMember extends Base
      * @param  string $dlm
      * @return self
      */
-    public function addDlm($dlm)
+    public function addMember($member)
     {
-        $dlm = trim($dlm);
-        if(!empty($dlm) && !$this->_dlm->contains($dlm))
+        $member = trim($member);
+        if(!empty($member) && !$this->_members->contains($member))
         {
-            $this->_dlm->add($dlm);
+            $this->_members->add($member);
         }
         return $this;
     }
 
     /**
-     * Gets dlm sequence
+     * Sets member sequence
+     *
+     * @param  array  $members Members
+     * @return self
+     */
+    public function setMembers(array $members)
+    {
+        $this->_members = new Sequence;
+        foreach ($members as $member)
+        {
+            $member = trim($member);
+            if(!empty($member) && !$this->_members->contains($member))
+            {
+                $this->_members->add($member);
+            }
+        }
+        if(count($this->_members) === 0)
+        {
+            throw new \InvalidArgumentException('AddDistributionListMember must have at least one member');
+        }
+        return $this;
+    }
+
+    /**
+     * Gets member sequence
      *
      * @return Sequence
      */
-    public function dlm()
+    public function getMembers()
     {
-        return $this->_dlm;
+        return $this->_members;
     }
 }

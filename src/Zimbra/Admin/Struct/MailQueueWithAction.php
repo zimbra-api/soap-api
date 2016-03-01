@@ -32,38 +32,50 @@ class MailQueueWithAction extends Base
     public function __construct(MailQueueAction $action, $name)
     {
         parent::__construct();
-        $this->child('action', $action);
-        $this->property('name', trim($name));
+        $this->setChild('action', $action);
+        $this->setProperty('name', trim($name));
     }
 
     /**
-     * Gets or sets action
+     * Gets the action.
+     *
+     * @return MailQueueAction
+     */
+    public function getAction()
+    {
+        return $this->getChild('action');
+    }
+
+    /**
+     * Sets the action.
      *
      * @param  MailQueueAction $action
-     * @return MailQueueAction|self
+     * @return self
      */
-    public function action(MailQueueAction $action = null)
+    public function setAction(MailQueueAction $action)
     {
-        if(null === $action)
-        {
-            return $this->child('action');
-        }
-        return $this->child('action', $action);
+        return $this->setChild('action', $action);
     }
 
     /**
-     * Gets or sets name
+     * Gets the query name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->getProperty('name');
+    }
+
+    /**
+     * Sets the query name
      *
      * @param  string $name
-     * @return string|self
+     * @return self
      */
-    public function name($name = null)
+    public function setName($name)
     {
-        if(null === $name)
-        {
-            return $this->property('name');
-        }
-        return $this->property('name', trim($name));
+        return $this->setProperty('name', trim($name));
     }
 
     /**

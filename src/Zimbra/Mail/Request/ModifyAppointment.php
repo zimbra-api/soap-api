@@ -27,7 +27,7 @@ class ModifyAppointment extends CalItemRequestBase
 {
     /**
      * Constructor method for ModifyAppointment
-     * @param  Msg $m
+     * @param  Msg $msg
      * @param  string $id
      * @param  int $comp
      * @param  int $ms
@@ -40,7 +40,7 @@ class ModifyAppointment extends CalItemRequestBase
      * @return self
      */
     public function __construct(
-        Msg $m = null,
+        Msg $msg = null,
         $id = null,
         $comp = null,
         $ms = null,
@@ -53,7 +53,7 @@ class ModifyAppointment extends CalItemRequestBase
     )
     {
         parent::__construct(
-            $m,
+            $msg,
             $echo,
             $max,
             $html,
@@ -62,79 +62,103 @@ class ModifyAppointment extends CalItemRequestBase
         );
         if(null !== $id)
         {
-            $this->property('id', trim($id));
+            $this->setProperty('id', trim($id));
         }
         if(null !== $comp)
         {
-            $this->property('comp', (int) $comp);
+            $this->setProperty('comp', (int) $comp);
         }
         if(null !== $ms)
         {
-            $this->property('ms', (int) $ms);
+            $this->setProperty('ms', (int) $ms);
         }
         if(null !== $rev)
         {
-            $this->property('rev', (int) $rev);
+            $this->setProperty('rev', (int) $rev);
         }
     }
 
     /**
-     * Get or set id
+     * Gets id
+     *
+     * @return string
+     */
+    public function getId()
+    {
+        return $this->getProperty('id');
+    }
+
+    /**
+     * Sets id
      *
      * @param  string $id
-     * @return string|self
+     * @return self
      */
-    public function id($id = null)
+    public function setId($id)
     {
-        if(null === $id)
-        {
-            return $this->property('id');
-        }
-        return $this->property('id', trim($id));
+        return $this->setProperty('id', trim($id));
     }
 
     /**
-     * Get or set comp
+     * Gets component number
      *
-     * @param  int $comp
-     * @return int|self
+     * @return int
      */
-    public function comp($comp = null)
+    public function getComponentNum()
     {
-        if(null === $comp)
-        {
-            return $this->property('comp');
-        }
-        return $this->property('comp', (int) $comp);
+        return $this->getProperty('comp');
     }
 
     /**
-     * Get or set ms
+     * Sets component number
      *
-     * @param  int $ms
-     * @return int|self
+     * @param  int $componentNum
+     * @return self
      */
-    public function ms($ms = null)
+    public function setComponentNum($componentNum)
     {
-        if(null === $ms)
-        {
-            return $this->property('ms');
-        }
-        return $this->property('ms', (int) $ms);
+        return $this->setProperty('comp', (int) $componentNum);
     }
 
     /**
-     * Get or set rev
+     * Gets changed sequence
      *
-     * @param  int $rev
-     * @return int|self
+     * @return int
      */
-    public function rev($rev = null)
+    public function getModifiedSequence()
     {
-        if(null === $rev)
-        {
-            return $this->property('rev');
-        }
-        return $this->property('rev', (int) $rev);
+        return $this->getProperty('ms');
+    }
+
+    /**
+     * Sets changed sequence
+     *
+     * @param  int $modifiedSequence
+     * @return self
+     */
+    public function setModifiedSequence($modifiedSequence)
+    {
+        return $this->setProperty('ms', (int) $modifiedSequence);
+    }
+
+    /**
+     * Gets revision
+     *
+     * @return int
+     */
+    public function getRevision()
+    {
+        return $this->getProperty('rev');
+    }
+
+    /**
+     * Sets revision
+     *
+     * @param  int $revision
+     * @return self
+     */
+    public function setRevision($revision)
+    {
+        return $this->setProperty('rev', (int) $revision);
     }
 }

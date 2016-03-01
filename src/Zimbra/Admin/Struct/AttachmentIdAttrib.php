@@ -33,23 +33,29 @@ class AttachmentIdAttrib extends Base
         parent::__construct();
         if(null !== $aid)
         {
-            $this->property('aid', trim($aid));
+            $this->setProperty('aid', trim($aid));
         }
     }
 
     /**
-     * Gets or sets aid
+     * Gets attachment ID
+     *
+     * @return string
+     */
+    public function getAttachmentId()
+    {
+        return $this->getProperty('aid');
+    }
+
+    /**
+     * Sets attachment ID
      *
      * @param  string $aid
-     * @return string|self
+     * @return self
      */
-    public function aid($aid = null)
+    public function setAttachmentId($aid)
     {
-        if(null === $aid)
-        {
-            return $this->property('aid');
-        }
-        return $this->property('aid', trim($aid));
+        return $this->setProperty('aid', trim($aid));
     }
 
     /**

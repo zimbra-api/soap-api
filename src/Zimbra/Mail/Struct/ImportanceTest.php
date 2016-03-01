@@ -35,22 +35,28 @@ class ImportanceTest extends FilterTest
     )
     {
         parent::__construct($index, $negative);
-        $this->property('imp', $imp);
+        $this->setProperty('imp', $imp);
     }
 
     /**
-     * Gets or sets imp
+     * Gets importance
+     *
+     * @return Importance
+     */
+    public function getImportance()
+    {
+        return $this->getProperty('imp');
+    }
+
+    /**
+     * Sets importance
      *
      * @param  Importance $imp
-     * @return Importance|self
+     * @return self
      */
-    public function imp(Importance $imp = null)
+    public function setImportance(Importance $imp)
     {
-        if(null === $imp)
-        {
-            return $this->property('imp');
-        }
-        return $this->property('imp', $imp);
+        return $this->setProperty('imp', $imp);
     }
 
     /**

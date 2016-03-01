@@ -10,11 +10,11 @@
 
 namespace Zimbra\Account\Request;
 
-use Zimbra\Account\Struct\EntrySearchFilterInfo as SearchFilter;
 use Zimbra\Enum\GalSearchType as SearchType;
 use Zimbra\Enum\MemberOfSelector as MemberOf;
 use Zimbra\Enum\SortBy;
 use Zimbra\Struct\CursorInfo;
+use Zimbra\Struct\EntrySearchFilterInfo as SearchFilter;
 
 /**
  * SearchGal request class
@@ -68,288 +68,378 @@ class SearchGal extends Base
         parent::__construct();
         if(null !== $locale)
         {
-            $this->child('locale', trim($locale));
+            $this->setChild('locale', trim($locale));
         }
         if($cursor instanceof CursorInfo)
         {
-            $this->child('cursor', $cursor);
+            $this->setChild('cursor', $cursor);
         }
         if($searchFilter instanceof SearchFilter)
         {
-            $this->child('searchFilter', $searchFilter);
+            $this->setChild('searchFilter', $searchFilter);
         }
         if(null !== $ref)
         {
-            $this->property('ref', trim($ref));
+            $this->setProperty('ref', trim($ref));
         }
         if(null !== $name)
         {
-            $this->property('name', trim($name));
+            $this->setProperty('name', trim($name));
         }
         if($type instanceof SearchType)
         {
-            $this->property('type', $type);
+            $this->setProperty('type', $type);
         }
         if(null !== $needExp)
         {
-            $this->property('needExp', (bool) $needExp);
+            $this->setProperty('needExp', (bool) $needExp);
         }
         if(null !== $needIsOwner)
         {
-            $this->property('needIsOwner', (bool) $needIsOwner);
+            $this->setProperty('needIsOwner', (bool) $needIsOwner);
         }
         if($needIsMember instanceof MemberOf)
         {
-            $this->property('needIsMember', $needIsMember);
+            $this->setProperty('needIsMember', $needIsMember);
         }
         if(null !== $needSMIMECerts)
         {
-            $this->property('needSMIMECerts', (bool) $needSMIMECerts);
+            $this->setProperty('needSMIMECerts', (bool) $needSMIMECerts);
         }
         if(null !== $galAcctId)
         {
-            $this->property('galAcctId', trim($galAcctId));
+            $this->setProperty('galAcctId', trim($galAcctId));
         }
         if(null !== $quick)
         {
-            $this->property('quick', (bool) $quick);
+            $this->setProperty('quick', (bool) $quick);
         }
         if($sortBy instanceof SortBy)
         {
-            $this->property('sortBy', $sortBy);
+            $this->setProperty('sortBy', $sortBy);
         }
         if(null !== $limit)
         {
-            $this->property('limit', (int) $limit);
+            $this->setProperty('limit', (int) $limit);
         }
         if(null !== $offset)
         {
-            $this->property('offset', (int) $offset);
+            $this->setProperty('offset', (int) $offset);
         }
     }
 
     /**
-     * Gets or sets locale
+     * Gets locale
+     *
+     * @return string
+     */
+    public function getLocale()
+    {
+        return $this->getChild('locale');
+    }
+
+    /**
+     * Sets locale
      *
      * @param  string $locale
-     * @return string|self
+     * @return self
      */
-    public function locale($locale = null)
+    public function setLocale($locale)
     {
-        if(null === $locale)
-        {
-            return $this->child('locale');
-        }
-        return $this->child('locale', trim($locale));
+        return $this->setChild('locale', trim($locale));
     }
 
     /**
-     * Gets or sets cursor
+     * Gets the cursor
+     *
+     * @return CursorInfo
+     */
+    public function getCursor()
+    {
+        return $this->getChild('cursor');
+    }
+
+    /**
+     * Sets the cursor
      *
      * @param  CursorInfo $cursor
-     * @return CursorInfo|self
+     * @return self
      */
-    public function cursor(CursorInfo $cursor = null)
+    public function setCursor(CursorInfo $cursor)
     {
-        if(null === $cursor)
-        {
-            return $this->child('cursor');
-        }
-        return $this->child('cursor', $cursor);
+        return $this->setChild('cursor', $cursor);
     }
 
     /**
-     * Gets or sets searchFilter
+     * Gets the searchFilter
+     *
+     * @return SearchFilter
+     */
+    public function getSearchFilter()
+    {
+        return $this->getChild('searchFilter');
+    }
+
+    /**
+     * Sets the searchFilter
      *
      * @param  SearchFilter $searchFilter
-     * @return SearchFilter|self
+     * @return self
      */
-    public function searchFilter(SearchFilter $searchFilter = null)
+    public function setSearchFilter(SearchFilter $searchFilter)
     {
-        if(null === $searchFilter)
-        {
-            return $this->child('searchFilter');
-        }
-        return $this->child('searchFilter', $searchFilter);
+        return $this->setChild('searchFilter', $searchFilter);
     }
 
     /**
-     * Gets or sets ref
+     * Gets attributes
      *
-     * @param  string $ref
-     * @return string|self
+     * @return bool
      */
-    public function ref($ref = null)
+    public function getRef()
     {
-        if(null === $ref)
-        {
-            return $this->property('ref');
-        }
-        return $this->property('ref', trim($ref));
+        return $this->getProperty('ref');
     }
 
     /**
-     * Gets or sets name
+     * Sets attributes
      *
-     * @param  string $name
-     * @return string|self
+     * @param  bool $ref
+     * @return self
      */
-    public function name($name = null)
+    public function setRef($ref)
     {
-        if(null === $name)
-        {
-            return $this->property('name');
-        }
-        return $this->property('name', trim($name));
+        return $this->setProperty('ref', trim($ref));
     }
 
     /**
-     * Gets or sets type.
+     * Gets attributes
+     *
+     * @return bool
+     */
+    public function getName()
+    {
+        return $this->getProperty('name');
+    }
+
+    /**
+     * Sets attributes
+     *
+     * @param  bool $name
+     * @return self
+     */
+    public function setName($name)
+    {
+        return $this->setProperty('name', trim($name));
+    }
+
+    /**
+     * Sets account member of enum
+     *
+     * @return SearchType
+     */
+    public function getType()
+    {
+        return $this->getProperty('type');
+    }
+
+    /**
+     * Gets account member of enum
      *
      * @param  SearchType $type
-     * @return SearchType|self
+     * @return self
      */
-    public function type(SearchType $type = null)
+    public function setType(SearchType $type)
     {
-        if(null === $type)
-        {
-            return $this->property('type');
-        }
-        return $this->property('type', $type);
+        return $this->setProperty('type', $type);
     }
 
     /**
-     * Gets or sets needExp
+     * Gets owner of
+     *
+     * @return bool
+     */
+    public function getNeedExp()
+    {
+        return $this->getProperty('needExp');
+    }
+
+    /**
+     * Sets owner of
      *
      * @param  bool $needExp
-     * @return bool|self
+     * @return self
      */
-    public function needExp($needExp = null)
+    public function setNeedExp($needExp)
     {
-        if(null === $needExp)
-        {
-            return $this->property('needExp');
-        }
-        return $this->property('needExp', (bool) $needExp);
+        return $this->setProperty('needExp', (bool) $needExp);
     }
 
     /**
-     * Gets or sets needIsOwner
+     * Gets owner of
+     *
+     * @return bool
+     */
+    public function getNeedIsOwner()
+    {
+        return $this->getProperty('needIsOwner');
+    }
+
+    /**
+     * Sets owner of
      *
      * @param  bool $needIsOwner
-     * @return bool|self
+     * @return self
      */
-    public function needIsOwner($needIsOwner = null)
+    public function setNeedIsOwner($needIsOwner)
     {
-        if(null === $needIsOwner)
-        {
-            return $this->property('needIsOwner');
-        }
-        return $this->property('needIsOwner', (bool) $needIsOwner);
+        return $this->setProperty('needIsOwner', (bool) $needIsOwner);
     }
 
     /**
-     * Gets or sets needIsMember.
+     * Sets account member of enum
+     *
+     * @return MemberOf
+     */
+    public function getNeedIsMember()
+    {
+        return $this->getProperty('needIsMember');
+    }
+
+    /**
+     * Gets account member of enum
      *
      * @param  MemberOf $needIsMember
-     * @return MemberOf|self
+     * @return self
      */
-    public function needIsMember(MemberOf $needIsMember = null)
+    public function setNeedIsMember(MemberOf $needIsMember)
     {
-        if(null === $needIsMember)
-        {
-            return $this->property('needIsMember');
-        }
-        return $this->property('needIsMember', $needIsMember);
+        return $this->setProperty('needIsMember', $needIsMember);
     }
 
     /**
-     * Gets or sets needSMIMECerts
+     * Gets owner of
+     *
+     * @return bool
+     */
+    public function getNeedSMIMECerts()
+    {
+        return $this->getProperty('needSMIMECerts');
+    }
+
+    /**
+     * Sets owner of
      *
      * @param  bool $needSMIMECerts
-     * @return bool|self
+     * @return self
      */
-    public function needSMIMECerts($needSMIMECerts = null)
+    public function setNeedSMIMECerts($needSMIMECerts)
     {
-        if(null === $needSMIMECerts)
-        {
-            return $this->property('needSMIMECerts');
-        }
-        return $this->property('needSMIMECerts', (bool) $needSMIMECerts);
+        return $this->setProperty('needSMIMECerts', (bool) $needSMIMECerts);
     }
 
     /**
-     * Gets or sets galAcctId
+     * Gets GAL account ID
      *
-     * @param  string $galAcctId
-     * @return string|self
+     * @return bool
      */
-    public function galAcctId($galAcctId = null)
+    public function getGalAccountId()
     {
-        if(null === $galAcctId)
-        {
-            return $this->property('galAcctId');
-        }
-        return $this->property('galAcctId', trim($galAcctId));
+        return $this->getProperty('galAcctId');
     }
 
     /**
-     * Gets or sets quick
+     * Sets GAL account ID
+     *
+     * @param  bool $galAcctId
+     * @return self
+     */
+    public function setGalAccountId($galAcctId)
+    {
+        return $this->setProperty('galAcctId', trim($galAcctId));
+    }
+
+    /**
+     * Gets owner of
+     *
+     * @return bool
+     */
+    public function getQuick()
+    {
+        return $this->getProperty('quick');
+    }
+
+    /**
+     * Sets owner of
      *
      * @param  bool $quick
-     * @return bool|self
+     * @return self
      */
-    public function quick($quick = null)
+    public function setQuick($quick)
     {
-        if(null === $quick)
-        {
-            return $this->property('quick');
-        }
-        return $this->property('quick', (bool) $quick);
+        return $this->setProperty('quick', (bool) $quick);
     }
 
     /**
-     * Gets or sets sortBy
+     * Sets account member of enum
+     *
+     * @return SortBy
+     */
+    public function getSortBy()
+    {
+        return $this->getProperty('sortBy');
+    }
+
+    /**
+     * Gets account member of enum
      *
      * @param  SortBy $sortBy
-     * @return SortBy|self
+     * @return self
      */
-    public function sortBy(SortBy $sortBy = null)
+    public function setSortBy(SortBy $sortBy)
     {
-        if(null === $sortBy)
-        {
-            return $this->property('sortBy');
-        }
-        return $this->property('sortBy', $sortBy);
+        return $this->setProperty('sortBy', $sortBy);
     }
 
     /**
-     * Gets or sets limit
+     * Gets limit
+     *
+     * @return int
+     */
+    public function getLimit()
+    {
+        return $this->getProperty('limit');
+    }
+
+    /**
+     * Sets limit
      *
      * @param  int $limit
-     * @return int|self
+     * @return self
      */
-    public function limit($limit = null)
+    public function setLimit($limit)
     {
-        if(null === $limit)
-        {
-            return $this->property('limit');
-        }
-        return $this->property('limit', (int) $limit);
+        return $this->setProperty('limit', (int) $limit);
     }
 
     /**
-     * Gets or sets offset
+     * Gets offset
+     *
+     * @return int
+     */
+    public function getOffset()
+    {
+        return $this->getProperty('offset');
+    }
+
+    /**
+     * Sets offset
      *
      * @param  int $offset
-     * @return int|self
+     * @return self
      */
-    public function offset($offset = null)
+    public function setOffset($offset)
     {
-        if(null === $offset)
-        {
-            return $this->property('offset');
-        }
-        return $this->property('offset', (int) $offset);
+        return $this->setProperty('offset', (int) $offset);
     }
 }

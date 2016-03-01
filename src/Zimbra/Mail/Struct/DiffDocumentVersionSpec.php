@@ -39,61 +39,79 @@ class DiffDocumentVersionSpec extends Base
         parent::__construct();
         if(null !== $id)
         {
-            $this->property('id', trim($id));
+            $this->setProperty('id', trim($id));
         }
         if(null !== $v1)
         {
-            $this->property('v1', (int) $v1);
+            $this->setProperty('v1', (int) $v1);
         }
         if(null !== $v2)
         {
-            $this->property('v2', (int) $v2);
+            $this->setProperty('v2', (int) $v2);
         }
     }
 
     /**
-     * Gets or sets id
+     * Gets id
      *
-     * @param  string $id
-     * @return string|self
+     * @return int
      */
-    public function id($id = null)
+    public function getId()
     {
-        if(null === $id)
-        {
-            return $this->property('id');
-        }
-        return $this->property('id', trim($id));
+        return $this->getProperty('id');
     }
 
     /**
-     * Gets or sets v1
+     * Sets id
+     *
+     * @param  int $id
+     * @return self
+     */
+    public function setId($id)
+    {
+        return $this->setProperty('id', trim($id));
+    }
+
+    /**
+     * Gets version1
+     *
+     * @return int
+     */
+    public function getVersion1()
+    {
+        return $this->getProperty('v1');
+    }
+
+    /**
+     * Sets version1
      *
      * @param  int $v1
-     * @return int|self
+     * @return self
      */
-    public function v1($v1 = null)
+    public function setVersion1($v1)
     {
-        if(null === $v1)
-        {
-            return $this->property('v1');
-        }
-        return $this->property('v1', (int) $v1);
+        return $this->setProperty('v1', (int) $v1);
     }
 
     /**
-     * Gets or sets v2
+     * Gets version2
+     *
+     * @return int
+     */
+    public function getVersion2()
+    {
+        return $this->getProperty('v2');
+    }
+
+    /**
+     * Sets version2
      *
      * @param  int $v2
-     * @return int|self
+     * @return self
      */
-    public function v2($v2 = null)
+    public function setVersion2($v2)
     {
-        if(null === $v2)
-        {
-            return $this->property('v2');
-        }
-        return $this->property('v2', (int) $v2);
+        return $this->setProperty('v2', (int) $v2);
     }
 
     /**

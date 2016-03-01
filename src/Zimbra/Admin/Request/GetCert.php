@@ -35,56 +35,74 @@ class GetCert extends Base
     public function __construct($server, CertType $type, CSRType $option = null)
     {
         parent::__construct();
-        $this->property('server', trim($server));
-        $this->property('type', $type);
+        $this->setProperty('server', trim($server));
+        $this->setProperty('type', $type);
         if($option instanceof CSRType)
         {
-            $this->property('option', $option);
+            $this->setProperty('option', $option);
         }
     }
 
     /**
-     * Gets or sets server
+     * Gets server
+     *
+     * @return string
+     */
+    public function getServer()
+    {
+        return $this->getProperty('server');
+    }
+
+    /**
+     * Sets server
      *
      * @param  string $server
-     * @return string|self
+     * @return self
      */
-    public function server($server = null)
+    public function setServer($server)
     {
-        if(null === $server)
-        {
-            return $this->property('server');
-        }
-        return $this->property('server', trim($server));
+        return $this->setProperty('server', trim($server));
     }
 
     /**
-     * Gets or sets type
+     * Gets type
+     *
+     * @return CertType
+     */
+    public function getType()
+    {
+        return $this->getProperty('type');
+    }
+
+    /**
+     * Sets type
      *
      * @param  CertType $type
-     * @return CertType|self
+     * @return self
      */
-    public function type(CertType $type = null)
+    public function setType(CertType $type)
     {
-        if(null === $type)
-        {
-            return $this->property('type');
-        }
-        return $this->property('type', $type);
+        return $this->setProperty('type', $type);
     }
 
     /**
-     * Gets or sets option
+     * Gets option
+     *
+     * @return CSRType
+     */
+    public function getOption()
+    {
+        return $this->getProperty('option');
+    }
+
+    /**
+     * Sets option
      *
      * @param  CSRType $option
-     * @return CSRType|self
+     * @return self
      */
-    public function option(CSRType $option = null)
+    public function setOption(CSRType $option)
     {
-        if(null === $option)
-        {
-            return $this->property('option');
-        }
-        return $this->property('option', $option);
+        return $this->setProperty('option', $option);
     }
 }

@@ -29,20 +29,20 @@ class AlarmInfo extends Base
      * Attendee information 
      * @var TypedSequence<CalendarAttendee>
      */
-    private $_at;
+    private $_attendees;
 
     /**
      * Non-standard properties
      * @var TypedSequence<XProp>
      */
-    private $_xprop;
+    private $_xprops;
 
     /**
      * Constructor method for AlarmInfo
      * @param  AlarmAction $action Alarm action
      * @param  AlarmTriggerInfo $trigger Alarm trigger information
      * @param  DurationInfo $repeat Alarm repeat information 
-     * @param  string $desc Alarm description
+     * @param  string $description Alarm description
      * @param  CalendarAttach $attach Information on attachment
      * @param  string $summary Alarm summary
      * @param  array $ats Attendee information 
@@ -53,139 +53,174 @@ class AlarmInfo extends Base
         AlarmAction $action,
         AlarmTriggerInfo $trigger = null,
         DurationInfo $repeat = null,
-        $desc = null,
+        $description = null,
         CalendarAttach $attach = null,
         $summary = null,
-        array $ats = array(),
-        array $xprops = array()
+        array $ats = [],
+        array $xprops = []
     )
     {
         parent::__construct();
-        $this->property('action', $action);
+        $this->setProperty('action', $action);
         if($trigger instanceof AlarmTriggerInfo)
         {
-            $this->child('trigger', $trigger);
+            $this->setChild('trigger', $trigger);
         }
         if($repeat instanceof DurationInfo)
         {
-            $this->child('repeat', $repeat);
+            $this->setChild('repeat', $repeat);
         }
-        if(null !== $desc)
+        if(null !== $description)
         {
-            $this->child('desc', trim($desc));
+            $this->setChild('desc', trim($description));
         }
         if($attach instanceof CalendarAttach)
         {
-            $this->child('attach', $attach);
+            $this->setChild('attach', $attach);
         }
         if(null !== $summary)
         {
-            $this->child('summary', trim($summary));
+            $this->setChild('summary', trim($summary));
         }
-        $this->_at = new TypedSequence('Zimbra\Mail\Struct\CalendarAttendee', $ats);
-        $this->_xprop = new TypedSequence('Zimbra\Mail\Struct\XProp', $xprops);
+        $this->setAttendees($ats)->setXProps($xprops);
 
         $this->on('before', function(Base $sender)
         {
-            if($sender->at()->count())
+            if($sender->getAttendees()->count())
             {
-                $sender->child('at', $sender->at()->all());
+                $sender->setChild('at', $sender->getAttendees()->all());
             }
-            if($sender->xprop()->count())
+            if($sender->getXProps()->count())
             {
-                $sender->child('xprop', $sender->xprop()->all());
+                $sender->setChild('xprop', $sender->getXProps()->all());
             }
         });
     }
 
     /**
-     * Gets or sets action
+     * Gets alarm action
+     *
+     * @return AlarmAction
+     */
+    public function getAction()
+    {
+        return $this->getProperty('action');
+    }
+
+    /**
+     * Sets alarm action
      *
      * @param  AlarmAction $action
-     * @return AlarmAction|self
+     * @return self
      */
-    public function action(AlarmAction $action = null)
+    public function setAction(AlarmAction $action)
     {
-        if(null === $action)
-        {
-            return $this->property('action');
-        }
-        return $this->property('action', $action);
+        return $this->setProperty('action', $action);
     }
 
     /**
-     * Gets or sets trigger
+     * Gets alarm trigger
+     *
+     * @return AlarmTriggerInfo
+     */
+    public function getTrigger()
+    {
+        return $this->getChild('trigger');
+    }
+
+    /**
+     * Sets alarm trigger
      *
      * @param  AlarmTriggerInfo $trigger
-     * @return AlarmTriggerInfo|self
+     * @return self
      */
-    public function trigger(AlarmTriggerInfo $trigger = null)
+    public function setTrigger(AlarmTriggerInfo $trigger)
     {
-        if(null === $trigger)
-        {
-            return $this->child('trigger');
-        }
-        return $this->child('trigger', $trigger);
+        return $this->setChild('trigger', $trigger);
     }
 
     /**
-     * Gets or sets repeat
+     * Gets alarm repeat information
+     *
+     * @return DurationInfo
+     */
+    public function getRepeat()
+    {
+        return $this->getChild('repeat');
+    }
+
+    /**
+     * Sets alarm repeat information
      *
      * @param  DurationInfo $repeat
-     * @return DurationInfo|self
+     * @return self
      */
-    public function repeat(DurationInfo $repeat = null)
+    public function setRepeat(DurationInfo $repeat)
     {
-        if(null === $repeat)
-        {
-            return $this->child('repeat');
-        }
-        return $this->child('repeat', $repeat);
+        return $this->setChild('repeat', $repeat);
     }
 
     /**
-     * Gets or sets desc
+     * Gets description
      *
-     * @param  string $desc
-     * @return string|self
+     * @return string
      */
-    public function desc($desc = null)
+    public function getDescription()
     {
-        if(null === $desc)
-        {
-            return $this->child('desc');
-        }
-        return $this->child('desc', trim($desc));
+        return $this->getChild('desc');
     }
 
     /**
-     * Gets or sets attach
+     * Sets description
+     *
+     * @param  string $description
+     * @return self
+     */
+    public function setDescription($description)
+    {
+        return $this->setChild('desc', trim($description));
+    }
+
+    /**
+     * Gets attach
+     *
+     * @return CalendarAttach
+     */
+    public function getAttach()
+    {
+        return $this->getChild('attach');
+    }
+
+    /**
+     * Sets attach
      *
      * @param  CalendarAttach $attach
-     * @return CalendarAttach|self
+     * @return self
      */
-    public function attach(CalendarAttach $attach = null)
+    public function setAttach(CalendarAttach $attach)
     {
-        if(null === $attach)
-        {
-            return $this->child('attach');
-        }
-        return $this->child('attach', $attach);
+        return $this->setChild('attach', $attach);
     }
 
     /**
-     * Gets or sets summary
+     * Gets summary
+     *
+     * @return string
+     */
+    public function getSummary()
+    {
+        return $this->getChild('summary');
+    }
+
+    /**
+     * Sets summary
      *
      * @param  string $summary
-     * @return string|self
+     * @return self
      */
-    public function summary($summary = null)
+    public function setSummary($summary)
     {
-        if(null === $summary)
-        {
-            return $this->child('summary');
-        }
-        return $this->child('summary', trim($summary));
+        return $this->setChild('summary', trim($summary));
     }
 
     /**
@@ -194,9 +229,21 @@ class AlarmInfo extends Base
      * @param  CalendarAttendee $at
      * @return self
      */
-    public function addAt(CalendarAttendee $at)
+    public function addAttendee(CalendarAttendee $at)
     {
-        $this->_at->add($at);
+        $this->_attendees->add($at);
+        return $this;
+    }
+
+    /**
+     * Sets attendee sequence
+     *
+     * @param  array $ats
+     * @return self
+     */
+    function setAttendees(array $ats)
+    {
+        $this->_attendees = new TypedSequence('Zimbra\Mail\Struct\CalendarAttendee', $ats);
         return $this;
     }
 
@@ -205,9 +252,9 @@ class AlarmInfo extends Base
      *
      * @return Sequence
      */
-    public function at()
+    public function getAttendees()
     {
-        return $this->_at;
+        return $this->_attendees;
     }
 
     /**
@@ -218,7 +265,19 @@ class AlarmInfo extends Base
      */
     public function addXProp(XProp $xprop)
     {
-        $this->_xprop->add($xprop);
+        $this->_xprops->add($xprop);
+        return $this;
+    }
+
+    /**
+     * Sets xprop sequence
+     *
+     * @param  array $xprops
+     * @return self
+     */
+    function setXProps(array $xprops)
+    {
+        $this->_xprops = new TypedSequence('Zimbra\Mail\Struct\XProp', $xprops);
         return $this;
     }
 
@@ -227,9 +286,9 @@ class AlarmInfo extends Base
      *
      * @return Sequence
      */
-    public function xprop()
+    public function getXProps()
     {
-        return $this->_xprop;
+        return $this->_xprops;
     }
 
     /**

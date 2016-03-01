@@ -25,9 +25,9 @@ class StorePrincipalSpec extends Base
 {
     /**
      * Constructor method for StorePrincipalSpec
-     * @param string $id
-     * @param string $name
-     * @param string $accountNumber
+     * @param string $id ID of user in the backing store
+     * @param string $name Name of user in the backing store
+     * @param string $accountNumber Account number
      * @return self
      */
     public function __construct(
@@ -39,64 +39,79 @@ class StorePrincipalSpec extends Base
         parent::__construct();
         if(null !== $id)
         {
-            $this->property('id', trim($id));
+            $this->setProperty('id', trim($id));
         }
         if(null !== $name)
         {
-            $this->property('name', trim($name));
+            $this->setProperty('name', trim($name));
         }
         if(null !== $accountNumber)
         {
-            $this->property('accountNumber', trim($accountNumber));
+            $this->setProperty('accountNumber', trim($accountNumber));
         }
     }
 
     /**
-     * Gets or sets id
-     * ID of user in the backing store
+     * Gets id
+     *
+     * @return string
+     */
+    public function getId()
+    {
+        return $this->getProperty('id');
+    }
+
+    /**
+     * Sets id
      *
      * @param  string $id
-     * @return string|self
+     * @return self
      */
-    public function id($id = null)
+    public function setId($id)
     {
-        if(null === $id)
-        {
-            return $this->property('id');
-        }
-        return $this->property('id', trim($id));
+        return $this->setProperty('id', trim($id));
     }
 
     /**
-     * Gets or sets name
-     * Name of user in the backing store
+     * Gets name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->getProperty('name');
+    }
+
+    /**
+     * Sets name
      *
      * @param  string $name
-     * @return string|self
+     * @return self
      */
-    public function name($name = null)
+    public function setName($name)
     {
-        if(null === $name)
-        {
-            return $this->property('name');
-        }
-        return $this->property('name', trim($name));
+        return $this->setProperty('name', trim($name));
     }
 
     /**
-     * Gets or sets accountNumber
-     * Account Number
+     * Gets account number
+     *
+     * @return string
+     */
+    public function getAccountNumber()
+    {
+        return $this->getProperty('accountNumber');
+    }
+
+    /**
+     * Sets account number
      *
      * @param  string $accountNumber
-     * @return string|self
+     * @return self
      */
-    public function accountNumber($accountNumber = null)
+    public function setAccountNumber($accountNumber)
     {
-        if(null === $accountNumber)
-        {
-            return $this->property('accountNumber');
-        }
-        return $this->property('accountNumber', trim($accountNumber));
+        return $this->setProperty('accountNumber', trim($accountNumber));
     }
 
     /**

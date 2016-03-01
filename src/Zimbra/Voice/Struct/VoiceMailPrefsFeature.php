@@ -28,25 +28,25 @@ class VoiceMailPrefsFeature extends CallFeatureInfo
      * Preferences
      * @var TypedSequence<PrefInfo>
      */
-    private $_pref;
+    private $_prefs;
 
     /**
      * Constructor method for VoiceMailPrefsFeature
-     * @param bool  $s
-     * @param bool  $a
+     * @param bool $subscribed Flag whether subscribed or not
+     * @param bool $active Flag whether active or not
      * @param array $prefs
      * @return self
      */
-    public function __construct($s, $a, array $prefs = array())
+    public function __construct($subscribed, $active, array $prefs = [])
     {
-    	parent::__construct($s, $a);
-        $this->_pref = new TypedSequence('Zimbra\Voice\Struct\PrefInfo', $prefs);
+    	parent::__construct($subscribed, $active);
+        $this->setPrefs($prefs);
 
         $this->on('before', function(Base $sender)
         {
-            if($sender->pref()->count())
+            if($sender->getPrefs()->count())
             {
-                $sender->child('pref', $sender->pref()->all());
+                $sender->setChild('pref', $sender->getPrefs()->all());
             }
         });
     }
@@ -59,7 +59,19 @@ class VoiceMailPrefsFeature extends CallFeatureInfo
      */
     public function addPref(PrefInfo $pref)
     {
-        $this->_pref->add($pref);
+        $this->_prefs->add($pref);
+        return $this;
+    }
+
+    /**
+     * Sets pref sequence
+     *
+     * @param array $prefs
+     * @return self
+     */
+    public function setPrefs(array $prefs)
+    {
+        $this->_prefs = new TypedSequence('Zimbra\Voice\Struct\PrefInfo', $prefs);
         return $this;
     }
 
@@ -68,9 +80,9 @@ class VoiceMailPrefsFeature extends CallFeatureInfo
      *
      * @return Sequence
      */
-    public function pref()
+    public function getPrefs()
     {
-        return $this->_pref;
+        return $this->_prefs;
     }
 
     /**

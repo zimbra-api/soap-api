@@ -31,40 +31,52 @@ class DeleteDataSource extends BaseAttr
      * @param  array  $attrs
      * @return self
      */
-    public function __construct($id, Id $dataSource, array $attrs = array())
+    public function __construct($id, Id $dataSource, array $attrs = [])
     {
         parent::__construct($attrs);
-        $this->property('id', trim($id));
-        $this->child('dataSource', $dataSource);
+        $this->setProperty('id', trim($id));
+        $this->setChild('dataSource', $dataSource);
     }
 
     /**
-     * Gets or sets id
+     * Gets id
+     *
+     * @return string
+     */
+    public function getId()
+    {
+        return $this->getProperty('id');
+    }
+
+    /**
+     * Sets id
      *
      * @param  string $id
-     * @return string|self
+     * @return self
      */
-    public function id($id = null)
+    public function setId($id)
     {
-        if(null === $id)
-        {
-            return $this->property('id');
-        }
-        return $this->property('id', trim($id));
+        return $this->setProperty('id', trim($id));
     }
 
     /**
-     * Gets or sets dataSource
+     * Gets the dataSource.
+     *
+     * @return Id
+     */
+    public function getDataSource()
+    {
+        return $this->getChild('dataSource');
+    }
+
+    /**
+     * Sets the dataSource.
      *
      * @param  Id $dataSource
-     * @return Id|self
+     * @return self
      */
-    public function dataSource(Id $dataSource = null)
+    public function setDataSource(Id $dataSource)
     {
-        if(null === $dataSource)
-        {
-            return $this->child('dataSource');
-        }
-        return $this->child('dataSource', $dataSource);
+        return $this->setChild('dataSource', $dataSource);
     }
 }

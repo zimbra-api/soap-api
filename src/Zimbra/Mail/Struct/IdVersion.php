@@ -35,41 +35,53 @@ class IdVersion extends Base
     )
     {
         parent::__construct();
-        $this->property('id', trim($id));
+        $this->setProperty('id', trim($id));
         if(null !== $ver)
         {
-            $this->property('ver', (int) $ver);
+            $this->setProperty('ver', (int) $ver);
         }
     }
 
     /**
-     * Gets or sets id
+     * Gets id
+     *
+     * @return string
+     */
+    public function getId()
+    {
+        return $this->getProperty('id');
+    }
+
+    /**
+     * Sets id
      *
      * @param  string $id
-     * @return string|self
+     * @return self
      */
-    public function id($id = null)
+    public function setId($id)
     {
-        if(null === $id)
-        {
-            return $this->property('id');
-        }
-        return $this->property('id', trim($id));
+        return $this->setProperty('id', trim($id));
     }
 
     /**
-     * Gets or sets ver
+     * Gets version
+     *
+     * @return int
+     */
+    public function getVersion()
+    {
+        return $this->getProperty('ver');
+    }
+
+    /**
+     * Sets version
      *
      * @param  int $ver
-     * @return int|self
+     * @return self
      */
-    public function ver($ver = null)
+    public function setVersion($ver)
     {
-        if(null === $ver)
-        {
-            return $this->property('ver');
-        }
-        return $this->property('ver', (int) $ver);
+        return $this->setProperty('ver', (int) $ver);
     }
 
     /**

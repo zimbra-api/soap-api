@@ -28,10 +28,11 @@ class PhoneSpec extends Base
      * Preferences
      * @var TypedSequence<PrefSpec>
      */
-    private $_pref;
+    private $_prefs;
 
     /**
      * Constructor method for PhoneSpec
+     * @param string $name Phone name
      * @param array $prefs
      * @return self
      */
@@ -40,32 +41,38 @@ class PhoneSpec extends Base
         parent::__construct();
         if(null !== $name)
         {
-            $this->property('name', trim($name));
+            $this->setProperty('name', trim($name));
         }
-        $this->_pref = new TypedSequence('Zimbra\Voice\Struct\PrefSpec', $prefs);
+        $this->setPrefs($prefs);
 
         $this->on('before', function(Base $sender)
         {
-            if($sender->pref()->count())
+            if($sender->getPrefs()->count())
             {
-                $sender->child('pref', $sender->pref()->all());
+                $sender->setChild('pref', $sender->getPrefs()->all());
             }
         });
     }
 
     /**
-     * Get or set name
+     * Gets name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->getProperty('name');
+    }
+
+    /**
+     * Sets name
      *
      * @param  string $name
-     * @return string|self
+     * @return self
      */
-    public function name($name = null)
+    public function setName($name)
     {
-        if(null === $name)
-        {
-            return $this->property('name');
-        }
-        return $this->property('name', trim($name));
+        return $this->setProperty('name', trim($name));
     }
 
     /**
@@ -76,7 +83,19 @@ class PhoneSpec extends Base
      */
     public function addPref(PrefSpec $pref)
     {
-        $this->_pref->add($pref);
+        $this->_prefs->add($pref);
+        return $this;
+    }
+
+    /**
+     * Gets pref sequence
+     *
+     * @param array $prefs
+     * @return self
+     */
+    public function setPrefs(array $prefs)
+    {
+        $this->_prefs = new TypedSequence('Zimbra\Voice\Struct\PrefSpec', $prefs);
         return $this;
     }
 
@@ -85,9 +104,9 @@ class PhoneSpec extends Base
      *
      * @return Sequence
      */
-    public function pref()
+    public function getPrefs()
     {
-        return $this->_pref;
+        return $this->_prefs;
     }
 
     /**

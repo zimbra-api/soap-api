@@ -37,62 +37,79 @@ class ListDocumentRevisionsSpec extends Base
     )
     {
         parent::__construct();
-        $this->property('id', trim($id));
+        $this->setProperty('id', trim($id));
         if(null !== $ver)
         {
-            $this->property('ver', (int) $ver);
+            $this->setProperty('ver', (int) $ver);
         }
         if(null !== $count)
         {
-            $this->property('count', (int) $count);
+            $this->setProperty('count', (int) $count);
         }
     }
 
     /**
-     * Gets or sets id
+     * Gets id
+     *
+     * @return string
+     */
+    public function getId()
+    {
+        return $this->getProperty('id');
+    }
+
+    /**
+     * Sets id
      *
      * @param  string $id
-     * @return string|self
+     * @return self
      */
-    public function id($id = null)
+    public function setId($id)
     {
-        if(null === $id)
-        {
-            return $this->property('id');
-        }
-        return $this->property('id', trim($id));
+        return $this->setProperty('id', trim($id));
     }
 
     /**
-     * Gets or sets ver
+     * Gets version
+     *
+     * @return int
+     */
+    public function getVersion()
+    {
+        return $this->getProperty('ver');
+    }
+
+    /**
+     * Sets version
      *
      * @param  int $ver
-     * @return int|self
+     * @return self
      */
-    public function ver($ver = null)
+    public function setVersion($ver)
     {
-        if(null === $ver)
-        {
-            return $this->property('ver');
-        }
-        return $this->property('ver', (int) $ver);
+        return $this->setProperty('ver', (int) $ver);
     }
 
     /**
-     * Gets or sets count
+     * Gets count
      *
-     * @param  int $count
-     * @return int|self
+     * @return int
      */
-    public function count($count = null)
+    public function getCount()
     {
-        if(null === $count)
-        {
-            return $this->property('count');
-        }
-        return $this->property('count', (int) $count);
+        return $this->getProperty('count');
     }
 
+    /**
+     * Sets count
+     *
+     * @param  int $count
+     * @return self
+     */
+    public function setCount($count)
+    {
+        return $this->setProperty('count', (int) $count);
+    }
 
     /**
      * Returns the array representation of this class 

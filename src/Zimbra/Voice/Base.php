@@ -41,7 +41,7 @@ abstract class Base extends AccountBase implements VoiceInterface
      */
     public function __construct($location)
     {
-        $this->_location = $location;
+        parent::__construct($location);
     }
 
     /**
@@ -55,7 +55,7 @@ abstract class Base extends AccountBase implements VoiceInterface
         $request = new \Zimbra\Voice\Request\ChangeUCPassword(
             $password
         );
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -66,7 +66,7 @@ abstract class Base extends AccountBase implements VoiceInterface
     public function getUCInfo()
     {
         $request = new \Zimbra\Voice\Request\GetUCInfo();
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -88,7 +88,7 @@ abstract class Base extends AccountBase implements VoiceInterface
         $request = new \Zimbra\Voice\Request\GetVoiceFeatures(
             $storeprincipal, $phone
         );
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -100,13 +100,13 @@ abstract class Base extends AccountBase implements VoiceInterface
      */
     public function getVoiceFolder(
         StorePrincipalSpec $storeprincipal = null,
-        array $phone = array()
+        array $phone = []
     )
     {
         $request = new \Zimbra\Voice\Request\GetVoiceFolder(
             $storeprincipal, $phone
         );
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -115,12 +115,12 @@ abstract class Base extends AccountBase implements VoiceInterface
      * @param  array $phones
      * @return mix
      */
-    public function getVoiceInfo(array $phones = array())
+    public function getVoiceInfo(array $phones = [])
     {
         $request = new \Zimbra\Voice\Request\GetVoiceInfo(
             $phones
         );
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -140,7 +140,7 @@ abstract class Base extends AccountBase implements VoiceInterface
         $request = new \Zimbra\Voice\Request\GetVoiceMailPrefs(
             $storeprincipal, $phone
         );
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -159,7 +159,7 @@ abstract class Base extends AccountBase implements VoiceInterface
         $request = new \Zimbra\Voice\Request\ModifyFromNum(
             $storeprincipal, $phone
         );
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -178,7 +178,7 @@ abstract class Base extends AccountBase implements VoiceInterface
         $request = new \Zimbra\Voice\Request\ModifyVoiceFeatures(
             $storeprincipal, $phone
         );
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -196,7 +196,7 @@ abstract class Base extends AccountBase implements VoiceInterface
         $request = new \Zimbra\Voice\Request\ModifyVoiceMailPin(
             $storeprincipal, $phone
         );
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -214,7 +214,7 @@ abstract class Base extends AccountBase implements VoiceInterface
         $request = new \Zimbra\Voice\Request\ModifyVoiceMailPrefs(
             $storeprincipal, $phone
         );
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -234,7 +234,7 @@ abstract class Base extends AccountBase implements VoiceInterface
         $request = new \Zimbra\Voice\Request\ResetVoiceFeatures(
             $storeprincipal, $phone
         );
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -260,7 +260,7 @@ abstract class Base extends AccountBase implements VoiceInterface
         $request = new \Zimbra\Voice\Request\SearchVoice(
             $query, $storeprincipal, $limit, $offset, $types, $sortBy
         );
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -278,7 +278,7 @@ abstract class Base extends AccountBase implements VoiceInterface
         $request = new \Zimbra\Voice\Request\UploadVoiceMail(
             $storeprincipal, $vm
         );
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 
     /**
@@ -299,6 +299,6 @@ abstract class Base extends AccountBase implements VoiceInterface
         $request = new \Zimbra\Voice\Request\VoiceMsgAction(
             $action, $storeprincipal
         );
-        return $this->_client->doRequest($request);
+        return $this->getClient()->doRequest($request);
     }
 }

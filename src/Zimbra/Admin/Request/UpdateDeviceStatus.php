@@ -34,37 +34,49 @@ class UpdateDeviceStatus extends Base
     public function __construct(Account $account, Device $device)
     {
         parent::__construct();
-        $this->child('account', $account);
-        $this->child('device', $device);
+        $this->setChild('account', $account);
+        $this->setChild('device', $device);
     }
 
     /**
-     * Gets or sets account
+     * Sets the account.
+     *
+     * @return Account
+     */
+    public function getAccount()
+    {
+        return $this->getChild('account');
+    }
+
+    /**
+     * Sets the account.
      *
      * @param  Account $account
-     * @return Account|self
+     * @return self
      */
-    public function account(Account $account = null)
+    public function setAccount(Account $account)
     {
-        if(null === $account)
-        {
-            return $this->child('account');
-        }
-        return $this->child('account', $account);
+        return $this->setChild('account', $account);
     }
 
     /**
-     * Gets or sets device
+     * Gets the device.
+     *
+     * @return Device
+     */
+    public function getDevice()
+    {
+        return $this->getChild('device');
+    }
+
+    /**
+     * Sets the device.
      *
      * @param  Device $device
-     * @return Device|self
+     * @return self
      */
-    public function device(Device $device = null)
+    public function setDevice(Device $device)
     {
-        if(null === $device)
-        {
-            return $this->child('device');
-        }
-        return $this->child('device', $device);
+        return $this->setChild('device', $device);
     }
 }

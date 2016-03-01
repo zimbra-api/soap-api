@@ -30,49 +30,54 @@ class GetVoiceFolder extends Base
      * Phone specification
      * @var TypedSequence<PhoneSpec>
      */
-    private $_phone;
+    private $_phones;
 
     /**
      * Constructor method for GetVoiceFolder
-     * @param  StorePrincipalSpec $storeprincipal
-     * @param  array $phone
+     * @param  StorePrincipalSpec $storeprincipal Store principal specification
+     * @param  array $phones
      * @return self
      */
     public function __construct(
         StorePrincipalSpec $storeprincipal = null,
-        array $phone = array()
+        array $phones = array()
     )
     {
         parent::__construct();
         if($storeprincipal instanceof StorePrincipalSpec)
         {
-            $this->child('storeprincipal', $storeprincipal);
+            $this->setChild('storeprincipal', $storeprincipal);
         }
-        $this->_phone = new TypedSequence('Zimbra\Voice\Struct\PhoneSpec', $phone);
+        $this->setPhones($phones);
 
         $this->on('before', function(Base $sender)
         {
-            if($sender->phone()->count())
+            if($sender->getPhones()->count())
             {
-                $sender->child('phone', $sender->phone()->all());
+                $sender->setChild('phone', $sender->getPhones()->all());
             }
         });
     }
 
     /**
-     * Gets or sets storeprincipal
-     * Store Principal specification
+     * Gets the storeprincipal.
+     *
+     * @return StorePrincipalSpec
+     */
+    public function getStorePrincipal()
+    {
+        return $this->getChild('storeprincipal');
+    }
+
+    /**
+     * Sets the storeprincipal.
      *
      * @param  StorePrincipalSpec $storeprincipal
-     * @return StorePrincipalSpec|self
+     * @return self
      */
-    public function storeprincipal(StorePrincipalSpec $storeprincipal = null)
+    public function setStorePrincipal(StorePrincipalSpec $storeprincipal)
     {
-        if(null === $storeprincipal)
-        {
-            return $this->child('storeprincipal');
-        }
-        return $this->child('storeprincipal', $storeprincipal);
+        return $this->setChild('storeprincipal', $storeprincipal);
     }
 
     /**
@@ -83,7 +88,19 @@ class GetVoiceFolder extends Base
      */
     public function addPhone(PhoneSpec $phone)
     {
-        $this->_phone->add($phone);
+        $this->_phones->add($phone);
+        return $this;
+    }
+
+    /**
+     * Sets phone specification sequence
+     *
+     * @param  array $phones
+     * @return self
+     */
+    public function setPhones(array $phones)
+    {
+        $this->_phones = new TypedSequence('Zimbra\Voice\Struct\PhoneSpec', $phones);
         return $this;
     }
 
@@ -92,8 +109,8 @@ class GetVoiceFolder extends Base
      *
      * @return Sequence
      */
-    public function phone()
+    public function getPhones()
     {
-        return $this->_phone;
+        return $this->_phones;
     }
 }

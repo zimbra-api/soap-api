@@ -37,57 +37,75 @@ class PurgeRevisionSpec extends Base
     )
     {
         parent::__construct();
-        $this->property('id', trim($id));
-        $this->property('ver', (int) $ver);
+        $this->setProperty('id', trim($id));
+        $this->setProperty('ver', (int) $ver);
         if(null !== $includeOlderRevisions)
         {
-            $this->property('includeOlderRevisions', (bool) $includeOlderRevisions);
+            $this->setProperty('includeOlderRevisions', (bool) $includeOlderRevisions);
         }
     }
 
     /**
-     * Gets or sets id
+     * Gets id
+     *
+     * @return string
+     */
+    public function getId()
+    {
+        return $this->getProperty('id');
+    }
+
+    /**
+     * Sets id
      *
      * @param  string $id
-     * @return string|self
+     * @return self
      */
-    public function id($id = null)
+    public function setId($id)
     {
-        if(null === $id)
-        {
-            return $this->property('id');
-        }
-        return $this->property('id', trim($id));
+        return $this->setProperty('id', trim($id));
     }
 
     /**
-     * Gets or sets ver
+     * Gets version
+     *
+     * @return int
+     */
+    public function getVersion()
+    {
+        return $this->getProperty('ver');
+    }
+
+    /**
+     * Sets version
      *
      * @param  int $ver
-     * @return int|self
+     * @return self
      */
-    public function ver($ver = null)
+    public function setVersion($ver)
     {
-        if(null === $ver)
-        {
-            return $this->property('ver');
-        }
-        return $this->property('ver', (int) $ver);
+        return $this->setProperty('ver', (int) $ver);
     }
 
     /**
-     * Gets or sets includeOlderRevisions
+     * Gets include older revs
+     *
+     * @return bool
+     */
+    public function getIncludeOlderRevisions()
+    {
+        return $this->getProperty('includeOlderRevisions');
+    }
+
+    /**
+     * Sets include older revs
      *
      * @param  bool $includeOlderRevisions
-     * @return bool|self
+     * @return self
      */
-    public function includeOlderRevisions($includeOlderRevisions = null)
+    public function setIncludeOlderRevisions($includeOlderRevisions)
     {
-        if(null === $includeOlderRevisions)
-        {
-            return $this->property('includeOlderRevisions');
-        }
-        return $this->property('includeOlderRevisions', (bool) $includeOlderRevisions);
+        return $this->setProperty('includeOlderRevisions', (bool) $includeOlderRevisions);
     }
 
     /**

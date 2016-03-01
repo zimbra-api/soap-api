@@ -34,60 +34,78 @@ class VerifyStoreManager extends Base
         parent::__construct();
         if(null !== $fileSize)
         {
-            $this->property('fileSize', (int) $fileSize);
+            $this->setProperty('fileSize', (int) $fileSize);
         }
         if(null !== $num)
         {
-            $this->property('num', (int) $num);
+            $this->setProperty('num', (int) $num);
         }
         if(null !== $checkBlobs)
         {
-            $this->property('checkBlobs', (bool) $checkBlobs);
+            $this->setProperty('checkBlobs', (bool) $checkBlobs);
         }
     }
 
     /**
-     * Gets or sets fileSize
+     * Gets fileSize
+     *
+     * @return int
+     */
+    public function getFileSize()
+    {
+        return $this->getProperty('fileSize');
+    }
+
+    /**
+     * Sets fileSize
      *
      * @param  int $fileSize
-     * @return int|self
+     * @return self
      */
-    public function fileSize($fileSize = null)
+    public function setFileSize($fileSize)
     {
-        if(null === $fileSize)
-        {
-            return $this->property('fileSize');
-        }
-        return $this->property('fileSize', (int) $fileSize);
+        return $this->setProperty('fileSize', (int) $fileSize);
     }
 
     /**
-     * Gets or sets num
+     * Gets num
+     *
+     * @return int
+     */
+    public function getNum()
+    {
+        return $this->getProperty('num');
+    }
+
+    /**
+     * Sets num
      *
      * @param  int $num
-     * @return int|self
+     * @return self
      */
-    public function num($num = null)
+    public function setNum($num)
     {
-        if(null === $num)
-        {
-            return $this->property('num');
-        }
-        return $this->property('num', (int) $num);
+        return $this->setProperty('num', (int) $num);
     }
 
     /**
-     * Gets or sets checkBlobs
+     * Gets checkBlobs
      *
-     * @param  string $checkBlobs
-     * @return string|self
+     * @return bool
      */
-    public function checkBlobs($checkBlobs = null)
+    public function getCheckBlobs()
     {
-        if(null === $checkBlobs)
-        {
-            return $this->property('checkBlobs');
-        }
-        return $this->property('checkBlobs', (bool) $checkBlobs);
+        return $this->getProperty('checkBlobs');
+    }
+
+    /**
+     * Sets checkBlobs
+     *
+     * @param  bool $checkBlobs
+     * @return self
+     */
+    public function setCheckBlobs($checkBlobs)
+    {
+        return $this->setProperty('checkBlobs', (bool) $checkBlobs);
     }
 }

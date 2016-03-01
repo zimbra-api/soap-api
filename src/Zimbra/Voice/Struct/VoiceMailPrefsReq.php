@@ -22,29 +22,29 @@ use Zimbra\Struct\Base;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
  */
-class VoiceMailPrefsReq extends Base
+class VoiceMailPrefsReq extends Base implements CallFeatureReq
 {
     /**
      * Preferences
      * @var TypedSequence<VoiceMailPrefName>
      */
-    private $_pref;
+    private $_prefs;
 
     /**
      * Constructor method for VoiceMailPrefsReq
      * @param array $prefs
      * @return self
      */
-    public function __construct(array $prefs = array())
+    public function __construct(array $prefs = [])
     {
         parent::__construct();
-        $this->_pref = new TypedSequence('Zimbra\Voice\Struct\VoiceMailPrefName', $prefs);
+        $this->setPrefs($prefs);
 
         $this->on('before', function(Base $sender)
         {
-            if($sender->pref()->count())
+            if($sender->getPrefs()->count())
             {
-                $sender->child('pref', $sender->pref()->all());
+                $sender->setChild('pref', $sender->getPrefs()->all());
             }
         });
     }
@@ -57,7 +57,19 @@ class VoiceMailPrefsReq extends Base
      */
     public function addPref(VoiceMailPrefName $pref)
     {
-        $this->_pref->add($pref);
+        $this->_prefs->add($pref);
+        return $this;
+    }
+
+    /**
+     * Sets pref sequence
+     *
+     * @param array $prefs
+     * @return self
+     */
+    public function setPrefs(array $prefs)
+    {
+        $this->_prefs = new TypedSequence('Zimbra\Voice\Struct\VoiceMailPrefName', $prefs);
         return $this;
     }
 
@@ -66,9 +78,9 @@ class VoiceMailPrefsReq extends Base
      *
      * @return Sequence
      */
-    public function pref()
+    public function getPrefs()
     {
-        return $this->_pref;
+        return $this->_prefs;
     }
 
     /**

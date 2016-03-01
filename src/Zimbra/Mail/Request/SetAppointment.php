@@ -29,242 +29,328 @@ use Zimbra\Mail\Struct\Replies;
 class SetAppointment extends Base
 {
     /**
+     * Calendar item information for exceptions.
+     * @var TypedSequence<SetCalendarItemInfo>
+     */
+    private $_exceptions;
+
+    /**
+     * Calendar item information for cancellations.
+     * @var TypedSequence<SetCalendarItemInfo>
+     */
+    private $_cancellations;
+
+    /**
      * Constructor method for SetAppointment
-     * @param  SetCalendarItemInfo $m
-     * @param  array $except
-     * @param  array $cancel
-     * @param  Replies $replies
-     * @param  string $f
-     * @param  string $t
-     * @param  string $tn
-     * @param  string $l
+     * @param  string $flags
+     * @param  string $tags
+     * @param  string $tagNames
+     * @param  string $folderId
      * @param  bool $noNextAlarm
      * @param  int $nextAlarm
+     * @param  SetCalendarItemInfo $m
+     * @param  array $exceptions
+     * @param  array $cancellations
+     * @param  Replies $replies
      * @return self
      */
     public function __construct(
-        SetCalendarItemInfo $default = null,
-        array $except = array(),
-        array $cancel = array(),
-        Replies $replies = null,
-        $f = null,
-        $t = null,
-        $tn = null,
-        $l = null,
+        $flags = null,
+        $tags = null,
+        $tagNames = null,
+        $folderId = null,
         $noNextAlarm = null,
-        $nextAlarm = null
+        $nextAlarm = null,
+        SetCalendarItemInfo $defaultId = null,
+        array $exceptions = [],
+        array $cancellations = [],
+        Replies $replies = null
     )
     {
         parent::__construct();
-        if($default instanceof SetCalendarItemInfo)
+        if(null !== $flags)
         {
-            $this->child('default', $default);
+            $this->setProperty('f', trim($flags));
         }
-        $this->_except = new TypedSequence('Zimbra\Mail\Struct\SetCalendarItemInfo', $except);
-        $this->_cancel = new TypedSequence('Zimbra\Mail\Struct\SetCalendarItemInfo', $cancel);
-        if($replies instanceof Replies)
+        if(null !== $tags)
         {
-            $this->child('replies', $replies);
+            $this->setProperty('t', trim($tags));
         }
-        if(null !== $f)
+        if(null !== $tagNames)
         {
-            $this->property('f', trim($f));
+            $this->setProperty('tn', trim($tagNames));
         }
-        if(null !== $t)
+        if(null !== $folderId)
         {
-            $this->property('t', trim($t));
-        }
-        if(null !== $tn)
-        {
-            $this->property('tn', trim($tn));
-        }
-        if(null !== $l)
-        {
-            $this->property('l', trim($l));
+            $this->setProperty('l', trim($folderId));
         }
         if(null !== $noNextAlarm)
         {
-            $this->property('noNextAlarm', (bool) $noNextAlarm);
+            $this->setProperty('noNextAlarm', (bool) $noNextAlarm);
         }
         if(null !== $nextAlarm)
         {
-            $this->property('nextAlarm', (int) $nextAlarm);
+            $this->setProperty('nextAlarm', (int) $nextAlarm);
+        }
+        if($defaultId instanceof SetCalendarItemInfo)
+        {
+            $this->setChild('default', $defaultId);
+        }
+        $this->setExceptions($exceptions);
+        $this->setCancellations($cancellations);
+        if($replies instanceof Replies)
+        {
+            $this->setChild('replies', $replies);
         }
 
         $this->on('before', function(Base $sender)
         {
-            if($sender->except()->count())
+            if($sender->getExceptions()->count())
             {
-                $sender->child('except', $sender->except()->all());
+                $sender->setChild('except', $sender->getExceptions()->all());
             }
-            if($sender->cancel()->count())
+            if($sender->getCancellations()->count())
             {
-                $sender->child('cancel', $sender->cancel()->all());
+                $sender->setChild('cancel', $sender->getCancellations()->all());
             }
         });
     }
 
     /**
-     * Get or set default
+     * Gets flags
      *
-     * @param  SetCalendarItemInfo $default
-     * @return SetCalendarItemInfo|self
+     * @return string
      */
-    public function default_(SetCalendarItemInfo $default = null)
+    public function getFlags()
     {
-        if(null === $default)
-        {
-            return $this->child('default');
-        }
-        return $this->child('default', $default);
+        return $this->getProperty('f');
     }
 
     /**
-     * Add a except
+     * Sets flags
      *
-     * @param  SetCalendarItemInfo $except
+     * @param  string $flags
      * @return self
      */
-    public function addExcept(SetCalendarItemInfo $except)
+    public function setFlags($flags)
     {
-        $this->_except->add($except);
-        return $this;
+        return $this->setProperty('f', trim($flags));
     }
 
     /**
-     * Gets except nextAlarmuence
+     * Gets tags
      *
-     * @return Sequence
+     * @return string
      */
-    public function except()
+    public function getTags()
     {
-        return $this->_except;
+        return $this->getProperty('t');
     }
 
     /**
-     * Add a cancel
+     * Sets tags
      *
-     * @param  SetCalendarItemInfo $cancel
+     * @param  string $tags
      * @return self
      */
-    public function addCancel(SetCalendarItemInfo $cancel)
+    public function setTags($tags)
     {
-        $this->_cancel->add($cancel);
-        return $this;
+        return $this->setProperty('t', trim($tags));
     }
 
     /**
-     * Gets cancel nextAlarmuence
+     * Gets tag names
+     * Comma separated list of tag names
      *
-     * @return Sequence
+     * @return string
      */
-    public function cancel()
+    public function getTagNames()
     {
-        return $this->_cancel;
+        return $this->getProperty('tn');
     }
 
     /**
-     * Get or set replies
+     * Sets tag names
+     * Comma separated list of tag names
      *
-     * @param  Replies $replies
-     * @return Replies|self
+     * @param  string $tagNames
+     * @return self
      */
-    public function replies(Replies $replies = null)
+    public function setTagNames($tagNames)
     {
-        if(null === $replies)
-        {
-            return $this->child('replies');
-        }
-        return $this->child('replies', $replies);
+        return $this->setProperty('tn', trim($tagNames));
     }
 
     /**
-     * Gets or sets f
+     * Gets folder Id
      *
-     * @param  string $f
-     * @return string|self
+     * @return string
      */
-    public function f($f = null)
+    public function getFolderId()
     {
-        if(null === $f)
-        {
-            return $this->property('f');
-        }
-        return $this->property('f', trim($f));
+        return $this->getProperty('l');
     }
 
     /**
-     * Gets or sets t
+     * Sets folder Id
      *
-     * @param  string $t
-     * @return string|self
+     * @param  string $folderId
+     * @return self
      */
-    public function t($t = null)
+    public function setFolderId($folderId)
     {
-        if(null === $t)
-        {
-            return $this->property('t');
-        }
-        return $this->property('t', trim($t));
+        return $this->setProperty('l', trim($folderId));
     }
 
     /**
-     * Gets or sets tn
+     * Gets no next alarm
      *
-     * @param  string $tn
-     * @return string|self
+     * @return bool
      */
-    public function tn($tn = null)
+    public function getNoNextAlarm()
     {
-        if(null === $tn)
-        {
-            return $this->property('tn');
-        }
-        return $this->property('tn', trim($tn));
+        return $this->getProperty('noNextAlarm');
     }
 
     /**
-     * Gets or sets l
-     *
-     * @param  string $l
-     * @return string|self
-     */
-    public function l($l = null)
-    {
-        if(null === $l)
-        {
-            return $this->property('l');
-        }
-        return $this->property('l', trim($l));
-    }
-
-    /**
-     * Gets or sets noNextAlarm
+     * Sets no next alarm
      *
      * @param  bool $noNextAlarm
-     * @return bool|self
+     * @return self
      */
-    public function noNextAlarm($noNextAlarm = null)
+    public function setNoNextAlarm($noNextAlarm)
     {
-        if(null === $noNextAlarm)
-        {
-            return $this->property('noNextAlarm');
-        }
-        return $this->property('noNextAlarm', (bool) $noNextAlarm);
+        return $this->setProperty('noNextAlarm', (bool) $noNextAlarm);
     }
 
     /**
-     * Gets or sets nextAlarm
+     * Gets next alarm
+     *
+     * @return int
+     */
+    public function getNextAlarm()
+    {
+        return $this->getProperty('nextAlarm');
+    }
+
+    /**
+     * Sets next alarm
      *
      * @param  int $nextAlarm
-     * @return int|self
+     * @return self
      */
-    public function nextAlarm($nextAlarm = null)
+    public function setNextAlarm($nextAlarm)
     {
-        if(null === $nextAlarm)
-        {
-            return $this->property('nextAlarm');
-        }
-        return $this->property('nextAlarm', (int) $nextAlarm);
+        return $this->setProperty('nextAlarm', (int) $nextAlarm);
+    }
+
+    /**
+     * Gets default calendar item information
+     *
+     * @return SetCalendarItemInfo
+     */
+    public function getDefaultId()
+    {
+        return $this->getChild('default');
+    }
+
+    /**
+     * Sets default calendar item information
+     *
+     * @param  SetCalendarItemInfo $defaultId
+     * @return self
+     */
+    public function setDefaultId(SetCalendarItemInfo $defaultId)
+    {
+        return $this->setChild('default', $defaultId);
+    }
+
+    /**
+     * Add a exception
+     *
+     * @param  SetCalendarItemInfo $exception
+     * @return self
+     */
+    public function addException(SetCalendarItemInfo $exception)
+    {
+        $this->_exceptions->add($exception);
+        return $this;
+    }
+
+    /**
+     * Sets calendar item information for exceptions
+     *
+     * @param  array $exceptions
+     * @return self
+     */
+    public function setExceptions(array $exceptions)
+    {
+        $this->_exceptions = new TypedSequence('Zimbra\Mail\Struct\SetCalendarItemInfo', $exceptions);
+        return $this;
+    }
+
+    /**
+     * Gets calendar item information for exceptions
+     *
+     * @return Sequence
+     */
+    public function getExceptions()
+    {
+        return $this->_exceptions;
+    }
+
+    /**
+     * Add a cancellation
+     *
+     * @param  SetCalendarItemInfo $cancellation
+     * @return self
+     */
+    public function addCancellation(SetCalendarItemInfo $cancellation)
+    {
+        $this->_cancellations->add($cancellation);
+        return $this;
+    }
+
+    /**
+     * Sets calendar item information for cancellations
+     *
+     * @param  array $cancellations
+     * @return self
+     */
+    public function setCancellations(array $cancellations)
+    {
+        $this->_cancellations = new TypedSequence('Zimbra\Mail\Struct\SetCalendarItemInfo', $cancellations);
+        return $this;
+    }
+
+    /**
+     * Gets calendar item information for cancellations
+     *
+     * @return Sequence
+     */
+    public function getCancellations()
+    {
+        return $this->_cancellations;
+    }
+
+    /**
+     * Gets list of replies received from attendees
+     *
+     * @return Replies
+     */
+    public function getReplies()
+    {
+        return $this->getChild('replies');
+    }
+
+    /**
+     * Sets list of replies received from attendees
+     *
+     * @param  Replies $replies
+     * @return self
+     */
+    public function setReplies(Replies $replies)
+    {
+        return $this->setChild('replies', $replies);
     }
 }

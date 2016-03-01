@@ -31,22 +31,28 @@ class FilterAction extends Base
     public function __construct($index)
     {
         parent::__construct();
-        $this->property('index', (int) $index);
+        $this->setProperty('index', (int) $index);
     }
 
     /**
-     * Gets or sets index
+     * Gets index
      *
-     * @param  string $index
-     * @return string|self
+     * @return bool
      */
-    public function index($index = null)
+    public function getIndex()
     {
-        if(null === $index)
-        {
-            return $this->property('index');
-        }
-        return $this->property('index', (int) $index);
+        return $this->getProperty('index');
+    }
+
+    /**
+     * Sets index
+     *
+     * @param  bool $index
+     * @return self
+     */
+    public function setIndex($index)
+    {
+        return $this->setProperty('index', (int) $index);
     }
 
     /**

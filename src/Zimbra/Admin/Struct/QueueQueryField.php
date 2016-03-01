@@ -28,7 +28,7 @@ class QueueQueryField extends Base
      * Match specifications
      * @var TypedSequence
      */
-    private $_match = array();
+    private $_matches;
 
     /**
      * Constructor method for QueueQueryField
@@ -36,34 +36,40 @@ class QueueQueryField extends Base
      * @param  array $matches Match specifications
      * @return self
      */
-    public function __construct($name, array $matches = array())
+    public function __construct($name, array $matches = [])
     {
         parent::__construct();
-        $this->property('name', trim($name));
-        $this->_match = new TypedSequence('Zimbra\Admin\Struct\ValueAttrib', $matches);
+        $this->setProperty('name', trim($name));
+        $this->setMatches($matches);
 
         $this->on('before', function(Base $sender)
         {
-            if($sender->match()->count())
+            if($sender->getMatches()->count())
             {
-                $sender->child('match', $sender->match()->all());
+                $sender->setChild('match', $sender->getMatches()->all());
             }
         });
     }
 
     /**
-     * Gets or sets name
+     * Gets name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->getProperty('name');
+    }
+
+    /**
+     * Sets name
      *
      * @param  string $name
-     * @return string|self
+     * @return self
      */
-    public function name($name = null)
+    public function setName($name)
     {
-        if(null === $name)
-        {
-            return $this->property('name');
-        }
-        return $this->property('name', trim($name));
+        return $this->setProperty('name', trim($name));
     }
 
     /**
@@ -74,7 +80,19 @@ class QueueQueryField extends Base
      */
     public function addMatch(ValueAttrib $match)
     {
-        $this->_match->add($match);
+        $this->_matches->add($match);
+        return $this;
+    }
+
+    /**
+     * Sets match sequence
+     *
+     * @param  array $matches
+     * @return self
+     */
+    public function setMatches(array $matches)
+    {
+        $this->_matches = new TypedSequence('Zimbra\Admin\Struct\ValueAttrib', $matches);
         return $this;
     }
 
@@ -83,9 +101,9 @@ class QueueQueryField extends Base
      *
      * @return Sequence
      */
-    public function match()
+    public function getMatches()
     {
-        return $this->_match;
+        return $this->_matches;
     }
 
     /**

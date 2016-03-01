@@ -37,25 +37,29 @@ class AuthToken extends Base
         parent::__construct(trim($value));
         if(null !== $verifyAccount)
         {
-            $this->property('verifyAccount', (bool) $verifyAccount);
+            $this->setProperty('verifyAccount', (bool) $verifyAccount);
         }
     }
 
     /**
-     * Gets or sets verifyAccount
-     * If verifyAccount="1", account is required and the account in the auth token is compared to the named account.
-     * If verifyAccount="0" (default), only the auth token is verified and any account element specified is ignored.
+     * Gets auth token is verified flag
+     *
+     * @return bool
+     */
+    public function getVerifyAccount()
+    {
+        return $this->getProperty('verifyAccount');
+    }
+
+    /**
+     * Sets auth token is verified flag
      *
      * @param  bool $verifyAccount
-     * @return bool|self
+     * @return self
      */
-    public function verifyAccount($verifyAccount = null)
+    public function setVerifyAccount($verifyAccount)
     {
-        if(null === $verifyAccount)
-        {
-            return $this->property('verifyAccount');
-        }
-        return $this->property('verifyAccount', (bool) $verifyAccount);
+        return $this->setProperty('verifyAccount', (bool) $verifyAccount);
     }
 
     /**

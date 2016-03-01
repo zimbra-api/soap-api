@@ -11,6 +11,8 @@
 namespace Zimbra\Account\Request;
 
 use Zimbra\Enum\MemberOfSelector as MemberOf;
+use Zimbra\Struct\AttributeSelectorTrait;
+use Zimbra\Struct\AttributeSelector;
 
 /**
  * GetAccountDistributionLists request class
@@ -22,74 +24,79 @@ use Zimbra\Enum\MemberOfSelector as MemberOf;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
  */
-class GetAccountDistributionLists extends Base
+class GetAccountDistributionLists extends Base implements AttributeSelector
 {
+    use AttributeSelectorTrait;
+
     /**
      * Constructor method for GetAccountDistributionLists
      * @param  bool $ownerOf The ownerOf
      * @param  MemberOf $memberOf The memberOf
-     * @param  string $attrs The attributes
+     * @param  array $attrs The attributes
      * @return self
      */
-    public function __construct($ownerOf = null, MemberOf $memberOf = null, $attrs = null)
+    public function __construct($ownerOf = null, MemberOf $memberOf = null, array $attrs = [])
     {
         parent::__construct();
         if(null !== $ownerOf)
         {
-            $this->property('ownerOf', (bool) $ownerOf);
+            $this->setProperty('ownerOf', (bool) $ownerOf);
         }
         if($memberOf instanceof MemberOf)
         {
-            $this->property('memberOf', $memberOf);
+            $this->setProperty('memberOf', $memberOf);
         }
-        if(null !== $attrs)
+
+        $this->setAttrs($attrs);
+        $this->on('before', function(Base $sender)
         {
-            $this->property('attrs', trim($attrs));
-        }
+            $attrs = $sender->getAttrs();
+            if(!empty($attrs))
+            {
+                $sender->setProperty('attrs', $attrs);
+            }
+        });
     }
 
     /**
-     * Gets or sets ownerOf
+     * Gets owner of
+     *
+     * @return bool
+     */
+    public function getOwnerOf()
+    {
+        return $this->getProperty('ownerOf');
+    }
+
+    /**
+     * Sets owner of
      *
      * @param  bool $ownerOf
-     * @return bool|self
+     * @return self
      */
-    public function ownerOf($ownerOf = null)
+    public function setOwnerOf($ownerOf)
     {
-        if(null === $ownerOf)
-        {
-            return $this->property('ownerOf');
-        }
-        return $this->property('ownerOf', (bool) $ownerOf);
+        return $this->setProperty('ownerOf', (bool) $ownerOf);
     }
 
     /**
-     * Gets or sets memberOf
+     * Sets account member of enum
+     *
+     * @return MemberOf
+     */
+    public function getMemberOf()
+    {
+        return $this->getProperty('memberOf');
+    }
+
+    /**
+     * Gets account member of enum
      *
      * @param  MemberOf $memberOf
-     * @return MemberOf|self
+     * @return self
      */
-    public function memberOf(MemberOf $memberOf = null)
+    public function setMemberOf(MemberOf $memberOf)
     {
-        if(null === $memberOf)
-        {
-            return $this->property('memberOf');
-        }
-        return $this->property('memberOf', $memberOf);
-    }
-
-    /**
-     * Gets or sets attrs
-     *
-     * @param  string $attrs
-     * @return string|self
-     */
-    public function attrs($attrs = null)
-    {
-        if(null === $attrs)
-        {
-            return $this->property('attrs');
-        }
-        return $this->property('attrs', trim($attrs));
+        return $this->setProperty('memberOf', $memberOf);
     }
 }

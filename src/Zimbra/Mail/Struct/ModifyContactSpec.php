@@ -28,51 +28,51 @@ class ModifyContactSpec extends Base
      * Contact attributes. Cannot specify <vcard> as well as these
      * @var TypedSequence<ModifyContactAttr>
      */
-    private $_a;
+    private $_attrs;
 
     /**
      * Contact group members.
      * Valid only if the contact being created is a contact group (has attribute type="group")
      * @var TypedSequence<ModifyContactGroupMember>
      */
-    private $_m;
+    private $_members;
 
     /**
      * Constructor method for ModifyContactSpec
-     * @param array $a Contact attributes. Cannot specify <vcard> as well as these
-     * @param array $m Contact group members.
      * @param int $id ID - specified when modifying a contact
-     * @param string $tn Comma-separated list of id names
+     * @param string $tn Comma-separated list of tag names
+     * @param array $attrs Contact attributes. Cannot specify <vcard> as well as these
+     * @param array $members Contact group members.
      * @return self
      */
     public function __construct(
-        array $a = array(),
-        array $m = array(),
         $id = null,
-        $tn = null
+        $tn = null,
+        array $attrs = [],
+        array $members = []
     )
     {
         parent::__construct();
-        $this->_a = new TypedSequence('Zimbra\Mail\Struct\ModifyContactAttr', $a);
-        $this->_m = new TypedSequence('Zimbra\Mail\Struct\ModifyContactGroupMember', $m);
         if(null !== $id)
         {
-            $this->property('id', (int) $id);
+            $this->setProperty('id', (int) $id);
         }
         if(null !== $tn)
         {
-            $this->property('tn', trim($tn));
+            $this->setProperty('tn', trim($tn));
         }
 
+        $this->setAttrs($attrs)
+            ->setMembers($members);
         $this->on('before', function(Base $sender)
         {
-            if($sender->a()->count())
+            if($sender->getAttrs()->count())
             {
-                $sender->child('a', $sender->a()->all());
+                $sender->setChild('a', $sender->getAttrs()->all());
             }
-            if($sender->m()->count())
+            if($sender->getMembers()->count())
             {
-                $sender->child('m', $sender->m()->all());
+                $sender->setChild('m', $sender->getMembers()->all());
             }
         });
     }
@@ -80,12 +80,24 @@ class ModifyContactSpec extends Base
     /**
      * Add contact attribute
      *
-     * @param  ModifyContactAttr $a
+     * @param  ModifyContactAttr $attr
      * @return self
      */
-    public function addA(ModifyContactAttr $a)
+    public function addAttr(ModifyContactAttr $attr)
     {
-        $this->_a->add($a);
+        $this->_attrs->add($attr);
+        return $this;
+    }
+
+    /**
+     * Sets contact attribute sequence
+     *
+     * @param  array $attrs
+     * @return self
+     */
+    public function setAttrs(array $attrs)
+    {
+        $this->_attrs = new TypedSequence('Zimbra\Mail\Struct\ModifyContactAttr', $attrs);
         return $this;
     }
 
@@ -94,20 +106,32 @@ class ModifyContactSpec extends Base
      *
      * @return Sequence
      */
-    public function a()
+    public function getAttrs()
     {
-        return $this->_a;
+        return $this->_attrs;
     }
 
     /**
      * Add contact group member
      *
-     * @param  ModifyContactGroupMember $m
+     * @param  ModifyContactGroupMember $member
      * @return self
      */
-    public function addM(ModifyContactGroupMember $m)
+    public function addMember(ModifyContactGroupMember $member)
     {
-        $this->_m->add($m);
+        $this->_members->add($member);
+        return $this;
+    }
+
+    /**
+     * Sets contact group member sequence
+     *
+     * @param  array $members
+     * @return self
+     */
+    public function setMembers(array $members)
+    {
+        $this->_members = new TypedSequence('Zimbra\Mail\Struct\ModifyContactGroupMember', $members);
         return $this;
     }
 
@@ -116,39 +140,51 @@ class ModifyContactSpec extends Base
      *
      * @return Sequence
      */
-    public function m()
+    public function getMembers()
     {
-        return $this->_m;
+        return $this->_members;
     }
 
     /**
-     * Gets or sets id
+     * Gets id
      *
-     * @param  int $id
-     * @return int|self
+     * @return string
      */
-    public function id($id = null)
+    public function getId()
     {
-        if(null === $id)
-        {
-            return $this->property('id');
-        }
-        return $this->property('id', (int) $id);
+        return $this->getProperty('id');
     }
 
     /**
-     * Gets or sets tn
+     * Sets id
+     *
+     * @param  string $id
+     * @return self
+     */
+    public function setId($id)
+    {
+        return $this->setProperty('id', (int) $id);
+    }
+
+    /**
+     * Gets list of tag names
+     *
+     * @return string
+     */
+    public function getTagNames()
+    {
+        return $this->getProperty('tn');
+    }
+
+    /**
+     * Sets list of tag names
      *
      * @param  string $tn
-     * @return string|self
+     * @return self
      */
-    public function tn($tn = null)
+    public function setTagNames($tn)
     {
-        if(null === $tn)
-        {
-            return $this->property('tn');
-        }
-        return $this->property('tn', trim($tn));
+        return $this->setProperty('tn', trim($tn));
     }
 
     /**

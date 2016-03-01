@@ -36,45 +36,57 @@ class CheckSpelling extends Base
         parent::__construct($value);
         if(null !== $dictionary)
         {
-            $this->property('dictionary', trim($dictionary));
+            $this->setProperty('dictionary', trim($dictionary));
         }
         if(null !== $ignore)
         {
-            $this->property('ignore', trim($ignore));
+            $this->setProperty('ignore', trim($ignore));
         }
     }
 
     /**
-     * Get or set dictionary
-     * The optional name of the aspell dictionary that will be used to check spelling.
-     * If not specified, the the dictionary will be either zimbraPrefSpellDictionary or the one for the account's locale, in that order.
+     * Gets dictionary
+     *
+     * @return string
+     */
+    public function getDictionary()
+    {
+        return $this->getProperty('dictionary');
+    }
+
+    /**
+     * Sets dictionary
      *
      * @param  string $dictionary
-     * @return string|self
+     *     The optional name of the aspell dictionary that will be used to check spelling.
+     *     If not specified, the the dictionary will be either zimbraPrefSpellDictionary or the one for the account's locale, in that order.
+     * @return self
      */
-    public function dictionary($dictionary = null)
+    public function setDictionary($dictionary)
     {
-        if(null === $dictionary)
-        {
-            return $this->property('dictionary');
-        }
-        return $this->property('dictionary', trim($dictionary));
+        return $this->setProperty('dictionary', trim($dictionary));
     }
 
     /**
-     * Get or set ignore
-     * Comma-separated list of words to ignore just for this request.
-     * These words are added to the user's personal dictionary of ignore words stored as zimbraPrefSpellIgnoreWord.
+     * Gets comma separated ignore words
+     *
+     * @return string
+     */
+    public function getIgnoreList()
+    {
+        return $this->getProperty('ignore');
+    }
+
+    /**
+     * Sets comma separated ignore words
      *
      * @param  string $ignore
-     * @return string|self
+     *     Comma-separated list of words to ignore just for this request.
+     *     These words are added to the user's personal dictionary of ignore words stored as zimbraPrefSpellIgnoreWord.
+     * @return self
      */
-    public function ignore($ignore = null)
+    public function setIgnoreList($ignore)
     {
-        if(null === $ignore)
-        {
-            return $this->property('ignore');
-        }
-        return $this->property('ignore', trim($ignore));
+        return $this->setProperty('ignore', trim($ignore));
     }
 }

@@ -25,12 +25,6 @@ use Zimbra\Mail\Struct\FilterRules;
 class ModifyFilterRules extends Base
 {
     /**
-     * Filter rules
-     * @var FilterRules
-     */
-    private $_filterRules;
-
-    /**
      * Constructor method for ModifyFilterRules
      * @param  FilterRules $filterRules
      * @return self
@@ -38,21 +32,27 @@ class ModifyFilterRules extends Base
     public function __construct(FilterRules $filterRules)
     {
         parent::__construct();
-        $this->child('filterRules', $filterRules);
+        $this->setChild('filterRules', $filterRules);
     }
 
     /**
-     * Get or set filterRules
+     * Gets filter rules
+     *
+     * @return FilterRules
+     */
+    public function getFilterRules()
+    {
+        return $this->getChild('filterRules');
+    }
+
+    /**
+     * Sets filter rules
      *
      * @param  FilterRules $filterRules
-     * @return FilterRules|self
+     * @return self
      */
-    public function filterRules(FilterRules $filterRules = null)
+    public function setFilterRules(FilterRules $filterRules)
     {
-        if(null === $filterRules)
-        {
-            return $this->child('filterRules');
-        }
-        return $this->child('filterRules', $filterRules);
+        return $this->setChild('filterRules', $filterRules);
     }
 }

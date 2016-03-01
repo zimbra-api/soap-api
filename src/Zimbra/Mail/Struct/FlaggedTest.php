@@ -22,12 +22,6 @@ namespace Zimbra\Mail\Struct;
 class FlaggedTest extends FilterTest
 {
     /**
-     * Header
-     * @var string
-     */
-    private $_flagName;
-
-    /**
      * Constructor method for FlaggedTest
      * @param int $index
      * @param string $flagName
@@ -39,22 +33,28 @@ class FlaggedTest extends FilterTest
     )
     {
         parent::__construct($index, $negative);
-        $this->property('flagName', trim($flagName));
+        $this->setProperty('flagName', trim($flagName));
     }
 
     /**
-     * Gets or sets flagName
+     * Gets flag name
+     *
+     * @return string
+     */
+    public function getFlag()
+    {
+        return $this->getProperty('flagName');
+    }
+
+    /**
+     * Sets flag name
      *
      * @param  string $flagName
-     * @return string|self
+     * @return self
      */
-    public function flagName($flagName = null)
+    public function setFlag($flagName)
     {
-        if(null === $flagName)
-        {
-            return $this->property('flagName');
-        }
-        return $this->property('flagName', trim($flagName));
+        return $this->setProperty('flagName', trim($flagName));
     }
 
     /**

@@ -32,24 +32,28 @@ class GetNotifications extends Base
         parent::__construct();
         if(null !== $markSeen)
         {
-            $this->property('markSeen', (bool) $markSeen);
+            $this->setProperty('markSeen', (bool) $markSeen);
         }
     }
 
     /**
-     * Get or set markSeen
-     * If set then all the notifications will be marked as seen.
-     * Default: unset
+     * Gets mark seen
+     *
+     * @return bool
+     */
+    public function getMarkSeen()
+    {
+        return $this->getProperty('markSeen');
+    }
+
+    /**
+     * Sets mark seen
      *
      * @param  bool $markSeen
-     * @return bool|self
+     * @return self
      */
-    public function markSeen($markSeen = null)
+    public function setMarkSeen($markSeen)
     {
-        if(null === $markSeen)
-        {
-            return $this->property('markSeen');
-        }
-        return $this->property('markSeen', (bool) $markSeen);
+        return $this->setProperty('markSeen', (bool) $markSeen);
     }
 }

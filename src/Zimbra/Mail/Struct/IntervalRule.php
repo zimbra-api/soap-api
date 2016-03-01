@@ -31,22 +31,28 @@ class IntervalRule extends Base
     public function __construct($ival)
     {
         parent::__construct();
-        $this->property('ival', abs((int) $ival));
+        $this->setProperty('ival', abs((int) $ival));
     }
 
     /**
-     * Gets or sets ival
+     * Gets ival
+     *
+     * @return int
+     */
+    public function getIval()
+    {
+        return $this->getProperty('ival');
+    }
+
+    /**
+     * Sets ival
      *
      * @param  int $ival
-     * @return int|self
+     * @return self
      */
-    public function ival($ival = null)
+    public function setIval($ival)
     {
-        if(null === $ival)
-        {
-            return $this->property('ival');
-        }
-        return $this->property('ival', abs((int) $ival));
+        return $this->setProperty('ival', (int) $ival);
     }
 
     /**

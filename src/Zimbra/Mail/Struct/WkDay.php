@@ -33,48 +33,56 @@ class WkDay extends Base
     public function __construct(WeekDay $day, $ordwk = null)
     {
         parent::__construct();
-        $this->property('day', $day);
+        $this->setProperty('day', $day);
         if(null !== $ordwk)
         {
-            $ordwk = (int) $ordwk;
-            if($ordwk != 0 && $ordwk > -54 && $ordwk < 54)
-            {
-                $this->property('ordwk', $ordwk);
-            }
+            $this->setOrdWk($ordwk);
         }
     }
 
     /**
-     * Gets or sets day
+     * Gets weekday
+     *
+     * @return WeekDay
+     */
+    public function getDay()
+    {
+        return $this->getProperty('day');
+    }
+
+    /**
+     * Sets weekday
      *
      * @param  WeekDay $day
-     * @return WeekDay|self
+     * @return self
      */
-    public function day(WeekDay $day = null)
+    public function setDay(WeekDay $day)
     {
-        if(null === $day)
-        {
-            return $this->property('day');
-        }
-        return $this->property('day', $day);
+        return $this->setProperty('day', $day);
     }
 
     /**
-     * Gets or sets ordwk
+     * Gets week number
      *
-     * @param  int $ordwk
-     * @return int|self
+     * @return bool
      */
-    public function ordwk($ordwk = null)
+    public function getOrdWk()
     {
-        if(null === $ordwk)
-        {
-            return $this->property('ordwk');
-        }
+        return $this->getProperty('ordwk');
+    }
+
+    /**
+     * Sets week number
+     *
+     * @param  bool $ordwk
+     * @return self
+     */
+    public function setOrdWk($ordwk)
+    {
         $ordwk = (int) $ordwk;
         if($ordwk != 0 && $ordwk > -54 && $ordwk < 54)
         {
-            $this->property('ordwk', $ordwk);
+            $this->setProperty('ordwk', $ordwk);
         }
         return $this;
     }

@@ -31,94 +31,118 @@ class Sync extends Base
     /**
      * Constructor method for Sync
      * @param  string $token
-     * @param  int   $calCutoff
-     * @param  string $l
+     * @param  int    $calCutoff
+     * @param  string $folderId
      * @param  bool   $typed
      * @return self
      */
     public function __construct(
         $token = null,
         $calCutoff = null,
-        $l = null,
+        $folderId = null,
         $typed = null
     )
     {
         parent::__construct();
         if(null !== $token)
         {
-            $this->property('token', trim($token));
+            $this->setProperty('token', trim($token));
         }
         if(null !== $calCutoff)
         {
-            $this->property('calCutoff', (int) $calCutoff);
+            $this->setProperty('calCutoff', (int) $calCutoff);
         }
-        if(null !== $l)
+        if(null !== $folderId)
         {
-            $this->property('l', trim($l));
+            $this->setProperty('l', trim($folderId));
         }
         if(null !== $typed)
         {
-            $this->property('typed', (bool) $typed);
+            $this->setProperty('typed', (bool) $typed);
         }
     }
 
     /**
-     * Get or set token
+     * Gets token
+     *
+     * @return string
+     */
+    public function getToken()
+    {
+        return $this->getProperty('token');
+    }
+
+    /**
+     * Sets token
      *
      * @param  string $token
-     * @return string|self
+     * @return self
      */
-    public function token($token = null)
+    public function setToken($token)
     {
-        if(null === $token)
-        {
-            return $this->property('token');
-        }
-        return $this->property('token', trim($token));
+        return $this->setProperty('token', trim($token));
     }
 
     /**
-     * Get or set calCutoff
+     * Gets earliest calendar date
      *
-     * @param  int $calCutoff
-     * @return int|self
+     * @return int
      */
-    public function calCutoff($calCutoff = null)
+    public function getCalendarCutoff()
     {
-        if(null === $calCutoff)
-        {
-            return $this->property('calCutoff');
-        }
-        return $this->property('calCutoff', (int) $calCutoff);
+        return $this->getProperty('calCutoff');
     }
 
     /**
-     * Get or set l
+     * Sets earliest calendar date
      *
-     * @param  string $l
-     * @return string|self
+     * @param  int $calendarCutoff
+     * @return self
      */
-    public function l($l = null)
+    public function setCalendarCutoff($calendarCutoff)
     {
-        if(null === $l)
-        {
-            return $this->property('l');
-        }
-        return $this->property('l', trim($l));
+        return $this->setProperty('calCutoff', (int) $calendarCutoff);
     }
 
     /**
-     * Get or set typed
+     * Gets folder Id
      *
-     * @param  bool $typed
-     * @return bool|self
+     * @return string
      */
-    public function typed($typed = null)
+    public function getFolderId()
     {
-        if(null === $typed)
-        {
-            return $this->property('typed');
-        }
-        return $this->property('typed', (bool) $typed);
+        return $this->getProperty('l');
+    }
+
+    /**
+     * Sets folder Id
+     *
+     * @param  string $folderId
+     * @return self
+     */
+    public function setFolderId($folderId)
+    {
+        return $this->setProperty('l', trim($folderId));
+    }
+
+    /**
+     * Gets typed deletes
+     *
+     * @return bool
+     */
+    public function getTypedDeletes()
+    {
+        return $this->getProperty('typed');
+    }
+
+    /**
+     * Sets typed deletes
+     *
+     * @param  bool $typedDeletes
+     * @return self
+     */
+    public function setTypedDeletes($typedDeletes)
+    {
+        return $this->setProperty('typed', (bool) $typedDeletes);
     }
 }

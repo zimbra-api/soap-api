@@ -45,9 +45,14 @@ class Text
         return $needle === '' || substr($haystack, -strlen($needle)) === $needle;
     }
 
+    /**
+     * Check the string is rgb.
+     *
+     * @param  string $tag The rgb string.
+     * @return bool
+     */
     public static function isRgb($rgb)
     {
-        //return (bool) preg_match('/^#?+[0-9a-f]{3}(?:[0-9a-f]{3})?$/i', $rgb);
         return (bool) preg_match('/^#([a-f0-9]{3}){1,2}$/iD', $rgb);
     }
 
@@ -72,7 +77,7 @@ class Text
     public static function extractHeaders($headerString = '')
     {
         $parts = explode("\r\n", $headerString);
-        $headers = array();
+        $headers = [];
         foreach ($parts as $part)
         {
             $pos = strpos($part, ':');

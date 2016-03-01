@@ -45,134 +45,177 @@ class NewSearchFolderSpec extends Base
     )
     {
         parent::__construct();
-        $this->property('name', trim($name));
-        $this->property('query', trim($query));
+        $this->setProperty('name', trim($name));
+        $this->setProperty('query', trim($query));
         if(null !== $types)
         {
-            $this->property('types', trim($types));
+            $this->setProperty('types', trim($types));
         }
         if(null !== $sortBy)
         {
-            $this->property('sortBy', trim($sortBy));
+            $this->setProperty('sortBy', trim($sortBy));
         }
         if(null !== $f)
         {
-            $this->property('f', trim($f));
+            $this->setProperty('f', trim($f));
         }
         if(null !== $color)
         {
             $color = (int) $color;
-            $this->property('color', ($color > 0 && $color < 128) ? $color : 0);
+            $this->setProperty('color', ($color > 0 && $color < 128) ? $color : 0);
         }
         if(null !== $l)
         {
-            $this->property('l', trim($l));
+            $this->setProperty('l', trim($l));
         }
     }
 
     /**
-     * Gets or sets name
+     * Gets name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->getProperty('name');
+    }
+
+    /**
+     * Sets name
      *
      * @param  string $name
-     * @return string|self
+     * @return self
      */
-    public function name($name = null)
+    public function setName($name)
     {
-        if(null === $name)
-        {
-            return $this->property('name');
-        }
-        return $this->property('name', trim($name));
+        return $this->setProperty('name', trim($name));
     }
 
     /**
-     * Gets or sets query
+     * Gets query
+     *
+     * @return string
+     */
+    public function getQuery()
+    {
+        return $this->getProperty('query');
+    }
+
+    /**
+     * Sets query
      *
      * @param  string $query
-     * @return string|self
+     * @return self
      */
-    public function query($query = null)
+    public function setQuery($query)
     {
-        if(null === $query)
-        {
-            return $this->property('query');
-        }
-        return $this->property('query', trim($query));
+        return $this->setProperty('query', trim($query));
     }
 
     /**
-     * Gets or sets types
+     * Gets search types
+     *
+     * @return string
+     */
+    public function getSearchTypes()
+    {
+        return $this->getProperty('types');
+    }
+
+    /**
+     * Sets search types
      *
      * @param  string $types
-     * @return string|self
+     * @return self
      */
-    public function types($types = null)
+    public function setSearchTypes($types)
     {
-        if(null === $types)
-        {
-            return $this->property('types');
-        }
-        return $this->property('types', trim($types));
+        return $this->setProperty('types', trim($types));
     }
 
     /**
-     * Gets or sets sortBy
+     * Gets sort by
+     *
+     * @return string
+     */
+    public function getSortBy()
+    {
+        return $this->getProperty('sortBy');
+    }
+
+    /**
+     * Sets sort by
      *
      * @param  string $sortBy
-     * @return string|self
+     * @return self
      */
-    public function sortBy($sortBy = null)
+    public function setSortBy($sortBy)
     {
-        if(null === $sortBy)
-        {
-            return $this->property('sortBy');
-        }
-        return $this->property('sortBy', trim($sortBy));
+        return $this->setProperty('sortBy', trim($sortBy));
     }
 
     /**
-     * Gets or sets f
+     * Gets flags
+     *
+     * @return string
+     */
+    public function getFlags()
+    {
+        return $this->getProperty('f');
+    }
+
+    /**
+     * Sets flags
      *
      * @param  string $f
-     * @return string|self
+     * @return self
      */
-    public function f($f = null)
+    public function setFlags($f)
     {
-        if(null === $f)
-        {
-            return $this->property('f');
-        }
-        return $this->property('f', trim($f));
+        return $this->setProperty('f', trim($f));
     }
 
     /**
-     * Gets or sets color
+     * Gets color
+     *
+     * @return int
+     */
+    public function getColor()
+    {
+        return $this->getProperty('color');
+    }
+
+    /**
+     * Sets color
      *
      * @param  int $color
-     * @return int|self
+     * @return self
      */
-    public function color($color = null)
+    public function setColor($color)
     {
-        if(null === $color)
-        {
-            return $this->property('color');
-        }
-        return $this->property('color', ($color > 0 && $color < 128) ? $color : 0);
+        $color = (int) $color;
+        return $this->setProperty('color', ($color > 0 && $color < 128) ? $color : 0);
     }
 
     /**
-     * Gets or sets l
+     * Gets parent folder ID
+     *
+     * @return string
+     */
+    public function getParentFolderId()
+    {
+        return $this->getProperty('l');
+    }
+
+    /**
+     * Sets parent folder ID
      *
      * @param  string $l
-     * @return string|self
+     * @return self
      */
-    public function l($l = null)
+    public function setParentFolderId($l)
     {
-        if(null === $l)
-        {
-            return $this->property('l');
-        }
-        return $this->property('l', trim($l));
+        return $this->setProperty('l', trim($l));
     }
 
     /**

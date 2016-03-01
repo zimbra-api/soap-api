@@ -32,21 +32,27 @@ class ModifyZimlet extends Base
     public function __construct(Zimlet $zimlet)
     {
         parent::__construct();
-        $this->child('zimlet', $zimlet);
+        $this->setChild('zimlet', $zimlet);
     }
 
     /**
-     * Gets or sets Zimlet
+     * Gets the zimlet.
+     *
+     * @return Zimlet
+     */
+    public function getZimlet()
+    {
+        return $this->getChild('zimlet');
+    }
+
+    /**
+     * Sets the zimlet.
      *
      * @param  Zimlet $zimlet
-     * @return Zimlet|self
+     * @return self
      */
-    public function Zimlet(Zimlet $zimlet = null)
+    public function setZimlet(Zimlet $zimlet)
     {
-        if(null === $zimlet)
-        {
-            return $this->child('zimlet');
-        }
-        return $this->child('zimlet', $zimlet);
+        return $this->setChild('zimlet', $zimlet);
     }
 }

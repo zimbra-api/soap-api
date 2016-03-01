@@ -32,21 +32,27 @@ class ContactAction extends Base
     public function __construct(ContactActionSelector $action)
     {
         parent::__construct();
-        $this->child('action', $action);
+        $this->setChild('action', $action);
     }
 
     /**
-     * Get or set action
+     * Gets contact action selector
+     *
+     * @return ContactActionSelector
+     */
+    public function getAction()
+    {
+        return $this->getChild('action');
+    }
+
+    /**
+     * Sets contact action selector
      *
      * @param  ContactActionSelector $action
-     * @return ContactActionSelector|self
+     * @return self
      */
-    public function action(ContactActionSelector $action = null)
+    public function setAction(ContactActionSelector $action)
     {
-        if(null === $action)
-        {
-            return $this->child('action');
-        }
-        return $this->child('action', $action);
+        return $this->setChild('action', $action);
     }
 }

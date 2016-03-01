@@ -28,7 +28,7 @@ class QueueQuery extends Base
      * Queue query field
      * @var TypedSequence
      */
-    private $_field;
+    private $_fields;
 
     /**
      * Constructor method for QueueQuery
@@ -37,24 +37,24 @@ class QueueQuery extends Base
      * @param  int $offset Offset
      * @return self
      */
-    public function __construct(array $fields = array(), $limit = null, $offset = null)
+    public function __construct(array $fields = [], $limit = null, $offset = null)
     {
         parent::__construct();
-        $this->_field = new TypedSequence('Zimbra\Admin\Struct\QueueQueryField', $fields);
+        $this->setFields($fields);
         if(null !== $limit)
         {
-            $this->property('limit', (int) $limit);
+            $this->setProperty('limit', (int) $limit);
         }
         if(null !== $offset)
         {
-            $this->property('offset', (int) $offset);
+            $this->setProperty('offset', (int) $offset);
         }
 
         $this->on('before', function(Base $sender)
         {
-            if($sender->field()->count())
+            if($sender->getFields()->count())
             {
-                $sender->child('field', $sender->field()->all());
+                $sender->setChild('field', $sender->getFields()->all());
             }
         });
     }
@@ -67,7 +67,19 @@ class QueueQuery extends Base
      */
     public function addField(QueueQueryField $field)
     {
-        $this->_field->add($field);
+        $this->_fields->add($field);
+        return $this;
+    }
+
+    /**
+     * Sets field sequence
+     *
+     * @param  array $fields
+     * @return self
+     */
+    public function setFields(array $fields)
+    {
+        $this->_fields = new TypedSequence('Zimbra\Admin\Struct\QueueQueryField', $fields);
         return $this;
     }
 
@@ -76,39 +88,51 @@ class QueueQuery extends Base
      *
      * @return Sequence
      */
-    public function field()
+    public function getFields()
     {
-        return $this->_field;
+        return $this->_fields;
     }
 
     /**
-     * Gets or sets limit
+     * Gets the limit
+     *
+     * @return int
+     */
+    public function getLimit()
+    {
+        return $this->getProperty('limit');
+    }
+
+    /**
+     * Sets the limit
      *
      * @param  int $limit
-     * @return int|self
+     * @return self
      */
-    public function limit($limit = null)
+    public function setLimit($limit)
     {
-        if(null === $limit)
-        {
-            return $this->property('limit');
-        }
-        return $this->property('limit', (int) $limit);
+        return $this->setProperty('limit', (int) $limit);
     }
 
     /**
-     * Gets or sets offset
+     * Gets the offset
+     *
+     * @return int
+     */
+    public function getOffset()
+    {
+        return $this->getProperty('offset');
+    }
+
+    /**
+     * Sets the offset
      *
      * @param  int $offset
-     * @return int|self
+     * @return self
      */
-    public function offset($offset = null)
+    public function setOffset($offset)
     {
-        if(null === $offset)
-        {
-            return $this->property('offset');
-        }
-        return $this->property('offset', (int) $offset);
+        return $this->setProperty('offset', (int) $offset);
     }
 
     /**

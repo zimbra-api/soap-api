@@ -38,69 +38,93 @@ class UploadDomCert extends Base
     )
     {
         parent::__construct();
-        $this->property('cert.aid', trim($certAid));
-        $this->property('cert.filename', trim($certFilename));
-        $this->property('key.aid', trim($keyAid));
-        $this->property('key.filename', trim($keyFilename));
+        $this->setProperty('cert.aid', trim($certAid));
+        $this->setProperty('cert.filename', trim($certFilename));
+        $this->setProperty('key.aid', trim($keyAid));
+        $this->setProperty('key.filename', trim($keyFilename));
     }
 
     /**
-     * Gets or sets certAid
+     * Gets cert aid
+     *
+     * @return string
+     */
+    public function getCertAid()
+    {
+        return $this->getProperty('cert.aid');
+    }
+
+    /**
+     * Sets cert aid
      *
      * @param  string $certAid
-     * @return string|self
+     * @return self
      */
-    public function certAid($certAid = null)
+    public function setCertAid($certAid)
     {
-        if(null === $certAid)
-        {
-            return $this->property('cert.aid');
-        }
-        return $this->property('cert.aid', trim($certAid));
+        return $this->setProperty('cert.aid', trim($certAid));
     }
 
     /**
-     * Gets or sets certFilename
+     * Gets cert filename
+     *
+     * @return string
+     */
+    public function getCertFilename()
+    {
+        return $this->getProperty('cert.filename');
+    }
+
+    /**
+     * Sets cert filename
      *
      * @param  string $certFilename
-     * @return string|self
+     * @return self
      */
-    public function certFilename($certFilename = null)
+    public function setCertFilename($certFilename)
     {
-        if(null === $certFilename)
-        {
-            return $this->property('cert.filename');
-        }
-        return $this->property('cert.filename', trim($certFilename));
+        return $this->setProperty('cert.filename', trim($certFilename));
     }
 
     /**
-     * Gets or sets keyAid
+     * Gets keyAid
+     *
+     * @return string
+     */
+    public function getKeyAid()
+    {
+        return $this->getProperty('key.aid');
+    }
+
+    /**
+     * Sets keyAid
      *
      * @param  string $keyAid
-     * @return string|self
+     * @return self
      */
-    public function keyAid($keyAid = null)
+    public function setKeyAid($keyAid)
     {
-        if(null === $keyAid)
-        {
-            return $this->property('key.aid');
-        }
-        return $this->property('key.aid', trim($keyAid));
+        return $this->setProperty('key.aid', trim($keyAid));
     }
 
     /**
-     * Gets or sets keyFilename
+     * Gets keyFilename
+     *
+     * @return string
+     */
+    public function getKeyFilename()
+    {
+        return $this->getProperty('key.filename');
+    }
+
+    /**
+     * Sets keyFilename
      *
      * @param  string $keyFilename
-     * @return string|self
+     * @return self
      */
-    public function keyFilename($keyFilename = null)
+    public function setKeyFilename($keyFilename)
     {
-        if(null === $keyFilename)
-        {
-            return $this->property('key.filename');
-        }
-        return $this->property('key.filename', trim($keyFilename));
+        return $this->setProperty('key.filename', trim($keyFilename));
     }
 }

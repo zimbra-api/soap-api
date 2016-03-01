@@ -33,41 +33,53 @@ class GetAllMailboxes extends Base
         parent::__construct();
         if(null !== $limit)
         {
-            $this->property('limit', (int) $limit);
+            $this->setProperty('limit', (int) $limit);
         }
         if(null !== $offset)
         {
-            $this->property('offset', (int) $offset);
+            $this->setProperty('offset', (int) $offset);
         }
     }
 
     /**
-     * Gets or sets limit
+     * Gets limit
+     *
+     * @return int
+     */
+    public function getLimit()
+    {
+        return $this->getProperty('limit');
+    }
+
+    /**
+     * Sets limit
      *
      * @param  int $limit
-     * @return int|self
+     * @return self
      */
-    public function limit($limit = null)
+    public function setLimit($limit)
     {
-        if(null === $limit)
-        {
-            return $this->property('limit');
-        }
-        return $this->property('limit', (int) $limit);
+        return $this->setProperty('limit', (int) $limit);
     }
 
     /**
-     * Gets or sets offset
+     * Gets offset
      *
-     * @param  string $offset
-     * @return string|self
+     * @return int
      */
-    public function offset($offset = null)
+    public function getOffset()
     {
-        if(null === $offset)
-        {
-            return $this->property('offset');
-        }
-        return $this->property('offset', (int) $offset);
+        return $this->getProperty('offset');
+    }
+
+    /**
+     * Sets offset
+     *
+     * @param  int $offset
+     * @return self
+     */
+    public function setOffset($offset)
+    {
+        return $this->setProperty('offset', (int) $offset);
     }
 }

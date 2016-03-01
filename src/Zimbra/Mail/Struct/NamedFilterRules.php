@@ -29,23 +29,23 @@ class NamedFilterRules extends Base
      * Filter rule
      * @var TypedSequence<NamedElement>
      */
-    private $_filterRule;
+    private $_filterRules;
 
     /**
      * Constructor method for NamedFilterRules
-     * @param  array $filterRule
+     * @param  array $filterRules
      * @return self
      */
-    public function __construct(array $filterRule = array())
+    public function __construct(array $filterRules = [])
     {
         parent::__construct();
-        $this->_filterRule = new TypedSequence('Zimbra\Struct\NamedElement', $filterRule);
 
+        $this->setFilterRules($filterRules);
         $this->on('before', function(Base $sender)
         {
-            if($sender->filterRule()->count())
+            if($sender->getFilterRules()->count())
             {
-                $sender->child('filterRule', $sender->filterRule()->all());
+                $sender->setChild('filterRule', $sender->getFilterRules()->all());
             }
         });
     }
@@ -58,7 +58,19 @@ class NamedFilterRules extends Base
      */
     public function addFilterRule(NamedElement $filterRule)
     {
-        $this->_filterRule->add($filterRule);
+        $this->_filterRules->add($filterRule);
+        return $this;
+    }
+
+    /**
+     * Sets filter rule sequence
+     *
+     * @param  array $filterRules
+     * @return self
+     */
+    public function setFilterRules(array $filterRules)
+    {
+        $this->_filterRules = new TypedSequence('Zimbra\Struct\NamedElement', $filterRules);
         return $this;
     }
 
@@ -67,9 +79,9 @@ class NamedFilterRules extends Base
      *
      * @return Sequence
      */
-    public function filterRule()
+    public function getFilterRules()
     {
-        return $this->_filterRule;
+        return $this->_filterRules;
     }
 
     /**

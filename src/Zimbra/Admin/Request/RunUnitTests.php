@@ -28,31 +28,23 @@ class RunUnitTests extends Base
      * Test Names
      * @var array
      */
-    private $_test = array();
+    private $_tests;
 
     /**
      * Constructor method for RunUnitTests
      * @param  array  $tests
      * @return self
      */
-    public function __construct(array $tests = array())
+    public function __construct(array $tests = [])
     {
         parent::__construct();
-        $this->_test = new Sequence();
-        foreach ($tests as $test)
-        {
-            $test = trim($test);
-            if(!empty($test) && !$this->_test->contains($test))
-            {
-                $this->_test->add($test);
-            }
-        }
+        $this->setTests($tests);
 
         $this->on('before', function(Base $sender)
         {
-            if($sender->test()->count())
+            if($sender->getTests()->count())
             {
-                $sender->child('test', $sender->test()->all());
+                $sender->setChild('test', $sender->getTests()->all());
             }
         });
     }
@@ -66,9 +58,29 @@ class RunUnitTests extends Base
     public function addTest($test)
     {
         $test = trim($test);
-        if(!empty($test) && !$this->_test->contains($test))
+        if(!empty($test) && !$this->_tests->contains($test))
         {
-            $this->_test->add($test);
+            $this->_tests->add($test);
+        }
+        return $this;
+    }
+
+    /**
+     * Sets test sequence
+     *
+     * @param  array  $tests
+     * @return self
+     */
+    public function setTests(array $tests)
+    {
+        $this->_tests = new Sequence();
+        foreach ($tests as $test)
+        {
+            $test = trim($test);
+            if(!empty($test) && !$this->_tests->contains($test))
+            {
+                $this->_tests->add($test);
+            }
         }
         return $this;
     }
@@ -78,8 +90,8 @@ class RunUnitTests extends Base
      *
      * @return Sequence
      */
-    public function test()
+    public function getTests()
     {
-        return $this->_test;
+        return $this->_tests;
     }
 }

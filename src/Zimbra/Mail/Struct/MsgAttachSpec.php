@@ -30,22 +30,28 @@ class MsgAttachSpec extends AttachSpec
     public function __construct($id, $optional = null)
     {
         parent::__construct($optional);
-        $this->property('id', trim($id));
+        $this->setProperty('id', trim($id));
     }
 
     /**
-     * Gets or sets id
+     * Gets id
+     *
+     * @return string
+     */
+    public function getId()
+    {
+        return $this->getProperty('id');
+    }
+
+    /**
+     * Sets id
      *
      * @param  string $id
-     * @return string|self
+     * @return self
      */
-    public function id($id = null)
+    public function setId($id)
     {
-        if(null === $id)
-        {
-            return $this->property('id');
-        }
-        return $this->property('id', trim($id));
+        return $this->setProperty('id', trim($id));
     }
 
     /**

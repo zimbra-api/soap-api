@@ -32,38 +32,50 @@ class MimePartAttachSpec extends AttachSpec
     public function __construct($mid, $part, $optional = null)
     {
         parent::__construct($optional);
-        $this->property('mid', trim($mid));
-        $this->property('part', trim($part));
+        $this->setProperty('mid', trim($mid));
+        $this->setProperty('part', trim($part));
     }
 
     /**
-     * Gets or sets mid
+     * Gets message id
+     *
+     * @return string
+     */
+    public function getMessageId()
+    {
+        return $this->getProperty('mid');
+    }
+
+    /**
+     * Sets message id
      *
      * @param  string $mid
-     * @return string|self
+     * @return self
      */
-    public function mid($mid = null)
+    public function setMessageId($mid)
     {
-        if(null === $mid)
-        {
-            return $this->property('mid');
-        }
-        return $this->property('mid', trim($mid));
+        return $this->setProperty('mid', trim($mid));
     }
 
     /**
-     * Gets or sets part
+     * Gets part
+     *
+     * @return string
+     */
+    public function getPart()
+    {
+        return $this->getProperty('part');
+    }
+
+    /**
+     * Sets part
      *
      * @param  string $part
-     * @return string|self
+     * @return self
      */
-    public function part($part = null)
+    public function setPart($part)
     {
-        if(null === $part)
-        {
-            return $this->property('part');
-        }
-        return $this->property('part', trim($part));
+        return $this->setProperty('part', trim($part));
     }
 
     /**

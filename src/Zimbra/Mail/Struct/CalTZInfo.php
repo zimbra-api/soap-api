@@ -46,130 +46,172 @@ class CalTZInfo extends Base
     )
     {
         parent::__construct();
-        $this->property('id', trim($id));
-        $this->property('stdoff', (int) $stdoff);
-        $this->property('dayoff', (int) $dayoff);
+        $this->setProperty('id', trim($id));
+        $this->setProperty('stdoff', (int) $stdoff);
+        $this->setProperty('dayoff', (int) $dayoff);
         if($standard instanceof TzOnsetInfo)
         {
-            $this->child('standard', $standard);
+            $this->setChild('standard', $standard);
         }
         if($daylight instanceof TzOnsetInfo)
         {
-            $this->child('daylight', $daylight);
+            $this->setChild('daylight', $daylight);
         }
         if(null !== $stdname)
         {
-            $this->property('stdname', trim($stdname));
+            $this->setProperty('stdname', trim($stdname));
         }
         if(null !== $dayname)
         {
-            $this->property('dayname', trim($dayname));
+            $this->setProperty('dayname', trim($dayname));
         }
     }
 
     /**
-     * Gets or sets id
+     * Gets id
+     *
+     * @return string
+     */
+    public function getId()
+    {
+        return $this->getProperty('id');
+    }
+
+    /**
+     * Sets id
      *
      * @param  string $id
-     * @return string|self
+     * @return self
      */
-    public function id($id = null)
+    public function setId($id)
     {
-        if(null === $id)
-        {
-            return $this->property('id');
-        }
-        return $this->property('id', trim($id));
+        return $this->setProperty('id', trim($id));
     }
 
     /**
-     * Gets or sets stdoff
+     * Gets stdoff
+     *
+     * @return int
+     */
+    public function getTzStdOffset()
+    {
+        return $this->getProperty('stdoff');
+    }
+
+    /**
+     * Sets stdoff
      *
      * @param  int $stdoff
-     * @return int|self
+     * @return self
      */
-    public function stdoff($stdoff = null)
+    public function setTzStdOffset($stdoff)
     {
-        if(null === $stdoff)
-        {
-            return $this->property('stdoff');
-        }
-        return $this->property('stdoff', (int) $stdoff);
+        return $this->setProperty('stdoff', (int) $stdoff);
     }
 
     /**
-     * Gets or sets dayoff
+     * Gets dayoff
+     *
+     * @return int
+     */
+    public function getTzDayOffset()
+    {
+        return $this->getProperty('dayoff');
+    }
+
+    /**
+     * Sets dayoff
      *
      * @param  int $dayoff
-     * @return int|self
+     * @return self
      */
-    public function dayoff($dayoff = null)
+    public function setTzDayOffset($dayoff)
     {
-        if(null === $dayoff)
-        {
-            return $this->property('dayoff');
-        }
-        return $this->property('dayoff', (int) $dayoff);
+        return $this->setProperty('dayoff', (int) $dayoff);
     }
 
     /**
-     * Gets or sets standard
+     * Gets standard time
+     *
+     * @return TzOnsetInfo
+     */
+    public function getStandardTzOnset()
+    {
+        return $this->getChild('standard');
+    }
+
+    /**
+     * Sets standard time
      *
      * @param  TzOnsetInfo $standard
-     * @return TzOnsetInfo|self
+     * @return self
      */
-    public function standard(TzOnsetInfo $standard = null)
+    public function setStandardTzOnset(TzOnsetInfo $standard)
     {
-        if(null === $standard)
-        {
-            return $this->child('standard');
-        }
-        return $this->child('standard', $standard);
+        return $this->setChild('standard', $standard);
     }
 
     /**
-     * Gets or sets daylight
+     * Gets daylight time
+     *
+     * @return TzOnsetInfo
+     */
+    public function getDaylightTzOnset()
+    {
+        return $this->getChild('daylight');
+    }
+
+    /**
+     * Sets daylight time
      *
      * @param  TzOnsetInfo $daylight
-     * @return TzOnsetInfo|self
+     * @return self
      */
-    public function daylight(TzOnsetInfo $daylight = null)
+    public function setDaylightTzOnset(TzOnsetInfo $daylight)
     {
-        if(null === $daylight)
-        {
-            return $this->child('daylight');
-        }
-        return $this->child('daylight', $daylight);
+        return $this->setChild('daylight', $daylight);
     }
 
     /**
-     * Gets or sets stdname
+     * Gets stdname
+     *
+     * @return string
+     */
+    public function getStandardTZName()
+    {
+        return $this->getProperty('stdname');
+    }
+
+    /**
+     * Sets stdname
      *
      * @param  string $stdname
-     * @return string|self
+     * @return self
      */
-    public function stdname($stdname = null)
+    public function setStandardTZName($stdname)
     {
-        if(null === $stdname)
-        {
-            return $this->property('stdname');
-        }
-        return $this->property('stdname', trim($stdname));
+        return $this->setProperty('stdname', trim($stdname));
     }
 
     /**
-     * Gets or sets dayname
+     * Gets dayname
+     *
+     * @return string
+     */
+    public function getDaylightTZName()
+    {
+        return $this->getProperty('dayname');
+    }
+
+    /**
+     * Sets dayname
      *
      * @param  string $dayname
-     * @return string|self
+     * @return self
      */
-    public function dayname($dayname = null)
+    public function setDaylightTZName($dayname)
     {
-        if(null === $dayname)
-        {
-            return $this->property('dayname');
-        }
-        return $this->property('dayname', trim($dayname));
+        return $this->setProperty('dayname', trim($dayname));
     }
 
     /**

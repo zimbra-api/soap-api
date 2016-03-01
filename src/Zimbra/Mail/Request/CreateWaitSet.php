@@ -12,7 +12,7 @@ namespace Zimbra\Mail\Request;
 
 use Zimbra\Common\TypedSequence;
 use Zimbra\Enum\InterestType;
-use Zimbra\Mail\Struct\WaitSetSpec;
+use Zimbra\Struct\WaitSetSpec;
 
 /**
  * CreateWaitSet request class
@@ -37,84 +37,107 @@ class CreateWaitSet extends Base
      */
     public function __construct(
         WaitSetSpec $add = null,
-        array $defTypes = array(),
+        array $defTypes = [],
         $allAccounts = null
     )
     {
         parent::__construct();
         if($add instanceof WaitSetSpec)
         {
-            $this->child('add', $add);
+            $this->setChild('add', $add);
         }
-        $this->_defTypes = new TypedSequence('Zimbra\Enum\InterestType', $defTypes);
         if(null !== $allAccounts)
         {
-            $this->property('allAccounts', (bool) $allAccounts);
+            $this->setProperty('allAccounts', (bool) $allAccounts);
         }
 
+        $this->setDefaultInterests($defTypes);
         $this->on('before', function(Base $sender)
         {
-            $defTypes = $sender->defTypes();
+            $defTypes = $sender->getDefaultInterests();
             if(!empty($defTypes))
             {
-                $sender->property('defTypes', $defTypes);
+                $sender->setProperty('defTypes', $defTypes);
             }
         });
     }
 
     /**
-     * Get or set add WaitSet
-     * WaitSet add specification
+     * Gets waitsets to add
      *
-     * @param  WaitSetSpec $add
-     * @return WaitSetSpec|self
+     * @return WaitSetSpec
      */
-    public function add(WaitSetSpec $add = null)
+    public function getAccounts()
     {
-        if(null === $add)
-        {
-            return $this->child('add');
-        }
-        return $this->child('add', $add);
+        return $this->getChild('add');
     }
 
     /**
-     * Add a type
+     * Sets waitsets to add
+     *
+     * @param  WaitSetSpec $add
+     * @return self
+     */
+    public function setAccounts(WaitSetSpec $add)
+    {
+        return $this->setChild('add', $add);
+    }
+
+    /**
+     * Add a default interest type
      *
      * @param  InterestType $type
      * @return self
      */
-    public function addDefTypes(InterestType $type)
+    public function addDefaultInterest(InterestType $type)
     {
         $this->_defTypes->add($type);
         return $this;
     }
 
     /**
-     * Gets types
+     * Sets default interest types
+     *
+     * @param  array $defTypes
+     * @return self
+     */
+    public function setDefaultInterests(array $defTypes)
+    {
+        $this->_defTypes = new TypedSequence('Zimbra\Enum\InterestType', $defTypes);
+        return $this;
+    }
+
+    /**
+     * Gets default interest types
      * Default interest types: comma-separated list
      *
      * @return string
      */
-    public function defTypes()
+    public function getDefaultInterests()
     {
         return count($this->_defTypes) ? implode(',', $this->_defTypes->all()) : '';
     }
 
     /**
-     * Get or set allAccounts
-     * If {all-accounts} is set, then all mailboxes on the system will be listened to,
-     * including any mailboxes which are created on the system while the WaitSet is in existence
+     * Gets all accounts flag
+     *
+     * @return bool
+     */
+    public function getAllAccounts()
+    {
+        return $this->getProperty('allAccounts');
+    }
+
+    /**
+     * Sets all accounts flag
      *
      * @param  bool $allAccounts
-     * @return bool|self
+     *     If {all-accounts} is set, then all mailboxes on the system will be listened to,
+     *     including any mailboxes which are created on the system while the WaitSet is in existence
+     * @return self
      */
-    public function allAccounts($allAccounts = null)
+    public function setAllAccounts($allAccounts)
     {
-        if(null === $allAccounts)
-        {
-            return $this->property('allAccounts');
-        }
-        return $this->property('allAccounts', (bool) $allAccounts);
+        return $this->setProperty('allAccounts', (bool) $allAccounts);
     }
 }

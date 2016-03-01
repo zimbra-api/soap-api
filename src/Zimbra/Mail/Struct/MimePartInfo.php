@@ -28,49 +28,49 @@ class MimePartInfo extends Base
      * MIME Parts 
      * @var TypedSequence
      */
-    private $_mp;
+    private $_mimeParts;
 
     /**
      * Constructor method for MimePartInfo
-     * @param  array $mps MIME Parts 
      * @param  AttachmentsInfo $attach Attachments
      * @param  string $ct Content type.
      * @param  string $content Content.
      * @param  string $ci Content ID.
+     * @param  array $mps MIME Parts 
      * @return self
      */
     public function __construct(
-        array $mps = array(),
         AttachmentsInfo $attach = null,
         $ct = null,
         $content = null,
-        $ci = null
+        $ci = null,
+        array $mimeParts = []
     )
     {
         parent::__construct();
-        $this->_mp = new TypedSequence('Zimbra\Mail\Struct\MimePartInfo', $mps);
         if($attach instanceof AttachmentsInfo)
         {
-            $this->child('attach', $attach);
+            $this->setChild('attach', $attach);
         }
         if(null !== $ct)
         {
-            $this->property('ct', trim($ct));
+            $this->setProperty('ct', trim($ct));
         }
         if(null !== $content)
         {
-            $this->property('content', trim($content));
+            $this->setProperty('content', trim($content));
         }
         if(null !== $ci)
         {
-            $this->property('ci', trim($ci));
+            $this->setProperty('ci', trim($ci));
         }
 
+        $this->setMimeParts($mimeParts);
         $this->on('before', function(Base $sender)
         {
-            if($sender->mp()->count())
+            if($sender->getMimeParts()->count())
             {
-                $sender->child('mp', $sender->mp()->all());
+                $sender->setChild('mp', $sender->getMimeParts()->all());
             }
         });
     }
@@ -81,9 +81,21 @@ class MimePartInfo extends Base
      * @param  MimePartInfo $mp
      * @return self
      */
-    public function addMp(MimePartInfo $mp)
+    public function addMimePart(MimePartInfo $mp)
     {
-        $this->_mp->add($mp);
+        $this->_mimeParts->add($mp);
+        return $this;
+    }
+
+    /**
+     * Sets mime part sequence
+     *
+     * @param  array $mimeParts
+     * @return self
+     */
+    public function setMimeParts(array $mimeParts)
+    {
+        $this->_mimeParts = new TypedSequence('Zimbra\Mail\Struct\MimePartInfo', $mimeParts);
         return $this;
     }
 
@@ -92,69 +104,93 @@ class MimePartInfo extends Base
      *
      * @return Sequence
      */
-    public function mp()
+    public function getMimeParts()
     {
-        return $this->_mp;
+        return $this->_mimeParts;
     }
 
     /**
-     * Gets or sets attach
+     * Gets attachments
+     *
+     * @return AttachmentsInfo
+     */
+    public function getAttachments()
+    {
+        return $this->getChild('attach');
+    }
+
+    /**
+     * Sets attachments
      *
      * @param  AttachmentsInfo $attach
-     * @return AttachmentsInfo|self
+     * @return self
      */
-    public function attach(AttachmentsInfo $attach = null)
+    public function setAttachments(AttachmentsInfo $attach)
     {
-        if(null === $attach)
-        {
-            return $this->child('attach');
-        }
-        return $this->child('attach', $attach);
+        return $this->setChild('attach', $attach);
     }
 
     /**
-     * Gets or sets ct
+     * Gets content type
+     *
+     * @return string
+     */
+    public function getContentType()
+    {
+        return $this->getProperty('ct');
+    }
+
+    /**
+     * Sets content type
      *
      * @param  string $ct
-     * @return string|self
+     * @return self
      */
-    public function ct($ct = null)
+    public function setContentType($ct)
     {
-        if(null === $ct)
-        {
-            return $this->property('ct');
-        }
-        return $this->property('ct', trim($ct));
+        return $this->setProperty('ct', trim($ct));
     }
 
     /**
-     * Gets or sets content
+     * Gets content
+     *
+     * @return string
+     */
+    public function getContent()
+    {
+        return $this->getProperty('content');
+    }
+
+    /**
+     * Sets content
      *
      * @param  string $content
-     * @return string|self
+     * @return self
      */
-    public function content($content = null)
+    public function setContent($content)
     {
-        if(null === $content)
-        {
-            return $this->property('content');
-        }
-        return $this->property('content', trim($content));
+        return $this->setProperty('content', trim($content));
     }
 
     /**
-     * Gets or sets ci
+     * Gets content id
+     *
+     * @return string
+     */
+    public function getContentId()
+    {
+        return $this->getProperty('ci');
+    }
+
+    /**
+     * Sets content id
      *
      * @param  string $ci
-     * @return string|self
+     * @return self
      */
-    public function ci($ci = null)
+    public function setContentId($ci)
     {
-        if(null === $ci)
-        {
-            return $this->property('ci');
-        }
-        return $this->property('ci', trim($ci));
+        return $this->setProperty('ci', trim($ci));
     }
 
     /**

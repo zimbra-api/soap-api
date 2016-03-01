@@ -35,42 +35,54 @@ class TzReplaceInfo extends Base
         parent::__construct();
         if($wellKnownTz instanceof Id)
         {
-            $this->child('wellKnownTz', $wellKnownTz);
+            $this->setChild('wellKnownTz', $wellKnownTz);
         }
         if($tz instanceof CalTzInfo)
         {
-            $this->child('tz', $tz);
+            $this->setChild('tz', $tz);
         }
     }
 
     /**
-     * Gets or sets wellKnownTz
+     * Gets the wellKnownTz.
+     *
+     * @return Id
+     */
+    public function getWellKnownTz()
+    {
+        return $this->getChild('wellKnownTz');
+    }
+
+    /**
+     * Sets the wellKnownTz.
      *
      * @param  Id $wellKnownTz
-     * @return Id|self
+     * @return self
      */
-    public function wellKnownTz(Id $wellKnownTz = null)
+    public function setWellKnownTz(Id $wellKnownTz)
     {
-        if(null === $wellKnownTz)
-        {
-            return $this->child('wellKnownTz');
-        }
-        return $this->child('wellKnownTz', $wellKnownTz);
+        return $this->setChild('wellKnownTz', $wellKnownTz);
     }
 
     /**
-     * Gets or sets tz
+     * Gets the tz.
+     *
+     * @return CalTzInfo
+     */
+    public function getTz()
+    {
+        return $this->getChild('tz');
+    }
+
+    /**
+     * Sets the tz.
      *
      * @param  CalTzInfo $tz
-     * @return CalTzInfo|self
+     * @return self
      */
-    public function tz(CalTzInfo $tz = null)
+    public function setTz(CalTzInfo $tz)
     {
-        if(null === $tz)
-        {
-            return $this->child('tz');
-        }
-        return $this->child('tz', $tz);
+        return $this->setChild('tz', $tz);
     }
 
     /**

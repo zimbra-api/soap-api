@@ -24,7 +24,7 @@ class DumpSessions extends Base
 {
     /**
      * Constructor method for DumpSessions
-     * @param bool $listSessions List Sessions flag
+     * @param bool $listSessions List sessions flag
      * @param bool $groupByAccount Group by account flag
      * @return self
      */
@@ -33,41 +33,53 @@ class DumpSessions extends Base
         parent::__construct();
         if(null !== $listSessions)
         {
-            $this->property('listSessions', (bool) $listSessions);
+            $this->setProperty('listSessions', (bool) $listSessions);
         }
         if(null !== $groupByAccount)
         {
-            $this->property('groupByAccount', (bool) $groupByAccount);
+            $this->setProperty('groupByAccount', (bool) $groupByAccount);
         }
     }
 
     /**
-     * Gets or sets listSessions
+     * Gets list sessions flag
+     *
+     * @return bool
+     */
+    public function getListSessions()
+    {
+        return $this->getProperty('listSessions');
+    }
+
+    /**
+     * Sets list sessions flag
      *
      * @param  bool $listSessions
-     * @return bool|self
+     * @return self
      */
-    public function listSessions($listSessions = null)
+    public function setListSessions($listSessions)
     {
-        if(null === $listSessions)
-        {
-            return $this->property('listSessions');
-        }
-        return $this->property('listSessions', (bool) $listSessions);
+        return $this->setProperty('listSessions', (bool) $listSessions);
     }
 
     /**
-     * Gets or sets groupByAccount
+     * Gets group by account flag
+     *
+     * @return bool
+     */
+    public function getGroupByAccount()
+    {
+        return $this->getProperty('groupByAccount');
+    }
+
+    /**
+     * Sets group by account flag
      *
      * @param  bool $groupByAccount
-     * @return bool|self
+     * @return self
      */
-    public function groupByAccount($groupByAccount = null)
+    public function setGroupByAccount($groupByAccount)
     {
-        if(null === $groupByAccount)
-        {
-            return $this->property('groupByAccount');
-        }
-        return $this->property('groupByAccount', (bool) $groupByAccount);
+        return $this->setProperty('groupByAccount', (bool) $groupByAccount);
     }
 }

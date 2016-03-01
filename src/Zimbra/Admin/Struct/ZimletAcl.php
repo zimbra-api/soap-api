@@ -33,41 +33,53 @@ class ZimletAcl extends Base
     public function __construct($cos = null, AclType $acl = null)
     {
         parent::__construct();
-        $this->property('cos', trim($cos));
+        $this->setProperty('cos', trim($cos));
         if($acl instanceof AclType)
         {
-            $this->property('acl', $acl);
+            $this->setProperty('acl', $acl);
         }
     }
 
     /**
-     * Gets or sets value
+     * Gets the cos
+     *
+     * @return string
+     */
+    public function getCos()
+    {
+        return $this->getProperty('cos');
+    }
+
+    /**
+     * Sets the cos
      *
      * @param  string $cos
-     * @return string|self
+     * @return self
      */
-    public function cos($cos = null)
+    public function setCos($cos)
     {
-        if(null === $cos)
-        {
-            return $this->property('cos');
-        }
-        return $this->property('cos', trim($cos));
+        return $this->setProperty('cos', trim($cos));
     }
 
     /**
-     * Gets or sets acl
+     * Gets the acl
+     *
+     * @return AclType
+     */
+    public function getAcl()
+    {
+        return $this->getProperty('acl');
+    }
+
+    /**
+     * Sets the acl
      *
      * @param  AclType $acl
-     * @return AclType|self
+     * @return self
      */
-    public function acl(AclType $acl = null)
+    public function setAcl(AclType $acl)
     {
-        if(null === $acl)
-        {
-            return $this->property('acl');
-        }
-        return $this->property('acl', $acl);
+        return $this->setProperty('acl', $acl);
     }
 
     /**

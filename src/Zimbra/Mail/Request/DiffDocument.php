@@ -34,22 +34,27 @@ class DiffDocument extends Base
     public function __construct(DiffDocumentVersionSpec $doc)
     {
         parent::__construct();
-        $this->child('doc', $doc);
+        $this->setChild('doc', $doc);
     }
 
     /**
-     * Get or set doc
-     * Diff document version specification
+     * Gets diff document version specification
+     *
+     * @return DiffDocumentVersionSpec
+     */
+    public function getDoc()
+    {
+        return $this->getChild('doc');
+    }
+
+    /**
+     * Sets diff document version specification
      *
      * @param  DiffDocumentVersionSpec $doc
-     * @return DiffDocumentVersionSpec|self
+     * @return self
      */
-    public function doc(DiffDocumentVersionSpec $doc = null)
+    public function setDoc(DiffDocumentVersionSpec $doc)
     {
-        if(null === $doc)
-        {
-            return $this->child('doc');
-        }
-        return $this->child('doc', $doc);
+        return $this->setChild('doc', $doc);
     }
 }

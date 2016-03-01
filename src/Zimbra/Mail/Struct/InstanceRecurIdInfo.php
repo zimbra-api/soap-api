@@ -32,68 +32,86 @@ class InstanceRecurIdInfo extends Base
      */
     public function __construct(
         $range = null,
-        $d = null,
+        $date = null,
         $tz = null
     )
     {
         parent::__construct();
         if(null !== $range)
         {
-            $this->property('range', trim($range));
+            $this->setProperty('range', trim($range));
         }
-        if(null !== $d)
+        if(null !== $date)
         {
-            $this->property('d', trim($d));
+            $this->setProperty('d', trim($date));
         }
         if(null !== $tz)
         {
-            $this->property('tz', trim($tz));
+            $this->setProperty('tz', trim($tz));
         }
     }
 
     /**
-     * Gets or sets range
+     * Gets range
+     *
+     * @return string
+     */
+    public function getRange()
+    {
+        return $this->getProperty('range');
+    }
+
+    /**
+     * Sets range
      *
      * @param  string $range
-     * @return string|self
+     * @return self
      */
-    public function range($range = null)
+    public function setRange($range)
     {
-        if(null === $range)
-        {
-            return $this->property('range');
-        }
-        return $this->property('range', trim($range));
+        return $this->setProperty('range', trim($range));
     }
 
     /**
-     * Gets or sets d
+     * Gets date time
+     *
+     * @return string
+     */
+    public function getDateTime()
+    {
+        return $this->getProperty('d');
+    }
+
+    /**
+     * Sets date time
      *
      * @param  string $d
-     * @return string|self
+     * @return self
      */
-    public function d($d = null)
+    public function setDateTime($d)
     {
-        if(null === $d)
-        {
-            return $this->property('d');
-        }
-        return $this->property('d', trim($d));
+        return $this->setProperty('d', trim($d));
     }
 
     /**
-     * Gets or sets tz
+     * Gets timezone
+     *
+     * @return string
+     */
+    public function getTimezone()
+    {
+        return $this->getProperty('tz');
+    }
+
+    /**
+     * Sets timezone
      *
      * @param  string $tz
-     * @return string|self
+     * @return self
      */
-    public function tz($tz = null)
+    public function setTimezone($tz)
     {
-        if(null === $tz)
-        {
-            return $this->property('tz');
-        }
-        return $this->property('tz', trim($tz));
+        return $this->setProperty('tz', trim($tz));
     }
 
     /**

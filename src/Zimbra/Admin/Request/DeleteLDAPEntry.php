@@ -30,21 +30,27 @@ class DeleteLDAPEntry extends Base
     public function __construct($dn)
     {
         parent::__construct();
-        $this->property('dn', trim($dn));
+        $this->setProperty('dn', trim($dn));
     }
 
     /**
-     * Gets or sets dn
+     * Gets dn
+     *
+     * @return string
+     */
+    public function getDn()
+    {
+        return $this->getProperty('dn');
+    }
+
+    /**
+     * Sets dn
      *
      * @param  string $dn
-     * @return string|self
+     * @return self
      */
-    public function dn($dn = null)
+    public function setDn($dn)
     {
-        if(null === $dn)
-        {
-            return $this->property('dn');
-        }
-        return $this->property('dn', trim($dn));
+        return $this->setProperty('dn', trim($dn));
     }
 }

@@ -32,23 +32,29 @@ class FileIntoAction extends FilterAction
         parent::__construct($index);
         if(null !== $folderPath)
         {
-            $this->property('folderPath', trim($folderPath));
+            $this->setProperty('folderPath', trim($folderPath));
         }
     }
 
     /**
-     * Gets or sets folderPath
+     * Gets folder path
+     *
+     * @return string
+     */
+    public function getFolder()
+    {
+        return $this->getProperty('folderPath');
+    }
+
+    /**
+     * Sets folder path
      *
      * @param  string $folderPath
-     * @return string|self
+     * @return self
      */
-    public function folderPath($folderPath = null)
+    public function setFolder($folderPath)
     {
-        if(null === $folderPath)
-        {
-            return $this->property('folderPath');
-        }
-        return $this->property('folderPath', trim($folderPath));
+        return $this->setProperty('folderPath', trim($folderPath));
     }
 
     /**

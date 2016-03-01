@@ -20,7 +20,7 @@ use Zimbra\Struct\Base;
  * @subpackage Admin
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
- * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
+ * @copyright  Copyright © 2013 level Nguyen Van Nguyen.
  */
 class LoggerInfo extends Base
 {
@@ -45,41 +45,53 @@ class LoggerInfo extends Base
     public function __construct($category, LoggingLevel $level = null)
     {
         parent::__construct();
-        $this->property('category', trim($category));
+        $this->setProperty('category', trim($category));
         if($level instanceof LoggingLevel)
         {
-            $this->property('level', $level);
+            $this->setProperty('level', $level);
         }
     }
 
     /**
-     * Gets or sets category
+     * Gets category
+     *
+     * @return string
+     */
+    public function getCategory()
+    {
+        return $this->getProperty('category');
+    }
+
+    /**
+     * Sets category
      *
      * @param  string $category
-     * @return string|self
+     * @return self
      */
-    public function category($category = null)
+    public function setCategory($category)
     {
-        if(null === $category)
-        {
-            return $this->property('category');
-        }
-        return $this->property('category', trim($category));
+        return $this->setProperty('category', trim($category));
     }
 
     /**
-     * Gets or sets level
+     * Gets level enum
      *
-     * @param  LoggingLevel $level
-     * @return LoggingLevel|self
+     * @return Zimbra\Enum\LoggingLevel
      */
-    public function level(LoggingLevel $level = null)
+    public function getLevel()
     {
-        if(null === $level)
-        {
-            return $this->property('level');
-        }
-        return $this->property('level', $level);
+        return $this->getProperty('level');
+    }
+
+    /**
+     * Sets level enum
+     *
+     * @param  Zimbra\Enum\LoggingLevel $level
+     * @return self
+     */
+    public function setLevel(LoggingLevel $level)
+    {
+        return $this->setProperty('level', $level);
     }
 
     /**

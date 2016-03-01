@@ -27,28 +27,33 @@ class RemoveAttachments extends Base
 {
     /**
      * Constructor method for RemoveAttachments
-     * @param  MsgPartIds $m
+     * @param  MsgPartIds $msg
      * @return self
      */
-    public function __construct(MsgPartIds $m)
+    public function __construct(MsgPartIds $msg)
     {
         parent::__construct();
-        $this->child('m', $m);
+        $this->setChild('m', $msg);
     }
 
     /**
-     * Get or set m
-     * Specification of parts to remove
+     * Gets specification of parts to remove
      *
-     * @param  MsgPartIds $m
-     * @return MsgPartIds|self
+     * @return MsgPartIds
      */
-    public function m(MsgPartIds $m = null)
+    public function getMsg()
     {
-        if(null === $m)
-        {
-            return $this->child('m');
-        }
-        return $this->child('m', $m);
+        return $this->getChild('m');
+    }
+
+    /**
+     * Sets specification of parts to remove
+     *
+     * @param  MsgPartIds $msg
+     * @return self
+     */
+    public function setMsg(MsgPartIds $msg)
+    {
+        return $this->setChild('m', $msg);
     }
 }

@@ -32,22 +32,28 @@ class WkstRule extends Base
     public function __construct(WeekDay $day)
     {
         parent::__construct();
-        $this->property('day', $day);
+        $this->setProperty('day', $day);
     }
 
     /**
-     * Gets or sets day
+     * Gets weekday
+     *
+     * @return WeekDay
+     */
+    public function getDay()
+    {
+        return $this->getProperty('day');
+    }
+
+    /**
+     * Sets weekday
      *
      * @param  WeekDay $day
-     * @return WeekDay|self
+     * @return self
      */
-    public function day(WeekDay $day = null)
+    public function setDay(WeekDay $day)
     {
-        if(null === $day)
-        {
-            return $this->property('day');
-        }
-        return $this->property('day', $day);
+        return $this->setProperty('day', $day);
     }
 
     /**

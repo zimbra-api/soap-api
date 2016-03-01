@@ -31,22 +31,28 @@ class ValueAttrib extends Base
     public function __construct($value)
     {
         parent::__construct();
-        $this->property('value', trim($value));
+        $this->setProperty('value', trim($value));
     }
 
     /**
-     * Gets or sets value
+     * Gets the value
+     *
+     * @return string
+     */
+    public function getValue()
+    {
+        return $this->getProperty('value');
+    }
+
+    /**
+     * Sets the value
      *
      * @param  string $value
-     * @return string|self
+     * @return self
      */
-    public function value($value = null)
+    public function setValue($value)
     {
-        if(null === $value)
-        {
-            return $this->property('value');
-        }
-        return $this->property('value', trim($value));
+        return $this->setProperty('value', trim($value));
     }
 
     /**

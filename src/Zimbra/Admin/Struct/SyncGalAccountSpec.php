@@ -37,36 +37,40 @@ class SyncGalAccountSpec extends Base
      * @param array $dataSources SyncGalAccount data source specifications
      * @return self
      */
-    public function __construct($id, array $dataSources = array())
+    public function __construct($id, array $dataSources = [])
     {
         parent::__construct();
-        $this->property('id', trim($id));
-        $this->_dataSource = new TypedSequence(
-            'Zimbra\Admin\Struct\SyncGalAccountDataSourceSpec', $dataSources
-        );
+        $this->setProperty('id', trim($id));
+        $this->setDataSources($dataSources);
 
         $this->on('before', function(Base $sender)
         {
-            if($sender->dataSource()->count())
+            if($sender->getDataSources()->count())
             {
-                $sender->child('datasource', $sender->dataSource()->all());
+                $sender->setChild('datasource', $sender->getDataSources()->all());
             }
         });
     }
 
     /**
-     * Gets or sets id
+     * Gets ID
+     *
+     * @return string
+     */
+    public function getId()
+    {
+        return $this->getProperty('id');
+    }
+
+    /**
+     * Sets ID
      *
      * @param  string $id
-     * @return string|self
+     * @return self
      */
-    public function id($id = null)
+    public function setId($id)
     {
-        if(null === $id)
-        {
-            return $this->property('id');
-        }
-        return $this->property('id', trim($id));
+        return $this->setProperty('id', trim($id));
     }
 
     /**
@@ -82,11 +86,25 @@ class SyncGalAccountSpec extends Base
     }
 
     /**
-     * Gets data source equence
+     * Sets data source sequence
+     *
+     * @param array $dataSources
+     * @return self
+     */
+    public function setDataSources(array $dataSources)
+    {
+        $this->_dataSource = new TypedSequence(
+            'Zimbra\Admin\Struct\SyncGalAccountDataSourceSpec', $dataSources
+        );
+        return $this;
+    }
+
+    /**
+     * Gets data source sequence
      *
      * @return Sequence
      */
-    public function dataSource()
+    public function getDataSources()
     {
         return $this->_dataSource;
     }

@@ -35,42 +35,54 @@ class RawInvite extends Base
         parent::__construct(trim($value));
         if(null !== $uid)
         {
-            $this->property('uid', trim($uid));
+            $this->setProperty('uid', trim($uid));
         }
         if(null !== $summary)
         {
-            $this->property('summary', trim($summary));
+            $this->setProperty('summary', trim($summary));
         }
     }
 
     /**
-     * Gets or sets uid
+     * Gets uid
+     *
+     * @return string
+     */
+    public function getUid()
+    {
+        return $this->getProperty('uid');
+    }
+
+    /**
+     * Sets uid
      *
      * @param  string $uid
-     * @return string|self
+     * @return self
      */
-    public function uid($uid = null)
+    public function setUid($uid)
     {
-        if(null === $uid)
-        {
-            return $this->property('uid');
-        }
-        return $this->property('uid', trim($uid));
+        return $this->setProperty('uid', trim($uid));
     }
 
     /**
-     * Gets or sets summary
+     * Gets summary
+     *
+     * @return string
+     */
+    public function getSummary()
+    {
+        return $this->getProperty('summary');
+    }
+
+    /**
+     * Sets summary
      *
      * @param  string $summary
-     * @return string|self
+     * @return self
      */
-    public function summary($summary = null)
+    public function setSummary($summary)
     {
-        if(null === $summary)
-        {
-            return $this->property('summary');
-        }
-        return $this->property('summary', trim($summary));
+        return $this->setProperty('summary', trim($summary));
     }
 
     /**

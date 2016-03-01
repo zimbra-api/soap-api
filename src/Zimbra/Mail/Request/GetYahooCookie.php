@@ -30,21 +30,27 @@ class GetYahooCookie extends Base
     public function __construct($user)
     {
         parent::__construct();
-        $this->property('user', trim($user));
+        $this->setProperty('user', trim($user));
     }
 
     /**
-     * Gets or sets user
+     * Gets user
+     *
+     * @return string
+     */
+    public function getUser()
+    {
+        return $this->getProperty('user');
+    }
+
+    /**
+     * Sets user
      *
      * @param  string $user
-     * @return string|self
+     * @return self
      */
-    public function user($user = null)
+    public function setUser($user)
     {
-        if(null === $user)
-        {
-            return $this->property('user');
-        }
-        return $this->property('user', trim($user));
+        return $this->setProperty('user', trim($user));
     }
 }

@@ -71,58 +71,75 @@ class NoteActionSelector extends ActionSelector
         );
         if(null !== $content)
         {
-            $this->property('content', trim($content));
+            $this->setProperty('content', trim($content));
         }
         if(null !== $pos)
         {
-            $this->property('pos', trim($pos));
+            $this->setProperty('pos', trim($pos));
         }
     }
 
     /**
-     * Gets or sets op
+     * Gets operation
+     *
+     * @return ItemActionOp
+     */
+    public function getOperation()
+    {
+        return $this->getProperty('op');
+    }
+
+    /**
+     * Sets operation
      *
      * @param  ItemActionOp $op
-     * @return ItemActionOp|self
+     * @return self
      */
-    public function op(ItemActionOp $op = null)
+    public function setOperation(ItemActionOp $op)
     {
-        if(null === $op)
-        {
-            return $this->property('op');
-        }
-        return $this->property('op', $op);
+        return $this->setProperty('op', $op);
     }
 
     /**
-     * Gets or sets content
+     * Gets content
+     *
+     * @return string
+     */
+    public function getContent()
+    {
+        return $this->getProperty('content');
+    }
+
+    /**
+     * Sets content
      *
      * @param  string $content
-     * @return string|self
+     * @return self
      */
-    public function content($content = null)
+    public function setContent($content)
     {
-        if(null === $content)
-        {
-            return $this->property('content');
-        }
-        return $this->property('content', trim($content));
+        return $this->setProperty('content', trim($content));
     }
 
     /**
-     * Gets or sets pos
-     * Bounds - x,y[width,height] where x,y,width and height are all integers
+     * Gets bounds - x,y [width,height]
+     *
+     * @return string
+     */
+    public function getBounds()
+    {
+        return $this->getProperty('pos');
+    }
+
+    /**
+     * Sets bounds - x,y [width,height]
      *
      * @param  string $pos
-     * @return string|self
+     * @return self
      */
-    public function pos($pos = null)
+    public function setBounds($pos)
     {
-        if(null === $pos)
-        {
-            return $this->property('pos');
-        }
-        return $this->property('pos', trim($pos));
+        return $this->setProperty('pos', trim($pos));
     }
 
     /**

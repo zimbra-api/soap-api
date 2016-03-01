@@ -10,7 +10,7 @@
 
 namespace Zimbra\Soap;
 
-use Guzzle\Http\Message\Response as HttpResponse;
+use GuzzleHttp\Message\Response as HttpResponse;
 use Zimbra\Common\SimpleXML;
 
 /**
@@ -35,15 +35,14 @@ class Response
      * @param  HttpResponse $httpResponse
      * @return self
      */
-    public function __construct(HttpResponse $httpResponse = null)
+    public function __construct(HttpResponse $httpResponse)
     {
-        if($httpResponse->isContentType('text/javascript'))
-        {
-            $this->_response = $this->processJson($httpResponse->getBody(true));
+        if (stripos($httpResponse->getHeader('Content-Type'), 'text/javascript') !== false) {
+            $this->_response = $this->processJson($httpResponse->getBody());
         }
         else
         {
-            $this->_response = $this->processXml($httpResponse->getBody(true));
+            $this->_response = $this->processXml($httpResponse->getBody());
         }
     }
 

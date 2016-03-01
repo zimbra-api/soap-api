@@ -30,21 +30,27 @@ class GetVolume extends Base
     public function __construct($id)
     {
         parent::__construct();
-        $this->property('id', (int) $id);
+        $this->setProperty('id', (int) $id);
     }
 
     /**
-     * Gets or sets id
+     * Gets id
+     *
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->getProperty('id');
+    }
+
+    /**
+     * Sets id
      *
      * @param  int $id
-     * @return int|self
+     * @return self
      */
-    public function id($id = null)
+    public function setId($id)
     {
-        if(null === $id)
-        {
-            return $this->property('id');
-        }
-        return $this->property('id', (int) $id);
+        return $this->setProperty('id', (int) $id);
     }
 }

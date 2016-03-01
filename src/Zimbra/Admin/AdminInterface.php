@@ -19,7 +19,6 @@ use Zimbra\Admin\Struct\DeviceId as DeviceId;
 use Zimbra\Admin\Struct\DistributionListSelector as DistList;
 use Zimbra\Admin\Struct\DomainSelector as Domain;
 use Zimbra\Admin\Struct\EffectiveRightsTargetSelector as Target;
-use Zimbra\Admin\Struct\EntrySearchFilterInfo as SearchFilter;
 use Zimbra\Admin\Struct\ExchangeAuthSpec as Exchange;
 use Zimbra\Admin\Struct\ExportAndDeleteMailboxSpec as ExportMailbox;
 use Zimbra\Admin\Struct\GranteeSelector as Grantee;
@@ -45,17 +44,18 @@ use Zimbra\Admin\Struct\TimeAttr;
 use Zimbra\Admin\Struct\TzFixup;
 use Zimbra\Admin\Struct\UcServiceSelector as UcService;
 use Zimbra\Admin\Struct\VolumeInfo as Volume;
-use Zimbra\Admin\Struct\WaitSetSpec;
-use Zimbra\Admin\Struct\WaitSetId;
 use Zimbra\Admin\Struct\XmppComponentSelector as XmppComponent;
 use Zimbra\Admin\Struct\XmppComponentSpec as Xmpp;
 use Zimbra\Admin\Struct\ZimletAclStatusPri as ZimletAcl;
 
 use Zimbra\Struct\AccountSelector as Account;
+use Zimbra\Struct\EntrySearchFilterInfo as SearchFilter;
 use Zimbra\Struct\GranteeChooser;
 use Zimbra\Struct\Id;
 use Zimbra\Struct\KeyValuePair;
 use Zimbra\Struct\NamedElement;
+use Zimbra\Struct\WaitSetSpec;
+use Zimbra\Struct\WaitSetId;
 
 use Zimbra\Enum\AutoProvTaskAction as TaskAction;
 use Zimbra\Enum\AttrMethod;
@@ -153,7 +153,7 @@ interface AdminInterface
         $domain,
         GalMode $type,
         $folder = null,
-        array $attrs = array()
+        array $attrs = []
     );
 
     /**
@@ -176,7 +176,7 @@ interface AdminInterface
      */
     function adminCreateWaitSet(
         WaitSetSpec $add = null,
-        array $defTypes = array(),
+        array $defTypes = [],
         $allAccounts = null
     );
 
@@ -220,7 +220,7 @@ interface AdminInterface
         WaitSetSpec $update = null,
         WaitSetId $remove = null,
         $block = null,
-        array $defTypes = array(),
+        array $defTypes = [],
         $timeout = null
     );
 
@@ -331,7 +331,7 @@ interface AdminInterface
      * @param  array  $attrs    Attributes.
      * @return mix
      */
-    function checkAuthConfig($name, $password, array $attrs = array());
+    function checkAuthConfig($name, $password, array $attrs = []);
 
     /**
      * Checks for items that have no blob, blobs that have no item,
@@ -349,8 +349,8 @@ interface AdminInterface
      * @return mix
      */
     function checkBlobConsistency(
-        array $volumes = array(),
-        array $mboxes = array(),
+        array $volumes = [],
+        array $mboxes = [],
         $checkSize = null,
         $reportUsedBlobs = null
     );
@@ -361,7 +361,7 @@ interface AdminInterface
      * @param  array $directories Directories.
      * @return mix
      */
-    function checkDirectory(array $directories = array());
+    function checkDirectory(array $directories = []);
 
     /**
      * Check Domain MX record.
@@ -402,7 +402,7 @@ interface AdminInterface
     function checkGalConfig(
         LimitedQuery $query = null,
         ConfigAction $action = null,
-        array $attrs = array()
+        array $attrs = []
     );
 
     /**
@@ -447,7 +447,7 @@ interface AdminInterface
         Target $target,
         Grantee $grantee,
         $right,
-        array $attrs = array()
+        array $attrs = []
     );
 
     /**
@@ -456,7 +456,7 @@ interface AdminInterface
      * @param  array $cookies Specifies cookies to clean.
      * @return mix
      */
-    function clearCookie(array $cookies = array());
+    function clearCookie(array $cookies = []);
 
     /**
      * Compact index.
@@ -536,7 +536,7 @@ interface AdminInterface
      * @param  array  $attrs    Attributes.
      * @return mix
      */
-    function createAccount($name, $password, array $attrs = array());
+    function createAccount($name, $password, array $attrs = []);
 
     /**
      * Create a calendar resource.
@@ -550,7 +550,7 @@ interface AdminInterface
      * @param  array  $attrs    Attributes.
      * @return mix
      */
-    function createCalendarResource($name = null, $password = null, array $attrs = array());
+    function createCalendarResource($name = null, $password = null, array $attrs = []);
 
     /**
      * Create a Class of Service (COS).
@@ -561,7 +561,7 @@ interface AdminInterface
      * @param  array  $attrs Attributes.
      * @return mix
      */
-    function createCos($name, array $attrs = array());
+    function createCos($name, array $attrs = []);
 
     /**
      * Creates a data source that imports mail items into the specified folder.
@@ -587,7 +587,7 @@ interface AdminInterface
      * @param  array  $attrs   Attributes.
      * @return mix
      */
-    function createDistributionList($name, $dynamic = null, array $attrs = array());
+    function createDistributionList($name, $dynamic = null, array $attrs = []);
 
     /**
      * Create a domain.
@@ -598,7 +598,7 @@ interface AdminInterface
      * @param  array  $attrs Attributes.
      * @return mix
      */
-    function createDomain($name, array $attrs = array());
+    function createDomain($name, array $attrs = []);
 
     /**
      * Create a domain.
@@ -628,7 +628,7 @@ interface AdminInterface
         $server,
         $password = null,
         $folder = null,
-        array $attrs = array()
+        array $attrs = []
     );
 
     /**
@@ -638,7 +638,7 @@ interface AdminInterface
      * @param  array  $attrs Attributes.
      * @return mix
      */
-    function createLDAPEntry($dn, array $attrs = array());
+    function createLDAPEntry($dn, array $attrs = []);
 
     /**
      * Create a Server.
@@ -648,7 +648,7 @@ interface AdminInterface
      * @param  array  $attrs Attributes.
      * @return mix
      */
-    function createServer($name, array $attrs = array());
+    function createServer($name, array $attrs = []);
 
     /**
      * Create a system retention policy.
@@ -669,7 +669,7 @@ interface AdminInterface
      * @param  array  $attrs Attributes.
      * @return mix
      */
-    function createUCService($name, array $attrs = array());
+    function createUCService($name, array $attrs = []);
 
     /**
      * Create a volume.
@@ -694,7 +694,7 @@ interface AdminInterface
      * @param  array  $attrs Attributes.
      * @return mix
      */
-    function createZimlet($name, array $attrs = array());
+    function createZimlet($name, array $attrs = []);
 
     /**
      * Dedupe the blobs having the same digest.
@@ -703,7 +703,7 @@ interface AdminInterface
      * @param  array  $volumes Volumes.
      * @return mix
      */
-    function dedupeBlobs(DedupAction $action, array $volumes = array());
+    function dedupeBlobs(DedupAction $action, array $volumes = []);
 
     /**
      * Used to request a new auth token that is valid for the specified account.
@@ -755,7 +755,7 @@ interface AdminInterface
      * @param  array  $attrs  Attributes.
      * @return mix
      */
-    function deleteDataSource($id, Id $dataSource, array $attrs = array());
+    function deleteDataSource($id, Id $dataSource, array $attrs = []);
 
     /**
      * Delete a distribution list.
@@ -901,7 +901,7 @@ interface AdminInterface
      * @param  array $accounts Account names.
      * @return mix
      */
-    function fixCalendarEndTime($sync = null, array $accounts = array());
+    function fixCalendarEndTime($sync = null, array $accounts = []);
 
     /**
      * Fix Calendar priority.
@@ -910,7 +910,7 @@ interface AdminInterface
      * @param  array $account Account names.
      * @return mix
      */
-    function fixCalendarPriority($sync = null, array $accounts = array());
+    function fixCalendarPriority($sync = null, array $accounts = []);
 
     /**
      * Fix timezone definitions in appointments and tasks to reflect changes
@@ -923,7 +923,7 @@ interface AdminInterface
      * @return mix
      */
     function fixCalendarTZ(
-        array $account = array(),
+        array $account = [],
         TzFixup $tzfixup = null,
         $sync = null,
         $after = null
@@ -972,7 +972,7 @@ interface AdminInterface
         $o = null,
         $oU = null,
         $cN = null,
-        array $subjectAltName = array()
+        array $subjectAltName = []
     );
 
     /**
@@ -1038,10 +1038,10 @@ interface AdminInterface
      * Returns admin saved searches.
      * If no <search> is present server will return all saved searches.
      *
-     * @param  NamedElement $search The search name.
+     * @param  array $searches Array of search information
      * @return mix
      */
-    function getAdminSavedSearches(NamedElement $search);
+    function getAdminSavedSearches(array $searches = []);
 
     /**
      * Gets the aggregate quota usage for all domains on the server.
@@ -1229,7 +1229,7 @@ interface AdminInterface
      * @param  array  $entryTypes Attributes on the specified entry types will be returned.
      * @return mix
      */
-    function getAttributeInfo($attrs = null, array $entryTypes = array());
+    function getAttributeInfo($attrs = null, array $entryTypes = []);
 
     /**
      * Get a calendar resource.
@@ -1314,7 +1314,7 @@ interface AdminInterface
      * @param  array  $attrs Array of attributes.
      * @return mix
      */
-    function getDataSources($id, array $attrs = array());
+    function getDataSources($id, array $attrs = []);
 
     /**
      * Get constraints (zimbraConstraint) for delegated admin on global config or a COS
@@ -1333,7 +1333,7 @@ interface AdminInterface
         TargetType $type,
         $id = null,
         $name = null,
-        array $attrs = array()
+        array $attrs = []
     );
 
     /**
@@ -1359,7 +1359,7 @@ interface AdminInterface
         $limit = null,
         $offset = null,
         $sortAscending = null,
-        array $attrs = array()
+        array $attrs = []
     );
 
     /**
@@ -1601,7 +1601,7 @@ interface AdminInterface
      * @param  array $packages Packages.
      * @return mix
      */
-    function getRightsDoc(array $packages = array());
+    function getRightsDoc(array $packages = []);
 
     /**
      * Get Server.
@@ -1635,7 +1635,7 @@ interface AdminInterface
      * @param  array $stats Stats.
      * @return mix
      */
-    function getServerStats(array $stats = array());
+    function getServerStats(array $stats = []);
 
     /**
      * Get Service Status.
@@ -1790,7 +1790,7 @@ interface AdminInterface
      * @param  array  $attrs Attributes.
      * @return mix
      */
-    function modifyAccount($id, array $attrs = array());
+    function modifyAccount($id, array $attrs = []);
 
     /**
      * Modifies admin saved searches.
@@ -1802,7 +1802,7 @@ interface AdminInterface
      * @param  array $searchs Array of NamedValue.
      * @return mix
      */
-    function modifyAdminSavedSearches(array $searchs = array());
+    function modifyAdminSavedSearches(array $searchs = []);
 
     /**
      * Modify a calendar resource.
@@ -1815,7 +1815,7 @@ interface AdminInterface
      * @param  array  $attrs Attributes.
      * @return mix
      */
-    function modifyCalendarResource($id, array $attrs = array());
+    function modifyCalendarResource($id, array $attrs = []);
 
     /**
      * Modify Configuration attributes.
@@ -1824,7 +1824,7 @@ interface AdminInterface
      * @param  array $attrs Attributes.
      * @return mix
      */
-    function modifyConfig(array $attrs = array());
+    function modifyConfig(array $attrs = []);
 
     /**
      * Modify Class of Service (COS) attributes.
@@ -1834,7 +1834,7 @@ interface AdminInterface
      * @param  array  $attrs Attributes.
      * @return mix
      */
-    function modifyCos($id, array $attrs = array());
+    function modifyCos($id, array $attrs = []);
 
     /**
      * Changes attributes of the given data source.
@@ -1847,7 +1847,7 @@ interface AdminInterface
      * @param  array  $attrs  Attributes.
      * @return mix
      */
-    function modifyDataSource($id, Id $dataSource, array $attrs = array());
+    function modifyDataSource($id, Id $dataSource, array $attrs = []);
 
     /**
      * Modify constraint (zimbraConstraint) for delegated admin on global config or a COS.
@@ -1864,7 +1864,7 @@ interface AdminInterface
         TargetType $type,
         $id = null,
         $name = null,
-        array $attrs = array()
+        array $attrs = []
     );
 
     /**
@@ -1876,7 +1876,7 @@ interface AdminInterface
      * @param  array  $attrs Attributes.
      * @return mix
      */
-    function modifyDistributionList($id, array $attrs = array());
+    function modifyDistributionList($id, array $attrs = []);
 
     /**
      * Modify attributes for a domain.
@@ -1886,7 +1886,7 @@ interface AdminInterface
      * @param  array  $attrs Attributes.
      * @return mix
      */
-    function modifyDomain($id, array $attrs = array());
+    function modifyDomain($id, array $attrs = []);
 
     /**
      * Modify an LDAP Entry.
@@ -1895,7 +1895,7 @@ interface AdminInterface
      * @param  array  $attrs Attributes.
      * @return mix
      */
-    function modifyLDAPEntry($dn, array $attrs = array());
+    function modifyLDAPEntry($dn, array $attrs = []);
 
     /**
      * Modify attributes for a server.
@@ -1907,7 +1907,7 @@ interface AdminInterface
      * @param  array  $attrs Attributes.
      * @return mix
      */
-    function modifyServer($id, array $attrs = array());
+    function modifyServer($id, array $attrs = []);
 
     /**
      * Modify system retention policy.
@@ -1926,7 +1926,7 @@ interface AdminInterface
      * @param  array  $attrs Attributes.
      * @return mix
      */
-    function modifyUCService($id, array $attrs = array());
+    function modifyUCService($id, array $attrs = []);
 
     /**
      * Modify volume.
@@ -2207,7 +2207,7 @@ interface AdminInterface
      * @param  string $tests Array test name.
      * @return mix
      */
-    function runUnitTests(array $tests = array());
+    function runUnitTests(array $tests = []);
 
     /**
      * Search Accounts.
@@ -2315,7 +2315,7 @@ interface AdminInterface
         $domain = null,
         $applyCos = null,
         $applyConfig = null,
-        array $types = array(),
+        array $types = [],
         $sortBy = null,
         $sortAscending = null,
         $countOnly = null,
@@ -2420,7 +2420,7 @@ interface AdminInterface
         UcService $ucservice,
         $username,
         $password,
-        array $attrs = array()
+        array $attrs = []
     );
 
     /**

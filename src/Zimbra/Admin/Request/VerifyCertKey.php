@@ -33,41 +33,53 @@ class VerifyCertKey extends Base
         parent::__construct();
         if(null !== $cert)
         {
-            $this->property('cert', trim($cert));
+            $this->setProperty('cert', trim($cert));
         }
         if(null !== $privkey)
         {
-            $this->property('privkey', trim($privkey));
+            $this->setProperty('privkey', trim($privkey));
         }
     }
 
     /**
-     * Gets or sets cert
+     * Gets cert
+     *
+     * @return string
+     */
+    public function getCert()
+    {
+        return $this->getProperty('cert');
+    }
+
+    /**
+     * Sets cert
      *
      * @param  string $cert
-     * @return string|self
+     * @return self
      */
-    public function cert($cert = null)
+    public function setCert($cert)
     {
-        if(null === $cert)
-        {
-            return $this->property('cert');
-        }
-        return $this->property('cert', trim($cert));
+        return $this->setProperty('cert', trim($cert));
     }
 
     /**
-     * Gets or sets privkey
+     * Gets privkey
+     *
+     * @return string
+     */
+    public function getPrivateKey()
+    {
+        return $this->getProperty('privkey');
+    }
+
+    /**
+     * Sets privkey
      *
      * @param  string $privkey
-     * @return string|self
+     * @return self
      */
-    public function privkey($privkey = null)
+    public function setPrivateKey($privkey)
     {
-        if(null === $privkey)
-        {
-            return $this->property('privkey');
-        }
-        return $this->property('privkey', trim($privkey));
+        return $this->setProperty('privkey', trim($privkey));
     }
 }

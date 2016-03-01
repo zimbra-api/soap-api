@@ -10,6 +10,7 @@
 
 namespace Zimbra\Mail\Struct;
 
+use Zimbra\Common\TypedSequence;
 use Zimbra\Struct\Base;
 
 /**
@@ -21,142 +22,90 @@ use Zimbra\Struct\Base;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
  */
-class RecurrenceInfo extends Base
+class RecurrenceInfo extends Base implements RecurRuleBase
 {
     /**
+     * Recurrence rules
+     * @var TypedSequence<RecurRuleBase>
+     */
+    private $_rules;
+
+    /**
      * Constructor method for RecurIdInfo
-     * @param AddRecurrenceInfo $add
-     * @param ExcludeRecurrenceInfo $exclude
-     * @param ExceptionRuleInfo $except
-     * @param CancelRuleInfo $cancel
-     * @param SingleDates $dates
-     * @param SimpleRepeatingRule $rule
+     * @param array $rules Recurrence rules
      * @return self
      */
-    public function __construct(
-        AddRecurrenceInfo $add = null,
-        ExcludeRecurrenceInfo $exclude = null,
-        ExceptionRuleInfo $except = null,
-        CancelRuleInfo $cancel = null,
-        SingleDates $dates = null,
-        SimpleRepeatingRule $rule = null
-    )
+    public function __construct(array $rules = [])
     {
         parent::__construct();
-        if($add instanceof AddRecurrenceInfo)
+        $this->setRules($rules);
+        $this->on('before', function(Base $sender)
         {
-            $this->child('add', $add);
-        }
-        if($exclude instanceof ExcludeRecurrenceInfo)
-        {
-            $this->child('exclude', $exclude);
-        }
-        if($except instanceof ExceptionRuleInfo)
-        {
-            $this->child('except', $except);
-        }
-        if($cancel instanceof CancelRuleInfo)
-        {
-            $this->child('cancel', $cancel);
-        }
-        if($dates instanceof SingleDates)
-        {
-            $this->child('dates', $dates);
-        }
-        if($rule instanceof SimpleRepeatingRule)
-        {
-            $this->child('rule', $rule);
-        }
+            if($sender->getRules()->count())
+            {
+                foreach ($sender->getRules()->all() as $rule)
+                {
+                    if($rule instanceof AddRecurrenceInfo)
+                    {
+                        $this->setChild('add', $rule);
+                    }
+                    if($rule instanceof ExcludeRecurrenceInfo)
+                    {
+                        $this->setChild('exclude', $rule);
+                    }
+                    if($rule instanceof ExceptionRuleInfo)
+                    {
+                        $this->setChild('except', $rule);
+                    }
+                    if($rule instanceof CancelRuleInfo)
+                    {
+                        $this->setChild('cancel', $rule);
+                    }
+                    if($rule instanceof SingleDates)
+                    {
+                        $this->setChild('dates', $rule);
+                    }
+                    if($rule instanceof SimpleRepeatingRule)
+                    {
+                        $this->setChild('rule', $rule);
+                    }
+                }
+            }
+        });
     }
 
     /**
-     * Gets or sets add
+     * Add a call feature
      *
-     * @param  AddRecurrenceInfo $add
-     * @return AddRecurrenceInfo|self
+     * @param  RecurRuleBase $rule
+     * @return self
      */
-    public function add(AddRecurrenceInfo $add = null)
+    public function addRule(RecurRuleBase $rule)
     {
-        if(null === $add)
-        {
-            return $this->child('add');
-        }
-        return $this->child('add', $add);
+        $this->_rules->add($rule);
+        return $this;
     }
 
     /**
-     * Gets or sets exclude
+     * Sets call feature sequence
      *
-     * @param  ExcludeRecurrenceInfo $exclude
-     * @return ExcludeRecurrenceInfo|self
+     * @param  array $rules
+     * @return self
      */
-    public function exclude(ExcludeRecurrenceInfo $exclude = null)
+    public function setRules(array $rules)
     {
-        if(null === $exclude)
-        {
-            return $this->child('exclude');
-        }
-        return $this->child('exclude', $exclude);
+        $this->_rules = new TypedSequence('Zimbra\Mail\Struct\RecurRuleBase', $rules);
+        return $this;
     }
 
     /**
-     * Gets or sets except
+     * Gets call feature sequence
      *
-     * @param  ExceptionRuleInfo $except
-     * @return ExceptionRuleInfo|self
+     * @return Sequence
      */
-    public function except(ExceptionRuleInfo $except = null)
+    public function getRules()
     {
-        if(null === $except)
-        {
-            return $this->child('except');
-        }
-        return $this->child('except', $except);
-    }
-
-    /**
-     * Gets or sets cancel
-     *
-     * @param  CancelRuleInfo $cancel
-     * @return CancelRuleInfo|self
-     */
-    public function cancel(CancelRuleInfo $cancel = null)
-    {
-        if(null === $cancel)
-        {
-            return $this->child('cancel');
-        }
-        return $this->child('cancel', $cancel);
-    }
-
-    /**
-     * Gets or sets dates
-     *
-     * @param  SingleDates $dates
-     * @return SingleDates|self
-     */
-    public function dates(SingleDates $dates = null)
-    {
-        if(null === $dates)
-        {
-            return $this->child('dates');
-        }
-        return $this->child('dates', $dates);
-    }
-
-    /**
-     * Gets or sets rule
-     *
-     * @param  SimpleRepeatingRule $rule
-     * @return SimpleRepeatingRule|self
-     */
-    public function rule(SimpleRepeatingRule $rule = null)
-    {
-        if(null === $rule)
-        {
-            return $this->child('rule');
-        }
-        return $this->child('rule', $rule);
+        return $this->_rules;
     }
 
     /**

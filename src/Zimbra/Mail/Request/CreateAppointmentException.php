@@ -25,30 +25,6 @@ use Zimbra\Mail\Struct\Msg;
 class CreateAppointmentException extends CalItemRequestBase
 {
     /**
-     * ID of default invite
-     * @var string
-     */
-    private $_id;
-
-    /**
-     * Component of default invite
-     * @var int
-     */
-    private $_comp;
-
-    /**
-     * Change sequence of fetched series
-     * @var int
-     */
-    private $_ms;
-
-    /**
-     * Revision of fetched series
-     * @var int
-     */
-    private $_rev;
-
-    /**
      * Constructor method for CreateAppointmentException
      * @param  Msg $m
      * @param  string $id
@@ -85,79 +61,104 @@ class CreateAppointmentException extends CalItemRequestBase
         );
         if(null !== $id)
         {
-            $this->property('id', trim($id));
+            $this->setProperty('id', trim($id));
         }
         if(null !== $comp)
         {
-            $this->property('comp', (int) $comp);
+            $this->setProperty('comp', (int) $comp);
         }
         if(null !== $ms)
         {
-            $this->property('ms', (int) $ms);
+            $this->setProperty('ms', (int) $ms);
         }
         if(null !== $rev)
         {
-            $this->property('rev', (int) $rev);
+            $this->setProperty('rev', (int) $rev);
         }
     }
 
     /**
-     * Get or set id
+     * Gets id
+     *
+     * @return string
+     */
+    public function getId()
+    {
+        return $this->getProperty('id');
+    }
+
+    /**
+     * Sets id
      *
      * @param  string $id
-     * @return string|self
+     *     ID of default invite
+     * @return self
      */
-    public function id($id = null)
+    public function setId($id)
     {
-        if(null === $id)
-        {
-            return $this->property('id');
-        }
-        return $this->property('id', trim($id));
+        return $this->setProperty('id', trim($id));
     }
 
     /**
-     * Get or set comp
+     * Gets component of default invite
+     *
+     * @return int
+     */
+    public function getComponentNum()
+    {
+        return $this->getProperty('comp');
+    }
+
+    /**
+     * Sets component of default invite
      *
      * @param  int $comp
-     * @return int|self
+     * @return self
      */
-    public function comp($comp = null)
+    public function setComponentNum($comp)
     {
-        if(null === $comp)
-        {
-            return $this->property('comp');
-        }
-        return $this->property('comp', (int) $comp);
+        return $this->setProperty('comp', (int) $comp);
     }
 
     /**
-     * Get or set ms
+     * Gets change sequence of fetched series
+     *
+     * @return int
+     */
+    public function getModifiedSequence()
+    {
+        return $this->getProperty('ms');
+    }
+
+    /**
+     * Sets change sequence of fetched series
      *
      * @param  int $ms
-     * @return int|self
+     * @return self
      */
-    public function ms($ms = null)
+    public function setModifiedSequence($ms)
     {
-        if(null === $ms)
-        {
-            return $this->property('ms');
-        }
-        return $this->property('ms', (int) $ms);
+        return $this->setProperty('ms', (int) $ms);
     }
 
     /**
-     * Get or set rev
+     * Gets revision of fetched series
+     *
+     * @return int
+     */
+    public function getRevision()
+    {
+        return $this->getProperty('rev');
+    }
+
+    /**
+     * Sets revision of fetched series
      *
      * @param  int $rev
-     * @return int|self
+     * @return self
      */
-    public function rev($rev = null)
+    public function setRevision($rev)
     {
-        if(null === $rev)
-        {
-            return $this->property('rev');
-        }
-        return $this->property('rev', (int) $rev);
+        return $this->setProperty('rev', (int) $rev);
     }
 }

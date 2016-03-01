@@ -15,7 +15,7 @@ use Zimbra\Struct\AccountSelector as Account;
 
 /**
  * RemoveDevice request class
- * Remove a device or remove all devices attached to an account.
+ * Remove a Device or remove all Devices attached to an account.
  * This will not cause a reset of sync data, but will cause a reset of policies on the next sync.
  *
  * @package    Zimbra
@@ -29,46 +29,58 @@ class RemoveDevice extends Base
     /**
      * Constructor method for RemoveDevice
      * @param  Account $account Use to select account
-     * @param  Device $device Device specification - Note - if not supplied ALL devices will be removed.
+     * @param  Device $device Device specification - Note - if not supplied ALL Devices will be removed.
      * @return self
      */
     public function __construct(Account $account, Device $device = null)
     {
         parent::__construct();
-        $this->child('account', $account);
+        $this->setChild('account', $account);
         if($device instanceof Device)
         {
-            $this->child('device', $device);
+            $this->setChild('device', $device);
         }
     }
 
     /**
-     * Gets or sets account
+     * Sets the account.
+     *
+     * @return Account
+     */
+    public function getAccount()
+    {
+        return $this->getChild('account');
+    }
+
+    /**
+     * Sets the account.
      *
      * @param  Account $account
-     * @return Account|self
+     * @return self
      */
-    public function account(Account $account = null)
+    public function setAccount(Account $account)
     {
-        if(null === $account)
-        {
-            return $this->child('account');
-        }
-        return $this->child('account', $account);
+        return $this->setChild('account', $account);
     }
 
     /**
-     * Gets or sets device
+     * Gets the device.
+     *
+     * @return Device
+     */
+    public function getDevice()
+    {
+        return $this->getChild('device');
+    }
+
+    /**
+     * Sets the Device.
      *
      * @param  Device $device
-     * @return Device|self
+     * @return self
      */
-    public function device(Device $device = null)
+    public function setDevice(Device $device)
     {
-        if(null === $device)
-        {
-            return $this->child('device');
-        }
-        return $this->child('device', $device);
+        return $this->setChild('device', $device);
     }
 }

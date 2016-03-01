@@ -25,41 +25,34 @@ class BySetPosRule extends Base
 {
     /**
      * Constructor method for BySetPosRule
-     * @param  string $poslist Format [[+]|-]num[,...] where num is from 1 to 366 
+     * @param  string $list Format [[+]|-]num[,...] where num is from 1 to 366 
      * @return self
      */
-    public function __construct($poslist)
+    public function __construct($list)
     {
         parent::__construct();
-        $poslist = explode(',', $poslist);
-        $arr = array();
-        foreach ($poslist as $day)
-        {
-            if(is_numeric($day))
-            {
-                $day = (int) $day;
-                if($day != 0 && $day > -367 && $day < 367 && !in_array($day, $arr))
-                {
-                    $arr[] = $day;
-                }
-            }
-        }
-        $this->property('poslist', implode(',', $arr));
+        $this->setList($list);
     }
 
     /**
-     * Gets or sets poslist
+     * Gets list
      *
-     * @param  string $poslist
-     * @return string|self
+     * @return string
      */
-    public function poslist($poslist = null)
+    public function getList()
     {
-        if(null === $poslist)
-        {
-            return $this->property('poslist');
-        }
-        $poslist = explode(',', $poslist);
+        return $this->getProperty('poslist');
+    }
+
+    /**
+     * Sets list
+     *
+     * @param  string $list
+     * @return self
+     */
+    public function setList($list)
+    {
+        $poslist = explode(',', $list);
         $arr = array();
         foreach ($poslist as $day)
         {
@@ -72,7 +65,7 @@ class BySetPosRule extends Base
                 }
             }
         }
-        return $this->property('poslist', implode(',', $arr));
+        return $this->setProperty('poslist', implode(',', $arr));
     }
 
     /**

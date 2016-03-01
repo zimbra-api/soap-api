@@ -30,21 +30,27 @@ class QueryWaitSet extends Base
     public function __construct($waitSet = null)
     {
         parent::__construct();
-        $this->property('waitSet', trim($waitSet));
+        $this->setProperty('waitSet', trim($waitSet));
     }
 
     /**
-     * Gets or sets waitSet
+     * Gets waitSet
+     *
+     * @return string
+     */
+    public function getWaitSet()
+    {
+        return $this->getProperty('waitSet');
+    }
+
+    /**
+     * Sets waitSet
      *
      * @param  string $waitSet
-     * @return string|self
+     * @return self
      */
-    public function waitSet($waitSet = null)
+    public function setWaitSet($waitSet)
     {
-        if(null === $waitSet)
-        {
-            return $this->property('waitSet');
-        }
-        return $this->property('waitSet', trim($waitSet));
+        return $this->setProperty('waitSet', trim($waitSet));
     }
 }

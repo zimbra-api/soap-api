@@ -28,7 +28,6 @@ class NewFolderSpec extends Base
     /**
      * Constructor method for NewFolderSpec
      * @param string $name If "l" is unset, name is the full path of the new folder; otherwise, name may not contain the folder separator '/'
-     * @param NewFolderSpecAcl $acl Action grant selectors
      * @param SearchType $view Default type for the folder; used by web client to decide which view to use; possible values are the same as <SearchRequest>'s {types}: conversation|message|contact|etc
      * @param string $f Flags
      * @param int $color Color numeric; range 0-127; defaults to 0 if not present; client can display only 0-7
@@ -37,11 +36,11 @@ class NewFolderSpec extends Base
      * @param string $l Parent folder ID
      * @param bool $fie If set, the server will fetch the folder if it already exists rather than throwing mail.ALREADY_EXISTS
      * @param bool $sync If set (default) then if "url" is set, synchronize folder content on folder creation
+     * @param NewFolderSpecAcl $acl Action grant selectors
      * @return self
      */
     public function __construct(
         $name,
-        NewFolderSpecAcl $acl = null,
         SearchType $view = null,
         $f = null,
         $color = null,
@@ -49,199 +48,261 @@ class NewFolderSpec extends Base
         $url = null,
         $l = null,
         $fie = null,
-        $sync = null
+        $sync = null,
+        NewFolderSpecAcl $grants = null
     )
     {
         parent::__construct();
-        $this->property('name', trim($name));
-        if($acl instanceof NewFolderSpecAcl)
-        {
-            $this->child('acl', $acl);
-        }
+        $this->setProperty('name', trim($name));
         if($view instanceof SearchType)
         {
-            $this->property('view', $view);
+            $this->setProperty('view', $view);
         }
         if(null !== $f)
         {
-            $this->property('f', trim($f));
+            $this->setProperty('f', trim($f));
         }
 
         if(null !== $color)
         {
             $color = (int) $color;
-            $this->property('color', ($color > 0 && $color < 128) ? $color : 0);
+            $this->setProperty('color', ($color > 0 && $color < 128) ? $color : 0);
         }
         if(null !== $rgb && Text::isRgb(trim($rgb)))
         {
-            $this->property('rgb', trim($rgb));
+            $this->setProperty('rgb', trim($rgb));
         }
         if(null !== $url)
         {
-            $this->property('url', trim($url));
+            $this->setProperty('url', trim($url));
         }
         if(null !== $l)
         {
-            $this->property('l', trim($l));
+            $this->setProperty('l', trim($l));
         }
         if(null !== $fie)
         {
-            $this->property('fie', (bool) $fie);
+            $this->setProperty('fie', (bool) $fie);
         }
         if(null !== $sync)
         {
-            $this->property('sync', (bool) $sync);
+            $this->setProperty('sync', (bool) $sync);
+        }
+        if($grants instanceof NewFolderSpecAcl)
+        {
+            $this->setChild('acl', $grants);
         }
     }
 
     /**
-     * Gets or sets name
+     * Gets name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->getProperty('name');
+    }
+
+    /**
+     * Sets name
      *
      * @param  string $name
-     * @return string|self
+     * @return self
      */
-    public function name($name = null)
+    public function setName($name)
     {
-        if(null === $name)
-        {
-            return $this->property('name');
-        }
-        return $this->property('name', trim($name));
+        return $this->setProperty('name', trim($name));
     }
 
     /**
-     * Gets or sets acl
+     * Gets grant specification
      *
-     * @param  NewFolderSpecAcl $acl
-     * @return NewFolderSpecAcl|self
+     * @return NewFolderSpecAcl
      */
-    public function acl(NewFolderSpecAcl $acl = null)
+    public function getGrants()
     {
-        if(null === $acl)
-        {
-            return $this->child('acl');
-        }
-        return $this->child('acl', $acl);
+        return $this->getChild('acl');
     }
 
     /**
-     * Gets or sets view
+     * Sets grant specification
+     *
+     * @param  NewFolderSpecAcl $grants
+     * @return self
+     */
+    public function setGrants(NewFolderSpecAcl $grants)
+    {
+        return $this->setChild('acl', $grants);
+    }
+
+    /**
+     * Gets default type for the folder
+     *
+     * @return SearchType
+     */
+    public function getView()
+    {
+        return $this->getProperty('view');
+    }
+
+    /**
+     * Sets default type for the folder
      *
      * @param  SearchType $view
-     * @return SearchType|self
+     * @return self
      */
-    public function view(SearchType $view = null)
+    public function setView(SearchType $view)
     {
-        if(null === $view)
-        {
-            return $this->property('view');
-        }
-        return $this->property('view', $view);
+        return $this->setProperty('view', $view);
     }
 
     /**
-     * Gets or sets f
+     * Gets flags
+     *
+     * @return string
+     */
+    public function getFlags()
+    {
+        return $this->getProperty('f');
+    }
+
+    /**
+     * Sets flags
      *
      * @param  string $f
-     * @return string|self
+     * @return self
      */
-    public function f($f = null)
+    public function setFlags($f)
     {
-        if(null === $f)
-        {
-            return $this->property('f');
-        }
-        return $this->property('f', trim($f));
+        return $this->setProperty('f', trim($f));
     }
 
     /**
-     * Gets or sets color
+     * Gets color
+     *
+     * @return int
+     */
+    public function getColor()
+    {
+        return $this->getProperty('color');
+    }
+
+    /**
+     * Sets color
      *
      * @param  int $color
-     * @return int|self
+     * @return self
      */
-    public function color($color = null)
+    public function setColor($color)
     {
-        if(null === $color)
-        {
-            return $this->property('color');
-        }
-        return $this->property('color', ($color > 0 && $color < 128) ? $color : 0);
+        $color = (int) $color;
+        return $this->setProperty('color', ($color > 0 && $color < 128) ? $color : 0);
     }
 
     /**
-     * Gets or sets rgb
+     * Gets RGB color in format
+     *
+     * @return string
+     */
+    public function getRgb()
+    {
+        return $this->getProperty('rgb');
+    }
+
+    /**
+     * Sets RGB color in format
      *
      * @param  string $rgb
-     * @return string|self
+     * @return self
      */
-    public function rgb($rgb = null)
+    public function setRgb($rgb)
     {
-        if(null === $rgb)
-        {
-            return $this->property('rgb');
-        }
-        return $this->property('rgb', Text::isRgb(trim($rgb)) ? trim($rgb) : '');
+        return $this->setProperty('rgb', Text::isRgb(trim($rgb)) ? trim($rgb) : '');
     }
 
     /**
-     * Gets or sets url
+     * Gets url
+     *
+     * @return string
+     */
+    public function getUrl()
+    {
+        return $this->getProperty('url');
+    }
+
+    /**
+     * Sets url
      *
      * @param  string $url
-     * @return string|self
+     * @return self
      */
-    public function url($url = null)
+    public function setUrl($url)
     {
-        if(null === $url)
-        {
-            return $this->property('url');
-        }
-        return $this->property('url', trim($url));
+        return $this->setProperty('url', trim($url));
     }
 
     /**
-     * Gets or sets l
+     * Gets parent folder ID
+     *
+     * @return string
+     */
+    public function getParentFolderId()
+    {
+        return $this->getProperty('l');
+    }
+
+    /**
+     * Sets parent folder ID
      *
      * @param  string $l
-     * @return string|self
+     * @return self
      */
-    public function l($l = null)
+    public function setParentFolderId($l)
     {
-        if(null === $l)
-        {
-            return $this->property('l');
-        }
-        return $this->property('l', trim($l));
+        return $this->setProperty('l', trim($l));
     }
 
     /**
-     * Gets or sets fie
+     * Gets fetch if exists
+     *
+     * @return bool
+     */
+    public function getFetchIfExists()
+    {
+        return $this->getProperty('fie');
+    }
+
+    /**
+     * Sets fetch if exists
      *
      * @param  bool $fie
-     * @return bool|self
+     * @return self
      */
-    public function fie($fie = null)
+    public function setFetchIfExists($fie)
     {
-        if(null === $fie)
-        {
-            return $this->property('fie');
-        }
-        return $this->property('fie', (bool) $fie);
+        return $this->setProperty('fie', (bool) $fie);
     }
 
     /**
-     * Gets or sets sync
+     * Gets sync to url
+     *
+     * @return bool
+     */
+    public function getSyncToUrl()
+    {
+        return $this->getProperty('sync');
+    }
+
+    /**
+     * Sets sync to url
      *
      * @param  bool $sync
-     * @return bool|self
+     * @return self
      */
-    public function sync($sync = null)
+    public function setSyncToUrl($sync)
     {
-        if(null === $sync)
-        {
-            return $this->property('sync');
-        }
-        return $this->property('sync', (bool) $sync);
+        return $this->setProperty('sync', (bool) $sync);
     }
 
     /**

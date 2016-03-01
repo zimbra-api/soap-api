@@ -24,7 +24,7 @@ class HeaderTest extends FilterTest
     /**
      * Constructor method for HeaderTest
      * @param int $index Index - specifies a guaranteed order for the test elements
-     * @param string $header Header
+     * @param string $header Header. Comma separated list of header names.
      * @param string $stringComparison String comparison
      * @param string $value Value
      * @param bool $caseSensitive Case sensitive
@@ -43,80 +43,104 @@ class HeaderTest extends FilterTest
         parent::__construct($index, $negative);
         if(null !== $header)
         {
-            $this->property('header', trim($header));
+            $this->setProperty('header', trim($header));
         }
         if(null !== $stringComparison)
         {
-            $this->property('stringComparison', trim($stringComparison));
+            $this->setProperty('stringComparison', trim($stringComparison));
         }
         if(null !== $value)
         {
-            $this->property('value', trim($value));
+            $this->setProperty('value', trim($value));
         }
         if(null !== $caseSensitive)
         {
-            $this->property('caseSensitive', (bool) $caseSensitive);
+            $this->setProperty('caseSensitive', (bool) $caseSensitive);
         }
     }
 
     /**
-     * Gets or sets header
+     * Gets headers
+     *
+     * @return string
+     */
+    public function getHeaders()
+    {
+        return $this->getProperty('header');
+    }
+
+    /**
+     * Sets headers
      *
      * @param  string $header
-     * @return string|self
+     * @return self
      */
-    public function header($header = null)
+    public function setHeaders($header)
     {
-        if(null === $header)
-        {
-            return $this->property('header');
-        }
-        return $this->property('header', trim($header));
+        return $this->setProperty('header', trim($header));
     }
 
     /**
-     * Gets or sets stringComparison
+     * Gets string comparison
+     *
+     * @return string
+     */
+    public function getStringComparison()
+    {
+        return $this->getProperty('stringComparison');
+    }
+
+    /**
+     * Sets string comparison
      *
      * @param  string $stringComparison
-     * @return string|self
+     * @return self
      */
-    public function stringComparison($stringComparison = null)
+    public function setStringComparison($stringComparison)
     {
-        if(null === $stringComparison)
-        {
-            return $this->property('stringComparison');
-        }
-        return $this->property('stringComparison', trim($stringComparison));
+        return $this->setProperty('stringComparison', trim($stringComparison));
     }
 
     /**
-     * Gets or sets value
+     * Gets value
+     *
+     * @return string
+     */
+    public function getValue()
+    {
+        return $this->getProperty('value');
+    }
+
+    /**
+     * Sets value
      *
      * @param  string $value
-     * @return string|self
+     * @return self
      */
-    public function value($value = null)
+    public function setValue($value)
     {
-        if(null === $value)
-        {
-            return $this->property('value');
-        }
-        return $this->property('value', trim($value));
+        return $this->setProperty('value', trim($value));
     }
 
     /**
-     * Gets or sets caseSensitive
+     * Gets case sensitive setting
+     *
+     * @return bool
+     */
+    public function getCaseSensitive()
+    {
+        return $this->getProperty('caseSensitive');
+    }
+
+    /**
+     * Sets case sensitive setting
      *
      * @param  bool $caseSensitive
-     * @return bool|self
+     * @return self
      */
-    public function caseSensitive($caseSensitive = null)
+    public function setCaseSensitive($caseSensitive)
     {
-        if(null === $caseSensitive)
-        {
-            return $this->property('caseSensitive');
-        }
-        return $this->property('caseSensitive', (bool) $caseSensitive);
+        return $this->setProperty('caseSensitive', (bool) $caseSensitive);
     }
 
     /**

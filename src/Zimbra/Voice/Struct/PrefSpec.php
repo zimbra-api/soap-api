@@ -25,7 +25,7 @@ class PrefSpec extends Base
 {
     /**
      * Constructor method for PrefSpec
-     * @param string $name
+     * @param string $name Preference name
      * @return self
      */
     public function __construct($name = null)
@@ -33,23 +33,29 @@ class PrefSpec extends Base
         parent::__construct();
         if(null !== $name)
         {
-            $this->property('name', trim($name));
+            $this->setProperty('name', trim($name));
         }
     }
 
     /**
-     * Get or set name
+     * Gets name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->getProperty('name');
+    }
+
+    /**
+     * Sets name
      *
      * @param  string $name
-     * @return string|self
+     * @return self
      */
-    public function name($name = null)
+    public function setName($name)
     {
-        if(null === $name)
-        {
-            return $this->property('name');
-        }
-        return $this->property('name', trim($name));
+        return $this->setProperty('name', trim($name));
     }
 
     /**

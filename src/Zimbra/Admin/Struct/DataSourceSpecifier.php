@@ -25,46 +25,58 @@ class DataSourceSpecifier extends AdminAttrsImpl
 {
     /**
      * Constructor method for DataSourceSpecifier
-     * @param DataSourceType $type Data source type
+     * @param Zimbra\Enum\DataSourceType $type Data source type
      * @param string $name Data source name
      * @param array $attrs Attributes
      * @return self
      */
-    public function __construct(DataSourceType $type, $name, array $attrs = array())
+    public function __construct(DataSourceType $type, $name, array $attrs = [])
     {
         parent::__construct($attrs);
-        $this->property('type', $type);
-        $this->property('name', trim($name));
+        $this->setProperty('type', $type);
+        $this->setProperty('name', trim($name));
     }
 
     /**
-     * Gets or sets type
+     * Gets data source type
      *
-     * @param  DataSourceType $type
-     * @return DataSourceType|self
+     * @return Zimbra\Enum\DataSourceType
      */
-    public function type(DataSourceType $type = null)
+    public function getType()
     {
-        if(null === $type)
-        {
-            return $this->property('type');
-        }
-        return $this->property('type', $type);
+        return $this->getProperty('type');
     }
 
     /**
-     * Gets or sets name
+     * Sets data source type
+     *
+     * @param  Zimbra\Enum\DataSourceType $type
+     * @return self
+     */
+    public function setType(DataSourceType $type)
+    {
+        return $this->setProperty('type', $type);
+    }
+
+    /**
+     * Gets data source name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->getProperty('name');
+    }
+
+    /**
+     * Sets data source name
      *
      * @param  string $name
-     * @return string|self
+     * @return self
      */
-    public function name($name = null)
+    public function setName($name)
     {
-        if(null === $name)
-        {
-            return $this->property('name');
-        }
-        return $this->property('name', trim($name));
+        return $this->setProperty('name', trim($name));
     }
 
     /**

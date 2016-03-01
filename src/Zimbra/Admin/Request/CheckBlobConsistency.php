@@ -29,49 +29,49 @@ class CheckBlobConsistency extends Base
      * The volume
      * @var TypedSequence<IntIdAttr>
      */
-    private $_volume;
+    private $_volumes;
 
     /**
      * The mbox
      * @var TypedSequence<IntIdAttr>
      */
-    private $_mbox;
+    private $_mboxes;
 
     /**
      * Constructor method for CheckBlobConsistency
-     * @param array $volume The volume
-     * @param array $mbox The mbox
-     * @param bool  $checkSize The checkSize
-     * @param bool  $reportUsedBlobs The reportUsedBlobs
+     * @param array $volumes The array of volume
+     * @param array $mboxes The array of mail box
+     * @param bool  $checkSize The check size flag
+     * @param bool  $reportUsedBlobs The report used blobs flag
      * @return self
      */
     public function __construct(
-        array $volume = array(),
-        array $mbox = array(),
+        array $volumes = [],
+        array $mboxes = [],
         $checkSize = null,
         $reportUsedBlobs = null)
     {
         parent::__construct();
-        $this->_volume = new TypedSequence('Zimbra\Admin\Struct\IntIdAttr', $volume);
-        $this->_mbox = new TypedSequence('Zimbra\Admin\Struct\IntIdAttr', $mbox);
+        $this->setVolumes($volumes);
+        $this->setMailboxes($mboxes);
         if(null !== $checkSize)
         {
-            $this->property('checkSize', (bool) $checkSize);
+            $this->setProperty('checkSize', (bool) $checkSize);
         }
         if(null !== $reportUsedBlobs)
         {
-            $this->property('reportUsedBlobs', (bool) $reportUsedBlobs);
+            $this->setProperty('reportUsedBlobs', (bool) $reportUsedBlobs);
         }
 
         $this->on('before', function(Base $sender)
         {
-            if($sender->volume()->count())
+            if($sender->getVolumes()->count())
             {
-                $sender->child('volume', $sender->volume()->all());
+                $sender->setChild('volume', $sender->getVolumes()->all());
             }
-            if($sender->mbox()->count())
+            if($sender->getMailboxes()->count())
             {
-                $sender->child('mbox', $sender->mbox()->all());
+                $sender->setChild('mbox', $sender->getMailboxes()->all());
             }
         });
     }
@@ -84,7 +84,19 @@ class CheckBlobConsistency extends Base
      */
     public function addVolume(IntIdAttr $volume)
     {
-        $this->_volume->add($volume);
+        $this->_volumes->add($volume);
+        return $this;
+    }
+
+    /**
+     * Sets volume sequence
+     *
+     * @param array $volumes
+     * @return self
+     */
+    public function setVolumes(array $volumes)
+    {
+        $this->_volumes = new TypedSequence('Zimbra\Admin\Struct\IntIdAttr', $volumes);
         return $this;
     }
 
@@ -93,60 +105,84 @@ class CheckBlobConsistency extends Base
      *
      * @return Sequence
      */
-    public function volume()
+    public function getVolumes()
     {
-        return $this->_volume;
+        return $this->_volumes;
     }
 
     /**
-     * Add a mbox
+     * Add a mail box
      *
      * @param  IntIdAttr $mbox
      * @return self
      */
-    public function addMbox(IntIdAttr $mbox)
+    public function addMailbox(IntIdAttr $mbox)
     {
-        $this->_mbox->add($mbox);
+        $this->_mboxes->add($mbox);
         return $this;
     }
 
     /**
-     * Gets mbox sequence
+     * Sets mail box sequence
+     *
+     * @param array $mboxes
+     * @return self
+     */
+    public function setMailboxes(array $mboxes)
+    {
+        $this->_mboxes = new TypedSequence('Zimbra\Admin\Struct\IntIdAttr', $mboxes);
+        return $this;
+    }
+
+    /**
+     * Gets mail box sequence
      *
      * @return Sequence
      */
-    public function mbox()
+    public function getMailboxes()
     {
-        return $this->_mbox;
+        return $this->_mboxes;
     }
 
     /**
-     * Gets or sets checkSize
+     * Gets check size flag
+     *
+     * @return bool
+     */
+    public function getCheckSize()
+    {
+        return $this->getProperty('checkSize');
+    }
+
+    /**
+     * Sets check size flag
      *
      * @param  bool $checkSize
-     * @return bool|self
+     * @return self
      */
-    public function checkSize($checkSize = null)
+    public function setCheckSize($checkSize)
     {
-        if(null === $checkSize)
-        {
-            return $this->property('checkSize');
-        }
-        return $this->property('checkSize', (bool) $checkSize);
+        return $this->setProperty('checkSize', (bool) $checkSize);
     }
 
     /**
-     * Gets or sets reportUsedBlobs
+     * Gets report used blobs flag
      *
-     * @param  bool $reportUsedBlobs
-     * @return bool|self
+     * @return string
      */
-    public function reportUsedBlobs($reportUsedBlobs = null)
+    public function getReportUsedBlobs()
     {
-        if(null === $reportUsedBlobs)
-        {
-            return $this->property('reportUsedBlobs');
-        }
-        return $this->property('reportUsedBlobs', (bool) $reportUsedBlobs);
+        return $this->getProperty('reportUsedBlobs');
+    }
+
+    /**
+     * Sets report used blobs flag
+     *
+     * @param  string $reportUsedBlobs
+     * @return self
+     */
+    public function setReportUsedBlobs($reportUsedBlobs)
+    {
+        return $this->setProperty('reportUsedBlobs', (bool) $reportUsedBlobs);
     }
 }

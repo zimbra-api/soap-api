@@ -41,113 +41,149 @@ class GetLDAPEntries extends Base
         $offset = null)
     {
         parent::__construct();
-        $this->property('query', trim($query));
-        $this->child('ldapSearchBase', trim($ldapSearchBase));
+        $this->setProperty('query', trim($query));
+        $this->setChild('ldapSearchBase', trim($ldapSearchBase));
         if(null !== $sortBy)
         {
-            $this->property('sortBy', trim($sortBy));
+            $this->setProperty('sortBy', trim($sortBy));
         }
         if(null !== $sortAscending)
         {
-            $this->property('sortAscending', (bool) $sortAscending);
+            $this->setProperty('sortAscending', (bool) $sortAscending);
         }
         if(null !== $limit)
         {
-            $this->property('limit', (int) $limit);
+            $this->setProperty('limit', (int) $limit);
         }
         if(null !== $offset)
         {
-            $this->property('offset', (int) $offset);
+            $this->setProperty('offset', (int) $offset);
         }
     }
 
     /**
-     * Gets or sets query
+     * Gets query
+     *
+     * @return string
+     */
+    public function getQuery()
+    {
+        return $this->getProperty('query');
+    }
+
+    /**
+     * Sets query
      *
      * @param  string $query
-     * @return string|self
+     * @return self
      */
-    public function query($query = null)
+    public function setQuery($query)
     {
-        if(null === $query)
-        {
-            return $this->property('query');
-        }
-        return $this->property('query', trim($query));
+        return $this->setProperty('query', trim($query));
     }
 
     /**
-     * Gets or sets ldapSearchBase
+     * Gets ldapSearchBase
+     *
+     * @return string
+     */
+    public function getLdapSearchBase()
+    {
+        return $this->getChild('ldapSearchBase');
+    }
+
+    /**
+     * Sets ldapSearchBase
      *
      * @param  string $ldapSearchBase
-     * @return string|self
+     * @return self
      */
-    public function ldapSearchBase($ldapSearchBase = null)
+    public function setLdapSearchBase($ldapSearchBase)
     {
-        if(null === $ldapSearchBase)
-        {
-            return $this->child('ldapSearchBase');
-        }
-        return $this->child('ldapSearchBase', trim($ldapSearchBase));
+        return $this->setChild('ldapSearchBase', trim($ldapSearchBase));
     }
 
     /**
-     * Gets or sets sortBy
+     * Gets sortBy
+     *
+     * @return string
+     */
+    public function getSortBy()
+    {
+        return $this->getProperty('sortBy');
+    }
+
+    /**
+     * Sets sortBy
      *
      * @param  string $sortBy
-     * @return string|self
+     * @return self
      */
-    public function sortBy($sortBy = null)
+    public function setSortBy($sortBy)
     {
-        if(null === $sortBy)
-        {
-            return $this->property('sortBy');
-        }
-        return $this->property('sortBy', trim($sortBy));
+        return $this->setProperty('sortBy', trim($sortBy));
     }
 
     /**
-     * Gets or sets sortAscending
+     * Gets sortAscending
+     *
+     * @return bool
+     */
+    public function getSortAscending()
+    {
+        return $this->getProperty('sortAscending');
+    }
+
+    /**
+     * Sets sortAscending
      *
      * @param  bool $sortAscending
-     * @return bool|self
+     * @return self
      */
-    public function sortAscending($sortAscending = null)
+    public function setSortAscending($sortAscending)
     {
-        if(null === $sortAscending)
-        {
-            return $this->property('sortAscending');
-        }
-        return $this->property('sortAscending', (bool) $sortAscending);
+        return $this->setProperty('sortAscending', (bool) $sortAscending);
     }
 
     /**
-     * Gets or sets limit
+     * Gets limit
+     *
+     * @return int
+     */
+    public function getLimit()
+    {
+        return $this->getProperty('limit');
+    }
+
+    /**
+     * Sets limit
      *
      * @param  int $limit
-     * @return int|self
+     * @return self
      */
-    public function limit($limit = null)
+    public function setLimit($limit)
     {
-        if(null === $limit)
-        {
-            return $this->property('limit');
-        }
-        return $this->property('limit', (int) $limit);
+        return $this->setProperty('limit', (int) $limit);
     }
 
     /**
-     * Gets or sets offset
+     * Gets offset
+     *
+     * @return int
+     */
+    public function getOffset()
+    {
+        return $this->getProperty('offset');
+    }
+
+    /**
+     * Sets offset
      *
      * @param  int $offset
-     * @return int|self
+     * @return self
      */
-    public function offset($offset = null)
+    public function setOffset($offset)
     {
-        if(null === $offset)
-        {
-            return $this->property('offset');
-        }
-        return $this->property('offset', (int) $offset);
+        return $this->setProperty('offset', (int) $offset);
     }
 }

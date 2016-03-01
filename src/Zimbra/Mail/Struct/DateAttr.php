@@ -25,28 +25,34 @@ class DateAttr extends Base
 {
     /**
      * Constructor method for DateAttr
-     * @param  string $d Date in format : YYYYMMDDThhmmssZ
+     * @param  string $date Date in format : YYYYMMDDThhmmssZ
      * @return self
      */
-    public function __construct($d)
+    public function __construct($date)
     {
         parent::__construct();
-        $this->property('d', trim($d));
+        $this->setProperty('d', trim($date));
     }
 
     /**
-     * Gets or sets d
+     * Gets date
      *
-     * @param  string $d
-     * @return string|self
+     * @return string
      */
-    public function d($d = null)
+    public function getDate()
     {
-        if(null === $d)
-        {
-            return $this->property('d');
-        }
-        return $this->property('d', trim($d));
+        return $this->getProperty('d');
+    }
+
+    /**
+     * Sets date
+     *
+     * @param  string $date
+     * @return self
+     */
+    public function setDate($date)
+    {
+        return $this->setProperty('d', trim($date));
     }
 
     /**
@@ -55,7 +61,7 @@ class DateAttr extends Base
      * @param  string $name
      * @return array
      */
-    public function toArray($name = 'abs')
+    public function toArray($name = 'date')
     {
         return parent::toArray($name);
     }
@@ -66,7 +72,7 @@ class DateAttr extends Base
      * @param  string $name
      * @return SimpleXML
      */
-    public function toXml($name = 'abs')
+    public function toXml($name = 'date')
     {
         return parent::toXml($name);
     }
