@@ -12,10 +12,9 @@ namespace Zimbra\Upload;
 
 use Evenement\EventEmitter;
 use GuzzleHttp\Client as HttpClient;
+use GuzzleHttp\Cookie\CookieJar;
 use GuzzleHttp\Exception\BadResponseException;
-use GuzzleHttp\Message\Response as HttpResponse;
-use GuzzleHttp\Post\PostFile;
-use GuzzleHttp\Url;
+use GuzzleHttp\Psr7\Response as HttpResponse;
 
 /**
  * Upload request class in Zimbra API PHP.
@@ -47,6 +46,12 @@ class Client extends EventEmitter
     private $_httpClient;
 
     /**
+     * Http response
+     * @var HttpResponse
+     */
+    private $_httpResponse;
+
+    /**
      * Http headers
      * @var array
      */
@@ -61,11 +66,14 @@ class Client extends EventEmitter
     public function __construct($location, $authToken = null)
     {
         $this->_location = $location;
-        $this->_httpClient = new HttpClient();
-        $this->_headers = array(
+        $this->_httpClient = new HttpClient([
+            'cookies' => true,
+            'verify' => false,
+        ]);
+        $this->_headers = [
             'Method'     => 'POST',
             'User-Agent' => isset($_SERVER['HTTP_USER_AGENT']) ? $_SERVER['HTTP_USER_AGENT'] : 'PHP-Zimbra-Soap-API',
-        );
+        ];
         if(null !== $authToken)
         {
             $this->_authToken = trim($authToken);
@@ -89,39 +97,36 @@ class Client extends EventEmitter
         }
 
         $options = [
+            'query' => ['fmt' => 'raw,extended'],
             'headers' => $this->headers,
-            'cookies' => true,
-            'verify' => false,
+            'multipart' => [
+                ['name' => 'requestId', 'contents' => $request->getRequestId()]
+            ],
         ];
+        foreach ($files as $file)
+        {
+            $options['multipart'][] = ['name' => basename($file), 'contents' => fopen($file, 'r')];
+        }
         if (!empty($this->_authToken))
         {
-            $options['cookies'] = array('ZM_AUTH_TOKEN' => $this->_authToken);
+            $options['cookies'] = CookieJar::fromArray(['ZM_AUTH_TOKEN' => $this->_authToken], null);
         }
 
-        $httpRequest = $this->_httpClient->createRequest(
-            'POST', $this->_location, $options
-        );
-        $postBody = $httpRequest->getBody();
-        $postBody->setField('requestId', $request->getRequestId());
-        foreach ($files as $file) {
-            $postBody->addFile(new PostFile(basename($file), fopen($file, 'r')));
-        }
-        $httpRequest->setQuery(['fmt' => 'raw,extended']);
         try
         {
-            $response = $this->_httpClient->send($httpRequest);
-            $this->emit('after.request', [$response, $response->getHeaders()]);
+            $this->_httpResponse = $this->_httpClient->request('POST', $this->_location, $options);
+            $this->emit('after.request', [$this->_httpResponse, $this->_httpResponse->getHeaders()]);
         }
         catch (BadResponseException $ex)
         {
             if ($ex->hasResponse())
             {
-                $response = $ex->getResponse();
-                $this->emit('after.request', [$response, $response->getHeaders()]);
+                $this->_httpResponse = $ex->getResponse();
+                $this->emit('after.request', [$this->_httpResponse, $this->_httpResponse->getHeaders()]);
             }
             throw $ex;
         }
-        return $this->_parseResponse($response);
+        return $this->_parseResponse($this->_httpResponse);
     }
 
     /**
@@ -210,6 +215,34 @@ class Client extends EventEmitter
     {
         $this->_httpClient = $httpClient;
         return $this;
+    }
+
+    /**
+     * Returns last response.
+     *
+     * @return mix The last response.
+     */
+    public function lastResponse()
+    {
+        if($this->_httpResponse instanceof HttpResponse)
+        {
+            return $this->_httpResponse->getBody();
+        }
+        return null;
+    }
+
+    /**
+     * Returns the headers from the last response.
+     *
+     * @return mix The last response headers.
+     */
+    public function lastResponseHeaders()
+    {
+        if($this->_httpResponse instanceof HttpResponse)
+        {
+            return $this->_httpResponse->getHeaders();                
+        }
+        return [];
     }
 
     private function _parseResponse(HttpResponse $httpResponse)

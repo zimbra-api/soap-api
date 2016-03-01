@@ -12,8 +12,8 @@ namespace Zimbra\Soap\Client;
 
 use Evenement\EventEmitter;
 use GuzzleHttp\Client as HttpClient;
-use GuzzleHttp\Message\Response;
 use GuzzleHttp\Exception\BadResponseException;
+use GuzzleHttp\Psr7\Response as HttpResponse;
 use Zimbra\Enum\RequestFormat;
 use Zimbra\Soap\Message as SoapMessage;
 use Zimbra\Soap\Request as SoapRequest;
@@ -78,7 +78,7 @@ class Http extends EventEmitter implements ClientInterface
 
     /**
      * Last response message
-     * @var Response
+     * @var HttpResponse
      */
     protected $response;
 
@@ -95,7 +95,10 @@ class Http extends EventEmitter implements ClientInterface
     public function __construct($location)
     {
         $this->location = $location;
-        $this->httpClient = new HttpClient;
+        $this->httpClient = new HttpClient([
+            'cookies' => true,
+            'verify' => false,
+        ]);
     }
 
     /**
@@ -128,21 +131,16 @@ class Http extends EventEmitter implements ClientInterface
     public function __doRequest($request, array $headers = [])
     {
         $this->emit('before.request', [&$request, &$headers]);
-        $httpRequest = $this->httpClient->createRequest(
-            'POST',
-            $this->location,
-            [
-                'headers' => $headers,
-                'body' => (string) $request,
-                'cookies' => true,
-                'verify' => false,
-            ]
-        );
+        $this->headers = $headers;
 
-        $this->headers = $httpRequest->getHeaders();
+        $options = [
+            'headers' => $headers,
+            'body' => (string) $request,
+        ];
+
         try
         {
-            $this->response = $this->httpClient->send($httpRequest);
+            $this->response = $this->httpClient->request('POST', $this->location, $options);
             $this->emit('after.request', [$this->lastResponse(), $this->lastResponseHeaders()]);
         }
         catch (BadResponseException $ex)
@@ -295,7 +293,7 @@ class Http extends EventEmitter implements ClientInterface
      */
     public function lastResponse()
     {
-        if($this->response instanceof Response)
+        if($this->response instanceof HttpResponse)
         {
             return $this->response->getBody();
         }
@@ -309,7 +307,7 @@ class Http extends EventEmitter implements ClientInterface
      */
     public function lastResponseHeaders()
     {
-        if($this->response instanceof Response)
+        if($this->response instanceof HttpResponse)
         {
             return $this->response->getHeaders();                
         }

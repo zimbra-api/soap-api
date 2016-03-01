@@ -12,8 +12,8 @@
         }
     ],
     "require": {
-        "php": ">=5.4.0",
-        "guzzlehttp/guzzle": "5.*",
+        "php": ">=5.5.0",
+        "guzzlehttp/guzzle": "6.*",
         "zimbra-api/struct": "self.version"
     },
     "require-dev": {
