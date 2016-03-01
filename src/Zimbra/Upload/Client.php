@@ -15,6 +15,7 @@ use GuzzleHttp\Client as HttpClient;
 use GuzzleHttp\Cookie\CookieJar;
 use GuzzleHttp\Exception\BadResponseException;
 use GuzzleHttp\Psr7\Response as HttpResponse;
+use GuzzleHttp\Psr7\Uri;
 
 /**
  * Upload request class in Zimbra API PHP.
@@ -109,7 +110,8 @@ class Client extends EventEmitter
         }
         if (!empty($this->_authToken))
         {
-            $options['cookies'] = CookieJar::fromArray(['ZM_AUTH_TOKEN' => $this->_authToken], null);
+            $url = new Uri($this->_location);
+            $options['cookies'] = CookieJar::fromArray(['ZM_AUTH_TOKEN' => $this->_authToken], $url->getHost());
         }
 
         try
