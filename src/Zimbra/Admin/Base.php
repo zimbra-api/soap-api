@@ -1828,10 +1828,10 @@ abstract class Base extends API implements AdminInterface
      *
      * @param  CalendarResource $calResource Specify calendar resource.
      * @param  bool $applyCos Flag whether to apply Class of Service (COS).
-     * @param  string $attrs Comma separated list of attributes.
+     * @param  array $attrs A list of attributes.
      * @return mix
      */
-    public function getCalendarResource(CalendarResource $calResource = null, $applyCos = null, $attrs = null)
+    public function getCalendarResource(CalendarResource $calResource = null, $applyCos = null, array $attrs = [])
     {
         $request = new \Zimbra\Admin\Request\GetCalendarResource(
             $calResource, $applyCos, $attrs
@@ -1873,10 +1873,10 @@ abstract class Base extends API implements AdminInterface
      * Get Class Of Service (COS).
      *
      * @param  Cos $cos The name used to identify the COS.
-     * @param  string $attrs Comma separated list of attributes.
+     * @param  array $attrs A list of attributes.
      * @return mix
      */
-    public function getCos(Cos $cos = null, $attrs = null)
+    public function getCos(Cos $cos = null, array $attrs = [])
     {
         $request = new \Zimbra\Admin\Request\GetCos($cos, $attrs);
         return $this->getClient()->doRequest($request);
@@ -2032,14 +2032,10 @@ abstract class Base extends API implements AdminInterface
      * 
      * @param  Domain $domain The name used to identify the domain.
      * @param  bool   $applyConfig Apply config flag. True, then certain unset attrs on a domain will get their values from the global config. False, then only attributes directly set on the domain will be returned.
-     * @param  string $attrs  Attributes.
+     * @param  array $attrs A list of attributes.
      * @return mix
      */
-    function getDomain(
-        Domain $domain = null,
-        $applyConfig = null,
-        $attrs = null
-    )
+    function getDomain(Domain $domain = null, $applyConfig = null, array $attrs = [])
     {
         $request = new \Zimbra\Admin\Request\GetDomain(
             $domain, $applyConfig, $attrs
@@ -2347,10 +2343,10 @@ abstract class Base extends API implements AdminInterface
      * @param  bool   $applyConfig Apply config flag.
      *                        If {apply} is 1 (true), then certain unset attrs on a server will get their values from the global config. 
      *                        if {apply} is 0 (false), then only attributes directly set on the server will be returned.
-     * @param  string  $attrs Comma separated list of attributes.
+     * @param  array  $attrs A list of attributes.
      * @return mix
      */
-    public function getServer(Server $server = null, $applyConfig = null, $attrs = null)
+    public function getServer(Server $server = null, $applyConfig = null, array $attrs = [])
     {
         $request = new \Zimbra\Admin\Request\GetServer(
             $server, $applyConfig, $attrs
@@ -2464,10 +2460,10 @@ abstract class Base extends API implements AdminInterface
      * Get UC Service.
      * 
      * @param  UcService $ucservice UC Service name.
-     * @param  string $attrs Comma separated list of attributes.
+     * @param  array $attrs A of attributes.
      * @return mix
      */
-    public function getUCService(UcService $ucservice = null, $attrs = null)
+    public function getUCService(UcService $ucservice = null, array $attrs = [])
     {
         $request = new \Zimbra\Admin\Request\GetUCService(
             $ucservice, $attrs
@@ -2503,10 +2499,10 @@ abstract class Base extends API implements AdminInterface
      * XMPP stands for Extensible Messaging and Presence Protocol.
      * 
      * @param  XmppComponent $xmpp XMPP Component selector.
-     * @param  string $attrs Comma separated list of attributes.
+     * @param  array $attrs A list of attributes.
      * @return mix
      */
-    public function getXMPPComponent(XmppComponent $xmpp, $attrs = null)
+    public function getXMPPComponent(XmppComponent $xmpp, array $attrs = [])
     {
         $request = new \Zimbra\Admin\Request\GetXMPPComponent($xmpp, $attrs);
         return $this->getClient()->doRequest($request);
@@ -2516,10 +2512,10 @@ abstract class Base extends API implements AdminInterface
      * Retreives a list of search tasks running or cached on a server.
      * 
      * @param  NamedElement $name Zimlet name.
-     * @param  string $attrs Comma separated list of attributes.
+     * @param  array $attrs A list of attributes.
      * @return mix
      */
-    public function getZimlet(NamedElement $name, $attrs = null)
+    public function getZimlet(NamedElement $name, array $attrs = [])
     {
         $request = new \Zimbra\Admin\Request\GetZimlet($name, $attrs);
         return $this->getClient()->doRequest($request);
@@ -3300,7 +3296,7 @@ abstract class Base extends API implements AdminInterface
      * @param  integer $limit   The number of accounts to return per page (0 is default and means all).
      * @param  integer $offset  The starting offset (0, 25, etc).
      * @param  bool    $refresh Refresh - whether to always re-search in LDAP even when cached entries are available. 0 (false) is the default.
-     * @param  array   $attrs   Array of attributes.
+     * @param  array   $attrs   A list of attributes.
      * @return mix
      */
     public function searchAutoProvDirectory(
@@ -3312,7 +3308,7 @@ abstract class Base extends API implements AdminInterface
         $limit = null,
         $offset = null,
         $refresh = null,
-        $attrs = null
+        array $attrs = []
     )
     {
         $request = new \Zimbra\Admin\Request\SearchAutoProvDirectory(
@@ -3332,7 +3328,7 @@ abstract class Base extends API implements AdminInterface
      * @param  bool    $applyCos  Flag whether or not to apply the COS policy to calendar resource. Specify 0 (false) if only requesting attrs that aren't inherited from COS.
      * @param  string  $sortBy   Name of attribute to sort on. default is the calendar resource name.
      * @param  bool    $sortAscending    Whether to sort in ascending order. Default is 1 (true).
-     * @param  string  $attrs  Comma separated list of attributes.
+     * @param  string  $attrs  A list of attributes.
      * @return mix
      */
     public function searchCalendarResources(
@@ -3343,7 +3339,7 @@ abstract class Base extends API implements AdminInterface
         $applyCos = null,
         $sortBy = null,
         $sortAscending = null,
-        $attrs = null
+        array $attrs = []
     )
     {
         $request = new \Zimbra\Admin\Request\SearchCalendarResources(
@@ -3363,11 +3359,11 @@ abstract class Base extends API implements AdminInterface
      * @param  string  $domain      The domain name to limit the search to.
      * @param  bool    $applyCos    Flag whether or not to apply the COS policy to account. Specify 0 (false) if only requesting attrs that aren't inherited from COS.
      * @param  bool    $applyConfig Whether or not to apply the global config attrs to account. specify 0 (false) if only requesting attrs that aren't inherited from global config.
-     * @param  bool    $countOnly   Whether response should be count only. Default is 0 (false).
-     * @param  array   $attrs       Array of attributes.
      * @param  array   $types       Array of types to return. Legal values are: accounts|distributionlists|aliases|resources|domains|coses. (default is accounts)
      * @param  string  $sortBy      Name of attribute to sort on. Default is the account name.
      * @param  bool    $sortAscending Whether to sort in ascending order. Default is 1 (true).
+     * @param  bool    $countOnly   Whether response should be count only. Default is 0 (false).
+     * @param  array   $attrs       Array of attributes.
      * @return mix
      */
     public function searchDirectory(
@@ -3382,7 +3378,7 @@ abstract class Base extends API implements AdminInterface
         $sortBy = null,
         $sortAscending = null,
         $countOnly = null,
-        $attrs = null
+        array $attrs = []
     )
     {
         $request = new \Zimbra\Admin\Request\SearchDirectory(

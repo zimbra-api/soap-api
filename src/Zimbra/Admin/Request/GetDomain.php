@@ -32,7 +32,7 @@ class GetDomain extends Base implements AttributeSelector
      * Constructor method for GetDomain
      * @param  Domain $domain Domain
      * @param  bool $applyConfig Apply config flag
-     * @param  string $attrs  Comma separated list of attributes
+     * @param  array $attrs  A list of attributes
      * @return self
      */
     public function __construct(Domain $domain = null, $applyConfig = null, array $attrs = [])

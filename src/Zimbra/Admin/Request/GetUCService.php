@@ -31,7 +31,7 @@ class GetUCService extends Base implements AttributeSelector
     /**
      * Constructor method for GetUCService
      * @param  UcService $ucservice
-     * @param  string $attrs
+     * @param  array $attrs
      * @return self
      */
     public function __construct(UcService $ucservice = null, array $attrs = [])
