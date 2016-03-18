@@ -37,7 +37,7 @@ class SearchCalendarResources extends Base implements AttributeSelector
      * @param bool $applyCos Flag whether or not to apply the COS policy to calendar resource. Specify 0 (false) if only requesting attrs that aren't inherited from COS.
      * @param string $sortBy Name of attribute to sort on. default is the calendar resource name.
      * @param bool $sortAscending Whether to sort in ascending order. Default is 1 (true)
-     * @param string $attrs Comma separated list of attributes
+     * @param array $attrs A list of attributes
      * @return self
      */
     public function __construct(

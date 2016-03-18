@@ -31,7 +31,7 @@ class GetZimlet extends Base implements AttributeSelector
     /**
      * Constructor method for GetZimlet
      * @param  Zimlet $zimlet Zimlet selector
-     * @param  string $attrs Comma separated list of attributes
+     * @param  array  $attrs A list of attributes
      * @return self
      */
     public function __construct(Zimlet $zimlet, array $attrs = [])

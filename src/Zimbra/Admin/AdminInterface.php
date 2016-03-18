@@ -1235,10 +1235,10 @@ interface AdminInterface
      *
      * @param  CalendarResource $calResource Specify calendar resource.
      * @param  bool $applyCos Flag whether to apply Class of Service (COS).
-     * @param  string $attrs Comma separated list of attributes.
+     * @param  array $attrs A list of attributes.
      * @return mix
      */
-    function getCalendarResource(CalendarResource $calResource = null, $applyCos = null, $attrs = null);
+    function getCalendarResource(CalendarResource $calResource = null, $applyCos = null, array $attrs = []);
 
     /**
      * Get Certificate.
@@ -1264,10 +1264,10 @@ interface AdminInterface
      * Get Class Of Service (COS).
      *
      * @param  Cos $cos The name used to identify the COS.
-     * @param  string $attrs Comma separated list of attributes.
+     * @param  array $attrs A list of attributes.
      * @return mix
      */
-    function getCos(Cos $cos = null, $attrs = null);
+    function getCos(Cos $cos = null, array $attrs = []);
 
     /**
      * Returns attributes, with defaults and constraints if any,
@@ -1379,10 +1379,10 @@ interface AdminInterface
      * 
      * @param  Domain $domain The name used to identify the domain.
      * @param  bool   $applyConfig Apply config flag. True, then certain unset attrs on a domain will get their values from the global config. False, then only attributes directly set on the domain will be returned.
-     * @param  string $attrs  Attributes.
+     * @param  array $attrs  A list of attributes.
      * @return mix
      */
-    function getDomain(Domain $domain = null, $applyConfig = null, $attrs = null);
+    function getDomain(Domain $domain = null, $applyConfig = null, array $attrs = []);
 
     /**
      * Get Domain information.
@@ -1607,10 +1607,10 @@ interface AdminInterface
      * @param  bool   $applyConfig Apply config flag.
      *                        If {apply} is 1 (true), then certain unset attrs on a server will get their values from the global config. 
      *                        if {apply} is 0 (false), then only attributes directly set on the server will be returned.
-     * @param  string  $attrs Comma separated list of attributes.
+     * @param  array  $attrs A list of attributes.
      * @return mix
      */
-    function getServer(Server $server = null, $applyConfig = null, $attrs = null);
+    function getServer(Server $server = null, $applyConfig = null, array $attrs = []);
 
     /**
      * Get Network Interface information for a server.
@@ -1686,10 +1686,10 @@ interface AdminInterface
      * Get UC Service.
      * 
      * @param  UcService $ucservice UC Service name.
-     * @param  string $attrs Comma separated list of attributes.
+     * @param  array $attrs A list of attributes.
      * @return mix
      */
-    function getUCService(UcService $ucservice = null, $attrs = null);
+    function getUCService(UcService $ucservice = null, array $attrs = []);
 
     /**
      * Get Version information.
@@ -1711,19 +1711,19 @@ interface AdminInterface
      * XMPP stands for Extensible Messaging and Presence Protocol.
      * 
      * @param  XmppComponent $xmpp XMPP Component selector.
-     * @param  string $attrs Comma separated list of attributes.
+     * @param  array $attrs A list of attributes.
      * @return mix
      */
-    function getXMPPComponent(XmppComponent $xmpp, $attrs = null);
+    function getXMPPComponent(XmppComponent $xmpp, array $attrs = []);
 
     /**
      * Retreives a list of search tasks running or cached on a server.
      * 
      * @param  NamedElement $name Zimlet name.
-     * @param  string $attrs Comma separated list of attributes.
+     * @param  array $attrs A list of attributes.
      * @return mix
      */
-    function getZimlet(NamedElement $name, $attrs = null);
+    function getZimlet(NamedElement $name, array $attrs = []);
 
     /**
      * Get status for Zimlets.
@@ -2258,7 +2258,7 @@ interface AdminInterface
         $limit = null,
         $offset = null,
         $refresh = null,
-        $attrs = null
+        array $attrs = []
     );
 
     /**
@@ -2272,7 +2272,7 @@ interface AdminInterface
      * @param  bool    $applyCos  Flag whether or not to apply the COS policy to calendar resource. Specify 0 (false) if only requesting attrs that aren't inherited from COS.
      * @param  string  $sortBy   Name of attribute to sort on. default is the calendar resource name.
      * @param  bool    $sortAscending    Whether to sort in ascending order. Default is 1 (true).
-     * @param  string  $attrs  Comma separated list of attributes.
+     * @param  array  $attrs  A list of attributes.
      * @return mix
      */
     function searchCalendarResources(
@@ -2283,7 +2283,7 @@ interface AdminInterface
         $applyCos = null,
         $sortBy = null,
         $sortAscending = null,
-        $attrs = null
+        array $attrs = []
     );
 
     /**
@@ -2297,11 +2297,11 @@ interface AdminInterface
      * @param  string  $domain      The domain name to limit the search to.
      * @param  bool    $applyCos    Flag whether or not to apply the COS policy to account. Specify 0 (false) if only requesting attrs that aren't inherited from COS.
      * @param  bool    $applyConfig Whether or not to apply the global config attrs to account. specify 0 (false) if only requesting attrs that aren't inherited from global config.
-     * @param  bool    $countOnly   Whether response should be count only. Default is 0 (false).
-     * @param  array   $attrs       Array of attributes.
      * @param  array   $types       Array of types to return. Legal values are: accounts|distributionlists|aliases|resources|domains|coses. (default is accounts)
      * @param  string  $sortBy      Name of attribute to sort on. Default is the account name.
      * @param  bool    $sortAscending Whether to sort in ascending order. Default is 1 (true).
+     * @param  bool    $countOnly   Whether response should be count only. Default is 0 (false).
+     * @param  array   $attrs       Array of attributes.
      * @return mix
      */
     function searchDirectory(
@@ -2316,7 +2316,7 @@ interface AdminInterface
         $sortBy = null,
         $sortAscending = null,
         $countOnly = null,
-        $attrs = null
+        array $attrs = []
     );
 
     /**

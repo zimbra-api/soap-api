@@ -32,7 +32,7 @@ class GetServer extends Base implements AttributeSelector
      * Constructor method for GetServer
      * @param  Server $server Server
      * @param  bool $applyConfig Apply config flag
-     * @param  string $attrs An array of attributes
+     * @param  array $attrs An array of attributes
      * @return self
      */
     public function __construct(Server $server = null, $applyConfig = null, array $attrs = [])

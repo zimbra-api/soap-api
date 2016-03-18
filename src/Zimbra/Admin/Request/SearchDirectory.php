@@ -50,7 +50,7 @@ class SearchDirectory extends Base implements AttributeSelector
      * @param string $sortBy Name of attribute to sort on. Default is the account name.
      * @param bool $sortAscending Whether to sort in ascending order. Default is 1 (true).
      * @param bool $countOnly Whether response should be count only. Default is 0 (false)
-     * @param string $attrs Comma separated list of attributes
+     * @param array $attrs A list of attributes
      * @return self
      */
     public function __construct(
