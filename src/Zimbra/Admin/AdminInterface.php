@@ -981,10 +981,10 @@ interface AdminInterface
      *
      * @param  Account $account  The name used to identify the account.
      * @param  bool    $applyCos Flag whether or not to apply class of service (COS) rules.
-     * @param  string  $attrs    Comma separated list of attributes.
+     * @param  array   $attrs    A list of attributes.
      * @return mix
      */
-    function getAccount(Account $account = null, $applyCos = null, $attrs = null);
+    function getAccount(Account $account = null, $applyCos = null, array $attrs = []);
 
     /**
      * Get information about an account.
