@@ -1008,7 +1008,7 @@ abstract class Base extends API implements AdminInterface
      * @param  long   $duration Lifetime in seconds of the newly-created authtoken. defaults to 1 hour. Can't be longer then zimbraAuthTokenLifetime.
      * @return mix
      */
-    function delegateAuth(Account $account, $duration = null)
+    public function delegateAuth(Account $account, $duration = null)
     {
         $request = new \Zimbra\Admin\Request\DelegateAuth(
             $account, $duration
@@ -1253,7 +1253,7 @@ abstract class Base extends API implements AdminInterface
      * @param  bool $synchronous Synchronous flag.
      * @return mix
      */
-    function deployZimlet(
+    public function deployZimlet(
         DeployAction $action,
         Attachment $content = null,
         $flush = null,
@@ -1344,7 +1344,7 @@ abstract class Base extends API implements AdminInterface
      * @param  int   $after   Fix appts/tasks that have instances after this time, default = January 1, 2008 00:00:00 in GMT+13:00 timezone.
      * @return mix
      */
-    function fixCalendarTZ(
+    public function fixCalendarTZ(
         array $account = [],
         TzFixup $tzfixup = null,
         $sync = null,
@@ -1704,7 +1704,7 @@ abstract class Base extends API implements AdminInterface
      * @param  RightClass $rightClass Right class to return (ADMIN|USER|ALL).
      * @return mix
      */
-    function getAllRights(
+    public function getAllRights(
         $targetType = null,
         $expandAllAttrs = null,
         RightClass $rightClass = null)
@@ -1898,7 +1898,7 @@ abstract class Base extends API implements AdminInterface
      * @param  Cos $cos The name used to identify the COS..
      * @return mix
      */
-    function getCreateObjectAttrs(TargetWithType $target, Domain $domain = null, Cos $cos = null)
+    public function getCreateObjectAttrs(TargetWithType $target, Domain $domain = null, Cos $cos = null)
     {
         $request = new \Zimbra\Admin\Request\GetCreateObjectAttrs(
             $target, $domain, $cos
@@ -1958,7 +1958,7 @@ abstract class Base extends API implements AdminInterface
      * @param  array  $attrs Array of name.
      * @return mix
      */
-    function getDelegatedAdminConstraints(
+    public function getDelegatedAdminConstraints(
         TargetType $type,
         $id = null,
         $name = null,
@@ -1993,7 +1993,7 @@ abstract class Base extends API implements AdminInterface
      * @param  array    $attrs  Attributes.
      * @return mix
      */
-    function getDistributionList(
+    public function getDistributionList(
         DistList $dl = null,
         $limit = null,
         $offset = null,
@@ -2015,7 +2015,7 @@ abstract class Base extends API implements AdminInterface
      * @param  integer  $offset The starting offset (0, 25 etc).
      * @return mix
      */
-    function getDistributionListMembership(
+    public function getDistributionListMembership(
         DistList $dl = null,
         $limit = null,
         $offset = null
@@ -2035,7 +2035,7 @@ abstract class Base extends API implements AdminInterface
      * @param  array $attrs A list of attributes.
      * @return mix
      */
-    function getDomain(Domain $domain = null, $applyConfig = null, array $attrs = [])
+    public function getDomain(Domain $domain = null, $applyConfig = null, array $attrs = [])
     {
         $request = new \Zimbra\Admin\Request\GetDomain(
             $domain, $applyConfig, $attrs

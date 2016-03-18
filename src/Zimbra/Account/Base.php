@@ -704,7 +704,7 @@ abstract class Base extends API implements AccountInterface
      * @param  array $ace Specify Access Control Entries
      * @return mixed
      */
-    function revokeRights(array $ace = [])
+    public function revokeRights(array $ace = [])
     {
         $request = new \Zimbra\Account\Request\RevokeRights(
             $ace
