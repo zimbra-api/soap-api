@@ -11,6 +11,7 @@
 namespace Zimbra\Admin;
 
 use Zimbra\Admin\Struct\AttachmentIdAttrib as Attachment;
+use Zimbra\Admin\Struct\AlwaysOnClusterSelector as ClusterSelector;
 use Zimbra\Admin\Struct\CalendarResourceSelector as CalendarResource;
 use Zimbra\Admin\Struct\CacheSelector as Cache;
 use Zimbra\Admin\Struct\CosSelector as Cos;
@@ -48,6 +49,7 @@ use Zimbra\Admin\Struct\XmppComponentSelector as XmppComponent;
 use Zimbra\Admin\Struct\XmppComponentSpec as Xmpp;
 use Zimbra\Admin\Struct\ZimletAclStatusPri as ZimletAcl;
 
+use Zimbra\Struct\AccountNameSelector;
 use Zimbra\Struct\AccountSelector as Account;
 use Zimbra\Struct\EntrySearchFilterInfo as SearchFilter;
 use Zimbra\Struct\GranteeChooser;
@@ -71,6 +73,7 @@ use Zimbra\Enum\GalMode;
 use Zimbra\Enum\GalSearchType;
 use Zimbra\Enum\GetSessionsSortBy;
 use Zimbra\Enum\IpType;
+use Zimbra\Enum\LockoutOperation;
 use Zimbra\Enum\QuotaSortBy;
 use Zimbra\Enum\ReIndexAction;
 use Zimbra\Enum\RightClass;
@@ -537,6 +540,15 @@ interface AdminInterface
     function createAccount($name, $password, array $attrs = []);
 
     /**
+     * Create a AlwaysOnCluster 
+     *
+     * @param  string $name  New server name.
+     * @param  array  $attrs Attributes.
+     * @return mix
+     */
+    function createAlwaysOnCluster($name, array $attrs = []);
+
+    /**
      * Create a calendar resource.
      * Notes:
      *   1. A calendar resource is a special type of Account. The Create, Delete, Modify, Rename, Get, GetAll, and Search operations are very similar to those of Account.
@@ -725,6 +737,14 @@ interface AdminInterface
      * @return mix
      */
     function deleteAccount($id);
+
+    /**
+     * Delete a alwaysOnCluster .
+     *
+     * @param  string $id Zimbra ID.
+     * @return mix
+     */
+    function deleteAlwaysOnCluster($id);
 
     /**
      * Deletes the calendar resource with the given id.
@@ -1067,12 +1087,26 @@ interface AdminInterface
     function getAllAccounts(Server $server = null, Domain $domain = null);
 
     /**
+     * Get all active servers.
+     *
+     * @return mix
+     */
+    function getAllActiveServers();
+
+    /**
      * Get all Admin accounts.
      *
      * @param  string $applyCos Apply COS.
      * @return mix
      */
     function getAllAdminAccounts($applyCos = null);
+
+    /**
+     * Get all alwaysOnClusters.
+     *
+     * @return mix
+     */
+    function getAllAlwaysOnClusters();
 
     /**
      * Get all calendar resources that match the selection criteria.
@@ -1215,6 +1249,15 @@ interface AdminInterface
      * @return mix
      */
     function getAllZimlets(ExcludeType $exclude = null);
+
+    /**
+     * Get Server.
+     *
+     * @param  ClusterSelector $Cluster Specify cluster.
+     * @param  array $attrs A list of attributes.
+     * @return mix
+     */
+    function getAlwaysOnCluster(ClusterSelector $cluster = null, array $attrs = []);
 
     /**
      * Get attribute information.
@@ -1753,6 +1796,15 @@ interface AdminInterface
     );
 
     /**
+     * Puts the mailbox of the specified account into maintenance lockout or removes it from maintenance lockout .
+     * 
+     * @param  AccountNameSelector $account Account email address.
+     * @param  string $server op Operation. One of 'start' or 'end'
+     * @return mix
+     */
+    function lockoutMailbox(AccountNameSelector $account, LockoutOperation $op = null);
+
+    /**
      * Command to act on invidual queue files.
      * This proxies through to postsuper.
      * list-of-ids can be ALL.
@@ -1800,6 +1852,18 @@ interface AdminInterface
      * @return mix
      */
     function modifyAdminSavedSearches(array $searchs = []);
+
+    /**
+     * Modify attributes for a alwaysOnCluster.
+     * Notes:
+     *   1. an empty attribute value removes the specified attr.
+     *   2. his request is by default proxied to the referenced server.
+     * 
+     * @param  string $id    Zimbra ID.
+     * @param  array  $attrs Attributes.
+     * @return mix
+     */
+    function modifyAlwaysOnCluster($id, array $attrs = []);
 
     /**
      * Modify a calendar resource.
@@ -2020,6 +2084,14 @@ interface AdminInterface
      * @return mix
      */
     function recalculateMailboxCounts(MailboxId $mbox);
+
+    /**
+     * Deregister authtokens that have been deregistered on the sending server.
+     *
+     * @param  array  $tokens Auth tokens.
+     * @return mix
+     */
+    function refreshRegisteredAuthTokens(array $tokens);
 
     /**
      * ReIndex.
@@ -2349,6 +2421,12 @@ interface AdminInterface
     function setCurrentVolume($id, VolumeType $type);
 
     /**
+     * Set local server online.
+     * @return mix
+     */
+    function setLocalServerOnline();
+
+    /**
      * Set Password.
      * Access: domain admin sufficient.
      * Note: this request is by default proxied to the account's home server.
@@ -2358,6 +2436,15 @@ interface AdminInterface
      * @return mix
      */
     function setPassword($id, $newPassword);
+
+    /**
+     * Set server offline.
+     *
+     * @param  Server $server Specify server.
+     * @param  array $attrs A list of attributes.
+     * @return mix
+     */
+    function setServerOffline(Server $server = null, array $attrs = []);
 
     /**
      * Suspend a device or all devices attached to an account from further sync actions.

@@ -13,6 +13,7 @@ namespace Zimbra\Admin;
 use Zimbra\Soap\API;
 
 use Zimbra\Admin\Struct\AttachmentIdAttrib as Attachment;
+use Zimbra\Admin\Struct\AlwaysOnClusterSelector as ClusterSelector;
 use Zimbra\Admin\Struct\CalendarResourceSelector as CalendarResource;
 use Zimbra\Admin\Struct\CacheSelector as Cache;
 use Zimbra\Admin\Struct\CosSelector as Cos;
@@ -50,6 +51,7 @@ use Zimbra\Admin\Struct\XmppComponentSelector as XmppComponent;
 use Zimbra\Admin\Struct\XmppComponentSpec as Xmpp;
 use Zimbra\Admin\Struct\ZimletAclStatusPri as ZimletAcl;
 
+use Zimbra\Struct\AccountNameSelector;
 use Zimbra\Struct\AccountSelector as Account;
 use Zimbra\Struct\EntrySearchFilterInfo as SearchFilter;
 use Zimbra\Struct\GranteeChooser;
@@ -73,6 +75,7 @@ use Zimbra\Enum\GalMode;
 use Zimbra\Enum\GalSearchType;
 use Zimbra\Enum\GetSessionsSortBy;
 use Zimbra\Enum\IpType;
+use Zimbra\Enum\LockoutOperation;
 use Zimbra\Enum\QuotaSortBy;
 use Zimbra\Enum\ReIndexAction;
 use Zimbra\Enum\RightClass;
@@ -547,7 +550,7 @@ abstract class Base extends API implements AdminInterface
      */
     public function checkHealth()
     {
-        $request = new \Zimbra\Admin\Request\CheckHealth;
+        $request = new \Zimbra\Admin\Request\CheckHealth();
         return $this->getClient()->doRequest($request);
     }
 
@@ -740,6 +743,21 @@ abstract class Base extends API implements AdminInterface
     {
         $request = new \Zimbra\Admin\Request\CreateAccount(
             $name, $password, $attrs
+        );
+        return $this->getClient()->doRequest($request);
+    }
+
+    /**
+     * Create a AlwaysOnCluster
+     *
+     * @param  string $name  New server name.
+     * @param  array  $attrs Attributes.
+     * @return mix
+     */
+    public function createAlwaysOnCluster($name, array $attrs = [])
+    {
+        $request = new \Zimbra\Admin\Request\CreateAlwaysOnCluster(
+            $name, $attrs
         );
         return $this->getClient()->doRequest($request);
     }
@@ -1029,6 +1047,20 @@ abstract class Base extends API implements AdminInterface
     public function deleteAccount($id)
     {
         $request = new \Zimbra\Admin\Request\DeleteAccount(
+            $id
+        );
+        return $this->getClient()->doRequest($request);
+    }
+
+    /**
+     * Delete a alwaysOnCluster .
+     *
+     * @param  string $id Zimbra ID.
+     * @return mix
+     */
+    public function deleteAlwaysOnCluster($id)
+    {
+        $request = new \Zimbra\Admin\Request\DeleteAlwaysOnCluster(
             $id
         );
         return $this->getClient()->doRequest($request);
@@ -1504,7 +1536,7 @@ abstract class Base extends API implements AdminInterface
      */
     public function getAdminExtensionZimlets()
     {
-        $request = new \Zimbra\Admin\Request\GetAdminExtensionZimlets;
+        $request = new \Zimbra\Admin\Request\GetAdminExtensionZimlets();
         return $this->getClient()->doRequest($request);
     }
 
@@ -1530,7 +1562,7 @@ abstract class Base extends API implements AdminInterface
      */
     public function getAggregateQuotaUsageOnServer()
     {
-        $request = new \Zimbra\Admin\Request\GetAggregateQuotaUsageOnServer;
+        $request = new \Zimbra\Admin\Request\GetAggregateQuotaUsageOnServer();
         return $this->getClient()->doRequest($request);
     }
 
@@ -1542,7 +1574,7 @@ abstract class Base extends API implements AdminInterface
      */
     public function getAllAccountLoggers()
     {
-        $request = new \Zimbra\Admin\Request\GetAllAccountLoggers;
+        $request = new \Zimbra\Admin\Request\GetAllAccountLoggers();
         return $this->getClient()->doRequest($request);
     }
 
@@ -1563,6 +1595,17 @@ abstract class Base extends API implements AdminInterface
     }
 
     /**
+     * Get all active servers.
+     *
+     * @return mix
+     */
+    public function getAllActiveServers()
+    {
+        $request = new \Zimbra\Admin\Request\GetAllActiveServers();
+        return $this->getClient()->doRequest($request);
+    }
+
+    /**
      * Get all Admin accounts.
      *
      * @param  string $applyCos Apply COS.
@@ -1573,6 +1616,17 @@ abstract class Base extends API implements AdminInterface
         $request = new \Zimbra\Admin\Request\GetAllAdminAccounts(
             $applyCos
         );
+        return $this->getClient()->doRequest($request);
+    }
+
+    /**
+     * Get all alwaysOnClusters.
+     *
+     * @return mix
+     */
+    public function getAllAlwaysOnClusters()
+    {
+        $request = new \Zimbra\Admin\Request\GetAllAlwaysOnClusters();
         return $this->getClient()->doRequest($request);
     }
 
@@ -1599,7 +1653,7 @@ abstract class Base extends API implements AdminInterface
      */
     public function getAllConfig()
     {
-        $request = new \Zimbra\Admin\Request\GetAllConfig;
+        $request = new \Zimbra\Admin\Request\GetAllConfig();
         return $this->getClient()->doRequest($request);
     }
 
@@ -1610,7 +1664,7 @@ abstract class Base extends API implements AdminInterface
      */
     public function getAllCos()
     {
-        $request = new \Zimbra\Admin\Request\GetAllCos;
+        $request = new \Zimbra\Admin\Request\GetAllCos();
         return $this->getClient()->doRequest($request);
     }
 
@@ -1665,7 +1719,7 @@ abstract class Base extends API implements AdminInterface
      */
     public function getAllFreeBusyProviders()
     {
-        $request = new \Zimbra\Admin\Request\GetAllFreeBusyProviders;
+        $request = new \Zimbra\Admin\Request\GetAllFreeBusyProviders();
         return $this->getClient()->doRequest($request);
     }
 
@@ -1676,7 +1730,7 @@ abstract class Base extends API implements AdminInterface
      */
     public function getAllLocales()
     {
-        $request = new \Zimbra\Admin\Request\GetAllLocales;
+        $request = new \Zimbra\Admin\Request\GetAllLocales();
         return $this->getClient()->doRequest($request);
     }
 
@@ -1741,7 +1795,7 @@ abstract class Base extends API implements AdminInterface
      */
     public function getAllSkins()
     {
-        $request = new \Zimbra\Admin\Request\GetAllSkins;
+        $request = new \Zimbra\Admin\Request\GetAllSkins();
         return $this->getClient()->doRequest($request);
     }
 
@@ -1752,7 +1806,7 @@ abstract class Base extends API implements AdminInterface
      */
     public function getAllUCProviders()
     {
-        $request = new \Zimbra\Admin\Request\GetAllUCProviders;
+        $request = new \Zimbra\Admin\Request\GetAllUCProviders();
         return $this->getClient()->doRequest($request);
     }
 
@@ -1763,7 +1817,7 @@ abstract class Base extends API implements AdminInterface
      */
     public function getAllUCServices()
     {
-        $request = new \Zimbra\Admin\Request\GetAllUCServices;
+        $request = new \Zimbra\Admin\Request\GetAllUCServices();
         return $this->getClient()->doRequest($request);
     }
 
@@ -1774,7 +1828,7 @@ abstract class Base extends API implements AdminInterface
      */
     public function getAllVolumes()
     {
-        $request = new \Zimbra\Admin\Request\GetAllVolumes;
+        $request = new \Zimbra\Admin\Request\GetAllVolumes();
         return $this->getClient()->doRequest($request);
     }
 
@@ -1785,7 +1839,7 @@ abstract class Base extends API implements AdminInterface
      */
     public function getAllXMPPComponents()
     {
-        $request = new \Zimbra\Admin\Request\GetAllXMPPComponents;
+        $request = new \Zimbra\Admin\Request\GetAllXMPPComponents();
         return $this->getClient()->doRequest($request);
     }
 
@@ -1799,6 +1853,21 @@ abstract class Base extends API implements AdminInterface
     {
         $request = new \Zimbra\Admin\Request\GetAllZimlets(
             $exclude
+        );
+        return $this->getClient()->doRequest($request);
+    }
+
+    /**
+     * Get Server.
+     *
+     * @param  ClusterSelector $Cluster Specify cluster.
+     * @param  array $attrs A list of attributes.
+     * @return mix
+     */
+    public function getAlwaysOnCluster(ClusterSelector $cluster = null, array $attrs = [])
+    {
+        $request = new \Zimbra\Admin\Request\GetAlwaysOnCluster(
+            $cluster, $attrs
         );
         return $this->getClient()->doRequest($request);
     }
@@ -2168,7 +2237,7 @@ abstract class Base extends API implements AdminInterface
      */
     public function getLicenseInfo()
     {
-        $request = new \Zimbra\Admin\Request\GetLicenseInfo;
+        $request = new \Zimbra\Admin\Request\GetLicenseInfo();
         return $this->getClient()->doRequest($request);
     }
 
@@ -2224,7 +2293,7 @@ abstract class Base extends API implements AdminInterface
      */
     public function getMailboxStats()
     {
-        $request = new \Zimbra\Admin\Request\GetMailboxStats;
+        $request = new \Zimbra\Admin\Request\GetMailboxStats();
         return $this->getClient()->doRequest($request);
     }
 
@@ -2275,7 +2344,7 @@ abstract class Base extends API implements AdminInterface
      */
     public function getMemcachedClientConfig()
     {
-        $request = new \Zimbra\Admin\Request\GetMemcachedClientConfig;
+        $request = new \Zimbra\Admin\Request\GetMemcachedClientConfig();
         return $this->getClient()->doRequest($request);
     }
 
@@ -2393,7 +2462,7 @@ abstract class Base extends API implements AdminInterface
      */
     public function getServiceStatus()
     {
-        $request = new \Zimbra\Admin\Request\GetServiceStatus;
+        $request = new \Zimbra\Admin\Request\GetServiceStatus();
         return $this->getClient()->doRequest($request);
     }
 
@@ -2478,7 +2547,7 @@ abstract class Base extends API implements AdminInterface
      */
     public function getVersionInfo()
     {
-        $request = new \Zimbra\Admin\Request\GetVersionInfo;
+        $request = new \Zimbra\Admin\Request\GetVersionInfo();
         return $this->getClient()->doRequest($request);
     }
 
@@ -2534,7 +2603,7 @@ abstract class Base extends API implements AdminInterface
      */
     public function getZimletStatus()
     {
-        $request = new \Zimbra\Admin\Request\GetZimletStatus;
+        $request = new \Zimbra\Admin\Request\GetZimletStatus();
         return $this->getClient()->doRequest($request);
     }
 
@@ -2555,6 +2624,19 @@ abstract class Base extends API implements AdminInterface
         $request = new \Zimbra\Admin\Request\GrantRight(
             $target, $grantee, $right
         );
+        return $this->getClient()->doRequest($request);
+    }
+
+    /**
+     * Puts the mailbox of the specified account into maintenance lockout or removes it from maintenance lockout .
+     * 
+     * @param  AccountNameSelector $account Account email address.
+     * @param  string $server op Operation. One of 'start' or 'end'
+     * @return mix
+     */
+    public function lockoutMailbox(AccountNameSelector $account, LockoutOperation $op = null)
+    {
+        $request = new \Zimbra\Admin\Request\LockoutMailbox($account, $op);
         return $this->getClient()->doRequest($request);
     }
 
@@ -2624,6 +2706,22 @@ abstract class Base extends API implements AdminInterface
     public function modifyAdminSavedSearches(array $searchs = [])
     {
         $request = new \Zimbra\Admin\Request\ModifyAdminSavedSearches($searchs);
+        return $this->getClient()->doRequest($request);
+    }
+
+    /**
+     * Modify attributes for a alwaysOnCluster.
+     * Notes:
+     *   1. an empty attribute value removes the specified attr.
+     *   2. his request is by default proxied to the referenced server.
+     * 
+     * @param  string $id    Zimbra ID.
+     * @param  array  $attrs Attributes.
+     * @return mix
+     */
+    public function modifyAlwaysOnCluster($id, array $attrs = [])
+    {
+        $request = new \Zimbra\Admin\Request\ModifyAlwaysOnCluster($id, $attrs);
         return $this->getClient()->doRequest($request);
     }
 
@@ -2848,7 +2946,7 @@ abstract class Base extends API implements AdminInterface
      */
     public function noOp()
     {
-        $request = new \Zimbra\Admin\Request\NoOp;
+        $request = new \Zimbra\Admin\Request\NoOp();
         return $this->getClient()->doRequest($request);
     }
 
@@ -2859,7 +2957,7 @@ abstract class Base extends API implements AdminInterface
      */
     public function ping()
     {
-        $request = new \Zimbra\Admin\Request\Ping;
+        $request = new \Zimbra\Admin\Request\Ping();
         return $this->getClient()->doRequest($request);
     }
 
@@ -2977,6 +3075,20 @@ abstract class Base extends API implements AdminInterface
     {
         $request = new \Zimbra\Admin\Request\RecalculateMailboxCounts(
             $mbox
+        );
+        return $this->getClient()->doRequest($request);
+    }
+
+    /**
+     * Deregister authtokens that have been deregistered on the sending server.
+     *
+     * @param  array  $tokens Auth tokens.
+     * @return mix
+     */
+    public function refreshRegisteredAuthTokens(array $tokens)
+    {
+        $request = new \Zimbra\Admin\Request\RefreshRegisteredAuthTokens(
+            $tokens
         );
         return $this->getClient()->doRequest($request);
     }
@@ -3430,6 +3542,16 @@ abstract class Base extends API implements AdminInterface
     }
 
     /**
+     * Set local server online.
+     * @return mix
+     */
+    public function setLocalServerOnline()
+    {
+        $request = new \Zimbra\Admin\Request\SetLocalServerOnline();
+        return $this->getClient()->doRequest($request);
+    }
+
+    /**
      * Set Password.
      * Access: domain admin sufficient.
      * Note: this request is by default proxied to the account's home server.
@@ -3442,6 +3564,21 @@ abstract class Base extends API implements AdminInterface
     {
         $request = new \Zimbra\Admin\Request\SetPassword(
             $id, $newPassword
+        );
+        return $this->getClient()->doRequest($request);
+    }
+
+    /**
+     * Set server offline.
+     *
+     * @param  Server $server Specify server.
+     * @param  array $attrs A list of attributes.
+     * @return mix
+     */
+    public function setServerOffline(Server $server = null, array $attrs = [])
+    {
+        $request = new \Zimbra\Admin\Request\SetServerOffline(
+            $server, $attrs
         );
         return $this->getClient()->doRequest($request);
     }
