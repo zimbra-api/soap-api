@@ -11,7 +11,6 @@
 namespace Zimbra\Soap;
 
 use Zimbra\Common\SimpleXML;
-use Zimbra\Soap\Request;
 
 /**
  * Soap message class
