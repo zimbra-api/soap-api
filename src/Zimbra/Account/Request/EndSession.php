@@ -21,4 +21,38 @@ namespace Zimbra\Account\Request;
  */
 class EndSession extends Base
 {
+    /**
+     * Constructor method for EndSession
+     * @param  bool $logoff Flag whether the exp flag is needed in the response for group entries.
+     * @return self
+     */
+    public function __construct($logoff = null)
+    {
+        parent::__construct();
+        if(null !== $logoff)
+        {
+            $this->setProperty('logoff', (bool) $logoff);
+        }
+    }
+
+    /**
+     * Gets logoff
+     *
+     * @return bool
+     */
+    public function getLogoff()
+    {
+        return $this->getProperty('logoff');
+    }
+
+    /**
+     * Sets logoff
+     *
+     * @param  bool $logoff
+     * @return self
+     */
+    public function setLogoff($logoff)
+    {
+        return $this->setProperty('logoff', (bool) $logoff);
+    }
 }

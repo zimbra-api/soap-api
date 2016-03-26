@@ -32,21 +32,34 @@ class RemoveDistributionListMember extends Base
     private $_members;
 
     /**
+     * Accounts
+     * @var Sequence
+     */
+    private $_accounts;
+
+    /**
      * Constructor method for RemoveDistributionListMember
      * @param  string $id Zimbra ID
      * @param  array  $members Members
+     * @param  array  $accounts Specify Accounts insteaf of members if you want to remove all addresses that belong to an account from the list
      * @return self
      */
-    public function __construct($id, array $members)
+    public function __construct($id, array $members, array $accounts = [])
     {
         parent::__construct();
         $this->setProperty('id', trim($id));
         $this->setMembers($members);
+        $this->setAccounts($accounts);
+
         $this->on('before', function(Base $sender)
         {
             if($sender->getMembers()->count())
             {
                 $sender->setChild('dlm', $sender->getMembers()->all());
+            }
+            if($sender->getAccounts()->count())
+            {
+                $sender->setChild('account', $sender->getAccounts()->all());
             }
         });
     }
@@ -120,5 +133,51 @@ class RemoveDistributionListMember extends Base
     public function getMembers()
     {
         return $this->_members;
+    }
+
+    /**
+     * Add a account
+     *
+     * @param  string $account
+     * @return self
+     */
+    public function addAccount($account)
+    {
+        $account = trim($account);
+        if(!empty($account) && !$this->_accounts->contains($account))
+        {
+            $this->_accounts->add($account);
+        }
+        return $this;
+    }
+
+    /**
+     * Sets account sequence
+     *
+     * @param  array  $accounts Account
+     * @return self
+     */
+    public function setAccounts(array $accounts)
+    {
+        $this->_accounts = new Sequence($accounts);
+        foreach ($accounts as $dlm)
+        {
+            $dlm = trim($dlm);
+            if(!empty($dlm) && !$this->_accounts->contains($dlm))
+            {
+                $this->_accounts->add($dlm);
+            }
+        }
+        return $this;
+    }
+
+    /**
+     * Gets account sequence
+     *
+     * @return Sequence
+     */
+    public function getAccounts()
+    {
+        return $this->_accounts;
     }
 }

@@ -15,6 +15,7 @@ class GenCSRTest extends ZimbraAdminApiTestCase
     public function testGenCSRRequest()
     {
         $server = $this->faker->word;
+        $digest = $this->faker->word;
         $c = $this->faker->word;
         $st = $this->faker->word;
         $l = $this->faker->word;
@@ -25,12 +26,13 @@ class GenCSRTest extends ZimbraAdminApiTestCase
         $subject2 = $this->faker->word;
 
         $req = new GenCSR(
-            $server, false, CSRType::SELF(), CSRKeySize::SIZE_1024(), $c, $st, $l, $o, $ou, $cn, [$subject1]
+            $server, false, CSRType::SELF(), $digest, CSRKeySize::SIZE_1024(), $c, $st, $l, $o, $ou, $cn, [$subject1]
         );
         $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
         $this->assertSame($server, $req->getServer());
         $this->assertFalse($req->getNewCSR());
         $this->assertSame('self', $req->getType()->value());
+        $this->assertSame($digest, $req->getDigest());
         $this->assertSame(1024, $req->getKeySize()->value());
         $this->assertSame($c, $req->getC());
         $this->assertSame($st, $req->getSt());
@@ -43,6 +45,7 @@ class GenCSRTest extends ZimbraAdminApiTestCase
         $req->setServer($server)
             ->setNewCSR(true)
             ->setType(CSRType::COMM())
+            ->setDigest($digest)
             ->setKeySize(CSRKeySize::SIZE_2048())
             ->setC($c)
             ->setSt($st)
@@ -54,6 +57,7 @@ class GenCSRTest extends ZimbraAdminApiTestCase
         $this->assertSame($server, $req->getServer());
         $this->assertTrue($req->getNewCSR());
         $this->assertSame('comm', $req->getType()->value());
+        $this->assertSame($digest, $req->getDigest());
         $this->assertSame(2048, $req->getKeySize()->value());
         $this->assertSame($c, $req->getC());
         $this->assertSame($st, $req->getSt());
@@ -64,7 +68,7 @@ class GenCSRTest extends ZimbraAdminApiTestCase
         $this->assertSame([$subject1, $subject2], $req->getSubjectAltNames()->all());
 
         $xml = '<?xml version="1.0"?>' . "\n"
-            . '<GenCSRRequest server="' . $server . '" new="true" type="' . CSRType::COMM() . '" keysize="' . CSRKeySize::SIZE_2048() . '">'
+            . '<GenCSRRequest server="' . $server . '" new="true" type="' . CSRType::COMM() . '" digest="' . $digest . '" keysize="' . CSRKeySize::SIZE_2048() . '">'
                 . '<C>' . $c . '</C>'
                 . '<ST>' . $st . '</ST>'
                 . '<L>' . $l . '</L>'
@@ -82,6 +86,7 @@ class GenCSRTest extends ZimbraAdminApiTestCase
                 'server' => $server,
                 'new' => true,
                 'type' => CSRType::COMM()->value(),
+                'digest' => $digest,
                 'keysize' => CSRKeySize::SIZE_2048()->value(),
                 'C' => $c,
                 'ST' => $st,
@@ -101,6 +106,7 @@ class GenCSRTest extends ZimbraAdminApiTestCase
     public function testGenCSRApi()
     {
         $server = $this->faker->word;
+        $digest = $this->faker->word;
         $c = $this->faker->word;
         $st = $this->faker->word;
         $l = $this->faker->word;
@@ -110,7 +116,7 @@ class GenCSRTest extends ZimbraAdminApiTestCase
         $subject = $this->faker->word;
 
         $this->api->genCSR(
-            $server, true, CSRType::COMM(), CSRKeySize::SIZE_2048(), $c, $st, $l, $o, $ou, $cn, [$subject]
+            $server, true, CSRType::COMM(), $digest, CSRKeySize::SIZE_2048(), $c, $st, $l, $o, $ou, $cn, [$subject]
         );
 
         $client = $this->api->getClient();
@@ -118,7 +124,7 @@ class GenCSRTest extends ZimbraAdminApiTestCase
         $xml = '<?xml version="1.0"?>' . "\n"
             . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
                 . '<env:Body>'
-                    . '<urn1:GenCSRRequest server="' . $server . '" new="true" type="' . CSRType::COMM() . '" keysize="' . CSRKeySize::SIZE_2048() . '">'
+                    . '<urn1:GenCSRRequest server="' . $server . '" new="true" type="' . CSRType::COMM() . '" digest="' . $digest . '" keysize="' . CSRKeySize::SIZE_2048() . '">'
                         . '<urn1:C>' . $c . '</urn1:C>'
                         . '<urn1:ST>' . $st . '</urn1:ST>'
                         . '<urn1:L>' . $l . '</urn1:L>'

@@ -1417,6 +1417,7 @@ abstract class Base extends API implements AdminInterface
      * @param string $server Server ID
      * @param bool $isNew If value is "1" then force to create a new CSR, the previous one will be overwrited
      * @param CSRType $type Type of CSR
+     * @param string $digest Digest. Default value "sha1"
      * @param CSRKeySize $keysize Key size
      * @param string $c Subject attr C
      * @param string $sT Subject attr ST
@@ -1431,6 +1432,7 @@ abstract class Base extends API implements AdminInterface
         $server,
         $isNew,
         CSRType $type,
+        $digest = null,
         CSRKeySize $keysize,
         $c = null,
         $sT = null,
@@ -1442,7 +1444,7 @@ abstract class Base extends API implements AdminInterface
     )
     {
         $request = new \Zimbra\Admin\Request\GenCSR(
-            $server, $isNew, $type, $keysize, $c, $sT, $l, $o, $oU, $cN, $subjectAltName
+            $server, $isNew, $type, $digest, $keysize, $c, $sT, $l, $o, $oU, $cN, $subjectAltName
         );
         return $this->getClient()->doRequest($request);
     }
@@ -1777,13 +1779,14 @@ abstract class Base extends API implements AdminInterface
      * If {apply} is 0 (false), then only attributes directly set on the server will be returned
      *
      * @param  string $service Service name. e.g. mta, antispam, spell.
+     * @param  string $alwaysOnClusterId Always on cluster id.
      * @param  bool   $apply   Apply config flag.
      * @return mix
      */
-    public function getAllServers($service = null, $applyConfig = null)
+    public function getAllServers($service = null, $alwaysOnClusterId, $applyConfig = null)
     {
         $request = new \Zimbra\Admin\Request\GetAllServers(
-            $service, $applyConfig
+            $service, $alwaysOnClusterId, $applyConfig
         );
         return $this->getClient()->doRequest($request);
     }
@@ -3194,12 +3197,13 @@ abstract class Base extends API implements AdminInterface
      * 
      * @param  string $id   Zimbra ID
      * @param  array  $dlms Members.
+     * @param  array  $accounts Accounts.
      * @return mix
      */
-    public function removeDistributionListMember($id, array $dlms)
+    public function removeDistributionListMember($id, array $dlms, array $accounts = [])
     {
         $request = new \Zimbra\Admin\Request\RemoveDistributionListMember(
-            $id, $dlms
+            $id, $dlms, $accounts
         );
         return $this->getClient()->doRequest($request);
     }

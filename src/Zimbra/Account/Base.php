@@ -342,11 +342,12 @@ abstract class Base extends API implements AccountInterface
      * Called when the browser app (or other session-using app) shuts down.
      * Has no effect if called in a <nosession> context.
      *
+     * @param  bool $logoff Flag whether the exp flag is needed in the response for group entries.
      * @return mixed
      */
-    public function endSession()
+    public function endSession($logoff = null)
     {
-        $request = new \Zimbra\Account\Request\EndSession;
+        $request = new \Zimbra\Account\Request\EndSession($logoff);
         return $this->getClient()->doRequest($request);
     }
 
@@ -398,7 +399,7 @@ abstract class Base extends API implements AccountInterface
      */
     public function getAllLocales()
     {
-        $request = new \Zimbra\Account\Request\GetAllLocales;
+        $request = new \Zimbra\Account\Request\GetAllLocales();
         return $this->getClient()->doRequest($request);
     }
 
@@ -409,7 +410,7 @@ abstract class Base extends API implements AccountInterface
      */
     public function getAvailableCsvFormats()
     {
-        $request = new \Zimbra\Account\Request\GetAvailableCsvFormats;
+        $request = new \Zimbra\Account\Request\GetAvailableCsvFormats();
         return $this->getClient()->doRequest($request);
     }
 
@@ -422,7 +423,7 @@ abstract class Base extends API implements AccountInterface
      */
     public function getAvailableLocales()
     {
-        $request = new \Zimbra\Account\Request\GetAvailableLocales;
+        $request = new \Zimbra\Account\Request\GetAvailableLocales();
         return $this->getClient()->doRequest($request);
     }
 
@@ -437,7 +438,7 @@ abstract class Base extends API implements AccountInterface
      */
     public function getAvailableSkins()
     {
-        $request = new \Zimbra\Account\Request\GetAvailableSkins;
+        $request = new \Zimbra\Account\Request\GetAvailableSkins();
         return $this->getClient()->doRequest($request);
     }
 
@@ -563,7 +564,7 @@ abstract class Base extends API implements AccountInterface
      */
     public function getSignatures()
     {
-        $request = new \Zimbra\Account\Request\GetSignatures;
+        $request = new \Zimbra\Account\Request\GetSignatures();
         return $this->getClient()->doRequest($request);
     }
 
@@ -576,7 +577,7 @@ abstract class Base extends API implements AccountInterface
      */
     public function getVersionInfo()
     {
-        $request = new \Zimbra\Account\Request\GetVersionInfo;
+        $request = new \Zimbra\Account\Request\GetVersionInfo();
         return $this->getClient()->doRequest($request);
     }
 
@@ -587,7 +588,7 @@ abstract class Base extends API implements AccountInterface
      */
     public function getWhiteBlackList()
     {
-        $request = new \Zimbra\Account\Request\GetWhiteBlackList;
+        $request = new \Zimbra\Account\Request\GetWhiteBlackList();
         return $this->getClient()->doRequest($request);
     }
 

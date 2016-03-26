@@ -37,6 +37,7 @@ class GenCSR extends Base
      * @param string $server Server ID
      * @param bool $new If value is "1" then force to create a new CSR, the previous one will be overwrited
      * @param CSRType $type Type of CSR (self|comm)
+     * @param string $digest Digest. Default value "sha1"
      * @param CSRKeySize $keysize Key size - 1024 or 2048
      * @param string $c Subject attr C
      * @param string $st Subject attr ST
@@ -50,8 +51,9 @@ class GenCSR extends Base
     public function __construct(
         $server,
         $new,
-        CSRType $type,
-        CSRKeySize $keysize,
+        CSRType $type = null,
+        $digest = null,
+        CSRKeySize $keysize = null,
         $c = null,
         $st = null,
         $l = null,
@@ -64,8 +66,21 @@ class GenCSR extends Base
         parent::__construct();
         $this->setProperty('server', trim($server));
         $this->setProperty('new', (bool) $new);
-        $this->setProperty('type', $type);
-        $this->setProperty('keysize', $keysize);
+
+        if ($type instanceof CSRType)
+        {
+            $this->setProperty('type', $type);
+        }
+
+        if(null !== $digest)
+        {
+            $this->setProperty('digest', trim($digest));
+        }
+
+        if ($keysize instanceof CSRKeySize)
+        {
+            $this->setProperty('keysize', $keysize);
+        }
 
         if(null !== $c)
         {
@@ -163,6 +178,27 @@ class GenCSR extends Base
     public function setType(CSRType $type)
     {
         return $this->setProperty('type', $type);
+    }
+
+    /**
+     * Gets digest
+     *
+     * @return string
+     */
+    public function getDigest()
+    {
+        return $this->getProperty('digest');
+    }
+
+    /**
+     * Sets digest
+     *
+     * @param  string $digest
+     * @return self
+     */
+    public function setDigest($digest)
+    {
+        return $this->setProperty('digest', trim($digest));
     }
 
     /**

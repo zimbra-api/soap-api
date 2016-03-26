@@ -18,6 +18,7 @@ class GranteeTypeTest extends PHPUnit_Framework_TestCase
             'EGP'   => 'egp',
             'ALL'   => 'all',
             'DOM'   => 'dom',
+            'EDOM'  => 'edom',
             'GST'   => 'gst',
             'KEY'   => 'key',
             'PUB'   => 'pub',

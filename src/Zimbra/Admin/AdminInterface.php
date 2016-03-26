@@ -969,6 +969,7 @@ interface AdminInterface
      * @param string $server Server ID
      * @param bool $isNew If value is "1" then force to create a new CSR, the previous one will be overwrited
      * @param CSRType $type Type of CSR
+     * @param string $digest Digest. Default value "sha1"
      * @param CSRKeySize $keysize Key size
      * @param string $c Subject attr C
      * @param string $sT Subject attr ST
@@ -983,6 +984,7 @@ interface AdminInterface
         $server,
         $isNew,
         CSRType $type,
+        $digest = null,
         CSRKeySize $keysize,
         $c = null,
         $sT = null,
@@ -1202,10 +1204,11 @@ interface AdminInterface
      * If {apply} is 0 (false), then only attributes directly set on the server will be returned
      *
      * @param  string $service Service name. e.g. mta, antispam, spell.
+     * @param  string $alwaysOnClusterId Always on cluster id.
      * @param  bool   $apply   Apply config flag.
      * @return mix
      */
-    function getAllServers($service = null, $applyConfig = null);
+    function getAllServers($service = null, $alwaysOnClusterId, $applyConfig = null);
 
     /**
      * Get all installed skins on the server.
@@ -2174,9 +2177,10 @@ interface AdminInterface
      * 
      * @param  string $id   Zimbra ID
      * @param  array  $dlms Members.
+     * @param  array  $accounts Accounts.
      * @return mix
      */
-    function removeDistributionListMember($id, array $dlms);
+    function removeDistributionListMember($id, array $dlms, array $accounts = []);
 
     /**
      * Rename Account.
