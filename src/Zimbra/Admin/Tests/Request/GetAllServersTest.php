@@ -13,24 +13,30 @@ class GetAllServersTest extends ZimbraAdminApiTestCase
     public function testGetAllServersRequest()
     {
         $service = $this->faker->word;
-        $req = new GetAllServers($service, false);
+        $clusterId = $this->faker->uuid;
+
+        $req = new GetAllServers($service, $clusterId, false);
         $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
         $this->assertSame($service, $req->getService());
+        $this->assertSame($clusterId, $req->getAlwaysOnClusterId());
         $this->assertFalse($req->getApplyConfig());
 
         $req->setService($service)
+            ->setAlwaysOnClusterId($clusterId)
             ->setApplyConfig(true);
         $this->assertSame($service, $req->getService());
+        $this->assertSame($clusterId, $req->getAlwaysOnClusterId());
         $this->assertTrue($req->getApplyConfig());
 
         $xml = '<?xml version="1.0"?>' . "\n"
-            . '<GetAllServersRequest service="' . $service . '" applyConfig="true" />';
+            . '<GetAllServersRequest service="' . $service . '" alwaysOnClusterId="' . $clusterId . '" applyConfig="true" />';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
         $array = [
             'GetAllServersRequest' => [
                 '_jsns' => 'urn:zimbraAdmin',
                 'service' => $service,
+                'alwaysOnClusterId' => $clusterId,
                 'applyConfig' => true,
             ],
         ];
@@ -40,14 +46,15 @@ class GetAllServersTest extends ZimbraAdminApiTestCase
     public function testGetAllServersApi()
     {
         $service = $this->faker->word;
-        $this->api->getAllServers($service, true);
+        $clusterId = $this->faker->uuid;
+        $this->api->getAllServers($service, $clusterId, true);
 
         $client = $this->api->getClient();
         $req = $client->lastRequest();
         $xml = '<?xml version="1.0"?>' . "\n"
             . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
                 . '<env:Body>'
-                    . '<urn1:GetAllServersRequest service="' . $service . '" applyConfig="true" />'
+                    . '<urn1:GetAllServersRequest service="' . $service . '" alwaysOnClusterId="' . $clusterId . '" applyConfig="true" />'
                 . '</env:Body>'
             . '</env:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);

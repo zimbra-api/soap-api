@@ -1779,13 +1779,14 @@ abstract class Base extends API implements AdminInterface
      * If {apply} is 0 (false), then only attributes directly set on the server will be returned
      *
      * @param  string $service Service name. e.g. mta, antispam, spell.
+     * @param  string $alwaysOnClusterId Always on cluster id.
      * @param  bool   $apply   Apply config flag.
      * @return mix
      */
-    public function getAllServers($service = null, $applyConfig = null)
+    public function getAllServers($service = null, $alwaysOnClusterId, $applyConfig = null)
     {
         $request = new \Zimbra\Admin\Request\GetAllServers(
-            $service, $applyConfig
+            $service, $alwaysOnClusterId, $applyConfig
         );
         return $this->getClient()->doRequest($request);
     }

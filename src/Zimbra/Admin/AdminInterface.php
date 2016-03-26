@@ -1204,10 +1204,11 @@ interface AdminInterface
      * If {apply} is 0 (false), then only attributes directly set on the server will be returned
      *
      * @param  string $service Service name. e.g. mta, antispam, spell.
+     * @param  string $alwaysOnClusterId Always on cluster id.
      * @param  bool   $apply   Apply config flag.
      * @return mix
      */
-    function getAllServers($service = null, $applyConfig = null);
+    function getAllServers($service = null, $alwaysOnClusterId, $applyConfig = null);
 
     /**
      * Get all installed skins on the server.

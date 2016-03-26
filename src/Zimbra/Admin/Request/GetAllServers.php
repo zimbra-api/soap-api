@@ -25,15 +25,20 @@ class GetAllServers extends Base
     /**
      * Constructor method for GetAllServers
      * @param  string $service Service name. e.g. mta, antispam, spell.
+     * @param  string $alwaysOnClusterId Always on cluster id.
      * @param  bool $applyConfig Apply config flag
      * @return self
      */
-    public function __construct($service = null, $applyConfig = null)
+    public function __construct($service = null, $alwaysOnClusterId = null, $applyConfig = null)
     {
         parent::__construct();
         if(null !== $service)
         {
             $this->setProperty('service', trim($service));
+        }
+        if(null !== $alwaysOnClusterId)
+        {
+            $this->setProperty('alwaysOnClusterId', trim($alwaysOnClusterId);
         }
         if(null !== $applyConfig)
         {
@@ -60,6 +65,27 @@ class GetAllServers extends Base
     public function setService($service)
     {
         return $this->setProperty('service', trim($service));
+    }
+
+    /**
+     * Gets alwaysOnClusterId
+     *
+     * @return string
+     */
+    public function getAlwaysOnClusterId()
+    {
+        return $this->getProperty('alwaysOnClusterId');
+    }
+
+    /**
+     * Sets alwaysOnClusterId
+     *
+     * @param  string $alwaysOnClusterId
+     * @return self
+     */
+    public function setAlwaysOnClusterId($alwaysOnClusterId)
+    {
+        return $this->setProperty('alwaysOnClusterId', trim($alwaysOnClusterId));
     }
 
     /**
