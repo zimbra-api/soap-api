@@ -67,7 +67,7 @@ class GenCSR extends Base
         $this->setProperty('server', trim($server));
         $this->setProperty('new', (bool) $new);
 
-        if ($type instanceof CSRKeySize)
+        if ($type instanceof CSRType)
         {
             $this->setProperty('type', $type);
         }
@@ -77,7 +77,7 @@ class GenCSR extends Base
             $this->setProperty('digest', trim($digest));
         }
 
-        if ($keysize instanceof CSRType)
+        if ($keysize instanceof CSRKeySize)
         {
             $this->setProperty('keysize', $keysize);
         }

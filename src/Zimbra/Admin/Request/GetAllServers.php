@@ -38,7 +38,7 @@ class GetAllServers extends Base
         }
         if(null !== $alwaysOnClusterId)
         {
-            $this->setProperty('alwaysOnClusterId', trim($alwaysOnClusterId);
+            $this->setProperty('alwaysOnClusterId', trim($alwaysOnClusterId));
         }
         if(null !== $applyConfig)
         {
