@@ -232,9 +232,10 @@ interface AccountInterface
      * Called when the browser app (or other session-using app) shuts down.
      * Has no effect if called in a <nosession> context.
      *
+     * @param  bool $logoff Flag whether the exp flag is needed in the response for group entries.
      * @return mixed
      */
-    function endSession();
+    function endSession($logoff = null);
 
     /**
      * Returns groups the user is either a member or an owner of.
