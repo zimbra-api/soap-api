@@ -63,6 +63,12 @@ class TargetType extends Base
     const SERVER = 'server';
 
     /**
+     * Constant for value 'alwaysoncluster'
+     * @return string 'alwaysoncluster'
+     */
+    const ALWAYSONCLUSTER = 'alwaysoncluster';
+
+    /**
      * Constant for value 'ucservice'
      * @return string 'ucservice'
      */
