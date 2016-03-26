@@ -1417,6 +1417,7 @@ abstract class Base extends API implements AdminInterface
      * @param string $server Server ID
      * @param bool $isNew If value is "1" then force to create a new CSR, the previous one will be overwrited
      * @param CSRType $type Type of CSR
+     * @param string $digest Digest. Default value "sha1"
      * @param CSRKeySize $keysize Key size
      * @param string $c Subject attr C
      * @param string $sT Subject attr ST
@@ -1431,6 +1432,7 @@ abstract class Base extends API implements AdminInterface
         $server,
         $isNew,
         CSRType $type,
+        $digest = null,
         CSRKeySize $keysize,
         $c = null,
         $sT = null,
@@ -1442,7 +1444,7 @@ abstract class Base extends API implements AdminInterface
     )
     {
         $request = new \Zimbra\Admin\Request\GenCSR(
-            $server, $isNew, $type, $keysize, $c, $sT, $l, $o, $oU, $cN, $subjectAltName
+            $server, $isNew, $type, $digest, $keysize, $c, $sT, $l, $o, $oU, $cN, $subjectAltName
         );
         return $this->getClient()->doRequest($request);
     }

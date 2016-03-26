@@ -969,6 +969,7 @@ interface AdminInterface
      * @param string $server Server ID
      * @param bool $isNew If value is "1" then force to create a new CSR, the previous one will be overwrited
      * @param CSRType $type Type of CSR
+     * @param string $digest Digest. Default value "sha1"
      * @param CSRKeySize $keysize Key size
      * @param string $c Subject attr C
      * @param string $sT Subject attr ST
@@ -983,6 +984,7 @@ interface AdminInterface
         $server,
         $isNew,
         CSRType $type,
+        $digest = null,
         CSRKeySize $keysize,
         $c = null,
         $sT = null,
