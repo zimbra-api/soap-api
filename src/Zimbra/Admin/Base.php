@@ -3197,12 +3197,13 @@ abstract class Base extends API implements AdminInterface
      * 
      * @param  string $id   Zimbra ID
      * @param  array  $dlms Members.
+     * @param  array  $accounts Accounts.
      * @return mix
      */
-    public function removeDistributionListMember($id, array $dlms)
+    public function removeDistributionListMember($id, array $dlms, array $accounts = [])
     {
         $request = new \Zimbra\Admin\Request\RemoveDistributionListMember(
-            $id, $dlms
+            $id, $dlms, $accounts
         );
         return $this->getClient()->doRequest($request);
     }

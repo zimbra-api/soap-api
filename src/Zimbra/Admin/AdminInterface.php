@@ -2177,9 +2177,10 @@ interface AdminInterface
      * 
      * @param  string $id   Zimbra ID
      * @param  array  $dlms Members.
+     * @param  array  $accounts Accounts.
      * @return mix
      */
-    function removeDistributionListMember($id, array $dlms);
+    function removeDistributionListMember($id, array $dlms, array $accounts = []);
 
     /**
      * Rename Account.
