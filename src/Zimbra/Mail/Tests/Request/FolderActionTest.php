@@ -60,6 +60,7 @@ class FolderActionTest extends ZimbraMailApiTestCase
         $url = $this->faker->word;
         $gt = $this->faker->word;
         $view = $this->faker->word;
+        $numDays = mt_rand(1, 100);
 
         $action = new FolderActionSelector(
             FolderActionOp::READ(),
@@ -81,7 +82,8 @@ class FolderActionTest extends ZimbraMailApiTestCase
             true,
             $zid,
             $gt,
-            $view
+            $view,
+            $numDays
         );
 
         $req = new \Zimbra\Mail\Request\FolderAction(
@@ -95,7 +97,7 @@ class FolderActionTest extends ZimbraMailApiTestCase
 
         $xml = '<?xml version="1.0"?>'."\n"
             .'<FolderActionRequest>'
-                .'<action op="' . FolderActionOp::READ() . '" id="' . $id . '" tcon="' . $tcon . '" tag="' . $tag . '" l="' . $folder . '" rgb="' . $rgb . '" color="' . $color . '" name="' . $name . '" f="' . $flags . '" t="' . $tags . '" tn="' . $tagNames . '" recursive="true" url="' . $url . '" excludeFreeBusy="true" zid="' . $zid . '" gt="' . $gt . '" view="' . $view . '">'
+                .'<action op="' . FolderActionOp::READ() . '" id="' . $id . '" tcon="' . $tcon . '" tag="' . $tag . '" l="' . $folder . '" rgb="' . $rgb . '" color="' . $color . '" name="' . $name . '" f="' . $flags . '" t="' . $tags . '" tn="' . $tagNames . '" recursive="true" url="' . $url . '" excludeFreeBusy="true" zid="' . $zid . '" gt="' . $gt . '" view="' . $view . '" numDays="' . $numDays . '">'
                     .'<grant perm="' . $perm . '" gt="' . GranteeType::USR() . '" zid="' . $zid . '" d="' . $display . '" args="' . $args . '" pw="' . $pw . '" key="' . $key . '" />'
                     .'<acl>'
                         .'<grant perm="' . $perm . '" gt="' . GranteeType::USR() . '" zid="' . $zid . '" d="' . $display . '" args="' . $args . '" pw="' . $pw . '" key="' . $key . '" />'
@@ -133,6 +135,7 @@ class FolderActionTest extends ZimbraMailApiTestCase
                     'zid' => $zid,
                     'gt' => $gt,
                     'view' => $view,
+                    'numDays' => $numDays,
                     'grant' => array(
                         'perm' => $perm,
                         'gt' => GranteeType::USR()->value(),
@@ -223,6 +226,7 @@ class FolderActionTest extends ZimbraMailApiTestCase
         $url = $this->faker->word;
         $gt = $this->faker->word;
         $view = $this->faker->word;
+        $numDays = mt_rand(1, 100);
 
         $action = new FolderActionSelector(
             FolderActionOp::READ(),
@@ -244,7 +248,8 @@ class FolderActionTest extends ZimbraMailApiTestCase
             true,
             $zid,
             $gt,
-            $view
+            $view,
+            $numDays
         );
 
         $this->api->folderAction(
@@ -257,7 +262,7 @@ class FolderActionTest extends ZimbraMailApiTestCase
             .'<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraMail">'
                 .'<env:Body>'
                     .'<urn1:FolderActionRequest>'
-                        .'<urn1:action op="' . FolderActionOp::READ() . '" id="' . $id . '" tcon="' . $tcon . '" tag="' . $tag . '" l="' . $folder . '" rgb="' . $rgb . '" color="' . $color . '" name="' . $name . '" f="' . $flags . '" t="' . $tags . '" tn="' . $tagNames . '" recursive="true" url="' . $url . '" excludeFreeBusy="true" zid="' . $zid . '" gt="' . $gt . '" view="' . $view . '">'
+                        .'<urn1:action op="' . FolderActionOp::READ() . '" id="' . $id . '" tcon="' . $tcon . '" tag="' . $tag . '" l="' . $folder . '" rgb="' . $rgb . '" color="' . $color . '" name="' . $name . '" f="' . $flags . '" t="' . $tags . '" tn="' . $tagNames . '" recursive="true" url="' . $url . '" excludeFreeBusy="true" zid="' . $zid . '" gt="' . $gt . '" view="' . $view . '" numDays="' . $numDays . '">'
                             .'<urn1:grant perm="' . $perm . '" gt="' . GranteeType::USR() . '" zid="' . $zid . '" d="' . $display . '" args="' . $args . '" pw="' . $pw . '" key="' . $key . '" />'
                             .'<urn1:acl>'
                                 .'<urn1:grant perm="' . $perm . '" gt="' . GranteeType::USR() . '" zid="' . $zid . '" d="' . $display . '" args="' . $args . '" pw="' . $pw . '" key="' . $key . '" />'

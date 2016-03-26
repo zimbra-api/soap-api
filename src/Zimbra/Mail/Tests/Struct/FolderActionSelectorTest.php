@@ -59,6 +59,7 @@ class FolderActionSelectorTest extends ZimbraMailTestCase
         $url = $this->faker->word;
         $gt = $this->faker->word;
         $view = $this->faker->word;
+        $numDays = mt_rand(1, 100);
 
         $action = new FolderActionSelector(
             FolderActionOp::READ(),
@@ -80,7 +81,8 @@ class FolderActionSelectorTest extends ZimbraMailTestCase
             true,
             $zid,
             $gt,
-            $view
+            $view,
+            $numDays
         );
         $this->assertTrue($action->getOperation()->is('read'));
         $this->assertSame($grant, $action->getGrant());
@@ -92,6 +94,7 @@ class FolderActionSelectorTest extends ZimbraMailTestCase
         $this->assertSame($zid, $action->getZimbraId());
         $this->assertSame($gt, $action->getGrantType());
         $this->assertSame($view, $action->getView());
+        $this->assertSame($numDays, $action->getNumDays());
 
         $action->setOperation(FolderActionOp::READ())
                ->setGrant($grant)
@@ -102,7 +105,8 @@ class FolderActionSelectorTest extends ZimbraMailTestCase
                ->setExcludeFreeBusy(true)
                ->setZimbraId($zid)
                ->setGrantType($gt)
-               ->setView($view);
+               ->setView($view)
+               ->setNumDays($numDays);
         $this->assertTrue($action->getOperation()->is('read'));
         $this->assertSame($grant, $action->getGrant());
         $this->assertSame($acl, $action->getAcl());
@@ -113,9 +117,10 @@ class FolderActionSelectorTest extends ZimbraMailTestCase
         $this->assertSame($zid, $action->getZimbraId());
         $this->assertSame($gt, $action->getGrantType());
         $this->assertSame($view, $action->getView());
+        $this->assertSame($numDays, $action->getNumDays());
 
         $xml = '<?xml version="1.0"?>' . "\n"
-            .'<action op="' . FolderActionOp::READ() . '" id="' . $id . '" tcon="' . $tcon . '" tag="' . $tag . '" l="' . $folder . '" rgb="' . $rgb . '" color="' . $color . '" name="' . $name . '" f="' . $flags . '" t="' . $tags . '" tn="' . $tagNames . '" recursive="true" url="' . $url . '" excludeFreeBusy="true" zid="' . $zid . '" gt="' . $gt . '" view="' . $view . '">'
+            .'<action op="' . FolderActionOp::READ() . '" id="' . $id . '" tcon="' . $tcon . '" tag="' . $tag . '" l="' . $folder . '" rgb="' . $rgb . '" color="' . $color . '" name="' . $name . '" f="' . $flags . '" t="' . $tags . '" tn="' . $tagNames . '" recursive="true" url="' . $url . '" excludeFreeBusy="true" zid="' . $zid . '" gt="' . $gt . '" view="' . $view . '" numDays="' . $numDays . '">'
                 .'<grant perm="' . $perm . '" gt="' . GranteeType::USR() . '" zid="' . $zid . '" d="' . $display . '" args="' . $args . '" pw="' . $pw . '" key="' . $key . '" />'
                 .'<acl>'
                     .'<grant perm="' . $perm . '" gt="' . GranteeType::USR() . '" zid="' . $zid . '" d="' . $display . '" args="' . $args . '" pw="' . $pw . '" key="' . $key . '" />'
@@ -150,6 +155,7 @@ class FolderActionSelectorTest extends ZimbraMailTestCase
                 'zid' => $zid,
                 'gt' => $gt,
                 'view' => $view,
+                'numDays' => $numDays,
                 'grant' => array(
                     'perm' => $perm,
                     'gt' => GranteeType::USR()->value(),
