@@ -51,6 +51,12 @@ class GranteeType extends Base
     const DOM = 'dom';
 
     /**
+     * Constant for value 'edom'
+     * @return string 'edom'
+     */
+    const EDOM = 'edom';
+
+    /**
      * Constant for value 'gst'
      * @return string 'gst'
      */
