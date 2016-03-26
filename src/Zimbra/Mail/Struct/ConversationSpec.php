@@ -38,6 +38,7 @@ class ConversationSpec extends Base
      * @param string $fetch If value is "1" or "all" the full expanded message structure is inlined for the first (or for all) messages in the conversation.
      * @param bool   $html Set to return defanged HTML content by default. (default is unset)
      * @param int    $max Maximum inlined length
+     * @param int    $needExp Set to return group info (isGroup and exp flags) on <e> elements in the response (default is unset.)
      * @param array  $headers Requested headers.
      * @return self
      */
@@ -46,6 +47,7 @@ class ConversationSpec extends Base
         $fetch = null,
         $html = null,
         $max = null,
+        $needExp = null,
         array $headers = []
     )
     {
@@ -62,6 +64,10 @@ class ConversationSpec extends Base
         if(null !== $max)
         {
             $this->setProperty('max', (int) $max);
+        }
+        if(null !== $needExp)
+        {
+            $this->setProperty('needExp', (bool) $needExp);
         }
 
         $this->setHeaders($headers);
@@ -156,6 +162,27 @@ class ConversationSpec extends Base
     public function setMaxInlinedLength($maxInlinedLength)
     {
         return $this->setProperty('max', (int) $maxInlinedLength);
+    }
+
+    /**
+     * Gets need can expand
+     *
+     * @return bool
+     */
+    public function getNeedCanExpand()
+    {
+        return $this->getProperty('needExp');
+    }
+
+    /**
+     * Sets need can expand
+     *
+     * @param  bool $wantHtml
+     * @return self
+     */
+    public function setNeedCanExpand($wantHtml)
+    {
+        return $this->setProperty('needExp', (bool) $wantHtml);
     }
 
     /**
