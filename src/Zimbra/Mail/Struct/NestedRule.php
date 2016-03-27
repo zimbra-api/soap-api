@@ -13,7 +13,7 @@ namespace Zimbra\Mail\Struct;
 use Zimbra\Struct\Base;
 
 /**
- * FilterRule struct class
+ * NestedRule struct class
  *
  * @package    Zimbra
  * @subpackage Mail
@@ -21,28 +21,22 @@ use Zimbra\Struct\Base;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
  */
-class FilterRule extends Base
+class NestedRule extends Base
 {
     /**
-     * Constructor method for FilterRule
-     * @param string $name Rule name
-     * @param bool $active Active flag. Set by default.
+     * Constructor method for NestedRule
      * @param FilterTests $filterTests Filter tests
      * @param FilterActions $filterActions Filter actions
      * @param NestedRule $child NestedRule child
      * @return self
      */
     public function __construct(
-        $name,
-        $active,
         FilterTests $filterTests,
         FilterActions $filterActions = NULL,
         NestedRule $child = NULL
     )
     {
         parent::__construct();
-        $this->setProperty('name', trim($name));
-        $this->setProperty('active', (bool) $active);
         $this->setChild('filterTests', $filterTests);
         if($filterActions instanceof FilterActions)
         {
@@ -52,48 +46,6 @@ class FilterRule extends Base
         {
             $this->setChild('nestedRule', $child);
         }
-    }
-
-    /**
-     * Gets name
-     *
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->getProperty('name');
-    }
-
-    /**
-     * Sets name
-     *
-     * @param  string $name
-     * @return self
-     */
-    public function setName($name)
-    {
-        return $this->setProperty('name', trim($name));
-    }
-
-    /**
-     * Gets active
-     *
-     * @return bool
-     */
-    public function getActive()
-    {
-        return $this->getProperty('active');
-    }
-
-    /**
-     * Sets active
-     *
-     * @param  bool $active
-     * @return self
-     */
-    public function setActive($active)
-    {
-        return $this->setProperty('active', (bool) $active);
     }
 
     /**
@@ -165,7 +117,7 @@ class FilterRule extends Base
      * @param  string $name
      * @return array
      */
-    public function toArray($name = 'filterRule')
+    public function toArray($name = 'nestedRule')
     {
         return parent::toArray($name);
     }
@@ -176,7 +128,7 @@ class FilterRule extends Base
      * @param  string $name
      * @return SimpleXML
      */
-    public function toXml($name = 'filterRule')
+    public function toXml($name = 'nestedRule')
     {
         return parent::toXml($name);
     }
