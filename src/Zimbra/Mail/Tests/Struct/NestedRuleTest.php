@@ -7,11 +7,11 @@ use Zimbra\Enum\FilterCondition;
 use Zimbra\Enum\Importance;
 
 /**
- * Testcase class for FilterRule.
+ * Testcase class for NestedRule.
  */
-class FilterRuleTest extends ZimbraMailTestCase
+class NestedRuleTest extends ZimbraMailTestCase
 {
-    public function testFilterRule()
+    public function testNestedRule()
     {
         $name = $this->faker->word;
         $index = mt_rand(1, 100);
@@ -162,28 +162,22 @@ class FilterRuleTest extends ZimbraMailTestCase
         $filterActions = new \Zimbra\Mail\Struct\FilterActions($actions);
 
         $child = new \Zimbra\Mail\Struct\NestedRule($filterTests);
-        $filterRule = new \Zimbra\Mail\Struct\FilterRule(
-            $name, true, $filterTests, $filterActions, $child
+        $nestedRule = new \Zimbra\Mail\Struct\NestedRule(
+            $filterTests, $filterActions, $child
         );
-        $this->assertSame($name, $filterRule->getName());
-        $this->assertTrue($filterRule->getActive());
-        $this->assertSame($filterTests, $filterRule->getFilterTests());
-        $this->assertSame($filterActions, $filterRule->getFilterActions());
-        $this->assertSame($child, $filterRule->getChildRule());
+        $this->assertSame($filterTests, $nestedRule->getFilterTests());
+        $this->assertSame($filterActions, $nestedRule->getFilterActions());
+        $this->assertSame($child, $nestedRule->getChildRule());
 
-        $filterRule->setName($name)
-                   ->setActive(true)
-                   ->setFilterTests($filterTests)
+        $nestedRule->setFilterTests($filterTests)
                    ->setFilterActions($filterActions)
                    ->setChildRule($child);
-        $this->assertSame($name, $filterRule->getName());
-        $this->assertTrue($filterRule->getActive());
-        $this->assertSame($filterTests, $filterRule->getFilterTests());
-        $this->assertSame($filterActions, $filterRule->getFilterActions());
-        $this->assertSame($child, $filterRule->getChildRule());
+        $this->assertSame($filterTests, $nestedRule->getFilterTests());
+        $this->assertSame($filterActions, $nestedRule->getFilterActions());
+        $this->assertSame($child, $nestedRule->getChildRule());
 
         $xml = '<?xml version="1.0"?>' . "\n"
-            .'<filterRule name="' . $name . '" active="true">'
+            .'<nestedRule>'
                 .'<filterTests condition="' . FilterCondition::ALL_OF() . '">'
                     .'<addressBookTest index="' . $index . '" negative="true" header="' . $header . '" />'
                     .'<addressTest index="' . $index . '" negative="true" header="' . $header . '" part="' . $part . '" stringComparison="' . $comparison . '" value="' . $value . '" caseSensitive="true" />'
@@ -257,13 +251,11 @@ class FilterRuleTest extends ZimbraMailTestCase
                         .'<twitterTest index="' . $index . '" negative="true" />'
                     .'</filterTests>'
                 .'</nestedRule>'
-            .'</filterRule>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $filterRule);
+            .'</nestedRule>';
+        $this->assertXmlStringEqualsXmlString($xml, (string) $nestedRule);
 
         $array = array(
-            'filterRule' => array(
-                'name' => $name,
-                'active' => true,
+            'nestedRule' => array(
                 'filterTests' => array(
                     'condition' => FilterCondition::ALL_OF()->value(),
                     'addressBookTest' => array(
@@ -569,6 +561,6 @@ class FilterRuleTest extends ZimbraMailTestCase
                 ),
             ),
         );
-        $this->assertEquals($array, $filterRule->toArray());
+        $this->assertEquals($array, $nestedRule->toArray());
     }
 }

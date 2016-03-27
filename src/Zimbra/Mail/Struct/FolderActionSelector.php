@@ -36,6 +36,18 @@ class FolderActionSelector extends ActionSelector
      * @param string $flags
      * @param string $tags
      * @param string $tn
+
+     * @param ActionGrantSelector $grant
+     * @param FolderActionSelectorAcl $acl
+     * @param RetentionPolicy $retentionPolicy
+     * @param bool $recursive
+     * @param string $url
+     * @param bool $excludeFreeBusy
+     * @param string $zid
+     * @param string $gt
+     * @param string $view
+     * @param string $tn
+     * @param int $numDays
      * @return self
      */
     public function __construct(
@@ -58,7 +70,8 @@ class FolderActionSelector extends ActionSelector
         $excludeFreeBusy = null,
         $zid = null,
         $gt = null,
-        $view = null
+        $view = null,
+        $numDays = null
     )
     {
         parent::__construct(
@@ -109,6 +122,10 @@ class FolderActionSelector extends ActionSelector
         if(null !== $view)
         {
             $this->setProperty('view', trim($view));
+        }
+        if(null !== $numDays)
+        {
+            $this->setProperty('numDays', (int) $numDays);
         }
     }
 
@@ -320,6 +337,27 @@ class FolderActionSelector extends ActionSelector
     public function setView($view)
     {
         return $this->setProperty('view', trim($view));
+    }
+
+    /**
+     * Gets numDays
+     *
+     * @return int
+     */
+    public function getNumDays()
+    {
+        return $this->getProperty('numDays');
+    }
+
+    /**
+     * Sets numDays
+     *
+     * @param  int $numDays
+     * @return self
+     */
+    public function setNumDays($numDays)
+    {
+        return $this->setProperty('numDays', (int) $numDays);
     }
 
     /**

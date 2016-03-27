@@ -144,6 +144,18 @@ class FilterTests extends Base
                     {
                         $this->setChild('twitterTest', $test);
                     }
+                    if($test instanceof CommunityRequestsTest)
+                    {
+                        $this->setChild('communityRequestsTest', $test);
+                    }
+                    if($test instanceof CommunityContentTest)
+                    {
+                        $this->setChild('communityContentTest', $test);
+                    }
+                    if($test instanceof CommunityConnectionsTest)
+                    {
+                        $this->setChild('communityConnectionsTest', $test);
+                    }
                 }
             }
         });

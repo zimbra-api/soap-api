@@ -99,6 +99,15 @@ class FilterTestsTest extends ZimbraMailTestCase
         $twitterTest = new \Zimbra\Mail\Struct\TwitterTest(
             $index, true
         );
+        $communityRequestsTest = new \Zimbra\Mail\Struct\CommunityRequestsTest(
+            $index, true
+        );
+        $communityContentTest = new \Zimbra\Mail\Struct\CommunityContentTest(
+            $index, true
+        );
+        $communityConnectionsTest = new \Zimbra\Mail\Struct\CommunityConnectionsTest(
+            $index, true
+        );
 
         $tests = [
             $addressBookTest,
@@ -124,7 +133,10 @@ class FilterTestsTest extends ZimbraMailTestCase
             $sizeTest,
             $socialcastTest,
             $trueTest,
-            $twitterTest
+            $twitterTest,
+            $communityRequestsTest,
+            $communityContentTest,
+            $communityConnectionsTest,
         ];
         $filterTests = new \Zimbra\Mail\Struct\FilterTests(
             FilterCondition::ALL_OF(), $tests
@@ -165,6 +177,9 @@ class FilterTestsTest extends ZimbraMailTestCase
                 .'<socialcastTest index="' . $index . '" negative="true" />'
                 .'<trueTest index="' . $index . '" negative="true" />'
                 .'<twitterTest index="' . $index . '" negative="true" />'
+                .'<communityRequestsTest index="' . $index . '" negative="true" />'
+                .'<communityContentTest index="' . $index . '" negative="true" />'
+                .'<communityConnectionsTest index="' . $index . '" negative="true" />'
             .'</filterTests>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $filterTests);
 
@@ -296,6 +311,18 @@ class FilterTestsTest extends ZimbraMailTestCase
                     'negative' => true,
                 ),
                 'twitterTest' => array(
+                    'index' => $index,
+                    'negative' => true,
+                ),
+                'communityRequestsTest' => array(
+                    'index' => $index,
+                    'negative' => true,
+                ),
+                'communityContentTest' => array(
+                    'index' => $index,
+                    'negative' => true,
+                ),
+                'communityConnectionsTest' => array(
                     'index' => $index,
                     'negative' => true,
                 ),
