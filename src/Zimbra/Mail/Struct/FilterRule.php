@@ -24,7 +24,7 @@ use Zimbra\Struct\Base;
 class FilterRule extends Base
 {
     /**
-     * Constructor method for FilterActions
+     * Constructor method for FilterRule
      * @param string $name Rule name
      * @param bool $active Active flag. Set by default.
      * @param FilterTests $filterTests Filter tests
