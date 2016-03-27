@@ -148,6 +148,10 @@ class FilterTests extends Base
                     {
                         $this->setChild('communityRequestsTest', $test);
                     }
+                    if($test instanceof CommunityContentTest)
+                    {
+                        $this->setChild('communityContentTest', $test);
+                    }
                 }
             }
         });
