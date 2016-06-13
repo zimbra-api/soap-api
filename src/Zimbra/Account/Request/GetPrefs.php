@@ -24,5 +24,17 @@ use Zimbra\Account\Struct\PrefsImplTrail;
  */
 class GetPrefs extends Base
 {
-    use PrefsImplTrail;
+    use PrefsImplTrail {
+        PrefsImplTrail::__construct as private __prefsConstruct;
+    }
+
+    /**
+     * Constructor method for GetPrefs
+     * @param array $prefs
+     * @return self
+     */
+    public function __construct(array $prefs = [])
+    {
+        $this->__prefsConstruct($prefs);
+    }
 }

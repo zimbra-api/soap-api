@@ -24,7 +24,7 @@ use Zimbra\Struct\AttrsImplTrait;
 abstract class Attr extends Request
 {
     use AttrsImplTrait {
-        AttrsImplTrait::__construct as private __attrConstruct;
+        AttrsImplTrait::__construct as private __attrsConstruct;
     }
 
     /**
@@ -34,6 +34,6 @@ abstract class Attr extends Request
      */
     public function __construct(array $attrs = [])
     {
-        $this->__attrConstruct($attrs);
+        $this->__attrsConstruct($attrs);
     }
 }
