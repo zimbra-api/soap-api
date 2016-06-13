@@ -24,7 +24,19 @@ use Zimbra\Struct\Base;
  */
 abstract class AdminAttrsImpl extends Base
 {
-    use AttrsImplTrait;
+    use AttrsImplTrait {
+        AttrsImplTrait::__construct as private __attrsConstruct;
+    }
+
+    /**
+     * Constructor method for AdminAttrsImpl
+     * @param array $attrs
+     * @return self
+     */
+    public function __construct(array $attrs = [])
+    {
+        $this->__attrsConstruct($attrs);
+    }
 
     /**
      * Returns the array representation of this class 
