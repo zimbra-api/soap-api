@@ -187,6 +187,20 @@ abstract class Base extends API implements AccountInterface
     }
 
     /**
+     * Request is used by a mobile gateway app/client to bootstrap/initialize itself.
+     *
+     * @param  bool $wantAppToken Whether an "anticipatory app account" auth token is desiredentries.
+     * @return mixed
+     */
+    public function bootstrapMobileGatewayApp($wantAppToken = null)
+    {
+        $request = new \Zimbra\Account\Request\BootstrapMobileGatewayApp(
+            $wantAppToken
+        );
+        return $this->getClient()->doRequest($request);
+    }
+
+    /**
      * Change password
      *
      * @param  AccountSelector $account     The user account.
