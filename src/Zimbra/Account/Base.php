@@ -201,6 +201,20 @@ abstract class Base extends API implements AccountInterface
     }
 
     /**
+     * Create app specific password
+     *
+     * @param  bool $appName
+     * @return mixed
+     */
+    public function createAppSpecificPassword($appName = null)
+    {
+        $request = new \Zimbra\Account\Request\CreateAppSpecificPassword(
+            $appName
+        );
+        return $this->getClient()->doRequest($request);
+    }
+
+    /**
      * Change password
      *
      * @param  AccountSelector $account     The user account.
