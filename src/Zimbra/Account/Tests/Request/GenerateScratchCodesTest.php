@@ -10,7 +10,7 @@ use Zimbra\Account\Request\GenerateScratchCodes;
  */
 class GenerateScratchCodesTest extends ZimbraAccountApiTestCase
 {
-    public function testGetAllLocalesRequest()
+    public function testGenerateScratchCodesRequest()
     {
         $req = new GenerateScratchCodes;
         $this->assertInstanceOf('Zimbra\Account\Request\Base', $req);
@@ -27,7 +27,7 @@ class GenerateScratchCodesTest extends ZimbraAccountApiTestCase
         $this->assertEquals($array, $req->toArray());
     }
 
-    public function testGetAllLocalesApi()
+    public function testGenerateScratchCodesApi()
     {
         $this->api->generateScratchCodes();
 
