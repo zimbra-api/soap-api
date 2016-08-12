@@ -490,6 +490,17 @@ abstract class Base extends API implements AccountInterface
     }
 
     /**
+     * Generate scratch codes
+     *
+     * @return mixed
+     */
+    public function getAppSpecificPasswords()
+    {
+        $request = new \Zimbra\Account\Request\GetAppSpecificPasswords();
+        return $this->getClient()->doRequest($request);
+    }
+
+    /**
      * Returns the known CSV formats that can be used for import and export of addressbook.
      *
      * @return mixed
