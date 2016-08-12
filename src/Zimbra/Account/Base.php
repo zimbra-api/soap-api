@@ -326,6 +326,17 @@ abstract class Base extends API implements AccountInterface
     }
 
     /**
+     * Disable two factor auth
+     *
+     * @return mixed
+     */
+    public function disableTwoFactorAuth()
+    {
+        $request = new \Zimbra\Account\Request\DisableTwoFactorAuth();
+        return $this->getClient()->doRequest($request);
+    }
+
+    /**
      * Return all targets of the specified rights applicable to the requested account
      *
      * @param  array $rights The rights.
