@@ -377,6 +377,42 @@ abstract class Base extends API implements AccountInterface
     }
 
     /**
+     * Enable two factor auth
+     *
+     * @param  string    $name  The name of the account for which to enable two-factor auth
+     * @param  string    $password  Password to use in conjunction with an account
+     * @param  AuthToken $authToken  Auth token issued during the first 2FA enablement step.
+     * @param  bool      $csrfSupported  Whether the client supports the CSRF token.
+     * @return mixed
+     */
+    public function enableTwoFactorAuth(
+        $name,
+        $password = null,
+        AuthToken $authToken = null,
+        $twoFactorCode = null,
+        $csrfSupported = null
+    )
+    {
+        $request = new \Zimbra\Account\Request\EnableTwoFactorAuth(
+            $name,
+            $password,
+            $authToken,
+            $twoFactorCode,
+            $csrfSupported
+        );
+        $result = $this->getClient()->doRequest($request);
+        if(isset($result->authToken) && !empty($result->authToken))
+        {
+            $this->getClient()->setAuthToken($result->authToken);
+        }
+        elseif($authToken)
+        {
+            $this->getClient()->setAuthToken($authToken->getValue());
+        }
+        return $result;
+    }
+
+    /**
      * End the current session, removing it from all caches.
      * Called when the browser app (or other session-using app) shuts down.
      * Has no effect if called in a <nosession> context.
