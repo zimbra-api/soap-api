@@ -40,8 +40,7 @@ class PreAuth extends Base
     {
         parent::__construct(trim($value));
         $this->setTimestamp($timestamp);
-        $expiresTimestamp = (int) $expiresTimestamp < 0 ? 0 : (int) $expiresTimestamp;
-        $this->setProperty('expiresTimestamp', $expiresTimestamp);
+        $this->setExpiresTimestamp($expiresTimestamp);
     }
 
     /**
@@ -85,7 +84,7 @@ class PreAuth extends Base
     public function setExpiresTimestamp($expiresTimestamp)
     {
         $expiresTimestamp = (int) $expiresTimestamp < 0 ? 0 : (int) $expiresTimestamp;
-        return $this->setProperty('expiresTimestamp', (int) $expiresTimestamp);
+        return $this->setProperty('expiresTimestamp', $expiresTimestamp);
     }
 
     /**
