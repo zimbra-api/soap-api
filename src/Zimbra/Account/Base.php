@@ -490,7 +490,7 @@ abstract class Base extends API implements AccountInterface
     }
 
     /**
-     * Generate scratch codes
+     * Get app specific passwords
      *
      * @return mixed
      */
@@ -574,6 +574,17 @@ abstract class Base extends API implements AccountInterface
         $request = new \Zimbra\Account\Request\GetDistributionListMembers(
             $dl, $limit, $offset
         );
+        return $this->getClient()->doRequest($request);
+    }
+
+    /**
+     * Get gcm sender id
+     *
+     * @return mixed
+     */
+    public function getGcmSenderId()
+    {
+        $request = new \Zimbra\Account\Request\GetGcmSenderId();
         return $this->getClient()->doRequest($request);
     }
 
