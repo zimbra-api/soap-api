@@ -699,6 +699,17 @@ abstract class Base extends API implements AccountInterface
     }
 
     /**
+     * Get OAuth consumers
+     *
+     * @return mixed
+     */
+    public function getTrustedDevices()
+    {
+        $request = new \Zimbra\Account\Request\GetTrustedDevices();
+        return $this->getClient()->doRequest($request);
+    }
+
+    /**
      * Get Signatures associated with an account
      * Note: This request will return a SOAP fault if the zimbraSoapExposeVersion
      *       server/globalconfig attribute is set to FALSE.
