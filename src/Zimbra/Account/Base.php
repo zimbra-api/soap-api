@@ -655,6 +655,17 @@ abstract class Base extends API implements AccountInterface
     }
 
     /**
+     * Get OAuth consumers
+     *
+     * @return mixed
+     */
+    public function getScratchCodes()
+    {
+        $request = new \Zimbra\Account\Request\GetScratchCodes();
+        return $this->getClient()->doRequest($request);
+    }
+
+    /**
      * Get information about published shares
      *
      * @param  GranteeChooser  $grantee Filter by the specified grantee type
