@@ -1,7 +1,7 @@
 Zimbra-API
 ==========
 
-This API A simple Object Oriented wrapper for the zimbra soap api (web service). It's written with PHP 5.4. It allows you to manage easily zimbra accounts, zimbra domains and zimbra servers.
+This API A simple Object Oriented wrapper for the zimbra soap api (web service). It's written with PHP 5.x. It allows you to manage easily zimbra accounts, zimbra domains and zimbra servers.
 
 ## Requirement
 * PHP >= 5.5.x with [cURL](http://php.net/manual/en/book.curl.php) extension,
