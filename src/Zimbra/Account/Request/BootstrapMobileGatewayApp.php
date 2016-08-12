@@ -10,10 +10,8 @@
 
 namespace Zimbra\Account\Request;
 
-use Zimbra\Account\Struct\Identity;
-
 /**
- * BootstRapmobileGatewayApp request class
+ * BootstrapMobileGatewayApp request class
  * Request is used by a mobile gateway app/client to bootstrap/initialize itself.
  *
  * @package    Zimbra
@@ -25,7 +23,7 @@ use Zimbra\Account\Struct\Identity;
 class BootstrapMobileGatewayApp extends Base
 {
     /**
-     * Constructor method for BootstRapmobileGatewayApp
+     * Constructor method for BootstrapMobileGatewayApp
      * @param bool $wantAppToken Whether an "anticipatory app account" auth token is desired
      * @return self
      */
