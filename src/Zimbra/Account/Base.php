@@ -427,6 +427,17 @@ abstract class Base extends API implements AccountInterface
     }
 
     /**
+     * Generate scratch codes
+     *
+     * @return mixed
+     */
+    public function generateScratchCodes()
+    {
+        $request = new \Zimbra\Account\Request\GenerateScratchCodes();
+        return $this->getClient()->doRequest($request);
+    }
+
+    /**
      * Returns groups the user is either a member or an owner of.
      * Notes:
      *   1. isOwner is returned only if ownerOf on the request is 1 (true).
