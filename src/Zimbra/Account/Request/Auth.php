@@ -99,7 +99,7 @@ class Auth extends Base
         {
             $this->setProperty('persistAuthTokenCookie', (bool) $persistAuthTokenCookie);
         }
-        if(null !== $persistAuthTokenCookie)
+        if(null !== $csrfTokenSecured)
         {
             $this->setProperty('csrfTokenSecured', (bool) $csrfTokenSecured);
         }
