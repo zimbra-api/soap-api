@@ -616,6 +616,17 @@ abstract class Base extends API implements AccountInterface
     }
 
     /**
+     * Get OAuth consumers
+     *
+     * @return mixed
+     */
+    public function getOAuthConsumers()
+    {
+        $request = new \Zimbra\Account\Request\GetOAuthConsumers();
+        return $this->getClient()->doRequest($request);
+    }
+
+    /**
      * Get preferences for the authenticated account 
      *
      * @param  array $prefs Array of preferences. 
