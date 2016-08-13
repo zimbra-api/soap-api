@@ -899,6 +899,17 @@ abstract class Base extends API implements AccountInterface
     }
 
     /**
+     * Revoke other trusted devices
+     *
+     * @return mixed
+     */
+    public function revokeOtherTrustedDevices()
+    {
+        $request = new \Zimbra\Account\Request\RevokeOtherTrustedDevices();
+        return $this->getClient()->doRequest($request);
+    }
+
+    /**
      * Revoke account level rights
      *
      * @param  array $ace Specify Access Control Entries
