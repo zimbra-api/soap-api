@@ -22,7 +22,7 @@ use Zimbra\Struct\AccountSelector;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
  */
-class ClearTwoFactorAuthData extends BaseAttr
+class ClearTwoFactorAuthData extends Base
 {
     /**
      * Constructor method for ClearTwoFactorAuthData
