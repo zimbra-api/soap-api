@@ -21,7 +21,7 @@ class ClearTwoFactorAuthDataTest extends ZimbraAdminApiTestCase
         $account = new AccountSelector(AccountBy::NAME(), $value);
 
         $req = new ClearTwoFactorAuthData($cos, $account);
-        $this->assertInstanceOf('Zimbra\Admin\Request\BaseAttr', $req);
+        $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
         $this->assertSame($cos, $req->getCos());
         $this->assertSame($account, $req->getAccount());
 
