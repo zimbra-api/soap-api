@@ -924,6 +924,17 @@ abstract class Base extends API implements AccountInterface
     }
 
     /**
+     * Revoke trusted device
+     *
+     * @return mixed
+     */
+    public function revokeTrustedDevice()
+    {
+        $request = new \Zimbra\Account\Request\RevokeTrustedDevice();
+        return $this->getClient()->doRequest($request);
+    }
+
+    /**
      * Search Global Address List (GAL) for calendar resources
      * "attrs" attribute - comma-separated list of attrs to
      * return ("displayName", "zimbraId", "zimbraCalResType")
