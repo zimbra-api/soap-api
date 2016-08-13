@@ -871,6 +871,20 @@ abstract class Base extends API implements AccountInterface
     }
 
     /**
+     * Revoke app specific password
+     *
+     * @param  string $appName App name
+     * @return mixed
+     */
+    public function revokeAppSpecificPassword($appName = null)
+    {
+        $request = new \Zimbra\Account\Request\RevokeAppSpecificPassword(
+            $appName
+        );
+        return $this->getClient()->doRequest($request);
+    }
+
+    /**
      * Revoke account level rights
      *
      * @param  array $ace Specify Access Control Entries
