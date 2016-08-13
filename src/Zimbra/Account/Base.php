@@ -30,6 +30,7 @@ use Zimbra\Account\Struct\NameId;
 use Zimbra\Account\Struct\PreAuth;
 use Zimbra\Account\Struct\Signature;
 use Zimbra\Account\Struct\WhiteList;
+use Zimbra\Account\Struct\ZmgDeviceSpec;
 
 use Zimbra\Struct\AccountSelector;
 use Zimbra\Struct\CursorInfo;
@@ -836,6 +837,20 @@ abstract class Base extends API implements AccountInterface
     {
         $request = new \Zimbra\Account\Request\ModifyZimletPrefs(
             $zimlet
+        );
+        return $this->getClient()->doRequest($request);
+    }
+
+    /**
+     * Registering app/device to receive push notifications 
+     *
+     * @param  ZmgDeviceSpec $zmgDevice Zmg device specification
+     * @return mixed
+     */
+    public function registerMobileGatewayApp(ZmgDeviceSpec $zmgDevice)
+    {
+        $request = new \Zimbra\Account\Request\RegisterMobileGatewayApp(
+            $zmgDevice
         );
         return $this->getClient()->doRequest($request);
     }
