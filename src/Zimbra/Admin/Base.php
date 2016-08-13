@@ -624,6 +624,21 @@ abstract class Base extends API implements AdminInterface
     }
 
     /**
+     * Clear two factor auth data.
+     *
+     * @param Cos $cos
+     * @param Account $account
+     * @return mix
+     */
+    public function clearTwoFactorAuthData(Cos $cos, Account $account)
+    {
+        $request = new \Zimbra\Admin\Request\ClearTwoFactorAuthData(
+            $cos, $account
+        );
+        return $this->getClient()->doRequest($request);
+    }
+
+    /**
      * Compact index.
      * Access: domain admin sufficient.
      * Note: this request is by default proxied to the account's home server.
