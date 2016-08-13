@@ -10,7 +10,7 @@ use Zimbra\Account\Request\RenewMobileGatewayAppToken;
  */
 class RenewMobileGatewayAppTokenTest extends ZimbraAccountApiTestCase
 {
-    public function testAuthRequest()
+    public function testRenewMobileGatewayAppTokenRequest()
     {
         $appId = $this->faker->word;
         $appKey = $this->faker->word;
@@ -45,7 +45,7 @@ class RenewMobileGatewayAppTokenTest extends ZimbraAccountApiTestCase
         $this->assertEquals($array, $req->toArray());
     }
 
-    public function testAuthApi()
+    public function testRenewMobileGatewayAppTokenApi()
     {
         $appId = $this->faker->word;
         $appKey = $this->faker->word;

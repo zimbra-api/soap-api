@@ -11,7 +11,7 @@ use Zimbra\Account\Struct\AuthToken;
  */
 class EnableTwoFactorAuthTest extends ZimbraAccountApiTestCase
 {
-    public function testAuthRequest()
+    public function testEnableTwoFactorAuthRequest()
     {
         $name = $this->faker->word;
         $value = $this->faker->word;
@@ -66,7 +66,7 @@ class EnableTwoFactorAuthTest extends ZimbraAccountApiTestCase
         $this->assertEquals($array, $req->toArray());
     }
 
-    public function testAuthApi()
+    public function testEnableTwoFactorAuthApi()
     {
         $name = $this->faker->word;
         $value = $this->faker->word;
