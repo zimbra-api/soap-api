@@ -856,6 +856,21 @@ abstract class Base extends API implements AccountInterface
     }
 
     /**
+     * When the app auth token expires, the app can request a new auth token.
+     *
+     * @param  string $appId App ID
+     * @param  string $appKey App secret key
+     * @return mixed
+     */
+    public function renewMobileGatewayAppToken($appId, $appKey)
+    {
+        $request = new \Zimbra\Account\Request\RenewMobileGatewayAppToken(
+            $appId, $appKey
+        );
+        return $this->getClient()->doRequest($request);
+    }
+
+    /**
      * Revoke account level rights
      *
      * @param  array $ace Specify Access Control Entries
