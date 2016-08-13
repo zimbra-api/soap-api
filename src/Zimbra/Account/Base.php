@@ -885,6 +885,20 @@ abstract class Base extends API implements AccountInterface
     }
 
     /**
+     * Revoke OAuth consumer
+     *
+     * @param  string $accessToken access token
+     * @return mixed
+     */
+    public function revokeOAuthConsumer($accessToken)
+    {
+        $request = new \Zimbra\Account\Request\RevokeOAuthConsumer(
+            $accessToken
+        );
+        return $this->getClient()->doRequest($request);
+    }
+
+    /**
      * Revoke account level rights
      *
      * @param  array $ace Specify Access Control Entries
