@@ -1945,6 +1945,20 @@ abstract class Base extends API implements AdminInterface
     }
 
     /**
+     * Get clear two factor auth data status.
+     *
+     * @param  Cos $cos
+     * @return mix
+     */
+    public function getClearTwoFactorAuthDataStatus(Cos $cos = null)
+    {
+        $request = new \Zimbra\Admin\Request\GetClearTwoFactorAuthDataStatus(
+            $cos
+        );
+        return $this->getClient()->doRequest($request);
+    }
+
+    /**
      * Get Config request.
      *
      * @param  KeyValuePair $attr Attribute.
