@@ -1381,6 +1381,17 @@ abstract class Base extends AccountBase implements MailInterface
     }
 
     /**
+     * Get data source usage.
+     *
+     * @return mix
+     */
+    public function getDataSourceUsage()
+    {
+        $request = new \Zimbra\Mail\Request\GetDataSourceUsage();
+        return $this->getClient()->doRequest($request);
+    }
+
+    /**
      * Get the download URL of shared document.
      *
      * @param  ItemSpec $item Folder specification.
