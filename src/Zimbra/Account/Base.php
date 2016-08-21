@@ -30,6 +30,7 @@ use Zimbra\Account\Struct\NameId;
 use Zimbra\Account\Struct\PreAuth;
 use Zimbra\Account\Struct\Signature;
 use Zimbra\Account\Struct\WhiteList;
+use Zimbra\Account\Struct\ZmgDeviceSpec;
 
 use Zimbra\Struct\AccountSelector;
 use Zimbra\Struct\CursorInfo;
@@ -59,16 +60,21 @@ abstract class Base extends API implements AccountInterface
     /**
      * Authenticate for an account
      *
-     * @param  string|AccountSelector $account The user account.
-     * @param  string    $password The user password.
-     * @param  PreAuth   $key Pre authentication key
-     * @param  AuthToken $token The authentication token.
+     * @param  AccountSelector $account Specifies the account to authenticate against
+     * @param  string    $password Password to use in conjunction with an account
+     * @param  PreAuth   $preauth The preauth
+     * @param  AuthToken $authToken An authToken can be passed instead of account/password/preauth to validate an existing auth token.
      * @param  string    $virtualHost If specified (in conjunction with by="name"), virtual-host is used to determine the domain of the account name, if it does not include a domain component.
-     * @param  AuthPrefs $prefs Preference.
-     * @param  AuthAttrs $attrs The attributes.
-     * @param  string    $requestedSkin If specified the name of the skin requested by the client.
-     * @param  string    $persistAuthTokenCookie Controls whether the auth token cookie in the response should be persisted when the browser exits.
+     * @param  AuthPrefs $prefs Preference
+     * @param  AuthAttrs $attrs The attributes
+     * @param  string    $requestedSkin The requestedSkin. If specified the name of the skin requested by the client.
+     * @param  string    $twoFactorCode The TOTP code used for two-factor authentication
+     * @param  string    $trustedDeviceToken Whether the client represents a trusted device
+     * @param  string    $deviceId Unique device identifier; used to verify trusted mobile devices
+     * @param  bool      $persistAuthTokenCookie Controls whether the auth token cookie in the response should be persisted when the browser exits.
      * @param  bool      $csrfTokenSecured Controls whether the client supports CSRF token.
+     * @param  bool      $deviceTrusted Whether the client represents a trusted device
+     * @param  bool      $generateDeviceId
      * @return authentication token
      */
     public function auth(
@@ -80,8 +86,13 @@ abstract class Base extends API implements AccountInterface
         AuthPrefs $prefs = null,
         AuthAttrs $attrs = null,
         $requestedSkin = null,
+        $twoFactorCode = null,
+        $trustedDeviceToken = null,
+        $deviceId = null,
         $persistAuthTokenCookie = null,
-        $csrfTokenSecured = null
+        $csrfTokenSecured = null,
+        $deviceTrusted = null,
+        $generateDeviceId = null
     )
     {
         $request = new \Zimbra\Account\Request\Auth(
@@ -93,8 +104,13 @@ abstract class Base extends API implements AccountInterface
             $prefs,
             $attrs,
             $requestedSkin,
+            $twoFactorCode,
+            $trustedDeviceToken,
+            $deviceId,
             $persistAuthTokenCookie,
-            $csrfTokenSecured
+            $csrfTokenSecured,
+            $deviceTrusted,
+            $generateDeviceId
         );
         $result = $this->getClient()->doRequest($request);
         if(isset($result->authToken) && !empty($result->authToken))
@@ -182,6 +198,34 @@ abstract class Base extends API implements AccountInterface
     {
         $request = new \Zimbra\Account\Request\AutoCompleteGal(
             $name, $needExp, $type, $galAcctId, $limit
+        );
+        return $this->getClient()->doRequest($request);
+    }
+
+    /**
+     * Request is used by a mobile gateway app/client to bootstrap/initialize itself.
+     *
+     * @param  bool $wantAppToken Whether an "anticipatory app account" auth token is desiredentries.
+     * @return mixed
+     */
+    public function bootstrapMobileGatewayApp($wantAppToken = null)
+    {
+        $request = new \Zimbra\Account\Request\BootstrapMobileGatewayApp(
+            $wantAppToken
+        );
+        return $this->getClient()->doRequest($request);
+    }
+
+    /**
+     * Create app specific password
+     *
+     * @param  bool $appName
+     * @return mixed
+     */
+    public function createAppSpecificPassword($appName = null)
+    {
+        $request = new \Zimbra\Account\Request\CreateAppSpecificPassword(
+            $appName
         );
         return $this->getClient()->doRequest($request);
     }
@@ -298,6 +342,17 @@ abstract class Base extends API implements AccountInterface
     }
 
     /**
+     * Disable two factor auth
+     *
+     * @return mixed
+     */
+    public function disableTwoFactorAuth()
+    {
+        $request = new \Zimbra\Account\Request\DisableTwoFactorAuth();
+        return $this->getClient()->doRequest($request);
+    }
+
+    /**
      * Return all targets of the specified rights applicable to the requested account
      *
      * @param  array $rights The rights.
@@ -338,6 +393,42 @@ abstract class Base extends API implements AccountInterface
     }
 
     /**
+     * Enable two factor auth
+     *
+     * @param  string    $name  The name of the account for which to enable two-factor auth
+     * @param  string    $password  Password to use in conjunction with an account
+     * @param  AuthToken $authToken  Auth token issued during the first 2FA enablement step.
+     * @param  bool      $csrfSupported  Whether the client supports the CSRF token.
+     * @return mixed
+     */
+    public function enableTwoFactorAuth(
+        $name,
+        $password = null,
+        AuthToken $authToken = null,
+        $twoFactorCode = null,
+        $csrfSupported = null
+    )
+    {
+        $request = new \Zimbra\Account\Request\EnableTwoFactorAuth(
+            $name,
+            $password,
+            $authToken,
+            $twoFactorCode,
+            $csrfSupported
+        );
+        $result = $this->getClient()->doRequest($request);
+        if(isset($result->authToken) && !empty($result->authToken))
+        {
+            $this->getClient()->setAuthToken($result->authToken);
+        }
+        elseif($authToken)
+        {
+            $this->getClient()->setAuthToken($authToken->getValue());
+        }
+        return $result;
+    }
+
+    /**
      * End the current session, removing it from all caches.
      * Called when the browser app (or other session-using app) shuts down.
      * Has no effect if called in a <nosession> context.
@@ -348,6 +439,17 @@ abstract class Base extends API implements AccountInterface
     public function endSession($logoff = null)
     {
         $request = new \Zimbra\Account\Request\EndSession($logoff);
+        return $this->getClient()->doRequest($request);
+    }
+
+    /**
+     * Generate scratch codes
+     *
+     * @return mixed
+     */
+    public function generateScratchCodes()
+    {
+        $request = new \Zimbra\Account\Request\GenerateScratchCodes();
         return $this->getClient()->doRequest($request);
     }
 
@@ -400,6 +502,17 @@ abstract class Base extends API implements AccountInterface
     public function getAllLocales()
     {
         $request = new \Zimbra\Account\Request\GetAllLocales();
+        return $this->getClient()->doRequest($request);
+    }
+
+    /**
+     * Get app specific passwords
+     *
+     * @return mixed
+     */
+    public function getAppSpecificPasswords()
+    {
+        $request = new \Zimbra\Account\Request\GetAppSpecificPasswords();
         return $this->getClient()->doRequest($request);
     }
 
@@ -481,6 +594,17 @@ abstract class Base extends API implements AccountInterface
     }
 
     /**
+     * Get gcm sender id
+     *
+     * @return mixed
+     */
+    public function getGcmSenderId()
+    {
+        $request = new \Zimbra\Account\Request\GetGcmSenderId();
+        return $this->getClient()->doRequest($request);
+    }
+
+    /**
      * Get the identities for the authed account.
      *
      * @return mixed
@@ -504,6 +628,17 @@ abstract class Base extends API implements AccountInterface
         $request = new \Zimbra\Account\Request\GetInfo(
             $sections, $rights
         );
+        return $this->getClient()->doRequest($request);
+    }
+
+    /**
+     * Get OAuth consumers
+     *
+     * @return mixed
+     */
+    public function getOAuthConsumers()
+    {
+        $request = new \Zimbra\Account\Request\GetOAuthConsumers();
         return $this->getClient()->doRequest($request);
     }
 
@@ -532,6 +667,17 @@ abstract class Base extends API implements AccountInterface
         $request = new \Zimbra\Account\Request\GetRights(
             $ace
         );
+        return $this->getClient()->doRequest($request);
+    }
+
+    /**
+     * Get OAuth consumers
+     *
+     * @return mixed
+     */
+    public function getScratchCodes()
+    {
+        $request = new \Zimbra\Account\Request\GetScratchCodes();
         return $this->getClient()->doRequest($request);
     }
 
@@ -565,6 +711,17 @@ abstract class Base extends API implements AccountInterface
     public function getSignatures()
     {
         $request = new \Zimbra\Account\Request\GetSignatures();
+        return $this->getClient()->doRequest($request);
+    }
+
+    /**
+     * Get OAuth consumers
+     *
+     * @return mixed
+     */
+    public function getTrustedDevices()
+    {
+        $request = new \Zimbra\Account\Request\GetTrustedDevices();
         return $this->getClient()->doRequest($request);
     }
 
@@ -700,6 +857,74 @@ abstract class Base extends API implements AccountInterface
     }
 
     /**
+     * Registering app/device to receive push notifications 
+     *
+     * @param  ZmgDeviceSpec $zmgDevice Zmg device specification
+     * @return mixed
+     */
+    public function registerMobileGatewayApp(ZmgDeviceSpec $zmgDevice)
+    {
+        $request = new \Zimbra\Account\Request\RegisterMobileGatewayApp(
+            $zmgDevice
+        );
+        return $this->getClient()->doRequest($request);
+    }
+
+    /**
+     * When the app auth token expires, the app can request a new auth token.
+     *
+     * @param  string $appId App ID
+     * @param  string $appKey App secret key
+     * @return mixed
+     */
+    public function renewMobileGatewayAppToken($appId, $appKey)
+    {
+        $request = new \Zimbra\Account\Request\RenewMobileGatewayAppToken(
+            $appId, $appKey
+        );
+        return $this->getClient()->doRequest($request);
+    }
+
+    /**
+     * Revoke app specific password
+     *
+     * @param  string $appName App name
+     * @return mixed
+     */
+    public function revokeAppSpecificPassword($appName = null)
+    {
+        $request = new \Zimbra\Account\Request\RevokeAppSpecificPassword(
+            $appName
+        );
+        return $this->getClient()->doRequest($request);
+    }
+
+    /**
+     * Revoke OAuth consumer
+     *
+     * @param  string $accessToken access token
+     * @return mixed
+     */
+    public function revokeOAuthConsumer($accessToken)
+    {
+        $request = new \Zimbra\Account\Request\RevokeOAuthConsumer(
+            $accessToken
+        );
+        return $this->getClient()->doRequest($request);
+    }
+
+    /**
+     * Revoke other trusted devices
+     *
+     * @return mixed
+     */
+    public function revokeOtherTrustedDevices()
+    {
+        $request = new \Zimbra\Account\Request\RevokeOtherTrustedDevices();
+        return $this->getClient()->doRequest($request);
+    }
+
+    /**
      * Revoke account level rights
      *
      * @param  array $ace Specify Access Control Entries
@@ -710,6 +935,17 @@ abstract class Base extends API implements AccountInterface
         $request = new \Zimbra\Account\Request\RevokeRights(
             $ace
         );
+        return $this->getClient()->doRequest($request);
+    }
+
+    /**
+     * Revoke trusted device
+     *
+     * @return mixed
+     */
+    public function revokeTrustedDevice()
+    {
+        $request = new \Zimbra\Account\Request\RevokeTrustedDevice();
         return $this->getClient()->doRequest($request);
     }
 

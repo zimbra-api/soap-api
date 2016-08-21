@@ -292,10 +292,12 @@ abstract class Base extends API implements AdminInterface
      *
      * @param string  $name Name. Only one of {auth-name} or <account> can be specified
      * @param string  $password Password - must be present if not using AuthToken
-     * @param string  $authToken An authToken can be passed instead of account/password/name to validate an existing auth token.
+     * @param string  $authToken An authToken can be passed instead of account/password/name to validate an existing auth authToken.
      * @param Account $account The account
      * @param string  $virtualHost Virtual host
-     * @param bool    $persistAuthTokenCookie Controls whether the auth token cookie in the response should be persisted when the browser exits.
+     * @param string  $twoFactorCode The TOTP code used for two-factor authentication
+     * @param bool    $persistAuthTokenCookie Controls whether the auth authToken cookie in the response should be persisted when the browser exits.
+     * @param bool    $csrfSupported Controls whether the client supports CSRF token
      * @return authentication token
      */
     public function auth(
@@ -304,11 +306,14 @@ abstract class Base extends API implements AdminInterface
         $authToken = null,
         Account $account = null,
         $virtualHost = null,
-        $persistAuthTokenCookie = null)
+        $twoFactorCode = null,
+        $persistAuthTokenCookie = null,
+        $csrfSupported = null
+    )
     {
         $request = new \Zimbra\Admin\Request\Auth(
-            $name, $password, $authToken, $account,
-            $virtualHost, $persistAuthTokenCookie
+            $name, $password, $authToken, $account, $virtualHost,
+            $twoFactorCode, $persistAuthTokenCookie, $csrfSupported
         );
         $result = $this->getClient()->doRequest($request);
         if(isset($result->authToken) && !empty($result->authToken))
@@ -331,7 +336,7 @@ abstract class Base extends API implements AdminInterface
      */
     public function authByName($name, $password, $vhost = null)
     {
-        return $this->auth($name, $password, null, null, $vhost, true);
+        return $this->auth($name, $password, null, null, $vhost, null, true);
     }
 
     /**
@@ -344,7 +349,7 @@ abstract class Base extends API implements AdminInterface
      */
     public function authByAccount(Account $account, $password, $vhost = null)
     {
-        return $this->auth(null, $password, null, $account, $vhost, true);
+        return $this->auth(null, $password, null, $account, $vhost, null, true);
     }
 
     /**
@@ -355,7 +360,7 @@ abstract class Base extends API implements AdminInterface
      */
     public function authByToken($token)
     {
-        return $this->auth(null, null, $token, null, null, true);
+        return $this->auth(null, null, $token, null, null, null, true);
     }
 
     /**
@@ -619,6 +624,21 @@ abstract class Base extends API implements AdminInterface
     {
         $request = new \Zimbra\Admin\Request\ClearCookie(
             $cookies
+        );
+        return $this->getClient()->doRequest($request);
+    }
+
+    /**
+     * Clear two factor auth data.
+     *
+     * @param Cos $cos
+     * @param Account $account
+     * @return mix
+     */
+    public function clearTwoFactorAuthData(Cos $cos, Account $account)
+    {
+        $request = new \Zimbra\Admin\Request\ClearTwoFactorAuthData(
+            $cos, $account
         );
         return $this->getClient()->doRequest($request);
     }
@@ -1925,6 +1945,20 @@ abstract class Base extends API implements AdminInterface
     {
         $request = new \Zimbra\Admin\Request\GetCert(
             $server, $type, $option
+        );
+        return $this->getClient()->doRequest($request);
+    }
+
+    /**
+     * Get clear two factor auth data status.
+     *
+     * @param  Cos $cos
+     * @return mix
+     */
+    public function getClearTwoFactorAuthDataStatus(Cos $cos = null)
+    {
+        $request = new \Zimbra\Admin\Request\GetClearTwoFactorAuthDataStatus(
+            $cos
         );
         return $this->getClient()->doRequest($request);
     }

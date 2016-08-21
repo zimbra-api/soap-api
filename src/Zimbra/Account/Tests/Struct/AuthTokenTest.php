@@ -13,20 +13,26 @@ class AuthTokenTest extends ZimbraAccountTestCase
     public function testAuthToken()
     {
         $value = $this->faker->uuid;
-        $token = new AuthToken($value, false);
+        $lifetime = mt_rand(1, 100);
+        $token = new AuthToken($value, false, $lifetime);
         $this->assertSame($value, $token->getValue());
         $this->assertFalse($token->getVerifyAccount());
+        $this->assertSame($lifetime, $token->getLifetime());
 
-        $token->setVerifyAccount(true);
+        $token = new AuthToken($value, false, 0);
+        $token->setVerifyAccount(true)
+            ->setLifetime($lifetime);
         $this->assertTrue($token->getVerifyAccount());
+        $this->assertSame($lifetime, $token->getLifetime());
 
         $xml = '<?xml version="1.0"?>' . "\n"
-            . '<authToken verifyAccount="true">' . $value . '</authToken>';
+            . '<authToken verifyAccount="true" lifetime="' . $lifetime . '">' . $value . '</authToken>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $token);
 
         $array = [
             'authToken' => [
                 'verifyAccount' => true,
+                'lifetime' => $lifetime,
                 '_content' => $value,
             ],
         ];

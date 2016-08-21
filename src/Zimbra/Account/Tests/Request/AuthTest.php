@@ -25,6 +25,10 @@ class AuthTest extends ZimbraAccountApiTestCase
         $password = $this->faker->word;
         $virtualHost = $this->faker->word;
         $requestedSkin = $this->faker->word;
+        $twoFactorCode = $this->faker->word;
+        $trustedToken = $this->faker->word;
+        $deviceId = $this->faker->word;
+
         $time = time();
 
         $account = new AccountSelector(AccountBy::NAME(), $value);
@@ -39,7 +43,8 @@ class AuthTest extends ZimbraAccountApiTestCase
 
         $req = new Auth(
             $account, $password, $preauth, $authToken, $virtualHost,
-            $prefs, $attrs, $requestedSkin, false, true
+            $prefs, $attrs, $requestedSkin, $twoFactorCode,
+            $trustedToken, $deviceId, false, false, false, false
         );
         $this->assertInstanceOf('Zimbra\Account\Request\Base', $req);
         $this->assertSame($account, $req->getAccount());
@@ -50,9 +55,15 @@ class AuthTest extends ZimbraAccountApiTestCase
         $this->assertSame($prefs, $req->getPrefs());
         $this->assertSame($attrs, $req->getAttrs());
         $this->assertSame($requestedSkin, $req->getRequestedSkin());
+        $this->assertSame($twoFactorCode, $req->getTwoFactorCode());
+        $this->assertSame($trustedToken, $req->getTrustedDeviceToken());
+        $this->assertSame($deviceId, $req->getDeviceId());
         $this->assertFalse($req->getPersistAuthTokenCookie());
-        $this->assertTrue($req->getCsrfTokenSecured());
+        $this->assertFalse($req->getCsrfTokenSecured());
+        $this->assertFalse($req->getDeviceTrusted());
+        $this->assertFalse($req->getGenerateDeviceId());
 
+        $req = new Auth();
         $req->setAccount($account)
             ->setPassword($password)
             ->setPreAuth($preauth)
@@ -61,8 +72,13 @@ class AuthTest extends ZimbraAccountApiTestCase
             ->setPrefs($prefs)
             ->setAttrs($attrs)
             ->setRequestedSkin($requestedSkin)
+            ->setTwoFactorCode($twoFactorCode)
+            ->setTrustedDeviceToken($trustedToken)
+            ->setDeviceId($deviceId)
             ->setPersistAuthTokenCookie(true)
-            ->setCsrfTokenSecured(false);
+            ->setCsrfTokenSecured(true)
+            ->setDeviceTrusted(true)
+            ->setGenerateDeviceId(true);
         $this->assertSame($account, $req->getAccount());
         $this->assertSame($password, $req->getPassword());
         $this->assertSame($preauth, $req->getPreAuth());
@@ -71,23 +87,31 @@ class AuthTest extends ZimbraAccountApiTestCase
         $this->assertSame($prefs, $req->getPrefs());
         $this->assertSame($attrs, $req->getAttrs());
         $this->assertSame($requestedSkin, $req->getRequestedSkin());
+        $this->assertSame($twoFactorCode, $req->getTwoFactorCode());
+        $this->assertSame($trustedToken, $req->getTrustedDeviceToken());
+        $this->assertSame($deviceId, $req->getDeviceId());
         $this->assertTrue($req->getPersistAuthTokenCookie());
-        $this->assertFalse($req->getCsrfTokenSecured());
+        $this->assertTrue($req->getCsrfTokenSecured());
+        $this->assertTrue($req->getDeviceTrusted());
+        $this->assertTrue($req->getGenerateDeviceId());
 
         $xml = '<?xml version="1.0"?>' . "\n"
-            . '<AuthRequest persistAuthTokenCookie="true" csrfTokenSecured="false">'
-                . '<account by="' . AccountBy::NAME() . '">' . $value . '</account>'
-                . '<password>' . $password . '</password>'
-                . '<preauth timestamp="' . $time . '" expiresTimestamp="' . $time . '">' . $value . '</preauth>'
-                . '<authToken verifyAccount="true">' . $value . '</authToken>'
-                . '<virtualHost>' . $virtualHost . '</virtualHost>'
+            . '<AuthRequest persistAuthTokenCookie="true" csrfTokenSecured="true" deviceTrusted="true" generateDeviceId="true">'
                 . '<prefs>'
                     . '<pref name="' . $name . '" modified="' . $time . '">' . $value . '</pref>'
                 . '</prefs>'
                 . '<attrs>'
                     . '<attr name="' . $name . '" pd="true">' . $value . '</attr>'
                 . '</attrs>'
+                . '<account by="' . AccountBy::NAME() . '">' . $value . '</account>'
+                . '<password>' . $password . '</password>'
+                . '<preauth timestamp="' . $time . '" expiresTimestamp="' . $time . '">' . $value . '</preauth>'
+                . '<authToken verifyAccount="true">' . $value . '</authToken>'
+                . '<virtualHost>' . $virtualHost . '</virtualHost>'
                 . '<requestedSkin>' . $requestedSkin . '</requestedSkin>'
+                . '<twoFactorCode>' . $twoFactorCode . '</twoFactorCode>'
+                . '<trustedToken>' . $trustedToken . '</trustedToken>'
+                . '<deviceId>' . $deviceId . '</deviceId>'
             . '</AuthRequest>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
@@ -128,8 +152,13 @@ class AuthTest extends ZimbraAccountApiTestCase
                     ],
                 ],
                 'requestedSkin' => $requestedSkin,
+                'twoFactorCode' => $twoFactorCode,
+                'trustedToken' => $trustedToken,
+                'deviceId' => $deviceId,
                 'persistAuthTokenCookie' => true,
-                'csrfTokenSecured' => false,
+                'csrfTokenSecured' => true,
+                'deviceTrusted' => true,
+                'generateDeviceId' => true,
             ],
         ];
         $this->assertEquals($array, $req->toArray());
@@ -142,6 +171,9 @@ class AuthTest extends ZimbraAccountApiTestCase
         $password = $this->faker->word;
         $virtualHost = $this->faker->word;
         $requestedSkin = $this->faker->word;
+        $twoFactorCode = $this->faker->word;
+        $trustedToken = $this->faker->word;
+        $deviceId = $this->faker->word;
         $time = time();
 
         $account = new AccountSelector(AccountBy::NAME(), $value);
@@ -156,7 +188,8 @@ class AuthTest extends ZimbraAccountApiTestCase
 
         $this->api->auth(
             $account, $password, $preauth, $authToken, $virtualHost,
-            $prefs, $attrs, $requestedSkin, false, false
+            $prefs, $attrs, $requestedSkin, $twoFactorCode,
+            $trustedToken, $deviceId, false, false, true, true
         );
 
         $client = $this->api->getClient();
@@ -164,7 +197,7 @@ class AuthTest extends ZimbraAccountApiTestCase
         $xml = '<?xml version="1.0"?>' . "\n"
             . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAccount">'
                 . '<env:Body>'
-                    . '<urn1:AuthRequest persistAuthTokenCookie="false" csrfTokenSecured="false">'
+                    . '<urn1:AuthRequest persistAuthTokenCookie="false" csrfTokenSecured="false" deviceTrusted="true" generateDeviceId="true">'
                         . '<urn1:account by="' . AccountBy::NAME() . '">' . $value . '</urn1:account>'
                         . '<urn1:password>' . $password . '</urn1:password>'
                         . '<urn1:preauth timestamp="' . $time . '" expiresTimestamp="' . $time . '">' . $value . '</urn1:preauth>'
@@ -177,6 +210,9 @@ class AuthTest extends ZimbraAccountApiTestCase
                             . '<urn1:attr name="' . $name . '" pd="true">' . $value . '</urn1:attr>'
                         . '</urn1:attrs>'
                         . '<urn1:requestedSkin>' . $requestedSkin . '</urn1:requestedSkin>'
+                        . '<urn1:twoFactorCode>' . $twoFactorCode . '</urn1:twoFactorCode>'
+                        . '<urn1:trustedToken>' . $trustedToken . '</urn1:trustedToken>'
+                        . '<urn1:deviceId>' . $deviceId . '</urn1:deviceId>'
                     . '</urn1:AuthRequest>'
                 . '</env:Body>'
             . '</env:Envelope>';

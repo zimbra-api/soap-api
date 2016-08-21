@@ -18,11 +18,12 @@ class AuthTest extends ZimbraAdminApiTestCase
         $password = $this->faker->sha1;
         $authToken = $this->faker->sha1;
         $virtualHost = $this->faker->word;
+        $twoFactorCode = $this->faker->word;
 
         $account = new AccountSelector(AccountBy::NAME(), $name);
         $req = new Auth(
-        	$name, $password, $authToken, $account, $virtualHost, false
-    	);
+            $name, $password, $authToken, $account, $virtualHost, $twoFactorCode, false, false
+        );
         $this->assertInstanceOf('Zimbra\Admin\Request\Base', $req);
 
         $this->assertSame($name, $req->getName());
@@ -30,26 +31,34 @@ class AuthTest extends ZimbraAdminApiTestCase
         $this->assertSame($authToken, $req->getAuthToken());
         $this->assertSame($account, $req->getAccount());
         $this->assertSame($virtualHost, $req->getVirtualHost());
+        $this->assertSame($twoFactorCode, $req->getTwoFactorCode());
         $this->assertFalse($req->getPersistAuthTokenCookie());
+        $this->assertFalse($req->getCsrfSupported());
 
+        $req = new Auth();
         $req->setName($name)
             ->setPassword($password)
             ->setAuthToken($authToken)
             ->setAccount($account)
             ->setVirtualHost($virtualHost)
-            ->setPersistAuthTokenCookie(true);
+            ->setTwoFactorCode($twoFactorCode)
+            ->setPersistAuthTokenCookie(true)
+            ->setCsrfSupported(true);
         $this->assertSame($name, $req->getName());
         $this->assertSame($password, $req->getPassword());
         $this->assertSame($authToken, $req->getAuthToken());
         $this->assertSame($account, $req->getAccount());
         $this->assertSame($virtualHost, $req->getVirtualHost());
+        $this->assertSame($twoFactorCode, $req->getTwoFactorCode());
         $this->assertTrue($req->getPersistAuthTokenCookie());
+        $this->assertTrue($req->getCsrfSupported());
 
         $xml = '<?xml version="1.0"?>' . "\n"
-            . '<AuthRequest name="' . $name . '" password="' . $password . '" persistAuthTokenCookie="true">'
+            . '<AuthRequest name="' . $name . '" password="' . $password . '" persistAuthTokenCookie="true" csrfSupported="true">'
                 . '<authToken>' . $authToken . '</authToken>'
                 . '<account by="' . AccountBy::NAME() . '">' . $name . '</account>'
                 . '<virtualHost>' . $virtualHost . '</virtualHost>'
+                . '<twoFactorCode>' . $twoFactorCode . '</twoFactorCode>'
             . '</AuthRequest>';
         $this->assertXmlStringEqualsXmlString($xml, (string) $req);
 
@@ -64,7 +73,9 @@ class AuthTest extends ZimbraAdminApiTestCase
                     '_content' => $name,
                 ],
                 'virtualHost' => $virtualHost,
+                'twoFactorCode' => $twoFactorCode,
                 'persistAuthTokenCookie' => true,
+                'csrfSupported' => true,
             ],
         ];
         $this->assertEquals($array, $req->toArray());
@@ -76,10 +87,11 @@ class AuthTest extends ZimbraAdminApiTestCase
         $password = $this->faker->sha1;
         $authToken = $this->faker->sha1;
         $virtualHost = $this->faker->word;
+        $twoFactorCode = $this->faker->word;
 
         $account = new AccountSelector(AccountBy::NAME(), $name);
         $this->api->auth(
-            $name, $password, $authToken, $account, $virtualHost, true
+            $name, $password, $authToken, $account, $virtualHost, $twoFactorCode, true, true
         );
 
         $client = $this->api->getClient();
@@ -87,10 +99,11 @@ class AuthTest extends ZimbraAdminApiTestCase
         $xml = '<?xml version="1.0"?>' . "\n"
             . '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbra" xmlns:urn1="urn:zimbraAdmin">'
                 . '<env:Body>'
-                    . '<urn1:AuthRequest name="' . $name . '" password="' . $password . '" persistAuthTokenCookie="true">'
+                    . '<urn1:AuthRequest name="' . $name . '" password="' . $password . '" persistAuthTokenCookie="true" csrfSupported="true">'
                         . '<urn1:authToken>' . $authToken . '</urn1:authToken>'
                         . '<urn1:account by="' . AccountBy::NAME() . '">' . $name . '</urn1:account>'
                         . '<urn1:virtualHost>' . $virtualHost . '</urn1:virtualHost>'
+                        . '<urn1:twoFactorCode>' . $twoFactorCode . '</urn1:twoFactorCode>'
                     . '</urn1:AuthRequest>'
                 . '</env:Body>'
             . '</env:Envelope>';

@@ -30,14 +30,19 @@ class AuthToken extends Base
      * @param  bool   $verifyAccount
      *   If verifyAccount="1", account is required and the account in the auth token is compared to the named account.
      *   If verifyAccount="0" (default), only the auth token is verified and any account element specified is ignored.
+     * @param  int    $lifetime Life time of the auth token
      * @return self
      */
-    public function __construct($value, $verifyAccount = null)
+    public function __construct($value, $verifyAccount = null, $lifetime = null)
     {
         parent::__construct(trim($value));
         if(null !== $verifyAccount)
         {
             $this->setProperty('verifyAccount', (bool) $verifyAccount);
+        }
+        if(null !== $lifetime)
+        {
+            $this->setProperty('lifetime', (int) $lifetime);
         }
     }
 
@@ -60,6 +65,27 @@ class AuthToken extends Base
     public function setVerifyAccount($verifyAccount)
     {
         return $this->setProperty('verifyAccount', (bool) $verifyAccount);
+    }
+
+    /**
+     * Gets life time of the auth token
+     *
+     * @return int
+     */
+    public function getLifetime()
+    {
+        return $this->getProperty('lifetime');
+    }
+
+    /**
+     * Sets life time of the auth token
+     *
+     * @param  int $lifetime
+     * @return self
+     */
+    public function setLifetime($lifetime)
+    {
+        return $this->setProperty('lifetime', (int) $lifetime);
     }
 
     /**
