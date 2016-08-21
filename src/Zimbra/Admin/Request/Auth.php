@@ -31,7 +31,9 @@ class Auth extends Base
      * @param string  $authToken An authToken can be passed instead of account/password/name to validate an existing auth authToken.
      * @param Account $account The account
      * @param string  $virtualHost Virtual host
+     * @param string  $twoFactorCode The TOTP code used for two-factor authentication
      * @param bool    $persistAuthTokenCookie Controls whether the auth authToken cookie in the response should be persisted when the browser exits.
+     * @param bool    $csrfSupported Controls whether the client supports CSRF token
      * @return self
      */
     public function __construct(
@@ -40,7 +42,10 @@ class Auth extends Base
         $authToken = null,
         Account $account = null,
         $virtualHost = null,
-        $persistAuthTokenCookie = null)
+        $twoFactorCode = null,
+        $persistAuthTokenCookie = null,
+        $csrfSupported = null
+    )
     {
         parent::__construct();
         if(null !== $name)
@@ -63,9 +68,17 @@ class Auth extends Base
         {
             $this->setChild('virtualHost', trim($virtualHost));
         }
+        if(null !== $twoFactorCode)
+        {
+            $this->setChild('twoFactorCode', trim($twoFactorCode));
+        }
         if(null !== $persistAuthTokenCookie)
         {
             $this->setProperty('persistAuthTokenCookie', (bool) $persistAuthTokenCookie);
+        }
+        if(null !== $csrfSupported)
+        {
+            $this->setProperty('csrfSupported', (bool) $csrfSupported);
         }
     }
 
@@ -175,6 +188,27 @@ class Auth extends Base
     }
 
     /**
+     * Gets  the TOTP code used for two-factor authentication
+     *
+     * @return string
+     */
+    public function getTwoFactorCode()
+    {
+        return $this->getChild('twoFactorCode');
+    }
+
+    /**
+     * Sets  the TOTP code used for two-factor authentication
+     *
+     * @param  string $twoFactorCode
+     * @return self
+     */
+    public function setTwoFactorCode($twoFactorCode)
+    {
+        return $this->setChild('twoFactorCode', trim($twoFactorCode));
+    }
+
+    /**
      * Gets persistAuthTokenCookie flag
      *
      * @return bool
@@ -193,5 +227,26 @@ class Auth extends Base
     public function setPersistAuthTokenCookie($persistAuthTokenCookie)
     {
         return $this->setProperty('persistAuthTokenCookie', (bool) $persistAuthTokenCookie);
+    }
+
+    /**
+     * Gets csrfSupported flag
+     *
+     * @return bool
+     */
+    public function getCsrfSupported()
+    {
+        return $this->getProperty('csrfSupported');
+    }
+
+    /**
+     * Sets csrfSupported flag
+     *
+     * @param  bool $csrfSupported
+     * @return self
+     */
+    public function setCsrfSupported($csrfSupported)
+    {
+        return $this->setProperty('csrfSupported', (bool) $csrfSupported);
     }
 }
