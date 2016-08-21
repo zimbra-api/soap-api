@@ -38,7 +38,13 @@ class Auth extends Base
      * @param  AuthPrefs $prefs Preference
      * @param  AuthAttrs $attrs The attributes
      * @param  string    $requestedSkin The requestedSkin. If specified the name of the skin requested by the client.
+     * @param  string    $twoFactorCode The TOTP code used for two-factor authentication
+     * @param  string    $trustedDeviceToken Whether the client represents a trusted device
+     * @param  string    $deviceId Unique device identifier; used to verify trusted mobile devices
+     * @param  bool      $persistAuthTokenCookie Controls whether the auth token cookie in the response should be persisted when the browser exits.
      * @param  bool      $csrfTokenSecured Controls whether the client supports CSRF token.
+     * @param  bool      $deviceTrusted Whether the client represents a trusted device
+     * @param  bool      $generateDeviceId
      * @return self
      */
     public function __construct(
@@ -50,8 +56,13 @@ class Auth extends Base
         AuthPrefs $prefs = null,
         AuthAttrs $attrs = null,
         $requestedSkin = null,
+        $twoFactorCode = null,
+        $trustedDeviceToken = null,
+        $deviceId = null,
         $persistAuthTokenCookie = null,
-        $csrfTokenSecured = null
+        $csrfTokenSecured = null,
+        $deviceTrusted = null,
+        $generateDeviceId = null
     )
     {
         parent::__construct();
@@ -95,6 +106,18 @@ class Auth extends Base
         {
             $this->setChild('requestedSkin', trim($requestedSkin));
         }
+        if(null !== $twoFactorCode)
+        {
+            $this->setChild('twoFactorCode', trim($twoFactorCode));
+        }
+        if(null !== $trustedDeviceToken)
+        {
+            $this->setChild('trustedToken', trim($trustedDeviceToken));
+        }
+        if(null !== $deviceId)
+        {
+            $this->setChild('deviceId', trim($deviceId));
+        }
         if(null !== $persistAuthTokenCookie)
         {
             $this->setProperty('persistAuthTokenCookie', (bool) $persistAuthTokenCookie);
@@ -102,6 +125,14 @@ class Auth extends Base
         if(null !== $csrfTokenSecured)
         {
             $this->setProperty('csrfTokenSecured', (bool) $csrfTokenSecured);
+        }
+        if(null !== $deviceTrusted)
+        {
+            $this->setProperty('deviceTrusted', (bool) $deviceTrusted);
+        }
+        if(null !== $generateDeviceId)
+        {
+            $this->setProperty('generateDeviceId', (bool) $generateDeviceId);
         }
     }
 
@@ -274,6 +305,69 @@ class Auth extends Base
     }
 
     /**
+     * Gets two-factor code
+     *
+     * @return string
+     */
+    public function getTwoFactorCode()
+    {
+        return $this->getChild('twoFactorCode');
+    }
+
+    /**
+     * Sets two-factor code
+     *
+     * @param  string $twoFactorCode
+     * @return self
+     */
+    public function setTwoFactorCode($twoFactorCode)
+    {
+        return $this->setChild('twoFactorCode', trim($twoFactorCode));
+    }
+
+    /**
+     * Gets whether the client represents a trusted device
+     *
+     * @return string
+     */
+    public function getTrustedDeviceToken()
+    {
+        return $this->getChild('trustedToken');
+    }
+
+    /**
+     * Sets whether the client represents a trusted device
+     *
+     * @param  string $trustedDeviceToken
+     * @return self
+     */
+    public function setTrustedDeviceToken($trustedDeviceToken)
+    {
+        return $this->setChild('trustedToken', trim($trustedDeviceToken));
+    }
+
+    /**
+     * Gets unique device identifier; used to verify trusted mobile devices
+     *
+     * @return string
+     */
+    public function getDeviceId()
+    {
+        return $this->getChild('deviceId');
+    }
+
+    /**
+     * Sets unique device identifier; used to verify trusted mobile devices
+     *
+     * @param  string $deviceId
+     * @return self
+     */
+    public function setDeviceId($deviceId)
+    {
+        return $this->setChild('deviceId', trim($deviceId));
+    }
+
+    /**
      * Gets controls whether the auth token cookie
      *
      * @return bool
@@ -313,5 +407,47 @@ class Auth extends Base
     public function setCsrfTokenSecured($csrfTokenSecured)
     {
         return $this->setProperty('csrfTokenSecured', (bool) $csrfTokenSecured);
+    }
+
+    /**
+     * Gets whether the client represents a trusted device
+     *
+     * @return bool
+     */
+    public function getDeviceTrusted()
+    {
+        return $this->getProperty('deviceTrusted');
+    }
+
+    /**
+     * Sets whether the client represents a trusted device
+     *
+     * @param  bool $deviceTrusted
+     * @return self
+     */
+    public function setDeviceTrusted($deviceTrusted)
+    {
+        return $this->setProperty('deviceTrusted', (bool) $deviceTrusted);
+    }
+
+    /**
+     * Gets generate device Id
+     *
+     * @return bool
+     */
+    public function getGenerateDeviceId()
+    {
+        return $this->getProperty('generateDeviceId');
+    }
+
+    /**
+     * Sets generate device Id
+     *
+     * @param  bool $deviceTrusted
+     * @return self
+     */
+    public function setGenerateDeviceId($generateDeviceId)
+    {
+        return $this->setProperty('generateDeviceId', (bool) $generateDeviceId);
     }
 }

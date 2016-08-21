@@ -60,16 +60,21 @@ abstract class Base extends API implements AccountInterface
     /**
      * Authenticate for an account
      *
-     * @param  string|AccountSelector $account The user account.
-     * @param  string    $password The user password.
-     * @param  PreAuth   $key Pre authentication key
-     * @param  AuthToken $token The authentication token.
+     * @param  AccountSelector $account Specifies the account to authenticate against
+     * @param  string    $password Password to use in conjunction with an account
+     * @param  PreAuth   $preauth The preauth
+     * @param  AuthToken $authToken An authToken can be passed instead of account/password/preauth to validate an existing auth token.
      * @param  string    $virtualHost If specified (in conjunction with by="name"), virtual-host is used to determine the domain of the account name, if it does not include a domain component.
-     * @param  AuthPrefs $prefs Preference.
-     * @param  AuthAttrs $attrs The attributes.
-     * @param  string    $requestedSkin If specified the name of the skin requested by the client.
-     * @param  string    $persistAuthTokenCookie Controls whether the auth token cookie in the response should be persisted when the browser exits.
+     * @param  AuthPrefs $prefs Preference
+     * @param  AuthAttrs $attrs The attributes
+     * @param  string    $requestedSkin The requestedSkin. If specified the name of the skin requested by the client.
+     * @param  string    $twoFactorCode The TOTP code used for two-factor authentication
+     * @param  string    $trustedDeviceToken Whether the client represents a trusted device
+     * @param  string    $deviceId Unique device identifier; used to verify trusted mobile devices
+     * @param  bool      $persistAuthTokenCookie Controls whether the auth token cookie in the response should be persisted when the browser exits.
      * @param  bool      $csrfTokenSecured Controls whether the client supports CSRF token.
+     * @param  bool      $deviceTrusted Whether the client represents a trusted device
+     * @param  bool      $generateDeviceId
      * @return authentication token
      */
     public function auth(
@@ -81,8 +86,13 @@ abstract class Base extends API implements AccountInterface
         AuthPrefs $prefs = null,
         AuthAttrs $attrs = null,
         $requestedSkin = null,
+        $twoFactorCode = null,
+        $trustedDeviceToken = null,
+        $deviceId = null,
         $persistAuthTokenCookie = null,
-        $csrfTokenSecured = null
+        $csrfTokenSecured = null,
+        $deviceTrusted = null,
+        $generateDeviceId = null
     )
     {
         $request = new \Zimbra\Account\Request\Auth(
@@ -94,8 +104,13 @@ abstract class Base extends API implements AccountInterface
             $prefs,
             $attrs,
             $requestedSkin,
+            $twoFactorCode,
+            $trustedDeviceToken,
+            $deviceId,
             $persistAuthTokenCookie,
-            $csrfTokenSecured
+            $csrfTokenSecured,
+            $deviceTrusted,
+            $generateDeviceId
         );
         $result = $this->getClient()->doRequest($request);
         if(isset($result->authToken) && !empty($result->authToken))
