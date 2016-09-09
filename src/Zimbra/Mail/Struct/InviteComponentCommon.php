@@ -70,9 +70,9 @@ class InviteComponentCommon extends Base
      * @param array  $change
      */
     public function __construct(
-        $method,
-        $compNum,
-        $rsvp,
+        $method = null,
+        $compNum = null,
+        $rsvp = null,
         $priority = null,
         $name = null,
         $loc = null,
@@ -102,9 +102,18 @@ class InviteComponentCommon extends Base
     )
     {
         parent::__construct();
-        $this->setProperty('method', trim($method));
-        $this->setProperty('compNum', (int) $compNum);
-        $this->setProperty('rsvp', (bool) $rsvp);
+        if(null !== $method)
+        {
+            $this->setProperty('method', trim($method));
+        }
+        if(null !== $compNum)
+        {
+            $this->setProperty('compNum', (int) $compNum);
+        }
+        if(null !== $rsvp)
+        {
+            $this->setProperty('rsvp', (bool) $rsvp);
+        }
         if(null !== $priority)
         {
             $this->setProperty('priority', ((int) $priority > 0 or (int) $priority < 10) ? (int) $priority : 0);
