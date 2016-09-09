@@ -115,9 +115,9 @@ class InviteComponent extends InviteComponentCommon
      * @param DurationInfo $dur Duration
      */
     public function __construct(
-        $method,
-        $compNum,
-        $rsvp,
+        $method = null,
+        $compNum = null,
+        $rsvp = null,
         $priority = null,
         $name = null,
         $loc = null,

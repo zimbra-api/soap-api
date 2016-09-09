@@ -94,9 +94,9 @@ class InvitationInfo extends InviteComponent
      * @param string $ci
      */
     public function __construct(
-        $method,
-        $compNum,
-        $rsvp,
+        $method = null,
+        $compNum = null,
+        $rsvp = null,
         $priority = null,
         $name = null,
         $loc = null,
