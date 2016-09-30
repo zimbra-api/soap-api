@@ -16,7 +16,6 @@ use GuzzleHttp\Cookie\CookieJar;
 use GuzzleHttp\Exception\BadResponseException;
 use GuzzleHttp\Psr7\Response as HttpResponse;
 use GuzzleHttp\Psr7\Uri;
-// use GuzzleHttp\Stream\Stream;
 
 /**
  * Upload request class in Zimbra API PHP.
