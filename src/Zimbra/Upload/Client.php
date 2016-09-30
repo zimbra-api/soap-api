@@ -111,7 +111,7 @@ class Client extends EventEmitter
             }
         }
         elseif (!empty($body)) {
-            $httpRequest->setBody(Stream::factory($body));
+            $postBody->addFile(new PostFile($request->getRequestId(), $body));
         }
         $httpRequest->setQuery(['fmt' => 'raw,extended']);
         try
