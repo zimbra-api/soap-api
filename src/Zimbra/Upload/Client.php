@@ -16,6 +16,7 @@ use GuzzleHttp\Exception\BadResponseException;
 use GuzzleHttp\Message\Response as HttpResponse;
 use GuzzleHttp\Post\PostFile;
 use GuzzleHttp\Url;
+use GuzzleHttp\Stream\Stream;
 
 /**
  * Upload request class in Zimbra API PHP.
@@ -82,9 +83,10 @@ class Client extends EventEmitter
     {
         $this->emit('before.request', [$request, &$this->headers]);
         $files = $request->getFiles();
-        if ($files->count() == 0) {
+        $body = $request->getBody();
+        if ($files->count() == 0 || empty($body)) {
             throw new \UnexpectedValueException(
-                "Upload request must have at least one file."
+                "Upload request must have at least one file or has body content."
             );
         }
 
@@ -103,8 +105,13 @@ class Client extends EventEmitter
         );
         $postBody = $httpRequest->getBody();
         $postBody->setField('requestId', $request->getRequestId());
-        foreach ($files as $file) {
-            $postBody->addFile(new PostFile(basename($file), fopen($file, 'r')));
+        if ($files->count() > 0) {
+            foreach ($files as $file) {
+                $postBody->addFile(new PostFile(basename($file), fopen($file, 'r')));
+            }
+        }
+        elseif (!empty($body)) {
+            $httpRequest->setBody(Stream::factory($body));
         }
         $httpRequest->setQuery(['fmt' => 'raw,extended']);
         try
