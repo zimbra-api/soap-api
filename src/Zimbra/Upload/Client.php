@@ -84,7 +84,7 @@ class Client extends EventEmitter
         $this->emit('before.request', [$request, &$this->headers]);
         $files = $request->getFiles();
         $body = $request->getBody();
-        if ($files->count() == 0 || empty($body)) {
+        if ($files->count() == 0 && empty($body)) {
             throw new \UnexpectedValueException(
                 "Upload request must have at least one file or has body content."
             );
