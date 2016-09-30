@@ -16,6 +16,7 @@ use GuzzleHttp\Cookie\CookieJar;
 use GuzzleHttp\Exception\BadResponseException;
 use GuzzleHttp\Psr7\Response as HttpResponse;
 use GuzzleHttp\Psr7\Uri;
+// use GuzzleHttp\Stream\Stream;
 
 /**
  * Upload request class in Zimbra API PHP.
@@ -91,9 +92,10 @@ class Client extends EventEmitter
     {
         $this->emit('before.request', [$request, &$this->headers]);
         $files = $request->getFiles();
-        if ($files->count() == 0) {
+        $body = $request->getBody();
+        if ($files->count() == 0 && empty($body)) {
             throw new \UnexpectedValueException(
-                "Upload request must have at least one file."
+                "Upload request must have at least one file or has body content."
             );
         }
 
@@ -104,9 +106,14 @@ class Client extends EventEmitter
                 ['name' => 'requestId', 'contents' => $request->getRequestId()]
             ],
         ];
-        foreach ($files as $file)
-        {
-            $options['multipart'][] = ['name' => basename($file), 'contents' => fopen($file, 'r')];
+        if ($files->count() > 0) {
+            foreach ($files as $file)
+            {
+                $options['multipart'][] = ['name' => basename($file), 'contents' => fopen($file, 'r')];
+            }
+        }
+        elseif (!empty($body)) {
+            $options['multipart'][] = ['name' => $request->getRequestId(), 'contents' => $body];
         }
         if (!empty($this->_authToken))
         {
@@ -142,6 +149,43 @@ class Client extends EventEmitter
     }
 
     /**
+     * Sets headers
+     *
+     * @param  array $headers
+     * @return self
+     */
+    public function setHeaders(array $headers = array())
+    {
+        $this->headers = $headers;
+        return $this;
+    }
+
+    /**
+     * Add headers
+     *
+     * @param  string $name
+     * @param  mix $value
+     * @return self
+     */
+    public function addHeader($name, $value)
+    {
+        if (!isset($this->headers[$name])) {
+            $this->headers[$name] = $value;
+        }
+        else {
+            if (is_array($this->headers[$name])) {
+                $this->headers[$name][] = $value;
+            }
+            else {
+                $current_value = $this->headers[$name];
+                $this->headers[$name] = array($current_value);
+                $this->headers[$name][] = $value;
+            }
+        }
+        return $this;
+    }
+
+    /**
      * Check if a specific header exists on the POST file by name.
      *
      * @param string $name Case-insensitive header to check
@@ -150,7 +194,7 @@ class Client extends EventEmitter
      */
     public function hasHeader($name)
     {
-        return isset(array_change_key_case($this->headers)[strtolower($name)]);
+        return isset(array_change_key_case($this->_headers)[strtolower($name)]);
     }
 
     /**

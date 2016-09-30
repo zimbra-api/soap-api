@@ -35,16 +35,26 @@ class Request
     private $_files;
 
     /**
+     * Body data
+     * @var string
+     */
+    private $_body;
+
+    /**
      * Constructor method for Request
      *
      * @param  string $requestId
      * @param  array $files
      * @return self
      */
-    public function __construct($requestId, array $files = [])
+    public function __construct($requestId, array $files = [], $body = null)
     {
         $this->_requestId = trim($requestId);
         $this->setFiles($files);
+        if(null !== $body)
+        {
+            $this->_body = $body;
+        }
     }
 
     /**
@@ -101,5 +111,27 @@ class Request
     public function getFiles()
     {
         return $this->_files;
+    }
+
+    /**
+     * Gets body
+     *
+     * @return string
+     */
+    public function getBody()
+    {
+        return $this->_body;
+    }
+
+    /**
+     * Sets body
+     *
+     * @param  string $body
+     * @return self
+     */
+    public function setBody($body)
+    {
+        $this->_body = trim($body);
+        return $this;
     }
 }
