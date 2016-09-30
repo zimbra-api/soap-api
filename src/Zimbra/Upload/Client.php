@@ -135,6 +135,43 @@ class Client extends EventEmitter
     }
 
     /**
+     * Sets headers
+     *
+     * @param  array $headers
+     * @return self
+     */
+    public function setHeaders(array $headers = array())
+    {
+        $this->headers = $headers;
+        return $this;
+    }
+
+    /**
+     * Add headers
+     *
+     * @param  string $name
+     * @param  mix $value
+     * @return self
+     */
+    public function addHeader($name, $value)
+    {
+        if (!isset($this->headers[$name])) {
+            $this->headers[$name] = $value;
+        }
+        else {
+            if (is_array($this->headers[$name])) {
+                $this->headers[$name][] = $value;
+            }
+            else {
+                $current_value = $this->headers[$name];
+                $this->headers[$name] = array($current_value);
+                $this->headers[$name][] = $value;
+            }
+        }
+        return $this;
+    }
+
+    /**
      * Check if a specific header exists on the POST file by name.
      *
      * @param string $name Case-insensitive header to check
