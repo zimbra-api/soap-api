@@ -180,7 +180,7 @@ class Client extends EventEmitter
      */
     public function hasHeader($name)
     {
-        return isset(array_change_key_case($this->headers)[strtolower($name)]);
+        return isset(array_change_key_case($this->_headers)[strtolower($name)]);
     }
 
     /**
