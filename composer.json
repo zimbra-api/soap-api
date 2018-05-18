@@ -12,7 +12,7 @@
         }
     ],
     "require": {
-        "php": ">=5.5.0",
+        "php": ">=5.5.0 <7.2",
         "evenement/evenement": "~2.0",
         "guzzlehttp/guzzle": "6.*",
         "phpcollection/phpcollection": "0.*"
