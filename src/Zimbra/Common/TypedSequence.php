@@ -36,6 +36,8 @@ class TypedSequence extends Sequence
      */
     public function __construct($type, array $elements = [])
     {
+        parent::__construct($elements);
+
         $this->_type = $type;
         $this->addAll($elements);
     }
