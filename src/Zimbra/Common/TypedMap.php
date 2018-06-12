@@ -36,6 +36,7 @@ class TypedMap extends Map
      */
     public function __construct($type, array $elements = [])
     {
+        parent::__construct();
         $this->_type = $type;
         $this->setAll($elements);
     }
