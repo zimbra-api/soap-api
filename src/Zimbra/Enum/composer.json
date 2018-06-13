@@ -4,7 +4,7 @@
     "keywords": ["enum"],
     "description": "Enum libraries used by Zimbra Api",
     "homepage": "https://github.com/zimbra-api",
-    "license": "BSD (3-Clause) License",
+    "license": "BSD-3-Clause",
     "authors": [
         {
             "name": "Nguyen Van Nguyen",
