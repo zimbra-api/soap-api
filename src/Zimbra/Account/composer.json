@@ -3,7 +3,7 @@
     "homepage": "https://github.com/zimbra-api",
     "description": "Account libraries used by Zimbra Api",
     "keywords": ["account", "soap", "api"],
-    "license": "BSD (3-Clause) License",
+    "license": "BSD-3-Clause",
     "authors": [
         {
             "name": "Nguyen Van Nguyen",
