@@ -43,12 +43,9 @@ class FormatInfo
      * @param integer $format
      * @return self
      */
-    public function __construct(
-        $format = NULL
-    )
+    public function __construct($format = NULL)
     {
-        if(NULL !== $format)
-        {
+        if (NULL !== $format) {
             $this->setFormat($format);
         }
     }

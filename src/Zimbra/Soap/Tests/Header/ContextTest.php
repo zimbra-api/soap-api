@@ -124,7 +124,7 @@ class ContextTest extends ZimbraStructTestCase
         $this->assertSame($csrfToken, $context->getCsrfToken());
 
         $xml = '<?xml version="1.0"?>' . "\n"
-            . '<context xmlns="urn:zimbra" hops="' . $hopCount . '" >'
+            . '<context hops="' . $hopCount . '" >'
                 . '<authToken>' . $authToken . '</authToken>'
                 . '<session proxy="true" id="' . $id . '" seq="' . $sequence . '">' . $value . '</session>'
                 . '<sessionId proxy="false" id="' . $id . '" seq="' . $sequence . '">' . $value . '</sessionId>'
