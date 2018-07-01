@@ -2,13 +2,13 @@
 
 namespace Zimbra\Enum\Tests;
 
-use \PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 use Zimbra\Enum\CSRKeySize;
 
 /**
  * Testcase class for CSRKeySize.
  */
-class CSRKeySizeTest extends PHPUnit_Framework_TestCase
+class CSRKeySizeTest extends TestCase
 {
     public function testCSRKeySize()
     {

@@ -10,7 +10,12 @@
 
 namespace Zimbra\Admin\Struct;
 
-use Zimbra\Struct\Base;
+use JMS\Serializer\Annotation\Accessor;
+use JMS\Serializer\Annotation\SerializedName;
+use JMS\Serializer\Annotation\Type;
+use JMS\Serializer\Annotation\XmlAttribute;
+use JMS\Serializer\Annotation\XmlRoot;
+use JMS\Serializer\Annotation\XmlValue;
 
 /**
  * RightModifierInfo struct class
@@ -20,9 +25,49 @@ use Zimbra\Struct\Base;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
+ * @XmlRoot(name="right")
  */
-class RightModifierInfo extends Base
+class RightModifierInfo
 {
+    /**
+     * @Accessor(getter="getValue", setter="setValue")
+     * @Type("string")
+     * @XmlValue(cdata=false)
+     */
+    private $_value;
+
+    /**
+     * @Accessor(getter="getDeny", setter="setDeny")
+     * @SerializedName("deny")
+     * @Type("bool")
+     * @XmlAttribute
+     */
+    private $_deny;
+
+    /**
+     * @Accessor(getter="getCanDelegate", setter="setCanDelegate")
+     * @SerializedName("canDelegate")
+     * @Type("bool")
+     * @XmlAttribute
+     */
+    private $_canDelegate;
+
+    /**
+     * @Accessor(getter="getDisinheritSubGroups", setter="setDisinheritSubGroups")
+     * @SerializedName("disinheritSubGroups")
+     * @Type("bool")
+     * @XmlAttribute
+     */
+    private $_disinheritSubGroups;
+
+    /**
+     * @Accessor(getter="getSubDomain", setter="setSubDomain")
+     * @SerializedName("subDomain")
+     * @Type("bool")
+     * @XmlAttribute
+     */
+    private $_subDomain;
+
     /**
      * Constructor method for RightModifierInfo
      * @param string $value Value is of the form
@@ -33,30 +78,50 @@ class RightModifierInfo extends Base
      * @return self
      */
     public function __construct(
-        $value = null,
-        $deny = null,
-        $canDelegate = null,
-        $disinheritSubGroups = null,
-        $subDomain = null
+        $value = NULL,
+        $deny = NULL,
+        $canDelegate = NULL,
+        $disinheritSubGroups = NULL,
+        $subDomain = NULL
     )
     {
-        parent::__construct(trim($value));
-        if($deny !== null)
-        {
-            $this->setProperty('deny', (bool) $deny);
+        if (NULL !== $value) {
+            $this->setValue($value);
         }
-        if($canDelegate !== null)
-        {
-            $this->setProperty('canDelegate', (bool) $canDelegate);
+        if (NULL !== $deny) {
+            $this->setDeny($deny);
         }
-        if($disinheritSubGroups !== null)
-        {
-            $this->setProperty('disinheritSubGroups', (bool) $disinheritSubGroups);
+        if (NULL !== $canDelegate) {
+            $this->setCanDelegate($canDelegate);
         }
-        if($subDomain !== null)
-        {
-            $this->setProperty('subDomain', (bool) $subDomain);
+        if (NULL !== $disinheritSubGroups) {
+            $this->setDisinheritSubGroups($disinheritSubGroups);
         }
+        if (NULL !== $subDomain) {
+            $this->setSubDomain($subDomain);
+        }
+    }
+
+    /**
+     * Gets value
+     *
+     * @return string
+     */
+    public function getValue()
+    {
+        return $this->_value;
+    }
+
+    /**
+     * Sets value
+     *
+     * @param  string $name
+     * @return self
+     */
+    public function setValue($value)
+    {
+        $this->_value = trim($value);
+        return $this;
     }
 
     /**
@@ -66,7 +131,7 @@ class RightModifierInfo extends Base
      */
     public function getDeny()
     {
-        return $this->getProperty('deny');
+        return $this->_deny;
     }
 
     /**
@@ -77,7 +142,8 @@ class RightModifierInfo extends Base
      */
     public function setDeny($deny)
     {
-        return $this->setProperty('deny', (bool) $deny);
+        $this->_deny = (bool) $deny;
+        return $this;
     }
 
     /**
@@ -87,7 +153,7 @@ class RightModifierInfo extends Base
      */
     public function getCanDelegate()
     {
-        return $this->getProperty('canDelegate');
+        return $this->_canDelegate;
     }
 
     /**
@@ -98,7 +164,8 @@ class RightModifierInfo extends Base
      */
     public function setCanDelegate($canDelegate)
     {
-        return $this->setProperty('canDelegate', (bool) $canDelegate);
+        $this->_canDelegate = (bool) $canDelegate;
+        return $this;
     }
 
     /**
@@ -108,7 +175,7 @@ class RightModifierInfo extends Base
      */
     public function getDisinheritSubGroups()
     {
-        return $this->getProperty('disinheritSubGroups');
+        return $this->_disinheritSubGroups;
     }
 
     /**
@@ -119,7 +186,8 @@ class RightModifierInfo extends Base
      */
     public function setDisinheritSubGroups($disinheritSubGroups)
     {
-        return $this->setProperty('disinheritSubGroups', (bool) $disinheritSubGroups);
+        $this->_disinheritSubGroups = (bool) $disinheritSubGroups;
+        return $this;
     }
 
     /**
@@ -129,7 +197,7 @@ class RightModifierInfo extends Base
      */
     public function getSubDomain()
     {
-        return $this->getProperty('subDomain');
+        return $this->_subDomain;
     }
 
     /**
@@ -140,28 +208,7 @@ class RightModifierInfo extends Base
      */
     public function setSubDomain($subDomain)
     {
-        return $this->setProperty('subDomain', (bool) $subDomain);
-    }
-
-    /**
-     * Returns the array representation of this class 
-     *
-     * @param  string $name
-     * @return array
-     */
-    public function toArray($name = 'right')
-    {
-        return parent::toArray($name);
-    }
-
-    /**
-     * Method returning the xml representative this class
-     *
-     * @param  string $name
-     * @return SimpleXML
-     */
-    public function toXml($name = 'right')
-    {
-        return parent::toXml($name);
+        $this->_subDomain = (bool) $subDomain;
+        return $this;
     }
 }

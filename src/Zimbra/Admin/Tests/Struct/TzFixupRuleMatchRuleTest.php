@@ -2,13 +2,13 @@
 
 namespace Zimbra\Admin\Tests\Struct;
 
-use Zimbra\Admin\Tests\ZimbraAdminTestCase;
 use Zimbra\Admin\Struct\TzFixupRuleMatchRule;
+use Zimbra\Struct\Tests\ZimbraStructTestCase;
 
 /**
  * Testcase class for TzFixupRuleMatchRule.
  */
-class TzFixupRuleMatchRuleTest extends ZimbraAdminTestCase
+class TzFixupRuleMatchRuleTest extends ZimbraStructTestCase
 {
     public function testTzFixupRuleMatchRule()
     {
@@ -21,6 +21,7 @@ class TzFixupRuleMatchRuleTest extends ZimbraAdminTestCase
         $this->assertSame($week, $rule->getWeek());
         $this->assertSame($wkday, $rule->getWeekDay());
 
+        $rule = new TzFixupRuleMatchRule(0, 0, 0);
         $rule->setMonth($mon)
              ->setWeek($week)
              ->setWeekDay($wkday);
@@ -30,15 +31,11 @@ class TzFixupRuleMatchRuleTest extends ZimbraAdminTestCase
 
         $xml = '<?xml version="1.0"?>' . "\n"
             . '<rule mon="' . $mon . '" week="' . $week . '" wkday="' . $wkday . '" />';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $rule);
+        $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($rule, 'xml'));
 
-        $array = [
-            'rule' => [
-                'mon' => $mon,
-                'week' => $week,
-                'wkday' => $wkday,
-            ],
-        ];
-        $this->assertEquals($array, $rule->toArray());
+        $rule = $this->serializer->deserialize($xml, 'Zimbra\Admin\Struct\TzFixupRuleMatchRule', 'xml');
+        $this->assertSame($mon, $rule->getMonth());
+        $this->assertSame($week, $rule->getWeek());
+        $this->assertSame($wkday, $rule->getWeekDay());
     }
 }

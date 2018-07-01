@@ -10,8 +10,14 @@
 
 namespace Zimbra\Admin\Struct;
 
+use JMS\Serializer\Annotation\Accessor;
+use JMS\Serializer\Annotation\SerializedName;
+use JMS\Serializer\Annotation\Type;
+use JMS\Serializer\Annotation\XmlAttribute;
+use JMS\Serializer\Annotation\XmlElement;
+use JMS\Serializer\Annotation\XmlRoot;
+
 use Zimbra\Enum\ZimletStatus;
-use Zimbra\Struct\Base;
 
 /**
  * ZimletAclStatusPri struct class
@@ -21,9 +27,42 @@ use Zimbra\Struct\Base;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
+ * @XmlRoot(name="zimlet")
  */
-class ZimletAclStatusPri extends Base
+class ZimletAclStatusPri
 {
+    /**
+     * @Accessor(getter="getName", setter="setName")
+     * @SerializedName("name")
+     * @Type("string")
+     * @XmlAttribute
+     */
+    private $_name;
+
+    /**
+     * @Accessor(getter="getAcl", setter="setAcl")
+     * @SerializedName("acl")
+     * @Type("Zimbra\Admin\Struct\ZimletAcl")
+     * @XmlElement
+     */
+    private $_acl;
+
+    /**
+     * @Accessor(getter="getStatus", setter="setStatus")
+     * @SerializedName("status")
+     * @Type("Zimbra\Admin\Struct\ValueAttrib")
+     * @XmlElement
+     */
+    private $_status;
+
+    /**
+     * @Accessor(getter="getPriority", setter="setPriority")
+     * @SerializedName("priority")
+     * @Type("Zimbra\Admin\Struct\IntegerValueAttrib")
+     * @XmlElement
+     */
+    private $_priority;
+
     /**
      * Constructor method for ZimletAclStatusPri
      * @param  string $name Name of Class Of Service (COS)
@@ -34,24 +73,20 @@ class ZimletAclStatusPri extends Base
      */
     public function __construct(
         $name,
-        ZimletAcl $acl = null,
-        ValueAttrib $status = null,
-        IntegerValueAttrib $priority = null
+        ZimletAcl $acl = NULL,
+        ValueAttrib $status = NULL,
+        IntegerValueAttrib $priority = NULL
     )
     {
-        parent::__construct();
-        $this->setProperty('name', trim($name));
-        if($acl instanceof ZimletAcl)
-        {
-            $this->setChild('acl', $acl);
+        $this->setName($name);
+        if ($acl instanceof ZimletAcl) {
+            $this->setAcl($acl);
         }
-        if($status instanceof ValueAttrib)
-        {
+        if ($status instanceof ValueAttrib) {
             $this->setStatus($status);
         }
-        if($priority instanceof IntegerValueAttrib)
-        {
-            $this->setChild('priority', $priority);
+        if ($priority instanceof IntegerValueAttrib) {
+            $this->setPriority($priority);
         }
     }
 
@@ -62,7 +97,7 @@ class ZimletAclStatusPri extends Base
      */
     public function getName()
     {
-        return $this->getProperty('name');
+        return $this->_name;
     }
 
     /**
@@ -73,7 +108,8 @@ class ZimletAclStatusPri extends Base
      */
     public function setName($name)
     {
-        return $this->setProperty('name', trim($name));
+        $this->_name = trim($name);
+        return $this;
     }
 
     /**
@@ -83,7 +119,7 @@ class ZimletAclStatusPri extends Base
      */
     public function getAcl()
     {
-        return $this->getChild('acl');
+        return $this->_acl;
     }
 
     /**
@@ -94,7 +130,8 @@ class ZimletAclStatusPri extends Base
      */
     public function setAcl(ZimletAcl $acl)
     {
-        return $this->setChild('acl', $acl);
+        $this->_acl = $acl;
+        return $this;
     }
 
     /**
@@ -104,7 +141,7 @@ class ZimletAclStatusPri extends Base
      */
     public function getStatus()
     {
-        return $this->getChild('status');
+        return $this->_status;
     }
 
     /**
@@ -115,9 +152,8 @@ class ZimletAclStatusPri extends Base
      */
     public function setStatus(ValueAttrib $status)
     {
-        if(ZimletStatus::has($status->getValue()))
-        {
-            $this->setChild('status', $status);
+        if (ZimletStatus::has($status->getValue())) {
+            $this->_status = $status;
         }
         return $this;
     }
@@ -129,7 +165,7 @@ class ZimletAclStatusPri extends Base
      */
     public function getPriority()
     {
-        return $this->getChild('priority');
+        return $this->_priority;
     }
 
     /**
@@ -140,28 +176,7 @@ class ZimletAclStatusPri extends Base
      */
     public function setPriority(IntegerValueAttrib $priority)
     {
-        return $this->setChild('priority', $priority);
-    }
-
-    /**
-     * Returns the array representation of this class 
-     *
-     * @param  string $name
-     * @return array
-     */
-    public function toArray($name = 'zimlet')
-    {
-        return parent::toArray($name);
-    }
-
-    /**
-     * Method returning the xml representation of this class
-     *
-     * @param  string $name
-     * @return SimpleXML
-     */
-    public function toXml($name = 'zimlet')
-    {
-        return parent::toXml($name);
+        $this->_priority = $priority;
+        return $this;
     }
 }

@@ -2,6 +2,7 @@
 
 namespace Zimbra\Struct\Tests;
 
+use JMS\Serializer\Annotation\XmlRoot;
 use Zimbra\Struct\AttrsImplTrait;
 use Zimbra\Struct\Base;
 use Zimbra\Struct\KeyValuePair;
@@ -26,44 +27,38 @@ class AttrsImplTraitTest extends ZimbraStructTestCase
         $attr3 = new KeyValuePair($key3, $value3);
 
         $attrs = new AttrsImplImp([$attr1]);
-        $this->assertSame([$attr1], $attrs->getAttrs()->all());
+        $this->assertSame([$attr1], $attrs->getAttrs());
         $attrs->setAttrs([$attr1, $attr2]);
-        $this->assertSame([$attr1, $attr2], $attrs->getAttrs()->all());
+        $this->assertSame([$attr1, $attr2], $attrs->getAttrs());
         $attrs->addAttr($attr3);
-        $this->assertSame([$attr1, $attr2, $attr3], $attrs->getAttrs()->all());
+        $this->assertSame([$attr1, $attr2, $attr3], $attrs->getAttrs());
 
-        $className = $attrs->className();
         $xml = '<?xml version="1.0"?>' . "\n"
-            . '<' . $className . '>'
+            . '<attrs>'
                 . '<a n="' . $key1 . '">' . $value1 . '</a>'
                 . '<a n="' . $key2 . '">' . $value2 . '</a>'
                 . '<a n="' . $key3 . '">' . $value3 . '</a>'
-            . '</' . $className . '>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $attrs);
+            . '</attrs>';
+        $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($attrs, 'xml'));
 
-        $array = [
-            $className => [
-                'a' => [
-                    [
-                        'n' => $key1,
-                        '_content' => $value1,
-                    ],
-                    [
-                        'n' => $key2,
-                        '_content' => $value2,
-                    ],
-                    [
-                        'n' => $key3,
-                        '_content' => $value3,
-                    ],
-                ],
-            ],
-        ];
-        $this->assertEquals($array, $attrs->toArray());
+        $object = $this->serializer->deserialize($xml, 'Zimbra\Struct\Tests\AttrsImplImp', 'xml');
+        $attrs = [$attr1, $attr2, $attr3];
+        foreach ($object->getAttrs() as $key => $attr) {
+            $this->assertEquals($attrs[$key]->getKey(), $attr->getKey());
+            $this->assertEquals($attrs[$key]->getValue(), $attr->getValue());
+        }
     }
 }
 
-class AttrsImplImp extends Base
+/**
+ * @XmlRoot(name="attrs")
+ */
+class AttrsImplImp
 {
     use AttrsImplTrait;
+
+    public function __construct(array $attrs = [])
+    {
+        $this->setAttrs($attrs);
+    }
 }

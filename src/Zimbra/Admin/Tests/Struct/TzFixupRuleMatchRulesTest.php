@@ -2,14 +2,14 @@
 
 namespace Zimbra\Admin\Tests\Struct;
 
-use Zimbra\Admin\Tests\ZimbraAdminTestCase;
 use Zimbra\Admin\Struct\TzFixupRuleMatchRules;
 use Zimbra\Admin\Struct\TzFixupRuleMatchRule;
+use Zimbra\Struct\Tests\ZimbraStructTestCase;
 
 /**
  * Testcase class for TzFixupRuleMatchRules.
  */
-class TzFixupRuleMatchRulesTest extends ZimbraAdminTestCase
+class TzFixupRuleMatchRulesTest extends ZimbraStructTestCase
 {
     public function testTzFixupRuleMatchRules()
     {
@@ -31,6 +31,12 @@ class TzFixupRuleMatchRulesTest extends ZimbraAdminTestCase
         $this->assertSame($stdoff, $rules->getStdOffset());
         $this->assertSame($dayoff, $rules->getDstOffset());
 
+        $rules = new TzFixupRuleMatchRules(
+            new TzFixupRuleMatchRule(0, 0, 0),
+            new TzFixupRuleMatchRule(0, 0, 0),
+            0,
+            0
+        );
         $rules->setStandard($standard)
               ->setDaylight($daylight)
               ->setStdOffset($stdoff)
@@ -45,24 +51,21 @@ class TzFixupRuleMatchRulesTest extends ZimbraAdminTestCase
                 . '<standard mon="' . $std_mon . '" week="' . $std_week . '" wkday="' . $std_wkday . '" />'
                 . '<daylight mon="' . $day_mon . '" week="' . $day_week . '" wkday="' . $day_wkday . '" />'
             . '</rules>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $rules);
+        $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($rules, 'xml'));
 
-        $array = [
-            'rules' => [
-                'stdoff' => $stdoff,
-                'dayoff' => $dayoff,
-                'standard' => [
-                    'mon' => $std_mon,
-                    'week' => $std_week,
-                    'wkday' => $std_wkday,
-                ],
-                'daylight' => [
-                    'mon' => $day_mon,
-                    'week' => $day_week,
-                    'wkday' => $day_wkday,
-                ],
-            ],
-        ];
-        $this->assertEquals($array, $rules->toArray());
+        $rules = $this->serializer->deserialize($xml, 'Zimbra\Admin\Struct\TzFixupRuleMatchRules', 'xml');
+        $standard = $rules->getStandard();
+        $daylight = $rules->getDaylight();
+
+        $this->assertSame($stdoff, $rules->getStdOffset());
+        $this->assertSame($dayoff, $rules->getDstOffset());
+
+        $this->assertSame($std_mon, $standard->getMonth());
+        $this->assertSame($std_week, $standard->getWeek());
+        $this->assertSame($std_wkday, $standard->getWeekDay());
+
+        $this->assertSame($day_mon, $daylight->getMonth());
+        $this->assertSame($day_week, $daylight->getWeek());
+        $this->assertSame($day_wkday, $daylight->getWeekDay());
     }
 }

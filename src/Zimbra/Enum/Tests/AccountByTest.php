@@ -2,13 +2,13 @@
 
 namespace Zimbra\Enum\Tests;
 
-use \PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 use Zimbra\Enum\AccountBy;
 
 /**
  * Testcase class for AccountBy.
  */
-class AccountByTest extends PHPUnit_Framework_TestCase
+class AccountByTest extends TestCase
 {
     public function testAccountBy()
     {

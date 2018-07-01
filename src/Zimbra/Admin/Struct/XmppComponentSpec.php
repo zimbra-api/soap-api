@@ -10,6 +10,13 @@
 
 namespace Zimbra\Admin\Struct;
 
+use JMS\Serializer\Annotation\Accessor;
+use JMS\Serializer\Annotation\SerializedName;
+use JMS\Serializer\Annotation\Type;
+use JMS\Serializer\Annotation\XmlAttribute;
+use JMS\Serializer\Annotation\XmlElement;
+use JMS\Serializer\Annotation\XmlRoot;
+
 /**
  * XmppComponentSpec struct class
  *
@@ -18,9 +25,34 @@ namespace Zimbra\Admin\Struct;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
+ * @XmlRoot(name="xmppcomponent")
  */
 class XmppComponentSpec extends AdminAttrsImpl
 {
+    /**
+     * @Accessor(getter="getName", setter="setName")
+     * @SerializedName("name")
+     * @Type("string")
+     * @XmlAttribute
+     */
+    private $_name;
+
+    /**
+     * @Accessor(getter="getDomain", setter="setDomain")
+     * @SerializedName("domain")
+     * @Type("Zimbra\Admin\Struct\DomainSelector")
+     * @XmlElement
+     */
+    private $_domain;
+
+    /**
+     * @Accessor(getter="getServer", setter="setServer")
+     * @SerializedName("server")
+     * @Type("Zimbra\Admin\Struct\ServerSelector")
+     * @XmlElement
+     */
+    private $_server;
+
     /**
      * Constructor method for XmppComponentSpec
      * @param string $name The name
@@ -37,9 +69,9 @@ class XmppComponentSpec extends AdminAttrsImpl
     )
     {
         parent::__construct($attrs);
-        $this->setProperty('name', trim($name));
-        $this->setChild('domain', $domain);
-        $this->setChild('server', $server);
+        $this->setName($name)
+             ->setDomain($domain)
+             ->setServer($server);
     }
 
     /**
@@ -49,7 +81,7 @@ class XmppComponentSpec extends AdminAttrsImpl
      */
     public function getName()
     {
-        return $this->getProperty('name');
+        return $this->_name;
     }
 
     /**
@@ -60,7 +92,8 @@ class XmppComponentSpec extends AdminAttrsImpl
      */
     public function setName($name)
     {
-        return $this->setProperty('name', trim($name));
+        $this->_name = trim($name);
+        return $this;
     }
 
     /**
@@ -70,7 +103,7 @@ class XmppComponentSpec extends AdminAttrsImpl
      */
     public function getDomain()
     {
-        return $this->getChild('domain');
+        return $this->_domain;
     }
 
     /**
@@ -81,7 +114,8 @@ class XmppComponentSpec extends AdminAttrsImpl
      */
     public function setDomain(DomainSelector $domain)
     {
-        return $this->setChild('domain', $domain);
+        $this->_domain = $domain;
+        return $this;
     }
 
     /**
@@ -91,7 +125,7 @@ class XmppComponentSpec extends AdminAttrsImpl
      */
     public function getServer()
     {
-        return $this->getChild('server');
+        return $this->_server;
     }
 
     /**
@@ -102,26 +136,7 @@ class XmppComponentSpec extends AdminAttrsImpl
      */
     public function setServer(ServerSelector $server)
     {
-        return $this->setChild('server', $server);
-    }
-
-    /**
-     * Returns the array representation of this class 
-     *
-     * @return array
-     */
-    public function toArray($name = 'xmppcomponent')
-    {
-        return parent::toArray($name);
-    }
-
-    /**
-     * Method returning the xml representation of this class
-     *
-     * @return SimpleXML
-     */
-    public function toXml($name = 'xmppcomponent')
-    {
-        return parent::toXml($name);
+        $this->_server = $server;
+        return $this;
     }
 }

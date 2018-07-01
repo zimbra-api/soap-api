@@ -2,13 +2,13 @@
 
 namespace Zimbra\Enum\Tests;
 
-use \PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 use Zimbra\Enum\GetSessionsSortBy;
 
 /**
  * Testcase class for GetSessionsSortBy.
  */
-class GetSessionsSortByTest extends PHPUnit_Framework_TestCase
+class GetSessionsSortByTest extends TestCase
 {
     public function testGetSessionsSortBy()
     {

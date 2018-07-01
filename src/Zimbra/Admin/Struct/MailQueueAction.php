@@ -10,9 +10,15 @@
 
 namespace Zimbra\Admin\Struct;
 
+use JMS\Serializer\Annotation\Accessor;
+use JMS\Serializer\Annotation\SerializedName;
+use JMS\Serializer\Annotation\Type;
+use JMS\Serializer\Annotation\XmlAttribute;
+use JMS\Serializer\Annotation\XmlElement;
+use JMS\Serializer\Annotation\XmlRoot;
+
 use Zimbra\Enum\QueueAction;
 use Zimbra\Enum\QueueActionBy;
-use Zimbra\Struct\Base;
 
 /**
  * MailQueueAction struct class
@@ -22,22 +28,46 @@ use Zimbra\Struct\Base;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
+ * @XmlRoot(name="action")
  */
-class MailQueueAction extends Base
+class MailQueueAction
 {
+    /**
+     * @Accessor(getter="getQuery", setter="setQuery")
+     * @SerializedName("query")
+     * @Type("Zimbra\Admin\Struct\QueueQuery")
+     * @XmlElement
+     */
+    private $_query;
+
+    /**
+     * @Accessor(getter="getOp", setter="setOp")
+     * @SerializedName("op")
+     * @Type("string")
+     * @XmlAttribute
+     */
+    private $_op;
+
+    /**
+     * @Accessor(getter="getBy", setter="setBy")
+     * @SerializedName("by")
+     * @Type("string")
+     * @XmlAttribute
+     */
+    private $_by;
+
     /**
      * Constructor method for MailQueueAction
      * @param  QueueQuery $query Query
-     * @param  QueueAction $op Operation
-     * @param  QueueActionBy $by By selector
+     * @param  string $op Operation
+     * @param  string $by By selector
      * @return self
      */
-    public function __construct(QueueQuery $query, QueueAction $op, QueueActionBy $by)
+    public function __construct(QueueQuery $query, $op, $by)
     {
-        parent::__construct();
-        $this->setChild('query', $query);
-        $this->setProperty('op', $op);
-        $this->setProperty('by', $by);
+        $this->setQuery($query)
+             ->setOp($op)
+             ->setBy($by);
     }
 
     /**
@@ -47,7 +77,7 @@ class MailQueueAction extends Base
      */
     public function getQuery()
     {
-        return $this->getChild('query');
+        return $this->_query;
     }
 
     /**
@@ -58,70 +88,55 @@ class MailQueueAction extends Base
      */
     public function setQuery(QueueQuery $query)
     {
-        return $this->setChild('query', $query);
+        $this->_query = $query;
+        return $this;
     }
 
     /**
      * Gets op enum
      *
-     * @return Zimbra\Enum\QueueAction
+     * @return string
      */
     public function getOp()
     {
-        return $this->getProperty('op');
+        return $this->_op;
     }
 
     /**
      * Sets op enum
      *
-     * @param  Zimbra\Enum\QueueAction $op
+     * @param  string $op
      * @return self
      */
-    public function setOp(QueueAction $op)
+    public function setOp($op)
     {
-        return $this->setProperty('op', $op);
+        if (QueueAction::has(trim($op))) {
+            $this->_op = trim($op);
+        }
+        return $this;
     }
 
     /**
      * Gets by enum
      *
-     * @return Zimbra\Enum\QueueActionBy
+     * @return string
      */
     public function getBy()
     {
-        return $this->getProperty('by');
+        return $this->_by;
     }
 
     /**
      * Sets by enum
      *
-     * @param  Zimbra\Enum\QueueActionBy $by
+     * @param  string $by
      * @return self
      */
-    public function setBy(QueueActionBy $by)
+    public function setBy($by)
     {
-        return $this->setProperty('by', $by);
-    }
-
-    /**
-     * Returns the array representation of this class 
-     *
-     * @param  string $name
-     * @return array
-     */
-    public function toArray($name = 'action')
-    {
-        return parent::toArray($name);
-    }
-
-    /**
-     * Method returning the xml representation of this class
-     *
-     * @param  string $name
-     * @return SimpleXML
-     */
-    public function toXml($name = 'action')
-    {
-        return parent::toXml($name);
+        if (QueueActionBy::has(trim($by))) {
+            $this->_by = trim($by);
+        }
+        return $this;
     }
 }

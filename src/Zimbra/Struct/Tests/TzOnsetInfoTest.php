@@ -29,6 +29,7 @@ class TzOnsetInfoTest extends ZimbraStructTestCase
         $this->assertSame($week, $tzo->getWeek());
         $this->assertSame($wkday, $tzo->getDayOfWeek());
 
+        $tzo = new TzOnsetInfo(0, 0, 0, 0);
         $tzo->setMonth($mon)
             ->setHour($hour)
             ->setMinute($min)
@@ -46,18 +47,15 @@ class TzOnsetInfoTest extends ZimbraStructTestCase
 
         $xml = '<?xml version="1.0"?>' . "\n"
             . '<info mon="' . $mon . '" hour="' . $hour . '" min="' . $min . '" sec="' . $sec . '" mday="' . $mday . '" week="' . $week . '" wkday="' . $wkday . '" />';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $tzo);
-        $array = [
-            'info' => [
-                'mon' => $mon,
-                'hour' => $hour,
-                'min' => $min,
-                'sec' => $sec,
-                'mday' => $mday,
-                'week' => $week,
-                'wkday' => $wkday,
-            ],
-        ];
-        $this->assertEquals($array, $tzo->toArray());
+        $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($tzo, 'xml'));
+
+        $tzo = $this->serializer->deserialize($xml, 'Zimbra\Struct\TzOnsetInfo', 'xml');
+        $this->assertSame($mon, $tzo->getMonth());
+        $this->assertSame($hour, $tzo->getHour());
+        $this->assertSame($min, $tzo->getMinute());
+        $this->assertSame($sec, $tzo->getSecond());
+        $this->assertSame($mday, $tzo->getDayOfMonth());
+        $this->assertSame($week, $tzo->getWeek());
+        $this->assertSame($wkday, $tzo->getDayOfWeek());
     }
 }

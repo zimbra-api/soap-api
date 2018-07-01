@@ -2,13 +2,13 @@
 
 namespace Zimbra\Enum\Tests;
 
-use \PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 use Zimbra\Enum\GalMode;
 
 /**
  * Testcase class for GalMode.
  */
-class GalModeTest extends PHPUnit_Framework_TestCase
+class GalModeTest extends TestCase
 {
     public function testGalMode()
     {

@@ -2,13 +2,13 @@
 
 namespace Zimbra\Enum\Tests;
 
-use \PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 use Zimbra\Enum\CalendarResourceBy;
 
 /**
  * Testcase class for CalendarResourceBy.
  */
-class CalendarResourceByTest extends PHPUnit_Framework_TestCase
+class CalendarResourceByTest extends TestCase
 {
     public function testCalendarResourceBy()
     {

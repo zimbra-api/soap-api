@@ -10,7 +10,11 @@
 
 namespace Zimbra\Admin\Struct;
 
-use Zimbra\Struct\Base;
+use JMS\Serializer\Annotation\Accessor;
+use JMS\Serializer\Annotation\SerializedName;
+use JMS\Serializer\Annotation\Type;
+use JMS\Serializer\Annotation\XmlAttribute;
+use JMS\Serializer\Annotation\XmlRoot;
 
 /**
  * IdStatus struct class
@@ -20,20 +24,40 @@ use Zimbra\Struct\Base;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
+ * @XmlRoot(name="device")
  */
-class IdStatus extends Base
+class IdStatus
 {
+    /**
+     * @Accessor(getter="getId", setter="setId")
+     * @SerializedName("id")
+     * @Type("string")
+     * @XmlAttribute
+     */
+    private $_id;
+
+    /**
+     * @Accessor(getter="getStatus", setter="setStatus")
+     * @SerializedName("status")
+     * @Type("string")
+     * @XmlAttribute
+     */
+    private $_status;
+
     /**
      * Constructor method for IdStatus
      * @param  string $id
      * @param  string $status
      * @return self
      */
-    public function __construct($id = null, $status = null)
+    public function __construct($id = NULL, $status = NULL)
     {
-        parent::__construct();
-        $this->setProperty('id', trim($id));
-        $this->setProperty('status', trim($status));
+        if (NULL !== $id) {
+            $this->setId($id);
+        }
+        if (NULL !== $status) {
+            $this->setStatus($status);
+        }
     }
 
     /**
@@ -43,7 +67,7 @@ class IdStatus extends Base
      */
     public function getId()
     {
-        return $this->getProperty('id');
+        return $this->_id;
     }
 
     /**
@@ -54,7 +78,8 @@ class IdStatus extends Base
      */
     public function setId($id)
     {
-        return $this->setProperty('id', trim($id));
+        $this->_id = trim($id);
+        return $this;
     }
 
     /**
@@ -64,7 +89,7 @@ class IdStatus extends Base
      */
     public function getStatus()
     {
-        return $this->getProperty('status');
+        return $this->_status;
     }
 
     /**
@@ -75,28 +100,7 @@ class IdStatus extends Base
      */
     public function setStatus($status)
     {
-        return $this->setProperty('status', trim($status));
-    }
-
-    /**
-     * Returns the array representation of this class 
-     *
-     * @param  string $name
-     * @return array
-     */
-    public function toArray($name = 'device')
-    {
-        return parent::toArray($name);
-    }
-
-    /**
-     * Method returning the xml representation of this class
-     *
-     * @param  string $name
-     * @return SimpleXML
-     */
-    public function toXml($name = 'device')
-    {
-        return parent::toXml($name);
+        $this->_status = trim($status);
+        return $this;
     }
 }

@@ -12,6 +12,8 @@ namespace Zimbra\Admin\Struct;
 
 use Zimbra\Struct\Base;
 
+use JMS\Serializer\Annotation\XmlRoot;
+
 /**
  * SimpleElement struct class
  *
@@ -20,28 +22,8 @@ use Zimbra\Struct\Base;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
+ * @XmlRoot(name="any")
  */
-class SimpleElement extends Base
+class SimpleElement
 {
-    /**
-     * Returns the array representation of this class 
-     *
-     * @param  string $name
-     * @return array
-     */
-    public function toArray($name = 'any')
-    {
-        return parent::toArray($name);
-    }
-
-    /**
-     * Method returning the xml representation of this class
-     *
-     * @param  string $name
-     * @return SimpleXML
-     */
-    public function toXml($name = 'any')
-    {
-        return parent::toXml($name);
-    }
 }

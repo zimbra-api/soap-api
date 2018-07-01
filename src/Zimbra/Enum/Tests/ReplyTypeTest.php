@@ -2,13 +2,13 @@
 
 namespace Zimbra\Enum\Tests;
 
-use \PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 use Zimbra\Enum\ReplyType;
 
 /**
  * Testcase class for ReplyType.
  */
-class ReplyTypeTest extends PHPUnit_Framework_TestCase
+class ReplyTypeTest extends TestCase
 {
     public function testReplyType()
     {

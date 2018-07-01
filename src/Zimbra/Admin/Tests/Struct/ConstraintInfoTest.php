@@ -2,14 +2,14 @@
 
 namespace Zimbra\Admin\Tests\Struct;
 
-use Zimbra\Admin\Tests\ZimbraAdminTestCase;
 use Zimbra\Admin\Struct\ConstraintInfo;
 use Zimbra\Admin\Struct\ConstraintInfoValues;
+use Zimbra\Struct\Tests\ZimbraStructTestCase;
 
 /**
  * Testcase class for ConstraintInfo.
  */
-class ConstraintInfoTest extends ZimbraAdminTestCase
+class ConstraintInfoTest extends ZimbraStructTestCase
 {
     public function testConstraintInfo()
     {
@@ -23,6 +23,7 @@ class ConstraintInfoTest extends ZimbraAdminTestCase
         $this->assertSame($min, $constraint->getMax());
         $this->assertSame($values, $constraint->getValues());
 
+        $constraint = new ConstraintInfo();
         $constraint->setMin($min)
             ->setMax($max)
             ->setValues($values);
@@ -38,19 +39,12 @@ class ConstraintInfoTest extends ZimbraAdminTestCase
                     . '<v>' . $value . '</v>'
                 . '</values>'
             . '</constraint>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $constraint);
+        $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($constraint, 'xml'));
 
-        $array = [
-            'constraint' => [
-                'min' => $min,
-                'max' => $max,
-                'values' => [
-                    'v' => [
-                        $value,
-                    ],
-                ],
-            ],
-        ];
-        $this->assertEquals($array, $constraint->toArray());
+        $constraint = $this->serializer->deserialize($xml, 'Zimbra\Admin\Struct\ConstraintInfo', 'xml');
+        $values = $constraint->getValues();
+        $this->assertSame($min, $constraint->getMin());
+        $this->assertSame($max, $constraint->getMax());
+        $this->assertSame([$value], $values->getValues());
     }
 }

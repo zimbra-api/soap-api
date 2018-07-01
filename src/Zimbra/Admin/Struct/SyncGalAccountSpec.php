@@ -10,9 +10,14 @@
 
 namespace Zimbra\Admin\Struct;
 
+use JMS\Serializer\Annotation\Accessor;
+use JMS\Serializer\Annotation\SerializedName;
+use JMS\Serializer\Annotation\Type;
+use JMS\Serializer\Annotation\XmlAttribute;
+use JMS\Serializer\Annotation\XmlList;
+use JMS\Serializer\Annotation\XmlRoot;
+
 use Zimbra\Admin\Struct\SyncGalAccountDataSourceSpec as DataSource;
-use Zimbra\Common\TypedSequence;
-use Zimbra\Struct\Base;
 
 /**
  * SyncGalAccountSpec struct class
@@ -22,14 +27,25 @@ use Zimbra\Struct\Base;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
+ * @XmlRoot(name="account")
  */
-class SyncGalAccountSpec extends Base
+class SyncGalAccountSpec
 {
     /**
-     * SyncGalAccount data source specifications
-     * @var TypedSequence<DataSource>
+     * @Accessor(getter="getId", setter="setId")
+     * @SerializedName("id")
+     * @Type("string")
+     * @XmlAttribute
      */
-    private $_dataSource;
+    private $_id;
+
+    /**
+     * SyncGalAccount data source specifications
+     * @Accessor(getter="getDataSources", setter="setDataSources")
+     * @Type("array<Zimbra\Admin\Struct\SyncGalAccountDataSourceSpec>")
+     * @XmlList(inline = true, entry = "datasource")
+     */
+    private $_dataSources;
 
     /**
      * Constructor method for SyncGalAccountSpec
@@ -39,17 +55,8 @@ class SyncGalAccountSpec extends Base
      */
     public function __construct($id, array $dataSources = [])
     {
-        parent::__construct();
-        $this->setProperty('id', trim($id));
-        $this->setDataSources($dataSources);
-
-        $this->on('before', function(Base $sender)
-        {
-            if($sender->getDataSources()->count())
-            {
-                $sender->setChild('datasource', $sender->getDataSources()->all());
-            }
-        });
+        $this->setId($id)
+             ->setDataSources($dataSources);
     }
 
     /**
@@ -59,7 +66,7 @@ class SyncGalAccountSpec extends Base
      */
     public function getId()
     {
-        return $this->getProperty('id');
+        return $this->_id;
     }
 
     /**
@@ -70,7 +77,8 @@ class SyncGalAccountSpec extends Base
      */
     public function setId($id)
     {
-        return $this->setProperty('id', trim($id));
+        $this->_id = trim($id);
+        return $this;
     }
 
     /**
@@ -81,7 +89,7 @@ class SyncGalAccountSpec extends Base
      */
     public function addDataSource(DataSource $dataSource)
     {
-        $this->_dataSource->add($dataSource);
+        $this->_dataSources[] = $dataSource;
         return $this;
     }
 
@@ -93,41 +101,22 @@ class SyncGalAccountSpec extends Base
      */
     public function setDataSources(array $dataSources)
     {
-        $this->_dataSource = new TypedSequence(
-            'Zimbra\Admin\Struct\SyncGalAccountDataSourceSpec', $dataSources
-        );
+        $this->_dataSources = [];
+        foreach ($dataSources as $dataSource) {
+            if ($dataSource instanceof DataSource) {
+                $this->_dataSources[] = $dataSource;
+            }
+        }
         return $this;
     }
 
     /**
      * Gets data source sequence
      *
-     * @return Sequence
+     * @return array
      */
     public function getDataSources()
     {
-        return $this->_dataSource;
-    }
-
-    /**
-     * Returns the array representation of this class 
-     *
-     * @param  string $name
-     * @return array
-     */
-    public function toArray($name = 'account')
-    {
-        return parent::toArray($name);
-    }
-
-    /**
-     * Method returning the xml representation of this class
-     *
-     * @param  string $name
-     * @return SimpleXML
-     */
-    public function toXml($name = 'account')
-    {
-        return parent::toXml($name);
+        return $this->_dataSources;
     }
 }

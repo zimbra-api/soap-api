@@ -10,7 +10,11 @@
 
 namespace Zimbra\Admin\Struct;
 
-use Zimbra\Struct\Base;
+use JMS\Serializer\Annotation\Accessor;
+use JMS\Serializer\Annotation\SerializedName;
+use JMS\Serializer\Annotation\Type;
+use JMS\Serializer\Annotation\XmlAttribute;
+use JMS\Serializer\Annotation\XmlRoot;
 
 /**
  * IntIdAttr struct class
@@ -20,9 +24,18 @@ use Zimbra\Struct\Base;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
+ * @XmlRoot(name="attr")
  */
-class IntIdAttr extends Base
+class IntIdAttr
 {
+    /**
+     * @Accessor(getter="getId", setter="setId")
+     * @SerializedName("id")
+     * @Type("integer")
+     * @XmlAttribute
+     */
+    private $_id;
+
     /**
      * Constructor method for IntIdAttr
      * @param  int $id
@@ -30,8 +43,7 @@ class IntIdAttr extends Base
      */
     public function __construct($id)
     {
-        parent::__construct();
-        $this->setProperty('id', (int) $id);
+        $this->setId($id);
     }
 
     /**
@@ -41,7 +53,7 @@ class IntIdAttr extends Base
      */
     public function getId()
     {
-        return $this->getProperty('id');
+        return $this->_id;
     }
 
     /**
@@ -52,28 +64,7 @@ class IntIdAttr extends Base
      */
     public function setId($id)
     {
-        $this->setProperty('id', (int) $id);
-    }
-
-    /**
-     * Returns the array representation of this class 
-     *
-     * @param  string $name
-     * @return array
-     */
-    public function toArray($name = 'attr')
-    {
-        return parent::toArray($name);
-    }
-
-    /**
-     * Method returning the xml representation of this class
-     *
-     * @param  string $name
-     * @return SimpleXML
-     */
-    public function toXml($name = 'attr')
-    {
-        return parent::toXml($name);
+        $this->_id = (int) $id;
+        return $this;
     }
 }

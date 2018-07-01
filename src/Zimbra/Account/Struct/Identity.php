@@ -10,6 +10,12 @@
 
 namespace Zimbra\Account\Struct;
 
+use JMS\Serializer\Annotation\Accessor;
+use JMS\Serializer\Annotation\SerializedName;
+use JMS\Serializer\Annotation\Type;
+use JMS\Serializer\Annotation\XmlAttribute;
+use JMS\Serializer\Annotation\XmlRoot;
+
 /**
  * Identity struct class
  * 
@@ -18,9 +24,26 @@ namespace Zimbra\Account\Struct;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
+ * @XmlRoot(name="identity")
  */
 class Identity extends AttrsImpl
 {
+    /**
+     * @Accessor(getter="getName", setter="setName")
+     * @SerializedName("name")
+     * @Type("string")
+     * @XmlAttribute
+     */
+    private $_name;
+
+    /**
+     * @Accessor(getter="getId", setter="setId")
+     * @SerializedName("id")
+     * @Type("string")
+     * @XmlAttribute
+     */
+    private $_id;
+
     /**
      * Constructor method for Identity
      * @param string $name
@@ -31,13 +54,11 @@ class Identity extends AttrsImpl
     public function __construct($name = null, $id = null, array $attrs = array())
     {
         parent::__construct($attrs);
-        if(null !== $name)
-        {
-            $this->setProperty('name', trim($name));
+        if (null !== $name) {
+            $this->setName($name);
         }
-        if(null !== $id)
-        {
-            $this->setProperty('id', trim($id));
+        if (null !== $id) {
+            $this->setId($id);
         }
     }
 
@@ -48,7 +69,7 @@ class Identity extends AttrsImpl
      */
     public function getName()
     {
-        return $this->getProperty('name');
+        return $this->_name;
     }
 
     /**
@@ -59,7 +80,8 @@ class Identity extends AttrsImpl
      */
     public function setName($name)
     {
-        return $this->setProperty('name', trim($name));
+        $this->_name = trim($name);
+        return $this;
     }
 
     /**
@@ -69,7 +91,7 @@ class Identity extends AttrsImpl
      */
     public function getId()
     {
-        return $this->getProperty('id');
+        return $this->_id;
     }
 
     /**
@@ -78,30 +100,9 @@ class Identity extends AttrsImpl
      * @param  string $id
      * @return self
      */
-    public function setId($id = null)
+    public function setId($id)
     {
-        return $this->setProperty('id', trim($id));
-    }
-
-    /**
-     * Returns the array representation of this class 
-     *
-     * @param  string $name
-     * @return array
-     */
-    public function toArray($name = 'identity')
-    {
-        return parent::toArray($name);
-    }
-
-    /**
-     * Method returning the xml representation of this class
-     *
-     * @param  string $name
-     * @return SimpleXML
-     */
-    public function toXml($name = 'identity')
-    {
-        return parent::toXml($name);
+        $this->_id = trim($id);
+        return $this;
     }
 }

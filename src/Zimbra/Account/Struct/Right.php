@@ -12,6 +12,12 @@ namespace Zimbra\Account\Struct;
 
 use Zimbra\Struct\Base;
 
+use JMS\Serializer\Annotation\Accessor;
+use JMS\Serializer\Annotation\SerializedName;
+use JMS\Serializer\Annotation\Type;
+use JMS\Serializer\Annotation\XmlAttribute;
+use JMS\Serializer\Annotation\XmlRoot;
+
 /**
  * Right struct class
  *
@@ -20,9 +26,18 @@ use Zimbra\Struct\Base;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
+ * @XmlRoot(name="ace")
  */
-class Right extends Base
+class Right
 {
+    /**
+     * @Accessor(getter="getRight", setter="setRight")
+     * @SerializedName("right")
+     * @Type("string")
+     * @XmlAttribute
+     */
+    private $_right;
+
     /**
      * Constructor method for Right
      * @param string $right
@@ -30,8 +45,7 @@ class Right extends Base
      */
     public function __construct($right)
     {
-		parent::__construct();
-        $this->setProperty('right', trim($right));
+        $this->setRight($right);
     }
 
     /**
@@ -41,7 +55,7 @@ class Right extends Base
      */
     public function getRight()
     {
-        return $this->getProperty('right');
+        return $this->_right;
     }
 
     /**
@@ -52,26 +66,7 @@ class Right extends Base
      */
     public function setRight($right)
     {
-        return $this->setProperty('right', trim($right));
-    }
-
-    /**
-     * Returns the array representation of this class 
-     *
-     * @return array
-     */
-    public function toArray($name = 'ace')
-    {
-        return parent::toArray($name);
-    }
-
-    /**
-     * Method returning the xml representation of this class
-     *
-     * @return SimpleXML
-     */
-    public function toXml($name = 'ace')
-    {
-        return parent::toXml($name);
+        $this->_right = trim($right);
+        return $this;
     }
 }

@@ -10,7 +10,11 @@
 
 namespace Zimbra\Admin\Struct;
 
-use Zimbra\Struct\Base;
+use JMS\Serializer\Annotation\Accessor;
+use JMS\Serializer\Annotation\SerializedName;
+use JMS\Serializer\Annotation\Type;
+use JMS\Serializer\Annotation\XmlElement;
+use JMS\Serializer\Annotation\XmlRoot;
 
 /**
  * TzFixupRule struct class
@@ -20,9 +24,34 @@ use Zimbra\Struct\Base;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
+ * @XmlRoot(name="fixupRule")
  */
-class TzFixupRule extends Base
+class TzFixupRule
 {
+    /**
+     * @Accessor(getter="getMatch", setter="setMatch")
+     * @SerializedName("match")
+     * @Type("Zimbra\Admin\Struct\TZFixupRuleMatch")
+     * @XmlElement
+     */
+    private $_match;
+
+    /**
+     * @Accessor(getter="getTouch", setter="setTouch")
+     * @SerializedName("touch")
+     * @Type("Zimbra\Admin\Struct\SimpleElement")
+     * @XmlElement
+     */
+    private $_touch;
+
+    /**
+     * @Accessor(getter="getReplace", setter="setReplace")
+     * @SerializedName("replace")
+     * @Type("Zimbra\Admin\Struct\TzReplaceInfo")
+     * @XmlElement
+     */
+    private $_replace;
+
     /**
      * Constructor method for TzFixupRule
      * @param TzFixupRuleMatch $match Match
@@ -31,23 +60,19 @@ class TzFixupRule extends Base
      * @return self
      */
     public function __construct(
-        TzFixupRuleMatch $match = null,
-        SimpleElement $touch = null,
-        TzReplaceInfo $replace = null
+        TzFixupRuleMatch $match = NULL,
+        SimpleElement $touch = NULL,
+        TzReplaceInfo $replace = NULL
     )
     {
-        parent::__construct();
-        if($match instanceof TzFixupRuleMatch)
-        {
-            $this->setChild('match', $match);
+        if ($match instanceof TzFixupRuleMatch) {
+            $this->setMatch($match);
         }
-        if($touch instanceof SimpleElement)
-        {
-            $this->setChild('touch', $touch);
+        if ($touch instanceof SimpleElement) {
+            $this->setTouch($touch);
         }
-        if($replace instanceof TzReplaceInfo)
-        {
-            $this->setChild('replace', $replace);
+        if ($replace instanceof TzReplaceInfo) {
+            $this->setReplace($replace);
         }
     }
 
@@ -58,7 +83,7 @@ class TzFixupRule extends Base
      */
     public function getMatch()
     {
-        return $this->getChild('match');
+        return $this->_match;
     }
 
     /**
@@ -69,7 +94,8 @@ class TzFixupRule extends Base
      */
     public function setMatch(TzFixupRuleMatch $match)
     {
-        return $this->setChild('match', $match);
+        $this->_match = $match;
+        return $this;
     }
 
     /**
@@ -79,7 +105,7 @@ class TzFixupRule extends Base
      */
     public function getTouch()
     {
-        return $this->getChild('touch');
+        return $this->_touch;
     }
 
     /**
@@ -90,7 +116,8 @@ class TzFixupRule extends Base
      */
     public function setTouch(SimpleElement $touch)
     {
-        return $this->setChild('touch', $touch);
+        $this->_touch = $touch;
+        return $this;
     }
 
     /**
@@ -100,7 +127,7 @@ class TzFixupRule extends Base
      */
     public function getReplace()
     {
-        return $this->getChild('replace');
+        return $this->_replace;
     }
 
     /**
@@ -111,28 +138,7 @@ class TzFixupRule extends Base
      */
     public function setReplace(TzReplaceInfo $replace)
     {
-        return $this->setChild('replace', $replace);
-    }
-
-    /**
-     * Returns the array representation of this class 
-     *
-     * @param  string $name
-     * @return array
-     */
-    public function toArray($name = 'fixupRule')
-    {
-        return parent::toArray($name);
-    }
-
-    /**
-     * Method returning the xml representation of this class
-     *
-     * @param  string $name
-     * @return SimpleXML
-     */
-    public function toXml($name = 'fixupRule')
-    {
-        return parent::toXml($name);
+        $this->_replace = $replace;
+        return $this;
     }
 }

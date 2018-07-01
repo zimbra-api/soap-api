@@ -10,6 +10,13 @@
 
 namespace Zimbra\Struct;
 
+use JMS\Serializer\Annotation\Accessor;
+use JMS\Serializer\Annotation\SerializedName;
+use JMS\Serializer\Annotation\Type;
+use JMS\Serializer\Annotation\XmlAttribute;
+use JMS\Serializer\Annotation\XmlRoot;
+use JMS\Serializer\Annotation\XmlValue;
+
 use Zimbra\Enum\AccountBy;
 
 /**
@@ -19,42 +26,73 @@ use Zimbra\Enum\AccountBy;
  * @category  Struct
  * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright Copyright © 2013 by Nguyen Van Nguyen.
+ * @XmlRoot(name="account")
  */
-class AccountNameSelector extends Base
+class AccountNameSelector
 {
     /**
+     * @Accessor(getter="getBy", setter="setBy")
+     * @SerializedName("by")
+     * @Type("string")
+     * @XmlAttribute
+     */
+    private $_by;
+
+    /**
+     * @Accessor(getter="getName", setter="setName")
+     * @SerializedName("name")
+     * @Type("string")
+     * @XmlAttribute
+     */
+    private $_name;
+
+    /**
+     * @Accessor(getter="getValue", setter="setValue")
+     * @Type("string")
+     * @XmlValue(cdata=false)
+     */
+    private $_value;
+
+    /**
      * Constructor method for AccountNameSelector
-     * @param  AccountBy $by
+     * @param  string $by
      * @param  string $name
      * @param  string $value
      * @return self
      */
-    public function __construct(AccountBy $by, $name = null, $value = null)
+    public function __construct($by, $name = NULL, $value = NULL)
     {
-        parent::__construct(trim($value));
-        $this->setProperty('by', $by);
-        $this->setProperty('name', $name);
+        $this->setBy($by);
+        if (NULL !== $name) {
+            $this->setName($name);
+        }
+        if (NULL !== $value) {
+            $this->setValue($value);
+        }
+    }
+
+    /**
+     * Gets account by
+     *
+     * @return string
+     */
+    public function getBy()
+    {
+        return $this->_by;
     }
 
     /**
      * Sets account by enum
      *
-     * @return AccountBy
-     */
-    public function getBy()
-    {
-        return $this->getProperty('by');
-    }
-
-    /**
-     * Gets account by enum
-     *
-     * @param  AccountBy $by
+     * @param  string $by
      * @return self
      */
-    public function setBy(AccountBy $by)
+    public function setBy($by)
     {
-        return $this->setProperty('by', $by);
+        if (AccountBy::has(trim($by))) {
+            $this->_by = $by;
+        }
+        return $this;
     }
 
     /**
@@ -64,7 +102,7 @@ class AccountNameSelector extends Base
      */
     public function getName()
     {
-        return $this->getProperty('name');
+        return $this->_name;
     }
 
     /**
@@ -75,28 +113,29 @@ class AccountNameSelector extends Base
      */
     public function setName($name)
     {
-        return $this->setProperty('name', trim($name));
+        $this->_name = trim($name);
+        return $this;
     }
 
     /**
-     * Returns the array representation of this class 
+     * Gets value
      *
-     * @param  string $name
-     * @return array
+     * @return string
      */
-    public function toArray($name = 'account')
+    public function getValue()
     {
-        return parent::toArray($name);
+        return $this->_value;
     }
 
     /**
-     * Method returning the xml representation of this class
+     * Sets value
      *
      * @param  string $name
-     * @return SimpleXML
+     * @return self
      */
-    public function toXml($name = 'account')
+    public function setValue($value)
     {
-        return parent::toXml($name);
+        $this->_value = trim($value);
+        return $this;
     }
 }

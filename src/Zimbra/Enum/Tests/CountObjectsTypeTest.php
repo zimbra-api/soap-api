@@ -2,13 +2,13 @@
 
 namespace Zimbra\Enum\Tests;
 
-use \PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 use Zimbra\Enum\CountObjectsType;
 
 /**
  * Testcase class for CountObjectsType.
  */
-class CountObjectsTypeTest extends PHPUnit_Framework_TestCase
+class CountObjectsTypeTest extends TestCase
 {
     public function testCountObjectsType()
     {

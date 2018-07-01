@@ -10,6 +10,13 @@
 
 namespace Zimbra\Struct;
 
+use JMS\Serializer\Annotation\Accessor;
+use JMS\Serializer\Annotation\SerializedName;
+use JMS\Serializer\Annotation\Type;
+use JMS\Serializer\Annotation\XmlAttribute;
+use JMS\Serializer\Annotation\XmlRoot;
+use JMS\Serializer\Annotation\XmlValue;
+
 /**
  * OpValue struct class
  *
@@ -17,25 +24,38 @@ namespace Zimbra\Struct;
  * @category  Struct
  * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright Copyright © 2013 by Nguyen Van Nguyen.
+ * @XmlRoot(name="addr")
  */
-class OpValue extends Base
+class OpValue
 {
+    /**
+     * @Accessor(getter="getOp", setter="setOp")
+     * @SerializedName("op")
+     * @Type("string")
+     * @XmlAttribute
+     */
+    private $_op;
+
+    /**
+     * @Accessor(getter="getValue", setter="setValue")
+     * @Type("string")
+     * @XmlValue(cdata=false)
+     */
+    private $_value;
+
     /**
      * Constructor method for OpValue
      * @param  string $op
      * @param  string $value
      * @return self
      */
-    public function __construct($op = '+', $value = null)
+    public function __construct($op = '+', $value = NULL)
     {
-        parent::__construct(trim($value));
-        if(in_array(trim($op), ['+', '-']))
-        {
-            $this->setProperty('op', trim($op));
+        if (NULL !== $op) {
+            $this->setOp($op);
         }
-        else
-        {
-            $this->setProperty('op', '+');
+        if (NULL !== $value) {
+            $this->setValue($value);
         }
     }
 
@@ -46,7 +66,7 @@ class OpValue extends Base
      */
     public function getOp()
     {
-        return $this->getProperty('op');
+        return $this->_op;
     }
 
     /**
@@ -57,36 +77,34 @@ class OpValue extends Base
      */
     public function setOp($op = '+')
     {
-        if(in_array(trim($op), ['+', '-']))
-        {
-            $this->setProperty('op', trim($op));
+        if (in_array(trim($op), ['+', '-'])) {
+            $this->_op = trim($op);
         }
-        else
-        {
-            $this->setProperty('op', '+');
+        else {
+            $this->_op = '+';
         }
         return $this;
     }
 
     /**
-     * Returns the array representation of this class 
+     * Gets value
      *
-     * @param  string $name
-     * @return array
+     * @return string
      */
-    public function toArray($name = 'addr')
+    public function getValue()
     {
-        return parent::toArray($name);
+        return $this->_value;
     }
 
     /**
-     * Method returning the xml representation of this class
+     * Sets value
      *
      * @param  string $name
-     * @return SimpleXML
+     * @return self
      */
-    public function toXml($name = 'addr')
+    public function setValue($value)
     {
-        return parent::toXml($name);
+        $this->_value = trim($value);
+        return $this;
     }
 }

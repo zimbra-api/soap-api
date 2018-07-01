@@ -2,13 +2,13 @@
 
 namespace Zimbra\Enum\Tests;
 
-use \PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 use Zimbra\Enum\Importance;
 
 /**
  * Testcase class for Importance.
  */
-class ImportanceTest extends PHPUnit_Framework_TestCase
+class ImportanceTest extends TestCase
 {
     public function testImportance()
     {

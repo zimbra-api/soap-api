@@ -2,13 +2,13 @@
 
 namespace Zimbra\Enum\Tests;
 
-use \PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 use Zimbra\Enum\ZimletStatus;
 
 /**
  * Testcase class for ZimletStatus.
  */
-class ZimletStatusTest extends PHPUnit_Framework_TestCase
+class ZimletStatusTest extends TestCase
 {
     public function testZimletStatus()
     {

@@ -2,13 +2,13 @@
 
 namespace Zimbra\Enum\Tests;
 
-use \PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 use Zimbra\Enum\TagActionOp;
 
 /**
  * Testcase class for TagActionOp.
  */
-class TagActionOpTest extends PHPUnit_Framework_TestCase
+class TagActionOpTest extends TestCase
 {
     public function testTagActionOp()
     {

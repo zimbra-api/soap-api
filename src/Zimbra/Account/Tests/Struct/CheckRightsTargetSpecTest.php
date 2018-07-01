@@ -2,15 +2,15 @@
 
 namespace Zimbra\Account\Tests\Struct;
 
-use Zimbra\Account\Tests\ZimbraAccountTestCase;
 use Zimbra\Enum\TargetBy;
 use Zimbra\Enum\TargetType;
 use Zimbra\Account\Struct\CheckRightsTargetSpec;
+use Zimbra\Struct\Tests\ZimbraStructTestCase;
 
 /**
  * Testcase class for CheckRightsTargetSpec.
  */
-class CheckRightsTargetSpecTest extends ZimbraAccountTestCase
+class CheckRightsTargetSpecTest extends ZimbraStructTestCase
 {
     public function testCheckRightsTargetSpec()
     {
@@ -20,22 +20,22 @@ class CheckRightsTargetSpecTest extends ZimbraAccountTestCase
         $right3 = $this->faker->word;
 
         $target = new CheckRightsTargetSpec(
-            TargetType::DOMAIN(), TargetBy::ID(), $key, [$right1, $right2]
+            TargetType::DOMAIN()->value(), TargetBy::ID()->value(), $key, [$right1, $right2]
         );
-        $this->assertTrue($target->getTargetType()->is('domain'));
-        $this->assertTrue($target->getTargetBy()->is('id'));
+        $this->assertSame(TargetType::DOMAIN()->value(), $target->getTargetType());
+        $this->assertSame(TargetBy::ID()->value(), $target->getTargetBy());
         $this->assertSame($key, $target->getTargetKey());
-        $this->assertSame([$right1, $right2], $target->getRights()->all());
+        $this->assertSame([$right1, $right2], $target->getRights());
 
-        $target->setTargetType(TargetType::ACCOUNT())
-               ->setTargetBy(TargetBy::NAME())
+        $target->setTargetType(TargetType::ACCOUNT()->value())
+               ->setTargetBy(TargetBy::NAME()->value())
                ->setTargetKey($key)
                ->addRight($right3);
 
-        $this->assertTrue($target->getTargetType()->is('account'));
-        $this->assertTrue($target->getTargetBy()->is('name'));
+        $this->assertSame(TargetType::ACCOUNT()->value(), $target->getTargetType());
+        $this->assertSame(TargetBy::NAME()->value(), $target->getTargetBy());
         $this->assertSame($key, $target->getTargetKey());
-        $this->assertSame([$right1, $right2, $right3], $target->getRights()->all());
+        $this->assertSame([$right1, $right2, $right3], $target->getRights());
 
         $xml = '<?xml version="1.0"?>' . "\n"
             . '<target type="' . TargetType::ACCOUNT() . '" by="' . TargetBy::NAME() . '" key="' . $key . '">'
@@ -43,20 +43,12 @@ class CheckRightsTargetSpecTest extends ZimbraAccountTestCase
                 . '<right>' . $right2 . '</right>'
                 . '<right>' . $right3 . '</right>'
             . '</target>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $target);
+        $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($target, 'xml'));
 
-        $array = [
-            'target' => [
-                'type' => TargetType::ACCOUNT()->value(),
-                'by' => TargetBy::NAME()->value(),
-                'key' => $key,
-                'right' => [
-                    $right1,
-                    $right2,
-                    $right3,
-                ],
-            ],
-        ];
-        $this->assertEquals($array, $target->toArray());
+        $target = $this->serializer->deserialize($xml, 'Zimbra\Account\Struct\CheckRightsTargetSpec', 'xml');
+        $this->assertSame(TargetType::ACCOUNT()->value(), $target->getTargetType());
+        $this->assertSame(TargetBy::NAME()->value(), $target->getTargetBy());
+        $this->assertSame($key, $target->getTargetKey());
+        $this->assertSame([$right1, $right2, $right3], $target->getRights());
     }
 }

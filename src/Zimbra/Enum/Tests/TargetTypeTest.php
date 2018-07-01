@@ -2,13 +2,13 @@
 
 namespace Zimbra\Enum\Tests;
 
-use \PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 use Zimbra\Enum\TargetType;
 
 /**
  * Testcase class for TargetType.
  */
-class TargetTypeTest extends PHPUnit_Framework_TestCase
+class TargetTypeTest extends TestCase
 {
     public function testTargetType()
     {

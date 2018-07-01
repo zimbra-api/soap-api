@@ -2,13 +2,13 @@
 
 namespace Zimbra\Enum\Tests;
 
-use \PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 use Zimbra\Enum\MemberOfSelector;
 
 /**
  * Testcase class for MemberOfSelector.
  */
-class MemberOfSelectorTest extends PHPUnit_Framework_TestCase
+class MemberOfSelectorTest extends TestCase
 {
     public function testMemberOfSelector()
     {

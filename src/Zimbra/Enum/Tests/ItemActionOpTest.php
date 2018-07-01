@@ -2,13 +2,13 @@
 
 namespace Zimbra\Enum\Tests;
 
-use \PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 use Zimbra\Enum\ItemActionOp;
 
 /**
  * Testcase class for ItemActionOp.
  */
-class ItemActionOpTest extends PHPUnit_Framework_TestCase
+class ItemActionOpTest extends TestCase
 {
     public function testItemActionOp()
     {

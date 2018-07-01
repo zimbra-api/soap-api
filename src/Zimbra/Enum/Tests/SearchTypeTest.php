@@ -2,13 +2,13 @@
 
 namespace Zimbra\Enum\Tests;
 
-use \PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 use Zimbra\Enum\SearchType;
 
 /**
  * Testcase class for SearchType.
  */
-class SearchTypeTest extends PHPUnit_Framework_TestCase
+class SearchTypeTest extends TestCase
 {
     public function testSearchType()
     {

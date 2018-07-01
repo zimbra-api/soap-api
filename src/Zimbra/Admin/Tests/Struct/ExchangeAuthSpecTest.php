@@ -2,14 +2,14 @@
 
 namespace Zimbra\Admin\Tests\Struct;
 
-use Zimbra\Admin\Tests\ZimbraAdminTestCase;
 use Zimbra\Admin\Struct\ExchangeAuthSpec;
 use Zimbra\Enum\AuthScheme;
+use Zimbra\Struct\Tests\ZimbraStructTestCase;
 
 /**
  * Testcase class for ExchangeAuthSpec.
  */
-class ExchangeAuthSpecTest extends ZimbraAdminTestCase
+class ExchangeAuthSpecTest extends ZimbraStructTestCase
 {
     public function testExchangeAuthSpec()
     {
@@ -18,38 +18,35 @@ class ExchangeAuthSpecTest extends ZimbraAdminTestCase
         $pass = $this->faker->word;
         $type = $this->faker->word;
 
-        $exc = new ExchangeAuthSpec($url, $user, $pass, AuthScheme::BASIC(), $type);
+        $exc = new ExchangeAuthSpec($url, $user, $pass, AuthScheme::BASIC()->value(), $type);
         $this->assertSame($url, $exc->getUrl());
         $this->assertSame($user, $exc->getAuthUserName());
         $this->assertSame($pass, $exc->getAuthPassword());
-        $this->assertSame('basic', $exc->getAuthScheme()->value());
+        $this->assertSame(AuthScheme::BASIC()->value(), $exc->getScheme());
         $this->assertSame($type, $exc->getType());
 
+        $exc = new ExchangeAuthSpec('', '', '', '');
         $exc->setUrl($url)
             ->setAuthUserName($user)
             ->setAuthPassword($pass)
-            ->setAuthScheme(AuthScheme::FORM())
+            ->setScheme(AuthScheme::FORM()->value())
             ->setType($type);
 
         $this->assertSame($url, $exc->getUrl());
         $this->assertSame($user, $exc->getAuthUserName());
         $this->assertSame($pass, $exc->getAuthPassword());
-        $this->assertSame('form', $exc->getAuthScheme()->value());
+        $this->assertSame(AuthScheme::FORM()->value(), $exc->getScheme());
         $this->assertSame($type, $exc->getType());
 
         $xml = '<?xml version="1.0"?>' . "\n"
             . '<auth url="' . $url . '" user="' . $user . '" pass="' . $pass . '" scheme="' . AuthScheme::FORM() . '" type="' . $type . '" />';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $exc);
+        $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($exc, 'xml'));
 
-        $array = [
-            'auth' => [
-                'url' => $url,
-                'user' => $user,
-                'pass' => $pass,
-                'scheme' => AuthScheme::FORM()->value(),
-                'type' => $type,
-            ],
-        ];
-        $this->assertEquals($array, $exc->toArray());
+        $exc = $this->serializer->deserialize($xml, 'Zimbra\Admin\Struct\ExchangeAuthSpec', 'xml');
+        $this->assertSame($url, $exc->getUrl());
+        $this->assertSame($user, $exc->getAuthUserName());
+        $this->assertSame($pass, $exc->getAuthPassword());
+        $this->assertSame(AuthScheme::FORM()->value(), $exc->getScheme());
+        $this->assertSame($type, $exc->getType());
     }
 }

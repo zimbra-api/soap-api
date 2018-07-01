@@ -2,17 +2,20 @@
 
 namespace Zimbra\Admin\Tests\Struct;
 
-use Zimbra\Admin\Tests\ZimbraAdminTestCase;
+use JMS\Serializer\Annotation\XmlRoot;
+
+use Zimbra\Struct\Tests\ZimbraStructTestCase;
+use Zimbra\Admin\Struct\AdminAttrsImpl;
 use Zimbra\Struct\KeyValuePair;
 
 /**
  * Testcase class for AdminAttrsImpl.
  */
-class AdminAttrsImplTest extends ZimbraAdminTestCase
+class AdminAttrsImplTest extends ZimbraStructTestCase
 {
     public function testAdminAttrsImpl()
     {
-        $stub = $this->getMockForAbstractClass('\Zimbra\Admin\Struct\AdminAttrsImpl');
+        $stub = new StubAdminAttrsImpl();
 
         $key1 = $this->faker->word;
         $value1 = $this->faker->word;
@@ -25,37 +28,28 @@ class AdminAttrsImplTest extends ZimbraAdminTestCase
         $attr2 = new KeyValuePair($key2, $value2);
         $attr3 = new KeyValuePair($key3, $value3);
         $stub->setAttrs([$attr1, $attr2])->addAttr($attr3);
-        foreach ($stub->getAttrs() as $attr)
-        {
+        foreach ($stub->getAttrs() as $attr) {
             $this->assertInstanceOf('\Zimbra\Struct\KeyValuePair', $attr);
         }
 
-        $arr = [
-            'attrs' => [
-                'a' => [
-                    [
-                        'n' => $key1,
-                        '_content' => $value1,
-                    ],
-                    [
-                        'n' => $key2,
-                        '_content' => $value2,
-                    ],
-                    [
-                        'n' => $key3,
-                        '_content' => $value3,
-                    ],
-                ],
-            ],
-        ];
-        $this->assertEquals($arr, $stub->toArray());
-
         $xml = '<?xml version="1.0"?>' . "\n"
-            . '<attrs>'
+            . '<stub>'
                 . '<a n="' . $key1 . '">' . $value1 . '</a>'
                 . '<a n="' . $key2 . '">' . $value2 . '</a>'
                 . '<a n="' . $key3 . '">' . $value3 . '</a>'
-            . '</attrs>';
-        $this->assertXmlStringEqualsXmlString($xml, $stub->toXml()->asXml());
+            . '</stub>';
+        $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($stub, 'xml'));
+
+        $stub = $this->serializer->deserialize($xml, 'Zimbra\Admin\Tests\Struct\StubAdminAttrsImpl', 'xml');
+        foreach ($stub->getAttrs() as $attr) {
+            $this->assertInstanceOf('\Zimbra\Struct\KeyValuePair', $attr);
+        }
     }
+}
+
+/**
+ * @XmlRoot(name="stub")
+ */
+class StubAdminAttrsImpl extends AdminAttrsImpl
+{
 }

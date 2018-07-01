@@ -2,13 +2,13 @@
 
 namespace Zimbra\Enum\Tests;
 
-use \PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 use Zimbra\Enum\FreeBusyStatus;
 
 /**
  * Testcase class for FreeBusyStatus.
  */
-class FreeBusyStatusTest extends PHPUnit_Framework_TestCase
+class FreeBusyStatusTest extends TestCase
 {
     public function testFreeBusyStatus()
     {

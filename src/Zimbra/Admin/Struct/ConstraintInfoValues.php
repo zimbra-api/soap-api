@@ -10,8 +10,10 @@
 
 namespace Zimbra\Admin\Struct;
 
-use PhpCollection\Sequence;
-use Zimbra\Struct\Base;
+use JMS\Serializer\Annotation\Accessor;
+use JMS\Serializer\Annotation\Type;
+use JMS\Serializer\Annotation\XmlList;
+use JMS\Serializer\Annotation\XmlRoot;
 
 /**
  * ConstraintInfoValues struct class
@@ -21,12 +23,15 @@ use Zimbra\Struct\Base;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
+ * @XmlRoot(name="values")
  */
-class ConstraintInfoValues extends Base
+class ConstraintInfoValues
 {
     /**
      * Values
-     * @var Sequence
+     * @Accessor(getter="getValues", setter="setValues")
+     * @Type("array<string>")
+     * @XmlList(inline = true, entry = "v")
      */
     private $_values;
 
@@ -37,16 +42,7 @@ class ConstraintInfoValues extends Base
      */
     public function __construct(array $values = [])
     {
-        parent::__construct();
         $this->setValues($values);
-
-        $this->on('before', function(Base $sender)
-        {
-            if($sender->getValues()->count())
-            {
-                $sender->setChild('v', $sender->getValues()->all());
-            }
-        });
     }
 
     /**
@@ -55,11 +51,11 @@ class ConstraintInfoValues extends Base
      * @param  string $values
      * @return self
      */
-    public function addValue($values)
+    public function addValue($value)
     {
-        if(!empty($values) && !$this->_values->contains($values))
-        {
-            $this->_values->add($values);
+        $value = trim($value);
+        if (!empty($value) && !in_array($value, $this->_values)) {
+            $this->_values[] = $value;
         }
         return $this;
     }
@@ -72,48 +68,20 @@ class ConstraintInfoValues extends Base
      */
     public function setValues(array $values)
     {
-        $arrValue = [];
-        foreach ($values as $value)
-        {
-            $value = trim($value);
-            if(!empty($value) && !in_array($value, $arrValue))
-            {
-                $arrValue[] = $value;
-            }
+        $this->_values = [];
+        foreach ($values as $value) {
+            $this->addValue($value);
         }
-        $this->_values = new Sequence($arrValue);
         return $this;
     }
 
     /**
      * Gets values sequence
      *
-     * @return Sequence
+     * @return array
      */
     public function getValues()
     {
         return $this->_values;
-    }
-
-    /**
-     * Returns the array representation of this class 
-     *
-     * @param  string $name
-     * @return array
-     */
-    public function toArray($name = 'values')
-    {
-        return parent::toArray($name);
-    }
-
-    /**
-     * Method returning the xml representative this class
-     *
-     * @param  string $name
-     * @return SimpleXML
-     */
-    public function toXml($name = 'values')
-    {
-        return parent::toXml($name);
     }
 }

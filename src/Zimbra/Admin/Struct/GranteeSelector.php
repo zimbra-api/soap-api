@@ -10,9 +10,15 @@
 
 namespace Zimbra\Admin\Struct;
 
+use JMS\Serializer\Annotation\Accessor;
+use JMS\Serializer\Annotation\SerializedName;
+use JMS\Serializer\Annotation\Type;
+use JMS\Serializer\Annotation\XmlAttribute;
+use JMS\Serializer\Annotation\XmlRoot;
+use JMS\Serializer\Annotation\XmlValue;
+
 use Zimbra\Enum\GranteeType;
 use Zimbra\Enum\GranteeBy;
-use Zimbra\Struct\Base;
 
 /**
  * GranteeSelector struct class
@@ -22,106 +28,153 @@ use Zimbra\Struct\Base;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
+ * @XmlRoot(name="grantee")
  */
-class GranteeSelector extends Base
+class GranteeSelector
 {
+    /**
+     * @Accessor(getter="getType", setter="setType")
+     * @SerializedName("type")
+     * @Type("string")
+     * @XmlAttribute
+     */
+    private $_type;
+
+    /**
+     * @Accessor(getter="getBy", setter="setBy")
+     * @SerializedName("by")
+     * @Type("string")
+     * @XmlAttribute
+     */
+    private $_by;
+
+    /**
+     * @Accessor(getter="getValue", setter="setValue")
+     * @Type("string")
+     * @XmlValue(cdata=false)
+     */
+    private $_value;
+
+    /**
+     * Password for guest grantee or the access key for key grantee
+     * @Accessor(getter="getSecret", setter="setSecret")
+     * @SerializedName("secret")
+     * @Type("string")
+     * @XmlAttribute
+     */
+    private $_secret;
+
+    /**
+     * For GetGrantsRequest, selects whether to include grants granted to groups
+     * @Accessor(getter="getAll", setter="setAll")
+     * @SerializedName("all")
+     * @Type("bool")
+     * @XmlAttribute
+     */
+    private $_all;
+
     /**
      * Constructor method for GranteeSelector
      * @param string $value The key used to secretentify the grantee
-     * @param GranteeType $type Grantee type
-     * @param GranteeBy $by Grantee by
+     * @param string $type Grantee type
+     * @param string $by Grantee by
      * @param string $secret Password for guest grantee or the access key for key grantee For user right only
      * @param bool   $all For GetGrantsRequest, selects whether to include grants granted to groups the specified grantee belongs to. Default is 1 (true)
      * @return self
      */
     public function __construct(
         $value = null,
-        GranteeType $type = null,
-        GranteeBy $by = null,
+        $type = null,
+        $by = null,
         $secret = null,
         $all = null
     )
     {
-        parent::__construct(trim($value));
-        if($type instanceof GranteeType)
-        {
-            $this->setProperty('type', $type);
+        if (NULL !== $value) {
+            $this->setValue($value);
         }
-        if($by instanceof GranteeBy)
-        {
-            $this->setProperty('by', $by);
+        if (NULL !== $type) {
+            $this->setType($type);
         }
-        if(null !== $secret)
-        {
-            $this->setProperty('secret', trim($secret));
+        if (NULL !== $by) {
+            $this->setBy($by);
         }
-        if(null !== $all)
-        {
-            $this->setProperty('all', (bool) $all);
+        if (NULL !== $secret) {
+            $this->setSecret($secret);
+        }
+        if (NULL !== $all) {
+            $this->setAll($all);
         }
     }
 
     /**
      * Gets type enum
      *
-     * @return Zimbra\Enum\GranteeType
+     * @return string
      */
     public function getType()
     {
-        return $this->getProperty('type');
+        return $this->_type;
     }
 
     /**
      * Sets type enum
      *
-     * @param  Zimbra\Enum\GranteeType $type
+     * @param  string $type
      * @return self
      */
-    public function setType(GranteeType $type)
+    public function setType($type)
     {
-        return $this->setProperty('type', $type);
+        if (GranteeType::has(trim($type))) {
+            $this->_type = $type;
+        }
+        return $this;
     }
 
     /**
      * Gets by enum
      *
-     * @return Zimbra\Enum\GranteeBy
+     * @return string
      */
     public function getBy()
     {
-        return $this->getProperty('by');
+        return $this->_by;
     }
 
     /**
      * Sets by enum
      *
-     * @param  Zimbra\Enum\GranteeBy $by
+     * @param  string $by
      * @return self
      */
-    public function setBy(GranteeBy $by)
+    public function setBy($by)
     {
-        return $this->setProperty('by', $by);
+        if (GranteeBy::has(trim($by))) {
+            $this->_by = $by;
+        }
+        return $this;
     }
 
     /**
-     * Gets timezone ID
+     * Gets password for guest grantee or the access key for key grantee
      *
      * @return string
      */
     public function getSecret()
     {
-        return $this->getProperty('secret');
+        return $this->_secret;
     }
 
     /**
-     * Sets timezone ID
+     * Sets password for guest grantee or the access key for key grantee
      *
      * @param  string $secret
      * @return self
      */
     public function setSecret($secret)
     {
-        return $this->setProperty('secret', trim($secret));
+        $this->_secret = trim($secret);
+        return $this;
     }
 
     /**
@@ -131,7 +184,7 @@ class GranteeSelector extends Base
      */
     public function getAll()
     {
-        return $this->getProperty('all');
+        return $this->_all;
     }
 
     /**
@@ -142,27 +195,29 @@ class GranteeSelector extends Base
      */
     public function setAll($all)
     {
-        return $this->setProperty('all', (bool) $all);
+        $this->_all = (bool) $all;
+        return $this;
     }
 
     /**
-     * Returns the array representation of this class 
+     * Gets value
+     *
+     * @return string
+     */
+    public function getValue()
+    {
+        return $this->_value;
+    }
+
+    /**
+     * Sets value
      *
      * @param  string $name
-     * @return array
+     * @return self
      */
-    public function toArray($name = 'grantee')
+    public function setValue($value)
     {
-        return parent::toArray($name);
-    }
-
-    /**
-     * Method returning the xml representative this class
-     *
-     * @return SimpleXML
-     */
-    public function toXml($name = 'grantee')
-    {
-        return parent::toXml($name);
+        $this->_value = trim($value);
+        return $this;
     }
 }

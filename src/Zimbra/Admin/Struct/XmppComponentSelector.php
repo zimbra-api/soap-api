@@ -10,8 +10,14 @@
 
 namespace Zimbra\Admin\Struct;
 
+use JMS\Serializer\Annotation\Accessor;
+use JMS\Serializer\Annotation\SerializedName;
+use JMS\Serializer\Annotation\Type;
+use JMS\Serializer\Annotation\XmlAttribute;
+use JMS\Serializer\Annotation\XmlRoot;
+use JMS\Serializer\Annotation\XmlValue;
+
 use Zimbra\Enum\XmppComponentBy as XmppBy;
-use Zimbra\Struct\Base;
 
 /**
  * XmppComponentSelector struct class
@@ -21,61 +27,82 @@ use Zimbra\Struct\Base;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
+ * @XmlRoot(name="xmppcomponent")
  */
-class XmppComponentSelector extends Base
+class XmppComponentSelector
 {
     /**
+     * @Accessor(getter="getBy", setter="setBy")
+     * @SerializedName("by")
+     * @Type("string")
+     * @XmlAttribute
+     */
+    private $_by;
+
+    /**
+     * @Accessor(getter="getValue", setter="setValue")
+     * @Type("string")
+     * @XmlValue(cdata=false)
+     */
+    private $_value;
+
+    /**
      * Constructor method for XmppComponentSelector
-     * @param  XmppBy $by Select the meaning of {xmpp-comp-selector-key}
+     * @param  string $by Select the meaning of {xmpp-comp-selector-key}
      * @param  string $value The key used to identify the XMPP component
      * @return self
      */
-    public function __construct(XmppBy $by, $value = null)
+    public function __construct($by, $value = null)
     {
-        parent::__construct(trim($value));
-        $this->setProperty('by', $by);
+        $this->setBy($by);
+        if (NULL !== $value) {
+            $this->setValue($value);
+        }
     }
 
     /**
      * Gets by enum
      *
-     * @return Zimbra\Enum\XmppBy
+     * @return string
      */
     public function getBy()
     {
-        return $this->getProperty('by');
+        return $this->_by;
     }
 
     /**
      * Sets by enum
      *
-     * @param  Zimbra\Enum\XmppComponentBy $by
+     * @param  string $by
      * @return self
      */
-    public function setBy(XmppBy $by)
+    public function setBy($by)
     {
-        return $this->setProperty('by', $by);
+        if (XmppBy::has(trim($by))) {
+            $this->_by = trim($by);
+        }
+        return $this;
     }
 
     /**
-     * Returns the array representation of this class 
+     * Gets value
      *
-     * @param  string $name
-     * @return array
+     * @return string
      */
-    public function toArray($name = 'xmppcomponent')
+    public function getValue()
     {
-        return parent::toArray($name);
+        return $this->_value;
     }
 
     /**
-     * Method returning the xml representation of this class
+     * Sets value
      *
      * @param  string $name
-     * @return SimpleXML
+     * @return self
      */
-    public function toXml($name = 'xmppcomponent')
+    public function setValue($value)
     {
-        return parent::toXml($name);
+        $this->_value = trim($value);
+        return $this;
     }
 }

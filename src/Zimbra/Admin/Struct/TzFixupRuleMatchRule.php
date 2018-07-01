@@ -10,7 +10,12 @@
 
 namespace Zimbra\Admin\Struct;
 
-use Zimbra\Struct\Base;
+use JMS\Serializer\Annotation\Accessor;
+use JMS\Serializer\Annotation\SerializedName;
+use JMS\Serializer\Annotation\Type;
+use JMS\Serializer\Annotation\XmlAttribute;
+use JMS\Serializer\Annotation\XmlRoot;
+use JMS\Serializer\Annotation\XmlValue;
 
 /**
  * TzFixupRuleMatchRule struct class
@@ -20,9 +25,34 @@ use Zimbra\Struct\Base;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
+ * @XmlRoot(name="rule")
  */
-class TzFixupRuleMatchRule extends Base
+class TzFixupRuleMatchRule
 {
+    /**
+     * @Accessor(getter="getMonth", setter="setMonth")
+     * @SerializedName("mon")
+     * @Type("integer")
+     * @XmlAttribute
+     */
+    private $_month;
+
+    /**
+     * @Accessor(getter="getWeek", setter="setWeek")
+     * @SerializedName("week")
+     * @Type("integer")
+     * @XmlAttribute
+     */
+    private $_week;
+
+    /**
+     * @Accessor(getter="getWeekDay", setter="setWeekDay")
+     * @SerializedName("wkday")
+     * @Type("integer")
+     * @XmlAttribute
+     */
+    private $_weekDay;
+
     /**
      * Constructor method for TzFixupRuleMatchRule
      * @param int $mon Match month. Value between 1 (January) and 12 (December)
@@ -32,7 +62,6 @@ class TzFixupRuleMatchRule extends Base
      */
     public function __construct($mon, $week, $wkday)
     {
-        parent::__construct();
         $this->setMonth($mon)
              ->setWeek($week)
              ->setWeekDay($wkday);
@@ -45,7 +74,7 @@ class TzFixupRuleMatchRule extends Base
      */
     public function getMonth()
     {
-        return $this->getProperty('mon');
+        return $this->_month;
     }
 
     /**
@@ -57,7 +86,8 @@ class TzFixupRuleMatchRule extends Base
     public function setMonth($mon)
     {
         $mon = in_array((int) $mon, range(1, 12)) ? (int) $mon : 1;
-        return $this->setProperty('mon', $mon);
+        $this->_month = $mon;
+        return $this;
     }
 
     /**
@@ -67,7 +97,7 @@ class TzFixupRuleMatchRule extends Base
      */
     public function getWeek()
     {
-        return $this->getProperty('week');
+        return $this->_week;
     }
 
     /**
@@ -79,7 +109,8 @@ class TzFixupRuleMatchRule extends Base
     public function setWeek($week)
     {
         $week = in_array((int) $week, [1, 2, 3, 4]) ? (int) $week : -1;
-        return $this->setProperty('week', $week);
+        $this->_week = $week;
+        return $this;
     }
 
     /**
@@ -89,7 +120,7 @@ class TzFixupRuleMatchRule extends Base
      */
     public function getWeekDay()
     {
-        return $this->getProperty('wkday');
+        return $this->_weekDay;
     }
 
     /**
@@ -101,28 +132,7 @@ class TzFixupRuleMatchRule extends Base
     public function setWeekDay($wkday)
     {
         $wkday = in_array((int) $wkday, range(1, 7)) ? (int) $wkday : 1;
-        return $this->setProperty('wkday', $wkday);
-    }
-
-    /**
-     * Returns the array representation of this class 
-     *
-     * @param  string $name
-     * @return array
-     */
-    public function toArray($name = 'rule')
-    {
-        return parent::toArray($name);
-    }
-
-    /**
-     * Method returning the xml representation of this class
-     *
-     * @param  string $name
-     * @return SimpleXML
-     */
-    public function toXml($name = 'rule')
-    {
-        return parent::toXml($name);
+        $this->_weekDay = $wkday;
+        return $this;
     }
 }

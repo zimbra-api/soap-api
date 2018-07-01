@@ -10,8 +10,9 @@
 
 namespace Zimbra\Account\Struct;
 
-use Zimbra\Common\TypedSequence;
-use Zimbra\Struct\Base;
+use JMS\Serializer\Annotation\Accessor;
+use JMS\Serializer\Annotation\Type;
+use JMS\Serializer\Annotation\XmlList;
 
 /**
  * AuthPrefs struct class
@@ -26,7 +27,9 @@ trait PrefsImplTrail
 {
     /**
      * Prefibutes
-     * @var TypedSequence<Pref>
+     * @Accessor(getter="getPrefs", setter="setPrefs")
+     * @Type("array<Zimbra\Account\Struct\Pref>")
+     * @XmlList(inline = true, entry = "pref")
      */
     private $_prefs;
 
@@ -37,27 +40,18 @@ trait PrefsImplTrail
      */
     public function __construct(array $prefs = [])
     {
-		parent::__construct();
         $this->setPrefs($prefs);
-
-        $this->on('before', function(Base $sender)
-        {
-            if($sender->getPrefs()->count())
-            {
-                $sender->setChild('pref', $sender->getPrefs()->all());
-            }
-        });
     }
 
     /**
-     * Add an pref
+     * Add a pref
      *
      * @param  Pref $pref
      * @return self
      */
     public function addPref(Pref $pref)
     {
-        $this->_prefs->add($pref);
+        $this->_prefs[] = $pref;
         return $this;
     }
 
@@ -69,7 +63,12 @@ trait PrefsImplTrail
      */
     public function setPrefs(array $prefs)
     {
-        $this->_prefs = new TypedSequence('Zimbra\Account\Struct\Pref', $prefs);
+        $this->_prefs = [];
+        foreach ($prefs as $pref) {
+            if ($pref instanceof Pref) {
+                $this->_prefs[] = $pref;
+            }
+        }
         return $this;
     }
 

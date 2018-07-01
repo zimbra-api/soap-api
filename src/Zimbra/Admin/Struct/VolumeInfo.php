@@ -10,8 +10,13 @@
 
 namespace Zimbra\Admin\Struct;
 
+use JMS\Serializer\Annotation\Accessor;
+use JMS\Serializer\Annotation\SerializedName;
+use JMS\Serializer\Annotation\Type;
+use JMS\Serializer\Annotation\XmlAttribute;
+use JMS\Serializer\Annotation\XmlRoot;
+
 use Zimbra\Enum\VolumeType;
-use Zimbra\Struct\Base;
 
 /**
  * VolumeInfo struct class
@@ -21,63 +26,159 @@ use Zimbra\Struct\Base;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
+ * @XmlRoot(name="volume")
  */
-class VolumeInfo extends Base
+class VolumeInfo
 {
+    /**
+     * @Accessor(getter="getId", setter="setId")
+     * @SerializedName("id")
+     * @Type("integer")
+     * @XmlAttribute
+     */
+    private $_id;
+
+    /**
+     * @Accessor(getter="getName", setter="setName")
+     * @SerializedName("name")
+     * @Type("string")
+     * @XmlAttribute
+     */
+    private $_name;
+
+    /**
+     * @Accessor(getter="getRootPath", setter="setRootPath")
+     * @SerializedName("rootpath")
+     * @Type("string")
+     * @XmlAttribute
+     */
+    private $_rootPath;
+
+    /**
+     * @Accessor(getter="getType", setter="setType")
+     * @SerializedName("type")
+     * @Type("integer")
+     * @XmlAttribute
+     */
+    private $_type;
+
+    /**
+     * @Accessor(getter="getCompressBlobs", setter="setCompressBlobs")
+     * @SerializedName("compressBlobs")
+     * @Type("bool")
+     * @XmlAttribute
+     */
+    private $_compressBlobs;
+
+    /**
+     * @Accessor(getter="getCompressionThreshold", setter="setCompressionThreshold")
+     * @SerializedName("compressionThreshold")
+     * @Type("integer")
+     * @XmlAttribute
+     */
+    private $_compressionThreshold;
+
+    /**
+     * @Accessor(getter="getMgbits", setter="setMgbits")
+     * @SerializedName("mgbits")
+     * @Type("integer")
+     * @XmlAttribute
+     */
+    private $_mgbits;
+
+    /**
+     * @Accessor(getter="getMbits", setter="setMbits")
+     * @SerializedName("mbits")
+     * @Type("integer")
+     * @XmlAttribute
+     */
+    private $_mbits;
+
+    /**
+     * @Accessor(getter="getFgbits", setter="setFgbits")
+     * @SerializedName("fgbits")
+     * @Type("integer")
+     * @XmlAttribute
+     */
+    private $_fgbits;
+
+    /**
+     * @Accessor(getter="getFbits", setter="setFbits")
+     * @SerializedName("fbits")
+     * @Type("integer")
+     * @XmlAttribute
+     */
+    private $_fbits;
+
+    /**
+     * @Accessor(getter="isCurrent", setter="setCurrent")
+     * @SerializedName("isCurrent")
+     * @Type("bool")
+     * @XmlAttribute
+     */
+    private $_current;
+
     /**
      * Constructor method for VolumeInfo
      * @param int    $id Volume ID
+     * @param string $name Name or description of volume
+     * @param string $rootPath Absolute path to root of volume, e.g. /opt/zimbra/store
      * @param int    $type Volume type
+     * @param bool   $compressBlobs Specifies whether blobs in this volume are compressed
      * @param int    $compressionThreshold Long value that specifies the maximum uncompressed file size, in bytes, of blobs that will not be compressed (in other words blobs larger than this threshold are compressed)
      * @param int    $mgbits The mgbits
      * @param int    $mbits The mbits
      * @param int    $fgbits The fgbits
      * @param int    $fbits The fbits
-     * @param string $name Name or description of volume
-     * @param string $rootpath Absolute path to root of volume, e.g. /opt/zimbra/store
-     * @param bool   $compressBlobs Specifies whether blobs in this volume are compressed
-     * @param bool   $isCurrent Set if the volume is current.
+     * @param bool   $current Set if the volume is current.
      * @return self
      */
     public function __construct(
-        $id,
-        $type,
-        $compressionThreshold,
-        $mgbits,
-        $mbits,
-        $fgbits,
-        $fbits,
-        $name = null,
-        $rootpath = null,
-        $compressBlobs = null,
-        $isCurrent = null
+        $id = NULL,
+        $name = NULL,
+        $rootPath = NULL,
+        $type = NULL,
+        $compressBlobs = NULL,
+        $compressionThreshold = NULL,
+        $mgbits = NULL,
+        $mbits = NULL,
+        $fgbits = NULL,
+        $fbits = NULL,
+        $current = NULL
     )
     {
-        parent::__construct();
-        $this->setProperty('id', (int) $id);
-        $this->setType($type);
-        $this->setProperty('compressionThreshold', (int) $compressionThreshold);
-        $this->setProperty('mgbits', (int) $mgbits);
-        $this->setProperty('mbits', (int) $mbits);
-        $this->setProperty('fgbits', (int) $fgbits);
-        $this->setProperty('fbits', (int) $fbits);
-
-        if(null !== $name)
-        {
-            $this->setProperty('name', trim($name));
+        if (NULL !== $id) {
+            $this->setId($id);
         }
-        if(null !== $rootpath)
-        {
-            $this->setProperty('rootpath', trim($rootpath));
+        if (NULL !== $name) {
+            $this->setName($name);
         }
-
-        if(null !== $compressBlobs)
-        {
-            $this->setProperty('compressBlobs', (bool) $compressBlobs);
+        if (NULL !== $rootPath) {
+            $this->setRootPath($rootPath);
         }
-        if(null !== $isCurrent)
-        {
-            $this->setProperty('isCurrent', (bool) $isCurrent);
+        if (NULL !== $type) {
+            $this->setType($type);
+        }
+        if (NULL !== $compressBlobs) {
+            $this->setCompressBlobs($compressBlobs);
+        }
+        if (NULL !== $compressionThreshold) {
+            $this->setCompressionThreshold($compressionThreshold);
+        }
+        if (NULL !== $mgbits) {
+            $this->setMgbits($mgbits);
+        }
+        if (NULL !== $mbits) {
+            $this->setMbits($mbits);
+        }
+        if (NULL !== $fgbits) {
+            $this->setFgbits($fgbits);
+        }
+        if (NULL !== $fbits) {
+            $this->setFbits($fbits);
+        }
+        if (NULL !== $current) {
+            $this->setCurrent($current);
         }
     }
 
@@ -88,7 +189,7 @@ class VolumeInfo extends Base
      */
     public function getId()
     {
-        return $this->getProperty('id');
+        return $this->_id;
     }
 
     /**
@@ -99,7 +200,8 @@ class VolumeInfo extends Base
      */
     public function setId($id)
     {
-        return $this->setProperty('id', (int) $id);
+        $this->_id = (int) $id;
+        return $this;
     }
 
     /**
@@ -109,7 +211,7 @@ class VolumeInfo extends Base
      */
     public function getType()
     {
-        return $this->getProperty('type');
+        return $this->_type;
     }
 
     /**
@@ -121,7 +223,8 @@ class VolumeInfo extends Base
     public function setType($type)
     {
         $type = in_array((int) $type, VolumeType::enums()) ? (int) $type : 1;
-        return $this->setProperty('type', $type);
+        $this->_type = $type;
+        return $this;
     }
 
     /**
@@ -131,7 +234,7 @@ class VolumeInfo extends Base
      */
     public function getCompressionThreshold()
     {
-        return $this->getProperty('compressionThreshold');
+        return $this->_compressionThreshold;
     }
 
     /**
@@ -142,7 +245,8 @@ class VolumeInfo extends Base
      */
     public function setCompressionThreshold($compressionThreshold)
     {
-        return $this->setProperty('compressionThreshold', (int) $compressionThreshold);
+        $this->_compressionThreshold = (int) $compressionThreshold;
+        return $this;
     }
 
     /**
@@ -152,7 +256,7 @@ class VolumeInfo extends Base
      */
     public function getMgbits()
     {
-        return $this->getProperty('mgbits');
+        return $this->_mgbits;
     }
 
     /**
@@ -163,7 +267,8 @@ class VolumeInfo extends Base
      */
     public function setMgbits($mgbits)
     {
-        return $this->setProperty('mgbits', (int) $mgbits);
+        $this->_mgbits = (int) $mgbits;
+        return $this;
     }
 
     /**
@@ -173,7 +278,7 @@ class VolumeInfo extends Base
      */
     public function getMbits()
     {
-        return $this->getProperty('mbits');
+        return $this->_mbits;
     }
 
     /**
@@ -184,7 +289,8 @@ class VolumeInfo extends Base
      */
     public function setMbits($mbits)
     {
-        return $this->setProperty('mbits', (int) $mbits);
+        $this->_mbits = (int) $mbits;
+        return $this;
     }
 
     /**
@@ -194,7 +300,7 @@ class VolumeInfo extends Base
      */
     public function getFgbits()
     {
-        return $this->getProperty('fgbits');
+        return $this->_fgbits;
     }
 
     /**
@@ -205,7 +311,8 @@ class VolumeInfo extends Base
      */
     public function setFgbits($fgbits)
     {
-        return $this->setProperty('fgbits', (int) $fgbits);
+        $this->_fgbits = (int) $fgbits;
+        return $this;
     }
 
     /**
@@ -215,7 +322,7 @@ class VolumeInfo extends Base
      */
     public function getFbits()
     {
-        return $this->getProperty('fbits');
+        return $this->_fbits;
     }
 
     /**
@@ -226,7 +333,8 @@ class VolumeInfo extends Base
      */
     public function setFbits($fbits)
     {
-        return $this->setProperty('fbits', (int) $fbits);
+        $this->_fbits = (int) $fbits;
+        return $this;
     }
 
     /**
@@ -236,7 +344,7 @@ class VolumeInfo extends Base
      */
     public function getName()
     {
-        return $this->getProperty('name');
+        return $this->_name;
     }
 
     /**
@@ -247,7 +355,8 @@ class VolumeInfo extends Base
      */
     public function setName($name)
     {
-        return $this->setProperty('name', trim($name));
+        $this->_name = trim($name);
+        return $this;
     }
 
     /**
@@ -257,7 +366,7 @@ class VolumeInfo extends Base
      */
     public function getRootPath()
     {
-        return $this->getProperty('rootpath');
+        return $this->_rootPath;
     }
 
     /**
@@ -266,9 +375,10 @@ class VolumeInfo extends Base
      * @param  string $rootpath
      * @return self
      */
-    public function setRootPath($rootpath)
+    public function setRootPath($rootPath)
     {
-        return $this->setProperty('rootpath', trim($rootpath));
+        $this->_rootPath = trim($rootPath);
+        return $this;
     }
 
     /**
@@ -278,7 +388,7 @@ class VolumeInfo extends Base
      */
     public function getCompressBlobs()
     {
-        return $this->getProperty('compressBlobs');
+        return $this->_compressBlobs;
     }
 
     /**
@@ -289,7 +399,8 @@ class VolumeInfo extends Base
      */
     public function setCompressBlobs($compressBlobs)
     {
-        return $this->setProperty('compressBlobs', (bool) $compressBlobs);
+        $this->_compressBlobs = (bool) $compressBlobs;
+        return $this;
     }
 
     /**
@@ -299,39 +410,18 @@ class VolumeInfo extends Base
      */
     public function isCurrent()
     {
-        return $this->getProperty('isCurrent');
+        return $this->_current;
     }
 
     /**
      * Sets the current
      *
-     * @param  bool $isCurrent
+     * @param  bool $current
      * @return self
      */
-    public function setCurrent($isCurrent)
+    public function setCurrent($current)
     {
-        return $this->setProperty('isCurrent', (bool) $isCurrent);
-    }
-
-    /**
-     * Returns the array representation of this class 
-     *
-     * @param  string $name
-     * @return array
-     */
-    public function toArray($name = 'volume')
-    {
-        return parent::toArray($name);
-    }
-
-    /**
-     * Method returning the xml representation of this class
-     *
-     * @param  string $name
-     * @return SimpleXML
-     */
-    public function toXml($name = 'volume')
-    {
-        return parent::toXml($name);
+        $this->_current = (bool) $current;
+        return $this;
     }
 }

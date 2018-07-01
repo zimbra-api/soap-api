@@ -2,13 +2,13 @@
 
 namespace Zimbra\Admin\Tests\Struct;
 
-use Zimbra\Admin\Tests\ZimbraAdminTestCase;
 use Zimbra\Admin\Struct\IdAndAction;
+use Zimbra\Struct\Tests\ZimbraStructTestCase;
 
 /**
  * Testcase class for IdAndAction.
  */
-class IdAndActionTest extends ZimbraAdminTestCase
+class IdAndActionTest extends ZimbraStructTestCase
 {
     public function testIdAndAction()
     {
@@ -19,6 +19,7 @@ class IdAndActionTest extends ZimbraAdminTestCase
         $this->assertSame($id, $ia->getId());
         $this->assertSame($action, $ia->getAction());
 
+        $ia = new IdAndAction('', '');
         $ia->setId($id)
            ->setAction($action);
         $this->assertSame($id, $ia->getId());
@@ -26,14 +27,10 @@ class IdAndActionTest extends ZimbraAdminTestCase
 
         $xml = '<?xml version="1.0"?>' . "\n"
             . '<ia id="' . $id . '" action="' . $action . '" />';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $ia);
+        $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($ia, 'xml'));
 
-        $array = [
-            'ia' => [
-                'id' => $id,
-                'action' => $action,
-            ],
-        ];
-        $this->assertEquals($array, $ia->toArray());
+        $ia = $this->serializer->deserialize($xml, 'Zimbra\Admin\Struct\IdAndAction', 'xml');
+        $this->assertSame($id, $ia->getId());
+        $this->assertSame($action, $ia->getAction());
     }
 }

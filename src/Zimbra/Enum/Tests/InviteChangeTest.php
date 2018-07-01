@@ -2,13 +2,13 @@
 
 namespace Zimbra\Enum\Tests;
 
-use \PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 use Zimbra\Enum\InviteChange;
 
 /**
  * Testcase class for InviteChange.
  */
-class InviteChangeTest extends PHPUnit_Framework_TestCase
+class InviteChangeTest extends TestCase
 {
     public function testInviteChange()
     {

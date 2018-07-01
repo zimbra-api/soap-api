@@ -2,13 +2,13 @@
 
 namespace Zimbra\Enum\Tests;
 
-use \PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 use Zimbra\Enum\SectionType;
 
 /**
  * Testcase class for SectionType.
  */
-class SectionTypeTest extends PHPUnit_Framework_TestCase
+class SectionTypeTest extends TestCase
 {
     public function testSectionType()
     {

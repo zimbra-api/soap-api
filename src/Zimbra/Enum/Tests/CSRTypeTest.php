@@ -2,13 +2,13 @@
 
 namespace Zimbra\Enum\Tests;
 
-use \PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 use Zimbra\Enum\CSRType;
 
 /**
  * Testcase class for CSRType.
  */
-class CSRTypeTest extends PHPUnit_Framework_TestCase
+class CSRTypeTest extends TestCase
 {
     public function testCSRType()
     {

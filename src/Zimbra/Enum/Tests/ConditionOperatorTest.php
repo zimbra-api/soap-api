@@ -2,13 +2,13 @@
 
 namespace Zimbra\Enum\Tests;
 
-use \PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 use Zimbra\Enum\ConditionOperator;
 
 /**
  * Testcase class for ConditionOperator.
  */
-class ConditionOperatorTest extends PHPUnit_Framework_TestCase
+class ConditionOperatorTest extends TestCase
 {
     public function testConditionOperator()
     {

@@ -2,13 +2,13 @@
 
 namespace Zimbra\Enum\Tests;
 
-use \PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 use Zimbra\Enum\EntryType;
 
 /**
  * Testcase class for EntryType.
  */
-class EntryTypeTest extends PHPUnit_Framework_TestCase
+class EntryTypeTest extends TestCase
 {
     public function testEntryType()
     {

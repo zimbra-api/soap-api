@@ -10,7 +10,12 @@
 
 namespace Zimbra\Admin\Struct;
 
-use Zimbra\Struct\Base;
+use JMS\Serializer\Annotation\Accessor;
+use JMS\Serializer\Annotation\SerializedName;
+use JMS\Serializer\Annotation\Type;
+use JMS\Serializer\Annotation\XmlAttribute;
+use JMS\Serializer\Annotation\XmlElement;
+use JMS\Serializer\Annotation\XmlRoot;
 
 /**
  * TzFixupRuleMatchDates struct class
@@ -20,9 +25,42 @@ use Zimbra\Struct\Base;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
+ * @XmlRoot(name="dates")
  */
-class TzFixupRuleMatchDates extends Base
+class TzFixupRuleMatchDates
 {
+    /**
+     * @Accessor(getter="getStandard", setter="setStandard")
+     * @SerializedName("standard")
+     * @Type("Zimbra\Admin\Struct\TZFixupRuleMatchDate")
+     * @XmlElement
+     */
+    private $_standard;
+
+    /**
+     * @Accessor(getter="getDaylight", setter="setDaylight")
+     * @SerializedName("daylight")
+     * @Type("Zimbra\Admin\Struct\TZFixupRuleMatchDate")
+     * @XmlElement
+     */
+    private $_daylight;
+
+    /**
+     * @Accessor(getter="getStdOffset", setter="setStdOffset")
+     * @SerializedName("stdoff")
+     * @Type("integer")
+     * @XmlAttribute
+     */
+    private $_stdOffset;
+
+    /**
+     * @Accessor(getter="getDstOffset", setter="setDstOffset")
+     * @SerializedName("dayoff")
+     * @Type("integer")
+     * @XmlAttribute
+     */
+    private $_dstOffset;
+
     /**
      * Constructor method for TzFixupRuleMatchDates
      * @param TzFixupRuleMatchDate $standard Standard match date
@@ -38,11 +76,10 @@ class TzFixupRuleMatchDates extends Base
         $dayoff
     )
     {
-        parent::__construct();
-        $this->setChild('standard', $standard);
-        $this->setChild('daylight', $daylight);
-        $this->setProperty('stdoff', (int) $stdoff);
-        $this->setProperty('dayoff', (int) $dayoff);
+        $this->setStandard($standard)
+             ->setDaylight($daylight)
+             ->setStdOffset($stdoff)
+             ->setDstOffset($dayoff);
     }
 
     /**
@@ -52,7 +89,7 @@ class TzFixupRuleMatchDates extends Base
      */
     public function getStandard()
     {
-        return $this->getChild('standard');
+        return $this->_standard;
     }
 
     /**
@@ -63,7 +100,8 @@ class TzFixupRuleMatchDates extends Base
      */
     public function setStandard(TzFixupRuleMatchDate $standard)
     {
-        return $this->setChild('standard', $standard);
+        $this->_standard = $standard;
+        return $this;
     }
 
     /**
@@ -73,7 +111,7 @@ class TzFixupRuleMatchDates extends Base
      */
     public function getDaylight()
     {
-        return $this->getChild('daylight');
+        return $this->_daylight;
     }
 
     /**
@@ -84,7 +122,8 @@ class TzFixupRuleMatchDates extends Base
      */
     public function setDaylight(TzFixupRuleMatchDate $daylight)
     {
-        return $this->setChild('daylight', $daylight);
+        $this->_daylight = $daylight;
+        return $this;
     }
 
     /**
@@ -94,7 +133,7 @@ class TzFixupRuleMatchDates extends Base
      */
     public function getStdOffset()
     {
-        return $this->getProperty('stdoff');
+        return $this->_stdOffset;
     }
 
     /**
@@ -105,7 +144,8 @@ class TzFixupRuleMatchDates extends Base
      */
     public function setStdOffset($stdoff)
     {
-        return $this->setProperty('stdoff', (int) $stdoff);
+        $this->_stdOffset = (int) $stdoff;
+        return $this;
     }
 
     /**
@@ -115,7 +155,7 @@ class TzFixupRuleMatchDates extends Base
      */
     public function getDstOffset()
     {
-        return $this->getProperty('dayoff');
+        return $this->_dstOffset;
     }
 
     /**
@@ -126,28 +166,7 @@ class TzFixupRuleMatchDates extends Base
      */
     public function setDstOffset($dayoff)
     {
-        return $this->setProperty('dayoff', (int) $dayoff);
-    }
-
-    /**
-     * Returns the array representation of this class 
-     *
-     * @param  string $name
-     * @return array
-     */
-    public function toArray($name = 'dates')
-    {
-        return parent::toArray($name);
-    }
-
-    /**
-     * Method returning the xml representation of this class
-     *
-     * @param  string $name
-     * @return SimpleXML
-     */
-    public function toXml($name = 'dates')
-    {
-        return parent::toXml($name);
+        $this->_dstOffset = (int) $dayoff;
+        return $this;
     }
 }

@@ -10,7 +10,10 @@
 
 namespace Zimbra\Struct;
 
-use PhpCollection\Sequence;
+use JMS\Serializer\Annotation\Accessor;
+use JMS\Serializer\Annotation\SerializedName;
+use JMS\Serializer\Annotation\Type;
+use JMS\Serializer\Annotation\XmlAttribute;
 
 /**
  * AttributeSelectorImpl struct trait
@@ -24,8 +27,10 @@ trait AttributeSelectorTrait
 {
 
     /**
-     * Attributes sequence
-     * @var Sequence
+     * @Accessor(getter="getAttrs", setter="setAttrs")
+     * @SerializedName("attrs")
+     * @Type("string")
+     * @XmlAttribute
      */
     private $_attrs;
 
@@ -36,49 +41,18 @@ trait AttributeSelectorTrait
      */
     public function getAttrs()
     {
-        return implode(',', $this->_attrs->all());
+        return $this->_attrs;
     }
 
     /**
-     * Add attribute
+     * Sets attributes
      *
-     * @param  string $attr
+     * @param  string $attrs
      * @return self
      */
-    public function addAttr($attr)
+    public function setAttrs($attrs)
     {
-        $attr = trim($attr);
-        if ($this->_attrs instanceof Sequence)
-        {
-            if (!$this->_attrs->contains($attr))
-            {
-                $this->_attrs->add($attr);
-            }
-        }
-        else
-        {
-            $this->_attrs = new Sequence([$attr]);
-        }
-        return $this;
-    }
-
-    /**
-     * Sets attribute sequence
-     *
-     * @param  array $attrs
-     * @return self
-     */
-    public function setAttrs(array $attrs)
-    {
-        $this->_attrs = new Sequence();
-        foreach ($attrs as $attr)
-        {
-            $attr = trim($attr);
-            if (!$this->_attrs->contains($attr))
-            {
-                $this->_attrs->add($attr);
-            }
-        }
+        $this->_attrs = trim($attrs);
         return $this;
     }
 }

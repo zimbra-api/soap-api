@@ -2,13 +2,13 @@
 
 namespace Zimbra\Enum\Tests;
 
-use \PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 use Zimbra\Enum\CompactIndexAction;
 
 /**
  * Testcase class for CompactIndexAction.
  */
-class CompactIndexActionTest extends PHPUnit_Framework_TestCase
+class CompactIndexActionTest extends TestCase
 {
     public function testCompactIndexAction()
     {

@@ -2,15 +2,15 @@
 
 namespace Zimbra\Admin\Tests\Struct;
 
-use Zimbra\Admin\Tests\ZimbraAdminTestCase;
 use Zimbra\Admin\Struct\GranteeSelector;
 use Zimbra\Enum\GranteeBy;
 use Zimbra\Enum\GranteeType;
+use Zimbra\Struct\Tests\ZimbraStructTestCase;
 
 /**
  * Testcase class for GranteeSelector.
  */
-class GranteeSelectorTest extends ZimbraAdminTestCase
+class GranteeSelectorTest extends ZimbraStructTestCase
 {
     public function testGranteeSelector()
     {
@@ -18,36 +18,35 @@ class GranteeSelectorTest extends ZimbraAdminTestCase
         $secret = $this->faker->word;
 
         $grantee = new GranteeSelector(
-            $value, GranteeType::ALL(), GranteeBy::NAME(), $secret, false
+            $value, GranteeType::ALL()->value(), GranteeBy::NAME()->value(), $secret, false
         );
-        $this->assertSame('all', $grantee->getType()->value());
-        $this->assertSame('name', $grantee->getBy()->value());
+        $this->assertSame(GranteeType::ALL()->value(), $grantee->getType());
+        $this->assertSame(GranteeBy::NAME()->value(), $grantee->getBy());
         $this->assertSame($value, $grantee->getValue());
         $this->assertSame($secret, $grantee->getSecret());
         $this->assertFalse($grantee->getAll());
 
-        $grantee->setType(GranteeType::USR())
-                ->setBy(GranteeBy::ID())
+        $grantee = new GranteeSelector();
+        $grantee->setValue($value)
+                ->setType(GranteeType::USR()->value())
+                ->setBy(GranteeBy::ID()->value())
                 ->setSecret($secret)
                 ->setAll(true);
-        $this->assertSame('usr', $grantee->getType()->value());
-        $this->assertSame('id', $grantee->getBy()->value());
+        $this->assertSame(GranteeType::USR()->value(), $grantee->getType());
+        $this->assertSame(GranteeBy::ID()->value(), $grantee->getBy());
+        $this->assertSame($value, $grantee->getValue());
         $this->assertSame($secret, $grantee->getSecret());
         $this->assertTrue($grantee->getAll());
 
         $xml = '<?xml version="1.0"?>' . "\n"
             . '<grantee type="' . GranteeType::USR() . '" by="' . GranteeBy::ID() . '" secret="' . $secret . '" all="true">' . $value . '</grantee>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $grantee);
+        $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($grantee, 'xml'));
 
-        $array = [
-            'grantee' => [
-                '_content' => $value,
-                'type' => GranteeType::USR()->value(),
-                'by' => GranteeBy::ID()->value(),
-                'secret' => $secret,
-                'all' => true,
-            ],
-        ];
-        $this->assertEquals($array, $grantee->toArray());
+        $grantee = $this->serializer->deserialize($xml, 'Zimbra\Admin\Struct\GranteeSelector', 'xml');
+        $this->assertSame(GranteeType::USR()->value(), $grantee->getType());
+        $this->assertSame(GranteeBy::ID()->value(), $grantee->getBy());
+        $this->assertSame($value, $grantee->getValue());
+        $this->assertSame($secret, $grantee->getSecret());
+        $this->assertTrue($grantee->getAll());
     }
 }

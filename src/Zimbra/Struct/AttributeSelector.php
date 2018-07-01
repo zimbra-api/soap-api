@@ -28,18 +28,10 @@ interface AttributeSelector
     function getAttrs();
 
     /**
-     * Add an attribute
+     * Sets attributes
      *
-     * @param  string $attr
+     * @param  string $attrs
      * @return self
      */
-    function addAttr($attr);
-
-    /**
-     * Gets attributes
-     *
-     * @param  array $attrs
-     * @return self
-     */
-    function setAttrs(array $attrs);
+    function setAttrs($attrs);
 }

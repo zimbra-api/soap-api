@@ -10,6 +10,13 @@
 
 namespace Zimbra\Admin\Struct;
 
+use JMS\Serializer\Annotation\Accessor;
+use JMS\Serializer\Annotation\SerializedName;
+use JMS\Serializer\Annotation\Type;
+use JMS\Serializer\Annotation\XmlAttribute;
+use JMS\Serializer\Annotation\XmlRoot;
+use JMS\Serializer\Annotation\XmlValue;
+
 use Zimbra\Enum\DataSourceType;
 
 /**
@@ -20,42 +27,62 @@ use Zimbra\Enum\DataSourceType;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
+ * @XmlRoot(name="dataSource")
  */
 class DataSourceSpecifier extends AdminAttrsImpl
 {
     /**
+     * @Accessor(getter="getType", setter="setType")
+     * @SerializedName("type")
+     * @Type("string")
+     * @XmlAttribute
+     */
+    private $_type;
+
+    /**
+     * @Accessor(getter="getName", setter="setName")
+     * @SerializedName("name")
+     * @Type("string")
+     * @XmlAttribute
+     */
+    private $_name;
+
+    /**
      * Constructor method for DataSourceSpecifier
-     * @param Zimbra\Enum\DataSourceType $type Data source type
+     * @param string $type Data source type
      * @param string $name Data source name
      * @param array $attrs Attributes
      * @return self
      */
-    public function __construct(DataSourceType $type, $name, array $attrs = [])
+    public function __construct($type, $name, array $attrs = [])
     {
         parent::__construct($attrs);
-        $this->setProperty('type', $type);
-        $this->setProperty('name', trim($name));
+        $this->setType($type);
+        $this->setName($name);
     }
 
     /**
      * Gets data source type
      *
-     * @return Zimbra\Enum\DataSourceType
+     * @return string
      */
     public function getType()
     {
-        return $this->getProperty('type');
+        return $this->_type;
     }
 
     /**
      * Sets data source type
      *
-     * @param  Zimbra\Enum\DataSourceType $type
+     * @param  string $type
      * @return self
      */
-    public function setType(DataSourceType $type)
+    public function setType($type)
     {
-        return $this->setProperty('type', $type);
+        if (DataSourceType::has(trim($type))) {
+            $this->_type = $type;
+        }
+        return $this;
     }
 
     /**
@@ -65,7 +92,7 @@ class DataSourceSpecifier extends AdminAttrsImpl
      */
     public function getName()
     {
-        return $this->getProperty('name');
+        return $this->_name;
     }
 
     /**
@@ -76,26 +103,7 @@ class DataSourceSpecifier extends AdminAttrsImpl
      */
     public function setName($name)
     {
-        return $this->setProperty('name', trim($name));
-    }
-
-    /**
-     * Returns the array representation of this class 
-     *
-     * @return array
-     */
-    public function toArray($name = 'dataSource')
-    {
-        return parent::toArray($name);
-    }
-
-    /**
-     * Method returning the xml representation of this class
-     *
-     * @return SimpleXML
-     */
-    public function toXml($name = 'dataSource')
-    {
-        return parent::toXml($name);
+        $this->_name = trim($name);
+        return $this;
     }
 }

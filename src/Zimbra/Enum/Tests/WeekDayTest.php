@@ -2,13 +2,13 @@
 
 namespace Zimbra\Enum\Tests;
 
-use \PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 use Zimbra\Enum\WeekDay;
 
 /**
  * Testcase class for WeekDay.
  */
-class WeekDayTest extends PHPUnit_Framework_TestCase
+class WeekDayTest extends TestCase
 {
     public function testWeekDay()
     {

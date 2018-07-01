@@ -10,7 +10,12 @@
 
 namespace Zimbra\Admin\Struct;
 
-use Zimbra\Struct\Base;
+use JMS\Serializer\Annotation\Accessor;
+use JMS\Serializer\Annotation\SerializedName;
+use JMS\Serializer\Annotation\Type;
+use JMS\Serializer\Annotation\XmlAttribute;
+use JMS\Serializer\Annotation\XmlRoot;
+use JMS\Serializer\Annotation\XmlValue;
 
 /**
  * CheckDirSelector struct class
@@ -20,22 +25,37 @@ use Zimbra\Struct\Base;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
+ * @XmlRoot(name="directory")
  */
-class CheckDirSelector extends Base
+class CheckDirSelector
 {
+    /**
+     * @Accessor(getter="getPath", setter="setPath")
+     * @SerializedName("path")
+     * @Type("string")
+     * @XmlAttribute
+     */
+    private $_path;
+
+    /**
+     * @Accessor(getter="isCreate", setter="setCreate")
+     * @SerializedName("create")
+     * @Type("bool")
+     * @XmlAttribute
+     */
+    private $_create;
+
     /**
      * Constructor method for CheckDirSelector
      * @param string $path Full path to the directory
      * @param bool   $create Whether to create the directory or not if it doesn't exist
      * @return self
      */
-    public function __construct($path, $create = null)
+    public function __construct($path, $create = NULL)
     {
-        parent::__construct();
-        $this->setProperty('path', trim($path));
-        if(null !== $create)
-        {
-            $this->setProperty('create', (bool) $create);
+        $this->setPath($path);
+        if (NULL !== $create) {
+            $this->setCreate($create);
         }
     }
 
@@ -46,7 +66,7 @@ class CheckDirSelector extends Base
      */
     public function getPath()
     {
-        return $this->getProperty('path');
+        return $this->_path;
     }
 
     /**
@@ -57,7 +77,8 @@ class CheckDirSelector extends Base
      */
     public function setPath($path)
     {
-        return $this->setProperty('path', trim($path));
+        $this->_path = trim($path);
+        return $this;
     }
 
     /**
@@ -67,7 +88,7 @@ class CheckDirSelector extends Base
      */
     public function isCreate()
     {
-        return $this->getProperty('create');
+        return $this->_create;
     }
 
     /**
@@ -78,28 +99,7 @@ class CheckDirSelector extends Base
      */
     public function setCreate($create)
     {
-        return $this->setProperty('create', (bool) $create);
-    }
-
-    /**
-     * Returns the array representation of this class 
-     *
-     * @param  string $name
-     * @return array
-     */
-    public function toArray($name = 'directory')
-    {
-        return parent::toArray($name);
-    }
-
-    /**
-     * Method returning the xml representation of this class
-     *
-     * @param  string $name
-     * @return SimpleXML
-     */
-    public function toXml($name = 'directory')
-    {
-        return parent::toXml($name);
+        $this->_create = (bool) $create;
+        return $this;
     }
 }

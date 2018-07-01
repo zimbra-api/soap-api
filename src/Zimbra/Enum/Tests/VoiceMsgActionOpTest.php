@@ -2,13 +2,13 @@
 
 namespace Zimbra\Enum\Tests;
 
-use \PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 use Zimbra\Enum\VoiceMsgActionOp;
 
 /**
  * Testcase class for VoiceMsgActionOp.
  */
-class VoiceMsgActionOpTest extends PHPUnit_Framework_TestCase
+class VoiceMsgActionOpTest extends TestCase
 {
     public function testVoiceMsgActionOp()
     {

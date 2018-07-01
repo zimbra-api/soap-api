@@ -2,13 +2,13 @@
 
 namespace Zimbra\Enum\Tests;
 
-use \PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 use Zimbra\Enum\TargetBy;
 
 /**
  * Testcase class for TargetBy.
  */
-class TargetByTest extends PHPUnit_Framework_TestCase
+class TargetByTest extends TestCase
 {
     public function testTargetBy()
     {

@@ -2,13 +2,13 @@
 
 namespace Zimbra\Account\Tests\Struct;
 
-use Zimbra\Account\Tests\ZimbraAccountTestCase;
 use Zimbra\Account\Struct\PreAuth;
+use Zimbra\Struct\Tests\ZimbraStructTestCase;
 
 /**
  * Testcase class for PreAuth.
  */
-class PreAuthTest extends ZimbraAccountTestCase
+class PreAuthTest extends ZimbraStructTestCase
 {
     public function testPreAuth()
     {
@@ -31,16 +31,12 @@ class PreAuthTest extends ZimbraAccountTestCase
         $this->assertSame($computeValue, $pre->computeValue('account', $value)->getValue());
 
         $xml = '<?xml version="1.0"?>' . "\n"
-            . '<preauth timestamp="' .($now + 1000). '" expiresTimestamp="' . $expire . '">' .$computeValue. '</preauth>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $pre);
+            . '<preauth timestamp="' . ($now + 1000) . '" expiresTimestamp="' . $expire . '">' . $computeValue . '</preauth>';
+        $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($pre, 'xml'));
 
-        $array = [
-            'preauth' => [
-                'timestamp' => $now + 1000,
-                'expiresTimestamp' => $expire,
-                '_content' => $computeValue,
-            ],
-        ];
-        $this->assertEquals($array, $pre->toArray());
+        $pre = $this->serializer->deserialize($xml, 'Zimbra\Account\Struct\PreAuth', 'xml');
+        $this->assertSame($now + 1000, $pre->getTimestamp());
+        $this->assertSame($expire, $pre->getExpiresTimestamp());
+        $this->assertSame($computeValue, $pre->getValue());
     }
 }

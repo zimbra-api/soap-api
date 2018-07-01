@@ -2,13 +2,13 @@
 
 namespace Zimbra\Admin\Tests\Struct;
 
-use Zimbra\Admin\Tests\ZimbraAdminTestCase;
 use Zimbra\Admin\Struct\PackageSelector;
+use Zimbra\Struct\Tests\ZimbraStructTestCase;
 
 /**
  * Testcase class for PackageSelector.
  */
-class PackageSelectorTest extends ZimbraAdminTestCase
+class PackageSelectorTest extends ZimbraStructTestCase
 {
     public function testPackageSelector()
     {
@@ -16,18 +16,15 @@ class PackageSelectorTest extends ZimbraAdminTestCase
         $package = new PackageSelector($name);
         $this->assertSame($name, $package->getName());
 
+        $package = new PackageSelector('');
         $package->setName($name);
         $this->assertSame($name, $package->getName());
 
         $xml = '<?xml version="1.0"?>' . "\n"
             . '<package name="' . $name . '" />';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $package);
+        $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($package, 'xml'));
 
-        $array = [
-            'package' => [
-                'name' => $name,
-            ],
-        ];
-        $this->assertEquals($array, $package->toArray());
+        $package = $this->serializer->deserialize($xml, 'Zimbra\Admin\Struct\PackageSelector', 'xml');
+        $this->assertSame($name, $package->getName());
     }
 }

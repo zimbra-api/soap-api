@@ -22,14 +22,10 @@ class OpValueTest extends ZimbraStructTestCase
 
         $xml = '<?xml version="1.0"?>' . "\n"
             . '<addr op="+">' . $value . '</addr>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $op);
+        $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($op, 'xml'));
 
-        $array = [
-            'addr' => [
-                'op' => '+',
-                '_content' => $value,
-            ],
-        ];
-        $this->assertEquals($array, $op->toArray());
+        $op = $this->serializer->deserialize($xml, 'Zimbra\Struct\OpValue', 'xml');
+        $this->assertSame('+', $op->getOp());
+        $this->assertSame($value, $op->getValue());
     }
 }

@@ -10,9 +10,15 @@
 
 namespace Zimbra\Account\Struct;
 
+
+use JMS\Serializer\Annotation\Accessor;
+use JMS\Serializer\Annotation\SerializedName;
+use JMS\Serializer\Annotation\Type;
+use JMS\Serializer\Annotation\XmlAttribute;
+use JMS\Serializer\Annotation\XmlList;
+use JMS\Serializer\Annotation\XmlRoot;
+
 use Zimbra\Account\Struct\DistributionListGranteeSelector as GranteeSelector;
-use Zimbra\Common\TypedSequence;
-use Zimbra\Struct\Base;
 
 /**
  * DistributionListRightSpec struct class
@@ -22,12 +28,23 @@ use Zimbra\Struct\Base;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
+ * @XmlRoot(name="right")
  */
-class DistributionListRightSpec extends Base
+class DistributionListRightSpec
 {
     /**
+     * @Accessor(getter="getRight", setter="setRight")
+     * @SerializedName("right")
+     * @Type("string")
+     * @XmlAttribute
+     */
+    private $_right;
+
+    /**
      * The sequence of grantee
-     * @var TypedSequence
+     * @Accessor(getter="getGrantees", setter="setGrantees")
+     * @Type("array<Zimbra\Account\Struct\DistributionListGranteeSelector>")
+     * @XmlList(inline = true, entry = "grantee")
      */
     private $_grantees;
 
@@ -39,17 +56,7 @@ class DistributionListRightSpec extends Base
      */
     public function __construct($right, array $grantees = [])
     {
-		parent::__construct();
-		$this->setProperty('right', trim($right));
-        $this->setGrantees($grantees);
-
-        $this->on('before', function(Base $sender)
-        {
-            if($sender->getGrantees()->count())
-            {
-                $sender->setChild('grantee', $sender->getGrantees()->all());
-            }
-        });
+        $this->setRight($right)->setGrantees($grantees);
     }
 
     /**
@@ -59,7 +66,7 @@ class DistributionListRightSpec extends Base
      */
     public function getRight()
     {
-        return $this->getProperty('right');
+        return $this->_right;
     }
 
     /**
@@ -70,7 +77,8 @@ class DistributionListRightSpec extends Base
      */
     public function setRight($right)
     {
-        return $this->setProperty('right', trim($right));
+        $this->_right = trim($right);
+        return $this;
     }
 
     /**
@@ -81,7 +89,7 @@ class DistributionListRightSpec extends Base
      */
     public function addGrantee(GranteeSelector $grantee)
     {
-        $this->_grantees->add($grantee);
+        $this->_grantees[] = $grantee;
         return $this;
     }
 
@@ -92,9 +100,12 @@ class DistributionListRightSpec extends Base
      */
     public function setGrantees(array $grantees)
     {
-        $this->_grantees = new TypedSequence(
-            'Zimbra\Account\Struct\DistributionListGranteeSelector', $grantees
-        );
+        $this->_grantees = [];
+        foreach ($grantees as $grantee) {
+            if ($grantee instanceof GranteeSelector) {
+                $this->_grantees[] = $grantee;
+            }
+        }
         return $this;
     }
 

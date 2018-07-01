@@ -12,21 +12,18 @@ class AttributeNameTest extends ZimbraStructTestCase
     public function testAttributeName()
     {
         $name = $this->faker->word;
-        $a = new AttributeName($name);
-        $this->assertSame($name, $a->getName());
+        $attr = new AttributeName($name);
+        $this->assertSame($name, $attr->getName());
 
-        $a->setName($name);
-        $this->assertSame($name, $a->getName());
+        $attr = new AttributeName('');
+        $attr->setName($name);
+        $this->assertSame($name, $attr->getName());
 
         $xml = '<?xml version="1.0"?>' . "\n"
             . '<a n="' . $name . '" />';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $a);
+        $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($attr, 'xml'));
 
-        $array = [
-            'a' => [
-                'n' => $name,
-            ],
-        ];
-        $this->assertEquals($array, $a->toArray());
+        $attr = $this->serializer->deserialize($xml, 'Zimbra\Struct\AttributeName', 'xml');
+        $this->assertSame($name, $attr->getName());
     }
 }

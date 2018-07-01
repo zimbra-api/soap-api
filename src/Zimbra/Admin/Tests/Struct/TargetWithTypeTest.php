@@ -2,13 +2,13 @@
 
 namespace Zimbra\Admin\Tests\Struct;
 
-use Zimbra\Admin\Tests\ZimbraAdminTestCase;
 use Zimbra\Admin\Struct\TargetWithType;
+use Zimbra\Struct\Tests\ZimbraStructTestCase;
 
 /**
  * Testcase class for TargetWithType.
  */
-class TargetWithTypeTest extends ZimbraAdminTestCase
+class TargetWithTypeTest extends ZimbraStructTestCase
 {
     public function testTargetWithType()
     {
@@ -18,19 +18,18 @@ class TargetWithTypeTest extends ZimbraAdminTestCase
         $this->assertSame($type, $target->getType());
         $this->assertSame($value, $target->getValue());
 
-        $target->setType($type);
+        $target = new TargetWithType('');
+        $target->setType($type)
+               ->setValue($value);
         $this->assertSame($type, $target->getType());
+        $this->assertSame($value, $target->getValue());
 
         $xml = '<?xml version="1.0"?>' . "\n"
             . '<target type="' . $type . '">' . $value . '</target>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $target);
+        $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($target, 'xml'));
 
-        $array = [
-            'target' => [
-                'type' => $type,
-                '_content' => $value,
-            ],
-        ];
-        $this->assertEquals($array, $target->toArray());
+        $target = $this->serializer->deserialize($xml, 'Zimbra\Admin\Struct\TargetWithType', 'xml');
+        $this->assertSame($type, $target->getType());
+        $this->assertSame($value, $target->getValue());
     }
 }

@@ -10,9 +10,14 @@
 
 namespace Zimbra\Admin\Struct;
 
-use Zimbra\Common\TypedSequence;
+use JMS\Serializer\Annotation\Accessor;
+use JMS\Serializer\Annotation\SerializedName;
+use JMS\Serializer\Annotation\Type;
+use JMS\Serializer\Annotation\XmlAttribute;
+use JMS\Serializer\Annotation\XmlList;
+use JMS\Serializer\Annotation\XmlRoot;
+
 use Zimbra\Enum\CacheType;
-use Zimbra\Struct\Base;
 
 /**
  * CacheSelector struct class
@@ -22,39 +27,59 @@ use Zimbra\Struct\Base;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
+ * @XmlRoot(name="cache")
  */
-class CacheSelector extends Base
+class CacheSelector
 {
     /**
-     * The entry
-     * @var TypedSequence<CacheEntrySelector>
+     * @Accessor(getter="getEntries", setter="setEntries")
+     * @Type("array<Zimbra\Admin\Struct\CacheEntrySelector>")
+     * @XmlList(inline = true, entry = "entry")
      */
     private $_entries;
+
+    /**
+     * @Accessor(getter="getTypes", setter="setTypes")
+     * @SerializedName("type")
+     * @Type("string")
+     * @XmlAttribute
+     */
+    private $_types;
+
+    /**
+     * @Accessor(getter="isAllServers", setter="setAllServers")
+     * @SerializedName("allServers")
+     * @Type("bool")
+     * @XmlAttribute
+     */
+    private $_allServers;
+
+    /**
+     * @Accessor(getter="isIncludeImapServers", setter="setIncludeImapServers")
+     * @SerializedName("imapServers")
+     * @Type("bool")
+     * @XmlAttribute
+     */
+    private $_imapServers;
 
     /**
      * Constructor method for CacheSelector
      * @param  string $types Comma separated list of cache types. e.g. from skin|locale|account|cos|domain|server|zimlet
      * @param  bool $allServers The allServers flag
+     * @param  bool $imapServers The imapServers flag
      * @param  array $entries The entries
      * @return self
      */
-    public function __construct($types, $allServers = null, array $entries = [])
+    public function __construct($types, $allServers = NULL, $imapServers = NULL, array $entries = [])
     {
-        parent::__construct();
         $this->setTypes($types);
-        if(null !== $allServers)
-        {
-            $this->setProperty('allServers', (bool) $allServers);
+        if (NULL !== $allServers) {
+            $this->setAllServers($allServers);
+        }
+        if (NULL !== $imapServers) {
+            $this->setIncludeImapServers($imapServers);
         }
         $this->setEntries($entries);
-
-        $this->on('before', function(Base $sender)
-        {
-            if($sender->getEntries()->count())
-            {
-                $sender->setChild('entry', $sender->getEntries()->all());
-            }
-        });
     }
 
     /**
@@ -64,28 +89,27 @@ class CacheSelector extends Base
      */
     public function getTypes()
     {
-        return $this->getProperty('type');
+        return $this->_types;
     }
 
     /**
      * Sets cache types
      *
-     * @param  string $type
+     * @param  string $types
      * @return self
      */
-    public function setTypes($type)
+    public function setTypes($types)
     {
-        $arrTypes = explode(',', $type);
+        $arrTypes = explode(',', $types);
         $types = [];
-        foreach ($arrTypes as $type)
-        {
+        foreach ($arrTypes as $type) {
             $type = trim($type);
-            if(CacheType::has($type) && !in_array($type, $types))
-            {
+            if (CacheType::has($type) && !in_array($type, $types)) {
                 $types[] = $type;
             }
         }
-        return $this->setProperty('type', implode(',', $types));
+        $this->_types = implode(',', $types);
+        return $this;
     }
 
     /**
@@ -95,7 +119,7 @@ class CacheSelector extends Base
      */
     public function isAllServers()
     {
-        return $this->getProperty('allServers');
+        return $this->_allServers;
     }
 
     /**
@@ -104,9 +128,32 @@ class CacheSelector extends Base
      * @param  bool $allServers
      * @return self
      */
-    public function setAllServers($allServers = null)
+    public function setAllServers($allServers)
     {
-        return $this->setProperty('allServers', (bool) $allServers);
+        $this->_allServers = (bool) $allServers;
+        return $this;
+    }
+
+    /**
+     * Gets is imap servers flag
+     *
+     * @return bool
+     */
+    public function isIncludeImapServers()
+    {
+        return $this->_imapServers;
+    }
+
+    /**
+     * Sets is imap servers flag
+     *
+     * @param  bool $imapServers
+     * @return self
+     */
+    public function setIncludeImapServers($imapServers)
+    {
+        $this->_imapServers = (bool) $imapServers;
+        return $this;
     }
 
     /**
@@ -117,7 +164,7 @@ class CacheSelector extends Base
      */
     public function addEntry(CacheEntrySelector $entry)
     {
-        $this->_entries->add($entry);
+        $this->_entries[] = $entry;
         return $this;
     }
 
@@ -125,43 +172,26 @@ class CacheSelector extends Base
      * Sets entry sequence
      *
      * @param  array $entries The entries
-     * @return Sequence
+     * @return self
      */
     public function setEntries(array $entries)
     {
-        $this->_entries = new TypedSequence('Zimbra\Admin\Struct\CacheEntrySelector', $entries);
+        $this->_entries = [];
+        foreach ($entries as $entry) {
+            if ($entry instanceof CacheEntrySelector) {
+                $this->_entries[] = $entry;
+            }
+        }
         return $this;
     }
 
     /**
      * Gets entry sequence
      *
-     * @return Sequence
+     * @return array
      */
     public function getEntries()
     {
         return $this->_entries;
-    }
-
-    /**
-     * Returns the array representation of this class 
-     *
-     * @param  string $name
-     * @return array
-     */
-    public function toArray($name = 'cache')
-    {
-        return parent::toArray($name);
-    }
-
-    /**
-     * Method returning the xml representation of this class
-     *
-     * @param  string $name
-     * @return SimpleXML
-     */
-    public function toXml($name = 'cache')
-    {
-        return parent::toXml($name);
     }
 }

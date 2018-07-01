@@ -2,13 +2,13 @@
 
 namespace Zimbra\Enum\Tests;
 
-use \PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 use Zimbra\Enum\ParticipationStatus;
 
 /**
  * Testcase class for ParticipationStatus.
  */
-class ParticipationStatusTest extends PHPUnit_Framework_TestCase
+class ParticipationStatusTest extends TestCase
 {
     public function testParticipationStatus()
     {

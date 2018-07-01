@@ -2,14 +2,14 @@
 
 namespace Zimbra\Admin\Tests\Struct;
 
-use Zimbra\Admin\Tests\ZimbraAdminTestCase;
 use Zimbra\Admin\Struct\ExportAndDeleteItemSpec;
 use Zimbra\Admin\Struct\ExportAndDeleteMailboxSpec;
+use Zimbra\Struct\Tests\ZimbraStructTestCase;
 
 /**
  * Testcase class for ExportAndDeleteMailboxSpec.
  */
-class ExportAndDeleteMailboxSpecTest extends ZimbraAdminTestCase
+class ExportAndDeleteMailboxSpecTest extends ZimbraStructTestCase
 {
     public function testExportAndDeleteMailboxSpec()
     {
@@ -20,36 +20,29 @@ class ExportAndDeleteMailboxSpecTest extends ZimbraAdminTestCase
 
         $mbox = new ExportAndDeleteMailboxSpec($id, [$item1]);
         $this->assertSame($id, $mbox->getId());
-        $this->assertSame([$item1], $mbox->getItems()->all());
+        $this->assertSame([$item1], $mbox->getItems());
 
+        $mbox = new ExportAndDeleteMailboxSpec(0, []);
         $mbox->setId($id)
+             ->setItems([$item1])
              ->addItem($item2);
 
         $this->assertSame($id, $mbox->getId());
-        $this->assertSame([$item1, $item2], $mbox->getItems()->all());
+        $this->assertSame([$item1, $item2], $mbox->getItems());
 
         $xml = '<?xml version="1.0"?>' . "\n"
             . '<mbox id="' . $id . '">'
                 . '<item id="' . $id . '" version="' . $version . '" />'
                 . '<item id="' . $version . '" version="' . $id . '" />'
             . '</mbox>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $mbox);
+        $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($mbox, 'xml'));
 
-        $array = [
-            'mbox' => [
-                'id' => $id,
-                'item' => [
-                    [
-                        'id' => $id,
-                        'version' => $version,
-                    ],
-                    [
-                        'id' => $version,
-                        'version' => $id,
-                    ],
-                ],
-            ],
-        ];
-        $this->assertEquals($array, $mbox->toArray());
+        $mbox = $this->serializer->deserialize($xml, 'Zimbra\Admin\Struct\ExportAndDeleteMailboxSpec', 'xml');
+        $items = $mbox->getItems();
+        $this->assertSame($id, $mbox->getId());
+        $this->assertSame($id, $items[0]->getId());
+        $this->assertSame($version, $items[0]->getVersion());
+        $this->assertSame($version, $items[1]->getId());
+        $this->assertSame($id, $items[1]->getVersion());
     }
 }

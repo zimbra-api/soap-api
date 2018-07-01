@@ -20,13 +20,9 @@ class NamedElementTest extends ZimbraStructTestCase
 
         $xml = '<?xml version="1.0"?>' . "\n"
             . '<named name="' . $name . '" />';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $named);
+        $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($named, 'xml'));
 
-        $array = [
-            'named' => [
-                'name' => $name,
-            ],
-        ];
-        $this->assertEquals($array, $named->toArray());
+        $named = $this->serializer->deserialize($xml, 'Zimbra\Struct\NamedElement', 'xml');
+        $this->assertSame($name, $named->getName());
     }
 }

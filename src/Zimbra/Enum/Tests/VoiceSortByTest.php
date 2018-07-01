@@ -2,13 +2,13 @@
 
 namespace Zimbra\Enum\Tests;
 
-use \PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 use Zimbra\Enum\VoiceSortBy;
 
 /**
  * Testcase class for VoiceSortBy.
  */
-class VoiceSortByTest extends PHPUnit_Framework_TestCase
+class VoiceSortByTest extends TestCase
 {
     public function testVoiceSortBy()
     {

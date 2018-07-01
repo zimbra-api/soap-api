@@ -10,8 +10,10 @@
 
 namespace Zimbra\Admin\Struct;
 
-use Zimbra\Common\TypedSequence;
-use Zimbra\Struct\Base;
+use JMS\Serializer\Annotation\Accessor;
+use JMS\Serializer\Annotation\Type;
+use JMS\Serializer\Annotation\XmlList;
+use JMS\Serializer\Annotation\XmlRoot;
 
 /**
  * TzFixup struct class
@@ -21,12 +23,14 @@ use Zimbra\Struct\Base;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
+ * @XmlRoot(name="tzfixup")
  */
-class TzFixup extends Base
+class TzFixup
 {
     /**
-     * Attributes
-     * @var TypedSequence<TzFixupRule>
+     * @Accessor(getter="getFixupRules", setter="setFixupRules")
+     * @Type("array<Zimbra\Admin\Struct\TzFixupRule>")
+     * @XmlList(inline = true, entry = "fixupRule")
      */
     private $_fixupRules;
 
@@ -37,16 +41,7 @@ class TzFixup extends Base
      */
     public function __construct(array $fixupRules = [])
     {
-        parent::__construct();
         $this->setFixupRules($fixupRules);
-
-        $this->on('before', function(Base $sender)
-        {
-            if($sender->getFixupRules()->count())
-            {
-                $sender->setChild('fixupRule', $sender->getFixupRules()->all());
-            }
-        });
     }
 
     /**
@@ -57,7 +52,7 @@ class TzFixup extends Base
      */
     public function addFixupRule(TzFixupRule $fixupRule)
     {
-        $this->_fixupRules->add($fixupRule);
+        $this->_fixupRules[] = $fixupRule;
         return $this;
     }
 
@@ -69,39 +64,22 @@ class TzFixup extends Base
      */
     public function setFixupRules(array $fixupRules)
     {
-        $this->_fixupRules = new TypedSequence('Zimbra\Admin\Struct\TzFixupRule', $fixupRules);
+        $this->_fixupRules = [];
+        foreach ($fixupRules as $fixupRule) {
+            if ($fixupRule instanceof TzFixupRule) {
+                $this->_fixupRules[] = $fixupRule;
+            }
+        }
         return $this;
     }
 
     /**
      * Gets fixup rule sequence
      *
-     * @return TypedSequence<TzFixupRule>
+     * @return array
      */
     public function getFixupRules()
     {
         return $this->_fixupRules;
-    }
-
-    /**
-     * Returns the array representation of this class 
-     *
-     * @param  string $name
-     * @return array
-     */
-    public function toArray($name = 'tzfixup')
-    {
-        return parent::toArray($name);
-    }
-
-    /**
-     * Method returning the xml representative this class
-     *
-     * @param  string $name
-     * @return SimpleXML
-     */
-    public function toXml($name = 'tzfixup')
-    {
-        return parent::toXml($name);
     }
 }

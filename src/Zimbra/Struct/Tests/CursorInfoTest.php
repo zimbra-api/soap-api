@@ -21,6 +21,7 @@ class CursorInfoTest extends ZimbraStructTestCase
         $this->assertSame($endSortVal, $cursor->getEndSortVal());
         $this->assertFalse($cursor->getIncludeOffset());
 
+        $cursor = new CursorInfo();
         $cursor->setId($id)
                ->setSortVal($sortVal)
                ->setEndSortVal($endSortVal)
@@ -32,16 +33,12 @@ class CursorInfoTest extends ZimbraStructTestCase
 
         $xml = '<?xml version="1.0"?>' . "\n"
             . '<cursor id="' . $id . '" sortVal="' . $sortVal . '" endSortVal="' . $endSortVal . '" includeOffset="true" />';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $cursor);
+        $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($cursor, 'xml'));
 
-        $array = [
-            'cursor' => [
-                'id' => $id,
-                'sortVal' => $sortVal,
-                'endSortVal' => $endSortVal,
-                'includeOffset' => true,
-            ],
-        ];
-        $this->assertEquals($array, $cursor->toArray());
+        $cursor = $this->serializer->deserialize($xml, 'Zimbra\Struct\CursorInfo', 'xml');
+        $this->assertSame($id, $cursor->getId());
+        $this->assertSame($sortVal, $cursor->getSortVal());
+        $this->assertSame($endSortVal, $cursor->getEndSortVal());
+        $this->assertTrue($cursor->getIncludeOffset());
     }
 }

@@ -2,13 +2,13 @@
 
 namespace Zimbra\Enum\Tests;
 
-use \PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 use Zimbra\Enum\RankingActionOp;
 
 /**
  * Testcase class for RankingActionOp.
  */
-class RankingActionOpTest extends PHPUnit_Framework_TestCase
+class RankingActionOpTest extends TestCase
 {
     public function testRankingActionOp()
     {

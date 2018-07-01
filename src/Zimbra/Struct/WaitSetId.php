@@ -10,7 +10,13 @@
 
 namespace Zimbra\Struct;
 
-use Zimbra\Common\TypedSequence;
+use JMS\Serializer\Annotation\Accessor;
+use JMS\Serializer\Annotation\SerializedName;
+use JMS\Serializer\Annotation\Type;
+use JMS\Serializer\Annotation\XmlAttribute;
+use JMS\Serializer\Annotation\XmlList;
+use JMS\Serializer\Annotation\XmlRoot;
+
 use Zimbra\Struct\Id;
 
 /**
@@ -21,12 +27,14 @@ use Zimbra\Struct\Id;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
+ * @XmlRoot(name="remove")
  */
-class WaitSetId extends Base
+class WaitSetId
 {
     /**
-     * Attributes
-     * @var TypedSequence<Id>
+     * @Accessor(getter="getIds", setter="setIds")
+     * @Type("array<Zimbra\Struct\Id>")
+     * @XmlList(inline = true, entry = "a")
      */
     private $_ids;
 
@@ -37,16 +45,7 @@ class WaitSetId extends Base
      */
     public function __construct(array $ids = [])
     {
-        parent::__construct();
         $this->setIds($ids);
-
-        $this->on('before', function(Base $sender)
-        {
-            if($sender->getIds()->count())
-            {
-                $sender->setChild('a', $sender->getIds()->all());
-            }
-        });
     }
 
     /**
@@ -57,7 +56,7 @@ class WaitSetId extends Base
      */
     public function addId(Id $a)
     {
-        $this->_ids->add($a);
+        $this->_ids[] = $a;
         return $this;
     }
 
@@ -69,37 +68,22 @@ class WaitSetId extends Base
      */
     public function setIds(array $ids)
     {
-        $this->_ids = new TypedSequence('Zimbra\Struct\Id', $ids);
+        $this->_ids = [];
+        foreach ($ids as $id) {
+            if ($id instanceof Id) {
+                $this->_ids[] = $id;
+            }
+        }
         return $this;
     }
 
     /**
      * Gets Id sequence
      *
-     * @return TypedSequence<Id>
+     * @return array<Id>
      */
     public function getIds()
     {
         return $this->_ids;
-    }
-
-    /**
-     * Returns the array representation of this class 
-     *
-     * @return array
-     */
-    public function toArray($name = 'remove')
-    {
-        return parent::toArray($name);
-    }
-
-    /**
-     * Method returning the xml representative this class
-     *
-     * @return SimpleXML
-     */
-    public function toXml($name = 'remove')
-    {
-        return parent::toXml($name);
     }
 }

@@ -10,285 +10,179 @@
 
 namespace Zimbra\Soap;
 
-use Zimbra\Common\SimpleXML;
+use Doctrine\Common\Annotations\AnnotationRegistry;
+use JMS\Serializer\SerializerBuilder;
+use Zimbra\Soap\Header\SessionInfo;
 
 /**
  * Soap message class
- *
+ * 
  * @package   Zimbra
  * @category  Soap
  * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright Copyright © 2013 by Nguyen Van Nguyen.
  */
-class Message
+abstract class Message
 {
     /**
-     * Soap 1.1 const.
+     * Soap envelope
+     * @var Envelope
      */
-    const SOAP_1_1 = '1.1';
+    private $_envelope;
 
     /**
-     * Soap 1.2 const.
-     */
-    const SOAP_1_2 = '1.2';
-
-    /**
-     * Soap 1.1 namespace.
-     */
-    const NS_SOAP_1_1 = 'http://schemas.xmlsoap.org/soap/envelope';
-
-    /**
-     * Soap 1.2 namespace.
-     */
-    const NS_SOAP_1_2 = 'http://www.w3.org/2003/05/soap-envelope';
-
-    /**
-     * Soap headers
-     * @var array
-     */
-    private $_headers = [];
-
-    /**
-     * Soap request
-     * @var Request
-     */
-    private $_request;
-
-    /**
-     * Soap request body
-     * @var SimpleXML
-     */
-    private $_body;
-
-    /**
-     * The xml namespaces
-     * @var array
-     */
-    private $_namespaces = ['urn:zimbra'];
-
-    /**
-     * The soap version
+     * Authentication token
      * @var string
      */
-    private $_version;
+    private $_authToken;
 
     /**
-     * Content types for SOAP versions.
-     * @var array
+     * Authentication session identify
+     * @var string
      */
-    static protected $contentTypeMap = [
-        '1.1' => 'text/xml; charset=utf-8',
-        '1.2' => 'application/soap+xml; charset=utf-8'
-    ];
+    private $_sessionId;
 
     /**
-     * Message constructor
-     *
-     * @param string $version The soap version.
-     * @return self
+     * Serializer
+     * @var JMS\Serializer\Serializer
      */
-    public function __construct($version = self::SOAP_1_2)
+    private $_serializer;
+
+    protected $bodyType = 'Zimbra\Soap\Body';
+
+    public function __construct()
     {
-        $this->_version = in_array($version, [self::SOAP_1_2, self::SOAP_1_1]) ? $version : self::SOAP_1_2;
+        AnnotationRegistry::registerLoader('class_exists');
+        $this->_serializer = SerializerBuilder::create()->build();
+        $this->_envelope = new Envelope();
     }
 
-    /**
-     * Gets soap request
-     *
-     * @return Request
-     */
-    public function getRequest()
+    public function invoke(Request $request)
     {
-        return $this->_request;
-    }
-
-    /**
-     * Set soap request
-     *
-     * @param  Request $request
-     * @return self
-     */
-    public function setRequest(Request $request)
-    {
-        $this->_request = $request;
-        $this->addNamespace($this->_request->getXmlNamespace());
-        $this->_body = $request->toXml();
-        $namespaces = array_values($this->_body->getDocNamespaces(true));
-        $this->addNamespace($namespaces);
-        return $this;
-    }
-
-    /**
-     * Add namespace.
-     *
-     * @param  string|array $namespace
-     * @return self
-     */
-    public function addNamespace($namespace)
-    {
-        if(is_array($namespace))
-        {
-            foreach ($namespace as $ns)
-            {
-                $this->addNamespace($ns);
+        if (!empty($this->_authToken) || !empty($this->_sessionId)) {
+            $header = $this->getHeader();
+            if (!empty($header)) {
+                $header = new Header();
+                $this->setHeader($header);
             }
-        }
-        else
-        {
-            if(!in_array($namespace, $this->_namespaces) && !empty($namespace))
-            {
-                $this->_namespaces[] = (string) $namespace;
+            $context = new Context();
+            if (!empty($this->_authToken)) {
+                $context->setAuthToken($this->_authToken);
             }
+            if (!empty($this->_sessionId)) {
+                $session = new SessionInfo();
+                $session->setSessionId($this->_sessionId);
+                $context->setSession($session);
+            }
+            $header->setContext($context);
         }
-        return $this;
+        $xml = $this->_serializer->serialize($this->_envelope, 'xml');
     }
 
     /**
-     * Add header.
+     * Get soap envelope.
      *
-     * @param  string|array $name
-     * @param  string $value
+     * @return Envelope
+     */
+    public function getEnvelope()
+    {
+        return $this->_envelope;
+    }
+
+    /**
+     * Set soap envelope.
+     *
      * @return self
      */
-    public function addHeader($name, $value = null)
+    public function setEnvelope(Envelope $envelope)
     {
-        if(is_array($name))
-        {
-            foreach ($name as $n => $v)
-            {
-                $this->addHeader($n, $v);
-            }
-        }
-        else
-        {
-            $this->_headers[$name] = $value;
-        }
+        $this->_envelope = $envelope;
         return $this;
     }
 
     /**
      * Get soap header.
      *
-     * @param  string $name
-     * @return string|array
+     * @return Header
      */
-    public function getHeader($name = null)
+    public function getHeader()
     {
-        if(null === $name)
-        {
-            return $this->_headers;
-        }
-        else
-        {
-            return isset($this->_headers[$name]) ? $this->_headers[$name] : null;
-        }
+        return $this->_envelope->getHeader();
     }
 
     /**
-     * Get all soap headers.
+     * Set soap header.
      *
-     * @return array
+     * @return self
      */
-    public function getHeaders()
+    public function setHeader(Header $header)
     {
-        return $this->_headers;
+        $this->_envelope->setHeader($this->_header);
+        return $this;
     }
 
     /**
-     * Gets content type
+     * Get soap body.
      *
-     * @param  string $version Soap version
-     * @return string
+     * @return Body
      */
-    public function getContentType($version = null)
+    public function getBody()
     {
-        $version = in_array($version, [self::SOAP_1_2, self::SOAP_1_1]) ? $version : $this->_version;
-        return self::$contentTypeMap[$version];
+        return $this->_envelope->getBody();
     }
 
     /**
-     * Gets soap version
+     * Set soap body.
      *
-     * @param  string $version
-     * @return string
+     * @return self
      */
-    public function getVersion()
+    public function setBody(Body $body)
     {
-        return $this->_version;
+        $this->_envelope->setBody($this->body);
+        return $this;
     }
 
     /**
-     * Returns the json encoded string representation of this class 
+     * Gets authentication token.
      *
      * @return string
      */
-    public function toJson()
+    function getAuthToken()
     {
-        $array = [];
-        if(count($this->_headers))
-        {
-            $array['Header'] = [
-                'context' => [
-                    '_jsns' => 'urn:zimbra',
-                ],
-            ];
-            foreach ($this->_headers as $name => $value)
-            {
-                $array['Header']['context'][$name] = array('_content' => $value);
-            }
-        }
-        if($this->_request instanceof Request)
-        {
-            $reqArray = $this->_request->toArray();
-            $reqName = $this->_request->requestName();
-            $array['Body'][$reqName] = $reqArray[$reqName];
-        }
-        return json_encode((object) $array);
+        return $this->_authToken;
     }
 
     /**
-     * Method returning the xml representation of this class
+     * Sets authentication token.
      *
-     * @return SimpleXML
+     * @param  string|array $authToken Authentication token
+     * @return self
      */
-    public function toXml()
+    function setAuthToken($authToken)
     {
-        $soapNamespace = ($this->_version === self::SOAP_1_2) ? self::NS_SOAP_1_2 : self::NS_SOAP_1_1;
-        $nsString = 'xmlns:env="'.$soapNamespace.'"';
-        foreach ($this->_namespaces as $key => $ns)
-        {
-            if($key > 0)
-            {
-                $nsString .= sprintf(' xmlns:urn%d="%s"', $key, $ns);
-            }
-            else
-            {
-                $nsString .= sprintf(' xmlns:urn="%s"', $ns);
-            }
-        }
-        $message = sprintf('<env:Envelope %s></env:Envelope>', $nsString);
-        $xml = new SimpleXML($message);
-        if(count($this->_headers))
-        {
-            $header = $xml->addChild('Header')
-                          ->addChild('context', null, 'urn:zimbra');
-            foreach ($this->_headers as $name => $value)
-            {
-                $header->addChild($name, $value);
-            }
-        }
-        $body = $xml->addChild('Body');
-        $body->append($this->_body, $this->_request->getXmlNamespace());
-        return $xml;
+        $this->_authToken = trim($authToken);
+        return $this;
     }
 
     /**
-     * Return a well-formed XML string.
+     * Gets authentication session identify.
      *
-     * @return string Xml string
+     * @return string
      */
-    public function __toString()
+    public function getSessionId()
     {
-        return trim($this->toXml()->asXml());
+        return $this->_sessionId;
+    }
+
+    /**
+     * Sets authentication session identify.
+     *
+     * @param  string $sessionId Authentication session identify
+     * @return self
+     */
+    public function setSessionId($sessionId)
+    {
+        $this->_sessionId = trim($sessionId);
+        return $this;
     }
 }

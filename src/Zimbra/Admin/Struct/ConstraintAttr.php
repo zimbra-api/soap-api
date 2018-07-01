@@ -10,7 +10,12 @@
 
 namespace Zimbra\Admin\Struct;
 
-use Zimbra\Struct\Base;
+use JMS\Serializer\Annotation\Accessor;
+use JMS\Serializer\Annotation\SerializedName;
+use JMS\Serializer\Annotation\Type;
+use JMS\Serializer\Annotation\XmlAttribute;
+use JMS\Serializer\Annotation\XmlElement;
+use JMS\Serializer\Annotation\XmlRoot;
 
 /**
  * ConstraintAttr struct class
@@ -20,9 +25,26 @@ use Zimbra\Struct\Base;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
+ * @XmlRoot(name="a")
  */
-class ConstraintAttr extends Base
+class ConstraintAttr
 {
+    /**
+     * @Accessor(getter="getName", setter="setName")
+     * @SerializedName("name")
+     * @Type("string")
+     * @XmlAttribute
+     */
+    private $_name;
+
+    /**
+     * @Accessor(getter="getConstraint", setter="setConstraint")
+     * @SerializedName("constraint")
+     * @Type("Zimbra\Admin\Struct\ConstraintInfo")
+     * @XmlElement
+     */
+    private $_constraint;
+
     /**
      * Constructor method for ConstraintAttr
      * @param  ConstraintInfo $constraint Constraint information
@@ -31,9 +53,8 @@ class ConstraintAttr extends Base
      */
     public function __construct(ConstraintInfo $constraint, $name)
     {
-        parent::__construct();
-        $this->setChild('constraint', $constraint);
-        $this->setProperty('name', trim($name));
+        $this->setConstraint($constraint);
+        $this->setName($name);
     }
 
     /**
@@ -43,7 +64,7 @@ class ConstraintAttr extends Base
      */
     public function getConstraint()
     {
-        return $this->getChild('constraint');
+        return $this->_constraint;
     }
 
     /**
@@ -54,7 +75,8 @@ class ConstraintAttr extends Base
      */
     public function setConstraint(ConstraintInfo $constraint)
     {
-        return $this->setChild('constraint', $constraint);
+        $this->_constraint = $constraint;
+        return $this;
     }
 
     /**
@@ -64,7 +86,7 @@ class ConstraintAttr extends Base
      */
     public function getName()
     {
-        return $this->getProperty('name');
+        return $this->_name;
     }
 
     /**
@@ -75,28 +97,7 @@ class ConstraintAttr extends Base
      */
     public function setName($name)
     {
-        return $this->setProperty('name', trim($name));
-    }
-
-    /**
-     * Returns the array representation of this class 
-     *
-     * @param  string $name
-     * @return array
-     */
-    public function toArray($name = 'a')
-    {
-        return parent::toArray($name);
-    }
-
-    /**
-     * Method returning the xml representation of this class
-     *
-     * @param  string $name
-     * @return SimpleXML
-     */
-    public function toXml($name = 'a')
-    {
-        return parent::toXml($name);
+        $this->_name = trim($name);
+        return $this;
     }
 }

@@ -2,13 +2,13 @@
 
 namespace Zimbra\Enum\Tests;
 
-use \PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 use Zimbra\Enum\LoggingLevel;
 
 /**
  * Testcase class for LoggingLevel.
  */
-class LoggingLevelTest extends PHPUnit_Framework_TestCase
+class LoggingLevelTest extends TestCase
 {
     public function testLoggingLevel()
     {

@@ -10,7 +10,12 @@
 
 namespace Zimbra\Account\Struct;
 
-use Zimbra\Struct\Base;
+use JMS\Serializer\Annotation\Accessor;
+use JMS\Serializer\Annotation\SerializedName;
+use JMS\Serializer\Annotation\Type;
+use JMS\Serializer\Annotation\XmlAttribute;
+use JMS\Serializer\Annotation\XmlValue;
+use JMS\Serializer\Annotation\XmlRoot;
 
 /**
  * Preference struct class
@@ -20,9 +25,33 @@ use Zimbra\Struct\Base;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
+ * @XmlRoot(name="pref")
  */
-class Pref extends Base
+class Pref
 {
+    /**
+     * @Accessor(getter="getName", setter="setName")
+     * @SerializedName("name")
+     * @Type("string")
+     * @XmlAttribute
+     */
+    private $_name;
+
+    /**
+     * @Accessor(getter="getValue", setter="setValue")
+     * @Type("string")
+     * @XmlValue(cdata=false)
+     */
+    private $_value;
+
+    /**
+     * @Accessor(getter="getModified", setter="setModified")
+     * @SerializedName("modified")
+     * @Type("integer")
+     * @XmlAttribute
+     */
+    private $_modified;
+
     /**
      * Constructor method for preference
      * @param  string $name
@@ -32,11 +61,12 @@ class Pref extends Base
      */
     public function __construct($name, $value = null, $modified = null)
     {
-		parent::__construct(trim($value));
-        $this->setProperty('name', trim($name));
-        if(null !== $modified)
-        {
-            $this->setProperty('modified', (int) $modified);
+        $this->setName($name);
+        if (null !== $value) {
+            $this->setValue($value);
+        }
+        if (null !== $modified) {
+            $this->setModified($modified);
         }
     }
 
@@ -47,7 +77,7 @@ class Pref extends Base
      */
     public function getName()
     {
-        return $this->getProperty('name');
+        return $this->_name;
     }
 
     /**
@@ -58,7 +88,30 @@ class Pref extends Base
      */
     public function setName($name)
     {
-        return $this->setProperty('name', trim($name));
+        $this->_name = trim($name);
+        return $this;
+    }
+
+    /**
+     * Gets value
+     *
+     * @return string
+     */
+    public function getValue()
+    {
+        return $this->_value;
+    }
+
+    /**
+     * Sets value
+     *
+     * @param  string $name
+     * @return self
+     */
+    public function setValue($value)
+    {
+        $this->_value = trim($value);
+        return $this;
     }
 
     /**
@@ -68,7 +121,7 @@ class Pref extends Base
      */
     public function getModified()
     {
-        return $this->getProperty('modified');
+        return $this->_modified;
     }
 
     /**
@@ -79,28 +132,7 @@ class Pref extends Base
      */
     public function setModified($modified)
     {
-        return $this->setProperty('modified', (int) $modified);
-    }
-
-    /**
-     * Returns the array representation of this class 
-     *
-     * @param  string $name
-     * @return array
-     */
-    public function toArray($name = 'pref')
-    {
-        return parent::toArray($name);
-    }
-
-    /**
-     * Method returning the xml representation of this class
-     *
-     * @param  string $name
-     * @return SimpleXML
-     */
-    public function toXml($name = 'pref')
-    {
-        return parent::toXml($name);
+        $this->_modified = (int) $modified;
+        return $this;
     }
 }

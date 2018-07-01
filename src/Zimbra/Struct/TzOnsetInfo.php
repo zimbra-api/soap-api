@@ -10,6 +10,12 @@
 
 namespace Zimbra\Struct;
 
+use JMS\Serializer\Annotation\Accessor;
+use JMS\Serializer\Annotation\SerializedName;
+use JMS\Serializer\Annotation\Type;
+use JMS\Serializer\Annotation\XmlAttribute;
+use JMS\Serializer\Annotation\XmlRoot;
+
 /**
  * TzOnsetInfo struct class
  *
@@ -17,9 +23,66 @@ namespace Zimbra\Struct;
  * @category  Struct
  * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright Copyright © 2013 by Nguyen Van Nguyen.
+ * @XmlRoot(name="info")
  */
-class TzOnsetInfo extends Base
+class TzOnsetInfo
 {
+    /**
+     * @Accessor(getter="getMonth", setter="setMonth")
+     * @SerializedName("mon")
+     * @Type("integer")
+     * @XmlAttribute
+     */
+    private $_month;
+
+    /**
+     * @Accessor(getter="getHour", setter="setHour")
+     * @SerializedName("hour")
+     * @Type("integer")
+     * @XmlAttribute
+     */
+    private $_hour;
+
+    /**
+     * @Accessor(getter="getMinute", setter="setMinute")
+     * @SerializedName("min")
+     * @Type("integer")
+     * @XmlAttribute
+     */
+    private $_minute;
+
+    /**
+     * @Accessor(getter="getSecond", setter="setSecond")
+     * @SerializedName("sec")
+     * @Type("integer")
+     * @XmlAttribute
+     */
+    private $_second;
+
+    /**
+     * @Accessor(getter="getDayOfMonth", setter="setDayOfMonth")
+     * @SerializedName("mday")
+     * @Type("integer")
+     * @XmlAttribute
+     */
+    private $_dayOfMonth;
+
+    /**
+     * @Accessor(getter="getWeek", setter="setWeek")
+     * @SerializedName("week")
+     * @Type("integer")
+     * @XmlAttribute
+     */
+    private $_week;
+
+    /**
+     * @Accessor(getter="getDayOfWeek", setter="setDayOfWeek")
+     * @SerializedName("wkday")
+     * @Type("integer")
+     * @XmlAttribute
+     */
+    private $_dayOfWeek;
+
     /**
      * Constructor method for TzOnsetInfo
      * @param int $mon Month; 1=January, 2=February, etc.
@@ -36,32 +99,27 @@ class TzOnsetInfo extends Base
         $hour,
         $min,
         $sec,
-        $mday = null,
-        $week = null,
-        $wkday = null
+        $mday = NULL,
+        $week = NULL,
+        $wkday = NULL
     )
     {
-        parent::__construct();
-        $mon = in_array((int) $mon, range(1, 12)) ? (int) $mon : 1;
-        $this->setProperty('mon', $mon);
-        $hour = in_array((int) $hour, range(0, 23)) ? (int) $hour : 0;
-        $this->setProperty('hour', $hour);
-        $min = in_array((int) $min, range(0, 59)) ? (int) $min : 0;
-        $this->setProperty('min', $min);
-        $sec = in_array((int) $sec, range(0, 59)) ? (int) $sec : 0;
-        $this->setProperty('sec', $sec);
+        $this->setMonth($mon)
+            ->setHour($hour)
+            ->setMinute($min)
+            ->setSecond($sec);
 
         if(is_int($mday) and in_array((int) $mday, range(1, 31)))
         {
-            $this->setProperty('mday', (int) $mday);
+            $this->setDayOfMonth($mday);
         }
         if(is_int($week) and in_array((int) $week, [-1, 1, 2, 3, 4]))
         {
-            $this->setProperty('week', (int) $week);
+            $this->setWeek($week);
         }
         if(is_int($wkday) and in_array((int) $wkday, range(1, 7)))
         {
-            $this->setProperty('wkday', (int) $wkday);
+            $this->setDayOfWeek((int) $wkday);
         }
     }
 
@@ -72,7 +130,7 @@ class TzOnsetInfo extends Base
      */
     public function getMonth()
     {
-        return $this->getProperty('mon');
+        return $this->_month;
     }
 
     /**
@@ -84,7 +142,8 @@ class TzOnsetInfo extends Base
     public function setMonth($mon)
     {
         $mon = in_array((int) $mon, range(1, 12)) ? (int) $mon : 1;
-        return $this->setProperty('mon', $mon);
+        $this->_month = $mon;
+        return $this;
     }
 
     /**
@@ -94,7 +153,7 @@ class TzOnsetInfo extends Base
      */
     public function getDayOfMonth()
     {
-        return $this->getProperty('mday');
+        return $this->_dayOfMonth;
     }
 
     /**
@@ -106,7 +165,8 @@ class TzOnsetInfo extends Base
     public function setDayOfMonth($mday)
     {
         $mday = in_array((int) $mday, range(1, 31)) ? (int) $mday : 1;
-        return $this->setProperty('mday', $mday);
+        $this->_dayOfMonth = $mday;
+        return $this;
     }
 
     /**
@@ -116,7 +176,7 @@ class TzOnsetInfo extends Base
      */
     public function getHour()
     {
-        return $this->getProperty('hour');
+        return $this->_hour;
     }
 
     /**
@@ -128,7 +188,8 @@ class TzOnsetInfo extends Base
     public function setHour($hour)
     {
         $hour = in_array((int) $hour, range(0, 23)) ? (int) $hour : 0;
-        return $this->setProperty('hour', $hour);
+        $this->_hour = $hour;
+        return $this;
     }
 
     /**
@@ -138,7 +199,7 @@ class TzOnsetInfo extends Base
      */
     public function getMinute()
     {
-        return $this->getProperty('min');
+        return $this->_minute;
     }
 
     /**
@@ -150,7 +211,8 @@ class TzOnsetInfo extends Base
     public function setMinute($min)
     {
         $min = in_array((int) $min, range(0, 59)) ? (int) $min : 0;
-        return $this->setProperty('min', $min);
+        $this->_minute = $min;
+        return $this;
     }
 
     /**
@@ -160,7 +222,7 @@ class TzOnsetInfo extends Base
      */
     public function getSecond()
     {
-        return $this->getProperty('sec');
+        return $this->_second;
     }
 
     /**
@@ -172,12 +234,13 @@ class TzOnsetInfo extends Base
     public function setSecond($sec)
     {
         $sec = in_array((int) $sec, range(0, 59)) ? (int) $sec : 0;
-        return $this->setProperty('sec', $sec);
+        $this->_second = $sec;
+        return $this;
     }
 
     public function getWeek()
     {
-        return $this->getProperty('week');
+        return $this->_week;
     }
 
     /**
@@ -189,7 +252,8 @@ class TzOnsetInfo extends Base
     public function setWeek($week)
     {
         $week = in_array((int) $week, [-1, 1, 2, 3, 4]) ? (int) $week : -1;
-        return $this->setProperty('week', $week);
+        $this->_week = $week;
+        return $this;
     }
 
     /**
@@ -199,7 +263,7 @@ class TzOnsetInfo extends Base
      */
     public function getDayOfWeek()
     {
-        return $this->getProperty('wkday');
+        return $this->_dayOfWeek;
     }
 
     /**
@@ -211,28 +275,7 @@ class TzOnsetInfo extends Base
     public function setDayOfWeek($wkday)
     {
         $wkday = in_array((int) $wkday, range(1, 7)) ? (int) $wkday : 1;
-        return $this->setProperty('wkday', $wkday);
-    }
-
-    /**
-     * Returns the array representation of this class 
-     *
-     * @param  string $name
-     * @return array
-     */
-    public function toArray($name = 'info')
-    {
-        return parent::toArray($name);
-    }
-
-    /**
-     * Method returning the xml representation of this class
-     *
-     * @param  string $name
-     * @return SimpleXML
-     */
-    public function toXml($name = 'info')
-    {
-        return parent::toXml($name);
+        $this->_dayOfWeek = $wkday;
+        return $this;
     }
 }

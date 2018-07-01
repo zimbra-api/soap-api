@@ -2,13 +2,13 @@
 
 namespace Zimbra\Admin\Tests\Struct;
 
-use Zimbra\Admin\Tests\ZimbraAdminTestCase;
 use Zimbra\Admin\Struct\HostName;
+use Zimbra\Struct\Tests\ZimbraStructTestCase;
 
 /**
  * Testcase class for HostName.
  */
-class HostNameTest extends ZimbraAdminTestCase
+class HostNameTest extends ZimbraStructTestCase
 {
     public function testHostName()
     {
@@ -16,18 +16,15 @@ class HostNameTest extends ZimbraAdminTestCase
         $host = new HostName($name);
         $this->assertSame($name, $host->getHostName());
 
+        $host = new HostName('');
         $host->setHostName($name);
         $this->assertSame($name, $host->getHostName());
 
         $xml = '<?xml version="1.0"?>' . "\n"
             . '<hostname hn="' . $name . '" />';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $host);
+        $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($host, 'xml'));
 
-        $array = [
-            'hostname' => [
-                'hn' => $name,
-            ],
-        ];
-        $this->assertEquals($array, $host->toArray());
+        $host = $this->serializer->deserialize($xml, 'Zimbra\Admin\Struct\HostName', 'xml');
+        $this->assertSame($name, $host->getHostName());
     }
 }

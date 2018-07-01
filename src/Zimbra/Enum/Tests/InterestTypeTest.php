@@ -2,13 +2,13 @@
 
 namespace Zimbra\Enum\Tests;
 
-use \PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 use Zimbra\Enum\InterestType;
 
 /**
  * Testcase class for InterestType.
  */
-class InterestTypeTest extends PHPUnit_Framework_TestCase
+class InterestTypeTest extends TestCase
 {
     public function testInterestType()
     {

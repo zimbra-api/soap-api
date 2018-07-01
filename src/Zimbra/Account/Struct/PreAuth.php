@@ -10,8 +10,14 @@
 
 namespace Zimbra\Account\Struct;
 
+use JMS\Serializer\Annotation\Accessor;
+use JMS\Serializer\Annotation\SerializedName;
+use JMS\Serializer\Annotation\Type;
+use JMS\Serializer\Annotation\XmlAttribute;
+use JMS\Serializer\Annotation\XmlValue;
+use JMS\Serializer\Annotation\XmlRoot;
+
 use Zimbra\Struct\AccountSelector;
-use Zimbra\Struct\Base;
 
 /**
  * PreAuth struct class
@@ -21,9 +27,33 @@ use Zimbra\Struct\Base;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
+ * @XmlRoot(name="preauth")
  */
-class PreAuth extends Base
+class PreAuth
 {
+    /**
+     * @Accessor(getter="getValue", setter="setValue")
+     * @Type("string")
+     * @XmlValue(cdata=false)
+     */
+    private $_value;
+
+    /**
+     * @Accessor(getter="getTimestamp", setter="setTimestamp")
+     * @SerializedName("timestamp")
+     * @Type("integer")
+     * @XmlAttribute
+     */
+    private $_timestamp;
+
+    /**
+     * @Accessor(getter="getExpiresTimestamp", setter="setExpiresTimestamp")
+     * @SerializedName("expiresTimestamp")
+     * @Type("integer")
+     * @XmlAttribute
+     */
+    private $_expiresTimestamp;
+
     /**
      * Constructor method for PreAuth
      * @param  int    $timestamp
@@ -38,9 +68,36 @@ class PreAuth extends Base
      */
     public function __construct($timestamp, $value = null, $expiresTimestamp = null)
     {
-        parent::__construct(trim($value));
         $this->setTimestamp($timestamp);
-        $this->setExpiresTimestamp($expiresTimestamp);
+        if (null !== $value) {
+            $this->setValue($value);
+        }
+        if (null !== $expiresTimestamp) {
+            $expiresTimestamp = (int) $expiresTimestamp < 0 ? time() : (int) $expiresTimestamp;
+            $this->setExpiresTimestamp($expiresTimestamp);
+        }
+    }
+
+    /**
+     * Gets value
+     *
+     * @return string
+     */
+    public function getValue()
+    {
+        return $this->_value;
+    }
+
+    /**
+     * Sets value
+     *
+     * @param  string $name
+     * @return self
+     */
+    public function setValue($value)
+    {
+        $this->_value = trim($value);
+        return $this;
     }
 
     /**
@@ -50,7 +107,7 @@ class PreAuth extends Base
      */
     public function getTimestamp()
     {
-        return $this->getProperty('timestamp');
+        return $this->_timestamp;
     }
 
     /**
@@ -62,7 +119,8 @@ class PreAuth extends Base
     public function setTimestamp($timestamp)
     {
         $timestamp = (int) $timestamp < 0 ? time() : (int) $timestamp;
-        return $this->setProperty('timestamp', $timestamp);
+        $this->_timestamp = $timestamp;
+        return $this;
     }
 
     /**
@@ -72,7 +130,7 @@ class PreAuth extends Base
      */
     public function getExpiresTimestamp()
     {
-        return $this->getProperty('expiresTimestamp');
+        return $this->_expiresTimestamp;
     }
 
     /**
@@ -83,8 +141,9 @@ class PreAuth extends Base
      */
     public function setExpiresTimestamp($expiresTimestamp)
     {
-        $expiresTimestamp = (int) $expiresTimestamp < 0 ? 0 : (int) $expiresTimestamp;
-        return $this->setProperty('expiresTimestamp', $expiresTimestamp);
+        $expiresTimestamp = (int) $expiresTimestamp < 0 ? time() : (int) $expiresTimestamp;
+        $this->_expiresTimestamp = $expiresTimestamp;
+        return $this;
     }
 
     /**
@@ -98,37 +157,13 @@ class PreAuth extends Base
     {
         $timestamp = ($this->getTimestamp() > 0) ? $this->getTimestamp() : time();
         $expire = $this->getExpiresTimestamp();
-        if($account instanceof AccountSelector)
-        {
+        if ($account instanceof AccountSelector) {
             $preauth = $account->getValue() . '|'. $account->getBy() . '|' . $expire . '|' . $timestamp;
         }
-        else
-        {
+        else {
             $preauth = $account . '|name|' . $expire . '|' . $timestamp;
         }
         $this->setValue(hash_hmac('sha1', $preauth, $key));
         return $this;
-    }
-
-    /**
-     * Returns the array representation of this class 
-     *
-     * @param  string $name
-     * @return array
-     */
-    public function toArray($name = 'preauth')
-    {
-        return parent::toArray($name);
-    }
-
-    /**
-     * Method returning the xml representation of this class
-     *
-     * @param  string $name
-     * @return SimpleXML
-     */
-    public function toXml($name = 'preauth')
-    {
-        return parent::toXml($name);
     }
 }

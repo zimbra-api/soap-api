@@ -2,13 +2,13 @@
 
 namespace Zimbra\Admin\Tests\Struct;
 
-use Zimbra\Admin\Tests\ZimbraAdminTestCase;
 use Zimbra\Admin\Struct\DeviceId;
+use Zimbra\Struct\Tests\ZimbraStructTestCase;
 
 /**
  * Testcase class for DeviceId.
  */
-class DeviceIdTest extends ZimbraAdminTestCase
+class DeviceIdTest extends ZimbraStructTestCase
 {
     public function testDeviceId()
     {
@@ -16,18 +16,15 @@ class DeviceIdTest extends ZimbraAdminTestCase
         $device = new DeviceId($id);
         $this->assertSame($id, $device->getId());
 
+        $device = new DeviceId('');
         $device->setId($id);
         $this->assertSame($id, $device->getId());
 
         $xml = '<?xml version="1.0"?>' . "\n"
             . '<device id="' . $id . '" />';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $device);
+        $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($device, 'xml'));
 
-        $array = [
-            'device' => [
-                'id' => $id,
-            ],
-        ];
-        $this->assertEquals($array, $device->toArray());
+        $device = $this->serializer->deserialize($xml, 'Zimbra\Admin\Struct\DeviceId', 'xml');
+        $this->assertSame($id, $device->getId());
     }
 }

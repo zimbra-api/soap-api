@@ -2,14 +2,14 @@
 
 namespace Zimbra\Admin\Tests\Struct;
 
-use Zimbra\Admin\Tests\ZimbraAdminTestCase;
 use Zimbra\Admin\Struct\QueueQueryField;
 use Zimbra\Admin\Struct\ValueAttrib;
+use Zimbra\Struct\Tests\ZimbraStructTestCase;
 
 /**
  * Testcase class for QueueQueryField.
  */
-class QueueQueryFieldTest extends ZimbraAdminTestCase
+class QueueQueryFieldTest extends ZimbraStructTestCase
 {
     public function testQueueQueryField()
     {
@@ -22,33 +22,28 @@ class QueueQueryFieldTest extends ZimbraAdminTestCase
 
         $field = new QueueQueryField($name, [$match1]);
         $this->assertSame($name, $field->getName());
-        $this->assertSame([$match1], $field->getMatches()->all());
+        $this->assertSame([$match1], $field->getMatches());
 
+        $field = new QueueQueryField('');
         $field->setName($name)
+              ->setMatches([$match1])
               ->addMatch($match2);
         $this->assertSame($name, $field->getName());
-        $this->assertSame([$match1, $match2], $field->getMatches()->all());
+        $this->assertSame([$match1, $match2], $field->getMatches());
 
         $xml = '<?xml version="1.0"?>' . "\n"
             . '<field name="' . $name . '">'
                 . '<match value="' . $value1 . '" />'
                 . '<match value="' . $value2 . '" />'
             . '</field>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $field);
+        $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($field, 'xml'));
 
-        $array = [
-            'field' => [
-                'name' => $name,
-                'match' => [
-                    [
-                        'value' => $value1,
-                    ],
-                    [
-                        'value' => $value2,
-                    ],
-                ],
-            ],
-        ];
-        $this->assertEquals($array, $field->toArray());
+        $field = $this->serializer->deserialize($xml, 'Zimbra\Admin\Struct\QueueQueryField', 'xml');
+        $match1 = $field->getMatches()[0];
+        $match2 = $field->getMatches()[1];
+
+        $this->assertSame($name, $field->getName());
+        $this->assertSame($value1, $match1->getValue());
+        $this->assertSame($value2, $match2->getValue());
     }
 }

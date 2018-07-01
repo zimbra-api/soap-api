@@ -10,8 +10,14 @@
 
 namespace Zimbra\Admin\Struct;
 
+use JMS\Serializer\Annotation\Accessor;
+use JMS\Serializer\Annotation\SerializedName;
+use JMS\Serializer\Annotation\Type;
+use JMS\Serializer\Annotation\XmlAttribute;
+use JMS\Serializer\Annotation\XmlRoot;
+use JMS\Serializer\Annotation\XmlValue;
+
 use Zimbra\Enum\UcServiceBy;
-use Zimbra\Struct\Base;
 
 /**
  * UcServiceSelector struct class
@@ -21,61 +27,82 @@ use Zimbra\Struct\Base;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
+ * @XmlRoot(name="ucservice")
  */
-class UcServiceSelector extends Base
+class UcServiceSelector
 {
     /**
+     * @Accessor(getter="getBy", setter="setBy")
+     * @SerializedName("by")
+     * @Type("string")
+     * @XmlAttribute
+     */
+    private $_by;
+
+    /**
+     * @Accessor(getter="getValue", setter="setValue")
+     * @Type("string")
+     * @XmlValue(cdata=false)
+     */
+    private $_value;
+
+    /**
      * Constructor method for UcServiceSelector
-     * @param  UcServiceBy $by Selects the meaning of {ucservice-key}
+     * @param  string $by Selects the meaning of {ucservice-key}
      * @param  string $value Key for choosing ucservice
      * @return self
      */
-    public function __construct(UcServiceBy $by, $value = null)
+    public function __construct($by, $value = null)
     {
-        parent::__construct(trim($value));
-        $this->setProperty('by', $by);
+        $this->setBy($by);
+        if (NULL !== $value) {
+            $this->setValue($value);
+        }
     }
 
     /**
      * Gets by enum
      *
-     * @return Zimbra\Enum\UcServiceBy
+     * @return string
      */
     public function getBy()
     {
-        return $this->getProperty('by');
+        return $this->_by;
     }
 
     /**
      * Sets by enum
      *
-     * @param  Zimbra\Enum\UcServiceBy $by
+     * @param  string $by
      * @return self
      */
-    public function setBy(UcServiceBy $by)
+    public function setBy($by)
     {
-        return $this->setProperty('by', $by);
+        if (UcServiceBy::has(trim($by))) {
+            $this->_by = trim($by);
+        }
+        return $this;
     }
 
     /**
-     * Returns the array representation of this class 
+     * Gets value
      *
-     * @param  string $name
-     * @return array
+     * @return string
      */
-    public function toArray($name = 'ucservice')
+    public function getValue()
     {
-        return parent::toArray($name);
+        return $this->_value;
     }
 
     /**
-     * Method returning the xml representation of this class
+     * Sets value
      *
      * @param  string $name
-     * @return SimpleXML
+     * @return self
      */
-    public function toXml($name = 'ucservice')
+    public function setValue($value)
     {
-        return parent::toXml($name);
+        $this->_value = trim($value);
+        return $this;
     }
 }

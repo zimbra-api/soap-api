@@ -2,13 +2,13 @@
 
 namespace Zimbra\Enum\Tests;
 
-use \PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 use Zimbra\Enum\RangeType;
 
 /**
  * Testcase class for RangeType.
  */
-class RangeTypeTest extends PHPUnit_Framework_TestCase
+class RangeTypeTest extends TestCase
 {
     public function testRangeType()
     {

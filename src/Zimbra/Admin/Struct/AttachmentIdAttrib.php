@@ -10,7 +10,11 @@
 
 namespace Zimbra\Admin\Struct;
 
-use Zimbra\Struct\Base;
+use JMS\Serializer\Annotation\Accessor;
+use JMS\Serializer\Annotation\SerializedName;
+use JMS\Serializer\Annotation\Type;
+use JMS\Serializer\Annotation\XmlAttribute;
+use JMS\Serializer\Annotation\XmlRoot;
 
 /**
  * AttachmentIdAttrib struct class
@@ -20,20 +24,27 @@ use Zimbra\Struct\Base;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
+ * @XmlRoot(name="content")
  */
-class AttachmentIdAttrib extends Base
+class AttachmentIdAttrib
 {
+    /**
+     * @Accessor(getter="getAttachmentId", setter="setAttachmentId")
+     * @SerializedName("aid")
+     * @Type("string")
+     * @XmlAttribute
+     */
+    private $_aid;
+
     /**
      * Constructor method for AttachmentIdAttrib
      * @param  string $aid Attachment ID
      * @return self
      */
-    public function __construct($aid = null)
+    public function __construct($aid = NULL)
     {
-        parent::__construct();
-        if(null !== $aid)
-        {
-            $this->setProperty('aid', trim($aid));
+        if (NULL !== $aid) {
+            $this->setAttachmentId($aid);
         }
     }
 
@@ -44,7 +55,7 @@ class AttachmentIdAttrib extends Base
      */
     public function getAttachmentId()
     {
-        return $this->getProperty('aid');
+        return $this->_aid;
     }
 
     /**
@@ -55,28 +66,6 @@ class AttachmentIdAttrib extends Base
      */
     public function setAttachmentId($aid)
     {
-        return $this->setProperty('aid', trim($aid));
-    }
-
-    /**
-     * Returns the array representation of this class 
-     *
-     * @param  string $name
-     * @return array
-     */
-    public function toArray($name = 'content')
-    {
-        return parent::toArray($name);
-    }
-
-    /**
-     * Method returning the xml representation of this class
-     *
-     * @param  string $name
-     * @return SimpleXML
-     */
-    public function toXml($name = 'content')
-    {
-        return parent::toXml($name);
+        return $this->_aid = trim($aid);
     }
 }

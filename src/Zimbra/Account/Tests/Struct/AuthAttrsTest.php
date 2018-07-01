@@ -2,14 +2,14 @@
 
 namespace Zimbra\Account\Tests\Struct;
 
-use Zimbra\Account\Tests\ZimbraAccountTestCase;
 use Zimbra\Account\Struct\Attr;
 use Zimbra\Account\Struct\AuthAttrs;
+use Zimbra\Struct\Tests\ZimbraStructTestCase;
 
 /**
  * Testcase class for AuthAttrs.
  */
-class AuthAttrsTest extends ZimbraAccountTestCase
+class AuthAttrsTest extends ZimbraStructTestCase
 {
     public function testAuthAttrs()
     {
@@ -18,38 +18,31 @@ class AuthAttrsTest extends ZimbraAccountTestCase
         $attr1 = new Attr($name1, $value1, true);
 
         $attrs = new AuthAttrs([$attr1]);
-        $this->assertSame([$attr1], $attrs->getAttrs()->all());
+        $this->assertSame([$attr1], $attrs->getAttrs());
 
         $name2 = $this->faker->word;
         $value2 = $this->faker->word;
         $attr2 = new Attr($name2, $value2, false);
 
         $attrs->addAttr($attr2);
-        $this->assertSame([$attr1, $attr2], $attrs->getAttrs()->all());
+        $this->assertSame([$attr1, $attr2], $attrs->getAttrs());
 
         $xml = '<?xml version="1.0"?>' . "\n"
             . '<attrs>'
                 . '<attr name="' . $name1 . '" pd="true">' . $value1 . '</attr>'
                 . '<attr name="' . $name2 . '" pd="false">' . $value2 . '</attr>'
             . '</attrs>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $attrs);
+        $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($attrs, 'xml'));
 
-        $array = [
-            'attrs' => [
-                'attr' => [
-                    [
-                        'name' => $name1,
-                        '_content' => $value1,
-                        'pd' => true,
-                    ],
-                    [
-                        'name' => $name2,
-                        '_content' => $value2,
-                        'pd' => false,
-                    ],
-                ],
-            ],
-        ];
-        $this->assertEquals($array, $attrs->toArray());
+        $attrs = $this->serializer->deserialize($xml, 'Zimbra\Account\Struct\AuthAttrs', 'xml');
+        $attr1 = $attrs->getAttrs()[0];
+        $attr2 = $attrs->getAttrs()[1];
+
+        $this->assertSame($name1, $attr1->getName());
+        $this->assertSame($value1, $attr1->getValue());
+        $this->assertTrue($attr1->getPermDenied());
+        $this->assertSame($name2, $attr2->getName());
+        $this->assertSame($value2, $attr2->getValue());
+        $this->assertFalse($attr2->getPermDenied());
     }
 }

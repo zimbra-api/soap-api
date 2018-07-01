@@ -2,35 +2,34 @@
 
 namespace Zimbra\Admin\Tests\Struct;
 
-use Zimbra\Admin\Tests\ZimbraAdminTestCase;
 use Zimbra\Admin\Struct\XmppComponentSelector;
 use Zimbra\Enum\XmppComponentBy as XmppBy;
+use Zimbra\Struct\Tests\ZimbraStructTestCase;
 
 /**
  * Testcase class for XmppComponentSelector.
  */
-class XmppComponentSelectorTest extends ZimbraAdminTestCase
+class XmppComponentSelectorTest extends ZimbraStructTestCase
 {
     public function testXmppComponentSelector()
     {
         $value = $this->faker->word;
-        $xmpp = new XmppComponentSelector(XmppBy::ID(), $value);
-        $this->assertTrue($xmpp->getBy()->is('id'));
+        $xmpp = new XmppComponentSelector(XmppBy::ID()->value(), $value);
+        $this->assertSame(XmppBy::ID()->value(), $xmpp->getBy());
         $this->assertSame($value, $xmpp->getValue());
 
-        $xmpp->setBy(XmppBy::NAME());
-        $this->assertTrue($xmpp->getBy()->is('name'));
+        $xmpp = new XmppComponentSelector('');
+        $xmpp->setBy(XmppBy::NAME()->value())
+             ->setValue($value);
+        $this->assertSame(XmppBy::NAME()->value(), $xmpp->getBy());
+        $this->assertSame($value, $xmpp->getValue());
 
         $xml = '<?xml version="1.0"?>' . "\n"
             . '<xmppcomponent by="' . XmppBy::NAME() . '">' . $value . '</xmppcomponent>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $xmpp);
+        $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($xmpp, 'xml'));
 
-        $array = [
-            'xmppcomponent' => [
-                'by' => XmppBy::NAME()->value(),
-                '_content' => $value,
-            ],
-        ];
-        $this->assertEquals($array, $xmpp->toArray());
+        $xmpp = $this->serializer->deserialize($xml, 'Zimbra\Admin\Struct\XmppComponentSelector', 'xml');
+        $this->assertSame(XmppBy::NAME()->value(), $xmpp->getBy());
+        $this->assertSame($value, $xmpp->getValue());
     }
 }

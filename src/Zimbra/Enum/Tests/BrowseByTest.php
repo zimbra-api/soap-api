@@ -2,13 +2,13 @@
 
 namespace Zimbra\Enum\Tests;
 
-use \PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 use Zimbra\Enum\BrowseBy;
 
 /**
  * Testcase class for BrowseBy.
  */
-class BrowseByTest extends PHPUnit_Framework_TestCase
+class BrowseByTest extends TestCase
 {
     public function testBrowseBy()
     {

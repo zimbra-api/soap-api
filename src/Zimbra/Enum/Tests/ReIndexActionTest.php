@@ -2,13 +2,13 @@
 
 namespace Zimbra\Enum\Tests;
 
-use \PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 use Zimbra\Enum\ReIndexAction;
 
 /**
  * Testcase class for ReIndexAction.
  */
-class ReIndexActionTest extends PHPUnit_Framework_TestCase
+class ReIndexActionTest extends TestCase
 {
     public function testReIndexAction()
     {

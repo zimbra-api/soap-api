@@ -2,13 +2,13 @@
 
 namespace Zimbra\Admin\Tests\Struct;
 
-use Zimbra\Admin\Tests\ZimbraAdminTestCase;
 use Zimbra\Admin\Struct\LimitedQuery;
+use Zimbra\Struct\Tests\ZimbraStructTestCase;
 
 /**
  * Testcase class for LimitedQuery.
  */
-class LimitedQueryTest extends ZimbraAdminTestCase
+class LimitedQueryTest extends ZimbraStructTestCase
 {
     public function testLimitedQuery()
     {
@@ -19,19 +19,18 @@ class LimitedQueryTest extends ZimbraAdminTestCase
         $this->assertSame($limit, $query->getLimit());
         $this->assertSame($value, $query->getValue());
 
-        $query->setLimit($limit);
+        $query = new LimitedQuery();
+        $query->setLimit($limit)
+              ->setValue($value);
         $this->assertSame($limit, $query->getLimit());
+        $this->assertSame($value, $query->getValue());
 
         $xml = '<?xml version="1.0"?>' . "\n"
             . '<query limit="' . $limit . '">' . $value . '</query>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $query);
+        $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($query, 'xml'));
 
-        $array = [
-            'query' => [
-                'limit' => $limit,
-                '_content' => $value,
-            ],
-        ];
-        $this->assertEquals($array, $query->toArray());
+        $query = $this->serializer->deserialize($xml, 'Zimbra\Admin\Struct\LimitedQuery', 'xml');
+        $this->assertSame($limit, $query->getLimit());
+        $this->assertSame($value, $query->getValue());
     }
 }

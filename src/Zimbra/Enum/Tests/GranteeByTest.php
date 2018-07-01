@@ -2,13 +2,13 @@
 
 namespace Zimbra\Enum\Tests;
 
-use \PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 use Zimbra\Enum\GranteeBy;
 
 /**
  * Testcase class for GranteeBy.
  */
-class GranteeByTest extends PHPUnit_Framework_TestCase
+class GranteeByTest extends TestCase
 {
     public function testGranteeBy()
     {

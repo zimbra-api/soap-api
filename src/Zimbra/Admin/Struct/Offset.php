@@ -10,7 +10,11 @@
 
 namespace Zimbra\Admin\Struct;
 
-use Zimbra\Struct\Base;
+use JMS\Serializer\Annotation\Accessor;
+use JMS\Serializer\Annotation\SerializedName;
+use JMS\Serializer\Annotation\Type;
+use JMS\Serializer\Annotation\XmlAttribute;
+use JMS\Serializer\Annotation\XmlRoot;
 
 /**
  * Offset struct class
@@ -20,9 +24,18 @@ use Zimbra\Struct\Base;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
+ * @XmlRoot(name="offset")
  */
-class Offset extends Base
+class Offset
 {
+    /**
+     * @Accessor(getter="getOffset", setter="setOffset")
+     * @SerializedName("offset")
+     * @Type("integer")
+     * @XmlAttribute
+     */
+    private $_offset;
+
     /**
      * Constructor method for Offset
      * @param int $offset Offset
@@ -30,8 +43,7 @@ class Offset extends Base
      */
     public function __construct($offset)
     {
-        parent::__construct();
-        $this->setProperty('offset', (int) $offset);
+        $this->setOffset($offset);
     }
 
     /**
@@ -41,7 +53,7 @@ class Offset extends Base
      */
     public function getOffset()
     {
-        return $this->getProperty('offset');
+        return $this->_offset;
     }
 
     /**
@@ -52,28 +64,7 @@ class Offset extends Base
      */
     public function setOffset($offset)
     {
-        return $this->setProperty('offset', (int) $offset);
-    }
-
-    /**
-     * Returns the array representation of this class 
-     *
-     * @param  string $name
-     * @return array
-     */
-    public function toArray($name = 'offset')
-    {
-        return parent::toArray($name);
-    }
-
-    /**
-     * Method returning the xml representation of this class
-     *
-     * @param  string $name
-     * @return SimpleXML
-     */
-    public function toXml($name = 'offset')
-    {
-        return parent::toXml($name);
+        $this->_offset = (int) $offset;
+        return $this;
     }
 }

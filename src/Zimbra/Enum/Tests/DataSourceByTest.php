@@ -2,13 +2,13 @@
 
 namespace Zimbra\Enum\Tests;
 
-use \PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 use Zimbra\Enum\DataSourceBy;
 
 /**
  * Testcase class for DataSourceBy.
  */
-class DataSourceByTest extends PHPUnit_Framework_TestCase
+class DataSourceByTest extends TestCase
 {
     public function testDataSourceBy()
     {

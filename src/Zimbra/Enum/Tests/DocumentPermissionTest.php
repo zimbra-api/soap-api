@@ -2,13 +2,13 @@
 
 namespace Zimbra\Enum\Tests;
 
-use \PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 use Zimbra\Enum\DocumentPermission;
 
 /**
  * Testcase class for DocumentPermission.
  */
-class DocumentPermissionTest extends PHPUnit_Framework_TestCase
+class DocumentPermissionTest extends TestCase
 {
     public function testDocumentPermission()
     {

@@ -2,13 +2,13 @@
 
 namespace Zimbra\Admin\Tests\Struct;
 
-use Zimbra\Admin\Tests\ZimbraAdminTestCase;
 use Zimbra\Admin\Struct\RightModifierInfo;
+use Zimbra\Struct\Tests\ZimbraStructTestCase;
 
 /**
  * Testcase class for RightModifierInfo.
  */
-class RightModifierInfoTest extends ZimbraAdminTestCase
+class RightModifierInfoTest extends ZimbraStructTestCase
 {
     public function testRightModifierInfo()
     {
@@ -20,10 +20,13 @@ class RightModifierInfoTest extends ZimbraAdminTestCase
         $this->assertTrue($right->getDisinheritSubGroups());
         $this->assertFalse($right->getSubDomain());
 
-        $right->setDeny(true)
+        $right = new RightModifierInfo();
+        $right->setValue($value)
+              ->setDeny(true)
               ->setCanDelegate(false)
               ->setDisinheritSubGroups(false)
               ->setSubDomain(true);
+        $this->assertSame($value, $right->getValue());
         $this->assertTrue($right->getDeny());
         $this->assertFalse($right->getCanDelegate());
         $this->assertFalse($right->getDisinheritSubGroups());
@@ -31,17 +34,13 @@ class RightModifierInfoTest extends ZimbraAdminTestCase
 
         $xml = '<?xml version="1.0"?>' . "\n"
             . '<right deny="true" canDelegate="false" disinheritSubGroups="false" subDomain="true">' . $value . '</right>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $right);
+        $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($right, 'xml'));
 
-        $array = [
-            'right' => [
-                'deny' => true,
-                'canDelegate' => false,
-                'disinheritSubGroups' => false,
-                'subDomain' => true,
-                '_content' => $value,
-            ],
-        ];
-        $this->assertEquals($array, $right->toArray());
+        $right = $this->serializer->deserialize($xml, 'Zimbra\Admin\Struct\RightModifierInfo', 'xml');
+        $this->assertSame($value, $right->getValue());
+        $this->assertTrue($right->getDeny());
+        $this->assertFalse($right->getCanDelegate());
+        $this->assertFalse($right->getDisinheritSubGroups());
+        $this->assertTrue($right->getSubDomain());
     }
 }

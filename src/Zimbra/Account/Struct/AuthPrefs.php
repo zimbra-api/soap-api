@@ -10,8 +10,7 @@
 
 namespace Zimbra\Account\Struct;
 
-use Zimbra\Common\TypedSequence;
-use Zimbra\Struct\Base;
+use JMS\Serializer\Annotation\XmlRoot;
 
 /**
  * AuthPrefs struct class
@@ -21,8 +20,9 @@ use Zimbra\Struct\Base;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
+ * @XmlRoot(name="prefs")
  */
-class AuthPrefs extends Base
+class AuthPrefs
 {
     use PrefsImplTrail {
         PrefsImplTrail::__construct as private __prefsConstruct;
@@ -35,27 +35,5 @@ class AuthPrefs extends Base
     public function __construct(array $prefs = [])
     {
         $this->__prefsConstruct($prefs);
-    }
-    
-    /**
-     * Returns the array representation of this class 
-     *
-     * @param  string $name
-     * @return array
-     */
-    public function toArray($name = 'prefs')
-    {
-        return parent::toArray($name);
-    }
-
-    /**
-     * Method returning the xml representative this class
-     *
-     * @param  string $name
-     * @return SimpleXML
-     */
-    public function toXml($name = 'prefs')
-    {
-        return parent::toXml($name);
     }
 }

@@ -10,8 +10,13 @@
 
 namespace Zimbra\Account\Struct;
 
+use JMS\Serializer\Annotation\Accessor;
+use JMS\Serializer\Annotation\SerializedName;
+use JMS\Serializer\Annotation\Type;
+use JMS\Serializer\Annotation\XmlAttribute;
+use JMS\Serializer\Annotation\XmlRoot;
+
 use Zimbra\Enum\ZimletStatus;
-use Zimbra\Struct\Base;
 
 /**
  * ZimletPrefsSpec struct class
@@ -21,20 +26,35 @@ use Zimbra\Struct\Base;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
+ * @XmlRoot(name="zimlet")
  */
-class ZimletPrefsSpec extends Base
+class ZimletPrefsSpec
 {
+    /**
+     * @Accessor(getter="getName", setter="setName")
+     * @SerializedName("name")
+     * @Type("string")
+     * @XmlAttribute
+     */
+    private $_name;
+
+    /**
+     * @Accessor(getter="getPresence", setter="setPresence")
+     * @SerializedName("presence")
+     * @Type("string")
+     * @XmlAttribute
+     */
+    private $_presence;
+
     /**
      * Constructor method for ZimletPrefsSpec
      * @param  string $name
-     * @param  ZimletStatus $presence
+     * @param  string $presence
      * @return self
      */
-    public function __construct($name, ZimletStatus $presence)
+    public function __construct($name, $presence)
     {
-        parent::__construct();
-        $this->setProperty('name', trim($name));
-        $this->setProperty('presence', $presence);
+        $this->setName($name)->setPresence($presence);
     }
 
     /**
@@ -44,7 +64,7 @@ class ZimletPrefsSpec extends Base
      */
     public function getName()
     {
-        return $this->getProperty('name');
+        return $this->_name;
     }
 
     /**
@@ -55,7 +75,8 @@ class ZimletPrefsSpec extends Base
      */
     public function setName($name)
     {
-        return $this->setProperty('name', trim($name));
+        $this->_name = trim($name);
+        return $this;
     }
 
     /**
@@ -65,39 +86,20 @@ class ZimletPrefsSpec extends Base
      */
     public function getPresence()
     {
-        return $this->getProperty('presence');
+        return $this->_presence;
     }
 
     /**
      * Sets presence
      *
-     * @param  ZimletStatus $presence
+     * @param  string $presence
      * @return self
      */
-    public function setPresence(ZimletStatus $presence)
+    public function setPresence($presence)
     {
-        return $this->setProperty('presence', $presence);
-    }
-
-    /**
-     * Returns the array representation of this class 
-     *
-     * @param  string $name
-     * @return array
-     */
-    public function toArray($name = 'zimlet')
-    {
-        return parent::toArray($name);
-    }
-
-    /**
-     * Method returning the xml representation of this class
-     *
-     * @param  string $name
-     * @return SimpleXML
-     */
-    public function toXml($name = 'zimlet')
-    {
-        return parent::toXml($name);
+        if (ZimletStatus::has(trim($presence))) {
+            $this->_presence = $presence;
+        }
+        return $this;
     }
 }

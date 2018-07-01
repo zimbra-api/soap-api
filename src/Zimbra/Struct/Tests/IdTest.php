@@ -11,7 +11,7 @@ class IdTest extends ZimbraStructTestCase
 {
     public function testId()
     {
-        $value = $this->faker->word;
+        $value = $this->faker->uuid;
 
         $id = new Id($value);
         $this->assertSame($value, $id->getId());
@@ -21,13 +21,9 @@ class IdTest extends ZimbraStructTestCase
 
         $xml = '<?xml version="1.0"?>' . "\n"
             . '<id id="' . $value . '" />';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $id);
+        $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($id, 'xml'));
 
-        $array = [
-            'id' => [
-                'id' => $value,
-            ],
-        ];
-        $this->assertEquals($array, $id->toArray());
+        $id = $this->serializer->deserialize($xml, 'Zimbra\Struct\Id', 'xml');
+        $this->assertSame($value, $id->getId());
     }
 }

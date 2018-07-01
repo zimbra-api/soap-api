@@ -2,13 +2,13 @@
 
 namespace Zimbra\Enum\Tests;
 
-use \PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 use Zimbra\Enum\DocumentGrantType;
 
 /**
  * Testcase class for DocumentGrantType.
  */
-class DocumentGrantTypeTest extends PHPUnit_Framework_TestCase
+class DocumentGrantTypeTest extends TestCase
 {
     public function testDocumentGrantType()
     {

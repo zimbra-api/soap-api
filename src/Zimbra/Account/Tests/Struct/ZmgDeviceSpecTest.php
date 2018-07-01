@@ -2,13 +2,13 @@
 
 namespace Zimbra\Account\Tests\Struct;
 
-use Zimbra\Account\Tests\ZimbraAccountTestCase;
 use Zimbra\Account\Struct\ZmgDeviceSpec;
+use Zimbra\Struct\Tests\ZimbraStructTestCase;
 
 /**
  * Testcase class for ZmgDeviceSpec.
  */
-class ZmgDeviceSpecTest extends ZimbraAccountTestCase
+class ZmgDeviceSpecTest extends ZimbraStructTestCase
 {
     public function testZmgDeviceSpec()
     {
@@ -47,18 +47,14 @@ class ZmgDeviceSpecTest extends ZimbraAccountTestCase
 
         $xml = '<?xml version="1.0"?>' . "\n"
             . '<zmgDevice appId="' . $appId . '" registrationId="' . $registrationId . '" pushProvider="' . $pushProvider . '" osName="' . $osName . '" osVersion="' . $osVersion . '" maxPayloadSize="' . $maxPayloadSize . '" />';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $device);
+        $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($device, 'xml'));
 
-        $array = [
-            'zmgDevice' => [
-                'appId' => $appId,
-                'registrationId' => $registrationId,
-                'pushProvider' => $pushProvider,
-                'osName' => $osName,
-                'osVersion' => $osVersion,
-                'maxPayloadSize' => $maxPayloadSize,
-            ],
-        ];
-        $this->assertEquals($array, $device->toArray());
+        $device = $this->serializer->deserialize($xml, 'Zimbra\Account\Struct\ZmgDeviceSpec', 'xml');
+        $this->assertSame($appId, $device->getAppId());
+        $this->assertSame($registrationId, $device->getRegistrationId());
+        $this->assertSame($pushProvider, $device->getPushProvider());
+        $this->assertSame($osName, $device->getOsName());
+        $this->assertSame($osVersion, $device->getOsVersion());
+        $this->assertSame($maxPayloadSize, $device->getMaxPayloadSize());
     }
 }

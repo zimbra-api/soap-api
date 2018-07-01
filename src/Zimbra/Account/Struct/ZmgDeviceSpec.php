@@ -10,7 +10,11 @@
 
 namespace Zimbra\Account\Struct;
 
-use Zimbra\Struct\Base;
+use JMS\Serializer\Annotation\Accessor;
+use JMS\Serializer\Annotation\SerializedName;
+use JMS\Serializer\Annotation\Type;
+use JMS\Serializer\Annotation\XmlAttribute;
+use JMS\Serializer\Annotation\XmlRoot;
 
 /**
  * ZmgDeviceSpec struct class
@@ -21,9 +25,58 @@ use Zimbra\Struct\Base;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
+ * @XmlRoot(name="zmgDevice")
  */
-class ZmgDeviceSpec extends Base
+class ZmgDeviceSpec
 {
+    /**
+     * @Accessor(getter="getAppId", setter="setAppId")
+     * @SerializedName("appId")
+     * @Type("string")
+     * @XmlAttribute
+     */
+    private $_appId;
+
+    /**
+     * @Accessor(getter="getRegistrationId", setter="setRegistrationId")
+     * @SerializedName("registrationId")
+     * @Type("string")
+     * @XmlAttribute
+     */
+    private $_registrationId;
+
+    /**
+     * @Accessor(getter="getPushProvider", setter="setPushProvider")
+     * @SerializedName("pushProvider")
+     * @Type("string")
+     * @XmlAttribute
+     */
+    private $_pushProvider;
+
+    /**
+     * @Accessor(getter="getOSName", setter="setOSName")
+     * @SerializedName("osName")
+     * @Type("string")
+     * @XmlAttribute
+     */
+    private $_osName;
+
+    /**
+     * @Accessor(getter="getOSVersion", setter="setOSVersion")
+     * @SerializedName("osVersion")
+     * @Type("string")
+     * @XmlAttribute
+     */
+    private $_osVersion;
+
+    /**
+     * @Accessor(getter="getMaxPayloadSize", setter="setMaxPayloadSize")
+     * @SerializedName("maxPayloadSize")
+     * @Type("int")
+     * @XmlAttribute
+     */
+    private $_maxPayloadSize;
+
     /**
      * Constructor method for ZmgDeviceSpec
      * @param  string $appId App ID.
@@ -49,21 +102,17 @@ class ZmgDeviceSpec extends Base
         $maxPayloadSize = null
     )
     {
-        parent::__construct();
-        $this->setProperty('appId', trim($appId));
-        $this->setProperty('registrationId', trim($registrationId));
-        $this->setProperty('pushProvider', trim($pushProvider));
-        if(null !== $osName)
-        {
-            $this->setProperty('osName', trim($osName));
+        $this->setAppId($appId);
+        $this->setRegistrationId($registrationId);
+        $this->setPushProvider($pushProvider);
+        if (null !== $osName) {
+            $this->setOSName($osName);
         }
-        if(null !== $osVersion)
-        {
-            $this->setProperty('osVersion', trim($osVersion));
+        if (null !== $osVersion) {
+            $this->setOSVersion($osVersion);
         }
-        if(null !== $maxPayloadSize)
-        {
-            $this->setProperty('maxPayloadSize', (int) $maxPayloadSize);
+        if (null !== $maxPayloadSize) {
+            $this->setMaxPayloadSize($maxPayloadSize);
         }
     }
 
@@ -74,7 +123,7 @@ class ZmgDeviceSpec extends Base
      */
     public function getAppId()
     {
-        return $this->getProperty('appId');
+        return $this->_appId;
     }
 
     /**
@@ -85,7 +134,8 @@ class ZmgDeviceSpec extends Base
      */
     public function setAppId($appId)
     {
-        return $this->setProperty('appId', trim($appId));
+        $this->_appId = trim($appId);
+        return $this;
     }
 
     /**
@@ -95,7 +145,7 @@ class ZmgDeviceSpec extends Base
      */
     public function getRegistrationId()
     {
-        return $this->getProperty('registrationId');
+        return $this->_registrationId;
     }
 
     /**
@@ -106,7 +156,8 @@ class ZmgDeviceSpec extends Base
      */
     public function setRegistrationId($registrationId)
     {
-        return $this->setProperty('registrationId', trim($registrationId));
+        $this->_registrationId = trim($registrationId);
+        return $this;
     }
 
     /**
@@ -116,7 +167,7 @@ class ZmgDeviceSpec extends Base
      */
     public function getPushProvider()
     {
-        return $this->getProperty('pushProvider');
+        return $this->_pushProvider;
     }
 
     /**
@@ -127,7 +178,8 @@ class ZmgDeviceSpec extends Base
      */
     public function setPushProvider($pushProvider)
     {
-        return $this->setProperty('pushProvider', trim($pushProvider));
+        $this->_pushProvider = trim($pushProvider);
+        return $this;
     }
 
     /**
@@ -137,7 +189,7 @@ class ZmgDeviceSpec extends Base
      */
     public function getOsName()
     {
-        return $this->getProperty('osName');
+        return $this->_osName;
     }
 
     /**
@@ -148,7 +200,8 @@ class ZmgDeviceSpec extends Base
      */
     public function setOsName($osName)
     {
-        return $this->setProperty('osName', trim($osName));
+        $this->_osName = trim($osName);
+        return $this;
     }
 
     /**
@@ -158,7 +211,7 @@ class ZmgDeviceSpec extends Base
      */
     public function getOsVersion()
     {
-        return $this->getProperty('osVersion');
+        return $this->_osVersion;
     }
 
     /**
@@ -169,7 +222,8 @@ class ZmgDeviceSpec extends Base
      */
     public function setOsVersion($osVersion)
     {
-        return $this->setProperty('osVersion', trim($osVersion));
+        $this->_osVersion = trim($osVersion);
+        return $this;
     }
 
     /**
@@ -179,7 +233,7 @@ class ZmgDeviceSpec extends Base
      */
     public function getMaxPayloadSize()
     {
-        return $this->getProperty('maxPayloadSize');
+        return $this->_maxPayloadSize;
     }
 
     /**
@@ -190,26 +244,7 @@ class ZmgDeviceSpec extends Base
      */
     public function setMaxPayloadSize($maxPayloadSize)
     {
-        return $this->setProperty('maxPayloadSize', (int) $maxPayloadSize);
-    }
-
-    /**
-     * Returns the array representation of this class 
-     *
-     * @return array
-     */
-    public function toArray($name = 'zmgDevice')
-    {
-        return parent::toArray($name);
-    }
-
-    /**
-     * Method returning the xml representation of this class
-     *
-     * @return SimpleXML
-     */
-    public function toXml($name = 'zmgDevice')
-    {
-        return parent::toXml($name);
+        $this->_maxPayloadSize = (int) $maxPayloadSize;
+        return $this;
     }
 }

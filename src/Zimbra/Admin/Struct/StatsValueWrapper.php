@@ -10,8 +10,11 @@
 
 namespace Zimbra\Admin\Struct;
 
-use Zimbra\Common\TypedSequence;
-use Zimbra\Struct\Base;
+use JMS\Serializer\Annotation\Accessor;
+use JMS\Serializer\Annotation\Type;
+use JMS\Serializer\Annotation\XmlList;
+use JMS\Serializer\Annotation\XmlRoot;
+
 use Zimbra\Struct\NamedElement;
 
 /**
@@ -22,12 +25,15 @@ use Zimbra\Struct\NamedElement;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
+ * @XmlRoot(name="values")
  */
-class StatsValueWrapper extends Base
+class StatsValueWrapper
 {
     /**
      * Stats specification
-     * @var TypedSequence
+     * @Accessor(getter="getStats", setter="setStats")
+     * @Type("array<Zimbra\Struct\NamedElement>")
+     * @XmlList(inline = true, entry = "stat")
      */
     private $_stats = [];
 
@@ -38,16 +44,7 @@ class StatsValueWrapper extends Base
      */
     public function __construct(array $stats = array())
     {
-        parent::__construct();
         $this->setStats($stats);
-
-        $this->on('before', function(Base $sender)
-        {
-            if($sender->getStats()->count())
-            {
-                $sender->setChild('stat', $sender->getStats()->all());
-            }
-        });
     }
 
     /**
@@ -58,7 +55,7 @@ class StatsValueWrapper extends Base
      */
     public function addStat(NamedElement $stat)
     {
-        $this->_stats->add($stat);
+        $this->_stats[] = $stat;
         return $this;
     }
 
@@ -70,39 +67,22 @@ class StatsValueWrapper extends Base
      */
     public function setStats(array $stats)
     {
-        $this->_stats = new TypedSequence('Zimbra\Struct\NamedElement', $stats);
+        $this->_stats = [];
+        foreach ($stats as $stat) {
+            if ($stat instanceof NamedElement) {
+                $this->_stats[] = $stat;
+            }
+        }
         return $this;
     }
 
     /**
      * Gets stat sequence
      *
-     * @return Sequence
+     * @return array
      */
     public function getStats()
     {
         return $this->_stats;
-    }
-
-    /**
-     * Returns the array representation of this class 
-     *
-     * @param  string $name
-     * @return array
-     */
-    public function toArray($name = 'values')
-    {
-        return parent::toArray($name);
-    }
-
-    /**
-     * Method returning the xml representation of this class
-     *
-     * @param  string $name
-     * @return SimpleXML
-     */
-    public function toXml($name = 'values')
-    {
-        return parent::toXml($name);
     }
 }

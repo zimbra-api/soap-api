@@ -2,43 +2,41 @@
 
 namespace Zimbra\Admin\Tests\Struct;
 
-use Zimbra\Admin\Tests\ZimbraAdminTestCase;
 use Zimbra\Admin\Struct\EffectiveRightsTargetSelector;
 use Zimbra\Enum\TargetBy;
 use Zimbra\Enum\TargetType;
+use Zimbra\Struct\Tests\ZimbraStructTestCase;
 
 /**
  * Testcase class for EffectiveRightsTargetSelector.
  */
-class EffectiveRightsTargetSelectorTest extends ZimbraAdminTestCase
+class EffectiveRightsTargetSelectorTest extends ZimbraStructTestCase
 {
     public function testEffectiveRightsTargetSelector()
     {
         $value = $this->faker->word;
         $target = new EffectiveRightsTargetSelector(
-            TargetType::DOMAIN(), TargetBy::ID(), $value
+            TargetType::DOMAIN()->value(), TargetBy::ID()->value(), $value
         );
-        $this->assertTrue($target->getType()->is('domain'));
+        $this->assertSame(TargetType::DOMAIN()->value(), $target->getType());
+        $this->assertSame(TargetBy::ID()->value(), $target->getBy());
         $this->assertSame($value, $target->getValue());
-        $this->assertSame('id', $target->getBy()->value());
 
-        $target->setType(TargetType::ACCOUNT())
-               ->setBy(TargetBy::NAME());
-
-        $this->assertSame('account', $target->getType()->value());
-        $this->assertSame('name', $target->getBy()->value());
+        $target = new EffectiveRightsTargetSelector('', '');
+        $target->setType(TargetType::ACCOUNT()->value())
+               ->setBy(TargetBy::NAME()->value())
+               ->setValue($value);
+        $this->assertSame(TargetType::ACCOUNT()->value(), $target->getType());
+        $this->assertSame(TargetBy::NAME()->value(), $target->getBy());
+        $this->assertSame($value, $target->getValue());
 
         $xml = '<?xml version="1.0"?>' . "\n"
             . '<target type="' . TargetType::ACCOUNT() . '" by="' . TargetBy::NAME() . '">' . $value . '</target>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $target);
+        $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($target, 'xml'));
 
-        $array = [
-            'target' => [
-                'type' => TargetType::ACCOUNT()->value(),
-                '_content' => $value,
-                'by' => TargetBy::NAME()->value(),
-            ],
-        ];
-        $this->assertEquals($array, $target->toArray());
+        $target = $this->serializer->deserialize($xml, 'Zimbra\Admin\Struct\EffectiveRightsTargetSelector', 'xml');
+        $this->assertSame(TargetType::ACCOUNT()->value(), $target->getType());
+        $this->assertSame(TargetBy::NAME()->value(), $target->getBy());
+        $this->assertSame($value, $target->getValue());
     }
 }

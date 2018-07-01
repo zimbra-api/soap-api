@@ -2,13 +2,13 @@
 
 namespace Zimbra\Enum\Tests;
 
-use \PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 use Zimbra\Enum\ConvActionOp;
 
 /**
  * Testcase class for ConvActionOp.
  */
-class ConvActionOpTest extends PHPUnit_Framework_TestCase
+class ConvActionOpTest extends TestCase
 {
     public function testConvActionOp()
     {

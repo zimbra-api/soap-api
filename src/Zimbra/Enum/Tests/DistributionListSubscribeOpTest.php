@@ -2,13 +2,13 @@
 
 namespace Zimbra\Enum\Tests;
 
-use \PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 use Zimbra\Enum\DistributionListSubscribeOp;
 
 /**
  * Testcase class for DistributionListSubscribeOp.
  */
-class DistributionListSubscribeOpTest extends PHPUnit_Framework_TestCase
+class DistributionListSubscribeOpTest extends TestCase
 {
     public function testDistributionListSubscribeOp()
     {

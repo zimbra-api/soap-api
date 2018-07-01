@@ -10,8 +10,14 @@
 
 namespace Zimbra\Admin\Struct;
 
+use JMS\Serializer\Annotation\Accessor;
+use JMS\Serializer\Annotation\SerializedName;
+use JMS\Serializer\Annotation\Type;
+use JMS\Serializer\Annotation\XmlAttribute;
+use JMS\Serializer\Annotation\XmlRoot;
+use JMS\Serializer\Annotation\XmlValue;
+
 use Zimbra\Enum\ServerBy;
-use Zimbra\Struct\Base;
 
 /**
  * ServerSelector struct class
@@ -21,61 +27,82 @@ use Zimbra\Struct\Base;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
+ * @XmlRoot(name="server")
  */
-class ServerSelector extends Base
+class ServerSelector
 {
     /**
+     * @Accessor(getter="getBy", setter="setBy")
+     * @SerializedName("by")
+     * @Type("string")
+     * @XmlAttribute
+     */
+    private $_by;
+
+    /**
+     * @Accessor(getter="getValue", setter="setValue")
+     * @Type("string")
+     * @XmlValue(cdata=false)
+     */
+    private $_value;
+
+    /**
      * Constructor method for ServerSelector
-     * @param  ServerBy $by Selects the meaning of {server-key}
+     * @param  string $by Selects the meaning of {server-key}
      * @param  string $value Key for choosing server
      * @return self
      */
-    public function __construct(ServerBy $by, $value = null)
+    public function __construct($by, $value = null)
     {
-        parent::__construct(trim($value));
-        $this->setProperty('by', $by);
+        $this->setBy($by);
+        if (NULL !== $value) {
+            $this->setValue($value);
+        }
     }
 
     /**
      * Gets by enum
      *
-     * @return Zimbra\Enum\ServerBy
+     * @return string
      */
     public function getBy()
     {
-        return $this->getProperty('by');
+        return $this->_by;
     }
 
     /**
      * Sets by enum
      *
-     * @param  Zimbra\Enum\ServerBy $by
+     * @param  string $by
      * @return self
      */
-    public function setBy(ServerBy $by)
+    public function setBy($by)
     {
-        return $this->setProperty('by', $by);
+        if (ServerBy::has(trim($by))) {
+            $this->_by = trim($by);
+        }
+        return $this;
     }
 
     /**
-     * Returns the array representation of this class 
+     * Gets value
      *
-     * @param  string $name
-     * @return array
+     * @return string
      */
-    public function toArray($name = 'server')
+    public function getValue()
     {
-        return parent::toArray($name);
+        return $this->_value;
     }
 
     /**
-     * Method returning the xml representation of this class
+     * Sets value
      *
      * @param  string $name
-     * @return SimpleXML
+     * @return self
      */
-    public function toXml($name = 'server')
+    public function setValue($value)
     {
-        return parent::toXml($name);
+        $this->_value = trim($value);
+        return $this;
     }
 }

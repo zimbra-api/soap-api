@@ -15,18 +15,24 @@ class WaitSetAddSpecTest extends ZimbraStructTestCase
         $name = $this->faker->word;
         $id = $this->faker->word;
         $token = $this->faker->word;
+        $interests = [
+            $this->faker->word,
+            InterestType::FOLDERS()->value(),
+            InterestType::MESSAGES()->value(),
+            InterestType::CONTACTS()->value(),
+        ];
 
-        $waitSet = new WaitSetAddSpec($name, $id, $token, [InterestType::FOLDERS()]);
+        $waitSet = new WaitSetAddSpec($name, $id, $token, implode(',', $interests));
         $this->assertSame($name, $waitSet->getName());
         $this->assertSame($id, $waitSet->getId());
         $this->assertSame($token, $waitSet->getToken());
-        $this->assertSame('f', $waitSet->getInterests());
+        $this->assertSame('f,m,c', $waitSet->getInterests());
 
+        $waitSet = new WaitSetAddSpec();
         $waitSet->setName($name)
                 ->setId($id)
                 ->setToken($token)
-                ->addInterest(InterestType::MESSAGES())
-                ->addInterest(InterestType::CONTACTS());
+                ->setInterests(implode(',', $interests));
         $this->assertSame($name, $waitSet->getName());
         $this->assertSame($id, $waitSet->getId());
         $this->assertSame($token, $waitSet->getToken());
@@ -34,16 +40,12 @@ class WaitSetAddSpecTest extends ZimbraStructTestCase
 
         $xml = '<?xml version="1.0"?>'."\n"
             .'<a name="' . $name . '" id="' . $id . '" token="' . $token . '" types="f,m,c" />';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $waitSet);
+        $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($waitSet, 'xml'));
 
-        $array = [
-            'a' => [
-                'name' => $name,
-                'id' => $id,
-                'token' => $token,
-                'types' => 'f,m,c',
-            ],
-        ];
-        $this->assertEquals($array, $waitSet->toArray());
+        $waitSet = $this->serializer->deserialize($xml, 'Zimbra\Struct\WaitSetAddSpec', 'xml');
+        $this->assertSame($name, $waitSet->getName());
+        $this->assertSame($id, $waitSet->getId());
+        $this->assertSame($token, $waitSet->getToken());
+        $this->assertSame('f,m,c', $waitSet->getInterests());
     }
 }

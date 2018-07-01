@@ -2,13 +2,13 @@
 
 namespace Zimbra\Enum\Tests;
 
-use \PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 use Zimbra\Enum\DistributionListActionOp;
 
 /**
  * Testcase class for DistributionListActionOp.
  */
-class DistributionListActionOpTest extends PHPUnit_Framework_TestCase
+class DistributionListActionOpTest extends TestCase
 {
     public function testDistributionListActionOp()
     {

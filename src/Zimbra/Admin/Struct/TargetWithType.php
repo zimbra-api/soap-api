@@ -10,7 +10,12 @@
 
 namespace Zimbra\Admin\Struct;
 
-use Zimbra\Struct\Base;
+use JMS\Serializer\Annotation\Accessor;
+use JMS\Serializer\Annotation\SerializedName;
+use JMS\Serializer\Annotation\Type;
+use JMS\Serializer\Annotation\XmlAttribute;
+use JMS\Serializer\Annotation\XmlRoot;
+use JMS\Serializer\Annotation\XmlValue;
 
 /**
  * TargetWithType struct class
@@ -20,19 +25,37 @@ use Zimbra\Struct\Base;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
+ * @XmlRoot(name="target")
  */
-class TargetWithType extends Base
+class TargetWithType
 {
+    /**
+     * @Accessor(getter="getType", setter="setType")
+     * @SerializedName("type")
+     * @Type("string")
+     * @XmlAttribute
+     */
+    private $_type;
+
+    /**
+     * @Accessor(getter="getValue", setter="setValue")
+     * @Type("string")
+     * @XmlValue(cdata=false)
+     */
+    private $_value;
+
     /**
      * Constructor method for TargetWithType
      * @param  string $type Target type
      * @param  string $value Value matching
      * @return self
      */
-    public function __construct($type, $value = null)
+    public function __construct($type, $value = NULL)
     {
-        parent::__construct(trim($value));
-        $this->setProperty('type', trim($type));
+        $this->setType($type);
+        if (NULL !== $value) {
+            $this->setValue($value);
+        }
     }
 
     /**
@@ -42,7 +65,7 @@ class TargetWithType extends Base
      */
     public function getType()
     {
-        return $this->getProperty('type');
+        return $this->_type;
     }
 
     /**
@@ -53,28 +76,29 @@ class TargetWithType extends Base
      */
     public function setType($type)
     {
-        return $this->setProperty('type', trim($type));
+        $this->_type = trim($type);
+        return $this;
     }
 
     /**
-     * Returns the array representation of this class 
+     * Gets value
      *
-     * @param  string $name
-     * @return array
+     * @return string
      */
-    public function toArray($name = 'target')
+    public function getValue()
     {
-        return parent::toArray($name);
+        return $this->_value;
     }
 
     /**
-     * Method returning the xml representation of this class
+     * Sets value
      *
      * @param  string $name
-     * @return SimpleXML
+     * @return self
      */
-    public function toXml($name = 'target')
+    public function setValue($value)
     {
-        return parent::toXml($name);
+        $this->_value = trim($value);
+        return $this;
     }
 }

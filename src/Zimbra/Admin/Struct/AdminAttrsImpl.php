@@ -11,7 +11,6 @@
 namespace Zimbra\Admin\Struct;
 
 use Zimbra\Struct\AttrsImplTrait;
-use Zimbra\Struct\Base;
 
 /**
  * AdminAttrsImpl struct class
@@ -22,11 +21,9 @@ use Zimbra\Struct\Base;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
  */
-abstract class AdminAttrsImpl extends Base
+abstract class AdminAttrsImpl
 {
-    use AttrsImplTrait {
-        AttrsImplTrait::__construct as private __attrsConstruct;
-    }
+    use AttrsImplTrait;
 
     /**
      * Constructor method for AdminAttrsImpl
@@ -35,28 +32,6 @@ abstract class AdminAttrsImpl extends Base
      */
     public function __construct(array $attrs = [])
     {
-        $this->__attrsConstruct($attrs);
-    }
-
-    /**
-     * Returns the array representation of this class 
-     *
-     * @param  string $name
-     * @return array
-     */
-    public function toArray($name = 'attrs')
-    {
-        return parent::toArray($name);
-    }
-
-    /**
-     * Method returning the xml representative this class
-     *
-     * @param  string $name
-     * @return SimpleXML
-     */
-    public function toXml($name = 'attrs')
-    {
-        return parent::toXml($name);
+        $this->setAttrs($attrs);
     }
 }

@@ -10,7 +10,12 @@
 
 namespace Zimbra\Admin\Struct;
 
-use Zimbra\Struct\Base;
+use JMS\Serializer\Annotation\Accessor;
+use JMS\Serializer\Annotation\SerializedName;
+use JMS\Serializer\Annotation\Type;
+use JMS\Serializer\Annotation\XmlAttribute;
+use JMS\Serializer\Annotation\XmlRoot;
+use JMS\Serializer\Annotation\XmlValue;
 
 /**
  * Stat struct class
@@ -20,9 +25,33 @@ use Zimbra\Struct\Base;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
+ * @XmlRoot(name="stat")
  */
-class Stat extends Base
+class Stat
 {
+    /**
+     * @Accessor(getter="getName", setter="setName")
+     * @SerializedName("name")
+     * @Type("string")
+     * @XmlAttribute
+     */
+    private $_name;
+
+    /**
+     * @Accessor(getter="getDescription", setter="setDescription")
+     * @SerializedName("description")
+     * @Type("string")
+     * @XmlAttribute
+     */
+    private $_description;
+
+    /**
+     * @Accessor(getter="getValue", setter="setValue")
+     * @Type("string")
+     * @XmlValue(cdata=false)
+     */
+    private $_value;
+
     /**
      * Constructor method for Stat
      * @param  string $value Stat value
@@ -32,14 +61,14 @@ class Stat extends Base
      */
     public function __construct($value = null, $name = null, $description = null)
     {
-        parent::__construct($value);
-        if(null !== $name)
-        {
-            $this->setProperty('name', trim($name));
+        if (NULL !== $value) {
+            $this->setValue($value);
         }
-        if(null !== $description)
-        {
-            $this->setProperty('description', trim($description));
+        if (NULL !== $name) {
+            $this->setName($name);
+        }
+        if (NULL !== $description) {
+            $this->setDescription($description);
         }
     }
 
@@ -50,7 +79,7 @@ class Stat extends Base
      */
     public function getName()
     {
-        return $this->getProperty('name');
+        return $this->_name;
     }
 
     /**
@@ -61,7 +90,8 @@ class Stat extends Base
      */
     public function setName($name)
     {
-        return $this->setProperty('name', trim($name));
+        $this->_name = trim($name);
+        return $this;
     }
 
     /**
@@ -71,7 +101,7 @@ class Stat extends Base
      */
     public function getDescription()
     {
-        return $this->getProperty('description');
+        return $this->_description;
     }
 
     /**
@@ -82,28 +112,29 @@ class Stat extends Base
      */
     public function setDescription($description)
     {
-        return $this->setProperty('description', trim($description));
+        $this->_description = trim($description);
+        return $this;
     }
 
     /**
-     * Returns the array representation of this class 
+     * Gets value
      *
-     * @param  string $name
-     * @return array
+     * @return string
      */
-    public function toArray($name = 'stat')
+    public function getValue()
     {
-        return parent::toArray($name);
+        return $this->_value;
     }
 
     /**
-     * Method returning the xml representation of this class
+     * Sets value
      *
      * @param  string $name
-     * @return SimpleXML
+     * @return self
      */
-    public function toXml($name = 'stat')
+    public function setValue($value)
     {
-        return parent::toXml($name);
+        $this->_value = trim($value);
+        return $this;
     }
 }

@@ -2,15 +2,15 @@
 
 namespace Zimbra\Admin\Tests\Struct;
 
-use Zimbra\Admin\Tests\ZimbraAdminTestCase;
 use Zimbra\Admin\Struct\ConstraintAttr;
 use Zimbra\Admin\Struct\ConstraintInfo;
 use Zimbra\Admin\Struct\ConstraintInfoValues;
+use Zimbra\Struct\Tests\ZimbraStructTestCase;
 
 /**
  * Testcase class for ConstraintAttr.
  */
-class ConstraintAttrTest extends ZimbraAdminTestCase
+class ConstraintAttrTest extends ZimbraStructTestCase
 {
     public function testConstraintAttr()
     {
@@ -25,8 +25,9 @@ class ConstraintAttrTest extends ZimbraAdminTestCase
         $this->assertSame($name, $attr->getName());
         $this->assertSame($constraint, $attr->getConstraint());
 
+        $attr = new ConstraintAttr(new ConstraintInfo(), '');
         $attr->setName($name)
-            ->setConstraint($constraint);
+             ->setConstraint($constraint);
 
         $this->assertSame($name, $attr->getName());
         $this->assertSame($constraint, $attr->getConstraint());
@@ -41,22 +42,14 @@ class ConstraintAttrTest extends ZimbraAdminTestCase
                     . '</values>'
                 . '</constraint>'
             . '</a>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $attr);
+        $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($attr, 'xml'));
 
-        $array = [
-            'a' => [
-                'name' => $name,
-                'constraint' => [
-                    'min' => $min,
-                    'max' => $max,
-                    'values' => [
-                        'v' => [
-                            $value,
-                        ],
-                    ],
-                ],
-            ],
-        ];
-        $this->assertEquals($array, $attr->toArray());
+        $attr = $this->serializer->deserialize($xml, 'Zimbra\Admin\Struct\ConstraintAttr', 'xml');
+        $constraint = $attr->getConstraint();
+        $values = $constraint->getValues();
+        $this->assertSame($name, $attr->getName());
+        $this->assertSame($min, $constraint->getMin());
+        $this->assertSame($max, $constraint->getMax());
+        $this->assertSame([$value], $values->getValues());
     }
 }

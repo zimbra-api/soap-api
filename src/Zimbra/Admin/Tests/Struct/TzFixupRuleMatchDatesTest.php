@@ -2,14 +2,14 @@
 
 namespace Zimbra\Admin\Tests\Struct;
 
-use Zimbra\Admin\Tests\ZimbraAdminTestCase;
 use Zimbra\Admin\Struct\TzFixupRuleMatchDates;
 use Zimbra\Admin\Struct\TzFixupRuleMatchDate;
+use Zimbra\Struct\Tests\ZimbraStructTestCase;
 
 /**
  * Testcase class for TzFixupRuleMatchDates.
  */
-class TzFixupRuleMatchDatesTest extends ZimbraAdminTestCase
+class TzFixupRuleMatchDatesTest extends ZimbraStructTestCase
 {
     public function testTzFixupRuleMatchDates()
     {
@@ -29,6 +29,12 @@ class TzFixupRuleMatchDatesTest extends ZimbraAdminTestCase
         $this->assertSame($stdoff, $dates->getStdOffset());
         $this->assertSame($dayoff, $dates->getDstOffset());
 
+        $dates = new TzFixupRuleMatchDates(
+            new TzFixupRuleMatchDate(0, 0),
+            new TzFixupRuleMatchDate(0, 0),
+            0,
+            0
+        );
         $dates->setStandard($standard)
               ->setDaylight($daylight)
               ->setStdOffset($stdoff)
@@ -43,22 +49,17 @@ class TzFixupRuleMatchDatesTest extends ZimbraAdminTestCase
                 . '<standard mon="' . $std_mon . '" mday="' . $std_mday . '" />'
                 . '<daylight mon="' . $day_mon . '" mday="' . $day_mday . '" />'
             . '</dates>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $dates);
+        $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($dates, 'xml'));
 
-        $array = [
-            'dates' => [
-                'stdoff' => $stdoff,
-                'dayoff' => $dayoff,
-                'standard' => [
-                    'mon' => $std_mon,
-                    'mday' => $std_mday,
-                ],
-                'daylight' => [
-                    'mon' => $day_mon,
-                    'mday' => $day_mday,
-                ],
-            ],
-        ];
-        $this->assertEquals($array, $dates->toArray());
+        $dates = $this->serializer->deserialize($xml, 'Zimbra\Admin\Struct\TzFixupRuleMatchDates', 'xml');
+        $standard = $dates->getStandard();
+        $daylight = $dates->getDaylight();
+
+        $this->assertSame($stdoff, $dates->getStdOffset());
+        $this->assertSame($dayoff, $dates->getDstOffset());
+        $this->assertSame($std_mon, $standard->getMonth());
+        $this->assertSame($std_mday, $standard->getMonthDay());
+        $this->assertSame($day_mon, $daylight->getMonth());
+        $this->assertSame($day_mday, $daylight->getMonthDay());
     }
 }

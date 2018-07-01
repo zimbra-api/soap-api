@@ -2,16 +2,16 @@
 
 namespace Zimbra\Admin\Tests\Struct;
 
-use Zimbra\Admin\Tests\ZimbraAdminTestCase;
 use Zimbra\Admin\Struct\QueueQueryField;
 use Zimbra\Admin\Struct\MailQueueQuery;
 use Zimbra\Admin\Struct\QueueQuery;
 use Zimbra\Admin\Struct\ValueAttrib;
+use Zimbra\Struct\Tests\ZimbraStructTestCase;
 
 /**
  * Testcase class for MailQueueQuery.
  */
-class MailQueueQueryTest extends ZimbraAdminTestCase
+class MailQueueQueryTest extends ZimbraStructTestCase
 {
     public function testMailQueueQuery()
     {
@@ -31,6 +31,7 @@ class MailQueueQueryTest extends ZimbraAdminTestCase
         $this->assertFalse($queue->getScan());
         $this->assertSame($wait, $queue->getWaitSeconds());
 
+        $queue = new MailQueueQuery(new QueueQuery(), '', false, 0);
         $queue->setQuery($query)
               ->setQueueName($name)
               ->setScan(true)
@@ -48,29 +49,19 @@ class MailQueueQueryTest extends ZimbraAdminTestCase
                     . '</field>'
                 . '</query>'
             . '</queue>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $queue);
+        $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($queue, 'xml'));
 
-        $array = [
-            'queue' => [
-                'name' => $name,
-                'scan' => true,
-                'wait' => $wait,
-                'query' => [
-                    'limit' => $limit,
-                    'offset' => $offset,
-                    'field' => [
-                        [
-                            'name' => $name,
-                            'match' => [
-                                [
-                                    'value' => $value,
-                                ],
-                            ],
-                        ],
-                    ],
-                ],
-            ],
-        ];
-        $this->assertEquals($array, $queue->toArray());
+        $queue = $this->serializer->deserialize($xml, 'Zimbra\Admin\Struct\MailQueueQuery', 'xml');
+        $query = $queue->getQuery();
+        $field = $query->getFields()[0];
+        $match = $field->getMatches()[0];
+
+        $this->assertSame($name, $queue->getQueueName());
+        $this->assertTrue($queue->getScan());
+        $this->assertSame($wait, $queue->getWaitSeconds());
+        $this->assertSame($limit, $query->getLimit());
+        $this->assertSame($offset, $query->getOffset());
+        $this->assertSame($name, $field->getName());
+        $this->assertSame($value, $match->getValue());
     }
 }

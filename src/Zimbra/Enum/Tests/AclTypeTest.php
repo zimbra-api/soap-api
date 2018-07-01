@@ -2,13 +2,13 @@
 
 namespace Zimbra\Enum\Tests;
 
-use \PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 use Zimbra\Enum\AclType;
 
 /**
  * Testcase class for AclType.
  */
-class AclTypeTest extends PHPUnit_Framework_TestCase
+class AclTypeTest extends TestCase
 {
     public function testAclType()
     {

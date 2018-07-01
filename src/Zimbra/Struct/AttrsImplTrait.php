@@ -10,7 +10,9 @@
 
 namespace Zimbra\Struct;
 
-use Zimbra\Common\TypedSequence;
+use JMS\Serializer\Annotation\Accessor;
+use JMS\Serializer\Annotation\Type;
+use JMS\Serializer\Annotation\XmlList;
 
 /**
  * AttrsImpl struct class
@@ -23,29 +25,11 @@ use Zimbra\Common\TypedSequence;
 trait AttrsImplTrait
 {
     /**
-     * Attributes
-     * @var TypedSequence<KeyValuePair>
+     * @Accessor(getter="getAttrs", setter="setAttrs")
+     * @Type("array<Zimbra\Struct\KeyValuePair>")
+     * @XmlList(inline = true, entry = "a")
      */
     private $_attrs;
-
-    /**
-     * Constructor method for AttrsImpl
-     * @param array $attrs
-     * @return self
-     */
-    public function __construct(array $attrs = [])
-    {
-        parent::__construct();
-        $this->setAttrs($attrs);
-
-        $this->on('before', function(Base $sender)
-        {
-            if($sender->getAttrs()->count())
-            {
-                $sender->setChild('a', $sender->getAttrs()->all());
-            }
-        });
-    }
 
     /**
      * Add an attr
@@ -55,26 +39,31 @@ trait AttrsImplTrait
      */
     public function addAttr(KeyValuePair $attr)
     {
-        $this->_attrs->add($attr);
+        $this->_attrs[] = $attr;
         return $this;
     }
 
     /**
      * Sets attribute sequence
      *
+     * @param array $attrs
      * @return self
      */
     public function setAttrs(array $attrs)
     {
-        $this->_attrs = new TypedSequence('Zimbra\Struct\KeyValuePair', $attrs);
+        $this->_attrs = [];
+        foreach ($attrs as $attr) {
+            if ($attr instanceof KeyValuePair) {
+                $this->_attrs[] = $attr;
+            }
+        }
         return $this;
     }
 
     /**
      * Gets attribute sequence
      *
-     * @param array $attrs
-     * @return Sequence
+     * @return array
      */
     public function getAttrs()
     {

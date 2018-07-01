@@ -10,8 +10,14 @@
 
 namespace Zimbra\Admin\Struct;
 
+use JMS\Serializer\Annotation\Accessor;
+use JMS\Serializer\Annotation\SerializedName;
+use JMS\Serializer\Annotation\Type;
+use JMS\Serializer\Annotation\XmlAttribute;
+use JMS\Serializer\Annotation\XmlRoot;
+use JMS\Serializer\Annotation\XmlValue;
+
 use Zimbra\Enum\DataSourceBy;
-use Zimbra\Struct\Base;
 
 /**
  * SyncGalAccountDataSourceSpec struct class
@@ -21,55 +27,112 @@ use Zimbra\Struct\Base;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
+ * @XmlRoot(name="datasource")
  */
-class SyncGalAccountDataSourceSpec extends Base
+class SyncGalAccountDataSourceSpec
 {
     /**
+     * @Accessor(getter="getBy", setter="setBy")
+     * @SerializedName("by")
+     * @Type("string")
+     * @XmlAttribute
+     */
+    private $_by;
+
+    /**
+     * @Accessor(getter="getFullSync", setter="setFullSync")
+     * @SerializedName("fullSync")
+     * @Type("bool")
+     * @XmlAttribute
+     */
+    private $_fullSync;
+
+    /**
+     * @Accessor(getter="getReset", setter="setReset")
+     * @SerializedName("reset")
+     * @Type("bool")
+     * @XmlAttribute
+     */
+    private $_reset;
+
+    /**
+     * @Accessor(getter="getValue", setter="setValue")
+     * @Type("string")
+     * @XmlValue(cdata=false)
+     */
+    private $_value;
+
+    /**
      * Constructor method for SyncGalAccountDataSourceSpec
-     * @param DataSourceBy $by The by
+     * @param string $by The by
      * @param string $value The value
      * @param bool $fullSync If fullSync is set to 0 (false) or unset the default behavior is trickle sync which will pull in any new contacts or modified contacts since last sync. If fullSync is set to 1 (true), then the server will go through all the contacts that appear in GAL, and resolve deleted contacts in addition to new or modified ones.
      * @param bool $reset Reset flag. If set, then all the contacts will be populated again, regardless of the status since last sync.
      * @return self
      */
     public function __construct(
-        DataSourceBy $by,
-        $value = null,
-        $fullSync = null,
-        $reset = null
+        $by,
+        $value = NULL,
+        $fullSync = NULL,
+        $reset = NULL
     )
     {
-        parent::__construct(trim($value));
-        $this->setProperty('by', $by);
-        if(null !== $fullSync)
-        {
-            $this->setProperty('fullSync', (bool) $fullSync);
+        $this->setBy($by);
+        if (NULL !== $value) {
+            $this->setValue($value);
         }
-        if(null !== $reset)
-        {
-            $this->setProperty('reset', (bool) $reset);
+        if (NULL !== $fullSync) {
+            $this->setFullSync($fullSync);
+        }
+        if (NULL !== $reset) {
+            $this->setReset($reset);
         }
     }
 
     /**
      * Gets by enum
      *
-     * @return Zimbra\Enum\DataSourceBy
+     * @return string
      */
     public function getBy()
     {
-        return $this->getProperty('by');
+        return $this->_by;
     }
 
     /**
      * Sets by enum
      *
-     * @param  Zimbra\Enum\DataSourceBy $by
+     * @param  string $by
      * @return self
      */
-    public function setBy(DataSourceBy $by)
+    public function setBy($by)
     {
-        return $this->setProperty('by', $by);
+        if (DataSourceBy::has(trim($by))) {
+            $this->_by = trim($by);
+        }
+        return $this;
+    }
+
+    /**
+     * Gets value
+     *
+     * @return string
+     */
+    public function getValue()
+    {
+        return $this->_value;
+    }
+
+    /**
+     * Sets value
+     *
+     * @param  string $name
+     * @return self
+     */
+    public function setValue($value)
+    {
+        $this->_value = trim($value);
+        return $this;
     }
 
     /**
@@ -79,7 +142,7 @@ class SyncGalAccountDataSourceSpec extends Base
      */
     public function getFullSync()
     {
-        return $this->getProperty('fullSync');
+        return $this->_fullSync;
     }
 
     /**
@@ -90,7 +153,8 @@ class SyncGalAccountDataSourceSpec extends Base
      */
     public function setFullSync($fullSync)
     {
-        return $this->setProperty('fullSync', (bool) $fullSync);
+        $this->_fullSync = (bool) $fullSync;
+        return $this;
     }
 
     /**
@@ -100,7 +164,7 @@ class SyncGalAccountDataSourceSpec extends Base
      */
     public function getReset()
     {
-        return $this->getProperty('reset');
+        return $this->_reset;
     }
 
     /**
@@ -111,28 +175,7 @@ class SyncGalAccountDataSourceSpec extends Base
      */
     public function setReset($reset)
     {
-        return $this->setProperty('reset', (bool) $reset);
-    }
-
-    /**
-     * Returns the array representation of this class 
-     *
-     * @param  string $name
-     * @return array
-     */
-    public function toArray($name = 'datasource')
-    {
-        return parent::toArray($name);
-    }
-
-    /**
-     * Method returning the xml representation of this class
-     *
-     * @param  string $name
-     * @return SimpleXML
-     */
-    public function toXml($name = 'datasource')
-    {
-        return parent::toXml($name);
+        $this->_reset = (bool) $reset;
+        return $this;
     }
 }

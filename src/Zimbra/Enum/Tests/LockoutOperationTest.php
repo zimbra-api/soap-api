@@ -2,13 +2,13 @@
 
 namespace Zimbra\Enum\Tests;
 
-use \PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 use Zimbra\Enum\LockoutOperation;
 
 /**
  * Testcase class for LockoutOperation.
  */
-class LockoutOperationTest extends PHPUnit_Framework_TestCase
+class LockoutOperationTest extends TestCase
 {
     public function testLockoutOperation()
     {

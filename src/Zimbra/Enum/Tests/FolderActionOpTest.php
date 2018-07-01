@@ -2,13 +2,13 @@
 
 namespace Zimbra\Enum\Tests;
 
-use \PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 use Zimbra\Enum\FolderActionOp;
 
 /**
  * Testcase class for FolderActionOp.
  */
-class FolderActionOpTest extends PHPUnit_Framework_TestCase
+class FolderActionOpTest extends TestCase
 {
     public function testFolderActionOp()
     {

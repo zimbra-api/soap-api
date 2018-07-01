@@ -10,6 +10,12 @@
 
 namespace Zimbra\Struct;
 
+use JMS\Serializer\Annotation\Accessor;
+use JMS\Serializer\Annotation\SerializedName;
+use JMS\Serializer\Annotation\Type;
+use JMS\Serializer\Annotation\XmlAttribute;
+use JMS\Serializer\Annotation\XmlRoot;
+
 /**
  * GranteeChooser struct class
  *
@@ -17,9 +23,34 @@ namespace Zimbra\Struct;
  * @category  Struct
  * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright Copyright © 2013 by Nguyen Van Nguyen.
+ * @XmlRoot(name="grantee")
  */
-class GranteeChooser extends Base
+class GranteeChooser
 {
+    /**
+     * @Accessor(getter="getType", setter="setType")
+     * @SerializedName("type")
+     * @Type("string")
+     * @XmlAttribute
+     */
+    private $_type;
+
+    /**
+     * @Accessor(getter="getId", setter="setId")
+     * @SerializedName("id")
+     * @Type("string")
+     * @XmlAttribute
+     */
+    private $_id;
+
+    /**
+     * @Accessor(getter="getName", setter="setName")
+     * @SerializedName("name")
+     * @Type("string")
+     * @XmlAttribute
+     */
+    private $_name;
+
     /**
      * Constructor method for GranteeChooser
      * @param string $type
@@ -27,20 +58,16 @@ class GranteeChooser extends Base
      * @param string $name
      * @return self
      */
-    public function __construct($type = null, $id = null, $name = null)
+    public function __construct($type = NULL, $id = NULL, $name = NULL)
     {
-        parent::__construct();
-        if(null !== $type)
-        {
-            $this->setProperty('type', trim($type));
+        if (NULL !== $type) {
+            $this->setType($type);
         }
-        if(null !== $id)
-        {
-            $this->setProperty('id', trim($id));
+        if (NULL !== $id) {
+            $this->setId($id);
         }
-        if(null !== $name)
-        {
-            $this->setProperty('name', trim($name));
+        if (NULL !== $name) {
+            $this->setName($name);
         }
     }
 
@@ -51,7 +78,7 @@ class GranteeChooser extends Base
      */
     public function getType()
     {
-        return $this->getProperty('type');
+        return $this->_type;
     }
 
     /**
@@ -62,7 +89,8 @@ class GranteeChooser extends Base
      */
     public function setType($type)
     {
-        return $this->setProperty('type', trim($type));
+        $this->_type = trim($type);
+        return $this;
     }
 
     /**
@@ -72,7 +100,7 @@ class GranteeChooser extends Base
      */
     public function getId()
     {
-        return $this->getProperty('id');
+        return $this->_id;
     }
 
     /**
@@ -83,7 +111,8 @@ class GranteeChooser extends Base
      */
     public function setId($id)
     {
-        return $this->setProperty('id', trim($id));
+        $this->_id = trim($id);
+        return $this;
     }
 
     /**
@@ -93,7 +122,7 @@ class GranteeChooser extends Base
      */
     public function getName()
     {
-        return $this->getProperty('name');
+        return $this->_name;
     }
 
     /**
@@ -104,28 +133,7 @@ class GranteeChooser extends Base
      */
     public function setName($name)
     {
-        return $this->setProperty('name', trim($name));
-    }
-
-    /**
-     * Returns the array representation of this class 
-     *
-     * @param  string $name
-     * @return array
-     */
-    public function toArray($name = 'grantee')
-    {
-        return parent::toArray($name);
-    }
-
-    /**
-     * Method returning the xml representative this class
-     *
-     * @param  string $name
-     * @return SimpleXML
-     */
-    public function toXml($name = 'grantee')
-    {
-        return parent::toXml($name);
+        $this->_name = trim($name);
+        return $this;
     }
 }

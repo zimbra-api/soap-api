@@ -2,13 +2,13 @@
 
 namespace Zimbra\Enum\Tests;
 
-use \PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 use Zimbra\Enum\DirectorySearchType;
 
 /**
  * Testcase class for DirectorySearchType.
  */
-class DirectorySearchTypeTest extends PHPUnit_Framework_TestCase
+class DirectorySearchTypeTest extends TestCase
 {
     public function testDirectorySearchType()
     {

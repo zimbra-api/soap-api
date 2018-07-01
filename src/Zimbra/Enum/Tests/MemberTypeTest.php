@@ -2,13 +2,13 @@
 
 namespace Zimbra\Enum\Tests;
 
-use \PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 use Zimbra\Enum\MemberType;
 
 /**
  * Testcase class for MemberType.
  */
-class MemberTypeTest extends PHPUnit_Framework_TestCase
+class MemberTypeTest extends TestCase
 {
     public function testMemberType()
     {

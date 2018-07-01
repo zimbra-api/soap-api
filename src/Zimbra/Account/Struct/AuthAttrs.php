@@ -10,8 +10,10 @@
 
 namespace Zimbra\Account\Struct;
 
-use Zimbra\Common\TypedSequence;
-use Zimbra\Struct\Base;
+use JMS\Serializer\Annotation\Accessor;
+use JMS\Serializer\Annotation\Type;
+use JMS\Serializer\Annotation\XmlList;
+use JMS\Serializer\Annotation\XmlRoot;
 
 /**
  * AuthAttrs struct class
@@ -21,12 +23,14 @@ use Zimbra\Struct\Base;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
+ * @XmlRoot(name="attrs")
  */
-class AuthAttrs extends Base
+class AuthAttrs
 {
     /**
-     * Attributes
-     * @var TypedSequence<Attr>
+     * @Accessor(getter="getAttrs", setter="setAttrs")
+     * @Type("array<Zimbra\Account\Struct\Attr>")
+     * @XmlList(inline = true, entry = "attr")
      */
     private $_attrs;
 
@@ -37,16 +41,7 @@ class AuthAttrs extends Base
      */
     public function __construct(array $attrs = [])
     {
-		parent::__construct();
         $this->setAttrs($attrs);
-
-        $this->on('before', function(Base $sender)
-        {
-            if($sender->getAttrs()->count())
-            {
-                $sender->setChild('attr', $sender->getAttrs()->all());
-            }
-        });
     }
 
     /**
@@ -57,7 +52,7 @@ class AuthAttrs extends Base
      */
     public function addAttr(Attr $attr)
     {
-        $this->_attrs->add($attr);
+        $this->_attrs[] = $attr;
         return $this;
     }
 
@@ -69,39 +64,22 @@ class AuthAttrs extends Base
      */
     public function setAttrs(array $attrs)
     {
-        $this->_attrs = new TypedSequence('Zimbra\Account\Struct\Attr', $attrs);
+        $this->_attrs = [];
+        foreach ($attrs as $attr) {
+            if ($attr instanceof Attr) {
+                $this->_attrs[] = $attr;
+            }
+        }
         return $this;
     }
 
     /**
      * Gets attr sequence
      *
-     * @return Sequence
+     * @return array
      */
     public function getAttrs()
     {
         return $this->_attrs;
-    }
-
-    /**
-     * Returns the array representation of this class 
-     *
-     * @param  string $name
-     * @return array
-     */
-    public function toArray($name = 'attrs')
-    {
-        return parent::toArray($name);
-    }
-
-    /**
-     * Method returning the xml representative this class
-     *
-     * @param  string $name
-     * @return SimpleXML
-     */
-    public function toXml($name = 'attrs')
-    {
-        return parent::toXml($name);
     }
 }

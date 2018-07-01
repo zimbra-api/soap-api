@@ -10,7 +10,12 @@
 
 namespace Zimbra\Admin\Struct;
 
-use Zimbra\Struct\Base;
+use JMS\Serializer\Annotation\Accessor;
+use JMS\Serializer\Annotation\SerializedName;
+use JMS\Serializer\Annotation\Type;
+use JMS\Serializer\Annotation\XmlAttribute;
+use JMS\Serializer\Annotation\XmlRoot;
+use JMS\Serializer\Annotation\XmlValue;
 
 /**
  * ExportAndDeleteItemSpec struct class
@@ -20,9 +25,26 @@ use Zimbra\Struct\Base;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
+ * @XmlRoot(name="item")
  */
-class ExportAndDeleteItemSpec extends Base
+class ExportAndDeleteItemSpec
 {
+    /**
+     * @Accessor(getter="getId", setter="setId")
+     * @SerializedName("id")
+     * @Type("integer")
+     * @XmlAttribute
+     */
+    private $_id;
+
+    /**
+     * @Accessor(getter="getVersion", setter="setVersion")
+     * @SerializedName("version")
+     * @Type("integer")
+     * @XmlAttribute
+     */
+    private $_version;
+
     /**
      * Constructor method for ExportAndDeleteItemSpec
      * @param  int $id ID
@@ -31,9 +53,8 @@ class ExportAndDeleteItemSpec extends Base
      */
     public function __construct($id, $version)
     {
-        parent::__construct();
-        $this->setProperty('id', (int) $id);
-        $this->setProperty('version', (int) $version);
+        $this->setId($id)
+             ->setVersion($version);
     }
 
     /**
@@ -43,7 +64,7 @@ class ExportAndDeleteItemSpec extends Base
      */
     public function getId()
     {
-        return $this->getProperty('id');
+        return $this->_id;
     }
 
     /**
@@ -54,7 +75,8 @@ class ExportAndDeleteItemSpec extends Base
      */
     public function setId($id)
     {
-        return $this->setProperty('id', (int) $id);
+        $this->_id = (int) $id;
+        return $this;
     }
 
     /**
@@ -64,7 +86,7 @@ class ExportAndDeleteItemSpec extends Base
      */
     public function getVersion()
     {
-        return $this->getProperty('version');
+        return $this->_version;
     }
 
     /**
@@ -75,28 +97,7 @@ class ExportAndDeleteItemSpec extends Base
      */
     public function setVersion($version)
     {
-        return $this->setProperty('version', (int) $version);
-    }
-
-    /**
-     * Returns the array representation of this class 
-     *
-     * @param  string $name
-     * @return array
-     */
-    public function toArray($name = 'item')
-    {
-        return parent::toArray($name);
-    }
-
-    /**
-     * Method returning the xml representation of this class
-     *
-     * @param  string $name
-     * @return SimpleXML
-     */
-    public function toXml($name = 'item')
-    {
-        return parent::toXml($name);
+        $this->_version = (int) $version;
+        return $this;
     }
 }

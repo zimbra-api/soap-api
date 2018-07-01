@@ -2,13 +2,13 @@
 
 namespace Zimbra\Enum\Tests;
 
-use \PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 use Zimbra\Enum\AutoProvPrincipalBy;
 
 /**
  * Testcase class for AutoProvPrincipalBy.
  */
-class AutoProvPrincipalByTest extends PHPUnit_Framework_TestCase
+class AutoProvPrincipalByTest extends TestCase
 {
     public function testAutoProvPrincipalBy()
     {

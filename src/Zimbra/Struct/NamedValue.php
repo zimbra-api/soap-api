@@ -10,6 +10,13 @@
 
 namespace Zimbra\Struct;
 
+use JMS\Serializer\Annotation\Accessor;
+use JMS\Serializer\Annotation\SerializedName;
+use JMS\Serializer\Annotation\Type;
+use JMS\Serializer\Annotation\XmlAttribute;
+use JMS\Serializer\Annotation\XmlRoot;
+use JMS\Serializer\Annotation\XmlValue;
+
 /**
  * NamedValue struct class
  *
@@ -17,19 +24,39 @@ namespace Zimbra\Struct;
  * @category  Struct
  * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright Copyright © 2013 by Nguyen Van Nguyen.
+ * @XmlRoot(name="named")
  */
-class NamedValue extends Base
+class NamedValue
 {
+    /**
+     * @Accessor(getter="getName", setter="setName")
+     * @SerializedName("name")
+     * @Type("string")
+     * @XmlAttribute
+     */
+    private $_name;
+
+    /**
+     * @Accessor(getter="getValue", setter="setValue")
+     * @Type("string")
+     * @XmlValue(cdata=false)
+     */
+    private $_value;
+
     /**
      * Constructor method for NamedValue
      * @param  string $name
      * @param  string $value
      * @return self
      */
-    public function __construct($name, $value = null)
+    public function __construct($name, $value = NULL)
     {
-        parent::__construct(trim($value));
-        $this->setProperty('name', trim($name));
+        if (NULL !== $name) {
+            $this->setName($name);
+        }
+        if (NULL !== $value) {
+            $this->setValue($value);
+        }
     }
 
     /**
@@ -39,7 +66,7 @@ class NamedValue extends Base
      */
     public function getName()
     {
-        return $this->getProperty('name');
+        return $this->_name;
     }
 
     /**
@@ -50,28 +77,29 @@ class NamedValue extends Base
      */
     public function setName($name)
     {
-        return $this->setProperty('name', trim($name));
+        $this->_name = trim($name);
+        return $this;
     }
 
     /**
-     * Returns the array representation of this class 
+     * Gets value
      *
-     * @param  string $name
-     * @return array
+     * @return string
      */
-    public function toArray($name = 'named')
+    public function getValue()
     {
-        return parent::toArray($name);
+        return $this->_value;
     }
 
     /**
-     * Method returning the xml representation of this class
+     * Sets value
      *
      * @param  string $name
-     * @return SimpleXML
+     * @return self
      */
-    public function toXml($name = 'named')
+    public function setValue($value)
     {
-        return parent::toXml($name);
+        $this->_value = trim($value);
+        return $this;
     }
 }

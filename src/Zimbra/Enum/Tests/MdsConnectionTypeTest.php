@@ -2,13 +2,13 @@
 
 namespace Zimbra\Enum\Tests;
 
-use \PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 use Zimbra\Enum\MdsConnectionType;
 
 /**
  * Testcase class for MdsConnectionType.
  */
-class MdsConnectionTypeTest extends PHPUnit_Framework_TestCase
+class MdsConnectionTypeTest extends TestCase
 {
     public function testMdsConnectionType()
     {

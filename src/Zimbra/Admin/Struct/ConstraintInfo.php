@@ -10,7 +10,12 @@
 
 namespace Zimbra\Admin\Struct;
 
-use Zimbra\Struct\Base;
+use JMS\Serializer\Annotation\Accessor;
+use JMS\Serializer\Annotation\SerializedName;
+use JMS\Serializer\Annotation\Type;
+use JMS\Serializer\Annotation\XmlAttribute;
+use JMS\Serializer\Annotation\XmlElement;
+use JMS\Serializer\Annotation\XmlRoot;
 
 /**
  * ConstraintInfo struct class
@@ -20,9 +25,36 @@ use Zimbra\Struct\Base;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
+ * @XmlRoot(name="constraint")
  */
-class ConstraintInfo extends Base
+class ConstraintInfo
 {
+
+    /**
+     * @Accessor(getter="getMin", setter="setMin")
+     * @SerializedName("min")
+     * @Type("string")
+     * @XmlElement(cdata=false)
+     */
+    private $_min;
+
+    /**
+     * @Accessor(getter="getMax", setter="setMax")
+     * @SerializedName("max")
+     * @Type("string")
+     * @XmlElement(cdata=false)
+     */
+    private $_max;
+
+
+    /**
+     * @Accessor(getter="getValues", setter="setValues")
+     * @SerializedName("values")
+     * @Type("Zimbra\Admin\Struct\ConstraintInfoValues")
+     * @XmlElement
+     */
+    private $_values;
+
     /**
      * Constructor method for ConstraintInfo
      * @param  string $min Minimum value
@@ -30,12 +62,17 @@ class ConstraintInfo extends Base
      * @param  ConstraintInfoValues $values Acceptable values
      * @return self
      */
-    public function __construct($min = null, $max = null, ConstraintInfoValues $values = null)
+    public function __construct($min = NULL, $max = NULL, ConstraintInfoValues $values = NULL)
     {
-        parent::__construct();
-        $this->setChild('min', trim($min));
-        $this->setChild('max', trim($max));
-        $this->setChild('values', $values);
+        if (NULL !== $min) {
+            $this->setMin($min);
+        }
+        if (NULL !== $max) {
+            $this->setMax($max);
+        }
+        if ($values instanceof ConstraintInfoValues) {
+            $this->setValues($values);
+        }
     }
 
     /**
@@ -45,7 +82,7 @@ class ConstraintInfo extends Base
      */
     public function getMin()
     {
-        return $this->getChild('min');
+        return $this->_min;
     }
 
     /**
@@ -56,7 +93,8 @@ class ConstraintInfo extends Base
      */
     public function setMin($min)
     {
-        return $this->setChild('min', trim($min));
+        $this->_min = trim($min);
+        return $this;
     }
 
     /**
@@ -66,7 +104,7 @@ class ConstraintInfo extends Base
      */
     public function getMax()
     {
-        return $this->getChild('max');
+        return $this->_max;
     }
 
     /**
@@ -77,7 +115,8 @@ class ConstraintInfo extends Base
      */
     public function setMax($max)
     {
-        return $this->setChild('max', trim($max));
+        $this->_max = trim($max);
+        return $this;
     }
 
     /**
@@ -87,7 +126,7 @@ class ConstraintInfo extends Base
      */
     public function getValues()
     {
-        return $this->getChild('values');
+        return $this->_values;
     }
 
     /**
@@ -98,28 +137,15 @@ class ConstraintInfo extends Base
      */
     public function setValues(ConstraintInfoValues $values)
     {
-        return $this->setChild('values', $values);
+        $this->_values = $values;
+        return $this;
     }
 
-    /**
-     * Returns the array representation of this class 
-     *
-     * @param  string $name
-     * @return array
-     */
-    public function toArray($name = 'constraint')
-    {
-        return parent::toArray($name);
-    }
-
-    /**
-     * Method returning the xml representation of this class
-     *
-     * @param  string $name
-     * @return SimpleXML
-     */
-    public function toXml($name = 'constraint')
-    {
-        return parent::toXml($name);
+    public function addValue($value) {
+        if (!($this->_values instanceof ConstraintInfoValues)) {
+            $this->_values = new ConstraintInfoValues();
+        }
+        $this->_values->addValue($value);
+        return $this;
     }
 }

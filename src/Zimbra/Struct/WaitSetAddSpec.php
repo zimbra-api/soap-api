@@ -10,7 +10,15 @@
 
 namespace Zimbra\Struct;
 
-use Zimbra\Common\TypedSequence;
+use JMS\Serializer\Annotation\Accessor;
+use JMS\Serializer\Annotation\Exclude;
+use JMS\Serializer\Annotation\SerializedName;
+use JMS\Serializer\Annotation\SkipWhenEmpty;
+use JMS\Serializer\Annotation\Type;
+use JMS\Serializer\Annotation\VirtualProperty;
+use JMS\Serializer\Annotation\XmlAttribute;
+use JMS\Serializer\Annotation\XmlRoot;
+
 use Zimbra\Enum\InterestType;
 
 /**
@@ -21,53 +29,72 @@ use Zimbra\Enum\InterestType;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
+ * @XmlRoot(name="a")
  */
-class WaitSetAddSpec extends Base
+class WaitSetAddSpec
 {
     /**
-     * Comma-separated list
-     * @var string
+     * @Accessor(getter="getName", setter="setName")
+     * @SerializedName("name")
+     * @Type("string")
+     * @XmlAttribute
+     */
+    private $_name;
+
+    /**
+     * @Accessor(getter="getId", setter="setId")
+     * @SerializedName("id")
+     * @Type("string")
+     * @XmlAttribute
+     */
+    private $_id;
+
+    /**
+     * @Accessor(getter="getToken", setter="setToken")
+     * @SerializedName("token")
+     * @Type("string")
+     * @XmlAttribute
+     */
+    private $_token;
+
+    /**
+     * @Accessor(getter="getInterests", setter="setInterests")
+     * @SerializedName("types")
+     * @Type("string")
+     * @XmlAttribute
      */
     private $_interests;
+
+    /**
+     * @Exclude
+     */
+    private $_folderInterests = [];
 
     /**
      * Constructor method for waitSetAddSpec
      * @param string $name The name
      * @param string $id The id
      * @param string $token Last known sync token
-     * @param array $interests Comma-separated list
+     * @param string $interests Comma-separated list
      * @return self
      */
     public function __construct(
-        $name = null,
-        $id = null,
-        $token = null,
-        array $interests  = []
+        $name = NULL,
+        $id = NULL,
+        $token = NULL,
+        $interests = NULL
     )
     {
-        parent::__construct();
-        if(null !== $name)
-        {
-            $this->setProperty('name', trim($name));
+        if (NULL !== $name) {
+            $this->setName($name);
         }
-        if(null !== $id)
-        {
-            $this->setProperty('id', trim($id));
+        if (NULL !== $id) {
+            $this->setId($id);
         }
-        if(null !== $token)
-        {
-            $this->setProperty('token', trim($token));
+        if (NULL !== $token) {
+            $this->setToken($token);
         }
         $this->setInterests($interests);
-
-        $this->on('before', function(Base $sender)
-        {
-            $interests = $sender->getInterests();
-            if(!empty($interests))
-            {
-                $sender->setProperty('types', $interests);
-            }
-        });
     }
 
     /**
@@ -77,7 +104,7 @@ class WaitSetAddSpec extends Base
      */
     public function getName()
     {
-        return $this->getProperty('name');
+        return $this->_name;
     }
 
     /**
@@ -88,7 +115,8 @@ class WaitSetAddSpec extends Base
      */
     public function setName($name)
     {
-        return $this->setProperty('name', trim($name));
+        $this->_name = trim($name);
+        return $this;
     }
 
     /**
@@ -98,7 +126,7 @@ class WaitSetAddSpec extends Base
      */
     public function getId()
     {
-        return $this->getProperty('id');
+        return $this->_id;
     }
 
     /**
@@ -109,7 +137,8 @@ class WaitSetAddSpec extends Base
      */
     public function setId($id)
     {
-        return $this->setProperty('id', trim($id));
+        $this->_id = trim($id);
+        return $this;
     }
 
     /**
@@ -119,7 +148,7 @@ class WaitSetAddSpec extends Base
      */
     public function getToken()
     {
-        return $this->getProperty('token');
+        return $this->_token;
     }
 
     /**
@@ -130,30 +159,35 @@ class WaitSetAddSpec extends Base
      */
     public function setToken($token)
     {
-        return $this->setProperty('token', trim($token));
-    }
-
-    /**
-     * Add a type
-     *
-     * @param  InterestType $type
-     * @return self
-     */
-    public function addInterest(InterestType $type)
-    {
-        $this->_interests->add($type);
+        $this->_token = trim($token);
         return $this;
     }
 
     /**
      * Sets interests
      *
-     * @param array $interests Comma-separated list
+     * @param string $interests Comma-separated list
      * @return self
      */
-    public function setInterests(array $interests)
+    public function setInterests($interests)
     {
-        $this->_interests = new TypedSequence('Zimbra\Enum\InterestType', $interests);
+        $types = [];
+        if (is_array($interests)) {
+            foreach ($interests as $type) {
+                if (InterestType::has($type)) {
+                    $types[] = $type;
+                }
+            }
+        }
+        else {
+            $values = explode(',', $interests);
+            foreach ($values as $type) {
+                if (InterestType::has($type)) {
+                    $types[] = $type;
+                }
+            }
+        }
+        $this->_interests = !empty($types) ? implode(',', $types) : NULL;
         return $this;
     }
 
@@ -164,28 +198,46 @@ class WaitSetAddSpec extends Base
      */
     public function getInterests()
     {
-        return count($this->_interests) ? implode(',', $this->_interests->all()) : '';
+        return $this->_interests;
+    }
+
+    public function addFolderInterest($folderId)
+    {
+        $folderId = (int) $folderId;
+        if (!in_array($folderId, $this->_folderInterests)) {
+            $this->_folderInterests = $folderId;
+        }
+        return $this;
+    }
+
+    public function setFolderInterests($folderInterests)
+    {
+        $this->_folderInterests = [];
+        if (is_array($folderInterests)) {
+            foreach ($folderInterests as $folderId) {
+                $this->addFolderInterest($folderId);
+            }
+        }
+        else {
+            $values = explode(',', $folderInterests);
+            foreach ($values as $folderId) {
+                $this->addFolderInterest($folderId);
+            }
+        }
+        return $this;
     }
 
     /**
-     * Returns the array representation of this class 
+     * @VirtualProperty
+     * @Type("string")
+     * @SerializedName("folderInterests")
+     * @SkipWhenEmpty
+     * @XmlAttribute
      *
-     * @param  string $name
-     * @return array
+     * @return string
      */
-    public function toArray($name = 'a')
+    public function getFolderInterests()
     {
-        return parent::toArray($name);
-    }
-
-    /**
-     * Method returning the xml representative this class
-     *
-     * @param  string $name
-     * @return SimpleXML
-     */
-    public function toXml($name = 'a')
-    {
-        return parent::toXml($name);
+        return !empty($this->_folderInterests) ? implode(',', $this->_folderInterests) : NULL;
     }
 }

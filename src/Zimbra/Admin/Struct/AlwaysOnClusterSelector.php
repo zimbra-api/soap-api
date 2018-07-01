@@ -10,8 +10,14 @@
 
 namespace Zimbra\Admin\Struct;
 
+use JMS\Serializer\Annotation\Accessor;
+use JMS\Serializer\Annotation\SerializedName;
+use JMS\Serializer\Annotation\Type;
+use JMS\Serializer\Annotation\XmlAttribute;
+use JMS\Serializer\Annotation\XmlRoot;
+use JMS\Serializer\Annotation\XmlValue;
+
 use Zimbra\Enum\AlwaysOnClusterBy;
-use Zimbra\Struct\Base;
 
 /**
  * AlwaysOnClusterSelector struct class
@@ -21,61 +27,82 @@ use Zimbra\Struct\Base;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
+ * @XmlRoot(name="alwaysOnCluster")
  */
-class AlwaysOnClusterSelector extends Base
+class AlwaysOnClusterSelector
 {
     /**
+     * @Accessor(getter="getBy", setter="setBy")
+     * @SerializedName("by")
+     * @Type("string")
+     * @XmlAttribute
+     */
+    private $_by;
+
+    /**
+     * @Accessor(getter="getValue", setter="setValue")
+     * @Type("string")
+     * @XmlValue(cdata=false)
+     */
+    private $_value;
+
+    /**
      * Constructor method for AlwaysOnClusterSelector
-     * @param  Zimbra\Enum\AlwaysOnClusterBy $by Selects the meaning of alwaysOnCluster-key
+     * @param  string $by Selects the meaning of alwaysOnCluster-key
      * @param  string $value Key for choosing alwaysOnCluster
      * @return self
      */
-    public function __construct(AlwaysOnClusterBy $by, $value = null)
+    public function __construct($by, $value = NULL)
     {
-        parent::__construct(trim($value));
-        $this->setProperty('by', $by);
+        $this->setBy($by);
+        if (NULL !== $value) {
+            $this->setValue($value);
+        }
     }
 
     /**
-     * Gets by enum
+     * Gets account by
      *
-     * @return Zimbra\Enum\AlwaysOnClusterBy
+     * @return string
      */
     public function getBy()
     {
-        return $this->getProperty('by');
+        return $this->_by;
     }
 
     /**
-     * Sets by enum
+     * Sets account by enum
      *
-     * @param  Zimbra\Enum\AlwaysOnClusterBy $by
+     * @param  string $by
      * @return self
      */
-    public function setBy(AlwaysOnClusterBy $by = null)
+    public function setBy($by)
     {
-        return $this->setProperty('by', $by);
+        if (AlwaysOnClusterBy::has(trim($by))) {
+            $this->_by = $by;
+        }
+        return $this;
     }
 
     /**
-     * Returns the array representation of this class 
+     * Gets value
      *
-     * @param  string $name
-     * @return array
+     * @return string
      */
-    public function toArray($name = 'alwaysOnCluster')
+    public function getValue()
     {
-        return parent::toArray($name);
+        return $this->_value;
     }
 
     /**
-     * Method returning the xml representation of this class
+     * Sets value
      *
      * @param  string $name
-     * @return SimpleXML
+     * @return self
      */
-    public function toXml($name = 'alwaysOnCluster')
+    public function setValue($value)
     {
-        return parent::toXml($name);
+        $this->_value = trim($value);
+        return $this;
     }
 }

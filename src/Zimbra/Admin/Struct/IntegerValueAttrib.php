@@ -10,7 +10,11 @@
 
 namespace Zimbra\Admin\Struct;
 
-use Zimbra\Struct\Base;
+use JMS\Serializer\Annotation\Accessor;
+use JMS\Serializer\Annotation\SerializedName;
+use JMS\Serializer\Annotation\Type;
+use JMS\Serializer\Annotation\XmlAttribute;
+use JMS\Serializer\Annotation\XmlRoot;
 
 /**
  * IntegerValueAttrib struct class
@@ -20,20 +24,27 @@ use Zimbra\Struct\Base;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
+ * @XmlRoot(name="a")
  */
-class IntegerValueAttrib extends Base
+class IntegerValueAttrib
 {
+    /**
+     * @Accessor(getter="getValue", setter="setValue")
+     * @SerializedName("value")
+     * @Type("integer")
+     * @XmlAttribute
+     */
+    private $_value;
+
     /**
      * Constructor method for IntegerValueAttrib
      * @param  int $value
      * @return self
      */
-    public function __construct($value = null)
+    public function __construct($value = NULL)
     {
-        parent::__construct();
-        if(null !== $value)
-        {
-            $this->setProperty('value', (int) $value);
+        if (NULL !== $value) {
+            $this->setValue($value);
         }
     }
 
@@ -44,7 +55,7 @@ class IntegerValueAttrib extends Base
      */
     public function getValue()
     {
-        return $this->getProperty('value');
+        return $this->_value;
     }
 
     /**
@@ -55,28 +66,7 @@ class IntegerValueAttrib extends Base
      */
     public function setValue($value)
     {
-        return $this->setProperty('value', (int) $value);
-    }
-
-    /**
-     * Returns the array representation of this class 
-     *
-     * @param  string $name
-     * @return array
-     */
-    public function toArray($name = 'a')
-    {
-        return parent::toArray($name);
-    }
-
-    /**
-     * Method returning the xml representation of this class
-     *
-     * @param  string $name
-     * @return SimpleXML
-     */
-    public function toXml($name = 'a')
-    {
-        return parent::toXml($name);
+        $this->_value = (int) $value;
+        return $this;
     }
 }

@@ -2,13 +2,13 @@
 
 namespace Zimbra\Account\Tests\Struct;
 
-use Zimbra\Account\Tests\ZimbraAccountTestCase;
 use Zimbra\Account\Struct\AuthToken;
+use Zimbra\Struct\Tests\ZimbraStructTestCase;
 
 /**
  * Testcase class for AuthToken.
  */
-class AuthTokenTest extends ZimbraAccountTestCase
+class AuthTokenTest extends ZimbraStructTestCase
 {
     public function testAuthToken()
     {
@@ -19,23 +19,21 @@ class AuthTokenTest extends ZimbraAccountTestCase
         $this->assertFalse($token->getVerifyAccount());
         $this->assertSame($lifetime, $token->getLifetime());
 
-        $token = new AuthToken($value, false, 0);
-        $token->setVerifyAccount(true)
+        $token = new AuthToken('');
+        $token->setValue($value)
+            ->setVerifyAccount(true)
             ->setLifetime($lifetime);
+        $this->assertSame($value, $token->getValue());
         $this->assertTrue($token->getVerifyAccount());
         $this->assertSame($lifetime, $token->getLifetime());
 
         $xml = '<?xml version="1.0"?>' . "\n"
             . '<authToken verifyAccount="true" lifetime="' . $lifetime . '">' . $value . '</authToken>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $token);
+        $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($token, 'xml'));
 
-        $array = [
-            'authToken' => [
-                'verifyAccount' => true,
-                'lifetime' => $lifetime,
-                '_content' => $value,
-            ],
-        ];
-        $this->assertEquals($array, $token->toArray());
+        $token = $this->serializer->deserialize($xml, 'Zimbra\Account\Struct\AuthToken', 'xml');
+        $this->assertSame($value, $token->getValue());
+        $this->assertTrue($token->getVerifyAccount());
+        $this->assertSame($lifetime, $token->getLifetime());
     }
 }

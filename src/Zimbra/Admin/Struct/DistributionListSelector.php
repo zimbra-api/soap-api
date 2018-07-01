@@ -10,70 +10,100 @@
 
 namespace Zimbra\Admin\Struct;
 
+use JMS\Serializer\Annotation\Accessor;
+use JMS\Serializer\Annotation\SerializedName;
+use JMS\Serializer\Annotation\Type;
+use JMS\Serializer\Annotation\XmlAttribute;
+use JMS\Serializer\Annotation\XmlValue;
+use JMS\Serializer\Annotation\XmlRoot;
+
 use Zimbra\Enum\DistributionListBy as DLBy;
 use Zimbra\Struct\Base;
 
 /**
  * DistributionListSelector struct class
- *
+ * 
  * @package    Zimbra
  * @subpackage Admin
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
+ * @XmlRoot(name="dl")
  */
-class DistributionListSelector extends Base
+class DistributionListSelector
 {
     /**
+     * @Accessor(getter="getBy", setter="setBy")
+     * @SerializedName("by")
+     * @Type("string")
+     * @XmlAttribute
+     */
+    private $_by;
+
+    /**
+     * @Accessor(getter="getValue", setter="setValue")
+     * @Type("string")
+     * @XmlValue(cdata=false)
+     */
+    private $_value;
+
+    /**
      * Constructor method for DistributionListSelector
-     * @param  Zimbra\Enum\DistributionListBy $by Select the meaning of {dl-selector-key}
-     * @param  string $value Identifies the distribution list to act upon
+     * @param  string $by
+     * @param  string $value
      * @return self
      */
-    public function __construct(DLBy $by, $value = null)
+    public function __construct($by, $value = NULL)
     {
-        parent::__construct(trim($value));
-        $this->setProperty('by', $by);
+        $this->setBy($by);
+        if (NULL !== $value) {
+            $this->setValue($value);
+        }
     }
 
     /**
-     * Gets by enum
+     * Gets by selector
      *
-     * @return Zimbra\Enum\DistributionListBy
+     * @return string
      */
     public function getBy()
     {
-        return $this->getProperty('by');
+        return $this->_by;
     }
 
     /**
-     * Sets by enum
+     * Sets by selector
      *
-     * @param  Zimbra\Enum\DistributionListBy $by
+     * @param  string $by
      * @return self
      */
-    public function setBy(DLBy $by)
+    public function setBy($by)
     {
-        return $this->setProperty('by', $by);
+        if (DLBy::has(trim($by))) {
+            $this->_by = $by;
+        }
+        return $this;
     }
 
     /**
-     * Returns the array representation of this class 
+     * Gets value
      *
-     * @return array
+     * @return string
      */
-    public function toArray($name = 'dl')
+    public function getValue()
     {
-        return parent::toArray($name);
+        return $this->_value;
     }
 
     /**
-     * Method returning the xml representation of this class
+     * Sets value
      *
-     * @return SimpleXML
+     * @param  string $name
+     * @return self
      */
-    public function toXml($name = 'dl')
+    public function setValue($value)
     {
-        return parent::toXml($name);
+        $this->_value = trim($value);
+        return $this;
     }
 }

@@ -10,6 +10,12 @@
 
 namespace Zimbra\Struct;
 
+use JMS\Serializer\Annotation\Accessor;
+use JMS\Serializer\Annotation\SerializedName;
+use JMS\Serializer\Annotation\Type;
+use JMS\Serializer\Annotation\XmlAttribute;
+use JMS\Serializer\Annotation\XmlRoot;
+
 /**
  * CursorInfo struct class
  *
@@ -17,9 +23,42 @@ namespace Zimbra\Struct;
  * @category  Struct
  * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright Copyright © 2013 by Nguyen Van Nguyen.
+ * @XmlRoot(name="cursor")
  */
-class CursorInfo extends Base
+class CursorInfo
 {
+    /**
+     * @Accessor(getter="getId", setter="setId")
+     * @SerializedName("id")
+     * @Type("string")
+     * @XmlAttribute
+     */
+    private $_id;
+
+    /**
+     * @Accessor(getter="getSortVal", setter="setSortVal")
+     * @SerializedName("sortVal")
+     * @Type("string")
+     * @XmlAttribute
+     */
+    private $_sortVal;
+
+    /**
+     * @Accessor(getter="getEndSortVal", setter="setEndSortVal")
+     * @SerializedName("endSortVal")
+     * @Type("string")
+     * @XmlAttribute
+     */
+    private $_endSortVal;
+
+    /**
+     * @Accessor(getter="getIncludeOffset", setter="setIncludeOffset")
+     * @SerializedName("includeOffset")
+     * @Type("boolean")
+     * @XmlAttribute
+     */
+    private $_includeOffset;
+
     /**
      * Constructor method for CursorInfo
      * @param string $id
@@ -29,28 +68,23 @@ class CursorInfo extends Base
      * @return self
      */
     public function __construct(
-        $id = null,
-        $sortVal = null,
-        $endSortVal = null,
-        $includeOffset = null
+        $id = NULL,
+        $sortVal = NULL,
+        $endSortVal = NULL,
+        $includeOffset = NULL
     )
     {
-        parent::__construct();
-        if(null !== $id)
-        {
-            $this->setProperty('id', trim($id));
+        if (NULL !== $id) {
+            $this->setId($id);
         }
-        if(null !== $sortVal)
-        {
-            $this->setProperty('sortVal', trim($sortVal));
+        if (NULL !== $sortVal) {
+            $this->setSortVal($sortVal);
         }
-        if(null !== $endSortVal)
-        {
-            $this->setProperty('endSortVal', trim($endSortVal));
+        if (NULL !== $endSortVal) {
+            $this->setEndSortVal($endSortVal);
         }
-        if(null !== $includeOffset)
-        {
-            $this->setProperty('includeOffset', (bool) $includeOffset);
+        if (NULL !== $includeOffset) {
+            $this->setIncludeOffset($includeOffset);
         }
     }
 
@@ -61,7 +95,7 @@ class CursorInfo extends Base
      */
     public function getId()
     {
-        return $this->getProperty('id');
+        return $this->_id;
     }
 
     /**
@@ -72,7 +106,8 @@ class CursorInfo extends Base
      */
     public function setId($id)
     {
-        return $this->setProperty('id', trim($id));
+        $this->_id = trim($id);
+        return $this;
     }
 
     /**
@@ -82,7 +117,7 @@ class CursorInfo extends Base
      */
     public function getSortVal()
     {
-        return $this->getProperty('sortVal');
+        return $this->_sortVal;
     }
 
     /**
@@ -93,7 +128,8 @@ class CursorInfo extends Base
      */
     public function setSortVal($sortVal)
     {
-        return $this->setProperty('sortVal', trim($sortVal));
+        $this->_sortVal = trim($sortVal);
+        return $this;
     }
 
     /**
@@ -103,7 +139,7 @@ class CursorInfo extends Base
      */
     public function getEndSortVal()
     {
-        return $this->getProperty('endSortVal');
+        return $this->_endSortVal;
     }
 
     /**
@@ -114,7 +150,8 @@ class CursorInfo extends Base
      */
     public function setEndSortVal($endSortVal)
     {
-        return $this->setProperty('endSortVal', trim($endSortVal));
+        $this->_endSortVal = trim($endSortVal);
+        return $this;
     }
 
     /**
@@ -125,7 +162,7 @@ class CursorInfo extends Base
      */
     public function getIncludeOffset()
     {
-        return $this->getProperty('includeOffset');
+        return $this->_includeOffset;
     }
 
     /**
@@ -136,28 +173,7 @@ class CursorInfo extends Base
      */
     public function setIncludeOffset($includeOffset)
     {
-        return $this->setProperty('includeOffset', (bool) $includeOffset);
-    }
-
-    /**
-     * Returns the array representation of this class 
-     *
-     * @param  string $name
-     * @return array
-     */
-    public function toArray($name = 'cursor')
-    {
-        return parent::toArray($name);
-    }
-
-    /**
-     * Method returning the xml representative this class
-     *
-     * @param  string $name
-     * @return SimpleXML
-     */
-    public function toXml($name = 'cursor')
-    {
-        return parent::toXml($name);
+        $this->_includeOffset = (bool) $includeOffset;
+        return $this;
     }
 }

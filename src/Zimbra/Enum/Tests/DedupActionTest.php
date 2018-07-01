@@ -2,13 +2,13 @@
 
 namespace Zimbra\Enum\Tests;
 
-use \PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 use Zimbra\Enum\DedupAction;
 
 /**
  * Testcase class for DedupAction.
  */
-class DedupActionTest extends PHPUnit_Framework_TestCase
+class DedupActionTest extends TestCase
 {
     public function testDedupAction()
     {

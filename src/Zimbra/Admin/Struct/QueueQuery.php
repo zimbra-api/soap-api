@@ -10,8 +10,12 @@
 
 namespace Zimbra\Admin\Struct;
 
-use Zimbra\Common\TypedSequence;
-use Zimbra\Struct\Base;
+use JMS\Serializer\Annotation\Accessor;
+use JMS\Serializer\Annotation\SerializedName;
+use JMS\Serializer\Annotation\Type;
+use JMS\Serializer\Annotation\XmlAttribute;
+use JMS\Serializer\Annotation\XmlList;
+use JMS\Serializer\Annotation\XmlRoot;
 
 /**
  * QueueQuery struct class
@@ -21,14 +25,33 @@ use Zimbra\Struct\Base;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
+ * @XmlRoot(name="query")
  */
-class QueueQuery extends Base
+class QueueQuery
 {
     /**
      * Queue query field
-     * @var TypedSequence
+     * @Accessor(getter="getFields", setter="setFields")
+     * @Type("array<Zimbra\Admin\Struct\QueueQueryField>")
+     * @XmlList(inline = true, entry = "field")
      */
     private $_fields;
+
+    /**
+     * @Accessor(getter="getLimit", setter="setLimit")
+     * @SerializedName("limit")
+     * @Type("integer")
+     * @XmlAttribute
+     */
+    private $_limit;
+
+    /**
+     * @Accessor(getter="getOffset", setter="setOffset")
+     * @SerializedName("offset")
+     * @Type("integer")
+     * @XmlAttribute
+     */
+    private $_offset;
 
     /**
      * Constructor method for QueueQuery
@@ -37,26 +60,15 @@ class QueueQuery extends Base
      * @param  int $offset Offset
      * @return self
      */
-    public function __construct(array $fields = [], $limit = null, $offset = null)
+    public function __construct(array $fields = [], $limit = NULL, $offset = NULL)
     {
-        parent::__construct();
         $this->setFields($fields);
-        if(null !== $limit)
-        {
-            $this->setProperty('limit', (int) $limit);
+        if (NULL !== $limit) {
+            $this->setLimit($limit);
         }
-        if(null !== $offset)
-        {
-            $this->setProperty('offset', (int) $offset);
+        if (NULL !== $offset) {
+            $this->setOffset($offset);
         }
-
-        $this->on('before', function(Base $sender)
-        {
-            if($sender->getFields()->count())
-            {
-                $sender->setChild('field', $sender->getFields()->all());
-            }
-        });
     }
 
     /**
@@ -67,7 +79,7 @@ class QueueQuery extends Base
      */
     public function addField(QueueQueryField $field)
     {
-        $this->_fields->add($field);
+        $this->_fields[] = $field;
         return $this;
     }
 
@@ -79,14 +91,19 @@ class QueueQuery extends Base
      */
     public function setFields(array $fields)
     {
-        $this->_fields = new TypedSequence('Zimbra\Admin\Struct\QueueQueryField', $fields);
+        $this->_fields = [];
+        foreach ($fields as $field) {
+            if ($field instanceof QueueQueryField) {
+                $this->_fields[] = $field;
+            }
+        }
         return $this;
     }
 
     /**
      * Gets field sequence
      *
-     * @return Sequence
+     * @return array
      */
     public function getFields()
     {
@@ -100,7 +117,7 @@ class QueueQuery extends Base
      */
     public function getLimit()
     {
-        return $this->getProperty('limit');
+        return $this->_limit;
     }
 
     /**
@@ -111,7 +128,8 @@ class QueueQuery extends Base
      */
     public function setLimit($limit)
     {
-        return $this->setProperty('limit', (int) $limit);
+        $this->_limit = (int) $limit;
+        return $this;
     }
 
     /**
@@ -121,7 +139,7 @@ class QueueQuery extends Base
      */
     public function getOffset()
     {
-        return $this->getProperty('offset');
+        return $this->_offset;
     }
 
     /**
@@ -132,28 +150,7 @@ class QueueQuery extends Base
      */
     public function setOffset($offset)
     {
-        return $this->setProperty('offset', (int) $offset);
-    }
-
-    /**
-     * Returns the array representation of this class 
-     *
-     * @param  string $name
-     * @return array
-     */
-    public function toArray($name = 'query')
-    {
-        return parent::toArray($name);
-    }
-
-    /**
-     * Method returning the xml representation of this class
-     *
-     * @param  string $name
-     * @return SimpleXML
-     */
-    public function toXml($name = 'query')
-    {
-        return parent::toXml($name);
+        $this->_offset = (int) $offset;
+        return $this;
     }
 }

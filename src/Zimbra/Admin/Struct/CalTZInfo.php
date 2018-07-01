@@ -10,7 +10,13 @@
 
 namespace Zimbra\Admin\Struct;
 
-use Zimbra\Struct\Base;
+use JMS\Serializer\Annotation\Accessor;
+use JMS\Serializer\Annotation\SerializedName;
+use JMS\Serializer\Annotation\Type;
+use JMS\Serializer\Annotation\XmlAttribute;
+use JMS\Serializer\Annotation\XmlElement;
+use JMS\Serializer\Annotation\XmlRoot;
+
 use Zimbra\Struct\TzOnsetInfo;
 
 /**
@@ -21,51 +27,102 @@ use Zimbra\Struct\TzOnsetInfo;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
+ * @XmlRoot(name="tz")
  */
-class CalTZInfo extends Base
+class CalTZInfo
 {
+    /**
+     * @Accessor(getter="getId", setter="setId")
+     * @SerializedName("id")
+     * @Type("string")
+     * @XmlAttribute
+     */
+    private $_id;
+
+    /**
+     * @Accessor(getter="getTzStdOffset", setter="setTzStdOffset")
+     * @SerializedName("stdoff")
+     * @Type("integer")
+     * @XmlAttribute
+     */
+    private $_tzStdOffset;
+
+    /**
+     * @Accessor(getter="getTzDayOffset", setter="setTzDayOffset")
+     * @SerializedName("dayoff")
+     * @Type("integer")
+     * @XmlAttribute
+     */
+    private $_tzDayOffset;
+
+    /**
+     * @Accessor(getter="getStandardTzOnset", setter="setStandardTzOnset")
+     * @SerializedName("standard")
+     * @Type("Zimbra\Struct\TzOnsetInfo")
+     * @XmlElement
+     */
+    private $_standardTzOnset;
+
+    /**
+     * @Accessor(getter="getDaylightTzOnset", setter="setDaylightTzOnset")
+     * @SerializedName("daylight")
+     * @Type("Zimbra\Struct\TzOnsetInfo")
+     * @XmlElement
+     */
+    private $_daylightTzOnset;
+
+    /**
+     * @Accessor(getter="getStandardTZName", setter="setStandardTZName")
+     * @SerializedName("stdname")
+     * @Type("string")
+     * @XmlAttribute
+     */
+    private $_standardTZName;
+
+    /**
+     * @Accessor(getter="getDaylightTZName", setter="setDaylightTZName")
+     * @SerializedName("dayname")
+     * @Type("string")
+     * @XmlAttribute
+     */
+    private $_daylightTZName;
+
     /**
      * Constructor method for CalTZInfo
      * @param string $id Timezone ID. If this is the only detail present then this should be an existing server-known timezone's ID Otherwise, it must be present, although it will be ignored by the server
      * @param int $stdoff Standard Time's offset in minutes from UTC; local = UTC + offset
      * @param int $dayoff Daylight Saving Time's offset in minutes from UTC; present only if DST is used
-     * @param string $stdname Standard Time component's timezone name
-     * @param string $dayname Daylight Saving Time component's timezone name
      * @param TzOnsetInfo $standard Time/rule for transitioning from daylight time to standard time. Either specify week/wkday combo, or mday.
      * @param TzOnsetInfo $daylight Time/rule for transitioning from standard time to daylight time
+     * @param string $stdname Standard Time component's timezone name
+     * @param string $dayname Daylight Saving Time component's timezone name
      * @return self
      */
     public function __construct(
         $id,
         $stdoff,
         $dayoff,
-        TzOnsetInfo $standard = null,
-        TzOnsetInfo $daylight = null,
-        $stdname = null,
-        $dayname = null
+        TzOnsetInfo $standard = NULL,
+        TzOnsetInfo $daylight = NULL,
+        $stdname = NULL,
+        $dayname = NULL
     )
     {
-        parent::__construct();
-        $this->setProperty('id', trim($id));
-        $this->setProperty('stdoff', (int) $stdoff);
-        $this->setProperty('dayoff', (int) $dayoff);
+        $this->setId($id)
+             ->setTzStdOffset($stdoff)
+             ->setTzDayOffset($dayoff);
 
-        if($standard instanceof TzOnsetInfo)
-        {
-            $this->setChild('standard', $standard);
+        if ($standard instanceof TzOnsetInfo) {
+            $this->setStandardTzOnset($standard);
         }
-        if($daylight instanceof TzOnsetInfo)
-        {
-            $this->setChild('daylight', $daylight);
+        if ($daylight instanceof TzOnsetInfo) {
+            $this->setDaylightTzOnset($daylight);
         }
-
-        if(null !== $stdname)
-        {
-            $this->setProperty('stdname', trim($stdname));
+        if (NULL !== $stdname) {
+            $this->setStandardTZName($stdname);
         }
-        if(null !== $dayname)
-        {
-            $this->setProperty('dayname', trim($dayname));
+        if (NULL !== $dayname) {
+            $this->setDaylightTZName($dayname);
         }
     }
 
@@ -76,7 +133,7 @@ class CalTZInfo extends Base
      */
     public function getId()
     {
-        return $this->getProperty('id');
+        return $this->_id;
     }
 
     /**
@@ -87,7 +144,8 @@ class CalTZInfo extends Base
      */
     public function setId($id)
     {
-        return $this->setProperty('id', trim($id));
+        $this->_id = trim($id);
+        return $this;
     }
 
     /**
@@ -97,7 +155,7 @@ class CalTZInfo extends Base
      */
     public function getTzStdOffset()
     {
-        return $this->getProperty('stdoff');
+        return $this->_tzStdOffset;
     }
 
     /**
@@ -108,7 +166,8 @@ class CalTZInfo extends Base
      */
     public function setTzStdOffset($stdoff)
     {
-        return $this->setProperty('stdoff', (int) $stdoff);
+        $this->_tzStdOffset = (int) $stdoff;
+        return $this;
     }
 
     /**
@@ -118,7 +177,7 @@ class CalTZInfo extends Base
      */
     public function getTzDayOffset()
     {
-        return $this->getProperty('dayoff');
+        return $this->_tzDayOffset;
     }
 
     /**
@@ -129,7 +188,8 @@ class CalTZInfo extends Base
      */
     public function setTzDayOffset($dayoff)
     {
-        return $this->setProperty('dayoff', (int) $dayoff);
+        $this->_tzDayOffset = (int) $dayoff;
+        return $this;
     }
 
     /**
@@ -139,7 +199,7 @@ class CalTZInfo extends Base
      */
     public function getStandardTZName()
     {
-        return $this->getProperty('stdname');
+        return $this->_standardTZName;
     }
 
     /**
@@ -150,7 +210,8 @@ class CalTZInfo extends Base
      */
     public function setStandardTZName($stdname)
     {
-        return $this->setProperty('stdname', trim($stdname));
+        $this->_standardTZName = trim($stdname);
+        return $this;
     }
 
     /**
@@ -160,7 +221,7 @@ class CalTZInfo extends Base
      */
     public function getDaylightTZName()
     {
-        return $this->getProperty('dayname');
+        return $this->_daylightTZName;
     }
 
     /**
@@ -171,7 +232,8 @@ class CalTZInfo extends Base
      */
     public function setDaylightTZName($dayname)
     {
-        return $this->setProperty('dayname', trim($dayname));
+        $this->_daylightTZName = trim($dayname);
+        return $this;
     }
 
     /**
@@ -181,7 +243,7 @@ class CalTZInfo extends Base
      */
     public function getStandardTzOnset()
     {
-        return $this->getChild('standard');
+        return $this->_standardTzOnset;
     }
 
     /**
@@ -192,7 +254,8 @@ class CalTZInfo extends Base
      */
     public function setStandardTzOnset(TzOnsetInfo $standard)
     {
-        return $this->setChild('standard', $standard);
+        $this->_standardTzOnset = $standard;
+        return $this;
     }
 
     /**
@@ -202,7 +265,7 @@ class CalTZInfo extends Base
      */
     public function getDaylightTzOnset()
     {
-        return $this->getChild('daylight');
+        return $this->_daylightTzOnset;
     }
 
     /**
@@ -213,28 +276,7 @@ class CalTZInfo extends Base
      */
     public function setDaylightTzOnset(TzOnsetInfo $daylight)
     {
-        return $this->setChild('daylight', $daylight);
-    }
-
-    /**
-     * Returns the array representation of this class 
-     *
-     * @param  string $name
-     * @return array
-     */
-    public function toArray($name = 'tz')
-    {
-        return parent::toArray($name);
-    }
-
-    /**
-     * Method returning the xml representation of this class
-     *
-     * @param  string $name
-     * @return SimpleXML
-     */
-    public function toXml($name = 'tz')
-    {
-        return parent::toXml($name);
+        $this->_daylightTzOnset = $daylight;
+        return $this;
     }
 }

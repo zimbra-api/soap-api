@@ -2,13 +2,13 @@
 
 namespace Zimbra\Admin\Tests\Struct;
 
-use Zimbra\Admin\Tests\ZimbraAdminTestCase;
 use Zimbra\Admin\Struct\CookieSpec;
+use Zimbra\Struct\Tests\ZimbraStructTestCase;
 
 /**
  * Testcase class for CookieSpec.
  */
-class CookieSpecTest extends ZimbraAdminTestCase
+class CookieSpecTest extends ZimbraStructTestCase
 {
     public function testCookieSpec()
     {
@@ -16,18 +16,15 @@ class CookieSpecTest extends ZimbraAdminTestCase
         $cookie = new CookieSpec($name);
         $this->assertSame($name, $cookie->getName());
 
+        $cookie = new CookieSpec('');
         $cookie->setName($name);
         $this->assertSame($name, $cookie->getName());
 
         $xml = '<?xml version="1.0"?>' . "\n"
             . '<cookie name="' . $name . '" />';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $cookie);
+        $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($cookie, 'xml'));
 
-        $array = [
-            'cookie' => [
-                'name' => $name,
-            ],
-        ];
-        $this->assertEquals($array, $cookie->toArray());
+        $cookie = $this->serializer->deserialize($xml, 'Zimbra\Admin\Struct\CookieSpec', 'xml');
+        $this->assertSame($name, $cookie->getName());
     }
 }

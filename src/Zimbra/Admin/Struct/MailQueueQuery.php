@@ -10,7 +10,12 @@
 
 namespace Zimbra\Admin\Struct;
 
-use Zimbra\Struct\Base;
+use JMS\Serializer\Annotation\Accessor;
+use JMS\Serializer\Annotation\SerializedName;
+use JMS\Serializer\Annotation\Type;
+use JMS\Serializer\Annotation\XmlAttribute;
+use JMS\Serializer\Annotation\XmlElement;
+use JMS\Serializer\Annotation\XmlRoot;
 
 /**
  * MailQueueQuery struct class
@@ -20,9 +25,42 @@ use Zimbra\Struct\Base;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
+ * @XmlRoot(name="queue")
  */
-class MailQueueQuery extends Base
+class MailQueueQuery
 {
+    /**
+     * @Accessor(getter="getQuery", setter="setQuery")
+     * @SerializedName("query")
+     * @Type("Zimbra\Admin\Struct\QueueQuery")
+     * @XmlElement
+     */
+    private $_query;
+
+    /**
+     * @Accessor(getter="getQueueName", setter="setQueueName")
+     * @SerializedName("name")
+     * @Type("string")
+     * @XmlAttribute
+     */
+    private $_queueName;
+
+    /**
+     * @Accessor(getter="getScan", setter="setScan")
+     * @SerializedName("scan")
+     * @Type("bool")
+     * @XmlAttribute
+     */
+    private $_scan;
+
+    /**
+     * @Accessor(getter="getWaitSeconds", setter="setWaitSeconds")
+     * @SerializedName("wait")
+     * @Type("integer")
+     * @XmlAttribute
+     */
+    private $_waitSeconds;
+
     /**
      * Constructor method for MailQueueQuery
      * @param  QueueQuery $query Query
@@ -31,18 +69,15 @@ class MailQueueQuery extends Base
      * @param  int $wait Maximum time to wait for the scan to complete in seconds (default 3)
      * @return self
      */
-    public function __construct(QueueQuery $query, $name, $scan = null, $wait = null)
+    public function __construct(QueueQuery $query, $name, $scan = NULL, $wait = NULL)
     {
-        parent::__construct();
-        $this->setChild('query', $query);
-        $this->setProperty('name', trim($name));
-        if(null !== $scan)
-        {
-            $this->setProperty('scan', (bool) $scan);
+        $this->setQuery($query);
+        $this->setQueueName($name);
+        if (NULL !== $scan) {
+            $this->setScan($scan);
         }
-        if(null !== $wait)
-        {
-            $this->setProperty('wait', (int) $wait);
+        if (NULL !== $wait) {
+            $this->setWaitSeconds($wait);
         }
     }
 
@@ -53,7 +88,7 @@ class MailQueueQuery extends Base
      */
     public function getQuery()
     {
-        return $this->getChild('query');
+        return $this->_query;
     }
 
     /**
@@ -64,7 +99,8 @@ class MailQueueQuery extends Base
      */
     public function setQuery(QueueQuery $query)
     {
-        return $this->setChild('query', $query);
+        $this->_query = $query;
+        return $this;
     }
 
     /**
@@ -74,7 +110,7 @@ class MailQueueQuery extends Base
      */
     public function getQueueName()
     {
-        return $this->getProperty('name');
+        return $this->_queueName;
     }
 
     /**
@@ -85,7 +121,8 @@ class MailQueueQuery extends Base
      */
     public function setQueueName($name)
     {
-        return $this->setProperty('name', trim($name));
+        $this->_queueName = trim($name);
+        return $this;
     }
 
     /**
@@ -95,7 +132,7 @@ class MailQueueQuery extends Base
      */
     public function getScan()
     {
-        return $this->getProperty('scan');
+        return $this->_scan;
     }
 
     /**
@@ -106,7 +143,8 @@ class MailQueueQuery extends Base
      */
     public function setScan($scan)
     {
-        return $this->setProperty('scan', (bool) $scan);
+        $this->_scan = (bool) $scan;
+        return $this;
     }
 
     /**
@@ -116,7 +154,7 @@ class MailQueueQuery extends Base
      */
     public function getWaitSeconds()
     {
-        return $this->getProperty('wait');
+        return $this->_waitSeconds;
     }
 
     /**
@@ -127,28 +165,7 @@ class MailQueueQuery extends Base
      */
     public function setWaitSeconds($wait)
     {
-        return $this->setProperty('wait', (int) $wait);
-    }
-
-    /**
-     * Returns the array representation of this class 
-     *
-     * @param  string $name
-     * @return array
-     */
-    public function toArray($name = 'queue')
-    {
-        return parent::toArray($name);
-    }
-
-    /**
-     * Method returning the xml representation of this class
-     *
-     * @param  string $name
-     * @return SimpleXML
-     */
-    public function toXml($name = 'queue')
-    {
-        return parent::toXml($name);
+        $this->_waitSeconds = (int) $wait;
+        return $this;
     }
 }

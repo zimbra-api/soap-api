@@ -10,7 +10,12 @@
 
 namespace Zimbra\Account\Struct;
 
-use Zimbra\Struct\Base;
+use JMS\Serializer\Annotation\Accessor;
+use JMS\Serializer\Annotation\SerializedName;
+use JMS\Serializer\Annotation\Type;
+use JMS\Serializer\Annotation\XmlAttribute;
+use JMS\Serializer\Annotation\XmlValue;
+use JMS\Serializer\Annotation\XmlRoot;
 
 /**
  * AuthToken struct class
@@ -20,9 +25,33 @@ use Zimbra\Struct\Base;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
+ * @XmlRoot(name="authToken")
  */
-class AuthToken extends Base
+class AuthToken
 {
+    /**
+     * @Accessor(getter="getValue", setter="setValue")
+     * @Type("string")
+     * @XmlValue(cdata=false)
+     */
+    private $_value;
+
+    /**
+     * @Accessor(getter="getVerifyAccount", setter="setVerifyAccount")
+     * @SerializedName("verifyAccount")
+     * @Type("bool")
+     * @XmlAttribute
+     */
+    private $_verifyAccount;
+
+    /**
+     * @Accessor(getter="getLifetime", setter="setLifetime")
+     * @SerializedName("lifetime")
+     * @Type("int")
+     * @XmlAttribute
+     */
+    private $_lifetime;
+
     /**
      * Constructor method for AuthToken
      * @param  string $value
@@ -30,20 +59,41 @@ class AuthToken extends Base
      * @param  bool   $verifyAccount
      *   If verifyAccount="1", account is required and the account in the auth token is compared to the named account.
      *   If verifyAccount="0" (default), only the auth token is verified and any account element specified is ignored.
-     * @param  int    $lifetime Life time of the auth token
+     * @param  int   $lifetime
+     *   Life time of the auth token
      * @return self
      */
     public function __construct($value, $verifyAccount = null, $lifetime = null)
     {
-        parent::__construct(trim($value));
-        if(null !== $verifyAccount)
-        {
-            $this->setProperty('verifyAccount', (bool) $verifyAccount);
+        $this->setValue($value);
+        if (null !== $verifyAccount) {
+            $this->setVerifyAccount($verifyAccount);
         }
-        if(null !== $lifetime)
-        {
-            $this->setProperty('lifetime', (int) $lifetime);
+        if (null !== $lifetime) {
+            $this->setLifetime($lifetime);
         }
+    }
+
+    /**
+     * Gets value
+     *
+     * @return string
+     */
+    public function getValue()
+    {
+        return $this->_value;
+    }
+
+    /**
+     * Sets value
+     *
+     * @param  string $value
+     * @return self
+     */
+    public function setValue($value)
+    {
+        $this->_value = trim($value);
+        return $this;
     }
 
     /**
@@ -53,7 +103,7 @@ class AuthToken extends Base
      */
     public function getVerifyAccount()
     {
-        return $this->getProperty('verifyAccount');
+        return $this->_verifyAccount;
     }
 
     /**
@@ -64,7 +114,8 @@ class AuthToken extends Base
      */
     public function setVerifyAccount($verifyAccount)
     {
-        return $this->setProperty('verifyAccount', (bool) $verifyAccount);
+        $this->_verifyAccount = (bool) $verifyAccount;
+        return $this;
     }
 
     /**
@@ -74,7 +125,7 @@ class AuthToken extends Base
      */
     public function getLifetime()
     {
-        return $this->getProperty('lifetime');
+        return $this->_lifetime;
     }
 
     /**
@@ -85,26 +136,7 @@ class AuthToken extends Base
      */
     public function setLifetime($lifetime)
     {
-        return $this->setProperty('lifetime', (int) $lifetime);
-    }
-
-    /**
-     * Returns the array representation of this class 
-     *
-     * @return array
-     */
-    public function toArray($name = 'authToken')
-    {
-        return parent::toArray($name);
-    }
-
-    /**
-     * Method returning the xml representation of this class
-     *
-     * @return SimpleXML
-     */
-    public function toXml($name = 'authToken')
-    {
-        return parent::toXml($name);
+        $this->_lifetime = (int) $lifetime;
+        return $this;
     }
 }

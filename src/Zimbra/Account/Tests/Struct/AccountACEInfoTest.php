@@ -2,15 +2,15 @@
 
 namespace Zimbra\Account\Tests\Struct;
 
-use Zimbra\Account\Tests\ZimbraAccountTestCase;
 use Zimbra\Enum\AceRightType;
 use Zimbra\Enum\GranteeType;
 use Zimbra\Account\Struct\AccountACEInfo;
+use Zimbra\Struct\Tests\ZimbraStructTestCase;
 
 /**
  * Testcase class for AccountACEInfo.
  */
-class AccountACEInfoTest extends ZimbraAccountTestCase
+class AccountACEInfoTest extends ZimbraStructTestCase
 {
     public function testAccountACEInfo()
     {
@@ -20,10 +20,10 @@ class AccountACEInfoTest extends ZimbraAccountTestCase
         $pw = $this->faker->sha256;
 
         $ace = new AccountACEInfo(
-            GranteeType::USR(), AceRightType::INVITE(), $zid, $d, $key, $pw, false, true
+            GranteeType::USR()->value(), AceRightType::INVITE()->value(), $zid, $d, $key, $pw, false, true
         );
-        $this->assertTrue($ace->getGranteeType()->is('usr'));
-        $this->assertTrue($ace->getRight()->is('invite'));
+        $this->assertSame(GranteeType::USR()->value(), $ace->getGranteeType());
+        $this->assertSame(AceRightType::INVITE()->value(), $ace->getRight());
         $this->assertSame($zid, $ace->getZimbraId());
         $this->assertSame($d, $ace->getDisplayName());
         $this->assertSame($key, $ace->getAccessKey());
@@ -31,8 +31,9 @@ class AccountACEInfoTest extends ZimbraAccountTestCase
         $this->assertFalse($ace->getDeny());
         $this->assertTrue($ace->getCheckGranteeType());
 
-        $ace->setGranteeType(GranteeType::USR())
-            ->setRight(AceRightType::INVITE())
+        $ace = new AccountACEInfo('', '');
+        $ace->setGranteeType(GranteeType::USR()->value())
+            ->setRight(AceRightType::INVITE()->value())
             ->setZimbraId($zid)
             ->setDisplayName($d)
             ->setAccessKey($key)
@@ -40,8 +41,8 @@ class AccountACEInfoTest extends ZimbraAccountTestCase
             ->setDeny(true)
             ->setCheckGranteeType(false);
 
-        $this->assertTrue($ace->getGranteeType()->is('usr'));
-        $this->assertTrue($ace->getRight()->is('invite'));
+        $this->assertSame(GranteeType::USR()->value(), $ace->getGranteeType());
+        $this->assertSame(AceRightType::INVITE()->value(), $ace->getRight());
         $this->assertSame($zid, $ace->getZimbraId());
         $this->assertSame($d, $ace->getDisplayName());
         $this->assertSame($key, $ace->getAccessKey());
@@ -51,20 +52,16 @@ class AccountACEInfoTest extends ZimbraAccountTestCase
 
         $xml = '<?xml version="1.0"?>' . "\n"
             . '<ace gt="' . GranteeType::USR() . '" right="' . AceRightType::INVITE() . '" zid="' . $zid . '" d="' . $d . '" key="' . $key . '" pw="' . $pw . '" deny="true" chkgt="false" />';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $ace);
+        $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($ace, 'xml'));
 
-        $array = [
-            'ace' => [
-                'gt' => GranteeType::USR()->value(),
-                'right' => AceRightType::INVITE()->value(),
-                'zid' => $zid,
-                'd' => $d,
-                'key' => $key,
-                'pw' => $pw,
-                'deny' => true,
-                'chkgt' => false,
-            ],
-        ];
-        $this->assertEquals($array, $ace->toArray());
+        $ace = $this->serializer->deserialize($xml, 'Zimbra\Account\Struct\AccountACEInfo', 'xml');
+        $this->assertSame(GranteeType::USR()->value(), $ace->getGranteeType());
+        $this->assertSame(AceRightType::INVITE()->value(), $ace->getRight());
+        $this->assertSame($zid, $ace->getZimbraId());
+        $this->assertSame($d, $ace->getDisplayName());
+        $this->assertSame($key, $ace->getAccessKey());
+        $this->assertSame($pw, $ace->getPassword());
+        $this->assertTrue($ace->getDeny());
+        $this->assertFalse($ace->getCheckGranteeType());
     }
 }

@@ -10,7 +10,12 @@
 
 namespace Zimbra\Admin\Struct;
 
-use Zimbra\Struct\Base;
+use JMS\Serializer\Annotation\Accessor;
+use JMS\Serializer\Annotation\SerializedName;
+use JMS\Serializer\Annotation\Type;
+use JMS\Serializer\Annotation\XmlAttribute;
+use JMS\Serializer\Annotation\XmlElement;
+use JMS\Serializer\Annotation\XmlRoot;
 
 /**
  * MailQueueWithAction struct class
@@ -20,9 +25,26 @@ use Zimbra\Struct\Base;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
+ * @XmlRoot(name="queue")
  */
-class MailQueueWithAction extends Base
+class MailQueueWithAction
 {
+    /**
+     * @Accessor(getter="getAction", setter="setAction")
+     * @SerializedName("action")
+     * @Type("Zimbra\Admin\Struct\MailQueueAction")
+     * @XmlElement
+     */
+    private $_action;
+
+    /**
+     * @Accessor(getter="getName", setter="setName")
+     * @SerializedName("name")
+     * @Type("string")
+     * @XmlAttribute
+     */
+    private $_name;
+
     /**
      * Constructor method for MailQueueWithAction
      * @param  MailQueueAction $action Action
@@ -31,9 +53,8 @@ class MailQueueWithAction extends Base
      */
     public function __construct(MailQueueAction $action, $name)
     {
-        parent::__construct();
-        $this->setChild('action', $action);
-        $this->setProperty('name', trim($name));
+        $this->setAction($action)
+             ->setName($name);
     }
 
     /**
@@ -43,7 +64,7 @@ class MailQueueWithAction extends Base
      */
     public function getAction()
     {
-        return $this->getChild('action');
+        return $this->_action;
     }
 
     /**
@@ -54,7 +75,8 @@ class MailQueueWithAction extends Base
      */
     public function setAction(MailQueueAction $action)
     {
-        return $this->setChild('action', $action);
+        $this->_action = $action;
+        return $this;
     }
 
     /**
@@ -64,7 +86,7 @@ class MailQueueWithAction extends Base
      */
     public function getName()
     {
-        return $this->getProperty('name');
+        return $this->_name;
     }
 
     /**
@@ -75,28 +97,7 @@ class MailQueueWithAction extends Base
      */
     public function setName($name)
     {
-        return $this->setProperty('name', trim($name));
-    }
-
-    /**
-     * Returns the array representation of this class 
-     *
-     * @param  string $name
-     * @return array
-     */
-    public function toArray($name = 'queue')
-    {
-        return parent::toArray($name);
-    }
-
-    /**
-     * Method returning the xml representation of this class
-     *
-     * @param  string $name
-     * @return SimpleXML
-     */
-    public function toXml($name = 'queue')
-    {
-        return parent::toXml($name);
+        $this->_name = trim($name);
+        return $this;
     }
 }

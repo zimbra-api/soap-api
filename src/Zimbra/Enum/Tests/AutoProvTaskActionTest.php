@@ -2,13 +2,13 @@
 
 namespace Zimbra\Enum\Tests;
 
-use \PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 use Zimbra\Enum\AutoProvTaskAction;
 
 /**
  * Testcase class for AutoProvTaskAction.
  */
-class AutoProvTaskActionTest extends PHPUnit_Framework_TestCase
+class AutoProvTaskActionTest extends TestCase
 {
     public function testAutoProvTaskAction()
     {

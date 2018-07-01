@@ -10,7 +10,12 @@
 
 namespace Zimbra\Struct;
 
-use Zimbra\Common\TypedSequence;
+use JMS\Serializer\Annotation\Accessor;
+use JMS\Serializer\Annotation\SerializedName;
+use JMS\Serializer\Annotation\Type;
+use JMS\Serializer\Annotation\XmlAttribute;
+use JMS\Serializer\Annotation\XmlList;
+use JMS\Serializer\Annotation\XmlRoot;
 
 /**
  * WaitSetSpec struct class
@@ -20,12 +25,14 @@ use Zimbra\Common\TypedSequence;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
+ * @XmlRoot(name="add")
  */
-class WaitSetSpec extends Base
+class WaitSetSpec
 {
     /**
-     * Attributes
-     * @var TypedSequence<WaitSetAddSpec>
+     * @Accessor(getter="getAccounts", setter="setAccounts")
+     * @Type("array<Zimbra\Struct\WaitSetAddSpec>")
+     * @XmlList(inline = true, entry = "a")
      */
     private $_accounts;
 
@@ -36,16 +43,7 @@ class WaitSetSpec extends Base
      */
     public function __construct(array $accounts = [])
     {
-        parent::__construct();
         $this->setAccounts($accounts);
-
-        $this->on('before', function(Base $sender)
-        {
-            if($sender->getAccounts()->count())
-            {
-                $sender->setChild('a', $sender->getAccounts()->all());
-            }
-        });
     }
 
     /**
@@ -56,7 +54,7 @@ class WaitSetSpec extends Base
      */
     public function addAccount(WaitSetAddSpec $account)
     {
-        $this->_accounts->add($account);
+        $this->_accounts[] = $account;
         return $this;
     }
 
@@ -68,39 +66,21 @@ class WaitSetSpec extends Base
      */
     public function setAccounts(array $accounts)
     {
-        $this->_accounts = new TypedSequence('Zimbra\Struct\WaitSetAddSpec', $accounts);
+        foreach ($accounts as $account) {
+            if ($account instanceof WaitSetAddSpec) {
+                $this->_accounts[] = $account;
+            }
+        }
         return $this;
     }
 
     /**
      * Gets WaitSet sequence
      *
-     * @return TypedSequence<WaitSetAddSpec>
+     * @return array<WaitSetAddSpec>
      */
     public function getAccounts()
     {
         return $this->_accounts;
-    }
-
-    /**
-     * Returns the array representation of this class 
-     *
-     * @param  string $name
-     * @return array
-     */
-    public function toArray($name = 'add')
-    {
-        return parent::toArray($name);
-    }
-
-    /**
-     * Method returning the xml representative this class
-     *
-     * @param  string $name
-     * @return SimpleXML
-     */
-    public function toXml($name = 'add')
-    {
-        return parent::toXml($name);
     }
 }

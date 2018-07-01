@@ -2,13 +2,13 @@
 
 namespace Zimbra\Enum\Tests;
 
-use \PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 use Zimbra\Enum\DomainBy;
 
 /**
  * Testcase class for DomainBy.
  */
-class DomainByTest extends PHPUnit_Framework_TestCase
+class DomainByTest extends TestCase
 {
     public function testDomainBy()
     {

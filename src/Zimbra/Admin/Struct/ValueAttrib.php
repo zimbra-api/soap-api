@@ -10,7 +10,11 @@
 
 namespace Zimbra\Admin\Struct;
 
-use Zimbra\Struct\Base;
+use JMS\Serializer\Annotation\Accessor;
+use JMS\Serializer\Annotation\SerializedName;
+use JMS\Serializer\Annotation\Type;
+use JMS\Serializer\Annotation\XmlAttribute;
+use JMS\Serializer\Annotation\XmlRoot;
 
 /**
  * ValueAttrib struct class
@@ -20,9 +24,18 @@ use Zimbra\Struct\Base;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
+ * @XmlRoot(name="a")
  */
-class ValueAttrib extends Base
+class ValueAttrib
 {
+    /**
+     * @Accessor(getter="getValue", setter="setValue")
+     * @SerializedName("value")
+     * @Type("string")
+     * @XmlAttribute
+     */
+    private $_value;
+
     /**
      * Constructor method for ValueAttrib
      * @param  string $value
@@ -30,50 +43,28 @@ class ValueAttrib extends Base
      */
     public function __construct($value)
     {
-        parent::__construct();
-        $this->setProperty('value', trim($value));
+        $this->setValue($value);
     }
 
     /**
-     * Gets the value
+     * Gets value
      *
      * @return string
      */
     public function getValue()
     {
-        return $this->getProperty('value');
+        return $this->_value;
     }
 
     /**
-     * Sets the value
+     * Sets value
      *
-     * @param  string $value
+     * @param  string $name
      * @return self
      */
     public function setValue($value)
     {
-        return $this->setProperty('value', trim($value));
-    }
-
-    /**
-     * Returns the array representation of this class 
-     *
-     * @param  string $name
-     * @return array
-     */
-    public function toArray($name = 'a')
-    {
-        return parent::toArray($name);
-    }
-
-    /**
-     * Method returning the xml representation of this class
-     *
-     * @param  string $name
-     * @return SimpleXML
-     */
-    public function toXml($name = 'a')
-    {
-        return parent::toXml($name);
+        $this->_value = trim($value);
+        return $this;
     }
 }

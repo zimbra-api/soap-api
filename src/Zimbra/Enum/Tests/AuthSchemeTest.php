@@ -2,13 +2,13 @@
 
 namespace Zimbra\Enum\Tests;
 
-use \PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 use Zimbra\Enum\AuthScheme;
 
 /**
  * Testcase class for AuthScheme.
  */
-class AuthSchemeTest extends PHPUnit_Framework_TestCase
+class AuthSchemeTest extends TestCase
 {
     public function testAuthScheme()
     {

@@ -10,7 +10,12 @@
 
 namespace Zimbra\Account\Struct;
 
-use Zimbra\Struct\Base;
+use JMS\Serializer\Annotation\Accessor;
+use JMS\Serializer\Annotation\SerializedName;
+use JMS\Serializer\Annotation\Type;
+use JMS\Serializer\Annotation\XmlAttribute;
+use JMS\Serializer\Annotation\XmlValue;
+use JMS\Serializer\Annotation\XmlRoot;
 
 /**
  * Attr struct class
@@ -20,9 +25,33 @@ use Zimbra\Struct\Base;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
+ * @XmlRoot(name="attr")
  */
-class Attr extends Base
+class Attr
 {
+    /**
+     * @Accessor(getter="getName", setter="setName")
+     * @SerializedName("name")
+     * @Type("string")
+     * @XmlAttribute
+     */
+    private $_name;
+
+    /**
+     * @Accessor(getter="getValue", setter="setValue")
+     * @Type("string")
+     * @XmlValue(cdata=false)
+     */
+    private $_value;
+
+    /**
+     * @Accessor(getter="getPermDenied", setter="setPermDenied")
+     * @SerializedName("pd")
+     * @Type("bool")
+     * @XmlAttribute
+     */
+    private $_permDenied;
+
     /**
      * Constructor method for Attr
      * @param  string $name
@@ -32,11 +61,12 @@ class Attr extends Base
      */
     public function __construct($name, $value = null, $pd = null)
     {
-        parent::__construct(trim($value));
-        $this->setProperty('name', trim($name));
-        if(null !== $pd)
-        {
-            $this->setProperty('pd', (bool) $pd);
+        $this->setName($name);
+        if (null !== $value) {
+            $this->setValue($value);
+        }
+        if (null !== $pd) {
+            $this->setPermDenied($pd);
         }
     }
 
@@ -48,7 +78,7 @@ class Attr extends Base
      */
     public function getName()
     {
-        return $this->getProperty('name');
+        return $this->_name;
     }
 
     /**
@@ -59,7 +89,30 @@ class Attr extends Base
      */
     public function setName($name)
     {
-        return $this->setProperty('name', trim($name));
+        $this->_name = trim($name);
+        return $this;
+    }
+
+    /**
+     * Gets value
+     *
+     * @return string
+     */
+    public function getValue()
+    {
+        return $this->_value;
+    }
+
+    /**
+     * Sets value
+     *
+     * @param  string $name
+     * @return self
+     */
+    public function setValue($value)
+    {
+        $this->_value = trim($value);
+        return $this;
     }
 
     /**
@@ -69,7 +122,7 @@ class Attr extends Base
      */
     public function getPermDenied()
     {
-        return $this->getProperty('pd');
+        return $this->_permDenied;
     }
 
     /**
@@ -80,28 +133,7 @@ class Attr extends Base
      */
     public function setPermDenied($pd)
     {
-        return $this->setProperty('pd', (bool) $pd);
-    }
-
-    /**
-     * Returns the array representation of this class 
-     *
-     * @param  string $name
-     * @return array
-     */
-    public function toArray($name = 'attr')
-    {
-        return parent::toArray($name);
-    }
-
-    /**
-     * Method returning the xml representation of this class
-     *
-     * @param  string $name
-     * @return SimpleXML
-     */
-    public function toXml($name = 'attr')
-    {
-        return parent::toXml($name);
+        $this->_permDenied = (bool) $pd;
+        return $this;
     }
 }

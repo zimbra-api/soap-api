@@ -10,7 +10,11 @@
 
 namespace Zimbra\Admin\Struct;
 
-use Zimbra\Struct\Base;
+use JMS\Serializer\Annotation\Accessor;
+use JMS\Serializer\Annotation\SerializedName;
+use JMS\Serializer\Annotation\Type;
+use JMS\Serializer\Annotation\XmlAttribute;
+use JMS\Serializer\Annotation\XmlRoot;
 
 /**
  * DeviceId struct class
@@ -20,9 +24,18 @@ use Zimbra\Struct\Base;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
+ * @XmlRoot(name="device")
  */
-class DeviceId extends Base
+class DeviceId
 {
+    /**
+     * @Accessor(getter="getId", setter="setId")
+     * @SerializedName("id")
+     * @Type("string")
+     * @XmlAttribute
+     */
+    private $_id;
+
     /**
      * Constructor method for DeviceId
      * @param  string $id Device ID
@@ -30,8 +43,7 @@ class DeviceId extends Base
      */
     public function __construct($id)
     {
-        parent::__construct();
-        $this->setProperty('id', trim($id));
+        $this->setId($id);
     }
 
     /**
@@ -41,7 +53,7 @@ class DeviceId extends Base
      */
     public function getId()
     {
-        return $this->getProperty('id');
+        return $this->_id;
     }
 
     /**
@@ -52,28 +64,7 @@ class DeviceId extends Base
      */
     public function setId($id)
     {
-        return $this->setProperty('id', trim($id));
-    }
-
-    /**
-     * Returns the array representation of this class 
-     *
-     * @param  string $name
-     * @return array
-     */
-    public function toArray($name = 'device')
-    {
-        return parent::toArray($name);
-    }
-
-    /**
-     * Method returning the xml representation of this class
-     *
-     * @param  string $name
-     * @return SimpleXML
-     */
-    public function toXml($name = 'device')
-    {
-        return parent::toXml($name);
+        $this->_id = trim($id);
+        return $this;
     }
 }

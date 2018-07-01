@@ -2,13 +2,13 @@
 
 namespace Zimbra\Enum\Tests;
 
-use \PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 use Zimbra\Enum\UcServiceBy;
 
 /**
  * Testcase class for UcServiceBy.
  */
-class UcServiceByTest extends PHPUnit_Framework_TestCase
+class UcServiceByTest extends TestCase
 {
     public function testUcServiceBy()
     {

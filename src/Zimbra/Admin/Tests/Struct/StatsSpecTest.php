@@ -2,15 +2,15 @@
 
 namespace Zimbra\Admin\Tests\Struct;
 
-use Zimbra\Admin\Tests\ZimbraAdminTestCase;
 use Zimbra\Admin\Struct\StatsSpec;
 use Zimbra\Admin\Struct\StatsValueWrapper;
 use Zimbra\Struct\NamedElement;
+use Zimbra\Struct\Tests\ZimbraStructTestCase;
 
 /**
  * Testcase class for StatsSpec.
  */
-class StatsSpecTest extends ZimbraAdminTestCase
+class StatsSpecTest extends ZimbraStructTestCase
 {
     public function testStatsSpec()
     {
@@ -25,6 +25,7 @@ class StatsSpecTest extends ZimbraAdminTestCase
         $this->assertSame($name, $stats->getName());
         $this->assertSame($limit, $stats->getLimit());
 
+        $stats = new StatsSpec(new StatsValueWrapper());
         $stats->setValues($values)
               ->setName($name)
               ->setLimit($limit);
@@ -38,21 +39,14 @@ class StatsSpecTest extends ZimbraAdminTestCase
                     . '<stat name="' . $name . '" />'
                 . '</values>'
             . '</stats>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $stats);
+        $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($stats, 'xml'));
 
-        $array = [
-            'stats' => [
-                'name' => $name,
-                'limit' => $limit,
-                'values' => [
-                    'stat' => [
-                        [
-                            'name' => $name
-                        ],
-                    ],
-                ],
-            ],
-        ];
-        $this->assertEquals($array, $stats->toArray());
+        $stats = $this->serializer->deserialize($xml, 'Zimbra\Admin\Struct\StatsSpec', 'xml');
+        $values = $stats->getValues();
+        $stat = $values->getStats()[0];
+
+        $this->assertSame($name, $stats->getName());
+        $this->assertSame($limit, $stats->getLimit());
+        $this->assertSame($name, $stat->getName());
     }
 }

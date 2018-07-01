@@ -15,33 +15,30 @@ class EntrySearchFilterSingleCondTest extends ZimbraStructTestCase
         $attr = $this->faker->word;
         $value = $this->faker->word;
 
-        $cond = new EntrySearchFilterSingleCond($attr, CondOp::GE(), $value, false);
+        $cond = new EntrySearchFilterSingleCond($attr, CondOp::GE()->value(), $value, false);
         $this->assertSame($attr, $cond->getAttr());
-        $this->assertTrue($cond->getOp()->is('ge'));
+        $this->assertSame(CondOp::GE()->value(), $cond->getOp());
         $this->assertSame($value, $cond->getValue());
         $this->assertFalse($cond->getNot());
 
+        $cond = new EntrySearchFilterSingleCond('', CondOp::GE()->value(), '', false);
         $cond->setAttr($attr)
-             ->setOp(CondOp::EQ())
+             ->setOp(CondOp::EQ()->value())
              ->setValue($value)
              ->setNot(true);
         $this->assertSame($attr, $cond->getAttr());
-        $this->assertTrue($cond->getOp()->is('eq'));
+        $this->assertSame(CondOp::EQ()->value(), $cond->getOp());
         $this->assertSame($value, $cond->getValue());
         $this->assertTrue($cond->getNot());
 
         $xml = '<?xml version="1.0"?>' . "\n"
             . '<cond attr="' . $attr . '" op="' . CondOp::EQ() . '" value="' . $value . '" not="true" />';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $cond);
+        $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($cond, 'xml'));
 
-        $array = [
-            'cond' => [
-                'attr' => $attr,
-                'op' => CondOp::EQ()->value(),
-                'value' => $value,
-                'not' => true,
-            ],
-        ];
-        $this->assertEquals($array, $cond->toArray());
+        $cond = $this->serializer->deserialize($xml, 'Zimbra\Struct\EntrySearchFilterSingleCond', 'xml');
+        $this->assertSame($attr, $cond->getAttr());
+        $this->assertSame(CondOp::EQ()->value(), $cond->getOp());
+        $this->assertSame($value, $cond->getValue());
+        $this->assertTrue($cond->getNot());
     }
 }

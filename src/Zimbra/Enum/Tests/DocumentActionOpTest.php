@@ -2,13 +2,13 @@
 
 namespace Zimbra\Enum\Tests;
 
-use \PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 use Zimbra\Enum\DocumentActionOp;
 
 /**
  * Testcase class for DocumentActionOp.
  */
-class DocumentActionOpTest extends PHPUnit_Framework_TestCase
+class DocumentActionOpTest extends TestCase
 {
     public function testDocumentActionOp()
     {

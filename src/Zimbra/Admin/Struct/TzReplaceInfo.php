@@ -10,7 +10,13 @@
 
 namespace Zimbra\Admin\Struct;
 
-use Zimbra\Struct\Base;
+use JMS\Serializer\Annotation\Accessor;
+use JMS\Serializer\Annotation\SerializedName;
+use JMS\Serializer\Annotation\Type;
+use JMS\Serializer\Annotation\XmlAttribute;
+use JMS\Serializer\Annotation\XmlElement;
+use JMS\Serializer\Annotation\XmlRoot;
+
 use Zimbra\Struct\Id;
 
 /**
@@ -21,9 +27,26 @@ use Zimbra\Struct\Id;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
+ * @XmlRoot(name="replace")
  */
-class TzReplaceInfo extends Base
+class TzReplaceInfo
 {
+    /**
+     * @Accessor(getter="getWellKnownTz", setter="setWellKnownTz")
+     * @SerializedName("wellKnownTz")
+     * @Type("Zimbra\Struct\Id")
+     * @XmlElement
+     */
+    private $_wellKnownTz;
+
+    /**
+     * @Accessor(getter="getCalTz", setter="setCalTz")
+     * @SerializedName("tz")
+     * @Type("Zimbra\Admin\Struct\CalTzInfo")
+     * @XmlElement
+     */
+    private $_calTz;
+
     /**
      * Constructor method for TzReplaceInfo
      * @param TzOnsetInfo $wellKnownTz TzID from /opt/zimbra/conf/timezones.ics 
@@ -32,14 +55,11 @@ class TzReplaceInfo extends Base
      */
     public function __construct(Id $wellKnownTz = null, CalTzInfo $tz = null)
     {
-        parent::__construct();
-        if($wellKnownTz instanceof Id)
-        {
-            $this->setChild('wellKnownTz', $wellKnownTz);
+        if ($wellKnownTz instanceof Id) {
+            $this->setWellKnownTz($wellKnownTz);
         }
-        if($tz instanceof CalTzInfo)
-        {
-            $this->setChild('tz', $tz);
+        if ($tz instanceof CalTzInfo) {
+            $this->setCalTz($tz);
         }
     }
 
@@ -50,7 +70,7 @@ class TzReplaceInfo extends Base
      */
     public function getWellKnownTz()
     {
-        return $this->getChild('wellKnownTz');
+        return $this->_wellKnownTz;
     }
 
     /**
@@ -61,7 +81,8 @@ class TzReplaceInfo extends Base
      */
     public function setWellKnownTz(Id $wellKnownTz)
     {
-        return $this->setChild('wellKnownTz', $wellKnownTz);
+        $this->_wellKnownTz = $wellKnownTz;
+        return $this;
     }
 
     /**
@@ -69,9 +90,9 @@ class TzReplaceInfo extends Base
      *
      * @return CalTzInfo
      */
-    public function getTz()
+    public function getCalTz()
     {
-        return $this->getChild('tz');
+        return $this->_calTz;
     }
 
     /**
@@ -80,30 +101,9 @@ class TzReplaceInfo extends Base
      * @param  CalTzInfo $tz
      * @return self
      */
-    public function setTz(CalTzInfo $tz)
+    public function setCalTz(CalTzInfo $tz)
     {
-        return $this->setChild('tz', $tz);
-    }
-
-    /**
-     * Returns the array representation of this class 
-     *
-     * @param  string $name
-     * @return array
-     */
-    public function toArray($name = 'replace')
-    {
-        return parent::toArray($name);
-    }
-
-    /**
-     * Method returning the xml representation of this class
-     *
-     * @param  string $name
-     * @return SimpleXML
-     */
-    public function toXml($name = 'replace')
-    {
-        return parent::toXml($name);
+        $this->_calTz = $tz;
+        return $this;
     }
 }

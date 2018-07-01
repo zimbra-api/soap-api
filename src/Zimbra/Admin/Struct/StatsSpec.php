@@ -10,7 +10,12 @@
 
 namespace Zimbra\Admin\Struct;
 
-use Zimbra\Struct\Base;
+use JMS\Serializer\Annotation\Accessor;
+use JMS\Serializer\Annotation\SerializedName;
+use JMS\Serializer\Annotation\Type;
+use JMS\Serializer\Annotation\XmlAttribute;
+use JMS\Serializer\Annotation\XmlElement;
+use JMS\Serializer\Annotation\XmlRoot;
 
 /**
  * StatsSpec struct class
@@ -20,9 +25,34 @@ use Zimbra\Struct\Base;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
+ * @XmlRoot(name="stats")
  */
-class StatsSpec extends Base
+class StatsSpec
 {
+    /**
+     * @Accessor(getter="getValues", setter="setValues")
+     * @SerializedName("values")
+     * @Type("Zimbra\Admin\Struct\StatsValueWrapper")
+     * @XmlElement
+     */
+    private $_values;
+
+    /**
+     * @Accessor(getter="getName", setter="setName")
+     * @SerializedName("name")
+     * @Type("string")
+     * @XmlAttribute
+     */
+    private $_name;
+
+    /**
+     * @Accessor(getter="getLimit", setter="setLimit")
+     * @SerializedName("limit")
+     * @Type("string")
+     * @XmlAttribute
+     */
+    private $_limit;
+
     /**
      * Constructor method for StatsSpec
      * @param  StatsValueWrapper $values
@@ -30,17 +60,14 @@ class StatsSpec extends Base
      * @param  string $limit
      * @return self
      */
-    public function __construct(StatsValueWrapper $values, $name = null, $limit = null)
+    public function __construct(StatsValueWrapper $values, $name = NULL, $limit = NULL)
     {
-        parent::__construct();
-        $this->setChild('values', $values);
-        if(null !== $name)
-        {
-            $this->setProperty('name', trim($name));
+        $this->setValues($values);
+        if (NULL !== $name) {
+            $this->setName($name);
         }
-        if(null !== $limit)
-        {
-            $this->setProperty('limit', trim($limit));
+        if (NULL !== $limit) {
+            $this->setLimit($limit);
         }
     }
 
@@ -51,7 +78,7 @@ class StatsSpec extends Base
      */
     public function getValues()
     {
-        return $this->getChild('values');
+        return $this->_values;
     }
 
     /**
@@ -62,7 +89,8 @@ class StatsSpec extends Base
      */
     public function setValues(StatsValueWrapper $values)
     {
-        return $this->setChild('values', $values);
+        $this->_values = $values;
+        return $this;
     }
 
     /**
@@ -72,7 +100,7 @@ class StatsSpec extends Base
      */
     public function getName()
     {
-        return $this->getProperty('name');
+        return $this->_name;
     }
 
     /**
@@ -83,7 +111,8 @@ class StatsSpec extends Base
      */
     public function setName($name)
     {
-        return $this->setProperty('name', trim($name));
+        $this->_name = trim($name);
+        return $this;
     }
 
     /**
@@ -93,7 +122,7 @@ class StatsSpec extends Base
      */
     public function getLimit()
     {
-        return $this->getProperty('limit');
+        return $this->_limit;
     }
 
     /**
@@ -104,28 +133,7 @@ class StatsSpec extends Base
      */
     public function setLimit($limit)
     {
-        return $this->setProperty('limit', trim($limit));
-    }
-
-    /**
-     * Returns the array representation of this class 
-     *
-     * @param  string $name
-     * @return array
-     */
-    public function toArray($name = 'stats')
-    {
-        return parent::toArray($name);
-    }
-
-    /**
-     * Method returning the xml representative this class
-     *
-     * @param  string $name
-     * @return SimpleXML
-     */
-    public function toXml($name = 'stats')
-    {
-        return parent::toXml($name);
+        $this->_limit = trim($limit);
+        return $this;
     }
 }

@@ -12,35 +12,30 @@ class WaitSetIdTest extends ZimbraStructTestCase
 {
     public function testWaitSetId()
     {
-        $id1 = $this->faker->word;
+        $id1 = $this->faker->uuid;
         $a1 = new Id($id1);
-        $id2 = $this->faker->word;
+        $id2 = $this->faker->uuid;
         $a2 = new Id($id2);
 
         $remove = new WaitSetId([$a1]);
-        $this->assertSame([$a1], $remove->getIds()->all());
+        $this->assertSame([$a1], $remove->getIds());
         $remove->addId($a2);
-        $this->assertSame([$a1, $a2], $remove->getIds()->all());
+        $this->assertSame([$a1, $a2], $remove->getIds());
 
         $xml = '<?xml version="1.0"?>'."\n"
             .'<remove>'
                 .'<a id="' . $id1 . '" />'
                 .'<a id="' . $id2 . '" />'
             .'</remove>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $remove);
+        $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($remove, 'xml'));
 
-        $array = [
-            'remove' => [
-                'a' => [
-                    [
-                        'id' => $id1,
-                    ],
-                    [
-                        'id' => $id2,
-                    ],
-                ],
-            ],
-        ];
-        $this->assertEquals($array, $remove->toArray());
+        $remove = $this->serializer->deserialize($xml, 'Zimbra\Struct\WaitSetId', 'xml');
+        $ids = $remove->getIds();
+
+        $a1 = $ids[0];
+        $this->assertSame($id1, $a1->getId());
+
+        $a2 = $ids[1];
+        $this->assertSame($id2, $a2->getId());
     }
 }

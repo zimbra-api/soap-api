@@ -2,13 +2,13 @@
 
 namespace Zimbra\Admin\Tests\Struct;
 
-use Zimbra\Admin\Tests\ZimbraAdminTestCase;
 use Zimbra\Admin\Struct\ExportAndDeleteItemSpec;
+use Zimbra\Struct\Tests\ZimbraStructTestCase;
 
 /**
  * Testcase class for ExportAndDeleteItemSpec.
  */
-class ExportAndDeleteItemSpecTest extends ZimbraAdminTestCase
+class ExportAndDeleteItemSpecTest extends ZimbraStructTestCase
 {
     public function testExportAndDeleteItemSpec()
     {
@@ -19,6 +19,7 @@ class ExportAndDeleteItemSpecTest extends ZimbraAdminTestCase
         $this->assertSame($id, $item->getId());
         $this->assertSame($version, $item->getVersion());
 
+        $item = new ExportAndDeleteItemSpec(0, 0);
         $item->setId($id)
              ->setVersion($version);
         $this->assertSame($id, $item->getId());
@@ -26,14 +27,10 @@ class ExportAndDeleteItemSpecTest extends ZimbraAdminTestCase
 
         $xml = '<?xml version="1.0"?>' . "\n"
             . '<item id="' . $id . '" version="' . $version . '" />';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $item);
+        $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($item, 'xml'));
 
-        $array = [
-            'item' => [
-                'id' => $id,
-                'version' => $version,
-            ],
-        ];
-        $this->assertEquals($array, $item->toArray());
+        $item = $this->serializer->deserialize($xml, 'Zimbra\Admin\Struct\ExportAndDeleteItemSpec', 'xml');
+        $this->assertSame($id, $item->getId());
+        $this->assertSame($version, $item->getVersion());
     }
 }

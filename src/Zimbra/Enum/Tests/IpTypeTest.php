@@ -2,13 +2,13 @@
 
 namespace Zimbra\Enum\Tests;
 
-use \PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 use Zimbra\Enum\IpType;
 
 /**
  * Testcase class for IpType.
  */
-class IpTypeTest extends PHPUnit_Framework_TestCase
+class IpTypeTest extends TestCase
 {
     public function testIpType()
     {

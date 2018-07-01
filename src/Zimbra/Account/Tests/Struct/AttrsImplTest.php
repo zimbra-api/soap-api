@@ -2,13 +2,16 @@
 
 namespace Zimbra\Account\Tests\Struct;
 
-use Zimbra\Account\Tests\ZimbraAccountTestCase;
 use Zimbra\Account\Struct\Attr;
+use Zimbra\Account\Struct\AttrsImpl;
+use Zimbra\Struct\Tests\ZimbraStructTestCase;
+
+use JMS\Serializer\Annotation\XmlRoot;
 
 /**
  * Testcase class for AttrsImpl.
  */
-class AttrsImplTest extends ZimbraAccountTestCase
+class AttrsImplTest extends ZimbraStructTestCase
 {
     public function testAttrsImpl()
     {
@@ -16,28 +19,26 @@ class AttrsImplTest extends ZimbraAccountTestCase
         $value = $this->faker->word;
 
         $attr = new Attr($name, $value, true);
-        $attrs = $this->getMockForAbstractClass('Zimbra\Account\Struct\AttrsImpl');
+        $attrs = new MockAttrsImpl();
  
         $attrs->addAttr($attr);
-        $this->assertSame([$attr], $attrs->getAttrs()->all());
+        $this->assertSame([$attr], $attrs->getAttrs());
 
         $xml = '<?xml version="1.0"?>' . "\n"
             . '<attrs>'
                 . '<a name="' . $name . '" pd="true">' . $value . '</a>'
             . '</attrs>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $attrs);
+        $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($attrs, 'xml'));
 
-        $array = [
-            'attrs' => [
-                'a' => [
-                    [
-                        'name' => $name,
-                        '_content' => $value,
-                        'pd' => true,
-                    ],
-                ],
-            ],
-        ];
-        $this->assertEquals($array, $attrs->toArray());
+        $attrs = $this->serializer->deserialize($xml, 'Zimbra\Account\Tests\Struct\MockAttrsImpl', 'xml');
+        $attr = $attrs->getAttrs()[0];
+        $this->assertSame($name, $attr->getName());
+        $this->assertSame($value, $attr->getValue());
+        $this->assertTrue($attr->getPermDenied());
     }
+}
+
+/** @XmlRoot(name="attrs") */
+class MockAttrsImpl extends AttrsImpl
+{
 }

@@ -2,13 +2,13 @@
 
 namespace Zimbra\Account\Tests\Struct;
 
-use Zimbra\Account\Tests\ZimbraAccountTestCase;
 use Zimbra\Account\Struct\Attr;
+use Zimbra\Struct\Tests\ZimbraStructTestCase;
 
 /**
  * Testcase class for Attr.
  */
-class AttrTest extends ZimbraAccountTestCase
+class AttrTest extends ZimbraStructTestCase
 {
     public function testAttr()
     {
@@ -20,22 +20,21 @@ class AttrTest extends ZimbraAccountTestCase
         $this->assertSame($value, $attr->getValue());
         $this->assertFalse($attr->getPermDenied());
 
+        $attr = new Attr('');
         $attr->setName($name)
+             ->setValue($value)
              ->setPermDenied(true);
         $this->assertSame($name, $attr->getName());
+        $this->assertSame($value, $attr->getValue());
         $this->assertTrue($attr->getPermDenied());
 
         $xml = '<?xml version="1.0"?>' . "\n"
             . '<attr name="' . $name . '" pd="true">' . $value . '</attr>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $attr);
+        $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($attr, 'xml'));
 
-        $array = [
-            'attr' => [
-                'name' => $name,
-                '_content' => $value,
-                'pd' => true,
-            ],
-        ];
-        $this->assertEquals($array, $attr->toArray());
+        $attr = $this->serializer->deserialize($xml, 'Zimbra\Account\Struct\Attr', 'xml');
+        $this->assertSame($name, $attr->getName());
+        $this->assertSame($value, $attr->getValue());
+        $this->assertTrue($attr->getPermDenied());
     }
 }

@@ -2,13 +2,13 @@
 
 namespace Zimbra\Enum\Tests;
 
-use \PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 use Zimbra\Enum\GalSearchType;
 
 /**
  * Testcase class for GalSearchType.
  */
-class GalSearchTypeTest extends PHPUnit_Framework_TestCase
+class GalSearchTypeTest extends TestCase
 {
     public function testGalSearchType()
     {

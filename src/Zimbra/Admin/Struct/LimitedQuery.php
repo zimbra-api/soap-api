@@ -10,7 +10,12 @@
 
 namespace Zimbra\Admin\Struct;
 
-use Zimbra\Struct\Base;
+use JMS\Serializer\Annotation\Accessor;
+use JMS\Serializer\Annotation\SerializedName;
+use JMS\Serializer\Annotation\Type;
+use JMS\Serializer\Annotation\XmlAttribute;
+use JMS\Serializer\Annotation\XmlRoot;
+use JMS\Serializer\Annotation\XmlValue;
 
 /**
  * LimitedQuery struct class
@@ -20,9 +25,25 @@ use Zimbra\Struct\Base;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
+ * @XmlRoot(name="query")
  */
-class LimitedQuery extends Base
+class LimitedQuery
 {
+    /**
+     * @Accessor(getter="getLimit", setter="setLimit")
+     * @SerializedName("limit")
+     * @Type("integer")
+     * @XmlAttribute
+     */
+    private $_limit;
+
+    /**
+     * @Accessor(getter="getValue", setter="setValue")
+     * @Type("string")
+     * @XmlValue(cdata=false)
+     */
+    private $_value;
+
     /**
      * Constructor method for LimitedQuery
      * @param  int    $limit Limit. Default value 10
@@ -31,10 +52,11 @@ class LimitedQuery extends Base
      */
     public function __construct($limit = null, $value = null)
     {
-        parent::__construct(trim($value));
-        if($limit !== null)
-        {
-            $this->setProperty('limit', (int) $limit);
+        if (NULL !== $limit) {
+            $this->setLimit($limit);
+        }
+        if (NULL !== $value) {
+            $this->setValue($value);
         }
     }
 
@@ -45,7 +67,7 @@ class LimitedQuery extends Base
      */
     public function getLimit()
     {
-        return $this->getProperty('limit');
+        return $this->_limit;
     }
 
     /**
@@ -56,28 +78,29 @@ class LimitedQuery extends Base
      */
     public function setLimit($limit)
     {
-        return $this->setProperty('limit', (int) $limit);
+        $this->_limit = (int) $limit;
+        return $this;
     }
 
     /**
-     * Returns the array representation of this class 
+     * Gets value
      *
-     * @param  string $name
-     * @return array
+     * @return string
      */
-    public function toArray($name = 'query')
+    public function getValue()
     {
-        return parent::toArray($name);
+        return $this->_value;
     }
 
     /**
-     * Method returning the xml representation of this class
+     * Sets value
      *
      * @param  string $name
-     * @return SimpleXML
+     * @return self
      */
-    public function toXml($name = 'query')
+    public function setValue($value)
     {
-        return parent::toXml($name);
+        $this->_value = trim($value);
+        return $this;
     }
 }

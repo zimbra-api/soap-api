@@ -2,13 +2,13 @@
 
 namespace Zimbra\Admin\Tests\Struct;
 
-use Zimbra\Admin\Tests\ZimbraAdminTestCase;
 use Zimbra\Admin\Struct\IdStatus;
+use Zimbra\Struct\Tests\ZimbraStructTestCase;
 
 /**
  * Testcase class for IdStatus.
  */
-class IdStatusTest extends ZimbraAdminTestCase
+class IdStatusTest extends ZimbraStructTestCase
 {
     public function testIdStatus()
     {
@@ -19,6 +19,7 @@ class IdStatusTest extends ZimbraAdminTestCase
         $this->assertSame($id, $is->getId());
         $this->assertSame($status, $is->getStatus());
 
+        $is = new IdStatus();
         $is->setId($id)
            ->setStatus($status);
         $this->assertSame($id, $is->getId());
@@ -26,14 +27,10 @@ class IdStatusTest extends ZimbraAdminTestCase
 
         $xml = '<?xml version="1.0"?>' . "\n"
             . '<device id="' . $id . '" status="' . $status . '" />';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $is);
+        $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($is, 'xml'));
 
-        $array = [
-            'device' => [
-                'id' => $id,
-                'status' => $status,
-            ],
-        ];
-        $this->assertEquals($array, $is->toArray());
+        $is = $this->serializer->deserialize($xml, 'Zimbra\Admin\Struct\IdStatus', 'xml');
+        $this->assertSame($id, $is->getId());
+        $this->assertSame($status, $is->getStatus());
     }
 }

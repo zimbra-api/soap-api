@@ -10,6 +10,12 @@
 
 namespace Zimbra\Struct;
 
+use JMS\Serializer\Annotation\Accessor;
+use JMS\Serializer\Annotation\SerializedName;
+use JMS\Serializer\Annotation\Type;
+use JMS\Serializer\Annotation\XmlAttribute;
+use JMS\Serializer\Annotation\XmlRoot;
+
 use Zimbra\Enum\ConditionOperator as Op;
 
 /**
@@ -19,31 +25,62 @@ use Zimbra\Enum\ConditionOperator as Op;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
+ * @XmlRoot(name="cond")
  */
-class EntrySearchFilterSingleCond extends Base implements SearchFilterCondition
+class EntrySearchFilterSingleCond implements SearchFilterCondition
 {
+    /**
+     * @Accessor(getter="getAttr", setter="setAttr")
+     * @SerializedName("attr")
+     * @Type("string")
+     * @XmlAttribute
+     */
+    private $_attr;
+
+    /**
+     * @Accessor(getter="getOp", setter="setOp")
+     * @SerializedName("op")
+     * @Type("string")
+     * @XmlAttribute
+     */
+    private $_op;
+
+    /**
+     * @Accessor(getter="getValue", setter="setValue")
+     * @SerializedName("value")
+     * @Type("string")
+     * @XmlAttribute
+     */
+    private $_value;
+
+    /**
+     * @Accessor(getter="getNot", setter="setNot")
+     * @SerializedName("not")
+     * @Type("boolean")
+     * @XmlAttribute
+     */
+    private $_not;
+
     /**
      * Constructor method for EntrySearchFilterSingleCond
      * @param string $attr
-     * @param Op $op
+     * @param string $op
      * @param string $value
      * @param bool $not
      * @return self
      */
     public function __construct(
         $attr,
-        Op $op,
+        $op,
         $value,
-        $not = null
+        $not = NULL
     )
     {
-        parent::__construct();
-        $this->setProperty('attr', trim($attr));
-        $this->setProperty('op', $op);
-        $this->setProperty('value', trim($value));
-        if(null !== $not)
-        {
-            $this->setProperty('not', (bool) $not);
+        $this->setAttr($attr)
+            ->setOp($op)
+            ->setValue($value);
+        if (NULL !== $not) {
+            $this->setNot($not);
         }
     }
 
@@ -54,7 +91,7 @@ class EntrySearchFilterSingleCond extends Base implements SearchFilterCondition
      */
     public function getAttr()
     {
-        return $this->getProperty('attr');
+        return $this->_attr;
     }
 
     /**
@@ -65,28 +102,32 @@ class EntrySearchFilterSingleCond extends Base implements SearchFilterCondition
      */
     public function setAttr($attr)
     {
-        return $this->setProperty('attr', trim($attr));
+        $this->_attr = trim($attr);
+        return $this;
     }
 
     /**
      * Gets operator
      *
-     * @return Zimbra\Enum\ConditionOperator
+     * @return string
      */
     public function getOp()
     {
-        return $this->getProperty('op');
+        return $this->_op;
     }
 
     /**
      * Sets operator
      *
-     * @param  Zimbra\Enum\ConditionOperator $op
+     * @param  string $op
      * @return self
      */
-    public function setOp(Op $op)
+    public function setOp($op)
     {
-        return $this->setProperty('op', $op);
+        if (Op::has(trim($op))) {
+            $this->_op = $op;
+        }
+        return $this;
     }
 
     /**
@@ -96,7 +137,7 @@ class EntrySearchFilterSingleCond extends Base implements SearchFilterCondition
      */
     public function getValue()
     {
-        return $this->getProperty('value');
+        return $this->_value;
     }
 
     /**
@@ -107,7 +148,8 @@ class EntrySearchFilterSingleCond extends Base implements SearchFilterCondition
      */
     public function setValue($value)
     {
-        return $this->setProperty('value', trim($value));
+        $this->_value = trim($value);
+        return $this;
     }
 
     /**
@@ -117,7 +159,7 @@ class EntrySearchFilterSingleCond extends Base implements SearchFilterCondition
      */
     public function getNot()
     {
-        return $this->getProperty('not');
+        return $this->_not;
     }
 
     /**
@@ -128,28 +170,7 @@ class EntrySearchFilterSingleCond extends Base implements SearchFilterCondition
      */
     public function setNot($not)
     {
-        return $this->setProperty('not', (bool) $not);
-    }
-
-    /**
-     * Returns the array representation of this class 
-     *
-     * @param  string $name
-     * @return array
-     */
-    public function toArray($name = 'cond')
-    {
-        return parent::toArray($name);
-    }
-
-    /**
-     * Method returning the xml representative this class
-     *
-     * @param  string $name
-     * @return SimpleXML
-     */
-    public function toXml($name = 'cond')
-    {
-        return parent::toXml($name);
+        $this->_not = (bool) $not;
+        return $this;
     }
 }

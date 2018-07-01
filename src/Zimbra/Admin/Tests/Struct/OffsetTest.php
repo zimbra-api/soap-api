@@ -2,13 +2,13 @@
 
 namespace Zimbra\Admin\Tests\Struct;
 
-use Zimbra\Admin\Tests\ZimbraAdminTestCase;
 use Zimbra\Admin\Struct\Offset;
+use Zimbra\Struct\Tests\ZimbraStructTestCase;
 
 /**
  * Testcase class for Offset.
  */
-class OffsetTest extends ZimbraAdminTestCase
+class OffsetTest extends ZimbraStructTestCase
 {
     public function testOffset()
     {
@@ -16,18 +16,15 @@ class OffsetTest extends ZimbraAdminTestCase
         $offset = new Offset($value);
         $this->assertSame($value, $offset->getOffset());
 
+        $offset = new Offset(0);
         $offset->setOffset($value);
         $this->assertSame($value, $offset->getOffset());
 
         $xml = '<?xml version="1.0"?>' . "\n"
             . '<offset offset="' . $value . '" />';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $offset);
+        $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($offset, 'xml'));
 
-        $array = [
-            'offset' => [
-                'offset' => $value,
-            ],
-        ];
-        $this->assertEquals($array, $offset->toArray());
+        $offset = $this->serializer->deserialize($xml, 'Zimbra\Admin\Struct\Offset', 'xml');
+        $this->assertSame($value, $offset->getOffset());
     }
 }

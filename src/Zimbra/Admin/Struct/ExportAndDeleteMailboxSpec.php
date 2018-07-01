@@ -10,9 +10,12 @@
 
 namespace Zimbra\Admin\Struct;
 
-use Zimbra\Admin\Struct\ExportAndDeleteItemSpec as ItemSpec;
-use Zimbra\Common\TypedSequence;
-use Zimbra\Struct\Base;
+use JMS\Serializer\Annotation\Accessor;
+use JMS\Serializer\Annotation\SerializedName;
+use JMS\Serializer\Annotation\Type;
+use JMS\Serializer\Annotation\XmlAttribute;
+use JMS\Serializer\Annotation\XmlList;
+use JMS\Serializer\Annotation\XmlRoot;
 
 /**
  * ExportAndDeleteMailboxSpec struct class
@@ -22,12 +25,23 @@ use Zimbra\Struct\Base;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
+ * @XmlRoot(name="mbox")
  */
-class ExportAndDeleteMailboxSpec extends Base
+class ExportAndDeleteMailboxSpec
 {
     /**
+     * @Accessor(getter="getId", setter="setId")
+     * @SerializedName("id")
+     * @Type("integer")
+     * @XmlAttribute
+     */
+    private $_id;
+
+    /**
      * Items
-     * @var TypedSequence
+     * @Accessor(getter="getItems", setter="setItems")
+     * @Type("array<Zimbra\Admin\Struct\ExportAndDeleteItemSpec>")
+     * @XmlList(inline = true, entry = "item")
      */
     private $_items;
 
@@ -39,17 +53,8 @@ class ExportAndDeleteMailboxSpec extends Base
      */
     public function __construct($id, array $items = [])
     {
-        parent::__construct();
-        $this->setProperty('id', (int) $id);
-        $this->setItems($items);
-
-        $this->on('before', function(Base $sender)
-        {
-            if($sender->getItems()->count())
-            {
-                $sender->setChild('item', $sender->getItems()->all());
-            }
-        });
+        $this->setId($id)
+             ->setItems($items);
     }
 
     /**
@@ -59,7 +64,7 @@ class ExportAndDeleteMailboxSpec extends Base
      */
     public function getId()
     {
-        return $this->getProperty('id');
+        return $this->_id;
     }
 
     /**
@@ -70,64 +75,46 @@ class ExportAndDeleteMailboxSpec extends Base
      */
     public function setId($id)
     {
-        return $this->setProperty('id', (int) $id);
+        $this->_id = (int) $id;
+        return $this;
     }
 
     /**
      * Add an item
      *
-     * @param  ItemSpec $item
+     * @param  ExportAndDeleteItemSpec $item
      * @return self
      */
-    public function addItem(ItemSpec $item)
+    public function addItem(ExportAndDeleteItemSpec $item)
     {
-        $this->_items->add($item);
+        $this->_items[] = $item;
         return $this;
     }
 
     /**
      * Sets item sequence
      *
-     * @param  int $items Items
+     * @param  array $items Items
      * @return self
      */
     public function setItems(array $items)
     {
-        $this->_items = new TypedSequence(
-            'Zimbra\Admin\Struct\ExportAndDeleteItemSpec', $items
-        );
+        $this->_items = [];
+        foreach ($items as $item) {
+            if ($item instanceof ExportAndDeleteItemSpec) {
+                $this->_items[] = $item;
+            }
+        }
         return $this;
     }
 
     /**
      * Gets item sequence
      *
-     * @return Sequence
+     * @return array
      */
     public function getItems()
     {
         return $this->_items;
-    }
-
-    /**
-     * Returns the array representation of this class 
-     *
-     * @param  string $name
-     * @return array
-     */
-    public function toArray($name = 'mbox')
-    {
-        return parent::toArray($name);
-    }
-
-    /**
-     * Method returning the xml representation of this class
-     *
-     * @param  string $name
-     * @return SimpleXML
-     */
-    public function toXml($name = 'mbox')
-    {
-        return parent::toXml($name);
     }
 }

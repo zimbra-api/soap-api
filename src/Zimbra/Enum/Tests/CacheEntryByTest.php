@@ -2,13 +2,13 @@
 
 namespace Zimbra\Enum\Tests;
 
-use \PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 use Zimbra\Enum\CacheEntryBy;
 
 /**
  * Testcase class for CacheEntryBy.
  */
-class CacheEntryByTest extends PHPUnit_Framework_TestCase
+class CacheEntryByTest extends TestCase
 {
     public function testCacheEntryBy()
     {

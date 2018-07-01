@@ -2,13 +2,13 @@
 
 namespace Zimbra\Enum\Tests;
 
-use \PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 use Zimbra\Enum\QuotaSortBy;
 
 /**
  * Testcase class for QuotaSortBy.
  */
-class QuotaSortByTest extends PHPUnit_Framework_TestCase
+class QuotaSortByTest extends TestCase
 {
     public function testQuotaSortBy()
     {

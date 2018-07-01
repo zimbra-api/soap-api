@@ -10,7 +10,12 @@
 
 namespace Zimbra\Admin\Struct;
 
-use Zimbra\Struct\Base;
+use JMS\Serializer\Annotation\Accessor;
+use JMS\Serializer\Annotation\SerializedName;
+use JMS\Serializer\Annotation\Type;
+use JMS\Serializer\Annotation\XmlElement;
+use JMS\Serializer\Annotation\XmlRoot;
+
 use Zimbra\Struct\Id;
 
 /**
@@ -21,9 +26,50 @@ use Zimbra\Struct\Id;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
+ * @XmlRoot(name="match")
  */
-class TzFixupRuleMatch extends Base
+class TzFixupRuleMatch
 {
+    /**
+     * @Accessor(getter="getAny", setter="setAny")
+     * @SerializedName("any")
+     * @Type("Zimbra\Admin\Struct\SimpleElement")
+     * @XmlElement
+     */
+    private $_any;
+
+    /**
+     * @Accessor(getter="getTzid", setter="setTzid")
+     * @SerializedName("tzid")
+     * @Type("Zimbra\Struct\Id")
+     * @XmlElement
+     */
+    private $_tzid;
+
+    /**
+     * @Accessor(getter="getNonDst", setter="setNonDst")
+     * @SerializedName("nonDst")
+     * @Type("Zimbra\Admin\Struct\Offset")
+     * @XmlElement
+     */
+    private $_nonDst;
+
+    /**
+     * @Accessor(getter="getRules", setter="setRules")
+     * @SerializedName("rules")
+     * @Type("Zimbra\Admin\Struct\TZFixupRuleMatchRules")
+     * @XmlElement
+     */
+    private $_rules;
+
+    /**
+     * @Accessor(getter="getDates", setter="setDates")
+     * @SerializedName("dates")
+     * @Type("Zimbra\Admin\Struct\TZFixupRuleMatchDates")
+     * @XmlElement
+     */
+    private $_dates;
+
     /**
      * Constructor method for TzFixupRuleMatch
      * @param SimpleElement $any Simple element
@@ -34,33 +80,27 @@ class TzFixupRuleMatch extends Base
      * @return self
      */
     public function __construct(
-        SimpleElement $any = null,
-        Id $tzid = null,
-        Offset $nonDst = null,
-        TzFixupRuleMatchRules $rules = null,
-        TzFixupRuleMatchDates $dates = null
+        SimpleElement $any = NULL,
+        Id $tzid = NULL,
+        Offset $nonDst = NULL,
+        TzFixupRuleMatchRules $rules = NULL,
+        TzFixupRuleMatchDates $dates = NULL
     )
     {
-        parent::__construct();
-        if($any instanceof SimpleElement)
-        {
-            $this->setChild('any', $any);
+        if ($any instanceof SimpleElement) {
+            $this->setAny($any);
         }
-        if($tzid instanceof Id)
-        {
-            $this->setChild('tzid', $tzid);
+        if ($tzid instanceof Id) {
+            $this->setTzid($tzid);
         }
-        if($nonDst instanceof Offset)
-        {
-            $this->setChild('nonDst', $nonDst);
+        if ($nonDst instanceof Offset) {
+            $this->setNonDst($nonDst);
         }
-        if($rules instanceof TzFixupRuleMatchRules)
-        {
-            $this->setChild('rules', $rules);
+        if ($rules instanceof TzFixupRuleMatchRules) {
+            $this->setRules($rules);
         }
-        if($dates instanceof TzFixupRuleMatchDates)
-        {
-            $this->setChild('dates', $dates);
+        if ($dates instanceof TzFixupRuleMatchDates) {
+            $this->setDates($dates);
         }
     }
 
@@ -71,7 +111,7 @@ class TzFixupRuleMatch extends Base
      */
     public function getAny()
     {
-        return $this->getChild('any');
+        return $this->_any;
     }
 
     /**
@@ -82,7 +122,8 @@ class TzFixupRuleMatch extends Base
      */
     public function setAny(SimpleElement $any)
     {
-        return $this->setChild('any', $any);
+        $this->_any = $any;
+        return $this;
     }
 
     /**
@@ -92,7 +133,7 @@ class TzFixupRuleMatch extends Base
      */
     public function getTzid()
     {
-        return $this->getChild('tzid');
+        return $this->_tzid;
     }
 
     /**
@@ -103,7 +144,8 @@ class TzFixupRuleMatch extends Base
      */
     public function setTzid(Id $tzid)
     {
-        return $this->setChild('tzid', $tzid);
+        $this->_tzid = $tzid;
+        return $this;
     }
 
     /**
@@ -113,7 +155,7 @@ class TzFixupRuleMatch extends Base
      */
     public function getNonDst()
     {
-        return $this->getChild('nonDst');
+        return $this->_nonDst;
     }
 
     /**
@@ -124,7 +166,8 @@ class TzFixupRuleMatch extends Base
      */
     public function setNonDst(Offset $nonDst)
     {
-        return $this->setChild('nonDst', $nonDst);
+        $this->_nonDst = $nonDst;
+        return $this;
     }
 
     /**
@@ -134,7 +177,7 @@ class TzFixupRuleMatch extends Base
      */
     public function getRules()
     {
-        return $this->getChild('rules');
+        return $this->_rules;
     }
 
     /**
@@ -145,7 +188,8 @@ class TzFixupRuleMatch extends Base
      */
     public function setRules(TzFixupRuleMatchRules $rules)
     {
-        return $this->setChild('rules', $rules);
+        $this->_rules = $rules;
+        return $this;
     }
 
     /**
@@ -155,7 +199,7 @@ class TzFixupRuleMatch extends Base
      */
     public function getDates()
     {
-        return $this->getChild('dates');
+        return $this->_dates;
     }
 
     /**
@@ -166,28 +210,7 @@ class TzFixupRuleMatch extends Base
      */
     public function setDates(TzFixupRuleMatchDates $dates)
     {
-        return $this->setChild('dates', $dates);
-    }
-
-    /**
-     * Returns the array representation of this class 
-     *
-     * @param  string $name
-     * @return array
-     */
-    public function toArray($name = 'match')
-    {
-        return parent::toArray($name);
-    }
-
-    /**
-     * Method returning the xml representation of this class
-     *
-     * @param  string $name
-     * @return SimpleXML
-     */
-    public function toXml($name = 'match')
-    {
-        return parent::toXml($name);
+        $this->_dates = $dates;
+        return $this;
     }
 }

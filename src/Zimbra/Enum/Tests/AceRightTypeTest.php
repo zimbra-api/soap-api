@@ -2,13 +2,13 @@
 
 namespace Zimbra\Enum\Tests;
 
-use \PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 use Zimbra\Enum\AceRightType;
 
 /**
  * Testcase class for AceRightType.
  */
-class AceRightTypeTest extends PHPUnit_Framework_TestCase
+class AceRightTypeTest extends TestCase
 {
     public function testAceRightType()
     {

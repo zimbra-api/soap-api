@@ -2,18 +2,18 @@
 
 namespace Zimbra\Admin\Tests\Struct;
 
-use Zimbra\Admin\Tests\ZimbraAdminTestCase;
 use Zimbra\Admin\Struct\MailQueueAction;
 use Zimbra\Admin\Struct\QueueQueryField;
 use Zimbra\Admin\Struct\QueueQuery;
 use Zimbra\Admin\Struct\ValueAttrib;
 use Zimbra\Enum\QueueAction;
 use Zimbra\Enum\QueueActionBy;
+use Zimbra\Struct\Tests\ZimbraStructTestCase;
 
 /**
  * Testcase class for MailQueueAction.
  */
-class MailQueueActionTest extends ZimbraAdminTestCase
+class MailQueueActionTest extends ZimbraStructTestCase
 {
     public function testMailQueueAction()
     {
@@ -25,19 +25,20 @@ class MailQueueActionTest extends ZimbraAdminTestCase
         $attr = new ValueAttrib($value);
         $field = new QueueQueryField($name, [$attr]);
         $query = new QueueQuery([$field], $limit, $offset);
-        $action = new MailQueueAction($query, QueueAction::REQUEUE(), QueueActionBy::ID());
+        $action = new MailQueueAction($query, QueueAction::REQUEUE()->value(), QueueActionBy::ID()->value());
 
         $this->assertSame($query, $action->getQuery());
-        $this->assertSame('requeue', $action->getOp()->value());
-        $this->assertSame('id', $action->getBy()->value());
+        $this->assertSame(QueueAction::REQUEUE()->value(), $action->getOp());
+        $this->assertSame(QueueActionBy::ID()->value(), $action->getBy());
 
+        $action = new MailQueueAction(new QueueQuery(), '', '');
         $action->setQuery($query)
-               ->setOp(QueueAction::HOLD())
-               ->setBy(QueueActionBy::QUERY());
+               ->setOp(QueueAction::HOLD()->value())
+               ->setBy(QueueActionBy::QUERY()->value());
 
         $this->assertSame($query, $action->getQuery());
-        $this->assertSame('hold', $action->getOp()->value());
-        $this->assertSame('query', $action->getBy()->value());
+        $this->assertSame(QueueAction::HOLD()->value(), $action->getOp());
+        $this->assertSame(QueueActionBy::QUERY()->value(), $action->getBy());
 
         $xml = '<?xml version="1.0"?>' . "\n"
             . '<action op="' . QueueAction::HOLD() . '" by="' . QueueActionBy::QUERY() . '">'
@@ -47,28 +48,18 @@ class MailQueueActionTest extends ZimbraAdminTestCase
                     . '</field>'
                 . '</query>'
             . '</action>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $action);
+        $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($action, 'xml'));
 
-        $array = [
-            'action' => [
-                'op' => QueueAction::HOLD()->value(),
-                'by' => QueueActionBy::QUERY()->value(),
-                'query' => [
-                    'limit' => $limit,
-                    'offset' => $offset,
-                    'field' => [
-                        [
-                            'name' => $name,
-                            'match' => [
-                                [
-                                    'value' => $value,
-                                ],
-                            ],
-                        ],
-                    ],
-                ],
-            ],
-        ];
-        $this->assertEquals($array, $action->toArray());
+        $action = $this->serializer->deserialize($xml, 'Zimbra\Admin\Struct\MailQueueAction', 'xml');
+        $query = $action->getQuery();
+        $field = $query->getFields()[0];
+        $match = $field->getMatches()[0];
+
+        $this->assertSame(QueueAction::HOLD()->value(), $action->getOp());
+        $this->assertSame(QueueActionBy::QUERY()->value(), $action->getBy());
+        $this->assertSame($limit, $query->getLimit());
+        $this->assertSame($offset, $query->getOffset());
+        $this->assertSame($name, $field->getName());
+        $this->assertSame($value, $match->getValue());
     }
 }

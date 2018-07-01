@@ -4,11 +4,12 @@ namespace Zimbra\Account\Tests\Struct;
 
 use Zimbra\Account\Tests\ZimbraAccountTestCase;
 use Zimbra\Account\Struct\NameId;
+use Zimbra\Struct\Tests\ZimbraStructTestCase;
 
 /**
  * Testcase class for NameId.
  */
-class NameIdTest extends ZimbraAccountTestCase
+class NameIdTest extends ZimbraStructTestCase
 {
     public function testNameId()
     {
@@ -19,6 +20,7 @@ class NameIdTest extends ZimbraAccountTestCase
         $this->assertSame($name, $nameId->getName());
         $this->assertSame($id, $nameId->getId());
 
+        $nameId = new NameId('', '');
         $nameId->setName($name)
                ->setId($id);
         $this->assertSame($name, $nameId->getName());
@@ -26,14 +28,10 @@ class NameIdTest extends ZimbraAccountTestCase
 
         $xml = '<?xml version="1.0"?>' . "\n"
             . '<nameid name="' . $name . '" id="' . $id . '" />';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $nameId);
+        $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($nameId, 'xml'));
 
-        $array = [
-            'nameid' => [
-                'name' => $name,
-                'id' => $id,
-            ],
-        ];
-        $this->assertEquals($array, $nameId->toArray());
+        $nameId = $this->serializer->deserialize($xml, 'Zimbra\Account\Struct\NameId', 'xml');
+        $this->assertSame($name, $nameId->getName());
+        $this->assertSame($id, $nameId->getId());
     }
 }

@@ -14,26 +14,26 @@ class AccountNameSelectorTest extends ZimbraStructTestCase
     {
         $name = $this->faker->word;
         $value = $this->faker->word;
-        $acc = new AccountNameSelector(AccountBy::ID(), $name, $value);
-        $this->assertTrue($acc->getBy()->is('id'));
+        $acc = new AccountNameSelector(AccountBy::ID()->value(), $name, $value);
+        $this->assertSame(AccountBy::ID()->value(), $acc->getBy());
         $this->assertSame($name, $acc->getName());
+        $this->assertSame($value, $acc->getValue());
 
-        $acc->setBy(AccountBy::ADMIN_NAME())
-            ->setName($name);
-        $this->assertTrue($acc->getBy()->is('adminName'));
+        $acc = new AccountNameSelector(AccountBy::ID()->value());
+        $acc->setBy(AccountBy::NAME()->value())
+            ->setName($name)
+            ->setValue($value);
+        $this->assertSame(AccountBy::NAME()->value(), $acc->getBy());
         $this->assertSame($name, $acc->getName());
+        $this->assertSame($value, $acc->getValue());
 
         $xml = '<?xml version="1.0"?>' . "\n"
-            . '<account by="' . AccountBy::ADMIN_NAME() . '" name="' . $name . '">' . $value . '</account>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $acc);
+            . '<account by="' . AccountBy::NAME() . '" name="' . $name . '">' . $value . '</account>';
+        $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($acc, 'xml'));
 
-        $array = [
-            'account' => [
-                'by' => AccountBy::ADMIN_NAME()->value(),
-                'name' => $name,
-                '_content' => $value,
-            ],
-        ];
-        $this->assertEquals($array, $acc->toArray());
+        $acc = $this->serializer->deserialize($xml, 'Zimbra\Struct\AccountNameSelector', 'xml');
+        $this->assertSame(AccountBy::NAME()->value(), $acc->getBy());
+        $this->assertSame($name, $acc->getName());
+        $this->assertSame($value, $acc->getValue());
     }
 }

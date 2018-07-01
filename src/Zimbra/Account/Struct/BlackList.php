@@ -10,8 +10,11 @@
 
 namespace Zimbra\Account\Struct;
 
-use Zimbra\Common\TypedSequence;
-use Zimbra\Struct\Base;
+use JMS\Serializer\Annotation\Accessor;
+use JMS\Serializer\Annotation\Type;
+use JMS\Serializer\Annotation\XmlList;
+use JMS\Serializer\Annotation\XmlRoot;
+
 use Zimbra\Struct\OpValue;
 
 /**
@@ -22,12 +25,14 @@ use Zimbra\Struct\OpValue;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
+ * @XmlRoot(name="blackList")
  */
-class BlackList extends Base
+class BlackList
 {
     /**
-     * Attributes
-     * @var TypedSequence<OpValue>
+     * @Accessor(getter="getAddrs", setter="setAddrs")
+     * @Type("array<Zimbra\Struct\OpValue>")
+     * @XmlList(inline = true, entry = "addr")
      */
     private $_addrs;
 
@@ -38,71 +43,45 @@ class BlackList extends Base
      */
     public function __construct(array $addrs = [])
     {
-		parent::__construct();
         $this->setAddrs($addrs);
-
-        $this->on('before', function(Base $sender)
-        {
-            if($sender->getAddrs()->count())
-            {
-                $sender->setChild('addr', $sender->getAddrs()->all());
-            }
-        });
     }
 
     /**
      * Add an addr
      *
-     * @param  Attr $addr
+     * @param  OpValue $addr
      * @return self
      */
     public function addAddr(OpValue $addr)
     {
-        $this->_addrs->add($addr);
+        $this->_addrs[] = $addr;
         return $this;
     }
 
     /**
-     * Sets addr sequence
+     * Sets addr array
      *
      * @param array $addrs
      * @return self
      */
     public function setAddrs(array $addrs)
     {
-        $this->_addrs = new TypedSequence('Zimbra\Struct\OpValue', $addrs);
+        $this->_addrs = [];
+        foreach ($addrs as $addr) {
+            if ($addr instanceof OpValue) {
+                $this->_addrs[] = $addr;
+            }
+        }
         return $this;
     }
 
     /**
-     * Gets addr sequence
+     * Gets addr array
      *
-     * @return Sequence
+     * @return array
      */
     public function getAddrs()
     {
         return $this->_addrs;
-    }
-
-    /**
-     * Returns the array representation of this class 
-     *
-     * @param  string $name
-     * @return array
-     */
-    public function toArray($name = 'blackList')
-    {
-        return parent::toArray($name);
-    }
-
-    /**
-     * Method returning the xml representative this class
-     *
-     * @param  string $name
-     * @return SimpleXML
-     */
-    public function toXml($name = 'blackList')
-    {
-        return parent::toXml($name);
     }
 }

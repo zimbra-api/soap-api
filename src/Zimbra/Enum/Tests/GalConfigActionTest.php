@@ -2,13 +2,13 @@
 
 namespace Zimbra\Enum\Tests;
 
-use \PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 use Zimbra\Enum\GalConfigAction;
 
 /**
  * Testcase class for GalConfigAction.
  */
-class GalConfigActionTest extends PHPUnit_Framework_TestCase
+class GalConfigActionTest extends TestCase
 {
     public function testGalConfigAction()
     {

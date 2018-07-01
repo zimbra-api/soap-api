@@ -2,36 +2,35 @@
 
 namespace Zimbra\Admin\Tests\Struct;
 
-use Zimbra\Admin\Tests\ZimbraAdminTestCase;
 use Zimbra\Admin\Struct\CacheEntrySelector;
 use Zimbra\Enum\CacheEntryBy;
+use Zimbra\Struct\Tests\ZimbraStructTestCase;
 
 /**
  * Testcase class for CacheEntrySelector.
  */
-class CacheEntrySelectorTest extends ZimbraAdminTestCase
+class CacheEntrySelectorTest extends ZimbraStructTestCase
 {
     public function testCacheEntrySelector()
     {
         $value = $this->faker->word;
 
-        $entry = new CacheEntrySelector(CacheEntryBy::NAME(), $value);
-        $this->assertTrue($entry->getBy()->is('name'));
+        $entry = new CacheEntrySelector(CacheEntryBy::NAME()->value(), $value);
+        $this->assertSame(CacheEntryBy::NAME()->value(), $entry->getBy());
         $this->assertSame($value, $entry->getValue());
 
-        $entry->setBy(CacheEntryBy::ID());
-        $this->assertTrue($entry->getBy()->is('id'));
+        $entry = new CacheEntrySelector('');
+        $entry->setBy(CacheEntryBy::ID()->value())
+            ->setValue($value);
+        $this->assertSame(CacheEntryBy::ID()->value(), $entry->getBy());
+        $this->assertSame($value, $entry->getValue());
 
         $xml = '<?xml version="1.0"?>' . "\n"
             . '<entry by="' . CacheEntryBy::ID() . '">' . $value . '</entry>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $entry);
+        $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($entry, 'xml'));
 
-        $array = [
-            'entry' => [
-                'by' => CacheEntryBy::ID()->value(),
-                '_content' => $value,
-            ],
-        ];
-        $this->assertEquals($array, $entry->toArray());
+        $entry = $this->serializer->deserialize($xml, 'Zimbra\Admin\Struct\CacheEntrySelector', 'xml');
+        $this->assertSame(CacheEntryBy::ID()->value(), $entry->getBy());
+        $this->assertSame($value, $entry->getValue());
     }
 }

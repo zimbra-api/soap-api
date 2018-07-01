@@ -2,13 +2,13 @@
 
 namespace Zimbra\Enum\Tests;
 
-use \PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 use Zimbra\Enum\XmppComponentBy;
 
 /**
  * Testcase class for XmppComponentBy.
  */
-class XmppComponentByTest extends PHPUnit_Framework_TestCase
+class XmppComponentByTest extends TestCase
 {
     public function testXmppComponentBy()
     {

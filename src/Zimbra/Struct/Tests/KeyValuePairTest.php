@@ -18,19 +18,18 @@ class KeyValuePairTest extends ZimbraStructTestCase
         $this->assertSame($key, $kpv->getKey());
         $this->assertSame($value, $kpv->getValue());
 
-        $kpv->setKey($key);
+        $kpv = new KeyValuePair('', '');
+        $kpv->setKey($key)
+            ->setValue($value);
         $this->assertSame($key, $kpv->getKey());
+        $this->assertSame($value, $kpv->getValue());
 
         $xml = '<?xml version="1.0"?>' . "\n"
             . '<a n="' . $key . '">' . $value . '</a>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $kpv);
+        $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($kpv, 'xml'));
 
-        $array = [
-            'a' => [
-                'n' => $key,
-                '_content' => $value,
-            ],
-        ];
-        $this->assertEquals($array, $kpv->toArray());
+        $kpv = $this->serializer->deserialize($xml, 'Zimbra\Struct\KeyValuePair', 'xml');
+        $this->assertSame($key, $kpv->getKey());
+        $this->assertSame($value, $kpv->getValue());
     }
 }

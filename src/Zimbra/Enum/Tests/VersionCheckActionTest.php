@@ -2,13 +2,13 @@
 
 namespace Zimbra\Enum\Tests;
 
-use \PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 use Zimbra\Enum\VersionCheckAction;
 
 /**
  * Testcase class for VersionCheckAction.
  */
-class VersionCheckActionTest extends PHPUnit_Framework_TestCase
+class VersionCheckActionTest extends TestCase
 {
     public function testVersionCheckAction()
     {

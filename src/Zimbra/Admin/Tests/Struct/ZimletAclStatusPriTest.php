@@ -2,18 +2,18 @@
 
 namespace Zimbra\Admin\Tests\Struct;
 
-use Zimbra\Admin\Tests\ZimbraAdminTestCase;
 use Zimbra\Admin\Struct\IntegerValueAttrib;
 use Zimbra\Admin\Struct\ValueAttrib;
 use Zimbra\Admin\Struct\ZimletAcl;
 use Zimbra\Admin\Struct\ZimletAclStatusPri;
 use Zimbra\Enum\AclType;
 use Zimbra\Enum\ZimletStatus;
+use Zimbra\Struct\Tests\ZimbraStructTestCase;
 
 /**
  * Testcase class for ZimletAclStatusPri.
  */
-class ZimletAclStatusPriTest extends ZimbraAdminTestCase
+class ZimletAclStatusPriTest extends ZimbraStructTestCase
 {
     public function testZimletAclStatusPri()
     {
@@ -31,6 +31,7 @@ class ZimletAclStatusPriTest extends ZimbraAdminTestCase
         $this->assertSame($status, $zimlet->getStatus());
         $this->assertSame($priority, $zimlet->getPriority());
 
+        $zimlet = new ZimletAclStatusPri('');
         $zimlet->setName($name)
                ->setAcl($acl)
                ->setStatus($status)
@@ -46,23 +47,17 @@ class ZimletAclStatusPriTest extends ZimbraAdminTestCase
                 . '<status value="' . ZimletStatus::ENABLED() . '" />'
                 . '<priority value="' . $priority_value . '" />'
             . '</zimlet>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $zimlet);
+        $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($zimlet, 'xml'));
 
-        $array = [
-            'zimlet' => [
-                'name' => $name,
-                'acl' => [
-                    'cos' => $cos,
-                    'acl' => AclType::DENY()->value(),
-                ],
-                'status' => [
-                    'value' => ZimletStatus::ENABLED()->value(),
-                ],
-                'priority' => [
-                    'value' => $priority_value,
-                ],
-            ],
-        ];
-        $this->assertEquals($array, $zimlet->toArray());
+        $zimlet = $this->serializer->deserialize($xml, 'Zimbra\Admin\Struct\ZimletAclStatusPri', 'xml');
+        $acl = $zimlet->getAcl();
+        $status = $zimlet->getStatus();
+        $priority = $zimlet->getPriority();
+
+        $this->assertSame($name, $zimlet->getName());
+        $this->assertSame($cos, $acl->getCos());
+        $this->assertSame(AclType::DENY()->value(), $acl->getAcl());
+        $this->assertSame(ZimletStatus::ENABLED()->value(), $status->getValue());
+        $this->assertSame($priority_value, $priority->getValue());
     }
 }

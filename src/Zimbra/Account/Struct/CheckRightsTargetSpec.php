@@ -10,10 +10,16 @@
 
 namespace Zimbra\Account\Struct;
 
-use PhpCollection\Sequence;
+use JMS\Serializer\Annotation\Accessor;
+use JMS\Serializer\Annotation\SerializedName;
+use JMS\Serializer\Annotation\Type;
+use JMS\Serializer\Annotation\XmlAttribute;
+use JMS\Serializer\Annotation\XmlList;
+use JMS\Serializer\Annotation\XmlValue;
+use JMS\Serializer\Annotation\XmlRoot;
+
 use Zimbra\Enum\TargetBy;
 use Zimbra\Enum\TargetType;
-use Zimbra\Struct\Base;
 
 /**
  * CheckRightsTargetSpec struct class
@@ -23,38 +29,55 @@ use Zimbra\Struct\Base;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
+ * @XmlRoot(name="target")
  */
-class CheckRightsTargetSpec extends Base
+class CheckRightsTargetSpec
 {
     /**
-     * Array of right
-     * @var Sequence
+     * @Accessor(getter="getTargetType", setter="setTargetType")
+     * @SerializedName("type")
+     * @Type("string")
+     * @XmlAttribute
+     */
+    private $_targetType;
+
+    /**
+     * @Accessor(getter="getTargetBy", setter="setTargetBy")
+     * @SerializedName("by")
+     * @Type("string")
+     * @XmlAttribute
+     */
+    private $_targetBy;
+
+    /**
+     * @Accessor(getter="getTargetKey", setter="setTargetKey")
+     * @SerializedName("key")
+     * @Type("string")
+     * @XmlAttribute
+     */
+    private $_targetKey;
+
+    /**
+     * @Accessor(getter="getRights", setter="setRights")
+     * @Type("array<string>")
+     * @XmlList(inline = true, entry = "right")
      */
     private $_rights;
 
     /**
      * Constructor method for CheckRightsTargetSpec
-     * @param  TargetType $type
-     * @param  TargetBy $by
+     * @param  string $type
+     * @param  string $by
      * @param  string $key
      * @param  string $rights
      * @return self
      */
-    public function __construct(TargetType $type, TargetBy $by, $key, array $rights = [])
+    public function __construct($type, $by, $key, array $rights = [])
     {
-		parent::__construct();
-        $this->setProperty('type', $type);
-        $this->setProperty('by', $by);
-        $this->setProperty('key', trim($key));
-        $this->setRights($rights);
-
-        $this->on('before', function(Base $sender)
-        {
-            if($sender->getRights()->count())
-            {
-                $sender->setChild('right', $sender->getRights()->all());
-            }
-        });
+        $this->setTargetType($type)
+            ->setTargetBy($by)
+            ->setTargetKey($key)
+            ->setRights($rights);
     }
 
     /**
@@ -64,39 +87,45 @@ class CheckRightsTargetSpec extends Base
      */
     public function getTargetType()
     {
-        return $this->getProperty('type');
+        return $this->_targetType;
     }
 
     /**
      * Sets target type
      *
-     * @param  TargetType $type
+     * @param  string $type
      * @return self
      */
-    public function setTargetType(TargetType $type)
+    public function setTargetType($type)
     {
-        return $this->setProperty('type', $type);
+        if (TargetType::has(trim($type))) {
+            $this->_targetType = $type;
+        }
+        return $this;
     }
 
     /**
      * Gets target by
      *
-     * @return TargetBy
+     * @return string
      */
     public function getTargetBy()
     {
-        return $this->getProperty('by');
+        return $this->_targetBy;
     }
 
     /**
      * Sets target by
      *
-     * @param  TargetBy $by
+     * @param  string $by
      * @return self
      */
-    public function setTargetBy(TargetBy $by)
+    public function setTargetBy($by)
     {
-        return $this->setProperty('by', $by);
+        if (TargetBy::has(trim($by))) {
+            $this->_targetBy = $by;
+        }
+        return $this;
     }
 
     /**
@@ -106,7 +135,7 @@ class CheckRightsTargetSpec extends Base
      */
     public function getTargetKey()
     {
-        return $this->getProperty('key');
+        return $this->_targetKey;
     }
 
     /**
@@ -117,7 +146,8 @@ class CheckRightsTargetSpec extends Base
      */
     public function setTargetKey($key = null)
     {
-        return $this->setProperty('key', trim($key));;
+        $this->_targetKey = trim($key);
+        return $this;
     }
 
     /**
@@ -129,9 +159,8 @@ class CheckRightsTargetSpec extends Base
     public function addRight($right)
     {
         $right = trim($right);
-        if(!empty($right))
-        {
-            $this->_rights->add($right);
+        if (!empty($right)) {
+            $this->_rights[] = $right;
         }
         return $this;
     }
@@ -144,14 +173,9 @@ class CheckRightsTargetSpec extends Base
      */
     public function setRights(array $rights)
     {
-        $this->_rights = new Sequence;
-        foreach ($rights as $right)
-        {
-            $right = trim($right);
-            if(!empty($right))
-            {
-                $this->_rights->add($right);
-            }
+        $this->_rights = [];
+        foreach ($rights as $right) {
+            $this->addRight($right);
         }
         return $this;
     }
@@ -164,27 +188,5 @@ class CheckRightsTargetSpec extends Base
     public function getRights()
     {
         return $this->_rights;
-    }
-
-    /**
-     * Returns the array representation of this class 
-     *
-     * @param  string $name
-     * @return array
-     */
-    public function toArray($name = 'target')
-    {
-        return parent::toArray($name);
-    }
-
-    /**
-     * Method returning the xml representation of this class
-     *
-     * @param  string $name
-     * @return SimpleXML
-     */
-    public function toXml($name = 'target')
-    {
-        return parent::toXml($name);
     }
 }

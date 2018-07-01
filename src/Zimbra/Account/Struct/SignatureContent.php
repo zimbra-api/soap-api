@@ -10,8 +10,14 @@
 
 namespace Zimbra\Account\Struct;
 
+use JMS\Serializer\Annotation\Accessor;
+use JMS\Serializer\Annotation\SerializedName;
+use JMS\Serializer\Annotation\Type;
+use JMS\Serializer\Annotation\XmlAttribute;
+use JMS\Serializer\Annotation\XmlValue;
+use JMS\Serializer\Annotation\XmlRoot;
+
 use Zimbra\Enum\ContentType;
-use Zimbra\Struct\Base;
 
 /**
  * SignatureContent struct class
@@ -21,22 +27,61 @@ use Zimbra\Struct\Base;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
+ * @XmlRoot(name="content")
  */
-class SignatureContent extends Base
+class SignatureContent
 {
+    /**
+     * @Accessor(getter="getContentType", setter="setContentType")
+     * @SerializedName("type")
+     * @Type("string")
+     * @XmlAttribute
+     */
+    private $_contentType;
+
+    /**
+     * @Accessor(getter="getValue", setter="setValue")
+     * @Type("string")
+     * @XmlValue(cdata=false)
+     */
+    private $_value;
+
     /**
      * Constructor method for signatureContent
      * @param string $value
-     * @param ContentType $type
+     * @param string $type
      * @return self
      */
-    public function __construct($value = null, ContentType $type = null)
+    public function __construct($value = null, $type = null)
     {
-		parent::__construct(trim($value));
-        if($type instanceof ContentType)
-        {
-			$this->setProperty('type', $type);
+        if (null !== $value) {
+            $this->setValue($value);
         }
+        if (null !== $type) {
+            $this->setContentType($type);
+        }
+    }
+
+    /**
+     * Gets value
+     *
+     * @return string
+     */
+    public function getValue()
+    {
+        return $this->_value;
+    }
+
+    /**
+     * Sets value
+     *
+     * @param  string $name
+     * @return self
+     */
+    public function setValue($value)
+    {
+        $this->_value = trim($value);
+        return $this;
     }
 
     /**
@@ -46,7 +91,7 @@ class SignatureContent extends Base
      */
     public function getContentType()
     {
-        return $this->getProperty('type');
+        return $this->_contentType;
     }
 
     /**
@@ -55,28 +100,11 @@ class SignatureContent extends Base
      * @param  string $type
      * @return self
      */
-    public function setContentType(ContentType $type)
+    public function setContentType($type)
     {
-        return $this->setProperty('type', $type);
-    }
-
-    /**
-     * Returns the array representation of this class 
-     *
-     * @return array
-     */
-    public function toArray($name = 'content')
-    {
-        return parent::toArray($name);
-    }
-
-    /**
-     * Method returning the xml representation of this class
-     *
-     * @return SimpleXML
-     */
-    public function toXml($name = 'content')
-    {
-        return parent::toXml($name);
+        if (ContentType::has(trim($type))) {
+            $this->_contentType = $type;
+        }
+        return $this;
     }
 }

@@ -10,8 +10,14 @@
 
 namespace Zimbra\Admin\Struct;
 
+use JMS\Serializer\Annotation\Accessor;
+use JMS\Serializer\Annotation\SerializedName;
+use JMS\Serializer\Annotation\Type;
+use JMS\Serializer\Annotation\XmlAttribute;
+use JMS\Serializer\Annotation\XmlRoot;
+use JMS\Serializer\Annotation\XmlValue;
+
 use Zimbra\Enum\LoggingLevel;
-use Zimbra\Struct\Base;
 
 /**
  * LoggerInfo struct class
@@ -21,34 +27,37 @@ use Zimbra\Struct\Base;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 level Nguyen Van Nguyen.
+ * @XmlRoot(name="logger")
  */
-class LoggerInfo extends Base
+class LoggerInfo
 {
     /**
-     * Name of the logger category
-     * @var string
+     * @Accessor(getter="getCategory", setter="setCategory")
+     * @SerializedName("category")
+     * @Type("string")
+     * @XmlAttribute
      */
     private $_category;
 
     /**
-     * Level of the logging.
-     * @var LoggingLevel
+     * @Accessor(getter="getLevel", setter="setLevel")
+     * @SerializedName("level")
+     * @Type("string")
+     * @XmlAttribute
      */
     private $_level;
 
     /**
      * Constructor method for loggerInfo
      * @param string $category
-     * @param LoggingLevel $level
+     * @param string $level
      * @return self
      */
-    public function __construct($category, LoggingLevel $level = null)
+    public function __construct($category, $level = null)
     {
-        parent::__construct();
-        $this->setProperty('category', trim($category));
-        if($level instanceof LoggingLevel)
-        {
-            $this->setProperty('level', $level);
+        $this->setCategory($category);
+        if (NULL !== $level) {
+            $this->setLevel($level);
         }
     }
 
@@ -59,7 +68,7 @@ class LoggerInfo extends Base
      */
     public function getCategory()
     {
-        return $this->getProperty('category');
+        return $this->_category;
     }
 
     /**
@@ -70,49 +79,31 @@ class LoggerInfo extends Base
      */
     public function setCategory($category)
     {
-        return $this->setProperty('category', trim($category));
+        $this->_category = trim($category);
+        return $this;
     }
 
     /**
      * Gets level enum
      *
-     * @return Zimbra\Enum\LoggingLevel
+     * @return string
      */
     public function getLevel()
     {
-        return $this->getProperty('level');
+        return $this->_level;
     }
 
     /**
      * Sets level enum
      *
-     * @param  Zimbra\Enum\LoggingLevel $level
+     * @param  string $level
      * @return self
      */
-    public function setLevel(LoggingLevel $level)
+    public function setLevel($level)
     {
-        return $this->setProperty('level', $level);
-    }
-
-    /**
-     * Returns the array representation of this class 
-     *
-     * @param  string $name
-     * @return array
-     */
-    public function toArray($name = 'logger')
-    {
-        return parent::toArray($name);
-    }
-
-    /**
-     * Method returning the xml representative this class
-     *
-     * @param  string $name
-     * @return SimpleXML
-     */
-    public function toXml($name = 'logger')
-    {
-        return parent::toXml($name);
+        if (LoggingLevel::has(trim($level))) {
+            $this->_level = $level;
+        }
+        return $this;
     }
 }

@@ -11,7 +11,6 @@
 namespace Zimbra\Account\Struct;
 
 use Zimbra\Struct\AttrsImplTrait;
-use Zimbra\Struct\Base;
 
 /**
  * AccountKeyValuePairs struct class
@@ -22,29 +21,7 @@ use Zimbra\Struct\Base;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
  */
-abstract class AccountKeyValuePairs extends Base
+abstract class AccountKeyValuePairs
 {
     use AttrsImplTrait;
-
-    /**
-     * Returns the array representation of this class 
-     *
-     * @param  string $name
-     * @return array
-     */
-    public function toArray($name = 'attrs')
-    {
-        return parent::toArray($name);
-    }
-
-    /**
-     * Method returning the xml representative this class
-     *
-     * @param  string $name
-     * @return SimpleXML
-     */
-    public function toXml($name = 'attrs')
-    {
-        return parent::toXml($name);
-    }
 }

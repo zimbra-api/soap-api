@@ -10,8 +10,12 @@
 
 namespace Zimbra\Admin\Struct;
 
-use Zimbra\Common\TypedSequence;
-use Zimbra\Struct\Base;
+use JMS\Serializer\Annotation\Accessor;
+use JMS\Serializer\Annotation\SerializedName;
+use JMS\Serializer\Annotation\Type;
+use JMS\Serializer\Annotation\XmlAttribute;
+use JMS\Serializer\Annotation\XmlList;
+use JMS\Serializer\Annotation\XmlRoot;
 
 /**
  * QueueQueryField struct class
@@ -21,12 +25,23 @@ use Zimbra\Struct\Base;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
+ * @XmlRoot(name="field")
  */
-class QueueQueryField extends Base
+class QueueQueryField
 {
     /**
+     * @Accessor(getter="getName", setter="setName")
+     * @SerializedName("name")
+     * @Type("string")
+     * @XmlAttribute
+     */
+    private $_name;
+
+    /**
      * Match specifications
-     * @var TypedSequence
+     * @Accessor(getter="getMatches", setter="setMatches")
+     * @Type("array<Zimbra\Admin\Struct\ValueAttrib>")
+     * @XmlList(inline = true, entry = "match")
      */
     private $_matches;
 
@@ -38,17 +53,8 @@ class QueueQueryField extends Base
      */
     public function __construct($name, array $matches = [])
     {
-        parent::__construct();
-        $this->setProperty('name', trim($name));
-        $this->setMatches($matches);
-
-        $this->on('before', function(Base $sender)
-        {
-            if($sender->getMatches()->count())
-            {
-                $sender->setChild('match', $sender->getMatches()->all());
-            }
-        });
+        $this->setName($name)
+             ->setMatches($matches);
     }
 
     /**
@@ -58,7 +64,7 @@ class QueueQueryField extends Base
      */
     public function getName()
     {
-        return $this->getProperty('name');
+        return $this->_name;
     }
 
     /**
@@ -69,7 +75,8 @@ class QueueQueryField extends Base
      */
     public function setName($name)
     {
-        return $this->setProperty('name', trim($name));
+        $this->_name = trim($name);
+        return $this;
     }
 
     /**
@@ -80,7 +87,7 @@ class QueueQueryField extends Base
      */
     public function addMatch(ValueAttrib $match)
     {
-        $this->_matches->add($match);
+        $this->_matches[] = $match;
         return $this;
     }
 
@@ -92,39 +99,22 @@ class QueueQueryField extends Base
      */
     public function setMatches(array $matches)
     {
-        $this->_matches = new TypedSequence('Zimbra\Admin\Struct\ValueAttrib', $matches);
+        $this->_matches = [];
+        foreach ($matches as $match) {
+            if ($match instanceof ValueAttrib) {
+                $this->_matches[] = $match;
+            }
+        }
         return $this;
     }
 
     /**
      * Gets match sequence
      *
-     * @return Sequence
+     * @return array
      */
     public function getMatches()
     {
         return $this->_matches;
-    }
-
-    /**
-     * Returns the array representation of this class 
-     *
-     * @param  string $name
-     * @return array
-     */
-    public function toArray($name = 'field')
-    {
-        return parent::toArray($name);
-    }
-
-    /**
-     * Method returning the xml representation of this class
-     *
-     * @param  string $name
-     * @return SimpleXML
-     */
-    public function toXml($name = 'field')
-    {
-        return parent::toXml($name);
     }
 }

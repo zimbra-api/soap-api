@@ -2,13 +2,13 @@
 
 namespace Zimbra\Admin\Tests\Struct;
 
-use Zimbra\Admin\Tests\ZimbraAdminTestCase;
 use Zimbra\Admin\Struct\TimeAttr;
+use Zimbra\Struct\Tests\ZimbraStructTestCase;
 
 /**
  * Testcase class for TimeAttr.
  */
-class TimeAttrTest extends ZimbraAdminTestCase
+class TimeAttrTest extends ZimbraStructTestCase
 {
     public function testTimeAttr()
     {
@@ -16,18 +16,15 @@ class TimeAttrTest extends ZimbraAdminTestCase
         $attr = new TimeAttr($time);
         $this->assertSame($time, $attr->getTime());
 
+        $attr = new TimeAttr('');
         $attr->setTime($time);
         $this->assertSame($time, $attr->getTime());
 
         $xml = '<?xml version="1.0"?>' . "\n"
             . '<attr time="' . $time . '" />';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $attr);
+        $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($attr, 'xml'));
 
-        $array = [
-            'attr' => [
-                'time' => $time,
-            ],
-        ];
-        $this->assertEquals($array, $attr->toArray());
+        $attr = $this->serializer->deserialize($xml, 'Zimbra\Admin\Struct\TimeAttr', 'xml');
+        $this->assertSame($time, $attr->getTime());
     }
 }

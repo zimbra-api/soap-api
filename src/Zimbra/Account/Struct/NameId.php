@@ -10,7 +10,11 @@
 
 namespace Zimbra\Account\Struct;
 
-use Zimbra\Struct\Base;
+use JMS\Serializer\Annotation\Accessor;
+use JMS\Serializer\Annotation\SerializedName;
+use JMS\Serializer\Annotation\Type;
+use JMS\Serializer\Annotation\XmlAttribute;
+use JMS\Serializer\Annotation\XmlRoot;
 
 /**
  * NameId struct class
@@ -20,9 +24,26 @@ use Zimbra\Struct\Base;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
+ * @XmlRoot(name="nameid")
  */
-class NameId extends Base
+class NameId
 {
+    /**
+     * @Accessor(getter="getName", setter="setName")
+     * @SerializedName("name")
+     * @Type("string")
+     * @XmlAttribute
+     */
+    private $_name;
+
+    /**
+     * @Accessor(getter="getId", setter="setId")
+     * @SerializedName("id")
+     * @Type("string")
+     * @XmlAttribute
+     */
+    private $_id;
+
     /**
      * Constructor method for NameId
      * @param string $name
@@ -31,9 +52,7 @@ class NameId extends Base
      */
     public function __construct($name, $id)
     {
-		parent::__construct();
-		$this->setProperty('name', trim($name));
-		$this->setProperty('id', trim($id));
+        $this->setName($name)->setId($id);
     }
 
     /**
@@ -43,7 +62,7 @@ class NameId extends Base
      */
     public function getName()
     {
-        return $this->getProperty('name');
+        return $this->_name;
     }
 
     /**
@@ -54,7 +73,8 @@ class NameId extends Base
      */
     public function setName($name)
     {
-        return $this->setProperty('name', trim($name));
+        $this->_name = trim($name);
+        return $this;
     }
 
     /**
@@ -64,7 +84,7 @@ class NameId extends Base
      */
     public function getId()
     {
-        return $this->getProperty('id');
+        return $this->_id;
     }
 
     /**
@@ -75,28 +95,7 @@ class NameId extends Base
      */
     public function setId($id)
     {
-        return $this->setProperty('id', trim($id));
-    }
-
-    /**
-     * Returns the array representation of this class 
-     *
-     * @param  string $name
-     * @return array
-     */
-    public function toArray($name = 'nameid')
-    {
-        return parent::toArray($name);
-    }
-
-    /**
-     * Method returning the xml representation of this class
-     *
-     * @param  string $name
-     * @return SimpleXML
-     */
-    public function toXml($name = 'nameid')
-    {
-        return parent::toXml($name);
+        $this->_id = trim($id);
+        return $this;
     }
 }

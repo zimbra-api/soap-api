@@ -10,8 +10,13 @@
 
 namespace Zimbra\Admin\Struct;
 
+use JMS\Serializer\Annotation\Accessor;
+use JMS\Serializer\Annotation\SerializedName;
+use JMS\Serializer\Annotation\Type;
+use JMS\Serializer\Annotation\XmlAttribute;
+use JMS\Serializer\Annotation\XmlRoot;
+
 use Zimbra\Enum\AuthScheme;
-use Zimbra\Struct\Base;
 
 /**
  * ExchangeAuthSpec struct class
@@ -21,15 +26,56 @@ use Zimbra\Struct\Base;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 scheme Nguyen Van Nguyen.
+ * @XmlRoot(name="auth")
  */
-class ExchangeAuthSpec extends Base
+class ExchangeAuthSpec
 {
+    /**
+     * @Accessor(getter="getUrl", setter="setUrl")
+     * @SerializedName("url")
+     * @Type("string")
+     * @XmlAttribute
+     */
+    private $_url;
+
+    /**
+     * @Accessor(getter="getAuthUserName", setter="setAuthUserName")
+     * @SerializedName("user")
+     * @Type("string")
+     * @XmlAttribute
+     */
+    private $_authUserName;
+
+    /**
+     * @Accessor(getter="getAuthPassword", setter="setAuthPassword")
+     * @SerializedName("pass")
+     * @Type("string")
+     * @XmlAttribute
+     */
+    private $_authPassword;
+
+    /**
+     * @Accessor(getter="getScheme", setter="setScheme")
+     * @SerializedName("scheme")
+     * @Type("string")
+     * @XmlAttribute
+     */
+    private $_scheme;
+
+    /**
+     * @Accessor(getter="getType", setter="setType")
+     * @SerializedName("type")
+     * @Type("string")
+     * @XmlAttribute
+     */
+    private $_type;
+
     /**
      * Constructor method for ExchangeAuthSpec
      * @param string $url URL to Exchange server
      * @param string $user Exchange user
      * @param string $pass Exchange password
-     * @param AuthScheme $scheme Auth scheme
+     * @param string $scheme Auth scheme
      * @param string $type Auth type
      * @return self
      */
@@ -37,18 +83,16 @@ class ExchangeAuthSpec extends Base
         $url,
         $user,
         $pass,
-        AuthScheme $scheme,
-        $type = null
+        $scheme,
+        $type = NULL
     )
     {
-        parent::__construct();
-        $this->setProperty('url', trim($url));
-        $this->setProperty('user', trim($user));
-        $this->setProperty('pass', trim($pass));
-        $this->setProperty('scheme', $scheme);
-        if(null !== $type)
-        {
-            $this->setProperty('type', trim($type));
+        $this->setUrl($url)
+             ->setAuthUserName($user)
+             ->setAuthPassword($pass)
+             ->setScheme($scheme);
+        if (NULL !== $type) {
+            $this->setType($type);
         }
     }
 
@@ -59,7 +103,7 @@ class ExchangeAuthSpec extends Base
      */
     public function getUrl()
     {
-        return $this->getProperty('url');
+        return $this->_url;
     }
 
     /**
@@ -70,7 +114,8 @@ class ExchangeAuthSpec extends Base
      */
     public function setUrl($url)
     {
-        return $this->setProperty('url', trim($url));
+        $this->_url = trim($url);
+        return $this;
     }
 
     /**
@@ -80,7 +125,7 @@ class ExchangeAuthSpec extends Base
      */
     public function getAuthUserName()
     {
-        return $this->getProperty('user');
+        return $this->_user;
     }
 
     /**
@@ -91,7 +136,8 @@ class ExchangeAuthSpec extends Base
      */
     public function setAuthUserName($user)
     {
-        return $this->setProperty('user', trim($user));
+        $this->_user = trim($user);
+        return $this;
     }
 
     /**
@@ -101,7 +147,7 @@ class ExchangeAuthSpec extends Base
      */
     public function getAuthPassword()
     {
-        return $this->getProperty('pass');
+        return $this->_pass;
     }
 
     /**
@@ -112,7 +158,8 @@ class ExchangeAuthSpec extends Base
      */
     public function setAuthPassword($pass)
     {
-        return $this->setProperty('pass', trim($pass));
+        $this->_pass = trim($pass);
+        return $this;
     }
 
     /**
@@ -120,20 +167,23 @@ class ExchangeAuthSpec extends Base
      *
      * @return Zimbra\Enum\AuthScheme
      */
-    public function getAuthScheme()
+    public function getScheme()
     {
-        return $this->getProperty('scheme');
+        return $this->_scheme;
     }
 
     /**
      * Sets scheme enum
      *
-     * @param  Zimbra\Enum\AuthScheme $scheme
+     * @param  string $scheme
      * @return self
      */
-    public function setAuthScheme(AuthScheme $scheme)
+    public function setScheme($scheme)
     {
-        return $this->setProperty('scheme', $scheme);
+        if (AuthScheme::has(trim($scheme))) {
+            $this->_scheme = $scheme;
+        }
+        return $this;
     }
 
     /**
@@ -143,7 +193,7 @@ class ExchangeAuthSpec extends Base
      */
     public function getType()
     {
-        return $this->getProperty('type');
+        return $this->_type;
     }
 
     /**
@@ -154,28 +204,7 @@ class ExchangeAuthSpec extends Base
      */
     public function setType($type)
     {
-        return $this->setProperty('type', trim($type));
-    }
-
-    /**
-     * Returns the array representation of this class 
-     *
-     * @param  string $name
-     * @return array
-     */
-    public function toArray($name = 'auth')
-    {
-        return parent::toArray($name);
-    }
-
-    /**
-     * Method returning the xml representation of this class
-     *
-     * @param  string $name
-     * @return SimpleXML
-     */
-    public function toXml($name = 'auth')
-    {
-        return parent::toXml($name);
+        $this->_type = trim($type);
+        return $this;
     }
 }

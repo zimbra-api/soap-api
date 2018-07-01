@@ -2,16 +2,16 @@
 
 namespace Zimbra\Admin\Tests\Struct;
 
-use Zimbra\Admin\Tests\ZimbraAdminTestCase;
 use Zimbra\Admin\Struct\CalTZInfo;
 use Zimbra\Admin\Struct\TzReplaceInfo;
 use Zimbra\Struct\TzOnsetInfo;
 use Zimbra\Struct\Id;
+use Zimbra\Struct\Tests\ZimbraStructTestCase;
 
 /**
  * Testcase class for TzReplaceInfo.
  */
-class TzReplaceInfoTest extends ZimbraAdminTestCase
+class TzReplaceInfoTest extends ZimbraStructTestCase
 {
     public function testTzReplaceInfo()
     {
@@ -32,12 +32,13 @@ class TzReplaceInfoTest extends ZimbraAdminTestCase
 
         $replace = new TzReplaceInfo($wellKnownTz, $tz);
         $this->assertSame($wellKnownTz, $replace->getWellKnownTz());
-        $this->assertSame($tz, $replace->getTz());
+        $this->assertSame($tz, $replace->getCalTz());
 
+        $replace = new TzReplaceInfo();
         $replace->setWellKnownTz($wellKnownTz)
-                ->setTz($tz);
+                ->setCalTz($tz);
         $this->assertSame($wellKnownTz, $replace->getWellKnownTz());
-        $this->assertSame($tz, $replace->getTz());
+        $this->assertSame($tz, $replace->getCalTz());
 
         $xml = '<?xml version="1.0"?>' . "\n"
             . '<replace>'
@@ -47,34 +48,29 @@ class TzReplaceInfoTest extends ZimbraAdminTestCase
                     . '<daylight mon="' . $mon . '" hour="' . $hour . '" min="' . $min . '" sec="' . $sec . '" />'
                 . '</tz>'
             . '</replace>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $replace);
+        $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($replace, 'xml'));
 
-        $array = [
-            'replace' => [
-                'wellKnownTz' => [
-                    'id' => $id,
-                ],
-                'tz' => [
-                    'id' => $id,
-                    'stdoff' => $stdoff,
-                    'dayoff' => $dayoff,
-                    'stdname' => $stdname,
-                    'dayname' => $dayname,
-                    'standard' => [
-                        'mon' => $mon,
-                        'hour' => $hour,
-                        'min' => $min,
-                        'sec' => $sec,
-                    ],
-                    'daylight' => [
-                        'mon' => $mon,
-                        'hour' => $hour,
-                        'min' => $min,
-                        'sec' => $sec,
-                    ],
-                ],
-            ],
-        ];
-        $this->assertEquals($array, $replace->toArray());
+        $replace = $this->serializer->deserialize($xml, 'Zimbra\Admin\Struct\TzReplaceInfo', 'xml');
+        $wellKnownTz = $replace->getWellKnownTz();
+        $tz = $replace->getCalTz();
+        $standard = $tz->getStandardTzOnset();
+        $daylight = $tz->getDaylightTzOnset();
+
+        $this->assertSame($id, $wellKnownTz->getId());
+        $this->assertSame($id, $tz->getId());
+        $this->assertSame($stdoff, $tz->getTzStdOffset());
+        $this->assertSame($dayoff, $tz->getTzDayOffset());
+        $this->assertSame($stdname, $tz->getStandardTZName());
+        $this->assertSame($dayname, $tz->getDaylightTZName());
+
+        $this->assertSame($mon, $standard->getMonth());
+        $this->assertSame($hour, $standard->getHour());
+        $this->assertSame($min, $standard->getMinute());
+        $this->assertSame($sec, $standard->getSecond());
+
+        $this->assertSame($mon, $daylight->getMonth());
+        $this->assertSame($hour, $daylight->getHour());
+        $this->assertSame($min, $daylight->getMinute());
+        $this->assertSame($sec, $daylight->getSecond());
     }
 }

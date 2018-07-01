@@ -10,8 +10,14 @@
 
 namespace Zimbra\Admin\Struct;
 
+use JMS\Serializer\Annotation\Accessor;
+use JMS\Serializer\Annotation\SerializedName;
+use JMS\Serializer\Annotation\Type;
+use JMS\Serializer\Annotation\XmlAttribute;
+use JMS\Serializer\Annotation\XmlRoot;
+use JMS\Serializer\Annotation\XmlValue;
+
 use Zimbra\Enum\AutoProvPrincipalBy as PrincipalBy;
-use Zimbra\Struct\Base;
 
 /**
  * PrincipalSelector struct class
@@ -21,61 +27,82 @@ use Zimbra\Struct\Base;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
+ * @XmlRoot(name="principal")
  */
-class PrincipalSelector extends Base
+class PrincipalSelector
 {
     /**
+     * @Accessor(getter="getBy", setter="setBy")
+     * @SerializedName("by")
+     * @Type("string")
+     * @XmlAttribute
+     */
+    private $_by;
+
+    /**
+     * @Accessor(getter="getValue", setter="setValue")
+     * @Type("string")
+     * @XmlValue(cdata=false)
+     */
+    private $_value;
+
+    /**
      * Constructor method for PrincipalSelector
-     * @param  PrincipalBy $by Meaning determined by {principal-selector-by}
+     * @param  string $by Meaning determined by {principal-selector-by}
      * @param  string $value The key used to identify the principal
      * @return self
      */
-    public function __construct(PrincipalBy $by, $value = null)
+    public function __construct($by, $value = NULL)
     {
-        parent::__construct(trim($value));
-        $this->setProperty('by', $by);
+        $this->setBy($by);
+        if (NULL !== $value) {
+            $this->setValue($value);
+        }
     }
 
     /**
      * Gets by enum
      *
-     * @return Zimbra\Enum\PrincipalBy
+     * @return string
      */
     public function getBy()
     {
-        return $this->getProperty('by');
+        return $this->_by;
     }
 
     /**
      * Sets by enum
      *
-     * @param  Zimbra\Enum\PrincipalBy $by
+     * @param  string $by
      * @return self
      */
-    public function setBy(PrincipalBy $by)
+    public function setBy($by)
     {
-        return $this->setProperty('by', $by);
+        if (PrincipalBy::has(trim($by))) {
+            $this->_by = trim($by);
+        }
+        return $this;
     }
 
     /**
-     * Returns the array representation of this class 
+     * Gets value
      *
-     * @param  string $name
-     * @return array
+     * @return string
      */
-    public function toArray($name = 'principal')
+    public function getValue()
     {
-        return parent::toArray($name);
+        return $this->_value;
     }
 
     /**
-     * Method returning the xml representation of this class
+     * Sets value
      *
      * @param  string $name
-     * @return SimpleXML
+     * @return self
      */
-    public function toXml($name = 'principal')
+    public function setValue($value)
     {
-        return parent::toXml($name);
+        $this->_value = trim($value);
+        return $this;
     }
 }

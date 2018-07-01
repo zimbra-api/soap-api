@@ -2,13 +2,13 @@
 
 namespace Zimbra\Enum\Tests;
 
-use \PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 use Zimbra\Enum\ServerBy;
 
 /**
  * Testcase class for ServerBy.
  */
-class ServerByTest extends PHPUnit_Framework_TestCase
+class ServerByTest extends TestCase
 {
     public function testServerBy()
     {

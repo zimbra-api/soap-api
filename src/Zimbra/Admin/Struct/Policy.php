@@ -10,8 +10,13 @@
 
 namespace Zimbra\Admin\Struct;
 
-use Zimbra\Enum\Type;
-use Zimbra\Struct\Base;
+use JMS\Serializer\Annotation\Accessor;
+use JMS\Serializer\Annotation\SerializedName;
+use JMS\Serializer\Annotation\Type;
+use JMS\Serializer\Annotation\XmlAttribute;
+use JMS\Serializer\Annotation\XmlRoot;
+
+use Zimbra\Enum\Type as EnumType;
 
 /**
  * Policy struct class
@@ -21,9 +26,42 @@ use Zimbra\Struct\Base;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
+ * @XmlRoot(name="policy")
  */
-class Policy extends Base
+class Policy
 {
+    /**
+     * @Accessor(getter="getType", setter="setType")
+     * @SerializedName("type")
+     * @Type("string")
+     * @XmlAttribute
+     */
+    private $_type;
+
+    /**
+     * @Accessor(getter="getId", setter="setId")
+     * @SerializedName("id")
+     * @Type("string")
+     * @XmlAttribute
+     */
+    private $_id;
+
+    /**
+     * @Accessor(getter="getName", setter="setName")
+     * @SerializedName("name")
+     * @Type("string")
+     * @XmlAttribute
+     */
+    private $_name;
+
+    /**
+     * @Accessor(getter="getLifetime", setter="setLifetime")
+     * @SerializedName("lifetime")
+     * @Type("string")
+     * @XmlAttribute
+     */
+    private $_lifetime;
+
     /**
      * Constructor method for policy
      * @param string $type Retention policy type
@@ -32,47 +70,54 @@ class Policy extends Base
      * @param string $lifetime The duration
      * @return self
      */
-    public function __construct(Type $type = null, $id = null, $name = null, $lifetime = null)
+    public function __construct($type = NULL, $id = NULL, $name = NULL, $lifetime = NULL)
     {
-        parent::__construct();
-        if($type instanceof Type)
-        {
-            $this->setProperty('type', $type);
+        if (NULL !== $type) {
+            $this->setType($type);
         }
-        if(null !== $id)
-        {
-            $this->setProperty('id', trim($id));
+        if (NULL !== $id) {
+            $this->setId($id);
         }
-        if(null !== $name)
-        {
-            $this->setProperty('name', trim($name));
+        if (NULL !== $name) {
+            $this->setName($name);
         }
-        if(null !== $lifetime)
-        {
-            $this->setProperty('lifetime', trim($lifetime));
+        if (NULL !== $lifetime) {
+            $this->setLifetime($lifetime);
         }
-        $this->setXmlNamespace('urn:zimbraMail');
+    }
+
+    public static function newUserPolicy($lifetime = NULL)
+    {
+        return new self(EnumType::USER()->value(), NULL, NULL, $lifetime);
+    }
+
+    public static function newSystemPolicy($id = NULL, $name = NULL, $lifetime = NULL)
+    {
+        return new self(EnumType::SYSTEM()->value(), NULL, NULL, $lifetime);
     }
 
     /**
      * Gets type enum
      *
-     * @return Zimbra\Enum\Type
+     * @return string
      */
     public function getType()
     {
-        return $this->getProperty('type');
+        return $this->_type;
     }
 
     /**
      * Sets type enum
      *
-     * @param  Zimbra\Enum\Type $type
+     * @param  string $type
      * @return self
      */
-    public function setType(Type $type)
+    public function setType($type)
     {
-        return $this->setProperty('type', $type);
+        if (EnumType::has(trim($type))) {
+            $this->_type = trim($type);
+        }
+        return $this;
     }
 
     /**
@@ -82,7 +127,7 @@ class Policy extends Base
      */
     public function getId()
     {
-        return $this->getProperty('id');
+        return $this->_id;
     }
 
     /**
@@ -93,7 +138,8 @@ class Policy extends Base
      */
     public function setId($id)
     {
-        return $this->setProperty('id', trim($id));
+        $this->_id = trim($id);
+        return $this;
     }
 
     /**
@@ -103,7 +149,7 @@ class Policy extends Base
      */
     public function getName()
     {
-        return $this->getProperty('name');
+        return $this->_name;
     }
 
     /**
@@ -114,7 +160,8 @@ class Policy extends Base
      */
     public function setName($name)
     {
-        return $this->setProperty('name', trim($name));
+        $this->_name = trim($name);
+        return $this;
     }
 
     /**
@@ -124,7 +171,7 @@ class Policy extends Base
      */
     public function getLifetime()
     {
-        return $this->getProperty('lifetime');
+        return $this->_lifetime;
     }
 
     /**
@@ -135,28 +182,7 @@ class Policy extends Base
      */
     public function setLifetime($lifetime)
     {
-        return $this->setProperty('lifetime', trim($lifetime));
-    }
-
-    /**
-     * Returns the array representation of this class 
-     *
-     * @param  string $name
-     * @return array
-     */
-    public function toArray($name = 'policy')
-    {
-        return parent::toArray($name);
-    }
-
-    /**
-     * Method returning the xml representation of this class
-     *
-     * @param  string $name
-     * @return SimpleXML
-     */
-    public function toXml($name = 'policy')
-    {
-        return parent::toXml($name);
+        $this->_lifetime = trim($lifetime);
+        return $this;
     }
 }

@@ -10,8 +10,13 @@
 
 namespace Zimbra\Admin\Struct;
 
+use JMS\Serializer\Annotation\Accessor;
+use JMS\Serializer\Annotation\SerializedName;
+use JMS\Serializer\Annotation\Type;
+use JMS\Serializer\Annotation\XmlAttribute;
+use JMS\Serializer\Annotation\XmlRoot;
+
 use Zimbra\Enum\ReindexType;
-use Zimbra\Struct\Base;
 
 /**
  * ReindexMailboxInfo struct class
@@ -21,9 +26,34 @@ use Zimbra\Struct\Base;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
+ * @XmlRoot(name="mbox")
  */
-class ReindexMailboxInfo extends Base
+class ReindexMailboxInfo
 {
+    /**
+     * @Accessor(getter="getId", setter="setId")
+     * @SerializedName("id")
+     * @Type("string")
+     * @XmlAttribute
+     */
+    private $_id;
+
+    /**
+     * @Accessor(getter="getTypes", setter="setTypes")
+     * @SerializedName("types")
+     * @Type("string")
+     * @XmlAttribute
+     */
+    private $_types;
+
+    /**
+     * @Accessor(getter="getIds", setter="setIds")
+     * @SerializedName("ids")
+     * @Type("string")
+     * @XmlAttribute
+     */
+    private $_ids;
+
     /**
      * Constructor method for ReindexMailboxInfo
      * @param string $id Account ID
@@ -31,17 +61,14 @@ class ReindexMailboxInfo extends Base
      * @param string $ids Comma separated list of IDs to re-index
      * @return self
      */
-    public function __construct($id, $types = null, $ids = null)
+    public function __construct($id, $types = NULL, $ids = NULL)
     {
-        parent::__construct();
-        $this->setProperty('id', trim($id));
-        if(null !== $types)
-        {
+        $this->setId($id);
+        if (NULL !== $types) {
             $this->setTypes($types);
         }
-        if(null !== $ids)
-        {
-            $this->setProperty('ids', trim($ids));
+        if (NULL !== $ids) {
+            $this->setIds($ids);
         }
     }
 
@@ -52,7 +79,7 @@ class ReindexMailboxInfo extends Base
      */
     public function getId()
     {
-        return $this->getProperty('id');
+        return $this->_id;
     }
 
     /**
@@ -63,7 +90,8 @@ class ReindexMailboxInfo extends Base
      */
     public function setId($id)
     {
-        return $this->setProperty('id', trim($id));
+        $this->_id = trim($id);
+        return $this;
     }
 
     /**
@@ -73,7 +101,7 @@ class ReindexMailboxInfo extends Base
      */
     public function getTypes()
     {
-        return $this->getProperty('types');
+        return $this->_types;
     }
 
     /**
@@ -86,15 +114,14 @@ class ReindexMailboxInfo extends Base
     {
         $arrType = [];
         $types = explode(',', trim($types));
-        foreach ($types as $type)
-        {
+        foreach ($types as $type) {
             $type = trim($type);
-            if(ReindexType::has($type) && !in_array($type, $arrType))
-            {
+            if (ReindexType::has($type) && !in_array($type, $arrType)) {
                 $arrType[] = trim($type);
             }
         }
-        return $this->setProperty('types', implode(',', $arrType));
+        $this->_types = implode(',', $arrType);
+        return $this;
     }
 
     /**
@@ -104,7 +131,7 @@ class ReindexMailboxInfo extends Base
      */
     public function getIds()
     {
-        return $this->getProperty('ids');
+        return $this->_ids;
     }
 
     /**
@@ -115,28 +142,7 @@ class ReindexMailboxInfo extends Base
      */
     public function setIds($ids)
     {
-        return $this->setProperty('ids', trim($ids));
-    }
-
-    /**
-     * Returns the array representation of this class 
-     *
-     * @param  string $name
-     * @return array
-     */
-    public function toArray($name = 'mbox')
-    {
-        return parent::toArray($name);
-    }
-
-    /**
-     * Method returning the xml representative this class
-     *
-     * @param  string $name
-     * @return SimpleXML
-     */
-    public function toXml($name = 'mbox')
-    {
-        return parent::toXml($name);
+        $this->_ids = trim($ids);
+        return $this;
     }
 }

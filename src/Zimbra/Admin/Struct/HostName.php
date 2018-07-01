@@ -10,7 +10,11 @@
 
 namespace Zimbra\Admin\Struct;
 
-use Zimbra\Struct\Base;
+use JMS\Serializer\Annotation\Accessor;
+use JMS\Serializer\Annotation\SerializedName;
+use JMS\Serializer\Annotation\Type;
+use JMS\Serializer\Annotation\XmlAttribute;
+use JMS\Serializer\Annotation\XmlRoot;
 
 /**
  * HostName struct class
@@ -20,18 +24,26 @@ use Zimbra\Struct\Base;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
+ * @XmlRoot(name="hostname")
  */
-class HostName extends Base
+class HostName
 {
+    /**
+     * @Accessor(getter="getHostName", setter="setHostName")
+     * @SerializedName("hn")
+     * @Type("string")
+     * @XmlAttribute
+     */
+    private $_hostName;
+
     /**
      * Constructor method for HostName
      * @param  string $hn Hostname
      * @return self
      */
-    public function __construct($hn)
+    public function __construct($hostName)
     {
-        parent::__construct();
-        $this->setProperty('hn', trim($hn));
+        $this->setHostName($hostName);
     }
 
     /**
@@ -41,7 +53,7 @@ class HostName extends Base
      */
     public function getHostName()
     {
-        return $this->getProperty('hn');
+        return $this->_hostName;
     }
 
     /**
@@ -50,30 +62,9 @@ class HostName extends Base
      * @param  string $hn
      * @return self
      */
-    public function setHostName($hn)
+    public function setHostName($hostName)
     {
-        return $this->setProperty('hn', trim($hn));
-    }
-
-    /**
-     * Returns the array representation of this class 
-     *
-     * @param  string $name
-     * @return array
-     */
-    public function toArray($name = 'hostname')
-    {
-        return parent::toArray($name);
-    }
-
-    /**
-     * Method returning the xml representation of this class
-     *
-     * @param  string $name
-     * @return SimpleXML
-     */
-    public function toXml($name = 'hostname')
-    {
-        return parent::toXml($name);
+        $this->_hostName = trim($hostName);
+        return $this;
     }
 }

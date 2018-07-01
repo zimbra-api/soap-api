@@ -2,14 +2,14 @@
 
 namespace Zimbra\Admin\Tests\Struct;
 
-use Zimbra\Admin\Tests\ZimbraAdminTestCase;
 use Zimbra\Admin\Struct\ReindexMailboxInfo;
 use Zimbra\Enum\ReindexType;
+use Zimbra\Struct\Tests\ZimbraStructTestCase;
 
 /**
  * Testcase class for ReindexMailboxInfo.
  */
-class ReindexMailboxInfoTest extends ZimbraAdminTestCase
+class ReindexMailboxInfoTest extends ZimbraStructTestCase
 {
     public function testReindexMailboxInfo()
     {
@@ -23,6 +23,7 @@ class ReindexMailboxInfoTest extends ZimbraAdminTestCase
         $this->assertSame($types, $mbox->getTypes());
         $this->assertSame($ids, $mbox->getIds());
 
+        $mbox = new ReindexMailboxInfo('');
         $mbox->setId($id)
              ->setTypes($types)
              ->setIds($ids);
@@ -32,15 +33,11 @@ class ReindexMailboxInfoTest extends ZimbraAdminTestCase
 
         $xml = '<?xml version="1.0"?>' . "\n"
             . '<mbox id="' . $id . '" types="' . $types . '" ids="' . $ids . '" />';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $mbox);
+        $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($mbox, 'xml'));
 
-        $array = [
-            'mbox' => [
-                'id' => $id,
-                'types' => $types,
-                'ids' => $ids,
-            ],
-        ];
-        $this->assertEquals($array, $mbox->toArray());
+        $mbox = $this->serializer->deserialize($xml, 'Zimbra\Admin\Struct\ReindexMailboxInfo', 'xml');
+        $this->assertSame($id, $mbox->getId());
+        $this->assertSame($types, $mbox->getTypes());
+        $this->assertSame($ids, $mbox->getIds());
     }
 }

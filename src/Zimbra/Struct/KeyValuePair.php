@@ -10,6 +10,13 @@
 
 namespace Zimbra\Struct;
 
+use JMS\Serializer\Annotation\Accessor;
+use JMS\Serializer\Annotation\SerializedName;
+use JMS\Serializer\Annotation\Type;
+use JMS\Serializer\Annotation\XmlAttribute;
+use JMS\Serializer\Annotation\XmlValue;
+use JMS\Serializer\Annotation\XmlRoot;
+
 /**
  * KeyValuePair struct class
  *
@@ -17,62 +24,78 @@ namespace Zimbra\Struct;
  * @category  Struct
  * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright Copyright © 2013 by Nguyen Van Nguyen.
+ * @XmlRoot(name="a")
  */
-class KeyValuePair extends Base
+class KeyValuePair
 {
+    /**
+     * @Accessor(getter="getKey", setter="setKey")
+     * @SerializedName("n")
+     * @Type("string")
+     * @XmlAttribute
+     */
+    private $_key;
+
+    /**
+     * @Accessor(getter="getValue", setter="setValue")
+     * @Type("string")
+     * @XmlValue(cdata=false)
+     */
+    private $_value;
+
     /**
      * Constructor method for KeyValuePair
      * @param string $key
      * @param string $value
      * @return self
      */
-    public function __construct($key, $value = null)
+    public function __construct($key, $value = NULL)
     {
-        parent::__construct($value);
-        $this->setProperty('n', $key);
+        $this->setKey($key)
+            ->setValue($value);
     }
 
     /**
-     * Gets a key
+     * Gets key
      *
-     * @param  string $key
      * @return string
      */
     public function getKey()
     {
-        return $this->getProperty('n');
+        return $this->_key;
     }
 
     /**
-     * Sets a key
+     * Sets key
      *
      * @param  string $key
      * @return self
      */
     public function setKey($key)
     {
-        return $this->setProperty('n', $key);
+        $this->_key = trim($key);
+        return $this;
     }
 
     /**
-     * Returns the array representation of this class 
+     * Gets value
      *
-     * @param  string $name
-     * @return array
+     * @return string
      */
-    public function toArray($name = 'a')
+    public function getValue()
     {
-        return parent::toArray($name);
+        return $this->_value;
     }
 
     /**
-     * Method returning the xml representation of this class
+     * Sets value
      *
-     * @param  string $name
-     * @return SimpleXML
+     * @param  string $key
+     * @return self
      */
-    public function toXml($name = 'a')
+    public function setValue($value)
     {
-        return parent::toXml($name);
+        $this->_value = trim($value);
+        return $this;
     }
 }

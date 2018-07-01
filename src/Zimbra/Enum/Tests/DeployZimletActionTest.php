@@ -2,13 +2,13 @@
 
 namespace Zimbra\Enum\Tests;
 
-use \PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 use Zimbra\Enum\DeployZimletAction;
 
 /**
  * Testcase class for DeployZimletAction.
  */
-class DeployZimletActionTest extends PHPUnit_Framework_TestCase
+class DeployZimletActionTest extends TestCase
 {
     public function testDeployZimletAction()
     {

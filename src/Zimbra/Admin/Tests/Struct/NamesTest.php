@@ -2,13 +2,13 @@
 
 namespace Zimbra\Admin\Tests\Struct;
 
-use Zimbra\Admin\Tests\ZimbraAdminTestCase;
 use Zimbra\Admin\Struct\Names;
+use Zimbra\Struct\Tests\ZimbraStructTestCase;
 
 /**
  * Testcase class for Names.
  */
-class NamesTest extends ZimbraAdminTestCase
+class NamesTest extends ZimbraStructTestCase
 {
     public function testNames()
     {
@@ -16,18 +16,15 @@ class NamesTest extends ZimbraAdminTestCase
         $names = new Names($name);
         $this->assertSame($name, $names->getName());
 
+        $names = new Names('');
         $names->setName($name);
         $this->assertSame($name, $names->getName());
 
         $xml = '<?xml version="1.0"?>' . "\n"
             . '<name name="' . $name . '" />';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $names);
+        $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($names, 'xml'));
 
-        $array = [
-            'name' => [
-                'name' => $name,
-            ],
-        ];
-        $this->assertEquals($array, $names->toArray());
+        $names = $this->serializer->deserialize($xml, 'Zimbra\Admin\Struct\Names', 'xml');
+        $this->assertSame($name, $names->getName());
     }
 }

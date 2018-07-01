@@ -2,13 +2,13 @@
 
 namespace Zimbra\Admin\Tests\Struct;
 
-use Zimbra\Admin\Tests\ZimbraAdminTestCase;
 use Zimbra\Admin\Struct\IntIdAttr;
+use Zimbra\Struct\Tests\ZimbraStructTestCase;
 
 /**
  * Testcase class for IntIdAttr.
  */
-class IntIdAttrTest extends ZimbraAdminTestCase
+class IntIdAttrTest extends ZimbraStructTestCase
 {
     public function testIntIdAttr()
     {
@@ -16,18 +16,15 @@ class IntIdAttrTest extends ZimbraAdminTestCase
         $attr = new IntIdAttr($value);
         $this->assertSame($value, $attr->getId());
 
+        $attr = new IntIdAttr(0);
         $attr->setId($value);
         $this->assertSame($value, $attr->getId());
 
         $xml = '<?xml version="1.0"?>' . "\n"
             . '<attr id="' . $value . '" />';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $attr);
+        $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($attr, 'xml'));
 
-        $array = [
-            'attr' => [
-                'id' => $value,
-            ],
-        ];
-        $this->assertEquals($array, $attr->toArray());
+        $attr = $this->serializer->deserialize($xml, 'Zimbra\Admin\Struct\IntIdAttr', 'xml');
+        $this->assertSame($value, $attr->getId());
     }
 }

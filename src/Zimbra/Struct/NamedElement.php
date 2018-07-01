@@ -10,6 +10,12 @@
 
 namespace Zimbra\Struct;
 
+use JMS\Serializer\Annotation\Accessor;
+use JMS\Serializer\Annotation\SerializedName;
+use JMS\Serializer\Annotation\Type;
+use JMS\Serializer\Annotation\XmlAttribute;
+use JMS\Serializer\Annotation\XmlRoot;
+
 /**
  * NamedElement struct class
  *
@@ -17,63 +23,49 @@ namespace Zimbra\Struct;
  * @category  Struct
  * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright Copyright © 2013 by Nguyen Van Nguyen.
+ * @XmlRoot(name="named")
  */
-class NamedElement extends Base
+class NamedElement
 {
+    /**
+     * @Accessor(getter="getName", setter="setName")
+     * @SerializedName("name")
+     * @Type("string")
+     * @XmlAttribute
+     */
+    private $_name;
+
     /**
      * Constructor method for NamedElement
      * @param string $name The name
      * @return self
      */
-    public function __construct($name = null)
+    public function __construct($name = NULL)
     {
-        parent::__construct();
-        if(null !== $name)
-        {
-            $this->setProperty('name', trim($name));
+        if (NULL !== $name) {
+            $this->setName($name);
         }
     }
 
     /**
-     * Gets name
+     * Gets a name
      *
      * @return string
      */
     public function getName()
     {
-        return $this->getProperty('name');
+        return $this->_name;
     }
 
     /**
-     * Sets name
+     * Sets a name
      *
      * @param  string $name
      * @return self
      */
     public function setName($name)
     {
-        return $this->setProperty('name', trim($name));
-    }
-
-    /**
-     * Returns the array representation of this class 
-     *
-     * @param  string $name
-     * @return array
-     */
-    public function toArray($name = 'named')
-    {
-        return parent::toArray($name);
-    }
-
-    /**
-     * Method returning the xml representation of this class
-     *
-     * @param  string $name
-     * @return SimpleXML
-     */
-    public function toXml($name = 'named')
-    {
-        return parent::toXml($name);
+        $this->_name = trim($name);
+        return $this;
     }
 }

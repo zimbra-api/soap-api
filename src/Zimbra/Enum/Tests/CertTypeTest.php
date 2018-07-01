@@ -2,13 +2,13 @@
 
 namespace Zimbra\Enum\Tests;
 
-use \PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 use Zimbra\Enum\CertType;
 
 /**
  * Testcase class for CertType.
  */
-class CertTypeTest extends PHPUnit_Framework_TestCase
+class CertTypeTest extends TestCase
 {
     public function testCertType()
     {

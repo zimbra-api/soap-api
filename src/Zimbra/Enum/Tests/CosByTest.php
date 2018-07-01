@@ -2,13 +2,13 @@
 
 namespace Zimbra\Enum\Tests;
 
-use \PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 use Zimbra\Enum\CosBy;
 
 /**
  * Testcase class for CosBy.
  */
-class CosByTest extends PHPUnit_Framework_TestCase
+class CosByTest extends TestCase
 {
     public function testCosBy()
     {

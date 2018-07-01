@@ -2,13 +2,13 @@
 
 namespace Zimbra\Admin\Tests\Struct;
 
-use Zimbra\Admin\Tests\ZimbraAdminTestCase;
 use Zimbra\Admin\Struct\CheckDirSelector;
+use Zimbra\Struct\Tests\ZimbraStructTestCase;
 
 /**
  * Testcase class for CheckDirSelector.
  */
-class CheckDirSelectorTest extends ZimbraAdminTestCase
+class CheckDirSelectorTest extends ZimbraStructTestCase
 {
     public function testCheckDirSelector()
     {
@@ -17,6 +17,7 @@ class CheckDirSelectorTest extends ZimbraAdminTestCase
         $this->assertSame($path, $dir->getPath());
         $this->assertFalse($dir->isCreate());
 
+        $dir = new CheckDirSelector('', false);
         $dir->setPath($path)
             ->setCreate(true);
         $this->assertSame($path, $dir->getPath());
@@ -24,14 +25,10 @@ class CheckDirSelectorTest extends ZimbraAdminTestCase
 
         $xml = '<?xml version="1.0"?>' . "\n"
             . '<directory path="' . $path . '" create="true" />';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $dir);
+        $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($dir, 'xml'));
 
-        $array = [
-            'directory' => [
-                'path' => $path,
-                'create' => true,
-            ],
-        ];
-        $this->assertEquals($array, $dir->toArray());
+        $tzi = $this->serializer->deserialize($xml, 'Zimbra\Admin\Struct\CheckDirSelector', 'xml');
+        $this->assertSame($path, $dir->getPath());
+        $this->assertTrue($dir->isCreate());
     }
 }

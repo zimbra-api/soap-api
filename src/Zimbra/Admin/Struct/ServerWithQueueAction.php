@@ -10,7 +10,12 @@
 
 namespace Zimbra\Admin\Struct;
 
-use Zimbra\Struct\Base;
+use JMS\Serializer\Annotation\Accessor;
+use JMS\Serializer\Annotation\SerializedName;
+use JMS\Serializer\Annotation\Type;
+use JMS\Serializer\Annotation\XmlAttribute;
+use JMS\Serializer\Annotation\XmlElement;
+use JMS\Serializer\Annotation\XmlRoot;
 
 /**
  * ServerWithQueueAction struct class
@@ -20,9 +25,26 @@ use Zimbra\Struct\Base;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
+ * @XmlRoot(name="server")
  */
-class ServerWithQueueAction extends Base
+class ServerWithQueueAction
 {
+    /**
+     * @Accessor(getter="getQueue", setter="setQueue")
+     * @SerializedName("queue")
+     * @Type("Zimbra\Admin\Struct\MailQueueWithAction")
+     * @XmlElement
+     */
+    private $_queue;
+
+    /**
+     * @Accessor(getter="getName", setter="setName")
+     * @SerializedName("name")
+     * @Type("string")
+     * @XmlAttribute
+     */
+    private $_name;
+
     /**
      * Constructor method for ServerWithQueueAction
      * @param  MailQueueWithAction $query Mail queue query details
@@ -31,9 +53,8 @@ class ServerWithQueueAction extends Base
      */
     public function __construct(MailQueueWithAction $queue, $name)
     {
-        parent::__construct();
-        $this->setChild('queue', $queue);
-        $this->setProperty('name', trim($name));
+        $this->setQueue($queue)
+             ->setName($name);
     }
 
     /**
@@ -43,7 +64,7 @@ class ServerWithQueueAction extends Base
      */
     public function getQueue()
     {
-        return $this->getChild('queue');
+        return $this->_queue;
     }
 
     /**
@@ -54,7 +75,8 @@ class ServerWithQueueAction extends Base
      */
     public function setQueue(MailQueueWithAction $queue)
     {
-        return $this->setChild('queue', $queue);
+        $this->_queue = $queue;
+        return $this;
     }
 
     /**
@@ -64,7 +86,7 @@ class ServerWithQueueAction extends Base
      */
     public function getName()
     {
-        return $this->getProperty('name');
+        return $this->_name;
     }
 
     /**
@@ -75,28 +97,7 @@ class ServerWithQueueAction extends Base
      */
     public function setName($name)
     {
-        return $this->setProperty('name', trim($name));
-    }
-
-    /**
-     * Returns the array representation of this class 
-     *
-     * @param  string $name
-     * @return array
-     */
-    public function toArray($name = 'server')
-    {
-        return parent::toArray($name);
-    }
-
-    /**
-     * Method returning the xml representation of this class
-     *
-     * @param  string $name
-     * @return SimpleXML
-     */
-    public function toXml($name = 'server')
-    {
-        return parent::toXml($name);
+        $this->_name = trim($name);
+        return $this;
     }
 }

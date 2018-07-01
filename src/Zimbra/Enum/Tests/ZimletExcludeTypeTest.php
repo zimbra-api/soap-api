@@ -2,13 +2,13 @@
 
 namespace Zimbra\Enum\Tests;
 
-use \PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 use Zimbra\Enum\ZimletExcludeType;
 
 /**
  * Testcase class for ZimletExcludeType.
  */
-class ZimletExcludeTypeTest extends PHPUnit_Framework_TestCase
+class ZimletExcludeTypeTest extends TestCase
 {
     public function testZimletExcludeType()
     {

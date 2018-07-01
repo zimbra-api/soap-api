@@ -2,13 +2,13 @@
 
 namespace Zimbra\Enum\Tests;
 
-use \PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 use Zimbra\Enum\AlwaysOnClusterBy;
 
 /**
  * Testcase class for AlwaysOnClusterBy.
  */
-class AlwaysOnClusterByTest extends PHPUnit_Framework_TestCase
+class AlwaysOnClusterByTest extends TestCase
 {
     public function testAlwaysOnClusterBy()
     {

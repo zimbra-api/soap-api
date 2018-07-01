@@ -10,7 +10,12 @@
 
 namespace Zimbra\Admin\Struct;
 
-use Zimbra\Struct\Base;
+use JMS\Serializer\Annotation\Accessor;
+use JMS\Serializer\Annotation\SerializedName;
+use JMS\Serializer\Annotation\Type;
+use JMS\Serializer\Annotation\XmlElement;
+use JMS\Serializer\Annotation\XmlNamespace;
+use JMS\Serializer\Annotation\XmlRoot;
 
 /**
  * PolicyHolder struct class
@@ -20,9 +25,19 @@ use Zimbra\Struct\Base;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
+ * @XmlNamespace(uri="urn:zimbraMail", prefix="urn")
+ * @XmlRoot(name="holder")
  */
-class PolicyHolder extends Base
+class PolicyHolder
 {
+    /**
+     * @Accessor(getter="getPolicy", setter="setPolicy")
+     * @SerializedName("policy")
+     * @Type("Zimbra\Admin\Struct\Policy")
+     * @XmlElement(namespace="urn:zimbraMail")
+     */
+    private $_policy;
+
     /**
      * Constructor method for PolicyHolder
      * @param  Policy $policy
@@ -30,10 +45,8 @@ class PolicyHolder extends Base
      */
     public function __construct(Policy $policy = null)
     {
-        parent::__construct();
-        if($policy instanceof Policy)
-        {
-            $this->setChild('policy', $policy);
+        if ($policy instanceof Policy) {
+            $this->setPolicy($policy);
         }
     }
 
@@ -44,7 +57,7 @@ class PolicyHolder extends Base
      */
     public function getPolicy()
     {
-        return $this->getChild('policy');
+        return $this->_policy;
     }
 
     /**
@@ -55,28 +68,7 @@ class PolicyHolder extends Base
      */
     public function setPolicy(Policy $policy)
     {
-        return $this->setChild('policy', $policy);
-    }
-
-    /**
-     * Returns the array representation of this class 
-     *
-     * @param  string $name
-     * @return array
-     */
-    public function toArray($name = 'holder')
-    {
-        return parent::toArray($name);
-    }
-
-    /**
-     * Method returning the xml representation of this class
-     *
-     * @param  string $name
-     * @return SimpleXML
-     */
-    public function toXml($name = 'holder')
-    {
-        return parent::toXml($name);
+        $this->_policy = $policy;
+        return $this;
     }
 }

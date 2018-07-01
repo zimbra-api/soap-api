@@ -10,7 +10,11 @@
 
 namespace Zimbra\Admin\Struct;
 
-use Zimbra\Struct\Base;
+use JMS\Serializer\Annotation\Accessor;
+use JMS\Serializer\Annotation\SerializedName;
+use JMS\Serializer\Annotation\Type;
+use JMS\Serializer\Annotation\XmlAttribute;
+use JMS\Serializer\Annotation\XmlRoot;
 
 /**
  * TzFixupRuleMatchDate struct class
@@ -20,18 +24,34 @@ use Zimbra\Struct\Base;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
+ * @XmlRoot(name="date")
  */
-class TzFixupRuleMatchDate extends Base
+class TzFixupRuleMatchDate
 {
+    /**
+     * @Accessor(getter="getMonth", setter="setMonth")
+     * @SerializedName("mon")
+     * @Type("integer")
+     * @XmlAttribute
+     */
+    private $_month;
+
+    /**
+     * @Accessor(getter="getMonthDay", setter="setMonthDay")
+     * @SerializedName("mday")
+     * @Type("integer")
+     * @XmlAttribute
+     */
+    private $_monthDay;
+
     /**
      * Constructor method for TzFixupRuleMatchDate
      * @param int $mon Match month. Value between 1 (January) and 12 (December)
-     * @param int $mday Match day of month (1..31
+     * @param int $mday Match day of month (1..31)
      * @return self
      */
     public function __construct($mon, $mday)
     {
-        parent::__construct();
         $this->setMonth($mon)
              ->setMonthDay($mday);
     }
@@ -43,7 +63,7 @@ class TzFixupRuleMatchDate extends Base
      */
     public function getMonth()
     {
-        return $this->getProperty('mon');
+        return $this->_month;
     }
 
     /**
@@ -55,7 +75,8 @@ class TzFixupRuleMatchDate extends Base
     public function setMonth($mon)
     {
         $mon = in_array((int) $mon, range(1, 12)) ? (int) $mon : 1;
-        return $this->setProperty('mon', $mon);
+        $this->_month = $mon;
+        return $this;
     }
 
     /**
@@ -65,7 +86,7 @@ class TzFixupRuleMatchDate extends Base
      */
     public function getMonthDay()
     {
-        return $this->getProperty('mday');
+        return $this->_monthDay;
     }
 
     /**
@@ -77,28 +98,7 @@ class TzFixupRuleMatchDate extends Base
     public function setMonthDay($mday)
     {
         $mday = in_array((int) $mday, range(1, 31)) ? (int) $mday : 1;
-        return $this->setProperty('mday', $mday);
-    }
-
-    /**
-     * Returns the array representation of this class 
-     *
-     * @param  string $name
-     * @return array
-     */
-    public function toArray($name = 'date')
-    {
-        return parent::toArray($name);
-    }
-
-    /**
-     * Method returning the xml representation of this class
-     *
-     * @param  string $name
-     * @return SimpleXML
-     */
-    public function toXml($name = 'date')
-    {
-        return parent::toXml($name);
+        $this->_monthDay = $mday;
+        return $this;
     }
 }

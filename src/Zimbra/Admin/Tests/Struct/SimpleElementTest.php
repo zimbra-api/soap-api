@@ -2,13 +2,13 @@
 
 namespace Zimbra\Admin\Tests\Struct;
 
-use Zimbra\Admin\Tests\ZimbraAdminTestCase;
 use Zimbra\Admin\Struct\SimpleElement;
+use Zimbra\Struct\Tests\ZimbraStructTestCase;
 
 /**
  * Testcase class for SimpleElement.
  */
-class SimpleElementTest extends ZimbraAdminTestCase
+class SimpleElementTest extends ZimbraStructTestCase
 {
     public function testSimpleElement()
     {
@@ -16,11 +16,9 @@ class SimpleElementTest extends ZimbraAdminTestCase
 
         $xml = '<?xml version="1.0"?>' . "\n"
             . '<any />';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $el);
+        $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($el, 'xml'));
 
-        $array = [
-            'any' => [],
-        ];
-        $this->assertEquals($array, $el->toArray());
+        $el = $this->serializer->deserialize($xml, 'Zimbra\Admin\Struct\SimpleElement', 'xml');
+        $this->assertTrue($el instanceof SimpleElement);
     }
 }

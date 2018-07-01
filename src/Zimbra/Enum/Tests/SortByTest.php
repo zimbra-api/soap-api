@@ -2,13 +2,13 @@
 
 namespace Zimbra\Enum\Tests;
 
-use \PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 use Zimbra\Enum\SortBy;
 
 /**
  * Testcase class for SortBy.
  */
-class SortByTest extends PHPUnit_Framework_TestCase
+class SortByTest extends TestCase
 {
     public function testSortBy()
     {

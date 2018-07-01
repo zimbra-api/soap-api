@@ -10,7 +10,11 @@
 
 namespace Zimbra\Admin\Struct;
 
-use Zimbra\Struct\Base;
+use JMS\Serializer\Annotation\Accessor;
+use JMS\Serializer\Annotation\SerializedName;
+use JMS\Serializer\Annotation\Type;
+use JMS\Serializer\Annotation\XmlAttribute;
+use JMS\Serializer\Annotation\XmlRoot;
 
 /**
  * IdAndAction struct class
@@ -20,9 +24,26 @@ use Zimbra\Struct\Base;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
+ * @XmlRoot(name="ia")
  */
-class IdAndAction extends Base
+class IdAndAction
 {
+    /**
+     * @Accessor(getter="getId", setter="setId")
+     * @SerializedName("id")
+     * @Type("string")
+     * @XmlAttribute
+     */
+    private $_id;
+
+    /**
+     * @Accessor(getter="getAction", setter="setAction")
+     * @SerializedName("action")
+     * @Type("string")
+     * @XmlAttribute
+     */
+    private $_action;
+
     /**
      * Constructor method for IdAndAction
      * @param string $id Zimbra ID of account
@@ -31,9 +52,8 @@ class IdAndAction extends Base
      */
     public function __construct($id, $action)
     {
-        parent::__construct();
-        $this->setProperty('id', trim($id));
-        $this->setAction($action);
+        $this->setId($id)
+             ->setAction($action);
     }
 
     /**
@@ -43,7 +63,7 @@ class IdAndAction extends Base
      */
     public function getId()
     {
-        return $this->getProperty('id');
+        return $this->_id;
     }
 
     /**
@@ -54,7 +74,8 @@ class IdAndAction extends Base
      */
     public function setId($id)
     {
-        return $this->setProperty('id', trim($id));
+        $this->_id = trim($id);
+        return $this;
     }
 
     /**
@@ -64,7 +85,7 @@ class IdAndAction extends Base
      */
     public function getAction()
     {
-        return $this->getProperty('action');
+        return $this->_action;
     }
 
     /**
@@ -75,36 +96,10 @@ class IdAndAction extends Base
      */
     public function setAction($action)
     {
-        if(in_array($action, ['bug72174', 'wiki', 'contactGroup']))
-        {
-            $this->setProperty('action', trim($action));
-        }
-        else
-        {
-            throw new \InvalidArgumentException('Action is bug72174 or wiki or contactGroup');
+        $action = trim($action);
+        if (in_array($action, ['bug72174', 'wiki', 'contactGroup'])) {
+            $this->_action = $action;
         }
         return $this;
-    }
-
-    /**
-     * Returns the array representation of this class 
-     *
-     * @param  string $name
-     * @return array
-     */
-    public function toArray($name = 'ia')
-    {
-        return parent::toArray($name);
-    }
-
-    /**
-     * Method returning the xml representation of this class
-     *
-     * @param  string $name
-     * @return SimpleXML
-     */
-    public function toXml($name = 'ia')
-    {
-        return parent::toXml($name);
     }
 }

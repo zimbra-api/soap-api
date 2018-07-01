@@ -10,6 +10,13 @@
 
 namespace Zimbra\Struct;
 
+use JMS\Serializer\Annotation\Accessor;
+use JMS\Serializer\Annotation\SerializedName;
+use JMS\Serializer\Annotation\Type;
+use JMS\Serializer\Annotation\XmlAttribute;
+use JMS\Serializer\Annotation\XmlElement;
+use JMS\Serializer\Annotation\XmlRoot;
+
 use Zimbra\Struct\EntrySearchFilterMultiCond as MultiCond;
 use Zimbra\Struct\EntrySearchFilterSingleCond as SingleCond;
 
@@ -20,34 +27,56 @@ use Zimbra\Struct\EntrySearchFilterSingleCond as SingleCond;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
+ * @XmlRoot(name="searchFilter")
  */
-class EntrySearchFilterInfo extends Base
+class EntrySearchFilterInfo
 {
     /**
-     * Compound condition or simple condition
-     * @var SearchFilterCondition
+     * @Accessor(getter="getCondition", setter="setCondition")
+     * @SerializedName("cond")
+     * @Type("Zimbra\Struct\EntrySearchFilterSingleCond")
+     * @XmlElement
      */
     private $_condition;
+
+    /**
+     * @Accessor(getter="getConditions", setter="setCondition")
+     * @SerializedName("conds")
+     * @Type("Zimbra\Struct\EntrySearchFilterMultiCond")
+     * @XmlElement
+     */
+    private $_conditions;
 
     /**
      * Constructor method for EntrySearchFilterInfo
      * @param SearchFilterCondition $condition
      * @return self
      */
-    public function __construct(SearchFilterCondition $condition = null)
+    public function __construct(SearchFilterCondition $condition = NULL)
     {
-        parent::__construct();
-        $this->setCondition($condition);
+        if ($condition instanceof SearchFilterCondition) {
+            $this->setCondition($condition);
+        }
     }
 
     /**
-     * Gets search filter condition
+     * Gets simple search filter condition
      *
      * @return SearchFilterCondition
      */
     public function getCondition()
     {
         return $this->_condition;
+    }
+
+    /**
+     * Gets compound search filter condition
+     *
+     * @return SearchFilterCondition
+     */
+    public function getConditions()
+    {
+        return $this->_conditions;
     }
 
     /**
@@ -58,53 +87,13 @@ class EntrySearchFilterInfo extends Base
      */
     public function setCondition(SearchFilterCondition $condition)
     {
-        $this->_condition = $condition;
-        if($this->_condition instanceof MultiCond)
-        {
-            $this->setChild('conds', $this->_condition);
+        $this->_condition = $this->_conditions = NULL;
+        if ($condition instanceof MultiCond) {
+            $this->_conditions = $condition;
         }
-        if($this->_condition instanceof SingleCond)
-        {
-            $this->setChild('cond', $this->_condition);
+        if ($condition instanceof SingleCond) {
+            $this->_condition = $condition;
         }
         return $this;
-    }
-
-    /**
-     * Gets or sets child
-     *
-     * @param  string $name
-     * @param  mix $value
-     * @return string|self
-     */
-    public function setChild($name, $value)
-    {
-        if($value instanceof SearchFilterCondition)
-        {
-            $this->removeChild('conds')->removeChild('cond');
-        }
-        return parent::setChild($name, $value);
-    }
-
-    /**
-     * Returns the array representation of this class 
-     *
-     * @param  string $name
-     * @return array
-     */
-    public function toArray($name = 'searchFilter')
-    {
-        return parent::toArray($name);
-    }
-
-    /**
-     * Method returning the xml representative this class
-     *
-     * @param  string $name
-     * @return SimpleXML
-     */
-    public function toXml($name = 'searchFilter')
-    {
-        return parent::toXml($name);
     }
 }

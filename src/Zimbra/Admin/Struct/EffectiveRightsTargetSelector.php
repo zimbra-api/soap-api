@@ -10,9 +10,15 @@
 
 namespace Zimbra\Admin\Struct;
 
+use JMS\Serializer\Annotation\Accessor;
+use JMS\Serializer\Annotation\SerializedName;
+use JMS\Serializer\Annotation\Type;
+use JMS\Serializer\Annotation\XmlAttribute;
+use JMS\Serializer\Annotation\XmlRoot;
+use JMS\Serializer\Annotation\XmlValue;
+
 use Zimbra\Enum\TargetType;
 use Zimbra\Enum\TargetBy;
-use Zimbra\Struct\Base;
 
 /**
  * EffectiveRightsTargetSelector struct class
@@ -22,23 +28,48 @@ use Zimbra\Struct\Base;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
+ * @XmlRoot(name="target")
  */
-class EffectiveRightsTargetSelector extends Base
+class EffectiveRightsTargetSelector
 {
     /**
+     * @Accessor(getter="getType", setter="setType")
+     * @SerializedName("type")
+     * @Type("string")
+     * @XmlAttribute
+     */
+    private $_type;
+
+    /**
+     * @Accessor(getter="getBy", setter="setBy")
+     * @SerializedName("by")
+     * @Type("string")
+     * @XmlAttribute
+     */
+    private $_by;
+
+    /**
+     * @Accessor(getter="getValue", setter="setValue")
+     * @Type("string")
+     * @XmlValue(cdata=false)
+     */
+    private $_value;
+
+    /**
      * Constructor method for EffectiveRightsTargetSelector
-     * @param TargetType $type Target type
-     * @param TargetBy $by Target by
+     * @param string $type Target type
+     * @param string $by Target by
      * @param string $value The value
      * @return self
      */
-    public function __construct(TargetType $type, TargetBy $by = null, $value = null)
+    public function __construct($type, $by = NULL, $value = NULL)
     {
-        parent::__construct(trim($value));
-        $this->setProperty('type', $type);
-        if ($by instanceof TargetBy)
-        {
-            $this->setProperty('by', $by);
+        $this->setType($type);
+        if (NULL !== $by) {
+            $this->setBy($by);
+        }
+        if (NULL !== $value) {
+            $this->setValue($value);
         }
     }
 
@@ -49,18 +80,21 @@ class EffectiveRightsTargetSelector extends Base
      */
     public function getType()
     {
-        return $this->getProperty('type');
+        return $this->_type;
     }
 
     /**
      * Sets type enum
      *
-     * @param  Zimbra\Enum\TargetType $type
+     * @param  string $type
      * @return self
      */
-    public function setType(TargetType $type)
+    public function setType($type)
     {
-        return $this->setProperty('type', $type);
+        if (TargetType::has(trim($type))) {
+            $this->_type = $type;
+        }
+        return $this;
     }
 
     /**
@@ -70,39 +104,42 @@ class EffectiveRightsTargetSelector extends Base
      */
     public function getBy()
     {
-        return $this->getProperty('by');
+        return $this->_by;
     }
 
     /**
      * Sets by enum
      *
-     * @param  Zimbra\Enum\TargetBy $by
+     * @param  string $by
      * @return self
      */
-    public function setBy(TargetBy $by)
+    public function setBy($by)
     {
-        return $this->setProperty('by', $by);
+        if (TargetBy::has(trim($by))) {
+            $this->_by = $by;
+        }
+        return $this;
     }
 
     /**
-     * Returns the array representation of this class 
+     * Gets value
      *
-     * @param  string $name
-     * @return array
+     * @return string
      */
-    public function toArray($name = 'target')
+    public function getValue()
     {
-        return parent::toArray($name);
+        return $this->_value;
     }
 
     /**
-     * Method returning the xml representation of this class
+     * Sets value
      *
      * @param  string $name
-     * @return SimpleXML
+     * @return self
      */
-    public function toXml($name = 'target')
+    public function setValue($value)
     {
-        return parent::toXml($name);
+        $this->_value = trim($value);
+        return $this;
     }
 }

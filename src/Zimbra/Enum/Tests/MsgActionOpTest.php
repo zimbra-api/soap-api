@@ -2,13 +2,13 @@
 
 namespace Zimbra\Enum\Tests;
 
-use \PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 use Zimbra\Enum\MsgActionOp;
 
 /**
  * Testcase class for MsgActionOp.
  */
-class MsgActionOpTest extends PHPUnit_Framework_TestCase
+class MsgActionOpTest extends TestCase
 {
     public function testMsgActionOp()
     {

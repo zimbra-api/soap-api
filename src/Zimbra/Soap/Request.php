@@ -10,8 +10,10 @@
 
 namespace Zimbra\Soap;
 
-use Zimbra\Common\SimpleXML;
-use Zimbra\Struct\Base;
+use Doctrine\Common\Annotations\AnnotationRegistry;
+use JMS\Serializer\Annotation\Exclude;
+use JMS\Serializer\SerializerBuilder;
+use JMS\Serializer\Serializer;
 
 /**
  * Request class in Zimbra API PHP, not to be instantiated.
@@ -21,86 +23,28 @@ use Zimbra\Struct\Base;
  * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright Copyright © 2013 by Nguyen Van Nguyen.
  */
-abstract class Request extends Base
+abstract class Request implements RequestInterface
 {
     /**
-     * The xml request name
-     * @var string
+     * Serializer
+     * @var JMS\Serializer\Serializer
+     * @Exclude
      */
-    private $_requestName = 'Request';
+    private $_serializer;
 
-    /**
-     * The xml response name
-     * @var string
-     */
-    private $_responseName = 'Response';
-
-    /**
-     * Request constructor
-     *
-     * @param  string $value
-     * @return self
-     */
-    public function __construct($value = null)
+    public function __construct()
     {
-        parent::__construct($value);
-        $className = $this->className();
-        $this->_requestName = $className . 'Request';
-        $this->_responseName = $className . 'Response';
-        $this->setXmlNamespace('urn:zimbra');
+        AnnotationRegistry::registerLoader('class_exists');
+        $this->_serializer = SerializerBuilder::create()->build();
     }
 
     /**
-     * Returns the request name
+     * Get serializer.
      *
-     * @return string
+     * @return Serializer
      */
-    public function requestName()
+    protected function getSerializer()
     {
-        return $this->_requestName;
-    }
-
-    /**
-     * Returns the response name
-     *
-     * @return string
-     */
-    public function responseName()
-    {
-        return $this->_responseName;
-    }
-
-    /**
-     * Returns the array representation of this class 
-     *
-     * @param  string $name
-     * @return array
-     */
-    public function toArray($name = null)
-    {
-        $name = empty($name) ? $this->_requestName : $name;
-        return parent::toArray($name);
-    }
-
-    /**
-     * Method returning the xml representation of this class
-     *
-     * @param  string $name
-     * @return SimpleXML
-     */
-    public function toXml($name = null)
-    {
-        $name = empty($name) ? $this->_requestName : $name;
-        return parent::toXml($name);
-    }
-
-    /**
-     * Method returning the xml string representation of this class
-     *
-     * @return string
-     */
-    public function __toString()
-    {
-        return $this->toXml()->asXml();
+        return $this->_serializer;
     }
 }

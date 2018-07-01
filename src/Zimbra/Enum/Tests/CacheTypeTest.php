@@ -2,13 +2,13 @@
 
 namespace Zimbra\Enum\Tests;
 
-use \PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 use Zimbra\Enum\CacheType;
 
 /**
  * Testcase class for CacheType.
  */
-class CacheTypeTest extends PHPUnit_Framework_TestCase
+class CacheTypeTest extends TestCase
 {
     public function testCacheType()
     {

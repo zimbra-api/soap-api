@@ -10,8 +10,13 @@
 
 namespace Zimbra\Admin\Struct;
 
+use JMS\Serializer\Annotation\Accessor;
+use JMS\Serializer\Annotation\SerializedName;
+use JMS\Serializer\Annotation\Type;
+use JMS\Serializer\Annotation\XmlAttribute;
+use JMS\Serializer\Annotation\XmlRoot;
+
 use Zimbra\Enum\AclType;
-use Zimbra\Struct\Base;
 
 /**
  * ZimletAcl struct class
@@ -21,22 +26,39 @@ use Zimbra\Struct\Base;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
+ * @XmlRoot(name="acl")
  */
-class ZimletAcl extends Base
+class ZimletAcl
 {
+    /**
+     * @Accessor(getter="getCos", setter="setCos")
+     * @SerializedName("cos")
+     * @Type("string")
+     * @XmlAttribute
+     */
+    private $_cos;
+
+    /**
+     * @Accessor(getter="getAcl", setter="setAcl")
+     * @SerializedName("acl")
+     * @Type("string")
+     * @XmlAttribute
+     */
+    private $_acl;
+
     /**
      * Constructor method for ZimletAcl
      * @param  string $cos Name of Class Of Service (COS)
-     * @param  AclType $acl ACL
+     * @param  string $acl ACL
      * @return self
      */
-    public function __construct($cos = null, AclType $acl = null)
+    public function __construct($cos = NULL, $acl = NULL)
     {
-        parent::__construct();
-        $this->setProperty('cos', trim($cos));
-        if($acl instanceof AclType)
-        {
-            $this->setProperty('acl', $acl);
+        if (NULL !== $cos) {
+            $this->setCos($cos);
+        }
+        if (NULL !== $acl) {
+            $this->setAcl($acl);
         }
     }
 
@@ -47,7 +69,7 @@ class ZimletAcl extends Base
      */
     public function getCos()
     {
-        return $this->getProperty('cos');
+        return $this->_cos;
     }
 
     /**
@@ -58,49 +80,31 @@ class ZimletAcl extends Base
      */
     public function setCos($cos)
     {
-        return $this->setProperty('cos', trim($cos));
+        $this->_cos = trim($cos);
+        return $this;
     }
 
     /**
      * Gets the acl
      *
-     * @return AclType
+     * @return string
      */
     public function getAcl()
     {
-        return $this->getProperty('acl');
+        return $this->_acl;
     }
 
     /**
      * Sets the acl
      *
-     * @param  AclType $acl
+     * @param  string $acl
      * @return self
      */
-    public function setAcl(AclType $acl)
+    public function setAcl($acl)
     {
-        return $this->setProperty('acl', $acl);
-    }
-
-    /**
-     * Returns the array representation of this class 
-     *
-     * @param  string $name
-     * @return array
-     */
-    public function toArray($name = 'acl')
-    {
-        return parent::toArray($name);
-    }
-
-    /**
-     * Method returning the xml representation of this class
-     *
-     * @param  string $name
-     * @return SimpleXML
-     */
-    public function toXml($name = 'acl')
-    {
-        return parent::toXml($name);
+        if (AclType::has(trim($acl))) {
+            $this->_acl = trim($acl);
+        }
+        return $this;
     }
 }

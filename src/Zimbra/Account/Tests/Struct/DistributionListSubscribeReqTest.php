@@ -2,39 +2,38 @@
 
 namespace Zimbra\Account\Tests\Struct;
 
-use Zimbra\Account\Tests\ZimbraAccountTestCase;
 use Zimbra\Enum\DistributionListSubscribeOp as DLSubscribeOp;
 use Zimbra\Account\Struct\DistributionListSubscribeReq;
+use Zimbra\Struct\Tests\ZimbraStructTestCase;
 
 /**
  * Testcase class for DistributionListSubscribeReq.
  */
-class DistributionListSubscribeReqTest extends ZimbraAccountTestCase
+class DistributionListSubscribeReqTest extends ZimbraStructTestCase
 {
     public function testDistributionListSubscribeReq()
     {
         $value = $this->faker->word;
-        $subsReq = new DistributionListSubscribeReq(DLSubscribeOp::UNSUBSCRIBE(), $value, false);
-        $this->assertTrue($subsReq->getOp()->is('unsubscribe'));
+        $subsReq = new DistributionListSubscribeReq(DLSubscribeOp::UNSUBSCRIBE()->value(), $value, false);
+        $this->assertSame(DLSubscribeOp::UNSUBSCRIBE()->value(), $subsReq->getOp());
         $this->assertSame($value, $subsReq->getValue());
         $this->assertFalse($subsReq->getBccOwners());
 
-        $subsReq->setOp(DLSubscribeOp::SUBSCRIBE())
+        $subsReq = new DistributionListSubscribeReq('');
+        $subsReq->setOp(DLSubscribeOp::SUBSCRIBE()->value())
+                ->setValue($value)
                 ->setBccOwners(true);
-        $this->assertTrue($subsReq->getOp()->is('subscribe'));
+        $this->assertSame(DLSubscribeOp::SUBSCRIBE()->value(), $subsReq->getOp());
+        $this->assertSame($value, $subsReq->getValue());
         $this->assertTrue($subsReq->getBccOwners());
 
         $xml = '<?xml version="1.0"?>' . "\n"
             . '<subsReq op="' . DLSubscribeOp::SUBSCRIBE() . '" bccOwners="true">' . $value . '</subsReq>';
-        $this->assertXmlStringEqualsXmlString($xml, (string) $subsReq);
+        $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($subsReq, 'xml'));
 
-        $array = [
-            'subsReq' => [
-                'op' => DLSubscribeOp::SUBSCRIBE()->value(),
-                '_content' => $value,
-                'bccOwners' => true,
-            ],
-        ];
-        $this->assertEquals($array, $subsReq->toArray());
+        $subsReq = $this->serializer->deserialize($xml, 'Zimbra\Account\Struct\DistributionListSubscribeReq', 'xml');
+        $this->assertSame(DLSubscribeOp::SUBSCRIBE()->value(), $subsReq->getOp());
+        $this->assertSame($value, $subsReq->getValue());
+        $this->assertTrue($subsReq->getBccOwners());
     }
 }

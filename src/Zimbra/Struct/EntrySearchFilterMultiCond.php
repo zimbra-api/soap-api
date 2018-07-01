@@ -10,7 +10,19 @@
 
 namespace Zimbra\Struct;
 
-use Zimbra\Common\TypedSequence;
+use JMS\Serializer\Annotation\Accessor;
+use JMS\Serializer\Annotation\Exclude;
+use JMS\Serializer\Annotation\HandlerCallback;
+use JMS\Serializer\Annotation\SerializedName;
+use JMS\Serializer\Annotation\Type;
+use JMS\Serializer\Annotation\VirtualProperty;
+use JMS\Serializer\Annotation\XmlAttribute;
+use JMS\Serializer\Annotation\XmlRoot;
+use JMS\Serializer\Annotation\XmlList;
+use JMS\Serializer\DeserializationContext;
+use JMS\Serializer\SerializerBuilder;
+use JMS\Serializer\XmlDeserializationVisitor;
+
 use Zimbra\Struct\EntrySearchFilterMultiCond as MultiCond;
 use Zimbra\Struct\EntrySearchFilterSingleCond as SingleCond;
 
@@ -21,12 +33,31 @@ use Zimbra\Struct\EntrySearchFilterSingleCond as SingleCond;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
+ * @XmlRoot(name="conds")
  */
-class EntrySearchFilterMultiCond extends Base implements SearchFilterCondition
+class EntrySearchFilterMultiCond implements SearchFilterCondition
 {
+
     /**
-     * The sequence of condition
-     * @var TypedSequence
+     * @Accessor(getter="getNot", setter="setNot")
+     * @SerializedName("not")
+     * @Type("boolean")
+     * @XmlAttribute
+     */
+    private $_not;
+
+    /**
+     * @Accessor(getter="getOr", setter="setOr")
+     * @SerializedName("or")
+     * @Type("boolean")
+     * @XmlAttribute
+     */
+    private $_or;
+
+    /**
+     * The array of condition
+     * @var array
+     * @Exclude
      */
     private $_conditions = [];
 
@@ -38,49 +69,18 @@ class EntrySearchFilterMultiCond extends Base implements SearchFilterCondition
      * @return self
      */
     public function __construct(
-        $not = null,
-        $or = null,
+        $not = NULL,
+        $or = NULL,
         array $conditions = []
     )
     {
-        parent::__construct();
-        if(null !== $not)
-        {
-            $this->setProperty('not', (bool) $not);
+        if (NULL !== $not) {
+            $this->setNot($not);
         }
-        if(null !== $or)
-        {
-            $this->setProperty('or', (bool) $or);
+        if (NULL !== $or) {
+            $this->setOr($or);
         }
         $this->setConditions($conditions);
-
-        $this->on('before', function(Base $sender)
-        {
-            if($sender->getConditions()->count())
-            {
-                $conds = [];
-                $cond = [];
-                foreach ($sender->getConditions()->all() as $condition)
-                {
-                    if ($condition instanceof MultiCond)
-                    {
-                        $conds[] = $condition;
-                    }
-                    if ($condition instanceof SingleCond)
-                    {
-                        $cond[] = $condition;
-                    }
-                }
-                if (!empty($conds))
-                {
-                    $sender->setChild('conds', $conds);
-                }
-                if (!empty($cond))
-                {
-                    $sender->setChild('cond', $cond);
-                }
-            }
-        });
     }
 
     /**
@@ -90,7 +90,7 @@ class EntrySearchFilterMultiCond extends Base implements SearchFilterCondition
      */
     public function getNot()
     {
-        return $this->getProperty('not');
+        return $this->_not;
     }
 
     /**
@@ -101,7 +101,8 @@ class EntrySearchFilterMultiCond extends Base implements SearchFilterCondition
      */
     public function setNot($not)
     {
-        return $this->setProperty('not', (bool) $not);
+        $this->_not = (bool) $not;
+        return $this;
     }
 
     /**
@@ -111,7 +112,7 @@ class EntrySearchFilterMultiCond extends Base implements SearchFilterCondition
      */
     public function getOr()
     {
-        return $this->getProperty('or');
+        return $this->_or;
     }
 
     /**
@@ -122,7 +123,8 @@ class EntrySearchFilterMultiCond extends Base implements SearchFilterCondition
      */
     public function setOr($or)
     {
-        return $this->setProperty('or', (bool) $or);
+        $this->_or = (bool) $or;
+        return $this;
     }
 
     /**
@@ -133,7 +135,7 @@ class EntrySearchFilterMultiCond extends Base implements SearchFilterCondition
      */
     public function addCondition(SearchFilterCondition $condition)
     {
-        $this->_conditions->add($condition);
+        $this->_conditions[] = $condition;
         return $this;
     }
 
@@ -144,9 +146,12 @@ class EntrySearchFilterMultiCond extends Base implements SearchFilterCondition
      */
     public function setConditions(array $conditions)
     {
-        $this->_conditions = new TypedSequence(
-            'Zimbra\Struct\SearchFilterCondition', $conditions
-        );
+        $this->_conditions = [];
+        foreach ($conditions as $condition) {
+            if ($condition instanceof SearchFilterCondition) {
+                $this->_conditions[] = $condition;
+            }
+        }
         return $this;
     }
 
@@ -161,24 +166,85 @@ class EntrySearchFilterMultiCond extends Base implements SearchFilterCondition
     }
 
     /**
-     * Returns the array representation of this class 
+     * @VirtualProperty
+     * @Type("array<Zimbra\Struct\EntrySearchFilterMultiCond>")
+     * @SerializedName("conds")
+     * @XmlList(inline = true, entry = "conds")
      *
-     * @param  string $name
      * @return array
      */
-    public function toArray($name = 'conds')
+    public function getMultiCond()
     {
-        return parent::toArray($name);
+        $conds = [];
+        foreach ($this->_conditions as $condition) {
+            if ($condition instanceof MultiCond) {
+                $conds[] = $condition;
+            }
+        }
+        return $conds;
     }
 
     /**
-     * Method returning the xml representative this class
+     * @VirtualProperty
+     * @Type("array<Zimbra\Struct\EntrySearchFilterSingleCond>")
+     * @SerializedName("cond")
+     * @XmlList(inline = true, entry = "cond")
      *
-     * @param  string $name
-     * @return SimpleXML
+     * @return array
      */
-    public function toXml($name = 'conds')
+    public function getSingleCond()
     {
-        return parent::toXml($name);
+        $conds = [];
+        foreach ($this->_conditions as $condition) {
+            if ($condition instanceof SingleCond) {
+                $conds[] = $condition;
+            }
+        }
+        return $conds;
+    }
+
+    /** @HandlerCallback("xml", direction = "deserialization") */
+    public function deserializeFromXml(XmlDeserializationVisitor $visitor, \SimpleXMLElement $data, DeserializationContext $context)
+    {
+        $attributes = $data->attributes();
+        foreach ($attributes as $key => $value) {
+            if ($key == 'not') {
+                $this->setNot(self::stringToBoolean($value));
+            }
+            if ($key == 'or') {
+                $this->setOr(self::stringToBoolean($value));
+            }
+        }
+
+        $serializer = SerializerBuilder::create()->build();
+        $children = $data->children();
+        foreach ($children as $value) {
+            $name = $value->getName();
+            if ($name == 'conds') {
+                $conds = $serializer->deserialize($value->asXml(), 'Zimbra\Struct\EntrySearchFilterMultiCond', 'xml');
+                $this->addCondition($conds);
+            }
+            if ($name == 'cond') {
+                $cond = $serializer->deserialize($value->asXml(), 'Zimbra\Struct\EntrySearchFilterSingleCond', 'xml');
+                $this->addCondition($cond);
+            }
+        }
+    }
+
+    public static function stringToBoolean($value)
+    {
+        $value = (string) $value;
+        if ('true' === $value || '1' === $value) {
+            $value = TRUE;
+        }
+        elseif ('false' === $value || '0' === $value) {
+            $value = FALSE;
+        }
+        else {
+            throw new \RuntimeException(
+                sprintf('Could not convert data to boolean. Expected "true", "false", "1" or "0", but got %s.', json_encode($data))
+            );
+        }
+        return $value;
     }
 }

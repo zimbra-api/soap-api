@@ -10,9 +10,14 @@
 
 namespace Zimbra\Account\Struct;
 
+use JMS\Serializer\Annotation\Accessor;
+use JMS\Serializer\Annotation\SerializedName;
+use JMS\Serializer\Annotation\Type;
+use JMS\Serializer\Annotation\XmlAttribute;
+use JMS\Serializer\Annotation\XmlRoot;
+
 use Zimbra\Enum\AceRightType;
 use Zimbra\Enum\GranteeType;
-use Zimbra\Struct\Base;
 
 /**
  * AccountACEInfo struct class
@@ -22,13 +27,78 @@ use Zimbra\Struct\Base;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
+ * @XmlRoot(name="ace")
  */
-class AccountACEInfo extends Base
+class AccountACEInfo
 {
     /**
+     * @Accessor(getter="getGranteeType", setter="setGranteeType")
+     * @SerializedName("gt")
+     * @Type("string")
+     * @XmlAttribute
+     */
+    private $_granteeType;
+
+    /**
+     * @Accessor(getter="getRight", setter="setRight")
+     * @SerializedName("right")
+     * @Type("string")
+     * @XmlAttribute
+     */
+    private $_right;
+
+    /**
+     * @Accessor(getter="getZimbraId", setter="setZimbraId")
+     * @SerializedName("zid")
+     * @Type("string")
+     * @XmlAttribute
+     */
+    private $_zimbraId;
+
+    /**
+     * @Accessor(getter="getDisplayName", setter="setDisplayName")
+     * @SerializedName("d")
+     * @Type("string")
+     * @XmlAttribute
+     */
+    private $_displayName;
+
+    /**
+     * @Accessor(getter="getAccessKey", setter="setAccessKey")
+     * @SerializedName("key")
+     * @Type("string")
+     * @XmlAttribute
+     */
+    private $_accessKey;
+
+    /**
+     * @Accessor(getter="getPassword", setter="setPassword")
+     * @SerializedName("pw")
+     * @Type("string")
+     * @XmlAttribute
+     */
+    private $_password;
+
+    /**
+     * @Accessor(getter="getDeny", setter="setDeny")
+     * @SerializedName("deny")
+     * @Type("bool")
+     * @XmlAttribute
+     */
+    private $_deny;
+
+    /**
+     * @Accessor(getter="getCheckGranteeType", setter="setCheckGranteeType")
+     * @SerializedName("chkgt")
+     * @Type("bool")
+     * @XmlAttribute
+     */
+    private $_checkGranteeType;
+
+    /**
      * Constructor method for AccountACEInfo
-     * @param GranteeType $granteeType
-     * @param AceRightType $right
+     * @param string $granteeType
+     * @param string $right
      * @param string $zimbraId
      * @param string $displayName
      * @param string $accessKey
@@ -38,8 +108,8 @@ class AccountACEInfo extends Base
      * @return self
      */
     public function __construct(
-        GranteeType $granteeType,
-        AceRightType $right,
+        $granteeType,
+        $right,
         $zimbraId = null,
         $displayName = null,
         $accessKey = null,
@@ -48,54 +118,50 @@ class AccountACEInfo extends Base
         $checkGranteeType = null
     )
     {
-        parent::__construct();
-        $this->setProperty('gt', $granteeType);
-        $this->setProperty('right', $right);
-        if(null !== $zimbraId)
-        {
-            $this->setProperty('zid', trim($zimbraId));
+        $this->setGranteeType($granteeType)
+            ->setRight($right);
+        if (null !== $zimbraId) {
+            $this->setZimbraId($zimbraId);
         }
-        if(null !== $displayName)
-        {
-            $this->setProperty('d', trim($displayName));
+        if (null !== $displayName) {
+            $this->setDisplayName($displayName);
         }
-        if(null !== $accessKey)
-        {
-            $this->setProperty('key', trim($accessKey));
+        if (null !== $accessKey) {
+            $this->setAccessKey($accessKey);
         }
-        if(null !== $password)
-        {
-            $this->setProperty('pw', trim($password));
+        if (null !== $password) {
+            $this->setPassword($password);
         }
-        if(null !== $deny)
-        {
-            $this->setProperty('deny', (bool) $deny);
+        if (null !== $deny) {
+            $this->setDeny($deny);
         }
-        if(null !== $checkGranteeType)
-        {
-            $this->setProperty('chkgt', (bool) $checkGranteeType);
+        if (null !== $checkGranteeType) {
+            $this->setCheckGranteeType($checkGranteeType);
         }
     }
 
     /**
      * Gets the type of grantee
      *
-     * @return GranteeType
+     * @return string
      */
     public function getGranteeType()
     {
-        return $this->getProperty('gt');
+        return $this->_granteeType;
     }
 
     /**
      * Sets the type of grantee
      *
-     * @param  GranteeType $granteeType
+     * @param  string $granteeType
      * @return self
      */
-    public function setGranteeType(GranteeType $granteeType)
+    public function setGranteeType($granteeType)
     {
-        return $this->setProperty('gt', $granteeType);
+        if (GranteeType::has(trim($granteeType))) {
+            $this->_granteeType = $granteeType;
+        }
+        return $this;
     }
 
     /**
@@ -106,18 +172,21 @@ class AccountACEInfo extends Base
      */
     public function getRight()
     {
-        return $this->getProperty('right');
+        return $this->_right;
     }
 
     /**
      * Sets the right enum
      *
-     * @param  AceRightType $right
+     * @param  string $right
      * @return self
      */
-    public function setRight(AceRightType $right)
+    public function setRight($right)
     {
-        return $this->setProperty('right', $right);
+        if (AceRightType::has(trim($right))) {
+            $this->_right = $right;
+        }
+        return $this;
     }
 
     /**
@@ -127,7 +196,7 @@ class AccountACEInfo extends Base
      */
     public function getZimbraId()
     {
-        return $this->getProperty('zid');
+        return $this->_zimbraId;
     }
 
     /**
@@ -138,7 +207,8 @@ class AccountACEInfo extends Base
      */
     public function setZimbraId($zimbraId)
     {
-        return $this->setProperty('zid', trim($zimbraId));
+        $this->_zimbraId = trim($zimbraId);
+        return $this;
     }
 
     /**
@@ -148,7 +218,7 @@ class AccountACEInfo extends Base
      */
     public function getDisplayName()
     {
-        return $this->getProperty('d');
+        return $this->_displayName;
     }
 
     /**
@@ -159,7 +229,8 @@ class AccountACEInfo extends Base
      */
     public function setDisplayName($displayName)
     {
-        return $this->setProperty('d', trim($displayName));
+        $this->_displayName = trim($displayName);
+        return $this;
     }
 
     /**
@@ -169,7 +240,7 @@ class AccountACEInfo extends Base
      */
     public function getAccessKey()
     {
-        return $this->getProperty('key');
+        return $this->_accessKey;
     }
 
     /**
@@ -180,7 +251,8 @@ class AccountACEInfo extends Base
      */
     public function setAccessKey($accessKey)
     {
-        return $this->setProperty('key', trim($accessKey));
+        $this->_accessKey = trim($accessKey);
+        return $this;
     }
 
     /**
@@ -190,7 +262,7 @@ class AccountACEInfo extends Base
      */
     public function getPassword()
     {
-        return $this->getProperty('pw');
+        return $this->_password;
     }
 
     /**
@@ -201,7 +273,8 @@ class AccountACEInfo extends Base
      */
     public function setPassword($password)
     {
-        return $this->setProperty('pw', trim($password));
+        $this->_password = trim($password);
+        return $this;
     }
 
     /**
@@ -211,7 +284,7 @@ class AccountACEInfo extends Base
      */
     public function getDeny()
     {
-        return $this->getProperty('deny');
+        return $this->_deny;
     }
 
     /**
@@ -222,7 +295,8 @@ class AccountACEInfo extends Base
      */
     public function setDeny($deny)
     {
-        return $this->setProperty('deny', (bool) $deny);
+        $this->_deny = (bool) $deny;
+        return $this;
     }
 
     /**
@@ -232,7 +306,7 @@ class AccountACEInfo extends Base
      */
     public function getCheckGranteeType()
     {
-        return $this->getProperty('chkgt');
+        return $this->_checkGranteeType;
     }
 
     /**
@@ -243,28 +317,7 @@ class AccountACEInfo extends Base
      */
     public function setCheckGranteeType($checkGranteeType)
     {
-        return $this->setProperty('chkgt', (bool) $checkGranteeType);
-    }
-
-    /**
-     * Returns the array representation of this class 
-     *
-     * @param  string $name
-     * @return array
-     */
-    public function toArray($name = 'ace')
-    {
-        return parent::toArray($name);
-    }
-
-    /**
-     * Method returning the xml representative this class
-     *
-     * @param  string $name
-     * @return SimpleXML
-     */
-    public function toXml($name = 'ace')
-    {
-        return parent::toXml($name);
+        $this->_checkGranteeType = (bool) $checkGranteeType;
+        return $this;
     }
 }

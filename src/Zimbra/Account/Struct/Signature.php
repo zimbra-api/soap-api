@@ -10,8 +10,13 @@
 
 namespace Zimbra\Account\Struct;
 
-use Zimbra\Common\TypedSequence;
-use Zimbra\Struct\Base;
+use JMS\Serializer\Annotation\Accessor;
+use JMS\Serializer\Annotation\SerializedName;
+use JMS\Serializer\Annotation\Type;
+use JMS\Serializer\Annotation\XmlAttribute;
+use JMS\Serializer\Annotation\XmlElement;
+use JMS\Serializer\Annotation\XmlList;
+use JMS\Serializer\Annotation\XmlRoot;
 
 /**
  * Signature struct class
@@ -21,12 +26,39 @@ use Zimbra\Struct\Base;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
+ * @XmlRoot(name="signature")
  */
-class Signature extends Base
+class Signature
 {
     /**
+     * @Accessor(getter="getName", setter="setName")
+     * @SerializedName("name")
+     * @Type("string")
+     * @XmlAttribute
+     */
+    private $_name;
+
+    /**
+     * @Accessor(getter="getId", setter="setId")
+     * @SerializedName("id")
+     * @Type("string")
+     * @XmlAttribute
+     */
+    private $_id;
+
+    /**
+     * @Accessor(getter="getCid", setter="setCid")
+     * @SerializedName("cid")
+     * @Type("string")
+     * @XmlElement(cdata=false)
+     */
+    private $_cid;
+
+    /**
      * Content of the signature sequence
-     * @var TypedSequence<SignatureContent>
+     * @Accessor(getter="getContents", setter="setContents")
+     * @Type("array<Zimbra\Account\Struct\SignatureContent>")
+     * @XmlList(inline = true, entry = "content")
      */
     private $_contents;
 
@@ -45,28 +77,16 @@ class Signature extends Base
         array $contents = []
 	)
     {
-		parent::__construct();
-        if(null !== $name)
-        {
-            $this->setProperty('name', trim($name));
+        if (null !== $name) {
+            $this->setName($name);
         }
-        if(null !== $id)
-        {
-            $this->setProperty('id', trim($id));
+        if (null !== $id) {
+            $this->setId($id);
         }
-        if(null !== $cid)
-        {
-            $this->setChild('cid', trim($cid));
+        if (null !== $cid) {
+            $this->setCid($cid);
         }
-        $this->setContent($contents);
-
-        $this->on('before', function(Base $sender)
-        {
-            if($sender->getContents()->count())
-            {
-                $sender->setChild('content', $sender->getContents()->all());
-            }
-        });
+        $this->setContents($contents);
     }
 
     /**
@@ -76,7 +96,7 @@ class Signature extends Base
      */
     public function getId()
     {
-        return $this->getProperty('id');
+        return $this->_id;
     }
 
     /**
@@ -87,7 +107,8 @@ class Signature extends Base
      */
     public function setId($id)
     {
-        return $this->setProperty('id', trim($id));
+        $this->_id = trim($id);
+        return $this;
     }
 
     /**
@@ -97,7 +118,7 @@ class Signature extends Base
      */
     public function getName()
     {
-        return $this->getProperty('name');
+        return $this->_name;
     }
 
     /**
@@ -108,7 +129,8 @@ class Signature extends Base
      */
     public function setName($name)
     {
-        return $this->setProperty('name', trim($name));
+        $this->_name = trim($name);
+        return $this;
     }
 
     /**
@@ -118,7 +140,7 @@ class Signature extends Base
      */
     public function getCid()
     {
-        return $this->getChild('cid');
+        return $this->_cid;
     }
 
     /**
@@ -129,7 +151,8 @@ class Signature extends Base
      */
     public function setCid($cid)
     {
-        return $this->setChild('cid', trim($cid));
+        $this->_cid = trim($cid);
+        return $this;
     }
 
     /**
@@ -140,7 +163,7 @@ class Signature extends Base
      */
     public function addContent(SignatureContent $content)
     {
-        $this->_contents->add($content);
+        $this->_contents[] = $content;
         return $this;
     }
 
@@ -150,39 +173,24 @@ class Signature extends Base
      * @param array  $contents
      * @return self
      */
-    public function setContent(array $contents)
+    public function setContents(array $contents)
     {
-        $this->_contents = new TypedSequence('Zimbra\Account\Struct\SignatureContent', $contents);
+        $this->_contents = [];
+        foreach ($contents as $content) {
+            if ($content instanceof SignatureContent) {
+                $this->_contents[] = $content;
+            }
+        }
         return $this;
     }
 
     /**
-     * Gets signature content sequence
+     * Gets signature content array
      *
-     * @return Sequence
+     * @return array
      */
     public function getContents()
     {
         return $this->_contents;
-    }
-
-    /**
-     * Returns the array representation of this class 
-     *
-     * @return array
-     */
-    public function toArray($name = 'signature')
-    {
-        return parent::toArray($name);
-    }
-
-    /**
-     * Method returning the xml representation of this class
-     *
-     * @return SimpleXML
-     */
-    public function toXml($name = 'signature')
-    {
-        return parent::toXml($name);
     }
 }
