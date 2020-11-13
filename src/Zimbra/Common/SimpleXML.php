@@ -208,4 +208,34 @@ class SimpleXML extends SimpleXMLElement
         }
         return $this;
     }
+
+    // https://stackoverflow.com/a/6260295/738852
+    /**
+      * Adds a child with $value inside CDATA
+      * @param unknown $name
+      * @param unknown $value
+      */
+    public function addChildWithCDATA($name, $value = NULL) {
+        $new_child = $this->addChild($name);
+
+        if ($new_child !== NULL) {
+            $node = dom_import_simplexml($new_child);
+            $no   = $node->ownerDocument;
+            $node->appendChild($no->createCDATASection($value));
+        }
+
+        return $new_child;
+    }
+
+    /**
+     * override to use cdata, when necessary
+     */
+    public function addChild($name, $val = NULL, $ns = NULL)
+    {
+        if (preg_match('/.*[\&\>\<].*/', $val) == 1) {
+            return $this->addChildWithCDATA($name, $val);
+        } else {
+            return parent::addChild($name, $val, $ns);
+        }
+    }
 }
