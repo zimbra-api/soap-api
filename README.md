@@ -51,7 +51,7 @@ $accountInfo = $api->getAccountInfo($account);
 
 From `$api` object, you can access to all zimbra admin api.
 
-##Licensing
+## Licensing
 [BSD 3-Clause](LICENSE)
 
     For the full copyright and license information, please view the LICENSE
