@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * This file is part of the Zimbra API in PHP library.
  *
@@ -10,13 +10,7 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\Accessor;
-use JMS\Serializer\Annotation\SerializedName;
-use JMS\Serializer\Annotation\Type;
-use JMS\Serializer\Annotation\XmlAttribute;
-use JMS\Serializer\Annotation\XmlList;
-use JMS\Serializer\Annotation\XmlRoot;
-
+use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlList, XmlRoot};
 use Zimbra\Admin\Struct\SyncGalAccountDataSourceSpec as DataSource;
 
 /**
@@ -26,7 +20,8 @@ use Zimbra\Admin\Struct\SyncGalAccountDataSourceSpec as DataSource;
  * @subpackage Admin
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
- * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
+ * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
+ * @AccessType("public_method")
  * @XmlRoot(name="account")
  */
 class SyncGalAccountSpec
@@ -37,15 +32,16 @@ class SyncGalAccountSpec
      * @Type("string")
      * @XmlAttribute
      */
-    private $_id;
+    private $id;
 
     /**
      * SyncGalAccount data source specifications
      * @Accessor(getter="getDataSources", setter="setDataSources")
+     * @SerializedName("datasource")
      * @Type("array<Zimbra\Admin\Struct\SyncGalAccountDataSourceSpec>")
      * @XmlList(inline = true, entry = "datasource")
      */
-    private $_dataSources;
+    private $dataSources;
 
     /**
      * Constructor method for SyncGalAccountSpec
@@ -64,9 +60,9 @@ class SyncGalAccountSpec
      *
      * @return string
      */
-    public function getId()
+    public function getId(): string
     {
-        return $this->_id;
+        return $this->id;
     }
 
     /**
@@ -75,9 +71,9 @@ class SyncGalAccountSpec
      * @param  string $id
      * @return self
      */
-    public function setId($id)
+    public function setId($id): self
     {
-        $this->_id = trim($id);
+        $this->id = trim($id);
         return $this;
     }
 
@@ -87,9 +83,9 @@ class SyncGalAccountSpec
      * @param  DataSource $dataSource
      * @return self
      */
-    public function addDataSource(DataSource $dataSource)
+    public function addDataSource(DataSource $dataSource): self
     {
-        $this->_dataSources[] = $dataSource;
+        $this->dataSources[] = $dataSource;
         return $this;
     }
 
@@ -99,12 +95,12 @@ class SyncGalAccountSpec
      * @param array $dataSources
      * @return self
      */
-    public function setDataSources(array $dataSources)
+    public function setDataSources(array $dataSources): self
     {
-        $this->_dataSources = [];
+        $this->dataSources = [];
         foreach ($dataSources as $dataSource) {
             if ($dataSource instanceof DataSource) {
-                $this->_dataSources[] = $dataSource;
+                $this->dataSources[] = $dataSource;
             }
         }
         return $this;
@@ -115,8 +111,8 @@ class SyncGalAccountSpec
      *
      * @return array
      */
-    public function getDataSources()
+    public function getDataSources(): array
     {
-        return $this->_dataSources;
+        return $this->dataSources;
     }
 }

@@ -1,12 +1,11 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Zimbra\Admin\Tests\Struct;
 
 use JMS\Serializer\Annotation\XmlRoot;
-
 use Zimbra\Struct\Tests\ZimbraStructTestCase;
 use Zimbra\Admin\Struct\AdminAttrsImpl;
-use Zimbra\Struct\KeyValuePair;
+use Zimbra\Admin\Struct\Attr;
 
 /**
  * Testcase class for AdminAttrsImpl.
@@ -24,12 +23,12 @@ class AdminAttrsImplTest extends ZimbraStructTestCase
         $key3 = $this->faker->word;
         $value3 = $this->faker->word;
 
-        $attr1 = new KeyValuePair($key1, $value1);
-        $attr2 = new KeyValuePair($key2, $value2);
-        $attr3 = new KeyValuePair($key3, $value3);
+        $attr1 = new Attr($key1, $value1);
+        $attr2 = new Attr($key2, $value2);
+        $attr3 = new Attr($key3, $value3);
         $stub->setAttrs([$attr1, $attr2])->addAttr($attr3);
         foreach ($stub->getAttrs() as $attr) {
-            $this->assertInstanceOf('\Zimbra\Struct\KeyValuePair', $attr);
+            $this->assertInstanceOf(Attr::class, $attr);
         }
 
         $xml = '<?xml version="1.0"?>' . "\n"
@@ -39,11 +38,26 @@ class AdminAttrsImplTest extends ZimbraStructTestCase
                 . '<a n="' . $key3 . '">' . $value3 . '</a>'
             . '</stub>';
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($stub, 'xml'));
+        $this->assertEquals($stub, $this->serializer->deserialize($xml, StubAdminAttrsImpl::class, 'xml'));
 
-        $stub = $this->serializer->deserialize($xml, 'Zimbra\Admin\Tests\Struct\StubAdminAttrsImpl', 'xml');
-        foreach ($stub->getAttrs() as $attr) {
-            $this->assertInstanceOf('\Zimbra\Struct\KeyValuePair', $attr);
-        }
+        $json = json_encode([
+            'a' => [
+                [
+                    'n' => $key1,
+                    '_content' => $value1,
+                ],
+                [
+                    'n' => $key2,
+                    '_content' => $value2,
+                ],
+                [
+                    'n' => $key3,
+                    '_content' => $value3,
+                ],
+            ],
+        ]);
+        $this->assertSame($json, $this->serializer->serialize($stub, 'json'));
+        $this->assertEquals($stub, $this->serializer->deserialize($json, StubAdminAttrsImpl::class, 'json'));
     }
 }
 

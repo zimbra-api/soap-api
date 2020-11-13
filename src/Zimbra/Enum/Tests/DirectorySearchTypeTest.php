@@ -22,7 +22,7 @@ class DirectorySearchTypeTest extends TestCase
         ];
         foreach ($values as $enum => $value)
         {
-            $this->assertSame(DirectorySearchType::$enum()->value(), $value);
+            $this->assertSame(DirectorySearchType::$enum()->getValue(), $value);
         }
     }
 }

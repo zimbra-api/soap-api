@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * This file is part of the Zimbra API in PHP library.
  *
@@ -10,31 +10,33 @@
 
 namespace Zimbra\Enum;
 
+use MyCLabs\Enum\Enum;
+
 /**
  * GalConfigAction enum class
  *
  * @package   Zimbra
  * @category  Enum
  * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
- * @copyright Copyright © 2013 by Nguyen Van Nguyen.
+ * @copyright Copyright © 2013-present by Nguyen Van Nguyen.
  */
-class GalConfigAction extends Base
+class GalConfigAction extends Enum
 {
     /**
      * Constant for value 'autocomplete'
      * @return string 'autocomplete'
      */
-    const AUTOCOMPLETE = 'autocomplete';
+    private const AUTOCOMPLETE = 'autocomplete';
 
     /**
      * Constant for value 'search'
      * @return string 'search'
      */
-    const SEARCH = 'search';
+    private const SEARCH_ = 'search';
 
     /**
      * Constant for value 'sync'
      * @return string 'sync'
      */
-    const SYNC = 'sync';
+    private const SYNC = 'sync';
 }

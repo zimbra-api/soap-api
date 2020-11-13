@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * This file is part of the Zimbra API in PHP library.
  *
@@ -10,20 +10,16 @@
 
 namespace Zimbra\Struct;
 
-use JMS\Serializer\Annotation\Accessor;
-use JMS\Serializer\Annotation\SerializedName;
-use JMS\Serializer\Annotation\Type;
-use JMS\Serializer\Annotation\XmlAttribute;
-use JMS\Serializer\Annotation\XmlValue;
-use JMS\Serializer\Annotation\XmlRoot;
+use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlRoot, XmlValue};
 
 /**
- * KeyValuePair struct class
+ * KeyValuePair class
  *
  * @package   Zimbra
  * @category  Struct
  * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
- * @copyright Copyright © 2013 by Nguyen Van Nguyen.
+ * @copyright Copyright © 2013-present by Nguyen Van Nguyen.
+ * @AccessType("public_method")
  * @XmlRoot(name="a")
  */
 class KeyValuePair
@@ -34,14 +30,15 @@ class KeyValuePair
      * @Type("string")
      * @XmlAttribute
      */
-    private $_key;
+    private $key;
 
     /**
      * @Accessor(getter="getValue", setter="setValue")
+     * @SerializedName("_content")
      * @Type("string")
      * @XmlValue(cdata=false)
      */
-    private $_value;
+    private $value;
 
     /**
      * Constructor method for KeyValuePair
@@ -60,9 +57,9 @@ class KeyValuePair
      *
      * @return string
      */
-    public function getKey()
+    public function getKey(): string
     {
-        return $this->_key;
+        return $this->key;
     }
 
     /**
@@ -71,9 +68,9 @@ class KeyValuePair
      * @param  string $key
      * @return self
      */
-    public function setKey($key)
+    public function setKey($key): self
     {
-        $this->_key = trim($key);
+        $this->key = trim($key);
         return $this;
     }
 
@@ -82,9 +79,9 @@ class KeyValuePair
      *
      * @return string
      */
-    public function getValue()
+    public function getValue(): string
     {
-        return $this->_value;
+        return $this->value;
     }
 
     /**
@@ -93,9 +90,9 @@ class KeyValuePair
      * @param  string $key
      * @return self
      */
-    public function setValue($value)
+    public function setValue($value): self
     {
-        $this->_value = trim($value);
+        $this->value = trim($value);
         return $this;
     }
 }

@@ -18,7 +18,7 @@ class AceRightTypeTest extends TestCase
         ];
         foreach ($values as $enum => $value)
         {
-            $this->assertSame(AceRightType::$enum()->value(), $value);
+            $this->assertSame(AceRightType::$enum()->getValue(), $value);
         }
     }
 }

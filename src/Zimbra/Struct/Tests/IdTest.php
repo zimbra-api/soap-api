@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Zimbra\Struct\Tests;
 
@@ -22,8 +22,12 @@ class IdTest extends ZimbraStructTestCase
         $xml = '<?xml version="1.0"?>' . "\n"
             . '<id id="' . $value . '" />';
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($id, 'xml'));
+        $this->assertEquals($id, $this->serializer->deserialize($xml, Id::class, 'xml'));
 
-        $id = $this->serializer->deserialize($xml, 'Zimbra\Struct\Id', 'xml');
-        $this->assertSame($value, $id->getId());
+        $json = json_encode([
+            'id' => $value,
+        ]);
+        $this->assertSame($json, $this->serializer->serialize($id, 'json'));
+        $this->assertEquals($id, $this->serializer->deserialize($json, Id::class, 'json'));
     }
 }

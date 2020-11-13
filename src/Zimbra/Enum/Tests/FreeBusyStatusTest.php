@@ -20,7 +20,7 @@ class FreeBusyStatusTest extends TestCase
         ];
         foreach ($values as $enum => $value)
         {
-            $this->assertSame(FreeBusyStatus::$enum()->value(), $value);
+            $this->assertSame(FreeBusyStatus::$enum()->getValue(), $value);
         }
     }
 }

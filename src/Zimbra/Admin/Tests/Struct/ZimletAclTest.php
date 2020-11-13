@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Zimbra\Admin\Tests\Struct;
 
@@ -14,22 +14,26 @@ class ZimletAclTest extends ZimbraStructTestCase
     public function testZimletAcl()
     {
         $cos = $this->faker->word;
-        $acl = new ZimletAcl($cos, AclType::DENY()->value());
+        $acl = new ZimletAcl($cos, AclType::DENY());
         $this->assertSame($cos, $acl->getCos());
-        $this->assertSame(AclType::DENY()->value(), $acl->getAcl());
+        $this->assertEquals(AclType::DENY(), $acl->getAcl());
 
         $acl = new ZimletAcl();
         $acl->setCos($cos)
-            ->setAcl(AclType::GRANT()->value());
+            ->setAcl(AclType::GRANT());
         $this->assertSame($cos, $acl->getCos());
-        $this->assertSame(AclType::GRANT()->value(), $acl->getAcl());
+        $this->assertEquals(AclType::GRANT(), $acl->getAcl());
 
         $xml = '<?xml version="1.0"?>' . "\n"
             . '<acl cos="' . $cos . '" acl="' . AclType::GRANT() . '" />';
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($acl, 'xml'));
+        $this->assertEquals($acl, $this->serializer->deserialize($xml, ZimletAcl::class, 'xml'));
 
-        $acl = $this->serializer->deserialize($xml, 'Zimbra\Admin\Struct\ZimletAcl', 'xml');
-        $this->assertSame($cos, $acl->getCos());
-        $this->assertSame(AclType::GRANT()->value(), $acl->getAcl());
+        $json = json_encode([
+            'cos' => $cos,
+            'acl' => (string) AclType::GRANT(),
+        ]);
+        $this->assertSame($json, $this->serializer->serialize($acl, 'json'));
+        $this->assertEquals($acl, $this->serializer->deserialize($json, ZimletAcl::class, 'json'));
     }
 }

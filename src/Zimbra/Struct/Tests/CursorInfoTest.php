@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Zimbra\Struct\Tests;
 
@@ -15,7 +15,7 @@ class CursorInfoTest extends ZimbraStructTestCase
         $sortVal = $this->faker->word;
         $endSortVal = $this->faker->word;
 
-        $cursor = new CursorInfo($id,$sortVal, $endSortVal, false);
+        $cursor = new CursorInfo($id,$sortVal, $endSortVal, FALSE);
         $this->assertSame($id, $cursor->getId());
         $this->assertSame($sortVal, $cursor->getSortVal());
         $this->assertSame($endSortVal, $cursor->getEndSortVal());
@@ -25,7 +25,7 @@ class CursorInfoTest extends ZimbraStructTestCase
         $cursor->setId($id)
                ->setSortVal($sortVal)
                ->setEndSortVal($endSortVal)
-               ->setIncludeOffset(true);
+               ->setIncludeOffset(TRUE);
         $this->assertSame($id, $cursor->getId());
         $this->assertSame($sortVal, $cursor->getSortVal());
         $this->assertSame($endSortVal, $cursor->getEndSortVal());
@@ -34,11 +34,15 @@ class CursorInfoTest extends ZimbraStructTestCase
         $xml = '<?xml version="1.0"?>' . "\n"
             . '<cursor id="' . $id . '" sortVal="' . $sortVal . '" endSortVal="' . $endSortVal . '" includeOffset="true" />';
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($cursor, 'xml'));
+        $this->assertEquals($cursor, $this->serializer->deserialize($xml, CursorInfo::class, 'xml'));
 
-        $cursor = $this->serializer->deserialize($xml, 'Zimbra\Struct\CursorInfo', 'xml');
-        $this->assertSame($id, $cursor->getId());
-        $this->assertSame($sortVal, $cursor->getSortVal());
-        $this->assertSame($endSortVal, $cursor->getEndSortVal());
-        $this->assertTrue($cursor->getIncludeOffset());
+        $json = json_encode([
+            'id' => $id,
+            'sortVal' => $sortVal,
+            'endSortVal' => $endSortVal,
+            'includeOffset' => TRUE,
+        ]);
+        $this->assertSame($json, $this->serializer->serialize($cursor, 'json'));
+        $this->assertEquals($cursor, $this->serializer->deserialize($json, CursorInfo::class, 'json'));
     }
 }

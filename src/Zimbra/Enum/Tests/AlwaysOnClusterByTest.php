@@ -18,7 +18,7 @@ class AlwaysOnClusterByTest extends TestCase
         ];
         foreach ($values as $enum => $value)
         {
-            $this->assertSame(AlwaysOnClusterBy::$enum()->value(), $value);
+            $this->assertSame(AlwaysOnClusterBy::$enum()->getValue(), $value);
         }
     }
 }

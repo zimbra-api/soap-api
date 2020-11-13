@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * This file is part of the Zimbra API in PHP library.
  *
@@ -10,55 +10,57 @@
 
 namespace Zimbra\Enum;
 
+use MyCLabs\Enum\Enum;
+
 /**
  * WeekDay enum class
  *
  * @package   Zimbra
  * @category  Enum
  * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
- * @copyright Copyright © 2013 by Nguyen Van Nguyen.
+ * @copyright Copyright © 2013-present by Nguyen Van Nguyen.
  */
-class WeekDay extends Base
+class WeekDay extends Enum
 {
     /**
      * Constant for value 'SU'
      * @return string 'SU'
      */
-    const SU = 'SU';
+    private const SU = 'SU';
 
     /**
      * Constant for value 'MO'
      * @return string 'MO'
      */
-    const MO = 'MO';
+    private const MO = 'MO';
 
     /**
      * Constant for value 'TU'
      * @return string 'TU'
      */
-    const TU = 'TU';
+    private const TU = 'TU';
 
     /**
      * Constant for value 'WE'
      * @return string 'WE'
      */
-    const WE = 'WE';
+    private const WE = 'WE';
 
     /**
      * Constant for value 'TH'
      * @return string 'TH'
      */
-    const TH = 'TH';
+    private const TH = 'TH';
 
     /**
      * Constant for value 'FR'
      * @return string 'FR'
      */
-    const FR = 'FR';
+    private const FR = 'FR';
 
     /**
      * Constant for value 'SA'
      * @return string 'SA'
      */
-    const SA = 'SA';
+    private const SA = 'SA';
 }

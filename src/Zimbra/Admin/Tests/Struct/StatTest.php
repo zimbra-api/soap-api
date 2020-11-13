@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Zimbra\Admin\Tests\Struct;
 
@@ -32,10 +32,14 @@ class StatTest extends ZimbraStructTestCase
         $xml = '<?xml version="1.0"?>' . "\n"
             . '<stat name="' . $name . '" description="' . $description . '">' . $value . '</stat>';
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($stat, 'xml'));
+        $this->assertEquals($stat, $this->serializer->deserialize($xml, Stat::class, 'xml'));
 
-        $stat = $this->serializer->deserialize($xml, 'Zimbra\Admin\Struct\Stat', 'xml');
-        $this->assertSame($value, $stat->getValue());
-        $this->assertSame($name, $stat->getName());
-        $this->assertSame($description, $stat->getDescription());
+        $json = json_encode([
+            'name' => $name,
+            'description' => $description,
+            '_content' => $value,
+        ]);
+        $this->assertSame($json, $this->serializer->serialize($stat, 'json'));
+        $this->assertEquals($stat, $this->serializer->deserialize($json, Stat::class, 'json'));
     }
 }

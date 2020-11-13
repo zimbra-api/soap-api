@@ -26,7 +26,7 @@ class DataSourceTypeTest extends TestCase
         ];
         foreach ($values as $enum => $value)
         {
-            $this->assertSame(DataSourceType::$enum()->value(), $value);
+            $this->assertSame(DataSourceType::$enum()->getValue(), $value);
         }
     }
 }

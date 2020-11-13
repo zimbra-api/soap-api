@@ -22,7 +22,7 @@ class VoiceSortByTest extends TestCase
         ];
         foreach ($values as $enum => $value)
         {
-            $this->assertSame(VoiceSortBy::$enum()->value(), $value);
+            $this->assertSame(VoiceSortBy::$enum()->getValue(), $value);
         }
     }
 }

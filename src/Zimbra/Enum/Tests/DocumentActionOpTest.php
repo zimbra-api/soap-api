@@ -20,7 +20,7 @@ class DocumentActionOpTest extends TestCase
         ];
         foreach ($values as $enum => $value)
         {
-            $this->assertSame(DocumentActionOp::$enum()->value(), $value);
+            $this->assertSame(DocumentActionOp::$enum()->getValue(), $value);
         }
     }
 }

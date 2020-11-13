@@ -1,9 +1,8 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Zimbra\Admin\Tests\Struct;
 
 use JMS\Serializer\Annotation\XmlRoot;
-
 use Zimbra\Admin\Struct\AdminObjectInfo;
 use Zimbra\Admin\Struct\Attr;
 use Zimbra\Struct\Tests\ZimbraStructTestCase;
@@ -17,7 +16,6 @@ class AdminObjectInfoTest extends ZimbraStructTestCase
     {
         $name = $this->faker->word;
         $id = $this->faker->uuid;
-        $value = $this->faker->word;
 
         $key1 = $this->faker->word;
         $value1 = $this->faker->word;
@@ -47,17 +45,24 @@ class AdminObjectInfoTest extends ZimbraStructTestCase
                 . '<a n="' . $key2 . '">' . $value2 . '</a>'
             . '</stub>';
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($stub, 'xml'));
+        $this->assertEquals($stub, $this->serializer->deserialize($xml, StubAdminObjectInfo::class, 'xml'));
 
-        $stub = $this->serializer->deserialize($xml, 'Zimbra\Admin\Tests\Struct\StubAdminObjectInfo', 'xml');
-        $attr1 = $stub->getAttrList()[0];
-        $attr2 = $stub->getAttrList()[1];
-
-        $this->assertSame($name, $stub->getName());
-        $this->assertSame($id, $stub->getId());
-        $this->assertSame($key1, $attr1->getKey());
-        $this->assertSame($value1, $attr1->getValue());
-        $this->assertSame($key2, $attr2->getKey());
-        $this->assertSame($value2, $attr2->getValue());
+        $json = json_encode([
+            'name' => $name,
+            'id' => $id,
+            'a' => [
+                [
+                    'n' => $key1,
+                    '_content' => $value1,
+                ],
+                [
+                    'n' => $key2,
+                    '_content' => $value2,
+                ],
+            ],
+        ]);
+        $this->assertSame($json, $this->serializer->serialize($stub, 'json'));
+        $this->assertEquals($stub, $this->serializer->deserialize($json, StubAdminObjectInfo::class, 'json'));
     }
 }
 

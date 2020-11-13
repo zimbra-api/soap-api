@@ -1,31 +1,12 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Zimbra\Soap\Tests;
 
-use JMS\Serializer\Annotation\Accessor;
-use JMS\Serializer\Annotation\SerializedName;
-use JMS\Serializer\Annotation\Type;
-use JMS\Serializer\Annotation\XmlElement;
-use JMS\Serializer\Annotation\XmlRoot;
-
-use Zimbra\Enum\AccountBy;
-use Zimbra\Enum\RequestFormat;
-
-use Zimbra\Soap\Envelope;
-use Zimbra\Soap\Header;
-use Zimbra\Soap\Body;
-use Zimbra\Soap\BodyInterface;
-use Zimbra\Soap\RequestInterface;
-use Zimbra\Soap\ResponseInterface;
-use Zimbra\Soap\Header\Context;
-use Zimbra\Soap\Header\AccountInfo;
-use Zimbra\Soap\Header\ChangeInfo;
-use Zimbra\Soap\Header\FormatInfo;
-use Zimbra\Soap\Header\NotifyInfo;
-use Zimbra\Soap\Header\SessionInfo;
-use Zimbra\Soap\Header\UserAgentInfo;
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement, XmlRoot};
+use Zimbra\Enum\{AccountBy, RequestFormat};
+use Zimbra\Soap\{Envelope, Header, Body, BodyInterface, RequestInterface, ResponseInterface};
+use Zimbra\Soap\Header\{AccountInfo, Context, ChangeInfo, FormatInfo, NotifyInfo, SessionInfo, UserAgentInfo};
 use Zimbra\Struct\AuthTokenControl;
-
 use Zimbra\Struct\Tests\ZimbraStructTestCase;
 
 /**
@@ -53,13 +34,13 @@ class EnvelopeTest extends ZimbraStructTestCase
         $soapRequestId = $this->faker->word;
         $csrfToken = $this->faker->uuid;
 
-        $session = new SessionInfo(true, $id, $sequence, $value);
-        $legacySessionId = new SessionInfo(false, $id, $sequence, $value);
-        $account = new AccountInfo(AccountBy::ID()->value(), true, $value);
+        $session = new SessionInfo(TRUE, $id, $sequence, $value);
+        $legacySessionId = new SessionInfo(FALSE, $id, $sequence, $value);
+        $account = new AccountInfo(AccountBy::ID(), TRUE, $value);
         $change = new ChangeInfo($changeId, $changeType);
         $userAgent = new UserAgentInfo($name, $version);
-        $authTokenControl = new AuthTokenControl(true);
-        $format = new FormatInfo(RequestFormat::XML()->value());
+        $authTokenControl = new AuthTokenControl(TRUE);
+        $format = new FormatInfo(RequestFormat::XML());
         $notify = new NotifyInfo($sequence);
         $context = new Context(
             $hopCount,
@@ -116,56 +97,77 @@ class EnvelopeTest extends ZimbraStructTestCase
             . '</soap:Envelope>';
 
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
+        $this->assertEquals($envelope, $this->serializer->deserialize($xml, FooEnvelope::class, 'xml'));
 
-        $envelope = $this->serializer->deserialize($xml, 'Zimbra\Soap\Tests\FooEnvelope', 'xml');
-        $header = $envelope->getHeader();
-        $context = $header->getContext();
-        $this->assertSame($hopCount, $context->getHopCount());
-        $this->assertSame($authToken, $context->getAuthToken());
-        $this->assertSame($noSession, $context->getNoSession());
-        $this->assertSame($targetServer, $context->getTargetServer());
-        $this->assertSame($noNotify, $context->getNoNotify());
-        $this->assertSame($noQualify, $context->getNoQualify());
-        $this->assertSame($via, $context->getVia());
-        $this->assertSame($soapRequestId, $context->getSoapRequestId());
-        $this->assertSame($csrfToken, $context->getCsrfToken());
-
-        $sessionInfo = $context->getSession();
-        $this->assertTrue($sessionInfo->getSessionProxied());
-        $this->assertSame($id, $sessionInfo->getSessionId());
-        $this->assertSame($sequence, $sessionInfo->getSequenceNum());
-        $this->assertSame($value, $sessionInfo->getValue());
-
-        $legacySessionId = $context->getLegacySessionId();
-        $this->assertFalse($legacySessionId->getSessionProxied());
-        $this->assertSame($id, $legacySessionId->getSessionId());
-        $this->assertSame($sequence, $legacySessionId->getSequenceNum());
-        $this->assertSame($value, $legacySessionId->getValue());
-
-        $accountInfo = $context->getAccount();
-        $this->assertSame(AccountBy::ID()->value(), $accountInfo->getBy());
-        $this->assertTrue($accountInfo->getMountpointTraversed());
-        $this->assertSame($value, $accountInfo->getValue());
-
-        $changeInfo = $context->getChange();
-        $this->assertSame($changeId, $changeInfo->getChangeId());
-        $this->assertSame($changeType, $changeInfo->getChangeType());
-
-        $userAgentInfo = $context->getUserAgent();
-        $this->assertSame($name, $userAgentInfo->getName());
-        $this->assertSame($version, $userAgentInfo->getVersion());
-
-        $control = $context->getAuthTokenControl();
-        $this->assertTrue($control->getVoidOnExpired());
-
-        $controlInfo = $context->getFormat();
-        $this->assertSame(RequestFormat::XML()->value(), $controlInfo->getFormat());
-
-        $notifyInfo = $context->getNotify();
-        $this->assertSame($sequence, $notifyInfo->getSequenceNum());
-
-        $body = $envelope->getBody();
-        $this->assertTrue($body instanceof FooBody);
+        $json = json_encode([
+            'Header' => [
+                'context' => [
+                    'hops' => $hopCount,
+                    'authToken' => [
+                        '_content' => $authToken,
+                    ],
+                    'session' => [
+                        'proxy' => TRUE,
+                        'id' => $id,
+                        'seq' => $sequence,
+                        '_content' => $value,
+                    ],
+                    'sessionId' => [
+                        'proxy' => FALSE,
+                        'id' => $id,
+                        'seq' => $sequence,
+                        '_content' => $value,
+                    ],
+                    'nosession' => [
+                        '_content' => $noSession,
+                    ],
+                    'account' => [
+                        'by' => (string) AccountBy::ID(),
+                        'link' => TRUE,
+                        '_content' => $value,
+                    ],
+                    'change' => [
+                        'token' => $changeId,
+                        'type' => $changeType,
+                    ],
+                    'targetServer' => [
+                        '_content' => $targetServer,
+                    ],
+                    'userAgent' => [
+                        'name' => $name,
+                        'version' => $version,
+                    ],
+                    'authTokenControl' => [
+                        'voidOnExpired' => TRUE,
+                    ],
+                    'format' => [
+                        'type' => (string) RequestFormat::XML(),
+                    ],
+                    'notify' => [
+                        'seq' => $sequence,
+                    ],
+                    'nonotify' => [
+                        '_content' => $noNotify,
+                    ],
+                    'noqualify' => [
+                        '_content' => $noQualify,
+                    ],
+                    'via' => [
+                        '_content' => $via,
+                    ],
+                    'soapId' => [
+                        '_content' => $soapRequestId,
+                    ],
+                    'csrfToken' => [
+                        '_content' => $csrfToken,
+                    ],
+                    '_jsns' => 'urn:zimbra',
+                ],
+            ],
+            'Body' => new \stdClass(),
+        ]);
+        $this->assertSame($json, $this->serializer->serialize($envelope, 'json'));
+        $this->assertEquals($envelope, $this->serializer->deserialize($json, FooEnvelope::class, 'json'));
     }
 }
 
@@ -187,7 +189,7 @@ class FooEnvelope extends Envelope
      *
      * @return BodyInterface
      */
-    public function getBody()
+    public function getBody() : BodyInterface
     {
         return $this->_body;
     }
@@ -198,7 +200,7 @@ class FooEnvelope extends Envelope
      * @param  BodyInterface $body
      * @return self
      */
-    public function setBody(BodyInterface $body)
+    public function setBody(BodyInterface $body): Envelope
     {
         $this->_body = $body;
         return $this;
@@ -207,11 +209,15 @@ class FooEnvelope extends Envelope
 
 class FooBody extends Body
 {
-    public function setRequest(RequestInterface $request) {}
+    public function setRequest(RequestInterface $request): self
+    {}
 
-    public function getRequest() {}
+    public function getRequest(): ?RequestInterface
+    {}
 
-    public function setResponse(ResponseInterface $response) {}
+    public function setResponse(ResponseInterface $response): self
+    {}
 
-    public function getResponse() {}
+    public function getResponse(): ?ResponseInterface
+    {}
 }

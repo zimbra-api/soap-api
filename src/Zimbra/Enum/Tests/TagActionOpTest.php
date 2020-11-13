@@ -22,7 +22,7 @@ class TagActionOpTest extends TestCase
         ];
         foreach ($values as $enum => $value)
         {
-            $this->assertSame(TagActionOp::$enum()->value(), $value);
+            $this->assertSame(TagActionOp::$enum()->getValue(), $value);
         }
     }
 }

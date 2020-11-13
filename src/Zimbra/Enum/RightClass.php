@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * This file is part of the Zimbra API in PHP library.
  *
@@ -10,31 +10,33 @@
 
 namespace Zimbra\Enum;
 
+use MyCLabs\Enum\Enum;
+
 /**
  * RightClass enum class
  *
  * @package   Zimbra
  * @category  Enum
  * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
- * @copyright Copyright © 2013 by Nguyen Van Nguyen.
+ * @copyright Copyright © 2013-present by Nguyen Van Nguyen.
  */
-class RightClass extends Base
+class RightClass extends Enum
 {
     /**
      * Constant for value 'ADMIN'
      * @return string 'ADMIN'
      */
-    const ADMIN = 'ADMIN';
+    private const ADMIN = 'ADMIN';
 
     /**
      * Constant for value 'USER'
      * @return string 'USER'
      */
-    const USER = 'USER';
+    private const USER = 'USER';
 
     /**
      * Constant for value 'ALL'
      * @return string 'ALL'
      */
-    const ALL = 'ALL';
+    private const ALL = 'ALL';
 }

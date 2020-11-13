@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * This file is part of the Zimbra API in PHP library.
  *
@@ -10,20 +10,16 @@
 
 namespace Zimbra\Struct;
 
-use JMS\Serializer\Annotation\Accessor;
-use JMS\Serializer\Annotation\SerializedName;
-use JMS\Serializer\Annotation\Type;
-use JMS\Serializer\Annotation\XmlAttribute;
-use JMS\Serializer\Annotation\XmlRoot;
-use JMS\Serializer\Annotation\XmlValue;
+use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlRoot, XmlValue};
 
 /**
- * OpValue struct class
+ * OpValue class
  *
  * @package   Zimbra
  * @category  Struct
  * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
- * @copyright Copyright © 2013 by Nguyen Van Nguyen.
+ * @copyright Copyright © 2013-present by Nguyen Van Nguyen.
+ * @AccessType("public_method")
  * @XmlRoot(name="addr")
  */
 class OpValue
@@ -34,14 +30,15 @@ class OpValue
      * @Type("string")
      * @XmlAttribute
      */
-    private $_op;
+    private $op;
 
     /**
      * @Accessor(getter="getValue", setter="setValue")
+     * @SerializedName("_content")
      * @Type("string")
      * @XmlValue(cdata=false)
      */
-    private $_value;
+    private $value;
 
     /**
      * Constructor method for OpValue
@@ -64,9 +61,9 @@ class OpValue
      *
      * @return string
      */
-    public function getOp()
+    public function getOp(): string
     {
-        return $this->_op;
+        return $this->op;
     }
 
     /**
@@ -75,13 +72,13 @@ class OpValue
      * @param  string $op
      * @return self
      */
-    public function setOp($op = '+')
+    public function setOp($op = '+'): self
     {
         if (in_array(trim($op), ['+', '-'])) {
-            $this->_op = trim($op);
+            $this->op = trim($op);
         }
         else {
-            $this->_op = '+';
+            $this->op = '+';
         }
         return $this;
     }
@@ -91,9 +88,9 @@ class OpValue
      *
      * @return string
      */
-    public function getValue()
+    public function getValue(): string
     {
-        return $this->_value;
+        return $this->value;
     }
 
     /**
@@ -102,9 +99,9 @@ class OpValue
      * @param  string $name
      * @return self
      */
-    public function setValue($value)
+    public function setValue($value): self
     {
-        $this->_value = trim($value);
+        $this->value = trim($value);
         return $this;
     }
 }

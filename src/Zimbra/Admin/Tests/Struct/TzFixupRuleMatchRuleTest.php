@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Zimbra\Admin\Tests\Struct;
 
@@ -32,10 +32,14 @@ class TzFixupRuleMatchRuleTest extends ZimbraStructTestCase
         $xml = '<?xml version="1.0"?>' . "\n"
             . '<rule mon="' . $mon . '" week="' . $week . '" wkday="' . $wkday . '" />';
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($rule, 'xml'));
+        $this->assertEquals($rule, $this->serializer->deserialize($xml, TzFixupRuleMatchRule::class, 'xml'));
 
-        $rule = $this->serializer->deserialize($xml, 'Zimbra\Admin\Struct\TzFixupRuleMatchRule', 'xml');
-        $this->assertSame($mon, $rule->getMonth());
-        $this->assertSame($week, $rule->getWeek());
-        $this->assertSame($wkday, $rule->getWeekDay());
+        $json = json_encode([
+            'mon' => $mon,
+            'week' => $week,
+            'wkday' => $wkday,
+        ]);
+        $this->assertSame($json, $this->serializer->serialize($rule, 'json'));
+        $this->assertEquals($rule, $this->serializer->deserialize($json, TzFixupRuleMatchRule::class, 'json'));
     }
 }

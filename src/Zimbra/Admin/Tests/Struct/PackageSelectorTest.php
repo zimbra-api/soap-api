@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Zimbra\Admin\Tests\Struct;
 
@@ -23,8 +23,12 @@ class PackageSelectorTest extends ZimbraStructTestCase
         $xml = '<?xml version="1.0"?>' . "\n"
             . '<package name="' . $name . '" />';
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($package, 'xml'));
+        $this->assertEquals($package, $this->serializer->deserialize($xml, PackageSelector::class, 'xml'));
 
-        $package = $this->serializer->deserialize($xml, 'Zimbra\Admin\Struct\PackageSelector', 'xml');
-        $this->assertSame($name, $package->getName());
+        $json = json_encode([
+            'name' => $name,
+        ]);
+        $this->assertSame($json, $this->serializer->serialize($package, 'json'));
+        $this->assertEquals($package, $this->serializer->deserialize($json, PackageSelector::class, 'json'));
     }
 }

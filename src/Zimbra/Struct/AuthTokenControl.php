@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * This file is part of the Zimbra API in PHP library.
  *
@@ -10,11 +10,7 @@
 
 namespace Zimbra\Struct;
 
-use JMS\Serializer\Annotation\Accessor;
-use JMS\Serializer\Annotation\SerializedName;
-use JMS\Serializer\Annotation\Type;
-use JMS\Serializer\Annotation\XmlAttribute;
-use JMS\Serializer\Annotation\XmlRoot;
+use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlRoot};
 
 /**
  * AuthTokenControl struct class
@@ -22,7 +18,8 @@ use JMS\Serializer\Annotation\XmlRoot;
  * @package   Zimbra
  * @category  Struct
  * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
- * @copyright Copyright © 2013 by Nguyen Van Nguyen.
+ * @copyright Copyright © 2013-present by Nguyen Van Nguyen.
+ * @AccessType("public_method")
  * @XmlRoot(name="authTokenControl")
  */
 class AuthTokenControl
@@ -33,7 +30,7 @@ class AuthTokenControl
      * @Type("boolean")
      * @XmlAttribute
      */
-    private $_voidOnExpired;
+    private $voidOnExpired;
 
     /**
      * Constructor method for AuthTokenControl
@@ -53,9 +50,9 @@ class AuthTokenControl
      * @param  bool $voidOnExpired
      * @return bool
      */
-    public function getVoidOnExpired()
+    public function getVoidOnExpired(): bool
     {
-        return $this->_voidOnExpired;
+        return $this->voidOnExpired;
     }
 
     /**
@@ -64,9 +61,9 @@ class AuthTokenControl
      * @param  bool $voidOnExpired
      * @return self
      */
-    public function setVoidOnExpired($voidOnExpired)
+    public function setVoidOnExpired($voidOnExpired): self
     {
-        $this->_voidOnExpired = (bool) $voidOnExpired;
+        $this->voidOnExpired = (bool) $voidOnExpired;
         return $this;
     }
 }

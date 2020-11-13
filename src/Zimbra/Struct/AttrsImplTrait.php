@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * This file is part of the Zimbra API in PHP library.
  *
@@ -10,26 +10,25 @@
 
 namespace Zimbra\Struct;
 
-use JMS\Serializer\Annotation\Accessor;
-use JMS\Serializer\Annotation\Type;
-use JMS\Serializer\Annotation\XmlList;
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlList};
 
 /**
- * AttrsImpl struct class
+ * AttrsImpl trait
  * 
  * @package    Zimbra
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
- * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
+ * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
  */
 trait AttrsImplTrait
 {
     /**
      * @Accessor(getter="getAttrs", setter="setAttrs")
+     * @SerializedName("a")
      * @Type("array<Zimbra\Struct\KeyValuePair>")
      * @XmlList(inline = true, entry = "a")
      */
-    private $_attrs;
+    private $attrs;
 
     /**
      * Add an attr
@@ -37,9 +36,9 @@ trait AttrsImplTrait
      * @param  KeyValuePair $attr
      * @return self
      */
-    public function addAttr(KeyValuePair $attr)
+    public function addAttr(KeyValuePair $attr): self
     {
-        $this->_attrs[] = $attr;
+        $this->attrs[] = $attr;
         return $this;
     }
 
@@ -49,12 +48,12 @@ trait AttrsImplTrait
      * @param array $attrs
      * @return self
      */
-    public function setAttrs(array $attrs)
+    public function setAttrs(array $attrs): self
     {
-        $this->_attrs = [];
+        $this->attrs = [];
         foreach ($attrs as $attr) {
             if ($attr instanceof KeyValuePair) {
-                $this->_attrs[] = $attr;
+                $this->attrs[] = $attr;
             }
         }
         return $this;
@@ -65,8 +64,8 @@ trait AttrsImplTrait
      *
      * @return array
      */
-    public function getAttrs()
+    public function getAttrs(): ?array
     {
-        return $this->_attrs;
+        return $this->attrs;
     }
 }

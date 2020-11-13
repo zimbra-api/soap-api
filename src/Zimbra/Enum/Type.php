@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * This file is part of the Zimbra API in PHP library.
  *
@@ -10,24 +10,27 @@
 
 namespace Zimbra\Enum;
 
+use MyCLabs\Enum\Enum;
+
 /**
  * Type enum class
  *
  * @package   Zimbra
  * @category  Enum
  * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
- * @copyright Copyright © 2013 by Nguyen Van Nguyen.
+ * @copyright Copyright © 2013-present by Nguyen Van Nguyen.
  */
-class Type extends Base
+class Type extends Enum
 {
     /**
      * Constant for value 'user'
      * @return string 'user'
      */
-    const USER = 'user';
+    private const USER = 'user';
+
     /**
      * Constant for value 'system'
      * @return string 'system'
      */
-    const SYSTEM = 'system';
+    private const SYSTEM = 'system';
 }

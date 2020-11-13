@@ -19,7 +19,7 @@ class CalendarResourceByTest extends TestCase
         ];
         foreach ($values as $enum => $value)
         {
-            $this->assertSame(CalendarResourceBy::$enum()->value(), $value);
+            $this->assertSame(CalendarResourceBy::$enum()->getValue(), $value);
         }
     }
 }

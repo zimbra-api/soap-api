@@ -22,7 +22,7 @@ class ContactActionOpTest extends TestCase
         ];
         foreach ($values as $enum => $value)
         {
-            $this->assertSame(ContactActionOp::$enum()->value(), $value);
+            $this->assertSame(ContactActionOp::$enum()->getValue(), $value);
         }
     }
 }

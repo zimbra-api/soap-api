@@ -29,7 +29,7 @@ class OperationTest extends TestCase
         ];
         foreach ($values as $enum => $value)
         {
-            $this->assertSame(Operation::$enum()->value(), $value);
+            $this->assertSame(Operation::$enum()->getValue(), $value);
         }
     }
 }

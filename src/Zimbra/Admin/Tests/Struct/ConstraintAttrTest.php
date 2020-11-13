@@ -1,10 +1,9 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Zimbra\Admin\Tests\Struct;
 
 use Zimbra\Admin\Struct\ConstraintAttr;
 use Zimbra\Admin\Struct\ConstraintInfo;
-use Zimbra\Admin\Struct\ConstraintInfoValues;
 use Zimbra\Struct\Tests\ZimbraStructTestCase;
 
 /**
@@ -19,8 +18,7 @@ class ConstraintAttrTest extends ZimbraStructTestCase
         $max = $this->faker->word;
         $min = $this->faker->word;
 
-        $values = new ConstraintInfoValues([$value]);
-        $constraint = new ConstraintInfo($min, $max, $values);
+        $constraint = new ConstraintInfo($min, $max, [$value]);
         $attr = new ConstraintAttr($constraint, $name);
         $this->assertSame($name, $attr->getName());
         $this->assertSame($constraint, $attr->getConstraint());
@@ -43,13 +41,27 @@ class ConstraintAttrTest extends ZimbraStructTestCase
                 . '</constraint>'
             . '</a>';
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($attr, 'xml'));
+        $this->assertEquals($attr, $this->serializer->deserialize($xml, ConstraintAttr::class, 'xml'));
 
-        $attr = $this->serializer->deserialize($xml, 'Zimbra\Admin\Struct\ConstraintAttr', 'xml');
-        $constraint = $attr->getConstraint();
-        $values = $constraint->getValues();
-        $this->assertSame($name, $attr->getName());
-        $this->assertSame($min, $constraint->getMin());
-        $this->assertSame($max, $constraint->getMax());
-        $this->assertSame([$value], $values->getValues());
+        $json = json_encode([
+            'name' => $name,
+            'constraint' => [
+                'min' => [
+                    '_content' => $min,
+                ],
+                'max' => [
+                    '_content' => $max,
+                ],
+                'values' => [
+                    'v' => [
+                        [
+                            '_content' => $value,
+                        ],
+                    ],
+                ],
+            ],
+        ]);
+        $this->assertSame($json, $this->serializer->serialize($attr, 'json'));
+        $this->assertEquals($attr, $this->serializer->deserialize($json, ConstraintAttr::class, 'json'));
     }
 }

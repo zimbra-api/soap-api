@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * This file is part of the Zimbra API in PHP library.
  *
@@ -10,14 +10,7 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\Accessor;
-use JMS\Serializer\Annotation\SerializedName;
-use JMS\Serializer\Annotation\Type;
-use JMS\Serializer\Annotation\XmlAttribute;
-use JMS\Serializer\Annotation\XmlList;
-use JMS\Serializer\Annotation\XmlRoot;
-
-use Zimbra\Soap\ClientInterface;
+use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlList, XmlRoot};
 use Zimbra\Soap\Request;
 
 /**
@@ -28,7 +21,8 @@ use Zimbra\Soap\Request;
  * @subpackage Admin
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
- * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
+ * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
+ * @AccessType("public_method")
  * @XmlRoot(name="AddDistributionListMemberRequest")
  */
 class AddDistributionListMemberRequest extends Request
@@ -39,26 +33,28 @@ class AddDistributionListMemberRequest extends Request
      * @Type("string")
      * @XmlAttribute
      */
-    private $_id;
+    private $id;
 
     /**
      * Members
+     * 
      * @Accessor(getter="getMembers", setter="setMembers")
+     * @SerializedName("dlm")
      * @Type("array<string>")
      * @XmlList(inline = true, entry = "dlm")
      */
-    private $_members;
+    private $members;
 
     /**
-     * Constructor method for AddDistributionListMember
+     * Constructor method for AddDistributionListMemberRequest
      * @param  string $id Zimbra ID
      * @param  array  $members Members
      * @return self
      */
     public function __construct($id, array $members)
     {
-        $this->setId($id);
-        $this->setMembers($members);
+        $this->setId($id)
+             ->setMembers($members);
     }
 
     /**
@@ -66,9 +62,9 @@ class AddDistributionListMemberRequest extends Request
      *
      * @return string
      */
-    public function getId()
+    public function getId(): string
     {
-        return $this->_id;
+        return $this->id;
     }
 
     /**
@@ -77,9 +73,9 @@ class AddDistributionListMemberRequest extends Request
      * @param  string $id
      * @return self
      */
-    public function setId($id)
+    public function setId($id): self
     {
-        $this->_id = trim($id);
+        $this->id = trim($id);
         return $this;
     }
 
@@ -89,11 +85,11 @@ class AddDistributionListMemberRequest extends Request
      * @param  string $member
      * @return self
      */
-    public function addMember($member)
+    public function addMember($member): self
     {
         $member = trim($member);
-        if (!empty($member) && !in_array($member, $this->_members)) {
-            $this->_members[] = $member;
+        if (!empty($member) && !in_array($member, $this->members)) {
+            $this->members[] = $member;
         }
         return $this;
     }
@@ -104,9 +100,9 @@ class AddDistributionListMemberRequest extends Request
      * @param  array $members Members
      * @return self
      */
-    public function setMembers(array $members)
+    public function setMembers(array $members): self
     {
-        $this->_members = [];
+        $this->members = [];
         foreach ($members as $member) {
             $this->addMember($member);
         }
@@ -118,22 +114,16 @@ class AddDistributionListMemberRequest extends Request
      *
      * @return array
      */
-    public function getMembers()
+    public function getMembers(): array
     {
-        return $this->_members;
+        return $this->members;
     }
 
-    public function execute(ClientInterface $client)
+    protected function internalInit()
     {
-        $requestEnvelope = new AddDistributionListMemberEnvelope();
-        $requestEnvelope->setBody(new AddDistributionListMemberBody($this));
-        $response = $client->doRequest(
-            $this->getSerializer()->serialize($requestEnvelope, 'xml')
+        $this->envelope = new AddDistributionListMemberEnvelope(
+            NULL,
+            new AddDistributionListMemberBody($this)
         );
-        $responseEnvelope = $this->getSerializer()->deserialize(
-            (string) $response->getBody(),
-            'Zimbra\Admin\Message\AddDistributionListMemberEnvelope', 'xml'
-        );
-        return $responseEnvelope->getBody()->getResponse();
     }
 }

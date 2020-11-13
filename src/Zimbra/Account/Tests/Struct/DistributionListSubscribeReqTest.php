@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Zimbra\Account\Tests\Struct;
 
@@ -14,26 +14,30 @@ class DistributionListSubscribeReqTest extends ZimbraStructTestCase
     public function testDistributionListSubscribeReq()
     {
         $value = $this->faker->word;
-        $subsReq = new DistributionListSubscribeReq(DLSubscribeOp::UNSUBSCRIBE()->value(), $value, false);
-        $this->assertSame(DLSubscribeOp::UNSUBSCRIBE()->value(), $subsReq->getOp());
+        $subsReq = new DistributionListSubscribeReq(DLSubscribeOp::UNSUBSCRIBE(), $value, false);
+        $this->assertEquals(DLSubscribeOp::UNSUBSCRIBE(), $subsReq->getOp());
         $this->assertSame($value, $subsReq->getValue());
         $this->assertFalse($subsReq->getBccOwners());
 
-        $subsReq = new DistributionListSubscribeReq('');
-        $subsReq->setOp(DLSubscribeOp::SUBSCRIBE()->value())
+        $subsReq = new DistributionListSubscribeReq(DLSubscribeOp::UNSUBSCRIBE());
+        $subsReq->setOp(DLSubscribeOp::SUBSCRIBE())
                 ->setValue($value)
                 ->setBccOwners(true);
-        $this->assertSame(DLSubscribeOp::SUBSCRIBE()->value(), $subsReq->getOp());
+        $this->assertEquals(DLSubscribeOp::SUBSCRIBE(), $subsReq->getOp());
         $this->assertSame($value, $subsReq->getValue());
         $this->assertTrue($subsReq->getBccOwners());
 
         $xml = '<?xml version="1.0"?>' . "\n"
             . '<subsReq op="' . DLSubscribeOp::SUBSCRIBE() . '" bccOwners="true">' . $value . '</subsReq>';
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($subsReq, 'xml'));
+        $this->assertEquals($subsReq, $this->serializer->deserialize($xml, DistributionListSubscribeReq::class, 'xml'));
 
-        $subsReq = $this->serializer->deserialize($xml, 'Zimbra\Account\Struct\DistributionListSubscribeReq', 'xml');
-        $this->assertSame(DLSubscribeOp::SUBSCRIBE()->value(), $subsReq->getOp());
-        $this->assertSame($value, $subsReq->getValue());
-        $this->assertTrue($subsReq->getBccOwners());
+        $json = json_encode([
+            'op' => (string) DLSubscribeOp::SUBSCRIBE(),
+            '_content' => $value,
+            'bccOwners' => TRUE,
+        ]);
+        $this->assertSame($json, $this->serializer->serialize($subsReq, 'json'));
+        $this->assertEquals($subsReq, $this->serializer->deserialize($json, DistributionListSubscribeReq::class, 'json'));
     }
 }

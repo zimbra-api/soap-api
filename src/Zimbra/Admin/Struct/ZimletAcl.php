@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * This file is part of the Zimbra API in PHP library.
  *
@@ -10,12 +10,7 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\Accessor;
-use JMS\Serializer\Annotation\SerializedName;
-use JMS\Serializer\Annotation\Type;
-use JMS\Serializer\Annotation\XmlAttribute;
-use JMS\Serializer\Annotation\XmlRoot;
-
+use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlRoot};
 use Zimbra\Enum\AclType;
 
 /**
@@ -25,7 +20,8 @@ use Zimbra\Enum\AclType;
  * @subpackage Admin
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
- * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
+ * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
+ * @AccessType("public_method")
  * @XmlRoot(name="acl")
  */
 class ZimletAcl
@@ -36,23 +32,23 @@ class ZimletAcl
      * @Type("string")
      * @XmlAttribute
      */
-    private $_cos;
+    private $cos;
 
     /**
      * @Accessor(getter="getAcl", setter="setAcl")
      * @SerializedName("acl")
-     * @Type("string")
+     * @Type("Zimbra\Enum\AclType")
      * @XmlAttribute
      */
-    private $_acl;
+    private $acl;
 
     /**
      * Constructor method for ZimletAcl
      * @param  string $cos Name of Class Of Service (COS)
-     * @param  string $acl ACL
+     * @param  AclType $acl ACL
      * @return self
      */
-    public function __construct($cos = NULL, $acl = NULL)
+    public function __construct($cos = NULL, AclType $acl = NULL)
     {
         if (NULL !== $cos) {
             $this->setCos($cos);
@@ -67,9 +63,9 @@ class ZimletAcl
      *
      * @return string
      */
-    public function getCos()
+    public function getCos(): string
     {
-        return $this->_cos;
+        return $this->cos;
     }
 
     /**
@@ -78,33 +74,31 @@ class ZimletAcl
      * @param  string $cos
      * @return self
      */
-    public function setCos($cos)
+    public function setCos($cos): self
     {
-        $this->_cos = trim($cos);
+        $this->cos = trim($cos);
         return $this;
     }
 
     /**
      * Gets the acl
      *
-     * @return string
+     * @return AclType
      */
-    public function getAcl()
+    public function getAcl(): AclType
     {
-        return $this->_acl;
+        return $this->acl;
     }
 
     /**
      * Sets the acl
      *
-     * @param  string $acl
+     * @param  AclType $acl
      * @return self
      */
-    public function setAcl($acl)
+    public function setAcl(AclType $acl): self
     {
-        if (AclType::has(trim($acl))) {
-            $this->_acl = trim($acl);
-        }
+        $this->acl = $acl;
         return $this;
     }
 }

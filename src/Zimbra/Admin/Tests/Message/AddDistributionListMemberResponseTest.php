@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Zimbra\Admin\Tests\Message;
 
@@ -15,10 +15,12 @@ class AddDistributionListMemberResponseTest extends ZimbraStructTestCase
         $res = new AddDistributionListMemberResponse();
 
         $xml = '<?xml version="1.0"?>' . "\n"
-            . '<AddDistributionListMemberResponse xmlns="urn:zimbraAdmin" />';
+            . '<AddDistributionListMemberResponse />';
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($res, 'xml'));
+        $this->assertEquals($res, $this->serializer->deserialize($xml, AddDistributionListMemberResponse::class, 'xml'));
 
-        $res = $this->serializer->deserialize($xml, 'Zimbra\Admin\Message\AddDistributionListMemberResponse', 'xml');
-        $this->assertTrue($res instanceof AddDistributionListMemberResponse);
+        $json = json_encode(new \stdClass);
+        $this->assertSame($json, $this->serializer->serialize($res, 'json'));
+        $this->assertEquals($res, $this->serializer->deserialize($json, AddDistributionListMemberResponse::class, 'json'));
     }
 }

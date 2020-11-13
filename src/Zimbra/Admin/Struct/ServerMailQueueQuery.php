@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * This file is part of the Zimbra API in PHP library.
  *
@@ -10,12 +10,7 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\Accessor;
-use JMS\Serializer\Annotation\SerializedName;
-use JMS\Serializer\Annotation\Type;
-use JMS\Serializer\Annotation\XmlAttribute;
-use JMS\Serializer\Annotation\XmlElement;
-use JMS\Serializer\Annotation\XmlRoot;
+use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlElement, XmlRoot};
 
 /**
  * ServerMailQueueQuery struct class
@@ -24,7 +19,8 @@ use JMS\Serializer\Annotation\XmlRoot;
  * @subpackage Admin
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
- * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
+ * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
+ * @AccessType("public_method")
  * @XmlRoot(name="server")
  */
 class ServerMailQueueQuery
@@ -35,7 +31,7 @@ class ServerMailQueueQuery
      * @Type("Zimbra\Admin\Struct\MailQueueQuery")
      * @XmlElement
      */
-    private $_queue;
+    private $queue;
 
     /**
      * @Accessor(getter="getServerName", setter="setServerName")
@@ -43,7 +39,7 @@ class ServerMailQueueQuery
      * @Type("string")
      * @XmlAttribute
      */
-    private $_serverName;
+    private $serverName;
 
     /**
      * Constructor method for ServerMailQueueQuery
@@ -62,9 +58,9 @@ class ServerMailQueueQuery
      *
      * @return MailQueueQuery
      */
-    public function getQueue()
+    public function getQueue(): MailQueueQuery
     {
-        return $this->_queue;
+        return $this->queue;
     }
 
     /**
@@ -73,9 +69,9 @@ class ServerMailQueueQuery
      * @param  MailQueueQuery $queue
      * @return self
      */
-    public function setQueue(MailQueueQuery $queue)
+    public function setQueue(MailQueueQuery $queue): self
     {
-        $this->_queue = $queue;
+        $this->queue = $queue;
         return $this;
     }
 
@@ -84,9 +80,9 @@ class ServerMailQueueQuery
      *
      * @return string
      */
-    public function getServerName()
+    public function getServerName(): string
     {
-        return $this->_serverName;
+        return $this->serverName;
     }
 
     /**
@@ -95,9 +91,9 @@ class ServerMailQueueQuery
      * @param  string $name
      * @return self
      */
-    public function setServerName($name)
+    public function setServerName($name): self
     {
-        $this->_serverName = trim($name);
+        $this->serverName = trim($name);
         return $this;
     }
 }

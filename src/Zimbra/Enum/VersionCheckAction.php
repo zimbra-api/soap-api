@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * This file is part of the Zimbra API in PHP library.
  *
@@ -10,24 +10,26 @@
 
 namespace Zimbra\Enum;
 
+use MyCLabs\Enum\Enum;
+
 /**
  * VersionCheckAction enum class
  *
  * @package   Zimbra
  * @category  Enum
  * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
- * @copyright Copyright © 2013 by Nguyen Van Nguyen.
+ * @copyright Copyright © 2013-present by Nguyen Van Nguyen.
  */
-class VersionCheckAction extends Base
+class VersionCheckAction extends Enum
 {
     /**
      * Constant for value 'check'
      * @return string 'check'
      */
-    const CHECK = 'check';
+    private const CHECK = 'check';
     /**
      * Constant for value 'status'
      * @return string 'status'
      */
-    const STATUS = 'status';
+    private const STATUS = 'status';
 }

@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * This file is part of the Zimbra API in PHP library.
  *
@@ -10,37 +10,39 @@
 
 namespace Zimbra\Enum;
 
+use MyCLabs\Enum\Enum;
+
 /**
  * MdsConnectionType enum class
  *
  * @package   Zimbra
  * @category  Enum
  * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
- * @copyright Copyright © 2013 by Nguyen Van Nguyen.
+ * @copyright Copyright © 2013-present by Nguyen Van Nguyen.
  */
-class MdsConnectionType extends Base
+class MdsConnectionType extends Enum
 {
     /**
      * Constant for value 'cleartext'
      * @return string 'cleartext'
      */
-    const CLEAR_TEXT = 'cleartext';
+    private const CLEAR_TEXT = 'cleartext';
 
     /**
      * Constant for value 'ssl'
      * @return string 'ssl'
      */
-    const SSL = 'ssl';
+    private const SSL = 'ssl';
 
     /**
      * Constant for value 'tls'
      * @return string 'tls'
      */
-    const TLS = 'tls';
+    private const TLS = 'tls';
 
     /**
      * Constant for value 'tls_is_available'
      * @return string 'tls_is_available'
      */
-    const TLS_IS_AVAILABLE = 'tls_is_available';
+    private const TLS_IS_AVAILABLE = 'tls_is_available';
 }

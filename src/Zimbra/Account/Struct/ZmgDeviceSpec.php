@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * This file is part of the Zimbra API in PHP library.
  *
@@ -10,11 +10,7 @@
 
 namespace Zimbra\Account\Struct;
 
-use JMS\Serializer\Annotation\Accessor;
-use JMS\Serializer\Annotation\SerializedName;
-use JMS\Serializer\Annotation\Type;
-use JMS\Serializer\Annotation\XmlAttribute;
-use JMS\Serializer\Annotation\XmlRoot;
+use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlRoot};
 
 /**
  * ZmgDeviceSpec struct class
@@ -24,7 +20,8 @@ use JMS\Serializer\Annotation\XmlRoot;
  * @subpackage Account
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
- * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
+ * @copyright  Copyright © 2020 by Nguyen Van Nguyen.
+ * @AccessType("public_method")
  * @XmlRoot(name="zmgDevice")
  */
 class ZmgDeviceSpec
@@ -35,7 +32,7 @@ class ZmgDeviceSpec
      * @Type("string")
      * @XmlAttribute
      */
-    private $_appId;
+    private $appId;
 
     /**
      * @Accessor(getter="getRegistrationId", setter="setRegistrationId")
@@ -43,7 +40,7 @@ class ZmgDeviceSpec
      * @Type("string")
      * @XmlAttribute
      */
-    private $_registrationId;
+    private $registrationId;
 
     /**
      * @Accessor(getter="getPushProvider", setter="setPushProvider")
@@ -51,7 +48,7 @@ class ZmgDeviceSpec
      * @Type("string")
      * @XmlAttribute
      */
-    private $_pushProvider;
+    private $pushProvider;
 
     /**
      * @Accessor(getter="getOSName", setter="setOSName")
@@ -59,7 +56,7 @@ class ZmgDeviceSpec
      * @Type("string")
      * @XmlAttribute
      */
-    private $_osName;
+    private $osName;
 
     /**
      * @Accessor(getter="getOSVersion", setter="setOSVersion")
@@ -67,7 +64,7 @@ class ZmgDeviceSpec
      * @Type("string")
      * @XmlAttribute
      */
-    private $_osVersion;
+    private $osVersion;
 
     /**
      * @Accessor(getter="getMaxPayloadSize", setter="setMaxPayloadSize")
@@ -75,7 +72,7 @@ class ZmgDeviceSpec
      * @Type("int")
      * @XmlAttribute
      */
-    private $_maxPayloadSize;
+    private $maxPayloadSize;
 
     /**
      * Constructor method for ZmgDeviceSpec
@@ -97,21 +94,21 @@ class ZmgDeviceSpec
         $appId,
         $registrationId,
         $pushProvider,
-        $osName = null,
-        $osVersion = null,
-        $maxPayloadSize = null
+        $osName = NULL,
+        $osVersion = NULL,
+        $maxPayloadSize = NULL
     )
     {
         $this->setAppId($appId);
         $this->setRegistrationId($registrationId);
         $this->setPushProvider($pushProvider);
-        if (null !== $osName) {
+        if (NULL !== $osName) {
             $this->setOSName($osName);
         }
-        if (null !== $osVersion) {
+        if (NULL !== $osVersion) {
             $this->setOSVersion($osVersion);
         }
-        if (null !== $maxPayloadSize) {
+        if (NULL !== $maxPayloadSize) {
             $this->setMaxPayloadSize($maxPayloadSize);
         }
     }
@@ -123,7 +120,7 @@ class ZmgDeviceSpec
      */
     public function getAppId()
     {
-        return $this->_appId;
+        return $this->appId;
     }
 
     /**
@@ -134,7 +131,7 @@ class ZmgDeviceSpec
      */
     public function setAppId($appId)
     {
-        $this->_appId = trim($appId);
+        $this->appId = trim($appId);
         return $this;
     }
 
@@ -145,7 +142,7 @@ class ZmgDeviceSpec
      */
     public function getRegistrationId()
     {
-        return $this->_registrationId;
+        return $this->registrationId;
     }
 
     /**
@@ -156,7 +153,7 @@ class ZmgDeviceSpec
      */
     public function setRegistrationId($registrationId)
     {
-        $this->_registrationId = trim($registrationId);
+        $this->registrationId = trim($registrationId);
         return $this;
     }
 
@@ -167,7 +164,7 @@ class ZmgDeviceSpec
      */
     public function getPushProvider()
     {
-        return $this->_pushProvider;
+        return $this->pushProvider;
     }
 
     /**
@@ -178,7 +175,7 @@ class ZmgDeviceSpec
      */
     public function setPushProvider($pushProvider)
     {
-        $this->_pushProvider = trim($pushProvider);
+        $this->pushProvider = trim($pushProvider);
         return $this;
     }
 
@@ -189,7 +186,7 @@ class ZmgDeviceSpec
      */
     public function getOsName()
     {
-        return $this->_osName;
+        return $this->osName;
     }
 
     /**
@@ -200,7 +197,7 @@ class ZmgDeviceSpec
      */
     public function setOsName($osName)
     {
-        $this->_osName = trim($osName);
+        $this->osName = trim($osName);
         return $this;
     }
 
@@ -211,7 +208,7 @@ class ZmgDeviceSpec
      */
     public function getOsVersion()
     {
-        return $this->_osVersion;
+        return $this->osVersion;
     }
 
     /**
@@ -222,7 +219,7 @@ class ZmgDeviceSpec
      */
     public function setOsVersion($osVersion)
     {
-        $this->_osVersion = trim($osVersion);
+        $this->osVersion = trim($osVersion);
         return $this;
     }
 
@@ -233,7 +230,7 @@ class ZmgDeviceSpec
      */
     public function getMaxPayloadSize()
     {
-        return $this->_maxPayloadSize;
+        return $this->maxPayloadSize;
     }
 
     /**
@@ -244,7 +241,7 @@ class ZmgDeviceSpec
      */
     public function setMaxPayloadSize($maxPayloadSize)
     {
-        $this->_maxPayloadSize = (int) $maxPayloadSize;
+        $this->maxPayloadSize = (int) $maxPayloadSize;
         return $this;
     }
 }

@@ -1,20 +1,16 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * This file is part of the Zimbra API in PHP library.
  *
  * © Nguyen Van Nguyen <nguyennv1981@gmail.com>
  *
- * For the full copyid and license information, please view the LICENSE
+ * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
 namespace Zimbra\Account\Struct;
 
-use JMS\Serializer\Annotation\Accessor;
-use JMS\Serializer\Annotation\SerializedName;
-use JMS\Serializer\Annotation\Type;
-use JMS\Serializer\Annotation\XmlAttribute;
-use JMS\Serializer\Annotation\XmlRoot;
+use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlRoot};
 
 /**
  * NameId struct class
@@ -23,7 +19,8 @@ use JMS\Serializer\Annotation\XmlRoot;
  * @subpackage Account
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
- * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
+ * @copyright  Copyright © 2020 by Nguyen Van Nguyen.
+ * @AccessType("public_method")
  * @XmlRoot(name="nameid")
  */
 class NameId
@@ -34,7 +31,7 @@ class NameId
      * @Type("string")
      * @XmlAttribute
      */
-    private $_name;
+    private $name;
 
     /**
      * @Accessor(getter="getId", setter="setId")
@@ -42,7 +39,7 @@ class NameId
      * @Type("string")
      * @XmlAttribute
      */
-    private $_id;
+    private $id;
 
     /**
      * Constructor method for NameId
@@ -62,7 +59,7 @@ class NameId
      */
     public function getName()
     {
-        return $this->_name;
+        return $this->name;
     }
 
     /**
@@ -73,7 +70,7 @@ class NameId
      */
     public function setName($name)
     {
-        $this->_name = trim($name);
+        $this->name = trim($name);
         return $this;
     }
 
@@ -84,7 +81,7 @@ class NameId
      */
     public function getId()
     {
-        return $this->_id;
+        return $this->id;
     }
 
     /**
@@ -95,7 +92,7 @@ class NameId
      */
     public function setId($id)
     {
-        $this->_id = trim($id);
+        $this->id = trim($id);
         return $this;
     }
 }

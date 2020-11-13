@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Zimbra\Soap\Tests\Header;
 
@@ -16,14 +16,14 @@ class SessionInfoTest extends ZimbraStructTestCase
         $value = $this->faker->word;
         $sequence = mt_rand(1, 100);
 
-        $info = new SessionInfo(false, $id, $sequence, $value);
+        $info = new SessionInfo(FALSE, $id, $sequence, $value);
         $this->assertFalse($info->getSessionProxied());
         $this->assertSame($id, $info->getSessionId());
         $this->assertSame($sequence, $info->getSequenceNum());
         $this->assertSame($value, $info->getValue());
 
         $info = new SessionInfo();
-        $info->setSessionProxied(true)
+        $info->setSessionProxied(TRUE)
              ->setSessionId($id)
              ->setSequenceNum($sequence)
              ->setValue($value);
@@ -35,11 +35,15 @@ class SessionInfoTest extends ZimbraStructTestCase
         $xml = '<?xml version="1.0"?>' . "\n"
             . '<session proxy="true" id="' . $id . '" seq="' . $sequence . '">' . $value . '</session>';
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($info, 'xml'));
+        $this->assertEquals($info, $this->serializer->deserialize($xml, SessionInfo::class, 'xml'));
 
-        $info = $this->serializer->deserialize($xml, 'Zimbra\Soap\Header\SessionInfo', 'xml');
-        $this->assertTrue($info->getSessionProxied());
-        $this->assertSame($id, $info->getSessionId());
-        $this->assertSame($sequence, $info->getSequenceNum());
-        $this->assertSame($value, $info->getValue());
+        $json = json_encode([
+            'proxy' => TRUE,
+            'id' => $id,
+            'seq' => $sequence,
+            '_content' => $value,
+        ]);
+        $this->assertSame($json, $this->serializer->serialize($info, 'json'));
+        $this->assertEquals($info, $this->serializer->deserialize($json, SessionInfo::class, 'json'));
     }
 }

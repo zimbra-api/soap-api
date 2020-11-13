@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * This file is part of the Zimbra API in PHP library.
  *
@@ -10,61 +10,63 @@
 
 namespace Zimbra\Enum;
 
+use MyCLabs\Enum\Enum;
+
 /**
  * Operation enum class
  *
  * @package   Zimbra
  * @category  Enum
  * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
- * @copyright Copyright © 2013 by Nguyen Van Nguyen.
+ * @copyright Copyright © 2013-present by Nguyen Van Nguyen.
  */
-class ConditionOperator extends Base
+class ConditionOperator extends Enum
 {
     /**
      * Constant for value 'eq'
      * @return string 'eq'
      */
-    const EQ = 'eq';
+    private const EQ = 'eq';
 
     /**
      * Constant for value 'has'
      * @return string 'has'
      */
-    const HAVE = 'has';
+    private const HAVE = 'has';
 
     /**
      * Constant for value 'ge'
      * @return string 'ge'
      */
-    const GE = 'ge';
+    private const GE = 'ge';
 
     /**
      * Constant for value 'le'
      * @return string 'le'
      */
-    const LE = 'le';
+    private const LE = 'le';
 
     /**
      * Constant for value 'gt'
      * @return string 'gt'
      */
-    const GT = 'gt';
+    private const GT = 'gt';
 
     /**
      * Constant for value 'lt'
      * @return string 'lt'
      */
-    const LT = 'lt';
+    private const LT = 'lt';
 
     /**
      * Constant for value 'startswith'
      * @return string 'startswith'
      */
-    const STARTS_WITH = 'startswith';
+    private const STARTS_WITH = 'startswith';
 
     /**
      * Constant for value 'endswith'
      * @return string 'endswith'
      */
-    const ENDS_WITH = 'endswith';
+    private const ENDS_WITH = 'endswith';
 }

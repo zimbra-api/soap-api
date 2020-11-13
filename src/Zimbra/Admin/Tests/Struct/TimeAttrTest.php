@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Zimbra\Admin\Tests\Struct;
 
@@ -23,8 +23,12 @@ class TimeAttrTest extends ZimbraStructTestCase
         $xml = '<?xml version="1.0"?>' . "\n"
             . '<attr time="' . $time . '" />';
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($attr, 'xml'));
+        $this->assertEquals($attr, $this->serializer->deserialize($xml, TimeAttr::class, 'xml'));
 
-        $attr = $this->serializer->deserialize($xml, 'Zimbra\Admin\Struct\TimeAttr', 'xml');
-        $this->assertSame($time, $attr->getTime());
+        $json = json_encode([
+            'time' => $time,
+        ]);
+        $this->assertSame($json, $this->serializer->serialize($attr, 'json'));
+        $this->assertEquals($attr, $this->serializer->deserialize($json, TimeAttr::class, 'json'));
     }
 }

@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * This file is part of the Zimbra API in PHP library.
  *
@@ -10,25 +10,18 @@
 
 namespace Zimbra\Struct;
 
-use JMS\Serializer\Annotation\Accessor;
-use JMS\Serializer\Annotation\Exclude;
-use JMS\Serializer\Annotation\SerializedName;
-use JMS\Serializer\Annotation\SkipWhenEmpty;
-use JMS\Serializer\Annotation\Type;
-use JMS\Serializer\Annotation\VirtualProperty;
-use JMS\Serializer\Annotation\XmlAttribute;
-use JMS\Serializer\Annotation\XmlRoot;
-
+use JMS\Serializer\Annotation\{Accessor, AccessType, Exclude, SerializedName, SkipWhenEmpty, Type, VirtualProperty, XmlAttribute, XmlRoot};
 use Zimbra\Enum\InterestType;
 
 /**
- * WaitSetAddSpec struct class
+ * WaitSetAddSpec class
  *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
- * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
+ * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
+ * @AccessType("public_method")
  * @XmlRoot(name="a")
  */
 class WaitSetAddSpec
@@ -39,7 +32,7 @@ class WaitSetAddSpec
      * @Type("string")
      * @XmlAttribute
      */
-    private $_name;
+    private $name;
 
     /**
      * @Accessor(getter="getId", setter="setId")
@@ -47,7 +40,7 @@ class WaitSetAddSpec
      * @Type("string")
      * @XmlAttribute
      */
-    private $_id;
+    private $id;
 
     /**
      * @Accessor(getter="getToken", setter="setToken")
@@ -55,7 +48,7 @@ class WaitSetAddSpec
      * @Type("string")
      * @XmlAttribute
      */
-    private $_token;
+    private $token;
 
     /**
      * @Accessor(getter="getInterests", setter="setInterests")
@@ -63,12 +56,12 @@ class WaitSetAddSpec
      * @Type("string")
      * @XmlAttribute
      */
-    private $_interests;
+    private $interests;
 
     /**
      * @Exclude
      */
-    private $_folderInterests = [];
+    private $folderInterests = [];
 
     /**
      * Constructor method for waitSetAddSpec
@@ -102,9 +95,9 @@ class WaitSetAddSpec
      *
      * @return string
      */
-    public function getName()
+    public function getName(): string
     {
-        return $this->_name;
+        return $this->name;
     }
 
     /**
@@ -113,9 +106,9 @@ class WaitSetAddSpec
      * @param  string $name
      * @return self
      */
-    public function setName($name)
+    public function setName($name): self
     {
-        $this->_name = trim($name);
+        $this->name = trim($name);
         return $this;
     }
 
@@ -124,9 +117,9 @@ class WaitSetAddSpec
      *
      * @return string
      */
-    public function getId()
+    public function getId(): string
     {
-        return $this->_id;
+        return $this->id;
     }
 
     /**
@@ -135,9 +128,9 @@ class WaitSetAddSpec
      * @param  string $id
      * @return self
      */
-    public function setId($id)
+    public function setId($id): self
     {
-        $this->_id = trim($id);
+        $this->id = trim($id);
         return $this;
     }
 
@@ -146,9 +139,9 @@ class WaitSetAddSpec
      *
      * @return string
      */
-    public function getToken()
+    public function getToken(): string
     {
-        return $this->_token;
+        return $this->token;
     }
 
     /**
@@ -157,9 +150,9 @@ class WaitSetAddSpec
      * @param  string $token
      * @return self
      */
-    public function setToken($token)
+    public function setToken($token): self
     {
-        $this->_token = trim($token);
+        $this->token = trim($token);
         return $this;
     }
 
@@ -169,25 +162,25 @@ class WaitSetAddSpec
      * @param string $interests Comma-separated list
      * @return self
      */
-    public function setInterests($interests)
+    public function setInterests($interests): self
     {
         $types = [];
         if (is_array($interests)) {
             foreach ($interests as $type) {
-                if (InterestType::has($type)) {
+                if (InterestType::isValid($type)) {
                     $types[] = $type;
                 }
             }
         }
-        else {
+        elseif (!empty($interests)) {
             $values = explode(',', $interests);
             foreach ($values as $type) {
-                if (InterestType::has($type)) {
+                if (InterestType::isValid($type)) {
                     $types[] = $type;
                 }
             }
         }
-        $this->_interests = !empty($types) ? implode(',', $types) : NULL;
+        $this->interests = !empty($types) ? implode(',', $types) : NULL;
         return $this;
     }
 
@@ -196,23 +189,23 @@ class WaitSetAddSpec
      *
      * @return string
      */
-    public function getInterests()
+    public function getInterests(): string
     {
-        return $this->_interests;
+        return $this->interests;
     }
 
-    public function addFolderInterest($folderId)
+    public function addFolderInterest($folderId): self
     {
         $folderId = (int) $folderId;
-        if (!in_array($folderId, $this->_folderInterests)) {
-            $this->_folderInterests = $folderId;
+        if (!in_array($folderId, $this->folderInterests)) {
+            $this->folderInterests = $folderId;
         }
         return $this;
     }
 
-    public function setFolderInterests($folderInterests)
+    public function setFolderInterests($folderInterests): self
     {
-        $this->_folderInterests = [];
+        $this->folderInterests = [];
         if (is_array($folderInterests)) {
             foreach ($folderInterests as $folderId) {
                 $this->addFolderInterest($folderId);
@@ -236,8 +229,8 @@ class WaitSetAddSpec
      *
      * @return string
      */
-    public function getFolderInterests()
+    public function getFolderInterests(): ?string
     {
-        return !empty($this->_folderInterests) ? implode(',', $this->_folderInterests) : NULL;
+        return !empty($this->folderInterests) ? implode(',', $this->folderInterests) : NULL;
     }
 }

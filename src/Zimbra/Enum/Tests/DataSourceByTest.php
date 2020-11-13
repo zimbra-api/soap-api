@@ -18,7 +18,7 @@ class DataSourceByTest extends TestCase
         ];
         foreach ($values as $enum => $value)
         {
-            $this->assertSame(DataSourceBy::$enum()->value(), $value);
+            $this->assertSame(DataSourceBy::$enum()->getValue(), $value);
         }
     }
 }

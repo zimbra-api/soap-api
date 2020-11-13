@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Zimbra\Account\Tests\Struct;
 
@@ -30,14 +30,21 @@ class WhiteListTest extends ZimbraStructTestCase
                 . '<addr op="-">' . $value . '</addr>'
             . '</whiteList>';
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($whiteList, 'xml'));
+        $this->assertEquals($whiteList, $this->serializer->deserialize($xml, WhiteList::class, 'xml'));
 
-        $whiteList = $this->serializer->deserialize($xml, 'Zimbra\Account\Struct\WhiteList', 'xml');
-        $addr1 = $whiteList->getAddrs()[0];
-        $addr2 = $whiteList->getAddrs()[1];
-    
-        $this->assertSame('+', $addr1->getOp());
-        $this->assertSame($value, $addr1->getValue());
-        $this->assertSame('-', $addr2->getOp());
-        $this->assertSame($value, $addr2->getValue());
+        $json = json_encode([
+            'addr' => [
+                [
+                    'op' => '+',
+                    '_content' => $value,
+                ],
+                [
+                    'op' => '-',
+                    '_content' => $value,
+                ],
+            ],
+        ]);
+        $this->assertSame($json, $this->serializer->serialize($whiteList, 'json'));
+        $this->assertEquals($whiteList, $this->serializer->deserialize($json, WhiteList::class, 'json'));
     }
 }

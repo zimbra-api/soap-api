@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * This file is part of the Zimbra API in PHP library.
  *
@@ -10,73 +10,75 @@
 
 namespace Zimbra\Enum;
 
+use MyCLabs\Enum\Enum;
+
 /**
  * GranteeType enum class
  *
  * @package   Zimbra
  * @category  Enum
  * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
- * @copyright Copyright © 2013 by Nguyen Van Nguyen.
+ * @copyright Copyright © 2013-present by Nguyen Van Nguyen.
  */
-class GranteeType extends Base
+class GranteeType extends Enum
 {
     /**
      * Constant for value 'usr'
      * @return string 'usr'
      */
-    const USR = 'usr';
+    private const USR = 'usr';
 
     /**
      * Constant for value 'grp'
      * @return string 'grp'
      */
-    const GRP = 'grp';
+    private const GRP = 'grp';
 
     /**
      * Constant for value 'egp'
      * @return string 'egp'
      */
-    const EGP = 'egp';
+    private const EGP = 'egp';
 
     /**
      * Constant for value 'all'
      * @return string 'all'
      */
-    const ALL = 'all';
+    private const ALL = 'all';
 
     /**
      * Constant for value 'dom'
      * @return string 'dom'
      */
-    const DOM = 'dom';
+    private const DOM = 'dom';
 
     /**
      * Constant for value 'edom'
      * @return string 'edom'
      */
-    const EDOM = 'edom';
+    private const EDOM = 'edom';
 
     /**
      * Constant for value 'gst'
      * @return string 'gst'
      */
-    const GST = 'gst';
+    private const GST = 'gst';
 
     /**
      * Constant for value 'key'
      * @return string 'key'
      */
-    const KEY = 'key';
+    private const KEY = 'key';
 
     /**
      * Constant for value 'pub'
      * @return string 'pub'
      */
-    const PUB = 'pub';
+    private const PUB = 'pub';
 
     /**
      * Constant for value 'email'
      * @return string 'email'
      */
-    const EMAIL = 'email';
+    private const EMAIL = 'email';
 }

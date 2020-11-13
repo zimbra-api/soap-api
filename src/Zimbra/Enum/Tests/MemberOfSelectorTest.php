@@ -19,7 +19,7 @@ class MemberOfSelectorTest extends TestCase
         ];
         foreach ($values as $enum => $value)
         {
-            $this->assertSame(MemberOfSelector::$enum()->value(), $value);
+            $this->assertSame(MemberOfSelector::$enum()->getValue(), $value);
         }
     }
 }

@@ -18,7 +18,7 @@ class QueueActionByTest extends TestCase
         ];
         foreach ($values as $enum => $value)
         {
-            $this->assertSame(QueueActionBy::$enum()->value(), $value);
+            $this->assertSame(QueueActionBy::$enum()->getValue(), $value);
         }
     }
 }

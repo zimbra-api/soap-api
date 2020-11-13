@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * This file is part of the Zimbra API in PHP library.
  *
@@ -10,19 +10,16 @@
 
 namespace Zimbra\Struct;
 
-use JMS\Serializer\Annotation\Accessor;
-use JMS\Serializer\Annotation\SerializedName;
-use JMS\Serializer\Annotation\Type;
-use JMS\Serializer\Annotation\XmlAttribute;
-use JMS\Serializer\Annotation\XmlRoot;
+use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlRoot};
 
 /**
- * NamedElement struct class
+ * NamedElement class
  *
  * @package   Zimbra
  * @category  Struct
  * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
- * @copyright Copyright © 2013 by Nguyen Van Nguyen.
+ * @copyright Copyright © 2013-present by Nguyen Van Nguyen.
+ * @AccessType("public_method")
  * @XmlRoot(name="named")
  */
 class NamedElement
@@ -33,7 +30,7 @@ class NamedElement
      * @Type("string")
      * @XmlAttribute
      */
-    private $_name;
+    private $name;
 
     /**
      * Constructor method for NamedElement
@@ -52,9 +49,9 @@ class NamedElement
      *
      * @return string
      */
-    public function getName()
+    public function getName(): string
     {
-        return $this->_name;
+        return $this->name;
     }
 
     /**
@@ -63,9 +60,9 @@ class NamedElement
      * @param  string $name
      * @return self
      */
-    public function setName($name)
+    public function setName($name): self
     {
-        $this->_name = trim($name);
+        $this->name = trim($name);
         return $this;
     }
 }

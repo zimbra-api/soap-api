@@ -24,7 +24,7 @@ class MsgActionOpTest extends TestCase
         ];
         foreach ($values as $enum => $value)
         {
-            $this->assertSame(MsgActionOp::$enum()->value(), $value);
+            $this->assertSame(MsgActionOp::$enum()->getValue(), $value);
         }
     }
 }

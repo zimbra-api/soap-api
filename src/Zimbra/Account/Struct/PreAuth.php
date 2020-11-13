@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * This file is part of the Zimbra API in PHP library.
  *
@@ -10,13 +10,7 @@
 
 namespace Zimbra\Account\Struct;
 
-use JMS\Serializer\Annotation\Accessor;
-use JMS\Serializer\Annotation\SerializedName;
-use JMS\Serializer\Annotation\Type;
-use JMS\Serializer\Annotation\XmlAttribute;
-use JMS\Serializer\Annotation\XmlValue;
-use JMS\Serializer\Annotation\XmlRoot;
-
+use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlRoot, XmlValue};
 use Zimbra\Struct\AccountSelector;
 
 /**
@@ -27,16 +21,18 @@ use Zimbra\Struct\AccountSelector;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
+ * @AccessType("public_method")
  * @XmlRoot(name="preauth")
  */
 class PreAuth
 {
     /**
      * @Accessor(getter="getValue", setter="setValue")
+     * @SerializedName("_content")
      * @Type("string")
      * @XmlValue(cdata=false)
      */
-    private $_value;
+    private $value;
 
     /**
      * @Accessor(getter="getTimestamp", setter="setTimestamp")
@@ -44,7 +40,7 @@ class PreAuth
      * @Type("integer")
      * @XmlAttribute
      */
-    private $_timestamp;
+    private $timestamp;
 
     /**
      * @Accessor(getter="getExpiresTimestamp", setter="setExpiresTimestamp")
@@ -52,7 +48,7 @@ class PreAuth
      * @Type("integer")
      * @XmlAttribute
      */
-    private $_expiresTimestamp;
+    private $expiresTimestamp;
 
     /**
      * Constructor method for PreAuth
@@ -66,13 +62,13 @@ class PreAuth
      *    Can be used to sync the auth token expiration time with the external system's notion of expiration (like a Kerberos TGT lifetime, for example).
      * @return self
      */
-    public function __construct($timestamp, $value = null, $expiresTimestamp = null)
+    public function __construct($timestamp, $value = NULL, $expiresTimestamp = NULL)
     {
         $this->setTimestamp($timestamp);
-        if (null !== $value) {
+        if (NULL !== $value) {
             $this->setValue($value);
         }
-        if (null !== $expiresTimestamp) {
+        if (NULL !== $expiresTimestamp) {
             $expiresTimestamp = (int) $expiresTimestamp < 0 ? time() : (int) $expiresTimestamp;
             $this->setExpiresTimestamp($expiresTimestamp);
         }
@@ -85,7 +81,7 @@ class PreAuth
      */
     public function getValue()
     {
-        return $this->_value;
+        return $this->value;
     }
 
     /**
@@ -96,7 +92,7 @@ class PreAuth
      */
     public function setValue($value)
     {
-        $this->_value = trim($value);
+        $this->value = trim($value);
         return $this;
     }
 
@@ -107,7 +103,7 @@ class PreAuth
      */
     public function getTimestamp()
     {
-        return $this->_timestamp;
+        return $this->timestamp;
     }
 
     /**
@@ -119,7 +115,7 @@ class PreAuth
     public function setTimestamp($timestamp)
     {
         $timestamp = (int) $timestamp < 0 ? time() : (int) $timestamp;
-        $this->_timestamp = $timestamp;
+        $this->timestamp = $timestamp;
         return $this;
     }
 
@@ -130,7 +126,7 @@ class PreAuth
      */
     public function getExpiresTimestamp()
     {
-        return $this->_expiresTimestamp;
+        return $this->expiresTimestamp;
     }
 
     /**
@@ -142,7 +138,7 @@ class PreAuth
     public function setExpiresTimestamp($expiresTimestamp)
     {
         $expiresTimestamp = (int) $expiresTimestamp < 0 ? time() : (int) $expiresTimestamp;
-        $this->_expiresTimestamp = $expiresTimestamp;
+        $this->expiresTimestamp = $expiresTimestamp;
         return $this;
     }
 

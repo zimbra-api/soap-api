@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * This file is part of the Zimbra API in PHP library.
  *
@@ -10,31 +10,33 @@
 
 namespace Zimbra\Enum;
 
+use MyCLabs\Enum\Enum;
+
 /**
  * BrowseBy enum class
  *
  * @package   Zimbra
  * @category  Enum
  * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
- * @copyright Copyright © 2013 by Nguyen Van Nguyen.
+ * @copyright Copyright © 2013-present by Nguyen Van Nguyen.
  */
-class BrowseBy extends Base
+class BrowseBy extends Enum
 {
     /**
      * Constant for value 'domains'
      * @return string 'adminName'
      */
-    const DOMAINS = 'domains';
+    private const DOMAINS = 'domains';
 
     /**
      * Constant for value 'attachments'
      * @return string 'attachments'
      */
-    const ATTACHMENTS = 'attachments';
+    private const ATTACHMENTS = 'attachments';
 
     /**
      * Constant for value 'objects'
      * @return string 'objects'
      */
-    const OBJECTS = 'objects';
+    private const OBJECTS = 'objects';
 }

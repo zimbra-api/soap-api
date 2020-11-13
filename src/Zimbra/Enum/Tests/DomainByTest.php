@@ -21,7 +21,7 @@ class DomainByTest extends TestCase
         ];
         foreach ($values as $enum => $value)
         {
-            $this->assertSame(DomainBy::$enum()->value(), $value);
+            $this->assertSame(DomainBy::$enum()->getValue(), $value);
         }
     }
 }

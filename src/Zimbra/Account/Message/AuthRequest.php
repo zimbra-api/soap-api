@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * This file is part of the Zimbra API in PHP library.
  *
@@ -10,21 +10,8 @@
 
 namespace Zimbra\Account\Message;
 
-use JMS\Serializer\Annotation\Accessor;
-use JMS\Serializer\Annotation\SerializedName;
-use JMS\Serializer\Annotation\Type;
-use JMS\Serializer\Annotation\XmlAttribute;
-use JMS\Serializer\Annotation\XmlElement;
-use JMS\Serializer\Annotation\XmlValue;
-use JMS\Serializer\Annotation\XmlRoot;
-
-use Zimbra\Account\Struct\Attr;
-use Zimbra\Account\Struct\AuthAttrs;
-use Zimbra\Account\Struct\AuthPrefs;
-use Zimbra\Account\Struct\AuthToken;
-use Zimbra\Account\Struct\PreAuth;
-use Zimbra\Account\Struct\Pref;
-use Zimbra\Soap\ClientInterface;
+use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlElement, XmlRoot};
+use Zimbra\Account\Struct\{Attr, AuthAttrs, AuthPrefs, AuthToken, PreAuth, Pref};
 use Zimbra\Soap\Request;
 use Zimbra\Struct\AccountSelector;
 
@@ -35,8 +22,9 @@ use Zimbra\Struct\AccountSelector;
  * @subpackage Account
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
- * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
- * @XmlRoot(name="AuthRequest")
+ * @copyright  Copyright © 2020 by Nguyen Van Nguyen.
+ * @AccessType("public_method")
+ * @XmlRoot(name="AuthRequest", namespace="urn:zimbraAccount")
  */
 class AuthRequest extends Request
 {
@@ -46,7 +34,7 @@ class AuthRequest extends Request
      * @Type("bool")
      * @XmlAttribute
      */
-    private $_persistAuthTokenCookie;
+    private $persistAuthTokenCookie;
 
     /**
      * @Accessor(getter="getCsrfSupported", setter="setCsrfSupported")
@@ -54,7 +42,7 @@ class AuthRequest extends Request
      * @Type("bool")
      * @XmlAttribute
      */
-    private $_csrfSupported;
+    private $csrfSupported;
 
     /**
      * @Accessor(getter="getAccount", setter="setAccount")
@@ -62,7 +50,7 @@ class AuthRequest extends Request
      * @Type("Zimbra\Struct\AccountSelector")
      * @XmlElement
      */
-    private $_account;
+    private $account;
 
     /**
      * @Accessor(getter="getPassword", setter="setPassword")
@@ -70,7 +58,15 @@ class AuthRequest extends Request
      * @Type("string")
      * @XmlElement(cdata = false)
      */
-    private $_password;
+    private $password;
+
+    /**
+     * @Accessor(getter="getRecoveryCode", setter="setRecoveryCode")
+     * @SerializedName("recoveryCode")
+     * @Type("string")
+     * @XmlElement(cdata = false)
+     */
+    private $recoveryCode;
 
     /**
      * @Accessor(getter="getPreauth", setter="setPreauth")
@@ -78,7 +74,7 @@ class AuthRequest extends Request
      * @Type("Zimbra\Account\Struct\PreAuth")
      * @XmlElement
      */
-    private $_preauth;
+    private $preauth;
 
     /**
      * @Accessor(getter="getAuthToken", setter="setAuthToken")
@@ -86,7 +82,15 @@ class AuthRequest extends Request
      * @Type("Zimbra\Account\Struct\AuthToken")
      * @XmlElement
      */
-    private $_authToken;
+    private $authToken;
+
+    /**
+     * @Accessor(getter="getJwtToken", setter="setJwtToken")
+     * @SerializedName("jwtToken")
+     * @Type("string")
+     * @XmlElement(cdata = false)
+     */
+    private $jwtToken;
 
     /**
      * @Accessor(getter="getVirtualHost", setter="setVirtualHost")
@@ -94,7 +98,7 @@ class AuthRequest extends Request
      * @Type("string")
      * @XmlElement(cdata = false)
      */
-    private $_virtualHost;
+    private $virtualHost;
 
     /**
      * @Accessor(getter="getPrefs", setter="setPrefs")
@@ -102,7 +106,7 @@ class AuthRequest extends Request
      * @Type("Zimbra\Account\Struct\AuthPrefs")
      * @XmlElement
      */
-    private $_prefs;
+    private $prefs;
 
     /**
      * @Accessor(getter="getAttrs", setter="setAttrs")
@@ -110,7 +114,7 @@ class AuthRequest extends Request
      * @Type("Zimbra\Account\Struct\AuthAttrs")
      * @XmlElement
      */
-    private $_attrs;
+    private $attrs;
 
     /**
      * @Accessor(getter="getRequestedSkin", setter="setRequestedSkin")
@@ -118,7 +122,7 @@ class AuthRequest extends Request
      * @Type("string")
      * @XmlElement(cdata = false)
      */
-    private $_requestedSkin;
+    private $requestedSkin;
 
     /**
      * @Accessor(getter="getTwoFactorCode", setter="setTwoFactorCode")
@@ -126,7 +130,7 @@ class AuthRequest extends Request
      * @Type("string")
      * @XmlElement(cdata = false)
      */
-    private $_twoFactorCode;
+    private $twoFactorCode;
 
     /**
      * @Accessor(getter="getDeviceTrusted", setter="setDeviceTrusted")
@@ -134,7 +138,7 @@ class AuthRequest extends Request
      * @Type("bool")
      * @XmlAttribute
      */
-    private $_deviceTrusted;
+    private $deviceTrusted;
 
     /**
      * @Accessor(getter="getTrustedDeviceToken", setter="setTrustedDeviceToken")
@@ -142,7 +146,7 @@ class AuthRequest extends Request
      * @Type("string")
      * @XmlElement(cdata = false)
      */
-    private $_trustedDeviceToken;
+    private $trustedDeviceToken;
 
     /**
      * @Accessor(getter="getDeviceId", setter="setDeviceId")
@@ -150,7 +154,7 @@ class AuthRequest extends Request
      * @Type("string")
      * @XmlElement(cdata = false)
      */
-    private $_deviceId;
+    private $deviceId;
 
     /**
      * @Accessor(getter="getGenerateDeviceId", setter="setGenerateDeviceId")
@@ -158,26 +162,45 @@ class AuthRequest extends Request
      * @Type("bool")
      * @XmlAttribute
      */
-    private $_generateDeviceId;
+    private $generateDeviceId;
+
+    /**
+     * @Accessor(getter="getTokenType", setter="setTokenType")
+     * @SerializedName("tokenType")
+     * @Type("string")
+     * @XmlAttribute
+     */
+    private $tokenType;
 
     /**
      * Constructor method for AuthRequest
      * @param  Account   $account Specifies the account to authenticate against
      * @param  string    $password Password to use in conjunction with an account
+     * @param  string    $recoveryCode RecoveryCode to use in conjunction with an account in case of forgot password flow.
      * @param  PreAuth   $preauth The preauth
      * @param  AuthToken $authToken An authToken can be passed instead of account/password/preauth to validate an existing auth token.
+     * @param  string    $jwtToken JWT auth token
      * @param  string    $virtualHost If specified (in conjunction with by="name"), virtual-host is used to determine the domain of the account name, if it does not include a domain component.
-     * @param  AuthPrefs $prefs Preference
-     * @param  AuthAttrs $attrs The attributes
+     * @param  AuthPrefs $prefs Requested preference settings.
+     * @param  AuthAttrs $attrs Requested attribute settings. Only attributes that are allowed to be returned by GetInfo will be returned by this call
      * @param  string    $requestedSkin The requestedSkin. If specified the name of the skin requested by the client.
-     * @param  bool      $csrfTokenSecured Controls whether the client supports CSRF token.
+     * @param  bool      $persistAuthTokenCookie Controls whether the auth token cookie in the response should be persisted when the browser exits.
+     * @param  bool      $csrfSupported Controls whether the client supports CSRF token
+     * @param  string    $twoFactorCode The TOTP code used for two-factor authentication
+     * @param  bool      $deviceTrusted Whether the client represents a trusted device
+     * @param  string    $trustedDeviceToken Whether the client represents a trusted device
+     * @param  string    $deviceId Unique device identifier; used to verify trusted mobile devices
+     * @param  bool      $generateDeviceId
+     * @param  string    $tokenType type of token to be returned, it can be auth or jwt
      * @return self
      */
     public function __construct(
         AccountSelector $account = NULL,
         $password = NULL,
+        $recoveryCode = NULL,
         PreAuth $preauth = NULL,
         AuthToken $authToken = NULL,
+        $jwtToken = NULL,
         $virtualHost = NULL,
         AuthPrefs $prefs = NULL,
         AuthAttrs $attrs = NULL,
@@ -188,21 +211,27 @@ class AuthRequest extends Request
         $deviceTrusted = NULL,
         $trustedDeviceToken = NULL,
         $deviceId = NULL,
-        $generateDeviceId = NULL
+        $generateDeviceId = NULL,
+        $tokenType = NULL
     )
     {
-        parent::__construct();
         if($account instanceof AccountSelector) {
             $this->setAccount($account);
         }
         if(NULL !== $password) {
             $this->setPassword($password);
         }
+        if(NULL !== $recoveryCode) {
+            $this->setRecoveryCode($recoveryCode);
+        }
         if($preauth instanceof PreAuth) {
             $this->setPreauth($preauth);
         }
         if($authToken instanceof AuthToken) {
             $this->setAuthToken($authToken);
+        }
+        if(NULL !== $jwtToken) {
+            $this->setJwtToken($jwtToken);
         }
         if(NULL !== $virtualHost) {
             $this->setVirtualHost($virtualHost);
@@ -237,6 +266,9 @@ class AuthRequest extends Request
         if(NULL !== $generateDeviceId) {
             $this->setGenerateDeviceId($generateDeviceId);
         }
+        if(NULL !== $tokenType) {
+            $this->setTokenType($tokenType);
+        }
     }
 
     /**
@@ -244,9 +276,9 @@ class AuthRequest extends Request
      *
      * @return bool
      */
-    public function getPersistAuthTokenCookie()
+    public function getPersistAuthTokenCookie(): ?bool
     {
-        return $this->_persistAuthTokenCookie;
+        return $this->persistAuthTokenCookie;
     }
 
     /**
@@ -255,9 +287,9 @@ class AuthRequest extends Request
      * @param  bool $persistAuthTokenCookie
      * @return self
      */
-    public function setPersistAuthTokenCookie($persistAuthTokenCookie)
+    public function setPersistAuthTokenCookie($persistAuthTokenCookie): self
     {
-        $this->_persistAuthTokenCookie = (bool) $persistAuthTokenCookie;
+        $this->persistAuthTokenCookie = (bool) $persistAuthTokenCookie;
         return $this;
     }
 
@@ -266,9 +298,9 @@ class AuthRequest extends Request
      *
      * @return bool
      */
-    public function getCsrfSupported()
+    public function getCsrfSupported(): ?bool
     {
-        return $this->_csrfSupported;
+        return $this->csrfSupported;
     }
 
     /**
@@ -277,9 +309,9 @@ class AuthRequest extends Request
      * @param  bool $csrfSupported
      * @return self
      */
-    public function setCsrfSupported($csrfSupported)
+    public function setCsrfSupported($csrfSupported): self
     {
-        $this->_csrfSupported = (bool) $csrfSupported;
+        $this->csrfSupported = (bool) $csrfSupported;
         return $this;
     }
 
@@ -288,9 +320,9 @@ class AuthRequest extends Request
      *
      * @return AccountSelector
      */
-    public function getAccount()
+    public function getAccount(): ?AccountSelector
     {
-        return $this->_account;
+        return $this->account;
     }
 
     /**
@@ -299,9 +331,9 @@ class AuthRequest extends Request
      * @param  AccountSelector $account
      * @return self
      */
-    public function setAccount(AccountSelector $account)
+    public function setAccount(AccountSelector $account): self
     {
-        $this->_account = $account;
+        $this->account = $account;
         return $this;
     }
 
@@ -310,9 +342,9 @@ class AuthRequest extends Request
      *
      * @return string
      */
-    public function getPassword()
+    public function getPassword(): ?string
     {
-        return $this->_password;
+        return $this->password;
     }
 
     /**
@@ -321,9 +353,31 @@ class AuthRequest extends Request
      * @param  string $password
      * @return self
      */
-    public function setPassword($password)
+    public function setPassword($password): self
     {
-        $this->_password = trim($password);
+        $this->password = trim($password);
+        return $this;
+    }
+
+    /**
+     * Gets recoveryCode to use in conjunction with an account in case of forgot password flow.
+     *
+     * @return string
+     */
+    public function getRecoveryCode(): ?string
+    {
+        return $this->recoveryCode;
+    }
+
+    /**
+     * Sets recoveryCode to use in conjunction with an account in case of forgot password flow.
+     *
+     * @param  string $recoveryCode
+     * @return self
+     */
+    public function setRecoveryCode($recoveryCode): self
+    {
+        $this->recoveryCode = trim($recoveryCode);
         return $this;
     }
 
@@ -332,9 +386,9 @@ class AuthRequest extends Request
      *
      * @return PreAuth
      */
-    public function getPreauth()
+    public function getPreauth(): ?PreAuth
     {
-        return $this->_preauth;
+        return $this->preauth;
     }
 
     /**
@@ -343,9 +397,9 @@ class AuthRequest extends Request
      * @param  PreAuth $preauth
      * @return self
      */
-    public function setPreauth(PreAuth $preauth)
+    public function setPreauth(PreAuth $preauth): self
     {
-        $this->_preauth = $preauth;
+        $this->preauth = $preauth;
         return $this;
     }
 
@@ -354,9 +408,9 @@ class AuthRequest extends Request
      *
      * @return AuthToken
      */
-    public function getAuthToken()
+    public function getAuthToken(): ?AuthToken
     {
-        return $this->_authToken;
+        return $this->authToken;
     }
 
     /**
@@ -365,9 +419,31 @@ class AuthRequest extends Request
      * @param  AuthToken $preauth
      * @return self
      */
-    public function setAuthToken(AuthToken $authToken)
+    public function setAuthToken(AuthToken $authToken): self
     {
-        $this->_authToken = $authToken;
+        $this->authToken = $authToken;
+        return $this;
+    }
+
+    /**
+     * Gets jwt token
+     *
+     * @return string
+     */
+    public function getJwtToken(): ?string
+    {
+        return $this->jwtToken;
+    }
+
+    /**
+     * Sets jwt token
+     *
+     * @param  string $jwtToken
+     * @return self
+     */
+    public function setJwtToken($jwtToken): self
+    {
+        $this->jwtToken = trim($jwtToken);
         return $this;
     }
 
@@ -376,9 +452,9 @@ class AuthRequest extends Request
      *
      * @return string
      */
-    public function getVirtualHost()
+    public function getVirtualHost(): ?string
     {
-        return $this->_virtualHost;
+        return $this->virtualHost;
     }
 
     /**
@@ -387,9 +463,9 @@ class AuthRequest extends Request
      * @param  string $virtualHost
      * @return self
      */
-    public function setVirtualHost($virtualHost)
+    public function setVirtualHost($virtualHost): self
     {
-        $this->_virtualHost = trim($virtualHost);
+        $this->virtualHost = trim($virtualHost);
         return $this;
     }
 
@@ -398,9 +474,9 @@ class AuthRequest extends Request
      *
      * @return AuthPrefs
      */
-    public function getPrefs()
+    public function getPrefs(): ?AuthPrefs
     {
-        return $this->_prefs;
+        return $this->prefs;
     }
 
     /**
@@ -409,13 +485,13 @@ class AuthRequest extends Request
      * @param  AuthPrefs|array $prefs
      * @return self
      */
-    public function setPrefs($prefs)
+    public function setPrefs($prefs): self
     {
         if ($prefs instanceof AuthPrefs) {
-            $this->_prefs = $prefs;
+            $this->prefs = $prefs;
         }
         elseif(is_array($prefs) || $prefs instanceof Traversable) {
-            $this->_prefs = new AuthPrefs($prefs);
+            $this->prefs = new AuthPrefs($prefs);
         }
         return $this;
     }
@@ -426,12 +502,12 @@ class AuthRequest extends Request
      * @param  Pref $pref
      * @return self
      */
-    public function addPref(Pref $pref)
+    public function addPref(Pref $pref): self
     {
-        if (!($this->_prefs instanceof AuthPrefs)) {
-            $this->_prefs = new AuthPrefs();
+        if (!($this->prefs instanceof AuthPrefs)) {
+            $this->prefs = new AuthPrefs();
         }
-        $this->_prefs->addPref($pref);
+        $this->prefs->addPref($pref);
         return $this;
     }
 
@@ -440,9 +516,9 @@ class AuthRequest extends Request
      *
      * @return AuthAttrs
      */
-    public function getAttrs()
+    public function getAttrs(): ?AuthAttrs
     {
-        return $this->_attrs;
+        return $this->attrs;
     }
 
     /**
@@ -451,13 +527,13 @@ class AuthRequest extends Request
      * @param  AuthPrefs|array $attrs
      * @return self
      */
-    public function setAttrs($attrs)
+    public function setAttrs($attrs): self
     {
         if ($attrs instanceof AuthAttrs) {
-            $this->_attrs = $attrs;
+            $this->attrs = $attrs;
         }
         elseif(is_array($attrs) || $attrs instanceof Traversable) {
-            $this->_attrs = new AuthAttrs($attrs);
+            $this->attrs = new AuthAttrs($attrs);
         }
         return $this;
     }
@@ -468,12 +544,12 @@ class AuthRequest extends Request
      * @param  Attr $pref
      * @return self
      */
-    public function addAttr(Attr $attr)
+    public function addAttr(Attr $attr): self
     {
-        if (!($this->_attrs instanceof AuthAttrs)) {
-            $this->_attrs = new AuthAttrs();
+        if (!($this->attrs instanceof AuthAttrs)) {
+            $this->attrs = new AuthAttrs();
         }
-        $this->_attrs->addAttr($attr);
+        $this->attrs->addAttr($attr);
         return $this;
     }
 
@@ -482,9 +558,9 @@ class AuthRequest extends Request
      *
      * @return string
      */
-    public function getRequestedSkin()
+    public function getRequestedSkin(): ?string
     {
-        return $this->_requestedSkin;
+        return $this->requestedSkin;
     }
 
     /**
@@ -493,9 +569,9 @@ class AuthRequest extends Request
      * @param  string $requestedSkin
      * @return self
      */
-    public function setRequestedSkin($requestedSkin)
+    public function setRequestedSkin($requestedSkin): self
     {
-        $this->_requestedSkin = trim($requestedSkin);
+        $this->requestedSkin = trim($requestedSkin);
         return $this;
     }
 
@@ -504,9 +580,9 @@ class AuthRequest extends Request
      *
      * @return string
      */
-    public function getTwoFactorCode()
+    public function getTwoFactorCode(): ?string
     {
-        return $this->_twoFactorCode;
+        return $this->twoFactorCode;
     }
 
     /**
@@ -515,9 +591,9 @@ class AuthRequest extends Request
      * @param  string $twoFactorCode
      * @return self
      */
-    public function setTwoFactorCode($twoFactorCode)
+    public function setTwoFactorCode($twoFactorCode): self
     {
-        $this->_twoFactorCode = trim($twoFactorCode);
+        $this->twoFactorCode = trim($twoFactorCode);
         return $this;
     }
 
@@ -526,9 +602,9 @@ class AuthRequest extends Request
      *
      * @return bool
      */
-    public function getDeviceTrusted()
+    public function getDeviceTrusted(): ?bool
     {
-        return $this->_deviceTrusted;
+        return $this->deviceTrusted;
     }
 
     /**
@@ -537,9 +613,9 @@ class AuthRequest extends Request
      * @param  bool $deviceTrusted
      * @return self
      */
-    public function setDeviceTrusted($deviceTrusted)
+    public function setDeviceTrusted($deviceTrusted): self
     {
-        $this->_deviceTrusted = (bool) $deviceTrusted;
+        $this->deviceTrusted = (bool) $deviceTrusted;
         return $this;
     }
 
@@ -548,9 +624,9 @@ class AuthRequest extends Request
      *
      * @return string
      */
-    public function getTrustedDeviceToken()
+    public function getTrustedDeviceToken(): ?string
     {
-        return $this->_trustedDeviceToken;
+        return $this->trustedDeviceToken;
     }
 
     /**
@@ -559,9 +635,9 @@ class AuthRequest extends Request
      * @param  string $trustedDeviceToken
      * @return self
      */
-    public function setTrustedDeviceToken($trustedDeviceToken)
+    public function setTrustedDeviceToken($trustedDeviceToken): self
     {
-        $this->_trustedDeviceToken = trim($trustedDeviceToken);
+        $this->trustedDeviceToken = trim($trustedDeviceToken);
         return $this;
     }
 
@@ -570,9 +646,9 @@ class AuthRequest extends Request
      *
      * @return string
      */
-    public function getDeviceId()
+    public function getDeviceId(): ?string
     {
-        return $this->_deviceId;
+        return $this->deviceId;
     }
 
     /**
@@ -581,9 +657,9 @@ class AuthRequest extends Request
      * @param  string $deviceId
      * @return self
      */
-    public function setDeviceId($deviceId)
+    public function setDeviceId($deviceId): self
     {
-        $this->_deviceId = trim($deviceId);
+        $this->deviceId = trim($deviceId);
         return $this;
     }
 
@@ -592,9 +668,9 @@ class AuthRequest extends Request
      *
      * @return bool
      */
-    public function getGenerateDeviceId()
+    public function getGenerateDeviceId(): ?bool
     {
-        return $this->_generateDeviceId;
+        return $this->generateDeviceId;
     }
 
     /**
@@ -603,23 +679,39 @@ class AuthRequest extends Request
      * @param  bool $generateDeviceId
      * @return self
      */
-    public function setGenerateDeviceId($generateDeviceId)
+    public function setGenerateDeviceId($generateDeviceId): self
     {
-        $this->_generateDeviceId = (bool) $generateDeviceId;
+        $this->generateDeviceId = (bool) $generateDeviceId;
         return $this;
     }
 
-    public function execute(ClientInterface $client)
+    /**
+     * Gets type of token to be returned, it can be auth or jwt
+     *
+     * @return string
+     */
+    public function getTokenType(): ?string
     {
-        $requestEnvelope = new AuthEnvelope();
-        $requestEnvelope->setBody(new AuthBody($this));
-        $response = $client->doRequest(
-            $this->getSerializer()->serialize($requestEnvelope, 'xml')
+        return $this->tokenType;
+    }
+
+    /**
+     * Sets type of token to be returned, it can be auth or jwt
+     *
+     * @param  string $tokenType
+     * @return self
+     */
+    public function setTokenType($tokenType): self
+    {
+        $this->tokenType = trim($tokenType);
+        return $this;
+    }
+
+    protected function internalInit()
+    {
+        $this->envelope = new AuthEnvelope(
+            NULL,
+            new AuthBody($this)
         );
-        $responseEnvelope = $this->getSerializer()->deserialize(
-            (string) $response->getBody(),
-            'Zimbra\Account\Message\AuthEnvelope', 'xml'
-        );
-        return $responseEnvelope->getBody()->getResponse();
     }
 }

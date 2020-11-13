@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * This file is part of the Zimbra API in PHP library.
  *
@@ -10,12 +10,7 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\Accessor;
-use JMS\Serializer\Annotation\SerializedName;
-use JMS\Serializer\Annotation\Type;
-use JMS\Serializer\Annotation\XmlAttribute;
-use JMS\Serializer\Annotation\XmlRoot;
-use JMS\Serializer\Annotation\XmlValue;
+use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlRoot, XmlValue};
 
 /**
  * Stat struct class
@@ -24,7 +19,8 @@ use JMS\Serializer\Annotation\XmlValue;
  * @subpackage Admin
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
- * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
+ * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
+ * @AccessType("public_method")
  * @XmlRoot(name="stat")
  */
 class Stat
@@ -35,7 +31,7 @@ class Stat
      * @Type("string")
      * @XmlAttribute
      */
-    private $_name;
+    private $name;
 
     /**
      * @Accessor(getter="getDescription", setter="setDescription")
@@ -43,14 +39,15 @@ class Stat
      * @Type("string")
      * @XmlAttribute
      */
-    private $_description;
+    private $description;
 
     /**
      * @Accessor(getter="getValue", setter="setValue")
+     * @SerializedName("_content")
      * @Type("string")
      * @XmlValue(cdata=false)
      */
-    private $_value;
+    private $value;
 
     /**
      * Constructor method for Stat
@@ -59,7 +56,7 @@ class Stat
      * @param  string $description Stat description
      * @return self
      */
-    public function __construct($value = null, $name = null, $description = null)
+    public function __construct($value = NULL, $name = NULL, $description = NULL)
     {
         if (NULL !== $value) {
             $this->setValue($value);
@@ -77,9 +74,9 @@ class Stat
      *
      * @return string
      */
-    public function getName()
+    public function getName(): string
     {
-        return $this->_name;
+        return $this->name;
     }
 
     /**
@@ -88,9 +85,9 @@ class Stat
      * @param  string $name
      * @return self
      */
-    public function setName($name)
+    public function setName($name): self
     {
-        $this->_name = trim($name);
+        $this->name = trim($name);
         return $this;
     }
 
@@ -99,9 +96,9 @@ class Stat
      *
      * @return string
      */
-    public function getDescription()
+    public function getDescription(): string
     {
-        return $this->_description;
+        return $this->description;
     }
 
     /**
@@ -110,9 +107,9 @@ class Stat
      * @param  string $description
      * @return self
      */
-    public function setDescription($description)
+    public function setDescription($description): self
     {
-        $this->_description = trim($description);
+        $this->description = trim($description);
         return $this;
     }
 
@@ -121,9 +118,9 @@ class Stat
      *
      * @return string
      */
-    public function getValue()
+    public function getValue(): string
     {
-        return $this->_value;
+        return $this->value;
     }
 
     /**
@@ -132,9 +129,9 @@ class Stat
      * @param  string $name
      * @return self
      */
-    public function setValue($value)
+    public function setValue($value): self
     {
-        $this->_value = trim($value);
+        $this->value = trim($value);
         return $this;
     }
 }

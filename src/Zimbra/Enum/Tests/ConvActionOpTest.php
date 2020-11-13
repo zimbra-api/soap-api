@@ -24,7 +24,7 @@ class ConvActionOpTest extends TestCase
         ];
         foreach ($values as $enum => $value)
         {
-            $this->assertSame(ConvActionOp::$enum()->value(), $value);
+            $this->assertSame(ConvActionOp::$enum()->getValue(), $value);
         }
     }
 }

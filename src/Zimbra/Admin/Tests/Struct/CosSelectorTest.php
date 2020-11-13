@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Zimbra\Admin\Tests\Struct;
 
@@ -14,22 +14,26 @@ class CosSelectorTest extends ZimbraStructTestCase
     public function testCosSelector()
     {
         $value = $this->faker->word;
-        $cos = new CosSelector(CosBy::ID()->value(), $value);
-        $this->assertSame(CosBy::ID()->value(), $cos->getBy());
+        $cos = new CosSelector(CosBy::ID(), $value);
+        $this->assertEquals(CosBy::ID(), $cos->getBy());
         $this->assertSame($value, $cos->getValue());
 
-        $cos = new CosSelector('');
-        $cos->setBy(CosBy::NAME()->value())
+        $cos = new CosSelector(CosBy::ID());
+        $cos->setBy(CosBy::NAME())
             ->setValue($value);
-        $this->assertSame(CosBy::NAME()->value(), $cos->getBy());
+        $this->assertEquals(CosBy::NAME(), $cos->getBy());
         $this->assertSame($value, $cos->getValue());
 
         $xml = '<?xml version="1.0"?>' . "\n"
             . '<cos by="' . CosBy::NAME() . '">' . $value . '</cos>';
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($cos, 'xml'));
+        $this->assertEquals($cos, $this->serializer->deserialize($xml, CosSelector::class, 'xml'));
 
-        $cos = $this->serializer->deserialize($xml, 'Zimbra\Admin\Struct\CosSelector', 'xml');
-        $this->assertSame(CosBy::NAME()->value(), $cos->getBy());
-        $this->assertSame($value, $cos->getValue());
+        $json = json_encode([
+            'by' => (string) CosBy::NAME(),
+            '_content' => $value,
+        ]);
+        $this->assertSame($json, $this->serializer->serialize($cos, 'json'));
+        $this->assertEquals($cos, $this->serializer->deserialize($json, CosSelector::class, 'json'));
     }
 }

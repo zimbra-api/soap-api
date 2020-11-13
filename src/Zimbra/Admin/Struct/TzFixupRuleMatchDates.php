@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * This file is part of the Zimbra API in PHP library.
  *
@@ -10,12 +10,7 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\Accessor;
-use JMS\Serializer\Annotation\SerializedName;
-use JMS\Serializer\Annotation\Type;
-use JMS\Serializer\Annotation\XmlAttribute;
-use JMS\Serializer\Annotation\XmlElement;
-use JMS\Serializer\Annotation\XmlRoot;
+use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlElement, XmlRoot};
 
 /**
  * TzFixupRuleMatchDates struct class
@@ -24,7 +19,8 @@ use JMS\Serializer\Annotation\XmlRoot;
  * @subpackage Admin
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
- * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
+ * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
+ * @AccessType("public_method")
  * @XmlRoot(name="dates")
  */
 class TzFixupRuleMatchDates
@@ -35,7 +31,7 @@ class TzFixupRuleMatchDates
      * @Type("Zimbra\Admin\Struct\TZFixupRuleMatchDate")
      * @XmlElement
      */
-    private $_standard;
+    private $standard;
 
     /**
      * @Accessor(getter="getDaylight", setter="setDaylight")
@@ -43,7 +39,7 @@ class TzFixupRuleMatchDates
      * @Type("Zimbra\Admin\Struct\TZFixupRuleMatchDate")
      * @XmlElement
      */
-    private $_daylight;
+    private $daylight;
 
     /**
      * @Accessor(getter="getStdOffset", setter="setStdOffset")
@@ -51,7 +47,7 @@ class TzFixupRuleMatchDates
      * @Type("integer")
      * @XmlAttribute
      */
-    private $_stdOffset;
+    private $stdOffset;
 
     /**
      * @Accessor(getter="getDstOffset", setter="setDstOffset")
@@ -59,7 +55,7 @@ class TzFixupRuleMatchDates
      * @Type("integer")
      * @XmlAttribute
      */
-    private $_dstOffset;
+    private $dstOffset;
 
     /**
      * Constructor method for TzFixupRuleMatchDates
@@ -87,9 +83,9 @@ class TzFixupRuleMatchDates
      *
      * @return TzFixupRuleMatchDate
      */
-    public function getStandard()
+    public function getStandard(): TzFixupRuleMatchDate
     {
-        return $this->_standard;
+        return $this->standard;
     }
 
     /**
@@ -98,9 +94,9 @@ class TzFixupRuleMatchDates
      * @param  TzFixupRuleMatchDate $standard
      * @return self
      */
-    public function setStandard(TzFixupRuleMatchDate $standard)
+    public function setStandard(TzFixupRuleMatchDate $standard): self
     {
-        $this->_standard = $standard;
+        $this->standard = $standard;
         return $this;
     }
 
@@ -109,9 +105,9 @@ class TzFixupRuleMatchDates
      *
      * @return TzFixupRuleMatchDate
      */
-    public function getDaylight()
+    public function getDaylight(): TzFixupRuleMatchDate
     {
-        return $this->_daylight;
+        return $this->daylight;
     }
 
     /**
@@ -120,9 +116,9 @@ class TzFixupRuleMatchDates
      * @param  TzFixupRuleMatchDate $daylight
      * @return self
      */
-    public function setDaylight(TzFixupRuleMatchDate $daylight)
+    public function setDaylight(TzFixupRuleMatchDate $daylight): self
     {
-        $this->_daylight = $daylight;
+        $this->daylight = $daylight;
         return $this;
     }
 
@@ -131,9 +127,9 @@ class TzFixupRuleMatchDates
      *
      * @return int
      */
-    public function getStdOffset()
+    public function getStdOffset(): int
     {
-        return $this->_stdOffset;
+        return $this->stdOffset;
     }
 
     /**
@@ -142,9 +138,9 @@ class TzFixupRuleMatchDates
      * @param  int $stdoff
      * @return self
      */
-    public function setStdOffset($stdoff)
+    public function setStdOffset($stdoff): self
     {
-        $this->_stdOffset = (int) $stdoff;
+        $this->stdOffset = (int) $stdoff;
         return $this;
     }
 
@@ -153,9 +149,9 @@ class TzFixupRuleMatchDates
      *
      * @return int
      */
-    public function getDstOffset()
+    public function getDstOffset(): int
     {
-        return $this->_dstOffset;
+        return $this->dstOffset;
     }
 
     /**
@@ -164,9 +160,9 @@ class TzFixupRuleMatchDates
      * @param  int $dayoff
      * @return self
      */
-    public function setDstOffset($dayoff)
+    public function setDstOffset($dayoff): self
     {
-        $this->_dstOffset = (int) $dayoff;
+        $this->dstOffset = (int) $dayoff;
         return $this;
     }
 }

@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Zimbra\Admin\Tests\Struct;
 
@@ -26,13 +26,13 @@ class MailQueueWithActionTest extends ZimbraStructTestCase
         $attr = new ValueAttrib($value);
         $field = new QueueQueryField($name, [$attr]);
         $query = new QueueQuery([$field], $limit, $offset);
-        $action = new MailQueueAction($query, QueueAction::HOLD()->value(), QueueActionBy::QUERY()->value());
+        $action = new MailQueueAction($query, QueueAction::HOLD(), QueueActionBy::QUERY());
 
         $queue = new MailQueueWithAction($action, $name);
         $this->assertSame($name, $queue->getName());
         $this->assertSame($action, $queue->getAction());
 
-        $queue = new MailQueueWithAction(new MailQueueAction($query, '', ''), '');
+        $queue = new MailQueueWithAction(new MailQueueAction($query, QueueAction::REQUEUE(), QueueActionBy::ID()), '');
         $queue->setAction($action)
               ->setName($name);
         $this->assertSame($name, $queue->getName());
@@ -49,19 +49,30 @@ class MailQueueWithActionTest extends ZimbraStructTestCase
                 . '</action>'
             . '</queue>';
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($queue, 'xml'));
+        $this->assertEquals($queue, $this->serializer->deserialize($xml, MailQueueWithAction::class, 'xml'));
 
-        $queue = $this->serializer->deserialize($xml, 'Zimbra\Admin\Struct\MailQueueWithAction', 'xml');
-        $action = $queue->getAction();
-        $query = $action->getQuery();
-        $field = $query->getFields()[0];
-        $match = $field->getMatches()[0];
-
-        $this->assertSame($name, $queue->getName());
-        $this->assertSame(QueueAction::HOLD()->value(), $action->getOp());
-        $this->assertSame(QueueActionBy::QUERY()->value(), $action->getBy());
-        $this->assertSame($limit, $query->getLimit());
-        $this->assertSame($offset, $query->getOffset());
-        $this->assertSame($name, $field->getName());
-        $this->assertSame($value, $match->getValue());
+        $json = json_encode([
+            'action' => [
+                'query' => [
+                    'field' => [
+                        [
+                            'name' => $name,
+                            'match' => [
+                                [
+                                    'value' => $value
+                                ],
+                            ],
+                        ],
+                    ],
+                    'limit' => $limit,
+                    'offset' => $offset,
+                ],
+                'op' => (string) QueueAction::HOLD(),
+                'by' => (string) QueueActionBy::QUERY(),
+            ],
+            'name' => $name,
+        ]);
+        $this->assertSame($json, $this->serializer->serialize($queue, 'json'));
+        $this->assertEquals($queue, $this->serializer->deserialize($json, MailQueueWithAction::class, 'json'));
     }
 }

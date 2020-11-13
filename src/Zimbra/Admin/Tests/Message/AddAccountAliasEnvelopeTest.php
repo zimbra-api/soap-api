@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Zimbra\Admin\Tests\Message;
 
@@ -32,20 +32,26 @@ class AddAccountAliasEnvelopeTest extends ZimbraStructTestCase
         $xml = '<?xml version="1.0"?>' . "\n"
             . '<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">'
                 . '<soap:Body>'
-                	. '<urn:AddAccountAliasRequest id="' . $id . '" alias="' . $alias . '" />'
+                    . '<urn:AddAccountAliasRequest id="' . $id . '" alias="' . $alias . '" />'
                     . '<urn:AddAccountAliasResponse />'
                 . '</soap:Body>'
             . '</soap:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
+        $this->assertEquals($envelope, $this->serializer->deserialize($xml, AddAccountAliasEnvelope::class, 'xml'));
 
-        $envelope = $this->serializer->deserialize($xml, 'Zimbra\Admin\Message\AddAccountAliasEnvelope', 'xml');
-        $body = $envelope->getBody();
-        $request = $body->getRequest();
-        $response = $body->getResponse();
-
-        $this->assertTrue($body instanceof AddAccountAliasBody);
-        $this->assertSame($id, $request->getId());
-        $this->assertSame($alias, $request->getAlias());
-        $this->assertTrue($response instanceof AddAccountAliasResponse);
+        $json = json_encode([
+            'Body' => [
+                'AddAccountAliasRequest' => [
+                    'id' => $id,
+                    'alias' => $alias,
+                    '_jsns' => 'urn:zimbraAdmin',
+                ],
+                'AddAccountAliasResponse' => [
+                    '_jsns' => 'urn:zimbraAdmin',
+                ],
+            ],
+        ]);
+        $this->assertSame($json, $this->serializer->serialize($envelope, 'json'));
+        $this->assertEquals($envelope, $this->serializer->deserialize($json, AddAccountAliasEnvelope::class, 'json'));
     }
 }

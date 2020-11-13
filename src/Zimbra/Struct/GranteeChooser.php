@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * This file is part of the Zimbra API in PHP library.
  *
@@ -10,19 +10,16 @@
 
 namespace Zimbra\Struct;
 
-use JMS\Serializer\Annotation\Accessor;
-use JMS\Serializer\Annotation\SerializedName;
-use JMS\Serializer\Annotation\Type;
-use JMS\Serializer\Annotation\XmlAttribute;
-use JMS\Serializer\Annotation\XmlRoot;
+use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlRoot};
 
 /**
- * GranteeChooser struct class
+ * GranteeChooser class
  *
  * @package   Zimbra
  * @category  Struct
  * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
- * @copyright Copyright © 2013 by Nguyen Van Nguyen.
+ * @copyright Copyright © 2013-present by Nguyen Van Nguyen.
+ * @AccessType("public_method")
  * @XmlRoot(name="grantee")
  */
 class GranteeChooser
@@ -33,7 +30,7 @@ class GranteeChooser
      * @Type("string")
      * @XmlAttribute
      */
-    private $_type;
+    private $type;
 
     /**
      * @Accessor(getter="getId", setter="setId")
@@ -41,7 +38,7 @@ class GranteeChooser
      * @Type("string")
      * @XmlAttribute
      */
-    private $_id;
+    private $id;
 
     /**
      * @Accessor(getter="getName", setter="setName")
@@ -49,7 +46,7 @@ class GranteeChooser
      * @Type("string")
      * @XmlAttribute
      */
-    private $_name;
+    private $name;
 
     /**
      * Constructor method for GranteeChooser
@@ -76,9 +73,9 @@ class GranteeChooser
      *
      * @return string
      */
-    public function getType()
+    public function getType(): string
     {
-        return $this->_type;
+        return $this->type;
     }
 
     /**
@@ -87,9 +84,9 @@ class GranteeChooser
      * @param  string $type
      * @return self
      */
-    public function setType($type)
+    public function setType($type): self
     {
-        $this->_type = trim($type);
+        $this->type = trim($type);
         return $this;
     }
 
@@ -98,9 +95,9 @@ class GranteeChooser
      *
      * @return string
      */
-    public function getId()
+    public function getId(): string
     {
-        return $this->_id;
+        return $this->id;
     }
 
     /**
@@ -109,9 +106,9 @@ class GranteeChooser
      * @param  string $id
      * @return self
      */
-    public function setId($id)
+    public function setId($id): self
     {
-        $this->_id = trim($id);
+        $this->id = trim($id);
         return $this;
     }
 
@@ -120,9 +117,9 @@ class GranteeChooser
      *
      * @return string
      */
-    public function getName()
+    public function getName(): string
     {
-        return $this->_name;
+        return $this->name;
     }
 
     /**
@@ -131,9 +128,9 @@ class GranteeChooser
      * @param  string $name
      * @return self
      */
-    public function setName($name)
+    public function setName($name): self
     {
-        $this->_name = trim($name);
+        $this->name = trim($name);
         return $this;
     }
 }

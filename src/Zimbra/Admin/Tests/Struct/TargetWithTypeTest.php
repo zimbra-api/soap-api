@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Zimbra\Admin\Tests\Struct;
 
@@ -27,9 +27,13 @@ class TargetWithTypeTest extends ZimbraStructTestCase
         $xml = '<?xml version="1.0"?>' . "\n"
             . '<target type="' . $type . '">' . $value . '</target>';
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($target, 'xml'));
+        $this->assertEquals($target, $this->serializer->deserialize($xml, TargetWithType::class, 'xml'));
 
-        $target = $this->serializer->deserialize($xml, 'Zimbra\Admin\Struct\TargetWithType', 'xml');
-        $this->assertSame($type, $target->getType());
-        $this->assertSame($value, $target->getValue());
+        $json = json_encode([
+            'type' => $type,
+            '_content' => $value,
+        ]);
+        $this->assertSame($json, $this->serializer->serialize($target, 'json'));
+        $this->assertEquals($target, $this->serializer->deserialize($json, TargetWithType::class, 'json'));
     }
 }

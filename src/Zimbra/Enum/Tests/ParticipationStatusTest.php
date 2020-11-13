@@ -25,7 +25,7 @@ class ParticipationStatusTest extends TestCase
         ];
         foreach ($values as $enum => $value)
         {
-            $this->assertSame(ParticipationStatus::$enum()->value(), $value);
+            $this->assertSame(ParticipationStatus::$enum()->getValue(), $value);
         }
     }
 }

@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Zimbra\Admin\Tests\Struct;
 
@@ -17,7 +17,7 @@ class PolicyHolderTest extends ZimbraStructTestCase
         $id = $this->faker->word;
         $name = $this->faker->word;
         $lifetime = $this->faker->word;
-        $policy = new Policy(Type::SYSTEM()->value(), $id, $name, $lifetime);
+        $policy = new Policy(Type::SYSTEM(), $id, $name, $lifetime);
 
         $holder = new PolicyHolder($policy);
         $this->assertSame($policy, $holder->getPolicy());
@@ -31,13 +31,18 @@ class PolicyHolderTest extends ZimbraStructTestCase
                 . '<urn:policy type="' . Type::SYSTEM() . '" id="' . $id . '" name="' . $name . '" lifetime="' . $lifetime . '" />'
             . '</holder>';
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($holder, 'xml'));
+        $this->assertEquals($holder, $this->serializer->deserialize($xml, PolicyHolder::class, 'xml'));
 
-        $holder = $this->serializer->deserialize($xml, 'Zimbra\Admin\Struct\PolicyHolder', 'xml');
-        $policy = $holder->getPolicy();
-
-        $this->assertSame(Type::SYSTEM()->value(), $policy->getType());
-        $this->assertSame($id, $policy->getId());
-        $this->assertSame($name, $policy->getName());
-        $this->assertSame($lifetime, $policy->getLifetime());
+        $json = json_encode([
+            'policy' => [
+                'type' => (string) Type::SYSTEM(),
+                'id' => $id,
+                'name' => $name,
+                'lifetime' => $lifetime,
+                '_jsns' => 'urn:zimbraMail',
+            ],
+        ]);
+        $this->assertSame($json, $this->serializer->serialize($holder, 'json'));
+        $this->assertEquals($holder, $this->serializer->deserialize($json, PolicyHolder::class, 'json'));
     }
 }

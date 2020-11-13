@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * This file is part of the Zimbra API in PHP library.
  *
@@ -10,13 +10,7 @@
 
 namespace Zimbra\Account\Struct;
 
-use JMS\Serializer\Annotation\Accessor;
-use JMS\Serializer\Annotation\SerializedName;
-use JMS\Serializer\Annotation\Type;
-use JMS\Serializer\Annotation\XmlAttribute;
-use JMS\Serializer\Annotation\XmlValue;
-use JMS\Serializer\Annotation\XmlRoot;
-
+use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlRoot, XmlValue};
 use Zimbra\Enum\GranteeType;
 use Zimbra\Enum\DistributionListGranteeBy as GranteeBy;
 
@@ -27,7 +21,8 @@ use Zimbra\Enum\DistributionListGranteeBy as GranteeBy;
  * @subpackage Account
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
- * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
+ * @copyright  Copyright © 2020 by Nguyen Van Nguyen.
+ * @AccessType("public_method")
  * @XmlRoot(name="grantee")
  */
 class DistributionListGranteeSelector
@@ -35,38 +30,39 @@ class DistributionListGranteeSelector
     /**
      * @Accessor(getter="getType", setter="setType")
      * @SerializedName("type")
-     * @Type("string")
+     * @Type("Zimbra\Enum\GranteeType")
      * @XmlAttribute
      */
-    private $_type;
+    private $type;
 
     /**
      * @Accessor(getter="getBy", setter="setBy")
      * @SerializedName("by")
-     * @Type("string")
+     * @Type("Zimbra\Enum\DistributionListGranteeBy")
      * @XmlAttribute
      */
-    private $_by;
+    private $by;
 
     /**
      * @Accessor(getter="getValue", setter="setValue")
+     * @SerializedName("_content")
      * @Type("string")
      * @XmlValue(cdata=false)
      */
-    private $_value;
+    private $value;
 
     /**
      * Constructor method for DistributionListGranteeSelector
-     * @param string $type
-     * @param string $by
+     * @param GranteeType $type
+     * @param GranteeBy $by
      * @param string $value
      * @return self
      */
-    public function __construct($type, $by, $value = null)
+    public function __construct(GranteeType $type, GranteeBy $by, $value = NULL)
     {
         $this->setType($type)
             ->setBy($by);
-        if (null !== $value) {
+        if (NULL !== $value) {
             $this->setValue($value);
         }
     }
@@ -76,22 +72,20 @@ class DistributionListGranteeSelector
      *
      * @return GranteeType
      */
-    public function getType()
+    public function getType(): GranteeType
     {
-        return $this->_type;
+        return $this->type;
     }
 
     /**
      * Sets grantee type
      *
-     * @param  string $type
+     * @param  GranteeType $type
      * @return self
      */
-    public function setType($type)
+    public function setType(GranteeType $type)
     {
-        if (GranteeType::has(trim($type))) {
-            $this->_type = $type;
-        }
+        $this->type = $type;
         return $this;
     }
 
@@ -100,22 +94,20 @@ class DistributionListGranteeSelector
      *
      * @return GranteeBy
      */
-    public function getBy()
+    public function getBy(): GranteeBy
     {
-        return $this->_by;
+        return $this->by;
     }
 
     /**
      * Sets grantee by
      *
-     * @param  string $by
+     * @param  GranteeBy $by
      * @return self
      */
-    public function setBy($by = null)
+    public function setBy(GranteeBy $by)
     {
-        if (GranteeBy::has(trim($by))) {
-            $this->_by = $by;
-        }
+        $this->by = $by;
         return $this;
     }
 
@@ -126,7 +118,7 @@ class DistributionListGranteeSelector
      */
     public function getValue()
     {
-        return $this->_value;
+        return $this->value;
     }
 
     /**
@@ -137,7 +129,7 @@ class DistributionListGranteeSelector
      */
     public function setValue($value)
     {
-        $this->_value = trim($value);
+        $this->value = trim($value);
         return $this;
     }
 }

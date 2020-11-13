@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * This file is part of the Zimbra API in PHP library.
  *
@@ -10,15 +10,8 @@
 
 namespace Zimbra\Account\Message;
 
-use JMS\Serializer\Annotation\Accessor;
-use JMS\Serializer\Annotation\SerializedName;
-use JMS\Serializer\Annotation\Type;
-use JMS\Serializer\Annotation\XmlElement;
-use JMS\Serializer\Annotation\XmlNamespace;
-use JMS\Serializer\Annotation\XmlRoot;
-
-use Zimbra\Soap\BodyInterface;
-use Zimbra\Soap\Envelope;
+use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlElement, XmlNamespace, XmlRoot};
+use Zimbra\Soap\{BodyInterface, Envelope, Header};
 
 /**
  * AuthBody class
@@ -27,8 +20,9 @@ use Zimbra\Soap\Envelope;
  * @subpackage Account
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
- * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
+ * @copyright  Copyright © 2020 by Nguyen Van Nguyen.
  * @XmlNamespace(uri="urn:zimbraAccount", prefix="urn")
+ * @AccessType("public_method")
  * @XmlRoot(name="soap:Envelope")
  */
 class AuthEnvelope extends Envelope
@@ -39,16 +33,25 @@ class AuthEnvelope extends Envelope
      * @Type("Zimbra\Account\Message\AuthBody")
      * @XmlElement(namespace="http://www.w3.org/2003/05/soap-envelope")
      */
-    private $_body;
+    private $body;
+
+    /**
+     * Constructor method for AuthEnvelope
+     * @return self
+     */
+    public function __construct(Header $header = NULL, AuthBody $body = NULL)
+    {
+        parent::__construct($header, $body);
+    }
 
     /**
      * Gets soap message body
      *
      * @return BodyInterface
      */
-    public function getBody()
+    public function getBody(): BodyInterface
     {
-        return $this->_body;
+        return $this->body;
     }
 
     /**
@@ -57,10 +60,10 @@ class AuthEnvelope extends Envelope
      * @param  BodyInterface $body
      * @return self
      */
-    public function setBody(BodyInterface $body)
+    public function setBody(BodyInterface $body): Envelope
     {
         if ($body instanceof AuthBody) {
-            $this->_body = $body;
+            $this->body = $body;
         }
         return $this;
     }

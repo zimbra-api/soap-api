@@ -19,7 +19,7 @@ class BrowseByTest extends TestCase
         ];
         foreach ($values as $enum => $value)
         {
-            $this->assertSame(BrowseBy::$enum()->value(), $value);
+            $this->assertSame(BrowseBy::$enum()->getValue(), $value);
         }
     }
 }

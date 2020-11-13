@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * This file is part of the Zimbra API in PHP library.
  *
@@ -10,12 +10,7 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\Accessor;
-use JMS\Serializer\Annotation\SerializedName;
-use JMS\Serializer\Annotation\Type;
-use JMS\Serializer\Annotation\XmlAttribute;
-use JMS\Serializer\Annotation\XmlElement;
-use JMS\Serializer\Annotation\XmlRoot;
+use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlElement, XmlRoot};
 
 /**
  * MailQueueQuery struct class
@@ -24,7 +19,8 @@ use JMS\Serializer\Annotation\XmlRoot;
  * @subpackage Admin
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
- * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
+ * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
+ * @AccessType("public_method")
  * @XmlRoot(name="queue")
  */
 class MailQueueQuery
@@ -35,7 +31,7 @@ class MailQueueQuery
      * @Type("Zimbra\Admin\Struct\QueueQuery")
      * @XmlElement
      */
-    private $_query;
+    private $query;
 
     /**
      * @Accessor(getter="getQueueName", setter="setQueueName")
@@ -43,7 +39,7 @@ class MailQueueQuery
      * @Type("string")
      * @XmlAttribute
      */
-    private $_queueName;
+    private $queueName;
 
     /**
      * @Accessor(getter="getScan", setter="setScan")
@@ -51,7 +47,7 @@ class MailQueueQuery
      * @Type("bool")
      * @XmlAttribute
      */
-    private $_scan;
+    private $scan;
 
     /**
      * @Accessor(getter="getWaitSeconds", setter="setWaitSeconds")
@@ -59,7 +55,7 @@ class MailQueueQuery
      * @Type("integer")
      * @XmlAttribute
      */
-    private $_waitSeconds;
+    private $waitSeconds;
 
     /**
      * Constructor method for MailQueueQuery
@@ -88,7 +84,7 @@ class MailQueueQuery
      */
     public function getQuery()
     {
-        return $this->_query;
+        return $this->query;
     }
 
     /**
@@ -99,7 +95,7 @@ class MailQueueQuery
      */
     public function setQuery(QueueQuery $query)
     {
-        $this->_query = $query;
+        $this->query = $query;
         return $this;
     }
 
@@ -110,7 +106,7 @@ class MailQueueQuery
      */
     public function getQueueName()
     {
-        return $this->_queueName;
+        return $this->queueName;
     }
 
     /**
@@ -121,7 +117,7 @@ class MailQueueQuery
      */
     public function setQueueName($name)
     {
-        $this->_queueName = trim($name);
+        $this->queueName = trim($name);
         return $this;
     }
 
@@ -132,7 +128,7 @@ class MailQueueQuery
      */
     public function getScan()
     {
-        return $this->_scan;
+        return $this->scan;
     }
 
     /**
@@ -143,7 +139,7 @@ class MailQueueQuery
      */
     public function setScan($scan)
     {
-        $this->_scan = (bool) $scan;
+        $this->scan = (bool) $scan;
         return $this;
     }
 
@@ -154,7 +150,7 @@ class MailQueueQuery
      */
     public function getWaitSeconds()
     {
-        return $this->_waitSeconds;
+        return $this->waitSeconds;
     }
 
     /**
@@ -165,7 +161,7 @@ class MailQueueQuery
      */
     public function setWaitSeconds($wait)
     {
-        $this->_waitSeconds = (int) $wait;
+        $this->waitSeconds = (int) $wait;
         return $this;
     }
 }

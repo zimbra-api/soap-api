@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * This file is part of the Zimbra API in PHP library.
  *
@@ -10,11 +10,7 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\Accessor;
-use JMS\Serializer\Annotation\SerializedName;
-use JMS\Serializer\Annotation\Type;
-use JMS\Serializer\Annotation\XmlAttribute;
-use JMS\Serializer\Annotation\XmlRoot;
+use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlRoot};
 
 /**
  * TimeAttr struct class
@@ -23,7 +19,8 @@ use JMS\Serializer\Annotation\XmlRoot;
  * @subpackage Admin
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
- * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
+ * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
+ * @AccessType("public_method")
  * @XmlRoot(name="attr")
  */
 class TimeAttr
@@ -34,7 +31,7 @@ class TimeAttr
      * @Type("string")
      * @XmlAttribute
      */
-    private $_time;
+    private $time;
 
     /**
      * Constructor method for TimeAttr
@@ -51,9 +48,9 @@ class TimeAttr
      *
      * @return string
      */
-    public function getTime()
+    public function getTime(): string
     {
-        return $this->_time;
+        return $this->time;
     }
 
     /**
@@ -62,9 +59,9 @@ class TimeAttr
      * @param  string $time
      * @return self
      */
-    public function setTime($time)
+    public function setTime($time): self
     {
-        $this->_time = trim($time);
+        $this->time = trim($time);
         return $this;
     }
 }

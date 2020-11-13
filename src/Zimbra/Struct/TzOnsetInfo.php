@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * This file is part of the Zimbra API in PHP library.
  *
@@ -10,19 +10,16 @@
 
 namespace Zimbra\Struct;
 
-use JMS\Serializer\Annotation\Accessor;
-use JMS\Serializer\Annotation\SerializedName;
-use JMS\Serializer\Annotation\Type;
-use JMS\Serializer\Annotation\XmlAttribute;
-use JMS\Serializer\Annotation\XmlRoot;
+use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlRoot};
 
 /**
- * TzOnsetInfo struct class
+ * TzOnsetInfo class
  *
  * @package   Zimbra
  * @category  Struct
  * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
- * @copyright Copyright © 2013 by Nguyen Van Nguyen.
+ * @copyright Copyright © 2013-present by Nguyen Van Nguyen.
+ * @AccessType("public_method")
  * @XmlRoot(name="info")
  */
 class TzOnsetInfo
@@ -33,7 +30,7 @@ class TzOnsetInfo
      * @Type("integer")
      * @XmlAttribute
      */
-    private $_month;
+    private $month;
 
     /**
      * @Accessor(getter="getHour", setter="setHour")
@@ -41,7 +38,7 @@ class TzOnsetInfo
      * @Type("integer")
      * @XmlAttribute
      */
-    private $_hour;
+    private $hour;
 
     /**
      * @Accessor(getter="getMinute", setter="setMinute")
@@ -49,7 +46,7 @@ class TzOnsetInfo
      * @Type("integer")
      * @XmlAttribute
      */
-    private $_minute;
+    private $minute;
 
     /**
      * @Accessor(getter="getSecond", setter="setSecond")
@@ -57,7 +54,7 @@ class TzOnsetInfo
      * @Type("integer")
      * @XmlAttribute
      */
-    private $_second;
+    private $second;
 
     /**
      * @Accessor(getter="getDayOfMonth", setter="setDayOfMonth")
@@ -65,7 +62,7 @@ class TzOnsetInfo
      * @Type("integer")
      * @XmlAttribute
      */
-    private $_dayOfMonth;
+    private $dayOfMonth;
 
     /**
      * @Accessor(getter="getWeek", setter="setWeek")
@@ -73,7 +70,7 @@ class TzOnsetInfo
      * @Type("integer")
      * @XmlAttribute
      */
-    private $_week;
+    private $week;
 
     /**
      * @Accessor(getter="getDayOfWeek", setter="setDayOfWeek")
@@ -81,7 +78,7 @@ class TzOnsetInfo
      * @Type("integer")
      * @XmlAttribute
      */
-    private $_dayOfWeek;
+    private $dayOfWeek;
 
     /**
      * Constructor method for TzOnsetInfo
@@ -109,16 +106,13 @@ class TzOnsetInfo
             ->setMinute($min)
             ->setSecond($sec);
 
-        if(is_int($mday) and in_array((int) $mday, range(1, 31)))
-        {
+        if (is_int($mday) and in_array((int) $mday, range(1, 31))) {
             $this->setDayOfMonth($mday);
         }
-        if(is_int($week) and in_array((int) $week, [-1, 1, 2, 3, 4]))
-        {
+        if (is_int($week) and in_array((int) $week, [-1, 1, 2, 3, 4])) {
             $this->setWeek($week);
         }
-        if(is_int($wkday) and in_array((int) $wkday, range(1, 7)))
-        {
+        if (is_int($wkday) and in_array((int) $wkday, range(1, 7))) {
             $this->setDayOfWeek((int) $wkday);
         }
     }
@@ -128,9 +122,9 @@ class TzOnsetInfo
      *
      * @return int
      */
-    public function getMonth()
+    public function getMonth(): int
     {
-        return $this->_month;
+        return $this->month;
     }
 
     /**
@@ -139,10 +133,10 @@ class TzOnsetInfo
      * @param  int $mon
      * @return self
      */
-    public function setMonth($mon)
+    public function setMonth($mon): self
     {
         $mon = in_array((int) $mon, range(1, 12)) ? (int) $mon : 1;
-        $this->_month = $mon;
+        $this->month = $mon;
         return $this;
     }
 
@@ -151,9 +145,9 @@ class TzOnsetInfo
      *
      * @return int
      */
-    public function getDayOfMonth()
+    public function getDayOfMonth(): ?int
     {
-        return $this->_dayOfMonth;
+        return $this->dayOfMonth;
     }
 
     /**
@@ -162,10 +156,10 @@ class TzOnsetInfo
      * @param  int $mday
      * @return self
      */
-    public function setDayOfMonth($mday)
+    public function setDayOfMonth($mday): self
     {
         $mday = in_array((int) $mday, range(1, 31)) ? (int) $mday : 1;
-        $this->_dayOfMonth = $mday;
+        $this->dayOfMonth = $mday;
         return $this;
     }
 
@@ -174,9 +168,9 @@ class TzOnsetInfo
      *
      * @return int
      */
-    public function getHour()
+    public function getHour(): int
     {
-        return $this->_hour;
+        return $this->hour;
     }
 
     /**
@@ -185,10 +179,10 @@ class TzOnsetInfo
      * @param  int $hour
      * @return self
      */
-    public function setHour($hour)
+    public function setHour($hour): self
     {
         $hour = in_array((int) $hour, range(0, 23)) ? (int) $hour : 0;
-        $this->_hour = $hour;
+        $this->hour = $hour;
         return $this;
     }
 
@@ -197,9 +191,9 @@ class TzOnsetInfo
      *
      * @return int
      */
-    public function getMinute()
+    public function getMinute(): int
     {
-        return $this->_minute;
+        return $this->minute;
     }
 
     /**
@@ -208,10 +202,10 @@ class TzOnsetInfo
      * @param  int $min
      * @return self
      */
-    public function setMinute($min)
+    public function setMinute($min): self
     {
         $min = in_array((int) $min, range(0, 59)) ? (int) $min : 0;
-        $this->_minute = $min;
+        $this->minute = $min;
         return $this;
     }
 
@@ -220,9 +214,9 @@ class TzOnsetInfo
      *
      * @return int
      */
-    public function getSecond()
+    public function getSecond(): int
     {
-        return $this->_second;
+        return $this->second;
     }
 
     /**
@@ -231,16 +225,16 @@ class TzOnsetInfo
      * @param  int $sec
      * @return self
      */
-    public function setSecond($sec)
+    public function setSecond($sec): self
     {
         $sec = in_array((int) $sec, range(0, 59)) ? (int) $sec : 0;
-        $this->_second = $sec;
+        $this->second = $sec;
         return $this;
     }
 
-    public function getWeek()
+    public function getWeek(): ?int
     {
-        return $this->_week;
+        return $this->week;
     }
 
     /**
@@ -249,10 +243,10 @@ class TzOnsetInfo
      * @param  int $week
      * @return int|self
      */
-    public function setWeek($week)
+    public function setWeek($week): self
     {
         $week = in_array((int) $week, [-1, 1, 2, 3, 4]) ? (int) $week : -1;
-        $this->_week = $week;
+        $this->week = $week;
         return $this;
     }
 
@@ -261,9 +255,9 @@ class TzOnsetInfo
      *
      * @return int
      */
-    public function getDayOfWeek()
+    public function getDayOfWeek(): ?int
     {
-        return $this->_dayOfWeek;
+        return $this->dayOfWeek;
     }
 
     /**
@@ -272,10 +266,10 @@ class TzOnsetInfo
      * @param  int $wkday
      * @return self
      */
-    public function setDayOfWeek($wkday)
+    public function setDayOfWeek($wkday): self
     {
         $wkday = in_array((int) $wkday, range(1, 7)) ? (int) $wkday : 1;
-        $this->_dayOfWeek = $wkday;
+        $this->dayOfWeek = $wkday;
         return $this;
     }
 }

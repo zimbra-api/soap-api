@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Zimbra\Admin\Tests\Struct;
 
@@ -14,22 +14,26 @@ class CalendarResourceSelectorTest extends ZimbraStructTestCase
     public function testCalendarResourceSelector()
     {
         $value = $this->faker->word;
-        $cal = new CalendarResourceSelector(CalResBy::ID()->value(), $value);
-        $this->assertSame(CalResBy::ID()->value(), $cal->getBy());
+        $cal = new CalendarResourceSelector(CalResBy::ID(), $value);
+        $this->assertEquals(CalResBy::ID(), $cal->getBy());
         $this->assertSame($value, $cal->getValue());
 
-        $cal = new CalendarResourceSelector('');
-        $cal->setBy(CalResBy::NAME()->value())
+        $cal = new CalendarResourceSelector(CalResBy::ID());
+        $cal->setBy(CalResBy::NAME())
             ->setValue($value);
-        $this->assertSame(CalResBy::NAME()->value(), $cal->getBy());
+        $this->assertEquals(CalResBy::NAME(), $cal->getBy());
         $this->assertSame($value, $cal->getValue());
 
         $xml = '<?xml version="1.0"?>' . "\n"
             . '<calresource by="' . CalResBy::NAME() . '">' . $value . '</calresource>';
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($cal, 'xml'));
+        $this->assertEquals($cal, $this->serializer->deserialize($xml, CalendarResourceSelector::class, 'xml'));
 
-        $cal = $this->serializer->deserialize($xml, 'Zimbra\Admin\Struct\CalendarResourceSelector', 'xml');
-        $this->assertSame(CalResBy::NAME()->value(), $cal->getBy());
-        $this->assertSame($value, $cal->getValue());
+        $json = json_encode([
+            'by' => (string) CalResBy::NAME(),
+            '_content' => $value,
+        ]);
+        $this->assertSame($json, $this->serializer->serialize($cal, 'json'));
+        $this->assertEquals($cal, $this->serializer->deserialize($json, CalendarResourceSelector::class, 'json'));
     }
 }

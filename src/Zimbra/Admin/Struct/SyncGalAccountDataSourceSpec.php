@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * This file is part of the Zimbra API in PHP library.
  *
@@ -10,13 +10,7 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\Accessor;
-use JMS\Serializer\Annotation\SerializedName;
-use JMS\Serializer\Annotation\Type;
-use JMS\Serializer\Annotation\XmlAttribute;
-use JMS\Serializer\Annotation\XmlRoot;
-use JMS\Serializer\Annotation\XmlValue;
-
+use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlRoot, XmlValue};
 use Zimbra\Enum\DataSourceBy;
 
 /**
@@ -26,7 +20,8 @@ use Zimbra\Enum\DataSourceBy;
  * @subpackage Admin
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
- * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
+ * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
+ * @AccessType("public_method")
  * @XmlRoot(name="datasource")
  */
 class SyncGalAccountDataSourceSpec
@@ -34,10 +29,10 @@ class SyncGalAccountDataSourceSpec
     /**
      * @Accessor(getter="getBy", setter="setBy")
      * @SerializedName("by")
-     * @Type("string")
+     * @Type("Zimbra\Enum\DataSourceBy")
      * @XmlAttribute
      */
-    private $_by;
+    private $by;
 
     /**
      * @Accessor(getter="getFullSync", setter="setFullSync")
@@ -45,7 +40,7 @@ class SyncGalAccountDataSourceSpec
      * @Type("bool")
      * @XmlAttribute
      */
-    private $_fullSync;
+    private $fullSync;
 
     /**
      * @Accessor(getter="getReset", setter="setReset")
@@ -53,25 +48,26 @@ class SyncGalAccountDataSourceSpec
      * @Type("bool")
      * @XmlAttribute
      */
-    private $_reset;
+    private $reset;
 
     /**
      * @Accessor(getter="getValue", setter="setValue")
+     * @SerializedName("_content")
      * @Type("string")
      * @XmlValue(cdata=false)
      */
-    private $_value;
+    private $value;
 
     /**
      * Constructor method for SyncGalAccountDataSourceSpec
-     * @param string $by The by
+     * @param DataSourceBy $by The by
      * @param string $value The value
      * @param bool $fullSync If fullSync is set to 0 (false) or unset the default behavior is trickle sync which will pull in any new contacts or modified contacts since last sync. If fullSync is set to 1 (true), then the server will go through all the contacts that appear in GAL, and resolve deleted contacts in addition to new or modified ones.
      * @param bool $reset Reset flag. If set, then all the contacts will be populated again, regardless of the status since last sync.
      * @return self
      */
     public function __construct(
-        $by,
+        DataSourceBy $by,
         $value = NULL,
         $fullSync = NULL,
         $reset = NULL
@@ -92,24 +88,22 @@ class SyncGalAccountDataSourceSpec
     /**
      * Gets by enum
      *
-     * @return string
+     * @return DataSourceBy
      */
-    public function getBy()
+    public function getBy(): DataSourceBy
     {
-        return $this->_by;
+        return $this->by;
     }
 
     /**
      * Sets by enum
      *
-     * @param  string $by
+     * @param  DataSourceBy $by
      * @return self
      */
-    public function setBy($by)
+    public function setBy(DataSourceBy $by): self
     {
-        if (DataSourceBy::has(trim($by))) {
-            $this->_by = trim($by);
-        }
+        $this->by = $by;
         return $this;
     }
 
@@ -118,9 +112,9 @@ class SyncGalAccountDataSourceSpec
      *
      * @return string
      */
-    public function getValue()
+    public function getValue(): string
     {
-        return $this->_value;
+        return $this->value;
     }
 
     /**
@@ -129,9 +123,9 @@ class SyncGalAccountDataSourceSpec
      * @param  string $name
      * @return self
      */
-    public function setValue($value)
+    public function setValue($value): self
     {
-        $this->_value = trim($value);
+        $this->value = trim($value);
         return $this;
     }
 
@@ -140,9 +134,9 @@ class SyncGalAccountDataSourceSpec
      *
      * @return bool
      */
-    public function getFullSync()
+    public function getFullSync(): bool
     {
-        return $this->_fullSync;
+        return $this->fullSync;
     }
 
     /**
@@ -151,9 +145,9 @@ class SyncGalAccountDataSourceSpec
      * @param  bool $fullSync
      * @return self
      */
-    public function setFullSync($fullSync)
+    public function setFullSync($fullSync): self
     {
-        $this->_fullSync = (bool) $fullSync;
+        $this->fullSync = (bool) $fullSync;
         return $this;
     }
 
@@ -162,9 +156,9 @@ class SyncGalAccountDataSourceSpec
      *
      * @return bool
      */
-    public function getReset()
+    public function getReset(): bool
     {
-        return $this->_reset;
+        return $this->reset;
     }
 
     /**
@@ -173,9 +167,9 @@ class SyncGalAccountDataSourceSpec
      * @param  bool $reset
      * @return self
      */
-    public function setReset($reset)
+    public function setReset($reset): self
     {
-        $this->_reset = (bool) $reset;
+        $this->reset = (bool) $reset;
         return $this;
     }
 }

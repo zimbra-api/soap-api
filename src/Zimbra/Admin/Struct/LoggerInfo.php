@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * This file is part of the Zimbra API in PHP library.
  *
@@ -10,13 +10,7 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\Accessor;
-use JMS\Serializer\Annotation\SerializedName;
-use JMS\Serializer\Annotation\Type;
-use JMS\Serializer\Annotation\XmlAttribute;
-use JMS\Serializer\Annotation\XmlRoot;
-use JMS\Serializer\Annotation\XmlValue;
-
+use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlRoot};
 use Zimbra\Enum\LoggingLevel;
 
 /**
@@ -26,7 +20,8 @@ use Zimbra\Enum\LoggingLevel;
  * @subpackage Admin
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
- * @copyright  Copyright © 2013 level Nguyen Van Nguyen.
+ * @copyright  Copyright © 2013-present level Nguyen Van Nguyen.
+ * @AccessType("public_method")
  * @XmlRoot(name="logger")
  */
 class LoggerInfo
@@ -37,23 +32,23 @@ class LoggerInfo
      * @Type("string")
      * @XmlAttribute
      */
-    private $_category;
+    private $category;
 
     /**
      * @Accessor(getter="getLevel", setter="setLevel")
      * @SerializedName("level")
-     * @Type("string")
+     * @Type("Zimbra\Enum\LoggingLevel")
      * @XmlAttribute
      */
-    private $_level;
+    private $level;
 
     /**
      * Constructor method for loggerInfo
      * @param string $category
-     * @param string $level
+     * @param LoggingLevel $level
      * @return self
      */
-    public function __construct($category, $level = null)
+    public function __construct($category, LoggingLevel $level = NULL)
     {
         $this->setCategory($category);
         if (NULL !== $level) {
@@ -66,9 +61,9 @@ class LoggerInfo
      *
      * @return string
      */
-    public function getCategory()
+    public function getCategory(): string
     {
-        return $this->_category;
+        return $this->category;
     }
 
     /**
@@ -77,33 +72,31 @@ class LoggerInfo
      * @param  string $category
      * @return self
      */
-    public function setCategory($category)
+    public function setCategory($category): self
     {
-        $this->_category = trim($category);
+        $this->category = trim($category);
         return $this;
     }
 
     /**
      * Gets level enum
      *
-     * @return string
+     * @return LoggingLevel
      */
-    public function getLevel()
+    public function getLevel(): LoggingLevel
     {
-        return $this->_level;
+        return $this->level;
     }
 
     /**
      * Sets level enum
      *
-     * @param  string $level
+     * @param  LoggingLevel $level
      * @return self
      */
-    public function setLevel($level)
+    public function setLevel(LoggingLevel $level): self
     {
-        if (LoggingLevel::has(trim($level))) {
-            $this->_level = $level;
-        }
+        $this->level = $level;
         return $this;
     }
 }

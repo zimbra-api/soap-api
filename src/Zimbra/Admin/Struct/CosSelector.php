@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * This file is part of the Zimbra API in PHP library.
  *
@@ -10,13 +10,7 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\Accessor;
-use JMS\Serializer\Annotation\SerializedName;
-use JMS\Serializer\Annotation\Type;
-use JMS\Serializer\Annotation\XmlAttribute;
-use JMS\Serializer\Annotation\XmlRoot;
-use JMS\Serializer\Annotation\XmlValue;
-
+use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlRoot, XmlValue};
 use Zimbra\Enum\CosBy;
 
 /**
@@ -26,7 +20,8 @@ use Zimbra\Enum\CosBy;
  * @subpackage Admin
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
- * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
+ * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
+ * @AccessType("public_method")
  * @XmlRoot(name="cos")
  */
 class CosSelector
@@ -34,25 +29,26 @@ class CosSelector
     /**
      * @Accessor(getter="getBy", setter="setBy")
      * @SerializedName("by")
-     * @Type("string")
+     * @Type("Zimbra\Enum\CosBy")
      * @XmlAttribute
      */
-    private $_by;
+    private $by;
 
     /**
      * @Accessor(getter="getValue", setter="setValue")
+     * @SerializedName("_content")
      * @Type("string")
      * @XmlValue(cdata=false)
      */
-    private $_value;
+    private $value;
 
     /**
      * Constructor method for CosSelector
-     * @param  string $by Select the meaning of {cos-selector-key}
+     * @param  CosBy $by Select the meaning of {cos-selector-key}
      * @param  string $value The key used to identify the COS
      * @return self
      */
-    public function __construct($by, $value = NULL)
+    public function __construct(CosBy $by, $value = NULL)
     {
         $this->setBy($by);
         if (NULL !== $value) {
@@ -63,11 +59,11 @@ class CosSelector
     /**
      * Gets by enum
      *
-     * @return string
+     * @return CosBy
      */
-    public function getBy()
+    public function getBy(): CosBy
     {
-        return $this->_by;
+        return $this->by;
     }
 
     /**
@@ -76,11 +72,9 @@ class CosSelector
      * @param  string $by
      * @return self
      */
-    public function setBy($by)
+    public function setBy(CosBy $by): self
     {
-        if (CosBy::has(trim($by))) {
-            $this->_by = $by;
-        }
+        $this->by = $by;
         return $this;
     }
 
@@ -89,20 +83,20 @@ class CosSelector
      *
      * @return string
      */
-    public function getValue()
+    public function getValue(): string
     {
-        return $this->_value;
+        return $this->value;
     }
 
     /**
      * Sets value
      *
-     * @param  string $name
+     * @param  string $value
      * @return self
      */
-    public function setValue($value)
+    public function setValue($value): self
     {
-        $this->_value = trim($value);
+        $this->value = trim($value);
         return $this;
     }
 }

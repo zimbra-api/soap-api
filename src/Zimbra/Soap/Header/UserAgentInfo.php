@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * This file is part of the Zimbra API in PHP library.
  *
@@ -10,11 +10,7 @@
 
 namespace Zimbra\Soap\Header;
 
-use JMS\Serializer\Annotation\Accessor;
-use JMS\Serializer\Annotation\SerializedName;
-use JMS\Serializer\Annotation\Type;
-use JMS\Serializer\Annotation\XmlAttribute;
-use JMS\Serializer\Annotation\XmlRoot;
+use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlRoot};
 
 /**
  * UserAgentInfo struct class
@@ -22,7 +18,8 @@ use JMS\Serializer\Annotation\XmlRoot;
  * @package   Zimbra
  * @category  Soap
  * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
- * @copyright Copyright © 2013 by Nguyen Van Nguyen.
+ * @copyright Copyright © 2020 by Nguyen Van Nguyen.
+ * @AccessType("public_method")
  * @XmlRoot(name="userAgent")
  */
 class UserAgentInfo
@@ -33,7 +30,7 @@ class UserAgentInfo
      * @Type("string")
      * @XmlAttribute
      */
-    private $_name;
+    private $name;
 
     /**
      * @Accessor(getter="getVersion", setter="setVersion")
@@ -41,7 +38,7 @@ class UserAgentInfo
      * @Type("string")
      * @XmlAttribute
      */
-    private $_version;
+    private $version;
 
     /**
      * Constructor method for UserAgentInfo
@@ -69,20 +66,20 @@ class UserAgentInfo
      *
      * @return string
      */
-    public function getName()
+    public function getName(): string
     {
-        return $this->_name;
+        return $this->name;
     }
 
     /**
      * Sets user agent name
      *
      * @param  string $id
-     * @return string|self
+     * @return self
      */
-    public function setName($id)
+    public function setName($id): self
     {
-        $this->_name = trim($id);
+        $this->name = trim($id);
         return $this;
     }
 
@@ -91,9 +88,9 @@ class UserAgentInfo
      *
      * @return string
      */
-    public function getVersion()
+    public function getVersion(): string
     {
-        return $this->_version;
+        return $this->version;
     }
 
     /**
@@ -102,9 +99,9 @@ class UserAgentInfo
      * @param  string $version
      * @return self
      */
-    public function setVersion($version)
+    public function setVersion($version): self
     {
-        $this->_version = trim($version);
+        $this->version = trim($version);
         return $this;
     }
 }

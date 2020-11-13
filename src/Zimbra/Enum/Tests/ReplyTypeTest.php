@@ -18,7 +18,7 @@ class ReplyTypeTest extends TestCase
         ];
         foreach ($values as $enum => $value)
         {
-            $this->assertSame(ReplyType::$enum()->value(), $value);
+            $this->assertSame(ReplyType::$enum()->getValue(), $value);
         }
     }
 }

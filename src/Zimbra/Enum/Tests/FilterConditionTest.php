@@ -18,7 +18,7 @@ class FilterConditionTest extends TestCase
         ];
         foreach ($values as $enum => $value)
         {
-            $this->assertSame(FilterCondition::$enum()->value(), $value);
+            $this->assertSame(FilterCondition::$enum()->getValue(), $value);
         }
     }
 }

@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * This file is part of the Zimbra API in PHP library.
  *
@@ -10,13 +10,7 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\Accessor;
-use JMS\Serializer\Annotation\SerializedName;
-use JMS\Serializer\Annotation\Type;
-use JMS\Serializer\Annotation\XmlAttribute;
-use JMS\Serializer\Annotation\XmlRoot;
-use JMS\Serializer\Annotation\XmlValue;
-
+use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlRoot};
 use Zimbra\Enum\DataSourceType;
 
 /**
@@ -26,7 +20,8 @@ use Zimbra\Enum\DataSourceType;
  * @subpackage Admin
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
- * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
+ * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
+ * @AccessType("public_method")
  * @XmlRoot(name="dataSource")
  */
 class DataSourceSpecifier extends AdminAttrsImpl
@@ -34,10 +29,10 @@ class DataSourceSpecifier extends AdminAttrsImpl
     /**
      * @Accessor(getter="getType", setter="setType")
      * @SerializedName("type")
-     * @Type("string")
+     * @Type("Zimbra\Enum\DataSourceType")
      * @XmlAttribute
      */
-    private $_type;
+    private $type;
 
     /**
      * @Accessor(getter="getName", setter="setName")
@@ -45,43 +40,41 @@ class DataSourceSpecifier extends AdminAttrsImpl
      * @Type("string")
      * @XmlAttribute
      */
-    private $_name;
+    private $name;
 
     /**
      * Constructor method for DataSourceSpecifier
-     * @param string $type Data source type
+     * @param DataSourceType $type Data source type
      * @param string $name Data source name
      * @param array $attrs Attributes
      * @return self
      */
-    public function __construct($type, $name, array $attrs = [])
+    public function __construct(DataSourceType $type, $name, array $attrs = [])
     {
         parent::__construct($attrs);
-        $this->setType($type);
-        $this->setName($name);
+        $this->setType($type)
+             ->setName($name);
     }
 
     /**
      * Gets data source type
      *
-     * @return string
+     * @return DataSourceType
      */
-    public function getType()
+    public function getType(): DataSourceType
     {
-        return $this->_type;
+        return $this->type;
     }
 
     /**
      * Sets data source type
      *
-     * @param  string $type
+     * @param  DataSourceType $type
      * @return self
      */
-    public function setType($type)
+    public function setType(DataSourceType $type): self
     {
-        if (DataSourceType::has(trim($type))) {
-            $this->_type = $type;
-        }
+        $this->type = $type;
         return $this;
     }
 
@@ -90,9 +83,9 @@ class DataSourceSpecifier extends AdminAttrsImpl
      *
      * @return string
      */
-    public function getName()
+    public function getName(): string
     {
-        return $this->_name;
+        return $this->name;
     }
 
     /**
@@ -101,9 +94,9 @@ class DataSourceSpecifier extends AdminAttrsImpl
      * @param  string $name
      * @return self
      */
-    public function setName($name)
+    public function setName($name): self
     {
-        $this->_name = trim($name);
+        $this->name = trim($name);
         return $this;
     }
 }

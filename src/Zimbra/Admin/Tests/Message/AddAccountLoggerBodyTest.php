@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Zimbra\Admin\Tests\Message;
 
@@ -18,11 +18,12 @@ class AddAccountLoggerBodyTest extends ZimbraStructTestCase
 {
     public function testAddAccountLoggerBody()
     {
+        $id = $this->faker->uuid;
         $category = $this->faker->word;
         $value = $this->faker->word;
-        $logger = new LoggerInfo($category, LoggingLevel::INFO()->value());
-        $account = new AccountSelector(AccountBy::NAME()->value(), $value);
-        $request = new AddAccountLoggerRequest($logger, $account);
+        $logger = new LoggerInfo($category, LoggingLevel::INFO());
+        $account = new AccountSelector(AccountBy::NAME(), $value);
+        $request = new AddAccountLoggerRequest($logger, $account, $id);
         $response = new AddAccountLoggerResponse([$logger]);
 
         $body = new AddAccountLoggerBody($request, $response);
@@ -40,26 +41,41 @@ class AddAccountLoggerBodyTest extends ZimbraStructTestCase
                 . '<urn:AddAccountLoggerRequest>'
                     . '<logger category="' . $category . '" level="' . LoggingLevel::INFO() . '" />'
                     . '<account by="' . AccountBy::NAME() . '">' . $value . '</account>'
+                    . '<id>' . $id . '</id>'
                 . '</urn:AddAccountLoggerRequest>'
                 . '<urn:AddAccountLoggerResponse>'
                     . '<logger category="' . $category . '" level="' . LoggingLevel::INFO() . '" />'
                 . '</urn:AddAccountLoggerResponse>'
             . '</Body>';
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($body, 'xml'));
+        $this->assertEquals($body, $this->serializer->deserialize($xml, AddAccountLoggerBody::class, 'xml'));
 
-        $body = $this->serializer->deserialize($xml, 'Zimbra\Admin\Message\AddAccountLoggerBody', 'xml');
-
-        $request = $body->getRequest();
-        $logger = $request->getLogger();
-        $account = $request->getAccount();
-        $this->assertSame($category, $logger->getCategory());
-        $this->assertSame(LoggingLevel::INFO()->value(), $logger->getLevel());
-        $this->assertSame(AccountBy::NAME()->value(), $account->getBy());
-        $this->assertSame($value, $account->getValue());
-
-        $response = $body->getResponse();
-        $logger = $response->getLoggers()[0];
-        $this->assertSame($category, $logger->getCategory());
-        $this->assertSame(LoggingLevel::INFO()->value(), $logger->getLevel());
+        $json = json_encode([
+            'AddAccountLoggerRequest' => [
+                'logger' => [
+                    'category' => $category,
+                    'level' => (string) LoggingLevel::INFO(),
+                ],
+                'account' => [
+                    'by' => (string) AccountBy::NAME(),
+                    '_content' => $value,
+                ],
+                'id' => [
+                    '_content' => $id,
+                ],
+                '_jsns' => 'urn:zimbraAdmin',
+            ],
+            'AddAccountLoggerResponse' => [
+                'logger' => [
+                    [
+                        'category' => $category,
+                        'level' => (string) LoggingLevel::INFO(),
+                    ],
+                ],
+                '_jsns' => 'urn:zimbraAdmin',
+            ],
+        ]);
+        $this->assertSame($json, $this->serializer->serialize($body, 'json'));
+        $this->assertEquals($body, $this->serializer->deserialize($json, AddAccountLoggerBody::class, 'json'));
     }
 }

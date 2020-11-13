@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * This file is part of the Zimbra API in PHP library.
  *
@@ -10,11 +10,7 @@
 
 namespace Zimbra\Soap\Header;
 
-use JMS\Serializer\Annotation\Accessor;
-use JMS\Serializer\Annotation\SerializedName;
-use JMS\Serializer\Annotation\Type;
-use JMS\Serializer\Annotation\XmlAttribute;
-use JMS\Serializer\Annotation\XmlRoot;
+use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlRoot};
 
 /**
  * NotifyInfo struct class
@@ -22,7 +18,8 @@ use JMS\Serializer\Annotation\XmlRoot;
  * @package   Zimbra
  * @category  Soap
  * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
- * @copyright Copyright © 2013 by Nguyen Van Nguyen.
+ * @copyright Copyright © 2020 by Nguyen Van Nguyen.
+ * @AccessType("public_method")
  * @XmlRoot(name="notify")
  */
 class NotifyInfo
@@ -33,7 +30,7 @@ class NotifyInfo
      * @Type("integer")
      * @XmlAttribute
      */
-    private $_sequenceNum;
+    private $sequenceNum;
 
     /**
      * Constructor method for NotifyInfo
@@ -41,10 +38,10 @@ class NotifyInfo
      * @return self
      */
     public function __construct(
-        $sequenceNum = null
+        $sequenceNum = NULL
     )
     {
-        if(null !== $sequenceNum)
+        if(NULL !== $sequenceNum)
         {
             $this->setSequenceNum($sequenceNum);
         }
@@ -53,11 +50,11 @@ class NotifyInfo
     /**
      * Gets sequence number for the highest notification received
      *
-     * @return string
+     * @return int
      */
-    public function getSequenceNum()
+    public function getSequenceNum(): int
     {
-        return $this->_sequenceNum;
+        return $this->sequenceNum;
     }
 
     /**
@@ -66,9 +63,9 @@ class NotifyInfo
      * @param  int $sequenceNum
      * @return self
      */
-    public function setSequenceNum($sequenceNum)
+    public function setSequenceNum($sequenceNum): self
     {
-        $this->_sequenceNum = (int) $sequenceNum;
+        $this->sequenceNum = (int) $sequenceNum;
         return $this;
     }
 }

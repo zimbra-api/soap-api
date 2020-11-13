@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Zimbra\Admin\Tests\Message;
 
@@ -37,15 +37,21 @@ class AddDistributionListAliasEnvelopeTest extends ZimbraStructTestCase
                 . '</soap:Body>'
             . '</soap:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
+        $this->assertEquals($envelope, $this->serializer->deserialize($xml, AddDistributionListAliasEnvelope::class, 'xml'));
 
-        $envelope = $this->serializer->deserialize($xml, 'Zimbra\Admin\Message\AddDistributionListAliasEnvelope', 'xml');
-        $body = $envelope->getBody();
-        $request = $body->getRequest();
-        $response = $body->getResponse();
-
-        $this->assertTrue($body instanceof AddDistributionListAliasBody);
-        $this->assertSame($id, $request->getId());
-        $this->assertSame($alias, $request->getAlias());
-        $this->assertTrue($response instanceof AddDistributionListAliasResponse);
+        $json = json_encode([
+            'Body' => [
+                'AddDistributionListAliasRequest' => [
+                    'id' => $id,
+                    'alias' => $alias,
+                    '_jsns' => 'urn:zimbraAdmin',
+                ],
+                'AddDistributionListAliasResponse' => [
+                    '_jsns' => 'urn:zimbraAdmin',
+                ],
+            ],
+        ]);
+        $this->assertSame($json, $this->serializer->serialize($envelope, 'json'));
+        $this->assertEquals($envelope, $this->serializer->deserialize($json, AddDistributionListAliasEnvelope::class, 'json'));
     }
 }

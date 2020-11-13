@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Zimbra\Account\Tests\Message;
 
@@ -26,11 +26,14 @@ class AuthEnvelopeTest extends ZimbraStructTestCase
         $name = $this->faker->word;
         $value = $this->faker->word;
         $password = $this->faker->uuid;
+        $recoveryCode = $this->faker->word;
+        $jwtToken = $this->faker->word;
         $virtualHost = $this->faker->word;
         $requestedSkin = $this->faker->word;
         $twoFactorCode = $this->faker->uuid;
         $trustedToken = $this->faker->uuid;
         $deviceId = $this->faker->uuid;
+        $tokenType = $this->faker->word;
         $token = $this->faker->uuid;
         $refer = $this->faker->word;
         $skin = $this->faker->word;
@@ -42,7 +45,7 @@ class AuthEnvelopeTest extends ZimbraStructTestCase
         $lifetime = mt_rand(1, 100);
         $trustLifetime = mt_rand(1, 100);
 
-        $account = new AccountSelector(AccountBy::NAME()->value(), $value);
+        $account = new AccountSelector(AccountBy::NAME(), $value);
         $preauth = new PreAuth($time, $value, $time);
         $authToken = new AuthToken($value, true, $lifetime);
         $session = new Session($id, $type);
@@ -56,8 +59,10 @@ class AuthEnvelopeTest extends ZimbraStructTestCase
         $request = new AuthRequest(
             $account,
             $password,
+            $recoveryCode,
             $preauth,
             $authToken,
+            $jwtToken,
             $virtualHost,
             $prefs,
             $attrs,
@@ -68,7 +73,8 @@ class AuthEnvelopeTest extends ZimbraStructTestCase
             true,
             $trustedToken,
             $deviceId,
-            true
+            true,
+            $tokenType
         );
 
         $response = new AuthResponse(
@@ -99,11 +105,13 @@ class AuthEnvelopeTest extends ZimbraStructTestCase
         $xml = '<?xml version="1.0"?>' . "\n"
             . '<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAccount">'
                 . '<soap:Body>'
-                    . '<urn:AuthRequest persistAuthTokenCookie="true" csrfTokenSecured="true" deviceTrusted="true" generateDeviceId="true">'
+                    . '<urn:AuthRequest persistAuthTokenCookie="true" csrfTokenSecured="true" deviceTrusted="true" generateDeviceId="true" tokenType="' . $tokenType . '">'
                         . '<account by="' . AccountBy::NAME() . '">' . $value . '</account>'
                         . '<password>' . $password . '</password>'
+                        . '<recoveryCode>' . $recoveryCode . '</recoveryCode>'
                         . '<preauth timestamp="' . $time . '" expiresTimestamp="' . $time . '">' . $value . '</preauth>'
                         . '<authToken verifyAccount="true" lifetime="' . $lifetime . '">' . $value . '</authToken>'
+                        . '<jwtToken>' . $jwtToken . '</jwtToken>'
                         . '<virtualHost>' . $virtualHost . '</virtualHost>'
                         . '<prefs>'
                             . '<pref name="' . $name . '" modified="' . $time . '">' . $value . '</pref>'
@@ -117,90 +125,155 @@ class AuthEnvelopeTest extends ZimbraStructTestCase
                         . '<deviceId>' . $deviceId . '</deviceId>'
                     . '</urn:AuthRequest>'
                     . '<urn:AuthResponse zmgProxy="true">'
-                        . '<urn:authToken>' . $token . '</urn:authToken>'
-                        . '<urn:lifetime>' . $lifetime . '</urn:lifetime>'
-                        . '<urn:trustLifetime>' . $trustLifetime . '</urn:trustLifetime>'
-                        . '<urn:session type="' . $type . '" id="' . $id . '">'  .$id . '</urn:session>'
-                        . '<urn:refer>' . $refer . '</urn:refer>'
-                        . '<urn:skin>' . $skin . '</urn:skin>'
-                        . '<urn:csrfToken>' . $csrfToken . '</urn:csrfToken>'
-                        . '<urn:deviceId>' . $deviceId . '</urn:deviceId>'
-                        . '<urn:trustedToken>' . $trustedToken . '</urn:trustedToken>'
-                        . '<urn:prefs>'
+                        . '<authToken>' . $token . '</authToken>'
+                        . '<lifetime>' . $lifetime . '</lifetime>'
+                        . '<trustLifetime>' . $trustLifetime . '</trustLifetime>'
+                        . '<session type="' . $type . '" id="' . $id . '">'  .$id . '</session>'
+                        . '<refer>' . $refer . '</refer>'
+                        . '<skin>' . $skin . '</skin>'
+                        . '<csrfToken>' . $csrfToken . '</csrfToken>'
+                        . '<deviceId>' . $deviceId . '</deviceId>'
+                        . '<trustedToken>' . $trustedToken . '</trustedToken>'
+                        . '<prefs>'
                             . '<pref name="' . $name . '" modified="' . $time . '">' . $value . '</pref>'
-                        . '</urn:prefs>'
-                        . '<urn:attrs>'
+                        . '</prefs>'
+                        . '<attrs>'
                             . '<attr name="' . $name . '" pd="true">' . $value . '</attr>'
-                        . '</urn:attrs>'
-                        . '<urn:twoFactorAuthRequired>true</urn:twoFactorAuthRequired>'
-                        . '<urn:trustedDevicesEnabled>true</urn:trustedDevicesEnabled>'
+                        . '</attrs>'
+                        . '<twoFactorAuthRequired>true</twoFactorAuthRequired>'
+                        . '<trustedDevicesEnabled>true</trustedDevicesEnabled>'
                     . '</urn:AuthResponse>'
                 . '</soap:Body>'
             . '</soap:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
+        $this->assertEquals($envelope, $this->serializer->deserialize($xml, AuthEnvelope::class, 'xml'));
 
-        $envelope = $this->serializer->deserialize($xml, 'Zimbra\Account\Message\AuthEnvelope', 'xml');
-        $body = $envelope->getBody();
-        $this->assertTrue($body instanceof AuthBody);
-
-        $request = $body->getRequest();
-        $account = $request->getAccount();
-        $preauth = $request->getPreAuth();
-        $authToken = $request->getAuthToken();
-        $prefs = $request->getPrefs();
-        $attrs = $request->getAttrs();
-        $pref = $prefs->getPrefs()[0];
-        $attr = $attrs->getAttrs()[0];
-        $this->assertSame($password, $request->getPassword());
-        $this->assertSame($virtualHost, $request->getVirtualHost());
-        $this->assertSame($requestedSkin, $request->getRequestedSkin());
-        $this->assertTrue($request->getPersistAuthTokenCookie());
-        $this->assertTrue($request->getCsrfSupported());
-        $this->assertSame($twoFactorCode, $request->getTwoFactorCode());
-        $this->assertTrue($request->getDeviceTrusted());
-        $this->assertSame($trustedToken, $request->getTrustedDeviceToken());
-        $this->assertSame($deviceId, $request->getDeviceId());
-        $this->assertTrue($request->getGenerateDeviceId());
-        $this->assertSame($value, $account->getValue());
-        $this->assertSame(AccountBy::NAME()->value(), $account->getBy());
-        $this->assertSame($time, $preauth->getTimestamp());
-        $this->assertSame($time, $preauth->getExpiresTimestamp());
-        $this->assertSame($value, $preauth->getValue());
-        $this->assertSame($value, $authToken->getValue());
-        $this->assertTrue($authToken->getVerifyAccount());
-        $this->assertSame($lifetime, $authToken->getLifetime());
-        $this->assertSame($name, $pref->getName());
-        $this->assertSame($value, $pref->getValue());
-        $this->assertSame($time, $pref->getModified());
-        $this->assertSame($name, $attr->getName());
-        $this->assertSame($value, $attr->getValue());
-        $this->assertTrue($attr->getPermDenied());
-
-        $response = $body->getResponse();
-        $session = $response->getSession();
-        $prefs = $response->getPrefs();
-        $attrs = $response->getAttrs();
-        $pref = $prefs->getPrefs()[0];
-        $attr = $attrs->getAttrs()[0];
-        $this->assertSame($token, $response->getAuthToken());
-        $this->assertSame($lifetime, $response->getLifetime());
-        $this->assertSame($refer, $response->getRefer());
-        $this->assertSame($skin, $response->getSkin());
-        $this->assertSame($csrfToken, $response->getCsrfToken());
-        $this->assertSame($deviceId, $response->getDeviceId());
-        $this->assertSame($trustedToken, $response->getTrustedToken());
-        $this->assertSame($trustLifetime, $response->getTrustLifetime());
-        $this->assertTrue($response->getZmgProxy());
-        $this->assertTrue($response->getTwoFactorAuthRequired());
-        $this->assertTrue($response->getTrustedDevicesEnabled());
-        $this->assertSame($type, $session->getType());
-        $this->assertSame($id, $session->getId());
-        $this->assertSame($id, $session->getValue());
-        $this->assertSame($name, $pref->getName());
-        $this->assertSame($value, $pref->getValue());
-        $this->assertSame($time, $pref->getModified());
-        $this->assertSame($name, $attr->getName());
-        $this->assertSame($value, $attr->getValue());
-        $this->assertTrue($attr->getPermDenied());
+        $json = json_encode([
+            'Body' => [
+                'AuthRequest' => [
+                    'persistAuthTokenCookie' => TRUE,
+                    'csrfTokenSecured' => TRUE,
+                    'account' => [
+                        'by' => (string) AccountBy::NAME(),
+                        '_content' => $value,
+                    ],
+                    'password' => [
+                        '_content' => $password,
+                    ],
+                    'recoveryCode' => [
+                        '_content' => $recoveryCode,
+                    ],
+                    'preauth' => [
+                        '_content' => $value,
+                        'timestamp' => $time,
+                        'expiresTimestamp' => $time,
+                    ],
+                    'authToken' => [
+                        '_content' => $value,
+                        'verifyAccount' => TRUE,
+                        'lifetime' => $lifetime,
+                    ],
+                    'jwtToken' => [
+                        '_content' => $jwtToken,
+                    ],
+                    'virtualHost' => [
+                        '_content' => $virtualHost,
+                    ],
+                    'prefs' => [
+                        'pref' => [
+                            [
+                                'name' => $name,
+                                '_content' => $value,
+                                'modified' => $time,
+                            ],
+                        ],
+                    ],
+                    'attrs' => [
+                        'attr' => [
+                            [
+                                'name' => $name,
+                                '_content' => $value,
+                                'pd' => TRUE,
+                            ],
+                        ],
+                    ],
+                    'requestedSkin' => [
+                        '_content' => $requestedSkin,
+                    ],
+                    'twoFactorCode' => [
+                        '_content' => $twoFactorCode,
+                    ],
+                    'deviceTrusted' => TRUE,
+                    'trustedDeviceToken' => [
+                        '_content' => $trustedToken,
+                    ],
+                    'deviceId' => [
+                        '_content' => $deviceId,
+                    ],
+                    'generateDeviceId' => TRUE,
+                    'tokenType' => $tokenType,
+                    '_jsns' => 'urn:zimbraAccount',
+                ],
+                'AuthResponse' => [
+                    'authToken' => [
+                        '_content' => $token,
+                    ],
+                    'lifetime' => [
+                        '_content' => $lifetime,
+                    ],
+                    'trustLifetime' => [
+                        '_content' => $trustLifetime,
+                    ],
+                    'session' => [
+                        'type' => $type,
+                        'id' => $id,
+                        '_content' => $id,
+                    ],
+                    'refer' => [
+                        '_content' => $refer,
+                    ],
+                    'skin' => [
+                        '_content' => $skin,
+                    ],
+                    'csrfToken' => [
+                        '_content' => $csrfToken,
+                    ],
+                    'deviceId' => [
+                        '_content' => $deviceId,
+                    ],
+                    'trustedToken' => [
+                        '_content' => $trustedToken,
+                    ],
+                    'zmgProxy' => TRUE,
+                    'prefs' => [
+                        'pref' => [
+                            [
+                                'name' => $name,
+                                '_content' => $value,
+                                'modified' => $time,
+                            ],
+                        ],
+                    ],
+                    'attrs' => [
+                        'attr' => [
+                            [
+                                'name' => $name,
+                                '_content' => $value,
+                                'pd' => TRUE,
+                            ],
+                        ],
+                    ],
+                    'twoFactorAuthRequired' => [
+                        '_content' => TRUE,
+                    ],
+                    'trustedDevicesEnabled' => [
+                        '_content' => TRUE,
+                    ],
+                    '_jsns' => 'urn:zimbraAccount',
+                ],
+            ],
+        ]);
+        $this->assertSame($json, $this->serializer->serialize($envelope, 'json'));
+        $this->assertEquals($envelope, $this->serializer->deserialize($json, AuthEnvelope::class, 'json'));
     }
 }

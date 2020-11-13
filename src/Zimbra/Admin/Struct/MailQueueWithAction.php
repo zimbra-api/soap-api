@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * This file is part of the Zimbra API in PHP library.
  *
@@ -10,12 +10,7 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\Accessor;
-use JMS\Serializer\Annotation\SerializedName;
-use JMS\Serializer\Annotation\Type;
-use JMS\Serializer\Annotation\XmlAttribute;
-use JMS\Serializer\Annotation\XmlElement;
-use JMS\Serializer\Annotation\XmlRoot;
+use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlElement, XmlRoot};
 
 /**
  * MailQueueWithAction struct class
@@ -24,7 +19,8 @@ use JMS\Serializer\Annotation\XmlRoot;
  * @subpackage Admin
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
- * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
+ * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
+ * @AccessType("public_method")
  * @XmlRoot(name="queue")
  */
 class MailQueueWithAction
@@ -35,7 +31,7 @@ class MailQueueWithAction
      * @Type("Zimbra\Admin\Struct\MailQueueAction")
      * @XmlElement
      */
-    private $_action;
+    private $action;
 
     /**
      * @Accessor(getter="getName", setter="setName")
@@ -43,7 +39,7 @@ class MailQueueWithAction
      * @Type("string")
      * @XmlAttribute
      */
-    private $_name;
+    private $name;
 
     /**
      * Constructor method for MailQueueWithAction
@@ -64,7 +60,7 @@ class MailQueueWithAction
      */
     public function getAction()
     {
-        return $this->_action;
+        return $this->action;
     }
 
     /**
@@ -75,7 +71,7 @@ class MailQueueWithAction
      */
     public function setAction(MailQueueAction $action)
     {
-        $this->_action = $action;
+        $this->action = $action;
         return $this;
     }
 
@@ -86,7 +82,7 @@ class MailQueueWithAction
      */
     public function getName()
     {
-        return $this->_name;
+        return $this->name;
     }
 
     /**
@@ -97,7 +93,7 @@ class MailQueueWithAction
      */
     public function setName($name)
     {
-        $this->_name = trim($name);
+        $this->name = trim($name);
         return $this;
     }
 }

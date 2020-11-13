@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * This file is part of the Zimbra API in PHP library.
  *
@@ -10,31 +10,33 @@
 
 namespace Zimbra\Enum;
 
+use MyCLabs\Enum\Enum;
+
 /**
  * GalMode enum class
  *
  * @package   Zimbra
  * @category  Enum
  * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
- * @copyright Copyright © 2013 by Nguyen Van Nguyen.
+ * @copyright Copyright © 2013-present by Nguyen Van Nguyen.
  */
-class GalMode extends Base
+class GalMode extends Enum
 {
     /**
      * Constant for value 'both'
      * @return string 'both'
      */
-    const BOTH = 'both';
+    private const BOTH = 'both';
 
     /**
      * Constant for value 'ldap'
      * @return string 'ldap'
      */
-    const LDAP = 'ldap';
+    private const LDAP = 'ldap';
 
     /**
      * Constant for value 'zimbra'
      * @return string 'zimbra'
      */
-    const ZIMBRA = 'zimbra';
+    private const ZIMBRA = 'zimbra';
 }

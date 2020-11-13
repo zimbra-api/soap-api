@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Zimbra\Admin\Tests\Struct;
 
@@ -15,18 +15,18 @@ class SyncGalAccountDataSourceSpecTest extends ZimbraStructTestCase
     {
         $value = $this->faker->word;
 
-        $ds = new SyncGalAccountDataSourceSpec(DataSourceBy::ID()->value(), $value, false, true);
-        $this->assertSame(DataSourceBy::ID()->value(), $ds->getBy());
+        $ds = new SyncGalAccountDataSourceSpec(DataSourceBy::ID(), $value, FALSE, TRUE);
+        $this->assertEquals(DataSourceBy::ID(), $ds->getBy());
         $this->assertSame($value, $ds->getValue());
         $this->assertFalse($ds->getFullSync());
         $this->assertTrue($ds->getReset());
 
-        $ds = new SyncGalAccountDataSourceSpec(DataSourceBy::ID()->value(), '', false, true);
-        $ds->setBy(DataSourceBy::NAME()->value())
+        $ds = new SyncGalAccountDataSourceSpec(DataSourceBy::ID(), '', FALSE, TRUE);
+        $ds->setBy(DataSourceBy::NAME())
            ->setValue($value)
-           ->setFullSync(true)
-           ->setReset(false);
-        $this->assertSame(DataSourceBy::NAME()->value(), $ds->getBy());
+           ->setFullSync(TRUE)
+           ->setReset(FALSE);
+        $this->assertEquals(DataSourceBy::NAME(), $ds->getBy());
         $this->assertSame($value, $ds->getValue());
         $this->assertTrue($ds->getFullSync());
         $this->assertFalse($ds->getReset());
@@ -34,11 +34,15 @@ class SyncGalAccountDataSourceSpecTest extends ZimbraStructTestCase
         $xml = '<?xml version="1.0"?>' . "\n"
             . '<datasource by="' . DataSourceBy::NAME() . '" fullSync="true" reset="false">' . $value . '</datasource>';
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($ds, 'xml'));
+        $this->assertEquals($ds, $this->serializer->deserialize($xml, SyncGalAccountDataSourceSpec::class, 'xml'));
 
-        $ds = $this->serializer->deserialize($xml, 'Zimbra\Admin\Struct\SyncGalAccountDataSourceSpec', 'xml');
-        $this->assertSame(DataSourceBy::NAME()->value(), $ds->getBy());
-        $this->assertSame($value, $ds->getValue());
-        $this->assertTrue($ds->getFullSync());
-        $this->assertFalse($ds->getReset());
+        $json = json_encode([
+            'by' => (string) DataSourceBy::NAME(),
+            'fullSync' => TRUE,
+            'reset' => FALSE,
+            '_content' => $value,
+        ]);
+        $this->assertSame($json, $this->serializer->serialize($ds, 'json'));
+        $this->assertEquals($ds, $this->serializer->deserialize($json, SyncGalAccountDataSourceSpec::class, 'json'));
     }
 }

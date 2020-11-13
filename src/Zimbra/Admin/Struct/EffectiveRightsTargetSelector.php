@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * This file is part of the Zimbra API in PHP library.
  *
@@ -10,15 +10,8 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\Accessor;
-use JMS\Serializer\Annotation\SerializedName;
-use JMS\Serializer\Annotation\Type;
-use JMS\Serializer\Annotation\XmlAttribute;
-use JMS\Serializer\Annotation\XmlRoot;
-use JMS\Serializer\Annotation\XmlValue;
-
-use Zimbra\Enum\TargetType;
-use Zimbra\Enum\TargetBy;
+use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlRoot, XmlValue};
+use Zimbra\Enum\{TargetType, TargetBy};
 
 /**
  * EffectiveRightsTargetSelector struct class
@@ -27,7 +20,8 @@ use Zimbra\Enum\TargetBy;
  * @subpackage Admin
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
- * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
+ * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
+ * @AccessType("public_method")
  * @XmlRoot(name="target")
  */
 class EffectiveRightsTargetSelector
@@ -35,34 +29,35 @@ class EffectiveRightsTargetSelector
     /**
      * @Accessor(getter="getType", setter="setType")
      * @SerializedName("type")
-     * @Type("string")
+     * @Type("Zimbra\Enum\TargetType")
      * @XmlAttribute
      */
-    private $_type;
+    private $type;
 
     /**
      * @Accessor(getter="getBy", setter="setBy")
      * @SerializedName("by")
-     * @Type("string")
+     * @Type("Zimbra\Enum\TargetBy")
      * @XmlAttribute
      */
-    private $_by;
+    private $by;
 
     /**
      * @Accessor(getter="getValue", setter="setValue")
+     * @SerializedName("_content")
      * @Type("string")
      * @XmlValue(cdata=false)
      */
-    private $_value;
+    private $value;
 
     /**
      * Constructor method for EffectiveRightsTargetSelector
-     * @param string $type Target type
-     * @param string $by Target by
+     * @param TargetType $type Target type
+     * @param TargetBy $by Target by
      * @param string $value The value
      * @return self
      */
-    public function __construct($type, $by = NULL, $value = NULL)
+    public function __construct(TargetType $type, TargetBy $by = NULL, $value = NULL)
     {
         $this->setType($type);
         if (NULL !== $by) {
@@ -76,48 +71,44 @@ class EffectiveRightsTargetSelector
     /**
      * Gets type enum
      *
-     * @return Zimbra\Enum\TargetType
+     * @return TargetType
      */
-    public function getType()
+    public function getType(): TargetType
     {
-        return $this->_type;
+        return $this->type;
     }
 
     /**
      * Sets type enum
      *
-     * @param  string $type
+     * @param  TargetType $type
      * @return self
      */
-    public function setType($type)
+    public function setType(TargetType $type): self
     {
-        if (TargetType::has(trim($type))) {
-            $this->_type = $type;
-        }
+        $this->type = $type;
         return $this;
     }
 
     /**
      * Gets by enum
      *
-     * @return Zimbra\Enum\TargetBy
+     * @return TargetBy
      */
-    public function getBy()
+    public function getBy(): TargetBy
     {
-        return $this->_by;
+        return $this->by;
     }
 
     /**
      * Sets by enum
      *
-     * @param  string $by
+     * @param  TargetBy $by
      * @return self
      */
-    public function setBy($by)
+    public function setBy(TargetBy $by): self
     {
-        if (TargetBy::has(trim($by))) {
-            $this->_by = $by;
-        }
+        $this->by = $by;
         return $this;
     }
 
@@ -126,9 +117,9 @@ class EffectiveRightsTargetSelector
      *
      * @return string
      */
-    public function getValue()
+    public function getValue(): string
     {
-        return $this->_value;
+        return $this->value;
     }
 
     /**
@@ -137,9 +128,9 @@ class EffectiveRightsTargetSelector
      * @param  string $name
      * @return self
      */
-    public function setValue($value)
+    public function setValue($value): self
     {
-        $this->_value = trim($value);
+        $this->value = trim($value);
         return $this;
     }
 }

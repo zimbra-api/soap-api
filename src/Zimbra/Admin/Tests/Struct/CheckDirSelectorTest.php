@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Zimbra\Admin\Tests\Struct;
 
@@ -13,22 +13,26 @@ class CheckDirSelectorTest extends ZimbraStructTestCase
     public function testCheckDirSelector()
     {
         $path = $this->faker->word;
-        $dir = new CheckDirSelector($path, false);
+        $dir = new CheckDirSelector($path, FALSE);
         $this->assertSame($path, $dir->getPath());
         $this->assertFalse($dir->isCreate());
 
-        $dir = new CheckDirSelector('', false);
+        $dir = new CheckDirSelector('', FALSE);
         $dir->setPath($path)
-            ->setCreate(true);
+            ->setCreate(TRUE);
         $this->assertSame($path, $dir->getPath());
         $this->assertTrue($dir->isCreate());
 
         $xml = '<?xml version="1.0"?>' . "\n"
             . '<directory path="' . $path . '" create="true" />';
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($dir, 'xml'));
+        $this->assertEquals($dir, $this->serializer->deserialize($xml, CheckDirSelector::class, 'xml'));
 
-        $tzi = $this->serializer->deserialize($xml, 'Zimbra\Admin\Struct\CheckDirSelector', 'xml');
-        $this->assertSame($path, $dir->getPath());
-        $this->assertTrue($dir->isCreate());
+        $json = json_encode([
+            'path' => $path,
+            'create' => TRUE,
+        ]);
+        $this->assertSame($json, $this->serializer->serialize($dir, 'json'));
+        $this->assertEquals($dir, $this->serializer->deserialize($json, CheckDirSelector::class, 'json'));
     }
 }

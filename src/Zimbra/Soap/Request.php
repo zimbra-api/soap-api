@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * This file is part of the Zimbra API in PHP library.
  *
@@ -10,10 +10,7 @@
 
 namespace Zimbra\Soap;
 
-use Doctrine\Common\Annotations\AnnotationRegistry;
-use JMS\Serializer\Annotation\Exclude;
-use JMS\Serializer\SerializerBuilder;
-use JMS\Serializer\Serializer;
+use JMS\Serializer\Annotation\{Exclude, PreSerialize, PostDeserialize};
 
 /**
  * Request class in Zimbra API PHP, not to be instantiated.
@@ -21,30 +18,50 @@ use JMS\Serializer\Serializer;
  * @package   Zimbra
  * @category  Soap
  * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
- * @copyright Copyright © 2013 by Nguyen Van Nguyen.
+ * @copyright Copyright © 2020 by Nguyen Van Nguyen.
  */
 abstract class Request implements RequestInterface
 {
     /**
-     * Serializer
-     * @var JMS\Serializer\Serializer
+     * @var EnvelopeInterface
      * @Exclude
      */
-    private $_serializer;
+    protected $envelope;
 
-    public function __construct()
+    /**
+     * Get Zimbra api soap envelope.
+     *
+     * @return EnvelopeInterface
+     */
+    public function getEnvelope(): EnvelopeInterface
     {
-        AnnotationRegistry::registerLoader('class_exists');
-        $this->_serializer = SerializerBuilder::create()->build();
+        return $this->envelope;
     }
 
     /**
-     * Get serializer.
+     * @PreSerialize
      *
-     * @return Serializer
+     * @return void
      */
-    protected function getSerializer()
+    public function preSerialize()
     {
-        return $this->_serializer;
+        $this->internalInit();
     }
+
+    /**
+     * @PostDeserialize
+     *
+     * @return void
+     */
+    public function postDeserialize()
+    {
+        $this->internalInit();
+    }
+
+    /**
+     * Internal initialization of the soap request
+     *
+     * @return void
+     */
+    abstract protected function internalInit();
 }

@@ -19,7 +19,7 @@ class SessionTypeTest extends TestCase
         ];
         foreach ($values as $enum => $value)
         {
-            $this->assertSame(SessionType::$enum()->value(), $value);
+            $this->assertSame(SessionType::$enum()->getValue(), $value);
         }
     }
 }

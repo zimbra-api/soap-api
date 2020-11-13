@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * This file is part of the Zimbra API in PHP library.
  *
@@ -10,24 +10,18 @@
 
 namespace Zimbra\Struct;
 
-use JMS\Serializer\Annotation\Accessor;
-use JMS\Serializer\Annotation\SerializedName;
-use JMS\Serializer\Annotation\Type;
-use JMS\Serializer\Annotation\XmlAttribute;
-use JMS\Serializer\Annotation\XmlValue;
-use JMS\Serializer\Annotation\XmlRoot;
-
+use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlRoot, XmlValue};
 use Zimbra\Enum\DistributionListBy as DLBy;
-use Zimbra\Struct\Base;
 
 /**
- * DistributionListSelector struct class
+ * DistributionListSelector class
  * 
  * @package    Zimbra
  * @subpackage Account
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
- * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
+ * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
+ * @AccessType("public_method")
  * @XmlRoot(name="dl")
  */
 class DistributionListSelector
@@ -35,25 +29,26 @@ class DistributionListSelector
     /**
      * @Accessor(getter="getBy", setter="setBy")
      * @SerializedName("by")
-     * @Type("string")
+     * @Type("Zimbra\Enum\DistributionListBy")
      * @XmlAttribute
      */
-    private $_by;
+    private $by;
 
     /**
      * @Accessor(getter="getValue", setter="setValue")
+     * @SerializedName("_content")
      * @Type("string")
      * @XmlValue(cdata=false)
      */
-    private $_value;
+    private $value;
 
     /**
      * Constructor method for DistributionListSelector
-     * @param  string $by
+     * @param  DLBy $by
      * @param  string $value
      * @return self
      */
-    public function __construct($by, $value = NULL)
+    public function __construct(DLBy $by, $value = NULL)
     {
         $this->setBy($by);
         if (NULL !== $value) {
@@ -64,24 +59,22 @@ class DistributionListSelector
     /**
      * Gets by selector
      *
-     * @return string
+     * @return DLBy
      */
-    public function getBy()
+    public function getBy(): DLBy
     {
-        return $this->_by;
+        return $this->by;
     }
 
     /**
      * Sets by selector
      *
-     * @param  string $by
+     * @param  DLBy $by
      * @return self
      */
-    public function setBy($by)
+    public function setBy(DLBy $by): self
     {
-        if (DLBy::has(trim($by))) {
-            $this->_by = $by;
-        }
+        $this->by = $by;
         return $this;
     }
 
@@ -90,9 +83,9 @@ class DistributionListSelector
      *
      * @return string
      */
-    public function getValue()
+    public function getValue(): string
     {
-        return $this->_value;
+        return $this->value;
     }
 
     /**
@@ -101,9 +94,9 @@ class DistributionListSelector
      * @param  string $name
      * @return self
      */
-    public function setValue($value)
+    public function setValue($value): self
     {
-        $this->_value = trim($value);
+        $this->value = trim($value);
         return $this;
     }
 }

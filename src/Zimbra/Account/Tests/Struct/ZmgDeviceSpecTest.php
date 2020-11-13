@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Zimbra\Account\Tests\Struct;
 
@@ -48,13 +48,17 @@ class ZmgDeviceSpecTest extends ZimbraStructTestCase
         $xml = '<?xml version="1.0"?>' . "\n"
             . '<zmgDevice appId="' . $appId . '" registrationId="' . $registrationId . '" pushProvider="' . $pushProvider . '" osName="' . $osName . '" osVersion="' . $osVersion . '" maxPayloadSize="' . $maxPayloadSize . '" />';
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($device, 'xml'));
+        $this->assertEquals($device, $this->serializer->deserialize($xml, ZmgDeviceSpec::class, 'xml'));
 
-        $device = $this->serializer->deserialize($xml, 'Zimbra\Account\Struct\ZmgDeviceSpec', 'xml');
-        $this->assertSame($appId, $device->getAppId());
-        $this->assertSame($registrationId, $device->getRegistrationId());
-        $this->assertSame($pushProvider, $device->getPushProvider());
-        $this->assertSame($osName, $device->getOsName());
-        $this->assertSame($osVersion, $device->getOsVersion());
-        $this->assertSame($maxPayloadSize, $device->getMaxPayloadSize());
+        $json = json_encode([
+            'appId' => $appId,
+            'registrationId' => $registrationId,
+            'pushProvider' => $pushProvider,
+            'osName' => $osName,
+            'osVersion' => $osVersion,
+            'maxPayloadSize' => $maxPayloadSize,
+        ]);
+        $this->assertSame($json, $this->serializer->serialize($device, 'json'));
+        $this->assertEquals($device, $this->serializer->deserialize($json, ZmgDeviceSpec::class, 'json'));
     }
 }

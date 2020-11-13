@@ -25,7 +25,7 @@ class SectionTypeTest extends TestCase
         ];
         foreach ($values as $enum => $value)
         {
-            $this->assertSame(SectionType::$enum()->value(), $value);
+            $this->assertSame(SectionType::$enum()->getValue(), $value);
         }
     }
 }

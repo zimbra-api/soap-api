@@ -22,7 +22,7 @@ class GetSessionsSortByTest extends TestCase
         ];
         foreach ($values as $enum => $value)
         {
-            $this->assertSame(GetSessionsSortBy::$enum()->value(), $value);
+            $this->assertSame(GetSessionsSortBy::$enum()->getValue(), $value);
         }
     }
 }

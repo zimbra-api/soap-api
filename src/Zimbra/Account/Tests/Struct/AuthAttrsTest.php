@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Zimbra\Account\Tests\Struct;
 
@@ -15,14 +15,14 @@ class AuthAttrsTest extends ZimbraStructTestCase
     {
         $name1 = $this->faker->word;
         $value1 = $this->faker->word;
-        $attr1 = new Attr($name1, $value1, true);
+        $attr1 = new Attr($name1, $value1, TRUE);
 
         $attrs = new AuthAttrs([$attr1]);
         $this->assertSame([$attr1], $attrs->getAttrs());
 
         $name2 = $this->faker->word;
         $value2 = $this->faker->word;
-        $attr2 = new Attr($name2, $value2, false);
+        $attr2 = new Attr($name2, $value2, FALSE);
 
         $attrs->addAttr($attr2);
         $this->assertSame([$attr1, $attr2], $attrs->getAttrs());
@@ -33,16 +33,23 @@ class AuthAttrsTest extends ZimbraStructTestCase
                 . '<attr name="' . $name2 . '" pd="false">' . $value2 . '</attr>'
             . '</attrs>';
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($attrs, 'xml'));
+        $this->assertEquals($attrs, $this->serializer->deserialize($xml, AuthAttrs::class, 'xml'));
 
-        $attrs = $this->serializer->deserialize($xml, 'Zimbra\Account\Struct\AuthAttrs', 'xml');
-        $attr1 = $attrs->getAttrs()[0];
-        $attr2 = $attrs->getAttrs()[1];
-
-        $this->assertSame($name1, $attr1->getName());
-        $this->assertSame($value1, $attr1->getValue());
-        $this->assertTrue($attr1->getPermDenied());
-        $this->assertSame($name2, $attr2->getName());
-        $this->assertSame($value2, $attr2->getValue());
-        $this->assertFalse($attr2->getPermDenied());
+        $json = json_encode([
+            'attr' => [
+                [
+                    'name' => $name1,
+                    '_content' => $value1,
+                    'pd' => TRUE,
+                ],
+                [
+                    'name' => $name2,
+                    '_content' => $value2,
+                    'pd' => FALSE,
+                ],
+            ],
+        ]);
+        $this->assertSame($json, $this->serializer->serialize($attrs, 'json'));
+        $this->assertEquals($attrs, $this->serializer->deserialize($json, AuthAttrs::class, 'json'));
     }
 }

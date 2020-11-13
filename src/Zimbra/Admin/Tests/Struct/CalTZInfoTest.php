@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Zimbra\Admin\Tests\Struct;
 
@@ -62,25 +62,28 @@ class CalTZInfoTest extends ZimbraStructTestCase
                 . '<daylight mon="' . $day_mon . '" hour="' . $day_hour . '" min="' . $day_min . '" sec="' . $day_sec . '" />'
             . '</tz>';
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($tzi, 'xml'));
+        $this->assertEquals($tzi, $this->serializer->deserialize($xml, CalTZInfo::class, 'xml'));
 
-        $tzi = $this->serializer->deserialize($xml, 'Zimbra\Admin\Struct\CalTZInfo', 'xml');
-        $standard = $tzi->getStandardTzOnset();
-        $daylight = $tzi->getDaylightTzOnset();
-
-        $this->assertSame($id, $tzi->getId());
-        $this->assertSame($stdoff, $tzi->getTzStdOffset());
-        $this->assertSame($dayoff, $tzi->getTzDayOffset());
-        $this->assertSame($stdname, $tzi->getStandardTZName());
-        $this->assertSame($dayname, $tzi->getDaylightTZName());
-
-        $this->assertSame($std_mon, $standard->getMonth());
-        $this->assertSame($std_hour, $standard->getHour());
-        $this->assertSame($std_min, $standard->getMinute());
-        $this->assertSame($std_sec, $standard->getSecond());
-
-        $this->assertSame($day_mon, $daylight->getMonth());
-        $this->assertSame($day_hour, $daylight->getHour());
-        $this->assertSame($day_min, $daylight->getMinute());
-        $this->assertSame($day_sec, $daylight->getSecond());
+        $json = json_encode([
+            'id' => $id,
+            'stdoff' => $stdoff,
+            'dayoff' => $dayoff,
+            'standard' => [
+                'mon' => $std_mon,
+                'hour' => $std_hour,
+                'min' => $std_min,
+                'sec' => $std_sec,
+            ],
+            'daylight' => [
+                'mon' => $day_mon,
+                'hour' => $day_hour,
+                'min' => $day_min,
+                'sec' => $day_sec,
+            ],
+            'stdname' => $stdname,
+            'dayname' => $dayname,
+        ]);
+        $this->assertSame($json, $this->serializer->serialize($tzi, 'json'));
+        $this->assertEquals($tzi, $this->serializer->deserialize($json, CalTZInfo::class, 'json'));
     }
 }

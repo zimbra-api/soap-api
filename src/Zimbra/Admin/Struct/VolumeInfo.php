@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * This file is part of the Zimbra API in PHP library.
  *
@@ -10,12 +10,7 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\Accessor;
-use JMS\Serializer\Annotation\SerializedName;
-use JMS\Serializer\Annotation\Type;
-use JMS\Serializer\Annotation\XmlAttribute;
-use JMS\Serializer\Annotation\XmlRoot;
-
+use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlRoot};
 use Zimbra\Enum\VolumeType;
 
 /**
@@ -25,7 +20,8 @@ use Zimbra\Enum\VolumeType;
  * @subpackage Admin
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
- * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
+ * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
+ * @AccessType("public_method")
  * @XmlRoot(name="volume")
  */
 class VolumeInfo
@@ -36,7 +32,7 @@ class VolumeInfo
      * @Type("integer")
      * @XmlAttribute
      */
-    private $_id;
+    private $id;
 
     /**
      * @Accessor(getter="getName", setter="setName")
@@ -44,7 +40,7 @@ class VolumeInfo
      * @Type("string")
      * @XmlAttribute
      */
-    private $_name;
+    private $name;
 
     /**
      * @Accessor(getter="getRootPath", setter="setRootPath")
@@ -52,7 +48,7 @@ class VolumeInfo
      * @Type("string")
      * @XmlAttribute
      */
-    private $_rootPath;
+    private $rootPath;
 
     /**
      * @Accessor(getter="getType", setter="setType")
@@ -60,7 +56,7 @@ class VolumeInfo
      * @Type("integer")
      * @XmlAttribute
      */
-    private $_type;
+    private $type;
 
     /**
      * @Accessor(getter="getCompressBlobs", setter="setCompressBlobs")
@@ -68,7 +64,7 @@ class VolumeInfo
      * @Type("bool")
      * @XmlAttribute
      */
-    private $_compressBlobs;
+    private $compressBlobs;
 
     /**
      * @Accessor(getter="getCompressionThreshold", setter="setCompressionThreshold")
@@ -76,7 +72,7 @@ class VolumeInfo
      * @Type("integer")
      * @XmlAttribute
      */
-    private $_compressionThreshold;
+    private $compressionThreshold;
 
     /**
      * @Accessor(getter="getMgbits", setter="setMgbits")
@@ -84,7 +80,7 @@ class VolumeInfo
      * @Type("integer")
      * @XmlAttribute
      */
-    private $_mgbits;
+    private $mgbits;
 
     /**
      * @Accessor(getter="getMbits", setter="setMbits")
@@ -92,7 +88,7 @@ class VolumeInfo
      * @Type("integer")
      * @XmlAttribute
      */
-    private $_mbits;
+    private $mbits;
 
     /**
      * @Accessor(getter="getFgbits", setter="setFgbits")
@@ -100,7 +96,7 @@ class VolumeInfo
      * @Type("integer")
      * @XmlAttribute
      */
-    private $_fgbits;
+    private $fgbits;
 
     /**
      * @Accessor(getter="getFbits", setter="setFbits")
@@ -108,7 +104,7 @@ class VolumeInfo
      * @Type("integer")
      * @XmlAttribute
      */
-    private $_fbits;
+    private $fbits;
 
     /**
      * @Accessor(getter="isCurrent", setter="setCurrent")
@@ -116,7 +112,7 @@ class VolumeInfo
      * @Type("bool")
      * @XmlAttribute
      */
-    private $_current;
+    private $current;
 
     /**
      * Constructor method for VolumeInfo
@@ -187,9 +183,9 @@ class VolumeInfo
      *
      * @return int
      */
-    public function getId()
+    public function getId(): int
     {
-        return $this->_id;
+        return $this->id;
     }
 
     /**
@@ -198,9 +194,9 @@ class VolumeInfo
      * @param  int $id
      * @return self
      */
-    public function setId($id)
+    public function setId($id): self
     {
-        $this->_id = (int) $id;
+        $this->id = (int) $id;
         return $this;
     }
 
@@ -209,9 +205,9 @@ class VolumeInfo
      *
      * @return int
      */
-    public function getType()
+    public function getType(): int
     {
-        return $this->_type;
+        return $this->type;
     }
 
     /**
@@ -220,10 +216,9 @@ class VolumeInfo
      * @param  int $type
      * @return self
      */
-    public function setType($type)
+    public function setType($type): self
     {
-        $type = in_array((int) $type, VolumeType::enums()) ? (int) $type : 1;
-        $this->_type = $type;
+        $this->type = VolumeType::isValid((int) $type) ? (int) $type : 1;
         return $this;
     }
 
@@ -232,9 +227,9 @@ class VolumeInfo
      *
      * @return int
      */
-    public function getCompressionThreshold()
+    public function getCompressionThreshold(): int
     {
-        return $this->_compressionThreshold;
+        return $this->compressionThreshold;
     }
 
     /**
@@ -243,9 +238,9 @@ class VolumeInfo
      * @param  int $compressionThreshold
      * @return self
      */
-    public function setCompressionThreshold($compressionThreshold)
+    public function setCompressionThreshold($compressionThreshold): self
     {
-        $this->_compressionThreshold = (int) $compressionThreshold;
+        $this->compressionThreshold = (int) $compressionThreshold;
         return $this;
     }
 
@@ -254,9 +249,9 @@ class VolumeInfo
      *
      * @return int
      */
-    public function getMgbits()
+    public function getMgbits(): int
     {
-        return $this->_mgbits;
+        return $this->mgbits;
     }
 
     /**
@@ -265,9 +260,9 @@ class VolumeInfo
      * @param  int $mgbits
      * @return self
      */
-    public function setMgbits($mgbits)
+    public function setMgbits($mgbits): self
     {
-        $this->_mgbits = (int) $mgbits;
+        $this->mgbits = (int) $mgbits;
         return $this;
     }
 
@@ -276,9 +271,9 @@ class VolumeInfo
      *
      * @return int
      */
-    public function getMbits()
+    public function getMbits(): int
     {
-        return $this->_mbits;
+        return $this->mbits;
     }
 
     /**
@@ -287,9 +282,9 @@ class VolumeInfo
      * @param  int $mbits
      * @return self
      */
-    public function setMbits($mbits)
+    public function setMbits($mbits): self
     {
-        $this->_mbits = (int) $mbits;
+        $this->mbits = (int) $mbits;
         return $this;
     }
 
@@ -298,9 +293,9 @@ class VolumeInfo
      *
      * @return int
      */
-    public function getFgbits()
+    public function getFgbits(): int
     {
-        return $this->_fgbits;
+        return $this->fgbits;
     }
 
     /**
@@ -309,9 +304,9 @@ class VolumeInfo
      * @param  int $fgbits
      * @return self
      */
-    public function setFgbits($fgbits)
+    public function setFgbits($fgbits): self
     {
-        $this->_fgbits = (int) $fgbits;
+        $this->fgbits = (int) $fgbits;
         return $this;
     }
 
@@ -320,9 +315,9 @@ class VolumeInfo
      *
      * @return int
      */
-    public function getFbits()
+    public function getFbits(): int
     {
-        return $this->_fbits;
+        return $this->fbits;
     }
 
     /**
@@ -331,9 +326,9 @@ class VolumeInfo
      * @param  int $fbits
      * @return self
      */
-    public function setFbits($fbits)
+    public function setFbits($fbits): self
     {
-        $this->_fbits = (int) $fbits;
+        $this->fbits = (int) $fbits;
         return $this;
     }
 
@@ -342,9 +337,9 @@ class VolumeInfo
      *
      * @return string
      */
-    public function getName()
+    public function getName(): string
     {
-        return $this->_name;
+        return $this->name;
     }
 
     /**
@@ -353,9 +348,9 @@ class VolumeInfo
      * @param  string $name
      * @return self
      */
-    public function setName($name)
+    public function setName($name): self
     {
-        $this->_name = trim($name);
+        $this->name = trim($name);
         return $this;
     }
 
@@ -364,9 +359,9 @@ class VolumeInfo
      *
      * @return string
      */
-    public function getRootPath()
+    public function getRootPath(): string
     {
-        return $this->_rootPath;
+        return $this->rootPath;
     }
 
     /**
@@ -375,9 +370,9 @@ class VolumeInfo
      * @param  string $rootpath
      * @return self
      */
-    public function setRootPath($rootPath)
+    public function setRootPath($rootPath): self
     {
-        $this->_rootPath = trim($rootPath);
+        $this->rootPath = trim($rootPath);
         return $this;
     }
 
@@ -386,9 +381,9 @@ class VolumeInfo
      *
      * @return bool
      */
-    public function getCompressBlobs()
+    public function getCompressBlobs(): bool
     {
-        return $this->_compressBlobs;
+        return $this->compressBlobs;
     }
 
     /**
@@ -397,9 +392,9 @@ class VolumeInfo
      * @param  bool $compressBlobs
      * @return self
      */
-    public function setCompressBlobs($compressBlobs)
+    public function setCompressBlobs($compressBlobs): self
     {
-        $this->_compressBlobs = (bool) $compressBlobs;
+        $this->compressBlobs = (bool) $compressBlobs;
         return $this;
     }
 
@@ -408,9 +403,9 @@ class VolumeInfo
      *
      * @return bool
      */
-    public function isCurrent()
+    public function isCurrent(): bool
     {
-        return $this->_current;
+        return $this->current;
     }
 
     /**
@@ -419,9 +414,9 @@ class VolumeInfo
      * @param  bool $current
      * @return self
      */
-    public function setCurrent($current)
+    public function setCurrent($current): self
     {
-        $this->_current = (bool) $current;
+        $this->current = (bool) $current;
         return $this;
     }
 }

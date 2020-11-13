@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * This file is part of the Zimbra API in PHP library.
  *
@@ -10,12 +10,7 @@
 
 namespace Zimbra\Account\Struct;
 
-use JMS\Serializer\Annotation\Accessor;
-use JMS\Serializer\Annotation\SerializedName;
-use JMS\Serializer\Annotation\Type;
-use JMS\Serializer\Annotation\XmlAttribute;
-use JMS\Serializer\Annotation\XmlValue;
-use JMS\Serializer\Annotation\XmlRoot;
+use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlRoot, XmlValue};
 
 /**
  * Preference struct class
@@ -24,7 +19,8 @@ use JMS\Serializer\Annotation\XmlRoot;
  * @subpackage Account
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
- * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
+ * @copyright  Copyright © 2020 by Nguyen Van Nguyen.
+ * @AccessType("public_method")
  * @XmlRoot(name="pref")
  */
 class Pref
@@ -35,14 +31,15 @@ class Pref
      * @Type("string")
      * @XmlAttribute
      */
-    private $_name;
+    private $name;
 
     /**
      * @Accessor(getter="getValue", setter="setValue")
+     * @SerializedName("_content")
      * @Type("string")
      * @XmlValue(cdata=false)
      */
-    private $_value;
+    private $value;
 
     /**
      * @Accessor(getter="getModified", setter="setModified")
@@ -50,7 +47,7 @@ class Pref
      * @Type("integer")
      * @XmlAttribute
      */
-    private $_modified;
+    private $modified;
 
     /**
      * Constructor method for preference
@@ -59,13 +56,13 @@ class Pref
      * @param  int   $modified
      * @return self
      */
-    public function __construct($name, $value = null, $modified = null)
+    public function __construct($name, $value = NULL, $modified = NULL)
     {
         $this->setName($name);
-        if (null !== $value) {
+        if (NULL !== $value) {
             $this->setValue($value);
         }
-        if (null !== $modified) {
+        if (NULL !== $modified) {
             $this->setModified($modified);
         }
     }
@@ -77,7 +74,7 @@ class Pref
      */
     public function getName()
     {
-        return $this->_name;
+        return $this->name;
     }
 
     /**
@@ -88,7 +85,7 @@ class Pref
      */
     public function setName($name)
     {
-        $this->_name = trim($name);
+        $this->name = trim($name);
         return $this;
     }
 
@@ -99,7 +96,7 @@ class Pref
      */
     public function getValue()
     {
-        return $this->_value;
+        return $this->value;
     }
 
     /**
@@ -110,7 +107,7 @@ class Pref
      */
     public function setValue($value)
     {
-        $this->_value = trim($value);
+        $this->value = trim($value);
         return $this;
     }
 
@@ -121,7 +118,7 @@ class Pref
      */
     public function getModified()
     {
-        return $this->_modified;
+        return $this->modified;
     }
 
     /**
@@ -132,7 +129,7 @@ class Pref
      */
     public function setModified($modified)
     {
-        $this->_modified = (int) $modified;
+        $this->modified = (int) $modified;
         return $this;
     }
 }

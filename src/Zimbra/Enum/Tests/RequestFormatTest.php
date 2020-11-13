@@ -18,7 +18,7 @@ class RequestFormatTest extends TestCase
         ];
         foreach ($values as $enum => $value)
         {
-            $this->assertSame(RequestFormat::$enum()->value(), $value);
+            $this->assertSame(RequestFormat::$enum()->getValue(), $value);
         }
     }
 }

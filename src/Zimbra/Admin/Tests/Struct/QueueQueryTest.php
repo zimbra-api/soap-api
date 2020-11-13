@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Zimbra\Admin\Tests\Struct;
 
@@ -42,14 +42,23 @@ class QueueQueryTest extends ZimbraStructTestCase
                 . '</field>'
             . '</query>';
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($query, 'xml'));
+        $this->assertEquals($query, $this->serializer->deserialize($xml, QueueQuery::class, 'xml'));
 
-        $query = $this->serializer->deserialize($xml, 'Zimbra\Admin\Struct\QueueQuery', 'xml');
-        $field = $query->getFields()[0];
-        $match = $field->getMatches()[0];
-
-        $this->assertSame($limit, $query->getLimit());
-        $this->assertSame($offset, $query->getOffset());
-        $this->assertSame($name, $field->getName());
-        $this->assertSame($value, $match->getValue());
+        $json = json_encode([
+            'field' => [
+                [
+                    'name' => $name,
+                    'match' => [
+                        [
+                            'value' => $value
+                        ],
+                    ],
+                ],
+            ],
+            'limit' => $limit,
+            'offset' => $offset,
+        ]);
+        $this->assertSame($json, $this->serializer->serialize($query, 'json'));
+        $this->assertEquals($query, $this->serializer->deserialize($json, QueueQuery::class, 'json'));
     }
 }

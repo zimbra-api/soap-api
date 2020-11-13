@@ -38,7 +38,7 @@ class FolderActionOpTest extends TestCase
         ];
         foreach ($values as $enum => $value)
         {
-            $this->assertSame(FolderActionOp::$enum()->value(), $value);
+            $this->assertSame(FolderActionOp::$enum()->getValue(), $value);
         }
     }
 }

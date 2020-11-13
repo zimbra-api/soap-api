@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * This file is part of the Zimbra API in PHP library.
  *
@@ -10,67 +10,69 @@
 
 namespace Zimbra\Enum;
 
+use MyCLabs\Enum\Enum;
+
 /**
  * ParticipationStatus enum class
  *
  * @package   Zimbra
  * @category  Enum
  * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
- * @copyright Copyright © 2013 by Nguyen Van Nguyen.
+ * @copyright Copyright © 2013-present by Nguyen Van Nguyen.
  */
-class ParticipationStatus extends Base
+class ParticipationStatus extends Enum
 {
     /**
      * Constant for value 'Needs-action'
      * @return string 'NE'
      */
-    const NEEDS_ACTION = 'NE';
+    private const NEEDS_ACTION = 'NE';
 
     /**
      * Constant for value 'Accept'
      * @return string 'AC'
      */
-    const ACCEPT = 'AC';
+    private const ACCEPT = 'AC';
 
     /**
      * Constant for value 'Tentative'
      * @return string 'TE'
      */
-    const TENTATIVE = 'TE';
+    private const TENTATIVE = 'TE';
 
     /**
      * Constant for value 'Declined'
      * @return string 'DE'
      */
-    const DECLINED = 'DE';
+    private const DECLINED = 'DE';
 
     /**
      * Constant for value 'delegated'
      * @return string 'DG'
      */
-    const DELEGATED = 'DG';
+    private const DELEGATED = 'DG';
 
     /**
      * Constant for value 'Completed'
      * @return string 'CO'
      */
-    const COMPLETED = 'CO';
+    private const COMPLETED = 'CO';
 
     /**
      * Constant for value 'In-process'
      * @return string 'IN'
      */
-    const IN_PROCESS = 'IN';
+    private const IN_PROCESS = 'IN';
 
     /**
      * Constant for value 'Waiting'
      * @return string 'WE'
      */
-    const WAITING = 'WE';
+    private const WAITING = 'WE';
 
     /**
      * Constant for value 'Deferred'
      * @return string 'DF'
      */
-    const DEFERRED = 'DF';
+    private const DEFERRED = 'DF';
 }

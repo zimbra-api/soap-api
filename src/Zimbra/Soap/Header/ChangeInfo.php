@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * This file is part of the Zimbra API in PHP library.
  *
@@ -10,11 +10,7 @@
 
 namespace Zimbra\Soap\Header;
 
-use JMS\Serializer\Annotation\Accessor;
-use JMS\Serializer\Annotation\SerializedName;
-use JMS\Serializer\Annotation\Type;
-use JMS\Serializer\Annotation\XmlAttribute;
-use JMS\Serializer\Annotation\XmlRoot;
+use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlRoot};
 
 /**
  * ChangeInfo struct class
@@ -22,7 +18,8 @@ use JMS\Serializer\Annotation\XmlRoot;
  * @package   Zimbra
  * @category  Soap
  * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
- * @copyright Copyright © 2013 by Nguyen Van Nguyen.
+ * @copyright Copyright © 2020 by Nguyen Van Nguyen.
+ * @AccessType("public_method")
  * @XmlRoot(name="change")
  */
 class ChangeInfo
@@ -33,7 +30,7 @@ class ChangeInfo
      * @Type("string")
      * @XmlAttribute
      */
-    private $_changeId;
+    private $changeId;
 
     /**
      * @Accessor(getter="getChangeType", setter="setChangeType")
@@ -41,7 +38,7 @@ class ChangeInfo
      * @Type("string")
      * @XmlAttribute
      */
-    private $_changeType;
+    private $changeType;
 
     /**
      * Constructor method for ChangeInfo
@@ -50,15 +47,15 @@ class ChangeInfo
      * @return self
      */
     public function __construct(
-        $changeId = null,
-        $changeType = null
+        $changeId = NULL,
+        $changeType = NULL
     )
     {
-        if(null !== $changeId)
+        if(NULL !== $changeId)
         {
             $this->setChangeId($changeId);
         }
-        if(null !== $changeType)
+        if(NULL !== $changeType)
         {
             $this->setChangeType($changeType);
         }
@@ -69,20 +66,20 @@ class ChangeInfo
      *
      * @return string
      */
-    public function getChangeId()
+    public function getChangeId(): string
     {
-        return $this->_changeId;
+        return $this->changeId;
     }
 
     /**
      * Sets the highest change ID the client knows about
      *
      * @param  string $changeId
-     * @return string|self
+     * @return self
      */
-    public function setChangeId($changeId)
+    public function setChangeId($changeId): self
     {
-        $this->_changeId = trim($changeId);
+        $this->changeId = trim($changeId);
         return $this;
     }
 
@@ -91,9 +88,9 @@ class ChangeInfo
      *
      * @return string
      */
-    public function getChangeType()
+    public function getChangeType(): string
     {
-        return $this->_changeType;
+        return $this->changeType;
     }
 
     /**
@@ -102,9 +99,9 @@ class ChangeInfo
      * @param  string $changeType
      * @return self
      */
-    public function setChangeType($changeType)
+    public function setChangeType($changeType): self
     {
-        $this->_changeType = trim($changeType);
+        $this->changeType = trim($changeType);
         return $this;
     }
 }

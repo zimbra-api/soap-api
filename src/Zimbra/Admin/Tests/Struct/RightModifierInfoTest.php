@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Zimbra\Admin\Tests\Struct;
 
@@ -13,7 +13,7 @@ class RightModifierInfoTest extends ZimbraStructTestCase
     public function testRightModifierInfo()
     {
         $value = $this->faker->word;
-        $right = new RightModifierInfo($value, false, true, true, false);
+        $right = new RightModifierInfo($value, FALSE, TRUE, TRUE, FALSE);
         $this->assertSame($value, $right->getValue());
         $this->assertFalse($right->getDeny());
         $this->assertTrue($right->getCanDelegate());
@@ -22,10 +22,10 @@ class RightModifierInfoTest extends ZimbraStructTestCase
 
         $right = new RightModifierInfo();
         $right->setValue($value)
-              ->setDeny(true)
-              ->setCanDelegate(false)
-              ->setDisinheritSubGroups(false)
-              ->setSubDomain(true);
+              ->setDeny(TRUE)
+              ->setCanDelegate(FALSE)
+              ->setDisinheritSubGroups(FALSE)
+              ->setSubDomain(TRUE);
         $this->assertSame($value, $right->getValue());
         $this->assertTrue($right->getDeny());
         $this->assertFalse($right->getCanDelegate());
@@ -35,12 +35,16 @@ class RightModifierInfoTest extends ZimbraStructTestCase
         $xml = '<?xml version="1.0"?>' . "\n"
             . '<right deny="true" canDelegate="false" disinheritSubGroups="false" subDomain="true">' . $value . '</right>';
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($right, 'xml'));
+        $this->assertEquals($right, $this->serializer->deserialize($xml, RightModifierInfo::class, 'xml'));
 
-        $right = $this->serializer->deserialize($xml, 'Zimbra\Admin\Struct\RightModifierInfo', 'xml');
-        $this->assertSame($value, $right->getValue());
-        $this->assertTrue($right->getDeny());
-        $this->assertFalse($right->getCanDelegate());
-        $this->assertFalse($right->getDisinheritSubGroups());
-        $this->assertTrue($right->getSubDomain());
+        $json = json_encode([
+            '_content' => $value,
+            'deny' => TRUE,
+            'canDelegate' => FALSE,
+            'disinheritSubGroups' => FALSE,
+            'subDomain' => TRUE,
+        ]);
+        $this->assertSame($json, $this->serializer->serialize($right, 'json'));
+        $this->assertEquals($right, $this->serializer->deserialize($json, RightModifierInfo::class, 'json'));
     }
 }

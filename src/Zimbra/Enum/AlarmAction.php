@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * This file is part of the Zimbra API in PHP library.
  *
@@ -10,49 +10,51 @@
 
 namespace Zimbra\Enum;
 
+use MyCLabs\Enum\Enum;
+
 /**
  * AlarmAction enum class
  *
  * @package   Zimbra
  * @category  Enum
  * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
- * @copyright Copyright © 2013 by Nguyen Van Nguyen.
+ * @copyright Copyright © 2013-present by Nguyen Van Nguyen.
  */
-class AlarmAction extends Base
+class AlarmAction extends Enum
 {
     /**
      * Constant for value 'DISPLAY'
      * @return string 'DISPLAY'
      */
-    const DISPLAY = 'DISPLAY';
+    private const DISPLAY = 'DISPLAY';
 
     /**
      * Constant for value 'AUDIO'
      * @return string 'AUDIO'
      */
-    const AUDIO = 'AUDIO';
+    private const AUDIO = 'AUDIO';
 
     /**
      * Constant for value 'EMAIL'
      * @return string 'EMAIL'
      */
-    const EMAIL = 'EMAIL';
+    private const EMAIL = 'EMAIL';
 
     /**
      * Constant for value 'PROCEDURE'
      * @return string 'PROCEDURE'
      */
-    const PROCEDURE = 'PROCEDURE';
+    private const PROCEDURE = 'PROCEDURE';
 
     /**
      * Constant for value 'X_YAHOO_CALENDAR_ACTION_IM'
      * @return string 'X_YAHOO_CALENDAR_ACTION_IM'
      */
-    const YAHOO_IM = 'X_YAHOO_CALENDAR_ACTION_IM';
+    private const YAHOO_IM = 'X_YAHOO_CALENDAR_ACTION_IM';
 
     /**
      * Constant for value 'X_YAHOO_CALENDAR_ACTION_MOBILE'
      * @return string 'X_YAHOO_CALENDAR_ACTION_MOBILE'
      */
-    const YAHOO_MOBILE = 'X_YAHOO_CALENDAR_ACTION_MOBILE';
+    private const YAHOO_MOBILE = 'X_YAHOO_CALENDAR_ACTION_MOBILE';
 }

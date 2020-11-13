@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * This file is part of the Zimbra API in PHP library.
  *
@@ -10,37 +10,39 @@
 
 namespace Zimbra\Enum;
 
+use MyCLabs\Enum\Enum;
+
 /**
  * QueueAction enum class
  *
  * @package   Zimbra
  * @category  Enum
  * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
- * @copyright Copyright © 2013 by Nguyen Van Nguyen.
+ * @copyright Copyright © 2013-present by Nguyen Van Nguyen.
  */
-class QueueAction extends Base
+class QueueAction extends Enum
 {
     /**
      * Constant for value 'hold'
      * @return string 'hold'
      */
-    const HOLD = 'hold';
+    private const HOLD = 'hold';
 
     /**
      * Constant for value 'release'
      * @return string 'release'
      */
-    const RELEASE = 'release';
+    private const RELEASE = 'release';
 
     /**
      * Constant for value 'delete'
      * @return string 'delete'
      */
-    const DELETE = 'delete';
+    private const DELETE = 'delete';
 
     /**
      * Constant for value 'requeue'
      * @return string 'requeue'
      */
-    const REQUEUE = 'requeue';
+    private const REQUEUE = 'requeue';
 }

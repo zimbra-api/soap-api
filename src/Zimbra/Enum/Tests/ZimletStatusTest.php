@@ -18,7 +18,7 @@ class ZimletStatusTest extends TestCase
         ];
         foreach ($values as $enum => $value)
         {
-            $this->assertSame(ZimletStatus::$enum()->value(), $value);
+            $this->assertSame(ZimletStatus::$enum()->getValue(), $value);
         }
     }
 }

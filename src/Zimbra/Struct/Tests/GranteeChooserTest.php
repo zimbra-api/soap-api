@@ -1,8 +1,7 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Zimbra\Struct\Tests;
 
-use Zimbra\Enum\AccountBy;
 use Zimbra\Struct\GranteeChooser;
 
 /**
@@ -32,10 +31,14 @@ class GranteeChooserTest extends ZimbraStructTestCase
         $xml = '<?xml version="1.0"?>' . "\n"
             . '<grantee type="' . $type . '" id="' . $id . '" name="' . $name . '" />';
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($grantee, 'xml'));
+        $this->assertEquals($grantee, $this->serializer->deserialize($xml, GranteeChooser::class, 'xml'));
 
-        $grantee = $this->serializer->deserialize($xml, 'Zimbra\Struct\GranteeChooser', 'xml');
-        $this->assertSame($type, $grantee->getType());
-        $this->assertSame($id, $grantee->getId());
-        $this->assertSame($name, $grantee->getName());
+        $json = json_encode([
+            'type' => $type,
+            'id' => $id,
+            'name' => $name,
+        ]);
+        $this->assertSame($json, $this->serializer->serialize($grantee, 'json'));
+        $this->assertEquals($grantee, $this->serializer->deserialize($json, GranteeChooser::class, 'json'));
     }
 }

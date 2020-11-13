@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * This file is part of the Zimbra API in PHP library.
  *
@@ -10,10 +10,7 @@
 
 namespace Zimbra\Account\Struct;
 
-use JMS\Serializer\Annotation\Accessor;
-use JMS\Serializer\Annotation\Type;
-use JMS\Serializer\Annotation\XmlList;
-use JMS\Serializer\Annotation\XmlRoot;
+use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlList, XmlRoot};
 
 /**
  * AuthAttrs struct class
@@ -22,17 +19,19 @@ use JMS\Serializer\Annotation\XmlRoot;
  * @subpackage Account
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
- * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
+ * @copyright  Copyright © 2020 by Nguyen Van Nguyen.
+ * @AccessType("public_method")
  * @XmlRoot(name="attrs")
  */
 class AuthAttrs
 {
     /**
      * @Accessor(getter="getAttrs", setter="setAttrs")
+     * @SerializedName("attr")
      * @Type("array<Zimbra\Account\Struct\Attr>")
      * @XmlList(inline = true, entry = "attr")
      */
-    private $_attrs;
+    private $attrs;
 
     /**
      * Constructor method for AuthAttrs
@@ -52,7 +51,7 @@ class AuthAttrs
      */
     public function addAttr(Attr $attr)
     {
-        $this->_attrs[] = $attr;
+        $this->attrs[] = $attr;
         return $this;
     }
 
@@ -64,10 +63,10 @@ class AuthAttrs
      */
     public function setAttrs(array $attrs)
     {
-        $this->_attrs = [];
+        $this->attrs = [];
         foreach ($attrs as $attr) {
             if ($attr instanceof Attr) {
-                $this->_attrs[] = $attr;
+                $this->attrs[] = $attr;
             }
         }
         return $this;
@@ -80,6 +79,6 @@ class AuthAttrs
      */
     public function getAttrs()
     {
-        return $this->_attrs;
+        return $this->attrs;
     }
 }

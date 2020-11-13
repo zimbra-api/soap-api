@@ -1,21 +1,16 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * This file is part of the Zimbra API in PHP library.
  *
  * © Nguyen Van Nguyen <nguyennv1981@gmail.com>
  *
- * For the full copyzimlet and license information, please view the LICENSE
+ * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
 namespace Zimbra\Account\Struct;
 
-use JMS\Serializer\Annotation\Accessor;
-use JMS\Serializer\Annotation\SerializedName;
-use JMS\Serializer\Annotation\Type;
-use JMS\Serializer\Annotation\XmlAttribute;
-use JMS\Serializer\Annotation\XmlValue;
-use JMS\Serializer\Annotation\XmlRoot;
+use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlRoot, XmlValue};
 
 /**
  * Property struct class
@@ -24,7 +19,8 @@ use JMS\Serializer\Annotation\XmlRoot;
  * @subpackage Account
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
- * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
+ * @copyright  Copyright © 2020 by Nguyen Van Nguyen.
+ * @AccessType("public_method")
  * @XmlRoot(name="prop")
  */
 class Prop
@@ -35,7 +31,7 @@ class Prop
      * @Type("string")
      * @XmlAttribute
      */
-    private $_zimlet;
+    private $zimlet;
 
     /**
      * @Accessor(getter="getName", setter="setName")
@@ -43,14 +39,15 @@ class Prop
      * @Type("string")
      * @XmlAttribute
      */
-    private $_name;
+    private $name;
 
     /**
      * @Accessor(getter="getValue", setter="setValue")
+     * @SerializedName("_content")
      * @Type("string")
      * @XmlValue(cdata=false)
      */
-    private $_value;
+    private $value;
 
     /**
      * Constructor method for property
@@ -59,10 +56,10 @@ class Prop
      * @param  long   $modified
      * @return self
      */
-    public function __construct($zimlet, $name, $value = null)
+    public function __construct($zimlet, $name, $value = NULL)
     {
         $this->setZimlet($zimlet)->setName($name);
-        if (null !== $value) {
+        if (NULL !== $value) {
             $this->setValue($value);
         }
     }
@@ -74,7 +71,7 @@ class Prop
      */
     public function getZimlet()
     {
-        return $this->_zimlet;
+        return $this->zimlet;
     }
 
     /**
@@ -85,7 +82,7 @@ class Prop
      */
     public function setZimlet($zimlet)
     {
-        $this->_zimlet = trim($zimlet);
+        $this->zimlet = trim($zimlet);
         return $this;
     }
 
@@ -96,7 +93,7 @@ class Prop
      */
     public function getName()
     {
-        return $this->_name;
+        return $this->name;
     }
 
     /**
@@ -107,7 +104,7 @@ class Prop
      */
     public function setName($name)
     {
-        $this->_name = trim($name);
+        $this->name = trim($name);
         return $this;
     }
 
@@ -118,7 +115,7 @@ class Prop
      */
     public function getValue()
     {
-        return $this->_value;
+        return $this->value;
     }
 
     /**
@@ -129,7 +126,7 @@ class Prop
      */
     public function setValue($value)
     {
-        $this->_value = trim($value);
+        $this->value = trim($value);
         return $this;
     }
 }

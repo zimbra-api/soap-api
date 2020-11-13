@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Zimbra\Admin\Tests\Struct;
 
@@ -15,7 +15,7 @@ class ReindexMailboxInfoTest extends ZimbraStructTestCase
     {
         $id = $this->faker->word;
         $ids = $this->faker->word;
-        $enums = $this->faker->randomElements(ReindexType::enums(), mt_rand(1, count(ReindexType::enums())));
+        $enums = $this->faker->randomElements(ReindexType::toArray(), mt_rand(1, count(ReindexType::toArray())));
         $types = implode(',', $enums);
 
         $mbox = new ReindexMailboxInfo($id, $types, $ids);
@@ -34,10 +34,14 @@ class ReindexMailboxInfoTest extends ZimbraStructTestCase
         $xml = '<?xml version="1.0"?>' . "\n"
             . '<mbox id="' . $id . '" types="' . $types . '" ids="' . $ids . '" />';
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($mbox, 'xml'));
+        $this->assertEquals($mbox, $this->serializer->deserialize($xml, ReindexMailboxInfo::class, 'xml'));
 
-        $mbox = $this->serializer->deserialize($xml, 'Zimbra\Admin\Struct\ReindexMailboxInfo', 'xml');
-        $this->assertSame($id, $mbox->getId());
-        $this->assertSame($types, $mbox->getTypes());
-        $this->assertSame($ids, $mbox->getIds());
+        $json = json_encode([
+            'id' => $id,
+            'types' => $types,
+            'ids' => $ids,
+        ]);
+        $this->assertSame($json, $this->serializer->serialize($mbox, 'json'));
+        $this->assertEquals($mbox, $this->serializer->deserialize($json, ReindexMailboxInfo::class, 'json'));
     }
 }

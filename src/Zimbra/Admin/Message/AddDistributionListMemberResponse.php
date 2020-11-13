@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * This file is part of the Zimbra API in PHP library.
  *
@@ -10,9 +10,9 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\XmlRoot;
+use JMS\Serializer\Annotation\{AccessType, XmlRoot};
 
-use Zimbra\Soap\Response;
+use Zimbra\Soap\ResponseInterface;
 
 /**
  * AddDistributionListMemberResponse class
@@ -21,9 +21,10 @@ use Zimbra\Soap\Response;
  * @subpackage Admin
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
- * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
- * @XmlRoot(name="AddDistributionListMemberResponse", namespace="urn:zimbraAdmin")
+ * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
+ * @AccessType("public_method")
+ * @XmlRoot(name="AddDistributionListMemberResponse")
  */
-class AddDistributionListMemberResponse extends Response
+class AddDistributionListMemberResponse implements ResponseInterface
 {
 }

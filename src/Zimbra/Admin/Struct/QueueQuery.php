@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * This file is part of the Zimbra API in PHP library.
  *
@@ -10,12 +10,7 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\Accessor;
-use JMS\Serializer\Annotation\SerializedName;
-use JMS\Serializer\Annotation\Type;
-use JMS\Serializer\Annotation\XmlAttribute;
-use JMS\Serializer\Annotation\XmlList;
-use JMS\Serializer\Annotation\XmlRoot;
+use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlList, XmlRoot};
 
 /**
  * QueueQuery struct class
@@ -24,18 +19,21 @@ use JMS\Serializer\Annotation\XmlRoot;
  * @subpackage Admin
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
- * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
+ * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
+ * @AccessType("public_method")
  * @XmlRoot(name="query")
  */
 class QueueQuery
 {
     /**
      * Queue query field
+     * 
      * @Accessor(getter="getFields", setter="setFields")
+     * @SerializedName("field")
      * @Type("array<Zimbra\Admin\Struct\QueueQueryField>")
      * @XmlList(inline = true, entry = "field")
      */
-    private $_fields;
+    private $fields;
 
     /**
      * @Accessor(getter="getLimit", setter="setLimit")
@@ -43,7 +41,7 @@ class QueueQuery
      * @Type("integer")
      * @XmlAttribute
      */
-    private $_limit;
+    private $limit;
 
     /**
      * @Accessor(getter="getOffset", setter="setOffset")
@@ -51,7 +49,7 @@ class QueueQuery
      * @Type("integer")
      * @XmlAttribute
      */
-    private $_offset;
+    private $offset;
 
     /**
      * Constructor method for QueueQuery
@@ -77,9 +75,9 @@ class QueueQuery
      * @param  QueueQueryField $field
      * @return self
      */
-    public function addField(QueueQueryField $field)
+    public function addField(QueueQueryField $field): self
     {
-        $this->_fields[] = $field;
+        $this->fields[] = $field;
         return $this;
     }
 
@@ -89,12 +87,12 @@ class QueueQuery
      * @param  array $fields
      * @return self
      */
-    public function setFields(array $fields)
+    public function setFields(array $fields): self
     {
-        $this->_fields = [];
+        $this->fields = [];
         foreach ($fields as $field) {
             if ($field instanceof QueueQueryField) {
-                $this->_fields[] = $field;
+                $this->fields[] = $field;
             }
         }
         return $this;
@@ -105,9 +103,9 @@ class QueueQuery
      *
      * @return array
      */
-    public function getFields()
+    public function getFields(): array
     {
-        return $this->_fields;
+        return $this->fields;
     }
 
     /**
@@ -115,9 +113,9 @@ class QueueQuery
      *
      * @return int
      */
-    public function getLimit()
+    public function getLimit(): int
     {
-        return $this->_limit;
+        return $this->limit;
     }
 
     /**
@@ -126,9 +124,9 @@ class QueueQuery
      * @param  int $limit
      * @return self
      */
-    public function setLimit($limit)
+    public function setLimit($limit): self
     {
-        $this->_limit = (int) $limit;
+        $this->limit = (int) $limit;
         return $this;
     }
 
@@ -137,9 +135,9 @@ class QueueQuery
      *
      * @return int
      */
-    public function getOffset()
+    public function getOffset(): int
     {
-        return $this->_offset;
+        return $this->offset;
     }
 
     /**
@@ -148,9 +146,9 @@ class QueueQuery
      * @param  int $offset
      * @return self
      */
-    public function setOffset($offset)
+    public function setOffset($offset): self
     {
-        $this->_offset = (int) $offset;
+        $this->offset = (int) $offset;
         return $this;
     }
 }

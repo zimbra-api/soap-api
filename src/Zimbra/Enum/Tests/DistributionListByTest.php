@@ -18,7 +18,7 @@ class DistributionListByTest extends TestCase
         ];
         foreach ($values as $enum => $value)
         {
-            $this->assertSame(DistributionListBy::$enum()->value(), $value);
+            $this->assertSame(DistributionListBy::$enum()->getValue(), $value);
         }
     }
 }

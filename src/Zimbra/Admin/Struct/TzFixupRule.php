@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * This file is part of the Zimbra API in PHP library.
  *
@@ -10,11 +10,7 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\Accessor;
-use JMS\Serializer\Annotation\SerializedName;
-use JMS\Serializer\Annotation\Type;
-use JMS\Serializer\Annotation\XmlElement;
-use JMS\Serializer\Annotation\XmlRoot;
+use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlElement, XmlRoot};
 
 /**
  * TzFixupRule struct class
@@ -23,7 +19,8 @@ use JMS\Serializer\Annotation\XmlRoot;
  * @subpackage Admin
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
- * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
+ * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
+ * @AccessType("public_method")
  * @XmlRoot(name="fixupRule")
  */
 class TzFixupRule
@@ -34,7 +31,7 @@ class TzFixupRule
      * @Type("Zimbra\Admin\Struct\TZFixupRuleMatch")
      * @XmlElement
      */
-    private $_match;
+    private $match;
 
     /**
      * @Accessor(getter="getTouch", setter="setTouch")
@@ -42,7 +39,7 @@ class TzFixupRule
      * @Type("Zimbra\Admin\Struct\SimpleElement")
      * @XmlElement
      */
-    private $_touch;
+    private $touch;
 
     /**
      * @Accessor(getter="getReplace", setter="setReplace")
@@ -50,7 +47,7 @@ class TzFixupRule
      * @Type("Zimbra\Admin\Struct\TzReplaceInfo")
      * @XmlElement
      */
-    private $_replace;
+    private $replace;
 
     /**
      * Constructor method for TzFixupRule
@@ -81,9 +78,9 @@ class TzFixupRule
      *
      * @return TzFixupRuleMatch
      */
-    public function getMatch()
+    public function getMatch(): TzFixupRuleMatch
     {
-        return $this->_match;
+        return $this->match;
     }
 
     /**
@@ -92,9 +89,9 @@ class TzFixupRule
      * @param  TzFixupRuleMatch $match
      * @return self
      */
-    public function setMatch(TzFixupRuleMatch $match)
+    public function setMatch(TzFixupRuleMatch $match): self
     {
-        $this->_match = $match;
+        $this->match = $match;
         return $this;
     }
 
@@ -103,9 +100,9 @@ class TzFixupRule
      *
      * @return SimpleElement
      */
-    public function getTouch()
+    public function getTouch(): SimpleElement
     {
-        return $this->_touch;
+        return $this->touch;
     }
 
     /**
@@ -114,9 +111,9 @@ class TzFixupRule
      * @param  SimpleElement $touch
      * @return self
      */
-    public function setTouch(SimpleElement $touch)
+    public function setTouch(SimpleElement $touch): self
     {
-        $this->_touch = $touch;
+        $this->touch = $touch;
         return $this;
     }
 
@@ -125,9 +122,9 @@ class TzFixupRule
      *
      * @return TzReplaceInfo
      */
-    public function getReplace()
+    public function getReplace(): TzReplaceInfo
     {
-        return $this->_replace;
+        return $this->replace;
     }
 
     /**
@@ -136,9 +133,9 @@ class TzFixupRule
      * @param  TzReplaceInfo $replace
      * @return self
      */
-    public function setReplace(TzReplaceInfo $replace)
+    public function setReplace(TzReplaceInfo $replace): self
     {
-        $this->_replace = $replace;
+        $this->replace = $replace;
         return $this;
     }
 }

@@ -19,7 +19,7 @@ class VerbTypeTest extends TestCase
         ];
         foreach ($values as $enum => $value)
         {
-            $this->assertSame(VerbType::$enum()->value(), $value);
+            $this->assertSame(VerbType::$enum()->getValue(), $value);
         }
     }
 }

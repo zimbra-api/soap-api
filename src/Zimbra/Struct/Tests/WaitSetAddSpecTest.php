@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Zimbra\Struct\Tests;
 
@@ -17,9 +17,9 @@ class WaitSetAddSpecTest extends ZimbraStructTestCase
         $token = $this->faker->word;
         $interests = [
             $this->faker->word,
-            InterestType::FOLDERS()->value(),
-            InterestType::MESSAGES()->value(),
-            InterestType::CONTACTS()->value(),
+            InterestType::FOLDERS()->getValue(),
+            InterestType::MESSAGES()->getValue(),
+            InterestType::CONTACTS()->getValue(),
         ];
 
         $waitSet = new WaitSetAddSpec($name, $id, $token, implode(',', $interests));
@@ -41,11 +41,15 @@ class WaitSetAddSpecTest extends ZimbraStructTestCase
         $xml = '<?xml version="1.0"?>'."\n"
             .'<a name="' . $name . '" id="' . $id . '" token="' . $token . '" types="f,m,c" />';
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($waitSet, 'xml'));
+        $this->assertEquals($waitSet, $this->serializer->deserialize($xml, WaitSetAddSpec::class, 'xml'));
 
-        $waitSet = $this->serializer->deserialize($xml, 'Zimbra\Struct\WaitSetAddSpec', 'xml');
-        $this->assertSame($name, $waitSet->getName());
-        $this->assertSame($id, $waitSet->getId());
-        $this->assertSame($token, $waitSet->getToken());
-        $this->assertSame('f,m,c', $waitSet->getInterests());
+        $json = json_encode([
+            'name' => $name,
+            'id' => $id,
+            'token' => $token,
+            'types' => 'f,m,c',
+        ]);
+        $this->assertSame($json, $this->serializer->serialize($waitSet, 'json'));
+        $this->assertEquals($waitSet, $this->serializer->deserialize($json, WaitSetAddSpec::class, 'json'));
     }
 }

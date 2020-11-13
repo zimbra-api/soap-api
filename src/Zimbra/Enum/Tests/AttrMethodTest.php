@@ -19,7 +19,7 @@ class AttrMethodTest extends TestCase
         ];
         foreach ($values as $enum => $value)
         {
-            $this->assertSame(AttrMethod::$enum()->value(), $value);
+            $this->assertSame(AttrMethod::$enum()->getValue(), $value);
         }
     }
 }

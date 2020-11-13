@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Zimbra\Account\Tests\Message;
 
@@ -8,8 +8,6 @@ use Zimbra\Account\Struct\AuthAttrs;
 use Zimbra\Account\Struct\Pref;
 use Zimbra\Account\Struct\AuthPrefs;
 use Zimbra\Account\Struct\Session;
-use Zimbra\Enum\AccountBy;
-use Zimbra\Struct\AccountSelector;
 use Zimbra\Struct\Tests\ZimbraStructTestCase;
 
 /**
@@ -35,7 +33,6 @@ class AuthResponseTest extends ZimbraStructTestCase
         $time = time();
 
         $session = new Session($id, $type);
-        $account = new AccountSelector(AccountBy::NAME()->value(), $value);
 
         $attr = new Attr($name, $value, true);
         $attrs = new AuthAttrs([$attr]);
@@ -125,36 +122,65 @@ class AuthResponseTest extends ZimbraStructTestCase
                 . '<trustedDevicesEnabled>true</trustedDevicesEnabled>'
             . '</AuthResponse>';
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($res, 'xml'));
+        $this->assertEquals($res, $this->serializer->deserialize($xml, AuthResponse::class, 'xml'));
 
-        $res = $this->serializer->deserialize($xml, 'Zimbra\Account\Message\AuthResponse', 'xml');
-        $session = $res->getSession();
-        $prefs = $res->getPrefs();
-        $attrs = $res->getAttrs();
-        $pref = $prefs->getPrefs()[0];
-        $attr = $attrs->getAttrs()[0];
-
-        $this->assertSame($authToken, $res->getAuthToken());
-        $this->assertSame($lifetime, $res->getLifetime());
-        $this->assertSame($refer, $res->getRefer());
-        $this->assertSame($skin, $res->getSkin());
-        $this->assertSame($csrfToken, $res->getCsrfToken());
-        $this->assertSame($deviceId, $res->getDeviceId());
-        $this->assertSame($trustedToken, $res->getTrustedToken());
-        $this->assertSame($trustLifetime, $res->getTrustLifetime());
-        $this->assertTrue($res->getZmgProxy());
-        $this->assertTrue($res->getTwoFactorAuthRequired());
-        $this->assertTrue($res->getTrustedDevicesEnabled());
-
-        $this->assertSame($type, $session->getType());
-        $this->assertSame($id, $session->getId());
-        $this->assertSame($id, $session->getValue());
-
-        $this->assertSame($name, $pref->getName());
-        $this->assertSame($value, $pref->getValue());
-        $this->assertSame($time, $pref->getModified());
-
-        $this->assertSame($name, $attr->getName());
-        $this->assertSame($value, $attr->getValue());
-        $this->assertTrue($attr->getPermDenied());
+        $json = json_encode([
+            'authToken' => [
+                '_content' => $authToken,
+            ],
+            'lifetime' => [
+                '_content' => $lifetime,
+            ],
+            'trustLifetime' => [
+                '_content' => $trustLifetime,
+            ],
+            'session' => [
+                'type' => $type,
+                'id' => $id,
+                '_content' => $id,
+            ],
+            'refer' => [
+                '_content' => $refer,
+            ],
+            'skin' => [
+                '_content' => $skin,
+            ],
+            'csrfToken' => [
+                '_content' => $csrfToken,
+            ],
+            'deviceId' => [
+                '_content' => $deviceId,
+            ],
+            'trustedToken' => [
+                '_content' => $trustedToken,
+            ],
+            'zmgProxy' => TRUE,
+            'prefs' => [
+                'pref' => [
+                    [
+                        'name' => $name,
+                        '_content' => $value,
+                        'modified' => $time,
+                    ],
+                ],
+            ],
+            'attrs' => [
+                'attr' => [
+                    [
+                        'name' => $name,
+                        '_content' => $value,
+                        'pd' => TRUE,
+                    ],
+                ],
+            ],
+            'twoFactorAuthRequired' => [
+                '_content' => TRUE,
+            ],
+            'trustedDevicesEnabled' => [
+                '_content' => TRUE,
+            ],
+        ]);
+        $this->assertSame($json, $this->serializer->serialize($res, 'json'));
+        $this->assertEquals($res, $this->serializer->deserialize($json, AuthResponse::class, 'json'));
     }
 }

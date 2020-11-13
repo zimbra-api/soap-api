@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * This file is part of the Zimbra API in PHP library.
  *
@@ -10,14 +10,8 @@
 
 namespace Zimbra\Account\Struct;
 
-use JMS\Serializer\Annotation\Accessor;
-use JMS\Serializer\Annotation\SerializedName;
-use JMS\Serializer\Annotation\Type;
-use JMS\Serializer\Annotation\XmlAttribute;
-use JMS\Serializer\Annotation\XmlRoot;
-
-use Zimbra\Enum\AceRightType;
-use Zimbra\Enum\GranteeType;
+use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlRoot};
+use Zimbra\Enum\{AceRightType, GranteeType};
 
 /**
  * AccountACEInfo struct class
@@ -27,6 +21,7 @@ use Zimbra\Enum\GranteeType;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
+ * @AccessType("public_method")
  * @XmlRoot(name="ace")
  */
 class AccountACEInfo
@@ -34,18 +29,18 @@ class AccountACEInfo
     /**
      * @Accessor(getter="getGranteeType", setter="setGranteeType")
      * @SerializedName("gt")
-     * @Type("string")
+     * @Type("Zimbra\Enum\GranteeType")
      * @XmlAttribute
      */
-    private $_granteeType;
+    private $granteeType;
 
     /**
      * @Accessor(getter="getRight", setter="setRight")
      * @SerializedName("right")
-     * @Type("string")
+     * @Type("Zimbra\Enum\AceRightType")
      * @XmlAttribute
      */
-    private $_right;
+    private $right;
 
     /**
      * @Accessor(getter="getZimbraId", setter="setZimbraId")
@@ -53,7 +48,7 @@ class AccountACEInfo
      * @Type("string")
      * @XmlAttribute
      */
-    private $_zimbraId;
+    private $zimbraId;
 
     /**
      * @Accessor(getter="getDisplayName", setter="setDisplayName")
@@ -61,7 +56,7 @@ class AccountACEInfo
      * @Type("string")
      * @XmlAttribute
      */
-    private $_displayName;
+    private $displayName;
 
     /**
      * @Accessor(getter="getAccessKey", setter="setAccessKey")
@@ -69,7 +64,7 @@ class AccountACEInfo
      * @Type("string")
      * @XmlAttribute
      */
-    private $_accessKey;
+    private $accessKey;
 
     /**
      * @Accessor(getter="getPassword", setter="setPassword")
@@ -77,7 +72,7 @@ class AccountACEInfo
      * @Type("string")
      * @XmlAttribute
      */
-    private $_password;
+    private $password;
 
     /**
      * @Accessor(getter="getDeny", setter="setDeny")
@@ -85,7 +80,7 @@ class AccountACEInfo
      * @Type("bool")
      * @XmlAttribute
      */
-    private $_deny;
+    private $deny;
 
     /**
      * @Accessor(getter="getCheckGranteeType", setter="setCheckGranteeType")
@@ -93,12 +88,12 @@ class AccountACEInfo
      * @Type("bool")
      * @XmlAttribute
      */
-    private $_checkGranteeType;
+    private $checkGranteeType;
 
     /**
      * Constructor method for AccountACEInfo
-     * @param string $granteeType
-     * @param string $right
+     * @param GranteeType $granteeType
+     * @param AceRightType $right
      * @param string $zimbraId
      * @param string $displayName
      * @param string $accessKey
@@ -108,34 +103,34 @@ class AccountACEInfo
      * @return self
      */
     public function __construct(
-        $granteeType,
-        $right,
-        $zimbraId = null,
-        $displayName = null,
-        $accessKey = null,
-        $password = null,
-        $deny = null,
-        $checkGranteeType = null
+        GranteeType $granteeType,
+        AceRightType $right,
+        $zimbraId = NULL,
+        $displayName = NULL,
+        $accessKey = NULL,
+        $password = NULL,
+        $deny = NULL,
+        $checkGranteeType = NULL
     )
     {
         $this->setGranteeType($granteeType)
             ->setRight($right);
-        if (null !== $zimbraId) {
+        if (NULL !== $zimbraId) {
             $this->setZimbraId($zimbraId);
         }
-        if (null !== $displayName) {
+        if (NULL !== $displayName) {
             $this->setDisplayName($displayName);
         }
-        if (null !== $accessKey) {
+        if (NULL !== $accessKey) {
             $this->setAccessKey($accessKey);
         }
-        if (null !== $password) {
+        if (NULL !== $password) {
             $this->setPassword($password);
         }
-        if (null !== $deny) {
+        if (NULL !== $deny) {
             $this->setDeny($deny);
         }
-        if (null !== $checkGranteeType) {
+        if (NULL !== $checkGranteeType) {
             $this->setCheckGranteeType($checkGranteeType);
         }
     }
@@ -143,49 +138,44 @@ class AccountACEInfo
     /**
      * Gets the type of grantee
      *
-     * @return string
+     * @return GranteeType
      */
-    public function getGranteeType()
+    public function getGranteeType(): GranteeType
     {
-        return $this->_granteeType;
+        return $this->granteeType;
     }
 
     /**
      * Sets the type of grantee
      *
-     * @param  string $granteeType
+     * @param  GranteeType $granteeType
      * @return self
      */
-    public function setGranteeType($granteeType)
+    public function setGranteeType(GranteeType $granteeType)
     {
-        if (GranteeType::has(trim($granteeType))) {
-            $this->_granteeType = $granteeType;
-        }
+        $this->granteeType = $granteeType;
         return $this;
     }
 
     /**
      * Gets the right enum
      *
-     * @param  AceRightType $right
      * @return AceRightType
      */
-    public function getRight()
+    public function getRight(): AceRightType
     {
-        return $this->_right;
+        return $this->right;
     }
 
     /**
      * Sets the right enum
      *
-     * @param  string $right
+     * @param  AceRightType $right
      * @return self
      */
-    public function setRight($right)
+    public function setRight(AceRightType $right)
     {
-        if (AceRightType::has(trim($right))) {
-            $this->_right = $right;
-        }
+        $this->right = $right;
         return $this;
     }
 
@@ -196,7 +186,7 @@ class AccountACEInfo
      */
     public function getZimbraId()
     {
-        return $this->_zimbraId;
+        return $this->zimbraId;
     }
 
     /**
@@ -207,7 +197,7 @@ class AccountACEInfo
      */
     public function setZimbraId($zimbraId)
     {
-        $this->_zimbraId = trim($zimbraId);
+        $this->zimbraId = trim($zimbraId);
         return $this;
     }
 
@@ -218,7 +208,7 @@ class AccountACEInfo
      */
     public function getDisplayName()
     {
-        return $this->_displayName;
+        return $this->displayName;
     }
 
     /**
@@ -229,7 +219,7 @@ class AccountACEInfo
      */
     public function setDisplayName($displayName)
     {
-        $this->_displayName = trim($displayName);
+        $this->displayName = trim($displayName);
         return $this;
     }
 
@@ -240,7 +230,7 @@ class AccountACEInfo
      */
     public function getAccessKey()
     {
-        return $this->_accessKey;
+        return $this->accessKey;
     }
 
     /**
@@ -251,7 +241,7 @@ class AccountACEInfo
      */
     public function setAccessKey($accessKey)
     {
-        $this->_accessKey = trim($accessKey);
+        $this->accessKey = trim($accessKey);
         return $this;
     }
 
@@ -262,7 +252,7 @@ class AccountACEInfo
      */
     public function getPassword()
     {
-        return $this->_password;
+        return $this->password;
     }
 
     /**
@@ -273,7 +263,7 @@ class AccountACEInfo
      */
     public function setPassword($password)
     {
-        $this->_password = trim($password);
+        $this->password = trim($password);
         return $this;
     }
 
@@ -284,7 +274,7 @@ class AccountACEInfo
      */
     public function getDeny()
     {
-        return $this->_deny;
+        return $this->deny;
     }
 
     /**
@@ -295,7 +285,7 @@ class AccountACEInfo
      */
     public function setDeny($deny)
     {
-        $this->_deny = (bool) $deny;
+        $this->deny = (bool) $deny;
         return $this;
     }
 
@@ -306,7 +296,7 @@ class AccountACEInfo
      */
     public function getCheckGranteeType()
     {
-        return $this->_checkGranteeType;
+        return $this->checkGranteeType;
     }
 
     /**
@@ -317,7 +307,7 @@ class AccountACEInfo
      */
     public function setCheckGranteeType($checkGranteeType)
     {
-        $this->_checkGranteeType = (bool) $checkGranteeType;
+        $this->checkGranteeType = (bool) $checkGranteeType;
         return $this;
     }
 }

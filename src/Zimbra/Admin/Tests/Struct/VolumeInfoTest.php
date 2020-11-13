@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Zimbra\Admin\Tests\Struct;
 
@@ -14,7 +14,7 @@ class VolumeInfoTest extends ZimbraStructTestCase
     public function testVolumeInfo()
     {
         $id = mt_rand(0, 10);
-        $type = $this->faker->randomElement(VolumeType::enums());
+        $type = $this->faker->randomElement(VolumeType::toArray());
         $threshold = mt_rand(0, 10);
         $mgbits = mt_rand(0, 10);
         $mbits = mt_rand(0, 10);
@@ -24,7 +24,7 @@ class VolumeInfoTest extends ZimbraStructTestCase
         $rootPath = $this->faker->word;
 
         $volume = new VolumeInfo(
-            $id, $name, $rootPath, $type, false, $threshold, $mgbits, $mbits, $fgbits, $fbits, true
+            $id, $name, $rootPath, $type, FALSE, $threshold, $mgbits, $mbits, $fgbits, $fbits, TRUE
         );
         $this->assertSame($id, $volume->getId());
         $this->assertSame($type, $volume->getType());
@@ -48,8 +48,8 @@ class VolumeInfoTest extends ZimbraStructTestCase
                ->setFbits($fbits)
                ->setName($name)
                ->setrootPath($rootPath)
-               ->setCompressBlobs(true)
-               ->setCurrent(false);
+               ->setCompressBlobs(TRUE)
+               ->setCurrent(FALSE);
         $this->assertSame($id, $volume->getId());
         $this->assertSame($type, $volume->getType());
         $this->assertSame($threshold, $volume->getCompressionThreshold());
@@ -76,18 +76,22 @@ class VolumeInfoTest extends ZimbraStructTestCase
                 . 'fbits="' . $fbits . '" '
                 . 'isCurrent="false" />';
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($volume, 'xml'));
+        $this->assertEquals($volume, $this->serializer->deserialize($xml, VolumeInfo::class, 'xml'));
 
-        $volume = $this->serializer->deserialize($xml, 'Zimbra\Admin\Struct\VolumeInfo', 'xml');
-        $this->assertSame($id, $volume->getId());
-        $this->assertSame($type, $volume->getType());
-        $this->assertSame($threshold, $volume->getCompressionThreshold());
-        $this->assertSame($mgbits, $volume->getMgbits());
-        $this->assertSame($mbits, $volume->getMbits());
-        $this->assertSame($fgbits, $volume->getFgbits());
-        $this->assertSame($fbits, $volume->getFbits());
-        $this->assertSame($name, $volume->getName());
-        $this->assertSame($rootPath, $volume->getRootPath());
-        $this->assertTrue($volume->getCompressBlobs());
-        $this->assertFalse($volume->isCurrent());
+        $json = json_encode([
+            'id' => $id,
+            'name' => $name,
+            'rootpath' => $rootPath,
+            'type' => $type,
+            'compressBlobs' => TRUE,
+            'compressionThreshold' => $threshold,
+            'mgbits' => $mgbits,
+            'mbits' => $mbits,
+            'fgbits' => $fgbits,
+            'fbits' => $fbits,
+            'isCurrent' => FALSE,
+        ]);
+        $this->assertSame($json, $this->serializer->serialize($volume, 'json'));
+        $this->assertEquals($volume, $this->serializer->deserialize($json, VolumeInfo::class, 'json'));
     }
 }

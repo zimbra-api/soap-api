@@ -24,7 +24,7 @@ class AddressTypeTest extends TestCase
         ];
         foreach ($values as $enum => $value)
         {
-            $this->assertSame(AddressType::$enum()->value(), $value);
+            $this->assertSame(AddressType::$enum()->getValue(), $value);
         }
     }
 }

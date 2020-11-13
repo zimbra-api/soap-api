@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * This file is part of the Zimbra API in PHP library.
  *
@@ -10,11 +10,7 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\Accessor;
-use JMS\Serializer\Annotation\SerializedName;
-use JMS\Serializer\Annotation\Type;
-use JMS\Serializer\Annotation\XmlAttribute;
-use JMS\Serializer\Annotation\XmlRoot;
+use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlRoot};
 
 /**
  * IdAndAction struct class
@@ -23,7 +19,8 @@ use JMS\Serializer\Annotation\XmlRoot;
  * @subpackage Admin
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
- * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
+ * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
+ * @AccessType("public_method")
  * @XmlRoot(name="ia")
  */
 class IdAndAction
@@ -34,7 +31,7 @@ class IdAndAction
      * @Type("string")
      * @XmlAttribute
      */
-    private $_id;
+    private $id;
 
     /**
      * @Accessor(getter="getAction", setter="setAction")
@@ -42,7 +39,7 @@ class IdAndAction
      * @Type("string")
      * @XmlAttribute
      */
-    private $_action;
+    private $action;
 
     /**
      * Constructor method for IdAndAction
@@ -61,9 +58,9 @@ class IdAndAction
      *
      * @return string
      */
-    public function getId()
+    public function getId(): string
     {
-        return $this->_id;
+        return $this->id;
     }
 
     /**
@@ -72,9 +69,9 @@ class IdAndAction
      * @param  string $id
      * @return self
      */
-    public function setId($id)
+    public function setId($id): self
     {
-        $this->_id = trim($id);
+        $this->id = trim($id);
         return $this;
     }
 
@@ -83,9 +80,9 @@ class IdAndAction
      *
      * @return string
      */
-    public function getAction()
+    public function getAction(): string
     {
-        return $this->_action;
+        return $this->action;
     }
 
     /**
@@ -94,11 +91,11 @@ class IdAndAction
      * @param  string $action
      * @return self
      */
-    public function setAction($action)
+    public function setAction($action): self
     {
         $action = trim($action);
         if (in_array($action, ['bug72174', 'wiki', 'contactGroup'])) {
-            $this->_action = $action;
+            $this->action = $action;
         }
         return $this;
     }

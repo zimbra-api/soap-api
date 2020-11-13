@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * This file is part of the Zimbra API in PHP library.
  *
@@ -10,12 +10,7 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\Accessor;
-use JMS\Serializer\Annotation\SerializedName;
-use JMS\Serializer\Annotation\Type;
-use JMS\Serializer\Annotation\XmlAttribute;
-use JMS\Serializer\Annotation\XmlList;
-use JMS\Serializer\Annotation\XmlRoot;
+use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlList, XmlRoot};
 
 /**
  * ExportAndDeleteMailboxSpec struct class
@@ -24,7 +19,8 @@ use JMS\Serializer\Annotation\XmlRoot;
  * @subpackage Admin
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
- * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
+ * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
+ * @AccessType("public_method")
  * @XmlRoot(name="mbox")
  */
 class ExportAndDeleteMailboxSpec
@@ -35,15 +31,17 @@ class ExportAndDeleteMailboxSpec
      * @Type("integer")
      * @XmlAttribute
      */
-    private $_id;
+    private $id;
 
     /**
      * Items
+     * 
      * @Accessor(getter="getItems", setter="setItems")
+     * @SerializedName("item")
      * @Type("array<Zimbra\Admin\Struct\ExportAndDeleteItemSpec>")
      * @XmlList(inline = true, entry = "item")
      */
-    private $_items;
+    private $items;
 
     /**
      * Constructor method for ExportAndDeleteMailboxSpec
@@ -62,9 +60,9 @@ class ExportAndDeleteMailboxSpec
      *
      * @return int
      */
-    public function getId()
+    public function getId(): int
     {
-        return $this->_id;
+        return $this->id;
     }
 
     /**
@@ -73,9 +71,9 @@ class ExportAndDeleteMailboxSpec
      * @param  int $id
      * @return self
      */
-    public function setId($id)
+    public function setId($id): self
     {
-        $this->_id = (int) $id;
+        $this->id = (int) $id;
         return $this;
     }
 
@@ -85,9 +83,9 @@ class ExportAndDeleteMailboxSpec
      * @param  ExportAndDeleteItemSpec $item
      * @return self
      */
-    public function addItem(ExportAndDeleteItemSpec $item)
+    public function addItem(ExportAndDeleteItemSpec $item): self
     {
-        $this->_items[] = $item;
+        $this->items[] = $item;
         return $this;
     }
 
@@ -97,12 +95,12 @@ class ExportAndDeleteMailboxSpec
      * @param  array $items Items
      * @return self
      */
-    public function setItems(array $items)
+    public function setItems(array $items): self
     {
-        $this->_items = [];
+        $this->items = [];
         foreach ($items as $item) {
             if ($item instanceof ExportAndDeleteItemSpec) {
-                $this->_items[] = $item;
+                $this->items[] = $item;
             }
         }
         return $this;
@@ -113,8 +111,8 @@ class ExportAndDeleteMailboxSpec
      *
      * @return array
      */
-    public function getItems()
+    public function getItems(): array
     {
-        return $this->_items;
+        return $this->items;
     }
 }

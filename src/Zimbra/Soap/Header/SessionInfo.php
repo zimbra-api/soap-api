@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * This file is part of the Zimbra API in PHP library.
  *
@@ -10,12 +10,7 @@
 
 namespace Zimbra\Soap\Header;
 
-use JMS\Serializer\Annotation\Accessor;
-use JMS\Serializer\Annotation\SerializedName;
-use JMS\Serializer\Annotation\Type;
-use JMS\Serializer\Annotation\XmlAttribute;
-use JMS\Serializer\Annotation\XmlRoot;
-use JMS\Serializer\Annotation\XmlValue;
+use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlRoot, XmlValue};
 
 /**
  * SessionInfo struct class
@@ -23,7 +18,8 @@ use JMS\Serializer\Annotation\XmlValue;
  * @package   Zimbra
  * @category  Soap
  * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
- * @copyright Copyright © 2013 by Nguyen Van Nguyen.
+ * @copyright Copyright © 2020 by Nguyen Van Nguyen.
+ * @AccessType("public_method")
  * @XmlRoot(name="session")
  */
 class SessionInfo
@@ -34,7 +30,7 @@ class SessionInfo
      * @Type("boolean")
      * @XmlAttribute
      */
-    private $_sessionProxied;
+    private $sessionProxied;
 
     /**
      * @Accessor(getter="getSessionId", setter="setSessionId")
@@ -42,7 +38,7 @@ class SessionInfo
      * @Type("string")
      * @XmlAttribute
      */
-    private $_sessionId;
+    private $sessionId;
 
     /**
      * @Accessor(getter="getSequenceNum", setter="setSequenceNum")
@@ -50,14 +46,15 @@ class SessionInfo
      * @Type("integer")
      * @XmlAttribute
      */
-    private $_sequenceNum;
+    private $sequenceNum;
 
     /**
      * @Accessor(getter="getValue", setter="setValue")
+     * @SerializedName("_content")
      * @Type("string")
      * @XmlValue(cdata=false)
      */
-    private $_value;
+    private $value;
 
     /**
      * Constructor method for SessionInfo
@@ -68,25 +65,25 @@ class SessionInfo
      * @return self
      */
     public function __construct(
-        $sessionProxied = null,
-        $sessionId = null,
-        $sequenceNum = null,
-        $value = null
+        $sessionProxied = NULL,
+        $sessionId = NULL,
+        $sequenceNum = NULL,
+        $value = NULL
     )
     {
-        if(null !== $sessionProxied)
+        if(NULL !== $sessionProxied)
         {
             $this->setSessionProxied($sessionProxied);
         }
-        if(null !== $sessionId)
+        if(NULL !== $sessionId)
         {
             $this->setSessionId($sessionId);
         }
-        if(null !== $sequenceNum)
+        if(NULL !== $sequenceNum)
         {
             $this->setSequenceNum($sequenceNum);
         }
-        if(null !== $value)
+        if(NULL !== $value)
         {
             $this->setValue($value);
         }
@@ -98,9 +95,9 @@ class SessionInfo
      * @param  bool $sessionProxied
      * @return bool
      */
-    public function getSessionProxied()
+    public function getSessionProxied(): bool
     {
-        return $this->_sessionProxied;
+        return $this->sessionProxied;
     }
 
     /**
@@ -109,9 +106,9 @@ class SessionInfo
      * @param  bool $sessionProxied
      * @return self
      */
-    public function setSessionProxied($sessionProxied)
+    public function setSessionProxied($sessionProxied): self
     {
-        $this->_sessionProxied = (bool) $sessionProxied;
+        $this->sessionProxied = (bool) $sessionProxied;
         return $this;
     }
 
@@ -120,9 +117,9 @@ class SessionInfo
      *
      * @return string
      */
-    public function getSessionId()
+    public function getSessionId(): string
     {
-        return $this->_sessionId;
+        return $this->sessionId;
     }
 
     /**
@@ -131,20 +128,20 @@ class SessionInfo
      * @param  string $id
      * @return string|self
      */
-    public function setSessionId($id)
+    public function setSessionId($id): self
     {
-        $this->_sessionId = trim($id);
+        $this->sessionId = trim($id);
         return $this;
     }
 
     /**
      * Gets sequence number for the highest notification received
      *
-     * @return string
+     * @return int
      */
-    public function getSequenceNum()
+    public function getSequenceNum(): int
     {
-        return $this->_sequenceNum;
+        return $this->sequenceNum;
     }
 
     /**
@@ -153,9 +150,9 @@ class SessionInfo
      * @param  int $sequenceNum
      * @return self
      */
-    public function setSequenceNum($sequenceNum)
+    public function setSequenceNum($sequenceNum): self
     {
-        $this->_sequenceNum = (int) $sequenceNum;
+        $this->sequenceNum = (int) $sequenceNum;
         return $this;
     }
 
@@ -164,9 +161,9 @@ class SessionInfo
      *
      * @return string
      */
-    public function getValue()
+    public function getValue(): string
     {
-        return $this->_value;
+        return $this->value;
     }
 
     /**
@@ -175,9 +172,9 @@ class SessionInfo
      * @param  string $value
      * @return self
      */
-    public function setValue($value)
+    public function setValue($value): self
     {
-        $this->_value = trim($value);
+        $this->value = trim($value);
         return $this;
     }
 }

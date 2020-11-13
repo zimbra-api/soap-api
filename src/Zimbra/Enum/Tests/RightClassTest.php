@@ -19,7 +19,7 @@ class RightClassTest extends TestCase
         ];
         foreach ($values as $enum => $value)
         {
-            $this->assertSame(RightClass::$enum()->value(), $value);
+            $this->assertSame(RightClass::$enum()->getValue(), $value);
         }
     }
 }

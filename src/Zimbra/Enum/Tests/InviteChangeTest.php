@@ -20,7 +20,7 @@ class InviteChangeTest extends TestCase
         ];
         foreach ($values as $enum => $value)
         {
-            $this->assertSame(InviteChange::$enum()->value(), $value);
+            $this->assertSame(InviteChange::$enum()->getValue(), $value);
         }
     }
 }

@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Zimbra\Admin\Tests\Struct;
 
@@ -14,22 +14,26 @@ class XmppComponentSelectorTest extends ZimbraStructTestCase
     public function testXmppComponentSelector()
     {
         $value = $this->faker->word;
-        $xmpp = new XmppComponentSelector(XmppBy::ID()->value(), $value);
-        $this->assertSame(XmppBy::ID()->value(), $xmpp->getBy());
+        $xmpp = new XmppComponentSelector(XmppBy::ID(), $value);
+        $this->assertEquals(XmppBy::ID(), $xmpp->getBy());
         $this->assertSame($value, $xmpp->getValue());
 
-        $xmpp = new XmppComponentSelector('');
-        $xmpp->setBy(XmppBy::NAME()->value())
+        $xmpp = new XmppComponentSelector(XmppBy::ID());
+        $xmpp->setBy(XmppBy::NAME())
              ->setValue($value);
-        $this->assertSame(XmppBy::NAME()->value(), $xmpp->getBy());
+        $this->assertEquals(XmppBy::NAME(), $xmpp->getBy());
         $this->assertSame($value, $xmpp->getValue());
 
         $xml = '<?xml version="1.0"?>' . "\n"
             . '<xmppcomponent by="' . XmppBy::NAME() . '">' . $value . '</xmppcomponent>';
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($xmpp, 'xml'));
+        $this->assertEquals($xmpp, $this->serializer->deserialize($xml, XmppComponentSelector::class, 'xml'));
 
-        $xmpp = $this->serializer->deserialize($xml, 'Zimbra\Admin\Struct\XmppComponentSelector', 'xml');
-        $this->assertSame(XmppBy::NAME()->value(), $xmpp->getBy());
-        $this->assertSame($value, $xmpp->getValue());
+        $json = json_encode([
+            'by' => (string) XmppBy::NAME(),
+            '_content' => $value,
+        ]);
+        $this->assertSame($json, $this->serializer->serialize($xmpp, 'json'));
+        $this->assertEquals($xmpp, $this->serializer->deserialize($json, XmppComponentSelector::class, 'json'));
     }
 }

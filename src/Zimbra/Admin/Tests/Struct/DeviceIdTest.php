@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Zimbra\Admin\Tests\Struct;
 
@@ -23,8 +23,12 @@ class DeviceIdTest extends ZimbraStructTestCase
         $xml = '<?xml version="1.0"?>' . "\n"
             . '<device id="' . $id . '" />';
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($device, 'xml'));
+        $this->assertEquals($device, $this->serializer->deserialize($xml, DeviceId::class, 'xml'));
 
-        $device = $this->serializer->deserialize($xml, 'Zimbra\Admin\Struct\DeviceId', 'xml');
-        $this->assertSame($id, $device->getId());
+        $json = json_encode([
+            'id' => $id,
+        ]);
+        $this->assertSame($json, $this->serializer->serialize($device, 'json'));
+        $this->assertEquals($device, $this->serializer->deserialize($json, DeviceId::class, 'json'));
     }
 }

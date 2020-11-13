@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * This file is part of the Zimbra API in PHP library.
  *
@@ -10,60 +10,62 @@
 
 namespace Zimbra\Enum;
 
+use MyCLabs\Enum\Enum;
+
 /**
  * ConvActionOp enum class
  *
  * @package   Zimbra
  * @category  Enum
  * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
- * @copyright Copyright © 2013 by Nguyen Van Nguyen.
+ * @copyright Copyright © 2013-present by Nguyen Van Nguyen.
  */
-class ConvActionOp extends Base
+class ConvActionOp extends Enum
 {
     /**
      * Constant for value 'delete'
      * @return string 'delete'
      */
-    const DELETE = 'delete';
+    private const DELETE = 'delete';
 
     /**
      * Constant for value 'read'
      * @return string 'read'
      */
-    const READ = 'read';
+    private const READ = 'read';
 
     /**
      * Constant for value 'flag'
      * @return string 'flag'
      */
-    const FLAG = 'flag';
+    private const FLAG = 'flag';
 
     /**
      * Constant for value 'priority'
      * @return string 'priority'
      */
-    const PRIORITY = 'priority';
+    private const PRIORITY = 'priority';
     /**
      * Constant for value 'tag'
      * @return string 'tag'
      */
-    const TAG = 'tag';
+    private const TAG = 'tag';
 
     /**
      * Constant for value 'move'
      * @return string 'move'
      */
-    const MOVE = 'move';
+    private const MOVE = 'move';
 
     /**
      * Constant for value 'spam'
      * @return string 'spam'
      */
-    const SPAM = 'spam';
+    private const SPAM = 'spam';
 
     /**
      * Constant for value 'trash'
      * @return string 'trash'
      */
-    const TRASH = 'trash';
+    private const TRASH = 'trash';
 }

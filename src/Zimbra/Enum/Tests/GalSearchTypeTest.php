@@ -20,7 +20,7 @@ class GalSearchTypeTest extends TestCase
         ];
         foreach ($values as $enum => $value)
         {
-            $this->assertSame(GalSearchType::$enum()->value(), $value);
+            $this->assertSame(GalSearchType::$enum()->getValue(), $value);
         }
     }
 }

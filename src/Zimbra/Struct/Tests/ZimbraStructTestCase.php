@@ -1,25 +1,24 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Zimbra\Struct\Tests;
 
 use Doctrine\Common\Annotations\AnnotationRegistry;
-use PHPUnit\Framework\TestCase;
 use Faker\Factory as FakerFactory;
-use JMS\Serializer\SerializerBuilder;
+use PHPUnit\Framework\TestCase;
+use Zimbra\Common\SerializerBuilder;
 
 /**
- * Base testcase class for all Zimbra Struct testcases.
+ * Base testcase class for all Zimbra testcases.
  */
 abstract class ZimbraStructTestCase extends TestCase
 {
     protected $faker;
     protected $serializer;
 
-    protected function setUp()
+    protected function setUp(): void
     {
-        AnnotationRegistry::registerLoader('class_exists');
         $this->faker = FakerFactory::create();
-        $this->serializer = SerializerBuilder::create()->build();
+        $this->serializer = SerializerBuilder::getSerializer();
     }
 
     public static function randomRange($start, $end, $quantity)

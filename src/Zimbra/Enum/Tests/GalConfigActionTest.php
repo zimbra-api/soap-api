@@ -14,12 +14,12 @@ class GalConfigActionTest extends TestCase
     {
         $values = [
             'AUTOCOMPLETE' => 'autocomplete',
-            'SEARCH'       => 'search',
+            'SEARCH_'       => 'search',
             'SYNC'         => 'sync',
         ];
         foreach ($values as $enum => $value)
         {
-            $this->assertSame(GalConfigAction::$enum()->value(), $value);
+            $this->assertSame(GalConfigAction::$enum()->getValue(), $value);
         }
     }
 }

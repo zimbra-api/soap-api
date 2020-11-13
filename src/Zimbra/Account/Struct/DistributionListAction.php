@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * This file is part of the Zimbra API in PHP library.
  *
@@ -10,26 +10,20 @@
 
 namespace Zimbra\Account\Struct;
 
-use JMS\Serializer\Annotation\Accessor;
-use JMS\Serializer\Annotation\SerializedName;
-use JMS\Serializer\Annotation\Type;
-use JMS\Serializer\Annotation\XmlAttribute;
-use JMS\Serializer\Annotation\XmlElement;
-use JMS\Serializer\Annotation\XmlList;
-use JMS\Serializer\Annotation\XmlValue;
-use JMS\Serializer\Annotation\XmlRoot;
-
+use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlElement, XmlList, XmlRoot};
 use Zimbra\Account\Struct\DistributionListSubscribeReq as Subscribe;
 use Zimbra\Account\Struct\DistributionListGranteeSelector as Grantee;
 use Zimbra\Account\Struct\DistributionListRightSpec as Right;
 use Zimbra\Enum\Operation;
 
 /**
- * DistributionListAction struct class
- * @package   Zimbra
- * @category  Soap
+ * DistributionListAction class
+ * @package    Zimbra
+ * @subpackage Account
+ * @category   Struct
  * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
- * @copyright Copyright © 2013 by Nguyen Van Nguyen.
+ * @copyright Copyright © 2020 by Nguyen Van Nguyen.
+ * @AccessType("public_method")
  * @XmlRoot(name="action")
  */
 class DistributionListAction extends AccountKeyValuePairs
@@ -37,10 +31,10 @@ class DistributionListAction extends AccountKeyValuePairs
     /**
      * @Accessor(getter="getOp", setter="setOp")
      * @SerializedName("op")
-     * @Type("string")
+     * @Type("Zimbra\Enum\Operation")
      * @XmlAttribute
      */
-    private $_op;
+    private $op;
 
     /**
      * @Accessor(getter="getNewName", setter="setNewName")
@@ -48,41 +42,44 @@ class DistributionListAction extends AccountKeyValuePairs
      * @Type("string")
      * @XmlElement(cdata = false)
      */
-    private $_newName;
+    private $newName;
 
     /**
      * @Accessor(getter="getSubsReq", setter="setSubsReq")
      * @SerializedName("subsReq")
      * @Type("Zimbra\Account\Struct\DistributionListSubscribeReq")
-     * @XmlElement(cdata = false)
+     * @XmlElement()
      */
-    private $_subsReq;
+    private $subsReq;
 
     /**
      * @Accessor(getter="getMembers", setter="setMembers")
+     * @SerializedName("dlm")
      * @Type("array<string>")
      * @XmlList(inline = true, entry = "dlm")
      * @XmlElement(cdata = false)
      */
-    private $_members;
+    private $members;
 
     /**
      * @Accessor(getter="getOwners", setter="setOwners")
+     * @SerializedName("owner")
      * @Type("array<Zimbra\Account\Struct\DistributionListGranteeSelector>")
      * @XmlList(inline = true, entry = "owner")
      */
-    private $_owners;
+    private $owners;
 
     /**
      * @Accessor(getter="getRights", setter="setRights")
+     * @SerializedName("right")
      * @Type("array<Zimbra\Account\Struct\DistributionListRightSpec>")
      * @XmlList(inline = true, entry = "right")
      */
-    private $_rights;
+    private $rights;
 
     /**
      * Constructor method for DistributionListAction
-     * @param string $op
+     * @param Operation $op
      * @param string $newName
      * @param Subscribe $subsReq
      * @param array $dlms
@@ -92,18 +89,18 @@ class DistributionListAction extends AccountKeyValuePairs
      * @return self
      */
     public function __construct(
-        $op,
-        $newName = null,
-        Subscribe $subsReq = null,
+        Operation $op,
+        $newName = NULL,
+        Subscribe $subsReq = NULL,
         array $dlms = [],
         array $owners = [],
         array $rights = [],
         array $attrs = []
     )
     {
+        parent::__construct($attrs);
         $this->setOp($op);
-
-        if (null !== $newName) {
+        if (NULL !== $newName) {
             $this->setNewName($newName);
         }
         if ($subsReq instanceof Subscribe) {
@@ -112,30 +109,27 @@ class DistributionListAction extends AccountKeyValuePairs
         $this->setMembers($dlms);
         $this->setOwners($owners);
         $this->setRights($rights);
-        $this->setAttrs($attrs);
     }
 
     /**
      * Sets operation to perform
      *
-     * @return string
+     * @return Operation
      */
-    public function getOp()
+    public function getOp(): Operation
     {
-        return $this->_op;
+        return $this->op;
     }
 
     /**
      * Sets operation to perform
      *
-     * @param  string $op
+     * @param  Operation $op
      * @return self
      */
-    public function setOp($op)
+    public function setOp(Operation $op)
     {
-        if (Operation::has(trim($op))) {
-            $this->_op = $op;
-        }
+        $this->op = $op;
         return $this;
     }
 
@@ -146,7 +140,7 @@ class DistributionListAction extends AccountKeyValuePairs
      */
     public function getNewName()
     {
-        return $this->_newName;
+        return $this->newName;
     }
 
     /**
@@ -157,7 +151,7 @@ class DistributionListAction extends AccountKeyValuePairs
      */
     public function setNewName($newName)
     {
-        $this->_newName = trim($newName);
+        $this->newName = trim($newName);
         return $this;
     }
 
@@ -168,7 +162,7 @@ class DistributionListAction extends AccountKeyValuePairs
      */
     public function getSubsReq()
     {
-        return $this->_subsReq;
+        return $this->subsReq;
     }
 
     /**
@@ -179,7 +173,7 @@ class DistributionListAction extends AccountKeyValuePairs
      */
     public function setSubsReq(Subscribe $subsReq)
     {
-        $this->_subsReq = $subsReq;
+        $this->subsReq = $subsReq;
         return $this;
     }
 
@@ -193,7 +187,7 @@ class DistributionListAction extends AccountKeyValuePairs
     {
         $member = trim($member);
         if (!empty($member)) {
-            $this->_members[] = $member;
+            $this->members[] = $member;
         }
         return $this;
     }
@@ -206,7 +200,7 @@ class DistributionListAction extends AccountKeyValuePairs
      */
     public function setMembers(array $dlms)
     {
-        $this->_members = [];
+        $this->members = [];
         foreach ($dlms as $dlm) {
             $this->addMember($dlm);
         }
@@ -220,7 +214,7 @@ class DistributionListAction extends AccountKeyValuePairs
      */
     public function getMembers()
     {
-        return $this->_members;
+        return $this->members;
     }
 
     /**
@@ -231,7 +225,7 @@ class DistributionListAction extends AccountKeyValuePairs
      */
     public function addOwner(Grantee $owner)
     {
-        $this->_owners[] = $owner;
+        $this->owners[] = $owner;
         return $this;
     }
 
@@ -243,10 +237,10 @@ class DistributionListAction extends AccountKeyValuePairs
      */
     public function setOwners(array $owners)
     {
-        $this->_owners = [];
+        $this->owners = [];
         foreach ($owners as $owner) {
             if ($owner instanceof Grantee) {
-                $this->_owners[] = $owner;
+                $this->owners[] = $owner;
             }
         }
         return $this;
@@ -259,7 +253,7 @@ class DistributionListAction extends AccountKeyValuePairs
      */
     public function getOwners()
     {
-        return $this->_owners;
+        return $this->owners;
     }
 
     /**
@@ -270,7 +264,7 @@ class DistributionListAction extends AccountKeyValuePairs
      */
     public function addRight(Right $right)
     {
-        $this->_rights[] = $right;
+        $this->rights[] = $right;
         return $this;
     }
 
@@ -282,10 +276,10 @@ class DistributionListAction extends AccountKeyValuePairs
      */
     public function setRights(array $rights)
     {
-        $this->_rights = [];
+        $this->rights = [];
         foreach ($rights as $right) {
             if ($right instanceof Right) {
-                $this->_rights[] = $right;
+                $this->rights[] = $right;
             }
         }
         return $this;
@@ -298,6 +292,6 @@ class DistributionListAction extends AccountKeyValuePairs
      */
     public function getRights()
     {
-        return $this->_rights;
+        return $this->rights;
     }
 }

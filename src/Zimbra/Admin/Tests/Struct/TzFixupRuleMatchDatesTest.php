@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Zimbra\Admin\Tests\Struct;
 
@@ -50,16 +50,21 @@ class TzFixupRuleMatchDatesTest extends ZimbraStructTestCase
                 . '<daylight mon="' . $day_mon . '" mday="' . $day_mday . '" />'
             . '</dates>';
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($dates, 'xml'));
+        $this->assertEquals($dates, $this->serializer->deserialize($xml, TzFixupRuleMatchDates::class, 'xml'));
 
-        $dates = $this->serializer->deserialize($xml, 'Zimbra\Admin\Struct\TzFixupRuleMatchDates', 'xml');
-        $standard = $dates->getStandard();
-        $daylight = $dates->getDaylight();
-
-        $this->assertSame($stdoff, $dates->getStdOffset());
-        $this->assertSame($dayoff, $dates->getDstOffset());
-        $this->assertSame($std_mon, $standard->getMonth());
-        $this->assertSame($std_mday, $standard->getMonthDay());
-        $this->assertSame($day_mon, $daylight->getMonth());
-        $this->assertSame($day_mday, $daylight->getMonthDay());
+        $json = json_encode([
+            'standard' => [
+                'mon' => $std_mon,
+                'mday' => $std_mday,
+            ],
+            'daylight' => [
+                'mon' => $day_mon,
+                'mday' => $day_mday,
+            ],
+            'stdoff' => $stdoff,
+            'dayoff' => $dayoff,
+        ]);
+        $this->assertSame($json, $this->serializer->serialize($dates, 'json'));
+        $this->assertEquals($dates, $this->serializer->deserialize($json, TzFixupRuleMatchDates::class, 'json'));
     }
 }

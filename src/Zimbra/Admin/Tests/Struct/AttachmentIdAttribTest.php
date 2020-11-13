@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Zimbra\Admin\Tests\Struct;
 
@@ -24,8 +24,12 @@ class AttachmentIdAttribTest extends ZimbraStructTestCase
         $xml = '<?xml version="1.0"?>' . "\n"
             . '<content aid="' . $aid . '" />';
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($content, 'xml'));
+        $this->assertEquals($content, $this->serializer->deserialize($xml, AttachmentIdAttrib::class, 'xml'));
 
-        $content = $this->serializer->deserialize($xml, 'Zimbra\Admin\Struct\AttachmentIdAttrib', 'xml');
-        $this->assertSame($aid, $content->getAttachmentId());
+        $json = json_encode([
+            'aid' => $aid,
+        ]);
+        $this->assertSame($json, $this->serializer->serialize($content, 'json'));
+        $this->assertEquals($content, $this->serializer->deserialize($json, AttachmentIdAttrib::class, 'json'));
     }
 }

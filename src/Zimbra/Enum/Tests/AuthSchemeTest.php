@@ -18,7 +18,7 @@ class AuthSchemeTest extends TestCase
         ];
         foreach ($values as $enum => $value)
         {
-            $this->assertSame(AuthScheme::$enum()->value(), $value);
+            $this->assertSame(AuthScheme::$enum()->getValue(), $value);
         }
     }
 }

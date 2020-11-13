@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * This file is part of the Zimbra API in PHP library.
  *
@@ -10,12 +10,7 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\Accessor;
-use JMS\Serializer\Annotation\SerializedName;
-use JMS\Serializer\Annotation\Type;
-use JMS\Serializer\Annotation\XmlAttribute;
-use JMS\Serializer\Annotation\XmlRoot;
-use JMS\Serializer\Annotation\XmlValue;
+use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlRoot, XmlValue};
 
 /**
  * RightModifierInfo struct class
@@ -24,17 +19,19 @@ use JMS\Serializer\Annotation\XmlValue;
  * @subpackage Admin
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
- * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
+ * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
+ * @AccessType("public_method")
  * @XmlRoot(name="right")
  */
 class RightModifierInfo
 {
     /**
      * @Accessor(getter="getValue", setter="setValue")
+     * @SerializedName("_content")
      * @Type("string")
      * @XmlValue(cdata=false)
      */
-    private $_value;
+    private $value;
 
     /**
      * @Accessor(getter="getDeny", setter="setDeny")
@@ -42,7 +39,7 @@ class RightModifierInfo
      * @Type("bool")
      * @XmlAttribute
      */
-    private $_deny;
+    private $deny;
 
     /**
      * @Accessor(getter="getCanDelegate", setter="setCanDelegate")
@@ -50,7 +47,7 @@ class RightModifierInfo
      * @Type("bool")
      * @XmlAttribute
      */
-    private $_canDelegate;
+    private $canDelegate;
 
     /**
      * @Accessor(getter="getDisinheritSubGroups", setter="setDisinheritSubGroups")
@@ -58,7 +55,7 @@ class RightModifierInfo
      * @Type("bool")
      * @XmlAttribute
      */
-    private $_disinheritSubGroups;
+    private $disinheritSubGroups;
 
     /**
      * @Accessor(getter="getSubDomain", setter="setSubDomain")
@@ -66,7 +63,7 @@ class RightModifierInfo
      * @Type("bool")
      * @XmlAttribute
      */
-    private $_subDomain;
+    private $subDomain;
 
     /**
      * Constructor method for RightModifierInfo
@@ -107,9 +104,9 @@ class RightModifierInfo
      *
      * @return string
      */
-    public function getValue()
+    public function getValue(): string
     {
-        return $this->_value;
+        return $this->value;
     }
 
     /**
@@ -118,9 +115,9 @@ class RightModifierInfo
      * @param  string $name
      * @return self
      */
-    public function setValue($value)
+    public function setValue($value): self
     {
-        $this->_value = trim($value);
+        $this->value = trim($value);
         return $this;
     }
 
@@ -129,9 +126,9 @@ class RightModifierInfo
      *
      * @return bool
      */
-    public function getDeny()
+    public function getDeny(): bool
     {
-        return $this->_deny;
+        return $this->deny;
     }
 
     /**
@@ -140,9 +137,9 @@ class RightModifierInfo
      * @param  bool $deny
      * @return self
      */
-    public function setDeny($deny)
+    public function setDeny($deny): self
     {
-        $this->_deny = (bool) $deny;
+        $this->deny = (bool) $deny;
         return $this;
     }
 
@@ -151,9 +148,9 @@ class RightModifierInfo
      *
      * @return bool
      */
-    public function getCanDelegate()
+    public function getCanDelegate(): bool
     {
-        return $this->_canDelegate;
+        return $this->canDelegate;
     }
 
     /**
@@ -162,9 +159,9 @@ class RightModifierInfo
      * @param  bool $canDelegate
      * @return self
      */
-    public function setCanDelegate($canDelegate)
+    public function setCanDelegate($canDelegate): self
     {
-        $this->_canDelegate = (bool) $canDelegate;
+        $this->canDelegate = (bool) $canDelegate;
         return $this;
     }
 
@@ -173,9 +170,9 @@ class RightModifierInfo
      *
      * @return bool
      */
-    public function getDisinheritSubGroups()
+    public function getDisinheritSubGroups(): bool
     {
-        return $this->_disinheritSubGroups;
+        return $this->disinheritSubGroups;
     }
 
     /**
@@ -184,9 +181,9 @@ class RightModifierInfo
      * @param  bool $disinheritSubGroups
      * @return self
      */
-    public function setDisinheritSubGroups($disinheritSubGroups)
+    public function setDisinheritSubGroups($disinheritSubGroups): self
     {
-        $this->_disinheritSubGroups = (bool) $disinheritSubGroups;
+        $this->disinheritSubGroups = (bool) $disinheritSubGroups;
         return $this;
     }
 
@@ -195,9 +192,9 @@ class RightModifierInfo
      *
      * @return bool
      */
-    public function getSubDomain()
+    public function getSubDomain(): bool
     {
-        return $this->_subDomain;
+        return $this->subDomain;
     }
 
     /**
@@ -206,9 +203,9 @@ class RightModifierInfo
      * @param  bool $subDomain
      * @return self
      */
-    public function setSubDomain($subDomain)
+    public function setSubDomain($subDomain): self
     {
-        $this->_subDomain = (bool) $subDomain;
+        $this->subDomain = (bool) $subDomain;
         return $this;
     }
 }

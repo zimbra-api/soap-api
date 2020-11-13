@@ -30,7 +30,7 @@ class ItemActionOpTest extends TestCase
         ];
         foreach ($values as $enum => $value)
         {
-            $this->assertSame(ItemActionOp::$enum()->value(), $value);
+            $this->assertSame(ItemActionOp::$enum()->getValue(), $value);
         }
     }
 }

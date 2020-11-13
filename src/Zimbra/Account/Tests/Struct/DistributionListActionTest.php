@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Zimbra\Account\Tests\Struct;
 
@@ -24,33 +24,33 @@ class DistributionListActionTest extends ZimbraStructTestCase
         $value = $this->faker->word;
         $member = $this->faker->word;
 
-        $subsReq = new DistributionListSubscribeReq(DLSubscribeOp::SUBSCRIBE(), $value, true);
-        $owner = new DistributionListGranteeSelector(GranteeType::USR()->value(), DLGranteeBy::ID()->value(), $value);
-        $grantee = new DistributionListGranteeSelector(GranteeType::ALL()->value(), DLGranteeBy::NAME()->value(), $value);
+        $subsReq = new DistributionListSubscribeReq(DLSubscribeOp::SUBSCRIBE(), $value, TRUE);
+        $owner = new DistributionListGranteeSelector(GranteeType::USR(), DLGranteeBy::ID(), $value);
+        $grantee = new DistributionListGranteeSelector(GranteeType::ALL(), DLGranteeBy::NAME(), $value);
 
         $right = new DistributionListRightSpec($name, [$grantee]);
         $attr = new KeyValuePair($name, $value);
 
         $dl = new DistributionListAction(
-            Operation::MODIFY()->value(), $name, $subsReq, [$member], [$owner], [$right]
+            Operation::MODIFY(), $name, $subsReq, [$member], [$owner], [$right]
         );
-        $this->assertSame(Operation::MODIFY()->value(), $dl->getOp());
+        $this->assertEquals(Operation::MODIFY(), $dl->getOp());
         $this->assertSame($name, $dl->getNewName());
         $this->assertSame($subsReq, $dl->getSubsReq());
         $this->assertSame([$member], $dl->getMembers());
         $this->assertSame([$owner], $dl->getOwners());
         $this->assertSame([$right], $dl->getRights());
 
-        $dl = new DistributionListAction('');
-        $dl->setOp(Operation::DELETE()->value())
+        $dl = new DistributionListAction(Operation::MODIFY());
+        $dl->setOp(Operation::DELETE())
            ->setNewName($name)
            ->setSubsReq($subsReq)
            ->addMember($member)
            ->addOwner($owner)
            ->addRight($right)
-           ->addAttr($attr);
+           ->addKeyValuePair($attr);
 
-        $this->assertSame(Operation::DELETE()->value(), $dl->getOp());
+        $this->assertEquals(Operation::DELETE(), $dl->getOp());
         $this->assertSame($name, $dl->getNewName());
         $this->assertSame($subsReq, $dl->getSubsReq());
         $this->assertSame([$member], $dl->getMembers());
@@ -69,27 +69,50 @@ class DistributionListActionTest extends ZimbraStructTestCase
                 . '</right>'
             . '</action>';
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($dl, 'xml'));
+        $this->assertEquals($dl, $this->serializer->deserialize($xml, DistributionListAction::class, 'xml'));
 
-        $dl = $this->serializer->deserialize($xml, 'Zimbra\Account\Struct\DistributionListAction', 'xml');
-        $this->assertSame(Operation::DELETE()->value(), $dl->getOp());
-        $this->assertSame($name, $dl->getNewName());
-        $this->assertSame([$member], $dl->getMembers());
-
-        $subsReq = $dl->getSubsReq();
-        $this->assertSame(DLSubscribeOp::SUBSCRIBE()->value(), $subsReq->getOp());
-        $this->assertSame($value, $subsReq->getValue());
-        $this->assertTrue($subsReq->getBccOwners());
-
-        $owner = $dl->getOwners()[0];
-        $this->assertSame(GranteeType::USR()->value(), $owner->getType());
-        $this->assertSame(DLGranteeBy::ID()->value(), $owner->getBy());
-        $this->assertSame($value, $owner->getValue());
-
-        $right = $dl->getRights()[0];
-        $this->assertSame($name, $right->getRight());
-        $grantee = $right->getGrantees()[0];
-        $this->assertSame(GranteeType::ALL()->value(), $grantee->getType());
-        $this->assertSame(DLGranteeBy::NAME()->value(), $grantee->getBy());
-        $this->assertSame($value, $grantee->getValue());
+        $json = json_encode([
+            'a' => [
+                [
+                    'n' => $name,
+                    '_content' => $value,
+                ],
+            ],
+            'op' => (string) Operation::DELETE(),
+            'newName' => [
+                '_content' => $name,
+            ],
+            'subsReq' => [
+                'op' => (string) DLSubscribeOp::SUBSCRIBE(),
+                '_content' => $value,
+                'bccOwners' => TRUE,
+            ],
+            'dlm' => [
+                [
+                    '_content' => $member,
+                ],
+            ],
+            'owner' => [
+                [
+                    'type' => (string) GranteeType::USR(),
+                    'by' => (string) DLGranteeBy::ID(),
+                    '_content' => $value,
+                ],
+            ],
+            'right' => [
+                [
+                    'right' => $name,
+                    'grantee' => [
+                        [
+                            'type' => (string) GranteeType::ALL(),
+                            'by' => (string) DLGranteeBy::NAME(),
+                            '_content' => $value,
+                        ],
+                    ],
+                ],
+            ],
+        ]);
+        $this->assertSame($json, $this->serializer->serialize($dl, 'json'));
+        $this->assertEquals($dl, $this->serializer->deserialize($json, DistributionListAction::class, 'json'));
     }
 }

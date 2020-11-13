@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Zimbra\Admin\Tests\Struct;
 
@@ -14,22 +14,26 @@ class UcServiceSelectorTest extends ZimbraStructTestCase
     public function testUcServiceSelector()
     {
         $value = $this->faker->word;
-        $ucs = new UcServiceSelector(UcServiceBy::ID()->value(), $value);
-        $this->assertSame(UcServiceBy::ID()->value(), $ucs->getBy());
+        $ucs = new UcServiceSelector(UcServiceBy::ID(), $value);
+        $this->assertEquals(UcServiceBy::ID(), $ucs->getBy());
         $this->assertSame($value, $ucs->getValue());
 
-        $ucs = new UcServiceSelector('');
-        $ucs->setBy(UcServiceBy::NAME()->value())
+        $ucs = new UcServiceSelector(UcServiceBy::ID());
+        $ucs->setBy(UcServiceBy::NAME())
             ->setValue($value);
-        $this->assertSame(UcServiceBy::NAME()->value(), $ucs->getBy());
+        $this->assertEquals(UcServiceBy::NAME(), $ucs->getBy());
         $this->assertSame($value, $ucs->getValue());
 
         $xml = '<?xml version="1.0"?>' . "\n"
             . '<ucservice by="' . UcServiceBy::NAME() . '">' . $value . '</ucservice>';
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($ucs, 'xml'));
+        $this->assertEquals($ucs, $this->serializer->deserialize($xml, UcServiceSelector::class, 'xml'));
 
-        $ucs = $this->serializer->deserialize($xml, 'Zimbra\Admin\Struct\UcServiceSelector', 'xml');
-        $this->assertSame(UcServiceBy::NAME()->value(), $ucs->getBy());
-        $this->assertSame($value, $ucs->getValue());
+        $json = json_encode([
+            'by' => (string) UcServiceBy::NAME(),
+            '_content' => $value,
+        ]);
+        $this->assertSame($json, $this->serializer->serialize($ucs, 'json'));
+        $this->assertEquals($ucs, $this->serializer->deserialize($json, UcServiceSelector::class, 'json'));
     }
 }

@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * This file is part of the Zimbra API in PHP library.
  *
@@ -10,37 +10,39 @@
 
 namespace Zimbra\Enum;
 
+use MyCLabs\Enum\Enum;
+
 /**
  * InviteChange enum class
  *
  * @package   Zimbra
  * @category  Enum
  * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
- * @copyright Copyright © 2013 by Nguyen Van Nguyen.
+ * @copyright Copyright © 2013-present by Nguyen Van Nguyen.
  */
-class InviteChange extends Base
+class InviteChange extends Enum
 {
     /**
      * Constant for value 'subject'
      * @return string 'subject'
      */
-    const SUBJECT = 'subject';
+    private const SUBJECT = 'subject';
 
     /**
      * Constant for value 'location'
      * @return string 'location'
      */
-    const LOCATION = 'location';
+    private const LOCATION = 'location';
 
     /**
      * Constant for value 'time'
      * @return string 'time'
      */
-    const TIME = 'time';
+    private const TIME = 'time';
 
     /**
      * Constant for value 'recurrence'
      * @return string 'recurrence'
      */
-    const RECURRENCE = 'recurrence';
+    private const RECURRENCE = 'recurrence';
 }

@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * This file is part of the Zimbra API in PHP library.
  *
@@ -10,31 +10,33 @@
 
 namespace Zimbra\Enum;
 
+use MyCLabs\Enum\Enum;
+
 /**
  * InviteClass enum class
  *
  * @package   Zimbra
  * @category  Enum
  * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
- * @copyright Copyright © 2013 by Nguyen Van Nguyen.
+ * @copyright Copyright © 2013-present by Nguyen Van Nguyen.
  */
-class InviteClass extends Base
+class InviteClass extends Enum
 {
     /**
      * Constant for value 'Public'
      * @return string 'PUB'
      */
-    const PUB = 'PUB';
+    private const PUB = 'PUB';
 
     /**
      * Constant for value 'Private'
      * @return string 'PRI'
      */
-    const PRI = 'PRI';
+    private const PRI = 'PRI';
 
     /**
      * Constant for value 'Confidential'
      * @return string 'CON'
      */
-    const CON = 'CON';
+    private const CON = 'CON';
 }

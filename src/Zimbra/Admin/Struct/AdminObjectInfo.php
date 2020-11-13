@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * This file is part of the Zimbra API in PHP library.
  *
@@ -10,11 +10,7 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\Accessor;
-use JMS\Serializer\Annotation\SerializedName;
-use JMS\Serializer\Annotation\Type;
-use JMS\Serializer\Annotation\XmlAttribute;
-use JMS\Serializer\Annotation\XmlList;
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
 
 /**
  * AdminObjectInfo struct class
@@ -23,7 +19,7 @@ use JMS\Serializer\Annotation\XmlList;
  * @subpackage Admin
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
- * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
+ * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
  */
 abstract class AdminObjectInfo implements AdminObjectInterface
 {
@@ -33,7 +29,7 @@ abstract class AdminObjectInfo implements AdminObjectInterface
      * @Type("string")
      * @XmlAttribute
      */
-    private $_name;
+    private $name;
 
     /**
      * @Accessor(getter="getId", setter="setId")
@@ -41,14 +37,15 @@ abstract class AdminObjectInfo implements AdminObjectInterface
      * @Type("string")
      * @XmlAttribute
      */
-    private $_id;
+    private $id;
 
     /**
      * @Accessor(getter="getAttrList", setter="setAttrList")
+     * @SerializedName("a")
      * @Type("array<Zimbra\Admin\Struct\Attr>")
-     * @XmlList(inline = true, entry = "a")
+     * @XmlList(inline = true, entry = "a", skipWhenEmpty = true)
      */
-    private $_attrList;
+    private $attrList = [];
 
     /**
      * Constructor method for AdminObjectInfo
@@ -70,9 +67,9 @@ abstract class AdminObjectInfo implements AdminObjectInterface
      *
      * @return string
      */
-    public function getName()
+    public function getName(): string
     {
-        return $this->_name;
+        return $this->name;
     }
 
     /**
@@ -81,9 +78,9 @@ abstract class AdminObjectInfo implements AdminObjectInterface
      * @param  string $name
      * @return self
      */
-    public function setName($name)
+    public function setName($name): self
     {
-        $this->_name = trim($name);
+        $this->name = trim($name);
         return $this;
     }
 
@@ -92,9 +89,9 @@ abstract class AdminObjectInfo implements AdminObjectInterface
      *
      * @return string
      */
-    public function getId()
+    public function getId(): string
     {
-        return $this->_id;
+        return $this->id;
     }
 
     /**
@@ -103,9 +100,9 @@ abstract class AdminObjectInfo implements AdminObjectInterface
      * @param  string $id
      * @return self
      */
-    public function setId($id)
+    public function setId($id): self
     {
-        $this->_id = trim($id);
+        $this->id = trim($id);
         return $this;
     }
 
@@ -115,9 +112,9 @@ abstract class AdminObjectInfo implements AdminObjectInterface
      * @param  Attr $attr
      * @return self
      */
-    public function addAttr(Attr $attr)
+    public function addAttr(Attr $attr): self
     {
-        $this->_attrList[] = $attr;
+        $this->attrList[] = $attr;
         return $this;
     }
 
@@ -127,12 +124,12 @@ abstract class AdminObjectInfo implements AdminObjectInterface
      * @param array $attrs
      * @return self
      */
-    public function setAttrList(array $attrs)
+    public function setAttrList(array $attrs): self
     {
-        $this->_attrList = [];
+        $this->attrList = [];
         foreach ($attrs as $attr) {
             if ($attr instanceof Attr) {
-                $this->_attrList[] = $attr;
+                $this->attrList[] = $attr;
             }
         }
         return $this;
@@ -143,8 +140,8 @@ abstract class AdminObjectInfo implements AdminObjectInterface
      *
      * @return array
      */
-    public function getAttrList()
+    public function getAttrList(): array
     {
-        return $this->_attrList;
+        return $this->attrList;
     }
 }

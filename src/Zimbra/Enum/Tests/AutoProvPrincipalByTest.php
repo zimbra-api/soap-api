@@ -18,7 +18,7 @@ class AutoProvPrincipalByTest extends TestCase
         ];
         foreach ($values as $enum => $value)
         {
-            $this->assertSame(AutoProvPrincipalBy::$enum()->value(), $value);
+            $this->assertSame(AutoProvPrincipalBy::$enum()->getValue(), $value);
         }
     }
 }

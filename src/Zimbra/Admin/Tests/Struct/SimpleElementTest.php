@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Zimbra\Admin\Tests\Struct;
 
@@ -17,8 +17,10 @@ class SimpleElementTest extends ZimbraStructTestCase
         $xml = '<?xml version="1.0"?>' . "\n"
             . '<any />';
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($el, 'xml'));
+        $this->assertEquals($el, $this->serializer->deserialize($xml, SimpleElement::class, 'xml'));
 
-        $el = $this->serializer->deserialize($xml, 'Zimbra\Admin\Struct\SimpleElement', 'xml');
-        $this->assertTrue($el instanceof SimpleElement);
+        $json = '{}';
+        $this->assertSame($json, $this->serializer->serialize($el, 'json'));
+        $this->assertEquals($el, $this->serializer->deserialize($json, SimpleElement::class, 'json'));
     }
 }

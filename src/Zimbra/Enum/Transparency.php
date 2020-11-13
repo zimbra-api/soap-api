@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * This file is part of the Zimbra API in PHP library.
  *
@@ -10,25 +10,27 @@
 
 namespace Zimbra\Enum;
 
+use MyCLabs\Enum\Enum;
+
 /**
  * Transparency enum class
  *
  * @package   Zimbra
  * @category  Enum
  * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
- * @copyright Copyright © 2013 by Nguyen Van Nguyen.
+ * @copyright Copyright © 2013-present by Nguyen Van Nguyen.
  */
-class Transparency extends Base
+class Transparency extends Enum
 {
     /**
      * Constant for value 'Opaque'
      * @return string 'O'
      */
-    const OPAQUE = 'O';
+    private const OPAQUE = 'O';
 
     /**
      * Constant for value 'Transparent'
      * @return string 'T'
      */
-    const TRANSPARENT = 'T';
+    private const TRANSPARENT = 'T';
 }

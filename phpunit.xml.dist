@@ -3,12 +3,11 @@
          colors="true"
          processIsolation="false"
          stopOnFailure="false"
-         syntaxCheck="false"
          convertErrorsToExceptions="true"
          convertNoticesToExceptions="true"
          convertWarningsToExceptions="true">
     <testsuites>
-        <testsuite>
+        <testsuite name="Zimbra Api Test Suites">
             <directory>./src/Zimbra/*/Tests/</directory>
         </testsuite>
     </testsuites>

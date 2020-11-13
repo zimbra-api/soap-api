@@ -1,9 +1,8 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Zimbra\Admin\Tests\Struct;
 
 use JMS\Serializer\Annotation\XmlRoot;
-
 use Zimbra\Admin\Struct\AccountInfo;
 use Zimbra\Admin\Struct\Attr;
 use Zimbra\Struct\Tests\ZimbraStructTestCase;
@@ -32,14 +31,20 @@ class AccountInfoTest extends ZimbraStructTestCase
                 . '<a n="' . $key . '">' . $value . '</a>'
             . '</account>';
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($account, 'xml'));
+        $this->assertEquals($account, $this->serializer->deserialize($xml, AccountInfo::class, 'xml'));
 
-        $account = $this->serializer->deserialize($xml, 'Zimbra\Admin\Struct\AccountInfo', 'xml');
-        $attr = $account->getAttrList()[0];
-
-        $this->assertSame($name, $account->getName());
-        $this->assertSame($id, $account->getId());
-        $this->assertTrue($account->getIsExternal());
-        $this->assertSame($key, $attr->getKey());
-        $this->assertSame($value, $attr->getValue());
+        $json = json_encode([
+            'name' => $name,
+            'id' => $id,
+            'a' => [
+                [
+                    'n' => $key,
+                    '_content' => $value,
+                ],
+            ],
+            'isExternal' => TRUE,
+        ]);
+        $this->assertSame($json, $this->serializer->serialize($account, 'json'));
+        $this->assertEquals($account, $this->serializer->deserialize($json, AccountInfo::class, 'json'));
     }
 }

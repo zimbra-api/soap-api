@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Zimbra\Account\Tests\Struct;
 
@@ -33,10 +33,14 @@ class PreAuthTest extends ZimbraStructTestCase
         $xml = '<?xml version="1.0"?>' . "\n"
             . '<preauth timestamp="' . ($now + 1000) . '" expiresTimestamp="' . $expire . '">' . $computeValue . '</preauth>';
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($pre, 'xml'));
+        $this->assertEquals($pre, $this->serializer->deserialize($xml, PreAuth::class, 'xml'));
 
-        $pre = $this->serializer->deserialize($xml, 'Zimbra\Account\Struct\PreAuth', 'xml');
-        $this->assertSame($now + 1000, $pre->getTimestamp());
-        $this->assertSame($expire, $pre->getExpiresTimestamp());
-        $this->assertSame($computeValue, $pre->getValue());
+        $json = json_encode([
+            '_content' => $computeValue,
+            'timestamp' => $now + 1000,
+            'expiresTimestamp' => $expire,
+        ]);
+        $this->assertSame($json, $this->serializer->serialize($pre, 'json'));
+        $this->assertEquals($pre, $this->serializer->deserialize($json, PreAuth::class, 'json'));
     }
 }

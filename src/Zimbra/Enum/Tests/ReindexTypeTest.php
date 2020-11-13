@@ -24,7 +24,7 @@ class ReindexTypeTest extends TestCase
         ];
         foreach ($values as $enum => $value)
         {
-            $this->assertSame(ReindexType::$enum()->value(), $value);
+            $this->assertSame(ReindexType::$enum()->getValue(), $value);
         }
     }
 }

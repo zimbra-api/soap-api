@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * This file is part of the Zimbra API in PHP library.
  *
@@ -10,16 +10,8 @@
 
 namespace Zimbra\Account\Struct;
 
-use JMS\Serializer\Annotation\Accessor;
-use JMS\Serializer\Annotation\SerializedName;
-use JMS\Serializer\Annotation\Type;
-use JMS\Serializer\Annotation\XmlAttribute;
-use JMS\Serializer\Annotation\XmlList;
-use JMS\Serializer\Annotation\XmlValue;
-use JMS\Serializer\Annotation\XmlRoot;
-
-use Zimbra\Enum\TargetBy;
-use Zimbra\Enum\TargetType;
+use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlList, XmlRoot};
+use Zimbra\Enum\{TargetBy, TargetType};
 
 /**
  * CheckRightsTargetSpec struct class
@@ -28,7 +20,8 @@ use Zimbra\Enum\TargetType;
  * @subpackage Account
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
- * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
+ * @copyright  Copyright © 2020 by Nguyen Van Nguyen.
+ * @AccessType("public_method")
  * @XmlRoot(name="target")
  */
 class CheckRightsTargetSpec
@@ -36,18 +29,18 @@ class CheckRightsTargetSpec
     /**
      * @Accessor(getter="getTargetType", setter="setTargetType")
      * @SerializedName("type")
-     * @Type("string")
+     * @Type("Zimbra\Enum\TargetType")
      * @XmlAttribute
      */
-    private $_targetType;
+    private $targetType;
 
     /**
      * @Accessor(getter="getTargetBy", setter="setTargetBy")
      * @SerializedName("by")
-     * @Type("string")
+     * @Type("Zimbra\Enum\TargetBy")
      * @XmlAttribute
      */
-    private $_targetBy;
+    private $targetBy;
 
     /**
      * @Accessor(getter="getTargetKey", setter="setTargetKey")
@@ -55,24 +48,25 @@ class CheckRightsTargetSpec
      * @Type("string")
      * @XmlAttribute
      */
-    private $_targetKey;
+    private $targetKey;
 
     /**
      * @Accessor(getter="getRights", setter="setRights")
+     * @SerializedName("right")
      * @Type("array<string>")
      * @XmlList(inline = true, entry = "right")
      */
-    private $_rights;
+    private $rights;
 
     /**
      * Constructor method for CheckRightsTargetSpec
-     * @param  string $type
-     * @param  string $by
+     * @param  TargetType $type
+     * @param  TargetBy $by
      * @param  string $key
-     * @param  string $rights
+     * @param  array $rights
      * @return self
      */
-    public function __construct($type, $by, $key, array $rights = [])
+    public function __construct(TargetType $type, TargetBy $by, $key, array $rights = [])
     {
         $this->setTargetType($type)
             ->setTargetBy($by)
@@ -85,46 +79,42 @@ class CheckRightsTargetSpec
      *
      * @return TargetType
      */
-    public function getTargetType()
+    public function getTargetType(): TargetType
     {
-        return $this->_targetType;
+        return $this->targetType;
     }
 
     /**
      * Sets target type
      *
-     * @param  string $type
+     * @param  TargetType $type
      * @return self
      */
-    public function setTargetType($type)
+    public function setTargetType(TargetType $type): self
     {
-        if (TargetType::has(trim($type))) {
-            $this->_targetType = $type;
-        }
+        $this->targetType = $type;
         return $this;
     }
 
     /**
      * Gets target by
      *
-     * @return string
+     * @return TargetBy
      */
-    public function getTargetBy()
+    public function getTargetBy(): TargetBy
     {
-        return $this->_targetBy;
+        return $this->targetBy;
     }
 
     /**
      * Sets target by
      *
-     * @param  string $by
+     * @param  TargetBy $by
      * @return self
      */
-    public function setTargetBy($by)
+    public function setTargetBy(TargetBy $by): self
     {
-        if (TargetBy::has(trim($by))) {
-            $this->_targetBy = $by;
-        }
+        $this->targetBy = $by;
         return $this;
     }
 
@@ -133,9 +123,9 @@ class CheckRightsTargetSpec
      *
      * @return string
      */
-    public function getTargetKey()
+    public function getTargetKey(): string
     {
-        return $this->_targetKey;
+        return $this->targetKey;
     }
 
     /**
@@ -144,9 +134,9 @@ class CheckRightsTargetSpec
      * @param  string $key
      * @return self
      */
-    public function setTargetKey($key = null)
+    public function setTargetKey($key = null): self
     {
-        $this->_targetKey = trim($key);
+        $this->targetKey = trim($key);
         return $this;
     }
 
@@ -154,13 +144,13 @@ class CheckRightsTargetSpec
      * Add a right
      *
      * @param  string $right
-     * @return CheckRightsTargetSpec
+     * @return self
      */
-    public function addRight($right)
+    public function addRight($right): self
     {
         $right = trim($right);
         if (!empty($right)) {
-            $this->_rights[] = $right;
+            $this->rights[] = $right;
         }
         return $this;
     }
@@ -171,9 +161,9 @@ class CheckRightsTargetSpec
      * @param  string $rights
      * @return self
      */
-    public function setRights(array $rights)
+    public function setRights(array $rights): self
     {
-        $this->_rights = [];
+        $this->rights = [];
         foreach ($rights as $right) {
             $this->addRight($right);
         }
@@ -183,10 +173,10 @@ class CheckRightsTargetSpec
     /**
      * Gets rights
      *
-     * @return Sequence
+     * @return array
      */
-    public function getRights()
+    public function getRights(): array
     {
-        return $this->_rights;
+        return $this->rights;
     }
 }

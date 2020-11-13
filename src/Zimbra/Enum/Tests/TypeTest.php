@@ -18,7 +18,7 @@ class TypeTest extends TestCase
         ];
         foreach ($values as $enum => $value)
         {
-            $this->assertSame(Type::$enum()->value(), $value);
+            $this->assertSame(Type::$enum()->getValue(), $value);
         }
     }
 }

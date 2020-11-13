@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * This file is part of the Zimbra API in PHP library.
  *
@@ -10,39 +10,41 @@
 
 namespace Zimbra\Enum;
 
+use MyCLabs\Enum\Enum;
+
 /**
  * LoggingLevel enum class
  *
  * @package   Zimbra
  * @category  Enum
  * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
- * @copyright Copyright © 2013 by Nguyen Van Nguyen.
+ * @copyright Copyright © 2013-present by Nguyen Van Nguyen.
  */
-class LoggingLevel extends Base
+class LoggingLevel extends Enum
 {
     /**
      * Constant for value 'error'
      * @return string 'error'
      */
-    const ERROR = 'error';
+    private const ERROR = 'error';
     /**
      * Constant for value 'warn'
      * @return string 'warn'
      */
-    const WARN = 'warn';
+    private const WARN = 'warn';
     /**
      * Constant for value 'info'
      * @return string 'info'
      */
-    const INFO = 'info';
+    private const INFO = 'info';
     /**
      * Constant for value 'debug'
      * @return string 'debug'
      */
-    const DEBUG = 'debug';
+    private const DEBUG = 'debug';
     /**
      * Constant for value 'trace'
      * @return string 'trace'
      */
-    const TRACE = 'trace';
+    private const TRACE = 'trace';
 }

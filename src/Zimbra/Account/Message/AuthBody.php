@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * This file is part of the Zimbra API in PHP library.
  *
@@ -10,16 +10,8 @@
 
 namespace Zimbra\Account\Message;
 
-use JMS\Serializer\Annotation\Accessor;
-use JMS\Serializer\Annotation\SerializedName;
-use JMS\Serializer\Annotation\Type;
-use JMS\Serializer\Annotation\XmlElement;
-use JMS\Serializer\Annotation\XmlNamespace;
-use JMS\Serializer\Annotation\XmlRoot;
-
-use Zimbra\Soap\Body;
-use Zimbra\Soap\RequestInterface;
-use Zimbra\Soap\ResponseInterface;
+use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlElement, XmlNamespace, XmlRoot};
+use Zimbra\Soap\{Body, BodyInterface, RequestInterface, ResponseInterface};
 
 /**
  * AuthBody class
@@ -28,7 +20,8 @@ use Zimbra\Soap\ResponseInterface;
  * @subpackage Account
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
- * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
+ * @copyright  Copyright © 2020 by Nguyen Van Nguyen.
+ * @AccessType("public_method")
  * @XmlNamespace(uri="urn:zimbraAccount", prefix="urn")
  * @XmlRoot(name="Body")
  */
@@ -40,7 +33,7 @@ class AuthBody extends Body
      * @Type("Zimbra\Account\Message\AuthRequest")
      * @XmlElement(namespace="urn:zimbraAccount")
      */
-    private $_request;
+    private $request;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -48,7 +41,7 @@ class AuthBody extends Body
      * @Type("Zimbra\Account\Message\AuthResponse")
      * @XmlElement(namespace="urn:zimbraAccount")
      */
-    private $_response;
+    private $response;
 
     /**
      * Constructor method for AuthBody
@@ -59,29 +52,29 @@ class AuthBody extends Body
         parent::__construct($request, $response);
     }
 
-    public function setRequest(RequestInterface $request)
+    public function setRequest(RequestInterface $request): self
     {
         if ($request instanceof AuthRequest) {
-            $this->_request = $request;
+            $this->request = $request;
         }
         return $this;
     }
 
-    public function getRequest()
+    public function getRequest(): ?RequestInterface
     {
-        return $this->_request;
+        return $this->request;
     }
 
-    public function setResponse(ResponseInterface $response)
+    public function setResponse(ResponseInterface $response): self
     {
         if ($response instanceof AuthResponse) {
-            $this->_response = $response;
+            $this->response = $response;
         }
         return $this;
     }
 
-    public function getResponse()
+    public function getResponse(): ?ResponseInterface
     {
-        return $this->_response;
+        return $this->response;
     }
 }

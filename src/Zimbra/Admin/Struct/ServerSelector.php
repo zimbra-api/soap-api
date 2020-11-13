@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * This file is part of the Zimbra API in PHP library.
  *
@@ -10,13 +10,7 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\Accessor;
-use JMS\Serializer\Annotation\SerializedName;
-use JMS\Serializer\Annotation\Type;
-use JMS\Serializer\Annotation\XmlAttribute;
-use JMS\Serializer\Annotation\XmlRoot;
-use JMS\Serializer\Annotation\XmlValue;
-
+use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlRoot, XmlValue};
 use Zimbra\Enum\ServerBy;
 
 /**
@@ -26,7 +20,8 @@ use Zimbra\Enum\ServerBy;
  * @subpackage Admin
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
- * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
+ * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
+ * @AccessType("public_method")
  * @XmlRoot(name="server")
  */
 class ServerSelector
@@ -34,25 +29,26 @@ class ServerSelector
     /**
      * @Accessor(getter="getBy", setter="setBy")
      * @SerializedName("by")
-     * @Type("string")
+     * @Type("Zimbra\Enum\ServerBy")
      * @XmlAttribute
      */
-    private $_by;
+    private $by;
 
     /**
      * @Accessor(getter="getValue", setter="setValue")
+     * @SerializedName("_content")
      * @Type("string")
      * @XmlValue(cdata=false)
      */
-    private $_value;
+    private $value;
 
     /**
      * Constructor method for ServerSelector
-     * @param  string $by Selects the meaning of {server-key}
+     * @param  ServerBy $by Selects the meaning of {server-key}
      * @param  string $value Key for choosing server
      * @return self
      */
-    public function __construct($by, $value = null)
+    public function __construct(ServerBy $by, $value = NULL)
     {
         $this->setBy($by);
         if (NULL !== $value) {
@@ -63,24 +59,22 @@ class ServerSelector
     /**
      * Gets by enum
      *
-     * @return string
+     * @return ServerBy
      */
-    public function getBy()
+    public function getBy(): ServerBy
     {
-        return $this->_by;
+        return $this->by;
     }
 
     /**
      * Sets by enum
      *
-     * @param  string $by
+     * @param  ServerBy $by
      * @return self
      */
-    public function setBy($by)
+    public function setBy(ServerBy $by): self
     {
-        if (ServerBy::has(trim($by))) {
-            $this->_by = trim($by);
-        }
+        $this->by = $by;
         return $this;
     }
 
@@ -89,9 +83,9 @@ class ServerSelector
      *
      * @return string
      */
-    public function getValue()
+    public function getValue(): string
     {
-        return $this->_value;
+        return $this->value;
     }
 
     /**
@@ -100,9 +94,9 @@ class ServerSelector
      * @param  string $name
      * @return self
      */
-    public function setValue($value)
+    public function setValue($value): self
     {
-        $this->_value = trim($value);
+        $this->value = trim($value);
         return $this;
     }
 }

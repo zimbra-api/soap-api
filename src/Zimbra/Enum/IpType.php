@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * This file is part of the Zimbra API in PHP library.
  *
@@ -10,31 +10,33 @@
 
 namespace Zimbra\Enum;
 
+use MyCLabs\Enum\Enum;
+
 /**
  * IpType enum class
  *
  * @package   Zimbra
  * @category  Enum
  * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
- * @copyright Copyright © 2013 by Nguyen Van Nguyen.
+ * @copyright Copyright © 2013-present by Nguyen Van Nguyen.
  */
-class IpType extends Base
+class IpType extends Enum
 {
     /**
      * Constant for value 'ipV4'
      * @return string 'ipV4'
      */
-    const IPV4 = 'ipV4';
+    private const IPV4 = 'ipV4';
 
     /**
      * Constant for value 'ipV6'
      * @return string 'ipV6'
      */
-    const IPV6 = 'ipV6';
+    private const IPV6 = 'ipV6';
 
     /**
      * Constant for value 'both'
      * @return string 'both'
      */
-    const BOTH = 'both';
+    private const BOTH = 'both';
 }

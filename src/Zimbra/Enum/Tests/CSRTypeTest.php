@@ -18,7 +18,7 @@ class CSRTypeTest extends TestCase
         ];
         foreach ($values as $enum => $value)
         {
-            $this->assertSame(CSRType::$enum()->value(), $value);
+            $this->assertSame(CSRType::$enum()->getValue(), $value);
         }
     }
 }

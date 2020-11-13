@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * This file is part of the Zimbra API in PHP library.
  *
@@ -10,13 +10,7 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\Accessor;
-use JMS\Serializer\Annotation\SerializedName;
-use JMS\Serializer\Annotation\Type;
-use JMS\Serializer\Annotation\XmlAttribute;
-use JMS\Serializer\Annotation\XmlElement;
-use JMS\Serializer\Annotation\XmlRoot;
-
+use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlElement, XmlRoot};
 use Zimbra\Struct\Id;
 
 /**
@@ -26,7 +20,8 @@ use Zimbra\Struct\Id;
  * @subpackage Admin
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
- * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
+ * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
+ * @AccessType("public_method")
  * @XmlRoot(name="replace")
  */
 class TzReplaceInfo
@@ -37,7 +32,7 @@ class TzReplaceInfo
      * @Type("Zimbra\Struct\Id")
      * @XmlElement
      */
-    private $_wellKnownTz;
+    private $wellKnownTz;
 
     /**
      * @Accessor(getter="getCalTz", setter="setCalTz")
@@ -45,7 +40,7 @@ class TzReplaceInfo
      * @Type("Zimbra\Admin\Struct\CalTzInfo")
      * @XmlElement
      */
-    private $_calTz;
+    private $calTz;
 
     /**
      * Constructor method for TzReplaceInfo
@@ -53,7 +48,7 @@ class TzReplaceInfo
      * @param TzOnsetInfo $tz Timezone
      * @return self
      */
-    public function __construct(Id $wellKnownTz = null, CalTzInfo $tz = null)
+    public function __construct(Id $wellKnownTz = NULL, CalTzInfo $tz = NULL)
     {
         if ($wellKnownTz instanceof Id) {
             $this->setWellKnownTz($wellKnownTz);
@@ -68,9 +63,9 @@ class TzReplaceInfo
      *
      * @return Id
      */
-    public function getWellKnownTz()
+    public function getWellKnownTz(): Id
     {
-        return $this->_wellKnownTz;
+        return $this->wellKnownTz;
     }
 
     /**
@@ -79,9 +74,9 @@ class TzReplaceInfo
      * @param  Id $wellKnownTz
      * @return self
      */
-    public function setWellKnownTz(Id $wellKnownTz)
+    public function setWellKnownTz(Id $wellKnownTz): self
     {
-        $this->_wellKnownTz = $wellKnownTz;
+        $this->wellKnownTz = $wellKnownTz;
         return $this;
     }
 
@@ -90,9 +85,9 @@ class TzReplaceInfo
      *
      * @return CalTzInfo
      */
-    public function getCalTz()
+    public function getCalTz(): CalTzInfo
     {
-        return $this->_calTz;
+        return $this->calTz;
     }
 
     /**
@@ -101,9 +96,9 @@ class TzReplaceInfo
      * @param  CalTzInfo $tz
      * @return self
      */
-    public function setCalTz(CalTzInfo $tz)
+    public function setCalTz(CalTzInfo $tz): self
     {
-        $this->_calTz = $tz;
+        $this->calTz = $tz;
         return $this;
     }
 }

@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * This file is part of the Zimbra API in PHP library.
  *
@@ -10,11 +10,7 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\Accessor;
-use JMS\Serializer\Annotation\Type;
-use JMS\Serializer\Annotation\XmlList;
-use JMS\Serializer\Annotation\XmlRoot;
-
+use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlList, XmlRoot};
 use Zimbra\Struct\NamedElement;
 
 /**
@@ -24,25 +20,28 @@ use Zimbra\Struct\NamedElement;
  * @subpackage Admin
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
- * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
+ * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
+ * @AccessType("public_method")
  * @XmlRoot(name="values")
  */
 class StatsValueWrapper
 {
     /**
      * Stats specification
+     * 
      * @Accessor(getter="getStats", setter="setStats")
+     * @SerializedName("stat")
      * @Type("array<Zimbra\Struct\NamedElement>")
      * @XmlList(inline = true, entry = "stat")
      */
-    private $_stats = [];
+    private $stats = [];
 
     /**
      * Constructor method for StatsValueWrapper
      * @param  array $stats
      * @return self
      */
-    public function __construct(array $stats = array())
+    public function __construct(array $stats = [])
     {
         $this->setStats($stats);
     }
@@ -53,9 +52,9 @@ class StatsValueWrapper
      * @param  NamedElement $stat
      * @return self
      */
-    public function addStat(NamedElement $stat)
+    public function addStat(NamedElement $stat): self
     {
-        $this->_stats[] = $stat;
+        $this->stats[] = $stat;
         return $this;
     }
 
@@ -65,12 +64,12 @@ class StatsValueWrapper
      * @param  array $stats
      * @return self
      */
-    public function setStats(array $stats)
+    public function setStats(array $stats): self
     {
-        $this->_stats = [];
+        $this->stats = [];
         foreach ($stats as $stat) {
             if ($stat instanceof NamedElement) {
-                $this->_stats[] = $stat;
+                $this->stats[] = $stat;
             }
         }
         return $this;
@@ -81,8 +80,8 @@ class StatsValueWrapper
      *
      * @return array
      */
-    public function getStats()
+    public function getStats(): array
     {
-        return $this->_stats;
+        return $this->stats;
     }
 }

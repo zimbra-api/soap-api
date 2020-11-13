@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * This file is part of the Zimbra API in PHP library.
  *
@@ -10,16 +10,10 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\Accessor;
-use JMS\Serializer\Annotation\SerializedName;
-use JMS\Serializer\Annotation\Type;
-use JMS\Serializer\Annotation\XmlElement;
-use JMS\Serializer\Annotation\XmlRoot;
-
-use Zimbra\Struct\AccountSelector as Account;
+use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlElement, XmlRoot};
 use Zimbra\Admin\Struct\LoggerInfo as Logger;
-use Zimbra\Soap\ClientInterface;
 use Zimbra\Soap\Request;
+use Zimbra\Struct\AccountSelector as Account;
 
 /**
  * AddAccountLoggerRequest request class
@@ -32,40 +26,55 @@ use Zimbra\Soap\Request;
  * @subpackage Admin
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
- * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
+ * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
+ * @AccessType("public_method")
  * @XmlRoot(name="AddAccountLoggerRequest")
  */
 class AddAccountLoggerRequest extends Request
 {
 
     /**
+     * Logger category
      * @Accessor(getter="getLogger", setter="setLogger")
      * @SerializedName("logger")
      * @Type("Zimbra\Admin\Struct\LoggerInfo")
      * @XmlElement
      */
-    private $_logger;
-
+    private $logger;
 
     /**
+     * Use to select account
      * @Accessor(getter="getAccount", setter="setAccount")
      * @SerializedName("account")
      * @Type("Zimbra\Struct\AccountSelector")
      * @XmlElement
      */
-    private $_account;
+    private $account;
 
     /**
-     * Constructor method for AddAccountLogger
-     * @param  Logger $logger Logger category
-     * @param  Account $account Use to select account
+     * id
+     * @Accessor(getter="getId", setter="setId")
+     * @SerializedName("id")
+     * @Type("string")
+     * @XmlElement(cdata=false)
+     */
+    private $id;
+
+    /**
+     * Constructor method for AddAccountLoggerRequest
+     * @param  Logger $logger
+     * @param  Account $account
+     * @param  string $id
      * @return self
      */
-    public function __construct(Logger $logger, Account $account = null)
+    public function __construct(Logger $logger, Account $account = NULL, $id = NULL)
     {
         $this->setLogger($logger);
         if ($account instanceof Account) {
             $this->setAccount($account);
+        }
+        if (NULL !== $id) {
+            $this->setId($id);
         }
     }
 
@@ -74,9 +83,9 @@ class AddAccountLoggerRequest extends Request
      *
      * @return Logger
      */
-    public function getLogger()
+    public function getLogger(): Logger
     {
-        return $this->_logger;
+        return $this->logger;
     }
 
     /**
@@ -85,9 +94,9 @@ class AddAccountLoggerRequest extends Request
      * @param  Logger $logger
      * @return self
      */
-    public function setLogger(Logger $logger)
+    public function setLogger(Logger $logger): self
     {
-        $this->_logger = $logger;
+        $this->logger = $logger;
         return $this;
     }
 
@@ -96,9 +105,9 @@ class AddAccountLoggerRequest extends Request
      *
      * @return Account
      */
-    public function getAccount()
+    public function getAccount(): Account
     {
-        return $this->_account;
+        return $this->account;
     }
 
     /**
@@ -107,23 +116,39 @@ class AddAccountLoggerRequest extends Request
      * @param  Account $account
      * @return self
      */
-    public function setAccount(Account $account)
+    public function setAccount(Account $account): self
     {
-        $this->_account = $account;
+        $this->account = $account;
         return $this;
     }
 
-    public function execute(ClientInterface $client)
+    /**
+     * Gets id
+     *
+     * @return string
+     */
+    public function getId(): ?string
     {
-        $requestEnvelope = new AddAccountLoggerEnvelope();
-        $requestEnvelope->setBody(new AddAccountLoggerBody($this));
-        $response = $client->doRequest(
-            $this->getSerializer()->serialize($requestEnvelope, 'xml')
+        return $this->id;
+    }
+
+    /**
+     * Sets id
+     *
+     * @param  string $id
+     * @return self
+     */
+    public function setId($id): self
+    {
+        $this->id = trim($id);
+        return $this;
+    }
+
+    protected function internalInit()
+    {
+        $this->envelope = new AddAccountLoggerEnvelope(
+            NULL,
+            new AddAccountLoggerBody($this)
         );
-        $responseEnvelope = $this->getSerializer()->deserialize(
-            (string) $response->getBody(),
-            'Zimbra\Admin\Message\AddAccountLoggerEnvelope', 'xml'
-        );
-        return $responseEnvelope->getBody()->getResponse();
     }
 }

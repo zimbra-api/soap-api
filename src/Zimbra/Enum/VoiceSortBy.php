@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * This file is part of the Zimbra API in PHP library.
  *
@@ -10,49 +10,51 @@
 
 namespace Zimbra\Enum;
 
+use MyCLabs\Enum\Enum;
+
 /**
  * VoiceSortBy enum class
  *
  * @package   Zimbra
  * @category  Enum
  * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
- * @copyright Copyright © 2013 by Nguyen Van Nguyen.
+ * @copyright Copyright © 2013-present by Nguyen Van Nguyen.
  */
-class VoiceSortBy extends Base
+class VoiceSortBy extends Enum
 {
     /**
      * Constant for value 'dateDesc'
      * @return string 'dateDesc'
      */
-    const DATE_DESC = 'dateDesc';
+    private const DATE_DESC = 'dateDesc';
 
     /**
      * Constant for value 'dateAsc'
      * @return string 'dateAsc'
      */
-    const DATE_ASC = 'dateAsc';
+    private const DATE_ASC = 'dateAsc';
 
     /**
      * Constant for value 'durDesc'
      * @return string 'durDesc'
      */
-    const DUR_DESC = 'durDesc';
+    private const DUR_DESC = 'durDesc';
 
     /**
      * Constant for value 'durAsc'
      * @return string 'durAsc'
      */
-    const DUR_ASC = 'durAsc';
+    private const DUR_ASC = 'durAsc';
 
     /**
      * Constant for value 'nameDesc'
      * @return string 'nameDesc'
      */
-    const NAME_DESC = 'nameDesc';
+    private const NAME_DESC = 'nameDesc';
 
     /**
      * Constant for value 'nameAsc'
      * @return string 'nameAsc'
      */
-    const NAME_ASC = 'nameAsc';
+    private const NAME_ASC = 'nameAsc';
 }

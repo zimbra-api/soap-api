@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Zimbra\Enum\Tests;
 
@@ -18,7 +18,7 @@ class AclTypeTest extends TestCase
         ];
         foreach ($values as $enum => $value)
         {
-            $this->assertSame(AclType::$enum()->value(), $value);
+            $this->assertSame(AclType::$enum()->getValue(), $value);
         }
     }
 }

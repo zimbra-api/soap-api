@@ -18,7 +18,7 @@ class CacheEntryByTest extends TestCase
         ];
         foreach ($values as $enum => $value)
         {
-            $this->assertSame(CacheEntryBy::$enum()->value(), $value);
+            $this->assertSame(CacheEntryBy::$enum()->getValue(), $value);
         }
     }
 }

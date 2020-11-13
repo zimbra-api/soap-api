@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * This file is part of the Zimbra API in PHP library.
  *
@@ -10,12 +10,7 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\Accessor;
-use JMS\Serializer\Annotation\SerializedName;
-use JMS\Serializer\Annotation\Type;
-use JMS\Serializer\Annotation\XmlAttribute;
-use JMS\Serializer\Annotation\XmlRoot;
-use JMS\Serializer\Annotation\XmlValue;
+use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlRoot, XmlValue};
 
 /**
  * LimitedQuery struct class
@@ -24,7 +19,8 @@ use JMS\Serializer\Annotation\XmlValue;
  * @subpackage Admin
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
- * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
+ * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
+ * @AccessType("public_method")
  * @XmlRoot(name="query")
  */
 class LimitedQuery
@@ -35,14 +31,15 @@ class LimitedQuery
      * @Type("integer")
      * @XmlAttribute
      */
-    private $_limit;
+    private $limit;
 
     /**
      * @Accessor(getter="getValue", setter="setValue")
+     * @SerializedName("_content")
      * @Type("string")
      * @XmlValue(cdata=false)
      */
-    private $_value;
+    private $value;
 
     /**
      * Constructor method for LimitedQuery
@@ -50,7 +47,7 @@ class LimitedQuery
      * @param  string $value Query string
      * @return self
      */
-    public function __construct($limit = null, $value = null)
+    public function __construct($limit = NULL, $value = NULL)
     {
         if (NULL !== $limit) {
             $this->setLimit($limit);
@@ -65,9 +62,9 @@ class LimitedQuery
      *
      * @return int
      */
-    public function getLimit()
+    public function getLimit(): int
     {
-        return $this->_limit;
+        return $this->limit;
     }
 
     /**
@@ -76,9 +73,9 @@ class LimitedQuery
      * @param  int $limit
      * @return int|self
      */
-    public function setLimit($limit)
+    public function setLimit($limit): self
     {
-        $this->_limit = (int) $limit;
+        $this->limit = (int) $limit;
         return $this;
     }
 
@@ -87,9 +84,9 @@ class LimitedQuery
      *
      * @return string
      */
-    public function getValue()
+    public function getValue(): string
     {
-        return $this->_value;
+        return $this->value;
     }
 
     /**
@@ -98,9 +95,9 @@ class LimitedQuery
      * @param  string $name
      * @return self
      */
-    public function setValue($value)
+    public function setValue($value): self
     {
-        $this->_value = trim($value);
+        $this->value = trim($value);
         return $this;
     }
 }

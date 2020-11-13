@@ -20,7 +20,7 @@ class DedupActionTest extends TestCase
         ];
         foreach ($values as $enum => $value)
         {
-            $this->assertSame(DedupAction::$enum()->value(), $value);
+            $this->assertSame(DedupAction::$enum()->getValue(), $value);
         }
     }
 }

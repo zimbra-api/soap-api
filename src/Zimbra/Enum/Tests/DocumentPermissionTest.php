@@ -19,7 +19,7 @@ class DocumentPermissionTest extends TestCase
         ];
         foreach ($values as $enum => $value)
         {
-            $this->assertSame(DocumentPermission::$enum()->value(), $value);
+            $this->assertSame(DocumentPermission::$enum()->getValue(), $value);
         }
     }
 }

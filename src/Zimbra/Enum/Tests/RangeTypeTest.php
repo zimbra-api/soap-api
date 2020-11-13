@@ -19,7 +19,7 @@ class RangeTypeTest extends TestCase
         ];
         foreach ($values as $enum => $value)
         {
-            $this->assertSame(RangeType::$enum()->value(), $value);
+            $this->assertSame(RangeType::$enum()->getValue(), $value);
         }
     }
 }

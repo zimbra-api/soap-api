@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Zimbra\Admin\Tests\Struct;
 
@@ -52,20 +52,23 @@ class TzFixupRuleMatchRulesTest extends ZimbraStructTestCase
                 . '<daylight mon="' . $day_mon . '" week="' . $day_week . '" wkday="' . $day_wkday . '" />'
             . '</rules>';
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($rules, 'xml'));
+        $this->assertEquals($rules, $this->serializer->deserialize($xml, TzFixupRuleMatchRules::class, 'xml'));
 
-        $rules = $this->serializer->deserialize($xml, 'Zimbra\Admin\Struct\TzFixupRuleMatchRules', 'xml');
-        $standard = $rules->getStandard();
-        $daylight = $rules->getDaylight();
-
-        $this->assertSame($stdoff, $rules->getStdOffset());
-        $this->assertSame($dayoff, $rules->getDstOffset());
-
-        $this->assertSame($std_mon, $standard->getMonth());
-        $this->assertSame($std_week, $standard->getWeek());
-        $this->assertSame($std_wkday, $standard->getWeekDay());
-
-        $this->assertSame($day_mon, $daylight->getMonth());
-        $this->assertSame($day_week, $daylight->getWeek());
-        $this->assertSame($day_wkday, $daylight->getWeekDay());
+        $json = json_encode([
+            'standard' => [
+                'mon' => $std_mon,
+                'week' => $std_week,
+                'wkday' => $std_wkday,
+            ],
+            'daylight' => [
+                'mon' => $day_mon,
+                'week' => $day_week,
+                'wkday' => $day_wkday,
+            ],
+            'stdoff' => $stdoff,
+            'dayoff' => $dayoff,
+        ]);
+        $this->assertSame($json, $this->serializer->serialize($rules, 'json'));
+        $this->assertEquals($rules, $this->serializer->deserialize($json, TzFixupRuleMatchRules::class, 'json'));
     }
 }

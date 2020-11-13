@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * This file is part of the Zimbra API in PHP library.
  *
@@ -10,17 +10,9 @@
 
 namespace Zimbra\Soap\Request;
 
-use JMS\Serializer\Annotation\Accessor;
-use JMS\Serializer\Annotation\Type;
-use JMS\Serializer\Annotation\HandlerCallback;
-use JMS\Serializer\Context;
-use JMS\Serializer\XmlSerializationVisitor;
-use JMS\Serializer\XmlDeserializationVisitor;
-use JMS\Serializer\SerializerBuilder;
-
-use Zimbra\Soap\Request;
-use Zimbra\Soap\RequestInterface;
-use Zimbra\Soap\ClientInterface;
+use Doctrine\Common\Annotations\AnnotationReader;
+use JMS\Serializer\Annotation\{Accessor, AccessType, Exclude, Type, XmlMap, XmlRoot};
+use Zimbra\Soap\{Request, RequestInterface};
 
 /**
  * Batch request class in Zimbra API PHP, not to be instantiated.
@@ -28,20 +20,26 @@ use Zimbra\Soap\ClientInterface;
  * @package   Zimbra
  * @category  API
  * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
- * @copyright Copyright © 2014 by Nguyen Van Nguyen.
+ * @copyright Copyright © 2020 by Nguyen Van Nguyen.
+ * @AccessType("public_method")
+ * @XmlRoot(name="BatchRequest", namespace="urn:zimbra")
  */
 class Batch extends Request
 {
     /**
-     * @Type("array<Zimbra\Struct\RequestInterface>")
+     * @Accessor(getter="getRequests", setter="setRequests")
+     * @Exclude
+     * @XmlMap(keyAttribute = "requestId")
+     * @Type("array<Zimbra\Soap\RequestInterface>")
      */
-    private $_requests;
+    private $requests;
 
     /**
      * @Accessor(getter="getOnError", setter="setOnError")
+     * @Exclude
      * @Type("string")
      */
-    private $_onerror;
+    private $onerror;
 
     /**
      * Batch request constructor
@@ -58,9 +56,9 @@ class Batch extends Request
      *
      * @return string
      */
-    public function getOnError()
+    public function getOnError(): string
     {
-        return $this->_onerror;
+        return $this->onerror;
     }
 
     /**
@@ -69,14 +67,13 @@ class Batch extends Request
      * @param  string $name
      * @return self
      */
-    public function setOnError($onerror)
+    public function setOnError($onerror): self
     {
         $onerror = strtolower(trim($onerror));
-        if (!in_array($onerror, ['continue', 'stop']))
-        {
+        if (!in_array($onerror, ['continue', 'stop'])) {
             $onerror = 'continue';
         }
-        $this->_onerror = $onerror;
+        $this->onerror = $onerror;
         return $this;
     }
 
@@ -86,9 +83,9 @@ class Batch extends Request
      * @param  RequestInterface $request
      * @return self
      */
-    public function addRequest(RequestInterface $request)
+    public function addRequest(RequestInterface $request): self
     {
-        $this->_requests[] = $request;
+        $this->requests[] = $request;
         return $this;
     }
 
@@ -98,14 +95,12 @@ class Batch extends Request
      * @param  array $requests
      * @return Sequence
      */
-    public function setRequests(array $requests)
+    public function setRequests(array $requests): self
     {
-        $this->_requests = [];
-        foreach ($requests as $request)
-        {
-            if ($request instanceof RequestInterface)
-            {
-                $this->_requests[] = $request;
+        $this->requests = [];
+        foreach ($requests as $request) {
+            if ($request instanceof RequestInterface) {
+                $this->requests[] = $request;
             }
         }
         return $this;
@@ -116,44 +111,12 @@ class Batch extends Request
      *
      * @return array
      */
-    public function getRequests()
+    public function getRequests(): array
     {
-        return $this->_requests;
+        return $this->requests;
     }
 
-    /** @HandlerCallback("xml", direction = "serialization") */
-    public function serializeToXml(XmlSerializationVisitor $visitor, $data, Context $context)
-    {
-        $serializer = SerializerBuilder::create()->build();
-        if (null === $visitor->document)
-        {
-            $visitor->document = $visitor->createDocument(null, null, false);
-        }
-
-        $batchNode = $visitor->document->createElement('BatchRequest');
-        $onerror = $this->getOnError();
-        if (!empty($onerror))
-        {
-            $batchNode->setAttribute('onerror', $onerror);
-        }
-        foreach ($this->_requests as $key => $request)
-        {
-            $xml = $serializer->serialize($request, 'xml');
-            $reqDoc = $visitor->createDocument(null, null, false);
-            $reqDoc->loadXML($xml);
-            $child = $reqDoc->firstChild;
-            if ($child)
-            {
-                $child->setAttribute('requestId', $key);
-                $element = $visitor->document->importNode($child, true);                
-                $batchNode->appendChild($element);
-            }
-        }
-
-        $visitor->document->appendChild($batchNode);
-    }
-
-    public function execute(ClientInterface $client)
+    protected function internalInit()
     {
     }
 }

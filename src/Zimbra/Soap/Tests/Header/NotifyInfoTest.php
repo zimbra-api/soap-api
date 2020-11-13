@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Zimbra\Soap\Tests\Header;
 
@@ -24,8 +24,12 @@ class NotifyInfoTest extends ZimbraStructTestCase
         $xml = '<?xml version="1.0"?>' . "\n"
             . '<notify seq="' . $sequence . '" />';
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($info, 'xml'));
+        $this->assertEquals($info, $this->serializer->deserialize($xml, NotifyInfo::class, 'xml'));
 
-        $info = $this->serializer->deserialize($xml, 'Zimbra\Soap\Header\NotifyInfo', 'xml');
-        $this->assertSame($sequence, $info->getSequenceNum());
+        $json = json_encode([
+            'seq' => $sequence,
+        ]);
+        $this->assertSame($json, $this->serializer->serialize($info, 'json'));
+        $this->assertEquals($info, $this->serializer->deserialize($json, NotifyInfo::class, 'json'));
     }
 }

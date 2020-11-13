@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * This file is part of the Zimbra API in PHP library.
  *
@@ -10,13 +10,7 @@
 
 namespace Zimbra\Account\Struct;
 
-use JMS\Serializer\Annotation\Accessor;
-use JMS\Serializer\Annotation\SerializedName;
-use JMS\Serializer\Annotation\Type;
-use JMS\Serializer\Annotation\XmlAttribute;
-use JMS\Serializer\Annotation\XmlElement;
-use JMS\Serializer\Annotation\XmlList;
-use JMS\Serializer\Annotation\XmlRoot;
+use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlElement, XmlList, XmlRoot};
 
 /**
  * Signature struct class
@@ -25,7 +19,8 @@ use JMS\Serializer\Annotation\XmlRoot;
  * @subpackage Account
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
- * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
+ * @copyright  Copyright © 2020 by Nguyen Van Nguyen.
+ * @AccessType("public_method")
  * @XmlRoot(name="signature")
  */
 class Signature
@@ -36,7 +31,7 @@ class Signature
      * @Type("string")
      * @XmlAttribute
      */
-    private $_name;
+    private $name;
 
     /**
      * @Accessor(getter="getId", setter="setId")
@@ -44,7 +39,7 @@ class Signature
      * @Type("string")
      * @XmlAttribute
      */
-    private $_id;
+    private $id;
 
     /**
      * @Accessor(getter="getCid", setter="setCid")
@@ -52,15 +47,17 @@ class Signature
      * @Type("string")
      * @XmlElement(cdata=false)
      */
-    private $_cid;
+    private $cid;
 
     /**
      * Content of the signature sequence
+     * 
      * @Accessor(getter="getContents", setter="setContents")
+     * @SerializedName("content")
      * @Type("array<Zimbra\Account\Struct\SignatureContent>")
      * @XmlList(inline = true, entry = "content")
      */
-    private $_contents;
+    private $contents;
 
     /**
      * Constructor method for signature
@@ -71,19 +68,19 @@ class Signature
      * @return self
      */
     public function __construct(
-        $name = null,
-        $id = null,
-        $cid = null,
+        $name = NULL,
+        $id = NULL,
+        $cid = NULL,
         array $contents = []
 	)
     {
-        if (null !== $name) {
+        if (NULL !== $name) {
             $this->setName($name);
         }
-        if (null !== $id) {
+        if (NULL !== $id) {
             $this->setId($id);
         }
-        if (null !== $cid) {
+        if (NULL !== $cid) {
             $this->setCid($cid);
         }
         $this->setContents($contents);
@@ -96,7 +93,7 @@ class Signature
      */
     public function getId()
     {
-        return $this->_id;
+        return $this->id;
     }
 
     /**
@@ -107,7 +104,7 @@ class Signature
      */
     public function setId($id)
     {
-        $this->_id = trim($id);
+        $this->id = trim($id);
         return $this;
     }
 
@@ -118,7 +115,7 @@ class Signature
      */
     public function getName()
     {
-        return $this->_name;
+        return $this->name;
     }
 
     /**
@@ -129,7 +126,7 @@ class Signature
      */
     public function setName($name)
     {
-        $this->_name = trim($name);
+        $this->name = trim($name);
         return $this;
     }
 
@@ -140,7 +137,7 @@ class Signature
      */
     public function getCid()
     {
-        return $this->_cid;
+        return $this->cid;
     }
 
     /**
@@ -151,7 +148,7 @@ class Signature
      */
     public function setCid($cid)
     {
-        $this->_cid = trim($cid);
+        $this->cid = trim($cid);
         return $this;
     }
 
@@ -163,7 +160,7 @@ class Signature
      */
     public function addContent(SignatureContent $content)
     {
-        $this->_contents[] = $content;
+        $this->contents[] = $content;
         return $this;
     }
 
@@ -175,10 +172,10 @@ class Signature
      */
     public function setContents(array $contents)
     {
-        $this->_contents = [];
+        $this->contents = [];
         foreach ($contents as $content) {
             if ($content instanceof SignatureContent) {
-                $this->_contents[] = $content;
+                $this->contents[] = $content;
             }
         }
         return $this;
@@ -191,6 +188,6 @@ class Signature
      */
     public function getContents()
     {
-        return $this->_contents;
+        return $this->contents;
     }
 }

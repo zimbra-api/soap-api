@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * This file is part of the Zimbra API in PHP library.
  *
@@ -10,25 +10,27 @@
 
 namespace Zimbra\Enum;
 
+use MyCLabs\Enum\Enum;
+
 /**
  * LockoutOperation enum class
  *
  * @package   Zimbra
  * @category  Enum
  * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
- * @copyright Copyright © 2013 by Nguyen Van Nguyen.
+ * @copyright Copyright © 2013-present by Nguyen Van Nguyen.
  */
-class LockoutOperation extends Base
+class LockoutOperation extends Enum
 {
     /**
      * Constant for value 'start'
      * @return string 'start'
      */
-    const START = 'start';
+    private const START = 'start';
 
     /**
      * Constant for value 'end'
      * @return string 'end'
      */
-    const END = 'end';
+    private const END = 'end';
 }

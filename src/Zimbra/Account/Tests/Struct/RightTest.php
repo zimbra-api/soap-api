@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Zimbra\Account\Tests\Struct;
 
@@ -23,8 +23,12 @@ class RightTest extends ZimbraStructTestCase
         $xml = '<?xml version="1.0"?>' . "\n"
             . '<ace right="' . $name . '" />';
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($right, 'xml'));
+        $this->assertEquals($right, $this->serializer->deserialize($xml, Right::class, 'xml'));
 
-        $right = $this->serializer->deserialize($xml, 'Zimbra\Account\Struct\Right', 'xml');
-        $this->assertSame($name, $right->getRight());
+        $json = json_encode([
+            'right' => $name,
+        ]);
+        $this->assertSame($json, $this->serializer->serialize($right, 'json'));
+        $this->assertEquals($right, $this->serializer->deserialize($json, Right::class, 'json'));
     }
 }

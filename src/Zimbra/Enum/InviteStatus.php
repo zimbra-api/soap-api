@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * This file is part of the Zimbra API in PHP library.
  *
@@ -10,55 +10,57 @@
 
 namespace Zimbra\Enum;
 
+use MyCLabs\Enum\Enum;
+
 /**
  * InviteStatus enum class
  *
  * @package   Zimbra
  * @category  Enum
  * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
- * @copyright Copyright © 2013 by Nguyen Van Nguyen.
+ * @copyright Copyright © 2013-present by Nguyen Van Nguyen.
  */
-class InviteStatus extends Base
+class InviteStatus extends Enum
 {
     /**
      * Constant for value 'Tentative'
      * @return string 'TENT'
      */
-    const TENTATIVE = 'TENT';
+    private const TENTATIVE = 'TENT';
 
     /**
      * Constant for value 'Confirmed'
      * @return string 'CONF'
      */
-    const CONFIRMED = 'CONF';
+    private const CONFIRMED = 'CONF';
 
     /**
      * Constant for value 'Cancelled'
      * @return string 'CANC'
      */
-    const CANCELLED = 'CANC';
+    private const CANCELLED = 'CANC';
 
     /**
      * Constant for value 'Completed'
      * @return string 'COMP'
      */
-    const COMPLETED = 'COMP';
+    private const COMPLETED = 'COMP';
 
     /**
      * Constant for value 'Inprogress'
      * @return string 'INPR'
      */
-    const INPROGRESS = 'INPR';
+    private const INPROGRESS = 'INPR';
 
     /**
      * Constant for value 'Waiting'
      * @return string 'WAITING'
      */
-    const WAITING = 'WAITING';
+    private const WAITING = 'WAITING';
 
     /**
      * Constant for value 'Deferred'
      * @return string 'DEFERRED'
      */
-    const DEFERRED = 'DEFERRED';
+    private const DEFERRED = 'DEFERRED';
 }

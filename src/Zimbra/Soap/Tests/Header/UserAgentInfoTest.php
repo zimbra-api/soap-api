@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Zimbra\Soap\Tests\Header;
 
@@ -28,9 +28,13 @@ class UserAgentInfoTest extends ZimbraStructTestCase
         $xml = '<?xml version="1.0"?>' . "\n"
             . '<userAgent name="' . $name . '" version="' . $version . '" />';
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($info, 'xml'));
+        $this->assertEquals($info, $this->serializer->deserialize($xml, UserAgentInfo::class, 'xml'));
 
-        $info = $this->serializer->deserialize($xml, 'Zimbra\Soap\Header\UserAgentInfo', 'xml');
-        $this->assertSame($name, $info->getName());
-        $this->assertSame($version, $info->getVersion());
+        $json = json_encode([
+            'name' => $name,
+            'version' => $version,
+        ]);
+        $this->assertSame($json, $this->serializer->serialize($info, 'json'));
+        $this->assertEquals($info, $this->serializer->deserialize($json, UserAgentInfo::class, 'json'));
     }
 }

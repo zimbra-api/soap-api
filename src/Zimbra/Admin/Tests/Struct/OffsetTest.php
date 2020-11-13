@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Zimbra\Admin\Tests\Struct;
 
@@ -23,8 +23,12 @@ class OffsetTest extends ZimbraStructTestCase
         $xml = '<?xml version="1.0"?>' . "\n"
             . '<offset offset="' . $value . '" />';
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($offset, 'xml'));
+        $this->assertEquals($offset, $this->serializer->deserialize($xml, Offset::class, 'xml'));
 
-        $offset = $this->serializer->deserialize($xml, 'Zimbra\Admin\Struct\Offset', 'xml');
-        $this->assertSame($value, $offset->getOffset());
+        $json = json_encode([
+            'offset' => $value,
+        ]);
+        $this->assertSame($json, $this->serializer->serialize($offset, 'json'));
+        $this->assertEquals($offset, $this->serializer->deserialize($json, Offset::class, 'json'));
     }
 }

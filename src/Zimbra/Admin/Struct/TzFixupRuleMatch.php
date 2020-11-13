@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * This file is part of the Zimbra API in PHP library.
  *
@@ -10,12 +10,7 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\Accessor;
-use JMS\Serializer\Annotation\SerializedName;
-use JMS\Serializer\Annotation\Type;
-use JMS\Serializer\Annotation\XmlElement;
-use JMS\Serializer\Annotation\XmlRoot;
-
+use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlElement, XmlRoot};
 use Zimbra\Struct\Id;
 
 /**
@@ -25,7 +20,8 @@ use Zimbra\Struct\Id;
  * @subpackage Admin
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
- * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
+ * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
+ * @AccessType("public_method")
  * @XmlRoot(name="match")
  */
 class TzFixupRuleMatch
@@ -36,7 +32,7 @@ class TzFixupRuleMatch
      * @Type("Zimbra\Admin\Struct\SimpleElement")
      * @XmlElement
      */
-    private $_any;
+    private $any;
 
     /**
      * @Accessor(getter="getTzid", setter="setTzid")
@@ -44,7 +40,7 @@ class TzFixupRuleMatch
      * @Type("Zimbra\Struct\Id")
      * @XmlElement
      */
-    private $_tzid;
+    private $tzid;
 
     /**
      * @Accessor(getter="getNonDst", setter="setNonDst")
@@ -52,7 +48,7 @@ class TzFixupRuleMatch
      * @Type("Zimbra\Admin\Struct\Offset")
      * @XmlElement
      */
-    private $_nonDst;
+    private $nonDst;
 
     /**
      * @Accessor(getter="getRules", setter="setRules")
@@ -60,7 +56,7 @@ class TzFixupRuleMatch
      * @Type("Zimbra\Admin\Struct\TZFixupRuleMatchRules")
      * @XmlElement
      */
-    private $_rules;
+    private $rules;
 
     /**
      * @Accessor(getter="getDates", setter="setDates")
@@ -68,7 +64,7 @@ class TzFixupRuleMatch
      * @Type("Zimbra\Admin\Struct\TZFixupRuleMatchDates")
      * @XmlElement
      */
-    private $_dates;
+    private $dates;
 
     /**
      * Constructor method for TzFixupRuleMatch
@@ -109,9 +105,9 @@ class TzFixupRuleMatch
      *
      * @return SimpleElement
      */
-    public function getAny()
+    public function getAny(): SimpleElement
     {
-        return $this->_any;
+        return $this->any;
     }
 
     /**
@@ -120,9 +116,9 @@ class TzFixupRuleMatch
      * @param  SimpleElement $any
      * @return self
      */
-    public function setAny(SimpleElement $any)
+    public function setAny(SimpleElement $any): self
     {
-        $this->_any = $any;
+        $this->any = $any;
         return $this;
     }
 
@@ -131,9 +127,9 @@ class TzFixupRuleMatch
      *
      * @return Id
      */
-    public function getTzid()
+    public function getTzid(): Id
     {
-        return $this->_tzid;
+        return $this->tzid;
     }
 
     /**
@@ -142,9 +138,9 @@ class TzFixupRuleMatch
      * @param  Id $tzid
      * @return self
      */
-    public function setTzid(Id $tzid)
+    public function setTzid(Id $tzid): self
     {
-        $this->_tzid = $tzid;
+        $this->tzid = $tzid;
         return $this;
     }
 
@@ -153,9 +149,9 @@ class TzFixupRuleMatch
      *
      * @return Offset
      */
-    public function getNonDst()
+    public function getNonDst(): Offset
     {
-        return $this->_nonDst;
+        return $this->nonDst;
     }
 
     /**
@@ -164,9 +160,9 @@ class TzFixupRuleMatch
      * @param  Offset $nonDst
      * @return self
      */
-    public function setNonDst(Offset $nonDst)
+    public function setNonDst(Offset $nonDst): self
     {
-        $this->_nonDst = $nonDst;
+        $this->nonDst = $nonDst;
         return $this;
     }
 
@@ -175,9 +171,9 @@ class TzFixupRuleMatch
      *
      * @return TzFixupRuleMatchRules
      */
-    public function getRules()
+    public function getRules(): TzFixupRuleMatchRules
     {
-        return $this->_rules;
+        return $this->rules;
     }
 
     /**
@@ -186,9 +182,9 @@ class TzFixupRuleMatch
      * @param  TzFixupRuleMatchRules $rules
      * @return self
      */
-    public function setRules(TzFixupRuleMatchRules $rules)
+    public function setRules(TzFixupRuleMatchRules $rules): self
     {
-        $this->_rules = $rules;
+        $this->rules = $rules;
         return $this;
     }
 
@@ -197,9 +193,9 @@ class TzFixupRuleMatch
      *
      * @return TzFixupRuleMatchDates
      */
-    public function getDates()
+    public function getDates(): TzFixupRuleMatchDates
     {
-        return $this->_dates;
+        return $this->dates;
     }
 
     /**
@@ -208,9 +204,9 @@ class TzFixupRuleMatch
      * @param  TzFixupRuleMatchDates $dates
      * @return self
      */
-    public function setDates(TzFixupRuleMatchDates $dates)
+    public function setDates(TzFixupRuleMatchDates $dates): self
     {
-        $this->_dates = $dates;
+        $this->dates = $dates;
         return $this;
     }
 }

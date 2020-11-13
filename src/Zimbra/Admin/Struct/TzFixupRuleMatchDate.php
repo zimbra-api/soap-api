@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * This file is part of the Zimbra API in PHP library.
  *
@@ -10,11 +10,7 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\Accessor;
-use JMS\Serializer\Annotation\SerializedName;
-use JMS\Serializer\Annotation\Type;
-use JMS\Serializer\Annotation\XmlAttribute;
-use JMS\Serializer\Annotation\XmlRoot;
+use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlRoot};
 
 /**
  * TzFixupRuleMatchDate struct class
@@ -23,7 +19,8 @@ use JMS\Serializer\Annotation\XmlRoot;
  * @subpackage Admin
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
- * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
+ * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
+ * @AccessType("public_method")
  * @XmlRoot(name="date")
  */
 class TzFixupRuleMatchDate
@@ -34,7 +31,7 @@ class TzFixupRuleMatchDate
      * @Type("integer")
      * @XmlAttribute
      */
-    private $_month;
+    private $month;
 
     /**
      * @Accessor(getter="getMonthDay", setter="setMonthDay")
@@ -42,7 +39,7 @@ class TzFixupRuleMatchDate
      * @Type("integer")
      * @XmlAttribute
      */
-    private $_monthDay;
+    private $monthDay;
 
     /**
      * Constructor method for TzFixupRuleMatchDate
@@ -61,9 +58,9 @@ class TzFixupRuleMatchDate
      *
      * @return int
      */
-    public function getMonth()
+    public function getMonth(): int
     {
-        return $this->_month;
+        return $this->month;
     }
 
     /**
@@ -72,10 +69,10 @@ class TzFixupRuleMatchDate
      * @param  int $mon
      * @return self
      */
-    public function setMonth($mon)
+    public function setMonth($mon): self
     {
         $mon = in_array((int) $mon, range(1, 12)) ? (int) $mon : 1;
-        $this->_month = $mon;
+        $this->month = $mon;
         return $this;
     }
 
@@ -84,9 +81,9 @@ class TzFixupRuleMatchDate
      *
      * @return int
      */
-    public function getMonthDay()
+    public function getMonthDay(): int
     {
-        return $this->_monthDay;
+        return $this->monthDay;
     }
 
     /**
@@ -95,10 +92,10 @@ class TzFixupRuleMatchDate
      * @param  int $mday
      * @return self
      */
-    public function setMonthDay($mday)
+    public function setMonthDay($mday): self
     {
         $mday = in_array((int) $mday, range(1, 31)) ? (int) $mday : 1;
-        $this->_monthDay = $mday;
+        $this->monthDay = $mday;
         return $this;
     }
 }

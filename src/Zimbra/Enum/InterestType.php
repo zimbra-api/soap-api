@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * This file is part of the Zimbra API in PHP library.
  *
@@ -10,55 +10,57 @@
 
 namespace Zimbra\Enum;
 
+use MyCLabs\Enum\Enum;
+
 /**
  * InterestType enum class
  *
  * @package   Zimbra
  * @category  Enum
  * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
- * @copyright Copyright © 2013 by Nguyen Van Nguyen.
+ * @copyright Copyright © 2013-present by Nguyen Van Nguyen.
  */
-class InterestType extends Base
+class InterestType extends Enum
 {
     /**
      * Constant for value 'f'
      * @return string 'f'
      */
-    const FOLDERS = 'f';
+    private const FOLDERS = 'f';
 
     /**
      * Constant for value 'm'
      * @return string 'm'
      */
-    const MESSAGES = 'm';
+    private const MESSAGES = 'm';
 
     /**
      * Constant for value 'c'
      * @return string 'c'
      */
-    const CONTACTS = 'c';
+    private const CONTACTS = 'c';
 
     /**
      * Constant for value 'a'
      * @return string 'a'
      */
-    const APPOINTMENTS = 'a';
+    private const APPOINTMENTS = 'a';
 
     /**
      * Constant for value 't'
      * @return string 't'
      */
-    const TASKS = 't';
+    private const TASKS = 't';
 
     /**
      * Constant for value 'd'
      * @return string 'd'
      */
-    const DOCUMENTS = 'd';
+    private const DOCUMENTS = 'd';
 
     /**
      * Constant for value 'all'
      * @return string 'all'
      */
-    const ALL = 'all';
+    private const ALL = 'all';
 }

@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * This file is part of the Zimbra API in PHP library.
  *
@@ -10,13 +10,7 @@
 
 namespace Zimbra\Account\Struct;
 
-use JMS\Serializer\Annotation\Accessor;
-use JMS\Serializer\Annotation\SerializedName;
-use JMS\Serializer\Annotation\Type;
-use JMS\Serializer\Annotation\XmlAttribute;
-use JMS\Serializer\Annotation\XmlValue;
-use JMS\Serializer\Annotation\XmlRoot;
-
+use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlRoot, XmlValue};
 use Zimbra\Enum\DistributionListSubscribeOp as SubscribeOp;
 
 /**
@@ -26,7 +20,8 @@ use Zimbra\Enum\DistributionListSubscribeOp as SubscribeOp;
  * @subpackage Account
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
- * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
+ * @copyright  Copyright © 2020 by Nguyen Van Nguyen.
+ * @AccessType("public_method")
  * @XmlRoot(name="subsReq")
  */
 class DistributionListSubscribeReq
@@ -34,17 +29,18 @@ class DistributionListSubscribeReq
     /**
      * @Accessor(getter="getOp", setter="setOp")
      * @SerializedName("op")
-     * @Type("string")
+     * @Type("Zimbra\Enum\DistributionListSubscribeOp")
      * @XmlAttribute
      */
-    private $_op;
+    private $op;
 
     /**
      * @Accessor(getter="getValue", setter="setValue")
+     * @SerializedName("_content")
      * @Type("string")
      * @XmlValue(cdata=false)
      */
-    private $_value;
+    private $value;
 
     /**
      * @Accessor(getter="getBccOwners", setter="setBccOwners")
@@ -52,22 +48,22 @@ class DistributionListSubscribeReq
      * @Type("bool")
      * @XmlAttribute
      */
-    private $_bccOwners;
+    private $bccOwners;
 
     /**
      * Constructor method for DistributionListSubscribeReq
-     * @param  string $op
+     * @param  SubscribeOp $op
      * @param  string $value
      * @param  bool   $bccOwners
      * @return self
      */
-    public function __construct($op, $value = null, $bccOwners = null)
+    public function __construct(SubscribeOp $op, $value = NULL, $bccOwners = NULL)
     {
 		$this->setOp($op);
-        if (null !== $value) {
+        if (NULL !== $value) {
             $this->setValue($value);
         }
-        if (null !== $bccOwners) {
+        if (NULL !== $bccOwners) {
 			$this->setBccOwners($bccOwners);
         }
     }
@@ -75,24 +71,22 @@ class DistributionListSubscribeReq
     /**
      * Gets operation
      *
-     * @return string
+     * @return SubscribeOp
      */
-    public function getOp()
+    public function getOp(): SubscribeOp
     {
-        return $this->_op;
+        return $this->op;
     }
 
     /**
      * Sets operation
      *
-     * @param  string $op
+     * @param  SubscribeOp $op
      * @return self
      */
-    public function setOp($op)
+    public function setOp(SubscribeOp $op)
     {
-        if (SubscribeOp::has(trim($op))) {
-            $this->_op = $op;
-        }
+        $this->op = $op;
         return $this;
     }
 
@@ -103,7 +97,7 @@ class DistributionListSubscribeReq
      */
     public function getValue()
     {
-        return $this->_value;
+        return $this->value;
     }
 
     /**
@@ -114,7 +108,7 @@ class DistributionListSubscribeReq
      */
     public function setValue($value)
     {
-        $this->_value = trim($value);
+        $this->value = trim($value);
         return $this;
     }
 
@@ -126,7 +120,7 @@ class DistributionListSubscribeReq
      */
     public function getBccOwners()
     {
-        return $this->_bccOwners;
+        return $this->bccOwners;
     }
 
     /**
@@ -138,7 +132,7 @@ class DistributionListSubscribeReq
      */
     public function setBccOwners($bccOwners)
     {
-        $this->_bccOwners = (bool) $bccOwners;
+        $this->bccOwners = (bool) $bccOwners;
         return $this;
     }
 }

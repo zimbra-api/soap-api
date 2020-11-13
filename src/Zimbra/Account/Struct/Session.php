@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * This file is part of the Zimbra API in PHP library.
  *
@@ -10,12 +10,7 @@
 
 namespace Zimbra\Account\Struct;
 
-use JMS\Serializer\Annotation\Accessor;
-use JMS\Serializer\Annotation\SerializedName;
-use JMS\Serializer\Annotation\Type;
-use JMS\Serializer\Annotation\XmlAttribute;
-use JMS\Serializer\Annotation\XmlValue;
-use JMS\Serializer\Annotation\XmlRoot;
+use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlRoot, XmlValue};
 
 /**
  * Session struct class
@@ -24,7 +19,8 @@ use JMS\Serializer\Annotation\XmlRoot;
  * @subpackage Account
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
- * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
+ * @copyright  Copyright © 2020 by Nguyen Van Nguyen.
+ * @AccessType("public_method")
  * @XmlRoot(name="session")
  */
 class Session
@@ -35,7 +31,7 @@ class Session
      * @Type("string")
      * @XmlAttribute
      */
-    private $_type;
+    private $type;
 
     /**
      * @Accessor(getter="getId", setter="setId")
@@ -43,14 +39,15 @@ class Session
      * @Type("string")
      * @XmlAttribute
      */
-    private $_id;
+    private $id;
 
     /**
      * @Accessor(getter="getValue", setter="setValue")
+     * @SerializedName("_content")
      * @Type("string")
      * @XmlValue(cdata=false)
      */
-    private $_value;
+    private $value;
 
     /**
      * Constructor method for Session
@@ -60,10 +57,10 @@ class Session
      *   Session type - currently only set if value is "admin"
      * @return self
      */
-    public function __construct($id, $type = null)
+    public function __construct($id, $type = NULL)
     {
         $this->setValue($id)->setId($id);
-        if (null !== $type) {
+        if (NULL !== $type) {
             $this->setType($type);
         }
     }
@@ -75,7 +72,7 @@ class Session
      */
     public function getValue()
     {
-        return $this->_value;
+        return $this->value;
     }
 
     /**
@@ -86,7 +83,7 @@ class Session
      */
     public function setValue($value)
     {
-        $this->_value = trim($value);
+        $this->value = trim($value);
         return $this;
     }
 
@@ -97,7 +94,7 @@ class Session
      */
     public function getType()
     {
-        return $this->_type;
+        return $this->type;
     }
 
     /**
@@ -108,7 +105,7 @@ class Session
      */
     public function setType($type)
     {
-        $this->_type = trim($type) ;
+        $this->type = trim($type) ;
         return $this;
     }
 
@@ -119,7 +116,7 @@ class Session
      */
     public function getId()
     {
-        return $this->_id;
+        return $this->id;
     }
 
     /**
@@ -130,7 +127,7 @@ class Session
      */
     public function setId($id)
     {
-        $this->_id = trim($id) ;
+        $this->id = trim($id) ;
         return $this;
     }
 }

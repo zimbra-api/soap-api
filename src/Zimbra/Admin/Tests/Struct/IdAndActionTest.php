@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Zimbra\Admin\Tests\Struct;
 
@@ -28,9 +28,13 @@ class IdAndActionTest extends ZimbraStructTestCase
         $xml = '<?xml version="1.0"?>' . "\n"
             . '<ia id="' . $id . '" action="' . $action . '" />';
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($ia, 'xml'));
+        $this->assertEquals($ia, $this->serializer->deserialize($xml, IdAndAction::class, 'xml'));
 
-        $ia = $this->serializer->deserialize($xml, 'Zimbra\Admin\Struct\IdAndAction', 'xml');
-        $this->assertSame($id, $ia->getId());
-        $this->assertSame($action, $ia->getAction());
+        $json = json_encode([
+            'id' => $id,
+            'action' => $action,
+        ]);
+        $this->assertSame($json, $this->serializer->serialize($ia, 'json'));
+        $this->assertEquals($ia, $this->serializer->deserialize($json, IdAndAction::class, 'json'));
     }
 }

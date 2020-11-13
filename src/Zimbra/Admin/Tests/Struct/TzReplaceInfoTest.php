@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Zimbra\Admin\Tests\Struct;
 
@@ -49,28 +49,33 @@ class TzReplaceInfoTest extends ZimbraStructTestCase
                 . '</tz>'
             . '</replace>';
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($replace, 'xml'));
+        $this->assertEquals($replace, $this->serializer->deserialize($xml, TzReplaceInfo::class, 'xml'));
 
-        $replace = $this->serializer->deserialize($xml, 'Zimbra\Admin\Struct\TzReplaceInfo', 'xml');
-        $wellKnownTz = $replace->getWellKnownTz();
-        $tz = $replace->getCalTz();
-        $standard = $tz->getStandardTzOnset();
-        $daylight = $tz->getDaylightTzOnset();
-
-        $this->assertSame($id, $wellKnownTz->getId());
-        $this->assertSame($id, $tz->getId());
-        $this->assertSame($stdoff, $tz->getTzStdOffset());
-        $this->assertSame($dayoff, $tz->getTzDayOffset());
-        $this->assertSame($stdname, $tz->getStandardTZName());
-        $this->assertSame($dayname, $tz->getDaylightTZName());
-
-        $this->assertSame($mon, $standard->getMonth());
-        $this->assertSame($hour, $standard->getHour());
-        $this->assertSame($min, $standard->getMinute());
-        $this->assertSame($sec, $standard->getSecond());
-
-        $this->assertSame($mon, $daylight->getMonth());
-        $this->assertSame($hour, $daylight->getHour());
-        $this->assertSame($min, $daylight->getMinute());
-        $this->assertSame($sec, $daylight->getSecond());
+        $json = json_encode([
+            'wellKnownTz' => [
+                'id' => $id,
+            ],
+            'tz' => [
+                'id' => $id,
+                'stdoff' => $stdoff,
+                'dayoff' => $dayoff,
+                'standard' => [
+                    'mon' => $mon,
+                    'hour' => $hour,
+                    'min' => $min,
+                    'sec' => $sec,
+                ],
+                'daylight' => [
+                    'mon' => $mon,
+                    'hour' => $hour,
+                    'min' => $min,
+                    'sec' => $sec,
+                ],
+                'stdname' => $stdname,
+                'dayname' => $dayname,
+            ],
+        ]);
+        $this->assertSame($json, $this->serializer->serialize($replace, 'json'));
+        $this->assertEquals($replace, $this->serializer->deserialize($json, TzReplaceInfo::class, 'json'));
     }
 }

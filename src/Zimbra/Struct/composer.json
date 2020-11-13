@@ -2,7 +2,7 @@
     "name": "zimbra-api/struct",
     "homepage": "https://github.com/zimbra-api",
     "description": "Struct libraries used by Zimbra Api",
-    "keywords": ["struct"],
+    "keywords": ["zimbra", "api", "struct"],
     "license": "BSD-3-Clause",
     "authors": [
         {
@@ -12,8 +12,9 @@
         }
     ],
     "require": {
-        "php": ">=7.0",
-        "jms/serializer": "^1.12",
+        "php": ">=7.2",
+        "jms/serializer": "^3.8",
+        "zimbra-api/common": "self.version",
         "zimbra-api/enum": "self.version"
     },
     "require-dev": {

@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * This file is part of the Zimbra API in PHP library.
  *
@@ -10,31 +10,33 @@
 
 namespace Zimbra\Enum;
 
+use MyCLabs\Enum\Enum;
+
 /**
  * DeployZimletAction enum class
  *
  * @package   Zimbra
  * @category  Enum
  * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
- * @copyright Copyright © 2013 by Nguyen Van Nguyen.
+ * @copyright Copyright © 2013-present by Nguyen Van Nguyen.
  */
-class DeployZimletAction extends Base
+class DeployZimletAction extends Enum
 {
     /**
      * Constant for value 'deployAll'
      * @return string 'deployAll'
      */
-    const DEPLOY_ALL = 'deployAll';
+    private const DEPLOY_ALL = 'deployAll';
 
     /**
      * Constant for value 'deployLocal'
      * @return string 'deployLocal'
      */
-    const DEPLOY_LOCAL = 'deployLocal';
+    private const DEPLOY_LOCAL = 'deployLocal';
 
     /**
      * Constant for value 'status'
      * @return string 'status'
      */
-    const STATUS = 'status';
+    private const STATUS = 'status';
 }

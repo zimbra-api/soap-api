@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * This file is part of the Zimbra API in PHP library.
  *
@@ -10,7 +10,9 @@
 
 namespace Zimbra\Soap;
 
-use Zimbra\Soap\Client\ClientInterface;
+use JMS\Serializer\SerializerInterface;
+use Zimbra\Common\SerializerBuilder;
+use Zimbra\Enum\RequestFormat;
 use Zimbra\Soap\Request\Batch;
 
 /**
@@ -19,20 +21,38 @@ use Zimbra\Soap\Request\Batch;
  * @package   Zimbra
  * @category  Soap
  * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
- * @copyright Copyright © 2013 by Nguyen Van Nguyen.
+ * @copyright Copyright © 2020 by Nguyen Van Nguyen.
  */
-abstract class Api
+abstract class Api implements ApiInterface
 {
 
     /**
      * Zimbra api soap client
      * @var ClientInterface
      */
-    private $_client;
+    private $client;
 
-    public function __construct($location = 'https://localhost/service/soap')
+    /**
+     * Zimbra api soap header
+     * @var Header
+     */
+    private $header;
+
+    /**
+     * Request format
+     * @var string
+     */
+    private $requestFormat;
+
+    public function __construct($endpoint = 'https://localhost/service/soap', $requestFormat = '')
     {
-        $this->_client = new Client($location);
+        $this->client = new Client($endpoint);
+        if (RequestFormat::isValid($requestFormat)) {
+            $this->requestFormat = $requestFormat;
+        }
+        else {
+            $this->requestFormat = RequestFormat::XML()->getValue();
+        }
     }
 
     /**
@@ -40,9 +60,9 @@ abstract class Api
      *
      * @return ClientInterface
      */
-    public function getClient()
+    public function getClient(): ClientInterface
     {
-        return $this->_client;
+        return $this->client;
     }
 
     /**
@@ -50,23 +70,113 @@ abstract class Api
      *
      * @return self
      */
-    public function setClient(ClientInterface $client)
+    public function setClient(ClientInterface $client): self
     {
-        $this->_client = $client;
+        $this->client = $client;
         return $this;
+    }
+
+    /**
+     * Get Zimbra api soap header.
+     *
+     * @return Header
+     */
+    public function getHeader(): Header
+    {
+        return $this->header;
+    }
+
+    /**
+     * Set Zimbra api soap header.
+     *
+     * @return self
+     */
+    public function setHeader(Header $header): self
+    {
+        $this->header = $header;
+        return $this;
+    }
+
+    /**
+     * Gets request format
+     *
+     * @return string
+     */
+    public function getRequestFormat(): string
+    {
+        return $this->requestFormat;
+    }
+
+    /**
+     * Sets request format
+     *
+     * @param  string $requestFormat
+     * @return self
+     */
+    public function setRequestFormat($requestFormat): self
+    {
+        if (RequestFormat::isValid(trim($requestFormat))) {
+            $this->requestFormat = trim($requestFormat);
+        }
+        return $this;
+    }
+
+    /**
+     * Invoke the request.
+     *
+     * @return  EnvelopeInterface
+     */
+    protected function invoke(RequestInterface $request): ResponseInterface
+    {
+        $requestEnvelope = $request->getEnvelope();
+        if ($this->header instanceof Header) {
+            $requestEnvelope->setHeader($this->header);
+        }
+        $response = $this->getClient()->sendRequest(
+            $this->getSerializer()->serialize($requestEnvelope, $this->serializeFormat()),
+            [
+                'Content-Type' => 'application/soap+xml; charset=utf-8',
+                'User-Agent'   => isset($_SERVER['HTTP_USER_AGENT']) ? $_SERVER['HTTP_USER_AGENT'] : 'PHP-Zimbra-Soap-API',
+            ]
+        );
+        $responseEnvelope = $this->getSerializer()->deserialize(
+            $response->getBody()->getContents(),
+            get_class($requestEnvelope), $this->serializeFormat()
+        );
+        return $responseEnvelope->getBody()->getResponse();
     }
 
     /**
      * Perform a batch request.
      *
      * @param  array $requests
-     * @return mix
+     * @return ResponseInterface
      */
-    public function batch(array $requests = [])
+    public function batch(array $requests = []): ResponseInterface
     {
         $request = new \Zimbra\Soap\Request\Batch(
             $requests
         );
-        return $request->execute($this->getClient());
+        return $this->dispatch($request);
+    }
+
+    /**
+     * Gets serialize format
+     *
+     * @return string
+     */
+    protected function serializeFormat(): string
+    {
+        return $this->requestFormat == RequestFormat::JS()->getValue() ? 'json' : 'xml';
+    }
+
+    /**
+     * Gets serializer
+     *
+     * @return SerializerInterface
+     */
+    protected function getSerializer(): SerializerInterface
+    {
+        return SerializerBuilder::getSerializer();
     }
 }

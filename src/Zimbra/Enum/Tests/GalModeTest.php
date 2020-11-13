@@ -19,7 +19,7 @@ class GalModeTest extends TestCase
         ];
         foreach ($values as $enum => $value)
         {
-            $this->assertSame(GalMode::$enum()->value(), $value);
+            $this->assertSame(GalMode::$enum()->getValue(), $value);
         }
     }
 }

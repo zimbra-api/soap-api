@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * This file is part of the Zimbra API in PHP library.
  *
@@ -10,13 +10,7 @@
 
 namespace Zimbra\Account\Struct;
 
-use JMS\Serializer\Annotation\Accessor;
-use JMS\Serializer\Annotation\SerializedName;
-use JMS\Serializer\Annotation\Type;
-use JMS\Serializer\Annotation\XmlAttribute;
-use JMS\Serializer\Annotation\XmlValue;
-use JMS\Serializer\Annotation\XmlRoot;
-
+use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlRoot, XmlValue};
 use Zimbra\Enum\ContentType;
 
 /**
@@ -26,7 +20,8 @@ use Zimbra\Enum\ContentType;
  * @subpackage Account
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
- * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
+ * @copyright  Copyright © 2020 by Nguyen Van Nguyen.
+ * @AccessType("public_method")
  * @XmlRoot(name="content")
  */
 class SignatureContent
@@ -34,30 +29,31 @@ class SignatureContent
     /**
      * @Accessor(getter="getContentType", setter="setContentType")
      * @SerializedName("type")
-     * @Type("string")
+     * @Type("Zimbra\Enum\ContentType")
      * @XmlAttribute
      */
-    private $_contentType;
+    private $contentType;
 
     /**
      * @Accessor(getter="getValue", setter="setValue")
+     * @SerializedName("_content")
      * @Type("string")
      * @XmlValue(cdata=false)
      */
-    private $_value;
+    private $value;
 
     /**
      * Constructor method for signatureContent
      * @param string $value
-     * @param string $type
+     * @param ContentType $type
      * @return self
      */
-    public function __construct($value = null, $type = null)
+    public function __construct($value = NULL, ContentType $type = NULL)
     {
-        if (null !== $value) {
+        if (NULL !== $value) {
             $this->setValue($value);
         }
-        if (null !== $type) {
+        if (NULL !== $type) {
             $this->setContentType($type);
         }
     }
@@ -69,7 +65,7 @@ class SignatureContent
      */
     public function getValue()
     {
-        return $this->_value;
+        return $this->value;
     }
 
     /**
@@ -80,31 +76,29 @@ class SignatureContent
      */
     public function setValue($value)
     {
-        $this->_value = trim($value);
+        $this->value = trim($value);
         return $this;
     }
 
     /**
      * Gets content type
      *
-     * @return string
+     * @return ContentType
      */
-    public function getContentType()
+    public function getContentType(): ContentType
     {
-        return $this->_contentType;
+        return $this->contentType;
     }
 
     /**
      * Sets content type
      *
-     * @param  string $type
+     * @param  ContentType $type
      * @return self
      */
-    public function setContentType($type)
+    public function setContentType(ContentType $type)
     {
-        if (ContentType::has(trim($type))) {
-            $this->_contentType = $type;
-        }
+        $this->contentType = $type;
         return $this;
     }
 }

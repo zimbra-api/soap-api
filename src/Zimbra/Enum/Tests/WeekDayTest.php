@@ -23,7 +23,7 @@ class WeekDayTest extends TestCase
         ];
         foreach ($values as $enum => $value)
         {
-            $this->assertSame(WeekDay::$enum()->value(), $value);
+            $this->assertSame(WeekDay::$enum()->getValue(), $value);
         }
     }
 }

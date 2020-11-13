@@ -19,7 +19,7 @@ class DeployZimletActionTest extends TestCase
         ];
         foreach ($values as $enum => $value)
         {
-            $this->assertSame(DeployZimletAction::$enum()->value(), $value);
+            $this->assertSame(DeployZimletAction::$enum()->getValue(), $value);
         }
     }
 }

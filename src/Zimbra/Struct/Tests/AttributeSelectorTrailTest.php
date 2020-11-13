@@ -1,10 +1,9 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Zimbra\Struct\Tests;
 
 use JMS\Serializer\Annotation\XmlRoot;
-use Zimbra\Struct\AttributeSelector;
-use Zimbra\Struct\AttributeSelectorTrait;
+use Zimbra\Struct\{AttributeSelector, AttributeSelectorTrait};
 
 /**
  * Testcase class for AttributeSelectorTrait.
@@ -24,9 +23,13 @@ class AttributeSelectorTrailTest extends ZimbraStructTestCase
         $xml = '<?xml version="1.0"?>' . "\n"
             . '<selector attrs="' . implode(',', [$attr1, $attr2, $attr3]) . '" />';
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($attrs, 'xml'));
+        $this->assertEquals($attrs, $this->serializer->deserialize($xml, AttributeSelectorImp::class, 'xml'));
 
-        $attrs = $this->serializer->deserialize($xml, 'Zimbra\Struct\Tests\AttributeSelectorImp', 'xml');
-        $this->assertSame(implode(',', [$attr1, $attr2, $attr3]), $attrs->getAttrs());
+        $json = json_encode([
+            'attrs' => implode(',', [$attr1, $attr2, $attr3]),
+        ]);
+        $this->assertSame($json, $this->serializer->serialize($attrs, 'json'));
+        $this->assertEquals($attrs, $this->serializer->deserialize($json, AttributeSelectorImp::class, 'json'));
     }
 }
 

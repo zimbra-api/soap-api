@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Zimbra\Admin\Tests\Message;
 
@@ -17,8 +17,8 @@ class AddAccountLoggerResponseTest extends ZimbraStructTestCase
         $category1 = $this->faker->word;
         $category2 = $this->faker->word;
 
-        $logger1 = new LoggerInfo($category1, LoggingLevel::INFO()->value());
-        $logger2 = new LoggerInfo($category2, LoggingLevel::ERROR()->value());
+        $logger1 = new LoggerInfo($category1, LoggingLevel::INFO());
+        $logger2 = new LoggerInfo($category2, LoggingLevel::ERROR());
 
         $res = new AddAccountLoggerResponse([$logger1]);
         $this->assertSame([$logger1], $res->getLoggers());
@@ -29,19 +29,26 @@ class AddAccountLoggerResponseTest extends ZimbraStructTestCase
         $this->assertSame([$logger1, $logger2], $res->getLoggers());
 
         $xml = '<?xml version="1.0"?>' . "\n"
-            . '<AddAccountLoggerResponse xmlns="urn:zimbraAdmin">'
+            . '<AddAccountLoggerResponse>'
                 . '<logger category="' . $category1 . '" level="' . LoggingLevel::INFO() . '" />'
                 . '<logger category="' . $category2 . '" level="' . LoggingLevel::ERROR() . '" />'
             . '</AddAccountLoggerResponse>';
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($res, 'xml'));
+        $this->assertEquals($res, $this->serializer->deserialize($xml, AddAccountLoggerResponse::class, 'xml'));
 
-        $res = $this->serializer->deserialize($xml, 'Zimbra\Admin\Message\AddAccountLoggerResponse', 'xml');
-        $logger1 = $res->getLoggers()[0];
-        $logger2 = $res->getLoggers()[1];
-
-        $this->assertSame($category1, $logger1->getCategory());
-        $this->assertSame(LoggingLevel::INFO()->value(), $logger1->getLevel());
-        $this->assertSame($category2, $logger2->getCategory());
-        $this->assertSame(LoggingLevel::ERROR()->value(), $logger2->getLevel());
+        $json = json_encode([
+            'logger' => [
+                [
+                    'category' => $category1,
+                    'level' => (string) LoggingLevel::INFO(),
+                ],
+                [
+                    'category' => $category2,
+                    'level' => (string) LoggingLevel::ERROR(),
+                ],
+            ],
+        ]);
+        $this->assertSame($json, $this->serializer->serialize($res, 'json'));
+        $this->assertEquals($res, $this->serializer->deserialize($json, AddAccountLoggerResponse::class, 'json'));
     }
 }

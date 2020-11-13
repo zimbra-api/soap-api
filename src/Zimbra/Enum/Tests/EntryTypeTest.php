@@ -36,7 +36,7 @@ class EntryTypeTest extends TestCase
         ];
         foreach ($values as $enum => $value)
         {
-            $this->assertSame(EntryType::$enum()->value(), $value);
+            $this->assertSame(EntryType::$enum()->getValue(), $value);
         }
     }
 }

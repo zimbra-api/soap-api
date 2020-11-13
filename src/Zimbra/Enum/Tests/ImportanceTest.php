@@ -19,7 +19,7 @@ class ImportanceTest extends TestCase
         ];
         foreach ($values as $enum => $value)
         {
-            $this->assertSame(Importance::$enum()->value(), $value);
+            $this->assertSame(Importance::$enum()->getValue(), $value);
         }
     }
 }

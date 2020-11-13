@@ -19,7 +19,7 @@ class IpTypeTest extends TestCase
         ];
         foreach ($values as $enum => $value)
         {
-            $this->assertSame(IpType::$enum()->value(), $value);
+            $this->assertSame(IpType::$enum()->getValue(), $value);
         }
     }
 }

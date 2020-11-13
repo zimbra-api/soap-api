@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * This file is part of the Zimbra API in PHP library.
  *
@@ -10,12 +10,7 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\Accessor;
-use JMS\Serializer\Annotation\SerializedName;
-use JMS\Serializer\Annotation\Type;
-use JMS\Serializer\Annotation\XmlAttribute;
-use JMS\Serializer\Annotation\XmlRoot;
-
+use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlRoot};
 use Zimbra\Enum\AuthScheme;
 
 /**
@@ -25,7 +20,8 @@ use Zimbra\Enum\AuthScheme;
  * @subpackage Admin
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
- * @copyright  Copyright © 2013 scheme Nguyen Van Nguyen.
+ * @copyright  Copyright © 2013-present scheme Nguyen Van Nguyen.
+ * @AccessType("public_method")
  * @XmlRoot(name="auth")
  */
 class ExchangeAuthSpec
@@ -36,7 +32,7 @@ class ExchangeAuthSpec
      * @Type("string")
      * @XmlAttribute
      */
-    private $_url;
+    private $url;
 
     /**
      * @Accessor(getter="getAuthUserName", setter="setAuthUserName")
@@ -44,7 +40,7 @@ class ExchangeAuthSpec
      * @Type("string")
      * @XmlAttribute
      */
-    private $_authUserName;
+    private $authUserName;
 
     /**
      * @Accessor(getter="getAuthPassword", setter="setAuthPassword")
@@ -52,15 +48,15 @@ class ExchangeAuthSpec
      * @Type("string")
      * @XmlAttribute
      */
-    private $_authPassword;
+    private $authPassword;
 
     /**
      * @Accessor(getter="getScheme", setter="setScheme")
      * @SerializedName("scheme")
-     * @Type("string")
+     * @Type("Zimbra\Enum\AuthScheme")
      * @XmlAttribute
      */
-    private $_scheme;
+    private $scheme;
 
     /**
      * @Accessor(getter="getType", setter="setType")
@@ -68,14 +64,14 @@ class ExchangeAuthSpec
      * @Type("string")
      * @XmlAttribute
      */
-    private $_type;
+    private $type;
 
     /**
      * Constructor method for ExchangeAuthSpec
      * @param string $url URL to Exchange server
      * @param string $user Exchange user
      * @param string $pass Exchange password
-     * @param string $scheme Auth scheme
+     * @param AuthScheme $scheme Auth scheme
      * @param string $type Auth type
      * @return self
      */
@@ -83,7 +79,7 @@ class ExchangeAuthSpec
         $url,
         $user,
         $pass,
-        $scheme,
+        AuthScheme $scheme,
         $type = NULL
     )
     {
@@ -101,9 +97,9 @@ class ExchangeAuthSpec
      *
      * @return string
      */
-    public function getUrl()
+    public function getUrl(): string
     {
-        return $this->_url;
+        return $this->url;
     }
 
     /**
@@ -112,9 +108,9 @@ class ExchangeAuthSpec
      * @param  string $url
      * @return self
      */
-    public function setUrl($url)
+    public function setUrl($url): self
     {
-        $this->_url = trim($url);
+        $this->url = trim($url);
         return $this;
     }
 
@@ -123,7 +119,7 @@ class ExchangeAuthSpec
      *
      * @return string
      */
-    public function getAuthUserName()
+    public function getAuthUserName(): string
     {
         return $this->_user;
     }
@@ -134,7 +130,7 @@ class ExchangeAuthSpec
      * @param  string $user
      * @return self
      */
-    public function setAuthUserName($user)
+    public function setAuthUserName($user): self
     {
         $this->_user = trim($user);
         return $this;
@@ -145,7 +141,7 @@ class ExchangeAuthSpec
      *
      * @return string
      */
-    public function getAuthPassword()
+    public function getAuthPassword(): string
     {
         return $this->_pass;
     }
@@ -156,7 +152,7 @@ class ExchangeAuthSpec
      * @param  string $pass
      * @return self
      */
-    public function setAuthPassword($pass)
+    public function setAuthPassword($pass): self
     {
         $this->_pass = trim($pass);
         return $this;
@@ -165,24 +161,22 @@ class ExchangeAuthSpec
     /**
      * Gets scheme enum
      *
-     * @return Zimbra\Enum\AuthScheme
+     * @return AuthScheme
      */
-    public function getScheme()
+    public function getScheme(): AuthScheme
     {
-        return $this->_scheme;
+        return $this->scheme;
     }
 
     /**
      * Sets scheme enum
      *
-     * @param  string $scheme
+     * @param  AuthScheme $scheme
      * @return self
      */
-    public function setScheme($scheme)
+    public function setScheme(AuthScheme $scheme): self
     {
-        if (AuthScheme::has(trim($scheme))) {
-            $this->_scheme = $scheme;
-        }
+        $this->scheme = $scheme;
         return $this;
     }
 
@@ -191,9 +185,9 @@ class ExchangeAuthSpec
      *
      * @return string
      */
-    public function getType()
+    public function getType(): string
     {
-        return $this->_type;
+        return $this->type;
     }
 
     /**
@@ -202,9 +196,9 @@ class ExchangeAuthSpec
      * @param  string $type
      * @return self
      */
-    public function setType($type)
+    public function setType($type): self
     {
-        $this->_type = trim($type);
+        $this->type = trim($type);
         return $this;
     }
 }

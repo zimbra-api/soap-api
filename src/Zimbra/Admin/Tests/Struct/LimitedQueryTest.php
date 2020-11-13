@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Zimbra\Admin\Tests\Struct;
 
@@ -28,9 +28,13 @@ class LimitedQueryTest extends ZimbraStructTestCase
         $xml = '<?xml version="1.0"?>' . "\n"
             . '<query limit="' . $limit . '">' . $value . '</query>';
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($query, 'xml'));
+        $this->assertEquals($query, $this->serializer->deserialize($xml, LimitedQuery::class, 'xml'));
 
-        $query = $this->serializer->deserialize($xml, 'Zimbra\Admin\Struct\LimitedQuery', 'xml');
-        $this->assertSame($limit, $query->getLimit());
-        $this->assertSame($value, $query->getValue());
+        $json = json_encode([
+            'limit' => $limit,
+            '_content' => $value,
+        ]);
+        $this->assertSame($json, $this->serializer->serialize($query, 'json'));
+        $this->assertEquals($query, $this->serializer->deserialize($json, LimitedQuery::class, 'json'));
     }
 }

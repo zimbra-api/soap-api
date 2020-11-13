@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * This file is part of the Zimbra API in PHP library.
  *
@@ -16,7 +16,7 @@ namespace Zimbra\Struct;
  * @package   Zimbra
  * @category  Struct
  * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
- * @copyright Copyright © 2013 by Nguyen Van Nguyen.
+ * @copyright Copyright © 2013-present by Nguyen Van Nguyen.
  */
 interface SearchFilterCondition
 {
@@ -25,7 +25,7 @@ interface SearchFilterCondition
      *
      * @return bool
      */
-    function getNot();
+    function isNot(): bool;
 
     /**
      * Sets not flag
@@ -33,5 +33,5 @@ interface SearchFilterCondition
      * @param  bool $not
      * @return self
      */
-    function setNot($not);
+    function setNot($not): self;
 }

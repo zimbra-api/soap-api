@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Zimbra\Admin\Tests\Struct;
 
@@ -28,9 +28,13 @@ class ExportAndDeleteItemSpecTest extends ZimbraStructTestCase
         $xml = '<?xml version="1.0"?>' . "\n"
             . '<item id="' . $id . '" version="' . $version . '" />';
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($item, 'xml'));
+        $this->assertEquals($item, $this->serializer->deserialize($xml, ExportAndDeleteItemSpec::class, 'xml'));
 
-        $item = $this->serializer->deserialize($xml, 'Zimbra\Admin\Struct\ExportAndDeleteItemSpec', 'xml');
-        $this->assertSame($id, $item->getId());
-        $this->assertSame($version, $item->getVersion());
+        $json = json_encode([
+            'id' => $id,
+            'version' => $version,
+        ]);
+        $this->assertSame($json, $this->serializer->serialize($item, 'json'));
+        $this->assertEquals($item, $this->serializer->deserialize($json, ExportAndDeleteItemSpec::class, 'json'));
     }
 }

@@ -31,7 +31,7 @@ class SortByTest extends TestCase
         ];
         foreach ($values as $enum => $value)
         {
-            $this->assertSame(SortBy::$enum()->value(), $value);
+            $this->assertSame(SortBy::$enum()->getValue(), $value);
         }
     }
 }

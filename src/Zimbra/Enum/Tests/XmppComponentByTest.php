@@ -19,7 +19,7 @@ class XmppComponentByTest extends TestCase
         ];
         foreach ($values as $enum => $value)
         {
-            $this->assertSame(XmppComponentBy::$enum()->value(), $value);
+            $this->assertSame(XmppComponentBy::$enum()->getValue(), $value);
         }
     }
 }

@@ -18,7 +18,7 @@ class ContentTypeTest extends TestCase
         ];
         foreach ($values as $enum => $value)
         {
-            $this->assertSame(ContentType::$enum()->value(), $value);
+            $this->assertSame(ContentType::$enum()->getValue(), $value);
         }
     }
 }

@@ -23,7 +23,7 @@ class SearchTypeTest extends TestCase
         ];
         foreach ($values as $enum => $value)
         {
-            $this->assertSame(SearchType::$enum()->value(), $value);
+            $this->assertSame(SearchType::$enum()->getValue(), $value);
         }
     }
 }

@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * This file is part of the Zimbra API in PHP library.
  *
@@ -10,31 +10,33 @@
 
 namespace Zimbra\Enum;
 
+use MyCLabs\Enum\Enum;
+
 /**
  * VolumeType enum class
  *
  * @package   Zimbra
  * @category  Enum
  * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
- * @copyright Copyright © 2013 by Nguyen Van Nguyen.
+ * @copyright Copyright © 2013-present by Nguyen Van Nguyen.
  */
-class VolumeType extends Base
+class VolumeType extends Enum
 {
     /**
      * Constant for value '1'
      * @return int '1'
      */
-    const PRIMARY = 1;
+    private const PRIMARY = 1;
 
     /**
      * Constant for value '2'
      * @return int '2'
      */
-    const SECONDARY = 2;
+    private const SECONDARY = 2;
 
     /**
      * Constant for value '10'
      * @return int '10'
      */
-    const INDEX = 10;
+    private const INDEX = 10;
 }

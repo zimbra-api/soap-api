@@ -29,7 +29,7 @@ class TargetTypeTest extends TestCase
         ];
         foreach ($values as $enum => $value)
         {
-            $this->assertSame(TargetType::$enum()->value(), $value);
+            $this->assertSame(TargetType::$enum()->getValue(), $value);
         }
     }
 }

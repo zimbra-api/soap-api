@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Zimbra\Admin\Tests\Struct;
 
@@ -23,8 +23,12 @@ class IntIdAttrTest extends ZimbraStructTestCase
         $xml = '<?xml version="1.0"?>' . "\n"
             . '<attr id="' . $value . '" />';
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($attr, 'xml'));
+        $this->assertEquals($attr, $this->serializer->deserialize($xml, IntIdAttr::class, 'xml'));
 
-        $attr = $this->serializer->deserialize($xml, 'Zimbra\Admin\Struct\IntIdAttr', 'xml');
-        $this->assertSame($value, $attr->getId());
+        $json = json_encode([
+            'id' => $value,
+        ]);
+        $this->assertSame($json, $this->serializer->serialize($attr, 'json'));
+        $this->assertEquals($attr, $this->serializer->deserialize($json, IntIdAttr::class, 'json'));
     }
 }

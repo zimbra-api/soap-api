@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * This file is part of the Zimbra API in PHP library.
  *
@@ -10,12 +10,7 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\Accessor;
-use JMS\Serializer\Annotation\SerializedName;
-use JMS\Serializer\Annotation\Type;
-use JMS\Serializer\Annotation\XmlAttribute;
-use JMS\Serializer\Annotation\XmlElement;
-use JMS\Serializer\Annotation\XmlRoot;
+use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlElement, XmlList, XmlRoot};
 
 /**
  * ConstraintInfo struct class
@@ -24,45 +19,49 @@ use JMS\Serializer\Annotation\XmlRoot;
  * @subpackage Admin
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
- * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
+ * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
+ * @AccessType("public_method")
  * @XmlRoot(name="constraint")
  */
 class ConstraintInfo
 {
 
     /**
+     * Minimum value
      * @Accessor(getter="getMin", setter="setMin")
      * @SerializedName("min")
      * @Type("string")
      * @XmlElement(cdata=false)
      */
-    private $_min;
+    private $min;
 
     /**
+     * Maximum value
      * @Accessor(getter="getMax", setter="setMax")
      * @SerializedName("max")
      * @Type("string")
      * @XmlElement(cdata=false)
      */
-    private $_max;
+    private $max;
 
 
     /**
+     * Acceptable Values
      * @Accessor(getter="getValues", setter="setValues")
      * @SerializedName("values")
-     * @Type("Zimbra\Admin\Struct\ConstraintInfoValues")
-     * @XmlElement
+     * @Type("array<string>")
+     * @XmlList(inline = false, entry = "v")
      */
-    private $_values;
+    private $values;
 
     /**
      * Constructor method for ConstraintInfo
-     * @param  string $min Minimum value
-     * @param  string $max Maximum value
-     * @param  ConstraintInfoValues $values Acceptable values
+     * @param  string $min
+     * @param  string $max
+     * @param  array $values
      * @return self
      */
-    public function __construct($min = NULL, $max = NULL, ConstraintInfoValues $values = NULL)
+    public function __construct($min = NULL, $max = NULL, array $values = [])
     {
         if (NULL !== $min) {
             $this->setMin($min);
@@ -70,9 +69,7 @@ class ConstraintInfo
         if (NULL !== $max) {
             $this->setMax($max);
         }
-        if ($values instanceof ConstraintInfoValues) {
-            $this->setValues($values);
-        }
+        $this->setValues($values);
     }
 
     /**
@@ -80,20 +77,20 @@ class ConstraintInfo
      *
      * @return string
      */
-    public function getMin()
+    public function getMin(): string
     {
-        return $this->_min;
+        return $this->min;
     }
 
     /**
      * Sets minimum value
      *
      * @param  string $min
-     * @return string|self
+     * @return self
      */
-    public function setMin($min)
+    public function setMin($min): self
     {
-        $this->_min = trim($min);
+        $this->min = trim($min);
         return $this;
     }
 
@@ -102,9 +99,9 @@ class ConstraintInfo
      *
      * @return string
      */
-    public function getMax()
+    public function getMax(): string
     {
-        return $this->_max;
+        return $this->max;
     }
 
     /**
@@ -113,39 +110,49 @@ class ConstraintInfo
      * @param  string $max
      * @return self
      */
-    public function setMax($max)
+    public function setMax($max): self
     {
-        $this->_max = trim($max);
+        $this->max = trim($max);
         return $this;
     }
 
     /**
      * Gets acceptable values
      *
-     * @return ConstraintInfoValues
+     * @return array
      */
-    public function getValues()
+    public function getValues(): array
     {
-        return $this->_values;
+        return $this->values;
     }
 
     /**
      * Sets acceptable values
      *
-     * @param  ConstraintInfoValues $values
+     * @param  array $values
      * @return self
      */
-    public function setValues(ConstraintInfoValues $values)
+    public function setValues(array $values): self
     {
-        $this->_values = $values;
+        $this->values = [];
+        foreach ($values as $value) {
+            $this->addValue($value);
+        }
         return $this;
     }
 
-    public function addValue($value) {
-        if (!($this->_values instanceof ConstraintInfoValues)) {
-            $this->_values = new ConstraintInfoValues();
+    /**
+     * Adds a values
+     *
+     * @param  string $values
+     * @return self
+     */
+    public function addValue($value): self
+    {
+        $value = trim($value);
+        if (!empty($value) && !in_array($value, $this->values)) {
+            $this->values[] = $value;
         }
-        $this->_values->addValue($value);
         return $this;
     }
 }

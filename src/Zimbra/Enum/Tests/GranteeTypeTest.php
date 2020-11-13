@@ -26,7 +26,7 @@ class GranteeTypeTest extends TestCase
         ];
         foreach ($values as $enum => $value)
         {
-            $this->assertSame(GranteeType::$enum()->value(), $value);
+            $this->assertSame(GranteeType::$enum()->getValue(), $value);
         }
     }
 }

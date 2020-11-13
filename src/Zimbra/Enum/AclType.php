@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * This file is part of the Zimbra API in PHP library.
  *
@@ -10,25 +10,27 @@
 
 namespace Zimbra\Enum;
 
+use MyCLabs\Enum\Enum;
+
 /**
  * AclType enum class
  *
  * @package   Zimbra
  * @category  Enum
  * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
- * @copyright Copyright © 2013 by Nguyen Van Nguyen.
+ * @copyright Copyright © 2013-present by Nguyen Van Nguyen.
  */
-class AclType extends Base
+class AclType extends Enum
 {
     /**
      * Constant for value 'grant'
      * @return string 'grant'
      */
-    const GRANT = 'grant';
+    private const GRANT = 'grant';
 
     /**
      * Constant for value 'deny'
      * @return string 'deny'
      */
-    const DENY = 'deny';
+    private const DENY = 'deny';
 }

@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * This file is part of the Zimbra API in PHP library.
  *
@@ -10,13 +10,7 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\Accessor;
-use JMS\Serializer\Annotation\SerializedName;
-use JMS\Serializer\Annotation\Type;
-use JMS\Serializer\Annotation\XmlAttribute;
-use JMS\Serializer\Annotation\XmlList;
-use JMS\Serializer\Annotation\XmlRoot;
-
+use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlList, XmlRoot};
 use Zimbra\Enum\CacheType;
 
 /**
@@ -26,17 +20,19 @@ use Zimbra\Enum\CacheType;
  * @subpackage Admin
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
- * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
+ * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
+ * @AccessType("public_method")
  * @XmlRoot(name="cache")
  */
 class CacheSelector
 {
     /**
      * @Accessor(getter="getEntries", setter="setEntries")
+     * @SerializedName("entry")
      * @Type("array<Zimbra\Admin\Struct\CacheEntrySelector>")
      * @XmlList(inline = true, entry = "entry")
      */
-    private $_entries;
+    private $entries;
 
     /**
      * @Accessor(getter="getTypes", setter="setTypes")
@@ -44,7 +40,7 @@ class CacheSelector
      * @Type("string")
      * @XmlAttribute
      */
-    private $_types;
+    private $types;
 
     /**
      * @Accessor(getter="isAllServers", setter="setAllServers")
@@ -52,7 +48,7 @@ class CacheSelector
      * @Type("bool")
      * @XmlAttribute
      */
-    private $_allServers;
+    private $allServers;
 
     /**
      * @Accessor(getter="isIncludeImapServers", setter="setIncludeImapServers")
@@ -60,7 +56,7 @@ class CacheSelector
      * @Type("bool")
      * @XmlAttribute
      */
-    private $_imapServers;
+    private $imapServers;
 
     /**
      * Constructor method for CacheSelector
@@ -87,9 +83,9 @@ class CacheSelector
      *
      * @return string
      */
-    public function getTypes()
+    public function getTypes(): string
     {
-        return $this->_types;
+        return $this->types;
     }
 
     /**
@@ -98,17 +94,17 @@ class CacheSelector
      * @param  string $types
      * @return self
      */
-    public function setTypes($types)
+    public function setTypes($types): self
     {
         $arrTypes = explode(',', $types);
         $types = [];
         foreach ($arrTypes as $type) {
             $type = trim($type);
-            if (CacheType::has($type) && !in_array($type, $types)) {
+            if (CacheType::isValid($type) && !in_array($type, $types)) {
                 $types[] = $type;
             }
         }
-        $this->_types = implode(',', $types);
+        $this->types = implode(',', $types);
         return $this;
     }
 
@@ -117,9 +113,9 @@ class CacheSelector
      *
      * @return bool
      */
-    public function isAllServers()
+    public function isAllServers(): bool
     {
-        return $this->_allServers;
+        return $this->allServers;
     }
 
     /**
@@ -128,9 +124,9 @@ class CacheSelector
      * @param  bool $allServers
      * @return self
      */
-    public function setAllServers($allServers)
+    public function setAllServers($allServers): self
     {
-        $this->_allServers = (bool) $allServers;
+        $this->allServers = (bool) $allServers;
         return $this;
     }
 
@@ -139,9 +135,9 @@ class CacheSelector
      *
      * @return bool
      */
-    public function isIncludeImapServers()
+    public function isIncludeImapServers(): bool
     {
-        return $this->_imapServers;
+        return $this->imapServers;
     }
 
     /**
@@ -150,9 +146,9 @@ class CacheSelector
      * @param  bool $imapServers
      * @return self
      */
-    public function setIncludeImapServers($imapServers)
+    public function setIncludeImapServers($imapServers): self
     {
-        $this->_imapServers = (bool) $imapServers;
+        $this->imapServers = (bool) $imapServers;
         return $this;
     }
 
@@ -162,9 +158,9 @@ class CacheSelector
      * @param  CacheEntrySelector $entry
      * @return CacheSelector
      */
-    public function addEntry(CacheEntrySelector $entry)
+    public function addEntry(CacheEntrySelector $entry): self
     {
-        $this->_entries[] = $entry;
+        $this->entries[] = $entry;
         return $this;
     }
 
@@ -174,12 +170,12 @@ class CacheSelector
      * @param  array $entries The entries
      * @return self
      */
-    public function setEntries(array $entries)
+    public function setEntries(array $entries): self
     {
-        $this->_entries = [];
+        $this->entries = [];
         foreach ($entries as $entry) {
             if ($entry instanceof CacheEntrySelector) {
-                $this->_entries[] = $entry;
+                $this->entries[] = $entry;
             }
         }
         return $this;
@@ -190,8 +186,8 @@ class CacheSelector
      *
      * @return array
      */
-    public function getEntries()
+    public function getEntries(): array
     {
-        return $this->_entries;
+        return $this->entries;
     }
 }

@@ -19,7 +19,7 @@ class ServerByTest extends TestCase
         ];
         foreach ($values as $enum => $value)
         {
-            $this->assertSame(ServerBy::$enum()->value(), $value);
+            $this->assertSame(ServerBy::$enum()->getValue(), $value);
         }
     }
 }

@@ -19,7 +19,7 @@ class QuotaSortByTest extends TestCase
         ];
         foreach ($values as $enum => $value)
         {
-            $this->assertSame(QuotaSortBy::$enum()->value(), $value);
+            $this->assertSame(QuotaSortBy::$enum()->getValue(), $value);
         }
     }
 }

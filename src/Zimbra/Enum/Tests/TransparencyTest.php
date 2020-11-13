@@ -18,7 +18,7 @@ class TransparencyTest extends TestCase
         ];
         foreach ($values as $enum => $value)
         {
-            $this->assertSame(Transparency::$enum()->value(), $value);
+            $this->assertSame(Transparency::$enum()->getValue(), $value);
         }
     }
 }

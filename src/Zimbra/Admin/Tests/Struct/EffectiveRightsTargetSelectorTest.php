@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Zimbra\Admin\Tests\Struct;
 
@@ -16,27 +16,31 @@ class EffectiveRightsTargetSelectorTest extends ZimbraStructTestCase
     {
         $value = $this->faker->word;
         $target = new EffectiveRightsTargetSelector(
-            TargetType::DOMAIN()->value(), TargetBy::ID()->value(), $value
+            TargetType::DOMAIN(), TargetBy::ID(), $value
         );
-        $this->assertSame(TargetType::DOMAIN()->value(), $target->getType());
-        $this->assertSame(TargetBy::ID()->value(), $target->getBy());
+        $this->assertEquals(TargetType::DOMAIN(), $target->getType());
+        $this->assertEquals(TargetBy::ID(), $target->getBy());
         $this->assertSame($value, $target->getValue());
 
-        $target = new EffectiveRightsTargetSelector('', '');
-        $target->setType(TargetType::ACCOUNT()->value())
-               ->setBy(TargetBy::NAME()->value())
+        $target = new EffectiveRightsTargetSelector(TargetType::DOMAIN(), TargetBy::ID());
+        $target->setType(TargetType::ACCOUNT())
+               ->setBy(TargetBy::NAME())
                ->setValue($value);
-        $this->assertSame(TargetType::ACCOUNT()->value(), $target->getType());
-        $this->assertSame(TargetBy::NAME()->value(), $target->getBy());
+        $this->assertEquals(TargetType::ACCOUNT(), $target->getType());
+        $this->assertEquals(TargetBy::NAME(), $target->getBy());
         $this->assertSame($value, $target->getValue());
 
         $xml = '<?xml version="1.0"?>' . "\n"
             . '<target type="' . TargetType::ACCOUNT() . '" by="' . TargetBy::NAME() . '">' . $value . '</target>';
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($target, 'xml'));
+        $this->assertEquals($target, $this->serializer->deserialize($xml, EffectiveRightsTargetSelector::class, 'xml'));
 
-        $target = $this->serializer->deserialize($xml, 'Zimbra\Admin\Struct\EffectiveRightsTargetSelector', 'xml');
-        $this->assertSame(TargetType::ACCOUNT()->value(), $target->getType());
-        $this->assertSame(TargetBy::NAME()->value(), $target->getBy());
-        $this->assertSame($value, $target->getValue());
+        $json = json_encode([
+            'type' => (string) TargetType::ACCOUNT(),
+            'by' => (string) TargetBy::NAME(),
+            '_content' => $value,
+        ]);
+        $this->assertSame($json, $this->serializer->serialize($target, 'json'));
+        $this->assertEquals($target, $this->serializer->deserialize($json, EffectiveRightsTargetSelector::class, 'json'));
     }
 }

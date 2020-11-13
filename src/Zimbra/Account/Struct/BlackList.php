@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * This file is part of the Zimbra API in PHP library.
  *
@@ -10,11 +10,7 @@
 
 namespace Zimbra\Account\Struct;
 
-use JMS\Serializer\Annotation\Accessor;
-use JMS\Serializer\Annotation\Type;
-use JMS\Serializer\Annotation\XmlList;
-use JMS\Serializer\Annotation\XmlRoot;
-
+use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlList, XmlRoot};
 use Zimbra\Struct\OpValue;
 
 /**
@@ -24,17 +20,19 @@ use Zimbra\Struct\OpValue;
  * @subpackage Account
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
- * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
+ * @copyright  Copyright © 2020 by Nguyen Van Nguyen.
+ * @AccessType("public_method")
  * @XmlRoot(name="blackList")
  */
 class BlackList
 {
     /**
      * @Accessor(getter="getAddrs", setter="setAddrs")
+     * @SerializedName("addr")
      * @Type("array<Zimbra\Struct\OpValue>")
      * @XmlList(inline = true, entry = "addr")
      */
-    private $_addrs;
+    private $addrs;
 
     /**
      * Constructor method for BlackList
@@ -54,7 +52,7 @@ class BlackList
      */
     public function addAddr(OpValue $addr)
     {
-        $this->_addrs[] = $addr;
+        $this->addrs[] = $addr;
         return $this;
     }
 
@@ -66,10 +64,10 @@ class BlackList
      */
     public function setAddrs(array $addrs)
     {
-        $this->_addrs = [];
+        $this->addrs = [];
         foreach ($addrs as $addr) {
             if ($addr instanceof OpValue) {
-                $this->_addrs[] = $addr;
+                $this->addrs[] = $addr;
             }
         }
         return $this;
@@ -82,6 +80,6 @@ class BlackList
      */
     public function getAddrs()
     {
-        return $this->_addrs;
+        return $this->addrs;
     }
 }

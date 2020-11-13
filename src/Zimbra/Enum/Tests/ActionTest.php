@@ -22,7 +22,7 @@ class ActionTest extends TestCase
         ];
         foreach ($values as $enum => $value)
         {
-            $this->assertSame(Action::$enum()->value(), $value);
+            $this->assertSame(Action::$enum()->getValue(), $value);
         }
     }
 }

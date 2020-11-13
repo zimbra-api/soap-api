@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Zimbra\Account\Tests\Struct;
 
@@ -31,10 +31,14 @@ class SessionTest extends ZimbraStructTestCase
         $xml = '<?xml version="1.0"?>' . "\n"
             . '<session type="' . $type . '" id="' . $id . '">'  .$id . '</session>';
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($session, 'xml'));
+        $this->assertEquals($session, $this->serializer->deserialize($xml, Session::class, 'xml'));
 
-        $session = $this->serializer->deserialize($xml, 'Zimbra\Account\Struct\Session', 'xml');
-        $this->assertSame($type, $session->getType());
-        $this->assertSame($id, $session->getId());
-        $this->assertSame($id, $session->getValue());
+        $json = json_encode([
+            'type' => $type,
+            'id' => $id,
+            '_content' => $id,
+        ]);
+        $this->assertSame($json, $this->serializer->serialize($session, 'json'));
+        $this->assertEquals($session, $this->serializer->deserialize($json, Session::class, 'json'));
     }
 }

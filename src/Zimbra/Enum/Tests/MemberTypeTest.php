@@ -19,7 +19,7 @@ class MemberTypeTest extends TestCase
         ];
         foreach ($values as $enum => $value)
         {
-            $this->assertSame(MemberType::$enum()->value(), $value);
+            $this->assertSame(MemberType::$enum()->getValue(), $value);
         }
     }
 }

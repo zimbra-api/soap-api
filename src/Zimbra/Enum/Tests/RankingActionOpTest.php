@@ -18,7 +18,7 @@ class RankingActionOpTest extends TestCase
         ];
         foreach ($values as $enum => $value)
         {
-            $this->assertSame(RankingActionOp::$enum()->value(), $value);
+            $this->assertSame(RankingActionOp::$enum()->getValue(), $value);
         }
     }
 }

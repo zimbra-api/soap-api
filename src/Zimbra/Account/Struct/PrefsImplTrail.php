@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * This file is part of the Zimbra API in PHP library.
  *
@@ -10,9 +10,7 @@
 
 namespace Zimbra\Account\Struct;
 
-use JMS\Serializer\Annotation\Accessor;
-use JMS\Serializer\Annotation\Type;
-use JMS\Serializer\Annotation\XmlList;
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlList};
 
 /**
  * AuthPrefs struct class
@@ -21,17 +19,19 @@ use JMS\Serializer\Annotation\XmlList;
  * @subpackage Account
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
- * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
+ * @copyright  Copyright © 2020 by Nguyen Van Nguyen.
  */
 trait PrefsImplTrail
 {
     /**
      * Prefibutes
+     * 
      * @Accessor(getter="getPrefs", setter="setPrefs")
+     * @SerializedName("pref")
      * @Type("array<Zimbra\Account\Struct\Pref>")
      * @XmlList(inline = true, entry = "pref")
      */
-    private $_prefs;
+    private $prefs;
 
     /**
      * Constructor method for AuthPrefs
@@ -51,7 +51,7 @@ trait PrefsImplTrail
      */
     public function addPref(Pref $pref)
     {
-        $this->_prefs[] = $pref;
+        $this->prefs[] = $pref;
         return $this;
     }
 
@@ -63,10 +63,10 @@ trait PrefsImplTrail
      */
     public function setPrefs(array $prefs)
     {
-        $this->_prefs = [];
+        $this->prefs = [];
         foreach ($prefs as $pref) {
             if ($pref instanceof Pref) {
-                $this->_prefs[] = $pref;
+                $this->prefs[] = $pref;
             }
         }
         return $this;
@@ -79,6 +79,6 @@ trait PrefsImplTrail
      */
     public function getPrefs()
     {
-        return $this->_prefs;
+        return $this->prefs;
     }
 }

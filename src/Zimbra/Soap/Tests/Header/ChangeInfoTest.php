@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Zimbra\Soap\Tests\Header;
 
@@ -28,9 +28,13 @@ class ChangeInfoTest extends ZimbraStructTestCase
         $xml = '<?xml version="1.0"?>' . "\n"
             . '<change token="' . $changeId . '" type="' . $changeType . '" />';
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($info, 'xml'));
+        $this->assertEquals($info, $this->serializer->deserialize($xml, ChangeInfo::class, 'xml'));
 
-        $info = $this->serializer->deserialize($xml, 'Zimbra\Soap\Header\ChangeInfo', 'xml');
-        $this->assertSame($changeId, $info->getChangeId());
-        $this->assertSame($changeType, $info->getChangeType());
+        $json = json_encode([
+            'token' => $changeId,
+            'type' => $changeType,
+        ]);
+        $this->assertSame($json, $this->serializer->serialize($info, 'json'));
+        $this->assertEquals($info, $this->serializer->deserialize($json, ChangeInfo::class, 'json'));
     }
 }

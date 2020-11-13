@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Zimbra\Admin\Tests\Struct;
 
@@ -14,22 +14,26 @@ class DomainSelectorTest extends ZimbraStructTestCase
     public function testDomainSelector()
     {
         $value = $this->faker->word;
-        $domain = new DomainSelector(DomainBy::ID()->value(), $value);
-        $this->assertSame(DomainBy::ID()->value(), $domain->getBy());
+        $domain = new DomainSelector(DomainBy::ID(), $value);
+        $this->assertEquals(DomainBy::ID(), $domain->getBy());
         $this->assertSame($value, $domain->getValue());
 
-        $domain = new DomainSelector('');
-        $domain->setBy(DomainBy::NAME()->value())
+        $domain = new DomainSelector(DomainBy::ID());
+        $domain->setBy(DomainBy::NAME())
                ->setValue($value);
-        $this->assertSame(DomainBy::NAME()->value(), $domain->getBy());
+        $this->assertEquals(DomainBy::NAME(), $domain->getBy());
         $this->assertSame($value, $domain->getValue());
 
         $xml = '<?xml version="1.0"?>' . "\n"
             . '<domain by="' . DomainBy::NAME() . '">' . $value . '</domain>';
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($domain, 'xml'));
+        $this->assertEquals($domain, $this->serializer->deserialize($xml, DomainSelector::class, 'xml'));
 
-        $domain = $this->serializer->deserialize($xml, 'Zimbra\Admin\Struct\DomainSelector', 'xml');
-        $this->assertSame(DomainBy::NAME()->value(), $domain->getBy());
-        $this->assertSame($value, $domain->getValue());
+        $json = json_encode([
+            'by' => (string) DomainBy::NAME(),
+            '_content' => $value,
+        ]);
+        $this->assertSame($json, $this->serializer->serialize($domain, 'json'));
+        $this->assertEquals($domain, $this->serializer->deserialize($json, DomainSelector::class, 'json'));
     }
 }

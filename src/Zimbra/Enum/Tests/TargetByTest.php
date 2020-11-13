@@ -18,7 +18,7 @@ class TargetByTest extends TestCase
         ];
         foreach ($values as $enum => $value)
         {
-            $this->assertSame(TargetBy::$enum()->value(), $value);
+            $this->assertSame(TargetBy::$enum()->getValue(), $value);
         }
     }
 }

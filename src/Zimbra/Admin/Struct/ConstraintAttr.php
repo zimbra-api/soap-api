@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * This file is part of the Zimbra API in PHP library.
  *
@@ -10,12 +10,7 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\Accessor;
-use JMS\Serializer\Annotation\SerializedName;
-use JMS\Serializer\Annotation\Type;
-use JMS\Serializer\Annotation\XmlAttribute;
-use JMS\Serializer\Annotation\XmlElement;
-use JMS\Serializer\Annotation\XmlRoot;
+use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlElement, XmlRoot};
 
 /**
  * ConstraintAttr struct class
@@ -24,7 +19,8 @@ use JMS\Serializer\Annotation\XmlRoot;
  * @subpackage Admin
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
- * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
+ * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
+ * @AccessType("public_method")
  * @XmlRoot(name="a")
  */
 class ConstraintAttr
@@ -35,7 +31,7 @@ class ConstraintAttr
      * @Type("string")
      * @XmlAttribute
      */
-    private $_name;
+    private $name;
 
     /**
      * @Accessor(getter="getConstraint", setter="setConstraint")
@@ -43,7 +39,7 @@ class ConstraintAttr
      * @Type("Zimbra\Admin\Struct\ConstraintInfo")
      * @XmlElement
      */
-    private $_constraint;
+    private $constraint;
 
     /**
      * Constructor method for ConstraintAttr
@@ -62,9 +58,9 @@ class ConstraintAttr
      *
      * @return ConstraintInfo
      */
-    public function getConstraint()
+    public function getConstraint(): ConstraintInfo
     {
-        return $this->_constraint;
+        return $this->constraint;
     }
 
     /**
@@ -73,20 +69,20 @@ class ConstraintAttr
      * @param  ConstraintInfo $constraint
      * @return self
      */
-    public function setConstraint(ConstraintInfo $constraint)
+    public function setConstraint(ConstraintInfo $constraint): self
     {
-        $this->_constraint = $constraint;
+        $this->constraint = $constraint;
         return $this;
     }
 
     /**
      * Gets the name
      *
-     * @return string|
+     * @return string
      */
-    public function getName()
+    public function getName(): string
     {
-        return $this->_name;
+        return $this->name;
     }
 
     /**
@@ -95,9 +91,9 @@ class ConstraintAttr
      * @param  string $name
      * @return self
      */
-    public function setName($name)
+    public function setName($name): self
     {
-        $this->_name = trim($name);
+        $this->name = trim($name);
         return $this;
     }
 }

@@ -18,7 +18,7 @@ class VersionCheckActionTest extends TestCase
         ];
         foreach ($values as $enum => $value)
         {
-            $this->assertSame(VersionCheckAction::$enum()->value(), $value);
+            $this->assertSame(VersionCheckAction::$enum()->getValue(), $value);
         }
     }
 }

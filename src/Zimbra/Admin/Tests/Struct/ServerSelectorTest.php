@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Zimbra\Admin\Tests\Struct;
 
@@ -14,22 +14,26 @@ class ServerSelectorTest extends ZimbraStructTestCase
     public function testServerSelector()
     {
         $value = $this->faker->word;
-        $server = new ServerSelector(ServerBy::ID()->value(), $value);
-        $this->assertSame(ServerBy::ID()->value(), $server->getBy());
+        $server = new ServerSelector(ServerBy::ID(), $value);
+        $this->assertEquals(ServerBy::ID(), $server->getBy());
         $this->assertSame($value, $server->getValue());
 
-        $server = new ServerSelector('');
-        $server->setBy(ServerBy::NAME()->value())
+        $server = new ServerSelector(ServerBy::ID());
+        $server->setBy(ServerBy::NAME())
                ->setValue($value);
-        $this->assertSame(ServerBy::NAME()->value(), $server->getBy());
+        $this->assertEquals(ServerBy::NAME(), $server->getBy());
         $this->assertSame($value, $server->getValue());
 
         $xml = '<?xml version="1.0"?>' . "\n"
             . '<server by="' . ServerBy::NAME() . '">' . $value . '</server>';
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($server, 'xml'));
+        $this->assertEquals($server, $this->serializer->deserialize($xml, ServerSelector::class, 'xml'));
 
-        $server = $this->serializer->deserialize($xml, 'Zimbra\Admin\Struct\ServerSelector', 'xml');
-        $this->assertSame(ServerBy::NAME()->value(), $server->getBy());
-        $this->assertSame($value, $server->getValue());
+        $json = json_encode([
+            'by' => (string) ServerBy::NAME(),
+            '_content' => $value,
+        ]);
+        $this->assertSame($json, $this->serializer->serialize($server, 'json'));
+        $this->assertEquals($server, $this->serializer->deserialize($json, ServerSelector::class, 'json'));
     }
 }

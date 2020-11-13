@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * This file is part of the Zimbra API in PHP library.
  *
@@ -10,31 +10,33 @@
 
 namespace Zimbra\Enum;
 
+use MyCLabs\Enum\Enum;
+
 /**
  * MemberType enum class
  *
  * @package   Zimbra
  * @category  Enum
  * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
- * @copyright Copyright © 2013 by Nguyen Van Nguyen.
+ * @copyright Copyright © 2013-present by Nguyen Van Nguyen.
  */
-class MemberType extends Base
+class MemberType extends Enum
 {
     /**
      * Constant for value 'contact'
      * @return string 'C'
      */
-    const CONTACT = 'C';
+    private const CONTACT = 'C';
 
     /**
      * Constant for value 'GAL entry'
      * @return string 'deny'
      */
-    const GAL_ENTRY = 'G';
+    private const GAL_ENTRY = 'G';
 
     /**
      * Constant for value 'inlined member'
      * @return string 'I'
      */
-    const INLINED_MEMBER = 'I';
+    private const INLINED_MEMBER = 'I';
 }

@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Zimbra\Account\Tests\Struct;
 
@@ -15,22 +15,26 @@ class ZimletPrefsSpecTest extends ZimbraStructTestCase
     {
         $name = $this->faker->word;
 
-        $zimlet = new ZimletPrefsSpec($name, ZimletStatus::ENABLED()->value());
+        $zimlet = new ZimletPrefsSpec($name, ZimletStatus::ENABLED());
         $this->assertSame($name, $zimlet->getName());
-        $this->assertSame(ZimletStatus::ENABLED()->value(), $zimlet->getPresence());
+        $this->assertEquals(ZimletStatus::ENABLED(), $zimlet->getPresence());
 
-        $zimlet = new ZimletPrefsSpec('', '');
+        $zimlet = new ZimletPrefsSpec('', ZimletStatus::ENABLED());
         $zimlet->setName($name)
-               ->setPresence(ZimletStatus::DISABLED()->value());
+               ->setPresence(ZimletStatus::DISABLED());
         $this->assertSame($name, $zimlet->getName());
-        $this->assertSame(ZimletStatus::DISABLED()->value(), $zimlet->getPresence());
+        $this->assertEquals(ZimletStatus::DISABLED(), $zimlet->getPresence());
 
         $xml = '<?xml version="1.0"?>' . "\n"
             . '<zimlet name="' . $name . '" presence="' . ZimletStatus::DISABLED() . '" />';
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($zimlet, 'xml'));
+        $this->assertEquals($zimlet, $this->serializer->deserialize($xml, ZimletPrefsSpec::class, 'xml'));
 
-        $zimlet = $this->serializer->deserialize($xml, 'Zimbra\Account\Struct\ZimletPrefsSpec', 'xml');
-        $this->assertSame($name, $zimlet->getName());
-        $this->assertSame(ZimletStatus::DISABLED()->value(), $zimlet->getPresence());
+        $json = json_encode([
+            'name' => $name,
+            'presence' => (string) ZimletStatus::DISABLED(),
+        ]);
+        $this->assertSame($json, $this->serializer->serialize($zimlet, 'json'));
+        $this->assertEquals($zimlet, $this->serializer->deserialize($json, ZimletPrefsSpec::class, 'json'));
     }
 }

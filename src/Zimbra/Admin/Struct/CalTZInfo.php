@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * This file is part of the Zimbra API in PHP library.
  *
@@ -10,13 +10,7 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\Accessor;
-use JMS\Serializer\Annotation\SerializedName;
-use JMS\Serializer\Annotation\Type;
-use JMS\Serializer\Annotation\XmlAttribute;
-use JMS\Serializer\Annotation\XmlElement;
-use JMS\Serializer\Annotation\XmlRoot;
-
+use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlElement, XmlRoot};
 use Zimbra\Struct\TzOnsetInfo;
 
 /**
@@ -26,7 +20,8 @@ use Zimbra\Struct\TzOnsetInfo;
  * @subpackage Admin
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
- * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
+ * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
+ * @AccessType("public_method")
  * @XmlRoot(name="tz")
  */
 class CalTZInfo
@@ -37,7 +32,7 @@ class CalTZInfo
      * @Type("string")
      * @XmlAttribute
      */
-    private $_id;
+    private $id;
 
     /**
      * @Accessor(getter="getTzStdOffset", setter="setTzStdOffset")
@@ -45,7 +40,7 @@ class CalTZInfo
      * @Type("integer")
      * @XmlAttribute
      */
-    private $_tzStdOffset;
+    private $tzStdOffset;
 
     /**
      * @Accessor(getter="getTzDayOffset", setter="setTzDayOffset")
@@ -53,7 +48,7 @@ class CalTZInfo
      * @Type("integer")
      * @XmlAttribute
      */
-    private $_tzDayOffset;
+    private $tzDayOffset;
 
     /**
      * @Accessor(getter="getStandardTzOnset", setter="setStandardTzOnset")
@@ -61,7 +56,7 @@ class CalTZInfo
      * @Type("Zimbra\Struct\TzOnsetInfo")
      * @XmlElement
      */
-    private $_standardTzOnset;
+    private $standardTzOnset;
 
     /**
      * @Accessor(getter="getDaylightTzOnset", setter="setDaylightTzOnset")
@@ -69,7 +64,7 @@ class CalTZInfo
      * @Type("Zimbra\Struct\TzOnsetInfo")
      * @XmlElement
      */
-    private $_daylightTzOnset;
+    private $daylightTzOnset;
 
     /**
      * @Accessor(getter="getStandardTZName", setter="setStandardTZName")
@@ -77,7 +72,7 @@ class CalTZInfo
      * @Type("string")
      * @XmlAttribute
      */
-    private $_standardTZName;
+    private $standardTZName;
 
     /**
      * @Accessor(getter="getDaylightTZName", setter="setDaylightTZName")
@@ -85,7 +80,7 @@ class CalTZInfo
      * @Type("string")
      * @XmlAttribute
      */
-    private $_daylightTZName;
+    private $daylightTZName;
 
     /**
      * Constructor method for CalTZInfo
@@ -131,9 +126,9 @@ class CalTZInfo
      *
      * @return string
      */
-    public function getId()
+    public function getId(): string
     {
-        return $this->_id;
+        return $this->id;
     }
 
     /**
@@ -142,9 +137,9 @@ class CalTZInfo
      * @param  string $id
      * @return self
      */
-    public function setId($id)
+    public function setId($id): self
     {
-        $this->_id = trim($id);
+        $this->id = trim($id);
         return $this;
     }
 
@@ -153,9 +148,9 @@ class CalTZInfo
      *
      * @return int
      */
-    public function getTzStdOffset()
+    public function getTzStdOffset(): int
     {
-        return $this->_tzStdOffset;
+        return $this->tzStdOffset;
     }
 
     /**
@@ -164,9 +159,9 @@ class CalTZInfo
      * @param  int $stdoff
      * @return self
      */
-    public function setTzStdOffset($stdoff)
+    public function setTzStdOffset($stdoff): self
     {
-        $this->_tzStdOffset = (int) $stdoff;
+        $this->tzStdOffset = (int) $stdoff;
         return $this;
     }
 
@@ -175,9 +170,9 @@ class CalTZInfo
      *
      * @return int
      */
-    public function getTzDayOffset()
+    public function getTzDayOffset(): int
     {
-        return $this->_tzDayOffset;
+        return $this->tzDayOffset;
     }
 
     /**
@@ -186,9 +181,9 @@ class CalTZInfo
      * @param  int $dayoff
      * @return self
      */
-    public function setTzDayOffset($dayoff)
+    public function setTzDayOffset($dayoff): self
     {
-        $this->_tzDayOffset = (int) $dayoff;
+        $this->tzDayOffset = (int) $dayoff;
         return $this;
     }
 
@@ -197,9 +192,9 @@ class CalTZInfo
      *
      * @return string
      */
-    public function getStandardTZName()
+    public function getStandardTZName(): string
     {
-        return $this->_standardTZName;
+        return $this->standardTZName;
     }
 
     /**
@@ -208,9 +203,9 @@ class CalTZInfo
      * @param  string $stdname
      * @return self
      */
-    public function setStandardTZName($stdname)
+    public function setStandardTZName($stdname): self
     {
-        $this->_standardTZName = trim($stdname);
+        $this->standardTZName = trim($stdname);
         return $this;
     }
 
@@ -219,9 +214,9 @@ class CalTZInfo
      *
      * @return string
      */
-    public function getDaylightTZName()
+    public function getDaylightTZName(): string
     {
-        return $this->_daylightTZName;
+        return $this->daylightTZName;
     }
 
     /**
@@ -230,9 +225,9 @@ class CalTZInfo
      * @param  string $dayname
      * @return self
      */
-    public function setDaylightTZName($dayname)
+    public function setDaylightTZName($dayname): self
     {
-        $this->_daylightTZName = trim($dayname);
+        $this->daylightTZName = trim($dayname);
         return $this;
     }
 
@@ -241,9 +236,9 @@ class CalTZInfo
      *
      * @return TzOnsetInfo
      */
-    public function getStandardTzOnset()
+    public function getStandardTzOnset(): TzOnsetInfo
     {
-        return $this->_standardTzOnset;
+        return $this->standardTzOnset;
     }
 
     /**
@@ -252,9 +247,9 @@ class CalTZInfo
      * @param  TzOnsetInfo $standard
      * @return self
      */
-    public function setStandardTzOnset(TzOnsetInfo $standard)
+    public function setStandardTzOnset(TzOnsetInfo $standard): self
     {
-        $this->_standardTzOnset = $standard;
+        $this->standardTzOnset = $standard;
         return $this;
     }
 
@@ -263,9 +258,9 @@ class CalTZInfo
      *
      * @return TzOnsetInfo
      */
-    public function getDaylightTzOnset()
+    public function getDaylightTzOnset(): TzOnsetInfo
     {
-        return $this->_daylightTzOnset;
+        return $this->daylightTzOnset;
     }
 
     /**
@@ -274,9 +269,9 @@ class CalTZInfo
      * @param  TzOnsetInfo $daylight
      * @return self
      */
-    public function setDaylightTzOnset(TzOnsetInfo $daylight)
+    public function setDaylightTzOnset(TzOnsetInfo $daylight): self
     {
-        $this->_daylightTzOnset = $daylight;
+        $this->daylightTzOnset = $daylight;
         return $this;
     }
 }

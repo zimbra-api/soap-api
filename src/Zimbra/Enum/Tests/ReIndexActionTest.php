@@ -19,7 +19,7 @@ class ReIndexActionTest extends TestCase
         ];
         foreach ($values as $enum => $value)
         {
-            $this->assertSame(ReIndexAction::$enum()->value(), $value);
+            $this->assertSame(ReIndexAction::$enum()->getValue(), $value);
         }
     }
 }

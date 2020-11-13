@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Zimbra\Account\Tests\Struct;
 
@@ -17,8 +17,8 @@ class IdentityTest extends ZimbraStructTestCase
         $value = $this->faker->word;
         $id = $this->faker->word;
 
-        $attr1 = new Attr($name, $value, true);
-        $attr2 = new Attr($name, $value, false);
+        $attr1 = new Attr($name, $value, TRUE);
+        $attr2 = new Attr($name, $value, FALSE);
 
         $identity = new Identity($name, $id, [$attr1]);
         $this->assertSame($name, $identity->getName());
@@ -40,17 +40,25 @@ class IdentityTest extends ZimbraStructTestCase
                 . '<a name="' . $name . '" pd="false">' . $value . '</a>'
             . '</identity>';
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($identity, 'xml'));
+        $this->assertEquals($identity, $this->serializer->deserialize($xml, Identity::class, 'xml'));
 
-        $identity = $this->serializer->deserialize($xml, 'Zimbra\Account\Struct\Identity', 'xml');
-        $attr1 = $identity->getAttrs()[0];
-        $attr2 = $identity->getAttrs()[1];
-
-        $this->assertSame($name, $identity->getName());
-        $this->assertSame($name, $attr1->getName());
-        $this->assertSame($value, $attr1->getValue());
-        $this->assertTrue($attr1->getPermDenied());
-        $this->assertSame($name, $attr2->getName());
-        $this->assertSame($value, $attr2->getValue());
-        $this->assertFalse($attr2->getPermDenied());
+        $json = json_encode([
+            'a' => [
+                [
+                    'name' => $name,
+                    '_content' => $value,
+                    'pd' => TRUE,
+                ],
+                [
+                    'name' => $name,
+                    '_content' => $value,
+                    'pd' => FALSE,
+                ],
+            ],
+            'name' => $name,
+            'id' => $id,
+        ]);
+        $this->assertSame($json, $this->serializer->serialize($identity, 'json'));
+        $this->assertEquals($identity, $this->serializer->deserialize($json, Identity::class, 'json'));
     }
 }

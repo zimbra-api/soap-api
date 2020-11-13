@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Zimbra\Account\Tests\Struct;
 
@@ -19,8 +19,8 @@ class SignatureTest extends ZimbraStructTestCase
         $id = $this->faker->word;
         $cid = $this->faker->word;
 
-        $content1 = new SignatureContent($value, ContentType::TEXT_PLAIN()->value());
-        $content2 = new SignatureContent($value, ContentType::TEXT_HTML()->value());
+        $content1 = new SignatureContent($value, ContentType::TEXT_PLAIN());
+        $content2 = new SignatureContent($value, ContentType::TEXT_HTML());
 
         $sig = new Signature($name, $id, $cid, [$content1]);
         $this->assertSame($name, $sig->getName());
@@ -46,17 +46,26 @@ class SignatureTest extends ZimbraStructTestCase
                 . '<content type="' . ContentType::TEXT_HTML() . '">' . $value . '</content>'
             . '</signature>';
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($sig, 'xml'));
+        $this->assertEquals($sig, $this->serializer->deserialize($xml, Signature::class, 'xml'));
 
-        $sig = $this->serializer->deserialize($xml, 'Zimbra\Account\Struct\Signature', 'xml');
-        $content1 = $sig->getContents()[0];
-        $content2 = $sig->getContents()[1];
-
-        $this->assertSame($name, $sig->getName());
-        $this->assertSame($id, $sig->getId());
-        $this->assertSame($cid, $sig->getCid());
-        $this->assertSame($value, $content1->getValue());
-        $this->assertSame(ContentType::TEXT_PLAIN()->value(), $content1->getContentType());
-        $this->assertSame($value, $content2->getValue());
-        $this->assertSame(ContentType::TEXT_HTML()->value(), $content2->getContentType());
+        $json = json_encode([
+            'name' => $name,
+            'id' => $id,
+            'cid' => [
+                '_content' => $cid,
+            ],
+            'content' => [
+                [
+                    'type' => (string) ContentType::TEXT_PLAIN(),
+                    '_content' => $value,
+                ],
+                [
+                    'type' => (string) ContentType::TEXT_HTML(),
+                    '_content' => $value,
+                ],
+            ],
+        ]);
+        $this->assertSame($json, $this->serializer->serialize($sig, 'json'));
+        $this->assertEquals($sig, $this->serializer->deserialize($json, Signature::class, 'json'));
     }
 }

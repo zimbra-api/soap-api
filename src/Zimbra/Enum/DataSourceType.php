@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * This file is part of the Zimbra API in PHP library.
  *
@@ -10,73 +10,75 @@
 
 namespace Zimbra\Enum;
 
+use MyCLabs\Enum\Enum;
+
 /**
  * DataSourceType enum class
  *
  * @package   Zimbra
  * @category  Enum
  * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
- * @copyright Copyright © 2013 by Nguyen Van Nguyen.
+ * @copyright Copyright © 2013-present by Nguyen Van Nguyen.
  */
-class DataSourceType extends Base
+class DataSourceType extends Enum
 {
     /**
      * Constant for value 'pop3'
      * @return string 'pop3'
      */
-    const POP3 = 'pop3';
+    private const POP3 = 'pop3';
 
     /**
      * Constant for value 'imap'
      * @return string 'imap'
      */
-    const IMAP = 'imap';
+    private const IMAP = 'imap';
 
     /**
      * Constant for value 'caldav'
      * @return string 'caldav'
      */
-    const CALDAV = 'caldav';
+    private const CALDAV = 'caldav';
 
     /**
      * Constant for value 'contacts'
      * @return string 'contacts'
      */
-    const CONTACTS = 'contacts';
+    private const CONTACTS = 'contacts';
 
     /**
      * Constant for value 'yab'
      * @return string 'yab'
      */
-    const YAB = 'yab';
+    private const YAB = 'yab';
 
     /**
      * Constant for value 'rss'
      * @return string 'rss'
      */
-    const RSS = 'rss';
+    private const RSS = 'rss';
 
     /**
      * Constant for value 'cal'
      * @return string 'cal'
      */
-    const CAL = 'cal';
+    private const CAL = 'cal';
 
     /**
      * Constant for value 'gal'
      * @return string 'gal'
      */
-    const GAL = 'gal';
+    private const GAL = 'gal';
 
     /**
      * Constant for value 'xsync'
      * @return string 'xsync'
      */
-    const XSYNC = 'xsync';
+    private const XSYNC = 'xsync';
 
     /**
      * Constant for value 'tagmap'
      * @return string 'tagmap'
      */
-    const TAGMAP = 'tagmap';
+    private const TAGMAP = 'tagmap';
 }

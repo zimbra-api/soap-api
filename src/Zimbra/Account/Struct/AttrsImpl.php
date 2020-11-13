@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * This file is part of the Zimbra API in PHP library.
  *
@@ -10,9 +10,7 @@
 
 namespace Zimbra\Account\Struct;
 
-use JMS\Serializer\Annotation\Accessor;
-use JMS\Serializer\Annotation\Type;
-use JMS\Serializer\Annotation\XmlList;
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlList};
 
 /**
  * AttrsImpl struct class
@@ -21,16 +19,17 @@ use JMS\Serializer\Annotation\XmlList;
  * @subpackage Account
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
- * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
+ * @copyright  Copyright © 2020 by Nguyen Van Nguyen.
  */
 abstract class AttrsImpl
 {
     /**
      * @Accessor(getter="getAttrs", setter="setAttrs")
+     * @SerializedName("a")
      * @Type("array<Zimbra\Account\Struct\Attr>")
      * @XmlList(inline = true, entry = "a")
      */
-    private $_attrs;
+    private $attrs;
 
     /**
      * Constructor method for AttrsImpl
@@ -50,7 +49,7 @@ abstract class AttrsImpl
      */
     public function addAttr(Attr $attr)
     {
-        $this->_attrs[] = $attr;
+        $this->attrs[] = $attr;
         return $this;
     }
 
@@ -62,10 +61,10 @@ abstract class AttrsImpl
      */
     public function setAttrs(array $attrs)
     {
-        $this->_attrs = [];
+        $this->attrs = [];
         foreach ($attrs as $attr) {
             if ($attr instanceof Attr) {
-                $this->_attrs[] = $attr;
+                $this->attrs[] = $attr;
             }
         }
         return $this;
@@ -78,6 +77,6 @@ abstract class AttrsImpl
      */
     public function getAttrs()
     {
-        return $this->_attrs;
+        return $this->attrs;
     }
 }

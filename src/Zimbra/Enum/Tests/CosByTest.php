@@ -18,7 +18,7 @@ class CosByTest extends TestCase
         ];
         foreach ($values as $enum => $value)
         {
-            $this->assertSame(CosBy::$enum()->value(), $value);
+            $this->assertSame(CosBy::$enum()->getValue(), $value);
         }
     }
 }

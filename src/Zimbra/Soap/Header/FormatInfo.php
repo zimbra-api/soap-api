@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * This file is part of the Zimbra API in PHP library.
  *
@@ -10,12 +10,7 @@
 
 namespace Zimbra\Soap\Header;
 
-use JMS\Serializer\Annotation\Accessor;
-use JMS\Serializer\Annotation\SerializedName;
-use JMS\Serializer\Annotation\Type;
-use JMS\Serializer\Annotation\XmlAttribute;
-use JMS\Serializer\Annotation\XmlRoot;
-
+use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlRoot};
 use Zimbra\Enum\RequestFormat;
 
 /**
@@ -24,7 +19,8 @@ use Zimbra\Enum\RequestFormat;
  * @package   Zimbra
  * @category  Soap
  * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
- * @copyright Copyright © 2013 by Nguyen Van Nguyen.
+ * @copyright Copyright © 2020 by Nguyen Van Nguyen.
+ * @AccessType("public_method")
  * @XmlRoot(name="format")
  */
 class FormatInfo
@@ -33,17 +29,17 @@ class FormatInfo
      * Desired response format. Valid values "xml" (default) and "js"
      * @Accessor(getter="getFormat", setter="setFormat")
      * @SerializedName("type")
-     * @Type("string")
+     * @Type("Zimbra\Enum\RequestFormat")
      * @XmlAttribute
      */
-    private $_format;
+    private $format;
 
     /**
      * Constructor method for FormatInfo
      * @param integer $format
      * @return self
      */
-    public function __construct($format = NULL)
+    public function __construct(RequestFormat $format = NULL)
     {
         if (NULL !== $format) {
             $this->setFormat($format);
@@ -53,24 +49,22 @@ class FormatInfo
     /**
      * Gets desired response format.
      *
-     * @return string
+     * @return RequestFormat
      */
-    public function getFormat()
+    public function getFormat(): RequestFormat
     {
-        return $this->_format;
+        return $this->format;
     }
 
     /**
      * Sets desired response format.
      *
-     * @param  string $format
+     * @param  RequestFormat $format
      * @return self
      */
-    public function setFormat($format)
+    public function setFormat(RequestFormat $format): self
     {
-        if (RequestFormat::has(trim($format))) {
-            $this->_format = trim($format);
-        }
+        $this->format = $format;
         return $this;
     }
 }

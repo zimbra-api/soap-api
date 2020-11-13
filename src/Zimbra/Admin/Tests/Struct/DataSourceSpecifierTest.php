@@ -1,10 +1,9 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Zimbra\Admin\Tests\Struct;
 
-use Zimbra\Admin\Struct\DataSourceSpecifier;
+use Zimbra\Admin\Struct\{Attr, DataSourceSpecifier};
 use Zimbra\Enum\DataSourceType;
-use Zimbra\Struct\KeyValuePair;
 use Zimbra\Struct\Tests\ZimbraStructTestCase;
 
 /**
@@ -18,16 +17,16 @@ class DataSourceSpecifierTest extends ZimbraStructTestCase
         $key = $this->faker->word;
         $value = $this->faker->word;
 
-        $ds = new DataSourceSpecifier(DataSourceType::IMAP()->value(), $name);
-        $this->assertSame(DataSourceType::IMAP()->value(), $ds->getType());
+        $ds = new DataSourceSpecifier(DataSourceType::IMAP(), $name);
+        $this->assertEquals(DataSourceType::IMAP(), $ds->getType());
         $this->assertSame($name, $ds->getName());
 
-        $attr = new KeyValuePair($key, $value);
-        $ds = new DataSourceSpecifier('', '');
-        $ds->setType(DataSourceType::POP3()->value())
+        $attr = new Attr($key, $value);
+        $ds = new DataSourceSpecifier(DataSourceType::IMAP(), '');
+        $ds->setType(DataSourceType::POP3())
            ->setName($name)
            ->addAttr($attr);
-        $this->assertSame(DataSourceType::POP3()->value(), $ds->getType());
+        $this->assertEquals(DataSourceType::POP3(), $ds->getType());
         $this->assertSame($name, $ds->getName());
 
         $xml = '<?xml version="1.0"?>' . "\n"
@@ -35,12 +34,19 @@ class DataSourceSpecifierTest extends ZimbraStructTestCase
                 . '<a n="' . $key . '">' . $value . '</a>'
             . '</dataSource>';
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($ds, 'xml'));
+        $this->assertEquals($ds, $this->serializer->deserialize($xml, DataSourceSpecifier::class, 'xml'));
 
-        $ds = $this->serializer->deserialize($xml, 'Zimbra\Admin\Struct\DataSourceSpecifier', 'xml');
-        $this->assertSame(DataSourceType::POP3()->value(), $ds->getType());
-        $this->assertSame($name, $ds->getName());
-        foreach ($ds->getAttrs() as $attr) {
-            $this->assertInstanceOf('\Zimbra\Struct\KeyValuePair', $attr);
-        }
+        $json = json_encode([
+            'a' => [
+                [
+                    'n' => $key,
+                    '_content' => $value,
+                ],
+            ],
+            'type' => (string) DataSourceType::POP3(),
+            'name' => $name,
+        ]);
+        $this->assertSame($json, $this->serializer->serialize($ds, 'json'));
+        $this->assertEquals($ds, $this->serializer->deserialize($json, DataSourceSpecifier::class, 'json'));
     }
 }

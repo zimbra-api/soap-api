@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Zimbra\Soap\Tests\Header;
 
@@ -13,16 +13,20 @@ class FormatInfoTest extends ZimbraStructTestCase
 {
     public function testHeaderFormatInfo()
     {
-        $info = new FormatInfo(RequestFormat::JS()->value());
-        $this->assertSame(RequestFormat::JS()->value(), $info->getFormat());
-        $info->setFormat(RequestFormat::XML()->value());
-        $this->assertSame(RequestFormat::XML()->value(), $info->getFormat());
+        $info = new FormatInfo(RequestFormat::JS());
+        $this->assertEquals(RequestFormat::JS(), $info->getFormat());
+        $info->setFormat(RequestFormat::XML());
+        $this->assertEquals(RequestFormat::XML(), $info->getFormat());
 
         $xml = '<?xml version="1.0"?>' . "\n"
             . '<format type="' . RequestFormat::XML() . '" />';
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($info, 'xml'));
+        $this->assertEquals($info, $this->serializer->deserialize($xml, FormatInfo::class, 'xml'));
 
-        $info = $this->serializer->deserialize($xml, 'Zimbra\Soap\Header\FormatInfo', 'xml');
-        $this->assertSame(RequestFormat::XML()->value(), $info->getFormat());
+        $json = json_encode([
+            'type' => (string) RequestFormat::XML(),
+        ]);
+        $this->assertSame($json, $this->serializer->serialize($info, 'json'));
+        $this->assertEquals($info, $this->serializer->deserialize($json, FormatInfo::class, 'json'));
     }
 }

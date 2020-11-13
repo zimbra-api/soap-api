@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Zimbra\Account\Tests\Struct;
 
@@ -31,14 +31,21 @@ class BlackListTest extends ZimbraStructTestCase
                 . '<addr op="-">' . $value2 . '</addr>'
             . '</blackList>';
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($blackList, 'xml'));
+        $this->assertEquals($blackList, $this->serializer->deserialize($xml, BlackList::class, 'xml'));
 
-        $blackList = $this->serializer->deserialize($xml, 'Zimbra\Account\Struct\BlackList', 'xml');
-        $addr1 = $blackList->getAddrs()[0];
-        $addr2 = $blackList->getAddrs()[1];
-
-        $this->assertSame('+', $addr1->getOp());
-        $this->assertSame($value1, $addr1->getValue());
-        $this->assertSame('-', $addr2->getOp());
-        $this->assertSame($value2, $addr2->getValue());
+        $json = json_encode([
+            'addr' => [
+                [
+                    'op' => '+',
+                    '_content' => $value1,
+                ],
+                [
+                    'op' => '-',
+                    '_content' => $value2,
+                ],
+            ],
+        ]);
+        $this->assertSame($json, $this->serializer->serialize($blackList, 'json'));
+        $this->assertEquals($blackList, $this->serializer->deserialize($json, BlackList::class, 'json'));
     }
 }

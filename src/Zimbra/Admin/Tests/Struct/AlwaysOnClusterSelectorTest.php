@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Zimbra\Admin\Tests\Struct;
 
@@ -13,22 +13,26 @@ class AlwaysOnClusterSelectorTest extends ZimbraStructTestCase
     public function testAlwaysOnClusterSelector()
     {
         $value = $this->faker->word;
-        $aoc = new AlwaysOnClusterSelector(AlwaysOnClusterBy::ID()->value(), $value);
-        $this->assertSame(AlwaysOnClusterBy::ID()->value(), $aoc->getBy());
+        $aoc = new AlwaysOnClusterSelector(AlwaysOnClusterBy::ID(), $value);
+        $this->assertEquals(AlwaysOnClusterBy::ID(), $aoc->getBy());
         $this->assertSame($value, $aoc->getValue());
 
-        $aoc = new AlwaysOnClusterSelector('');
-        $aoc->setBy(AlwaysOnClusterBy::NAME()->value())
+        $aoc = new AlwaysOnClusterSelector(AlwaysOnClusterBy::ID());
+        $aoc->setBy(AlwaysOnClusterBy::NAME())
             ->setValue($value);
-        $this->assertSame(AlwaysOnClusterBy::NAME()->value(), $aoc->getBy());
+        $this->assertEquals(AlwaysOnClusterBy::NAME(), $aoc->getBy());
         $this->assertSame($value, $aoc->getValue());
 
         $xml = '<?xml version="1.0"?>' . "\n"
             . '<alwaysOnCluster by="' . AlwaysOnClusterBy::NAME() . '">' . $value . '</alwaysOnCluster>';
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($aoc, 'xml'));
+        $this->assertEquals($aoc, $this->serializer->deserialize($xml, AlwaysOnClusterSelector::class, 'xml'));
 
-        $aoc = $this->serializer->deserialize($xml, 'Zimbra\Admin\Struct\AlwaysOnClusterSelector', 'xml');
-        $this->assertSame(AlwaysOnClusterBy::NAME()->value(), $aoc->getBy());
-        $this->assertSame($value, $aoc->getValue());
+        $json = json_encode([
+            'by' => (string) AlwaysOnClusterBy::NAME(),
+            '_content' => $value,
+        ]);
+        $this->assertSame($json, $this->serializer->serialize($aoc, 'json'));
+        $this->assertEquals($aoc, $this->serializer->deserialize($json, AlwaysOnClusterSelector::class, 'json'));
     }
 }

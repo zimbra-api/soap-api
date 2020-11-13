@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * This file is part of the Zimbra API in PHP library.
  *
@@ -10,12 +10,7 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\Accessor;
-use JMS\Serializer\Annotation\SerializedName;
-use JMS\Serializer\Annotation\Type;
-use JMS\Serializer\Annotation\XmlAttribute;
-use JMS\Serializer\Annotation\XmlRoot;
-use JMS\Serializer\Annotation\XmlValue;
+use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlRoot};
 
 /**
  * ExportAndDeleteItemSpec struct class
@@ -24,7 +19,8 @@ use JMS\Serializer\Annotation\XmlValue;
  * @subpackage Admin
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
- * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
+ * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
+ * @AccessType("public_method")
  * @XmlRoot(name="item")
  */
 class ExportAndDeleteItemSpec
@@ -35,7 +31,7 @@ class ExportAndDeleteItemSpec
      * @Type("integer")
      * @XmlAttribute
      */
-    private $_id;
+    private $id;
 
     /**
      * @Accessor(getter="getVersion", setter="setVersion")
@@ -43,7 +39,7 @@ class ExportAndDeleteItemSpec
      * @Type("integer")
      * @XmlAttribute
      */
-    private $_version;
+    private $version;
 
     /**
      * Constructor method for ExportAndDeleteItemSpec
@@ -62,9 +58,9 @@ class ExportAndDeleteItemSpec
      *
      * @return int
      */
-    public function getId()
+    public function getId(): int
     {
-        return $this->_id;
+        return $this->id;
     }
 
     /**
@@ -73,9 +69,9 @@ class ExportAndDeleteItemSpec
      * @param  int $id
      * @return self
      */
-    public function setId($id)
+    public function setId($id): self
     {
-        $this->_id = (int) $id;
+        $this->id = (int) $id;
         return $this;
     }
 
@@ -84,9 +80,9 @@ class ExportAndDeleteItemSpec
      *
      * @return int
      */
-    public function getVersion()
+    public function getVersion(): int
     {
-        return $this->_version;
+        return $this->version;
     }
 
     /**
@@ -95,9 +91,9 @@ class ExportAndDeleteItemSpec
      * @param  int $version
      * @return self
      */
-    public function setVersion($version)
+    public function setVersion($version): self
     {
-        $this->_version = (int) $version;
+        $this->version = (int) $version;
         return $this;
     }
 }

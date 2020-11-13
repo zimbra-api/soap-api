@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Zimbra\Admin\Tests\Message;
 
@@ -35,13 +35,19 @@ class AddAccountAliasBodyTest extends ZimbraStructTestCase
                 . '<urn:AddAccountAliasResponse />'
             . '</Body>';
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($body, 'xml'));
+        $this->assertEquals($body, $this->serializer->deserialize($xml, AddAccountAliasBody::class, 'xml'));
 
-        $body = $this->serializer->deserialize($xml, 'Zimbra\Admin\Message\AddAccountAliasBody', 'xml');
-        $request = $body->getRequest();
-        $response = $body->getResponse();
-
-        $this->assertSame($id, $request->getId());
-        $this->assertSame($alias, $request->getAlias());
-        $this->assertTrue($response instanceof AddAccountAliasResponse);
+        $json = json_encode([
+            'AddAccountAliasRequest' => [
+                'id' => $id,
+                'alias' => $alias,
+                '_jsns' => 'urn:zimbraAdmin',
+            ],
+            'AddAccountAliasResponse' => [
+                '_jsns' => 'urn:zimbraAdmin',
+            ],
+        ]);
+        $this->assertSame($json, $this->serializer->serialize($body, 'json'));
+        $this->assertEquals($body, $this->serializer->deserialize($json, AddAccountAliasBody::class, 'json'));
     }
 }

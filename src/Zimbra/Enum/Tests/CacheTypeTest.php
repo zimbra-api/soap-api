@@ -23,7 +23,7 @@ class CacheTypeTest extends TestCase
         ];
         foreach ($values as $enum => $value)
         {
-            $this->assertSame(CacheType::$enum()->value(), $value);
+            $this->assertSame(CacheType::$enum()->getValue(), $value);
         }
     }
 }

@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * This file is part of the Zimbra API in PHP library.
  *
@@ -10,49 +10,51 @@
 
 namespace Zimbra\Enum;
 
+use MyCLabs\Enum\Enum;
+
 /**
  * TagAction enum class
  *
  * @package   Zimbra
  * @category  Enum
  * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
- * @copyright Copyright © 2013 by Nguyen Van Nguyen.
+ * @copyright Copyright © 2013-present by Nguyen Van Nguyen.
  */
-class TagActionOp extends Base
+class TagActionOp extends Enum
 {
     /**
      * Constant for value 'read'
      * @return string 'read'
      */
-    const READ = 'read';
+    private const READ = 'read';
 
     /**
      * Constant for value 'rename'
      * @return string 'rename'
      */
-    const RENAME = 'rename';
+    private const RENAME = 'rename';
 
     /**
      * Constant for value 'color'
      * @return string 'color'
      */
-    const COLOR = 'color';
+    private const COLOR = 'color';
 
     /**
      * Constant for value 'delete'
      * @return string 'delete'
      */
-    const DELETE = 'delete';
+    private const DELETE = 'delete';
 
     /**
      * Constant for value 'update'
      * @return string 'update'
      */
-    const UPDATE = 'update';
+    private const UPDATE = 'update';
 
     /**
      * Constant for value 'retentionpolicy'
      * @return string 'retentionpolicy'
      */
-    const RETENTION = 'retentionpolicy';
+    private const RETENTION = 'retentionpolicy';
 }

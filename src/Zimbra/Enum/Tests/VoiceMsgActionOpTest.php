@@ -21,7 +21,7 @@ class VoiceMsgActionOpTest extends TestCase
         ];
         foreach ($values as $enum => $value)
         {
-            $this->assertSame(VoiceMsgActionOp::$enum()->value(), $value);
+            $this->assertSame(VoiceMsgActionOp::$enum()->getValue(), $value);
         }
     }
 }

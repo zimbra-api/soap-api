@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * This file is part of the Zimbra API in PHP library.
  *
@@ -10,12 +10,7 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\Accessor;
-use JMS\Serializer\Annotation\SerializedName;
-use JMS\Serializer\Annotation\Type;
-use JMS\Serializer\Annotation\XmlAttribute;
-use JMS\Serializer\Annotation\XmlRoot;
-use JMS\Serializer\Annotation\XmlValue;
+use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlRoot};
 
 /**
  * TzFixupRuleMatchRule struct class
@@ -24,7 +19,8 @@ use JMS\Serializer\Annotation\XmlValue;
  * @subpackage Admin
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
- * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
+ * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
+ * @AccessType("public_method")
  * @XmlRoot(name="rule")
  */
 class TzFixupRuleMatchRule
@@ -35,7 +31,7 @@ class TzFixupRuleMatchRule
      * @Type("integer")
      * @XmlAttribute
      */
-    private $_month;
+    private $month;
 
     /**
      * @Accessor(getter="getWeek", setter="setWeek")
@@ -43,7 +39,7 @@ class TzFixupRuleMatchRule
      * @Type("integer")
      * @XmlAttribute
      */
-    private $_week;
+    private $week;
 
     /**
      * @Accessor(getter="getWeekDay", setter="setWeekDay")
@@ -51,7 +47,7 @@ class TzFixupRuleMatchRule
      * @Type("integer")
      * @XmlAttribute
      */
-    private $_weekDay;
+    private $weekDay;
 
     /**
      * Constructor method for TzFixupRuleMatchRule
@@ -72,9 +68,9 @@ class TzFixupRuleMatchRule
      *
      * @return int
      */
-    public function getMonth()
+    public function getMonth(): int
     {
-        return $this->_month;
+        return $this->month;
     }
 
     /**
@@ -83,10 +79,10 @@ class TzFixupRuleMatchRule
      * @param  int $mon
      * @return self
      */
-    public function setMonth($mon)
+    public function setMonth($mon): self
     {
         $mon = in_array((int) $mon, range(1, 12)) ? (int) $mon : 1;
-        $this->_month = $mon;
+        $this->month = $mon;
         return $this;
     }
 
@@ -95,9 +91,9 @@ class TzFixupRuleMatchRule
      *
      * @return int
      */
-    public function getWeek()
+    public function getWeek(): int
     {
-        return $this->_week;
+        return $this->week;
     }
 
     /**
@@ -106,10 +102,10 @@ class TzFixupRuleMatchRule
      * @param  int $week
      * @return self
      */
-    public function setWeek($week)
+    public function setWeek($week): self
     {
         $week = in_array((int) $week, [1, 2, 3, 4]) ? (int) $week : -1;
-        $this->_week = $week;
+        $this->week = $week;
         return $this;
     }
 
@@ -118,9 +114,9 @@ class TzFixupRuleMatchRule
      *
      * @return int
      */
-    public function getWeekDay()
+    public function getWeekDay(): int
     {
-        return $this->_weekDay;
+        return $this->weekDay;
     }
 
     /**
@@ -129,10 +125,10 @@ class TzFixupRuleMatchRule
      * @param  int $wkday
      * @return self
      */
-    public function setWeekDay($wkday)
+    public function setWeekDay($wkday): self
     {
         $wkday = in_array((int) $wkday, range(1, 7)) ? (int) $wkday : 1;
-        $this->_weekDay = $wkday;
+        $this->weekDay = $wkday;
         return $this;
     }
 }

@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Zimbra\Admin\Tests\Request;
 
@@ -33,9 +33,20 @@ class AddDistributionListMemberRequestTest extends ZimbraStructTestCase
                 . '<dlm>' . $member2 . '</dlm>'
             . '</AddDistributionListMemberRequest>';
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($req, 'xml'));
+        $this->assertEquals($req, $this->serializer->deserialize($xml, AddDistributionListMemberRequest::class, 'xml'));
 
-        $req = $this->serializer->deserialize($xml, 'Zimbra\Admin\Message\AddDistributionListMemberRequest', 'xml');
-        $this->assertSame($id, $req->getId());
-        $this->assertSame([$member1, $member2], $req->getMembers());
+        $json = json_encode([
+            'id' => $id,
+            'dlm' => [
+                [
+                    '_content' => $member1,
+                ],
+                [
+                    '_content' => $member2,
+                ],
+            ],
+        ]);
+        $this->assertSame($json, $this->serializer->serialize($req, 'json'));
+        $this->assertEquals($req, $this->serializer->deserialize($json, AddDistributionListMemberRequest::class, 'json'));
     }
 }

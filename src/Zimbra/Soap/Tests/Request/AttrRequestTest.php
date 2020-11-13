@@ -1,13 +1,9 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Zimbra\Soap\Tests\Request;
 
 use JMS\Serializer\Annotation\XmlRoot;
-
-use Zimbra\Enum\AccountBy;
-use Zimbra\Soap\ClientInterface;
 use Zimbra\Soap\Request\Attr;
-use Zimbra\Struct\AttrRequest;
 use Zimbra\Struct\KeyValuePair;
 use Zimbra\Struct\Tests\ZimbraStructTestCase;
 
@@ -46,13 +42,7 @@ class AttrRequestTest extends ZimbraStructTestCase
                 .'<a n="' . $key3 . '">' . $value3 . '</a>'
             .'</AttrRequest>';
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($req, 'xml'));
-
-        $req = $this->serializer->deserialize($xml, 'Zimbra\Soap\Tests\Request\AttrRequestImp', 'xml');
-        $attrs = [$attr1, $attr2, $attr3];
-        foreach ($req->getAttrs() as $key => $attr) {
-            $this->assertEquals($attrs[$key]->getKey(), $attr->getKey());
-            $this->assertEquals($attrs[$key]->getValue(), $attr->getValue());
-        }
+        $this->assertEquals($req, $this->serializer->deserialize($xml, AttrRequestImp::class, 'xml'));
     }
 }
 
@@ -61,5 +51,7 @@ class AttrRequestTest extends ZimbraStructTestCase
  */
 class AttrRequestImp extends Attr
 {
-    public function execute(ClientInterface $client) {}
+    protected function internalInit()
+    {
+    }
 }

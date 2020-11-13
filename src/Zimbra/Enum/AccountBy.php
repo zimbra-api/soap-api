@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * This file is part of the Zimbra API in PHP library.
  *
@@ -10,49 +10,39 @@
 
 namespace Zimbra\Enum;
 
+use MyCLabs\Enum\Enum;
+
 /**
  * AccountBy enum class
  *
  * @package   Zimbra
  * @category  Enum
  * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
- * @copyright Copyright © 2013 by Nguyen Van Nguyen.
+ * @copyright Copyright © 2013-present by Nguyen Van Nguyen.
  */
-class AccountBy extends Base
+class AccountBy extends NameIdBy
 {
     /**
      * Constant for value 'adminName'
      * @return string 'adminName'
      */
-    const ADMIN_NAME = 'adminName';
+    private const ADMIN_NAME = 'adminName';
 
     /**
      * Constant for value 'appAdminName'
      * @return string 'appAdminName'
      */
-    const APP_ADMIN_NAME = 'appAdminName';
-
-    /**
-     * Constant for value 'id'
-     * @return string 'id'
-     */
-    const ID = 'id';
+    private const APP_ADMIN_NAME = 'appAdminName';
 
     /**
      * Constant for value 'foreignPrincipal'
      * @return string 'foreignPrincipal'
      */
-    const FOREIGN_PRINCIPAL = 'foreignPrincipal';
-
-    /**
-     * Constant for value 'name'
-     * @return string 'name'
-     */
-    const NAME = 'name';
+    private const FOREIGN_PRINCIPAL = 'foreignPrincipal';
 
     /**
      * Constant for value 'krb5Principal'
      * @return string 'krb5Principal'
      */
-    const KRB5_PRINCIPAL = 'krb5Principal';
+    private const KRB5_PRINCIPAL = 'krb5Principal';
 }

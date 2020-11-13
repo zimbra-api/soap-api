@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * This file is part of the Zimbra API in PHP library.
  *
@@ -10,10 +10,7 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\Accessor;
-use JMS\Serializer\Annotation\Type;
-use JMS\Serializer\Annotation\XmlList;
-use JMS\Serializer\Annotation\XmlRoot;
+use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlList, XmlRoot};
 
 /**
  * TzFixup struct class
@@ -22,17 +19,19 @@ use JMS\Serializer\Annotation\XmlRoot;
  * @subpackage Admin
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
- * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
+ * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
+ * @AccessType("public_method")
  * @XmlRoot(name="tzfixup")
  */
 class TzFixup
 {
     /**
      * @Accessor(getter="getFixupRules", setter="setFixupRules")
+     * @SerializedName("fixupRule")
      * @Type("array<Zimbra\Admin\Struct\TzFixupRule>")
      * @XmlList(inline = true, entry = "fixupRule")
      */
-    private $_fixupRules;
+    private $fixupRules;
 
     /**
      * Constructor method for TzFixup
@@ -50,9 +49,9 @@ class TzFixup
      * @param  TzFixupRule $fixupRule
      * @return self
      */
-    public function addFixupRule(TzFixupRule $fixupRule)
+    public function addFixupRule(TzFixupRule $fixupRule): self
     {
-        $this->_fixupRules[] = $fixupRule;
+        $this->fixupRules[] = $fixupRule;
         return $this;
     }
 
@@ -62,12 +61,12 @@ class TzFixup
      * @param array $fixupRules
      * @return self
      */
-    public function setFixupRules(array $fixupRules)
+    public function setFixupRules(array $fixupRules): self
     {
-        $this->_fixupRules = [];
+        $this->fixupRules = [];
         foreach ($fixupRules as $fixupRule) {
             if ($fixupRule instanceof TzFixupRule) {
-                $this->_fixupRules[] = $fixupRule;
+                $this->fixupRules[] = $fixupRule;
             }
         }
         return $this;
@@ -78,8 +77,8 @@ class TzFixup
      *
      * @return array
      */
-    public function getFixupRules()
+    public function getFixupRules(): array
     {
-        return $this->_fixupRules;
+        return $this->fixupRules;
     }
 }

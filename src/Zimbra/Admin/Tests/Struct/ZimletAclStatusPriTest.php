@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Zimbra\Admin\Tests\Struct;
 
@@ -19,11 +19,11 @@ class ZimletAclStatusPriTest extends ZimbraStructTestCase
     {
         $name = $this->faker->word;
         $cos = $this->faker->word;
-        $priority_value = mt_rand(0, 10);
+        $value = mt_rand(0, 10);
 
         $acl = new ZimletAcl($cos, AclType::DENY());
-        $status = new ValueAttrib(ZimletStatus::ENABLED()->value());
-        $priority = new IntegerValueAttrib($priority_value);
+        $status = new ValueAttrib(ZimletStatus::ENABLED()->getValue());
+        $priority = new IntegerValueAttrib($value);
 
         $zimlet = new ZimletAclStatusPri($name, $acl, $status, $priority);
         $this->assertSame($name, $zimlet->getName());
@@ -45,19 +45,25 @@ class ZimletAclStatusPriTest extends ZimbraStructTestCase
             . '<zimlet name="' . $name . '">'
                 . '<acl cos="' . $cos . '" acl="' . AclType::DENY() . '" />'
                 . '<status value="' . ZimletStatus::ENABLED() . '" />'
-                . '<priority value="' . $priority_value . '" />'
+                . '<priority value="' . $value . '" />'
             . '</zimlet>';
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($zimlet, 'xml'));
+        $this->assertEquals($zimlet, $this->serializer->deserialize($xml, ZimletAclStatusPri::class, 'xml'));
 
-        $zimlet = $this->serializer->deserialize($xml, 'Zimbra\Admin\Struct\ZimletAclStatusPri', 'xml');
-        $acl = $zimlet->getAcl();
-        $status = $zimlet->getStatus();
-        $priority = $zimlet->getPriority();
-
-        $this->assertSame($name, $zimlet->getName());
-        $this->assertSame($cos, $acl->getCos());
-        $this->assertSame(AclType::DENY()->value(), $acl->getAcl());
-        $this->assertSame(ZimletStatus::ENABLED()->value(), $status->getValue());
-        $this->assertSame($priority_value, $priority->getValue());
+        $json = json_encode([
+            'name' => $name,
+            'acl' => [
+                'cos' => $cos,
+                'acl' => (string) AclType::DENY(),
+            ],
+            'status' => [
+                'value' => (string) ZimletStatus::ENABLED(),
+            ],
+            'priority' => [
+                'value' => $value,
+            ],
+        ]);
+        $this->assertSame($json, $this->serializer->serialize($zimlet, 'json'));
+        $this->assertEquals($zimlet, $this->serializer->deserialize($json, ZimletAclStatusPri::class, 'json'));
     }
 }

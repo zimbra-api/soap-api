@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * This file is part of the Zimbra API in PHP library.
  *
@@ -10,12 +10,7 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\Accessor;
-use JMS\Serializer\Annotation\SerializedName;
-use JMS\Serializer\Annotation\Type;
-use JMS\Serializer\Annotation\XmlAttribute;
-use JMS\Serializer\Annotation\XmlElement;
-use JMS\Serializer\Annotation\XmlRoot;
+use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlElement, XmlRoot};
 
 /**
  * StatsSpec struct class
@@ -24,7 +19,8 @@ use JMS\Serializer\Annotation\XmlRoot;
  * @subpackage Admin
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
- * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
+ * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
+ * @AccessType("public_method")
  * @XmlRoot(name="stats")
  */
 class StatsSpec
@@ -35,7 +31,7 @@ class StatsSpec
      * @Type("Zimbra\Admin\Struct\StatsValueWrapper")
      * @XmlElement
      */
-    private $_values;
+    private $values;
 
     /**
      * @Accessor(getter="getName", setter="setName")
@@ -43,7 +39,7 @@ class StatsSpec
      * @Type("string")
      * @XmlAttribute
      */
-    private $_name;
+    private $name;
 
     /**
      * @Accessor(getter="getLimit", setter="setLimit")
@@ -51,7 +47,7 @@ class StatsSpec
      * @Type("string")
      * @XmlAttribute
      */
-    private $_limit;
+    private $limit;
 
     /**
      * Constructor method for StatsSpec
@@ -76,9 +72,9 @@ class StatsSpec
      *
      * @return StatsValueWrapper
      */
-    public function getValues()
+    public function getValues(): StatsValueWrapper
     {
-        return $this->_values;
+        return $this->values;
     }
 
     /**
@@ -87,9 +83,9 @@ class StatsSpec
      * @param  StatsValueWrapper $values
      * @return self
      */
-    public function setValues(StatsValueWrapper $values)
+    public function setValues(StatsValueWrapper $values): self
     {
-        $this->_values = $values;
+        $this->values = $values;
         return $this;
     }
 
@@ -98,9 +94,9 @@ class StatsSpec
      *
      * @return string
      */
-    public function getName()
+    public function getName(): string
     {
-        return $this->_name;
+        return $this->name;
     }
 
     /**
@@ -109,9 +105,9 @@ class StatsSpec
      * @param  string $name
      * @return self
      */
-    public function setName($name)
+    public function setName($name): self
     {
-        $this->_name = trim($name);
+        $this->name = trim($name);
         return $this;
     }
 
@@ -120,9 +116,9 @@ class StatsSpec
      *
      * @return string
      */
-    public function getLimit()
+    public function getLimit(): string
     {
-        return $this->_limit;
+        return $this->limit;
     }
 
     /**
@@ -131,9 +127,9 @@ class StatsSpec
      * @param  string $limit
      * @return self
      */
-    public function setLimit($limit)
+    public function setLimit($limit): self
     {
-        $this->_limit = trim($limit);
+        $this->limit = trim($limit);
         return $this;
     }
 }

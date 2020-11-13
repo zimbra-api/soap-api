@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Zimbra\Account\Tests\Struct;
 
@@ -18,27 +18,34 @@ class AttrsImplTest extends ZimbraStructTestCase
         $name = $this->faker->word;
         $value = $this->faker->word;
 
-        $attr = new Attr($name, $value, true);
-        $attrs = new MockAttrsImpl();
+        $attr = new Attr($name, $value, TRUE);
+        $stub = new StubAttrsImpl();
  
-        $attrs->addAttr($attr);
-        $this->assertSame([$attr], $attrs->getAttrs());
+        $stub->addAttr($attr);
+        $this->assertSame([$attr], $stub->getAttrs());
 
         $xml = '<?xml version="1.0"?>' . "\n"
-            . '<attrs>'
+            . '<stub>'
                 . '<a name="' . $name . '" pd="true">' . $value . '</a>'
-            . '</attrs>';
-        $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($attrs, 'xml'));
+            . '</stub>';
+        $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($stub, 'xml'));
+        $this->assertEquals($stub, $this->serializer->deserialize($xml, StubAttrsImpl::class, 'xml'));
 
-        $attrs = $this->serializer->deserialize($xml, 'Zimbra\Account\Tests\Struct\MockAttrsImpl', 'xml');
-        $attr = $attrs->getAttrs()[0];
-        $this->assertSame($name, $attr->getName());
-        $this->assertSame($value, $attr->getValue());
-        $this->assertTrue($attr->getPermDenied());
+        $json = json_encode([
+            'a' => [
+                [
+                    'name' => $name,
+                    '_content' => $value,
+                    'pd' => TRUE,
+                ]
+            ],
+        ]);
+        $this->assertSame($json, $this->serializer->serialize($stub, 'json'));
+        $this->assertEquals($stub, $this->serializer->deserialize($json, StubAttrsImpl::class, 'json'));
     }
 }
 
-/** @XmlRoot(name="attrs") */
-class MockAttrsImpl extends AttrsImpl
+/** @XmlRoot(name="stub") */
+class StubAttrsImpl extends AttrsImpl
 {
 }

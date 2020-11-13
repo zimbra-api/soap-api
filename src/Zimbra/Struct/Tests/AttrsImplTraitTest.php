@@ -1,11 +1,9 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Zimbra\Struct\Tests;
 
 use JMS\Serializer\Annotation\XmlRoot;
-use Zimbra\Struct\AttrsImplTrait;
-use Zimbra\Struct\Base;
-use Zimbra\Struct\KeyValuePair;
+use Zimbra\Struct\{AttrsImplTrait, KeyValuePair};
 
 /**
  * Testcase class for AttrsImplTrait.
@@ -40,13 +38,26 @@ class AttrsImplTraitTest extends ZimbraStructTestCase
                 . '<a n="' . $key3 . '">' . $value3 . '</a>'
             . '</attrs>';
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($attrs, 'xml'));
+        $this->assertEquals($attrs, $this->serializer->deserialize($xml, AttrsImplImp::class, 'xml'));
 
-        $object = $this->serializer->deserialize($xml, 'Zimbra\Struct\Tests\AttrsImplImp', 'xml');
-        $attrs = [$attr1, $attr2, $attr3];
-        foreach ($object->getAttrs() as $key => $attr) {
-            $this->assertEquals($attrs[$key]->getKey(), $attr->getKey());
-            $this->assertEquals($attrs[$key]->getValue(), $attr->getValue());
-        }
+        $json = json_encode([
+            'a' => [
+                [
+                    'n' => $key1,
+                    '_content' => $value1,
+                ],
+                [
+                    'n' => $key2,
+                    '_content' => $value2,
+                ],
+                [
+                    'n' => $key3,
+                    '_content' => $value3,
+                ],
+            ]
+        ]);
+        $this->assertSame($json, $this->serializer->serialize($attrs, 'json'));
+        $this->assertEquals($attrs, $this->serializer->deserialize($json, AttrsImplImp::class, 'json'));
     }
 }
 

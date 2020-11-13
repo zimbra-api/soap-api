@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * This file is part of the Zimbra API in PHP library.
  *
@@ -10,11 +10,7 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\Accessor;
-use JMS\Serializer\Annotation\SerializedName;
-use JMS\Serializer\Annotation\Type;
-use JMS\Serializer\Annotation\XmlAttribute;
-use JMS\Serializer\Annotation\XmlRoot;
+use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlRoot};
 
 /**
  * AccountInfo struct class
@@ -23,7 +19,8 @@ use JMS\Serializer\Annotation\XmlRoot;
  * @subpackage Admin
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
- * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
+ * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
+ * @AccessType("public_method")
  * @XmlRoot(name="account")
  */
 class AccountInfo extends AdminObjectInfo
@@ -34,7 +31,7 @@ class AccountInfo extends AdminObjectInfo
      * @Type("bool")
      * @XmlAttribute
      */
-    private $_isExternal;
+    private $isExternal;
 
     /**
      * Constructor method for AccountInfo
@@ -58,9 +55,9 @@ class AccountInfo extends AdminObjectInfo
      *
      * @return bool
      */
-    public function getIsExternal()
+    public function getIsExternal(): bool
     {
-        return $this->_isExternal;
+        return $this->isExternal;
     }
 
     /**
@@ -69,9 +66,9 @@ class AccountInfo extends AdminObjectInfo
      * @param  bool $isExternal
      * @return self
      */
-    public function setIsExternal($isExternal)
+    public function setIsExternal($isExternal): self
     {
-        $this->_isExternal = (bool) $isExternal;
+        $this->isExternal = (bool) $isExternal;
         return $this;
     }
 }

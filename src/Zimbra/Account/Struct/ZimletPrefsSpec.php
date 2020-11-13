@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * This file is part of the Zimbra API in PHP library.
  *
@@ -10,12 +10,7 @@
 
 namespace Zimbra\Account\Struct;
 
-use JMS\Serializer\Annotation\Accessor;
-use JMS\Serializer\Annotation\SerializedName;
-use JMS\Serializer\Annotation\Type;
-use JMS\Serializer\Annotation\XmlAttribute;
-use JMS\Serializer\Annotation\XmlRoot;
-
+use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlRoot};
 use Zimbra\Enum\ZimletStatus;
 
 /**
@@ -25,7 +20,8 @@ use Zimbra\Enum\ZimletStatus;
  * @subpackage Account
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
- * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
+ * @copyright  Copyright © 2020 by Nguyen Van Nguyen.
+ * @AccessType("public_method")
  * @XmlRoot(name="zimlet")
  */
 class ZimletPrefsSpec
@@ -36,25 +32,26 @@ class ZimletPrefsSpec
      * @Type("string")
      * @XmlAttribute
      */
-    private $_name;
+    private $name;
 
     /**
      * @Accessor(getter="getPresence", setter="setPresence")
      * @SerializedName("presence")
-     * @Type("string")
+     * @Type("Zimbra\Enum\ZimletStatus")
      * @XmlAttribute
      */
-    private $_presence;
+    private $presence;
 
     /**
      * Constructor method for ZimletPrefsSpec
      * @param  string $name
-     * @param  string $presence
+     * @param  ZimletStatus $presence
      * @return self
      */
-    public function __construct($name, $presence)
+    public function __construct($name, ZimletStatus $presence)
     {
-        $this->setName($name)->setPresence($presence);
+        $this->setName($name)
+             ->setPresence($presence);
     }
 
     /**
@@ -62,9 +59,9 @@ class ZimletPrefsSpec
      *
      * @return string
      */
-    public function getName()
+    public function getName(): string
     {
-        return $this->_name;
+        return $this->name;
     }
 
     /**
@@ -73,9 +70,9 @@ class ZimletPrefsSpec
      * @param  string $name
      * @return self
      */
-    public function setName($name)
+    public function setName($name): self
     {
-        $this->_name = trim($name);
+        $this->name = trim($name);
         return $this;
     }
 
@@ -84,22 +81,20 @@ class ZimletPrefsSpec
      *
      * @return ZimletStatus
      */
-    public function getPresence()
+    public function getPresence(): ZimletStatus
     {
-        return $this->_presence;
+        return $this->presence;
     }
 
     /**
      * Sets presence
      *
-     * @param  string $presence
+     * @param  ZimletStatus $presence
      * @return self
      */
-    public function setPresence($presence)
+    public function setPresence(ZimletStatus $presence)
     {
-        if (ZimletStatus::has(trim($presence))) {
-            $this->_presence = $presence;
-        }
+        $this->presence = $presence;
         return $this;
     }
 }

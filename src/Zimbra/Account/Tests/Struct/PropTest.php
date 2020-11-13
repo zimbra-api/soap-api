@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Zimbra\Account\Tests\Struct;
 
@@ -30,12 +30,16 @@ class PropTest extends ZimbraStructTestCase
         $this->assertSame($value, $prop->getValue());
 
         $xml = '<?xml version="1.0"?>' . "\n"
-            . '<prop zimlet="' . $zimlet . '" name="' . $name . '">'  .$value . '</prop>';
+            . '<prop zimlet="' . $zimlet . '" name="' . $name . '">' . $value . '</prop>';
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($prop, 'xml'));
+        $this->assertEquals($prop, $this->serializer->deserialize($xml, Prop::class, 'xml'));
 
-        $prop = $this->serializer->deserialize($xml, 'Zimbra\Account\Struct\Prop', 'xml');
-        $this->assertSame($zimlet, $prop->getZimlet());
-        $this->assertSame($name, $prop->getName());
-        $this->assertSame($value, $prop->getValue());
+        $json = json_encode([
+            'zimlet' => $zimlet,
+            'name' => $name,
+            '_content' => $value,
+        ]);
+        $this->assertSame($json, $this->serializer->serialize($prop, 'json'));
+        $this->assertEquals($prop, $this->serializer->deserialize($json, Prop::class, 'json'));
     }
 }

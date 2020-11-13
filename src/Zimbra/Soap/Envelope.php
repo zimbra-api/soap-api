@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * This file is part of the Zimbra API in PHP library.
  *
@@ -7,14 +7,9 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-
 namespace Zimbra\Soap;
 
-use JMS\Serializer\Annotation\Accessor;
-use JMS\Serializer\Annotation\SerializedName;
-use JMS\Serializer\Annotation\Type;
-use JMS\Serializer\Annotation\XmlElement;
-use JMS\Serializer\Annotation\XmlNamespace;
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement, XmlNamespace};
 
 /**
  * Soap envelope class
@@ -22,10 +17,10 @@ use JMS\Serializer\Annotation\XmlNamespace;
  * @package   Zimbra
  * @category  Soap
  * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
- * @copyright Copyright © 2013 by Nguyen Van Nguyen.
+ * @copyright Copyright © 2020 by Nguyen Van Nguyen.
  * @XmlNamespace(uri="http://www.w3.org/2003/05/soap-envelope", prefix="soap")
  */
-abstract class Envelope
+abstract class Envelope implements EnvelopeInterface
 {
     /**
      * @Accessor(getter="getHeader", setter="setHeader")
@@ -33,7 +28,7 @@ abstract class Envelope
      * @Type("Zimbra\Soap\Header")
      * @XmlElement(namespace="http://www.w3.org/2003/05/soap-envelope")
      */
-    private $_header;
+    private $header;
 
     /**
      * Constructor method for Envelope
@@ -52,11 +47,11 @@ abstract class Envelope
     /**
      * Gets soap message header
      *
-     * @return string
+     * @return Header
      */
-    public function getHeader()
+    public function getHeader(): ?Header
     {
-        return $this->_header;
+        return $this->header;
     }
 
     /**
@@ -65,18 +60,11 @@ abstract class Envelope
      * @param  Header $header
      * @return self
      */
-    public function setHeader(Header $header)
+    public function setHeader(Header $header): self
     {
-        $this->_header = $header;
+        $this->header = $header;
         return $this;
     }
-
-    /**
-     * Gets soap message body
-     *
-     * @return string
-     */
-    abstract public function getBody();
 
     /**
      * Sets soap message body
@@ -84,5 +72,5 @@ abstract class Envelope
      * @param  BodyInterface $body
      * @return self
      */
-    abstract public function setBody(BodyInterface $body);
+    abstract public function setBody(BodyInterface $body): self;
 }

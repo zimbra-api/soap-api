@@ -23,7 +23,7 @@ class InterestTypeTest extends TestCase
         ];
         foreach ($values as $enum => $value)
         {
-            $this->assertSame(InterestType::$enum()->value(), $value);
+            $this->assertSame(InterestType::$enum()->getValue(), $value);
         }
     }
 }

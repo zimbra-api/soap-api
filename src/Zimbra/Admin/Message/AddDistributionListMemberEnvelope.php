@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * This file is part of the Zimbra API in PHP library.
  *
@@ -10,15 +10,9 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\Accessor;
-use JMS\Serializer\Annotation\SerializedName;
-use JMS\Serializer\Annotation\Type;
-use JMS\Serializer\Annotation\XmlElement;
-use JMS\Serializer\Annotation\XmlNamespace;
-use JMS\Serializer\Annotation\XmlRoot;
+use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlElement, XmlNamespace, XmlRoot};
 
-use Zimbra\Soap\BodyInterface;
-use Zimbra\Soap\Envelope;
+use Zimbra\Soap\{BodyInterface, Envelope, Header};
 
 /**
  * AddDistributionListMemberEnvelope class
@@ -27,8 +21,9 @@ use Zimbra\Soap\Envelope;
  * @subpackage Admin
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
- * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
+ * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
  * @XmlNamespace(uri="urn:zimbraAdmin", prefix="urn")
+ * @AccessType("public_method")
  * @XmlRoot(name="soap:Envelope")
  */
 class AddDistributionListMemberEnvelope extends Envelope
@@ -39,16 +34,25 @@ class AddDistributionListMemberEnvelope extends Envelope
      * @Type("Zimbra\Admin\Message\AddDistributionListMemberBody")
      * @XmlElement(namespace="http://www.w3.org/2003/05/soap-envelope")
      */
-    private $_body;
+    private $body;
+
+    /**
+     * Constructor method for AddDistributionListMemberEnvelope
+     * @return self
+     */
+    public function __construct(Header $header = NULL, AddDistributionListMemberBody $body = NULL)
+    {
+        parent::__construct($header, $body);
+    }
 
     /**
      * Gets soap message body
      *
      * @return BodyInterface
      */
-    public function getBody()
+    public function getBody(): BodyInterface
     {
-        return $this->_body;
+        return $this->body;
     }
 
     /**
@@ -57,10 +61,10 @@ class AddDistributionListMemberEnvelope extends Envelope
      * @param  BodyInterface $body
      * @return self
      */
-    public function setBody(BodyInterface $body)
+    public function setBody(BodyInterface $body): Envelope
     {
         if ($body instanceof AddDistributionListMemberBody) {
-            $this->_body = $body;
+            $this->body = $body;
         }
         return $this;
     }

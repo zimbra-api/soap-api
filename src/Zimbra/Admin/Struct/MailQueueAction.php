@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * This file is part of the Zimbra API in PHP library.
  *
@@ -10,15 +10,8 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\Accessor;
-use JMS\Serializer\Annotation\SerializedName;
-use JMS\Serializer\Annotation\Type;
-use JMS\Serializer\Annotation\XmlAttribute;
-use JMS\Serializer\Annotation\XmlElement;
-use JMS\Serializer\Annotation\XmlRoot;
-
-use Zimbra\Enum\QueueAction;
-use Zimbra\Enum\QueueActionBy;
+use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlElement, XmlRoot};
+use Zimbra\Enum\{QueueAction, QueueActionBy};
 
 /**
  * MailQueueAction struct class
@@ -27,7 +20,8 @@ use Zimbra\Enum\QueueActionBy;
  * @subpackage Admin
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
- * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
+ * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
+ * @AccessType("public_method")
  * @XmlRoot(name="action")
  */
 class MailQueueAction
@@ -38,32 +32,32 @@ class MailQueueAction
      * @Type("Zimbra\Admin\Struct\QueueQuery")
      * @XmlElement
      */
-    private $_query;
+    private $query;
 
     /**
      * @Accessor(getter="getOp", setter="setOp")
      * @SerializedName("op")
-     * @Type("string")
+     * @Type("Zimbra\Enum\QueueAction")
      * @XmlAttribute
      */
-    private $_op;
+    private $op;
 
     /**
      * @Accessor(getter="getBy", setter="setBy")
      * @SerializedName("by")
-     * @Type("string")
+     * @Type("Zimbra\Enum\QueueActionBy")
      * @XmlAttribute
      */
-    private $_by;
+    private $by;
 
     /**
      * Constructor method for MailQueueAction
      * @param  QueueQuery $query Query
-     * @param  string $op Operation
-     * @param  string $by By selector
+     * @param  QueueAction $op Operation
+     * @param  QueueActionBy $by By selector
      * @return self
      */
-    public function __construct(QueueQuery $query, $op, $by)
+    public function __construct(QueueQuery $query, QueueAction $op, QueueActionBy $by)
     {
         $this->setQuery($query)
              ->setOp($op)
@@ -77,7 +71,7 @@ class MailQueueAction
      */
     public function getQuery()
     {
-        return $this->_query;
+        return $this->query;
     }
 
     /**
@@ -88,55 +82,51 @@ class MailQueueAction
      */
     public function setQuery(QueueQuery $query)
     {
-        $this->_query = $query;
+        $this->query = $query;
         return $this;
     }
 
     /**
      * Gets op enum
      *
-     * @return string
+     * @return QueueAction
      */
     public function getOp()
     {
-        return $this->_op;
+        return $this->op;
     }
 
     /**
      * Sets op enum
      *
-     * @param  string $op
+     * @param  QueueAction $op
      * @return self
      */
-    public function setOp($op)
+    public function setOp(QueueAction $op)
     {
-        if (QueueAction::has(trim($op))) {
-            $this->_op = trim($op);
-        }
+        $this->op = $op;
         return $this;
     }
 
     /**
      * Gets by enum
      *
-     * @return string
+     * @return QueueActionBy
      */
     public function getBy()
     {
-        return $this->_by;
+        return $this->by;
     }
 
     /**
      * Sets by enum
      *
-     * @param  string $by
+     * @param  QueueActionBy $by
      * @return self
      */
-    public function setBy($by)
+    public function setBy(QueueActionBy $by)
     {
-        if (QueueActionBy::has(trim($by))) {
-            $this->_by = trim($by);
-        }
+        $this->by = $by;
         return $this;
     }
 }

@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * This file is part of the Zimbra API in PHP library.
  *
@@ -10,43 +10,45 @@
 
 namespace Zimbra\Enum;
 
+use MyCLabs\Enum\Enum;
+
 /**
  * VoiceMsgActionOp enum class
  *
  * @package   Zimbra
  * @category  Enum
  * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
- * @copyright Copyright © 2013 by Nguyen Van Nguyen.
+ * @copyright Copyright © 2013-present by Nguyen Van Nguyen.
  */
-class VoiceMsgActionOp extends Base
+class VoiceMsgActionOp extends Enum
 {
     /**
      * Constant for value 'move'
      * @return string 'move'
      */
-    const MOVE = 'move';
+    private const MOVE = 'move';
 
     /**
      * Constant for value 'read'
      * @return string 'read'
      */
-    const READ = 'read';
+    private const READ = 'read';
 
     /**
      * Constant for value '!read'
      * @return string '!read'
      */
-    const NOT_READ = '!read';
+    private const NOT_READ = '!read';
 
     /**
      * Constant for value 'empty'
      * @return string 'empty'
      */
-    const IS_EMPTY = 'empty';
+    private const IS_EMPTY = 'empty';
 
     /**
      * Constant for value 'delete'
      * @return string 'delete'
      */
-    const DELETE = 'delete';
+    private const DELETE = 'delete';
 }

@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Zimbra\Account\Tests\Struct;
 
@@ -31,10 +31,14 @@ class AttrTest extends ZimbraStructTestCase
         $xml = '<?xml version="1.0"?>' . "\n"
             . '<attr name="' . $name . '" pd="true">' . $value . '</attr>';
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($attr, 'xml'));
+        $this->assertEquals($attr, $this->serializer->deserialize($xml, Attr::class, 'xml'));
 
-        $attr = $this->serializer->deserialize($xml, 'Zimbra\Account\Struct\Attr', 'xml');
-        $this->assertSame($name, $attr->getName());
-        $this->assertSame($value, $attr->getValue());
-        $this->assertTrue($attr->getPermDenied());
+        $json = json_encode([
+            'name' => $name,
+            '_content' => $value,
+            'pd' => TRUE,
+        ]);
+        $this->assertSame($json, $this->serializer->serialize($attr, 'json'));
+        $this->assertEquals($attr, $this->serializer->deserialize($json, Attr::class, 'json'));
     }
 }

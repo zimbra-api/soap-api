@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * This file is part of the Zimbra API in PHP library.
  *
@@ -10,7 +10,7 @@
 
 namespace Zimbra\Soap;
 
-use Zimbra\Soap\Request as SoapRequest;
+use Psr\Http\Message\{RequestInterface, ResponseInterface};
 
 /**
  * ClientInterface is a interface which provides a client for SOAP servers
@@ -18,43 +18,29 @@ use Zimbra\Soap\Request as SoapRequest;
  * @package   Zimbra
  * @category  Soap
  * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
- * @copyright Copyright © 2013 by Nguyen Van Nguyen.
+ * @copyright Copyright © 2020 by Nguyen Van Nguyen.
  */
 interface ClientInterface
 {
     /**
      * Performs a SOAP request
      *
-     * @param  string $request
-     * @return string Soap response
+     * @param  string $soapMessage
+     * @return ResponseInterface
      */
-    function doRequest($request);
+    function sendRequest($soapMessage): ?ResponseInterface;
 
     /**
-     * Returns last SOAP request.
+     * Returns last request.
      *
-     * @return string The last SOAP request, as an XML string.
+     * @return RequestInterface
      */
-    function lastRequest();
+    function getLastRequest(): ?RequestInterface;
 
     /**
-     * Returns the SOAP headers from the last request.
+     * Returns last response.
      *
-     * @return array The last SOAP request headers.
+     * @return ResponseInterface
      */
-    function lastRequestHeaders();
-
-    /**
-     * Returns last SOAP response.
-     *
-     * @return string The last SOAP response, as an XML string.
-     */
-    function lastResponse();
-
-    /**
-     * Returns the SOAP headers from the last response.
-     *
-     * @return array The last SOAP response headers.
-     */
-    function lastResponseHeaders();
+    function getLastResponse(): ?ResponseInterface;
 }

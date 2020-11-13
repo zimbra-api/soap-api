@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * This file is part of the Zimbra API in PHP library.
  *
@@ -10,13 +10,7 @@
 
 namespace Zimbra\Soap\Header;
 
-use JMS\Serializer\Annotation\Accessor;
-use JMS\Serializer\Annotation\SerializedName;
-use JMS\Serializer\Annotation\Type;
-use JMS\Serializer\Annotation\XmlAttribute;
-use JMS\Serializer\Annotation\XmlRoot;
-use JMS\Serializer\Annotation\XmlValue;
-
+use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlRoot, XmlValue};
 use Zimbra\Enum\AccountBy;
 
 /**
@@ -25,7 +19,8 @@ use Zimbra\Enum\AccountBy;
  * @package   Zimbra
  * @category  Soap
  * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
- * @copyright Copyright © 2013 by Nguyen Van Nguyen.
+ * @copyright Copyright © 2020 by Nguyen Van Nguyen.
+ * @AccessType("public_method")
  * @XmlRoot(name="account")
  */
 class AccountInfo
@@ -33,10 +28,10 @@ class AccountInfo
     /**
      * @Accessor(getter="getBy", setter="setBy")
      * @SerializedName("by")
-     * @Type("string")
+     * @Type("Zimbra\Enum\AccountBy")
      * @XmlAttribute
      */
-    private $_by;
+    private $by;
 
     /**
      * @Accessor(getter="getMountpointTraversed", setter="setMountpointTraversed")
@@ -44,30 +39,31 @@ class AccountInfo
      * @Type("boolean")
      * @XmlAttribute
      */
-    private $_mountpointTraversed;
+    private $mountpointTraversed;
 
     /**
      * @Accessor(getter="getValue", setter="setValue")
+     * @SerializedName("_content")
      * @Type("string")
      * @XmlValue(cdata=false)
      */
-    private $_value;
+    private $value;
 
     /**
      * Constructor method for AccountInfo
-     * @param  string $by
+     * @param  AccountBy $by
      * @param  bool $mountpointTraversed
      * @param  string $value
      * @return self
      */
-    public function __construct($by, $mountpointTraversed = null, $value = null)
+    public function __construct(AccountBy $by, $mountpointTraversed = NULL, $value = NULL)
     {
         $this->setBy($by);
-        if(null !== $mountpointTraversed)
+        if(NULL !== $mountpointTraversed)
         {
             $this->setMountpointTraversed($mountpointTraversed);
         }
-        if(null !== $value)
+        if(NULL !== $value)
         {
             $this->setValue($value);
         }
@@ -76,35 +72,33 @@ class AccountInfo
     /**
      * Gets account by
      *
-     * @return string
+     * @return AccountBy
      */
-    public function getBy()
+    public function getBy(): AccountBy
     {
-        return $this->_by;
+        return $this->by;
     }
 
     /**
      * Sets account by enum
      *
-     * @param  string $by
+     * @param  AccountBy $by
      * @return self
      */
-    public function setBy($by)
+    public function setBy(AccountBy $by): self
     {
-        if (AccountBy::has(trim($by))) {
-            $this->_by = trim($by);
-        }
+        $this->by = $by;
         return $this;
     }
 
     /**
      * Gets mountpoint traversed
      *
-     * @return string
+     * @return bool
      */
-    public function getMountpointTraversed()
+    public function getMountpointTraversed(): bool
     {
-        return $this->_mountpointTraversed;
+        return $this->mountpointTraversed;
     }
 
     /**
@@ -113,9 +107,9 @@ class AccountInfo
      * @param  bool $mountpointTraversed
      * @return self
      */
-    public function setMountpointTraversed($mountpointTraversed)
+    public function setMountpointTraversed($mountpointTraversed): self
     {
-        $this->_mountpointTraversed = (bool) $mountpointTraversed;
+        $this->mountpointTraversed = (bool) $mountpointTraversed;
         return $this;
     }
 
@@ -124,9 +118,9 @@ class AccountInfo
      *
      * @return string
      */
-    public function getValue()
+    public function getValue(): string
     {
-        return $this->_value;
+        return $this->value;
     }
 
     /**
@@ -135,9 +129,9 @@ class AccountInfo
      * @param  string $name
      * @return self
      */
-    public function setValue($value)
+    public function setValue($value): self
     {
-        $this->_value = trim($value);
+        $this->value = trim($value);
         return $this;
     }
 }

@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Zimbra\Admin\Tests\Struct;
 
@@ -36,13 +36,22 @@ class ExportAndDeleteMailboxSpecTest extends ZimbraStructTestCase
                 . '<item id="' . $version . '" version="' . $id . '" />'
             . '</mbox>';
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($mbox, 'xml'));
+        $this->assertEquals($mbox, $this->serializer->deserialize($xml, ExportAndDeleteMailboxSpec::class, 'xml'));
 
-        $mbox = $this->serializer->deserialize($xml, 'Zimbra\Admin\Struct\ExportAndDeleteMailboxSpec', 'xml');
-        $items = $mbox->getItems();
-        $this->assertSame($id, $mbox->getId());
-        $this->assertSame($id, $items[0]->getId());
-        $this->assertSame($version, $items[0]->getVersion());
-        $this->assertSame($version, $items[1]->getId());
-        $this->assertSame($id, $items[1]->getVersion());
+        $json = json_encode([
+            'id' => $id,
+            'item' => [
+                [
+                    'id' => $id,
+                    'version' => $version,
+                ],
+                [
+                    'id' => $version,
+                    'version' => $id,
+                ],
+            ],
+        ]);
+        $this->assertSame($json, $this->serializer->serialize($mbox, 'json'));
+        $this->assertEquals($mbox, $this->serializer->deserialize($json, ExportAndDeleteMailboxSpec::class, 'json'));
     }
 }

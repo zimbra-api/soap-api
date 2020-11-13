@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * This file is part of the Zimbra API in PHP library.
  *
@@ -10,12 +10,7 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\Accessor;
-use JMS\Serializer\Annotation\SerializedName;
-use JMS\Serializer\Annotation\Type;
-use JMS\Serializer\Annotation\XmlAttribute;
-use JMS\Serializer\Annotation\XmlRoot;
-
+use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlRoot};
 use Zimbra\Enum\ReindexType;
 
 /**
@@ -25,7 +20,8 @@ use Zimbra\Enum\ReindexType;
  * @subpackage Admin
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
- * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
+ * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
+ * @AccessType("public_method")
  * @XmlRoot(name="mbox")
  */
 class ReindexMailboxInfo
@@ -36,7 +32,7 @@ class ReindexMailboxInfo
      * @Type("string")
      * @XmlAttribute
      */
-    private $_id;
+    private $id;
 
     /**
      * @Accessor(getter="getTypes", setter="setTypes")
@@ -44,7 +40,7 @@ class ReindexMailboxInfo
      * @Type("string")
      * @XmlAttribute
      */
-    private $_types;
+    private $types;
 
     /**
      * @Accessor(getter="getIds", setter="setIds")
@@ -52,7 +48,7 @@ class ReindexMailboxInfo
      * @Type("string")
      * @XmlAttribute
      */
-    private $_ids;
+    private $ids;
 
     /**
      * Constructor method for ReindexMailboxInfo
@@ -77,9 +73,9 @@ class ReindexMailboxInfo
      *
      * @return string
      */
-    public function getId()
+    public function getId(): string
     {
-        return $this->_id;
+        return $this->id;
     }
 
     /**
@@ -88,9 +84,9 @@ class ReindexMailboxInfo
      * @param  string $id
      * @return self
      */
-    public function setId($id)
+    public function setId($id): self
     {
-        $this->_id = trim($id);
+        $this->id = trim($id);
         return $this;
     }
 
@@ -99,9 +95,9 @@ class ReindexMailboxInfo
      *
      * @return string
      */
-    public function getTypes()
+    public function getTypes(): string
     {
-        return $this->_types;
+        return $this->types;
     }
 
     /**
@@ -110,17 +106,17 @@ class ReindexMailboxInfo
      * @param  string $types
      * @return self
      */
-    public function setTypes($types)
+    public function setTypes($types): self
     {
         $arrType = [];
         $types = explode(',', trim($types));
         foreach ($types as $type) {
             $type = trim($type);
-            if (ReindexType::has($type) && !in_array($type, $arrType)) {
+            if (ReindexType::isValid($type) && !in_array($type, $arrType)) {
                 $arrType[] = trim($type);
             }
         }
-        $this->_types = implode(',', $arrType);
+        $this->types = implode(',', $arrType);
         return $this;
     }
 
@@ -129,9 +125,9 @@ class ReindexMailboxInfo
      *
      * @return string
      */
-    public function getIds()
+    public function getIds(): string
     {
-        return $this->_ids;
+        return $this->ids;
     }
 
     /**
@@ -140,9 +136,9 @@ class ReindexMailboxInfo
      * @param  string $ids
      * @return self
      */
-    public function setIds($ids)
+    public function setIds($ids): self
     {
-        $this->_ids = trim($ids);
+        $this->ids = trim($ids);
         return $this;
     }
 }

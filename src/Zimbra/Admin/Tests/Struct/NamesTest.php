@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Zimbra\Admin\Tests\Struct;
 
@@ -23,8 +23,12 @@ class NamesTest extends ZimbraStructTestCase
         $xml = '<?xml version="1.0"?>' . "\n"
             . '<name name="' . $name . '" />';
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($names, 'xml'));
+        $this->assertEquals($names, $this->serializer->deserialize($xml, Names::class, 'xml'));
 
-        $names = $this->serializer->deserialize($xml, 'Zimbra\Admin\Struct\Names', 'xml');
-        $this->assertSame($name, $names->getName());
+        $json = json_encode([
+            'name' => $name,
+        ]);
+        $this->assertSame($json, $this->serializer->serialize($names, 'json'));
+        $this->assertEquals($names, $this->serializer->deserialize($json, Names::class, 'json'));
     }
 }

@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * This file is part of the Zimbra API in PHP library.
  *
@@ -10,11 +10,7 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\Accessor;
-use JMS\Serializer\Annotation\SerializedName;
-use JMS\Serializer\Annotation\Type;
-use JMS\Serializer\Annotation\XmlAttribute;
-use JMS\Serializer\Annotation\XmlRoot;
+use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlRoot};
 
 /**
  * AttachmentIdAttrib struct class
@@ -23,7 +19,8 @@ use JMS\Serializer\Annotation\XmlRoot;
  * @subpackage Admin
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
- * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
+ * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
+ * @AccessType("public_method")
  * @XmlRoot(name="content")
  */
 class AttachmentIdAttrib
@@ -34,7 +31,7 @@ class AttachmentIdAttrib
      * @Type("string")
      * @XmlAttribute
      */
-    private $_aid;
+    private $aid;
 
     /**
      * Constructor method for AttachmentIdAttrib
@@ -53,9 +50,9 @@ class AttachmentIdAttrib
      *
      * @return string
      */
-    public function getAttachmentId()
+    public function getAttachmentId(): ?string
     {
-        return $this->_aid;
+        return $this->aid;
     }
 
     /**
@@ -64,8 +61,9 @@ class AttachmentIdAttrib
      * @param  string $aid
      * @return self
      */
-    public function setAttachmentId($aid)
+    public function setAttachmentId($aid): self
     {
-        return $this->_aid = trim($aid);
+        $this->aid = trim($aid);
+        return $this;
     }
 }

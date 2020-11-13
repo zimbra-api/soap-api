@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * This file is part of the Zimbra API in PHP library.
  *
@@ -10,16 +10,7 @@
 
 namespace Zimbra\Soap\Header;
 
-use JMS\Serializer\Annotation\Accessor;
-use JMS\Serializer\Annotation\SerializedName;
-use JMS\Serializer\Annotation\Type;
-use JMS\Serializer\Annotation\XmlAttribute;
-use JMS\Serializer\Annotation\XmlElement;
-use JMS\Serializer\Annotation\XmlNamespace;
-use JMS\Serializer\Annotation\XmlValue;
-use JMS\Serializer\Annotation\XmlList;
-use JMS\Serializer\Annotation\XmlRoot;
-
+use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlElement, XmlRoot};
 use Zimbra\Struct\AuthTokenControl;
 
 /**
@@ -28,7 +19,8 @@ use Zimbra\Struct\AuthTokenControl;
  * @package   Zimbra
  * @category  Soap
  * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
- * @copyright Copyright © 2013 by Nguyen Van Nguyen.
+ * @copyright Copyright © 2020 by Nguyen Van Nguyen.
+ * @AccessType("public_method")
  * @XmlRoot(name="context")
  */
 class Context
@@ -39,7 +31,7 @@ class Context
      * @Type("integer")
      * @XmlAttribute
      */
-    private $_hopCount;
+    private $hopCount;
 
     /**
      * @Accessor(getter="getAuthToken", setter="setAuthToken")
@@ -47,7 +39,7 @@ class Context
      * @Type("string")
      * @XmlElement(cdata=false)
      */
-    private $_authToken;
+    private $authToken;
 
     /**
      * @Accessor(getter="getSession", setter="setSession")
@@ -55,7 +47,7 @@ class Context
      * @Type("Zimbra\Soap\Header\SessionInfo")
      * @XmlElement()
      */
-    private $_session;
+    private $session;
 
     /**
      * @Accessor(getter="getLegacySessionId", setter="setLegacySessionId")
@@ -63,7 +55,7 @@ class Context
      * @Type("Zimbra\Soap\Header\SessionInfo")
      * @XmlElement()
      */
-    private $_legacySessionId;
+    private $legacySessionId;
 
     /**
      * @Accessor(getter="getNoSession", setter="setNoSession")
@@ -71,7 +63,7 @@ class Context
      * @Type("string")
      * @XmlElement(cdata=false)
      */
-    private $_noSession;
+    private $noSession;
 
     /**
      * @Accessor(getter="getAccount", setter="setAccount")
@@ -79,7 +71,7 @@ class Context
      * @Type("Zimbra\Soap\Header\AccountInfo")
      * @XmlElement()
      */
-    private $_account;
+    private $account;
 
     /**
      * @Accessor(getter="getChange", setter="setChange")
@@ -87,7 +79,7 @@ class Context
      * @Type("Zimbra\Soap\Header\ChangeInfo")
      * @XmlElement()
      */
-    private $_change;
+    private $change;
 
     /**
      * @Accessor(getter="getTargetServer", setter="setTargetServer")
@@ -95,7 +87,7 @@ class Context
      * @Type("string")
      * @XmlElement(cdata=false)
      */
-    private $_targetServer;
+    private $targetServer;
 
     /**
      * @Accessor(getter="getUserAgent", setter="setUserAgent")
@@ -103,7 +95,7 @@ class Context
      * @Type("Zimbra\Soap\Header\UserAgentInfo")
      * @XmlElement()
      */
-    private $_userAgent;
+    private $userAgent;
 
     /**
      * @Accessor(getter="getAuthTokenControl", setter="setAuthTokenControl")
@@ -111,7 +103,7 @@ class Context
      * @Type("Zimbra\Struct\AuthTokenControl")
      * @XmlElement()
      */
-    private $_authTokenControl;
+    private $authTokenControl;
 
     /**
      * @Accessor(getter="getFormat", setter="setFormat")
@@ -119,7 +111,7 @@ class Context
      * @Type("Zimbra\Soap\Header\FormatInfo")
      * @XmlElement()
      */
-    private $_format;
+    private $format;
 
     /**
      * @Accessor(getter="getNotify", setter="setNotify")
@@ -127,7 +119,7 @@ class Context
      * @Type("Zimbra\Soap\Header\NotifyInfo")
      * @XmlElement()
      */
-    private $_notify;
+    private $notify;
 
     /**
      * @Accessor(getter="getNoNotify", setter="setNoNotify")
@@ -135,7 +127,7 @@ class Context
      * @Type("string")
      * @XmlElement(cdata=false)
      */
-    private $_noNotify;
+    private $noNotify;
 
     /**
      * @Accessor(getter="getNoQualify", setter="setNoQualify")
@@ -143,7 +135,7 @@ class Context
      * @Type("string")
      * @XmlElement(cdata=false)
      */
-    private $_noQualify;
+    private $noQualify;
 
     /**
      * @Accessor(getter="getVia", setter="setVia")
@@ -151,7 +143,7 @@ class Context
      * @Type("string")
      * @XmlElement(cdata=false)
      */
-    private $_via;
+    private $via;
 
     /**
      * @Accessor(getter="getSoapRequestId", setter="setSoapRequestId")
@@ -159,7 +151,7 @@ class Context
      * @Type("string")
      * @XmlElement(cdata=false)
      */
-    private $_soapRequestId;
+    private $soapRequestId;
 
     /**
      * @Accessor(getter="getCsrfToken", setter="setCsrfToken")
@@ -167,7 +159,7 @@ class Context
      * @Type("string")
      * @XmlElement(cdata=false)
      */
-    private $_csrfToken;
+    private $csrfToken;
 
     /**
      * Constructor method for Context
@@ -249,11 +241,11 @@ class Context
     /**
      * Gets number of times this request has been proxied
      *
-     * @return string
+     * @return int
      */
-    public function getHopCount()
+    public function getHopCount(): int
     {
-        return $this->_hopCount;
+        return $this->hopCount;
     }
 
     /**
@@ -262,9 +254,9 @@ class Context
      * @param  int $hopCount
      * @return self
      */
-    public function setHopCount($hopCount)
+    public function setHopCount($hopCount): self
     {
-        $this->_hopCount = (int) $hopCount;
+        $this->hopCount = (int) $hopCount;
         return $this;
     }
 
@@ -273,9 +265,9 @@ class Context
      *
      * @return string
      */
-    public function getAuthToken()
+    public function getAuthToken(): string
     {
-        return $this->_authToken;
+        return $this->authToken;
     }
 
     /**
@@ -284,20 +276,20 @@ class Context
      * @param  string $authToken
      * @return self
      */
-    public function setAuthToken($authToken)
+    public function setAuthToken($authToken): self
     {
-        $this->_authToken = trim($authToken);
+        $this->authToken = trim($authToken);
         return $this;
     }
 
     /**
      * Gets session info
      *
-     * @return HeaderSessionInfo
+     * @return SessionInfo
      */
-    public function getSession()
+    public function getSession(): ?SessionInfo
     {
-        return $this->_session;
+        return $this->session;
     }
 
     /**
@@ -306,9 +298,9 @@ class Context
      * @param  SessionInfo $session
      * @return self
      */
-    public function setSession(SessionInfo $session)
+    public function setSession(SessionInfo $session): self
     {
-        $this->_session = $session;
+        $this->session = $session;
         return $this;
     }
 
@@ -317,9 +309,9 @@ class Context
      *
      * @return SessionInfo
      */
-    public function getLegacySessionId()
+    public function getLegacySessionId(): ?SessionInfo
     {
-        return $this->_legacySessionId;
+        return $this->legacySessionId;
     }
 
     /**
@@ -328,9 +320,9 @@ class Context
      * @param  SessionInfo $sessionId
      * @return self
      */
-    public function setLegacySessionId(SessionInfo $sessionId)
+    public function setLegacySessionId(SessionInfo $sessionId): self
     {
-        $this->_legacySessionId = $sessionId;
+        $this->legacySessionId = $sessionId;
         return $this;
     }
 
@@ -339,9 +331,9 @@ class Context
      *
      * @return string
      */
-    public function getNoSession()
+    public function getNoSession(): string
     {
-        return $this->_noSession;
+        return $this->noSession;
     }
 
     /**
@@ -350,20 +342,20 @@ class Context
      * @param  string $noSession
      * @return self
      */
-    public function setNoSession($noSession)
+    public function setNoSession($noSession): self
     {
-        $this->_noSession = trim($noSession);
+        $this->noSession = trim($noSession);
         return $this;
     }
 
     /**
      * Gets account info
      *
-     * @return HeaderAccountInfo
+     * @return AccountInfo
      */
-    public function getAccount()
+    public function getAccount(): ?AccountInfo
     {
-        return $this->_account;
+        return $this->account;
     }
 
     /**
@@ -372,20 +364,20 @@ class Context
      * @param  AccountInfo $account
      * @return self
      */
-    public function setAccount(AccountInfo $account)
+    public function setAccount(AccountInfo $account): self
     {
-        $this->_account = $account;
+        $this->account = $account;
         return $this;
     }
 
     /**
      * Gets change
      *
-     * @return HeaderChangeInfo
+     * @return ChangeInfo
      */
-    public function getChange()
+    public function getChange(): ?ChangeInfo
     {
-        return $this->_change;
+        return $this->change;
     }
 
     /**
@@ -394,9 +386,9 @@ class Context
      * @param  ChangeInfo $change
      * @return self
      */
-    public function setChange(ChangeInfo $change)
+    public function setChange(ChangeInfo $change): self
     {
-        $this->_change = $change;
+        $this->change = $change;
         return $this;
     }
 
@@ -405,9 +397,9 @@ class Context
      *
      * @return string
      */
-    public function getTargetServer()
+    public function getTargetServer(): string
     {
-        return $this->_targetServer;
+        return $this->targetServer;
     }
 
     /**
@@ -416,9 +408,9 @@ class Context
      * @param  string $targetServer
      * @return self
      */
-    public function setTargetServer($targetServer)
+    public function setTargetServer($targetServer): self
     {
-        $this->_targetServer = trim($targetServer);
+        $this->targetServer = trim($targetServer);
         return $this;
     }
 
@@ -427,9 +419,9 @@ class Context
      *
      * @return UserAgentInfo
      */
-    public function getUserAgent()
+    public function getUserAgent(): ?UserAgentInfo
     {
-        return $this->_userAgent;
+        return $this->userAgent;
     }
 
     /**
@@ -438,9 +430,9 @@ class Context
      * @param  UserAgentInfo $userAgent
      * @return self
      */
-    public function setUserAgent(UserAgentInfo $userAgent)
+    public function setUserAgent(UserAgentInfo $userAgent): self
     {
-        $this->_userAgent = $userAgent;
+        $this->userAgent = $userAgent;
         return $this;
     }
 
@@ -449,9 +441,9 @@ class Context
      *
      * @return AuthTokenControl
      */
-    public function getAuthTokenControl()
+    public function getAuthTokenControl(): ?AuthTokenControl
     {
-        return $this->_authTokenControl;
+        return $this->authTokenControl;
     }
 
     /**
@@ -460,9 +452,9 @@ class Context
      * @param  AuthTokenControl $authTokenControl
      * @return self
      */
-    public function setAuthTokenControl(AuthTokenControl $authTokenControl)
+    public function setAuthTokenControl(AuthTokenControl $authTokenControl): self
     {
-        $this->_authTokenControl = $authTokenControl;
+        $this->authTokenControl = $authTokenControl;
         return $this;
     }
 
@@ -471,9 +463,9 @@ class Context
      *
      * @return FormatInfo
      */
-    public function getFormat()
+    public function getFormat(): ?FormatInfo
     {
-        return $this->_format;
+        return $this->format;
     }
 
     /**
@@ -482,9 +474,9 @@ class Context
      * @param  FormatInfo $format
      * @return self
      */
-    public function setFormat(FormatInfo $format)
+    public function setFormat(FormatInfo $format): self
     {
-        $this->_format = $format;
+        $this->format = $format;
         return $this;
     }
 
@@ -493,9 +485,9 @@ class Context
      *
      * @return NotifyInfo
      */
-    public function getNotify()
+    public function getNotify(): ?NotifyInfo
     {
-        return $this->_notify;
+        return $this->notify;
     }
 
     /**
@@ -504,9 +496,9 @@ class Context
      * @param  NotifyInfo $notify
      * @return self
      */
-    public function setNotify(NotifyInfo $notify)
+    public function setNotify(NotifyInfo $notify): self
     {
-        $this->_notify = $notify;
+        $this->notify = $notify;
         return $this;
     }
 
@@ -515,9 +507,9 @@ class Context
      *
      * @return string
      */
-    public function getNoNotify()
+    public function getNoNotify(): string
     {
-        return $this->_noNotify;
+        return $this->noNotify;
     }
 
     /**
@@ -526,9 +518,9 @@ class Context
      * @param  string $noNotify
      * @return self
      */
-    public function setNoNotify($noNotify)
+    public function setNoNotify($noNotify): self
     {
-        $this->_noNotify = trim($noNotify);
+        $this->noNotify = trim($noNotify);
         return $this;
     }
 
@@ -537,9 +529,9 @@ class Context
      *
      * @return string
      */
-    public function getNoQualify()
+    public function getNoQualify(): string
     {
-        return $this->_noQualify;
+        return $this->noQualify;
     }
 
     /**
@@ -548,9 +540,9 @@ class Context
      * @param  string $noQualify
      * @return self
      */
-    public function setNoQualify($noQualify)
+    public function setNoQualify($noQualify): self
     {
-        $this->_noQualify = trim($noQualify);
+        $this->noQualify = trim($noQualify);
         return $this;
     }
 
@@ -559,9 +551,9 @@ class Context
      *
      * @return string
      */
-    public function getVia()
+    public function getVia(): string
     {
-        return $this->_via;
+        return $this->via;
     }
 
     /**
@@ -570,9 +562,9 @@ class Context
      * @param  string $via
      * @return self
      */
-    public function setVia($via)
+    public function setVia($via): self
     {
-        $this->_via = trim($via);
+        $this->via = trim($via);
         return $this;
     }
 
@@ -581,9 +573,9 @@ class Context
      *
      * @return string
      */
-    public function getSoapRequestId()
+    public function getSoapRequestId(): string
     {
-        return $this->_soapRequestId;
+        return $this->soapRequestId;
     }
 
     /**
@@ -592,9 +584,9 @@ class Context
      * @param  string $soapRequestId
      * @return self
      */
-    public function setSoapRequestId($soapRequestId)
+    public function setSoapRequestId($soapRequestId): self
     {
-        $this->_soapRequestId = trim($soapRequestId);
+        $this->soapRequestId = trim($soapRequestId);
         return $this;
     }
 
@@ -603,9 +595,9 @@ class Context
      *
      * @return string
      */
-    public function getCsrfToken()
+    public function getCsrfToken(): string
     {
-        return $this->_csrfToken;
+        return $this->csrfToken;
     }
 
     /**
@@ -614,9 +606,9 @@ class Context
      * @param  string $csrfToken
      * @return self
      */
-    public function setCsrfToken($csrfToken)
+    public function setCsrfToken($csrfToken): self
     {
-        $this->_csrfToken = trim($csrfToken);
+        $this->csrfToken = trim($csrfToken);
         return $this;
     }
 }

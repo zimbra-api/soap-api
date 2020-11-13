@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * This file is part of the Zimbra API in PHP library.
  *
@@ -10,12 +10,7 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\Accessor;
-use JMS\Serializer\Annotation\SerializedName;
-use JMS\Serializer\Annotation\Type;
-use JMS\Serializer\Annotation\XmlAttribute;
-use JMS\Serializer\Annotation\XmlList;
-use JMS\Serializer\Annotation\XmlRoot;
+use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlList, XmlRoot};
 
 /**
  * QueueQueryField struct class
@@ -24,7 +19,8 @@ use JMS\Serializer\Annotation\XmlRoot;
  * @subpackage Admin
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
- * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
+ * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
+ * @AccessType("public_method")
  * @XmlRoot(name="field")
  */
 class QueueQueryField
@@ -35,15 +31,17 @@ class QueueQueryField
      * @Type("string")
      * @XmlAttribute
      */
-    private $_name;
+    private $name;
 
     /**
      * Match specifications
+     * 
      * @Accessor(getter="getMatches", setter="setMatches")
+     * @SerializedName("match")
      * @Type("array<Zimbra\Admin\Struct\ValueAttrib>")
      * @XmlList(inline = true, entry = "match")
      */
-    private $_matches;
+    private $matches;
 
     /**
      * Constructor method for QueueQueryField
@@ -62,9 +60,9 @@ class QueueQueryField
      *
      * @return string
      */
-    public function getName()
+    public function getName(): string
     {
-        return $this->_name;
+        return $this->name;
     }
 
     /**
@@ -73,9 +71,9 @@ class QueueQueryField
      * @param  string $name
      * @return self
      */
-    public function setName($name)
+    public function setName($name): self
     {
-        $this->_name = trim($name);
+        $this->name = trim($name);
         return $this;
     }
 
@@ -85,9 +83,9 @@ class QueueQueryField
      * @param  ValueAttrib $match
      * @return self
      */
-    public function addMatch(ValueAttrib $match)
+    public function addMatch(ValueAttrib $match): self
     {
-        $this->_matches[] = $match;
+        $this->matches[] = $match;
         return $this;
     }
 
@@ -97,12 +95,12 @@ class QueueQueryField
      * @param  array $matches
      * @return self
      */
-    public function setMatches(array $matches)
+    public function setMatches(array $matches): self
     {
-        $this->_matches = [];
+        $this->matches = [];
         foreach ($matches as $match) {
             if ($match instanceof ValueAttrib) {
-                $this->_matches[] = $match;
+                $this->matches[] = $match;
             }
         }
         return $this;
@@ -113,8 +111,8 @@ class QueueQueryField
      *
      * @return array
      */
-    public function getMatches()
+    public function getMatches(): array
     {
-        return $this->_matches;
+        return $this->matches;
     }
 }

@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * This file is part of the Zimbra API in PHP library.
  *
@@ -10,15 +10,8 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\Accessor;
-use JMS\Serializer\Annotation\SerializedName;
-use JMS\Serializer\Annotation\Type;
-use JMS\Serializer\Annotation\XmlAttribute;
-use JMS\Serializer\Annotation\XmlRoot;
-use JMS\Serializer\Annotation\XmlValue;
-
-use Zimbra\Enum\GranteeType;
-use Zimbra\Enum\GranteeBy;
+use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlRoot, XmlValue};
+use Zimbra\Enum\{GranteeType, GranteeBy};
 
 /**
  * GranteeSelector struct class
@@ -27,7 +20,8 @@ use Zimbra\Enum\GranteeBy;
  * @subpackage Admin
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
- * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
+ * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
+ * @AccessType("public_method")
  * @XmlRoot(name="grantee")
  */
 class GranteeSelector
@@ -35,25 +29,26 @@ class GranteeSelector
     /**
      * @Accessor(getter="getType", setter="setType")
      * @SerializedName("type")
-     * @Type("string")
+     * @Type("Zimbra\Enum\GranteeType")
      * @XmlAttribute
      */
-    private $_type;
+    private $type;
 
     /**
      * @Accessor(getter="getBy", setter="setBy")
      * @SerializedName("by")
-     * @Type("string")
+     * @Type("Zimbra\Enum\GranteeBy")
      * @XmlAttribute
      */
-    private $_by;
+    private $by;
 
     /**
      * @Accessor(getter="getValue", setter="setValue")
+     * @SerializedName("_content")
      * @Type("string")
      * @XmlValue(cdata=false)
      */
-    private $_value;
+    private $value;
 
     /**
      * Password for guest grantee or the access key for key grantee
@@ -62,7 +57,7 @@ class GranteeSelector
      * @Type("string")
      * @XmlAttribute
      */
-    private $_secret;
+    private $secret;
 
     /**
      * For GetGrantsRequest, selects whether to include grants granted to groups
@@ -71,23 +66,23 @@ class GranteeSelector
      * @Type("bool")
      * @XmlAttribute
      */
-    private $_all;
+    private $all;
 
     /**
      * Constructor method for GranteeSelector
      * @param string $value The key used to secretentify the grantee
-     * @param string $type Grantee type
-     * @param string $by Grantee by
+     * @param GranteeType $type Grantee type
+     * @param GranteeBy $by Grantee by
      * @param string $secret Password for guest grantee or the access key for key grantee For user right only
      * @param bool   $all For GetGrantsRequest, selects whether to include grants granted to groups the specified grantee belongs to. Default is 1 (true)
      * @return self
      */
     public function __construct(
-        $value = null,
-        $type = null,
-        $by = null,
-        $secret = null,
-        $all = null
+        $value = NULL,
+        GranteeType $type = NULL,
+        GranteeBy $by = NULL,
+        $secret = NULL,
+        $all = NULL
     )
     {
         if (NULL !== $value) {
@@ -110,48 +105,44 @@ class GranteeSelector
     /**
      * Gets type enum
      *
-     * @return string
+     * @return GranteeType
      */
-    public function getType()
+    public function getType(): GranteeType
     {
-        return $this->_type;
+        return $this->type;
     }
 
     /**
      * Sets type enum
      *
-     * @param  string $type
+     * @param  GranteeType $type
      * @return self
      */
-    public function setType($type)
+    public function setType(GranteeType $type): self
     {
-        if (GranteeType::has(trim($type))) {
-            $this->_type = $type;
-        }
+        $this->type = $type;
         return $this;
     }
 
     /**
      * Gets by enum
      *
-     * @return string
+     * @return GranteeBy
      */
-    public function getBy()
+    public function getBy(): GranteeBy
     {
-        return $this->_by;
+        return $this->by;
     }
 
     /**
      * Sets by enum
      *
-     * @param  string $by
+     * @param  GranteeBy $by
      * @return self
      */
-    public function setBy($by)
+    public function setBy(GranteeBy $by): self
     {
-        if (GranteeBy::has(trim($by))) {
-            $this->_by = $by;
-        }
+        $this->by = $by;
         return $this;
     }
 
@@ -160,9 +151,9 @@ class GranteeSelector
      *
      * @return string
      */
-    public function getSecret()
+    public function getSecret(): string
     {
-        return $this->_secret;
+        return $this->secret;
     }
 
     /**
@@ -171,9 +162,9 @@ class GranteeSelector
      * @param  string $secret
      * @return self
      */
-    public function setSecret($secret)
+    public function setSecret($secret): self
     {
-        $this->_secret = trim($secret);
+        $this->secret = trim($secret);
         return $this;
     }
 
@@ -182,9 +173,9 @@ class GranteeSelector
      *
      * @return bool
      */
-    public function getAll()
+    public function getAll(): bool
     {
-        return $this->_all;
+        return $this->all;
     }
 
     /**
@@ -193,9 +184,9 @@ class GranteeSelector
      * @param  bool $all
      * @return self
      */
-    public function setAll($all)
+    public function setAll($all): self
     {
-        $this->_all = (bool) $all;
+        $this->all = (bool) $all;
         return $this;
     }
 
@@ -204,9 +195,9 @@ class GranteeSelector
      *
      * @return string
      */
-    public function getValue()
+    public function getValue(): string
     {
-        return $this->_value;
+        return $this->value;
     }
 
     /**
@@ -215,9 +206,9 @@ class GranteeSelector
      * @param  string $name
      * @return self
      */
-    public function setValue($value)
+    public function setValue($value): self
     {
-        $this->_value = trim($value);
+        $this->value = trim($value);
         return $this;
     }
 }

@@ -29,7 +29,7 @@ class DistributionListActionOpTest extends TestCase
         ];
         foreach ($values as $enum => $value)
         {
-            $this->assertSame(DistributionListActionOp::$enum()->value(), $value);
+            $this->assertSame(DistributionListActionOp::$enum()->getValue(), $value);
         }
     }
 }

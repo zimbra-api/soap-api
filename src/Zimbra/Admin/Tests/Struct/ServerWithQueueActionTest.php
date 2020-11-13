@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Zimbra\Admin\Tests\Struct;
 
@@ -28,7 +28,7 @@ class ServerWithQueueActionTest extends ZimbraStructTestCase
         $field = new QueueQueryField($name, [$match]);
         $query = new QueueQuery([$field], $limit, $offset);
 
-        $action = new MailQueueAction($query, QueueAction::HOLD()->value(), QueueActionBy::QUERY()->value());
+        $action = new MailQueueAction($query, QueueAction::HOLD(), QueueActionBy::QUERY());
         $queue = new MailQueueWithAction($action, $name);
 
         $server = new ServerWithQueueAction($queue, $name);
@@ -54,21 +54,33 @@ class ServerWithQueueActionTest extends ZimbraStructTestCase
                 . '</queue>'
             . '</server>';
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($server, 'xml'));
+        $this->assertEquals($server, $this->serializer->deserialize($xml, ServerWithQueueAction::class, 'xml'));
 
-        $server = $this->serializer->deserialize($xml, 'Zimbra\Admin\Struct\ServerWithQueueAction', 'xml');
-        $queue = $server->getQueue();
-        $action = $queue->getAction();
-        $query = $action->getQuery();
-        $field = $query->getFields()[0];
-        $match = $field->getMatches()[0];
-
-        $this->assertSame($name, $server->getName());
-        $this->assertSame($name, $queue->getName());
-        $this->assertSame(QueueAction::HOLD()->value(), $action->getOp());
-        $this->assertSame(QueueActionBy::QUERY()->value(), $action->getBy());
-        $this->assertSame($limit, $query->getLimit());
-        $this->assertSame($offset, $query->getOffset());
-        $this->assertSame($name, $field->getName());
-        $this->assertSame($value, $match->getValue());
+        $json = json_encode([
+            'queue' => [
+                'action' => [
+                    'query' => [
+                        'field' => [
+                            [
+                                'name' => $name,
+                                'match' => [
+                                    [
+                                        'value' => $value
+                                    ],
+                                ],
+                            ],
+                        ],
+                        'limit' => $limit,
+                        'offset' => $offset,
+                    ],
+                    'op' => (string) QueueAction::HOLD(),
+                    'by' => (string) QueueActionBy::QUERY(),
+                ],
+                'name' => $name,
+            ],
+            'name' => $name,
+        ]);
+        $this->assertSame($json, $this->serializer->serialize($server, 'json'));
+        $this->assertEquals($server, $this->serializer->deserialize($json, ServerWithQueueAction::class, 'json'));
     }
 }

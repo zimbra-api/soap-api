@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * This file is part of the Zimbra API in PHP library.
  *
@@ -10,55 +10,57 @@
 
 namespace Zimbra\Enum;
 
+use MyCLabs\Enum\Enum;
+
 /**
  * SearchType enum class
  *
  * @package   Zimbra
  * @category  Enum
  * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
- * @copyright Copyright © 2013 by Nguyen Van Nguyen.
+ * @copyright Copyright © 2013-present by Nguyen Van Nguyen.
  */
-class SearchType extends Base
+class SearchType extends Enum
 {
     /**
      * Constant for value 'conversation'
      * @return string 'conversation'
      */
-    const CONVERSATION = 'conversation';
+    private const CONVERSATION = 'conversation';
 
     /**
      * Constant for value 'message'
      * @return string 'message'
      */
-    const MESSAGE = 'message';
+    private const MESSAGE = 'message';
 
     /**
      * Constant for value 'contact'
      * @return string 'contact'
      */
-    const CONTACT = 'contact';
+    private const CONTACT = 'contact';
 
     /**
      * Constant for value 'appointment'
      * @return string 'appointment'
      */
-    const APPOINTMENT = 'appointment';
+    private const APPOINTMENT = 'appointment';
 
     /**
      * Constant for value 'task'
      * @return string 'task'
      */
-    const TASK = 'task';
+    private const TASK = 'task';
 
     /**
      * Constant for value 'wiki'
      * @return string 'wiki'
      */
-    const WIKI = 'wiki';
+    private const WIKI = 'wiki';
 
     /**
      * Constant for value 'document'
      * @return string 'document'
      */
-    const DOCUMENT = 'document';
+    private const DOCUMENT = 'document';
 }

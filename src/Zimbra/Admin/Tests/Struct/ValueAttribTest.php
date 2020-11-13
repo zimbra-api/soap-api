@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Zimbra\Admin\Tests\Struct;
 
@@ -23,8 +23,12 @@ class ValueAttribTest extends ZimbraStructTestCase
         $xml = '<?xml version="1.0"?>' . "\n"
             . '<a value="' . $value  .'" />';
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($attr, 'xml'));
+        $this->assertEquals($attr, $this->serializer->deserialize($xml, ValueAttrib::class, 'xml'));
 
-        $attr = $this->serializer->deserialize($xml, 'Zimbra\Admin\Struct\ValueAttrib', 'xml');
-        $this->assertSame($value, $attr->getValue());
+        $json = json_encode([
+            'value' => $value,
+        ]);
+        $this->assertSame($json, $this->serializer->serialize($attr, 'json'));
+        $this->assertEquals($attr, $this->serializer->deserialize($json, ValueAttrib::class, 'json'));
     }
 }

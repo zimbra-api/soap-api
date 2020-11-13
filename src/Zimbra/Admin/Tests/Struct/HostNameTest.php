@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Zimbra\Admin\Tests\Struct;
 
@@ -23,8 +23,12 @@ class HostNameTest extends ZimbraStructTestCase
         $xml = '<?xml version="1.0"?>' . "\n"
             . '<hostname hn="' . $name . '" />';
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($host, 'xml'));
+        $this->assertEquals($host, $this->serializer->deserialize($xml, HostName::class, 'xml'));
 
-        $host = $this->serializer->deserialize($xml, 'Zimbra\Admin\Struct\HostName', 'xml');
-        $this->assertSame($name, $host->getHostName());
+        $json = json_encode([
+            'hn' => $name,
+        ]);
+        $this->assertSame($json, $this->serializer->serialize($host, 'json'));
+        $this->assertEquals($host, $this->serializer->deserialize($json, HostName::class, 'json'));
     }
 }

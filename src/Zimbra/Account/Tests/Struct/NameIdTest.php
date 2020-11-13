@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Zimbra\Account\Tests\Struct;
 
@@ -29,9 +29,13 @@ class NameIdTest extends ZimbraStructTestCase
         $xml = '<?xml version="1.0"?>' . "\n"
             . '<nameid name="' . $name . '" id="' . $id . '" />';
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($nameId, 'xml'));
+        $this->assertEquals($nameId, $this->serializer->deserialize($xml, NameId::class, 'xml'));
 
-        $nameId = $this->serializer->deserialize($xml, 'Zimbra\Account\Struct\NameId', 'xml');
-        $this->assertSame($name, $nameId->getName());
-        $this->assertSame($id, $nameId->getId());
+        $json = json_encode([
+            'name' => $name,
+            'id' => $id,
+        ]);
+        $this->assertSame($json, $this->serializer->serialize($nameId, 'json'));
+        $this->assertEquals($nameId, $this->serializer->deserialize($json, NameId::class, 'json'));
     }
 }

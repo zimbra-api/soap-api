@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Zimbra\Account\Tests\Struct;
 
@@ -38,17 +38,24 @@ class DistributionListRightSpecTest extends ZimbraStructTestCase
                 . '<grantee type="' . GranteeType::USR() . '" by="' . DLGranteeBy::ID() . '">' . $value2 . '</grantee>'
             . '</right>';
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($right, 'xml'));
+        $this->assertEquals($right, $this->serializer->deserialize($xml, DistributionListRightSpec::class, 'xml'));
 
-        $right = $this->serializer->deserialize($xml, 'Zimbra\Account\Struct\DistributionListRightSpec', 'xml');
-        $grantee1 = $right->getGrantees()[0];
-        $grantee2 = $right->getGrantees()[1];
-
-        $this->assertSame($name, $right->getRight());
-        $this->assertSame(GranteeType::ALL()->value(), $grantee1->getType());
-        $this->assertSame(DLGranteeBy::NAME()->value(), $grantee1->getBy());
-        $this->assertSame($value1, $grantee1->getValue());
-        $this->assertSame(GranteeType::USR()->value(), $grantee2->getType());
-        $this->assertSame(DLGranteeBy::ID()->value(), $grantee2->getBy());
-        $this->assertSame($value2, $grantee2->getValue());
+        $json = json_encode([
+            'right' => $name,
+            'grantee' => [
+                [
+                    'type' => (string) GranteeType::ALL(),
+                    'by' => (string) DLGranteeBy::NAME(),
+                    '_content' => $value1,
+                ],
+                [
+                    'type' => (string) GranteeType::USR(),
+                    'by' => (string) DLGranteeBy::ID(),
+                    '_content' => $value2,
+                ],
+            ],
+        ]);
+        $this->assertSame($json, $this->serializer->serialize($right, 'json'));
+        $this->assertEquals($right, $this->serializer->deserialize($json, DistributionListRightSpec::class, 'json'));
     }
 }

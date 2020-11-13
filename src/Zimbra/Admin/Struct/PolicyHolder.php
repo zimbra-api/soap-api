@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * This file is part of the Zimbra API in PHP library.
  *
@@ -10,12 +10,7 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\Accessor;
-use JMS\Serializer\Annotation\SerializedName;
-use JMS\Serializer\Annotation\Type;
-use JMS\Serializer\Annotation\XmlElement;
-use JMS\Serializer\Annotation\XmlNamespace;
-use JMS\Serializer\Annotation\XmlRoot;
+use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlElement, XmlNamespace, XmlRoot};
 
 /**
  * PolicyHolder struct class
@@ -24,7 +19,8 @@ use JMS\Serializer\Annotation\XmlRoot;
  * @subpackage Admin
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
- * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
+ * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
+ * @AccessType("public_method")
  * @XmlNamespace(uri="urn:zimbraMail", prefix="urn")
  * @XmlRoot(name="holder")
  */
@@ -36,14 +32,14 @@ class PolicyHolder
      * @Type("Zimbra\Admin\Struct\Policy")
      * @XmlElement(namespace="urn:zimbraMail")
      */
-    private $_policy;
+    private $policy;
 
     /**
      * Constructor method for PolicyHolder
      * @param  Policy $policy
      * @return self
      */
-    public function __construct(Policy $policy = null)
+    public function __construct(Policy $policy = NULL)
     {
         if ($policy instanceof Policy) {
             $this->setPolicy($policy);
@@ -55,9 +51,9 @@ class PolicyHolder
      *
      * @return Policy
      */
-    public function getPolicy()
+    public function getPolicy(): Policy
     {
-        return $this->_policy;
+        return $this->policy;
     }
 
     /**
@@ -66,9 +62,9 @@ class PolicyHolder
      * @param  Policy $policy
      * @return self
      */
-    public function setPolicy(Policy $policy)
+    public function setPolicy(Policy $policy): self
     {
-        $this->_policy = $policy;
+        $this->policy = $policy;
         return $this;
     }
 }

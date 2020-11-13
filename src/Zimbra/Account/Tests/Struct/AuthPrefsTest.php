@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Zimbra\Account\Tests\Struct;
 
@@ -35,16 +35,23 @@ class AuthPrefsTest extends ZimbraStructTestCase
                 . '<pref name="' . $name2 . '" modified="' . $modified2 . '">' . $value2 . '</pref>'
             . '</prefs>';
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($prefs, 'xml'));
+        $this->assertEquals($prefs, $this->serializer->deserialize($xml, AuthPrefs::class, 'xml'));
 
-        $prefs = $this->serializer->deserialize($xml, 'Zimbra\Account\Struct\AuthPrefs', 'xml');
-        $pref1 = $prefs->getPrefs()[0];
-        $pref2 = $prefs->getPrefs()[1];
-
-        $this->assertSame($name1, $pref1->getName());
-        $this->assertSame($value1, $pref1->getValue());
-        $this->assertSame($modified1, $pref1->getModified());
-        $this->assertSame($name2, $pref2->getName());
-        $this->assertSame($value2, $pref2->getValue());
-        $this->assertSame($modified2, $pref2->getModified());
+        $json = json_encode([
+            'pref' => [
+                [
+                    'name' => $name1,
+                    '_content' => $value1,
+                    'modified' => $modified1,
+                ],
+                [
+                    'name' => $name2,
+                    '_content' => $value2,
+                    'modified' => $modified2,
+                ],
+            ],
+        ]);
+        $this->assertSame($json, $this->serializer->serialize($prefs, 'json'));
+        $this->assertEquals($prefs, $this->serializer->deserialize($json, AuthPrefs::class, 'json'));
     }
 }

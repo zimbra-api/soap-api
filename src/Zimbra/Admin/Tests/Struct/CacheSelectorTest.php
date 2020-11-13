@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Zimbra\Admin\Tests\Struct;
 
@@ -17,13 +17,13 @@ class CacheSelectorTest extends ZimbraStructTestCase
     {
         $value1 = $this->faker->word;
         $value2 = $this->faker->word;
-        $enums = $this->faker->randomElements(CacheType::enums(), mt_rand(1, count(CacheType::enums())));
+        $enums = $this->faker->randomElements(CacheType::toArray(), mt_rand(1, count(CacheType::toArray())));
         $types = implode(',', $enums);
 
-        $entry1 = new CacheEntrySelector(CacheEntryBy::ID()->value(), $value1);
-        $entry2 = new CacheEntrySelector(CacheEntryBy::NAME()->value(), $value2);
+        $entry1 = new CacheEntrySelector(CacheEntryBy::ID(), $value1);
+        $entry2 = new CacheEntrySelector(CacheEntryBy::NAME(), $value2);
 
-        $cache = new CacheSelector($types, false, false, [$entry1]);
+        $cache = new CacheSelector($types, FALSE, FALSE, [$entry1]);
         $this->assertSame($types, $cache->getTypes());
         $this->assertFalse($cache->isAllServers());
         $this->assertFalse($cache->isIncludeImapServers());
@@ -31,8 +31,8 @@ class CacheSelectorTest extends ZimbraStructTestCase
 
         $cache = new CacheSelector('');
         $cache->setTypes($types)
-              ->setAllServers(true)
-              ->setIncludeImapServers(true)
+              ->setAllServers(TRUE)
+              ->setIncludeImapServers(TRUE)
               ->setEntries([$entry1])
               ->addEntry($entry2);
         $this->assertSame($types, $cache->getTypes());
@@ -46,12 +46,24 @@ class CacheSelectorTest extends ZimbraStructTestCase
                 . '<entry by="' . CacheEntryBy::NAME() . '">' . $value2 . '</entry>'
             . '</cache>';
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($cache, 'xml'));
+        $this->assertEquals($cache, $this->serializer->deserialize($xml, CacheSelector::class, 'xml'));
 
-        $cache = $this->serializer->deserialize($xml, 'Zimbra\Admin\Struct\CacheSelector', 'xml');
-        $entries = $cache->getEntries();
-        $this->assertSame(CacheEntryBy::ID()->value(), $entries[0]->getBy());
-        $this->assertSame($value1, $entries[0]->getValue());
-        $this->assertSame(CacheEntryBy::NAME()->value(), $entries[1]->getBy());
-        $this->assertSame($value2, $entries[1]->getValue());
+        $json = json_encode([
+            'entry' => [
+                [
+                    'by' => (string) CacheEntryBy::ID(),
+                    '_content' => $value1,
+                ],
+                [
+                    'by' => (string) CacheEntryBy::NAME(),
+                    '_content' => $value2,
+                ],
+            ],
+            'type' => $types,
+            'allServers' => TRUE,
+            'imapServers' => TRUE,
+        ]);
+        $this->assertSame($json, $this->serializer->serialize($cache, 'json'));
+        $this->assertEquals($cache, $this->serializer->deserialize($json, CacheSelector::class, 'json'));
     }
 }

@@ -19,7 +19,7 @@ class ZimletExcludeTypeTest extends TestCase
         ];
         foreach ($values as $enum => $value)
         {
-            $this->assertSame(ZimletExcludeType::$enum()->value(), $value);
+            $this->assertSame(ZimletExcludeType::$enum()->getValue(), $value);
         }
     }
 }

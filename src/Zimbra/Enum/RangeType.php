@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * This file is part of the Zimbra API in PHP library.
  *
@@ -10,31 +10,33 @@
 
 namespace Zimbra\Enum;
 
+use MyCLabs\Enum\Enum;
+
 /**
  * RangeType enum class
  *
  * @package   Zimbra
  * @category  Enum
  * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
- * @copyright Copyright © 2013 by Nguyen Van Nguyen.
+ * @copyright Copyright © 2013-present by Nguyen Van Nguyen.
  */
-class RangeType extends Base
+class RangeType extends Enum
 {
     /**
      * Constant for value 'NONE'
      * @return string 1
      */
-    const NONE = -1;
+    private const NONE = -1;
 
     /**
      * Constant for value 'THISANDFUTURE'
      * @return string 2
      */
-    const THISANDFUTURE = 2;
+    private const THISANDFUTURE = 2;
 
     /**
      * Constant for value THISANDPRIOR
      * @return string 3
      */
-    const THISANDPRIOR = 3;
+    private const THISANDPRIOR = 3;
 }

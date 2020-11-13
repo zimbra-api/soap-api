@@ -22,7 +22,7 @@ class CertTypeTest extends TestCase
         ];
         foreach ($values as $enum => $value)
         {
-            $this->assertSame(CertType::$enum()->value(), $value);
+            $this->assertSame(CertType::$enum()->getValue(), $value);
         }
     }
 }

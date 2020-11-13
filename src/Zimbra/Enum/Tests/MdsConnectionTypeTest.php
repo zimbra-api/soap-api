@@ -20,7 +20,7 @@ class MdsConnectionTypeTest extends TestCase
         ];
         foreach ($values as $enum => $value)
         {
-            $this->assertSame(MdsConnectionType::$enum()->value(), $value);
+            $this->assertSame(MdsConnectionType::$enum()->getValue(), $value);
         }
     }
 }

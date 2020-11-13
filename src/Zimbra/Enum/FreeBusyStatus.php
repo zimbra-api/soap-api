@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * This file is part of the Zimbra API in PHP library.
  *
@@ -10,37 +10,39 @@
 
 namespace Zimbra\Enum;
 
+use MyCLabs\Enum\Enum;
+
 /**
  * FreeBusyStatus enum class
  *
  * @package   Zimbra
  * @category  Enum
  * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
- * @copyright Copyright © 2013 by Nguyen Van Nguyen.
+ * @copyright Copyright © 2013-present by Nguyen Van Nguyen.
  */
-class FreeBusyStatus extends Base
+class FreeBusyStatus extends Enum
 {
     /**
      * Constant for value 'Free'
      * @return string 'F'
      */
-    const FREE = 'F';
+    private const FREE = 'F';
 
     /**
      * Constant for value 'Busy'
      * @return string 'B'
      */
-    const BUSY = 'B';
+    private const BUSY = 'B';
 
     /**
      * Constant for value 'Busy-Tentative'
      * @return string 'T'
      */
-    const TENTATIVE = 'T';
+    private const TENTATIVE = 'T';
 
     /**
      * Constant for value 'OutOfOffice' (busy-unavailable)
      * @return string 'U'
      */
-    const OUT_OF_OFFICE = 'U';
+    private const OUT_OF_OFFICE = 'U';
 }

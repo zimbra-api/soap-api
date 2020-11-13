@@ -22,7 +22,7 @@ class AccountByTest extends TestCase
         ];
         foreach ($values as $enum => $value)
         {
-            $this->assertSame(AccountBy::$enum()->value(), $value);
+            $this->assertSame(AccountBy::$enum()->getValue(), $value);
         }
     }
 }

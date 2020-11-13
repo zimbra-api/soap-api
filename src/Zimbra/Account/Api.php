@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * This file is part of the Zimbra API in PHP library.
  *
@@ -7,6 +7,8 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
+
+declare(strict_types=1);
 
 namespace Zimbra\Account;
 
@@ -43,7 +45,7 @@ use Zimbra\Soap\Api as AbstractApi;
  * @package   Zimbra
  * @category  Account
  * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
- * @copyright Copyright © 2013 by Nguyen Van Nguyen.
+ * @copyright Copyright © 2020 by Nguyen Van Nguyen.
  */
 class Api extends AbstractApi
 {
@@ -51,8 +53,10 @@ class Api extends AbstractApi
     public function auth(
         AccountSelector $account = NULL,
         $password = NULL,
+        $recoveryCode = NULL,
         PreAuth $preauth = NULL,
         AuthToken $authToken = NULL,
+        $jwtToken = NULL,
         $virtualHost = NULL,
         AuthPrefs $prefs = NULL,
         AuthAttrs $attrs = NULL,
@@ -63,14 +67,17 @@ class Api extends AbstractApi
         $deviceTrusted = NULL,
         $trustedDeviceToken = NULL,
         $deviceId = NULL,
-        $generateDeviceId = NULL
+        $generateDeviceId = NULL,
+        $tokenType = NULL
     )
     {
         $request = new AuthRequest(
             $account,
             $password,
+            $recoveryCode,
             $preauth,
             $authToken,
+            $jwtToken,
             $virtualHost,
             $prefs,
             $attrs,
@@ -81,14 +88,15 @@ class Api extends AbstractApi
             $deviceTrusted,
             $trustedDeviceToken,
             $deviceId,
-            $generateDeviceId
+            $generateDeviceId,
+            $tokenType
         );
-        return $request->execute($this->getClient());
+        return $request->execute($this);
     }
 
     public function authByName($name, $password = NULL)
     {
-        $account = new AccountSelector(AccountBy::NAME()->value(), $name);
+        $account = new AccountSelector(AccountBy::NAME()->getValue(), $name);
         return $this->auth($account, $password);
     }
 

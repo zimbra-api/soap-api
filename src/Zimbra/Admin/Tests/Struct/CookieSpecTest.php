@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Zimbra\Admin\Tests\Struct;
 
@@ -23,8 +23,12 @@ class CookieSpecTest extends ZimbraStructTestCase
         $xml = '<?xml version="1.0"?>' . "\n"
             . '<cookie name="' . $name . '" />';
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($cookie, 'xml'));
+        $this->assertEquals($cookie, $this->serializer->deserialize($xml, CookieSpec::class, 'xml'));
 
-        $cookie = $this->serializer->deserialize($xml, 'Zimbra\Admin\Struct\CookieSpec', 'xml');
-        $this->assertSame($name, $cookie->getName());
+        $json = json_encode([
+            'name' => $name,
+        ]);
+        $this->assertSame($json, $this->serializer->serialize($cookie, 'json'));
+        $this->assertEquals($cookie, $this->serializer->deserialize($json, CookieSpec::class, 'json'));
     }
 }

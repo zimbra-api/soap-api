@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Zimbra\Admin\Tests\Struct;
 
@@ -27,9 +27,13 @@ class TzFixupRuleMatchDateTest extends ZimbraStructTestCase
         $xml = '<?xml version="1.0"?>' . "\n"
             . '<date mon="' . $mon . '" mday="' . $mday . '" />';
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($date, 'xml'));
+        $this->assertEquals($date, $this->serializer->deserialize($xml, TzFixupRuleMatchDate::class, 'xml'));
 
-        $date = $this->serializer->deserialize($xml, 'Zimbra\Admin\Struct\TzFixupRuleMatchDate', 'xml');
-        $this->assertSame($mon, $date->getMonth());
-        $this->assertSame($mday, $date->getMonthDay());
+        $json = json_encode([
+            'mon' => $mon,
+            'mday' => $mday,
+        ]);
+        $this->assertSame($json, $this->serializer->serialize($date, 'json'));
+        $this->assertEquals($date, $this->serializer->deserialize($json, TzFixupRuleMatchDate::class, 'json'));
     }
 }

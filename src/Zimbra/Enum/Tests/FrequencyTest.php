@@ -23,7 +23,7 @@ class FrequencyTest extends TestCase
         ];
         foreach ($values as $enum => $value)
         {
-            $this->assertSame(Frequency::$enum()->value(), $value);
+            $this->assertSame(Frequency::$enum()->getValue(), $value);
         }
     }
 }

@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * This file is part of the Zimbra API in PHP library.
  *
@@ -10,12 +10,7 @@
 
 namespace Zimbra\Account\Struct;
 
-use JMS\Serializer\Annotation\Accessor;
-use JMS\Serializer\Annotation\SerializedName;
-use JMS\Serializer\Annotation\Type;
-use JMS\Serializer\Annotation\XmlAttribute;
-use JMS\Serializer\Annotation\XmlValue;
-use JMS\Serializer\Annotation\XmlRoot;
+use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlRoot, XmlValue};
 
 /**
  * AuthToken struct class
@@ -24,17 +19,19 @@ use JMS\Serializer\Annotation\XmlRoot;
  * @subpackage Account
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
- * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
+ * @copyright  Copyright © 2020 by Nguyen Van Nguyen.
+ * @AccessType("public_method")
  * @XmlRoot(name="authToken")
  */
 class AuthToken
 {
     /**
      * @Accessor(getter="getValue", setter="setValue")
+     * @SerializedName("_content")
      * @Type("string")
      * @XmlValue(cdata=false)
      */
-    private $_value;
+    private $value;
 
     /**
      * @Accessor(getter="getVerifyAccount", setter="setVerifyAccount")
@@ -42,7 +39,7 @@ class AuthToken
      * @Type("bool")
      * @XmlAttribute
      */
-    private $_verifyAccount;
+    private $verifyAccount;
 
     /**
      * @Accessor(getter="getLifetime", setter="setLifetime")
@@ -50,7 +47,7 @@ class AuthToken
      * @Type("int")
      * @XmlAttribute
      */
-    private $_lifetime;
+    private $lifetime;
 
     /**
      * Constructor method for AuthToken
@@ -63,13 +60,13 @@ class AuthToken
      *   Life time of the auth token
      * @return self
      */
-    public function __construct($value, $verifyAccount = null, $lifetime = null)
+    public function __construct($value, $verifyAccount = NULL, $lifetime = NULL)
     {
         $this->setValue($value);
-        if (null !== $verifyAccount) {
+        if (NULL !== $verifyAccount) {
             $this->setVerifyAccount($verifyAccount);
         }
-        if (null !== $lifetime) {
+        if (NULL !== $lifetime) {
             $this->setLifetime($lifetime);
         }
     }
@@ -81,7 +78,7 @@ class AuthToken
      */
     public function getValue()
     {
-        return $this->_value;
+        return $this->value;
     }
 
     /**
@@ -92,7 +89,7 @@ class AuthToken
      */
     public function setValue($value)
     {
-        $this->_value = trim($value);
+        $this->value = trim($value);
         return $this;
     }
 
@@ -103,7 +100,7 @@ class AuthToken
      */
     public function getVerifyAccount()
     {
-        return $this->_verifyAccount;
+        return $this->verifyAccount;
     }
 
     /**
@@ -114,7 +111,7 @@ class AuthToken
      */
     public function setVerifyAccount($verifyAccount)
     {
-        $this->_verifyAccount = (bool) $verifyAccount;
+        $this->verifyAccount = (bool) $verifyAccount;
         return $this;
     }
 
@@ -125,7 +122,7 @@ class AuthToken
      */
     public function getLifetime()
     {
-        return $this->_lifetime;
+        return $this->lifetime;
     }
 
     /**
@@ -136,7 +133,7 @@ class AuthToken
      */
     public function setLifetime($lifetime)
     {
-        $this->_lifetime = (int) $lifetime;
+        $this->lifetime = (int) $lifetime;
         return $this;
     }
 }

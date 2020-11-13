@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Zimbra\Account\Tests\Struct;
 
@@ -15,26 +15,30 @@ class DistributionListGranteeSelectorTest extends ZimbraStructTestCase
     public function testDistributionListGranteeSelector()
     {
         $value = $this->faker->word;
-        $grantee = new DistributionListGranteeSelector(GranteeType::ALL()->value(), DLGranteeBy::ID()->value(), $value);
-        $this->assertSame(GranteeType::ALL()->value(), $grantee->getType());
-        $this->assertSame(DLGranteeBy::ID()->value(), $grantee->getBy());
+        $grantee = new DistributionListGranteeSelector(GranteeType::ALL(), DLGranteeBy::ID(), $value);
+        $this->assertEquals(GranteeType::ALL(), $grantee->getType());
+        $this->assertEquals(DLGranteeBy::ID(), $grantee->getBy());
         $this->assertSame($value, $grantee->getValue());
 
-        $grantee = new DistributionListGranteeSelector('', '');
-        $grantee->setType(GranteeType::USR()->value())
-                ->setBy(DLGranteeBy::NAME()->value())
+        $grantee = new DistributionListGranteeSelector(GranteeType::ALL(), DLGranteeBy::ID());
+        $grantee->setType(GranteeType::USR())
+                ->setBy(DLGranteeBy::NAME())
                 ->setValue($value);
-        $this->assertSame(GranteeType::USR()->value(), $grantee->getType());
-        $this->assertSame(DLGranteeBy::NAME()->value(), $grantee->getBy());
+        $this->assertEquals(GranteeType::USR(), $grantee->getType());
+        $this->assertEquals(DLGranteeBy::NAME(), $grantee->getBy());
         $this->assertSame($value, $grantee->getValue());
 
         $xml = '<?xml version="1.0"?>' . "\n"
             . '<grantee type="' . GranteeType::USR() . '" by="' . DLGranteeBy::NAME() . '">' . $value . '</grantee>';
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($grantee, 'xml'));
+        $this->assertEquals($grantee, $this->serializer->deserialize($xml, DistributionListGranteeSelector::class, 'xml'));
 
-        $grantee = $this->serializer->deserialize($xml, 'Zimbra\Account\Struct\DistributionListGranteeSelector', 'xml');
-        $this->assertSame(GranteeType::USR()->value(), $grantee->getType());
-        $this->assertSame(DLGranteeBy::NAME()->value(), $grantee->getBy());
-        $this->assertSame($value, $grantee->getValue());
+        $json = json_encode([
+            'type' => (string) GranteeType::USR(),
+            'by' => (string) DLGranteeBy::NAME(),
+            '_content' => $value,
+        ]);
+        $this->assertSame($json, $this->serializer->serialize($grantee, 'json'));
+        $this->assertEquals($grantee, $this->serializer->deserialize($json, DistributionListGranteeSelector::class, 'json'));
     }
 }

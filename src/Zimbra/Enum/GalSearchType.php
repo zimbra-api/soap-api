@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * This file is part of the Zimbra API in PHP library.
  *
@@ -10,37 +10,39 @@
 
 namespace Zimbra\Enum;
 
+use MyCLabs\Enum\Enum;
+
 /**
  * GalSearchType enum class
  *
  * @package   Zimbra
  * @category  Enum
  * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
- * @copyright Copyright © 2013 by Nguyen Van Nguyen.
+ * @copyright Copyright © 2013-present by Nguyen Van Nguyen.
  */
-class GalSearchType extends Base
+class GalSearchType extends Enum
 {
     /**
      * Constant for value 'all'
      * @return string 'all'
      */
-    const ALL = 'all';
+    private const ALL = 'all';
 
     /**
      * Constant for value 'account'
      * @return string 'account'
      */
-    const ACCOUNT = 'account';
+    private const ACCOUNT = 'account';
 
     /**
      * Constant for value 'resource'
      * @return string 'resource'
      */
-    const RESOURCE = 'resource';
+    private const RESOURCE = 'resource';
 
     /**
      * Constant for value 'group'
      * @return string 'group'
      */
-    const GROUP = 'group';
+    private const GROUP = 'group';
 }

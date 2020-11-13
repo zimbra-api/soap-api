@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * This file is part of the Zimbra API in PHP library.
  *
@@ -10,20 +10,9 @@
 
 namespace Zimbra\Account\Message;
 
-use JMS\Serializer\Annotation\Accessor;
-use JMS\Serializer\Annotation\SerializedName;
-use JMS\Serializer\Annotation\Type;
-use JMS\Serializer\Annotation\XmlAttribute;
-use JMS\Serializer\Annotation\XmlElement;
-use JMS\Serializer\Annotation\XmlValue;
-use JMS\Serializer\Annotation\XmlRoot;
-
-use Zimbra\Account\Struct\Attr;
-use Zimbra\Account\Struct\AuthAttrs;
-use Zimbra\Account\Struct\AuthPrefs;
-use Zimbra\Account\Struct\Pref;
-use Zimbra\Account\Struct\Session;
-use Zimbra\Soap\Response;
+use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlElement, XmlRoot};
+use Zimbra\Account\Struct\{Attr, AuthAttrs, AuthPrefs, Pref, Session};
+use Zimbra\Soap\ResponseInterface;
 
 /**
  * AuthResponse class
@@ -32,125 +21,126 @@ use Zimbra\Soap\Response;
  * @subpackage Account
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
- * @copyright  Copyright © 2013 by Nguyen Van Nguyen.
+ * @copyright  Copyright © 2020 by Nguyen Van Nguyen.
+ * @AccessType("public_method")
  * @XmlRoot(name="AuthResponse", namespace="urn:zimbraAccount")
  */
-class AuthResponse extends Response
+class AuthResponse implements ResponseInterface
 {
     /**
      * @Accessor(getter="getAuthToken", setter="setAuthToken")
      * @SerializedName("authToken")
      * @Type("string")
-     * @XmlElement(cdata = false, namespace="urn:zimbraAccount")
+     * @XmlElement(cdata = false)
      */
-    private $_authToken;
+    private $authToken;
 
     /**
      * @Accessor(getter="getLifetime", setter="setLifetime")
      * @SerializedName("lifetime")
      * @Type("integer")
-     * @XmlElement(cdata = false, namespace="urn:zimbraAccount")
+     * @XmlElement(cdata = false)
      */
-    private $_lifetime;
+    private $lifetime;
 
     /**
      * @Accessor(getter="getTrustLifetime", setter="setTrustLifetime")
      * @SerializedName("trustLifetime")
      * @Type("integer")
-     * @XmlElement(cdata = false, namespace="urn:zimbraAccount")
+     * @XmlElement(cdata = false)
      */
-    private $_trustLifetime;
+    private $trustLifetime;
 
     /**
      * @Accessor(getter="getSession", setter="setSession")
      * @SerializedName("session")
      * @Type("Zimbra\Account\Struct\Session")
-     * @XmlElement(namespace="urn:zimbraAccount")
+     * @XmlElement
      */
-    private $_session;
+    private $session;
 
     /**
      * @Accessor(getter="getRefer", setter="setRefer")
      * @SerializedName("refer")
      * @Type("string")
-     * @XmlElement(cdata = false, namespace="urn:zimbraAccount")
+     * @XmlElement(cdata = false)
      */
-    private $_refer;
+    private $refer;
 
     /**
      * @Accessor(getter="getSkin", setter="setSkin")
      * @SerializedName("skin")
      * @Type("string")
-     * @XmlElement(cdata = false, namespace="urn:zimbraAccount")
+     * @XmlElement(cdata = false)
      */
-    private $_skin;
+    private $skin;
 
     /**
      * @Accessor(getter="getCsrfToken", setter="setCsrfToken")
      * @SerializedName("csrfToken")
      * @Type("string")
-     * @XmlElement(cdata = false, namespace="urn:zimbraAccount")
+     * @XmlElement(cdata = false)
      */
-    private $_csrfToken;
+    private $csrfToken;
 
     /**
      * @Accessor(getter="getDeviceId", setter="setDeviceId")
      * @SerializedName("deviceId")
      * @Type("string")
-     * @XmlElement(cdata = false, namespace="urn:zimbraAccount")
+     * @XmlElement(cdata = false)
      */
-    private $_deviceId;
+    private $deviceId;
 
     /**
      * @Accessor(getter="getTrustedToken", setter="setTrustedToken")
      * @SerializedName("trustedToken")
      * @Type("string")
-     * @XmlElement(cdata = false, namespace="urn:zimbraAccount")
+     * @XmlElement(cdata = false)
      */
-    private $_trustedToken;
+    private $trustedToken;
 
     /**
      * @Accessor(getter="getZmgProxy", setter="setZmgProxy")
      * @SerializedName("zmgProxy")
      * @Type("bool")
-     * @XmlAttribute()
+     * @XmlAttribute
      */
-    private $_zmgProxy;
+    private $zmgProxy;
 
     /**
      * @Accessor(getter="getPrefs", setter="setPrefs")
      * @SerializedName("prefs")
      * @Type("Zimbra\Account\Struct\AuthPrefs")
-     * @XmlElement(namespace="urn:zimbraAccount")
+     * @XmlElement
      */
-    private $_prefs;
+    private $prefs;
 
     /**
      * @Accessor(getter="getAttrs", setter="setAttrs")
      * @SerializedName("attrs")
      * @Type("Zimbra\Account\Struct\AuthAttrs")
-     * @XmlElement(namespace="urn:zimbraAccount")
+     * @XmlElement
      */
-    private $_attrs;
+    private $attrs;
 
     /**
      * @Accessor(getter="getTwoFactorAuthRequired", setter="setTwoFactorAuthRequired")
      * @SerializedName("twoFactorAuthRequired")
      * @Type("bool")
-     * @XmlElement(cdata = false, namespace="urn:zimbraAccount")
+     * @XmlElement(cdata = false)
      */
-    private $_twoFactorAuthRequired;
+    private $twoFactorAuthRequired;
 
     /**
      * @Accessor(getter="getTrustedDevicesEnabled", setter="setTrustedDevicesEnabled")
      * @SerializedName("trustedDevicesEnabled")
      * @Type("bool")
-     * @XmlElement(cdata = false, namespace="urn:zimbraAccount")
+     * @XmlElement(cdata = false)
      */
-    private $_trustedDevicesEnabled;
+    private $trustedDevicesEnabled;
 
     /**
-     * Constructor method for AuthRequest
+     * Constructor method for AuthResponse
      * @return self
      */
     public function __construct(
@@ -219,9 +209,9 @@ class AuthResponse extends Response
      *
      * @return string
      */
-    public function getAuthToken()
+    public function getAuthToken(): string
     {
-        return $this->_authToken;
+        return $this->authToken;
     }
 
     /**
@@ -230,9 +220,9 @@ class AuthResponse extends Response
      * @param  string $authToken
      * @return self
      */
-    public function setAuthToken($authToken)
+    public function setAuthToken($authToken): self
     {
-        $this->_authToken = trim($authToken);
+        $this->authToken = trim($authToken);
         return $this;
     }
 
@@ -241,9 +231,9 @@ class AuthResponse extends Response
      *
      * @return int
      */
-    public function getLifetime()
+    public function getLifetime(): int
     {
-        return $this->_lifetime;
+        return $this->lifetime;
     }
 
     /**
@@ -252,9 +242,9 @@ class AuthResponse extends Response
      * @param  int $lifetime
      * @return self
      */
-    public function setLifetime($lifetime)
+    public function setLifetime($lifetime): self
     {
-        $this->_lifetime = (int) $lifetime;
+        $this->lifetime = (int) $lifetime;
         return $this;
     }
 
@@ -263,9 +253,9 @@ class AuthResponse extends Response
      *
      * @return int
      */
-    public function getTrustLifetime()
+    public function getTrustLifetime(): int
     {
-        return $this->_trustLifetime;
+        return $this->trustLifetime;
     }
 
     /**
@@ -274,9 +264,9 @@ class AuthResponse extends Response
      * @param  int $trustLifetime
      * @return self
      */
-    public function setTrustLifetime($trustLifetime)
+    public function setTrustLifetime($trustLifetime): self
     {
-        $this->_trustLifetime = (int) $trustLifetime;
+        $this->trustLifetime = (int) $trustLifetime;
         return $this;
     }
 
@@ -285,9 +275,9 @@ class AuthResponse extends Response
      *
      * @return Session
      */
-    public function getSession()
+    public function getSession(): Session
     {
-        return $this->_session;
+        return $this->session;
     }
 
     /**
@@ -296,9 +286,9 @@ class AuthResponse extends Response
      * @param  Session $session
      * @return self
      */
-    public function setSession(Session $session)
+    public function setSession(Session $session): self
     {
-        $this->_session = $session;
+        $this->session = $session;
         return $this;
     }
 
@@ -307,9 +297,9 @@ class AuthResponse extends Response
      *
      * @return string
      */
-    public function getRefer()
+    public function getRefer(): string
     {
-        return $this->_refer;
+        return $this->refer;
     }
 
     /**
@@ -318,9 +308,9 @@ class AuthResponse extends Response
      * @param  string $refer
      * @return self
      */
-    public function setRefer($refer)
+    public function setRefer($refer): self
     {
-        $this->_refer = trim($refer);
+        $this->refer = trim($refer);
         return $this;
     }
 
@@ -329,9 +319,9 @@ class AuthResponse extends Response
      *
      * @return string
      */
-    public function getSkin()
+    public function getSkin(): string
     {
-        return $this->_skin;
+        return $this->skin;
     }
 
     /**
@@ -340,9 +330,9 @@ class AuthResponse extends Response
      * @param  string $skin
      * @return self
      */
-    public function setSkin($skin)
+    public function setSkin($skin): self
     {
-        $this->_skin = trim($skin);
+        $this->skin = trim($skin);
         return $this;
     }
 
@@ -351,9 +341,9 @@ class AuthResponse extends Response
      *
      * @return string
      */
-    public function getCsrfToken()
+    public function getCsrfToken(): string
     {
-        return $this->_csrfToken;
+        return $this->csrfToken;
     }
 
     /**
@@ -362,9 +352,9 @@ class AuthResponse extends Response
      * @param  string $csrfToken
      * @return self
      */
-    public function setCsrfToken($csrfToken)
+    public function setCsrfToken($csrfToken): self
     {
-        $this->_csrfToken = trim($csrfToken);
+        $this->csrfToken = trim($csrfToken);
         return $this;
     }
 
@@ -373,9 +363,9 @@ class AuthResponse extends Response
      *
      * @return string
      */
-    public function getDeviceId()
+    public function getDeviceId(): string
     {
-        return $this->_deviceId;
+        return $this->deviceId;
     }
 
     /**
@@ -384,9 +374,9 @@ class AuthResponse extends Response
      * @param  string $deviceId
      * @return self
      */
-    public function setDeviceId($deviceId)
+    public function setDeviceId($deviceId): self
     {
-        $this->_deviceId = trim($deviceId);
+        $this->deviceId = trim($deviceId);
         return $this;
     }
 
@@ -395,9 +385,9 @@ class AuthResponse extends Response
      *
      * @return string
      */
-    public function getTrustedToken()
+    public function getTrustedToken(): string
     {
-        return $this->_trustedToken;
+        return $this->trustedToken;
     }
 
     /**
@@ -406,9 +396,9 @@ class AuthResponse extends Response
      * @param  string $trustedToken
      * @return self
      */
-    public function setTrustedToken($trustedToken)
+    public function setTrustedToken($trustedToken): self
     {
-        $this->_trustedToken = trim($trustedToken);
+        $this->trustedToken = trim($trustedToken);
         return $this;
     }
 
@@ -417,9 +407,9 @@ class AuthResponse extends Response
      *
      * @return bool
      */
-    public function getZmgProxy()
+    public function getZmgProxy(): bool
     {
-        return $this->_zmgProxy;
+        return $this->zmgProxy;
     }
 
     /**
@@ -428,9 +418,9 @@ class AuthResponse extends Response
      * @param  bool $zmgProxy
      * @return self
      */
-    public function setZmgProxy($zmgProxy)
+    public function setZmgProxy($zmgProxy): self
     {
-        $this->_zmgProxy = (bool) $zmgProxy;
+        $this->zmgProxy = (bool) $zmgProxy;
         return $this;
     }
 
@@ -439,9 +429,9 @@ class AuthResponse extends Response
      *
      * @return AuthPrefs
      */
-    public function getPrefs()
+    public function getPrefs(): AuthPrefs
     {
-        return $this->_prefs;
+        return $this->prefs;
     }
 
     /**
@@ -450,13 +440,13 @@ class AuthResponse extends Response
      * @param  AuthPrefs|array $prefs
      * @return self
      */
-    public function setPrefs($prefs)
+    public function setPrefs($prefs): self
     {
         if ($prefs instanceof AuthPrefs) {
-            $this->_prefs = $prefs;
+            $this->prefs = $prefs;
         }
         elseif(is_array($prefs) || $prefs instanceof Traversable) {
-            $this->_prefs = new AuthPrefs($prefs);
+            $this->prefs = new AuthPrefs($prefs);
         }
         return $this;
     }
@@ -467,12 +457,12 @@ class AuthResponse extends Response
      * @param  Pref $pref
      * @return self
      */
-    public function addPref(Pref $pref)
+    public function addPref(Pref $pref): self
     {
-        if (!($this->_prefs instanceof AuthPrefs)) {
-            $this->_prefs = new AuthPrefs();
+        if (!($this->prefs instanceof AuthPrefs)) {
+            $this->prefs = new AuthPrefs();
         }
-        $this->_prefs->addPref($pref);
+        $this->prefs->addPref($pref);
         return $this;
     }
 
@@ -481,9 +471,9 @@ class AuthResponse extends Response
      *
      * @return AuthAttrs
      */
-    public function getAttrs()
+    public function getAttrs(): AuthAttrs
     {
-        return $this->_attrs;
+        return $this->attrs;
     }
 
     /**
@@ -492,13 +482,13 @@ class AuthResponse extends Response
      * @param  AuthAttrs|array $attrs
      * @return self
      */
-    public function setAttrs($attrs)
+    public function setAttrs($attrs): self
     {
         if ($attrs instanceof AuthAttrs) {
-            $this->_attrs = $attrs;
+            $this->attrs = $attrs;
         }
         elseif(is_array($attrs) || $attrs instanceof Traversable) {
-            $this->_attrs = new AuthAttrs($attrs);
+            $this->attrs = new AuthAttrs($attrs);
         }
         return $this;
     }
@@ -509,23 +499,23 @@ class AuthResponse extends Response
      * @param  Attr $pref
      * @return self
      */
-    public function addAttr(Attr $attr)
+    public function addAttr(Attr $attr): self
     {
-        if (!($this->_attrs instanceof AuthAttrs)) {
-            $this->_attrs = new AuthAttrs();
+        if (!($this->attrs instanceof AuthAttrs)) {
+            $this->attrs = new AuthAttrs();
         }
-        $this->_attrs->addAttr($attr);
+        $this->attrs->addAttr($attr);
         return $this;
     }
 
     /**
      * Gets two factor auth required
      *
-     * @return int
+     * @return bool
      */
-    public function getTwoFactorAuthRequired()
+    public function getTwoFactorAuthRequired(): bool
     {
-        return $this->_twoFactorAuthRequired;
+        return $this->twoFactorAuthRequired;
     }
 
     /**
@@ -534,20 +524,20 @@ class AuthResponse extends Response
      * @param  int $twoFactorAuthRequired
      * @return self
      */
-    public function setTwoFactorAuthRequired($twoFactorAuthRequired)
+    public function setTwoFactorAuthRequired($twoFactorAuthRequired): self
     {
-        $this->_twoFactorAuthRequired = (bool) $twoFactorAuthRequired;
+        $this->twoFactorAuthRequired = (bool) $twoFactorAuthRequired;
         return $this;
     }
 
     /**
      * Gets trusted devices enabled
      *
-     * @return int
+     * @return bool
      */
-    public function getTrustedDevicesEnabled()
+    public function getTrustedDevicesEnabled(): bool
     {
-        return $this->_trustedDevicesEnabled;
+        return $this->trustedDevicesEnabled;
     }
 
     /**
@@ -556,9 +546,9 @@ class AuthResponse extends Response
      * @param  int $trustedDevicesEnabled
      * @return self
      */
-    public function setTrustedDevicesEnabled($trustedDevicesEnabled)
+    public function setTrustedDevicesEnabled($trustedDevicesEnabled): self
     {
-        $this->_trustedDevicesEnabled = (bool) $trustedDevicesEnabled;
+        $this->trustedDevicesEnabled = (bool) $trustedDevicesEnabled;
         return $this;
     }
 }

@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * This file is part of the Zimbra API in PHP library.
  *
@@ -10,19 +10,16 @@
 
 namespace Zimbra\Struct;
 
-use JMS\Serializer\Annotation\Accessor;
-use JMS\Serializer\Annotation\SerializedName;
-use JMS\Serializer\Annotation\Type;
-use JMS\Serializer\Annotation\XmlAttribute;
-use JMS\Serializer\Annotation\XmlRoot;
+use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlRoot};
 
 /**
- * CursorInfo struct class
+ * CursorInfo class
  *
  * @package   Zimbra
  * @category  Struct
  * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
- * @copyright Copyright © 2013 by Nguyen Van Nguyen.
+ * @copyright Copyright © 2013-present by Nguyen Van Nguyen.
+ * @AccessType("public_method")
  * @XmlRoot(name="cursor")
  */
 class CursorInfo
@@ -33,7 +30,7 @@ class CursorInfo
      * @Type("string")
      * @XmlAttribute
      */
-    private $_id;
+    private $id;
 
     /**
      * @Accessor(getter="getSortVal", setter="setSortVal")
@@ -41,7 +38,7 @@ class CursorInfo
      * @Type("string")
      * @XmlAttribute
      */
-    private $_sortVal;
+    private $sortVal;
 
     /**
      * @Accessor(getter="getEndSortVal", setter="setEndSortVal")
@@ -49,7 +46,7 @@ class CursorInfo
      * @Type("string")
      * @XmlAttribute
      */
-    private $_endSortVal;
+    private $endSortVal;
 
     /**
      * @Accessor(getter="getIncludeOffset", setter="setIncludeOffset")
@@ -57,7 +54,7 @@ class CursorInfo
      * @Type("boolean")
      * @XmlAttribute
      */
-    private $_includeOffset;
+    private $includeOffset;
 
     /**
      * Constructor method for CursorInfo
@@ -93,9 +90,9 @@ class CursorInfo
      *
      * @return string
      */
-    public function getId()
+    public function getId(): string
     {
-        return $this->_id;
+        return $this->id;
     }
 
     /**
@@ -104,9 +101,9 @@ class CursorInfo
      * @param  string $id
      * @return string|self
      */
-    public function setId($id)
+    public function setId($id): self
     {
-        $this->_id = trim($id);
+        $this->id = trim($id);
         return $this;
     }
 
@@ -115,9 +112,9 @@ class CursorInfo
      *
      * @return string
      */
-    public function getSortVal()
+    public function getSortVal(): string
     {
-        return $this->_sortVal;
+        return $this->sortVal;
     }
 
     /**
@@ -126,9 +123,9 @@ class CursorInfo
      * @param  string $sortVal
      * @return self
      */
-    public function setSortVal($sortVal)
+    public function setSortVal($sortVal): self
     {
-        $this->_sortVal = trim($sortVal);
+        $this->sortVal = trim($sortVal);
         return $this;
     }
 
@@ -137,9 +134,9 @@ class CursorInfo
      *
      * @return string
      */
-    public function getEndSortVal()
+    public function getEndSortVal(): string
     {
-        return $this->_endSortVal;
+        return $this->endSortVal;
     }
 
     /**
@@ -148,9 +145,9 @@ class CursorInfo
      * @param  string $endSortVal
      * @return self
      */
-    public function setEndSortVal($endSortVal)
+    public function setEndSortVal($endSortVal): self
     {
-        $this->_endSortVal = trim($endSortVal);
+        $this->endSortVal = trim($endSortVal);
         return $this;
     }
 
@@ -160,9 +157,9 @@ class CursorInfo
      * @param  bool $includeOffset
      * @return bool
      */
-    public function getIncludeOffset()
+    public function getIncludeOffset(): bool
     {
-        return $this->_includeOffset;
+        return $this->includeOffset;
     }
 
     /**
@@ -171,9 +168,9 @@ class CursorInfo
      * @param  bool $includeOffset
      * @return self
      */
-    public function setIncludeOffset($includeOffset)
+    public function setIncludeOffset($includeOffset): self
     {
-        $this->_includeOffset = (bool) $includeOffset;
+        $this->includeOffset = (bool) $includeOffset;
         return $this;
     }
 }
