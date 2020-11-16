@@ -10,7 +10,7 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlList, XmlRoot};
 use Zimbra\Admin\Struct\IntIdAttr;
 use Zimbra\Enum\DedupAction;
 use Zimbra\Soap\Request;
@@ -30,7 +30,7 @@ use Zimbra\Soap\Request;
 class DedupeBlobsRequest extends Request
 {
     /**
-     * Action to perform - one of start|status|stop<
+     * Action to perform - one of start|status|stop
      * @Accessor(getter="getAction", setter="setAction")
      * @SerializedName("action")
      * @Type("Zimbra\Enum\DedupAction")
@@ -43,14 +43,14 @@ class DedupeBlobsRequest extends Request
      * @Accessor(getter="getVolumes", setter="setVolumes")
      * @SerializedName("volume")
      * @Type("array<Zimbra\Admin\Struct\IntIdAttr>")
-     * @XmlAttribute
+     * @XmlList(inline = true, entry = "volume")
      */
     private $volumes;
 
     /**
      * Constructor method for DedupeBlobsRequest
      * @param  DedupAction $action
-     * @param  string $volumes
+     * @param  array $volumes
      * @return self
      */
     public function __construct(DedupAction $action, array $volumes = [])
@@ -66,7 +66,7 @@ class DedupeBlobsRequest extends Request
      */
     public function getAction(): DedupAction
     {
-        return $this->id;
+        return $this->action;
     }
 
     /**
@@ -111,7 +111,7 @@ class DedupeBlobsRequest extends Request
     /**
      * Add a volume
      *
-     * @param  IntIdAttr $path
+     * @param  IntIdAttr $volume
      * @return self
      */
     public function addVolume(IntIdAttr $volume): self
