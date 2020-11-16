@@ -73,10 +73,10 @@ class DedupeBlobsResponse implements ResponseInterface
     /**
      * Constructor method for DedupeBlobsResponse
      * @param  DedupStatus $action
-     * @param  string $volumes
-     * @param  string $volumes
-     * @param  string $volumes
-     * @param  string $volumes
+     * @param  integer $totalSize
+     * @param  integer $totalCount
+     * @param  array $volumeBlobsProgress
+     * @param  array $blobDigestsProgress
      * @return self
      */
     public function __construct(
