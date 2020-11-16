@@ -112,7 +112,7 @@ class AdminCreateWaitSetRequest extends Request
     /**
      * Sets all accounts
      *
-     * @param  bool $domain
+     * @param  bool $allAccounts
      * @return self
      */
     public function setAllAccounts($allAccounts): self

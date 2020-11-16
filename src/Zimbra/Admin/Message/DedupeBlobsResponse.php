@@ -53,7 +53,7 @@ class DedupeBlobsResponse implements ResponseInterface
     private $totalCount;
 
     /**
-     * Volumes
+     * volumeBlobsProgress
      * @Accessor(getter="getVolumeBlobsProgress", setter="setVolumeBlobsProgress")
      * @SerializedName("volumeBlobsProgress")
      * @Type("array<Zimbra\Admin\Struct\VolumeIdAndProgress>")
@@ -62,7 +62,7 @@ class DedupeBlobsResponse implements ResponseInterface
     private $volumeBlobsProgress;
 
     /**
-     * Volumes
+     * blobDigestsProgress
      * @Accessor(getter="getBlobDigestsProgress", setter="setBlobDigestsProgress")
      * @SerializedName("blobDigestsProgress")
      * @Type("array<Zimbra\Admin\Struct\VolumeIdAndProgress>")
