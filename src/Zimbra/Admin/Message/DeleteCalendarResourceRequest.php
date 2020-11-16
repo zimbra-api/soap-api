@@ -14,10 +14,10 @@ use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAt
 use Zimbra\Soap\Request;
 
 /**
- * DeleteAlwaysOnClusterRequest class
- * Delete a alwaysOnCluster 
+ * DeleteCalendarResourceRequest class
+ * Deletes the calendar resource with the given id.
  * Notes:
- *     this request is by default proxied to the referenced server 
+ *     this request is by default proxied to the account's home server 
  * 
  * @package    Zimbra
  * @subpackage Admin
@@ -25,9 +25,9 @@ use Zimbra\Soap\Request;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
  * @AccessType("public_method")
- * @XmlRoot(name="DeleteAlwaysOnClusterRequest")
+ * @XmlRoot(name="DeleteCalendarResourceRequest")
  */
-class DeleteAlwaysOnClusterRequest extends Request
+class DeleteCalendarResourceRequest extends Request
 {
     /**
      * Zimbra ID
@@ -39,7 +39,7 @@ class DeleteAlwaysOnClusterRequest extends Request
     private $id;
 
     /**
-     * Constructor method for DeleteAlwaysOnClusterRequest
+     * Constructor method for DeleteCalendarResourceRequest
      * @param  string $id Zimbra ID
      * @return self
      */
@@ -72,9 +72,9 @@ class DeleteAlwaysOnClusterRequest extends Request
 
     protected function internalInit()
     {
-        $this->envelope = new DeleteAlwaysOnClusterEnvelope(
+        $this->envelope = new DeleteCalendarResourceEnvelope(
             NULL,
-            new DeleteAlwaysOnClusterBody($this)
+            new DeleteCalendarResourceBody($this)
         );
     }
 }
