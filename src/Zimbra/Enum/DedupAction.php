@@ -27,16 +27,19 @@ class DedupAction extends Enum
      * @return string 'start'
      */
     private const START = 'start';
+
     /**
      * Constant for value 'status'
      * @return string 'status'
      */
     private const STATUS = 'status';
+
     /**
      * Constant for value 'stop'
      * @return string 'stop'
      */
     private const STOP = 'stop';
+
     /**
      * Constant for value 'reset'
      * @return string 'reset'

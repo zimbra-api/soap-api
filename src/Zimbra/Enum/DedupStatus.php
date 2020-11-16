@@ -13,24 +13,24 @@ namespace Zimbra\Enum;
 use MyCLabs\Enum\Enum;
 
 /**
- * AutoProvPrincipalBy enum class
+ * DedupStatus enum class
  *
  * @package   Zimbra
  * @category  Enum
  * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright Copyright © 2013-present by Nguyen Van Nguyen.
  */
-class AutoProvPrincipalBy extends Enum
+class DedupStatus extends Enum
 {
     /**
-     * Constant for value 'dn'
-     * @return string 'dn'
+     * Constant for value 'running'
+     * @return string 'running'
      */
-    private const DN = 'dn';
+    private const RUNNING = 'running';
 
     /**
-     * Constant for value 'name'
-     * @return string 'name'
+     * Constant for value 'stopped'
+     * @return string 'stopped'
      */
-    private const NAME = 'name';
+    private const STOPPED = 'stopped';
 }
