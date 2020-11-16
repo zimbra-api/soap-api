@@ -68,7 +68,7 @@ class DeployZimletRequest extends Request
      * Constructor method for DeployZimletRequest
      * @param  string $action
      * @param  AttachmentIdAttrib $content
-     * @param  bool $flush
+     * @param  bool $flushCache
      * @param  bool $synchronous
      * @return self
      */
