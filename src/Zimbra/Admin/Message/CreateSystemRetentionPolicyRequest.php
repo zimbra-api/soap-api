@@ -56,8 +56,9 @@ class CreateSystemRetentionPolicyRequest extends Request
 
     /**
      * Constructor method for CreateSystemRetentionPolicyRequest
-     * @param  string $id Zimbra ID
-     * @param  string $alias Alias
+     * @param  CosSelector $cos
+     * @param  PolicyHolder $keep
+     * @param  PolicyHolder $purge
      * @return self
      */
     public function __construct(CosSelector $cos = NULL, PolicyHolder $keep = NULL, PolicyHolder $purge = NULL)
