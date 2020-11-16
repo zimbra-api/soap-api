@@ -16,7 +16,7 @@ use Zimbra\Struct\NamedElement;
 
 /**
  * DeleteZimletRequest class
- * Delete an XMPP Component
+ * Delete a Zimlet
  * 
  * @package    Zimbra
  * @subpackage Admin
