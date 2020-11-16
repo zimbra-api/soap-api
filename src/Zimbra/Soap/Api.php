@@ -157,7 +157,7 @@ abstract class Api implements ApiInterface
         $request = new \Zimbra\Soap\Request\Batch(
             $requests
         );
-        return $this->dispatch($request);
+        return $this->invoke($request);
     }
 
     /**
