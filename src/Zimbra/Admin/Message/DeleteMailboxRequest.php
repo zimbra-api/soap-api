@@ -66,7 +66,7 @@ class DeleteMailboxRequest extends Request
     /**
      * Sets the mbox.
      *
-     * @param  Mailbox $account
+     * @param  Mailbox $mbox
      * @return self
      */
     public function setMbox(Mailbox $mbox): self
