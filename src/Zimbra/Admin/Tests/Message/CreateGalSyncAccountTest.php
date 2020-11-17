@@ -1,11 +1,11 @@
 <?php declare(strict_types=1);
 
-namespace Zimbra\Admin\Tests\Response;
+namespace Zimbra\Admin\Tests\Message;
 
-use Zimbra\Admin\Message\AddGalSyncDataSourceBody;
-use Zimbra\Admin\Message\AddGalSyncDataSourceEnvelope;
-use Zimbra\Admin\Message\AddGalSyncDataSourceRequest;
-use Zimbra\Admin\Message\AddGalSyncDataSourceResponse;
+use Zimbra\Admin\Message\CreateGalSyncAccountBody;
+use Zimbra\Admin\Message\CreateGalSyncAccountEnvelope;
+use Zimbra\Admin\Message\CreateGalSyncAccountRequest;
+use Zimbra\Admin\Message\CreateGalSyncAccountResponse;
 use Zimbra\Admin\Struct\AccountInfo;
 use Zimbra\Admin\Struct\Attr;
 use Zimbra\Enum\AccountBy;
@@ -15,101 +15,117 @@ use Zimbra\Struct\AccountSelector;
 use Zimbra\Struct\Tests\ZimbraStructTestCase;
 
 /**
- * Testcase class for AddGalSyncDataSource.
+ * Testcase class for CreateGalSyncAccount.
  */
-class AddGalSyncDataSourceTest extends ZimbraStructTestCase
+class CreateGalSyncAccountTest extends ZimbraStructTestCase
 {
-    public function testAddGalSyncDataSource()
+    public function testCreateGalSyncAccount()
     {
-        $key = $this->faker->word;
-        $value = $this->faker->word;
         $name = $this->faker->word;
+        $value = $this->faker->word;
         $id = $this->faker->uuid;
+        $key = $this->faker->word;
         $domain = $this->faker->word;
+        $mailHost = $this->faker->word;
+        $password = $this->faker->uuid;
         $folder = $this->faker->word;
 
-        $attr = new Attr($key, $value);
         $account = new AccountSelector(AccountBy::NAME(), $value);
-        $request = new AddGalSyncDataSourceRequest(
-            $account, $name, $domain, GalMode::BOTH(), $folder, [$attr]
+
+        $request = new CreateGalSyncAccountRequest(
+            $name,
+            $domain,
+            GalMode::BOTH(),
+            $account,
+            $mailHost,
+            $password,
+            $folder
         );
-        $this->assertSame($account, $request->getAccount());
         $this->assertSame($name, $request->getName());
         $this->assertSame($domain, $request->getDomain());
         $this->assertEquals(GalMode::BOTH(), $request->getType());
+        $this->assertSame($account, $request->getAccount());
+        $this->assertSame($mailHost, $request->getMailHost());
+        $this->assertSame($password, $request->getPassword());
         $this->assertSame($folder, $request->getFolder());
 
-        $request = new AddGalSyncDataSourceRequest(
-            new AccountSelector(AccountBy::NAME(), ''), '', '', GalMode::BOTH()
+        $request = new CreateGalSyncAccountRequest(
+            '',
+            '',
+            GalMode::BOTH(),
+            new AccountSelector(AccountBy::NAME(), ''),
+            ''
         );
-        $request->setAccount($account)
-            ->setName($name)
+        $request->setName($name)
             ->setDomain($domain)
-            ->setType(GalMode::ZIMBRA())
+            ->setType(GalMode::LDAP())
+            ->setAccount($account)
+            ->setMailHost($mailHost)
+            ->setPassword($password)
             ->setFolder($folder)
-            ->setAttrs([$attr]);
-        $this->assertSame($account, $request->getAccount());
+            ->setAttrs([new Attr($key, $value)]);
         $this->assertSame($name, $request->getName());
         $this->assertSame($domain, $request->getDomain());
-        $this->assertEquals(GalMode::ZIMBRA(), $request->getType());
+        $this->assertEquals(GalMode::LDAP(), $request->getType());
+        $this->assertSame($account, $request->getAccount());
+        $this->assertSame($mailHost, $request->getMailHost());
+        $this->assertSame($password, $request->getPassword());
         $this->assertSame($folder, $request->getFolder());
 
-        $accInfo = new AccountInfo($name, $id, TRUE, [$attr]);
-        $response = new AddGalSyncDataSourceResponse(
-            $accInfo
-        );
+        $accInfo = new AccountInfo($name, $id, TRUE, [new Attr($key, $value)]);
+        $response = new CreateGalSyncAccountResponse($accInfo);
         $this->assertSame($accInfo, $response->getAccount());
-        $response = new AddGalSyncDataSourceResponse(
-            new AccountInfo('', '', TRUE)
-        );
+        $response = new CreateGalSyncAccountResponse(new AccountInfo('', '', TRUE));
         $response->setAccount($accInfo);
         $this->assertSame($accInfo, $response->getAccount());
 
-        $body = new AddGalSyncDataSourceBody($request, $response);
+        $body = new CreateGalSyncAccountBody($request, $response);
         $this->assertSame($request, $body->getRequest());
         $this->assertSame($response, $body->getResponse());
 
-        $body = new AddGalSyncDataSourceBody;
+        $body = new CreateGalSyncAccountBody();
         $body->setRequest($request)
-             ->setResponse($response);
+            ->setResponse($response);
         $this->assertSame($request, $body->getRequest());
         $this->assertSame($response, $body->getResponse());
 
-        $envelope = new AddGalSyncDataSourceEnvelope(new Header, $body);
+        $envelope = new CreateGalSyncAccountEnvelope(new Header(), $body);
         $this->assertSame($body, $envelope->getBody());
 
-        $envelope = new AddGalSyncDataSourceEnvelope;
+        $envelope = new CreateGalSyncAccountEnvelope();
         $envelope->setBody($body);
         $this->assertSame($body, $envelope->getBody());
 
         $xml = '<?xml version="1.0"?>' . "\n"
             . '<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">'
                 . '<soap:Body>'
-                    . '<urn:AddGalSyncDataSourceRequest name="' . $name . '" domain="' . $domain . '" type="' . GalMode::ZIMBRA() . '" folder="' . $folder . '">'
+                    . '<urn:CreateGalSyncAccountRequest name="' . $name . '" domain="' . $domain . '" type="' . GalMode::LDAP() . '" password="' . $password . '" folder="' . $folder . '" server="' . $mailHost . '">'
                         . '<account by="' . AccountBy::NAME() . '">' . $value . '</account>'
                         . '<a n="' . $key . '">' . $value . '</a>'
-                    . '</urn:AddGalSyncDataSourceRequest>'
-                    . '<urn:AddGalSyncDataSourceResponse>'
+                    . '</urn:CreateGalSyncAccountRequest>'
+                    . '<urn:CreateGalSyncAccountResponse>'
                         . '<account name="' . $name . '" id="' . $id . '" isExternal="true">'
                             . '<a n="' . $key . '">' . $value . '</a>'
                         . '</account>'
-                    . '</urn:AddGalSyncDataSourceResponse>'
+                    . '</urn:CreateGalSyncAccountResponse>'
                 . '</soap:Body>'
             . '</soap:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($xml, AddGalSyncDataSourceEnvelope::class, 'xml'));
+        $this->assertEquals($envelope, $this->serializer->deserialize($xml, CreateGalSyncAccountEnvelope::class, 'xml'));
 
         $json = json_encode([
             'Body' => [
-                'AddGalSyncDataSourceRequest' => [
+                'CreateGalSyncAccountRequest' => [
+                    'name' => $name,
+                    'domain' => $domain,
+                    'type' => (string) GalMode::LDAP(),
                     'account' => [
                         'by' => (string) AccountBy::NAME(),
                         '_content' => $value,
                     ],
-                    'name' => $name,
-                    'domain' => $domain,
-                    'type' => (string) GalMode::ZIMBRA(),
+                    'password' => $password,
                     'folder' => $folder,
+                    'server' => $mailHost,
                     'a' => [
                         [
                             'n' => $key,
@@ -118,7 +134,7 @@ class AddGalSyncDataSourceTest extends ZimbraStructTestCase
                     ],
                     '_jsns' => 'urn:zimbraAdmin',
                 ],
-                'AddGalSyncDataSourceResponse' => [
+                'CreateGalSyncAccountResponse' => [
                     'account' => [
                         'name' => $name,
                         'id' => $id,
@@ -135,6 +151,6 @@ class AddGalSyncDataSourceTest extends ZimbraStructTestCase
             ],
         ]);
         $this->assertSame($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, AddGalSyncDataSourceEnvelope::class, 'json'));
+        $this->assertEquals($envelope, $this->serializer->deserialize($json, CreateGalSyncAccountEnvelope::class, 'json'));
     }
 }

@@ -25,16 +25,4 @@ use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAt
  */
 class ServerInfo extends AdminObjectInfo
 {
-    /**
-     * Constructor method for AdminObjectInfo
-     * 
-     * @param  string $name Name
-     * @param  string $id ID
-     * @param  array  $attrs Attributes
-     * @return self
-     */
-    public function __construct($name = NULL, $id = NULL, array $attrs = [])
-    {
-        parent::__construct($name, $id, $attrs);
-    }
 }

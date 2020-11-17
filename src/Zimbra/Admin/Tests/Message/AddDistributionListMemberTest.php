@@ -14,65 +14,23 @@ use Zimbra\Struct\Tests\ZimbraStructTestCase;
  */
 class AddDistributionListMemberTest extends ZimbraStructTestCase
 {
-    public function testAddDistributionListMemberRequest()
+    public function testAddDistributionListMember()
     {
         $id = $this->faker->uuid;
         $member1 = $this->faker->word;
         $member2 = $this->faker->word;
 
-        $req = new AddDistributionListMemberRequest($id, [$member1]);
-        $this->assertSame($id, $req->getId());
-        $this->assertSame([$member1], $req->getMembers());
+        $request = new AddDistributionListMemberRequest($id, [$member1]);
+        $this->assertSame($id, $request->getId());
+        $this->assertSame([$member1], $request->getMembers());
 
-        $req = new AddDistributionListMemberRequest('', []);
-        $req->setId($id)
+        $request = new AddDistributionListMemberRequest('', []);
+        $request->setId($id)
             ->setMembers([$member1])
             ->addMember($member2);
-        $this->assertSame($id, $req->getId());
-        $this->assertSame([$member1, $member2], $req->getMembers());
+        $this->assertSame($id, $request->getId());
+        $this->assertSame([$member1, $member2], $request->getMembers());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<AddDistributionListMemberRequest id="' . $id . '">'
-                . '<dlm>' . $member1 . '</dlm>'
-                . '<dlm>' . $member2 . '</dlm>'
-            . '</AddDistributionListMemberRequest>';
-        $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($req, 'xml'));
-        $this->assertEquals($req, $this->serializer->deserialize($xml, AddDistributionListMemberRequest::class, 'xml'));
-
-        $json = json_encode([
-            'id' => $id,
-            'dlm' => [
-                [
-                    '_content' => $member1,
-                ],
-                [
-                    '_content' => $member2,
-                ],
-            ],
-        ]);
-        $this->assertSame($json, $this->serializer->serialize($req, 'json'));
-        $this->assertEquals($req, $this->serializer->deserialize($json, AddDistributionListMemberRequest::class, 'json'));
-    }
-
-    public function testAddDistributionListMemberResponse()
-    {
-        $res = new AddDistributionListMemberResponse();
-
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<AddDistributionListMemberResponse />';
-        $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($res, 'xml'));
-        $this->assertEquals($res, $this->serializer->deserialize($xml, AddDistributionListMemberResponse::class, 'xml'));
-
-        $json = json_encode(new \stdClass);
-        $this->assertSame($json, $this->serializer->serialize($res, 'json'));
-        $this->assertEquals($res, $this->serializer->deserialize($json, AddDistributionListMemberResponse::class, 'json'));
-    }
-
-    public function testAddDistributionListMemberBody()
-    {
-        $id = $this->faker->uuid;
-        $member = $this->faker->word;
-        $request = new AddDistributionListMemberRequest($id, [$member]);
         $response = new AddDistributionListMemberResponse();
 
         $body = new AddDistributionListMemberBody($request, $response);
@@ -85,42 +43,6 @@ class AddDistributionListMemberTest extends ZimbraStructTestCase
         $this->assertSame($request, $body->getRequest());
         $this->assertSame($response, $body->getResponse());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<Body xmlns:urn="urn:zimbraAdmin">'
-                . '<urn:AddDistributionListMemberRequest id="' . $id . '">'
-                    . '<dlm>' . $member . '</dlm>'
-                . '</urn:AddDistributionListMemberRequest>'
-                . '<urn:AddDistributionListMemberResponse />'
-            . '</Body>';
-        $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($body, 'xml'));
-        $this->assertEquals($body, $this->serializer->deserialize($xml, AddDistributionListMemberBody::class, 'xml'));
-
-        $json = json_encode([
-            'AddDistributionListMemberRequest' => [
-                'id' => $id,
-                'dlm' => [
-                    [
-                        '_content' => $member,
-                    ],
-                ],
-                '_jsns' => 'urn:zimbraAdmin',
-            ],
-            'AddDistributionListMemberResponse' => [
-                '_jsns' => 'urn:zimbraAdmin',
-            ],
-        ]);
-        $this->assertSame($json, $this->serializer->serialize($body, 'json'));
-        $this->assertEquals($body, $this->serializer->deserialize($json, AddDistributionListMemberBody::class, 'json'));
-    }
-
-    public function testAddDistributionListMemberEnvelope()
-    {
-        $id = $this->faker->uuid;
-        $member = $this->faker->word;
-        $request = new AddDistributionListMemberRequest($id, [$member]);
-        $response = new AddDistributionListMemberResponse();
-        $body = new AddDistributionListMemberBody($request, $response);
-
         $envelope = new AddDistributionListMemberEnvelope(new Header(), $body);
         $this->assertSame($body, $envelope->getBody());
 
@@ -132,7 +54,8 @@ class AddDistributionListMemberTest extends ZimbraStructTestCase
             . '<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">'
                 . '<soap:Body xmlns:urn="urn:zimbraAdmin">'
                     . '<urn:AddDistributionListMemberRequest id="' . $id . '">'
-                        . '<dlm>' . $member . '</dlm>'
+                        . '<dlm>' . $member1 . '</dlm>'
+                        . '<dlm>' . $member2 . '</dlm>'
                     . '</urn:AddDistributionListMemberRequest>'
                     . '<urn:AddDistributionListMemberResponse />'
                 . '</soap:Body>'
@@ -146,7 +69,10 @@ class AddDistributionListMemberTest extends ZimbraStructTestCase
                     'id' => $id,
                     'dlm' => [
                         [
-                            '_content' => $member,
+                            '_content' => $member1,
+                        ],
+                        [
+                            '_content' => $member2,
                         ],
                     ],
                     '_jsns' => 'urn:zimbraAdmin',
