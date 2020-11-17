@@ -1,0 +1,150 @@
+<?php declare(strict_types=1);
+
+namespace Zimbra\Admin\Tests\Response;
+
+use Zimbra\Admin\Message\AdminDestroyWaitSetBody;
+use Zimbra\Admin\Message\AdminDestroyWaitSetEnvelope;
+use Zimbra\Admin\Message\AdminDestroyWaitSetRequest;
+use Zimbra\Admin\Message\AdminDestroyWaitSetResponse;
+use Zimbra\Soap\Header;
+use Zimbra\Struct\Tests\ZimbraStructTestCase;
+
+/**
+ * Testcase class for AdminDestroyWaitSet.
+ */
+class AdminDestroyWaitSetTest extends ZimbraStructTestCase
+{
+    public function testAdminDestroyWaitSetRequest()
+    {
+        $waitSetId = $this->faker->uuid;
+        $res = new AdminDestroyWaitSetRequest(
+            $waitSetId
+        );
+        $this->assertSame($waitSetId, $res->getWaitSetId());
+
+        $res = new AdminDestroyWaitSetRequest('');
+        $res->setWaitSetId($waitSetId);
+        $this->assertSame($waitSetId, $res->getWaitSetId());
+
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<AdminDestroyWaitSetRequest waitSet="' . $waitSetId . '" />';
+        $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($res, 'xml'));
+        $this->assertEquals($res, $this->serializer->deserialize($xml, AdminDestroyWaitSetRequest::class, 'xml'));
+
+        $json = json_encode([
+            'waitSet' => $waitSetId,
+        ]);
+        $this->assertSame($json, $this->serializer->serialize($res, 'json'));
+        $this->assertEquals($res, $this->serializer->deserialize($json, AdminDestroyWaitSetRequest::class, 'json'));
+    }
+
+    public function testAdminDestroyWaitSetResponse()
+    {
+        $waitSetId = $this->faker->uuid;
+        $res = new AdminDestroyWaitSetResponse(
+            $waitSetId
+        );
+        $this->assertSame($waitSetId, $res->getWaitSetId());
+
+        $res = new AdminDestroyWaitSetResponse('');
+        $res->setWaitSetId($waitSetId);
+        $this->assertSame($waitSetId, $res->getWaitSetId());
+
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<AdminDestroyWaitSetResponse waitSet="' . $waitSetId . '" />';
+        $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($res, 'xml'));
+        $this->assertEquals($res, $this->serializer->deserialize($xml, AdminDestroyWaitSetResponse::class, 'xml'));
+
+        $json = json_encode([
+            'waitSet' => $waitSetId,
+        ]);
+        $this->assertSame($json, $this->serializer->serialize($res, 'json'));
+        $this->assertEquals($res, $this->serializer->deserialize($json, AdminDestroyWaitSetResponse::class, 'json'));
+    }
+
+    public function testAdminDestroyWaitSetBody()
+    {
+        $waitSetId = $this->faker->uuid;
+        $request = new AdminDestroyWaitSetRequest(
+            $waitSetId
+        );
+        $response = new AdminDestroyWaitSetResponse(
+            $waitSetId
+        );
+
+        $body = new AdminDestroyWaitSetBody($request, $response);
+        $this->assertSame($request, $body->getRequest());
+        $this->assertSame($response, $body->getResponse());
+
+        $body = new AdminDestroyWaitSetBody();
+        $body->setRequest($request)
+             ->setResponse($response);
+        $this->assertSame($request, $body->getRequest());
+        $this->assertSame($response, $body->getResponse());
+
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<Body xmlns:urn="urn:zimbraAdmin">'
+                . '<urn:AdminDestroyWaitSetRequest waitSet="' . $waitSetId . '" />'
+                . '<urn:AdminDestroyWaitSetResponse waitSet="' . $waitSetId . '" />'
+            . '</Body>';
+        $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($body, 'xml'));
+        $this->assertEquals($body, $this->serializer->deserialize($xml, AdminDestroyWaitSetBody::class, 'xml'));
+
+        $json = json_encode([
+            'AdminDestroyWaitSetRequest' => [
+                'waitSet' => $waitSetId,
+                '_jsns' => 'urn:zimbraAdmin',
+            ],
+            'AdminDestroyWaitSetResponse' => [
+                'waitSet' => $waitSetId,
+                '_jsns' => 'urn:zimbraAdmin',
+            ],
+        ]);
+        $this->assertSame($json, $this->serializer->serialize($body, 'json'));
+        $this->assertEquals($body, $this->serializer->deserialize($json, AdminDestroyWaitSetBody::class, 'json'));
+    }
+
+    public function testAdminDestroyWaitSetEnvelope()
+    {
+        $waitSetId = $this->faker->uuid;
+        $request = new AdminDestroyWaitSetRequest(
+            $waitSetId
+        );
+        $response = new AdminDestroyWaitSetResponse(
+            $waitSetId
+        );
+        $body = new AdminDestroyWaitSetBody($request, $response);
+
+        $envelope = new AdminDestroyWaitSetEnvelope(new Header(), $body);
+        $this->assertSame($body, $envelope->getBody());
+
+        $envelope = new AdminDestroyWaitSetEnvelope();
+        $envelope->setBody($body);
+        $this->assertSame($body, $envelope->getBody());
+
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">'
+                . '<soap:Body>'
+                    . '<urn:AdminDestroyWaitSetRequest waitSet="' . $waitSetId . '" />'
+                    . '<urn:AdminDestroyWaitSetResponse waitSet="' . $waitSetId . '" />'
+                . '</soap:Body>'
+            . '</soap:Envelope>';
+        $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
+        $this->assertEquals($envelope, $this->serializer->deserialize($xml, AdminDestroyWaitSetEnvelope::class, 'xml'));
+
+        $json = json_encode([
+            'Body' => [
+                'AdminDestroyWaitSetRequest' => [
+                    'waitSet' => $waitSetId,
+                    '_jsns' => 'urn:zimbraAdmin',
+                ],
+                'AdminDestroyWaitSetResponse' => [
+                    'waitSet' => $waitSetId,
+                    '_jsns' => 'urn:zimbraAdmin',
+                ],
+            ],
+        ]);
+        $this->assertSame($json, $this->serializer->serialize($envelope, 'json'));
+        $this->assertEquals($envelope, $this->serializer->deserialize($json, AdminDestroyWaitSetEnvelope::class, 'json'));
+    }
+}
