@@ -41,7 +41,7 @@ class CheckLicenseBody extends Body
      * @Type("Zimbra\Account\Message\CheckLicenseResponse")
      * @XmlElement(namespace="urn:zimbraAccount")
      */
-    private $_response;
+    private $response;
 
     /**
      * Constructor method for CheckLicenseBody
@@ -68,13 +68,13 @@ class CheckLicenseBody extends Body
     public function setResponse(ResponseInterface $response): self
     {
         if ($response instanceof CheckLicenseResponse) {
-            $this->_response = $response;
+            $this->response = $response;
         }
         return $this;
     }
 
     public function getResponse(): ResponseInterface
     {
-        return $this->_response;
+        return $this->response;
     }
 }

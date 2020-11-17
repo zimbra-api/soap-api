@@ -48,7 +48,7 @@ class DistributionListAction extends AccountKeyValuePairs
      * @Accessor(getter="getSubsReq", setter="setSubsReq")
      * @SerializedName("subsReq")
      * @Type("Zimbra\Account\Struct\DistributionListSubscribeReq")
-     * @XmlElement()
+     * @XmlElement
      */
     private $subsReq;
 

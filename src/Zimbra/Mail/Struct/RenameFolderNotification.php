@@ -29,7 +29,7 @@ class RenameFolderNotification extends ModifyNotification
      * @Accessor(getter="getFolderId", setter="setFolderId")
      * @SerializedName("id")
      * @Type("int")
-     * @XmlAttribute()
+     * @XmlAttribute
      */
     private $folderId;
 
@@ -38,7 +38,7 @@ class RenameFolderNotification extends ModifyNotification
      * @Accessor(getter="getPath", setter="setPath")
      * @SerializedName("path")
      * @Type("string")
-     * @XmlAttribute()
+     * @XmlAttribute
      */
     private $path;
 

@@ -30,7 +30,7 @@ class DistributionListInfo extends AdminObjectInfo
      * @Accessor(getter="isDynamic", setter="setDynamic")
      * @SerializedName("dynamic")
      * @Type("bool")
-     * @XmlAttribute()
+     * @XmlAttribute
      */
     private $dynamic;
 

@@ -45,7 +45,7 @@ class Context
      * @Accessor(getter="getSession", setter="setSession")
      * @SerializedName("session")
      * @Type("Zimbra\Soap\Header\SessionInfo")
-     * @XmlElement()
+     * @XmlElement
      */
     private $session;
 
@@ -53,7 +53,7 @@ class Context
      * @Accessor(getter="getLegacySessionId", setter="setLegacySessionId")
      * @SerializedName("sessionId")
      * @Type("Zimbra\Soap\Header\SessionInfo")
-     * @XmlElement()
+     * @XmlElement
      */
     private $legacySessionId;
 
@@ -69,7 +69,7 @@ class Context
      * @Accessor(getter="getAccount", setter="setAccount")
      * @SerializedName("account")
      * @Type("Zimbra\Soap\Header\AccountInfo")
-     * @XmlElement()
+     * @XmlElement
      */
     private $account;
 
@@ -77,7 +77,7 @@ class Context
      * @Accessor(getter="getChange", setter="setChange")
      * @SerializedName("change")
      * @Type("Zimbra\Soap\Header\ChangeInfo")
-     * @XmlElement()
+     * @XmlElement
      */
     private $change;
 
@@ -93,7 +93,7 @@ class Context
      * @Accessor(getter="getUserAgent", setter="setUserAgent")
      * @SerializedName("userAgent")
      * @Type("Zimbra\Soap\Header\UserAgentInfo")
-     * @XmlElement()
+     * @XmlElement
      */
     private $userAgent;
 
@@ -101,7 +101,7 @@ class Context
      * @Accessor(getter="getAuthTokenControl", setter="setAuthTokenControl")
      * @SerializedName("authTokenControl")
      * @Type("Zimbra\Struct\AuthTokenControl")
-     * @XmlElement()
+     * @XmlElement
      */
     private $authTokenControl;
 
@@ -109,7 +109,7 @@ class Context
      * @Accessor(getter="getFormat", setter="setFormat")
      * @SerializedName("format")
      * @Type("Zimbra\Soap\Header\FormatInfo")
-     * @XmlElement()
+     * @XmlElement
      */
     private $format;
 
@@ -117,7 +117,7 @@ class Context
      * @Accessor(getter="getNotify", setter="setNotify")
      * @SerializedName("notify")
      * @Type("Zimbra\Soap\Header\NotifyInfo")
-     * @XmlElement()
+     * @XmlElement
      */
     private $notify;
 

@@ -29,7 +29,7 @@ class CreateItemNotification
      * @Accessor(getter="getMessageInfo", setter="setMessageInfo")
      * @SerializedName("m")
      * @Type("Zimbra\Mail\Struct\ImapMessageInfo")
-     * @XmlElement()
+     * @XmlElement
      */
     private $msgInfo;
 

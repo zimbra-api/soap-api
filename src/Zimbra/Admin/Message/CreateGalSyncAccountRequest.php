@@ -12,7 +12,9 @@ namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlElement, XmlRoot};
 use Zimbra\Admin\Struct\{AdminAttrs, AdminAttrsImplTrait};
+use Zimbra\Enum\GalMode;
 use Zimbra\Soap\Request;
+use Zimbra\Struct\AccountSelector;
 
 /**
  * CreateGalSyncAccountRequest class
@@ -35,7 +37,7 @@ class CreateGalSyncAccountRequest extends Request implements AdminAttrs
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
-     * @XmlAttribute()
+     * @XmlAttribute
      */
     private $name;
 
@@ -44,7 +46,7 @@ class CreateGalSyncAccountRequest extends Request implements AdminAttrs
      * @Accessor(getter="getDomain", setter="setDomain")
      * @SerializedName("domain")
      * @Type("string")
-     * @XmlAttribute()
+     * @XmlAttribute
      */
     private $domain;
 
@@ -52,8 +54,8 @@ class CreateGalSyncAccountRequest extends Request implements AdminAttrs
      * GalMode type
      * @Accessor(getter="getType", setter="setType")
      * @SerializedName("type")
-     * @Type("GalMode")
-     * @XmlAttribute()
+     * @Type("Zimbra\Enum\GalMode")
+     * @XmlAttribute
      */
     private $type;
 
@@ -61,8 +63,8 @@ class CreateGalSyncAccountRequest extends Request implements AdminAttrs
      * Account
      * @Accessor(getter="getAccount", setter="setAccount")
      * @SerializedName("account")
-     * @Type("AccountSelector")
-     * @XmlElement()
+     * @Type("Zimbra\Struct\AccountSelector")
+     * @XmlElement
      */
     private $account;
 
@@ -71,7 +73,7 @@ class CreateGalSyncAccountRequest extends Request implements AdminAttrs
      * @Accessor(getter="getPassword", setter="setPassword")
      * @SerializedName("password")
      * @Type("string")
-     * @XmlAttribute()
+     * @XmlAttribute
      */
     private $password;
 
@@ -80,7 +82,7 @@ class CreateGalSyncAccountRequest extends Request implements AdminAttrs
      * @Accessor(getter="getFolder", setter="setFolder")
      * @SerializedName("folder")
      * @Type("string")
-     * @XmlAttribute()
+     * @XmlAttribute
      */
     private $folder;
 
@@ -89,7 +91,7 @@ class CreateGalSyncAccountRequest extends Request implements AdminAttrs
      * @Accessor(getter="getMailHost", setter="setMailHost")
      * @SerializedName("server")
      * @Type("string")
-     * @XmlAttribute()
+     * @XmlAttribute
      */
     private $mailHost;
 
@@ -97,9 +99,9 @@ class CreateGalSyncAccountRequest extends Request implements AdminAttrs
      * Constructor method for CreateGalSyncAccountRequest
      * @param string  $name
      * @param string  $domain
-     * @param string  $mailHost
      * @param GalMode  $type
      * @param AccountSelector  $account
+     * @param string  $mailHost
      * @param string  $password
      * @param string  $folder
      * @param array  $attrs
@@ -108,16 +110,26 @@ class CreateGalSyncAccountRequest extends Request implements AdminAttrs
     public function __construct(
         $name,
         $domain,
-        $mailHost,
         GalMode $type,
         AccountSelector $account,
+        $mailHost,
         $password = NULL,
         $folder = NULL,
         array $attrs = []
     )
     {
         $this->setName($name)
+             ->setDomain($domain)
+             ->setType($type)
+             ->setAccount($account)
+             ->setMailHost($mailHost)
              ->setAttrs($attrs);
+        if (NULL !== $password) {
+            $this->setPassword($password);
+        }
+        if (NULL !== $folder) {
+            $this->setFolder($folder);
+        }
     }
 
     /**
@@ -165,6 +177,50 @@ class CreateGalSyncAccountRequest extends Request implements AdminAttrs
     }
 
     /**
+     * Gets the type.
+     *
+     * @return GalMode
+     */
+    public function getType(): GalMode
+    {
+        return $this->type;
+    }
+
+    /**
+     * Sets the type.
+     *
+     * @param  GalMode $type
+     * @return self
+     */
+    public function setType(GalMode $type): self
+    {
+        $this->type = $type;
+        return $this;
+    }
+
+    /**
+     * Gets the account.
+     *
+     * @return AccountSelector
+     */
+    public function getAccount(): AccountSelector
+    {
+        return $this->account;
+    }
+
+    /**
+     * Sets the account.
+     *
+     * @param  AccountSelector $account
+     * @return self
+     */
+    public function setAccount(AccountSelector $account): self
+    {
+        $this->account = $account;
+        return $this;
+    }
+
+    /**
      * Gets mailHost
      *
      * @return string
@@ -183,6 +239,50 @@ class CreateGalSyncAccountRequest extends Request implements AdminAttrs
     public function setMailHost($mailHost): self
     {
         $this->mailHost = trim($mailHost);
+        return $this;
+    }
+
+    /**
+     * Gets password
+     *
+     * @return string
+     */
+    public function getPassword(): string
+    {
+        return $this->password;
+    }
+
+    /**
+     * Sets password
+     *
+     * @param  string $password
+     * @return self
+     */
+    public function setPassword($password): self
+    {
+        $this->password = trim($password);
+        return $this;
+    }
+
+    /**
+     * Gets folder
+     *
+     * @return string
+     */
+    public function getFolder(): string
+    {
+        return $this->folder;
+    }
+
+    /**
+     * Sets folder
+     *
+     * @param  string $folder
+     * @return self
+     */
+    public function setFolder($folder): self
+    {
+        $this->folder = trim($folder);
         return $this;
     }
 

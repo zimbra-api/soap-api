@@ -29,7 +29,7 @@ class PendingFolderModifications
      * @Accessor(getter="getFolderId", setter="setFolderId")
      * @SerializedName("id")
      * @Type("int")
-     * @XmlAttribute()
+     * @XmlAttribute
      */
     private $folderId;
 
