@@ -68,8 +68,8 @@ class HeaderTest extends ZimbraStructTestCase
         $this->assertSame($context, $header->getContext());
 
         $xml = '<?xml version="1.0"?>' . "\n"
-            . '<soap:Header xmlns:urn="urn:zimbra">'
-                . '<urn:context hops="' . $hopCount . '" >'
+            . '<soap:Header xmlns:zm="urn:zimbra">'
+                . '<zm:context hops="' . $hopCount . '" >'
                     . '<authToken>' . $authToken . '</authToken>'
                     . '<session proxy="true" id="' . $id . '" seq="' . $sequence . '">' . $value . '</session>'
                     . '<sessionId proxy="false" id="' . $id . '" seq="' . $sequence . '">' . $value . '</sessionId>'
@@ -86,7 +86,7 @@ class HeaderTest extends ZimbraStructTestCase
                     . '<via>' . $via . '</via>'
                     . '<soapId>' . $soapRequestId . '</soapId>'
                     . '<csrfToken>' . $csrfToken . '</csrfToken>'
-                . '</urn:context>'
+                . '</zm:context>'
             . '</soap:Header>';
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($header, 'xml'));
         $this->assertEquals($header, $this->serializer->deserialize($xml, Header::class, 'xml'));

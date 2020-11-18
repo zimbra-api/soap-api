@@ -21,7 +21,7 @@ use Zimbra\Soap\Header\Context;
  * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright Copyright © 2020 by Nguyen Van Nguyen.
  * @AccessType("public_method")
- * @XmlNamespace(uri="urn:zimbra", prefix="urn")
+ * @XmlNamespace(uri="urn:zimbra", prefix="zm")
  * @XmlRoot(name="soap:Header")
  */
 class Header

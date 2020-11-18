@@ -73,8 +73,8 @@ class EnvelopeTest extends ZimbraStructTestCase
 
         $xml = '<?xml version="1.0"?>' . "\n"
             . '<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope">'
-                . '<soap:Header xmlns:urn="urn:zimbra">'
-                    . '<urn:context hops="' . $hopCount . '" >'
+                . '<soap:Header xmlns:zm="urn:zimbra">'
+                    . '<zm:context hops="' . $hopCount . '" >'
                         . '<authToken>' . $authToken . '</authToken>'
                         . '<session proxy="true" id="' . $id . '" seq="' . $sequence . '">' . $value . '</session>'
                         . '<sessionId proxy="false" id="' . $id . '" seq="' . $sequence . '">' . $value . '</sessionId>'
@@ -91,7 +91,7 @@ class EnvelopeTest extends ZimbraStructTestCase
                         . '<via>' . $via . '</via>'
                         . '<soapId>' . $soapRequestId . '</soapId>'
                         . '<csrfToken>' . $csrfToken . '</csrfToken>'
-                    . '</urn:context>'
+                    . '</zm:context>'
                 . '</soap:Header>'
                 . '<soap:Body/>'
             . '</soap:Envelope>';
