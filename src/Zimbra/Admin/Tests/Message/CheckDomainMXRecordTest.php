@@ -16,99 +16,12 @@ use Zimbra\Struct\Tests\ZimbraStructTestCase;
  */
 class CheckDomainMXRecordTest extends ZimbraStructTestCase
 {
-    public function testCheckDomainMXRecordRequest()
-    {
-        $name = $this->faker->word;
-
-        $domain = new DomainSelector(DomainBy::NAME(), $name);
-        $req = new CheckDomainMXRecordRequest(
-            $domain
-        );
-
-        $this->assertSame($domain, $req->getDomain());
-
-        $req = new CheckDomainMXRecordRequest(
-            new DomainSelector(DomainBy::NAME(), $name)
-        );
-        $req->setDomain($domain);
-        $this->assertSame($domain, $req->getDomain());
-
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<CheckDomainMXRecordRequest>'
-                . '<domain by="' . DomainBy::NAME() . '">' . $name . '</domain>'
-            . '</CheckDomainMXRecordRequest>';
-        $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($req, 'xml'));
-        $this->assertEquals($req, $this->serializer->deserialize($xml, CheckDomainMXRecordRequest::class, 'xml'));
-
-        $json = json_encode([
-            'domain' => [
-                'by' => (string) DomainBy::NAME(),
-                '_content' => $name,
-            ],
-        ]);
-        $this->assertSame($json, $this->serializer->serialize($req, 'json'));
-        $this->assertEquals($req, $this->serializer->deserialize($json, CheckDomainMXRecordRequest::class, 'json'));
-    }
-
-    public function testCheckDomainMXRecordResponse()
-    {
-        $entry1 = $this->faker->word;
-        $entry2 = $this->faker->word;
-        $code = $this->faker->word;
-        $message = $this->faker->word;
-
-        $res = new CheckDomainMXRecordResponse(
-            [$entry1],
-            $code,
-            $message
-        );
-        $this->assertSame([$entry1], $res->getEntries());
-        $this->assertSame($code, $res->getCode());
-        $this->assertSame($message, $res->getMessage());
-
-        $res = new CheckDomainMXRecordResponse([], '');
-        $res->setCode($code)
-            ->setMessage($message)
-            ->setEntries([$entry1])
-            ->addEntry($entry2);
-        $this->assertSame([$entry1, $entry2], $res->getEntries());
-        $this->assertSame($code, $res->getCode());
-        $this->assertSame($message, $res->getMessage());
-
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<CheckDomainMXRecordResponse>'
-                . '<entry>' . $entry1 . '</entry>'
-                . '<entry>' . $entry2 . '</entry>'
-                . '<code>' . $code . '</code>'
-                . '<message>' . $message . '</message>'
-            . '</CheckDomainMXRecordResponse>';
-        $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($res, 'xml'));
-        $this->assertEquals($res, $this->serializer->deserialize($xml, CheckDomainMXRecordResponse::class, 'xml'));
-
-        $json = json_encode([
-            'entry' => [
-                [
-                    '_content' => $entry1,
-                ],
-                [
-                    '_content' => $entry2,
-                ],
-            ],
-            'code' => [
-                '_content' => $code,
-            ],
-            'message' => [
-                '_content' => $message,
-            ],
-        ]);
-        $this->assertSame($json, $this->serializer->serialize($res, 'json'));
-        $this->assertEquals($res, $this->serializer->deserialize($json, CheckDomainMXRecordResponse::class, 'json'));
-    }
-
-    public function testCheckDomainMXRecordBody()
+    public function testCheckDomainMXRecord()
     {
         $name = $this->faker->word;
         $entry = $this->faker->word;
+        $entry1 = $this->faker->word;
+        $entry2 = $this->faker->word;
         $code = $this->faker->word;
         $message = $this->faker->word;
 
@@ -116,11 +29,31 @@ class CheckDomainMXRecordTest extends ZimbraStructTestCase
         $request = new CheckDomainMXRecordRequest(
             $domain
         );
+        $this->assertSame($domain, $request->getDomain());
+        $request = new CheckDomainMXRecordRequest(
+            new DomainSelector(DomainBy::NAME(), '')
+        );
+        $request->setDomain($domain);
+        $this->assertSame($domain, $request->getDomain());
+
         $response = new CheckDomainMXRecordResponse(
             [$entry],
             $code,
             $message
         );
+        $this->assertSame([$entry], $response->getEntries());
+        $this->assertSame($code, $response->getCode());
+        $this->assertSame($message, $response->getMessage());
+
+        $response = new CheckDomainMXRecordResponse([], '');
+        $response->setCode($code)
+            ->setMessage($message)
+            ->setEntries([$entry1])
+            ->addEntry($entry2);
+        $this->assertSame([$entry1, $entry2], $response->getEntries());
+        $this->assertSame($code, $response->getCode());
+        $this->assertSame($message, $response->getMessage());
+        $response->setEntries([$entry]);
 
         $body = new CheckDomainMXRecordBody($request, $response);
         $this->assertSame($request, $body->getRequest());
@@ -131,65 +64,6 @@ class CheckDomainMXRecordTest extends ZimbraStructTestCase
              ->setResponse($response);
         $this->assertSame($request, $body->getRequest());
         $this->assertSame($response, $body->getResponse());
-
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<Body xmlns:urn="urn:zimbraAdmin">'
-                . '<urn:CheckDomainMXRecordRequest>'
-                    . '<domain by="' . DomainBy::NAME() . '">' . $name . '</domain>'
-                . '</urn:CheckDomainMXRecordRequest>'
-                . '<urn:CheckDomainMXRecordResponse>'
-                    . '<entry>' . $entry . '</entry>'
-                    . '<code>' . $code . '</code>'
-                    . '<message>' . $message . '</message>'
-                . '</urn:CheckDomainMXRecordResponse>'
-            . '</Body>';
-        $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($body, 'xml'));
-        $this->assertEquals($body, $this->serializer->deserialize($xml, CheckDomainMXRecordBody::class, 'xml'));
-
-        $json = json_encode([
-            'CheckDomainMXRecordRequest' => [
-                'domain' => [
-                    'by' => (string) DomainBy::NAME(),
-                    '_content' => $name,
-                ],
-                '_jsns' => 'urn:zimbraAdmin',
-            ],
-            'CheckDomainMXRecordResponse' => [
-                'entry' => [
-                    [
-                        '_content' => $entry
-                    ],
-                ],
-                'code' => [
-                    '_content' => $code,
-                ],
-                'message' => [
-                    '_content' => $message,
-                ],
-                '_jsns' => 'urn:zimbraAdmin',
-            ],
-        ]);
-        $this->assertSame($json, $this->serializer->serialize($body, 'json'));
-        $this->assertEquals($body, $this->serializer->deserialize($json, CheckDomainMXRecordBody::class, 'json'));
-    }
-
-    public function testCheckDomainMXRecordEnvelope()
-    {
-        $name = $this->faker->word;
-        $entry = $this->faker->word;
-        $code = $this->faker->word;
-        $message = $this->faker->word;
-
-        $domain = new DomainSelector(DomainBy::NAME(), $name);
-        $request = new CheckDomainMXRecordRequest(
-            $domain
-        );
-        $response = new CheckDomainMXRecordResponse(
-            [$entry],
-            $code,
-            $message
-        );
-        $body = new CheckDomainMXRecordBody($request, $response);
 
         $envelope = new CheckDomainMXRecordEnvelope(new Header(), $body);
         $this->assertSame($body, $envelope->getBody());

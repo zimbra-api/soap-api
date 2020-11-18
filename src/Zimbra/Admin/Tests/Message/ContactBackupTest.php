@@ -18,90 +18,31 @@ use Zimbra\Struct\Tests\ZimbraStructTestCase;
  */
 class ContactBackupTest extends ZimbraStructTestCase
 {
-    public function testContactBackupRequest()
+    public function testContactBackup()
     {
+        $name = $this->faker->word;
         $value = $this->faker->word;
+
         $server = new ServerSelector(ServerBy::NAME(), $value);
-
-        $req = new ContactBackupRequest([$server], ContactBackupOp::START());
-        $this->assertEquals([$server], $req->getServers());
-        $this->assertEquals(ContactBackupOp::START(), $req->getOp());
-
-        $req = new ContactBackupRequest([], ContactBackupOp::STOP());
-        $req->setServers([$server])
+        $request = new ContactBackupRequest([$server], ContactBackupOp::START());
+        $this->assertEquals([$server], $request->getServers());
+        $this->assertEquals(ContactBackupOp::START(), $request->getOp());
+        $request = new ContactBackupRequest([], ContactBackupOp::STOP());
+        $request->setServers([$server])
             ->addServer($server)
             ->setOp(ContactBackupOp::START());
-        $this->assertEquals([$server, $server], $req->getServers());
-        $this->assertEquals(ContactBackupOp::START(), $req->getOp());
+        $this->assertEquals([$server, $server], $request->getServers());
+        $this->assertEquals(ContactBackupOp::START(), $request->getOp());
+        $request->setServers([$server]);
 
-        $req = new ContactBackupRequest([$server], ContactBackupOp::START());
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<ContactBackupRequest op="' . ContactBackupOp::START() . '">'
-                .'<servers>'
-                    . '<server by="' . ServerBy::NAME() . '">' . $value . '</server>'
-                .'</servers>'
-            . '</ContactBackupRequest>';
-        $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($req, 'xml'));
-        $this->assertEquals($req, $this->serializer->deserialize($xml, ContactBackupRequest::class, 'xml'));
-
-        $json = json_encode([
-            'servers' => [
-                'server' => [
-                    [
-                        'by' => (string) ServerBy::NAME(),
-                        '_content' => $value,
-                    ],
-                ]
-            ],
-            'op' => (string) ContactBackupOp::START(),
-        ]);
-        $this->assertSame($json, $this->serializer->serialize($req, 'json'));
-        $this->assertEquals($req, $this->serializer->deserialize($json, ContactBackupRequest::class, 'json'));
-    }
-
-    public function testContactBackupResponse()
-    {
-        $name = $this->faker->word;
-        $server = new ContactBackupServer($name, ContactBackupStatus::STOPPED());
-
-        $res = new ContactBackupResponse([$server]);
-        $this->assertEquals([$server], $res->getServers());
-
-        $res = new ContactBackupResponse([]);
-        $res->setServers([$server])
-            ->addServer($server);
-        $this->assertEquals([$server, $server], $res->getServers());
-
-        $res = new ContactBackupResponse([$server]);
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<ContactBackupResponse>'
-                .'<servers>'
-                    . '<server name="' . $name . '" status="' . ContactBackupStatus::STOPPED() . '" />'
-                .'</servers>'
-            . '</ContactBackupResponse>';
-        $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($res, 'xml'));
-        $this->assertEquals($res, $this->serializer->deserialize($xml, ContactBackupResponse::class, 'xml'));
-
-        $json = json_encode([
-            'servers' => [
-                'server' => [
-                    [
-                        'name' => $name,
-                        'status' => (string) ContactBackupStatus::STOPPED(),
-                    ],
-                ]
-            ],
-        ]);
-        $this->assertSame($json, $this->serializer->serialize($res, 'json'));
-        $this->assertEquals($res, $this->serializer->deserialize($json, ContactBackupResponse::class, 'json'));
-    }
-
-    public function testContactBackupBody()
-    {
-        $name = $this->faker->word;
-        $value = $this->faker->word;
-        $request = new ContactBackupRequest([new ServerSelector(ServerBy::NAME(), $value)], ContactBackupOp::START());
-        $response = new ContactBackupResponse([new ContactBackupServer($name, ContactBackupStatus::STOPPED())]);
+        $backupServer = new ContactBackupServer($name, ContactBackupStatus::STOPPED());
+        $response = new ContactBackupResponse([$backupServer]);
+        $this->assertEquals([$backupServer], $response->getServers());
+        $response = new ContactBackupResponse([]);
+        $response->setServers([$backupServer])
+            ->addServer($backupServer);
+        $this->assertEquals([$backupServer, $backupServer], $response->getServers());
+        $response->setServers([$backupServer]);
 
         $body = new ContactBackupBody($request, $response);
         $this->assertSame($request, $body->getRequest());
@@ -112,59 +53,6 @@ class ContactBackupTest extends ZimbraStructTestCase
              ->setResponse($response);
         $this->assertSame($request, $body->getRequest());
         $this->assertSame($response, $body->getResponse());
-
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<Body xmlns:urn="urn:zimbraAdmin">'
-                . '<urn:ContactBackupRequest op="' . ContactBackupOp::START() . '">'
-                    .'<servers>'
-                        . '<server by="' . ServerBy::NAME() . '">' . $value . '</server>'
-                    .'</servers>'
-                . '</urn:ContactBackupRequest>'
-                . '<urn:ContactBackupResponse>'
-                    .'<servers>'
-                        . '<server name="' . $name . '" status="' . ContactBackupStatus::STOPPED() . '" />'
-                    .'</servers>'
-                . '</urn:ContactBackupResponse>'
-            . '</Body>';
-        $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($body, 'xml'));
-        $this->assertEquals($body, $this->serializer->deserialize($xml, ContactBackupBody::class, 'xml'));
-
-        $json = json_encode([
-            'ContactBackupRequest' => [
-                'servers' => [
-                    'server' => [
-                        [
-                            'by' => (string) ServerBy::NAME(),
-                            '_content' => $value,
-                        ],
-                    ]
-                ],
-                'op' => (string) ContactBackupOp::START(),
-                '_jsns' => 'urn:zimbraAdmin',
-            ],
-            'ContactBackupResponse' => [
-                'servers' => [
-                    'server' => [
-                        [
-                            'name' => $name,
-                            'status' => (string) ContactBackupStatus::STOPPED(),
-                        ],
-                    ]
-                ],
-                '_jsns' => 'urn:zimbraAdmin',
-            ],
-        ]);
-        $this->assertSame($json, $this->serializer->serialize($body, 'json'));
-        $this->assertEquals($body, $this->serializer->deserialize($json, ContactBackupBody::class, 'json'));
-    }
-
-    public function testContactBackupEnvelope()
-    {
-        $name = $this->faker->word;
-        $value = $this->faker->word;
-        $request = new ContactBackupRequest([new ServerSelector(ServerBy::NAME(), $value)], ContactBackupOp::START());
-        $response = new ContactBackupResponse([new ContactBackupServer($name, ContactBackupStatus::STOPPED())]);
-        $body = new ContactBackupBody($request, $response);
 
         $envelope = new ContactBackupEnvelope(new Header(), $body);
         $this->assertSame($body, $envelope->getBody());

@@ -19,136 +19,46 @@ use Zimbra\Struct\Tests\ZimbraStructTestCase;
  */
 class CheckGalConfigTest extends ZimbraStructTestCase
 {
-    public function testCheckGalConfigRequest()
+    public function testCheckGalConfig()
     {
         $limit = mt_rand(0, 10);
+        $id = $this->faker->uuid;
         $action = $this->faker->word;
         $key = $this->faker->word;
         $value = $this->faker->word;
+        $code = $this->faker->word;
+        $message = $this->faker->word;
 
         $query = new LimitedQuery($limit, $value);
+        $request = new CheckGalConfigRequest($query, $action, [new Attr($key, $value)]);
+        $this->assertSame($query, $request->getQuery());
+        $this->assertSame($action, $request->getAction());
 
-        $req = new CheckGalConfigRequest($query, $action, [new Attr($key, $value)]);
-        $this->assertSame($query, $req->getQuery());
-        $this->assertSame($action, $req->getAction());
-
-        $req = new CheckGalConfigRequest(new LimitedQuery($limit, $value), '', [new Attr($key, $value)]);
-        $req->setQuery($query)
+        $request = new CheckGalConfigRequest(new LimitedQuery(0, ''), '', [new Attr($key, $value)]);
+        $request->setQuery($query)
             ->setAction($action);
-        $this->assertSame($query, $req->getQuery());
-        $this->assertSame($action, $req->getAction());
-
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<CheckGalConfigRequest>'
-                . '<query limit="' . $limit . '">' . $value . '</query>'
-                . '<action>' . $action . '</action>'
-                . '<a n="' . $key . '">' . $value . '</a>'
-            . '</CheckGalConfigRequest>';
-        $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($req, 'xml'));
-        $this->assertEquals($req, $this->serializer->deserialize($xml, CheckGalConfigRequest::class, 'xml'));
-
-        $json = json_encode([
-            'query' => [
-                'limit' => $limit,
-                '_content' => $value,
-            ],
-            'action' => [
-                '_content' => $action,
-            ],
-            'a' => [
-                [
-                    'n' => $key,
-                    '_content' => $value,
-                ],
-            ],
-        ]);
-        $this->assertSame($json, $this->serializer->serialize($req, 'json'));
-        $this->assertEquals($req, $this->serializer->deserialize($json, CheckGalConfigRequest::class, 'json'));
-    }
-
-    public function testCheckGalConfigResponse()
-    {
-        $code = $this->faker->word;
-        $message = $this->faker->word;
-        $id = $this->faker->uuid;
-        $key = $this->faker->word;
-        $value = $this->faker->word;
+        $this->assertSame($query, $request->getQuery());
+        $this->assertSame($action, $request->getAction());
 
         $cn = new GalContactInfo($id, [new Attr($key, $value)]);
-
-        $res = new CheckGalConfigResponse(
-            $code,
-            $message,
-            [$cn]
-        );
-        $this->assertSame($code, $res->getCode());
-        $this->assertSame($message, $res->getMessage());
-        $this->assertSame([$cn], $res->getGalContacts());
-
-        $res = new CheckGalConfigResponse('', '');
-        $res->setCode($code)
-            ->setMessage($message)
-            ->setGalContacts([$cn])
-            ->addGalContact($cn);
-        $this->assertSame($code, $res->getCode());
-        $this->assertSame($message, $res->getMessage());
-        $this->assertSame([$cn, $cn], $res->getGalContacts());
-
-        $res = new CheckGalConfigResponse(
-            $code,
-            $message,
-            [$cn]
-        );
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<CheckGalConfigResponse>'
-                . '<code>' . $code . '</code>'
-                . '<message>' . $message . '</message>'
-                . '<cn id="' . $id . '">'
-                    . '<a n="' . $key . '">' . $value . '</a>'
-                . '</cn>'
-            . '</CheckGalConfigResponse>';
-        $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($res, 'xml'));
-        $this->assertEquals($res, $this->serializer->deserialize($xml, CheckGalConfigResponse::class, 'xml'));
-
-        $json = json_encode([
-            'code' => [
-                '_content' => $code,
-            ],
-            'message' => [
-                '_content' => $message,
-            ],
-            'cn' => [
-                [
-                    'a' => [
-                        [
-                            'n' => $key,
-                            '_content' => $value,
-                        ],
-                    ],
-                    'id' => $id,
-                ],
-            ],
-        ]);
-        $this->assertSame($json, $this->serializer->serialize($res, 'json'));
-        $this->assertEquals($res, $this->serializer->deserialize($json, CheckGalConfigResponse::class, 'json'));
-    }
-
-    public function testCheckGalConfigBody()
-    {
-        $limit = mt_rand(0, 10);
-        $id = $this->faker->uuid;
-        $action = $this->faker->word;
-        $key = $this->faker->word;
-        $value = $this->faker->word;
-        $code = $this->faker->word;
-        $message = $this->faker->word;
-
-        $request = new CheckGalConfigRequest(new LimitedQuery($limit, $value), $action, [new Attr($key, $value)]);
         $response = new CheckGalConfigResponse(
             $code,
             $message,
-            [new GalContactInfo($id, [new Attr($key, $value)])]
+            [$cn]
         );
+        $this->assertSame($code, $response->getCode());
+        $this->assertSame($message, $response->getMessage());
+        $this->assertSame([$cn], $response->getGalContacts());
+
+        $response = new CheckGalConfigResponse('', '');
+        $response->setCode($code)
+            ->setMessage($message)
+            ->setGalContacts([$cn])
+            ->addGalContact($cn);
+        $this->assertSame($code, $response->getCode());
+        $this->assertSame($message, $response->getMessage());
+        $this->assertSame([$cn, $cn], $response->getGalContacts());
+        $response->setGalContacts([$cn]);
 
         $body = new CheckGalConfigBody($request, $response);
         $this->assertSame($request, $body->getRequest());
@@ -159,84 +69,6 @@ class CheckGalConfigTest extends ZimbraStructTestCase
              ->setResponse($response);
         $this->assertSame($request, $body->getRequest());
         $this->assertSame($response, $body->getResponse());
-
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<Body xmlns:urn="urn:zimbraAdmin">'
-                . '<urn:CheckGalConfigRequest>'
-                    . '<query limit="' . $limit . '">' . $value . '</query>'
-                    . '<action>' . $action . '</action>'
-                    . '<a n="' . $key . '">' . $value . '</a>'
-                . '</urn:CheckGalConfigRequest>'
-                . '<urn:CheckGalConfigResponse>'
-                    . '<code>' . $code . '</code>'
-                    . '<message>' . $message . '</message>'
-                    . '<cn id="' . $id . '">'
-                        . '<a n="' . $key . '">' . $value . '</a>'
-                    . '</cn>'
-                . '</urn:CheckGalConfigResponse>'
-            . '</Body>';
-        $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($body, 'xml'));
-        $this->assertEquals($body, $this->serializer->deserialize($xml, CheckGalConfigBody::class, 'xml'));
-
-        $json = json_encode([
-            'CheckGalConfigRequest' => [
-                'query' => [
-                    'limit' => $limit,
-                    '_content' => $value,
-                ],
-                'action' => [
-                    '_content' => $action,
-                ],
-                'a' => [
-                    [
-                        'n' => $key,
-                        '_content' => $value,
-                    ],
-                ],
-                '_jsns' => 'urn:zimbraAdmin',
-            ],
-            'CheckGalConfigResponse' => [
-                'code' => [
-                    '_content' => $code,
-                ],
-                'message' => [
-                    '_content' => $message,
-                ],
-                'cn' => [
-                    [
-                        'a' => [
-                            [
-                                'n' => $key,
-                                '_content' => $value,
-                            ],
-                        ],
-                        'id' => $id,
-                    ],
-                ],
-                '_jsns' => 'urn:zimbraAdmin',
-            ],
-        ]);
-        $this->assertSame($json, $this->serializer->serialize($body, 'json'));
-        $this->assertEquals($body, $this->serializer->deserialize($json, CheckGalConfigBody::class, 'json'));
-    }
-
-    public function testCheckGalConfigEnvelope()
-    {
-        $limit = mt_rand(0, 10);
-        $id = $this->faker->uuid;
-        $action = $this->faker->word;
-        $key = $this->faker->word;
-        $value = $this->faker->word;
-        $code = $this->faker->word;
-        $message = $this->faker->word;
-
-        $request = new CheckGalConfigRequest(new LimitedQuery($limit, $value), $action, [new Attr($key, $value)]);
-        $response = new CheckGalConfigResponse(
-            $code,
-            $message,
-            [new GalContactInfo($id, [new Attr($key, $value)])]
-        );
-        $body = new CheckGalConfigBody($request, $response);
 
         $envelope = new CheckGalConfigEnvelope(new Header(), $body);
         $this->assertSame($body, $envelope->getBody());

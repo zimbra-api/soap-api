@@ -16,104 +16,51 @@ use Zimbra\Struct\Tests\ZimbraStructTestCase;
  */
 class AutoCompleteGalTest extends ZimbraStructTestCase
 {
-    public function testAutoCompleteGalRequest()
+    public function testAutoCompleteGal()
     {
         $domain = $this->faker->word;
         $name = $this->faker->word;
         $galAccountId = $this->faker->uuid;
         $limit = mt_rand();
 
-        $req = new AutoCompleteGalRequest($domain, $name, GalSearchType::ALL(), $galAccountId, $limit);
-        $this->assertSame($domain, $req->getDomain());
-        $this->assertSame($name, $req->getName());
-        $this->assertEquals(GalSearchType::ALL(), $req->getType());
-        $this->assertSame($galAccountId, $req->getGalAccountId());
-        $this->assertSame($limit, $req->getLimit());
+        $request = new AutoCompleteGalRequest($domain, $name, GalSearchType::ALL(), $galAccountId, $limit);
+        $this->assertSame($domain, $request->getDomain());
+        $this->assertSame($name, $request->getName());
+        $this->assertEquals(GalSearchType::ALL(), $request->getType());
+        $this->assertSame($galAccountId, $request->getGalAccountId());
+        $this->assertSame($limit, $request->getLimit());
 
-        $req = new AutoCompleteGalRequest('', '');
-        $req->setDomain($domain)
+        $request = new AutoCompleteGalRequest('', '');
+        $request->setDomain($domain)
             ->setName($name)
             ->setType(GalSearchType::ACCOUNT())
             ->setGalAccountId($galAccountId)
             ->setLimit($limit);
-        $this->assertSame($domain, $req->getDomain());
-        $this->assertSame($name, $req->getName());
-        $this->assertEquals(GalSearchType::ACCOUNT(), $req->getType());
-        $this->assertSame($galAccountId, $req->getGalAccountId());
-        $this->assertSame($limit, $req->getLimit());
+        $this->assertSame($domain, $request->getDomain());
+        $this->assertSame($name, $request->getName());
+        $this->assertEquals(GalSearchType::ACCOUNT(), $request->getType());
+        $this->assertSame($galAccountId, $request->getGalAccountId());
+        $this->assertSame($limit, $request->getLimit());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<AutoCompleteGalRequest domain="' . $domain . '" name="' . $name . '" type="' . GalSearchType::ACCOUNT() . '" galAcctId="' . $galAccountId . '" limit="' . $limit . '" />';
-        $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($req, 'xml'));
-        $this->assertEquals($req, $this->serializer->deserialize($xml, AutoCompleteGalRequest::class, 'xml'));
-
-        $json = json_encode([
-            'domain' => $domain,
-            'name' => $name,
-            'type' => GalSearchType::ACCOUNT(),
-            'galAcctId' => $galAccountId,
-            'limit' => $limit,
-        ]);
-        $this->assertSame($json, $this->serializer->serialize($req, 'json'));
-        $this->assertEquals($req, $this->serializer->deserialize($json, AutoCompleteGalRequest::class, 'json'));
-    }
-
-    public function testAutoCompleteGalResponse()
-    {
         $contact = new ContactInfo();
-
-        $res = new AutoCompleteGalResponse(
+        $response = new AutoCompleteGalResponse(
             FALSE, FALSE, FALSE, [$contact]
         );
-        $this->assertFalse($res->getMore());
-        $this->assertFalse($res->getTokenizeKey());
-        $this->assertFalse($res->getPagingSupported());
-        $this->assertSame([$contact], $res->getContacts());
+        $this->assertFalse($response->getMore());
+        $this->assertFalse($response->getTokenizeKey());
+        $this->assertFalse($response->getPagingSupported());
+        $this->assertSame([$contact], $response->getContacts());
 
-        $res->setMore(TRUE)
+        $response->setMore(TRUE)
             ->setTokenizeKey(TRUE)
             ->setPagingSupported(TRUE)
             ->setContacts([$contact])
             ->addContact($contact);
-        $this->assertTrue($res->getMore());
-        $this->assertTrue($res->getTokenizeKey());
-        $this->assertTrue($res->getPagingSupported());
-        $this->assertSame([$contact, $contact], $res->getContacts());
-
-        $res = new AutoCompleteGalResponse(
-            TRUE, TRUE, TRUE, [$contact]
-        );
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<AutoCompleteGalResponse more="true" tokenizeKey="true" paginationSupported="true">'
-                . '<cn />'
-            . '</AutoCompleteGalResponse>';
-        $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($res, 'xml'));
-        $this->assertEquals($res, $this->serializer->deserialize($xml, AutoCompleteGalResponse::class, 'xml'));
-
-        $json = json_encode([
-            'more' => TRUE,
-            'tokenizeKey' => TRUE,
-            'paginationSupported' => TRUE,
-            'cn' => [
-                new \stdClass
-            ],
-        ]);
-        $this->assertSame($json, $this->serializer->serialize($res, 'json'));
-        $this->assertEquals($res, $this->serializer->deserialize($json, AutoCompleteGalResponse::class, 'json'));
-    }
-
-    public function testAutoCompleteGalBody()
-    {
-        $domain = $this->faker->word;
-        $name = $this->faker->word;
-        $galAccountId = $this->faker->uuid;
-        $limit = mt_rand();
-
-        $contact = new ContactInfo();
-        $request = new AutoCompleteGalRequest($domain, $name, GalSearchType::ACCOUNT(), $galAccountId, $limit);
-        $response = new AutoCompleteGalResponse(
-            TRUE, TRUE, TRUE, [$contact]
-        );
+        $this->assertTrue($response->getMore());
+        $this->assertTrue($response->getTokenizeKey());
+        $this->assertTrue($response->getPagingSupported());
+        $this->assertSame([$contact, $contact], $response->getContacts());
+        $response->setContacts([$contact]);
 
         $body = new AutoCompleteGalBody($request, $response);
         $this->assertSame($request, $body->getRequest());
@@ -124,53 +71,6 @@ class AutoCompleteGalTest extends ZimbraStructTestCase
              ->setResponse($response);
         $this->assertSame($request, $body->getRequest());
         $this->assertSame($response, $body->getResponse());
-
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<Body xmlns:urn="urn:zimbraAdmin">'
-                . '<urn:AutoCompleteGalRequest domain="' . $domain . '" name="' . $name . '" type="' . GalSearchType::ACCOUNT() . '" galAcctId="' . $galAccountId . '" limit="' . $limit . '" />'
-                . '<urn:AutoCompleteGalResponse more="true" tokenizeKey="true" paginationSupported="true">'
-                    . '<cn />'
-                . '</urn:AutoCompleteGalResponse>'
-            . '</Body>';
-        $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($body, 'xml'));
-        $this->assertEquals($body, $this->serializer->deserialize($xml, AutoCompleteGalBody::class, 'xml'));
-
-        $json = json_encode([
-            'AutoCompleteGalRequest' => [
-                'domain' => $domain,
-                'name' => $name,
-                'type' => (string) GalSearchType::ACCOUNT(),
-                'galAcctId' => $galAccountId,
-                'limit' => $limit,
-                '_jsns' => 'urn:zimbraAdmin',
-            ],
-            'AutoCompleteGalResponse' => [
-                'more' => TRUE,
-                'tokenizeKey' => TRUE,
-                'paginationSupported' => TRUE,
-                'cn' => [
-                    new \stdClass
-                ],
-                '_jsns' => 'urn:zimbraAdmin',
-            ],
-        ]);
-        $this->assertSame($json, $this->serializer->serialize($body, 'json'));
-        $this->assertEquals($body, $this->serializer->deserialize($json, AutoCompleteGalBody::class, 'json'));
-    }
-
-    public function testAutoCompleteGalEnvelope()
-    {
-        $domain = $this->faker->word;
-        $name = $this->faker->word;
-        $galAccountId = $this->faker->uuid;
-        $limit = mt_rand();
-
-        $contact = new ContactInfo();
-        $request = new AutoCompleteGalRequest($domain, $name, GalSearchType::ACCOUNT(), $galAccountId, $limit);
-        $response = new AutoCompleteGalResponse(
-            TRUE, TRUE, TRUE, [$contact]
-        );
-        $body = new AutoCompleteGalBody($request, $response);
 
         $envelope = new AutoCompleteGalEnvelope(new Header(), $body);
         $this->assertSame($body, $envelope->getBody());

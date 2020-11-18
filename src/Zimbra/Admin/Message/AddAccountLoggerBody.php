@@ -21,7 +21,6 @@ use Zimbra\Soap\{Body, BodyInterface, RequestInterface, ResponseInterface};
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @XmlNamespace(uri="urn:zimbraAdmin", prefix="urn")
  * @AccessType("public_method")
  * @XmlRoot(name="Body")
  */

@@ -16,95 +16,29 @@ use Zimbra\Struct\Tests\ZimbraStructTestCase;
  */
 class CheckDirectoryTest extends ZimbraStructTestCase
 {
-    public function testCheckDirectoryRequest()
+    public function testCheckDirectory()
     {
         $path = $this->faker->word;
+
         $dir = new CheckDirSelector($path, TRUE);
-
-        $req = new CheckDirectoryRequest(
-            [$dir]
-        );
-
-        $this->assertSame([$dir], $req->getPaths());
-
-        $req = new CheckDirectoryRequest();
-        $req->setPaths([$dir])
+        $request = new CheckDirectoryRequest([$dir]);
+        $this->assertSame([$dir], $request->getPaths());
+        $request = new CheckDirectoryRequest();
+        $request->setPaths([$dir])
             ->addPath($dir);
-        $this->assertSame([$dir, $dir], $req->getPaths());
+        $this->assertSame([$dir, $dir], $request->getPaths());
+        $request->setPaths([$dir]);
 
-        $req = new CheckDirectoryRequest(
-            [$dir]
-        );
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<CheckDirectoryRequest>'
-                . '<directory path="' . $path . '" create="true" />'
-            . '</CheckDirectoryRequest>';
-        $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($req, 'xml'));
-        $this->assertEquals($req, $this->serializer->deserialize($xml, CheckDirectoryRequest::class, 'xml'));
-
-        $json = json_encode([
-            'directory' => [
-                [
-                    'path' => $path,
-                    'create' => TRUE,
-                ],
-            ],
-        ]);
-        $this->assertSame($json, $this->serializer->serialize($req, 'json'));
-        $this->assertEquals($req, $this->serializer->deserialize($json, CheckDirectoryRequest::class, 'json'));
-    }
-
-    public function testCheckDirectoryResponse()
-    {
-        $path = $this->faker->word;
-        $dir = new DirPathInfo($path, TRUE, TRUE, TRUE, TRUE);
-
-        $res = new CheckDirectoryResponse(
-            [$dir]
-        );
-
-        $this->assertSame([$dir], $res->getPaths());
-
-        $res = new CheckDirectoryResponse();
-        $res->setPaths([$dir])
-            ->addPath($dir);
-        $this->assertSame([$dir, $dir], $res->getPaths());
-
-        $res = new CheckDirectoryResponse(
-            [$dir]
-        );
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<CheckDirectoryResponse>'
-                . '<directory path="' . $path . '" exists="true" isDirectory="true" readable="true" writable="true" />'
-            . '</CheckDirectoryResponse>';
-        $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($res, 'xml'));
-        $this->assertEquals($res, $this->serializer->deserialize($xml, CheckDirectoryResponse::class, 'xml'));
-
-        $json = json_encode([
-            'directory' => [
-                [
-                    'path' => $path,
-                    'exists' => TRUE,
-                    'isDirectory' => TRUE,
-                    'readable' => TRUE,
-                    'writable' => TRUE,
-                ],
-            ],
-        ]);
-        $this->assertSame($json, $this->serializer->serialize($res, 'json'));
-        $this->assertEquals($res, $this->serializer->deserialize($json, CheckDirectoryResponse::class, 'json'));
-    }
-
-    public function testCheckDirectoryBody()
-    {
-        $path = $this->faker->word;
-
-        $request = new CheckDirectoryRequest(
-            [new CheckDirSelector($path, TRUE)]
-        );
+        $dirInfo = new DirPathInfo($path, TRUE, TRUE, TRUE, TRUE);
         $response = new CheckDirectoryResponse(
-            [new DirPathInfo($path, TRUE, TRUE, TRUE, TRUE)]
+            [$dirInfo]
         );
+        $this->assertSame([$dirInfo], $response->getPaths());
+        $response = new CheckDirectoryResponse();
+        $response->setPaths([$dirInfo])
+            ->addPath($dirInfo);
+        $this->assertSame([$dirInfo, $dirInfo], $response->getPaths());
+        $response->setPaths([$dirInfo]);
 
         $body = new CheckDirectoryBody($request, $response);
         $this->assertSame($request, $body->getRequest());
@@ -115,57 +49,6 @@ class CheckDirectoryTest extends ZimbraStructTestCase
              ->setResponse($response);
         $this->assertSame($request, $body->getRequest());
         $this->assertSame($response, $body->getResponse());
-
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<Body xmlns:urn="urn:zimbraAdmin">'
-                . '<urn:CheckDirectoryRequest>'
-                    . '<directory path="' . $path . '" create="true" />'
-                . '</urn:CheckDirectoryRequest>'
-                . '<urn:CheckDirectoryResponse>'
-                    . '<directory path="' . $path . '" exists="true" isDirectory="true" readable="true" writable="true" />'
-                . '</urn:CheckDirectoryResponse>'
-            . '</Body>';
-        $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($body, 'xml'));
-        $this->assertEquals($body, $this->serializer->deserialize($xml, CheckDirectoryBody::class, 'xml'));
-
-        $json = json_encode([
-            'CheckDirectoryRequest' => [
-                'directory' => [
-                    [
-                        'path' => $path,
-                        'create' => TRUE,
-                    ],
-                ],
-                '_jsns' => 'urn:zimbraAdmin',
-            ],
-            'CheckDirectoryResponse' => [
-                'directory' => [
-                    [
-                        'path' => $path,
-                        'exists' => TRUE,
-                        'isDirectory' => TRUE,
-                        'readable' => TRUE,
-                        'writable' => TRUE,
-                    ],
-                ],
-                '_jsns' => 'urn:zimbraAdmin',
-            ],
-        ]);
-        $this->assertSame($json, $this->serializer->serialize($body, 'json'));
-        $this->assertEquals($body, $this->serializer->deserialize($json, CheckDirectoryBody::class, 'json'));
-    }
-
-    public function testCheckDirectoryEnvelope()
-    {
-        $path = $this->faker->word;
-
-        $request = new CheckDirectoryRequest(
-            [new CheckDirSelector($path, TRUE)]
-        );
-        $response = new CheckDirectoryResponse(
-            [new DirPathInfo($path, TRUE, TRUE, TRUE, TRUE)]
-        );
-        $body = new CheckDirectoryBody($request, $response);
 
         $envelope = new CheckDirectoryEnvelope(new Header(), $body);
         $this->assertSame($body, $envelope->getBody());

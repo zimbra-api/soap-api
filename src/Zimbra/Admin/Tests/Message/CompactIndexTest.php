@@ -17,65 +17,25 @@ use Zimbra\Struct\Tests\ZimbraStructTestCase;
  */
 class CompactIndexTest extends ZimbraStructTestCase
 {
-    public function testCompactIndexRequest()
+    public function testCompactIndexEnvelope()
     {
         $id = $this->faker->uuid;
+
         $mbox = new MailboxByAccountIdSelector($id);
-
-        $req = new CompactIndexRequest($mbox, CompactIndexAction::STATUS());
-        $this->assertEquals($mbox, $req->getMbox());
-        $this->assertEquals(CompactIndexAction::STATUS(), $req->getAction());
-
-        $req = new CompactIndexRequest(new MailboxByAccountIdSelector(''));
-        $req->setMbox($mbox)
+        $request = new CompactIndexRequest($mbox, CompactIndexAction::STATUS());
+        $this->assertEquals($mbox, $request->getMbox());
+        $this->assertEquals(CompactIndexAction::STATUS(), $request->getAction());
+        $request = new CompactIndexRequest(new MailboxByAccountIdSelector(''));
+        $request->setMbox($mbox)
             ->setAction(CompactIndexAction::START());
-        $this->assertEquals($mbox, $req->getMbox());
-        $this->assertEquals(CompactIndexAction::START(), $req->getAction());
+        $this->assertEquals($mbox, $request->getMbox());
+        $this->assertEquals(CompactIndexAction::START(), $request->getAction());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<CompactIndexRequest action="' . CompactIndexAction::START() . '">'
-                . '<mbox id="' . $id . '" />'
-            . '</CompactIndexRequest>';
-        $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($req, 'xml'));
-        $this->assertEquals($req, $this->serializer->deserialize($xml, CompactIndexRequest::class, 'xml'));
-
-        $json = json_encode([
-            'mbox' => [
-                'id' => $id,
-            ],
-            'action' => (string) CompactIndexAction::START(),
-        ]);
-        $this->assertSame($json, $this->serializer->serialize($req, 'json'));
-        $this->assertEquals($req, $this->serializer->deserialize($json, CompactIndexRequest::class, 'json'));
-    }
-
-    public function testCompactIndexResponse()
-    {
-        $res = new CompactIndexResponse(CompactIndexStatus::STARTED());
-        $this->assertEquals(CompactIndexStatus::STARTED(), $res->getStatus());
-
-        $res = new CompactIndexResponse(CompactIndexStatus::STARTED());
-        $res->setStatus(CompactIndexStatus::RUNNING());
-        $this->assertEquals(CompactIndexStatus::RUNNING(), $res->getStatus());
-
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<CompactIndexResponse status="' . CompactIndexStatus::RUNNING() . '" />';
-        $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($res, 'xml'));
-        $this->assertEquals($res, $this->serializer->deserialize($xml, CompactIndexResponse::class, 'xml'));
-
-        $json = json_encode([
-            'status' => (string) CompactIndexStatus::RUNNING(),
-        ]);
-        $this->assertSame($json, $this->serializer->serialize($res, 'json'));
-        $this->assertEquals($res, $this->serializer->deserialize($json, CompactIndexResponse::class, 'json'));
-    }
-
-    public function testCompactIndexBody()
-    {
-        $id = $this->faker->uuid;
-        $mbox = new MailboxByAccountIdSelector($id);
-        $request = new CompactIndexRequest($mbox, CompactIndexAction::START());
-        $response = new CompactIndexResponse(CompactIndexStatus::RUNNING());
+        $response = new CompactIndexResponse(CompactIndexStatus::STARTED());
+        $this->assertEquals(CompactIndexStatus::STARTED(), $response->getStatus());
+        $response = new CompactIndexResponse(CompactIndexStatus::STARTED());
+        $response->setStatus(CompactIndexStatus::RUNNING());
+        $this->assertEquals(CompactIndexStatus::RUNNING(), $response->getStatus());
 
         $body = new CompactIndexBody($request, $response);
         $this->assertSame($request, $body->getRequest());
@@ -86,41 +46,6 @@ class CompactIndexTest extends ZimbraStructTestCase
              ->setResponse($response);
         $this->assertSame($request, $body->getRequest());
         $this->assertSame($response, $body->getResponse());
-
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<Body xmlns:urn="urn:zimbraAdmin">'
-                . '<urn:CompactIndexRequest action="' . CompactIndexAction::START() . '">'
-                    . '<mbox id="' . $id . '" />'
-                . '</urn:CompactIndexRequest>'
-                . '<urn:CompactIndexResponse status="' . CompactIndexStatus::RUNNING() . '" />'
-            . '</Body>';
-        $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($body, 'xml'));
-        $this->assertEquals($body, $this->serializer->deserialize($xml, CompactIndexBody::class, 'xml'));
-
-        $json = json_encode([
-            'CompactIndexRequest' => [
-                'mbox' => [
-                    'id' => $id,
-                ],
-                'action' => (string) CompactIndexAction::START(),
-                '_jsns' => 'urn:zimbraAdmin',
-            ],
-            'CompactIndexResponse' => [
-                'status' => (string) CompactIndexStatus::RUNNING(),
-                '_jsns' => 'urn:zimbraAdmin',
-            ],
-        ]);
-        $this->assertSame($json, $this->serializer->serialize($body, 'json'));
-        $this->assertEquals($body, $this->serializer->deserialize($json, CompactIndexBody::class, 'json'));
-    }
-
-    public function testCompactIndexEnvelope()
-    {
-        $id = $this->faker->uuid;
-        $mbox = new MailboxByAccountIdSelector($id);
-        $request = new CompactIndexRequest($mbox, CompactIndexAction::START());
-        $response = new CompactIndexResponse(CompactIndexStatus::RUNNING());
-        $body = new CompactIndexBody($request, $response);
 
         $envelope = new CompactIndexEnvelope(new Header(), $body);
         $this->assertSame($body, $envelope->getBody());

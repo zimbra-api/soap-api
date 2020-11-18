@@ -20,90 +20,7 @@ use Zimbra\Struct\Tests\ZimbraStructTestCase;
  */
 class CountObjectsTest extends ZimbraStructTestCase
 {
-    public function testCountObjectsRequest()
-    {
-        $value = $this->faker->word;
-        $domain = new DomainSelector(DomainBy::NAME(), $value);
-        $ucs = new UcServiceSelector(UcServiceBy::NAME(), $value);
-
-        $req = new CountObjectsRequest(
-            CountObjectsType::USER_ACCOUNT(), [$domain], $ucs, FALSE
-        );
-        $this->assertEquals(CountObjectsType::USER_ACCOUNT(), $req->getType());
-        $this->assertSame([$domain], $req->getDomains());
-        $this->assertSame($ucs, $req->getUcService());
-        $this->assertFalse($req->getOnlyRelated());
-
-        $req = new CountObjectsRequest(
-            CountObjectsType::USER_ACCOUNT()
-        );
-        $req->setType(CountObjectsType::ACCOUNT())
-            ->setDomains([$domain])
-            ->addDomain($domain)
-            ->setUcService($ucs)
-            ->setOnlyRelated(TRUE);
-        $this->assertEquals(CountObjectsType::ACCOUNT(), $req->getType());
-        $this->assertSame([$domain, $domain], $req->getDomains());
-        $this->assertSame($ucs, $req->getUcService());
-        $this->assertTrue($req->getOnlyRelated());
-
-        $req = new CountObjectsRequest(
-            CountObjectsType::ACCOUNT(), [$domain], $ucs, TRUE
-        );
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<CountObjectsRequest type="' . CountObjectsType::ACCOUNT() . '" onlyrelated="true">'
-                . '<domain by="' . DomainBy::NAME() . '">' . $value . '</domain>'
-                . '<ucservice by="' . UcServiceBy::NAME() . '">' . $value . '</ucservice>'
-            . '</CountObjectsRequest>';
-        $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($req, 'xml'));
-        $this->assertEquals($req, $this->serializer->deserialize($xml, CountObjectsRequest::class, 'xml'));
-
-        $json = json_encode([
-            'type' => (string) CountObjectsType::ACCOUNT(),
-            'domain' => [
-                [
-                    'by' => (string) DomainBy::NAME(),
-                    '_content' => $value,
-                ],
-            ],
-            'ucservice' => [
-                'by' => (string) UcServiceBy::NAME(),
-                '_content' => $value,
-            ],
-            'onlyrelated' => TRUE,
-        ]);
-        $this->assertSame($json, $this->serializer->serialize($req, 'json'));
-        $this->assertEquals($req, $this->serializer->deserialize($json, CountObjectsRequest::class, 'json'));
-    }
-
-    public function testCountObjectsResponse()
-    {
-        $num = mt_rand(1, 100);
-        $type = $this->faker->word;
-        $res = new CountObjectsResponse($num, $type);
-        $this->assertSame($num, $res->getNum());
-        $this->assertSame($type, $res->getType());
-
-        $res = new CountObjectsResponse(0, '');
-        $res->setNum($num)
-            ->setType($type);
-        $this->assertSame($num, $res->getNum());
-        $this->assertSame($type, $res->getType());
-
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<CountObjectsResponse num="' . $num . '" type="' . $type . '" />';
-        $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($res, 'xml'));
-        $this->assertEquals($res, $this->serializer->deserialize($xml, CountObjectsResponse::class, 'xml'));
-
-        $json = json_encode([
-            'num' => $num,
-            'type' => $type,
-        ]);
-        $this->assertSame($json, $this->serializer->serialize($res, 'json'));
-        $this->assertEquals($res, $this->serializer->deserialize($json, CountObjectsResponse::class, 'json'));
-    }
-
-    public function testCountObjectsBody()
+    public function testCountObjects()
     {
         $value = $this->faker->word;
         $num = mt_rand(1, 100);
@@ -113,71 +30,43 @@ class CountObjectsTest extends ZimbraStructTestCase
         $ucs = new UcServiceSelector(UcServiceBy::NAME(), $value);
 
         $request = new CountObjectsRequest(
-            CountObjectsType::ACCOUNT(), [$domain], $ucs, TRUE
+            CountObjectsType::USER_ACCOUNT(), [$domain], $ucs, FALSE
         );
+        $this->assertEquals(CountObjectsType::USER_ACCOUNT(), $request->getType());
+        $this->assertSame([$domain], $request->getDomains());
+        $this->assertSame($ucs, $request->getUcService());
+        $this->assertFalse($request->getOnlyRelated());
+        $request = new CountObjectsRequest(
+            CountObjectsType::USER_ACCOUNT()
+        );
+        $request->setType(CountObjectsType::ACCOUNT())
+            ->setDomains([$domain])
+            ->addDomain($domain)
+            ->setUcService($ucs)
+            ->setOnlyRelated(TRUE);
+        $this->assertEquals(CountObjectsType::ACCOUNT(), $request->getType());
+        $this->assertSame([$domain, $domain], $request->getDomains());
+        $this->assertSame($ucs, $request->getUcService());
+        $this->assertTrue($request->getOnlyRelated());
+        $request->setDomains([$domain]);
+
         $response = new CountObjectsResponse($num, $type);
+        $this->assertSame($num, $response->getNum());
+        $this->assertSame($type, $response->getType());
+        $response = new CountObjectsResponse(0, '');
+        $response->setNum($num)
+            ->setType($type);
+        $this->assertSame($num, $response->getNum());
+        $this->assertSame($type, $response->getType());
 
         $body = new CountObjectsBody($request, $response);
         $this->assertSame($request, $body->getRequest());
         $this->assertSame($response, $body->getResponse());
-
         $body = new CountObjectsBody();
         $body->setRequest($request)
              ->setResponse($response);
         $this->assertSame($request, $body->getRequest());
         $this->assertSame($response, $body->getResponse());
-
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<Body xmlns:urn="urn:zimbraAdmin">'
-                . '<urn:CountObjectsRequest type="' . CountObjectsType::ACCOUNT() . '" onlyrelated="true">'
-                    . '<domain by="' . DomainBy::NAME() . '">' . $value . '</domain>'
-                    . '<ucservice by="' . UcServiceBy::NAME() . '">' . $value . '</ucservice>'
-                . '</urn:CountObjectsRequest>'
-                . '<urn:CountObjectsResponse num="' . $num . '" type="' . $type . '" />'
-            . '</Body>';
-        $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($body, 'xml'));
-        $this->assertEquals($body, $this->serializer->deserialize($xml, CountObjectsBody::class, 'xml'));
-
-        $json = json_encode([
-            'CountObjectsRequest' => [
-                'type' => (string) CountObjectsType::ACCOUNT(),
-                'domain' => [
-                    [
-                        'by' => (string) DomainBy::NAME(),
-                        '_content' => $value,
-                    ],
-                ],
-                'ucservice' => [
-                    'by' => (string) UcServiceBy::NAME(),
-                    '_content' => $value,
-                ],
-                'onlyrelated' => TRUE,
-                '_jsns' => 'urn:zimbraAdmin',
-            ],
-            'CountObjectsResponse' => [
-                'num' => $num,
-                'type' => $type,
-                '_jsns' => 'urn:zimbraAdmin',
-            ],
-        ]);
-        $this->assertSame($json, $this->serializer->serialize($body, 'json'));
-        $this->assertEquals($body, $this->serializer->deserialize($json, CountObjectsBody::class, 'json'));
-    }
-
-    public function testCountObjectsEnvelope()
-    {
-        $value = $this->faker->word;
-        $num = mt_rand(1, 100);
-        $type = $this->faker->word;
-
-        $domain = new DomainSelector(DomainBy::NAME(), $value);
-        $ucs = new UcServiceSelector(UcServiceBy::NAME(), $value);
-
-        $request = new CountObjectsRequest(
-            CountObjectsType::ACCOUNT(), [$domain], $ucs, TRUE
-        );
-        $response = new CountObjectsResponse($num, $type);
-        $body = new CountObjectsBody($request, $response);
 
         $envelope = new CountObjectsEnvelope(new Header(), $body);
         $this->assertSame($body, $envelope->getBody());

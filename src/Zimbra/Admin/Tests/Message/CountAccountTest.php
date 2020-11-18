@@ -17,136 +17,38 @@ use Zimbra\Struct\Tests\ZimbraStructTestCase;
  */
 class CountAccountTest extends ZimbraStructTestCase
 {
-    public function testCountAccountRequest()
+    public function testCountAccount()
     {
         $value = $this->faker->word;
+        $name = $this->faker->word;
+        $id = $this->faker->uuid;
+        $count = mt_rand(1, 100);
+
         $domain = new DomainSelector(DomainBy::NAME(), $value);
+        $request = new CountAccountRequest($domain);
+        $this->assertSame($domain, $request->getDomain());
+        $request = new CountAccountRequest(new DomainSelector(DomainBy::ID(), ''));
+        $request->setDomain($domain);
+        $this->assertSame($domain, $request->getDomain());
 
-        $req = new CountAccountRequest($domain);
-        $this->assertSame($domain, $req->getDomain());
-
-        $req = new CountAccountRequest(new DomainSelector(DomainBy::ID(), $value));
-        $req->setDomain($domain);
-        $this->assertSame($domain, $req->getDomain());
-
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<CountAccountRequest>'
-                . '<domain by="' . DomainBy::NAME() . '">' . $value . '</domain>'
-            . '</CountAccountRequest>';
-        $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($req, 'xml'));
-        $this->assertEquals($req, $this->serializer->deserialize($xml, CountAccountRequest::class, 'xml'));
-
-        $json = json_encode([
-            'domain' => [
-                'by' => (string) DomainBy::NAME(),
-                '_content' => $value,
-            ],
-        ]);
-        $this->assertSame($json, $this->serializer->serialize($req, 'json'));
-        $this->assertEquals($req, $this->serializer->deserialize($json, CountAccountRequest::class, 'json'));
-    }
-
-    public function testCountAccountResponse()
-    {
-        $name = $this->faker->word;
-        $id = $this->faker->uuid;
-        $count = mt_rand(1, 100);
         $cos = new CosCountInfo($name, $id, $count);
+        $response = new CountAccountResponse([$cos]);
+        $this->assertSame([$cos], $response->getCos());
 
-        $res = new CountAccountResponse([$cos]);
-        $this->assertSame([$cos], $res->getCos());
-
-        $res = new CountAccountResponse();
-        $res->setCos([$cos])
+        $response = new CountAccountResponse();
+        $response->setCos([$cos])
             ->addCos($cos);
-        $this->assertSame([$cos, $cos], $res->getCos());
-
-        $res = new CountAccountResponse([$cos]);
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<CountAccountResponse>'
-                . '<cos name="' . $name . '" id="' . $id . '">' . $count . '</cos>'
-            . '</CountAccountResponse>';
-        $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($res, 'xml'));
-        $this->assertEquals($res, $this->serializer->deserialize($xml, CountAccountResponse::class, 'xml'));
-
-        $json = json_encode([
-            'cos' => [
-                [
-                    'name' => $name,
-                    'id' => $id,
-                    '_content' => $count,
-                ],
-            ],
-        ]);
-        $this->assertSame($json, $this->serializer->serialize($res, 'json'));
-        $this->assertEquals($res, $this->serializer->deserialize($json, CountAccountResponse::class, 'json'));
-    }
-
-    public function testCountAccountBody()
-    {
-        $value = $this->faker->word;
-        $name = $this->faker->word;
-        $id = $this->faker->uuid;
-        $count = mt_rand(1, 100);
-
-        $request = new CountAccountRequest(new DomainSelector(DomainBy::NAME(), $value));
-        $response = new CountAccountResponse([new CosCountInfo($name, $id, $count)]);
+        $this->assertSame([$cos, $cos], $response->getCos());
+        $response->setCos([$cos]);
 
         $body = new CountAccountBody($request, $response);
         $this->assertSame($request, $body->getRequest());
         $this->assertSame($response, $body->getResponse());
-
         $body = new CountAccountBody();
         $body->setRequest($request)
              ->setResponse($response);
         $this->assertSame($request, $body->getRequest());
         $this->assertSame($response, $body->getResponse());
-
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<Body xmlns:urn="urn:zimbraAdmin">'
-                . '<urn:CountAccountRequest>'
-                    . '<domain by="' . DomainBy::NAME() . '">' . $value . '</domain>'
-                . '</urn:CountAccountRequest>'
-                . '<urn:CountAccountResponse>'
-                    . '<cos name="' . $name . '" id="' . $id . '">' . $count . '</cos>'
-                . '</urn:CountAccountResponse>'
-            . '</Body>';
-        $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($body, 'xml'));
-        $this->assertEquals($body, $this->serializer->deserialize($xml, CountAccountBody::class, 'xml'));
-
-        $json = json_encode([
-            'CountAccountRequest' => [
-                'domain' => [
-                    'by' => (string) DomainBy::NAME(),
-                    '_content' => $value,
-                ],
-                '_jsns' => 'urn:zimbraAdmin',
-            ],
-            'CountAccountResponse' => [
-                'cos' => [
-                    [
-                        'name' => $name,
-                        'id' => $id,
-                        '_content' => $count,
-                    ],
-                ],
-                '_jsns' => 'urn:zimbraAdmin',
-            ],
-        ]);
-        $this->assertSame($json, $this->serializer->serialize($body, 'json'));
-        $this->assertEquals($body, $this->serializer->deserialize($json, CountAccountBody::class, 'json'));
-    }
-
-    public function testCountAccountEnvelope()
-    {
-        $value = $this->faker->word;
-        $name = $this->faker->word;
-        $id = $this->faker->uuid;
-        $count = mt_rand(1, 100);
-
-        $request = new CountAccountRequest(new DomainSelector(DomainBy::NAME(), $value));
-        $response = new CountAccountResponse([new CosCountInfo($name, $id, $count)]);
-        $body = new CountAccountBody($request, $response);
 
         $envelope = new CountAccountEnvelope(new Header(), $body);
         $this->assertSame($body, $envelope->getBody());

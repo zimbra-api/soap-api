@@ -23,411 +23,7 @@ use Zimbra\Struct\Tests\ZimbraStructTestCase;
  */
 class CheckBlobConsistencyTest extends ZimbraStructTestCase
 {
-    public function testCheckBlobConsistencyRequest()
-    {
-        $volumeId = mt_rand(1, 100);
-        $mboxId = mt_rand(1, 100);
-
-        $volume = new IntIdAttr($volumeId);
-        $mbox = new IntIdAttr($mboxId);
-        $req = new CheckBlobConsistencyRequest(
-            FALSE, FALSE, [$volume], [$mbox]
-        );
-
-        $this->assertFalse($req->getCheckSize());
-        $this->assertFalse($req->getReportUsedBlobs());
-        $this->assertEquals([$volume], $req->getVolumes());
-        $this->assertEquals([$mbox], $req->getMailboxes());
-
-        $req = new CheckBlobConsistencyRequest();
-        $req->setCheckSize(TRUE)
-            ->setReportUsedBlobs(TRUE)
-            ->setVolumes([$volume])
-            ->addVolume($volume)
-            ->setMailboxes([$mbox])
-            ->addMailbox($mbox);
-        $this->assertTrue($req->getCheckSize());
-        $this->assertTrue($req->getReportUsedBlobs());
-        $this->assertEquals([$volume, $volume], $req->getVolumes());
-        $this->assertEquals([$mbox, $mbox], $req->getMailboxes());
-
-        $req = new CheckBlobConsistencyRequest(
-            TRUE, TRUE, [$volume], [$mbox]
-        );
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<CheckBlobConsistencyRequest checkSize="true" reportUsedBlobs="true">'
-                . '<volume id="' . $volumeId . '" />'
-                . '<mbox id="' . $mboxId . '" />'
-            . '</CheckBlobConsistencyRequest>';
-        $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($req, 'xml'));
-        $this->assertEquals($req, $this->serializer->deserialize($xml, CheckBlobConsistencyRequest::class, 'xml'));
-
-        $json = json_encode([
-            'checkSize' => TRUE,
-            'reportUsedBlobs' => TRUE,
-            'volume' => [
-                [
-                    'id' => $volumeId,
-                ]
-            ],
-            'mbox' => [
-                [
-                    'id' => $mboxId,
-                ]
-            ],
-        ]);
-        $this->assertSame($json, $this->serializer->serialize($req, 'json'));
-        $this->assertEquals($req, $this->serializer->deserialize($json, CheckBlobConsistencyRequest::class, 'json'));
-    }
-
-    public function testCheckBlobConsistencyResponse()
-    {
-        $id = mt_rand(1, 100);
-        $revision = mt_rand(1, 100);
-        $size = mt_rand(1, 100);
-        $volumeId = mt_rand(1, 100);
-        $blobPath = $this->faker->word;
-        $version = mt_rand(1, 100);
-        $path = $this->faker->word;
-        $fileSize = mt_rand(1, 100);
-
-        $missingBlobs = [new MissingBlobInfo(
-            $id, $revision, $size, $volumeId, $blobPath, TRUE, $version
-        )];
-        $incorrectSizes = [new IncorrectBlobSizeInfo(
-            $id, $revision, $size, $volumeId, new BlobSizeInfo(
-                $path, $size, $fileSize, TRUE
-            )
-        )];
-        $unexpectedBlobs = [new UnexpectedBlobInfo(
-            $volumeId, $path, $fileSize, TRUE
-        )];
-        $incorrectRevisions = [new IncorrectBlobRevisionInfo(
-            $id, $revision, $size, $volumeId, new BlobRevisionInfo(
-                $path, $fileSize, $revision, TRUE
-            )
-        )];
-        $usedBlobs = [new UsedBlobInfo(
-            $id, $revision, $size, $volumeId, new BlobSizeInfo(
-                $path, $size, $fileSize, TRUE
-            )
-        )];
-
-        $mbox = new MailboxBlobConsistency(
-            $id, $missingBlobs, $incorrectSizes, $unexpectedBlobs, $incorrectRevisions, $usedBlobs
-        );
-
-        $res = new CheckBlobConsistencyResponse([$mbox]);
-        $this->assertEquals([$mbox], $res->getMailboxes());
-
-        $res = new CheckBlobConsistencyResponse();
-        $res->setMailboxes([$mbox])
-            ->addMailbox($mbox);
-        $this->assertEquals([$mbox, $mbox], $res->getMailboxes());
-
-        $res = new CheckBlobConsistencyResponse([$mbox]);
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<CheckBlobConsistencyResponse>'
-                . '<mbox id ="' . $id . '">'
-                    .'<missingBlobs>'
-                        .'<item id="' . $id . '" rev="' . $revision . '" s="' . $size . '" volumeId="' . $volumeId . '" blobPath="' . $blobPath . '" external="true" version="' . $version. '" />'
-                    .'</missingBlobs>'
-                    .'<incorrectSizes>'
-                        . '<item id="' . $id . '" rev="' . $revision . '" s="' . $size . '" volumeId="' . $volumeId . '">'
-                            . '<blob path="' . $path . '" s="' . $size . '" fileSize="' . $fileSize . '" external="true" />'
-                        . '</item>'
-                    .'</incorrectSizes>'
-                    .'<unexpectedBlobs>'
-                        . '<blob volumeId="' . $volumeId . '" path="' . $path . '" fileSize="' . $fileSize . '" external="true" />'
-                    .'</unexpectedBlobs>'
-                    .'<incorrectRevisions>'
-                        . '<item id="' . $id . '" rev="' . $revision . '" s="' . $size . '" volumeId="' . $volumeId . '">'
-                            . '<blob path="' . $path . '" fileSize="' . $fileSize . '" rev="' . $revision . '" external="true" />'
-                        . '</item>'
-                    .'</incorrectRevisions>'
-                    .'<usedBlobs>'
-                        . '<item id="' . $id . '" rev="' . $revision . '" s="' . $size . '" volumeId="' . $volumeId . '">'
-                            . '<blob path="' . $path . '" s="' . $size . '" fileSize="' . $fileSize . '" external="true" />'
-                        . '</item>'
-                    .'</usedBlobs>'
-                . '</mbox>'
-            . '</CheckBlobConsistencyResponse>';
-        $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($res, 'xml'));
-        $this->assertEquals($res, $this->serializer->deserialize($xml, CheckBlobConsistencyResponse::class, 'xml'));
-
-        $json = json_encode([
-            'mbox' => [
-                [
-                    'id' => $id,
-                    'missingBlobs' => [
-                        'item' => [
-                            [
-                                'id' => $id,
-                                'rev' => $revision,
-                                's' => $size,
-                                'volumeId' => $volumeId,
-                                'blobPath' => $blobPath,
-                                'external' => TRUE,
-                                'version' => $version,
-                            ],
-                        ]
-                    ],
-                    'incorrectSizes' => [
-                        'item' => [
-                            [
-                                'id' => $id,
-                                'rev' => $revision,
-                                's' => $size,
-                                'volumeId' => $volumeId,
-                                'blob' => [
-                                    'path' => $path,
-                                    's' => $size,
-                                    'fileSize' => $fileSize,
-                                    'external' => TRUE,
-                                ],
-                            ],
-                        ]
-                    ],
-                    'unexpectedBlobs' => [
-                        'blob' => [
-                            [
-                                'volumeId' => $volumeId,
-                                'path' => $path,
-                                'fileSize' => $fileSize,
-                                'external' => TRUE,
-                            ],
-                        ]
-                    ],
-                    'incorrectRevisions' => [
-                        'item' => [
-                            [
-                                'id' => $id,
-                                'rev' => $revision,
-                                's' => $size,
-                                'volumeId' => $volumeId,
-                                'blob' => [
-                                    'path' => $path,
-                                    'fileSize' => $fileSize,
-                                    'rev' => $revision,
-                                    'external' => TRUE,
-                                ],
-                            ],
-                        ]
-                    ],
-                    'usedBlobs' => [
-                        'item' => [
-                            [
-                                'id' => $id,
-                                'rev' => $revision,
-                                's' => $size,
-                                'volumeId' => $volumeId,
-                                'blob' => [
-                                    'path' => $path,
-                                    's' => $size,
-                                    'fileSize' => $fileSize,
-                                    'external' => TRUE,
-                                ],
-                            ],
-                        ]
-                    ],
-                ],
-            ],
-        ]);
-        $this->assertSame($json, $this->serializer->serialize($res, 'json'));
-        $this->assertEquals($res, $this->serializer->deserialize($json, CheckBlobConsistencyResponse::class, 'json'));
-    }
-
-    public function testCheckBlobConsistencyBody()
-    {
-        $id = mt_rand(1, 100);
-        $revision = mt_rand(1, 100);
-        $size = mt_rand(1, 100);
-        $volumeId = mt_rand(1, 100);
-        $blobPath = $this->faker->word;
-        $version = mt_rand(1, 100);
-        $path = $this->faker->word;
-        $fileSize = mt_rand(1, 100);
-        $mboxId = mt_rand(1, 100);
-
-        $volume = new IntIdAttr($volumeId);
-        $reqMbox = new IntIdAttr($mboxId);
-
-        $missingBlobs = [new MissingBlobInfo(
-            $id, $revision, $size, $volumeId, $blobPath, TRUE, $version
-        )];
-        $incorrectSizes = [new IncorrectBlobSizeInfo(
-            $id, $revision, $size, $volumeId, new BlobSizeInfo(
-                $path, $size, $fileSize, TRUE
-            )
-        )];
-        $unexpectedBlobs = [new UnexpectedBlobInfo(
-            $volumeId, $path, $fileSize, TRUE
-        )];
-        $incorrectRevisions = [new IncorrectBlobRevisionInfo(
-            $id, $revision, $size, $volumeId, new BlobRevisionInfo(
-                $path, $fileSize, $revision, TRUE
-            )
-        )];
-        $usedBlobs = [new UsedBlobInfo(
-            $id, $revision, $size, $volumeId, new BlobSizeInfo(
-                $path, $size, $fileSize, TRUE
-            )
-        )];
-        $resMbox = new MailboxBlobConsistency(
-            $id, $missingBlobs, $incorrectSizes, $unexpectedBlobs, $incorrectRevisions, $usedBlobs
-        );
-
-        $request = new CheckBlobConsistencyRequest(
-            TRUE, TRUE, [$volume], [$reqMbox]
-        );
-        $response = new CheckBlobConsistencyResponse([$resMbox]);
-
-        $body = new CheckBlobConsistencyBody($request, $response);
-        $this->assertSame($request, $body->getRequest());
-        $this->assertSame($response, $body->getResponse());
-
-        $body = new CheckBlobConsistencyBody();
-        $body->setRequest($request)
-             ->setResponse($response);
-        $this->assertSame($request, $body->getRequest());
-        $this->assertSame($response, $body->getResponse());
-
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<Body xmlns:urn="urn:zimbraAdmin">'
-                . '<urn:CheckBlobConsistencyRequest checkSize="true" reportUsedBlobs="true">'
-                    . '<volume id="' . $volumeId . '" />'
-                    . '<mbox id="' . $mboxId . '" />'
-                . '</urn:CheckBlobConsistencyRequest>'
-                . '<urn:CheckBlobConsistencyResponse>'
-                    . '<mbox id ="' . $id . '">'
-                        .'<missingBlobs>'
-                            .'<item id="' . $id . '" rev="' . $revision . '" s="' . $size . '" volumeId="' . $volumeId . '" blobPath="' . $blobPath . '" external="true" version="' . $version. '" />'
-                        .'</missingBlobs>'
-                        .'<incorrectSizes>'
-                            . '<item id="' . $id . '" rev="' . $revision . '" s="' . $size . '" volumeId="' . $volumeId . '">'
-                                . '<blob path="' . $path . '" s="' . $size . '" fileSize="' . $fileSize . '" external="true" />'
-                            . '</item>'
-                        .'</incorrectSizes>'
-                        .'<unexpectedBlobs>'
-                            . '<blob volumeId="' . $volumeId . '" path="' . $path . '" fileSize="' . $fileSize . '" external="true" />'
-                        .'</unexpectedBlobs>'
-                        .'<incorrectRevisions>'
-                            . '<item id="' . $id . '" rev="' . $revision . '" s="' . $size . '" volumeId="' . $volumeId . '">'
-                                . '<blob path="' . $path . '" fileSize="' . $fileSize . '" rev="' . $revision . '" external="true" />'
-                            . '</item>'
-                        .'</incorrectRevisions>'
-                        .'<usedBlobs>'
-                            . '<item id="' . $id . '" rev="' . $revision . '" s="' . $size . '" volumeId="' . $volumeId . '">'
-                                . '<blob path="' . $path . '" s="' . $size . '" fileSize="' . $fileSize . '" external="true" />'
-                            . '</item>'
-                        .'</usedBlobs>'
-                    . '</mbox>'
-                . '</urn:CheckBlobConsistencyResponse>'
-            . '</Body>';
-        $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($body, 'xml'));
-        $this->assertEquals($body, $this->serializer->deserialize($xml, CheckBlobConsistencyBody::class, 'xml'));
-
-        $json = json_encode([
-            'CheckBlobConsistencyRequest' => [
-                'checkSize' => TRUE,
-                'reportUsedBlobs' => TRUE,
-                'volume' => [
-                    [
-                        'id' => $volumeId,
-                    ]
-                ],
-                'mbox' => [
-                    [
-                        'id' => $mboxId,
-                    ]
-                ],
-                '_jsns' => 'urn:zimbraAdmin',
-            ],
-            'CheckBlobConsistencyResponse' => [
-                'mbox' => [
-                    [
-                        'id' => $id,
-                        'missingBlobs' => [
-                            'item' => [
-                                [
-                                    'id' => $id,
-                                    'rev' => $revision,
-                                    's' => $size,
-                                    'volumeId' => $volumeId,
-                                    'blobPath' => $blobPath,
-                                    'external' => TRUE,
-                                    'version' => $version,
-                                ],
-                            ]
-                        ],
-                        'incorrectSizes' => [
-                            'item' => [
-                                [
-                                    'id' => $id,
-                                    'rev' => $revision,
-                                    's' => $size,
-                                    'volumeId' => $volumeId,
-                                    'blob' => [
-                                        'path' => $path,
-                                        's' => $size,
-                                        'fileSize' => $fileSize,
-                                        'external' => TRUE,
-                                    ],
-                                ],
-                            ]
-                        ],
-                        'unexpectedBlobs' => [
-                            'blob' => [
-                                [
-                                    'volumeId' => $volumeId,
-                                    'path' => $path,
-                                    'fileSize' => $fileSize,
-                                    'external' => TRUE,
-                                ],
-                            ]
-                        ],
-                        'incorrectRevisions' => [
-                            'item' => [
-                                [
-                                    'id' => $id,
-                                    'rev' => $revision,
-                                    's' => $size,
-                                    'volumeId' => $volumeId,
-                                    'blob' => [
-                                        'path' => $path,
-                                        'fileSize' => $fileSize,
-                                        'rev' => $revision,
-                                        'external' => TRUE,
-                                    ],
-                                ],
-                            ]
-                        ],
-                        'usedBlobs' => [
-                            'item' => [
-                                [
-                                    'id' => $id,
-                                    'rev' => $revision,
-                                    's' => $size,
-                                    'volumeId' => $volumeId,
-                                    'blob' => [
-                                        'path' => $path,
-                                        's' => $size,
-                                        'fileSize' => $fileSize,
-                                        'external' => TRUE,
-                                    ],
-                                ],
-                            ]
-                        ],
-                    ],
-                ],
-                '_jsns' => 'urn:zimbraAdmin',
-            ],
-        ]);
-        $this->assertSame($json, $this->serializer->serialize($body, 'json'));
-        $this->assertEquals($body, $this->serializer->deserialize($json, CheckBlobConsistencyBody::class, 'json'));
-    }
-
-    public function testCheckBlobConsistencyEnvelope()
+    public function testCheckBlobConsistency()
     {
         $id = mt_rand(1, 100);
         $revision = mt_rand(1, 100);
@@ -478,10 +74,45 @@ class CheckBlobConsistencyTest extends ZimbraStructTestCase
         );
 
         $request = new CheckBlobConsistencyRequest(
-            TRUE, TRUE, [$volume], [$reqMbox]
+            FALSE, FALSE, [$volume], [$reqMbox]
         );
+        $this->assertFalse($request->getCheckSize());
+        $this->assertFalse($request->getReportUsedBlobs());
+        $this->assertEquals([$volume], $request->getVolumes());
+        $this->assertEquals([$reqMbox], $request->getMailboxes());
+
+        $request = new CheckBlobConsistencyRequest();
+        $request->setCheckSize(TRUE)
+            ->setReportUsedBlobs(TRUE)
+            ->setVolumes([$volume])
+            ->addVolume($volume)
+            ->setMailboxes([$reqMbox])
+            ->addMailbox($reqMbox);
+        $this->assertTrue($request->getCheckSize());
+        $this->assertTrue($request->getReportUsedBlobs());
+        $this->assertEquals([$volume, $volume], $request->getVolumes());
+        $this->assertEquals([$reqMbox, $reqMbox], $request->getMailboxes());
+        $request->setVolumes([$volume])
+            ->setMailboxes([$reqMbox]);
+
         $response = new CheckBlobConsistencyResponse([$resMbox]);
+        $this->assertEquals([$resMbox], $response->getMailboxes());
+
+        $response = new CheckBlobConsistencyResponse();
+        $response->setMailboxes([$resMbox])
+            ->addMailbox($resMbox);
+        $this->assertEquals([$resMbox, $resMbox], $response->getMailboxes());
+        $response->setMailboxes([$resMbox]);
+
         $body = new CheckBlobConsistencyBody($request, $response);
+        $this->assertSame($request, $body->getRequest());
+        $this->assertSame($response, $body->getResponse());
+
+        $body = new CheckBlobConsistencyBody();
+        $body->setRequest($request)
+             ->setResponse($response);
+        $this->assertSame($request, $body->getRequest());
+        $this->assertSame($response, $body->getResponse());
 
         $envelope = new CheckBlobConsistencyEnvelope(new Header(), $body);
         $this->assertSame($body, $envelope->getBody());

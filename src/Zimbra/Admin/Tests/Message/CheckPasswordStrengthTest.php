@@ -14,53 +14,20 @@ use Zimbra\Struct\Tests\ZimbraStructTestCase;
  */
 class CheckPasswordStrengthTest extends ZimbraStructTestCase
 {
-    public function testCheckPasswordStrengthRequest()
-    {
-        $id = $this->faker->uuid;
-        $password = $this->faker->word;
-
-        $req = new CheckPasswordStrengthRequest($id, $password);
-        $this->assertSame($id, $req->getId());
-        $this->assertSame($password, $req->getPassword());
-
-        $req = new CheckPasswordStrengthRequest('', '');
-        $req->setId($id)
-            ->setPassword($password);
-        $this->assertSame($id, $req->getId());
-        $this->assertSame($password, $req->getPassword());
-
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<CheckPasswordStrengthRequest id="' . $id . '" password="' . $password . '" />';
-        $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($req, 'xml'));
-        $this->assertEquals($req, $this->serializer->deserialize($xml, CheckPasswordStrengthRequest::class, 'xml'));
-
-        $json = json_encode([
-            'id' => $id,
-            'password' => $password,
-        ]);
-        $this->assertSame($json, $this->serializer->serialize($req, 'json'));
-        $this->assertEquals($req, $this->serializer->deserialize($json, CheckPasswordStrengthRequest::class, 'json'));
-    }
-
-    public function testCheckPasswordStrengthResponse()
-    {
-        $res = new CheckPasswordStrengthResponse();
-
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<CheckPasswordStrengthResponse />';
-        $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($res, 'xml'));
-        $this->assertEquals($res, $this->serializer->deserialize($xml, CheckPasswordStrengthResponse::class, 'xml'));
-
-        $json = '{}';
-        $this->assertSame($json, $this->serializer->serialize($res, 'json'));
-        $this->assertEquals($res, $this->serializer->deserialize($json, CheckPasswordStrengthResponse::class, 'json'));
-    }
-
-    public function testCheckPasswordStrengthBody()
+    public function testCheckPasswordStrength()
     {
         $id = $this->faker->uuid;
         $password = $this->faker->word;
         $request = new CheckPasswordStrengthRequest($id, $password);
+        $this->assertSame($id, $request->getId());
+        $this->assertSame($password, $request->getPassword());
+
+        $request = new CheckPasswordStrengthRequest('', '');
+        $request->setId($id)
+            ->setPassword($password);
+        $this->assertSame($id, $request->getId());
+        $this->assertSame($password, $request->getPassword());
+
         $response = new CheckPasswordStrengthResponse();
 
         $body = new CheckPasswordStrengthBody($request, $response);
@@ -72,36 +39,6 @@ class CheckPasswordStrengthTest extends ZimbraStructTestCase
              ->setResponse($response);
         $this->assertSame($request, $body->getRequest());
         $this->assertSame($response, $body->getResponse());
-
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<Body xmlns:urn="urn:zimbraAdmin">'
-                . '<urn:CheckPasswordStrengthRequest id="' . $id . '" password="' . $password . '" />'
-                . '<urn:CheckPasswordStrengthResponse />'
-            . '</Body>';
-        $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($body, 'xml'));
-        $this->assertEquals($body, $this->serializer->deserialize($xml, CheckPasswordStrengthBody::class, 'xml'));
-
-        $json = json_encode([
-            'CheckPasswordStrengthRequest' => [
-                'id' => $id,
-                'password' => $password,
-                '_jsns' => 'urn:zimbraAdmin',
-            ],
-            'CheckPasswordStrengthResponse' => [
-                '_jsns' => 'urn:zimbraAdmin',
-            ],
-        ]);
-        $this->assertSame($json, $this->serializer->serialize($body, 'json'));
-        $this->assertEquals($body, $this->serializer->deserialize($json, CheckPasswordStrengthBody::class, 'json'));
-    }
-
-    public function testCheckPasswordStrengthEnvelope()
-    {
-        $id = $this->faker->uuid;
-        $password = $this->faker->word;
-        $request = new CheckPasswordStrengthRequest($id, $password);
-        $response = new CheckPasswordStrengthResponse();
-        $body = new CheckPasswordStrengthBody($request, $response);
 
         $envelope = new CheckPasswordStrengthEnvelope(new Header(), $body);
         $this->assertSame($body, $envelope->getBody());
