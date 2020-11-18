@@ -13,15 +13,15 @@ namespace Zimbra\Admin\Struct;
 use JMS\Serializer\Annotation\XmlRoot;
 
 /**
- * ServerInfo struct class
+ * UCServiceInfo struct class
  * 
  * @package    Zimbra
  * @subpackage Admin
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @XmlRoot(name="server")
+ * @XmlRoot(name="ucservice")
  */
-class ServerInfo extends AdminObjectInfo
+class UCServiceInfo extends AdminObjectInfo
 {
 }

@@ -26,9 +26,12 @@ class PolicyHolderTest extends ZimbraStructTestCase
         $holder->setPolicy($policy);
         $this->assertSame($policy, $holder->getPolicy());
 
+        $namespace = 'urn:zimbraMail';
+        $prefix = 'ns-' . substr(sha1($namespace), 0, 8);
+
         $xml = '<?xml version="1.0"?>' . "\n"
-            . '<holder xmlns:urn="urn:zimbraMail">'
-                . '<urn:policy type="' . Type::SYSTEM() . '" id="' . $id . '" name="' . $name . '" lifetime="' . $lifetime . '" />'
+            . '<holder>'
+                . '<' . $prefix . ':policy xmlns:' . $prefix . '="' . $namespace . '" type="' . Type::SYSTEM() . '" id="' . $id . '" name="' . $name . '" lifetime="' . $lifetime . '" />'
             . '</holder>';
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($holder, 'xml'));
         $this->assertEquals($holder, $this->serializer->deserialize($xml, PolicyHolder::class, 'xml'));

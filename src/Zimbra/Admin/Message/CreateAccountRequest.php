@@ -39,7 +39,7 @@ class CreateAccountRequest extends Request implements AdminAttrs
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
-     * @XmlAttribute()
+     * @XmlAttribute
      */
     private $name;
 
@@ -48,7 +48,7 @@ class CreateAccountRequest extends Request implements AdminAttrs
      * @Accessor(getter="getPassword", setter="setPassword")
      * @SerializedName("password")
      * @Type("string")
-     * @XmlAttribute()
+     * @XmlAttribute
      */
     private $password;
 

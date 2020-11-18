@@ -33,7 +33,7 @@ class CreateVolumeRequest extends Request
      * @Accessor(getter="getVolume", setter="setVolume")
      * @SerializedName("volume")
      * @Type("Zimbra\Admin\Struct\VolumeInfo")
-     * @XmlElement()
+     * @XmlElement
      */
     private $volume;
 

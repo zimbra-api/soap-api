@@ -11,7 +11,8 @@
 namespace Zimbra\Common;
 
 use Doctrine\Common\Annotations\AnnotationRegistry;
-use JMS\Serializer\Handler\HandlerRegistry;
+use JMS\Serializer\Handler\HandlerRegistryInterface;
+use JMS\Serializer\Handler\SubscribingHandlerInterface;
 use JMS\Serializer\SerializerBuilder as Builder;
 use JMS\Serializer\SerializerInterface;
 use Zimbra\Common\Serializer\{JsonDeserializationVisitorFactory, JsonSerializationVisitorFactory, XmlDeserializationVisitorFactory, XmlSerializationVisitorFactory};
@@ -28,6 +29,13 @@ final class SerializerBuilder
 {
     private static $serializer;
 
+    private static $serializerHandlers = [];
+
+    public static function addSerializerHandler(SubscribingHandlerInterface $handler)
+    {
+        static::$serializerHandlers[] = $handler;
+    }
+
     public static function getSerializer(): SerializerInterface
     {
         if (NULL === static::$serializer) {
@@ -40,7 +48,12 @@ final class SerializerBuilder
                 ->setDeserializationVisitor('json', new JsonDeserializationVisitorFactory)
                 ->setSerializationVisitor('xml', new XmlSerializationVisitorFactory)
                 ->setDeserializationVisitor('xml', new XmlDeserializationVisitorFactory)
-                ->configureHandlers(function (HandlerRegistry $registry) {
+                ->configureHandlers(function (HandlerRegistryInterface $registry) {
+                    if (!empty(static::$serializerHandlers)) {
+                        foreach (static::$serializerHandlers as $handler) {
+                            $registry->registerSubscribingHandler($handler);
+                        }
+                    }
                     $registry->registerSubscribingHandler(new SerializerHandler);
                 })
                 ->build();

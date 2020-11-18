@@ -61,7 +61,7 @@ class CreateServerRequest extends Request implements AdminAttrs
      *
      * @return string
      */
-    public function getName(): ?string
+    public function getName(): string
     {
         return $this->name;
     }

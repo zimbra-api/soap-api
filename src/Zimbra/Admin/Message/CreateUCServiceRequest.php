@@ -35,7 +35,7 @@ class CreateUCServiceRequest extends Request implements AdminAttrs
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
-     * @XmlElement()
+     * @XmlElement
      */
     private $name;
 

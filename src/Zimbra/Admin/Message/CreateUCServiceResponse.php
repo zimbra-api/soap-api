@@ -32,7 +32,7 @@ class CreateUCServiceResponse implements ResponseInterface
      * @Accessor(getter="getUCService", setter="setUCService")
      * @SerializedName("ucservice")
      * @Type("Zimbra\Admin\Struct\UCServiceInfo")
-     * @XmlElement()
+     * @XmlElement
      */
     private $ucService;
 
@@ -55,7 +55,7 @@ class CreateUCServiceResponse implements ResponseInterface
      */
     public function getUCService()
     {
-        return $this->cos;
+        return $this->ucService;
     }
 
     /**
