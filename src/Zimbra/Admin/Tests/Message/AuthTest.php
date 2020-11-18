@@ -7,7 +7,6 @@ use Zimbra\Admin\Message\AuthBody;
 use Zimbra\Admin\Message\AuthRequest;
 use Zimbra\Admin\Message\AuthResponse;
 use Zimbra\Enum\AccountBy;
-use Zimbra\Soap\Header;
 use Zimbra\Struct\AccountSelector;
 use Zimbra\Struct\Tests\ZimbraStructTestCase;
 
@@ -93,7 +92,7 @@ class AuthResponseTest extends ZimbraStructTestCase
         $this->assertSame($request, $body->getRequest());
         $this->assertSame($response, $body->getResponse());
 
-        $envelope = new AuthEnvelope(new Header(), $body);
+        $envelope = new AuthEnvelope($body);
         $this->assertSame($body, $envelope->getBody());
 
         $envelope = new AuthEnvelope();

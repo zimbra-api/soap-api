@@ -10,8 +10,8 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlRoot};
-use Zimbra\Soap\Request;
+use JMS\Serializer\Annotation\XmlRoot;
+use Zimbra\Soap\{EnvelopeInterface, RequestInterface};
 
 /**
  * ComputeAggregateQuotaUsageRequest class
@@ -26,15 +26,18 @@ use Zimbra\Soap\Request;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
  * @XmlRoot(name="ComputeAggregateQuotaUsageRequest")
  */
-class ComputeAggregateQuotaUsageRequest extends Request
+class ComputeAggregateQuotaUsageRequest implements RequestInterface
 {
-    protected function internalInit()
+    /**
+     * Get soap envelope.
+     *
+     * @return EnvelopeInterface
+     */
+    public function getEnvelope(): EnvelopeInterface
     {
-        $this->envelope = new ComputeAggregateQuotaUsageEnvelope(
-            NULL,
+        return new ComputeAggregateQuotaUsageEnvelope(
             new ComputeAggregateQuotaUsageBody($this)
         );
     }

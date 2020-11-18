@@ -15,7 +15,6 @@ use Zimbra\Admin\Struct\IncorrectBlobSizeInfo;
 use Zimbra\Admin\Struct\UnexpectedBlobInfo;
 use Zimbra\Admin\Struct\IncorrectBlobRevisionInfo;
 use Zimbra\Admin\Struct\UsedBlobInfo;
-use Zimbra\Soap\Header;
 use Zimbra\Struct\Tests\ZimbraStructTestCase;
 
 /**
@@ -114,7 +113,7 @@ class CheckBlobConsistencyTest extends ZimbraStructTestCase
         $this->assertSame($request, $body->getRequest());
         $this->assertSame($response, $body->getResponse());
 
-        $envelope = new CheckBlobConsistencyEnvelope(new Header(), $body);
+        $envelope = new CheckBlobConsistencyEnvelope($body);
         $this->assertSame($body, $envelope->getBody());
 
         $envelope = new CheckBlobConsistencyEnvelope();

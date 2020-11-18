@@ -10,8 +10,8 @@
 
 namespace Zimbra\Account\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlElement, XmlNamespace, XmlRoot};
-use Zimbra\Soap\{Body, BodyInterface, RequestInterface, ResponseInterface};
+use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlElement, XmlRoot};
+use Zimbra\Soap\{Body, RequestInterface, ResponseInterface};
 
 /**
  * AuthBody class
@@ -22,7 +22,6 @@ use Zimbra\Soap\{Body, BodyInterface, RequestInterface, ResponseInterface};
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020 by Nguyen Van Nguyen.
  * @AccessType("public_method")
- * @XmlNamespace(uri="urn:zimbraAccount", prefix="urn")
  * @XmlRoot(name="Body")
  */
 class AuthBody extends Body

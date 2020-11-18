@@ -8,7 +8,6 @@ use Zimbra\Admin\Message\CreateAlwaysOnClusterRequest;
 use Zimbra\Admin\Message\CreateAlwaysOnClusterResponse;
 use Zimbra\Admin\Struct\AlwaysOnClusterInfo;
 use Zimbra\Admin\Struct\Attr;
-use Zimbra\Soap\Header;
 use Zimbra\Struct\Tests\ZimbraStructTestCase;
 
 /**
@@ -50,7 +49,7 @@ class CreateAlwaysOnClusterTest extends ZimbraStructTestCase
         $this->assertSame($request, $body->getRequest());
         $this->assertSame($response, $body->getResponse());
 
-        $envelope = new CreateAlwaysOnClusterEnvelope(new Header(), $body);
+        $envelope = new CreateAlwaysOnClusterEnvelope($body);
         $this->assertSame($body, $envelope->getBody());
 
         $envelope = new CreateAlwaysOnClusterEnvelope();

@@ -27,7 +27,6 @@ use Zimbra\Soap\ResponseInterface;
  */
 class CheckAuthConfigResponse implements ResponseInterface
 {
-
     /**
      * Code
      * @Accessor(getter="getCode", setter="setCode")

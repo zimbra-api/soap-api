@@ -12,7 +12,6 @@ use Zimbra\Enum\CompactIndexStatus;
 use Zimbra\Enum\CountObjectsType;
 use Zimbra\Enum\DomainBy;
 use Zimbra\Enum\UcServiceBy;
-use Zimbra\Soap\Header;
 use Zimbra\Struct\Tests\ZimbraStructTestCase;
 
 /**
@@ -68,7 +67,7 @@ class CountObjectsTest extends ZimbraStructTestCase
         $this->assertSame($request, $body->getRequest());
         $this->assertSame($response, $body->getResponse());
 
-        $envelope = new CountObjectsEnvelope(new Header(), $body);
+        $envelope = new CountObjectsEnvelope($body);
         $this->assertSame($body, $envelope->getBody());
 
         $envelope = new CountObjectsEnvelope();

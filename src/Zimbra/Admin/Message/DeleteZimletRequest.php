@@ -70,10 +70,14 @@ class DeleteZimletRequest extends Request
         return $this;
     }
 
-    protected function internalInit()
+    /**
+     * Get soap envelope.
+     *
+     * @return EnvelopeInterface
+     */
+    public function getEnvelope(): EnvelopeInterface
     {
-        $this->envelope = new DeleteZimletEnvelope(
-            NULL,
+        return new DeleteZimletEnvelope(
             new DeleteZimletBody($this)
         );
     }

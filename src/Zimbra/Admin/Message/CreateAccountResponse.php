@@ -51,7 +51,7 @@ class CreateAccountResponse implements ResponseInterface
      *
      * @return AccountInfo
      */
-    public function getAccount()
+    public function getAccount(): AccountInfo
     {
         return $this->account;
     }

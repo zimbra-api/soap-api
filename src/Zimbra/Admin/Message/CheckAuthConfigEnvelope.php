@@ -39,9 +39,9 @@ class CheckAuthConfigEnvelope extends Envelope
      * Constructor method for CheckAuthConfigEnvelope
      * @return self
      */
-    public function __construct(Header $header = NULL, CheckAuthConfigBody $body = NULL)
+    public function __construct(CheckAuthConfigBody $body = NULL, Header $header = NULL)
     {
-        parent::__construct($header, $body);
+        parent::__construct($body, $header);
     }
 
     /**
@@ -60,7 +60,7 @@ class CheckAuthConfigEnvelope extends Envelope
      * @param  BodyInterface $body
      * @return self
      */
-    public function setBody(BodyInterface $body): Envelope
+    public function setBody(BodyInterface $body): self
     {
         if ($body instanceof CheckAuthConfigBody) {
             $this->body = $body;

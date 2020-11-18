@@ -50,9 +50,9 @@ class AddGalSyncDataSourceResponse implements ResponseInterface
     /**
      * Gets the account.
      *
-     * @return Account
+     * @return AccountInfo
      */
-    public function getAccount()
+    public function getAccount(): AccountInfo
     {
         return $this->account;
     }
@@ -63,7 +63,7 @@ class AddGalSyncDataSourceResponse implements ResponseInterface
      * @param  AccountInfo $account
      * @return self
      */
-    public function setAccount(AccountInfo $account)
+    public function setAccount(AccountInfo $account): self
     {
         $this->account = $account;
         return $this;

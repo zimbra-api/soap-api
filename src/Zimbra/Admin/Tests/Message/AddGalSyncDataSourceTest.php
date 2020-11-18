@@ -10,7 +10,6 @@ use Zimbra\Admin\Struct\AccountInfo;
 use Zimbra\Admin\Struct\Attr;
 use Zimbra\Enum\AccountBy;
 use Zimbra\Enum\GalMode;
-use Zimbra\Soap\Header;
 use Zimbra\Struct\AccountSelector;
 use Zimbra\Struct\Tests\ZimbraStructTestCase;
 
@@ -75,7 +74,7 @@ class AddGalSyncDataSourceTest extends ZimbraStructTestCase
         $this->assertSame($request, $body->getRequest());
         $this->assertSame($response, $body->getResponse());
 
-        $envelope = new AddGalSyncDataSourceEnvelope(new Header, $body);
+        $envelope = new AddGalSyncDataSourceEnvelope($body);
         $this->assertSame($body, $envelope->getBody());
 
         $envelope = new AddGalSyncDataSourceEnvelope;

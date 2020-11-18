@@ -70,10 +70,14 @@ class DeleteCalendarResourceRequest extends Request
         return $this;
     }
 
-    protected function internalInit()
+    /**
+     * Get soap envelope.
+     *
+     * @return EnvelopeInterface
+     */
+    public function getEnvelope(): EnvelopeInterface
     {
-        $this->envelope = new DeleteCalendarResourceEnvelope(
-            NULL,
+        return new DeleteCalendarResourceEnvelope(
             new DeleteCalendarResourceBody($this)
         );
     }

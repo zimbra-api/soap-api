@@ -36,7 +36,7 @@ class ChangePasswordEnvelopeTest extends ZimbraStructTestCase
         );
         $body = new ChangePasswordBody($request, $response);
 
-        $envelope = new ChangePasswordEnvelope(NULL, $body);
+        $envelope = new ChangePasswordEnvelope($body);
         $this->assertSame($body, $envelope->getBody());
 
         $envelope = new ChangePasswordEnvelope();

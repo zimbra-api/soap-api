@@ -10,7 +10,7 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{AccessType, XmlRoot};
+use JMS\Serializer\Annotation\XmlRoot;
 use Zimbra\Soap\ResponseInterface;
 
 /**

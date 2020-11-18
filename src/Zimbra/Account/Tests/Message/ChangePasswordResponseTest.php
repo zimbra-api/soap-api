@@ -27,24 +27,5 @@ class ChangePasswordResponseTest extends ZimbraStructTestCase
             ->setLifetime($lifetime);
         $this->assertSame($authToken, $res->getAuthToken());
         $this->assertSame($lifetime, $res->getLifetime());
-
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<ChangePasswordResponse xmlns="urn:zimbraAccount">'
-                . '<authToken>' . $authToken . '</authToken>'
-                . '<lifetime>' . $lifetime . '</lifetime>'
-            . '</ChangePasswordResponse>';
-        $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($res, 'xml'));
-        $this->assertEquals($res, $this->serializer->deserialize($xml, ChangePasswordResponse::class, 'xml'));
-
-        $json = json_encode([
-            'authToken' => [
-                '_content' => $authToken,
-            ],
-            'lifetime' => [
-                '_content' => $lifetime,
-            ],
-        ]);
-        $this->assertSame($json, $this->serializer->serialize($res, 'json'));
-        $this->assertEquals($res, $this->serializer->deserialize($json, ChangePasswordResponse::class, 'json'));
     }
 }

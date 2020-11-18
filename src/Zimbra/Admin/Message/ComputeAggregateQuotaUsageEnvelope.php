@@ -39,9 +39,9 @@ class ComputeAggregateQuotaUsageEnvelope extends Envelope
      * Constructor method for ComputeAggregateQuotaUsageEnvelope
      * @return self
      */
-    public function __construct(Header $header = NULL, ComputeAggregateQuotaUsageBody $body = NULL)
+    public function __construct(ComputeAggregateQuotaUsageBody $body = NULL, Header $header = NULL)
     {
-        parent::__construct($header, $body);
+        parent::__construct($body, $header);
     }
 
     /**
@@ -60,7 +60,7 @@ class ComputeAggregateQuotaUsageEnvelope extends Envelope
      * @param  BodyInterface $body
      * @return self
      */
-    public function setBody(BodyInterface $body): Envelope
+    public function setBody(BodyInterface $body): self
     {
         if ($body instanceof ComputeAggregateQuotaUsageBody) {
             $this->body = $body;

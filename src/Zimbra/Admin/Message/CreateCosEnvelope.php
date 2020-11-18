@@ -39,9 +39,9 @@ class CreateCosEnvelope extends Envelope
      * Constructor method for CreateCosEnvelope
      * @return self
      */
-    public function __construct(Header $header = NULL, CreateCosBody $body = NULL)
+    public function __construct(CreateCosBody $body = NULL, Header $header = NULL)
     {
-        parent::__construct($header, $body);
+        parent::__construct($body, $header);
     }
 
     /**
@@ -60,7 +60,7 @@ class CreateCosEnvelope extends Envelope
      * @param  BodyInterface $body
      * @return self
      */
-    public function setBody(BodyInterface $body): Envelope
+    public function setBody(BodyInterface $body): self
     {
         if ($body instanceof CreateCosBody) {
             $this->body = $body;

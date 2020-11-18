@@ -6,7 +6,6 @@ use Zimbra\Admin\Message\CheckPasswordStrengthBody;
 use Zimbra\Admin\Message\CheckPasswordStrengthEnvelope;
 use Zimbra\Admin\Message\CheckPasswordStrengthRequest;
 use Zimbra\Admin\Message\CheckPasswordStrengthResponse;
-use Zimbra\Soap\Header;
 use Zimbra\Struct\Tests\ZimbraStructTestCase;
 
 /**
@@ -40,7 +39,7 @@ class CheckPasswordStrengthTest extends ZimbraStructTestCase
         $this->assertSame($request, $body->getRequest());
         $this->assertSame($response, $body->getResponse());
 
-        $envelope = new CheckPasswordStrengthEnvelope(new Header(), $body);
+        $envelope = new CheckPasswordStrengthEnvelope($body);
         $this->assertSame($body, $envelope->getBody());
 
         $envelope = new CheckPasswordStrengthEnvelope();

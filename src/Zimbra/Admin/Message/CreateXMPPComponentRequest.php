@@ -12,7 +12,7 @@ namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlElement, XmlRoot};
 use Zimbra\Admin\Struct\XMPPComponentSpec;
-use Zimbra\Soap\Request;
+use Zimbra\Soap\{EnvelopeInterface, RequestInterface};
 
 /**
  * CreateXMPPComponentRequest class
@@ -26,7 +26,7 @@ use Zimbra\Soap\Request;
  * @AccessType("public_method")
  * @XmlRoot(name="CreateXMPPComponentRequest")
  */
-class CreateXMPPComponentRequest extends Request
+class CreateXMPPComponentRequest implements RequestInterface
 {
     /**
      * XMPP Component details
@@ -69,10 +69,14 @@ class CreateXMPPComponentRequest extends Request
         return $this;
     }
 
-    protected function internalInit()
+    /**
+     * Get soap envelope.
+     *
+     * @return EnvelopeInterface
+     */
+    public function getEnvelope(): EnvelopeInterface
     {
-        $this->envelope = new CreateXMPPComponentEnvelope(
-            NULL,
+        return new CreateXMPPComponentEnvelope(
             new CreateXMPPComponentBody($this)
         );
     }

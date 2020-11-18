@@ -12,7 +12,7 @@ namespace Zimbra\Soap\Request;
 
 use Doctrine\Common\Annotations\AnnotationReader;
 use JMS\Serializer\Annotation\{Accessor, AccessType, Exclude, Type, XmlMap, XmlRoot};
-use Zimbra\Soap\{Request, RequestInterface};
+use Zimbra\Soap\{EnvelopeInterface, RequestInterface};
 
 /**
  * Batch request class in Zimbra API PHP, not to be instantiated.
@@ -24,7 +24,7 @@ use Zimbra\Soap\{Request, RequestInterface};
  * @AccessType("public_method")
  * @XmlRoot(name="BatchRequest", namespace="urn:zimbra")
  */
-class Batch extends Request
+class Batch implements RequestInterface
 {
     /**
      * @Accessor(getter="getRequests", setter="setRequests")
@@ -116,7 +116,12 @@ class Batch extends Request
         return $this->requests;
     }
 
-    protected function internalInit()
+    /**
+     * Get soap envelope.
+     *
+     * @return EnvelopeInterface
+     */
+    public function getEnvelope(): EnvelopeInterface
     {
     }
 }

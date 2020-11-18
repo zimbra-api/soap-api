@@ -36,48 +36,5 @@ class CheckRightsResponseTest extends ZimbraStructTestCase
         $res->setTargets([$target1])
             ->addTarget($target2);
         $this->assertSame([$target1, $target2], $res->getTargets());
-
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<CheckRightsResponse xmlns="urn:zimbraAccount">'
-                . '<target type="' . TargetType::DOMAIN() . '" by="' . TargetBy::ID() . '" key="' . $key1 . '" allow="false">'
-                    . '<right allow="true">' . $right1 . '</right>'
-                . '</target>'
-                . '<target type="' . TargetType::ACCOUNT() . '" by="' . TargetBy::NAME() . '" key="' . $key2 . '" allow="true">'
-                    . '<right allow="false">' . $right2 . '</right>'
-                . '</target>'
-            . '</CheckRightsResponse>';
-        $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($res, 'xml'));
-        $this->assertEquals($res, $this->serializer->deserialize($xml, CheckRightsResponse::class, 'xml'));
-
-        $json = json_encode([
-            'target' => [
-                [
-                    'type' => (string) TargetType::DOMAIN(),
-                    'by' => (string) TargetBy::ID(),
-                    'key' => $key1,
-                    'allow' => FALSE,
-                    'right' => [
-                        [
-                            '_content' => $right1,
-                            'allow' => TRUE,
-                        ],
-                    ],
-                ],
-                [
-                    'type' => (string) TargetType::ACCOUNT(),
-                    'by' => (string) TargetBy::NAME(),
-                    'key' => $key2,
-                    'allow' => TRUE,
-                    'right' => [
-                        [
-                            '_content' => $right2,
-                            'allow' => FALSE,
-                        ],
-                    ],
-                ],
-            ],
-        ]);
-        $this->assertSame($json, $this->serializer->serialize($res, 'json'));
-        $this->assertEquals($res, $this->serializer->deserialize($json, CheckRightsResponse::class, 'json'));
     }
 }

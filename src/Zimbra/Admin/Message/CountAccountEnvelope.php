@@ -39,9 +39,9 @@ class CountAccountEnvelope extends Envelope
      * Constructor method for CountAccountEnvelope
      * @return self
      */
-    public function __construct(Header $header = NULL, CountAccountBody $body = NULL)
+    public function __construct(CountAccountBody $body = NULL, Header $header = NULL)
     {
-        parent::__construct($header, $body);
+        parent::__construct($body, $header);
     }
 
     /**
@@ -60,7 +60,7 @@ class CountAccountEnvelope extends Envelope
      * @param  BodyInterface $body
      * @return self
      */
-    public function setBody(BodyInterface $body): Envelope
+    public function setBody(BodyInterface $body): self
     {
         if ($body instanceof CountAccountBody) {
             $this->body = $body;

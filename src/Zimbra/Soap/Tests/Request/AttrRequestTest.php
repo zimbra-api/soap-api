@@ -4,6 +4,7 @@ namespace Zimbra\Soap\Tests\Request;
 
 use JMS\Serializer\Annotation\XmlRoot;
 use Zimbra\Soap\Request\Attr;
+use Zimbra\Soap\EnvelopeInterface;
 use Zimbra\Struct\KeyValuePair;
 use Zimbra\Struct\Tests\ZimbraStructTestCase;
 
@@ -51,7 +52,13 @@ class AttrRequestTest extends ZimbraStructTestCase
  */
 class AttrRequestImp extends Attr
 {
-    protected function internalInit()
+    /**
+     * Get soap envelope.
+     *
+     * @return EnvelopeInterface
+     */
+    public function getEnvelope(): EnvelopeInterface
     {
+        return $this->envelope;
     }
 }

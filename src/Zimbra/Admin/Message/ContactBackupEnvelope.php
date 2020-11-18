@@ -39,9 +39,9 @@ class ContactBackupEnvelope extends Envelope
      * Constructor method for ContactBackupEnvelope
      * @return self
      */
-    public function __construct(Header $header = NULL, ContactBackupBody $body = NULL)
+    public function __construct(ContactBackupBody $body = NULL, Header $header = NULL)
     {
-        parent::__construct($header, $body);
+        parent::__construct($body, $header);
     }
 
     /**
@@ -60,7 +60,7 @@ class ContactBackupEnvelope extends Envelope
      * @param  BodyInterface $body
      * @return self
      */
-    public function setBody(BodyInterface $body): Envelope
+    public function setBody(BodyInterface $body): self
     {
         if ($body instanceof ContactBackupBody) {
             $this->body = $body;

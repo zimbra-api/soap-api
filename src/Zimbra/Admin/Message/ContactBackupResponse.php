@@ -52,7 +52,7 @@ class ContactBackupResponse implements ResponseInterface
      *
      * @return array
      */
-    public function getServers()
+    public function getServers(): array
     {
         return $this->servers;
     }
@@ -80,7 +80,7 @@ class ContactBackupResponse implements ResponseInterface
      * @param  ContactBackupServer $server
      * @return self
      */
-    public function addServer(ContactBackupServer $server)
+    public function addServer(ContactBackupServer $server): self
     {
         $this->servers[] = $server;
         return $this;

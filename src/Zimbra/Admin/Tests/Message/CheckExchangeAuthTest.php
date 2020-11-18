@@ -8,7 +8,6 @@ use Zimbra\Admin\Message\CheckExchangeAuthRequest;
 use Zimbra\Admin\Message\CheckExchangeAuthResponse;
 use Zimbra\Admin\Struct\ExchangeAuthSpec;
 use Zimbra\Enum\AuthScheme;
-use Zimbra\Soap\Header;
 use Zimbra\Struct\Tests\ZimbraStructTestCase;
 
 /**
@@ -57,7 +56,7 @@ class CheckExchangeAuthTest extends ZimbraStructTestCase
         $this->assertSame($request, $body->getRequest());
         $this->assertSame($response, $body->getResponse());
 
-        $envelope = new CheckExchangeAuthEnvelope(new Header(), $body);
+        $envelope = new CheckExchangeAuthEnvelope($body);
         $this->assertSame($body, $envelope->getBody());
 
         $envelope = new CheckExchangeAuthEnvelope();

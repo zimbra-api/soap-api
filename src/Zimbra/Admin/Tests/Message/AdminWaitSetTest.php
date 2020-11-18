@@ -6,7 +6,6 @@ use Zimbra\Admin\Message\{AdminWaitSetBody, AdminWaitSetEnvelope, AdminWaitSetRe
 use Zimbra\Enum\InterestType;
 use Zimbra\Mail\Struct\{AccountWithModifications, CreateItemNotification, DeleteItemNotification, ImapMessageInfo, ModifyItemNotification, ModifyTagNotification, PendingFolderModifications, RenameFolderNotification};
 use Zimbra\Struct\{Id, IdAndType, WaitSetAddSpec};
-use Zimbra\Soap\Header;
 use Zimbra\Struct\Tests\ZimbraStructTestCase;
 
 /**
@@ -130,7 +129,7 @@ class AdminWaitSetResponseTest extends ZimbraStructTestCase
         $this->assertSame($request, $body->getRequest());
         $this->assertSame($response, $body->getResponse());
 
-        $envelope = new AdminWaitSetEnvelope(new Header(), $body);
+        $envelope = new AdminWaitSetEnvelope($body);
         $this->assertSame($body, $envelope->getBody());
 
         $envelope = new AdminWaitSetEnvelope();

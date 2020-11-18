@@ -10,7 +10,6 @@ use Zimbra\Admin\Struct\{ContactBackupServer, ServerSelector};
 use Zimbra\Enum\ContactBackupStatus;
 use Zimbra\Enum\ContactBackupOp;
 use Zimbra\Enum\ServerBy;
-use Zimbra\Soap\Header;
 use Zimbra\Struct\Tests\ZimbraStructTestCase;
 
 /**
@@ -54,7 +53,7 @@ class ContactBackupTest extends ZimbraStructTestCase
         $this->assertSame($request, $body->getRequest());
         $this->assertSame($response, $body->getResponse());
 
-        $envelope = new ContactBackupEnvelope(new Header(), $body);
+        $envelope = new ContactBackupEnvelope($body);
         $this->assertSame($body, $envelope->getBody());
 
         $envelope = new ContactBackupEnvelope();

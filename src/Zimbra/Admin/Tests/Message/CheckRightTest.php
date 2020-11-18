@@ -20,7 +20,6 @@ use Zimbra\Enum\TargetType;
 use Zimbra\Enum\GranteeBy;
 use Zimbra\Enum\GranteeType;
 
-use Zimbra\Soap\Header;
 use Zimbra\Struct\Tests\ZimbraStructTestCase;
 
 /**
@@ -90,7 +89,7 @@ class CheckRightTest extends ZimbraStructTestCase
         $this->assertSame($request, $body->getRequest());
         $this->assertSame($response, $body->getResponse());
 
-        $envelope = new CheckRightEnvelope(new Header(), $body);
+        $envelope = new CheckRightEnvelope($body);
         $this->assertSame($body, $envelope->getBody());
 
         $envelope = new CheckRightEnvelope();

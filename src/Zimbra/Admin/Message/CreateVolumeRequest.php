@@ -12,7 +12,7 @@ namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlElement, XmlRoot};
 use Zimbra\Admin\Struct\VolumeInfo;
-use Zimbra\Soap\Request;
+use Zimbra\Soap\{EnvelopeInterface, RequestInterface};
 
 /**
  * CreateVolumeRequest class
@@ -26,7 +26,7 @@ use Zimbra\Soap\Request;
  * @AccessType("public_method")
  * @XmlRoot(name="CreateVolumeRequest")
  */
-class CreateVolumeRequest extends Request
+class CreateVolumeRequest implements RequestInterface
 {
     /**
      * Volume information
@@ -71,10 +71,14 @@ class CreateVolumeRequest extends Request
         return $this;
     }
 
-    protected function internalInit()
+    /**
+     * Get soap envelope.
+     *
+     * @return EnvelopeInterface
+     */
+    public function getEnvelope(): EnvelopeInterface
     {
-        $this->envelope = new CreateVolumeEnvelope(
-            NULL,
+        return new CreateVolumeEnvelope(
             new CreateVolumeBody($this)
         );
     }

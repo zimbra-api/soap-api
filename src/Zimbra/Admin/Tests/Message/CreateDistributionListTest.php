@@ -10,7 +10,6 @@ use Zimbra\Admin\Struct\Attr;
 use Zimbra\Admin\Struct\DistributionListInfo;
 use Zimbra\Admin\Struct\GranteeInfo;
 use Zimbra\Enum\GranteeType;
-use Zimbra\Soap\Header;
 use Zimbra\Struct\Tests\ZimbraStructTestCase;
 
 /**
@@ -65,7 +64,7 @@ class CreateDistributionListTest extends ZimbraStructTestCase
         $this->assertSame($request, $body->getRequest());
         $this->assertSame($response, $body->getResponse());
 
-        $envelope = new CreateDistributionListEnvelope(new Header(), $body);
+        $envelope = new CreateDistributionListEnvelope($body);
         $this->assertSame($body, $envelope->getBody());
 
         $envelope = new CreateDistributionListEnvelope();

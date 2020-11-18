@@ -37,29 +37,5 @@ class AutoCompleteGalResponseTest extends ZimbraStructTestCase
         $this->assertFalse($res->getTokenizeKey());
         $this->assertSame($pagingSupported, $res->getPagingSupported());
         $this->assertSame([$contact, $contact], $res->getContacts());
-
-        $res = new AutoCompleteGalResponse(
-            TRUE,
-            FALSE,
-            $pagingSupported,
-            [$contact]
-        );
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<AutoCompleteGalResponse xmlns="urn:zimbraAccount" more="true" tokenizeKey="false" pagingSupported="' . $pagingSupported . '">'
-                . '<cn />'
-            . '</AutoCompleteGalResponse>';
-        $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($res, 'xml'));
-        $this->assertEquals($res, $this->serializer->deserialize($xml, AutoCompleteGalResponse::class, 'xml'));
-
-        $json = json_encode([
-            'more' => TRUE,
-            'tokenizeKey' => FALSE,
-            'pagingSupported' => $pagingSupported,
-            'cn' => [
-                new \stdClass,
-            ],
-        ]);
-        $this->assertSame($json, $this->serializer->serialize($res, 'json'));
-        $this->assertEquals($res, $this->serializer->deserialize($json, AutoCompleteGalResponse::class, 'json'));
     }
 }

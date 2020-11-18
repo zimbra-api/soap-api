@@ -53,7 +53,7 @@ class CreateVolumeResponse implements ResponseInterface
      *
      * @return VolumeInfo
      */
-    public function getVolume()
+    public function getVolume(): VolumeInfo
     {
         return $this->volume;
     }

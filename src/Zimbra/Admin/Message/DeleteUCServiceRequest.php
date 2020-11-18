@@ -11,7 +11,7 @@
 namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlElement, XmlRoot};
-use Zimbra\Soap\Request;
+use Zimbra\Soap\{EnvelopeInterface, RequestInterface};
 
 /**
  * DeleteUCServiceRequest class
@@ -25,7 +25,7 @@ use Zimbra\Soap\Request;
  * @AccessType("public_method")
  * @XmlRoot(name="DeleteUCServiceRequest")
  */
-class DeleteUCServiceRequest extends Request
+class DeleteUCServiceRequest implements RequestInterface
 {
     /**
      * Zimbra ID
@@ -68,10 +68,14 @@ class DeleteUCServiceRequest extends Request
         return $this;
     }
 
-    protected function internalInit()
+    /**
+     * Get soap envelope.
+     *
+     * @return EnvelopeInterface
+     */
+    public function getEnvelope(): EnvelopeInterface
     {
-        $this->envelope = new DeleteUCServiceEnvelope(
-            NULL,
+        return new DeleteUCServiceEnvelope(
             new DeleteUCServiceBody($this)
         );
     }

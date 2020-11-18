@@ -53,7 +53,7 @@ class CreateUCServiceResponse implements ResponseInterface
      *
      * @return UCServiceInfo
      */
-    public function getUCService()
+    public function getUCService(): UCServiceInfo
     {
         return $this->ucService;
     }

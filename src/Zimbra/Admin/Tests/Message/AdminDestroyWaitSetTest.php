@@ -6,7 +6,6 @@ use Zimbra\Admin\Message\AdminDestroyWaitSetBody;
 use Zimbra\Admin\Message\AdminDestroyWaitSetEnvelope;
 use Zimbra\Admin\Message\AdminDestroyWaitSetRequest;
 use Zimbra\Admin\Message\AdminDestroyWaitSetResponse;
-use Zimbra\Soap\Header;
 use Zimbra\Struct\Tests\ZimbraStructTestCase;
 
 /**
@@ -44,7 +43,7 @@ class AdminDestroyWaitSetTest extends ZimbraStructTestCase
         $this->assertSame($request, $body->getRequest());
         $this->assertSame($response, $body->getResponse());
 
-        $envelope = new AdminDestroyWaitSetEnvelope(new Header(), $body);
+        $envelope = new AdminDestroyWaitSetEnvelope($body);
         $this->assertSame($body, $envelope->getBody());
 
         $envelope = new AdminDestroyWaitSetEnvelope();

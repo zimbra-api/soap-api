@@ -52,7 +52,7 @@ class CompactIndexResponse implements ResponseInterface
      *
      * @return Status
      */
-    public function getStatus(): ?Status
+    public function getStatus(): Status
     {
         return $this->status;
     }

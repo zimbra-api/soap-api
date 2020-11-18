@@ -11,7 +11,6 @@ use Zimbra\Admin\Struct\Policy;
 use Zimbra\Admin\Struct\PolicyHolder;
 use Zimbra\Enum\CosBy;
 use Zimbra\Enum\Type;
-use Zimbra\Soap\Header;
 use Zimbra\Struct\Tests\ZimbraStructTestCase;
 
 /**
@@ -61,7 +60,7 @@ class CreateSystemRetentionPolicyTest extends ZimbraStructTestCase
         $this->assertSame($request, $body->getRequest());
         $this->assertSame($response, $body->getResponse());
 
-        $envelope = new CreateSystemRetentionPolicyEnvelope(new Header(), $body);
+        $envelope = new CreateSystemRetentionPolicyEnvelope($body);
         $this->assertSame($body, $envelope->getBody());
 
         $envelope = new CreateSystemRetentionPolicyEnvelope();

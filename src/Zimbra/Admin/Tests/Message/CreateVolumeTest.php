@@ -8,7 +8,6 @@ use Zimbra\Admin\Message\CreateVolumeRequest;
 use Zimbra\Admin\Message\CreateVolumeResponse;
 use Zimbra\Admin\Struct\VolumeInfo;
 use Zimbra\Enum\VolumeType;
-use Zimbra\Soap\Header;
 use Zimbra\Struct\Tests\ZimbraStructTestCase;
 
 /**
@@ -54,7 +53,7 @@ class CreateVolumeTest extends ZimbraStructTestCase
         $this->assertSame($request, $body->getRequest());
         $this->assertSame($response, $body->getResponse());
 
-        $envelope = new CreateVolumeEnvelope(new Header(), $body);
+        $envelope = new CreateVolumeEnvelope($body);
         $this->assertSame($body, $envelope->getBody());
 
         $envelope = new CreateVolumeEnvelope();

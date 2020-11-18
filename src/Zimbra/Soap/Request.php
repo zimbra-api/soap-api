@@ -10,7 +10,7 @@
 
 namespace Zimbra\Soap;
 
-use JMS\Serializer\Annotation\{Exclude, PreSerialize, PostDeserialize};
+use JMS\Serializer\Annotation\Exclude;
 
 /**
  * Request class in Zimbra API PHP, not to be instantiated.
@@ -27,41 +27,4 @@ abstract class Request implements RequestInterface
      * @Exclude
      */
     protected $envelope;
-
-    /**
-     * Get Zimbra api soap envelope.
-     *
-     * @return EnvelopeInterface
-     */
-    public function getEnvelope(): EnvelopeInterface
-    {
-        return $this->envelope;
-    }
-
-    /**
-     * @PreSerialize
-     *
-     * @return void
-     */
-    public function preSerialize()
-    {
-        $this->internalInit();
-    }
-
-    /**
-     * @PostDeserialize
-     *
-     * @return void
-     */
-    public function postDeserialize()
-    {
-        $this->internalInit();
-    }
-
-    /**
-     * Internal initialization of the soap request
-     *
-     * @return void
-     */
-    abstract protected function internalInit();
 }

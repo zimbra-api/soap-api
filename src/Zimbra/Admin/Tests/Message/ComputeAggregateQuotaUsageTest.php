@@ -7,7 +7,6 @@ use Zimbra\Admin\Message\ComputeAggregateQuotaUsageEnvelope;
 use Zimbra\Admin\Message\ComputeAggregateQuotaUsageRequest;
 use Zimbra\Admin\Message\ComputeAggregateQuotaUsageResponse;
 use Zimbra\Admin\Struct\DomainAggregateQuotaInfo;
-use Zimbra\Soap\Header;
 use Zimbra\Struct\Tests\ZimbraStructTestCase;
 
 /**
@@ -42,7 +41,7 @@ class ComputeAggregateQuotaUsageTest extends ZimbraStructTestCase
         $this->assertSame($request, $body->getRequest());
         $this->assertSame($response, $body->getResponse());
 
-        $envelope = new ComputeAggregateQuotaUsageEnvelope(new Header(), $body);
+        $envelope = new ComputeAggregateQuotaUsageEnvelope($body);
         $this->assertSame($body, $envelope->getBody());
 
         $envelope = new ComputeAggregateQuotaUsageEnvelope();

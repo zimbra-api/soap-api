@@ -12,7 +12,7 @@ namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlElement, XmlRoot};
 use Zimbra\Admin\Struct\DomainSelector as Domain;
-use Zimbra\Soap\Request;
+use Zimbra\Soap\{EnvelopeInterface, RequestInterface};
 
 /**
  * CountAccountRequest class
@@ -27,7 +27,7 @@ use Zimbra\Soap\Request;
  * @AccessType("public_method")
  * @XmlRoot(name="CountAccountRequest")
  */
-class CountAccountRequest extends Request
+class CountAccountRequest implements RequestInterface
 {
     /**
      * Domain
@@ -70,10 +70,14 @@ class CountAccountRequest extends Request
         return $this;
     }
 
-    protected function internalInit()
+    /**
+     * Get soap envelope.
+     *
+     * @return EnvelopeInterface
+     */
+    public function getEnvelope(): EnvelopeInterface
     {
-        $this->envelope = new CountAccountEnvelope(
-            NULL,
+        return new CountAccountEnvelope(
             new CountAccountBody($this)
         );
     }

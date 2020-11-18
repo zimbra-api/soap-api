@@ -12,7 +12,7 @@ namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlElement, XmlRoot};
 use Zimbra\Admin\Struct\{DomainSelector, PrincipalSelector};
-use Zimbra\Soap\Request;
+use Zimbra\Soap\{EnvelopeInterface, RequestInterface};
 
 /**
  * AutoProvAccountRequest class
@@ -26,7 +26,7 @@ use Zimbra\Soap\Request;
  * @AccessType("public_method")
  * @XmlRoot(name="AutoProvAccountRequest")
  */
-class AutoProvAccountRequest extends Request
+class AutoProvAccountRequest implements RequestInterface
 {
     /**
      * Domain
@@ -141,10 +141,14 @@ class AutoProvAccountRequest extends Request
         return $this;
     }
 
-    protected function internalInit()
+    /**
+     * Get soap envelope.
+     *
+     * @return EnvelopeInterface
+     */
+    public function getEnvelope(): EnvelopeInterface
     {
-        $this->envelope = new AutoProvAccountEnvelope(
-            NULL,
+        return new AutoProvAccountEnvelope(
             new AutoProvAccountBody($this)
         );
     }

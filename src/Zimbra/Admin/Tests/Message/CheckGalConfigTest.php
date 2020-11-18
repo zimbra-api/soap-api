@@ -6,12 +6,9 @@ use Zimbra\Admin\Message\CheckGalConfigBody;
 use Zimbra\Admin\Message\CheckGalConfigEnvelope;
 use Zimbra\Admin\Message\CheckGalConfigRequest;
 use Zimbra\Admin\Message\CheckGalConfigResponse;
-
 use Zimbra\Admin\Struct\Attr;
 use Zimbra\Admin\Struct\GalContactInfo;
 use Zimbra\Admin\Struct\LimitedQuery;
-
-use Zimbra\Soap\Header;
 use Zimbra\Struct\Tests\ZimbraStructTestCase;
 
 /**
@@ -70,7 +67,7 @@ class CheckGalConfigTest extends ZimbraStructTestCase
         $this->assertSame($request, $body->getRequest());
         $this->assertSame($response, $body->getResponse());
 
-        $envelope = new CheckGalConfigEnvelope(new Header(), $body);
+        $envelope = new CheckGalConfigEnvelope($body);
         $this->assertSame($body, $envelope->getBody());
 
         $envelope = new CheckGalConfigEnvelope();

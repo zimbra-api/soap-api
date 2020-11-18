@@ -10,7 +10,6 @@ use Zimbra\Admin\Struct\LoggerInfo;
 use Zimbra\Enum\AccountBy;
 use Zimbra\Enum\LoggingLevel;
 use Zimbra\Struct\AccountSelector;
-use Zimbra\Soap\Header;
 use Zimbra\Struct\Tests\ZimbraStructTestCase;
 
 /**
@@ -61,7 +60,7 @@ class AddAccountLoggerTest extends ZimbraStructTestCase
         $this->assertSame($request, $body->getRequest());
         $this->assertSame($response, $body->getResponse());
 
-        $envelope = new AddAccountLoggerEnvelope(new Header(), $body);
+        $envelope = new AddAccountLoggerEnvelope($body);
         $this->assertSame($body, $envelope->getBody());
 
         $envelope = new AddAccountLoggerEnvelope();

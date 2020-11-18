@@ -12,7 +12,7 @@ namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlRoot};
 use Zimbra\Admin\Struct\{AdminAttrs, AdminAttrsImplTrait};
-use Zimbra\Soap\Request;
+use Zimbra\Soap\{EnvelopeInterface, RequestInterface};
 
 /**
  * CreateZimletRequest class
@@ -26,16 +26,16 @@ use Zimbra\Soap\Request;
  * @AccessType("public_method")
  * @XmlRoot(name="CreateZimletRequest")
  */
-class CreateZimletRequest extends Request implements AdminAttrs
+class CreateZimletRequest implements RequestInterface, AdminAttrs
 {
     use AdminAttrsImplTrait;
 
     /**
-     * New server name
+     * Zimlet name
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
-     * @XmlAttribute()
+     * @XmlAttribute
      */
     private $name;
 
@@ -76,10 +76,14 @@ class CreateZimletRequest extends Request implements AdminAttrs
         return $this;
     }
 
-    protected function internalInit()
+    /**
+     * Get soap envelope.
+     *
+     * @return EnvelopeInterface
+     */
+    public function getEnvelope(): EnvelopeInterface
     {
-        $this->envelope = new CreateZimletEnvelope(
-            NULL,
+        return new CreateZimletEnvelope(
             new CreateZimletBody($this)
         );
     }

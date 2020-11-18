@@ -39,9 +39,9 @@ class CheckExchangeAuthEnvelope extends Envelope
      * Constructor method for CheckExchangeAuthEnvelope
      * @return self
      */
-    public function __construct(Header $header = NULL, CheckExchangeAuthBody $body = NULL)
+    public function __construct(CheckExchangeAuthBody $body = NULL, Header $header = NULL)
     {
-        parent::__construct($header, $body);
+        parent::__construct($body, $header);
     }
 
     /**
@@ -60,7 +60,7 @@ class CheckExchangeAuthEnvelope extends Envelope
      * @param  BodyInterface $body
      * @return self
      */
-    public function setBody(BodyInterface $body): Envelope
+    public function setBody(BodyInterface $body): self
     {
         if ($body instanceof CheckExchangeAuthBody) {
             $this->body = $body;

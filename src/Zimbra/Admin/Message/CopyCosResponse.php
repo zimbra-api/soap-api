@@ -32,7 +32,7 @@ class CopyCosResponse implements ResponseInterface
      * @Accessor(getter="getCos", setter="setCos")
      * @SerializedName("cos")
      * @Type("Zimbra\Admin\Struct\CosInfo")
-     * @XmlElement()
+     * @XmlElement
      */
     private $cos;
 
@@ -53,7 +53,7 @@ class CopyCosResponse implements ResponseInterface
      *
      * @return CosInfo
      */
-    public function getCos()
+    public function getCos(): CosInfo
     {
         return $this->cos;
     }

@@ -12,7 +12,7 @@ namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlRoot};
 use Zimbra\Enum\AutoProvTaskAction;
-use Zimbra\Soap\Request;
+use Zimbra\Soap\{EnvelopeInterface, RequestInterface};
 
 /**
  * AutoProvTaskControlRequest class
@@ -26,7 +26,7 @@ use Zimbra\Soap\Request;
  * @AccessType("public_method")
  * @XmlRoot(name="AutoProvTaskControlRequest")
  */
-class AutoProvTaskControlRequest extends Request
+class AutoProvTaskControlRequest implements RequestInterface
 {
     /**
      * Action to perform - one of start|status|stop
@@ -69,10 +69,14 @@ class AutoProvTaskControlRequest extends Request
         return $this;
     }
 
-    protected function internalInit()
+    /**
+     * Get soap envelope.
+     *
+     * @return EnvelopeInterface
+     */
+    public function getEnvelope(): EnvelopeInterface
     {
-        $this->envelope = new AutoProvTaskControlEnvelope(
-            NULL,
+        return new AutoProvTaskControlEnvelope(
             new AutoProvTaskControlBody($this)
         );
     }

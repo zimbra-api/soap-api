@@ -39,9 +39,9 @@ class ConfigureZimletEnvelope extends Envelope
      * Constructor method for ConfigureZimletEnvelope
      * @return self
      */
-    public function __construct(Header $header = NULL, ConfigureZimletBody $body = NULL)
+    public function __construct(ConfigureZimletBody $body = NULL, Header $header = NULL)
     {
-        parent::__construct($header, $body);
+        parent::__construct($body, $header);
     }
 
     /**
@@ -60,7 +60,7 @@ class ConfigureZimletEnvelope extends Envelope
      * @param  BodyInterface $body
      * @return self
      */
-    public function setBody(BodyInterface $body): Envelope
+    public function setBody(BodyInterface $body): self
     {
         if ($body instanceof ConfigureZimletBody) {
             $this->body = $body;

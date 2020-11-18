@@ -11,10 +11,9 @@
 namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlElement, XmlList, XmlRoot};
-use Zimbra\Admin\Struct\DomainSelector;
-use Zimbra\Admin\Struct\UcServiceSelector;
+use Zimbra\Admin\Struct\{DomainSelector, UcServiceSelector};
 use Zimbra\Enum\CountObjectsType;
-use Zimbra\Soap\Request;
+use Zimbra\Soap\{EnvelopeInterface, RequestInterface};
 
 /**
  * CountObjectsRequest class
@@ -38,7 +37,7 @@ use Zimbra\Soap\Request;
  * @AccessType("public_method")
  * @XmlRoot(name="CountObjectsRequest")
  */
-class CountObjectsRequest extends Request
+class CountObjectsRequest implements RequestInterface
 {
     /**
      * Object type
@@ -202,10 +201,14 @@ class CountObjectsRequest extends Request
         return $this;
     }
 
-    protected function internalInit()
+    /**
+     * Get soap envelope.
+     *
+     * @return EnvelopeInterface
+     */
+    public function getEnvelope(): EnvelopeInterface
     {
-        $this->envelope = new CountObjectsEnvelope(
-            NULL,
+        return new CountObjectsEnvelope(
             new CountObjectsBody($this)
         );
     }

@@ -32,7 +32,7 @@ class CreateZimletResponse implements ResponseInterface
      * @Accessor(getter="getZimlet", setter="setZimlet")
      * @SerializedName("zimlet")
      * @Type("Zimbra\Admin\Struct\ZimletInfo")
-     * @XmlElement()
+     * @XmlElement
      */
     private $zimlet;
 
@@ -51,7 +51,7 @@ class CreateZimletResponse implements ResponseInterface
      *
      * @return ZimletInfo
      */
-    public function getZimlet()
+    public function getZimlet(): ZimletInfo
     {
         return $this->zimlet;
     }

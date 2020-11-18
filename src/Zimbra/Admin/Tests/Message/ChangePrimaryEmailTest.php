@@ -10,8 +10,8 @@ use Zimbra\Admin\Struct\AccountInfo;
 use Zimbra\Admin\Struct\Attr;
 use Zimbra\Enum\AccountBy;
 use Zimbra\Struct\AccountSelector;
-use Zimbra\Soap\Header;
 use Zimbra\Struct\Tests\ZimbraStructTestCase;
+
 /**
  * Testcase class for ChangePrimaryEmail.
  */
@@ -60,7 +60,7 @@ class ChangePrimaryEmailTest extends ZimbraStructTestCase
         $this->assertSame($request, $body->getRequest());
         $this->assertSame($response, $body->getResponse());
 
-        $envelope = new ChangePrimaryEmailEnvelope(new Header(), $body);
+        $envelope = new ChangePrimaryEmailEnvelope($body);
         $this->assertSame($body, $envelope->getBody());
 
         $envelope = new ChangePrimaryEmailEnvelope();

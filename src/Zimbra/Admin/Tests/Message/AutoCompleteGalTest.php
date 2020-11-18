@@ -8,7 +8,6 @@ use Zimbra\Admin\Message\AutoCompleteGalRequest;
 use Zimbra\Admin\Message\AutoCompleteGalResponse;
 use Zimbra\Enum\GalSearchType;
 use Zimbra\Admin\Struct\ContactInfo;
-use Zimbra\Soap\Header;
 use Zimbra\Struct\Tests\ZimbraStructTestCase;
 
 /**
@@ -72,7 +71,7 @@ class AutoCompleteGalTest extends ZimbraStructTestCase
         $this->assertSame($request, $body->getRequest());
         $this->assertSame($response, $body->getResponse());
 
-        $envelope = new AutoCompleteGalEnvelope(new Header(), $body);
+        $envelope = new AutoCompleteGalEnvelope($body);
         $this->assertSame($body, $envelope->getBody());
 
         $envelope = new AutoCompleteGalEnvelope();

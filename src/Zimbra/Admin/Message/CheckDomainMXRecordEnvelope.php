@@ -39,9 +39,9 @@ class CheckDomainMXRecordEnvelope extends Envelope
      * Constructor method for CheckDomainMXRecordEnvelope
      * @return self
      */
-    public function __construct(Header $header = NULL, CheckDomainMXRecordBody $body = NULL)
+    public function __construct(CheckDomainMXRecordBody $body = NULL, Header $header = NULL)
     {
-        parent::__construct($header, $body);
+        parent::__construct($body, $header);
     }
 
     /**
@@ -60,7 +60,7 @@ class CheckDomainMXRecordEnvelope extends Envelope
      * @param  BodyInterface $body
      * @return self
      */
-    public function setBody(BodyInterface $body): Envelope
+    public function setBody(BodyInterface $body): self
     {
         if ($body instanceof CheckDomainMXRecordBody) {
             $this->body = $body;

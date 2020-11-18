@@ -32,7 +32,7 @@ class CreateDataSourceResponse implements ResponseInterface
      * @Accessor(getter="getDataSource", setter="setDataSource")
      * @SerializedName("dataSource")
      * @Type("Zimbra\Admin\Struct\DataSourceInfo")
-     * @XmlElement()
+     * @XmlElement
      */
     private $dataSource;
 
@@ -53,7 +53,7 @@ class CreateDataSourceResponse implements ResponseInterface
      *
      * @return DataSourceInfo
      */
-    public function getDataSource()
+    public function getDataSource(): DataSourceInfo
     {
         return $this->dataSource;
     }

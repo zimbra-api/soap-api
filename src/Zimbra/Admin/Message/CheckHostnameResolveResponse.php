@@ -27,7 +27,6 @@ use Zimbra\Soap\ResponseInterface;
  */
 class CheckHostnameResolveResponse implements ResponseInterface
 {
-
     /**
      * Code
      * @Accessor(getter="getCode", setter="setCode")

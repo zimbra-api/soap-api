@@ -39,9 +39,9 @@ class DeleteVolumeEnvelope extends Envelope
      * Constructor method for DeleteVolumeEnvelope
      * @return self
      */
-    public function __construct(Header $header = NULL, DeleteVolumeBody $body = NULL)
+    public function __construct(DeleteVolumeBody $body = NULL, Header $header = NULL)
     {
-        parent::__construct($header, $body);
+        parent::__construct($body, $header);
     }
 
     /**
@@ -60,7 +60,7 @@ class DeleteVolumeEnvelope extends Envelope
      * @param  BodyInterface $body
      * @return self
      */
-    public function setBody(BodyInterface $body): Envelope
+    public function setBody(BodyInterface $body): self
     {
         if ($body instanceof DeleteVolumeBody) {
             $this->body = $body;

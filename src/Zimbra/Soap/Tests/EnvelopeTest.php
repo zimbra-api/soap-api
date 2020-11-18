@@ -63,7 +63,7 @@ class EnvelopeTest extends ZimbraStructTestCase
         );
         $header = new Header($context);
         $body = new FooBody();
-        $envelope = new FooEnvelope($header, $body);
+        $envelope = new FooEnvelope($body, $header);
         $this->assertSame($header, $envelope->getHeader());
         $this->assertSame($body, $envelope->getBody());
         $envelope = new FooEnvelope();
@@ -182,7 +182,7 @@ class FooEnvelope extends Envelope
      * @Type("Zimbra\Soap\Tests\FooBody")
      * @XmlElement(namespace="http://www.w3.org/2003/05/soap-envelope")
      */
-    private $_body;
+    private $body;
 
     /**
      * Gets soap message body
@@ -191,7 +191,7 @@ class FooEnvelope extends Envelope
      */
     public function getBody() : BodyInterface
     {
-        return $this->_body;
+        return $this->body;
     }
 
     /**
@@ -202,7 +202,7 @@ class FooEnvelope extends Envelope
      */
     public function setBody(BodyInterface $body): Envelope
     {
-        $this->_body = $body;
+        $this->body = $body;
         return $this;
     }
 }

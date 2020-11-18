@@ -39,9 +39,9 @@ class DelegateAuthEnvelope extends Envelope
      * Constructor method for DelegateAuthEnvelope
      * @return self
      */
-    public function __construct(Header $header = NULL, DelegateAuthBody $body = NULL)
+    public function __construct(DelegateAuthBody $body = NULL, Header $header = NULL)
     {
-        parent::__construct($header, $body);
+        parent::__construct($body, $header);
     }
 
     /**
@@ -60,7 +60,7 @@ class DelegateAuthEnvelope extends Envelope
      * @param  BodyInterface $body
      * @return self
      */
-    public function setBody(BodyInterface $body): Envelope
+    public function setBody(BodyInterface $body): self
     {
         if ($body instanceof DelegateAuthBody) {
             $this->body = $body;

@@ -95,7 +95,7 @@ class AuthEnvelopeTest extends ZimbraStructTestCase
         );
 
         $body = new AuthBody($request, $response);
-        $envelope = new AuthEnvelope(NULL, $body);
+        $envelope = new AuthEnvelope($body);
         $this->assertSame($body, $envelope->getBody());
 
         $envelope = new AuthEnvelope();

@@ -6,7 +6,6 @@ use Zimbra\Admin\Message\CheckHealthBody;
 use Zimbra\Admin\Message\CheckHealthEnvelope;
 use Zimbra\Admin\Message\CheckHealthRequest;
 use Zimbra\Admin\Message\CheckHealthResponse;
-use Zimbra\Soap\Header;
 use Zimbra\Struct\Tests\ZimbraStructTestCase;
 
 /**
@@ -32,7 +31,7 @@ class CheckHealthTest extends ZimbraStructTestCase
         $this->assertSame($request, $body->getRequest());
         $this->assertSame($response, $body->getResponse());
 
-        $envelope = new CheckHealthEnvelope(new Header(), $body);
+        $envelope = new CheckHealthEnvelope($body);
         $this->assertSame($body, $envelope->getBody());
 
         $envelope = new CheckHealthEnvelope();

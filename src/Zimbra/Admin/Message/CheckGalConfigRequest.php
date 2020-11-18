@@ -14,7 +14,7 @@ use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlEl
 use Zimbra\Admin\Struct\AdminAttrs;
 use Zimbra\Admin\Struct\AdminAttrsImplTrait;
 use Zimbra\Admin\Struct\LimitedQuery;
-use Zimbra\Soap\Request;
+use Zimbra\Soap\{EnvelopeInterface, RequestInterface};
 
 /**
  * CheckGalConfigRequest request class
@@ -28,7 +28,7 @@ use Zimbra\Soap\Request;
  * @AccessType("public_method")
  * @XmlRoot(name="CheckGalConfigRequest")
  */
-class CheckGalConfigRequest extends Request implements AdminAttrs
+class CheckGalConfigRequest implements RequestInterface, AdminAttrs
 {
     use AdminAttrsImplTrait;
 
@@ -38,7 +38,7 @@ class CheckGalConfigRequest extends Request implements AdminAttrs
      * @Accessor(getter="getQuery", setter="setQuery")
      * @SerializedName("query")
      * @Type("Zimbra\Admin\Struct\LimitedQuery")
-     * @XmlElement()
+     * @XmlElement
      */
     private $query;
 
@@ -48,7 +48,7 @@ class CheckGalConfigRequest extends Request implements AdminAttrs
      * @Accessor(getter="getAction", setter="setAction")
      * @SerializedName("action")
      * @Type("string")
-     * @XmlElement()
+     * @XmlElement
      */
     private $action;
 
@@ -114,10 +114,14 @@ class CheckGalConfigRequest extends Request implements AdminAttrs
         return $this;
     }
 
-    protected function internalInit()
+    /**
+     * Get soap envelope.
+     *
+     * @return EnvelopeInterface
+     */
+    public function getEnvelope(): EnvelopeInterface
     {
-        $this->envelope = new CheckGalConfigEnvelope(
-            NULL,
+        return new CheckGalConfigEnvelope(
             new CheckGalConfigBody($this)
         );
     }

@@ -11,7 +11,7 @@
 namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlElement, XmlRoot};
-use Zimbra\Soap\Request;
+use Zimbra\Soap\{EnvelopeInterface, RequestInterface};
 use Zimbra\Struct\AccountSelector as Account;
 
 /**
@@ -28,7 +28,7 @@ use Zimbra\Struct\AccountSelector as Account;
  * @AccessType("public_method")
  * @XmlRoot(name="DelegateAuthRequest")
  */
-class DelegateAuthRequest extends Request
+class DelegateAuthRequest implements RequestInterface
 {
     /**
      * Details of target account
@@ -107,10 +107,14 @@ class DelegateAuthRequest extends Request
         return $this;
     }
 
-    protected function internalInit()
+    /**
+     * Get soap envelope.
+     *
+     * @return EnvelopeInterface
+     */
+    public function getEnvelope(): EnvelopeInterface
     {
-        $this->envelope = new DelegateAuthEnvelope(
-            NULL,
+        return new DelegateAuthEnvelope(
             new DelegateAuthBody($this)
         );
     }

@@ -30,7 +30,7 @@ class CheckRightsEnvelopeTest extends ZimbraStructTestCase
         $response = new CheckRightsResponse([$target2]);
         $body = new CheckRightsBody($request, $response);
 
-        $envelope = new CheckRightsEnvelope(NULL, $body);
+        $envelope = new CheckRightsEnvelope($body);
         $this->assertSame($body, $envelope->getBody());
 
         $envelope = new CheckRightsEnvelope();

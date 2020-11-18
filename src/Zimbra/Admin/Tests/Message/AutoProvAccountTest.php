@@ -5,7 +5,6 @@ namespace Zimbra\Admin\Tests\Message;
 use Zimbra\Admin\Message\{AutoProvAccountBody, AutoProvAccountEnvelope, AutoProvAccountRequest, AutoProvAccountResponse};
 use Zimbra\Admin\Struct\{AccountInfo, Attr, DomainSelector, PrincipalSelector};
 use Zimbra\Enum\{AutoProvPrincipalBy, DomainBy};
-use Zimbra\Soap\Header;
 use Zimbra\Struct\Tests\ZimbraStructTestCase;
 /**
  * Testcase class for AutoProvAccount.
@@ -60,7 +59,7 @@ class AutoProvAccountTest extends ZimbraStructTestCase
         $this->assertSame($request, $body->getRequest());
         $this->assertSame($response, $body->getResponse());
 
-        $envelope = new AutoProvAccountEnvelope(new Header(), $body);
+        $envelope = new AutoProvAccountEnvelope($body);
         $this->assertSame($body, $envelope->getBody());
 
         $envelope = new AutoProvAccountEnvelope();

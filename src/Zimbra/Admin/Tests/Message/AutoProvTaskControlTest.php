@@ -5,7 +5,6 @@ namespace Zimbra\Admin\Tests\Response;
 use Zimbra\Admin\Message\{AutoProvTaskControlBody, AutoProvTaskControlEnvelope, AutoProvTaskControlRequest, AutoProvTaskControlResponse};
 use Zimbra\Admin\Struct\{AccountInfo, Attr, DomainSelector, PrincipalSelector};
 use Zimbra\Enum\{AutoProvTaskAction, AutoProvTaskStatus};
-use Zimbra\Soap\Header;
 use Zimbra\Struct\Tests\ZimbraStructTestCase;
 
 /**
@@ -39,7 +38,7 @@ class AutoProvTaskControlTest extends ZimbraStructTestCase
         $this->assertSame($request, $body->getRequest());
         $this->assertSame($response, $body->getResponse());
 
-        $envelope = new AutoProvTaskControlEnvelope(new Header(), $body);
+        $envelope = new AutoProvTaskControlEnvelope($body);
         $this->assertSame($body, $envelope->getBody());
 
         $envelope = new AutoProvTaskControlEnvelope();

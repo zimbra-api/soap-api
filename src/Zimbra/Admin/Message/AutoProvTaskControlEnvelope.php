@@ -39,9 +39,9 @@ class AutoProvTaskControlEnvelope extends Envelope
      * Constructor method for AutoProvTaskControlEnvelope
      * @return self
      */
-    public function __construct(Header $header = NULL, AutoProvTaskControlBody $body = NULL)
+    public function __construct(AutoProvTaskControlBody $body = NULL, Header $header = NULL)
     {
-        parent::__construct($header, $body);
+        parent::__construct($body, $header);
     }
 
     /**
@@ -60,7 +60,7 @@ class AutoProvTaskControlEnvelope extends Envelope
      * @param  BodyInterface $body
      * @return self
      */
-    public function setBody(BodyInterface $body): Envelope
+    public function setBody(BodyInterface $body): self
     {
         if ($body instanceof AutoProvTaskControlBody) {
             $this->body = $body;

@@ -8,7 +8,6 @@ use Zimbra\Admin\Message\CreateUCServiceRequest;
 use Zimbra\Admin\Message\CreateUCServiceResponse;
 use Zimbra\Admin\Struct\UCServiceInfo;
 use Zimbra\Admin\Struct\Attr;
-use Zimbra\Soap\Header;
 use Zimbra\Struct\Tests\ZimbraStructTestCase;
 
 /**
@@ -48,7 +47,7 @@ class CreateUCServiceTest extends ZimbraStructTestCase
         $this->assertSame($request, $body->getRequest());
         $this->assertSame($response, $body->getResponse());
 
-        $envelope = new CreateUCServiceEnvelope(new Header(), $body);
+        $envelope = new CreateUCServiceEnvelope($body);
         $this->assertSame($body, $envelope->getBody());
 
         $envelope = new CreateUCServiceEnvelope();

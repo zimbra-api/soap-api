@@ -9,7 +9,6 @@ use Zimbra\Admin\Message\CompactIndexResponse;
 use Zimbra\Admin\Struct\MailboxByAccountIdSelector;
 use Zimbra\Enum\CompactIndexAction;
 use Zimbra\Enum\CompactIndexStatus;
-use Zimbra\Soap\Header;
 use Zimbra\Struct\Tests\ZimbraStructTestCase;
 
 /**
@@ -47,7 +46,7 @@ class CompactIndexTest extends ZimbraStructTestCase
         $this->assertSame($request, $body->getRequest());
         $this->assertSame($response, $body->getResponse());
 
-        $envelope = new CompactIndexEnvelope(new Header(), $body);
+        $envelope = new CompactIndexEnvelope($body);
         $this->assertSame($body, $envelope->getBody());
 
         $envelope = new CompactIndexEnvelope();

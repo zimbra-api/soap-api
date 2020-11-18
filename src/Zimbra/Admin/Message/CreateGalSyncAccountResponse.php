@@ -51,7 +51,7 @@ class CreateGalSyncAccountResponse implements ResponseInterface
      *
      * @return AccountInfo
      */
-    public function getAccount()
+    public function getAccount(): AccountInfo
     {
         return $this->account;
     }

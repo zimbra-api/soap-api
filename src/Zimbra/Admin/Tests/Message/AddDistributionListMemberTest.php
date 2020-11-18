@@ -6,7 +6,6 @@ use Zimbra\Admin\Message\AddDistributionListMemberBody;
 use Zimbra\Admin\Message\AddDistributionListMemberEnvelope;
 use Zimbra\Admin\Message\AddDistributionListMemberRequest;
 use Zimbra\Admin\Message\AddDistributionListMemberResponse;
-use Zimbra\Soap\Header;
 use Zimbra\Struct\Tests\ZimbraStructTestCase;
 
 /**
@@ -43,7 +42,7 @@ class AddDistributionListMemberTest extends ZimbraStructTestCase
         $this->assertSame($request, $body->getRequest());
         $this->assertSame($response, $body->getResponse());
 
-        $envelope = new AddDistributionListMemberEnvelope(new Header(), $body);
+        $envelope = new AddDistributionListMemberEnvelope($body);
         $this->assertSame($body, $envelope->getBody());
 
         $envelope = new AddDistributionListMemberEnvelope();

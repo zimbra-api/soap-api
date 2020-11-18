@@ -2,77 +2,78 @@
 
 namespace Zimbra\Admin\Tests\Message;
 
-use Zimbra\Admin\Message\CreateServerBody;
-use Zimbra\Admin\Message\CreateServerEnvelope;
-use Zimbra\Admin\Message\CreateServerRequest;
-use Zimbra\Admin\Message\CreateServerResponse;
-use Zimbra\Admin\Struct\ServerInfo;
+use Zimbra\Admin\Message\CreateZimletBody;
+use Zimbra\Admin\Message\CreateZimletEnvelope;
+use Zimbra\Admin\Message\CreateZimletRequest;
+use Zimbra\Admin\Message\CreateZimletResponse;
+use Zimbra\Admin\Struct\ZimletInfo;
 use Zimbra\Admin\Struct\Attr;
 use Zimbra\Struct\Tests\ZimbraStructTestCase;
 
 /**
- * Testcase class for CreateServer.
+ * Testcase class for CreateZimlet.
  */
-class CreateServerTest extends ZimbraStructTestCase
+class CreateZimletTest extends ZimbraStructTestCase
 {
-    public function testCreateServer()
+    public function testCreateZimlet()
     {
         $name = $this->faker->word;
         $value = $this->faker->word;
         $id = $this->faker->uuid;
         $key = $this->faker->word;
+        $hasKeyword = $this->faker->word;
 
-        $request = new CreateServerRequest($name);
+        $request = new CreateZimletRequest($name);
         $this->assertSame($name, $request->getName());
 
-        $request = new CreateServerRequest('');
+        $request = new CreateZimletRequest('');
         $request->setName($name)
             ->setAttrs([new Attr($key, $value)]);
         $this->assertSame($name, $request->getName());
 
-        $server = new ServerInfo($name, $id, [new Attr($key, $value)]);
-        $response = new CreateServerResponse($server);
-        $this->assertSame($server, $response->getServer());
-        $response = new CreateServerResponse(new ServerInfo('', ''));
-        $response->setServer($server);
-        $this->assertSame($server, $response->getServer());
+        $zimlet = new ZimletInfo($name, $id, [new Attr($key, $value)], $hasKeyword);
+        $response = new CreateZimletResponse($zimlet);
+        $this->assertSame($zimlet, $response->getZimlet());
+        $response = new CreateZimletResponse(new ZimletInfo('', ''));
+        $response->setZimlet($zimlet);
+        $this->assertSame($zimlet, $response->getZimlet());
 
-        $body = new CreateServerBody($request, $response);
+        $body = new CreateZimletBody($request, $response);
         $this->assertSame($request, $body->getRequest());
         $this->assertSame($response, $body->getResponse());
 
-        $body = new CreateServerBody();
+        $body = new CreateZimletBody();
         $body->setRequest($request)
             ->setResponse($response);
         $this->assertSame($request, $body->getRequest());
         $this->assertSame($response, $body->getResponse());
 
-        $envelope = new CreateServerEnvelope($body);
+        $envelope = new CreateZimletEnvelope($body);
         $this->assertSame($body, $envelope->getBody());
 
-        $envelope = new CreateServerEnvelope();
+        $envelope = new CreateZimletEnvelope();
         $envelope->setBody($body);
         $this->assertSame($body, $envelope->getBody());
 
         $xml = '<?xml version="1.0"?>' . "\n"
             . '<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">'
                 . '<soap:Body>'
-                    . '<urn:CreateServerRequest name="' . $name . '">'
+                    . '<urn:CreateZimletRequest name="' . $name . '">'
                         . '<a n="' . $key . '">' . $value . '</a>'
-                    . '</urn:CreateServerRequest>'
-                    . '<urn:CreateServerResponse>'
-                        . '<server name="' . $name . '" id="' . $id . '">'
-                            . '<a n="' . $key . '">' . $value . '</a>'
-                        . '</server>'
-                    . '</urn:CreateServerResponse>'
+                    . '</urn:CreateZimletRequest>'
+                    . '<urn:CreateZimletResponse>'
+                        . '<zimlet name="' . $name . '" id="' . $id . '" hasKeyword="' . $hasKeyword . '">'
+                        . '<a n="' . $key . '">' . $value . '</a>'
+                    . '</zimlet>'
+                    . '</urn:CreateZimletResponse>'
                 . '</soap:Body>'
             . '</soap:Envelope>';
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($xml, CreateServerEnvelope::class, 'xml'));
+        $this->assertEquals($envelope, $this->serializer->deserialize($xml, CreateZimletEnvelope::class, 'xml'));
 
         $json = json_encode([
             'Body' => [
-                'CreateServerRequest' => [
+                'CreateZimletRequest' => [
                     'name' => $name,
                     'a' => [
                         [
@@ -82,8 +83,8 @@ class CreateServerTest extends ZimbraStructTestCase
                     ],
                     '_jsns' => 'urn:zimbraAdmin',
                 ],
-                'CreateServerResponse' => [
-                    'server' => [
+                'CreateZimletResponse' => [
+                    'zimlet' => [
                         'name' => $name,
                         'id' => $id,
                         'a' => [
@@ -92,12 +93,13 @@ class CreateServerTest extends ZimbraStructTestCase
                                 '_content' => $value,
                             ],
                         ],
+                        'hasKeyword' => $hasKeyword,
                     ],
                     '_jsns' => 'urn:zimbraAdmin',
                 ],
             ],
         ]);
         $this->assertSame($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, CreateServerEnvelope::class, 'json'));
+        $this->assertEquals($envelope, $this->serializer->deserialize($json, CreateZimletEnvelope::class, 'json'));
     }
 }

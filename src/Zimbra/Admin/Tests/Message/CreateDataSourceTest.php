@@ -8,7 +8,6 @@ use Zimbra\Admin\Message\CreateDataSourceRequest;
 use Zimbra\Admin\Message\CreateDataSourceResponse;
 use Zimbra\Admin\Struct\{Attr, DataSourceSpecifier, DataSourceInfo};
 use Zimbra\Enum\DataSourceType;
-use Zimbra\Soap\Header;
 use Zimbra\Struct\Tests\ZimbraStructTestCase;
 
 /**
@@ -52,7 +51,7 @@ class CreateDataSourceTest extends ZimbraStructTestCase
         $this->assertSame($request, $body->getRequest());
         $this->assertSame($response, $body->getResponse());
 
-        $envelope = new CreateDataSourceEnvelope(new Header(), $body);
+        $envelope = new CreateDataSourceEnvelope($body);
         $this->assertSame($body, $envelope->getBody());
 
         $envelope = new CreateDataSourceEnvelope();

@@ -7,9 +7,7 @@ use Zimbra\Admin\Message\CheckAuthConfigEnvelope;
 use Zimbra\Admin\Message\CheckAuthConfigRequest;
 use Zimbra\Admin\Message\CheckAuthConfigResponse;
 use Zimbra\Admin\Struct\Attr;
-use Zimbra\Soap\Header;
 use Zimbra\Struct\Tests\ZimbraStructTestCase;
-
 
 /**
  * Testcase class for CheckAuthConfig.
@@ -67,7 +65,7 @@ class CheckAuthConfigTest extends ZimbraStructTestCase
         $this->assertSame($request, $body->getRequest());
         $this->assertSame($response, $body->getResponse());
 
-        $envelope = new CheckAuthConfigEnvelope(new Header(), $body);
+        $envelope = new CheckAuthConfigEnvelope($body);
         $this->assertSame($body, $envelope->getBody());
 
         $envelope = new CheckAuthConfigEnvelope();

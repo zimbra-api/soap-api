@@ -12,7 +12,7 @@ namespace Zimbra\Account\Message;
 
 use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlList, XmlRoot};
 use Zimbra\Account\Struct\CheckRightsTargetSpec;
-use Zimbra\Soap\Request;
+use Zimbra\Soap\{EnvelopeInterface, RequestInterface};
 
 /**
  * CheckRightsRequest class
@@ -28,7 +28,7 @@ use Zimbra\Soap\Request;
  * @AccessType("public_method")
  * @XmlRoot(name="CheckRightsRequest", namespace="urn:zimbraAccount")
  */
-class CheckRightsRequest extends Request
+class CheckRightsRequest implements RequestInterface
 {
     /**
      * @Accessor(getter="getTargets", setter="setTargets")
@@ -87,10 +87,14 @@ class CheckRightsRequest extends Request
         return $this->targets;
     }
 
-    protected function internalInit()
+    /**
+     * Get soap envelope.
+     *
+     * @return EnvelopeInterface
+     */
+    public function getEnvelope(): EnvelopeInterface
     {
-        $this->envelope = new CheckRightsEnvelope(
-            NULL,
+        return new CheckRightsEnvelope(
             new CheckRightsBody($this)
         );
     }

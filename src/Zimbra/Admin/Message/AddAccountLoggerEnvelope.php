@@ -39,9 +39,9 @@ class AddAccountLoggerEnvelope extends Envelope
      * Constructor method for AddAccountLoggerEnvelope
      * @return self
      */
-    public function __construct(Header $header = NULL, AddAccountLoggerBody $body = NULL)
+    public function __construct(AddAccountLoggerBody $body = NULL, Header $header = NULL)
     {
-        parent::__construct($header, $body);
+        parent::__construct($body, $header);
     }
 
     /**
@@ -60,7 +60,7 @@ class AddAccountLoggerEnvelope extends Envelope
      * @param  BodyInterface $body
      * @return self
      */
-    public function setBody(BodyInterface $body): Envelope
+    public function setBody(BodyInterface $body): self
     {
         if ($body instanceof AddAccountLoggerBody) {
             $this->body = $body;

@@ -12,7 +12,7 @@ namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlRoot};
 use Zimbra\Admin\Struct\{AdminAttrs, AdminAttrsImplTrait};
-use Zimbra\Soap\Request;
+use Zimbra\Soap\{EnvelopeInterface, RequestInterface};
 
 /**
  * CheckAuthConfigRequest class
@@ -26,7 +26,7 @@ use Zimbra\Soap\Request;
  * @AccessType("public_method")
  * @XmlRoot(name="CheckAuthConfigRequest")
  */
-class CheckAuthConfigRequest extends Request implements AdminAttrs
+class CheckAuthConfigRequest implements RequestInterface, AdminAttrs
 {
     use AdminAttrsImplTrait;
 
@@ -35,7 +35,7 @@ class CheckAuthConfigRequest extends Request implements AdminAttrs
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
-     * @XmlAttribute()
+     * @XmlAttribute
      */
     private $name;
 
@@ -44,7 +44,7 @@ class CheckAuthConfigRequest extends Request implements AdminAttrs
      * @Accessor(getter="getPassword", setter="setPassword")
      * @SerializedName("password")
      * @Type("string")
-     * @XmlAttribute()
+     * @XmlAttribute
      */
     private $password;
 
@@ -110,10 +110,14 @@ class CheckAuthConfigRequest extends Request implements AdminAttrs
         return $this;
     }
 
-    protected function internalInit()
+    /**
+     * Get soap envelope.
+     *
+     * @return EnvelopeInterface
+     */
+    public function getEnvelope(): EnvelopeInterface
     {
-        $this->envelope = new CheckAuthConfigEnvelope(
-            NULL,
+        return new CheckAuthConfigEnvelope(
             new CheckAuthConfigBody($this)
         );
     }

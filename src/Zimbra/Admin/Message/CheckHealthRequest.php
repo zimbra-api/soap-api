@@ -10,8 +10,8 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlElement, XmlRoot};
-use Zimbra\Soap\Request;
+use JMS\Serializer\Annotation\XmlRoot;
+use Zimbra\Soap\{EnvelopeInterface, RequestInterface};
 
 /**
  * CheckHealthRequest request class
@@ -22,15 +22,18 @@ use Zimbra\Soap\Request;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
  * @XmlRoot(name="CheckHealthRequest")
  */
-class CheckHealthRequest extends Request
+class CheckHealthRequest implements RequestInterface
 {
-    protected function internalInit()
+    /**
+     * Get soap envelope.
+     *
+     * @return EnvelopeInterface
+     */
+    public function getEnvelope(): EnvelopeInterface
     {
-        $this->envelope = new CheckHealthEnvelope(
-            NULL,
+        return new CheckHealthEnvelope(
             new CheckHealthBody($this)
         );
     }

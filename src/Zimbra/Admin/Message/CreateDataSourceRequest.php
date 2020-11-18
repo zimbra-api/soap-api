@@ -12,7 +12,7 @@ namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlElement, XmlRoot};
 use Zimbra\Admin\Struct\DataSourceSpecifier;
-use Zimbra\Soap\Request;
+use Zimbra\Soap\{EnvelopeInterface, RequestInterface};
 
 /**
  * CreateDataSourceRequest class
@@ -30,7 +30,7 @@ use Zimbra\Soap\Request;
  * @AccessType("public_method")
  * @XmlRoot(name="CreateDataSourceRequest")
  */
-class CreateDataSourceRequest extends Request
+class CreateDataSourceRequest implements RequestInterface
 {
     /**
      * Id for an existing Account
@@ -109,10 +109,14 @@ class CreateDataSourceRequest extends Request
         return $this;
     }
 
-    protected function internalInit()
+    /**
+     * Get soap envelope.
+     *
+     * @return EnvelopeInterface
+     */
+    public function getEnvelope(): EnvelopeInterface
     {
-        $this->envelope = new CreateDataSourceEnvelope(
-            NULL,
+        return new CreateDataSourceEnvelope(
             new CreateDataSourceBody($this)
         );
     }

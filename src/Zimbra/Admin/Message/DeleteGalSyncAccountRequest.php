@@ -11,7 +11,7 @@
 namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlElement, XmlRoot};
-use Zimbra\Soap\Request;
+use Zimbra\Soap\{EnvelopeInterface, RequestInterface};
 use Zimbra\Struct\AccountSelector;
 
 /**
@@ -27,9 +27,8 @@ use Zimbra\Struct\AccountSelector;
  * @AccessType("public_method")
  * @XmlRoot(name="DeleteGalSyncAccountRequest")
  */
-class DeleteGalSyncAccountRequest extends Request
+class DeleteGalSyncAccountRequest implements RequestInterface
 {
-
     /**
      * Account
      * @Accessor(getter="getAccount", setter="setAccount")
@@ -71,10 +70,14 @@ class DeleteGalSyncAccountRequest extends Request
         return $this;
     }
 
-    protected function internalInit()
+    /**
+     * Get soap envelope.
+     *
+     * @return EnvelopeInterface
+     */
+    public function getEnvelope(): EnvelopeInterface
     {
-        $this->envelope = new DeleteGalSyncAccountEnvelope(
-            NULL,
+        return new DeleteGalSyncAccountEnvelope(
             new DeleteGalSyncAccountBody($this)
         );
     }

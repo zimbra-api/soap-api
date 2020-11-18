@@ -45,38 +45,5 @@ class AutoCompleteGalBodyTest extends ZimbraStructTestCase
             ->setResponse($response);
         $this->assertSame($request, $body->getRequest());
         $this->assertSame($response, $body->getResponse());
-
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<Body xmlns:urn="urn:zimbraAccount">'
-                . '<urn:AutoCompleteGalRequest name="' . $name . '" type="'. GalSearchType::ALL() . '" needExp="false" galAcctId="' . $galAccountId . '" limit="' . $limit . '" />'
-                . '<urn:AutoCompleteGalResponse more="false" tokenizeKey="true" pagingSupported="' . $pagingSupported . '">'
-                    . '<cn />'
-                . '</urn:AutoCompleteGalResponse>'
-            . '</Body>';
-        $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($body, 'xml'));
-        $this->assertEquals($body, $this->serializer->deserialize($xml, AutoCompleteGalBody::class, 'xml'));
-
-        $json = json_encode([
-            'AutoCompleteGalRequest' => [
-                'name' => $name,
-                'type' => (string) GalSearchType::ALL(),
-                'needExp' => FALSE,
-                'galAcctId' => $galAccountId,
-                'limit' => $limit,
-                '_jsns' => 'urn:zimbraAccount',
-            ],
-            'AutoCompleteGalResponse' => [
-                'more' => FALSE,
-                'tokenizeKey' => TRUE,
-                'pagingSupported' => $pagingSupported,
-                'cn' => [
-                    new \stdClass,
-                ],
-                '_jsns' => 'urn:zimbraAccount',
-            ],
-        ]);
-
-        $this->assertSame($json, $this->serializer->serialize($body, 'json'));
-        $this->assertEquals($body, $this->serializer->deserialize($json, AutoCompleteGalBody::class, 'json'));
     }
 }

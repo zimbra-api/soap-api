@@ -13,7 +13,7 @@ namespace Zimbra\Admin\Message;
 use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlElement, XmlRoot};
 use Zimbra\Admin\Struct\MailboxByAccountIdSelector as Mbox;
 use Zimbra\Enum\CompactIndexAction  as Action;
-use Zimbra\Soap\Request;
+use Zimbra\Soap\{EnvelopeInterface, RequestInterface};
 
 /**
  * CompactIndexRequest request class
@@ -27,7 +27,7 @@ use Zimbra\Soap\Request;
  * @AccessType("public_method")
  * @XmlRoot(name="CompactIndexRequest")
  */
-class CompactIndexRequest extends Request
+class CompactIndexRequest implements RequestInterface
 {
 
     /**
@@ -108,10 +108,14 @@ class CompactIndexRequest extends Request
         return $this;
     }
 
-    protected function internalInit()
+    /**
+     * Get soap envelope.
+     *
+     * @return EnvelopeInterface
+     */
+    public function getEnvelope(): EnvelopeInterface
     {
-        $this->envelope = new CompactIndexEnvelope(
-            NULL,
+        return new CompactIndexEnvelope(
             new CompactIndexBody($this)
         );
     }

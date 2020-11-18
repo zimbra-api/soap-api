@@ -9,7 +9,6 @@ use Zimbra\Admin\Message\CountAccountResponse;
 use Zimbra\Admin\Struct\CosCountInfo;
 use Zimbra\Admin\Struct\DomainSelector;
 use Zimbra\Enum\DomainBy;
-use Zimbra\Soap\Header;
 use Zimbra\Struct\Tests\ZimbraStructTestCase;
 
 /**
@@ -50,7 +49,7 @@ class CountAccountTest extends ZimbraStructTestCase
         $this->assertSame($request, $body->getRequest());
         $this->assertSame($response, $body->getResponse());
 
-        $envelope = new CountAccountEnvelope(new Header(), $body);
+        $envelope = new CountAccountEnvelope($body);
         $this->assertSame($body, $envelope->getBody());
 
         $envelope = new CountAccountEnvelope();

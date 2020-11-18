@@ -6,7 +6,6 @@ use Zimbra\Admin\Message\AddAccountAliasBody;
 use Zimbra\Admin\Message\AddAccountAliasEnvelope;
 use Zimbra\Admin\Message\AddAccountAliasRequest;
 use Zimbra\Admin\Message\AddAccountAliasResponse;
-use Zimbra\Soap\Header;
 use Zimbra\Struct\Tests\ZimbraStructTestCase;
 
 /**
@@ -41,7 +40,7 @@ class AddAccountAliasTest extends ZimbraStructTestCase
         $this->assertSame($request, $body->getRequest());
         $this->assertSame($response, $body->getResponse());
 
-        $envelope = new AddAccountAliasEnvelope(new Header(), $body);
+        $envelope = new AddAccountAliasEnvelope($body);
         $this->assertSame($body, $envelope->getBody());
 
         $envelope = new AddAccountAliasEnvelope();

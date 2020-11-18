@@ -39,9 +39,9 @@ class AdminDestroyWaitSetEnvelope extends Envelope
      * Constructor method for AdminDestroyWaitSetEnvelope
      * @return self
      */
-    public function __construct(Header $header = NULL, AdminDestroyWaitSetBody $body = NULL)
+    public function __construct(AdminDestroyWaitSetBody $body = NULL, Header $header = NULL)
     {
-        parent::__construct($header, $body);
+        parent::__construct($body, $header);
     }
 
     /**
@@ -60,7 +60,7 @@ class AdminDestroyWaitSetEnvelope extends Envelope
      * @param  BodyInterface $body
      * @return self
      */
-    public function setBody(BodyInterface $body): Envelope
+    public function setBody(BodyInterface $body): self
     {
         if ($body instanceof AdminDestroyWaitSetBody) {
             $this->body = $body;

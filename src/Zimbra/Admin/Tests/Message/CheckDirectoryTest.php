@@ -8,7 +8,6 @@ use Zimbra\Admin\Message\CheckDirectoryRequest;
 use Zimbra\Admin\Message\CheckDirectoryResponse;
 use Zimbra\Admin\Struct\CheckDirSelector;
 use Zimbra\Admin\Struct\DirPathInfo;
-use Zimbra\Soap\Header;
 use Zimbra\Struct\Tests\ZimbraStructTestCase;
 
 /**
@@ -50,7 +49,7 @@ class CheckDirectoryTest extends ZimbraStructTestCase
         $this->assertSame($request, $body->getRequest());
         $this->assertSame($response, $body->getResponse());
 
-        $envelope = new CheckDirectoryEnvelope(new Header(), $body);
+        $envelope = new CheckDirectoryEnvelope($body);
         $this->assertSame($body, $envelope->getBody());
 
         $envelope = new CheckDirectoryEnvelope();

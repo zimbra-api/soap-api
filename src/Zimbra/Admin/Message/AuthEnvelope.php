@@ -39,9 +39,9 @@ class AuthEnvelope extends Envelope
      * Constructor method for AuthEnvelope
      * @return self
      */
-    public function __construct(Header $header = NULL, AuthBody $body = NULL)
+    public function __construct(AuthBody $body = NULL, Header $header = NULL)
     {
-        parent::__construct($header, $body);
+        parent::__construct($body, $header);
     }
 
     /**
@@ -60,7 +60,7 @@ class AuthEnvelope extends Envelope
      * @param  BodyInterface $body
      * @return self
      */
-    public function setBody(BodyInterface $body): Envelope
+    public function setBody(BodyInterface $body): self
     {
         if ($body instanceof AuthBody) {
             $this->body = $body;

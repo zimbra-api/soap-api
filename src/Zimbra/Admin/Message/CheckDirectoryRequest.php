@@ -12,7 +12,7 @@ namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlList, XmlRoot};
 use Zimbra\Admin\Struct\CheckDirSelector;
-use Zimbra\Soap\Request;
+use Zimbra\Soap\{EnvelopeInterface, RequestInterface};
 
 /**
  * CheckDirectoryRequest request class
@@ -26,7 +26,7 @@ use Zimbra\Soap\Request;
  * @AccessType("public_method")
  * @XmlRoot(name="CheckDirectoryRequest")
  */
-class CheckDirectoryRequest extends Request
+class CheckDirectoryRequest implements RequestInterface
 {
     /**
      * Directories
@@ -87,10 +87,14 @@ class CheckDirectoryRequest extends Request
         return $this->paths;
     }
 
-    protected function internalInit()
+    /**
+     * Get soap envelope.
+     *
+     * @return EnvelopeInterface
+     */
+    public function getEnvelope(): EnvelopeInterface
     {
-        $this->envelope = new CheckDirectoryEnvelope(
-            NULL,
+        return new CheckDirectoryEnvelope(
             new CheckDirectoryBody($this)
         );
     }

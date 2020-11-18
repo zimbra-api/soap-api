@@ -12,7 +12,7 @@ namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlList, XmlRoot};
 use Zimbra\Admin\Struct\CookieSpec;
-use Zimbra\Soap\Request;
+use Zimbra\Soap\{EnvelopeInterface, RequestInterface};
 
 /**
  * ClearCookie request class
@@ -26,7 +26,7 @@ use Zimbra\Soap\Request;
  * @AccessType("public_method")
  * @XmlRoot(name="ClearCookieRequest")
  */
-class ClearCookieRequest extends Request
+class ClearCookieRequest implements RequestInterface
 {
     /**
      * Specifies cookies to clean
@@ -87,10 +87,14 @@ class ClearCookieRequest extends Request
         return $this->cookies;
     }
 
-    protected function internalInit()
+    /**
+     * Get soap envelope.
+     *
+     * @return EnvelopeInterface
+     */
+    public function getEnvelope(): EnvelopeInterface
     {
-        $this->envelope = new ClearCookieEnvelope(
-            NULL,
+        return new ClearCookieEnvelope(
             new ClearCookieBody($this)
         );
     }

@@ -39,9 +39,9 @@ class AdminCreateWaitSetEnvelope extends Envelope
      * Constructor method for AdminCreateWaitSetEnvelope
      * @return self
      */
-    public function __construct(Header $header = NULL, AdminCreateWaitSetBody $body = NULL)
+    public function __construct(AdminCreateWaitSetBody $body = NULL, Header $header = NULL)
     {
-        parent::__construct($header, $body);
+        parent::__construct($body, $header);
     }
 
     /**
@@ -60,7 +60,7 @@ class AdminCreateWaitSetEnvelope extends Envelope
      * @param  BodyInterface $body
      * @return self
      */
-    public function setBody(BodyInterface $body): Envelope
+    public function setBody(BodyInterface $body): self
     {
         if ($body instanceof AdminCreateWaitSetBody) {
             $this->body = $body;

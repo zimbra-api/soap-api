@@ -52,7 +52,7 @@ class DeleteMailboxResponse implements ResponseInterface
      *
      * @return MailboxId
      */
-    public function getMbox()
+    public function getMbox(): MailboxId
     {
         return $this->mbox;
     }

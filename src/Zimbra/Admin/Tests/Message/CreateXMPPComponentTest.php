@@ -8,7 +8,6 @@ use Zimbra\Admin\Message\CreateXMPPComponentRequest;
 use Zimbra\Admin\Message\CreateXMPPComponentResponse;
 use Zimbra\Admin\Struct\{Attr, DomainSelector, ServerSelector, XMPPComponentInfo, XMPPComponentSpec};
 use Zimbra\Enum\{DomainBy, ServerBy};
-use Zimbra\Soap\Header;
 use Zimbra\Struct\Tests\ZimbraStructTestCase;
 
 /**
@@ -54,7 +53,7 @@ class CreateXMPPComponentTest extends ZimbraStructTestCase
         $this->assertSame($request, $body->getRequest());
         $this->assertSame($response, $body->getResponse());
 
-        $envelope = new CreateXMPPComponentEnvelope(new Header(), $body);
+        $envelope = new CreateXMPPComponentEnvelope($body);
         $this->assertSame($body, $envelope->getBody());
 
         $envelope = new CreateXMPPComponentEnvelope();

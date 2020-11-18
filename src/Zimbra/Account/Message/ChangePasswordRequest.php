@@ -11,7 +11,7 @@
 namespace Zimbra\Account\Message;
 
 use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlElement, XmlRoot};
-use Zimbra\Soap\Request;
+use Zimbra\Soap\{EnvelopeInterface, RequestInterface};
 use Zimbra\Struct\AccountSelector;
 
 /**
@@ -25,7 +25,7 @@ use Zimbra\Struct\AccountSelector;
  * @AccessType("public_method")
  * @XmlRoot(name="ChangePasswordRequest", namespace="urn:zimbraAccount")
  */
-class ChangePasswordRequest extends Request
+class ChangePasswordRequest implements RequestInterface
 {
     /**
      * @Accessor(getter="getAccount", setter="setAccount")
@@ -170,10 +170,14 @@ class ChangePasswordRequest extends Request
         return $this;
     }
 
-    protected function internalInit()
+    /**
+     * Get soap envelope.
+     *
+     * @return EnvelopeInterface
+     */
+    public function getEnvelope(): EnvelopeInterface
     {
-        $this->envelope = new ChangePasswordEnvelope(
-            NULL,
+        return new ChangePasswordEnvelope(
             new ChangePasswordBody($this)
         );
     }

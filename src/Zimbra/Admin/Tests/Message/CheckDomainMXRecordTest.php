@@ -8,7 +8,6 @@ use Zimbra\Admin\Message\CheckDomainMXRecordRequest;
 use Zimbra\Admin\Message\CheckDomainMXRecordResponse;
 use Zimbra\Admin\Struct\DomainSelector;
 use Zimbra\Enum\DomainBy;
-use Zimbra\Soap\Header;
 use Zimbra\Struct\Tests\ZimbraStructTestCase;
 
 /**
@@ -65,7 +64,7 @@ class CheckDomainMXRecordTest extends ZimbraStructTestCase
         $this->assertSame($request, $body->getRequest());
         $this->assertSame($response, $body->getResponse());
 
-        $envelope = new CheckDomainMXRecordEnvelope(new Header(), $body);
+        $envelope = new CheckDomainMXRecordEnvelope($body);
         $this->assertSame($body, $envelope->getBody());
 
         $envelope = new CheckDomainMXRecordEnvelope();

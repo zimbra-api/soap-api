@@ -7,7 +7,6 @@ use Zimbra\Admin\Message\ClearCookieEnvelope;
 use Zimbra\Admin\Message\ClearCookieRequest;
 use Zimbra\Admin\Message\ClearCookieResponse;
 use Zimbra\Admin\Struct\CookieSpec;
-use Zimbra\Soap\Header;
 use Zimbra\Struct\Tests\ZimbraStructTestCase;
 
 /**
@@ -42,7 +41,7 @@ class ClearCookieTest extends ZimbraStructTestCase
         $this->assertSame($request, $body->getRequest());
         $this->assertSame($response, $body->getResponse());
 
-        $envelope = new ClearCookieEnvelope(new Header(), $body);
+        $envelope = new ClearCookieEnvelope($body);
         $this->assertSame($body, $envelope->getBody());
 
         $envelope = new ClearCookieEnvelope();

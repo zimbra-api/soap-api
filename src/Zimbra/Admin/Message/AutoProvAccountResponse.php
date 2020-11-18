@@ -10,7 +10,7 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlElement, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlElement, XmlRoot};
 use Zimbra\Admin\Struct\AccountInfo;
 use Zimbra\Soap\ResponseInterface;
 
@@ -33,7 +33,7 @@ class AutoProvAccountResponse implements ResponseInterface
      * @Accessor(getter="getAccount", setter="setAccount")
      * @SerializedName("account")
      * @Type("Zimbra\Admin\Struct\AccountInfo")
-     * @XmlElement()
+     * @XmlElement
      */
     private $account;
 
@@ -52,7 +52,7 @@ class AutoProvAccountResponse implements ResponseInterface
      *
      * @return AccountInfo
      */
-    public function getAccount()
+    public function getAccount(): AccountInfo
     {
         return $this->account;
     }

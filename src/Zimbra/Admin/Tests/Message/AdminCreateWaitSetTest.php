@@ -9,7 +9,6 @@ use Zimbra\Admin\Message\AdminCreateWaitSetResponse;
 use Zimbra\Enum\InterestType;
 use Zimbra\Struct\IdAndType;
 use Zimbra\Struct\WaitSetAddSpec;
-use Zimbra\Soap\Header;
 use Zimbra\Struct\Tests\ZimbraStructTestCase;
 
 /**
@@ -82,7 +81,7 @@ class AdminCreateWaitSetTest extends ZimbraStructTestCase
         $this->assertSame($request, $body->getRequest());
         $this->assertSame($response, $body->getResponse());
 
-        $envelope = new AdminCreateWaitSetEnvelope(new Header(), $body);
+        $envelope = new AdminCreateWaitSetEnvelope($body);
         $this->assertSame($body, $envelope->getBody());
 
         $envelope = new AdminCreateWaitSetEnvelope();

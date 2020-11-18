@@ -13,7 +13,7 @@ namespace Zimbra\Admin\Message;
 use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlList, XmlRoot};
 use Zimbra\Admin\Struct\IntIdAttr;
 use Zimbra\Enum\DedupAction;
-use Zimbra\Soap\Request;
+use Zimbra\Soap\{EnvelopeInterface, RequestInterface};
 
 /**
  * DedupeBlobsRequest class
@@ -27,7 +27,7 @@ use Zimbra\Soap\Request;
  * @AccessType("public_method")
  * @XmlRoot(name="DedupeBlobsRequest")
  */
-class DedupeBlobsRequest extends Request
+class DedupeBlobsRequest implements RequestInterface
 {
     /**
      * Action to perform - one of start|status|stop
@@ -120,10 +120,14 @@ class DedupeBlobsRequest extends Request
         return $this;
     }
 
-    protected function internalInit()
+    /**
+     * Get soap envelope.
+     *
+     * @return EnvelopeInterface
+     */
+    public function getEnvelope(): EnvelopeInterface
     {
-        $this->envelope = new DedupeBlobsEnvelope(
-            NULL,
+        return new DedupeBlobsEnvelope(
             new DedupeBlobsBody($this)
         );
     }

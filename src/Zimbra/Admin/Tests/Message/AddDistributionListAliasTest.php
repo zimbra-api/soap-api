@@ -6,7 +6,6 @@ use Zimbra\Admin\Message\AddDistributionListAliasBody;
 use Zimbra\Admin\Message\AddDistributionListAliasEnvelope;
 use Zimbra\Admin\Message\AddDistributionListAliasRequest;
 use Zimbra\Admin\Message\AddDistributionListAliasResponse;
-use Zimbra\Soap\Header;
 use Zimbra\Struct\Tests\ZimbraStructTestCase;
 
 /**
@@ -41,7 +40,7 @@ class AddDistributionListAliasTest extends ZimbraStructTestCase
         $this->assertSame($request, $body->getRequest());
         $this->assertSame($response, $body->getResponse());
 
-        $envelope = new AddDistributionListAliasEnvelope(new Header(), $body);
+        $envelope = new AddDistributionListAliasEnvelope($body);
         $this->assertSame($body, $envelope->getBody());
 
         $envelope = new AddDistributionListAliasEnvelope();

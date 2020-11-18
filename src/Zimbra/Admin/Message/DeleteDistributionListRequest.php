@@ -11,7 +11,7 @@
 namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlRoot};
-use Zimbra\Soap\Request;
+use Zimbra\Soap\{EnvelopeInterface, RequestInterface};
 
 /**
  * DeleteDistributionListRequest class
@@ -25,7 +25,7 @@ use Zimbra\Soap\Request;
  * @AccessType("public_method")
  * @XmlRoot(name="DeleteDistributionListRequest")
  */
-class DeleteDistributionListRequest extends Request
+class DeleteDistributionListRequest implements RequestInterface
 {
     /**
      * Zimbra ID
@@ -103,10 +103,14 @@ class DeleteDistributionListRequest extends Request
         return $this;
     }
 
-    protected function internalInit()
+    /**
+     * Get soap envelope.
+     *
+     * @return EnvelopeInterface
+     */
+    public function getEnvelope(): EnvelopeInterface
     {
-        $this->envelope = new DeleteDistributionListEnvelope(
-            NULL,
+        return new DeleteDistributionListEnvelope(
             new DeleteDistributionListBody($this)
         );
     }

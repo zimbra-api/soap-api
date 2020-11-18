@@ -9,7 +9,6 @@ use Zimbra\Admin\Message\CreateCosResponse;
 use Zimbra\Admin\Struct\Attr;
 use Zimbra\Admin\Struct\CosInfo;
 use Zimbra\Admin\Struct\CosInfoAttr;
-use Zimbra\Soap\Header;
 use Zimbra\Struct\Tests\ZimbraStructTestCase;
 
 /**
@@ -50,7 +49,7 @@ class CreateCosTest extends ZimbraStructTestCase
         $this->assertSame($request, $body->getRequest());
         $this->assertSame($response, $body->getResponse());
 
-        $envelope = new CreateCosEnvelope(new Header(), $body);
+        $envelope = new CreateCosEnvelope($body);
         $this->assertSame($body, $envelope->getBody());
 
         $envelope = new CreateCosEnvelope();

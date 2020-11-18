@@ -41,33 +41,5 @@ class ChangePasswordRequestTest extends ZimbraStructTestCase
         $this->assertSame($oldPassword, $req->getOldPassword());
         $this->assertSame($newPassword, $req->getPassword());
         $this->assertSame($virtualHost, $req->getVirtualHost());
-
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<ChangePasswordRequest xmlns="urn:zimbraAccount">'
-                . '<account by="' . AccountBy::NAME() . '">' . $value . '</account>'
-                . '<oldPassword>' . $oldPassword . '</oldPassword>'
-                . '<password>' . $newPassword . '</password>'
-                . '<virtualHost>' . $virtualHost . '</virtualHost>'
-            . '</ChangePasswordRequest>';
-        $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($req, 'xml'));
-        $this->assertEquals($req, $this->serializer->deserialize($xml, ChangePasswordRequest::class, 'xml'));
-
-        $json = json_encode([
-            'account' => [
-                'by' => (string) AccountBy::NAME(),
-                '_content' => $value,
-            ],
-            'oldPassword' => [
-                '_content' => $oldPassword,
-            ],
-            'password' => [
-                '_content' => $newPassword,
-            ],
-            'virtualHost' => [
-                '_content' => $virtualHost,
-            ],
-        ]);
-        $this->assertSame($json, $this->serializer->serialize($req, 'json'));
-        $this->assertEquals($req, $this->serializer->deserialize($json, ChangePasswordRequest::class, 'json'));
     }
 }

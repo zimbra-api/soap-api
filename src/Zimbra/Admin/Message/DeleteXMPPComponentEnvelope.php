@@ -39,9 +39,9 @@ class DeleteXMPPComponentEnvelope extends Envelope
      * Constructor method for DeleteXMPPComponentEnvelope
      * @return self
      */
-    public function __construct(Header $header = NULL, DeleteXMPPComponentBody $body = NULL)
+    public function __construct(DeleteXMPPComponentBody $body = NULL, Header $header = NULL)
     {
-        parent::__construct($header, $body);
+        parent::__construct($body, $header);
     }
 
     /**
@@ -60,7 +60,7 @@ class DeleteXMPPComponentEnvelope extends Envelope
      * @param  BodyInterface $body
      * @return self
      */
-    public function setBody(BodyInterface $body): Envelope
+    public function setBody(BodyInterface $body): self
     {
         if ($body instanceof DeleteXMPPComponentBody) {
             $this->body = $body;

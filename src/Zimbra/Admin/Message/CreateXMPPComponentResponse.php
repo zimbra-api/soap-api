@@ -51,7 +51,7 @@ class CreateXMPPComponentResponse implements ResponseInterface
      *
      * @return XMPPComponentInfo
      */
-    public function getComponent()
+    public function getComponent(): XMPPComponentInfo
     {
         return $this->component;
     }

@@ -8,7 +8,6 @@ use Zimbra\Admin\Message\CreateAccountRequest;
 use Zimbra\Admin\Message\CreateAccountResponse;
 use Zimbra\Admin\Struct\AccountInfo;
 use Zimbra\Admin\Struct\Attr;
-use Zimbra\Soap\Header;
 use Zimbra\Struct\Tests\ZimbraStructTestCase;
 
 /**
@@ -54,7 +53,7 @@ class CreateAccountTest extends ZimbraStructTestCase
         $this->assertSame($request, $body->getRequest());
         $this->assertSame($response, $body->getResponse());
 
-        $envelope = new CreateAccountEnvelope(new Header(), $body);
+        $envelope = new CreateAccountEnvelope($body);
         $this->assertSame($body, $envelope->getBody());
 
         $envelope = new CreateAccountEnvelope();

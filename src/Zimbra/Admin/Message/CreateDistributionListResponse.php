@@ -32,7 +32,7 @@ class CreateDistributionListResponse implements ResponseInterface
      * @Accessor(getter="getDl", setter="setDl")
      * @SerializedName("dl")
      * @Type("Zimbra\Admin\Struct\DistributionListInfo")
-     * @XmlElement()
+     * @XmlElement
      */
     private $dl;
 
@@ -51,7 +51,7 @@ class CreateDistributionListResponse implements ResponseInterface
      *
      * @return DistributionListInfo
      */
-    public function getDl()
+    public function getDl(): DistributionListInfo
     {
         return $this->dl;
     }

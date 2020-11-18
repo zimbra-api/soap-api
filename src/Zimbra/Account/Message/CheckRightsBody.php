@@ -10,7 +10,7 @@
 
 namespace Zimbra\Account\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlElement, XmlNamespace, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlElement, XmlRoot};
 use Zimbra\Soap\{Body, BodyInterface, RequestInterface, ResponseInterface};
 
 /**
@@ -21,7 +21,6 @@ use Zimbra\Soap\{Body, BodyInterface, RequestInterface, ResponseInterface};
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020 by Nguyen Van Nguyen.
- * @XmlNamespace(uri="urn:zimbraAccount", prefix="urn")
  * @AccessType("public_method")
  * @XmlRoot(name="Body")
  */

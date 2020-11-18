@@ -32,7 +32,7 @@ class CreateAlwaysOnClusterResponse implements ResponseInterface
      * @Accessor(getter="getAlwaysOnCluster", setter="setAlwaysOnCluster")
      * @SerializedName("alwaysOnCluster")
      * @Type("Zimbra\Admin\Struct\AlwaysOnClusterInfo")
-     * @XmlElement()
+     * @XmlElement
      */
     private $cluster;
 
@@ -53,7 +53,7 @@ class CreateAlwaysOnClusterResponse implements ResponseInterface
      *
      * @return AlwaysOnClusterInfo
      */
-    public function getAlwaysOnCluster()
+    public function getAlwaysOnCluster(): AlwaysOnClusterInfo
     {
         return $this->alwaysOnCluster;
     }

@@ -32,7 +32,7 @@ class CreateServerResponse implements ResponseInterface
      * @Accessor(getter="getServer", setter="setServer")
      * @SerializedName("server")
      * @Type("Zimbra\Admin\Struct\ServerInfo")
-     * @XmlElement()
+     * @XmlElement
      */
     private $server;
 
@@ -53,7 +53,7 @@ class CreateServerResponse implements ResponseInterface
      *
      * @return ServerInfo
      */
-    public function getServer()
+    public function getServer(): ServerInfo
     {
         return $this->server;
     }

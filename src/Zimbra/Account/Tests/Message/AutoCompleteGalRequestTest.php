@@ -41,20 +41,5 @@ class AutoCompleteGalRequestTest extends ZimbraStructTestCase
         $this->assertTrue($req->getNeedCanExpand());
         $this->assertSame($galAccountId, $req->getGalAccountId());
         $this->assertSame($limit, $req->getLimit());
-
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<AutoCompleteGalRequest xmlns="urn:zimbraAccount" name="' . $name . '" type="'. GalSearchType::ACCOUNT() . '" needExp="true" galAcctId="' . $galAccountId . '" limit="' . $limit . '" />';
-        $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($req, 'xml'));
-        $this->assertEquals($req, $this->serializer->deserialize($xml, AutoCompleteGalRequest::class, 'xml'));
-
-        $json = json_encode([
-            'name' => $name,
-            'type' => (string) GalSearchType::ACCOUNT(),
-            'needExp' => TRUE,
-            'galAcctId' => $galAccountId,
-            'limit' => $limit,
-        ]);
-        $this->assertSame($json, $this->serializer->serialize($req, 'json'));
-        $this->assertEquals($req, $this->serializer->deserialize($json, AutoCompleteGalRequest::class, 'json'));
     }
 }

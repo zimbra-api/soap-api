@@ -7,7 +7,6 @@ use Zimbra\Admin\Message\ConfigureZimletEnvelope;
 use Zimbra\Admin\Message\ConfigureZimletRequest;
 use Zimbra\Admin\Message\ConfigureZimletResponse;
 use Zimbra\Admin\Struct\AttachmentIdAttrib;
-use Zimbra\Soap\Header;
 use Zimbra\Struct\Tests\ZimbraStructTestCase;
 
 /**
@@ -38,7 +37,7 @@ class ConfigureZimletTest extends ZimbraStructTestCase
         $this->assertSame($request, $body->getRequest());
         $this->assertSame($response, $body->getResponse());
 
-        $envelope = new ConfigureZimletEnvelope(new Header(), $body);
+        $envelope = new ConfigureZimletEnvelope($body);
         $this->assertSame($body, $envelope->getBody());
 
         $envelope = new ConfigureZimletEnvelope();

@@ -6,7 +6,6 @@ use Zimbra\Admin\Message\CheckHostnameResolveBody;
 use Zimbra\Admin\Message\CheckHostnameResolveEnvelope;
 use Zimbra\Admin\Message\CheckHostnameResolveRequest;
 use Zimbra\Admin\Message\CheckHostnameResolveResponse;
-use Zimbra\Soap\Header;
 use Zimbra\Struct\Tests\ZimbraStructTestCase;
 
 /**
@@ -50,7 +49,7 @@ class CheckHostnameResolveTest extends ZimbraStructTestCase
         $this->assertSame($request, $body->getRequest());
         $this->assertSame($response, $body->getResponse());
 
-        $envelope = new CheckHostnameResolveEnvelope(new Header(), $body);
+        $envelope = new CheckHostnameResolveEnvelope($body);
         $this->assertSame($body, $envelope->getBody());
 
         $envelope = new CheckHostnameResolveEnvelope();

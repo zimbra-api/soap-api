@@ -12,7 +12,7 @@ namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlRoot};
 use Zimbra\Admin\Struct\{AdminAttrs, AdminAttrsImplTrait};
-use Zimbra\Soap\Request;
+use Zimbra\Soap\{EnvelopeInterface, RequestInterface};
 
 /**
  * CreateAccountRequest class
@@ -30,7 +30,7 @@ use Zimbra\Soap\Request;
  * @AccessType("public_method")
  * @XmlRoot(name="CreateAccountRequest")
  */
-class CreateAccountRequest extends Request implements AdminAttrs
+class CreateAccountRequest implements RequestInterface, AdminAttrs
 {
     use AdminAttrsImplTrait;
 
@@ -116,10 +116,14 @@ class CreateAccountRequest extends Request implements AdminAttrs
         return $this;
     }
 
-    protected function internalInit()
+    /**
+     * Get soap envelope.
+     *
+     * @return EnvelopeInterface
+     */
+    public function getEnvelope(): EnvelopeInterface
     {
-        $this->envelope = new CreateAccountEnvelope(
-            NULL,
+        return new CreateAccountEnvelope(
             new CreateAccountBody($this)
         );
     }

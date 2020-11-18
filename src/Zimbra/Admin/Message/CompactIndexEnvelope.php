@@ -39,9 +39,9 @@ class CompactIndexEnvelope extends Envelope
      * Constructor method for CompactIndexEnvelope
      * @return self
      */
-    public function __construct(Header $header = NULL, CompactIndexBody $body = NULL)
+    public function __construct(CompactIndexBody $body = NULL, Header $header = NULL)
     {
-        parent::__construct($header, $body);
+        parent::__construct($body, $header);
     }
 
     /**
@@ -60,7 +60,7 @@ class CompactIndexEnvelope extends Envelope
      * @param  BodyInterface $body
      * @return self
      */
-    public function setBody(BodyInterface $body): Envelope
+    public function setBody(BodyInterface $body): self
     {
         if ($body instanceof CompactIndexBody) {
             $this->body = $body;

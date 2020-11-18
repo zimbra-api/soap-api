@@ -33,7 +33,7 @@ class AutoProvTaskControlResponse implements ResponseInterface
      * @Accessor(getter="getStatus", setter="setStatus")
      * @SerializedName("status")
      * @Type("Zimbra\Enum\AutoProvTaskStatus")
-     * @XmlAttribute()
+     * @XmlAttribute
      */
     private $status;
 

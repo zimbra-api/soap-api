@@ -10,7 +10,6 @@ use Zimbra\Admin\Struct\CosInfo;
 use Zimbra\Admin\Struct\CosInfoAttr;
 use Zimbra\Admin\Struct\CosSelector;
 use Zimbra\Enum\CosBy;
-use Zimbra\Soap\Header;
 use Zimbra\Struct\Tests\ZimbraStructTestCase;
 
 /**
@@ -53,7 +52,7 @@ class CopyCosTest extends ZimbraStructTestCase
         $this->assertSame($request, $body->getRequest());
         $this->assertSame($response, $body->getResponse());
 
-        $envelope = new CopyCosEnvelope(new Header(), $body);
+        $envelope = new CopyCosEnvelope($body);
         $this->assertSame($body, $envelope->getBody());
 
         $envelope = new CopyCosEnvelope();

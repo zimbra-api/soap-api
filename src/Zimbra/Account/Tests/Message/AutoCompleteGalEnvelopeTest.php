@@ -37,7 +37,7 @@ class AutoCompleteGalEnvelopeTest extends ZimbraStructTestCase
         );
 
         $body = new AutoCompleteGalBody($request, $response);
-        $envelope = new AutoCompleteGalEnvelope(NULL, $body);
+        $envelope = new AutoCompleteGalEnvelope($body);
         $this->assertSame($body, $envelope->getBody());
 
         $envelope = new AutoCompleteGalEnvelope();

@@ -11,7 +11,7 @@
 namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlRoot};
-use Zimbra\Soap\Request;
+use Zimbra\Soap\{EnvelopeInterface, RequestInterface};
 use Zimbra\Enum\GalSearchType;
 
 /**
@@ -26,7 +26,7 @@ use Zimbra\Enum\GalSearchType;
  * @AccessType("public_method")
  * @XmlRoot(name="AutoCompleteGalRequest")
  */
-class AutoCompleteGalRequest extends Request
+class AutoCompleteGalRequest implements RequestInterface
 {
     /**
      * domain
@@ -213,10 +213,14 @@ class AutoCompleteGalRequest extends Request
         return $this;
     }
 
-    protected function internalInit()
+    /**
+     * Get soap envelope.
+     *
+     * @return EnvelopeInterface
+     */
+    public function getEnvelope(): EnvelopeInterface
     {
-        $this->envelope = new AutoCompleteGalEnvelope(
-            NULL,
+        return new AutoCompleteGalEnvelope(
             new AutoCompleteGalBody($this)
         );
     }

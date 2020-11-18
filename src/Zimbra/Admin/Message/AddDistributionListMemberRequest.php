@@ -11,7 +11,7 @@
 namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlList, XmlRoot};
-use Zimbra\Soap\Request;
+use Zimbra\Soap\{EnvelopeInterface, RequestInterface};
 
 /**
  * AddDistributionListMemberRequest request class
@@ -25,7 +25,7 @@ use Zimbra\Soap\Request;
  * @AccessType("public_method")
  * @XmlRoot(name="AddDistributionListMemberRequest")
  */
-class AddDistributionListMemberRequest extends Request
+class AddDistributionListMemberRequest implements RequestInterface
 {
     /**
      * @Accessor(getter="getId", setter="setId")
@@ -119,10 +119,14 @@ class AddDistributionListMemberRequest extends Request
         return $this->members;
     }
 
-    protected function internalInit()
+    /**
+     * Get soap envelope.
+     *
+     * @return EnvelopeInterface
+     */
+    public function getEnvelope(): EnvelopeInterface
     {
-        $this->envelope = new AddDistributionListMemberEnvelope(
-            NULL,
+        return new AddDistributionListMemberEnvelope(
             new AddDistributionListMemberBody($this)
         );
     }

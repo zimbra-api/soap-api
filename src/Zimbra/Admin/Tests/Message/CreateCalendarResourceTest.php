@@ -8,7 +8,6 @@ use Zimbra\Admin\Message\CreateCalendarResourceRequest;
 use Zimbra\Admin\Message\CreateCalendarResourceResponse;
 use Zimbra\Admin\Struct\Attr;
 use Zimbra\Admin\Struct\CalendarResourceInfo;
-use Zimbra\Soap\Header;
 use Zimbra\Struct\Tests\ZimbraStructTestCase;
 
 /**
@@ -54,7 +53,7 @@ class CreateCalendarResourceTest extends ZimbraStructTestCase
         $this->assertSame($request, $body->getRequest());
         $this->assertSame($response, $body->getResponse());
 
-        $envelope = new CreateCalendarResourceEnvelope(new Header(), $body);
+        $envelope = new CreateCalendarResourceEnvelope($body);
         $this->assertSame($body, $envelope->getBody());
 
         $envelope = new CreateCalendarResourceEnvelope();
