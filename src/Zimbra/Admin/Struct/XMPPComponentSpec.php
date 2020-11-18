@@ -13,7 +13,7 @@ namespace Zimbra\Admin\Struct;
 use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlElement, XmlRoot};
 
 /**
- * XmppComponentSpec struct class
+ * XMPPComponentSpec struct class
  *
  * @package    Zimbra
  * @subpackage Admin
@@ -23,7 +23,7 @@ use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAt
  * @AccessType("public_method")
  * @XmlRoot(name="xmppcomponent")
  */
-class XmppComponentSpec extends AdminAttrsImpl
+class XMPPComponentSpec extends AdminAttrsImpl
 {
     /**
      * @Accessor(getter="getName", setter="setName")

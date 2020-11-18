@@ -6,9 +6,8 @@ use Zimbra\Admin\Message\CreateXMPPComponentBody;
 use Zimbra\Admin\Message\CreateXMPPComponentEnvelope;
 use Zimbra\Admin\Message\CreateXMPPComponentRequest;
 use Zimbra\Admin\Message\CreateXMPPComponentResponse;
-use Zimbra\Admin\Struct\XMPPComponentSpec;
-use Zimbra\Admin\Struct\XMPPComponentInfo;
-use Zimbra\Enum\VolumeType;
+use Zimbra\Admin\Struct\{Attr, DomainSelector, ServerSelector, XMPPComponentInfo, XMPPComponentSpec};
+use Zimbra\Enum\{DomainBy, ServerBy};
 use Zimbra\Soap\Header;
 use Zimbra\Struct\Tests\ZimbraStructTestCase;
 
@@ -19,31 +18,31 @@ class CreateXMPPComponentTest extends ZimbraStructTestCase
 {
     public function testCreateXMPPComponent()
     {
-        $id = mt_rand(0, 10);
-        $type = $this->faker->randomElement(VolumeType::toArray());
-        $threshold = mt_rand(0, 10);
-        $mgbits = mt_rand(0, 10);
-        $mbits = mt_rand(0, 10);
-        $fgbits = mt_rand(0, 10);
-        $fbits = mt_rand(0, 10);
         $name = $this->faker->word;
-        $rootPath = $this->faker->word;
+        $id = $this->faker->uuid;
+        $key = $this->faker->word;
+        $value = $this->faker->word;
+        $domainName = $this->faker->word;
+        $serverName = $this->faker->word;
 
-        $volume = new VolumeInfo(
-            $id, $name, $rootPath, $type, TRUE, $threshold, $mgbits, $mbits, $fgbits, $fbits, FALSE
-        );
+        $attr = new Attr($key, $value);
+        $domain = new DomainSelector(DomainBy::NAME(), $value);
+        $server = new ServerSelector(ServerBy::NAME(), $value);
 
-        $request = new CreateXMPPComponentRequest($volume);
-        $this->assertSame($volume, $request->getVolume());
-        $request = new CreateXMPPComponentRequest(new VolumeInfo());
-        $request->setVolume($volume);
-        $this->assertSame($volume, $request->getVolume());
+        $xmppSpec = new XMPPComponentSpec($name, $domain, $server, [$attr]);
+        $request = new CreateXMPPComponentRequest($xmppSpec);
+        $this->assertSame($xmppSpec, $request->getComponent());
+        $request = new CreateXMPPComponentRequest(new XMPPComponentSpec('', $domain, $server));
+        $request->setComponent($xmppSpec);
+        $this->assertSame($xmppSpec, $request->getComponent());
 
-        $response = new CreateXMPPComponentResponse($volume);
-        $this->assertSame($volume, $response->getVolume());
-        $response = new CreateXMPPComponentResponse();
-        $response->setVolume($volume);
-        $this->assertSame($volume, $response->getVolume());
+
+        $xmppInfo = new XMPPComponentInfo($name, $id, $domainName, $serverName, [$attr]);
+        $response = new CreateXMPPComponentResponse($xmppInfo);
+        $this->assertSame($xmppInfo, $response->getComponent());
+        $response = new CreateXMPPComponentResponse(new XMPPComponentInfo('', ''));
+        $response->setComponent($xmppInfo);
+        $this->assertSame($xmppInfo, $response->getComponent());
 
         $body = new CreateXMPPComponentBody($request, $response);
         $this->assertSame($request, $body->getRequest());
@@ -66,32 +65,16 @@ class CreateXMPPComponentTest extends ZimbraStructTestCase
             . '<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">'
                 . '<soap:Body>'
                     . '<urn:CreateXMPPComponentRequest>'
-                        . '<volume '
-                            . 'id="' . $id . '" '
-                            . 'name="' . $name . '" '
-                            . 'rootpath="' . $rootPath . '" '
-                            . 'type="' . $type . '" '
-                            . 'compressBlobs="true" '
-                            . 'compressionThreshold="' . $threshold . '" '
-                            . 'mgbits="' . $mgbits . '" '
-                            . 'mbits="' . $mbits . '" '
-                            . 'fgbits="' . $fgbits . '" '
-                            . 'fbits="' . $fbits . '" '
-                            . 'isCurrent="false" />'
+                        . '<xmppcomponent name="' . $name . '">'
+                            . '<a n="' . $key . '">' . $value . '</a>'
+                            . '<domain by="' . DomainBy::NAME() . '">' . $value . '</domain>'
+                            . '<server by="' . ServerBy::NAME() . '">' . $value . '</server>'
+                        . '</xmppcomponent>'
                     . '</urn:CreateXMPPComponentRequest>'
                     . '<urn:CreateXMPPComponentResponse>'
-                        . '<volume '
-                            . 'id="' . $id . '" '
-                            . 'name="' . $name . '" '
-                            . 'rootpath="' . $rootPath . '" '
-                            . 'type="' . $type . '" '
-                            . 'compressBlobs="true" '
-                            . 'compressionThreshold="' . $threshold . '" '
-                            . 'mgbits="' . $mgbits . '" '
-                            . 'mbits="' . $mbits . '" '
-                            . 'fgbits="' . $fgbits . '" '
-                            . 'fbits="' . $fbits . '" '
-                            . 'isCurrent="false" />'
+                        . '<xmppcomponent name="' . $name . '" id="' . $id . '" x-domainName="' . $domainName . '" x-serverName="' . $serverName . '">'
+                            . '<a n="' . $key . '">' . $value . '</a>'
+                        . '</xmppcomponent>'
                     . '</urn:CreateXMPPComponentResponse>'
                 . '</soap:Body>'
             . '</soap:Envelope>';
@@ -101,34 +84,37 @@ class CreateXMPPComponentTest extends ZimbraStructTestCase
         $json = json_encode([
             'Body' => [
                 'CreateXMPPComponentRequest' => [
-                    'volume' => [
-                        'id' => $id,
+                    'xmppcomponent' => [
+                        'a' => [
+                            [
+                                'n' => $key,
+                                '_content' => $value,
+                            ],
+                        ],
                         'name' => $name,
-                        'rootpath' => $rootPath,
-                        'type' => $type,
-                        'compressBlobs' => TRUE,
-                        'compressionThreshold' => $threshold,
-                        'mgbits' => $mgbits,
-                        'mbits' => $mbits,
-                        'fgbits' => $fgbits,
-                        'fbits' => $fbits,
-                        'isCurrent' => FALSE,
+                        'domain' => [
+                            'by' => (string) DomainBy::NAME(),
+                            '_content' => $value,
+                        ],
+                        'server' => [
+                            'by' => (string) ServerBy::NAME(),
+                            '_content' => $value,
+                        ],
                     ],
                     '_jsns' => 'urn:zimbraAdmin',
                 ],
                 'CreateXMPPComponentResponse' => [
-                    'volume' => [
-                        'id' => $id,
+                    'xmppcomponent' => [
+                        'a' => [
+                            [
+                                'n' => $key,
+                                '_content' => $value,
+                            ],
+                        ],
                         'name' => $name,
-                        'rootpath' => $rootPath,
-                        'type' => $type,
-                        'compressBlobs' => TRUE,
-                        'compressionThreshold' => $threshold,
-                        'mgbits' => $mgbits,
-                        'mbits' => $mbits,
-                        'fgbits' => $fgbits,
-                        'fbits' => $fbits,
-                        'isCurrent' => FALSE,
+                        'id' => $id,
+                        'x-domainName' => $domainName,
+                        'x-serverName' => $serverName,
                     ],
                     '_jsns' => 'urn:zimbraAdmin',
                 ],

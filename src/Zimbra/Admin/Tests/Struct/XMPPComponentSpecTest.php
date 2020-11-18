@@ -2,16 +2,16 @@
 
 namespace Zimbra\Admin\Tests\Struct;
 
-use Zimbra\Admin\Struct\{Attr, DomainSelector, ServerSelector, XmppComponentSpec};
+use Zimbra\Admin\Struct\{Attr, DomainSelector, ServerSelector, XMPPComponentSpec};
 use Zimbra\Enum\{DomainBy, ServerBy};
 use Zimbra\Struct\Tests\ZimbraStructTestCase;
 
 /**
- * Testcase class for XmppComponentSpec.
+ * Testcase class for XMPPComponentSpec.
  */
-class XmppComponentSpecTest extends ZimbraStructTestCase
+class XMPPComponentSpecTest extends ZimbraStructTestCase
 {
-    public function testXmppComponentSpec()
+    public function testXMPPComponentSpec()
     {
         $name = $this->faker->word;
         $value = $this->faker->word;
@@ -20,12 +20,12 @@ class XmppComponentSpecTest extends ZimbraStructTestCase
         $domain = new DomainSelector(DomainBy::NAME(), $value);
         $server = new ServerSelector(ServerBy::NAME(), $value);
 
-        $xmpp = new XmppComponentSpec($name, $domain, $server);
+        $xmpp = new XMPPComponentSpec($name, $domain, $server);
         $this->assertSame($name, $xmpp->getName());
         $this->assertSame($domain, $xmpp->getDomain());
         $this->assertSame($server, $xmpp->getServer());
 
-        $xmpp = new XmppComponentSpec('', new DomainSelector(DomainBy::ID()), new ServerSelector(ServerBy::ID()));
+        $xmpp = new XMPPComponentSpec('', new DomainSelector(DomainBy::ID()), new ServerSelector(ServerBy::ID()));
         $xmpp->setName($name)
              ->setDomain($domain)
              ->setServer($server)
@@ -41,7 +41,7 @@ class XmppComponentSpecTest extends ZimbraStructTestCase
                 . '<server by="' . ServerBy::NAME() . '">' . $value . '</server>'
             . '</xmppcomponent>';
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($xmpp, 'xml'));
-        $this->assertEquals($xmpp, $this->serializer->deserialize($xml, XmppComponentSpec::class, 'xml'));
+        $this->assertEquals($xmpp, $this->serializer->deserialize($xml, XMPPComponentSpec::class, 'xml'));
 
         $json = json_encode([
             'a' => [
@@ -61,6 +61,6 @@ class XmppComponentSpecTest extends ZimbraStructTestCase
             ],
         ]);
         $this->assertSame($json, $this->serializer->serialize($xmpp, 'json'));
-        $this->assertEquals($xmpp, $this->serializer->deserialize($json, XmppComponentSpec::class, 'json'));
+        $this->assertEquals($xmpp, $this->serializer->deserialize($json, XMPPComponentSpec::class, 'json'));
     }
 }
