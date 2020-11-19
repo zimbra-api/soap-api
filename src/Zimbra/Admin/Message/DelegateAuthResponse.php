@@ -26,7 +26,6 @@ use Zimbra\Soap\ResponseInterface;
  */
 class DelegateAuthResponse implements ResponseInterface
 {
-
     /**
      * Auth token
      * @Accessor(getter="getAuthToken", setter="setAuthToken")

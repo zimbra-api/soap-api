@@ -33,7 +33,6 @@ class AddAccountAliasTest extends ZimbraStructTestCase
         $body = new AddAccountAliasBody($request, $response);
         $this->assertSame($request, $body->getRequest());
         $this->assertSame($response, $body->getResponse());
-
         $body = new AddAccountAliasBody();
         $body->setRequest($request)
              ->setResponse($response);
@@ -42,7 +41,6 @@ class AddAccountAliasTest extends ZimbraStructTestCase
 
         $envelope = new AddAccountAliasEnvelope($body);
         $this->assertSame($body, $envelope->getBody());
-
         $envelope = new AddAccountAliasEnvelope();
         $envelope->setBody($body);
         $this->assertSame($body, $envelope->getBody());

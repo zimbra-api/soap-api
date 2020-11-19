@@ -27,6 +27,7 @@ class AddAccountLoggerTest extends ZimbraStructTestCase
 
         $logger = new LoggerInfo($category, LoggingLevel::INFO());
         $account = new AccountSelector(AccountBy::NAME(), $value);
+
         $request = new AddAccountLoggerRequest($logger, $account, $id);
         $this->assertSame($logger, $request->getLogger());
         $this->assertSame($account, $request->getAccount());

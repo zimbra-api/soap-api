@@ -52,7 +52,7 @@ class DelegateAuthRequest extends Request
     /**
      * Constructor method for DelegateAuthRequest
      * @param  Account $account
-     * @param  integer $duration
+     * @param  int     $duration
      * @return self
      */
     public function __construct(Account $account, $duration = NULL)
@@ -88,9 +88,9 @@ class DelegateAuthRequest extends Request
     /**
      * Gets duration
      *
-     * @return integer
+     * @return int
      */
-    public function getDuration(): ?integer
+    public function getDuration(): ?int
     {
         return $this->duration;
     }
