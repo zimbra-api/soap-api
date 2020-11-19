@@ -11,6 +11,7 @@
 namespace Zimbra\Admin\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlRoot};
+use Zimbra\Enum\ZimletDeployStatus as DeployStatus;
 
 /**
  * ZimletDeploymentStatus struct class
@@ -38,7 +39,7 @@ class ZimletDeploymentStatus
      * Status - valid values succeeded|failed|pending
      * @Accessor(getter="getStatus", setter="setStatus")
      * @SerializedName("status")
-     * @Type("string")
+     * @Type("Zimbra\Enum\ZimletDeployStatus")
      * @XmlAttribute
      */
     private $status;
@@ -55,11 +56,11 @@ class ZimletDeploymentStatus
     /**
      * Constructor method for ZimletDeploymentStatus
      * @param  string $server
-     * @param  string $status
+     * @param  DeployStatus $status
      * @param  string $error
      * @return self
      */
-    public function __construct($server, $status, $error = NULL)
+    public function __construct($server, DeployStatus $status, $error = NULL)
     {
         $this->setServer($server)
              ->setStatus($status);
@@ -93,9 +94,9 @@ class ZimletDeploymentStatus
     /**
      * Gets status
      *
-     * @return string
+     * @return DeployStatus
      */
-    public function getStatus(): string
+    public function getStatus(): DeployStatus
     {
         return $this->status;
     }
@@ -103,12 +104,12 @@ class ZimletDeploymentStatus
     /**
      * Sets status
      *
-     * @param  string $status
+     * @param  DeployStatus $status
      * @return self
      */
-    public function setStatus($status): self
+    public function setStatus(DeployStatus $status): self
     {
-        $this->status = trim($status);
+        $this->status = $status;
         return $this;
     }
 
