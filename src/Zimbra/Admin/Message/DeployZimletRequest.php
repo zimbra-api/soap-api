@@ -12,6 +12,7 @@ namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlElement, XmlRoot};
 use Zimbra\Admin\Struct\AttachmentIdAttrib;
+use Zimbra\Enum\ZimletDeployAction as DeployAction;
 use Zimbra\Soap\Request;
 
 /**
@@ -32,7 +33,7 @@ class DeployZimletRequest extends Request
      * Action - valid values : deployAll|deployLocal|status
      * @Accessor(getter="getAction", setter="setAction")
      * @SerializedName("action")
-     * @Type("string")
+     * @Type("Zimbra\Enum\ZimletDeployAction")
      * @XmlAttribute
      */
     private $action;
@@ -66,13 +67,13 @@ class DeployZimletRequest extends Request
 
     /**
      * Constructor method for DeployZimletRequest
-     * @param  string $action
+     * @param  DeployAction $action
      * @param  AttachmentIdAttrib $content
      * @param  bool $flushCache
      * @param  bool $synchronous
      * @return self
      */
-    public function __construct($action, AttachmentIdAttrib $content, $flushCache = NULL, $synchronous = NULL)
+    public function __construct(DeployAction $action, AttachmentIdAttrib $content, $flushCache = NULL, $synchronous = NULL)
     {
         $this->setAction($action)
              ->setContent($content);
@@ -87,9 +88,9 @@ class DeployZimletRequest extends Request
     /**
      * Gets action
      *
-     * @return string
+     * @return DeployAction
      */
-    public function getAction(): string
+    public function getAction(): DeployAction
     {
         return $this->action;
     }
@@ -97,12 +98,12 @@ class DeployZimletRequest extends Request
     /**
      * Sets action
      *
-     * @param  string $action
+     * @param  DeployAction $action
      * @return self
      */
-    public function setAction($action): self
+    public function setAction(DeployAction $action): self
     {
-        $this->action = trim($action);
+        $this->action = $action;
         return $this;
     }
 
