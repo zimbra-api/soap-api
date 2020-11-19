@@ -17,11 +17,11 @@ use Zimbra\Enum\AccountBy;
 use Zimbra\Struct\AccountSelector;
 use Zimbra\Struct\Tests\ZimbraStructTestCase;
 /**
- * Testcase class for AuthEnvelope.
+ * Testcase class for Auth.
  */
-class AuthEnvelopeTest extends ZimbraStructTestCase
+class AuthTest extends ZimbraStructTestCase
 {
-    public function testAuthEnvelope()
+    public function testAuth()
     {
         $name = $this->faker->word;
         $value = $this->faker->word;
@@ -47,10 +47,10 @@ class AuthEnvelopeTest extends ZimbraStructTestCase
 
         $account = new AccountSelector(AccountBy::NAME(), $value);
         $preauth = new PreAuth($time, $value, $time);
-        $authToken = new AuthToken($value, true, $lifetime);
+        $authToken = new AuthToken($value, TRUE, $lifetime);
         $session = new Session($id, $type);
 
-        $attr = new Attr($name, $value, true);
+        $attr = new Attr($name, $value, TRUE);
         $attrs = new AuthAttrs([$attr]);
 
         $pref = new Pref($name, $value, $time);
@@ -67,15 +67,72 @@ class AuthEnvelopeTest extends ZimbraStructTestCase
             $prefs,
             $attrs,
             $requestedSkin,
-            true,
-            true,
+            FALSE,
+            FALSE,
             $twoFactorCode,
-            true,
+            FALSE,
             $trustedToken,
             $deviceId,
-            true,
+            FALSE,
             $tokenType
         );
+
+        $this->assertSame($account, $request->getAccount());
+        $this->assertSame($password, $request->getPassword());
+        $this->assertSame($recoveryCode, $request->getRecoveryCode());
+        $this->assertSame($preauth, $request->getPreAuth());
+        $this->assertSame($authToken, $request->getAuthToken());
+        $this->assertSame($jwtToken, $request->getJwtToken());
+        $this->assertSame($virtualHost, $request->getVirtualHost());
+        $this->assertSame($prefs, $request->getPrefs());
+        $this->assertSame($attrs, $request->getAttrs());
+        $this->assertSame($requestedSkin, $request->getRequestedSkin());
+        $this->assertFalse($request->getPersistAuthTokenCookie());
+        $this->assertFalse($request->getCsrfSupported());
+        $this->assertSame($twoFactorCode, $request->getTwoFactorCode());
+        $this->assertFalse($request->getDeviceTrusted());
+        $this->assertSame($trustedToken, $request->getTrustedDeviceToken());
+        $this->assertSame($deviceId, $request->getDeviceId());
+        $this->assertFalse($request->getGenerateDeviceId());
+        $this->assertSame($tokenType, $request->getTokenType());
+
+        $req = new AuthRequest();
+        $request->setAccount($account)
+            ->setPassword($password)
+            ->setRecoveryCode($recoveryCode)
+            ->setPreAuth($preauth)
+            ->setAuthToken($authToken)
+            ->setJwtToken($jwtToken)
+            ->setVirtualHost($virtualHost)
+            ->setPrefs($prefs)
+            ->setAttrs($attrs)
+            ->setRequestedSkin($requestedSkin)
+            ->setPersistAuthTokenCookie(TRUE)
+            ->setCsrfSupported(TRUE)
+            ->setTwoFactorCode($twoFactorCode)
+            ->setDeviceTrusted(TRUE)
+            ->setTrustedDeviceToken($trustedToken)
+            ->setDeviceId($deviceId)
+            ->setGenerateDeviceId(TRUE)
+            ->setTokenType($tokenType);
+        $this->assertSame($account, $request->getAccount());
+        $this->assertSame($password, $request->getPassword());
+        $this->assertSame($recoveryCode, $request->getRecoveryCode());
+        $this->assertSame($preauth, $request->getPreAuth());
+        $this->assertSame($authToken, $request->getAuthToken());
+        $this->assertSame($jwtToken, $request->getJwtToken());
+        $this->assertSame($virtualHost, $request->getVirtualHost());
+        $this->assertSame($prefs, $request->getPrefs());
+        $this->assertSame($attrs, $request->getAttrs());
+        $this->assertSame($requestedSkin, $request->getRequestedSkin());
+        $this->assertTrue($request->getPersistAuthTokenCookie());
+        $this->assertTrue($request->getCsrfSupported());
+        $this->assertSame($twoFactorCode, $request->getTwoFactorCode());
+        $this->assertTrue($request->getDeviceTrusted());
+        $this->assertSame($trustedToken, $request->getTrustedDeviceToken());
+        $this->assertSame($deviceId, $request->getDeviceId());
+        $this->assertTrue($request->getGenerateDeviceId());
+        $this->assertSame($tokenType, $request->getTokenType());
 
         $response = new AuthResponse(
             $token,
@@ -87,14 +144,67 @@ class AuthEnvelopeTest extends ZimbraStructTestCase
             $deviceId,
             $trustedToken,
             $trustLifetime,
-            true,
+            FALSE,
             $prefs,
             $attrs,
-            true,
-            true
+            FALSE,
+            FALSE
         );
+        $this->assertSame($token, $response->getAuthToken());
+        $this->assertSame($lifetime, $response->getLifetime());
+        $this->assertSame($session, $response->getSession());
+        $this->assertSame($refer, $response->getRefer());
+        $this->assertSame($skin, $response->getSkin());
+        $this->assertSame($csrfToken, $response->getCsrfToken());
+        $this->assertSame($deviceId, $response->getDeviceId());
+        $this->assertSame($trustedToken, $response->getTrustedToken());
+        $this->assertSame($trustLifetime, $response->getTrustLifetime());
+        $this->assertFalse($response->getZmgProxy());
+        $this->assertSame($prefs, $response->getPrefs());
+        $this->assertSame($attrs, $response->getAttrs());
+        $this->assertFalse($response->getTwoFactorAuthRequired());
+        $this->assertFalse($response->getTrustedDevicesEnabled());
+
+        $res = new AuthResponse();
+        $response->setAuthToken($token)
+            ->setLifetime($lifetime)
+            ->setSession($session)
+            ->setRefer($refer)
+            ->setSkin($skin)
+            ->setCsrfToken($csrfToken)
+            ->setDeviceId($deviceId)
+            ->setTrustedToken($trustedToken)
+            ->setTrustLifetime($trustLifetime)
+            ->setZmgProxy(TRUE)
+            ->setPrefs($prefs)
+            ->setAttrs($attrs)
+            ->setTwoFactorAuthRequired(TRUE)
+            ->setTrustedDevicesEnabled(TRUE);
+        $this->assertSame($token, $response->getAuthToken());
+        $this->assertSame($lifetime, $response->getLifetime());
+        $this->assertSame($session, $response->getSession());
+        $this->assertSame($refer, $response->getRefer());
+        $this->assertSame($skin, $response->getSkin());
+        $this->assertSame($csrfToken, $response->getCsrfToken());
+        $this->assertSame($deviceId, $response->getDeviceId());
+        $this->assertSame($trustedToken, $response->getTrustedToken());
+        $this->assertSame($trustLifetime, $response->getTrustLifetime());
+        $this->assertTrue($response->getZmgProxy());
+        $this->assertSame($prefs, $response->getPrefs());
+        $this->assertSame($attrs, $response->getAttrs());
+        $this->assertTrue($response->getTwoFactorAuthRequired());
+        $this->assertTrue($response->getTrustedDevicesEnabled());
 
         $body = new AuthBody($request, $response);
+        $this->assertSame($request, $body->getRequest());
+        $this->assertSame($response, $body->getResponse());
+
+        $body = new AuthBody();
+        $body->setRequest($request)
+            ->setResponse($response);
+        $this->assertSame($request, $body->getRequest());
+        $this->assertSame($response, $body->getResponse());
+
         $envelope = new AuthEnvelope($body);
         $this->assertSame($body, $envelope->getBody());
 

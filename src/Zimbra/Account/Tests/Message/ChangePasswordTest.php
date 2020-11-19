@@ -10,11 +10,11 @@ use Zimbra\Enum\AccountBy;
 use Zimbra\Struct\AccountSelector;
 use Zimbra\Struct\Tests\ZimbraStructTestCase;
 /**
- * Testcase class for ChangePasswordEnvelope.
+ * Testcase class for ChangePassword.
  */
-class ChangePasswordEnvelopeTest extends ZimbraStructTestCase
+class ChangePasswordTest extends ZimbraStructTestCase
 {
-    public function testChangePasswordEnvelope()
+    public function testChangePassword()
     {
         $value = $this->faker->word;
         $oldPassword = $this->faker->word;
@@ -30,15 +30,45 @@ class ChangePasswordEnvelopeTest extends ZimbraStructTestCase
             $newPassword,
             $virtualHost
         );
+        $this->assertSame($account, $request->getAccount());
+        $this->assertSame($oldPassword, $request->getOldPassword());
+        $this->assertSame($newPassword, $request->getPassword());
+        $this->assertSame($virtualHost, $request->getVirtualHost());
+
+        $request = new ChangePasswordRequest(new AccountSelector(AccountBy::ID(), ''), '', '');
+        $request->setAccount($account)
+            ->setOldPassword($oldPassword)
+            ->setPassword($newPassword)
+            ->setVirtualHost($virtualHost);
+        $this->assertSame($account, $request->getAccount());
+        $this->assertSame($oldPassword, $request->getOldPassword());
+        $this->assertSame($newPassword, $request->getPassword());
+        $this->assertSame($virtualHost, $request->getVirtualHost());
+
         $response = new ChangePasswordResponse(
             $authToken,
             $lifetime
         );
+        $this->assertSame($authToken, $response->getAuthToken());
+        $this->assertSame($lifetime, $response->getLifetime());
+
+        $response = new ChangePasswordResponse('', 0);
+        $response->setAuthToken($authToken)
+            ->setLifetime($lifetime);
+        $this->assertSame($authToken, $response->getAuthToken());
+        $this->assertSame($lifetime, $response->getLifetime());
+
         $body = new ChangePasswordBody($request, $response);
+        $this->assertSame($request, $body->getRequest());
+        $this->assertSame($response, $body->getResponse());
+        $body = new ChangePasswordBody();
+        $body->setRequest($request)
+            ->setResponse($response);
+        $this->assertSame($request, $body->getRequest());
+        $this->assertSame($response, $body->getResponse());
 
         $envelope = new ChangePasswordEnvelope($body);
         $this->assertSame($body, $envelope->getBody());
-
         $envelope = new ChangePasswordEnvelope();
         $envelope->setBody($body);
         $this->assertSame($body, $envelope->getBody());

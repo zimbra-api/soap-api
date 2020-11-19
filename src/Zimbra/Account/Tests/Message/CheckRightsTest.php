@@ -7,28 +7,51 @@ use Zimbra\Account\Struct\{CheckRightsRightInfo, CheckRightsTargetInfo, CheckRig
 use Zimbra\Enum\{TargetType, TargetBy};
 use Zimbra\Struct\Tests\ZimbraStructTestCase;
 /**
- * Testcase class for CheckRightsEnvelope.
+ * Testcase class for CheckRights.
  */
-class CheckRightsEnvelopeTest extends ZimbraStructTestCase
+class CheckRightsTest extends ZimbraStructTestCase
 {
-    public function testCheckRightsEnvelope()
+    public function testCheckRights()
     {
         $key1 = $this->faker->word;
         $key2 = $this->faker->word;
         $right1 = $this->faker->word;
         $right2 = $this->faker->word;
 
-        $target1 = new CheckRightsTargetSpec(
+        $targetSpec = new CheckRightsTargetSpec(
             TargetType::DOMAIN(), TargetBy::ID(), $key1, [$right1]
         );
-        $rightInfo2 = new CheckRightsRightInfo($right2, TRUE);
-        $target2 = new CheckRightsTargetInfo(
-            TargetType::ACCOUNT(), TargetBy::NAME(), $key2, TRUE, [$rightInfo2]
+        $rightInfo = new CheckRightsRightInfo($right2, TRUE);
+        $targetInfo = new CheckRightsTargetInfo(
+            TargetType::ACCOUNT(), TargetBy::NAME(), $key2, TRUE, [$rightInfo]
         );
 
-        $request = new CheckRightsRequest([$target1]);
-        $response = new CheckRightsResponse([$target2]);
+        $request = new CheckRightsRequest([$targetSpec]);
+        $this->assertSame([$targetSpec], $request->getTargets());
+
+        $request = new CheckRightsRequest();
+        $request->setTargets([$targetSpec])
+            ->addTarget($targetSpec);
+        $this->assertSame([$targetSpec, $targetSpec], $request->getTargets());
+        $request->setTargets([$targetSpec]);
+
+        $response = new CheckRightsResponse([$targetInfo]);
+        $this->assertSame([$targetInfo], $response->getTargets());
+
+        $response = new CheckRightsResponse();
+        $response->setTargets([$targetInfo])
+            ->addTarget($targetInfo);
+        $this->assertSame([$targetInfo, $targetInfo], $response->getTargets());
+        $response->setTargets([$targetInfo]);
+
         $body = new CheckRightsBody($request, $response);
+        $this->assertSame($request, $body->getRequest());
+        $this->assertSame($response, $body->getResponse());
+        $body = new CheckRightsBody();
+        $body->setRequest($request)
+            ->setResponse($response);
+        $this->assertSame($request, $body->getRequest());
+        $this->assertSame($response, $body->getResponse());
 
         $envelope = new CheckRightsEnvelope($body);
         $this->assertSame($body, $envelope->getBody());
