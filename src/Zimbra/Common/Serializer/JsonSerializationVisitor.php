@@ -172,6 +172,11 @@ final class JsonSerializationVisitor extends AbstractVisitor implements Serializ
                 }
             }
         }
+        elseif ($metadata->xmlAttributeMap) {
+            foreach ($v as $key => $value) {
+                $this->data[$key] = $value;
+            }
+        }
         else {
             if ($this->_isXmlElement($metadata) && \is_scalar($v)) {
                 $this->data[$metadata->serializedName] = ['_content' => $v];

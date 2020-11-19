@@ -73,7 +73,7 @@ class SessionInfo
     /**
      * Extra attributes - possibly including "push"
      * @Accessor(getter="getExtraAttributes", setter="setExtraAttributes")
-     * @Type("array")
+     * @Type("array<string, string>")
      * @XmlAttributeMap
      */
     private $extraAttributes;
@@ -108,24 +108,24 @@ class SessionInfo
     }
 
     /**
-     * Gets ession ID
+     * Gets session ID
      *
      * @return string
      */
     public function getSessionId(): string
     {
-        return $this->id;
+        return $this->sessionId;
     }
 
     /**
-     * Sets ession ID
+     * Sets session ID
      *
-     * @param  string $id
+     * @param  string $sessionId
      * @return self
      */
-    public function setSessionId($id): self
+    public function setSessionId($sessionId): self
     {
-        $this->id = trim($id);
+        $this->sessionId = trim($sessionId);
         return $this;
     }
 
@@ -220,9 +220,9 @@ class SessionInfo
     /**
      * Gets the extraAttributes
      *
-     * @return string
+     * @return array
      */
-    public function getExtraAttributes(): string
+    public function getExtraAttributes(): array
     {
         return $this->extraAttributes;
     }
@@ -230,7 +230,7 @@ class SessionInfo
     /**
      * Sets the extraAttributes
      *
-     * @param  string $attributes
+     * @param  array $attributes
      * @return self
      */
     public function setExtraAttributes(array $attributes): self
