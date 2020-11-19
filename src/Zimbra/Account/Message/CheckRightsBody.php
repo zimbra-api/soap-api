@@ -11,7 +11,7 @@
 namespace Zimbra\Account\Message;
 
 use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlElement, XmlRoot};
-use Zimbra\Soap\{Body, BodyInterface, RequestInterface, ResponseInterface};
+use Zimbra\Soap\{Body, RequestInterface, ResponseInterface};
 
 /**
  * CheckRightsBody class

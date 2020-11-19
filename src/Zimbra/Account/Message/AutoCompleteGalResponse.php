@@ -23,7 +23,7 @@ use Zimbra\Soap\ResponseInterface;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020 by Nguyen Van Nguyen.
  * @AccessType("public_method")
- * @XmlRoot(name="AutoCompleteGalResponse", namespace="urn:zimbraAccount")
+ * @XmlRoot(name="AutoCompleteGalResponse")
  */
 class AutoCompleteGalResponse implements ResponseInterface
 {

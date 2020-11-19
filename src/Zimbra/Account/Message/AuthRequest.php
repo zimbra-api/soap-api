@@ -12,7 +12,7 @@ namespace Zimbra\Account\Message;
 
 use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlElement, XmlRoot};
 use Zimbra\Account\Struct\{Attr, AuthAttrs, AuthPrefs, AuthToken, PreAuth, Pref};
-use Zimbra\Soap\{EnvelopeInterface, RequestInterface};
+use Zimbra\Soap\Request;
 use Zimbra\Struct\AccountSelector;
 
 /**
@@ -24,9 +24,9 @@ use Zimbra\Struct\AccountSelector;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020 by Nguyen Van Nguyen.
  * @AccessType("public_method")
- * @XmlRoot(name="AuthRequest", namespace="urn:zimbraAccount")
+ * @XmlRoot(name="AuthRequest")
  */
-class AuthRequest implements RequestInterface
+class AuthRequest extends Request
 {
     /**
      * @Accessor(getter="getPersistAuthTokenCookie", setter="setPersistAuthTokenCookie")
@@ -708,14 +708,16 @@ class AuthRequest implements RequestInterface
     }
 
     /**
-     * Get soap envelope.
+     * Initialize the soap envelope
      *
-     * @return EnvelopeInterface
+     * @return void
      */
-    public function getEnvelope(): EnvelopeInterface
+    protected function envelopeInit(): void
     {
-        return new AuthEnvelope(
-            new AuthBody($this)
-        );
+        if (!($this->envelope instanceof AuthEnvelope)) {
+            $this->envelope = new AuthEnvelope(
+                new AuthBody($this)
+            );
+        }
     }
 }
