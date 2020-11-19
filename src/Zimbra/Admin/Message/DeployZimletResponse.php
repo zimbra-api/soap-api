@@ -78,7 +78,7 @@ class DeployZimletResponse implements ResponseInterface
      * @param  ZimletDeploymentStatus $progress
      * @return self
      */
-    public function addVolumeBlobsProgress(ZimletDeploymentStatus $progress): self
+    public function addProgress(ZimletDeploymentStatus $progress): self
     {
         $this->progresses[] = $progress;
         return $this;
