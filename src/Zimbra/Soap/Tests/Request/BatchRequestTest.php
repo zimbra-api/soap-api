@@ -4,7 +4,6 @@ namespace Zimbra\Soap\Tests\Request;
 
 use JMS\Serializer\Annotation\{SerializedName, Type, XmlRoot, XmlValue};
 use Zimbra\Soap\Request;
-use Zimbra\Soap\EnvelopeInterface;
 use Zimbra\Soap\Request\Batch;
 use Zimbra\Struct\Tests\ZimbraStructTestCase;
 
@@ -64,14 +63,8 @@ class FooRequest extends Request
      */
     private $value = 'foo';
 
-    /**
-     * Get soap envelope.
-     *
-     * @return EnvelopeInterface
-     */
-    public function getEnvelope(): EnvelopeInterface
+    protected function envelopeInit(): void
     {
-        return $this->envelope;
     }
 }
 
@@ -87,13 +80,7 @@ class BarRequest extends Request
      */
     private $value = 'bar';
 
-    /**
-     * Get soap envelope.
-     *
-     * @return EnvelopeInterface
-     */
-    public function getEnvelope(): EnvelopeInterface
+    protected function envelopeInit(): void
     {
-        return $this->envelope;
     }
 }

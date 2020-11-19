@@ -11,7 +11,7 @@
 namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlRoot};
-use Zimbra\Soap\{RequestInterface, EnvelopeInterface};
+use Zimbra\Soap\Request;
 
 /**
  * AddAccountAliasRequest class
@@ -25,7 +25,7 @@ use Zimbra\Soap\{RequestInterface, EnvelopeInterface};
  * @AccessType("public_method")
  * @XmlRoot(name="AddAccountAliasRequest")
  */
-class AddAccountAliasRequest implements RequestInterface
+class AddAccountAliasRequest extends Request
 {
     /**
      * @Accessor(getter="getId", setter="setId")
@@ -100,14 +100,16 @@ class AddAccountAliasRequest implements RequestInterface
     }
 
     /**
-     * Get soap envelope.
+     * Initialize the soap envelope
      *
-     * @return EnvelopeInterface
+     * @return void
      */
-    public function getEnvelope(): EnvelopeInterface
+    protected function envelopeInit(): void
     {
-        return new AddAccountAliasEnvelope(
-            new AddAccountAliasBody($this)
-        );
+        if (!($this->envelope instanceof AddAccountAliasEnvelope)) {
+            $this->envelope = new AddAccountAliasEnvelope(
+                new AddAccountAliasBody($this)
+            );
+        }
     }
 }

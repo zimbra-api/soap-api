@@ -12,7 +12,7 @@ namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlElement, XmlRoot};
 use Zimbra\Admin\Struct\AttachmentIdAttrib;
-use Zimbra\Soap\{EnvelopeInterface, RequestInterface};
+use Zimbra\Soap\Request;
 
 /**
  * DeployZimletRequest class
@@ -26,7 +26,7 @@ use Zimbra\Soap\{EnvelopeInterface, RequestInterface};
  * @AccessType("public_method")
  * @XmlRoot(name="DeployZimletRequest")
  */
-class DeployZimletRequest implements RequestInterface
+class DeployZimletRequest extends Request
 {
     /**
      * Action - valid values : deployAll|deployLocal|status
@@ -173,14 +173,16 @@ class DeployZimletRequest implements RequestInterface
     }
 
     /**
-     * Get soap envelope.
+     * Initialize the soap envelope
      *
-     * @return EnvelopeInterface
+     * @return void
      */
-    public function getEnvelope(): EnvelopeInterface
+    protected function envelopeInit(): void
     {
-        return new DeployZimletEnvelope(
-            new DeployZimletBody($this)
-        );
+        if (!($this->envelope instanceof DeployZimletEnvelope)) {
+            $this->envelope = new DeployZimletEnvelope(
+                new DeployZimletBody($this)
+            );
+        }
     }
 }

@@ -28,7 +28,6 @@ use Zimbra\Soap\Request;
  */
 class DeleteXMPPComponentRequest extends Request
 {
-
     /**
      * XMPP Component details
      * @Accessor(getter="getComponent", setter="setComponent")
@@ -73,14 +72,16 @@ class DeleteXMPPComponentRequest extends Request
     }
 
     /**
-     * Get soap envelope.
+     * Initialize the soap envelope
      *
-     * @return EnvelopeInterface
+     * @return void
      */
-    public function getEnvelope(): EnvelopeInterface
+    protected function envelopeInit(): void
     {
-        return new DeleteXMPPComponentEnvelope(
-            new DeleteXMPPComponentBody($this)
-        );
+        if (!($this->envelope instanceof DeleteXMPPComponentEnvelope)) {
+            $this->envelope = new DeleteXMPPComponentEnvelope(
+                new DeleteXMPPComponentBody($this)
+            );
+        }
     }
 }

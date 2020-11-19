@@ -11,7 +11,7 @@
 namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlElement, XmlRoot};
-use Zimbra\Soap\{EnvelopeInterface, RequestInterface};
+use Zimbra\Soap\Request;
 
 /**
  * DeleteCosRequest class
@@ -25,7 +25,7 @@ use Zimbra\Soap\{EnvelopeInterface, RequestInterface};
  * @AccessType("public_method")
  * @XmlRoot(name="DeleteCosRequest")
  */
-class DeleteCosRequest implements RequestInterface
+class DeleteCosRequest extends Request
 {
     /**
      * Zimbra ID
@@ -69,14 +69,16 @@ class DeleteCosRequest implements RequestInterface
     }
 
     /**
-     * Get soap envelope.
+     * Initialize the soap envelope
      *
-     * @return EnvelopeInterface
+     * @return void
      */
-    public function getEnvelope(): EnvelopeInterface
+    protected function envelopeInit(): void
     {
-        return new DeleteCosEnvelope(
-            new DeleteCosBody($this)
-        );
+        if (!($this->envelope instanceof DeleteCosEnvelope)) {
+            $this->envelope = new DeleteCosEnvelope(
+                new DeleteCosBody($this)
+            );
+        }
     }
 }

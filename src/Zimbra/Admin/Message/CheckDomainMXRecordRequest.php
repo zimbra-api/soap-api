@@ -12,7 +12,7 @@ namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlElement, XmlRoot};
 use Zimbra\Admin\Struct\DomainSelector;
-use Zimbra\Soap\{EnvelopeInterface, RequestInterface};
+use Zimbra\Soap\Request;
 
 /**
  * CheckDomainMXRecordRequest request class
@@ -26,7 +26,7 @@ use Zimbra\Soap\{EnvelopeInterface, RequestInterface};
  * @AccessType("public_method")
  * @XmlRoot(name="CheckDomainMXRecordRequest")
  */
-class CheckDomainMXRecordRequest implements RequestInterface
+class CheckDomainMXRecordRequest extends Request
 {
     /**
      * Domain
@@ -73,14 +73,16 @@ class CheckDomainMXRecordRequest implements RequestInterface
     }
 
     /**
-     * Get soap envelope.
+     * Initialize the soap envelope
      *
-     * @return EnvelopeInterface
+     * @return void
      */
-    public function getEnvelope(): EnvelopeInterface
+    protected function envelopeInit(): void
     {
-        return new CheckDomainMXRecordEnvelope(
-            new CheckDomainMXRecordBody($this)
-        );
+        if (!($this->envelope instanceof CheckDomainMXRecordEnvelope)) {
+            $this->envelope = new CheckDomainMXRecordEnvelope(
+                new CheckDomainMXRecordBody($this)
+            );
+        }
     }
 }

@@ -11,7 +11,7 @@
 namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlElement, XmlRoot};
-use Zimbra\Soap\{EnvelopeInterface, RequestInterface};
+use Zimbra\Soap\Request;
 use Zimbra\Struct\AccountSelector as Account;
 
 /**
@@ -26,7 +26,7 @@ use Zimbra\Struct\AccountSelector as Account;
  * @AccessType("public_method")
  * @XmlRoot(name="AuthRequest")
  */
-class AuthRequest implements RequestInterface
+class AuthRequest extends Request
 {
     /**
      * Name. Only one of {auth-name} or <account> can be specified
@@ -326,14 +326,16 @@ class AuthRequest implements RequestInterface
     }
 
     /**
-     * Get soap envelope.
+     * Initialize the soap envelope
      *
-     * @return EnvelopeInterface
+     * @return void
      */
-    public function getEnvelope(): EnvelopeInterface
+    protected function envelopeInit(): void
     {
-        return new AuthEnvelope(
-            new AuthBody($this)
-        );
+        if (!($this->envelope instanceof AuthEnvelope)) {
+            $this->envelope = new AuthEnvelope(
+                new AuthBody($this)
+            );
+        }
     }
 }

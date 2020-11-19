@@ -11,7 +11,7 @@
 namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\XmlRoot;
-use Zimbra\Soap\{EnvelopeInterface, RequestInterface};
+use Zimbra\Soap\Request;
 
 /**
  * CheckHealthRequest request class
@@ -24,17 +24,19 @@ use Zimbra\Soap\{EnvelopeInterface, RequestInterface};
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
  * @XmlRoot(name="CheckHealthRequest")
  */
-class CheckHealthRequest implements RequestInterface
+class CheckHealthRequest extends Request
 {
     /**
-     * Get soap envelope.
+     * Initialize the soap envelope
      *
-     * @return EnvelopeInterface
+     * @return void
      */
-    public function getEnvelope(): EnvelopeInterface
+    protected function envelopeInit(): void
     {
-        return new CheckHealthEnvelope(
-            new CheckHealthBody($this)
-        );
+        if (!($this->envelope instanceof CheckHealthEnvelope)) {
+            $this->envelope = new CheckHealthEnvelope(
+                new CheckHealthBody($this)
+            );
+        }
     }
 }

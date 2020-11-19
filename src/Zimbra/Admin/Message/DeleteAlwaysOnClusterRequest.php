@@ -71,14 +71,16 @@ class DeleteAlwaysOnClusterRequest extends Request
     }
 
     /**
-     * Get soap envelope.
+     * Initialize the soap envelope
      *
-     * @return EnvelopeInterface
+     * @return void
      */
-    public function getEnvelope(): EnvelopeInterface
+    protected function envelopeInit(): void
     {
-        return new DeleteAlwaysOnClusterEnvelope(
-            new DeleteAlwaysOnClusterBody($this)
-        );
+        if (!($this->envelope instanceof DeleteAlwaysOnClusterEnvelope)) {
+            $this->envelope = new DeleteAlwaysOnClusterEnvelope(
+                new DeleteAlwaysOnClusterBody($this)
+            );
+        }
     }
 }

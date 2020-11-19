@@ -12,7 +12,7 @@ namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlElement, XmlRoot};
 use Zimbra\Admin\Struct\{CosSelector, Policy, PolicyHolder};
-use Zimbra\Soap\{EnvelopeInterface, RequestInterface};
+use Zimbra\Soap\Request;
 
 /**
  * CreateSystemRetentionPolicyRequest class
@@ -28,7 +28,7 @@ use Zimbra\Soap\{EnvelopeInterface, RequestInterface};
  * @AccessType("public_method")
  * @XmlRoot(name="CreateSystemRetentionPolicyRequest")
  */
-class CreateSystemRetentionPolicyRequest implements RequestInterface
+class CreateSystemRetentionPolicyRequest extends Request
 {
     /**
      * @Accessor(getter="getCos", setter="setCos")
@@ -151,14 +151,16 @@ class CreateSystemRetentionPolicyRequest implements RequestInterface
     }
 
     /**
-     * Get soap envelope.
+     * Initialize the soap envelope
      *
-     * @return EnvelopeInterface
+     * @return void
      */
-    public function getEnvelope(): EnvelopeInterface
+    protected function envelopeInit(): void
     {
-        return new CreateSystemRetentionPolicyEnvelope(
-            new CreateSystemRetentionPolicyBody($this)
-        );
+        if (!($this->envelope instanceof CreateSystemRetentionPolicyEnvelope)) {
+            $this->envelope = new CreateSystemRetentionPolicyEnvelope(
+                new CreateSystemRetentionPolicyBody($this)
+            );
+        }
     }
 }

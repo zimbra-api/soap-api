@@ -12,7 +12,7 @@ namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlElement, XmlRoot};
 use Zimbra\Admin\Struct\MailboxByAccountIdSelector as Mailbox;
-use Zimbra\Soap\{EnvelopeInterface, RequestInterface};
+use Zimbra\Soap\Request;
 
 /**
  * DeleteMailboxRequest class
@@ -29,7 +29,7 @@ use Zimbra\Soap\{EnvelopeInterface, RequestInterface};
  * @AccessType("public_method")
  * @XmlRoot(name="DeleteMailboxRequest")
  */
-class DeleteMailboxRequest implements RequestInterface
+class DeleteMailboxRequest extends Request
 {
     /**
      * Mailbox
@@ -75,14 +75,16 @@ class DeleteMailboxRequest implements RequestInterface
     }
 
     /**
-     * Get soap envelope.
+     * Initialize the soap envelope
      *
-     * @return EnvelopeInterface
+     * @return void
      */
-    public function getEnvelope(): EnvelopeInterface
+    protected function envelopeInit(): void
     {
-        return new DeleteMailboxEnvelope(
-            new DeleteMailboxBody($this)
-        );
+        if (!($this->envelope instanceof DeleteMailboxEnvelope)) {
+            $this->envelope = new DeleteMailboxEnvelope(
+                new DeleteMailboxBody($this)
+            );
+        }
     }
 }

@@ -27,4 +27,22 @@ abstract class Request implements RequestInterface
      * @Exclude
      */
     protected $envelope;
+
+    /**
+     * Get soap envelope.
+     *
+     * @return EnvelopeInterface
+     */
+    public function getEnvelope(): EnvelopeInterface
+    {
+        $this->envelopeInit();
+        return $this->envelope;
+    }
+
+    /**
+     * Initialize the soap envelope
+     *
+     * @return void
+     */
+    abstract protected function envelopeInit(): void;
 }

@@ -12,7 +12,7 @@ namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlRoot};
 use Zimbra\Admin\Struct\AttachmentIdAttrib;
-use Zimbra\Soap\{EnvelopeInterface, RequestInterface};
+use Zimbra\Soap\Request;
 
 /**
  * DumpSessionsRequest class
@@ -26,7 +26,7 @@ use Zimbra\Soap\{EnvelopeInterface, RequestInterface};
  * @AccessType("public_method")
  * @XmlRoot(name="DumpSessionsRequest")
  */
-class DumpSessionsRequest implements RequestInterface
+class DumpSessionsRequest extends Request
 {
     /**
      * List Sessions flag
@@ -107,14 +107,16 @@ class DumpSessionsRequest implements RequestInterface
     }
 
     /**
-     * Get soap envelope.
+     * Initialize the soap envelope
      *
-     * @return EnvelopeInterface
+     * @return void
      */
-    public function getEnvelope(): EnvelopeInterface
+    protected function envelopeInit(): void
     {
-        return new DumpSessionsEnvelope(
-            new DumpSessionsBody($this)
-        );
+        if (!($this->envelope instanceof DumpSessionsEnvelope)) {
+            $this->envelope = new DumpSessionsEnvelope(
+                new DumpSessionsBody($this)
+            );
+        }
     }
 }

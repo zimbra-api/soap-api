@@ -11,7 +11,7 @@
 namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlList, XmlRoot};
-use Zimbra\Soap\{EnvelopeInterface, RequestInterface};
+use Zimbra\Soap\Request;
 use Zimbra\Struct\{Id, WaitSetAddSpec};
 
 /**
@@ -39,7 +39,7 @@ use Zimbra\Struct\{Id, WaitSetAddSpec};
  * @AccessType("public_method")
  * @XmlRoot(name="AdminWaitSetRequest")
  */
-class AdminWaitSetRequest implements RequestInterface
+class AdminWaitSetRequest extends Request
 {
     /**
      * Waitset ID
@@ -417,14 +417,16 @@ class AdminWaitSetRequest implements RequestInterface
     }
 
     /**
-     * Get soap envelope.
+     * Initialize the soap envelope
      *
-     * @return EnvelopeInterface
+     * @return void
      */
-    public function getEnvelope(): EnvelopeInterface
+    protected function envelopeInit(): void
     {
-        return new AdminWaitSetEnvelope(
-            new AdminWaitSetBody($this)
-        );
+        if (!($this->envelope instanceof AdminWaitSetEnvelope)) {
+            $this->envelope = new AdminWaitSetEnvelope(
+                new AdminWaitSetBody($this)
+            );
+        }
     }
 }

@@ -12,7 +12,7 @@ namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlElement, XmlRoot};
 use Zimbra\Admin\Struct\{AdminAttrs, AdminAttrsImplTrait};
-use Zimbra\Soap\{EnvelopeInterface, RequestInterface};
+use Zimbra\Soap\Request;
 
 /**
  * CreateUCServiceRequest class
@@ -26,7 +26,7 @@ use Zimbra\Soap\{EnvelopeInterface, RequestInterface};
  * @AccessType("public_method")
  * @XmlRoot(name="CreateUCServiceRequest")
  */
-class CreateUCServiceRequest implements RequestInterface, AdminAttrs
+class CreateUCServiceRequest extends Request implements AdminAttrs
 {
     use AdminAttrsImplTrait;
 
@@ -77,14 +77,16 @@ class CreateUCServiceRequest implements RequestInterface, AdminAttrs
     }
 
     /**
-     * Get soap envelope.
+     * Initialize the soap envelope
      *
-     * @return EnvelopeInterface
+     * @return void
      */
-    public function getEnvelope(): EnvelopeInterface
+    protected function envelopeInit(): void
     {
-        return new CreateUCServiceEnvelope(
-            new CreateUCServiceBody($this)
-        );
+        if (!($this->envelope instanceof CreateUCServiceEnvelope)) {
+            $this->envelope = new CreateUCServiceEnvelope(
+                new CreateUCServiceBody($this)
+            );
+        }
     }
 }

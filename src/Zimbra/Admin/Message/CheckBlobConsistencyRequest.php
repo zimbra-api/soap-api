@@ -12,7 +12,7 @@ namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlList, XmlRoot};
 use Zimbra\Admin\Struct\IntIdAttr;
-use Zimbra\Soap\{EnvelopeInterface, RequestInterface};
+use Zimbra\Soap\Request;
 
 /**
  * CheckBlobConsistencyRequest request class
@@ -29,7 +29,7 @@ use Zimbra\Soap\{EnvelopeInterface, RequestInterface};
  * @AccessType("public_method")
  * @XmlRoot(name="CheckBlobConsistencyRequest")
  */
-class CheckBlobConsistencyRequest implements RequestInterface
+class CheckBlobConsistencyRequest extends Request
 {
     /**
      * Set checkSize to 0 (false) to avoid the CPU overhead of uncompressing
@@ -213,14 +213,16 @@ class CheckBlobConsistencyRequest implements RequestInterface
     }
 
     /**
-     * Get soap envelope.
+     * Initialize the soap envelope
      *
-     * @return EnvelopeInterface
+     * @return void
      */
-    public function getEnvelope(): EnvelopeInterface
+    protected function envelopeInit(): void
     {
-        return new CheckBlobConsistencyEnvelope(
-            new CheckBlobConsistencyBody($this)
-        );
+        if (!($this->envelope instanceof CheckBlobConsistencyEnvelope)) {
+            $this->envelope = new CheckBlobConsistencyEnvelope(
+                new CheckBlobConsistencyBody($this)
+            );
+        }
     }
 }

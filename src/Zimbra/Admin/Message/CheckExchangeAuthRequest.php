@@ -12,7 +12,7 @@ namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlElement, XmlRoot};
 use Zimbra\Admin\Struct\ExchangeAuthSpec;
-use Zimbra\Soap\{EnvelopeInterface, RequestInterface};
+use Zimbra\Soap\Request;
 
 /**
  * CheckExchangeAuthRequest request class
@@ -26,7 +26,7 @@ use Zimbra\Soap\{EnvelopeInterface, RequestInterface};
  * @AccessType("public_method")
  * @XmlRoot(name="CheckExchangeAuthRequest")
  */
-class CheckExchangeAuthRequest implements RequestInterface
+class CheckExchangeAuthRequest extends Request
 {
     /**
      * Exchange Auth details
@@ -73,14 +73,16 @@ class CheckExchangeAuthRequest implements RequestInterface
     }
 
     /**
-     * Get soap envelope.
+     * Initialize the soap envelope
      *
-     * @return EnvelopeInterface
+     * @return void
      */
-    public function getEnvelope(): EnvelopeInterface
+    protected function envelopeInit(): void
     {
-        return new CheckExchangeAuthEnvelope(
-            new CheckExchangeAuthBody($this)
-        );
+        if (!($this->envelope instanceof CheckExchangeAuthEnvelope)) {
+            $this->envelope = new CheckExchangeAuthEnvelope(
+                new CheckExchangeAuthBody($this)
+            );
+        }
     }
 }

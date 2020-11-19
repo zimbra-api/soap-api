@@ -12,7 +12,7 @@ namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlElement, XmlRoot};
 use Zimbra\Admin\Struct\LoggerInfo as Logger;
-use Zimbra\Soap\{EnvelopeInterface, RequestInterface};
+use Zimbra\Soap\Request;
 use Zimbra\Struct\AccountSelector as Account;
 
 /**
@@ -30,9 +30,8 @@ use Zimbra\Struct\AccountSelector as Account;
  * @AccessType("public_method")
  * @XmlRoot(name="AddAccountLoggerRequest")
  */
-class AddAccountLoggerRequest implements RequestInterface
+class AddAccountLoggerRequest extends Request
 {
-
     /**
      * Logger category
      * @Accessor(getter="getLogger", setter="setLogger")
@@ -145,14 +144,16 @@ class AddAccountLoggerRequest implements RequestInterface
     }
 
     /**
-     * Get soap envelope.
+     * Initialize the soap envelope
      *
-     * @return EnvelopeInterface
+     * @return void
      */
-    public function getEnvelope(): EnvelopeInterface
+    protected function envelopeInit(): void
     {
-        return new AddAccountLoggerEnvelope(
-            new AddAccountLoggerBody($this)
-        );
+        if (!($this->envelope instanceof AddAccountLoggerEnvelope)) {
+            $this->envelope = new AddAccountLoggerEnvelope(
+                new AddAccountLoggerBody($this)
+            );
+        }
     }
 }

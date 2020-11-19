@@ -106,14 +106,16 @@ class DeleteSystemRetentionPolicyRequest extends Request
     }
 
     /**
-     * Get soap envelope.
+     * Initialize the soap envelope
      *
-     * @return EnvelopeInterface
+     * @return void
      */
-    public function getEnvelope(): EnvelopeInterface
+    protected function envelopeInit(): void
     {
-        return new DeleteSystemRetentionPolicyEnvelope(
-            new DeleteSystemRetentionPolicyBody($this)
-        );
+        if (!($this->envelope instanceof DeleteSystemRetentionPolicyEnvelope)) {
+            $this->envelope = new DeleteSystemRetentionPolicyEnvelope(
+                new DeleteSystemRetentionPolicyBody($this)
+            );
+        }
     }
 }

@@ -10,7 +10,7 @@
 
 namespace Zimbra\Soap\Request;
 
-use Zimbra\Soap\RequestInterface;
+use Zimbra\Soap\Request;
 use Zimbra\Struct\AttrsImplTrait;
 
 /**
@@ -21,7 +21,7 @@ use Zimbra\Struct\AttrsImplTrait;
  * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright Copyright © 2013 by Nguyen Van Nguyen.
  */
-abstract class Attr implements RequestInterface
+abstract class Attr extends Request
 {
     use AttrsImplTrait;
 

@@ -28,7 +28,6 @@ use Zimbra\Struct\NamedElement;
  */
 class DeleteZimletRequest extends Request
 {
-
     /**
      * Zimlet name
      * @Accessor(getter="getZimlet", setter="setZimlet")
@@ -71,14 +70,16 @@ class DeleteZimletRequest extends Request
     }
 
     /**
-     * Get soap envelope.
+     * Initialize the soap envelope
      *
-     * @return EnvelopeInterface
+     * @return void
      */
-    public function getEnvelope(): EnvelopeInterface
+    protected function envelopeInit(): void
     {
-        return new DeleteZimletEnvelope(
-            new DeleteZimletBody($this)
-        );
+        if (!($this->envelope instanceof DeleteZimletEnvelope)) {
+            $this->envelope = new DeleteZimletEnvelope(
+                new DeleteZimletBody($this)
+            );
+        }
     }
 }

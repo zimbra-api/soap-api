@@ -11,7 +11,7 @@
 namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlElement, XmlRoot};
-use Zimbra\Soap\{EnvelopeInterface, RequestInterface};
+use Zimbra\Soap\Request;
 
 /**
  * AdminDestroyWaitSet request class
@@ -27,7 +27,7 @@ use Zimbra\Soap\{EnvelopeInterface, RequestInterface};
  * @AccessType("public_method")
  * @XmlRoot(name="AdminDestroyWaitSetRequest")
  */
-class AdminDestroyWaitSetRequest implements RequestInterface
+class AdminDestroyWaitSetRequest extends Request
 {
     /**
      * Waitset ID
@@ -72,14 +72,16 @@ class AdminDestroyWaitSetRequest implements RequestInterface
     }
 
     /**
-     * Get soap envelope.
+     * Initialize the soap envelope
      *
-     * @return EnvelopeInterface
+     * @return void
      */
-    public function getEnvelope(): EnvelopeInterface
+    protected function envelopeInit(): void
     {
-        return new AdminDestroyWaitSetEnvelope(
-            new AdminDestroyWaitSetBody($this)
-        );
+        if (!($this->envelope instanceof AdminDestroyWaitSetEnvelope)) {
+            $this->envelope = new AdminDestroyWaitSetEnvelope(
+                new AdminDestroyWaitSetBody($this)
+            );
+        }
     }
 }

@@ -69,14 +69,16 @@ class DeleteServerRequest extends Request
     }
 
     /**
-     * Get soap envelope.
+     * Initialize the soap envelope
      *
-     * @return EnvelopeInterface
+     * @return void
      */
-    public function getEnvelope(): EnvelopeInterface
+    protected function envelopeInit(): void
     {
-        return new DeleteServerEnvelope(
-            new DeleteServerBody($this)
-        );
+        if (!($this->envelope instanceof DeleteServerEnvelope)) {
+            $this->envelope = new DeleteServerEnvelope(
+                new DeleteServerBody($this)
+            );
+        }
     }
 }

@@ -13,7 +13,7 @@ namespace Zimbra\Admin\Message;
 use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlElement, XmlRoot};
 use Zimbra\Admin\Struct\{AdminAttrs, AdminAttrsImplTrait};
 use Zimbra\Enum\GalMode;
-use Zimbra\Soap\{EnvelopeInterface, RequestInterface};
+use Zimbra\Soap\Request;
 use Zimbra\Struct\AccountSelector as Account;
 
 /**
@@ -28,7 +28,7 @@ use Zimbra\Struct\AccountSelector as Account;
  * @AccessType("public_method")
  * @XmlRoot(name="AddGalSyncDataSourceRequest")
  */
-class AddGalSyncDataSourceRequest implements RequestInterface, AdminAttrs
+class AddGalSyncDataSourceRequest extends Request implements AdminAttrs
 {
     use AdminAttrsImplTrait;
 
@@ -216,14 +216,16 @@ class AddGalSyncDataSourceRequest implements RequestInterface, AdminAttrs
     }
 
     /**
-     * Get soap envelope.
+     * Initialize the soap envelope
      *
-     * @return EnvelopeInterface
+     * @return void
      */
-    public function getEnvelope(): EnvelopeInterface
+    protected function envelopeInit(): void
     {
-        return new AddGalSyncDataSourceEnvelope(
-            new AddGalSyncDataSourceBody($this)
-        );
+        if (!($this->envelope instanceof AddGalSyncDataSourceEnvelope)) {
+            $this->envelope = new AddGalSyncDataSourceEnvelope(
+                new AddGalSyncDataSourceBody($this)
+            );
+        }
     }
 }
