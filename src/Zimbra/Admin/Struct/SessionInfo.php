@@ -222,7 +222,7 @@ class SessionInfo
      *
      * @return array
      */
-    public function getExtraAttributes(): array
+    public function getExtraAttributes(): ?array
     {
         return $this->extraAttributes;
     }

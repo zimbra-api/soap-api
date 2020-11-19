@@ -3,7 +3,6 @@
 namespace Zimbra\Admin\Tests\Struct;
 
 use Zimbra\Admin\Struct\SessionInfo;
-use Zimbra\Enum\VolumeType;
 use Zimbra\Struct\Tests\ZimbraStructTestCase;
 
 /**
@@ -36,11 +35,11 @@ class SessionInfoTest extends ZimbraStructTestCase
 
         $session = new SessionInfo('', 0, 0);
         $session->setSessionId($sessionId)
-               ->setCreatedDate($createdDate)
-               ->setLastAccessedDate($lastAccessedDate)
-               ->setZimbraId($zimbraId)
-               ->setName($name)
-               ->setExtraAttributes($attrs);
+            ->setCreatedDate($createdDate)
+            ->setLastAccessedDate($lastAccessedDate)
+            ->setZimbraId($zimbraId)
+            ->setName($name)
+            ->setExtraAttributes($attrs);
         $this->assertSame($sessionId, $session->getSessionId());
         $this->assertSame($createdDate, $session->getCreatedDate());
         $this->assertSame($lastAccessedDate, $session->getLastAccessedDate());
