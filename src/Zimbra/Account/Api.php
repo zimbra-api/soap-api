@@ -49,7 +49,6 @@ use Zimbra\Soap\Api as AbstractApi;
  */
 class Api extends AbstractApi
 {
-
     public function auth(
         AccountSelector $account = NULL,
         $password = NULL,
@@ -91,7 +90,7 @@ class Api extends AbstractApi
             $generateDeviceId,
             $tokenType
         );
-        return $request->execute($this);
+        return $this->invoke($request);
     }
 
     public function authByName($name, $password = NULL)

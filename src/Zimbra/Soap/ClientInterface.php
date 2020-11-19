@@ -25,10 +25,11 @@ interface ClientInterface
     /**
      * Performs a SOAP request
      *
-     * @param  string $soapMessage
+     * @param  string $soapMessage Soap message
+     * @param  array $headers Request headers
      * @return ResponseInterface
      */
-    function sendRequest($soapMessage): ?ResponseInterface;
+    function sendRequest(string $soapMessage, array $headers = []): ?ResponseInterface;
 
     /**
      * Returns last request.
