@@ -10,7 +10,7 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlElement, XmlRoot};
 use Zimbra\Admin\Struct\{AdminAttrs, AdminAttrsImplTrait};
 use Zimbra\Soap\Request;
 use Zimbra\Struct\Id;
@@ -46,7 +46,7 @@ class DeleteDataSourceRequest extends Request implements AdminAttrs
      * @Accessor(getter="getDataSource", setter="setDataSource")
      * @SerializedName("dataSource")
      * @Type("Zimbra\Struct\Id")
-     * @XmlAttribute
+     * @XmlElement
      */
     private $dataSource;
 

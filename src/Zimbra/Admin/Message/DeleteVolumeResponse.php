@@ -14,15 +14,15 @@ use JMS\Serializer\Annotation\XmlRoot;
 use Zimbra\Soap\ResponseInterface;
 
 /**
- * DeleteVolumeRequest class
+ * DeleteVolumeResponse class
  * 
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @XmlRoot(name="DeleteVolumeRequest")
+ * @XmlRoot(name="DeleteVolumeResponse")
  */
-class DeleteVolumeRequest implements ResponseInterface
+class DeleteVolumeResponse implements ResponseInterface
 {
 }

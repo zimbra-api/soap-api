@@ -2,23 +2,23 @@
 
 namespace Zimbra\Admin\Tests\Struct;
 
-use Zimbra\Admin\Struct\XmppComponentSelector;
+use Zimbra\Admin\Struct\XMPPComponentSelector;
 use Zimbra\Enum\XmppComponentBy as XmppBy;
 use Zimbra\Struct\Tests\ZimbraStructTestCase;
 
 /**
- * Testcase class for XmppComponentSelector.
+ * Testcase class for XMPPComponentSelector.
  */
-class XmppComponentSelectorTest extends ZimbraStructTestCase
+class XMPPComponentSelectorTest extends ZimbraStructTestCase
 {
-    public function testXmppComponentSelector()
+    public function testXMPPComponentSelector()
     {
         $value = $this->faker->word;
-        $xmpp = new XmppComponentSelector(XmppBy::ID(), $value);
+        $xmpp = new XMPPComponentSelector(XmppBy::ID(), $value);
         $this->assertEquals(XmppBy::ID(), $xmpp->getBy());
         $this->assertSame($value, $xmpp->getValue());
 
-        $xmpp = new XmppComponentSelector(XmppBy::ID());
+        $xmpp = new XMPPComponentSelector(XmppBy::ID());
         $xmpp->setBy(XmppBy::NAME())
              ->setValue($value);
         $this->assertEquals(XmppBy::NAME(), $xmpp->getBy());
@@ -27,13 +27,13 @@ class XmppComponentSelectorTest extends ZimbraStructTestCase
         $xml = '<?xml version="1.0"?>' . "\n"
             . '<xmppcomponent by="' . XmppBy::NAME() . '">' . $value . '</xmppcomponent>';
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($xmpp, 'xml'));
-        $this->assertEquals($xmpp, $this->serializer->deserialize($xml, XmppComponentSelector::class, 'xml'));
+        $this->assertEquals($xmpp, $this->serializer->deserialize($xml, XMPPComponentSelector::class, 'xml'));
 
         $json = json_encode([
             'by' => (string) XmppBy::NAME(),
             '_content' => $value,
         ]);
         $this->assertSame($json, $this->serializer->serialize($xmpp, 'json'));
-        $this->assertEquals($xmpp, $this->serializer->deserialize($json, XmppComponentSelector::class, 'json'));
+        $this->assertEquals($xmpp, $this->serializer->deserialize($json, XMPPComponentSelector::class, 'json'));
     }
 }

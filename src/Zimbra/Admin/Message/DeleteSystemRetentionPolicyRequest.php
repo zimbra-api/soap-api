@@ -11,7 +11,7 @@
 namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlElement, XmlRoot};
-use Zimbra\Admin\Struct\{CosSelector, Policy, PolicyHolder};
+use Zimbra\Admin\Struct\{CosSelector, Policy};
 use Zimbra\Soap\Request;
 
 /**
@@ -24,7 +24,6 @@ use Zimbra\Soap\Request;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
  * @AccessType("public_method")
- * @XmlNamespace(uri="urn:zimbraMail", prefix="urn")
  * @XmlRoot(name="DeleteSystemRetentionPolicyRequest")
  */
 class DeleteSystemRetentionPolicyRequest extends Request

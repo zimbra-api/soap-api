@@ -31,7 +31,7 @@ class DeleteXMPPComponentRequest extends Request
     /**
      * XMPP Component details
      * @Accessor(getter="getComponent", setter="setComponent")
-     * @SerializedName("component")
+     * @SerializedName("xmppcomponent")
      * @Type("Zimbra\Admin\Struct\XMPPComponentSelector")
      * @XmlElement
      */

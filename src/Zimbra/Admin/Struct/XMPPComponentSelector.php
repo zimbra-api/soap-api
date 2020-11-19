@@ -14,7 +14,7 @@ use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAt
 use Zimbra\Enum\XmppComponentBy as XmppBy;
 
 /**
- * XmppComponentSelector struct class
+ * XMPPComponentSelector struct class
  *
  * @package    Zimbra
  * @subpackage Admin
@@ -24,7 +24,7 @@ use Zimbra\Enum\XmppComponentBy as XmppBy;
  * @AccessType("public_method")
  * @XmlRoot(name="xmppcomponent")
  */
-class XmppComponentSelector
+class XMPPComponentSelector
 {
     /**
      * @Accessor(getter="getBy", setter="setBy")

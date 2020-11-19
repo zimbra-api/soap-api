@@ -23,7 +23,6 @@ class CreateSystemRetentionPolicyTest extends ZimbraStructTestCase
         $name = $this->faker->word;
         $value = $this->faker->word;
         $id = $this->faker->uuid;
-        $key = $this->faker->word;
         $lifetime = $this->faker->word;
 
         $cos = new CosSelector(CosBy::NAME(), $value);
@@ -68,19 +67,19 @@ class CreateSystemRetentionPolicyTest extends ZimbraStructTestCase
         $this->assertSame($body, $envelope->getBody());
 
         $xml = '<?xml version="1.0"?>' . "\n"
-            . '<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin" xmlns:mail="urn:zimbraMail">'
+            . '<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin" xmlns:urn1="urn:zimbraMail">'
                 . '<soap:Body>'
                     . '<urn:CreateSystemRetentionPolicyRequest>'
                         . '<cos by="' . CosBy::NAME() . '">' . $value . '</cos>'
                         . '<keep>'
-                            . '<mail:policy type="' . Type::SYSTEM() . '" id="' . $id . '" name="' . $name . '" lifetime="' . $lifetime . '" />'
+                            . '<urn1:policy type="' . Type::SYSTEM() . '" id="' . $id . '" name="' . $name . '" lifetime="' . $lifetime . '" />'
                         . '</keep>'
                         . '<purge>'
-                            . '<mail:policy type="' . Type::SYSTEM() . '" id="' . $id . '" name="' . $name . '" lifetime="' . $lifetime . '" />'
+                            . '<urn1:policy type="' . Type::SYSTEM() . '" id="' . $id . '" name="' . $name . '" lifetime="' . $lifetime . '" />'
                         . '</purge>'
                     . '</urn:CreateSystemRetentionPolicyRequest>'
                     . '<urn:CreateSystemRetentionPolicyResponse>'
-                        . '<mail:policy type="' . Type::SYSTEM() . '" id="' . $id . '" name="' . $name . '" lifetime="' . $lifetime . '" />'
+                        . '<urn1:policy type="' . Type::SYSTEM() . '" id="' . $id . '" name="' . $name . '" lifetime="' . $lifetime . '" />'
                     . '</urn:CreateSystemRetentionPolicyResponse>'
                 . '</soap:Body>'
             . '</soap:Envelope>';
