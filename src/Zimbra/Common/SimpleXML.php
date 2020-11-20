@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * This file is part of the Zimbra API in PHP library.
  *
@@ -7,8 +7,6 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-
-declare(strict_types=1);
 
 namespace Zimbra\Common;
 
@@ -69,7 +67,7 @@ class SimpleXML extends SimpleXMLElement
      * @param  SimpleXML $xml.
      * @return self
      */
-    public function append(SimpleXML $xml, $namespace = NULL)
+    public function append(SimpleXML $xml, $namespace = NULL): self
     {
         $value = trim((string) $xml);
         $namespaces = array_values($xml->getNamespaces());
@@ -91,9 +89,9 @@ class SimpleXML extends SimpleXMLElement
      *
      * @param  array  $array.
      * @param  string $namespace.
-     * @return void
+     * @return self
      */
-    public function addArray(array $array = [], $namespace = NULL)
+    public function addArray(array $array = [], $namespace = NULL): self
     {
         foreach ($array as $name => $param) {
             if (is_array($param) && Text::isValidTagName($name)) {
@@ -158,7 +156,7 @@ class SimpleXML extends SimpleXMLElement
      * @param  string $namespace If specified, the namespace to which the attribute belongs.
      * @return self
      */
-    public function addAttribute($name, $value = NULL, $namespace = NULL)
+    public function addAttribute($name, $value = NULL, $namespace = NULL): self
     {
         parent::addAttribute($name, (string) $value, $namespace);
         return $this;
@@ -171,7 +169,7 @@ class SimpleXML extends SimpleXMLElement
      * @param  string $namespace If specified, the namespace to which the attribute belongs.
      * @return self
      */
-    public function addAttributes(array $attrs = [], $namespace = NULL)
+    public function addAttributes(array $attrs = [], $namespace = NULL): self
     {
         foreach ($attrs as $name => $value) {
             parent::addAttribute($name, $value, $namespace);
@@ -179,33 +177,33 @@ class SimpleXML extends SimpleXMLElement
         return $this;
     }
 
-    // https://stackoverflow.com/a/6260295/738852
     /**
-      * Adds a child with $value inside CDATA
-      * @param unknown $name
-      * @param unknown $value
-      */
-    public function addChildWithCDATA($name, $value = NULL) {
-        $new_child = $this->addChild($name);
-
-        if ($new_child !== NULL) {
-            $node = dom_import_simplexml($new_child);
-            $no   = $node->ownerDocument;
-            $node->appendChild($no->createCDATASection($value));
-        }
-
-        return $new_child;
+     * Adds a child element width value as CDATA to the XML node
+     *
+     * @param  string $name The name of the child element to add.
+     * @param  string $value If specified, the value of the child element.
+     * @param  string $namespace If specified, the namespace to which the child element belongs.
+     * @return SimpleXMLElement
+     */
+    public function addChildWithCData($name, $value = NULL, $namespace = NULL): SimpleXMLElement
+    {
+        $child = parent::addChild($name, NULL, $namespace);
+        $child->addCData($value);
+        return $child;
     }
 
     /**
-     * override to use cdata, when necessary
+     * Add value as CDATA to the current XML node 
+     *
+     * @param  string $value The value of the current XML node.
+     * @return self
      */
-    public function addChild($name, $val = NULL, $ns = NULL)
+    public function addCData($value = NULL): self
     {
-        if (preg_match('/.*[\&\>\<].*/', $val) == 1) {
-            return $this->addChildWithCDATA($name, $val);
-        } else {
-            return parent::addChild($name, $val, $ns);
+        if (!empty($value)) {
+            $node = dom_import_simplexml($this);
+            $node->appendChild($node->ownerDocument->createCDATASection($value));
         }
+        return $this;
     }
 }

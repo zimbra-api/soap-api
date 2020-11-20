@@ -35,7 +35,7 @@ class RenameFolderNotificationTest extends ZimbraStructTestCase
             'id' => $folderId,
             'path' => $path,
         ]);
-        $this->assertSame($json, $this->serializer->serialize($item, 'json'));
+        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($item, 'json'));
         $tags = $this->serializer->deserialize($json, RenameFolderNotification::class, 'json');
         $this->assertEquals($item, $this->serializer->deserialize($json, RenameFolderNotification::class, 'json'));
     }

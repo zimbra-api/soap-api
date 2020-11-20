@@ -34,7 +34,7 @@ class LimitedQueryTest extends ZimbraStructTestCase
             'limit' => $limit,
             '_content' => $value,
         ]);
-        $this->assertSame($json, $this->serializer->serialize($query, 'json'));
+        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($query, 'json'));
         $this->assertEquals($query, $this->serializer->deserialize($json, LimitedQuery::class, 'json'));
     }
 }

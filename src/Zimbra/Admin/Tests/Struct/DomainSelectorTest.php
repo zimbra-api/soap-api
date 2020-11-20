@@ -33,7 +33,7 @@ class DomainSelectorTest extends ZimbraStructTestCase
             'by' => (string) DomainBy::NAME(),
             '_content' => $value,
         ]);
-        $this->assertSame($json, $this->serializer->serialize($domain, 'json'));
+        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($domain, 'json'));
         $this->assertEquals($domain, $this->serializer->deserialize($json, DomainSelector::class, 'json'));
     }
 }

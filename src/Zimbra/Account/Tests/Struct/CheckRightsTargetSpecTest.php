@@ -62,7 +62,7 @@ class CheckRightsTargetSpecTest extends ZimbraStructTestCase
                 ],
             ],
         ]);
-        $this->assertSame($json, $this->serializer->serialize($target, 'json'));
+        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($target, 'json'));
         $this->assertEquals($target, $this->serializer->deserialize($json, CheckRightsTargetSpec::class, 'json'));
     }
 }

@@ -39,7 +39,7 @@ class MailboxWithMailboxIdTest extends ZimbraStructTestCase
             'id' => $id,
             's' => $size,
         ]);
-        $this->assertSame($json, $this->serializer->serialize($mbox, 'json'));
+        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($mbox, 'json'));
         $this->assertEquals($mbox, $this->serializer->deserialize($json, MailboxWithMailboxId::class, 'json'));
     }
 }

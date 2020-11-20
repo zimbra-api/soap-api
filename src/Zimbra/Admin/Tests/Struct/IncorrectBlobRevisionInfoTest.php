@@ -64,7 +64,7 @@ class IncorrectBlobRevisionInfoTest extends ZimbraStructTestCase
                 'external' => TRUE,
             ],
         ]);
-        $this->assertSame($json, $this->serializer->serialize($item, 'json'));
+        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($item, 'json'));
         $this->assertEquals($item, $this->serializer->deserialize($json, IncorrectBlobRevisionInfo::class, 'json'));
     }
 }

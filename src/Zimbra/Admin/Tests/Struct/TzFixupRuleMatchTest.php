@@ -113,7 +113,7 @@ class TzFixupRuleMatchTest extends ZimbraStructTestCase
                 'dayoff' => $date_dayoff,
             ],
         ]);
-        $this->assertSame($json, $this->serializer->serialize($match, 'json'));
+        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($match, 'json'));
         $this->assertEquals($match, $this->serializer->deserialize($json, TzFixupRuleMatch::class, 'json'));
     }
 }

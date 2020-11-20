@@ -69,7 +69,7 @@ class MailQueueActionTest extends ZimbraStructTestCase
             'op' => (string) QueueAction::HOLD(),
             'by' => (string) QueueActionBy::QUERY(),
         ]);
-        $this->assertSame($json, $this->serializer->serialize($action, 'json'));
+        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($action, 'json'));
         $this->assertEquals($action, $this->serializer->deserialize($json, MailQueueAction::class, 'json'));
     }
 }

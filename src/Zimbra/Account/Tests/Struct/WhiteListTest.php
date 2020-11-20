@@ -44,7 +44,7 @@ class WhiteListTest extends ZimbraStructTestCase
                 ],
             ],
         ]);
-        $this->assertSame($json, $this->serializer->serialize($whiteList, 'json'));
+        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($whiteList, 'json'));
         $this->assertEquals($whiteList, $this->serializer->deserialize($json, WhiteList::class, 'json'));
     }
 }

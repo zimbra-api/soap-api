@@ -134,7 +134,7 @@ class CheckGalConfigTest extends ZimbraStructTestCase
                 ],
             ],
         ]);
-        $this->assertSame($json, $this->serializer->serialize($envelope, 'json'));
+        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
         $this->assertEquals($envelope, $this->serializer->deserialize($json, CheckGalConfigEnvelope::class, 'json'));
     }
 }

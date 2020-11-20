@@ -34,7 +34,7 @@ class LoggerInfoTest extends ZimbraStructTestCase
             'category' => $category,
             'level' => (string) LoggingLevel::INFO(),
         ]);
-        $this->assertSame($json, $this->serializer->serialize($logger, 'json'));
+        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($logger, 'json'));
         $this->assertEquals($logger, $this->serializer->deserialize($json, LoggerInfo::class, 'json'));
     }
 }

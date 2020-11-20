@@ -26,7 +26,7 @@ class FormatInfoTest extends ZimbraStructTestCase
         $json = json_encode([
             'type' => (string) RequestFormat::XML(),
         ]);
-        $this->assertSame($json, $this->serializer->serialize($info, 'json'));
+        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($info, 'json'));
         $this->assertEquals($info, $this->serializer->deserialize($json, FormatInfo::class, 'json'));
     }
 }

@@ -44,7 +44,7 @@ class RightModifierInfoTest extends ZimbraStructTestCase
             'disinheritSubGroups' => FALSE,
             'subDomain' => TRUE,
         ]);
-        $this->assertSame($json, $this->serializer->serialize($right, 'json'));
+        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($right, 'json'));
         $this->assertEquals($right, $this->serializer->deserialize($json, RightModifierInfo::class, 'json'));
     }
 }

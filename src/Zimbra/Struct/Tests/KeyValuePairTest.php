@@ -33,7 +33,7 @@ class KeyValuePairTest extends ZimbraStructTestCase
             'n' => $key,
             '_content' => $value,
         ]);
-        $this->assertSame($json, $this->serializer->serialize($kpv, 'json'));
+        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($kpv, 'json'));
         $this->assertEquals($kpv, $this->serializer->deserialize($json, KeyValuePair::class, 'json'));
     }
 }

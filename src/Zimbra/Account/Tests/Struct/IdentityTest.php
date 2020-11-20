@@ -58,7 +58,7 @@ class IdentityTest extends ZimbraStructTestCase
             'name' => $name,
             'id' => $id,
         ]);
-        $this->assertSame($json, $this->serializer->serialize($identity, 'json'));
+        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($identity, 'json'));
         $this->assertEquals($identity, $this->serializer->deserialize($json, Identity::class, 'json'));
     }
 }

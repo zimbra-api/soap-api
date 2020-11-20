@@ -187,7 +187,7 @@ class ContactInfoTest extends ZimbraStructTestCase
             'isOwner' => TRUE,
             'isMember' => FALSE,
         ]);
-        $this->assertSame($json, $this->serializer->serialize($contact, 'json'));
+        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($contact, 'json'));
         $this->assertEquals($contact, $this->serializer->deserialize($json, ContactInfo::class, 'json'));
     }
 }

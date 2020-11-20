@@ -127,7 +127,7 @@ class PendingFolderModificationsTest extends ZimbraStructTestCase
                 ],
             ],
         ]);
-        $this->assertSame($json, $this->serializer->serialize($mods, 'json'));
+        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($mods, 'json'));
         $this->assertEquals($mods, $this->serializer->deserialize($json, PendingFolderModifications::class, 'json'));
     }
 }

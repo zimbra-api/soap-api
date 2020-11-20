@@ -38,7 +38,7 @@ class ZimletDeploymentStatusTest extends ZimbraStructTestCase
             'status' => (string) ZimletDeployStatus::SUCCEEDED(),
             'error' => $error,
         ]);
-        $this->assertSame($json, $this->serializer->serialize($progress, 'json'));
+        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($progress, 'json'));
         $this->assertEquals($progress, $this->serializer->deserialize($json, ZimletDeploymentStatus::class, 'json'));
     }
 }

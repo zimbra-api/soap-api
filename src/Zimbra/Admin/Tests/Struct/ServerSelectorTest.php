@@ -33,7 +33,7 @@ class ServerSelectorTest extends ZimbraStructTestCase
             'by' => (string) ServerBy::NAME(),
             '_content' => $value,
         ]);
-        $this->assertSame($json, $this->serializer->serialize($server, 'json'));
+        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($server, 'json'));
         $this->assertEquals($server, $this->serializer->deserialize($json, ServerSelector::class, 'json'));
     }
 }

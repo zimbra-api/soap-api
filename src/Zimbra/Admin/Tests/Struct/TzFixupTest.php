@@ -24,7 +24,7 @@ class TzFixupTest extends ZimbraStructTestCase
 {
     public function testTzFixup()
     {
-        $id = $this->faker->word;
+        $id = $this->faker->uuid;
         $offset = mt_rand(0, 100);
         $any = new SimpleElement;
         $tzid = new Id($id);
@@ -168,7 +168,7 @@ class TzFixupTest extends ZimbraStructTestCase
                 ],
             ],
         ]);
-        $this->assertSame($json, $this->serializer->serialize($tzfixup, 'json'));
+        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($tzfixup, 'json'));
         $this->assertEquals($tzfixup, $this->serializer->deserialize($json, TzFixup::class, 'json'));
     }
 }

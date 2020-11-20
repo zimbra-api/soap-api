@@ -96,7 +96,7 @@ class InfoForSessionTypeTest extends ZimbraStructTestCase
                 ],
             ],
         ]);
-        $this->assertSame($json, $this->serializer->serialize($infoSession, 'json'));
+        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($infoSession, 'json'));
         $this->assertEquals($infoSession, $this->serializer->deserialize($json, InfoForSessionType::class, 'json'));
     }
 }

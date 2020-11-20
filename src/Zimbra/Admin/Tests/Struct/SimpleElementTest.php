@@ -20,7 +20,7 @@ class SimpleElementTest extends ZimbraStructTestCase
         $this->assertEquals($el, $this->serializer->deserialize($xml, SimpleElement::class, 'xml'));
 
         $json = '{}';
-        $this->assertSame($json, $this->serializer->serialize($el, 'json'));
+        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($el, 'json'));
         $this->assertEquals($el, $this->serializer->deserialize($json, SimpleElement::class, 'json'));
     }
 }

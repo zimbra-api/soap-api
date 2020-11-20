@@ -42,7 +42,7 @@ class CursorInfoTest extends ZimbraStructTestCase
             'endSortVal' => $endSortVal,
             'includeOffset' => TRUE,
         ]);
-        $this->assertSame($json, $this->serializer->serialize($cursor, 'json'));
+        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($cursor, 'json'));
         $this->assertEquals($cursor, $this->serializer->deserialize($json, CursorInfo::class, 'json'));
     }
 }

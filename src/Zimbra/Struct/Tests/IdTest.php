@@ -27,7 +27,7 @@ class IdTest extends ZimbraStructTestCase
         $json = json_encode([
             'id' => $value,
         ]);
-        $this->assertSame($json, $this->serializer->serialize($id, 'json'));
+        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($id, 'json'));
         $this->assertEquals($id, $this->serializer->deserialize($json, Id::class, 'json'));
     }
 }

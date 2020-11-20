@@ -40,7 +40,7 @@ class AttrsImplTest extends ZimbraStructTestCase
                 ]
             ],
         ]);
-        $this->assertSame($json, $this->serializer->serialize($stub, 'json'));
+        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($stub, 'json'));
         $this->assertEquals($stub, $this->serializer->deserialize($json, StubAttrsImpl::class, 'json'));
     }
 }

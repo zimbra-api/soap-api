@@ -28,7 +28,7 @@ class ValueAttribTest extends ZimbraStructTestCase
         $json = json_encode([
             'value' => $value,
         ]);
-        $this->assertSame($json, $this->serializer->serialize($attr, 'json'));
+        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($attr, 'json'));
         $this->assertEquals($attr, $this->serializer->deserialize($json, ValueAttrib::class, 'json'));
     }
 }

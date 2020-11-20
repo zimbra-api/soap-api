@@ -37,7 +37,7 @@ class AccountInfoTest extends ZimbraStructTestCase
             'link' => TRUE,
             '_content' => $value,
         ]);
-        $this->assertSame($json, $this->serializer->serialize($info, 'json'));
+        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($info, 'json'));
         $this->assertEquals($info, $this->serializer->deserialize($json, AccountInfo::class, 'json'));
     }
 }

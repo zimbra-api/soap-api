@@ -29,7 +29,7 @@ class ModifyNotificationTest extends ZimbraStructTestCase
         $json = json_encode([
             'change' => $changeBitmask,
         ]);
-        $this->assertSame($json, $this->serializer->serialize($mod, 'json'));
+        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($mod, 'json'));
         $this->assertEquals($mod, $this->serializer->deserialize($json, ModifyNotification::class, 'json'));
     }
 }

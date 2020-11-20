@@ -53,7 +53,7 @@ class StatsSpecTest extends ZimbraStructTestCase
             'name' => $name,
             'limit' => $limit,
         ]);
-        $this->assertSame($json, $this->serializer->serialize($stats, 'json'));
+        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($stats, 'json'));
         $this->assertEquals($stats, $this->serializer->deserialize($json, StatsSpec::class, 'json'));
     }
 }

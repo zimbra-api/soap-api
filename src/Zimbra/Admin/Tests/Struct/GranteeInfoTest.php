@@ -41,7 +41,7 @@ class GranteeInfoTest extends ZimbraStructTestCase
             'name' => $name,
             'type' => (string) GranteeType::USR(),
         ]);
-        $this->assertSame($json, $this->serializer->serialize($grantee, 'json'));
+        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($grantee, 'json'));
         $this->assertEquals($grantee, $this->serializer->deserialize($json, GranteeInfo::class, 'json'));
     }
 }

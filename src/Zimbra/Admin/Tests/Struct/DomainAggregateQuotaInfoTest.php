@@ -38,7 +38,7 @@ class DomainAggregateQuotaInfoTest extends ZimbraStructTestCase
             'id' => $id,
             'used' => $quotaUsed,
         ]);
-        $this->assertSame($json, $this->serializer->serialize($domain, 'json'));
+        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($domain, 'json'));
         $this->assertEquals($domain, $this->serializer->deserialize($json, DomainAggregateQuotaInfo::class, 'json'));
     }
 }

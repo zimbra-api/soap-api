@@ -48,7 +48,7 @@ class ContactAttrTest extends ZimbraStructTestCase
             's' => $size,
             'filename' => $contentFilename,
         ]);
-        $this->assertSame($json, $this->serializer->serialize($attr, 'json'));
+        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($attr, 'json'));
         $this->assertEquals($attr, $this->serializer->deserialize($json, ContactAttr::class, 'json'));
     }
 }

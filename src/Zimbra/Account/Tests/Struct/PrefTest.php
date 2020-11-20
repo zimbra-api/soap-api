@@ -40,7 +40,7 @@ class PrefTest extends ZimbraStructTestCase
             '_content' => $value,
             'modified' => $modified,
         ]);
-        $this->assertSame($json, $this->serializer->serialize($pref, 'json'));
+        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($pref, 'json'));
         $this->assertEquals($pref, $this->serializer->deserialize($json, Pref::class, 'json'));
     }
 }

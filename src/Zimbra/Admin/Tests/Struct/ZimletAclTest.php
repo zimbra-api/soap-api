@@ -33,7 +33,7 @@ class ZimletAclTest extends ZimbraStructTestCase
             'cos' => $cos,
             'acl' => (string) AclType::GRANT(),
         ]);
-        $this->assertSame($json, $this->serializer->serialize($acl, 'json'));
+        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($acl, 'json'));
         $this->assertEquals($acl, $this->serializer->deserialize($json, ZimletAcl::class, 'json'));
     }
 }

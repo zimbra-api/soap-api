@@ -28,7 +28,7 @@ class PackageSelectorTest extends ZimbraStructTestCase
         $json = json_encode([
             'name' => $name,
         ]);
-        $this->assertSame($json, $this->serializer->serialize($package, 'json'));
+        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($package, 'json'));
         $this->assertEquals($package, $this->serializer->deserialize($json, PackageSelector::class, 'json'));
     }
 }

@@ -67,7 +67,7 @@ class SessionInfoTest extends ZimbraStructTestCase
             'foo' => $foo,
             'bar' => $bar,
         ]);
-        $this->assertSame($json, $this->serializer->serialize($session, 'json'));
+        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($session, 'json'));
 
         $session = new SessionInfo(
             $sessionId, $createdDate, $lastAccessedDate, $zimbraId, $name

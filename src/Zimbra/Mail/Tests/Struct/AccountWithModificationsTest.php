@@ -123,7 +123,7 @@ class AccountWithModificationsTest extends ZimbraStructTestCase
             ],
             'changeid' => $lastChangeId,
         ]);
-        $this->assertSame($json, $this->serializer->serialize($account, 'json'));
+        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($account, 'json'));
         $this->assertEquals($account, $this->serializer->deserialize($json, AccountWithModifications::class, 'json'));
     }
 }

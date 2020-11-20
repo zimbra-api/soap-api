@@ -34,7 +34,7 @@ class ExportAndDeleteItemSpecTest extends ZimbraStructTestCase
             'id' => $id,
             'version' => $version,
         ]);
-        $this->assertSame($json, $this->serializer->serialize($item, 'json'));
+        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($item, 'json'));
         $this->assertEquals($item, $this->serializer->deserialize($json, ExportAndDeleteItemSpec::class, 'json'));
     }
 }

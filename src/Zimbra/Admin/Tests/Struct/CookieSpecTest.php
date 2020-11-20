@@ -28,7 +28,7 @@ class CookieSpecTest extends ZimbraStructTestCase
         $json = json_encode([
             'name' => $name,
         ]);
-        $this->assertSame($json, $this->serializer->serialize($cookie, 'json'));
+        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($cookie, 'json'));
         $this->assertEquals($cookie, $this->serializer->deserialize($json, CookieSpec::class, 'json'));
     }
 }

@@ -38,7 +38,7 @@ class CosCountInfoTest extends ZimbraStructTestCase
             'id' => $id,
             '_content' => $value,
         ]);
-        $this->assertSame($json, $this->serializer->serialize($cos, 'json'));
+        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($cos, 'json'));
         $this->assertEquals($cos, $this->serializer->deserialize($json, CosCountInfo::class, 'json'));
     }
 }

@@ -24,7 +24,7 @@ class AuthTokenControlTest extends ZimbraStructTestCase
         $json = json_encode([
             'voidOnExpired' => TRUE,
         ]);
-        $this->assertSame($json, $this->serializer->serialize($control, 'json'));
+        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($control, 'json'));
         $this->assertEquals($control, $this->serializer->deserialize($json, AuthTokenControl::class, 'json'));
     }
 }

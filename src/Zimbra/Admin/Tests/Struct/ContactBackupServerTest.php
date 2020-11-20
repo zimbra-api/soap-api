@@ -34,7 +34,7 @@ class ContactBackupServerTest extends ZimbraStructTestCase
             'name' => $name,
             'status' => (string) ContactBackupStatus::STOPPED(),
         ]);
-        $this->assertSame($json, $this->serializer->serialize($server, 'json'));
+        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($server, 'json'));
         $this->assertEquals($server, $this->serializer->deserialize($json, ContactBackupServer::class, 'json'));
     }
 }

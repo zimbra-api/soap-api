@@ -1,0 +1,141 @@
+<?php declare(strict_types=1);
+/**
+ * This file is part of the Zimbra API in PHP library.
+ *
+ * © Nguyen Van Nguyen <nguyennv1981@gmail.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+namespace Zimbra\Admin\Message;
+
+use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlList, XmlRoot};
+use Zimbra\Soap\Request;
+use Zimbra\Struct\NamedElement;
+
+/**
+ * FixCalendarEndTimeRequest class
+ * Fix Calendar End Times
+ * Re-calculate the end times used for calendar items after changes to the recurrence expansion configuration.
+ * The current configured values can be determined from: zmprov getAllConfig | grep zimbraCalendarRecurrence
+ * 
+ * @package    Zimbra
+ * @subpackage Admin
+ * @category   Message
+ * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
+ * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
+ * @AccessType("public_method")
+ * @XmlRoot(name="FixCalendarEndTimeRequest")
+ */
+class FixCalendarEndTimeRequest extends Request
+{
+    /**
+     * Sync flag
+     * 1 (true) command blocks until processing finishes 
+     * 0 (false) [default]  command returns right away 
+     * @Accessor(getter="getSync", setter="setSync")
+     * @SerializedName("sync")
+     * @Type("bool")
+     * @XmlAttribute
+     */
+    private $sync;
+
+    /**
+     * Accounts
+     * @Accessor(getter="getAccounts", setter="setAccounts")
+     * @SerializedName("account")
+     * @Type("array<Zimbra\Struct\NamedElement>")
+     * @XmlList(inline = true, entry = "account")
+     */
+    private $accounts;
+
+    /**
+     * Constructor method for FixCalendarEndTimeRequest
+     * @param  bool $sync
+     * @param  array $accounts
+     * @return self
+     */
+    public function __construct($sync = NULL, array $accounts = [])
+    {
+        $this->setAccounts($accounts);
+        if (NULL !== $sync) {
+            $this->setSync($sync);
+        }
+    }
+
+    /**
+     * Gets sync
+     *
+     * @return bool
+     */
+    public function getSync(): ?bool
+    {
+        return $this->sync;
+    }
+
+    /**
+     * Sets sync
+     *
+     * @param  bool $sync
+     * @return self
+     */
+    public function setSync($sync): self
+    {
+        $this->sync = (bool) $sync;
+        return $this;
+    }
+
+    /**
+     * Gets accounts
+     *
+     * @return array
+     */
+    public function getAccounts(): array
+    {
+        return $this->accounts;
+    }
+
+    /**
+     * Sets accounts
+     *
+     * @param  array $accounts
+     * @return self
+     */
+    public function setAccounts(array $accounts): self
+    {
+        $this->accounts = [];
+        foreach ($accounts as $account) {
+            if ($account instanceof NamedElement) {
+                $this->accounts[] = $account;
+            }
+        }
+        return $this;
+    }
+
+    /**
+     * Add an account
+     *
+     * @param  NamedElement $account
+     * @return self
+     */
+    public function addAccount(NamedElement $account): self
+    {
+        $this->accounts[] = $account;
+        return $this;
+    }
+
+    /**
+     * Initialize the soap envelope
+     *
+     * @return void
+     */
+    protected function envelopeInit(): void
+    {
+        if (!($this->envelope instanceof FixCalendarEndTimeEnvelope)) {
+            $this->envelope = new FixCalendarEndTimeEnvelope(
+                new FixCalendarEndTimeBody($this)
+            );
+        }
+    }
+}

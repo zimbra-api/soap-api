@@ -100,7 +100,7 @@ class CreateUCServiceTest extends ZimbraStructTestCase
                 ],
             ],
         ]);
-        $this->assertSame($json, $this->serializer->serialize($envelope, 'json'));
+        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
         $this->assertEquals($envelope, $this->serializer->deserialize($json, CreateUCServiceEnvelope::class, 'json'));
     }
 }

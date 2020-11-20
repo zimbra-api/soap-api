@@ -28,7 +28,7 @@ class TimeAttrTest extends ZimbraStructTestCase
         $json = json_encode([
             'time' => $time,
         ]);
-        $this->assertSame($json, $this->serializer->serialize($attr, 'json'));
+        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($attr, 'json'));
         $this->assertEquals($attr, $this->serializer->deserialize($json, TimeAttr::class, 'json'));
     }
 }

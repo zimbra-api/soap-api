@@ -33,7 +33,7 @@ class TargetWithTypeTest extends ZimbraStructTestCase
             'type' => $type,
             '_content' => $value,
         ]);
-        $this->assertSame($json, $this->serializer->serialize($target, 'json'));
+        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($target, 'json'));
         $this->assertEquals($target, $this->serializer->deserialize($json, TargetWithType::class, 'json'));
     }
 }

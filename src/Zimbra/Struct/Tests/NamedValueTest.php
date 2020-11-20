@@ -30,7 +30,7 @@ class NamedValueTest extends ZimbraStructTestCase
             'name' => $name,
             '_content' => $value,
         ]);
-        $this->assertSame($json, $this->serializer->serialize($named, 'json'));
+        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($named, 'json'));
         $this->assertEquals($named, $this->serializer->deserialize($json, NamedValue::class, 'json'));
     }
 }

@@ -40,7 +40,7 @@ class GalContactInfoTest extends ZimbraStructTestCase
             ],
             'id' => $id,
         ]);
-        $this->assertSame($json, $this->serializer->serialize($cn, 'json'));
+        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($cn, 'json'));
         $this->assertEquals($cn, $this->serializer->deserialize($json, GalContactInfo::class, 'json'));
     }
 }

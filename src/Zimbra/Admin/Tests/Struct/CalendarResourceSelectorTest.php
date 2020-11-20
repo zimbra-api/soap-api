@@ -33,7 +33,7 @@ class CalendarResourceSelectorTest extends ZimbraStructTestCase
             'by' => (string) CalResBy::NAME(),
             '_content' => $value,
         ]);
-        $this->assertSame($json, $this->serializer->serialize($cal, 'json'));
+        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($cal, 'json'));
         $this->assertEquals($cal, $this->serializer->deserialize($json, CalendarResourceSelector::class, 'json'));
     }
 }

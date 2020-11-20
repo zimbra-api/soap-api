@@ -32,7 +32,7 @@ class AlwaysOnClusterSelectorTest extends ZimbraStructTestCase
             'by' => (string) AlwaysOnClusterBy::NAME(),
             '_content' => $value,
         ]);
-        $this->assertSame($json, $this->serializer->serialize($aoc, 'json'));
+        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($aoc, 'json'));
         $this->assertEquals($aoc, $this->serializer->deserialize($json, AlwaysOnClusterSelector::class, 'json'));
     }
 }

@@ -34,7 +34,7 @@ class IMAPItemInfoTest extends ZimbraStructTestCase
             'id' => $id,
             'i4uid' => $imapUid,
         ]);
-        $this->assertSame($json, $this->serializer->serialize($info, 'json'));
+        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($info, 'json'));
         $this->assertEquals($info, $this->serializer->deserialize($json, IMAPItemInfo::class, 'json'));
     }
 }

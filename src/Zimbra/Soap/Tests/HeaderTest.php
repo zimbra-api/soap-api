@@ -155,7 +155,7 @@ class HeaderTest extends ZimbraStructTestCase
                 '_jsns' => 'urn:zimbra',
             ],
         ]);
-        $this->assertSame($json, $this->serializer->serialize($header, 'json'));
+        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($header, 'json'));
         $this->assertEquals($header, $this->serializer->deserialize($json, Header::class, 'json'));
     }
 }

@@ -34,7 +34,7 @@ class VolumeIdAndProgressTest extends ZimbraStructTestCase
             'volumeId' => $volumeId,
             'progress' => $progress,
         ]);
-        $this->assertSame($json, $this->serializer->serialize($volumeProgress, 'json'));
+        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($volumeProgress, 'json'));
         $this->assertEquals($volumeProgress, $this->serializer->deserialize($json, VolumeIdAndProgress::class, 'json'));
     }
 }

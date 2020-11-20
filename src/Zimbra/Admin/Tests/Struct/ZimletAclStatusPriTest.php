@@ -63,7 +63,7 @@ class ZimletAclStatusPriTest extends ZimbraStructTestCase
                 'value' => $value,
             ],
         ]);
-        $this->assertSame($json, $this->serializer->serialize($zimlet, 'json'));
+        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($zimlet, 'json'));
         $this->assertEquals($zimlet, $this->serializer->deserialize($json, ZimletAclStatusPri::class, 'json'));
     }
 }

@@ -42,7 +42,7 @@ class CreateItemNotificationTest extends ZimbraStructTestCase
                 'tn' => $tags,
             ],
         ]);
-        $this->assertSame($json, $this->serializer->serialize($created, 'json'));
+        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($created, 'json'));
         $this->assertEquals($created, $this->serializer->deserialize($json, CreateItemNotification::class, 'json'));
     }
 }

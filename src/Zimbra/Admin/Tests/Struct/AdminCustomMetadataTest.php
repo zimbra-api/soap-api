@@ -43,7 +43,7 @@ class AdminCustomMetadataTest extends ZimbraStructTestCase
             ],
             'section' => $section,
         ]);
-        $this->assertSame($json, $this->serializer->serialize($meta, 'json'));
+        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($meta, 'json'));
         $this->assertEquals($meta, $this->serializer->deserialize($json, AdminCustomMetadata::class, 'json'));
     }
 }

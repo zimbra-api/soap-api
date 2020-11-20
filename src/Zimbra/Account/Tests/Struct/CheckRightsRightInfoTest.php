@@ -33,7 +33,7 @@ class CheckRightsRightInfoTest extends ZimbraStructTestCase
             '_content' => $right,
             'allow' => TRUE,
         ]);
-        $this->assertSame($json, $this->serializer->serialize($rightInfo, 'json'));
+        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($rightInfo, 'json'));
         $this->assertEquals($rightInfo, $this->serializer->deserialize($json, CheckRightsRightInfo::class, 'json'));
     }
 }

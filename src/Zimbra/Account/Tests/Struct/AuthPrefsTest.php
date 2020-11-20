@@ -51,7 +51,7 @@ class AuthPrefsTest extends ZimbraStructTestCase
                 ],
             ],
         ]);
-        $this->assertSame($json, $this->serializer->serialize($prefs, 'json'));
+        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($prefs, 'json'));
         $this->assertEquals($prefs, $this->serializer->deserialize($json, AuthPrefs::class, 'json'));
     }
 }

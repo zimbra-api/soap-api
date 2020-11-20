@@ -61,7 +61,7 @@ class ConstraintInfoTest extends ZimbraStructTestCase
                 ],
             ],
         ]);
-        $this->assertSame($json, $this->serializer->serialize($constraint, 'json'));
+        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($constraint, 'json'));
         $this->assertEquals($constraint, $this->serializer->deserialize($json, ConstraintInfo::class, 'json'));
     }
 }

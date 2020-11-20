@@ -37,7 +37,7 @@ class DistributionListSubscribeReqTest extends ZimbraStructTestCase
             '_content' => $value,
             'bccOwners' => TRUE,
         ]);
-        $this->assertSame($json, $this->serializer->serialize($subsReq, 'json'));
+        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($subsReq, 'json'));
         $this->assertEquals($subsReq, $this->serializer->deserialize($json, DistributionListSubscribeReq::class, 'json'));
     }
 }

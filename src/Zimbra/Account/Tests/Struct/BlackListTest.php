@@ -45,7 +45,7 @@ class BlackListTest extends ZimbraStructTestCase
                 ],
             ],
         ]);
-        $this->assertSame($json, $this->serializer->serialize($blackList, 'json'));
+        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($blackList, 'json'));
         $this->assertEquals($blackList, $this->serializer->deserialize($json, BlackList::class, 'json'));
     }
 }

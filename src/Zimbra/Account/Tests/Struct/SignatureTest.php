@@ -65,7 +65,7 @@ class SignatureTest extends ZimbraStructTestCase
                 ],
             ],
         ]);
-        $this->assertSame($json, $this->serializer->serialize($sig, 'json'));
+        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($sig, 'json'));
         $this->assertEquals($sig, $this->serializer->deserialize($json, Signature::class, 'json'));
     }
 }

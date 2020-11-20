@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Zimbra\Common\Tests;
 
@@ -120,5 +120,16 @@ class SimpleXMLTest extends TestCase
         $xml = new SimpleXML('<books />');
         $xml->addArray($books);
         $this->assertXmlStringEqualsXmlString($this->_xmlString, $xml->asXml());
+    }
+
+    public function testAddChildWithCData()
+    {
+        $xml = new SimpleXML('<book />');
+        $title = $xml->addChildWithCData('title', 'Book Title');
+        $this->assertSame('<title><![CDATA[Book Title]]></title>', $title->asXml());
+
+        $publisher = $xml->addChild('publisher');
+        $publisher->addCData('Book Publisher');
+        $this->assertSame('<publisher><![CDATA[Book Publisher]]></publisher>', $publisher->asXml());
     }
 }

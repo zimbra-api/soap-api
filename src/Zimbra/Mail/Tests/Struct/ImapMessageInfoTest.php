@@ -43,7 +43,7 @@ class ImapMessageInfoTest extends ZimbraStructTestCase
             'f' => $flags,
             'tn' => $tags,
         ]);
-        $this->assertSame($json, $this->serializer->serialize($info, 'json'));
+        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($info, 'json'));
         $this->assertEquals($info, $this->serializer->deserialize($json, ImapMessageInfo::class, 'json'));
     }
 }

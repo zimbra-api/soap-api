@@ -47,9 +47,23 @@ trait AttributeSelectorTrait
      * @param  string $attrs
      * @return self
      */
-    public function setAttrs($attrs): AttributeSelector
+    public function setAttrs($attrs): self
     {
         $this->attrs = trim($attrs);
+        return $this;
+    }
+
+
+    /**
+     * Add attributes
+     *
+     * @return self
+     */
+    public function addAttrs(string ...$attrs): self
+    {
+        if (!empty($attrs)) {
+            $this->attrs = empty($this->attrs) ? implode(',', $attrs) : $this->attrs . ',' . implode(',', $attrs);
+        }
         return $this;
     }
 }

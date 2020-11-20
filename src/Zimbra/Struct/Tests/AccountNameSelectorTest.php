@@ -37,7 +37,7 @@ class AccountNameSelectorTest extends ZimbraStructTestCase
             'name' => $name,
             '_content' => $value,
         ]);
-        $this->assertSame($json, $this->serializer->serialize($acc, 'json'));
+        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($acc, 'json'));
         $this->assertEquals($acc, $this->serializer->deserialize($json, AccountNameSelector::class, 'json'));
     }
 }

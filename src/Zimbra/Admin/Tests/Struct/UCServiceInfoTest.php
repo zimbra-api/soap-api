@@ -38,7 +38,7 @@ class UCServiceInfoTest extends ZimbraStructTestCase
                 ],
             ],
         ]);
-        $this->assertSame($json, $this->serializer->serialize($ucservice, 'json'));
+        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($ucservice, 'json'));
         $this->assertEquals($ucservice, $this->serializer->deserialize($json, UCServiceInfo::class, 'json'));
     }
 }

@@ -49,7 +49,7 @@ class BlobRevisionInfoTest extends ZimbraStructTestCase
             'rev' => $revision,
             'external' => TRUE,
         ]);
-        $this->assertSame($json, $this->serializer->serialize($blob, 'json'));
+        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($blob, 'json'));
         $this->assertEquals($blob, $this->serializer->deserialize($json, BlobRevisionInfo::class, 'json'));
     }
 }

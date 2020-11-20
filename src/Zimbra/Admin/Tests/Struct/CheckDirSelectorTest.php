@@ -32,7 +32,7 @@ class CheckDirSelectorTest extends ZimbraStructTestCase
             'path' => $path,
             'create' => TRUE,
         ]);
-        $this->assertSame($json, $this->serializer->serialize($dir, 'json'));
+        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($dir, 'json'));
         $this->assertEquals($dir, $this->serializer->deserialize($json, CheckDirSelector::class, 'json'));
     }
 }

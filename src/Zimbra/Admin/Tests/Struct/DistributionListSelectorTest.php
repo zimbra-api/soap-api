@@ -33,7 +33,7 @@ class DistributionListSelectorTest extends ZimbraStructTestCase
             'by' => (string) DLBy::NAME(),
             '_content' => $value,
         ]);
-        $this->assertSame($json, $this->serializer->serialize($dl, 'json'));
+        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($dl, 'json'));
         $this->assertEquals($dl, $this->serializer->deserialize($json, DistributionListSelector::class, 'json'));
     }
 }

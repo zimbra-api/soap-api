@@ -57,7 +57,7 @@ class RightViaInfoTest extends ZimbraStructTestCase
                 '_content' => $value,
             ],
         ]);
-        $this->assertSame($json, $this->serializer->serialize($via, 'json'));
+        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($via, 'json'));
         $this->assertEquals($via, $this->serializer->deserialize($json, RightViaInfo::class, 'json'));
     }
 }

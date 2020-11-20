@@ -29,7 +29,7 @@ class NotifyInfoTest extends ZimbraStructTestCase
         $json = json_encode([
             'seq' => $sequence,
         ]);
-        $this->assertSame($json, $this->serializer->serialize($info, 'json'));
+        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($info, 'json'));
         $this->assertEquals($info, $this->serializer->deserialize($json, NotifyInfo::class, 'json'));
     }
 }

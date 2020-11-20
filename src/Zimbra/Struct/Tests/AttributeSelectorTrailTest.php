@@ -19,6 +19,9 @@ class AttributeSelectorTrailTest extends ZimbraStructTestCase
         $this->assertSame(implode(',', [$attr1, $attr2]), $attrs->getAttrs());
         $attrs->setAttrs(implode(',', [$attr1, $attr2, $attr3]));
         $this->assertSame(implode(',', [$attr1, $attr2, $attr3]), $attrs->getAttrs());
+        $attrs = new AttributeSelectorImp($attr1);
+        $attrs->addAttrs($attr2, $attr3);
+        $this->assertSame(implode(',', [$attr1, $attr2, $attr3]), $attrs->getAttrs());
 
         $xml = '<?xml version="1.0"?>' . "\n"
             . '<selector attrs="' . implode(',', [$attr1, $attr2, $attr3]) . '" />';
@@ -28,7 +31,7 @@ class AttributeSelectorTrailTest extends ZimbraStructTestCase
         $json = json_encode([
             'attrs' => implode(',', [$attr1, $attr2, $attr3]),
         ]);
-        $this->assertSame($json, $this->serializer->serialize($attrs, 'json'));
+        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($attrs, 'json'));
         $this->assertEquals($attrs, $this->serializer->deserialize($json, AttributeSelectorImp::class, 'json'));
     }
 }

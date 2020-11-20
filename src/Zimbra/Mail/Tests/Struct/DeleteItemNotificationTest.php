@@ -34,7 +34,7 @@ class DeleteItemNotificationTest extends ZimbraStructTestCase
             'id' => $id,
             't' => $type,
         ]);
-        $this->assertSame($json, $this->serializer->serialize($deleted, 'json'));
+        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($deleted, 'json'));
         $this->assertEquals($deleted, $this->serializer->deserialize($json, DeleteItemNotification::class, 'json'));
     }
 }
