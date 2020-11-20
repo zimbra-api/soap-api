@@ -11,7 +11,6 @@
 namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlRoot};
-use Zimbra\Admin\Struct\AttachmentIdAttrib;
 use Zimbra\Soap\Request;
 
 /**

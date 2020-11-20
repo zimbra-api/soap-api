@@ -22,7 +22,7 @@ class ExportAndDeleteMailboxSpecTest extends ZimbraStructTestCase
         $this->assertSame($id, $mbox->getId());
         $this->assertSame([$item1], $mbox->getItems());
 
-        $mbox = new ExportAndDeleteMailboxSpec(0, []);
+        $mbox = new ExportAndDeleteMailboxSpec(0);
         $mbox->setId($id)
              ->setItems([$item1])
              ->addItem($item2);

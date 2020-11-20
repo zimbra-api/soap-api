@@ -158,7 +158,7 @@ class DumpSessionsResponse implements ResponseInterface
      *
      * @return InfoForSessionType
      */
-    public function getSoapSessions()
+    public function getSoapSessions(): InfoForSessionType
     {
         return $this->soapSessions;
     }
@@ -180,7 +180,7 @@ class DumpSessionsResponse implements ResponseInterface
      *
      * @return InfoForSessionType
      */
-    public function getImapSessions()
+    public function getImapSessions(): InfoForSessionType
     {
         return $this->imapSessions;
     }
@@ -202,7 +202,7 @@ class DumpSessionsResponse implements ResponseInterface
      *
      * @return InfoForSessionType
      */
-    public function getAdminSessions()
+    public function getAdminSessions(): InfoForSessionType
     {
         return $this->adminSessions;
     }
@@ -224,7 +224,7 @@ class DumpSessionsResponse implements ResponseInterface
      *
      * @return InfoForSessionType
      */
-    public function getWikiSessions()
+    public function getWikiSessions(): InfoForSessionType
     {
         return $this->wikiSessions;
     }
@@ -246,7 +246,7 @@ class DumpSessionsResponse implements ResponseInterface
      *
      * @return InfoForSessionType
      */
-    public function getSynclistenerSessions()
+    public function getSynclistenerSessions(): InfoForSessionType
     {
         return $this->synclistenerSessions;
     }
@@ -268,7 +268,7 @@ class DumpSessionsResponse implements ResponseInterface
      *
      * @return InfoForSessionType
      */
-    public function getWaitsetSessions()
+    public function getWaitsetSessions(): InfoForSessionType
     {
         return $this->waitsetSessions;
     }
