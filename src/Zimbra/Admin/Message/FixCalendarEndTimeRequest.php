@@ -63,24 +63,24 @@ class FixCalendarEndTimeRequest extends Request
     }
 
     /**
-     * Gets includeAccounts
+     * Gets sync
      *
      * @return bool
      */
     public function getSync(): ?bool
     {
-        return $this->includeAccounts;
+        return $this->sync;
     }
 
     /**
-     * Sets includeAccounts
+     * Sets sync
      *
-     * @param  bool $includeAccounts
+     * @param  bool $sync
      * @return self
      */
-    public function setSync($includeAccounts): self
+    public function setSync($sync): self
     {
-        $this->includeAccounts = (bool) $includeAccounts;
+        $this->sync = (bool) $sync;
         return $this;
     }
 
