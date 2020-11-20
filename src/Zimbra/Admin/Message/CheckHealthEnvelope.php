@@ -21,8 +21,8 @@ use Zimbra\Soap\{BodyInterface, Envelope, Header};
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @XmlNamespace(uri="urn:zimbraAdmin", prefix="urn")
  * @AccessType("public_method")
+ * @XmlNamespace(uri="urn:zimbraAdmin", prefix="urn")
  * @XmlRoot(name="soap:Envelope")
  */
 class CheckHealthEnvelope extends Envelope
