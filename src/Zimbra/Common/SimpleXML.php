@@ -180,7 +180,7 @@ class SimpleXML extends SimpleXMLElement
     }
 
     /**
-     * Adds a child element width CDATA section to the XML node
+     * Adds a child element width value as CDATA to the XML node
      *
      * @param  string $name The name of the child element to add.
      * @param  string $value If specified, the value of the child element.
@@ -190,10 +190,22 @@ class SimpleXML extends SimpleXMLElement
     public function addChildWithCData($name, $value = NULL, $namespace = NULL): SimpleXMLElement
     {
         $child = parent::addChild($name, NULL, $namespace);
+        $child->addCData($value);
+        return $child;
+    }
+
+    /**
+     * Add value as CDATA to the current XML node 
+     *
+     * @param  string $value The value of the current XML node.
+     * @return self
+     */
+    public function addCData($value = NULL): self
+    {
         if (!empty($value)) {
-            $node = dom_import_simplexml($child);
+            $node = dom_import_simplexml($this);
             $node->appendChild($node->ownerDocument->createCDATASection($value));
         }
-        return $child;
+        return $this;
     }
 }

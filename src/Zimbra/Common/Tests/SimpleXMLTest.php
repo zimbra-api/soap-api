@@ -124,9 +124,12 @@ class SimpleXMLTest extends TestCase
 
     public function testAddChildWithCData()
     {
-        $xmlString = '<?xml version="1.0"?><books><title><![CDATA[Book Title]]></title></books>';
-        $xml = new SimpleXML('<books />');
-        $xml->addChildWithCData('title', 'Book Title');
-        $this->assertXmlStringEqualsXmlString($xmlString, $xml->asXml());
+        $xml = new SimpleXML('<book />');
+        $title = $xml->addChildWithCData('title', 'Book Title');
+        $this->assertSame('<title><![CDATA[Book Title]]></title>', $title->asXml());
+
+        $publisher = $xml->addChild('publisher');
+        $publisher->addCData('Book Publisher');
+        $this->assertSame('<publisher><![CDATA[Book Publisher]]></publisher>', $publisher->asXml());
     }
 }
