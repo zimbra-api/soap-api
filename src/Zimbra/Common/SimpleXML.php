@@ -69,7 +69,7 @@ class SimpleXML extends SimpleXMLElement
      * @param  SimpleXML $xml.
      * @return self
      */
-    public function append(SimpleXML $xml, $namespace = NULL)
+    public function append(SimpleXML $xml, $namespace = NULL): self
     {
         $value = trim((string) $xml);
         $namespaces = array_values($xml->getNamespaces());
@@ -91,9 +91,9 @@ class SimpleXML extends SimpleXMLElement
      *
      * @param  array  $array.
      * @param  string $namespace.
-     * @return void
+     * @return self
      */
-    public function addArray(array $array = [], $namespace = NULL)
+    public function addArray(array $array = [], $namespace = NULL): self
     {
         foreach ($array as $name => $param) {
             if (is_array($param) && Text::isValidTagName($name)) {
@@ -158,7 +158,7 @@ class SimpleXML extends SimpleXMLElement
      * @param  string $namespace If specified, the namespace to which the attribute belongs.
      * @return self
      */
-    public function addAttribute($name, $value = NULL, $namespace = NULL)
+    public function addAttribute($name, $value = NULL, $namespace = NULL): self
     {
         parent::addAttribute($name, (string) $value, $namespace);
         return $this;
@@ -171,11 +171,29 @@ class SimpleXML extends SimpleXMLElement
      * @param  string $namespace If specified, the namespace to which the attribute belongs.
      * @return self
      */
-    public function addAttributes(array $attrs = [], $namespace = NULL)
+    public function addAttributes(array $attrs = [], $namespace = NULL): self
     {
         foreach ($attrs as $name => $value) {
             parent::addAttribute($name, $value, $namespace);
         }
         return $this;
+    }
+
+    /**
+     * Adds a child element width CDATA section to the XML node
+     *
+     * @param  string $name The name of the child element to add.
+     * @param  string $value If specified, the value of the child element.
+     * @param  string $namespace If specified, the namespace to which the child element belongs.
+     * @return SimpleXMLElement
+     */
+    public function addChildWithCData($name, $value = NULL, $namespace = NULL): SimpleXMLElement
+    {
+        $child = parent::addChild($name, NULL, $namespace);
+        if (!empty($value)) {
+            $node = dom_import_simplexml($child);
+            $node->appendChild($node->ownerDocument->createCDATASection($value));
+        }
+        return $child;
     }
 }
