@@ -16,7 +16,9 @@ use Zimbra\Struct\NamedElement;
 
 /**
  * FixCalendarEndTimeRequest class
- * Deploy Zimlet(s)
+ * Fix Calendar End Times
+ * Re-calculate the end times used for calendar items after changes to the recurrence expansion configuration.
+ * The current configured values can be determined from: zmprov getAllConfig | grep zimbraCalendarRecurrence
  * 
  * @package    Zimbra
  * @subpackage Admin

@@ -17,7 +17,7 @@ use Zimbra\Struct\NamedElement;
 
 /**
  * FixCalendarTZRequest class
- * Deploy Zimlet(s)
+ * Fix timezone definitions in appointments and tasks to reflect changes in daylight savings time rules in various timezones.
  * 
  * @package    Zimbra
  * @subpackage Admin

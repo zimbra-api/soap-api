@@ -16,7 +16,7 @@ use Zimbra\Struct\NamedElement;
 
 /**
  * FixCalendarPriorityRequest class
- * Deploy Zimlet(s)
+ * Fix Calendar priority 
  * 
  * @package    Zimbra
  * @subpackage Admin
