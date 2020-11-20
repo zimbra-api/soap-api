@@ -58,7 +58,7 @@ class TzOnsetInfoTest extends ZimbraStructTestCase
             'week' => $week,
             'wkday' => $wkday,
         ]);
-        $this->assertSame($json, $this->serializer->serialize($tzo, 'json'));
+        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($tzo, 'json'));
         $this->assertEquals($tzo, $this->serializer->deserialize($json, TzOnsetInfo::class, 'json'));
     }
 }

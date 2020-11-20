@@ -38,7 +38,7 @@ class DistributionListGranteeSelectorTest extends ZimbraStructTestCase
             'by' => (string) DLGranteeBy::NAME(),
             '_content' => $value,
         ]);
-        $this->assertSame($json, $this->serializer->serialize($grantee, 'json'));
+        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($grantee, 'json'));
         $this->assertEquals($grantee, $this->serializer->deserialize($json, DistributionListGranteeSelector::class, 'json'));
     }
 }

@@ -41,7 +41,7 @@ class ReindexMailboxInfoTest extends ZimbraStructTestCase
             'types' => $types,
             'ids' => $ids,
         ]);
-        $this->assertSame($json, $this->serializer->serialize($mbox, 'json'));
+        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($mbox, 'json'));
         $this->assertEquals($mbox, $this->serializer->deserialize($json, ReindexMailboxInfo::class, 'json'));
     }
 }

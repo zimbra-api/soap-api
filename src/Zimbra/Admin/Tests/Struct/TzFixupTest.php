@@ -168,7 +168,7 @@ class TzFixupTest extends ZimbraStructTestCase
                 ],
             ],
         ]);
-        $this->assertSame($json, $this->serializer->serialize($tzfixup, 'json'));
+        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($tzfixup, 'json'));
         $this->assertEquals($tzfixup, $this->serializer->deserialize($json, TzFixup::class, 'json'));
     }
 }

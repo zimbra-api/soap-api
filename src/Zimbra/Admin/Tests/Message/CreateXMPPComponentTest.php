@@ -104,22 +104,22 @@ class CreateXMPPComponentTest extends ZimbraStructTestCase
                 ],
                 'CreateXMPPComponentResponse' => [
                     'xmppcomponent' => [
+                        'name' => $name,
+                        'id' => $id,
+                        'x-domainName' => $domainName,
+                        'x-serverName' => $serverName,
                         'a' => [
                             [
                                 'n' => $key,
                                 '_content' => $value,
                             ],
                         ],
-                        'name' => $name,
-                        'id' => $id,
-                        'x-domainName' => $domainName,
-                        'x-serverName' => $serverName,
                     ],
                     '_jsns' => 'urn:zimbraAdmin',
                 ],
             ],
         ]);
-        $this->assertSame($json, $this->serializer->serialize($envelope, 'json'));
+        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
         $this->assertEquals($envelope, $this->serializer->deserialize($json, CreateXMPPComponentEnvelope::class, 'json'));
     }
 }

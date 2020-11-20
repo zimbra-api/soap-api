@@ -34,7 +34,7 @@ class PrincipalSelectorTest extends ZimbraStructTestCase
             'by' => (string) PrincipalBy::NAME(),
             '_content' => $value,
         ]);
-        $this->assertSame($json, $this->serializer->serialize($pri, 'json'));
+        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($pri, 'json'));
         $this->assertEquals($pri, $this->serializer->deserialize($json, PrincipalSelector::class, 'json'));
     }
 }

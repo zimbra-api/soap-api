@@ -89,7 +89,7 @@ class EntrySearchFilterMultiCondTest extends ZimbraStructTestCase
                 ],
             ],
         ]);
-        $this->assertSame($json, $this->serializer->serialize($conds, 'json'));
+        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($conds, 'json'));
         $multiCond = $this->serializer->deserialize($json, EntrySearchFilterMultiCond::class, 'json');
         $this->assertTRUE($multiCond->isNot());
         $this->assertFALSE($multiCond->isOr());

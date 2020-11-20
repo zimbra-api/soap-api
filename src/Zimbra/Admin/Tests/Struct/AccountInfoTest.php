@@ -44,7 +44,7 @@ class AccountInfoTest extends ZimbraStructTestCase
             ],
             'isExternal' => TRUE,
         ]);
-        $this->assertSame($json, $this->serializer->serialize($account, 'json'));
+        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($account, 'json'));
         $this->assertEquals($account, $this->serializer->deserialize($json, AccountInfo::class, 'json'));
     }
 }

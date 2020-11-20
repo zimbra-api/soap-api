@@ -51,7 +51,7 @@ class ExportAndDeleteMailboxSpecTest extends ZimbraStructTestCase
                 ],
             ],
         ]);
-        $this->assertSame($json, $this->serializer->serialize($mbox, 'json'));
+        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($mbox, 'json'));
         $this->assertEquals($mbox, $this->serializer->deserialize($json, ExportAndDeleteMailboxSpec::class, 'json'));
     }
 }

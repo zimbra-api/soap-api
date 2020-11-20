@@ -39,7 +39,7 @@ class TzFixupRuleMatchRuleTest extends ZimbraStructTestCase
             'week' => $week,
             'wkday' => $wkday,
         ]);
-        $this->assertSame($json, $this->serializer->serialize($rule, 'json'));
+        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($rule, 'json'));
         $this->assertEquals($rule, $this->serializer->deserialize($json, TzFixupRuleMatchRule::class, 'json'));
     }
 }

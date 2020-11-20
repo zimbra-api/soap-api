@@ -58,7 +58,7 @@ class ZmgDeviceSpecTest extends ZimbraStructTestCase
             'osVersion' => $osVersion,
             'maxPayloadSize' => $maxPayloadSize,
         ]);
-        $this->assertSame($json, $this->serializer->serialize($device, 'json'));
+        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($device, 'json'));
         $this->assertEquals($device, $this->serializer->deserialize($json, ZmgDeviceSpec::class, 'json'));
     }
 }

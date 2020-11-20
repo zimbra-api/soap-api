@@ -34,7 +34,7 @@ class ZimletPrefsSpecTest extends ZimbraStructTestCase
             'name' => $name,
             'presence' => (string) ZimletStatus::DISABLED(),
         ]);
-        $this->assertSame($json, $this->serializer->serialize($zimlet, 'json'));
+        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($zimlet, 'json'));
         $this->assertEquals($zimlet, $this->serializer->deserialize($json, ZimletPrefsSpec::class, 'json'));
     }
 }

@@ -33,7 +33,7 @@ class IdAndTypeTest extends ZimbraStructTestCase
             'id' => $id,
             'type' => $type,
         ]);
-        $this->assertSame($json, $this->serializer->serialize($idType, 'json'));
+        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($idType, 'json'));
         $this->assertEquals($idType, $this->serializer->deserialize($json, IdAndType::class, 'json'));
     }
 }

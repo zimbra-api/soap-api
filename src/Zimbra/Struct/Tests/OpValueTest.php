@@ -29,7 +29,7 @@ class OpValueTest extends ZimbraStructTestCase
             'op' => '+',
             '_content' => $value,
         ]);
-        $this->assertSame($json, $this->serializer->serialize($op, 'json'));
+        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($op, 'json'));
         $this->assertEquals($op, $this->serializer->deserialize($json, OpValue::class, 'json'));
     }
 }

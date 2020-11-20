@@ -39,7 +39,7 @@ class StatTest extends ZimbraStructTestCase
             'description' => $description,
             '_content' => $value,
         ]);
-        $this->assertSame($json, $this->serializer->serialize($stat, 'json'));
+        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($stat, 'json'));
         $this->assertEquals($stat, $this->serializer->deserialize($json, Stat::class, 'json'));
     }
 }

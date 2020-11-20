@@ -38,7 +38,7 @@ class GranteeChooserTest extends ZimbraStructTestCase
             'id' => $id,
             'name' => $name,
         ]);
-        $this->assertSame($json, $this->serializer->serialize($grantee, 'json'));
+        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($grantee, 'json'));
         $this->assertEquals($grantee, $this->serializer->deserialize($json, GranteeChooser::class, 'json'));
     }
 }

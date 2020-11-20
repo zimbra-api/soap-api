@@ -39,7 +39,7 @@ class PropTest extends ZimbraStructTestCase
             'name' => $name,
             '_content' => $value,
         ]);
-        $this->assertSame($json, $this->serializer->serialize($prop, 'json'));
+        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($prop, 'json'));
         $this->assertEquals($prop, $this->serializer->deserialize($json, Prop::class, 'json'));
     }
 }

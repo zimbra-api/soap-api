@@ -28,7 +28,7 @@ class RightTest extends ZimbraStructTestCase
         $json = json_encode([
             'right' => $name,
         ]);
-        $this->assertSame($json, $this->serializer->serialize($right, 'json'));
+        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($right, 'json'));
         $this->assertEquals($right, $this->serializer->deserialize($json, Right::class, 'json'));
     }
 }

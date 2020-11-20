@@ -34,7 +34,7 @@ class ChangeInfoTest extends ZimbraStructTestCase
             'token' => $changeId,
             'type' => $changeType,
         ]);
-        $this->assertSame($json, $this->serializer->serialize($info, 'json'));
+        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($info, 'json'));
         $this->assertEquals($info, $this->serializer->deserialize($json, ChangeInfo::class, 'json'));
     }
 }

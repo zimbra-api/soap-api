@@ -56,7 +56,7 @@ class SyncGalAccountSpecTest extends ZimbraStructTestCase
                 ],
             ],
         ]);
-        $this->assertSame($json, $this->serializer->serialize($sync, 'json'));
+        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($sync, 'json'));
         $this->assertEquals($sync, $this->serializer->deserialize($json, SyncGalAccountSpec::class, 'json'));
     }
 }

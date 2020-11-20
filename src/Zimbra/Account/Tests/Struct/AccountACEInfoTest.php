@@ -65,7 +65,7 @@ class AccountACEInfoTest extends ZimbraStructTestCase
             'deny' => TRUE,
             'chkgt' => FALSE,
         ]);
-        $this->assertSame($json, $this->serializer->serialize($ace, 'json'));
+        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($ace, 'json'));
         $this->assertEquals($ace, $this->serializer->deserialize($json, AccountACEInfo::class, 'json'));
     }
 }

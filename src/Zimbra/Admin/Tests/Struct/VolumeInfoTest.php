@@ -91,7 +91,7 @@ class VolumeInfoTest extends ZimbraStructTestCase
             'fbits' => $fbits,
             'isCurrent' => FALSE,
         ]);
-        $this->assertSame($json, $this->serializer->serialize($volume, 'json'));
+        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($volume, 'json'));
         $this->assertEquals($volume, $this->serializer->deserialize($json, VolumeInfo::class, 'json'));
     }
 }

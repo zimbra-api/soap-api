@@ -76,7 +76,7 @@ class DistributionListInfoTest extends ZimbraStructTestCase
                 ],
             ],
         ]);
-        $this->assertSame($json, $this->serializer->serialize($dl, 'json'));
+        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($dl, 'json'));
         $this->assertEquals($dl, $this->serializer->deserialize($json, DistributionListInfo::class, 'json'));
     }
 }

@@ -49,7 +49,7 @@ class BlobSizeInfoTest extends ZimbraStructTestCase
             'fileSize' => $fileSize,
             'external' => TRUE,
         ]);
-        $this->assertSame($json, $this->serializer->serialize($blob, 'json'));
+        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($blob, 'json'));
         $this->assertEquals($blob, $this->serializer->deserialize($json, BlobSizeInfo::class, 'json'));
     }
 }

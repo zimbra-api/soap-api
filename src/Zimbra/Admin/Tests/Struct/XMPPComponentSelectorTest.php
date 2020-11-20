@@ -33,7 +33,7 @@ class XMPPComponentSelectorTest extends ZimbraStructTestCase
             'by' => (string) XmppBy::NAME(),
             '_content' => $value,
         ]);
-        $this->assertSame($json, $this->serializer->serialize($xmpp, 'json'));
+        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($xmpp, 'json'));
         $this->assertEquals($xmpp, $this->serializer->deserialize($json, XMPPComponentSelector::class, 'json'));
     }
 }

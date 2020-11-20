@@ -49,7 +49,7 @@ class WaitSetAddSpecTest extends ZimbraStructTestCase
             'token' => $token,
             'types' => 'f,m,c',
         ]);
-        $this->assertSame($json, $this->serializer->serialize($waitSet, 'json'));
+        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($waitSet, 'json'));
         $this->assertEquals($waitSet, $this->serializer->deserialize($json, WaitSetAddSpec::class, 'json'));
     }
 }

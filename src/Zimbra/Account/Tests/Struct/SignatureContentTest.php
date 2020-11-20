@@ -35,7 +35,7 @@ class SignatureContentTest extends ZimbraStructTestCase
             'type' => (string) ContentType::TEXT_HTML(),
             '_content' => $value,
         ]);
-        $this->assertSame($json, $this->serializer->serialize($content, 'json'));
+        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($content, 'json'));
         $this->assertEquals($content, $this->serializer->deserialize($json, SignatureContent::class, 'json'));
     }
 }

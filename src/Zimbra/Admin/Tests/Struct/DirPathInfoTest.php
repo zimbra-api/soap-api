@@ -44,7 +44,7 @@ class DirPathInfoTest extends ZimbraStructTestCase
             'readable' => TRUE,
             'writable' => TRUE,
         ]);
-        $this->assertSame($json, $this->serializer->serialize($dir, 'json'));
+        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($dir, 'json'));
         $this->assertEquals($dir, $this->serializer->deserialize($json, DirPathInfo::class, 'json'));
     }
 }

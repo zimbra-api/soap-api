@@ -47,7 +47,7 @@ class BatchRequestTest extends ZimbraStructTestCase
                 '_jsns' => 'urn:zimbraBar',
             ],
         ]);
-        $this->assertSame($json, $this->serializer->serialize($batch, 'json'));
+        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($batch, 'json'));
     }
 }
 

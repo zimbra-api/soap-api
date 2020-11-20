@@ -42,7 +42,7 @@ class ContactGroupMemberTest extends ZimbraStructTestCase
             'value' => $value,
             'cn' => new \stdClass,
         ]);
-        $this->assertSame($json, $this->serializer->serialize($member, 'json'));
+        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($member, 'json'));
         $this->assertEquals($member, $this->serializer->deserialize($json, ContactGroupMember::class, 'json'));
     }
 }

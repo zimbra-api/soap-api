@@ -34,7 +34,7 @@ class CacheEntrySelectorTest extends ZimbraStructTestCase
             'by' => (string) CacheEntryBy::ID(),
             '_content' => $value,
         ]);
-        $this->assertSame($json, $this->serializer->serialize($entry, 'json'));
+        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($entry, 'json'));
         $this->assertEquals($entry, $this->serializer->deserialize($json, CacheEntrySelector::class, 'json'));
     }
 }

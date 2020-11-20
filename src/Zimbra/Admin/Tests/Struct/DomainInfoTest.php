@@ -38,7 +38,7 @@ class DomainInfoTest extends ZimbraStructTestCase
                 ],
             ],
         ]);
-        $this->assertSame($json, $this->serializer->serialize($domain, 'json'));
+        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($domain, 'json'));
         $this->assertEquals($domain, $this->serializer->deserialize($json, DomainInfo::class, 'json'));
     }
 }

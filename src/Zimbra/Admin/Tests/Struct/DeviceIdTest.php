@@ -28,7 +28,7 @@ class DeviceIdTest extends ZimbraStructTestCase
         $json = json_encode([
             'id' => $id,
         ]);
-        $this->assertSame($json, $this->serializer->serialize($device, 'json'));
+        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($device, 'json'));
         $this->assertEquals($device, $this->serializer->deserialize($json, DeviceId::class, 'json'));
     }
 }

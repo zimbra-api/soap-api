@@ -27,7 +27,7 @@ class AttributeNameTest extends ZimbraStructTestCase
         $json = json_encode([
             'n' => $name,
         ]);
-        $this->assertSame($json, $this->serializer->serialize($attr, 'json'));
+        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($attr, 'json'));
         $this->assertEquals($attr, $this->serializer->deserialize($json, AttributeName::class, 'json'));
     }
 }

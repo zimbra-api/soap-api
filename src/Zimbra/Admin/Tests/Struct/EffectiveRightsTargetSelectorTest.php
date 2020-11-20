@@ -40,7 +40,7 @@ class EffectiveRightsTargetSelectorTest extends ZimbraStructTestCase
             'by' => (string) TargetBy::NAME(),
             '_content' => $value,
         ]);
-        $this->assertSame($json, $this->serializer->serialize($target, 'json'));
+        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($target, 'json'));
         $this->assertEquals($target, $this->serializer->deserialize($json, EffectiveRightsTargetSelector::class, 'json'));
     }
 }

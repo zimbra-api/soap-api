@@ -83,7 +83,7 @@ class CalTZInfoTest extends ZimbraStructTestCase
             'stdname' => $stdname,
             'dayname' => $dayname,
         ]);
-        $this->assertSame($json, $this->serializer->serialize($tzi, 'json'));
+        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($tzi, 'json'));
         $this->assertEquals($tzi, $this->serializer->deserialize($json, CalTZInfo::class, 'json'));
     }
 }

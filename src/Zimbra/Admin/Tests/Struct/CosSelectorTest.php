@@ -33,7 +33,7 @@ class CosSelectorTest extends ZimbraStructTestCase
             'by' => (string) CosBy::NAME(),
             '_content' => $value,
         ]);
-        $this->assertSame($json, $this->serializer->serialize($cos, 'json'));
+        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($cos, 'json'));
         $this->assertEquals($cos, $this->serializer->deserialize($json, CosSelector::class, 'json'));
     }
 }

@@ -31,7 +31,7 @@ class AttributeSelectorTrailTest extends ZimbraStructTestCase
         $json = json_encode([
             'attrs' => implode(',', [$attr1, $attr2, $attr3]),
         ]);
-        $this->assertSame($json, $this->serializer->serialize($attrs, 'json'));
+        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($attrs, 'json'));
         $this->assertEquals($attrs, $this->serializer->deserialize($json, AttributeSelectorImp::class, 'json'));
     }
 }

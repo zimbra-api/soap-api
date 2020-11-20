@@ -50,7 +50,7 @@ class ExchangeAuthSpecTest extends ZimbraStructTestCase
             'scheme' => (string) AuthScheme::FORM(),
             'type' => $type,
         ]);
-        $this->assertSame($json, $this->serializer->serialize($auth, 'json'));
+        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($auth, 'json'));
         $this->assertEquals($auth, $this->serializer->deserialize($json, ExchangeAuthSpec::class, 'json'));
     }
 }

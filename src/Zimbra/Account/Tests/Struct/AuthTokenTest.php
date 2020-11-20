@@ -37,7 +37,7 @@ class AuthTokenTest extends ZimbraStructTestCase
             'verifyAccount' => TRUE,
             'lifetime' => $lifetime,
         ]);
-        $this->assertSame($json, $this->serializer->serialize($token, 'json'));
+        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($token, 'json'));
         $this->assertEquals($token, $this->serializer->deserialize($json, AuthToken::class, 'json'));
     }
 }

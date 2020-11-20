@@ -75,7 +75,7 @@ class TzReplaceInfoTest extends ZimbraStructTestCase
                 'dayname' => $dayname,
             ],
         ]);
-        $this->assertSame($json, $this->serializer->serialize($replace, 'json'));
+        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($replace, 'json'));
         $this->assertEquals($replace, $this->serializer->deserialize($json, TzReplaceInfo::class, 'json'));
     }
 }

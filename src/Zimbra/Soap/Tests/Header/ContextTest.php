@@ -197,7 +197,7 @@ class ContextTest extends ZimbraStructTestCase
                 '_content' => $csrfToken,
             ],
         ]);
-        $this->assertSame($json, $this->serializer->serialize($context, 'json'));
+        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($context, 'json'));
         $this->assertEquals($context, $this->serializer->deserialize($json, Context::class, 'json'));
     }
 }

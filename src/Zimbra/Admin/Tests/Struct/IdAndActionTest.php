@@ -34,7 +34,7 @@ class IdAndActionTest extends ZimbraStructTestCase
             'id' => $id,
             'action' => $action,
         ]);
-        $this->assertSame($json, $this->serializer->serialize($ia, 'json'));
+        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($ia, 'json'));
         $this->assertEquals($ia, $this->serializer->deserialize($json, IdAndAction::class, 'json'));
     }
 }

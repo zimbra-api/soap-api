@@ -36,7 +36,7 @@ class CosInfoAttrTest extends ZimbraStructTestCase
             'c' => TRUE,
             'pd' => TRUE,
         ]);
-        $this->assertSame($json, $this->serializer->serialize($attr, 'json'));
+        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($attr, 'json'));
         $this->assertEquals($attr, $this->serializer->deserialize($json, CosInfoAttr::class, 'json'));
     }
 }

@@ -34,7 +34,7 @@ class UserAgentInfoTest extends ZimbraStructTestCase
             'name' => $name,
             'version' => $version,
         ]);
-        $this->assertSame($json, $this->serializer->serialize($info, 'json'));
+        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($info, 'json'));
         $this->assertEquals($info, $this->serializer->deserialize($json, UserAgentInfo::class, 'json'));
     }
 }

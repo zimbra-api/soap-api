@@ -38,7 +38,7 @@ class SessionTest extends ZimbraStructTestCase
             'id' => $id,
             '_content' => $id,
         ]);
-        $this->assertSame($json, $this->serializer->serialize($session, 'json'));
+        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($session, 'json'));
         $this->assertEquals($session, $this->serializer->deserialize($json, Session::class, 'json'));
     }
 }

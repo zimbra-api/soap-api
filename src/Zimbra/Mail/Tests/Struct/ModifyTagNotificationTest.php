@@ -42,8 +42,7 @@ class ModifyTagNotificationTest extends ZimbraStructTestCase
                 '_content' => $name,
             ],
         ]);
-        $this->assertSame($json, $this->serializer->serialize($item, 'json'));
-        $tags = $this->serializer->deserialize($json, ModifyTagNotification::class, 'json');
+        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($item, 'json'));
         $this->assertEquals($item, $this->serializer->deserialize($json, ModifyTagNotification::class, 'json'));
     }
 }

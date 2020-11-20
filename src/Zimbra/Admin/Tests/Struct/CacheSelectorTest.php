@@ -63,7 +63,7 @@ class CacheSelectorTest extends ZimbraStructTestCase
             'allServers' => TRUE,
             'imapServers' => TRUE,
         ]);
-        $this->assertSame($json, $this->serializer->serialize($cache, 'json'));
+        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($cache, 'json'));
         $this->assertEquals($cache, $this->serializer->deserialize($json, CacheSelector::class, 'json'));
     }
 }

@@ -44,7 +44,7 @@ class PolicyTest extends ZimbraStructTestCase
             'name' => $name,
             'lifetime' => $lifetime,
         ]);
-        $this->assertSame($json, $this->serializer->serialize($policy, 'json'));
+        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($policy, 'json'));
         $this->assertEquals($policy, $this->serializer->deserialize($json, Policy::class, 'json'));
     }
 }

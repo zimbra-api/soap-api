@@ -28,7 +28,7 @@ class OffsetTest extends ZimbraStructTestCase
         $json = json_encode([
             'offset' => $value,
         ]);
-        $this->assertSame($json, $this->serializer->serialize($offset, 'json'));
+        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($offset, 'json'));
         $this->assertEquals($offset, $this->serializer->deserialize($json, Offset::class, 'json'));
     }
 }

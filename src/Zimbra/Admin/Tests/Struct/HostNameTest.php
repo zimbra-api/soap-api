@@ -28,7 +28,7 @@ class HostNameTest extends ZimbraStructTestCase
         $json = json_encode([
             'hn' => $name,
         ]);
-        $this->assertSame($json, $this->serializer->serialize($host, 'json'));
+        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($host, 'json'));
         $this->assertEquals($host, $this->serializer->deserialize($json, HostName::class, 'json'));
     }
 }

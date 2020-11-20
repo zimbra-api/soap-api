@@ -51,7 +51,7 @@ class DataSourceInfoTest extends ZimbraStructTestCase
             'id' => $id,
             'type' => (string) DataSourceType::POP3(),
         ]);
-        $this->assertSame($json, $this->serializer->serialize($ds, 'json'));
+        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($ds, 'json'));
         $this->assertEquals($ds, $this->serializer->deserialize($json, DataSourceInfo::class, 'json'));
     }
 }

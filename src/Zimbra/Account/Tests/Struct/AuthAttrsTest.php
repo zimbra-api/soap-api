@@ -49,7 +49,7 @@ class AuthAttrsTest extends ZimbraStructTestCase
                 ],
             ],
         ]);
-        $this->assertSame($json, $this->serializer->serialize($attrs, 'json'));
+        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($attrs, 'json'));
         $this->assertEquals($attrs, $this->serializer->deserialize($json, AuthAttrs::class, 'json'));
     }
 }

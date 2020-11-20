@@ -45,7 +45,7 @@ class PolicyHolderTest extends ZimbraStructTestCase
                 '_jsns' => 'urn:zimbraMail',
             ],
         ]);
-        $this->assertSame($json, $this->serializer->serialize($holder, 'json'));
+        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($holder, 'json'));
         $this->assertEquals($holder, $this->serializer->deserialize($json, PolicyHolder::class, 'json'));
     }
 }

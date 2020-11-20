@@ -58,7 +58,7 @@ class QueueQueryTest extends ZimbraStructTestCase
             'limit' => $limit,
             'offset' => $offset,
         ]);
-        $this->assertSame($json, $this->serializer->serialize($query, 'json'));
+        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($query, 'json'));
         $this->assertEquals($query, $this->serializer->deserialize($json, QueueQuery::class, 'json'));
     }
 }

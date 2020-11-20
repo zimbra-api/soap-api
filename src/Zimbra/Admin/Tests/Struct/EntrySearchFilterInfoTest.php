@@ -68,7 +68,7 @@ class EntrySearchFilterInfoTest extends ZimbraStructTestCase
                 ],
             ]
         ]);
-        $this->assertSame($json, $this->serializer->serialize($filter, 'json'));
+        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($filter, 'json'));
         $filter = $this->serializer->deserialize($json, EntrySearchFilterInfo::class, 'json');
         $this->assertEquals($conds, $filter->getConditions());
 
@@ -92,7 +92,7 @@ class EntrySearchFilterInfoTest extends ZimbraStructTestCase
                 'not' => TRUE,
             ],
         ]);
-        $this->assertSame($json, $this->serializer->serialize($filter, 'json'));
+        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($filter, 'json'));
         $this->assertEquals($filter, $this->serializer->deserialize($json, EntrySearchFilterInfo::class, 'json'));
     }
 }

@@ -43,7 +43,7 @@ class EntrySearchFilterSingleCondTest extends ZimbraStructTestCase
             'value' => $value,
             'not' => TRUE,
         ]);
-        $this->assertSame($json, $this->serializer->serialize($cond, 'json'));
+        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($cond, 'json'));
         $this->assertEquals($cond, $this->serializer->deserialize($json, EntrySearchFilterSingleCond::class, 'json'));
     }
 }

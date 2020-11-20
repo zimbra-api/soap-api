@@ -34,7 +34,7 @@ class IdStatusTest extends ZimbraStructTestCase
             'id' => $id,
             'status' => $status,
         ]);
-        $this->assertSame($json, $this->serializer->serialize($is, 'json'));
+        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($is, 'json'));
         $this->assertEquals($is, $this->serializer->deserialize($json, IdStatus::class, 'json'));
     }
 }

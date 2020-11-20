@@ -166,7 +166,7 @@ class EnvelopeTest extends ZimbraStructTestCase
             ],
             'Body' => new \stdClass(),
         ]);
-        $this->assertSame($json, $this->serializer->serialize($envelope, 'json'));
+        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
         $this->assertEquals($envelope, $this->serializer->deserialize($json, FooEnvelope::class, 'json'));
     }
 }

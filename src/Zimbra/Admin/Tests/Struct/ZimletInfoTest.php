@@ -44,7 +44,7 @@ class ZimletInfoTest extends ZimbraStructTestCase
             ],
             'hasKeyword' => $hasKeyword,
         ]);
-        $this->assertSame($json, $this->serializer->serialize($zimlet, 'json'));
+        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($zimlet, 'json'));
         $this->assertEquals($zimlet, $this->serializer->deserialize($json, ZimletInfo::class, 'json'));
     }
 }

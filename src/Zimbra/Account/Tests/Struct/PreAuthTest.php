@@ -40,7 +40,7 @@ class PreAuthTest extends ZimbraStructTestCase
             'timestamp' => $now + 1000,
             'expiresTimestamp' => $expire,
         ]);
-        $this->assertSame($json, $this->serializer->serialize($pre, 'json'));
+        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($pre, 'json'));
         $this->assertEquals($pre, $this->serializer->deserialize($json, PreAuth::class, 'json'));
     }
 }

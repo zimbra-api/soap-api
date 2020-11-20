@@ -28,7 +28,7 @@ class AccountCustomMetadataTest extends ZimbraStructTestCase
         $json = json_encode([
             'section' => $section,
         ]);
-        $this->assertSame($json, $this->serializer->serialize($meta, 'json'));
+        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($meta, 'json'));
         $this->assertEquals($meta, $this->serializer->deserialize($json, AccountCustomMetadata::class, 'json'));
     }
 }

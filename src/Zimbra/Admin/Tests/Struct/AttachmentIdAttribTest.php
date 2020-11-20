@@ -29,7 +29,7 @@ class AttachmentIdAttribTest extends ZimbraStructTestCase
         $json = json_encode([
             'aid' => $aid,
         ]);
-        $this->assertSame($json, $this->serializer->serialize($content, 'json'));
+        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($content, 'json'));
         $this->assertEquals($content, $this->serializer->deserialize($json, AttachmentIdAttrib::class, 'json'));
     }
 }

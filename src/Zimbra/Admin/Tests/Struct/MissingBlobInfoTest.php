@@ -68,7 +68,7 @@ class MissingBlobInfoTest extends ZimbraStructTestCase
             'external' => TRUE,
             'version' => $version,
         ]);
-        $this->assertSame($json, $this->serializer->serialize($item, 'json'));
+        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($item, 'json'));
         $this->assertEquals($item, $this->serializer->deserialize($json, MissingBlobInfo::class, 'json'));
     }
 }

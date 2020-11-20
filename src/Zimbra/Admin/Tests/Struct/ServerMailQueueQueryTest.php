@@ -72,7 +72,7 @@ class ServerMailQueueQueryTest extends ZimbraStructTestCase
             ],
             'name' => $name,
         ]);
-        $this->assertSame($json, $this->serializer->serialize($server, 'json'));
+        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($server, 'json'));
         $this->assertEquals($server, $this->serializer->deserialize($json, ServerMailQueueQuery::class, 'json'));
     }
 }
