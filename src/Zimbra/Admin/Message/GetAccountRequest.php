@@ -18,7 +18,9 @@ use Zimbra\Soap\Request;
 
 /**
  * GetAccountRequest class
- * Fix timezone definitions in appointments and tasks to reflect changes in daylight savings time rules in various timezones.
+ * Get attributes related to an account
+ * {attrs} - comma-seperated list of attrs to return
+ * Note: this request is by default proxied to the account's home server
  * 
  * @package    Zimbra
  * @subpackage Admin
