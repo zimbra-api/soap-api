@@ -51,7 +51,7 @@ class FixCalendarEndTimeRequest extends Request
     /**
      * Constructor method for FixCalendarEndTimeRequest
      * @param  bool $sync
-     * @param  arrat $accounts
+     * @param  array $accounts
      * @return self
      */
     public function __construct($sync = NULL, array $accounts = [])

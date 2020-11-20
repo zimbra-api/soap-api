@@ -24,7 +24,7 @@ class TzFixupTest extends ZimbraStructTestCase
 {
     public function testTzFixup()
     {
-        $id = $this->faker->word;
+        $id = $this->faker->uuid;
         $offset = mt_rand(0, 100);
         $any = new SimpleElement;
         $tzid = new Id($id);
