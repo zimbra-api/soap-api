@@ -15,7 +15,7 @@ use Zimbra\Soap\Request;
 use Zimbra\Struct\NamedElement;
 
 /**
- * FixCalendarEndTimeRequest class
+ * FixCalendarPriorityRequest class
  * Deploy Zimlet(s)
  * 
  * @package    Zimbra
@@ -24,13 +24,13 @@ use Zimbra\Struct\NamedElement;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
  * @AccessType("public_method")
- * @XmlRoot(name="FixCalendarEndTimeRequest")
+ * @XmlRoot(name="FixCalendarPriorityRequest")
  */
-class FixCalendarEndTimeRequest extends Request
+class FixCalendarPriorityRequest extends Request
 {
     /**
      * Sync flag
-     * 1 (true) command blocks until processing finishes 
+     * 1 (true) command blocks until processing finishes
      * 0 (false) [default]  command returns right away 
      * @Accessor(getter="getSync", setter="setSync")
      * @SerializedName("sync")
@@ -49,7 +49,7 @@ class FixCalendarEndTimeRequest extends Request
     private $accounts;
 
     /**
-     * Constructor method for FixCalendarEndTimeRequest
+     * Constructor method for FixCalendarPriorityRequest
      * @param  bool $sync
      * @param  arrat $accounts
      * @return self
@@ -130,9 +130,9 @@ class FixCalendarEndTimeRequest extends Request
      */
     protected function envelopeInit(): void
     {
-        if (!($this->envelope instanceof FixCalendarEndTimeEnvelope)) {
-            $this->envelope = new FixCalendarEndTimeEnvelope(
-                new FixCalendarEndTimeBody($this)
+        if (!($this->envelope instanceof FixCalendarPriorityEnvelope)) {
+            $this->envelope = new FixCalendarPriorityEnvelope(
+                new FixCalendarPriorityBody($this)
             );
         }
     }
