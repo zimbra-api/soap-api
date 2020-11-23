@@ -121,7 +121,7 @@ class AdminZimletInfo implements ZimletInterface
      * @param  ZimletDesc $zimlet
      * @return self
      */
-    public function setHost(ZimletDesc $zimlet): self
+    public function setZimlet(ZimletDesc $zimlet): self
     {
         if ($zimlet instanceof AdminZimletDesc) {
             $this->zimlet = $zimlet;
