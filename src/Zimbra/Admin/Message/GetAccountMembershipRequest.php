@@ -15,11 +15,8 @@ use Zimbra\Struct\AccountSelector;
 use Zimbra\Soap\Request;
 
 /**
- * GetAccountInfoRequest class
- * Get information about an account
- * Currently only 2 attrs are returned:
- * zimbraId: the unique UUID of the zimbra account
- * zimbraMailHost: the server on which this user's mail resides
+ * GetAccountMembershipRequest class
+ * Get distribution lists an account is a member of
  * 
  * @package    Zimbra
  * @subpackage Admin
@@ -27,9 +24,9 @@ use Zimbra\Soap\Request;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
  * @AccessType("public_method")
- * @XmlRoot(name="GetAccountInfoRequest")
+ * @XmlRoot(name="GetAccountMembershipRequest")
  */
-class GetAccountInfoRequest extends Request
+class GetAccountMembershipRequest extends Request
 {
     /**
      * Account
@@ -41,7 +38,7 @@ class GetAccountInfoRequest extends Request
     private $account;
 
     /**
-     * Constructor method for GetAccountInfoRequest
+     * Constructor method for GetAccountMembershipRequest
      * @param  AccountSelector $account
      * @return self
      */
@@ -79,9 +76,9 @@ class GetAccountInfoRequest extends Request
      */
     protected function envelopeInit(): void
     {
-        if (!($this->envelope instanceof GetAccountInfoEnvelope)) {
-            $this->envelope = new GetAccountInfoEnvelope(
-                new GetAccountInfoBody($this)
+        if (!($this->envelope instanceof GetAccountMembershipEnvelope)) {
+            $this->envelope = new GetAccountMembershipEnvelope(
+                new GetAccountMembershipBody($this)
             );
         }
     }
