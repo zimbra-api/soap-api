@@ -13,7 +13,7 @@ namespace Zimbra\Admin\Struct;
 use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlRoot, XmlValue};
 
 /**
- * LimitedQuery struct class
+ * InheritedFlaggedValue struct class
  *
  * @package    Zimbra
  * @subpackage Admin
@@ -21,17 +21,20 @@ use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAt
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
  * @AccessType("public_method")
- * @XmlRoot(name="query")
+ * @XmlRoot(name="flag")
  */
-class LimitedQuery
+class InheritedFlaggedValue
 {
     /**
-     * @Accessor(getter="getLimit", setter="setLimit")
-     * @SerializedName("limit")
-     * @Type("integer")
+     * Inherited flag
+     * 1 (true): inherited from a group
+     * 0 (false): set directly on the entry
+     * @Accessor(getter="getInherited", setter="setInherited")
+     * @SerializedName("inherited")
+     * @Type("bool")
      * @XmlAttribute
      */
-    private $limit;
+    private $inherited;
 
     /**
      * @Accessor(getter="getValue", setter="setValue")
@@ -42,40 +45,38 @@ class LimitedQuery
     private $value;
 
     /**
-     * Constructor method for LimitedQuery
-     * @param  int    $limit Limit. Default value 10
-     * @param  string $value Query string
+     * Constructor method for InheritedFlaggedValue
+     * @param  bool   $inherited
+     * @param  string $value
      * @return self
      */
-    public function __construct($limit = NULL, $value = NULL)
+    public function __construct($inherited, $value = NULL)
     {
-        if (NULL !== $limit) {
-            $this->setLimit($limit);
-        }
+        $this->setInherited($inherited);
         if (NULL !== $value) {
             $this->setValue($value);
         }
     }
 
     /**
-     * Gets limit
+     * Gets inherited
      *
-     * @return int
+     * @return bool
      */
-    public function getLimit(): int
+    public function getInherited(): bool
     {
-        return $this->limit;
+        return $this->inherited;
     }
 
     /**
-     * Sets limit
+     * Sets inherited
      *
-     * @param  int $limit
+     * @param  bool $inherited
      * @return self
      */
-    public function setLimit($limit): self
+    public function setInherited($inherited): self
     {
-        $this->limit = (int) $limit;
+        $this->inherited = (bool) $inherited;
         return $this;
     }
 
