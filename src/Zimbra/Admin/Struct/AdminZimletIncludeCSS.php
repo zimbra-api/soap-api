@@ -10,30 +10,25 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlRoot, XmlValue};
+use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlValue, XmlRoot};
+
+use Zimbra\Struct\ZimletIncludeCSS;
 
 /**
- * LimitedQuery struct class
- *
+ * AdminZimletIncludeCSS class
+ * 
  * @package    Zimbra
  * @subpackage Admin
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
  * @AccessType("public_method")
- * @XmlRoot(name="query")
+ * @XmlRoot(name="includeCSS")
  */
-class LimitedQuery
+class AdminZimletIncludeCSS implements ZimletIncludeCSS
 {
     /**
-     * @Accessor(getter="getLimit", setter="setLimit")
-     * @SerializedName("limit")
-     * @Type("integer")
-     * @XmlAttribute
-     */
-    private $limit;
-
-    /**
+     * Included Cascading Style Sheet (CSS)
      * @Accessor(getter="getValue", setter="setValue")
      * @SerializedName("_content")
      * @Type("string")
@@ -42,41 +37,13 @@ class LimitedQuery
     private $value;
 
     /**
-     * Constructor method for LimitedQuery
-     * @param  int    $limit Limit. Default value 10
-     * @param  string $value Query string
+     * Constructor method for AdminZimletIncludeCSS
+     * @param string $value
      * @return self
      */
-    public function __construct($limit = NULL, $value = NULL)
+    public function __construct($value = NULL)
     {
-        if (NULL !== $limit) {
-            $this->setLimit($limit);
-        }
-        if (NULL !== $value) {
-            $this->setValue($value);
-        }
-    }
-
-    /**
-     * Gets limit
-     *
-     * @return int
-     */
-    public function getLimit(): int
-    {
-        return $this->limit;
-    }
-
-    /**
-     * Sets limit
-     *
-     * @param  int $limit
-     * @return self
-     */
-    public function setLimit($limit): self
-    {
-        $this->limit = (int) $limit;
-        return $this;
+        $this->setValue($value);
     }
 
     /**
@@ -92,7 +59,7 @@ class LimitedQuery
     /**
      * Sets value
      *
-     * @param  string $name
+     * @param  string $value
      * @return self
      */
     public function setValue($value): self

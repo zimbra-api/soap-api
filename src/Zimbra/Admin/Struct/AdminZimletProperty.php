@@ -12,8 +12,10 @@ namespace Zimbra\Admin\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlRoot, XmlValue};
 
+use Zimbra\Struct\ZimletProperty;
+
 /**
- * LimitedQuery struct class
+ * AdminZimletProperty struct class
  *
  * @package    Zimbra
  * @subpackage Admin
@@ -21,17 +23,17 @@ use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAt
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
  * @AccessType("public_method")
- * @XmlRoot(name="query")
+ * @XmlRoot(name="property")
  */
-class LimitedQuery
+class AdminZimletProperty implements ZimletProperty
 {
     /**
-     * @Accessor(getter="getLimit", setter="setLimit")
-     * @SerializedName("limit")
-     * @Type("integer")
+     * @Accessor(getter="getName", setter="setName")
+     * @SerializedName("name")
+     * @Type("string")
      * @XmlAttribute
      */
-    private $limit;
+    private $name;
 
     /**
      * @Accessor(getter="getValue", setter="setValue")
@@ -42,15 +44,15 @@ class LimitedQuery
     private $value;
 
     /**
-     * Constructor method for LimitedQuery
-     * @param  int    $limit Limit. Default value 10
-     * @param  string $value Query string
+     * Constructor method for AdminZimletProperty
+     * @param  string $name
+     * @param  string $value
      * @return self
      */
-    public function __construct($limit = NULL, $value = NULL)
+    public function __construct($name = NULL, $value = NULL)
     {
-        if (NULL !== $limit) {
-            $this->setLimit($limit);
+        if (NULL !== $name) {
+            $this->setName($name);
         }
         if (NULL !== $value) {
             $this->setValue($value);
@@ -58,24 +60,24 @@ class LimitedQuery
     }
 
     /**
-     * Gets limit
+     * Gets the name
      *
-     * @return int
+     * @return string
      */
-    public function getLimit(): int
+    public function getName(): string
     {
-        return $this->limit;
+        return $this->name;
     }
 
     /**
-     * Sets limit
+     * Sets the name
      *
-     * @param  int $limit
+     * @param  string $name
      * @return self
      */
-    public function setLimit($limit): self
+    public function setName($name): self
     {
-        $this->limit = (int) $limit;
+        $this->name = trim($name);
         return $this;
     }
 

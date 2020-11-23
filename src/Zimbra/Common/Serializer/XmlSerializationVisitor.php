@@ -150,7 +150,7 @@ final class XmlSerializationVisitor extends AbstractVisitor implements Serializa
      */
     public function visitString(string $data, array $type)
     {
-        $doCData = null !== $this->currentMetadata ? $this->currentMetadata->xmlElementCData : true;
+        $doCData = null !== $this->currentMetadata ? $this->currentMetadata->xmlElementCData : false;
 
         return $doCData ? $this->document->createCDATASection($data) : $this->document->createTextNode((string) $data);
     }
@@ -195,6 +195,9 @@ final class XmlSerializationVisitor extends AbstractVisitor implements Serializa
     {
         if (null === $this->currentNode) {
             $this->createRoot();
+        }
+        if ($type['name'] == 'array' && $type['params'][0]['name'] == 'string') {
+            $this->currentMetadata->xmlElementCData = false;
         }
 
         $entryName = null !== $this->currentMetadata && null !== $this->currentMetadata->xmlEntryName ? $this->currentMetadata->xmlEntryName : 'entry';
