@@ -17,7 +17,8 @@ use Zimbra\Soap\Request;
 
 /**
  * GetAdminConsoleUICompRequest class
- * Get distribution lists an account is a member of
+ * Returns the union of the zimbraAdminConsoleUIComponents values on the specified account/dl entry and that on all admin groups the entry belongs to. 
+ * Note: if neither <account> nor <dl> is specified, the authed admin account will be used as the perspective entry.
  * 
  * @package    Zimbra
  * @subpackage Admin
