@@ -11,7 +11,6 @@
 namespace Zimbra\Admin\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlValue, XmlRoot};
-
 use Zimbra\Struct\ZimletTarget;
 
 /**
