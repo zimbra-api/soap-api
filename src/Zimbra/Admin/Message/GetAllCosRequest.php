@@ -15,7 +15,7 @@ use Zimbra\Soap\Request;
 
 /**
  * GetAllCosRequest class
- * Gets the aggregate quota usage for all domains on the server.
+ * Get all classes of service (COS)
  * 
  * @package    Zimbra
  * @subpackage Admin
