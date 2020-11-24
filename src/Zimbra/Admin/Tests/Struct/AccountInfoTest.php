@@ -2,7 +2,6 @@
 
 namespace Zimbra\Admin\Tests\Struct;
 
-use JMS\Serializer\Annotation\XmlRoot;
 use Zimbra\Admin\Struct\AccountInfo;
 use Zimbra\Admin\Struct\Attr;
 use Zimbra\Struct\Tests\ZimbraStructTestCase;
@@ -36,13 +35,13 @@ class AccountInfoTest extends ZimbraStructTestCase
         $json = json_encode([
             'name' => $name,
             'id' => $id,
+            'isExternal' => TRUE,
             'a' => [
                 [
                     'n' => $key,
                     '_content' => $value,
                 ],
             ],
-            'isExternal' => TRUE,
         ]);
         $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($account, 'json'));
         $this->assertEquals($account, $this->serializer->deserialize($json, AccountInfo::class, 'json'));

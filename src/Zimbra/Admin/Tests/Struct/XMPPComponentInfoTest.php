@@ -2,7 +2,6 @@
 
 namespace Zimbra\Admin\Tests\Struct;
 
-use JMS\Serializer\Annotation\XmlRoot;
 use Zimbra\Admin\Struct\XMPPComponentInfo;
 use Zimbra\Admin\Struct\Attr;
 use Zimbra\Struct\Tests\ZimbraStructTestCase;

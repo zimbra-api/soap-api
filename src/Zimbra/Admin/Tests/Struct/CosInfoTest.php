@@ -2,7 +2,6 @@
 
 namespace Zimbra\Admin\Tests\Struct;
 
-use JMS\Serializer\Annotation\XmlRoot;
 use Zimbra\Admin\Struct\CosInfo;
 use Zimbra\Admin\Struct\CosInfoAttr;
 use Zimbra\Struct\Tests\ZimbraStructTestCase;

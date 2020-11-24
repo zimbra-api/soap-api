@@ -2,7 +2,6 @@
 
 namespace Zimbra\Admin\Tests\Struct;
 
-use JMS\Serializer\Annotation\XmlRoot;
 use Zimbra\Admin\Struct\AccountSessionInfo;
 use Zimbra\Admin\Struct\InfoForSessionType;
 use Zimbra\Admin\Struct\SessionInfo;

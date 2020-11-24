@@ -3,7 +3,6 @@
 namespace Zimbra\Admin\Tests\Struct;
 
 use Zimbra\Admin\Struct\AdminZimletInfo;
-
 use Zimbra\Admin\Struct\AdminZimletContext;
 use Zimbra\Admin\Struct\AdminZimletDesc;
 use Zimbra\Admin\Struct\AdminZimletInclude;
@@ -13,9 +12,7 @@ use Zimbra\Admin\Struct\AdminZimletConfigInfo;
 use Zimbra\Admin\Struct\AdminZimletGlobalConfigInfo;
 use Zimbra\Admin\Struct\AdminZimletHostConfigInfo;
 use Zimbra\Admin\Struct\AdminZimletProperty;
-
 use Zimbra\Enum\ZimletPresence;
-
 use Zimbra\Struct\Tests\ZimbraStructTestCase;
 
 /**
