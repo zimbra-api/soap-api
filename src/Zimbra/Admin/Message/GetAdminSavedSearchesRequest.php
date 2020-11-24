@@ -16,7 +16,8 @@ use Zimbra\Soap\Request;
 
 /**
  * GetAdminSavedSearches request class
- * Clear cookie
+ * Returns admin saved searches. 
+ * If no <search> is present server will return all saved searches.
  *
  * @package    Zimbra
  * @subpackage Admin
