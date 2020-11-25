@@ -59,7 +59,7 @@ final class XmlSerializationVisitorFactory implements SerializationVisitorFactor
         );
     }
 
-    public function setDefaultRootName(string $name, ?string $namespace = null): self
+    public function setDefaultRootName(string $name, ?string $namespace = NULL): self
     {
         $this->defaultRootName = $name;
         $this->defaultRootNamespace = $namespace;
@@ -80,7 +80,7 @@ final class XmlSerializationVisitorFactory implements SerializationVisitorFactor
 
     public function setFormatOutput(bool $formatOutput): self
     {
-        $this->formatOutput = (bool) $formatOutput;
+        $this->formatOutput = $formatOutput;
         return $this;
     }
 }
