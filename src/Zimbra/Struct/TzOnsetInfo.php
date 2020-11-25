@@ -92,13 +92,13 @@ class TzOnsetInfo
      * @return self
      */
     public function __construct(
-        $mon,
-        $hour,
-        $min,
-        $sec,
-        $mday = NULL,
-        $week = NULL,
-        $wkday = NULL
+        int $mon,
+        int $hour,
+        int $min,
+        int $sec,
+        ?int $mday = NULL,
+        ?int $week = NULL,
+        ?int $wkday = NULL
     )
     {
         $this->setMonth($mon)
@@ -133,9 +133,9 @@ class TzOnsetInfo
      * @param  int $mon
      * @return self
      */
-    public function setMonth($mon): self
+    public function setMonth(int $mon): self
     {
-        $mon = in_array((int) $mon, range(1, 12)) ? (int) $mon : 1;
+        $mon = in_array($mon, range(1, 12)) ? $mon : 1;
         $this->month = $mon;
         return $this;
     }
@@ -156,9 +156,9 @@ class TzOnsetInfo
      * @param  int $mday
      * @return self
      */
-    public function setDayOfMonth($mday): self
+    public function setDayOfMonth(int $mday): self
     {
-        $mday = in_array((int) $mday, range(1, 31)) ? (int) $mday : 1;
+        $mday = in_array($mday, range(1, 31)) ? $mday : 1;
         $this->dayOfMonth = $mday;
         return $this;
     }
@@ -179,9 +179,9 @@ class TzOnsetInfo
      * @param  int $hour
      * @return self
      */
-    public function setHour($hour): self
+    public function setHour(int $hour): self
     {
-        $hour = in_array((int) $hour, range(0, 23)) ? (int) $hour : 0;
+        $hour = in_array($hour, range(0, 23)) ? $hour : 0;
         $this->hour = $hour;
         return $this;
     }
@@ -202,9 +202,9 @@ class TzOnsetInfo
      * @param  int $min
      * @return self
      */
-    public function setMinute($min): self
+    public function setMinute(int $min): self
     {
-        $min = in_array((int) $min, range(0, 59)) ? (int) $min : 0;
+        $min = in_array($min, range(0, 59)) ? $min : 0;
         $this->minute = $min;
         return $this;
     }
@@ -225,9 +225,9 @@ class TzOnsetInfo
      * @param  int $sec
      * @return self
      */
-    public function setSecond($sec): self
+    public function setSecond(int $sec): self
     {
-        $sec = in_array((int) $sec, range(0, 59)) ? (int) $sec : 0;
+        $sec = in_array($sec, range(0, 59)) ? $sec : 0;
         $this->second = $sec;
         return $this;
     }
@@ -243,9 +243,9 @@ class TzOnsetInfo
      * @param  int $week
      * @return int|self
      */
-    public function setWeek($week): self
+    public function setWeek(int $week): self
     {
-        $week = in_array((int) $week, [-1, 1, 2, 3, 4]) ? (int) $week : -1;
+        $week = in_array($week, [-1, 1, 2, 3, 4]) ? $week : -1;
         $this->week = $week;
         return $this;
     }
@@ -266,9 +266,9 @@ class TzOnsetInfo
      * @param  int $wkday
      * @return self
      */
-    public function setDayOfWeek($wkday): self
+    public function setDayOfWeek(int $wkday): self
     {
-        $wkday = in_array((int) $wkday, range(1, 7)) ? (int) $wkday : 1;
+        $wkday = in_array($wkday, range(1, 7)) ? $wkday : 1;
         $this->dayOfWeek = $wkday;
         return $this;
     }

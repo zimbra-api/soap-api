@@ -37,7 +37,7 @@ class Id
      * @param  string $id The id
      * @return self
      */
-    public function __construct($id = NULL)
+    public function __construct(?string $id = NULL)
     {
         if (NULL !== $id) {
             $this->setId($id);
@@ -60,9 +60,9 @@ class Id
      * @param  string $id
      * @return self
      */
-    public function setId($id): self
+    public function setId(string $id): self
     {
-        $this->id = trim($id);
+        $this->id = $id;
         return $this;
     }
 }

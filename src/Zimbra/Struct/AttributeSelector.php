@@ -33,7 +33,7 @@ interface AttributeSelector
      * @param  string $attrs
      * @return self
      */
-    function setAttrs($attrs): self;
+    function setAttrs(string $attrs): self;
 
     /**
      * Add attributes

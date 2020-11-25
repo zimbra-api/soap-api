@@ -20,8 +20,8 @@ namespace Zimbra\Struct;
  */
 interface ZimletProperty
 {
-    function setName($name): self;
-    function setValue($value): self;
+    function setName(string $name): self;
+    function setValue(string $value): self;
 
     function getName(): string;
     function getValue(): string;

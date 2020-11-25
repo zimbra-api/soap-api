@@ -67,7 +67,12 @@ class ContactAttr extends KeyValuePair
      * @return self
      */
     public function __construct(
-        $key, $value = NULL, $part = NULL, $contentType = NULL, $size = NULL, $contentFilename = NULL
+        string $key,
+        ?string$value = NULL,
+        ?string $part = NULL,
+        ?string $contentType = NULL,
+        ?int $size = NULL,
+        ?string $contentFilename = NULL
     )
     {
         parent::__construct($key, $value);
@@ -101,7 +106,7 @@ class ContactAttr extends KeyValuePair
      * @param  string $part
      * @return self
      */
-    public function setPart($part): self
+    public function setPart(string $part): self
     {
         $this->part = $part;
         return $this;
@@ -123,9 +128,9 @@ class ContactAttr extends KeyValuePair
      * @param  string $contentType
      * @return self
      */
-    public function setContentType($contentType): self
+    public function setContentType(string $contentType): self
     {
-        $this->contentType = trim($contentType);
+        $this->contentType = $contentType;
         return $this;
     }
 
@@ -145,7 +150,7 @@ class ContactAttr extends KeyValuePair
      * @param  int $size
      * @return self
      */
-    public function setSize($size): self
+    public function setSize(int $size): self
     {
         $this->size = (int) $size;
         return $this;
@@ -167,9 +172,9 @@ class ContactAttr extends KeyValuePair
      * @param  string $contentFilename
      * @return self
      */
-    public function setContentFilename($contentFilename): self
+    public function setContentFilename(string $contentFilename): self
     {
-        $this->contentFilename = trim($contentFilename);
+        $this->contentFilename = $contentFilename;
         return $this;
     }
 }

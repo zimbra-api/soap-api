@@ -44,7 +44,6 @@ class ConstraintInfo
      */
     private $max;
 
-
     /**
      * Acceptable Values
      * @Accessor(getter="getValues", setter="setValues")
@@ -61,7 +60,7 @@ class ConstraintInfo
      * @param  array $values
      * @return self
      */
-    public function __construct($min = NULL, $max = NULL, array $values = [])
+    public function __construct(?string $min = NULL, ?string $max = NULL, array $values = [])
     {
         if (NULL !== $min) {
             $this->setMin($min);
@@ -88,9 +87,9 @@ class ConstraintInfo
      * @param  string $min
      * @return self
      */
-    public function setMin($min): self
+    public function setMin(string $min): self
     {
-        $this->min = trim($min);
+        $this->min = $min;
         return $this;
     }
 
@@ -110,9 +109,9 @@ class ConstraintInfo
      * @param  string $max
      * @return self
      */
-    public function setMax($max): self
+    public function setMax(string $max): self
     {
-        $this->max = trim($max);
+        $this->max = $max;
         return $this;
     }
 

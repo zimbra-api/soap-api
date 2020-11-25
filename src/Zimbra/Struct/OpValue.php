@@ -46,7 +46,7 @@ class OpValue
      * @param  string $value
      * @return self
      */
-    public function __construct($op = '+', $value = NULL)
+    public function __construct(string $op = '+', ?string $value = NULL)
     {
         if (NULL !== $op) {
             $this->setOp($op);
@@ -72,10 +72,10 @@ class OpValue
      * @param  string $op
      * @return self
      */
-    public function setOp($op = '+'): self
+    public function setOp(string $op = '+'): self
     {
         if (in_array(trim($op), ['+', '-'])) {
-            $this->op = trim($op);
+            $this->op = $op;
         }
         else {
             $this->op = '+';
@@ -99,9 +99,9 @@ class OpValue
      * @param  string $name
      * @return self
      */
-    public function setValue($value): self
+    public function setValue(string $value): self
     {
-        $this->value = trim($value);
+        $this->value = $value;
         return $this;
     }
 }

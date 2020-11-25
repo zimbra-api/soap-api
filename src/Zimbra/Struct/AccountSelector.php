@@ -47,7 +47,7 @@ class AccountSelector
      * @param  string $value
      * @return self
      */
-    public function __construct(AccountBy $by, $value = NULL)
+    public function __construct(AccountBy $by, ?string $value = NULL)
     {
         $this->setBy($by);
         if (NULL !== $value) {
@@ -93,9 +93,9 @@ class AccountSelector
      * @param  string $name
      * @return self
      */
-    public function setValue($value): self
+    public function setValue(string $value): self
     {
-        $this->value = trim($value);
+        $this->value = $value;
         return $this;
     }
 }

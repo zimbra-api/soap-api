@@ -47,9 +47,9 @@ trait AttributeSelectorTrait
      * @param  string $attrs
      * @return self
      */
-    public function setAttrs($attrs): self
+    public function setAttrs(string $attrs): self
     {
-        $this->attrs = trim($attrs);
+        $this->attrs = $attrs;
         return $this;
     }
 

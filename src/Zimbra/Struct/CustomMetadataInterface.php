@@ -33,5 +33,5 @@ interface CustomMetadataInterface
      * @param  string $section
      * @return self
      */
-    function setSection($section): self;
+    function setSection(string $section): self;
 }

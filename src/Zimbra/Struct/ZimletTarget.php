@@ -20,6 +20,6 @@ namespace Zimbra\Struct;
  */
 interface ZimletTarget
 {
-    function setValue($value): self;
+    function setValue(string $value): self;
     function getValue(): string;
 }
