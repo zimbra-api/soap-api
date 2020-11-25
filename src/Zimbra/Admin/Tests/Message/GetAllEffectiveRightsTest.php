@@ -70,9 +70,7 @@ class GetAllEffectiveRightsTest extends ZimbraStructTestCase
             $request->getExpandAllAttrs()
         );
         $this->assertSame($granteeSelector, $request->getGrantee());
-        $request = new GetAllEffectiveRightsRequest(new GranteeSelector(
-            $value, GranteeType::ALL(), GranteeBy::NAME(), $secret, TRUE
-        ));
+        $request = new GetAllEffectiveRightsRequest();
         $request->setGrantee($granteeSelector)
              ->setExpandAllAttrs(GetAllEffectiveRightsRequest::EXPAND_SET_ATTRS);
         $this->assertSame(
