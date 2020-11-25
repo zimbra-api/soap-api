@@ -19,7 +19,7 @@ class IMAPItemInfoTest extends ZimbraStructTestCase
         $this->assertSame($id, $info->getId());
         $this->assertSame($imapUid, $info->getImapUid());
 
-        $info = new IMAPItemInfo(0, '');
+        $info = new IMAPItemInfo(0, 0);
         $info->setId($id)
            ->setImapUid($imapUid);
         $this->assertSame($id, $info->getId());

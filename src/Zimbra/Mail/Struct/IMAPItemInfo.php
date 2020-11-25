@@ -92,7 +92,7 @@ class IMAPItemInfo
      * @param  int $imapUid
      * @return self
      */
-    public function setImapUid(int$imapUid): self
+    public function setImapUid(int $imapUid): self
     {
         $this->imapUid = $imapUid;
         return $this;
