@@ -15,7 +15,8 @@ use Zimbra\Soap\Request;
 
 /**
  * GetAllLocalesRequest class
- * Get all free/busy providers
+ * Returns all locales defined in the system.
+ * This is the same list returned by java.util.Locale.getAvailableLocales(), sorted by display name (name attribute). 
  * 
  * @package    Zimbra
  * @subpackage Admin
