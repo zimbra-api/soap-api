@@ -48,7 +48,7 @@ class DeleteItemNotification
      * @param  string $type
      * @return self
      */
-    public function __construct($id, $type)
+    public function __construct(int $id, string $type)
     {
         $this->setId($id)
              ->setType($type);
@@ -70,9 +70,9 @@ class DeleteItemNotification
      * @param  int $id
      * @return self
      */
-    public function setId($id): self
+    public function setId(int $id): self
     {
-        $this->id = (int) $id;
+        $this->id = $id;
         return $this;
     }
 
@@ -92,9 +92,9 @@ class DeleteItemNotification
      * @param  string $type
      * @return self
      */
-    public function setType($type): self
+    public function setType(string $type): self
     {
-        $this->type = trim($type);
+        $this->type = $type;
         return $this;
     }
 }

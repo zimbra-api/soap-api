@@ -66,7 +66,7 @@ class Policy
      * @param string $lifetime The duration
      * @return self
      */
-    public function __construct(EnumType $type = NULL, $id = NULL, $name = NULL, $lifetime = NULL)
+    public function __construct(EnumType $type = NULL, ?string $id = NULL, ?string $name = NULL, ?string $lifetime = NULL)
     {
         if ($type instanceof EnumType) {
             $this->setType($type);
@@ -82,12 +82,12 @@ class Policy
         }
     }
 
-    public static function newUserPolicy($lifetime = NULL)
+    public static function newUserPolicy(?string $lifetime = NULL)
     {
         return new self(EnumType::USER(), NULL, NULL, $lifetime);
     }
 
-    public static function newSystemPolicy($id = NULL, $name = NULL, $lifetime = NULL)
+    public static function newSystemPolicy(?string $id = NULL, ?string $name = NULL, ?string $lifetime = NULL)
     {
         return new self(EnumType::SYSTEM(), $id, $name, $lifetime);
     }
@@ -130,9 +130,9 @@ class Policy
      * @param  string $id
      * @return self
      */
-    public function setId($id): self
+    public function setId(string $id): self
     {
-        $this->id = trim($id);
+        $this->id = $id;
         return $this;
     }
 
@@ -152,9 +152,9 @@ class Policy
      * @param  string $name
      * @return self
      */
-    public function setName($name): self
+    public function setName(string $name): self
     {
-        $this->name = trim($name);
+        $this->name = $name;
         return $this;
     }
 
@@ -174,9 +174,9 @@ class Policy
      * @param  string $lifetime
      * @return self
      */
-    public function setLifetime($lifetime): self
+    public function setLifetime(string $lifetime): self
     {
-        $this->lifetime = trim($lifetime);
+        $this->lifetime = $lifetime;
         return $this;
     }
 }

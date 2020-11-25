@@ -49,7 +49,7 @@ class RenameFolderNotification extends ModifyNotification
      * @param  int $changeBitmask
      * @return self
      */
-    public function __construct($folderId, $path, $changeBitmask)
+    public function __construct(int $folderId, string $path, int $changeBitmask)
     {
         parent::__construct($changeBitmask);
         $this->setFolderId($folderId)
@@ -72,9 +72,9 @@ class RenameFolderNotification extends ModifyNotification
      * @param  int $folderId
      * @return self
      */
-    public function setFolderId($folderId): self
+    public function setFolderId(int $folderId): self
     {
-        $this->folderId = (int) $folderId;
+        $this->folderId = $folderId;
         return $this;
     }
 
@@ -94,9 +94,9 @@ class RenameFolderNotification extends ModifyNotification
      * @param  string $name
      * @return self
      */
-    public function setPath($path): self
+    public function setPath(string $path): self
     {
-        $this->path = trim($path);
+        $this->path = $path;
         return $this;
     }
 }
