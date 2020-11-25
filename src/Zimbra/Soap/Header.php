@@ -38,7 +38,7 @@ class Header
      * Constructor method for Header
      * @return self
      */
-    public function __construct(Context $context = NULL)
+    public function __construct(?Context $context = NULL)
     {
         if ($context instanceof Context) {
             $this->setContext($context);

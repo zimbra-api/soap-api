@@ -36,7 +36,7 @@ abstract class Envelope implements EnvelopeInterface
      * @param  Header $header
      * @return self
      */
-    public function __construct(BodyInterface $body = NULL, Header $header = NULL)
+    public function __construct(?BodyInterface $body = NULL, ?Header $header = NULL)
     {
         if ($body instanceof BodyInterface) {
             $this->setBody($body);

@@ -67,9 +67,9 @@ class Batch implements RequestInterface
      * @param  string $name
      * @return self
      */
-    public function setOnError($onerror): self
+    public function setOnError(string $onerror): self
     {
-        $onerror = strtolower(trim($onerror));
+        $onerror = strtolower($onerror);
         if (!in_array($onerror, ['continue', 'stop'])) {
             $onerror = 'continue';
         }

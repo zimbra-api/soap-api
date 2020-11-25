@@ -44,7 +44,7 @@ abstract class Api implements ApiInterface
      */
     private $requestFormat;
 
-    public function __construct($endpoint = 'https://localhost/service/soap', $requestFormat = '')
+    public function __construct($endpoint = 'https://localhost/service/soap', ?string $requestFormat = NULL)
     {
         $this->client = new Client($endpoint);
         if (RequestFormat::isValid($requestFormat)) {
@@ -113,7 +113,7 @@ abstract class Api implements ApiInterface
      * @param  string $requestFormat
      * @return self
      */
-    public function setRequestFormat($requestFormat): self
+    public function setRequestFormat(string $requestFormat): self
     {
         if (RequestFormat::isValid(trim($requestFormat))) {
             $this->requestFormat = trim($requestFormat);
