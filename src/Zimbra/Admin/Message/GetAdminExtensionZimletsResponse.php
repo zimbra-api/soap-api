@@ -10,8 +10,8 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlElement, XmlRoot};
-use Zimbra\Admin\Struct\AdminZimlets;
+use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlList, XmlRoot};
+use Zimbra\Admin\Struct\AdminZimletInfo;
 use Zimbra\Soap\ResponseInterface;
 
 /**
@@ -28,42 +28,60 @@ use Zimbra\Soap\ResponseInterface;
 class GetAdminExtensionZimletsResponse implements ResponseInterface
 {
     /**
-     * Information about Admin Extension Zimlets
-     * @Accessor(getter="getAdminZimlets", setter="setAdminZimlets")
+     * Admin zimlet info
+     * 
+     * @Accessor(getter="getZimlets", setter="setZimlets")
      * @SerializedName("zimlets")
-     * @Type("Zimbra\Admin\Struct\AdminZimlets")
-     * @XmlElement
+     * @Type("array<Zimbra\Admin\Struct\AdminZimletInfo>")
+     * @XmlList(inline = false, entry = "zimlet")
      */
-    private $zimlets;
+    private $zimlets = [];
 
     /**
      * Constructor method for GetAdminExtensionZimletsResponse
-     * @param AdminZimlets $zimlets
+     * @param array $zimlets
      * @return self
      */
-    public function __construct(AdminZimlets $zimlets)
+    public function __construct(array $zimlets = [])
     {
-        $this->setAdminZimlets($zimlets);
+        $this->setZimlets($zimlets);
     }
 
     /**
-     * Sets zimlets
+     * Add a zimlet
      *
-     * @param AdminZimlets $zimlets
+     * @param  AdminZimletInfo $zimlet
      * @return self
      */
-    public function setAdminZimlets(AdminZimlets $zimlets): self
+    public function addZimlet(AdminZimletInfo $zimlet): self
     {
-        $this->zimlets = $zimlets;
+        $this->zimlets[] = $zimlet;
         return $this;
     }
 
     /**
-     * Gets zimlets
+     * Sets zimlet sequence
      *
-     * @return AdminZimlets
+     * @param  array $zimlets
+     * @return self
      */
-    public function getAdminZimlets(): AdminZimlets
+    public function setZimlets(array $zimlets): self
+    {
+        $this->zimlets = [];
+        foreach ($zimlets as $zimlet) {
+            if ($zimlet instanceof AdminZimletInfo) {
+                $this->zimlets[] = $zimlet;
+            }
+        }
+        return $this;
+    }
+
+    /**
+     * Gets zimlet sequence
+     *
+     * @return array
+     */
+    public function getZimlets(): array
     {
         return $this->zimlets;
     }

@@ -6,7 +6,6 @@ use Zimbra\Admin\Message\GetAdminExtensionZimletsBody;
 use Zimbra\Admin\Message\GetAdminExtensionZimletsEnvelope;
 use Zimbra\Admin\Message\GetAdminExtensionZimletsRequest;
 use Zimbra\Admin\Message\GetAdminExtensionZimletsResponse;
-use Zimbra\Admin\Struct\AdminZimlets;
 use Zimbra\Admin\Struct\AdminZimletInfo;
 use Zimbra\Admin\Struct\AdminZimletContext;
 use Zimbra\Admin\Struct\AdminZimletDesc;
@@ -68,15 +67,16 @@ class GetAdminExtensionZimletsTest extends ZimbraStructTestCase
         $zimlet = new AdminZimletInfo(
             $zimletContext, $zimletDesc, $zimletConfig
         );
-        $zimlets = new AdminZimlets([$zimlet]);
 
         $request = new GetAdminExtensionZimletsRequest();
 
-        $response = new GetAdminExtensionZimletsResponse($zimlets);
-        $this->assertSame($zimlets, $response->getAdminZimlets());
-        $response = new GetAdminExtensionZimletsResponse(new AdminZimlets([$zimlet]));
-        $response->setAdminZimlets($zimlets);
-        $this->assertSame($zimlets, $response->getAdminZimlets());
+        $response = new GetAdminExtensionZimletsResponse([$zimlet]);
+        $this->assertSame([$zimlet], $response->getZimlets());
+        $response = new GetAdminExtensionZimletsResponse();
+        $response->setZimlets([$zimlet])
+            ->addZimlet($zimlet);
+        $this->assertSame([$zimlet, $zimlet], $response->getZimlets());
+        $response->setZimlets([$zimlet]);
 
         $body = new GetAdminExtensionZimletsBody($request, $response);
         $this->assertSame($request, $body->getRequest());

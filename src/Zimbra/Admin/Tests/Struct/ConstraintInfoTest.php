@@ -17,9 +17,9 @@ class ConstraintInfoTest extends ZimbraStructTestCase
         $max = $this->faker->word;
         $min = $this->faker->word;
 
-        $constraint = new ConstraintInfo($max, $min, [$value1]);
-        $this->assertSame($max, $constraint->getMin());
-        $this->assertSame($min, $constraint->getMax());
+        $constraint = new ConstraintInfo($min, $max, [$value1]);
+        $this->assertSame($min, $constraint->getMin());
+        $this->assertSame($max, $constraint->getMax());
         $this->assertSame([$value1], $constraint->getValues());
 
         $constraint = new ConstraintInfo();
