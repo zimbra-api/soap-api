@@ -36,10 +36,10 @@ class FormatInfo
 
     /**
      * Constructor method for FormatInfo
-     * @param integer $format
+     * @param RequestFormat $format
      * @return self
      */
-    public function __construct(RequestFormat $format = NULL)
+    public function __construct(?RequestFormat $format = NULL)
     {
         if (NULL !== $format) {
             $this->setFormat($format);

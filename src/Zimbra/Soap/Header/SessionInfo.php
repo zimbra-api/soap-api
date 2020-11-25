@@ -60,31 +60,27 @@ class SessionInfo
      * Constructor method for SessionInfo
      * @param bool $sessionProxied
      * @param string $sessionId
-     * @param integer $sequenceNum
+     * @param int $sequenceNum
      * @param string $value
      * @return self
      */
     public function __construct(
-        $sessionProxied = NULL,
-        $sessionId = NULL,
-        $sequenceNum = NULL,
-        $value = NULL
+        ?bool $sessionProxied = NULL,
+        ?string $sessionId = NULL,
+        ?int $sequenceNum = NULL,
+        ?string $value = NULL
     )
     {
-        if(NULL !== $sessionProxied)
-        {
+        if (NULL !== $sessionProxied) {
             $this->setSessionProxied($sessionProxied);
         }
-        if(NULL !== $sessionId)
-        {
+        if (NULL !== $sessionId) {
             $this->setSessionId($sessionId);
         }
-        if(NULL !== $sequenceNum)
-        {
+        if (NULL !== $sequenceNum) {
             $this->setSequenceNum($sequenceNum);
         }
-        if(NULL !== $value)
-        {
+        if (NULL !== $value) {
             $this->setValue($value);
         }
     }
@@ -106,9 +102,9 @@ class SessionInfo
      * @param  bool $sessionProxied
      * @return self
      */
-    public function setSessionProxied($sessionProxied): self
+    public function setSessionProxied(bool $sessionProxied): self
     {
-        $this->sessionProxied = (bool) $sessionProxied;
+        $this->sessionProxied = $sessionProxied;
         return $this;
     }
 
@@ -128,9 +124,9 @@ class SessionInfo
      * @param  string $id
      * @return string|self
      */
-    public function setSessionId($id): self
+    public function setSessionId(string $id): self
     {
-        $this->sessionId = trim($id);
+        $this->sessionId = $id;
         return $this;
     }
 
@@ -150,9 +146,9 @@ class SessionInfo
      * @param  int $sequenceNum
      * @return self
      */
-    public function setSequenceNum($sequenceNum): self
+    public function setSequenceNum(int $sequenceNum): self
     {
-        $this->sequenceNum = (int) $sequenceNum;
+        $this->sequenceNum = $sequenceNum;
         return $this;
     }
 
@@ -172,9 +168,9 @@ class SessionInfo
      * @param  string $value
      * @return self
      */
-    public function setValue($value): self
+    public function setValue(string $value): self
     {
-        $this->value = trim($value);
+        $this->value = $value;
         return $this;
     }
 }

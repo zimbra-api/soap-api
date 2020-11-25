@@ -56,15 +56,13 @@ class AccountInfo
      * @param  string $value
      * @return self
      */
-    public function __construct(AccountBy $by, $mountpointTraversed = NULL, $value = NULL)
+    public function __construct(AccountBy $by, ?bool $mountpointTraversed = NULL, ?string $value = NULL)
     {
         $this->setBy($by);
-        if(NULL !== $mountpointTraversed)
-        {
+        if (NULL !== $mountpointTraversed) {
             $this->setMountpointTraversed($mountpointTraversed);
         }
-        if(NULL !== $value)
-        {
+        if (NULL !== $value) {
             $this->setValue($value);
         }
     }
@@ -107,9 +105,9 @@ class AccountInfo
      * @param  bool $mountpointTraversed
      * @return self
      */
-    public function setMountpointTraversed($mountpointTraversed): self
+    public function setMountpointTraversed(bool $mountpointTraversed): self
     {
-        $this->mountpointTraversed = (bool) $mountpointTraversed;
+        $this->mountpointTraversed = $mountpointTraversed;
         return $this;
     }
 
@@ -129,9 +127,9 @@ class AccountInfo
      * @param  string $name
      * @return self
      */
-    public function setValue($value): self
+    public function setValue(string $value): self
     {
-        $this->value = trim($value);
+        $this->value = $value;
         return $this;
     }
 }
