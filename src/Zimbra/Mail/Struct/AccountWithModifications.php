@@ -80,7 +80,7 @@ class AccountWithModifications
      *
      * @return int
      */
-    public function getId(): int
+    public function getId(): ?int
     {
         return $this->id;
     }
@@ -102,7 +102,7 @@ class AccountWithModifications
      *
      * @return int
      */
-    public function getLastChangeId(): int
+    public function getLastChangeId(): ?int
     {
         return $this->lastChangeId;
     }

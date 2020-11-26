@@ -66,7 +66,7 @@ class Policy
      * @param string $lifetime The duration
      * @return self
      */
-    public function __construct(EnumType $type = NULL, ?string $id = NULL, ?string $name = NULL, ?string $lifetime = NULL)
+    public function __construct(?EnumType $type = NULL, ?string $id = NULL, ?string $name = NULL, ?string $lifetime = NULL)
     {
         if ($type instanceof EnumType) {
             $this->setType($type);
@@ -97,7 +97,7 @@ class Policy
      *
      * @return EnumType
      */
-    public function getType(): EnumType
+    public function getType(): ?EnumType
     {
         return $this->type;
     }
@@ -119,7 +119,7 @@ class Policy
      *
      * @return string
      */
-    public function getId(): string
+    public function getId(): ?string
     {
         return $this->id;
     }
@@ -141,7 +141,7 @@ class Policy
      *
      * @return string
      */
-    public function getName(): string
+    public function getName(): ?string
     {
         return $this->name;
     }
@@ -163,7 +163,7 @@ class Policy
      *
      * @return string
      */
-    public function getLifetime(): string
+    public function getLifetime(): ?string
     {
         return $this->lifetime;
     }
