@@ -126,7 +126,7 @@ abstract class Api implements ApiInterface
      *
      * @return  EnvelopeInterface
      */
-    protected function invoke(RequestInterface $request): ResponseInterface
+    protected function invoke(RequestInterface $request): ?ResponseInterface
     {
         $requestEnvelope = $request->getEnvelope();
         if ($this->header instanceof Header) {
@@ -152,7 +152,7 @@ abstract class Api implements ApiInterface
      * @param  array $requests
      * @return ResponseInterface
      */
-    public function batch(array $requests = []): ResponseInterface
+    public function batch(array $requests = []): ?ResponseInterface
     {
         $request = new \Zimbra\Soap\Request\Batch(
             $requests

@@ -50,7 +50,7 @@ class Header
      *
      * @return Context
      */
-    public function getContext(): Context
+    public function getContext(): ?Context
     {
         return $this->context;
     }

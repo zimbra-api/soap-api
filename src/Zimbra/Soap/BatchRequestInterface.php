@@ -11,26 +11,16 @@
 namespace Zimbra\Soap;
 
 /**
- * BodyInterface is a interface which define soap envelope struct
+ * BatchRequestInterface interface
  *
  * @package   Zimbra
  * @category  Soap
  * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright Copyright © 2020 by Nguyen Van Nguyen.
  */
-interface EnvelopeInterface
+interface BatchRequestInterface extends RequestInterface
 {
-    /**
-     * Gets soap message header
-     *
-     * @return Header
-     */
-    function getHeader(): ?Header;
+	function addRequest(RequestInterface $request): self;
 
-    /**
-     * Gets soap message body
-     *
-     * @return BodyInterface
-     */
-    function getBody(): ?BodyInterface;
+	function getRequests(): array;
 }
