@@ -70,7 +70,8 @@ class EffectiveRightsTarget
      * @param array $entriesLists
      * @return self
      */
-    public function __construct(TargetType $type,
+    public function __construct(
+        TargetType $type,
         ?EffectiveRightsInfo $all = NULL,
         array $inDomainLists = [],
         array $entriesLists = []
@@ -111,7 +112,7 @@ class EffectiveRightsTarget
      *
      * @return EffectiveRightsInfo
      */
-    public function getAll(): EffectiveRightsInfo
+    public function getAll(): ?EffectiveRightsInfo
     {
         return $this->all;
     }

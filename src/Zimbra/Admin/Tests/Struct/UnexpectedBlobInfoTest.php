@@ -24,7 +24,7 @@ class UnexpectedBlobInfoTest extends ZimbraStructTestCase
         $this->assertSame($fileSize, $blob->getFileSize());
         $this->assertFalse($blob->getExternal());
 
-        $blob = new UnexpectedBlobInfo('', 0, 0, FALSE);
+        $blob = new UnexpectedBlobInfo(0, '', 0, FALSE);
         $blob->setVolumeId($volumeId)
              ->setPath($path)
              ->setFileSize($fileSize)

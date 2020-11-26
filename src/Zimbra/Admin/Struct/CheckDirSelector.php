@@ -26,6 +26,7 @@ use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAt
 class CheckDirSelector
 {
     /**
+     * Full path to the directory
      * @Accessor(getter="getPath", setter="setPath")
      * @SerializedName("path")
      * @Type("string")
@@ -34,6 +35,7 @@ class CheckDirSelector
     private $path;
 
     /**
+     * Whether to create the directory or not if it doesn't exist
      * @Accessor(getter="isCreate", setter="setCreate")
      * @SerializedName("create")
      * @Type("bool")
@@ -43,11 +45,11 @@ class CheckDirSelector
 
     /**
      * Constructor method for CheckDirSelector
-     * @param string $path Full path to the directory
-     * @param bool   $create Whether to create the directory or not if it doesn't exist
+     * @param string $path
+     * @param bool   $create
      * @return self
      */
-    public function __construct($path, $create = NULL)
+    public function __construct(string $path, ?bool $create = NULL)
     {
         $this->setPath($path);
         if (NULL !== $create) {
@@ -71,9 +73,9 @@ class CheckDirSelector
      * @param  string $path
      * @return self
      */
-    public function setPath($path): self
+    public function setPath(string $path): self
     {
-        $this->path = trim($path);
+        $this->path = $path;
         return $this;
     }
 
@@ -93,9 +95,9 @@ class CheckDirSelector
      * @param  bool $create
      * @return self
      */
-    public function setCreate($create): self
+    public function setCreate(bool $create): self
     {
-        $this->create = (bool) $create;
+        $this->create = $create;
         return $this;
     }
 }

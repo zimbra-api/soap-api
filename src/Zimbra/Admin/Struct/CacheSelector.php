@@ -27,6 +27,7 @@ use Zimbra\Enum\CacheType;
 class CacheSelector
 {
     /**
+     * The entries
      * @Accessor(getter="getEntries", setter="setEntries")
      * @SerializedName("entry")
      * @Type("array<Zimbra\Admin\Struct\CacheEntrySelector>")
@@ -35,6 +36,7 @@ class CacheSelector
     private $entries;
 
     /**
+     * Comma separated list of cache types. e.g. from skin|locale|account|cos|domain|server|zimlet
      * @Accessor(getter="getTypes", setter="setTypes")
      * @SerializedName("type")
      * @Type("string")
@@ -43,6 +45,7 @@ class CacheSelector
     private $types;
 
     /**
+     * The allServers flag
      * @Accessor(getter="isAllServers", setter="setAllServers")
      * @SerializedName("allServers")
      * @Type("bool")
@@ -51,6 +54,7 @@ class CacheSelector
     private $allServers;
 
     /**
+     * The imapServers flag
      * @Accessor(getter="isIncludeImapServers", setter="setIncludeImapServers")
      * @SerializedName("imapServers")
      * @Type("bool")
@@ -60,13 +64,13 @@ class CacheSelector
 
     /**
      * Constructor method for CacheSelector
-     * @param  string $types Comma separated list of cache types. e.g. from skin|locale|account|cos|domain|server|zimlet
-     * @param  bool $allServers The allServers flag
-     * @param  bool $imapServers The imapServers flag
-     * @param  array $entries The entries
+     * @param  string $types
+     * @param  bool $allServers
+     * @param  bool $imapServers 
+     * @param  array $entries
      * @return self
      */
-    public function __construct($types, $allServers = NULL, $imapServers = NULL, array $entries = [])
+    public function __construct(string $types, ?bool $allServers = NULL, ?bool $imapServers = NULL, array $entries = [])
     {
         $this->setTypes($types);
         if (NULL !== $allServers) {
@@ -94,7 +98,7 @@ class CacheSelector
      * @param  string $types
      * @return self
      */
-    public function setTypes($types): self
+    public function setTypes(string $types): self
     {
         $arrTypes = explode(',', $types);
         $types = [];
@@ -113,7 +117,7 @@ class CacheSelector
      *
      * @return bool
      */
-    public function isAllServers(): bool
+    public function isAllServers(): ?bool
     {
         return $this->allServers;
     }
@@ -124,9 +128,9 @@ class CacheSelector
      * @param  bool $allServers
      * @return self
      */
-    public function setAllServers($allServers): self
+    public function setAllServers(bool $allServers): self
     {
-        $this->allServers = (bool) $allServers;
+        $this->allServers = $allServers;
         return $this;
     }
 
@@ -135,7 +139,7 @@ class CacheSelector
      *
      * @return bool
      */
-    public function isIncludeImapServers(): bool
+    public function isIncludeImapServers(): ?bool
     {
         return $this->imapServers;
     }
@@ -146,9 +150,9 @@ class CacheSelector
      * @param  bool $imapServers
      * @return self
      */
-    public function setIncludeImapServers($imapServers): self
+    public function setIncludeImapServers(bool $imapServers): self
     {
-        $this->imapServers = (bool) $imapServers;
+        $this->imapServers = $imapServers;
         return $this;
     }
 

@@ -45,11 +45,11 @@ class GranteeWithType
 
     /**
      * Constructor method for GranteeWithType
-     * @param  string $type Target type
-     * @param  string $value Value matching
+     * @param  string $type
+     * @param  string $value
      * @return self
      */
-    public function __construct($type, $value = NULL)
+    public function __construct($type, ?string $value = NULL)
     {
         $this->setType($type);
         if (NULL !== $value) {
@@ -73,9 +73,9 @@ class GranteeWithType
      * @param  string $type
      * @return self
      */
-    public function setType($type): self
+    public function setType(string $type): self
     {
-        $this->type = trim($type);
+        $this->type = $type;
         return $this;
     }
 
@@ -84,7 +84,7 @@ class GranteeWithType
      *
      * @return string
      */
-    public function getValue(): string
+    public function getValue(): ?string
     {
         return $this->value;
     }
@@ -92,12 +92,12 @@ class GranteeWithType
     /**
      * Sets value
      *
-     * @param  string $name
+     * @param  string $value
      * @return self
      */
-    public function setValue($value): self
+    public function setValue(string $value): self
     {
-        $this->value = trim($value);
+        $this->value = $value;
         return $this;
     }
 }

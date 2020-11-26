@@ -48,7 +48,7 @@ class AdminZimletProperty implements ZimletProperty
      * @param  string $value
      * @return self
      */
-    public function __construct($name = NULL, $value = NULL)
+    public function __construct(?string $name = NULL, ?string $value = NULL)
     {
         if (NULL !== $name) {
             $this->setName($name);
@@ -63,7 +63,7 @@ class AdminZimletProperty implements ZimletProperty
      *
      * @return string
      */
-    public function getName(): string
+    public function getName(): ?string
     {
         return $this->name;
     }
@@ -74,9 +74,9 @@ class AdminZimletProperty implements ZimletProperty
      * @param  string $name
      * @return self
      */
-    public function setName($name): self
+    public function setName(string $name): self
     {
-        $this->name = trim($name);
+        $this->name = $name;
         return $this;
     }
 
@@ -85,7 +85,7 @@ class AdminZimletProperty implements ZimletProperty
      *
      * @return string
      */
-    public function getValue(): string
+    public function getValue(): ?string
     {
         return $this->value;
     }
@@ -96,9 +96,9 @@ class AdminZimletProperty implements ZimletProperty
      * @param  string $name
      * @return self
      */
-    public function setValue($value): self
+    public function setValue(string $value): self
     {
-        $this->value = trim($value);
+        $this->value = $value;
         return $this;
     }
 }

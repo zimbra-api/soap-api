@@ -70,10 +70,10 @@ class BlobRevisionInfo
      * @return self
      */
     public function __construct(
-        $path,
-        $fileSize,
-        $revision,
-        $external
+        string $path,
+        int $fileSize,
+        int $revision,
+        bool $external
     )
     {
         $this->setPath($path)
@@ -98,7 +98,7 @@ class BlobRevisionInfo
      * @param  string $path
      * @return self
      */
-    public function setPath($path): self
+    public function setPath(string $path): self
     {
         $this->path = $path;
         return $this;
@@ -120,9 +120,9 @@ class BlobRevisionInfo
      * @param  int $revision
      * @return self
      */
-    public function setRevision($revision): self
+    public function setRevision(int $revision): self
     {
-        $this->revision = (int) $revision;
+        $this->revision = $revision;
         return $this;
     }
 
@@ -142,9 +142,9 @@ class BlobRevisionInfo
      * @param  int $fileSize
      * @return self
      */
-    public function setFileSize($fileSize): self
+    public function setFileSize(int $fileSize): self
     {
-        $this->fileSize = (int) $fileSize;
+        $this->fileSize = $fileSize;
         return $this;
     }
 
@@ -164,9 +164,9 @@ class BlobRevisionInfo
      * @param  bool $external
      * @return self
      */
-    public function setExternal($external): self
+    public function setExternal(bool $external): self
     {
-        $this->external = (bool) $external;
+        $this->external = $external;
         return $this;
     }
 }

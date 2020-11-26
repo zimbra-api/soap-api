@@ -88,11 +88,11 @@ class SessionInfo
      * @return self
      */
     public function __construct(
-        $sessionId,
-        $createdDate,
-        $lastAccessedDate,
-        $zimbraId = NULL,
-        $name = NULL
+        string $sessionId,
+        int $createdDate,
+        int $lastAccessedDate,
+        ?string $zimbraId = NULL,
+        ?string $name = NULL
     )
     {
         $this->setSessionId($sessionId)
@@ -123,9 +123,9 @@ class SessionInfo
      * @param  string $sessionId
      * @return self
      */
-    public function setSessionId($sessionId): self
+    public function setSessionId(string $sessionId): self
     {
-        $this->sessionId = trim($sessionId);
+        $this->sessionId = $sessionId;
         return $this;
     }
 
@@ -145,9 +145,9 @@ class SessionInfo
      * @param  int $createdDate
      * @return self
      */
-    public function setCreatedDate($createdDate): self
+    public function setCreatedDate(int $createdDate): self
     {
-        $this->createdDate = (int) $createdDate;
+        $this->createdDate = $createdDate;
         return $this;
     }
 
@@ -167,9 +167,9 @@ class SessionInfo
      * @param  int $lastAccessedDate
      * @return self
      */
-    public function setLastAccessedDate($lastAccessedDate): self
+    public function setLastAccessedDate(int $lastAccessedDate): self
     {
-        $this->lastAccessedDate = (int) $lastAccessedDate;
+        $this->lastAccessedDate = $lastAccessedDate;
         return $this;
     }
 
@@ -178,7 +178,7 @@ class SessionInfo
      *
      * @return string
      */
-    public function getZimbraId(): string
+    public function getZimbraId(): ?string
     {
         return $this->zimbraId;
     }
@@ -189,9 +189,9 @@ class SessionInfo
      * @param  string $stdname
      * @return self
      */
-    public function setZimbraId($zimbraId): self
+    public function setZimbraId(string $zimbraId): self
     {
-        $this->zimbraId = trim($zimbraId);
+        $this->zimbraId = $zimbraId;
         return $this;
     }
 
@@ -200,7 +200,7 @@ class SessionInfo
      *
      * @return string
      */
-    public function getName(): string
+    public function getName(): ?string
     {
         return $this->name;
     }
@@ -211,9 +211,9 @@ class SessionInfo
      * @param  string $name
      * @return self
      */
-    public function setName($name): self
+    public function setName(string $name): self
     {
-        $this->name = trim($name);
+        $this->name = $name;
         return $this;
     }
 

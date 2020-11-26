@@ -62,7 +62,7 @@ class DataSourceInfo extends AdminAttrsImpl
      * @param array $attrs Attributes
      * @return self
      */
-    public function __construct($name, $id, DataSourceType $type, array $attrs = [])
+    public function __construct(string $name, string $id, DataSourceType $type, array $attrs = [])
     {
         parent::__construct($attrs);
         $this->setName($name)
@@ -86,9 +86,9 @@ class DataSourceInfo extends AdminAttrsImpl
      * @param  string $name
      * @return self
      */
-    public function setName($name): self
+    public function setName(string $name): self
     {
-        $this->name = trim($name);
+        $this->name = $name;
         return $this;
     }
 
@@ -108,9 +108,9 @@ class DataSourceInfo extends AdminAttrsImpl
      * @param  string $id
      * @return self
      */
-    public function setId($id): self
+    public function setId(string $id): self
     {
-        $this->id = trim($id);
+        $this->id = $id;
         return $this;
     }
 

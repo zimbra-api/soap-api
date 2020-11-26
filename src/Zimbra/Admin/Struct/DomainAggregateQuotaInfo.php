@@ -56,10 +56,10 @@ class DomainAggregateQuotaInfo
      * Constructor method for DomainAggregateQuotaInfo
      * @param string $name
      * @param string $id
-     * @param int   $quotaUsed
+     * @param int    $quotaUsed
      * @return self
      */
-    public function __construct($name, $id, $quotaUsed)
+    public function __construct(string $name, string $id, int $quotaUsed)
     {
         $this->setName($name)
              ->setId($id)
@@ -82,9 +82,9 @@ class DomainAggregateQuotaInfo
      * @param  string $name
      * @return self
      */
-    public function setName($name): self
+    public function setName(string $name): self
     {
-        $this->name = trim($name);
+        $this->name = $name;
         return $this;
     }
 
@@ -104,9 +104,9 @@ class DomainAggregateQuotaInfo
      * @param  string $id
      * @return self
      */
-    public function setId($id): self
+    public function setId(string $id): self
     {
-        $this->id = trim($id);
+        $this->id = $id;
         return $this;
     }
 
@@ -126,9 +126,9 @@ class DomainAggregateQuotaInfo
      * @param  int $quotaUsed
      * @return self
      */
-    public function setQuotaUsed($quotaUsed): self
+    public function setQuotaUsed(int $quotaUsed): self
     {
-        $this->quotaUsed = (int) $quotaUsed;
+        $this->quotaUsed = $quotaUsed;
         return $this;
     }
 }

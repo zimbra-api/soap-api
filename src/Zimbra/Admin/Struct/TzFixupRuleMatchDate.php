@@ -26,6 +26,7 @@ use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAt
 class TzFixupRuleMatchDate
 {
     /**
+     * Match month. Value between 1 (January) and 12 (December)
      * @Accessor(getter="getMonth", setter="setMonth")
      * @SerializedName("mon")
      * @Type("integer")
@@ -34,6 +35,7 @@ class TzFixupRuleMatchDate
     private $month;
 
     /**
+     * Match day of month (1..31)
      * @Accessor(getter="getMonthDay", setter="setMonthDay")
      * @SerializedName("mday")
      * @Type("integer")
@@ -43,11 +45,11 @@ class TzFixupRuleMatchDate
 
     /**
      * Constructor method for TzFixupRuleMatchDate
-     * @param int $mon Match month. Value between 1 (January) and 12 (December)
-     * @param int $mday Match day of month (1..31)
+     * @param int $mon
+     * @param int $mday
      * @return self
      */
-    public function __construct($mon, $mday)
+    public function __construct(int $mon, int $mday)
     {
         $this->setMonth($mon)
              ->setMonthDay($mday);
@@ -69,9 +71,9 @@ class TzFixupRuleMatchDate
      * @param  int $mon
      * @return self
      */
-    public function setMonth($mon): self
+    public function setMonth(int $mon): self
     {
-        $mon = in_array((int) $mon, range(1, 12)) ? (int) $mon : 1;
+        $mon = in_array($mon, range(1, 12)) ? $mon : 1;
         $this->month = $mon;
         return $this;
     }
@@ -92,9 +94,9 @@ class TzFixupRuleMatchDate
      * @param  int $mday
      * @return self
      */
-    public function setMonthDay($mday): self
+    public function setMonthDay(int $mday): self
     {
-        $mday = in_array((int) $mday, range(1, 31)) ? (int) $mday : 1;
+        $mday = in_array($mday, range(1, 31)) ? $mday : 1;
         $this->monthDay = $mday;
         return $this;
     }

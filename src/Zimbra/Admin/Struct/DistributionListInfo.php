@@ -56,13 +56,13 @@ class DistributionListInfo extends AdminObjectInfo
      * Constructor method for DistributionListInfo
      * @param string $name
      * @param string $id
-     * @param array $members
-     * @param array $attrs
-     * @param array $owners
-     * @param bool $dynamic
+     * @param array  $members
+     * @param array  $attrs
+     * @param array  $owners
+     * @param bool   $dynamic
      * @return self
      */
-    public function __construct($name, $id, array $members = [], array $attrs = [], array $owners = [], $dynamic = NULL)
+    public function __construct(string $name, string $id, array $members = [], array $attrs = [], array $owners = [], ?bool $dynamic = NULL)
     {
         parent::__construct($name, $id, $attrs);
         $this->setMembers($members)
@@ -88,9 +88,9 @@ class DistributionListInfo extends AdminObjectInfo
      * @param  bool $dynamic
      * @return self
      */
-    public function setDynamic($dynamic): self
+    public function setDynamic(bool $dynamic): self
     {
-        $this->dynamic = (bool) $dynamic;
+        $this->dynamic = $dynamic;
         return $this;
     }
 

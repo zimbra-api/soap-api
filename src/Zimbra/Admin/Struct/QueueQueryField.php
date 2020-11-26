@@ -26,6 +26,7 @@ use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAt
 class QueueQueryField
 {
     /**
+     * Field name
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
@@ -45,11 +46,11 @@ class QueueQueryField
 
     /**
      * Constructor method for QueueQueryField
-     * @param  string $name Field name
-     * @param  array $matches Match specifications
+     * @param  string $name
+     * @param  array $matches
      * @return self
      */
-    public function __construct($name, array $matches = [])
+    public function __construct(string $name, array $matches = [])
     {
         $this->setName($name)
              ->setMatches($matches);
@@ -71,9 +72,9 @@ class QueueQueryField
      * @param  string $name
      * @return self
      */
-    public function setName($name): self
+    public function setName(string $name): self
     {
-        $this->name = trim($name);
+        $this->name = $name;
         return $this;
     }
 

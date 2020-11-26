@@ -48,7 +48,7 @@ class DistributionListSelector
      * @param  string $value
      * @return self
      */
-    public function __construct(DLBy $by, $value = NULL)
+    public function __construct(DLBy $by, ?string $value = NULL)
     {
         $this->setBy($by);
         if (NULL !== $value) {
@@ -83,7 +83,7 @@ class DistributionListSelector
      *
      * @return string
      */
-    public function getValue(): string
+    public function getValue(): ?string
     {
         return $this->value;
     }
@@ -94,9 +94,9 @@ class DistributionListSelector
      * @param  string $name
      * @return self
      */
-    public function setValue($value): self
+    public function setValue(string $value): self
     {
-        $this->value = trim($value);
+        $this->value = $value;
         return $this;
     }
 }

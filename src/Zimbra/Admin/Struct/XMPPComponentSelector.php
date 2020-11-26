@@ -27,6 +27,7 @@ use Zimbra\Enum\XmppComponentBy as XmppBy;
 class XMPPComponentSelector
 {
     /**
+     * Select the meaning of {xmpp-comp-selector-key}
      * @Accessor(getter="getBy", setter="setBy")
      * @SerializedName("by")
      * @Type("Zimbra\Enum\XmppComponentBy")
@@ -35,6 +36,7 @@ class XMPPComponentSelector
     private $by;
 
     /**
+     * The key used to identify the XMPP component
      * @Accessor(getter="getValue", setter="setValue")
      * @SerializedName("_content")
      * @Type("string")
@@ -44,11 +46,11 @@ class XMPPComponentSelector
 
     /**
      * Constructor method for XmppComponentSelector
-     * @param  XmppBy $by Select the meaning of {xmpp-comp-selector-key}
-     * @param  string $value The key used to identify the XMPP component
+     * @param  XmppBy $by
+     * @param  string $value
      * @return self
      */
-    public function __construct(XmppBy $by, $value = NULL)
+    public function __construct(XmppBy $by, ?string $value = NULL)
     {
         $this->setBy($by);
         if (NULL !== $value) {
@@ -83,7 +85,7 @@ class XMPPComponentSelector
      *
      * @return string
      */
-    public function getValue(): string
+    public function getValue(): ?string
     {
         return $this->value;
     }
@@ -91,12 +93,12 @@ class XMPPComponentSelector
     /**
      * Sets value
      *
-     * @param  string $name
+     * @param  string $value
      * @return self
      */
-    public function setValue($value): self
+    public function setValue(string $value): self
     {
-        $this->value = trim($value);
+        $this->value = $value;
         return $this;
     }
 }

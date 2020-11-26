@@ -27,6 +27,7 @@ use Zimbra\Enum\DataSourceBy;
 class SyncGalAccountDataSourceSpec
 {
     /**
+     * The by
      * @Accessor(getter="getBy", setter="setBy")
      * @SerializedName("by")
      * @Type("Zimbra\Enum\DataSourceBy")
@@ -35,6 +36,8 @@ class SyncGalAccountDataSourceSpec
     private $by;
 
     /**
+     * If fullSync is set to 0 (false) or unset the default behavior is trickle sync which will pull in any new contacts or modified contacts since last sync.
+     * If fullSync is set to 1 (true), then the server will go through all the contacts that appear in GAL, and resolve deleted contacts in addition to new or modified ones.
      * @Accessor(getter="getFullSync", setter="setFullSync")
      * @SerializedName("fullSync")
      * @Type("bool")
@@ -43,6 +46,7 @@ class SyncGalAccountDataSourceSpec
     private $fullSync;
 
     /**
+     * Reset flag. If set, then all the contacts will be populated again, regardless of the status since last sync.
      * @Accessor(getter="getReset", setter="setReset")
      * @SerializedName("reset")
      * @Type("bool")
@@ -51,6 +55,7 @@ class SyncGalAccountDataSourceSpec
     private $reset;
 
     /**
+     * The value
      * @Accessor(getter="getValue", setter="setValue")
      * @SerializedName("_content")
      * @Type("string")
@@ -60,17 +65,17 @@ class SyncGalAccountDataSourceSpec
 
     /**
      * Constructor method for SyncGalAccountDataSourceSpec
-     * @param DataSourceBy $by The by
-     * @param string $value The value
-     * @param bool $fullSync If fullSync is set to 0 (false) or unset the default behavior is trickle sync which will pull in any new contacts or modified contacts since last sync. If fullSync is set to 1 (true), then the server will go through all the contacts that appear in GAL, and resolve deleted contacts in addition to new or modified ones.
-     * @param bool $reset Reset flag. If set, then all the contacts will be populated again, regardless of the status since last sync.
+     * @param DataSourceBy $by
+     * @param string $value
+     * @param bool $fullSync
+     * @param bool $reset
      * @return self
      */
     public function __construct(
         DataSourceBy $by,
-        $value = NULL,
-        $fullSync = NULL,
-        $reset = NULL
+        ?string $value = NULL,
+        ?bool $fullSync = NULL,
+        ?bool $reset = NULL
     )
     {
         $this->setBy($by);
@@ -112,7 +117,7 @@ class SyncGalAccountDataSourceSpec
      *
      * @return string
      */
-    public function getValue(): string
+    public function getValue(): ?string
     {
         return $this->value;
     }
@@ -120,12 +125,12 @@ class SyncGalAccountDataSourceSpec
     /**
      * Sets value
      *
-     * @param  string $name
+     * @param  string $value
      * @return self
      */
-    public function setValue($value): self
+    public function setValue(string $value): self
     {
-        $this->value = trim($value);
+        $this->value = $value;
         return $this;
     }
 
@@ -134,7 +139,7 @@ class SyncGalAccountDataSourceSpec
      *
      * @return bool
      */
-    public function getFullSync(): bool
+    public function getFullSync(): ?bool
     {
         return $this->fullSync;
     }
@@ -145,9 +150,9 @@ class SyncGalAccountDataSourceSpec
      * @param  bool $fullSync
      * @return self
      */
-    public function setFullSync($fullSync): self
+    public function setFullSync(bool $fullSync): self
     {
-        $this->fullSync = (bool) $fullSync;
+        $this->fullSync = $fullSync;
         return $this;
     }
 
@@ -156,7 +161,7 @@ class SyncGalAccountDataSourceSpec
      *
      * @return bool
      */
-    public function getReset(): bool
+    public function getReset(): ?bool
     {
         return $this->reset;
     }
@@ -167,9 +172,9 @@ class SyncGalAccountDataSourceSpec
      * @param  bool $reset
      * @return self
      */
-    public function setReset($reset): self
+    public function setReset(bool $reset): self
     {
-        $this->reset = (bool) $reset;
+        $this->reset = $reset;
         return $this;
     }
 }

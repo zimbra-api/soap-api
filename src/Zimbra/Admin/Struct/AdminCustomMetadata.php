@@ -65,9 +65,9 @@ class AdminCustomMetadata extends AdminKeyValuePairs implements CustomMetadataIn
      * @param  string $section
      * @return self
      */
-    public function setSection($section): CustomMetadataInterface
+    public function setSection(string $section): self
     {
-        $this->section = trim($section);
+        $this->section = $section;
         return $this;
     }
 }

@@ -153,7 +153,7 @@ class RightInfo
      *
      * @return string
      */
-    public function getTargetType(): string
+    public function getTargetType(): ?string
     {
         return $this->targetType;
     }
@@ -241,7 +241,7 @@ class RightInfo
      *
      * @return RightsAttrs
      */
-    public function getAttrs(): RightsAttrs
+    public function getAttrs(): ?RightsAttrs
     {
         return $this->attrs;
     }
@@ -263,7 +263,7 @@ class RightInfo
      *
      * @return ComboRights
      */
-    public function getRights(): ComboRights
+    public function getRights(): ?ComboRights
     {
         return $this->rights;
     }

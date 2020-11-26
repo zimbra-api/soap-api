@@ -27,6 +27,7 @@ use Zimbra\Enum\ServerBy;
 class ServerSelector
 {
     /**
+     * Selects the meaning of {server-key}
      * @Accessor(getter="getBy", setter="setBy")
      * @SerializedName("by")
      * @Type("Zimbra\Enum\ServerBy")
@@ -35,6 +36,7 @@ class ServerSelector
     private $by;
 
     /**
+     * Key for choosing server
      * @Accessor(getter="getValue", setter="setValue")
      * @SerializedName("_content")
      * @Type("string")
@@ -44,11 +46,11 @@ class ServerSelector
 
     /**
      * Constructor method for ServerSelector
-     * @param  ServerBy $by Selects the meaning of {server-key}
-     * @param  string $value Key for choosing server
+     * @param  ServerBy $by
+     * @param  string $value
      * @return self
      */
-    public function __construct(ServerBy $by, $value = NULL)
+    public function __construct(ServerBy $by, ?string $value = NULL)
     {
         $this->setBy($by);
         if (NULL !== $value) {
@@ -83,7 +85,7 @@ class ServerSelector
      *
      * @return string
      */
-    public function getValue(): string
+    public function getValue(): ?string
     {
         return $this->value;
     }
@@ -91,12 +93,12 @@ class ServerSelector
     /**
      * Sets value
      *
-     * @param  string $name
+     * @param  string $value
      * @return self
      */
-    public function setValue($value): self
+    public function setValue(string $value): self
     {
-        $this->value = trim($value);
+        $this->value = $value;
         return $this;
     }
 }

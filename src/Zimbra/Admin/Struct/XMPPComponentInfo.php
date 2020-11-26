@@ -67,7 +67,7 @@ class XMPPComponentInfo extends AdminAttrsImpl
      * @param  array  $attrs
      * @return self
      */
-    public function __construct($name, $id, $domainName = NULL, $serverName = NULL, array $attrs = [])
+    public function __construct(string $name, string $id, ?string $domainName = NULL, ?string $serverName = NULL, array $attrs = [])
     {
         parent::__construct($attrs);
         $this->setName($name)
@@ -96,9 +96,9 @@ class XMPPComponentInfo extends AdminAttrsImpl
      * @param  string $name
      * @return self
      */
-    public function setName($name): self
+    public function setName(string $name): self
     {
-        $this->name = trim($name);
+        $this->name = $name;
         return $this;
     }
 
@@ -118,9 +118,9 @@ class XMPPComponentInfo extends AdminAttrsImpl
      * @param  string $id
      * @return self
      */
-    public function setId($id): self
+    public function setId(string $id): self
     {
-        $this->id = trim($id);
+        $this->id = $id;
         return $this;
     }
 
@@ -129,7 +129,7 @@ class XMPPComponentInfo extends AdminAttrsImpl
      *
      * @return string
      */
-    public function getDomainName(): string
+    public function getDomainName(): ?string
     {
         return $this->domainName;
     }
@@ -140,9 +140,9 @@ class XMPPComponentInfo extends AdminAttrsImpl
      * @param  string $domainName
      * @return self
      */
-    public function setDomainName($domainName): self
+    public function setDomainName(string $domainName): self
     {
-        $this->domainName = trim($domainName);
+        $this->domainName = $domainName;
         return $this;
     }
 
@@ -151,7 +151,7 @@ class XMPPComponentInfo extends AdminAttrsImpl
      *
      * @return string
      */
-    public function getServerName(): string
+    public function getServerName(): ?string
     {
         return $this->serverName;
     }
@@ -162,9 +162,9 @@ class XMPPComponentInfo extends AdminAttrsImpl
      * @param  string $serverName
      * @return self
      */
-    public function setServerName($serverName): self
+    public function setServerName(string $serverName): self
     {
-        $this->serverName = trim($serverName);
+        $this->serverName = $serverName;
         return $this;
     }
 }

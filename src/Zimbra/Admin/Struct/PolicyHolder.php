@@ -38,7 +38,7 @@ class PolicyHolder
      * @param  Policy $policy
      * @return self
      */
-    public function __construct(Policy $policy = NULL)
+    public function __construct(?Policy $policy = NULL)
     {
         if ($policy instanceof Policy) {
             $this->setPolicy($policy);
@@ -50,7 +50,7 @@ class PolicyHolder
      *
      * @return Policy
      */
-    public function getPolicy(): Policy
+    public function getPolicy(): ?Policy
     {
         return $this->policy;
     }

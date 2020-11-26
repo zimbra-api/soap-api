@@ -26,6 +26,7 @@ use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAt
 class MailQueueQuery
 {
     /**
+     * Query
      * @Accessor(getter="getQuery", setter="setQuery")
      * @SerializedName("query")
      * @Type("Zimbra\Admin\Struct\QueueQuery")
@@ -34,6 +35,7 @@ class MailQueueQuery
     private $query;
 
     /**
+     * Queue name
      * @Accessor(getter="getQueueName", setter="setQueueName")
      * @SerializedName("name")
      * @Type("string")
@@ -42,6 +44,7 @@ class MailQueueQuery
     private $queueName;
 
     /**
+     * To fora a queue scan, set this to 1 (true)
      * @Accessor(getter="getScan", setter="setScan")
      * @SerializedName("scan")
      * @Type("bool")
@@ -50,6 +53,7 @@ class MailQueueQuery
     private $scan;
 
     /**
+     * Maximum time to wait for the scan to complete in seconds (default 3)
      * @Accessor(getter="getWaitSeconds", setter="setWaitSeconds")
      * @SerializedName("wait")
      * @Type("integer")
@@ -59,13 +63,13 @@ class MailQueueQuery
 
     /**
      * Constructor method for MailQueueQuery
-     * @param  QueueQuery $query Query
-     * @param  string $name Queue name
-     * @param  bool $scan To fora a queue scan, set this to 1 (true)
-     * @param  int $wait Maximum time to wait for the scan to complete in seconds (default 3)
+     * @param  QueueQuery $query
+     * @param  string $name
+     * @param  bool $scan
+     * @param  int $wait
      * @return self
      */
-    public function __construct(QueueQuery $query, $name, $scan = NULL, $wait = NULL)
+    public function __construct(QueueQuery $query, string $name, ?bool $scan = NULL, ?int $wait = NULL)
     {
         $this->setQuery($query);
         $this->setQueueName($name);
@@ -104,7 +108,7 @@ class MailQueueQuery
      *
      * @return string
      */
-    public function getQueueName()
+    public function getQueueName(): string
     {
         return $this->queueName;
     }
@@ -115,9 +119,9 @@ class MailQueueQuery
      * @param  string $name
      * @return self
      */
-    public function setQueueName($name)
+    public function setQueueName(string $name)
     {
-        $this->queueName = trim($name);
+        $this->queueName = $name;
         return $this;
     }
 
@@ -126,7 +130,7 @@ class MailQueueQuery
      *
      * @return bool
      */
-    public function getScan()
+    public function getScan(): ?bool
     {
         return $this->scan;
     }
@@ -137,9 +141,9 @@ class MailQueueQuery
      * @param  bool $scan
      * @return self
      */
-    public function setScan($scan)
+    public function setScan(bool $scan)
     {
-        $this->scan = (bool) $scan;
+        $this->scan = $scan;
         return $this;
     }
 
@@ -148,7 +152,7 @@ class MailQueueQuery
      *
      * @return int
      */
-    public function getWaitSeconds()
+    public function getWaitSeconds(): ?int
     {
         return $this->waitSeconds;
     }
@@ -159,9 +163,9 @@ class MailQueueQuery
      * @param  int $wait
      * @return self
      */
-    public function setWaitSeconds($wait)
+    public function setWaitSeconds(int $wait)
     {
-        $this->waitSeconds = (int) $wait;
+        $this->waitSeconds = $wait;
         return $this;
     }
 }

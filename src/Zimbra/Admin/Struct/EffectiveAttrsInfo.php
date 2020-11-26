@@ -63,7 +63,7 @@ class EffectiveAttrsInfo
      *
      * @return bool
      */
-    public function getAll(): bool
+    public function getAll(): ?bool
     {
         return $this->all;
     }

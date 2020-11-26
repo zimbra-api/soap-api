@@ -26,6 +26,7 @@ use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAt
 class RightModifierInfo
 {
     /**
+     * Value is of the form
      * @Accessor(getter="getValue", setter="setValue")
      * @SerializedName("_content")
      * @Type("string")
@@ -34,6 +35,7 @@ class RightModifierInfo
     private $value;
 
     /**
+     * Deny flag - default is 0 (false)
      * @Accessor(getter="getDeny", setter="setDeny")
      * @SerializedName("deny")
      * @Type("bool")
@@ -42,6 +44,7 @@ class RightModifierInfo
     private $deny;
 
     /**
+     * Flag whether can delegate - default is 0 (false)
      * @Accessor(getter="getCanDelegate", setter="setCanDelegate")
      * @SerializedName("canDelegate")
      * @Type("bool")
@@ -50,6 +53,7 @@ class RightModifierInfo
     private $canDelegate;
 
     /**
+     * disinheritSubGroups flag - default is 0 (false)
      * @Accessor(getter="getDisinheritSubGroups", setter="setDisinheritSubGroups")
      * @SerializedName("disinheritSubGroups")
      * @Type("bool")
@@ -58,6 +62,7 @@ class RightModifierInfo
     private $disinheritSubGroups;
 
     /**
+     * subDomain flag - default is 0 (false)
      * @Accessor(getter="getSubDomain", setter="setSubDomain")
      * @SerializedName("subDomain")
      * @Type("bool")
@@ -67,19 +72,19 @@ class RightModifierInfo
 
     /**
      * Constructor method for RightModifierInfo
-     * @param string $value Value is of the form
-     * @param bool $deny Deny flag - default is 0 (false)
-     * @param bool $canDelegate Flag whether can delegate - default is 0 (false)
-     * @param bool $disinheritSubGroups disinheritSubGroups flag - default is 0 (false)
-     * @param bool $subDomain subDomain flag - default is 0 (false)
+     * @param string $value
+     * @param bool $deny
+     * @param bool $canDelegate
+     * @param bool $disinheritSubGroups
+     * @param bool $subDomain
      * @return self
      */
     public function __construct(
-        $value = NULL,
-        $deny = NULL,
-        $canDelegate = NULL,
-        $disinheritSubGroups = NULL,
-        $subDomain = NULL
+        ?string $value = NULL,
+        ?bool $deny = NULL,
+        ?bool $canDelegate = NULL,
+        ?bool $disinheritSubGroups = NULL,
+        ?bool $subDomain = NULL
     )
     {
         if (NULL !== $value) {
@@ -104,7 +109,7 @@ class RightModifierInfo
      *
      * @return string
      */
-    public function getValue(): string
+    public function getValue(): ?string
     {
         return $this->value;
     }
@@ -112,12 +117,12 @@ class RightModifierInfo
     /**
      * Sets value
      *
-     * @param  string $name
+     * @param  string $value
      * @return self
      */
-    public function setValue($value): self
+    public function setValue(string $value): self
     {
-        $this->value = trim($value);
+        $this->value = $value;
         return $this;
     }
 
@@ -126,7 +131,7 @@ class RightModifierInfo
      *
      * @return bool
      */
-    public function getDeny(): bool
+    public function getDeny(): ?bool
     {
         return $this->deny;
     }
@@ -137,9 +142,9 @@ class RightModifierInfo
      * @param  bool $deny
      * @return self
      */
-    public function setDeny($deny): self
+    public function setDeny(bool $deny): self
     {
-        $this->deny = (bool) $deny;
+        $this->deny = $deny;
         return $this;
     }
 
@@ -148,7 +153,7 @@ class RightModifierInfo
      *
      * @return bool
      */
-    public function getCanDelegate(): bool
+    public function getCanDelegate(): ?bool
     {
         return $this->canDelegate;
     }
@@ -159,9 +164,9 @@ class RightModifierInfo
      * @param  bool $canDelegate
      * @return self
      */
-    public function setCanDelegate($canDelegate): self
+    public function setCanDelegate(bool $canDelegate): self
     {
-        $this->canDelegate = (bool) $canDelegate;
+        $this->canDelegate = $canDelegate;
         return $this;
     }
 
@@ -170,7 +175,7 @@ class RightModifierInfo
      *
      * @return bool
      */
-    public function getDisinheritSubGroups(): bool
+    public function getDisinheritSubGroups(): ?bool
     {
         return $this->disinheritSubGroups;
     }
@@ -181,9 +186,9 @@ class RightModifierInfo
      * @param  bool $disinheritSubGroups
      * @return self
      */
-    public function setDisinheritSubGroups($disinheritSubGroups): self
+    public function setDisinheritSubGroups(bool $disinheritSubGroups): self
     {
-        $this->disinheritSubGroups = (bool) $disinheritSubGroups;
+        $this->disinheritSubGroups = $disinheritSubGroups;
         return $this;
     }
 
@@ -192,7 +197,7 @@ class RightModifierInfo
      *
      * @return bool
      */
-    public function getSubDomain(): bool
+    public function getSubDomain(): ?bool
     {
         return $this->subDomain;
     }
@@ -203,9 +208,9 @@ class RightModifierInfo
      * @param  bool $subDomain
      * @return self
      */
-    public function setSubDomain($subDomain): self
+    public function setSubDomain(bool $subDomain): self
     {
-        $this->subDomain = (bool) $subDomain;
+        $this->subDomain = $subDomain;
         return $this;
     }
 }

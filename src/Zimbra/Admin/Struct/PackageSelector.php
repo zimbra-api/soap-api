@@ -26,6 +26,7 @@ use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAt
 class PackageSelector
 {
     /**
+     * The name
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
@@ -35,10 +36,10 @@ class PackageSelector
 
     /**
      * Constructor method for PackageSelector
-     * @param string $name The name
+     * @param string $name
      * @return self
      */
-    public function __construct($name = NULL)
+    public function __construct(?string $name = NULL)
     {
         if (NULL !== $name) {
             $this->setName($name);

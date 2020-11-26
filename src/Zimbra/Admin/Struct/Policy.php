@@ -27,6 +27,7 @@ use Zimbra\Enum\Type as EnumType;
 class Policy
 {
     /**
+     * Retention policy type
      * @Accessor(getter="getType", setter="setType")
      * @SerializedName("type")
      * @Type("Zimbra\Enum\Type")
@@ -35,6 +36,7 @@ class Policy
     private $type;
 
     /**
+     * The id
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
@@ -43,6 +45,7 @@ class Policy
     private $id;
 
     /**
+     * The name
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
@@ -51,6 +54,7 @@ class Policy
     private $name;
 
     /**
+     * The duration
      * @Accessor(getter="getLifetime", setter="setLifetime")
      * @SerializedName("lifetime")
      * @Type("string")
@@ -60,13 +64,13 @@ class Policy
 
     /**
      * Constructor method for policy
-     * @param EnumType $type Retention policy type
-     * @param string $id The id
-     * @param string $name The name
-     * @param string $lifetime The duration
+     * @param EnumType $type
+     * @param string $id
+     * @param string $name
+     * @param string $lifetime
      * @return self
      */
-    public function __construct(EnumType $type = NULL, $id = NULL, $name = NULL, $lifetime = NULL)
+    public function __construct(?EnumType $type = NULL, ?string $id = NULL, ?string $name = NULL, ?string $lifetime = NULL)
     {
         if ($type instanceof EnumType) {
             $this->setType($type);
@@ -97,7 +101,7 @@ class Policy
      *
      * @return EnumType
      */
-    public function getType(): EnumType
+    public function getType(): ?EnumType
     {
         return $this->type;
     }
@@ -119,7 +123,7 @@ class Policy
      *
      * @return string
      */
-    public function getId(): string
+    public function getId(): ?string
     {
         return $this->id;
     }
@@ -130,9 +134,9 @@ class Policy
      * @param  string $id
      * @return self
      */
-    public function setId($id): self
+    public function setId(string $id): self
     {
-        $this->id = trim($id);
+        $this->id = $id;
         return $this;
     }
 
@@ -141,7 +145,7 @@ class Policy
      *
      * @return string
      */
-    public function getName(): string
+    public function getName(): ?string
     {
         return $this->name;
     }
@@ -152,9 +156,9 @@ class Policy
      * @param  string $name
      * @return self
      */
-    public function setName($name): self
+    public function setName(string $name): self
     {
-        $this->name = trim($name);
+        $this->name = $name;
         return $this;
     }
 
@@ -163,7 +167,7 @@ class Policy
      *
      * @return string
      */
-    public function getLifetime(): string
+    public function getLifetime(): ?string
     {
         return $this->lifetime;
     }
@@ -174,9 +178,9 @@ class Policy
      * @param  string $lifetime
      * @return self
      */
-    public function setLifetime($lifetime): self
+    public function setLifetime(string $lifetime): self
     {
-        $this->lifetime = trim($lifetime);
+        $this->lifetime = $lifetime;
         return $this;
     }
 }

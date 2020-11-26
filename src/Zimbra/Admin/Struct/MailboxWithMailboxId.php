@@ -54,12 +54,12 @@ class MailboxWithMailboxId
 
     /**
      * Constructor method for MailboxWithMailboxId
-     * @param integer $mbxid
+     * @param int $mbxid
      * @param string $accountId
-     * @param integer $size
+     * @param int $size
      * @return self
      */
-    public function __construct($mbxid, $accountId, $size = NULL)
+    public function __construct(int $mbxid, string $accountId, ?int $size = NULL)
     {
         $this->setMbxid($mbxid)
              ->setAccountId($accountId);
@@ -84,9 +84,9 @@ class MailboxWithMailboxId
      * @param  int $mbxid
      * @return self
      */
-    public function setMbxid($mbxid): self
+    public function setMbxid(int $mbxid): self
     {
-        $this->mbxid = (int) $mbxid;
+        $this->mbxid = $mbxid;
         return $this;
     }
 
@@ -106,9 +106,9 @@ class MailboxWithMailboxId
      * @param  string $accountId
      * @return self
      */
-    public function setAccountId($accountId)
+    public function setAccountId(string $accountId)
     {
-        $this->accountId = trim($accountId);
+        $this->accountId = $accountId;
         return $this;
     }
 
@@ -117,7 +117,7 @@ class MailboxWithMailboxId
      *
      * @return int
      */
-    public function getSize(): int
+    public function getSize(): ?int
     {
         return $this->size;
     }
@@ -128,9 +128,9 @@ class MailboxWithMailboxId
      * @param  int $size
      * @return self
      */
-    public function setSize($size): self
+    public function setSize(int $size): self
     {
-        $this->size = (int) $size;
+        $this->size = $size;
         return $this;
     }
 }

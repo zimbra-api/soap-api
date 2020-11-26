@@ -123,12 +123,12 @@ class AdminZimletDesc implements ZimletDesc
      * @return self
      */
     public function __construct(
-        $name = NULL,
-        $version = NULL,
-        $description = NULL,
-        $extension = NULL,
-        $target = NULL,
-        $label = NULL
+        ?string $name = NULL,
+        ?string $version = NULL,
+        ?string $description = NULL,
+        ?string $extension = NULL,
+        ?string $target = NULL,
+        ?string $label = NULL
     )
     {
         if (NULL !== $name) {
@@ -156,7 +156,7 @@ class AdminZimletDesc implements ZimletDesc
      *
      * @return string
      */
-    public function getName(): string
+    public function getName(): ?string
     {
         return $this->name;
     }
@@ -167,9 +167,9 @@ class AdminZimletDesc implements ZimletDesc
      * @param  string $name
      * @return self
      */
-    public function setName($name): self
+    public function setName(string $name): self
     {
-        $this->name = trim($name);
+        $this->name = $name;
         return $this;
     }
 
@@ -178,7 +178,7 @@ class AdminZimletDesc implements ZimletDesc
      *
      * @return string
      */
-    public function getVersion(): string
+    public function getVersion(): ?string
     {
         return $this->version;
     }
@@ -189,9 +189,9 @@ class AdminZimletDesc implements ZimletDesc
      * @param  string $version
      * @return self
      */
-    public function setVersion($version): self
+    public function setVersion(string $version): self
     {
-        $this->version = trim($version);
+        $this->version = $version;
         return $this;
     }
 
@@ -200,7 +200,7 @@ class AdminZimletDesc implements ZimletDesc
      *
      * @return string
      */
-    public function getDescription(): string
+    public function getDescription(): ?string
     {
         return $this->description;
     }
@@ -211,9 +211,9 @@ class AdminZimletDesc implements ZimletDesc
      * @param  string $description
      * @return self
      */
-    public function setDescription($description): self
+    public function setDescription(string $description): self
     {
-        $this->description = trim($description);
+        $this->description = $description;
         return $this;
     }
 
@@ -222,7 +222,7 @@ class AdminZimletDesc implements ZimletDesc
      *
      * @return string
      */
-    public function getExtension(): string
+    public function getExtension(): ?string
     {
         return $this->extension;
     }
@@ -233,9 +233,9 @@ class AdminZimletDesc implements ZimletDesc
      * @param  string $extension
      * @return self
      */
-    public function setExtension($extension): self
+    public function setExtension(string $extension): self
     {
-        $this->extension = trim($extension);
+        $this->extension = $extension;
         return $this;
     }
 
@@ -244,7 +244,7 @@ class AdminZimletDesc implements ZimletDesc
      *
      * @return string
      */
-    public function getTarget(): string
+    public function getTarget(): ?string
     {
         return $this->target;
     }
@@ -255,9 +255,9 @@ class AdminZimletDesc implements ZimletDesc
      * @param  string $target
      * @return self
      */
-    public function setTarget($target): self
+    public function setTarget(string $target): self
     {
-        $this->target = trim($target);
+        $this->target = $target;
         return $this;
     }
 
@@ -266,7 +266,7 @@ class AdminZimletDesc implements ZimletDesc
      *
      * @return string
      */
-    public function getLabel(): string
+    public function getLabel(): ?string
     {
         return $this->label;
     }
@@ -277,9 +277,9 @@ class AdminZimletDesc implements ZimletDesc
      * @param  string $label
      * @return self
      */
-    public function setLabel($label): self
+    public function setLabel(string $label): self
     {
-        $this->label = trim($label);
+        $this->label = $label;
         return $this;
     }
 
@@ -288,7 +288,7 @@ class AdminZimletDesc implements ZimletDesc
      *
      * @return ZimletServerExtension
      */
-    public function getServerExtension(): ZimletServerExtension
+    public function getServerExtension(): ?ZimletServerExtension
     {
         return $this->serverExtension;
     }
@@ -310,7 +310,7 @@ class AdminZimletDesc implements ZimletDesc
      *
      * @return AdminZimletInclude
      */
-    public function getZimletInclude(): AdminZimletInclude
+    public function getZimletInclude(): ?AdminZimletInclude
     {
         return $this->include;
     }
@@ -332,7 +332,7 @@ class AdminZimletDesc implements ZimletDesc
      *
      * @return AdminZimletIncludeCSS
      */
-    public function getZimletIncludeCSS(): AdminZimletIncludeCSS
+    public function getZimletIncludeCSS(): ?AdminZimletIncludeCSS
     {
         return $this->includeCSS;
     }

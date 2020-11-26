@@ -26,6 +26,7 @@ use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAt
 class XMPPComponentSpec extends AdminAttrsImpl
 {
     /**
+     * The name
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
@@ -34,6 +35,7 @@ class XMPPComponentSpec extends AdminAttrsImpl
     private $name;
 
     /**
+     * Domain selector
      * @Accessor(getter="getDomain", setter="setDomain")
      * @SerializedName("domain")
      * @Type("Zimbra\Admin\Struct\DomainSelector")
@@ -42,6 +44,7 @@ class XMPPComponentSpec extends AdminAttrsImpl
     private $domain;
 
     /**
+     * Server selector
      * @Accessor(getter="getServer", setter="setServer")
      * @SerializedName("server")
      * @Type("Zimbra\Admin\Struct\ServerSelector")
@@ -51,14 +54,14 @@ class XMPPComponentSpec extends AdminAttrsImpl
 
     /**
      * Constructor method for XmppComponentSpec
-     * @param string $name The name
-     * @param DomainSelector $domain Domain selector
-     * @param ServerSelector $server Server selector
-     * @param array $attrs Attributes
+     * @param string $name
+     * @param DomainSelector $domain
+     * @param ServerSelector $server
+     * @param array $attrs
      * @return self
      */
     public function __construct(
-        $name,
+        string $name,
         DomainSelector $domain,
         ServerSelector $server,
         array $attrs = []
@@ -86,9 +89,9 @@ class XMPPComponentSpec extends AdminAttrsImpl
      * @param  string $name
      * @return self
      */
-    public function setName($name): self
+    public function setName(string $name): self
     {
-        $this->name = trim($name);
+        $this->name = $name;
         return $this;
     }
 

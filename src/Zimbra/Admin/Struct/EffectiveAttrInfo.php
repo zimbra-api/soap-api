@@ -95,7 +95,7 @@ class EffectiveAttrInfo
      *
      * @return ConstraintInfo
      */
-    public function getConstraint(): ConstraintInfo
+    public function getConstraint(): ?ConstraintInfo
     {
         return $this->constraint;
     }

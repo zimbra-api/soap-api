@@ -27,6 +27,7 @@ use Zimbra\Enum\DomainBy;
 class DomainSelector
 {
     /**
+     * Select the meaning of {acct-selector-key}
      * @Accessor(getter="getBy", setter="setBy")
      * @SerializedName("by")
      * @Type("Zimbra\Enum\DomainBy")
@@ -35,6 +36,7 @@ class DomainSelector
     private $by;
 
     /**
+     * The key used to identify the domain
      * @Accessor(getter="getValue", setter="setValue")
      * @SerializedName("_content")
      * @Type("string")
@@ -44,11 +46,11 @@ class DomainSelector
 
     /**
      * Constructor method for DomainSelector
-     * @param  DomainBy $by Select the meaning of {acct-selector-key}
-     * @param  string $value The key used to identify the domain
+     * @param  DomainBy $by
+     * @param  string $value
      * @return self
      */
-    public function __construct(DomainBy $by, $value = NULL)
+    public function __construct(DomainBy $by, ?string $value = NULL)
     {
         $this->setBy($by);
         if (NULL !== $value) {
@@ -83,7 +85,7 @@ class DomainSelector
      *
      * @return string
      */
-    public function getValue(): string
+    public function getValue(): ?string
     {
         return $this->value;
     }
@@ -94,9 +96,9 @@ class DomainSelector
      * @param  string $name
      * @return self
      */
-    public function setValue($value): self
+    public function setValue(string $value): self
     {
-        $this->value = trim($value);
+        $this->value = $value;
         return $this;
     }
 }

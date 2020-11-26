@@ -113,7 +113,7 @@ class ComboRightInfo
      *
      * @return string
      */
-    public function getTargetType(): string
+    public function getTargetType(): ?string
     {
         return $this->targetType;
     }

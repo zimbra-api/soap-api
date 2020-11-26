@@ -26,6 +26,7 @@ use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAt
 class TimeAttr
 {
     /**
+     * end time
      * @Accessor(getter="getTime", setter="setTime")
      * @SerializedName("time")
      * @Type("string")
@@ -35,10 +36,10 @@ class TimeAttr
 
     /**
      * Constructor method for TimeAttr
-     * @param  string $time end time
+     * @param  string $time
      * @return self
      */
-    public function __construct($time)
+    public function __construct(string $time)
     {
         $this->setTime($time);
     }
@@ -59,9 +60,9 @@ class TimeAttr
      * @param  string $time
      * @return self
      */
-    public function setTime($time): self
+    public function setTime(string $time): self
     {
-        $this->time = trim($time);
+        $this->time = $time;
         return $this;
     }
 }

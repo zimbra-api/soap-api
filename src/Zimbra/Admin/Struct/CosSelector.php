@@ -27,6 +27,7 @@ use Zimbra\Enum\CosBy;
 class CosSelector
 {
     /**
+     * Select the meaning of {cos-selector-key}
      * @Accessor(getter="getBy", setter="setBy")
      * @SerializedName("by")
      * @Type("Zimbra\Enum\CosBy")
@@ -35,6 +36,7 @@ class CosSelector
     private $by;
 
     /**
+     * The key used to identify the COS
      * @Accessor(getter="getValue", setter="setValue")
      * @SerializedName("_content")
      * @Type("string")
@@ -44,11 +46,11 @@ class CosSelector
 
     /**
      * Constructor method for CosSelector
-     * @param  CosBy $by Select the meaning of {cos-selector-key}
-     * @param  string $value The key used to identify the COS
+     * @param  CosBy $by
+     * @param  string $value
      * @return self
      */
-    public function __construct(CosBy $by, $value = NULL)
+    public function __construct(CosBy $by, ?string $value = NULL)
     {
         $this->setBy($by);
         if (NULL !== $value) {
@@ -83,7 +85,7 @@ class CosSelector
      *
      * @return string
      */
-    public function getValue(): string
+    public function getValue(): ?string
     {
         return $this->value;
     }
@@ -94,9 +96,9 @@ class CosSelector
      * @param  string $value
      * @return self
      */
-    public function setValue($value): self
+    public function setValue(string $value): self
     {
-        $this->value = trim($value);
+        $this->value = $value;
         return $this;
     }
 }

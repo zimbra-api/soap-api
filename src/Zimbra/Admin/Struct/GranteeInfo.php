@@ -60,7 +60,7 @@ class GranteeInfo
      * @param  GranteeType $type
      * @return self
      */
-    public function __construct($id, $name, GranteeType $type = NULL)
+    public function __construct(string $id, string $name, ?GranteeType $type = NULL)
     {
         $this->setId($id)
              ->setName($name);
@@ -85,9 +85,9 @@ class GranteeInfo
      * @param  string $id
      * @return self
      */
-    public function setId($id): self
+    public function setId(string $id): self
     {
-        $this->id = trim($id);
+        $this->id = $id;
         return $this;
     }
 
@@ -107,9 +107,9 @@ class GranteeInfo
      * @param  string $name
      * @return self
      */
-    public function setName($name): self
+    public function setName(string $name): self
     {
-        $this->name = trim($name);
+        $this->name = $name;
         return $this;
     }
 
@@ -118,7 +118,7 @@ class GranteeInfo
      *
      * @return GranteeType
      */
-    public function getType(): GranteeType
+    public function getType(): ?GranteeType
     {
         return $this->type;
     }

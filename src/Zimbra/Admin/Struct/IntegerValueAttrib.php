@@ -38,7 +38,7 @@ class IntegerValueAttrib
      * @param  int $value
      * @return self
      */
-    public function __construct($value = NULL)
+    public function __construct(?int $value = NULL)
     {
         if (NULL !== $value) {
             $this->setValue($value);
@@ -61,9 +61,9 @@ class IntegerValueAttrib
      * @param  int $value
      * @return self
      */
-    public function setValue($value): self
+    public function setValue(int $value): self
     {
-        $this->value = (int) $value;
+        $this->value = $value;
         return $this;
     }
 }

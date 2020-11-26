@@ -27,6 +27,7 @@ use Zimbra\Enum\AlwaysOnClusterBy;
 class AlwaysOnClusterSelector
 {
     /**
+     * Selects the meaning of alwaysOnCluster-key
      * @Accessor(getter="getBy", setter="setBy")
      * @SerializedName("by")
      * @Type("Zimbra\Enum\AlwaysOnClusterBy")
@@ -35,6 +36,7 @@ class AlwaysOnClusterSelector
     private $by;
 
     /**
+     * Key for choosing alwaysOnCluster
      * @Accessor(getter="getValue", setter="setValue")
      * @SerializedName("_content")
      * @Type("string")
@@ -44,11 +46,11 @@ class AlwaysOnClusterSelector
 
     /**
      * Constructor method for AlwaysOnClusterSelector
-     * @param  AlwaysOnClusterBy $by Selects the meaning of alwaysOnCluster-key
-     * @param  string $value Key for choosing alwaysOnCluster
+     * @param  AlwaysOnClusterBy $by
+     * @param  string $value
      * @return self
      */
-    public function __construct(AlwaysOnClusterBy $by, $value = NULL)
+    public function __construct(AlwaysOnClusterBy $by, ?string $value = NULL)
     {
         $this->setBy($by);
         if (NULL !== $value) {
@@ -83,7 +85,7 @@ class AlwaysOnClusterSelector
      *
      * @return string
      */
-    public function getValue(): string
+    public function getValue(): ?string
     {
         return $this->value;
     }
@@ -94,9 +96,9 @@ class AlwaysOnClusterSelector
      * @param  string $name
      * @return self
      */
-    public function setValue($value): self
+    public function setValue(string $value): self
     {
-        $this->value = trim($value);
+        $this->value = $value;
         return $this;
     }
 }

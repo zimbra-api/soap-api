@@ -72,8 +72,8 @@ class EntrySearchFilterMultiCond implements SearchFilterCondition
      * @return self
      */
     public function __construct(
-        $not = NULL,
-        $or = NULL,
+        ?bool $not = NULL,
+        ?bool $or = NULL,
         array $conditions = []
     )
     {
@@ -91,7 +91,7 @@ class EntrySearchFilterMultiCond implements SearchFilterCondition
      *
      * @return bool
      */
-    public function isNot(): bool
+    public function isNot(): ?bool
     {
         return $this->not;
     }
@@ -102,9 +102,9 @@ class EntrySearchFilterMultiCond implements SearchFilterCondition
      * @param  bool $not
      * @return self
      */
-    public function setNot($not): self
+    public function setNot(bool $not): self
     {
-        $this->not = (bool) $not;
+        $this->not = $not;
         return $this;
     }
 
@@ -113,7 +113,7 @@ class EntrySearchFilterMultiCond implements SearchFilterCondition
      *
      * @return bool
      */
-    public function isOr(): bool
+    public function isOr(): ?bool
     {
         return $this->or;
     }
@@ -124,9 +124,9 @@ class EntrySearchFilterMultiCond implements SearchFilterCondition
      * @param  bool $or
      * @return self
      */
-    public function setOr($or): self
+    public function setOr(bool $or): self
     {
-        $this->or = (bool) $or;
+        $this->or = $or;
         return $this;
     }
 

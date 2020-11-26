@@ -51,7 +51,7 @@ class CosInfoAttr extends Attr
      * @param  bool $permDenied
      * @return self
      */
-    public function __construct($key, $value = NULL, $cosAttr = NULL, $permDenied = NULL)
+    public function __construct(string $key, ?string $value = NULL, ?bool $cosAttr = NULL, ?bool $permDenied = NULL)
     {
     	parent::__construct($key, $value);
         if (NULL !== $cosAttr) {
@@ -78,9 +78,9 @@ class CosInfoAttr extends Attr
      * @param  bool $cosAttr
      * @return self
      */
-    public function setCosAttr($cosAttr): self
+    public function setCosAttr(bool $cosAttr): self
     {
-        $this->cosAttr = (bool) $cosAttr;
+        $this->cosAttr = $cosAttr;
         return $this;
     }
 
@@ -100,9 +100,9 @@ class CosInfoAttr extends Attr
      * @param  bool $permDenied
      * @return self
      */
-    public function setPermDenied($permDenied): self
+    public function setPermDenied(bool $permDenied): self
     {
-        $this->permDenied = (bool) $permDenied;
+        $this->permDenied = $permDenied;
         return $this;
     }
 }

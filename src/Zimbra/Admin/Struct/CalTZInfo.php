@@ -27,6 +27,7 @@ use Zimbra\Struct\TzOnsetInfo;
 class CalTZInfo
 {
     /**
+     * Timezone ID. If this is the only detail present then this should be an existing server-known timezone's ID Otherwise, it must be present, although it will be ignored by the server
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
@@ -35,6 +36,7 @@ class CalTZInfo
     private $id;
 
     /**
+     * Standard Time's offset in minutes from UTC; local = UTC + offset
      * @Accessor(getter="getTzStdOffset", setter="setTzStdOffset")
      * @SerializedName("stdoff")
      * @Type("integer")
@@ -43,6 +45,7 @@ class CalTZInfo
     private $tzStdOffset;
 
     /**
+     * Daylight Saving Time's offset in minutes from UTC; present only if DST is used
      * @Accessor(getter="getTzDayOffset", setter="setTzDayOffset")
      * @SerializedName("dayoff")
      * @Type("integer")
@@ -51,6 +54,7 @@ class CalTZInfo
     private $tzDayOffset;
 
     /**
+     * Time/rule for transitioning from daylight time to standard time. Either specify week/wkday combo, or mday.
      * @Accessor(getter="getStandardTzOnset", setter="setStandardTzOnset")
      * @SerializedName("standard")
      * @Type("Zimbra\Struct\TzOnsetInfo")
@@ -59,6 +63,7 @@ class CalTZInfo
     private $standardTzOnset;
 
     /**
+     * Time/rule for transitioning from standard time to daylight time
      * @Accessor(getter="getDaylightTzOnset", setter="setDaylightTzOnset")
      * @SerializedName("daylight")
      * @Type("Zimbra\Struct\TzOnsetInfo")
@@ -67,6 +72,7 @@ class CalTZInfo
     private $daylightTzOnset;
 
     /**
+     * Standard Time component's timezone name
      * @Accessor(getter="getStandardTZName", setter="setStandardTZName")
      * @SerializedName("stdname")
      * @Type("string")
@@ -75,6 +81,7 @@ class CalTZInfo
     private $standardTZName;
 
     /**
+     * Daylight Saving Time component's timezone name
      * @Accessor(getter="getDaylightTZName", setter="setDaylightTZName")
      * @SerializedName("dayname")
      * @Type("string")
@@ -84,23 +91,23 @@ class CalTZInfo
 
     /**
      * Constructor method for CalTZInfo
-     * @param string $id Timezone ID. If this is the only detail present then this should be an existing server-known timezone's ID Otherwise, it must be present, although it will be ignored by the server
-     * @param int $stdoff Standard Time's offset in minutes from UTC; local = UTC + offset
-     * @param int $dayoff Daylight Saving Time's offset in minutes from UTC; present only if DST is used
-     * @param TzOnsetInfo $standard Time/rule for transitioning from daylight time to standard time. Either specify week/wkday combo, or mday.
-     * @param TzOnsetInfo $daylight Time/rule for transitioning from standard time to daylight time
-     * @param string $stdname Standard Time component's timezone name
-     * @param string $dayname Daylight Saving Time component's timezone name
+     * @param string $id
+     * @param int $stdoff
+     * @param int $dayoff
+     * @param TzOnsetInfo $standard
+     * @param TzOnsetInfo $daylight
+     * @param string $stdname
+     * @param string $dayname
      * @return self
      */
     public function __construct(
-        $id,
-        $stdoff,
-        $dayoff,
-        TzOnsetInfo $standard = NULL,
-        TzOnsetInfo $daylight = NULL,
-        $stdname = NULL,
-        $dayname = NULL
+        string $id,
+        int $stdoff,
+        int $dayoff,
+        ?TzOnsetInfo $standard = NULL,
+        ?TzOnsetInfo $daylight = NULL,
+        ?string $stdname = NULL,
+        ?string $dayname = NULL
     )
     {
         $this->setId($id)
@@ -137,9 +144,9 @@ class CalTZInfo
      * @param  string $id
      * @return self
      */
-    public function setId($id): self
+    public function setId(string $id): self
     {
-        $this->id = trim($id);
+        $this->id = $id;
         return $this;
     }
 
@@ -159,9 +166,9 @@ class CalTZInfo
      * @param  int $stdoff
      * @return self
      */
-    public function setTzStdOffset($stdoff): self
+    public function setTzStdOffset(int $stdoff): self
     {
-        $this->tzStdOffset = (int) $stdoff;
+        $this->tzStdOffset = $stdoff;
         return $this;
     }
 
@@ -181,9 +188,9 @@ class CalTZInfo
      * @param  int $dayoff
      * @return self
      */
-    public function setTzDayOffset($dayoff): self
+    public function setTzDayOffset(int $dayoff): self
     {
-        $this->tzDayOffset = (int) $dayoff;
+        $this->tzDayOffset = $dayoff;
         return $this;
     }
 
@@ -192,7 +199,7 @@ class CalTZInfo
      *
      * @return string
      */
-    public function getStandardTZName(): string
+    public function getStandardTZName(): ?string
     {
         return $this->standardTZName;
     }
@@ -203,9 +210,9 @@ class CalTZInfo
      * @param  string $stdname
      * @return self
      */
-    public function setStandardTZName($stdname): self
+    public function setStandardTZName(string $stdname): self
     {
-        $this->standardTZName = trim($stdname);
+        $this->standardTZName = $stdname;
         return $this;
     }
 
@@ -214,7 +221,7 @@ class CalTZInfo
      *
      * @return string
      */
-    public function getDaylightTZName(): string
+    public function getDaylightTZName(): ?string
     {
         return $this->daylightTZName;
     }
@@ -225,9 +232,9 @@ class CalTZInfo
      * @param  string $dayname
      * @return self
      */
-    public function setDaylightTZName($dayname): self
+    public function setDaylightTZName(string $dayname): self
     {
-        $this->daylightTZName = trim($dayname);
+        $this->daylightTZName = $dayname;
         return $this;
     }
 
@@ -236,7 +243,7 @@ class CalTZInfo
      *
      * @return TzOnsetInfo
      */
-    public function getStandardTzOnset(): TzOnsetInfo
+    public function getStandardTzOnset(): ?TzOnsetInfo
     {
         return $this->standardTzOnset;
     }
@@ -258,7 +265,7 @@ class CalTZInfo
      *
      * @return TzOnsetInfo
      */
-    public function getDaylightTzOnset(): TzOnsetInfo
+    public function getDaylightTzOnset(): ?TzOnsetInfo
     {
         return $this->daylightTzOnset;
     }

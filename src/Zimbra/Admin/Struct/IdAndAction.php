@@ -26,6 +26,7 @@ use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAt
 class IdAndAction
 {
     /**
+     * Zimbra ID of account
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
@@ -34,6 +35,7 @@ class IdAndAction
     private $id;
 
     /**
+     * bug72174 or wiki or contactGroup
      * @Accessor(getter="getAction", setter="setAction")
      * @SerializedName("action")
      * @Type("string")
@@ -43,11 +45,11 @@ class IdAndAction
 
     /**
      * Constructor method for IdAndAction
-     * @param string $id Zimbra ID of account
-     * @param string $action bug72174 or wiki or contactGroup
+     * @param string $id
+     * @param string $action
      * @return self
      */
-    public function __construct($id, $action)
+    public function __construct(string $id, string $action)
     {
         $this->setId($id)
              ->setAction($action);
@@ -69,9 +71,9 @@ class IdAndAction
      * @param  string $id
      * @return self
      */
-    public function setId($id): self
+    public function setId(string $id): self
     {
-        $this->id = trim($id);
+        $this->id = $id;
         return $this;
     }
 
@@ -91,7 +93,7 @@ class IdAndAction
      * @param  string $action
      * @return self
      */
-    public function setAction($action): self
+    public function setAction(string $action): self
     {
         $action = trim($action);
         if (in_array($action, ['bug72174', 'wiki', 'contactGroup'])) {

@@ -27,6 +27,7 @@ use Zimbra\Enum\ZimletStatus;
 class ZimletAclStatusPri
 {
     /**
+     * Name of Class Of Service (COS)
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
@@ -35,6 +36,7 @@ class ZimletAclStatusPri
     private $name;
 
     /**
+     * Zimlet ACL
      * @Accessor(getter="getAcl", setter="setAcl")
      * @SerializedName("acl")
      * @Type("Zimbra\Admin\Struct\ZimletAcl")
@@ -43,6 +45,7 @@ class ZimletAclStatusPri
     private $acl;
 
     /**
+     * Status - valid values for valueattribute - enabled|disabled
      * @Accessor(getter="getStatus", setter="setStatus")
      * @SerializedName("status")
      * @Type("Zimbra\Admin\Struct\ValueAttrib")
@@ -51,6 +54,7 @@ class ZimletAclStatusPri
     private $status;
 
     /**
+     * Priority
      * @Accessor(getter="getPriority", setter="setPriority")
      * @SerializedName("priority")
      * @Type("Zimbra\Admin\Struct\IntegerValueAttrib")
@@ -60,17 +64,17 @@ class ZimletAclStatusPri
 
     /**
      * Constructor method for ZimletAclStatusPri
-     * @param  string $name Name of Class Of Service (COS)
-     * @param  ZimletAcl $acl Zimlet ACL
-     * @param  ValueAttrib $status Status - valid values for valueattribute - enabled|disabled
-     * @param  IntegerValueAttrib $priority Priority
+     * @param  string $name
+     * @param  ZimletAcl $acl
+     * @param  ValueAttrib $status
+     * @param  IntegerValueAttrib $priority
      * @return self
      */
     public function __construct(
-        $name,
-        ZimletAcl $acl = NULL,
-        ValueAttrib $status = NULL,
-        IntegerValueAttrib $priority = NULL
+        string $name,
+        ?ZimletAcl $acl = NULL,
+        ?ValueAttrib $status = NULL,
+        ?IntegerValueAttrib $priority = NULL
     )
     {
         $this->setName($name);
@@ -101,9 +105,9 @@ class ZimletAclStatusPri
      * @param  string $name
      * @return self
      */
-    public function setName($name): self
+    public function setName(string $name): self
     {
-        $this->name = trim($name);
+        $this->name = $name;
         return $this;
     }
 
@@ -112,7 +116,7 @@ class ZimletAclStatusPri
      *
      * @return ZimletAcl
      */
-    public function getAcl(): ZimletAcl
+    public function getAcl(): ?ZimletAcl
     {
         return $this->acl;
     }
@@ -134,7 +138,7 @@ class ZimletAclStatusPri
      *
      * @return ValueAttrib
      */
-    public function getStatus(): ValueAttrib
+    public function getStatus(): ?ValueAttrib
     {
         return $this->status;
     }
@@ -158,7 +162,7 @@ class ZimletAclStatusPri
      *
      * @return IntegerValueAttrib
      */
-    public function getPriority(): IntegerValueAttrib
+    public function getPriority(): ?IntegerValueAttrib
     {
         return $this->priority;
     }

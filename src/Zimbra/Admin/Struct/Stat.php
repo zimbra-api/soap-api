@@ -26,6 +26,7 @@ use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAt
 class Stat
 {
     /**
+     * Stat name
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
@@ -34,6 +35,7 @@ class Stat
     private $name;
 
     /**
+     * Stat description
      * @Accessor(getter="getDescription", setter="setDescription")
      * @SerializedName("description")
      * @Type("string")
@@ -42,6 +44,7 @@ class Stat
     private $description;
 
     /**
+     * Stat value
      * @Accessor(getter="getValue", setter="setValue")
      * @SerializedName("_content")
      * @Type("string")
@@ -51,12 +54,12 @@ class Stat
 
     /**
      * Constructor method for Stat
-     * @param  string $value Stat value
-     * @param  string $name Stat name
-     * @param  string $description Stat description
+     * @param  string $value
+     * @param  string $name
+     * @param  string $description
      * @return self
      */
-    public function __construct($value = NULL, $name = NULL, $description = NULL)
+    public function __construct(?string $value = NULL, ?string $name = NULL, ?string $description = NULL)
     {
         if (NULL !== $value) {
             $this->setValue($value);
@@ -74,7 +77,7 @@ class Stat
      *
      * @return string
      */
-    public function getName(): string
+    public function getName(): ?string
     {
         return $this->name;
     }
@@ -85,9 +88,9 @@ class Stat
      * @param  string $name
      * @return self
      */
-    public function setName($name): self
+    public function setName(string $name): self
     {
-        $this->name = trim($name);
+        $this->name = $name;
         return $this;
     }
 
@@ -96,7 +99,7 @@ class Stat
      *
      * @return string
      */
-    public function getDescription(): string
+    public function getDescription(): ?string
     {
         return $this->description;
     }
@@ -107,9 +110,9 @@ class Stat
      * @param  string $description
      * @return self
      */
-    public function setDescription($description): self
+    public function setDescription(string $description): self
     {
-        $this->description = trim($description);
+        $this->description = $description;
         return $this;
     }
 
@@ -118,7 +121,7 @@ class Stat
      *
      * @return string
      */
-    public function getValue(): string
+    public function getValue(): ?string
     {
         return $this->value;
     }
@@ -126,12 +129,12 @@ class Stat
     /**
      * Sets value
      *
-     * @param  string $name
+     * @param  string $value
      * @return self
      */
-    public function setValue($value): self
+    public function setValue(string $value): self
     {
-        $this->value = trim($value);
+        $this->value = $value;
         return $this;
     }
 }

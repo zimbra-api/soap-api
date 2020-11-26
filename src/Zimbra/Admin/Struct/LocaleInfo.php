@@ -122,7 +122,7 @@ class LocaleInfo implements LocaleInterface
      *
      * @return string
      */
-    public function getLocalName(): string
+    public function getLocalName(): ?string
     {
         return $this->localName;
     }

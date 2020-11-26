@@ -70,10 +70,10 @@ class UnexpectedBlobInfo
      * @return self
      */
     public function __construct(
-        $volumeId,
-        $path,
-        $fileSize,
-        $external
+        int $volumeId,
+        string $path,
+        int $fileSize,
+        bool $external
     )
     {
         $this->setVolumeId($volumeId)
@@ -98,9 +98,9 @@ class UnexpectedBlobInfo
      * @param  int $volumeId
      * @return self
      */
-    public function setVolumeId($volumeId): self
+    public function setVolumeId(int $volumeId): self
     {
-        $this->volumeId = (int) $volumeId;
+        $this->volumeId = $volumeId;
         return $this;
     }
 
@@ -120,7 +120,7 @@ class UnexpectedBlobInfo
      * @param  string $path
      * @return self
      */
-    public function setPath($path): self
+    public function setPath(string $path): self
     {
         $this->path = $path;
         return $this;
@@ -142,9 +142,9 @@ class UnexpectedBlobInfo
      * @param  int $fileSize
      * @return self
      */
-    public function setFileSize($fileSize): self
+    public function setFileSize(int $fileSize): self
     {
-        $this->fileSize = (int) $fileSize;
+        $this->fileSize = $fileSize;
         return $this;
     }
 
@@ -164,9 +164,9 @@ class UnexpectedBlobInfo
      * @param  bool $external
      * @return self
      */
-    public function setExternal($external): self
+    public function setExternal(bool $external): self
     {
-        $this->external = (bool) $external;
+        $this->external = $external;
         return $this;
     }
 }

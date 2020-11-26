@@ -27,6 +27,7 @@ use Zimbra\Admin\Struct\SyncGalAccountDataSourceSpec as DataSource;
 class SyncGalAccountSpec
 {
     /**
+     * Account ID
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
@@ -45,11 +46,11 @@ class SyncGalAccountSpec
 
     /**
      * Constructor method for SyncGalAccountSpec
-     * @param string $id Account ID
-     * @param array $dataSources SyncGalAccount data source specifications
+     * @param string $id
+     * @param array $dataSources
      * @return self
      */
-    public function __construct($id, array $dataSources = [])
+    public function __construct(string $id, array $dataSources = [])
     {
         $this->setId($id)
              ->setDataSources($dataSources);
@@ -71,9 +72,9 @@ class SyncGalAccountSpec
      * @param  string $id
      * @return self
      */
-    public function setId($id): self
+    public function setId(string $id): self
     {
-        $this->id = trim($id);
+        $this->id = $id;
         return $this;
     }
 

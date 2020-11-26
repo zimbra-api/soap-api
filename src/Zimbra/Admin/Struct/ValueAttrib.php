@@ -38,7 +38,7 @@ class ValueAttrib
      * @param  string $value
      * @return self
      */
-    public function __construct($value)
+    public function __construct(string $value)
     {
         $this->setValue($value);
     }
@@ -56,12 +56,12 @@ class ValueAttrib
     /**
      * Sets value
      *
-     * @param  string $name
+     * @param  string $value
      * @return self
      */
-    public function setValue($value): self
+    public function setValue(string $value): self
     {
-        $this->value = trim($value);
+        $this->value = $value;
         return $this;
     }
 }

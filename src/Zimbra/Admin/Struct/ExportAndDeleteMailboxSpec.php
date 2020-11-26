@@ -26,6 +26,8 @@ use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAt
 class ExportAndDeleteMailboxSpec
 {
     /**
+     * ID
+     * 
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("integer")
@@ -45,11 +47,11 @@ class ExportAndDeleteMailboxSpec
 
     /**
      * Constructor method for ExportAndDeleteMailboxSpec
-     * @param  int $id ID
-     * @param  int $items Items
+     * @param  int $id
+     * @param  array $items
      * @return self
      */
-    public function __construct($id, array $items = [])
+    public function __construct(int $id, array $items = [])
     {
         $this->setId($id)
              ->setItems($items);
@@ -71,9 +73,9 @@ class ExportAndDeleteMailboxSpec
      * @param  int $id
      * @return self
      */
-    public function setId($id): self
+    public function setId(int $id): self
     {
-        $this->id = (int) $id;
+        $this->id = $id;
         return $this;
     }
 

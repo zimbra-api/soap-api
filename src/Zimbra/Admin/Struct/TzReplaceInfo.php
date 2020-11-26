@@ -27,6 +27,7 @@ use Zimbra\Struct\Id;
 class TzReplaceInfo
 {
     /**
+     * TzID from /opt/zimbra/conf/timezones.ics 
      * @Accessor(getter="getWellKnownTz", setter="setWellKnownTz")
      * @SerializedName("wellKnownTz")
      * @Type("Zimbra\Struct\Id")
@@ -35,6 +36,7 @@ class TzReplaceInfo
     private $wellKnownTz;
 
     /**
+     * Timezone
      * @Accessor(getter="getCalTz", setter="setCalTz")
      * @SerializedName("tz")
      * @Type("Zimbra\Admin\Struct\CalTzInfo")
@@ -44,11 +46,11 @@ class TzReplaceInfo
 
     /**
      * Constructor method for TzReplaceInfo
-     * @param TzOnsetInfo $wellKnownTz TzID from /opt/zimbra/conf/timezones.ics 
-     * @param TzOnsetInfo $tz Timezone
+     * @param TzOnsetInfo $wellKnownTz
+     * @param TzOnsetInfo $tz
      * @return self
      */
-    public function __construct(Id $wellKnownTz = NULL, CalTzInfo $tz = NULL)
+    public function __construct(?Id $wellKnownTz = NULL, ?CalTzInfo $tz = NULL)
     {
         if ($wellKnownTz instanceof Id) {
             $this->setWellKnownTz($wellKnownTz);
@@ -63,7 +65,7 @@ class TzReplaceInfo
      *
      * @return Id
      */
-    public function getWellKnownTz(): Id
+    public function getWellKnownTz(): ?Id
     {
         return $this->wellKnownTz;
     }
@@ -85,7 +87,7 @@ class TzReplaceInfo
      *
      * @return CalTzInfo
      */
-    public function getCalTz(): CalTzInfo
+    public function getCalTz(): ?CalTzInfo
     {
         return $this->calTz;
     }

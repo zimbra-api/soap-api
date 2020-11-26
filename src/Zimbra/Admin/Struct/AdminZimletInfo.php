@@ -61,9 +61,9 @@ class AdminZimletInfo implements ZimletInterface
      * @return self
      */
     public function __construct(
-        AdminZimletContext $zimletContext = NULL,
-        AdminZimletDesc $zimlet = NULL,
-        AdminZimletConfigInfo $zimletConfig = NULL
+        ?AdminZimletContext $zimletContext = NULL,
+        ?AdminZimletDesc $zimlet = NULL,
+        ?AdminZimletConfigInfo $zimletConfig = NULL
     )
     {
         if ($zimletContext instanceof AdminZimletContext) {
@@ -82,7 +82,7 @@ class AdminZimletInfo implements ZimletInterface
      *
      * @return ZimletContextInterface
      */
-    public function getZimletContext(): ZimletContextInterface
+    public function getZimletContext(): ?ZimletContextInterface
     {
         return $this->zimletContext;
     }
@@ -106,7 +106,7 @@ class AdminZimletInfo implements ZimletInterface
      *
      * @return ZimletDesc
      */
-    public function getZimlet(): ZimletDesc
+    public function getZimlet(): ?ZimletDesc
     {
         return $this->zimlet;
     }
@@ -130,7 +130,7 @@ class AdminZimletInfo implements ZimletInterface
      *
      * @return ZimletConfigInfo
      */
-    public function getZimletConfig(): ZimletConfigInfo
+    public function getZimletConfig(): ?ZimletConfigInfo
     {
         return $this->zimletConfig;
     }

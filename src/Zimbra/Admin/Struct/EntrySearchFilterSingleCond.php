@@ -68,10 +68,10 @@ class EntrySearchFilterSingleCond implements SearchFilterCondition
      * @return self
      */
     public function __construct(
-        $attr,
+        string $attr,
         Op $op,
-        $value,
-        $not = NULL
+        string $value,
+        ?bool $not = NULL
     )
     {
         $this->setAttr($attr)
@@ -98,9 +98,9 @@ class EntrySearchFilterSingleCond implements SearchFilterCondition
      * @param  string $attr
      * @return self
      */
-    public function setAttr($attr): self
+    public function setAttr(string $attr): self
     {
-        $this->attr = trim($attr);
+        $this->attr = $attr;
         return $this;
     }
 
@@ -142,9 +142,9 @@ class EntrySearchFilterSingleCond implements SearchFilterCondition
      * @param  string $value
      * @return self
      */
-    public function setValue($value): self
+    public function setValue(string $value): self
     {
-        $this->value = trim($value);
+        $this->value = $value;
         return $this;
     }
 
@@ -153,7 +153,7 @@ class EntrySearchFilterSingleCond implements SearchFilterCondition
      *
      * @return bool
      */
-    public function isNot(): bool
+    public function isNot(): ?bool
     {
         return $this->not;
     }
@@ -164,9 +164,9 @@ class EntrySearchFilterSingleCond implements SearchFilterCondition
      * @param  bool $not
      * @return self
      */
-    public function setNot($not): self
+    public function setNot(bool $not): self
     {
-        $this->not = (bool) $not;
+        $this->not = $not;
         return $this;
     }
 }

@@ -27,6 +27,7 @@ use Zimbra\Enum\{TargetType, TargetBy};
 class EffectiveRightsTargetSelector
 {
     /**
+     * Target type
      * @Accessor(getter="getType", setter="setType")
      * @SerializedName("type")
      * @Type("Zimbra\Enum\TargetType")
@@ -35,6 +36,7 @@ class EffectiveRightsTargetSelector
     private $type;
 
     /**
+     * Target by
      * @Accessor(getter="getBy", setter="setBy")
      * @SerializedName("by")
      * @Type("Zimbra\Enum\TargetBy")
@@ -43,6 +45,7 @@ class EffectiveRightsTargetSelector
     private $by;
 
     /**
+     * The value
      * @Accessor(getter="getValue", setter="setValue")
      * @SerializedName("_content")
      * @Type("string")
@@ -52,12 +55,12 @@ class EffectiveRightsTargetSelector
 
     /**
      * Constructor method for EffectiveRightsTargetSelector
-     * @param TargetType $type Target type
-     * @param TargetBy $by Target by
-     * @param string $value The value
+     * @param TargetType $type
+     * @param TargetBy $by
+     * @param string $value
      * @return self
      */
-    public function __construct(TargetType $type, TargetBy $by = NULL, $value = NULL)
+    public function __construct(TargetType $type, ?TargetBy $by = NULL, ?string $value = NULL)
     {
         $this->setType($type);
         if (NULL !== $by) {
@@ -95,7 +98,7 @@ class EffectiveRightsTargetSelector
      *
      * @return TargetBy
      */
-    public function getBy(): TargetBy
+    public function getBy(): ?TargetBy
     {
         return $this->by;
     }
@@ -117,7 +120,7 @@ class EffectiveRightsTargetSelector
      *
      * @return string
      */
-    public function getValue(): string
+    public function getValue(): ?string
     {
         return $this->value;
     }
@@ -128,9 +131,9 @@ class EffectiveRightsTargetSelector
      * @param  string $name
      * @return self
      */
-    public function setValue($value): self
+    public function setValue(string $value): self
     {
-        $this->value = trim($value);
+        $this->value = $value;
         return $this;
     }
 }

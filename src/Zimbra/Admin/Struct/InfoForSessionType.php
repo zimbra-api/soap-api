@@ -72,7 +72,7 @@ class InfoForSessionType
      * @param  array  $sessions
      * @return self
      */
-    public function __construct($activeSessions, $activeAccounts = NULL, array $accounts = [], array $sessions = [])
+    public function __construct(int $activeSessions, ?int $activeAccounts = NULL, array $accounts = [], array $sessions = [])
     {
         $this->setActiveSessions($activeSessions)
              ->setAccounts($accounts)
@@ -87,7 +87,7 @@ class InfoForSessionType
      *
      * @return int
      */
-    public function getActiveAccounts(): int
+    public function getActiveAccounts(): ?int
     {
         return $this->activeAccounts;
     }
@@ -98,9 +98,9 @@ class InfoForSessionType
      * @param  int $activeAccounts
      * @return self
      */
-    public function setActiveAccounts($activeAccounts): self
+    public function setActiveAccounts(int $activeAccounts): self
     {
-        $this->activeAccounts = (int) $activeAccounts;
+        $this->activeAccounts = $activeAccounts;
         return $this;
     }
 
@@ -120,9 +120,9 @@ class InfoForSessionType
      * @param  int $activeSessions
      * @return self
      */
-    public function setActiveSessions($activeSessions): self
+    public function setActiveSessions(int $activeSessions): self
     {
-        $this->activeSessions = (int) $activeSessions;
+        $this->activeSessions = $activeSessions;
         return $this;
     }
 

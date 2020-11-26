@@ -40,9 +40,11 @@ class AdminZimletTarget implements ZimletTarget
      * @param string $value
      * @return self
      */
-    public function __construct($value = NULL)
+    public function __construct(?string $value = NULL)
     {
-        $this->setValue($value);
+        if (NULL !== $value) {
+            $this->setValue($value);
+        }
     }
 
     /**
@@ -61,9 +63,9 @@ class AdminZimletTarget implements ZimletTarget
      * @param  string $value
      * @return self
      */
-    public function setValue($value): self
+    public function setValue(string $value): self
     {
-        $this->value = trim($value);
+        $this->value = $value;
         return $this;
     }
 }

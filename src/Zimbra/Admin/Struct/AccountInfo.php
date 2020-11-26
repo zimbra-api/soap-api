@@ -26,6 +26,7 @@ use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAt
 class AccountInfo extends AdminObjectInfo
 {
     /**
+     * Is external
      * @Accessor(getter="getIsExternal", setter="setIsExternal")
      * @SerializedName("isExternal")
      * @Type("bool")
@@ -36,13 +37,13 @@ class AccountInfo extends AdminObjectInfo
     /**
      * Constructor method for AccountInfo
      * 
-     * @param  string $name Name
-     * @param  string $id ID
-     * @param  string $isExternal Is external
-     * @param  array  $attrs Attributes
+     * @param  string $name
+     * @param  string $id
+     * @param  bool $isExternal
+     * @param  array  $attrs
      * @return self
      */
-    public function __construct($name, $id, $isExternal = NULL, array $attrs = [])
+    public function __construct(string $name, string $id, ?bool $isExternal = NULL, array $attrs = [])
     {
         parent::__construct($name, $id, $attrs);
         if (NULL !== $isExternal) {
@@ -55,7 +56,7 @@ class AccountInfo extends AdminObjectInfo
      *
      * @return bool
      */
-    public function getIsExternal(): bool
+    public function getIsExternal(): ?bool
     {
         return $this->isExternal;
     }
@@ -66,9 +67,9 @@ class AccountInfo extends AdminObjectInfo
      * @param  bool $isExternal
      * @return self
      */
-    public function setIsExternal($isExternal): self
+    public function setIsExternal(bool $isExternal): self
     {
-        $this->isExternal = (bool) $isExternal;
+        $this->isExternal = $isExternal;
         return $this;
     }
 }

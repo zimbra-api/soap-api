@@ -26,6 +26,7 @@ use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAt
 class TzFixupRuleMatchRule
 {
     /**
+     * Match month. Value between 1 (January) and 12 (December)
      * @Accessor(getter="getMonth", setter="setMonth")
      * @SerializedName("mon")
      * @Type("integer")
@@ -34,6 +35,7 @@ class TzFixupRuleMatchRule
     private $month;
 
     /**
+     * Match week. -1 means last week of month else between 1 and 4
      * @Accessor(getter="getWeek", setter="setWeek")
      * @SerializedName("week")
      * @Type("integer")
@@ -42,6 +44,7 @@ class TzFixupRuleMatchRule
     private $week;
 
     /**
+     * Match week day. Value between 1 (Sunday) and 7 (Saturday)
      * @Accessor(getter="getWeekDay", setter="setWeekDay")
      * @SerializedName("wkday")
      * @Type("integer")
@@ -51,12 +54,12 @@ class TzFixupRuleMatchRule
 
     /**
      * Constructor method for TzFixupRuleMatchRule
-     * @param int $mon Match month. Value between 1 (January) and 12 (December)
-     * @param int $week Match week. -1 means last week of month else between 1 and 4
-     * @param int $wkday Match week day. Value between 1 (Sunday) and 7 (Saturday)
+     * @param int $mon
+     * @param int $week
+     * @param int $wkday
      * @return self
      */
-    public function __construct($mon, $week, $wkday)
+    public function __construct(int $mon, int $week, int $wkday)
     {
         $this->setMonth($mon)
              ->setWeek($week)
@@ -79,9 +82,9 @@ class TzFixupRuleMatchRule
      * @param  int $mon
      * @return self
      */
-    public function setMonth($mon): self
+    public function setMonth(int $mon): self
     {
-        $mon = in_array((int) $mon, range(1, 12)) ? (int) $mon : 1;
+        $mon = in_array($mon, range(1, 12)) ? $mon : 1;
         $this->month = $mon;
         return $this;
     }
@@ -102,9 +105,9 @@ class TzFixupRuleMatchRule
      * @param  int $week
      * @return self
      */
-    public function setWeek($week): self
+    public function setWeek(int $week): self
     {
-        $week = in_array((int) $week, [1, 2, 3, 4]) ? (int) $week : -1;
+        $week = in_array($week, [1, 2, 3, 4]) ? $week : -1;
         $this->week = $week;
         return $this;
     }
@@ -125,9 +128,9 @@ class TzFixupRuleMatchRule
      * @param  int $wkday
      * @return self
      */
-    public function setWeekDay($wkday): self
+    public function setWeekDay(int $wkday): self
     {
-        $wkday = in_array((int) $wkday, range(1, 7)) ? (int) $wkday : 1;
+        $wkday = in_array($wkday, range(1, 7)) ? $wkday : 1;
         $this->weekDay = $wkday;
         return $this;
     }

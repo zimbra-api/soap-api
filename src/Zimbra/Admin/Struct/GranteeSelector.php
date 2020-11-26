@@ -27,6 +27,7 @@ use Zimbra\Enum\{GranteeType, GranteeBy};
 class GranteeSelector
 {
     /**
+     * Grantee type
      * @Accessor(getter="getType", setter="setType")
      * @SerializedName("type")
      * @Type("Zimbra\Enum\GranteeType")
@@ -35,6 +36,7 @@ class GranteeSelector
     private $type;
 
     /**
+     * Grantee by
      * @Accessor(getter="getBy", setter="setBy")
      * @SerializedName("by")
      * @Type("Zimbra\Enum\GranteeBy")
@@ -43,6 +45,7 @@ class GranteeSelector
     private $by;
 
     /**
+     * The key used to secretentify the grantee
      * @Accessor(getter="getValue", setter="setValue")
      * @SerializedName("_content")
      * @Type("string")
@@ -51,7 +54,7 @@ class GranteeSelector
     private $value;
 
     /**
-     * Password for guest grantee or the access key for key grantee
+     * Password for guest grantee or the access key for key grantee For user right only
      * @Accessor(getter="getSecret", setter="setSecret")
      * @SerializedName("secret")
      * @Type("string")
@@ -60,7 +63,7 @@ class GranteeSelector
     private $secret;
 
     /**
-     * For GetGrantsRequest, selects whether to include grants granted to groups
+     * For GetGrantsRequest, selects whether to include grants granted to groups the specified grantee belongs to. Default is 1 (true)
      * @Accessor(getter="getAll", setter="setAll")
      * @SerializedName("all")
      * @Type("bool")
@@ -70,19 +73,19 @@ class GranteeSelector
 
     /**
      * Constructor method for GranteeSelector
-     * @param string $value The key used to secretentify the grantee
-     * @param GranteeType $type Grantee type
-     * @param GranteeBy $by Grantee by
-     * @param string $secret Password for guest grantee or the access key for key grantee For user right only
-     * @param bool   $all For GetGrantsRequest, selects whether to include grants granted to groups the specified grantee belongs to. Default is 1 (true)
+     * @param string $value
+     * @param GranteeType $type
+     * @param GranteeBy $by
+     * @param string $secret
+     * @param bool   $all
      * @return self
      */
     public function __construct(
-        $value = NULL,
-        GranteeType $type = NULL,
-        GranteeBy $by = NULL,
-        $secret = NULL,
-        $all = NULL
+        ?string $value = NULL,
+        ?GranteeType $type = NULL,
+        ?GranteeBy $by = NULL,
+        ?string $secret = NULL,
+        ?bool $all = NULL
     )
     {
         if (NULL !== $value) {
@@ -107,7 +110,7 @@ class GranteeSelector
      *
      * @return GranteeType
      */
-    public function getType(): GranteeType
+    public function getType(): ?GranteeType
     {
         return $this->type;
     }
@@ -129,7 +132,7 @@ class GranteeSelector
      *
      * @return GranteeBy
      */
-    public function getBy(): GranteeBy
+    public function getBy(): ?GranteeBy
     {
         return $this->by;
     }
@@ -147,24 +150,24 @@ class GranteeSelector
     }
 
     /**
-     * Gets password for guest grantee or the access key for key grantee
+     * Gets secret
      *
      * @return string
      */
-    public function getSecret(): string
+    public function getSecret(): ?string
     {
         return $this->secret;
     }
 
     /**
-     * Sets password for guest grantee or the access key for key grantee
+     * Sets secret
      *
      * @param  string $secret
      * @return self
      */
-    public function setSecret($secret): self
+    public function setSecret(string $secret): self
     {
-        $this->secret = trim($secret);
+        $this->secret = $secret;
         return $this;
     }
 
@@ -173,7 +176,7 @@ class GranteeSelector
      *
      * @return bool
      */
-    public function getAll(): bool
+    public function getAll(): ?bool
     {
         return $this->all;
     }
@@ -184,9 +187,9 @@ class GranteeSelector
      * @param  bool $all
      * @return self
      */
-    public function setAll($all): self
+    public function setAll(bool $all): self
     {
-        $this->all = (bool) $all;
+        $this->all = $all;
         return $this;
     }
 
@@ -195,7 +198,7 @@ class GranteeSelector
      *
      * @return string
      */
-    public function getValue(): string
+    public function getValue(): ?string
     {
         return $this->value;
     }
@@ -203,12 +206,12 @@ class GranteeSelector
     /**
      * Sets value
      *
-     * @param  string $name
+     * @param  string $value
      * @return self
      */
-    public function setValue($value): self
+    public function setValue(string $value): self
     {
-        $this->value = trim($value);
+        $this->value = $value;
         return $this;
     }
 }

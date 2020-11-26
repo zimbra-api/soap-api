@@ -56,7 +56,7 @@ class StatsSpec
      * @param  string $limit
      * @return self
      */
-    public function __construct(StatsValueWrapper $values, $name = NULL, $limit = NULL)
+    public function __construct(StatsValueWrapper $values, ?string $name = NULL, ?string $limit = NULL)
     {
         $this->setValues($values);
         if (NULL !== $name) {
@@ -94,7 +94,7 @@ class StatsSpec
      *
      * @return string
      */
-    public function getName(): string
+    public function getName(): ?string
     {
         return $this->name;
     }
@@ -105,9 +105,9 @@ class StatsSpec
      * @param  string $name
      * @return self
      */
-    public function setName($name): self
+    public function setName(string $name): self
     {
-        $this->name = trim($name);
+        $this->name = $name;
         return $this;
     }
 
@@ -116,7 +116,7 @@ class StatsSpec
      *
      * @return string
      */
-    public function getLimit(): string
+    public function getLimit(): ?string
     {
         return $this->limit;
     }
@@ -127,9 +127,9 @@ class StatsSpec
      * @param  string $limit
      * @return self
      */
-    public function setLimit($limit): self
+    public function setLimit(string $limit): self
     {
-        $this->limit = trim($limit);
+        $this->limit = $limit;
         return $this;
     }
 }

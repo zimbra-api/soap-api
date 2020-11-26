@@ -26,6 +26,7 @@ use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAt
 class ExportAndDeleteItemSpec
 {
     /**
+     * ID
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("integer")
@@ -34,6 +35,7 @@ class ExportAndDeleteItemSpec
     private $id;
 
     /**
+     * Version
      * @Accessor(getter="getVersion", setter="setVersion")
      * @SerializedName("version")
      * @Type("integer")
@@ -43,11 +45,11 @@ class ExportAndDeleteItemSpec
 
     /**
      * Constructor method for ExportAndDeleteItemSpec
-     * @param  int $id ID
-     * @param  int $version Version
+     * @param  int $id
+     * @param  int $version
      * @return self
      */
-    public function __construct($id, $version)
+    public function __construct(int $id, int $version)
     {
         $this->setId($id)
              ->setVersion($version);
@@ -69,9 +71,9 @@ class ExportAndDeleteItemSpec
      * @param  int $id
      * @return self
      */
-    public function setId($id): self
+    public function setId(int $id): self
     {
-        $this->id = (int) $id;
+        $this->id = $id;
         return $this;
     }
 
@@ -91,9 +93,9 @@ class ExportAndDeleteItemSpec
      * @param  int $version
      * @return self
      */
-    public function setVersion($version): self
+    public function setVersion(int $version): self
     {
-        $this->version = (int) $version;
+        $this->version = $version;
         return $this;
     }
 }

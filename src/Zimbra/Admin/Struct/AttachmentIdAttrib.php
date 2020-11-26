@@ -26,6 +26,7 @@ use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAt
 class AttachmentIdAttrib
 {
     /**
+     * Attachment ID
      * @Accessor(getter="getAttachmentId", setter="setAttachmentId")
      * @SerializedName("aid")
      * @Type("string")
@@ -35,10 +36,10 @@ class AttachmentIdAttrib
 
     /**
      * Constructor method for AttachmentIdAttrib
-     * @param  string $aid Attachment ID
+     * @param  string $aid
      * @return self
      */
-    public function __construct($aid = NULL)
+    public function __construct(?string $aid = NULL)
     {
         if (NULL !== $aid) {
             $this->setAttachmentId($aid);
@@ -61,9 +62,9 @@ class AttachmentIdAttrib
      * @param  string $aid
      * @return self
      */
-    public function setAttachmentId($aid): self
+    public function setAttachmentId(string $aid): self
     {
-        $this->aid = trim($aid);
+        $this->aid = $aid;
         return $this;
     }
 }

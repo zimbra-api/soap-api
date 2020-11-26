@@ -27,6 +27,7 @@ use Zimbra\Enum\ReindexType;
 class ReindexMailboxInfo
 {
     /**
+     * Account ID
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
@@ -35,6 +36,7 @@ class ReindexMailboxInfo
     private $id;
 
     /**
+     * Comma separated list of types. Legal values are: conversation|message|contact|appointment|task|note|wiki|document
      * @Accessor(getter="getTypes", setter="setTypes")
      * @SerializedName("types")
      * @Type("string")
@@ -43,6 +45,7 @@ class ReindexMailboxInfo
     private $types;
 
     /**
+     * Comma separated list of IDs to re-index
      * @Accessor(getter="getIds", setter="setIds")
      * @SerializedName("ids")
      * @Type("string")
@@ -52,12 +55,12 @@ class ReindexMailboxInfo
 
     /**
      * Constructor method for ReindexMailboxInfo
-     * @param string $id Account ID
-     * @param string $types Comma separated list of types. Legal values are: conversation|message|contact|appointment|task|note|wiki|document
-     * @param string $ids Comma separated list of IDs to re-index
+     * @param string $id
+     * @param string $types
+     * @param string $ids
      * @return self
      */
-    public function __construct($id, $types = NULL, $ids = NULL)
+    public function __construct(string $id, ?string $types = NULL, ?string $ids = NULL)
     {
         $this->setId($id);
         if (NULL !== $types) {
@@ -95,7 +98,7 @@ class ReindexMailboxInfo
      *
      * @return string
      */
-    public function getTypes(): string
+    public function getTypes(): ?string
     {
         return $this->types;
     }
@@ -106,7 +109,7 @@ class ReindexMailboxInfo
      * @param  string $types
      * @return self
      */
-    public function setTypes($types): self
+    public function setTypes(string $types): self
     {
         $arrType = [];
         $types = explode(',', trim($types));
@@ -121,24 +124,24 @@ class ReindexMailboxInfo
     }
 
     /**
-     * Sets the Standard Time component's timezone name
+     * Sets ids
      *
      * @return string
      */
-    public function getIds(): string
+    public function getIds(): ?string
     {
         return $this->ids;
     }
 
     /**
-     * Sets the Standard Time component's timezone name
+     * Sets ids
      *
      * @param  string $ids
      * @return self
      */
-    public function setIds($ids): self
+    public function setIds(string $ids): self
     {
-        $this->ids = trim($ids);
+        $this->ids = $ids;
         return $this;
     }
 }

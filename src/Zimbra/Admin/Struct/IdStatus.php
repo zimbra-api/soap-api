@@ -47,7 +47,7 @@ class IdStatus
      * @param  string $status
      * @return self
      */
-    public function __construct($id = NULL, $status = NULL)
+    public function __construct(?string $id = NULL, ?string $status = NULL)
     {
         if (NULL !== $id) {
             $this->setId($id);
@@ -62,7 +62,7 @@ class IdStatus
      *
      * @return string
      */
-    public function getId(): string
+    public function getId(): ?string
     {
         return $this->id;
     }
@@ -73,9 +73,9 @@ class IdStatus
      * @param  string $id
      * @return self
      */
-    public function setId($id): self
+    public function setId(string $id): self
     {
-        $this->id = trim($id);
+        $this->id = $id;
         return $this;
     }
 
@@ -84,7 +84,7 @@ class IdStatus
      *
      * @return string
      */
-    public function getStatus(): string
+    public function getStatus(): ?string
     {
         return $this->status;
     }
@@ -95,9 +95,9 @@ class IdStatus
      * @param  string $status
      * @return self
      */
-    public function setStatus($status): self
+    public function setStatus(string $status): self
     {
-        $this->status = trim($status);
+        $this->status = $status;
         return $this;
     }
 }

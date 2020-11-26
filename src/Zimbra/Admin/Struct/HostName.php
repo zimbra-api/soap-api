@@ -56,12 +56,12 @@ class HostName
     /**
      * Sets hostname
      *
-     * @param  string $hn
+     * @param  string $hostName
      * @return self
      */
-    public function setHostName($hostName): self
+    public function setHostName(string $hostName): self
     {
-        $this->hostName = trim($hostName);
+        $this->hostName = $hostName;
         return $this;
     }
 }

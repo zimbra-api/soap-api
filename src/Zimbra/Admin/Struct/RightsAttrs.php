@@ -42,7 +42,7 @@ class RightsAttrs
      * @param  array $attrs
      * @return self
      */
-    public function __construct(bool $all = NULL, array $attrs = [])
+    public function __construct(?bool $all = NULL, array $attrs = [])
     {
         if (NULL !== $all) {
             $this->setAll($all);
@@ -55,7 +55,7 @@ class RightsAttrs
      *
      * @return bool
      */
-    public function getAll(): bool
+    public function getAll(): ?bool
     {
         return $this->all;
     }

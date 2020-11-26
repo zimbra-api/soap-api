@@ -61,9 +61,9 @@ class ZimletServerExtension implements ZimletServerExtensionInterface
      * @return self
      */
     public function __construct(
-        $hasKeyword = NULL,
-        $extensionClass = NULL,
-        $regex = NULL
+        ?string $hasKeyword = NULL,
+        ?string $extensionClass = NULL,
+        ?string $regex = NULL
     )
     {
         if (NULL !== $hasKeyword) {
@@ -82,7 +82,7 @@ class ZimletServerExtension implements ZimletServerExtensionInterface
      *
      * @return string
      */
-    public function getHasKeyword(): string
+    public function getHasKeyword(): ?string
     {
         return $this->hasKeyword;
     }
@@ -93,9 +93,9 @@ class ZimletServerExtension implements ZimletServerExtensionInterface
      * @param  string $hasKeyword
      * @return self
      */
-    public function setHasKeyword($hasKeyword): self
+    public function setHasKeyword(string $hasKeyword): self
     {
-        $this->hasKeyword = trim($hasKeyword);
+        $this->hasKeyword = $hasKeyword;
         return $this;
     }
 
@@ -104,7 +104,7 @@ class ZimletServerExtension implements ZimletServerExtensionInterface
      *
      * @return string
      */
-    public function getExtensionClass(): string
+    public function getExtensionClass(): ?string
     {
         return $this->extensionClass;
     }
@@ -115,9 +115,9 @@ class ZimletServerExtension implements ZimletServerExtensionInterface
      * @param  string $extensionClass
      * @return self
      */
-    public function setExtensionClass($extensionClass): self
+    public function setExtensionClass(string $extensionClass): self
     {
-        $this->extensionClass = trim($extensionClass);
+        $this->extensionClass = $extensionClass;
         return $this;
     }
 
@@ -126,7 +126,7 @@ class ZimletServerExtension implements ZimletServerExtensionInterface
      *
      * @return string
      */
-    public function getRegex(): string
+    public function getRegex(): ?string
     {
         return $this->regex;
     }
@@ -134,12 +134,12 @@ class ZimletServerExtension implements ZimletServerExtensionInterface
     /**
      * Sets regex
      *
-     * @param  string $presence
+     * @param  string $regex
      * @return self
      */
-    public function setRegex($regex): self
+    public function setRegex(string $regex): self
     {
-        $this->regex = trim($regex);
+        $this->regex = $regex;
         return $this;
     }
 }

@@ -100,13 +100,13 @@ class MissingBlobInfo
      * @return self
      */
     public function __construct(
-        $id,
-        $revision,
-        $size,
-        $volumeId,
-        $blobPath,
-        $external,
-        $version
+        int $id,
+        int $revision,
+        int $size,
+        int $volumeId,
+        string $blobPath,
+        bool $external,
+        int $version
     )
     {
         $this->setId($id)
@@ -134,9 +134,9 @@ class MissingBlobInfo
      * @param  int $id
      * @return self
      */
-    public function setId($id): self
+    public function setId(int $id): self
     {
-        $this->id = (int) $id;
+        $this->id = $id;
         return $this;
     }
 
@@ -156,9 +156,9 @@ class MissingBlobInfo
      * @param  int $revision
      * @return self
      */
-    public function setRevision($revision): self
+    public function setRevision(int $revision): self
     {
-        $this->revision = (int) $revision;
+        $this->revision = $revision;
         return $this;
     }
 
@@ -178,9 +178,9 @@ class MissingBlobInfo
      * @param  int $size
      * @return self
      */
-    public function setSize($size): self
+    public function setSize(int $size): self
     {
-        $this->size = (int) $size;
+        $this->size = $size;
         return $this;
     }
 
@@ -200,9 +200,9 @@ class MissingBlobInfo
      * @param  int $volumeId
      * @return self
      */
-    public function setVolumeId($volumeId): self
+    public function setVolumeId(int $volumeId): self
     {
-        $this->volumeId = (int) $volumeId;
+        $this->volumeId = $volumeId;
         return $this;
     }
 
@@ -222,7 +222,7 @@ class MissingBlobInfo
      * @param  string $blobPath
      * @return self
      */
-    public function setBlobPath($blobPath): self
+    public function setBlobPath(string $blobPath): self
     {
         $this->blobPath = $blobPath;
         return $this;
@@ -244,9 +244,9 @@ class MissingBlobInfo
      * @param  bool $external
      * @return self
      */
-    public function setExternal($external): self
+    public function setExternal(bool $external): self
     {
-        $this->external = (bool) $external;
+        $this->external = $external;
         return $this;
     }
 
@@ -266,9 +266,9 @@ class MissingBlobInfo
      * @param  int $version
      * @return self
      */
-    public function setVersion($version): self
+    public function setVersion(int $version): self
     {
-        $this->version = (int) $version;
+        $this->version = $version;
         return $this;
     }
 }

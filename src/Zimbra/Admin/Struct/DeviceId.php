@@ -26,6 +26,7 @@ use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAt
 class DeviceId
 {
     /**
+     * Device ID
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
@@ -35,10 +36,10 @@ class DeviceId
 
     /**
      * Constructor method for DeviceId
-     * @param  string $id Device ID
+     * @param  string $id
      * @return self
      */
-    public function __construct($id)
+    public function __construct(string $id)
     {
         $this->setId($id);
     }
@@ -59,9 +60,9 @@ class DeviceId
      * @param  string $id
      * @return self
      */
-    public function setId($id): self
+    public function setId(string $id): self
     {
-        $this->id = trim($id);
+        $this->id = $id;
         return $this;
     }
 }
