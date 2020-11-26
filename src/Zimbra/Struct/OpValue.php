@@ -48,9 +48,7 @@ class OpValue
      */
     public function __construct(string $op = '+', ?string $value = NULL)
     {
-        if (NULL !== $op) {
-            $this->setOp($op);
-        }
+        $this->setOp($op);
         if (NULL !== $value) {
             $this->setValue($value);
         }
@@ -88,7 +86,7 @@ class OpValue
      *
      * @return string
      */
-    public function getValue(): string
+    public function getValue(): ?string
     {
         return $this->value;
     }

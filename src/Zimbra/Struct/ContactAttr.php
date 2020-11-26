@@ -95,7 +95,7 @@ class ContactAttr extends KeyValuePair
      *
      * @return string
      */
-    public function getPart(): string
+    public function getPart(): ?string
     {
         return $this->part;
     }
@@ -117,7 +117,7 @@ class ContactAttr extends KeyValuePair
      *
      * @return string
      */
-    public function getContentType(): string
+    public function getContentType(): ?string
     {
         return $this->contentType;
     }
@@ -139,7 +139,7 @@ class ContactAttr extends KeyValuePair
      *
      * @return int
      */
-    public function getSize(): int
+    public function getSize(): ?int
     {
         return $this->size;
     }
@@ -161,7 +161,7 @@ class ContactAttr extends KeyValuePair
      *
      * @return string
      */
-    public function getContentFilename(): string
+    public function getContentFilename(): ?string
     {
         return $this->contentFilename;
     }

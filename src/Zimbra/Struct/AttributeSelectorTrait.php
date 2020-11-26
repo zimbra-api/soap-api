@@ -36,7 +36,7 @@ trait AttributeSelectorTrait
      *
      * @return string
      */
-    public function getAttrs(): string
+    public function getAttrs(): ?string
     {
         return $this->attrs;
     }

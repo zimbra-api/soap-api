@@ -21,5 +21,5 @@ namespace Zimbra\Struct;
 interface ZimletTarget
 {
     function setValue(string $value): self;
-    function getValue(): string;
+    function getValue(): ?string;
 }

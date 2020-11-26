@@ -23,6 +23,6 @@ interface ZimletProperty
     function setName(string $name): self;
     function setValue(string $value): self;
 
-    function getName(): string;
-    function getValue(): string;
+    function getName(): ?string;
+    function getValue(): ?string;
 }

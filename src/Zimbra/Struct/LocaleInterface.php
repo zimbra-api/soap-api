@@ -20,7 +20,7 @@ namespace Zimbra\Struct;
  */
 interface LocaleInterface
 {
-    function getId(): string;
-    function getName(): string;
-    function getLocalName(): string;
+    function getId(): ?string;
+    function getName(): ?string;
+    function getLocalName(): ?string;
 }

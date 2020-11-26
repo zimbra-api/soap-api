@@ -50,7 +50,7 @@ class AuthTokenControl
      * @param  bool $voidOnExpired
      * @return bool
      */
-    public function getVoidOnExpired(): bool
+    public function getVoidOnExpired(): ?bool
     {
         return $this->voidOnExpired;
     }

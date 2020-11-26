@@ -97,7 +97,7 @@ class WaitSetAddSpec
      *
      * @return string
      */
-    public function getName(): string
+    public function getName(): ?string
     {
         return $this->name;
     }
@@ -119,7 +119,7 @@ class WaitSetAddSpec
      *
      * @return string
      */
-    public function getId(): string
+    public function getId(): ?string
     {
         return $this->id;
     }
@@ -141,7 +141,7 @@ class WaitSetAddSpec
      *
      * @return string
      */
-    public function getToken(): string
+    public function getToken(): ?string
     {
         return $this->token;
     }
@@ -191,7 +191,7 @@ class WaitSetAddSpec
      *
      * @return string
      */
-    public function getInterests(): string
+    public function getInterests(): ?string
     {
         return $this->interests;
     }

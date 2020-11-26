@@ -25,7 +25,7 @@ interface AttributeSelector
      *
      * @return string
      */
-    function getAttrs(): string;
+    function getAttrs(): ?string;
 
     /**
      * Sets attributes

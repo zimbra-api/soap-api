@@ -90,7 +90,7 @@ class CursorInfo
      *
      * @return string
      */
-    public function getId(): string
+    public function getId(): ?string
     {
         return $this->id;
     }
@@ -112,7 +112,7 @@ class CursorInfo
      *
      * @return string
      */
-    public function getSortVal(): string
+    public function getSortVal(): ?string
     {
         return $this->sortVal;
     }
@@ -134,7 +134,7 @@ class CursorInfo
      *
      * @return string
      */
-    public function getEndSortVal(): string
+    public function getEndSortVal(): ?string
     {
         return $this->endSortVal;
     }
@@ -157,7 +157,7 @@ class CursorInfo
      * @param  bool $includeOffset
      * @return bool
      */
-    public function getIncludeOffset(): bool
+    public function getIncludeOffset(): ?bool
     {
         return $this->includeOffset;
     }

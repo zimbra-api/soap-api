@@ -73,7 +73,7 @@ class GranteeChooser
      *
      * @return string
      */
-    public function getType(): string
+    public function getType(): ?string
     {
         return $this->type;
     }
@@ -95,7 +95,7 @@ class GranteeChooser
      *
      * @return string
      */
-    public function getId(): string
+    public function getId(): ?string
     {
         return $this->id;
     }
@@ -117,7 +117,7 @@ class GranteeChooser
      *
      * @return string
      */
-    public function getName(): string
+    public function getName(): ?string
     {
         return $this->name;
     }

@@ -24,6 +24,6 @@ interface ZimletHostConfigInfo
     function setZimletProperties(array $properties): self;
     function addZimletProperty(ZimletProperty $property): self;
 
-    function getName(): string;
+    function getName(): ?string;
     function getZimletProperties(): array;
 }

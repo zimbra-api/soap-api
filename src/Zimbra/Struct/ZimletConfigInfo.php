@@ -29,12 +29,12 @@ interface ZimletConfigInfo
     function setGlobal(ZimletGlobalConfigInfo $global): self;
     function setHost(ZimletHostConfigInfo $host): self;
 
-    function getName(): string;
-    function getVersion(): string;
-    function getDescription(): string;
-    function getExtension(): string;
-    function getTarget(): string;
-    function getLabel(): string;
-    function getGlobal(): ZimletGlobalConfigInfo;
-    function getHost(): ZimletHostConfigInfo;
+    function getName(): ?string;
+    function getVersion(): ?string;
+    function getDescription(): ?string;
+    function getExtension(): ?string;
+    function getTarget(): ?string;
+    function getLabel(): ?string;
+    function getGlobal(): ?ZimletGlobalConfigInfo;
+    function getHost(): ?ZimletHostConfigInfo;
 }

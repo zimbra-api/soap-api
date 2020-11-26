@@ -27,10 +27,10 @@ interface ZimletDesc
     function setTarget(string $target): self;
     function setLabel(string $label): self;
 
-    function getName(): string;
-    function getVersion(): string;
-    function getDescription(): string;
-    function getExtension(): string;
-    function getTarget(): string;
-    function getLabel(): string;
+    function getName(): ?string;
+    function getVersion(): ?string;
+    function getDescription(): ?string;
+    function getExtension(): ?string;
+    function getTarget(): ?string;
+    function getLabel(): ?string;
 }

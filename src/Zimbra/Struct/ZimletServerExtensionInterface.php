@@ -24,7 +24,7 @@ interface ZimletServerExtensionInterface
     function setExtensionClass(string $extensionClass): self;
     function setRegex(string $regex): self;
 
-    function getHasKeyword(): string;
-    function getExtensionClass(): string;
-    function getRegex(): string;
+    function getHasKeyword(): ?string;
+    function getExtensionClass(): ?string;
+    function getRegex(): ?string;
 }

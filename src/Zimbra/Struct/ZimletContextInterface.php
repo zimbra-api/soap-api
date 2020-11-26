@@ -26,7 +26,7 @@ interface ZimletContextInterface
     function setZimletPriority(int $priority): self;
     function setZimletPresence(ZimletPresence $presence): self;
 
-    function getZimletBaseUrl(): string;
-    function getZimletPriority(): int;
-    function getZimletPresence(): ZimletPresence;
+    function getZimletBaseUrl(): ?string;
+    function getZimletPriority(): ?int;
+    function getZimletPresence(): ?ZimletPresence;
 }
