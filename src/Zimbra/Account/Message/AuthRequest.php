@@ -191,7 +191,7 @@ class AuthRequest extends Request
 
     /**
      * Constructor method for AuthRequest
-     * @param  Account   $account
+     * @param  AccountSelector   $account
      * @param  string    $password
      * @param  string    $recoveryCode
      * @param  PreAuth   $preauth
@@ -212,24 +212,24 @@ class AuthRequest extends Request
      * @return self
      */
     public function __construct(
-        AccountSelector $account = NULL,
-        $password = NULL,
-        $recoveryCode = NULL,
-        PreAuth $preauth = NULL,
-        AuthToken $authToken = NULL,
-        $jwtToken = NULL,
-        $virtualHost = NULL,
-        AuthPrefs $prefs = NULL,
-        AuthAttrs $attrs = NULL,
-        $requestedSkin = NULL,
-        $persistAuthTokenCookie = NULL,
-        $csrfSupported = NULL,
-        $twoFactorCode = NULL,
-        $deviceTrusted = NULL,
-        $trustedDeviceToken = NULL,
-        $deviceId = NULL,
-        $generateDeviceId = NULL,
-        $tokenType = NULL
+        ?AccountSelector $account = NULL,
+        ?string $password = NULL,
+        ?string $recoveryCode = NULL,
+        ?PreAuth $preauth = NULL,
+        ?AuthToken $authToken = NULL,
+        ?string $jwtToken = NULL,
+        ?string $virtualHost = NULL,
+        ?AuthPrefs $prefs = NULL,
+        ?AuthAttrs $attrs = NULL,
+        ?string $requestedSkin = NULL,
+        ?bool $persistAuthTokenCookie = NULL,
+        ?bool $csrfSupported = NULL,
+        ?string $twoFactorCode = NULL,
+        ?bool $deviceTrusted = NULL,
+        ?string $trustedDeviceToken = NULL,
+        ?string $deviceId = NULL,
+        ?bool $generateDeviceId = NULL,
+        ?string $tokenType = NULL
     )
     {
         if($account instanceof AccountSelector) {

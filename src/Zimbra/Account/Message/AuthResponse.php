@@ -141,23 +141,37 @@ class AuthResponse implements ResponseInterface
 
     /**
      * Constructor method for AuthResponse
+     * @param  string $authToken
+     * @param  int    $lifetime
+     * @param  Session   $session
+     * @param  string    $refer
+     * @param  string    $skin
+     * @param  string    $csrfToken
+     * @param  string    $deviceId
+     * @param  string    $trustedToken
+     * @param  int    $trustLifetime
+     * @param  bool    $zmgProxy
+     * @param  AuthPrefs $prefs
+     * @param  AuthAttrs $attrs
+     * @param  bool      $twoFactorAuthRequired
+     * @param  bool      $trustedDevicesEnabled
      * @return self
      */
     public function __construct(
-        $authToken = NULL,
-        $lifetime = NULL,
-        Session $session = NULL,
-        $refer = NULL,
-        $skin = NULL,
-        $csrfToken = NULL,
-        $deviceId = NULL,
-        $trustedToken = NULL,
-        $trustLifetime = NULL,
-        $zmgProxy = NULL,
-        AuthPrefs $prefs = NULL,
-        AuthAttrs $attrs = NULL,
-        $twoFactorAuthRequired = NULL,
-        $trustedDevicesEnabled = NULL
+        ?string $authToken = NULL,
+        ?int $lifetime = NULL,
+        ?Session $session = NULL,
+        ?string $refer = NULL,
+        ?string $skin = NULL,
+        ?string $csrfToken = NULL,
+        ?string $deviceId = NULL,
+        ?string $trustedToken = NULL,
+        ?int $trustLifetime = NULL,
+        ?bool $zmgProxy = NULL,
+        ?AuthPrefs $prefs = NULL,
+        ?AuthAttrs $attrs = NULL,
+        ?bool $twoFactorAuthRequired = NULL,
+        ?bool $trustedDevicesEnabled = NULL
     )
     {
         if(NULL !== $authToken) {
