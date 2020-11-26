@@ -304,9 +304,9 @@ class AuthRequest extends Request
      * @param  bool $persistAuthTokenCookie
      * @return self
      */
-    public function setPersistAuthTokenCookie($persistAuthTokenCookie): self
+    public function setPersistAuthTokenCookie(bool $persistAuthTokenCookie): self
     {
-        $this->persistAuthTokenCookie = (bool) $persistAuthTokenCookie;
+        $this->persistAuthTokenCookie = $persistAuthTokenCookie;
         return $this;
     }
 
@@ -326,9 +326,9 @@ class AuthRequest extends Request
      * @param  bool $csrfSupported
      * @return self
      */
-    public function setCsrfSupported($csrfSupported): self
+    public function setCsrfSupported(bool $csrfSupported): self
     {
-        $this->csrfSupported = (bool) $csrfSupported;
+        $this->csrfSupported = $csrfSupported;
         return $this;
     }
 
@@ -370,9 +370,9 @@ class AuthRequest extends Request
      * @param  string $password
      * @return self
      */
-    public function setPassword($password): self
+    public function setPassword(string $password): self
     {
-        $this->password = trim($password);
+        $this->password = $password;
         return $this;
     }
 
@@ -392,9 +392,9 @@ class AuthRequest extends Request
      * @param  string $recoveryCode
      * @return self
      */
-    public function setRecoveryCode($recoveryCode): self
+    public function setRecoveryCode(string $recoveryCode): self
     {
-        $this->recoveryCode = trim($recoveryCode);
+        $this->recoveryCode = $recoveryCode;
         return $this;
     }
 
@@ -458,9 +458,9 @@ class AuthRequest extends Request
      * @param  string $jwtToken
      * @return self
      */
-    public function setJwtToken($jwtToken): self
+    public function setJwtToken(string $jwtToken): self
     {
-        $this->jwtToken = trim($jwtToken);
+        $this->jwtToken = $jwtToken;
         return $this;
     }
 
@@ -480,9 +480,9 @@ class AuthRequest extends Request
      * @param  string $virtualHost
      * @return self
      */
-    public function setVirtualHost($virtualHost): self
+    public function setVirtualHost(string $virtualHost): self
     {
-        $this->virtualHost = trim($virtualHost);
+        $this->virtualHost = $virtualHost;
         return $this;
     }
 
@@ -586,9 +586,9 @@ class AuthRequest extends Request
      * @param  string $requestedSkin
      * @return self
      */
-    public function setRequestedSkin($requestedSkin): self
+    public function setRequestedSkin(string $requestedSkin): self
     {
-        $this->requestedSkin = trim($requestedSkin);
+        $this->requestedSkin = $requestedSkin;
         return $this;
     }
 
@@ -608,9 +608,9 @@ class AuthRequest extends Request
      * @param  string $twoFactorCode
      * @return self
      */
-    public function setTwoFactorCode($twoFactorCode): self
+    public function setTwoFactorCode(string $twoFactorCode): self
     {
-        $this->twoFactorCode = trim($twoFactorCode);
+        $this->twoFactorCode = $twoFactorCode;
         return $this;
     }
 
@@ -630,9 +630,9 @@ class AuthRequest extends Request
      * @param  bool $deviceTrusted
      * @return self
      */
-    public function setDeviceTrusted($deviceTrusted): self
+    public function setDeviceTrusted(bool $deviceTrusted): self
     {
-        $this->deviceTrusted = (bool) $deviceTrusted;
+        $this->deviceTrusted = $deviceTrusted;
         return $this;
     }
 
@@ -652,9 +652,9 @@ class AuthRequest extends Request
      * @param  string $trustedDeviceToken
      * @return self
      */
-    public function setTrustedDeviceToken($trustedDeviceToken): self
+    public function setTrustedDeviceToken(string $trustedDeviceToken): self
     {
-        $this->trustedDeviceToken = trim($trustedDeviceToken);
+        $this->trustedDeviceToken = $trustedDeviceToken;
         return $this;
     }
 
@@ -674,9 +674,9 @@ class AuthRequest extends Request
      * @param  string $deviceId
      * @return self
      */
-    public function setDeviceId($deviceId): self
+    public function setDeviceId(string $deviceId): self
     {
-        $this->deviceId = trim($deviceId);
+        $this->deviceId = $deviceId;
         return $this;
     }
 
@@ -696,9 +696,9 @@ class AuthRequest extends Request
      * @param  bool $generateDeviceId
      * @return self
      */
-    public function setGenerateDeviceId($generateDeviceId): self
+    public function setGenerateDeviceId(bool $generateDeviceId): self
     {
-        $this->generateDeviceId = (bool) $generateDeviceId;
+        $this->generateDeviceId = $generateDeviceId;
         return $this;
     }
 
@@ -718,9 +718,9 @@ class AuthRequest extends Request
      * @param  string $tokenType
      * @return self
      */
-    public function setTokenType($tokenType): self
+    public function setTokenType(string $tokenType): self
     {
-        $this->tokenType = trim($tokenType);
+        $this->tokenType = $tokenType;
         return $this;
     }
 
