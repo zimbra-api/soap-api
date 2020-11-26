@@ -64,7 +64,7 @@ class ChangeInfo
      *
      * @return string
      */
-    public function getChangeId(): string
+    public function getChangeId(): ?string
     {
         return $this->changeId;
     }
@@ -86,7 +86,7 @@ class ChangeInfo
      *
      * @return string
      */
-    public function getChangeType(): string
+    public function getChangeType(): ?string
     {
         return $this->changeType;
     }

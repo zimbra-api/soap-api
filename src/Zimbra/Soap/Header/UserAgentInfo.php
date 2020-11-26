@@ -64,7 +64,7 @@ class UserAgentInfo
      *
      * @return string
      */
-    public function getName(): string
+    public function getName(): ?string
     {
         return $this->name;
     }
@@ -86,7 +86,7 @@ class UserAgentInfo
      *
      * @return string
      */
-    public function getVersion(): string
+    public function getVersion(): ?string
     {
         return $this->version;
     }

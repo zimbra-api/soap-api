@@ -174,10 +174,10 @@ class Context
         ?AccountInfo $account = NULL,
         ?ChangeInfo $change = NULL,
         ?string $targetServer = NULL,
-        UserAgentInfo $userAgent = NULL,
-        AuthTokenControl $authTokenControl = NULL,
-        FormatInfo $format = NULL,
-        NotifyInfo $notify = NULL,
+        ?UserAgentInfo $userAgent = NULL,
+        ?AuthTokenControl $authTokenControl = NULL,
+        ?FormatInfo $format = NULL,
+        ?NotifyInfo $notify = NULL,
         ?string $noNotify = NULL,
         ?string $noQualify = NULL,
         ?string $via = NULL,
@@ -243,7 +243,7 @@ class Context
      *
      * @return int
      */
-    public function getHopCount(): int
+    public function getHopCount(): ?int
     {
         return $this->hopCount;
     }
@@ -265,7 +265,7 @@ class Context
      *
      * @return string
      */
-    public function getAuthToken(): string
+    public function getAuthToken(): ?string
     {
         return $this->authToken;
     }
@@ -331,7 +331,7 @@ class Context
      *
      * @return string
      */
-    public function getNoSession(): string
+    public function getNoSession(): ?string
     {
         return $this->noSession;
     }
@@ -397,7 +397,7 @@ class Context
      *
      * @return string
      */
-    public function getTargetServer(): string
+    public function getTargetServer(): ?string
     {
         return $this->targetServer;
     }
@@ -507,7 +507,7 @@ class Context
      *
      * @return string
      */
-    public function getNoNotify(): string
+    public function getNoNotify(): ?string
     {
         return $this->noNotify;
     }
@@ -529,7 +529,7 @@ class Context
      *
      * @return string
      */
-    public function getNoQualify(): string
+    public function getNoQualify(): ?string
     {
         return $this->noQualify;
     }
@@ -551,7 +551,7 @@ class Context
      *
      * @return string
      */
-    public function getVia(): string
+    public function getVia(): ?string
     {
         return $this->via;
     }
@@ -573,7 +573,7 @@ class Context
      *
      * @return string
      */
-    public function getSoapRequestId(): string
+    public function getSoapRequestId(): ?string
     {
         return $this->soapRequestId;
     }
@@ -595,7 +595,7 @@ class Context
      *
      * @return string
      */
-    public function getCsrfToken(): string
+    public function getCsrfToken(): ?string
     {
         return $this->csrfToken;
     }

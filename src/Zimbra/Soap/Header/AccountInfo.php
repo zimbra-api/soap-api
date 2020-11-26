@@ -94,7 +94,7 @@ class AccountInfo
      *
      * @return bool
      */
-    public function getMountpointTraversed(): bool
+    public function getMountpointTraversed(): ?bool
     {
         return $this->mountpointTraversed;
     }
@@ -116,7 +116,7 @@ class AccountInfo
      *
      * @return string
      */
-    public function getValue(): string
+    public function getValue(): ?string
     {
         return $this->value;
     }

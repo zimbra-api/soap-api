@@ -49,7 +49,7 @@ class NotifyInfo
      *
      * @return int
      */
-    public function getSequenceNum(): int
+    public function getSequenceNum(): ?int
     {
         return $this->sequenceNum;
     }

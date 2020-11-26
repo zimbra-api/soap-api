@@ -51,7 +51,7 @@ class FormatInfo
      *
      * @return RequestFormat
      */
-    public function getFormat(): RequestFormat
+    public function getFormat(): ?RequestFormat
     {
         return $this->format;
     }

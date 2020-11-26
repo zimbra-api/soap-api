@@ -91,7 +91,7 @@ class SessionInfo
      * @param  bool $sessionProxied
      * @return bool
      */
-    public function getSessionProxied(): bool
+    public function getSessionProxied(): ?bool
     {
         return $this->sessionProxied;
     }
@@ -113,7 +113,7 @@ class SessionInfo
      *
      * @return string
      */
-    public function getSessionId(): string
+    public function getSessionId(): ?string
     {
         return $this->sessionId;
     }
@@ -135,7 +135,7 @@ class SessionInfo
      *
      * @return int
      */
-    public function getSequenceNum(): int
+    public function getSequenceNum(): ?int
     {
         return $this->sequenceNum;
     }
@@ -157,7 +157,7 @@ class SessionInfo
      *
      * @return string
      */
-    public function getValue(): string
+    public function getValue(): ?string
     {
         return $this->value;
     }
