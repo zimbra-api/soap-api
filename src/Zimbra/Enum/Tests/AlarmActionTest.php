@@ -20,8 +20,7 @@ class AlarmActionTest extends TestCase
             'YAHOO_IM'     => 'X_YAHOO_CALENDAR_ACTION_IM',
             'YAHOO_MOBILE' => 'X_YAHOO_CALENDAR_ACTION_MOBILE',
         ];
-        foreach ($values as $enum => $value)
-        {
+        foreach ($values as $enum => $value) {
             $this->assertSame(AlarmAction::$enum()->getValue(), $value);
         }
     }

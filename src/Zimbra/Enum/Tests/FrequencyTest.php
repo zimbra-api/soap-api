@@ -21,8 +21,7 @@ class FrequencyTest extends TestCase
             'MONTH'  => 'MON',
             'YEAR'   => 'YEA',
         ];
-        foreach ($values as $enum => $value)
-        {
+        foreach ($values as $enum => $value) {
             $this->assertSame(Frequency::$enum()->getValue(), $value);
         }
     }

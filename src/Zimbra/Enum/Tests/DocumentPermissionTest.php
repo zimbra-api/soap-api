@@ -17,8 +17,7 @@ class DocumentPermissionTest extends TestCase
             'WRITE'  => 'w',
             'DELETE' => 'd',
         ];
-        foreach ($values as $enum => $value)
-        {
+        foreach ($values as $enum => $value) {
             $this->assertSame(DocumentPermission::$enum()->getValue(), $value);
         }
     }

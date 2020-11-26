@@ -17,8 +17,7 @@ class GalConfigActionTest extends TestCase
             'SEARCH_'       => 'search',
             'SYNC'         => 'sync',
         ];
-        foreach ($values as $enum => $value)
-        {
+        foreach ($values as $enum => $value) {
             $this->assertSame(GalConfigAction::$enum()->getValue(), $value);
         }
     }

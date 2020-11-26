@@ -19,8 +19,7 @@ class LoggingLevelTest extends TestCase
             'DEBUG' => 'debug',
             'TRACE' => 'trace',
         ];
-        foreach ($values as $enum => $value)
-        {
+        foreach ($values as $enum => $value) {
             $this->assertSame(LoggingLevel::$enum()->getValue(), $value);
         }
     }

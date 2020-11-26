@@ -21,8 +21,7 @@ class SearchTypeTest extends TestCase
             'WIKI'         => 'wiki',
             'DOCUMENT'     => 'document',
         ];
-        foreach ($values as $enum => $value)
-        {
+        foreach ($values as $enum => $value) {
             $this->assertSame(SearchType::$enum()->getValue(), $value);
         }
     }

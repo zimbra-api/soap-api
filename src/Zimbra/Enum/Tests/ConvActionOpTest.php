@@ -22,8 +22,7 @@ class ConvActionOpTest extends TestCase
             'SPAM'     => 'spam',
             'TRASH'    => 'trash',
         ];
-        foreach ($values as $enum => $value)
-        {
+        foreach ($values as $enum => $value) {
             $this->assertSame(ConvActionOp::$enum()->getValue(), $value);
         }
     }

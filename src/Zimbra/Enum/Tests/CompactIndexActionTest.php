@@ -16,8 +16,7 @@ class CompactIndexActionTest extends TestCase
             'START'  => 'start',
             'STATUS' => 'status',
         ];
-        foreach ($values as $enum => $value)
-        {
+        foreach ($values as $enum => $value) {
             $this->assertSame(CompactIndexAction::$enum()->getValue(), $value);
         }
     }

@@ -17,8 +17,7 @@ class AttrMethodTest extends TestCase
             'SET_ATTRS' => 'setAttrs',
             'GET_SET'   => 'getAttrs,setAttrs',
         ];
-        foreach ($values as $enum => $value)
-        {
+        foreach ($values as $enum => $value) {
             $this->assertSame(AttrMethod::$enum()->getValue(), $value);
         }
     }

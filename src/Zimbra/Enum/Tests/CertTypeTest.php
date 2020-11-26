@@ -20,8 +20,7 @@ class CertTypeTest extends TestCase
             'PROXY'    => 'proxy',
             'STAGED'   => 'staged',
         ];
-        foreach ($values as $enum => $value)
-        {
+        foreach ($values as $enum => $value) {
             $this->assertSame(CertType::$enum()->getValue(), $value);
         }
     }

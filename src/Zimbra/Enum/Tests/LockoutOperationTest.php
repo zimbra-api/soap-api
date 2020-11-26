@@ -16,8 +16,7 @@ class LockoutOperationTest extends TestCase
             'START' => 'start',
             'END'  => 'end',
         ];
-        foreach ($values as $enum => $value)
-        {
+        foreach ($values as $enum => $value) {
             $this->assertSame(LockoutOperation::$enum()->getValue(), $value);
         }
     }

@@ -21,8 +21,7 @@ class InterestTypeTest extends TestCase
             'DOCUMENTS'    => 'd',
             'ALL'          => 'all',
         ];
-        foreach ($values as $enum => $value)
-        {
+        foreach ($values as $enum => $value) {
             $this->assertSame(InterestType::$enum()->getValue(), $value);
         }
     }

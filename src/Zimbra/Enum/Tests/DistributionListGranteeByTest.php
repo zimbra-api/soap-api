@@ -16,8 +16,7 @@ class DistributionListGranteeByTest extends TestCase
             'ID'   => 'id',
             'NAME' => 'name',
         ];
-        foreach ($values as $enum => $value)
-        {
+        foreach ($values as $enum => $value) {
             $this->assertSame(DistributionListGranteeBy::$enum()->getValue(), $value);
         }
     }

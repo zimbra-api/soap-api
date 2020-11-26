@@ -21,8 +21,7 @@ class CacheTypeTest extends TestCase
             'SERVER'  => 'server',
             'ZIMLET'  => 'zimlet',
         ];
-        foreach ($values as $enum => $value)
-        {
+        foreach ($values as $enum => $value) {
             $this->assertSame(CacheType::$enum()->getValue(), $value);
         }
     }

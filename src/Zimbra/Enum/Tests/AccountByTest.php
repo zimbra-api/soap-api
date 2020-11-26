@@ -20,8 +20,7 @@ class AccountByTest extends TestCase
             'NAME'              => 'name',
             'KRB5_PRINCIPAL'    => 'krb5Principal',
         ];
-        foreach ($values as $enum => $value)
-        {
+        foreach ($values as $enum => $value) {
             $this->assertSame(AccountBy::$enum()->getValue(), $value);
         }
     }

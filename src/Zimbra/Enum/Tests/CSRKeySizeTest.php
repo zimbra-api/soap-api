@@ -16,8 +16,7 @@ class CSRKeySizeTest extends TestCase
             'SIZE_1024' => 1024,
             'SIZE_2048' => 2048,
         ];
-        foreach ($values as $enum => $value)
-        {
+        foreach ($values as $enum => $value) {
             $this->assertSame(CSRKeySize::$enum()->getValue(), $value);
         }
     }

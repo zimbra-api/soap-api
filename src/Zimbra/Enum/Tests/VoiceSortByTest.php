@@ -20,8 +20,7 @@ class VoiceSortByTest extends TestCase
             'NAME_DESC' => 'nameDesc',
             'NAME_ASC'  => 'nameAsc',
         ];
-        foreach ($values as $enum => $value)
-        {
+        foreach ($values as $enum => $value) {
             $this->assertSame(VoiceSortBy::$enum()->getValue(), $value);
         }
     }

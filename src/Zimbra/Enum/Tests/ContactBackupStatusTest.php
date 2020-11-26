@@ -17,8 +17,7 @@ class ContactBackupStatusTest extends TestCase
             'ERROR' => 'error',
             'STOPPED' => 'stopped',
         ];
-        foreach ($values as $enum => $value)
-        {
+        foreach ($values as $enum => $value) {
             $this->assertSame(ContactBackupStatus::$enum()->getValue(), $value);
         }
     }

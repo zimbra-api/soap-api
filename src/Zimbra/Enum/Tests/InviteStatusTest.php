@@ -21,8 +21,7 @@ class InviteStatusTest extends TestCase
             'WAITING'    => 'WAITING',
             'DEFERRED'   => 'DEFERRED',
         ];
-        foreach ($values as $enum => $value)
-        {
+        foreach ($values as $enum => $value) {
             $this->assertSame(InviteStatus::$enum()->getValue(), $value);
         }
     }
