@@ -49,19 +49,19 @@ trait PrefsImplTrail
      * @param  Pref $pref
      * @return self
      */
-    public function addPref(Pref $pref)
+    public function addPref(Pref $pref): self
     {
         $this->prefs[] = $pref;
         return $this;
     }
 
     /**
-     * Sets pref sequence
+     * Sets prefs
      *
      * @param  array $prefs
      * @return self
      */
-    public function setPrefs(array $prefs)
+    public function setPrefs(array $prefs): self
     {
         $this->prefs = [];
         foreach ($prefs as $pref) {
@@ -73,11 +73,11 @@ trait PrefsImplTrail
     }
 
     /**
-     * Gets pref sequence
+     * Gets prefs
      *
-     * @return Sequence
+     * @return array
      */
-    public function getPrefs()
+    public function getPrefs(): array
     {
         return $this->prefs;
     }

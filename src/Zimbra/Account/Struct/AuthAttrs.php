@@ -49,7 +49,7 @@ class AuthAttrs
      * @param  Attr $attr
      * @return self
      */
-    public function addAttr(Attr $attr)
+    public function addAttr(Attr $attr): self
     {
         $this->attrs[] = $attr;
         return $this;
@@ -61,7 +61,7 @@ class AuthAttrs
      * @param  array $attrs
      * @return self
      */
-    public function setAttrs(array $attrs)
+    public function setAttrs(array $attrs): self
     {
         $this->attrs = [];
         foreach ($attrs as $attr) {
@@ -77,7 +77,7 @@ class AuthAttrs
      *
      * @return array
      */
-    public function getAttrs()
+    public function getAttrs(): array
     {
         return $this->attrs;
     }

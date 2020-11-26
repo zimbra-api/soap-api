@@ -90,8 +90,8 @@ class DistributionListAction extends AccountKeyValuePairs
      */
     public function __construct(
         Operation $op,
-        $newName = NULL,
-        Subscribe $subsReq = NULL,
+        ?string $newName = NULL,
+        ?Subscribe $subsReq = NULL,
         array $dlms = [],
         array $owners = [],
         array $rights = [],
@@ -127,7 +127,7 @@ class DistributionListAction extends AccountKeyValuePairs
      * @param  Operation $op
      * @return self
      */
-    public function setOp(Operation $op)
+    public function setOp(Operation $op): self
     {
         $this->op = $op;
         return $this;
@@ -138,7 +138,7 @@ class DistributionListAction extends AccountKeyValuePairs
      *
      * @return string
      */
-    public function getNewName()
+    public function getNewName(): ?string
     {
         return $this->newName;
     }
@@ -149,9 +149,9 @@ class DistributionListAction extends AccountKeyValuePairs
      * @param  string $newName
      * @return self
      */
-    public function setNewName($newName)
+    public function setNewName(string $newName): self
     {
-        $this->newName = trim($newName);
+        $this->newName = $newName;
         return $this;
     }
 
@@ -160,7 +160,7 @@ class DistributionListAction extends AccountKeyValuePairs
      *
      * @return Subscribe
      */
-    public function getSubsReq()
+    public function getSubsReq(): ?Subscribe
     {
         return $this->subsReq;
     }
@@ -171,7 +171,7 @@ class DistributionListAction extends AccountKeyValuePairs
      * @param  Subscribe $subsReq
      * @return self
      */
-    public function setSubsReq(Subscribe $subsReq)
+    public function setSubsReq(Subscribe $subsReq): self
     {
         $this->subsReq = $subsReq;
         return $this;
@@ -183,7 +183,7 @@ class DistributionListAction extends AccountKeyValuePairs
      * @param  string $member
      * @return self
      */
-    public function addMember($member)
+    public function addMember($member): self
     {
         $member = trim($member);
         if (!empty($member)) {
@@ -193,12 +193,12 @@ class DistributionListAction extends AccountKeyValuePairs
     }
 
     /**
-     * Gets member sequence
+     * Sets members
      *
      * @param array $dlms
      * @return self
      */
-    public function setMembers(array $dlms)
+    public function setMembers(array $dlms): self
     {
         $this->members = [];
         foreach ($dlms as $dlm) {
@@ -208,11 +208,11 @@ class DistributionListAction extends AccountKeyValuePairs
     }
 
     /**
-     * Gets member sequence
+     * Gets members
      *
-     * @return Sequence
+     * @return array
      */
-    public function getMembers()
+    public function getMembers(): array
     {
         return $this->members;
     }
@@ -223,19 +223,19 @@ class DistributionListAction extends AccountKeyValuePairs
      * @param  Grantee $owner
      * @return self
      */
-    public function addOwner(Grantee $owner)
+    public function addOwner(Grantee $owner): self
     {
         $this->owners[] = $owner;
         return $this;
     }
 
     /**
-     * Sets owner sequence
+     * Sets owners
      *
      * @param array $owners
-     * @return Sequence
+     * @return self
      */
-    public function setOwners(array $owners)
+    public function setOwners(array $owners): self
     {
         $this->owners = [];
         foreach ($owners as $owner) {
@@ -247,11 +247,11 @@ class DistributionListAction extends AccountKeyValuePairs
     }
 
     /**
-     * Gets owner sequence
+     * Gets owners
      *
-     * @return Sequence
+     * @return array
      */
-    public function getOwners()
+    public function getOwners(): array
     {
         return $this->owners;
     }
@@ -262,19 +262,19 @@ class DistributionListAction extends AccountKeyValuePairs
      * @param  Right $right
      * @return self
      */
-    public function addRight(Right $right)
+    public function addRight(Right $right): self
     {
         $this->rights[] = $right;
         return $this;
     }
 
     /**
-     * Sets right sequence
+     * Sets rights
      *
      * @param array $rights
-     * @return Sequence
+     * @return self
      */
-    public function setRights(array $rights)
+    public function setRights(array $rights): self
     {
         $this->rights = [];
         foreach ($rights as $right) {
@@ -286,11 +286,11 @@ class DistributionListAction extends AccountKeyValuePairs
     }
 
     /**
-     * Gets right sequence
+     * Gets rights
      *
-     * @return Sequence
+     * @return array
      */
-    public function getRights()
+    public function getRights(): array
     {
         return $this->rights;
     }

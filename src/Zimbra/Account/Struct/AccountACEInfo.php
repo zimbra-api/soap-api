@@ -105,12 +105,12 @@ class AccountACEInfo
     public function __construct(
         GranteeType $granteeType,
         AceRightType $right,
-        $zimbraId = NULL,
-        $displayName = NULL,
-        $accessKey = NULL,
-        $password = NULL,
-        $deny = NULL,
-        $checkGranteeType = NULL
+        ?string $zimbraId = NULL,
+        ?string $displayName = NULL,
+        ?string $accessKey = NULL,
+        ?string $password = NULL,
+        ?bool $deny = NULL,
+        ?bool $checkGranteeType = NULL
     )
     {
         $this->setGranteeType($granteeType)
@@ -151,7 +151,7 @@ class AccountACEInfo
      * @param  GranteeType $granteeType
      * @return self
      */
-    public function setGranteeType(GranteeType $granteeType)
+    public function setGranteeType(GranteeType $granteeType): self
     {
         $this->granteeType = $granteeType;
         return $this;
@@ -173,7 +173,7 @@ class AccountACEInfo
      * @param  AceRightType $right
      * @return self
      */
-    public function setRight(AceRightType $right)
+    public function setRight(AceRightType $right): self
     {
         $this->right = $right;
         return $this;
@@ -184,7 +184,7 @@ class AccountACEInfo
      *
      * @return string
      */
-    public function getZimbraId()
+    public function getZimbraId(): ?string
     {
         return $this->zimbraId;
     }
@@ -195,9 +195,9 @@ class AccountACEInfo
      * @param  string $zimbraId
      * @return self
      */
-    public function setZimbraId($zimbraId)
+    public function setZimbraId(string $zimbraId): self
     {
-        $this->zimbraId = trim($zimbraId);
+        $this->zimbraId = $zimbraId;
         return $this;
     }
 
@@ -206,7 +206,7 @@ class AccountACEInfo
      *
      * @return string
      */
-    public function getDisplayName()
+    public function getDisplayName(): ?string
     {
         return $this->displayName;
     }
@@ -217,9 +217,9 @@ class AccountACEInfo
      * @param  string $displayName
      * @return string|self
      */
-    public function setDisplayName($displayName)
+    public function setDisplayName(string $displayName): self
     {
-        $this->displayName = trim($displayName);
+        $this->displayName = $displayName;
         return $this;
     }
 
@@ -228,7 +228,7 @@ class AccountACEInfo
      *
      * @return string
      */
-    public function getAccessKey()
+    public function getAccessKey(): ?string
     {
         return $this->accessKey;
     }
@@ -239,9 +239,9 @@ class AccountACEInfo
      * @param  string $accessKey
      * @return self
      */
-    public function setAccessKey($accessKey)
+    public function setAccessKey(string $accessKey): self
     {
-        $this->accessKey = trim($accessKey);
+        $this->accessKey = $accessKey;
         return $this;
     }
 
@@ -250,7 +250,7 @@ class AccountACEInfo
      *
      * @return string
      */
-    public function getPassword()
+    public function getPassword(): ?string
     {
         return $this->password;
     }
@@ -261,9 +261,9 @@ class AccountACEInfo
      * @param  string $password
      * @return self
      */
-    public function setPassword($password)
+    public function setPassword(string $password): self
     {
-        $this->password = trim($password);
+        $this->password = $password;
         return $this;
     }
 
@@ -272,7 +272,7 @@ class AccountACEInfo
      *
      * @return bool
      */
-    public function getDeny()
+    public function getDeny(): ?bool
     {
         return $this->deny;
     }
@@ -283,9 +283,9 @@ class AccountACEInfo
      * @param  bool $deny
      * @return self
      */
-    public function setDeny($deny)
+    public function setDeny(bool $deny): self
     {
-        $this->deny = (bool) $deny;
+        $this->deny = $deny;
         return $this;
     }
 
@@ -294,7 +294,7 @@ class AccountACEInfo
      *
      * @return bool
      */
-    public function getCheckGranteeType()
+    public function getCheckGranteeType(): ?bool
     {
         return $this->checkGranteeType;
     }
@@ -305,9 +305,9 @@ class AccountACEInfo
      * @param  bool $checkGranteeType
      * @return self
      */
-    public function setCheckGranteeType($checkGranteeType)
+    public function setCheckGranteeType(bool $checkGranteeType): self
     {
-        $this->checkGranteeType = (bool) $checkGranteeType;
+        $this->checkGranteeType = $checkGranteeType;
         return $this;
     }
 }

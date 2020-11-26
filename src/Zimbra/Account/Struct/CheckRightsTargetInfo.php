@@ -68,14 +68,14 @@ class CheckRightsTargetInfo
 
     /**
      * Constructor method for CheckRightsTargetInfo
-     * @param  string $type
-     * @param  string $by
+     * @param  TargetType $type
+     * @param  TargetBy $by
      * @param  string $key
      * @param  bool $allow
      * @param  array $rights
      * @return self
      */
-    public function __construct(TargetType $type, TargetBy $by, $key, $allow, array $rights = [])
+    public function __construct(TargetType $type, TargetBy $by, string $key, bool $allow, array $rights = [])
     {
         $this->setTargetType($type)
             ->setTargetBy($by)
@@ -144,9 +144,9 @@ class CheckRightsTargetInfo
      * @param  string $key
      * @return self
      */
-    public function setTargetKey($key = null): self
+    public function setTargetKey(string $key): self
     {
-        $this->targetKey = trim($key);
+        $this->targetKey = $key;
         return $this;
     }
 
@@ -166,9 +166,9 @@ class CheckRightsTargetInfo
      * @param  bool $allow
      * @return self
      */
-    public function setAllow($allow): self
+    public function setAllow(bool $allow): self
     {
-        $this->allow = (bool) $allow;
+        $this->allow = $allow;
         return $this;
     }
 

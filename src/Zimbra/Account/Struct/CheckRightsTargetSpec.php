@@ -66,7 +66,7 @@ class CheckRightsTargetSpec
      * @param  array $rights
      * @return self
      */
-    public function __construct(TargetType $type, TargetBy $by, $key, array $rights = [])
+    public function __construct(TargetType $type, TargetBy $by, string $key, array $rights = [])
     {
         $this->setTargetType($type)
             ->setTargetBy($by)
@@ -134,9 +134,9 @@ class CheckRightsTargetSpec
      * @param  string $key
      * @return self
      */
-    public function setTargetKey($key = null): self
+    public function setTargetKey(string $key): self
     {
-        $this->targetKey = trim($key);
+        $this->targetKey = $key;
         return $this;
     }
 

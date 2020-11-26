@@ -56,7 +56,7 @@ class Pref
      * @param  int   $modified
      * @return self
      */
-    public function __construct($name, $value = NULL, $modified = NULL)
+    public function __construct(string $name, ?string $value = NULL, ?int $modified = NULL)
     {
         $this->setName($name);
         if (NULL !== $value) {
@@ -72,7 +72,7 @@ class Pref
      *
      * @return string
      */
-    public function getName()
+    public function getName(): string
     {
         return $this->name;
     }
@@ -83,9 +83,9 @@ class Pref
      * @param  string $name
      * @return self
      */
-    public function setName($name)
+    public function setName(string $name): self
     {
-        $this->name = trim($name);
+        $this->name = $name;
         return $this;
     }
 
@@ -94,7 +94,7 @@ class Pref
      *
      * @return string
      */
-    public function getValue()
+    public function getValue(): ?string
     {
         return $this->value;
     }
@@ -102,12 +102,12 @@ class Pref
     /**
      * Sets value
      *
-     * @param  string $name
+     * @param  string $value
      * @return self
      */
-    public function setValue($value)
+    public function setValue(string $value): self
     {
-        $this->value = trim($value);
+        $this->value = $value;
         return $this;
     }
 
@@ -116,7 +116,7 @@ class Pref
      *
      * @return int
      */
-    public function getModified()
+    public function getModified(): ?int
     {
         return $this->modified;
     }
@@ -127,9 +127,9 @@ class Pref
      * @param  int $modified
      * @return self
      */
-    public function setModified($modified)
+    public function setModified(int $modified): self
     {
-        $this->modified = (int) $modified;
+        $this->modified = $modified;
         return $this;
     }
 }

@@ -50,7 +50,7 @@ class DistributionListRightSpec
      * @param array $grantees
      * @return self
      */
-    public function __construct($right, array $grantees = [])
+    public function __construct(string $right, array $grantees = [])
     {
         $this->setRight($right)
              ->setGrantees($grantees);
@@ -61,7 +61,7 @@ class DistributionListRightSpec
      *
      * @return string
      */
-    public function getRight()
+    public function getRight(): string
     {
         return $this->right;
     }
@@ -72,9 +72,9 @@ class DistributionListRightSpec
      * @param  string $right
      * @return self
      */
-    public function setRight($right)
+    public function setRight(string $right): self
     {
-        $this->right = trim($right);
+        $this->right = $right;
         return $this;
     }
 
@@ -84,18 +84,18 @@ class DistributionListRightSpec
      * @param  GranteeSelector $grantee
      * @return self
      */
-    public function addGrantee(GranteeSelector $grantee)
+    public function addGrantee(GranteeSelector $grantee): self
     {
         $this->grantees[] = $grantee;
         return $this;
     }
 
     /**
-     * Sets grantee sequence
+     * Sets grantees
      *
      * @return self
      */
-    public function setGrantees(array $grantees)
+    public function setGrantees(array $grantees): self
     {
         $this->grantees = [];
         foreach ($grantees as $grantee) {
@@ -107,11 +107,11 @@ class DistributionListRightSpec
     }
 
     /**
-     * Gets grantee sequence
+     * Gets grantees
      *
-     * @return Sequence
+     * @return array
      */
-    public function getGrantees()
+    public function getGrantees(): array
     {
         return $this->grantees;
     }

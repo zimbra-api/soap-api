@@ -27,6 +27,7 @@ use Zimbra\Enum\DistributionListSubscribeOp as SubscribeOp;
 class DistributionListSubscribeReq
 {
     /**
+     * operation
      * @Accessor(getter="getOp", setter="setOp")
      * @SerializedName("op")
      * @Type("Zimbra\Enum\DistributionListSubscribeOp")
@@ -43,6 +44,7 @@ class DistributionListSubscribeReq
     private $value;
 
     /**
+     * Flag whether to bcc all other owners on the accept/reject notification emails.
      * @Accessor(getter="getBccOwners", setter="setBccOwners")
      * @SerializedName("bccOwners")
      * @Type("bool")
@@ -57,7 +59,7 @@ class DistributionListSubscribeReq
      * @param  bool   $bccOwners
      * @return self
      */
-    public function __construct(SubscribeOp $op, $value = NULL, $bccOwners = NULL)
+    public function __construct(SubscribeOp $op, ?string $value = NULL, ?bool $bccOwners = NULL)
     {
 		$this->setOp($op);
         if (NULL !== $value) {
@@ -84,7 +86,7 @@ class DistributionListSubscribeReq
      * @param  SubscribeOp $op
      * @return self
      */
-    public function setOp(SubscribeOp $op)
+    public function setOp(SubscribeOp $op): self
     {
         $this->op = $op;
         return $this;
@@ -95,7 +97,7 @@ class DistributionListSubscribeReq
      *
      * @return string
      */
-    public function getValue()
+    public function getValue(): ?string
     {
         return $this->value;
     }
@@ -103,22 +105,21 @@ class DistributionListSubscribeReq
     /**
      * Sets value
      *
-     * @param  string $name
+     * @param  string $value
      * @return self
      */
-    public function setValue($value)
+    public function setValue(string $value): self
     {
-        $this->value = trim($value);
+        $this->value = $value;
         return $this;
     }
 
     /**
      * Gets bccOwners flag
-     * Flag whether to bcc all other owners on the accept/reject notification emails.
      *
      * @return bool
      */
-    public function getBccOwners()
+    public function getBccOwners(): ?bool
     {
         return $this->bccOwners;
     }
@@ -130,9 +131,9 @@ class DistributionListSubscribeReq
      * @param  bool $bccOwners
      * @return bool|self
      */
-    public function setBccOwners($bccOwners)
+    public function setBccOwners(bool $bccOwners): self
     {
-        $this->bccOwners = (bool) $bccOwners;
+        $this->bccOwners = $bccOwners;
         return $this;
     }
 }

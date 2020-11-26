@@ -26,6 +26,7 @@ use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAt
 class AuthToken
 {
     /**
+     * Value for authorization token
      * @Accessor(getter="getValue", setter="setValue")
      * @SerializedName("_content")
      * @Type("string")
@@ -34,6 +35,8 @@ class AuthToken
     private $value;
 
     /**
+     * If verifyAccount="1", account is required and the account in the auth token is compared to the named account.
+     * If verifyAccount="0" (default), only the auth token is verified and any account element specified is ignored.
      * @Accessor(getter="getVerifyAccount", setter="setVerifyAccount")
      * @SerializedName("verifyAccount")
      * @Type("bool")
@@ -42,6 +45,7 @@ class AuthToken
     private $verifyAccount;
 
     /**
+     * Life time of the auth token
      * @Accessor(getter="getLifetime", setter="setLifetime")
      * @SerializedName("lifetime")
      * @Type("int")
@@ -52,15 +56,11 @@ class AuthToken
     /**
      * Constructor method for AuthToken
      * @param  string $value
-     *   Value for authorization token
      * @param  bool   $verifyAccount
-     *   If verifyAccount="1", account is required and the account in the auth token is compared to the named account.
-     *   If verifyAccount="0" (default), only the auth token is verified and any account element specified is ignored.
      * @param  int   $lifetime
-     *   Life time of the auth token
      * @return self
      */
-    public function __construct($value, $verifyAccount = NULL, $lifetime = NULL)
+    public function __construct(string $value, ?bool $verifyAccount = NULL, ?int $lifetime = NULL)
     {
         $this->setValue($value);
         if (NULL !== $verifyAccount) {
@@ -76,7 +76,7 @@ class AuthToken
      *
      * @return string
      */
-    public function getValue()
+    public function getValue(): string
     {
         return $this->value;
     }
@@ -87,9 +87,9 @@ class AuthToken
      * @param  string $value
      * @return self
      */
-    public function setValue($value)
+    public function setValue(string $value)
     {
-        $this->value = trim($value);
+        $this->value = $value;
         return $this;
     }
 
@@ -98,7 +98,7 @@ class AuthToken
      *
      * @return bool
      */
-    public function getVerifyAccount()
+    public function getVerifyAccount(): ?bool
     {
         return $this->verifyAccount;
     }
@@ -109,9 +109,9 @@ class AuthToken
      * @param  bool $verifyAccount
      * @return self
      */
-    public function setVerifyAccount($verifyAccount)
+    public function setVerifyAccount(bool $verifyAccount)
     {
-        $this->verifyAccount = (bool) $verifyAccount;
+        $this->verifyAccount = $verifyAccount;
         return $this;
     }
 
@@ -120,7 +120,7 @@ class AuthToken
      *
      * @return int
      */
-    public function getLifetime()
+    public function getLifetime(): ?int
     {
         return $this->lifetime;
     }
@@ -131,9 +131,9 @@ class AuthToken
      * @param  int $lifetime
      * @return self
      */
-    public function setLifetime($lifetime)
+    public function setLifetime(int $lifetime)
     {
-        $this->lifetime = (int) $lifetime;
+        $this->lifetime = $lifetime;
         return $this;
     }
 }

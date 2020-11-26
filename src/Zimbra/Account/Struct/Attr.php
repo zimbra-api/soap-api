@@ -56,7 +56,7 @@ class Attr
      * @param  bool   $pd
      * @return self
      */
-    public function __construct($name, $value = NULL, $pd = NULL)
+    public function __construct(string $name, ?string $value = NULL, ?bool $pd = NULL)
     {
         $this->setName($name);
         if (NULL !== $value) {
@@ -73,7 +73,7 @@ class Attr
      * @param  string $name
      * @return string
      */
-    public function getName()
+    public function getName(): string
     {
         return $this->name;
     }
@@ -84,9 +84,9 @@ class Attr
      * @param  string $name
      * @return self
      */
-    public function setName($name)
+    public function setName(string $name): self
     {
-        $this->name = trim($name);
+        $this->name = $name;
         return $this;
     }
 
@@ -95,7 +95,7 @@ class Attr
      *
      * @return string
      */
-    public function getValue()
+    public function getValue(): ?string
     {
         return $this->value;
     }
@@ -103,12 +103,12 @@ class Attr
     /**
      * Sets value
      *
-     * @param  string $name
+     * @param  string $value
      * @return self
      */
-    public function setValue($value)
+    public function setValue(string $value): self
     {
-        $this->value = trim($value);
+        $this->value = $value;
         return $this;
     }
 
@@ -117,7 +117,7 @@ class Attr
      *
      * @return bool
      */
-    public function getPermDenied()
+    public function getPermDenied(): ?bool
     {
         return $this->permDenied;
     }
@@ -128,9 +128,9 @@ class Attr
      * @param  bool $pd
      * @return self
      */
-    public function setPermDenied($pd)
+    public function setPermDenied(bool $pd): self
     {
-        $this->permDenied = (bool) $pd;
+        $this->permDenied = $pd;
         return $this;
     }
 }
