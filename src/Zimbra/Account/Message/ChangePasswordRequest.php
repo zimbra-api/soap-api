@@ -28,6 +28,7 @@ use Zimbra\Struct\AccountSelector;
 class ChangePasswordRequest extends Request
 {
     /**
+     * Details of the account
      * @Accessor(getter="getAccount", setter="setAccount")
      * @SerializedName("account")
      * @Type("Zimbra\Struct\AccountSelector")
@@ -36,6 +37,7 @@ class ChangePasswordRequest extends Request
     private $account;
 
     /**
+     * Old password
      * @Accessor(getter="getOldPassword", setter="setOldPassword")
      * @SerializedName("oldPassword")
      * @Type("string")
@@ -44,6 +46,7 @@ class ChangePasswordRequest extends Request
     private $oldPassword;
 
     /**
+     * New Password to assign
      * @Accessor(getter="getPassword", setter="setPassword")
      * @SerializedName("password")
      * @Type("string")
@@ -52,6 +55,7 @@ class ChangePasswordRequest extends Request
     private $password;
 
     /**
+     * specified virtual-host is used to determine the domain of the account name
      * @Accessor(getter="getVirtualHost", setter="setVirtualHost")
      * @SerializedName("virtualHost")
      * @Type("string")
@@ -61,17 +65,17 @@ class ChangePasswordRequest extends Request
 
     /**
      * Constructor method for ChangePasswordRequest
-     * @param  AccountSelector   $account Details of the account
-     * @param  string    $oldPassword Old password
-     * @param  string    $newPassword New Password to assign
-     * @param  string    $virtualHost specified virtual-host is used to determine the domain of the account name
+     * @param  AccountSelector $account
+     * @param  string    $oldPassword
+     * @param  string    $newPassword
+     * @param  string    $virtualHost
      * @return self
      */
     public function __construct(
         AccountSelector $account,
-        $oldPassword,
-        $newPassword,
-        $virtualHost = NULL
+        string $oldPassword,
+        string $newPassword,
+        ?string $virtualHost = NULL
     )
     {
         $this->setAccount($account)
@@ -120,9 +124,9 @@ class ChangePasswordRequest extends Request
      * @param  string $password
      * @return self
      */
-    public function setPassword($password): self
+    public function setPassword(string $password): self
     {
-        $this->password = trim($password);
+        $this->password = $password;
         return $this;
     }
 
@@ -142,9 +146,9 @@ class ChangePasswordRequest extends Request
      * @param  string $password
      * @return self
      */
-    public function setOldPassword($password): self
+    public function setOldPassword(string $password): self
     {
-        $this->oldPassword = trim($password);
+        $this->oldPassword = $password;
         return $this;
     }
 
@@ -153,7 +157,7 @@ class ChangePasswordRequest extends Request
      *
      * @return string
      */
-    public function getVirtualHost(): string
+    public function getVirtualHost(): ?string
     {
         return $this->virtualHost;
     }
@@ -164,9 +168,9 @@ class ChangePasswordRequest extends Request
      * @param  string $virtualHost
      * @return self
      */
-    public function setVirtualHost($virtualHost): self
+    public function setVirtualHost(string $virtualHost): self
     {
-        $this->virtualHost = trim($virtualHost);
+        $this->virtualHost = $virtualHost;
         return $this;
     }
 

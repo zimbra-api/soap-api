@@ -46,7 +46,7 @@ class AuthBody extends Body
      * Constructor method for AuthBody
      * @return self
      */
-    public function __construct(AuthRequest $request = NULL, AuthResponse $response = NULL)
+    public function __construct(?AuthRequest $request = NULL, ?AuthResponse $response = NULL)
     {
         parent::__construct($request, $response);
     }

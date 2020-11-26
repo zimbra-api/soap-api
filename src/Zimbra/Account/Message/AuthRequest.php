@@ -29,6 +29,7 @@ use Zimbra\Struct\AccountSelector;
 class AuthRequest extends Request
 {
     /**
+     * Controls whether the auth token cookie in the response should be persisted when the browser exits.
      * @Accessor(getter="getPersistAuthTokenCookie", setter="setPersistAuthTokenCookie")
      * @SerializedName("persistAuthTokenCookie")
      * @Type("bool")
@@ -37,6 +38,7 @@ class AuthRequest extends Request
     private $persistAuthTokenCookie;
 
     /**
+     * Controls whether the client supports CSRF token
      * @Accessor(getter="getCsrfSupported", setter="setCsrfSupported")
      * @SerializedName("csrfTokenSecured")
      * @Type("bool")
@@ -45,6 +47,7 @@ class AuthRequest extends Request
     private $csrfSupported;
 
     /**
+     * Specifies the account to authenticate against
      * @Accessor(getter="getAccount", setter="setAccount")
      * @SerializedName("account")
      * @Type("Zimbra\Struct\AccountSelector")
@@ -53,6 +56,7 @@ class AuthRequest extends Request
     private $account;
 
     /**
+     * Password to use in conjunction with an account
      * @Accessor(getter="getPassword", setter="setPassword")
      * @SerializedName("password")
      * @Type("string")
@@ -61,6 +65,7 @@ class AuthRequest extends Request
     private $password;
 
     /**
+     * RecoveryCode to use in conjunction with an account in case of forgot password flow.
      * @Accessor(getter="getRecoveryCode", setter="setRecoveryCode")
      * @SerializedName("recoveryCode")
      * @Type("string")
@@ -69,6 +74,7 @@ class AuthRequest extends Request
     private $recoveryCode;
 
     /**
+     * The preauth
      * @Accessor(getter="getPreauth", setter="setPreauth")
      * @SerializedName("preauth")
      * @Type("Zimbra\Account\Struct\PreAuth")
@@ -77,6 +83,7 @@ class AuthRequest extends Request
     private $preauth;
 
     /**
+     * An authToken can be passed instead of account/password/preauth to validate an existing auth token.
      * @Accessor(getter="getAuthToken", setter="setAuthToken")
      * @SerializedName("authToken")
      * @Type("Zimbra\Account\Struct\AuthToken")
@@ -85,6 +92,7 @@ class AuthRequest extends Request
     private $authToken;
 
     /**
+     * JWT auth token
      * @Accessor(getter="getJwtToken", setter="setJwtToken")
      * @SerializedName("jwtToken")
      * @Type("string")
@@ -93,6 +101,7 @@ class AuthRequest extends Request
     private $jwtToken;
 
     /**
+     * If specified (in conjunction with by="name"), virtual-host is used to determine the domain of the account name, if it does not include a domain component.
      * @Accessor(getter="getVirtualHost", setter="setVirtualHost")
      * @SerializedName("virtualHost")
      * @Type("string")
@@ -101,6 +110,7 @@ class AuthRequest extends Request
     private $virtualHost;
 
     /**
+     * Requested preference settings.
      * @Accessor(getter="getPrefs", setter="setPrefs")
      * @SerializedName("prefs")
      * @Type("Zimbra\Account\Struct\AuthPrefs")
@@ -109,6 +119,7 @@ class AuthRequest extends Request
     private $prefs;
 
     /**
+     * Requested attribute settings. Only attributes that are allowed to be returned by GetInfo will be returned by this call
      * @Accessor(getter="getAttrs", setter="setAttrs")
      * @SerializedName("attrs")
      * @Type("Zimbra\Account\Struct\AuthAttrs")
@@ -117,6 +128,7 @@ class AuthRequest extends Request
     private $attrs;
 
     /**
+     * The requestedSkin. If specified the name of the skin requested by the client.
      * @Accessor(getter="getRequestedSkin", setter="setRequestedSkin")
      * @SerializedName("requestedSkin")
      * @Type("string")
@@ -125,6 +137,7 @@ class AuthRequest extends Request
     private $requestedSkin;
 
     /**
+     * The TOTP code used for two-factor authentication
      * @Accessor(getter="getTwoFactorCode", setter="setTwoFactorCode")
      * @SerializedName("twoFactorCode")
      * @Type("string")
@@ -133,6 +146,7 @@ class AuthRequest extends Request
     private $twoFactorCode;
 
     /**
+     * Whether the client represents a trusted device
      * @Accessor(getter="getDeviceTrusted", setter="setDeviceTrusted")
      * @SerializedName("deviceTrusted")
      * @Type("bool")
@@ -141,6 +155,7 @@ class AuthRequest extends Request
     private $deviceTrusted;
 
     /**
+     * Whether the client represents a trusted device
      * @Accessor(getter="getTrustedDeviceToken", setter="setTrustedDeviceToken")
      * @SerializedName("trustedDeviceToken")
      * @Type("string")
@@ -149,6 +164,7 @@ class AuthRequest extends Request
     private $trustedDeviceToken;
 
     /**
+     * Unique device identifier; used to verify trusted mobile devices
      * @Accessor(getter="getDeviceId", setter="setDeviceId")
      * @SerializedName("deviceId")
      * @Type("string")
@@ -165,6 +181,7 @@ class AuthRequest extends Request
     private $generateDeviceId;
 
     /**
+     * type of token to be returned, it can be auth or jwt
      * @Accessor(getter="getTokenType", setter="setTokenType")
      * @SerializedName("tokenType")
      * @Type("string")
@@ -174,24 +191,24 @@ class AuthRequest extends Request
 
     /**
      * Constructor method for AuthRequest
-     * @param  Account   $account Specifies the account to authenticate against
-     * @param  string    $password Password to use in conjunction with an account
-     * @param  string    $recoveryCode RecoveryCode to use in conjunction with an account in case of forgot password flow.
-     * @param  PreAuth   $preauth The preauth
-     * @param  AuthToken $authToken An authToken can be passed instead of account/password/preauth to validate an existing auth token.
-     * @param  string    $jwtToken JWT auth token
-     * @param  string    $virtualHost If specified (in conjunction with by="name"), virtual-host is used to determine the domain of the account name, if it does not include a domain component.
-     * @param  AuthPrefs $prefs Requested preference settings.
-     * @param  AuthAttrs $attrs Requested attribute settings. Only attributes that are allowed to be returned by GetInfo will be returned by this call
-     * @param  string    $requestedSkin The requestedSkin. If specified the name of the skin requested by the client.
-     * @param  bool      $persistAuthTokenCookie Controls whether the auth token cookie in the response should be persisted when the browser exits.
-     * @param  bool      $csrfSupported Controls whether the client supports CSRF token
-     * @param  string    $twoFactorCode The TOTP code used for two-factor authentication
-     * @param  bool      $deviceTrusted Whether the client represents a trusted device
-     * @param  string    $trustedDeviceToken Whether the client represents a trusted device
-     * @param  string    $deviceId Unique device identifier; used to verify trusted mobile devices
+     * @param  Account   $account
+     * @param  string    $password
+     * @param  string    $recoveryCode
+     * @param  PreAuth   $preauth
+     * @param  AuthToken $authToken
+     * @param  string    $jwtToken
+     * @param  string    $virtualHost
+     * @param  AuthPrefs $prefs
+     * @param  AuthAttrs $attrs
+     * @param  string    $requestedSkin
+     * @param  bool      $persistAuthTokenCookie
+     * @param  bool      $csrfSupported
+     * @param  string    $twoFactorCode
+     * @param  bool      $deviceTrusted
+     * @param  string    $trustedDeviceToken
+     * @param  string    $deviceId
      * @param  bool      $generateDeviceId
-     * @param  string    $tokenType type of token to be returned, it can be auth or jwt
+     * @param  string    $tokenType
      * @return self
      */
     public function __construct(
