@@ -1,0 +1,154 @@
+<?php declare(strict_types=1);
+/**
+ * This file is part of the Zimbra API in PHP library.
+ *
+ * © Nguyen Van Nguyen <nguyennv1981@gmail.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+namespace Zimbra\Admin\Message;
+
+use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlList, XmlRoot};
+use Zimbra\Admin\Struct\MailboxInfo;
+use Zimbra\Soap\ResponseInterface;
+
+/**
+ * GetAllMailboxesResponse class
+ * 
+ * @package    Zimbra
+ * @subpackage Admin
+ * @category   Message
+ * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
+ * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
+ * @AccessType("public_method")
+ * @XmlRoot(name="GetAllMailboxesResponse")
+ */
+class GetAllMailboxesResponse implements ResponseInterface
+{
+    /**
+     * Mailboxes
+     * 
+     * @Accessor(getter="getMboxes", setter="setMboxes")
+     * @SerializedName("mbox")
+     * @Type("array<Zimbra\Admin\Struct\MailboxInfo>")
+     * @XmlList(inline = true, entry = "mbox")
+     */
+    private $mboxes;
+
+    /**
+     * 1 (true) if more mailboxes left to return
+     * @Accessor(getter="isMore", setter="setMore")
+     * @SerializedName("more")
+     * @Type("bool")
+     * @XmlAttribute
+     */
+    private $more;
+
+    /**
+     * Total number of mailboxes that matched search (not affected by more/offset)
+     * @Accessor(getter="getSearchTotal", setter="setSearchTotal")
+     * @SerializedName("searchTotal")
+     * @Type("integer")
+     * @XmlAttribute
+     */
+    private $searchTotal;
+
+    /**
+     * Constructor method for GetAllMailboxesResponse
+     * @param bool $more
+     * @param integer $searchTotal
+     * @param array $mboxes
+     * @return self
+     */
+    public function __construct(bool $more, int $searchTotal, array $mboxes = [])
+    {
+        $this->setMore($more)
+            ->setSearchTotal($searchTotal)
+            ->setMboxes($mboxes);
+    }
+
+    /**
+     * Gets more
+     *
+     * @return bool
+     */
+    public function isMore(): bool
+    {
+        return $this->more;
+    }
+
+    /**
+     * Sets more
+     *
+     * @param  bool $more
+     * @return self
+     */
+    public function setMore(bool $more): self
+    {
+        $this->more = $more;
+        return $this;
+    }
+
+    /**
+     * Gets searchTotal
+     *
+     * @return int
+     */
+    public function getSearchTotal(): int
+    {
+        return $this->searchTotal;
+    }
+
+    /**
+     * Sets searchTotal
+     *
+     * @param  int $searchTotal
+     * @return self
+     */
+    public function setSearchTotal(int $searchTotal): self
+    {
+        $this->searchTotal = $searchTotal;
+        return $this;
+    }
+
+    /**
+     * Add a mbox information
+     *
+     * @param  MailboxInfo $mbox
+     * @return self
+     */
+    public function addMbox(MailboxInfo $mbox): self
+    {
+        $this->mboxes[] = $mbox;
+        return $this;
+    }
+
+    /**
+     * Sets mbox informations
+     *
+     * @param  array $mboxes
+     * @return self
+     */
+    public function setMboxes(array $mboxes): self
+    {
+        $this->mboxes = [];
+        foreach ($mboxes as $mbox) {
+            if ($mbox instanceof MailboxInfo) {
+                $this->mboxes[] = $mbox;
+            }
+        }
+        return $this;
+    }
+
+    /**
+     * Gets mbox informations
+     *
+     * @return array
+     */
+    public function getMboxes(): array
+    {
+        return $this->mboxes;
+    }
+}
