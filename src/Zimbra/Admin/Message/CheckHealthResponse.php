@@ -38,10 +38,10 @@ class CheckHealthResponse implements ResponseInterface
     /**
      * Constructor method for CheckHealthResponse
      * 
-     * @param bool  $healthy
+     * @param bool $healthy
      * @return self
      */
-    public function __construct($healthy)
+    public function __construct(bool $healthy)
     {
         $this->setHealthy($healthy);
     }
@@ -51,7 +51,7 @@ class CheckHealthResponse implements ResponseInterface
      *
      * @return bool
      */
-    public function isHealthy(): ?bool
+    public function isHealthy(): bool
     {
         return $this->healthy;
     }
@@ -62,9 +62,9 @@ class CheckHealthResponse implements ResponseInterface
      * @param  bool $healthy
      * @return self
      */
-    public function setHealthy($healthy): self
+    public function setHealthy(bool $healthy): self
     {
-        $this->healthy = (bool) $healthy;
+        $this->healthy = $healthy;
         return $this;
     }
 }

@@ -46,7 +46,7 @@ class DeleteUCServiceBody extends Body
      * Constructor method for DeleteUCServiceBody
      * @return self
      */
-    public function __construct(DeleteUCServiceRequest $request = NULL, DeleteUCServiceResponse $response = NULL)
+    public function __construct(?DeleteUCServiceRequest $request = NULL, ?DeleteUCServiceResponse $response = NULL)
     {
         parent::__construct($request, $response);
     }
@@ -59,7 +59,7 @@ class DeleteUCServiceBody extends Body
         return $this;
     }
 
-    public function getRequest(): RequestInterface
+    public function getRequest(): ?RequestInterface
     {
         return $this->request;
     }

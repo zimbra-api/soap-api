@@ -101,13 +101,13 @@ class DumpSessionsResponse implements ResponseInterface
      * @param InfoForSessionType $waitsetSessions
      * @return self
      */
-    public function __construct($totalActiveSessions,
-        InfoForSessionType $soapSessions = NULL,
-        InfoForSessionType $imapSessions = NULL,
-        InfoForSessionType $adminSessions = NULL,
-        InfoForSessionType $wikiSessions = NULL,
-        InfoForSessionType $synclistenerSessions = NULL,
-        InfoForSessionType $waitsetSessions = NULL
+    public function __construct(int $totalActiveSessions,
+        ?InfoForSessionType $soapSessions = NULL,
+        ?InfoForSessionType $imapSessions = NULL,
+        ?InfoForSessionType $adminSessions = NULL,
+        ?InfoForSessionType $wikiSessions = NULL,
+        ?InfoForSessionType $synclistenerSessions = NULL,
+        ?InfoForSessionType $waitsetSessions = NULL
     )
     {
         $this->setTotalActiveSessions($totalActiveSessions);
@@ -136,7 +136,7 @@ class DumpSessionsResponse implements ResponseInterface
      *
      * @return int
      */
-    public function getTotalActiveSessions(): ?int
+    public function getTotalActiveSessions(): int
     {
         return $this->totalActiveSessions;
     }
@@ -147,9 +147,9 @@ class DumpSessionsResponse implements ResponseInterface
      * @param  int $totalActiveSessions
      * @return self
      */
-    public function setTotalActiveSessions($totalActiveSessions): self
+    public function setTotalActiveSessions(int $totalActiveSessions): self
     {
-        $this->totalActiveSessions = (int) $totalActiveSessions;
+        $this->totalActiveSessions = $totalActiveSessions;
         return $this;
     }
 
@@ -158,7 +158,7 @@ class DumpSessionsResponse implements ResponseInterface
      *
      * @return InfoForSessionType
      */
-    public function getSoapSessions(): InfoForSessionType
+    public function getSoapSessions(): ?InfoForSessionType
     {
         return $this->soapSessions;
     }
@@ -180,7 +180,7 @@ class DumpSessionsResponse implements ResponseInterface
      *
      * @return InfoForSessionType
      */
-    public function getImapSessions(): InfoForSessionType
+    public function getImapSessions(): ?InfoForSessionType
     {
         return $this->imapSessions;
     }
@@ -202,7 +202,7 @@ class DumpSessionsResponse implements ResponseInterface
      *
      * @return InfoForSessionType
      */
-    public function getAdminSessions(): InfoForSessionType
+    public function getAdminSessions(): ?InfoForSessionType
     {
         return $this->adminSessions;
     }
@@ -224,7 +224,7 @@ class DumpSessionsResponse implements ResponseInterface
      *
      * @return InfoForSessionType
      */
-    public function getWikiSessions(): InfoForSessionType
+    public function getWikiSessions(): ?InfoForSessionType
     {
         return $this->wikiSessions;
     }
@@ -246,7 +246,7 @@ class DumpSessionsResponse implements ResponseInterface
      *
      * @return InfoForSessionType
      */
-    public function getSynclistenerSessions(): InfoForSessionType
+    public function getSynclistenerSessions(): ?InfoForSessionType
     {
         return $this->synclistenerSessions;
     }
@@ -268,7 +268,7 @@ class DumpSessionsResponse implements ResponseInterface
      *
      * @return InfoForSessionType
      */
-    public function getWaitsetSessions(): InfoForSessionType
+    public function getWaitsetSessions(): ?InfoForSessionType
     {
         return $this->waitsetSessions;
     }

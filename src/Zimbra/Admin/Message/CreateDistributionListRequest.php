@@ -59,8 +59,8 @@ class CreateDistributionListRequest extends Request implements AdminAttrs
      * @return self
      */
     public function __construct(
-        $name,
-        $dynamic = NULL,
+        string $name,
+        ?bool $dynamic = NULL,
         array $attrs = []
     )
     {
@@ -76,7 +76,7 @@ class CreateDistributionListRequest extends Request implements AdminAttrs
      *
      * @return string
      */
-    public function getName(): ?string
+    public function getName(): string
     {
         return $this->name;
     }
@@ -87,9 +87,9 @@ class CreateDistributionListRequest extends Request implements AdminAttrs
      * @param  string $name
      * @return self
      */
-    public function setName($name): self
+    public function setName(string $name): self
     {
-        $this->name = trim($name);
+        $this->name = $name;
         return $this;
     }
 
@@ -109,9 +109,9 @@ class CreateDistributionListRequest extends Request implements AdminAttrs
      * @param  bool $dynamic
      * @return self
      */
-    public function setDynamic($dynamic): self
+    public function setDynamic(bool $dynamic): self
     {
-        $this->dynamic = (bool) $dynamic;
+        $this->dynamic = $dynamic;
         return $this;
     }
 

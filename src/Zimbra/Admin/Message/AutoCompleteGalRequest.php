@@ -83,11 +83,11 @@ class AutoCompleteGalRequest extends Request
      * @return self
      */
     public function __construct(
-        $domain,
-        $name,
-        GalSearchType $type = NULL,
-        $galAccountId = NULL,
-        $limit = NULL
+        string $domain,
+        string $name,
+        ?GalSearchType $type = NULL,
+        ?string $galAccountId = NULL,
+        ?int $limit = NULL
     )
     {
         $this->setDomain($domain)
@@ -108,7 +108,7 @@ class AutoCompleteGalRequest extends Request
      *
      * @return string
      */
-    public function getDomain(): ?string
+    public function getDomain(): string
     {
         return $this->domain;
     }
@@ -119,9 +119,9 @@ class AutoCompleteGalRequest extends Request
      * @param  string $domain
      * @return self
      */
-    public function setDomain($domain): self
+    public function setDomain(string $domain): self
     {
-        $this->domain = trim($domain);
+        $this->domain = $domain;
         return $this;
     }
 
@@ -130,7 +130,7 @@ class AutoCompleteGalRequest extends Request
      *
      * @return string
      */
-    public function getName(): ?string
+    public function getName(): string
     {
         return $this->name;
     }
@@ -141,9 +141,9 @@ class AutoCompleteGalRequest extends Request
      * @param  string $name
      * @return self
      */
-    public function setName($name): self
+    public function setName(string $name): self
     {
-        $this->name = trim($name);
+        $this->name = $name;
         return $this;
     }
 
@@ -152,7 +152,7 @@ class AutoCompleteGalRequest extends Request
      *
      * @return GalSearchType
      */
-    public function getType(): GalSearchType
+    public function getType(): ?GalSearchType
     {
         return $this->type;
     }
@@ -185,9 +185,9 @@ class AutoCompleteGalRequest extends Request
      * @param  string $galAccountId
      * @return self
      */
-    public function setGalAccountId($galAccountId): self
+    public function setGalAccountId(string $galAccountId): self
     {
-        $this->galAccountId = trim($galAccountId);
+        $this->galAccountId = $galAccountId;
         return $this;
     }
 
@@ -196,7 +196,7 @@ class AutoCompleteGalRequest extends Request
      *
      * @return int
      */
-    public function getLimit()
+    public function getLimit(): ?int
     {
         return $this->limit;
     }
@@ -207,9 +207,9 @@ class AutoCompleteGalRequest extends Request
      * @param  int $limit
      * @return self
      */
-    public function setLimit($limit): self
+    public function setLimit(int $limit): self
     {
-        $this->limit = (int) $limit;
+        $this->limit = $limit;
         return $this;
     }
 

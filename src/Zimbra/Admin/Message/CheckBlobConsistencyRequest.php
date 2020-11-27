@@ -78,7 +78,7 @@ class CheckBlobConsistencyRequest extends Request
      * @param  array  $mailboxes
      * @return self
      */
-    public function __construct($checkSize = NULL, $reportUsedBlobs = NULL, array $volumes = [], array $mailboxes = [])
+    public function __construct(?bool $checkSize = NULL, ?bool $reportUsedBlobs = NULL, array $volumes = [], array $mailboxes = [])
     {
         if (NULL !== $checkSize) {
             $this->setCheckSize($checkSize);
@@ -95,7 +95,7 @@ class CheckBlobConsistencyRequest extends Request
      *
      * @return bool
      */
-    public function getCheckSize(): bool
+    public function getCheckSize(): ?bool
     {
         return $this->checkSize;
     }
@@ -106,9 +106,9 @@ class CheckBlobConsistencyRequest extends Request
      * @param  bool $checkSize
      * @return self
      */
-    public function setCheckSize($checkSize): self
+    public function setCheckSize(bool $checkSize): self
     {
-        $this->checkSize = (bool) $checkSize;
+        $this->checkSize = $checkSize;
         return $this;
     }
 
@@ -117,7 +117,7 @@ class CheckBlobConsistencyRequest extends Request
      *
      * @return bool
      */
-    public function getReportUsedBlobs(): bool
+    public function getReportUsedBlobs(): ?bool
     {
         return $this->reportUsedBlobs;
     }
@@ -128,9 +128,9 @@ class CheckBlobConsistencyRequest extends Request
      * @param  bool $checkSize
      * @return self
      */
-    public function setReportUsedBlobs($reportUsedBlobs): self
+    public function setReportUsedBlobs(bool $reportUsedBlobs): self
     {
-        $this->reportUsedBlobs = (bool) $reportUsedBlobs;
+        $this->reportUsedBlobs = $reportUsedBlobs;
         return $this;
     }
 

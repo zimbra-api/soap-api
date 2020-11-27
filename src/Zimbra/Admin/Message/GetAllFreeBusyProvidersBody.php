@@ -46,7 +46,7 @@ class GetAllFreeBusyProvidersBody extends Body
      * Constructor method for GetAllFreeBusyProvidersBody
      * @return self
      */
-    public function __construct(GetAllFreeBusyProvidersRequest $request = NULL, GetAllFreeBusyProvidersResponse $response = NULL)
+    public function __construct(?GetAllFreeBusyProvidersRequest $request = NULL, ?GetAllFreeBusyProvidersResponse $response = NULL)
     {
         parent::__construct($request, $response);
     }
@@ -59,7 +59,7 @@ class GetAllFreeBusyProvidersBody extends Body
         return $this;
     }
 
-    public function getRequest(): RequestInterface
+    public function getRequest(): ?RequestInterface
     {
         return $this->request;
     }
@@ -72,7 +72,7 @@ class GetAllFreeBusyProvidersBody extends Body
         return $this;
     }
 
-    public function getResponse(): ResponseInterface
+    public function getResponse(): ?ResponseInterface
     {
         return $this->response;
     }

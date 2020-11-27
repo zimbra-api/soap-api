@@ -46,7 +46,7 @@ class GetAccountMembershipBody extends Body
      * Constructor method for GetAccountMembershipBody
      * @return self
      */
-    public function __construct(GetAccountMembershipRequest $request = NULL, GetAccountMembershipResponse $response = NULL)
+    public function __construct(?GetAccountMembershipRequest $request = NULL, ?GetAccountMembershipResponse $response = NULL)
     {
         parent::__construct($request, $response);
     }
@@ -59,7 +59,7 @@ class GetAccountMembershipBody extends Body
         return $this;
     }
 
-    public function getRequest(): RequestInterface
+    public function getRequest(): ?RequestInterface
     {
         return $this->request;
     }
@@ -72,7 +72,7 @@ class GetAccountMembershipBody extends Body
         return $this;
     }
 
-    public function getResponse(): ResponseInterface
+    public function getResponse(): ?ResponseInterface
     {
         return $this->response;
     }

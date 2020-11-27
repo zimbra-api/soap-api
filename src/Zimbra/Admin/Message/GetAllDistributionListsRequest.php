@@ -42,7 +42,7 @@ class GetAllDistributionListsRequest extends Request
      * @param  Domain $domain
      * @return self
      */
-    public function __construct(Domain $domain = NULL)
+    public function __construct(?Domain $domain = NULL)
     {
         if ($domain instanceof Domain) {
             $this->setDomain($domain);
@@ -54,7 +54,7 @@ class GetAllDistributionListsRequest extends Request
      *
      * @return Domain
      */
-    public function getDomain(): Domain
+    public function getDomain(): ?Domain
     {
         return $this->domain;
     }

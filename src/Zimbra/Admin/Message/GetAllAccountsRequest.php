@@ -53,7 +53,7 @@ class GetAllAccountsRequest extends Request
      * @param  Domain $domain
      * @return self
      */
-    public function __construct(Server $server = NULL, Domain $domain = NULL)
+    public function __construct(?Server $server = NULL, ?Domain $domain = NULL)
     {
         if ($server instanceof Server) {
             $this->setServer($server);
@@ -68,7 +68,7 @@ class GetAllAccountsRequest extends Request
      *
      * @return Server
      */
-    public function getServer(): Server
+    public function getServer(): ?Server
     {
         return $this->server;
     }
@@ -90,7 +90,7 @@ class GetAllAccountsRequest extends Request
      *
      * @return Domain
      */
-    public function getDomain(): Domain
+    public function getDomain(): ?Domain
     {
         return $this->domain;
     }

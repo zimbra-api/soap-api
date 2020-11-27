@@ -57,7 +57,7 @@ class CreateDataSourceRequest extends Request
      * @return self
      */
     public function __construct(
-        $id,
+        string $id,
         DataSourceSpecifier $dataSource
     )
     {
@@ -70,7 +70,7 @@ class CreateDataSourceRequest extends Request
      *
      * @return string
      */
-    public function getId(): ?string
+    public function getId(): string
     {
         return $this->id;
     }
@@ -81,9 +81,9 @@ class CreateDataSourceRequest extends Request
      * @param  string $id
      * @return self
      */
-    public function setId($id): self
+    public function setId(string $id): self
     {
-        $this->id = trim($id);
+        $this->id = $id;
         return $this;
     }
 

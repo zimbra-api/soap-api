@@ -47,7 +47,7 @@ class AuthRequest extends Request
     private $password;
 
     /**
-     * An authToken can be passed instead of account/password/name to validate an existing auth token.
+     * An authToken can be passed instead of account/password/name to validate an existing auth authToken.
      * @Accessor(getter="getAuthToken", setter="setAuthToken")
      * @SerializedName("authToken")
      * @Type("string")
@@ -56,7 +56,7 @@ class AuthRequest extends Request
     private $authToken;
 
     /**
-     * Account
+     * The account
      * @Accessor(getter="getAccount", setter="setAccount")
      * @SerializedName("account")
      * @Type("Zimbra\Struct\AccountSelector")
@@ -74,7 +74,7 @@ class AuthRequest extends Request
     private $virtualHost;
 
     /**
-     * Controls whether the auth token cookie in the response should be persisted when the browser exits.
+     * Controls whether the auth authToken cookie in the response should be persisted when the browser exits.
      * @Accessor(getter="getPersistAuthTokenCookie", setter="setPersistAuthTokenCookie")
      * @SerializedName("persistAuthTokenCookie")
      * @Type("bool")
@@ -92,7 +92,7 @@ class AuthRequest extends Request
     private $csrfSupported;
 
     /**
-     * the TOTP code used for two-factor authentication
+     * The TOTP code used for two-factor authentication
      * @Accessor(getter="getTwoFactorCode", setter="setTwoFactorCode")
      * @SerializedName("twoFactorCode")
      * @Type("string")
@@ -102,25 +102,25 @@ class AuthRequest extends Request
 
     /**
      * Constructor method for AuthRequest
-     * @param string  $name Name. Only one of {auth-name} or <account> can be specified
-     * @param string  $password Password - must be present if not using AuthToken
-     * @param string  $authToken An authToken can be passed instead of account/password/name to validate an existing auth authToken.
-     * @param Account $account The account
-     * @param string  $virtualHost Virtual host
-     * @param bool    $persistAuthTokenCookie Controls whether the auth authToken cookie in the response should be persisted when the browser exits.
-     * @param bool    $csrfSupported Controls whether the client supports CSRF token
-     * @param string  $twoFactorCode The TOTP code used for two-factor authentication
+     * @param string  $name
+     * @param string  $password
+     * @param string  $authToken
+     * @param Account $account
+     * @param string  $virtualHost
+     * @param bool    $persistAuthTokenCookie
+     * @param bool    $csrfSupported
+     * @param string  $twoFactorCode
      * @return self
      */
     public function __construct(
-        $name = NULL,
-        $password = NULL,
-        $authToken = NULL,
-        Account $account = NULL,
-        $virtualHost = NULL,
-        $persistAuthTokenCookie = NULL,
-        $csrfSupported = NULL,
-        $twoFactorCode = NULL
+        ?string $name = NULL,
+        ?string $password = NULL,
+        ?string $authToken = NULL,
+        ?Account $account = NULL,
+        ?string $virtualHost = NULL,
+        ?bool $persistAuthTokenCookie = NULL,
+        ?bool $csrfSupported = NULL,
+        ?string $twoFactorCode = NULL
     )
     {
         if (NULL !== $name) {
@@ -165,9 +165,9 @@ class AuthRequest extends Request
      * @param  string $name
      * @return self
      */
-    public function setName($name): self
+    public function setName(string $name): self
     {
-        $this->name = trim($name);
+        $this->name = $name;
         return $this;
     }
 
@@ -187,9 +187,9 @@ class AuthRequest extends Request
      * @param  string $password
      * @return self
      */
-    public function setPassword($password): self
+    public function setPassword(string $password): self
     {
-        $this->password = trim($password);
+        $this->password = $password;
         return $this;
     }
 
@@ -209,9 +209,9 @@ class AuthRequest extends Request
      * @param  string $authToken
      * @return self
      */
-    public function setAuthToken($authToken): self
+    public function setAuthToken(string $authToken): self
     {
-        $this->authToken = trim($authToken);
+        $this->authToken = $authToken;
         return $this;
     }
 
@@ -220,7 +220,7 @@ class AuthRequest extends Request
      *
      * @return Account
      */
-    public function getAccount(): Account
+    public function getAccount(): ?Account
     {
         return $this->account;
     }
@@ -253,9 +253,9 @@ class AuthRequest extends Request
      * @param  string $virtualHost
      * @return self
      */
-    public function setVirtualHost($virtualHost): self
+    public function setVirtualHost(string $virtualHost): self
     {
-        $this->virtualHost = trim($virtualHost);
+        $this->virtualHost = $virtualHost;
         return $this;
     }
 
@@ -264,7 +264,7 @@ class AuthRequest extends Request
      *
      * @return bool
      */
-    public function getPersistAuthTokenCookie()
+    public function getPersistAuthTokenCookie(): ?bool
     {
         return $this->persistAuthTokenCookie;
     }
@@ -275,9 +275,9 @@ class AuthRequest extends Request
      * @param  bool $persistAuthTokenCookie
      * @return self
      */
-    public function setPersistAuthTokenCookie($persistAuthTokenCookie): self
+    public function setPersistAuthTokenCookie(bool $persistAuthTokenCookie): self
     {
-        $this->persistAuthTokenCookie = (bool) $persistAuthTokenCookie;
+        $this->persistAuthTokenCookie = $persistAuthTokenCookie;
         return $this;
     }
 
@@ -286,7 +286,7 @@ class AuthRequest extends Request
      *
      * @return bool
      */
-    public function getCsrfSupported()
+    public function getCsrfSupported(): ?bool
     {
         return $this->csrfSupported;
     }
@@ -297,9 +297,9 @@ class AuthRequest extends Request
      * @param  bool $csrfSupported
      * @return self
      */
-    public function setCsrfSupported($csrfSupported): self
+    public function setCsrfSupported(bool $csrfSupported): self
     {
-        $this->csrfSupported = (bool) $csrfSupported;
+        $this->csrfSupported = $csrfSupported;
         return $this;
     }
 
@@ -319,9 +319,9 @@ class AuthRequest extends Request
      * @param  string $twoFactorCode
      * @return self
      */
-    public function setTwoFactorCode($twoFactorCode): self
+    public function setTwoFactorCode(string $twoFactorCode): self
     {
-        $this->twoFactorCode = trim($twoFactorCode);
+        $this->twoFactorCode = $twoFactorCode;
         return $this;
     }
 

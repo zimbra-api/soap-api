@@ -47,11 +47,11 @@ class DeleteDistributionListRequest extends Request
 
     /**
      * Constructor method for DeleteDistributionListRequest
-     * @param  string $id Zimbra ID
+     * @param  string $id
      * @param  bool $cascadeDelete
      * @return self
      */
-    public function __construct($id, $cascadeDelete = NULL)
+    public function __construct(string $id, ?bool $cascadeDelete = NULL)
     {
         $this->setId($id);
         if (NULL !== $cascadeDelete) {
@@ -75,9 +75,9 @@ class DeleteDistributionListRequest extends Request
      * @param  string $id
      * @return self
      */
-    public function setId($id): self
+    public function setId(string $id): self
     {
-        $this->id = trim($id);
+        $this->id = $id;
         return $this;
     }
 
@@ -86,7 +86,7 @@ class DeleteDistributionListRequest extends Request
      *
      * @return bool
      */
-    public function isCascadeDelete(): bool
+    public function isCascadeDelete(): ?bool
     {
         return $this->cascadeDelete;
     }
@@ -97,9 +97,9 @@ class DeleteDistributionListRequest extends Request
      * @param  bool $cascadeDelete
      * @return self
      */
-    public function setCascadeDelete($cascadeDelete): self
+    public function setCascadeDelete(bool $cascadeDelete): self
     {
-        $this->cascadeDelete = (bool) $cascadeDelete;
+        $this->cascadeDelete = $cascadeDelete;
         return $this;
     }
 

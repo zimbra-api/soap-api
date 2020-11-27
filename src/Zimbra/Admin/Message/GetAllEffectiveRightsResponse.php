@@ -66,7 +66,7 @@ class GetAllEffectiveRightsResponse implements ResponseInterface
      *
      * @return GranteeInfo
      */
-    public function getGrantee(): GranteeInfo
+    public function getGrantee(): ?GranteeInfo
     {
         return $this->grantee;
     }

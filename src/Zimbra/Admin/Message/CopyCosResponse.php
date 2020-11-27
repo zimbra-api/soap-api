@@ -41,7 +41,7 @@ class CopyCosResponse implements ResponseInterface
      * @param CosInfo $cos
      * @return self
      */
-    public function __construct(CosInfo $cos = NULL)
+    public function __construct(?CosInfo $cos = NULL)
     {
         if ($cos instanceof CosInfo) {
             $this->setCos($cos);
@@ -53,7 +53,7 @@ class CopyCosResponse implements ResponseInterface
      *
      * @return CosInfo
      */
-    public function getCos(): CosInfo
+    public function getCos(): ?CosInfo
     {
         return $this->cos;
     }

@@ -41,7 +41,7 @@ class GetAllDomainsRequest extends Request
      * @param  bool $applyConfig
      * @return self
      */
-    public function __construct($applyConfig = NULL)
+    public function __construct(?bool $applyConfig = NULL)
     {
         if (NULL !== $applyConfig) {
             $this->setApplyConfig($applyConfig);
@@ -53,7 +53,7 @@ class GetAllDomainsRequest extends Request
      *
      * @return bool
      */
-    public function isApplyConfig(): bool
+    public function isApplyConfig(): ?bool
     {
         return $this->applyConfig;
     }
@@ -64,9 +64,9 @@ class GetAllDomainsRequest extends Request
      * @param  bool $applyConfig
      * @return self
      */
-    public function setApplyConfig($applyConfig): self
+    public function setApplyConfig(bool $applyConfig): self
     {
-        $this->applyConfig = (bool) $applyConfig;
+        $this->applyConfig = $applyConfig;
         return $this;
     }
 

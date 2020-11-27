@@ -44,7 +44,7 @@ class AdminDestroyWaitSetRequest extends Request
      * @param string  $waitSetId
      * @return self
      */
-    public function __construct($waitSetId)
+    public function __construct(string $waitSetId)
     {
         $this->setWaitSetId($waitSetId);
     }
@@ -54,7 +54,7 @@ class AdminDestroyWaitSetRequest extends Request
      *
      * @return string
      */
-    public function getWaitSetId(): ?string
+    public function getWaitSetId(): string
     {
         return $this->waitSetId;
     }
@@ -65,9 +65,9 @@ class AdminDestroyWaitSetRequest extends Request
      * @param  string $waitSetId
      * @return self
      */
-    public function setWaitSetId($waitSetId): self
+    public function setWaitSetId(string $waitSetId): self
     {
-        $this->waitSetId = trim($waitSetId);
+        $this->waitSetId = $waitSetId;
         return $this;
     }
 

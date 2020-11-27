@@ -46,7 +46,7 @@ class DumpSessionsBody extends Body
      * Constructor method for DumpSessionsBody
      * @return self
      */
-    public function __construct(DumpSessionsRequest $request = NULL, DumpSessionsResponse $response = NULL)
+    public function __construct(?DumpSessionsRequest $request = NULL, ?DumpSessionsResponse $response = NULL)
     {
         parent::__construct($request, $response);
     }
@@ -59,7 +59,7 @@ class DumpSessionsBody extends Body
         return $this;
     }
 
-    public function getRequest(): RequestInterface
+    public function getRequest(): ?RequestInterface
     {
         return $this->request;
     }
@@ -72,7 +72,7 @@ class DumpSessionsBody extends Body
         return $this;
     }
 
-    public function getResponse(): ResponseInterface
+    public function getResponse(): ?ResponseInterface
     {
         return $this->response;
     }

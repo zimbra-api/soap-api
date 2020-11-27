@@ -88,7 +88,7 @@ class GetAllEffectiveRightsRequest extends Request
      * @param  string $expandAllAttrs
      * @return self
      */
-    public function setExpandAllAttrs($expandAllAttrs): self
+    public function setExpandAllAttrs(string $expandAllAttrs): self
     {
         $this->expandAllAttrs = '';
         $attrs = [];

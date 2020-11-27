@@ -34,7 +34,7 @@ class CheckExchangeAuthRequest extends Request
      * @Accessor(getter="getAuth", setter="setAuth")
      * @SerializedName("auth")
      * @Type("Zimbra\Admin\Struct\ExchangeAuthSpec")
-     * @XmlElement()
+     * @XmlElement
      */
     private $auth;
 
@@ -43,7 +43,7 @@ class CheckExchangeAuthRequest extends Request
      * @param  ExchangeAuthSpec  $auth
      * @return self
      */
-    public function __construct(ExchangeAuthSpec $auth = NULL)
+    public function __construct(?ExchangeAuthSpec $auth = NULL)
     {
         if ($auth instanceof ExchangeAuthSpec) {
             $this->setAuth($auth);
@@ -67,7 +67,7 @@ class CheckExchangeAuthRequest extends Request
      *
      * @return ExchangeAuthSpec
      */
-    public function getAuth(): ExchangeAuthSpec
+    public function getAuth(): ?ExchangeAuthSpec
     {
         return $this->auth;
     }

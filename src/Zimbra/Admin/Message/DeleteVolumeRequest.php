@@ -41,7 +41,7 @@ class DeleteVolumeRequest extends Request
      * @param  int $id
      * @return self
      */
-    public function __construct($id)
+    public function __construct(int $id)
     {
         $this->setId($id);
     }
@@ -62,9 +62,9 @@ class DeleteVolumeRequest extends Request
      * @param  int $id
      * @return self
      */
-    public function setId($id): self
+    public function setId(int $id): self
     {
-        $this->id = (int) $id;
+        $this->id = $id;
         return $this;
     }
 

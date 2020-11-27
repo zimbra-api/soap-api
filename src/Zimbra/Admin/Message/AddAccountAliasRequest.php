@@ -28,6 +28,7 @@ use Zimbra\Soap\Request;
 class AddAccountAliasRequest extends Request
 {
     /**
+     * Zimbra ID
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
@@ -36,6 +37,7 @@ class AddAccountAliasRequest extends Request
     private $id;
 
     /**
+     * Alias
      * @Accessor(getter="getAlias", setter="setAlias")
      * @SerializedName("alias")
      * @Type("string")
@@ -45,11 +47,11 @@ class AddAccountAliasRequest extends Request
 
     /**
      * Constructor method for AddAccountAliasRequest
-     * @param  string $id Zimbra ID
-     * @param  string $alias Alias
+     * @param  string $id
+     * @param  string $alias
      * @return self
      */
-    public function __construct($id, $alias)
+    public function __construct(string $id, string $alias)
     {
         $this->setId($id)
              ->setAlias($alias);
@@ -71,9 +73,9 @@ class AddAccountAliasRequest extends Request
      * @param  string $id
      * @return self
      */
-    public function setId($id): self
+    public function setId(string $id): self
     {
-        $this->id = trim($id);
+        $this->id = $id;
         return $this;
     }
 
@@ -93,9 +95,9 @@ class AddAccountAliasRequest extends Request
      * @param  string $alias
      * @return self
      */
-    public function setAlias($alias): self
+    public function setAlias(string $alias): self
     {
-        $this->alias = trim($alias);
+        $this->alias = $alias;
         return $this;
     }
 

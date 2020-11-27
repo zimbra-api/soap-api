@@ -73,7 +73,7 @@ class AutoCompleteGalResponse implements ResponseInterface
      * @return self
      */
     public function __construct(
-        $more = NULL, $tokenizeKey = NULL, $pagingSupported = NULL, array $contacts = []
+        ?bool $more = NULL, ?bool $tokenizeKey = NULL, ?bool $pagingSupported = NULL, array $contacts = []
     )
     {
         if (NULL !== $more) {
@@ -104,9 +104,9 @@ class AutoCompleteGalResponse implements ResponseInterface
      * @param  bool $more
      * @return self
      */
-    public function setMore($more): self
+    public function setMore(bool $more): self
     {
-        $this->more = (bool) $more;
+        $this->more = $more;
         return $this;
     }
 
@@ -126,9 +126,9 @@ class AutoCompleteGalResponse implements ResponseInterface
      * @param  bool $tokenizeKey
      * @return self
      */
-    public function setTokenizeKey($tokenizeKey): self
+    public function setTokenizeKey(bool $tokenizeKey): self
     {
-        $this->tokenizeKey = (bool) $tokenizeKey;
+        $this->tokenizeKey = $tokenizeKey;
         return $this;
     }
 
@@ -148,9 +148,9 @@ class AutoCompleteGalResponse implements ResponseInterface
      * @param  bool $pagingSupported
      * @return self
      */
-    public function setPagingSupported($pagingSupported): self
+    public function setPagingSupported(bool $pagingSupported): self
     {
-        $this->pagingSupported = (bool) $pagingSupported;
+        $this->pagingSupported = $pagingSupported;
         return $this;
     }
 
@@ -188,7 +188,7 @@ class AutoCompleteGalResponse implements ResponseInterface
      *
      * @return array
      */
-    public function getContacts(): ?array
+    public function getContacts(): array
     {
         return $this->contacts;
     }

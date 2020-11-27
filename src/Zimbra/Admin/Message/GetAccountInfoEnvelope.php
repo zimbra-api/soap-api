@@ -39,7 +39,7 @@ class GetAccountInfoEnvelope extends Envelope
      * Constructor method for GetAccountInfoEnvelope
      * @return self
      */
-    public function __construct(GetAccountInfoBody $body = NULL, Header $header = NULL)
+    public function __construct(?GetAccountInfoBody $body = NULL, ?Header $header = NULL)
     {
         parent::__construct($body, $header);
     }
@@ -49,7 +49,7 @@ class GetAccountInfoEnvelope extends Envelope
      *
      * @return BodyInterface
      */
-    public function getBody(): BodyInterface
+    public function getBody(): ?BodyInterface
     {
         return $this->body;
     }

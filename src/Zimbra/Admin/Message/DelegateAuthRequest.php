@@ -55,7 +55,7 @@ class DelegateAuthRequest extends Request
      * @param  int     $duration
      * @return self
      */
-    public function __construct(Account $account, $duration = NULL)
+    public function __construct(Account $account, ?int $duration = NULL)
     {
         $this->setAccount($account);
         if (NULL !== $duration) {
@@ -101,9 +101,9 @@ class DelegateAuthRequest extends Request
      * @param  integer $id
      * @return self
      */
-    public function setDuration($duration): self
+    public function setDuration(int $duration): self
     {
-        $this->duration = (int) $duration;
+        $this->duration = $duration;
         return $this;
     }
 

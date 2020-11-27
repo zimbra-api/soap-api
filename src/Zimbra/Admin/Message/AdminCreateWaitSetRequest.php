@@ -66,8 +66,8 @@ class AdminCreateWaitSetRequest extends Request
      * @return self
      */
     public function __construct(
-        $defaultInterests,
-        $allAccounts = NULL,
+        string $defaultInterests,
+        ?bool $allAccounts = NULL,
         array $accounts = [])
     {
         $this->setDefaultInterests($defaultInterests)
@@ -82,7 +82,7 @@ class AdminCreateWaitSetRequest extends Request
      *
      * @return string
      */
-    public function getDefaultInterests(): ?string
+    public function getDefaultInterests(): string
     {
         return $this->defaultInterests;
     }
@@ -93,9 +93,9 @@ class AdminCreateWaitSetRequest extends Request
      * @param  string $defaultInterests
      * @return self
      */
-    public function setDefaultInterests($defaultInterests): self
+    public function setDefaultInterests(string $defaultInterests): self
     {
-        $this->defaultInterests = trim($defaultInterests);
+        $this->defaultInterests = $defaultInterests;
         return $this;
     }
 
@@ -115,9 +115,9 @@ class AdminCreateWaitSetRequest extends Request
      * @param  bool $allAccounts
      * @return self
      */
-    public function setAllAccounts($allAccounts): self
+    public function setAllAccounts(bool $allAccounts): self
     {
-        $this->allAccounts = (bool) $allAccounts;
+        $this->allAccounts = $allAccounts;
         return $this;
     }
 
@@ -155,7 +155,7 @@ class AdminCreateWaitSetRequest extends Request
      *
      * @return array
      */
-    public function getAccounts(): ?array
+    public function getAccounts(): array
     {
         return $this->accounts;
     }

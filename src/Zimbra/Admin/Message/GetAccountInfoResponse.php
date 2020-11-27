@@ -94,12 +94,12 @@ class GetAccountInfoResponse implements ResponseInterface
      * @return self
      */
     public function __construct(
-        $name,
+        string $name,
         array $attrList = [],
-        CosInfo $cos = NULL,
+        ?CosInfo $cos = NULL,
         array $soapURLList = [],
-        $adminSoapURL = NULL,
-        $publicMailURL = NULL
+        string $adminSoapURL = NULL,
+        string $publicMailURL = NULL
     )
     {
         $this->setName($name)
@@ -132,9 +132,9 @@ class GetAccountInfoResponse implements ResponseInterface
      * @param  string $name
      * @return self
      */
-    public function setName($name): self
+    public function setName(string $name): self
     {
-        $this->name = trim($name);
+        $this->name = $name;
         return $this;
     }
 
@@ -172,7 +172,7 @@ class GetAccountInfoResponse implements ResponseInterface
      *
      * @return array
      */
-    public function getAttrList(): ?array
+    public function getAttrList(): array
     {
         return $this->attrs;
     }
@@ -182,7 +182,7 @@ class GetAccountInfoResponse implements ResponseInterface
      *
      * @return CosInfo
      */
-    public function getCos(): CosInfo
+    public function getCos(): ?CosInfo
     {
         return $this->cos;
     }
@@ -244,7 +244,7 @@ class GetAccountInfoResponse implements ResponseInterface
      *
      * @return string
      */
-    public function getAdminSoapURL(): string
+    public function getAdminSoapURL(): ?string
     {
         return $this->adminSoapURL;
     }
@@ -255,9 +255,9 @@ class GetAccountInfoResponse implements ResponseInterface
      * @param  string $adminSoapURL
      * @return self
      */
-    public function setAdminSoapURL($adminSoapURL): self
+    public function setAdminSoapURL(string $adminSoapURL): self
     {
-        $this->adminSoapURL = trim($adminSoapURL);
+        $this->adminSoapURL = $adminSoapURL;
         return $this;
     }
 
@@ -266,7 +266,7 @@ class GetAccountInfoResponse implements ResponseInterface
      *
      * @return string
      */
-    public function getPublicMailURL(): string
+    public function getPublicMailURL(): ?string
     {
         return $this->publicMailURL;
     }
@@ -277,9 +277,9 @@ class GetAccountInfoResponse implements ResponseInterface
      * @param  string $publicMailURL
      * @return self
      */
-    public function setPublicMailURL($publicMailURL): self
+    public function setPublicMailURL(string $publicMailURL): self
     {
-        $this->publicMailURL = trim($publicMailURL);
+        $this->publicMailURL = $publicMailURL;
         return $this;
     }
 }

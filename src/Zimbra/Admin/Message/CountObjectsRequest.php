@@ -84,7 +84,12 @@ class CountObjectsRequest extends Request
      * @param  bool $onlyRelated
      * @return self
      */
-    public function __construct(CountObjectsType $type, array $domains = [], UcServiceSelector $ucService = NULL, $onlyRelated = NULL)
+    public function __construct(
+        CountObjectsType $type,
+        array $domains = [],
+        ?UcServiceSelector $ucService = NULL,
+        ?bool $onlyRelated = NULL
+    )
     {
         $this->setType($type)
              ->setDomains($domains);
@@ -134,9 +139,9 @@ class CountObjectsRequest extends Request
      * @param  bool $onlyRelated
      * @return self
      */
-    public function setOnlyRelated($onlyRelated): self
+    public function setOnlyRelated(bool $onlyRelated): self
     {
-        $this->onlyRelated = (bool) $onlyRelated;
+        $this->onlyRelated = $onlyRelated;
         return $this;
     }
 
@@ -184,7 +189,7 @@ class CountObjectsRequest extends Request
      *
      * @return UcServiceSelector
      */
-    public function getUcService(): UcServiceSelector
+    public function getUcService(): ?UcServiceSelector
     {
         return $this->ucService;
     }

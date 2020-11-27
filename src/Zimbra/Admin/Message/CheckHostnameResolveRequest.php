@@ -41,7 +41,7 @@ class CheckHostnameResolveRequest extends Request
      * @param  string $hostname
      * @return self
      */
-    public function __construct($hostname = NULL)
+    public function __construct(?string $hostname = NULL)
     {
         if (NULL !== $hostname) {
 	        $this->setHostname($hostname);
@@ -53,7 +53,7 @@ class CheckHostnameResolveRequest extends Request
      *
      * @return string
      */
-    public function getHostname(): string
+    public function getHostname(): ?string
     {
         return $this->hostname;
     }
@@ -64,9 +64,9 @@ class CheckHostnameResolveRequest extends Request
      * @param  string $hostname
      * @return self
      */
-    public function setHostname($hostname): self
+    public function setHostname(string $hostname): self
     {
-        $this->hostname = trim($hostname);
+        $this->hostname = $hostname;
         return $this;
     }
 

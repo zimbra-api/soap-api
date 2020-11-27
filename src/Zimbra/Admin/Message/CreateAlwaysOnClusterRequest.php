@@ -47,7 +47,7 @@ class CreateAlwaysOnClusterRequest extends Request implements AdminAttrs
      * @return self
      */
     public function __construct(
-        $name,
+        string $name,
         array $attrs = []
     )
     {
@@ -60,7 +60,7 @@ class CreateAlwaysOnClusterRequest extends Request implements AdminAttrs
      *
      * @return string
      */
-    public function getName(): ?string
+    public function getName(): string
     {
         return $this->name;
     }
@@ -71,9 +71,9 @@ class CreateAlwaysOnClusterRequest extends Request implements AdminAttrs
      * @param  string $name
      * @return self
      */
-    public function setName($name): self
+    public function setName(string $name): self
     {
-        $this->name = trim($name);
+        $this->name = $name;
         return $this;
     }
 

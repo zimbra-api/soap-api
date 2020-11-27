@@ -33,7 +33,7 @@ class ChangePrimaryEmailRequest extends Request
      * @Accessor(getter="getAccount", setter="setAccount")
      * @SerializedName("account")
      * @Type("Zimbra\Struct\AccountSelector")
-     * @XmlElement()
+     * @XmlElement
      */
     private $account;
 
@@ -48,11 +48,11 @@ class ChangePrimaryEmailRequest extends Request
 
     /**
      * Constructor method for ChangePrimaryEmailRequest
-     * @param Account $account Specifies the account to be changed
-     * @param string  $newName New account name
+     * @param Account $account
+     * @param string  $newName
      * @return self
      */
-    public function __construct(Account $account, $newName)
+    public function __construct(Account $account, string $newName)
     {
         $this->setAccount($account)
              ->setNewName($newName);
@@ -96,9 +96,9 @@ class ChangePrimaryEmailRequest extends Request
      * @param  string $newName
      * @return self
      */
-    public function setNewName($newName): self
+    public function setNewName(string $newName): self
     {
-        $this->newName = trim($newName);
+        $this->newName = $newName;
         return $this;
     }
 

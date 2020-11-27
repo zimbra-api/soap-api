@@ -137,12 +137,12 @@ class AdminWaitSetRequest extends Request
      * @return self
      */
     public function __construct(
-        $waitSetId,
-        $lastKnownSeqNo,
-        $block = NULL,
-        $expand = NULL,
-        $defaultInterests = NULL,
-        $timeout = NULL,
+        string $waitSetId,
+        string $lastKnownSeqNo,
+        ?bool $block = NULL,
+        ?bool $expand = NULL,
+        ?string $defaultInterests = NULL,
+        ?int $timeout = NULL,
         array $addAccounts = [],
         array $updateAccounts = [],
         array $removeAccounts = []
@@ -183,9 +183,9 @@ class AdminWaitSetRequest extends Request
      * @param  string $waitSetId
      * @return self
      */
-    public function setWaitSetId($waitSetId): self
+    public function setWaitSetId(string $waitSetId): self
     {
-        $this->waitSetId = trim($waitSetId);
+        $this->waitSetId = $waitSetId;
         return $this;
     }
 
@@ -205,9 +205,9 @@ class AdminWaitSetRequest extends Request
      * @param  string $lastKnownSeqNo
      * @return self
      */
-    public function setLastKnownSeqNo($lastKnownSeqNo): self
+    public function setLastKnownSeqNo(string $lastKnownSeqNo): self
     {
-        $this->lastKnownSeqNo = trim($lastKnownSeqNo);
+        $this->lastKnownSeqNo = $lastKnownSeqNo;
         return $this;
     }
 
@@ -227,9 +227,9 @@ class AdminWaitSetRequest extends Request
      * @param  bool $block
      * @return self
      */
-    public function setBlock($block): self
+    public function setBlock(bool $block): self
     {
-        $this->block = (bool) $block;
+        $this->block = $block;
         return $this;
     }
 
@@ -249,9 +249,9 @@ class AdminWaitSetRequest extends Request
      * @param  bool $expand
      * @return self
      */
-    public function setExpand($expand): self
+    public function setExpand(bool $expand): self
     {
-        $this->expand = (bool) $expand;
+        $this->expand = $expand;
         return $this;
     }
 
@@ -271,9 +271,9 @@ class AdminWaitSetRequest extends Request
      * @param  string $defaultInterests
      * @return self
      */
-    public function setDefaultInterests($defaultInterests): self
+    public function setDefaultInterests(string $defaultInterests): self
     {
-        $this->defaultInterests = trim($defaultInterests);
+        $this->defaultInterests = $defaultInterests;
         return $this;
     }
 
@@ -293,9 +293,9 @@ class AdminWaitSetRequest extends Request
      * @param  int $timeout
      * @return self
      */
-    public function setTimeout($timeout): self
+    public function setTimeout(int $timeout): self
     {
-        $this->timeout = (int) $timeout;
+        $this->timeout = $timeout;
         return $this;
     }
 

@@ -39,7 +39,7 @@ class GetAllAccountLoggersEnvelope extends Envelope
      * Constructor method for GetAllAccountLoggersEnvelope
      * @return self
      */
-    public function __construct(GetAllAccountLoggersBody $body = NULL, Header $header = NULL)
+    public function __construct(?GetAllAccountLoggersBody $body = NULL, ?Header $header = NULL)
     {
         parent::__construct($body, $header);
     }
@@ -49,7 +49,7 @@ class GetAllAccountLoggersEnvelope extends Envelope
      *
      * @return BodyInterface
      */
-    public function getBody(): BodyInterface
+    public function getBody(): ?BodyInterface
     {
         return $this->body;
     }

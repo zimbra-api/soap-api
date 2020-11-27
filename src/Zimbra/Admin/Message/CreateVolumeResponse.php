@@ -41,7 +41,7 @@ class CreateVolumeResponse implements ResponseInterface
      * @param VolumeInfo $volume
      * @return self
      */
-    public function __construct(VolumeInfo $volume = NULL)
+    public function __construct(?VolumeInfo $volume = NULL)
     {
         if ($volume instanceof VolumeInfo) {
             $this->setVolume($volume);
@@ -53,7 +53,7 @@ class CreateVolumeResponse implements ResponseInterface
      *
      * @return VolumeInfo
      */
-    public function getVolume(): VolumeInfo
+    public function getVolume(): ?VolumeInfo
     {
         return $this->volume;
     }

@@ -39,7 +39,7 @@ class GetAllAlwaysOnClustersEnvelope extends Envelope
      * Constructor method for GetAllAlwaysOnClustersEnvelope
      * @return self
      */
-    public function __construct(GetAllAlwaysOnClustersBody $body = NULL, Header $header = NULL)
+    public function __construct(?GetAllAlwaysOnClustersBody $body = NULL, ?Header $header = NULL)
     {
         parent::__construct($body, $header);
     }
@@ -49,7 +49,7 @@ class GetAllAlwaysOnClustersEnvelope extends Envelope
      *
      * @return BodyInterface
      */
-    public function getBody(): BodyInterface
+    public function getBody(): ?BodyInterface
     {
         return $this->body;
     }

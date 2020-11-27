@@ -76,7 +76,7 @@ class FixCalendarTZRequest extends Request
      * @param  TzFixup $tzFixup
      * @return self
      */
-    public function __construct($sync = NULL, $after = NULL, array $accounts = [], TzFixup $tzFixup = NULL)
+    public function __construct(?bool $sync = NULL, ?int $after = NULL, array $accounts = [], ?TzFixup $tzFixup = NULL)
     {
         $this->setAccounts($accounts);
         if (NULL !== $sync) {
@@ -106,9 +106,9 @@ class FixCalendarTZRequest extends Request
      * @param  bool $sync
      * @return self
      */
-    public function setSync($sync): self
+    public function setSync(bool $sync): self
     {
-        $this->sync = (bool) $sync;
+        $this->sync = $sync;
         return $this;
     }
 
@@ -128,9 +128,9 @@ class FixCalendarTZRequest extends Request
      * @param  int $after
      * @return self
      */
-    public function setAfter($after): self
+    public function setAfter(int $after): self
     {
-        $this->after = (int) $after;
+        $this->after = $after;
         return $this;
     }
 
@@ -178,7 +178,7 @@ class FixCalendarTZRequest extends Request
      *
      * @return TzFixup
      */
-    public function getTzFixup(): TzFixup
+    public function getTzFixup(): ?TzFixup
     {
         return $this->tzFixup;
     }

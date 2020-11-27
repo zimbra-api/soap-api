@@ -39,7 +39,7 @@ class DumpSessionsEnvelope extends Envelope
      * Constructor method for DumpSessionsEnvelope
      * @return self
      */
-    public function __construct(DumpSessionsBody $body = NULL, Header $header = NULL)
+    public function __construct(?DumpSessionsBody $body = NULL, ?Header $header = NULL)
     {
         parent::__construct($body, $header);
     }
@@ -49,7 +49,7 @@ class DumpSessionsEnvelope extends Envelope
      *
      * @return BodyInterface
      */
-    public function getBody(): BodyInterface
+    public function getBody(): ?BodyInterface
     {
         return $this->body;
     }

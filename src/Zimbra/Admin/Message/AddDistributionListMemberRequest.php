@@ -28,6 +28,7 @@ use Zimbra\Soap\Request;
 class AddDistributionListMemberRequest extends Request
 {
     /**
+     * Zimbra ID
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
@@ -47,11 +48,11 @@ class AddDistributionListMemberRequest extends Request
 
     /**
      * Constructor method for AddDistributionListMemberRequest
-     * @param  string $id Zimbra ID
-     * @param  array  $members Members
+     * @param  string $id
+     * @param  array  $members
      * @return self
      */
-    public function __construct($id, array $members)
+    public function __construct(string $id, array $members)
     {
         $this->setId($id)
              ->setMembers($members);
@@ -73,9 +74,9 @@ class AddDistributionListMemberRequest extends Request
      * @param  string $id
      * @return self
      */
-    public function setId($id): self
+    public function setId(string $id): self
     {
-        $this->id = trim($id);
+        $this->id = $id;
         return $this;
     }
 

@@ -56,7 +56,7 @@ class CompactIndexRequest extends Request
      * @param  Action $action
      * @return self
      */
-    public function __construct(Mbox $mbox, Action $action = NULL)
+    public function __construct(Mbox $mbox, ?Action $action = NULL)
     {
         $this->setMbox($mbox);
         if ($action instanceof Action) {

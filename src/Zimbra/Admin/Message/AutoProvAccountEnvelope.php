@@ -39,7 +39,7 @@ class AutoProvAccountEnvelope extends Envelope
      * Constructor method for AutoProvAccountEnvelope
      * @return self
      */
-    public function __construct(AutoProvAccountBody $body = NULL, Header $header = NULL)
+    public function __construct(?AutoProvAccountBody $body = NULL, ?Header $header = NULL)
     {
         parent::__construct($body, $header);
     }
@@ -49,7 +49,7 @@ class AutoProvAccountEnvelope extends Envelope
      *
      * @return BodyInterface
      */
-    public function getBody(): BodyInterface
+    public function getBody(): ?BodyInterface
     {
         return $this->body;
     }

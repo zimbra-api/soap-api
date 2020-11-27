@@ -39,7 +39,7 @@ class CreateVolumeEnvelope extends Envelope
      * Constructor method for CreateVolumeEnvelope
      * @return self
      */
-    public function __construct(CreateVolumeBody $body = NULL, Header $header = NULL)
+    public function __construct(?CreateVolumeBody $body = NULL, ?Header $header = NULL)
     {
         parent::__construct($body, $header);
     }
@@ -49,7 +49,7 @@ class CreateVolumeEnvelope extends Envelope
      *
      * @return BodyInterface
      */
-    public function getBody(): BodyInterface
+    public function getBody(): ?BodyInterface
     {
         return $this->body;
     }
