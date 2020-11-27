@@ -27,6 +27,7 @@ use Zimbra\Enum\AutoProvPrincipalBy as PrincipalBy;
 class PrincipalSelector
 {
     /**
+     * Meaning determined by {principal-selector-by}
      * @Accessor(getter="getBy", setter="setBy")
      * @SerializedName("by")
      * @Type("Zimbra\Enum\AutoProvPrincipalBy")
@@ -35,6 +36,7 @@ class PrincipalSelector
     private $by;
 
     /**
+     * The key used to identify the principal
      * @Accessor(getter="getValue", setter="setValue")
      * @SerializedName("_content")
      * @Type("string")
@@ -44,11 +46,11 @@ class PrincipalSelector
 
     /**
      * Constructor method for PrincipalSelector
-     * @param  PrincipalBy $by Meaning determined by {principal-selector-by}
-     * @param  string $value The key used to identify the principal
+     * @param  PrincipalBy $by
+     * @param  string $value
      * @return self
      */
-    public function __construct(PrincipalBy $by, $value = NULL)
+    public function __construct(PrincipalBy $by, ?string $value = NULL)
     {
         $this->setBy($by);
         if (NULL !== $value) {
@@ -83,7 +85,7 @@ class PrincipalSelector
      *
      * @return string
      */
-    public function getValue(): string
+    public function getValue(): ?string
     {
         return $this->value;
     }
@@ -91,12 +93,12 @@ class PrincipalSelector
     /**
      * Sets value
      *
-     * @param  string $name
+     * @param  string $value
      * @return self
      */
-    public function setValue($value): self
+    public function setValue(string $value): self
     {
-        $this->value = trim($value);
+        $this->value = $value;
         return $this;
     }
 }

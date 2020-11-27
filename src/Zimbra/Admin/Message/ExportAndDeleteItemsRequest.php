@@ -64,7 +64,7 @@ class ExportAndDeleteItemsRequest extends Request
      * @param  string $exportFilenamePrefix
      * @return self
      */
-    public function __construct(Mailbox $mailbox, $exportDir = NULL, $exportFilenamePrefix = NULL)
+    public function __construct(Mailbox $mailbox, ?string $exportDir = NULL, ?string $exportFilenamePrefix = NULL)
     {
         $this->setMailbox($mailbox);
         if (NULL !== $exportDir) {
@@ -113,9 +113,9 @@ class ExportAndDeleteItemsRequest extends Request
      * @param  string $exportDir
      * @return self
      */
-    public function setExportDir($exportDir): self
+    public function setExportDir(string $exportDir): self
     {
-        $this->exportDir = trim($exportDir);
+        $this->exportDir = $exportDir;
         return $this;
     }
 
@@ -135,9 +135,9 @@ class ExportAndDeleteItemsRequest extends Request
      * @param  string $exportFilenamePrefix
      * @return self
      */
-    public function setExportFilenamePrefix($exportFilenamePrefix): self
+    public function setExportFilenamePrefix(string $exportFilenamePrefix): self
     {
-        $this->exportFilenamePrefix = trim($exportFilenamePrefix);
+        $this->exportFilenamePrefix = $exportFilenamePrefix;
         return $this;
     }
 

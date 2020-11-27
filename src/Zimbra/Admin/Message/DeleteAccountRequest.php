@@ -41,10 +41,10 @@ class DeleteAccountRequest extends Request
 
     /**
      * Constructor method for DeleteAccountRequest
-     * @param  string $id Zimbra ID
+     * @param  string $id
      * @return self
      */
-    public function __construct($id)
+    public function __construct(string $id)
     {
         $this->setId($id);
     }
@@ -65,9 +65,9 @@ class DeleteAccountRequest extends Request
      * @param  string $id
      * @return self
      */
-    public function setId($id): self
+    public function setId(string $id): self
     {
-        $this->id = trim($id);
+        $this->id = $id;
         return $this;
     }
 

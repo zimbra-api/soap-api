@@ -41,7 +41,7 @@ class CreateUCServiceResponse implements ResponseInterface
      * @param UCServiceInfo $ucService
      * @return self
      */
-    public function __construct(UCServiceInfo $ucService = NULL)
+    public function __construct(?UCServiceInfo $ucService = NULL)
     {
         if ($ucService instanceof UCServiceInfo) {
             $this->setUCService($ucService);
@@ -53,7 +53,7 @@ class CreateUCServiceResponse implements ResponseInterface
      *
      * @return UCServiceInfo
      */
-    public function getUCService(): UCServiceInfo
+    public function getUCService(): ?UCServiceInfo
     {
         return $this->ucService;
     }

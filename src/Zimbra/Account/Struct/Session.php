@@ -26,6 +26,7 @@ use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAt
 class Session
 {
     /**
+     * Session type - currently only set if value is "admin"
      * @Accessor(getter="getType", setter="setType")
      * @SerializedName("type")
      * @Type("string")
@@ -34,6 +35,7 @@ class Session
     private $type;
 
     /**
+     * Session ID
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
@@ -52,12 +54,10 @@ class Session
     /**
      * Constructor method for Session
      * @param  string $id
-     *   Session ID
-     * @param  string   $type
-     *   Session type - currently only set if value is "admin"
+     * @param  string $type
      * @return self
      */
-    public function __construct($id, $type = NULL)
+    public function __construct(string $id, ?string $type = NULL)
     {
         $this->setValue($id)->setId($id);
         if (NULL !== $type) {
@@ -70,7 +70,7 @@ class Session
      *
      * @return string
      */
-    public function getValue()
+    public function getValue(): string
     {
         return $this->value;
     }
@@ -81,9 +81,9 @@ class Session
      * @param  string $value
      * @return self
      */
-    public function setValue($value)
+    public function setValue(string $value): self
     {
-        $this->value = trim($value);
+        $this->value = $value;
         return $this;
     }
 
@@ -92,7 +92,7 @@ class Session
      *
      * @return string
      */
-    public function getType()
+    public function getType(): ?string
     {
         return $this->type;
     }
@@ -103,9 +103,9 @@ class Session
      * @param  string $type
      * @return self
      */
-    public function setType($type)
+    public function setType(string $type): self
     {
-        $this->type = trim($type) ;
+        $this->type = $type;
         return $this;
     }
 
@@ -114,7 +114,7 @@ class Session
      *
      * @return string
      */
-    public function getId()
+    public function getId(): string
     {
         return $this->id;
     }
@@ -125,9 +125,9 @@ class Session
      * @param  string $id
      * @return self
      */
-    public function setId($id)
+    public function setId(string $id): self
     {
-        $this->id = trim($id) ;
+        $this->id = $id;
         return $this;
     }
 }

@@ -42,9 +42,7 @@ class CreateVolumeRequest extends Request
      * @param VolumeInfo  $volume
      * @return self
      */
-    public function __construct(
-        VolumeInfo $volume
-    )
+    public function __construct(VolumeInfo $volume)
     {
         $this->setVolume($volume);
     }

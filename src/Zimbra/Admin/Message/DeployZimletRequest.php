@@ -73,7 +73,7 @@ class DeployZimletRequest extends Request
      * @param  bool $synchronous
      * @return self
      */
-    public function __construct(DeployAction $action, AttachmentIdAttrib $content, $flushCache = NULL, $synchronous = NULL)
+    public function __construct(DeployAction $action, AttachmentIdAttrib $content, ?bool $flushCache = NULL, ?bool $synchronous = NULL)
     {
         $this->setAction($action)
              ->setContent($content);
@@ -123,9 +123,9 @@ class DeployZimletRequest extends Request
      * @param  bool $flushCache
      * @return self
      */
-    public function setFlushCache($flushCache): self
+    public function setFlushCache(bool $flushCache): self
     {
-        $this->flushCache = (bool) $flushCache;
+        $this->flushCache = $flushCache;
         return $this;
     }
 
@@ -145,9 +145,9 @@ class DeployZimletRequest extends Request
      * @param  bool $synchronous
      * @return self
      */
-    public function setSynchronous($synchronous): self
+    public function setSynchronous(bool $synchronous): self
     {
-        $this->synchronous = (bool) $synchronous;
+        $this->synchronous = $synchronous;
         return $this;
     }
 

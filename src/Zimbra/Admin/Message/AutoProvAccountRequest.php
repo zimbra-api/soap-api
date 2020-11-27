@@ -33,7 +33,7 @@ class AutoProvAccountRequest extends Request
      * @Accessor(getter="getDomain", setter="setDomain")
      * @SerializedName("domain")
      * @Type("Zimbra\Admin\Struct\DomainSelector")
-     * @XmlElement()
+     * @XmlElement
      */
     private $domain;
 
@@ -42,7 +42,7 @@ class AutoProvAccountRequest extends Request
      * @Accessor(getter="getPrincipal", setter="setPrincipal")
      * @SerializedName("principal")
      * @Type("Zimbra\Admin\Struct\PrincipalSelector")
-     * @XmlElement()
+     * @XmlElement
      */
     private $principal;
 
@@ -65,7 +65,7 @@ class AutoProvAccountRequest extends Request
     public function __construct(
         DomainSelector $domain,
         PrincipalSelector $principal,
-        $password = NULL
+        ?string $password = NULL
     )
     {
         $this->setDomain($domain)
@@ -135,9 +135,9 @@ class AutoProvAccountRequest extends Request
      * @param  string $password
      * @return self
      */
-    public function setPassword($password): self
+    public function setPassword(string $password): self
     {
-        $this->password = trim($password);
+        $this->password = $password;
         return $this;
     }
 

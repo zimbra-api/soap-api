@@ -66,16 +66,16 @@ class AdminCreateWaitSetResponse implements ResponseInterface
     /**
      * Constructor method for AdminCreateWaitSetResponse
      * 
-     * @param string  $waitSetId
-     * @param string  $defaultInterests
-     * @param integer $sequence
+     * @param string $waitSetId
+     * @param string $defaultInterests
+     * @param int $sequence
      * @param array   $errors
      * @return self
      */
     public function __construct(
-    	$waitSetId,
-        $defaultInterests,
-        $sequence,
+    	string $waitSetId,
+        string $defaultInterests,
+        int $sequence,
         array $errors = [])
     {
         $this->setWaitSetId($waitSetId)
@@ -89,7 +89,7 @@ class AdminCreateWaitSetResponse implements ResponseInterface
      *
      * @return string
      */
-    public function getWaitSetId(): ?string
+    public function getWaitSetId(): string
     {
         return $this->waitSetId;
     }
@@ -100,9 +100,9 @@ class AdminCreateWaitSetResponse implements ResponseInterface
      * @param  string $waitSetId
      * @return self
      */
-    public function setWaitSetId($waitSetId): self
+    public function setWaitSetId(string $waitSetId): self
     {
-        $this->waitSetId = trim($waitSetId);
+        $this->waitSetId = $waitSetId;
         return $this;
     }
 
@@ -111,7 +111,7 @@ class AdminCreateWaitSetResponse implements ResponseInterface
      *
      * @return string
      */
-    public function getDefaultInterests(): ?string
+    public function getDefaultInterests(): string
     {
         return $this->defaultInterests;
     }
@@ -122,9 +122,9 @@ class AdminCreateWaitSetResponse implements ResponseInterface
      * @param  string $defaultInterests
      * @return self
      */
-    public function setDefaultInterests($defaultInterests): self
+    public function setDefaultInterests(string $defaultInterests): self
     {
-        $this->defaultInterests = trim($defaultInterests);
+        $this->defaultInterests = $defaultInterests;
         return $this;
     }
 
@@ -133,7 +133,7 @@ class AdminCreateWaitSetResponse implements ResponseInterface
      *
      * @return int
      */
-    public function getSequence(): ?int
+    public function getSequence(): int
     {
         return $this->sequence;
     }
@@ -144,9 +144,9 @@ class AdminCreateWaitSetResponse implements ResponseInterface
      * @param  int $sequence
      * @return self
      */
-    public function setSequence($sequence): self
+    public function setSequence(int $sequence): self
     {
-        $this->sequence = (int) $sequence;
+        $this->sequence = $sequence;
         return $this;
     }
 
@@ -184,7 +184,7 @@ class AdminCreateWaitSetResponse implements ResponseInterface
      *
      * @return array
      */
-    public function getErrors(): ?array
+    public function getErrors(): array
     {
         return $this->errors;
     }

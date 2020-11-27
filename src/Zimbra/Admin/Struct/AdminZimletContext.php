@@ -63,9 +63,9 @@ class AdminZimletContext implements ZimletContextInterface
      * @return self
      */
     public function __construct(
-        $baseUrl,
+        string $baseUrl,
         ZimletPresence $presence,
-        $priority = NULL
+        ?int $priority = NULL
     )
     {
         $this->setZimletBaseUrl($baseUrl)
@@ -91,9 +91,9 @@ class AdminZimletContext implements ZimletContextInterface
      * @param  string $baseUrl
      * @return self
      */
-    public function setZimletBaseUrl($baseUrl): self
+    public function setZimletBaseUrl(string $baseUrl): self
     {
-        $this->zimletBaseUrl = trim($baseUrl);
+        $this->zimletBaseUrl = $baseUrl;
         return $this;
     }
 
@@ -102,7 +102,7 @@ class AdminZimletContext implements ZimletContextInterface
      *
      * @return int
      */
-    public function getZimletPriority(): int
+    public function getZimletPriority(): ?int
     {
         return $this->zimletPriority;
     }
@@ -113,9 +113,9 @@ class AdminZimletContext implements ZimletContextInterface
      * @param  int $priority
      * @return self
      */
-    public function setZimletPriority($priority): self
+    public function setZimletPriority(int $priority): self
     {
-        $this->zimletPriority = (int) $priority;
+        $this->zimletPriority = $priority;
         return $this;
     }
 

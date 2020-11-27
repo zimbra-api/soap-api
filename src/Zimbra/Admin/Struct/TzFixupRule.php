@@ -26,6 +26,7 @@ use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlEl
 class TzFixupRule
 {
     /**
+     * Match
      * @Accessor(getter="getMatch", setter="setMatch")
      * @SerializedName("match")
      * @Type("Zimbra\Admin\Struct\TZFixupRuleMatch")
@@ -34,6 +35,7 @@ class TzFixupRule
     private $match;
 
     /**
+     * Need either "touch" or "replace" but not both 
      * @Accessor(getter="getTouch", setter="setTouch")
      * @SerializedName("touch")
      * @Type("Zimbra\Admin\Struct\SimpleElement")
@@ -42,6 +44,7 @@ class TzFixupRule
     private $touch;
 
     /**
+     * Replace any matching timezone with this timezone. Need either "touch" or "replace" but not both.
      * @Accessor(getter="getReplace", setter="setReplace")
      * @SerializedName("replace")
      * @Type("Zimbra\Admin\Struct\TzReplaceInfo")
@@ -51,15 +54,15 @@ class TzFixupRule
 
     /**
      * Constructor method for TzFixupRule
-     * @param TzFixupRuleMatch $match Match
-     * @param SimpleElement $touch Need either "touch" or "replace" but not both 
-     * @param TzReplaceInfo $replace Replace any matching timezone with this timezone. Need either "touch" or "replace" but not both.
+     * @param TzFixupRuleMatch $match
+     * @param SimpleElement $touch
+     * @param TzReplaceInfo $replace
      * @return self
      */
     public function __construct(
-        TzFixupRuleMatch $match = NULL,
-        SimpleElement $touch = NULL,
-        TzReplaceInfo $replace = NULL
+        ?TzFixupRuleMatch $match = NULL,
+        ?SimpleElement $touch = NULL,
+        ?TzReplaceInfo $replace = NULL
     )
     {
         if ($match instanceof TzFixupRuleMatch) {
@@ -78,7 +81,7 @@ class TzFixupRule
      *
      * @return TzFixupRuleMatch
      */
-    public function getMatch(): TzFixupRuleMatch
+    public function getMatch(): ?TzFixupRuleMatch
     {
         return $this->match;
     }
@@ -100,7 +103,7 @@ class TzFixupRule
      *
      * @return SimpleElement
      */
-    public function getTouch(): SimpleElement
+    public function getTouch(): ?SimpleElement
     {
         return $this->touch;
     }
@@ -122,7 +125,7 @@ class TzFixupRule
      *
      * @return TzReplaceInfo
      */
-    public function getReplace(): TzReplaceInfo
+    public function getReplace(): ?TzReplaceInfo
     {
         return $this->replace;
     }

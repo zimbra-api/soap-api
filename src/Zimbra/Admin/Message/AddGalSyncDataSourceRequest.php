@@ -89,10 +89,10 @@ class AddGalSyncDataSourceRequest extends Request implements AdminAttrs
      */
     public function __construct(
         Account $account,
-        $name,
-        $domain,
+        string $name,
+        string $domain,
         GalMode $type,
-        $folder = NULL,
+        ?string $folder = NULL,
         array $attrs = [])
     {
         $this->setAccount($account)
@@ -132,7 +132,7 @@ class AddGalSyncDataSourceRequest extends Request implements AdminAttrs
      *
      * @return string
      */
-    public function getName(): ?string
+    public function getName(): string
     {
         return $this->name;
     }
@@ -143,9 +143,9 @@ class AddGalSyncDataSourceRequest extends Request implements AdminAttrs
      * @param  string $name
      * @return self
      */
-    public function setName($name): self
+    public function setName(string $name): self
     {
-        $this->name = trim($name);
+        $this->name = $name;
         return $this;
     }
 
@@ -154,7 +154,7 @@ class AddGalSyncDataSourceRequest extends Request implements AdminAttrs
      *
      * @return string
      */
-    public function getDomain(): ?string
+    public function getDomain(): string
     {
         return $this->domain;
     }
@@ -165,9 +165,9 @@ class AddGalSyncDataSourceRequest extends Request implements AdminAttrs
      * @param  string $domain
      * @return self
      */
-    public function setDomain($domain): self
+    public function setDomain(string $domain): self
     {
-        $this->domain = trim($domain);
+        $this->domain = $domain;
         return $this;
     }
 
@@ -209,9 +209,9 @@ class AddGalSyncDataSourceRequest extends Request implements AdminAttrs
      * @param  string $folder
      * @return self
      */
-    public function setFolder($folder): self
+    public function setFolder(string $folder): self
     {
-        $this->folder = trim($folder);
+        $this->folder = $folder;
         return $this;
     }
 

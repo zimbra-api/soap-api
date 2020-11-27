@@ -90,7 +90,7 @@ class MailboxBlobConsistency
      * @return self
      */
     public function __construct(
-        $id,
+        int $id,
         array $missingBlobs = [],
         array $incorrectSizes = [],
         array $unexpectedBlobs = [],
@@ -122,9 +122,9 @@ class MailboxBlobConsistency
      * @param  int $id
      * @return self
      */
-    public function setId($id): self
+    public function setId(int $id): self
     {
-        $this->id = (int) $id;
+        $this->id = $id;
         return $this;
     }
 

@@ -16,8 +16,7 @@ class FilterConditionTest extends TestCase
             'ALL_OF' => 'allof',
             'ANY_OF' => 'anyof',
         ];
-        foreach ($values as $enum => $value)
-        {
+        foreach ($values as $enum => $value) {
             $this->assertSame(FilterCondition::$enum()->getValue(), $value);
         }
     }

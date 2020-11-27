@@ -17,8 +17,7 @@ class GalModeTest extends TestCase
             'LDAP'   => 'ldap',
             'ZIMBRA' => 'zimbra',
         ];
-        foreach ($values as $enum => $value)
-        {
+        foreach ($values as $enum => $value) {
             $this->assertSame(GalMode::$enum()->getValue(), $value);
         }
     }

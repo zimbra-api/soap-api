@@ -45,7 +45,7 @@ class DeleteMailboxRequest extends Request
      * @param  Mailbox $mbox
      * @return self
      */
-    public function __construct(Mailbox $mbox = NULL)
+    public function __construct(?Mailbox $mbox = NULL)
     {
         if ($mbox instanceof Mailbox) {
             $this->setMbox($mbox);
@@ -57,7 +57,7 @@ class DeleteMailboxRequest extends Request
      *
      * @return Mailbox
      */
-    public function getMbox(): Mailbox
+    public function getMbox(): ?Mailbox
     {
         return $this->mbox;
     }

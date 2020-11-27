@@ -29,8 +29,7 @@ class SortByTest extends TestCase
             'PRIORITY_ASC'  => 'priorityAsc',
             'PRIORITY_DESC' => 'priorityDesc',
         ];
-        foreach ($values as $enum => $value)
-        {
+        foreach ($values as $enum => $value) {
             $this->assertSame(SortBy::$enum()->getValue(), $value);
         }
     }

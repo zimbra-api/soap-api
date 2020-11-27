@@ -60,8 +60,8 @@ class CreateAccountRequest extends Request implements AdminAttrs
      * @return self
      */
     public function __construct(
-        $name,
-        $password = NULL,
+        string $name,
+        ?string $password = NULL,
         array $attrs = []
     )
     {
@@ -88,9 +88,9 @@ class CreateAccountRequest extends Request implements AdminAttrs
      * @param  string $name
      * @return self
      */
-    public function setName($name): self
+    public function setName(string $name): self
     {
-        $this->name = trim($name);
+        $this->name = $name;
         return $this;
     }
 
@@ -110,9 +110,9 @@ class CreateAccountRequest extends Request implements AdminAttrs
      * @param  string $password
      * @return self
      */
-    public function setPassword($password): self
+    public function setPassword(string $password): self
     {
-        $this->password = trim($password);
+        $this->password = $password;
         return $this;
     }
 

@@ -40,7 +40,7 @@ class CreateSystemRetentionPolicyEnvelope extends Envelope
      * Constructor method for CreateSystemRetentionPolicyEnvelope
      * @return self
      */
-    public function __construct(CreateSystemRetentionPolicyBody $body = NULL, Header $header = NULL)
+    public function __construct(?CreateSystemRetentionPolicyBody $body = NULL, ?Header $header = NULL)
     {
         parent::__construct($body, $header);
     }
@@ -50,7 +50,7 @@ class CreateSystemRetentionPolicyEnvelope extends Envelope
      *
      * @return BodyInterface
      */
-    public function getBody(): BodyInterface
+    public function getBody(): ?BodyInterface
     {
         return $this->body;
     }

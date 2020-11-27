@@ -39,7 +39,7 @@ class CheckedRight
      * @param string $value
      * @return self
      */
-    public function __construct($value = NULL)
+    public function __construct(?string $value = NULL)
     {
         if (NULL !== $value) {
             $this->setValue($value);
@@ -59,12 +59,12 @@ class CheckedRight
     /**
      * Sets value
      *
-     * @param  string $name
+     * @param  string $value
      * @return self
      */
-    public function setValue($value): self
+    public function setValue(string $value): self
     {
-        $this->value = trim($value);
+        $this->value = $value;
         return $this;
     }
 }

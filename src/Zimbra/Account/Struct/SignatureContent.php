@@ -48,7 +48,7 @@ class SignatureContent
      * @param ContentType $type
      * @return self
      */
-    public function __construct($value = NULL, ContentType $type = NULL)
+    public function __construct(?string $value = NULL, ?ContentType $type = NULL)
     {
         if (NULL !== $value) {
             $this->setValue($value);
@@ -63,7 +63,7 @@ class SignatureContent
      *
      * @return string
      */
-    public function getValue()
+    public function getValue(): ?string
     {
         return $this->value;
     }
@@ -71,12 +71,12 @@ class SignatureContent
     /**
      * Sets value
      *
-     * @param  string $name
+     * @param  string $value
      * @return self
      */
-    public function setValue($value)
+    public function setValue(string $value): self
     {
-        $this->value = trim($value);
+        $this->value = $value;
         return $this;
     }
 
@@ -85,7 +85,7 @@ class SignatureContent
      *
      * @return ContentType
      */
-    public function getContentType(): ContentType
+    public function getContentType(): ?ContentType
     {
         return $this->contentType;
     }
@@ -96,7 +96,7 @@ class SignatureContent
      * @param  ContentType $type
      * @return self
      */
-    public function setContentType(ContentType $type)
+    public function setContentType(ContentType $type): self
     {
         $this->contentType = $type;
         return $this;

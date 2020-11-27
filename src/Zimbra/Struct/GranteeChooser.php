@@ -55,7 +55,7 @@ class GranteeChooser
      * @param string $name
      * @return self
      */
-    public function __construct($type = NULL, $id = NULL, $name = NULL)
+    public function __construct(?string $type = NULL, ?string $id = NULL, ?string $name = NULL)
     {
         if (NULL !== $type) {
             $this->setType($type);
@@ -73,7 +73,7 @@ class GranteeChooser
      *
      * @return string
      */
-    public function getType(): string
+    public function getType(): ?string
     {
         return $this->type;
     }
@@ -84,9 +84,9 @@ class GranteeChooser
      * @param  string $type
      * @return self
      */
-    public function setType($type): self
+    public function setType(string $type): self
     {
-        $this->type = trim($type);
+        $this->type = $type;
         return $this;
     }
 
@@ -95,7 +95,7 @@ class GranteeChooser
      *
      * @return string
      */
-    public function getId(): string
+    public function getId(): ?string
     {
         return $this->id;
     }
@@ -106,9 +106,9 @@ class GranteeChooser
      * @param  string $id
      * @return self
      */
-    public function setId($id): self
+    public function setId(string $id): self
     {
-        $this->id = trim($id);
+        $this->id = $id;
         return $this;
     }
 
@@ -117,7 +117,7 @@ class GranteeChooser
      *
      * @return string
      */
-    public function getName(): string
+    public function getName(): ?string
     {
         return $this->name;
     }
@@ -128,9 +128,9 @@ class GranteeChooser
      * @param  string $name
      * @return self
      */
-    public function setName($name): self
+    public function setName(string $name): self
     {
-        $this->name = trim($name);
+        $this->name = $name;
         return $this;
     }
 }

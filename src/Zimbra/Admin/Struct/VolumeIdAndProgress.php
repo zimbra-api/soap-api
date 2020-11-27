@@ -47,7 +47,7 @@ class VolumeIdAndProgress
      * @param string $progress
      * @return self
      */
-    public function __construct($volumeId, $progress)
+    public function __construct(string $volumeId, string $progress)
     {
         $this->setVolumeId($volumeId)
              ->setProgress($progress);
@@ -69,9 +69,9 @@ class VolumeIdAndProgress
      * @param  string $volumeId
      * @return self
      */
-    public function setVolumeId($volumeId): self
+    public function setVolumeId(string $volumeId): self
     {
-        $this->volumeId = trim($volumeId);
+        $this->volumeId = $volumeId;
         return $this;
     }
 
@@ -91,9 +91,9 @@ class VolumeIdAndProgress
      * @param  string $progress
      * @return self
      */
-    public function setProgress($progress): self
+    public function setProgress(string $progress): self
     {
-        $this->progress = trim($progress);
+        $this->progress = $progress;
         return $this;
     }
 }

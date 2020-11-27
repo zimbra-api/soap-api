@@ -38,7 +38,7 @@ class ModifyNotification
      * @param  int $changeBitmask
      * @return self
      */
-    public function __construct($changeBitmask)
+    public function __construct(int $changeBitmask)
     {
         $this->setChangeBitmask($changeBitmask);
     }
@@ -59,9 +59,9 @@ class ModifyNotification
      * @param  int $changeBitmask
      * @return self
      */
-    public function setChangeBitmask($changeBitmask): self
+    public function setChangeBitmask(int $changeBitmask): self
     {
-        $this->changeBitmask = (int) $changeBitmask;
+        $this->changeBitmask = $changeBitmask;
         return $this;
     }
 }

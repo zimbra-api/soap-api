@@ -27,6 +27,7 @@ use Zimbra\Struct\Id;
 class TzFixupRuleMatch
 {
     /**
+     * Simple element
      * @Accessor(getter="getAny", setter="setAny")
      * @SerializedName("any")
      * @Type("Zimbra\Admin\Struct\SimpleElement")
@@ -35,6 +36,7 @@ class TzFixupRuleMatch
     private $any;
 
     /**
+     * Tz ID
      * @Accessor(getter="getTzid", setter="setTzid")
      * @SerializedName("tzid")
      * @Type("Zimbra\Struct\Id")
@@ -43,6 +45,7 @@ class TzFixupRuleMatch
     private $tzid;
 
     /**
+    * Offset
      * @Accessor(getter="getNonDst", setter="setNonDst")
      * @SerializedName("nonDst")
      * @Type("Zimbra\Admin\Struct\Offset")
@@ -51,6 +54,7 @@ class TzFixupRuleMatch
     private $nonDst;
 
     /**
+     * Rules
      * @Accessor(getter="getRules", setter="setRules")
      * @SerializedName("rules")
      * @Type("Zimbra\Admin\Struct\TZFixupRuleMatchRules")
@@ -59,6 +63,7 @@ class TzFixupRuleMatch
     private $rules;
 
     /**
+     * Dates
      * @Accessor(getter="getDates", setter="setDates")
      * @SerializedName("dates")
      * @Type("Zimbra\Admin\Struct\TZFixupRuleMatchDates")
@@ -68,19 +73,19 @@ class TzFixupRuleMatch
 
     /**
      * Constructor method for TzFixupRuleMatch
-     * @param SimpleElement $any Simple element
-     * @param Id $tzid Tz ID
-     * @param Offset $nonDst Offset
-     * @param TzFixupRuleMatchRules $rules Rules
-     * @param TzFixupRuleMatchDates $dates Dates
+     * @param SimpleElement $any
+     * @param Id $tzid
+     * @param Offset $nonDst
+     * @param TzFixupRuleMatchRules $rules
+     * @param TzFixupRuleMatchDates $dates
      * @return self
      */
     public function __construct(
-        SimpleElement $any = NULL,
-        Id $tzid = NULL,
-        Offset $nonDst = NULL,
-        TzFixupRuleMatchRules $rules = NULL,
-        TzFixupRuleMatchDates $dates = NULL
+        ?SimpleElement $any = NULL,
+        ?Id $tzid = NULL,
+        ?Offset $nonDst = NULL,
+        ?TzFixupRuleMatchRules $rules = NULL,
+        ?TzFixupRuleMatchDates $dates = NULL
     )
     {
         if ($any instanceof SimpleElement) {
@@ -105,7 +110,7 @@ class TzFixupRuleMatch
      *
      * @return SimpleElement
      */
-    public function getAny(): SimpleElement
+    public function getAny(): ?SimpleElement
     {
         return $this->any;
     }
@@ -127,7 +132,7 @@ class TzFixupRuleMatch
      *
      * @return Id
      */
-    public function getTzid(): Id
+    public function getTzid(): ?Id
     {
         return $this->tzid;
     }
@@ -149,7 +154,7 @@ class TzFixupRuleMatch
      *
      * @return Offset
      */
-    public function getNonDst(): Offset
+    public function getNonDst(): ?Offset
     {
         return $this->nonDst;
     }
@@ -171,7 +176,7 @@ class TzFixupRuleMatch
      *
      * @return TzFixupRuleMatchRules
      */
-    public function getRules(): TzFixupRuleMatchRules
+    public function getRules(): ?TzFixupRuleMatchRules
     {
         return $this->rules;
     }
@@ -193,7 +198,7 @@ class TzFixupRuleMatch
      *
      * @return TzFixupRuleMatchDates
      */
-    public function getDates(): TzFixupRuleMatchDates
+    public function getDates(): ?TzFixupRuleMatchDates
     {
         return $this->dates;
     }

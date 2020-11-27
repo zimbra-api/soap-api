@@ -34,15 +34,12 @@ class NotifyInfo
 
     /**
      * Constructor method for NotifyInfo
-     * @param integer $sequenceNum
+     * @param int $sequenceNum
      * @return self
      */
-    public function __construct(
-        $sequenceNum = NULL
-    )
+    public function __construct(?int $sequenceNum = NULL)
     {
-        if(NULL !== $sequenceNum)
-        {
+        if (NULL !== $sequenceNum) {
             $this->setSequenceNum($sequenceNum);
         }
     }
@@ -52,7 +49,7 @@ class NotifyInfo
      *
      * @return int
      */
-    public function getSequenceNum(): int
+    public function getSequenceNum(): ?int
     {
         return $this->sequenceNum;
     }
@@ -63,9 +60,9 @@ class NotifyInfo
      * @param  int $sequenceNum
      * @return self
      */
-    public function setSequenceNum($sequenceNum): self
+    public function setSequenceNum(int $sequenceNum): self
     {
-        $this->sequenceNum = (int) $sequenceNum;
+        $this->sequenceNum = $sequenceNum;
         return $this;
     }
 }

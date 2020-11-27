@@ -54,7 +54,7 @@ class GetAdminConsoleUICompRequest extends Request
      * @param  DlSelector $dl
      * @return self
      */
-    public function __construct(AccountSelector $account = NULL, DlSelector $dl = NULL)
+    public function __construct(?AccountSelector $account = NULL, ?DlSelector $dl = NULL)
     {
         if ($account instanceof AccountSelector) {
             $this->setAccount($account);
@@ -69,7 +69,7 @@ class GetAdminConsoleUICompRequest extends Request
      *
      * @return AccountSelector
      */
-    public function getAccount(): AccountSelector
+    public function getAccount(): ?AccountSelector
     {
         return $this->account;
     }
@@ -91,7 +91,7 @@ class GetAdminConsoleUICompRequest extends Request
      *
      * @return DlSelector
      */
-    public function getDl(): DlSelector
+    public function getDl(): ?DlSelector
     {
         return $this->dl;
     }

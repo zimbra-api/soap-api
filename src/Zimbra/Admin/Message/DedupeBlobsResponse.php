@@ -73,16 +73,16 @@ class DedupeBlobsResponse implements ResponseInterface
     /**
      * Constructor method for DedupeBlobsResponse
      * @param  DedupStatus $action
-     * @param  integer $totalSize
-     * @param  integer $totalCount
+     * @param  int $totalSize
+     * @param  int $totalCount
      * @param  array $volumeBlobsProgress
      * @param  array $blobDigestsProgress
      * @return self
      */
     public function __construct(
-        DedupStatus $status = NULL,
-        $totalSize = NULL,
-        $totalCount = NULL,
+        ?DedupStatus $status = NULL,
+        ?int $totalSize = NULL,
+        ?int $totalCount = NULL,
         array $volumeBlobsProgress = [],
         array $blobDigestsProgress = []
     )
@@ -105,7 +105,7 @@ class DedupeBlobsResponse implements ResponseInterface
      *
      * @return DedupStatus
      */
-    public function getStatus(): DedupStatus
+    public function getStatus(): ?DedupStatus
     {
         return $this->status;
     }
@@ -127,7 +127,7 @@ class DedupeBlobsResponse implements ResponseInterface
      *
      * @return int
      */
-    public function getTotalSize(): int
+    public function getTotalSize(): ?int
     {
         return $this->totalSize;
     }
@@ -138,9 +138,9 @@ class DedupeBlobsResponse implements ResponseInterface
      * @param  int $totalSize
      * @return self
      */
-    public function setTotalSize($totalSize): self
+    public function setTotalSize(int $totalSize): self
     {
-        $this->totalSize = (int) $totalSize;
+        $this->totalSize = $totalSize;
         return $this;
     }
 
@@ -149,7 +149,7 @@ class DedupeBlobsResponse implements ResponseInterface
      *
      * @return int
      */
-    public function getTotalCount(): int
+    public function getTotalCount(): ?int
     {
         return $this->totalCount;
     }
@@ -160,9 +160,9 @@ class DedupeBlobsResponse implements ResponseInterface
      * @param  int $totalCount
      * @return self
      */
-    public function setTotalCount($totalCount): self
+    public function setTotalCount(int $totalCount): self
     {
-        $this->totalCount = (int) $totalCount;
+        $this->totalCount = $totalCount;
         return $this;
     }
 

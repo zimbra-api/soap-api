@@ -84,7 +84,7 @@ class AdminWaitSetResponse implements ResponseInterface
      * @return self
      */
     public function __construct(
-        $waitSetId, $canceled = NULL, $seqNo = NULL, array $signalledAccounts = [], array $errors = []
+        string $waitSetId, ?bool $canceled = NULL, ?string $seqNo = NULL, array $signalledAccounts = [], array $errors = []
     )
     {
         $this->setWaitSetId($waitSetId);
@@ -114,9 +114,9 @@ class AdminWaitSetResponse implements ResponseInterface
      * @param  string $waitSetId
      * @return self
      */
-    public function setWaitSetId($waitSetId): self
+    public function setWaitSetId(string $waitSetId): self
     {
-        $this->waitSetId = trim($waitSetId);
+        $this->waitSetId = $waitSetId;
         return $this;
     }
 
@@ -136,9 +136,9 @@ class AdminWaitSetResponse implements ResponseInterface
      * @param  bool $canceled
      * @return self
      */
-    public function setCanceled($canceled): self
+    public function setCanceled(bool $canceled): self
     {
-        $this->canceled = (bool) $canceled;
+        $this->canceled = $canceled;
         return $this;
     }
 
@@ -158,9 +158,9 @@ class AdminWaitSetResponse implements ResponseInterface
      * @param  string $seqNo
      * @return self
      */
-    public function setSeqNo($seqNo): self
+    public function setSeqNo(string $seqNo): self
     {
-        $this->seqNo = trim($seqNo);
+        $this->seqNo = $seqNo;
         return $this;
     }
 
@@ -198,7 +198,7 @@ class AdminWaitSetResponse implements ResponseInterface
      *
      * @return array
      */
-    public function getSignalledAccounts(): ?array
+    public function getSignalledAccounts(): array
     {
         return $this->signalledAccounts;
     }
@@ -237,7 +237,7 @@ class AdminWaitSetResponse implements ResponseInterface
      *
      * @return array
      */
-    public function getErrors(): ?array
+    public function getErrors(): array
     {
         return $this->errors;
     }

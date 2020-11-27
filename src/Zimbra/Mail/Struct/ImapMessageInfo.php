@@ -60,7 +60,7 @@ class ImapMessageInfo extends IMAPItemInfo
      * @param  string $tags IMAP UID
      * @return self
      */
-    public function __construct($id, $imapUid, $type, $flags, $tags)
+    public function __construct(int $id, int $imapUid, string $type, int $flags, string $tags)
     {
         parent::__construct($id, $imapUid);
         $this->setType($type)
@@ -84,9 +84,9 @@ class ImapMessageInfo extends IMAPItemInfo
      * @param  string $type
      * @return self
      */
-    public function setType($type): self
+    public function setType(string $type): self
     {
-        $this->type = trim($type);
+        $this->type = $type;
         return $this;
     }
 
@@ -106,9 +106,9 @@ class ImapMessageInfo extends IMAPItemInfo
      * @param  int $flags
      * @return self
      */
-    public function setFlags($flags): self
+    public function setFlags(int$flags): self
     {
-        $this->flags = (int) $flags;
+        $this->flags = $flags;
         return $this;
     }
 
@@ -128,9 +128,9 @@ class ImapMessageInfo extends IMAPItemInfo
      * @param  string $tags
      * @return self
      */
-    public function setTags($tags): self
+    public function setTags(string $tags): self
     {
-        $this->tags = trim($tags);
+        $this->tags = $tags;
         return $this;
     }
 }

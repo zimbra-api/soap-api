@@ -10,8 +10,6 @@
 
 namespace Zimbra\Struct;
 
-use Zimbra\Common\SimpleXML;
-
 /**
  * ZimletInterface interface
  *
@@ -26,7 +24,7 @@ interface ZimletInterface
     function setZimlet(ZimletDesc $zimlet): self;
     function setZimletConfig(ZimletConfigInfo $zimletConfig): self;
 
-    function getZimletContext(): ZimletContextInterface;
-    function getZimlet(): ZimletDesc;
-    function getZimletConfig(): ZimletConfigInfo;
+    function getZimletContext(): ?ZimletContextInterface;
+    function getZimlet(): ?ZimletDesc;
+    function getZimletConfig(): ?ZimletConfigInfo;
 }

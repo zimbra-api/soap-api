@@ -20,10 +20,10 @@ namespace Zimbra\Struct;
  */
 interface ZimletHostConfigInfo
 {
-    function setName($name): self;
+    function setName(string $name): self;
     function setZimletProperties(array $properties): self;
     function addZimletProperty(ZimletProperty $property): self;
 
-    function getName(): string;
+    function getName(): ?string;
     function getZimletProperties(): array;
 }

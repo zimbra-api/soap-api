@@ -41,7 +41,7 @@ class CreateAlwaysOnClusterResponse implements ResponseInterface
      * @param AlwaysOnClusterInfo $cluster
      * @return self
      */
-    public function __construct(AlwaysOnClusterInfo $cluster = NULL)
+    public function __construct(?AlwaysOnClusterInfo $cluster = NULL)
     {
         if ($cluster instanceof AlwaysOnClusterInfo) {
             $this->setAlwaysOnCluster($cluster);
@@ -53,7 +53,7 @@ class CreateAlwaysOnClusterResponse implements ResponseInterface
      *
      * @return AlwaysOnClusterInfo
      */
-    public function getAlwaysOnCluster(): AlwaysOnClusterInfo
+    public function getAlwaysOnCluster(): ?AlwaysOnClusterInfo
     {
         return $this->alwaysOnCluster;
     }

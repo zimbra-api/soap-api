@@ -2,8 +2,8 @@
 
 namespace Zimbra\Admin\Tests\Struct;
 
-use Zimbra\Admin\Struct\XMPPComponentInfo;
 use Zimbra\Admin\Struct\Attr;
+use Zimbra\Admin\Struct\XMPPComponentInfo;
 use Zimbra\Struct\Tests\ZimbraStructTestCase;
 
 /**
@@ -45,16 +45,16 @@ class XMPPComponentInfoTest extends ZimbraStructTestCase
         $this->assertEquals($xmpp, $this->serializer->deserialize($xml, XMPPComponentInfo::class, 'xml'));
 
         $json = json_encode([
+            'name' => $name,
+            'id' => $id,
+            'x-domainName' => $domainName,
+            'x-serverName' => $serverName,
             'a' => [
                 [
                     'n' => $key,
                     '_content' => $value,
                 ],
             ],
-            'name' => $name,
-            'id' => $id,
-            'x-domainName' => $domainName,
-            'x-serverName' => $serverName,
         ]);
         $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($xmpp, 'json'));
         $this->assertEquals($xmpp, $this->serializer->deserialize($json, XMPPComponentInfo::class, 'json'));

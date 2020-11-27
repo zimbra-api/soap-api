@@ -50,7 +50,7 @@ class BlackList
      * @param  OpValue $addr
      * @return self
      */
-    public function addAddr(OpValue $addr)
+    public function addAddr(OpValue $addr): self
     {
         $this->addrs[] = $addr;
         return $this;
@@ -62,7 +62,7 @@ class BlackList
      * @param array $addrs
      * @return self
      */
-    public function setAddrs(array $addrs)
+    public function setAddrs(array $addrs): self
     {
         $this->addrs = [];
         foreach ($addrs as $addr) {
@@ -78,7 +78,7 @@ class BlackList
      *
      * @return array
      */
-    public function getAddrs()
+    public function getAddrs(): array
     {
         return $this->addrs;
     }

@@ -22,8 +22,7 @@ class ReindexTypeTest extends TestCase
             'WIKI'         => 'wiki',
             'DOCUMENT'     => 'document',
         ];
-        foreach ($values as $enum => $value)
-        {
+        foreach ($values as $enum => $value) {
             $this->assertSame(ReindexType::$enum()->getValue(), $value);
         }
     }

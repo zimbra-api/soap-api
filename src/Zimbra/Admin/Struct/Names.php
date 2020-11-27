@@ -26,6 +26,7 @@ use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAt
 class Names
 {
     /**
+     * Comma separated list of names
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
@@ -35,10 +36,10 @@ class Names
 
     /**
      * Constructor method for Names
-     * @param string $name Comma separated list of names
+     * @param string $name
      * @return self
      */
-    public function __construct($name)
+    public function __construct(string $name)
     {
         $this->setName($name);
     }
@@ -59,9 +60,9 @@ class Names
      * @param  string $name
      * @return self
      */
-    public function setName($name): self
+    public function setName(string $name): self
     {
-        $this->name = trim($name);
+        $this->name = $name;
         return $this;
     }
 }

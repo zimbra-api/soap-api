@@ -46,7 +46,7 @@ class KeyValuePair
      * @param string $value
      * @return self
      */
-    public function __construct($key, $value = NULL)
+    public function __construct(string $key, ?string $value = NULL)
     {
         $this->setKey($key)
             ->setValue($value);
@@ -68,9 +68,9 @@ class KeyValuePair
      * @param  string $key
      * @return self
      */
-    public function setKey($key): self
+    public function setKey(string $key): self
     {
-        $this->key = trim($key);
+        $this->key = $key;
         return $this;
     }
 
@@ -79,7 +79,7 @@ class KeyValuePair
      *
      * @return string
      */
-    public function getValue(): string
+    public function getValue(): ?string
     {
         return $this->value;
     }
@@ -90,9 +90,9 @@ class KeyValuePair
      * @param  string $key
      * @return self
      */
-    public function setValue($value): self
+    public function setValue(string $value): self
     {
-        $this->value = trim($value);
+        $this->value = $value;
         return $this;
     }
 }

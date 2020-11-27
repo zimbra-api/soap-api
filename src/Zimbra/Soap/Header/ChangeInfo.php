@@ -47,16 +47,14 @@ class ChangeInfo
      * @return self
      */
     public function __construct(
-        $changeId = NULL,
-        $changeType = NULL
+        ?string $changeId = NULL,
+        ?string $changeType = NULL
     )
     {
-        if(NULL !== $changeId)
-        {
+        if (NULL !== $changeId) {
             $this->setChangeId($changeId);
         }
-        if(NULL !== $changeType)
-        {
+        if (NULL !== $changeType) {
             $this->setChangeType($changeType);
         }
     }
@@ -66,7 +64,7 @@ class ChangeInfo
      *
      * @return string
      */
-    public function getChangeId(): string
+    public function getChangeId(): ?string
     {
         return $this->changeId;
     }
@@ -77,9 +75,9 @@ class ChangeInfo
      * @param  string $changeId
      * @return self
      */
-    public function setChangeId($changeId): self
+    public function setChangeId(string $changeId): self
     {
-        $this->changeId = trim($changeId);
+        $this->changeId = $changeId;
         return $this;
     }
 
@@ -88,7 +86,7 @@ class ChangeInfo
      *
      * @return string
      */
-    public function getChangeType(): string
+    public function getChangeType(): ?string
     {
         return $this->changeType;
     }
@@ -99,9 +97,9 @@ class ChangeInfo
      * @param  string $changeType
      * @return self
      */
-    public function setChangeType($changeType): self
+    public function setChangeType(string $changeType): self
     {
-        $this->changeType = trim($changeType);
+        $this->changeType = $changeType;
         return $this;
     }
 }

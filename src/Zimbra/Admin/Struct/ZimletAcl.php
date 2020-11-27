@@ -27,6 +27,7 @@ use Zimbra\Enum\AclType;
 class ZimletAcl
 {
     /**
+     * Name of Class Of Service (COS)
      * @Accessor(getter="getCos", setter="setCos")
      * @SerializedName("cos")
      * @Type("string")
@@ -35,6 +36,7 @@ class ZimletAcl
     private $cos;
 
     /**
+     * ACL
      * @Accessor(getter="getAcl", setter="setAcl")
      * @SerializedName("acl")
      * @Type("Zimbra\Enum\AclType")
@@ -44,11 +46,11 @@ class ZimletAcl
 
     /**
      * Constructor method for ZimletAcl
-     * @param  string $cos Name of Class Of Service (COS)
-     * @param  AclType $acl ACL
+     * @param  string $cos
+     * @param  AclType $acl
      * @return self
      */
-    public function __construct($cos = NULL, AclType $acl = NULL)
+    public function __construct(?string $cos = NULL, ?AclType $acl = NULL)
     {
         if (NULL !== $cos) {
             $this->setCos($cos);
@@ -63,7 +65,7 @@ class ZimletAcl
      *
      * @return string
      */
-    public function getCos(): string
+    public function getCos(): ?string
     {
         return $this->cos;
     }
@@ -74,9 +76,9 @@ class ZimletAcl
      * @param  string $cos
      * @return self
      */
-    public function setCos($cos): self
+    public function setCos(string $cos): self
     {
-        $this->cos = trim($cos);
+        $this->cos = $cos;
         return $this;
     }
 
@@ -85,7 +87,7 @@ class ZimletAcl
      *
      * @return AclType
      */
-    public function getAcl(): AclType
+    public function getAcl(): ?AclType
     {
         return $this->acl;
     }

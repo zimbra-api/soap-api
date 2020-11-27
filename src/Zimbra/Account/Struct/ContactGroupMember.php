@@ -25,7 +25,6 @@ use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAt
  */
 class ContactGroupMember
 {
-
     /**
      * @Accessor(getter="getType", setter="setType")
      * @SerializedName("type")
@@ -57,7 +56,7 @@ class ContactGroupMember
      * @param  ContactInfo $contact
      * @return self
      */
-    public function __construct($type, $value, ContactInfo $contact = NULL)
+    public function __construct(string $type, string $value, ?ContactInfo $contact = NULL)
     {
         $this->setType($type)
             ->setValue($value);
@@ -82,9 +81,9 @@ class ContactGroupMember
      * @param  string $type
      * @return self
      */
-    public function setType($type): self
+    public function setType(string $type): self
     {
-        $this->type = trim($type);
+        $this->type = $type;
         return $this;
     }
 
@@ -104,9 +103,9 @@ class ContactGroupMember
      * @param  string $value
      * @return self
      */
-    public function setValue($value): self
+    public function setValue(string $value): self
     {
-        $this->value = trim($value);
+        $this->value = $value;
         return $this;
     }
 

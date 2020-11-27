@@ -65,10 +65,10 @@ class CursorInfo
      * @return self
      */
     public function __construct(
-        $id = NULL,
-        $sortVal = NULL,
-        $endSortVal = NULL,
-        $includeOffset = NULL
+        ?string $id = NULL,
+        ?string $sortVal = NULL,
+        ?string $endSortVal = NULL,
+        ?bool   $includeOffset = NULL
     )
     {
         if (NULL !== $id) {
@@ -90,7 +90,7 @@ class CursorInfo
      *
      * @return string
      */
-    public function getId(): string
+    public function getId(): ?string
     {
         return $this->id;
     }
@@ -101,9 +101,9 @@ class CursorInfo
      * @param  string $id
      * @return string|self
      */
-    public function setId($id): self
+    public function setId(string $id): self
     {
-        $this->id = trim($id);
+        $this->id = $id;
         return $this;
     }
 
@@ -112,7 +112,7 @@ class CursorInfo
      *
      * @return string
      */
-    public function getSortVal(): string
+    public function getSortVal(): ?string
     {
         return $this->sortVal;
     }
@@ -123,9 +123,9 @@ class CursorInfo
      * @param  string $sortVal
      * @return self
      */
-    public function setSortVal($sortVal): self
+    public function setSortVal(string $sortVal): self
     {
-        $this->sortVal = trim($sortVal);
+        $this->sortVal = $sortVal;
         return $this;
     }
 
@@ -134,7 +134,7 @@ class CursorInfo
      *
      * @return string
      */
-    public function getEndSortVal(): string
+    public function getEndSortVal(): ?string
     {
         return $this->endSortVal;
     }
@@ -145,9 +145,9 @@ class CursorInfo
      * @param  string $endSortVal
      * @return self
      */
-    public function setEndSortVal($endSortVal): self
+    public function setEndSortVal(string $endSortVal): self
     {
-        $this->endSortVal = trim($endSortVal);
+        $this->endSortVal = $endSortVal;
         return $this;
     }
 
@@ -157,7 +157,7 @@ class CursorInfo
      * @param  bool $includeOffset
      * @return bool
      */
-    public function getIncludeOffset(): bool
+    public function getIncludeOffset(): ?bool
     {
         return $this->includeOffset;
     }
@@ -168,9 +168,9 @@ class CursorInfo
      * @param  bool $includeOffset
      * @return self
      */
-    public function setIncludeOffset($includeOffset): self
+    public function setIncludeOffset(bool $includeOffset): self
     {
-        $this->includeOffset = (bool) $includeOffset;
+        $this->includeOffset = $includeOffset;
         return $this;
     }
 }

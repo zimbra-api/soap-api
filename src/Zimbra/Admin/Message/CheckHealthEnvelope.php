@@ -39,7 +39,7 @@ class CheckHealthEnvelope extends Envelope
      * Constructor method for CheckHealthEnvelope
      * @return self
      */
-    public function __construct(CheckHealthBody $body = NULL, Header $header = NULL)
+    public function __construct(?CheckHealthBody $body = NULL, ?Header $header = NULL)
     {
         parent::__construct($body, $header);
     }
@@ -49,7 +49,7 @@ class CheckHealthEnvelope extends Envelope
      *
      * @return BodyInterface
      */
-    public function getBody(): BodyInterface
+    public function getBody(): ?BodyInterface
     {
         return $this->body;
     }

@@ -20,8 +20,7 @@ class GetSessionsSortByTest extends TestCase
             'ACCESSED_ASC'  => 'accessedAsc',
             'ACCESSED_DESC' => 'accessedDesc',
         ];
-        foreach ($values as $enum => $value)
-        {
+        foreach ($values as $enum => $value) {
             $this->assertSame(GetSessionsSortBy::$enum()->getValue(), $value);
         }
     }

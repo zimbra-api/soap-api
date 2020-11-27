@@ -8,36 +8,38 @@
  * file that was distributed with this source code.
  */
 
-namespace Zimbra\Admin\Struct;
+namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlList, XmlRoot};
+use Zimbra\Admin\Struct\ZimletInfo;
+use Zimbra\Soap\ResponseInterface;
 
 /**
- * AdminZimlets struct class
- *
+ * GetAllZimletsResponse class
+ * 
  * @package    Zimbra
  * @subpackage Admin
- * @category   Struct
+ * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
  * @AccessType("public_method")
- * @XmlRoot(name="zimlets")
+ * @XmlRoot(name="GetAllZimletsResponse")
  */
-class AdminZimlets
+class GetAllZimletsResponse implements ResponseInterface
 {
     /**
-     * Admin zimlet info
+     * Information on zimlets
      * 
      * @Accessor(getter="getZimlets", setter="setZimlets")
      * @SerializedName("zimlet")
-     * @Type("array<Zimbra\Admin\Struct\AdminZimletInfo>")
+     * @Type("array<Zimbra\Admin\Struct\ZimletInfo>")
      * @XmlList(inline = true, entry = "zimlet")
      */
-    private $zimlets = [];
+    private $zimlets;
 
     /**
-     * Constructor method for AdminZimlets
-     * @param  array $zimlets
+     * Constructor method for GetAllZimletsResponse
+     * @param array $zimlets
      * @return self
      */
     public function __construct(array $zimlets = [])
@@ -46,19 +48,19 @@ class AdminZimlets
     }
 
     /**
-     * Add a zimlet
+     * Add a zimlet information
      *
-     * @param  AdminZimletInfo $zimlet
+     * @param  ZimletInfo $zimlet
      * @return self
      */
-    public function addZimlet(AdminZimletInfo $zimlet): self
+    public function addZimlet(ZimletInfo $zimlet): self
     {
         $this->zimlets[] = $zimlet;
         return $this;
     }
 
     /**
-     * Sets zimlet sequence
+     * Sets zimlet informations
      *
      * @param  array $zimlets
      * @return self
@@ -67,7 +69,7 @@ class AdminZimlets
     {
         $this->zimlets = [];
         foreach ($zimlets as $zimlet) {
-            if ($zimlet instanceof AdminZimletInfo) {
+            if ($zimlet instanceof ZimletInfo) {
                 $this->zimlets[] = $zimlet;
             }
         }
@@ -75,7 +77,7 @@ class AdminZimlets
     }
 
     /**
-     * Gets zimlet sequence
+     * Gets zimlet informations
      *
      * @return array
      */

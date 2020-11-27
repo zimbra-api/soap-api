@@ -52,7 +52,7 @@ class FlushCacheRequest extends Request
      * @param  CacheSelector $cache
      * @return self
      */
-    public function __construct(CacheSelector $cache = NULL)
+    public function __construct(?CacheSelector $cache = NULL)
     {
         if ($cache instanceof CacheSelector) {
             $this->setCache($cache);
@@ -64,7 +64,7 @@ class FlushCacheRequest extends Request
      *
      * @return CacheSelector
      */
-    public function getCache(): CacheSelector
+    public function getCache(): ?CacheSelector
     {
         return $this->cache;
     }

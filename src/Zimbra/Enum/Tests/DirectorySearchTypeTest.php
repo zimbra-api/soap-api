@@ -20,8 +20,7 @@ class DirectorySearchTypeTest extends TestCase
             'DOMAINS'            => 'domains',
             'COSES'              => 'coses',
         ];
-        foreach ($values as $enum => $value)
-        {
+        foreach ($values as $enum => $value) {
             $this->assertSame(DirectorySearchType::$enum()->getValue(), $value);
         }
     }

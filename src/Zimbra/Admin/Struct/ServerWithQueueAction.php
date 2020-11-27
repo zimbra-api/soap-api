@@ -26,6 +26,7 @@ use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAt
 class ServerWithQueueAction
 {
     /**
+     * Mail queue query details
      * @Accessor(getter="getQueue", setter="setQueue")
      * @SerializedName("queue")
      * @Type("Zimbra\Admin\Struct\MailQueueWithAction")
@@ -34,6 +35,7 @@ class ServerWithQueueAction
     private $queue;
 
     /**
+     * MTA Server
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
@@ -43,11 +45,11 @@ class ServerWithQueueAction
 
     /**
      * Constructor method for ServerWithQueueAction
-     * @param  MailQueueWithAction $query Mail queue query details
-     * @param  string $name MTA Server
+     * @param  MailQueueWithAction $query
+     * @param  string $name
      * @return self
      */
-    public function __construct(MailQueueWithAction $queue, $name)
+    public function __construct(MailQueueWithAction $queue, string $name)
     {
         $this->setQueue($queue)
              ->setName($name);
@@ -91,9 +93,9 @@ class ServerWithQueueAction
      * @param  string $name
      * @return self
      */
-    public function setName($name): self
+    public function setName(string $name): self
     {
-        $this->name = trim($name);
+        $this->name = $name;
         return $this;
     }
 }

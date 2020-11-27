@@ -41,7 +41,7 @@ class AdminDestroyWaitSetResponse implements ResponseInterface
      * @param string  $waitSetId
      * @return self
      */
-    public function __construct($waitSetId)
+    public function __construct(string $waitSetId)
     {
         $this->setWaitSetId($waitSetId);
     }
@@ -62,9 +62,9 @@ class AdminDestroyWaitSetResponse implements ResponseInterface
      * @param  string $waitSetId
      * @return self
      */
-    public function setWaitSetId($waitSetId): self
+    public function setWaitSetId(string $waitSetId): self
     {
-        $this->waitSetId = trim($waitSetId);
+        $this->waitSetId = $waitSetId;
         return $this;
     }
 }

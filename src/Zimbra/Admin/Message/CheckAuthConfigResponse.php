@@ -62,9 +62,9 @@ class CheckAuthConfigResponse implements ResponseInterface
      * @return self
      */
     public function __construct(
-        $code,
-        $bindDn,
-        $message = NULL
+        string $code,
+        string $bindDn,
+        ?string $message = NULL
     )
     {
         $this->setCode($code)
@@ -79,7 +79,7 @@ class CheckAuthConfigResponse implements ResponseInterface
      *
      * @return string
      */
-    public function getCode(): ?string
+    public function getCode(): string
     {
         return $this->code;
     }
@@ -90,9 +90,9 @@ class CheckAuthConfigResponse implements ResponseInterface
      * @param  string $code
      * @return self
      */
-    public function setCode($code): self
+    public function setCode(string $code): self
     {
-        $this->code = trim($code);
+        $this->code = $code;
         return $this;
     }
 
@@ -101,7 +101,7 @@ class CheckAuthConfigResponse implements ResponseInterface
      *
      * @return string
      */
-    public function getBindDn(): ?string
+    public function getBindDn(): string
     {
         return $this->bindDn;
     }
@@ -112,9 +112,9 @@ class CheckAuthConfigResponse implements ResponseInterface
      * @param  string $bindDn
      * @return self
      */
-    public function setBindDn($bindDn): self
+    public function setBindDn(string $bindDn): self
     {
-        $this->bindDn = trim($bindDn);
+        $this->bindDn = $bindDn;
         return $this;
     }
 
@@ -134,9 +134,9 @@ class CheckAuthConfigResponse implements ResponseInterface
      * @param  string $message
      * @return self
      */
-    public function setMessage($message): self
+    public function setMessage(string $message): self
     {
-        $this->message = trim($message);
+        $this->message = $message;
         return $this;
     }
 }

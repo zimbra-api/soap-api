@@ -37,7 +37,7 @@ class AuthTokenControl
      * @param bool $voidOnExpired
      * @return self
      */
-    public function __construct($voidOnExpired = NULL)
+    public function __construct(?bool $voidOnExpired = NULL)
     {
         if (NULL !== $voidOnExpired) {
             $this->setVoidOnExpired($voidOnExpired);
@@ -50,7 +50,7 @@ class AuthTokenControl
      * @param  bool $voidOnExpired
      * @return bool
      */
-    public function getVoidOnExpired(): bool
+    public function getVoidOnExpired(): ?bool
     {
         return $this->voidOnExpired;
     }
@@ -61,9 +61,9 @@ class AuthTokenControl
      * @param  bool $voidOnExpired
      * @return self
      */
-    public function setVoidOnExpired($voidOnExpired): self
+    public function setVoidOnExpired(bool $voidOnExpired): self
     {
-        $this->voidOnExpired = (bool) $voidOnExpired;
+        $this->voidOnExpired = $voidOnExpired;
         return $this;
     }
 }

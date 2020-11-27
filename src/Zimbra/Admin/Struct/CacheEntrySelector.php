@@ -27,6 +27,7 @@ use Zimbra\Enum\CacheEntryBy;
 class CacheEntrySelector
 {
     /**
+     * Select the meaning of {cache-entry-key}
      * @Accessor(getter="getBy", setter="setBy")
      * @SerializedName("by")
      * @Type("Zimbra\Enum\CacheEntryBy")
@@ -35,6 +36,7 @@ class CacheEntrySelector
     private $by;
 
     /**
+     * The key used to identify the cache entry
      * @Accessor(getter="getValue", setter="setValue")
      * @SerializedName("_content")
      * @Type("string")
@@ -44,11 +46,11 @@ class CacheEntrySelector
 
     /**
      * Constructor method for CacheEntrySelector
-     * @param  CacheEntryBy $by Select the meaning of {cache-entry-key}
-     * @param  string $value The key used to identify the cache entry
+     * @param  CacheEntryBy $by
+     * @param  string $value
      * @return self
      */
-    public function __construct(CacheEntryBy $by, $value = NULL)
+    public function __construct(CacheEntryBy $by, ?string $value = NULL)
     {
         $this->setBy($by);
         if (NULL !== $value) {
@@ -83,7 +85,7 @@ class CacheEntrySelector
      *
      * @return string
      */
-    public function getValue(): string
+    public function getValue(): ?string
     {
         return $this->value;
     }
@@ -94,9 +96,9 @@ class CacheEntrySelector
      * @param  string $name
      * @return self
      */
-    public function setValue($value): self
+    public function setValue(string $value): self
     {
-        $this->value = trim($value);
+        $this->value = $value;
         return $this;
     }
 }

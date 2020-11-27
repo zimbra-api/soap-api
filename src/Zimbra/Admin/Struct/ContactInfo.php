@@ -229,28 +229,28 @@ class ContactInfo
      * @return self
      */
     public function __construct(
-        $sortField = NULL,
-        $canExpand = NULL,
-        $id = NULL,
-        $folder = NULL,
-        $flags = NULL,
-        $tags = NULL,
-        $tagNames = NULL,
-        $changeDate = NULL,
-        $modifiedSequenceId = NULL,
-        $date = NULL,
-        $revisionId = NULL,
-        $fileAs = NULL,
-        $email = NULL,
-        $email2 = NULL,
-        $email3 = NULL,
-        $type = NULL,
-        $dlist = NULL,
-        $reference = NULL,
-        $tooManyMembers = NULL,
-        array $metadatas = NULL,
-        array $attrs = NULL,
-        array $contactGroupMembers = NULL
+        ?string $sortField = NULL,
+        ?bool $canExpand = NULL,
+        ?string $id = NULL,
+        ?string $folder = NULL,
+        ?string $flags = NULL,
+        ?string $tags = NULL,
+        ?string $tagNames = NULL,
+        ?int $changeDate = NULL,
+        ?int $modifiedSequenceId = NULL,
+        ?int $date = NULL,
+        ?int $revisionId = NULL,
+        ?string $fileAs = NULL,
+        ?string $email = NULL,
+        ?string $email2 = NULL,
+        ?string $email3 = NULL,
+        ?string $type = NULL,
+        ?string $dlist = NULL,
+        ?string $reference = NULL,
+        ?bool $tooManyMembers = NULL,
+        ?array $metadatas = NULL,
+        ?array $attrs = NULL,
+        ?array $contactGroupMembers = NULL
     )
     {
         if (NULL !== $sortField) {
@@ -337,7 +337,7 @@ class ContactInfo
      * @param  string $sortField
      * @return self
      */
-    public function setSortField($sortField): self
+    public function setSortField(string $sortField): self
     {
         $this->sortField = $sortField;
         return $this;
@@ -359,9 +359,9 @@ class ContactInfo
      * @param  bool $canExpand
      * @return bool
      */
-    public function setCanExpand($canExpand): self
+    public function setCanExpand(bool $canExpand): self
     {
-        $this->canExpand = (bool) $canExpand;
+        $this->canExpand = $canExpand;
         return $this;
     }
 
@@ -381,9 +381,9 @@ class ContactInfo
      * @param  string $id
      * @return self
      */
-    public function setId($id): self
+    public function setId(string $id): self
     {
-        $this->id = trim($id);
+        $this->id = $id;
         return $this;
     }
 
@@ -403,9 +403,9 @@ class ContactInfo
      * @param  string $folder
      * @return self
      */
-    public function setFolder($folder): self
+    public function setFolder(string $folder): self
     {
-        $this->folder = trim($folder);
+        $this->folder = $folder;
         return $this;
     }
 
@@ -425,9 +425,9 @@ class ContactInfo
      * @param  string $flags
      * @return self
      */
-    public function setFlags($flags): self
+    public function setFlags(string $flags): self
     {
-        $this->flags = trim($flags);
+        $this->flags = $flags;
         return $this;
     }
 
@@ -447,9 +447,9 @@ class ContactInfo
      * @param  string $tags
      * @return self
      */
-    public function setTags($tags): self
+    public function setTags(string $tags): self
     {
-        $this->tags = trim($tags);
+        $this->tags = $tags;
         return $this;
     }
 
@@ -469,9 +469,9 @@ class ContactInfo
      * @param  string $tagNames
      * @return self
      */
-    public function setTagNames($tagNames): self
+    public function setTagNames(string $tagNames): self
     {
-        $this->tagNames = trim($tagNames);
+        $this->tagNames = $tagNames;
         return $this;
     }
 
@@ -491,9 +491,9 @@ class ContactInfo
      * @param  int $changeDate
      * @return self
      */
-    public function setChangeDate($changeDate): self
+    public function setChangeDate(int $changeDate): self
     {
-        $this->changeDate = (int) $changeDate;
+        $this->changeDate = $changeDate;
         return $this;
     }
 
@@ -513,9 +513,9 @@ class ContactInfo
      * @param  int $modifiedSequenceId
      * @return self
      */
-    public function setModifiedSequenceId($modifiedSequenceId): self
+    public function setModifiedSequenceId(int $modifiedSequenceId): self
     {
-        $this->modifiedSequenceId = (int) $modifiedSequenceId;
+        $this->modifiedSequenceId = $modifiedSequenceId;
         return $this;
     }
 
@@ -535,9 +535,9 @@ class ContactInfo
      * @param  int $date
      * @return self
      */
-    public function setDate($date): self
+    public function setDate(int $date): self
     {
-        $this->date = (int) $date;
+        $this->date = $date;
         return $this;
     }
 
@@ -557,9 +557,9 @@ class ContactInfo
      * @param  int $revisionId
      * @return self
      */
-    public function setRevisionId($revisionId): self
+    public function setRevisionId(int $revisionId): self
     {
-        $this->revisionId = (int) $revisionId;
+        $this->revisionId = $revisionId;
         return $this;
     }
 
@@ -579,9 +579,9 @@ class ContactInfo
      * @param  string $fileAs
      * @return self
      */
-    public function setFileAs($fileAs): self
+    public function setFileAs(string $fileAs): self
     {
-        $this->fileAs = trim($fileAs);
+        $this->fileAs = $fileAs;
         return $this;
     }
 
@@ -601,9 +601,9 @@ class ContactInfo
      * @param  string $email
      * @return self
      */
-    public function setEmail($email): self
+    public function setEmail(string $email): self
     {
-        $this->email = trim($email);
+        $this->email = $email;
         return $this;
     }
 
@@ -623,9 +623,9 @@ class ContactInfo
      * @param  string $email2
      * @return self
      */
-    public function setEmail2($email2): self
+    public function setEmail2(string $email2): self
     {
-        $this->email2 = trim($email2);
+        $this->email2 = $email2;
         return $this;
     }
 
@@ -645,9 +645,9 @@ class ContactInfo
      * @param  string $email3
      * @return self
      */
-    public function setEmail3($email3): self
+    public function setEmail3(string $email3): self
     {
-        $this->email3 = trim($email3);
+        $this->email3 = $email3;
         return $this;
     }
 
@@ -667,9 +667,9 @@ class ContactInfo
      * @param  string $type
      * @return self
      */
-    public function setType($type): self
+    public function setType(string $type): self
     {
-        $this->type = trim($type);
+        $this->type = $type;
         return $this;
     }
 
@@ -689,9 +689,9 @@ class ContactInfo
      * @param  string $dlist
      * @return self
      */
-    public function setDlist($dlist): self
+    public function setDlist(string $dlist): self
     {
-        $this->dlist = trim($dlist);
+        $this->dlist = $dlist;
         return $this;
     }
 
@@ -711,9 +711,9 @@ class ContactInfo
      * @param  string $reference
      * @return self
      */
-    public function setReference($reference): self
+    public function setReference(string $reference): self
     {
-        $this->reference = trim($reference);
+        $this->reference = $reference;
         return $this;
     }
 
@@ -733,9 +733,9 @@ class ContactInfo
      * @param  bool $tooManyMembers
      * @return self
      */
-    public function setTooManyMembers($tooManyMembers): self
+    public function setTooManyMembers(bool $tooManyMembers): self
     {
-        $this->tooManyMembers = (bool) $tooManyMembers;
+        $this->tooManyMembers = $tooManyMembers;
         return $this;
     }
 

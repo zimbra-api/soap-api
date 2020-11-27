@@ -17,8 +17,7 @@ class MemberTypeTest extends TestCase
             'GAL_ENTRY'      => 'G',
             'INLINED_MEMBER' => 'I',
         ];
-        foreach ($values as $enum => $value)
-        {
+        foreach ($values as $enum => $value) {
             $this->assertSame(MemberType::$enum()->getValue(), $value);
         }
     }

@@ -108,13 +108,13 @@ class CreateGalSyncAccountRequest extends Request implements AdminAttrs
      * @return self
      */
     public function __construct(
-        $name,
-        $domain,
+        string $name,
+        string $domain,
         GalMode $type,
         AccountSelector $account,
-        $mailHost,
-        $password = NULL,
-        $folder = NULL,
+        string $mailHost,
+        ?string $password = NULL,
+        ?string $folder = NULL,
         array $attrs = []
     )
     {
@@ -148,9 +148,9 @@ class CreateGalSyncAccountRequest extends Request implements AdminAttrs
      * @param  string $name
      * @return self
      */
-    public function setName($name): self
+    public function setName(string $name): self
     {
-        $this->name = trim($name);
+        $this->name = $name;
         return $this;
     }
 
@@ -170,9 +170,9 @@ class CreateGalSyncAccountRequest extends Request implements AdminAttrs
      * @param  string $domain
      * @return self
      */
-    public function setDomain($domain): self
+    public function setDomain(string $domain): self
     {
-        $this->domain = trim($domain);
+        $this->domain = $domain;
         return $this;
     }
 
@@ -236,9 +236,9 @@ class CreateGalSyncAccountRequest extends Request implements AdminAttrs
      * @param  string $mailHost
      * @return self
      */
-    public function setMailHost($mailHost): self
+    public function setMailHost(string $mailHost): self
     {
-        $this->mailHost = trim($mailHost);
+        $this->mailHost = $mailHost;
         return $this;
     }
 
@@ -247,7 +247,7 @@ class CreateGalSyncAccountRequest extends Request implements AdminAttrs
      *
      * @return string
      */
-    public function getPassword(): string
+    public function getPassword(): ?string
     {
         return $this->password;
     }
@@ -258,9 +258,9 @@ class CreateGalSyncAccountRequest extends Request implements AdminAttrs
      * @param  string $password
      * @return self
      */
-    public function setPassword($password): self
+    public function setPassword(string $password): self
     {
-        $this->password = trim($password);
+        $this->password = $password;
         return $this;
     }
 
@@ -269,7 +269,7 @@ class CreateGalSyncAccountRequest extends Request implements AdminAttrs
      *
      * @return string
      */
-    public function getFolder(): string
+    public function getFolder(): ?string
     {
         return $this->folder;
     }
@@ -280,9 +280,9 @@ class CreateGalSyncAccountRequest extends Request implements AdminAttrs
      * @param  string $folder
      * @return self
      */
-    public function setFolder($folder): self
+    public function setFolder(string $folder): self
     {
-        $this->folder = trim($folder);
+        $this->folder = $folder;
         return $this;
     }
 

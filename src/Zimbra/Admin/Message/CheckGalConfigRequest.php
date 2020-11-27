@@ -59,7 +59,7 @@ class CheckGalConfigRequest extends Request implements AdminAttrs
      * @param  array  $attrs
      * @return self
      */
-    public function __construct(LimitedQuery $query = NULL, $action = NULL, array $attrs = [])
+    public function __construct(?LimitedQuery $query = NULL, ?string $action = NULL, array $attrs = [])
     {
         if ($query instanceof LimitedQuery) {
             $this->setQuery($query);
@@ -87,7 +87,7 @@ class CheckGalConfigRequest extends Request implements AdminAttrs
      *
      * @return LimitedQuery
      */
-    public function getQuery(): LimitedQuery
+    public function getQuery(): ?LimitedQuery
     {
         return $this->query;
     }
@@ -97,7 +97,7 @@ class CheckGalConfigRequest extends Request implements AdminAttrs
      *
      * @return string
      */
-    public function getAction(): string
+    public function getAction(): ?string
     {
         return $this->action;
     }
@@ -108,9 +108,9 @@ class CheckGalConfigRequest extends Request implements AdminAttrs
      * @param  string $action
      * @return self
      */
-    public function setAction($action): self
+    public function setAction(string $action): self
     {
-        $this->action = trim($action);
+        $this->action = $action;
         return $this;
     }
 

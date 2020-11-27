@@ -28,6 +28,7 @@ use Zimbra\Soap\Request;
 class CheckPasswordStrengthRequest extends Request
 {
     /**
+     * Zimbra ID
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
@@ -36,6 +37,7 @@ class CheckPasswordStrengthRequest extends Request
     private $id;
 
     /**
+     * Password
      * @Accessor(getter="getPassword", setter="setPassword")
      * @SerializedName("password")
      * @Type("string")
@@ -45,11 +47,11 @@ class CheckPasswordStrengthRequest extends Request
 
     /**
      * Constructor method for CheckPasswordStrengthRequest
-     * @param  string $id Zimbra ID
-     * @param  string $password Password
+     * @param  string $id
+     * @param  string $password
      * @return self
      */
-    public function __construct($id, $password)
+    public function __construct(string $id, string $password)
     {
         $this->setId($id)
              ->setPassword($password);
@@ -71,9 +73,9 @@ class CheckPasswordStrengthRequest extends Request
      * @param  string $id
      * @return self
      */
-    public function setId($id): self
+    public function setId(string $id): self
     {
-        $this->id = trim($id);
+        $this->id = $id;
         return $this;
     }
 
@@ -93,9 +95,9 @@ class CheckPasswordStrengthRequest extends Request
      * @param  string $password
      * @return self
      */
-    public function setPassword($password): self
+    public function setPassword(string $password): self
     {
-        $this->password = trim($password);
+        $this->password = $password;
         return $this;
     }
 

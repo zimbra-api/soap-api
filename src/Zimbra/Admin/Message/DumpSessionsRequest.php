@@ -51,7 +51,7 @@ class DumpSessionsRequest extends Request
      * @param  bool $groupByAccount
      * @return self
      */
-    public function __construct($includeAccounts = NULL, $groupByAccount = NULL)
+    public function __construct(?bool $includeAccounts = NULL, ?bool $groupByAccount = NULL)
     {
         if (NULL !== $includeAccounts) {
             $this->setIncludeAccounts($includeAccounts);
@@ -77,9 +77,9 @@ class DumpSessionsRequest extends Request
      * @param  bool $includeAccounts
      * @return self
      */
-    public function setIncludeAccounts($includeAccounts): self
+    public function setIncludeAccounts(bool $includeAccounts): self
     {
-        $this->includeAccounts = (bool) $includeAccounts;
+        $this->includeAccounts = $includeAccounts;
         return $this;
     }
 
@@ -99,9 +99,9 @@ class DumpSessionsRequest extends Request
      * @param  bool $groupByAccount
      * @return self
      */
-    public function setGroupByAccount($groupByAccount): self
+    public function setGroupByAccount(bool $groupByAccount): self
     {
-        $this->groupByAccount = (bool) $groupByAccount;
+        $this->groupByAccount = $groupByAccount;
         return $this;
     }
 

@@ -64,8 +64,8 @@ class CheckGalConfigResponse implements ResponseInterface
      * @return self
      */
     public function __construct(
-        $code,
-        $message = NULL,
+        string $code,
+        ?string $message = NULL,
         array $galContacts = []
     )
     {
@@ -81,7 +81,7 @@ class CheckGalConfigResponse implements ResponseInterface
      *
      * @return string
      */
-    public function getCode(): ?string
+    public function getCode(): string
     {
         return $this->code;
     }
@@ -92,9 +92,9 @@ class CheckGalConfigResponse implements ResponseInterface
      * @param  string $code
      * @return self
      */
-    public function setCode($code): self
+    public function setCode(string $code): self
     {
-        $this->code = trim($code);
+        $this->code = $code;
         return $this;
     }
 
@@ -114,9 +114,9 @@ class CheckGalConfigResponse implements ResponseInterface
      * @param  string $message
      * @return self
      */
-    public function setMessage($message): self
+    public function setMessage(string $message): self
     {
-        $this->message = trim($message);
+        $this->message = $message;
         return $this;
     }
 

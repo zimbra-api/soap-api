@@ -17,8 +17,7 @@ class CalendarResourceByTest extends TestCase
             'FOREIGN_PRINCIPAL' => 'foreignPrincipal',
             'NAME'              => 'name',
         ];
-        foreach ($values as $enum => $value)
-        {
+        foreach ($values as $enum => $value) {
             $this->assertSame(CalendarResourceBy::$enum()->getValue(), $value);
         }
     }

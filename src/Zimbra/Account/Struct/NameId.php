@@ -47,9 +47,10 @@ class NameId
      * @param string $id
      * @return self
      */
-    public function __construct($name, $id)
+    public function __construct(string $name, string $id)
     {
-        $this->setName($name)->setId($id);
+        $this->setName($name)
+            ->setId($id);
     }
 
     /**
@@ -57,7 +58,7 @@ class NameId
      *
      * @return string
      */
-    public function getName()
+    public function getName(): string
     {
         return $this->name;
     }
@@ -68,9 +69,9 @@ class NameId
      * @param  string $name
      * @return self
      */
-    public function setName($name)
+    public function setName(string $name): self
     {
-        $this->name = trim($name);
+        $this->name = $name;
         return $this;
     }
 
@@ -79,7 +80,7 @@ class NameId
      *
      * @return string
      */
-    public function getId()
+    public function getId(): string
     {
         return $this->id;
     }
@@ -90,9 +91,9 @@ class NameId
      * @param  string $id
      * @return self
      */
-    public function setId($id)
+    public function setId(string $id): self
     {
-        $this->id = trim($id);
+        $this->id = $id;
         return $this;
     }
 }

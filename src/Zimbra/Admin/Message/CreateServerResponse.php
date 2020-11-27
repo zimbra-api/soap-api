@@ -41,7 +41,7 @@ class CreateServerResponse implements ResponseInterface
      * @param ServerInfo $server
      * @return self
      */
-    public function __construct(ServerInfo $server = NULL)
+    public function __construct(?ServerInfo $server = NULL)
     {
         if ($server instanceof ServerInfo) {
             $this->setServer($server);
@@ -53,7 +53,7 @@ class CreateServerResponse implements ResponseInterface
      *
      * @return ServerInfo
      */
-    public function getServer(): ServerInfo
+    public function getServer(): ?ServerInfo
     {
         return $this->server;
     }

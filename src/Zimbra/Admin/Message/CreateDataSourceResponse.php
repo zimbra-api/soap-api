@@ -41,7 +41,7 @@ class CreateDataSourceResponse implements ResponseInterface
      * @param DataSourceInfo $dataSource
      * @return self
      */
-    public function __construct(DataSourceInfo $dataSource = NULL)
+    public function __construct(?DataSourceInfo $dataSource = NULL)
     {
         if ($dataSource instanceof DataSourceInfo) {
             $this->setDataSource($dataSource);
@@ -53,7 +53,7 @@ class CreateDataSourceResponse implements ResponseInterface
      *
      * @return DataSourceInfo
      */
-    public function getDataSource(): DataSourceInfo
+    public function getDataSource(): ?DataSourceInfo
     {
         return $this->dataSource;
     }

@@ -121,9 +121,9 @@ class PendingFolderModifications
      * @param  int $folderId
      * @return self
      */
-    public function setFolderId($folderId): self
+    public function setFolderId(int $folderId): self
     {
-        $this->folderId = (int) $folderId;
+        $this->folderId = $folderId;
         return $this;
     }
 

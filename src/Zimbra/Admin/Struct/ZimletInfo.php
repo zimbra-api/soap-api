@@ -42,7 +42,7 @@ class ZimletInfo extends AdminObjectInfo
      * @param  string $hasKeyword
      * @return self
      */
-    public function __construct($name, $id, array $attrs = [], $hasKeyword = NULL)
+    public function __construct(string $name, string $id, array $attrs = [], ?string $hasKeyword = NULL)
     {
         parent::__construct($name, $id, $attrs);
         if (NULL !== $hasKeyword) {
@@ -55,7 +55,7 @@ class ZimletInfo extends AdminObjectInfo
      *
      * @return string
      */
-    public function getHasKeyword(): string
+    public function getHasKeyword(): ?string
     {
         return $this->hasKeyword;
     }
@@ -66,9 +66,9 @@ class ZimletInfo extends AdminObjectInfo
      * @param  string $hasKeyword
      * @return self
      */
-    public function setHasKeyword($hasKeyword): self
+    public function setHasKeyword(string $hasKeyword): self
     {
-        $this->hasKeyword = trim($hasKeyword);
+        $this->hasKeyword = $hasKeyword;
         return $this;
     }
 }

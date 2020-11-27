@@ -67,7 +67,7 @@ class CheckDomainMXRecordRequest extends Request
      *
      * @return DomainSelector
      */
-    public function getDomain(): DomainSelector
+    public function getDomain(): ?DomainSelector
     {
         return $this->domain;
     }

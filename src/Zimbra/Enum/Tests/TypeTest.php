@@ -16,8 +16,7 @@ class TypeTest extends TestCase
             'USER'   => 'user',
             'SYSTEM' => 'system',
         ];
-        foreach ($values as $enum => $value)
-        {
+        foreach ($values as $enum => $value) {
             $this->assertSame(Type::$enum()->getValue(), $value);
         }
     }

@@ -49,14 +49,14 @@ class ContactBackupServer
      * @param ContactBackupStatus $status
      * @return self
      */
-    public function __construct($name, ContactBackupStatus $status)
+    public function __construct(string $name, ContactBackupStatus $status)
     {
         $this->setName($name)
              ->setStatus($status);
     }
 
     /**
-     * Gets Zimbra ID of account
+     * Gets name
      *
      * @return string
      */
@@ -66,14 +66,14 @@ class ContactBackupServer
     }
 
     /**
-     * Sets Zimbra ID of account
+     * Sets name
      *
      * @param  string $name
      * @return self
      */
-    public function setName($name): self
+    public function setName(string $name): self
     {
-        $this->name = trim($name);
+        $this->name = $name;
         return $this;
     }
 

@@ -48,7 +48,7 @@ class Identity extends AttrsImpl
      * @param array  $attrs
      * @return self
      */
-    public function __construct($name = NULL, $id = NULL, array $attrs = array())
+    public function __construct(?string $name = NULL, ?string $id = NULL, array $attrs = array())
     {
         parent::__construct($attrs);
         if (NULL !== $name) {
@@ -64,7 +64,7 @@ class Identity extends AttrsImpl
      *
      * @return string
      */
-    public function getName()
+    public function getName(): ?string
     {
         return $this->name;
     }
@@ -75,9 +75,9 @@ class Identity extends AttrsImpl
      * @param  string $name
      * @return self
      */
-    public function setName($name)
+    public function setName(string $name): self
     {
-        $this->name = trim($name);
+        $this->name = $name;
         return $this;
     }
 
@@ -86,7 +86,7 @@ class Identity extends AttrsImpl
      *
      * @return string
      */
-    public function getId()
+    public function getId(): ?string
     {
         return $this->id;
     }
@@ -97,9 +97,9 @@ class Identity extends AttrsImpl
      * @param  string $id
      * @return self
      */
-    public function setId($id)
+    public function setId(string $id): self
     {
-        $this->id = trim($id);
+        $this->id = $id;
         return $this;
     }
 }

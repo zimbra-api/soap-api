@@ -26,6 +26,7 @@ use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAt
 class CheckRightsRightInfo
 {
     /**
+     * name of right
      * @Accessor(getter="getRight", setter="setRight")
      * @SerializedName("_content")
      * @Type("string")
@@ -34,6 +35,7 @@ class CheckRightsRightInfo
     private $right;
 
     /**
+     * flags whether the authed user has the right on the target
      * @Accessor(getter="getAllow", setter="setAllow")
      * @SerializedName("allow")
      * @Type("bool")
@@ -43,11 +45,11 @@ class CheckRightsRightInfo
 
     /**
      * Constructor method for CheckRightsRightInfo
-     * @param  string $right name of right
-     * @param  bool   $allow flags whether the authed user has the right on the target
+     * @param  string $right
+     * @param  bool   $allow
      * @return self
      */
-    public function __construct($right, $allow)
+    public function __construct(string $right, bool $allow)
     {
         $this->setRight($right)
             ->setAllow($allow);
@@ -69,14 +71,14 @@ class CheckRightsRightInfo
      * @param  string $right
      * @return self
      */
-    public function setRight($right): self
+    public function setRight(string $right): self
     {
-        $this->right = trim($right);
+        $this->right = $right;
         return $this;
     }
 
     /**
-     * Gets flags whether the authed user has the right on the target
+     * Gets allow
      *
      * @return bool
      */
@@ -86,14 +88,14 @@ class CheckRightsRightInfo
     }
 
     /**
-     * Sets flags whether the authed user has the right on the target
+     * Sets allow
      *
      * @param  bool $allow
      * @return self
      */
-    public function setAllow($allow): self
+    public function setAllow(bool $allow): self
     {
-        $this->allow = (bool) $allow;
+        $this->allow = $allow;
         return $this;
     }
 }

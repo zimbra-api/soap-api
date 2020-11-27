@@ -27,6 +27,7 @@ use Zimbra\Enum\DataSourceType;
 class DataSourceSpecifier extends AdminAttrsImpl
 {
     /**
+     * Data source type
      * @Accessor(getter="getType", setter="setType")
      * @SerializedName("type")
      * @Type("Zimbra\Enum\DataSourceType")
@@ -35,6 +36,7 @@ class DataSourceSpecifier extends AdminAttrsImpl
     private $type;
 
     /**
+     * Data source name
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
@@ -44,12 +46,12 @@ class DataSourceSpecifier extends AdminAttrsImpl
 
     /**
      * Constructor method for DataSourceSpecifier
-     * @param DataSourceType $type Data source type
-     * @param string $name Data source name
-     * @param array $attrs Attributes
+     * @param DataSourceType $type
+     * @param string $name
+     * @param array $attrs
      * @return self
      */
-    public function __construct(DataSourceType $type, $name, array $attrs = [])
+    public function __construct(DataSourceType $type, string $name, array $attrs = [])
     {
         parent::__construct($attrs);
         $this->setType($type)
@@ -94,9 +96,9 @@ class DataSourceSpecifier extends AdminAttrsImpl
      * @param  string $name
      * @return self
      */
-    public function setName($name): self
+    public function setName(string $name): self
     {
-        $this->name = trim($name);
+        $this->name = $name;
         return $this;
     }
 }

@@ -61,7 +61,7 @@ class CreateSystemRetentionPolicyRequest extends Request
      * @param  PolicyHolder $purge
      * @return self
      */
-    public function __construct(CosSelector $cos = NULL, PolicyHolder $keep = NULL, PolicyHolder $purge = NULL)
+    public function __construct(?CosSelector $cos = NULL, ?PolicyHolder $keep = NULL, ?PolicyHolder $purge = NULL)
     {
         if ($cos instanceof CosSelector) {
             $this->setCos($cos);
@@ -89,7 +89,7 @@ class CreateSystemRetentionPolicyRequest extends Request
      *
      * @return CosSelector
      */
-    public function getCos(): CosSelector
+    public function getCos(): ?CosSelector
     {
         return $this->cos;
     }
@@ -111,7 +111,7 @@ class CreateSystemRetentionPolicyRequest extends Request
      *
      * @return PolicyHolder
      */
-    public function getKeepPolicy(): PolicyHolder
+    public function getKeepPolicy(): ?PolicyHolder
     {
         return $this->keep;
     }
@@ -133,7 +133,7 @@ class CreateSystemRetentionPolicyRequest extends Request
      *
      * @return PolicyHolder
      */
-    public function getPurgePolicy(): PolicyHolder
+    public function getPurgePolicy(): ?PolicyHolder
     {
         return $this->purge;
     }

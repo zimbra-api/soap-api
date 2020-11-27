@@ -72,10 +72,10 @@ class WaitSetAddSpec
      * @return self
      */
     public function __construct(
-        $name = NULL,
-        $id = NULL,
-        $token = NULL,
-        $interests = NULL
+        ?string $name = NULL,
+        ?string $id = NULL,
+        ?string $token = NULL,
+        ?string $interests = NULL
     )
     {
         if (NULL !== $name) {
@@ -87,7 +87,9 @@ class WaitSetAddSpec
         if (NULL !== $token) {
             $this->setToken($token);
         }
-        $this->setInterests($interests);
+        if (NULL !== $interests) {
+            $this->setInterests($interests);
+        }
     }
 
     /**
@@ -95,7 +97,7 @@ class WaitSetAddSpec
      *
      * @return string
      */
-    public function getName(): string
+    public function getName(): ?string
     {
         return $this->name;
     }
@@ -106,9 +108,9 @@ class WaitSetAddSpec
      * @param  string $name
      * @return self
      */
-    public function setName($name): self
+    public function setName(string $name): self
     {
-        $this->name = trim($name);
+        $this->name = $name;
         return $this;
     }
 
@@ -117,7 +119,7 @@ class WaitSetAddSpec
      *
      * @return string
      */
-    public function getId(): string
+    public function getId(): ?string
     {
         return $this->id;
     }
@@ -128,9 +130,9 @@ class WaitSetAddSpec
      * @param  string $id
      * @return self
      */
-    public function setId($id): self
+    public function setId(string $id): self
     {
-        $this->id = trim($id);
+        $this->id = $id;
         return $this;
     }
 
@@ -139,7 +141,7 @@ class WaitSetAddSpec
      *
      * @return string
      */
-    public function getToken(): string
+    public function getToken(): ?string
     {
         return $this->token;
     }
@@ -150,9 +152,9 @@ class WaitSetAddSpec
      * @param  string $token
      * @return self
      */
-    public function setToken($token): self
+    public function setToken(string $token): self
     {
-        $this->token = trim($token);
+        $this->token = $token;
         return $this;
     }
 
@@ -162,7 +164,7 @@ class WaitSetAddSpec
      * @param string $interests Comma-separated list
      * @return self
      */
-    public function setInterests($interests): self
+    public function setInterests(string $interests): self
     {
         $types = [];
         if (is_array($interests)) {
@@ -189,12 +191,12 @@ class WaitSetAddSpec
      *
      * @return string
      */
-    public function getInterests(): string
+    public function getInterests(): ?string
     {
         return $this->interests;
     }
 
-    public function addFolderInterest($folderId): self
+    public function addFolderInterest(string $folderId): self
     {
         $folderId = (int) $folderId;
         if (!in_array($folderId, $this->folderInterests)) {
@@ -203,7 +205,7 @@ class WaitSetAddSpec
         return $this;
     }
 
-    public function setFolderInterests($folderInterests): self
+    public function setFolderInterests(array $folderInterests): self
     {
         $this->folderInterests = [];
         if (is_array($folderInterests)) {

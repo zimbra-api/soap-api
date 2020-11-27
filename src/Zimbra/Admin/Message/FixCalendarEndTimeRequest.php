@@ -56,7 +56,7 @@ class FixCalendarEndTimeRequest extends Request
      * @param  array $accounts
      * @return self
      */
-    public function __construct($sync = NULL, array $accounts = [])
+    public function __construct(?bool $sync = NULL, array $accounts = [])
     {
         $this->setAccounts($accounts);
         if (NULL !== $sync) {
@@ -80,9 +80,9 @@ class FixCalendarEndTimeRequest extends Request
      * @param  bool $sync
      * @return self
      */
-    public function setSync($sync): self
+    public function setSync(bool $sync): self
     {
-        $this->sync = (bool) $sync;
+        $this->sync = $sync;
         return $this;
     }
 

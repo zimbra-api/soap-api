@@ -17,8 +17,7 @@ class VolumeTypeTest extends TestCase
         	'SECONDARY' => 2,
         	'INDEX'     => 10,
     	];
-        foreach ($values as $enum => $value)
-        {
+        foreach ($values as $enum => $value) {
             $this->assertSame(VolumeType::$enum()->getValue(), $value);
         }
     }

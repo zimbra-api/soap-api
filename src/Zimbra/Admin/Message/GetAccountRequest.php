@@ -61,7 +61,7 @@ class GetAccountRequest extends Request implements AttributeSelector
      * @param  string $attrs
      * @return self
      */
-    public function __construct(AccountSelector $account, $applyCos = NULL, $attrs = NULL)
+    public function __construct(AccountSelector $account, ?bool $applyCos = NULL, ?string $attrs = NULL)
     {
         $this->setAccount($account);
         if (NULL !== $applyCos) {
@@ -88,9 +88,9 @@ class GetAccountRequest extends Request implements AttributeSelector
      * @param  bool $applyCos
      * @return self
      */
-    public function setApplyCos($applyCos): self
+    public function setApplyCos(bool $applyCos): self
     {
-        $this->applyCos = (bool) $applyCos;
+        $this->applyCos = $applyCos;
         return $this;
     }
 

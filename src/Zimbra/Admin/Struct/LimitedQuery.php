@@ -26,6 +26,7 @@ use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAt
 class LimitedQuery
 {
     /**
+     * Limit. Default value 10
      * @Accessor(getter="getLimit", setter="setLimit")
      * @SerializedName("limit")
      * @Type("integer")
@@ -34,6 +35,7 @@ class LimitedQuery
     private $limit;
 
     /**
+     * Query string
      * @Accessor(getter="getValue", setter="setValue")
      * @SerializedName("_content")
      * @Type("string")
@@ -43,11 +45,11 @@ class LimitedQuery
 
     /**
      * Constructor method for LimitedQuery
-     * @param  int    $limit Limit. Default value 10
-     * @param  string $value Query string
+     * @param  int    $limit
+     * @param  string $value
      * @return self
      */
-    public function __construct($limit = NULL, $value = NULL)
+    public function __construct(?int $limit = NULL, ?string $value = NULL)
     {
         if (NULL !== $limit) {
             $this->setLimit($limit);
@@ -62,7 +64,7 @@ class LimitedQuery
      *
      * @return int
      */
-    public function getLimit(): int
+    public function getLimit(): ?int
     {
         return $this->limit;
     }
@@ -73,9 +75,9 @@ class LimitedQuery
      * @param  int $limit
      * @return self
      */
-    public function setLimit($limit): self
+    public function setLimit(int $limit): self
     {
-        $this->limit = (int) $limit;
+        $this->limit = $limit;
         return $this;
     }
 
@@ -84,7 +86,7 @@ class LimitedQuery
      *
      * @return string
      */
-    public function getValue(): string
+    public function getValue(): ?string
     {
         return $this->value;
     }
@@ -92,12 +94,12 @@ class LimitedQuery
     /**
      * Sets value
      *
-     * @param  string $name
+     * @param  string $value
      * @return self
      */
-    public function setValue($value): self
+    public function setValue(string $value): self
     {
-        $this->value = trim($value);
+        $this->value = $value;
         return $this;
     }
 }

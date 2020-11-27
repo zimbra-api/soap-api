@@ -38,7 +38,7 @@ class Right
      * @param string $right
      * @return self
      */
-    public function __construct($right)
+    public function __construct(string $right)
     {
         $this->setRight($right);
     }
@@ -48,7 +48,7 @@ class Right
      *
      * @return string
      */
-    public function getRight()
+    public function getRight(): string
     {
         return $this->right;
     }
@@ -59,9 +59,9 @@ class Right
      * @param  string $right
      * @return self
      */
-    public function setRight($right)
+    public function setRight(string $right): self
     {
-        $this->right = trim($right);
+        $this->right = $right;
         return $this;
     }
 }

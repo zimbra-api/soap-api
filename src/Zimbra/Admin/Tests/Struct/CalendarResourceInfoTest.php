@@ -2,8 +2,8 @@
 
 namespace Zimbra\Admin\Tests\Struct;
 
-use Zimbra\Admin\Struct\CalendarResourceInfo;
 use Zimbra\Admin\Struct\Attr;
+use Zimbra\Admin\Struct\CalendarResourceInfo;
 use Zimbra\Struct\Tests\ZimbraStructTestCase;
 
 /**

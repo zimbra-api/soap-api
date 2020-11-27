@@ -47,16 +47,14 @@ class UserAgentInfo
      * @return self
      */
     public function __construct(
-        $name = null,
-        $version = null
+        ?string $name = NULL,
+        ?string $version = NULL
     )
     {
-        if(null !== $name)
-        {
+        if (NULL !== $name) {
             $this->setName($name);
         }
-        if(null !== $version)
-        {
+        if (NULL !== $version) {
             $this->setVersion($version);
         }
     }
@@ -66,7 +64,7 @@ class UserAgentInfo
      *
      * @return string
      */
-    public function getName(): string
+    public function getName(): ?string
     {
         return $this->name;
     }
@@ -74,12 +72,12 @@ class UserAgentInfo
     /**
      * Sets user agent name
      *
-     * @param  string $id
+     * @param  string $name
      * @return self
      */
-    public function setName($id): self
+    public function setName(string $name): self
     {
-        $this->name = trim($id);
+        $this->name = $name;
         return $this;
     }
 
@@ -88,7 +86,7 @@ class UserAgentInfo
      *
      * @return string
      */
-    public function getVersion(): string
+    public function getVersion(): ?string
     {
         return $this->version;
     }
@@ -99,9 +97,9 @@ class UserAgentInfo
      * @param  string $version
      * @return self
      */
-    public function setVersion($version): self
+    public function setVersion(string $version): self
     {
-        $this->version = trim($version);
+        $this->version = $version;
         return $this;
     }
 }

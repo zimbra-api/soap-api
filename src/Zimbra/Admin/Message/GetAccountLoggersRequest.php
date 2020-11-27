@@ -53,7 +53,7 @@ class GetAccountLoggersRequest extends Request
      * @param  AccountSelector $account
      * @return self
      */
-    public function __construct($id = NULL, AccountSelector $account = NULL)
+    public function __construct(?string $id = NULL, ?AccountSelector $account = NULL)
     {
         if (NULL !== $id) {
             $this->setId($id);
@@ -68,7 +68,7 @@ class GetAccountLoggersRequest extends Request
      *
      * @return string
      */
-    public function getId(): string
+    public function getId(): ?string
     {
         return $this->id;
     }
@@ -79,9 +79,9 @@ class GetAccountLoggersRequest extends Request
      * @param  string $id
      * @return self
      */
-    public function setId($id): self
+    public function setId(string $id): self
     {
-        $this->id = trim($id);
+        $this->id = $id;
         return $this;
     }
 
@@ -90,7 +90,7 @@ class GetAccountLoggersRequest extends Request
      *
      * @return AccountSelector
      */
-    public function getAccount(): AccountSelector
+    public function getAccount(): ?AccountSelector
     {
         return $this->account;
     }

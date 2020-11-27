@@ -17,8 +17,7 @@ class IpTypeTest extends TestCase
             'IPV6' => 'ipV6',
             'BOTH' => 'both',
         ];
-        foreach ($values as $enum => $value)
-        {
+        foreach ($values as $enum => $value) {
             $this->assertSame(IpType::$enum()->getValue(), $value);
         }
     }

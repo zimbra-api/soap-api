@@ -79,7 +79,7 @@ class DirPathInfo
      * @param bool   $writable
      * @return self
      */
-    public function __construct($path, $exists, $directory, $readable, $writable)
+    public function __construct(string $path, bool $exists, bool $directory, bool $readable, bool $writable)
     {
         $this->setPath($path)
              ->setExists($exists)
@@ -104,9 +104,9 @@ class DirPathInfo
      * @param  string $path
      * @return self
      */
-    public function setPath($path): self
+    public function setPath(string $path): self
     {
-        $this->path = trim($path);
+        $this->path = $path;
         return $this;
     }
 
@@ -126,9 +126,9 @@ class DirPathInfo
      * @param  bool $exists
      * @return self
      */
-    public function setExists($exists): self
+    public function setExists(bool $exists): self
     {
-        $this->exists = (bool) $exists;
+        $this->exists = $exists;
         return $this;
     }
 
@@ -148,9 +148,9 @@ class DirPathInfo
      * @param  bool $directory
      * @return self
      */
-    public function setIsDirectory($directory): self
+    public function setIsDirectory(bool $directory): self
     {
-        $this->directory = (bool) $directory;
+        $this->directory = $directory;
         return $this;
     }
 
@@ -170,9 +170,9 @@ class DirPathInfo
      * @param  bool $readable
      * @return self
      */
-    public function setReadable($readable): self
+    public function setReadable(bool $readable): self
     {
-        $this->readable = (bool) $readable;
+        $this->readable = $readable;
         return $this;
     }
 
@@ -192,9 +192,9 @@ class DirPathInfo
      * @param  bool $writable
      * @return self
      */
-    public function setWritable($writable): self
+    public function setWritable(bool $writable): self
     {
-        $this->writable = (bool) $writable;
+        $this->writable = $writable;
         return $this;
     }
 }

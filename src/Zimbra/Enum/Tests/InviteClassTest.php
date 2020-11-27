@@ -17,8 +17,7 @@ class InviteClassTest extends TestCase
             'PRI' => 'PRI',
             'CON' => 'CON',
         ];
-        foreach ($values as $enum => $value)
-        {
+        foreach ($values as $enum => $value) {
             $this->assertSame(InviteClass::$enum()->getValue(), $value);
         }
     }

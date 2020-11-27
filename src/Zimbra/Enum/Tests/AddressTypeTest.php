@@ -22,8 +22,7 @@ class AddressTypeTest extends TestCase
             'NOTIFICATION' => 'n',
             'RESENT_FROM'  => 'rf',
         ];
-        foreach ($values as $enum => $value)
-        {
+        foreach ($values as $enum => $value) {
             $this->assertSame(AddressType::$enum()->getValue(), $value);
         }
     }

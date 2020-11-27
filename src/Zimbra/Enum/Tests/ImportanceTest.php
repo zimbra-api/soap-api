@@ -17,8 +17,7 @@ class ImportanceTest extends TestCase
             'NORMAL' => 'normal',
             'LOW'    => 'low',
         ];
-        foreach ($values as $enum => $value)
-        {
+        foreach ($values as $enum => $value) {
             $this->assertSame(Importance::$enum()->getValue(), $value);
         }
     }

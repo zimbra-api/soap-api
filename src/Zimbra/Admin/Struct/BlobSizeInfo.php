@@ -70,10 +70,10 @@ class BlobSizeInfo
      * @return self
      */
     public function __construct(
-        $path,
-        $size,
-        $fileSize,
-        $external
+        string $path,
+        int $size,
+        int $fileSize,
+        bool $external
     )
     {
         $this->setPath($path)
@@ -98,7 +98,7 @@ class BlobSizeInfo
      * @param  string $path
      * @return self
      */
-    public function setPath($path): self
+    public function setPath(string $path): self
     {
         $this->path = $path;
         return $this;
@@ -120,9 +120,9 @@ class BlobSizeInfo
      * @param  int $size
      * @return self
      */
-    public function setSize($size): self
+    public function setSize(int $size): self
     {
-        $this->size = (int) $size;
+        $this->size = $size;
         return $this;
     }
 
@@ -142,9 +142,9 @@ class BlobSizeInfo
      * @param  int $fileSize
      * @return self
      */
-    public function setFileSize($fileSize): self
+    public function setFileSize(int $fileSize): self
     {
-        $this->fileSize = (int) $fileSize;
+        $this->fileSize = $fileSize;
         return $this;
     }
 
@@ -164,9 +164,9 @@ class BlobSizeInfo
      * @param  bool $external
      * @return self
      */
-    public function setExternal($external): self
+    public function setExternal(bool $external): self
     {
-        $this->external = (bool) $external;
+        $this->external = $external;
         return $this;
     }
 }

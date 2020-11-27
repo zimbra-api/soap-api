@@ -31,6 +31,7 @@ use Zimbra\Soap\Request;
 class AutoCompleteGalRequest extends Request
 {
     /**
+     * name to test for autocompletion
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
@@ -39,6 +40,7 @@ class AutoCompleteGalRequest extends Request
     private $name;
 
     /**
+     * type of addresses to auto-complete on
      * @Accessor(getter="getType", setter="setType")
      * @SerializedName("type")
      * @Type("Zimbra\Enum\GalSearchType")
@@ -47,6 +49,7 @@ class AutoCompleteGalRequest extends Request
     private $type;
 
     /**
+     * flag is needed in the response for group entries
      * @Accessor(getter="getNeedCanExpand", setter="setNeedCanExpand")
      * @SerializedName("needExp")
      * @Type("bool")
@@ -55,6 +58,7 @@ class AutoCompleteGalRequest extends Request
     private $needCanExpand;
 
     /**
+     * GAL Account ID
      * @Accessor(getter="getGalAccountId", setter="setGalAccountId")
      * @SerializedName("galAcctId")
      * @Type("string")
@@ -63,6 +67,7 @@ class AutoCompleteGalRequest extends Request
     private $galAccountId;
 
     /**
+     * the maximum number of results to return
      * @Accessor(getter="getLimit", setter="setLimit")
      * @SerializedName("limit")
      * @Type("integer")
@@ -72,14 +77,14 @@ class AutoCompleteGalRequest extends Request
 
     /**
      * Constructor method for AutoCompleteGal
-     * @param  string $name name to test for autocompletion
-     * @param  GalSearchType $type type of addresses to auto-complete on
-     * @param  bool $needCanExpand flag is needed in the response for group entries
-     * @param  string $galAccountId GAL Account ID
-     * @param  int $limit the maximum number of results to return
+     * @param  string $name
+     * @param  GalSearchType $type
+     * @param  bool $needCanExpand
+     * @param  string $galAccountId
+     * @param  int $limit
      * @return self
      */
-    public function __construct($name, GalSearchType $type = NULL, $needCanExpand = NULL, $galAccountId = NULL, $limit = NULL)
+    public function __construct(string $name, ?GalSearchType $type = NULL, ?bool $needCanExpand = NULL, ?string $galAccountId = NULL, ?int $limit = NULL)
     {
         $this->setName($name);
         if(NULL !== $type) {
@@ -112,9 +117,9 @@ class AutoCompleteGalRequest extends Request
      * @param  string $name
      * @return self
      */
-    public function setName($name): self
+    public function setName(string $name): self
     {
-        $this->name = trim($name);
+        $this->name = $name;
         return $this;
     }
 
@@ -123,7 +128,7 @@ class AutoCompleteGalRequest extends Request
      *
      * @return GalSearchType
      */
-    public function getType(): GalSearchType
+    public function getType(): ?GalSearchType
     {
         return $this->type;
     }
@@ -145,7 +150,7 @@ class AutoCompleteGalRequest extends Request
      *
      * @return bool
      */
-    public function getNeedCanExpand(): bool
+    public function getNeedCanExpand(): ?bool
     {
         return $this->needCanExpand;
     }
@@ -156,9 +161,9 @@ class AutoCompleteGalRequest extends Request
      * @param  bool $needCanExpand
      * @return self
      */
-    public function setNeedCanExpand($needCanExpand): self
+    public function setNeedCanExpand(bool $needCanExpand): self
     {
-        $this->needCanExpand = (bool) $needCanExpand;
+        $this->needCanExpand = $needCanExpand;
         return $this;
     }
 
@@ -167,7 +172,7 @@ class AutoCompleteGalRequest extends Request
      *
      * @return string
      */
-    public function getGalAccountId(): string
+    public function getGalAccountId(): ?string
     {
         return $this->galAccountId;
     }
@@ -178,9 +183,9 @@ class AutoCompleteGalRequest extends Request
      * @param  string $galAccountId
      * @return self
      */
-    public function setGalAccountId($galAccountId): self
+    public function setGalAccountId(string $galAccountId): self
     {
-        $this->galAccountId = trim($galAccountId);
+        $this->galAccountId = $galAccountId;
         return $this;
     }
 
@@ -200,9 +205,9 @@ class AutoCompleteGalRequest extends Request
      * @param  int $limit
      * @return self
      */
-    public function setLimit($limit): self
+    public function setLimit(int $limit): self
     {
-        $this->limit = (int) $limit;
+        $this->limit = $limit;
         return $this;
     }
 

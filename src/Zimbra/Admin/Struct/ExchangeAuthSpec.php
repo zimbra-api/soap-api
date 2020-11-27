@@ -27,6 +27,7 @@ use Zimbra\Enum\AuthScheme;
 class ExchangeAuthSpec
 {
     /**
+     * URL to Exchange server
      * @Accessor(getter="getUrl", setter="setUrl")
      * @SerializedName("url")
      * @Type("string")
@@ -35,6 +36,7 @@ class ExchangeAuthSpec
     private $url;
 
     /**
+     * Exchange user
      * @Accessor(getter="getAuthUserName", setter="setAuthUserName")
      * @SerializedName("user")
      * @Type("string")
@@ -43,6 +45,7 @@ class ExchangeAuthSpec
     private $authUserName;
 
     /**
+     * Exchange password
      * @Accessor(getter="getAuthPassword", setter="setAuthPassword")
      * @SerializedName("pass")
      * @Type("string")
@@ -51,6 +54,7 @@ class ExchangeAuthSpec
     private $authPassword;
 
     /**
+     * Auth scheme
      * @Accessor(getter="getScheme", setter="setScheme")
      * @SerializedName("scheme")
      * @Type("Zimbra\Enum\AuthScheme")
@@ -59,6 +63,7 @@ class ExchangeAuthSpec
     private $scheme;
 
     /**
+     * Auth type
      * @Accessor(getter="getType", setter="setType")
      * @SerializedName("type")
      * @Type("string")
@@ -68,19 +73,19 @@ class ExchangeAuthSpec
 
     /**
      * Constructor method for ExchangeAuthSpec
-     * @param string $url URL to Exchange server
-     * @param string $user Exchange user
-     * @param string $pass Exchange password
-     * @param AuthScheme $scheme Auth scheme
-     * @param string $type Auth type
+     * @param string $url
+     * @param string $user
+     * @param string $pass
+     * @param AuthScheme $scheme
+     * @param string $type
      * @return self
      */
     public function __construct(
-        $url,
-        $user,
-        $pass,
+        string $url,
+        string $user,
+        string $pass,
         AuthScheme $scheme,
-        $type = NULL
+        ?string $type = NULL
     )
     {
         $this->setUrl($url)
@@ -108,9 +113,9 @@ class ExchangeAuthSpec
      * @param  string $url
      * @return self
      */
-    public function setUrl($url): self
+    public function setUrl(string $url): self
     {
-        $this->url = trim($url);
+        $this->url = $url;
         return $this;
     }
 
@@ -121,7 +126,7 @@ class ExchangeAuthSpec
      */
     public function getAuthUserName(): string
     {
-        return $this->_user;
+        return $this->authUserName;
     }
 
     /**
@@ -130,9 +135,9 @@ class ExchangeAuthSpec
      * @param  string $user
      * @return self
      */
-    public function setAuthUserName($user): self
+    public function setAuthUserName(string $user): self
     {
-        $this->_user = trim($user);
+        $this->authUserName = $user;
         return $this;
     }
 
@@ -143,7 +148,7 @@ class ExchangeAuthSpec
      */
     public function getAuthPassword(): string
     {
-        return $this->_pass;
+        return $this->authPassword;
     }
 
     /**
@@ -152,9 +157,9 @@ class ExchangeAuthSpec
      * @param  string $pass
      * @return self
      */
-    public function setAuthPassword($pass): self
+    public function setAuthPassword(string $pass): self
     {
-        $this->_pass = trim($pass);
+        $this->authPassword = $pass;
         return $this;
     }
 
@@ -196,9 +201,9 @@ class ExchangeAuthSpec
      * @param  string $type
      * @return self
      */
-    public function setType($type): self
+    public function setType(string $type): self
     {
-        $this->type = trim($type);
+        $this->type = $type;
         return $this;
     }
 }

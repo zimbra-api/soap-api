@@ -58,7 +58,7 @@ class DistributionListGranteeSelector
      * @param string $value
      * @return self
      */
-    public function __construct(GranteeType $type, GranteeBy $by, $value = NULL)
+    public function __construct(GranteeType $type, GranteeBy $by, ?string $value = NULL)
     {
         $this->setType($type)
             ->setBy($by);
@@ -83,7 +83,7 @@ class DistributionListGranteeSelector
      * @param  GranteeType $type
      * @return self
      */
-    public function setType(GranteeType $type)
+    public function setType(GranteeType $type): self
     {
         $this->type = $type;
         return $this;
@@ -105,7 +105,7 @@ class DistributionListGranteeSelector
      * @param  GranteeBy $by
      * @return self
      */
-    public function setBy(GranteeBy $by)
+    public function setBy(GranteeBy $by): self
     {
         $this->by = $by;
         return $this;
@@ -116,7 +116,7 @@ class DistributionListGranteeSelector
      *
      * @return string
      */
-    public function getValue()
+    public function getValue(): ?string
     {
         return $this->value;
     }
@@ -124,12 +124,12 @@ class DistributionListGranteeSelector
     /**
      * Sets value
      *
-     * @param  string $name
+     * @param  string $value
      * @return self
      */
-    public function setValue($value)
+    public function setValue(string $value): self
     {
-        $this->value = trim($value);
+        $this->value = $value;
         return $this;
     }
 }

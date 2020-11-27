@@ -60,7 +60,7 @@ class ZimletDeploymentStatus
      * @param  string $error
      * @return self
      */
-    public function __construct($server, DeployStatus $status, $error = NULL)
+    public function __construct(string $server, DeployStatus $status, ?string $error = NULL)
     {
         $this->setServer($server)
              ->setStatus($status);
@@ -85,9 +85,9 @@ class ZimletDeploymentStatus
      * @param  string $server
      * @return self
      */
-    public function setServer($server): self
+    public function setServer(string $server): self
     {
-        $this->server = trim($server);
+        $this->server = $server;
         return $this;
     }
 
@@ -118,7 +118,7 @@ class ZimletDeploymentStatus
      *
      * @return string
      */
-    public function getError(): string
+    public function getError(): ?string
     {
         return $this->error;
     }
@@ -129,9 +129,9 @@ class ZimletDeploymentStatus
      * @param  string $error
      * @return self
      */
-    public function setError($error): self
+    public function setError(string $error): self
     {
-        $this->error = trim($error);
+        $this->error = $error;
         return $this;
     }
 }

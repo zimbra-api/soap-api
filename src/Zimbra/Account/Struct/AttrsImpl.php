@@ -47,7 +47,7 @@ abstract class AttrsImpl
      * @param  Attr $attr
      * @return self
      */
-    public function addAttr(Attr $attr)
+    public function addAttr(Attr $attr): self
     {
         $this->attrs[] = $attr;
         return $this;
@@ -59,7 +59,7 @@ abstract class AttrsImpl
      * @param  array $attrs
      * @return self
      */
-    public function setAttrs(array $attrs)
+    public function setAttrs(array $attrs): self
     {
         $this->attrs = [];
         foreach ($attrs as $attr) {
@@ -75,7 +75,7 @@ abstract class AttrsImpl
      *
      * @return Sequence
      */
-    public function getAttrs()
+    public function getAttrs(): array
     {
         return $this->attrs;
     }

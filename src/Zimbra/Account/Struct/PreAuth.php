@@ -27,6 +27,7 @@ use Zimbra\Struct\AccountSelector;
 class PreAuth
 {
     /**
+     * Computed preauth value
      * @Accessor(getter="getValue", setter="setValue")
      * @SerializedName("_content")
      * @Type("string")
@@ -35,6 +36,7 @@ class PreAuth
     private $value;
 
     /**
+     * Time stamp
      * @Accessor(getter="getTimestamp", setter="setTimestamp")
      * @SerializedName("timestamp")
      * @Type("integer")
@@ -43,6 +45,9 @@ class PreAuth
     private $timestamp;
 
     /**
+     * Expiration time of the authtoken, in milliseconds.
+     * Set to 0 to use the default expiration time for the account.
+     * Can be used to sync the auth token expiration time with the external system's notion of expiration (like a Kerberos TGT lifetime, for example).
      * @Accessor(getter="getExpiresTimestamp", setter="setExpiresTimestamp")
      * @SerializedName("expiresTimestamp")
      * @Type("integer")
@@ -53,16 +58,11 @@ class PreAuth
     /**
      * Constructor method for PreAuth
      * @param  int    $timestamp
-     *   Time stamp
      * @param  string $value
-     *   Computed preauth value
      * @param  int    $expiresTimestamp
-     *    Expiration time of the authtoken, in milliseconds.
-     *    Set to 0 to use the default expiration time for the account.
-     *    Can be used to sync the auth token expiration time with the external system's notion of expiration (like a Kerberos TGT lifetime, for example).
      * @return self
      */
-    public function __construct($timestamp, $value = NULL, $expiresTimestamp = NULL)
+    public function __construct(int $timestamp, ?string $value = NULL, ?int $expiresTimestamp = NULL)
     {
         $this->setTimestamp($timestamp);
         if (NULL !== $value) {
@@ -79,7 +79,7 @@ class PreAuth
      *
      * @return string
      */
-    public function getValue()
+    public function getValue(): ?string
     {
         return $this->value;
     }
@@ -87,12 +87,12 @@ class PreAuth
     /**
      * Sets value
      *
-     * @param  string $name
+     * @param  string $value
      * @return self
      */
-    public function setValue($value)
+    public function setValue(string $value): self
     {
-        $this->value = trim($value);
+        $this->value = $value;
         return $this;
     }
 
@@ -101,7 +101,7 @@ class PreAuth
      *
      * @return int
      */
-    public function getTimestamp()
+    public function getTimestamp(): int
     {
         return $this->timestamp;
     }
@@ -112,9 +112,9 @@ class PreAuth
      * @param  int $timestamp
      * @return self
      */
-    public function setTimestamp($timestamp)
+    public function setTimestamp(int $timestamp): self
     {
-        $timestamp = (int) $timestamp < 0 ? time() : (int) $timestamp;
+        $timestamp = $timestamp < 0 ? time() : $timestamp;
         $this->timestamp = $timestamp;
         return $this;
     }
@@ -124,7 +124,7 @@ class PreAuth
      *
      * @return int
      */
-    public function getExpiresTimestamp()
+    public function getExpiresTimestamp(): ?int
     {
         return $this->expiresTimestamp;
     }
@@ -135,9 +135,9 @@ class PreAuth
      * @param  int $expiresTimestamp
      * @return self
      */
-    public function setExpiresTimestamp($expiresTimestamp)
+    public function setExpiresTimestamp(int $expiresTimestamp): self
     {
-        $expiresTimestamp = (int) $expiresTimestamp < 0 ? time() : (int) $expiresTimestamp;
+        $expiresTimestamp = $expiresTimestamp < 0 ? time() : $expiresTimestamp;
         $this->expiresTimestamp = $expiresTimestamp;
         return $this;
     }
@@ -149,7 +149,7 @@ class PreAuth
      * @param  string $key Pre authentication key.
      * @return self.
      */
-    public function computeValue($account, $key)
+    public function computeValue($account, string $key): self
     {
         $timestamp = ($this->getTimestamp() > 0) ? $this->getTimestamp() : time();
         $expire = $this->getExpiresTimestamp();

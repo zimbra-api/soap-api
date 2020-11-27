@@ -26,6 +26,7 @@ use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAt
 class ConstraintAttr
 {
     /**
+     * Constraint name
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
@@ -34,6 +35,7 @@ class ConstraintAttr
     private $name;
 
     /**
+     * Constraint information
      * @Accessor(getter="getConstraint", setter="setConstraint")
      * @SerializedName("constraint")
      * @Type("Zimbra\Admin\Struct\ConstraintInfo")
@@ -43,14 +45,14 @@ class ConstraintAttr
 
     /**
      * Constructor method for ConstraintAttr
-     * @param  ConstraintInfo $constraint Constraint information
-     * @param  string $name Constraint name
+     * @param  ConstraintInfo $constraint
+     * @param  string $name
      * @return self
      */
-    public function __construct(ConstraintInfo $constraint, $name)
+    public function __construct(ConstraintInfo $constraint, string $name)
     {
-        $this->setConstraint($constraint);
-        $this->setName($name);
+        $this->setConstraint($constraint)
+            ->setName($name);
     }
 
     /**
@@ -91,9 +93,9 @@ class ConstraintAttr
      * @param  string $name
      * @return self
      */
-    public function setName($name): self
+    public function setName(string $name): self
     {
-        $this->name = trim($name);
+        $this->name = $name;
         return $this;
     }
 }

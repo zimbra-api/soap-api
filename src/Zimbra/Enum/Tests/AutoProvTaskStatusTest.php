@@ -18,8 +18,7 @@ class AutoProvTaskStatusTest extends TestCase
             'IDLE'   => 'idle',
             'STOPPED'   => 'stopped',
         ];
-        foreach ($values as $enum => $value)
-        {
+        foreach ($values as $enum => $value) {
             $this->assertSame(AutoProvTaskStatus::$enum()->getValue(), $value);
         }
     }

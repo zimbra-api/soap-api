@@ -17,8 +17,7 @@ class MemberOfSelectorTest extends TestCase
             'DIRECT_ONLY' => 'directOnly',
             'NONE'        => 'none',
         ];
-        foreach ($values as $enum => $value)
-        {
+        foreach ($values as $enum => $value) {
             $this->assertSame(MemberOfSelector::$enum()->getValue(), $value);
         }
     }

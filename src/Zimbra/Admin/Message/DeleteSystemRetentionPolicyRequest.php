@@ -52,7 +52,7 @@ class DeleteSystemRetentionPolicyRequest extends Request
      * @param  CosSelector $cos
      * @return self
      */
-    public function __construct(Policy $policy, CosSelector $cos = NULL)
+    public function __construct(Policy $policy, ?CosSelector $cos = NULL)
     {
         $this->setPolicy($policy);
         if ($cos instanceof CosSelector) {
@@ -65,7 +65,7 @@ class DeleteSystemRetentionPolicyRequest extends Request
      *
      * @return CosSelector
      */
-    public function getCos(): CosSelector
+    public function getCos(): ?CosSelector
     {
         return $this->cos;
     }

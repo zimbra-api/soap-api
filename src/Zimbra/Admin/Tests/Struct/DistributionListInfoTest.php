@@ -56,7 +56,7 @@ class DistributionListInfoTest extends ZimbraStructTestCase
         $json = json_encode([
             'name' => $name,
             'id' => $id,
-            'dynamic' => true,
+            'dynamic' => TRUE,
             'dlm' => [
                 ['_content' => $member1],
                 ['_content' => $member2],

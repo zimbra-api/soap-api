@@ -141,23 +141,37 @@ class AuthResponse implements ResponseInterface
 
     /**
      * Constructor method for AuthResponse
+     * @param  string $authToken
+     * @param  int    $lifetime
+     * @param  Session   $session
+     * @param  string    $refer
+     * @param  string    $skin
+     * @param  string    $csrfToken
+     * @param  string    $deviceId
+     * @param  string    $trustedToken
+     * @param  int    $trustLifetime
+     * @param  bool    $zmgProxy
+     * @param  AuthPrefs $prefs
+     * @param  AuthAttrs $attrs
+     * @param  bool      $twoFactorAuthRequired
+     * @param  bool      $trustedDevicesEnabled
      * @return self
      */
     public function __construct(
-        $authToken = NULL,
-        $lifetime = NULL,
-        Session $session = NULL,
-        $refer = NULL,
-        $skin = NULL,
-        $csrfToken = NULL,
-        $deviceId = NULL,
-        $trustedToken = NULL,
-        $trustLifetime = NULL,
-        $zmgProxy = NULL,
-        AuthPrefs $prefs = NULL,
-        AuthAttrs $attrs = NULL,
-        $twoFactorAuthRequired = NULL,
-        $trustedDevicesEnabled = NULL
+        ?string $authToken = NULL,
+        ?int $lifetime = NULL,
+        ?Session $session = NULL,
+        ?string $refer = NULL,
+        ?string $skin = NULL,
+        ?string $csrfToken = NULL,
+        ?string $deviceId = NULL,
+        ?string $trustedToken = NULL,
+        ?int $trustLifetime = NULL,
+        ?bool $zmgProxy = NULL,
+        ?AuthPrefs $prefs = NULL,
+        ?AuthAttrs $attrs = NULL,
+        ?bool $twoFactorAuthRequired = NULL,
+        ?bool $trustedDevicesEnabled = NULL
     )
     {
         if(NULL !== $authToken) {
@@ -209,7 +223,7 @@ class AuthResponse implements ResponseInterface
      *
      * @return string
      */
-    public function getAuthToken(): string
+    public function getAuthToken(): ?string
     {
         return $this->authToken;
     }
@@ -220,9 +234,9 @@ class AuthResponse implements ResponseInterface
      * @param  string $authToken
      * @return self
      */
-    public function setAuthToken($authToken): self
+    public function setAuthToken(string $authToken): self
     {
-        $this->authToken = trim($authToken);
+        $this->authToken = $authToken;
         return $this;
     }
 
@@ -231,7 +245,7 @@ class AuthResponse implements ResponseInterface
      *
      * @return int
      */
-    public function getLifetime(): int
+    public function getLifetime(): ?int
     {
         return $this->lifetime;
     }
@@ -242,9 +256,9 @@ class AuthResponse implements ResponseInterface
      * @param  int $lifetime
      * @return self
      */
-    public function setLifetime($lifetime): self
+    public function setLifetime(int $lifetime): self
     {
-        $this->lifetime = (int) $lifetime;
+        $this->lifetime = $lifetime;
         return $this;
     }
 
@@ -253,7 +267,7 @@ class AuthResponse implements ResponseInterface
      *
      * @return int
      */
-    public function getTrustLifetime(): int
+    public function getTrustLifetime(): ?int
     {
         return $this->trustLifetime;
     }
@@ -264,9 +278,9 @@ class AuthResponse implements ResponseInterface
      * @param  int $trustLifetime
      * @return self
      */
-    public function setTrustLifetime($trustLifetime): self
+    public function setTrustLifetime(int $trustLifetime): self
     {
-        $this->trustLifetime = (int) $trustLifetime;
+        $this->trustLifetime = $trustLifetime;
         return $this;
     }
 
@@ -275,7 +289,7 @@ class AuthResponse implements ResponseInterface
      *
      * @return Session
      */
-    public function getSession(): Session
+    public function getSession(): ?Session
     {
         return $this->session;
     }
@@ -297,7 +311,7 @@ class AuthResponse implements ResponseInterface
      *
      * @return string
      */
-    public function getRefer(): string
+    public function getRefer(): ?string
     {
         return $this->refer;
     }
@@ -308,9 +322,9 @@ class AuthResponse implements ResponseInterface
      * @param  string $refer
      * @return self
      */
-    public function setRefer($refer): self
+    public function setRefer(string $refer): self
     {
-        $this->refer = trim($refer);
+        $this->refer = $refer;
         return $this;
     }
 
@@ -319,7 +333,7 @@ class AuthResponse implements ResponseInterface
      *
      * @return string
      */
-    public function getSkin(): string
+    public function getSkin(): ?string
     {
         return $this->skin;
     }
@@ -330,9 +344,9 @@ class AuthResponse implements ResponseInterface
      * @param  string $skin
      * @return self
      */
-    public function setSkin($skin): self
+    public function setSkin(string $skin): self
     {
-        $this->skin = trim($skin);
+        $this->skin = $skin;
         return $this;
     }
 
@@ -341,7 +355,7 @@ class AuthResponse implements ResponseInterface
      *
      * @return string
      */
-    public function getCsrfToken(): string
+    public function getCsrfToken(): ?string
     {
         return $this->csrfToken;
     }
@@ -352,9 +366,9 @@ class AuthResponse implements ResponseInterface
      * @param  string $csrfToken
      * @return self
      */
-    public function setCsrfToken($csrfToken): self
+    public function setCsrfToken(string $csrfToken): self
     {
-        $this->csrfToken = trim($csrfToken);
+        $this->csrfToken = $csrfToken;
         return $this;
     }
 
@@ -363,7 +377,7 @@ class AuthResponse implements ResponseInterface
      *
      * @return string
      */
-    public function getDeviceId(): string
+    public function getDeviceId(): ?string
     {
         return $this->deviceId;
     }
@@ -374,9 +388,9 @@ class AuthResponse implements ResponseInterface
      * @param  string $deviceId
      * @return self
      */
-    public function setDeviceId($deviceId): self
+    public function setDeviceId(string $deviceId): self
     {
-        $this->deviceId = trim($deviceId);
+        $this->deviceId = $deviceId;
         return $this;
     }
 
@@ -385,7 +399,7 @@ class AuthResponse implements ResponseInterface
      *
      * @return string
      */
-    public function getTrustedToken(): string
+    public function getTrustedToken(): ?string
     {
         return $this->trustedToken;
     }
@@ -396,9 +410,9 @@ class AuthResponse implements ResponseInterface
      * @param  string $trustedToken
      * @return self
      */
-    public function setTrustedToken($trustedToken): self
+    public function setTrustedToken(string $trustedToken): self
     {
-        $this->trustedToken = trim($trustedToken);
+        $this->trustedToken = $trustedToken;
         return $this;
     }
 
@@ -407,7 +421,7 @@ class AuthResponse implements ResponseInterface
      *
      * @return bool
      */
-    public function getZmgProxy(): bool
+    public function getZmgProxy(): ?bool
     {
         return $this->zmgProxy;
     }
@@ -418,9 +432,9 @@ class AuthResponse implements ResponseInterface
      * @param  bool $zmgProxy
      * @return self
      */
-    public function setZmgProxy($zmgProxy): self
+    public function setZmgProxy(bool $zmgProxy): self
     {
-        $this->zmgProxy = (bool) $zmgProxy;
+        $this->zmgProxy = $zmgProxy;
         return $this;
     }
 
@@ -429,7 +443,7 @@ class AuthResponse implements ResponseInterface
      *
      * @return AuthPrefs
      */
-    public function getPrefs(): AuthPrefs
+    public function getPrefs(): ?AuthPrefs
     {
         return $this->prefs;
     }
@@ -471,7 +485,7 @@ class AuthResponse implements ResponseInterface
      *
      * @return AuthAttrs
      */
-    public function getAttrs(): AuthAttrs
+    public function getAttrs(): ?AuthAttrs
     {
         return $this->attrs;
     }
@@ -513,7 +527,7 @@ class AuthResponse implements ResponseInterface
      *
      * @return bool
      */
-    public function getTwoFactorAuthRequired(): bool
+    public function getTwoFactorAuthRequired(): ?bool
     {
         return $this->twoFactorAuthRequired;
     }
@@ -524,9 +538,9 @@ class AuthResponse implements ResponseInterface
      * @param  int $twoFactorAuthRequired
      * @return self
      */
-    public function setTwoFactorAuthRequired($twoFactorAuthRequired): self
+    public function setTwoFactorAuthRequired(bool $twoFactorAuthRequired): self
     {
-        $this->twoFactorAuthRequired = (bool) $twoFactorAuthRequired;
+        $this->twoFactorAuthRequired = $twoFactorAuthRequired;
         return $this;
     }
 
@@ -535,7 +549,7 @@ class AuthResponse implements ResponseInterface
      *
      * @return bool
      */
-    public function getTrustedDevicesEnabled(): bool
+    public function getTrustedDevicesEnabled(): ?bool
     {
         return $this->trustedDevicesEnabled;
     }
@@ -546,9 +560,9 @@ class AuthResponse implements ResponseInterface
      * @param  int $trustedDevicesEnabled
      * @return self
      */
-    public function setTrustedDevicesEnabled($trustedDevicesEnabled): self
+    public function setTrustedDevicesEnabled(bool $trustedDevicesEnabled): self
     {
-        $this->trustedDevicesEnabled = (bool) $trustedDevicesEnabled;
+        $this->trustedDevicesEnabled = $trustedDevicesEnabled;
         return $this;
     }
 }

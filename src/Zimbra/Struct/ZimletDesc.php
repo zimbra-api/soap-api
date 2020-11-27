@@ -20,17 +20,17 @@ namespace Zimbra\Struct;
  */
 interface ZimletDesc
 {
-    function setName($name): self;
-    function setVersion($version): self;
-    function setDescription($description): self;
-    function setExtension($extension): self;
-    function setTarget($target): self;
-    function setLabel($label): self;
+    function setName(string $name): self;
+    function setVersion(string $version): self;
+    function setDescription(string $description): self;
+    function setExtension(string $extension): self;
+    function setTarget(string $target): self;
+    function setLabel(string $label): self;
 
-    function getName(): string;
-    function getVersion(): string;
-    function getDescription(): string;
-    function getExtension(): string;
-    function getTarget(): string;
-    function getLabel(): string;
+    function getName(): ?string;
+    function getVersion(): ?string;
+    function getDescription(): ?string;
+    function getExtension(): ?string;
+    function getTarget(): ?string;
+    function getLabel(): ?string;
 }

@@ -16,8 +16,7 @@ class RequestFormatTest extends TestCase
             'XML' => 'xml',
             'JS'  => 'js',
         ];
-        foreach ($values as $enum => $value)
-        {
+        foreach ($values as $enum => $value) {
             $this->assertSame(RequestFormat::$enum()->getValue(), $value);
         }
     }

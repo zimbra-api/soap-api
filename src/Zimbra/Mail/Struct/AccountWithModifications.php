@@ -59,9 +59,9 @@ class AccountWithModifications
      * @return self
      */
     public function __construct(
-        $id = NULL,
+        ?int $id = NULL,
         array $mods = [],
-        $lastChangeId = NULL
+        ?int $lastChangeId = NULL
     )
     {
         if (NULL !== $id) {
@@ -80,7 +80,7 @@ class AccountWithModifications
      *
      * @return int
      */
-    public function getId(): int
+    public function getId(): ?int
     {
         return $this->id;
     }
@@ -91,9 +91,9 @@ class AccountWithModifications
      * @param  int $folderId
      * @return self
      */
-    public function setId($id): self
+    public function setId(int$id): self
     {
-        $this->id = (int) $id;
+        $this->id = $id;
         return $this;
     }
 
@@ -102,7 +102,7 @@ class AccountWithModifications
      *
      * @return int
      */
-    public function getLastChangeId(): int
+    public function getLastChangeId(): ?int
     {
         return $this->lastChangeId;
     }
@@ -113,9 +113,9 @@ class AccountWithModifications
      * @param  int $lastChangeId
      * @return self
      */
-    public function setLastChangeId($lastChangeId): self
+    public function setLastChangeId(int $lastChangeId): self
     {
-        $this->lastChangeId = (int) $lastChangeId;
+        $this->lastChangeId = $lastChangeId;
         return $this;
     }
 

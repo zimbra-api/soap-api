@@ -49,7 +49,7 @@ class ModifyTagNotification extends ModifyNotification
      * @param  int $changeBitmask
      * @return self
      */
-    public function __construct($id, $name, $changeBitmask)
+    public function __construct(int $id, string $name, int $changeBitmask)
     {
         parent::__construct($changeBitmask);
         $this->setId($id)
@@ -72,9 +72,9 @@ class ModifyTagNotification extends ModifyNotification
      * @param  int $id
      * @return self
      */
-    public function setId($id): self
+    public function setId(int $id): self
     {
-        $this->id = (int) $id;
+        $this->id = $id;
         return $this;
     }
 
@@ -94,9 +94,9 @@ class ModifyTagNotification extends ModifyNotification
      * @param  string $name
      * @return self
      */
-    public function setName($name): self
+    public function setName(string $name): self
     {
-        $this->name = trim($name);
+        $this->name = $name;
         return $this;
     }
 }

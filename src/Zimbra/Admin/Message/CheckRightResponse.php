@@ -52,7 +52,7 @@ class CheckRightResponse implements ResponseInterface
      * @param RightViaInfo $via
      * @return self
      */
-    public function __construct($allow, RightViaInfo $via = NULL)
+    public function __construct(bool $allow, ?RightViaInfo $via = NULL)
     {
         $this->setAllow($allow);
         if ($via instanceof RightViaInfo) {
@@ -76,9 +76,9 @@ class CheckRightResponse implements ResponseInterface
      * @param  bool $allow
      * @return self
      */
-    public function setAllow($allow): self
+    public function setAllow(bool $allow): self
     {
-        $this->allow = (bool) $allow;
+        $this->allow = $allow;
         return $this;
     }
 
@@ -87,7 +87,7 @@ class CheckRightResponse implements ResponseInterface
      *
      * @return RightViaInfo
      */
-    public function getVia()
+    public function getVia(): ?RightViaInfo
     {
         return $this->via;
     }

@@ -17,8 +17,7 @@ class RangeTypeTest extends TestCase
             'THISANDFUTURE' => 2,
             'THISANDPRIOR'  => 3,
         ];
-        foreach ($values as $enum => $value)
-        {
+        foreach ($values as $enum => $value) {
             $this->assertSame(RangeType::$enum()->getValue(), $value);
         }
     }

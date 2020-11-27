@@ -1,0 +1,72 @@
+<?php declare(strict_types=1);
+
+namespace Zimbra\Admin\Tests\Message;
+
+use Zimbra\Admin\Message\GetAllConfigBody;
+use Zimbra\Admin\Message\GetAllConfigEnvelope;
+use Zimbra\Admin\Message\GetAllConfigRequest;
+use Zimbra\Admin\Message\GetAllConfigResponse;
+use Zimbra\Admin\Struct\Attr;
+use Zimbra\Struct\Tests\ZimbraStructTestCase;
+
+/**
+ * Testcase class for GetAllConfigTest.
+ */
+class GetAllConfigTest extends ZimbraStructTestCase
+{
+    public function testGetAllConfig()
+    {
+        $key = $this->faker->word;
+        $value = $this->faker->word;
+        $attr = new Attr($key, $value);
+
+        $request = new GetAllConfigRequest();
+        $response = new GetAllConfigResponse([$attr]);
+
+        $body = new GetAllConfigBody($request, $response);
+        $this->assertSame($request, $body->getRequest());
+        $this->assertSame($response, $body->getResponse());
+        $body = new GetAllConfigBody();
+        $body->setRequest($request)
+             ->setResponse($response);
+        $this->assertSame($request, $body->getRequest());
+        $this->assertSame($response, $body->getResponse());
+
+        $envelope = new GetAllConfigEnvelope($body);
+        $this->assertSame($body, $envelope->getBody());
+        $envelope = new GetAllConfigEnvelope();
+        $envelope->setBody($body);
+        $this->assertSame($body, $envelope->getBody());
+
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">'
+                . '<soap:Body>'
+                    . '<urn:GetAllConfigRequest />'
+                    . '<urn:GetAllConfigResponse>'
+                        . '<a n="' . $key . '">' . $value . '</a>'
+                    . '</urn:GetAllConfigResponse>'
+                . '</soap:Body>'
+            . '</soap:Envelope>';
+        $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
+        $this->assertEquals($envelope, $this->serializer->deserialize($xml, GetAllConfigEnvelope::class, 'xml'));
+
+        $json = json_encode([
+            'Body' => [
+                'GetAllConfigRequest' => [
+                    '_jsns' => 'urn:zimbraAdmin',
+                ],
+                'GetAllConfigResponse' => [
+                    'a' => [
+                        [
+                            'n' => $key,
+                            '_content' => $value,
+                        ],
+                    ],
+                    '_jsns' => 'urn:zimbraAdmin',
+                ],
+            ],
+        ]);
+        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
+        $this->assertEquals($envelope, $this->serializer->deserialize($json, GetAllConfigEnvelope::class, 'json'));
+    }
+}

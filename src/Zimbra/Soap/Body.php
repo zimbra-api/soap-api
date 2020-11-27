@@ -24,7 +24,7 @@ abstract class Body implements BodyInterface
      * Constructor method for Body
      * @return self
      */
-    public function __construct(RequestInterface $request = NULL, ResponseInterface $response = NULL)
+    public function __construct(?RequestInterface $request = NULL, ?ResponseInterface $response = NULL)
     {
         if ($request instanceof RequestInterface) {
             $this->setRequest($request);

@@ -39,7 +39,7 @@ class DeleteUCServiceEnvelope extends Envelope
      * Constructor method for DeleteUCServiceEnvelope
      * @return self
      */
-    public function __construct(DeleteUCServiceBody $body = NULL, Header $header = NULL)
+    public function __construct(?DeleteUCServiceBody $body = NULL, ?Header $header = NULL)
     {
         parent::__construct($body, $header);
     }
@@ -49,7 +49,7 @@ class DeleteUCServiceEnvelope extends Envelope
      *
      * @return BodyInterface
      */
-    public function getBody(): BodyInterface
+    public function getBody(): ?BodyInterface
     {
         return $this->body;
     }

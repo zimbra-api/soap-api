@@ -26,6 +26,7 @@ use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAt
 class Offset
 {
     /**
+     * Offset
      * @Accessor(getter="getOffset", setter="setOffset")
      * @SerializedName("offset")
      * @Type("integer")
@@ -35,10 +36,10 @@ class Offset
 
     /**
      * Constructor method for Offset
-     * @param int $offset Offset
+     * @param int $offset
      * @return self
      */
-    public function __construct($offset)
+    public function __construct(int $offset)
     {
         $this->setOffset($offset);
     }
@@ -59,9 +60,9 @@ class Offset
      * @param  int $offset
      * @return self
      */
-    public function setOffset($offset): self
+    public function setOffset(int $offset): self
     {
-        $this->offset = (int) $offset;
+        $this->offset = $offset;
         return $this;
     }
 }

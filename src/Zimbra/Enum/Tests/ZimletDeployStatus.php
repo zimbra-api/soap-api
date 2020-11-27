@@ -17,8 +17,7 @@ class ZimletDeployStatusTest extends TestCase
             'FAILED' => 'failed',
             'PENDING' => 'pending',
         ];
-        foreach ($values as $enum => $value)
-        {
+        foreach ($values as $enum => $value) {
             $this->assertSame(ZimletDeployStatus::$enum()->getValue(), $value);
         }
     }

@@ -23,8 +23,7 @@ class SectionTypeTest extends TestCase
             'DSRCS'    => 'dsrcs',
             'CHILDREN' => 'children',
         ];
-        foreach ($values as $enum => $value)
-        {
+        foreach ($values as $enum => $value) {
             $this->assertSame(SectionType::$enum()->getValue(), $value);
         }
     }

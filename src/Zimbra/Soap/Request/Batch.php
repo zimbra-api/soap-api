@@ -12,7 +12,7 @@ namespace Zimbra\Soap\Request;
 
 use Doctrine\Common\Annotations\AnnotationReader;
 use JMS\Serializer\Annotation\{Accessor, AccessType, Exclude, Type, XmlMap, XmlRoot};
-use Zimbra\Soap\{EnvelopeInterface, RequestInterface};
+use Zimbra\Soap\{EnvelopeInterface, BatchRequestInterface, RequestInterface};
 
 /**
  * Batch request class in Zimbra API PHP, not to be instantiated.
@@ -24,7 +24,7 @@ use Zimbra\Soap\{EnvelopeInterface, RequestInterface};
  * @AccessType("public_method")
  * @XmlRoot(name="BatchRequest", namespace="urn:zimbra")
  */
-class Batch implements RequestInterface
+class Batch implements BatchRequestInterface
 {
     /**
      * @Accessor(getter="getRequests", setter="setRequests")
@@ -67,9 +67,9 @@ class Batch implements RequestInterface
      * @param  string $name
      * @return self
      */
-    public function setOnError($onerror): self
+    public function setOnError(string $onerror): self
     {
-        $onerror = strtolower(trim($onerror));
+        $onerror = strtolower($onerror);
         if (!in_array($onerror, ['continue', 'stop'])) {
             $onerror = 'continue';
         }

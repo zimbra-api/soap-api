@@ -46,7 +46,7 @@ class IdAndType
      * @param  string $type The type
      * @return self
      */
-    public function __construct($id, $type)
+    public function __construct(string $id, string $type)
     {
         $this->setId($id)
              ->setType($type);
@@ -68,9 +68,9 @@ class IdAndType
      * @param  string $id
      * @return self
      */
-    public function setId($id): self
+    public function setId(string $id): self
     {
-        $this->id = trim($id);
+        $this->id = $id;
         return $this;
     }
 
@@ -90,9 +90,9 @@ class IdAndType
      * @param  string $type
      * @return self
      */
-    public function setType($type): self
+    public function setType(string $type): self
     {
-        $this->type = trim($type);
+        $this->type = $type;
         return $this;
     }
 }

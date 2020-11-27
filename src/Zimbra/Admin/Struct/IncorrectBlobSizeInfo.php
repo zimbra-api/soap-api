@@ -80,10 +80,10 @@ class IncorrectBlobSizeInfo
      * @return self
      */
     public function __construct(
-        $id,
-        $revision,
-        $size,
-        $volumeId,
+        int $id,
+        int $revision,
+        int $size,
+        int $volumeId,
         BlobSizeInfo $blob
     )
     {
@@ -110,9 +110,9 @@ class IncorrectBlobSizeInfo
      * @param  int $id
      * @return self
      */
-    public function setId($id): self
+    public function setId(int $id): self
     {
-        $this->id = (int) $id;
+        $this->id = $id;
         return $this;
     }
 
@@ -132,9 +132,9 @@ class IncorrectBlobSizeInfo
      * @param  int $revision
      * @return self
      */
-    public function setRevision($revision): self
+    public function setRevision(int $revision): self
     {
-        $this->revision = (int) $revision;
+        $this->revision = $revision;
         return $this;
     }
 
@@ -154,9 +154,9 @@ class IncorrectBlobSizeInfo
      * @param  int $size
      * @return self
      */
-    public function setSize($size): self
+    public function setSize(int $size): self
     {
-        $this->size = (int) $size;
+        $this->size = $size;
         return $this;
     }
 
@@ -176,9 +176,9 @@ class IncorrectBlobSizeInfo
      * @param  int $volumeId
      * @return self
      */
-    public function setVolumeId($volumeId): self
+    public function setVolumeId(int $volumeId): self
     {
-        $this->volumeId = (int) $volumeId;
+        $this->volumeId = $volumeId;
         return $this;
     }
 

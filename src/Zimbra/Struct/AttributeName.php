@@ -34,10 +34,10 @@ class AttributeName
 
     /**
      * Constructor method for AttributeName
-     * @param string $name Attribute name
+     * @param string $name
      * @return self
      */
-    public function __construct($name)
+    public function __construct(string $name)
     {
         $this->setName($name);
     }
@@ -58,9 +58,9 @@ class AttributeName
      * @param  string $name
      * @return self
      */
-    public function setName($name): self
+    public function setName(string $name): self
     {
-        $this->name = trim($name);
+        $this->name = $name;
         return $this;
     }
 }

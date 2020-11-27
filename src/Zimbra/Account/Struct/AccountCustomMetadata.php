@@ -40,7 +40,7 @@ class AccountCustomMetadata extends AccountKeyValuePairs implements CustomMetada
      * @param array $keyValuePairs
      * @return self
      */
-    public function __construct($section = NULL, array $keyValuePairs = [])
+    public function __construct(?string $section = NULL, array $keyValuePairs = [])
     {
     	parent::__construct($keyValuePairs);
         if (NULL !== $section) {
@@ -64,9 +64,9 @@ class AccountCustomMetadata extends AccountKeyValuePairs implements CustomMetada
      * @param  string $section
      * @return self
      */
-    public function setSection($section): CustomMetadataInterface
+    public function setSection(string $section): self
     {
-        $this->section = trim($section);
+        $this->section = $section;
         return $this;
     }
 }

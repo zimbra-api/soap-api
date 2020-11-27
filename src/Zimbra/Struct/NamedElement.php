@@ -37,7 +37,7 @@ class NamedElement
      * @param string $name The name
      * @return self
      */
-    public function __construct($name = NULL)
+    public function __construct(?string $name = NULL)
     {
         if (NULL !== $name) {
             $this->setName($name);
@@ -49,7 +49,7 @@ class NamedElement
      *
      * @return string
      */
-    public function getName(): string
+    public function getName(): ?string
     {
         return $this->name;
     }
@@ -60,9 +60,9 @@ class NamedElement
      * @param  string $name
      * @return self
      */
-    public function setName($name): self
+    public function setName(string $name): self
     {
-        $this->name = trim($name);
+        $this->name = $name;
         return $this;
     }
 }

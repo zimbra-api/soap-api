@@ -58,7 +58,7 @@ class DeleteDataSourceRequest extends Request implements AdminAttrs
      * @return self
      */
     public function __construct(
-        $id,
+        string $id,
         Id $dataSource,
         array $attrs = []
     )
@@ -84,9 +84,9 @@ class DeleteDataSourceRequest extends Request implements AdminAttrs
      * @param  string $id
      * @return self
      */
-    public function setId($id): self
+    public function setId(string $id): self
     {
-        $this->id = trim($id);
+        $this->id = $id;
         return $this;
     }
 

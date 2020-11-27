@@ -48,7 +48,7 @@ class ZimletPrefsSpec
      * @param  ZimletStatus $presence
      * @return self
      */
-    public function __construct($name, ZimletStatus $presence)
+    public function __construct(string $name, ZimletStatus $presence)
     {
         $this->setName($name)
              ->setPresence($presence);
@@ -70,9 +70,9 @@ class ZimletPrefsSpec
      * @param  string $name
      * @return self
      */
-    public function setName($name): self
+    public function setName(string $name): self
     {
-        $this->name = trim($name);
+        $this->name = $name;
         return $this;
     }
 

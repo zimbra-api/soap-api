@@ -20,11 +20,11 @@ namespace Zimbra\Struct;
  */
 interface ZimletServerExtensionInterface
 {
-    function setHasKeyword($hasKeyword): self;
-    function setExtensionClass($extensionClass): self;
-    function setRegex($regex): self;
+    function setHasKeyword(string $hasKeyword): self;
+    function setExtensionClass(string $extensionClass): self;
+    function setRegex(string $regex): self;
 
-    function getHasKeyword(): string;
-    function getExtensionClass(): string;
-    function getRegex(): string;
+    function getHasKeyword(): ?string;
+    function getExtensionClass(): ?string;
+    function getRegex(): ?string;
 }

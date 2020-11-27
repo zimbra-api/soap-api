@@ -32,5 +32,5 @@ interface EnvelopeInterface
      *
      * @return BodyInterface
      */
-    function getBody(): BodyInterface;
+    function getBody(): ?BodyInterface;
 }

@@ -20,8 +20,7 @@ class ContactActionOpTest extends TestCase
             'TAG'    => 'tag',
             'UPDATE' => 'update',
         ];
-        foreach ($values as $enum => $value)
-        {
+        foreach ($values as $enum => $value) {
             $this->assertSame(ContactActionOp::$enum()->getValue(), $value);
         }
     }

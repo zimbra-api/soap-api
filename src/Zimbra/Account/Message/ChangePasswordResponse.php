@@ -27,6 +27,7 @@ use Zimbra\Soap\ResponseInterface;
 class ChangePasswordResponse implements ResponseInterface
 {
     /**
+     * Auth token based on the new password
      * @Accessor(getter="getAuthToken", setter="setAuthToken")
      * @SerializedName("authToken")
      * @Type("string")
@@ -35,6 +36,7 @@ class ChangePasswordResponse implements ResponseInterface
     private $authToken;
 
     /**
+     * Life time of the auth token
      * @Accessor(getter="getLifetime", setter="setLifetime")
      * @SerializedName("lifetime")
      * @Type("integer")
@@ -44,11 +46,11 @@ class ChangePasswordResponse implements ResponseInterface
 
     /**
      * Constructor method for ChangePasswordResponse
-     * @param  string $authToken Auth token based on the new password
-     * @param  string $lifetime Life time of the auth token
+     * @param  string $authToken
+     * @param  int $lifetime
      * @return self
      */
-    public function __construct($authToken, $lifetime)
+    public function __construct(string $authToken, int $lifetime)
     {
         $this->setAuthToken($authToken)
             ->setLifetime($lifetime);
@@ -70,9 +72,9 @@ class ChangePasswordResponse implements ResponseInterface
      * @param  string $authToken
      * @return self
      */
-    public function setAuthToken($authToken): self
+    public function setAuthToken(string $authToken): self
     {
-        $this->authToken = trim($authToken);
+        $this->authToken = $authToken;
         return $this;
     }
 
@@ -92,9 +94,9 @@ class ChangePasswordResponse implements ResponseInterface
      * @param  int $lifetime
      * @return self
      */
-    public function setLifetime($lifetime): self
+    public function setLifetime(int $lifetime): self
     {
-        $this->lifetime = (int) $lifetime;
+        $this->lifetime = $lifetime;
         return $this;
     }
 }

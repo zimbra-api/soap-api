@@ -2,8 +2,8 @@
 
 namespace Zimbra\Admin\Tests\Struct;
 
-use Zimbra\Admin\Struct\ZimletInfo;
 use Zimbra\Admin\Struct\Attr;
+use Zimbra\Admin\Struct\ZimletInfo;
 use Zimbra\Struct\Tests\ZimbraStructTestCase;
 
 /**
@@ -35,13 +35,13 @@ class ZimletInfoTest extends ZimbraStructTestCase
         $json = json_encode([
             'name' => $name,
             'id' => $id,
+            'hasKeyword' => $hasKeyword,
             'a' => [
                 [
                     'n' => $key,
                     '_content' => $value,
                 ],
             ],
-            'hasKeyword' => $hasKeyword,
         ]);
         $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($zimlet, 'json'));
         $this->assertEquals($zimlet, $this->serializer->deserialize($json, ZimletInfo::class, 'json'));

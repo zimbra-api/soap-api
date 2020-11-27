@@ -36,6 +36,7 @@ class QueueQuery
     private $fields;
 
     /**
+     * Limit the number of queue items to return in the response
      * @Accessor(getter="getLimit", setter="setLimit")
      * @SerializedName("limit")
      * @Type("integer")
@@ -44,6 +45,7 @@ class QueueQuery
     private $limit;
 
     /**
+     * Offset
      * @Accessor(getter="getOffset", setter="setOffset")
      * @SerializedName("offset")
      * @Type("integer")
@@ -53,12 +55,12 @@ class QueueQuery
 
     /**
      * Constructor method for QueueQuery
-     * @param  array $fields Queue query field
-     * @param  int $limit Limit the number of queue items to return in the response
-     * @param  int $offset Offset
+     * @param  array $fields
+     * @param  int $limit
+     * @param  int $offset
      * @return self
      */
-    public function __construct(array $fields = [], $limit = NULL, $offset = NULL)
+    public function __construct(array $fields = [], ?int $limit = NULL, ?int $offset = NULL)
     {
         $this->setFields($fields);
         if (NULL !== $limit) {
@@ -113,7 +115,7 @@ class QueueQuery
      *
      * @return int
      */
-    public function getLimit(): int
+    public function getLimit(): ?int
     {
         return $this->limit;
     }
@@ -124,9 +126,9 @@ class QueueQuery
      * @param  int $limit
      * @return self
      */
-    public function setLimit($limit): self
+    public function setLimit(int $limit): self
     {
-        $this->limit = (int) $limit;
+        $this->limit = $limit;
         return $this;
     }
 
@@ -135,7 +137,7 @@ class QueueQuery
      *
      * @return int
      */
-    public function getOffset(): int
+    public function getOffset(): ?int
     {
         return $this->offset;
     }
@@ -146,9 +148,9 @@ class QueueQuery
      * @param  int $offset
      * @return self
      */
-    public function setOffset($offset): self
+    public function setOffset(int $offset): self
     {
-        $this->offset = (int) $offset;
+        $this->offset = $offset;
         return $this;
     }
 }

@@ -48,7 +48,7 @@ class IMAPItemInfo
      * @param  int $imapUid IMAP UID
      * @return self
      */
-    public function __construct($id, $imapUid)
+    public function __construct(int $id, int $imapUid)
     {
         $this->setId($id)
              ->setImapUid($imapUid);
@@ -70,9 +70,9 @@ class IMAPItemInfo
      * @param  int $id
      * @return self
      */
-    public function setId($id): self
+    public function setId(int $id): self
     {
-        $this->id = (int) $id;
+        $this->id = $id;
         return $this;
     }
 
@@ -92,9 +92,9 @@ class IMAPItemInfo
      * @param  int $imapUid
      * @return self
      */
-    public function setImapUid($imapUid): self
+    public function setImapUid(int $imapUid): self
     {
-        $this->imapUid = (int) $imapUid;
+        $this->imapUid = $imapUid;
         return $this;
     }
 }

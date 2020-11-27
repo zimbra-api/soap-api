@@ -42,7 +42,7 @@ class DeleteXMPPComponentRequest extends Request
      * @param  Component $component
      * @return self
      */
-    public function __construct(Component $component = NULL)
+    public function __construct(?Component $component = NULL)
     {
         if ($component instanceof Component) {
             $this->setComponent($component);
@@ -54,7 +54,7 @@ class DeleteXMPPComponentRequest extends Request
      *
      * @return Component
      */
-    public function getComponent(): Component
+    public function getComponent(): ?Component
     {
         return $this->component;
     }

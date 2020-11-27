@@ -52,7 +52,7 @@ class AdminZimletHostConfigInfo implements ZimletHostConfigInfo
      * @param  array $properties
      * @return self
      */
-    public function __construct($name = NULL, array $properties = [])
+    public function __construct(?string $name = NULL, array $properties = [])
     {
         if (NULL !== $name) {
             $this->setName($name);
@@ -65,7 +65,7 @@ class AdminZimletHostConfigInfo implements ZimletHostConfigInfo
      *
      * @return string
      */
-    public function getName(): string
+    public function getName(): ?string
     {
         return $this->name;
     }
@@ -76,9 +76,9 @@ class AdminZimletHostConfigInfo implements ZimletHostConfigInfo
      * @param  string $name
      * @return self
      */
-    public function setName($name): self
+    public function setName(string $name): self
     {
-        $this->name = trim($name);
+        $this->name = $name;
         return $this;
     }
 

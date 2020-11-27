@@ -17,8 +17,7 @@ class ReIndexActionTest extends TestCase
             'STATUS' => 'status',
             'CANCEL' => 'cancel',
         ];
-        foreach ($values as $enum => $value)
-        {
+        foreach ($values as $enum => $value) {
             $this->assertSame(ReIndexAction::$enum()->getValue(), $value);
         }
     }

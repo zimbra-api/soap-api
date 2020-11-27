@@ -41,7 +41,7 @@ class GetAllAdminAccountsRequest extends Request
      * @param  bool $applyCos
      * @return self
      */
-    public function __construct($applyCos = NULL)
+    public function __construct(?bool $applyCos = NULL)
     {
         if (NULL !== $applyCos) {
             $this->setApplyCos($applyCos);
@@ -53,7 +53,7 @@ class GetAllAdminAccountsRequest extends Request
      *
      * @return bool
      */
-    public function isApplyCos(): bool
+    public function isApplyCos(): ?bool
     {
         return $this->applyCos;
     }
@@ -64,9 +64,9 @@ class GetAllAdminAccountsRequest extends Request
      * @param  bool $applyCos
      * @return self
      */
-    public function setApplyCos($applyCos): self
+    public function setApplyCos(bool $applyCos): self
     {
-        $this->applyCos = (bool) $applyCos;
+        $this->applyCos = $applyCos;
         return $this;
     }
 

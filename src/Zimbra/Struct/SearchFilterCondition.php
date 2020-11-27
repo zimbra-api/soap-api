@@ -25,7 +25,7 @@ interface SearchFilterCondition
      *
      * @return bool
      */
-    function isNot(): bool;
+    function isNot(): ?bool;
 
     /**
      * Sets not flag
@@ -33,5 +33,5 @@ interface SearchFilterCondition
      * @param  bool $not
      * @return self
      */
-    function setNot($not): self;
+    function setNot(bool $not): self;
 }

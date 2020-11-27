@@ -68,9 +68,9 @@ class Signature
      * @return self
      */
     public function __construct(
-        $name = NULL,
-        $id = NULL,
-        $cid = NULL,
+        ?string $name = NULL,
+        ?string $id = NULL,
+        ?string $cid = NULL,
         array $contents = []
 	)
     {
@@ -91,7 +91,7 @@ class Signature
      *
      * @return string
      */
-    public function getId()
+    public function getId(): ?string
     {
         return $this->id;
     }
@@ -102,9 +102,9 @@ class Signature
      * @param  string $id
      * @return self
      */
-    public function setId($id)
+    public function setId(string $id): self
     {
-        $this->id = trim($id);
+        $this->id = $id;
         return $this;
     }
 
@@ -113,7 +113,7 @@ class Signature
      *
      * @return string
      */
-    public function getName()
+    public function getName(): ?string
     {
         return $this->name;
     }
@@ -124,31 +124,31 @@ class Signature
      * @param  string $name
      * @return self
      */
-    public function setName($name)
+    public function setName(string $name): self
     {
-        $this->name = trim($name);
+        $this->name = $name;
         return $this;
     }
 
     /**
-     * Gets contact ID
+     * Gets content ID
      *
      * @return string
      */
-    public function getCid()
+    public function getCid(): ?string
     {
         return $this->cid;
     }
 
     /**
-     * Sets contact ID
+     * Sets content ID
      *
      * @param  string $cid
      * @return self
      */
-    public function setCid($cid)
+    public function setCid(string $cid): self
     {
-        $this->cid = trim($cid);
+        $this->cid = $cid;
         return $this;
     }
 
@@ -158,7 +158,7 @@ class Signature
      * @param  SignatureContent $content
      * @return self
      */
-    public function addContent(SignatureContent $content)
+    public function addContent(SignatureContent $content): self
     {
         $this->contents[] = $content;
         return $this;
@@ -170,7 +170,7 @@ class Signature
      * @param array  $contents
      * @return self
      */
-    public function setContents(array $contents)
+    public function setContents(array $contents): self
     {
         $this->contents = [];
         foreach ($contents as $content) {
@@ -186,7 +186,7 @@ class Signature
      *
      * @return array
      */
-    public function getContents()
+    public function getContents(): array
     {
         return $this->contents;
     }

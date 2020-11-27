@@ -50,7 +50,7 @@ class CountObjectsResponse implements ResponseInterface
      * @param string  $type
      * @return self
      */
-    public function __construct($num, $type)
+    public function __construct(int $num, string $type)
     {
         $this->setNum($num)
              ->setType($type);
@@ -72,9 +72,9 @@ class CountObjectsResponse implements ResponseInterface
      * @param  int $num
      * @return self
      */
-    public function setNum($num): self
+    public function setNum(int $num): self
     {
-        $this->num = (int) $num;
+        $this->num = $num;
         return $this;
     }
 
@@ -94,9 +94,9 @@ class CountObjectsResponse implements ResponseInterface
      * @param  string $type
      * @return self
      */
-    public function setType($type): self
+    public function setType(string $type): self
     {
-        $this->type = trim($type);
+        $this->type = $type;
         return $this;
     }
 }

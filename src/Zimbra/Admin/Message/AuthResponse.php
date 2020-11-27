@@ -63,9 +63,9 @@ class AuthResponse implements ResponseInterface
      * @return self
      */
     public function __construct(
-        $authToken = NULL,
-        $csrfToken = NULL,
-        $lifetime = NULL
+        ?string $authToken = NULL,
+        ?string $csrfToken = NULL,
+        ?int $lifetime = NULL
     )
     {
         if (NULL !== $authToken) {
@@ -95,9 +95,9 @@ class AuthResponse implements ResponseInterface
      * @param  string $authToken
      * @return self
      */
-    public function setAuthToken($authToken): self
+    public function setAuthToken(string $authToken): self
     {
-        $this->authToken = trim($authToken);
+        $this->authToken = $authToken;
         return $this;
     }
 
@@ -117,9 +117,9 @@ class AuthResponse implements ResponseInterface
      * @param  string $csrfToken
      * @return self
      */
-    public function setCsrfToken($csrfToken): self
+    public function setCsrfToken(string $csrfToken): self
     {
-        $this->csrfToken = trim($csrfToken);
+        $this->csrfToken = $csrfToken;
         return $this;
     }
 
@@ -139,9 +139,9 @@ class AuthResponse implements ResponseInterface
      * @param  int $lifetime
      * @return self
      */
-    public function setLifetime($lifetime): self
+    public function setLifetime(int $lifetime): self
     {
-        $this->lifetime = (int) $lifetime;
+        $this->lifetime = $lifetime;
         return $this;
     }
 }

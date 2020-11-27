@@ -109,12 +109,12 @@ class AdminZimletConfigInfo implements ZimletConfigInfo
      * @return self
      */
     public function __construct(
-        $name = NULL,
-        $version = NULL,
-        $description = NULL,
-        $extension = NULL,
-        $target = NULL,
-        $label = NULL
+        ?string $name = NULL,
+        ?string $version = NULL,
+        ?string $description = NULL,
+        ?string $extension = NULL,
+        ?string $target = NULL,
+        ?string $label = NULL
     )
     {
         if (NULL !== $name) {
@@ -142,7 +142,7 @@ class AdminZimletConfigInfo implements ZimletConfigInfo
      *
      * @return string
      */
-    public function getName(): string
+    public function getName(): ?string
     {
         return $this->name;
     }
@@ -153,9 +153,9 @@ class AdminZimletConfigInfo implements ZimletConfigInfo
      * @param  string $name
      * @return self
      */
-    public function setName($name): self
+    public function setName(string $name): self
     {
-        $this->name = trim($name);
+        $this->name = $name;
         return $this;
     }
 
@@ -164,7 +164,7 @@ class AdminZimletConfigInfo implements ZimletConfigInfo
      *
      * @return string
      */
-    public function getVersion(): string
+    public function getVersion(): ?string
     {
         return $this->version;
     }
@@ -175,9 +175,9 @@ class AdminZimletConfigInfo implements ZimletConfigInfo
      * @param  string $version
      * @return self
      */
-    public function setVersion($version): self
+    public function setVersion(string $version): self
     {
-        $this->version = trim($version);
+        $this->version = $version;
         return $this;
     }
 
@@ -186,7 +186,7 @@ class AdminZimletConfigInfo implements ZimletConfigInfo
      *
      * @return string
      */
-    public function getDescription(): string
+    public function getDescription(): ?string
     {
         return $this->description;
     }
@@ -197,9 +197,9 @@ class AdminZimletConfigInfo implements ZimletConfigInfo
      * @param  string $description
      * @return self
      */
-    public function setDescription($description): self
+    public function setDescription(string $description): self
     {
-        $this->description = trim($description);
+        $this->description = $description;
         return $this;
     }
 
@@ -208,7 +208,7 @@ class AdminZimletConfigInfo implements ZimletConfigInfo
      *
      * @return string
      */
-    public function getExtension(): string
+    public function getExtension(): ?string
     {
         return $this->extension;
     }
@@ -219,9 +219,9 @@ class AdminZimletConfigInfo implements ZimletConfigInfo
      * @param  string $extension
      * @return self
      */
-    public function setExtension($extension): self
+    public function setExtension(string $extension): self
     {
-        $this->extension = trim($extension);
+        $this->extension = $extension;
         return $this;
     }
 
@@ -230,7 +230,7 @@ class AdminZimletConfigInfo implements ZimletConfigInfo
      *
      * @return string
      */
-    public function getTarget(): string
+    public function getTarget(): ?string
     {
         return $this->target;
     }
@@ -241,9 +241,9 @@ class AdminZimletConfigInfo implements ZimletConfigInfo
      * @param  string $target
      * @return self
      */
-    public function setTarget($target): self
+    public function setTarget(string $target): self
     {
-        $this->target = trim($target);
+        $this->target = $target;
         return $this;
     }
 
@@ -252,7 +252,7 @@ class AdminZimletConfigInfo implements ZimletConfigInfo
      *
      * @return string
      */
-    public function getLabel(): string
+    public function getLabel(): ?string
     {
         return $this->label;
     }
@@ -263,9 +263,9 @@ class AdminZimletConfigInfo implements ZimletConfigInfo
      * @param  string $label
      * @return self
      */
-    public function setLabel($label): self
+    public function setLabel(string $label): self
     {
-        $this->label = trim($label);
+        $this->label = $label;
         return $this;
     }
 
@@ -274,7 +274,7 @@ class AdminZimletConfigInfo implements ZimletConfigInfo
      *
      * @return ZimletGlobalConfigInfo
      */
-    public function getGlobal(): ZimletGlobalConfigInfo
+    public function getGlobal(): ?ZimletGlobalConfigInfo
     {
         return $this->global;
     }
@@ -298,7 +298,7 @@ class AdminZimletConfigInfo implements ZimletConfigInfo
      *
      * @return ZimletHostConfigInfo
      */
-    public function getHost(): ZimletHostConfigInfo
+    public function getHost(): ?ZimletHostConfigInfo
     {
         return $this->host;
     }

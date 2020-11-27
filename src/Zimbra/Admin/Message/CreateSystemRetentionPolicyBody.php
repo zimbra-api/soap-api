@@ -46,7 +46,7 @@ class CreateSystemRetentionPolicyBody extends Body
      * Constructor method for CreateSystemRetentionPolicyBody
      * @return self
      */
-    public function __construct(CreateSystemRetentionPolicyRequest $request = NULL, CreateSystemRetentionPolicyResponse $response = NULL)
+    public function __construct(?CreateSystemRetentionPolicyRequest $request = NULL, ?CreateSystemRetentionPolicyResponse $response = NULL)
     {
         parent::__construct($request, $response);
     }

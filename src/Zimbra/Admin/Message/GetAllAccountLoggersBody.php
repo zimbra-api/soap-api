@@ -46,7 +46,7 @@ class GetAllAccountLoggersBody extends Body
      * Constructor method for GetAllAccountLoggersBody
      * @return self
      */
-    public function __construct(GetAllAccountLoggersRequest $request = NULL, GetAllAccountLoggersResponse $response = NULL)
+    public function __construct(?GetAllAccountLoggersRequest $request = NULL, ?GetAllAccountLoggersResponse $response = NULL)
     {
         parent::__construct($request, $response);
     }
@@ -59,7 +59,7 @@ class GetAllAccountLoggersBody extends Body
         return $this;
     }
 
-    public function getRequest(): RequestInterface
+    public function getRequest(): ?RequestInterface
     {
         return $this->request;
     }
@@ -72,7 +72,7 @@ class GetAllAccountLoggersBody extends Body
         return $this;
     }
 
-    public function getResponse(): ResponseInterface
+    public function getResponse(): ?ResponseInterface
     {
         return $this->response;
     }

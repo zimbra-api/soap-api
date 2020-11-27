@@ -26,6 +26,7 @@ use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAt
 class CookieSpec
 {
     /**
+     * Cookie name
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
@@ -35,10 +36,10 @@ class CookieSpec
 
     /**
      * Constructor method for CookieSpec
-     * @param  string $name Cookie name
+     * @param  string $name
      * @return self
      */
-    public function __construct($name)
+    public function __construct(string $name)
     {
         $this->setName($name);
     }
@@ -59,9 +60,9 @@ class CookieSpec
      * @param  string $name
      * @return self
      */
-    public function setName($name): self
+    public function setName(string $name): self
     {
-        $this->name = trim($name);
+        $this->name = $name;
         return $this;
     }
 }

@@ -39,7 +39,7 @@ class AdminCreateWaitSetEnvelope extends Envelope
      * Constructor method for AdminCreateWaitSetEnvelope
      * @return self
      */
-    public function __construct(AdminCreateWaitSetBody $body = NULL, Header $header = NULL)
+    public function __construct(?AdminCreateWaitSetBody $body = NULL, ?Header $header = NULL)
     {
         parent::__construct($body, $header);
     }
@@ -49,7 +49,7 @@ class AdminCreateWaitSetEnvelope extends Envelope
      *
      * @return BodyInterface
      */
-    public function getBody(): BodyInterface
+    public function getBody(): ?BodyInterface
     {
         return $this->body;
     }

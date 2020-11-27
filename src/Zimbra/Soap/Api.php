@@ -44,7 +44,7 @@ abstract class Api implements ApiInterface
      */
     private $requestFormat;
 
-    public function __construct($endpoint = 'https://localhost/service/soap', $requestFormat = '')
+    public function __construct($endpoint = 'https://localhost/service/soap', ?string $requestFormat = NULL)
     {
         $this->client = new Client($endpoint);
         if (RequestFormat::isValid($requestFormat)) {
@@ -113,7 +113,7 @@ abstract class Api implements ApiInterface
      * @param  string $requestFormat
      * @return self
      */
-    public function setRequestFormat($requestFormat): self
+    public function setRequestFormat(string $requestFormat): self
     {
         if (RequestFormat::isValid(trim($requestFormat))) {
             $this->requestFormat = trim($requestFormat);
@@ -126,7 +126,7 @@ abstract class Api implements ApiInterface
      *
      * @return  EnvelopeInterface
      */
-    protected function invoke(RequestInterface $request): ResponseInterface
+    protected function invoke(RequestInterface $request): ?ResponseInterface
     {
         $requestEnvelope = $request->getEnvelope();
         if ($this->header instanceof Header) {
@@ -152,7 +152,7 @@ abstract class Api implements ApiInterface
      * @param  array $requests
      * @return ResponseInterface
      */
-    public function batch(array $requests = []): ResponseInterface
+    public function batch(array $requests = []): ?ResponseInterface
     {
         $request = new \Zimbra\Soap\Request\Batch(
             $requests

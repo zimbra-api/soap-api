@@ -48,7 +48,7 @@ class LoggerInfo
      * @param LoggingLevel $level
      * @return self
      */
-    public function __construct($category, LoggingLevel $level = NULL)
+    public function __construct($category, ?LoggingLevel $level = NULL)
     {
         $this->setCategory($category);
         if (NULL !== $level) {
@@ -72,9 +72,9 @@ class LoggerInfo
      * @param  string $category
      * @return self
      */
-    public function setCategory($category): self
+    public function setCategory(string $category): self
     {
-        $this->category = trim($category);
+        $this->category = $category;
         return $this;
     }
 
@@ -83,7 +83,7 @@ class LoggerInfo
      *
      * @return LoggingLevel
      */
-    public function getLevel(): LoggingLevel
+    public function getLevel(): ?LoggingLevel
     {
         return $this->level;
     }

@@ -26,6 +26,7 @@ use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAt
 class CosInfo implements AdminObjectInterface
 {
     /**
+     * Name
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
@@ -34,6 +35,7 @@ class CosInfo implements AdminObjectInterface
     private $name;
 
     /**
+     * ID
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
@@ -61,12 +63,13 @@ class CosInfo implements AdminObjectInterface
     /**
      * Constructor method for CosInfo
      * 
-     * @param  string $name Name
-     * @param  string $id ID
+     * @param  string $name 
+     * @param  string $id
+     * @param  bool $isDefaultCos
      * @param  array  $attrs Attributes
      * @return self
      */
-    public function __construct($name, $id, $isDefaultCos = NULL, array $attrs = [])
+    public function __construct(string $name, string $id, ?bool $isDefaultCos = NULL, array $attrs = [])
     {
         $this->setName($name)
              ->setId($id)
@@ -125,7 +128,7 @@ class CosInfo implements AdminObjectInterface
      *
      * @return bool
      */
-    public function getIsDefaultCos(): bool
+    public function getIsDefaultCos(): ?bool
     {
         return $this->isDefaultCos;
     }
@@ -136,9 +139,9 @@ class CosInfo implements AdminObjectInterface
      * @param  bool $isDefaultCos
      * @return self
      */
-    public function setIsDefaultCos($isDefaultCos): self
+    public function setIsDefaultCos(bool $isDefaultCos): self
     {
-        $this->isDefaultCos = (bool) $isDefaultCos;
+        $this->isDefaultCos = $isDefaultCos;
         return $this;
     }
 

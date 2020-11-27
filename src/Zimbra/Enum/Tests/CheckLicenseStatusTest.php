@@ -17,8 +17,7 @@ class CheckLicenseStatusTest extends TestCase
             'NO'  => 'no',
             'IN_GRACE_PERIOD'  => 'inGracePeriod',
         ];
-        foreach ($values as $enum => $value)
-        {
+        foreach ($values as $enum => $value) {
             $this->assertSame(CheckLicenseStatus::$enum()->getValue(), $value);
         }
     }

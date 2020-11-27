@@ -67,7 +67,7 @@ class AutoCompleteGalResponse implements ResponseInterface
      * @param  array $contacts
      * @return self
      */
-    public function __construct($more = NULL, $tokenizeKey = NULL, $pagingSupported = NULL, array $contacts = NULL)
+    public function __construct(?bool $more = NULL, ?bool $tokenizeKey = NULL, ?int $pagingSupported = NULL, array $contacts = NULL)
     {
         if(NULL !== $more) {
             $this->setMore($more);
@@ -88,7 +88,7 @@ class AutoCompleteGalResponse implements ResponseInterface
      *
      * @return bool
      */
-    public function getMore(): bool
+    public function getMore(): ?bool
     {
         return $this->more;
     }
@@ -99,9 +99,9 @@ class AutoCompleteGalResponse implements ResponseInterface
      * @param  bool $more
      * @return self
      */
-    public function setMore($more): self
+    public function setMore(bool $more): self
     {
-        $this->more = (bool) $more;
+        $this->more = $more;
         return $this;
     }
 
@@ -110,7 +110,7 @@ class AutoCompleteGalResponse implements ResponseInterface
      *
      * @return bool
      */
-    public function getTokenizeKey(): bool
+    public function getTokenizeKey(): ?bool
     {
         return $this->tokenizeKey;
     }
@@ -121,9 +121,9 @@ class AutoCompleteGalResponse implements ResponseInterface
      * @param  bool $tooManyMembers
      * @return self
      */
-    public function setTokenizeKey($tokenizeKey): self
+    public function setTokenizeKey(bool $tokenizeKey): self
     {
-        $this->tokenizeKey = (bool) $tokenizeKey;
+        $this->tokenizeKey = $tokenizeKey;
         return $this;
     }
 
@@ -132,7 +132,7 @@ class AutoCompleteGalResponse implements ResponseInterface
      *
      * @return int
      */
-    public function getPagingSupported(): int
+    public function getPagingSupported(): ?int
     {
         return $this->pagingSupported;
     }
@@ -143,9 +143,9 @@ class AutoCompleteGalResponse implements ResponseInterface
      * @param  int $pagingSupported
      * @return self
      */
-    public function setPagingSupported($pagingSupported): self
+    public function setPagingSupported(int $pagingSupported): self
     {
-        $this->pagingSupported = (int) $pagingSupported;
+        $this->pagingSupported = $pagingSupported;
         return $this;
     }
 

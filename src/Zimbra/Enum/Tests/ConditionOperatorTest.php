@@ -22,8 +22,7 @@ class ConditionOperatorTest extends TestCase
             'STARTS_WITH' => 'startswith',
             'ENDS_WITH'   => 'endswith',
         ];
-        foreach ($values as $enum => $value)
-        {
+        foreach ($values as $enum => $value) {
             $this->assertSame(ConditionOperator::$enum()->getValue(), $value);
         }
     }

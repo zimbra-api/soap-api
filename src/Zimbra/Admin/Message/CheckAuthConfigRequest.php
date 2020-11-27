@@ -56,8 +56,8 @@ class CheckAuthConfigRequest extends Request implements AdminAttrs
      * @return self
      */
     public function __construct(
-        $name,
-        $password,
+        string $name,
+        string $password,
         array $attrs = []
     )
     {
@@ -71,7 +71,7 @@ class CheckAuthConfigRequest extends Request implements AdminAttrs
      *
      * @return string
      */
-    public function getName(): ?string
+    public function getName(): string
     {
         return $this->name;
     }
@@ -82,9 +82,9 @@ class CheckAuthConfigRequest extends Request implements AdminAttrs
      * @param  string $name
      * @return self
      */
-    public function setName($name): self
+    public function setName(string $name): self
     {
-        $this->name = trim($name);
+        $this->name = $name;
         return $this;
     }
 
@@ -93,7 +93,7 @@ class CheckAuthConfigRequest extends Request implements AdminAttrs
      *
      * @return string
      */
-    public function getPassword(): ?string
+    public function getPassword(): string
     {
         return $this->password;
     }
@@ -104,9 +104,9 @@ class CheckAuthConfigRequest extends Request implements AdminAttrs
      * @param  string $password
      * @return self
      */
-    public function setPassword($password): self
+    public function setPassword(string $password): self
     {
-        $this->password = trim($password);
+        $this->password = $password;
         return $this;
     }
 

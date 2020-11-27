@@ -166,23 +166,23 @@ class Context
      * @return self
      */
     public function __construct(
-        $hopCount = NULL,
-        $authToken = NULL,
-        SessionInfo $session = NULL,
-        SessionInfo $legacySessionId = NULL,
-        $noSession = NULL,
-        AccountInfo $account = NULL,
-        ChangeInfo $change = NULL,
-        $targetServer = NULL,
-        UserAgentInfo $userAgent = NULL,
-        AuthTokenControl $authTokenControl = NULL,
-        FormatInfo $format = NULL,
-        NotifyInfo $notify = NULL,
-        $noNotify = NULL,
-        $noQualify = NULL,
-        $via = NULL,
-        $soapRequestId = NULL,
-        $csrfToken = NULL
+        ?int $hopCount = NULL,
+        ?string $authToken = NULL,
+        ?SessionInfo $session = NULL,
+        ?SessionInfo $legacySessionId = NULL,
+        ?string $noSession = NULL,
+        ?AccountInfo $account = NULL,
+        ?ChangeInfo $change = NULL,
+        ?string $targetServer = NULL,
+        ?UserAgentInfo $userAgent = NULL,
+        ?AuthTokenControl $authTokenControl = NULL,
+        ?FormatInfo $format = NULL,
+        ?NotifyInfo $notify = NULL,
+        ?string $noNotify = NULL,
+        ?string $noQualify = NULL,
+        ?string $via = NULL,
+        ?string $soapRequestId = NULL,
+        ?string $csrfToken = NULL
     )
     {
         if (NULL !== $hopCount) {
@@ -243,7 +243,7 @@ class Context
      *
      * @return int
      */
-    public function getHopCount(): int
+    public function getHopCount(): ?int
     {
         return $this->hopCount;
     }
@@ -265,7 +265,7 @@ class Context
      *
      * @return string
      */
-    public function getAuthToken(): string
+    public function getAuthToken(): ?string
     {
         return $this->authToken;
     }
@@ -276,9 +276,9 @@ class Context
      * @param  string $authToken
      * @return self
      */
-    public function setAuthToken($authToken): self
+    public function setAuthToken(string $authToken): self
     {
-        $this->authToken = trim($authToken);
+        $this->authToken = $authToken;
         return $this;
     }
 
@@ -331,7 +331,7 @@ class Context
      *
      * @return string
      */
-    public function getNoSession(): string
+    public function getNoSession(): ?string
     {
         return $this->noSession;
     }
@@ -342,9 +342,9 @@ class Context
      * @param  string $noSession
      * @return self
      */
-    public function setNoSession($noSession): self
+    public function setNoSession(string $noSession): self
     {
-        $this->noSession = trim($noSession);
+        $this->noSession = $noSession;
         return $this;
     }
 
@@ -397,7 +397,7 @@ class Context
      *
      * @return string
      */
-    public function getTargetServer(): string
+    public function getTargetServer(): ?string
     {
         return $this->targetServer;
     }
@@ -408,9 +408,9 @@ class Context
      * @param  string $targetServer
      * @return self
      */
-    public function setTargetServer($targetServer): self
+    public function setTargetServer(string $targetServer): self
     {
-        $this->targetServer = trim($targetServer);
+        $this->targetServer = $targetServer;
         return $this;
     }
 
@@ -507,7 +507,7 @@ class Context
      *
      * @return string
      */
-    public function getNoNotify(): string
+    public function getNoNotify(): ?string
     {
         return $this->noNotify;
     }
@@ -518,9 +518,9 @@ class Context
      * @param  string $noNotify
      * @return self
      */
-    public function setNoNotify($noNotify): self
+    public function setNoNotify(string $noNotify): self
     {
-        $this->noNotify = trim($noNotify);
+        $this->noNotify = $noNotify;
         return $this;
     }
 
@@ -529,7 +529,7 @@ class Context
      *
      * @return string
      */
-    public function getNoQualify(): string
+    public function getNoQualify(): ?string
     {
         return $this->noQualify;
     }
@@ -540,9 +540,9 @@ class Context
      * @param  string $noQualify
      * @return self
      */
-    public function setNoQualify($noQualify): self
+    public function setNoQualify(string $noQualify): self
     {
-        $this->noQualify = trim($noQualify);
+        $this->noQualify = $noQualify;
         return $this;
     }
 
@@ -551,7 +551,7 @@ class Context
      *
      * @return string
      */
-    public function getVia(): string
+    public function getVia(): ?string
     {
         return $this->via;
     }
@@ -562,9 +562,9 @@ class Context
      * @param  string $via
      * @return self
      */
-    public function setVia($via): self
+    public function setVia(string $via): self
     {
-        $this->via = trim($via);
+        $this->via = $via;
         return $this;
     }
 
@@ -573,7 +573,7 @@ class Context
      *
      * @return string
      */
-    public function getSoapRequestId(): string
+    public function getSoapRequestId(): ?string
     {
         return $this->soapRequestId;
     }
@@ -584,9 +584,9 @@ class Context
      * @param  string $soapRequestId
      * @return self
      */
-    public function setSoapRequestId($soapRequestId): self
+    public function setSoapRequestId(string $soapRequestId): self
     {
-        $this->soapRequestId = trim($soapRequestId);
+        $this->soapRequestId = $soapRequestId;
         return $this;
     }
 
@@ -595,7 +595,7 @@ class Context
      *
      * @return string
      */
-    public function getCsrfToken(): string
+    public function getCsrfToken(): ?string
     {
         return $this->csrfToken;
     }
@@ -606,9 +606,9 @@ class Context
      * @param  string $csrfToken
      * @return self
      */
-    public function setCsrfToken($csrfToken): self
+    public function setCsrfToken(string $csrfToken): self
     {
-        $this->csrfToken = trim($csrfToken);
+        $this->csrfToken = $csrfToken;
         return $this;
     }
 }

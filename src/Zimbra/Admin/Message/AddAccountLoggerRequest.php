@@ -66,7 +66,7 @@ class AddAccountLoggerRequest extends Request
      * @param  string $id
      * @return self
      */
-    public function __construct(Logger $logger, Account $account = NULL, $id = NULL)
+    public function __construct(Logger $logger, ?Account $account = NULL, ?string $id = NULL)
     {
         $this->setLogger($logger);
         if ($account instanceof Account) {
@@ -104,7 +104,7 @@ class AddAccountLoggerRequest extends Request
      *
      * @return Account
      */
-    public function getAccount(): Account
+    public function getAccount(): ?Account
     {
         return $this->account;
     }
@@ -137,9 +137,9 @@ class AddAccountLoggerRequest extends Request
      * @param  string $id
      * @return self
      */
-    public function setId($id): self
+    public function setId(string $id): self
     {
-        $this->id = trim($id);
+        $this->id = $id;
         return $this;
     }
 

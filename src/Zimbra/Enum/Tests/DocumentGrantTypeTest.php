@@ -16,8 +16,7 @@ class DocumentGrantTypeTest extends TestCase
             'ALL' => 'all',
             'PUB' => 'pub',
         ];
-        foreach ($values as $enum => $value)
-        {
+        foreach ($values as $enum => $value) {
             $this->assertSame(DocumentGrantType::$enum()->getValue(), $value);
         }
     }

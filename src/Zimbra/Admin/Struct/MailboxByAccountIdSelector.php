@@ -26,6 +26,7 @@ use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAt
 class MailboxByAccountIdSelector
 {
     /**
+     * Account ID
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
@@ -35,10 +36,10 @@ class MailboxByAccountIdSelector
 
     /**
      * Constructor method for MailboxByAccountIdSelector
-     * @param string $id Account ID
+     * @param string $id
      * @return self
      */
-    public function __construct($id)
+    public function __construct(string $id)
     {
         $this->setId($id);
     }
@@ -59,9 +60,9 @@ class MailboxByAccountIdSelector
      * @param  string $id
      * @return self
      */
-    public function setId($id)
+    public function setId(string $id)
     {
-        $this->id = trim($id);
+        $this->id = $id;
         return $this;
     }
 }

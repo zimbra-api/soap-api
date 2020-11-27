@@ -40,13 +40,13 @@ class CheckRightsBody extends Body
      * @Type("Zimbra\Account\Message\CheckRightsResponse")
      * @XmlElement(namespace="urn:zimbraAccount")
      */
-    private $_response;
+    private $response;
 
     /**
      * Constructor method for CheckRightsBody
      * @return self
      */
-    public function __construct(CheckRightsRequest $request = NULL, CheckRightsResponse $response = NULL)
+    public function __construct(?CheckRightsRequest $request = NULL, ?CheckRightsResponse $response = NULL)
     {
         parent::__construct($request, $response);
     }
@@ -59,7 +59,7 @@ class CheckRightsBody extends Body
         return $this;
     }
 
-    public function getRequest(): RequestInterface
+    public function getRequest(): ?RequestInterface
     {
         return $this->request;
     }
@@ -67,13 +67,13 @@ class CheckRightsBody extends Body
     public function setResponse(ResponseInterface $response): self
     {
         if ($response instanceof CheckRightsResponse) {
-            $this->_response = $response;
+            $this->response = $response;
         }
         return $this;
     }
 
-    public function getResponse(): ResponseInterface
+    public function getResponse(): ?ResponseInterface
     {
-        return $this->_response;
+        return $this->response;
     }
 }

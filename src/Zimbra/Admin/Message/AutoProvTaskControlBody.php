@@ -46,7 +46,7 @@ class AutoProvTaskControlBody extends Body
      * Constructor method for AutoProvTaskControlBody
      * @return self
      */
-    public function __construct(AutoProvTaskControlRequest $request = NULL, AutoProvTaskControlResponse $response = NULL)
+    public function __construct(?AutoProvTaskControlRequest $request = NULL, ?AutoProvTaskControlResponse $response = NULL)
     {
         parent::__construct($request, $response);
     }

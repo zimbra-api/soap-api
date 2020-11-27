@@ -27,8 +27,7 @@ class DistributionListActionOpTest extends TestCase
             'ACCEPT_SUBSREQ' => 'acceptSubsReq',
             'REJECT_SUBSREQ' => 'rejectSubsReq',
         ];
-        foreach ($values as $enum => $value)
-        {
+        foreach ($values as $enum => $value) {
             $this->assertSame(DistributionListActionOp::$enum()->getValue(), $value);
         }
     }

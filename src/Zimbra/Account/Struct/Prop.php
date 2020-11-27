@@ -51,14 +51,15 @@ class Prop
 
     /**
      * Constructor method for property
+     * @param  string $zimlet
      * @param  string $name
      * @param  string $value
-     * @param  long   $modified
      * @return self
      */
-    public function __construct($zimlet, $name, $value = NULL)
+    public function __construct(string $zimlet, string $name, ?string $value = NULL)
     {
-        $this->setZimlet($zimlet)->setName($name);
+        $this->setZimlet($zimlet)
+            ->setName($name);
         if (NULL !== $value) {
             $this->setValue($value);
         }
@@ -69,7 +70,7 @@ class Prop
      *
      * @return string
      */
-    public function getZimlet()
+    public function getZimlet(): string
     {
         return $this->zimlet;
     }
@@ -80,9 +81,9 @@ class Prop
      * @param  string $zimlet
      * @return self
      */
-    public function setZimlet($zimlet)
+    public function setZimlet(string $zimlet): self
     {
-        $this->zimlet = trim($zimlet);
+        $this->zimlet = $zimlet;
         return $this;
     }
 
@@ -91,7 +92,7 @@ class Prop
      *
      * @return string
      */
-    public function getName()
+    public function getName(): string
     {
         return $this->name;
     }
@@ -102,9 +103,9 @@ class Prop
      * @param  string $name
      * @return self
      */
-    public function setName($name)
+    public function setName(string $name): self
     {
-        $this->name = trim($name);
+        $this->name = $name;
         return $this;
     }
 
@@ -113,7 +114,7 @@ class Prop
      *
      * @return string
      */
-    public function getValue()
+    public function getValue(): ?string
     {
         return $this->value;
     }
@@ -124,9 +125,9 @@ class Prop
      * @param  string $name
      * @return self
      */
-    public function setValue($value)
+    public function setValue(string $value): self
     {
-        $this->value = trim($value);
+        $this->value = $value;
         return $this;
     }
 }

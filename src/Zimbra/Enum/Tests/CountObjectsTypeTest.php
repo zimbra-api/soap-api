@@ -28,8 +28,7 @@ class CountObjectsTypeTest extends TestCase
             'INTERNAL_ARCHIVING_ACCOUNT' => 'internalArchivingAccount',
             'INTERNAL_USER_ACCOUNT_X' => 'internalUserAccountX',
         ];
-        foreach ($values as $enum => $value)
-        {
+        foreach ($values as $enum => $value) {
             $this->assertSame(CountObjectsType::$enum()->getValue(), $value);
         }
     }

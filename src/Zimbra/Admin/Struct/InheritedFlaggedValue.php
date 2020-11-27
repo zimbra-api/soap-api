@@ -50,7 +50,7 @@ class InheritedFlaggedValue
      * @param  string $value
      * @return self
      */
-    public function __construct($inherited, $value = NULL)
+    public function __construct(bool $inherited, ?string $value = NULL)
     {
         $this->setInherited($inherited);
         if (NULL !== $value) {
@@ -74,9 +74,9 @@ class InheritedFlaggedValue
      * @param  bool $inherited
      * @return self
      */
-    public function setInherited($inherited): self
+    public function setInherited(bool $inherited): self
     {
-        $this->inherited = (bool) $inherited;
+        $this->inherited = $inherited;
         return $this;
     }
 
@@ -96,9 +96,9 @@ class InheritedFlaggedValue
      * @param  string $name
      * @return self
      */
-    public function setValue($value): self
+    public function setValue(string $value): self
     {
-        $this->value = trim($value);
+        $this->value = $value;
         return $this;
     }
 }

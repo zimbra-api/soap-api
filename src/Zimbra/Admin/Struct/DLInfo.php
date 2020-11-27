@@ -25,6 +25,7 @@ use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAt
 class DLInfo extends AdminObjectInfo
 {
     /**
+     * Is dynamic
      * Flags whether a group is dynamic or not
      * @Accessor(getter="isDynamic", setter="setDynamic")
      * @SerializedName("dynamic")
@@ -34,6 +35,7 @@ class DLInfo extends AdminObjectInfo
     private $dynamic;
 
     /**
+     * Via
      * Present if the account is a member of the returned list because they are either a
      * direct or indirect member of another list that is a member of the returned list.
      * @Accessor(getter="getVia", setter="setVia")
@@ -46,14 +48,14 @@ class DLInfo extends AdminObjectInfo
     /**
      * Constructor method for DLInfo
      * 
-     * @param  string $via Via
-     * @param  string $name Name
+     * @param  string $via
+     * @param  string $name
      * @param  string $id ID
-     * @param  bool $dynamic Is dynamic
-     * @param  array  $attrs Attributes
+     * @param  bool   $dynamic
+     * @param  array  $attrs
      * @return self
      */
-    public function __construct($via, $name, $id, $dynamic = NULL, array $attrs = [])
+    public function __construct(string $via, string $name, string $id, ?bool $dynamic = NULL, array $attrs = [])
     {
         parent::__construct($name, $id, $attrs);
         $this->setVia($via);
@@ -67,7 +69,7 @@ class DLInfo extends AdminObjectInfo
      *
      * @return bool
      */
-    public function isDynamic(): bool
+    public function isDynamic(): ?bool
     {
         return $this->dynamic;
     }
@@ -78,9 +80,9 @@ class DLInfo extends AdminObjectInfo
      * @param  bool $dynamic
      * @return self
      */
-    public function setDynamic($dynamic): self
+    public function setDynamic(bool $dynamic): self
     {
-        $this->dynamic = (bool) $dynamic;
+        $this->dynamic = $dynamic;
         return $this;
     }
 
@@ -100,9 +102,9 @@ class DLInfo extends AdminObjectInfo
      * @param  string $via
      * @return self
      */
-    public function setVia($via): self
+    public function setVia(string $via): self
     {
-        $this->via = trim($via);
+        $this->via = $via;
         return $this;
     }
 }

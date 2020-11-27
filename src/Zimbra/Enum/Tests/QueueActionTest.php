@@ -18,8 +18,7 @@ class QueueActionTest extends TestCase
             'DELETE'  => 'delete',
             'REQUEUE' => 'requeue',
         ];
-        foreach ($values as $enum => $value)
-        {
+        foreach ($values as $enum => $value) {
             $this->assertSame(QueueAction::$enum()->getValue(), $value);
         }
     }

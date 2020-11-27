@@ -27,8 +27,7 @@ class TargetTypeTest extends TestCase
             'CONFIG'          => 'config',
             'GLOBALTYPE'      => 'global',
         ];
-        foreach ($values as $enum => $value)
-        {
+        foreach ($values as $enum => $value) {
             $this->assertSame(TargetType::$enum()->getValue(), $value);
         }
     }

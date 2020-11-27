@@ -17,8 +17,7 @@ class ServerByTest extends TestCase
             'NAME'             => 'name',
             'SERVICE_HOSTNAME' => 'serviceHostname',
         ];
-        foreach ($values as $enum => $value)
-        {
+        foreach ($values as $enum => $value) {
             $this->assertSame(ServerBy::$enum()->getValue(), $value);
         }
     }

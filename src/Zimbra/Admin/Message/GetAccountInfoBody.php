@@ -46,7 +46,7 @@ class GetAccountInfoBody extends Body
      * Constructor method for GetAccountInfoBody
      * @return self
      */
-    public function __construct(GetAccountInfoRequest $request = NULL, GetAccountInfoResponse $response = NULL)
+    public function __construct(?GetAccountInfoRequest $request = NULL, ?GetAccountInfoResponse $response = NULL)
     {
         parent::__construct($request, $response);
     }
@@ -59,7 +59,7 @@ class GetAccountInfoBody extends Body
         return $this;
     }
 
-    public function getRequest(): RequestInterface
+    public function getRequest(): ?RequestInterface
     {
         return $this->request;
     }
@@ -72,7 +72,7 @@ class GetAccountInfoBody extends Body
         return $this;
     }
 
-    public function getResponse(): ResponseInterface
+    public function getResponse(): ?ResponseInterface
     {
         return $this->response;
     }

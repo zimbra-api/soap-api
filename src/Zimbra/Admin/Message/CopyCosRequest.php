@@ -52,7 +52,7 @@ class CopyCosRequest extends Request
      * @param  string $newName
      * @return self
      */
-    public function __construct(CosSelector $cos = NULL, $newName = NULL)
+    public function __construct(?CosSelector $cos = NULL, ?string $newName = NULL)
     {
         if ($cos instanceof CosSelector) {
             $this->setCos($cos);
@@ -67,7 +67,7 @@ class CopyCosRequest extends Request
      *
      * @return CosSelector
      */
-    public function getCos(): CosSelector
+    public function getCos(): ?CosSelector
     {
         return $this->cos;
     }
@@ -100,9 +100,9 @@ class CopyCosRequest extends Request
      * @param  string $newName
      * @return self
      */
-    public function setNewName($newName): self
+    public function setNewName(string $newName): self
     {
-        $this->newName = trim($newName);
+        $this->newName = $newName;
         return $this;
     }
 

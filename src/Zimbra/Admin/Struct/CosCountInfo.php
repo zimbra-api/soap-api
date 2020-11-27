@@ -61,11 +61,13 @@ class CosCountInfo
      * @param  int $value
      * @return self
      */
-    public function __construct($name, $id, $value = NULL)
+    public function __construct(string $name, string $id, ?int $value = NULL)
     {
         $this->setName($name)
-             ->setId($id)
-             ->setValue($value);
+             ->setId($id);
+        if (NULL !== $value) {
+            $this->setValue($value);
+        }
     }
 
     /**
@@ -117,7 +119,7 @@ class CosCountInfo
      *
      * @return int
      */
-    public function getValue(): int
+    public function getValue(): ?int
     {
         return $this->value;
     }
@@ -128,9 +130,9 @@ class CosCountInfo
      * @param  int $value
      * @return self
      */
-    public function setValue($value): self
+    public function setValue(int $value): self
     {
-        $this->value = (int) $value;
+        $this->value = $value;
         return $this;
     }
 }

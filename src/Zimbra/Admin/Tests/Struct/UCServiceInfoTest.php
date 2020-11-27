@@ -2,8 +2,8 @@
 
 namespace Zimbra\Admin\Tests\Struct;
 
-use Zimbra\Admin\Struct\UCServiceInfo;
 use Zimbra\Admin\Struct\Attr;
+use Zimbra\Admin\Struct\UCServiceInfo;
 use Zimbra\Struct\Tests\ZimbraStructTestCase;
 
 /**

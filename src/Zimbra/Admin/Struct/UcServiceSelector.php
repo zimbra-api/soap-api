@@ -27,6 +27,7 @@ use Zimbra\Enum\UcServiceBy;
 class UcServiceSelector
 {
     /**
+     * Selects the meaning of {ucservice-key}
      * @Accessor(getter="getBy", setter="setBy")
      * @SerializedName("by")
      * @Type("Zimbra\Enum\UcServiceBy")
@@ -35,6 +36,7 @@ class UcServiceSelector
     private $by;
 
     /**
+     * Key for choosing ucservice
      * @Accessor(getter="getValue", setter="setValue")
      * @SerializedName("_content")
      * @Type("string")
@@ -44,11 +46,11 @@ class UcServiceSelector
 
     /**
      * Constructor method for UcServiceSelector
-     * @param  UcServiceBy $by Selects the meaning of {ucservice-key}
-     * @param  string $value Key for choosing ucservice
+     * @param  UcServiceBy $by
+     * @param  string $value
      * @return self
      */
-    public function __construct(UcServiceBy $by, $value = NULL)
+    public function __construct(UcServiceBy $by, ?string $value = NULL)
     {
         $this->setBy($by);
         if (NULL !== $value) {
@@ -83,7 +85,7 @@ class UcServiceSelector
      *
      * @return string
      */
-    public function getValue(): string
+    public function getValue(): ?string
     {
         return $this->value;
     }
@@ -91,12 +93,12 @@ class UcServiceSelector
     /**
      * Sets value
      *
-     * @param  string $name
+     * @param  string $value
      * @return self
      */
-    public function setValue($value): self
+    public function setValue(string $value): self
     {
-        $this->value = trim($value);
+        $this->value = $value;
         return $this;
     }
 }

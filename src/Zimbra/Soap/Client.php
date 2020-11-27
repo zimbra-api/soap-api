@@ -57,7 +57,7 @@ class Client extends EventEmitter implements ClientInterface
      *
      * @param string $endpoint  The URL to request.
      */
-    public function __construct($endpoint)
+    public function __construct(string $endpoint)
     {
         $this->endpoint = $endpoint;
         $this->httpClient = new HttpClient([
