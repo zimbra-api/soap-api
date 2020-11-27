@@ -14,17 +14,17 @@ use JMS\Serializer\Annotation\XmlRoot;
 use Zimbra\Soap\Request;
 
 /**
- * GetAllVolumesRequest class
- * Get all volumes
+ * GetAllXMPPComponentsRequest class
+ * Get all XMPP components
  * 
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @XmlRoot(name="GetAllVolumesRequest")
+ * @XmlRoot(name="GetAllXMPPComponentsRequest")
  */
-class GetAllVolumesRequest extends Request
+class GetAllXMPPComponentsRequest extends Request
 {
     /**
      * Initialize the soap envelope
@@ -33,9 +33,9 @@ class GetAllVolumesRequest extends Request
      */
     protected function envelopeInit(): void
     {
-        if (!($this->envelope instanceof GetAllVolumesEnvelope)) {
-            $this->envelope = new GetAllVolumesEnvelope(
-                new GetAllVolumesBody($this)
+        if (!($this->envelope instanceof GetAllXMPPComponentsEnvelope)) {
+            $this->envelope = new GetAllXMPPComponentsEnvelope(
+                new GetAllXMPPComponentsBody($this)
             );
         }
     }
