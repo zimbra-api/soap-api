@@ -47,7 +47,7 @@ class GetAlwaysOnClusterRequest extends Request implements AttributeSelector
      * @param  string $attrs
      * @return self
      */
-    public function __construct(AlwaysOnClusterSelector $cluster = NULL, string $attrs = NULL)
+    public function __construct(?AlwaysOnClusterSelector $cluster = NULL, ?string $attrs = NULL)
     {
         if ($cluster instanceof AlwaysOnClusterSelector) {
             $this->setAlwaysOnCluster($cluster);
