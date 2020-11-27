@@ -28,7 +28,7 @@ use Zimbra\Soap\ResponseInterface;
 class GetAllLocalesResponse implements ResponseInterface
 {
     /**
-     * Information on Free/Busy locales
+     * Information for system locales
      * 
      * @Accessor(getter="getLocales", setter="setLocales")
      * @SerializedName("locale")
