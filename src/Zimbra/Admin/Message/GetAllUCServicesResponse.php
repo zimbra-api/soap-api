@@ -28,7 +28,7 @@ use Zimbra\Soap\ResponseInterface;
 class GetAllUCServicesResponse implements ResponseInterface
 {
     /**
-     * Skins
+     * Information about uc services
      * 
      * @Accessor(getter="getUCServiceList", setter="setUCServiceList")
      * @SerializedName("ucservice")
