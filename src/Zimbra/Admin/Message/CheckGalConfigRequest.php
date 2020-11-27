@@ -11,9 +11,7 @@
 namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlElement, XmlRoot};
-use Zimbra\Admin\Struct\AdminAttrs;
-use Zimbra\Admin\Struct\AdminAttrsImplTrait;
-use Zimbra\Admin\Struct\LimitedQuery;
+use Zimbra\Admin\Struct\{AdminAttrs, AdminAttrsImplTrait, LimitedQuery};
 use Zimbra\Soap\Request;
 
 /**
@@ -54,8 +52,9 @@ class CheckGalConfigRequest extends Request implements AdminAttrs
 
     /**
      * Constructor method for CheckGalConfigRequest
-     * @param  LimitedQuery  $query
-     * @param  string  $action
+     * 
+     * @param  LimitedQuery $query
+     * @param  string $action
      * @param  array  $attrs
      * @return self
      */

@@ -52,15 +52,14 @@ class DeleteDataSourceRequest extends Request implements AdminAttrs
 
     /**
      * Constructor method for DeleteDataSourceRequest
-     * @param string  $id
-     * @param Id  $dataSource
+     * 
+     * @param string $id
+     * @param Id     $dataSource
      * @param array  $attrs
      * @return self
      */
     public function __construct(
-        string $id,
-        Id $dataSource,
-        array $attrs = []
+        string $id, Id $dataSource, array $attrs = []
     )
     {
         $this->setId($id)

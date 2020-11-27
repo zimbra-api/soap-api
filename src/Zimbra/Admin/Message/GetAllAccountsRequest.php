@@ -49,6 +49,7 @@ class GetAllAccountsRequest extends Request
 
     /**
      * Constructor method for GetAllAccountsRequest
+     * 
      * @param  Server $server
      * @param  Domain $domain
      * @return self

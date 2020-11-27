@@ -39,6 +39,7 @@ class ConfigureZimletRequest extends Request
 
     /**
      * Constructor method for ConfigureZimletRequest
+     * 
      * @param  AttachmentIdAttrib $content
      * @return self
      */

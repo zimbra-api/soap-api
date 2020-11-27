@@ -49,6 +49,7 @@ class FlushCacheRequest extends Request
 
     /**
      * Constructor method for FlushCacheRequest
+     * 
      * @param  CacheSelector $cache
      * @return self
      */

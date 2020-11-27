@@ -39,6 +39,7 @@ class GetAllDistributionListsRequest extends Request
 
     /**
      * Constructor method for GetAllDistributionListsRequest
+     * 
      * @param  Domain $domain
      * @return self
      */

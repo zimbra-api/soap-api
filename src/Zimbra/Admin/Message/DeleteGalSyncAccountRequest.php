@@ -40,7 +40,8 @@ class DeleteGalSyncAccountRequest extends Request
 
     /**
      * Constructor method for DeleteGalSyncAccountRequest
-     * @param  string $id Zimbra ID
+     * 
+     * @param  AccountSelector $account
      * @return self
      */
     public function __construct(AccountSelector $account)

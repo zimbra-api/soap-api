@@ -40,7 +40,8 @@ class CheckDomainMXRecordRequest extends Request
 
     /**
      * Constructor method for CheckDomainMXRecordRequest
-     * @param  DomainSelector  $domain
+     * 
+     * @param  DomainSelector $domain
      * @return self
      */
     public function __construct(DomainSelector $domain = NULL)

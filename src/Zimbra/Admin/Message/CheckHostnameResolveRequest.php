@@ -38,6 +38,7 @@ class CheckHostnameResolveRequest extends Request
 
     /**
      * Constructor method for AddAccountHostnameRequest
+     * 
      * @param  string $hostname
      * @return self
      */

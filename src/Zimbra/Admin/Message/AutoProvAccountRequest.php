@@ -29,7 +29,7 @@ use Zimbra\Soap\Request;
 class AutoProvAccountRequest extends Request
 {
     /**
-     * Domain
+     * The domain
      * @Accessor(getter="getDomain", setter="setDomain")
      * @SerializedName("domain")
      * @Type("Zimbra\Admin\Struct\DomainSelector")
@@ -38,7 +38,7 @@ class AutoProvAccountRequest extends Request
     private $domain;
 
     /**
-     * Principal
+     * The principal
      * @Accessor(getter="getPrincipal", setter="setPrincipal")
      * @SerializedName("principal")
      * @Type("Zimbra\Admin\Struct\PrincipalSelector")
@@ -57,9 +57,10 @@ class AutoProvAccountRequest extends Request
 
     /**
      * Constructor method for AutoProvAccountRequest
-     * @param DomainSelector $domain The domain
-     * @param PrincipalSelector $principal The principal
-     * @param string  $password Password
+     * 
+     * @param DomainSelector $domain
+     * @param PrincipalSelector $principal
+     * @param string  $password
      * @return self
      */
     public function __construct(

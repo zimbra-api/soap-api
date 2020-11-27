@@ -48,6 +48,7 @@ class DeleteSystemRetentionPolicyRequest extends Request
 
     /**
      * Constructor method for DeleteSystemRetentionPolicyRequest
+     * 
      * @param  Policy $policy
      * @param  CosSelector $cos
      * @return self

@@ -41,6 +41,7 @@ class DeleteAccountRequest extends Request
 
     /**
      * Constructor method for DeleteAccountRequest
+     * 
      * @param  string $id
      * @return self
      */

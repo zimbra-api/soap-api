@@ -59,6 +59,7 @@ class ExportAndDeleteItemsRequest extends Request
 
     /**
      * Constructor method for ExportAndDeleteItemsRequest
+     * 
      * @param  Mailbox $mailbox
      * @param  string $exportDir
      * @param  string $exportFilenamePrefix

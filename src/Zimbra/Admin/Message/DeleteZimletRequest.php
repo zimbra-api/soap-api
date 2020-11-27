@@ -39,6 +39,7 @@ class DeleteZimletRequest extends Request
 
     /**
      * Constructor method for DeleteZimletRequest
+     * 
      * @param  NamedElement $zimlet
      * @return self
      */

@@ -15,7 +15,7 @@ use Zimbra\Soap\Request;
 
 /**
  * DeleteAlwaysOnClusterRequest class
- * Delete a alwaysOnCluster 
+ * Delete a alwaysOnCluster
  * Notes:
  *     this request is by default proxied to the referenced server 
  * 
@@ -40,6 +40,7 @@ class DeleteAlwaysOnClusterRequest extends Request
 
     /**
      * Constructor method for DeleteAlwaysOnClusterRequest
+     * 
      * @param  string $id
      * @return self
      */

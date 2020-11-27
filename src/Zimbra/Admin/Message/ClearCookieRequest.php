@@ -40,7 +40,7 @@ class ClearCookieRequest extends Request
     /**
      * Constructor method for ClearCookieRequest
      * 
-     * @param array  $cookies
+     * @param array $cookies
      * @return self
      */
     public function __construct(array $cookies = [])

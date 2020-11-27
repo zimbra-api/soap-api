@@ -42,6 +42,7 @@ class GetAccountInfoRequest extends Request
 
     /**
      * Constructor method for GetAccountInfoRequest
+     * 
      * @param  AccountSelector $account
      * @return self
      */

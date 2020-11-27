@@ -15,7 +15,8 @@ use Zimbra\Soap\Request;
 
 /**
  * DeleteServerRequest class
- * Delete a domain
+ * Delete a server
+ * Note: this request is by default proxied to the referenced server
  * 
  * @package    Zimbra
  * @subpackage Admin
@@ -38,6 +39,7 @@ class DeleteServerRequest extends Request
 
     /**
      * Constructor method for DeleteServerRequest
+     * 
      * @param  string $id
      * @return self
      */

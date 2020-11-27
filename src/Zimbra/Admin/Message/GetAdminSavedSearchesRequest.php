@@ -41,7 +41,7 @@ class GetAdminSavedSearchesRequest extends Request
     /**
      * Constructor method for GetAdminSavedSearchesRequest
      * 
-     * @param array  $searches
+     * @param array $searches
      * @return self
      */
     public function __construct(array $searches = [])

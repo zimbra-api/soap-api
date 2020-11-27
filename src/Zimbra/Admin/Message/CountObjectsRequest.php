@@ -78,6 +78,7 @@ class CountObjectsRequest extends Request
 
     /**
      * Constructor method for CountObjectsRequest
+     * 
      * @param  CountObjectsType $type
      * @param  array $domains
      * @param  UcServiceSelector $ucService

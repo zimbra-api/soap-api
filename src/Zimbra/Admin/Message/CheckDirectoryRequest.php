@@ -40,6 +40,7 @@ class CheckDirectoryRequest extends Request
 
     /**
      * Constructor method for CheckDirectoryRequest
+     * 
      * @param  array  $paths
      * @return self
      */

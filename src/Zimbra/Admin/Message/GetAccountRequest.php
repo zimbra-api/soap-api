@@ -56,6 +56,7 @@ class GetAccountRequest extends Request implements AttributeSelector
 
     /**
      * Constructor method for GetAccountRequest
+     * 
      * @param  AccountSelector $account
      * @param  bool $applyCos
      * @param  string $attrs

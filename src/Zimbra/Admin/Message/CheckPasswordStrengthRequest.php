@@ -47,6 +47,7 @@ class CheckPasswordStrengthRequest extends Request
 
     /**
      * Constructor method for CheckPasswordStrengthRequest
+     * 
      * @param  string $id
      * @param  string $password
      * @return self

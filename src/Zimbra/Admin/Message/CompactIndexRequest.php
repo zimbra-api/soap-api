@@ -52,6 +52,7 @@ class CompactIndexRequest extends Request
 
     /**
      * Constructor method for CompactIndexRequest
+     * 
      * @param  Mbox $mbox
      * @param  Action $action
      * @return self

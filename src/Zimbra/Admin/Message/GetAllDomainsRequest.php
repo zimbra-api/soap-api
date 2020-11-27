@@ -38,6 +38,7 @@ class GetAllDomainsRequest extends Request
 
     /**
      * Constructor method for GetAllDomainsRequest
+     * 
      * @param  bool $applyConfig
      * @return self
      */

@@ -43,13 +43,13 @@ class CreateServerRequest extends Request implements AdminAttrs
 
     /**
      * Constructor method for CreateServerRequest
-     * @param string  $name
+     * 
+     * @param string $name
      * @param array  $attrs
      * @return self
      */
     public function __construct(
-        string $name,
-        array $attrs = []
+        string $name, array $attrs = []
     )
     {
         $this->setName($name)

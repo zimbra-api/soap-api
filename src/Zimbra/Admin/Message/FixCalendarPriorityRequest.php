@@ -50,6 +50,7 @@ class FixCalendarPriorityRequest extends Request
 
     /**
      * Constructor method for FixCalendarPriorityRequest
+     * 
      * @param  bool $sync
      * @param  array $accounts
      * @return self

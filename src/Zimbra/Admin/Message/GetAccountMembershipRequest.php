@@ -39,6 +39,7 @@ class GetAccountMembershipRequest extends Request
 
     /**
      * Constructor method for GetAccountMembershipRequest
+     * 
      * @param  AccountSelector $account
      * @return self
      */

@@ -40,6 +40,7 @@ class DeleteCalendarResourceRequest extends Request
 
     /**
      * Constructor method for DeleteCalendarResourceRequest
+     * 
      * @param  string $id
      * @return self
      */

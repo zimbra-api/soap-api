@@ -16,8 +16,8 @@ use Zimbra\Soap\Request;
 
 /**
  * CountAccountRequest class
- * Count number of domains by cos in a domain
- * Note, it doesn't include any domain with zimbraIsSystemResource=TRUE, nor does it include any calendar resources.
+ * Count number of accounts by cos in a domain
+ * Note, it doesn't include any account with zimbraIsSystemResource=TRUE, nor does it include any calendar resources.
  *
  * @package    Zimbra
  * @subpackage Admin
@@ -34,12 +34,13 @@ class CountAccountRequest extends Request
      * @Accessor(getter="getDomain", setter="setDomain")
      * @SerializedName("domain")
      * @Type("Zimbra\Admin\Struct\DomainSelector")
-     * @XmlElement()
+     * @XmlElement
      */
     private $domain;
 
     /**
      * Constructor method for CountAccountRequest
+     * 
      * @param Domain $domain
      * @return self
      */

@@ -47,6 +47,7 @@ class GetAllMailboxesRequest extends Request
 
     /**
      * Constructor method for GetAllMailboxesRequest
+     * 
      * @param  int $limit
      * @param  int $offset
      * @return self

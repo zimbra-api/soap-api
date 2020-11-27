@@ -15,11 +15,11 @@ use Zimbra\Admin\Struct\IntIdAttr;
 use Zimbra\Soap\Request;
 
 /**
- * CheckBlobConsistencyRequest request class
- * Checks for items that have no blob, blobs that have no item, and items that have an
- * incorrect blob size stored in their metadata.  If no volumes are specified, all volumes are checked.  If no
- * mailboxes are specified, all mailboxes are checked.  Blob sizes are checked by default.  Set checkSize to 0 (false)
- * to * avoid the CPU overhead of uncompressing compressed blobs in order to calculate size.
+ * Checks for items that have no blob, blobs that have no item, and items that have an incorrect blob size stored in their metadata
+ *.If no volumes are specified, all volumes are checked.
+ * If no mailboxes are specified, all mailboxes are checked.
+ * Blob sizes are checked by default.
+ * Set checkSize to 0 (false) to * avoid the CPU overhead of uncompressing compressed blobs in order to calculate size.
  *
  * @package    Zimbra
  * @subpackage Admin
@@ -72,10 +72,11 @@ class CheckBlobConsistencyRequest extends Request
 
     /**
      * Constructor method for CheckBlobConsistencyRequest
+     * 
      * @param  bool $checkSize
      * @param  bool $reportUsedBlobs
-     * @param  array  $volumes
-     * @param  array  $mailboxes
+     * @param  array $volumes
+     * @param  array $mailboxes
      * @return self
      */
     public function __construct(?bool $checkSize = NULL, ?bool $reportUsedBlobs = NULL, array $volumes = [], array $mailboxes = [])

@@ -50,6 +50,7 @@ class GetAdminConsoleUICompRequest extends Request
 
     /**
      * Constructor method for GetAdminConsoleUICompRequest
+     * 
      * @param  AccountSelector $account
      * @param  DlSelector $dl
      * @return self
