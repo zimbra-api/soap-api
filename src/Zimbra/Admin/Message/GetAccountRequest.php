@@ -11,9 +11,7 @@
 namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlElement, XmlRoot};
-use Zimbra\Struct\AccountSelector;
-use Zimbra\Struct\AttributeSelector;
-use Zimbra\Struct\AttributeSelectorTrait;
+use Zimbra\Struct\{AccountSelector, AttributeSelector, AttributeSelectorTrait};
 use Zimbra\Soap\Request;
 
 /**
