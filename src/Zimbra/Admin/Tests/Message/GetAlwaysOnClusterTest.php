@@ -20,7 +20,6 @@ class GetAlwaysOnClusterTest extends ZimbraStructTestCase
         $value = $this->faker->word;
         $name = $this->faker->word;
         $id = $this->faker->uuid;
-        $name = $this->faker->word;
 
         $attr1 = $this->faker->word;
         $attr2 = $this->faker->word;
