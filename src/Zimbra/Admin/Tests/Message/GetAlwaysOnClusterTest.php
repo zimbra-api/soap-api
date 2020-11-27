@@ -3,12 +3,10 @@
 namespace Zimbra\Admin\Tests\Message;
 
 use Zimbra\Admin\Message\{GetAlwaysOnClusterBody, GetAlwaysOnClusterEnvelope, GetAlwaysOnClusterRequest, GetAlwaysOnClusterResponse};
-
 use Zimbra\Admin\Struct\AlwaysOnClusterInfo;
 use Zimbra\Admin\Struct\AlwaysOnClusterSelector;
 use Zimbra\Admin\Struct\Attr;
 use Zimbra\Enum\AlwaysOnClusterBy;
-
 use Zimbra\Struct\Tests\ZimbraStructTestCase;
 
 /**
