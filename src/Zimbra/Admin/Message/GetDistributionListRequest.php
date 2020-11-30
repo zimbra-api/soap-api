@@ -78,7 +78,7 @@ class GetDistributionListRequest extends Request implements AttributeSelector
      * @return self
      */
     public function __construct(
-        DistributionList $dl = NULL,
+        ?DistributionList $dl = NULL,
         ?int $limit = NULL,
         ?int $offset = NULL,
         ?bool $sortAscending = NULL,

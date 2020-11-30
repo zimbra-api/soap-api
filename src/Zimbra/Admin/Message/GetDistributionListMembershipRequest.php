@@ -16,7 +16,7 @@ use Zimbra\Soap\Request;
 
 /**
  * GetDistributionListMembershipRequest class
- * Get a Distribution List
+ * Request a list of DLs that a particular DL is a member of
  * 
  * @package    Zimbra
  * @subpackage Admin
@@ -64,7 +64,7 @@ class GetDistributionListMembershipRequest extends Request
      * @return self
      */
     public function __construct(
-        DistributionList $dl = NULL,
+        ?DistributionList $dl = NULL,
         ?int $limit = NULL,
         ?int $offset = NULL
     )
