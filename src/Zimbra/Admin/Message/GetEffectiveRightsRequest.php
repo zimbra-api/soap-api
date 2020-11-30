@@ -11,12 +11,15 @@
 namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlElement, XmlRoot};
+use Zimbra\Admin\Struct\EffectiveRightsTargetSelector as Target;
 use Zimbra\Admin\Struct\GranteeSelector as Grantee;
 use Zimbra\Soap\Request;
 
 /**
- * GetAllEffectiveRightsRequest request class
- * Get all effective Admin rights 
+ * GetEffectiveRightsRequest request class
+ * Returns effective ADMIN rights the authenticated admin has on the specified target entry. 
+ * Effective rights are the rights the admin is actually allowed. It is the net result of applying ACL checking rules given the target and grantee. Specifically denied rights will not be returned.
+ * The result can help the admin console decide on what tabs to display after a target is selected. For example, after user1 is selected, if the admin does not have right to setPassword, it should probably hide or gray out the setPassword tab
  *
  * @package    Zimbra
  * @subpackage Admin
@@ -24,14 +27,18 @@ use Zimbra\Soap\Request;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
  * @AccessType("public_method")
- * @XmlRoot(name="GetAllEffectiveRightsRequest")
+ * @XmlRoot(name="GetEffectiveRightsRequest")
  */
-class GetAllEffectiveRightsRequest extends Request
+class GetEffectiveRightsRequest extends Request
 {
     public const EXPAND_GET_ATTRS = 'getAttrs';
     public const EXPAND_SET_ATTRS = 'setAttrs';
 
     /**
+     * Whether to include all attribute names in the <getAttrs>/<setAttrs> elements in the response if all attributes of the target are gettable/settable Valid values are: 
+     * getAttrs:    expand attrs in getAttrs in the response
+     * setAttrs:     expand attrs in setAttrs in the response
+     * getAttrs,setAttrs:    expand attrs in both getAttrs and setAttrs in the response 
      * @Accessor(getter="getExpandAllAttrs", setter="setExpandAllAttrs")
      * @SerializedName("expandAllAttrs")
      * @Type("string")
@@ -40,7 +47,17 @@ class GetAllEffectiveRightsRequest extends Request
     private $expandAllAttrs;
 
     /**
+     * Target
+     * @Accessor(getter="getTarget", setter="setTarget")
+     * @SerializedName("target")
+     * @Type("Zimbra\Admin\Struct\EffectiveRightsTargetSelector")
+     * @XmlElement
+     */
+    private $target;
+
+    /**
      * Grantee
+     * If <grantee> is omitted, the account identified by the auth token is regarded as the grantee.
      * @Accessor(getter="getGrantee", setter="setGrantee")
      * @SerializedName("grantee")
      * @Type("Zimbra\Admin\Struct\GranteeSelector")
@@ -49,15 +66,17 @@ class GetAllEffectiveRightsRequest extends Request
     private $grantee;
 
     /**
-     * Constructor method for GetAllEffectiveRightsRequest
+     * Constructor method for GetEffectiveRightsRequest
      * 
+     * @param  Target $target
      * @param  Grantee $grantee
      * @param  bool $expandSetAttrs
      * @param  bool $expandGetAttrs
      * @return self
      */
-    public function __construct(?Grantee $grantee = NULL, ?bool $expandSetAttrs = NULL, ?bool $expandGetAttrs = NULL)
+    public function __construct(Target $target, ?Grantee $grantee = NULL, ?bool $expandSetAttrs = NULL, ?bool $expandGetAttrs = NULL)
     {
+        $this->setTarget($target);
         if ($grantee instanceof Grantee) {
             $this->setGrantee($grantee);
         }
@@ -108,6 +127,28 @@ class GetAllEffectiveRightsRequest extends Request
     }
 
     /**
+     * Sets the target.
+     *
+     * @return Target
+     */
+    public function getTarget(): Target
+    {
+        return $this->target;
+    }
+
+    /**
+     * Sets the target.
+     *
+     * @param  Target $target
+     * @return self
+     */
+    public function setTarget(Target $target): self
+    {
+        $this->target = $target;
+        return $this;
+    }
+
+    /**
      * Sets the grantee.
      *
      * @return Grantee
@@ -136,9 +177,9 @@ class GetAllEffectiveRightsRequest extends Request
      */
     protected function envelopeInit(): void
     {
-        if (!($this->envelope instanceof GetAllEffectiveRightsEnvelope)) {
-            $this->envelope = new GetAllEffectiveRightsEnvelope(
-                new GetAllEffectiveRightsBody($this)
+        if (!($this->envelope instanceof GetEffectiveRightsEnvelope)) {
+            $this->envelope = new GetEffectiveRightsEnvelope(
+                new GetEffectiveRightsBody($this)
             );
         }
     }
