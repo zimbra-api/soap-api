@@ -12,12 +12,11 @@ namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlElement, XmlRoot};
 use Zimbra\Admin\Struct\DistributionListSelector as DistributionList;
-use Zimbra\Struct\{AttributeSelector, AttributeSelectorTrait};
 use Zimbra\Soap\Request;
 
 /**
- * GetDistributionListRequest class
- * Get a Distribution List
+ * GetDistributionListMembershipRequest class
+ * Request a list of DLs that a particular DL is a member of
  * 
  * @package    Zimbra
  * @subpackage Admin
@@ -25,12 +24,10 @@ use Zimbra\Soap\Request;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
  * @AccessType("public_method")
- * @XmlRoot(name="GetDistributionListRequest")
+ * @XmlRoot(name="GetDistributionListMembershipRequest")
  */
-class GetDistributionListRequest extends Request implements AttributeSelector
+class GetDistributionListMembershipRequest extends Request
 {
-    use AttributeSelectorTrait;
-
     /**
      * The maximum number of accounts to return (0 is default and means all)
      * @Accessor(getter="getLimit", setter="setLimit")
@@ -50,15 +47,6 @@ class GetDistributionListRequest extends Request implements AttributeSelector
     private $offset;
 
     /**
-     * Flag whether to sort in ascending order 1 (true) is the default
-     * @Accessor(getter="isSortAscending", setter="setSortAscending")
-     * @SerializedName("sortAscending")
-     * @Type("bool")
-     * @XmlAttribute
-     */
-    private $sortAscending;
-
-    /**
      * Distribution List
      * @Accessor(getter="getDl", setter="setDl")
      * @SerializedName("dl")
@@ -68,21 +56,17 @@ class GetDistributionListRequest extends Request implements AttributeSelector
     private $dl;
 
     /**
-     * Constructor method for GetDistributionListRequest
+     * Constructor method for GetDistributionListMembershipRequest
      * 
      * @param  DistributionList $dl
      * @param  int $limit
      * @param  int $offset
-     * @param  bool $sortAscending
-     * @param  string $attrs
      * @return self
      */
     public function __construct(
         ?DistributionList $dl = NULL,
         ?int $limit = NULL,
-        ?int $offset = NULL,
-        ?bool $sortAscending = NULL,
-        ?string $attrs = NULL
+        ?int $offset = NULL
     )
     {
         if ($dl instanceof DistributionList) {
@@ -93,12 +77,6 @@ class GetDistributionListRequest extends Request implements AttributeSelector
         }
         if (NULL !== $offset) {
             $this->setOffset($offset);
-        }
-        if (NULL !== $sortAscending) {
-            $this->setSortAscending($sortAscending);
-        }
-        if (NULL !== $attrs) {
-            $this->setAttrs($attrs);
         }
     }
 
@@ -147,28 +125,6 @@ class GetDistributionListRequest extends Request implements AttributeSelector
     }
 
     /**
-     * Gets sortAscending
-     *
-     * @return bool
-     */
-    public function isSortAscending(): ?bool
-    {
-        return $this->sortAscending;
-    }
-
-    /**
-     * Sets sortAscending
-     *
-     * @param  bool $sortAscending
-     * @return self
-     */
-    public function setSortAscending(bool $sortAscending): self
-    {
-        $this->sortAscending = $sortAscending;
-        return $this;
-    }
-
-    /**
      * Gets the dl.
      *
      * @return DistributionListSelector
@@ -197,9 +153,9 @@ class GetDistributionListRequest extends Request implements AttributeSelector
      */
     protected function envelopeInit(): void
     {
-        if (!($this->envelope instanceof GetDistributionListEnvelope)) {
-            $this->envelope = new GetDistributionListEnvelope(
-                new GetDistributionListBody($this)
+        if (!($this->envelope instanceof GetDistributionListMembershipEnvelope)) {
+            $this->envelope = new GetDistributionListMembershipEnvelope(
+                new GetDistributionListMembershipBody($this)
             );
         }
     }

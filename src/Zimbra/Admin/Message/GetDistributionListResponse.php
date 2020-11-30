@@ -59,9 +59,11 @@ class GetDistributionListResponse implements ResponseInterface
     /**
      * Constructor method for GetDistributionListResponse
      * @param DistributionListInfo $dl
+     * @param bool $more
+     * @param int $total
      * @return self
      */
-    public function __construct(DistributionListInfo $dl = NULL, ?bool $more = NULL, ?int $total = NULL)
+    public function __construct(?DistributionListInfo $dl = NULL, ?bool $more = NULL, ?int $total = NULL)
     {
         if ($dl instanceof DistributionListInfo) {
             $this->setDl($dl);

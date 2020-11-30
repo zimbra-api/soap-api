@@ -1,0 +1,111 @@
+<?php declare(strict_types=1);
+
+namespace Zimbra\Admin\Tests\Message;
+
+use Zimbra\Admin\Message\GetDistributionListMembershipBody;
+use Zimbra\Admin\Message\GetDistributionListMembershipEnvelope;
+use Zimbra\Admin\Message\GetDistributionListMembershipRequest;
+use Zimbra\Admin\Message\GetDistributionListMembershipResponse;
+
+use Zimbra\Admin\Struct\DistributionListMembershipInfo;
+use Zimbra\Admin\Struct\DistributionListSelector;
+use Zimbra\Admin\Struct\GranteeInfo;
+use Zimbra\Enum\DistributionListBy as DLBy;
+use Zimbra\Enum\GranteeType;
+
+use Zimbra\Struct\Tests\ZimbraStructTestCase;
+
+/**
+ * Testcase class for GetDistributionListMembershipTest.
+ */
+class GetDistributionListMembershipTest extends ZimbraStructTestCase
+{
+    public function testGetDistributionListMembership()
+    {
+        $id = $this->faker->uuid;
+        $name = $this->faker->word;
+        $value = $this->faker->word;
+        $via = $this->faker->word;
+        $limit = mt_rand(1, 10);
+        $offset = mt_rand(1, 10);
+
+        $dlSel = new DistributionListSelector(DLBy::NAME(), $value);
+        $dlmInfo = new DistributionListMembershipInfo($id, $name, $via);
+
+        $request = new GetDistributionListMembershipRequest($dlSel, $limit, $offset);
+        $this->assertSame($dlSel, $request->getDl());
+        $this->assertSame($limit, $request->getLimit());
+        $this->assertSame($offset, $request->getOffset());
+
+        $request = new GetDistributionListMembershipRequest();
+        $request->setDl($dlSel)
+            ->setLimit($limit)
+            ->setOffset($offset);
+        $this->assertSame($dlSel, $request->getDl());
+        $this->assertSame($limit, $request->getLimit());
+        $this->assertSame($offset, $request->getOffset());
+
+        $response = new GetDistributionListMembershipResponse([$dlmInfo]);
+        $this->assertSame([$dlmInfo], $response->getDls());
+        $response = new GetDistributionListMembershipResponse();
+        $response->setDls([$dlmInfo])
+            ->addDl($dlmInfo);
+        $this->assertSame([$dlmInfo, $dlmInfo], $response->getDls());
+        $response->setDls([$dlmInfo]);
+
+        $body = new GetDistributionListMembershipBody($request, $response);
+        $this->assertSame($request, $body->getRequest());
+        $this->assertSame($response, $body->getResponse());
+        $body = new GetDistributionListMembershipBody();
+        $body->setRequest($request)
+             ->setResponse($response);
+        $this->assertSame($request, $body->getRequest());
+        $this->assertSame($response, $body->getResponse());
+
+        $envelope = new GetDistributionListMembershipEnvelope($body);
+        $this->assertSame($body, $envelope->getBody());
+        $envelope = new GetDistributionListMembershipEnvelope();
+        $envelope->setBody($body);
+        $this->assertSame($body, $envelope->getBody());
+
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">'
+                . '<soap:Body>'
+                    . '<urn:GetDistributionListMembershipRequest limit="' . $limit . '" offset="' . $offset . '">'
+                        . '<dl by="' . DLBy::NAME() . '">' . $value . '</dl>'
+                    . '</urn:GetDistributionListMembershipRequest>'
+                    . '<urn:GetDistributionListMembershipResponse>'
+                        . '<dl id="' . $id . '" name="' . $name . '" via="' . $via . '" />'
+                    . '</urn:GetDistributionListMembershipResponse>'
+                . '</soap:Body>'
+            . '</soap:Envelope>';
+        $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
+        $this->assertEquals($envelope, $this->serializer->deserialize($xml, GetDistributionListMembershipEnvelope::class, 'xml'));
+
+        $json = json_encode([
+            'Body' => [
+                'GetDistributionListMembershipRequest' => [
+                    'limit' => $limit,
+                    'offset' => $offset,
+                    'dl' => [
+                        'by' => (string) DLBy::NAME(),
+                        '_content' => $value,
+                    ],
+                    '_jsns' => 'urn:zimbraAdmin',
+                ],
+                'GetDistributionListMembershipResponse' => [
+                    'dl' => [
+                        [
+                            'id' => $id,
+                            'name' => $name,
+                            'via' => $via,
+                        ],
+                    ],
+                    '_jsns' => 'urn:zimbraAdmin',
+                ],
+            ],
+        ]);
+        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
+        $this->assertEquals($envelope, $this->serializer->deserialize($json, GetDistributionListMembershipEnvelope::class, 'json'));
+    }
+}
