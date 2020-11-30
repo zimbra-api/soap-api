@@ -15,7 +15,7 @@ use Zimbra\Soap\Request;
 
 /**
  * GetAllAlwaysOnClustersRequest class
- * Gets the aggregate quota usage for all domains on the server.
+ * Get all alwaysOnClusters
  * 
  * @package    Zimbra
  * @subpackage Admin

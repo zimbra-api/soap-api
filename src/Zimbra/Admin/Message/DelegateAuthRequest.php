@@ -51,6 +51,7 @@ class DelegateAuthRequest extends Request
 
     /**
      * Constructor method for DelegateAuthRequest
+     * 
      * @param  Account $account
      * @param  int     $duration
      * @return self

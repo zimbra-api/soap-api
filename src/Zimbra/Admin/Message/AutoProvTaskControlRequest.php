@@ -16,7 +16,10 @@ use Zimbra\Soap\Request;
 
 /**
  * AutoProvTaskControlRequest class
- * Auto-provision an account
+ * Under normal situations, the EAGER auto provisioning task(thread) should be started/stopped automatically by the server when appropriate.
+ * The task should be running when zimbraAutoProvPollingInterval is not 0 and zimbraAutoProvScheduledDomains is not empty.
+ * The task should be stopped otherwise. This API is to manually force start/stop or query status of the EAGER auto provisioning task.
+ * It is only for diagnosis purpose and should not be used under normal situations.
  *
  * @package    Zimbra
  * @subpackage Admin
@@ -39,6 +42,7 @@ class AutoProvTaskControlRequest extends Request
 
     /**
      * Constructor method for AutoProvTaskControlRequest
+     * 
      * @param AutoProvTaskAction  $action Action to perform
      * @return self
      */

@@ -56,7 +56,8 @@ class CreateSystemRetentionPolicyRequest extends Request
 
     /**
      * Constructor method for CreateSystemRetentionPolicyRequest
-     * @param  CosSelector $cos
+     * 
+     * @param  CosSelector  $cos
      * @param  PolicyHolder $keep
      * @param  PolicyHolder $purge
      * @return self

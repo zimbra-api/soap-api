@@ -93,7 +93,8 @@ class AddGalSyncDataSourceRequest extends Request implements AdminAttrs
         string $domain,
         GalMode $type,
         ?string $folder = NULL,
-        array $attrs = [])
+        array $attrs = []
+    )
     {
         $this->setAccount($account)
              ->setName($name)

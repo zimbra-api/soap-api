@@ -42,6 +42,7 @@ class DeleteMailboxRequest extends Request
 
     /**
      * Constructor method for DeleteMailboxRequest
+     * 
      * @param  Mailbox $mbox
      * @return self
      */

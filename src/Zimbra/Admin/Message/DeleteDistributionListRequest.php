@@ -47,8 +47,9 @@ class DeleteDistributionListRequest extends Request
 
     /**
      * Constructor method for DeleteDistributionListRequest
+     * 
      * @param  string $id
-     * @param  bool $cascadeDelete
+     * @param  bool   $cascadeDelete
      * @return self
      */
     public function __construct(string $id, ?bool $cascadeDelete = NULL)

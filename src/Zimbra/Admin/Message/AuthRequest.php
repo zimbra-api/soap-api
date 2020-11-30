@@ -102,6 +102,7 @@ class AuthRequest extends Request
 
     /**
      * Constructor method for AuthRequest
+     *
      * @param string  $name
      * @param string  $password
      * @param string  $authToken

@@ -54,15 +54,14 @@ class CreateCalendarResourceRequest extends Request implements AdminAttrs
 
     /**
      * Constructor method for CreateCalendarResourceRequest
-     * @param string  $name
-     * @param string  $password
+     * 
+     * @param string $name
+     * @param string $password
      * @param array  $attrs
      * @return self
      */
     public function __construct(
-        string $name,
-        ?string $password = NULL,
-        array $attrs = []
+        string $name, ?string $password = NULL, array $attrs = []
     )
     {
         $this->setName($name)

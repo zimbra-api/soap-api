@@ -67,13 +67,16 @@ class DeployZimletRequest extends Request
 
     /**
      * Constructor method for DeployZimletRequest
+     * 
      * @param  DeployAction $action
      * @param  AttachmentIdAttrib $content
      * @param  bool $flushCache
      * @param  bool $synchronous
      * @return self
      */
-    public function __construct(DeployAction $action, AttachmentIdAttrib $content, ?bool $flushCache = NULL, ?bool $synchronous = NULL)
+    public function __construct(
+        DeployAction $action, AttachmentIdAttrib $content, ?bool $flushCache = NULL, ?bool $synchronous = NULL
+    )
     {
         $this->setAction($action)
              ->setContent($content);

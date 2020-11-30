@@ -39,7 +39,8 @@ class CreateXMPPComponentRequest extends Request
 
     /**
      * Constructor method for CreateXMPPComponentRequest
-     * @param XMPPComponentSpec  $component
+     * 
+     * @param XMPPComponentSpec $component
      * @return self
      */
     public function __construct(XMPPComponentSpec $component)

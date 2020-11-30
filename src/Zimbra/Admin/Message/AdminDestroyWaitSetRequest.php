@@ -15,8 +15,8 @@ use Zimbra\Soap\Request;
 
 /**
  * AdminDestroyWaitSet request class
- * Create a waitset to listen for changes on one or more accounts
- * Called once to initialize a WaitSet and to set its "default interest types"
+ * Use this to close out the waitset.
+ * Note that the server will automatically time out a wait set if there is no reference to it for (default of) 20 minutes.
  * WaitSet: scalable mechanism for listening for changes to one or more accounts
  *
  * @package    Zimbra

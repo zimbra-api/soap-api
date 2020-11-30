@@ -42,7 +42,8 @@ class GetAllZimletsRequest extends Request
 
     /**
      * Constructor method for GetAllZimletsRequest
-     * @param  string $exclude
+     * 
+     * @param  ZimletExcludeType $exclude
      * @return self
      */
     public function __construct(?ZimletExcludeType $exclude = NULL)

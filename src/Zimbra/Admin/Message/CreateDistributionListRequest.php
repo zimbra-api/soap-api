@@ -53,15 +53,14 @@ class CreateDistributionListRequest extends Request implements AdminAttrs
 
     /**
      * Constructor method for CreateDistributionListRequest
-     * @param string  $name
-     * @param bool  $dynamic
+     * 
+     * @param string $name
+     * @param bool   $dynamic
      * @param array  $attrs
      * @return self
      */
     public function __construct(
-        string $name,
-        ?bool $dynamic = NULL,
-        array $attrs = []
+        string $name, ?bool $dynamic = NULL, array $attrs = []
     )
     {
         $this->setName($name)

@@ -17,7 +17,7 @@ use Zimbra\Struct\WaitSetAddSpec;
 /**
  * AdminCreateWaitSet request class
  * Create a waitset to listen for changes on one or more accounts
- * Called once to initialize a WaitSet and to set its "default interest types"
+ * Called once to initialize a WaitSet and to set its "default interest types" 
  * WaitSet: scalable mechanism for listening for changes to one or more accounts
  *
  * @package    Zimbra
@@ -60,15 +60,16 @@ class AdminCreateWaitSetRequest extends Request
     /**
      * Constructor method for AdminCreateWaitSetRequest
      * 
-     * @param string  $defaultInterests
-     * @param bool  $allAccounts
-     * @param array  $accounts
+     * @param string $defaultInterests
+     * @param bool $allAccounts
+     * @param array $accounts
      * @return self
      */
     public function __construct(
         string $defaultInterests,
         ?bool $allAccounts = NULL,
-        array $accounts = [])
+        array $accounts = []
+    )
     {
         $this->setDefaultInterests($defaultInterests)
              ->setAccounts($accounts);

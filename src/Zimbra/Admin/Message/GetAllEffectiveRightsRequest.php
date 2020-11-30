@@ -50,6 +50,7 @@ class GetAllEffectiveRightsRequest extends Request
 
     /**
      * Constructor method for GetAllEffectiveRightsRequest
+     * 
      * @param  Grantee $grantee
      * @param  bool $expandSetAttrs
      * @param  bool $expandGetAttrs

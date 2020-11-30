@@ -49,6 +49,7 @@ class GetAccountLoggersRequest extends Request
 
     /**
      * Constructor method for GetAccountLoggersRequest
+     * 
      * @param  string $id
      * @param  AccountSelector $account
      * @return self

@@ -48,6 +48,7 @@ class ChangePrimaryEmailRequest extends Request
 
     /**
      * Constructor method for ChangePrimaryEmailRequest
+     * 
      * @param Account $account
      * @param string  $newName
      * @return self

@@ -39,7 +39,8 @@ class CreateVolumeRequest extends Request
 
     /**
      * Constructor method for CreateVolumeRequest
-     * @param VolumeInfo  $volume
+     * 
+     * @param VolumeInfo $volume
      * @return self
      */
     public function __construct(VolumeInfo $volume)

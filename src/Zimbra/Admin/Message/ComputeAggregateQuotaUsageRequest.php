@@ -15,7 +15,7 @@ use Zimbra\Soap\Request;
 
 /**
  * ComputeAggregateQuotaUsageRequest class
- * Computes the aggregate quota usage for all domains in the system. 
+ * Computes the aggregate quota usage for all domains in the system.
  * The request handler issues GetAggregateQuotaUsageOnServerRequest
  * to all mailbox servers and computes the aggregate quota used by each domain.
  * The request handler updates the zimbraAggregateQuotaLastUsage domain attribute

@@ -17,6 +17,9 @@ use Zimbra\Soap\Request;
 /**
  * CheckRight request class
  * Check if a principal has the specified right on target.
+ * A successful return means the principal specified by the <grantee> is allowed for the specified right on the target object. 
+ * If PERM_DENIED is thrown, it means the authed user does not have privilege to run this SOAP command (has to be an admin because this command is in admin namespace). 
+ * Result of CheckRightRequest is in the allow="1|0" attribute in CheckRightResponse. If a specific grant decisively lead to the result, details of it are specified in <via> in the <CheckRightResponse>.
  *
  * @package    Zimbra
  * @subpackage Admin
@@ -60,10 +63,10 @@ class CheckRightRequest extends Request implements AdminAttrs
     /**
      * Constructor method for CheckRightRequest
      * 
-     * @param EffectiveRightsTargetSelector  $target
-     * @param GranteeSelector  $grantee
-     * @param CheckedRight  $right
-     * @param array  $attrs
+     * @param EffectiveRightsTargetSelector $target
+     * @param GranteeSelector $grantee
+     * @param CheckedRight $right
+     * @param array $attrs
      * @return self
      */
     public function __construct(

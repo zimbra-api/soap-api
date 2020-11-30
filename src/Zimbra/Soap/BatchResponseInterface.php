@@ -20,7 +20,7 @@ namespace Zimbra\Soap;
  */
 interface BatchResponseInterface extends ResponseInterface
 {
-	function addResponse(ResponseInterface $response): self;
+    function addResponse(ResponseInterface $response): self;
 
-	function getResponses(): array;
+    function getResponses(): array;
 }

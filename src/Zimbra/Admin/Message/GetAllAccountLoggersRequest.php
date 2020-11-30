@@ -15,7 +15,7 @@ use Zimbra\Soap\Request;
 
 /**
  * GetAllAccountLoggersRequest class
- * Gets the aggregate quota usage for all domains on the server.
+ * Returns all account loggers that have been created on the given server since the last server start.
  * 
  * @package    Zimbra
  * @subpackage Admin

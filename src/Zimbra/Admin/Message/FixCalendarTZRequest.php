@@ -70,6 +70,7 @@ class FixCalendarTZRequest extends Request
 
     /**
      * Constructor method for FixCalendarTZRequest
+     * 
      * @param  bool $sync
      * @param  int $after
      * @param  array $accounts

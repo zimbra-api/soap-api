@@ -20,7 +20,7 @@ namespace Zimbra\Soap;
  */
 interface BatchRequestInterface extends RequestInterface
 {
-	function addRequest(RequestInterface $request): self;
+    function addRequest(RequestInterface $request): self;
 
-	function getRequests(): array;
+    function getRequests(): array;
 }

@@ -40,6 +40,7 @@ class CheckExchangeAuthRequest extends Request
 
     /**
      * Constructor method for CheckExchangeAuthRequest
+     * 
      * @param  ExchangeAuthSpec  $auth
      * @return self
      */

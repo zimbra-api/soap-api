@@ -49,6 +49,7 @@ class DedupeBlobsRequest extends Request
 
     /**
      * Constructor method for DedupeBlobsRequest
+     * 
      * @param  DedupAction $action
      * @param  array $volumes
      * @return self

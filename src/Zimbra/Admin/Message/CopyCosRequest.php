@@ -16,7 +16,7 @@ use Zimbra\Soap\Request;
 
 /**
  * CopyCosRequest request class
- * start/stop contact backup
+ * Copy Class of service (COS)
  *
  * @package    Zimbra
  * @subpackage Admin
@@ -48,6 +48,7 @@ class CopyCosRequest extends Request
 
     /**
      * Constructor method for CopyCosRequest
+     * 
      * @param  CosSelector $cos
      * @param  string $newName
      * @return self

@@ -38,6 +38,7 @@ class DeleteDomainRequest extends Request
 
     /**
      * Constructor method for DeleteDomainRequest
+     * 
      * @param  string $id
      * @return self
      */

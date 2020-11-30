@@ -97,14 +97,15 @@ class CreateGalSyncAccountRequest extends Request implements AdminAttrs
 
     /**
      * Constructor method for CreateGalSyncAccountRequest
+     * 
      * @param string  $name
      * @param string  $domain
-     * @param GalMode  $type
+     * @param GalMode $type
      * @param AccountSelector  $account
      * @param string  $mailHost
      * @param string  $password
      * @param string  $folder
-     * @param array  $attrs
+     * @param array   $attrs
      * @return self
      */
     public function __construct(

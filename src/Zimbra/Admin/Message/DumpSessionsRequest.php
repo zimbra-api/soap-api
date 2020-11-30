@@ -15,7 +15,7 @@ use Zimbra\Soap\Request;
 
 /**
  * DumpSessionsRequest class
- * Deploy Zimlet(s)
+ * Dump sessions
  * 
  * @package    Zimbra
  * @subpackage Admin
@@ -47,6 +47,7 @@ class DumpSessionsRequest extends Request
 
     /**
      * Constructor method for DumpSessionsRequest
+     * 
      * @param  bool $includeAccounts
      * @param  bool $groupByAccount
      * @return self

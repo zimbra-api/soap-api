@@ -38,6 +38,7 @@ class DeleteCosRequest extends Request
 
     /**
      * Constructor method for DeleteCosRequest
+     * 
      * @param  string $id
      * @return self
      */

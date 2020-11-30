@@ -38,6 +38,7 @@ class GetAllAdminAccountsRequest extends Request
 
     /**
      * Constructor method for GetAllAdminAccountsRequest
+     * 
      * @param  bool $applyCos
      * @return self
      */

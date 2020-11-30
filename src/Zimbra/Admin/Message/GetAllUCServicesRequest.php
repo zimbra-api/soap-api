@@ -15,7 +15,7 @@ use Zimbra\Soap\Request;
 
 /**
  * GetAllUCServicesRequest class
- * Get all installed skins on the server.
+ * Get all ucservices defined in the system
  * 
  * @package    Zimbra
  * @subpackage Admin

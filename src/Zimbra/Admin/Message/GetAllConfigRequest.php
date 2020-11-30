@@ -15,7 +15,7 @@ use Zimbra\Soap\Request;
 
 /**
  * GetAllConfigRequest class
- * Gets the aggregate quota usage for all domains on the server.
+ * Get all config
  * 
  * @package    Zimbra
  * @subpackage Admin

@@ -64,6 +64,7 @@ class GetAllRightsRequest extends Request
 
     /**
      * Constructor method for GetAllRightsRequest
+     * 
      * @param  string $targetType
      * @param  bool $expandAllAttrs
      * @param  RightClass $rightClass

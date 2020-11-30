@@ -39,6 +39,7 @@ class DeleteXMPPComponentRequest extends Request
 
     /**
      * Constructor method for DeleteXMPPComponentRequest
+     * 
      * @param  Component $component
      * @return self
      */
