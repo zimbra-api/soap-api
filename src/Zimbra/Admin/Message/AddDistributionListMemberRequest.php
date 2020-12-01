@@ -86,7 +86,7 @@ class AddDistributionListMemberRequest extends Request
      * @param  string $member
      * @return self
      */
-    public function addMember($member): self
+    public function addMember(string $member): self
     {
         $member = trim($member);
         if (!empty($member) && !in_array($member, $this->members)) {
