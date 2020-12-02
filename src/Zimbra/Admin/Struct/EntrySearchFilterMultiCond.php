@@ -10,7 +10,7 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, Exclude, SerializedName, Type, VirtualProperty, XmlAttribute, XmlList, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, AccessType, Exclude, SerializedName, Type, XmlAttribute, XmlList, XmlRoot};
 use Zimbra\Admin\Struct\EntrySearchFilterMultiCond as MultiCond;
 use Zimbra\Admin\Struct\EntrySearchFilterSingleCond as SingleCond;
 use Zimbra\Struct\SearchFilterCondition;
