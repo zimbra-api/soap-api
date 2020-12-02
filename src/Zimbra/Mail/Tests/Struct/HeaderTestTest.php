@@ -14,7 +14,6 @@ class HeaderTestTest extends ZimbraStructTestCase
     {
         $index = mt_rand(1, 99);
         $headers = $this->faker->word;
-        $part = $this->faker->word;
         $stringComparison = $this->faker->word;
         $value = $this->faker->word;
         $valueComparison = $this->faker->word;
