@@ -1,0 +1,33 @@
+<?php declare(strict_types=1);
+
+namespace Zimbra\Mail\Tests\Struct;
+
+use Zimbra\Mail\Struct\ListTest;
+use Zimbra\Struct\Tests\ZimbraStructTestCase;
+
+/**
+ * Testcase class for ListTest.
+ */
+class ListTestTest extends ZimbraStructTestCase
+{
+    public function testListTest()
+    {
+        $index = mt_rand(1, 99);
+
+        $test = new ListTest(
+            $index, TRUE
+        );
+
+        $xml = '<?xml version="1.0"?>' . "\n"
+            . '<listTest index="' . $index . '" negative="true" />';
+        $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($test, 'xml'));
+        $this->assertEquals($test, $this->serializer->deserialize($xml, ListTest::class, 'xml'));
+
+        $json = json_encode([
+            'index' => $index,
+            'negative' => TRUE,
+        ]);
+        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($test, 'json'));
+        $this->assertEquals($test, $this->serializer->deserialize($json, ListTest::class, 'json'));
+    }
+}
