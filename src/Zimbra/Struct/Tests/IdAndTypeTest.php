@@ -24,8 +24,10 @@ class IdAndTypeTest extends ZimbraStructTestCase
         $this->assertSame($id, $idType->getId());
         $this->assertSame($type, $idType->getType());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<IdAndType id="' . $id . '" type="' . $type . '" />';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<IdAndType id="$id" type="$type" />
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($idType, 'xml'));
         $this->assertEquals($idType, $this->serializer->deserialize($xml, IdAndType::class, 'xml'));
 

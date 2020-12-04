@@ -20,8 +20,10 @@ class OpValueTest extends ZimbraStructTestCase
         $op->setOp('+');
         $this->assertSame('+', $op->getOp());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<addr op="+">' . $value . '</addr>';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<addr op="+">$value</addr>
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($op, 'xml'));
         $this->assertEquals($op, $this->serializer->deserialize($xml, OpValue::class, 'xml'));
 

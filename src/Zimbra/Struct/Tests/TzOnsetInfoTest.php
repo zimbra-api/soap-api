@@ -44,8 +44,10 @@ class TzOnsetInfoTest extends ZimbraStructTestCase
         $this->assertSame($week, $tzo->getWeek());
         $this->assertSame($wkday, $tzo->getDayOfWeek());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<info mon="' . $mon . '" hour="' . $hour . '" min="' . $min . '" sec="' . $sec . '" mday="' . $mday . '" week="' . $week . '" wkday="' . $wkday . '" />';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<info mon="$mon" hour="$hour" min="$min" sec="$sec" mday="$mday" week="$week" wkday="$wkday" />
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($tzo, 'xml'));
         $this->assertEquals($tzo, $this->serializer->deserialize($xml, TzOnsetInfo::class, 'xml'));
 
