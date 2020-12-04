@@ -195,7 +195,7 @@ final class SerializerHandler implements SubscribingHandlerInterface
         }
 
         $children = $data->children();
-        $types = FilterTests::FilterTestTypes();
+        $types = FilterTests::filterTestTypes();
         foreach ($children as $value) {
             $type = $types[$value->getName()] ?? NULL;
             if (!empty($type)) {
@@ -217,7 +217,7 @@ final class SerializerHandler implements SubscribingHandlerInterface
         if (isset($data['condition']) && $data['condition'] !== NULL) {
             $filterTests->setCondition(new FilterCondition((string) $data['condition']));
         }
-        foreach (FilterTests::FilterTestTypes() as $key => $type) {
+        foreach (FilterTests::filterTestTypes() as $key => $type) {
             if (isset($data[$key]) && is_array($data[$key])) {
                 $filterTests->addTest(
                     $serializer->deserialize(json_encode($data[$key]), $type, 'json')

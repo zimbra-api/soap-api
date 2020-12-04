@@ -116,7 +116,7 @@ class FilterTests
      */
     public function addTest(FilterTest $test): self
     {
-        foreach (self::FilterTestTypes() as $key => $type) {
+        foreach (self::filterTestTypes() as $key => $type) {
             if (get_class($test) === $type) {
                 $this->tests[$key] = $test;
             }
@@ -124,7 +124,7 @@ class FilterTests
         return $this;
     }
 
-    public static function FilterTestTypes(): array
+    public static function filterTestTypes(): array
     {
         return [
             'addressBookTest' => AddressBookTest::class,
