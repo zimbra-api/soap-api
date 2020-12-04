@@ -114,25 +114,29 @@ class ContextTest extends ZimbraStructTestCase
         $this->assertSame($soapRequestId, $context->getSoapRequestId());
         $this->assertSame($csrfToken, $context->getCsrfToken());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<context hops="' . $hopCount . '" >'
-                . '<authToken>' . $authToken . '</authToken>'
-                . '<session proxy="true" id="' . $id . '" seq="' . $sequence . '">' . $value . '</session>'
-                . '<sessionId proxy="false" id="' . $id . '" seq="' . $sequence . '">' . $value . '</sessionId>'
-                . '<nosession>' . $noSession . '</nosession>'
-                . '<account by="' . AccountBy::ID() . '" link="true">' . $value . '</account>'
-                . '<change token="' . $changeId . '" type="' . $changeType . '"/>'
-                . '<targetServer>' . $targetServer . '</targetServer>'
-                . '<userAgent name="' . $name . '" version="' . $version . '"/>'
-                . '<authTokenControl voidOnExpired="true"/>'
-                . '<format type="' . RequestFormat::XML() . '"/>'
-                . '<notify seq="' . $sequence . '"/>'
-                . '<nonotify>' . $noNotify . '</nonotify>'
-                . '<noqualify>' . $noQualify . '</noqualify>'
-                . '<via>' . $via . '</via>'
-                . '<soapId>' . $soapRequestId . '</soapId>'
-                . '<csrfToken>' . $csrfToken . '</csrfToken>'
-            . '</context>';
+        $byId = AccountBy::ID()->getValue();
+        $requestFormat = RequestFormat::XML()->getValue();
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<context hops="$hopCount">
+    <authToken>$authToken</authToken>
+    <session proxy="true" id="$id" seq="$sequence">$value</session>
+    <sessionId proxy="false" id="$id" seq="$sequence">$value</sessionId>
+    <nosession>$noSession</nosession>
+    <account by="$byId" link="true">$value</account>
+    <change token="$changeId" type="$changeType"/>
+    <targetServer>$targetServer</targetServer>
+    <userAgent name="$name" version="$version"/>
+    <authTokenControl voidOnExpired="true"/>
+    <format type="$requestFormat"/>
+    <notify seq="$sequence"/>
+    <nonotify>$noNotify</nonotify>
+    <noqualify>$noQualify</noqualify>
+    <via>$via</via>
+    <soapId>$soapRequestId</soapId>
+    <csrfToken>$csrfToken</csrfToken>
+</context>
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($context, 'xml'));
         $this->assertEquals($context, $this->serializer->deserialize($xml, Context::class, 'xml'));
 
@@ -157,7 +161,7 @@ class ContextTest extends ZimbraStructTestCase
                 '_content' => $noSession,
             ],
             'account' => [
-                'by' => (string) AccountBy::ID(),
+                'by' => $byId,
                 'link' => TRUE,
                 '_content' => $value,
             ],
@@ -176,7 +180,7 @@ class ContextTest extends ZimbraStructTestCase
                 'voidOnExpired' => TRUE,
             ],
             'format' => [
-                'type' => (string) RequestFormat::XML(),
+                'type' => $requestFormat,
             ],
             'notify' => [
                 'seq' => $sequence,

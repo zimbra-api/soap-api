@@ -18,13 +18,16 @@ class FormatInfoTest extends ZimbraStructTestCase
         $info->setFormat(RequestFormat::XML());
         $this->assertEquals(RequestFormat::XML(), $info->getFormat());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<format type="' . RequestFormat::XML() . '" />';
+        $requestFormat = RequestFormat::XML()->getValue();
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<format type="$requestFormat" />
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($info, 'xml'));
         $this->assertEquals($info, $this->serializer->deserialize($xml, FormatInfo::class, 'xml'));
 
         $json = json_encode([
-            'type' => (string) RequestFormat::XML(),
+            'type' => $requestFormat,
         ]);
         $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($info, 'json'));
         $this->assertEquals($info, $this->serializer->deserialize($json, FormatInfo::class, 'json'));

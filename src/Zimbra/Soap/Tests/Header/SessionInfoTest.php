@@ -32,8 +32,10 @@ class SessionInfoTest extends ZimbraStructTestCase
         $this->assertSame($sequence, $info->getSequenceNum());
         $this->assertSame($value, $info->getValue());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<session proxy="true" id="' . $id . '" seq="' . $sequence . '">' . $value . '</session>';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<session proxy="true" id="$id" seq="$sequence">$value</session>
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($info, 'xml'));
         $this->assertEquals($info, $this->serializer->deserialize($xml, SessionInfo::class, 'xml'));
 

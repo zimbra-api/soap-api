@@ -71,30 +71,34 @@ class EnvelopeTest extends ZimbraStructTestCase
         $this->assertSame($header, $envelope->getHeader());
         $this->assertSame($body, $envelope->getBody());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope">'
-                . '<soap:Header xmlns:zm="urn:zimbra">'
-                    . '<zm:context hops="' . $hopCount . '" >'
-                        . '<authToken>' . $authToken . '</authToken>'
-                        . '<session proxy="true" id="' . $id . '" seq="' . $sequence . '">' . $value . '</session>'
-                        . '<sessionId proxy="false" id="' . $id . '" seq="' . $sequence . '">' . $value . '</sessionId>'
-                        . '<nosession>' . $noSession . '</nosession>'
-                        . '<account by="' . AccountBy::ID() . '" link="true">' . $value . '</account>'
-                        . '<change token="' . $changeId . '" type="' . $changeType . '"/>'
-                        . '<targetServer>' . $targetServer . '</targetServer>'
-                        . '<userAgent name="' . $name . '" version="' . $version . '"/>'
-                        . '<authTokenControl voidOnExpired="true"/>'
-                        . '<format type="' . RequestFormat::XML() . '"/>'
-                        . '<notify seq="' . $sequence . '"/>'
-                        . '<nonotify>' . $noNotify . '</nonotify>'
-                        . '<noqualify>' . $noQualify . '</noqualify>'
-                        . '<via>' . $via . '</via>'
-                        . '<soapId>' . $soapRequestId . '</soapId>'
-                        . '<csrfToken>' . $csrfToken . '</csrfToken>'
-                    . '</zm:context>'
-                . '</soap:Header>'
-                . '<soap:Body/>'
-            . '</soap:Envelope>';
+        $byId = AccountBy::ID()->getValue();
+        $requestFormat = RequestFormat::XML()->getValue();
+        $xml = <<<EOT
+<?xml version="1.0"?>
+    <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope">
+        <soap:Header xmlns:zm="urn:zimbra">
+            <zm:context hops="$hopCount">
+                <authToken>$authToken</authToken>
+                <session proxy="true" id="$id" seq="$sequence">$value</session>
+                <sessionId proxy="false" id="$id" seq="$sequence">$value</sessionId>
+                <nosession>$noSession</nosession>
+                <account by="$byId" link="true">$value</account>
+                <change token="$changeId" type="$changeType"/>
+                <targetServer>$targetServer</targetServer>
+                <userAgent name="$name" version="$version"/>
+                <authTokenControl voidOnExpired="true"/>
+                <format type="$requestFormat"/>
+                <notify seq="$sequence"/>
+                <nonotify>$noNotify</nonotify>
+                <noqualify>$noQualify</noqualify>
+                <via>$via</via>
+                <soapId>$soapRequestId</soapId>
+                <csrfToken>$csrfToken</csrfToken>
+            </zm:context>
+         </soap:Header>
+        <soap:Body/>
+   </soap:Envelope>
+EOT;
 
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, FooEnvelope::class, 'xml'));
@@ -122,7 +126,7 @@ class EnvelopeTest extends ZimbraStructTestCase
                         '_content' => $noSession,
                     ],
                     'account' => [
-                        'by' => (string) AccountBy::ID(),
+                        'by' => $byId,
                         'link' => TRUE,
                         '_content' => $value,
                     ],
@@ -141,7 +145,7 @@ class EnvelopeTest extends ZimbraStructTestCase
                         'voidOnExpired' => TRUE,
                     ],
                     'format' => [
-                        'type' => (string) RequestFormat::XML(),
+                        'type' => $requestFormat,
                     ],
                     'notify' => [
                         'seq' => $sequence,
