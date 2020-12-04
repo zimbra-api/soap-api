@@ -40,22 +40,21 @@ final class SerializerBuilder
     {
         if (NULL === static::$builder) {
             AnnotationRegistry::registerLoader('class_exists');
+            static::addSerializerHandler(new SerializerHandler);
 
             static::$builder = Builder::create()
                 ->addDefaultHandlers()
                 ->setSerializationVisitor('json', new JsonSerializationVisitorFactory)
                 ->setDeserializationVisitor('json', new JsonDeserializationVisitorFactory)
                 ->setSerializationVisitor('xml', new XmlSerializationVisitorFactory)
-                ->setDeserializationVisitor('xml', new XmlDeserializationVisitorFactory)
-                ->configureHandlers(function (HandlerRegistryInterface $registry) {
-                    $registry->registerSubscribingHandler(new SerializerHandler);
-                });
+                ->setDeserializationVisitor('xml', new XmlDeserializationVisitorFactory);
         }
 
         return static::$builder->configureHandlers(function (HandlerRegistryInterface $registry) {
             if (!empty(static::$serializerHandlers)) {
-                foreach (static::$serializerHandlers as $handler) {
+                foreach (static::$serializerHandlers as $key => $handler) {
                     $registry->registerSubscribingHandler($handler);
+                    unset(static::$serializerHandlers[$key]);
                 }
             }
         })->build();
