@@ -11,7 +11,7 @@
 namespace Zimbra\Mail\Struct;
 
 use JMS\Serializer\Annotation\{
-    Accessor, AccessType, Exclude, Inline, SerializedName, SkipWhenEmpty, Type, VirtualProperty, XmlAttribute, XmlKeyValuePairs, XmlElement, XmlRoot
+    Accessor, AccessType, Inline, SerializedName, Type, XmlAttribute, XmlKeyValuePairs, XmlRoot
 };
 use Zimbra\Enum\FilterCondition;
 

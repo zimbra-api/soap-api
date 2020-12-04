@@ -197,8 +197,7 @@ final class SerializerHandler implements SubscribingHandlerInterface
         $children = $data->children();
         $types = FilterTests::FilterTestTypes();
         foreach ($children as $value) {
-            $name = $value->getName();
-            $type = $types[$name] ?? NULL;
+            $type = $types[$value->getName()] ?? NULL;
             if (!empty($type)) {
                 $filterTests->addTest(
                     $serializer->deserialize($value->asXml(), $type, 'xml')
