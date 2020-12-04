@@ -2,6 +2,8 @@
 
 namespace Zimbra\Mail\Tests\Struct;
 
+use Zimbra\Common\SerializerBuilder;
+use Zimbra\Mail\SerializerHandler;
 use Zimbra\Mail\Struct\AddressBookTest;
 use Zimbra\Mail\Struct\AddressTest;
 use Zimbra\Mail\Struct\EnvelopeTest;
@@ -40,6 +42,12 @@ use Zimbra\Struct\Tests\ZimbraStructTestCase;
  */
 class FilterTestsTest extends ZimbraStructTestCase
 {
+    protected function setUp(): void
+    {
+        SerializerBuilder::addSerializerHandler(new SerializerHandler());
+        parent::setUp();
+    }
+
     public function testFilterTests()
     {
         $index = mt_rand(1, 99);

@@ -27,7 +27,7 @@ use Zimbra\Common\Serializer\{JsonDeserializationVisitorFactory, JsonSerializati
  */
 final class SerializerBuilder
 {
-    private static $serializer;
+    private static $builder;
 
     private static $serializerHandlers = [];
 
@@ -38,26 +38,26 @@ final class SerializerBuilder
 
     public static function getSerializer(): SerializerInterface
     {
-        if (NULL === static::$serializer) {
+        if (NULL === static::$builder) {
             AnnotationRegistry::registerLoader('class_exists');
 
-            static::$serializer = Builder::create()
-                ->addDefaultSerializationVisitors()
-                ->addDefaultDeserializationVisitors()
+            static::$builder = Builder::create()
+                ->addDefaultHandlers()
                 ->setSerializationVisitor('json', new JsonSerializationVisitorFactory)
                 ->setDeserializationVisitor('json', new JsonDeserializationVisitorFactory)
                 ->setSerializationVisitor('xml', new XmlSerializationVisitorFactory)
                 ->setDeserializationVisitor('xml', new XmlDeserializationVisitorFactory)
                 ->configureHandlers(function (HandlerRegistryInterface $registry) {
-                    if (!empty(static::$serializerHandlers)) {
-                        foreach (static::$serializerHandlers as $handler) {
-                            $registry->registerSubscribingHandler($handler);
-                        }
-                    }
                     $registry->registerSubscribingHandler(new SerializerHandler);
-                })
-                ->build();
+                });
         }
-        return static::$serializer;
+
+        return static::$builder->configureHandlers(function (HandlerRegistryInterface $registry) {
+            if (!empty(static::$serializerHandlers)) {
+                foreach (static::$serializerHandlers as $handler) {
+                    $registry->registerSubscribingHandler($handler);
+                }
+            }
+        })->build();
     }
 }

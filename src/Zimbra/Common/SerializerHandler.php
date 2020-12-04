@@ -19,8 +19,6 @@ use Zimbra\Common\{SimpleXML, Text};
 use Zimbra\Soap\Request\Batch;
 use Zimbra\Admin\Struct\EntrySearchFilterMultiCond as MultiCond;
 use Zimbra\Admin\Struct\EntrySearchFilterSingleCond as SingleCond;
-use Zimbra\Mail\Struct\FilterTests;
-use Zimbra\Enum\FilterCondition;
 
 /**
  * SerializerHandler class.
@@ -58,18 +56,6 @@ final class SerializerHandler implements SubscribingHandlerInterface
                 'format' => 'json',
                 'type' => 'Zimbra\Admin\Struct\EntrySearchFilterMultiCond',
                 'method' => 'jsonDeserializeSearchFilterMultiCond',
-            ],
-            [
-                'direction' => GraphNavigator::DIRECTION_DESERIALIZATION,
-                'format' => 'xml',
-                'type' => 'Zimbra\Mail\Struct\FilterTests',
-                'method' => 'xmlDeserializeFilterTests',
-            ],
-            [
-                'direction' => GraphNavigator::DIRECTION_DESERIALIZATION,
-                'format' => 'json',
-                'type' => 'Zimbra\Mail\Struct\FilterTests',
-                'method' => 'jsonDeserializeFilterTests',
             ],
         ];
     }
@@ -179,51 +165,5 @@ final class SerializerHandler implements SubscribingHandlerInterface
             }
         }
         return $conds;
-    }
-
-    public function xmlDeserializeFilterTests(
-        DeserializationVisitor $visitor, \SimpleXMLElement $data, array $type, Context $context
-    )
-    {
-        $serializer = SerializerBuilder::getSerializer();
-        $filterTests = new FilterTests(FilterCondition::ALL_OF());
-        $attributes = $data->attributes();
-        foreach ($attributes as $key => $value) {
-            if ($key == 'condition') {
-                $filterTests->setCondition(new FilterCondition((string) $value));
-            }
-        }
-
-        $children = $data->children();
-        $types = FilterTests::filterTestTypes();
-        foreach ($children as $value) {
-            $type = $types[$value->getName()] ?? NULL;
-            if (!empty($type)) {
-                $filterTests->addTest(
-                    $serializer->deserialize($value->asXml(), $type, 'xml')
-                );
-            }
-        }
-        return $filterTests;
-
-    }
-
-    public function jsonDeserializeFilterTests(
-        DeserializationVisitor $visitor, $data, array $type, Context $context
-    )
-    {
-        $serializer = SerializerBuilder::getSerializer();
-        $filterTests = new FilterTests(FilterCondition::ALL_OF());
-        if (isset($data['condition']) && $data['condition'] !== NULL) {
-            $filterTests->setCondition(new FilterCondition((string) $data['condition']));
-        }
-        foreach (FilterTests::filterTestTypes() as $key => $type) {
-            if (isset($data[$key]) && is_array($data[$key])) {
-                $filterTests->addTest(
-                    $serializer->deserialize(json_encode($data[$key]), $type, 'json')
-                );
-            }
-        }
-        return $filterTests;
     }
 }
