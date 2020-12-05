@@ -19,37 +19,37 @@ class DistributionListInfoTest extends ZimbraStructTestCase
         $member1 = $this->faker->word;
         $member2 = $this->faker->word;
 
-        $owner1 = new GranteeInfo(
-            $id, $name, GranteeType::ALL()
-        );
-        $owner2 = new GranteeInfo(
+        $owner = new GranteeInfo(
             $id, $name, GranteeType::USR()
         );
 
-        $dl = new DistributionListInfo($name, $id, [$member1], [], [$owner1], FALSE);
+        $dl = new DistributionListInfo($name, $id, [$member1], [], [$owner], FALSE);
         $this->assertFalse($dl->isDynamic());
         $this->assertSame([$member1], $dl->getMembers());
-        $this->assertSame([$owner1], $dl->getOwners());
+        $this->assertSame([$owner], $dl->getOwners());
 
         $dl = new DistributionListInfo($name, $id);
         $dl->setDynamic(TRUE)
            ->setMembers([$member1])
            ->addMember($member2)
-           ->setOwners([$owner1])
-           ->addOwner($owner2);
+           ->setOwners([$owner])
+           ->addOwner($owner);
         $this->assertTrue($dl->isDynamic());
         $this->assertSame([$member1, $member2], $dl->getMembers());
-        $this->assertSame([$owner1, $owner2], $dl->getOwners());
+        $this->assertSame([$owner, $owner], $dl->getOwners());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<dl name="' . $name . '" id="' . $id . '" dynamic="true">'
-                . '<dlm>' . $member1 . '</dlm>'
-                . '<dlm>' . $member2 . '</dlm>'
-                . '<owners>'
-                    . '<owner id="' . $id . '" name="' . $name . '" type="' . GranteeType::ALL() . '" />'
-                    . '<owner id="' . $id . '" name="' . $name . '" type="' . GranteeType::USR() . '" />'
-                . '</owners>'
-            . '</dl>';
+        $type = GranteeType::USR()->getValue();
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<dl name="$name" id="$id" dynamic="true">
+    <dlm>$member1</dlm>
+    <dlm>$member2</dlm>
+    <owners>
+        <owner id="$id" name="$name" type="$type" />
+        <owner id="$id" name="$name" type="$type" />
+    </owners>
+</dl>
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($dl, 'xml'));
         $this->assertEquals($dl, $this->serializer->deserialize($xml, DistributionListInfo::class, 'xml'));
 
@@ -66,12 +66,12 @@ class DistributionListInfoTest extends ZimbraStructTestCase
                     [
                         'id' => $id,
                         'name' => $name,
-                        'type' => (string) GranteeType::ALL(),
+                        'type' => $type,
                     ],
                     [
                         'id' => $id,
                         'name' => $name,
-                        'type' => (string) GranteeType::USR(),
+                        'type' => $type,
                     ],
                 ],
             ],

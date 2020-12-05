@@ -20,8 +20,10 @@ class HostNameTest extends ZimbraStructTestCase
         $host->setHostName($name);
         $this->assertSame($name, $host->getHostName());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<hostname hn="' . $name . '" />';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<hostname hn="$name" />
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($host, 'xml'));
         $this->assertEquals($host, $this->serializer->deserialize($xml, HostName::class, 'xml'));
 

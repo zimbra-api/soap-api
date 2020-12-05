@@ -38,14 +38,18 @@ class GranteeSelectorTest extends ZimbraStructTestCase
         $this->assertSame($secret, $grantee->getSecret());
         $this->assertTrue($grantee->getAll());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<grantee type="' . GranteeType::USR() . '" by="' . GranteeBy::ID() . '" secret="' . $secret . '" all="true">' . $value . '</grantee>';
+        $type = GranteeType::USR()->getValue();
+        $by = GranteeBy::ID()->getValue();
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<grantee type="$type" by="$by" secret="$secret" all="true">$value</grantee>
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($grantee, 'xml'));
         $this->assertEquals($grantee, $this->serializer->deserialize($xml, GranteeSelector::class, 'xml'));
 
         $json = json_encode([
-            'type' => (string) GranteeType::USR(),
-            'by' => (string) GranteeBy::ID(),
+            'type' => $type,
+            'by' => $by,
             '_content' => $value,
             'secret' => $secret,
             'all' => TRUE,

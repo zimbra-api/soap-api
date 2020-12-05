@@ -32,8 +32,10 @@ class RightModifierInfoTest extends ZimbraStructTestCase
         $this->assertFalse($right->getDisinheritSubGroups());
         $this->assertTrue($right->getSubDomain());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<right deny="true" canDelegate="false" disinheritSubGroups="false" subDomain="true">' . $value . '</right>';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<right deny="true" canDelegate="false" disinheritSubGroups="false" subDomain="true">$value</right>
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($right, 'xml'));
         $this->assertEquals($right, $this->serializer->deserialize($xml, RightModifierInfo::class, 'xml'));
 

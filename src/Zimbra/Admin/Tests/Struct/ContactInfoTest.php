@@ -128,12 +128,14 @@ class ContactInfoTest extends ZimbraStructTestCase
             $sortField, TRUE, $id, $folder, $flags, $tags, $tagNames, $changeDate, $modifiedSequenceId, $date, $revisionId, $fileAs, $email, $email2, $email3, $type, $dlist, $reference, FALSE, [$meta], [$attr], [$member]
         );
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<cn sf="' . $sortField . '" exp="true"' . ' id="' . $id . '" l="' . $folder . '" f="' . $flags . '" t="' . $tags . '" tn="' . $tagNames . '" md="' . $changeDate . '" ms="' . $modifiedSequenceId . '" d="' . $date . '" rev="' . $revisionId . '" fileAsStr="' . $fileAs . '" email="' . $email . '" email2="' . $email2 . '" email3="' . $email3 . '" type="' . $type . '" dlist="' . $dlist . '" ref="' . $reference . '" tooManyMembers="false">'
-                . '<meta section="' . $section . '" />'
-                . '<a n="' . $key . '" part="' . $part . '" ct="' . $contentType . '" s="' . $size . '" filename="' . $contentFilename . '">' . $value . '</a>'
-                . '<m type="' . $type . '" value="' . $value . '" />'
-            . '</cn>';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<cn sf="$sortField" exp="true" id="$id" l="$folder" f="$flags" t="$tags" tn="$tagNames" md="$changeDate" ms="$modifiedSequenceId" d="$date" rev="$revisionId" fileAsStr="$fileAs" email="$email" email2="$email2" email3="$email3" type="$type" dlist="$dlist" ref="$reference" tooManyMembers="false">
+    <meta section="$section" />
+    <a n="$key" part="$part" ct="$contentType" s="$size" filename="$contentFilename">$value</a>
+    <m type="$type" value="$value" />
+</cn>
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($contact, 'xml'));
         $this->assertEquals($contact, $this->serializer->deserialize($xml, ContactInfo::class, 'xml'));
 

@@ -24,13 +24,16 @@ class XMPPComponentSelectorTest extends ZimbraStructTestCase
         $this->assertEquals(XmppBy::NAME(), $xmpp->getBy());
         $this->assertSame($value, $xmpp->getValue());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<xmppcomponent by="' . XmppBy::NAME() . '">' . $value . '</xmppcomponent>';
+        $by = XmppBy::NAME()->getValue();
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<xmppcomponent by="$by">$value</xmppcomponent>
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($xmpp, 'xml'));
         $this->assertEquals($xmpp, $this->serializer->deserialize($xml, XMPPComponentSelector::class, 'xml'));
 
         $json = json_encode([
-            'by' => (string) XmppBy::NAME(),
+            'by' => $by,
             '_content' => $value,
         ]);
         $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($xmpp, 'json'));

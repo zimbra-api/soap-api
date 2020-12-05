@@ -27,10 +27,12 @@ class AdminCustomMetadataTest extends ZimbraStructTestCase
              ->setKeyValuePairs([$kvp]);
         $this->assertSame($section, $meta->getSection());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<meta section="' . $section . '">'
-                . '<a n="' . $key . '">' . $value. '</a>'
-            . '</meta>';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<meta section="$section">
+    <a n="$key">$value</a>
+</meta>
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($meta, 'xml'));
         $this->assertEquals($meta, $this->serializer->deserialize($xml, AdminCustomMetadata::class, 'xml'));
 

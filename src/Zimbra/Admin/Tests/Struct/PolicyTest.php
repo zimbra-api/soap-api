@@ -33,13 +33,16 @@ class PolicyTest extends ZimbraStructTestCase
         $this->assertSame($name, $policy->getName());
         $this->assertSame($lifetime, $policy->getLifetime());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<policy type="' . Type::USER() . '" id="' . $id . '" name="' . $name . '" lifetime="' . $lifetime . '" />';
+        $type = Type::USER()->getValue();
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<policy type="$type" id="$id" name="$name" lifetime="$lifetime" />
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($policy, 'xml'));
         $this->assertEquals($policy, $this->serializer->deserialize($xml, Policy::class, 'xml'));
 
         $json = json_encode([
-            'type' => (string) Type::USER(),
+            'type' => $type,
             'id' => $id,
             'name' => $name,
             'lifetime' => $lifetime,

@@ -31,8 +31,10 @@ class ReindexMailboxInfoTest extends ZimbraStructTestCase
         $this->assertSame($types, $mbox->getTypes());
         $this->assertSame($ids, $mbox->getIds());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<mbox id="' . $id . '" types="' . $types . '" ids="' . $ids . '" />';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<mbox id="$id" types="$types" ids="$ids" />
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($mbox, 'xml'));
         $this->assertEquals($mbox, $this->serializer->deserialize($xml, ReindexMailboxInfo::class, 'xml'));
 

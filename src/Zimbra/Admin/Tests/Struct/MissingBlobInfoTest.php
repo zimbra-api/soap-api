@@ -46,16 +46,10 @@ class MissingBlobInfoTest extends ZimbraStructTestCase
         $this->assertTrue($item->getExternal());
         $this->assertSame($version, $item->getVersion());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<item '
-                . 'id="' . $id . '" '
-                . 'rev="' . $revision . '" '
-                . 's="' . $size . '" '
-                . 'volumeId="' . $volumeId . '" '
-                . 'blobPath="' . $blobPath . '" '
-                . 'external="true" '
-                . 'version="' . $version . '" '
-                . ' />';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<item id="$id" rev="$revision" s="$size" volumeId="$volumeId" blobPath="$blobPath" external="true" version="$version" />
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($item, 'xml'));
         $this->assertEquals($item, $this->serializer->deserialize($xml, MissingBlobInfo::class, 'xml'));
 

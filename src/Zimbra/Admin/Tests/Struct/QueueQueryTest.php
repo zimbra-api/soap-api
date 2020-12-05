@@ -35,16 +35,20 @@ class QueueQueryTest extends ZimbraStructTestCase
         $this->assertSame($offset, $query->getOffset());
         $this->assertSame([$field], $query->getFields());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<query limit="' . $limit . '" offset="' . $offset . '">'
-                . '<field name="' . $name . '">'
-                    . '<match value="' . $value . '" />'
-                . '</field>'
-            . '</query>';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<query limit="$limit" offset="$offset">
+    <field name="$name">
+        <match value="$value" />
+    </field>
+</query>
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($query, 'xml'));
         $this->assertEquals($query, $this->serializer->deserialize($xml, QueueQuery::class, 'xml'));
 
         $json = json_encode([
+            'limit' => $limit,
+            'offset' => $offset,
             'field' => [
                 [
                     'name' => $name,
@@ -55,8 +59,6 @@ class QueueQueryTest extends ZimbraStructTestCase
                     ],
                 ],
             ],
-            'limit' => $limit,
-            'offset' => $offset,
         ]);
         $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($query, 'json'));
         $this->assertEquals($query, $this->serializer->deserialize($json, QueueQuery::class, 'json'));

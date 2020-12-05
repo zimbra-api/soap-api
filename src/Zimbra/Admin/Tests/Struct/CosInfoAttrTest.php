@@ -25,8 +25,10 @@ class CosInfoAttrTest extends ZimbraStructTestCase
         $this->assertTrue($attr->getCosAttr());
         $this->assertTrue($attr->getPermDenied());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<a n="' . $key . '" c="true" pd="true">' . $value . '</a>';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<a n="$key" c="true" pd="true">$value</a>
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($attr, 'xml'));
         $this->assertEquals($attr, $this->serializer->deserialize($xml, CosInfoAttr::class, 'xml'));
 

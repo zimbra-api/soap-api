@@ -41,25 +41,35 @@ class ServerWithQueueActionTest extends ZimbraStructTestCase
         $this->assertSame($name, $server->getName());
         $this->assertSame($queue, $server->getQueue());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<server name="' . $name . '">'
-                . '<queue name="' . $name . '">'
-                    . '<action op="' . QueueAction::HOLD() . '" by="' . QueueActionBy::QUERY() . '">'
-                        . '<query limit="' . $limit . '" offset="' . $offset . '">'
-                            . '<field name="' . $name . '">'
-                                . '<match value="' . $value . '" />'
-                            . '</field>'
-                        . '</query>'
-                    . '</action>'
-                . '</queue>'
-            . '</server>';
+        $op = QueueAction::HOLD()->getValue();
+        $by = QueueActionBy::QUERY()->getValue();
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<server name="$name">
+    <queue name="$name">
+        <action op="$op" by="$by">
+            <query limit="$limit" offset="$offset">
+                <field name="$name">
+                    <match value="$value" />
+                </field>
+            </query>
+        </action>
+    </queue>
+</server>
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($server, 'xml'));
         $this->assertEquals($server, $this->serializer->deserialize($xml, ServerWithQueueAction::class, 'xml'));
 
         $json = json_encode([
+            'name' => $name,
             'queue' => [
+                'name' => $name,
                 'action' => [
+                    'op' => $op,
+                    'by' => $by,
                     'query' => [
+                        'limit' => $limit,
+                        'offset' => $offset,
                         'field' => [
                             [
                                 'name' => $name,
@@ -70,15 +80,9 @@ class ServerWithQueueActionTest extends ZimbraStructTestCase
                                 ],
                             ],
                         ],
-                        'limit' => $limit,
-                        'offset' => $offset,
                     ],
-                    'op' => (string) QueueAction::HOLD(),
-                    'by' => (string) QueueActionBy::QUERY(),
                 ],
-                'name' => $name,
             ],
-            'name' => $name,
         ]);
         $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($server, 'json'));
         $this->assertEquals($server, $this->serializer->deserialize($json, ServerWithQueueAction::class, 'json'));

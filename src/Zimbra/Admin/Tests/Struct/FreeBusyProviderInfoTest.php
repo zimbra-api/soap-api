@@ -40,8 +40,10 @@ class FreeBusyProviderInfoTest extends ZimbraStructTestCase
         $this->assertSame($queue, $provider->getQueue());
         $this->assertSame($prefix, $provider->getPrefix());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<provider name="' . $name . '" propagate="true" start="' . $start . '" end="' . $end . '" queue="' . $queue . '" prefix="' . $prefix . '" />';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<provider name="$name" propagate="true" start="$start" end="$end" queue="$queue" prefix="$prefix" />
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($provider, 'xml'));
         $this->assertEquals($provider, $this->serializer->deserialize($xml, FreeBusyProviderInfo::class, 'xml'));
 

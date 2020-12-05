@@ -35,23 +35,25 @@ class EffectiveAttrsInfoTest extends ZimbraStructTestCase
         $this->assertSame([$attr, $attr], $attrs->getAttrs());
         $attrs = new EffectiveAttrsInfo(TRUE, [$attr]);
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<attrs all="true">'
-                . '<a n="' . $name . '">'
-                    . '<constraint>'
-                        . '<min>' . $min . '</min>'
-                        . '<max>' . $max . '</max>'
-                        . '<values>'
-                            . '<v>' . $value1 . '</v>'
-                            . '<v>' . $value2 . '</v>'
-                        . '</values>'
-                    . '</constraint>'
-                    . '<default>'
-                        . '<v>' . $value1 . '</v>'
-                        . '<v>' . $value2 . '</v>'
-                    . '</default>'
-                . '</a>'
-            . '</attrs>';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<attrs all="true">
+    <a n="$name">
+        <constraint>
+            <min>$min</min>
+            <max>$max</max>
+            <values>
+                <v>$value1</v>
+                <v>$value2</v>
+            </values>
+        </constraint>
+        <default>
+            <v>$value1</v>
+            <v>$value2</v>
+        </default>
+    </a>
+</attrs>
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($attrs, 'xml'));
         $this->assertEquals($attrs, $this->serializer->deserialize($xml, EffectiveAttrsInfo::class, 'xml'));
 

@@ -56,11 +56,13 @@ class CalTZInfoTest extends ZimbraStructTestCase
         $this->assertSame($standard, $tzi->getStandardTzOnset());
         $this->assertSame($daylight, $tzi->getDaylightTzOnset());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<tz id="' . $id . '" stdoff="' . $stdoff . '" dayoff="' . $dayoff . '" stdname="' . $stdname . '" dayname="' . $dayname . '">'
-                . '<standard mon="' . $std_mon . '" hour="' . $std_hour . '" min="' . $std_min . '" sec="' . $std_sec . '" />'
-                . '<daylight mon="' . $day_mon . '" hour="' . $day_hour . '" min="' . $day_min . '" sec="' . $day_sec . '" />'
-            . '</tz>';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<tz id="$id" stdoff="$stdoff" dayoff="$dayoff" stdname="$stdname" dayname="$dayname">
+    <standard mon="$std_mon" hour="$std_hour" min="$std_min" sec="$std_sec" />
+    <daylight mon="$day_mon" hour="$day_hour" min="$day_min" sec="$day_sec" />
+</tz>
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($tzi, 'xml'));
         $this->assertEquals($tzi, $this->serializer->deserialize($xml, CalTZInfo::class, 'xml'));
 

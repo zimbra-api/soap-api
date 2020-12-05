@@ -35,12 +35,14 @@ class RightViaInfoTest extends ZimbraStructTestCase
         $this->assertSame($grantee, $via->getGrantee());
         $this->assertSame($right, $via->getRight());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<via>'
-                . '<target type="' . $type . '">' . $value . '</target>'
-                . '<grantee type="' . $type . '">' . $value . '</grantee>'
-                . '<right>' . $value . '</right>'
-            . '</via>';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<via>
+    <target type="$type">$value</target>
+    <grantee type="$type">$value</grantee>
+    <right>$value</right>
+</via>
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($via, 'xml'));
         $this->assertEquals($via, $this->serializer->deserialize($xml, RightViaInfo::class, 'xml'));
 

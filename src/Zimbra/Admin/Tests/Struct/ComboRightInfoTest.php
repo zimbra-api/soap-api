@@ -31,14 +31,17 @@ class ComboRightInfoTest extends ZimbraStructTestCase
         $this->assertEquals(RightType::PRESET(), $right->getType());
         $this->assertSame($targetType, $right->getTargetType());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<right n="' . $name . '" type="' . RightType::PRESET() . '" targetType="' . $targetType . '" />';
+        $type = RightType::PRESET()->getValue();
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<right n="$name" type="$type" targetType="$targetType" />
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($right, 'xml'));
         $this->assertEquals($right, $this->serializer->deserialize($xml, ComboRightInfo::class, 'xml'));
 
         $json = json_encode([
             'n' => $name,
-            'type' => (string) RightType::PRESET(),
+            'type' => $type,
             'targetType' => $targetType,
         ]);
         $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($right, 'json'));

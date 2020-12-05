@@ -44,11 +44,13 @@ class TzFixupRuleMatchDatesTest extends ZimbraStructTestCase
         $this->assertSame($stdoff, $dates->getStdOffset());
         $this->assertSame($dayoff, $dates->getDstOffset());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<dates stdoff="' . $stdoff . '" dayoff="' . $dayoff . '">'
-                . '<standard mon="' . $std_mon . '" mday="' . $std_mday . '" />'
-                . '<daylight mon="' . $day_mon . '" mday="' . $day_mday . '" />'
-            . '</dates>';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<dates stdoff="$stdoff" dayoff="$dayoff">
+    <standard mon="$std_mon" mday="$std_mday" />
+    <daylight mon="$day_mon" mday="$day_mday" />
+</dates>
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($dates, 'xml'));
         $this->assertEquals($dates, $this->serializer->deserialize($xml, TzFixupRuleMatchDates::class, 'xml'));
 

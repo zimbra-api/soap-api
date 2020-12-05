@@ -62,12 +62,14 @@ class AdminZimletDescTest extends ZimbraStructTestCase
         $this->assertSame($include, $zimlet->getZimletInclude());
         $this->assertSame($includeCSS, $zimlet->getZimletIncludeCSS());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<zimlet name="' . $name . '" version="' . $version . '" description="' . $description . '" extension="' . $extension . '" target="' . $target . '" label="' . $label . '">'
-                . '<serverExtension hasKeyword="' . $hasKeyword . '" extensionClass="' . $extensionClass . '" regex="' . $regex . '" />'
-                . '<include>' . $value . '</include>'
-                . '<includeCSS>' . $value . '</includeCSS>'
-            . '</zimlet>';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<zimlet name="$name" version="$version" description="$description" extension="$extension" target="$target" label="$label">
+    <serverExtension hasKeyword="$hasKeyword" extensionClass="$extensionClass" regex="$regex" />
+    <include>$value</include>
+    <includeCSS>$value</includeCSS>
+</zimlet>
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($zimlet, 'xml'));
         $this->assertEquals($zimlet, $this->serializer->deserialize($xml, AdminZimletDesc::class, 'xml'));
 

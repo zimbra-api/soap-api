@@ -31,15 +31,18 @@ class AdminZimletContextTest extends ZimbraStructTestCase
         $this->assertEquals(ZimletPresence::ENABLED(), $zimletContext->getZimletPresence());
         $this->assertSame($priority, $zimletContext->getZimletPriority());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<zimletContext baseUrl="' . $baseUrl . '" priority="' . $priority . '" presence="' . ZimletPresence::ENABLED() . '" />';
+        $presence = ZimletPresence::ENABLED()->getValue();
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<zimletContext baseUrl="$baseUrl" priority="$priority" presence="$presence" />
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($zimletContext, 'xml'));
         $this->assertEquals($zimletContext, $this->serializer->deserialize($xml, AdminZimletContext::class, 'xml'));
 
         $json = json_encode([
             'baseUrl' => $baseUrl,
             'priority' => $priority,
-            'presence' => (string) ZimletPresence::ENABLED(),
+            'presence' => $presence,
         ]);
         $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($zimletContext, 'json'));
         $this->assertEquals($zimletContext, $this->serializer->deserialize($json, AdminZimletContext::class, 'json'));

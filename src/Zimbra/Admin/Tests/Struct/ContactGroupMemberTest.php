@@ -30,10 +30,12 @@ class ContactGroupMemberTest extends ZimbraStructTestCase
         $this->assertSame($value, $member->getValue());
         $this->assertSame($contact, $member->getContact());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<m type="' . $type . '" value="' . $value . '">'
-            . '<cn />'
-            . '</m>';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<m type="$type" value="$value">
+    <cn />
+</m>
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($member, 'xml'));
         $this->assertEquals($member, $this->serializer->deserialize($xml, ContactGroupMember::class, 'xml'));
 

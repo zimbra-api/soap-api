@@ -25,10 +25,12 @@ class AccountInfoTest extends ZimbraStructTestCase
         $account->setIsExternal(TRUE);
         $this->assertTrue($account->getIsExternal());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<account name="' . $name . '" id="' . $id . '" isExternal="true">'
-                . '<a n="' . $key . '">' . $value . '</a>'
-            . '</account>';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<account name="$name" id="$id" isExternal="true">
+    <a n="$key">$value</a>
+</account>
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($account, 'xml'));
         $this->assertEquals($account, $this->serializer->deserialize($xml, AccountInfo::class, 'xml'));
 

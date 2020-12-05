@@ -39,15 +39,12 @@ class AccountSessionInfoTest extends ZimbraStructTestCase
         $this->assertSame([$session, $session], $info->getSessions());
         $info->setSessions([$session]);
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<info name="' . $name . '" id="' . $id . '">'
-                . '<s '
-                    . 'zid="' . $zimbraId . '" '
-                    . 'name="' . $name . '" '
-                    . 'sid="' . $sessionId . '" '
-                    . 'cd="' . $createdDate . '" '
-                    . 'ld="' . $lastAccessedDate . '" />'
-            . '</info>';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<info name="$name" id="$id">
+    <s zid="$zimbraId" name="$name" sid="$sessionId" cd="$createdDate" ld="$lastAccessedDate" />
+</info>
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($info, 'xml'));
         $this->assertEquals($info, $this->serializer->deserialize($xml, AccountSessionInfo::class, 'xml'));
 

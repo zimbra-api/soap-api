@@ -20,8 +20,10 @@ class CookieSpecTest extends ZimbraStructTestCase
         $cookie->setName($name);
         $this->assertSame($name, $cookie->getName());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<cookie name="' . $name . '" />';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<cookie name="$name" />
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($cookie, 'xml'));
         $this->assertEquals($cookie, $this->serializer->deserialize($xml, CookieSpec::class, 'xml'));
 

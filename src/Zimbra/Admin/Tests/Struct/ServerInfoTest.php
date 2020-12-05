@@ -20,10 +20,12 @@ class ServerInfoTest extends ZimbraStructTestCase
 
         $server = new ServerInfo($name, $id, [new Attr($key, $value)]);
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<server name="' . $name . '" id="' . $id . '">'
-                . '<a n="' . $key . '">' . $value . '</a>'
-            . '</server>';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<server name="$name" id="$id">
+    <a n="$key">$value</a>
+</server>
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($server, 'xml'));
         $this->assertEquals($server, $this->serializer->deserialize($xml, ServerInfo::class, 'xml'));
 

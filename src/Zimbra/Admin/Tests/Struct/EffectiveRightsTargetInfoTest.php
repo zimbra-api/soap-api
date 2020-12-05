@@ -19,10 +19,10 @@ class EffectiveRightsTargetInfoTest extends ZimbraStructTestCase
     {
         $name = $this->faker->word;
         $id = $this->faker->uuid;
-        $value1 = $this->faker->word;
-        $value2 = $this->faker->word;
-        $min = $this->faker->word;
-        $max = $this->faker->word;
+        $value1= $this->faker->word;
+        $value2= $this->faker->word;
+        $min= $this->faker->word;
+        $max= $this->faker->word;
 
         $right = new RightWithName($name);
         $constraint = new ConstraintInfo($min, $max, [$value1, $value2]);
@@ -43,47 +43,50 @@ class EffectiveRightsTargetInfoTest extends ZimbraStructTestCase
         $this->assertSame($id, $target->getId());
         $this->assertSame($name, $target->getName());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<target type="' . TargetType::DOMAIN() . '" id="' . $id . '" name="' . $name . '">'
-                . '<right n="' . $name . '" />'
-                . '<setAttrs all="true">'
-                    . '<a n="' . $name . '">'
-                        . '<constraint>'
-                            . '<min>' . $min . '</min>'
-                            . '<max>' . $max . '</max>'
-                            . '<values>'
-                                . '<v>' . $value1 . '</v>'
-                                . '<v>' . $value2 . '</v>'
-                            . '</values>'
-                        . '</constraint>'
-                        . '<default>'
-                            . '<v>' . $value1 . '</v>'
-                            . '<v>' . $value2 . '</v>'
-                        . '</default>'
-                    . '</a>'
-                . '</setAttrs>'
-                . '<getAttrs all="false">'
-                    . '<a n="' . $name . '">'
-                        . '<constraint>'
-                            . '<min>' . $min . '</min>'
-                            . '<max>' . $max . '</max>'
-                            . '<values>'
-                                . '<v>' . $value1 . '</v>'
-                                . '<v>' . $value2 . '</v>'
-                            . '</values>'
-                        . '</constraint>'
-                        . '<default>'
-                            . '<v>' . $value1 . '</v>'
-                            . '<v>' . $value2 . '</v>'
-                        . '</default>'
-                    . '</a>'
-                . '</getAttrs>'
-            . '</target>';
+        $type = TargetType::DOMAIN()->getValue();
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<target type="$type" id="$id" name="$name">
+    <right n="$name" />
+    <setAttrs all="true">
+        <a n="$name">
+            <constraint>
+                <min>$min</min>
+                <max>$max</max>
+                <values>
+                    <v>$value1</v>
+                    <v>$value2</v>
+                </values>
+            </constraint>
+            <default>
+                <v>$value1</v>
+                <v>$value2</v>
+            </default>
+        </a>
+    </setAttrs>
+    <getAttrs all="false">
+        <a n="$name">
+            <constraint>
+                <min>$min</min>
+                <max>$max</max>
+                <values>
+                    <v>$value1</v>
+                    <v>$value2</v>
+                </values>
+            </constraint>
+            <default>
+                <v>$value1</v>
+                <v>$value2</v>
+            </default>
+        </a>
+    </getAttrs>
+</target>
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($target, 'xml'));
         $this->assertEquals($target, $this->serializer->deserialize($xml, EffectiveRightsTargetInfo::class, 'xml'));
 
         $json = json_encode([
-            'type' => TargetType::DOMAIN()->getValue(),
+            'type' => $type,
             'id' => $id,
             'name' => $name,
             'right' => [

@@ -28,8 +28,10 @@ class CosCountInfoTest extends ZimbraStructTestCase
         $this->assertSame($id, $cos->getId());
         $this->assertSame($value, $cos->getValue());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<cos name="' . $name . '" id="' . $id . '">' . $value . '</cos>';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<cos name="$name" id="$id">$value</cos>
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($cos, 'xml'));
         $this->assertEquals($cos, $this->serializer->deserialize($xml, CosCountInfo::class, 'xml'));
 

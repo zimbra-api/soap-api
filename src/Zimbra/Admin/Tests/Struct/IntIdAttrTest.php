@@ -20,8 +20,10 @@ class IntIdAttrTest extends ZimbraStructTestCase
         $attr->setId($value);
         $this->assertSame($value, $attr->getId());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<attr id="' . $value . '" />';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<attr id="$value" />
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($attr, 'xml'));
         $this->assertEquals($attr, $this->serializer->deserialize($xml, IntIdAttr::class, 'xml'));
 

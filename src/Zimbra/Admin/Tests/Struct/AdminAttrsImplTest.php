@@ -31,12 +31,14 @@ class AdminAttrsImplTest extends ZimbraStructTestCase
             $this->assertInstanceOf(Attr::class, $attr);
         }
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<stub>'
-                . '<a n="' . $key1 . '">' . $value1 . '</a>'
-                . '<a n="' . $key2 . '">' . $value2 . '</a>'
-                . '<a n="' . $key3 . '">' . $value3 . '</a>'
-            . '</stub>';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<stub>
+    <a n="$key1">$value1</a>
+    <a n="$key2">$value2</a>
+    <a n="$key3">$value3</a>
+</stub>
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($stub, 'xml'));
         $this->assertEquals($stub, $this->serializer->deserialize($xml, StubAdminAttrsImpl::class, 'xml'));
 

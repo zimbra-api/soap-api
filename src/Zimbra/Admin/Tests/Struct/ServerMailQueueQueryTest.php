@@ -37,22 +37,30 @@ class ServerMailQueueQueryTest extends ZimbraStructTestCase
         $this->assertSame($name, $server->getServerName());
         $this->assertSame($queue, $server->getQueue());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<server name="' . $name . '">'
-                . '<queue name="' . $name . '" scan="true" wait="' . $wait . '">'
-                    . '<query limit="' . $limit . '" offset="' . $offset . '">'
-                        . '<field name="' . $name . '">'
-                            . '<match value="' . $value . '" />'
-                        . '</field>'
-                    . '</query>'
-                . '</queue>'
-            . '</server>';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<server name="$name">
+    <queue name="$name" scan="true" wait="$wait">
+        <query limit="$limit" offset="$offset">
+            <field name="$name">
+                <match value="$value" />
+            </field>
+        </query>
+    </queue>
+</server>
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($server, 'xml'));
         $this->assertEquals($server, $this->serializer->deserialize($xml, ServerMailQueueQuery::class, 'xml'));
 
         $json = json_encode([
+            'name' => $name,
             'queue' => [
+                'name' => $name,
+                'scan' => TRUE,
+                'wait' => $wait,
                 'query' => [
+                    'limit' => $limit,
+                    'offset' => $offset,
                     'field' => [
                         [
                             'name' => $name,
@@ -63,14 +71,8 @@ class ServerMailQueueQueryTest extends ZimbraStructTestCase
                             ],
                         ],
                     ],
-                    'limit' => $limit,
-                    'offset' => $offset,
                 ],
-                'name' => $name,
-                'scan' => TRUE,
-                'wait' => $wait,
             ],
-            'name' => $name,
         ]);
         $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($server, 'json'));
         $this->assertEquals($server, $this->serializer->deserialize($json, ServerMailQueueQuery::class, 'json'));

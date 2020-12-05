@@ -25,8 +25,10 @@ class IdStatusTest extends ZimbraStructTestCase
         $this->assertSame($id, $is->getId());
         $this->assertSame($status, $is->getStatus());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<device id="' . $id . '" status="' . $status . '" />';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<device id="$id" status="$status" />
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($is, 'xml'));
         $this->assertEquals($is, $this->serializer->deserialize($xml, IdStatus::class, 'xml'));
 

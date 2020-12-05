@@ -40,14 +40,16 @@ class TzReplaceInfoTest extends ZimbraStructTestCase
         $this->assertSame($wellKnownTz, $replace->getWellKnownTz());
         $this->assertSame($tz, $replace->getCalTz());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<replace>'
-                . '<wellKnownTz id="' . $id . '" />'
-                . '<tz id="' . $id . '" stdoff="' . $stdoff . '" dayoff="' . $dayoff . '" stdname="' . $stdname . '" dayname="' . $dayname . '">'
-                    . '<standard mon="' . $mon . '" hour="' . $hour . '" min="' . $min . '" sec="' . $sec . '" />'
-                    . '<daylight mon="' . $mon . '" hour="' . $hour . '" min="' . $min . '" sec="' . $sec . '" />'
-                . '</tz>'
-            . '</replace>';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<replace>
+    <wellKnownTz id="$id" />
+    <tz id="$id" stdoff="$stdoff" dayoff="$dayoff" stdname="$stdname" dayname="$dayname">
+        <standard mon="$mon" hour="$hour" min="$min" sec="$sec" />
+        <daylight mon="$mon" hour="$hour" min="$min" sec="$sec" />
+    </tz>
+</replace>
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($replace, 'xml'));
         $this->assertEquals($replace, $this->serializer->deserialize($xml, TzReplaceInfo::class, 'xml'));
 
@@ -59,6 +61,8 @@ class TzReplaceInfoTest extends ZimbraStructTestCase
                 'id' => $id,
                 'stdoff' => $stdoff,
                 'dayoff' => $dayoff,
+                'stdname' => $stdname,
+                'dayname' => $dayname,
                 'standard' => [
                     'mon' => $mon,
                     'hour' => $hour,
@@ -71,8 +75,6 @@ class TzReplaceInfoTest extends ZimbraStructTestCase
                     'min' => $min,
                     'sec' => $sec,
                 ],
-                'stdname' => $stdname,
-                'dayname' => $dayname,
             ],
         ]);
         $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($replace, 'json'));

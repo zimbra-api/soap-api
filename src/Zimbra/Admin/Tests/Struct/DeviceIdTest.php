@@ -20,8 +20,10 @@ class DeviceIdTest extends ZimbraStructTestCase
         $device->setId($id);
         $this->assertSame($id, $device->getId());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<device id="' . $id . '" />';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<device id="$id" />
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($device, 'xml'));
         $this->assertEquals($device, $this->serializer->deserialize($xml, DeviceId::class, 'xml'));
 

@@ -20,8 +20,10 @@ class CheckedRightTest extends ZimbraStructTestCase
         $right->setValue($value);
         $this->assertSame($value, $right->getValue());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<right>' . $value . '</right>';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<right>$value</right>
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($right, 'xml'));
         $this->assertEquals($right, $this->serializer->deserialize($xml, CheckedRight::class, 'xml'));
 

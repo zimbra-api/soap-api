@@ -21,8 +21,10 @@ class AttachmentIdAttribTest extends ZimbraStructTestCase
         $content->setAttachmentId($aid);
         $this->assertSame($aid, $content->getAttachmentId());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<content aid="' . $aid . '" />';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<content aid="$aid"/>
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($content, 'xml'));
         $this->assertEquals($content, $this->serializer->deserialize($xml, AttachmentIdAttrib::class, 'xml'));
 

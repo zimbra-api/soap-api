@@ -54,24 +54,28 @@ class RightInfoTest extends ZimbraStructTestCase
         $this->assertSame($attrs, $right->getAttrs());
         $this->assertSame($rights, $right->getRights());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<right name="' . $name . '" type="' . RightType::PRESET() . '" targetType="' . $targetType . '" rightClass="' . RightClass::ALL() . '">'
-                . '<desc>' . $desc . '</desc>'
-                . '<attrs all="true">'
-                    . '<a n="' . $key . '">' . $value . '</a>'
-                . '</attrs>'
-                . '<rights>'
-                    . '<r n="' . $name . '" type="' . RightType::PRESET() . '" targetType="' . $targetType . '" />'
-                . '</rights>'
-            . '</right>';
+        $type = RightType::PRESET()->getValue();
+        $rightClass = RightClass::ALL()->getValue();
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<right name="$name" type="$type" targetType="$targetType" rightClass="$rightClass">
+    <desc>$desc</desc>
+    <attrs all="true">
+        <a n="$key">$value</a>
+    </attrs>
+    <rights>
+        <r n="$name" type="$type" targetType="$targetType" />
+    </rights>
+</right>
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($right, 'xml'));
         $this->assertEquals($right, $this->serializer->deserialize($xml, RightInfo::class, 'xml'));
 
         $json = json_encode([
             'name' => $name,
-            'type' => RightType::PRESET()->getValue(),
+            'type' => $type,
             'targetType' => $targetType,
-            'rightClass' => RightClass::ALL()->getValue(),
+            'rightClass' => $rightClass,
             'desc' => [
                 '_content' => $desc,
             ],
@@ -88,7 +92,7 @@ class RightInfoTest extends ZimbraStructTestCase
                 'r' => [
                     [
                         'n' => $name,
-                        'type' => (string) RightType::PRESET(),
+                        'type' => $type,
                         'targetType' => $targetType,
                     ],
                 ],

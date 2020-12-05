@@ -25,8 +25,10 @@ class ExportAndDeleteItemSpecTest extends ZimbraStructTestCase
         $this->assertSame($id, $item->getId());
         $this->assertSame($version, $item->getVersion());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<item id="' . $id . '" version="' . $version . '" />';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<item id="$id" version="$version" />
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($item, 'xml'));
         $this->assertEquals($item, $this->serializer->deserialize($xml, ExportAndDeleteItemSpec::class, 'xml'));
 

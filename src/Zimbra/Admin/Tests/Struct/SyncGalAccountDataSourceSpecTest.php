@@ -31,13 +31,16 @@ class SyncGalAccountDataSourceSpecTest extends ZimbraStructTestCase
         $this->assertTrue($ds->getFullSync());
         $this->assertFalse($ds->getReset());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<datasource by="' . DataSourceBy::NAME() . '" fullSync="true" reset="false">' . $value . '</datasource>';
+        $by = DataSourceBy::NAME()->getValue();
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<datasource by="$by" fullSync="true" reset="false">$value</datasource>
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($ds, 'xml'));
         $this->assertEquals($ds, $this->serializer->deserialize($xml, SyncGalAccountDataSourceSpec::class, 'xml'));
 
         $json = json_encode([
-            'by' => (string) DataSourceBy::NAME(),
+            'by' => $by,
             'fullSync' => TRUE,
             'reset' => FALSE,
             '_content' => $value,

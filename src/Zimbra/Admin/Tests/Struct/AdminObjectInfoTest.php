@@ -39,11 +39,13 @@ class AdminObjectInfoTest extends ZimbraStructTestCase
         $this->assertSame($id, $stub->getId());
         $this->assertSame([$attr1, $attr2], $stub->getAttrList());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<stub name="' . $name . '" id="' . $id . '">'
-                . '<a n="' . $key1 . '">' . $value1 . '</a>'
-                . '<a n="' . $key2 . '">' . $value2 . '</a>'
-            . '</stub>';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<stub name="$name" id="$id">
+    <a n="$key1">$value1</a>
+    <a n="$key2">$value2</a>
+</stub>
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($stub, 'xml'));
         $this->assertEquals($stub, $this->serializer->deserialize($xml, StubAdminObjectInfo::class, 'xml'));
 

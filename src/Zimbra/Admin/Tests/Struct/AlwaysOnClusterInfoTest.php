@@ -38,11 +38,13 @@ class AlwaysOnClusterInfoTest extends ZimbraStructTestCase
         $this->assertSame($id, $info->getId());
         $this->assertSame([$attr1, $attr2], $info->getAttrList());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<alwaysOnCluster name="' . $name . '" id="' . $id . '">'
-                . '<a n="' . $key1 . '">' . $value1 . '</a>'
-                . '<a n="' . $key2 . '">' . $value2 . '</a>'
-            . '</alwaysOnCluster>';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<alwaysOnCluster name="$name" id="$id">
+    <a n="$key1">$value1</a>
+    <a n="$key2">$value2</a>
+</alwaysOnCluster>
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($info, 'xml'));
         $this->assertEquals($info, $this->serializer->deserialize($xml, AlwaysOnClusterInfo::class, 'xml'));
 

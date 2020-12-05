@@ -30,14 +30,18 @@ class EffectiveRightsTargetSelectorTest extends ZimbraStructTestCase
         $this->assertEquals(TargetBy::NAME(), $target->getBy());
         $this->assertSame($value, $target->getValue());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<target type="' . TargetType::ACCOUNT() . '" by="' . TargetBy::NAME() . '">' . $value . '</target>';
+        $type = TargetType::ACCOUNT()->getValue();
+        $by = TargetBy::NAME()->getValue();
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<target type="$type" by="$by">$value</target>
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($target, 'xml'));
         $this->assertEquals($target, $this->serializer->deserialize($xml, EffectiveRightsTargetSelector::class, 'xml'));
 
         $json = json_encode([
-            'type' => TargetType::ACCOUNT()->getValue(),
-            'by' => TargetBy::NAME()->getValue(),
+            'type' => $type,
+            'by' => $by,
             '_content' => $value,
         ]);
         $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($target, 'json'));

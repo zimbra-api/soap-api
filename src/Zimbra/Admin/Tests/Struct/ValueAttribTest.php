@@ -20,8 +20,10 @@ class ValueAttribTest extends ZimbraStructTestCase
         $attr->setValue($value);
         $this->assertSame($value, $attr->getValue());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<a value="' . $value  .'" />';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<a value="$value" />
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($attr, 'xml'));
         $this->assertEquals($attr, $this->serializer->deserialize($xml, ValueAttrib::class, 'xml'));
 

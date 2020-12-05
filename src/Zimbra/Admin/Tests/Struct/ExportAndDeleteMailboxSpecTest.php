@@ -30,11 +30,13 @@ class ExportAndDeleteMailboxSpecTest extends ZimbraStructTestCase
         $this->assertSame($id, $mbox->getId());
         $this->assertSame([$item1, $item2], $mbox->getItems());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<mbox id="' . $id . '">'
-                . '<item id="' . $id . '" version="' . $version . '" />'
-                . '<item id="' . $version . '" version="' . $id . '" />'
-            . '</mbox>';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<mbox id="$id">
+    <item id="$id" version="$version" />
+    <item id="$version" version="$id" />
+</mbox>
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($mbox, 'xml'));
         $this->assertEquals($mbox, $this->serializer->deserialize($xml, ExportAndDeleteMailboxSpec::class, 'xml'));
 

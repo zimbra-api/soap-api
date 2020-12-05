@@ -41,11 +41,13 @@ class CosInfoTest extends ZimbraStructTestCase
         $this->assertTrue($cos->getIsDefaultCos());
         $this->assertSame([$attr1, $attr2], $cos->getAttrList());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<cos name="' . $name . '" id="' . $id . '" isDefaultCos="true">'
-                . '<a n="' . $key1 . '" c="true" pd="false">' . $value1 . '</a>'
-                . '<a n="' . $key2 . '" c="false" pd="true">' . $value2 . '</a>'
-            . '</cos>';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<cos name="$name" id="$id" isDefaultCos="true">
+    <a n="$key1" c="true" pd="false">$value1</a>
+    <a n="$key2" c="false" pd="true">$value2</a>
+</cos>
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($cos, 'xml'));
         $this->assertEquals($cos, $this->serializer->deserialize($xml, CosInfo::class, 'xml'));
 

@@ -20,7 +20,7 @@ class CacheSelectorTest extends ZimbraStructTestCase
         $enums = $this->faker->randomElements(CacheType::toArray(), mt_rand(1, count(CacheType::toArray())));
         $types = implode(',', $enums);
 
-        $entry1 = new CacheEntrySelector(CacheEntryBy::ID(), $value1);
+        $entry1 = new CacheEntrySelector(CacheEntryBy::NAME(), $value1);
         $entry2 = new CacheEntrySelector(CacheEntryBy::NAME(), $value2);
 
         $cache = new CacheSelector($types, FALSE, FALSE, [$entry1]);
@@ -40,28 +40,31 @@ class CacheSelectorTest extends ZimbraStructTestCase
         $this->assertTrue($cache->isIncludeImapServers());
         $this->assertSame([$entry1, $entry2], $cache->getEntries());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<cache type="' . $types . '" allServers="true" imapServers="true">'
-                . '<entry by="' . CacheEntryBy::ID() . '">' . $value1 . '</entry>'
-                . '<entry by="' . CacheEntryBy::NAME() . '">' . $value2 . '</entry>'
-            . '</cache>';
+        $by = CacheEntryBy::NAME()->getValue();
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<cache type="$types" allServers="true" imapServers="true">
+    <entry by="$by">$value1</entry>
+    <entry by="$by">$value2</entry>
+</cache>
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($cache, 'xml'));
         $this->assertEquals($cache, $this->serializer->deserialize($xml, CacheSelector::class, 'xml'));
 
         $json = json_encode([
-            'entry' => [
-                [
-                    'by' => (string) CacheEntryBy::ID(),
-                    '_content' => $value1,
-                ],
-                [
-                    'by' => (string) CacheEntryBy::NAME(),
-                    '_content' => $value2,
-                ],
-            ],
             'type' => $types,
             'allServers' => TRUE,
             'imapServers' => TRUE,
+            'entry' => [
+                [
+                    'by' => $by,
+                    '_content' => $value1,
+                ],
+                [
+                    'by' => $by,
+                    '_content' => $value2,
+                ],
+            ],
         ]);
         $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($cache, 'json'));
         $this->assertEquals($cache, $this->serializer->deserialize($json, CacheSelector::class, 'json'));

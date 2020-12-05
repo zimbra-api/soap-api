@@ -32,8 +32,10 @@ class DirPathInfoTest extends ZimbraStructTestCase
         $this->assertTrue($dir->isReadable());
         $this->assertTrue($dir->isWritable());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<directory path="' . $path . '" exists="true" isDirectory="true" readable="true" writable="true" />';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<directory path="$path" exists="true" isDirectory="true" readable="true" writable="true" />
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($dir, 'xml'));
         $this->assertEquals($dir, $this->serializer->deserialize($xml, DirPathInfo::class, 'xml'));
 

@@ -24,8 +24,10 @@ class GranteeWithTypeTest extends ZimbraStructTestCase
         $this->assertSame($type, $grantee->getType());
         $this->assertSame($value, $grantee->getValue());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<grantee type="' . $type . '">' . $value . '</grantee>';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<grantee type="$type">$value</grantee>
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($grantee, 'xml'));
         $this->assertEquals($grantee, $this->serializer->deserialize($xml, GranteeWithType::class, 'xml'));
 

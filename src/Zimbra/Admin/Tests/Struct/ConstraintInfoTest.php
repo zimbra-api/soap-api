@@ -31,15 +31,17 @@ class ConstraintInfoTest extends ZimbraStructTestCase
         $this->assertSame($max, $constraint->getMax());
         $this->assertSame([$value1, $value2], $constraint->getValues());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<constraint>'
-                . '<min>' . $min . '</min>'
-                . '<max>' . $max . '</max>'
-                . '<values>'
-                    . '<v>' . $value1 . '</v>'
-                    . '<v>' . $value2 . '</v>'
-                . '</values>'
-            . '</constraint>';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<constraint>
+    <min>$min</min>
+    <max>$max</max>
+    <values>
+        <v>$value1</v>
+        <v>$value2</v>
+    </values>
+</constraint>
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($constraint, 'xml'));
         $this->assertEquals($constraint, $this->serializer->deserialize($xml, ConstraintInfo::class, 'xml'));
 

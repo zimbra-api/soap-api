@@ -24,13 +24,16 @@ class ServerSelectorTest extends ZimbraStructTestCase
         $this->assertEquals(ServerBy::NAME(), $server->getBy());
         $this->assertSame($value, $server->getValue());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<server by="' . ServerBy::NAME() . '">' . $value . '</server>';
+        $by = ServerBy::NAME()->getValue();
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<server by="$by">$value</server>
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($server, 'xml'));
         $this->assertEquals($server, $this->serializer->deserialize($xml, ServerSelector::class, 'xml'));
 
         $json = json_encode([
-            'by' => (string) ServerBy::NAME(),
+            'by' => $by,
             '_content' => $value,
         ]);
         $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($server, 'json'));

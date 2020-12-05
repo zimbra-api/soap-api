@@ -75,23 +75,26 @@ class AdminZimletInfoTest extends ZimbraStructTestCase
         $this->assertSame($zimletDesc, $zimlet->getZimlet());
         $this->assertSame($zimletConfig, $zimlet->getZimletConfig());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<zimlet>'
-                . '<zimletContext baseUrl="' . $baseUrl . '" priority="' . $priority . '" presence="' . ZimletPresence::ENABLED() . '" />'
-                . '<zimlet name="' . $name . '" version="' . $version . '" description="' . $description . '" extension="' . $extension . '" target="' . $target . '" label="' . $label . '">'
-                    . '<serverExtension hasKeyword="' . $hasKeyword . '" extensionClass="' . $extensionClass . '" regex="' . $regex . '" />'
-                    . '<include>' . $value . '</include>'
-                    . '<includeCSS>' . $value . '</includeCSS>'
-                . '</zimlet>'
-                . '<zimletConfig name="' . $name . '" version="' . $version . '" description="' . $description . '" extension="' . $extension . '" target="' . $target . '" label="' . $label . '">'
-                    . '<global>'
-                        . '<property name="' . $name . '">' . $value. '</property>'
-                    . '</global>'
-                    . '<host name="' . $name . '">'
-                        . '<property name="' . $name . '">' . $value. '</property>'
-                    . '</host>'
-                . '</zimletConfig>'
-            . '</zimlet>';
+        $presence = ZimletPresence::ENABLED()->getValue();
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<zimlet>
+    <zimletContext baseUrl="$baseUrl" priority="$priority" presence="$presence" />
+    <zimlet name="$name" version="$version" description="$description" extension="$extension" target="$target" label="$label">
+        <serverExtension hasKeyword="$hasKeyword" extensionClass="$extensionClass" regex="$regex" />
+        <include>$value</include>
+        <includeCSS>$value</includeCSS>
+    </zimlet>
+    <zimletConfig name="$name" version="$version" description="$description" extension="$extension" target="$target" label="$label">
+        <global>
+            <property name="$name">$value</property>
+        </global>
+        <host name="$name">
+            <property name="$name">$value</property>
+        </host>
+    </zimletConfig>
+</zimlet>
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($zimlet, 'xml'));
         $this->assertEquals($zimlet, $this->serializer->deserialize($xml, AdminZimletInfo::class, 'xml'));
 
@@ -99,7 +102,7 @@ class AdminZimletInfoTest extends ZimbraStructTestCase
             'zimletContext' => [
                 'baseUrl' => $baseUrl,
                 'priority' => $priority,
-                'presence' => (string) ZimletPresence::ENABLED(),
+                'presence' => $presence,
             ],
             'zimlet' => [
                 'name' => $name,

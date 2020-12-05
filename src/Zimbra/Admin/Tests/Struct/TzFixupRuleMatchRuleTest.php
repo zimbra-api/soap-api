@@ -29,8 +29,10 @@ class TzFixupRuleMatchRuleTest extends ZimbraStructTestCase
         $this->assertSame($week, $rule->getWeek());
         $this->assertSame($wkday, $rule->getWeekDay());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<rule mon="' . $mon . '" week="' . $week . '" wkday="' . $wkday . '" />';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<rule mon="$mon" week="$week" wkday="$wkday" />
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($rule, 'xml'));
         $this->assertEquals($rule, $this->serializer->deserialize($xml, TzFixupRuleMatchRule::class, 'xml'));
 

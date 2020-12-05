@@ -25,8 +25,10 @@ class AdminZimletPropertyTest extends ZimbraStructTestCase
         $this->assertSame($name, $property->getName());
         $this->assertSame($value, $property->getValue());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<property name="' . $name . '">' . $value . '</property>';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<property name="$name">$value</property>
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($property, 'xml'));
         $this->assertEquals($property, $this->serializer->deserialize($xml, AdminZimletProperty::class, 'xml'));
 

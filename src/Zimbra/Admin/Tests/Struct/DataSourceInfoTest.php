@@ -33,17 +33,20 @@ class DataSourceInfoTest extends ZimbraStructTestCase
         $this->assertSame($id, $ds->getId());
         $this->assertEquals(DataSourceType::POP3(), $ds->getType());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<dataSource name="' . $name . '" id="' . $id . '" type="' . DataSourceType::POP3() . '">'
-                . '<a n="' . $key . '">' . $value . '</a>'
-            . '</dataSource>';
+        $type = DataSourceType::POP3()->getValue();
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<dataSource name="$name" id="$id" type="$type">
+    <a n="$key">$value</a>
+</dataSource>
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($ds, 'xml'));
         $this->assertEquals($ds, $this->serializer->deserialize($xml, DataSourceInfo::class, 'xml'));
 
         $json = json_encode([
             'name' => $name,
             'id' => $id,
-            'type' => (string) DataSourceType::POP3(),
+            'type' => $type,
             'a' => [
                 [
                     'n' => $key,

@@ -20,8 +20,10 @@ class MailboxByAccountIdSelectorTest extends ZimbraStructTestCase
         $mbox->setId($id);
         $this->assertSame($id, $mbox->getId());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<mbox id="' . $id . '" />';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<mbox id="$id" />
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($mbox, 'xml'));
         $this->assertEquals($mbox, $this->serializer->deserialize($xml, MailboxByAccountIdSelector::class, 'xml'));
 

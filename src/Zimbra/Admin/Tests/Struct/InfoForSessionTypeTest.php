@@ -47,23 +47,15 @@ class InfoForSessionTypeTest extends ZimbraStructTestCase
         $this->assertSame([$session, $session], $infoSession->getSessions());
 
         $infoSession = new InfoForSessionType($activeSessions, $activeAccounts, [$account], [$session]);
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<infoSession activeAccounts="' . $activeAccounts . '" activeSessions="' . $activeSessions . '">'
-                . '<zid name="' . $name . '" id="' . $id . '">'
-                    . '<s '
-                        . 'zid="' . $zimbraId . '" '
-                        . 'name="' . $name . '" '
-                        . 'sid="' . $sessionId . '" '
-                        . 'cd="' . $createdDate . '" '
-                        . 'ld="' . $lastAccessedDate . '" />'
-                . '</zid>'
-                . '<s '
-                    . 'zid="' . $zimbraId . '" '
-                    . 'name="' . $name . '" '
-                    . 'sid="' . $sessionId . '" '
-                    . 'cd="' . $createdDate . '" '
-                    . 'ld="' . $lastAccessedDate . '" />'
-            . '</infoSession>';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<infoSession activeAccounts="$activeAccounts" activeSessions="$activeSessions">
+    <zid name="$name" id="$id">
+        <s zid="$zimbraId" name="$name" sid="$sessionId" cd="$createdDate" ld="$lastAccessedDate" />
+    </zid>
+    <s zid="$zimbraId" name="$name" sid="$sessionId" cd="$createdDate" ld="$lastAccessedDate" />
+</infoSession>
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($infoSession, 'xml'));
         $this->assertEquals($infoSession, $this->serializer->deserialize($xml, InfoForSessionType::class, 'xml'));
 
