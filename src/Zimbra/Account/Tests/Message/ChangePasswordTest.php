@@ -73,21 +73,24 @@ class ChangePasswordTest extends ZimbraStructTestCase
         $envelope->setBody($body);
         $this->assertSame($body, $envelope->getBody());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAccount">'
-                . '<soap:Body>'
-                    . '<urn:ChangePasswordRequest>'
-                        . '<account by="' . AccountBy::NAME() . '">' . $value . '</account>'
-                        . '<oldPassword>' . $oldPassword . '</oldPassword>'
-                        . '<password>' . $newPassword . '</password>'
-                        . '<virtualHost>' . $virtualHost . '</virtualHost>'
-                    . '</urn:ChangePasswordRequest>'
-                    . '<urn:ChangePasswordResponse>'
-                        . '<authToken>' . $authToken . '</authToken>'
-                        . '<lifetime>' . $lifetime . '</lifetime>'
-                    . '</urn:ChangePasswordResponse>'
-                . '</soap:Body>'
-            . '</soap:Envelope>';
+        $by = AccountBy::NAME()->getValue();
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAccount">
+    <soap:Body>
+        <urn:ChangePasswordRequest>
+            <account by="$by">$value</account>
+            <oldPassword>$oldPassword</oldPassword>
+            <password>$newPassword</password>
+            <virtualHost>$virtualHost</virtualHost>
+        </urn:ChangePasswordRequest>
+        <urn:ChangePasswordResponse>
+            <authToken>$authToken</authToken>
+            <lifetime>$lifetime</lifetime>
+        </urn:ChangePasswordResponse>
+    </soap:Body>
+</soap:Envelope>
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, ChangePasswordEnvelope::class, 'xml'));
 
@@ -95,7 +98,7 @@ class ChangePasswordTest extends ZimbraStructTestCase
             'Body' => [
                 'ChangePasswordRequest' => [
                     'account' => [
-                        'by' => (string) AccountBy::NAME(),
+                        'by' => $by,
                         '_content' => $value,
                     ],
                     'oldPassword' => [

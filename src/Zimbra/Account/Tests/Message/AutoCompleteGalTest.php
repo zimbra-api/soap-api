@@ -84,15 +84,18 @@ class AutoCompleteGalTest extends ZimbraStructTestCase
         $envelope->setBody($body);
         $this->assertSame($body, $envelope->getBody());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAccount">'
-                . '<soap:Body>'
-                    . '<urn:AutoCompleteGalRequest name="' . $name . '" type="'. GalSearchType::ACCOUNT() . '" needExp="true" galAcctId="' . $galAccountId . '" limit="' . $limit . '" />'
-                    . '<urn:AutoCompleteGalResponse more="true" tokenizeKey="false" pagingSupported="' . $pagingSupported . '">'
-                        . '<cn />'
-                    . '</urn:AutoCompleteGalResponse>'
-                . '</soap:Body>'
-            . '</soap:Envelope>';
+        $type = GalSearchType::ACCOUNT()->getValue();
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAccount">
+    <soap:Body>
+        <urn:AutoCompleteGalRequest name="$name" type="$type" needExp="true" galAcctId="$galAccountId" limit="$limit" />
+        <urn:AutoCompleteGalResponse more="true" tokenizeKey="false" pagingSupported="$pagingSupported">
+            <cn />
+        </urn:AutoCompleteGalResponse>
+    </soap:Body>
+</soap:Envelope>
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, AutoCompleteGalEnvelope::class, 'xml'));
 
@@ -100,7 +103,7 @@ class AutoCompleteGalTest extends ZimbraStructTestCase
             'Body' => [
                 'AutoCompleteGalRequest' => [
                     'name' => $name,
-                    'type' => (string) GalSearchType::ACCOUNT(),
+                    'type' => $type,
                     'needExp' => TRUE,
                     'galAcctId' => $galAccountId,
                     'limit' => $limit,

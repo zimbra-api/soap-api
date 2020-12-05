@@ -19,7 +19,7 @@ class CheckRightsTest extends ZimbraStructTestCase
         $right2 = $this->faker->word;
 
         $targetSpec = new CheckRightsTargetSpec(
-            TargetType::DOMAIN(), TargetBy::ID(), $key1, [$right1]
+            TargetType::ACCOUNT(), TargetBy::NAME(), $key1, [$right1]
         );
         $rightInfo = new CheckRightsRightInfo($right2, TRUE);
         $targetInfo = new CheckRightsTargetInfo(
@@ -60,21 +60,25 @@ class CheckRightsTest extends ZimbraStructTestCase
         $envelope->setBody($body);
         $this->assertSame($body, $envelope->getBody());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAccount">'
-                . '<soap:Body>'
-                    . '<urn:CheckRightsRequest>'
-                        . '<target type="' . TargetType::DOMAIN() . '" by="' . TargetBy::ID() . '" key="' . $key1 . '">'
-                            . '<right>' . $right1 . '</right>'
-                        . '</target>'
-                    . '</urn:CheckRightsRequest>'
-                    . '<urn:CheckRightsResponse>'
-                        . '<target type="' . TargetType::ACCOUNT() . '" by="' . TargetBy::NAME() . '" key="' . $key2 . '" allow="true">'
-                            . '<right allow="true">' . $right2 . '</right>'
-                        . '</target>'
-                    . '</urn:CheckRightsResponse>'
-                . '</soap:Body>'
-            . '</soap:Envelope>';
+        $type = TargetType::ACCOUNT()->getValue();
+        $by = TargetBy::NAME()->getValue();
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAccount">
+    <soap:Body>
+        <urn:CheckRightsRequest>
+            <target type="$type" by="$by" key="$key1">
+                <right>$right1</right>
+            </target>
+        </urn:CheckRightsRequest>
+        <urn:CheckRightsResponse>
+            <target type="$type" by="$by" key="$key2" allow="true">
+                <right allow="true">$right2</right>
+            </target>
+        </urn:CheckRightsResponse>
+    </soap:Body>
+</soap:Envelope>
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, CheckRightsEnvelope::class, 'xml'));
 
@@ -83,8 +87,8 @@ class CheckRightsTest extends ZimbraStructTestCase
                 'CheckRightsRequest' => [
                     'target' => [
                         [
-                            'type' => (string) TargetType::DOMAIN(),
-                            'by' => (string) TargetBy::ID(),
+                            'type' => $type,
+                            'by' => $by,
                             'key' => $key1,
                             'right' => [
                                 [
@@ -98,8 +102,8 @@ class CheckRightsTest extends ZimbraStructTestCase
                 'CheckRightsResponse' => [
                     'target' => [
                         [
-                            'type' => (string) TargetType::ACCOUNT(),
-                            'by' => (string) TargetBy::NAME(),
+                            'type' => $type,
+                            'by' => $by,
                             'key' => $key2,
                             'allow' => TRUE,
                             'right' => [
