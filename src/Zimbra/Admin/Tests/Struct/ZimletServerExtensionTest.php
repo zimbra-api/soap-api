@@ -31,8 +31,10 @@ class ZimletServerExtensionTest extends ZimbraStructTestCase
         $this->assertSame($extensionClass, $serverExtension->getExtensionClass());
         $this->assertSame($regex, $serverExtension->getRegex());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<serverExtension hasKeyword="' . $hasKeyword . '" extensionClass="' . $extensionClass . '" regex="' . $regex . '" />';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<serverExtension hasKeyword="$hasKeyword" extensionClass="$extensionClass" regex="$regex" />
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($serverExtension, 'xml'));
         $this->assertEquals($serverExtension, $this->serializer->deserialize($xml, ZimletServerExtension::class, 'xml'));
 

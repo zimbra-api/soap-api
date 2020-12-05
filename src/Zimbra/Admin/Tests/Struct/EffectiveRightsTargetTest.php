@@ -22,10 +22,10 @@ class EffectiveRightsTargetTest extends ZimbraStructTestCase
     public function testEffectiveRightsTarget()
     {
         $name = $this->faker->word;
-        $value1 = $this->faker->word;
-        $value2 = $this->faker->word;
-        $min = $this->faker->word;
-        $max = $this->faker->word;
+        $value1= $this->faker->word;
+        $value2= $this->faker->word;
+        $min= $this->faker->word;
+        $max= $this->faker->word;
 
         $right = new RightWithName($name);
         $constraint = new ConstraintInfo($min, $max, [$value1, $value2]);
@@ -58,125 +58,128 @@ class EffectiveRightsTargetTest extends ZimbraStructTestCase
         $this->assertSame([$entries, $entries], $target->getEntriesLists());
         $target = new EffectiveRightsTarget(TargetType::ACCOUNT(), $rights, [$inDomains], [$entries]);
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<target type="' . TargetType::ACCOUNT() . '">'
-                . '<all>'
-                    . '<right n="' . $name . '" />'
-                    . '<setAttrs all="true">'
-                        . '<a n="' . $name . '">'
-                            . '<constraint>'
-                                . '<min>' . $min . '</min>'
-                                . '<max>' . $max . '</max>'
-                                . '<values>'
-                                    . '<v>' . $value1 . '</v>'
-                                    . '<v>' . $value2 . '</v>'
-                                . '</values>'
-                            . '</constraint>'
-                            . '<default>'
-                                . '<v>' . $value1 . '</v>'
-                                . '<v>' . $value2 . '</v>'
-                            . '</default>'
-                        . '</a>'
-                    . '</setAttrs>'
-                    . '<getAttrs all="false">'
-                        . '<a n="' . $name . '">'
-                            . '<constraint>'
-                                . '<min>' . $min . '</min>'
-                                . '<max>' . $max . '</max>'
-                                . '<values>'
-                                    . '<v>' . $value1 . '</v>'
-                                    . '<v>' . $value2 . '</v>'
-                                . '</values>'
-                            . '</constraint>'
-                            . '<default>'
-                                . '<v>' . $value1 . '</v>'
-                                . '<v>' . $value2 . '</v>'
-                            . '</default>'
-                        . '</a>'
-                    . '</getAttrs>'
-                . '</all>'
-                . '<inDomains>'
-                    . '<domain name="' . $name . '" />'
-                    . '<rights>'
-                        . '<right n="' . $name . '" />'
-                        . '<setAttrs all="true">'
-                            . '<a n="' . $name . '">'
-                                . '<constraint>'
-                                    . '<min>' . $min . '</min>'
-                                    . '<max>' . $max . '</max>'
-                                    . '<values>'
-                                        . '<v>' . $value1 . '</v>'
-                                        . '<v>' . $value2 . '</v>'
-                                    . '</values>'
-                                . '</constraint>'
-                                . '<default>'
-                                    . '<v>' . $value1 . '</v>'
-                                    . '<v>' . $value2 . '</v>'
-                                . '</default>'
-                            . '</a>'
-                        . '</setAttrs>'
-                        . '<getAttrs all="false">'
-                            . '<a n="' . $name . '">'
-                                . '<constraint>'
-                                    . '<min>' . $min . '</min>'
-                                    . '<max>' . $max . '</max>'
-                                    . '<values>'
-                                        . '<v>' . $value1 . '</v>'
-                                        . '<v>' . $value2 . '</v>'
-                                    . '</values>'
-                                . '</constraint>'
-                                . '<default>'
-                                    . '<v>' . $value1 . '</v>'
-                                    . '<v>' . $value2 . '</v>'
-                                . '</default>'
-                            . '</a>'
-                        . '</getAttrs>'
-                    . '</rights>'
-                . '</inDomains>'
-                . '<entries>'
-                    . '<entry name="' . $name . '" />'
-                    . '<rights>'
-                        . '<right n="' . $name . '" />'
-                        . '<setAttrs all="true">'
-                            . '<a n="' . $name . '">'
-                                . '<constraint>'
-                                    . '<min>' . $min . '</min>'
-                                    . '<max>' . $max . '</max>'
-                                    . '<values>'
-                                        . '<v>' . $value1 . '</v>'
-                                        . '<v>' . $value2 . '</v>'
-                                    . '</values>'
-                                . '</constraint>'
-                                . '<default>'
-                                    . '<v>' . $value1 . '</v>'
-                                    . '<v>' . $value2 . '</v>'
-                                . '</default>'
-                            . '</a>'
-                        . '</setAttrs>'
-                        . '<getAttrs all="false">'
-                            . '<a n="' . $name . '">'
-                                . '<constraint>'
-                                    . '<min>' . $min . '</min>'
-                                    . '<max>' . $max . '</max>'
-                                    . '<values>'
-                                        . '<v>' . $value1 . '</v>'
-                                        . '<v>' . $value2 . '</v>'
-                                    . '</values>'
-                                . '</constraint>'
-                                . '<default>'
-                                    . '<v>' . $value1 . '</v>'
-                                    . '<v>' . $value2 . '</v>'
-                                . '</default>'
-                            . '</a>'
-                        . '</getAttrs>'
-                    . '</rights>'
-                . '</entries>'
-            . '</target>';
+        $type = TargetType::ACCOUNT()->getValue();
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<target type="$type">
+    <all>
+        <right n="$name" />
+        <setAttrs all="true">
+            <a n="$name">
+                <constraint>
+                    <min>$min</min>
+                    <max>$max</max>
+                    <values>
+                        <v>$value1</v>
+                        <v>$value2</v>
+                    </values>
+                </constraint>
+                <default>
+                    <v>$value1</v>
+                    <v>$value2</v>
+                </default>
+            </a>
+        </setAttrs>
+        <getAttrs all="false">
+            <a n="$name">
+                <constraint>
+                    <min>$min</min>
+                    <max>$max</max>
+                    <values>
+                        <v>$value1</v>
+                        <v>$value2</v>
+                    </values>
+                </constraint>
+                <default>
+                    <v>$value1</v>
+                    <v>$value2</v>
+                </default>
+            </a>
+        </getAttrs>
+    </all>
+    <inDomains>
+        <domain name="$name" />
+        <rights>
+            <right n="$name" />
+            <setAttrs all="true">
+                <a n="$name">
+                    <constraint>
+                        <min>$min</min>
+                        <max>$max</max>
+                        <values>
+                            <v>$value1</v>
+                            <v>$value2</v>
+                        </values>
+                    </constraint>
+                    <default>
+                        <v>$value1</v>
+                        <v>$value2</v>
+                    </default>
+                </a>
+            </setAttrs>
+            <getAttrs all="false">
+                <a n="$name">
+                    <constraint>
+                        <min>$min</min>
+                        <max>$max</max>
+                        <values>
+                            <v>$value1</v>
+                            <v>$value2</v>
+                        </values>
+                    </constraint>
+                    <default>
+                        <v>$value1</v>
+                        <v>$value2</v>
+                    </default>
+                </a>
+            </getAttrs>
+        </rights>
+    </inDomains>
+    <entries>
+        <entry name="$name" />
+        <rights>
+            <right n="$name" />
+            <setAttrs all="true">
+                <a n="$name">
+                    <constraint>
+                        <min>$min</min>
+                        <max>$max</max>
+                        <values>
+                            <v>$value1</v>
+                            <v>$value2</v>
+                        </values>
+                    </constraint>
+                    <default>
+                        <v>$value1</v>
+                        <v>$value2</v>
+                    </default>
+                </a>
+            </setAttrs>
+            <getAttrs all="false">
+                <a n="$name">
+                    <constraint>
+                        <min>$min</min>
+                        <max>$max</max>
+                        <values>
+                            <v>$value1</v>
+                            <v>$value2</v>
+                        </values>
+                    </constraint>
+                    <default>
+                        <v>$value1</v>
+                        <v>$value2</v>
+                    </default>
+                </a>
+            </getAttrs>
+        </rights>
+    </entries>
+</target>
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($target, 'xml'));
         $this->assertEquals($target, $this->serializer->deserialize($xml, EffectiveRightsTarget::class, 'xml'));
 
         $json = json_encode([
-            'type' => (string) TargetType::ACCOUNT(),
+            'type' => $type,
             'all' => [
                 'right' => [
                     [

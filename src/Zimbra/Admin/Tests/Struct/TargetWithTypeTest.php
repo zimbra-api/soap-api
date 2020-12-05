@@ -24,8 +24,10 @@ class TargetWithTypeTest extends ZimbraStructTestCase
         $this->assertSame($type, $target->getType());
         $this->assertSame($value, $target->getValue());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<target type="' . $type . '">' . $value . '</target>';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<target type="$type">$value</target>
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($target, 'xml'));
         $this->assertEquals($target, $this->serializer->deserialize($xml, TargetWithType::class, 'xml'));
 

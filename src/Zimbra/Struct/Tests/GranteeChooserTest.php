@@ -28,8 +28,10 @@ class GranteeChooserTest extends ZimbraStructTestCase
         $this->assertSame($id, $grantee->getId());
         $this->assertSame($name, $grantee->getName());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<grantee type="' . $type . '" id="' . $id . '" name="' . $name . '" />';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<grantee type="$type" id="$id" name="$name" />
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($grantee, 'xml'));
         $this->assertEquals($grantee, $this->serializer->deserialize($xml, GranteeChooser::class, 'xml'));
 

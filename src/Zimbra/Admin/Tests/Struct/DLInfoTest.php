@@ -30,10 +30,12 @@ class DLInfoTest extends ZimbraStructTestCase
         $this->assertTrue($dl->isDynamic());
         $this->assertSame($via, $dl->getVia());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<dl name="' . $name . '" id="' . $id . '" dynamic="true" via="' . $via . '">'
-                . '<a n="' . $key . '">' . $value . '</a>'
-            . '</dl>';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<dl name="$name" id="$id" dynamic="true" via="$via">
+    <a n="$key">$value</a>
+</dl>
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($dl, 'xml'));
         $this->assertEquals($dl, $this->serializer->deserialize($xml, DLInfo::class, 'xml'));
 

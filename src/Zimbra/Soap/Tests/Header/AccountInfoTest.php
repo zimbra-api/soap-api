@@ -27,13 +27,16 @@ class AccountInfoTest extends ZimbraStructTestCase
         $this->assertTrue($info->getMountpointTraversed());
         $this->assertSame($value, $info->getValue());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<account by="' . AccountBy::NAME() . '" link="true">' . $value . '</account>';
+        $byName = AccountBy::NAME()->getValue();
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<account by="$byName" link="true">$value</account>
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($info, 'xml'));
         $this->assertEquals($info, $this->serializer->deserialize($xml, AccountInfo::class, 'xml'));
 
         $json = json_encode([
-            'by' => (string) AccountBy::NAME(),
+            'by' => $byName,
             'link' => TRUE,
             '_content' => $value,
         ]);

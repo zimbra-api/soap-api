@@ -18,7 +18,7 @@ class SyncGalAccountSpecTest extends ZimbraStructTestCase
         $value2 = $this->faker->word;
         $id = $this->faker->uuid;
 
-        $ds1 = new SyncGalAccountDataSourceSpec(DataSourceBy::ID(), $value1, TRUE, FALSE);
+        $ds1 = new SyncGalAccountDataSourceSpec(DataSourceBy::NAME(), $value1, TRUE, FALSE);
         $ds2 = new SyncGalAccountDataSourceSpec(DataSourceBy::NAME(), $value2, FALSE, TRUE);
 
         $sync = new SyncGalAccountSpec($id, [$ds1]);
@@ -31,11 +31,14 @@ class SyncGalAccountSpecTest extends ZimbraStructTestCase
         $this->assertSame($id, $sync->getId());
         $this->assertSame([$ds1, $ds2], $sync->getDataSources());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<account id="' . $id . '">'
-                . '<datasource by="' . DataSourceBy::ID() . '" fullSync="true" reset="false">' . $value1 . '</datasource>'
-                . '<datasource by="' . DataSourceBy::NAME() . '" fullSync="false" reset="true">' . $value2 . '</datasource>'
-            . '</account>';
+        $by = DataSourceBy::NAME()->getValue();
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<account id="$id">
+    <datasource by="$by" fullSync="true" reset="false">$value1</datasource>
+    <datasource by="$by" fullSync="false" reset="true">$value2</datasource>
+</account>
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($sync, 'xml'));
         $this->assertEquals($sync, $this->serializer->deserialize($xml, SyncGalAccountSpec::class, 'xml'));
 
@@ -43,13 +46,13 @@ class SyncGalAccountSpecTest extends ZimbraStructTestCase
             'id' => $id,
             'datasource' => [
                 [
-                    'by' => (string) DataSourceBy::ID(),
+                    'by' => $by,
                     'fullSync' => TRUE,
                     'reset' => FALSE,
                     '_content' => $value1,
                 ],
                 [
-                    'by' => (string) DataSourceBy::NAME(),
+                    'by' => $by,
                     'fullSync' => FALSE,
                     'reset' => TRUE,
                     '_content' => $value2,

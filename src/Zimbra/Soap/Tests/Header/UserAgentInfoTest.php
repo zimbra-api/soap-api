@@ -25,8 +25,10 @@ class UserAgentInfoTest extends ZimbraStructTestCase
         $this->assertSame($name, $info->getName());
         $this->assertSame($version, $info->getVersion());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<userAgent name="' . $name . '" version="' . $version . '" />';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<userAgent name="$name" version="$version" />
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($info, 'xml'));
         $this->assertEquals($info, $this->serializer->deserialize($xml, UserAgentInfo::class, 'xml'));
 

@@ -32,14 +32,17 @@ class EntrySearchFilterSingleCondTest extends ZimbraStructTestCase
         $this->assertSame($value, $cond->getValue());
         $this->assertTrue($cond->isNot());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<cond attr="' . $attr . '" op="' . CondOp::EQ() . '" value="' . $value . '" not="true" />';
+        $op = CondOp::EQ()->getValue();
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<cond attr="$attr" op="$op" value="$value" not="true" />
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($cond, 'xml'));
         $this->assertEquals($cond, $this->serializer->deserialize($xml, EntrySearchFilterSingleCond::class, 'xml'));
 
         $json = json_encode([
             'attr' => $attr,
-            'op' => (string) CondOp::EQ(),
+            'op' => $op,
             'value' => $value,
             'not' => TRUE,
         ]);

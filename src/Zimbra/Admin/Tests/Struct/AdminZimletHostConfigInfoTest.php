@@ -30,10 +30,12 @@ class AdminZimletHostConfigInfoTest extends ZimbraStructTestCase
         $this->assertSame([$property, $property], $host->getZimletProperties());
         $host->setZimletProperties([$property]);
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<host name="' . $name . '">'
-                . '<property name="' . $name . '">' . $value. '</property>'
-            . '</host>';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<host name="$name">
+    <property name="$name">$value</property>
+</host>
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($host, 'xml'));
         $this->assertEquals($host, $this->serializer->deserialize($xml, AdminZimletHostConfigInfo::class, 'xml'));
 

@@ -19,8 +19,10 @@ class AttributeNameTest extends ZimbraStructTestCase
         $attr->setName($name);
         $this->assertSame($name, $attr->getName());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<a n="' . $name . '" />';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<a n="$name" />
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($attr, 'xml'));
         $this->assertEquals($attr, $this->serializer->deserialize($xml, AttributeName::class, 'xml'));
 

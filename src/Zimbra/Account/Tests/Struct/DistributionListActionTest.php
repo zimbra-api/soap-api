@@ -25,8 +25,8 @@ class DistributionListActionTest extends ZimbraStructTestCase
         $member = $this->faker->word;
 
         $subsReq = new DistributionListSubscribeReq(DLSubscribeOp::SUBSCRIBE(), $value, TRUE);
-        $owner = new DistributionListGranteeSelector(GranteeType::USR(), DLGranteeBy::ID(), $value);
-        $grantee = new DistributionListGranteeSelector(GranteeType::ALL(), DLGranteeBy::NAME(), $value);
+        $owner = new DistributionListGranteeSelector(GranteeType::USR(), DLGranteeBy::NAME(), $value);
+        $grantee = new DistributionListGranteeSelector(GranteeType::USR(), DLGranteeBy::NAME(), $value);
 
         $right = new DistributionListRightSpec($name, [$grantee]);
         $attr = new KeyValuePair($name, $value);
@@ -57,17 +57,23 @@ class DistributionListActionTest extends ZimbraStructTestCase
         $this->assertSame([$owner], $dl->getOwners());
         $this->assertSame([$right], $dl->getRights());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<action op="' . Operation::DELETE() . '">'
-                . '<a n="' . $name . '">' . $value . '</a>'
-                . '<newName>' . $name . '</newName>'
-                . '<subsReq op="' . DLSubscribeOp::SUBSCRIBE() . '" bccOwners="true">' . $value . '</subsReq>'
-                . '<dlm>' . $member . '</dlm>'
-                . '<owner type="' . GranteeType::USR() . '" by="' . DLGranteeBy::ID() . '">' . $value . '</owner>'
-                . '<right right="' . $name . '">'
-                    . '<grantee type="' . GranteeType::ALL() . '" by="' . DLGranteeBy::NAME() . '">' . $value . '</grantee>'
-                . '</right>'
-            . '</action>';
+        $opDelete = Operation::DELETE()->getValue();
+        $opSubscribe = DLSubscribeOp::SUBSCRIBE()->getValue();
+        $type = GranteeType::USR()->getValue();
+        $by = DLGranteeBy::NAME()->getValue();
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<action op="$opDelete">
+    <a n="$name">$value</a>
+    <newName>$name</newName>
+    <subsReq op="$opSubscribe" bccOwners="true">$value</subsReq>
+    <dlm>$member</dlm>
+    <owner type="$type" by="$by">$value</owner>
+    <right right="$name">
+        <grantee type="$type" by="$by">$value</grantee>
+    </right>
+</action>
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($dl, 'xml'));
         $this->assertEquals($dl, $this->serializer->deserialize($xml, DistributionListAction::class, 'xml'));
 
@@ -78,12 +84,12 @@ class DistributionListActionTest extends ZimbraStructTestCase
                     '_content' => $value,
                 ],
             ],
-            'op' => (string) Operation::DELETE(),
+            'op' => $opDelete,
             'newName' => [
                 '_content' => $name,
             ],
             'subsReq' => [
-                'op' => (string) DLSubscribeOp::SUBSCRIBE(),
+                'op' => $opSubscribe,
                 '_content' => $value,
                 'bccOwners' => TRUE,
             ],
@@ -94,8 +100,8 @@ class DistributionListActionTest extends ZimbraStructTestCase
             ],
             'owner' => [
                 [
-                    'type' => (string) GranteeType::USR(),
-                    'by' => (string) DLGranteeBy::ID(),
+                    'type' => $type,
+                    'by' => $by,
                     '_content' => $value,
                 ],
             ],
@@ -104,8 +110,8 @@ class DistributionListActionTest extends ZimbraStructTestCase
                     'right' => $name,
                     'grantee' => [
                         [
-                            'type' => (string) GranteeType::ALL(),
-                            'by' => (string) DLGranteeBy::NAME(),
+                            'type' => $type,
+                            'by' => $by,
                             '_content' => $value,
                         ],
                     ],

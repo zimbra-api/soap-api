@@ -31,12 +31,14 @@ class AttrsImplTraitTest extends ZimbraStructTestCase
         $attrs->addAttr($attr3);
         $this->assertSame([$attr1, $attr2, $attr3], $attrs->getAttrs());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<attrs>'
-                . '<a n="' . $key1 . '">' . $value1 . '</a>'
-                . '<a n="' . $key2 . '">' . $value2 . '</a>'
-                . '<a n="' . $key3 . '">' . $value3 . '</a>'
-            . '</attrs>';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<attrs>
+    <a n="$key1">$value1</a>
+    <a n="$key2">$value2</a>
+    <a n="$key3">$value3</a>
+</attrs>
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($attrs, 'xml'));
         $this->assertEquals($attrs, $this->serializer->deserialize($xml, AttrsImplImp::class, 'xml'));
 

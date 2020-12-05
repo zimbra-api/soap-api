@@ -43,11 +43,13 @@ class EditheaderTestTest extends ZimbraStructTestCase
         $this->assertSame($headerName, $test->getHeaderName());
         $this->assertSame([$headerValue], $test->getHeaderValue());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<test matchType="' . $matchType . '" countComparator="true" valueComparator="true" relationalComparator="' . $relationalComparator . '" comparator="' . $comparator . '">'
-                . '<headerName>' . $headerName . '</headerName>'
-                . '<headerValue>' . $headerValue . '</headerValue>'
-            . '</test>';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<test matchType="$matchType" countComparator="true" valueComparator="true" relationalComparator="$relationalComparator" comparator="$comparator">
+    <headerName>$headerName</headerName>
+    <headerValue>$headerValue</headerValue>
+</test>
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($test, 'xml'));
         $this->assertEquals($test, $this->serializer->deserialize($xml, EditheaderTest::class, 'xml'));
 

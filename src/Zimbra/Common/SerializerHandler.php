@@ -109,6 +109,7 @@ final class SerializerHandler implements SubscribingHandlerInterface
         DeserializationVisitor $visitor, \SimpleXMLElement $data, array $type, Context $context
     )
     {
+        $serializer = SerializerBuilder::getSerializer();
         $conds = new MultiCond;
         $attributes = $data->attributes();
         foreach ($attributes as $key => $value) {
@@ -120,7 +121,6 @@ final class SerializerHandler implements SubscribingHandlerInterface
             }
         }
 
-        $serializer = SerializerBuilder::getSerializer();
         $children = $data->children();
         foreach ($children as $value) {
             $name = $value->getName();
@@ -142,6 +142,7 @@ final class SerializerHandler implements SubscribingHandlerInterface
         DeserializationVisitor $visitor, $data, array $type, Context $context
     )
     {
+        $serializer = SerializerBuilder::getSerializer();
         $conds = new MultiCond;
         if (isset($data['not']) && $data['not'] !== NULL) {
             $conds->setNot($data['not']);
@@ -149,7 +150,6 @@ final class SerializerHandler implements SubscribingHandlerInterface
         if (isset($data['or']) && $data['or'] !== NULL) {
             $conds->setOr($data['or']);
         }
-        $serializer = SerializerBuilder::getSerializer();
         if (isset($data['conds']) && is_array($data['conds'])) {
             foreach ($data['conds'] as $value) {
                 $conds->addCondition(

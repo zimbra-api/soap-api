@@ -19,10 +19,10 @@ class RightsEntriesInfoTest extends ZimbraStructTestCase
     public function testRightsEntriesInfo()
     {
         $name = $this->faker->word;
-        $value1 = $this->faker->word;
-        $value2 = $this->faker->word;
-        $max = $this->faker->word;
-        $min = $this->faker->word;
+        $value1= $this->faker->word;
+        $value2= $this->faker->word;
+        $max= $this->faker->word;
+        $min= $this->faker->word;
 
         $right = new RightWithName($name);
         $constraint = new ConstraintInfo($min, $max, [$value1, $value2]);
@@ -45,45 +45,47 @@ class RightsEntriesInfoTest extends ZimbraStructTestCase
         $this->assertSame([$entry, $entry], $entries->getEntries());
         $entries = new RightsEntriesInfo($rights, [$entry]);
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<entries>'
-                . '<entry name="' . $name . '" />'
-                . '<rights>'
-                    . '<right n="' . $name . '" />'
-                    . '<setAttrs all="true">'
-                        . '<a n="' . $name . '">'
-                            . '<constraint>'
-                                . '<min>' . $min . '</min>'
-                                . '<max>' . $max . '</max>'
-                                . '<values>'
-                                    . '<v>' . $value1 . '</v>'
-                                    . '<v>' . $value2 . '</v>'
-                                . '</values>'
-                            . '</constraint>'
-                            . '<default>'
-                                . '<v>' . $value1 . '</v>'
-                                . '<v>' . $value2 . '</v>'
-                            . '</default>'
-                        . '</a>'
-                    . '</setAttrs>'
-                    . '<getAttrs all="false">'
-                        . '<a n="' . $name . '">'
-                            . '<constraint>'
-                                . '<min>' . $min . '</min>'
-                                . '<max>' . $max . '</max>'
-                                . '<values>'
-                                    . '<v>' . $value1 . '</v>'
-                                    . '<v>' . $value2 . '</v>'
-                                . '</values>'
-                            . '</constraint>'
-                            . '<default>'
-                                . '<v>' . $value1 . '</v>'
-                                . '<v>' . $value2 . '</v>'
-                            . '</default>'
-                        . '</a>'
-                    . '</getAttrs>'
-                . '</rights>'
-            . '</entries>';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<entries>
+    <entry name="$name" />
+    <rights>
+        <right n="$name" />
+        <setAttrs all="true">
+            <a n="$name">
+                <constraint>
+                    <min>$min</min>
+                    <max>$max</max>
+                    <values>
+                        <v>$value1</v>
+                        <v>$value2</v>
+                    </values>
+                </constraint>
+                <default>
+                    <v>$value1</v>
+                    <v>$value2</v>
+                </default>
+            </a>
+        </setAttrs>
+        <getAttrs all="false">
+            <a n="$name">
+                <constraint>
+                    <min>$min</min>
+                    <max>$max</max>
+                    <values>
+                        <v>$value1</v>
+                        <v>$value2</v>
+                    </values>
+                </constraint>
+                <default>
+                    <v>$value1</v>
+                    <v>$value2</v>
+                </default>
+            </a>
+        </getAttrs>
+    </rights>
+</entries>
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($entries, 'xml'));
         $this->assertEquals($entries, $this->serializer->deserialize($xml, RightsEntriesInfo::class, 'xml'));
 

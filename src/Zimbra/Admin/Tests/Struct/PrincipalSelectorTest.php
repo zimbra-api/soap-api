@@ -25,13 +25,16 @@ class PrincipalSelectorTest extends ZimbraStructTestCase
         $this->assertEquals(PrincipalBy::NAME(), $pri->getBy());
         $this->assertSame($value, $pri->getValue());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<principal by="' . PrincipalBy::NAME() . '">' . $value . '</principal>';
+        $by = PrincipalBy::NAME()->getValue();
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<principal by="$by">$value</principal>
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($pri, 'xml'));
         $this->assertEquals($pri, $this->serializer->deserialize($xml, PrincipalSelector::class, 'xml'));
 
         $json = json_encode([
-            'by' => (string) PrincipalBy::NAME(),
+            'by' => $by,
             '_content' => $value,
         ]);
         $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($pri, 'json'));

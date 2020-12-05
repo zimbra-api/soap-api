@@ -24,10 +24,12 @@ class GalContactInfoTest extends ZimbraStructTestCase
         $cn->setId($id);
         $this->assertSame($id, $cn->getId());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<cn id="' . $id . '">'
-                . '<a n="' . $key . '">' . $value . '</a>'
-            . '</cn>';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<cn id="$id">
+    <a n="$key">$value</a>
+</cn>
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($cn, 'xml'));
         $this->assertEquals($cn, $this->serializer->deserialize($xml, GalContactInfo::class, 'xml'));
 

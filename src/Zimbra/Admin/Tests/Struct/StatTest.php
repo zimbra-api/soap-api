@@ -29,8 +29,10 @@ class StatTest extends ZimbraStructTestCase
         $this->assertSame($name, $stat->getName());
         $this->assertSame($description, $stat->getDescription());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<stat name="' . $name . '" description="' . $description . '">' . $value . '</stat>';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<stat name="$name" description="$description">$value</stat>
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($stat, 'xml'));
         $this->assertEquals($stat, $this->serializer->deserialize($xml, Stat::class, 'xml'));
 

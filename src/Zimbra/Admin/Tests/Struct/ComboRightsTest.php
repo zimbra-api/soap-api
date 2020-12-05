@@ -28,10 +28,13 @@ class ComboRightsTest extends ZimbraStructTestCase
         $this->assertSame([$right, $right], $rights->getComboRights());
         $rights->setComboRights([$right]);
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<rights>'
-                . '<r n="' . $name . '" type="' . RightType::PRESET() . '" targetType="' . $targetType . '" />'
-            . '</rights>';
+        $type = RightType::PRESET()->getValue();
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<rights>
+    <r n="$name" type="$type" targetType="$targetType" />
+</rights>
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($rights, 'xml'));
         $this->assertEquals($rights, $this->serializer->deserialize($xml, ComboRights::class, 'xml'));
 
@@ -39,7 +42,7 @@ class ComboRightsTest extends ZimbraStructTestCase
             'r' => [
                 [
                     'n' => $name,
-                    'type' => (string) RightType::PRESET(),
+                    'type' => $type,
                     'targetType' => $targetType,
                 ],
             ],

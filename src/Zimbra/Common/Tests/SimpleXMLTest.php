@@ -14,20 +14,22 @@ class SimpleXMLTest extends TestCase
 
     protected function setUp(): void
     {
-        $this->_xmlString = '<?xml version="1.0"?>'."\n"
-        .'<books>'
-            .'<book title="Book 01" public="1999" publisher="Publisher 01">'
-                .'<author name="Author 01"/>'
-                .'<author name="Author 02"/>'
-            .'</book>'
-            .'<book title="Book 02" public="1999" publisher="Publisher 02">'
-                .'<author name="Author 04"/>'
-            .'</book>'
-            .'<book title="Book 03" public="1999" publisher="Publisher 03">'
-                .'<author name="Author 01"/>'
-                .'<author name="Author 03"/>'
-            .'</book>'
-        .'</books>';
+        $this->_xmlString = <<<EOT
+<?xml version="1.0"?>
+<books>
+    <book title="Book 01" public="1999" publisher="Publisher 01">
+        <author name="Author 01"/>
+        <author name="Author 02"/>
+    </book>
+    <book title="Book 02" public="1999" publisher="Publisher 02">
+        <author name="Author 04"/>
+    </book>
+    <book title="Book 03" public="1999" publisher="Publisher 03">
+        <author name="Author 01"/>
+        <author name="Author 03"/>
+    </book>
+</books>
+EOT;
     }
 
     public function testToObject()
@@ -67,13 +69,15 @@ class SimpleXMLTest extends TestCase
 
     public function testAppend()
     {
-        $xmlString = '<?xml version="1.0"?>'."\n".
-        '<books>'
-            .'<book title="Book Title" public="1999" publisher="Book Publisher">'
-                .'<author><name>Author 01</name></author>'
-                .'<author name="Author 02" />'
-            .'</book>'
-        .'</books>';
+        $xmlString = <<<EOT
+<?xml version="1.0"?>
+<books>
+    <book title="Book Title" public="1999" publisher="Book Publisher">
+        <author><name>Author 01</name></author>
+        <author name="Author 02" />
+    </book>
+</books>
+EOT;
         $xml = new SimpleXML('<books />');
         $book = new SimpleXML('<book />');
         $book->addAttribute('title', 'Book Title')

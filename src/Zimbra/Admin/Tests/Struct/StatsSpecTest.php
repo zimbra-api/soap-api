@@ -33,12 +33,14 @@ class StatsSpecTest extends ZimbraStructTestCase
         $this->assertSame($name, $stats->getName());
         $this->assertSame($limit, $stats->getLimit());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<stats name="' . $name . '" limit="' . $limit . '">'
-                . '<values>'
-                    . '<stat name="' . $name . '" />'
-                . '</values>'
-            . '</stats>';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<stats name="$name" limit="$limit">
+    <values>
+        <stat name="$name" />
+    </values>
+</stats>
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($stats, 'xml'));
         $this->assertEquals($stats, $this->serializer->deserialize($xml, StatsSpec::class, 'xml'));
 

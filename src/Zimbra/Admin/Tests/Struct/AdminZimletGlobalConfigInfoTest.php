@@ -27,10 +27,12 @@ class AdminZimletGlobalConfigInfoTest extends ZimbraStructTestCase
         $this->assertSame([$property, $property], $global->getZimletProperties());
         $global->setZimletProperties([$property]);
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<global>'
-                . '<property name="' . $name . '">' . $value. '</property>'
-            . '</global>';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<global>
+    <property name="$name">$value</property>
+</global>
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($global, 'xml'));
         $this->assertEquals($global, $this->serializer->deserialize($xml, AdminZimletGlobalConfigInfo::class, 'xml'));
 

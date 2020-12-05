@@ -34,12 +34,10 @@ class BlobRevisionInfoTest extends ZimbraStructTestCase
         $this->assertSame($revision, $blob->getRevision());
         $this->assertTrue($blob->getExternal());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<blob '
-                . 'path="' . $path . '" '
-                . 'fileSize="' . $fileSize . '" '
-                . 'rev="' . $revision . '" '
-                . 'external="true" />';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<blob path="$path" fileSize="$fileSize" rev="$revision" external="true" />
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($blob, 'xml'));
         $this->assertEquals($blob, $this->serializer->deserialize($xml, BlobRevisionInfo::class, 'xml'));
 

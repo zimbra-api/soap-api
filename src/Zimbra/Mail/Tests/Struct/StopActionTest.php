@@ -15,8 +15,10 @@ class StopActionTest extends ZimbraStructTestCase
         $index = mt_rand(1, 99);
         $action = new StopAction($index);
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<actionStop index="' . $index . '" />';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<actionStop index="$index" />
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($action, 'xml'));
         $this->assertEquals($action, $this->serializer->deserialize($xml, StopAction::class, 'xml'));
 

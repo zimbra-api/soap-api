@@ -28,8 +28,10 @@ class AttrTest extends ZimbraStructTestCase
         $this->assertSame($value, $attr->getValue());
         $this->assertTrue($attr->getPermDenied());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<attr name="' . $name . '" pd="true">' . $value . '</attr>';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<attr name="$name" pd="true">$value</attr>
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($attr, 'xml'));
         $this->assertEquals($attr, $this->serializer->deserialize($xml, Attr::class, 'xml'));
 

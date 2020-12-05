@@ -26,11 +26,13 @@ class BatchRequestTest extends ZimbraStructTestCase
         $this->assertEquals([$foo, $bar], $batch->getRequests());
         $this->assertEquals('continue', $batch->getOnError());
 
-         $xml = '<?xml version="1.0"?>'."\n"
-                .'<BatchRequest xmlns="urn:zimbra" onerror="continue">'
-                    .'<FooRequest xmlns="urn:zimbraFoo" requestId="0">foo</FooRequest>'
-                    .'<BarRequest xmlns="urn:zimbraBar" requestId="1">bar</BarRequest>'
-                .'</BatchRequest>';
+         $xml = <<<EOT
+<?xml version="1.0"?>
+<BatchRequest xmlns="urn:zimbra" onerror="continue">
+    <FooRequest xmlns="urn:zimbraFoo" requestId="0">foo</FooRequest>
+    <BarRequest xmlns="urn:zimbraBar" requestId="1">bar</BarRequest>
+</BatchRequest>
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($batch, 'xml'));
 
         $json = json_encode([

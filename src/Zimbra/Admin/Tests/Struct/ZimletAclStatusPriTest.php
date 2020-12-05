@@ -41,12 +41,16 @@ class ZimletAclStatusPriTest extends ZimbraStructTestCase
         $this->assertSame($status, $zimlet->getStatus());
         $this->assertSame($priority, $zimlet->getPriority());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<zimlet name="' . $name . '">'
-                . '<acl cos="' . $cos . '" acl="' . AclType::DENY() . '" />'
-                . '<status value="' . ZimletStatus::ENABLED() . '" />'
-                . '<priority value="' . $value . '" />'
-            . '</zimlet>';
+        $acl = AclType::DENY()->getValue();
+        $enabled = ZimletStatus::ENABLED()->getValue();
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<zimlet name="$name">
+    <acl cos="$cos" acl="$acl" />
+    <status value="$enabled" />
+    <priority value="$value" />
+</zimlet>
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($zimlet, 'xml'));
         $this->assertEquals($zimlet, $this->serializer->deserialize($xml, ZimletAclStatusPri::class, 'xml'));
 
@@ -54,10 +58,10 @@ class ZimletAclStatusPriTest extends ZimbraStructTestCase
             'name' => $name,
             'acl' => [
                 'cos' => $cos,
-                'acl' => (string) AclType::DENY(),
+                'acl' => $acl,
             ],
             'status' => [
-                'value' => (string) ZimletStatus::ENABLED(),
+                'value' => $enabled,
             ],
             'priority' => [
                 'value' => $value,

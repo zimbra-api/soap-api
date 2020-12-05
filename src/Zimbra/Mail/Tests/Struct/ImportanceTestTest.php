@@ -24,15 +24,18 @@ class ImportanceTestTest extends ZimbraStructTestCase
         $test->setImportance(Importance::HIGH());
         $this->assertEquals(Importance::HIGH(), $test->getImportance());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<importanceTest index="' . $index . '" negative="true" imp="' . Importance::HIGH() . '" />';
+        $imp = Importance::HIGH()->getValue();
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<importanceTest index="$index" negative="true" imp="$imp" />
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($test, 'xml'));
         $this->assertEquals($test, $this->serializer->deserialize($xml, ImportanceTest::class, 'xml'));
 
         $json = json_encode([
             'index' => $index,
             'negative' => TRUE,
-            'imp' => Importance::HIGH()->getValue(),
+            'imp' => $imp,
         ]);
         $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($test, 'json'));
         $this->assertEquals($test, $this->serializer->deserialize($json, ImportanceTest::class, 'json'));

@@ -14,8 +14,10 @@ class SimpleElementTest extends ZimbraStructTestCase
     {
         $el = new SimpleElement;
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<any />';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<any />
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($el, 'xml'));
         $this->assertEquals($el, $this->serializer->deserialize($xml, SimpleElement::class, 'xml'));
 

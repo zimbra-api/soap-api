@@ -15,24 +15,27 @@ class AttributeSelectorTrailTest extends ZimbraStructTestCase
         $attr1 = $this->faker->word;
         $attr2 = $this->faker->word;
         $attr3 = $this->faker->word;
-        $attrs = new AttributeSelectorImp(implode(',', [$attr1, $attr2]));
-        $this->assertSame(implode(',', [$attr1, $attr2]), $attrs->getAttrs());
-        $attrs->setAttrs(implode(',', [$attr1, $attr2, $attr3]));
-        $this->assertSame(implode(',', [$attr1, $attr2, $attr3]), $attrs->getAttrs());
-        $attrs = new AttributeSelectorImp($attr1);
-        $attrs->addAttrs($attr2, $attr3);
-        $this->assertSame(implode(',', [$attr1, $attr2, $attr3]), $attrs->getAttrs());
+        $attrs = implode(',', [$attr1, $attr2, $attr3]);
+        $attrSel = new AttributeSelectorImp(implode(',', [$attr1, $attr2]));
+        $this->assertSame(implode(',', [$attr1, $attr2]), $attrSel->getAttrs());
+        $attrSel->setAttrs($attrs);
+        $this->assertSame($attrs, $attrSel->getAttrs());
+        $attrSel = new AttributeSelectorImp($attr1);
+        $attrSel->addAttrs($attr2, $attr3);
+        $this->assertSame($attrs, $attrSel->getAttrs());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<selector attrs="' . implode(',', [$attr1, $attr2, $attr3]) . '" />';
-        $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($attrs, 'xml'));
-        $this->assertEquals($attrs, $this->serializer->deserialize($xml, AttributeSelectorImp::class, 'xml'));
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<selector attrs="$attrs" />
+EOT;
+        $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($attrSel, 'xml'));
+        $this->assertEquals($attrSel, $this->serializer->deserialize($xml, AttributeSelectorImp::class, 'xml'));
 
         $json = json_encode([
-            'attrs' => implode(',', [$attr1, $attr2, $attr3]),
+            'attrs' => $attrs,
         ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($attrs, 'json'));
-        $this->assertEquals($attrs, $this->serializer->deserialize($json, AttributeSelectorImp::class, 'json'));
+        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($attrSel, 'json'));
+        $this->assertEquals($attrSel, $this->serializer->deserialize($json, AttributeSelectorImp::class, 'json'));
     }
 }
 
@@ -43,8 +46,8 @@ class AttributeSelectorImp implements AttributeSelector
 {
     use AttributeSelectorTrait;
 
-    public function __construct($attrs)
+    public function __construct($attrSel)
     {
-        $this->setAttrs($attrs);
+        $this->setAttrs($attrSel);
     }
 }

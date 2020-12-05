@@ -28,8 +28,10 @@ class DomainAggregateQuotaInfoTest extends ZimbraStructTestCase
         $this->assertSame($id, $domain->getId());
         $this->assertSame($quotaUsed, $domain->getQuotaUsed());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<domain name="' . $name . '" id="' . $id . '" used="' . $quotaUsed . '" />';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<domain name="$name" id="$id" used="$quotaUsed" />
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($domain, 'xml'));
         $this->assertEquals($domain, $this->serializer->deserialize($xml, DomainAggregateQuotaInfo::class, 'xml'));
 

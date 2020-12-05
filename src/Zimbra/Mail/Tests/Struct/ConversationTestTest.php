@@ -24,8 +24,10 @@ class ConversationTestTest extends ZimbraStructTestCase
         $test->setWhere($where);
         $this->assertSame($where, $test->getWhere());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<conversationTest index="' . $index . '" negative="true" where="' . $where . '" />';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<conversationTest index="$index" negative="true" where="$where" />
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($test, 'xml'));
         $this->assertEquals($test, $this->serializer->deserialize($xml, ConversationTest::class, 'xml'));
 

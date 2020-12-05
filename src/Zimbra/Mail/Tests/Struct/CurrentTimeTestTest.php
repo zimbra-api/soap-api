@@ -28,8 +28,10 @@ class CurrentTimeTestTest extends ZimbraStructTestCase
         $this->assertSame($dateComparison, $test->getDateComparison());
         $this->assertSame($time, $test->getTime());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<currentTimeTest index="' . $index . '" negative="true" dateComparison="' . $dateComparison . '" time="' . $time . '" />';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<currentTimeTest index="$index" negative="true" dateComparison="$dateComparison" time="$time" />
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($test, 'xml'));
         $this->assertEquals($test, $this->serializer->deserialize($xml, CurrentTimeTest::class, 'xml'));
 

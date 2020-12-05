@@ -19,10 +19,10 @@ class InDomainInfoTest extends ZimbraStructTestCase
     public function testInDomainInfo()
     {
         $name = $this->faker->word;
-        $value1 = $this->faker->word;
-        $value2 = $this->faker->word;
-        $max = $this->faker->word;
-        $min = $this->faker->word;
+        $value1= $this->faker->word;
+        $value2= $this->faker->word;
+        $max= $this->faker->word;
+        $min= $this->faker->word;
 
         $right = new RightWithName($name);
         $constraint = new ConstraintInfo($min, $max, [$value1, $value2]);
@@ -45,45 +45,47 @@ class InDomainInfoTest extends ZimbraStructTestCase
         $this->assertSame([$domain, $domain], $inDomain->getDomains());
         $inDomain = new InDomainInfo($rights, [$domain]);
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<inDomain>'
-                . '<domain name="' . $name . '" />'
-                . '<rights>'
-                    . '<right n="' . $name . '" />'
-                    . '<setAttrs all="true">'
-                        . '<a n="' . $name . '">'
-                            . '<constraint>'
-                                . '<min>' . $min . '</min>'
-                                . '<max>' . $max . '</max>'
-                                . '<values>'
-                                    . '<v>' . $value1 . '</v>'
-                                    . '<v>' . $value2 . '</v>'
-                                . '</values>'
-                            . '</constraint>'
-                            . '<default>'
-                                . '<v>' . $value1 . '</v>'
-                                . '<v>' . $value2 . '</v>'
-                            . '</default>'
-                        . '</a>'
-                    . '</setAttrs>'
-                    . '<getAttrs all="false">'
-                        . '<a n="' . $name . '">'
-                            . '<constraint>'
-                                . '<min>' . $min . '</min>'
-                                . '<max>' . $max . '</max>'
-                                . '<values>'
-                                    . '<v>' . $value1 . '</v>'
-                                    . '<v>' . $value2 . '</v>'
-                                . '</values>'
-                            . '</constraint>'
-                            . '<default>'
-                                . '<v>' . $value1 . '</v>'
-                                . '<v>' . $value2 . '</v>'
-                            . '</default>'
-                        . '</a>'
-                    . '</getAttrs>'
-                . '</rights>'
-            . '</inDomain>';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<inDomain>
+    <domain name="$name" />
+    <rights>
+        <right n="$name" />
+        <setAttrs all="true">
+            <a n="$name">
+                <constraint>
+                    <min>$min</min>
+                    <max>$max</max>
+                    <values>
+                        <v>$value1</v>
+                        <v>$value2</v>
+                    </values>
+                </constraint>
+                <default>
+                    <v>$value1</v>
+                    <v>$value2</v>
+                </default>
+            </a>
+        </setAttrs>
+        <getAttrs all="false">
+            <a n="$name">
+                <constraint>
+                    <min>$min</min>
+                    <max>$max</max>
+                    <values>
+                        <v>$value1</v>
+                        <v>$value2</v>
+                    </values>
+                </constraint>
+                <default>
+                    <v>$value1</v>
+                    <v>$value2</v>
+                </default>
+            </a>
+        </getAttrs>
+    </rights>
+</inDomain>
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($inDomain, 'xml'));
         $this->assertEquals($inDomain, $this->serializer->deserialize($xml, InDomainInfo::class, 'xml'));
 

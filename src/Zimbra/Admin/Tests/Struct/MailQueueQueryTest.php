@@ -41,14 +41,16 @@ class MailQueueQueryTest extends ZimbraStructTestCase
         $this->assertTrue($queue->getScan());
         $this->assertSame($wait, $queue->getWaitSeconds());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<queue name="' . $name . '" scan="true" wait="' . $wait . '">'
-                . '<query limit="' . $limit . '" offset="' . $offset . '">'
-                    . '<field name="' . $name . '">'
-                        . '<match value="' . $value . '" />'
-                    . '</field>'
-                . '</query>'
-            . '</queue>';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<queue name="$name" scan="true" wait="$wait">
+    <query limit="$limit" offset="$offset">
+        <field name="$name">
+            <match value="$value" />
+        </field>
+    </query>
+</queue>
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($queue, 'xml'));
         $this->assertEquals($queue, $this->serializer->deserialize($xml, MailQueueQuery::class, 'xml'));
 

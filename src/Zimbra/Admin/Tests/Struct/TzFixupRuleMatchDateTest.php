@@ -24,8 +24,10 @@ class TzFixupRuleMatchDateTest extends ZimbraStructTestCase
         $this->assertSame($mon, $date->getMonth());
         $this->assertSame($mday, $date->getMonthDay());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<date mon="' . $mon . '" mday="' . $mday . '" />';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<date mon="$mon" mday="$mday" />
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($date, 'xml'));
         $this->assertEquals($date, $this->serializer->deserialize($xml, TzFixupRuleMatchDate::class, 'xml'));
 

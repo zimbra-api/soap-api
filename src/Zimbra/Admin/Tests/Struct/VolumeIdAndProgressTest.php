@@ -24,8 +24,10 @@ class VolumeIdAndProgressTest extends ZimbraStructTestCase
         $this->assertSame($volumeId, $volumeProgress->getVolumeId());
         $this->assertSame($progress, $volumeProgress->getProgress());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<volumeProgress volumeId="' . $volumeId . '" progress="' . $progress . '" />';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<volumeProgress volumeId="$volumeId" progress="$progress" />
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($volumeProgress, 'xml'));
         $this->assertEquals($volumeProgress, $this->serializer->deserialize($xml, VolumeIdAndProgress::class, 'xml'));
 

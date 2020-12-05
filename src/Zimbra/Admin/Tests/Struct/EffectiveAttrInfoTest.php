@@ -35,21 +35,23 @@ class EffectiveAttrInfoTest extends ZimbraStructTestCase
         $this->assertSame($constraint, $attr->getConstraint());
         $this->assertSame([$value1, $value2], $attr->getValues());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<attr n="' . $name . '">'
-                . '<constraint>'
-                    . '<min>' . $min . '</min>'
-                    . '<max>' . $max . '</max>'
-                    . '<values>'
-                        . '<v>' . $value1 . '</v>'
-                        . '<v>' . $value2 . '</v>'
-                    . '</values>'
-                . '</constraint>'
-                . '<default>'
-                    . '<v>' . $value1 . '</v>'
-                    . '<v>' . $value2 . '</v>'
-                . '</default>'
-            . '</attr>';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<attr n="$name">
+    <constraint>
+        <min>$min</min>
+        <max>$max</max>
+        <values>
+            <v>$value1</v>
+            <v>$value2</v>
+        </values>
+    </constraint>
+    <default>
+        <v>$value1</v>
+        <v>$value2</v>
+    </default>
+</attr>
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($attr, 'xml'));
         $this->assertEquals($attr, $this->serializer->deserialize($xml, EffectiveAttrInfo::class, 'xml'));
 

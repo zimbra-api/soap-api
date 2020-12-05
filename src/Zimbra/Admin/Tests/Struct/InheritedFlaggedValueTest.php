@@ -24,8 +24,10 @@ class InheritedFlaggedValueTest extends ZimbraStructTestCase
         $this->assertTrue($flag->getInherited());
         $this->assertSame($value, $flag->getValue());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<flag inherited="true">' . $value . '</flag>';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<flag inherited="true">$value</flag>
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($flag, 'xml'));
         $this->assertEquals($flag, $this->serializer->deserialize($xml, InheritedFlaggedValue::class, 'xml'));
 

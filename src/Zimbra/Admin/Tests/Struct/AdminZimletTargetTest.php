@@ -20,8 +20,10 @@ class AdminZimletTargetTest extends ZimbraStructTestCase
         $target->setValue($value);
         $this->assertSame($value, $target->getValue());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<target>' . $value . '</target>';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<target>$value</target>
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($target, 'xml'));
         $this->assertEquals($target, $this->serializer->deserialize($xml, AdminZimletTarget::class, 'xml'));
 

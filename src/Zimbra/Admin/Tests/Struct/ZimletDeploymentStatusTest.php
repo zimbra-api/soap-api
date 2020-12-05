@@ -28,14 +28,17 @@ class ZimletDeploymentStatusTest extends ZimbraStructTestCase
         $this->assertEquals(ZimletDeployStatus::SUCCEEDED(), $progress->getStatus());
         $this->assertSame($error, $progress->getError());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<progress server="' . $server . '" status="' . ZimletDeployStatus::SUCCEEDED() . '" error="' . $error . '" />';
+        $status = ZimletDeployStatus::SUCCEEDED()->getValue();
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<progress server="$server" status="$status" error="$error" />
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($progress, 'xml'));
         $this->assertEquals($progress, $this->serializer->deserialize($xml, ZimletDeploymentStatus::class, 'xml'));
 
         $json = json_encode([
             'server' => $server,
-            'status' => (string) ZimletDeployStatus::SUCCEEDED(),
+            'status' => $status,
             'error' => $error,
         ]);
         $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($progress, 'json'));

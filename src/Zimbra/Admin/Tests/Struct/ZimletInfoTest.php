@@ -25,10 +25,12 @@ class ZimletInfoTest extends ZimbraStructTestCase
         $zimlet->setHasKeyword($hasKeyword);
         $this->assertSame($hasKeyword, $zimlet->getHasKeyword());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<zimlet name="' . $name . '" id="' . $id . '" hasKeyword="' . $hasKeyword . '">'
-                . '<a n="' . $key . '">' . $value . '</a>'
-            . '</zimlet>';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<zimlet name="$name" id="$id" hasKeyword="$hasKeyword">
+    <a n="$key">$value</a>
+</zimlet>
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($zimlet, 'xml'));
         $this->assertEquals($zimlet, $this->serializer->deserialize($xml, ZimletInfo::class, 'xml'));
 

@@ -29,11 +29,13 @@ class AddheaderActionTest extends ZimbraStructTestCase
         $this->assertSame($headerValue, $action->getHeaderValue());
         $this->assertTrue($action->getLast());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<actionAddheader index="' . $index . '" last="true">'
-                . '<headerName>' . $headerName . '</headerName>'
-                . '<headerValue>' . $headerValue . '</headerValue>'
-            . '</actionAddheader>';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<actionAddheader index="$index" last="true">
+    <headerName>$headerName</headerName>
+    <headerValue>$headerValue</headerValue>
+</actionAddheader>
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($action, 'xml'));
         $this->assertEquals($action, $this->serializer->deserialize($xml, AddheaderAction::class, 'xml'));
 

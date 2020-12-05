@@ -20,10 +20,12 @@ class DomainInfoTest extends ZimbraStructTestCase
 
         $domain = new DomainInfo($name, $id, [new Attr($key, $value)]);
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<domain name="' . $name . '" id="' . $id . '">'
-                . '<a n="' . $key . '">' . $value . '</a>'
-            . '</domain>';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<domain name="$name" id="$id">
+    <a n="$key">$value</a>
+</domain>
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($domain, 'xml'));
         $this->assertEquals($domain, $this->serializer->deserialize($xml, DomainInfo::class, 'xml'));
 

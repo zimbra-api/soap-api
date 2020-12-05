@@ -47,8 +47,10 @@ class HeaderTestTest extends ZimbraStructTestCase
         $this->assertSame($countComparison, $test->getCountComparison());
         $this->assertSame($valueComparisonComparator, $test->getValueComparisonComparator());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<headerTest index="' . $index . '" negative="true" header="' . $headers . '" stringComparison="' . $stringComparison . '" valueComparison="' . $valueComparison . '" countComparison="' . $countComparison . '" valueComparisonComparator="' . $valueComparisonComparator . '" value="' . $value . '" caseSensitive="true" />';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<headerTest index="$index" negative="true" header="$headers" stringComparison="$stringComparison" valueComparison="$valueComparison" countComparison="$countComparison" valueComparisonComparator="$valueComparisonComparator" value="$value" caseSensitive="true" />
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($test, 'xml'));
         $this->assertEquals($test, $this->serializer->deserialize($xml, HeaderTest::class, 'xml'));
 

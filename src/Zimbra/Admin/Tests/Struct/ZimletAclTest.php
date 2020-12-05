@@ -24,14 +24,17 @@ class ZimletAclTest extends ZimbraStructTestCase
         $this->assertSame($cos, $acl->getCos());
         $this->assertEquals(AclType::GRANT(), $acl->getAcl());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<acl cos="' . $cos . '" acl="' . AclType::GRANT() . '" />';
+        $type = AclType::GRANT()->getValue();
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<acl cos="$cos" acl="$type" />
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($acl, 'xml'));
         $this->assertEquals($acl, $this->serializer->deserialize($xml, ZimletAcl::class, 'xml'));
 
         $json = json_encode([
             'cos' => $cos,
-            'acl' => (string) AclType::GRANT(),
+            'acl' => $type,
         ]);
         $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($acl, 'json'));
         $this->assertEquals($acl, $this->serializer->deserialize($json, ZimletAcl::class, 'json'));

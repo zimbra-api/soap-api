@@ -20,8 +20,10 @@ class PackageSelectorTest extends ZimbraStructTestCase
         $package->setName($name);
         $this->assertSame($name, $package->getName());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<package name="' . $name . '" />';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<package name="$name" />
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($package, 'xml'));
         $this->assertEquals($package, $this->serializer->deserialize($xml, PackageSelector::class, 'xml'));
 

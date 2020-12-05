@@ -61,20 +61,22 @@ class TzFixupRuleMatchTest extends ZimbraStructTestCase
         $this->assertSame($rules, $match->getRules());
         $this->assertSame($dates, $match->getDates());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<match>'
-                . '<any />'
-                . '<tzid id="' . $id . '" />'
-                . '<nonDst offset="' . $offset . '" />'
-                . '<rules stdoff="' . $rule_stdoff . '" dayoff="' . $rule_dayoff . '">'
-                    . '<standard mon="' . $rule_mon . '" week="' . $rule_week . '" wkday="' . $rule_wkday . '" />'
-                    . '<daylight mon="' . $rule_mon . '" week="' . $rule_week . '" wkday="' . $rule_wkday . '" />'
-                . '</rules>'
-                . '<dates stdoff="' . $date_stdoff . '" dayoff="' . $date_dayoff . '">'
-                    . '<standard mon="' . $date_mon . '" mday="' . $date_mday . '" />'
-                    . '<daylight mon="' . $date_mon . '" mday="' . $date_mday . '" />'
-                . '</dates>'
-            . '</match>';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<match>
+    <any />
+    <tzid id="$id" />
+    <nonDst offset="$offset" />
+    <rules stdoff="$rule_stdoff" dayoff="$rule_dayoff">
+        <standard mon="$rule_mon" week="$rule_week" wkday="$rule_wkday" />
+        <daylight mon="$rule_mon" week="$rule_week" wkday="$rule_wkday" />
+    </rules>
+    <dates stdoff="$date_stdoff" dayoff="$date_dayoff">
+        <standard mon="$date_mon" mday="$date_mday" />
+        <daylight mon="$date_mon" mday="$date_mday" />
+    </dates>
+</match>
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($match, 'xml'));
         $this->assertEquals($match, $this->serializer->deserialize($xml, TzFixupRuleMatch::class, 'xml'));
 

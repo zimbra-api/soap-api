@@ -37,18 +37,22 @@ class CheckRightsTargetSpecTest extends ZimbraStructTestCase
         $this->assertSame($key, $target->getTargetKey());
         $this->assertSame([$right1, $right2, $right3], $target->getRights());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<target type="' . TargetType::ACCOUNT() . '" by="' . TargetBy::NAME() . '" key="' . $key . '">'
-                . '<right>' . $right1 . '</right>'
-                . '<right>' . $right2 . '</right>'
-                . '<right>' . $right3 . '</right>'
-            . '</target>';
+        $type = TargetType::ACCOUNT()->getValue();
+        $by = TargetBy::NAME()->getValue();
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<target type="$type" by="$by" key="$key">
+    <right>$right1</right>
+    <right>$right2</right>
+    <right>$right3</right>
+</target>
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($target, 'xml'));
         $this->assertEquals($target, $this->serializer->deserialize($xml, CheckRightsTargetSpec::class, 'xml'));
 
         $json = json_encode([
-            'type' => TargetType::ACCOUNT(),
-            'by' => TargetBy::NAME(),
+            'type' => $type,
+            'by' => $by,
             'key' => $key,
             'right' => [
                 [

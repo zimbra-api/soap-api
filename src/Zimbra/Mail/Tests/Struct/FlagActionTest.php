@@ -22,8 +22,10 @@ class FlagActionTest extends ZimbraStructTestCase
         $action->setFlag($flag);
         $this->assertSame($flag, $action->getFlag());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<actionFlag index="' . $index . '" flagName="' . $flag . '" />';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<actionFlag index="$index" flagName="$flag" />
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($action, 'xml'));
         $this->assertEquals($action, $this->serializer->deserialize($xml, FlagAction::class, 'xml'));
 

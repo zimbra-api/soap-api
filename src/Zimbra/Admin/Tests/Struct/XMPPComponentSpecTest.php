@@ -14,7 +14,7 @@ class XMPPComponentSpecTest extends ZimbraStructTestCase
     public function testXMPPComponentSpec()
     {
         $name = $this->faker->word;
-        $value = $this->faker->word;
+        $value= $this->faker->word;
 
         $attr = new Attr($name, $value);
         $domain = new DomainSelector(DomainBy::NAME(), $value);
@@ -34,12 +34,15 @@ class XMPPComponentSpecTest extends ZimbraStructTestCase
         $this->assertSame($domain, $xmpp->getDomain());
         $this->assertSame($server, $xmpp->getServer());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<xmppcomponent name="' . $name . '">'
-                . '<a n="' . $name . '">' . $value . '</a>'
-                . '<domain by="' . DomainBy::NAME() . '">' . $value . '</domain>'
-                . '<server by="' . ServerBy::NAME() . '">' . $value . '</server>'
-            . '</xmppcomponent>';
+        $by = DomainBy::NAME()->getValue();
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<xmppcomponent name="$name">
+    <a n="$name">$value</a>
+    <domain by="$by">$value</domain>
+    <server by="$by">$value</server>
+</xmppcomponent>
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($xmpp, 'xml'));
         $this->assertEquals($xmpp, $this->serializer->deserialize($xml, XMPPComponentSpec::class, 'xml'));
 
@@ -52,11 +55,11 @@ class XMPPComponentSpecTest extends ZimbraStructTestCase
             ],
             'name' => $name,
             'domain' => [
-                'by' => (string) DomainBy::NAME(),
+                'by' => $by,
                 '_content' => $value,
             ],
             'server' => [
-                'by' => (string) ServerBy::NAME(),
+                'by' => $by,
                 '_content' => $value,
             ],
         ]);

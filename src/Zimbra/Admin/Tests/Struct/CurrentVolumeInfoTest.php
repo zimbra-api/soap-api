@@ -25,8 +25,10 @@ class CurrentVolumeInfoTest extends ZimbraStructTestCase
         $this->assertSame($type, $volume->getType());
         $this->assertSame($id, $volume->getId());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<volume type="' . $type . '" id="' . $id . '" />';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<volume type="$type" id="$id" />
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($volume, 'xml'));
         $this->assertEquals($volume, $this->serializer->deserialize($xml, CurrentVolumeInfo::class, 'xml'));
 

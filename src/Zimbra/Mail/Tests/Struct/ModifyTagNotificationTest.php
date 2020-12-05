@@ -25,11 +25,13 @@ class ModifyTagNotificationTest extends ZimbraStructTestCase
         $this->assertSame($id, $item->getId());
         $this->assertSame($name, $item->getName());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<modTags change="' . $changeBitmask . '">'
-                . '<id>' . $id . '</id>'
-                . '<name>' . $name . '</name>'
-            . '</modTags>';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<modTags change="$changeBitmask">
+    <id>$id</id>
+    <name>$name</name>
+</modTags>
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($item, 'xml'));
         $this->assertEquals($item, $this->serializer->deserialize($xml, ModifyTagNotification::class, 'xml'));
 

@@ -21,8 +21,10 @@ class NotifyInfoTest extends ZimbraStructTestCase
         $info->setSequenceNum($sequence);
         $this->assertSame($sequence, $info->getSequenceNum());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<notify seq="' . $sequence . '" />';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<notify seq="$sequence" />
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($info, 'xml'));
         $this->assertEquals($info, $this->serializer->deserialize($xml, NotifyInfo::class, 'xml'));
 

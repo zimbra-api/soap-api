@@ -27,13 +27,16 @@ class DistributionListSubscribeReqTest extends ZimbraStructTestCase
         $this->assertSame($value, $subsReq->getValue());
         $this->assertTrue($subsReq->getBccOwners());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<subsReq op="' . DLSubscribeOp::SUBSCRIBE() . '" bccOwners="true">' . $value . '</subsReq>';
+        $op = DLSubscribeOp::SUBSCRIBE()->getValue();
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<subsReq op="$op" bccOwners="true">$value</subsReq>
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($subsReq, 'xml'));
         $this->assertEquals($subsReq, $this->serializer->deserialize($xml, DistributionListSubscribeReq::class, 'xml'));
 
         $json = json_encode([
-            'op' => (string) DLSubscribeOp::SUBSCRIBE(),
+            'op' => $op,
             '_content' => $value,
             'bccOwners' => TRUE,
         ]);

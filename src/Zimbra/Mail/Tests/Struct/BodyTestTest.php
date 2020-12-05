@@ -27,8 +27,10 @@ class BodyTestTest extends ZimbraStructTestCase
         $this->assertTrue($test->isCaseSensitive());
         $this->assertSame($value, $test->getValue());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<bodyTest index="' . $index . '" negative="true" value="' . $value . '" caseSensitive="true" />';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<bodyTest index="$index" negative="true" value="$value" caseSensitive="true" />
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($test, 'xml'));
         $this->assertEquals($test, $this->serializer->deserialize($xml, BodyTest::class, 'xml'));
 

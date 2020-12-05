@@ -30,16 +30,18 @@ class ConstraintAttrTest extends ZimbraStructTestCase
         $this->assertSame($name, $attr->getName());
         $this->assertSame($constraint, $attr->getConstraint());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<a name="' . $name . '">'
-                . '<constraint>'
-                    . '<min>' . $min . '</min>'
-                    . '<max>' . $max . '</max>'
-                    . '<values>'
-                        . '<v>' . $value . '</v>'
-                    . '</values>'
-                . '</constraint>'
-            . '</a>';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<a name="$name">
+    <constraint>
+        <min>$min</min>
+        <max>$max</max>
+        <values>
+            <v>$value</v>
+        </values>
+    </constraint>
+</a>
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($attr, 'xml'));
         $this->assertEquals($attr, $this->serializer->deserialize($xml, ConstraintAttr::class, 'xml'));
 

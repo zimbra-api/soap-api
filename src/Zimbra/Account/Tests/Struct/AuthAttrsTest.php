@@ -27,11 +27,13 @@ class AuthAttrsTest extends ZimbraStructTestCase
         $attrs->addAttr($attr2);
         $this->assertSame([$attr1, $attr2], $attrs->getAttrs());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<attrs>'
-                . '<attr name="' . $name1 . '" pd="true">' . $value1 . '</attr>'
-                . '<attr name="' . $name2 . '" pd="false">' . $value2 . '</attr>'
-            . '</attrs>';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<attrs>
+    <attr name="$name1" pd="true">$value1</attr>
+    <attr name="$name2" pd="false">$value2</attr>
+</attrs>
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($attrs, 'xml'));
         $this->assertEquals($attrs, $this->serializer->deserialize($xml, AuthAttrs::class, 'xml'));
 

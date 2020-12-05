@@ -24,13 +24,16 @@ class DomainSelectorTest extends ZimbraStructTestCase
         $this->assertEquals(DomainBy::NAME(), $domain->getBy());
         $this->assertSame($value, $domain->getValue());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<domain by="' . DomainBy::NAME() . '">' . $value . '</domain>';
+        $by = DomainBy::NAME()->getValue();
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<domain by="$by">$value</domain>
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($domain, 'xml'));
         $this->assertEquals($domain, $this->serializer->deserialize($xml, DomainSelector::class, 'xml'));
 
         $json = json_encode([
-            'by' => (string) DomainBy::NAME(),
+            'by' => $by,
             '_content' => $value,
         ]);
         $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($domain, 'json'));

@@ -29,11 +29,13 @@ class AuthPrefsTest extends ZimbraStructTestCase
         $prefs->addPref($pref2);
         $this->assertSame([$pref1, $pref2], $prefs->getPrefs());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<prefs>'
-                . '<pref name="' . $name1 . '" modified="' . $modified1 . '">' . $value1 . '</pref>'
-                . '<pref name="' . $name2 . '" modified="' . $modified2 . '">' . $value2 . '</pref>'
-            . '</prefs>';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<prefs>
+    <pref name="$name1" modified="$modified1">$value1</pref>
+    <pref name="$name2" modified="$modified2">$value2</pref>
+</prefs>
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($prefs, 'xml'));
         $this->assertEquals($prefs, $this->serializer->deserialize($xml, AuthPrefs::class, 'xml'));
 

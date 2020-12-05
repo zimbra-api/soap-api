@@ -50,14 +50,18 @@ class AccountACEInfoTest extends ZimbraStructTestCase
         $this->assertTrue($ace->getDeny());
         $this->assertFalse($ace->getCheckGranteeType());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<ace gt="' . GranteeType::USR() . '" right="' . AceRightType::INVITE() . '" zid="' . $zid . '" d="' . $d . '" key="' . $key . '" pw="' . $pw . '" deny="true" chkgt="false" />';
+        $gt = GranteeType::USR()->getValue();
+        $right = AceRightType::INVITE()->getValue();
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<ace gt="$gt" right="$right" zid="$zid" d="$d" key="$key" pw="$pw" deny="true" chkgt="false" />
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($ace, 'xml'));
         $this->assertEquals($ace, $this->serializer->deserialize($xml, AccountACEInfo::class, 'xml'));
 
         $json = json_encode([
-            'gt' => (string) GranteeType::USR(),
-            'right' => (string) AceRightType::INVITE(),
+            'gt' => $gt,
+            'right' => $right,
             'zid' => $zid,
             'd' => $d,
             'key' => $key,

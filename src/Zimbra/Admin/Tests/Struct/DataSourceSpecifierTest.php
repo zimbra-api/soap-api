@@ -29,22 +29,25 @@ class DataSourceSpecifierTest extends ZimbraStructTestCase
         $this->assertEquals(DataSourceType::POP3(), $ds->getType());
         $this->assertSame($name, $ds->getName());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<dataSource type="' . DataSourceType::POP3() . '" name="' . $name . '">'
-                . '<a n="' . $key . '">' . $value . '</a>'
-            . '</dataSource>';
+        $type = DataSourceType::POP3()->getValue();
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<dataSource type="$type" name="$name">
+    <a n="$key">$value</a>
+</dataSource>
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($ds, 'xml'));
         $this->assertEquals($ds, $this->serializer->deserialize($xml, DataSourceSpecifier::class, 'xml'));
 
         $json = json_encode([
+            'type' => $type,
+            'name' => $name,
             'a' => [
                 [
                     'n' => $key,
                     '_content' => $value,
                 ],
             ],
-            'type' => (string) DataSourceType::POP3(),
-            'name' => $name,
         ]);
         $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($ds, 'json'));
         $this->assertEquals($ds, $this->serializer->deserialize($json, DataSourceSpecifier::class, 'json'));

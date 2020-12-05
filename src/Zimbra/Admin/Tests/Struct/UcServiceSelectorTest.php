@@ -24,13 +24,16 @@ class UcServiceSelectorTest extends ZimbraStructTestCase
         $this->assertEquals(UcServiceBy::NAME(), $ucs->getBy());
         $this->assertSame($value, $ucs->getValue());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<ucservice by="' . UcServiceBy::NAME() . '">' . $value . '</ucservice>';
+        $by = UcServiceBy::NAME()->getValue();
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<ucservice by="$by">$value</ucservice>
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($ucs, 'xml'));
         $this->assertEquals($ucs, $this->serializer->deserialize($xml, UcServiceSelector::class, 'xml'));
 
         $json = json_encode([
-            'by' => (string) UcServiceBy::NAME(),
+            'by' => $by,
             '_content' => $value,
         ]);
         $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($ucs, 'json'));

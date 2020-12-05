@@ -24,13 +24,16 @@ class CalendarResourceSelectorTest extends ZimbraStructTestCase
         $this->assertEquals(CalResBy::NAME(), $cal->getBy());
         $this->assertSame($value, $cal->getValue());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<calresource by="' . CalResBy::NAME() . '">' . $value . '</calresource>';
+        $by = CalResBy::NAME()->getValue();
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<calresource by="$by">$value</calresource>
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($cal, 'xml'));
         $this->assertEquals($cal, $this->serializer->deserialize($xml, CalendarResourceSelector::class, 'xml'));
 
         $json = json_encode([
-            'by' => (string) CalResBy::NAME(),
+            'by' => $by,
             '_content' => $value,
         ]);
         $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($cal, 'json'));

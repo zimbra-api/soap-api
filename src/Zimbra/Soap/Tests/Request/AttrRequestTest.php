@@ -35,12 +35,14 @@ class AttrRequestTest extends ZimbraStructTestCase
         $req->addAttr($attr3);
         $this->assertEquals([$attr1, $attr2, $attr3], $req->getAttrs());
 
-        $xml = '<?xml version="1.0"?>'."\n"
-            .'<AttrRequest>'
-                .'<a n="' . $key1 . '">' . $value1 . '</a>'
-                .'<a n="' . $key2 . '">' . $value2 . '</a>'
-                .'<a n="' . $key3 . '">' . $value3 . '</a>'
-            .'</AttrRequest>';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<AttrRequest>
+    <a n="$key1">$value1</a>
+    <a n="$key2">$value2</a>
+    <a n="$key3">$value3</a>
+</AttrRequest>
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($req, 'xml'));
         $this->assertEquals($req, $this->serializer->deserialize($xml, AttrRequestImp::class, 'xml'));
     }

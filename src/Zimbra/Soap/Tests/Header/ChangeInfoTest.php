@@ -25,8 +25,10 @@ class ChangeInfoTest extends ZimbraStructTestCase
         $this->assertSame($changeId, $info->getChangeId());
         $this->assertSame($changeType, $info->getChangeType());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<change token="' . $changeId . '" type="' . $changeType . '" />';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<change token="$changeId" type="$changeType" />
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($info, 'xml'));
         $this->assertEquals($info, $this->serializer->deserialize($xml, ChangeInfo::class, 'xml'));
 

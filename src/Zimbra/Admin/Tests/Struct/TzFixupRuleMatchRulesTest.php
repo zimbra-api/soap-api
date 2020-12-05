@@ -46,11 +46,13 @@ class TzFixupRuleMatchRulesTest extends ZimbraStructTestCase
         $this->assertSame($stdoff, $rules->getStdOffset());
         $this->assertSame($dayoff, $rules->getDstOffset());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<rules stdoff="' . $stdoff . '" dayoff="' . $dayoff . '">'
-                . '<standard mon="' . $std_mon . '" week="' . $std_week . '" wkday="' . $std_wkday . '" />'
-                . '<daylight mon="' . $day_mon . '" week="' . $day_week . '" wkday="' . $day_wkday . '" />'
-            . '</rules>';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<rules stdoff="$stdoff" dayoff="$dayoff">
+    <standard mon="$std_mon" week="$std_week" wkday="$std_wkday" />
+    <daylight mon="$day_mon" week="$day_week" wkday="$day_wkday" />
+</rules>
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($rules, 'xml'));
         $this->assertEquals($rules, $this->serializer->deserialize($xml, TzFixupRuleMatchRules::class, 'xml'));
 

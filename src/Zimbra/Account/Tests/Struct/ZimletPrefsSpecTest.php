@@ -25,14 +25,17 @@ class ZimletPrefsSpecTest extends ZimbraStructTestCase
         $this->assertSame($name, $zimlet->getName());
         $this->assertEquals(ZimletStatus::DISABLED(), $zimlet->getPresence());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<zimlet name="' . $name . '" presence="' . ZimletStatus::DISABLED() . '" />';
+        $presence = ZimletStatus::DISABLED()->getValue();
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<zimlet name="$name" presence="$presence" />
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($zimlet, 'xml'));
         $this->assertEquals($zimlet, $this->serializer->deserialize($xml, ZimletPrefsSpec::class, 'xml'));
 
         $json = json_encode([
             'name' => $name,
-            'presence' => (string) ZimletStatus::DISABLED(),
+            'presence' => $presence,
         ]);
         $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($zimlet, 'json'));
         $this->assertEquals($zimlet, $this->serializer->deserialize($json, ZimletPrefsSpec::class, 'json'));

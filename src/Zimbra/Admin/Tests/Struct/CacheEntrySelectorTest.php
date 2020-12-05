@@ -25,13 +25,16 @@ class CacheEntrySelectorTest extends ZimbraStructTestCase
         $this->assertEquals(CacheEntryBy::ID(), $entry->getBy());
         $this->assertSame($value, $entry->getValue());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<entry by="' . CacheEntryBy::ID() . '">' . $value . '</entry>';
+        $by = CacheEntryBy::ID()->getValue();
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<entry by="$by">$value</entry>
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($entry, 'xml'));
         $this->assertEquals($entry, $this->serializer->deserialize($xml, CacheEntrySelector::class, 'xml'));
 
         $json = json_encode([
-            'by' => (string) CacheEntryBy::ID(),
+            'by' => $by,
             '_content' => $value,
         ]);
         $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($entry, 'json'));

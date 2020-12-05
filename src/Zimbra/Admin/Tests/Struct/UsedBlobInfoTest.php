@@ -45,10 +45,12 @@ class UsedBlobInfoTest extends ZimbraStructTestCase
         $this->assertSame($volumeId, $item->getVolumeId());
         $this->assertEquals($blob, $item->getBlob());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<item id="' . $id . '" rev="' . $revision . '" s="' . $size . '" volumeId="' . $volumeId . '">'
-                . '<blob path="' . $path . '" s="' . $size . '" fileSize="' . $fileSize . '" external="true" />'
-            . '</item>';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<item id="$id" rev="$revision" s="$size" volumeId="$volumeId">
+    <blob path="$path" s="$size" fileSize="$fileSize" external="true" />
+</item>
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($item, 'xml'));
         $this->assertEquals($item, $this->serializer->deserialize($xml, UsedBlobInfo::class, 'xml'));
 

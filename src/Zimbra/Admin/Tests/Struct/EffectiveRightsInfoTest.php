@@ -17,10 +17,10 @@ class EffectiveRightsInfoTest extends ZimbraStructTestCase
     public function testEffectiveRightsInfo()
     {
         $name = $this->faker->word;
-        $value1 = $this->faker->word;
-        $value2 = $this->faker->word;
-        $max = $this->faker->word;
-        $min = $this->faker->word;
+        $value1= $this->faker->word;
+        $value2= $this->faker->word;
+        $max= $this->faker->word;
+        $min= $this->faker->word;
 
         $right = new RightWithName($name);
         $constraint = new ConstraintInfo($min, $max, [$value1, $value2]);
@@ -43,42 +43,44 @@ class EffectiveRightsInfoTest extends ZimbraStructTestCase
         $this->assertSame([$right, $right], $rights->getRights());
         $rights = new EffectiveRightsInfo($setAttrs, $getAttrs, [$right]);
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<rights>'
-                . '<right n="' . $name . '" />'
-                . '<setAttrs all="true">'
-                    . '<a n="' . $name . '">'
-                        . '<constraint>'
-                            . '<min>' . $min . '</min>'
-                            . '<max>' . $max . '</max>'
-                            . '<values>'
-                                . '<v>' . $value1 . '</v>'
-                                . '<v>' . $value2 . '</v>'
-                            . '</values>'
-                        . '</constraint>'
-                        . '<default>'
-                            . '<v>' . $value1 . '</v>'
-                            . '<v>' . $value2 . '</v>'
-                        . '</default>'
-                    . '</a>'
-                . '</setAttrs>'
-                . '<getAttrs all="false">'
-                    . '<a n="' . $name . '">'
-                        . '<constraint>'
-                            . '<min>' . $min . '</min>'
-                            . '<max>' . $max . '</max>'
-                            . '<values>'
-                                . '<v>' . $value1 . '</v>'
-                                . '<v>' . $value2 . '</v>'
-                            . '</values>'
-                        . '</constraint>'
-                        . '<default>'
-                            . '<v>' . $value1 . '</v>'
-                            . '<v>' . $value2 . '</v>'
-                        . '</default>'
-                    . '</a>'
-                . '</getAttrs>'
-            . '</rights>';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<rights>
+    <right n="$name" />
+    <setAttrs all="true">
+        <a n="$name">
+            <constraint>
+                <min>$min</min>
+                <max>$max</max>
+                <values>
+                    <v>$value1</v>
+                    <v>$value2</v>
+                </values>
+            </constraint>
+            <default>
+                <v>$value1</v>
+                <v>$value2</v>
+            </default>
+        </a>
+    </setAttrs>
+    <getAttrs all="false">
+        <a n="$name">
+            <constraint>
+                <min>$min</min>
+                <max>$max</max>
+                <values>
+                    <v>$value1</v>
+                    <v>$value2</v>
+                </values>
+            </constraint>
+            <default>
+                <v>$value1</v>
+                <v>$value2</v>
+            </default>
+        </a>
+    </getAttrs>
+</rights>
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($rights, 'xml'));
         $this->assertEquals($rights, $this->serializer->deserialize($xml, EffectiveRightsInfo::class, 'xml'));
 

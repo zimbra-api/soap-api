@@ -23,13 +23,16 @@ class AlwaysOnClusterSelectorTest extends ZimbraStructTestCase
         $this->assertEquals(AlwaysOnClusterBy::NAME(), $aoc->getBy());
         $this->assertSame($value, $aoc->getValue());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<alwaysOnCluster by="' . AlwaysOnClusterBy::NAME() . '">' . $value . '</alwaysOnCluster>';
+        $by = AlwaysOnClusterBy::NAME()->getValue();
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<alwaysOnCluster by="$by">$value</alwaysOnCluster>
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($aoc, 'xml'));
         $this->assertEquals($aoc, $this->serializer->deserialize($xml, AlwaysOnClusterSelector::class, 'xml'));
 
         $json = json_encode([
-            'by' => (string) AlwaysOnClusterBy::NAME(),
+            'by' => $by,
             '_content' => $value,
         ]);
         $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($aoc, 'json'));

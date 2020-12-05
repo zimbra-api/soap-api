@@ -40,18 +40,24 @@ class MailQueueActionTest extends ZimbraStructTestCase
         $this->assertEquals(QueueAction::HOLD(), $action->getOp());
         $this->assertEquals(QueueActionBy::QUERY(), $action->getBy());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<action op="' . QueueAction::HOLD() . '" by="' . QueueActionBy::QUERY() . '">'
-                . '<query limit="' . $limit . '" offset="' . $offset . '">'
-                    . '<field name="' . $name . '">'
-                        . '<match value="' . $value . '" />'
-                    . '</field>'
-                . '</query>'
-            . '</action>';
+        $op = QueueAction::HOLD()->getValue();
+        $by = QueueActionBy::QUERY()->getValue();
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<action op="$op" by="$by">
+    <query limit="$limit" offset="$offset">
+        <field name="$name">
+            <match value="$value" />
+        </field>
+    </query>
+</action>
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($action, 'xml'));
         $this->assertEquals($action, $this->serializer->deserialize($xml, MailQueueAction::class, 'xml'));
 
         $json = json_encode([
+            'op' => $op,
+            'by' => $by,
             'query' => [
                 'field' => [
                     [
@@ -66,8 +72,6 @@ class MailQueueActionTest extends ZimbraStructTestCase
                 'limit' => $limit,
                 'offset' => $offset,
             ],
-            'op' => (string) QueueAction::HOLD(),
-            'by' => (string) QueueActionBy::QUERY(),
         ]);
         $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($action, 'json'));
         $this->assertEquals($action, $this->serializer->deserialize($json, MailQueueAction::class, 'json'));

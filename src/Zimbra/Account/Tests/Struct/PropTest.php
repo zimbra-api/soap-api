@@ -29,8 +29,10 @@ class PropTest extends ZimbraStructTestCase
         $this->assertSame($name, $prop->getName());
         $this->assertSame($value, $prop->getValue());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<prop zimlet="' . $zimlet . '" name="' . $name . '">' . $value . '</prop>';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<prop zimlet="$zimlet" name="$name">$value</prop>
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($prop, 'xml'));
         $this->assertEquals($prop, $this->serializer->deserialize($xml, Prop::class, 'xml'));
 

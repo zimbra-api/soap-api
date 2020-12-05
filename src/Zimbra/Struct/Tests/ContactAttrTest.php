@@ -35,8 +35,10 @@ class ContactAttrTest extends ZimbraStructTestCase
         $this->assertSame($size, $attr->getSize());
         $this->assertSame($contentFilename, $attr->getContentFilename());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<a n="' . $key . '" part="' . $part . '" ct="' . $contentType . '" s="' . $size . '" filename="' . $contentFilename . '">' . $value . '</a>';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<a n="$key" part="$part" ct="$contentType" s="$size" filename="$contentFilename">$value</a>
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($attr, 'xml'));
         $this->assertEquals($attr, $this->serializer->deserialize($xml, ContactAttr::class, 'xml'));
 

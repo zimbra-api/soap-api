@@ -20,8 +20,10 @@ class TimeAttrTest extends ZimbraStructTestCase
         $attr->setTime($time);
         $this->assertSame($time, $attr->getTime());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<attr time="' . $time . '" />';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<attr time="$time" />
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($attr, 'xml'));
         $this->assertEquals($attr, $this->serializer->deserialize($xml, TimeAttr::class, 'xml'));
 

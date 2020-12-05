@@ -22,10 +22,12 @@ class RightsAttrsTest extends ZimbraStructTestCase
         $attrs->setAll(TRUE);
         $this->assertTrue($attrs->getAll());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<attrs all="true">'
-                . '<a n="' . $key . '">' . $value . '</a>'
-            . '</attrs>';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<attrs all="true">
+    <a n="$key">$value</a>
+</attrs>
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($attrs, 'xml'));
         $this->assertEquals($attrs, $this->serializer->deserialize($xml, RightsAttrs::class, 'xml'));
 

@@ -94,30 +94,32 @@ class MailboxBlobConsistencyTest extends ZimbraStructTestCase
         $mbox = new MailboxBlobConsistency(
             $id, [$missingBlob], [$incorrectSize], [$unexpectedBlob], [$incorrectRevision], [$usedBlob]
         );
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<mbox id ="' . $id . '">'
-                .'<missingBlobs>'
-                    .'<item id="' . $id . '" rev="' . $revision . '" s="' . $size . '" volumeId="' . $volumeId . '" blobPath="' . $blobPath . '" external="true" version="' . $version. '" />'
-                .'</missingBlobs>'
-                .'<incorrectSizes>'
-                    . '<item id="' . $id . '" rev="' . $revision . '" s="' . $size . '" volumeId="' . $volumeId . '">'
-                        . '<blob path="' . $path . '" s="' . $size . '" fileSize="' . $fileSize . '" external="true" />'
-                    . '</item>'
-                .'</incorrectSizes>'
-                .'<unexpectedBlobs>'
-                    . '<blob volumeId="' . $volumeId . '" path="' . $path . '" fileSize="' . $fileSize . '" external="true" />'
-                .'</unexpectedBlobs>'
-                .'<incorrectRevisions>'
-                    . '<item id="' . $id . '" rev="' . $revision . '" s="' . $size . '" volumeId="' . $volumeId . '">'
-                        . '<blob path="' . $path . '" fileSize="' . $fileSize . '" rev="' . $revision . '" external="true" />'
-                    . '</item>'
-                .'</incorrectRevisions>'
-                .'<usedBlobs>'
-                    . '<item id="' . $id . '" rev="' . $revision . '" s="' . $size . '" volumeId="' . $volumeId . '">'
-                        . '<blob path="' . $path . '" s="' . $size . '" fileSize="' . $fileSize . '" external="true" />'
-                    . '</item>'
-                .'</usedBlobs>'
-            . '</mbox>';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<mbox id ="$id">
+    <missingBlobs>
+        <item id="$id" rev="$revision" s="$size" volumeId="$volumeId" blobPath="$blobPath" external="true" version="$version" />
+    </missingBlobs>
+    <incorrectSizes>
+        <item id="$id" rev="$revision" s="$size" volumeId="$volumeId">
+            <blob path="$path" s="$size" fileSize="$fileSize" external="true" />
+        </item>
+    </incorrectSizes>
+    <unexpectedBlobs>
+        <blob volumeId="$volumeId" path="$path" fileSize="$fileSize" external="true" />
+    </unexpectedBlobs>
+    <incorrectRevisions>
+        <item id="$id" rev="$revision" s="$size" volumeId="$volumeId">
+            <blob path="$path" fileSize="$fileSize" rev="$revision" external="true" />
+        </item>
+    </incorrectRevisions>
+    <usedBlobs>
+        <item id="$id" rev="$revision" s="$size" volumeId="$volumeId">
+            <blob path="$path" s="$size" fileSize="$fileSize" external="true" />
+        </item>
+    </usedBlobs>
+</mbox>
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($mbox, 'xml'));
         $this->assertEquals($mbox, $this->serializer->deserialize($xml, MailboxBlobConsistency::class, 'xml'));
 

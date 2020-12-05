@@ -29,8 +29,10 @@ class DistributionListMembershipInfoTest extends ZimbraStructTestCase
         $this->assertSame($name, $dl->getName());
         $this->assertSame($via, $dl->getVia());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<dl id="' . $id . '" name="' . $name . '" via="' . $via . '" />';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<dl id="$id" name="$name" via="$via" />
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($dl, 'xml'));
         $this->assertEquals($dl, $this->serializer->deserialize($xml, DistributionListMembershipInfo::class, 'xml'));
 

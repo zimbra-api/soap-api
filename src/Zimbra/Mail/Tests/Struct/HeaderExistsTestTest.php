@@ -24,8 +24,10 @@ class HeaderExistsTestTest extends ZimbraStructTestCase
         $test->setHeader($header);
         $this->assertSame($header, $test->getHeader());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<headerExistsTest index="' . $index . '" negative="true" header="' . $header . '" />';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<headerExistsTest index="$index" negative="true" header="$header" />
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($test, 'xml'));
         $this->assertEquals($test, $this->serializer->deserialize($xml, HeaderExistsTest::class, 'xml'));
 

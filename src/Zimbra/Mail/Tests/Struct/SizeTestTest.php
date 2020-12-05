@@ -28,8 +28,10 @@ class SizeTestTest extends ZimbraStructTestCase
         $this->assertSame($numberComparison, $test->getNumberComparison());
         $this->assertSame($size, $test->getSize());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<sizeTest index="' . $index . '" negative="true" numberComparison="' . $numberComparison . '" s="' . $size . '" />';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<sizeTest index="$index" negative="true" numberComparison="$numberComparison" s="$size" />
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($test, 'xml'));
         $this->assertEquals($test, $this->serializer->deserialize($xml, SizeTest::class, 'xml'));
 

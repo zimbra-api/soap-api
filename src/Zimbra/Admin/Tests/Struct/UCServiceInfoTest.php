@@ -20,10 +20,12 @@ class UCServiceInfoTest extends ZimbraStructTestCase
 
         $ucservice = new UCServiceInfo($name, $id, [new Attr($key, $value)]);
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<ucservice name="' . $name . '" id="' . $id . '">'
-                . '<a n="' . $key . '">' . $value . '</a>'
-            . '</ucservice>';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<ucservice name="$name" id="$id">
+    <a n="$key">$value</a>
+</ucservice>
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($ucservice, 'xml'));
         $this->assertEquals($ucservice, $this->serializer->deserialize($xml, UCServiceInfo::class, 'xml'));
 

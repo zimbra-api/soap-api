@@ -40,14 +40,18 @@ class EntrySearchFilterMultiCondTest extends ZimbraStructTestCase
         $this->assertSame([$multiConds], $conds->getCompoundConditions());
         $this->assertSame([$cond, $singleCond], $conds->getSingleConditions());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<conds not="true" or="false">'
-                . '<conds not="false" or="true">'
-                    . '<cond attr="' . $attr . '" op="' . CondOp::GE() . '" value="' . $value . '" not="false" />'
-                . '</conds>'
-                . '<cond attr="' . $attr . '" op="' . CondOp::EQ() . '" value="' . $value . '" not="true" />'
-                . '<cond attr="' . $attr . '" op="' . CondOp::GE() . '" value="' . $value . '" not="false" />'
-            . '</conds>';
+        $ge = CondOp::GE()->getValue();
+        $eq = CondOp::EQ()->getValue();
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<conds not="true" or="false">
+    <conds not="false" or="true">
+        <cond attr="$attr" op="$ge" value="$value" not="false" />
+    </conds>
+    <cond attr="$attr" op="$eq" value="$value" not="true" />
+    <cond attr="$attr" op="$ge" value="$value" not="false" />
+</conds>
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($conds, 'xml'));
 
         $multiCond = $this->serializer->deserialize($xml, EntrySearchFilterMultiCond::class, 'xml');
@@ -67,7 +71,7 @@ class EntrySearchFilterMultiCondTest extends ZimbraStructTestCase
                     'cond' => [
                         [
                             'attr' => $attr,
-                            'op' => (string) CondOp::GE(),
+                            'op' => $ge,
                             'value' => $value,
                             'not' => FALSE,
                         ],
@@ -77,13 +81,13 @@ class EntrySearchFilterMultiCondTest extends ZimbraStructTestCase
             'cond' => [
                 [
                     'attr' => $attr,
-                    'op' => (string) CondOp::EQ(),
+                    'op' => $eq,
                     'value' => $value,
                     'not' => TRUE,
                 ],
                 [
                     'attr' => $attr,
-                    'op' => (string) CondOp::GE(),
+                    'op' => $ge,
                     'value' => $value,
                     'not' => FALSE,
                 ],

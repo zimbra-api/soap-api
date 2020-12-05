@@ -15,8 +15,10 @@ class DiscardActionTest extends ZimbraStructTestCase
         $index = mt_rand(1, 99);
         $action = new DiscardAction($index);
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<actionDiscard index="' . $index . '" />';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<actionDiscard index="$index" />
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($action, 'xml'));
         $this->assertEquals($action, $this->serializer->deserialize($xml, DiscardAction::class, 'xml'));
 

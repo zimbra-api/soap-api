@@ -73,32 +73,34 @@ class TzFixupTest extends ZimbraStructTestCase
         $this->assertSame([$fixupRule, $fixupRule], $tzfixup->getFixupRules());
         $tzfixup->setFixupRules([$fixupRule]);
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<tzfixup>'
-                . '<fixupRule>'
-                    . '<match>'
-                        . '<any />'
-                        . '<tzid id="' . $id . '" />'
-                        . '<nonDst offset="' . $offset . '" />'
-                        . '<rules stdoff="' . $rule_stdoff . '" dayoff="' . $rule_dayoff . '">'
-                            . '<standard mon="' . $rule_mon . '" week="' . $rule_week . '" wkday="' . $rule_wkday . '" />'
-                            . '<daylight mon="' . $rule_mon . '" week="' . $rule_week . '" wkday="' . $rule_wkday . '" />'
-                        . '</rules>'
-                        . '<dates stdoff="' . $date_stdoff . '" dayoff="' . $date_dayoff . '">'
-                            . '<standard mon="' . $date_mon . '" mday="' . $date_mday . '" />'
-                            . '<daylight mon="' . $date_mon . '" mday="' . $date_mday . '" />'
-                        . '</dates>'
-                    . '</match>'
-                    . '<touch />'
-                    . '<replace>'
-                        . '<wellKnownTz id="' . $id . '" />'
-                        . '<tz id="' . $id . '" stdoff="' . $stdoff . '" dayoff="' . $dayoff . '" stdname="' . $stdname . '" dayname="' . $dayname . '">'
-                            . '<standard mon="' . $mon . '" hour="' . $hour . '" min="' . $min . '" sec="' . $sec . '" />'
-                            . '<daylight mon="' . $mon . '" hour="' . $hour . '" min="' . $min . '" sec="' . $sec . '" />'
-                        . '</tz>'
-                    . '</replace>'
-                . '</fixupRule>'
-            . '</tzfixup>';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<tzfixup>
+    <fixupRule>
+        <match>
+            <any />
+            <tzid id="$id" />
+            <nonDst offset="$offset" />
+            <rules stdoff="$rule_stdoff" dayoff="$rule_dayoff">
+                <standard mon="$rule_mon" week="$rule_week" wkday="$rule_wkday" />
+                <daylight mon="$rule_mon" week="$rule_week" wkday="$rule_wkday" />
+            </rules>
+            <dates stdoff="$date_stdoff" dayoff="$date_dayoff">
+                <standard mon="$date_mon" mday="$date_mday" />
+                <daylight mon="$date_mon" mday="$date_mday" />
+            </dates>
+        </match>
+        <touch />
+        <replace>
+            <wellKnownTz id="$id" />
+            <tz id="$id" stdoff="$stdoff" dayoff="$dayoff" stdname="$stdname" dayname="$dayname">
+                <standard mon="$mon" hour="$hour" min="$min" sec="$sec" />
+                <daylight mon="$mon" hour="$hour" min="$min" sec="$sec" />
+            </tz>
+        </replace>
+    </fixupRule>
+</tzfixup>
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($tzfixup, 'xml'));
         $this->assertEquals($tzfixup, $this->serializer->deserialize($xml, TzFixup::class, 'xml'));
 

@@ -24,13 +24,16 @@ class CosSelectorTest extends ZimbraStructTestCase
         $this->assertEquals(CosBy::NAME(), $cos->getBy());
         $this->assertSame($value, $cos->getValue());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<cos by="' . CosBy::NAME() . '">' . $value . '</cos>';
+        $by = CosBy::NAME()->getValue();
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<cos by="$by">$value</cos>
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($cos, 'xml'));
         $this->assertEquals($cos, $this->serializer->deserialize($xml, CosSelector::class, 'xml'));
 
         $json = json_encode([
-            'by' => (string) CosBy::NAME(),
+            'by' => $by,
             '_content' => $value,
         ]);
         $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($cos, 'json'));

@@ -24,8 +24,10 @@ class FlaggedTestTest extends ZimbraStructTestCase
         $test->setFlag($flag);
         $this->assertSame($flag, $test->getFlag());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<flaggedTest index="' . $index . '" negative="true" flag="' . $flag . '" />';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<flaggedTest index="$index" negative="true" flag="$flag" />
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($test, 'xml'));
         $this->assertEquals($test, $this->serializer->deserialize($xml, FlaggedTest::class, 'xml'));
 

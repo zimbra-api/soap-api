@@ -212,49 +212,52 @@ class AuthTest extends ZimbraStructTestCase
         $envelope->setBody($body);
         $this->assertSame($body, $envelope->getBody());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAccount">'
-                . '<soap:Body>'
-                    . '<urn:AuthRequest persistAuthTokenCookie="true" csrfTokenSecured="true" deviceTrusted="true" generateDeviceId="true" tokenType="' . $tokenType . '">'
-                        . '<account by="' . AccountBy::NAME() . '">' . $value . '</account>'
-                        . '<password>' . $password . '</password>'
-                        . '<recoveryCode>' . $recoveryCode . '</recoveryCode>'
-                        . '<preauth timestamp="' . $time . '" expiresTimestamp="' . $time . '">' . $value . '</preauth>'
-                        . '<authToken verifyAccount="true" lifetime="' . $lifetime . '">' . $value . '</authToken>'
-                        . '<jwtToken>' . $jwtToken . '</jwtToken>'
-                        . '<virtualHost>' . $virtualHost . '</virtualHost>'
-                        . '<prefs>'
-                            . '<pref name="' . $name . '" modified="' . $time . '">' . $value . '</pref>'
-                        . '</prefs>'
-                        . '<attrs>'
-                            . '<attr name="' . $name . '" pd="true">' . $value . '</attr>'
-                        . '</attrs>'
-                        . '<requestedSkin>' . $requestedSkin . '</requestedSkin>'
-                        . '<twoFactorCode>' . $twoFactorCode . '</twoFactorCode>'
-                        . '<trustedDeviceToken>' . $trustedToken . '</trustedDeviceToken>'
-                        . '<deviceId>' . $deviceId . '</deviceId>'
-                    . '</urn:AuthRequest>'
-                    . '<urn:AuthResponse zmgProxy="true">'
-                        . '<authToken>' . $token . '</authToken>'
-                        . '<lifetime>' . $lifetime . '</lifetime>'
-                        . '<trustLifetime>' . $trustLifetime . '</trustLifetime>'
-                        . '<session type="' . $type . '" id="' . $id . '">'  .$id . '</session>'
-                        . '<refer>' . $refer . '</refer>'
-                        . '<skin>' . $skin . '</skin>'
-                        . '<csrfToken>' . $csrfToken . '</csrfToken>'
-                        . '<deviceId>' . $deviceId . '</deviceId>'
-                        . '<trustedToken>' . $trustedToken . '</trustedToken>'
-                        . '<prefs>'
-                            . '<pref name="' . $name . '" modified="' . $time . '">' . $value . '</pref>'
-                        . '</prefs>'
-                        . '<attrs>'
-                            . '<attr name="' . $name . '" pd="true">' . $value . '</attr>'
-                        . '</attrs>'
-                        . '<twoFactorAuthRequired>true</twoFactorAuthRequired>'
-                        . '<trustedDevicesEnabled>true</trustedDevicesEnabled>'
-                    . '</urn:AuthResponse>'
-                . '</soap:Body>'
-            . '</soap:Envelope>';
+        $by = AccountBy::NAME()->getValue();
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAccount">
+    <soap:Body>
+        <urn:AuthRequest persistAuthTokenCookie="true" csrfTokenSecured="true" deviceTrusted="true" generateDeviceId="true" tokenType="$tokenType">
+            <account by="$by">$value</account>
+            <password>$password</password>
+            <recoveryCode>$recoveryCode</recoveryCode>
+            <preauth timestamp="$time" expiresTimestamp="$time">$value</preauth>
+            <authToken verifyAccount="true" lifetime="$lifetime">$value</authToken>
+            <jwtToken>$jwtToken</jwtToken>
+            <virtualHost>$virtualHost</virtualHost>
+            <prefs>
+                <pref name="$name" modified="$time">$value</pref>
+            </prefs>
+            <attrs>
+                <attr name="$name" pd="true">$value</attr>
+            </attrs>
+            <requestedSkin>$requestedSkin</requestedSkin>
+            <twoFactorCode>$twoFactorCode</twoFactorCode>
+            <trustedDeviceToken>$trustedToken</trustedDeviceToken>
+            <deviceId>$deviceId</deviceId>
+        </urn:AuthRequest>
+        <urn:AuthResponse zmgProxy="true">
+            <authToken>$token</authToken>
+            <lifetime>$lifetime</lifetime>
+            <trustLifetime>$trustLifetime</trustLifetime>
+            <session type="$type" id="$id">$id</session>
+            <refer>$refer</refer>
+            <skin>$skin</skin>
+            <csrfToken>$csrfToken</csrfToken>
+            <deviceId>$deviceId</deviceId>
+            <trustedToken>$trustedToken</trustedToken>
+            <prefs>
+                <pref name="$name" modified="$time">$value</pref>
+            </prefs>
+            <attrs>
+                <attr name="$name" pd="true">$value</attr>
+            </attrs>
+            <twoFactorAuthRequired>true</twoFactorAuthRequired>
+            <trustedDevicesEnabled>true</trustedDevicesEnabled>
+        </urn:AuthResponse>
+    </soap:Body>
+</soap:Envelope>
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, AuthEnvelope::class, 'xml'));
 
@@ -264,7 +267,7 @@ class AuthTest extends ZimbraStructTestCase
                     'persistAuthTokenCookie' => TRUE,
                     'csrfTokenSecured' => TRUE,
                     'account' => [
-                        'by' => (string) AccountBy::NAME(),
+                        'by' => $by,
                         '_content' => $value,
                     ],
                     'password' => [

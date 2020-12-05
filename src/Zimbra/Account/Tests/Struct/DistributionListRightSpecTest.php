@@ -32,11 +32,17 @@ class DistributionListRightSpecTest extends ZimbraStructTestCase
         $this->assertSame($name, $right->getRight());
         $this->assertSame([$grantee1, $grantee2], $right->getGrantees());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<right right="' . $name . '">'
-                . '<grantee type="' . GranteeType::ALL() . '" by="' . DLGranteeBy::NAME() . '">' . $value1 . '</grantee>'
-                . '<grantee type="' . GranteeType::USR() . '" by="' . DLGranteeBy::ID() . '">' . $value2 . '</grantee>'
-            . '</right>';
+        $typeAll = GranteeType::ALL()->getValue();
+        $typeUsr = GranteeType::USR()->getValue();
+        $byName = DLGranteeBy::NAME()->getValue();
+        $byId = DLGranteeBy::ID()->getValue();
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<right right="$name">
+    <grantee type="$typeAll" by="$byName">$value1</grantee>
+    <grantee type="$typeUsr" by="$byId">$value2</grantee>
+</right>
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($right, 'xml'));
         $this->assertEquals($right, $this->serializer->deserialize($xml, DistributionListRightSpec::class, 'xml'));
 
@@ -44,13 +50,13 @@ class DistributionListRightSpecTest extends ZimbraStructTestCase
             'right' => $name,
             'grantee' => [
                 [
-                    'type' => (string) GranteeType::ALL(),
-                    'by' => (string) DLGranteeBy::NAME(),
+                    'type' => $typeAll,
+                    'by' => $byName,
                     '_content' => $value1,
                 ],
                 [
-                    'type' => (string) GranteeType::USR(),
-                    'by' => (string) DLGranteeBy::ID(),
+                    'type' => $typeUsr,
+                    'by' => $byId,
                     '_content' => $value2,
                 ],
             ],

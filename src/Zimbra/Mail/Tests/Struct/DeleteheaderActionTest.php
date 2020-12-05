@@ -36,13 +36,15 @@ class DeleteheaderActionTest extends ZimbraStructTestCase
         $this->assertSame($offset, $action->getOffset());
         $this->assertSame($test, $action->getTest());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<actionDeleteheader index="' . $index . '" last="true" offset="' . $offset . '">'
-                . '<test matchType="' . $matchType . '" countComparator="true" valueComparator="true" relationalComparator="' . $relationalComparator . '" comparator="' . $comparator . '">'
-                    . '<headerName>' . $headerName . '</headerName>'
-                    . '<headerValue>' . $headerValue . '</headerValue>'
-                . '</test>'
-            . '</actionDeleteheader>';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<actionDeleteheader index="$index" last="true" offset="$offset">
+    <test matchType="$matchType" countComparator="true" valueComparator="true" relationalComparator="$relationalComparator" comparator="$comparator">
+        <headerName>$headerName</headerName>
+        <headerValue>$headerValue</headerValue>
+    </test>
+</actionDeleteheader>
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($action, 'xml'));
         $this->assertEquals($action, $this->serializer->deserialize($xml, DeleteheaderAction::class, 'xml'));
 

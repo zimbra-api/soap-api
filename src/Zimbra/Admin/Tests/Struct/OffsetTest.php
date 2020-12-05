@@ -20,8 +20,10 @@ class OffsetTest extends ZimbraStructTestCase
         $offset->setOffset($value);
         $this->assertSame($value, $offset->getOffset());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<offset offset="' . $value . '" />';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<offset offset="$value" />
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($offset, 'xml'));
         $this->assertEquals($offset, $this->serializer->deserialize($xml, Offset::class, 'xml'));
 
