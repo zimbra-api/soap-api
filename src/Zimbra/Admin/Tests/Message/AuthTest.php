@@ -99,22 +99,24 @@ class AuthResponseTest extends ZimbraStructTestCase
         $envelope->setBody($body);
         $this->assertSame($body, $envelope->getBody());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">'
-                . '<soap:Body>'
-                    . '<urn:AuthRequest name="' . $name . '" password="' . $password . '" persistAuthTokenCookie="true" csrfTokenSecured="true">'
-                        . '<authToken>' . $authToken . '</authToken>'
-                        . '<account by="' . AccountBy::NAME() . '">' . $value . '</account>'
-                        . '<virtualHost>' . $virtualHost . '</virtualHost>'
-                        . '<twoFactorCode>' . $twoFactorCode . '</twoFactorCode>'
-                    . '</urn:AuthRequest>'
-                    . '<urn:AuthResponse>'
-                        . '<authToken>' . $authToken . '</authToken>'
-                        . '<csrfToken>' . $csrfToken . '</csrfToken>'
-                        . '<lifetime>' . $lifetime . '</lifetime>'
-                    . '</urn:AuthResponse>'
-                . '</soap:Body>'
-            . '</soap:Envelope>';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
+    <soap:Body>
+        <urn:AuthRequest name="$name" password="$password" persistAuthTokenCookie="true" csrfTokenSecured="true">
+            <authToken>$authToken</authToken>
+            <account by="name">$value</account>
+            <virtualHost>$virtualHost</virtualHost>
+            <twoFactorCode>$twoFactorCode</twoFactorCode>
+        </urn:AuthRequest>
+        <urn:AuthResponse>
+            <authToken>$authToken</authToken>
+            <csrfToken>$csrfToken</csrfToken>
+            <lifetime>$lifetime</lifetime>
+        </urn:AuthResponse>
+    </soap:Body>
+</soap:Envelope>
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, AuthEnvelope::class, 'xml'));
 
@@ -127,7 +129,7 @@ class AuthResponseTest extends ZimbraStructTestCase
                         '_content' => $authToken,
                     ],
                     'account' => [
-                        'by' => (string) AccountBy::NAME(),
+                        'by' => 'name',
                         '_content' => $value,
                     ],
                     'virtualHost' => [

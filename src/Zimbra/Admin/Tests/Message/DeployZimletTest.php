@@ -65,24 +65,26 @@ class DeployZimletTest extends ZimbraStructTestCase
         $envelope->setBody($body);
         $this->assertSame($body, $envelope->getBody());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">'
-                . '<soap:Body>'
-                    . '<urn:DeployZimletRequest action="' . ZimletDeployAction::DEPLOY_LOCAL() . '" flush="true" synchronous="true">'
-                        . '<content aid="' . $aid . '" />'
-                    . '</urn:DeployZimletRequest>'
-                    . '<urn:DeployZimletResponse>'
-                        . '<progress server="' . $server . '" status="' . ZimletDeployStatus::SUCCEEDED() . '" error="' . $error . '" />'
-                    . '</urn:DeployZimletResponse>'
-                . '</soap:Body>'
-            . '</soap:Envelope>';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
+    <soap:Body>
+        <urn:DeployZimletRequest action="deployLocal" flush="true" synchronous="true">
+            <content aid="$aid" />
+        </urn:DeployZimletRequest>
+        <urn:DeployZimletResponse>
+            <progress server="$server" status="succeeded" error="$error" />
+        </urn:DeployZimletResponse>
+    </soap:Body>
+</soap:Envelope>
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, DeployZimletEnvelope::class, 'xml'));
 
         $json = json_encode([
             'Body' => [
                 'DeployZimletRequest' => [
-                    'action' => (string) ZimletDeployAction::DEPLOY_LOCAL(),
+                    'action' => 'deployLocal',
                     'flush' => TRUE,
                     'synchronous' => TRUE,
                     'content' => [
@@ -94,7 +96,7 @@ class DeployZimletTest extends ZimbraStructTestCase
                     'progress' => [
                         [
                             'server' => $server,
-                            'status' => (string) ZimletDeployStatus::SUCCEEDED(),
+                            'status' => 'succeeded',
                             'error' => $error,
                         ],
                     ],

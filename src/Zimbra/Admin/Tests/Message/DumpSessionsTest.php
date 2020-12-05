@@ -86,110 +86,52 @@ class DumpSessionsTest extends ZimbraStructTestCase
         $envelope->setBody($body);
         $this->assertSame($body, $envelope->getBody());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">'
-                . '<soap:Body>'
-                    . '<urn:DumpSessionsRequest listSessions="true" groupByAccount="true" />'
-                    . '<urn:DumpSessionsResponse activeSessions="' . $totalActiveSessions . '">'
-                        . '<soap activeAccounts="' . $activeAccounts . '" activeSessions="' . $activeSessions . '">'
-                            . '<zid name="' . $name . '" id="' . $id . '">'
-                                . '<s '
-                                    . 'zid="' . $zimbraId . '" '
-                                    . 'name="' . $name . '" '
-                                    . 'sid="' . $sessionId . '" '
-                                    . 'cd="' . $createdDate . '" '
-                                    . 'ld="' . $lastAccessedDate . '" />'
-                            . '</zid>'
-                            . '<s '
-                                . 'zid="' . $zimbraId . '" '
-                                . 'name="' . $name . '" '
-                                . 'sid="' . $sessionId . '" '
-                                . 'cd="' . $createdDate . '" '
-                                . 'ld="' . $lastAccessedDate . '" />'
-                        . '</soap>'
-                        . '<imap activeAccounts="' . $activeAccounts . '" activeSessions="' . $activeSessions . '">'
-                            . '<zid name="' . $name . '" id="' . $id . '">'
-                                . '<s '
-                                    . 'zid="' . $zimbraId . '" '
-                                    . 'name="' . $name . '" '
-                                    . 'sid="' . $sessionId . '" '
-                                    . 'cd="' . $createdDate . '" '
-                                    . 'ld="' . $lastAccessedDate . '" />'
-                            . '</zid>'
-                            . '<s '
-                                . 'zid="' . $zimbraId . '" '
-                                . 'name="' . $name . '" '
-                                . 'sid="' . $sessionId . '" '
-                                . 'cd="' . $createdDate . '" '
-                                . 'ld="' . $lastAccessedDate . '" />'
-                        . '</imap>'
-                        . '<admin activeAccounts="' . $activeAccounts . '" activeSessions="' . $activeSessions . '">'
-                            . '<zid name="' . $name . '" id="' . $id . '">'
-                                . '<s '
-                                    . 'zid="' . $zimbraId . '" '
-                                    . 'name="' . $name . '" '
-                                    . 'sid="' . $sessionId . '" '
-                                    . 'cd="' . $createdDate . '" '
-                                    . 'ld="' . $lastAccessedDate . '" />'
-                            . '</zid>'
-                            . '<s '
-                                . 'zid="' . $zimbraId . '" '
-                                . 'name="' . $name . '" '
-                                . 'sid="' . $sessionId . '" '
-                                . 'cd="' . $createdDate . '" '
-                                . 'ld="' . $lastAccessedDate . '" />'
-                        . '</admin>'
-                        . '<wiki activeAccounts="' . $activeAccounts . '" activeSessions="' . $activeSessions . '">'
-                            . '<zid name="' . $name . '" id="' . $id . '">'
-                                . '<s '
-                                    . 'zid="' . $zimbraId . '" '
-                                    . 'name="' . $name . '" '
-                                    . 'sid="' . $sessionId . '" '
-                                    . 'cd="' . $createdDate . '" '
-                                    . 'ld="' . $lastAccessedDate . '" />'
-                            . '</zid>'
-                            . '<s '
-                                . 'zid="' . $zimbraId . '" '
-                                . 'name="' . $name . '" '
-                                . 'sid="' . $sessionId . '" '
-                                . 'cd="' . $createdDate . '" '
-                                . 'ld="' . $lastAccessedDate . '" />'
-                        . '</wiki>'
-                        . '<synclistener activeAccounts="' . $activeAccounts . '" activeSessions="' . $activeSessions . '">'
-                            . '<zid name="' . $name . '" id="' . $id . '">'
-                                . '<s '
-                                    . 'zid="' . $zimbraId . '" '
-                                    . 'name="' . $name . '" '
-                                    . 'sid="' . $sessionId . '" '
-                                    . 'cd="' . $createdDate . '" '
-                                    . 'ld="' . $lastAccessedDate . '" />'
-                            . '</zid>'
-                            . '<s '
-                                . 'zid="' . $zimbraId . '" '
-                                . 'name="' . $name . '" '
-                                . 'sid="' . $sessionId . '" '
-                                . 'cd="' . $createdDate . '" '
-                                . 'ld="' . $lastAccessedDate . '" />'
-                        . '</synclistener>'
-                        . '<waitset activeAccounts="' . $activeAccounts . '" activeSessions="' . $activeSessions . '">'
-                            . '<zid name="' . $name . '" id="' . $id . '">'
-                                . '<s '
-                                    . 'zid="' . $zimbraId . '" '
-                                    . 'name="' . $name . '" '
-                                    . 'sid="' . $sessionId . '" '
-                                    . 'cd="' . $createdDate . '" '
-                                    . 'ld="' . $lastAccessedDate . '" />'
-                            . '</zid>'
-                            . '<s '
-                                . 'zid="' . $zimbraId . '" '
-                                . 'name="' . $name . '" '
-                                . 'sid="' . $sessionId . '" '
-                                . 'cd="' . $createdDate . '" '
-                                . 'ld="' . $lastAccessedDate . '" />'
-                        . '</waitset>'
-                    . '</urn:DumpSessionsResponse>'
-                . '</soap:Body>'
-            . '</soap:Envelope>';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
+    <soap:Body>
+        <urn:DumpSessionsRequest listSessions="true" groupByAccount="true" />
+        <urn:DumpSessionsResponse activeSessions="$totalActiveSessions">
+            <soap activeAccounts="$activeAccounts" activeSessions="$activeSessions">
+                <zid name="$name" id="$id">
+                    <s zid="$zimbraId" name="$name" sid="$sessionId" cd="$createdDate" ld="$lastAccessedDate" />
+                </zid>
+                <s zid="$zimbraId" name="$name" sid="$sessionId" cd="$createdDate" ld="$lastAccessedDate" />
+            </soap>
+            <imap activeAccounts="$activeAccounts" activeSessions="$activeSessions">
+                <zid name="$name" id="$id">
+                    <s zid="$zimbraId" name="$name" sid="$sessionId" cd="$createdDate" ld="$lastAccessedDate" />
+                </zid>
+                <s zid="$zimbraId" name="$name" sid="$sessionId" cd="$createdDate" ld="$lastAccessedDate" />
+            </imap>
+            <admin activeAccounts="$activeAccounts" activeSessions="$activeSessions">
+                <zid name="$name" id="$id">
+                    <s zid="$zimbraId" name="$name" sid="$sessionId" cd="$createdDate" ld="$lastAccessedDate" />
+                </zid>
+                <s zid="$zimbraId" name="$name" sid="$sessionId" cd="$createdDate" ld="$lastAccessedDate" />
+            </admin>
+            <wiki activeAccounts="$activeAccounts" activeSessions="$activeSessions">
+                <zid name="$name" id="$id">
+                    <s zid="$zimbraId" name="$name" sid="$sessionId" cd="$createdDate" ld="$lastAccessedDate" />
+                </zid>
+                <s zid="$zimbraId" name="$name" sid="$sessionId" cd="$createdDate" ld="$lastAccessedDate" />
+            </wiki>
+            <synclistener activeAccounts="$activeAccounts" activeSessions="$activeSessions">
+                <zid name="$name" id="$id">
+                    <s zid="$zimbraId" name="$name" sid="$sessionId" cd="$createdDate" ld="$lastAccessedDate" />
+                </zid>
+                <s zid="$zimbraId" name="$name" sid="$sessionId" cd="$createdDate" ld="$lastAccessedDate" />
+            </synclistener>
+            <waitset activeAccounts="$activeAccounts" activeSessions="$activeSessions">
+                <zid name="$name" id="$id">
+                    <s zid="$zimbraId" name="$name" sid="$sessionId" cd="$createdDate" ld="$lastAccessedDate" />
+                </zid>
+                <s zid="$zimbraId" name="$name" sid="$sessionId" cd="$createdDate" ld="$lastAccessedDate" />
+            </waitset>
+        </urn:DumpSessionsResponse>
+    </soap:Body>
+</soap:Envelope>
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, DumpSessionsEnvelope::class, 'xml'));
 

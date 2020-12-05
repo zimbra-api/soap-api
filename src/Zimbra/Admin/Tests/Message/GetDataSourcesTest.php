@@ -54,19 +54,21 @@ class GetDataSourcesTest extends ZimbraStructTestCase
         $envelope->setBody($body);
         $this->assertSame($body, $envelope->getBody());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">'
-                . '<soap:Body>'
-                    . '<urn:GetDataSourcesRequest id="' . $id . '">'
-                        . '<a n="' . $key . '">' . $value . '</a>'
-                    . '</urn:GetDataSourcesRequest>'
-                    . '<urn:GetDataSourcesResponse>'
-                        . '<dataSource name="' . $name . '" id="' . $id . '" type="' . DataSourceType::POP3() . '">'
-                            . '<a n="' . $key . '">' . $value . '</a>'
-                        . '</dataSource>'
-                    . '</urn:GetDataSourcesResponse>'
-                . '</soap:Body>'
-            . '</soap:Envelope>';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
+    <soap:Body>
+        <urn:GetDataSourcesRequest id="$id">
+            <a n="$key">$value</a>
+        </urn:GetDataSourcesRequest>
+        <urn:GetDataSourcesResponse>
+            <dataSource name="$name" id="$id" type="pop3">
+                <a n="$key">$value</a>
+            </dataSource>
+        </urn:GetDataSourcesResponse>
+    </soap:Body>
+</soap:Envelope>
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, GetDataSourcesEnvelope::class, 'xml'));
 
@@ -87,7 +89,7 @@ class GetDataSourcesTest extends ZimbraStructTestCase
                         [
                             'name' => $name,
                             'id' => $id,
-                            'type' => (string) DataSourceType::POP3(),
+                            'type' => 'pop3',
                             'a' => [
                                 [
                                     'n' => $key,

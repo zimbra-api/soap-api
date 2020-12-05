@@ -46,15 +46,17 @@ class DeleteGalSyncAccountTest extends ZimbraStructTestCase
         $envelope->setBody($body);
         $this->assertSame($body, $envelope->getBody());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">'
-                . '<soap:Body>'
-                    . '<urn:DeleteGalSyncAccountRequest>'
-                        . '<account by="' . AccountBy::NAME() . '">' . $value . '</account>'
-                    . '</urn:DeleteGalSyncAccountRequest>'
-                    . '<urn:DeleteGalSyncAccountResponse />'
-                . '</soap:Body>'
-            . '</soap:Envelope>';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
+    <soap:Body>
+        <urn:DeleteGalSyncAccountRequest>
+            <account by="name">$value</account>
+        </urn:DeleteGalSyncAccountRequest>
+        <urn:DeleteGalSyncAccountResponse />
+    </soap:Body>
+</soap:Envelope>
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, DeleteGalSyncAccountEnvelope::class, 'xml'));
 
@@ -62,7 +64,7 @@ class DeleteGalSyncAccountTest extends ZimbraStructTestCase
             'Body' => [
                 'DeleteGalSyncAccountRequest' => [
                     'account' => [
-                        'by' => (string) AccountBy::NAME(),
+                        'by' => 'name',
                         '_content' => $value,
                     ],
                     '_jsns' => 'urn:zimbraAdmin',

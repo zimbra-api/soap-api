@@ -60,21 +60,23 @@ class ContactBackupTest extends ZimbraStructTestCase
         $envelope->setBody($body);
         $this->assertSame($body, $envelope->getBody());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">'
-                . '<soap:Body>'
-                    . '<urn:ContactBackupRequest op="' . ContactBackupOp::START() . '">'
-                        .'<servers>'
-                            . '<server by="' . ServerBy::NAME() . '">' . $value . '</server>'
-                        .'</servers>'
-                    . '</urn:ContactBackupRequest>'
-                    . '<urn:ContactBackupResponse>'
-                        .'<servers>'
-                            . '<server name="' . $name . '" status="' . ContactBackupStatus::STOPPED() . '" />'
-                        .'</servers>'
-                    . '</urn:ContactBackupResponse>'
-                . '</soap:Body>'
-            . '</soap:Envelope>';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
+    <soap:Body>
+        <urn:ContactBackupRequest op="start">
+            <servers>
+                <server by="name">$value</server>
+            </servers>
+        </urn:ContactBackupRequest>
+        <urn:ContactBackupResponse>
+            <servers>
+                <server name="$name" status="stopped" />
+            </servers>
+        </urn:ContactBackupResponse>
+    </soap:Body>
+</soap:Envelope>
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, ContactBackupEnvelope::class, 'xml'));
 
@@ -84,12 +86,12 @@ class ContactBackupTest extends ZimbraStructTestCase
                     'servers' => [
                         'server' => [
                             [
-                                'by' => (string) ServerBy::NAME(),
+                                'by' => 'name',
                                 '_content' => $value,
                             ],
                         ]
                     ],
-                    'op' => (string) ContactBackupOp::START(),
+                    'op' => 'start',
                     '_jsns' => 'urn:zimbraAdmin',
                 ],
                 'ContactBackupResponse' => [
@@ -97,7 +99,7 @@ class ContactBackupTest extends ZimbraStructTestCase
                         'server' => [
                             [
                                 'name' => $name,
-                                'status' => (string) ContactBackupStatus::STOPPED(),
+                                'status' => 'stopped',
                             ],
                         ]
                     ],

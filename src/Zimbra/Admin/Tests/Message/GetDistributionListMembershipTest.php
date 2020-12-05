@@ -68,17 +68,19 @@ class GetDistributionListMembershipTest extends ZimbraStructTestCase
         $envelope->setBody($body);
         $this->assertSame($body, $envelope->getBody());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">'
-                . '<soap:Body>'
-                    . '<urn:GetDistributionListMembershipRequest limit="' . $limit . '" offset="' . $offset . '">'
-                        . '<dl by="' . DLBy::NAME() . '">' . $value . '</dl>'
-                    . '</urn:GetDistributionListMembershipRequest>'
-                    . '<urn:GetDistributionListMembershipResponse>'
-                        . '<dl id="' . $id . '" name="' . $name . '" via="' . $via . '" />'
-                    . '</urn:GetDistributionListMembershipResponse>'
-                . '</soap:Body>'
-            . '</soap:Envelope>';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
+    <soap:Body>
+        <urn:GetDistributionListMembershipRequest limit="$limit" offset="$offset">
+            <dl by="name">$value</dl>
+        </urn:GetDistributionListMembershipRequest>
+        <urn:GetDistributionListMembershipResponse>
+            <dl id="$id" name="$name" via="$via" />
+        </urn:GetDistributionListMembershipResponse>
+    </soap:Body>
+</soap:Envelope>
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, GetDistributionListMembershipEnvelope::class, 'xml'));
 
@@ -88,7 +90,7 @@ class GetDistributionListMembershipTest extends ZimbraStructTestCase
                     'limit' => $limit,
                     'offset' => $offset,
                     'dl' => [
-                        'by' => (string) DLBy::NAME(),
+                        'by' => 'name',
                         '_content' => $value,
                     ],
                     '_jsns' => 'urn:zimbraAdmin',

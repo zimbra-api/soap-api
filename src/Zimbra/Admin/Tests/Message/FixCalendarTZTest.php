@@ -113,40 +113,42 @@ class FixCalendarTZTest extends ZimbraStructTestCase
         $envelope->setBody($body);
         $this->assertSame($body, $envelope->getBody());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">'
-                . '<soap:Body>'
-                    . '<urn:FixCalendarTZRequest sync="true" after="' . $after . '">'
-                        . '<account name="' . $name . '" />'
-                        . '<tzfixup>'
-                        . '<fixupRule>'
-                            . '<match>'
-                                . '<any />'
-                                . '<tzid id="' . $id . '" />'
-                                . '<nonDst offset="' . $offset . '" />'
-                                . '<rules stdoff="' . $rule_stdoff . '" dayoff="' . $rule_dayoff . '">'
-                                    . '<standard mon="' . $rule_mon . '" week="' . $rule_week . '" wkday="' . $rule_wkday . '" />'
-                                    . '<daylight mon="' . $rule_mon . '" week="' . $rule_week . '" wkday="' . $rule_wkday . '" />'
-                                . '</rules>'
-                                . '<dates stdoff="' . $date_stdoff . '" dayoff="' . $date_dayoff . '">'
-                                    . '<standard mon="' . $date_mon . '" mday="' . $date_mday . '" />'
-                                    . '<daylight mon="' . $date_mon . '" mday="' . $date_mday . '" />'
-                                . '</dates>'
-                            . '</match>'
-                            . '<touch />'
-                            . '<replace>'
-                                . '<wellKnownTz id="' . $id . '" />'
-                                . '<tz id="' . $id . '" stdoff="' . $stdoff . '" dayoff="' . $dayoff . '" stdname="' . $stdname . '" dayname="' . $dayname . '">'
-                                    . '<standard mon="' . $mon . '" hour="' . $hour . '" min="' . $min . '" sec="' . $sec . '" />'
-                                    . '<daylight mon="' . $mon . '" hour="' . $hour . '" min="' . $min . '" sec="' . $sec . '" />'
-                                . '</tz>'
-                            . '</replace>'
-                        . '</fixupRule>'
-                    . '</tzfixup>'
-                    . '</urn:FixCalendarTZRequest>'
-                    . '<urn:FixCalendarTZResponse />'
-                . '</soap:Body>'
-            . '</soap:Envelope>';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
+    <soap:Body>
+        <urn:FixCalendarTZRequest sync="true" after="$after">
+            <account name="$name" />
+            <tzfixup>
+            <fixupRule>
+                <match>
+                    <any />
+                    <tzid id="$id" />
+                    <nonDst offset="$offset" />
+                    <rules stdoff="$rule_stdoff" dayoff="$rule_dayoff">
+                        <standard mon="$rule_mon" week="$rule_week" wkday="$rule_wkday" />
+                        <daylight mon="$rule_mon" week="$rule_week" wkday="$rule_wkday" />
+                    </rules>
+                    <dates stdoff="$date_stdoff" dayoff="$date_dayoff">
+                        <standard mon="$date_mon" mday="$date_mday" />
+                        <daylight mon="$date_mon" mday="$date_mday" />
+                    </dates>
+                </match>
+                <touch />
+                <replace>
+                    <wellKnownTz id="$id" />
+                    <tz id="$id" stdoff="$stdoff" dayoff="$dayoff" stdname="$stdname" dayname="$dayname">
+                        <standard mon="$mon" hour="$hour" min="$min" sec="$sec" />
+                        <daylight mon="$mon" hour="$hour" min="$min" sec="$sec" />
+                    </tz>
+                </replace>
+            </fixupRule>
+        </tzfixup>
+        </urn:FixCalendarTZRequest>
+        <urn:FixCalendarTZResponse />
+    </soap:Body>
+</soap:Envelope>
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, FixCalendarTZEnvelope::class, 'xml'));
 

@@ -31,7 +31,7 @@ class CheckRightTest extends ZimbraStructTestCase
     {
         $type = $this->faker->word;
         $key = $this->faker->word;
-        $value = $this->faker->word;
+        $value= $this->faker->word;
         $secret = $this->faker->word;
 
         $target = new EffectiveRightsTargetSelector(
@@ -96,24 +96,26 @@ class CheckRightTest extends ZimbraStructTestCase
         $envelope->setBody($body);
         $this->assertSame($body, $envelope->getBody());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">'
-                . '<soap:Body>'
-                    . '<urn:CheckRightRequest>'
-                        . '<target type="' . TargetType::ACCOUNT() . '" by="' . TargetBy::NAME() . '">' . $value . '</target>'
-                        . '<grantee type="' . GranteeType::USR() . '" by="' . GranteeBy::ID() . '" secret="' . $secret . '" all="true">' . $value . '</grantee>'
-                        . '<right>' . $value . '</right>'
-                        . '<a n="' . $key . '">' . $value . '</a>'
-                    . '</urn:CheckRightRequest>'
-                    . '<urn:CheckRightResponse allow="true">'
-                        . '<via>'
-                            . '<target type="' . $type . '">' . $value . '</target>'
-                            . '<grantee type="' . $type . '">' . $value . '</grantee>'
-                            . '<right>' . $value . '</right>'
-                        . '</via>'
-                    . '</urn:CheckRightResponse>'
-                . '</soap:Body>'
-            . '</soap:Envelope>';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
+    <soap:Body>
+        <urn:CheckRightRequest>
+            <target type="account" by="name">$value</target>
+            <grantee type="usr" by="id" secret="$secret" all="true">$value</grantee>
+            <right>$value</right>
+            <a n="$key">$value</a>
+        </urn:CheckRightRequest>
+        <urn:CheckRightResponse allow="true">
+            <via>
+                <target type="$type">$value</target>
+                <grantee type="$type">$value</grantee>
+                <right>$value</right>
+            </via>
+        </urn:CheckRightResponse>
+    </soap:Body>
+</soap:Envelope>
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, CheckRightEnvelope::class, 'xml'));
 
@@ -121,13 +123,13 @@ class CheckRightTest extends ZimbraStructTestCase
             'Body' => [
                 'CheckRightRequest' => [
                     'target' => [
-                        'type' => (string) TargetType::ACCOUNT(),
-                        'by' => (string) TargetBy::NAME(),
+                        'type' => 'account',
+                        'by' => 'name',
                         '_content' => $value,
                     ],
                     'grantee' => [
-                        'type' => (string) GranteeType::USR(),
-                        'by' => (string) GranteeBy::ID(),
+                        'type' => 'usr',
+                        'by' => 'id',
                         '_content' => $value,
                         'secret' => $secret,
                         'all' => TRUE,

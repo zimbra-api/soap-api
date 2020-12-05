@@ -21,7 +21,7 @@ class AddGalSyncDataSourceTest extends ZimbraStructTestCase
     public function testAddGalSyncDataSource()
     {
         $key = $this->faker->word;
-        $value = $this->faker->word;
+        $value= $this->faker->word;
         $name = $this->faker->word;
         $id = $this->faker->uuid;
         $domain = $this->faker->word;
@@ -81,20 +81,24 @@ class AddGalSyncDataSourceTest extends ZimbraStructTestCase
         $envelope->setBody($body);
         $this->assertSame($body, $envelope->getBody());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">'
-                . '<soap:Body>'
-                    . '<urn:AddGalSyncDataSourceRequest name="' . $name . '" domain="' . $domain . '" type="' . GalMode::ZIMBRA() . '" folder="' . $folder . '">'
-                        . '<account by="' . AccountBy::NAME() . '">' . $value . '</account>'
-                        . '<a n="' . $key . '">' . $value . '</a>'
-                    . '</urn:AddGalSyncDataSourceRequest>'
-                    . '<urn:AddGalSyncDataSourceResponse>'
-                        . '<account name="' . $name . '" id="' . $id . '" isExternal="true">'
-                            . '<a n="' . $key . '">' . $value . '</a>'
-                        . '</account>'
-                    . '</urn:AddGalSyncDataSourceResponse>'
-                . '</soap:Body>'
-            . '</soap:Envelope>';
+        $by = AccountBy::NAME()->getValue();
+        $type = GalMode::ZIMBRA()->getValue();
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
+    <soap:Body>
+        <urn:AddGalSyncDataSourceRequest name="$name" domain="$domain" type="$type" folder="$folder">
+            <account by="$by">$value</account>
+            <a n="$key">$value</a>
+        </urn:AddGalSyncDataSourceRequest>
+        <urn:AddGalSyncDataSourceResponse>
+            <account name="$name" id="$id" isExternal="true">
+                <a n="$key">$value</a>
+            </account>
+        </urn:AddGalSyncDataSourceResponse>
+    </soap:Body>
+</soap:Envelope>
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, AddGalSyncDataSourceEnvelope::class, 'xml'));
 
@@ -102,12 +106,12 @@ class AddGalSyncDataSourceTest extends ZimbraStructTestCase
             'Body' => [
                 'AddGalSyncDataSourceRequest' => [
                     'account' => [
-                        'by' => (string) AccountBy::NAME(),
+                        'by' => $by,
                         '_content' => $value,
                     ],
                     'name' => $name,
                     'domain' => $domain,
-                    'type' => (string) GalMode::ZIMBRA(),
+                    'type' => $type,
                     'folder' => $folder,
                     'a' => [
                         [

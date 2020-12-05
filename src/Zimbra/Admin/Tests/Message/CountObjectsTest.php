@@ -74,31 +74,33 @@ class CountObjectsTest extends ZimbraStructTestCase
         $envelope->setBody($body);
         $this->assertSame($body, $envelope->getBody());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">'
-                . '<soap:Body>'
-                    . '<urn:CountObjectsRequest type="' . CountObjectsType::ACCOUNT() . '" onlyrelated="true">'
-                        . '<domain by="' . DomainBy::NAME() . '">' . $value . '</domain>'
-                        . '<ucservice by="' . UcServiceBy::NAME() . '">' . $value . '</ucservice>'
-                    . '</urn:CountObjectsRequest>'
-                    . '<urn:CountObjectsResponse num="' . $num . '" type="' . $type . '" />'
-                . '</soap:Body>'
-            . '</soap:Envelope>';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
+    <soap:Body>
+        <urn:CountObjectsRequest type="account" onlyrelated="true">
+            <domain by="name">$value</domain>
+            <ucservice by="name">$value</ucservice>
+        </urn:CountObjectsRequest>
+        <urn:CountObjectsResponse num="$num" type="$type" />
+    </soap:Body>
+</soap:Envelope>
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, CountObjectsEnvelope::class, 'xml'));
 
         $json = json_encode([
             'Body' => [
                 'CountObjectsRequest' => [
-                    'type' => (string) CountObjectsType::ACCOUNT(),
+                    'type' => 'account',
                     'domain' => [
                         [
-                            'by' => (string) DomainBy::NAME(),
+                            'by' => 'name',
                             '_content' => $value,
                         ],
                     ],
                     'ucservice' => [
-                        'by' => (string) UcServiceBy::NAME(),
+                        'by' => 'name',
                         '_content' => $value,
                     ],
                     'onlyrelated' => TRUE,

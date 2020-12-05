@@ -21,7 +21,7 @@ class CreateGalSyncAccountTest extends ZimbraStructTestCase
     public function testCreateGalSyncAccount()
     {
         $name = $this->faker->word;
-        $value = $this->faker->word;
+        $value= $this->faker->word;
         $id = $this->faker->uuid;
         $key = $this->faker->word;
         $domain = $this->faker->word;
@@ -95,20 +95,22 @@ class CreateGalSyncAccountTest extends ZimbraStructTestCase
         $envelope->setBody($body);
         $this->assertSame($body, $envelope->getBody());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">'
-                . '<soap:Body>'
-                    . '<urn:CreateGalSyncAccountRequest name="' . $name . '" domain="' . $domain . '" type="' . GalMode::LDAP() . '" password="' . $password . '" folder="' . $folder . '" server="' . $mailHost . '">'
-                        . '<account by="' . AccountBy::NAME() . '">' . $value . '</account>'
-                        . '<a n="' . $key . '">' . $value . '</a>'
-                    . '</urn:CreateGalSyncAccountRequest>'
-                    . '<urn:CreateGalSyncAccountResponse>'
-                        . '<account name="' . $name . '" id="' . $id . '" isExternal="true">'
-                            . '<a n="' . $key . '">' . $value . '</a>'
-                        . '</account>'
-                    . '</urn:CreateGalSyncAccountResponse>'
-                . '</soap:Body>'
-            . '</soap:Envelope>';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
+    <soap:Body>
+        <urn:CreateGalSyncAccountRequest name="$name" domain="$domain" type="ldap" password="$password" folder="$folder" server="$mailHost">
+            <account by="name">$value</account>
+            <a n="$key">$value</a>
+        </urn:CreateGalSyncAccountRequest>
+        <urn:CreateGalSyncAccountResponse>
+            <account name="$name" id="$id" isExternal="true">
+                <a n="$key">$value</a>
+            </account>
+        </urn:CreateGalSyncAccountResponse>
+    </soap:Body>
+</soap:Envelope>
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, CreateGalSyncAccountEnvelope::class, 'xml'));
 
@@ -117,9 +119,9 @@ class CreateGalSyncAccountTest extends ZimbraStructTestCase
                 'CreateGalSyncAccountRequest' => [
                     'name' => $name,
                     'domain' => $domain,
-                    'type' => (string) GalMode::LDAP(),
+                    'type' => 'ldap',
                     'account' => [
-                        'by' => (string) AccountBy::NAME(),
+                        'by' => 'name',
                         '_content' => $value,
                     ],
                     'password' => $password,

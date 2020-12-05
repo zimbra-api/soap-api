@@ -58,21 +58,23 @@ class CreateDataSourceTest extends ZimbraStructTestCase
         $envelope->setBody($body);
         $this->assertSame($body, $envelope->getBody());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">'
-                . '<soap:Body>'
-                    . '<urn:CreateDataSourceRequest id="' . $id . '">'
-                        . '<dataSource type="' . DataSourceType::IMAP() . '" name="' . $name . '">'
-                            . '<a n="' . $key . '">' . $value . '</a>'
-                        . '</dataSource>'
-                    . '</urn:CreateDataSourceRequest>'
-                    . '<urn:CreateDataSourceResponse>'
-                        . '<dataSource name="' . $name . '" id="' . $id . '" type="' . DataSourceType::IMAP() . '">'
-                            . '<a n="' . $key . '">' . $value . '</a>'
-                        . '</dataSource>'
-                    . '</urn:CreateDataSourceResponse>'
-                . '</soap:Body>'
-            . '</soap:Envelope>';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
+    <soap:Body>
+        <urn:CreateDataSourceRequest id="$id">
+            <dataSource type="imap" name="$name">
+                <a n="$key">$value</a>
+            </dataSource>
+        </urn:CreateDataSourceRequest>
+        <urn:CreateDataSourceResponse>
+            <dataSource name="$name" id="$id" type="imap">
+                <a n="$key">$value</a>
+            </dataSource>
+        </urn:CreateDataSourceResponse>
+    </soap:Body>
+</soap:Envelope>
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, CreateDataSourceEnvelope::class, 'xml'));
 
@@ -87,7 +89,7 @@ class CreateDataSourceTest extends ZimbraStructTestCase
                                 '_content' => $value,
                             ],
                         ],
-                        'type' => (string) DataSourceType::IMAP(),
+                        'type' => 'imap',
                         'name' => $name,
                     ],
                     '_jsns' => 'urn:zimbraAdmin',
@@ -102,7 +104,7 @@ class CreateDataSourceTest extends ZimbraStructTestCase
                         ],
                         'name' => $name,
                         'id' => $id,
-                        'type' => (string) DataSourceType::IMAP(),
+                        'type' => 'imap',
                     ],
                     '_jsns' => 'urn:zimbraAdmin',
                 ],

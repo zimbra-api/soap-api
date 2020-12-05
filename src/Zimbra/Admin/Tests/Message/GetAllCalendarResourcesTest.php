@@ -26,7 +26,7 @@ class GetAllCalendarResourcesTest extends ZimbraStructTestCase
         $name = $this->faker->word;
         $id = $this->faker->uuid;
         $key = $this->faker->word;
-        $value = $this->faker->word;
+        $value= $this->faker->word;
 
         $server = new ServerSelector(ServerBy::NAME(), $value);
         $domain = new DomainSelector(DomainBy::NAME(), $value);
@@ -68,20 +68,22 @@ class GetAllCalendarResourcesTest extends ZimbraStructTestCase
         $envelope->setBody($body);
         $this->assertSame($body, $envelope->getBody());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">'
-                . '<soap:Body>'
-                    . '<urn:GetAllCalendarResourcesRequest>'
-                        . '<server by="' . ServerBy::NAME() . '">' . $value . '</server>'
-                        . '<domain by="' . DomainBy::NAME() . '">' . $value . '</domain>'
-                    . '</urn:GetAllCalendarResourcesRequest>'
-                    . '<urn:GetAllCalendarResourcesResponse>'
-                        . '<calresource name="' . $name . '" id="' . $id . '">'
-                            . '<a n="' . $key . '">' . $value . '</a>'
-                        . '</calresource>'
-                    . '</urn:GetAllCalendarResourcesResponse>'
-                . '</soap:Body>'
-            . '</soap:Envelope>';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
+    <soap:Body>
+        <urn:GetAllCalendarResourcesRequest>
+            <server by="name">$value</server>
+            <domain by="name">$value</domain>
+        </urn:GetAllCalendarResourcesRequest>
+        <urn:GetAllCalendarResourcesResponse>
+            <calresource name="$name" id="$id">
+                <a n="$key">$value</a>
+            </calresource>
+        </urn:GetAllCalendarResourcesResponse>
+    </soap:Body>
+</soap:Envelope>
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, GetAllCalendarResourcesEnvelope::class, 'xml'));
 
@@ -89,11 +91,11 @@ class GetAllCalendarResourcesTest extends ZimbraStructTestCase
             'Body' => [
                 'GetAllCalendarResourcesRequest' => [
                     'server' => [
-                        'by' => (string) ServerBy::NAME(),
+                        'by' => 'name',
                         '_content' => $value,
                     ],
                     'domain' => [
-                        'by' => (string) DomainBy::NAME(),
+                        'by' => 'name',
                         '_content' => $value,
                     ],
                     '_jsns' => 'urn:zimbraAdmin',

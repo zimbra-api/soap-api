@@ -49,16 +49,18 @@ class AddDistributionListMemberTest extends ZimbraStructTestCase
         $envelope->setBody($body);
         $this->assertSame($body, $envelope->getBody());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">'
-                . '<soap:Body xmlns:urn="urn:zimbraAdmin">'
-                    . '<urn:AddDistributionListMemberRequest id="' . $id . '">'
-                        . '<dlm>' . $member1 . '</dlm>'
-                        . '<dlm>' . $member2 . '</dlm>'
-                    . '</urn:AddDistributionListMemberRequest>'
-                    . '<urn:AddDistributionListMemberResponse />'
-                . '</soap:Body>'
-            . '</soap:Envelope>';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
+    <soap:Body xmlns:urn="urn:zimbraAdmin">
+        <urn:AddDistributionListMemberRequest id="$id">
+            <dlm>$member1</dlm>
+            <dlm>$member2</dlm>
+        </urn:AddDistributionListMemberRequest>
+        <urn:AddDistributionListMemberResponse />
+    </soap:Body>
+</soap:Envelope>
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, AddDistributionListMemberEnvelope::class, 'xml'));
 

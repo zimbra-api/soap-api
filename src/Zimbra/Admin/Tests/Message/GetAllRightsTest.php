@@ -71,23 +71,25 @@ class GetAllRightsTest extends ZimbraStructTestCase
         $envelope->setBody($body);
         $this->assertSame($body, $envelope->getBody());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">'
-                . '<soap:Body>'
-                    . '<urn:GetAllRightsRequest targetType="' . $targetType . '" expandAllAttrs="true" rightClass="' . RightClass::ALL() . '" />'
-                    . '<urn:GetAllRightsResponse>'
-                        . '<right name="' . $name . '" type="' . RightType::PRESET() . '" targetType="' . $targetType . '" rightClass="' . RightClass::ALL() . '">'
-                            . '<desc>' . $desc . '</desc>'
-                            . '<attrs all="true">'
-                                . '<a n="' . $key . '">' . $value . '</a>'
-                            . '</attrs>'
-                            . '<rights>'
-                                . '<r n="' . $name . '" type="' . RightType::PRESET() . '" targetType="' . $targetType . '" />'
-                            . '</rights>'
-                        . '</right>'
-                    . '</urn:GetAllRightsResponse>'
-                . '</soap:Body>'
-            . '</soap:Envelope>';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
+    <soap:Body>
+        <urn:GetAllRightsRequest targetType="$targetType" expandAllAttrs="true" rightClass="ALL" />
+        <urn:GetAllRightsResponse>
+            <right name="$name" type="preset" targetType="$targetType" rightClass="ALL">
+                <desc>$desc</desc>
+                <attrs all="true">
+                    <a n="$key">$value</a>
+                </attrs>
+                <rights>
+                    <r n="$name" type="preset" targetType="$targetType" />
+                </rights>
+            </right>
+        </urn:GetAllRightsResponse>
+    </soap:Body>
+</soap:Envelope>
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, GetAllRightsEnvelope::class, 'xml'));
 
@@ -96,16 +98,16 @@ class GetAllRightsTest extends ZimbraStructTestCase
                 'GetAllRightsRequest' => [
                     'targetType' => $targetType,
                     'expandAllAttrs' => TRUE,
-                    'rightClass' => RightClass::ALL()->getValue(),
+                    'rightClass' => 'ALL',
                     '_jsns' => 'urn:zimbraAdmin',
                 ],
                 'GetAllRightsResponse' => [
                     'right' => [
                         [
                             'name' => $name,
-                            'type' => RightType::PRESET()->getValue(),
+                            'type' => 'preset',
                             'targetType' => $targetType,
-                            'rightClass' => RightClass::ALL()->getValue(),
+                            'rightClass' => 'ALL',
                             'desc' => [
                                 '_content' => $desc,
                             ],
@@ -122,7 +124,7 @@ class GetAllRightsTest extends ZimbraStructTestCase
                                 'r' => [
                                     [
                                         'n' => $name,
-                                        'type' => (string) RightType::PRESET(),
+                                        'type' => 'preset',
                                         'targetType' => $targetType,
                                     ],
                                 ],

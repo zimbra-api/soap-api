@@ -66,23 +66,25 @@ class CreateSystemRetentionPolicyTest extends ZimbraStructTestCase
         $envelope->setBody($body);
         $this->assertSame($body, $envelope->getBody());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin" xmlns:urn1="urn:zimbraMail">'
-                . '<soap:Body>'
-                    . '<urn:CreateSystemRetentionPolicyRequest>'
-                        . '<cos by="' . CosBy::NAME() . '">' . $value . '</cos>'
-                        . '<keep>'
-                            . '<urn1:policy type="' . Type::SYSTEM() . '" id="' . $id . '" name="' . $name . '" lifetime="' . $lifetime . '" />'
-                        . '</keep>'
-                        . '<purge>'
-                            . '<urn1:policy type="' . Type::SYSTEM() . '" id="' . $id . '" name="' . $name . '" lifetime="' . $lifetime . '" />'
-                        . '</purge>'
-                    . '</urn:CreateSystemRetentionPolicyRequest>'
-                    . '<urn:CreateSystemRetentionPolicyResponse>'
-                        . '<urn1:policy type="' . Type::SYSTEM() . '" id="' . $id . '" name="' . $name . '" lifetime="' . $lifetime . '" />'
-                    . '</urn:CreateSystemRetentionPolicyResponse>'
-                . '</soap:Body>'
-            . '</soap:Envelope>';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin" xmlns:urn1="urn:zimbraMail">
+    <soap:Body>
+        <urn:CreateSystemRetentionPolicyRequest>
+            <cos by="name">$value</cos>
+            <keep>
+                <urn1:policy type="system" id="$id" name="$name" lifetime="$lifetime" />
+            </keep>
+            <purge>
+                <urn1:policy type="system" id="$id" name="$name" lifetime="$lifetime" />
+            </purge>
+        </urn:CreateSystemRetentionPolicyRequest>
+        <urn:CreateSystemRetentionPolicyResponse>
+            <urn1:policy type="system" id="$id" name="$name" lifetime="$lifetime" />
+        </urn:CreateSystemRetentionPolicyResponse>
+    </soap:Body>
+</soap:Envelope>
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, CreateSystemRetentionPolicyEnvelope::class, 'xml'));
 
@@ -90,12 +92,12 @@ class CreateSystemRetentionPolicyTest extends ZimbraStructTestCase
             'Body' => [
                 'CreateSystemRetentionPolicyRequest' => [
                     'cos' => [
-                        'by' => (string) CosBy::NAME(),
+                        'by' => 'name',
                         '_content' => $value,
                     ],
                     'keep' => [
                         'policy' => [
-                            'type' => (string) Type::SYSTEM(),
+                            'type' => 'system',
                             'id' => $id,
                             'name' => $name,
                             'lifetime' => $lifetime,
@@ -104,7 +106,7 @@ class CreateSystemRetentionPolicyTest extends ZimbraStructTestCase
                     ],
                     'purge' => [
                         'policy' => [
-                            'type' => (string) Type::SYSTEM(),
+                            'type' => 'system',
                             'id' => $id,
                             'name' => $name,
                             'lifetime' => $lifetime,
@@ -115,7 +117,7 @@ class CreateSystemRetentionPolicyTest extends ZimbraStructTestCase
                 ],
                 'CreateSystemRetentionPolicyResponse' => [
                     'policy' => [
-                        'type' => (string) Type::SYSTEM(),
+                        'type' => 'system',
                         'id' => $id,
                         'name' => $name,
                         'lifetime' => $lifetime,

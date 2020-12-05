@@ -57,18 +57,20 @@ class DelegateAuthTest extends ZimbraStructTestCase
         $envelope->setBody($body);
         $this->assertSame($body, $envelope->getBody());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">'
-                . '<soap:Body>'
-                    . '<urn:DelegateAuthRequest duration="' . $duration . '">'
-                        . '<account by="' . AccountBy::NAME() . '">' . $value . '</account>'
-                    . '</urn:DelegateAuthRequest>'
-                    . '<urn:DelegateAuthResponse>'
-                        . '<authToken>' . $authToken . '</authToken>'
-                        . '<lifetime>' . $lifetime . '</lifetime>'
-                    . '</urn:DelegateAuthResponse>'
-                . '</soap:Body>'
-            . '</soap:Envelope>';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
+    <soap:Body>
+        <urn:DelegateAuthRequest duration="$duration">
+            <account by="name">$value</account>
+        </urn:DelegateAuthRequest>
+        <urn:DelegateAuthResponse>
+            <authToken>$authToken</authToken>
+            <lifetime>$lifetime</lifetime>
+        </urn:DelegateAuthResponse>
+    </soap:Body>
+</soap:Envelope>
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, DelegateAuthEnvelope::class, 'xml'));
 
@@ -76,7 +78,7 @@ class DelegateAuthTest extends ZimbraStructTestCase
             'Body' => [
                 'DelegateAuthRequest' => [
                     'account' => [
-                        'by' => (string) AccountBy::NAME(),
+                        'by' => 'name',
                         '_content' => $value,
                     ],
                     'duration' => $duration,

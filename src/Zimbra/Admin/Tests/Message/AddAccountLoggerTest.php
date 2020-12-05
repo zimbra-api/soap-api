@@ -68,19 +68,23 @@ class AddAccountLoggerTest extends ZimbraStructTestCase
         $envelope->setBody($body);
         $this->assertSame($body, $envelope->getBody());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">'
-                . '<soap:Body>'
-                    . '<urn:AddAccountLoggerRequest>'
-                        . '<logger category="' . $category . '" level="' . LoggingLevel::INFO() . '" />'
-                        . '<account by="' . AccountBy::NAME() . '">' . $value . '</account>'
-                        . '<id>' . $id . '</id>'
-                    . '</urn:AddAccountLoggerRequest>'
-                    . '<urn:AddAccountLoggerResponse>'
-                        . '<logger category="' . $category . '" level="' . LoggingLevel::INFO() . '" />'
-                    . '</urn:AddAccountLoggerResponse>'
-                . '</soap:Body>'
-            . '</soap:Envelope>';
+        $level = LoggingLevel::INFO()->getValue();
+        $by = AccountBy::NAME()->getValue();
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
+    <soap:Body>
+        <urn:AddAccountLoggerRequest>
+            <logger category="$category" level="$level" />
+            <account by="$by">$value</account>
+            <id>$id</id>
+        </urn:AddAccountLoggerRequest>
+        <urn:AddAccountLoggerResponse>
+            <logger category="$category" level="$level" />
+        </urn:AddAccountLoggerResponse>
+    </soap:Body>
+</soap:Envelope>
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, AddAccountLoggerEnvelope::class, 'xml'));
 
@@ -89,10 +93,10 @@ class AddAccountLoggerTest extends ZimbraStructTestCase
                 'AddAccountLoggerRequest' => [
                     'logger' => [
                         'category' => $category,
-                        'level' => (string) LoggingLevel::INFO(),
+                        'level' => $level,
                     ],
                     'account' => [
-                        'by' => (string) AccountBy::NAME(),
+                        'by' => $by,
                         '_content' => $value,
                     ],
                     'id' => [
@@ -104,7 +108,7 @@ class AddAccountLoggerTest extends ZimbraStructTestCase
                     'logger' => [
                         [
                             'category' => $category,
-                            'level' => (string) LoggingLevel::INFO(),
+                            'level' => $level,
                         ],
                     ],
                     '_jsns' => 'urn:zimbraAdmin',

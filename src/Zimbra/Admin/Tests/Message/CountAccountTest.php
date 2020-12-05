@@ -56,17 +56,19 @@ class CountAccountTest extends ZimbraStructTestCase
         $envelope->setBody($body);
         $this->assertSame($body, $envelope->getBody());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">'
-                . '<soap:Body>'
-                    . '<urn:CountAccountRequest>'
-                        . '<domain by="' . DomainBy::NAME() . '">' . $value . '</domain>'
-                    . '</urn:CountAccountRequest>'
-                    . '<urn:CountAccountResponse>'
-                        . '<cos name="' . $name . '" id="' . $id . '">' . $count . '</cos>'
-                    . '</urn:CountAccountResponse>'
-                . '</soap:Body>'
-            . '</soap:Envelope>';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
+    <soap:Body>
+        <urn:CountAccountRequest>
+            <domain by="name">$value</domain>
+        </urn:CountAccountRequest>
+        <urn:CountAccountResponse>
+            <cos name="$name" id="$id">$count</cos>
+        </urn:CountAccountResponse>
+    </soap:Body>
+</soap:Envelope>
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, CountAccountEnvelope::class, 'xml'));
 
@@ -74,7 +76,7 @@ class CountAccountTest extends ZimbraStructTestCase
             'Body' => [
                 'CountAccountRequest' => [
                     'domain' => [
-                        'by' => (string) DomainBy::NAME(),
+                        'by' => 'name',
                         '_content' => $value,
                     ],
                     '_jsns' => 'urn:zimbraAdmin',
