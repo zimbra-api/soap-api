@@ -22,10 +22,10 @@ class RejectActionTest extends ZimbraStructTestCase
         $action->setContent($content);
         $this->assertSame($content, $action->getContent());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<actionReject index="' . $index . '">'
-                . $content
-            . '</actionReject>';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<actionReject index="$index">$content</actionReject>
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($action, 'xml'));
         $this->assertEquals($action, $this->serializer->deserialize($xml, RejectAction::class, 'xml'));
 

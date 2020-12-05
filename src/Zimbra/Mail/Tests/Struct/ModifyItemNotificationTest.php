@@ -27,10 +27,12 @@ class ModifyItemNotificationTest extends ZimbraStructTestCase
         $item->setMessageInfo($msgInfo);
         $this->assertSame($msgInfo, $item->getMessageInfo());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<modMsgs change="' . $changeBitmask . '">'
-                . '<m id="' . $id . '" i4uid="' . $imapUid . '" t="' . $type . '" f="' . $flags . '" tn="' . $tags . '" />'
-            . '</modMsgs>';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<modMsgs change="$changeBitmask">
+    <m id="$id" i4uid="$imapUid" t="$type" f="$flags" tn="$tags" />
+</modMsgs>
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($item, 'xml'));
         $this->assertEquals($item, $this->serializer->deserialize($xml, ModifyItemNotification::class, 'xml'));
 

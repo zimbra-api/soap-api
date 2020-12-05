@@ -25,8 +25,10 @@ class DeleteItemNotificationTest extends ZimbraStructTestCase
         $this->assertSame($id, $deleted->getId());
         $this->assertSame($type, $deleted->getType());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<deleted id="' . $id . '" t="' . $type . '" />';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<deleted id="$id" t="$type" />
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($deleted, 'xml'));
         $this->assertEquals($deleted, $this->serializer->deserialize($xml, DeleteItemNotification::class, 'xml'));
 

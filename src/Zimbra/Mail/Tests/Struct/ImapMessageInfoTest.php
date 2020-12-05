@@ -31,8 +31,10 @@ class ImapMessageInfoTest extends ZimbraStructTestCase
         $this->assertSame($flags, $info->getFlags());
         $this->assertSame($tags, $info->getTags());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<m id="' . $id . '" i4uid="' . $imapUid . '" t="' . $type . '" f="' . $flags . '" tn="' . $tags . '" />';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<m id="$id" i4uid="$imapUid" t="$type" f="$flags" tn="$tags" />
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($info, 'xml'));
         $this->assertEquals($info, $this->serializer->deserialize($xml, ImapMessageInfo::class, 'xml'));
 

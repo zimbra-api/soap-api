@@ -18,8 +18,10 @@ class CommunityContentTestTest extends ZimbraStructTestCase
             $index, TRUE
         );
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<communityContentTest index="' . $index . '" negative="true" />';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<communityContentTest index="$index" negative="true" />
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($test, 'xml'));
         $this->assertEquals($test, $this->serializer->deserialize($xml, CommunityContentTest::class, 'xml'));
 

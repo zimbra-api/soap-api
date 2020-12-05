@@ -24,8 +24,10 @@ class ContactRankingTestTest extends ZimbraStructTestCase
         $test->setHeader($header);
         $this->assertSame($header, $test->getHeader());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<contactRankingTest index="' . $index . '" negative="true" header="' . $header . '" />';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<contactRankingTest index="$index" negative="true" header="$header" />
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($test, 'xml'));
         $this->assertEquals($test, $this->serializer->deserialize($xml, ContactRankingTest::class, 'xml'));
 

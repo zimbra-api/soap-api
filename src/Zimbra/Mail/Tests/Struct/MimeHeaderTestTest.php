@@ -35,8 +35,10 @@ class MimeHeaderTestTest extends ZimbraStructTestCase
         $this->assertTrue($test->isCaseSensitive());
         $this->assertSame($value, $test->getValue());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<mimeHeaderTest index="' . $index . '" negative="true" header="' . $headers . '" stringComparison="' . $stringComparison . '" value="' . $value . '" caseSensitive="true" />';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<mimeHeaderTest index="$index" negative="true" header="$headers" stringComparison="$stringComparison" value="$value" caseSensitive="true" />
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($test, 'xml'));
         $this->assertEquals($test, $this->serializer->deserialize($xml, MimeHeaderTest::class, 'xml'));
 

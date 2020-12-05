@@ -22,8 +22,10 @@ class TagActionTest extends ZimbraStructTestCase
         $action->setTag($tag);
         $this->assertSame($tag, $action->getTag());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<actionTag index="' . $index . '" tagName="' . $tag . '" />';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<actionTag index="$index" tagName="$tag" />
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($action, 'xml'));
         $this->assertEquals($action, $this->serializer->deserialize($xml, TagAction::class, 'xml'));
 

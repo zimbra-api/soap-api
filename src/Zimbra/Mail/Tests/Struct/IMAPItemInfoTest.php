@@ -25,8 +25,10 @@ class IMAPItemInfoTest extends ZimbraStructTestCase
         $this->assertSame($id, $info->getId());
         $this->assertSame($imapUid, $info->getImapUid());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<m id="' . $id . '" i4uid="' . $imapUid . '" />';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<m id="$id" i4uid="$imapUid" />
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($info, 'xml'));
         $this->assertEquals($info, $this->serializer->deserialize($xml, IMAPItemInfo::class, 'xml'));
 

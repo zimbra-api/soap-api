@@ -38,10 +38,12 @@ class NotifyActionTest extends ZimbraStructTestCase
         $this->assertSame($content, $action->getContent());
         $this->assertSame($origHeaders, $action->getOrigHeaders());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<actionNotify index="' . $index . '" a="' . $address . '" su="' . $subject . '" maxBodySize="' . $maxBodySize . '" origHeaders="' . $origHeaders . '">'
-                . '<content>' . $content . '</content>'
-            . '</actionNotify>';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<actionNotify index="$index" a="$address" su="$subject" maxBodySize="$maxBodySize" origHeaders="$origHeaders">
+    <content>$content</content>
+</actionNotify>
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($action, 'xml'));
         $this->assertEquals($action, $this->serializer->deserialize($xml, NotifyAction::class, 'xml'));
 

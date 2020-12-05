@@ -25,8 +25,10 @@ class RenameFolderNotificationTest extends ZimbraStructTestCase
         $this->assertSame($folderId, $item->getFolderId());
         $this->assertSame($path, $item->getPath());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<modFolders id="' . $folderId . '" path="' . $path . '" change="' . $changeBitmask . '" />';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<modFolders id="$folderId" path="$path" change="$changeBitmask" />
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($item, 'xml'));
         $this->assertEquals($item, $this->serializer->deserialize($xml, RenameFolderNotification::class, 'xml'));
 

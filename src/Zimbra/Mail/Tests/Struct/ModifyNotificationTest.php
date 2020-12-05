@@ -21,8 +21,10 @@ class ModifyNotificationTest extends ZimbraStructTestCase
         $mod->setChangeBitmask($changeBitmask);
         $this->assertSame($changeBitmask, $mod->getChangeBitmask());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<mod change="' . $changeBitmask . '" />';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<mod change="$changeBitmask" />
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($mod, 'xml'));
         $this->assertEquals($mod, $this->serializer->deserialize($xml, ModifyNotification::class, 'xml'));
 

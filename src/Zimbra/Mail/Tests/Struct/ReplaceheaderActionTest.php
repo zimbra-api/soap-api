@@ -35,15 +35,17 @@ class ReplaceheaderActionTest extends ZimbraStructTestCase
         $this->assertSame($newName, $action->getNewName());
         $this->assertSame($newValue, $action->getNewValue());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<actionReplaceheader index="' . $index . '" last="true" offset="' . $offset . '">'
-                . '<test matchType="' . $matchType . '" countComparator="true" valueComparator="true" relationalComparator="' . $relationalComparator . '" comparator="' . $comparator . '">'
-                    . '<headerName>' . $headerName . '</headerName>'
-                    . '<headerValue>' . $headerValue . '</headerValue>'
-                . '</test>'
-                . '<newName>' . $newName . '</newName>'
-                . '<newValue>' . $newValue . '</newValue>'
-            . '</actionReplaceheader>';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<actionReplaceheader index="$index" last="true" offset="$offset">
+    <test matchType="$matchType" countComparator="true" valueComparator="true" relationalComparator="$relationalComparator" comparator="$comparator">
+        <headerName>$headerName</headerName>
+        <headerValue>$headerValue</headerValue>
+    </test>
+    <newName>$newName</newName>
+    <newValue>$newValue</newValue>
+</actionReplaceheader>
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($action, 'xml'));
         $this->assertEquals($action, $this->serializer->deserialize($xml, ReplaceheaderAction::class, 'xml'));
 

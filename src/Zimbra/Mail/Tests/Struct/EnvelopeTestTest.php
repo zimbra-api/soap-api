@@ -27,8 +27,10 @@ class EnvelopeTestTest extends ZimbraStructTestCase
         );
         $this->assertTrue($test instanceof AddressTest);
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<envelopeTest index="' . $index . '" negative="true" header="' . $header . '" part="' . $part . '" stringComparison="' . $comparison . '" caseSensitive="true" value="' . $value . '" valueComparison="' . $valueComparison . '" countComparison="' . $countComparison . '" valueComparisonComparator="' . $valueComparisonComparator . '" />';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<envelopeTest index="$index" negative="true" header="$header" part="$part" stringComparison="$comparison" caseSensitive="true" value="$value" valueComparison="$valueComparison" countComparison="$countComparison" valueComparisonComparator="$valueComparisonComparator" />
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($test, 'xml'));
         $this->assertEquals($test, $this->serializer->deserialize($xml, EnvelopeTest::class, 'xml'));
 

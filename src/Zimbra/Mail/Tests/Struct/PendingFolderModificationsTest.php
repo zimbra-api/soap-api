@@ -59,21 +59,23 @@ class PendingFolderModificationsTest extends ZimbraStructTestCase
 
         $mods = new PendingFolderModifications($folderId, [$created], [$deleted], [$modMsg], [$modTag], [$modFolder]);
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<mods id="' . $folderId . '">'
-                . '<created>'
-                    . '<m id="' . $id . '" i4uid="' . $imapUid . '" t="' . $type . '" f="' . $flags . '" tn="' . $tags . '" />'
-                . '</created>'
-                . '<deleted id="' . $id . '" t="' . $type . '" />'
-                . '<modMsgs change="' . $changeBitmask . '">'
-                    . '<m id="' . $id . '" i4uid="' . $imapUid . '" t="' . $type . '" f="' . $flags . '" tn="' . $tags . '" />'
-                . '</modMsgs>'
-                . '<modTags change="' . $changeBitmask . '">'
-                    . '<id>' . $id . '</id>'
-                    . '<name>' . $name . '</name>'
-                . '</modTags>'
-                . '<modFolders id="' . $folderId . '" path="' . $path . '" change="' . $changeBitmask . '" />'
-            . '</mods>';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<mods id="$folderId">
+    <created>
+        <m id="$id" i4uid="$imapUid" t="$type" f="$flags" tn="$tags" />
+    </created>
+    <deleted id="$id" t="$type" />
+    <modMsgs change="$changeBitmask">
+        <m id="$id" i4uid="$imapUid" t="$type" f="$flags" tn="$tags" />
+    </modMsgs>
+    <modTags change="$changeBitmask">
+        <id>$id</id>
+        <name>$name</name>
+    </modTags>
+    <modFolders id="$folderId" path="$path" change="$changeBitmask" />
+</mods>
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($mods, 'xml'));
         $this->assertEquals($mods, $this->serializer->deserialize($xml, PendingFolderModifications::class, 'xml'));
 

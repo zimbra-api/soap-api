@@ -26,10 +26,12 @@ class FilterVariablesTest extends ZimbraStructTestCase
         $this->assertSame([$variable, $variable], $action->getVariables());
         $action->setVariables([$variable]);
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<filterVariables index="' . $index . '">'
-                . '<filterVariable name="' . $name . '" value="' . $value . '" />'
-            . '</filterVariables>';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<filterVariables index="$index">
+    <filterVariable name="$name" value="$value" />
+</filterVariables>
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($action, 'xml'));
         $this->assertEquals($action, $this->serializer->deserialize($xml, FilterVariables::class, 'xml'));
 

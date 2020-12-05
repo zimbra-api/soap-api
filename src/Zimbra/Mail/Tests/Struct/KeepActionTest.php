@@ -15,8 +15,10 @@ class KeepActionTest extends ZimbraStructTestCase
         $index = mt_rand(1, 99);
         $action = new KeepAction($index);
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<actionKeep index="' . $index . '" />';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<actionKeep index="$index" />
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($action, 'xml'));
         $this->assertEquals($action, $this->serializer->deserialize($xml, KeepAction::class, 'xml'));
 

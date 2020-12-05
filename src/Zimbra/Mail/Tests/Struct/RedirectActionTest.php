@@ -25,8 +25,10 @@ class RedirectActionTest extends ZimbraStructTestCase
         $this->assertSame($address, $action->getAddress());
         $this->assertTrue($action->isCopy());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<actionRedirect index="' . $index . '" a="' . $address . '" copy="true" />';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<actionRedirect index="$index" a="$address" copy="true" />
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($action, 'xml'));
         $this->assertEquals($action, $this->serializer->deserialize($xml, RedirectAction::class, 'xml'));
 

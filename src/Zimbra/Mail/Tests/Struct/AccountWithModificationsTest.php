@@ -47,23 +47,25 @@ class AccountWithModificationsTest extends ZimbraStructTestCase
 
         $account = new AccountWithModifications($id, [$mod], $lastChangeId);
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<a id="' . $id . '" changeid="' . $lastChangeId . '">'
-                . '<mods id="' . $folderId . '">'
-                    . '<created>'
-                        . '<m id="' . $id . '" i4uid="' . $imapUid . '" t="' . $type . '" f="' . $flags . '" tn="' . $tags . '" />'
-                    . '</created>'
-                    . '<deleted id="' . $id . '" t="' . $type . '" />'
-                    . '<modMsgs change="' . $changeBitmask . '">'
-                        . '<m id="' . $id . '" i4uid="' . $imapUid . '" t="' . $type . '" f="' . $flags . '" tn="' . $tags . '" />'
-                    . '</modMsgs>'
-                    . '<modTags change="' . $changeBitmask . '">'
-                        . '<id>' . $id . '</id>'
-                        . '<name>' . $name . '</name>'
-                    . '</modTags>'
-                    . '<modFolders id="' . $folderId . '" path="' . $path . '" change="' . $changeBitmask . '" />'
-                . '</mods>'
-            . '</a>';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<a id="$id" changeid="$lastChangeId">
+    <mods id="$folderId">
+        <created>
+            <m id="$id" i4uid="$imapUid" t="$type" f="$flags" tn="$tags" />
+        </created>
+        <deleted id="$id" t="$type" />
+        <modMsgs change="$changeBitmask">
+            <m id="$id" i4uid="$imapUid" t="$type" f="$flags" tn="$tags" />
+        </modMsgs>
+        <modTags change="$changeBitmask">
+            <id>$id</id>
+            <name>$name</name>
+        </modTags>
+        <modFolders id="$folderId" path="$path" change="$changeBitmask" />
+    </mods>
+</a>
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($account, 'xml'));
         $this->assertEquals($account, $this->serializer->deserialize($xml, AccountWithModifications::class, 'xml'));
 
