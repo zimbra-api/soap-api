@@ -63,18 +63,20 @@ class CheckExchangeAuthTest extends ZimbraStructTestCase
         $envelope->setBody($body);
         $this->assertSame($body, $envelope->getBody());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">'
-                . '<soap:Body>'
-                    . '<urn:CheckExchangeAuthRequest>'
-                        . '<auth url="' . $url . '" user="' . $user . '" pass="' . $pass . '" scheme="' . AuthScheme::FORM() . '" type="' . $type . '" />'
-                    . '</urn:CheckExchangeAuthRequest>'
-                    . '<urn:CheckExchangeAuthResponse>'
-                        . '<code>' . $code . '</code>'
-                        . '<message>' . $message . '</message>'
-                    . '</urn:CheckExchangeAuthResponse>'
-                . '</soap:Body>'
-            . '</soap:Envelope>';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
+    <soap:Body>
+        <urn:CheckExchangeAuthRequest>
+            <auth url="$url" user="$user" pass="$pass" scheme="form" type="$type" />
+        </urn:CheckExchangeAuthRequest>
+        <urn:CheckExchangeAuthResponse>
+            <code>$code</code>
+            <message>$message</message>
+        </urn:CheckExchangeAuthResponse>
+    </soap:Body>
+</soap:Envelope>
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, CheckExchangeAuthEnvelope::class, 'xml'));
 
@@ -85,7 +87,7 @@ class CheckExchangeAuthTest extends ZimbraStructTestCase
                         'url' => $url,
                         'user' => $user,
                         'pass' => $pass,
-                        'scheme' => (string) AuthScheme::FORM(),
+                        'scheme' => 'form',
                         'type' => $type,
                     ],
                     '_jsns' => 'urn:zimbraAdmin',

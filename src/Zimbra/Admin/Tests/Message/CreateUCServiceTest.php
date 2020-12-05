@@ -18,7 +18,7 @@ class CreateUCServiceTest extends ZimbraStructTestCase
     public function testCreateUCService()
     {
         $name = $this->faker->word;
-        $value = $this->faker->word;
+        $value= $this->faker->word;
         $id = $this->faker->uuid;
         $key = $this->faker->word;
 
@@ -54,20 +54,22 @@ class CreateUCServiceTest extends ZimbraStructTestCase
         $envelope->setBody($body);
         $this->assertSame($body, $envelope->getBody());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">'
-                . '<soap:Body>'
-                    . '<urn:CreateUCServiceRequest>'
-                        . '<name>' . $name . '</name>'
-                        . '<a n="' . $key . '">' . $value . '</a>'
-                    . '</urn:CreateUCServiceRequest>'
-                    . '<urn:CreateUCServiceResponse>'
-                        . '<ucservice name="' . $name . '" id="' . $id . '">'
-                            . '<a n="' . $key . '">' . $value . '</a>'
-                        . '</ucservice>'
-                    . '</urn:CreateUCServiceResponse>'
-                . '</soap:Body>'
-            . '</soap:Envelope>';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
+    <soap:Body>
+        <urn:CreateUCServiceRequest>
+            <name>$name</name>
+            <a n="$key">$value</a>
+        </urn:CreateUCServiceRequest>
+        <urn:CreateUCServiceResponse>
+            <ucservice name="$name" id="$id">
+                <a n="$key">$value</a>
+            </ucservice>
+        </urn:CreateUCServiceResponse>
+    </soap:Body>
+</soap:Envelope>
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, CreateUCServiceEnvelope::class, 'xml'));
 

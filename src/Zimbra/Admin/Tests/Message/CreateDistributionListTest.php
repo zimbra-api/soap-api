@@ -71,24 +71,26 @@ class CreateDistributionListTest extends ZimbraStructTestCase
         $envelope->setBody($body);
         $this->assertSame($body, $envelope->getBody());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">'
-                . '<soap:Body>'
-                    . '<urn:CreateDistributionListRequest name="' . $name . '" dynamic="true">'
-                        . '<a n="' . $key . '">' . $value . '</a>'
-                    . '</urn:CreateDistributionListRequest>'
-                    . '<urn:CreateDistributionListResponse>'
-                        . '<dl name="' . $name . '" id="' . $id . '" dynamic="true">'
-                            . '<dlm>' . $member1 . '</dlm>'
-                            . '<dlm>' . $member2 . '</dlm>'
-                            . '<owners>'
-                                . '<owner id="' . $id . '" name="' . $name . '" type="' . GranteeType::ALL() . '" />'
-                                . '<owner id="' . $id . '" name="' . $name . '" type="' . GranteeType::USR() . '" />'
-                            . '</owners>'
-                        . '</dl>'
-                    . '</urn:CreateDistributionListResponse>'
-                . '</soap:Body>'
-            . '</soap:Envelope>';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
+    <soap:Body>
+        <urn:CreateDistributionListRequest name="$name" dynamic="true">
+            <a n="$key">$value</a>
+        </urn:CreateDistributionListRequest>
+        <urn:CreateDistributionListResponse>
+            <dl name="$name" id="$id" dynamic="true">
+                <dlm>$member1</dlm>
+                <dlm>$member2</dlm>
+                <owners>
+                    <owner id="$id" name="$name" type="all" />
+                    <owner id="$id" name="$name" type="usr" />
+                </owners>
+            </dl>
+        </urn:CreateDistributionListResponse>
+    </soap:Body>
+</soap:Envelope>
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, CreateDistributionListEnvelope::class, 'xml'));
 
@@ -119,12 +121,12 @@ class CreateDistributionListTest extends ZimbraStructTestCase
                                 [
                                     'id' => $id,
                                     'name' => $name,
-                                    'type' => (string) GranteeType::ALL(),
+                                    'type' => 'all',
                                 ],
                                 [
                                     'id' => $id,
                                     'name' => $name,
-                                    'type' => (string) GranteeType::USR(),
+                                    'type' => 'usr',
                                 ],
                             ],
                         ],

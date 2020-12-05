@@ -16,7 +16,7 @@ class AutoProvAccountTest extends ZimbraStructTestCase
         $name = $this->faker->word;
         $id = $this->faker->uuid;
         $key = $this->faker->word;
-        $value = $this->faker->word;
+        $value= $this->faker->word;
         $password = $this->faker->uuid;
 
         $domain = new DomainSelector(DomainBy::NAME(), $value);
@@ -66,21 +66,23 @@ class AutoProvAccountTest extends ZimbraStructTestCase
         $envelope->setBody($body);
         $this->assertSame($body, $envelope->getBody());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">'
-                . '<soap:Body>'
-                    . '<urn:AutoProvAccountRequest>'
-                        . '<domain by="' . DomainBy::NAME() . '">' . $value . '</domain>'
-                        . '<principal by="' . AutoProvPrincipalBy::NAME() . '">' . $value . '</principal>'
-                        . '<password>' . $password . '</password>'
-                    . '</urn:AutoProvAccountRequest>'
-                    . '<urn:AutoProvAccountResponse>'
-                        . '<account name="' . $name . '" id="' . $id . '" isExternal="true">'
-                            . '<a n="' . $key . '">' . $value . '</a>'
-                        . '</account>'
-                    . '</urn:AutoProvAccountResponse>'
-                . '</soap:Body>'
-            . '</soap:Envelope>';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
+    <soap:Body>
+        <urn:AutoProvAccountRequest>
+            <domain by="name">$value</domain>
+            <principal by="name">$value</principal>
+            <password>$password</password>
+        </urn:AutoProvAccountRequest>
+        <urn:AutoProvAccountResponse>
+            <account name="$name" id="$id" isExternal="true">
+                <a n="$key">$value</a>
+            </account>
+        </urn:AutoProvAccountResponse>
+    </soap:Body>
+</soap:Envelope>
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, AutoProvAccountEnvelope::class, 'xml'));
 
@@ -88,11 +90,11 @@ class AutoProvAccountTest extends ZimbraStructTestCase
             'Body' => [
                 'AutoProvAccountRequest' => [
                     'domain' => [
-                        'by' => (string) DomainBy::NAME(),
+                        'by' => 'name',
                         '_content' => $value,
                     ],
                     'principal' => [
-                        'by' => (string) AutoProvPrincipalBy::NAME(),
+                        'by' => 'name',
                         '_content' => $value,
                     ],
                     'password' => [

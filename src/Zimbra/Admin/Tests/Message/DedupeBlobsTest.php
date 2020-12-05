@@ -77,32 +77,34 @@ class DedupeBlobsTest extends ZimbraStructTestCase
         $envelope->setBody($body);
         $this->assertSame($body, $envelope->getBody());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">'
-                . '<soap:Body>'
-                    . '<urn:DedupeBlobsRequest action="' . DedupAction::STATUS() . '">'
-                        . '<volume id="' . $id . '" />'
-                    . '</urn:DedupeBlobsRequest>'
-                    . '<urn:DedupeBlobsResponse status="' . DedupStatus::STOPPED() . '" totalSize="' . $totalSize . '" totalCount="'. $totalCount . '">'
-                        . '<volumeBlobsProgress volumeId="' . $volumeId . '" progress="' . $progress . '" />'
-                        . '<blobDigestsProgress volumeId="' . $volumeId . '" progress="' . $progress . '" />'
-                    . '</urn:DedupeBlobsResponse>'
-                . '</soap:Body>'
-            . '</soap:Envelope>';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
+    <soap:Body>
+        <urn:DedupeBlobsRequest action="status">
+            <volume id="$id" />
+        </urn:DedupeBlobsRequest>
+        <urn:DedupeBlobsResponse status="stopped" totalSize="$totalSize" totalCount="$totalCount">
+            <volumeBlobsProgress volumeId="$volumeId" progress="$progress" />
+            <blobDigestsProgress volumeId="$volumeId" progress="$progress" />
+        </urn:DedupeBlobsResponse>
+    </soap:Body>
+</soap:Envelope>
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, DedupeBlobsEnvelope::class, 'xml'));
 
         $json = json_encode([
             'Body' => [
                 'DedupeBlobsRequest' => [
-                    'action' => (string) DedupAction::STATUS(),
+                    'action' => 'status',
                     'volume' => [
                         ['id' => $id],
                     ],
                     '_jsns' => 'urn:zimbraAdmin',
                 ],
                 'DedupeBlobsResponse' => [
-                    'status' => (string) DedupStatus::STOPPED(),
+                    'status' => 'stopped',
                     'totalSize' => $totalSize,
                     'totalCount' => $totalCount,
                     'volumeBlobsProgress' => [

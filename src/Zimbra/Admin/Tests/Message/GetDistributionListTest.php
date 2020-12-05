@@ -83,22 +83,24 @@ class GetDistributionListTest extends ZimbraStructTestCase
         $envelope->setBody($body);
         $this->assertSame($body, $envelope->getBody());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">'
-                . '<soap:Body>'
-                    . '<urn:GetDistributionListRequest attrs="' . $attrs . '" limit="' . $limit . '" offset="' . $offset . '" sortAscending="true">'
-                        . '<dl by="' . DLBy::NAME() . '">' . $value . '</dl>'
-                    . '</urn:GetDistributionListRequest>'
-                    . '<urn:GetDistributionListResponse more="true" total="' . $total . '">'
-                        . '<dl name="' . $name . '" id="' . $id . '" dynamic="true">'
-                            . '<dlm>' . $member . '</dlm>'
-                            . '<owners>'
-                                . '<owner id="' . $id . '" name="' . $name . '" type="' . GranteeType::ALL() . '" />'
-                            . '</owners>'
-                        . '</dl>'
-                    . '</urn:GetDistributionListResponse>'
-                . '</soap:Body>'
-            . '</soap:Envelope>';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
+    <soap:Body>
+        <urn:GetDistributionListRequest attrs="$attrs" limit="$limit" offset="$offset" sortAscending="true">
+            <dl by="name">$value</dl>
+        </urn:GetDistributionListRequest>
+        <urn:GetDistributionListResponse more="true" total="$total">
+            <dl name="$name" id="$id" dynamic="true">
+                <dlm>$member</dlm>
+                <owners>
+                    <owner id="$id" name="$name" type="all" />
+                </owners>
+            </dl>
+        </urn:GetDistributionListResponse>
+    </soap:Body>
+</soap:Envelope>
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, GetDistributionListEnvelope::class, 'xml'));
 
@@ -110,7 +112,7 @@ class GetDistributionListTest extends ZimbraStructTestCase
                     'offset' => $offset,
                     'sortAscending' => TRUE,
                     'dl' => [
-                        'by' => (string) DLBy::NAME(),
+                        'by' => 'name',
                         '_content' => $value,
                     ],
                     '_jsns' => 'urn:zimbraAdmin',
@@ -130,7 +132,7 @@ class GetDistributionListTest extends ZimbraStructTestCase
                                 [
                                     'id' => $id,
                                     'name' => $name,
-                                    'type' => (string) GranteeType::ALL(),
+                                    'type' => 'all',
                                 ],
                             ],
                         ],

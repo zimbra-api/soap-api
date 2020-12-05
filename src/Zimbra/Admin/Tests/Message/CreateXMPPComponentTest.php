@@ -60,23 +60,25 @@ class CreateXMPPComponentTest extends ZimbraStructTestCase
         $envelope->setBody($body);
         $this->assertSame($body, $envelope->getBody());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">'
-                . '<soap:Body>'
-                    . '<urn:CreateXMPPComponentRequest>'
-                        . '<xmppcomponent name="' . $name . '">'
-                            . '<a n="' . $key . '">' . $value . '</a>'
-                            . '<domain by="' . DomainBy::NAME() . '">' . $value . '</domain>'
-                            . '<server by="' . ServerBy::NAME() . '">' . $value . '</server>'
-                        . '</xmppcomponent>'
-                    . '</urn:CreateXMPPComponentRequest>'
-                    . '<urn:CreateXMPPComponentResponse>'
-                        . '<xmppcomponent name="' . $name . '" id="' . $id . '" x-domainName="' . $domainName . '" x-serverName="' . $serverName . '">'
-                            . '<a n="' . $key . '">' . $value . '</a>'
-                        . '</xmppcomponent>'
-                    . '</urn:CreateXMPPComponentResponse>'
-                . '</soap:Body>'
-            . '</soap:Envelope>';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
+    <soap:Body>
+        <urn:CreateXMPPComponentRequest>
+            <xmppcomponent name="$name">
+                <a n="$key">$value</a>
+                <domain by="name">$value</domain>
+                <server by="name">$value</server>
+            </xmppcomponent>
+        </urn:CreateXMPPComponentRequest>
+        <urn:CreateXMPPComponentResponse>
+            <xmppcomponent name="$name" id="$id" x-domainName="$domainName" x-serverName="$serverName">
+                <a n="$key">$value</a>
+            </xmppcomponent>
+        </urn:CreateXMPPComponentResponse>
+    </soap:Body>
+</soap:Envelope>
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, CreateXMPPComponentEnvelope::class, 'xml'));
 
@@ -92,11 +94,11 @@ class CreateXMPPComponentTest extends ZimbraStructTestCase
                         ],
                         'name' => $name,
                         'domain' => [
-                            'by' => (string) DomainBy::NAME(),
+                            'by' => 'name',
                             '_content' => $value,
                         ],
                         'server' => [
-                            'by' => (string) ServerBy::NAME(),
+                            'by' => 'name',
                             '_content' => $value,
                         ],
                     ],

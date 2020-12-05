@@ -39,10 +39,10 @@ class GetEffectiveRightsTest extends ZimbraStructTestCase
         $name = $this->faker->word;
         $value = $this->faker->word;
         $secret = $this->faker->word;
-        $value1 = $this->faker->word;
-        $value2 = $this->faker->word;
-        $min = $this->faker->word;
-        $max = $this->faker->word;
+        $value1= $this->faker->word;
+        $value2= $this->faker->word;
+        $min= $this->faker->word;
+        $max= $this->faker->word;
         $expandAttrs = [GetEffectiveRightsRequest::EXPAND_SET_ATTRS, GetEffectiveRightsRequest::EXPAND_GET_ATTRS];
 
         $granteeSelector = new GranteeSelector(
@@ -116,53 +116,55 @@ class GetEffectiveRightsTest extends ZimbraStructTestCase
         $envelope->setBody($body);
         $this->assertSame($body, $envelope->getBody());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">'
-                . '<soap:Body>'
-                    . '<urn:GetEffectiveRightsRequest expandAllAttrs="setAttrs">'
-                        . '<target type="' . TargetType::ACCOUNT() . '" by="' . TargetBy::NAME() . '">' . $value . '</target>'
-                        . '<grantee type="' . GranteeType::ALL() . '" by="' . GranteeBy::NAME() . '" secret="' . $secret . '" all="true">' . $value . '</grantee>'
-                    . '</urn:GetEffectiveRightsRequest>'
-                    . '<urn:GetEffectiveRightsResponse>'
-                        . '<grantee id="' . $id . '" name="' . $name . '" type="' . GranteeType::ALL() . '" />'
-                        . '<target type="' . TargetType::ACCOUNT() . '" id="' . $id . '" name="' . $name . '">'
-                        . '<right n="' . $name . '" />'
-                            . '<setAttrs all="true">'
-                                . '<a n="' . $name . '">'
-                                    . '<constraint>'
-                                        . '<min>' . $min . '</min>'
-                                        . '<max>' . $max . '</max>'
-                                        . '<values>'
-                                            . '<v>' . $value1 . '</v>'
-                                            . '<v>' . $value2 . '</v>'
-                                        . '</values>'
-                                    . '</constraint>'
-                                    . '<default>'
-                                        . '<v>' . $value1 . '</v>'
-                                        . '<v>' . $value2 . '</v>'
-                                    . '</default>'
-                                . '</a>'
-                            . '</setAttrs>'
-                            . '<getAttrs all="false">'
-                                . '<a n="' . $name . '">'
-                                    . '<constraint>'
-                                        . '<min>' . $min . '</min>'
-                                        . '<max>' . $max . '</max>'
-                                        . '<values>'
-                                            . '<v>' . $value1 . '</v>'
-                                            . '<v>' . $value2 . '</v>'
-                                        . '</values>'
-                                    . '</constraint>'
-                                    . '<default>'
-                                        . '<v>' . $value1 . '</v>'
-                                        . '<v>' . $value2 . '</v>'
-                                    . '</default>'
-                                . '</a>'
-                            . '</getAttrs>'
-                        . '</target>'
-                    . '</urn:GetEffectiveRightsResponse>'
-                . '</soap:Body>'
-            . '</soap:Envelope>';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
+    <soap:Body>
+        <urn:GetEffectiveRightsRequest expandAllAttrs="setAttrs">
+            <target type="account" by="name">$value</target>
+            <grantee type="all" by="name" secret="$secret" all="true">$value</grantee>
+        </urn:GetEffectiveRightsRequest>
+        <urn:GetEffectiveRightsResponse>
+            <grantee id="$id" name="$name" type="all" />
+            <target type="account" id="$id" name="$name">
+            <right n="$name" />
+                <setAttrs all="true">
+                    <a n="$name">
+                        <constraint>
+                            <min>$min</min>
+                            <max>$max</max>
+                            <values>
+                                <v>$value1</v>
+                                <v>$value2</v>
+                            </values>
+                        </constraint>
+                        <default>
+                            <v>$value1</v>
+                            <v>$value2</v>
+                        </default>
+                    </a>
+                </setAttrs>
+                <getAttrs all="false">
+                    <a n="$name">
+                        <constraint>
+                            <min>$min</min>
+                            <max>$max</max>
+                            <values>
+                                <v>$value1</v>
+                                <v>$value2</v>
+                            </values>
+                        </constraint>
+                        <default>
+                            <v>$value1</v>
+                            <v>$value2</v>
+                        </default>
+                    </a>
+                </getAttrs>
+            </target>
+        </urn:GetEffectiveRightsResponse>
+    </soap:Body>
+</soap:Envelope>
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, GetEffectiveRightsEnvelope::class, 'xml'));
 
@@ -171,13 +173,13 @@ class GetEffectiveRightsTest extends ZimbraStructTestCase
                 'GetEffectiveRightsRequest' => [
                     'expandAllAttrs' => 'setAttrs',
                     'target' => [
-                        'type' => TargetType::ACCOUNT()->getValue(),
-                        'by' => TargetBy::NAME()->getValue(),
+                        'type' => 'account',
+                        'by' => 'name',
                         '_content' => $value,
                     ],
                     'grantee' => [
-                        'type' => GranteeType::ALL()->getValue(),
-                        'by' => GranteeBy::NAME()->getValue(),
+                        'type' => 'all',
+                        'by' => 'name',
                         '_content' => $value,
                         'secret' => $secret,
                         'all' => TRUE,
@@ -188,10 +190,10 @@ class GetEffectiveRightsTest extends ZimbraStructTestCase
                     'grantee' => [
                         'id' => $id,
                         'name' => $name,
-                        'type' => GranteeType::ALL()->getValue(),
+                        'type' => 'all',
                     ],
                     'target' => [
-                        'type' => TargetType::ACCOUNT()->getValue(),
+                        'type' => 'account',
                         'id' => $id,
                         'name' => $name,
                         'right' => [

@@ -136,41 +136,43 @@ class AdminWaitSetResponseTest extends ZimbraStructTestCase
         $envelope->setBody($body);
         $this->assertSame($body, $envelope->getBody());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">'
-                . '<soap:Body>'
-                    . '<urn:AdminWaitSetRequest waitSet="' . $waitSetId . '" seq="' . $lastKnownSeqNo . '" block="true" expand="true" defTypes="' . $defaultInterests . '" timeout="' . $timeout . '">'
-                        . '<add>'
-                            . '<a name="' . $name . '" id="' . $uid . '" token="' . $token . '" types="f,m" />'
-                        . '</add>'
-                        . '<update>'
-                            . '<a name="' . $name . '" id="' . $uid . '" token="' . $token . '" types="f,m" />'
-                        . '</update>'
-                        . '<remove>'
-                            .'<a id="' . $uid . '" />'
-                        . '</remove>'
-                    . '</urn:AdminWaitSetRequest>'
-                    . '<urn:AdminWaitSetResponse waitSet="' . $waitSetId . '" canceled="true" seq="' . $seqNo . '">'
-                        . '<a id="' . $id . '" changeid="' . $lastChangeId . '">'
-                            . '<mods id="' . $folderId . '">'
-                                . '<created>'
-                                    . '<m id="' . $id . '" i4uid="' . $imapUid . '" t="' . $type . '" f="' . $flags . '" tn="' . $tags . '" />'
-                                . '</created>'
-                                . '<deleted id="' . $id . '" t="' . $type . '" />'
-                                . '<modMsgs change="' . $changeBitmask . '">'
-                                    . '<m id="' . $id . '" i4uid="' . $imapUid . '" t="' . $type . '" f="' . $flags . '" tn="' . $tags . '" />'
-                                . '</modMsgs>'
-                                . '<modTags change="' . $changeBitmask . '">'
-                                    . '<id>' . $id . '</id>'
-                                    . '<name>' . $name . '</name>'
-                                . '</modTags>'
-                                . '<modFolders id="' . $folderId . '" path="' . $path . '" change="' . $changeBitmask . '" />'
-                            . '</mods>'
-                        . '</a>'
-                        . '<error id="' . $uid . '" type="' . $type . '" />'
-                    . '</urn:AdminWaitSetResponse>'
-                . '</soap:Body>'
-            . '</soap:Envelope>';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
+    <soap:Body>
+        <urn:AdminWaitSetRequest waitSet="$waitSetId" seq="$lastKnownSeqNo" block="true" expand="true" defTypes="$defaultInterests" timeout="$timeout">
+            <add>
+                <a name="$name" id="$uid" token="$token" types="f,m" />
+            </add>
+            <update>
+                <a name="$name" id="$uid" token="$token" types="f,m" />
+            </update>
+            <remove>
+                <a id="$uid" />
+            </remove>
+        </urn:AdminWaitSetRequest>
+        <urn:AdminWaitSetResponse waitSet="$waitSetId" canceled="true" seq="$seqNo">
+            <a id="$id" changeid="$lastChangeId">
+                <mods id="$folderId">
+                    <created>
+                        <m id="$id" i4uid="$imapUid" t="$type" f="$flags" tn="$tags" />
+                    </created>
+                    <deleted id="$id" t="$type" />
+                    <modMsgs change="$changeBitmask">
+                        <m id="$id" i4uid="$imapUid" t="$type" f="$flags" tn="$tags" />
+                    </modMsgs>
+                    <modTags change="$changeBitmask">
+                        <id>$id</id>
+                        <name>$name</name>
+                    </modTags>
+                    <modFolders id="$folderId" path="$path" change="$changeBitmask" />
+                </mods>
+            </a>
+            <error id="$uid" type="$type" />
+        </urn:AdminWaitSetResponse>
+    </soap:Body>
+</soap:Envelope>
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, AdminWaitSetEnvelope::class, 'xml'));
 

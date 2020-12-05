@@ -59,20 +59,22 @@ class CopyCosTest extends ZimbraStructTestCase
         $envelope->setBody($body);
         $this->assertSame($body, $envelope->getBody());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">'
-                . '<soap:Body>'
-                    . '<urn:CopyCosRequest>'
-                        . '<name>' . $newName . '</name>'
-                        . '<cos by="' . CosBy::NAME() . '">' . $value . '</cos>'
-                    . '</urn:CopyCosRequest>'
-                    . '<urn:CopyCosResponse>'
-                        . '<cos name="' . $name . '" id="' . $id . '" isDefaultCos="true">'
-                            . '<a n="' . $key . '" c="true" pd="false">' . $value . '</a>'
-                        . '</cos>'
-                    . '</urn:CopyCosResponse>'
-                . '</soap:Body>'
-            . '</soap:Envelope>';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
+    <soap:Body>
+        <urn:CopyCosRequest>
+            <name>$newName</name>
+            <cos by="name">$value</cos>
+        </urn:CopyCosRequest>
+        <urn:CopyCosResponse>
+            <cos name="$name" id="$id" isDefaultCos="true">
+                <a n="$key" c="true" pd="false">$value</a>
+            </cos>
+        </urn:CopyCosResponse>
+    </soap:Body>
+</soap:Envelope>
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, CopyCosEnvelope::class, 'xml'));
 
@@ -83,7 +85,7 @@ class CopyCosTest extends ZimbraStructTestCase
                         '_content' => $newName,
                     ],
                     'cos' => [
-                        'by' => (string) CosBy::NAME(),
+                        'by' => 'name',
                         '_content' => $value,
                     ],
                     '_jsns' => 'urn:zimbraAdmin',

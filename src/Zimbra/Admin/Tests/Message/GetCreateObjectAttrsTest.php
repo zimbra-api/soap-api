@@ -23,7 +23,7 @@ class GetCreateObjectAttrsTest extends ZimbraStructTestCase
     {
         $type = $this->faker->word;
         $name = $this->faker->word;
-        $value = $this->faker->word;
+        $value= $this->faker->word;
         $value1 = $this->faker->word;
         $value2 = $this->faker->word;
         $max = $this->faker->word;
@@ -73,34 +73,36 @@ class GetCreateObjectAttrsTest extends ZimbraStructTestCase
         $envelope->setBody($body);
         $this->assertSame($body, $envelope->getBody());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">'
-                . '<soap:Body>'
-                    . '<urn:GetCreateObjectAttrsRequest>'
-                        . '<target type="' . $type . '">' . $value . '</target>'
-                        . '<domain by="' . DomainBy::NAME() . '">' . $value . '</domain>'
-                        . '<cos by="' . CosBy::NAME() . '">' . $value . '</cos>'
-                    . '</urn:GetCreateObjectAttrsRequest>'
-                    . '<urn:GetCreateObjectAttrsResponse>'
-                        . '<setAttrs all="true">'
-                            . '<a n="' . $name . '">'
-                                . '<constraint>'
-                                    . '<min>' . $min . '</min>'
-                                    . '<max>' . $max . '</max>'
-                                    . '<values>'
-                                        . '<v>' . $value1 . '</v>'
-                                        . '<v>' . $value2 . '</v>'
-                                    . '</values>'
-                                . '</constraint>'
-                                . '<default>'
-                                    . '<v>' . $value1 . '</v>'
-                                    . '<v>' . $value2 . '</v>'
-                                . '</default>'
-                            . '</a>'
-                        . '</setAttrs>'
-                    . '</urn:GetCreateObjectAttrsResponse>'
-                . '</soap:Body>'
-            . '</soap:Envelope>';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
+    <soap:Body>
+        <urn:GetCreateObjectAttrsRequest>
+            <target type="$type">$value</target>
+            <domain by="name">$value</domain>
+            <cos by="name">$value</cos>
+        </urn:GetCreateObjectAttrsRequest>
+        <urn:GetCreateObjectAttrsResponse>
+            <setAttrs all="true">
+                <a n="$name">
+                    <constraint>
+                        <min>$min</min>
+                        <max>$max</max>
+                        <values>
+                            <v>$value1</v>
+                            <v>$value2</v>
+                        </values>
+                    </constraint>
+                    <default>
+                        <v>$value1</v>
+                        <v>$value2</v>
+                    </default>
+                </a>
+            </setAttrs>
+        </urn:GetCreateObjectAttrsResponse>
+    </soap:Body>
+</soap:Envelope>
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, GetCreateObjectAttrsEnvelope::class, 'xml'));
 
@@ -112,11 +114,11 @@ class GetCreateObjectAttrsTest extends ZimbraStructTestCase
                         '_content' => $value,
                     ],
                     'domain' => [
-                        'by' => (string) DomainBy::NAME(),
+                        'by' => 'name',
                         '_content' => $value,
                     ],
                     'cos' => [
-                        'by' => (string) CosBy::NAME(),
+                        'by' => 'name',
                         '_content' => $value,
                     ],
                     '_jsns' => 'urn:zimbraAdmin',

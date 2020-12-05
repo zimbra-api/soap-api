@@ -53,15 +53,17 @@ class CompactIndexTest extends ZimbraStructTestCase
         $envelope->setBody($body);
         $this->assertSame($body, $envelope->getBody());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">'
-                . '<soap:Body>'
-                    . '<urn:CompactIndexRequest action="' . CompactIndexAction::START() . '">'
-                        . '<mbox id="' . $id . '" />'
-                    . '</urn:CompactIndexRequest>'
-                    . '<urn:CompactIndexResponse status="' . CompactIndexStatus::RUNNING() . '" />'
-                . '</soap:Body>'
-            . '</soap:Envelope>';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
+    <soap:Body>
+        <urn:CompactIndexRequest action="start">
+            <mbox id="$id" />
+        </urn:CompactIndexRequest>
+        <urn:CompactIndexResponse status="running" />
+    </soap:Body>
+</soap:Envelope>
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, CompactIndexEnvelope::class, 'xml'));
 
@@ -71,11 +73,11 @@ class CompactIndexTest extends ZimbraStructTestCase
                     'mbox' => [
                         'id' => $id,
                     ],
-                    'action' => (string) CompactIndexAction::START(),
+                    'action' => 'start',
                     '_jsns' => 'urn:zimbraAdmin',
                 ],
                 'CompactIndexResponse' => [
-                    'status' => (string) CompactIndexStatus::RUNNING(),
+                    'status' => 'running',
                     '_jsns' => 'urn:zimbraAdmin',
                 ],
             ],
