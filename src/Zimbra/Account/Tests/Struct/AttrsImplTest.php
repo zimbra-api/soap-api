@@ -24,10 +24,12 @@ class AttrsImplTest extends ZimbraStructTestCase
         $stub->addAttr($attr);
         $this->assertSame([$attr], $stub->getAttrs());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<stub>'
-                . '<a name="' . $name . '" pd="true">' . $value . '</a>'
-            . '</stub>';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<stub>
+    <a name="$name" pd="true">$value</a>
+</stub>
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($stub, 'xml'));
         $this->assertEquals($stub, $this->serializer->deserialize($xml, StubAttrsImpl::class, 'xml'));
 

@@ -28,8 +28,10 @@ class SessionTest extends ZimbraStructTestCase
         $this->assertSame($id, $session->getId());
         $this->assertSame($id, $session->getValue());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<session type="' . $type . '" id="' . $id . '">'  .$id . '</session>';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<session type="$type" id="$id">$id</session>
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($session, 'xml'));
         $this->assertEquals($session, $this->serializer->deserialize($xml, Session::class, 'xml'));
 

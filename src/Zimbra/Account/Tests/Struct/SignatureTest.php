@@ -39,12 +39,16 @@ class SignatureTest extends ZimbraStructTestCase
         $this->assertSame($cid, $sig->getCid());
         $this->assertSame([$content1, $content2], $sig->getContents());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<signature name="' . $name . '" id="' . $id . '">'
-                . '<cid>' . $cid . '</cid>'
-                . '<content type="' . ContentType::TEXT_PLAIN() . '">' . $value . '</content>'
-                . '<content type="' . ContentType::TEXT_HTML() . '">' . $value . '</content>'
-            . '</signature>';
+        $textPlain = ContentType::TEXT_PLAIN()->getValue();
+        $textHtml = ContentType::TEXT_HTML()->getValue();
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<signature name="$name" id="$id">
+    <cid>$cid</cid>
+    <content type="$textPlain">$value</content>
+    <content type="$textHtml">$value</content>
+</signature>
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($sig, 'xml'));
         $this->assertEquals($sig, $this->serializer->deserialize($xml, Signature::class, 'xml'));
 
@@ -56,11 +60,11 @@ class SignatureTest extends ZimbraStructTestCase
             ],
             'content' => [
                 [
-                    'type' => (string) ContentType::TEXT_PLAIN(),
+                    'type' => $textPlain,
                     '_content' => $value,
                 ],
                 [
-                    'type' => (string) ContentType::TEXT_HTML(),
+                    'type' => $textHtml,
                     '_content' => $value,
                 ],
             ],

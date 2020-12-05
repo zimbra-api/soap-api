@@ -30,8 +30,10 @@ class PrefTest extends ZimbraStructTestCase
         $this->assertSame($value, $pref->getValue());
         $this->assertSame($modified, $pref->getModified());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<pref name="' . $name . '" modified="' . $modified . '">' . $value . '</pref>';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<pref name="$name" modified="$modified">$value</pref>
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($pref, 'xml'));
         $this->assertEquals($pref, $this->serializer->deserialize($xml, Pref::class, 'xml'));
 

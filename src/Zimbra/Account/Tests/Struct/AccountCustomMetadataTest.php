@@ -20,8 +20,10 @@ class AccountCustomMetadataTest extends ZimbraStructTestCase
         $meta->setSection($section);
         $this->assertSame($section, $meta->getSection());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<meta section="' . $section . '" />';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<meta section="$section" />
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($meta, 'xml'));
         $this->assertEquals($meta, $this->serializer->deserialize($xml, AccountCustomMetadata::class, 'xml'));
 

@@ -26,8 +26,10 @@ class NameIdTest extends ZimbraStructTestCase
         $this->assertSame($name, $nameId->getName());
         $this->assertSame($id, $nameId->getId());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<nameid name="' . $name . '" id="' . $id . '" />';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<nameid name="$name" id="$id"/>
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($nameId, 'xml'));
         $this->assertEquals($nameId, $this->serializer->deserialize($xml, NameId::class, 'xml'));
 

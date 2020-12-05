@@ -24,11 +24,13 @@ class WhiteListTest extends ZimbraStructTestCase
         $whiteList->addAddr($addr2);
         $this->assertSame([$addr1, $addr2], $whiteList->getAddrs());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<whiteList>'
-                . '<addr op="+">' . $value . '</addr>'
-                . '<addr op="-">' . $value . '</addr>'
-            . '</whiteList>';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<whiteList>
+    <addr op="+">$value</addr>
+    <addr op="-">$value</addr>
+</whiteList>
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($whiteList, 'xml'));
         $this->assertEquals($whiteList, $this->serializer->deserialize($xml, WhiteList::class, 'xml'));
 

@@ -30,14 +30,17 @@ class PreAuthTest extends ZimbraStructTestCase
         $computeValue = hash_hmac('sha1', $preauth, $value);
         $this->assertSame($computeValue, $pre->computeValue('account', $value)->getValue());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<preauth timestamp="' . ($now + 1000) . '" expiresTimestamp="' . $expire . '">' . $computeValue . '</preauth>';
+        $timestamp = $now + 1000;
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<preauth timestamp="$timestamp" expiresTimestamp="$expire">$computeValue</preauth>
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($pre, 'xml'));
         $this->assertEquals($pre, $this->serializer->deserialize($xml, PreAuth::class, 'xml'));
 
         $json = json_encode([
             '_content' => $computeValue,
-            'timestamp' => $now + 1000,
+            'timestamp' => $timestamp,
             'expiresTimestamp' => $expire,
         ]);
         $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($pre, 'json'));

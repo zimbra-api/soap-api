@@ -20,8 +20,10 @@ class RightTest extends ZimbraStructTestCase
         $right->setRight($name);
         $this->assertSame($name, $right->getRight());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<ace right="' . $name . '" />';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<ace right="$name" />
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($right, 'xml'));
         $this->assertEquals($right, $this->serializer->deserialize($xml, Right::class, 'xml'));
 

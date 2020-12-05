@@ -25,11 +25,13 @@ class BlackListTest extends ZimbraStructTestCase
         $blackList->addAddr($addr2);
         $this->assertSame([$addr1, $addr2], $blackList->getAddrs());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<blackList>'
-                . '<addr op="+">' . $value1 . '</addr>'
-                . '<addr op="-">' . $value2 . '</addr>'
-            . '</blackList>';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<blackList>
+    <addr op="+">$value1</addr>
+    <addr op="-">$value2</addr>
+</blackList>
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($blackList, 'xml'));
         $this->assertEquals($blackList, $this->serializer->deserialize($xml, BlackList::class, 'xml'));
 

@@ -34,11 +34,13 @@ class IdentityTest extends ZimbraStructTestCase
         $this->assertSame($id, $identity->getId());
         $this->assertSame([$attr1, $attr2], $identity->getAttrs());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<identity name="' . $name . '" id="' . $id . '">'
-                . '<a name="' . $name . '" pd="true">' . $value . '</a>'
-                . '<a name="' . $name . '" pd="false">' . $value . '</a>'
-            . '</identity>';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<identity name="$name" id="$id">
+    <a name="$name" pd="true">$value</a>
+    <a name="$name" pd="false">$value</a>
+</identity>
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($identity, 'xml'));
         $this->assertEquals($identity, $this->serializer->deserialize($xml, Identity::class, 'xml'));
 

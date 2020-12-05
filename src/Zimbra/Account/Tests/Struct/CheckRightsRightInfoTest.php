@@ -24,8 +24,10 @@ class CheckRightsRightInfoTest extends ZimbraStructTestCase
         $this->assertSame($right, $rightInfo->getRight());
         $this->assertTrue($rightInfo->getAllow());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<right allow="true">' . $right . '</right>';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<right allow="true">$right</right>
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($rightInfo, 'xml'));
         $this->assertEquals($rightInfo, $this->serializer->deserialize($xml, CheckRightsRightInfo::class, 'xml'));
 

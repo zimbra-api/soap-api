@@ -26,13 +26,16 @@ class SignatureContentTest extends ZimbraStructTestCase
         $this->assertSame($value, $content->getValue());
         $this->assertEquals(ContentType::TEXT_HTML(), $content->getContentType());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<content type="' . ContentType::TEXT_HTML() . '">' . $value . '</content>';
+        $type = ContentType::TEXT_HTML()->getValue();
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<content type="$type">$value</content>
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($content, 'xml'));
         $this->assertEquals($content, $this->serializer->deserialize($xml, SignatureContent::class, 'xml'));
 
         $json = json_encode([
-            'type' => (string) ContentType::TEXT_HTML(),
+            'type' => $type,
             '_content' => $value,
         ]);
         $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($content, 'json'));

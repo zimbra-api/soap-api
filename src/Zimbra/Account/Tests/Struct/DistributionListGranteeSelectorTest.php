@@ -28,14 +28,18 @@ class DistributionListGranteeSelectorTest extends ZimbraStructTestCase
         $this->assertEquals(DLGranteeBy::NAME(), $grantee->getBy());
         $this->assertSame($value, $grantee->getValue());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<grantee type="' . GranteeType::USR() . '" by="' . DLGranteeBy::NAME() . '">' . $value . '</grantee>';
+        $type = GranteeType::USR()->getValue();
+        $by = DLGranteeBy::NAME()->getValue();
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<grantee type="$type" by="$by">$value</grantee>
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($grantee, 'xml'));
         $this->assertEquals($grantee, $this->serializer->deserialize($xml, DistributionListGranteeSelector::class, 'xml'));
 
         $json = json_encode([
-            'type' => (string) GranteeType::USR(),
-            'by' => (string) DLGranteeBy::NAME(),
+            'type' => $type,
+            'by' => $by,
             '_content' => $value,
         ]);
         $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($grantee, 'json'));

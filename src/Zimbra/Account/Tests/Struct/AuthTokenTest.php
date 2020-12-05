@@ -27,8 +27,10 @@ class AuthTokenTest extends ZimbraStructTestCase
         $this->assertTrue($token->getVerifyAccount());
         $this->assertSame($lifetime, $token->getLifetime());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<authToken verifyAccount="true" lifetime="' . $lifetime . '">' . $value . '</authToken>';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<authToken verifyAccount="true" lifetime="$lifetime">$value</authToken>
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($token, 'xml'));
         $this->assertEquals($token, $this->serializer->deserialize($xml, AuthToken::class, 'xml'));
 

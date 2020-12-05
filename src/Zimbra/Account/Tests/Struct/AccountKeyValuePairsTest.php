@@ -33,12 +33,14 @@ class AccountKeyValuePairsTest extends ZimbraStructTestCase
         $this->assertSame($value1, $stub->firstValueForKey($key1));
         $this->assertSame([$value1, $value2], $stub->valuesForKey($key1));
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<stub>'
-                . '<a n="' . $key1 . '">' . $value1. '</a>'
-                . '<a n="' . $key1 . '">' . $value2 . '</a>'
-                . '<a n="' . $key2 . '">' . $value2 . '</a>'
-            . '</stub>';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<stub>
+    <a n="$key1">$value1</a>
+    <a n="$key1">$value2</a>
+    <a n="$key2">$value2</a>
+</stub>
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($stub, 'xml'));
         $this->assertEquals($stub, $this->serializer->deserialize($xml, AccountKeyValuePairs::class, 'xml'));
 
