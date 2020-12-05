@@ -47,7 +47,7 @@ use Zimbra\Soap\Api as AbstractApi;
  * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright Copyright © 2020 by Nguyen Van Nguyen.
  */
-class Api extends AbstractApi
+class Api extends AbstractApi implements AccountApiInterface
 {
     public function auth(
         AccountSelector $account = NULL,
