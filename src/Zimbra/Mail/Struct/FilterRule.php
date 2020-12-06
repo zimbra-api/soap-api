@@ -11,11 +11,11 @@
 namespace Zimbra\Mail\Struct;
 
 use JMS\Serializer\Annotation\{
-    Accessor, AccessType, SerializedName, SkipWhenEmpty, Type, XmlElement, XmlKeyValuePairs, XmlRoot
+    Accessor, AccessType, SerializedName, SkipWhenEmpty, Type, XmlAttribute, XmlElement, XmlKeyValuePairs, XmlRoot
 };
 
 /**
- * NestedRule struct class
+ * FilterRule struct class
  *
  * @package    Zimbra
  * @subpackage Mail
@@ -23,10 +23,28 @@ use JMS\Serializer\Annotation\{
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
  * @AccessType("public_method")
- * @XmlRoot(name="nestedRule")
+ * @XmlRoot(name="filterRule")
  */
-class NestedRule
+class FilterRule
 {
+    /**
+     * Rule name
+     * @Accessor(getter="getName", setter="setName")
+     * @SerializedName("name")
+     * @Type("string")
+     * @XmlAttribute
+     */
+    private $name;
+
+    /**
+     * Active flag.  Set by default.
+     * @Accessor(getter="isActive", setter="setActive")
+     * @SerializedName("active")
+     * @Type("bool")
+     * @XmlAttribute
+     */
+    private $active;
+
     /**
      * Filter Variables
      * @Accessor(getter="getFilterVariables", setter="setFilterVariables")
@@ -56,7 +74,7 @@ class NestedRule
     private $actions;
 
     /**
-     * NestedRule child
+     * Nested Rule
      * @Accessor(getter="getChild", setter="setChild")
      * @SerializedName("nestedRule")
      * @Type("Zimbra\Mail\Struct\NestedRule")
@@ -65,8 +83,10 @@ class NestedRule
     private $child;
 
     /**
-     * Constructor method for NestedRule
+     * Constructor method for FilterRule
      * 
+     * @param string $name
+     * @param bool $active
      * @param FilterTests $tests
      * @param FilterVariables $filterVariables
      * @param array $actions
@@ -74,10 +94,17 @@ class NestedRule
      * @return self
      */
     public function __construct(
-        FilterTests $tests, ?FilterVariables $filterVariables = NULL, array $actions = [], ?NestedRule $child = NULL
+        string $name,
+        bool $active,
+        FilterTests $tests,
+        ?FilterVariables $filterVariables = NULL,
+        array $actions = [],
+        ?NestedRule $child = NULL
     )
     {
-        $this->setFilterTests($tests)
+        $this->setName($name)
+            ->setActive($active)
+            ->setFilterTests($tests)
             ->setFilterActions($actions);
         if ($filterVariables instanceof FilterVariables) {
             $this->setFilterVariables($filterVariables);
@@ -85,6 +112,50 @@ class NestedRule
         if ($child instanceof NestedRule) {
             $this->setChild($child);
         }
+    }
+
+    /**
+     * Gets name
+     *
+     * @return string
+     */
+    public function getName(): string
+    {
+        return $this->name;
+    }
+
+    /**
+     * Sets name
+     *
+     * @param  string $name
+     * @return self
+     */
+    public function setName(string $name): self
+    {
+        $this->name = $name;
+        return $this;
+    }
+
+    /**
+     * Gets active
+     *
+     * @return bool
+     */
+    public function isActive(): bool
+    {
+        return $this->active;
+    }
+
+    /**
+     * Sets active
+     *
+     * @param  bool $active
+     * @return self
+     */
+    public function setActive(bool $active): self
+    {
+        $this->active = $active;
+        return $this;
     }
 
     /**
