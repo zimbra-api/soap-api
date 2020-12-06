@@ -2,7 +2,7 @@
 
 namespace Zimbra\Mail\Tests\Struct;
 
-use Zimbra\Common\SerializerBuilder;
+use Zimbra\Common\SerializerFactory;
 use Zimbra\Mail\SerializerHandler;
 use Zimbra\Mail\Struct\AddressBookTest;
 use Zimbra\Mail\Struct\AddressTest;
@@ -44,7 +44,7 @@ class FilterTestsTest extends ZimbraStructTestCase
 {
     protected function setUp(): void
     {
-        SerializerBuilder::addSerializerHandler(new SerializerHandler());
+        SerializerFactory::addSerializerHandler(new SerializerHandler);
         parent::setUp();
     }
 

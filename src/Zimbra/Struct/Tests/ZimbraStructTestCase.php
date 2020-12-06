@@ -5,7 +5,7 @@ namespace Zimbra\Struct\Tests;
 use Doctrine\Common\Annotations\AnnotationRegistry;
 use Faker\Factory as FakerFactory;
 use PHPUnit\Framework\TestCase;
-use Zimbra\Common\SerializerBuilder;
+use Zimbra\Common\SerializerFactory;
 
 /**
  * Base testcase class for all Zimbra testcases.
@@ -18,7 +18,7 @@ abstract class ZimbraStructTestCase extends TestCase
     protected function setUp(): void
     {
         $this->faker = FakerFactory::create();
-        $this->serializer = SerializerBuilder::getSerializer();
+        $this->serializer = SerializerFactory::create();
     }
 
     public static function randomRange($start, $end, $quantity)

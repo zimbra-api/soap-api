@@ -25,8 +25,10 @@ class FileIntoActionTest extends ZimbraStructTestCase
         $this->assertSame($folder, $action->getFolder());
         $this->assertTrue($action->isCopy());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<actionFileInto index="' . $index . '" folderPath="' . $folder . '" copy="true" />';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<actionFileInto index="$index" folderPath="$folder" copy="true" />
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($action, 'xml'));
         $this->assertEquals($action, $this->serializer->deserialize($xml, FileIntoAction::class, 'xml'));
 

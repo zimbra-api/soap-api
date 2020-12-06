@@ -22,10 +22,10 @@ class ErejectActionTest extends ZimbraStructTestCase
         $action->setContent($content);
         $this->assertSame($content, $action->getContent());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<actionEreject index="' . $index . '">'
-                . $content
-            . '</actionEreject>';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<actionEreject index="$index">$content</actionEreject>
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($action, 'xml'));
         $this->assertEquals($action, $this->serializer->deserialize($xml, ErejectAction::class, 'xml'));
 

@@ -69,7 +69,7 @@ final class SerializerHandler implements SubscribingHandlerInterface
         ];
         $metadataFactory = $context->getMetadataFactory();
 
-        $serializer = SerializerBuilder::getSerializer();
+        $serializer = SerializerFactory::create();
         $onerror = $batchRequest->getOnError();
         if (!empty($onerror)) {
             $data['onerror'] = $onerror;
@@ -89,7 +89,7 @@ final class SerializerHandler implements SubscribingHandlerInterface
         SerializationVisitor $visitor, Batch $batchRequest, array $type, Context $context
     )
     {
-        $serializer = SerializerBuilder::getSerializer();
+        $serializer = SerializerFactory::create();
         $document = $visitor->getDocument();
         $batchXml = new SimpleXML('<BatchRequest xmlns="urn:zimbra" />');
         $onerror = $batchRequest->getOnError();
@@ -109,7 +109,7 @@ final class SerializerHandler implements SubscribingHandlerInterface
         DeserializationVisitor $visitor, \SimpleXMLElement $data, array $type, Context $context
     )
     {
-        $serializer = SerializerBuilder::getSerializer();
+        $serializer = SerializerFactory::create();
         $conds = new MultiCond;
         $attributes = $data->attributes();
         foreach ($attributes as $key => $value) {
@@ -142,7 +142,7 @@ final class SerializerHandler implements SubscribingHandlerInterface
         DeserializationVisitor $visitor, $data, array $type, Context $context
     )
     {
-        $serializer = SerializerBuilder::getSerializer();
+        $serializer = SerializerFactory::create();
         $conds = new MultiCond;
         if (isset($data['not']) && $data['not'] !== NULL) {
             $conds->setNot($data['not']);
