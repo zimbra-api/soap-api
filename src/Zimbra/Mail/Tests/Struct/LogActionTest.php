@@ -26,17 +26,16 @@ class LogActionTest extends ZimbraStructTestCase
         $this->assertEquals(LoggingLevel::INFO(), $action->getLevel());
         $this->assertSame($content, $action->getContent());
 
-        $level = LoggingLevel::INFO()->getValue();
         $xml = <<<EOT
 <?xml version="1.0"?>
-<actionLog index="$index" level="$level">$content</actionLog>
+<actionLog index="$index" level="info">$content</actionLog>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($action, 'xml'));
         $this->assertEquals($action, $this->serializer->deserialize($xml, LogAction::class, 'xml'));
 
         $json = json_encode([
             'index' => $index,
-            'level' => $level,
+            'level' => 'info',
             '_content' => $content,
         ]);
         $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($action, 'json'));

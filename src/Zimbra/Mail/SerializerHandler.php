@@ -15,9 +15,13 @@ use JMS\Serializer\Handler\SubscribingHandlerInterface;
 use JMS\Serializer\Visitor\SerializationVisitorInterface as SerializationVisitor;
 use JMS\Serializer\Visitor\DeserializationVisitorInterface as DeserializationVisitor;
 
-use Zimbra\Common\SerializerBuilder;
+use Zimbra\Common\SerializerFactory;
+use Zimbra\Common\Text;
 use Zimbra\Enum\FilterCondition;
+use Zimbra\Mail\Struct\FilterRule;
 use Zimbra\Mail\Struct\FilterTests;
+use Zimbra\Mail\Struct\FilterVariables;
+use Zimbra\Mail\Struct\NestedRule;
 
 /**
  * SerializerHandler class.
@@ -44,6 +48,30 @@ final class SerializerHandler implements SubscribingHandlerInterface
                 'type' => 'Zimbra\Mail\Struct\FilterTests',
                 'method' => 'jsonDeserializeFilterTests',
             ],
+            [
+                'direction' => GraphNavigator::DIRECTION_DESERIALIZATION,
+                'format' => 'xml',
+                'type' => 'Zimbra\Mail\Struct\NestedRule',
+                'method' => 'xmlDeserializeNestedRule',
+            ],
+            [
+                'direction' => GraphNavigator::DIRECTION_DESERIALIZATION,
+                'format' => 'json',
+                'type' => 'Zimbra\Mail\Struct\NestedRule',
+                'method' => 'jsonDeserializeNestedRule',
+            ],
+            [
+                'direction' => GraphNavigator::DIRECTION_DESERIALIZATION,
+                'format' => 'xml',
+                'type' => 'Zimbra\Mail\Struct\FilterRule',
+                'method' => 'xmlDeserializeFilterRule',
+            ],
+            [
+                'direction' => GraphNavigator::DIRECTION_DESERIALIZATION,
+                'format' => 'json',
+                'type' => 'Zimbra\Mail\Struct\FilterRule',
+                'method' => 'jsonDeserializeFilterRule',
+            ],
         ];
     }
 
@@ -51,7 +79,7 @@ final class SerializerHandler implements SubscribingHandlerInterface
         DeserializationVisitor $visitor, \SimpleXMLElement $data, array $type, Context $context
     )
     {
-        $serializer = SerializerBuilder::getSerializer();
+        $serializer = SerializerFactory::create();
         $filterTests = new FilterTests(FilterCondition::ALL_OF());
         $attributes = $data->attributes();
         foreach ($attributes as $key => $value) {
@@ -78,7 +106,7 @@ final class SerializerHandler implements SubscribingHandlerInterface
         DeserializationVisitor $visitor, $data, array $type, Context $context
     )
     {
-        $serializer = SerializerBuilder::getSerializer();
+        $serializer = SerializerFactory::create();
         $filterTests = new FilterTests(FilterCondition::ALL_OF());
         if (isset($data['condition']) && $data['condition'] !== NULL) {
             $filterTests->setCondition(new FilterCondition((string) $data['condition']));
@@ -91,5 +119,176 @@ final class SerializerHandler implements SubscribingHandlerInterface
             }
         }
         return $filterTests;
+    }
+
+    public function xmlDeserializeNestedRule(
+        DeserializationVisitor $visitor, \SimpleXMLElement $data, array $type, Context $context
+    )
+    {
+        $serializer = SerializerFactory::create();
+        $nestedRule = new NestedRule(new FilterTests(FilterCondition::ALL_OF()));
+        $types = NestedRule::filterActionTypes();
+
+        $children = $data->children();
+        foreach ($children as $value) {
+            $name = $value->getName();
+            if ('filterVariables' === $name) {
+                $nestedRule->setFilterVariables(
+                    $serializer->deserialize($value->asXml(), FilterVariables::class, 'xml')
+                );
+            }
+            if ('filterTests' === $name) {
+                $nestedRule->setFilterTests(
+                    $serializer->deserialize($value->asXml(), FilterTests::class, 'xml')
+                );
+            }
+            if ('nestedRule' === $name) {
+                $nestedRule->setChild(
+                    $serializer->deserialize($value->asXml(), NestedRule::class, 'xml')
+                );
+            }
+            if ('filterActions' === $name) {
+                $filterActions = $value->children();
+                foreach ($filterActions as $action) {
+                    $type = $types[$action->getName()] ?? NULL;
+                    if (!empty($type)) {
+                        $nestedRule->addFilterAction(
+                            $serializer->deserialize($action->asXml(), $type, 'xml')
+                        );
+                    }
+                }
+            }
+        }
+
+        return $nestedRule;
+    }
+
+    public function jsonDeserializeNestedRule(
+        DeserializationVisitor $visitor, $data, array $type, Context $context
+    )
+    {
+        $serializer = SerializerFactory::create();
+        $nestedRule = new NestedRule(new FilterTests(FilterCondition::ALL_OF()));
+
+        if (isset($data['filterVariables']) && $data['filterVariables'] !== NULL) {
+            $nestedRule->setFilterVariables(
+                $serializer->deserialize(json_encode($data['filterVariables']), FilterVariables::class, 'json')
+            );
+        }
+        if (isset($data['filterTests']) && $data['filterTests'] !== NULL) {
+            $nestedRule->setFilterTests(
+                $serializer->deserialize(json_encode($data['filterTests']), FilterTests::class, 'json')
+            );
+        }
+        if (isset($data['nestedRule']) && $data['nestedRule'] !== NULL) {
+            $nestedRule->setChild(
+                $serializer->deserialize(json_encode($data['nestedRule']), NestedRule::class, 'json')
+            );
+        }
+        if (isset($data['filterActions']) && $data['filterActions'] !== NULL) {
+            $filterActions = $data['filterActions'];
+            foreach (NestedRule::filterActionTypes() as $key => $type) {
+                if (isset($filterActions[$key]) && is_array($filterActions[$key])) {
+                    $nestedRule->addFilterAction(
+                        $serializer->deserialize(json_encode($filterActions[$key]), $type, 'json')
+                    );
+                }
+            }
+        }
+        return $nestedRule;
+    }
+
+    public function xmlDeserializeFilterRule(
+        DeserializationVisitor $visitor, \SimpleXMLElement $data, array $type, Context $context
+    )
+    {
+        $serializer = SerializerFactory::create();
+        $filterRule = new FilterRule('', FALSE, new FilterTests(FilterCondition::ALL_OF()));
+        $types = FilterRule::filterActionTypes();
+
+        $attributes = $data->attributes();
+        foreach ($attributes as $key => $value) {
+            if ($key == 'name') {
+                $filterRule->setName((string) $value);
+            }
+            if ($key == 'active') {
+                $filterRule->setActive(Text::stringToBoolean((string) $value));
+            }
+        }
+
+        $children = $data->children();
+        foreach ($children as $value) {
+            $name = $value->getName();
+            if ('filterVariables' === $name) {
+                $filterRule->setFilterVariables(
+                    $serializer->deserialize($value->asXml(), FilterVariables::class, 'xml')
+                );
+            }
+            if ('filterTests' === $name) {
+                $filterRule->setFilterTests(
+                    $serializer->deserialize($value->asXml(), FilterTests::class, 'xml')
+                );
+            }
+            if ('nestedRule' === $name) {
+                $filterRule->setChild(
+                    $serializer->deserialize($value->asXml(), NestedRule::class, 'xml')
+                );
+            }
+            if ('filterActions' === $name) {
+                $filterActions = $value->children();
+                foreach ($filterActions as $action) {
+                    $type = $types[$action->getName()] ?? NULL;
+                    if (!empty($type)) {
+                        $filterRule->addFilterAction(
+                            $serializer->deserialize($action->asXml(), $type, 'xml')
+                        );
+                    }
+                }
+            }
+        }
+
+        return $filterRule;
+    }
+
+    public function jsonDeserializeFilterRule(
+        DeserializationVisitor $visitor, $data, array $type, Context $context
+    )
+    {
+        $serializer = SerializerFactory::create();
+        $filterRule = new FilterRule('', FALSE, new FilterTests(FilterCondition::ALL_OF()));
+
+        if (isset($data['name']) && $data['name'] !== NULL) {
+            $filterRule->setName($data['name']);
+        }
+        if (isset($data['active']) && $data['active'] !== NULL) {
+            $filterRule->setActive(Text::stringToBoolean($data['active']));
+        }
+
+        if (isset($data['filterVariables']) && $data['filterVariables'] !== NULL) {
+            $filterRule->setFilterVariables(
+                $serializer->deserialize(json_encode($data['filterVariables']), FilterVariables::class, 'json')
+            );
+        }
+        if (isset($data['filterTests']) && $data['filterTests'] !== NULL) {
+            $filterRule->setFilterTests(
+                $serializer->deserialize(json_encode($data['filterTests']), FilterTests::class, 'json')
+            );
+        }
+        if (isset($data['nestedRule']) && $data['nestedRule'] !== NULL) {
+            $filterRule->setChild(
+                $serializer->deserialize(json_encode($data['nestedRule']), NestedRule::class, 'json')
+            );
+        }
+        if (isset($data['filterActions']) && $data['filterActions'] !== NULL) {
+            $filterActions = $data['filterActions'];
+            foreach (FilterRule::filterActionTypes() as $key => $type) {
+                if (isset($filterActions[$key]) && is_array($filterActions[$key])) {
+                    $filterRule->addFilterAction(
+                        $serializer->deserialize(json_encode($filterActions[$key]), $type, 'json')
+                    );
+                }
+            }
+        }
+        return $filterRule;
     }
 }

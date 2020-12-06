@@ -21,8 +21,10 @@ class FilterActionTest extends ZimbraStructTestCase
         $action->setIndex($index);
         $this->assertSame($index, $action->getIndex());
 
-        $xml = '<?xml version="1.0"?>' . "\n"
-            . '<action index="' . $index . '" />';
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<action index="$index" />
+EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($action, 'xml'));
         $this->assertEquals($action, $this->serializer->deserialize($xml, FilterAction::class, 'xml'));
 
