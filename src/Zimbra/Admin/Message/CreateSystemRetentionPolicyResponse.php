@@ -11,7 +11,7 @@
 namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlElement, XmlRoot};
-use Zimbra\Admin\Struct\Policy;
+use Zimbra\Mail\Struct\Policy;
 use Zimbra\Soap\ResponseInterface;
 
 /**
@@ -31,7 +31,7 @@ class CreateSystemRetentionPolicyResponse implements ResponseInterface
      * Information about the newly created retention policy
      * @Accessor(getter="getPolicy", setter="setPolicy")
      * @SerializedName("policy")
-     * @Type("Zimbra\Admin\Struct\Policy")
+     * @Type("Zimbra\Mail\Struct\Policy")
      * @XmlElement(namespace="urn:zimbraMail")
      */
     private $policy;

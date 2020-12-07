@@ -7,7 +7,7 @@ use Zimbra\Admin\Message\DeleteSystemRetentionPolicyEnvelope;
 use Zimbra\Admin\Message\DeleteSystemRetentionPolicyRequest;
 use Zimbra\Admin\Message\DeleteSystemRetentionPolicyResponse;
 use Zimbra\Admin\Struct\CosSelector;
-use Zimbra\Admin\Struct\Policy;
+use Zimbra\Mail\Struct\Policy;
 use Zimbra\Enum\CosBy;
 use Zimbra\Enum\Type;
 use Zimbra\Struct\Tests\ZimbraStructTestCase;

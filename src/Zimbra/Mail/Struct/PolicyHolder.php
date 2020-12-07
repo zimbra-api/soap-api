@@ -8,7 +8,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Zimbra\Admin\Struct;
+namespace Zimbra\Mail\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlElement, XmlNamespace, XmlRoot};
 
@@ -16,7 +16,7 @@ use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAt
  * PolicyHolder struct class
  *
  * @package    Zimbra
- * @subpackage Admin
+ * @subpackage Mail
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
@@ -28,7 +28,7 @@ class PolicyHolder
     /**
      * @Accessor(getter="getPolicy", setter="setPolicy")
      * @SerializedName("policy")
-     * @Type("Zimbra\Admin\Struct\Policy")
+     * @Type("Zimbra\Mail\Struct\Policy")
      * @XmlElement(namespace="urn:zimbraMail")
      */
     private $policy;
