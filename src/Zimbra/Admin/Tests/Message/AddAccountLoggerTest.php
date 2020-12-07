@@ -68,19 +68,17 @@ class AddAccountLoggerTest extends ZimbraStructTestCase
         $envelope->setBody($body);
         $this->assertSame($body, $envelope->getBody());
 
-        $level = LoggingLevel::INFO()->getValue();
-        $by = AccountBy::NAME()->getValue();
         $xml = <<<EOT
 <?xml version="1.0"?>
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
     <soap:Body>
         <urn:AddAccountLoggerRequest>
-            <logger category="$category" level="$level" />
-            <account by="$by">$value</account>
+            <logger category="$category" level="info" />
+            <account by="name">$value</account>
             <id>$id</id>
         </urn:AddAccountLoggerRequest>
         <urn:AddAccountLoggerResponse>
-            <logger category="$category" level="$level" />
+            <logger category="$category" level="info" />
         </urn:AddAccountLoggerResponse>
     </soap:Body>
 </soap:Envelope>
@@ -93,10 +91,10 @@ EOT;
                 'AddAccountLoggerRequest' => [
                     'logger' => [
                         'category' => $category,
-                        'level' => $level,
+                        'level' => 'info',
                     ],
                     'account' => [
-                        'by' => $by,
+                        'by' => 'name',
                         '_content' => $value,
                     ],
                     'id' => [
@@ -108,7 +106,7 @@ EOT;
                     'logger' => [
                         [
                             'category' => $category,
-                            'level' => $level,
+                            'level' => 'info',
                         ],
                     ],
                     '_jsns' => 'urn:zimbraAdmin',
