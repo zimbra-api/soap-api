@@ -3,6 +3,7 @@
 namespace Zimbra\Mail\Tests\Struct;
 
 use Zimbra\Mail\Struct\HeaderTest;
+use Zimbra\Enum\{ComparisonComparator, CountComparison, StringComparison, ValueComparison};
 use Zimbra\Struct\Tests\ZimbraStructTestCase;
 
 /**
@@ -14,42 +15,38 @@ class HeaderTestTest extends ZimbraStructTestCase
     {
         $index = mt_rand(1, 99);
         $headers = $this->faker->word;
-        $stringComparison = $this->faker->word;
         $value = $this->faker->word;
-        $valueComparison = $this->faker->word;
-        $countComparison = $this->faker->word;
-        $valueComparisonComparator = $this->faker->word;
 
         $test = new HeaderTest(
-            $index, TRUE, $headers, $stringComparison, $valueComparison, $countComparison, $valueComparisonComparator, $value, FALSE
+            $index, TRUE, $headers, StringComparison::IS(), ValueComparison::NOT_EQUAL(), CountComparison::NOT_EQUAL(), ComparisonComparator::OCTET(), $value, FALSE
         );
         $this->assertSame($headers, $test->getHeaders());
-        $this->assertSame($stringComparison, $test->getStringComparison());
+        $this->assertEquals(StringComparison::IS(), $test->getStringComparison());
         $this->assertFalse($test->isCaseSensitive());
         $this->assertSame($value, $test->getValue());
-        $this->assertSame($valueComparison, $test->getValueComparison());
-        $this->assertSame($countComparison, $test->getCountComparison());
-        $this->assertSame($valueComparisonComparator, $test->getValueComparisonComparator());
+        $this->assertEquals(ValueComparison::NOT_EQUAL(), $test->getValueComparison());
+        $this->assertEquals(CountComparison::NOT_EQUAL(), $test->getCountComparison());
+        $this->assertEquals(ComparisonComparator::OCTET(), $test->getValueComparisonComparator());
 
         $test = new HeaderTest($index, TRUE);
         $test->setHeaders($headers)
-            ->setStringComparison($stringComparison)
+            ->setStringComparison(StringComparison::CONTAINS())
             ->setCaseSensitive(TRUE)
             ->setValue($value)
-            ->setValueComparison($valueComparison)
-            ->setCountComparison($countComparison)
-            ->setValueComparisonComparator($valueComparisonComparator);
+            ->setValueComparison(ValueComparison::EQUAL())
+            ->setCountComparison(CountComparison::EQUAL())
+            ->setValueComparisonComparator(ComparisonComparator::ASCII_NUMERIC());
         $this->assertSame($headers, $test->getHeaders());
-        $this->assertSame($stringComparison, $test->getStringComparison());
+        $this->assertEquals(StringComparison::CONTAINS(), $test->getStringComparison());
         $this->assertTrue($test->isCaseSensitive());
         $this->assertSame($value, $test->getValue());
-        $this->assertSame($valueComparison, $test->getValueComparison());
-        $this->assertSame($countComparison, $test->getCountComparison());
-        $this->assertSame($valueComparisonComparator, $test->getValueComparisonComparator());
+        $this->assertEquals(ValueComparison::EQUAL(), $test->getValueComparison());
+        $this->assertEquals(CountComparison::EQUAL(), $test->getCountComparison());
+        $this->assertEquals(ComparisonComparator::ASCII_NUMERIC(), $test->getValueComparisonComparator());
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<headerTest index="$index" negative="true" header="$headers" stringComparison="$stringComparison" valueComparison="$valueComparison" countComparison="$countComparison" valueComparisonComparator="$valueComparisonComparator" value="$value" caseSensitive="true" />
+<headerTest index="$index" negative="true" header="$headers" stringComparison="contains" valueComparison="eq" countComparison="eq" valueComparisonComparator="i;ascii-numeric" value="$value" caseSensitive="true" />
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($test, 'xml'));
         $this->assertEquals($test, $this->serializer->deserialize($xml, HeaderTest::class, 'xml'));
@@ -58,10 +55,10 @@ EOT;
             'index' => $index,
             'negative' => TRUE,
             'header' => $headers,
-            'stringComparison' => $stringComparison,
-            'valueComparison' => $valueComparison,
-            'countComparison' => $countComparison,
-            'valueComparisonComparator' => $valueComparisonComparator,
+            'stringComparison' => 'contains',
+            'valueComparison' => 'eq',
+            'countComparison' => 'eq',
+            'valueComparisonComparator' => 'i;ascii-numeric',
             'value' => $value,
             'caseSensitive' => TRUE,
         ]);

@@ -11,6 +11,7 @@
 namespace Zimbra\Mail\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlElement, XmlList, XmlRoot};
+use Zimbra\Enum\{ComparisonComparator, MatchType, RelationalComparator};
 
 /**
  * EditheaderTest class
@@ -29,7 +30,7 @@ class EditheaderTest
      * matchType - is|contains|matches|count|value
      * @Accessor(getter="getMatchType", setter="setMatchType")
      * @SerializedName("matchType")
-     * @Type("string")
+     * @Type("Zimbra\Enum\MatchType")
      * @XmlAttribute
      */
     private $matchType;
@@ -56,16 +57,16 @@ class EditheaderTest
      * relational comparator - gt|ge|lt|le|eq|ne
      * @Accessor(getter="getRelationalComparator", setter="setRelationalComparator")
      * @SerializedName("relationalComparator")
-     * @Type("string")
+     * @Type("Zimbra\Enum\RelationalComparator")
      * @XmlAttribute
      */
     private $relationalComparator;
 
     /**
-     * comparator - ascii-casemap|ascii-numeric|octet
+     * comparator - i;ascii-numeric|i;ascii-casemap|i;octet
      * @Accessor(getter="getComparator", setter="setComparator")
      * @SerializedName("comparator")
-     * @Type("string")
+     * @Type("Zimbra\Enum\ComparisonComparator")
      * @XmlAttribute
      */
     private $comparator;
@@ -91,26 +92,26 @@ class EditheaderTest
     /**
      * Constructor method for EditheaderTest
      * 
-     * @param string $matchType
+     * @param MatchType $matchType
      * @param bool $count
      * @param bool $value
-     * @param string $relationalComparator
-     * @param string $comparator
+     * @param RelationalComparator $relationalComparator
+     * @param ComparisonComparator $comparator
      * @param string $headerName
      * @param array $headerValue
      * @return self
      */
     public function __construct(
-        ?string $matchType = NULL,
+        ?MatchType $matchType = NULL,
         ?bool $count = NULL,
         ?bool $value = NULL,
-        ?string $relationalComparator = NULL,
-        ?string $comparator = NULL,
+        ?RelationalComparator $relationalComparator = NULL,
+        ?ComparisonComparator $comparator = NULL,
         ?string $headerName = NULL,
         array $headerValue = []
     )
     {
-        if (NULL !== $matchType) {
+        if ($matchType instanceof MatchType) {
             $this->setMatchType($matchType);
         }
         if (NULL !== $count) {
@@ -119,10 +120,10 @@ class EditheaderTest
         if (NULL !== $value) {
             $this->setValue($value);
         }
-        if (NULL !== $relationalComparator) {
+        if ($relationalComparator instanceof RelationalComparator) {
             $this->setRelationalComparator($relationalComparator);
         }
-        if (NULL !== $comparator) {
+        if ($comparator instanceof ComparisonComparator) {
             $this->setComparator($comparator);
         }
         if (NULL !== $headerName) {
@@ -134,9 +135,9 @@ class EditheaderTest
     /**
      * Gets matchType
      *
-     * @return string
+     * @return MatchType
      */
-    public function getMatchType(): ?string
+    public function getMatchType(): ?MatchType
     {
         return $this->matchType;
     }
@@ -144,10 +145,10 @@ class EditheaderTest
     /**
      * Sets matchType
      *
-     * @param  string $matchType
+     * @param  MatchType $matchType
      * @return self
      */
-    public function setMatchType(string $matchType)
+    public function setMatchType(MatchType $matchType)
     {
         $this->matchType = $matchType;
         return $this;
@@ -200,9 +201,9 @@ class EditheaderTest
     /**
      * Gets relationalComparator
      *
-     * @return string
+     * @return RelationalComparator
      */
-    public function getRelationalComparator(): ?string
+    public function getRelationalComparator(): ?RelationalComparator
     {
         return $this->relationalComparator;
     }
@@ -210,10 +211,10 @@ class EditheaderTest
     /**
      * Sets relationalComparator
      *
-     * @param  string $relationalComparator
+     * @param  RelationalComparator $relationalComparator
      * @return self
      */
-    public function setRelationalComparator(string $relationalComparator)
+    public function setRelationalComparator(RelationalComparator $relationalComparator)
     {
         $this->relationalComparator = $relationalComparator;
         return $this;
@@ -222,9 +223,9 @@ class EditheaderTest
     /**
      * Gets comparator
      *
-     * @return string
+     * @return ComparisonComparator
      */
-    public function getComparator(): ?string
+    public function getComparator(): ?ComparisonComparator
     {
         return $this->comparator;
     }
@@ -232,10 +233,10 @@ class EditheaderTest
     /**
      * Sets comparator
      *
-     * @param  string $comparator
+     * @param  ComparisonComparator $comparator
      * @return self
      */
-    public function setComparator(string $comparator)
+    public function setComparator(ComparisonComparator $comparator)
     {
         $this->comparator = $comparator;
         return $this;

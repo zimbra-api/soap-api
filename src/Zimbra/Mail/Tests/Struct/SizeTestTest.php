@@ -3,6 +3,7 @@
 namespace Zimbra\Mail\Tests\Struct;
 
 use Zimbra\Mail\Struct\SizeTest;
+use Zimbra\Enum\NumberComparison;
 use Zimbra\Struct\Tests\ZimbraStructTestCase;
 
 /**
@@ -13,24 +14,23 @@ class SizeTestTest extends ZimbraStructTestCase
     public function testSizeTest()
     {
         $index = mt_rand(1, 99);
-        $numberComparison = $this->faker->word;
         $size = $this->faker->word;
 
         $test = new SizeTest(
-            $index, TRUE, $numberComparison, $size
+            $index, TRUE, NumberComparison::UNDER(), $size
         );
-        $this->assertSame($numberComparison, $test->getNumberComparison());
+        $this->assertEquals(NumberComparison::UNDER(), $test->getNumberComparison());
         $this->assertSame($size, $test->getSize());
 
         $test = new SizeTest($index, TRUE);
-        $test->setNumberComparison($numberComparison)
+        $test->setNumberComparison(NumberComparison::OVER())
             ->setSize($size);
-        $this->assertSame($numberComparison, $test->getNumberComparison());
+        $this->assertEquals(NumberComparison::OVER(), $test->getNumberComparison());
         $this->assertSame($size, $test->getSize());
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<sizeTest index="$index" negative="true" numberComparison="$numberComparison" s="$size" />
+<sizeTest index="$index" negative="true" numberComparison="over" s="$size" />
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($test, 'xml'));
         $this->assertEquals($test, $this->serializer->deserialize($xml, SizeTest::class, 'xml'));
@@ -38,7 +38,7 @@ EOT;
         $json = json_encode([
             'index' => $index,
             'negative' => TRUE,
-            'numberComparison' => $numberComparison,
+            'numberComparison' => 'over',
             's' => $size,
         ]);
         $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($test, 'json'));

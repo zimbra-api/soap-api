@@ -11,6 +11,7 @@
 namespace Zimbra\Mail\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlElement, XmlRoot};
+use Zimbra\Enum\{AddressPart, ComparisonComparator, CountComparison, StringComparison, ValueComparison};
 
 /**
  * AddressTest struct class
@@ -38,7 +39,7 @@ class AddressTest extends FilterTest
      * Part of address to affect - all|localpart|domain
      * @Accessor(getter="getPart", setter="setPart")
      * @SerializedName("part")
-     * @Type("string")
+     * @Type("Zimbra\Enum\AddressPart")
      * @XmlAttribute
      */
     private $part;
@@ -47,7 +48,7 @@ class AddressTest extends FilterTest
      * comparison type - is|contains|matches
      * @Accessor(getter="getStringComparison", setter="setStringComparison")
      * @SerializedName("stringComparison")
-     * @Type("string")
+     * @Type("Zimbra\Enum\StringComparison")
      * @XmlAttribute
      */
     private $comparison;
@@ -74,7 +75,7 @@ class AddressTest extends FilterTest
      * Value comparison type - gt|ge|lt|le|eq|ne
      * @Accessor(getter="getValueComparison", setter="setValueComparison")
      * @SerializedName("valueComparison")
-     * @Type("string")
+     * @Type("Zimbra\Enum\ValueComparison")
      * @XmlAttribute
      */
     private $valueComparison;
@@ -83,7 +84,7 @@ class AddressTest extends FilterTest
      * count comparison type - gt|ge|lt|le|eq|ne
      * @Accessor(getter="getCountComparison", setter="setCountComparison")
      * @SerializedName("countComparison")
-     * @Type("string")
+     * @Type("Zimbra\Enum\CountComparison")
      * @XmlAttribute
      */
     private $countComparison;
@@ -92,7 +93,7 @@ class AddressTest extends FilterTest
      * comparison comparator - i;ascii-numeric|i;ascii-casemap|i;octet
      * @Accessor(getter="getValueComparisonComparator", setter="setValueComparisonComparator")
      * @SerializedName("valueComparisonComparator")
-     * @Type("string")
+     * @Type("Zimbra\Enum\ComparisonComparator")
      * @XmlAttribute
      */
     private $valueComparisonComparator;
@@ -103,36 +104,36 @@ class AddressTest extends FilterTest
      * @param int $index
      * @param bool $negative
      * @param string $header
-     * @param string $part
-     * @param string $comparison
+     * @param AddressPart $part
+     * @param StringComparison $comparison
      * @param bool $caseSensitive
      * @param string $value
-     * @param string $valueComparison
-     * @param string $countComparison
-     * @param string $valueComparisonComparator
+     * @param ValueComparison $valueComparison
+     * @param CountComparison $countComparison
+     * @param ComparisonComparator $valueComparisonComparator
      * @return self
      */
     public function __construct(
         ?int $index = NULL,
         ?bool $negative = NULL,
         ?string $header = NULL,
-        ?string $part = NULL,
-        ?string $comparison = NULL,
+        ?AddressPart $part = NULL,
+        ?StringComparison $comparison = NULL,
         ?bool $caseSensitive = NULL,
         ?string $value = NULL,
-        ?string $valueComparison = NULL,
-        ?string $countComparison = NULL,
-        ?string $valueComparisonComparator = NULL
+        ?ValueComparison $valueComparison = NULL,
+        ?CountComparison $countComparison = NULL,
+        ?ComparisonComparator $valueComparisonComparator = NULL
     )
     {
     	parent::__construct($index, $negative);
         if (NULL !== $header) {
             $this->setHeader($header);
         }
-        if (NULL !== $part) {
+        if ($part instanceof AddressPart) {
             $this->setPart($part);
         }
-        if (NULL !== $comparison) {
+        if ($comparison instanceof StringComparison) {
             $this->setStringComparison($comparison);
         }
         if (NULL !== $caseSensitive) {
@@ -141,13 +142,13 @@ class AddressTest extends FilterTest
         if (NULL !== $value) {
             $this->setValue($value);
         }
-        if (NULL !== $valueComparison) {
+        if ($valueComparison instanceof ValueComparison) {
             $this->setValueComparison($valueComparison);
         }
-        if (NULL !== $countComparison) {
+        if ($countComparison instanceof CountComparison) {
             $this->setCountComparison($countComparison);
         }
-        if (NULL !== $valueComparisonComparator) {
+        if ($valueComparisonComparator instanceof ComparisonComparator) {
             $this->setValueComparisonComparator($valueComparisonComparator);
         }
     }
@@ -177,9 +178,9 @@ class AddressTest extends FilterTest
     /**
      * Gets part
      *
-     * @return string
+     * @return AddressPart
      */
-    public function getPart(): ?string
+    public function getPart(): ?AddressPart
     {
         return $this->part;
     }
@@ -187,10 +188,10 @@ class AddressTest extends FilterTest
     /**
      * Sets part
      *
-     * @param  string $part
+     * @param  AddressPart $part
      * @return self
      */
-    public function setPart(string $part)
+    public function setPart(AddressPart $part)
     {
         $this->part = $part;
         return $this;
@@ -199,9 +200,9 @@ class AddressTest extends FilterTest
     /**
      * Gets comparison
      *
-     * @return string
+     * @return StringComparison
      */
-    public function getStringComparison(): ?string
+    public function getStringComparison(): ?StringComparison
     {
         return $this->comparison;
     }
@@ -209,10 +210,10 @@ class AddressTest extends FilterTest
     /**
      * Sets comparison
      *
-     * @param  string $comparison
+     * @param  StringComparison $comparison
      * @return self
      */
-    public function setStringComparison(string $comparison)
+    public function setStringComparison(StringComparison $comparison)
     {
         $this->comparison = $comparison;
         return $this;
@@ -265,9 +266,9 @@ class AddressTest extends FilterTest
     /**
      * Gets valueComparison
      *
-     * @return string
+     * @return ValueComparison
      */
-    public function getValueComparison(): ?string
+    public function getValueComparison(): ?ValueComparison
     {
         return $this->valueComparison;
     }
@@ -275,10 +276,10 @@ class AddressTest extends FilterTest
     /**
      * Sets valueComparison
      *
-     * @param  string $valueComparison
+     * @param  ValueComparison $valueComparison
      * @return self
      */
-    public function setValueComparison(string $valueComparison)
+    public function setValueComparison(ValueComparison $valueComparison)
     {
         $this->valueComparison = $valueComparison;
         return $this;
@@ -287,9 +288,9 @@ class AddressTest extends FilterTest
     /**
      * Gets countComparison
      *
-     * @return string
+     * @return CountComparison
      */
-    public function getCountComparison(): ?string
+    public function getCountComparison(): ?CountComparison
     {
         return $this->countComparison;
     }
@@ -297,10 +298,10 @@ class AddressTest extends FilterTest
     /**
      * Sets countComparison
      *
-     * @param  string $countComparison
+     * @param  CountComparison $countComparison
      * @return self
      */
-    public function setCountComparison(string $countComparison)
+    public function setCountComparison(CountComparison $countComparison)
     {
         $this->countComparison = $countComparison;
         return $this;
@@ -309,9 +310,9 @@ class AddressTest extends FilterTest
     /**
      * Gets valueComparisonComparator
      *
-     * @return string
+     * @return ComparisonComparator
      */
-    public function getValueComparisonComparator(): ?string
+    public function getValueComparisonComparator(): ?ComparisonComparator
     {
         return $this->valueComparisonComparator;
     }
@@ -319,10 +320,10 @@ class AddressTest extends FilterTest
     /**
      * Sets valueComparisonComparator
      *
-     * @param  string $valueComparisonComparator
+     * @param  ComparisonComparator $valueComparisonComparator
      * @return self
      */
-    public function setValueComparisonComparator(string $valueComparisonComparator)
+    public function setValueComparisonComparator(ComparisonComparator $valueComparisonComparator)
     {
         $this->valueComparisonComparator = $valueComparisonComparator;
         return $this;

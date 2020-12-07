@@ -3,6 +3,7 @@
 namespace Zimbra\Mail\Tests\Struct;
 
 use Zimbra\Mail\Struct\CurrentTimeTest;
+use Zimbra\Enum\DateComparison;
 use Zimbra\Struct\Tests\ZimbraStructTestCase;
 
 /**
@@ -13,24 +14,23 @@ class CurrentTimeTestTest extends ZimbraStructTestCase
     public function testCurrentTimeTest()
     {
         $index = mt_rand(1, 99);
-        $dateComparison = $this->faker->word;
         $time = $this->faker->word;
 
         $test = new CurrentTimeTest(
-            $index, TRUE, $dateComparison, $time
+            $index, TRUE, DateComparison::AFTER(), $time
         );
-        $this->assertSame($dateComparison, $test->getDateComparison());
+        $this->assertEquals(DateComparison::AFTER(), $test->getDateComparison());
         $this->assertSame($time, $test->getTime());
 
         $test = new CurrentTimeTest($index, TRUE);
-        $test->setDateComparison($dateComparison)
+        $test->setDateComparison(DateComparison::BEFORE())
             ->setTime($time);
-        $this->assertSame($dateComparison, $test->getDateComparison());
+        $this->assertEquals(DateComparison::BEFORE(), $test->getDateComparison());
         $this->assertSame($time, $test->getTime());
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<currentTimeTest index="$index" negative="true" dateComparison="$dateComparison" time="$time" />
+<currentTimeTest index="$index" negative="true" dateComparison="before" time="$time" />
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($test, 'xml'));
         $this->assertEquals($test, $this->serializer->deserialize($xml, CurrentTimeTest::class, 'xml'));
@@ -38,7 +38,7 @@ EOT;
         $json = json_encode([
             'index' => $index,
             'negative' => TRUE,
-            'dateComparison' => $dateComparison,
+            'dateComparison' => 'before',
             'time' => $time,
         ]);
         $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($test, 'json'));

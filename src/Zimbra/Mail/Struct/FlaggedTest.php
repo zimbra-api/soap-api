@@ -26,9 +26,9 @@ use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAt
 class FlaggedTest extends FilterTest
 {
     /**
-     * flagged|read|priority
+     * Flag name - flagged|read|priority
      * @Accessor(getter="getFlag", setter="setFlag")
-     * @SerializedName("flag")
+     * @SerializedName("flagName")
      * @Type("string")
      * @XmlAttribute
      */

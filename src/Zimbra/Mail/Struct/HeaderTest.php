@@ -11,6 +11,7 @@
 namespace Zimbra\Mail\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlElement, XmlRoot};
+use Zimbra\Enum\{ComparisonComparator, CountComparison, StringComparison, ValueComparison};
 
 /**
  * HeaderTest struct class
@@ -38,7 +39,7 @@ class HeaderTest extends FilterTest
      * String comparison type - is|contains|matches
      * @Accessor(getter="getStringComparison", setter="setStringComparison")
      * @SerializedName("stringComparison")
-     * @Type("string")
+     * @Type("Zimbra\Enum\StringComparison")
      * @XmlAttribute
      */
     private $stringComparison;
@@ -47,7 +48,7 @@ class HeaderTest extends FilterTest
      * Value comparison type - gt|ge|lt|le|eq|ne
      * @Accessor(getter="getValueComparison", setter="setValueComparison")
      * @SerializedName("valueComparison")
-     * @Type("string")
+     * @Type("Zimbra\Enum\ValueComparison")
      * @XmlAttribute
      */
     private $valueComparison;
@@ -56,7 +57,7 @@ class HeaderTest extends FilterTest
      * count comparison type - gt|ge|lt|le|eq|ne
      * @Accessor(getter="getCountComparison", setter="setCountComparison")
      * @SerializedName("countComparison")
-     * @Type("string")
+     * @Type("Zimbra\Enum\CountComparison")
      * @XmlAttribute
      */
     private $countComparison;
@@ -65,7 +66,7 @@ class HeaderTest extends FilterTest
      * comparison comparator - i;ascii-numeric|i;ascii-casemap|i;octet
      * @Accessor(getter="getValueComparisonComparator", setter="setValueComparisonComparator")
      * @SerializedName("valueComparisonComparator")
-     * @Type("string")
+     * @Type("Zimbra\Enum\ComparisonComparator")
      * @XmlAttribute
      */
     private $valueComparisonComparator;
@@ -94,10 +95,10 @@ class HeaderTest extends FilterTest
      * @param int $index
      * @param bool $negative
      * @param string $headers
-     * @param string $stringComparison
-     * @param string $valueComparison
-     * @param string $countComparison
-     * @param string $valueComparisonComparator
+     * @param StringComparison $stringComparison
+     * @param ValueComparison $valueComparison
+     * @param CountComparison $countComparison
+     * @param ComparisonComparator $valueComparisonComparator
      * @param string $value
      * @param bool $caseSensitive
      * @return self
@@ -106,10 +107,10 @@ class HeaderTest extends FilterTest
         ?int $index = NULL,
         ?bool $negative = NULL,
         ?string $headers = NULL,
-        ?string $stringComparison = NULL,
-        ?string $valueComparison = NULL,
-        ?string $countComparison = NULL,
-        ?string $valueComparisonComparator = NULL,
+        ?StringComparison $stringComparison = NULL,
+        ?ValueComparison $valueComparison = NULL,
+        ?CountComparison $countComparison = NULL,
+        ?ComparisonComparator $valueComparisonComparator = NULL,
         ?string $value = NULL,
         ?bool $caseSensitive = NULL
     )
@@ -118,16 +119,16 @@ class HeaderTest extends FilterTest
         if (NULL !== $headers) {
             $this->setHeaders($headers);
         }
-        if (NULL !== $stringComparison) {
+        if ($stringComparison instanceof StringComparison) {
             $this->setStringComparison($stringComparison);
         }
-        if (NULL !== $valueComparison) {
+        if ($valueComparison instanceof ValueComparison) {
             $this->setValueComparison($valueComparison);
         }
-        if (NULL !== $countComparison) {
+        if ($countComparison instanceof CountComparison) {
             $this->setCountComparison($countComparison);
         }
-        if (NULL !== $valueComparisonComparator) {
+        if ($valueComparisonComparator instanceof ComparisonComparator) {
             $this->setValueComparisonComparator($valueComparisonComparator);
         }
         if (NULL !== $value) {
@@ -163,9 +164,9 @@ class HeaderTest extends FilterTest
     /**
      * Gets stringComparison
      *
-     * @return string
+     * @return StringComparison
      */
-    public function getStringComparison(): ?string
+    public function getStringComparison(): ?StringComparison
     {
         return $this->stringComparison;
     }
@@ -173,10 +174,10 @@ class HeaderTest extends FilterTest
     /**
      * Sets stringComparison
      *
-     * @param  string $stringComparison
+     * @param  StringComparison $stringComparison
      * @return self
      */
-    public function setStringComparison(string $stringComparison)
+    public function setStringComparison(StringComparison $stringComparison)
     {
         $this->stringComparison = $stringComparison;
         return $this;
@@ -229,9 +230,9 @@ class HeaderTest extends FilterTest
     /**
      * Gets valueComparison
      *
-     * @return string
+     * @return ValueComparison
      */
-    public function getValueComparison(): ?string
+    public function getValueComparison(): ?ValueComparison
     {
         return $this->valueComparison;
     }
@@ -239,10 +240,10 @@ class HeaderTest extends FilterTest
     /**
      * Sets valueComparison
      *
-     * @param  string $valueComparison
+     * @param  ValueComparison $valueComparison
      * @return self
      */
-    public function setValueComparison(string $valueComparison)
+    public function setValueComparison(ValueComparison $valueComparison)
     {
         $this->valueComparison = $valueComparison;
         return $this;
@@ -251,9 +252,9 @@ class HeaderTest extends FilterTest
     /**
      * Gets countComparison
      *
-     * @return string
+     * @return CountComparison
      */
-    public function getCountComparison(): ?string
+    public function getCountComparison(): ?CountComparison
     {
         return $this->countComparison;
     }
@@ -261,10 +262,10 @@ class HeaderTest extends FilterTest
     /**
      * Sets countComparison
      *
-     * @param  string $countComparison
+     * @param  CountComparison $countComparison
      * @return self
      */
-    public function setCountComparison(string $countComparison)
+    public function setCountComparison(CountComparison $countComparison)
     {
         $this->countComparison = $countComparison;
         return $this;
@@ -273,9 +274,9 @@ class HeaderTest extends FilterTest
     /**
      * Gets valueComparisonComparator
      *
-     * @return string
+     * @return ComparisonComparator
      */
-    public function getValueComparisonComparator(): ?string
+    public function getValueComparisonComparator(): ?ComparisonComparator
     {
         return $this->valueComparisonComparator;
     }
@@ -283,10 +284,10 @@ class HeaderTest extends FilterTest
     /**
      * Sets valueComparisonComparator
      *
-     * @param  string $valueComparisonComparator
+     * @param  ComparisonComparator $valueComparisonComparator
      * @return self
      */
-    public function setValueComparisonComparator(string $valueComparisonComparator)
+    public function setValueComparisonComparator(ComparisonComparator $valueComparisonComparator)
     {
         $this->valueComparisonComparator = $valueComparisonComparator;
         return $this;
