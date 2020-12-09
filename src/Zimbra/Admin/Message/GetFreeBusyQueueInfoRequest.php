@@ -1,0 +1,90 @@
+<?php declare(strict_types=1);
+/**
+ * This file is part of the Zimbra API in PHP library.
+ *
+ * © Nguyen Van Nguyen <nguyennv1981@gmail.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+namespace Zimbra\Admin\Message;
+
+use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlElement, XmlRoot};
+use Zimbra\Struct\NamedElement;
+use Zimbra\Soap\Request;
+
+/**
+ * GetFreeBusyQueueInfoRequest request class
+ * Get filter rules
+ *
+ * @package    Zimbra
+ * @subpackage Admin
+ * @category   Message
+ * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
+ * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
+ * @AccessType("public_method")
+ * @XmlRoot(name="GetFreeBusyQueueInfoRequest")
+ */
+class GetFreeBusyQueueInfoRequest extends Request
+{
+    /**
+     * Provider
+     * @Accessor(getter="getProvider", setter="setProvider")
+     * @SerializedName("provider")
+     * @Type("Zimbra\Struct\NamedElement")
+     * @XmlElement
+     */
+    private $provider;
+
+    /**
+     * Constructor method for GetFreeBusyQueueInfoRequest
+     * 
+     * @param  NamedElement $provider
+     * @return self
+     */
+    public function __construct(
+        ?NamedElement $provider = NULL
+    )
+    {
+        if ($provider instanceof NamedElement) {
+            $this->setProvider($provider);
+        }
+    }
+
+    /**
+     * Gets provider.
+     *
+     * @return NamedElement
+     */
+    public function getProvider(): ?NamedElement
+    {
+        return $this->provider;
+    }
+
+    /**
+     * Sets provider.
+     *
+     * @param  NamedElement $provider
+     * @return self
+     */
+    public function setProvider(NamedElement $provider): self
+    {
+        $this->provider = $provider;
+        return $this;
+    }
+
+    /**
+     * Initialize the soap envelope
+     *
+     * @return void
+     */
+    protected function envelopeInit(): void
+    {
+        if (!($this->envelope instanceof GetFreeBusyQueueInfoEnvelope)) {
+            $this->envelope = new GetFreeBusyQueueInfoEnvelope(
+                new GetFreeBusyQueueInfoBody($this)
+            );
+        }
+    }
+}

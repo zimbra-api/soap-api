@@ -94,6 +94,7 @@ class GetFilterRulesResponse implements ResponseInterface
      * @param  Domain $domain
      * @param  Cos $cos
      * @param  Server $server
+     * @param  array $rules
      * @return self
      */
     public function __construct(
