@@ -16,7 +16,9 @@ use Zimbra\Soap\Request;
 
 /**
  * GetFreeBusyQueueInfoRequest request class
- * Get filter rules
+ * Get Free/Busy provider information
+ * If the optional element <provider> is present in the request, the response contains the requested provider only.
+ * if no provider is supplied in the request, the response contains all the providers.
  *
  * @package    Zimbra
  * @subpackage Admin

@@ -31,10 +31,9 @@ class GranteeInfoTest extends ZimbraStructTestCase
         $this->assertSame($name, $grantee->getName());
         $this->assertEquals(GranteeType::USR(), $grantee->getType());
 
-        $type = GranteeType::USR()->getValue();
         $xml = <<<EOT
 <?xml version="1.0"?>
-<grantee id="$id" name="$name" type="$type" />
+<grantee id="$id" name="$name" type="usr" />
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($grantee, 'xml'));
         $this->assertEquals($grantee, $this->serializer->deserialize($xml, GranteeInfo::class, 'xml'));
@@ -42,7 +41,7 @@ EOT;
         $json = json_encode([
             'id' => $id,
             'name' => $name,
-            'type' => $type,
+            'type' => 'usr',
         ]);
         $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($grantee, 'json'));
         $this->assertEquals($grantee, $this->serializer->deserialize($json, GranteeInfo::class, 'json'));
