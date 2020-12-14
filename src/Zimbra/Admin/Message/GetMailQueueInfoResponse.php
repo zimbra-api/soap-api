@@ -11,11 +11,11 @@
 namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlElement, XmlRoot};
-use Zimbra\Admin\Struct\ServerMailQueueDetails as Server;
+use Zimbra\Admin\Struct\ServerQueues as Server;
 use Zimbra\Soap\ResponseInterface;
 
 /**
- * GetMailQueueResponse class
+ * GetMailQueueInfoResponse class
  *
  * @package    Zimbra
  * @subpackage Admin
@@ -23,21 +23,21 @@ use Zimbra\Soap\ResponseInterface;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
  * @AccessType("public_method")
- * @XmlRoot(name="GetMailQueueResponse")
+ * @XmlRoot(name="GetMailQueueInfoResponse")
  */
-class GetMailQueueResponse implements ResponseInterface
+class GetMailQueueInfoResponse implements ResponseInterface
 {
     /**
-     * Server Mail Queue details
+     * Information on queues organised by server
      * @Accessor(getter="getServer", setter="setServer")
      * @SerializedName("server")
-     * @Type("Zimbra\Admin\Struct\ServerMailQueueDetails")
+     * @Type("Zimbra\Admin\Struct\ServerQueues")
      * @XmlElement
      */
     private $server;
 
     /**
-     * Constructor method for GetMailQueueResponse
+     * Constructor method for GetMailQueueInfoResponse
      * @param Server $server
      * @return self
      */
