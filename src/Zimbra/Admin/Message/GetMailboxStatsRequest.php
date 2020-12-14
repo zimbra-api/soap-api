@@ -15,7 +15,7 @@ use Zimbra\Soap\Request;
 
 /**
  * GetMailboxStatsRequest request class
- * Check Health
+ * Get MailBox Statistics
  *
  * @package    Zimbra
  * @subpackage Admin
