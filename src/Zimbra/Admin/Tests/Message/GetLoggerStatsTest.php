@@ -90,28 +90,82 @@ class GetLoggerStatsTest extends ZimbraStructTestCase
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
     <soap:Body>
         <urn:GetLoggerStatsRequest>
+            <hostname hn="$name" />
+            <stats name="$name" limit="$limit">
+                <values>
+                    <stat name="$name" />
+                </values>
+            </stats>
+            <startTime time="$time" />
+            <endTime time="$time" />
         </urn:GetLoggerStatsRequest>
         <urn:GetLoggerStatsResponse>
+            <hostname hn="$name">
+                <stats name="$name">
+                    <values t="$t">
+                        <stat name="$name" value="$value" />
+                    </values>
+                </stats>
+            </hostname>
+            <note>$note</note>
         </urn:GetLoggerStatsResponse>
     </soap:Body>
 </soap:Envelope>
 EOT;
-        // $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
-        // $this->assertEquals($envelope, $this->serializer->deserialize($xml, GetLoggerStatsEnvelope::class, 'xml'));
+        $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
+        $this->assertEquals($envelope, $this->serializer->deserialize($xml, GetLoggerStatsEnvelope::class, 'xml'));
 
         $json = json_encode([
             'Body' => [
                 'GetLoggerStatsRequest' => [
+                    'hostname' => [
+                        'hn' => $name,
+                    ],
+                    'stats' => [
+                        'name' => $name,
+                        'limit' => $limit,
+                        'values' => [
+                            'stat' => [
+                                [
+                                    'name' => $name,
+                                ],
+                            ],
+                        ],
+                    ],
+                    'startTime' => [
+                        'time' => $time,
+                    ],
+                    'endTime' => [
+                        'time' => $time,
+                    ],
                     '_jsns' => 'urn:zimbraAdmin',
                 ],
                 'GetLoggerStatsResponse' => [
-                    'expiration' => [
+                    'hostname' => [
+                        [
+                            'hn' => $name,
+                            'stats' => [
+                                'name' => $name,
+                                'values' => [
+                                    't' => $t,
+                                    'stat' => [
+                                        [
+                                            'name' => $name,
+                                            'value' => $value,
+                                        ],
+                                    ],
+                                ],
+                            ],
+                        ],
+                    ],
+                    'note' => [
+                        '_content' => $note,
                     ],
                     '_jsns' => 'urn:zimbraAdmin',
                 ],
             ],
         ]);
-        // $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        // $this->assertEquals($envelope, $this->serializer->deserialize($json, GetLoggerStatsEnvelope::class, 'json'));
+        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
+        $this->assertEquals($envelope, $this->serializer->deserialize($json, GetLoggerStatsEnvelope::class, 'json'));
     }
 }

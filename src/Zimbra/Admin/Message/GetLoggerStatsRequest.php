@@ -33,7 +33,7 @@ class GetLoggerStatsRequest extends Request
     /**
      * Hostname
      * @Accessor(getter="getHostName", setter="setHostName")
-     * @SerializedName("hostName")
+     * @SerializedName("hostname")
      * @Type("Zimbra\Admin\Struct\HostName")
      * @XmlElement
      */

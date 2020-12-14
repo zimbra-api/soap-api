@@ -45,6 +45,8 @@ EOT;
         $this->assertEquals($stats, $this->serializer->deserialize($xml, StatsSpec::class, 'xml'));
 
         $json = json_encode([
+            'name' => $name,
+            'limit' => $limit,
             'values' => [
                 'stat' => [
                     [
@@ -52,8 +54,6 @@ EOT;
                     ],
                 ],
             ],
-            'name' => $name,
-            'limit' => $limit,
         ]);
         $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($stats, 'json'));
         $this->assertEquals($stats, $this->serializer->deserialize($json, StatsSpec::class, 'json'));
