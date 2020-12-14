@@ -27,7 +27,7 @@ class ServerMailQueueQueryTest extends ZimbraStructTestCase
             $limit,
             $offset
         );
-        $queue = new MailQueueQuery($query, $name, true, $wait);
+        $queue = new MailQueueQuery($query, $name, TRUE, $wait);
 
         $server = new ServerMailQueueQuery($queue, $name);
         $this->assertSame($name, $server->getServerName());
