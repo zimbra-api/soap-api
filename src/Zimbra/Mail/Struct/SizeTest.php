@@ -11,6 +11,7 @@
 namespace Zimbra\Mail\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlElement, XmlRoot};
+use Zimbra\Enum\NumberComparison;
 
 /**
  * SizeTest struct class
@@ -29,7 +30,7 @@ class SizeTest extends FilterTest
      * Number comparison setting - over|under
      * @Accessor(getter="getNumberComparison", setter="setNumberComparison")
      * @SerializedName("numberComparison")
-     * @Type("string")
+     * @Type("Zimbra\Enum\NumberComparison")
      * @XmlAttribute
      */
     private $numberComparison;
@@ -48,19 +49,19 @@ class SizeTest extends FilterTest
      * 
      * @param int $index
      * @param bool $negative
-     * @param string $numberComparison
+     * @param NumberComparison $numberComparison
      * @param string $size
      * @return self
      */
     public function __construct(
         ?int $index = NULL,
         ?bool $negative = NULL,
-        ?string $numberComparison = NULL,
+        ?NumberComparison $numberComparison = NULL,
         ?string $size = NULL
     )
     {
     	parent::__construct($index, $negative);
-        if (NULL !== $numberComparison) {
+        if ($numberComparison instanceof NumberComparison) {
             $this->setNumberComparison($numberComparison);
         }
         if (NULL !== $size) {
@@ -71,9 +72,9 @@ class SizeTest extends FilterTest
     /**
      * Gets numberComparison
      *
-     * @return string
+     * @return NumberComparison
      */
-    public function getNumberComparison(): ?string
+    public function getNumberComparison(): ?NumberComparison
     {
         return $this->numberComparison;
     }
@@ -81,10 +82,10 @@ class SizeTest extends FilterTest
     /**
      * Sets numberComparison
      *
-     * @param  string $numberComparison
+     * @param  NumberComparison $numberComparison
      * @return self
      */
-    public function setNumberComparison(string $numberComparison)
+    public function setNumberComparison(NumberComparison $numberComparison)
     {
         $this->numberComparison = $numberComparison;
         return $this;

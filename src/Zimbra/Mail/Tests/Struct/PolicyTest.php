@@ -1,8 +1,8 @@
 <?php declare(strict_types=1);
 
-namespace Zimbra\Admin\Tests\Struct;
+namespace Zimbra\Mail\Tests\Struct;
 
-use Zimbra\Admin\Struct\Policy;
+use Zimbra\Mail\Struct\Policy;
 use Zimbra\Enum\Type;
 use Zimbra\Struct\Tests\ZimbraStructTestCase;
 

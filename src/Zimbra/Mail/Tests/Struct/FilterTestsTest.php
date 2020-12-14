@@ -35,6 +35,9 @@ use Zimbra\Mail\Struct\CommunityConnectionsTest;
 use Zimbra\Mail\Struct\FilterTests;
 use Zimbra\Enum\FilterCondition;
 use Zimbra\Enum\Importance;
+use Zimbra\Enum\DateComparison;
+use Zimbra\Enum\NumberComparison;
+use Zimbra\Enum\{AddressPart, ComparisonComparator, CountComparison, StringComparison, ValueComparison};
 use Zimbra\Struct\Tests\ZimbraStructTestCase;
 
 /**
@@ -52,15 +55,8 @@ class FilterTestsTest extends ZimbraStructTestCase
     {
         $index = mt_rand(1, 99);
         $header = $this->faker->word;
-        $part = $this->faker->word;
-        $stringComparison = $this->faker->word;
         $value = $this->faker->word;
-        $valueComparison = $this->faker->word;
-        $countComparison = $this->faker->word;
-        $numberComparison = $this->faker->word;
-        $valueComparisonComparator = $this->faker->word;
         $where = $this->faker->word;
-        $dateComparison = $this->faker->word;
         $time = $this->faker->word;
         $date = time();
         $flag = $this->faker->word;
@@ -71,10 +67,10 @@ class FilterTestsTest extends ZimbraStructTestCase
             $index, TRUE, $header
         );
         $addressTest = new AddressTest(
-            $index, TRUE, $header, $part, $stringComparison, TRUE, $value, $valueComparison, $countComparison, $valueComparisonComparator
+            $index, TRUE, $header, AddressPart::ALL(), StringComparison::IS(), TRUE, $value, ValueComparison::EQUAL(), CountComparison::EQUAL(), ComparisonComparator::OCTET()
         );
         $envelopeTest = new EnvelopeTest(
-            $index, TRUE, $header, $part, $stringComparison, TRUE, $value, $valueComparison, $countComparison, $valueComparisonComparator
+            $index, TRUE, $header, AddressPart::ALL(), StringComparison::IS(), TRUE, $value, ValueComparison::EQUAL(), CountComparison::EQUAL(), ComparisonComparator::OCTET()
         );
         $attachmentTest = new AttachmentTest(
             $index, TRUE
@@ -95,10 +91,10 @@ class FilterTestsTest extends ZimbraStructTestCase
             $index, TRUE, $value
         );
         $currentTimeTest = new CurrentTimeTest(
-            $index, TRUE, $dateComparison, $time
+            $index, TRUE, DateComparison::BEFORE(), $time
         );
         $dateTest = new DateTest(
-            $index, TRUE, $dateComparison, $date
+            $index, TRUE, DateComparison::BEFORE(), $date
         );
         $facebookTest = new FacebookTest(
             $index, TRUE
@@ -110,7 +106,7 @@ class FilterTestsTest extends ZimbraStructTestCase
             $index, TRUE, $header
         );
         $headerTest = new HeaderTest(
-            $index, TRUE, $header, $stringComparison, $valueComparison, $countComparison, $valueComparisonComparator, $value, TRUE
+            $index, TRUE, $header, StringComparison::IS(), ValueComparison::EQUAL(), CountComparison::EQUAL(), ComparisonComparator::OCTET(), $value, TRUE
         );
         $importanceTest = new ImportanceTest(
             $index, TRUE, Importance::HIGH()
@@ -128,10 +124,10 @@ class FilterTestsTest extends ZimbraStructTestCase
             $index, TRUE, $header
         );
         $mimeHeaderTest = new MimeHeaderTest(
-            $index, TRUE, $header, $stringComparison, $value, TRUE
+            $index, TRUE, $header, StringComparison::IS(), $value, TRUE
         );
         $sizeTest = new SizeTest(
-            $index, TRUE, $numberComparison, $size
+            $index, TRUE, NumberComparison::OVER(), $size
         );
         $socialcastTest = new SocialcastTest(
             $index, TRUE
@@ -279,35 +275,33 @@ class FilterTestsTest extends ZimbraStructTestCase
             $communityConnectionsTest,
         ], array_values($tests->getTests()));
 
-        $condition = FilterCondition::ALL_OF()->getValue();
-        $imp = Importance::HIGH()->getValue();
         $xml = <<<EOT
 <?xml version="1.0"?>
-<filterTests condition="$condition">
+<filterTests condition="allof">
     <addressBookTest index="$index" negative="true" header="$header"/>
-    <addressTest index="$index" negative="true" header="$header" part="$part" stringComparison="$stringComparison" caseSensitive="true" value="$value" valueComparison="$valueComparison" countComparison="$countComparison" valueComparisonComparator="$valueComparisonComparator"/>
-    <envelopeTest index="$index" negative="true" header="$header" part="$part" stringComparison="$stringComparison" caseSensitive="true" value="$value" valueComparison="$valueComparison" countComparison="$countComparison" valueComparisonComparator="$valueComparisonComparator"/>
+    <addressTest index="$index" negative="true" header="$header" part="all" stringComparison="is" caseSensitive="true" value="$value" valueComparison="eq" countComparison="eq" valueComparisonComparator="i;octet"/>
+    <envelopeTest index="$index" negative="true" header="$header" part="all" stringComparison="is" caseSensitive="true" value="$value" valueComparison="eq" countComparison="eq" valueComparisonComparator="i;octet"/>
     <attachmentTest index="$index" negative="true"/>
     <bodyTest index="$index" negative="true" value="$value" caseSensitive="true"/>
     <bulkTest index="$index" negative="true"/>
     <contactRankingTest index="$index" negative="true" header="$header"/>
     <conversationTest index="$index" negative="true" where="$where"/>
     <currentDayOfWeekTest index="$index" negative="true" value="$value"/>
-    <currentTimeTest index="$index" negative="true" dateComparison="$dateComparison" time="$time"/>
-    <dateTest index="$index" negative="true" dateComparison="$dateComparison" date="$date"/>
+    <currentTimeTest index="$index" negative="true" dateComparison="before" time="$time"/>
+    <dateTest index="$index" negative="true" dateComparison="before" date="$date"/>
     <facebookTest index="$index" negative="true"/>
-    <flaggedTest index="$index" negative="true" flag="$flag"/>
+    <flaggedTest index="$index" negative="true" flagName="$flag"/>
     <headerExistsTest index="$index" negative="true" header="$header"/>
-    <headerTest index="$index" negative="true" header="$header" stringComparison="$stringComparison" valueComparison="$valueComparison" countComparison="$countComparison" valueComparisonComparator="$valueComparisonComparator" value="$value" caseSensitive="true"/>
-    <importanceTest index="$index" negative="true" imp="$imp"/>
+    <headerTest index="$index" negative="true" header="$header" stringComparison="is" valueComparison="eq" countComparison="eq" valueComparisonComparator="i;octet" value="$value" caseSensitive="true"/>
+    <importanceTest index="$index" negative="true" imp="high"/>
     <inviteTest index="$index" negative="true">
         <method>$method</method>
     </inviteTest>
     <linkedinTest index="$index" negative="true"/>
     <listTest index="$index" negative="true"/>
     <meTest index="$index" negative="true" header="$header"/>
-    <mimeHeaderTest index="$index" negative="true" header="$header" stringComparison="$stringComparison" value="$value" caseSensitive="true"/>
-    <sizeTest index="$index" negative="true" numberComparison="$numberComparison" s="$size"/>
+    <mimeHeaderTest index="$index" negative="true" header="$header" stringComparison="is" value="$value" caseSensitive="true"/>
+    <sizeTest index="$index" negative="true" numberComparison="over" s="$size"/>
     <socialcastTest index="$index" negative="true"/>
     <trueTest index="$index" negative="true"/>
     <twitterTest index="$index" negative="true"/>
@@ -320,7 +314,7 @@ EOT;
         $this->assertEquals($tests, $this->serializer->deserialize($xml, FilterTests::class, 'xml'));
 
         $json = json_encode([
-            'condition' => $condition,
+            'condition' => 'allof',
             'addressBookTest' => [
                 'index' => $index,
                 'negative' => TRUE,
@@ -330,25 +324,25 @@ EOT;
                 'index' => $index,
                 'negative' => TRUE,
                 'header' => $header,
-                'part' => $part,
-                'stringComparison' => $stringComparison,
+                'part' => 'all',
+                'stringComparison' => 'is',
                 'caseSensitive' => TRUE,
                 'value' => $value,
-                'valueComparison' => $valueComparison,
-                'countComparison' => $countComparison,
-                'valueComparisonComparator' => $valueComparisonComparator,
+                'valueComparison' => 'eq',
+                'countComparison' => 'eq',
+                'valueComparisonComparator' => 'i;octet',
             ],
             'envelopeTest' => [
                 'index' => $index,
                 'negative' => TRUE,
                 'header' => $header,
-                'part' => $part,
-                'stringComparison' => $stringComparison,
+                'part' => 'all',
+                'stringComparison' => 'is',
                 'caseSensitive' => TRUE,
                 'value' => $value,
-                'valueComparison' => $valueComparison,
-                'countComparison' => $countComparison,
-                'valueComparisonComparator' => $valueComparisonComparator,
+                'valueComparison' => 'eq',
+                'countComparison' => 'eq',
+                'valueComparisonComparator' => 'i;octet',
             ],
             'attachmentTest' => [
                 'index' => $index,
@@ -382,13 +376,13 @@ EOT;
             'currentTimeTest' => [
                 'index' => $index,
                 'negative' => TRUE,
-                'dateComparison' => $dateComparison,
+                'dateComparison' => 'before',
                 'time' => $time,
             ],
             'dateTest' => [
                 'index' => $index,
                 'negative' => TRUE,
-                'dateComparison' => $dateComparison,
+                'dateComparison' => 'before',
                 'date' => $date,
             ],
             'facebookTest' => [
@@ -398,7 +392,7 @@ EOT;
             'flaggedTest' => [
                 'index' => $index,
                 'negative' => TRUE,
-                'flag' => $flag,
+                'flagName' => $flag,
             ],
             'headerExistsTest' => [
                 'index' => $index,
@@ -409,17 +403,17 @@ EOT;
                 'index' => $index,
                 'negative' => TRUE,
                 'header' => $header,
-                'stringComparison' => $stringComparison,
-                'valueComparison' => $valueComparison,
-                'countComparison' => $countComparison,
-                'valueComparisonComparator' => $valueComparisonComparator,
+                'stringComparison' => 'is',
+                'valueComparison' => 'eq',
+                'countComparison' => 'eq',
+                'valueComparisonComparator' => 'i;octet',
                 'value' => $value,
                 'caseSensitive' => TRUE,
             ],
             'importanceTest' => [
                 'index' => $index,
                 'negative' => TRUE,
-                'imp' => $imp,
+                'imp' => 'high',
             ],
             'inviteTest' => [
                 'index' => $index,
@@ -445,14 +439,14 @@ EOT;
                 'index' => $index,
                 'negative' => TRUE,
                 'header' => $header,
-                'stringComparison' => $stringComparison,
+                'stringComparison' => 'is',
                 'value' => $value,
                 'caseSensitive' => TRUE,
             ],
             'sizeTest' => [
                 'index' => $index,
                 'negative' => TRUE,
-                'numberComparison' => $numberComparison,
+                'numberComparison' => 'over',
                 's' => $size,
             ],
             'socialcastTest' => [

@@ -59,7 +59,7 @@ class StatsValueWrapper
     }
 
     /**
-     * Sets stat sequence
+     * Sets stats
      *
      * @param  array $stats
      * @return self
@@ -76,7 +76,7 @@ class StatsValueWrapper
     }
 
     /**
-     * Gets stat sequence
+     * Gets stats
      *
      * @return array
      */

@@ -36,7 +36,8 @@ class CacheSelector
     private $entries;
 
     /**
-     * Comma separated list of cache types. e.g. from skin|locale|account|cos|domain|server|zimlet
+     * Comma separated list of cache types.
+     * e.g. from acl|locale|skin|uistrings|license|all|account|config|globalgrant|cos|domain|galgroup|group|mime|server|alwaysOnCluster|zimlet|<extension-cache-type>
      * @Accessor(getter="getTypes", setter="setTypes")
      * @SerializedName("type")
      * @Type("string")
@@ -46,6 +47,8 @@ class CacheSelector
 
     /**
      * The allServers flag
+     * 0 (false) [default]:  flush cache only on the local server
+     * 1 (true): flush cache only on all servers (can take a long time on systems
      * @Accessor(getter="isAllServers", setter="setAllServers")
      * @SerializedName("allServers")
      * @Type("bool")
@@ -55,6 +58,8 @@ class CacheSelector
 
     /**
      * The imapServers flag
+     * 0 (false): don't issue X-ZIMBRA-FLUSHCACHE IMAP command to upstream IMAP servers
+     * 1 (true) [default]: flush cache on servers listed in zimbraReverseProxyUpstreamImapServers for the current server via X-ZIMBRA-FLUSHCACHE
      * @Accessor(getter="isIncludeImapServers", setter="setIncludeImapServers")
      * @SerializedName("imapServers")
      * @Type("bool")

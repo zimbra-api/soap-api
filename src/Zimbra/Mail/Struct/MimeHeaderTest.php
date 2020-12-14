@@ -11,6 +11,7 @@
 namespace Zimbra\Mail\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlElement, XmlRoot};
+use Zimbra\Enum\StringComparison;
 
 /**
  * MimeHeaderTest struct class
@@ -38,7 +39,7 @@ class MimeHeaderTest extends FilterTest
      * String comparison type - is|contains|matches
      * @Accessor(getter="getStringComparison", setter="setStringComparison")
      * @SerializedName("stringComparison")
-     * @Type("string")
+     * @Type("Zimbra\Enum\StringComparison")
      * @XmlAttribute
      */
     private $stringComparison;
@@ -67,7 +68,7 @@ class MimeHeaderTest extends FilterTest
      * @param int $index
      * @param bool $negative
      * @param string $headers
-     * @param string $stringComparison
+     * @param StringComparison $stringComparison
      * @param string $value
      * @param bool $caseSensitive
      * @return self
@@ -76,7 +77,7 @@ class MimeHeaderTest extends FilterTest
         ?int $index = NULL,
         ?bool $negative = NULL,
         ?string $headers = NULL,
-        ?string $stringComparison = NULL,
+        ?StringComparison $stringComparison = NULL,
         ?string $value = NULL,
         ?bool $caseSensitive = NULL
     )
@@ -85,7 +86,7 @@ class MimeHeaderTest extends FilterTest
         if (NULL !== $headers) {
             $this->setHeaders($headers);
         }
-        if (NULL !== $stringComparison) {
+        if ($stringComparison instanceof StringComparison) {
             $this->setStringComparison($stringComparison);
         }
         if (NULL !== $value) {
@@ -121,9 +122,9 @@ class MimeHeaderTest extends FilterTest
     /**
      * Gets stringComparison
      *
-     * @return string
+     * @return StringComparison
      */
-    public function getStringComparison(): ?string
+    public function getStringComparison(): ?StringComparison
     {
         return $this->stringComparison;
     }
@@ -131,10 +132,10 @@ class MimeHeaderTest extends FilterTest
     /**
      * Sets stringComparison
      *
-     * @param  string $stringComparison
+     * @param  StringComparison $stringComparison
      * @return self
      */
-    public function setStringComparison(string $stringComparison)
+    public function setStringComparison(StringComparison $stringComparison)
     {
         $this->stringComparison = $stringComparison;
         return $this;

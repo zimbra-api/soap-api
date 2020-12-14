@@ -11,7 +11,8 @@
 namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlElement, XmlRoot};
-use Zimbra\Admin\Struct\{CosSelector, Policy, PolicyHolder};
+use Zimbra\Admin\Struct\CosSelector;
+use Zimbra\Mail\Struct\{Policy, PolicyHolder};
 use Zimbra\Soap\Request;
 
 /**
@@ -41,7 +42,7 @@ class CreateSystemRetentionPolicyRequest extends Request
     /**
      * @Accessor(getter="getKeepPolicy", setter="setKeepPolicy")
      * @SerializedName("keep")
-     * @Type("Zimbra\Admin\Struct\PolicyHolder")
+     * @Type("Zimbra\Mail\Struct\PolicyHolder")
      * @XmlElement
      */
     private $keep;
@@ -49,7 +50,7 @@ class CreateSystemRetentionPolicyRequest extends Request
     /**
      * @Accessor(getter="getPurgePolicy", setter="setPurgePolicy")
      * @SerializedName("purge")
-     * @Type("Zimbra\Admin\Struct\PolicyHolder")
+     * @Type("Zimbra\Mail\Struct\PolicyHolder")
      * @XmlElement
      */
     private $purge;

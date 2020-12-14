@@ -2,6 +2,7 @@
 
 namespace Zimbra\Mail\Tests\Struct;
 
+use Zimbra\Enum\{ComparisonComparator, MatchType, RelationalComparator};
 use Zimbra\Mail\Struct\ReplaceheaderAction;
 use Zimbra\Mail\Struct\EditheaderTest;
 use Zimbra\Struct\Tests\ZimbraStructTestCase;
@@ -17,13 +18,12 @@ class ReplaceheaderActionTest extends ZimbraStructTestCase
         $offset = mt_rand(1, 99);
         $headerName = $this->faker->word;
         $headerValue = $this->faker->word;
-        $matchType = $this->faker->word;
-        $relationalComparator = $this->faker->word;
-        $comparator = $this->faker->word;
         $newName = $this->faker->word;
         $newValue = $this->faker->word;
 
-        $test = new EditheaderTest($matchType, TRUE, TRUE, $relationalComparator, $comparator, $headerName, [$headerValue]);
+        $test = new EditheaderTest(
+            MatchType::CONTAINS(), TRUE, TRUE, RelationalComparator::EQUAL(), ComparisonComparator::ASCII_NUMERIC(), $headerName, [$headerValue]
+        );
 
         $action = new ReplaceheaderAction($index, TRUE, $offset, $test, $newName, $newValue);
         $this->assertSame($newName, $action->getNewName());
@@ -38,7 +38,7 @@ class ReplaceheaderActionTest extends ZimbraStructTestCase
         $xml = <<<EOT
 <?xml version="1.0"?>
 <actionReplaceheader index="$index" last="true" offset="$offset">
-    <test matchType="$matchType" countComparator="true" valueComparator="true" relationalComparator="$relationalComparator" comparator="$comparator">
+    <test matchType="contains" countComparator="true" valueComparator="true" relationalComparator="eq" comparator="i;ascii-numeric">
         <headerName>$headerName</headerName>
         <headerValue>$headerValue</headerValue>
     </test>
@@ -54,11 +54,11 @@ EOT;
             'last' => TRUE,
             'offset' => $offset,
             'test' => [
-                'matchType' => $matchType,
+                'matchType' => 'contains',
                 'countComparator' => TRUE,
                 'valueComparator' => TRUE,
-                'relationalComparator' => $relationalComparator,
-                'comparator' => $comparator,
+                'relationalComparator' => 'eq',
+                'comparator' => 'i;ascii-numeric',
                 'headerName' => [
                     '_content' => $headerName,
                 ],

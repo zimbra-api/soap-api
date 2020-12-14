@@ -34,11 +34,10 @@ class AccountLoggerInfoTest extends ZimbraStructTestCase
         $this->assertSame([$logger, $logger], $accountLogger->getLoggers());
         $accountLogger->setLoggers([$logger]);
 
-        $level = LoggingLevel::INFO()->getValue();
         $xml = <<<EOT
 <?xml version="1.0"?>
 <accountLogger name="$name" id="$id">
-    <logger category="$category" level="$level" />
+    <logger category="$category" level="info" />
 </accountLogger>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($accountLogger, 'xml'));
@@ -50,7 +49,7 @@ EOT;
             'logger' => [
                 [
                     'category' => $category,
-                    'level' => $level,
+                    'level' => 'info',
                 ],
             ],
         ]);

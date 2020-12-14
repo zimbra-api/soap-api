@@ -2,6 +2,9 @@
 
 namespace Zimbra\Admin\Struct\Tests;
 
+use Zimbra\Common\SerializerFactory;
+use Zimbra\Admin\SerializerHandler;
+
 use Zimbra\Admin\Struct\{EntrySearchFilterInfo, EntrySearchFilterMultiCond, EntrySearchFilterSingleCond};
 use Zimbra\Enum\ConditionOperator as CondOp;
 use Zimbra\Struct\Tests\ZimbraStructTestCase;
@@ -11,6 +14,12 @@ use Zimbra\Struct\Tests\ZimbraStructTestCase;
  */
 class EntrySearchFilterInfoTest extends ZimbraStructTestCase
 {
+    protected function setUp(): void
+    {
+        SerializerFactory::addSerializerHandler(new SerializerHandler);
+        parent::setUp();
+    }
+
     public function testEntrySearchFilterInfo()
     {
         $attr = $this->faker->word;

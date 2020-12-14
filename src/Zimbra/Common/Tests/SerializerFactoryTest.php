@@ -4,18 +4,18 @@ namespace Zimbra\Common\Tests;
 
 use PHPUnit\Framework\TestCase;;
 use JMS\Serializer\SerializerInterface;
-use Zimbra\Common\SerializerBuilder;
+use Zimbra\Common\SerializerFactory;
 use Zimbra\Common\Serializer\{JsonDeserializationVisitorFactory, JsonSerializationVisitorFactory, XmlDeserializationVisitorFactory};
 
 /**
- * Testcase class for SerializerBuilder.
+ * Testcase class for SerializerFactory.
  */
-class SerializerBuilderTest extends TestCase
+class SerializerFactoryTest extends TestCase
 {
 
-    public function testSerializerBuilder()
+    public function testSerializerFactory()
     {
-        $serializer = SerializerBuilder::getSerializer();
+        $serializer = SerializerFactory::create();
         $this->assertTrue($serializer instanceof SerializerInterface);
     }
 }

@@ -87,9 +87,9 @@ class ReindexMailboxInfo
      * @param  string $id
      * @return self
      */
-    public function setId($id): self
+    public function setId(string $id): self
     {
-        $this->id = trim($id);
+        $this->id = $id;
         return $this;
     }
 
@@ -112,11 +112,11 @@ class ReindexMailboxInfo
     public function setTypes(string $types): self
     {
         $arrType = [];
-        $types = explode(',', trim($types));
+        $types = explode(',', $types);
         foreach ($types as $type) {
             $type = trim($type);
             if (ReindexType::isValid($type) && !in_array($type, $arrType)) {
-                $arrType[] = trim($type);
+                $arrType[] = $type;
             }
         }
         $this->types = implode(',', $arrType);

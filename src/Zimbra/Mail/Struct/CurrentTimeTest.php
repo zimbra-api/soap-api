@@ -11,6 +11,7 @@
 namespace Zimbra\Mail\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlRoot};
+use Zimbra\Enum\DateComparison;
 
 /**
  * CurrentTimeTest struct class
@@ -29,7 +30,7 @@ class CurrentTimeTest extends FilterTest
      * Date comparison setting - before|after
      * @Accessor(getter="getDateComparison", setter="setDateComparison")
      * @SerializedName("dateComparison")
-     * @Type("string")
+     * @Type("Zimbra\Enum\DateComparison")
      * @XmlAttribute
      */
     private $dateComparison;
@@ -48,19 +49,19 @@ class CurrentTimeTest extends FilterTest
      * 
      * @param int $index
      * @param bool $negative
-     * @param string $dateComparison
+     * @param DateComparison $dateComparison
      * @param string $time
      * @return self
      */
     public function __construct(
         ?int $index = NULL,
         ?bool $negative = NULL,
-        ?string $dateComparison = NULL,
+        ?DateComparison $dateComparison = NULL,
         ?string $time = NULL
     )
     {
     	parent::__construct($index, $negative);
-        if (NULL !== $dateComparison) {
+        if ($dateComparison instanceof DateComparison) {
             $this->setDateComparison($dateComparison);
         }
         if (NULL !== $time) {
@@ -71,9 +72,9 @@ class CurrentTimeTest extends FilterTest
     /**
      * Gets dateComparison
      *
-     * @return string
+     * @return DateComparison
      */
-    public function getDateComparison(): ?string
+    public function getDateComparison(): ?DateComparison
     {
         return $this->dateComparison;
     }
@@ -81,10 +82,10 @@ class CurrentTimeTest extends FilterTest
     /**
      * Sets dateComparison
      *
-     * @param  string $dateComparison
+     * @param  DateComparison $dateComparison
      * @return self
      */
-    public function setDateComparison(string $dateComparison)
+    public function setDateComparison(DateComparison $dateComparison)
     {
         $this->dateComparison = $dateComparison;
         return $this;

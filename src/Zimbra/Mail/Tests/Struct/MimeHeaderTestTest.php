@@ -3,6 +3,7 @@
 namespace Zimbra\Mail\Tests\Struct;
 
 use Zimbra\Mail\Struct\MimeHeaderTest;
+use Zimbra\Enum\StringComparison;
 use Zimbra\Struct\Tests\ZimbraStructTestCase;
 
 /**
@@ -14,30 +15,29 @@ class MimeHeaderTestTest extends ZimbraStructTestCase
     {
         $index = mt_rand(1, 99);
         $headers = $this->faker->word;
-        $stringComparison = $this->faker->word;
         $value = $this->faker->word;
 
         $test = new MimeHeaderTest(
-            $index, TRUE, $headers, $stringComparison, $value, FALSE
+            $index, TRUE, $headers, StringComparison::IS(), $value, FALSE
         );
         $this->assertSame($headers, $test->getHeaders());
-        $this->assertSame($stringComparison, $test->getStringComparison());
+        $this->assertEquals(StringComparison::IS(), $test->getStringComparison());
         $this->assertFalse($test->isCaseSensitive());
         $this->assertSame($value, $test->getValue());
 
         $test = new MimeHeaderTest($index, TRUE);
         $test->setHeaders($headers)
-            ->setStringComparison($stringComparison)
+            ->setStringComparison(StringComparison::CONTAINS())
             ->setCaseSensitive(TRUE)
             ->setValue($value);
         $this->assertSame($headers, $test->getHeaders());
-        $this->assertSame($stringComparison, $test->getStringComparison());
+        $this->assertEquals(StringComparison::CONTAINS(), $test->getStringComparison());
         $this->assertTrue($test->isCaseSensitive());
         $this->assertSame($value, $test->getValue());
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<mimeHeaderTest index="$index" negative="true" header="$headers" stringComparison="$stringComparison" value="$value" caseSensitive="true" />
+<mimeHeaderTest index="$index" negative="true" header="$headers" stringComparison="contains" value="$value" caseSensitive="true" />
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($test, 'xml'));
         $this->assertEquals($test, $this->serializer->deserialize($xml, MimeHeaderTest::class, 'xml'));
@@ -46,7 +46,7 @@ EOT;
             'index' => $index,
             'negative' => TRUE,
             'header' => $headers,
-            'stringComparison' => $stringComparison,
+            'stringComparison' => 'contains',
             'value' => $value,
             'caseSensitive' => TRUE,
         ]);

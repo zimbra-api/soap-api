@@ -22,10 +22,12 @@ class ServerMailQueueQueryTest extends ZimbraStructTestCase
         $offset = mt_rand(0, 100);
         $wait = mt_rand(0, 100);
 
-        $match = new ValueAttrib($value);
-        $field = new QueueQueryField($name, [$match]);
-        $query = new QueueQuery([$field], $limit, $offset);
-        $queue = new MailQueueQuery($query, $name, true, $wait);
+        $query = new QueueQuery(
+            [new QueueQueryField($name, [new ValueAttrib($value)])],
+            $limit,
+            $offset
+        );
+        $queue = new MailQueueQuery($query, $name, TRUE, $wait);
 
         $server = new ServerMailQueueQuery($queue, $name);
         $this->assertSame($name, $server->getServerName());
