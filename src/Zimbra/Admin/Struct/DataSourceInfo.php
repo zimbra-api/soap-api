@@ -35,7 +35,6 @@ class DataSourceInfo extends AdminAttrsImpl
      */
     private $name;
 
-
     /**
      * Data source id
      * @Accessor(getter="getId", setter="setId")
