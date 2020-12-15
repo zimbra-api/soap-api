@@ -1,0 +1,137 @@
+<?php declare(strict_types=1);
+
+namespace Zimbra\Admin\Tests\Message;
+
+use Zimbra\Admin\Message\GetRightBody;
+use Zimbra\Admin\Message\GetRightEnvelope;
+use Zimbra\Admin\Message\GetRightRequest;
+use Zimbra\Admin\Message\GetRightResponse;
+use Zimbra\Admin\Struct\Attr;
+use Zimbra\Admin\Struct\ComboRightInfo;
+use Zimbra\Admin\Struct\ComboRights;
+use Zimbra\Admin\Struct\RightsAttrs;
+use Zimbra\Admin\Struct\RightInfo;
+use Zimbra\Enum\RightClass;
+use Zimbra\Enum\RightType;
+use Zimbra\Struct\Tests\ZimbraStructTestCase;
+
+/**
+ * Testcase class for GetRightTest.
+ */
+class GetRightTest extends ZimbraStructTestCase
+{
+    public function testGetRight()
+    {
+        $right = $this->faker->uuid;
+        $name = $this->faker->word;
+        $targetType = $this->faker->word;
+        $desc = $this->faker->word;
+        $key = $this->faker->word;
+        $value = $this->faker->word;
+
+        $request = new GetRightRequest($right, FALSE);
+        $this->assertSame($right, $request->getRight());
+        $this->assertFalse($request->getExpandAllAttrs());
+
+        $request = new GetRightRequest('');
+        $request->setRight($right)
+            ->setExpandAllAttrs(TRUE);
+        $this->assertSame($right, $request->getRight());
+        $this->assertTrue($request->getExpandAllAttrs());
+
+        $rights = new ComboRights([new ComboRightInfo(
+            $name, RightType::PRESET(), $targetType
+        )]);
+        $rightInfo = new RightInfo(
+            $name, RightType::PRESET(), RightClass::ALL(), $desc, $targetType, new RightsAttrs(TRUE, [new Attr($key, $value)]), $rights
+        );
+        $response = new GetRightResponse($rightInfo);
+        $this->assertSame($rightInfo, $response->getRight());
+        $response = new GetRightResponse();
+        $response->setRight($rightInfo);
+        $this->assertSame($rightInfo, $response->getRight());
+
+        $body = new GetRightBody($request, $response);
+        $this->assertSame($request, $body->getRequest());
+        $this->assertSame($response, $body->getResponse());
+        $body = new GetRightBody();
+        $body->setRequest($request)
+             ->setResponse($response);
+        $this->assertSame($request, $body->getRequest());
+        $this->assertSame($response, $body->getResponse());
+
+        $envelope = new GetRightEnvelope($body);
+        $this->assertSame($body, $envelope->getBody());
+        $envelope = new GetRightEnvelope();
+        $envelope->setBody($body);
+        $this->assertSame($body, $envelope->getBody());
+
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
+    <soap:Body>
+        <urn:GetRightRequest expandAllAttrs="true">
+            <right>$right</right>
+        </urn:GetRightRequest>
+        <urn:GetRightResponse>
+            <right name="$name" type="preset" targetType="$targetType" rightClass="ALL">
+                <desc>$desc</desc>
+                <attrs all="true">
+                    <a n="$key">$value</a>
+                </attrs>
+                <rights>
+                    <r n="$name" type="preset" targetType="$targetType" />
+                </rights>
+            </right>
+        </urn:GetRightResponse>
+    </soap:Body>
+</soap:Envelope>
+EOT;
+        $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
+        $this->assertEquals($envelope, $this->serializer->deserialize($xml, GetRightEnvelope::class, 'xml'));
+
+        $json = json_encode([
+            'Body' => [
+                'GetRightRequest' => [
+                    'expandAllAttrs' => TRUE,
+                    'right' => [
+                        '_content' => $right,
+                    ],
+                    '_jsns' => 'urn:zimbraAdmin',
+                ],
+                'GetRightResponse' => [
+                    'right' => [
+                        'name' => $name,
+                        'type' => 'preset',
+                        'targetType' => $targetType,
+                        'rightClass' => 'ALL',
+                        'desc' => [
+                            '_content' => $desc,
+                        ],
+                        'attrs' => [
+                            'all' => TRUE,
+                            'a' => [
+                                [
+                                    'n' => $key,
+                                    '_content' => $value,
+                                ],
+                            ],
+                        ],
+                        'rights' => [
+                            'r' => [
+                                [
+                                    'n' => $name,
+                                    'type' => 'preset',
+                                    'targetType' => $targetType,
+                                ],
+                            ],
+                        ],
+                    ],
+                    '_jsns' => 'urn:zimbraAdmin',
+                ],
+            ],
+        ]);
+        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
+        $this->assertEquals($envelope, $this->serializer->deserialize($json, GetRightEnvelope::class, 'json'));
+    }
+}
