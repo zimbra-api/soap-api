@@ -11,8 +11,8 @@
 namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlList, XmlRoot};
-use Zimbra\Soap\ResponseInterface;
 use Zimbra\Admin\Struct\AccountQuotaInfo;
+use Zimbra\Soap\ResponseInterface;
 
 /**
  * GetQuotaUsageResponse class
