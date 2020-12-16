@@ -59,7 +59,7 @@ class CreateSystemRetentionPolicyResponse implements ResponseInterface
     /**
      * Sets policy
      *
-     * @param  Policy $id
+     * @param  Policy $policy
      * @return self
      */
     public function setPolicy(Policy $policy): self
