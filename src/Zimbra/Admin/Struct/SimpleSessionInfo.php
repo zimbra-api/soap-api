@@ -10,7 +10,7 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlAttributeMap, XmlElement, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlElement, XmlRoot};
 
 /**
  * SimpleSessionInfo struct class
@@ -175,7 +175,7 @@ class SimpleSessionInfo
     /**
      * Sets the zimbraId
      *
-     * @param  string $stdname
+     * @param  string $zimbraId
      * @return self
      */
     public function setZimbraId(string $zimbraId): self

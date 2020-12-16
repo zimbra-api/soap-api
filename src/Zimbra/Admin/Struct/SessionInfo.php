@@ -186,7 +186,7 @@ class SessionInfo
     /**
      * Sets the zimbraId
      *
-     * @param  string $stdname
+     * @param  string $zimbraId
      * @return self
      */
     public function setZimbraId(string $zimbraId): self
