@@ -37,7 +37,7 @@ class GetServerStatsTest extends ZimbraStructTestCase
         $response = new GetServerStatsResponse();
         $response->setStats([$stat])
             ->addStat($stat);
-        $this->assertSame([$stat, $ni], $response->getStats());
+        $this->assertSame([$stat, $stat], $response->getStats());
         $response->setStats([$stat]);
 
         $body = new GetServerStatsBody($request, $response);
