@@ -11,10 +11,9 @@
 namespace Zimbra\Admin\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlRoot};
-use Zimbra\Enum\DataSourceType;
 
 /**
- * DataSourceInfo struct class
+ * AccountQuotaInfo class
  * 
  * @package    Zimbra
  * @subpackage Admin
@@ -22,12 +21,12 @@ use Zimbra\Enum\DataSourceType;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
  * @AccessType("public_method")
- * @XmlRoot(name="dataSource")
+ * @XmlRoot(name="account")
  */
-class DataSourceInfo extends AdminAttrsImpl
+class AccountQuotaInfo
 {
     /**
-     * Data source name
+     * Account name
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
@@ -36,7 +35,7 @@ class DataSourceInfo extends AdminAttrsImpl
     private $name;
 
     /**
-     * Data source id
+     * Account ID
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
@@ -45,32 +44,47 @@ class DataSourceInfo extends AdminAttrsImpl
     private $id;
 
     /**
-     * Data source type
-     * @Accessor(getter="getType", setter="setType")
-     * @SerializedName("type")
-     * @Type("Zimbra\Enum\DataSourceType")
+     * Used quota in bytes, or 0 if no quota used
+     * @Accessor(getter="getQuotaUsed", setter="setQuotaUsed")
+     * @SerializedName("used")
+     * @Type("int")
      * @XmlAttribute
      */
-    private $type;
+    private $quotaUsed;
 
     /**
-     * Constructor method for DataSourceInfo
+     * Quota limit in bytes, or 0 if unlimited
+     * @Accessor(getter="getQuotaLimit", setter="setQuotaLimit")
+     * @SerializedName("limit")
+     * @Type("int")
+     * @XmlAttribute
+     */
+    private $quotaLimit;
+
+    /**
+     * Constructor method for AccountQuotaInfo
+     *
      * @param string $name
      * @param string $id
-     * @param DataSourceType $type 
-     * @param array $attrs Attributes
+     * @param int $quotaUsed
+     * @param int $quotaLimit
      * @return self
      */
-    public function __construct(string $name, string $id, DataSourceType $type, array $attrs = [])
+    public function __construct(
+        string $name,
+        string $id,
+        int $quotaUsed,
+        int $quotaLimit
+    )
     {
-        parent::__construct($attrs);
         $this->setName($name)
              ->setId($id)
-             ->setType($type);
+             ->setQuotaUsed($quotaUsed)
+             ->setQuotaLimit($quotaLimit);
     }
 
     /**
-     * Gets data source name
+     * Gets name
      *
      * @return string
      */
@@ -80,19 +94,19 @@ class DataSourceInfo extends AdminAttrsImpl
     }
 
     /**
-     * Sets data source name
+     * Sets name
      *
-     * @param  string $name
+     * @param  string $baseUrl
      * @return self
      */
-    public function setName(string $name): self
+    public function setName(string $baseUrl): self
     {
-        $this->name = $name;
+        $this->name = $baseUrl;
         return $this;
     }
 
     /**
-     * Gets data source id
+     * Gets id
      *
      * @return string
      */
@@ -102,7 +116,7 @@ class DataSourceInfo extends AdminAttrsImpl
     }
 
     /**
-     * Sets data source id
+     * Sets id
      *
      * @param  string $id
      * @return self
@@ -114,24 +128,46 @@ class DataSourceInfo extends AdminAttrsImpl
     }
 
     /**
-     * Gets data source type
+     * Gets quotaUsed
      *
-     * @return DataSourceType
+     * @return int
      */
-    public function getType(): DataSourceType
+    public function getQuotaUsed(): int
     {
-        return $this->type;
+        return $this->quotaUsed;
     }
 
     /**
-     * Sets data source type
+     * Sets quotaUsed
      *
-     * @param  DataSourceType $type
+     * @param  int $quotaUsed
      * @return self
      */
-    public function setType(DataSourceType $type): self
+    public function setQuotaUsed(int $quotaUsed): self
     {
-        $this->type = $type;
+        $this->quotaUsed = $quotaUsed;
+        return $this;
+    }
+
+    /**
+     * Gets quotaLimit
+     *
+     * @return int
+     */
+    public function getQuotaLimit(): int
+    {
+        return $this->quotaLimit;
+    }
+
+    /**
+     * Sets quotaLimit
+     *
+     * @param  int $quotaLimit
+     * @return self
+     */
+    public function setQuotaLimit(int $quotaLimit): self
+    {
+        $this->quotaLimit = $quotaLimit;
         return $this;
     }
 }

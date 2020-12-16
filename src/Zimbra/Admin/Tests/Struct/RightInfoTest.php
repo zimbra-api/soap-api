@@ -54,17 +54,15 @@ class RightInfoTest extends ZimbraStructTestCase
         $this->assertSame($attrs, $right->getAttrs());
         $this->assertSame($rights, $right->getRights());
 
-        $type = RightType::PRESET()->getValue();
-        $rightClass = RightClass::ALL()->getValue();
         $xml = <<<EOT
 <?xml version="1.0"?>
-<right name="$name" type="$type" targetType="$targetType" rightClass="$rightClass">
+<right name="$name" type="preset" targetType="$targetType" rightClass="ALL">
     <desc>$desc</desc>
     <attrs all="true">
         <a n="$key">$value</a>
     </attrs>
     <rights>
-        <r n="$name" type="$type" targetType="$targetType" />
+        <r n="$name" type="preset" targetType="$targetType" />
     </rights>
 </right>
 EOT;
@@ -73,9 +71,9 @@ EOT;
 
         $json = json_encode([
             'name' => $name,
-            'type' => $type,
+            'type' => 'preset',
             'targetType' => $targetType,
-            'rightClass' => $rightClass,
+            'rightClass' => 'ALL',
             'desc' => [
                 '_content' => $desc,
             ],
@@ -92,7 +90,7 @@ EOT;
                 'r' => [
                     [
                         'n' => $name,
-                        'type' => $type,
+                        'type' => 'preset',
                         'targetType' => $targetType,
                     ],
                 ],

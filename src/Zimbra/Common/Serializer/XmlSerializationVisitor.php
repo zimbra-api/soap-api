@@ -275,9 +275,13 @@ final class XmlSerializationVisitor extends AbstractVisitor implements Serializa
 
         if ($metadata->xmlValue) {
             $this->hasValue = TRUE;
-
             $this->setCurrentMetadata($metadata);
-            $node = $this->navigator->accept($v, $metadata->type);
+            if ($v instanceof Enum) {
+                $node = $this->navigator->accept($v->getValue(), ['name' => 'string']);
+            }
+            else {
+                $node = $this->navigator->accept($v, $metadata->type);
+            }
             $this->revertCurrentMetadata();
 
             if (!$node instanceof \DOMCharacterData) {

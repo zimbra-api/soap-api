@@ -11,11 +11,13 @@
 namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlElement, XmlRoot};
-use Zimbra\Admin\Struct\ServerMailQueueDetails as Server;
-use Zimbra\Soap\ResponseInterface;
+use Zimbra\Struct\NamedElement as Server;
+use Zimbra\Soap\Request;
 
 /**
- * GetMailQueueResponse class
+ * GetMailQueueInfoRequest request class
+ * Get a count of all the mail queues by counting the number of files in the queue directories.
+ * Note that the admin server waits for queue counting to complete before responding - client should invoke requests for different servers in parallel.
  *
  * @package    Zimbra
  * @subpackage Admin
@@ -23,22 +25,23 @@ use Zimbra\Soap\ResponseInterface;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
  * @AccessType("public_method")
- * @XmlRoot(name="GetMailQueueResponse")
+ * @XmlRoot(name="GetMailQueueInfoRequest")
  */
-class GetMailQueueResponse implements ResponseInterface
+class GetMailQueueInfoRequest extends Request
 {
     /**
-     * Server Mail Queue details
+     * MTA Server
      * @Accessor(getter="getServer", setter="setServer")
      * @SerializedName("server")
-     * @Type("Zimbra\Admin\Struct\ServerMailQueueDetails")
+     * @Type("Zimbra\Struct\NamedElement")
      * @XmlElement
      */
     private $server;
 
     /**
-     * Constructor method for GetMailQueueResponse
-     * @param Server $server
+     * Constructor method for GetMailQueueInfoRequest
+     *
+     * @param  Server $server
      * @return self
      */
     public function __construct(Server $server)
@@ -47,7 +50,7 @@ class GetMailQueueResponse implements ResponseInterface
     }
 
     /**
-     * Gets the server
+     * Gets the server.
      *
      * @return Server
      */
@@ -57,7 +60,7 @@ class GetMailQueueResponse implements ResponseInterface
     }
 
     /**
-     * Sets server
+     * Sets the server.
      *
      * @param  Server $server
      * @return self
@@ -66,5 +69,19 @@ class GetMailQueueResponse implements ResponseInterface
     {
         $this->server = $server;
         return $this;
+    }
+
+    /**
+     * Initialize the soap envelope
+     *
+     * @return void
+     */
+    protected function envelopeInit(): void
+    {
+        if (!($this->envelope instanceof GetMailQueueInfoEnvelope)) {
+            $this->envelope = new GetMailQueueInfoEnvelope(
+                new GetMailQueueInfoBody($this)
+            );
+        }
     }
 }

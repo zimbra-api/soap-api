@@ -11,11 +11,11 @@
 namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlElement, XmlRoot};
-use Zimbra\Admin\Struct\ServerMailQueueDetails as Server;
+use Zimbra\Admin\Struct\ServerInfo;
 use Zimbra\Soap\ResponseInterface;
 
 /**
- * GetMailQueueResponse class
+ * GetServerResponse class
  *
  * @package    Zimbra
  * @subpackage Admin
@@ -23,46 +23,48 @@ use Zimbra\Soap\ResponseInterface;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
  * @AccessType("public_method")
- * @XmlRoot(name="GetMailQueueResponse")
+ * @XmlRoot(name="GetServerResponse")
  */
-class GetMailQueueResponse implements ResponseInterface
+class GetServerResponse implements ResponseInterface
 {
     /**
-     * Server Mail Queue details
+     * Information about server
      * @Accessor(getter="getServer", setter="setServer")
      * @SerializedName("server")
-     * @Type("Zimbra\Admin\Struct\ServerMailQueueDetails")
+     * @Type("Zimbra\Admin\Struct\ServerInfo")
      * @XmlElement
      */
     private $server;
 
     /**
-     * Constructor method for GetMailQueueResponse
-     * @param Server $server
+     * Constructor method for GetServerResponse
+     * @param ServerInfo $server
      * @return self
      */
-    public function __construct(Server $server)
+    public function __construct(ServerInfo $server = NULL)
     {
-        $this->setServer($server);
+        if ($server instanceof ServerInfo) {
+            $this->setServer($server);
+        }
     }
 
     /**
-     * Gets the server
+     * Gets the server.
      *
-     * @return Server
+     * @return ServerInfo
      */
-    public function getServer(): Server
+    public function getServer(): ?ServerInfo
     {
         return $this->server;
     }
 
     /**
-     * Sets server
+     * Sets the server.
      *
-     * @param  Server $server
+     * @param  ServerInfo $server
      * @return self
      */
-    public function setServer(Server $server): self
+    public function setServer(ServerInfo $server): self
     {
         $this->server = $server;
         return $this;

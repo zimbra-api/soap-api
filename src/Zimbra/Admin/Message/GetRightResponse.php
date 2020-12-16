@@ -11,11 +11,11 @@
 namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlElement, XmlRoot};
-use Zimbra\Admin\Struct\ServerMailQueueDetails as Server;
+use Zimbra\Admin\Struct\RightInfo;
 use Zimbra\Soap\ResponseInterface;
 
 /**
- * GetMailQueueResponse class
+ * GetRightResponse class
  *
  * @package    Zimbra
  * @subpackage Admin
@@ -23,48 +23,51 @@ use Zimbra\Soap\ResponseInterface;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
  * @AccessType("public_method")
- * @XmlRoot(name="GetMailQueueResponse")
+ * @XmlRoot(name="GetRightResponse")
  */
-class GetMailQueueResponse implements ResponseInterface
+class GetRightResponse implements ResponseInterface
 {
     /**
-     * Server Mail Queue details
-     * @Accessor(getter="getServer", setter="setServer")
-     * @SerializedName("server")
-     * @Type("Zimbra\Admin\Struct\ServerMailQueueDetails")
+     * Right information
+     * @Accessor(getter="getRight", setter="setRight")
+     * @SerializedName("right")
+     * @Type("Zimbra\Admin\Struct\RightInfo")
      * @XmlElement
      */
-    private $server;
+    private $right;
 
     /**
-     * Constructor method for GetMailQueueResponse
-     * @param Server $server
+     * Constructor method for GetRightResponse
+     * 
+     * @param RightInfo $right
      * @return self
      */
-    public function __construct(Server $server)
+    public function __construct(?RightInfo $right = NULL)
     {
-        $this->setServer($server);
+        if ($right instanceof RightInfo) {
+            $this->setRight($right);
+        }
     }
 
     /**
-     * Gets the server
+     * Gets the right.
      *
-     * @return Server
+     * @return RightInfo
      */
-    public function getServer(): Server
+    public function getRight(): ?RightInfo
     {
-        return $this->server;
+        return $this->right;
     }
 
     /**
-     * Sets server
+     * Sets the right.
      *
-     * @param  Server $server
+     * @param  RightInfo $right
      * @return self
      */
-    public function setServer(Server $server): self
+    public function setRight(RightInfo $right): self
     {
-        $this->server = $server;
+        $this->right = $right;
         return $this;
     }
 }

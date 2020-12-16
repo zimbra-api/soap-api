@@ -325,7 +325,12 @@ final class XmlDeserializationVisitor extends AbstractVisitor implements NullAwa
             if (!$metadata->type) {
                 throw RuntimeException::noMetadataForProperty($metadata->class, $metadata->name);
             }
-            return $this->navigator->accept($data, $metadata->type);
+            if (is_subclass_of($metadata->type['name'], Enum::class)) {
+                return new $metadata->type['name']((string) $data);
+            }
+            else {
+                return $this->navigator->accept($data, $metadata->type);
+            }
         }
 
         if ($metadata->xmlCollection) {
