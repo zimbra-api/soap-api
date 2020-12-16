@@ -63,13 +63,14 @@ class GetSessionsResponse implements ResponseInterface
      * @return self
      */
     public function __construct(
-    	bool $more,
+        bool $more,
         int $total,
-        array $sessions = [])
+        array $sessions = []
+    )
     {
         $this->setMore($more)
-        	 ->setTotal($total)
-        	 ->setSessions($sessions);
+             ->setTotal($total)
+             ->setSessions($sessions);
     }
 
     /**
