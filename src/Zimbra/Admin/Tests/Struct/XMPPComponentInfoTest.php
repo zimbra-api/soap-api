@@ -13,10 +13,10 @@ class XMPPComponentInfoTest extends ZimbraStructTestCase
 {
     public function testXMPPComponentInfo()
     {
-        $name = $this->faker->word;
+        $name = $this->faker->name;
         $id = $this->faker->uuid;
-        $domainName = $this->faker->word;
-        $serverName = $this->faker->word;
+        $domainName = $this->faker->domainName;
+        $serverName = $this->faker->ipv4;
         $key = $this->faker->word;
         $value = $this->faker->word;
 

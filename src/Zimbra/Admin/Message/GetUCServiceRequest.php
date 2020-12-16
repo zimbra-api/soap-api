@@ -66,7 +66,7 @@ class GetUCServiceRequest extends Request implements AttributeSelector
     }
 
     /**
-     * Sets the cos.
+     * Sets the ucService.
      *
      * @param  UcServiceSelector $ucService
      * @return self
