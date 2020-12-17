@@ -29,11 +29,10 @@ class PolicyHolderTest extends ZimbraStructTestCase
         $namespace = 'urn:zimbraMail';
         $prefix = 'ns-' . substr(sha1($namespace), 0, 8);
 
-        $type = Type::SYSTEM()->getValue();
         $xml = <<<EOT
 <?xml version="1.0"?>
 <holder>
-    <$prefix:policy xmlns:$prefix="$namespace" type="$type" id="$id" name="$name" lifetime="$lifetime" />
+    <$prefix:policy xmlns:$prefix="$namespace" type="system" id="$id" name="$name" lifetime="$lifetime" />
 </holder>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($holder, 'xml'));
@@ -41,7 +40,7 @@ EOT;
 
         $json = json_encode([
             'policy' => [
-                'type' => $type,
+                'type' => 'system',
                 'id' => $id,
                 'name' => $name,
                 'lifetime' => $lifetime,

@@ -10,10 +10,10 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlAttributeMap, XmlElement, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlElement, XmlRoot};
 
 /**
- * SessionInfo struct class
+ * SimpleSessionInfo struct class
  *
  * @package    Zimbra
  * @subpackage Admin
@@ -23,7 +23,7 @@ use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAt
  * @AccessType("public_method")
  * @XmlRoot(name="session")
  */
-class SessionInfo
+class SimpleSessionInfo
 {
     /**
      * Account ID
@@ -71,40 +71,29 @@ class SessionInfo
     private $lastAccessedDate;
 
     /**
-     * Extra attributes - possibly including "push"
-     * @Accessor(getter="getExtraAttributes", setter="setExtraAttributes")
-     * @Type("array<string, string>")
-     * @XmlAttributeMap
-     */
-    private $extraAttributes;
-
-    /**
-     * Constructor method for SessionInfo
+     * Constructor method for SimpleSessionInfo
+     *
+     * @param string $zimbraId
+     * @param string $name
      * @param string $sessionId
      * @param int $createdDate
      * @param int $lastAccessedDate
-     * @param string $zimbraId
-     * @param string $name
      * @return self
      */
     public function __construct(
+        string $zimbraId,
+        string $name,
         string $sessionId,
         int $createdDate,
-        int $lastAccessedDate,
-        ?string $zimbraId = NULL,
-        ?string $name = NULL
+        int $lastAccessedDate
     )
     {
-        $this->setSessionId($sessionId)
+        $this->setZimbraId($zimbraId)
+             ->setName($name)
+             ->setSessionId($sessionId)
              ->setCreatedDate($createdDate)
              ->setLastAccessedDate($lastAccessedDate);
 
-        if (NULL !== $zimbraId) {
-            $this->setZimbraId($zimbraId);
-        }
-        if (NULL !== $name) {
-            $this->setName($name);
-        }
     }
 
     /**
@@ -178,7 +167,7 @@ class SessionInfo
      *
      * @return string
      */
-    public function getZimbraId(): ?string
+    public function getZimbraId(): string
     {
         return $this->zimbraId;
     }
@@ -200,7 +189,7 @@ class SessionInfo
      *
      * @return string
      */
-    public function getName(): ?string
+    public function getName(): string
     {
         return $this->name;
     }
@@ -214,38 +203,6 @@ class SessionInfo
     public function setName(string $name): self
     {
         $this->name = $name;
-        return $this;
-    }
-
-    /**
-     * Gets the extraAttributes
-     *
-     * @return array
-     */
-    public function getExtraAttributes(): ?array
-    {
-        return $this->extraAttributes;
-    }
-
-    /**
-     * Sets the extraAttributes
-     *
-     * @param  array $attributes
-     * @return self
-     */
-    public function setExtraAttributes(array $attributes): self
-    {
-        foreach ($attributes as $name => $value) {
-            $this->addExtraAttribute($name, $value);
-        }
-        return $this;
-    }
-
-    public function addExtraAttribute($name, $value): self
-    {
-        if (!empty($name) && !empty($value)) {
-            $this->extraAttributes[$name] = $value;
-        }
         return $this;
     }
 }

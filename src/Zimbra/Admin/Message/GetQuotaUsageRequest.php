@@ -98,11 +98,11 @@ class GetQuotaUsageRequest extends Request
      *
      * @param  string $domain
      * @param  bool $allServers
-     * @param  limit $limit
-     * @param  offset $offset
+     * @param  int $limit
+     * @param  int $offset
      * @param  string $sortBy
-     * @param  string $sortAscending
-     * @param  string $refresh
+     * @param  bool $sortAscending
+     * @param  bool $refresh
      * @return self
      */
     public function __construct(

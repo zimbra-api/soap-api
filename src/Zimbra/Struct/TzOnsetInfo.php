@@ -232,16 +232,21 @@ class TzOnsetInfo
         return $this;
     }
 
+    /**
+     * Gets week
+     *
+     * @return int
+     */
     public function getWeek(): ?int
     {
         return $this->week;
     }
 
     /**
-     * Gets or sets week
+     * Sets week
      *
      * @param  int $week
-     * @return int|self
+     * @return self
      */
     public function setWeek(int $week): self
     {

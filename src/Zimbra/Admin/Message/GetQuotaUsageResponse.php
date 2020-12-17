@@ -119,12 +119,12 @@ class GetQuotaUsageResponse implements ResponseInterface
     /**
      * Add account quota information
      *
-     * @param  AccountQuotaInfo $error
+     * @param  AccountQuotaInfo $quota
      * @return self
      */
-    public function addAccountQuota(AccountQuotaInfo $error): self
+    public function addAccountQuota(AccountQuotaInfo $quota): self
     {
-        $this->accountQuotas[] = $error;
+        $this->accountQuotas[] = $quota;
         return $this;
     }
 
@@ -137,9 +137,9 @@ class GetQuotaUsageResponse implements ResponseInterface
     public function setAccountQuotas(array $accountQuotas): self
     {
         $this->accountQuotas = [];
-        foreach ($accountQuotas as $error) {
-            if ($error instanceof AccountQuotaInfo) {
-                $this->accountQuotas[] = $error;
+        foreach ($accountQuotas as $quota) {
+            if ($quota instanceof AccountQuotaInfo) {
+                $this->accountQuotas[] = $quota;
             }
         }
         return $this;
