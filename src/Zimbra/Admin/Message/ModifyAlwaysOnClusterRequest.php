@@ -16,10 +16,10 @@ use Zimbra\Soap\Request;
 
 /**
  * ModifyAlwaysOnClusterRequest class
- * Modify an account
+ * Modify attributes for a alwaysOnCluster 
  * Notes:
- * an empty attribute value removes the specified attr
- * this request is by default proxied to the account's home server
+ * an empty attribute value removes the specified attr 
+ * his request is by default proxied to the referenced server 
  *
  * @package    Zimbra
  * @subpackage Admin
