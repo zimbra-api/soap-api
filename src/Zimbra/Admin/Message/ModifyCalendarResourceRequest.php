@@ -15,11 +15,11 @@ use Zimbra\Admin\Struct\{AdminAttrs, AdminAttrsImplTrait};
 use Zimbra\Soap\Request;
 
 /**
- * ModifyAlwaysOnClusterRequest class
- * Modify attributes for a alwaysOnCluster 
+ * ModifyCalendarResourceRequest class
+ * Modify a calendar resource
  * Notes:
- * an empty attribute value removes the specified attr 
- * this request is by default proxied to the referenced server 
+ * an empty attribute value removes the specified attr
+ * this request is by default proxied to the resources's home server
  *
  * @package    Zimbra
  * @subpackage Admin
@@ -27,9 +27,9 @@ use Zimbra\Soap\Request;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
  * @AccessType("public_method")
- * @XmlRoot(name="ModifyAlwaysOnClusterRequest")
+ * @XmlRoot(name="ModifyCalendarResourceRequest")
  */
-class ModifyAlwaysOnClusterRequest extends Request implements AdminAttrs
+class ModifyCalendarResourceRequest extends Request implements AdminAttrs
 {
     use AdminAttrsImplTrait;
 
@@ -43,7 +43,7 @@ class ModifyAlwaysOnClusterRequest extends Request implements AdminAttrs
     private $id;
 
     /**
-     * Constructor method for ModifyAlwaysOnClusterRequest
+     * Constructor method for ModifyCalendarResourceRequest
      * 
      * @param string $id
      * @param array  $attrs
@@ -84,9 +84,9 @@ class ModifyAlwaysOnClusterRequest extends Request implements AdminAttrs
      */
     protected function envelopeInit(): void
     {
-        if (!($this->envelope instanceof ModifyAlwaysOnClusterEnvelope)) {
-            $this->envelope = new ModifyAlwaysOnClusterEnvelope(
-                new ModifyAlwaysOnClusterBody($this)
+        if (!($this->envelope instanceof ModifyCalendarResourceEnvelope)) {
+            $this->envelope = new ModifyCalendarResourceEnvelope(
+                new ModifyCalendarResourceBody($this)
             );
         }
     }
