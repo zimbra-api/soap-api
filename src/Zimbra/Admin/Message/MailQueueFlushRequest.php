@@ -42,7 +42,6 @@ class MailQueueFlushRequest extends Request
      * Constructor method for MailQueueFlushRequest
      *
      * @param  Server $server
-     * @param  LockoutOperation $operation
      * @return self
      */
     public function __construct(Server $server)

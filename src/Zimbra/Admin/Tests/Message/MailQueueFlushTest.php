@@ -18,10 +18,6 @@ class MailQueueFlushTest extends ZimbraStructTestCase
     public function testMailQueueFlush()
     {
         $name = $this->faker->word;
-        $value = $this->faker->word;
-        $limit = mt_rand(0, 100);
-        $offset = mt_rand(0, 100);
-
         $server = new NamedElement($name);
 
         $request = new MailQueueFlushRequest($server);
