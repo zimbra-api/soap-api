@@ -16,10 +16,9 @@ use Zimbra\Soap\Request;
 
 /**
  * ModifyDataSourceRequest class
- * Modify an account
- * Notes:
- * an empty attribute value removes the specified attr
- * this request is by default proxied to the account's home server
+ * Changes attributes of the given data source.
+ * Only the attributes specified in the request are modified.
+ * To change the name, specify "zimbraDataSourceName" as an attribute. 
  *
  * @package    Zimbra
  * @subpackage Admin
