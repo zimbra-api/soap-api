@@ -16,8 +16,10 @@ use Zimbra\Soap\Request;
 
 /**
  * ModifyServerRequest class
- * Modify attributes for a domain
- * Notes: an empty attribute value removes the specified attr
+ * Modify attributes for a server 
+ * Notes:
+ * - an empty attribute value removes the specified attr
+ * - this request is by default proxied to the referenced server
  *
  * @package    Zimbra
  * @subpackage Admin
