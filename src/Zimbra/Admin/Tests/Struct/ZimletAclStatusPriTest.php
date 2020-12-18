@@ -21,7 +21,7 @@ class ZimletAclStatusPriTest extends ZimbraStructTestCase
         $cos = $this->faker->word;
         $value = mt_rand(0, 10);
 
-        $acl = new ZimletAcl($cos, AclType::DENY());
+        $acl = new ZimletAcl($cos, AclType::GRANT());
         $status = new ValueAttrib(ZimletStatus::ENABLED()->getValue());
         $priority = new IntegerValueAttrib($value);
 
@@ -41,13 +41,11 @@ class ZimletAclStatusPriTest extends ZimbraStructTestCase
         $this->assertSame($status, $zimlet->getStatus());
         $this->assertSame($priority, $zimlet->getPriority());
 
-        $acl = AclType::DENY()->getValue();
-        $enabled = ZimletStatus::ENABLED()->getValue();
         $xml = <<<EOT
 <?xml version="1.0"?>
 <zimlet name="$name">
-    <acl cos="$cos" acl="$acl" />
-    <status value="$enabled" />
+    <acl cos="$cos" acl="grant" />
+    <status value="enabled" />
     <priority value="$value" />
 </zimlet>
 EOT;
@@ -58,10 +56,10 @@ EOT;
             'name' => $name,
             'acl' => [
                 'cos' => $cos,
-                'acl' => $acl,
+                'acl' => 'grant',
             ],
             'status' => [
-                'value' => $enabled,
+                'value' => 'enabled',
             ],
             'priority' => [
                 'value' => $value,
