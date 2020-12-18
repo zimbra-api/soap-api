@@ -33,10 +33,9 @@ class DataSourceInfoTest extends ZimbraStructTestCase
         $this->assertSame($id, $ds->getId());
         $this->assertEquals(DataSourceType::POP3(), $ds->getType());
 
-        $type = DataSourceType::POP3()->getValue();
         $xml = <<<EOT
 <?xml version="1.0"?>
-<dataSource name="$name" id="$id" type="$type">
+<dataSource name="$name" id="$id" type="pop3">
     <a n="$key">$value</a>
 </dataSource>
 EOT;
@@ -46,7 +45,7 @@ EOT;
         $json = json_encode([
             'name' => $name,
             'id' => $id,
-            'type' => $type,
+            'type' => 'pop3',
             'a' => [
                 [
                     'n' => $key,
