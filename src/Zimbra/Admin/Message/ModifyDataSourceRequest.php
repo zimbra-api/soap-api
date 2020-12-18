@@ -88,7 +88,7 @@ class ModifyDataSourceRequest extends Request implements AdminAttrs
     }
 
     /**
-     * Gets the COS.
+     * Gets the data source.
      *
      * @return DataSourceInfo
      */
@@ -98,7 +98,7 @@ class ModifyDataSourceRequest extends Request implements AdminAttrs
     }
 
     /**
-     * Sets the COS
+     * Sets the data source
      *
      * @param  DataSourceInfo $dataSource
      * @return self
