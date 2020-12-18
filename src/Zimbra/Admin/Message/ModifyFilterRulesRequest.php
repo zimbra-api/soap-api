@@ -17,10 +17,11 @@ use Zimbra\Admin\Struct\ServerSelector as Server;
 use Zimbra\Mail\Struct\FilterRule;
 use Zimbra\Struct\AccountSelector as Account;
 use Zimbra\Enum\AdminFilterType;
-use Zimbra\Soap\ResponseInterface;
+use Zimbra\Soap\Request;
 
 /**
- * GetFilterRulesResponse class
+ * ModifyFilterRulesRequest request class
+ * Get filter filterRules
  *
  * @package    Zimbra
  * @subpackage Admin
@@ -28,9 +29,9 @@ use Zimbra\Soap\ResponseInterface;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
  * @AccessType("public_method")
- * @XmlRoot(name="GetFilterRulesResponse")
+ * @XmlRoot(name="ModifyFilterRulesRequest")
  */
-class GetFilterRulesResponse implements ResponseInterface
+class ModifyFilterRulesRequest extends Request
 {
     /**
      * Type can be either before or after
@@ -78,24 +79,24 @@ class GetFilterRulesResponse implements ResponseInterface
     private $server;
 
     /**
-     * Filter rules
+     * Filter filterRules
      * 
      * @Accessor(getter="getFilterRules", setter="setFilterRules")
      * @SerializedName("filterRules")
      * @Type("array<Zimbra\Mail\Struct\FilterRule>")
      * @XmlList(inline = false, entry = "filterRule")
      */
-    private $rules;
+    private $filterRules;
 
     /**
-     * Constructor method for GetFilterRulesResponse
-     *
+     * Constructor method for ModifyFilterRulesRequest
+     * 
      * @param  AdminFilterType $type
      * @param  Account $account
      * @param  Domain $domain
      * @param  Cos $cos
      * @param  Server $server
-     * @param  array $rules
+     * @param  array $filterRules
      * @return self
      */
     public function __construct(
@@ -104,11 +105,11 @@ class GetFilterRulesResponse implements ResponseInterface
         ?Domain $domain = NULL,
         ?Cos $cos = NULL,
         ?Server $server = NULL,
-        array $rules = []
+        array $filterRules = []
     )
     {
         $this->setType($type)
-             ->setFilterRules($rules);
+             ->setFilterRules($filterRules);
         if ($account instanceof Account) {
             $this->setAccount($account);
         }
@@ -241,34 +242,48 @@ class GetFilterRulesResponse implements ResponseInterface
      */
     public function addFilterRule(FilterRule $rule): self
     {
-        $this->rules[] = $rule;
+        $this->filterRules[] = $rule;
         return $this;
     }
 
     /**
-     * Sets filter rules
+     * Sets filter filterRules
      *
-     * @param  array $rules
+     * @param  array $filterRules
      * @return self
      */
-    public function setFilterRules(array $rules): self
+    public function setFilterRules(array $filterRules): self
     {
-        $this->rules = [];
-        foreach ($rules as $rule) {
+        $this->filterRules = [];
+        foreach ($filterRules as $rule) {
             if ($rule instanceof FilterRule) {
-                $this->rules[] = $rule;
+                $this->filterRules[] = $rule;
             }
         }
         return $this;
     }
 
     /**
-     * Gets filter rules
+     * Gets filter filterRules
      *
      * @return array
      */
     public function getFilterRules(): array
     {
-        return $this->rules;
+        return $this->filterRules;
+    }
+
+    /**
+     * Initialize the soap envelope
+     *
+     * @return void
+     */
+    protected function envelopeInit(): void
+    {
+        if (!($this->envelope instanceof ModifyFilterRulesEnvelope)) {
+            $this->envelope = new ModifyFilterRulesEnvelope(
+                new ModifyFilterRulesBody($this)
+            );
+        }
     }
 }
