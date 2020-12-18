@@ -75,6 +75,7 @@ use Zimbra\Enum\NumberComparison;
 use Zimbra\Enum\{MatchType, RelationalComparator};
 use Zimbra\Enum\{AddressPart, ComparisonComparator, CountComparison, StringComparison, ValueComparison};
 
+use Zimbra\Enum\AdminFilterType;
 use Zimbra\Enum\AccountBy;
 use Zimbra\Enum\CosBy;
 use Zimbra\Enum\DomainBy;
@@ -97,7 +98,7 @@ class GetFilterRulesTest extends ZimbraStructTestCase
 
     public function testGetFilterRules()
     {
-        $type = $this->faker->word;
+        $type = AdminFilterType::BEFORE();
         $index = mt_rand(1, 99);
         $header = $this->faker->word;
         $name = $this->faker->word;
@@ -137,7 +138,7 @@ class GetFilterRulesTest extends ZimbraStructTestCase
         $this->assertSame($cos, $request->getCos());
         $this->assertSame($server, $request->getServer());
 
-        $request = new GetFilterRulesRequest('');
+        $request = new GetFilterRulesRequest(AdminFilterType::AFTER());
         $request->setType($type)
             ->setAccount($account)
             ->setDomain($domain)
@@ -317,7 +318,7 @@ class GetFilterRulesTest extends ZimbraStructTestCase
         $this->assertSame($cos, $response->getCos());
         $this->assertSame($server, $response->getServer());
         $this->assertSame([$filterRule], $response->getFilterRules());
-        $response = new GetFilterRulesResponse('');
+        $response = new GetFilterRulesResponse(AdminFilterType::AFTER());
         $response->setType($type)
             ->setAccount($account)
             ->setDomain($domain)
@@ -457,7 +458,7 @@ EOT;
         $json = json_encode([
             'Body' => [
                 'GetFilterRulesRequest' => [
-                    'type' => $type,
+                    'type' => $type->getValue(),
                     'account' => [
                         'by' => 'name',
                         '_content' => $value,
@@ -477,7 +478,7 @@ EOT;
                     '_jsns' => 'urn:zimbraAdmin',
                 ],
                 'GetFilterRulesResponse' => [
-                    'type' => $type,
+                    'type' => $type->getValue(),
                     'account' => [
                         'by' => 'name',
                         '_content' => $value,

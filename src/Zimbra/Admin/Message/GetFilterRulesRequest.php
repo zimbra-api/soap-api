@@ -15,6 +15,7 @@ use Zimbra\Admin\Struct\CosSelector as Cos;
 use Zimbra\Admin\Struct\DomainSelector as Domain;
 use Zimbra\Admin\Struct\ServerSelector as Server;
 use Zimbra\Struct\AccountSelector as Account;
+use Zimbra\Enum\AdminFilterType;
 use Zimbra\Soap\Request;
 
 /**
@@ -35,7 +36,7 @@ class GetFilterRulesRequest extends Request
      * Type can be either before or after
      * @Accessor(getter="getType", setter="setType")
      * @SerializedName("type")
-     * @Type("string")
+     * @Type("Zimbra\Enum\AdminFilterType")
      * @XmlAttribute
      */
     private $type;
@@ -79,7 +80,7 @@ class GetFilterRulesRequest extends Request
     /**
      * Constructor method for GetFilterRulesRequest
      * 
-     * @param  string $type
+     * @param  AdminFilterType $type
      * @param  Account $account
      * @param  Domain $domain
      * @param  Cos $cos
@@ -87,7 +88,7 @@ class GetFilterRulesRequest extends Request
      * @return self
      */
     public function __construct(
-        string $type,
+        AdminFilterType $type,
         ?Account $account = NULL,
         ?Domain $domain = NULL,
         ?Cos $cos = NULL,
@@ -112,9 +113,9 @@ class GetFilterRulesRequest extends Request
     /**
      * Gets type
      *
-     * @return string
+     * @return AdminFilterType
      */
-    public function getType(): string
+    public function getType(): AdminFilterType
     {
         return $this->type;
     }
@@ -122,10 +123,10 @@ class GetFilterRulesRequest extends Request
     /**
      * Sets type
      *
-     * @param  string $type
+     * @param  AdminFilterType $type
      * @return self
      */
-    public function setType(string $type): self
+    public function setType(AdminFilterType $type): self
     {
         $this->type = $type;
         return $this;
@@ -136,7 +137,7 @@ class GetFilterRulesRequest extends Request
      *
      * @return Account
      */
-    public function getAccount(): Account
+    public function getAccount(): ?Account
     {
         return $this->account;
     }

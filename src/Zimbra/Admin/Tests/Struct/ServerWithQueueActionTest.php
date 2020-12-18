@@ -24,10 +24,9 @@ class ServerWithQueueActionTest extends ZimbraStructTestCase
         $limit = mt_rand(0, 100);
         $offset = mt_rand(0, 100);
 
-        $match = new ValueAttrib($value);
-        $field = new QueueQueryField($name, [$match]);
-        $query = new QueueQuery([$field], $limit, $offset);
-
+        $query = new QueueQuery(
+            [new QueueQueryField($name, [new ValueAttrib($value)])], $limit, $offset
+        );
         $action = new MailQueueAction($query, QueueAction::HOLD(), QueueActionBy::QUERY());
         $queue = new MailQueueWithAction($action, $name);
 
@@ -41,13 +40,11 @@ class ServerWithQueueActionTest extends ZimbraStructTestCase
         $this->assertSame($name, $server->getName());
         $this->assertSame($queue, $server->getQueue());
 
-        $op = QueueAction::HOLD()->getValue();
-        $by = QueueActionBy::QUERY()->getValue();
         $xml = <<<EOT
 <?xml version="1.0"?>
 <server name="$name">
     <queue name="$name">
-        <action op="$op" by="$by">
+        <action op="hold" by="query">
             <query limit="$limit" offset="$offset">
                 <field name="$name">
                     <match value="$value" />
@@ -65,8 +62,8 @@ EOT;
             'queue' => [
                 'name' => $name,
                 'action' => [
-                    'op' => $op,
-                    'by' => $by,
+                    'op' => 'hold',
+                    'by' => 'query',
                     'query' => [
                         'limit' => $limit,
                         'offset' => $offset,

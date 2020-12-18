@@ -16,6 +16,7 @@ use Zimbra\Admin\Struct\DomainSelector as Domain;
 use Zimbra\Admin\Struct\ServerSelector as Server;
 use Zimbra\Mail\Struct\FilterRule;
 use Zimbra\Struct\AccountSelector as Account;
+use Zimbra\Enum\AdminFilterType;
 use Zimbra\Soap\ResponseInterface;
 
 /**
@@ -35,7 +36,7 @@ class GetFilterRulesResponse implements ResponseInterface
      * Type can be either before or after
      * @Accessor(getter="getType", setter="setType")
      * @SerializedName("type")
-     * @Type("string")
+     * @Type("Zimbra\Enum\AdminFilterType")
      * @XmlAttribute
      */
     private $type;
@@ -89,7 +90,7 @@ class GetFilterRulesResponse implements ResponseInterface
     /**
      * Constructor method for GetFilterRulesResponse
      *
-     * @param  string $type
+     * @param  AdminFilterType $type
      * @param  Account $account
      * @param  Domain $domain
      * @param  Cos $cos
@@ -98,7 +99,7 @@ class GetFilterRulesResponse implements ResponseInterface
      * @return self
      */
     public function __construct(
-        string $type,
+        AdminFilterType $type,
         ?Account $account = NULL,
         ?Domain $domain = NULL,
         ?Cos $cos = NULL,
@@ -107,7 +108,7 @@ class GetFilterRulesResponse implements ResponseInterface
     )
     {
         $this->setType($type)
-            ->setFilterRules($rules);
+             ->setFilterRules($rules);
         if ($account instanceof Account) {
             $this->setAccount($account);
         }
@@ -125,9 +126,9 @@ class GetFilterRulesResponse implements ResponseInterface
     /**
      * Gets type
      *
-     * @return string
+     * @return AdminFilterType
      */
-    public function getType(): string
+    public function getType(): AdminFilterType
     {
         return $this->type;
     }
@@ -135,10 +136,10 @@ class GetFilterRulesResponse implements ResponseInterface
     /**
      * Sets type
      *
-     * @param  string $type
+     * @param  AdminFilterType $type
      * @return self
      */
-    public function setType(string $type): self
+    public function setType(AdminFilterType $type): self
     {
         $this->type = $type;
         return $this;
@@ -149,7 +150,7 @@ class GetFilterRulesResponse implements ResponseInterface
      *
      * @return Account
      */
-    public function getAccount(): Account
+    public function getAccount(): ?Account
     {
         return $this->account;
     }

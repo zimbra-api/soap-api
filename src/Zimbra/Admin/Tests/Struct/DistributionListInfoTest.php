@@ -38,15 +38,14 @@ class DistributionListInfoTest extends ZimbraStructTestCase
         $this->assertSame([$member1, $member2], $dl->getMembers());
         $this->assertSame([$owner, $owner], $dl->getOwners());
 
-        $type = GranteeType::USR()->getValue();
         $xml = <<<EOT
 <?xml version="1.0"?>
 <dl name="$name" id="$id" dynamic="true">
     <dlm>$member1</dlm>
     <dlm>$member2</dlm>
     <owners>
-        <owner id="$id" name="$name" type="$type" />
-        <owner id="$id" name="$name" type="$type" />
+        <owner id="$id" name="$name" type="usr" />
+        <owner id="$id" name="$name" type="usr" />
     </owners>
 </dl>
 EOT;
@@ -66,12 +65,12 @@ EOT;
                     [
                         'id' => $id,
                         'name' => $name,
-                        'type' => $type,
+                        'type' => 'usr',
                     ],
                     [
                         'id' => $id,
                         'name' => $name,
-                        'type' => $type,
+                        'type' => 'usr',
                     ],
                 ],
             ],
