@@ -75,6 +75,7 @@ use Zimbra\Enum\NumberComparison;
 use Zimbra\Enum\{MatchType, RelationalComparator};
 use Zimbra\Enum\{AddressPart, ComparisonComparator, CountComparison, StringComparison, ValueComparison};
 
+use Zimbra\Enum\AdminFilterType;
 use Zimbra\Enum\AccountBy;
 use Zimbra\Enum\CosBy;
 use Zimbra\Enum\DomainBy;
@@ -97,7 +98,7 @@ class GetOutgoingFilterRulesTest extends ZimbraStructTestCase
 
     public function testGetOutgoingFilterRules()
     {
-        $type = $this->faker->word;
+        $type = AdminFilterType::BEFORE();
         $index = mt_rand(1, 99);
         $header = $this->faker->word;
         $name = $this->faker->word;
@@ -137,7 +138,7 @@ class GetOutgoingFilterRulesTest extends ZimbraStructTestCase
         $this->assertSame($cos, $request->getCos());
         $this->assertSame($server, $request->getServer());
 
-        $request = new GetOutgoingFilterRulesRequest('');
+        $request = new GetOutgoingFilterRulesRequest(AdminFilterType::AFTER());
         $request->setType($type)
             ->setAccount($account)
             ->setDomain($domain)
@@ -317,7 +318,7 @@ class GetOutgoingFilterRulesTest extends ZimbraStructTestCase
         $this->assertSame($cos, $response->getCos());
         $this->assertSame($server, $response->getServer());
         $this->assertSame([$filterRule], $response->getFilterRules());
-        $response = new GetOutgoingFilterRulesResponse('');
+        $response = new GetOutgoingFilterRulesResponse(AdminFilterType::AFTER());
         $response->setType($type)
             ->setAccount($account)
             ->setDomain($domain)
@@ -457,7 +458,7 @@ EOT;
         $json = json_encode([
             'Body' => [
                 'GetOutgoingFilterRulesRequest' => [
-                    'type' => $type,
+                    'type' => $type->getValue(),
                     'account' => [
                         'by' => 'name',
                         '_content' => $value,
@@ -477,7 +478,7 @@ EOT;
                     '_jsns' => 'urn:zimbraAdmin',
                 ],
                 'GetOutgoingFilterRulesResponse' => [
-                    'type' => $type,
+                    'type' => $type->getValue(),
                     'account' => [
                         'by' => 'name',
                         '_content' => $value,
