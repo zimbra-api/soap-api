@@ -16,9 +16,7 @@ use Zimbra\Soap\Request;
 
 /**
  * ModifyVolumeRequest class
- * Changes attributes of the given data source.
- * Only the attributes specified in the request are modified.
- * To change the name, specify "zimbraDataSourceName" as an attribute. 
+ * Modify volume 
  *
  * @package    Zimbra
  * @subpackage Admin
