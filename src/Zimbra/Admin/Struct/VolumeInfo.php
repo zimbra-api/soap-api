@@ -230,7 +230,7 @@ class VolumeInfo
      */
     public function setType(int $type): self
     {
-        $this->type = VolumeType::isValid($type) ? $type : 1;
+        $this->type = VolumeType::isValid($type) ? $type : VolumeType::PRIMARY()->getValue();
         return $this;
     }
 
