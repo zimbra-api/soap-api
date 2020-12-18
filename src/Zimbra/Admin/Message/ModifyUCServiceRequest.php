@@ -16,10 +16,9 @@ use Zimbra\Soap\Request;
 
 /**
  * ModifyUCServiceRequest class
- * Modify attributes for a server 
+ * Modify attributes for a UC service
  * Notes:
  * - an empty attribute value removes the specified attr
- * - this request is by default proxied to the referenced server
  *
  * @package    Zimbra
  * @subpackage Admin
