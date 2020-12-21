@@ -70,10 +70,10 @@ EOT;
         $json = json_encode([
             'Body' => [
                 'CompactIndexRequest' => [
+                    'action' => 'start',
                     'mbox' => [
                         'id' => $id,
                     ],
-                    'action' => 'start',
                     '_jsns' => 'urn:zimbraAdmin',
                 ],
                 'CompactIndexResponse' => [
