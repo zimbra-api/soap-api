@@ -61,7 +61,7 @@ class PurgeMessagesTest extends ZimbraStructTestCase
     <soap:Body>
         <urn:PurgeMessagesRequest>
             <mbox id="$id" />
-        </urn:PurgeMessagesRequest/>
+        </urn:PurgeMessagesRequest>
         <urn:PurgeMessagesResponse>
             <mbox mbxid="$mbxid" id="$id" s="$size" />
         </urn:PurgeMessagesResponse>
