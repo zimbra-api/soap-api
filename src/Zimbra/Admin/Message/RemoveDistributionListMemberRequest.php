@@ -14,7 +14,7 @@ use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAt
 use Zimbra\Soap\Request;
 
 /**
- * AddDistributionListMemberRequest request class
+ * RemoveDistributionListMemberRequest request class
  * Adding members to a distribution list
  *
  * @package    Zimbra
@@ -23,9 +23,9 @@ use Zimbra\Soap\Request;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
  * @AccessType("public_method")
- * @XmlRoot(name="AddDistributionListMemberRequest")
+ * @XmlRoot(name="RemoveDistributionListMemberRequest")
  */
-class AddDistributionListMemberRequest extends Request
+class RemoveDistributionListMemberRequest extends Request
 {
     /**
      * Zimbra ID
@@ -47,15 +47,28 @@ class AddDistributionListMemberRequest extends Request
     private $members;
 
     /**
-     * Constructor method for AddDistributionListMemberRequest
+     * Specify Accounts insteaf of members if you want to remove all addresses that belong to an account from the list
+     * 
+     * @Accessor(getter="getAccounts", setter="setAccounts")
+     * @SerializedName("account")
+     * @Type("array<string>")
+     * @XmlList(inline = true, entry = "account")
+     */
+    private $accounts;
+
+    /**
+     * Constructor method for RemoveDistributionListMemberRequest
+     *
      * @param  string $id
      * @param  array  $members
+     * @param  array  $accounts
      * @return self
      */
-    public function __construct(string $id, array $members = [])
+    public function __construct(string $id, array $members = [], array $accounts = [])
     {
         $this->setId($id)
-             ->setMembers($members);
+             ->setMembers($members)
+             ->setAccounts($accounts);
     }
 
     /**
@@ -81,7 +94,7 @@ class AddDistributionListMemberRequest extends Request
     }
 
     /**
-     * Add a dl member
+     * Add a member
      *
      * @param  string $member
      * @return self
@@ -96,7 +109,7 @@ class AddDistributionListMemberRequest extends Request
     }
 
     /**
-     * Sets member sequence
+     * Sets members
      *
      * @param  array $members Members
      * @return self
@@ -111,7 +124,7 @@ class AddDistributionListMemberRequest extends Request
     }
 
     /**
-     * Gets member sequence
+     * Gets members
      *
      * @return array
      */
@@ -121,15 +134,55 @@ class AddDistributionListMemberRequest extends Request
     }
 
     /**
+     * Add account
+     *
+     * @param  string $account
+     * @return self
+     */
+    public function addAccount(string $account): self
+    {
+        $account = trim($account);
+        if (!empty($account) && !in_array($account, $this->accounts)) {
+            $this->accounts[] = $account;
+        }
+        return $this;
+    }
+
+    /**
+     * Sets accounts
+     *
+     * @param  array $accounts Accounts
+     * @return self
+     */
+    public function setAccounts(array $accounts): self
+    {
+        $this->accounts = [];
+        foreach ($accounts as $account) {
+            $this->addAccount($account);
+        }
+        return $this;
+    }
+
+    /**
+     * Gets accounts
+     *
+     * @return array
+     */
+    public function getAccounts(): array
+    {
+        return $this->accounts;
+    }
+
+    /**
      * Initialize the soap envelope
      *
      * @return void
      */
     protected function envelopeInit(): void
     {
-        if (!($this->envelope instanceof AddDistributionListMemberEnvelope)) {
-            $this->envelope = new AddDistributionListMemberEnvelope(
-                new AddDistributionListMemberBody($this)
+        if (!($this->envelope instanceof RemoveDistributionListMemberEnvelope)) {
+            $this->envelope = new RemoveDistributionListMemberEnvelope(
+                new RemoveDistributionListMemberBody($this)
             );
         }
     }

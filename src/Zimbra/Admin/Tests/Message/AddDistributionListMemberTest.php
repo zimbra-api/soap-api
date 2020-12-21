@@ -23,7 +23,7 @@ class AddDistributionListMemberTest extends ZimbraStructTestCase
         $this->assertSame($id, $request->getId());
         $this->assertSame([$member1], $request->getMembers());
 
-        $request = new AddDistributionListMemberRequest('', []);
+        $request = new AddDistributionListMemberRequest('');
         $request->setId($id)
             ->setMembers([$member1])
             ->addMember($member2);
