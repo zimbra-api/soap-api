@@ -6,8 +6,8 @@ use Zimbra\Admin\Message\CreateUCServiceBody;
 use Zimbra\Admin\Message\CreateUCServiceEnvelope;
 use Zimbra\Admin\Message\CreateUCServiceRequest;
 use Zimbra\Admin\Message\CreateUCServiceResponse;
-use Zimbra\Admin\Struct\UCServiceInfo;
 use Zimbra\Admin\Struct\Attr;
+use Zimbra\Admin\Struct\UCServiceInfo;
 use Zimbra\Struct\Tests\ZimbraStructTestCase;
 
 /**
