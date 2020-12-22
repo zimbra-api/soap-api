@@ -33,8 +33,17 @@ use Zimbra\Soap\ResponseInterface;
 class SearchDirectoryResponse implements ResponseInterface
 {
     /**
+     * number of counts
+     * @Accessor(getter="getNum", setter="setNum")
+     * @SerializedName("num")
+     * @Type("integer")
+     * @XmlAttribute
+     */
+    private $num;
+
+    /**
      * 1 (true) if more accounts left to return
-     * @Accessor(getter="getMore", setter="setMore")
+     * @Accessor(getter="isMore", setter="setMore")
      * @SerializedName("more")
      * @Type("bool")
      * @XmlAttribute
@@ -113,6 +122,7 @@ class SearchDirectoryResponse implements ResponseInterface
     /**
      * Constructor method for SearchDirectoryResponse
      *
+     * @param int $num
      * @param bool $more
      * @param int $searchTotal
      * @param array $calResources
@@ -124,6 +134,7 @@ class SearchDirectoryResponse implements ResponseInterface
      * @return self
      */
     public function __construct(
+        int $num,
         bool $more,
         int $searchTotal,
         array $calResources = [],
@@ -134,7 +145,8 @@ class SearchDirectoryResponse implements ResponseInterface
         array $coses = []
     )
     {
-        $this->setMore($more)
+        $this->setNum($num)
+             ->setMore($more)
              ->setSearchTotal($searchTotal)
              ->setCalendarResources($calResources)
              ->setDistributionLists($dls)
@@ -145,11 +157,33 @@ class SearchDirectoryResponse implements ResponseInterface
     }
 
     /**
+     * Gets num
+     *
+     * @return int
+     */
+    public function getNum(): int
+    {
+        return $this->num;
+    }
+
+    /**
+     * Sets num
+     *
+     * @param  int $num
+     * @return self
+     */
+    public function setNum(int $num): self
+    {
+        $this->num = $num;
+        return $this;
+    }
+
+    /**
      * Gets more
      *
      * @return bool
      */
-    public function getMore(): bool
+    public function isMore(): bool
     {
         return $this->more;
     }

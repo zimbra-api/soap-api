@@ -46,6 +46,7 @@ class SearchDirectoryTest extends ZimbraStructTestCase
         $sortBy = $this->faker->word;
         $types = $this->faker->word;
         $searchTotal = mt_rand(1, 100);
+        $num = mt_rand(1, 100);
 
         $request = new SearchDirectoryRequest(
             $query, $maxResults, $limit, $offset, $domain, FALSE, FALSE, $sortBy, $types, FALSE, FALSE, $attrs
@@ -99,9 +100,10 @@ class SearchDirectoryTest extends ZimbraStructTestCase
         $cos = new CosInfo($name, $id, TRUE, [new CosInfoAttr($key, $value, TRUE, FALSE)]);
 
         $response = new SearchDirectoryResponse(
-            FALSE, $searchTotal, [$calResources], [$dl], [$alias], [$account], [$domainInfo], [$cos]
+            $num, FALSE, $searchTotal, [$calResources], [$dl], [$alias], [$account], [$domainInfo], [$cos]
         );
-        $this->assertFalse($response->getMore());
+        $this->assertSame($num, $response->getNum());
+        $this->assertFalse($response->isMore());
         $this->assertSame($searchTotal, $response->getSearchTotal());
         $this->assertSame([$calResources], $response->getCalendarResources());
         $this->assertSame([$dl], $response->getDistributionLists());
@@ -109,8 +111,9 @@ class SearchDirectoryTest extends ZimbraStructTestCase
         $this->assertSame([$account], $response->getAccounts());
         $this->assertSame([$domainInfo], $response->getDomains());
         $this->assertSame([$cos], $response->getCOSes());
-        $response = new SearchDirectoryResponse(FALSE, 0);
+        $response = new SearchDirectoryResponse(0, FALSE, 0);
         $response->setMore(TRUE)
+            ->setNum($num)
             ->setSearchTotal($searchTotal)
             ->setCalendarResources([$calResources])
             ->setDistributionLists([$dl])
@@ -118,7 +121,8 @@ class SearchDirectoryTest extends ZimbraStructTestCase
             ->setAccounts([$account])
             ->setDomains([$domainInfo])
             ->setCOSes([$cos]);
-        $this->assertTrue($response->getMore());
+        $this->assertSame($num, $response->getNum());
+        $this->assertTrue($response->isMore());
         $this->assertSame($searchTotal, $response->getSearchTotal());
         $this->assertSame([$calResources], $response->getCalendarResources());
         $this->assertSame([$dl], $response->getDistributionLists());
@@ -147,7 +151,7 @@ class SearchDirectoryTest extends ZimbraStructTestCase
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
     <soap:Body>
         <urn:SearchDirectoryRequest query="$query" maxResults="$maxResults" limit="$limit" offset="$offset" domain="$domain" applyCos="true" applyConfig="true" sortBy="$sortBy" types="$types" sortAscending="true" countOnly="true" attrs="$attrs" />
-        <urn:SearchDirectoryResponse more="true" searchTotal="$searchTotal">
+        <urn:SearchDirectoryResponse num="$num" more="true" searchTotal="$searchTotal">
             <calresource name="$name" id="$id">
                 <a n="$key">$value</a>
             </calresource>
@@ -195,6 +199,7 @@ EOT;
                     '_jsns' => 'urn:zimbraAdmin',
                 ],
                 'SearchDirectoryResponse' => [
+                    'num' => $num,
                     'more' => TRUE,
                     'searchTotal' => $searchTotal,
                     'calresource' => [
