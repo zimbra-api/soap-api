@@ -2,10 +2,10 @@
 
 namespace Zimbra\Admin\Tests\Message;
 
-use Zimbra\Admin\Message\SearchAccountsBody;
-use Zimbra\Admin\Message\SearchAccountsEnvelope;
-use Zimbra\Admin\Message\SearchAccountsRequest;
-use Zimbra\Admin\Message\SearchAccountsResponse;
+use Zimbra\Admin\Message\SearchDirectoryBody;
+use Zimbra\Admin\Message\SearchDirectoryEnvelope;
+use Zimbra\Admin\Message\SearchDirectoryRequest;
+use Zimbra\Admin\Message\SearchDirectoryResponse;
 
 use Zimbra\Admin\Struct\AccountInfo;
 use Zimbra\Admin\Struct\AliasInfo;
@@ -23,11 +23,11 @@ use Zimbra\Enum\GranteeType;
 use Zimbra\Struct\Tests\ZimbraStructTestCase;
 
 /**
- * Testcase class for SearchAccountsTest.
+ * Testcase class for SearchDirectoryTest.
  */
-class SearchAccountsTest extends ZimbraStructTestCase
+class SearchDirectoryTest extends ZimbraStructTestCase
 {
-    public function testSearchAccounts()
+    public function testSearchDirectory()
     {
         $name = $this->faker->word;
         $id = $this->faker->uuid;
@@ -38,6 +38,7 @@ class SearchAccountsTest extends ZimbraStructTestCase
         $targetType = TargetType::ACCOUNT();
 
         $query = $this->faker->word;
+        $maxResults = mt_rand(1, 100);
         $limit = mt_rand(1, 100);
         $offset = mt_rand(1, 100);
         $domain = $this->faker->word;
@@ -46,38 +47,47 @@ class SearchAccountsTest extends ZimbraStructTestCase
         $types = $this->faker->word;
         $searchTotal = mt_rand(1, 100);
 
-        $request = new SearchAccountsRequest(
-            $query, $limit, $offset, $domain, FALSE, $attrs, $sortBy, $types, FALSE
+        $request = new SearchDirectoryRequest(
+            $query, $maxResults, $limit, $offset, $domain, FALSE, FALSE, $sortBy, $types, FALSE, FALSE, $attrs
         );
         $this->assertSame($query, $request->getQuery());
+        $this->assertSame($maxResults, $request->getMaxResults());
         $this->assertSame($limit, $request->getLimit());
         $this->assertSame($offset, $request->getOffset());
         $this->assertSame($domain, $request->getDomain());
         $this->assertFalse($request->getApplyCos());
-        $this->assertSame($attrs, $request->getAttrs());
+        $this->assertFalse($request->getApplyConfig());
         $this->assertSame($sortBy, $request->getSortBy());
         $this->assertSame($types, $request->getTypes());
         $this->assertFalse($request->getSortAscending());
+        $this->assertFalse($request->getCountOnly());
+        $this->assertSame($attrs, $request->getAttrs());
 
-        $request = new SearchAccountsRequest('');
+        $request = new SearchDirectoryRequest();
         $request->setQuery($query)
+            ->setMaxResults($maxResults)
             ->setLimit($limit)
             ->setOffset($offset)
             ->setDomain($domain)
             ->setApplyCos(TRUE)
-            ->setAttrs($attrs)
+            ->setApplyConfig(TRUE)
             ->setSortBy($sortBy)
             ->setTypes($types)
-            ->setSortAscending(TRUE);
+            ->setSortAscending(TRUE)
+            ->setCountOnly(TRUE)
+            ->setAttrs($attrs);
         $this->assertSame($query, $request->getQuery());
+        $this->assertSame($maxResults, $request->getMaxResults());
         $this->assertSame($limit, $request->getLimit());
         $this->assertSame($offset, $request->getOffset());
         $this->assertSame($domain, $request->getDomain());
         $this->assertTrue($request->getApplyCos());
-        $this->assertSame($attrs, $request->getAttrs());
+        $this->assertTrue($request->getApplyConfig());
         $this->assertSame($sortBy, $request->getSortBy());
         $this->assertSame($types, $request->getTypes());
         $this->assertTrue($request->getSortAscending());
+        $this->assertTrue($request->getCountOnly());
+        $this->assertSame($attrs, $request->getAttrs());
 
         $calResources = new CalendarResourceInfo($name, $id, [new Attr($key, $value)]);
         $dl = new DistributionListInfo(
@@ -88,7 +98,7 @@ class SearchAccountsTest extends ZimbraStructTestCase
         $domainInfo = new DomainInfo($name, $id, [new Attr($key, $value)]);
         $cos = new CosInfo($name, $id, TRUE, [new CosInfoAttr($key, $value, TRUE, FALSE)]);
 
-        $response = new SearchAccountsResponse(
+        $response = new SearchDirectoryResponse(
             FALSE, $searchTotal, [$calResources], [$dl], [$alias], [$account], [$domainInfo], [$cos]
         );
         $this->assertFalse($response->getMore());
@@ -99,7 +109,7 @@ class SearchAccountsTest extends ZimbraStructTestCase
         $this->assertSame([$account], $response->getAccounts());
         $this->assertSame([$domainInfo], $response->getDomains());
         $this->assertSame([$cos], $response->getCOSes());
-        $response = new SearchAccountsResponse(FALSE, 0);
+        $response = new SearchDirectoryResponse(FALSE, 0);
         $response->setMore(TRUE)
             ->setSearchTotal($searchTotal)
             ->setCalendarResources([$calResources])
@@ -117,18 +127,18 @@ class SearchAccountsTest extends ZimbraStructTestCase
         $this->assertSame([$domainInfo], $response->getDomains());
         $this->assertSame([$cos], $response->getCOSes());
 
-        $body = new SearchAccountsBody($request, $response);
+        $body = new SearchDirectoryBody($request, $response);
         $this->assertSame($request, $body->getRequest());
         $this->assertSame($response, $body->getResponse());
-        $body = new SearchAccountsBody();
+        $body = new SearchDirectoryBody();
         $body->setRequest($request)
              ->setResponse($response);
         $this->assertSame($request, $body->getRequest());
         $this->assertSame($response, $body->getResponse());
 
-        $envelope = new SearchAccountsEnvelope($body);
+        $envelope = new SearchDirectoryEnvelope($body);
         $this->assertSame($body, $envelope->getBody());
-        $envelope = new SearchAccountsEnvelope();
+        $envelope = new SearchDirectoryEnvelope();
         $envelope->setBody($body);
         $this->assertSame($body, $envelope->getBody());
 
@@ -136,8 +146,8 @@ class SearchAccountsTest extends ZimbraStructTestCase
 <?xml version="1.0"?>
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
     <soap:Body>
-        <urn:SearchAccountsRequest query="$query" limit="$limit" offset="$offset" domain="$domain" applyCos="true" attrs="$attrs" sortBy="$sortBy" types="$types" sortAscending="true" />
-        <urn:SearchAccountsResponse more="true" searchTotal="$searchTotal">
+        <urn:SearchDirectoryRequest query="$query" maxResults="$maxResults" limit="$limit" offset="$offset" domain="$domain" applyCos="true" applyConfig="true" sortBy="$sortBy" types="$types" sortAscending="true" countOnly="true" attrs="$attrs" />
+        <urn:SearchDirectoryResponse more="true" searchTotal="$searchTotal">
             <calresource name="$name" id="$id">
                 <a n="$key">$value</a>
             </calresource>
@@ -160,28 +170,31 @@ class SearchAccountsTest extends ZimbraStructTestCase
             <cos name="$name" id="$id" isDefaultCos="true">
                 <a n="$key" c="true" pd="false">$value</a>
             </cos>
-        </urn:SearchAccountsResponse>
+        </urn:SearchDirectoryResponse>
     </soap:Body>
 </soap:Envelope>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($xml, SearchAccountsEnvelope::class, 'xml'));
+        $this->assertEquals($envelope, $this->serializer->deserialize($xml, SearchDirectoryEnvelope::class, 'xml'));
 
         $json = json_encode([
             'Body' => [
-                'SearchAccountsRequest' => [
+                'SearchDirectoryRequest' => [
                     'query' => $query,
+                    'maxResults' => $maxResults,
                     'limit' => $limit,
                     'offset' => $offset,
                     'domain' => $domain,
                     'applyCos' => TRUE,
-                    'attrs' => $attrs,
+                    'applyConfig' => TRUE,
                     'sortBy' => $sortBy,
                     'types' => $types,
                     'sortAscending' => TRUE,
+                    'countOnly' => TRUE,
+                    'attrs' => $attrs,
                     '_jsns' => 'urn:zimbraAdmin',
                 ],
-                'SearchAccountsResponse' => [
+                'SearchDirectoryResponse' => [
                     'more' => TRUE,
                     'searchTotal' => $searchTotal,
                     'calresource' => [
@@ -280,6 +293,6 @@ EOT;
             ],
         ]);
         $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, SearchAccountsEnvelope::class, 'json'));
+        $this->assertEquals($envelope, $this->serializer->deserialize($json, SearchDirectoryEnvelope::class, 'json'));
     }
 }
