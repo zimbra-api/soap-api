@@ -164,7 +164,7 @@ class SearchAccountsRequest extends Request
     }
 
     /**
-     * Gets zimbra query
+     * Gets query
      *
      * @return string
      */
@@ -174,7 +174,7 @@ class SearchAccountsRequest extends Request
     }
 
     /**
-     * Sets zimbra query
+     * Sets query
      *
      * @param  string $query
      * @return self

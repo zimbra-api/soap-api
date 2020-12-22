@@ -62,7 +62,14 @@ class DistributionListInfo extends AdminObjectInfo
      * @param bool   $dynamic
      * @return self
      */
-    public function __construct(string $name, string $id, array $members = [], array $attrs = [], array $owners = [], ?bool $dynamic = NULL)
+    public function __construct(
+        string $name,
+        string $id,
+        array $members = [],
+        array $attrs = [],
+        array $owners = [],
+        ?bool $dynamic = NULL
+    )
     {
         parent::__construct($name, $id, $attrs);
         $this->setMembers($members)
@@ -125,7 +132,7 @@ class DistributionListInfo extends AdminObjectInfo
      * @param  string $member
      * @return self
      */
-    public function addMember($member)
+    public function addMember(string $member)
     {
         $member = trim($member);
         if (!in_array($member, $this->members)) {
