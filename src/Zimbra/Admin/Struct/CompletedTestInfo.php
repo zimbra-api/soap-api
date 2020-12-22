@@ -1,0 +1,135 @@
+<?php declare(strict_types=1);
+/**
+ * This file is part of the Zimbra API in PHP library.
+ *
+ * © Nguyen Van Nguyen <nguyennv1981@gmail.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+namespace Zimbra\Admin\Struct;
+
+use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlRoot};
+
+/**
+ * CompletedTestInfo struct class
+ *
+ * @package    Zimbra
+ * @subpackage Admin
+ * @category   Struct
+ * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
+ * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
+ * @AccessType("public_method")
+ * @XmlRoot(name="completed")
+ */
+class CompletedTestInfo
+{
+    /**
+     * Test name
+     * @Accessor(getter="getName", setter="setName")
+     * @SerializedName("name")
+     * @Type("string")
+     * @XmlAttribute
+     */
+    private $name;
+
+    /**
+     * Number of seconds to execute the test
+     * @Accessor(getter="getExecSeconds", setter="setExecSeconds")
+     * @SerializedName("execSeconds")
+     * @Type("integer")
+     * @XmlAttribute
+     */
+    private $execSeconds;
+
+    /**
+     * Test class
+     * @Accessor(getter="getClassName", setter="setClassName")
+     * @SerializedName("class")
+     * @Type("string")
+     * @XmlAttribute
+     */
+    private $className;
+
+    /**
+     * Constructor method for CompletedTestInfo
+     *
+     * @param string $name
+     * @param int    $execSeconds
+     * @param string $className
+     * @return self
+     */
+    public function __construct(string $name, int $execSeconds, string $className)
+    {
+        $this->setName($name)
+             ->setExecSeconds($execSeconds)
+             ->setClassName($className);
+    }
+
+    /**
+     * Gets the name
+     *
+     * @return string
+     */
+    public function getName(): string
+    {
+        return $this->name;
+    }
+
+    /**
+     * Sets the name
+     *
+     * @param  string $name
+     * @return self
+     */
+    public function setName(string $name): self
+    {
+        $this->name = $name;
+        return $this;
+    }
+
+    /**
+     * Gets execSeconds
+     *
+     * @return int
+     */
+    public function getExecSeconds(): int
+    {
+        return $this->execSeconds;
+    }
+
+    /**
+     * Sets execSeconds
+     *
+     * @param  int $execSeconds
+     * @return self
+     */
+    public function setExecSeconds(int $execSeconds): self
+    {
+        $this->execSeconds = $execSeconds;
+        return $this;
+    }
+
+    /**
+     * Gets className
+     *
+     * @return string
+     */
+    public function getClassName(): string
+    {
+        return $this->className;
+    }
+
+    /**
+     * Sets className
+     *
+     * @param  string $className
+     * @return self
+     */
+    public function setClassName(string $className): self
+    {
+        $this->className = $className;
+        return $this;
+    }
+}
