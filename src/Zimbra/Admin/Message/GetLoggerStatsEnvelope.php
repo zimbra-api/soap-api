@@ -37,6 +37,7 @@ class GetLoggerStatsEnvelope extends Envelope
 
     /**
      * Constructor method for GetLoggerStatsEnvelope
+     *
      * @return self
      */
     public function __construct(?GetLoggerStatsBody $body = NULL, ?Header $header = NULL)

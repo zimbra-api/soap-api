@@ -44,6 +44,7 @@ class DeleteVolumeBody extends Body
 
     /**
      * Constructor method for DeleteVolumeBody
+     *
      * @return self
      */
     public function __construct(?DeleteVolumeRequest $request = NULL, ?DeleteVolumeResponse $response = NULL)

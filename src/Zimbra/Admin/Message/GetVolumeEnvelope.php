@@ -37,6 +37,7 @@ class GetVolumeEnvelope extends Envelope
 
     /**
      * Constructor method for GetVolumeEnvelope
+     *
      * @return self
      */
     public function __construct(?GetVolumeBody $body = NULL, ?Header $header = NULL)

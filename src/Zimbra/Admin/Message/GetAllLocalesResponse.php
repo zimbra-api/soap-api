@@ -39,6 +39,7 @@ class GetAllLocalesResponse implements ResponseInterface
 
     /**
      * Constructor method for GetAllLocalesResponse
+     *
      * @param array $locales
      * @return self
      */

@@ -39,6 +39,7 @@ class GetAllXMPPComponentsResponse implements ResponseInterface
 
     /**
      * Constructor method for GetAllXMPPComponentsResponse
+     *
      * @param array $components
      * @return self
      */

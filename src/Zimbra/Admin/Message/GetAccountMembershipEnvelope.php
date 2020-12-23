@@ -37,6 +37,7 @@ class GetAccountMembershipEnvelope extends Envelope
 
     /**
      * Constructor method for GetAccountMembershipEnvelope
+     *
      * @return self
      */
     public function __construct(?GetAccountMembershipBody $body = NULL, ?Header $header = NULL)

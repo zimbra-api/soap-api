@@ -37,6 +37,7 @@ class FixCalendarPriorityEnvelope extends Envelope
 
     /**
      * Constructor method for FixCalendarPriorityEnvelope
+     *
      * @return self
      */
     public function __construct(?FixCalendarPriorityBody $body = NULL, ?Header $header = NULL)

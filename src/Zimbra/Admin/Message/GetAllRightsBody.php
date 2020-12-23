@@ -44,6 +44,7 @@ class GetAllRightsBody extends Body
 
     /**
      * Constructor method for GetAllRightsBody
+     *
      * @return self
      */
     public function __construct(?GetAllRightsRequest $request = NULL, ?GetAllRightsResponse $response = NULL)

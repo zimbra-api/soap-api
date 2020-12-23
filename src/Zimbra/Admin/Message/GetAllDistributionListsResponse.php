@@ -39,6 +39,7 @@ class GetAllDistributionListsResponse implements ResponseInterface
 
     /**
      * Constructor method for GetAllDistributionListsResponse
+     *
      * @param array $dls
      * @return self
      */

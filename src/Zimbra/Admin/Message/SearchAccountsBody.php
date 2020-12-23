@@ -44,6 +44,7 @@ class SearchAccountsBody extends Body
 
     /**
      * Constructor method for SearchAccountsBody
+     *
      * @return self
      */
     public function __construct(?SearchAccountsRequest $request = NULL, ?SearchAccountsResponse $response = NULL)

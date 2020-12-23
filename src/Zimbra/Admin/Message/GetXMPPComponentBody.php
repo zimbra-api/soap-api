@@ -44,6 +44,7 @@ class GetXMPPComponentBody extends Body
 
     /**
      * Constructor method for GetXMPPComponentBody
+     *
      * @return self
      */
     public function __construct(?GetXMPPComponentRequest $request = NULL, ?GetXMPPComponentResponse $response = NULL)

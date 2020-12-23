@@ -44,6 +44,7 @@ class SearchAutoProvDirectoryBody extends Body
 
     /**
      * Constructor method for SearchAutoProvDirectoryBody
+     *
      * @return self
      */
     public function __construct(

@@ -38,6 +38,7 @@ class CreateGalSyncAccountResponse implements ResponseInterface
 
     /**
      * Constructor method for CreateGalSyncAccountResponse
+     *
      * @param AccountInfo $account
      * @return self
      */

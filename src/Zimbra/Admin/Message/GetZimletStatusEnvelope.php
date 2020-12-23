@@ -37,6 +37,7 @@ class GetZimletStatusEnvelope extends Envelope
 
     /**
      * Constructor method for GetZimletStatusEnvelope
+     *
      * @return self
      */
     public function __construct(?GetZimletStatusBody $body = NULL, ?Header $header = NULL)

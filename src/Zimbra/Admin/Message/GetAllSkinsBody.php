@@ -44,6 +44,7 @@ class GetAllSkinsBody extends Body
 
     /**
      * Constructor method for GetAllSkinsBody
+     *
      * @return self
      */
     public function __construct(?GetAllSkinsRequest $request = NULL, ?GetAllSkinsResponse $response = NULL)

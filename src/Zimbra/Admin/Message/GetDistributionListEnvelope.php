@@ -37,6 +37,7 @@ class GetDistributionListEnvelope extends Envelope
 
     /**
      * Constructor method for GetDistributionListEnvelope
+     *
      * @return self
      */
     public function __construct(?GetDistributionListBody $body = NULL, ?Header $header = NULL)

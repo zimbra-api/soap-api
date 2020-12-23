@@ -44,9 +44,12 @@ class DeleteCalendarResourceBody extends Body
 
     /**
      * Constructor method for DeleteCalendarResourceBody
+     *
      * @return self
      */
-    public function __construct(?DeleteCalendarResourceRequest $request = NULL, ?DeleteCalendarResourceResponse $response = NULL)
+    public function __construct(
+        ?DeleteCalendarResourceRequest $request = NULL, ?DeleteCalendarResourceResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }

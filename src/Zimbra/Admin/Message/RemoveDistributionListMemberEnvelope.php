@@ -37,6 +37,7 @@ class RemoveDistributionListMemberEnvelope extends Envelope
 
     /**
      * Constructor method for RemoveDistributionListMemberEnvelope
+     *
      * @return self
      */
     public function __construct(?RemoveDistributionListMemberBody $body = NULL, ?Header $header = NULL)

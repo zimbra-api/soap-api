@@ -44,6 +44,7 @@ class ModifyDistributionListBody extends Body
 
     /**
      * Constructor method for ModifyDistributionListBody
+     *
      * @return self
      */
     public function __construct(?ModifyDistributionListRequest $request = NULL, ?ModifyDistributionListResponse $response = NULL)

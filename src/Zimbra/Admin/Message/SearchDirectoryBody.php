@@ -44,9 +44,12 @@ class SearchDirectoryBody extends Body
 
     /**
      * Constructor method for SearchDirectoryBody
+     *
      * @return self
      */
-    public function __construct(?SearchDirectoryRequest $request = NULL, ?SearchDirectoryResponse $response = NULL)
+    public function __construct(
+        ?SearchDirectoryRequest $request = NULL, ?SearchDirectoryResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }

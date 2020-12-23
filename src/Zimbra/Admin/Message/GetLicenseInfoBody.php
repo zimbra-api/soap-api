@@ -44,6 +44,7 @@ class GetLicenseInfoBody extends Body
 
     /**
      * Constructor method for GetLicenseInfoBody
+     *
      * @return self
      */
     public function __construct(?GetLicenseInfoRequest $request = NULL, ?GetLicenseInfoResponse $response = NULL)

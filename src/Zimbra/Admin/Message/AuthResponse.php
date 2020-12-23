@@ -57,6 +57,7 @@ class AuthResponse implements ResponseInterface
 
     /**
      * Constructor method for AuthResponse
+     *
      * @param string $authToken
      * @param string $csrfToken
      * @param int    $lifetime

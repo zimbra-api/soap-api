@@ -39,6 +39,7 @@ class GetServerStatsResponse implements ResponseInterface
 
     /**
      * Constructor method for GetServerStatsResponse
+     *
      * @param array $stats
      * @return self
      */

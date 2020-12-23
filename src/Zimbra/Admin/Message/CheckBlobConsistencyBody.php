@@ -44,9 +44,12 @@ class CheckBlobConsistencyBody extends Body
 
     /**
      * Constructor method for CheckBlobConsistencyBody
+     *
      * @return self
      */
-    public function __construct(?CheckBlobConsistencyRequest $request = NULL, ?CheckBlobConsistencyResponse $response = NULL)
+    public function __construct(
+        ?CheckBlobConsistencyRequest $request = NULL, ?CheckBlobConsistencyResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }

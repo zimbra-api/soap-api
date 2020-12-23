@@ -44,6 +44,7 @@ class GetOutgoingFilterRulesBody extends Body
 
     /**
      * Constructor method for GetOutgoingFilterRulesBody
+     *
      * @return self
      */
     public function __construct(?GetOutgoingFilterRulesRequest $request = NULL, ?GetOutgoingFilterRulesResponse $response = NULL)

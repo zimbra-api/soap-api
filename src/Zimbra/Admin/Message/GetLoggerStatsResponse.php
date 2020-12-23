@@ -48,7 +48,9 @@ class GetLoggerStatsResponse implements ResponseInterface
 
     /**
      * Constructor method for GetLoggerStatsResponse
+     *
      * @param array $hostNames
+     * @param string $note
      * @return self
      */
     public function __construct(array $hostNames = [], ?string $note = NULL)

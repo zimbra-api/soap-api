@@ -37,6 +37,7 @@ class MailQueueFlushEnvelope extends Envelope
 
     /**
      * Constructor method for MailQueueFlushEnvelope
+     *
      * @return self
      */
     public function __construct(?MailQueueFlushBody $body = NULL, ?Header $header = NULL)

@@ -44,6 +44,7 @@ class RevokeRightBody extends Body
 
     /**
      * Constructor method for RevokeRightBody
+     *
      * @return self
      */
     public function __construct(?RevokeRightRequest $request = NULL, ?RevokeRightResponse $response = NULL)

@@ -37,6 +37,7 @@ class DeleteServerEnvelope extends Envelope
 
     /**
      * Constructor method for DeleteServerEnvelope
+     *
      * @return self
      */
     public function __construct(?DeleteServerBody $body = NULL, ?Header $header = NULL)

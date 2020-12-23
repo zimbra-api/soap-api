@@ -37,6 +37,7 @@ class GetGrantsEnvelope extends Envelope
 
     /**
      * Constructor method for GetGrantsEnvelope
+     *
      * @return self
      */
     public function __construct(?GetGrantsBody $body = NULL, ?Header $header = NULL)

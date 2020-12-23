@@ -37,6 +37,7 @@ class GetLicenseInfoEnvelope extends Envelope
 
     /**
      * Constructor method for GetLicenseInfoEnvelope
+     *
      * @return self
      */
     public function __construct(?GetLicenseInfoBody $body = NULL, ?Header $header = NULL)

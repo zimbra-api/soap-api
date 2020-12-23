@@ -37,6 +37,7 @@ class GetCreateObjectAttrsEnvelope extends Envelope
 
     /**
      * Constructor method for GetCreateObjectAttrsEnvelope
+     *
      * @return self
      */
     public function __construct(?GetCreateObjectAttrsBody $body = NULL, ?Header $header = NULL)

@@ -37,6 +37,7 @@ class DeleteCalendarResourceEnvelope extends Envelope
 
     /**
      * Constructor method for DeleteCalendarResourceEnvelope
+     *
      * @return self
      */
     public function __construct(?DeleteCalendarResourceBody $body = NULL, ?Header $header = NULL)

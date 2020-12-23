@@ -44,6 +44,7 @@ class PingBody extends Body
 
     /**
      * Constructor method for PingBody
+     *
      * @return self
      */
     public function __construct(?PingRequest $request = NULL, ?PingResponse $response = NULL)

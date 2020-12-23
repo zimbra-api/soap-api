@@ -37,6 +37,7 @@ class VerifyStoreManagerEnvelope extends Envelope
 
     /**
      * Constructor method for VerifyStoreManagerEnvelope
+     *
      * @return self
      */
     public function __construct(?VerifyStoreManagerBody $body = NULL, ?Header $header = NULL)

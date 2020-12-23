@@ -38,6 +38,7 @@ class RenameCosResponse implements ResponseInterface
 
     /**
      * Constructor method for RenameCosResponse
+     *
      * @param CosInfo $cos
      * @return self
      */

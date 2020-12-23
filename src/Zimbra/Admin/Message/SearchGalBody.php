@@ -44,6 +44,7 @@ class SearchGalBody extends Body
 
     /**
      * Constructor method for SearchGalBody
+     *
      * @return self
      */
     public function __construct(?SearchGalRequest $request = NULL, ?SearchGalResponse $response = NULL)

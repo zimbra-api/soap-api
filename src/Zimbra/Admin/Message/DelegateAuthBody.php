@@ -44,6 +44,7 @@ class DelegateAuthBody extends Body
 
     /**
      * Constructor method for DelegateAuthBody
+     *
      * @return self
      */
     public function __construct(?DelegateAuthRequest $request = NULL, ?DelegateAuthResponse $response = NULL)

@@ -37,6 +37,7 @@ class GetAllCalendarResourcesEnvelope extends Envelope
 
     /**
      * Constructor method for GetAllCalendarResourcesEnvelope
+     *
      * @return self
      */
     public function __construct(?GetAllCalendarResourcesBody $body = NULL, ?Header $header = NULL)

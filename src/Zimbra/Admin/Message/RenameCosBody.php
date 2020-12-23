@@ -44,6 +44,7 @@ class RenameCosBody extends Body
 
     /**
      * Constructor method for RenameCosBody
+     *
      * @return self
      */
     public function __construct(?RenameCosRequest $request = NULL, ?RenameCosResponse $response = NULL)

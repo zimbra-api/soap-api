@@ -37,6 +37,7 @@ class ReIndexEnvelope extends Envelope
 
     /**
      * Constructor method for ReIndexEnvelope
+     *
      * @return self
      */
     public function __construct(?ReIndexBody $body = NULL, ?Header $header = NULL)

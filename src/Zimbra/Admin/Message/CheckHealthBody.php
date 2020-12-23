@@ -44,6 +44,7 @@ class CheckHealthBody extends Body
 
     /**
      * Constructor method for CheckHealthBody
+     *
      * @return self
      */
     public function __construct(?CheckHealthRequest $request = NULL, ?CheckHealthResponse $response = NULL)

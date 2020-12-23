@@ -37,6 +37,7 @@ class AutoProvTaskControlEnvelope extends Envelope
 
     /**
      * Constructor method for AutoProvTaskControlEnvelope
+     *
      * @return self
      */
     public function __construct(?AutoProvTaskControlBody $body = NULL, ?Header $header = NULL)

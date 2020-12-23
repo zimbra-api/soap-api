@@ -39,6 +39,7 @@ class GetAllRightsResponse implements ResponseInterface
 
     /**
      * Constructor method for GetAllRightsResponse
+     *
      * @param array $rights
      * @return self
      */

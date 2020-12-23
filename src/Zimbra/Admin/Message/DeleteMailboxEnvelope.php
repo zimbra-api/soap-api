@@ -37,6 +37,7 @@ class DeleteMailboxEnvelope extends Envelope
 
     /**
      * Constructor method for DeleteMailboxEnvelope
+     *
      * @return self
      */
     public function __construct(?DeleteMailboxBody $body = NULL, ?Header $header = NULL)

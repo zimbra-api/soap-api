@@ -92,6 +92,7 @@ class DumpSessionsResponse implements ResponseInterface
 
     /**
      * Constructor method for DumpSessionsResponse
+     *
      * @param int $totalActiveSessions
      * @param InfoForSessionType $soapSessions
      * @param InfoForSessionType $imapSessions

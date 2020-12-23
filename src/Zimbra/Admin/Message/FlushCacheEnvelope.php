@@ -37,6 +37,7 @@ class FlushCacheEnvelope extends Envelope
 
     /**
      * Constructor method for FlushCacheEnvelope
+     *
      * @return self
      */
     public function __construct(?FlushCacheBody $body = NULL, ?Header $header = NULL)

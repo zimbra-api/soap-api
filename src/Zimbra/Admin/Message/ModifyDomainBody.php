@@ -44,6 +44,7 @@ class ModifyDomainBody extends Body
 
     /**
      * Constructor method for ModifyDomainBody
+     *
      * @return self
      */
     public function __construct(?ModifyDomainRequest $request = NULL, ?ModifyDomainResponse $response = NULL)

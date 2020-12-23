@@ -37,6 +37,7 @@ class AddAccountAliasEnvelope extends Envelope
 
     /**
      * Constructor method for AddAccountAliasEnvelope
+     *
      * @return self
      */
     public function __construct(?AddAccountAliasBody $body = NULL, ?Header $header = NULL)

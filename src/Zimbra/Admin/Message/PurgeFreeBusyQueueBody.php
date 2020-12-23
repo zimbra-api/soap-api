@@ -44,6 +44,7 @@ class PurgeFreeBusyQueueBody extends Body
 
     /**
      * Constructor method for PurgeFreeBusyQueueBody
+     *
      * @return self
      */
     public function __construct(?PurgeFreeBusyQueueRequest $request = NULL, ?PurgeFreeBusyQueueResponse $response = NULL)

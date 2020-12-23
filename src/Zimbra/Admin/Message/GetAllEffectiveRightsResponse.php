@@ -49,6 +49,7 @@ class GetAllEffectiveRightsResponse implements ResponseInterface
 
     /**
      * Constructor method for GetAllEffectiveRightsResponse
+     *
      * @param GranteeInfo $grantee
      * @param array $targets
      * @return self

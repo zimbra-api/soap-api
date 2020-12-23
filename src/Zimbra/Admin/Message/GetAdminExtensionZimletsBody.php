@@ -44,9 +44,12 @@ class GetAdminExtensionZimletsBody extends Body
 
     /**
      * Constructor method for GetAdminExtensionZimletsBody
+     *
      * @return self
      */
-    public function __construct(?GetAdminExtensionZimletsRequest $request = NULL, ?GetAdminExtensionZimletsResponse $response = NULL)
+    public function __construct(
+        ?GetAdminExtensionZimletsRequest $request = NULL, ?GetAdminExtensionZimletsResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }

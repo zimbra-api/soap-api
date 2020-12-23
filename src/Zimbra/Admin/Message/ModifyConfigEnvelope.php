@@ -37,6 +37,7 @@ class ModifyConfigEnvelope extends Envelope
 
     /**
      * Constructor method for ModifyConfigEnvelope
+     *
      * @return self
      */
     public function __construct(?ModifyConfigBody $body = NULL, ?Header $header = NULL)

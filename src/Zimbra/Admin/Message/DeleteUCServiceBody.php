@@ -44,6 +44,7 @@ class DeleteUCServiceBody extends Body
 
     /**
      * Constructor method for DeleteUCServiceBody
+     *
      * @return self
      */
     public function __construct(?DeleteUCServiceRequest $request = NULL, ?DeleteUCServiceResponse $response = NULL)

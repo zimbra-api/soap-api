@@ -44,6 +44,7 @@ class ReloadMemcachedClientConfigBody extends Body
 
     /**
      * Constructor method for ReloadMemcachedClientConfigBody
+     *
      * @return self
      */
     public function __construct(

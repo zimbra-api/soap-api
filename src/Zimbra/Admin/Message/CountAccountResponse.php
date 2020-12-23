@@ -39,6 +39,7 @@ class CountAccountResponse implements ResponseInterface
 
     /**
      * Constructor method for CountAccountResponse
+     *
      * @param array $cos
      * @return self
      */

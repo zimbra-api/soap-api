@@ -39,6 +39,7 @@ class ComputeAggregateQuotaUsageResponse implements ResponseInterface
 
     /**
      * Constructor method for ComputeAggregateQuotaUsageResponse
+     *
      * @param array $domainQuotas
      * @return self
      */

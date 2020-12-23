@@ -37,6 +37,7 @@ class GetAllUCServicesEnvelope extends Envelope
 
     /**
      * Constructor method for GetAllUCServicesEnvelope
+     *
      * @return self
      */
     public function __construct(?GetAllUCServicesBody $body = NULL, ?Header $header = NULL)

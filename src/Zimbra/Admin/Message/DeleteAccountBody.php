@@ -44,6 +44,7 @@ class DeleteAccountBody extends Body
 
     /**
      * Constructor method for DeleteAccountBody
+     *
      * @return self
      */
     public function __construct(?DeleteAccountRequest $request = NULL, ?DeleteAccountResponse $response = NULL)

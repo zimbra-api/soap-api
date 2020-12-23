@@ -37,6 +37,7 @@ class GetServerEnvelope extends Envelope
 
     /**
      * Constructor method for GetServerEnvelope
+     *
      * @return self
      */
     public function __construct(?GetServerBody $body = NULL, ?Header $header = NULL)

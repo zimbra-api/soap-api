@@ -37,6 +37,7 @@ class ModifyDomainEnvelope extends Envelope
 
     /**
      * Constructor method for ModifyDomainEnvelope
+     *
      * @return self
      */
     public function __construct(?ModifyDomainBody $body = NULL, ?Header $header = NULL)

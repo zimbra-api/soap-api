@@ -37,6 +37,7 @@ class ContactBackupEnvelope extends Envelope
 
     /**
      * Constructor method for ContactBackupEnvelope
+     *
      * @return self
      */
     public function __construct(?ContactBackupBody $body = NULL, ?Header $header = NULL)

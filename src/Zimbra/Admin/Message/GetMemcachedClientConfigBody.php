@@ -44,9 +44,12 @@ class GetMemcachedClientConfigBody extends Body
 
     /**
      * Constructor method for GetMemcachedClientConfigBody
+     *
      * @return self
      */
-    public function __construct(?GetMemcachedClientConfigRequest $request = NULL, ?GetMemcachedClientConfigResponse $response = NULL)
+    public function __construct(
+        ?GetMemcachedClientConfigRequest $request = NULL, ?GetMemcachedClientConfigResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }

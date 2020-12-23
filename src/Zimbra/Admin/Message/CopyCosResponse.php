@@ -38,6 +38,7 @@ class CopyCosResponse implements ResponseInterface
 
     /**
      * Constructor method for CopyCosResponse
+     *
      * @param CosInfo $cos
      * @return self
      */

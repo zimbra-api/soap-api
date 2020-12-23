@@ -39,6 +39,7 @@ class GetAllFreeBusyProvidersResponse implements ResponseInterface
 
     /**
      * Constructor method for GetAllFreeBusyProvidersResponse
+     *
      * @param array $providers
      * @return self
      */

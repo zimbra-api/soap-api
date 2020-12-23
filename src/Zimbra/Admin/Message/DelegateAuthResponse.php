@@ -46,6 +46,7 @@ class DelegateAuthResponse implements ResponseInterface
 
     /**
      * Constructor method for DelegateAuthResponse
+     *
      * @param string $authToken
      * @param int    $lifetime
      * @return self

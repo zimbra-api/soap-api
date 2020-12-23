@@ -44,6 +44,7 @@ class AdminWaitSetBody extends Body
 
     /**
      * Constructor method for AdminWaitSetBody
+     *
      * @return self
      */
     public function __construct(?AdminWaitSetRequest $request = NULL, ?AdminWaitSetResponse $response = NULL)

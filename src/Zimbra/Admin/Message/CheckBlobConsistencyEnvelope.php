@@ -37,6 +37,7 @@ class CheckBlobConsistencyEnvelope extends Envelope
 
     /**
      * Constructor method for CheckBlobConsistencyEnvelope
+     *
      * @return self
      */
     public function __construct(?CheckBlobConsistencyBody $body = NULL, ?Header $header = NULL)

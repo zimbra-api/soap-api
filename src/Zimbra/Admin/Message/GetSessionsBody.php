@@ -44,6 +44,7 @@ class GetSessionsBody extends Body
 
     /**
      * Constructor method for GetSessionsBody
+     *
      * @return self
      */
     public function __construct(?GetSessionsRequest $request = NULL, ?GetSessionsResponse $response = NULL)

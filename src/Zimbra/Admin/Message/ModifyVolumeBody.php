@@ -44,6 +44,7 @@ class ModifyVolumeBody extends Body
 
     /**
      * Constructor method for ModifyVolumeBody
+     *
      * @return self
      */
     public function __construct(?ModifyVolumeRequest $request = NULL, ?ModifyVolumeResponse $response = NULL)

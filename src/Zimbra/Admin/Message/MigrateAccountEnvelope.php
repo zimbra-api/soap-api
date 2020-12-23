@@ -37,6 +37,7 @@ class MigrateAccountEnvelope extends Envelope
 
     /**
      * Constructor method for MigrateAccountEnvelope
+     *
      * @return self
      */
     public function __construct(?MigrateAccountBody $body = NULL, ?Header $header = NULL)

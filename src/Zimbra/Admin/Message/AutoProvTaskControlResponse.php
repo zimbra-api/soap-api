@@ -39,6 +39,7 @@ class AutoProvTaskControlResponse implements ResponseInterface
 
     /**
      * Constructor method for AutoProvTaskControlResponse
+     *
      * @param AutoProvTaskStatus $status
      * @return self
      */

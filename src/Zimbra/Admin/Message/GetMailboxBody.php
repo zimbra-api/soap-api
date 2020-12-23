@@ -44,6 +44,7 @@ class GetMailboxBody extends Body
 
     /**
      * Constructor method for GetMailboxBody
+     *
      * @return self
      */
     public function __construct(?GetMailboxRequest $request = NULL, ?GetMailboxResponse $response = NULL)

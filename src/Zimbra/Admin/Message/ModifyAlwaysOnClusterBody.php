@@ -44,6 +44,7 @@ class ModifyAlwaysOnClusterBody extends Body
 
     /**
      * Constructor method for ModifyAlwaysOnClusterBody
+     *
      * @return self
      */
     public function __construct(?ModifyAlwaysOnClusterRequest $request = NULL, ?ModifyAlwaysOnClusterResponse $response = NULL)

@@ -44,6 +44,7 @@ class SearchCalendarResourcesBody extends Body
 
     /**
      * Constructor method for SearchCalendarResourcesBody
+     *
      * @return self
      */
     public function __construct(

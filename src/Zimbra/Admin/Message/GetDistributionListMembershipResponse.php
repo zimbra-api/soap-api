@@ -39,6 +39,7 @@ class GetDistributionListMembershipResponse implements ResponseInterface
 
     /**
      * Constructor method for GetDistributionListMembershipResponse
+     *
      * @param array $dls
      * @return self
      */

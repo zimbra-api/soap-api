@@ -37,6 +37,7 @@ class GetServerNIfsEnvelope extends Envelope
 
     /**
      * Constructor method for GetServerNIfsEnvelope
+     *
      * @return self
      */
     public function __construct(?GetServerNIfsBody $body = NULL, ?Header $header = NULL)

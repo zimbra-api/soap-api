@@ -37,6 +37,7 @@ class DeleteCosEnvelope extends Envelope
 
     /**
      * Constructor method for DeleteCosEnvelope
+     *
      * @return self
      */
     public function __construct(?DeleteCosBody $body = NULL, ?Header $header = NULL)

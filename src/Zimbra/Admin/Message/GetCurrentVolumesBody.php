@@ -44,9 +44,12 @@ class GetCurrentVolumesBody extends Body
 
     /**
      * Constructor method for GetCurrentVolumesBody
+     *
      * @return self
      */
-    public function __construct(?GetCurrentVolumesRequest $request = NULL, ?GetCurrentVolumesResponse $response = NULL)
+    public function __construct(
+        ?GetCurrentVolumesRequest $request = NULL, ?GetCurrentVolumesResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }

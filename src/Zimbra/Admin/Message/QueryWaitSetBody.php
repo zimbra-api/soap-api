@@ -44,6 +44,7 @@ class QueryWaitSetBody extends Body
 
     /**
      * Constructor method for QueryWaitSetBody
+     *
      * @return self
      */
     public function __construct(?QueryWaitSetRequest $request = NULL, ?QueryWaitSetResponse $response = NULL)

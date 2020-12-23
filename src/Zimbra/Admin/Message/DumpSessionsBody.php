@@ -44,6 +44,7 @@ class DumpSessionsBody extends Body
 
     /**
      * Constructor method for DumpSessionsBody
+     *
      * @return self
      */
     public function __construct(?DumpSessionsRequest $request = NULL, ?DumpSessionsResponse $response = NULL)

@@ -39,6 +39,7 @@ class GetAllDomainsResponse implements ResponseInterface
 
     /**
      * Constructor method for GetAllDomainsResponse
+     *
      * @param array $domainList
      * @return self
      */

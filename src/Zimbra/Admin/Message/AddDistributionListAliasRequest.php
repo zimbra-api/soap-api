@@ -47,6 +47,7 @@ class AddDistributionListAliasRequest extends Request
 
     /**
      * Constructor method for AddDistributionListAliasRequest
+     *
      * @param  string $id
      * @param  string $alias
      * @return self

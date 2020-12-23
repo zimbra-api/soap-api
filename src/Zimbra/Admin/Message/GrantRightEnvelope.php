@@ -37,6 +37,7 @@ class GrantRightEnvelope extends Envelope
 
     /**
      * Constructor method for GrantRightEnvelope
+     *
      * @return self
      */
     public function __construct(?GrantRightBody $body = NULL, ?Header $header = NULL)

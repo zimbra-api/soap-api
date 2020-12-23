@@ -37,6 +37,7 @@ class RenameCalendarResourceEnvelope extends Envelope
 
     /**
      * Constructor method for RenameCalendarResourceEnvelope
+     *
      * @return self
      */
     public function __construct(?RenameCalendarResourceBody $body = NULL, ?Header $header = NULL)

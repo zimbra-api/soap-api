@@ -37,6 +37,7 @@ class GetAllActiveServersEnvelope extends Envelope
 
     /**
      * Constructor method for GetAllActiveServersEnvelope
+     *
      * @return self
      */
     public function __construct(?GetAllActiveServersBody $body = NULL, ?Header $header = NULL)

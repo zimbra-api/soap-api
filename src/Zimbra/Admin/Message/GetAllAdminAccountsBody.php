@@ -44,9 +44,12 @@ class GetAllAdminAccountsBody extends Body
 
     /**
      * Constructor method for GetAllAdminAccountsBody
+     *
      * @return self
      */
-    public function __construct(?GetAllAdminAccountsRequest $request = NULL, ?GetAllAdminAccountsResponse $response = NULL)
+    public function __construct(
+        ?GetAllAdminAccountsRequest $request = NULL, ?GetAllAdminAccountsResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }

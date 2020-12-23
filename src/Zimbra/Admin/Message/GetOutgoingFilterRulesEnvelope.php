@@ -37,6 +37,7 @@ class GetOutgoingFilterRulesEnvelope extends Envelope
 
     /**
      * Constructor method for GetOutgoingFilterRulesEnvelope
+     *
      * @return self
      */
     public function __construct(?GetOutgoingFilterRulesBody $body = NULL, ?Header $header = NULL)

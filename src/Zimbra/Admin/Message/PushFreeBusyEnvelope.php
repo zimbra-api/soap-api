@@ -37,6 +37,7 @@ class PushFreeBusyEnvelope extends Envelope
 
     /**
      * Constructor method for PushFreeBusyEnvelope
+     *
      * @return self
      */
     public function __construct(?PushFreeBusyBody $body = NULL, ?Header $header = NULL)

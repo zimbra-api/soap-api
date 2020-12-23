@@ -37,6 +37,7 @@ class GetMailQueueInfoEnvelope extends Envelope
 
     /**
      * Constructor method for GetMailQueueInfoEnvelope
+     *
      * @return self
      */
     public function __construct(?GetMailQueueInfoBody $body = NULL, ?Header $header = NULL)

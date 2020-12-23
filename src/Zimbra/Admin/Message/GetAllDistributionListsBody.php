@@ -44,6 +44,7 @@ class GetAllDistributionListsBody extends Body
 
     /**
      * Constructor method for GetAllDistributionListsBody
+     *
      * @return self
      */
     public function __construct(?GetAllDistributionListsRequest $request = NULL, ?GetAllDistributionListsResponse $response = NULL)

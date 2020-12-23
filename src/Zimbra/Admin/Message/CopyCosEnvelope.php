@@ -37,6 +37,7 @@ class CopyCosEnvelope extends Envelope
 
     /**
      * Constructor method for CopyCosEnvelope
+     *
      * @return self
      */
     public function __construct(?CopyCosBody $body = NULL, ?Header $header = NULL)

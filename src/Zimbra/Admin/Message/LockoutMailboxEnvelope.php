@@ -37,6 +37,7 @@ class LockoutMailboxEnvelope extends Envelope
 
     /**
      * Constructor method for LockoutMailboxEnvelope
+     *
      * @return self
      */
     public function __construct(?LockoutMailboxBody $body = NULL, ?Header $header = NULL)

@@ -37,6 +37,7 @@ class GetRightsDocEnvelope extends Envelope
 
     /**
      * Constructor method for GetRightsDocEnvelope
+     *
      * @return self
      */
     public function __construct(?GetRightsDocBody $body = NULL, ?Header $header = NULL)

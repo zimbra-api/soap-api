@@ -37,6 +37,7 @@ class SearchAccountsEnvelope extends Envelope
 
     /**
      * Constructor method for SearchAccountsEnvelope
+     *
      * @return self
      */
     public function __construct(?SearchAccountsBody $body = NULL, ?Header $header = NULL)

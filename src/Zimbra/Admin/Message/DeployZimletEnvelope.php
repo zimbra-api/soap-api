@@ -37,6 +37,7 @@ class DeployZimletEnvelope extends Envelope
 
     /**
      * Constructor method for DeployZimletEnvelope
+     *
      * @return self
      */
     public function __construct(?DeployZimletBody $body = NULL, ?Header $header = NULL)

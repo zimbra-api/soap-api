@@ -38,6 +38,7 @@ class RenameCalendarResourceResponse implements ResponseInterface
 
     /**
      * Constructor method for RenameCalendarResourceResponse
+     *
      * @param CalendarResourceInfo $calResource
      * @return self
      */

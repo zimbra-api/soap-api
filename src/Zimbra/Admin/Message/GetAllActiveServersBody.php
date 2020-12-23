@@ -44,9 +44,12 @@ class GetAllActiveServersBody extends Body
 
     /**
      * Constructor method for GetAllActiveServersBody
+     *
      * @return self
      */
-    public function __construct(?GetAllActiveServersRequest $request = NULL, ?GetAllActiveServersResponse $response = NULL)
+    public function __construct(
+        ?GetAllActiveServersRequest $request = NULL, ?GetAllActiveServersResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }

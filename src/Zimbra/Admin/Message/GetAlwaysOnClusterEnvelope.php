@@ -37,6 +37,7 @@ class GetAlwaysOnClusterEnvelope extends Envelope
 
     /**
      * Constructor method for GetAlwaysOnClusterEnvelope
+     *
      * @return self
      */
     public function __construct(?GetAlwaysOnClusterBody $body = NULL, ?Header $header = NULL)

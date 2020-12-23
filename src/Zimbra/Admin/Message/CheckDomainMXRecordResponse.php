@@ -57,6 +57,7 @@ class CheckDomainMXRecordResponse implements ResponseInterface
 
     /**
      * Constructor method for CheckDomainMXRecordResponse
+     *
      * @param array $entries
      * @param string $code
      * @param string $message

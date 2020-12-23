@@ -44,6 +44,7 @@ class RenameCalendarResourceBody extends Body
 
     /**
      * Constructor method for RenameCalendarResourceBody
+     *
      * @return self
      */
     public function __construct(

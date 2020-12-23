@@ -39,6 +39,7 @@ class PurgeMessagesResponse implements ResponseInterface
 
     /**
      * Constructor method for PurgeMessagesResponse
+     *
      * @param array $mailboxes
      * @return self
      */

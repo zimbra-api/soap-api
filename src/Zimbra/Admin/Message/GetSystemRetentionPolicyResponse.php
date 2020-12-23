@@ -38,6 +38,7 @@ class GetSystemRetentionPolicyResponse implements ResponseInterface
 
     /**
      * Constructor method for GetSystemRetentionPolicyResponse
+     *
      * @param  RetentionPolicy $retentionPolicy
      * @return self
      */

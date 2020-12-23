@@ -44,6 +44,7 @@ class CreateDomainBody extends Body
 
     /**
      * Constructor method for CreateDomainBody
+     *
      * @return self
      */
     public function __construct(?CreateDomainRequest $request = NULL, ?CreateDomainResponse $response = NULL)

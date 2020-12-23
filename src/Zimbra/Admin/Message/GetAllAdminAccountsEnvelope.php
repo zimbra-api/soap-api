@@ -37,6 +37,7 @@ class GetAllAdminAccountsEnvelope extends Envelope
 
     /**
      * Constructor method for GetAllAdminAccountsEnvelope
+     *
      * @return self
      */
     public function __construct(?GetAllAdminAccountsBody $body = NULL, ?Header $header = NULL)

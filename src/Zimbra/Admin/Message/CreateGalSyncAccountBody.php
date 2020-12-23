@@ -44,9 +44,12 @@ class CreateGalSyncAccountBody extends Body
 
     /**
      * Constructor method for CreateGalSyncAccountBody
+     *
      * @return self
      */
-    public function __construct(?CreateGalSyncAccountRequest $request = NULL, ?CreateGalSyncAccountResponse $response = NULL)
+    public function __construct(
+        ?CreateGalSyncAccountRequest $request = NULL, ?CreateGalSyncAccountResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }

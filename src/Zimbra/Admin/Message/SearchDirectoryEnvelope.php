@@ -37,6 +37,7 @@ class SearchDirectoryEnvelope extends Envelope
 
     /**
      * Constructor method for SearchDirectoryEnvelope
+     *
      * @return self
      */
     public function __construct(?SearchDirectoryBody $body = NULL, ?Header $header = NULL)

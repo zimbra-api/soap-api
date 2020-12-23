@@ -37,6 +37,7 @@ class AddGalSyncDataSourceEnvelope extends Envelope
 
     /**
      * Constructor method for AddGalSyncDataSourceEnvelope
+     *
      * @return self
      */
     public function __construct(?AddGalSyncDataSourceBody $body = NULL, ?Header $header = NULL)

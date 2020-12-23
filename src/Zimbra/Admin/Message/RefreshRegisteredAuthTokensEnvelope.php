@@ -37,6 +37,7 @@ class RefreshRegisteredAuthTokensEnvelope extends Envelope
 
     /**
      * Constructor method for RefreshRegisteredAuthTokensEnvelope
+     *
      * @return self
      */
     public function __construct(?RefreshRegisteredAuthTokensBody $body = NULL, ?Header $header = NULL)

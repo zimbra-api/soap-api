@@ -44,6 +44,7 @@ class PushFreeBusyBody extends Body
 
     /**
      * Constructor method for PushFreeBusyBody
+     *
      * @return self
      */
     public function __construct(?PushFreeBusyRequest $request = NULL, ?PushFreeBusyResponse $response = NULL)

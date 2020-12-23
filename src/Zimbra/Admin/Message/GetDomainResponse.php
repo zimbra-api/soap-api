@@ -38,6 +38,7 @@ class GetDomainResponse implements ResponseInterface
 
     /**
      * Constructor method for GetDomainResponse
+     *
      * @param DomainInfo $domain
      * @return self
      */

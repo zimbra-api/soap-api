@@ -44,6 +44,7 @@ class RenameAccountBody extends Body
 
     /**
      * Constructor method for RenameAccountBody
+     *
      * @return self
      */
     public function __construct(?RenameAccountRequest $request = NULL, ?RenameAccountResponse $response = NULL)

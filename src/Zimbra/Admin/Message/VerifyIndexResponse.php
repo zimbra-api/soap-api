@@ -47,6 +47,7 @@ class VerifyIndexResponse implements ResponseInterface
 
     /**
      * Constructor method for VerifyIndexResponse
+     *
      * @param bool $status
      * @param string $message
      * @return self

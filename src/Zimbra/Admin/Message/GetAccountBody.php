@@ -44,6 +44,7 @@ class GetAccountBody extends Body
 
     /**
      * Constructor method for GetAccountBody
+     *
      * @return self
      */
     public function __construct(?GetAccountRequest $request = NULL, ?GetAccountResponse $response = NULL)

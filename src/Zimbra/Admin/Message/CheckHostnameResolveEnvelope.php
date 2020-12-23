@@ -37,6 +37,7 @@ class CheckHostnameResolveEnvelope extends Envelope
 
     /**
      * Constructor method for CheckHostnameResolveEnvelope
+     *
      * @return self
      */
     public function __construct(?CheckHostnameResolveBody $body = NULL, ?Header $header = NULL)

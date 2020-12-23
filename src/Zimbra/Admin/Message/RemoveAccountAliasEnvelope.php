@@ -37,6 +37,7 @@ class RemoveAccountAliasEnvelope extends Envelope
 
     /**
      * Constructor method for RemoveAccountAliasEnvelope
+     *
      * @return self
      */
     public function __construct(?RemoveAccountAliasBody $body = NULL, ?Header $header = NULL)

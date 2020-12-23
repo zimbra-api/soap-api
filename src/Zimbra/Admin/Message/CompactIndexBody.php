@@ -44,6 +44,7 @@ class CompactIndexBody extends Body
 
     /**
      * Constructor method for CompactIndexBody
+     *
      * @return self
      */
     public function __construct(?CompactIndexRequest $request = NULL, ?CompactIndexResponse $response = NULL)

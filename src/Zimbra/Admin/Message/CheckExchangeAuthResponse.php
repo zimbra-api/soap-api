@@ -48,6 +48,7 @@ class CheckExchangeAuthResponse implements ResponseInterface
 
     /**
      * Constructor method for CheckExchangeAuthResponse
+     *
      * @param string $code
      * @param string $message
      * @return self

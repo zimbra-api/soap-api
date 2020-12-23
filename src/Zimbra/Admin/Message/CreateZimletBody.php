@@ -44,6 +44,7 @@ class CreateZimletBody extends Body
 
     /**
      * Constructor method for CreateZimletBody
+     *
      * @return self
      */
     public function __construct(?CreateZimletRequest $request = NULL, ?CreateZimletResponse $response = NULL)

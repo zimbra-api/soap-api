@@ -44,6 +44,7 @@ class RefreshRegisteredAuthTokensBody extends Body
 
     /**
      * Constructor method for RefreshRegisteredAuthTokensBody
+     *
      * @return self
      */
     public function __construct(

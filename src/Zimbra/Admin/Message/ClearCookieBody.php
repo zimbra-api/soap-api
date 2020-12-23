@@ -44,6 +44,7 @@ class ClearCookieBody extends Body
 
     /**
      * Constructor method for ClearCookieBody
+     *
      * @return self
      */
     public function __construct(?ClearCookieRequest $request = NULL, ?ClearCookieResponse $response = NULL)

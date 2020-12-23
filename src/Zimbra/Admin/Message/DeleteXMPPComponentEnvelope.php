@@ -37,6 +37,7 @@ class DeleteXMPPComponentEnvelope extends Envelope
 
     /**
      * Constructor method for DeleteXMPPComponentEnvelope
+     *
      * @return self
      */
     public function __construct(?DeleteXMPPComponentBody $body = NULL, ?Header $header = NULL)

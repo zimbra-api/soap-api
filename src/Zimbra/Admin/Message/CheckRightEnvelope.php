@@ -37,6 +37,7 @@ class CheckRightEnvelope extends Envelope
 
     /**
      * Constructor method for CheckRightEnvelope
+     *
      * @return self
      */
     public function __construct(?CheckRightBody $body = NULL, ?Header $header = NULL)

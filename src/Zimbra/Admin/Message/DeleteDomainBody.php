@@ -44,6 +44,7 @@ class DeleteDomainBody extends Body
 
     /**
      * Constructor method for DeleteDomainBody
+     *
      * @return self
      */
     public function __construct(?DeleteDomainRequest $request = NULL, ?DeleteDomainResponse $response = NULL)

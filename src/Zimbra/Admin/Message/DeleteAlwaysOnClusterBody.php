@@ -44,9 +44,12 @@ class DeleteAlwaysOnClusterBody extends Body
 
     /**
      * Constructor method for DeleteAlwaysOnClusterBody
+     *
      * @return self
      */
-    public function __construct(?DeleteAlwaysOnClusterRequest $request = NULL, ?DeleteAlwaysOnClusterResponse $response = NULL)
+    public function __construct(
+        ?DeleteAlwaysOnClusterRequest $request = NULL, ?DeleteAlwaysOnClusterResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }

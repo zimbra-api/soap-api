@@ -37,6 +37,7 @@ class CreateDistributionListEnvelope extends Envelope
 
     /**
      * Constructor method for CreateDistributionListEnvelope
+     *
      * @return self
      */
     public function __construct(?CreateDistributionListBody $body = NULL, ?Header $header = NULL)

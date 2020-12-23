@@ -38,6 +38,7 @@ class GetMailboxResponse implements ResponseInterface
 
     /**
      * Constructor method for GetMailboxResponse
+     *
      * @param Mailbox $mbox
      * @return self
      */

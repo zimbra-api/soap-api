@@ -44,6 +44,7 @@ class DeleteZimletBody extends Body
 
     /**
      * Constructor method for DeleteZimletBody
+     *
      * @return self
      */
     public function __construct(?DeleteZimletRequest $request = NULL, ?DeleteZimletResponse $response = NULL)

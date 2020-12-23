@@ -37,6 +37,7 @@ class VerifyIndexEnvelope extends Envelope
 
     /**
      * Constructor method for VerifyIndexEnvelope
+     *
      * @return self
      */
     public function __construct(?VerifyIndexBody $body = NULL, ?Header $header = NULL)

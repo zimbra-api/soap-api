@@ -44,6 +44,7 @@ class DeleteServerBody extends Body
 
     /**
      * Constructor method for DeleteServerBody
+     *
      * @return self
      */
     public function __construct(?DeleteServerRequest $request = NULL, ?DeleteServerResponse $response = NULL)

@@ -44,6 +44,7 @@ class ModifyCosBody extends Body
 
     /**
      * Constructor method for ModifyCosBody
+     *
      * @return self
      */
     public function __construct(?ModifyCosRequest $request = NULL, ?ModifyCosResponse $response = NULL)

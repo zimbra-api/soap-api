@@ -44,6 +44,7 @@ class CountAccountBody extends Body
 
     /**
      * Constructor method for CountAccountBody
+     *
      * @return self
      */
     public function __construct(?CountAccountRequest $request = NULL, ?CountAccountResponse $response = NULL)

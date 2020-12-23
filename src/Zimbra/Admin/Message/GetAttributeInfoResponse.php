@@ -39,6 +39,7 @@ class GetAttributeInfoResponse implements ResponseInterface
 
     /**
      * Constructor method for GetAttributeInfoResponse
+     *
      * @param array $attrs
      * @return self
      */

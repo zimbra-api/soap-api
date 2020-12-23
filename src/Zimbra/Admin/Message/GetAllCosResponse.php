@@ -39,6 +39,7 @@ class GetAllCosResponse implements ResponseInterface
 
     /**
      * Constructor method for GetAllCosResponse
+     *
      * @param array $cosList
      * @return self
      */

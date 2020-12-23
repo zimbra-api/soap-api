@@ -60,6 +60,7 @@ class GetRightsDocResponse implements ResponseInterface
 
     /**
      * Constructor method for GetRightsDocResponse
+     *
      * @param array $pkgs
      * @param array $notUsed
      * @param array $rights

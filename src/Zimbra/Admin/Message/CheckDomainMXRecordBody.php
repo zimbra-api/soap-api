@@ -44,9 +44,12 @@ class CheckDomainMXRecordBody extends Body
 
     /**
      * Constructor method for CheckDomainMXRecordBody
+     *
      * @return self
      */
-    public function __construct(?CheckDomainMXRecordRequest $request = NULL, ?CheckDomainMXRecordResponse $response = NULL)
+    public function __construct(
+        ?CheckDomainMXRecordRequest $request = NULL, ?CheckDomainMXRecordResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }

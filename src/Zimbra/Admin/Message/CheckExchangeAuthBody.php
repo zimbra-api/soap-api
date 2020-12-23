@@ -44,9 +44,12 @@ class CheckExchangeAuthBody extends Body
 
     /**
      * Constructor method for CheckExchangeAuthBody
+     *
      * @return self
      */
-    public function __construct(?CheckExchangeAuthRequest $request = NULL, ?CheckExchangeAuthResponse $response = NULL)
+    public function __construct(
+        ?CheckExchangeAuthRequest $request = NULL, ?CheckExchangeAuthResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }

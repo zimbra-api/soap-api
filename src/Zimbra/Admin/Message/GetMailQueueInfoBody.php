@@ -44,6 +44,7 @@ class GetMailQueueInfoBody extends Body
 
     /**
      * Constructor method for GetMailQueueInfoBody
+     *
      * @return self
      */
     public function __construct(?GetMailQueueInfoRequest $request = NULL, ?GetMailQueueInfoResponse $response = NULL)

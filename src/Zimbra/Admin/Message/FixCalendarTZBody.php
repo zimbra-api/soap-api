@@ -44,6 +44,7 @@ class FixCalendarTZBody extends Body
 
     /**
      * Constructor method for FixCalendarTZBody
+     *
      * @return self
      */
     public function __construct(?FixCalendarTZRequest $request = NULL, ?FixCalendarTZResponse $response = NULL)

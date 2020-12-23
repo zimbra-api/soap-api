@@ -37,6 +37,7 @@ class CountObjectsEnvelope extends Envelope
 
     /**
      * Constructor method for CountObjectsEnvelope
+     *
      * @return self
      */
     public function __construct(?CountObjectsBody $body = NULL, ?Header $header = NULL)

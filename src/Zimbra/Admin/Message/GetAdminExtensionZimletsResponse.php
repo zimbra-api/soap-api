@@ -39,6 +39,7 @@ class GetAdminExtensionZimletsResponse implements ResponseInterface
 
     /**
      * Constructor method for GetAdminExtensionZimletsResponse
+     *
      * @param array $zimlets
      * @return self
      */

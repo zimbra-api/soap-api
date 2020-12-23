@@ -37,6 +37,7 @@ class ReloadLocalConfigEnvelope extends Envelope
 
     /**
      * Constructor method for ReloadLocalConfigEnvelope
+     *
      * @return self
      */
     public function __construct(?ReloadLocalConfigBody $body = NULL, ?Header $header = NULL)

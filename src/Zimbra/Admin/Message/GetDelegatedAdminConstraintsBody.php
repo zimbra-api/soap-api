@@ -44,6 +44,7 @@ class GetDelegatedAdminConstraintsBody extends Body
 
     /**
      * Constructor method for GetDelegatedAdminConstraintsBody
+     *
      * @return self
      */
     public function __construct(

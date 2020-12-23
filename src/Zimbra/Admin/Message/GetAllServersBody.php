@@ -44,6 +44,7 @@ class GetAllServersBody extends Body
 
     /**
      * Constructor method for GetAllServersBody
+     *
      * @return self
      */
     public function __construct(?GetAllServersRequest $request = NULL, ?GetAllServersResponse $response = NULL)

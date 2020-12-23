@@ -37,6 +37,7 @@ class GetDomainEnvelope extends Envelope
 
     /**
      * Constructor method for GetDomainEnvelope
+     *
      * @return self
      */
     public function __construct(?GetDomainBody $body = NULL, ?Header $header = NULL)

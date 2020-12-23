@@ -31,6 +31,7 @@ class GetAllConfigResponse implements AdminAttrs, ResponseInterface
 
     /**
      * Constructor method for GetAllConfigResponse
+     *
      * @param array  $attrs
      * @return self
      */

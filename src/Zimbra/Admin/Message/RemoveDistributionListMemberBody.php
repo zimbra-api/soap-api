@@ -44,6 +44,7 @@ class RemoveDistributionListMemberBody extends Body
 
     /**
      * Constructor method for RemoveDistributionListMemberBody
+     *
      * @return self
      */
     public function __construct(

@@ -44,6 +44,7 @@ class GetAllLocalesBody extends Body
 
     /**
      * Constructor method for GetAllLocalesBody
+     *
      * @return self
      */
     public function __construct(?GetAllLocalesRequest $request = NULL, ?GetAllLocalesResponse $response = NULL)

@@ -43,7 +43,7 @@ class AutoProvTaskControlRequest extends Request
     /**
      * Constructor method for AutoProvTaskControlRequest
      * 
-     * @param AutoProvTaskAction  $action Action to perform
+     * @param AutoProvTaskAction $action
      * @return self
      */
     public function __construct(AutoProvTaskAction $action)

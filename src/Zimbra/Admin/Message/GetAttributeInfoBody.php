@@ -44,6 +44,7 @@ class GetAttributeInfoBody extends Body
 
     /**
      * Constructor method for GetAttributeInfoBody
+     *
      * @return self
      */
     public function __construct(?GetAttributeInfoRequest $request = NULL, ?GetAttributeInfoResponse $response = NULL)

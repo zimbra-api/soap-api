@@ -37,6 +37,7 @@ class SetServerOfflineEnvelope extends Envelope
 
     /**
      * Constructor method for SetServerOfflineEnvelope
+     *
      * @return self
      */
     public function __construct(?SetServerOfflineBody $body = NULL, ?Header $header = NULL)

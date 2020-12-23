@@ -47,6 +47,7 @@ class CheckHostnameResolveResponse implements ResponseInterface
 
     /**
      * Constructor method for CheckHostnameResolveResponse
+     *
      * @param string $code
      * @param string $message
      * @return self

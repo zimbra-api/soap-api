@@ -44,9 +44,12 @@ class AddGalSyncDataSourceBody extends Body
 
     /**
      * Constructor method for AddGalSyncDataSourceBody
+     *
      * @return self
      */
-    public function __construct(?AddGalSyncDataSourceRequest $request = NULL, ?AddGalSyncDataSourceResponse $response = NULL)
+    public function __construct(
+        ?AddGalSyncDataSourceRequest $request = NULL, ?AddGalSyncDataSourceResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }

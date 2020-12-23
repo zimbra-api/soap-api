@@ -44,6 +44,7 @@ class NoOpBody extends Body
 
     /**
      * Constructor method for NoOpBody
+     *
      * @return self
      */
     public function __construct(?NoOpRequest $request = NULL, ?NoOpResponse $response = NULL)

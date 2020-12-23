@@ -44,6 +44,7 @@ class UndeployZimletBody extends Body
 
     /**
      * Constructor method for UndeployZimletBody
+     *
      * @return self
      */
     public function __construct(?UndeployZimletRequest $request = NULL, ?UndeployZimletResponse $response = NULL)

@@ -44,6 +44,7 @@ class FlushCacheBody extends Body
 
     /**
      * Constructor method for FlushCacheBody
+     *
      * @return self
      */
     public function __construct(?FlushCacheRequest $request = NULL, ?FlushCacheResponse $response = NULL)

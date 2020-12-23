@@ -44,6 +44,7 @@ class DeleteCosBody extends Body
 
     /**
      * Constructor method for DeleteCosBody
+     *
      * @return self
      */
     public function __construct(?DeleteCosRequest $request = NULL, ?DeleteCosResponse $response = NULL)

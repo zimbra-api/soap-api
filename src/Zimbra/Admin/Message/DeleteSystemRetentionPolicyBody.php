@@ -44,6 +44,7 @@ class DeleteSystemRetentionPolicyBody extends Body
 
     /**
      * Constructor method for DeleteSystemRetentionPolicyBody
+     *
      * @return self
      */
     public function __construct(?DeleteSystemRetentionPolicyRequest $request = NULL, ?DeleteSystemRetentionPolicyResponse $response = NULL)

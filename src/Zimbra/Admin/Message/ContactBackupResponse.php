@@ -39,6 +39,7 @@ class ContactBackupResponse implements ResponseInterface
 
     /**
      * Constructor method for ContactBackupResponse
+     *
      * @param array $servers
      * @return self
      */

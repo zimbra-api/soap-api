@@ -38,6 +38,7 @@ class GetAdminConsoleUICompResponse implements ResponseInterface
 
     /**
      * Constructor method for GetAdminConsoleUICompResponse
+     *
      * @param array $values
      * @return self
      */

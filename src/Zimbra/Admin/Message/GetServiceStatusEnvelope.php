@@ -37,6 +37,7 @@ class GetServiceStatusEnvelope extends Envelope
 
     /**
      * Constructor method for GetServiceStatusEnvelope
+     *
      * @return self
      */
     public function __construct(?GetServiceStatusBody $body = NULL, ?Header $header = NULL)

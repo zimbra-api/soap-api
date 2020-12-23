@@ -38,6 +38,7 @@ class ModifySystemRetentionPolicyResponse implements ResponseInterface
 
     /**
      * Constructor method for ModifySystemRetentionPolicyResponse
+     *
      * @param  Policy $policy
      * @return self
      */

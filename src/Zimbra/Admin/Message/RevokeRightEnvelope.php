@@ -37,6 +37,7 @@ class RevokeRightEnvelope extends Envelope
 
     /**
      * Constructor method for RevokeRightEnvelope
+     *
      * @return self
      */
     public function __construct(?RevokeRightBody $body = NULL, ?Header $header = NULL)

@@ -43,10 +43,13 @@ class GetAggregateQuotaUsageOnServerBody extends Body
     private $response;
 
     /**
-     * Constructor method for GetAggregateQuotaUsageOnServerBody
+     * Constructor method for 
+     *
      * @return self
      */
-    public function __construct(?GetAggregateQuotaUsageOnServerRequest $request = NULL, ?GetAggregateQuotaUsageOnServerResponse $response = NULL)
+    public function __construct(
+        ?GetAggregateQuotaUsageOnServerRequest $request = NULL, ?GetAggregateQuotaUsageOnServerResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }

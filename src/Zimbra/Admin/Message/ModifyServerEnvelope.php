@@ -37,6 +37,7 @@ class ModifyServerEnvelope extends Envelope
 
     /**
      * Constructor method for ModifyServerEnvelope
+     *
      * @return self
      */
     public function __construct(?ModifyServerBody $body = NULL, ?Header $header = NULL)

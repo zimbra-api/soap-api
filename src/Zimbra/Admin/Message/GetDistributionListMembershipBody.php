@@ -44,6 +44,7 @@ class GetDistributionListMembershipBody extends Body
 
     /**
      * Constructor method for GetDistributionListMembershipBody
+     *
      * @return self
      */
     public function __construct(

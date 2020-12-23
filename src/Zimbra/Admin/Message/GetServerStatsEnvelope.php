@@ -37,6 +37,7 @@ class GetServerStatsEnvelope extends Envelope
 
     /**
      * Constructor method for GetServerStatsEnvelope
+     *
      * @return self
      */
     public function __construct(?GetServerStatsBody $body = NULL, ?Header $header = NULL)

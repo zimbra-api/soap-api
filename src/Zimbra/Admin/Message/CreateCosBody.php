@@ -44,6 +44,7 @@ class CreateCosBody extends Body
 
     /**
      * Constructor method for CreateCosBody
+     *
      * @return self
      */
     public function __construct(?CreateCosRequest $request = NULL, ?CreateCosResponse $response = NULL)

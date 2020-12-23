@@ -38,6 +38,7 @@ class CreateCalendarResourceResponse implements ResponseInterface
 
     /**
      * Constructor method for CreateCalendarResourceResponse
+     *
      * @param CalendarResourceInfo $calResource
      * @return self
      */

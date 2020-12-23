@@ -44,6 +44,7 @@ class VerifyIndexBody extends Body
 
     /**
      * Constructor method for VerifyIndexBody
+     *
      * @return self
      */
     public function __construct(?VerifyIndexRequest $request = NULL, ?VerifyIndexResponse $response = NULL)

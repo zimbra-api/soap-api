@@ -37,6 +37,7 @@ class RecalculateMailboxCountsEnvelope extends Envelope
 
     /**
      * Constructor method for RecalculateMailboxCountsEnvelope
+     *
      * @return self
      */
     public function __construct(?RecalculateMailboxCountsBody $body = NULL, ?Header $header = NULL)

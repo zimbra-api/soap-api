@@ -39,6 +39,7 @@ class GetAllZimletsResponse implements ResponseInterface
 
     /**
      * Constructor method for GetAllZimletsResponse
+     *
      * @param array $zimlets
      * @return self
      */

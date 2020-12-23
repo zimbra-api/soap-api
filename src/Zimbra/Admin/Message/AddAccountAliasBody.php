@@ -44,9 +44,12 @@ class AddAccountAliasBody extends Body
 
     /**
      * Constructor method for AddAccountAliasBody
+     *
      * @return self
      */
-    public function __construct(?AddAccountAliasRequest $request = NULL, ?AddAccountAliasResponse $response = NULL)
+    public function __construct(
+        ?AddAccountAliasRequest $request = NULL, ?AddAccountAliasResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }

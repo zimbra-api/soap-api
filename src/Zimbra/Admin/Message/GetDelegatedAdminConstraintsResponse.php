@@ -39,6 +39,7 @@ class GetDelegatedAdminConstraintsResponse implements ResponseInterface
 
     /**
      * Constructor method for GetDelegatedAdminConstraintsResponse
+     *
      * @param array $attrs
      * @return self
      */

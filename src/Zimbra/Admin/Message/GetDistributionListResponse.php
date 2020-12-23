@@ -58,6 +58,7 @@ class GetDistributionListResponse implements ResponseInterface
 
     /**
      * Constructor method for GetDistributionListResponse
+     *
      * @param DistributionListInfo $dl
      * @param bool $more
      * @param int $total

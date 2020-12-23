@@ -37,6 +37,7 @@ class GetConfigEnvelope extends Envelope
 
     /**
      * Constructor method for GetConfigEnvelope
+     *
      * @return self
      */
     public function __construct(?GetConfigBody $body = NULL, ?Header $header = NULL)

@@ -37,6 +37,7 @@ class GetAdminSavedSearchesEnvelope extends Envelope
 
     /**
      * Constructor method for GetAdminSavedSearchesEnvelope
+     *
      * @return self
      */
     public function __construct(?GetAdminSavedSearchesBody $body = NULL, ?Header $header = NULL)

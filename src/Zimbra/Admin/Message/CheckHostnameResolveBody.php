@@ -44,9 +44,12 @@ class CheckHostnameResolveBody extends Body
 
     /**
      * Constructor method for CheckHostnameResolveBody
+     *
      * @return self
      */
-    public function __construct(?CheckHostnameResolveRequest $request = NULL, ?CheckHostnameResolveResponse $response = NULL)
+    public function __construct(
+        ?CheckHostnameResolveRequest $request = NULL, ?CheckHostnameResolveResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }

@@ -44,9 +44,12 @@ class GetAdminConsoleUICompBody extends Body
 
     /**
      * Constructor method for GetAdminConsoleUICompBody
+     *
      * @return self
      */
-    public function __construct(?GetAdminConsoleUICompRequest $request = NULL, ?GetAdminConsoleUICompResponse $response = NULL)
+    public function __construct(
+        ?GetAdminConsoleUICompRequest $request = NULL, ?GetAdminConsoleUICompResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }

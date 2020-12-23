@@ -38,6 +38,7 @@ class GetAccountMembershipResponse implements ResponseInterface
 
     /**
      * Constructor method for GetAccountMembershipResponse
+     *
      * @param array $dlList
      * @return self
      */
