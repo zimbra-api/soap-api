@@ -1,0 +1,98 @@
+<?php declare(strict_types=1);
+/**
+ * This file is part of the Zimbra API in PHP library.
+ *
+ * © Nguyen Van Nguyen <nguyennv1981@gmail.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+namespace Zimbra\Admin\Message;
+
+use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlElement, XmlRoot};
+use Zimbra\Admin\Struct\ServerSelector;
+use Zimbra\Struct\{AttributeSelector, AttributeSelectorTrait};
+use Zimbra\Soap\Request;
+
+/**
+ * SetServerOfflineRequest class
+ * Get a Distribution List
+ * 
+ * @package    Zimbra
+ * @subpackage Admin
+ * @category   Message
+ * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
+ * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
+ * @AccessType("public_method")
+ * @XmlRoot(name="SetServerOfflineRequest")
+ */
+class SetServerOfflineRequest extends Request implements AttributeSelector
+{
+    use AttributeSelectorTrait;
+
+    /**
+     * Server
+     * @Accessor(getter="getServer", setter="setServer")
+     * @SerializedName("server")
+     * @Type("Zimbra\Admin\Struct\ServerSelector")
+     * @XmlElement
+     */
+    private $server;
+
+    /**
+     * Constructor method for SetServerOfflineRequest
+     * 
+     * @param  ServerSelector $server
+     * @param  string $attrs
+     * @return self
+     */
+    public function __construct(
+        ?ServerSelector $server = NULL,
+        ?string $attrs = NULL
+    )
+    {
+        if ($server instanceof ServerSelector) {
+            $this->setServer($server);
+        }
+        if (NULL !== $attrs) {
+            $this->setAttrs($attrs);
+        }
+    }
+
+    /**
+     * Gets the server.
+     *
+     * @return ServerSelector
+     */
+    public function getServer(): ?ServerSelector
+    {
+        return $this->server;
+    }
+
+    /**
+     * Sets the server.
+     *
+     * @param  ServerSelector $server
+     * @return self
+     */
+    public function setServer(ServerSelector $server): self
+    {
+        $this->server = $server;
+        return $this;
+    }
+
+    /**
+     * Initialize the soap envelope
+     *
+     * @return void
+     */
+    protected function envelopeInit(): void
+    {
+        if (!($this->envelope instanceof SetServerOfflineEnvelope)) {
+            $this->envelope = new SetServerOfflineEnvelope(
+                new SetServerOfflineBody($this)
+            );
+        }
+    }
+}
