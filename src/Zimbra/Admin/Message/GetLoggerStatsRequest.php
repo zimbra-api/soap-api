@@ -19,6 +19,11 @@ use Zimbra\Soap\Request;
 /**
  * GetLoggerStatsRequest request class
  * Query to retrieve Logger statistics in ZCS
+ * Use cases:
+ * - No elements specified. result: a listing of reporting host names
+ * - hostname specified. result: a listing of stat groups for the specified host
+ * - hostname and stats specified, text content of stats non-empty. result: a listing of columns for the given host and group
+ * - hostname and stats specified, text content empty, startTime/endTime optional. result: all of the statistics for the given host/group are returned, if start and end are specified, limit/expand the timerange to the given setting. if limit=true is specified, attempt to reduce result set to under 500 records
  *
  * @package    Zimbra
  * @subpackage Admin

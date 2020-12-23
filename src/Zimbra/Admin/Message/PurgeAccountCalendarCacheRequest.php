@@ -38,6 +38,7 @@ class PurgeAccountCalendarCacheRequest extends Request
 
     /**
      * Constructor method for PurgeAccountCalendarCacheRequest
+     *
      * @param  string $id
      * @return self
      */

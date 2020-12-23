@@ -15,7 +15,7 @@ use Zimbra\Soap\Request;
 
 /**
  * RemoveAccountAliasRequest class
- * Add an alias for the account 
+ * Remove Account Alias
  * 
  * @package    Zimbra
  * @subpackage Admin
@@ -47,6 +47,7 @@ class RemoveAccountAliasRequest extends Request
 
     /**
      * Constructor method for RemoveAccountAliasRequest
+     *
      * @param  string $id
      * @param  string $alias
      * @return self

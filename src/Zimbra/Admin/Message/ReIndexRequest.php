@@ -17,7 +17,7 @@ use Zimbra\Soap\Request;
 
 /**
  * ReIndexRequest request class
- * Compact index
+ * ReIndex
  *
  * @package    Zimbra
  * @subpackage Admin

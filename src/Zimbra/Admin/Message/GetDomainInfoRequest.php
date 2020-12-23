@@ -16,7 +16,10 @@ use Zimbra\Soap\Request;
 
 /**
  * GetDomainInfoRequest class
- * Get a Distribution List
+ * Get Domain information
+ * This call does not require an auth token.
+ * It returns attributes that are pertinent to domain settings for cases when the user is not authenticated.
+ * For example, URL to direct the user to upon logging out or when auth token is expired. 
  * 
  * @package    Zimbra
  * @subpackage Admin

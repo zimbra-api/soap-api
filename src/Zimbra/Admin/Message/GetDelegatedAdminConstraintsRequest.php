@@ -20,7 +20,7 @@ use Zimbra\Struct\NamedElement;
  * Get constraints (zimbraConstraint) for delegated admin on global config or a COS
  * none or several attributes can be specified for which constraints are to be returned.
  * If no attribute is specified, all constraints on the global config/cos will be returned.
- * If there is no constraint for a requested attribute, <b>&lt;a></b> element for the attribute will not appear in the response.
+ * If there is no constraint for a requested attribute, <a> element for the attribute will not appear in the response.
  * 
  * @package    Zimbra
  * @subpackage Admin
@@ -71,13 +71,15 @@ class GetDelegatedAdminConstraintsRequest extends Request
     /**
      * Constructor method for GetDelegatedAdminConstraintsRequest
      * 
-     * @param  TargetType $sync
+     * @param  TargetType $type
      * @param  string $id
      * @param  string $name
      * @param  array $attrs
      * @return self
      */
-    public function __construct(TargetType $type, ?string $id = NULL, ?string $name = NULL, array $attrs = [])
+    public function __construct(
+        TargetType $type, ?string $id = NULL, ?string $name = NULL, array $attrs = []
+    )
     {
         $this->setType($type)
             ->setAttrs($attrs);

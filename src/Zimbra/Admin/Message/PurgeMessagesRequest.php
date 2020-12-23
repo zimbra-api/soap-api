@@ -40,7 +40,8 @@ class PurgeMessagesRequest extends Request
 
     /**
      * Constructor method for PurgeMessagesRequest
-     * @param  MailboxByAccountIdSelector $mbox
+     *
+     * @param  Mailbox $mbox
      * @return self
      */
     public function __construct(?Mailbox $mbox = NULL)
@@ -53,7 +54,7 @@ class PurgeMessagesRequest extends Request
     /**
      * Gets zimbra mbox
      *
-     * @return MailboxByAccountIdSelector
+     * @return Mailbox
      */
     public function getMbox(): Mailbox
     {
@@ -63,7 +64,7 @@ class PurgeMessagesRequest extends Request
     /**
      * Sets zimbra mbox
      *
-     * @param  MailboxByAccountIdSelector $mbox
+     * @param  Mailbox $mbox
      * @return self
      */
     public function setMbox(Mailbox $mbox): self

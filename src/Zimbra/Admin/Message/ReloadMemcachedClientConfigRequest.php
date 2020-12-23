@@ -15,7 +15,9 @@ use Zimbra\Soap\Request;
 
 /**
  * ReloadMemcachedClientConfigRequest class
- * A request that does nothing and always returns nothing. Used to keep an admin session alive.
+ * Reloads the memcached client configuration on this server.
+ * Memcached client layer is reinitialized accordingly.
+ * Call this command after updating the memcached server list, for example. 
  * 
  * @package    Zimbra
  * @subpackage Admin

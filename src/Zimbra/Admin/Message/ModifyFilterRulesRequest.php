@@ -21,7 +21,7 @@ use Zimbra\Soap\Request;
 
 /**
  * ModifyFilterRulesRequest request class
- * Get filter filterRules
+ * Modify Filter rules
  *
  * @package    Zimbra
  * @subpackage Admin

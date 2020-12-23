@@ -40,7 +40,8 @@ class RecalculateMailboxCountsRequest extends Request
 
     /**
      * Constructor method for RecalculateMailboxCountsRequest
-     * @param  MailboxByAccountIdSelector $mbox
+     *
+     * @param  Mailbox $mbox
      * @return self
      */
     public function __construct(?Mailbox $mbox = NULL)

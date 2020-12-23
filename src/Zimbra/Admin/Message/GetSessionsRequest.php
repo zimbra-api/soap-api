@@ -17,9 +17,7 @@ use Zimbra\Soap\Request;
 
 /**
  * GetSessionsRequest class
- * Get Quota Usage
- * The target server should be specified in the soap header (see soap.txt, targetServer).
- * When sorting by "quotaLimit", 0 is treated as the highest value possible.
+ * Get Sessions
  * 
  * @package    Zimbra
  * @subpackage Admin
@@ -80,7 +78,7 @@ class GetSessionsRequest extends Request
      * Constructor method for GetSessionsRequest
      *
      * @param  SessionType $type
-     * @param  string $sortBy
+     * @param  GetSessionsSortBy $sortBy
      * @param  int $offset
      * @param  int $limit
      * @param  boo $sortAscending

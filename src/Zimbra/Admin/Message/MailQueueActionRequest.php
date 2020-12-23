@@ -42,7 +42,6 @@ class MailQueueActionRequest extends Request
      * Constructor method for MailQueueActionRequest
      *
      * @param  Server $server
-     * @param  LockoutOperation $operation
      * @return self
      */
     public function __construct(Server $server)

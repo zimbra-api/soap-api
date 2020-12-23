@@ -15,7 +15,8 @@ use Zimbra\Soap\Request;
 
 /**
  * RemoveDistributionListMemberRequest request class
- * Adding members to a distribution list
+ * Remove Distribution List Member
+ * Unlike add, remove of a non-existent member causes an exception and no modification to the list.
  *
  * @package    Zimbra
  * @subpackage Admin

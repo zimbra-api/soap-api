@@ -40,7 +40,7 @@ class MigrateAccountRequest extends Request
     /**
      * Constructor method for MigrateAccountRequest
      *
-     * @param  Migrate $migrate
+     * @param  IdAndAction $migrate
      * @return self
      */
     public function __construct(IdAndAction $migrate)

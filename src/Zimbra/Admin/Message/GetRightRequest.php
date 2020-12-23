@@ -54,10 +54,7 @@ class GetRightRequest extends Request
      * @param  bool $expandAllAttrs
      * @return self
      */
-    public function __construct(
-        string $right,
-        ?bool $expandAllAttrs = NULL
-    )
+    public function __construct(string $right, ?bool $expandAllAttrs = NULL)
     {
         $this->setRight($right);
         if (NULL !== $expandAllAttrs) {

@@ -39,6 +39,7 @@ class PurgeFreeBusyQueueRequest extends Request
 
     /**
      * Constructor method for PurgeFreeBusyQueueRequest
+     *
      * @param  NamedElement $provider
      * @return self
      */

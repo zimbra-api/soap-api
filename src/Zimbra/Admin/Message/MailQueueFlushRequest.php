@@ -16,8 +16,8 @@ use Zimbra\Soap\Request;
 
 /**
  * MailQueueFlushRequest request class
- * Command to invoke postqueue -f.  All queues cached in the server are stale after
- * invoking this because this is a global operation to all the queues in a given server.
+ * Command to invoke postqueue -f.
+ * All queues cached in the server are stale after invoking this because this is a global operation to all the queues in a given server.
  *
  * @package    Zimbra
  * @subpackage Admin

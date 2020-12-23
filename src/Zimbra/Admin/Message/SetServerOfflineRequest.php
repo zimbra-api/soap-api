@@ -17,7 +17,7 @@ use Zimbra\Soap\Request;
 
 /**
  * SetServerOfflineRequest class
- * SetServerOffline
+ * Set server offline
  * 
  * @package    Zimbra
  * @subpackage Admin
@@ -47,10 +47,7 @@ class SetServerOfflineRequest extends Request implements AttributeSelector
      * @param  string $attrs
      * @return self
      */
-    public function __construct(
-        ?ServerSelector $server = NULL,
-        ?string $attrs = NULL
-    )
+    public function __construct(?ServerSelector $server = NULL, ?string $attrs = NULL)
     {
         if ($server instanceof ServerSelector) {
             $this->setServer($server);

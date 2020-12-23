@@ -47,9 +47,7 @@ class ModifyCosRequest extends Request implements AdminAttrs
      * @param array  $attrs
      * @return self
      */
-    public function __construct(
-        string $id, array $attrs = []
-    )
+    public function __construct(string $id, array $attrs = [])
     {
         $this->setId($id)
              ->setAttrs($attrs);

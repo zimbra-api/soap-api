@@ -45,9 +45,7 @@ class GetFreeBusyQueueInfoRequest extends Request
      * @param  NamedElement $provider
      * @return self
      */
-    public function __construct(
-        ?NamedElement $provider = NULL
-    )
+    public function __construct(?NamedElement $provider = NULL)
     {
         if ($provider instanceof NamedElement) {
             $this->setProvider($provider);
