@@ -17,7 +17,7 @@ use Zimbra\Soap\Request;
 
 /**
  * SetServerOfflineRequest class
- * Get a Distribution List
+ * SetServerOffline
  * 
  * @package    Zimbra
  * @subpackage Admin

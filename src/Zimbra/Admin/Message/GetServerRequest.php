@@ -17,7 +17,7 @@ use Zimbra\Soap\Request;
 
 /**
  * GetServerRequest class
- * Get a Distribution List
+ * Get Server
  * 
  * @package    Zimbra
  * @subpackage Admin

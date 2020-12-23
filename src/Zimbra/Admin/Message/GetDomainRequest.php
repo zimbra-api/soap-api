@@ -17,7 +17,7 @@ use Zimbra\Soap\Request;
 
 /**
  * GetDomainRequest class
- * Get a Distribution List
+ * Get information about a domain 
  * 
  * @package    Zimbra
  * @subpackage Admin
