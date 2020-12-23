@@ -48,6 +48,7 @@ class SetCurrentVolumeRequest extends Request
 
     /**
      * Constructor method for SetCurrentVolumeRequest
+     *
      * @param  int $id
      * @param  int $type
      * @return self

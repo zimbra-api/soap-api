@@ -15,7 +15,7 @@ use Zimbra\Soap\Request;
 
 /**
  * GetCurrentVolumesRequest class
- * Get all config
+ * Get current volumes
  * 
  * @package    Zimbra
  * @subpackage Admin

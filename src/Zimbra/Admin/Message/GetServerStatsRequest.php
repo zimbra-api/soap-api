@@ -16,7 +16,8 @@ use Zimbra\Soap\Request;
 
 /**
  * GetServerStats request class
- * Returns server monitoring stats.  These are the same stats that are logged to mailboxd.csv.
+ * Returns server monitoring stats.
+ * These are the same stats that are logged to mailboxd.csv.
  * If no stat element is specified, all server stats are returned.
  * If the stat name is invalid, returns a SOAP fault.
  *

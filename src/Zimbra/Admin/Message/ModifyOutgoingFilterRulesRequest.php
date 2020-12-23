@@ -14,7 +14,7 @@ use JMS\Serializer\Annotation\XmlRoot;
 
 /**
  * ModifyOutgoingFilterRulesRequest request class
- * Get filter rules
+ * Modify Filter rules
  *
  * @package    Zimbra
  * @subpackage Admin

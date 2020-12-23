@@ -15,7 +15,7 @@ use Zimbra\Soap\Request;
 
 /**
  * SetLocalServerOnlineRequest class
- * SetLocalServerOnline
+ * Set local server online
  * 
  * @package    Zimbra
  * @subpackage Admin

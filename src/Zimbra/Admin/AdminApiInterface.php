@@ -11,29 +11,48 @@
 namespace Zimbra\Admin;
 
 use Zimbra\Admin\Struct\{
+    AlwaysOnClusterSelector,
     AttachmentIdAttrib,
+    Attr,
     CacheSelector,
+    CalendarResourceSelector,
     CheckedRight,
     CosSelector,
+    DataSourceInfo,
     DataSourceSpecifier,
     DistributionListSelector,
     DomainSelector,
     EffectiveRightsTargetSelector,
+    EntrySearchFilterInfo,
     ExchangeAuthSpec,
     ExportAndDeleteMailboxSpec,
+    HostName,
+    IdAndAction,
     GranteeSelector,
     LimitedQuery,
     LoggerInfo,
     MailboxByAccountIdSelector,
-    Policy,
-    PolicyHolder,
+    Names,
     PrincipalSelector,
+    RightModifierInfo,
+    ReindexMailboxInfo,
+    ServerMailQueueQuery,
     ServerSelector,
+    ServerWithQueueAction,
+    StatsSpec,
+    TargetWithType,
+    TimeAttr,
     TzFixup,
     UcServiceSelector,
     VolumeInfo,
     XMPPComponentSelector,
-    XMPPComponentSpec
+    XMPPComponentSpec,
+    ZimletAclStatusPri
+};
+
+use Zimbra\Mail\Struct\{
+    Policy,
+    PolicyHolder
 };
 
 use Zimbra\Enum\{
@@ -45,6 +64,7 @@ use Zimbra\Enum\{
     GalMode,
     GalSearchType,
     RightClass,
+    TargetType,
     ZimletDeployAction,
     ZimletExcludeType
 };
@@ -52,7 +72,15 @@ use Zimbra\Enum\{
 use Zimbra\Soap\{ApiInterface, ResponseInterface};
 use Zimbra\Struct\{
     AccountSelector,
-    NamedElement
+    AccountNameSelector,
+    AdminFilterType,
+    GalSearchType,
+    GetSessionsSortBy,
+    IpType,
+    LockoutOperation,
+    NamedElement,
+    ReIndexAction,
+    SessionType
 };
 
 /**
@@ -1030,4 +1058,1120 @@ interface AdminApiInterface extends ApiInterface
      * @return ResponseInterface
      */
     function getAllZimlets(?ZimletExcludeType $exclude = NULL): ResponseInterface;
+
+    /**
+     * Get Always On Cluster
+     * 
+     * @param  AlwaysOnClusterSelector $cluster
+     * @param  string $attrs
+     * @return ResponseInterface
+     */
+    function getAlwaysOnCluster(?AlwaysOnClusterSelector $cluster = NULL, ?string $attrs = NULL): ResponseInterface;
+
+    /**
+     * Get attribute information 
+     * 
+     * @param  string $attrs
+     * @param  string $entryTypes
+     * @return ResponseInterface
+     */
+    function getAttributeInfo(?string $attrs = NULL, ?string $entryTypes = NULL): ResponseInterface;
+
+    /**
+     * Get a calendar resource
+     * 
+     * @param  CalendarResourceSelector $calResource
+     * @param  bool $applyCos
+     * @param  string $attrs
+     * @return ResponseInterface
+     */
+    function getCalendarResource(
+        ?CalendarResourceSelector $calResource = NULL, ?bool $applyCos = NULL, ?string $attrs = NULL
+    ): ResponseInterface;
+
+    /**
+     * Get Config
+     * 
+     * @param  Attr $attr
+     * @return ResponseInterface
+     */
+    function getConfig(Attr $attr = NULL): ResponseInterface;
+
+    /**
+     * Get Class Of Service (COS)
+     * 
+     * @param  CosSelector $cos
+     * @param  string $attrs
+     * @return ResponseInterface
+     */
+    function getCos(CosSelector $cos, ?string $attrs = NULL): ResponseInterface;
+
+    /**
+     * Returns attributes, with defaults and constraints if any,  that can be set by the admin when an object is created.
+     * 
+     * @param  TargetWithType $target
+     * @param  DomainSelector $domain
+     * @param  CosSelector $cos
+     * @return ResponseInterface
+     */
+    function getCreateObjectAttrs(
+        TargetWithType $target, ?DomainSelector $domain = NULL, ?CosSelector $cos = NULL
+    ): ResponseInterface;
+
+    /**
+     * Get current volumes
+     * 
+     * @return ResponseInterface
+     */
+    function getCurrentVolumes(): ResponseInterface;
+
+    /**
+     * Returns all data sources defined for the given mailbox.
+     * 
+     * @param string $id
+     * @param array  $attrs
+     * @return ResponseInterface
+     */
+    function getDataSources(string $id, array $attrs = []): ResponseInterface;
+
+    /**
+     * Get constraints (zimbraConstraint) for delegated admin on global config or a COS
+     * none or several attributes can be specified for which constraints are to be returned.
+     * If no attribute is specified, all constraints on the global config/cos will be returned.
+     * If there is no constraint for a requested attribute, <a> element for the attribute will not appear in the response. 
+     * 
+     * @param  TargetType $type
+     * @param  string $id
+     * @param  string $name
+     * @param  array $attrs
+     * @return ResponseInterface
+     */
+    function getDelegatedAdminConstraints(
+        TargetType $type, ?string $id = NULL, ?string $name = NULL, array $attrs = []
+    ): ResponseInterface;
+
+    /**
+     * Get a Distribution List
+     * 
+     * @param  DistributionListSelector $dl
+     * @param  int $limit
+     * @param  int $offset
+     * @param  bool $sortAscending
+     * @param  string $attrs
+     * @return ResponseInterface
+     */
+    function getDistributionList(
+        ?DistributionListSelector $dl = NULL,
+        ?int $limit = NULL,
+        ?int $offset = NULL,
+        ?bool $sortAscending = NULL,
+        ?string $attrs = NULL
+    ): ResponseInterface;
+
+    /**
+     * Request a list of DLs that a particular DL is a member of
+     * 
+     * @param  DistributionListSelector $dl
+     * @param  int $limit
+     * @param  int $offset
+     * @return ResponseInterface
+     */
+    function getDistributionListMembership(
+        ?DistributionListSelector $dl = NULL,
+        ?int $limit = NULL,
+        ?int $offset = NULL
+    ): ResponseInterface;
+
+    /**
+     * Get information about a domain 
+     * 
+     * @param  DomainSelector $domain
+     * @param  bool $applyConfig
+     * @param  string $attrs
+     * @return ResponseInterface
+     */
+    function getDomain(
+        ?DomainSelector $domain = NULL,
+        ?bool $applyConfig = NULL,
+        ?string $attrs = NULL
+    ): ResponseInterface;
+
+    /**
+     * Get Domain information
+     * This call does not require an auth token.
+     * It returns attributes that are pertinent to domain settings for cases when the user is not authenticated.
+     * For example, URL to direct the user to upon logging out or when auth token is expired. 
+     * 
+     * @param  DomainSelector $domain
+     * @param  bool $applyConfig
+     * @return ResponseInterface
+     */
+    function getDomainInfo(?DomainSelector $domain = NULL, ?bool $applyConfig = NULL): ResponseInterface;
+
+    /**
+     * Returns effective ADMIN rights the authenticated admin has on the specified target entry. 
+     * Returns effective ADMIN rights the authenticated admin has on the specified target entry. 
+     * Effective rights are the rights the admin is actually allowed.
+     * It is the net result of applying ACL checking rules given the target and grantee.
+     * Specifically denied rights will not be returned.
+     * The result can help the admin console decide on what tabs to display after a target is selected.
+     * For example, after user1 is selected, if the admin does not have right to setPassword, it should probably hide or gray out the setPassword tab
+     * 
+     * @param  EffectiveRightsTargetSelector $target
+     * @param  GranteeSelector $grantee
+     * @param  bool $expandSetAttrs
+     * @param  bool $expandGetAttrs
+     * @return ResponseInterface
+     */
+    function getEffectiveRights(
+        EffectiveRightsTargetSelector $target,
+        ?GranteeSelector $grantee = NULL,
+        ?bool $expandSetAttrs = NULL,
+        ?bool $expandGetAttrs = NULL
+    ): ResponseInterface;
+
+    /**
+     * Get filter rules
+     * 
+     * @param  AdminFilterType $type
+     * @param  AccountSelector $account
+     * @param  DomainSelector $domain
+     * @param  CosSelector $cos
+     * @param  ServerSelector $server
+     * @return ResponseInterface
+     */
+    function getFilterRules(
+        AdminFilterType $type,
+        ?AccountSelector $account = NULL,
+        ?DomainSelector $domain = NULL,
+        ?CosSelector $cos = NULL,
+        ?ServerSelector $server = NULL
+    ): ResponseInterface;
+
+    /**
+     * Get Free/Busy provider information
+     * If the optional element <provider> is present in the request, the response contains the requested provider only.
+     * if no provider is supplied in the request, the response contains all the providers.
+     * 
+     * @param  NamedElement $provider
+     * @return ResponseInterface
+     */
+    function getFreeBusyQueueInfo(?NamedElement $provider = NULL): ResponseInterface;
+
+    /**
+     * Returns all grants on the specified target entry, or all grants granted to the specified grantee entry.
+     * The authenticated admin must have an effective "viewGrants" (TBD) system right on the specified target/grantee.
+     * At least one of <target> or <grantee> must be specified.
+     * If both <target> and <grantee> are specified, only grants that are granted on the target to the grantee are returned.
+     * 
+     * @param  EffectiveRightsTargetSelector $target
+     * @param  GranteeSelector $grantee
+     * @return ResponseInterface
+     */
+    function getGrants(
+        ?EffectiveRightsTargetSelector $target = NULL,
+        ?GranteeSelector $grantee = NULL
+    ): ResponseInterface;
+
+    /**
+     * Get index stats
+     * 
+     * @param  MailboxByAccountIdSelector $mbox
+     * @return ResponseInterface
+     */
+    function getIndexStats(MailboxByAccountIdSelector $mbox): ResponseInterface;
+
+    /**
+     * Get License information
+     * 
+     * @return ResponseInterface
+     */
+    function getLicenseInfo(): ResponseInterface;
+
+    /**
+     * Query to retrieve Logger statistics in ZCS
+     * Use cases:
+     * - No elements specified. result: a listing of reporting host names
+     * - hostname specified. result: a listing of stat groups for the specified host
+     * - hostname and stats specified, text content of stats non-empty. result: a listing of columns for the given host and group
+     * - hostname and stats specified, text content empty, startTime/endTime optional. result: all of the statistics for the given host/group are returned, if start and end are specified, limit/expand the timerange to the given setting. if limit=true is specified, attempt to reduce result set to under 500 records
+     * 
+     * @param  HostName $hostName
+     * @param  StatsSpec $stats
+     * @param  TimeAttr $startTime
+     * @param  TimeAttr $endTime
+     * @return ResponseInterface
+     */
+    function getLoggerStats(
+        ?HostName $hostName = NULL, ?StatsSpec $stats = NULL, ?TimeAttr $startTime = NULL, ?TimeAttr $endTime = NULL
+    ): ResponseInterface;
+
+    /**
+     * Get a Mailbox
+     * 
+     * @param  MailboxByAccountIdSelector $mbox
+     * @return ResponseInterface
+     */
+    function getMailbox(?MailboxByAccountIdSelector $mbox = NULL): ResponseInterface;
+
+    /**
+     * Get MailBox Statistics
+     * 
+     * @return ResponseInterface
+     */
+    function getMailboxStats(): ResponseInterface;
+
+    /**
+     * Summarize and/or search a particular mail queue on a particular server.
+     * 
+     * @param  ServerMailQueueQuery $server
+     * @return ResponseInterface
+     */
+    function getMailQueue(ServerMailQueueQuery $server): ResponseInterface;
+
+    /**
+     * Get a count of all the mail queues by counting the number of files in the queue directories.
+     * 
+     * @param  NamedElement $server
+     * @return ResponseInterface
+     */
+    function getMailQueueInfo(NamedElement $server): ResponseInterface;
+
+    /**
+     * Returns the memcached client configuration on a mailbox server.
+     * 
+     * @return ResponseInterface
+     */
+    function getMemcachedClientConfig(): ResponseInterface;
+
+    /**
+     * Get filter rules
+     * 
+     * @return ResponseInterface
+     */
+    function getOutgoingFilterRules(): ResponseInterface;
+
+    /**
+     * Get Quota Usage
+     * 
+     * @param  string $domain
+     * @param  bool $allServers
+     * @param  int $limit
+     * @param  int $offset
+     * @param  string $sortBy
+     * @param  bool $sortAscending
+     * @param  bool $refresh
+     * @return ResponseInterface
+     */
+    function getQuotaUsage(
+        ?string $domain = NULL,
+        ?bool $allServers = NULL,
+        ?int $limit = NULL,
+        ?int $offset = NULL,
+        ?string $sortBy = NULL,
+        ?bool $sortAscending = NULL,
+        ?bool $refresh = NULL
+    ): ResponseInterface;
+
+    /**
+     * Get definition of a right 
+     * 
+     * @param  string $right
+     * @param  bool $expandAllAttrs
+     * @return ResponseInterface
+     */
+    function getRight(string $right, ?bool $expandAllAttrs = NULL): ResponseInterface;
+
+    /**
+     * Get Rights Document
+     * 
+     * @param array $pkgs
+     * @return ResponseInterface
+     */
+    function getRightsDoc(array $pkgs = []): ResponseInterface;
+
+    /**
+     * Get Server
+     * 
+     * @param  ServerSelector $server
+     * @param  bool $applyConfig
+     * @param  string $attrs
+     * @return ResponseInterface
+     */
+    function getServer(
+        ?ServerSelector $server = NULL,
+        ?bool $applyConfig = NULL,
+        ?string $attrs = NULL
+    ): ResponseInterface;
+
+    /**
+     * Get Network Interface information for a server
+     * 
+     * @param  Server $server
+     * @param  IpType $type
+     * @return ResponseInterface
+     */
+    function getServerNIfs(ServerSelector $server, IpType $type = NULL): ResponseInterface;
+
+    /**
+     * Returns server monitoring stats.
+     * These are the same stats that are logged to mailboxd.csv.
+     * If no stat element is specified, all server stats are returned.
+     * 
+     * @param array $stats
+     * @return ResponseInterface
+     */
+    function getServerStats(array $stats = []): ResponseInterface;
+
+    /**
+     * Get Service Status
+     * 
+     * @return ResponseInterface
+     */
+    function getServiceStatus(): ResponseInterface;
+
+    /**
+     * Get Sessions
+     * 
+     * @param  SessionType $type
+     * @param  GetSessionsSortBy $sortBy
+     * @param  int $offset
+     * @param  int $limit
+     * @param  boo $sortAscending
+     * @param  boo $refresh
+     * @return ResponseInterface
+     */
+    function getSessions(
+        SessionType $type,
+        ?GetSessionsSortBy $sortBy = NULL,
+        ?int $offset = NULL,
+        ?int $limit = NULL,
+        ?bool $refresh = NULL
+    ): ResponseInterface;
+
+    /**
+     * Iterate through all folders of the owner's mailbox and return shares that match grantees specified by the <grantee> specifier. 
+     * 
+     * @param  AccountSelector $owner
+     * @param  GranteeChooser $grantee
+     * @return ResponseInterface
+     */
+    function getShareInfo(AccountSelector $owner, ?GranteeChooser $grantee = NULL): ResponseInterface;
+
+    /**
+     * Get System Retention Policy
+     * The system retention policy SOAP APIs allow the administrator to edit named system retention policies that users
+     * can apply to folders and tags.
+     * 
+     * @param  CosSelector $cos
+     * @return ResponseInterface
+     */
+    function getSystemRetentionPolicy(?CosSelector $cos = NULL): ResponseInterface;
+
+    /**
+     * Get UC Service
+     * 
+     * @param  UcServiceSelector $ucService
+     * @param  string $attrs
+     * @return ResponseInterface
+     */
+    function getUCService(UcServiceSelector $ucService, ?string $attrs = NULL): ResponseInterface;
+
+    /**
+     * Get Version information
+     * 
+     * @return ResponseInterface
+     */
+    function getVersionInfo(): ResponseInterface;
+
+    /**
+     * Get Volume
+     * 
+     * @param  int $id
+     * @return ResponseInterface
+     */
+    function getVolume(int $id): ResponseInterface;
+
+    /**
+     * Get XMPP Component
+     * 
+     * @param  XMPPComponentSelector $component
+     * @param  string $attrs
+     * @return ResponseInterface
+     */
+    function getXMPPComponent(
+        XMPPComponentSelector $component, ?string $attrs = NULL
+    ): ResponseInterface;
+
+    /**
+     * Get Zimlet
+     * 
+     * @param  NamedElement $zimlet
+     * @param  string $attrs
+     * @return ResponseInterface
+     */
+    function getZimlet(NamedElement $zimlet, ?string $attrs = NULL): ResponseInterface;
+
+    /**
+     * Get status for Zimlets
+     * 
+     * @return ResponseInterface
+     */
+    function getZimletStatus(): ResponseInterface;
+
+    /**
+     * Grant a right on a target to an individual or group grantee.
+     * 
+     * @param EffectiveRightsTargetSelector $target
+     * @param GranteeSelector $grantee
+     * @param RightModifierInfo $right
+     * @return ResponseInterface
+     */
+    function grantRight(
+        EffectiveRightsTargetSelector $target,
+        GranteeSelector $grantee,
+        RightModifierInfo $right
+    ): ResponseInterface;
+
+    /**
+     * Puts the mailbox of the specified account into maintenance lockout or removes it from maintenance lockout
+     * 
+     * @param  AccountNameSelector $account
+     * @param  LockoutOperation $operation
+     * @return ResponseInterface
+     */
+    function lockoutMailbox(AccountNameSelector $account, ?LockoutOperation $operation = NULL): ResponseInterface;
+
+    /**
+     * Command to act on invidual queue files. This proxies through to postsuper.
+     * 
+     * @param  ServerWithQueueAction $server
+     * @return ResponseInterface
+     */
+    function mailQueueAction(ServerWithQueueAction $server): ResponseInterface;
+
+    /**
+     * Command to invoke postqueue -f.
+     * All queues cached in the server are stale after invoking this because this is a global operation to all the queues in a given server.
+     * 
+     * @param  NamedElement $server
+     * @return ResponseInterface
+     */
+    function mailQueueFlush(NamedElement $server): ResponseInterface;
+
+    /**
+     * Migrate an account
+     * 
+     * @param  IdAndAction $migrate
+     * @return ResponseInterface
+     */
+    function migrateAccount(IdAndAction $migrate): ResponseInterface;
+
+    /**
+     * Modify an account
+     * 
+     * @param string $id
+     * @param array  $attrs
+     * @return ResponseInterface
+     */
+    function modifyAccount(string $id, array $attrs = []): ResponseInterface;
+
+    /**
+     * Modifies admin saved searches.
+     * Returns the admin saved searches.
+     * 
+     * @param array $searches
+     * @return ResponseInterface
+     */
+    function modifyAdminSavedSearches(array $searches = []): ResponseInterface;
+
+    /**
+     * Modify attributes for a alwaysOnCluster 
+     * 
+     * @param string $id
+     * @param array  $attrs
+     * @return ResponseInterface
+     */
+    function modifyAlwaysOnCluster(string $id, array $attrs = []): ResponseInterface;
+
+    /**
+     * Modify a calendar resource
+     * 
+     * @param string $id
+     * @param array  $attrs
+     * @return ResponseInterface
+     */
+    function modifyCalendarResource(string $id, array $attrs = []): ResponseInterface;
+
+    /**
+     * Modify Configuration attributes
+     * 
+     * @param array $attrs
+     * @return ResponseInterface
+     */
+    function modifyConfig(array $attrs = []): ResponseInterface;
+
+    /**
+     * Modify Class of Service (COS) attributes
+     * 
+     * @param string $id
+     * @param array  $attrs
+     * @return ResponseInterface
+     */
+    function modifyCos(string $id, array $attrs = []): ResponseInterface;
+
+    /**
+     * Changes attributes of the given data source.
+     * Only the attributes specified in the request are modified.
+     * To change the name, specify "zimbraDataSourceName" as an attribute. 
+     * 
+     * @param string $id
+     * @param DataSourceInfo $dataSource
+     * @param array  $attrs
+     * @return ResponseInterface
+     */
+    function modifyDataSource(
+        string $id, DataSourceInfo $dataSource, array $attrs = []
+    ): ResponseInterface;
+
+    /**
+     * Modify constraint (zimbraConstraint) for delegated admin on global config or a COS
+     * If constraints for an attribute already exists, it will be replaced by the new constraints.
+     * If <constraint> is an empty element, constraints for the attribute will be removed. 
+     * 
+     * @param TargetType $type
+     * @param string $id
+     * @param string $name
+     * @param array  $attrs
+     * @return ResponseInterface
+     */
+    function modifyDelegatedAdminConstraints(
+        TargetType $type, ?string $id = NULL, ?string $name = NULL, array $attrs = []
+    ): ResponseInterface;
+
+    /**
+     * Modify attributes for a Distribution List
+     * 
+     * @param string $id
+     * @param array  $attrs
+     * @return ResponseInterface
+     */
+    function modifyDistributionList(string $id, array $attrs = []): ResponseInterface;
+
+    /**
+     * Modify attributes for a domain
+     * 
+     * @param string $id
+     * @param array  $attrs
+     * @return ResponseInterface
+     */
+    function modifyDomain(string $id, array $attrs = []): ResponseInterface;
+
+    /**
+     * Modify Filter rules
+     * 
+     * @param  AdminFilterType $type
+     * @param  AccountSelector $account
+     * @param  DomainSelector $domain
+     * @param  CosSelector $cos
+     * @param  ServerSelector $server
+     * @param  array $filterRules
+     * @return ResponseInterface
+     */
+    function modifyFilterRules(
+        AdminFilterType $type,
+        ?AccountSelector $account = NULL,
+        ?DomainSelector $domain = NULL,
+        ?CosSelector $cos = NULL,
+        ?ServerSelector $server = NULL,
+        array $filterRules = []
+    ): ResponseInterface;
+
+    /**
+     * Modify Filter rules
+     * 
+     * @param  AdminFilterType $type
+     * @param  AccountSelector $account
+     * @param  DomainSelector $domain
+     * @param  CosSelector $cos
+     * @param  ServerSelector $server
+     * @param  array $filterRules
+     * @return ResponseInterface
+     */
+    function modifyOutgoingFilterRules(
+        AdminFilterType $type,
+        ?AccountSelector $account = NULL,
+        ?DomainSelector $domain = NULL,
+        ?CosSelector $cos = NULL,
+        ?ServerSelector $server = NULL,
+        array $filterRules = []
+    ): ResponseInterface;
+
+    /**
+     * Modify attributes for a server 
+     * 
+     * @param string $id
+     * @param array  $attrs
+     * @return ResponseInterface
+     */
+    function modifyServer(string $id, array $attrs = []): ResponseInterface;
+
+    /**
+     * Modify system retention policy
+     * 
+     * @param  Policy $policy
+     * @param  CosSelector $cos
+     * @return ResponseInterface
+     */
+    function modifySystemRetentionPolicy(
+        Policy $policy, ?CosSelector $cos = NULL
+    ): ResponseInterface;
+
+    /**
+     * Modify attributes for a UC service
+     * 
+     * @param string $id
+     * @param array  $attrs
+     * @return ResponseInterface
+     */
+    function modifyUCService(string $id, array $attrs = []): ResponseInterface;
+
+    /**
+     * Modify volume 
+     * 
+     * @param int $id
+     * @param VolumeInfo $volume
+     * @return ResponseInterface
+     */
+    function modifyVolume(int $id, VolumeInfo $volume): ResponseInterface;
+
+    /**
+     * Modify Zimlet
+     * 
+     * @return ResponseInterface
+     */
+    function modifyZimlet(ZimletAclStatusPri $zimlet): ResponseInterface;
+
+    /**
+     * A request that does nothing and always returns nothing. Used to keep an admin session alive.
+     * 
+     * @return ResponseInterface
+     */
+    function noOp(): ResponseInterface;
+
+    /**
+     * Ping
+     * 
+     * @return ResponseInterface
+     */
+    function ping(): ResponseInterface;
+
+    /**
+     * Purge the calendar cache for an account 
+     * 
+     * @param  string $id
+     * @return ResponseInterface
+     */
+    function purgeAccountCalendarCache(string $id): ResponseInterface;
+
+    /**
+     * Purges the queue for the given freebusy provider on the current host
+     * 
+     * @param  NamedElement $provider
+     * @return ResponseInterface
+     */
+    function purgeFreeBusyQueue(?NamedElement $provider = NULL): ResponseInterface;
+
+    /**
+     * Purges aged messages out of trash, spam, and entire mailbox
+     * 
+     * @param  MailboxByAccountIdSelector $mbox
+     * @return ResponseInterface
+     */
+    function purgeMessages(?MailboxByAccountIdSelector $mbox = NULL): ResponseInterface;
+
+    /**
+     * Push Free/Busy.
+     * The request must include either <domain/> or <account/>.
+     * 
+     * @param  Names $domains
+     * @param  array $accounts
+     * @return ResponseInterface
+     */
+    function pushFreeBusy(?Names $domains = NULL, array $accounts = []): ResponseInterface;
+
+    /**
+     * Query WaitSet
+     * 
+     * @param  string $waitSetId
+     * @return ResponseInterface
+     */
+    function queryWaitSet(?string $waitSetId = NULL): ResponseInterface;
+
+    /**
+     * Recalculate Mailbox counts.
+     * 
+     * @param  MailboxByAccountIdSelector $mbox
+     * @return ResponseInterface
+     */
+    function recalculateMailboxCounts(?MailboxByAccountIdSelector $mbox = NULL): ResponseInterface;
+
+    /**
+     * Deregister authtokens that have been deregistered on the sending server
+     * 
+     * @param  array $tokens
+     * @return ResponseInterface
+     */
+    function refreshRegisteredAuthTokens(array $tokens = []): ResponseInterface;
+
+    /**
+     * ReIndex
+     * 
+     * @param  ReindexMailboxInfo $mbox
+     * @param  ReIndexAction $action
+     * @return ResponseInterface
+     */
+    function reIndex(
+        ReindexMailboxInfo $mbox, ?ReIndexAction $action = NULL
+    ): ResponseInterface;
+
+    /**
+     * Reload LocalConfig
+     * 
+     * @return ResponseInterface
+     */
+    function reloadLocalConfig(): ResponseInterface;
+
+    /**
+     * Reloads the memcached client configuration on this server.
+     * Memcached client layer is reinitialized accordingly.
+     * Call this command after updating the memcached server list, for example. 
+     * 
+     * @return ResponseInterface
+     */
+    function reloadMemcachedClientConfig(): ResponseInterface;
+
+    /**
+     * Remove Account Alias
+     * 
+     * @param  string $id
+     * @param  string $alias
+     * @return ResponseInterface
+     */
+    function removeAccountAlias(string $id, string $alias): ResponseInterface;
+
+    /**
+     * Removes one or more custom loggers.
+     * If both the account and logger are specified, removes the given account logger if it exists.
+     * If only the account is specified or the category is "all", removes all custom loggers from that account.
+     * If only the logger is specified, removes that custom logger from all accounts.
+     * If neither element is specified, removes all custom loggers from all accounts on the server that receives the request.
+     * 
+     * @param  LoggerInfo $logger
+     * @param  AccountSelector $account
+     * @param  string $id
+     * @return ResponseInterface
+     */
+    function removeAccountLogger(
+        ?LoggerInfo $logger = NULL, ?AccountSelector $account = NULL, ?string $id = NULL
+    ): ResponseInterface;
+
+    /**
+     * Remove Distribution List Alias
+     * 
+     * @param  string $id
+     * @param  string $alias
+     * @return ResponseInterface
+     */
+    function removeDistributionListAlias(string $id, string $alias): ResponseInterface;
+
+    /**
+     * Remove Distribution List Member
+     * Unlike add, remove of a non-existent member causes an exception and no modification to the list.
+     * 
+     * @param  string $id
+     * @param  array  $members
+     * @param  array  $accounts
+     * @return ResponseInterface
+     */
+    function removeDistributionListMember(
+        string $id, array $members = [], array $accounts = []
+    ): ResponseInterface;
+
+    /**
+     * Rename Account
+     * 
+     * @param string $id
+     * @param string $newName
+     * @return ResponseInterface
+     */
+    function renameAccount(string $id, string $newName): ResponseInterface;
+
+    /**
+     * Rename Calendar Resource
+     * 
+     * @param string $id
+     * @param string $newName
+     * @return ResponseInterface
+     */
+    function renameCalendarResource(string $id, string $newName): ResponseInterface;
+
+    /**
+     * Rename Class of Service (COS)
+     * 
+     * @param string $id
+     * @param string $newName
+     * @return ResponseInterface
+     */
+    function renameCos(string $id, string $newName): ResponseInterface;
+
+    /**
+     * Rename Distribution List
+     * 
+     * @param string $id
+     * @param string $newName
+     * @return ResponseInterface
+     */
+    function renameDistributionList(string $id, string $newName): ResponseInterface;
+
+    /**
+     * Rename Unified Communication Service
+     * 
+     * @param string $id
+     * @param string $newName
+     * @return ResponseInterface
+     */
+    function renameUCService(string $id, string $newName): ResponseInterface;
+
+    /**
+     * Removes all account loggers and reloads /opt/zimbra/conf/log4j.properties.
+     * 
+     * @return ResponseInterface
+     */
+    function resetAllLoggers(): ResponseInterface;
+
+    /**
+     * Revoke a right from a target that was previously granted to an individual or group grantee.
+     * 
+     * @param EffectiveRightsTargetSelector $target
+     * @param GranteeSelector $grantee
+     * @param RightModifierInfo $right
+     * @return ResponseInterface
+     */
+    function revokeRight(
+        EffectiveRightsTargetSelector $target,
+        GranteeSelector $grantee,
+        RightModifierInfo $right
+    ): ResponseInterface;
+
+    /**
+     * Runs the server-side unit test suite.
+     * 
+     * @param  array  $tests
+     * @return ResponseInterface
+     */
+    function runUnitTests(array $tests = []): ResponseInterface;
+
+    /**
+     * Search Accounts
+     * Note: SearchAccountsRequest is deprecated. See SearchDirectoryRequest.
+     * 
+     * @param  string $query
+     * @param  int $limit
+     * @param  int $offset
+     * @param  string $domain
+     * @param  bool $applyCos
+     * @param  string $attrs
+     * @param  string $sortBy
+     * @param  string $types
+     * @param  bool $sortAscending
+     * @return ResponseInterface
+     */
+    function searchAccounts(
+        string $query,
+        ?int $limit = NULL,
+        ?int $offset = NULL,
+        ?string $domain = NULL,
+        ?bool $applyCos = NULL,
+        ?string $attrs = NULL,
+        ?string $sortBy = NULL,
+        ?string $types = NULL,
+        ?bool $sortAscending = NULL
+    ): ResponseInterface;
+
+    /**
+     * Search Auto Prov Directory
+     * 
+     * @param  string $keyAttr
+     * @param  DomainSelector $domain
+     * @param  string $query
+     * @param  string $name
+     * @param  int $maxResults
+     * @param  int $limit
+     * @param  int $offset
+     * @param  bool $refresh
+     * @param  string $attrs
+     * @return ResponseInterface
+     */
+    function searchAutoProvDirectory(
+        string $keyAttr,
+        DomainSelector $domain,
+        ?string $query = NULL,
+        ?string $name = NULL,
+        ?int $maxResults = NULL,
+        ?int $limit = NULL,
+        ?int $offset = NULL,
+        ?bool $refresh = NULL,
+        ?string $attrs = NULL
+    ): ResponseInterface;
+
+    /**
+     * Search for Calendar Resources
+     * 
+     * @param  EntrySearchFilterInfo $searchFilter
+     * @param  int $limit
+     * @param  int $offset
+     * @param  string $domain
+     * @param  bool $applyCos
+     * @param  string $sortBy
+     * @param  int $sortAscending
+     * @param  string $attrs
+     * @return ResponseInterface
+     */
+    function searchCalendarResources(
+        ?EntrySearchFilterInfo $searchFilter = NULL,
+        ?int $limit = NULL,
+        ?int $offset = NULL,
+        ?string $domain = NULL,
+        ?bool $applyCos = NULL,
+        ?string $sortBy = NULL,
+        ?bool $sortAscending = NULL,
+        ?string $attrs = NULL
+    ): ResponseInterface;
+
+    /**
+     * Search directory
+     * 
+     * @param  string $query
+     * @param  int $maxResults
+     * @param  int $limit
+     * @param  int $offset
+     * @param  string $domain
+     * @param  bool $applyCos
+     * @param  bool $applyConfig
+     * @param  string $sortBy
+     * @param  string $types
+     * @param  bool $sortAscending
+     * @param  bool $isCountOnly
+     * @param  string $attrs
+     * @return ResponseInterface
+     */
+    function searchDirectory(
+        ?string $query = NULL,
+        ?int $maxResults = NULL,
+        ?int $limit = NULL,
+        ?int $offset = NULL,
+        ?string $domain = NULL,
+        ?bool $applyCos = NULL,
+        ?bool $applyConfig = NULL,
+        ?string $sortBy = NULL,
+        ?string $types = NULL,
+        ?bool $sortAscending = NULL,
+        ?bool $isCountOnly = NULL,
+        ?string $attrs = NULL
+    ): ResponseInterface;
+
+    /**
+     * Search Global Address Book (GAL)
+     * 
+     * @param  string $domain
+     * @param  string $name
+     * @param  int $limit
+     * @param  GalSearchType $type
+     * @param  string $galAccountId
+     * @return ResponseInterface
+     */
+    function searchGal(
+        ?string $domain,
+        ?string $name = NULL,
+        ?int $limit = NULL,
+        ?GalSearchType $type = NULL,
+        ?string $galAccountId = NULL
+    ): ResponseInterface;
+
+    /**
+     * Set current volume.
+     * 
+     * @param  int $id
+     * @param  int $type
+     * @return ResponseInterface
+     */
+    function setCurrentVolume(int $id, int $type): ResponseInterface;
+
+    /**
+     * Set local server online
+     * 
+     * @return ResponseInterface
+     */
+    function setLocalServerOnline(): ResponseInterface;
+
+    /**
+     * Set Password
+     * 
+     * @param string $id
+     * @param string $newPassword
+     * @return ResponseInterface
+     */
+    function setPassword(string $id, string $newPassword): ResponseInterface;
+
+    /**
+     * Set server offline
+     * 
+     * @param  ServerSelector $server
+     * @param  string $attrs
+     * @return ResponseInterface
+     */
+    function setServerOffline(?ServerSelector $server = NULL, ?string $attrs = NULL): ResponseInterface;
+
+    /**
+     * Sync GalAccount
+     * If fullSync is set to false (or unset) the default behavior is trickle sync which will pull in any new contacts or modified contacts since last sync. 
+     * If fullSync is set to true, then the server will go through all the contacts that appear in GAL, and resolve deleted contacts in addition to new or modified ones.
+     * If reset attribute is set, then all the contacts will be populated again, regardless of the status since last sync. Reset needs to be done when there is a significant change in the configuration, such as filter, attribute map, or search base.
+     * 
+     * @param array $accounts
+     * @return ResponseInterface
+     */
+    function syncGalAccount(array $accounts = []): ResponseInterface;
+
+    /**
+     * Undeploy Zimlet
+     * 
+     * @param  string $name
+     * @param  string $action
+     * @return ResponseInterface
+     */
+    function undeployZimlet(string $name, ?string $action = NULL): ResponseInterface;
+
+    /**
+     * Verify index
+     * 
+     * @param  MailboxByAccountIdSelector  $mbox
+     * @return ResponseInterface
+     */
+    function verifyIndex(?MailboxByAccountIdSelector $mbox = NULL): ResponseInterface;
+
+    /**
+     * Verify Store Manager
+     * 
+     * @param int  $fileSize
+     * @param int  $num
+     * @param bool  $checkBlobs
+     * @return ResponseInterface
+     */
+    function verifyStoreManager(
+        ?int $fileSize = NULL,
+        ?int $num = NULL,
+        ?bool $checkBlobs = NULL
+    ): ResponseInterface;
 }

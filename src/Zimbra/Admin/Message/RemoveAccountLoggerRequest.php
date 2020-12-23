@@ -17,10 +17,11 @@ use Zimbra\Struct\AccountSelector as Account;
 
 /**
  * RemoveAccountLoggerRequest request class
- * Changes logging settings on a per-account basis
- * Adds a custom logger for the given account and log category.
- * The logger stays in effect only during the lifetime of the current server instance.
- * If the request is sent to a server other than the one that the account resides on, it is proxied to the correct server.
+ * Removes one or more custom loggers.
+ * If both the account and logger are specified, removes the given account logger if it exists.
+ * If only the account is specified or the category is "all", removes all custom loggers from that account.
+ * If only the logger is specified, removes that custom logger from all accounts.
+ * If neither element is specified, removes all custom loggers from all accounts on the server that receives the request.
  *
  * @package    Zimbra
  * @subpackage Admin

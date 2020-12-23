@@ -17,10 +17,7 @@ use Zimbra\Struct\GranteeChooser as Grantee;
 
 /**
  * GetShareInfoRequest request class
- * Changes logging settings on a per-owner basis
- * Adds a custom grantee for the given owner and log category.
- * The grantee stays in effect only during the lifetime of the current server instance.
- * If the request is sent to a server other than the one that the owner resides on, it is proxied to the correct server.
+ * Iterate through all folders of the owner's mailbox and return shares that match grantees specified by the <grantee> specifier. 
  *
  * @package    Zimbra
  * @subpackage Admin

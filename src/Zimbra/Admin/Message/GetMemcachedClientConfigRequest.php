@@ -15,7 +15,7 @@ use Zimbra\Soap\Request;
 
 /**
  * GetMemcachedClientConfigRequest request class
- * Get MailBox Statistics
+ * Returns the memcached client configuration on a mailbox server.
  *
  * @package    Zimbra
  * @subpackage Admin

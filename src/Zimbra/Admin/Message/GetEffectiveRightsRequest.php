@@ -18,8 +18,11 @@ use Zimbra\Soap\Request;
 /**
  * GetEffectiveRightsRequest request class
  * Returns effective ADMIN rights the authenticated admin has on the specified target entry. 
- * Effective rights are the rights the admin is actually allowed. It is the net result of applying ACL checking rules given the target and grantee. Specifically denied rights will not be returned.
- * The result can help the admin console decide on what tabs to display after a target is selected. For example, after user1 is selected, if the admin does not have right to setPassword, it should probably hide or gray out the setPassword tab
+ * Effective rights are the rights the admin is actually allowed.
+ * It is the net result of applying ACL checking rules given the target and grantee.
+ * Specifically denied rights will not be returned.
+ * The result can help the admin console decide on what tabs to display after a target is selected.
+ * For example, after user1 is selected, if the admin does not have right to setPassword, it should probably hide or gray out the setPassword tab
  *
  * @package    Zimbra
  * @subpackage Admin
@@ -74,7 +77,9 @@ class GetEffectiveRightsRequest extends Request
      * @param  bool $expandGetAttrs
      * @return self
      */
-    public function __construct(Target $target, ?Grantee $grantee = NULL, ?bool $expandSetAttrs = NULL, ?bool $expandGetAttrs = NULL)
+    public function __construct(
+        Target $target, ?Grantee $grantee = NULL, ?bool $expandSetAttrs = NULL, ?bool $expandGetAttrs = NULL
+    )
     {
         $this->setTarget($target);
         if ($grantee instanceof Grantee) {

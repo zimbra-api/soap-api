@@ -18,9 +18,7 @@ use Zimbra\Struct\AttributeSelectorTrait;
 
 /**
  * SearchCalendarResourcesRequest class
- * Search Auto Prov Directory
- * Only one of <name> or <sortBy> can be provided.
- * If neither is provided, the configured search filter for auto provision will be used. 
+ * Search for Calendar Resources
  * 
  * @package    Zimbra
  * @subpackage Admin

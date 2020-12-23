@@ -47,6 +47,7 @@ class AddAccountAliasRequest extends Request
 
     /**
      * Constructor method for AddAccountAliasRequest
+     *
      * @param  string $id
      * @param  string $alias
      * @return self

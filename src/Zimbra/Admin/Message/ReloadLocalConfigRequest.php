@@ -15,7 +15,7 @@ use Zimbra\Soap\Request;
 
 /**
  * ReloadLocalConfigRequest class
- * A request that does nothing and always returns nothing. Used to keep an admin session alive.
+ * Reload LocalConfig
  * 
  * @package    Zimbra
  * @subpackage Admin

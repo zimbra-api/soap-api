@@ -15,7 +15,7 @@ use Zimbra\Soap\Request;
 
 /**
  * RemoveDistributionListAliasRequest request class
- * Add an alias for a distribution list
+ * Remove Distribution List Alias
  *
  * @package    Zimbra
  * @subpackage Admin
@@ -47,6 +47,7 @@ class RemoveDistributionListAliasRequest extends Request
 
     /**
      * Constructor method for RemoveDistributionListAliasRequest
+     *
      * @param  string $id
      * @param  string $alias
      * @return self
