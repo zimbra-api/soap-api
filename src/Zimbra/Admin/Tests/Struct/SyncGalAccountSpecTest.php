@@ -31,12 +31,11 @@ class SyncGalAccountSpecTest extends ZimbraStructTestCase
         $this->assertSame($id, $sync->getId());
         $this->assertSame([$ds1, $ds2], $sync->getDataSources());
 
-        $by = DataSourceBy::NAME()->getValue();
         $xml = <<<EOT
 <?xml version="1.0"?>
 <account id="$id">
-    <datasource by="$by" fullSync="true" reset="false">$value1</datasource>
-    <datasource by="$by" fullSync="false" reset="true">$value2</datasource>
+    <datasource by="name" fullSync="true" reset="false">$value1</datasource>
+    <datasource by="name" fullSync="false" reset="true">$value2</datasource>
 </account>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($sync, 'xml'));
@@ -46,13 +45,13 @@ EOT;
             'id' => $id,
             'datasource' => [
                 [
-                    'by' => $by,
+                    'by' => 'name',
                     'fullSync' => TRUE,
                     'reset' => FALSE,
                     '_content' => $value1,
                 ],
                 [
-                    'by' => $by,
+                    'by' => 'name',
                     'fullSync' => FALSE,
                     'reset' => TRUE,
                     '_content' => $value2,
