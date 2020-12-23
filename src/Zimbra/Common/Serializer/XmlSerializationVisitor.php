@@ -253,7 +253,7 @@ final class XmlSerializationVisitor extends AbstractVisitor implements Serializa
             $this->setCurrentMetadata($metadata);
             if ($v instanceof Enum) {
                 $this->revertCurrentMetadata();
-                $this->setAttributeOnNode($this->currentNode, $metadata->serializedName, $v->getValue(), $metadata->xmlNamespace);
+                $this->setAttributeOnNode($this->currentNode, $metadata->serializedName, (string) $v->getValue(), $metadata->xmlNamespace);
                 return;
             }
             $node = $this->navigator->accept($v, $metadata->type);
