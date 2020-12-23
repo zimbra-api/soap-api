@@ -38,6 +38,7 @@ class CreateServerResponse implements ResponseInterface
 
     /**
      * Constructor method for CreateServerResponse
+     *
      * @param ServerInfo $server
      * @return self
      */

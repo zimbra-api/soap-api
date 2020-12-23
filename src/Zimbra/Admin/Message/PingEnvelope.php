@@ -37,6 +37,7 @@ class PingEnvelope extends Envelope
 
     /**
      * Constructor method for PingEnvelope
+     *
      * @return self
      */
     public function __construct(?PingBody $body = NULL, ?Header $header = NULL)

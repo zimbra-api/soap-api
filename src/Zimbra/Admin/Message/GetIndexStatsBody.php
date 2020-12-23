@@ -44,6 +44,7 @@ class GetIndexStatsBody extends Body
 
     /**
      * Constructor method for GetIndexStatsBody
+     *
      * @return self
      */
     public function __construct(?GetIndexStatsRequest $request = NULL, ?GetIndexStatsResponse $response = NULL)

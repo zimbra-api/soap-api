@@ -44,6 +44,7 @@ class ModifyServerBody extends Body
 
     /**
      * Constructor method for ModifyServerBody
+     *
      * @return self
      */
     public function __construct(?ModifyServerRequest $request = NULL, ?ModifyServerResponse $response = NULL)

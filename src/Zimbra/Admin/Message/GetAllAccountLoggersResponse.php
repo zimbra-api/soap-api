@@ -39,6 +39,7 @@ class GetAllAccountLoggersResponse implements ResponseInterface
 
     /**
      * Constructor method for GetAllAccountLoggersResponse
+     *
      * @param array $loggers
      * @return self
      */

@@ -37,6 +37,7 @@ class DeployZimletResponse implements ResponseInterface
 
     /**
      * Constructor method for DeployZimletResponse
+     *
      * @param  array $progresses
      * @return self
      */

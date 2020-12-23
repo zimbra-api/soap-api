@@ -44,6 +44,7 @@ class GetGrantsBody extends Body
 
     /**
      * Constructor method for GetGrantsBody
+     *
      * @return self
      */
     public function __construct(?GetGrantsRequest $request = NULL, ?GetGrantsResponse $response = NULL)

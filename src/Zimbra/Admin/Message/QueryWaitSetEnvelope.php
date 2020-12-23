@@ -37,6 +37,7 @@ class QueryWaitSetEnvelope extends Envelope
 
     /**
      * Constructor method for QueryWaitSetEnvelope
+     *
      * @return self
      */
     public function __construct(?QueryWaitSetBody $body = NULL, ?Header $header = NULL)

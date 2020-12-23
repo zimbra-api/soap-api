@@ -37,6 +37,7 @@ class ExportAndDeleteItemsEnvelope extends Envelope
 
     /**
      * Constructor method for ExportAndDeleteItemsEnvelope
+     *
      * @return self
      */
     public function __construct(?ExportAndDeleteItemsBody $body = NULL, ?Header $header = NULL)

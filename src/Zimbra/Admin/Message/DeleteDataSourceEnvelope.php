@@ -37,6 +37,7 @@ class DeleteDataSourceEnvelope extends Envelope
 
     /**
      * Constructor method for DeleteDataSourceEnvelope
+     *
      * @return self
      */
     public function __construct(?DeleteDataSourceBody $body = NULL, ?Header $header = NULL)

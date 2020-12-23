@@ -37,6 +37,7 @@ class GetAllZimletsEnvelope extends Envelope
 
     /**
      * Constructor method for GetAllZimletsEnvelope
+     *
      * @return self
      */
     public function __construct(?GetAllZimletsBody $body = NULL, ?Header $header = NULL)

@@ -37,6 +37,7 @@ class ModifyAlwaysOnClusterEnvelope extends Envelope
 
     /**
      * Constructor method for ModifyAlwaysOnClusterEnvelope
+     *
      * @return self
      */
     public function __construct(?ModifyAlwaysOnClusterBody $body = NULL, ?Header $header = NULL)

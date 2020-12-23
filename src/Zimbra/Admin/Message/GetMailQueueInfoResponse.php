@@ -38,6 +38,7 @@ class GetMailQueueInfoResponse implements ResponseInterface
 
     /**
      * Constructor method for GetMailQueueInfoResponse
+     *
      * @param Server $server
      * @return self
      */

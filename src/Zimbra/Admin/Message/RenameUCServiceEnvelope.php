@@ -37,6 +37,7 @@ class RenameUCServiceEnvelope extends Envelope
 
     /**
      * Constructor method for RenameUCServiceEnvelope
+     *
      * @return self
      */
     public function __construct(?RenameUCServiceBody $body = NULL, ?Header $header = NULL)

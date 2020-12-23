@@ -37,6 +37,7 @@ class GetAdminExtensionZimletsEnvelope extends Envelope
 
     /**
      * Constructor method for GetAdminExtensionZimletsEnvelope
+     *
      * @return self
      */
     public function __construct(?GetAdminExtensionZimletsBody $body = NULL, ?Header $header = NULL)

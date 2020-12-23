@@ -37,6 +37,7 @@ class GetIndexStatsEnvelope extends Envelope
 
     /**
      * Constructor method for GetIndexStatsEnvelope
+     *
      * @return self
      */
     public function __construct(?GetIndexStatsBody $body = NULL, ?Header $header = NULL)

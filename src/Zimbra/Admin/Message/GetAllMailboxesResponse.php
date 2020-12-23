@@ -57,6 +57,7 @@ class GetAllMailboxesResponse implements ResponseInterface
 
     /**
      * Constructor method for GetAllMailboxesResponse
+     *
      * @param bool $more
      * @param integer $searchTotal
      * @param array $mboxes

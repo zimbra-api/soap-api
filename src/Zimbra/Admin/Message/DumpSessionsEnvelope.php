@@ -37,6 +37,7 @@ class DumpSessionsEnvelope extends Envelope
 
     /**
      * Constructor method for DumpSessionsEnvelope
+     *
      * @return self
      */
     public function __construct(?DumpSessionsBody $body = NULL, ?Header $header = NULL)

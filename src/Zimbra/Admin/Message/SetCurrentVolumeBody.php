@@ -44,6 +44,7 @@ class SetCurrentVolumeBody extends Body
 
     /**
      * Constructor method for SetCurrentVolumeBody
+     *
      * @return self
      */
     public function __construct(

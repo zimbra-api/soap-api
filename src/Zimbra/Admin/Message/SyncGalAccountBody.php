@@ -44,6 +44,7 @@ class SyncGalAccountBody extends Body
 
     /**
      * Constructor method for SyncGalAccountBody
+     *
      * @return self
      */
     public function __construct(?SyncGalAccountRequest $request = NULL, ?SyncGalAccountResponse $response = NULL)

@@ -44,6 +44,7 @@ class CheckAuthConfigBody extends Body
 
     /**
      * Constructor method for CheckAuthConfigBody
+     *
      * @return self
      */
     public function __construct(?CheckAuthConfigRequest $request = NULL, ?CheckAuthConfigResponse $response = NULL)

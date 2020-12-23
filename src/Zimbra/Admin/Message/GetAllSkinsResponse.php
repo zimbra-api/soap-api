@@ -39,6 +39,7 @@ class GetAllSkinsResponse implements ResponseInterface
 
     /**
      * Constructor method for GetAllSkinsResponse
+     *
      * @param array $skins
      * @return self
      */

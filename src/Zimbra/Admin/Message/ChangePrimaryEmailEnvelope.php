@@ -37,6 +37,7 @@ class ChangePrimaryEmailEnvelope extends Envelope
 
     /**
      * Constructor method for ChangePrimaryEmailEnvelope
+     *
      * @return self
      */
     public function __construct(?ChangePrimaryEmailBody $body = NULL, ?Header $header = NULL)

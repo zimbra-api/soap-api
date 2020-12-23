@@ -39,6 +39,7 @@ class QueryWaitSetResponse implements ResponseInterface
 
     /**
      * Constructor method for QueryWaitSetResponse
+     *
      * @param array $waitsets
      * @return self
      */

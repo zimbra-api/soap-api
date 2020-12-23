@@ -37,6 +37,7 @@ class GetVersionInfoEnvelope extends Envelope
 
     /**
      * Constructor method for GetVersionInfoEnvelope
+     *
      * @return self
      */
     public function __construct(?GetVersionInfoBody $body = NULL, ?Header $header = NULL)

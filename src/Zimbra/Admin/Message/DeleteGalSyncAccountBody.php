@@ -44,6 +44,7 @@ class DeleteGalSyncAccountBody extends Body
 
     /**
      * Constructor method for DeleteGalSyncAccountBody
+     *
      * @return self
      */
     public function __construct(?DeleteGalSyncAccountRequest $request = NULL, ?DeleteGalSyncAccountResponse $response = NULL)

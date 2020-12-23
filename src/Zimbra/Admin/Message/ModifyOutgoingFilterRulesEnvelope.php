@@ -37,6 +37,7 @@ class ModifyOutgoingFilterRulesEnvelope extends Envelope
 
     /**
      * Constructor method for ModifyOutgoingFilterRulesEnvelope
+     *
      * @return self
      */
     public function __construct(?ModifyOutgoingFilterRulesBody $body = NULL, ?Header $header = NULL)

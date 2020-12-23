@@ -37,6 +37,7 @@ class RenameCosEnvelope extends Envelope
 
     /**
      * Constructor method for RenameCosEnvelope
+     *
      * @return self
      */
     public function __construct(?RenameCosBody $body = NULL, ?Header $header = NULL)

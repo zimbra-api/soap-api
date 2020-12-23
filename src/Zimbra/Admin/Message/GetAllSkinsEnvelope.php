@@ -37,6 +37,7 @@ class GetAllSkinsEnvelope extends Envelope
 
     /**
      * Constructor method for GetAllSkinsEnvelope
+     *
      * @return self
      */
     public function __construct(?GetAllSkinsBody $body = NULL, ?Header $header = NULL)

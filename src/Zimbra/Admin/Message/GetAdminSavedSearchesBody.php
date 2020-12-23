@@ -44,9 +44,12 @@ class GetAdminSavedSearchesBody extends Body
 
     /**
      * Constructor method for GetAdminSavedSearchesBody
+     *
      * @return self
      */
-    public function __construct(?GetAdminSavedSearchesRequest $request = NULL, ?GetAdminSavedSearchesResponse $response = NULL)
+    public function __construct(
+        ?GetAdminSavedSearchesRequest $request = NULL, ?GetAdminSavedSearchesResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }

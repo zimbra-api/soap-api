@@ -37,6 +37,7 @@ class GetSessionsEnvelope extends Envelope
 
     /**
      * Constructor method for GetSessionsEnvelope
+     *
      * @return self
      */
     public function __construct(?GetSessionsBody $body = NULL, ?Header $header = NULL)

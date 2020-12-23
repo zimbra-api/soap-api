@@ -37,6 +37,7 @@ class ModifyUCServiceEnvelope extends Envelope
 
     /**
      * Constructor method for ModifyUCServiceEnvelope
+     *
      * @return self
      */
     public function __construct(?ModifyUCServiceBody $body = NULL, ?Header $header = NULL)

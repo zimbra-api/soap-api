@@ -39,6 +39,7 @@ class GetAdminSavedSearchesResponse implements ResponseInterface
 
     /**
      * Constructor method for GetAdminSavedSearchesResponse
+     *
      * @param array $searches
      * @return self
      */

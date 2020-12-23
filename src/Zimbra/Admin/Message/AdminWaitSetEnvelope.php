@@ -37,6 +37,7 @@ class AdminWaitSetEnvelope extends Envelope
 
     /**
      * Constructor method for AdminWaitSetEnvelope
+     *
      * @return self
      */
     public function __construct(?AdminWaitSetBody $body = NULL, ?Header $header = NULL)

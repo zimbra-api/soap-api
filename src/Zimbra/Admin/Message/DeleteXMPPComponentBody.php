@@ -44,9 +44,12 @@ class DeleteXMPPComponentBody extends Body
 
     /**
      * Constructor method for DeleteXMPPComponentBody
+     *
      * @return self
      */
-    public function __construct(?DeleteXMPPComponentRequest $request = NULL, ?DeleteXMPPComponentResponse $response = NULL)
+    public function __construct(
+        ?DeleteXMPPComponentRequest $request = NULL, ?DeleteXMPPComponentResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }

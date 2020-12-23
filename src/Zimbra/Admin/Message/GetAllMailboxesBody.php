@@ -44,9 +44,12 @@ class GetAllMailboxesBody extends Body
 
     /**
      * Constructor method for GetAllMailboxesBody
+     *
      * @return self
      */
-    public function __construct(?GetAllMailboxesRequest $request = NULL, ?GetAllMailboxesResponse $response = NULL)
+    public function __construct(
+        ?GetAllMailboxesRequest $request = NULL, ?GetAllMailboxesResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }

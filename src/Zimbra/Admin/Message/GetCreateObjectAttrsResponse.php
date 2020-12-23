@@ -38,6 +38,7 @@ class GetCreateObjectAttrsResponse implements ResponseInterface
 
     /**
      * Constructor method for GetCreateObjectAttrsResponse
+     *
      * @param EffectiveAttrsInfo $setAttrs
      * @return self
      */

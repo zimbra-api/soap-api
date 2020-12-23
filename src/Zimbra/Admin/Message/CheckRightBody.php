@@ -44,6 +44,7 @@ class CheckRightBody extends Body
 
     /**
      * Constructor method for CheckRightBody
+     *
      * @return self
      */
     public function __construct(?CheckRightRequest $request = NULL, ?CheckRightResponse $response = NULL)

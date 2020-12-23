@@ -44,6 +44,7 @@ class GetVersionInfoBody extends Body
 
     /**
      * Constructor method for GetVersionInfoBody
+     *
      * @return self
      */
     public function __construct(?GetVersionInfoRequest $request = NULL, ?GetVersionInfoResponse $response = NULL)

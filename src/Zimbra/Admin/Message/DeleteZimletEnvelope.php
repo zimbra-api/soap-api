@@ -37,6 +37,7 @@ class DeleteZimletEnvelope extends Envelope
 
     /**
      * Constructor method for DeleteZimletEnvelope
+     *
      * @return self
      */
     public function __construct(?DeleteZimletBody $body = NULL, ?Header $header = NULL)

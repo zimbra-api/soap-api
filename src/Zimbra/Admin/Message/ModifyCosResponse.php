@@ -38,6 +38,7 @@ class ModifyCosResponse implements ResponseInterface
 
     /**
      * Constructor method for ModifyCosResponse
+     *
      * @param CosInfo $cos
      * @return self
      */

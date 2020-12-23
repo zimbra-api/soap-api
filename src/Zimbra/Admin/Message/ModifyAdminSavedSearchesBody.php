@@ -44,6 +44,7 @@ class ModifyAdminSavedSearchesBody extends Body
 
     /**
      * Constructor method for ModifyAdminSavedSearchesBody
+     *
      * @return self
      */
     public function __construct(?ModifyAdminSavedSearchesRequest $request = NULL, ?ModifyAdminSavedSearchesResponse $response = NULL)

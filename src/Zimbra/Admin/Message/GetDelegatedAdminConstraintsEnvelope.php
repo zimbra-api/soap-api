@@ -37,6 +37,7 @@ class GetDelegatedAdminConstraintsEnvelope extends Envelope
 
     /**
      * Constructor method for GetDelegatedAdminConstraintsEnvelope
+     *
      * @return self
      */
     public function __construct(?GetDelegatedAdminConstraintsBody $body = NULL, ?Header $header = NULL)

@@ -37,6 +37,7 @@ class GetEffectiveRightsEnvelope extends Envelope
 
     /**
      * Constructor method for GetEffectiveRightsEnvelope
+     *
      * @return self
      */
     public function __construct(?GetEffectiveRightsBody $body = NULL, ?Header $header = NULL)

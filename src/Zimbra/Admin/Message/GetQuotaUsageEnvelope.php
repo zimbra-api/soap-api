@@ -37,6 +37,7 @@ class GetQuotaUsageEnvelope extends Envelope
 
     /**
      * Constructor method for GetQuotaUsageEnvelope
+     *
      * @return self
      */
     public function __construct(?GetQuotaUsageBody $body = NULL, ?Header $header = NULL)

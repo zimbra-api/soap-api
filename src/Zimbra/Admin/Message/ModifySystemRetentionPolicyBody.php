@@ -44,6 +44,7 @@ class ModifySystemRetentionPolicyBody extends Body
 
     /**
      * Constructor method for ModifySystemRetentionPolicyBody
+     *
      * @return self
      */
     public function __construct(

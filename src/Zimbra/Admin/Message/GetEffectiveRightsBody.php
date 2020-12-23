@@ -44,6 +44,7 @@ class GetEffectiveRightsBody extends Body
 
     /**
      * Constructor method for GetEffectiveRightsBody
+     *
      * @return self
      */
     public function __construct(?GetEffectiveRightsRequest $request = NULL, ?GetEffectiveRightsResponse $response = NULL)

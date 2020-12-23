@@ -44,9 +44,12 @@ class CreateDataSourceBody extends Body
 
     /**
      * Constructor method for CreateDataSourceBody
+     *
      * @return self
      */
-    public function __construct(?CreateDataSourceRequest $request = NULL, ?CreateDataSourceResponse $response = NULL)
+    public function __construct(
+        ?CreateDataSourceRequest $request = NULL, ?CreateDataSourceResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }

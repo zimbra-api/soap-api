@@ -39,6 +39,7 @@ class GetAllServersResponse implements ResponseInterface
 
     /**
      * Constructor method for GetAllServersResponse
+     *
      * @param array $serverList
      * @return self
      */

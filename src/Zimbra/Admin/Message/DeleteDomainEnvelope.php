@@ -37,6 +37,7 @@ class DeleteDomainEnvelope extends Envelope
 
     /**
      * Constructor method for DeleteDomainEnvelope
+     *
      * @return self
      */
     public function __construct(?DeleteDomainBody $body = NULL, ?Header $header = NULL)

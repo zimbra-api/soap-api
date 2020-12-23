@@ -37,6 +37,7 @@ class GetMemcachedClientConfigEnvelope extends Envelope
 
     /**
      * Constructor method for GetMemcachedClientConfigEnvelope
+     *
      * @return self
      */
     public function __construct(?GetMemcachedClientConfigBody $body = NULL, ?Header $header = NULL)

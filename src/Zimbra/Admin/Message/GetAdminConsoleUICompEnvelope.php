@@ -37,6 +37,7 @@ class GetAdminConsoleUICompEnvelope extends Envelope
 
     /**
      * Constructor method for GetAdminConsoleUICompEnvelope
+     *
      * @return self
      */
     public function __construct(?GetAdminConsoleUICompBody $body = NULL, ?Header $header = NULL)

@@ -38,6 +38,7 @@ class GetAccountResponse implements ResponseInterface
 
     /**
      * Constructor method for GetAccountResponse
+     *
      * @param AccountInfo $account
      * @return self
      */

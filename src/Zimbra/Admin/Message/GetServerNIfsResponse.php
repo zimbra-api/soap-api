@@ -39,6 +39,7 @@ class GetServerNIfsResponse implements ResponseInterface
 
     /**
      * Constructor method for GetServerNIfsResponse
+     *
      * @param array $networkInterfaces
      * @return self
      */

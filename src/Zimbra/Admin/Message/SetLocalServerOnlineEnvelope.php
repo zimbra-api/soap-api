@@ -37,6 +37,7 @@ class SetLocalServerOnlineEnvelope extends Envelope
 
     /**
      * Constructor method for SetLocalServerOnlineEnvelope
+     *
      * @return self
      */
     public function __construct(?SetLocalServerOnlineBody $body = NULL, ?Header $header = NULL)

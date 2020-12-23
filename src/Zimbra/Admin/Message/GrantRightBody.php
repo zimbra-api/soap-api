@@ -44,6 +44,7 @@ class GrantRightBody extends Body
 
     /**
      * Constructor method for GrantRightBody
+     *
      * @return self
      */
     public function __construct(?GrantRightRequest $request = NULL, ?GrantRightResponse $response = NULL)

@@ -37,6 +37,7 @@ class SetPasswordEnvelope extends Envelope
 
     /**
      * Constructor method for SetPasswordEnvelope
+     *
      * @return self
      */
     public function __construct(?SetPasswordBody $body = NULL, ?Header $header = NULL)

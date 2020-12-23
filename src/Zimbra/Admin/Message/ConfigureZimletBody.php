@@ -44,9 +44,12 @@ class ConfigureZimletBody extends Body
 
     /**
      * Constructor method for ConfigureZimletBody
+     *
      * @return self
      */
-    public function __construct(?ConfigureZimletRequest $request = NULL, ?ConfigureZimletResponse $response = NULL)
+    public function __construct(
+        ?ConfigureZimletRequest $request = NULL, ?ConfigureZimletResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }

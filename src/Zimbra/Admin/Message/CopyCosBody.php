@@ -44,6 +44,7 @@ class CopyCosBody extends Body
 
     /**
      * Constructor method for CopyCosBody
+     *
      * @return self
      */
     public function __construct(?CopyCosRequest $request = NULL, ?CopyCosResponse $response = NULL)

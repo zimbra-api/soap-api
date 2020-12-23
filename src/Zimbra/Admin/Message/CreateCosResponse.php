@@ -38,6 +38,7 @@ class CreateCosResponse implements ResponseInterface
 
     /**
      * Constructor method for CreateCosResponse
+     *
      * @param CosInfo $cos
      * @return self
      */

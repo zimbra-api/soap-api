@@ -37,6 +37,7 @@ class ClearCookieEnvelope extends Envelope
 
     /**
      * Constructor method for ClearCookieEnvelope
+     *
      * @return self
      */
     public function __construct(?ClearCookieBody $body = NULL, ?Header $header = NULL)

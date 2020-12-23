@@ -37,6 +37,7 @@ class ComputeAggregateQuotaUsageEnvelope extends Envelope
 
     /**
      * Constructor method for ComputeAggregateQuotaUsageEnvelope
+     *
      * @return self
      */
     public function __construct(?ComputeAggregateQuotaUsageBody $body = NULL, ?Header $header = NULL)

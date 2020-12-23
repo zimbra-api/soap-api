@@ -37,6 +37,7 @@ class DeleteGalSyncAccountEnvelope extends Envelope
 
     /**
      * Constructor method for DeleteGalSyncAccountEnvelope
+     *
      * @return self
      */
     public function __construct(?DeleteGalSyncAccountBody $body = NULL, ?Header $header = NULL)

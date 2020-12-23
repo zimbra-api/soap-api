@@ -37,6 +37,7 @@ class ModifyAccountEnvelope extends Envelope
 
     /**
      * Constructor method for ModifyAccountEnvelope
+     *
      * @return self
      */
     public function __construct(?ModifyAccountBody $body = NULL, ?Header $header = NULL)

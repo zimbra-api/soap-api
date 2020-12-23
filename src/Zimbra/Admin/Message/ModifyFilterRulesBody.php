@@ -44,6 +44,7 @@ class ModifyFilterRulesBody extends Body
 
     /**
      * Constructor method for ModifyFilterRulesBody
+     *
      * @return self
      */
     public function __construct(?ModifyFilterRulesRequest $request = NULL, ?ModifyFilterRulesResponse $response = NULL)

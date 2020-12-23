@@ -44,6 +44,7 @@ class ModifyZimletBody extends Body
 
     /**
      * Constructor method for ModifyZimletBody
+     *
      * @return self
      */
     public function __construct(?ModifyZimletRequest $request = NULL, ?ModifyZimletResponse $response = NULL)

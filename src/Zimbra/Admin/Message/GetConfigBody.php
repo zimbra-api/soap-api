@@ -44,6 +44,7 @@ class GetConfigBody extends Body
 
     /**
      * Constructor method for GetConfigBody
+     *
      * @return self
      */
     public function __construct(?GetConfigRequest $request = NULL, ?GetConfigResponse $response = NULL)

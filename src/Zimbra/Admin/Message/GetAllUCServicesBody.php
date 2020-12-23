@@ -44,9 +44,12 @@ class GetAllUCServicesBody extends Body
 
     /**
      * Constructor method for GetAllUCServicesBody
+     *
      * @return self
      */
-    public function __construct(?GetAllUCServicesRequest $request = NULL, ?GetAllUCServicesResponse $response = NULL)
+    public function __construct(
+        ?GetAllUCServicesRequest $request = NULL, ?GetAllUCServicesResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }

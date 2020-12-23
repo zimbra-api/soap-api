@@ -39,6 +39,7 @@ class GetAllAlwaysOnClustersResponse implements ResponseInterface
 
     /**
      * Constructor method for GetAllAlwaysOnClustersResponse
+     *
      * @param array $clusterList
      * @return self
      */

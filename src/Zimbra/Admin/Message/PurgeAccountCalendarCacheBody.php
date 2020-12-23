@@ -44,6 +44,7 @@ class PurgeAccountCalendarCacheBody extends Body
 
     /**
      * Constructor method for PurgeAccountCalendarCacheBody
+     *
      * @return self
      */
     public function __construct(

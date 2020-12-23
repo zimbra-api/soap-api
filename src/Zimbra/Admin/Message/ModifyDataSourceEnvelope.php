@@ -37,6 +37,7 @@ class ModifyDataSourceEnvelope extends Envelope
 
     /**
      * Constructor method for ModifyDataSourceEnvelope
+     *
      * @return self
      */
     public function __construct(?ModifyDataSourceBody $body = NULL, ?Header $header = NULL)

@@ -44,6 +44,7 @@ class ReIndexBody extends Body
 
     /**
      * Constructor method for ReIndexBody
+     *
      * @return self
      */
     public function __construct(?ReIndexRequest $request = NULL, ?ReIndexResponse $response = NULL)

@@ -37,6 +37,7 @@ class CountAccountEnvelope extends Envelope
 
     /**
      * Constructor method for CountAccountEnvelope
+     *
      * @return self
      */
     public function __construct(?CountAccountBody $body = NULL, ?Header $header = NULL)

@@ -38,7 +38,8 @@ class ChangePrimaryEmailResponse implements ResponseInterface
 
     /**
      * Constructor method for ChangePrimaryEmailResponse
-     * @param Account $account Information about account after rename
+     *
+     * @param Account $account
      * @return self
      */
     public function __construct(Account $account)

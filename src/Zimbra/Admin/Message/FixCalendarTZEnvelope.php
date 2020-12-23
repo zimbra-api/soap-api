@@ -37,6 +37,7 @@ class FixCalendarTZEnvelope extends Envelope
 
     /**
      * Constructor method for FixCalendarTZEnvelope
+     *
      * @return self
      */
     public function __construct(?FixCalendarTZBody $body = NULL, ?Header $header = NULL)

@@ -44,9 +44,12 @@ class GetAllXMPPComponentsBody extends Body
 
     /**
      * Constructor method for GetAllXMPPComponentsBody
+     *
      * @return self
      */
-    public function __construct(?GetAllXMPPComponentsRequest $request = NULL, ?GetAllXMPPComponentsResponse $response = NULL)
+    public function __construct(
+        ?GetAllXMPPComponentsRequest $request = NULL, ?GetAllXMPPComponentsResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }

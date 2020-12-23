@@ -44,6 +44,7 @@ class RemoveAccountLoggerBody extends Body
 
     /**
      * Constructor method for RemoveAccountLoggerBody
+     *
      * @return self
      */
     public function __construct(?RemoveAccountLoggerRequest $request = NULL, ?RemoveAccountLoggerResponse $response = NULL)

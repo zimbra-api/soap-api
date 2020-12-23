@@ -44,6 +44,7 @@ class MailQueueFlushBody extends Body
 
     /**
      * Constructor method for MailQueueFlushBody
+     *
      * @return self
      */
     public function __construct(?MailQueueFlushRequest $request = NULL, ?MailQueueFlushResponse $response = NULL)

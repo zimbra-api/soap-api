@@ -37,6 +37,7 @@ class GetDataSourcesEnvelope extends Envelope
 
     /**
      * Constructor method for GetDataSourcesEnvelope
+     *
      * @return self
      */
     public function __construct(?GetDataSourcesBody $body = NULL, ?Header $header = NULL)

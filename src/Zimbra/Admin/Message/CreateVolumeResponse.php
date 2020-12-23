@@ -38,6 +38,7 @@ class CreateVolumeResponse implements ResponseInterface
 
     /**
      * Constructor method for CreateVolumeResponse
+     *
      * @param VolumeInfo $volume
      * @return self
      */

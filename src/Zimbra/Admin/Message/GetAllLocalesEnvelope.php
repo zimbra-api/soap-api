@@ -37,6 +37,7 @@ class GetAllLocalesEnvelope extends Envelope
 
     /**
      * Constructor method for GetAllLocalesEnvelope
+     *
      * @return self
      */
     public function __construct(?GetAllLocalesBody $body = NULL, ?Header $header = NULL)

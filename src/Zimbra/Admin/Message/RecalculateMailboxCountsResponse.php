@@ -38,6 +38,7 @@ class RecalculateMailboxCountsResponse implements ResponseInterface
 
     /**
      * Constructor method for RecalculateMailboxCountsResponse
+     *
      * @param Mailbox $mailbox
      * @return self
      */

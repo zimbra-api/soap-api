@@ -37,6 +37,7 @@ class GetCosEnvelope extends Envelope
 
     /**
      * Constructor method for GetCosEnvelope
+     *
      * @return self
      */
     public function __construct(?GetCosBody $body = NULL, ?Header $header = NULL)

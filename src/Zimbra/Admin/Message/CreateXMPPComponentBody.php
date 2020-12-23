@@ -44,9 +44,12 @@ class CreateXMPPComponentBody extends Body
 
     /**
      * Constructor method for CreateXMPPComponentBody
+     *
      * @return self
      */
-    public function __construct(?CreateXMPPComponentRequest $request = NULL, ?CreateXMPPComponentResponse $response = NULL)
+    public function __construct(
+        ?CreateXMPPComponentRequest $request = NULL, ?CreateXMPPComponentResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }

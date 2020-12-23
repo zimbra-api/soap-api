@@ -72,6 +72,7 @@ class DedupeBlobsResponse implements ResponseInterface
 
     /**
      * Constructor method for DedupeBlobsResponse
+     *
      * @param  DedupStatus $action
      * @param  int $totalSize
      * @param  int $totalCount

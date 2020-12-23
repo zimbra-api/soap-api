@@ -44,6 +44,7 @@ class CountObjectsBody extends Body
 
     /**
      * Constructor method for CountObjectsBody
+     *
      * @return self
      */
     public function __construct(?CountObjectsRequest $request = NULL, ?CountObjectsResponse $response = NULL)

@@ -44,9 +44,12 @@ class CreateDistributionListBody extends Body
 
     /**
      * Constructor method for CreateDistributionListBody
+     *
      * @return self
      */
-    public function __construct(?CreateDistributionListRequest $request = NULL, ?CreateDistributionListResponse $response = NULL)
+    public function __construct(
+        ?CreateDistributionListRequest $request = NULL, ?CreateDistributionListResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }

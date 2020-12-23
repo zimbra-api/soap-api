@@ -37,6 +37,7 @@ class GetAllMailboxesEnvelope extends Envelope
 
     /**
      * Constructor method for GetAllMailboxesEnvelope
+     *
      * @return self
      */
     public function __construct(?GetAllMailboxesBody $body = NULL, ?Header $header = NULL)

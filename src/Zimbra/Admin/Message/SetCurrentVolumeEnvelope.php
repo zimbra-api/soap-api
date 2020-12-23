@@ -37,6 +37,7 @@ class SetCurrentVolumeEnvelope extends Envelope
 
     /**
      * Constructor method for SetCurrentVolumeEnvelope
+     *
      * @return self
      */
     public function __construct(?SetCurrentVolumeBody $body = NULL, ?Header $header = NULL)

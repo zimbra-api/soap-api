@@ -37,6 +37,7 @@ class GetAttributeInfoEnvelope extends Envelope
 
     /**
      * Constructor method for GetAttributeInfoEnvelope
+     *
      * @return self
      */
     public function __construct(?GetAttributeInfoBody $body = NULL, ?Header $header = NULL)

@@ -44,6 +44,7 @@ class ContactBackupBody extends Body
 
     /**
      * Constructor method for ContactBackupBody
+     *
      * @return self
      */
     public function __construct(?ContactBackupRequest $request = NULL, ?ContactBackupResponse $response = NULL)

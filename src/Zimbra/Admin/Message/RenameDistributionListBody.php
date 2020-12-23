@@ -44,6 +44,7 @@ class RenameDistributionListBody extends Body
 
     /**
      * Constructor method for RenameDistributionListBody
+     *
      * @return self
      */
     public function __construct(

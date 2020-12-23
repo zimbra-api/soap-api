@@ -44,6 +44,7 @@ class ModifyDataSourceBody extends Body
 
     /**
      * Constructor method for ModifyDataSourceBody
+     *
      * @return self
      */
     public function __construct(?ModifyDataSourceRequest $request = NULL, ?ModifyDataSourceResponse $response = NULL)

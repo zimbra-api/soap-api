@@ -44,6 +44,7 @@ class ModifyUCServiceBody extends Body
 
     /**
      * Constructor method for ModifyUCServiceBody
+     *
      * @return self
      */
     public function __construct(?ModifyUCServiceRequest $request = NULL, ?ModifyUCServiceResponse $response = NULL)

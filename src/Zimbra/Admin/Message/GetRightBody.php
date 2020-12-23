@@ -44,6 +44,7 @@ class GetRightBody extends Body
 
     /**
      * Constructor method for GetRightBody
+     *
      * @return self
      */
     public function __construct(?GetRightRequest $request = NULL, ?GetRightResponse $response = NULL)

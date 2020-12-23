@@ -37,6 +37,7 @@ class DedupeBlobsEnvelope extends Envelope
 
     /**
      * Constructor method for DedupeBlobsEnvelope
+     *
      * @return self
      */
     public function __construct(?DedupeBlobsBody $body = NULL, ?Header $header = NULL)

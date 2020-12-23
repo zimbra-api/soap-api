@@ -37,6 +37,7 @@ class ModifyDistributionListEnvelope extends Envelope
 
     /**
      * Constructor method for ModifyDistributionListEnvelope
+     *
      * @return self
      */
     public function __construct(?ModifyDistributionListBody $body = NULL, ?Header $header = NULL)

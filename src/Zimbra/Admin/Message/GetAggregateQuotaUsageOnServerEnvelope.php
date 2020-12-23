@@ -37,6 +37,7 @@ class GetAggregateQuotaUsageOnServerEnvelope extends Envelope
 
     /**
      * Constructor method for GetAggregateQuotaUsageOnServerEnvelope
+     *
      * @return self
      */
     public function __construct(?GetAggregateQuotaUsageOnServerBody $body = NULL, ?Header $header = NULL)

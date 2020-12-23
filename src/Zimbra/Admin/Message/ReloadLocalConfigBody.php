@@ -44,6 +44,7 @@ class ReloadLocalConfigBody extends Body
 
     /**
      * Constructor method for ReloadLocalConfigBody
+     *
      * @return self
      */
     public function __construct(

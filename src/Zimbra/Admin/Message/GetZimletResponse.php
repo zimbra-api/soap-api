@@ -38,6 +38,7 @@ class GetZimletResponse implements ResponseInterface
 
     /**
      * Constructor method for GetZimletResponse
+     *
      * @param ZimletInfo $zimlet
      * @return self
      */

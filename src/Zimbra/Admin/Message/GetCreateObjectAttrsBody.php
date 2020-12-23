@@ -44,6 +44,7 @@ class GetCreateObjectAttrsBody extends Body
 
     /**
      * Constructor method for GetCreateObjectAttrsBody
+     *
      * @return self
      */
     public function __construct(?GetCreateObjectAttrsRequest $request = NULL, ?GetCreateObjectAttrsResponse $response = NULL)

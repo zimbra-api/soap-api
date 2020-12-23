@@ -37,6 +37,7 @@ class GetAllRightsEnvelope extends Envelope
 
     /**
      * Constructor method for GetAllRightsEnvelope
+     *
      * @return self
      */
     public function __construct(?GetAllRightsBody $body = NULL, ?Header $header = NULL)

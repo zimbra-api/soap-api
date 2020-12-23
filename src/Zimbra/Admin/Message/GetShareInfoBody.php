@@ -44,6 +44,7 @@ class GetShareInfoBody extends Body
 
     /**
      * Constructor method for GetShareInfoBody
+     *
      * @return self
      */
     public function __construct(?GetShareInfoRequest $request = NULL, ?GetShareInfoResponse $response = NULL)

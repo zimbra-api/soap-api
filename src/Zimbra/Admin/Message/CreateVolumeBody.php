@@ -44,6 +44,7 @@ class CreateVolumeBody extends Body
 
     /**
      * Constructor method for CreateVolumeBody
+     *
      * @return self
      */
     public function __construct(?CreateVolumeRequest $request = NULL, ?CreateVolumeResponse $response = NULL)

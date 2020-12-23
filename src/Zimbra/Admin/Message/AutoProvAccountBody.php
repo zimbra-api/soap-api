@@ -44,9 +44,12 @@ class AutoProvAccountBody extends Body
 
     /**
      * Constructor method for AutoProvAccountBody
+     *
      * @return self
      */
-    public function __construct(?AutoProvAccountRequest $request = NULL, ?AutoProvAccountResponse $response = NULL)
+    public function __construct(
+        ?AutoProvAccountRequest $request = NULL, ?AutoProvAccountResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }

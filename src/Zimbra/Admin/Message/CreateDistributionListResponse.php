@@ -38,6 +38,7 @@ class CreateDistributionListResponse implements ResponseInterface
 
     /**
      * Constructor method for CreateDistributionListResponse
+     *
      * @param DistributionListInfo $dl
      * @return self
      */

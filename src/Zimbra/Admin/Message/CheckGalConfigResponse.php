@@ -58,6 +58,7 @@ class CheckGalConfigResponse implements ResponseInterface
 
     /**
      * Constructor method for CheckGalConfigResponse
+     *
      * @param string $code
      * @param string $message
      * @param array $galContacts

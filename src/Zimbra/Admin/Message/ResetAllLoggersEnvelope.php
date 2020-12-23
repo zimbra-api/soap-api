@@ -37,6 +37,7 @@ class ResetAllLoggersEnvelope extends Envelope
 
     /**
      * Constructor method for ResetAllLoggersEnvelope
+     *
      * @return self
      */
     public function __construct(?ResetAllLoggersBody $body = NULL, ?Header $header = NULL)

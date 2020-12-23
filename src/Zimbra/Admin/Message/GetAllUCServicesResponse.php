@@ -39,6 +39,7 @@ class GetAllUCServicesResponse implements ResponseInterface
 
     /**
      * Constructor method for GetAllUCServicesResponse
+     *
      * @param array $ucServiceList
      * @return self
      */

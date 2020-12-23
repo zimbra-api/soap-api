@@ -38,6 +38,7 @@ class GetMailboxStatsResponse implements ResponseInterface
 
     /**
      * Constructor method for GetMailboxStatsResponse
+     *
      * @param MailboxStats $stats
      * @return self
      */

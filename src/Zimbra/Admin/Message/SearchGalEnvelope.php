@@ -37,6 +37,7 @@ class SearchGalEnvelope extends Envelope
 
     /**
      * Constructor method for SearchGalEnvelope
+     *
      * @return self
      */
     public function __construct(?SearchGalBody $body = NULL, ?Header $header = NULL)

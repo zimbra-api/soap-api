@@ -39,6 +39,7 @@ class GetAllAdminAccountsResponse implements ResponseInterface
 
     /**
      * Constructor method for GetAllAdminAccountsResponse
+     *
      * @param array $accountList
      * @return self
      */

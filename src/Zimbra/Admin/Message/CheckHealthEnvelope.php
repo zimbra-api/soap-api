@@ -37,6 +37,7 @@ class CheckHealthEnvelope extends Envelope
 
     /**
      * Constructor method for CheckHealthEnvelope
+     *
      * @return self
      */
     public function __construct(?CheckHealthBody $body = NULL, ?Header $header = NULL)

@@ -37,6 +37,7 @@ class PurgeAccountCalendarCacheEnvelope extends Envelope
 
     /**
      * Constructor method for PurgeAccountCalendarCacheEnvelope
+     *
      * @return self
      */
     public function __construct(?PurgeAccountCalendarCacheBody $body = NULL, ?Header $header = NULL)

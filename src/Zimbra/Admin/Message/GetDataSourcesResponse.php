@@ -39,6 +39,7 @@ class GetDataSourcesResponse implements ResponseInterface
 
     /**
      * Constructor method for GetDataSourcesResponse
+     *
      * @param array $dataSources
      * @return self
      */

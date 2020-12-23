@@ -37,6 +37,7 @@ class RemoveAccountLoggerEnvelope extends Envelope
 
     /**
      * Constructor method for RemoveAccountLoggerEnvelope
+     *
      * @return self
      */
     public function __construct(?RemoveAccountLoggerBody $body = NULL, ?Header $header = NULL)

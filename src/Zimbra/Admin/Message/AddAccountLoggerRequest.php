@@ -61,6 +61,7 @@ class AddAccountLoggerRequest extends Request
 
     /**
      * Constructor method for AddAccountLoggerRequest
+     *
      * @param  Logger $logger
      * @param  Account $account
      * @param  string $id

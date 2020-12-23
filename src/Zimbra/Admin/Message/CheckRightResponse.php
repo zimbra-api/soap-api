@@ -48,6 +48,7 @@ class CheckRightResponse implements ResponseInterface
 
     /**
      * Constructor method for CheckRightResponse
+     *
      * @param bool $allow
      * @param RightViaInfo $via
      * @return self

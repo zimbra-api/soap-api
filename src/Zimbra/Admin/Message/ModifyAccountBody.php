@@ -44,6 +44,7 @@ class ModifyAccountBody extends Body
 
     /**
      * Constructor method for ModifyAccountBody
+     *
      * @return self
      */
     public function __construct(?ModifyAccountRequest $request = NULL, ?ModifyAccountResponse $response = NULL)

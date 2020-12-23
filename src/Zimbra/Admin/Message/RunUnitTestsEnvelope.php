@@ -37,6 +37,7 @@ class RunUnitTestsEnvelope extends Envelope
 
     /**
      * Constructor method for RunUnitTestsEnvelope
+     *
      * @return self
      */
     public function __construct(?RunUnitTestsBody $body = NULL, ?Header $header = NULL)

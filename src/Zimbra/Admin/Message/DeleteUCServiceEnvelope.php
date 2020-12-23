@@ -37,6 +37,7 @@ class DeleteUCServiceEnvelope extends Envelope
 
     /**
      * Constructor method for DeleteUCServiceEnvelope
+     *
      * @return self
      */
     public function __construct(?DeleteUCServiceBody $body = NULL, ?Header $header = NULL)

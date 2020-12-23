@@ -37,6 +37,7 @@ class GetShareInfoEnvelope extends Envelope
 
     /**
      * Constructor method for GetShareInfoEnvelope
+     *
      * @return self
      */
     public function __construct(?GetShareInfoBody $body = NULL, ?Header $header = NULL)

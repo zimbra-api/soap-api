@@ -44,9 +44,12 @@ class ChangePrimaryEmailBody extends Body
 
     /**
      * Constructor method for ChangePrimaryEmailBody
+     *
      * @return self
      */
-    public function __construct(?ChangePrimaryEmailRequest $request = NULL, ?ChangePrimaryEmailResponse $response = NULL)
+    public function __construct(
+        ?ChangePrimaryEmailRequest $request = NULL, ?ChangePrimaryEmailResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }

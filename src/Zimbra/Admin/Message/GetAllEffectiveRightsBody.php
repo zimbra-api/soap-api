@@ -44,9 +44,12 @@ class GetAllEffectiveRightsBody extends Body
 
     /**
      * Constructor method for GetAllEffectiveRightsBody
+     *
      * @return self
      */
-    public function __construct(?GetAllEffectiveRightsRequest $request = NULL, ?GetAllEffectiveRightsResponse $response = NULL)
+    public function __construct(
+        ?GetAllEffectiveRightsRequest $request = NULL, ?GetAllEffectiveRightsResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }

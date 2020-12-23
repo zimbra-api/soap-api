@@ -44,6 +44,7 @@ class GetAllVolumesBody extends Body
 
     /**
      * Constructor method for GetAllVolumesBody
+     *
      * @return self
      */
     public function __construct(?GetAllVolumesRequest $request = NULL, ?GetAllVolumesResponse $response = NULL)

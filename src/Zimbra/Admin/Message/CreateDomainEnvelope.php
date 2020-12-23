@@ -37,6 +37,7 @@ class CreateDomainEnvelope extends Envelope
 
     /**
      * Constructor method for CreateDomainEnvelope
+     *
      * @return self
      */
     public function __construct(?CreateDomainBody $body = NULL, ?Header $header = NULL)

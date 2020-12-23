@@ -37,6 +37,7 @@ class GetFreeBusyQueueInfoEnvelope extends Envelope
 
     /**
      * Constructor method for GetFreeBusyQueueInfoEnvelope
+     *
      * @return self
      */
     public function __construct(?GetFreeBusyQueueInfoBody $body = NULL, ?Header $header = NULL)

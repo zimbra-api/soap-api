@@ -37,6 +37,7 @@ class DeleteAlwaysOnClusterEnvelope extends Envelope
 
     /**
      * Constructor method for DeleteAlwaysOnClusterEnvelope
+     *
      * @return self
      */
     public function __construct(?DeleteAlwaysOnClusterBody $body = NULL, ?Header $header = NULL)

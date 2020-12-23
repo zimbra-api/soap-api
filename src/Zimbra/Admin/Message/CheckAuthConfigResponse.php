@@ -56,6 +56,7 @@ class CheckAuthConfigResponse implements ResponseInterface
 
     /**
      * Constructor method for CheckAuthConfigResponse
+     *
      * @param string $code
      * @param string $bindDn
      * @param string $message

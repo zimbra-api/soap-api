@@ -44,6 +44,7 @@ class MigrateAccountBody extends Body
 
     /**
      * Constructor method for MigrateAccountBody
+     *
      * @return self
      */
     public function __construct(?MigrateAccountRequest $request = NULL, ?MigrateAccountResponse $response = NULL)

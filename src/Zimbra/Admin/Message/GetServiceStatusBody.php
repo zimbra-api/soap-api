@@ -44,6 +44,7 @@ class GetServiceStatusBody extends Body
 
     /**
      * Constructor method for GetServiceStatusBody
+     *
      * @return self
      */
     public function __construct(?GetServiceStatusRequest $request = NULL, ?GetServiceStatusResponse $response = NULL)

@@ -37,6 +37,7 @@ class CreateCosEnvelope extends Envelope
 
     /**
      * Constructor method for CreateCosEnvelope
+     *
      * @return self
      */
     public function __construct(?CreateCosBody $body = NULL, ?Header $header = NULL)

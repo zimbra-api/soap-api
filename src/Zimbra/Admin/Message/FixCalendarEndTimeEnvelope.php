@@ -37,6 +37,7 @@ class FixCalendarEndTimeEnvelope extends Envelope
 
     /**
      * Constructor method for FixCalendarEndTimeEnvelope
+     *
      * @return self
      */
     public function __construct(?FixCalendarEndTimeBody $body = NULL, ?Header $header = NULL)

@@ -40,6 +40,7 @@ class GetCurrentVolumesResponse implements ResponseInterface
 
     /**
      * Constructor method for GetCurrentVolumesResponse
+     *
      * @param array $volumes
      * @return self
      */

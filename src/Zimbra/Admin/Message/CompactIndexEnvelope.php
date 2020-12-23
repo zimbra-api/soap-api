@@ -37,6 +37,7 @@ class CompactIndexEnvelope extends Envelope
 
     /**
      * Constructor method for CompactIndexEnvelope
+     *
      * @return self
      */
     public function __construct(?CompactIndexBody $body = NULL, ?Header $header = NULL)

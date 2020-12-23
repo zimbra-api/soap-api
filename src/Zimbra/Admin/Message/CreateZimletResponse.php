@@ -38,6 +38,7 @@ class CreateZimletResponse implements ResponseInterface
 
     /**
      * Constructor method for CreateZimletResponse
+     *
      * @param ZimletInfo $zimlet
      * @return self
      */

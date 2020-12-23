@@ -38,6 +38,7 @@ class CreateAlwaysOnClusterResponse implements ResponseInterface
 
     /**
      * Constructor method for CreateAlwaysOnClusterResponse
+     *
      * @param AlwaysOnClusterInfo $cluster
      * @return self
      */

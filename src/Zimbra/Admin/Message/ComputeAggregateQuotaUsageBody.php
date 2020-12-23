@@ -44,9 +44,12 @@ class ComputeAggregateQuotaUsageBody extends Body
 
     /**
      * Constructor method for ComputeAggregateQuotaUsageBody
+     *
      * @return self
      */
-    public function __construct(?ComputeAggregateQuotaUsageRequest $request = NULL, ?ComputeAggregateQuotaUsageResponse $response = NULL)
+    public function __construct(
+        ?ComputeAggregateQuotaUsageRequest $request = NULL, ?ComputeAggregateQuotaUsageResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }

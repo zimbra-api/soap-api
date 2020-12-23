@@ -38,6 +38,7 @@ class GetVersionInfoResponse implements ResponseInterface
 
     /**
      * Constructor method for GetVersionInfoResponse
+     *
      * @param VersionInfo $info
      * @return self
      */

@@ -44,6 +44,7 @@ class RemoveDistributionListAliasBody extends Body
 
     /**
      * Constructor method for RemoveDistributionListAliasBody
+     *
      * @return self
      */
     public function __construct(

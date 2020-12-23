@@ -44,6 +44,7 @@ class SetLocalServerOnlineBody extends Body
 
     /**
      * Constructor method for SetLocalServerOnlineBody
+     *
      * @return self
      */
     public function __construct(

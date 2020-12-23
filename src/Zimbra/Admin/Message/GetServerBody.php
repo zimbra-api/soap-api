@@ -44,6 +44,7 @@ class GetServerBody extends Body
 
     /**
      * Constructor method for GetServerBody
+     *
      * @return self
      */
     public function __construct(?GetServerRequest $request = NULL, ?GetServerResponse $response = NULL)

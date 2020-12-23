@@ -44,6 +44,7 @@ class RecalculateMailboxCountsBody extends Body
 
     /**
      * Constructor method for RecalculateMailboxCountsBody
+     *
      * @return self
      */
     public function __construct(

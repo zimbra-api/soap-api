@@ -37,6 +37,7 @@ class CheckDomainMXRecordEnvelope extends Envelope
 
     /**
      * Constructor method for CheckDomainMXRecordEnvelope
+     *
      * @return self
      */
     public function __construct(?CheckDomainMXRecordBody $body = NULL, ?Header $header = NULL)

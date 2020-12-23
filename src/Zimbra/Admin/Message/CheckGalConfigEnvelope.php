@@ -37,6 +37,7 @@ class CheckGalConfigEnvelope extends Envelope
 
     /**
      * Constructor method for CheckGalConfigEnvelope
+     *
      * @return self
      */
     public function __construct(?CheckGalConfigBody $body = NULL, ?Header $header = NULL)

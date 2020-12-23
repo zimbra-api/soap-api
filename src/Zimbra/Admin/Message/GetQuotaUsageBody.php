@@ -44,6 +44,7 @@ class GetQuotaUsageBody extends Body
 
     /**
      * Constructor method for GetQuotaUsageBody
+     *
      * @return self
      */
     public function __construct(?GetQuotaUsageRequest $request = NULL, ?GetQuotaUsageResponse $response = NULL)

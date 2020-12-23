@@ -44,6 +44,7 @@ class VerifyStoreManagerBody extends Body
 
     /**
      * Constructor method for VerifyStoreManagerBody
+     *
      * @return self
      */
     public function __construct(

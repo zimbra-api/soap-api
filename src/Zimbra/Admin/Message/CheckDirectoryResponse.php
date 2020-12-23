@@ -39,6 +39,7 @@ class CheckDirectoryResponse implements ResponseInterface
 
     /**
      * Constructor method for CheckDirectoryResponse
+     *
      * @param  array  $paths
      * @return self
      */

@@ -37,6 +37,7 @@ class AutoCompleteGalEnvelope extends Envelope
 
     /**
      * Constructor method for AutoCompleteGalEnvelope
+     *
      * @return self
      */
     public function __construct(?AutoCompleteGalBody $body = NULL, ?Header $header = NULL)

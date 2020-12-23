@@ -44,9 +44,12 @@ class AddDistributionListAliasBody extends Body
 
     /**
      * Constructor method for AddDistributionListAliasBody
+     *
      * @return self
      */
-    public function __construct(?AddDistributionListAliasRequest $request = NULL, ?AddDistributionListAliasResponse $response = NULL)
+    public function __construct(
+        ?AddDistributionListAliasRequest $request = NULL, ?AddDistributionListAliasResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }

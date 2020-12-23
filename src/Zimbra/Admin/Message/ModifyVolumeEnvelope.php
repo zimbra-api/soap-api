@@ -37,6 +37,7 @@ class ModifyVolumeEnvelope extends Envelope
 
     /**
      * Constructor method for ModifyVolumeEnvelope
+     *
      * @return self
      */
     public function __construct(?ModifyVolumeBody $body = NULL, ?Header $header = NULL)

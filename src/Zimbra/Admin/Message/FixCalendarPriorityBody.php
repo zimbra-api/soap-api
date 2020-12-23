@@ -44,9 +44,12 @@ class FixCalendarPriorityBody extends Body
 
     /**
      * Constructor method for FixCalendarPriorityBody
+     *
      * @return self
      */
-    public function __construct(?FixCalendarPriorityRequest $request = NULL, ?FixCalendarPriorityResponse $response = NULL)
+    public function __construct(
+        ?FixCalendarPriorityRequest $request = NULL, ?FixCalendarPriorityResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }

@@ -39,6 +39,7 @@ class GetAllVolumesResponse implements ResponseInterface
 
     /**
      * Constructor method for GetAllVolumesResponse
+     *
      * @param array $volumes
      * @return self
      */

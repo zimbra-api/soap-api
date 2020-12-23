@@ -39,6 +39,7 @@ class CheckBlobConsistencyResponse implements ResponseInterface
 
     /**
      * Constructor method for CheckBlobConsistencyResponse
+     *
      * @param  array  $mailboxes
      * @return self
      */

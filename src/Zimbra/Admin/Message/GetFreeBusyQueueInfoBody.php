@@ -44,9 +44,12 @@ class GetFreeBusyQueueInfoBody extends Body
 
     /**
      * Constructor method for GetFreeBusyQueueInfoBody
+     *
      * @return self
      */
-    public function __construct(?GetFreeBusyQueueInfoRequest $request = NULL, ?GetFreeBusyQueueInfoResponse $response = NULL)
+    public function __construct(
+        ?GetFreeBusyQueueInfoRequest $request = NULL, ?GetFreeBusyQueueInfoResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }

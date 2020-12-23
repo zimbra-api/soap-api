@@ -37,6 +37,7 @@ class NoOpEnvelope extends Envelope
 
     /**
      * Constructor method for NoOpEnvelope
+     *
      * @return self
      */
     public function __construct(?NoOpBody $body = NULL, ?Header $header = NULL)

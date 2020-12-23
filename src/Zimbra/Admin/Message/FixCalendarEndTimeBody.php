@@ -44,9 +44,12 @@ class FixCalendarEndTimeBody extends Body
 
     /**
      * Constructor method for FixCalendarEndTimeBody
+     *
      * @return self
      */
-    public function __construct(?FixCalendarEndTimeRequest $request = NULL, ?FixCalendarEndTimeResponse $response = NULL)
+    public function __construct(
+        ?FixCalendarEndTimeRequest $request = NULL, ?FixCalendarEndTimeResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }

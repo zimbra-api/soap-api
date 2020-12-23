@@ -44,9 +44,12 @@ class CheckGalConfigBody extends Body
 
     /**
      * Constructor method for CheckGalConfigBody
+     *
      * @return self
      */
-    public function __construct(?CheckGalConfigRequest $request = NULL, ?CheckGalConfigResponse $response = NULL)
+    public function __construct(
+        ?CheckGalConfigRequest $request = NULL, ?CheckGalConfigResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }

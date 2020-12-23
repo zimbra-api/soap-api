@@ -44,6 +44,7 @@ class CheckDirectoryBody extends Body
 
     /**
      * Constructor method for CheckDirectoryBody
+     *
      * @return self
      */
     public function __construct(?CheckDirectoryRequest $request = NULL, ?CheckDirectoryResponse $response = NULL)

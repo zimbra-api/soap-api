@@ -44,6 +44,7 @@ class ExportAndDeleteItemsBody extends Body
 
     /**
      * Constructor method for ExportAndDeleteItemsBody
+     *
      * @return self
      */
     public function __construct(?ExportAndDeleteItemsRequest $request = NULL, ?ExportAndDeleteItemsResponse $response = NULL)

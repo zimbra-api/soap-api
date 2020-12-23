@@ -44,6 +44,7 @@ class GetCosBody extends Body
 
     /**
      * Constructor method for GetCosBody
+     *
      * @return self
      */
     public function __construct(?GetCosRequest $request = NULL, ?GetCosResponse $response = NULL)

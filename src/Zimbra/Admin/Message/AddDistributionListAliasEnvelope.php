@@ -37,6 +37,7 @@ class AddDistributionListAliasEnvelope extends Envelope
 
     /**
      * Constructor method for AddDistributionListAliasEnvelope
+     *
      * @return self
      */
     public function __construct(?AddDistributionListAliasBody $body = NULL, ?Header $header = NULL)

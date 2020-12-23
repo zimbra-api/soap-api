@@ -37,6 +37,7 @@ class ModifyCosEnvelope extends Envelope
 
     /**
      * Constructor method for ModifyCosEnvelope
+     *
      * @return self
      */
     public function __construct(?ModifyCosBody $body = NULL, ?Header $header = NULL)

@@ -37,6 +37,7 @@ class ModifyZimletEnvelope extends Envelope
 
     /**
      * Constructor method for ModifyZimletEnvelope
+     *
      * @return self
      */
     public function __construct(?ModifyZimletBody $body = NULL, ?Header $header = NULL)

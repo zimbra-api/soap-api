@@ -44,6 +44,7 @@ class DeleteMailboxBody extends Body
 
     /**
      * Constructor method for DeleteMailboxBody
+     *
      * @return self
      */
     public function __construct(?DeleteMailboxRequest $request = NULL, ?DeleteMailboxResponse $response = NULL)

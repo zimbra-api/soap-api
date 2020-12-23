@@ -44,6 +44,7 @@ class SetServerOfflineBody extends Body
 
     /**
      * Constructor method for SetServerOfflineBody
+     *
      * @return self
      */
     public function __construct(

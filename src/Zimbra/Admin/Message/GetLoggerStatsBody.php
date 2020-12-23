@@ -44,6 +44,7 @@ class GetLoggerStatsBody extends Body
 
     /**
      * Constructor method for GetLoggerStatsBody
+     *
      * @return self
      */
     public function __construct(?GetLoggerStatsRequest $request = NULL, ?GetLoggerStatsResponse $response = NULL)

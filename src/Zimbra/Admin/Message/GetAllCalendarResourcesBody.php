@@ -44,6 +44,7 @@ class GetAllCalendarResourcesBody extends Body
 
     /**
      * Constructor method for GetAllCalendarResourcesBody
+     *
      * @return self
      */
     public function __construct(?GetAllCalendarResourcesRequest $request = NULL, ?GetAllCalendarResourcesResponse $response = NULL)

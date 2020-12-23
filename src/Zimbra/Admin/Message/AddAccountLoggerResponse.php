@@ -39,6 +39,7 @@ class AddAccountLoggerResponse implements ResponseInterface
 
     /**
      * Constructor method for AddAccountLoggerResponse
+     *
      * @param array $loggers
      * @return self
      */

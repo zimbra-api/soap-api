@@ -44,9 +44,12 @@ class GetAllAlwaysOnClustersBody extends Body
 
     /**
      * Constructor method for GetAllAlwaysOnClustersBody
+     *
      * @return self
      */
-    public function __construct(?GetAllAlwaysOnClustersRequest $request = NULL, ?GetAllAlwaysOnClustersResponse $response = NULL)
+    public function __construct(
+        ?GetAllAlwaysOnClustersRequest $request = NULL, ?GetAllAlwaysOnClustersResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }

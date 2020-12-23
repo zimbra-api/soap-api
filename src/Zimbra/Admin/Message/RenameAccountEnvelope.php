@@ -37,6 +37,7 @@ class RenameAccountEnvelope extends Envelope
 
     /**
      * Constructor method for RenameAccountEnvelope
+     *
      * @return self
      */
     public function __construct(?RenameAccountBody $body = NULL, ?Header $header = NULL)

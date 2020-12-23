@@ -37,6 +37,7 @@ class CreateAccountEnvelope extends Envelope
 
     /**
      * Constructor method for CreateAccountEnvelope
+     *
      * @return self
      */
     public function __construct(?CreateAccountBody $body = NULL, ?Header $header = NULL)

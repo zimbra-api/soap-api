@@ -44,6 +44,7 @@ class RenameUCServiceBody extends Body
 
     /**
      * Constructor method for RenameUCServiceBody
+     *
      * @return self
      */
     public function __construct(?RenameUCServiceRequest $request = NULL, ?RenameUCServiceResponse $response = NULL)

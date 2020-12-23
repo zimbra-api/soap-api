@@ -85,6 +85,7 @@ class GetAccountInfoResponse implements ResponseInterface
 
     /**
      * Constructor method for GetAccountInfoResponse
+     *
      * @param string $name
      * @param array $attrList
      * @param CosInfo $cos

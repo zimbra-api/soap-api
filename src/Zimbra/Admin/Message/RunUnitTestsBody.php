@@ -44,6 +44,7 @@ class RunUnitTestsBody extends Body
 
     /**
      * Constructor method for RunUnitTestsBody
+     *
      * @return self
      */
     public function __construct(?RunUnitTestsRequest $request = NULL, ?RunUnitTestsResponse $response = NULL)

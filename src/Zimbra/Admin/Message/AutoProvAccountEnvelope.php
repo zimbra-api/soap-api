@@ -37,6 +37,7 @@ class AutoProvAccountEnvelope extends Envelope
 
     /**
      * Constructor method for AutoProvAccountEnvelope
+     *
      * @return self
      */
     public function __construct(?AutoProvAccountBody $body = NULL, ?Header $header = NULL)

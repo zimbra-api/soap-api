@@ -44,9 +44,12 @@ class CheckPasswordStrengthBody extends Body
 
     /**
      * Constructor method for CheckPasswordStrengthBody
+     *
      * @return self
      */
-    public function __construct(?CheckPasswordStrengthRequest $request = NULL, ?CheckPasswordStrengthResponse $response = NULL)
+    public function __construct(
+        ?CheckPasswordStrengthRequest $request = NULL, ?CheckPasswordStrengthResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }

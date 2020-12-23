@@ -44,6 +44,7 @@ class ResetAllLoggersBody extends Body
 
     /**
      * Constructor method for ResetAllLoggersBody
+     *
      * @return self
      */
     public function __construct(?ResetAllLoggersRequest $request = NULL, ?ResetAllLoggersResponse $response = NULL)

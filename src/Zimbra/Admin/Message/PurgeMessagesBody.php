@@ -44,6 +44,7 @@ class PurgeMessagesBody extends Body
 
     /**
      * Constructor method for PurgeMessagesBody
+     *
      * @return self
      */
     public function __construct(?PurgeMessagesRequest $request = NULL, ?PurgeMessagesResponse $response = NULL)

@@ -44,6 +44,7 @@ class SetPasswordBody extends Body
 
     /**
      * Constructor method for SetPasswordBody
+     *
      * @return self
      */
     public function __construct(?SetPasswordRequest $request = NULL, ?SetPasswordResponse $response = NULL)

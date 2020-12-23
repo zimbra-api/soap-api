@@ -44,6 +44,7 @@ class GetRightsDocBody extends Body
 
     /**
      * Constructor method for GetRightsDocBody
+     *
      * @return self
      */
     public function __construct(?GetRightsDocRequest $request = NULL, ?GetRightsDocResponse $response = NULL)

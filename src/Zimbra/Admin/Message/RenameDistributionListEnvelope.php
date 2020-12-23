@@ -37,6 +37,7 @@ class RenameDistributionListEnvelope extends Envelope
 
     /**
      * Constructor method for RenameDistributionListEnvelope
+     *
      * @return self
      */
     public function __construct(?RenameDistributionListBody $body = NULL, ?Header $header = NULL)

@@ -44,6 +44,7 @@ class ModifyCalendarResourceBody extends Body
 
     /**
      * Constructor method for ModifyCalendarResourceBody
+     *
      * @return self
      */
     public function __construct(?ModifyCalendarResourceRequest $request = NULL, ?ModifyCalendarResourceResponse $response = NULL)

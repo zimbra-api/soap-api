@@ -44,6 +44,7 @@ class GetUCServiceBody extends Body
 
     /**
      * Constructor method for GetUCServiceBody
+     *
      * @return self
      */
     public function __construct(?GetUCServiceRequest $request = NULL, ?GetUCServiceResponse $response = NULL)

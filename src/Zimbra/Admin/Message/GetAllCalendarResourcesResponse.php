@@ -39,6 +39,7 @@ class GetAllCalendarResourcesResponse implements ResponseInterface
 
     /**
      * Constructor method for GetAllCalendarResourcesResponse
+     *
      * @param array $calResources
      * @return self
      */

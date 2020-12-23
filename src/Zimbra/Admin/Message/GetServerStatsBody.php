@@ -44,6 +44,7 @@ class GetServerStatsBody extends Body
 
     /**
      * Constructor method for GetServerStatsBody
+     *
      * @return self
      */
     public function __construct(?GetServerStatsRequest $request = NULL, ?GetServerStatsResponse $response = NULL)

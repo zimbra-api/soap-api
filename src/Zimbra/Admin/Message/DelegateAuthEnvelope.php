@@ -37,6 +37,7 @@ class DelegateAuthEnvelope extends Envelope
 
     /**
      * Constructor method for DelegateAuthEnvelope
+     *
      * @return self
      */
     public function __construct(?DelegateAuthBody $body = NULL, ?Header $header = NULL)

@@ -38,6 +38,7 @@ class CreateUCServiceResponse implements ResponseInterface
 
     /**
      * Constructor method for CreateUCServiceResponse
+     *
      * @param UCServiceInfo $ucService
      * @return self
      */

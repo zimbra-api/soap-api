@@ -44,9 +44,12 @@ class DeleteDataSourceBody extends Body
 
     /**
      * Constructor method for DeleteDataSourceBody
+     *
      * @return self
      */
-    public function __construct(?DeleteDataSourceRequest $request = NULL, ?DeleteDataSourceResponse $response = NULL)
+    public function __construct(
+        ?DeleteDataSourceRequest $request = NULL, ?DeleteDataSourceResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }

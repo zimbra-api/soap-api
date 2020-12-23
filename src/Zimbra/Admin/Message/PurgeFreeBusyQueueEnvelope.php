@@ -37,6 +37,7 @@ class PurgeFreeBusyQueueEnvelope extends Envelope
 
     /**
      * Constructor method for PurgeFreeBusyQueueEnvelope
+     *
      * @return self
      */
     public function __construct(?PurgeFreeBusyQueueBody $body = NULL, ?Header $header = NULL)

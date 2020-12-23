@@ -44,6 +44,7 @@ class CreateServerBody extends Body
 
     /**
      * Constructor method for CreateServerBody
+     *
      * @return self
      */
     public function __construct(?CreateServerRequest $request = NULL, ?CreateServerResponse $response = NULL)

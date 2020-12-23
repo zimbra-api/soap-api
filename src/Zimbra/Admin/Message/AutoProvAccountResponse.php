@@ -39,6 +39,7 @@ class AutoProvAccountResponse implements ResponseInterface
 
     /**
      * Constructor method for AutoProvAccountResponse
+     *
      * @param AccountInfo $account The account
      * @return self
      */

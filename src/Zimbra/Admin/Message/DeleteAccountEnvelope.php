@@ -37,6 +37,7 @@ class DeleteAccountEnvelope extends Envelope
 
     /**
      * Constructor method for DeleteAccountEnvelope
+     *
      * @return self
      */
     public function __construct(?DeleteAccountBody $body = NULL, ?Header $header = NULL)

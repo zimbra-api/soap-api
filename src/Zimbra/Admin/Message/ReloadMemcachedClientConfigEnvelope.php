@@ -37,6 +37,7 @@ class ReloadMemcachedClientConfigEnvelope extends Envelope
 
     /**
      * Constructor method for ReloadMemcachedClientConfigEnvelope
+     *
      * @return self
      */
     public function __construct(?ReloadMemcachedClientConfigBody $body = NULL, ?Header $header = NULL)

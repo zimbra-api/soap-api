@@ -38,6 +38,7 @@ class GetCosResponse implements ResponseInterface
 
     /**
      * Constructor method for GetCosResponse
+     *
      * @param CosInfo $cos
      * @return self
      */

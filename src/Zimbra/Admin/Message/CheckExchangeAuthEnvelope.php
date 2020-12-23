@@ -37,6 +37,7 @@ class CheckExchangeAuthEnvelope extends Envelope
 
     /**
      * Constructor method for CheckExchangeAuthEnvelope
+     *
      * @return self
      */
     public function __construct(?CheckExchangeAuthBody $body = NULL, ?Header $header = NULL)

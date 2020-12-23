@@ -37,6 +37,7 @@ class AddAccountLoggerEnvelope extends Envelope
 
     /**
      * Constructor method for AddAccountLoggerEnvelope
+     *
      * @return self
      */
     public function __construct(?AddAccountLoggerBody $body = NULL, ?Header $header = NULL)

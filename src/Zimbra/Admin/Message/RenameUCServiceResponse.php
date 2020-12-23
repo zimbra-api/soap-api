@@ -38,6 +38,7 @@ class RenameUCServiceResponse implements ResponseInterface
 
     /**
      * Constructor method for RenameUCServiceResponse
+     *
      * @param UCServiceInfo $ucService
      * @return self
      */

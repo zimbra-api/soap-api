@@ -37,6 +37,7 @@ class CheckDirectoryEnvelope extends Envelope
 
     /**
      * Constructor method for CheckDirectoryEnvelope
+     *
      * @return self
      */
     public function __construct(?CheckDirectoryBody $body = NULL, ?Header $header = NULL)

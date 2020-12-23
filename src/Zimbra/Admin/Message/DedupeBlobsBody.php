@@ -44,6 +44,7 @@ class DedupeBlobsBody extends Body
 
     /**
      * Constructor method for DedupeBlobsBody
+     *
      * @return self
      */
     public function __construct(?DedupeBlobsRequest $request = NULL, ?DedupeBlobsResponse $response = NULL)

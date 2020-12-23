@@ -48,6 +48,7 @@ class AddDistributionListMemberRequest extends Request
 
     /**
      * Constructor method for AddDistributionListMemberRequest
+     *
      * @param  string $id
      * @param  array  $members
      * @return self

@@ -37,6 +37,7 @@ class CheckPasswordStrengthEnvelope extends Envelope
 
     /**
      * Constructor method for CheckPasswordStrengthEnvelope
+     *
      * @return self
      */
     public function __construct(?CheckPasswordStrengthBody $body = NULL, ?Header $header = NULL)

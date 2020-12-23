@@ -44,6 +44,7 @@ class GetAllDomainsBody extends Body
 
     /**
      * Constructor method for GetAllDomainsBody
+     *
      * @return self
      */
     public function __construct(?GetAllDomainsRequest $request = NULL, ?GetAllDomainsResponse $response = NULL)

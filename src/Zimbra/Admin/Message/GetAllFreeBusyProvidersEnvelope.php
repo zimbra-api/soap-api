@@ -37,6 +37,7 @@ class GetAllFreeBusyProvidersEnvelope extends Envelope
 
     /**
      * Constructor method for GetAllFreeBusyProvidersEnvelope
+     *
      * @return self
      */
     public function __construct(?GetAllFreeBusyProvidersBody $body = NULL, ?Header $header = NULL)

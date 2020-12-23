@@ -37,6 +37,7 @@ class GetFilterRulesEnvelope extends Envelope
 
     /**
      * Constructor method for GetFilterRulesEnvelope
+     *
      * @return self
      */
     public function __construct(?GetFilterRulesBody $body = NULL, ?Header $header = NULL)

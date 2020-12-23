@@ -44,6 +44,7 @@ class LockoutMailboxBody extends Body
 
     /**
      * Constructor method for LockoutMailboxBody
+     *
      * @return self
      */
     public function __construct(?LockoutMailboxRequest $request = NULL, ?LockoutMailboxResponse $response = NULL)

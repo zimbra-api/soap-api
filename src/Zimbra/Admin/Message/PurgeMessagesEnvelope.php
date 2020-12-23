@@ -37,6 +37,7 @@ class PurgeMessagesEnvelope extends Envelope
 
     /**
      * Constructor method for PurgeMessagesEnvelope
+     *
      * @return self
      */
     public function __construct(?PurgeMessagesBody $body = NULL, ?Header $header = NULL)

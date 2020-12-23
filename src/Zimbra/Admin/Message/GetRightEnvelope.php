@@ -37,6 +37,7 @@ class GetRightEnvelope extends Envelope
 
     /**
      * Constructor method for GetRightEnvelope
+     *
      * @return self
      */
     public function __construct(?GetRightBody $body = NULL, ?Header $header = NULL)

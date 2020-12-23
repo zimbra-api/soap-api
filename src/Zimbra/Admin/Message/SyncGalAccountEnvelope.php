@@ -37,6 +37,7 @@ class SyncGalAccountEnvelope extends Envelope
 
     /**
      * Constructor method for SyncGalAccountEnvelope
+     *
      * @return self
      */
     public function __construct(?SyncGalAccountBody $body = NULL, ?Header $header = NULL)

@@ -37,6 +37,7 @@ class MailQueueActionEnvelope extends Envelope
 
     /**
      * Constructor method for MailQueueActionEnvelope
+     *
      * @return self
      */
     public function __construct(?MailQueueActionBody $body = NULL, ?Header $header = NULL)

@@ -37,6 +37,7 @@ class DeleteVolumeEnvelope extends Envelope
 
     /**
      * Constructor method for DeleteVolumeEnvelope
+     *
      * @return self
      */
     public function __construct(?DeleteVolumeBody $body = NULL, ?Header $header = NULL)

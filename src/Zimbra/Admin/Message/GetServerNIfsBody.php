@@ -44,6 +44,7 @@ class GetServerNIfsBody extends Body
 
     /**
      * Constructor method for GetServerNIfsBody
+     *
      * @return self
      */
     public function __construct(?GetServerNIfsRequest $request = NULL, ?GetServerNIfsResponse $response = NULL)

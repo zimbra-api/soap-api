@@ -38,6 +38,7 @@ class CreateDataSourceResponse implements ResponseInterface
 
     /**
      * Constructor method for CreateDataSourceResponse
+     *
      * @param DataSourceInfo $dataSource
      * @return self
      */

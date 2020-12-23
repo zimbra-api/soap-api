@@ -44,9 +44,12 @@ class GetAccountMembershipBody extends Body
 
     /**
      * Constructor method for GetAccountMembershipBody
+     *
      * @return self
      */
-    public function __construct(?GetAccountMembershipRequest $request = NULL, ?GetAccountMembershipResponse $response = NULL)
+    public function __construct(
+        ?GetAccountMembershipRequest $request = NULL, ?GetAccountMembershipResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }

@@ -44,9 +44,12 @@ class AdminDestroyWaitSetBody extends Body
 
     /**
      * Constructor method for AdminDestroyWaitSetBody
+     *
      * @return self
      */
-    public function __construct(?AdminDestroyWaitSetRequest $request = NULL, ?AdminDestroyWaitSetResponse $response = NULL)
+    public function __construct(
+        ?AdminDestroyWaitSetRequest $request = NULL, ?AdminDestroyWaitSetResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }

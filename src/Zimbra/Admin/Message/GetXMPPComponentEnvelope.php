@@ -37,6 +37,7 @@ class GetXMPPComponentEnvelope extends Envelope
 
     /**
      * Constructor method for GetXMPPComponentEnvelope
+     *
      * @return self
      */
     public function __construct(?GetXMPPComponentBody $body = NULL, ?Header $header = NULL)

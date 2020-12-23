@@ -44,6 +44,7 @@ class ModifyConfigBody extends Body
 
     /**
      * Constructor method for ModifyConfigBody
+     *
      * @return self
      */
     public function __construct(?ModifyConfigRequest $request = NULL, ?ModifyConfigResponse $response = NULL)

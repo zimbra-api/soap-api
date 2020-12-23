@@ -38,6 +38,7 @@ class RenameAccountResponse implements ResponseInterface
 
     /**
      * Constructor method for RenameAccountResponse
+     *
      * @param AccountInfo $account
      * @return self
      */

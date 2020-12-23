@@ -44,6 +44,7 @@ class GetDataSourcesBody extends Body
 
     /**
      * Constructor method for GetDataSourcesBody
+     *
      * @return self
      */
     public function __construct(?GetDataSourcesRequest $request = NULL, ?GetDataSourcesResponse $response = NULL)

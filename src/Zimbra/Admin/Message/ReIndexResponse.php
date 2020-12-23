@@ -50,6 +50,7 @@ class ReIndexResponse implements ResponseInterface
      * Constructor method for ReIndexResponse
      * 
      * @param Status  $status
+     * @param Progress  $progress
      * @return self
      */
     public function __construct(Status $status, Progress $progress = NULL)

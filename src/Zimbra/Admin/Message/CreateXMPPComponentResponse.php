@@ -38,6 +38,7 @@ class CreateXMPPComponentResponse implements ResponseInterface
 
     /**
      * Constructor method for CreateXMPPComponentResponse
+     *
      * @param XMPPComponentInfo $component
      * @return self
      */

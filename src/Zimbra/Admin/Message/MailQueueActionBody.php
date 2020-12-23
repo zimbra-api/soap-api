@@ -44,6 +44,7 @@ class MailQueueActionBody extends Body
 
     /**
      * Constructor method for MailQueueActionBody
+     *
      * @return self
      */
     public function __construct(?MailQueueActionRequest $request = NULL, ?MailQueueActionResponse $response = NULL)

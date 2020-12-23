@@ -44,9 +44,12 @@ class DeleteDistributionListBody extends Body
 
     /**
      * Constructor method for DeleteDistributionListBody
+     *
      * @return self
      */
-    public function __construct(?DeleteDistributionListRequest $request = NULL, ?DeleteDistributionListResponse $response = NULL)
+    public function __construct(
+        ?DeleteDistributionListRequest $request = NULL, ?DeleteDistributionListResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }
