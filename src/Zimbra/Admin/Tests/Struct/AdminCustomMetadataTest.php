@@ -17,14 +17,12 @@ class AdminCustomMetadataTest extends ZimbraStructTestCase
         $value = $this->faker->word;
         $section = $this->faker->word;
 
-        $kvp = new KeyValuePair($key, $value);
-
         $meta = new AdminCustomMetadata($section);
         $this->assertSame($section, $meta->getSection());
 
         $meta = new AdminCustomMetadata;
         $meta->setSection($section)
-             ->setKeyValuePairs([$kvp]);
+             ->setKeyValuePairs([new KeyValuePair($key, $value)]);
         $this->assertSame($section, $meta->getSection());
 
         $xml = <<<EOT
@@ -37,13 +35,13 @@ EOT;
         $this->assertEquals($meta, $this->serializer->deserialize($xml, AdminCustomMetadata::class, 'xml'));
 
         $json = json_encode([
+            'section' => $section,
             'a' => [
                 [
                     'n' => $key,
                     '_content' => $value,
                 ],
             ],
-            'section' => $section,
         ]);
         $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($meta, 'json'));
         $this->assertEquals($meta, $this->serializer->deserialize($json, AdminCustomMetadata::class, 'json'));

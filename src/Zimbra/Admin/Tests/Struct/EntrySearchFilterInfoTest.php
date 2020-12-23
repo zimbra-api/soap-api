@@ -25,26 +25,24 @@ class EntrySearchFilterInfoTest extends ZimbraStructTestCase
         $attr = $this->faker->word;
         $value = $this->faker->word;
 
-        $cond = new EntrySearchFilterSingleCond($attr, CondOp::EQ(), $value, true);
-        $singleCond = new EntrySearchFilterSingleCond($attr, CondOp::GE(), $value, false);
-        $multiConds = new EntrySearchFilterMultiCond(false, true, [$singleCond]);
-        $conds = new EntrySearchFilterMultiCond(true, false, [$cond, $multiConds]);
+        $cond = new EntrySearchFilterSingleCond($attr, CondOp::EQ(), $value, TRUE);
+        $singleCond = new EntrySearchFilterSingleCond($attr, CondOp::GE(), $value, FALSE);
+        $multiConds = new EntrySearchFilterMultiCond(FALSE, TRUE, [$singleCond]);
+        $conds = new EntrySearchFilterMultiCond(TRUE, FALSE, [$cond, $multiConds]);
 
         $filter = new EntrySearchFilterInfo($conds);
         $this->assertSame($conds, $filter->getConditions());
         $filter->setCondition($conds);
         $this->assertSame($conds, $filter->getConditions());
 
-        $ge = CondOp::GE()->getValue();
-        $eq = CondOp::EQ()->getValue();
         $xml = <<<EOT
 <?xml version="1.0"?>
 <searchFilter>
     <conds not="true" or="false">
         <conds not="false" or="true">
-            <cond attr="$attr" op="$ge" value="$value" not="false" />
+            <cond attr="$attr" op="ge" value="$value" not="false" />
         </conds>
-        <cond attr="$attr" op="$eq" value="$value" not="true" />
+        <cond attr="$attr" op="eq" value="$value" not="true" />
     </conds>
 </searchFilter>
 EOT;
@@ -64,7 +62,7 @@ EOT;
                         'cond' => [
                             [
                                 'attr' => $attr,
-                                'op' => $ge,
+                                'op' => 'ge',
                                 'value' => $value,
                                 'not' => FALSE,
                             ],
@@ -74,7 +72,7 @@ EOT;
                 'cond' => [
                     [
                         'attr' => $attr,
-                        'op' => $eq,
+                        'op' => 'eq',
                         'value' => $value,
                         'not' => TRUE,
                     ],
@@ -93,7 +91,7 @@ EOT;
         $xml = <<<EOT
 <?xml version="1.0"?>
 <searchFilter>
-    <cond attr="$attr" op="$eq" value="$value" not="true" />
+    <cond attr="$attr" op="eq" value="$value" not="true" />
 </searchFilter>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($filter, 'xml'));
@@ -102,7 +100,7 @@ EOT;
         $json = json_encode([
             'cond' => [
                 'attr' => $attr,
-                'op' => $eq,
+                'op' => 'eq',
                 'value' => $value,
                 'not' => TRUE,
             ],
