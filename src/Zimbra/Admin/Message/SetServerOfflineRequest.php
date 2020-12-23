@@ -16,8 +16,8 @@ use Zimbra\Struct\{AttributeSelector, AttributeSelectorTrait};
 use Zimbra\Soap\Request;
 
 /**
- * GetServerRequest class
- * Get Server
+ * SetServerOfflineRequest class
+ * SetServerOffline
  * 
  * @package    Zimbra
  * @subpackage Admin
@@ -25,21 +25,11 @@ use Zimbra\Soap\Request;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
  * @AccessType("public_method")
- * @XmlRoot(name="GetServerRequest")
+ * @XmlRoot(name="SetServerOfflineRequest")
  */
-class GetServerRequest extends Request implements AttributeSelector
+class SetServerOfflineRequest extends Request implements AttributeSelector
 {
     use AttributeSelectorTrait;
-
-    /**
-     * If {apply-config} is 1 (true), then certain unset attrs on a server will get their values from the global config. 
-     * if {apply-config} is 0 (false), then only attributes directly set on the server will be returned
-     * @Accessor(getter="isApplyConfig", setter="setApplyConfig")
-     * @SerializedName("applyConfig")
-     * @Type("bool")
-     * @XmlAttribute
-     */
-    private $applyConfig;
 
     /**
      * Server
@@ -51,50 +41,23 @@ class GetServerRequest extends Request implements AttributeSelector
     private $server;
 
     /**
-     * Constructor method for GetServerRequest
+     * Constructor method for SetServerOfflineRequest
      * 
      * @param  ServerSelector $server
-     * @param  bool $applyConfig
      * @param  string $attrs
      * @return self
      */
     public function __construct(
         ?ServerSelector $server = NULL,
-        ?bool $applyConfig = NULL,
         ?string $attrs = NULL
     )
     {
         if ($server instanceof ServerSelector) {
             $this->setServer($server);
         }
-        if (NULL !== $applyConfig) {
-            $this->setApplyConfig($applyConfig);
-        }
         if (NULL !== $attrs) {
             $this->setAttrs($attrs);
         }
-    }
-
-    /**
-     * Gets applyConfig
-     *
-     * @return bool
-     */
-    public function isApplyConfig(): ?bool
-    {
-        return $this->applyConfig;
-    }
-
-    /**
-     * Sets applyConfig
-     *
-     * @param  bool $applyConfig
-     * @return self
-     */
-    public function setApplyConfig(bool $applyConfig): self
-    {
-        $this->applyConfig = $applyConfig;
-        return $this;
     }
 
     /**
@@ -126,9 +89,9 @@ class GetServerRequest extends Request implements AttributeSelector
      */
     protected function envelopeInit(): void
     {
-        if (!($this->envelope instanceof GetServerEnvelope)) {
-            $this->envelope = new GetServerEnvelope(
-                new GetServerBody($this)
+        if (!($this->envelope instanceof SetServerOfflineEnvelope)) {
+            $this->envelope = new SetServerOfflineEnvelope(
+                new SetServerOfflineBody($this)
             );
         }
     }
