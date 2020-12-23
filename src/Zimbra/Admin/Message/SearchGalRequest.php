@@ -16,8 +16,8 @@ use Zimbra\Soap\Request;
 
 /**
  * SearchGalRequest class
- * Search Accounts 
- * Note: SearchGalRequest is deprecated. See SearchDirectoryRequest.
+ * Search Global Address Book (GAL)
+ * Notes: admin verison of mail equiv. Used for testing via zmprov.
  * 
  * @package    Zimbra
  * @subpackage Admin

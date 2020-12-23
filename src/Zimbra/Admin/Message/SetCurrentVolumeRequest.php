@@ -16,7 +16,7 @@ use Zimbra\Soap\Request;
 
 /**
  * SetCurrentVolumeRequest class
- * Add an type for the account 
+ * Set current volume.
  * 
  * @package    Zimbra
  * @subpackage Admin
