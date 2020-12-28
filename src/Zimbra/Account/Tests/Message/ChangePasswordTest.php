@@ -28,22 +28,26 @@ class ChangePasswordTest extends ZimbraStructTestCase
             $account,
             $oldPassword,
             $newPassword,
-            $virtualHost
+            $virtualHost,
+            FALSE
         );
         $this->assertSame($account, $request->getAccount());
         $this->assertSame($oldPassword, $request->getOldPassword());
         $this->assertSame($newPassword, $request->getPassword());
         $this->assertSame($virtualHost, $request->getVirtualHost());
+        $this->assertFalse($request->isDryRun());
 
         $request = new ChangePasswordRequest(new AccountSelector(AccountBy::ID(), ''), '', '');
         $request->setAccount($account)
             ->setOldPassword($oldPassword)
             ->setPassword($newPassword)
-            ->setVirtualHost($virtualHost);
+            ->setVirtualHost($virtualHost)
+            ->setDryRun(TRUE);
         $this->assertSame($account, $request->getAccount());
         $this->assertSame($oldPassword, $request->getOldPassword());
         $this->assertSame($newPassword, $request->getPassword());
         $this->assertSame($virtualHost, $request->getVirtualHost());
+        $this->assertTrue($request->isDryRun());
 
         $response = new ChangePasswordResponse(
             $authToken,
@@ -83,6 +87,7 @@ class ChangePasswordTest extends ZimbraStructTestCase
             <oldPassword>$oldPassword</oldPassword>
             <password>$newPassword</password>
             <virtualHost>$virtualHost</virtualHost>
+            <dryRun>true</dryRun>
         </urn:ChangePasswordRequest>
         <urn:ChangePasswordResponse>
             <authToken>$authToken</authToken>
@@ -109,6 +114,9 @@ EOT;
                     ],
                     'virtualHost' => [
                         '_content' => $virtualHost,
+                    ],
+                    'dryRun' => [
+                        '_content' => TRUE,
                     ],
                     '_jsns' => 'urn:zimbraAccount',
                 ],

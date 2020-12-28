@@ -64,18 +64,29 @@ class ChangePasswordRequest extends Request
     private $virtualHost;
 
     /**
+     * 
+     * @Accessor(getter="isDryRun", setter="setDryRun")
+     * @SerializedName("dryRun")
+     * @Type("bool")
+     * @XmlElement(cdata = false)
+     */
+    private $dryRun;
+
+    /**
      * Constructor method for ChangePasswordRequest
      * @param  AccountSelector $account
-     * @param  string    $oldPassword
-     * @param  string    $newPassword
-     * @param  string    $virtualHost
+     * @param  string $oldPassword
+     * @param  string $newPassword
+     * @param  string $virtualHost
+     * @param  bool   $dryRun
      * @return self
      */
     public function __construct(
         AccountSelector $account,
         string $oldPassword,
         string $newPassword,
-        ?string $virtualHost = NULL
+        ?string $virtualHost = NULL,
+        ?string $dryRun = NULL
     )
     {
         $this->setAccount($account)
@@ -83,6 +94,9 @@ class ChangePasswordRequest extends Request
             ->setPassword($newPassword);
         if(NULL !== $virtualHost) {
             $this->setVirtualHost($virtualHost);
+        }
+        if(NULL !== $dryRun) {
+            $this->setDryRun($dryRun);
         }
     }
 
@@ -171,6 +185,28 @@ class ChangePasswordRequest extends Request
     public function setVirtualHost(string $virtualHost): self
     {
         $this->virtualHost = $virtualHost;
+        return $this;
+    }
+
+    /**
+     * Gets dryRun
+     *
+     * @return bool
+     */
+    public function isDryRun(): ?bool
+    {
+        return $this->dryRun;
+    }
+
+    /**
+     * Sets dryRun
+     *
+     * @param  bool $dryRun
+     * @return self
+     */
+    public function setDryRun(bool $dryRun): self
+    {
+        $this->dryRun = $dryRun;
         return $this;
     }
 
