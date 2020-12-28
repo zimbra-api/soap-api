@@ -87,7 +87,7 @@ class ChangePasswordRequest extends Request
         string $oldPassword,
         string $newPassword,
         ?string $virtualHost = NULL,
-        ?string $dryRun = NULL
+        ?bool $dryRun = NULL
     )
     {
         $this->setAccount($account)

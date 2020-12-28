@@ -64,7 +64,7 @@ class CheckRightsRequest extends Request
      * Set targets
      *
      * @param  array $requests
-     * @return Sequence
+     * @return self
      */
     public function setTargets(array $targets): self
     {
