@@ -30,6 +30,8 @@ class AuthRequest extends Request
 {
     /**
      * Controls whether the auth token cookie in the response should be persisted when the browser exits.
+     * - 0: (default) the cookie will be deleted when the Web browser exits.
+     * - 1: The "Expires" attribute of the cookie will be set per rfc6265.
      * @Accessor(getter="getPersistAuthTokenCookie", setter="setPersistAuthTokenCookie")
      * @SerializedName("persistAuthTokenCookie")
      * @Type("bool")
@@ -39,6 +41,8 @@ class AuthRequest extends Request
 
     /**
      * Controls whether the client supports CSRF token
+     * - 0: (default) Client does not support CSRF token
+     * - 1: The client supports CSRF token. 
      * @Accessor(getter="getCsrfSupported", setter="setCsrfSupported")
      * @SerializedName("csrfTokenSecured")
      * @Type("bool")
@@ -157,7 +161,7 @@ class AuthRequest extends Request
     /**
      * Whether the client represents a trusted device
      * @Accessor(getter="getTrustedDeviceToken", setter="setTrustedDeviceToken")
-     * @SerializedName("trustedDeviceToken")
+     * @SerializedName("trustedToken")
      * @Type("string")
      * @XmlElement(cdata = false)
      */
@@ -191,6 +195,7 @@ class AuthRequest extends Request
 
     /**
      * Constructor method for AuthRequest
+     *
      * @param  AccountSelector   $account
      * @param  string    $password
      * @param  string    $recoveryCode

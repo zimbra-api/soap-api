@@ -44,9 +44,12 @@ class ChangePasswordBody extends Body
 
     /**
      * Constructor method for ChangePasswordBody
+     *
      * @return self
      */
-    public function __construct(?ChangePasswordRequest $request = NULL, ?ChangePasswordResponse $response = NULL)
+    public function __construct(
+        ?ChangePasswordRequest $request = NULL, ?ChangePasswordResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }

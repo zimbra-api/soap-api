@@ -37,6 +37,7 @@ class ChangePasswordEnvelope extends Envelope
 
     /**
      * Constructor method for ChangePasswordEnvelope
+     *
      * @return self
      */
     public function __construct(?ChangePasswordBody $body = NULL, ?Header $header = NULL)

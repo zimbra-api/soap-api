@@ -74,6 +74,7 @@ class ChangePasswordRequest extends Request
 
     /**
      * Constructor method for ChangePasswordRequest
+     *
      * @param  AccountSelector $account
      * @param  string $oldPassword
      * @param  string $newPassword

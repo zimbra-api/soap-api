@@ -46,6 +46,7 @@ class ChangePasswordResponse implements ResponseInterface
 
     /**
      * Constructor method for ChangePasswordResponse
+     *
      * @param  string $authToken
      * @param  int $lifetime
      * @return self

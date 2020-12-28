@@ -28,6 +28,7 @@ use Zimbra\Soap\ResponseInterface;
 class CheckRightsResponse implements ResponseInterface
 {
     /**
+     * Rights information for targets
      * @Accessor(getter="getTargets", setter="setTargets")
      * @SerializedName("target")
      * @Type("array<Zimbra\Account\Struct\CheckRightsTargetInfo>")
@@ -37,7 +38,8 @@ class CheckRightsResponse implements ResponseInterface
 
     /**
      * Constructor method for CheckRightsResponse
-     * @param  array $targets Rights information for targets
+     * 
+     * @param  array $targets
      * @return self
      */
     public function __construct(array $targets = [])

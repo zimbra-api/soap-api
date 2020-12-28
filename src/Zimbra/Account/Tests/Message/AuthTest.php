@@ -233,7 +233,7 @@ class AuthTest extends ZimbraStructTestCase
             </attrs>
             <requestedSkin>$requestedSkin</requestedSkin>
             <twoFactorCode>$twoFactorCode</twoFactorCode>
-            <trustedDeviceToken>$trustedToken</trustedDeviceToken>
+            <trustedToken>$trustedToken</trustedToken>
             <deviceId>$deviceId</deviceId>
         </urn:AuthRequest>
         <urn:AuthResponse zmgProxy="true">
@@ -317,7 +317,7 @@ EOT;
                         '_content' => $twoFactorCode,
                     ],
                     'deviceTrusted' => TRUE,
-                    'trustedDeviceToken' => [
+                    'trustedToken' => [
                         '_content' => $trustedToken,
                     ],
                     'deviceId' => [
