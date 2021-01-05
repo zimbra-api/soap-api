@@ -63,7 +63,7 @@ class GetAccountDistributionListsResponse implements ResponseInterface
      * Set dlList
      *
      * @param  array $dlList
-     * @return Sequence
+     * @return self
      */
     public function setDlList(array $dlList): self
     {

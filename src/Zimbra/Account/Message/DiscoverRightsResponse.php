@@ -63,7 +63,7 @@ class DiscoverRightsResponse implements ResponseInterface
      * Set discoveredRights
      *
      * @param  array $discoveredRights
-     * @return Sequence
+     * @return self
      */
     public function setDiscoveredRights(array $discoveredRights): self
     {

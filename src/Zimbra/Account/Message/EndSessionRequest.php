@@ -167,7 +167,7 @@ class EndSessionRequest extends Request
      *
      * @return bool
      */
-    public function isClearAllSoapSessions(): bool
+    public function isClearAllSoapSessions(): ?bool
     {
         return $this->clearAllSoapSessions;
     }

@@ -190,7 +190,7 @@ class AutoCompleteGalResponse implements ResponseInterface
     /**
      * Add contact matching the autocomplete request
      *
-     * @param  ContactInfo $metadata
+     * @param  ContactInfo $contact
      * @return self
      */
     public function addContact(ContactInfo $contact): self
