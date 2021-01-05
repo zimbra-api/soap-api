@@ -91,7 +91,13 @@ class AutoCompleteGalRequest extends Request
      * @param  int $limit
      * @return self
      */
-    public function __construct(string $name, ?GalSearchType $type = NULL, ?bool $needCanExpand = NULL, ?string $galAccountId = NULL, ?int $limit = NULL)
+    public function __construct(
+        string $name,
+        ?GalSearchType $type = NULL,
+        ?bool $needCanExpand = NULL,
+        ?string $galAccountId = NULL,
+        ?int $limit = NULL
+    )
     {
         $this->setName($name);
         if(NULL !== $type) {

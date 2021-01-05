@@ -16,8 +16,8 @@ class AddDistributionListMemberTest extends ZimbraStructTestCase
     public function testAddDistributionListMember()
     {
         $id = $this->faker->uuid;
-        $member1 = $this->faker->word;
-        $member2 = $this->faker->word;
+        $member1 = $this->faker->name;
+        $member2 = $this->faker->name;
 
         $request = new AddDistributionListMemberRequest($id, [$member1]);
         $this->assertSame($id, $request->getId());
