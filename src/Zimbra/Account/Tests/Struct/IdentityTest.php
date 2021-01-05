@@ -45,6 +45,8 @@ EOT;
         $this->assertEquals($identity, $this->serializer->deserialize($xml, Identity::class, 'xml'));
 
         $json = json_encode([
+            'name' => $name,
+            'id' => $id,
             'a' => [
                 [
                     'name' => $name,
@@ -57,8 +59,6 @@ EOT;
                     'pd' => FALSE,
                 ],
             ],
-            'name' => $name,
-            'id' => $id,
         ]);
         $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($identity, 'json'));
         $this->assertEquals($identity, $this->serializer->deserialize($json, Identity::class, 'json'));

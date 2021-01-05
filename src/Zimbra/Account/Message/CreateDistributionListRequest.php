@@ -38,7 +38,7 @@ class CreateDistributionListRequest extends Request implements KeyValuePairs
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
-     * @XmlAttribute()
+     * @XmlAttribute
      */
     private $name;
 
@@ -47,7 +47,7 @@ class CreateDistributionListRequest extends Request implements KeyValuePairs
      * @Accessor(getter="getDynamic", setter="setDynamic")
      * @SerializedName("dynamic")
      * @Type("bool")
-     * @XmlAttribute()
+     * @XmlAttribute
      */
     private $dynamic;
 
