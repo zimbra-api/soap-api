@@ -62,7 +62,7 @@ class CheckRightsResponse implements ResponseInterface
     /**
      * Set targets
      *
-     * @param  array $requests
+     * @param  array $targets
      * @return Sequence
      */
     public function setTargets(array $targets): self

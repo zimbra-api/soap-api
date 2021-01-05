@@ -8,60 +8,93 @@
  * file that was distributed with this source code.
  */
 
-namespace Zimbra\Account\Message;
+namespace Zimbra\Account\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlList, XmlRoot};
-use Zimbra\Account\Struct\CheckRightsTargetSpec;
-use Zimbra\Soap\Request;
+use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlList, XmlRoot};
 
 /**
- * CheckRightsRequest class
- * Check if the authed user has the specified right(s) on a target.
- * 
+ * DiscoverRightsInfo struct class
+ *
  * @package    Zimbra
  * @subpackage Account
- * @category   Message
+ * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020 by Nguyen Van Nguyen.
  * @AccessType("public_method")
- * @XmlRoot(name="CheckRightsRequest")
+ * @XmlRoot(name="targets")
  */
-class CheckRightsRequest extends Request
+class DiscoverRightsInfo
 {
     /**
-     * The targets
+     * Right the targets relate to
+     * @Accessor(getter="getRight", setter="setRight")
+     * @SerializedName("right")
+     * @Type("string")
+     * @XmlAttribute
+     */
+    private $right;
+
+    /**
+     * Targets
      * @Accessor(getter="getTargets", setter="setTargets")
      * @SerializedName("target")
-     * @Type("array<Zimbra\Account\Struct\CheckRightsTargetSpec>")
+     * @Type("array<Zimbra\Account\Struct\DiscoverRightsTarget>")
      * @XmlList(inline = true, entry = "target")
      */
     private $targets;
 
     /**
-     * Constructor method for CheckRightsRequest
+     * Constructor method for DiscoverRightsInfo
      *
+     * @param  string $right
      * @param  array $targets
      * @return self
      */
-    public function __construct(array $targets = [])
+    public function __construct(
+        string $right,
+        array $targets = []
+    )
     {
-        $this->setTargets($targets);
+        $this->setRight($right)
+            ->setTargets($targets);
+    }
+
+    /**
+     * Gets right
+     *
+     * @return string
+     */
+    public function getRight(): string
+    {
+        return $this->right;
+    }
+
+    /**
+     * Sets right
+     *
+     * @param  string $right
+     * @return self
+     */
+    public function setRight(string $right): self
+    {
+        $this->right = $right;
+        return $this;
     }
 
     /**
      * Add a target
      *
-     * @param  CheckRightsTargetSpec $target
+     * @param  DiscoverRightsTarget $target
      * @return self
      */
-    public function addTarget(CheckRightsTargetSpec $target): self
+    public function addTarget(DiscoverRightsTarget $target): self
     {
         $this->targets[] = $target;
         return $this;
     }
 
     /**
-     * Set targets
+     * Sets targets
      *
      * @param  array $targets
      * @return self
@@ -70,7 +103,7 @@ class CheckRightsRequest extends Request
     {
         $this->targets = [];
         foreach ($targets as $target) {
-            if ($target instanceof CheckRightsTargetSpec) {
+            if ($target instanceof DiscoverRightsTarget) {
                 $this->targets[] = $target;
             }
         }
@@ -85,19 +118,5 @@ class CheckRightsRequest extends Request
     public function getTargets(): array
     {
         return $this->targets;
-    }
-
-    /**
-     * Initialize the soap envelope
-     *
-     * @return void
-     */
-    protected function envelopeInit(): void
-    {
-        if (!($this->envelope instanceof CheckRightsEnvelope)) {
-            $this->envelope = new CheckRightsEnvelope(
-                new CheckRightsBody($this)
-            );
-        }
     }
 }
