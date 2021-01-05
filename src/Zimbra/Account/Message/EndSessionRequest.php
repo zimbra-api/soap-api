@@ -18,7 +18,6 @@ use Zimbra\Soap\Request;
  * End the current session, removing it from all caches.
  * Called when the browser app (or other session-using app) shuts down.
  * Has no effect if called in a <nosession> context. 
-
  * 
  * @package    Zimbra
  * @subpackage Account
