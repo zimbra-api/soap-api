@@ -11,8 +11,6 @@
 namespace Zimbra\Account;
 
 use Zimbra\Account\Struct\{
-    AuthAttrs,
-    AuthPrefs,
     AuthToken,
     PreAuth
 };
@@ -37,8 +35,8 @@ interface AccountApiInterface extends ApiInterface
         AuthToken $authToken = NULL,
         $jwtToken = NULL,
         $virtualHost = NULL,
-        AuthPrefs $prefs = NULL,
-        AuthAttrs $attrs = NULL,
+        array $prefs = [],
+        array $attrs = [],
         $requestedSkin = NULL,
         $persistAuthTokenCookie = NULL,
         $csrfSupported = NULL,

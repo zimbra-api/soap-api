@@ -16,9 +16,7 @@ use Zimbra\Soap\Request;
 
 /**
  * CheckRightsRequest class
- * Perform an autocomplete for a name against the Global Address List
- * The number of entries in the response is limited by Account/COS attribute zimbraContactAutoCompleteMaxResults with
- * default value of 20.
+ * Check if the authed user has the specified right(s) on a target.
  * 
  * @package    Zimbra
  * @subpackage Account
@@ -31,6 +29,7 @@ use Zimbra\Soap\Request;
 class CheckRightsRequest extends Request
 {
     /**
+     * The targets
      * @Accessor(getter="getTargets", setter="setTargets")
      * @SerializedName("target")
      * @Type("array<Zimbra\Account\Struct\CheckRightsTargetSpec>")
@@ -40,6 +39,7 @@ class CheckRightsRequest extends Request
 
     /**
      * Constructor method for CheckRightsRequest
+     *
      * @param  array $targets
      * @return self
      */
@@ -63,8 +63,8 @@ class CheckRightsRequest extends Request
     /**
      * Set targets
      *
-     * @param  array $requests
-     * @return Sequence
+     * @param  array $targets
+     * @return self
      */
     public function setTargets(array $targets): self
     {

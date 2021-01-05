@@ -16,10 +16,10 @@ class RemoveDistributionListMemberTest extends ZimbraStructTestCase
     public function testRemoveDistributionListMember()
     {
         $id = $this->faker->uuid;
-        $member1 = $this->faker->word;
-        $member2 = $this->faker->word;
-        $account1 = $this->faker->word;
-        $account2 = $this->faker->word;
+        $member1 = $this->faker->name;
+        $member2 = $this->faker->name;
+        $account1 = $this->faker->email;
+        $account2 = $this->faker->email;
 
         $request = new RemoveDistributionListMemberRequest($id, [$member1], [$account1]);
         $this->assertSame($id, $request->getId());

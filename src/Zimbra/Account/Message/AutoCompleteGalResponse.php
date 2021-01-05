@@ -28,6 +28,7 @@ use Zimbra\Soap\ResponseInterface;
 class AutoCompleteGalResponse implements ResponseInterface
 {
     /**
+     * Set to 1 if the results were truncated
      * @Accessor(getter="getMore", setter="setMore")
      * @SerializedName("more")
      * @Type("bool")
@@ -36,6 +37,11 @@ class AutoCompleteGalResponse implements ResponseInterface
     private $more;
 
     /**
+     * Either "and" or "or" (if present)
+     * - Not present if the search key was not tokenized.
+     * - Some clients backtrack on GAL results assuming the results of a more specific key is the subset of a more generic key,
+     *   and it checks cached results instead of issuing another SOAP request to the server.
+     *   If search key was tokenized and expanded with AND or OR, this cannot be assumed. 
      * @Accessor(getter="getTokenizeKey", setter="setTokenizeKey")
      * @SerializedName("tokenizeKey")
      * @Type("bool")
@@ -44,6 +50,7 @@ class AutoCompleteGalResponse implements ResponseInterface
     private $tokenizeKey;
 
     /**
+     * Flag if pagination is supported
      * @Accessor(getter="getPagingSupported", setter="setPagingSupported")
      * @SerializedName("pagingSupported")
      * @Type("integer")
@@ -52,6 +59,7 @@ class AutoCompleteGalResponse implements ResponseInterface
     private $pagingSupported;
 
     /**
+     * Contacts matching the autocomplete request
      * @Accessor(getter="getContacts", setter="setContacts")
      * @SerializedName("cn")
      * @Type("array<Zimbra\Account\Struct\ContactInfo>")
@@ -61,6 +69,7 @@ class AutoCompleteGalResponse implements ResponseInterface
 
     /**
      * Constructor method for AutoCompleteGalResponse
+     *
      * @param  bool $more
      * @param  bool $tokenizeKey
      * @param  int $pagingSupported
@@ -181,7 +190,7 @@ class AutoCompleteGalResponse implements ResponseInterface
     /**
      * Add contact matching the autocomplete request
      *
-     * @param  ContactInfo $metadata
+     * @param  ContactInfo $contact
      * @return self
      */
     public function addContact(ContactInfo $contact): self

@@ -44,9 +44,12 @@ class AutoCompleteGalBody extends Body
 
     /**
      * Constructor method for AutoCompleteGalBody
+     *
      * @return self
      */
-    public function __construct(?AutoCompleteGalRequest $request = NULL, ?AutoCompleteGalResponse $response = NULL)
+    public function __construct(
+        ?AutoCompleteGalRequest $request = NULL, ?AutoCompleteGalResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }

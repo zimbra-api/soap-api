@@ -20,16 +20,15 @@ class DistributionListSelectorTest extends ZimbraStructTestCase
         $dl->setBy(DLBy::NAME());
         $this->assertEquals(DLBy::NAME(), $dl->getBy());
 
-        $byName = DLBy::NAME()->getValue();
         $xml = <<<EOT
 <?xml version="1.0"?>
-<dl by="$byName">$value</dl>
+<dl by="name">$value</dl>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($dl, 'xml'));
         $this->assertEquals($dl, $this->serializer->deserialize($xml, DistributionListSelector::class, 'xml'));
 
         $json = json_encode([
-            'by' => $byName,
+            'by' => 'name',
             '_content' => $value,
         ]);
         $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($dl, 'json'));

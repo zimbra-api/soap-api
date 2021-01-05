@@ -37,6 +37,7 @@ class AuthEnvelope extends Envelope
 
     /**
      * Constructor method for AuthEnvelope
+     *
      * @return self
      */
     public function __construct(?AuthBody $body = NULL, ?Header $header = NULL)

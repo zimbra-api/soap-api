@@ -27,7 +27,7 @@ use Zimbra\Soap\ResponseInterface;
 class ChangePasswordResponse implements ResponseInterface
 {
     /**
-     * Auth token based on the new password
+     * New authToken, as old authToken is invalidated on password change.
      * @Accessor(getter="getAuthToken", setter="setAuthToken")
      * @SerializedName("authToken")
      * @Type("string")
@@ -36,7 +36,7 @@ class ChangePasswordResponse implements ResponseInterface
     private $authToken;
 
     /**
-     * Life time of the auth token
+     * Life time associated with {new-auth-token}
      * @Accessor(getter="getLifetime", setter="setLifetime")
      * @SerializedName("lifetime")
      * @Type("integer")
@@ -46,6 +46,7 @@ class ChangePasswordResponse implements ResponseInterface
 
     /**
      * Constructor method for ChangePasswordResponse
+     *
      * @param  string $authToken
      * @param  int $lifetime
      * @return self

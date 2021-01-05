@@ -9,9 +9,7 @@ use Zimbra\Account\Message\AuthResponse;
 use Zimbra\Account\Struct\PreAuth;
 use Zimbra\Account\Struct\AuthToken;
 use Zimbra\Account\Struct\Attr;
-use Zimbra\Account\Struct\AuthAttrs;
 use Zimbra\Account\Struct\Pref;
-use Zimbra\Account\Struct\AuthPrefs;
 use Zimbra\Account\Struct\Session;
 use Zimbra\Enum\AccountBy;
 use Zimbra\Struct\AccountSelector;
@@ -51,10 +49,7 @@ class AuthTest extends ZimbraStructTestCase
         $session = new Session($id, $type);
 
         $attr = new Attr($name, $value, TRUE);
-        $attrs = new AuthAttrs([$attr]);
-
         $pref = new Pref($name, $value, $time);
-        $prefs = new AuthPrefs([$pref]);
 
         $request = new AuthRequest(
             $account,
@@ -64,8 +59,8 @@ class AuthTest extends ZimbraStructTestCase
             $authToken,
             $jwtToken,
             $virtualHost,
-            $prefs,
-            $attrs,
+            [$pref],
+            [$attr],
             $requestedSkin,
             FALSE,
             FALSE,
@@ -84,8 +79,8 @@ class AuthTest extends ZimbraStructTestCase
         $this->assertSame($authToken, $request->getAuthToken());
         $this->assertSame($jwtToken, $request->getJwtToken());
         $this->assertSame($virtualHost, $request->getVirtualHost());
-        $this->assertSame($prefs, $request->getPrefs());
-        $this->assertSame($attrs, $request->getAttrs());
+        $this->assertSame([$pref], $request->getPrefs());
+        $this->assertSame([$attr], $request->getAttrs());
         $this->assertSame($requestedSkin, $request->getRequestedSkin());
         $this->assertFalse($request->getPersistAuthTokenCookie());
         $this->assertFalse($request->getCsrfSupported());
@@ -104,8 +99,10 @@ class AuthTest extends ZimbraStructTestCase
             ->setAuthToken($authToken)
             ->setJwtToken($jwtToken)
             ->setVirtualHost($virtualHost)
-            ->setPrefs($prefs)
-            ->setAttrs($attrs)
+            ->setPrefs([$pref])
+            ->addPref($pref)
+            ->setAttrs([$attr])
+            ->addAttr($attr)
             ->setRequestedSkin($requestedSkin)
             ->setPersistAuthTokenCookie(TRUE)
             ->setCsrfSupported(TRUE)
@@ -122,8 +119,8 @@ class AuthTest extends ZimbraStructTestCase
         $this->assertSame($authToken, $request->getAuthToken());
         $this->assertSame($jwtToken, $request->getJwtToken());
         $this->assertSame($virtualHost, $request->getVirtualHost());
-        $this->assertSame($prefs, $request->getPrefs());
-        $this->assertSame($attrs, $request->getAttrs());
+        $this->assertSame([$pref, $pref], $request->getPrefs());
+        $this->assertSame([$attr, $attr], $request->getAttrs());
         $this->assertSame($requestedSkin, $request->getRequestedSkin());
         $this->assertTrue($request->getPersistAuthTokenCookie());
         $this->assertTrue($request->getCsrfSupported());
@@ -133,6 +130,7 @@ class AuthTest extends ZimbraStructTestCase
         $this->assertSame($deviceId, $request->getDeviceId());
         $this->assertTrue($request->getGenerateDeviceId());
         $this->assertSame($tokenType, $request->getTokenType());
+        $request->setPrefs([$pref])->setAttrs([$attr]);
 
         $response = new AuthResponse(
             $token,
@@ -145,8 +143,8 @@ class AuthTest extends ZimbraStructTestCase
             $trustedToken,
             $trustLifetime,
             FALSE,
-            $prefs,
-            $attrs,
+            [$pref],
+            [$attr],
             FALSE,
             FALSE
         );
@@ -160,8 +158,8 @@ class AuthTest extends ZimbraStructTestCase
         $this->assertSame($trustedToken, $response->getTrustedToken());
         $this->assertSame($trustLifetime, $response->getTrustLifetime());
         $this->assertFalse($response->getZmgProxy());
-        $this->assertSame($prefs, $response->getPrefs());
-        $this->assertSame($attrs, $response->getAttrs());
+        $this->assertSame([$pref], $response->getPrefs());
+        $this->assertSame([$attr], $response->getAttrs());
         $this->assertFalse($response->getTwoFactorAuthRequired());
         $this->assertFalse($response->getTrustedDevicesEnabled());
 
@@ -176,8 +174,10 @@ class AuthTest extends ZimbraStructTestCase
             ->setTrustedToken($trustedToken)
             ->setTrustLifetime($trustLifetime)
             ->setZmgProxy(TRUE)
-            ->setPrefs($prefs)
-            ->setAttrs($attrs)
+            ->setPrefs([$pref])
+            ->addPref($pref)
+            ->setAttrs([$attr])
+            ->addAttr($attr)
             ->setTwoFactorAuthRequired(TRUE)
             ->setTrustedDevicesEnabled(TRUE);
         $this->assertSame($token, $response->getAuthToken());
@@ -190,10 +190,11 @@ class AuthTest extends ZimbraStructTestCase
         $this->assertSame($trustedToken, $response->getTrustedToken());
         $this->assertSame($trustLifetime, $response->getTrustLifetime());
         $this->assertTrue($response->getZmgProxy());
-        $this->assertSame($prefs, $response->getPrefs());
-        $this->assertSame($attrs, $response->getAttrs());
+        $this->assertSame([$pref, $pref], $response->getPrefs());
+        $this->assertSame([$attr, $attr], $response->getAttrs());
         $this->assertTrue($response->getTwoFactorAuthRequired());
         $this->assertTrue($response->getTrustedDevicesEnabled());
+        $response->setPrefs([$pref])->setAttrs([$attr]);
 
         $body = new AuthBody($request, $response);
         $this->assertSame($request, $body->getRequest());
@@ -233,7 +234,7 @@ class AuthTest extends ZimbraStructTestCase
             </attrs>
             <requestedSkin>$requestedSkin</requestedSkin>
             <twoFactorCode>$twoFactorCode</twoFactorCode>
-            <trustedDeviceToken>$trustedToken</trustedDeviceToken>
+            <trustedToken>$trustedToken</trustedToken>
             <deviceId>$deviceId</deviceId>
         </urn:AuthRequest>
         <urn:AuthResponse zmgProxy="true">
@@ -317,7 +318,7 @@ EOT;
                         '_content' => $twoFactorCode,
                     ],
                     'deviceTrusted' => TRUE,
-                    'trustedDeviceToken' => [
+                    'trustedToken' => [
                         '_content' => $trustedToken,
                     ],
                     'deviceId' => [

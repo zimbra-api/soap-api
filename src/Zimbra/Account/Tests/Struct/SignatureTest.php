@@ -2,9 +2,9 @@
 
 namespace Zimbra\Account\Tests\Struct;
 
-use Zimbra\Enum\ContentType;
-use Zimbra\Account\Struct\SignatureContent;
 use Zimbra\Account\Struct\Signature;
+use Zimbra\Account\Struct\SignatureContent;
+use Zimbra\Enum\ContentType;
 use Zimbra\Struct\Tests\ZimbraStructTestCase;
 
 /**
@@ -39,14 +39,12 @@ class SignatureTest extends ZimbraStructTestCase
         $this->assertSame($cid, $sig->getCid());
         $this->assertSame([$content1, $content2], $sig->getContents());
 
-        $textPlain = ContentType::TEXT_PLAIN()->getValue();
-        $textHtml = ContentType::TEXT_HTML()->getValue();
         $xml = <<<EOT
 <?xml version="1.0"?>
 <signature name="$name" id="$id">
     <cid>$cid</cid>
-    <content type="$textPlain">$value</content>
-    <content type="$textHtml">$value</content>
+    <content type="text/plain">$value</content>
+    <content type="text/html">$value</content>
 </signature>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($sig, 'xml'));
@@ -60,11 +58,11 @@ EOT;
             ],
             'content' => [
                 [
-                    'type' => $textPlain,
+                    'type' => 'text/plain',
                     '_content' => $value,
                 ],
                 [
-                    'type' => $textHtml,
+                    'type' => 'text/html',
                     '_content' => $value,
                 ],
             ],

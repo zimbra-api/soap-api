@@ -60,19 +60,17 @@ class CheckRightsTest extends ZimbraStructTestCase
         $envelope->setBody($body);
         $this->assertSame($body, $envelope->getBody());
 
-        $type = TargetType::ACCOUNT()->getValue();
-        $by = TargetBy::NAME()->getValue();
         $xml = <<<EOT
 <?xml version="1.0"?>
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAccount">
     <soap:Body>
         <urn:CheckRightsRequest>
-            <target type="$type" by="$by" key="$key1">
+            <target type="account" by="name" key="$key1">
                 <right>$right1</right>
             </target>
         </urn:CheckRightsRequest>
         <urn:CheckRightsResponse>
-            <target type="$type" by="$by" key="$key2" allow="true">
+            <target type="account" by="name" key="$key2" allow="true">
                 <right allow="true">$right2</right>
             </target>
         </urn:CheckRightsResponse>
@@ -87,8 +85,8 @@ EOT;
                 'CheckRightsRequest' => [
                     'target' => [
                         [
-                            'type' => $type,
-                            'by' => $by,
+                            'type' => 'account',
+                            'by' => 'name',
                             'key' => $key1,
                             'right' => [
                                 [
@@ -102,8 +100,8 @@ EOT;
                 'CheckRightsResponse' => [
                     'target' => [
                         [
-                            'type' => $type,
-                            'by' => $by,
+                            'type' => 'account',
+                            'by' => 'name',
                             'key' => $key2,
                             'allow' => TRUE,
                             'right' => [

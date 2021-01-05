@@ -31,7 +31,7 @@ use Zimbra\Soap\Request;
 class AutoCompleteGalRequest extends Request
 {
     /**
-     * name to test for autocompletion
+     * The name to test for autocompletion
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
@@ -41,6 +41,11 @@ class AutoCompleteGalRequest extends Request
 
     /**
      * type of addresses to auto-complete on
+     * - "account" for regular user accounts, aliases and distribution lists 
+     * - "resource" for calendar resources 
+     * - "group" for groups 
+     * - "all" for combination of all types 
+     * if omitted, defaults to "account"
      * @Accessor(getter="getType", setter="setType")
      * @SerializedName("type")
      * @Type("Zimbra\Enum\GalSearchType")
@@ -49,7 +54,8 @@ class AutoCompleteGalRequest extends Request
     private $type;
 
     /**
-     * flag is needed in the response for group entries
+     * flag whether the {exp} flag is needed in the response for group entries.
+     * default is 0 (false)
      * @Accessor(getter="getNeedCanExpand", setter="setNeedCanExpand")
      * @SerializedName("needExp")
      * @Type("bool")
@@ -67,7 +73,7 @@ class AutoCompleteGalRequest extends Request
     private $galAccountId;
 
     /**
-     * the maximum number of results to return
+     * An integer specifying the maximum number of results to return
      * @Accessor(getter="getLimit", setter="setLimit")
      * @SerializedName("limit")
      * @Type("integer")
@@ -77,6 +83,7 @@ class AutoCompleteGalRequest extends Request
 
     /**
      * Constructor method for AutoCompleteGal
+     *
      * @param  string $name
      * @param  GalSearchType $type
      * @param  bool $needCanExpand
@@ -84,7 +91,13 @@ class AutoCompleteGalRequest extends Request
      * @param  int $limit
      * @return self
      */
-    public function __construct(string $name, ?GalSearchType $type = NULL, ?bool $needCanExpand = NULL, ?string $galAccountId = NULL, ?int $limit = NULL)
+    public function __construct(
+        string $name,
+        ?GalSearchType $type = NULL,
+        ?bool $needCanExpand = NULL,
+        ?string $galAccountId = NULL,
+        ?int $limit = NULL
+    )
     {
         $this->setName($name);
         if(NULL !== $type) {

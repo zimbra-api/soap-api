@@ -26,6 +26,7 @@ use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAt
 class Identity extends AttrsImpl
 {
     /**
+     * Identity name
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
@@ -34,6 +35,7 @@ class Identity extends AttrsImpl
     private $name;
 
     /**
+     * Identity ID
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
@@ -43,12 +45,13 @@ class Identity extends AttrsImpl
 
     /**
      * Constructor method for Identity
+     *
      * @param string $name
      * @param string $id
      * @param array  $attrs
      * @return self
      */
-    public function __construct(?string $name = NULL, ?string $id = NULL, array $attrs = array())
+    public function __construct(?string $name = NULL, ?string $id = NULL, array $attrs = [])
     {
         parent::__construct($attrs);
         if (NULL !== $name) {

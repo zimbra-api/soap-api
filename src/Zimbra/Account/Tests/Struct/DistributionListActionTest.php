@@ -57,20 +57,16 @@ class DistributionListActionTest extends ZimbraStructTestCase
         $this->assertSame([$owner], $dl->getOwners());
         $this->assertSame([$right], $dl->getRights());
 
-        $opDelete = Operation::DELETE()->getValue();
-        $opSubscribe = DLSubscribeOp::SUBSCRIBE()->getValue();
-        $type = GranteeType::USR()->getValue();
-        $by = DLGranteeBy::NAME()->getValue();
         $xml = <<<EOT
 <?xml version="1.0"?>
-<action op="$opDelete">
+<action op="delete">
     <a n="$name">$value</a>
     <newName>$name</newName>
-    <subsReq op="$opSubscribe" bccOwners="true">$value</subsReq>
+    <subsReq op="subscribe" bccOwners="true">$value</subsReq>
     <dlm>$member</dlm>
-    <owner type="$type" by="$by">$value</owner>
+    <owner type="usr" by="name">$value</owner>
     <right right="$name">
-        <grantee type="$type" by="$by">$value</grantee>
+        <grantee type="usr" by="name">$value</grantee>
     </right>
 </action>
 EOT;
@@ -78,18 +74,12 @@ EOT;
         $this->assertEquals($dl, $this->serializer->deserialize($xml, DistributionListAction::class, 'xml'));
 
         $json = json_encode([
-            'a' => [
-                [
-                    'n' => $name,
-                    '_content' => $value,
-                ],
-            ],
-            'op' => $opDelete,
+            'op' => 'delete',
             'newName' => [
                 '_content' => $name,
             ],
             'subsReq' => [
-                'op' => $opSubscribe,
+                'op' => 'subscribe',
                 '_content' => $value,
                 'bccOwners' => TRUE,
             ],
@@ -100,8 +90,8 @@ EOT;
             ],
             'owner' => [
                 [
-                    'type' => $type,
-                    'by' => $by,
+                    'type' => 'usr',
+                    'by' => 'name',
                     '_content' => $value,
                 ],
             ],
@@ -110,11 +100,17 @@ EOT;
                     'right' => $name,
                     'grantee' => [
                         [
-                            'type' => $type,
-                            'by' => $by,
+                            'type' => 'usr',
+                            'by' => 'name',
                             '_content' => $value,
                         ],
                     ],
+                ],
+            ],
+            'a' => [
+                [
+                    'n' => $name,
+                    '_content' => $value,
                 ],
             ],
         ]);

@@ -54,12 +54,12 @@ final class XmlDeserializationVisitor extends AbstractVisitor implements NullAwa
     /**
      * @var bool
      */
-    private $disableExternalEntities = TRUE;
+    private $disableExternalEntities;
 
     /**
      * @var string[]
      */
-    private $doctypeWhitelist = [];
+    private $doctypeWhitelist;
     /**
      * @var int
      */
@@ -88,9 +88,11 @@ final class XmlDeserializationVisitor extends AbstractVisitor implements NullAwa
         $previous = libxml_use_internal_errors(TRUE);
         libxml_clear_errors();
 
-        $previousEntityLoaderState = libxml_disable_entity_loader($this->disableExternalEntities);
+        if (\LIBXML_VERSION < 20900) {
+            $previousEntityLoaderState = libxml_disable_entity_loader($this->disableExternalEntities);
+        }
 
-        if (FALSE !== stripos($data, '<!doctype')) {
+        if (false !== stripos($data, '<!doctype')) {
             $internalSubset = $this->getDomDocumentTypeEntitySubset($data);
             if (!in_array($internalSubset, $this->doctypeWhitelist, TRUE)) {
                 throw new InvalidArgumentException(sprintf(
@@ -103,7 +105,10 @@ final class XmlDeserializationVisitor extends AbstractVisitor implements NullAwa
         $doc = simplexml_load_string($data, 'SimpleXMLElement', $this->options);
 
         libxml_use_internal_errors($previous);
-        libxml_disable_entity_loader($previousEntityLoaderState);
+
+        if (\LIBXML_VERSION < 20900) {
+            libxml_disable_entity_loader($previousEntityLoaderState);
+        }
 
         if (FALSE === $doc) {
             throw new XmlErrorException(libxml_get_last_error());
@@ -212,7 +217,7 @@ final class XmlDeserializationVisitor extends AbstractVisitor implements NullAwa
             $nodes = $data->xpath($entryName);
         }
 
-        if (!\count($nodes)) {
+        if (null === $nodes || !\count($nodes)) {
             return [];
         }
 

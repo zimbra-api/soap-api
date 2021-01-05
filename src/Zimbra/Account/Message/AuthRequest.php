@@ -10,8 +10,8 @@
 
 namespace Zimbra\Account\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlElement, XmlRoot};
-use Zimbra\Account\Struct\{Attr, AuthAttrs, AuthPrefs, AuthToken, PreAuth, Pref};
+use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlElement, XmlList, XmlRoot};
+use Zimbra\Account\Struct\{Attr, AuthToken, PreAuth, Pref};
 use Zimbra\Soap\Request;
 use Zimbra\Struct\AccountSelector;
 
@@ -30,6 +30,8 @@ class AuthRequest extends Request
 {
     /**
      * Controls whether the auth token cookie in the response should be persisted when the browser exits.
+     * - 0: (default) the cookie will be deleted when the Web browser exits.
+     * - 1: The "Expires" attribute of the cookie will be set per rfc6265.
      * @Accessor(getter="getPersistAuthTokenCookie", setter="setPersistAuthTokenCookie")
      * @SerializedName("persistAuthTokenCookie")
      * @Type("bool")
@@ -39,6 +41,8 @@ class AuthRequest extends Request
 
     /**
      * Controls whether the client supports CSRF token
+     * - 0: (default) Client does not support CSRF token
+     * - 1: The client supports CSRF token. 
      * @Accessor(getter="getCsrfSupported", setter="setCsrfSupported")
      * @SerializedName("csrfTokenSecured")
      * @Type("bool")
@@ -113,8 +117,8 @@ class AuthRequest extends Request
      * Requested preference settings.
      * @Accessor(getter="getPrefs", setter="setPrefs")
      * @SerializedName("prefs")
-     * @Type("Zimbra\Account\Struct\AuthPrefs")
-     * @XmlElement
+     * @Type("array<Zimbra\Account\Struct\Pref>")
+     * @XmlList(inline = false, entry = "pref")
      */
     private $prefs;
 
@@ -122,8 +126,8 @@ class AuthRequest extends Request
      * Requested attribute settings. Only attributes that are allowed to be returned by GetInfo will be returned by this call
      * @Accessor(getter="getAttrs", setter="setAttrs")
      * @SerializedName("attrs")
-     * @Type("Zimbra\Account\Struct\AuthAttrs")
-     * @XmlElement
+     * @Type("array<Zimbra\Account\Struct\Attr>")
+     * @XmlList(inline = false, entry = "attr")
      */
     private $attrs;
 
@@ -157,7 +161,7 @@ class AuthRequest extends Request
     /**
      * Whether the client represents a trusted device
      * @Accessor(getter="getTrustedDeviceToken", setter="setTrustedDeviceToken")
-     * @SerializedName("trustedDeviceToken")
+     * @SerializedName("trustedToken")
      * @Type("string")
      * @XmlElement(cdata = false)
      */
@@ -191,6 +195,7 @@ class AuthRequest extends Request
 
     /**
      * Constructor method for AuthRequest
+     *
      * @param  AccountSelector   $account
      * @param  string    $password
      * @param  string    $recoveryCode
@@ -198,8 +203,8 @@ class AuthRequest extends Request
      * @param  AuthToken $authToken
      * @param  string    $jwtToken
      * @param  string    $virtualHost
-     * @param  AuthPrefs $prefs
-     * @param  AuthAttrs $attrs
+     * @param  array $prefs
+     * @param  array $attrs
      * @param  string    $requestedSkin
      * @param  bool      $persistAuthTokenCookie
      * @param  bool      $csrfSupported
@@ -219,8 +224,8 @@ class AuthRequest extends Request
         ?AuthToken $authToken = NULL,
         ?string $jwtToken = NULL,
         ?string $virtualHost = NULL,
-        ?AuthPrefs $prefs = NULL,
-        ?AuthAttrs $attrs = NULL,
+        array $prefs = [],
+        array $attrs = [],
         ?string $requestedSkin = NULL,
         ?bool $persistAuthTokenCookie = NULL,
         ?bool $csrfSupported = NULL,
@@ -232,6 +237,8 @@ class AuthRequest extends Request
         ?string $tokenType = NULL
     )
     {
+        $this->setPrefs($prefs)
+             ->setAttrs($attrs);
         if($account instanceof AccountSelector) {
             $this->setAccount($account);
         }
@@ -252,12 +259,6 @@ class AuthRequest extends Request
         }
         if(NULL !== $virtualHost) {
             $this->setVirtualHost($virtualHost);
-        }
-        if($prefs instanceof AuthPrefs) {
-            $this->setPrefs($prefs);
-        }
-        if($attrs instanceof AuthAttrs) {
-            $this->setAttrs($attrs);
         }
         if(NULL !== $requestedSkin) {
             $this->setRequestedSkin($requestedSkin);
@@ -489,9 +490,9 @@ class AuthRequest extends Request
     /**
      * Gets requested preference settings
      *
-     * @return AuthPrefs
+     * @return array
      */
-    public function getPrefs(): ?AuthPrefs
+    public function getPrefs(): array
     {
         return $this->prefs;
     }
@@ -499,16 +500,16 @@ class AuthRequest extends Request
     /**
      * Sets requested preference settings
      *
-     * @param  AuthPrefs|array $prefs
+     * @param  array $prefs
      * @return self
      */
-    public function setPrefs($prefs): self
+    public function setPrefs(array $prefs): self
     {
-        if ($prefs instanceof AuthPrefs) {
-            $this->prefs = $prefs;
-        }
-        elseif(is_array($prefs) || $prefs instanceof Traversable) {
-            $this->prefs = new AuthPrefs($prefs);
+        $this->prefs = [];
+        foreach ($prefs as $pref) {
+            if ($pref instanceof Pref) {
+                $this->prefs[] = $pref;
+            }
         }
         return $this;
     }
@@ -521,19 +522,16 @@ class AuthRequest extends Request
      */
     public function addPref(Pref $pref): self
     {
-        if (!($this->prefs instanceof AuthPrefs)) {
-            $this->prefs = new AuthPrefs();
-        }
-        $this->prefs->addPref($pref);
+        $this->prefs[] = $pref;
         return $this;
     }
 
     /**
      * Gets requested attribute settings
      *
-     * @return AuthAttrs
+     * @return array
      */
-    public function getAttrs(): ?AuthAttrs
+    public function getAttrs(): array
     {
         return $this->attrs;
     }
@@ -541,16 +539,16 @@ class AuthRequest extends Request
     /**
      * Sets requested attribute settings
      *
-     * @param  AuthPrefs|array $attrs
+     * @param  array $attrs
      * @return self
      */
-    public function setAttrs($attrs): self
+    public function setAttrs(array $attrs): self
     {
-        if ($attrs instanceof AuthAttrs) {
-            $this->attrs = $attrs;
-        }
-        elseif(is_array($attrs) || $attrs instanceof Traversable) {
-            $this->attrs = new AuthAttrs($attrs);
+        $this->attrs = [];
+        foreach ($attrs as $attr) {
+            if ($attr instanceof Attr) {
+                $this->attrs[] = $attr;
+            }
         }
         return $this;
     }
@@ -563,10 +561,7 @@ class AuthRequest extends Request
      */
     public function addAttr(Attr $attr): self
     {
-        if (!($this->attrs instanceof AuthAttrs)) {
-            $this->attrs = new AuthAttrs();
-        }
-        $this->attrs->addAttr($attr);
+        $this->attrs[] = $attr;
         return $this;
     }
 
