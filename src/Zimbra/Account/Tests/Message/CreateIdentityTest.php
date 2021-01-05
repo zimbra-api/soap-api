@@ -5,7 +5,6 @@ namespace Zimbra\Account\Tests\Message;
 use Zimbra\Account\Message\{CreateIdentityEnvelope, CreateIdentityBody, CreateIdentityRequest, CreateIdentityResponse};
 use Zimbra\Account\Struct\Attr;
 use Zimbra\Account\Struct\Identity;
-use Zimbra\Enum\IdentityBy;
 use Zimbra\Struct\Tests\ZimbraStructTestCase;
 /**
  * Testcase class for CreateIdentity.
