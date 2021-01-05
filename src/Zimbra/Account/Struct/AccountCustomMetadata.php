@@ -36,6 +36,7 @@ class AccountCustomMetadata extends AccountKeyValuePairs implements CustomMetada
 
     /**
      * Constructor method for AccountCustomMetadata
+     *
      * @param string $section
      * @param array $keyValuePairs
      * @return self
