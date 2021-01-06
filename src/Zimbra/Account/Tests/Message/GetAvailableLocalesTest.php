@@ -2,47 +2,47 @@
 
 namespace Zimbra\Account\Tests\Message;
 
-use Zimbra\Account\Message\GetAllLocalesBody;
-use Zimbra\Account\Message\GetAllLocalesEnvelope;
-use Zimbra\Account\Message\GetAllLocalesRequest;
-use Zimbra\Account\Message\GetAllLocalesResponse;
+use Zimbra\Account\Message\GetAvailableLocalesBody;
+use Zimbra\Account\Message\GetAvailableLocalesEnvelope;
+use Zimbra\Account\Message\GetAvailableLocalesRequest;
+use Zimbra\Account\Message\GetAvailableLocalesResponse;
 use Zimbra\Account\Struct\LocaleInfo;
 use Zimbra\Struct\Tests\ZimbraStructTestCase;
 
 /**
- * Testcase class for GetAllLocalesTest.
+ * Testcase class for GetAvailableLocalesTest.
  */
-class GetAllLocalesTest extends ZimbraStructTestCase
+class GetAvailableLocalesTest extends ZimbraStructTestCase
 {
-    public function testGetAllLocales()
+    public function testGetAvailableLocales()
     {
         $id = $this->faker->word;
         $name = $this->faker->word;
         $localName = $this->faker->country;
 
-        $request = new GetAllLocalesRequest();
+        $request = new GetAvailableLocalesRequest();
 
         $locale = new LocaleInfo($id, $name, $localName);
-        $response = new GetAllLocalesResponse([$locale]);
+        $response = new GetAvailableLocalesResponse([$locale]);
         $this->assertSame([$locale], $response->getLocales());
-        $response = new GetAllLocalesResponse();
+        $response = new GetAvailableLocalesResponse();
         $response->setLocales([$locale])
             ->addLocale($locale);
         $this->assertSame([$locale, $locale], $response->getLocales());
         $response->setLocales([$locale]);
 
-        $body = new GetAllLocalesBody($request, $response);
+        $body = new GetAvailableLocalesBody($request, $response);
         $this->assertSame($request, $body->getRequest());
         $this->assertSame($response, $body->getResponse());
-        $body = new GetAllLocalesBody();
+        $body = new GetAvailableLocalesBody();
         $body->setRequest($request)
              ->setResponse($response);
         $this->assertSame($request, $body->getRequest());
         $this->assertSame($response, $body->getResponse());
 
-        $envelope = new GetAllLocalesEnvelope($body);
+        $envelope = new GetAvailableLocalesEnvelope($body);
         $this->assertSame($body, $envelope->getBody());
-        $envelope = new GetAllLocalesEnvelope();
+        $envelope = new GetAvailableLocalesEnvelope();
         $envelope->setBody($body);
         $this->assertSame($body, $envelope->getBody());
 
@@ -50,22 +50,22 @@ class GetAllLocalesTest extends ZimbraStructTestCase
 <?xml version="1.0"?>
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAccount">
     <soap:Body>
-        <urn:GetAllLocalesRequest />
-        <urn:GetAllLocalesResponse>
+        <urn:GetAvailableLocalesRequest />
+        <urn:GetAvailableLocalesResponse>
             <locale id="$id" name="$name" localName="$localName" />
-        </urn:GetAllLocalesResponse>
+        </urn:GetAvailableLocalesResponse>
     </soap:Body>
 </soap:Envelope>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($xml, GetAllLocalesEnvelope::class, 'xml'));
+        $this->assertEquals($envelope, $this->serializer->deserialize($xml, GetAvailableLocalesEnvelope::class, 'xml'));
 
         $json = json_encode([
             'Body' => [
-                'GetAllLocalesRequest' => [
+                'GetAvailableLocalesRequest' => [
                     '_jsns' => 'urn:zimbraAccount',
                 ],
-                'GetAllLocalesResponse' => [
+                'GetAvailableLocalesResponse' => [
                     'locale' => [
                         [
                             'id' => $id,
@@ -78,6 +78,6 @@ EOT;
             ],
         ]);
         $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, GetAllLocalesEnvelope::class, 'json'));
+        $this->assertEquals($envelope, $this->serializer->deserialize($json, GetAvailableLocalesEnvelope::class, 'json'));
     }
 }
