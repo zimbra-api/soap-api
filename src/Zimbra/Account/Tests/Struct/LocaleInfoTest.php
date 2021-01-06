@@ -1,0 +1,47 @@
+<?php declare(strict_types=1);
+
+namespace Zimbra\Account\Tests\Struct;
+
+use Zimbra\Account\Struct\LocaleInfo;
+use Zimbra\Struct\Tests\ZimbraStructTestCase;
+
+/**
+ * Testcase class for LocaleInfo.
+ */
+class LocaleInfoTest extends ZimbraStructTestCase
+{
+    public function testLocaleInfo()
+    {
+        $id = $this->faker->word;
+        $name = $this->faker->word;
+        $localName = $this->faker->country;
+
+        $locale = new LocaleInfo($id, $name, $localName);
+        $this->assertSame($id, $locale->getId());
+        $this->assertSame($name, $locale->getName());
+        $this->assertSame($localName, $locale->getLocalName());
+
+        $locale = new LocaleInfo('', '', '');
+        $locale->setId($id)
+            ->setName($name)
+            ->setLocalName($localName);
+        $this->assertSame($id, $locale->getId());
+        $this->assertSame($name, $locale->getName());
+        $this->assertSame($localName, $locale->getLocalName());
+
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<locale id="$id" name="$name" localName="$localName" />
+EOT;
+        $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($locale, 'xml'));
+        $this->assertEquals($locale, $this->serializer->deserialize($xml, LocaleInfo::class, 'xml'));
+
+        $json = json_encode([
+            'id' => $id,
+            'name' => $name,
+            'localName' => $localName,
+        ]);
+        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($locale, 'json'));
+        $this->assertEquals($locale, $this->serializer->deserialize($json, LocaleInfo::class, 'json'));
+    }
+}
