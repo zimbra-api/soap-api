@@ -24,8 +24,8 @@ class GetCreateObjectAttrsTest extends ZimbraStructTestCase
         $type = $this->faker->word;
         $name = $this->faker->word;
         $value= $this->faker->word;
-        $value1 = $this->faker->word;
-        $value2 = $this->faker->word;
+        $value1 = $this->faker->text;
+        $value2 = $this->faker->text;
         $max = $this->faker->word;
         $min = $this->faker->word;
 

@@ -12,8 +12,8 @@ class ConstraintInfoTest extends ZimbraStructTestCase
 {
     public function testConstraintInfo()
     {
-        $value1 = $this->faker->word;
-        $value2 = $this->faker->word;
+        $value1 = $this->faker->text;
+        $value2 = $this->faker->text;
         $max = $this->faker->word;
         $min = $this->faker->word;
 
