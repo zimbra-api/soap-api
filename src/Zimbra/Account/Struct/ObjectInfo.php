@@ -23,7 +23,7 @@ use Zimbra\Struct\KeyValuePair;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
  */
-class ObjectInfo
+abstract class ObjectInfo
 {
     /**
      * Name
@@ -55,12 +55,12 @@ class ObjectInfo
     /**
      * Constructor method for ObjectInfo
      * 
-     * @param  string $name Name
-     * @param  string $id ID
-     * @param  array  $attrs Attributes
+     * @param  string $name
+     * @param  string $id
+     * @param  array  $attrs
      * @return self
      */
-    public function __construct($name, $id, array $attrs = [])
+    public function __construct(string $name, string $id, array $attrs = [])
     {
         $this->setName($name)
              ->setId($id)

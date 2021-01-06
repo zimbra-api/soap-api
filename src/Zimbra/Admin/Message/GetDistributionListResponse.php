@@ -39,7 +39,7 @@ class GetDistributionListResponse implements ResponseInterface
 
     /**
      * Total number of members (not affected by limit/total)
-    * Only present if the list of members is given
+     * Only present if the list of members is given
      * @Accessor(getter="getTotal", setter="setTotal")
      * @SerializedName("total")
      * @Type("integer")
