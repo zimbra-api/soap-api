@@ -2,7 +2,6 @@
 
 namespace Zimbra\Account\Tests\Struct;
 
-use JMS\Serializer\Annotation\XmlRoot;
 use Zimbra\Account\Struct\HABGroupMember;
 use Zimbra\Struct\NamedValue;
 use Zimbra\Struct\Tests\ZimbraStructTestCase;
