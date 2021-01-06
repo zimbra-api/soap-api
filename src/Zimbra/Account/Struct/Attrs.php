@@ -11,26 +11,17 @@
 namespace Zimbra\Account\Struct;
 
 /**
- * AttrsImpl struct class
+ * Attrs interface
  * 
  * @package    Zimbra
  * @subpackage Account
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
- * @copyright  Copyright © 2020 by Nguyen Van Nguyen.
+ * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
  */
-abstract class AttrsImpl implements Attrs
+interface Attrs
 {
-    use AttrsImplTrait;
-
-    /**
-     * Constructor method for AttrsImpl
-     *
-     * @param array $attrs
-     * @return self
-     */
-    public function __construct(array $attrs = [])
-    {
-        $this->setAttrs($attrs);
-    }
+    function setAttrs(array $attrs): self;
+    function getAttrs(): array;
+    function addAttr(Attr $attr): self;
 }

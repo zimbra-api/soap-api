@@ -18,7 +18,6 @@ class GetAvailableSkinsTest extends ZimbraStructTestCase
     {
         $name = $this->faker->word;
 
-
         $request = new GetAvailableSkinsRequest();
 
         $skin = new NamedElement($name);

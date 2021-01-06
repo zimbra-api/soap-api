@@ -36,7 +36,7 @@ class GetAllEffectiveRightsTest extends ZimbraStructTestCase
         $id = $this->faker->uuid;
         $name = $this->faker->name;
         $value = $this->faker->text;
-        $secret = $this->faker->password;
+        $secret = $this->faker->text;
         $value1= $this->faker->text;
         $value2= $this->faker->text;
         $min= $this->faker->word;

@@ -10,8 +10,6 @@
 
 namespace Zimbra\Admin\Struct;
 
-use Zimbra\Struct\KeyValuePair;
-
 /**
  * AdminAttrs interface
  * 
