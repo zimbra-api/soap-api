@@ -13,7 +13,7 @@ class ZimletPrefsSpecTest extends ZimbraStructTestCase
 {
     public function testZimletPrefsSpec()
     {
-        $name = $this->faker->word;
+        $name = $this->faker->name;
 
         $zimlet = new ZimletPrefsSpec($name, ZimletStatus::ENABLED());
         $this->assertSame($name, $zimlet->getName());

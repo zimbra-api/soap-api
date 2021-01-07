@@ -15,8 +15,8 @@ class SignatureTest extends ZimbraStructTestCase
     public function testSignature()
     {
         $value = $this->faker->word;
-        $name = $this->faker->word;
-        $id = $this->faker->word;
+        $name = $this->faker->name;
+        $id = $this->faker->uuid;
         $cid = $this->faker->word;
 
         $content1 = new SignatureContent($value, ContentType::TEXT_PLAIN());

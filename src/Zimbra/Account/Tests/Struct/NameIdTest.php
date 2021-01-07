@@ -2,7 +2,6 @@
 
 namespace Zimbra\Account\Tests\Struct;
 
-use Zimbra\Account\Tests\ZimbraAccountTestCase;
 use Zimbra\Account\Struct\NameId;
 use Zimbra\Struct\Tests\ZimbraStructTestCase;
 
@@ -13,8 +12,8 @@ class NameIdTest extends ZimbraStructTestCase
 {
     public function testNameId()
     {
-        $name = $this->faker->word;
-        $id = $this->faker->word;
+        $name = $this->faker->name;
+        $id = $this->faker->uuid;
 
         $nameId = new NameId($name, $id);
         $this->assertSame($name, $nameId->getName());

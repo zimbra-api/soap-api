@@ -4,6 +4,7 @@ namespace Zimbra\Struct\Tests;
 
 use Zimbra\Account\Struct\ContactGroupMember;
 use Zimbra\Account\Struct\ContactInfo;
+use Zimbra\Struct\Tests\ZimbraStructTestCase;
 
 /**
  * Testcase class for ContactGroupMember.
