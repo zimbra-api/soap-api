@@ -15,7 +15,7 @@ class AttrTest extends ZimbraStructTestCase
         $name = $this->faker->word;
         $value = $this->faker->word;
 
-        $attr = new Attr($name, $value, false);
+        $attr = new Attr($name, $value, FALSE);
         $this->assertSame($name, $attr->getName());
         $this->assertSame($value, $attr->getValue());
         $this->assertFalse($attr->getPermDenied());
@@ -23,7 +23,7 @@ class AttrTest extends ZimbraStructTestCase
         $attr = new Attr('');
         $attr->setName($name)
              ->setValue($value)
-             ->setPermDenied(true);
+             ->setPermDenied(TRUE);
         $this->assertSame($name, $attr->getName());
         $this->assertSame($value, $attr->getValue());
         $this->assertTrue($attr->getPermDenied());

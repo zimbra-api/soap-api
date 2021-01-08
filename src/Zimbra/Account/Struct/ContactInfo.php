@@ -219,7 +219,8 @@ class ContactInfo
     private $isMember;
 
     /**
-     * Constructor method for ContactGroupMember
+     * Constructor method for ContactInfo
+     *
      * @param string $sortField
      * @param bool $canExpand
      * @param string $id
