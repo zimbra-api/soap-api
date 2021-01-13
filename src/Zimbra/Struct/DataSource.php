@@ -70,6 +70,6 @@ interface DataSource
     function getFailingSince(): ?int;
     function getLastError(): ?string;
     function getAttributes(): array;
-    function getRefreshToken() ?string;
-    function getRefreshTokenUrl() ?string;
+    function getRefreshToken(): ?string;
+    function getRefreshTokenUrl(): ?string;
 }

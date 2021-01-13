@@ -19,8 +19,8 @@ class EffectiveRightsTargetInfoTest extends ZimbraStructTestCase
     {
         $name = $this->faker->word;
         $id = $this->faker->uuid;
-        $value1= $this->faker->word;
-        $value2= $this->faker->word;
+        $value1= $this->faker->text;
+        $value2= $this->faker->text;
         $min= $this->faker->word;
         $max= $this->faker->word;
 

@@ -14,58 +14,56 @@ class AccountACEInfoTest extends ZimbraStructTestCase
 {
     public function testAccountACEInfo()
     {
-        $zid = $this->faker->uuid;
-        $d = $this->faker->word;
-        $key = $this->faker->word;
-        $pw = $this->faker->sha256;
+        $zimbraId = $this->faker->uuid;
+        $displayName = $this->faker->word;
+        $accessKey = $this->faker->word;
+        $password = $this->faker->sha256;
 
         $ace = new AccountACEInfo(
-            GranteeType::ALL(), AceRightType::VIEW_FREE_BUSY(), $zid, $d, $key, $pw, FALSE, TRUE
+            GranteeType::ALL(), AceRightType::VIEW_FREE_BUSY(), $zimbraId, $displayName, $accessKey, $password, FALSE, TRUE
         );
         $this->assertEquals(GranteeType::ALL(), $ace->getGranteeType());
         $this->assertEquals(AceRightType::VIEW_FREE_BUSY(), $ace->getRight());
-        $this->assertSame($zid, $ace->getZimbraId());
-        $this->assertSame($d, $ace->getDisplayName());
-        $this->assertSame($key, $ace->getAccessKey());
-        $this->assertSame($pw, $ace->getPassword());
+        $this->assertSame($zimbraId, $ace->getZimbraId());
+        $this->assertSame($displayName, $ace->getDisplayName());
+        $this->assertSame($accessKey, $ace->getAccessKey());
+        $this->assertSame($password, $ace->getPassword());
         $this->assertFalse($ace->getDeny());
         $this->assertTrue($ace->getCheckGranteeType());
 
         $ace = new AccountACEInfo(GranteeType::ALL(), AceRightType::VIEW_FREE_BUSY());
         $ace->setGranteeType(GranteeType::USR())
             ->setRight(AceRightType::INVITE())
-            ->setZimbraId($zid)
-            ->setDisplayName($d)
-            ->setAccessKey($key)
-            ->setPassword($pw)
+            ->setZimbraId($zimbraId)
+            ->setDisplayName($displayName)
+            ->setAccessKey($accessKey)
+            ->setPassword($password)
             ->setDeny(TRUE)
             ->setCheckGranteeType(FALSE);
 
         $this->assertEquals(GranteeType::USR(), $ace->getGranteeType());
         $this->assertEquals(AceRightType::INVITE(), $ace->getRight());
-        $this->assertSame($zid, $ace->getZimbraId());
-        $this->assertSame($d, $ace->getDisplayName());
-        $this->assertSame($key, $ace->getAccessKey());
-        $this->assertSame($pw, $ace->getPassword());
+        $this->assertSame($zimbraId, $ace->getZimbraId());
+        $this->assertSame($displayName, $ace->getDisplayName());
+        $this->assertSame($accessKey, $ace->getAccessKey());
+        $this->assertSame($password, $ace->getPassword());
         $this->assertTrue($ace->getDeny());
         $this->assertFalse($ace->getCheckGranteeType());
 
-        $gt = GranteeType::USR()->getValue();
-        $right = AceRightType::INVITE()->getValue();
         $xml = <<<EOT
 <?xml version="1.0"?>
-<ace gt="$gt" right="$right" zid="$zid" d="$d" key="$key" pw="$pw" deny="true" chkgt="false" />
+<ace gt="usr" right="invite" zid="$zimbraId" d="$displayName" key="$accessKey" pw="$password" deny="true" chkgt="false" />
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($ace, 'xml'));
         $this->assertEquals($ace, $this->serializer->deserialize($xml, AccountACEInfo::class, 'xml'));
 
         $json = json_encode([
-            'gt' => $gt,
-            'right' => $right,
-            'zid' => $zid,
-            'd' => $d,
-            'key' => $key,
-            'pw' => $pw,
+            'gt' => 'usr',
+            'right' => 'invite',
+            'zid' => $zimbraId,
+            'd' => $displayName,
+            'key' => $accessKey,
+            'pw' => $password,
             'deny' => TRUE,
             'chkgt' => FALSE,
         ]);
