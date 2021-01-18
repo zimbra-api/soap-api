@@ -211,6 +211,18 @@ class AccountDataSources
     }
 
     /**
+     * Add dataSource
+     *
+     * @param  AccountDataSource $dataSource
+     * @return self
+     */
+    public function addDataSource(AccountDataSource $dataSource): self
+    {
+        $this->dataSources[] = $dataSource;
+        return $this;
+    }
+
+    /**
      * Set dataSources
      *
      * @param  array $dataSources
