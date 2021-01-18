@@ -39,8 +39,8 @@ class GetEffectiveRightsTest extends ZimbraStructTestCase
         $name = $this->faker->word;
         $value = $this->faker->word;
         $secret = $this->faker->word;
-        $value1= $this->faker->word;
-        $value2= $this->faker->word;
+        $value1= $this->faker->text;
+        $value2= $this->faker->text;
         $min= $this->faker->word;
         $max= $this->faker->word;
         $expandAttrs = [GetEffectiveRightsRequest::EXPAND_SET_ATTRS, GetEffectiveRightsRequest::EXPAND_GET_ATTRS];

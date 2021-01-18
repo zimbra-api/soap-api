@@ -39,37 +39,37 @@ final class SerializerHandler implements SubscribingHandlerInterface
             [
                 'direction' => GraphNavigator::DIRECTION_DESERIALIZATION,
                 'format' => 'xml',
-                'type' => 'Zimbra\Mail\Struct\FilterTests',
+                'type' => FilterTests::class,
                 'method' => 'xmlDeserializeFilterTests',
             ],
             [
                 'direction' => GraphNavigator::DIRECTION_DESERIALIZATION,
                 'format' => 'json',
-                'type' => 'Zimbra\Mail\Struct\FilterTests',
+                'type' => FilterTests::class,
                 'method' => 'jsonDeserializeFilterTests',
             ],
             [
                 'direction' => GraphNavigator::DIRECTION_DESERIALIZATION,
                 'format' => 'xml',
-                'type' => 'Zimbra\Mail\Struct\NestedRule',
+                'type' => NestedRule::class,
                 'method' => 'xmlDeserializeNestedRule',
             ],
             [
                 'direction' => GraphNavigator::DIRECTION_DESERIALIZATION,
                 'format' => 'json',
-                'type' => 'Zimbra\Mail\Struct\NestedRule',
+                'type' => NestedRule::class,
                 'method' => 'jsonDeserializeNestedRule',
             ],
             [
                 'direction' => GraphNavigator::DIRECTION_DESERIALIZATION,
                 'format' => 'xml',
-                'type' => 'Zimbra\Mail\Struct\FilterRule',
+                'type' => FilterRule::class,
                 'method' => 'xmlDeserializeFilterRule',
             ],
             [
                 'direction' => GraphNavigator::DIRECTION_DESERIALIZATION,
                 'format' => 'json',
-                'type' => 'Zimbra\Mail\Struct\FilterRule',
+                'type' => FilterRule::class,
                 'method' => 'jsonDeserializeFilterRule',
             ],
         ];
@@ -81,20 +81,18 @@ final class SerializerHandler implements SubscribingHandlerInterface
     {
         $serializer = SerializerFactory::create();
         $filterTests = new FilterTests(FilterCondition::ALL_OF());
-        $attributes = $data->attributes();
-        foreach ($attributes as $key => $value) {
+        foreach ($data->attributes() as $key => $value) {
             if ($key == 'condition') {
                 $filterTests->setCondition(new FilterCondition((string) $value));
             }
         }
 
-        $children = $data->children();
         $types = FilterTests::filterTestTypes();
-        foreach ($children as $value) {
-            $type = $types[$value->getName()] ?? NULL;
-            if (!empty($type)) {
+        foreach ($data->children() as $child) {
+            $name = $child->getName();
+            if (!empty($types[$name])) {
                 $filterTests->addTest(
-                    $serializer->deserialize($value->asXml(), $type, 'xml')
+                    $serializer->deserialize($child->asXml(), $types[$name], 'xml')
                 );
             }
         }
@@ -111,10 +109,10 @@ final class SerializerHandler implements SubscribingHandlerInterface
         if (isset($data['condition']) && $data['condition'] !== NULL) {
             $filterTests->setCondition(new FilterCondition((string) $data['condition']));
         }
-        foreach (FilterTests::filterTestTypes() as $key => $type) {
+        foreach (FilterTests::filterTestTypes() as $key => $value) {
             if (isset($data[$key]) && is_array($data[$key])) {
                 $filterTests->addTest(
-                    $serializer->deserialize(json_encode($data[$key]), $type, 'json')
+                    $serializer->deserialize(json_encode($data[$key]), $value, 'json')
                 );
             }
         }
@@ -129,31 +127,29 @@ final class SerializerHandler implements SubscribingHandlerInterface
         $nestedRule = new NestedRule(new FilterTests(FilterCondition::ALL_OF()));
         $types = NestedRule::filterActionTypes();
 
-        $children = $data->children();
-        foreach ($children as $value) {
-            $name = $value->getName();
+        foreach ($data->children() as $child) {
+            $name = $child->getName();
             if ('filterVariables' === $name) {
                 $nestedRule->setFilterVariables(
-                    $serializer->deserialize($value->asXml(), FilterVariables::class, 'xml')
+                    $serializer->deserialize($child->asXml(), FilterVariables::class, 'xml')
                 );
             }
             if ('filterTests' === $name) {
                 $nestedRule->setFilterTests(
-                    $serializer->deserialize($value->asXml(), FilterTests::class, 'xml')
+                    $serializer->deserialize($child->asXml(), FilterTests::class, 'xml')
                 );
             }
             if ('nestedRule' === $name) {
                 $nestedRule->setChild(
-                    $serializer->deserialize($value->asXml(), NestedRule::class, 'xml')
+                    $serializer->deserialize($child->asXml(), NestedRule::class, 'xml')
                 );
             }
             if ('filterActions' === $name) {
-                $filterActions = $value->children();
-                foreach ($filterActions as $action) {
-                    $type = $types[$action->getName()] ?? NULL;
-                    if (!empty($type)) {
+                foreach ($child->children() as $action) {
+                    $actionType = $types[$action->getName()] ?? NULL;
+                    if (!empty($actionType)) {
                         $nestedRule->addFilterAction(
-                            $serializer->deserialize($action->asXml(), $type, 'xml')
+                            $serializer->deserialize($action->asXml(), $actionType, 'xml')
                         );
                     }
                 }
@@ -187,10 +183,10 @@ final class SerializerHandler implements SubscribingHandlerInterface
         }
         if (isset($data['filterActions']) && $data['filterActions'] !== NULL) {
             $filterActions = $data['filterActions'];
-            foreach (NestedRule::filterActionTypes() as $key => $type) {
+            foreach (NestedRule::filterActionTypes() as $key => $actionType) {
                 if (isset($filterActions[$key]) && is_array($filterActions[$key])) {
                     $nestedRule->addFilterAction(
-                        $serializer->deserialize(json_encode($filterActions[$key]), $type, 'json')
+                        $serializer->deserialize(json_encode($filterActions[$key]), $actionType, 'json')
                     );
                 }
             }
@@ -206,8 +202,7 @@ final class SerializerHandler implements SubscribingHandlerInterface
         $filterRule = new FilterRule('', FALSE, new FilterTests(FilterCondition::ALL_OF()));
         $types = FilterRule::filterActionTypes();
 
-        $attributes = $data->attributes();
-        foreach ($attributes as $key => $value) {
+        foreach ($data->attributes() as $key => $value) {
             if ($key == 'name') {
                 $filterRule->setName((string) $value);
             }
@@ -216,31 +211,29 @@ final class SerializerHandler implements SubscribingHandlerInterface
             }
         }
 
-        $children = $data->children();
-        foreach ($children as $value) {
-            $name = $value->getName();
+        foreach ($data->children() as $child) {
+            $name = $child->getName();
             if ('filterVariables' === $name) {
                 $filterRule->setFilterVariables(
-                    $serializer->deserialize($value->asXml(), FilterVariables::class, 'xml')
+                    $serializer->deserialize($child->asXml(), FilterVariables::class, 'xml')
                 );
             }
             if ('filterTests' === $name) {
                 $filterRule->setFilterTests(
-                    $serializer->deserialize($value->asXml(), FilterTests::class, 'xml')
+                    $serializer->deserialize($child->asXml(), FilterTests::class, 'xml')
                 );
             }
             if ('nestedRule' === $name) {
                 $filterRule->setChild(
-                    $serializer->deserialize($value->asXml(), NestedRule::class, 'xml')
+                    $serializer->deserialize($child->asXml(), NestedRule::class, 'xml')
                 );
             }
             if ('filterActions' === $name) {
-                $filterActions = $value->children();
-                foreach ($filterActions as $action) {
-                    $type = $types[$action->getName()] ?? NULL;
-                    if (!empty($type)) {
+                foreach ($child->children() as $action) {
+                    $actionType = $types[$action->getName()] ?? NULL;
+                    if (!empty($actionType)) {
                         $filterRule->addFilterAction(
-                            $serializer->deserialize($action->asXml(), $type, 'xml')
+                            $serializer->deserialize($action->asXml(), $actionType, 'xml')
                         );
                     }
                 }
@@ -281,10 +274,10 @@ final class SerializerHandler implements SubscribingHandlerInterface
         }
         if (isset($data['filterActions']) && $data['filterActions'] !== NULL) {
             $filterActions = $data['filterActions'];
-            foreach (FilterRule::filterActionTypes() as $key => $type) {
+            foreach (FilterRule::filterActionTypes() as $key => $actionType) {
                 if (isset($filterActions[$key]) && is_array($filterActions[$key])) {
                     $filterRule->addFilterAction(
-                        $serializer->deserialize(json_encode($filterActions[$key]), $type, 'json')
+                        $serializer->deserialize(json_encode($filterActions[$key]), $actionType, 'json')
                     );
                 }
             }
