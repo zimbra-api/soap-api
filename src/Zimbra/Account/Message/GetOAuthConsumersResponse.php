@@ -28,7 +28,7 @@ use Zimbra\Soap\ResponseInterface;
 class GetOAuthConsumersResponse implements ResponseInterface
 {
     /**
-     * Identities
+     * Consumers
      * 
      * @Accessor(getter="getConsumers", setter="setConsumers")
      * @SerializedName("OAuthConsumer")

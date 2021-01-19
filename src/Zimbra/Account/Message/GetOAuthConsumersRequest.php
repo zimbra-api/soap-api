@@ -15,7 +15,6 @@ use Zimbra\Soap\Request;
 
 /**
  * GetOAuthConsumersRequest class
- * Get the identities for the authed account.
  * 
  * @package    Zimbra
  * @subpackage Account
