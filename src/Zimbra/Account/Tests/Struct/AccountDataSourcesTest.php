@@ -112,8 +112,8 @@ class AccountDataSourcesTest extends ZimbraStructTestCase
             $rss,
             $gal,
             $cal,
-            $unknown,
-        ]);
+        ])
+        ->addDataSource($unknown);
         $this->assertEquals([
             $imap,
             $pop3,

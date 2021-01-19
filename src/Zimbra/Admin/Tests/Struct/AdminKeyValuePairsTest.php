@@ -15,8 +15,8 @@ class AdminKeyValuePairsTest extends ZimbraStructTestCase
     {
         $key1 = $this->faker->word;
         $key2 = $this->faker->word;
-        $value1 = $this->faker->word;
-        $value2 = $this->faker->word;
+        $value1 = $this->faker->text;
+        $value2 = $this->faker->text;
 
         $kvp1 = new KeyValuePair($key1, $value1);
         $kvp2 = new KeyValuePair($key1, $value2);

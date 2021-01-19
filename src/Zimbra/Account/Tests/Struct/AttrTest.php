@@ -37,8 +37,8 @@ EOT;
 
         $json = json_encode([
             'name' => $name,
-            '_content' => $value,
             'pd' => TRUE,
+            '_content' => $value,
         ]);
         $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($attr, 'json'));
         $this->assertEquals($attr, $this->serializer->deserialize($json, Attr::class, 'json'));

@@ -75,11 +75,10 @@ class AccountZimletInfoTest extends ZimbraStructTestCase
         $this->assertSame($zimletDesc, $zimlet->getZimlet());
         $this->assertSame($zimletConfig, $zimlet->getZimletConfig());
 
-        $presence = ZimletPresence::ENABLED()->getValue();
         $xml = <<<EOT
 <?xml version="1.0"?>
 <zimlet>
-    <zimletContext baseUrl="$baseUrl" priority="$priority" presence="$presence" />
+    <zimletContext baseUrl="$baseUrl" priority="$priority" presence="enabled" />
     <zimlet name="$name" version="$version" description="$description" extension="$extension" target="$target" label="$label">
         <serverExtension hasKeyword="$hasKeyword" extensionClass="$extensionClass" regex="$regex" />
         <include>$value</include>
@@ -102,7 +101,7 @@ EOT;
             'zimletContext' => [
                 'baseUrl' => $baseUrl,
                 'priority' => $priority,
-                'presence' => $presence,
+                'presence' => 'enabled',
             ],
             'zimlet' => [
                 'name' => $name,

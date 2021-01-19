@@ -50,13 +50,13 @@ EOT;
             'a' => [
                 [
                     'name' => $name,
-                    '_content' => $value,
                     'pd' => TRUE,
+                    '_content' => $value,
                 ],
                 [
                     'name' => $name,
-                    '_content' => $value,
                     'pd' => FALSE,
+                    '_content' => $value,
                 ],
             ],
         ]);

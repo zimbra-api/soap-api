@@ -60,8 +60,8 @@ EOT;
                 'attr' => [
                     [
                         'name' => $name,
-                        '_content' => $value,
                         'pd' => TRUE,
+                        '_content' => $value,
                     ],
                 ],
             ],
