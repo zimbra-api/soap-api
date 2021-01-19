@@ -2,9 +2,9 @@
 
 namespace Zimbra\Account\Tests\Struct;
 
+use Zimbra\Account\Struct\AccountACEInfo;
 use Zimbra\Enum\AceRightType;
 use Zimbra\Enum\GranteeType;
-use Zimbra\Account\Struct\AccountACEInfo;
 use Zimbra\Struct\Tests\ZimbraStructTestCase;
 
 /**
