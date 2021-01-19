@@ -16,8 +16,8 @@ class AutoProvDirectoryEntryTest extends ZimbraStructTestCase
         $key = $this->faker->word;
         $value = $this->faker->word;
         $dn = $this->faker->word;
-        $key1 = $this->faker->word;
-        $key2 = $this->faker->word;
+        $key1 = $this->faker->text;
+        $key2 = $this->faker->text;
 
         $entry = new AutoProvDirectoryEntry($dn, [$key1, $key2]);
         $this->assertSame($dn, $entry->getDn());
