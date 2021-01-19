@@ -36,13 +36,13 @@ final class SerializerHandler implements SubscribingHandlerInterface
             [
                 'direction' => GraphNavigator::DIRECTION_DESERIALIZATION,
                 'format' => 'xml',
-                'type' => 'Zimbra\Admin\Struct\EntrySearchFilterMultiCond',
+                'type' => MultiCond::class,
                 'method' => 'xmlDeserializeSearchFilterMultiCond',
             ],
             [
                 'direction' => GraphNavigator::DIRECTION_DESERIALIZATION,
                 'format' => 'json',
-                'type' => 'Zimbra\Admin\Struct\EntrySearchFilterMultiCond',
+                'type' => MultiCond::class,
                 'method' => 'jsonDeserializeSearchFilterMultiCond',
             ],
         ];
@@ -54,8 +54,7 @@ final class SerializerHandler implements SubscribingHandlerInterface
     {
         $serializer = SerializerFactory::create();
         $conds = new MultiCond;
-        $attributes = $data->attributes();
-        foreach ($attributes as $key => $value) {
+        foreach ($data->attributes() as $key => $value) {
             if ($key == 'not') {
                 $conds->setNot(Text::stringToBoolean($value));
             }
@@ -64,17 +63,16 @@ final class SerializerHandler implements SubscribingHandlerInterface
             }
         }
 
-        $children = $data->children();
-        foreach ($children as $value) {
-            $name = $value->getName();
+        foreach ($data->children() as $child) {
+            $name = $child->getName();
             if ($name == 'conds') {
                 $conds->addCondition(
-                    $this->xmlDeserializeSearchFilterMultiCond($visitor, $value, $type, $context)
+                    $this->xmlDeserializeSearchFilterMultiCond($visitor, $child, $type, $context)
                 );
             }
             if ($name == 'cond') {
                 $conds->addCondition(
-                    $serializer->deserialize($value->asXml(), SingleCond::class, 'xml')
+                    $serializer->deserialize($child->asXml(), SingleCond::class, 'xml')
                 );
             }
         }
@@ -100,7 +98,7 @@ final class SerializerHandler implements SubscribingHandlerInterface
                 );
             }
         }
-        if (isset($data['cond'])) {
+        if (isset($data['cond']) && is_array($data['cond'])) {
             foreach ($data['cond'] as $value) {
                 $conds->addCondition(
                     $serializer->deserialize(json_encode($value), SingleCond::class, 'json')

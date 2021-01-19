@@ -15,8 +15,8 @@ class EffectiveAttrsInfoTest extends ZimbraStructTestCase
     public function testEffectiveAttrsInfo()
     {
         $name = $this->faker->word;
-        $value1 = $this->faker->word;
-        $value2 = $this->faker->word;
+        $value1 = $this->faker->text;
+        $value2 = $this->faker->text;
         $max = $this->faker->word;
         $min = $this->faker->word;
 

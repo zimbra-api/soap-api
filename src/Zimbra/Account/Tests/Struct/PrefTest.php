@@ -21,7 +21,6 @@ class PrefTest extends ZimbraStructTestCase
         $this->assertSame($value, $pref->getValue());
         $this->assertSame($modified, $pref->getModified());
 
-        $modified = mt_rand(1, 1000);
         $pref = new Pref('');
         $pref->setName($name)
              ->setValue($value)
@@ -39,8 +38,8 @@ EOT;
 
         $json = json_encode([
             'name' => $name,
-            '_content' => $value,
             'modified' => $modified,
+            '_content' => $value,
         ]);
         $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($pref, 'json'));
         $this->assertEquals($pref, $this->serializer->deserialize($json, Pref::class, 'json'));

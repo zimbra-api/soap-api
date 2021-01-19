@@ -6,8 +6,6 @@ use Zimbra\Account\Struct\AccountKeyValuePairs;
 use Zimbra\Struct\KeyValuePair;
 use Zimbra\Struct\Tests\ZimbraStructTestCase;
 
-use JMS\Serializer\Annotation\XmlRoot;
-
 /**
  * Testcase class for AccountKeyValuePairs.
  */
