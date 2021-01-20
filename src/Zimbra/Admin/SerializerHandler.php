@@ -15,10 +15,10 @@ use JMS\Serializer\Handler\SubscribingHandlerInterface;
 use JMS\Serializer\Visitor\SerializationVisitorInterface as SerializationVisitor;
 use JMS\Serializer\Visitor\DeserializationVisitorInterface as DeserializationVisitor;
 
-use Zimbra\Common\SerializerFactory;
-use Zimbra\Common\Text;
 use Zimbra\Admin\Struct\EntrySearchFilterMultiCond as MultiCond;
 use Zimbra\Admin\Struct\EntrySearchFilterSingleCond as SingleCond;
+use Zimbra\Common\SerializerFactory;
+use Zimbra\Common\Text;
 
 /**
  * SerializerHandler class.
