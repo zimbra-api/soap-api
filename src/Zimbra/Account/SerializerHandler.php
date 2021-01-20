@@ -16,7 +16,10 @@ use JMS\Serializer\Visitor\SerializationVisitorInterface as SerializationVisitor
 use JMS\Serializer\Visitor\DeserializationVisitorInterface as DeserializationVisitor;
 
 use Zimbra\Account\Struct\AccountDataSources;
+use Zimbra\Account\Struct\EntrySearchFilterMultiCond as MultiCond;
+use Zimbra\Account\Struct\EntrySearchFilterSingleCond as SingleCond;
 use Zimbra\Common\SerializerFactory;
+use Zimbra\Common\Text;
 
 /**
  * SerializerHandler class.
@@ -42,6 +45,18 @@ final class SerializerHandler implements SubscribingHandlerInterface
                 'format' => 'json',
                 'type' => AccountDataSources::class,
                 'method' => 'jsonDeserializeAccountDataSources',
+            ],
+            [
+                'direction' => GraphNavigator::DIRECTION_DESERIALIZATION,
+                'format' => 'xml',
+                'type' => MultiCond::class,
+                'method' => 'xmlDeserializeSearchFilterMultiCond',
+            ],
+            [
+                'direction' => GraphNavigator::DIRECTION_DESERIALIZATION,
+                'format' => 'json',
+                'type' => MultiCond::class,
+                'method' => 'jsonDeserializeSearchFilterMultiCond',
             ],
         ];
     }
@@ -80,5 +95,65 @@ final class SerializerHandler implements SubscribingHandlerInterface
         }
 
         return new AccountDataSources($dataSources);
+    }
+
+    public function xmlDeserializeSearchFilterMultiCond(
+        DeserializationVisitor $visitor, \SimpleXMLElement $data, array $type, Context $context
+    )
+    {
+        $serializer = SerializerFactory::create();
+        $conds = new MultiCond;
+        foreach ($data->attributes() as $key => $value) {
+            if ($key == 'not') {
+                $conds->setNot(Text::stringToBoolean($value));
+            }
+            if ($key == 'or') {
+                $conds->setOr(Text::stringToBoolean($value));
+            }
+        }
+
+        foreach ($data->children() as $child) {
+            $name = $child->getName();
+            if ($name == 'conds') {
+                $conds->addCondition(
+                    $this->xmlDeserializeSearchFilterMultiCond($visitor, $child, $type, $context)
+                );
+            }
+            if ($name == 'cond') {
+                $conds->addCondition(
+                    $serializer->deserialize($child->asXml(), SingleCond::class, 'xml')
+                );
+            }
+        }
+        return $conds;
+    }
+
+    public function jsonDeserializeSearchFilterMultiCond(
+        DeserializationVisitor $visitor, $data, array $type, Context $context
+    )
+    {
+        $serializer = SerializerFactory::create();
+        $conds = new MultiCond;
+        if (isset($data['not']) && $data['not'] !== NULL) {
+            $conds->setNot($data['not']);
+        }
+        if (isset($data['or']) && $data['or'] !== NULL) {
+            $conds->setOr($data['or']);
+        }
+        if (isset($data['conds']) && is_array($data['conds'])) {
+            foreach ($data['conds'] as $value) {
+                $conds->addCondition(
+                    $this->jsonDeserializeSearchFilterMultiCond($visitor, $value, $type, $context)
+                );
+            }
+        }
+        if (isset($data['cond']) && is_array($data['cond'])) {
+            foreach ($data['cond'] as $value) {
+                $conds->addCondition(
+                    $serializer->deserialize(json_encode($value), SingleCond::class, 'json')
+                );
+            }
+        }
+        return $conds;
     }
 }

@@ -16,6 +16,7 @@ class AutoCompleteGalTest extends ZimbraStructTestCase
 {
     public function testAutoCompleteGal()
     {
+        $email = $this->faker->email;
         $name = $this->faker->word;
         $galAccountId = $this->faker->word;
         $limit = mt_rand(1, 100);
@@ -44,28 +45,28 @@ class AutoCompleteGalTest extends ZimbraStructTestCase
         $this->assertSame($galAccountId, $request->getGalAccountId());
         $this->assertSame($limit, $request->getLimit());
 
-        $pagingSupported = mt_rand(1, 100);
         $contact = new ContactInfo;
+        $contact->setEmail($email);
         $response = new AutoCompleteGalResponse(
             FALSE,
             TRUE,
-            $pagingSupported,
+            FALSE,
             [$contact]
         );
         $this->assertFalse($response->getMore());
         $this->assertTrue($response->getTokenizeKey());
-        $this->assertSame($pagingSupported, $response->getPagingSupported());
+        $this->assertFalse($response->getPagingSupported());
         $this->assertSame([$contact], $response->getContacts());
 
         $response = new AutoCompleteGalResponse();
         $response->setMore(TRUE)
             ->setTokenizeKey(FALSE)
-            ->setPagingSupported($pagingSupported)
+            ->setPagingSupported(TRUE)
             ->setContacts([$contact])
             ->addContact($contact);
         $this->assertTrue($response->getMore());
         $this->assertFalse($response->getTokenizeKey());
-        $this->assertSame($pagingSupported, $response->getPagingSupported());
+        $this->assertTrue($response->getPagingSupported());
         $this->assertSame([$contact, $contact], $response->getContacts());
         $response->setContacts([$contact]);
 
@@ -84,14 +85,13 @@ class AutoCompleteGalTest extends ZimbraStructTestCase
         $envelope->setBody($body);
         $this->assertSame($body, $envelope->getBody());
 
-        $type = GalSearchType::ACCOUNT()->getValue();
         $xml = <<<EOT
 <?xml version="1.0"?>
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAccount">
     <soap:Body>
-        <urn:AutoCompleteGalRequest name="$name" type="$type" needExp="true" galAcctId="$galAccountId" limit="$limit" />
-        <urn:AutoCompleteGalResponse more="true" tokenizeKey="false" pagingSupported="$pagingSupported">
-            <cn />
+        <urn:AutoCompleteGalRequest name="$name" type="account" needExp="true" galAcctId="$galAccountId" limit="$limit" />
+        <urn:AutoCompleteGalResponse more="true" tokenizeKey="false" paginationSupported="true">
+            <cn email="$email" />
         </urn:AutoCompleteGalResponse>
     </soap:Body>
 </soap:Envelope>
@@ -103,7 +103,7 @@ EOT;
             'Body' => [
                 'AutoCompleteGalRequest' => [
                     'name' => $name,
-                    'type' => $type,
+                    'type' => 'account',
                     'needExp' => TRUE,
                     'galAcctId' => $galAccountId,
                     'limit' => $limit,
@@ -112,9 +112,11 @@ EOT;
                 'AutoCompleteGalResponse' => [
                     'more' => TRUE,
                     'tokenizeKey' => FALSE,
-                    'pagingSupported' => $pagingSupported,
+                    'paginationSupported' => TRUE,
                     'cn' => [
-                        new \stdClass,
+                        [
+                            'email' => $email,
+                        ],
                     ],
                     '_jsns' => 'urn:zimbraAccount',
                 ],

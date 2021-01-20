@@ -52,8 +52,8 @@ class AutoCompleteGalResponse implements ResponseInterface
     /**
      * Flag if pagination is supported
      * @Accessor(getter="getPagingSupported", setter="setPagingSupported")
-     * @SerializedName("pagingSupported")
-     * @Type("integer")
+     * @SerializedName("paginationSupported")
+     * @Type("bool")
      * @XmlAttribute
      */
     private $pagingSupported;
@@ -72,12 +72,15 @@ class AutoCompleteGalResponse implements ResponseInterface
      *
      * @param  bool $more
      * @param  bool $tokenizeKey
-     * @param  int $pagingSupported
+     * @param  bool $pagingSupported
      * @param  array $contacts
      * @return self
      */
-    public function __construct(?bool $more = NULL, ?bool $tokenizeKey = NULL, ?int $pagingSupported = NULL, array $contacts = NULL)
+    public function __construct(
+        ?bool $more = NULL, ?bool $tokenizeKey = NULL, ?bool $pagingSupported = NULL, array $contacts = []
+    )
     {
+        $this->setContacts($contacts);
         if(NULL !== $more) {
             $this->setMore($more);
         }
@@ -86,9 +89,6 @@ class AutoCompleteGalResponse implements ResponseInterface
         }
         if(NULL !== $pagingSupported) {
             $this->setPagingSupported($pagingSupported);
-        }
-        if(NULL !== $contacts) {
-            $this->setContacts($contacts);
         }
     }
 
@@ -127,7 +127,7 @@ class AutoCompleteGalResponse implements ResponseInterface
     /**
      * Sets tokenize key
      *
-     * @param  bool $tooManyMembers
+     * @param  bool $tokenizeKey
      * @return self
      */
     public function setTokenizeKey(bool $tokenizeKey): self
@@ -139,9 +139,9 @@ class AutoCompleteGalResponse implements ResponseInterface
     /**
      * Gets flag if pagination is supported
      *
-     * @return int
+     * @return bool
      */
-    public function getPagingSupported(): ?int
+    public function getPagingSupported(): ?bool
     {
         return $this->pagingSupported;
     }
@@ -149,10 +149,10 @@ class AutoCompleteGalResponse implements ResponseInterface
     /**
      * Sets flag if pagination is supported
      *
-     * @param  int $pagingSupported
+     * @param  bool $pagingSupported
      * @return self
      */
-    public function setPagingSupported(int $pagingSupported): self
+    public function setPagingSupported(bool $pagingSupported): self
     {
         $this->pagingSupported = $pagingSupported;
         return $this;
@@ -163,7 +163,7 @@ class AutoCompleteGalResponse implements ResponseInterface
      *
      * @return array
      */
-    public function getContacts(): ?array
+    public function getContacts(): array
     {
         return $this->contacts;
     }
