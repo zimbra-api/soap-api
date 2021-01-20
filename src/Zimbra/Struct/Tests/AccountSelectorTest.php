@@ -23,16 +23,15 @@ class AccountSelectorTest extends ZimbraStructTestCase
         $this->assertEquals(AccountBy::NAME(), $acc->getBy());
         $this->assertSame($value, $acc->getValue());
 
-        $byName = AccountBy::NAME()->getValue();
         $xml = <<<EOT
 <?xml version="1.0"?>
-<account by="$byName">$value</account>
+<account by="name">$value</account>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($acc, 'xml'));
         $this->assertEquals($acc, $this->serializer->deserialize($xml, AccountSelector::class, 'xml'));
 
         $json = json_encode([
-            'by' => $byName,
+            'by' => 'name',
             '_content' => $value,
         ]);
         $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($acc, 'json'));
