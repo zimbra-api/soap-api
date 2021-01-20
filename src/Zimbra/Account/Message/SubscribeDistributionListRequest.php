@@ -17,6 +17,7 @@ use Zimbra\Struct\DistributionListSelector as DLSelector;
 
 /**
  * SubscribeDistributionListRequest class
+ * Subscribe to or unsubscribe from a distribution list 
  * 
  * @package    Zimbra
  * @subpackage Account

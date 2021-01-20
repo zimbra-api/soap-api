@@ -19,8 +19,8 @@ class CheckDomainMXRecordTest extends ZimbraStructTestCase
     {
         $name = $this->faker->word;
         $entry = $this->faker->word;
-        $entry1 = $this->faker->word;
-        $entry2 = $this->faker->word;
+        $entry1 = $this->faker->text;
+        $entry2 = $this->faker->text;
         $code = $this->faker->word;
         $message = $this->faker->word;
 
