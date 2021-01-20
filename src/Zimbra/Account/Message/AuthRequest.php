@@ -17,12 +17,19 @@ use Zimbra\Struct\AccountSelector;
 
 /**
  * AuthRequest class
+ * Authenticate for an account
+ * when specifying an account, one of <password> or <preauth> or <recoveryCode> must be specified. See preauth.txt for a discussion of preauth.
+ * An authToken can be passed instead of account/password/preauth to validate an existing auth token.
+ * If {verifyAccount}="1", <account> is required and the account in the auth token is compared to the named account.
+ * Mismatch results in auth failure.
+ * An external app that relies on ZCS for user identification can use this to test if the auth token provided by the user belongs to that user.
+ * If {verifyAccount}="0" (default), only the auth token is verified and any <account> element specified is ignored. 
  * 
  * @package    Zimbra
  * @subpackage Account
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
- * @copyright  Copyright © 2020 by Nguyen Van Nguyen.
+ * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
  * @AccessType("public_method")
  * @XmlRoot(name="AuthRequest")
  */
