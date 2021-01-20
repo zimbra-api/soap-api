@@ -11,11 +11,11 @@ class CursorInfoTest extends ZimbraStructTestCase
 {
     public function testCursorInfo()
     {
-        $id = $this->faker->word;
+        $id = $this->faker->uuid;
         $sortVal = $this->faker->word;
         $endSortVal = $this->faker->word;
 
-        $cursor = new CursorInfo($id,$sortVal, $endSortVal, FALSE);
+        $cursor = new CursorInfo($id, $sortVal, $endSortVal, FALSE);
         $this->assertSame($id, $cursor->getId());
         $this->assertSame($sortVal, $cursor->getSortVal());
         $this->assertSame($endSortVal, $cursor->getEndSortVal());
