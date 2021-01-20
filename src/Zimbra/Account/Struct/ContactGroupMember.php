@@ -19,7 +19,7 @@ use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAt
  * @subpackage Account
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
- * @copyright  Copyright © 2020 by Nguyen Van Nguyen.
+ * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
  * @AccessType("public_method")
  * @XmlRoot(name="m")
  */
