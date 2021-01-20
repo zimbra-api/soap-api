@@ -15,7 +15,7 @@ use Zimbra\Soap\Request;
 
 /**
  * GetWhiteBlackListRequest class
- * Get Signatures associated with an account
+ * Get the anti-spam WhiteList and BlackList addresses
  * 
  * @package    Zimbra
  * @subpackage Account
