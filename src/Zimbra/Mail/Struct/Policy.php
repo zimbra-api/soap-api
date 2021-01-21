@@ -27,6 +27,7 @@ use Zimbra\Enum\Type as EnumType;
 class Policy
 {
     /**
+     * Retention policy type
      * @Accessor(getter="getType", setter="setType")
      * @SerializedName("type")
      * @Type("Zimbra\Enum\Type")
@@ -35,6 +36,7 @@ class Policy
     private $type;
 
     /**
+     * The id
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
@@ -43,6 +45,7 @@ class Policy
     private $id;
 
     /**
+     * The name
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
@@ -51,6 +54,7 @@ class Policy
     private $name;
 
     /**
+     * The duration
      * @Accessor(getter="getLifetime", setter="setLifetime")
      * @SerializedName("lifetime")
      * @Type("string")
@@ -60,10 +64,10 @@ class Policy
 
     /**
      * Constructor method for policy
-     * @param EnumType $type Retention policy type
-     * @param string $id The id
-     * @param string $name The name
-     * @param string $lifetime The duration
+     * @param EnumType $type
+     * @param string $id
+     * @param string $name
+     * @param string $lifetime
      * @return self
      */
     public function __construct(?EnumType $type = NULL, ?string $id = NULL, ?string $name = NULL, ?string $lifetime = NULL)
