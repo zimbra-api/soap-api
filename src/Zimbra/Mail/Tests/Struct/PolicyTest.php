@@ -2,8 +2,8 @@
 
 namespace Zimbra\Mail\Tests\Struct;
 
-use Zimbra\Mail\Struct\Policy;
 use Zimbra\Enum\Type;
+use Zimbra\Mail\Struct\Policy;
 use Zimbra\Struct\Tests\ZimbraStructTestCase;
 
 /**
@@ -33,16 +33,15 @@ class PolicyTest extends ZimbraStructTestCase
         $this->assertSame($name, $policy->getName());
         $this->assertSame($lifetime, $policy->getLifetime());
 
-        $type = Type::USER()->getValue();
         $xml = <<<EOT
 <?xml version="1.0"?>
-<policy type="$type" id="$id" name="$name" lifetime="$lifetime" />
+<policy type="user" id="$id" name="$name" lifetime="$lifetime" />
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($policy, 'xml'));
         $this->assertEquals($policy, $this->serializer->deserialize($xml, Policy::class, 'xml'));
 
         $json = json_encode([
-            'type' => $type,
+            'type' =>'user',
             'id' => $id,
             'name' => $name,
             'lifetime' => $lifetime,
