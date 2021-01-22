@@ -16,6 +16,7 @@ use Zimbra\Struct\AccountSelector;
 
 /**
  * ChangePasswordRequest class
+ * Change Password
  * 
  * @package    Zimbra
  * @subpackage Account

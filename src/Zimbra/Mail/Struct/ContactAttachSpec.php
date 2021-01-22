@@ -13,7 +13,7 @@ namespace Zimbra\Mail\Struct;
 use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlRoot};
 
 /**
- * AddressBookTest struct class
+ * ContactAttachSpec struct class
  *
  * @package    Zimbra
  * @subpackage Mail
@@ -21,54 +21,51 @@ use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAt
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
  * @AccessType("public_method")
- * @XmlRoot(name="addressBookTest")
+ * @XmlRoot(name="cn")
  */
-class AddressBookTest extends FilterTest
+class ContactAttachSpec extends AttachSpec
 {
     /**
-     * Header name
-     * @Accessor(getter="getHeader", setter="setHeader")
-     * @SerializedName("header")
+     * ID
+     * @Accessor(getter="getId", setter="setId")
+     * @SerializedName("id")
      * @Type("string")
      * @XmlAttribute
      */
-    private $header;
+    private $id;
 
     /**
-     * Constructor method for AddressBookTest
+     * Constructor method
      * 
-     * @param int $index
-     * @param bool $negative
-     * @param string $header
+     * @param string $id
+     * @param bool $optional
      * @return self
      */
-    public function __construct(?int $index = NULL, ?bool $negative = NULL, ?string $header = NULL)
+    public function __construct(string $id, ?bool $optional = NULL)
     {
-        parent::__construct($index, $negative);
-        if (NULL !== $header) {
-            $this->setHeader($header);
-        }
+        parent::__construct($optional);
+        $this->setId($id);
     }
 
     /**
-     * Gets header
+     * Gets id
      *
      * @return string
      */
-    public function getHeader(): ?string
+    public function getId(): string
     {
-        return $this->header;
+        return $this->id;
     }
 
     /**
-     * Sets header
+     * Sets id
      *
-     * @param  string $header
+     * @param  string $type
      * @return self
      */
-    public function setHeader(string $header)
+    public function setId(string $id): self
     {
-        $this->header = $header;
+        $this->id = $id;
         return $this;
     }
 }

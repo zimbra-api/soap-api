@@ -37,7 +37,7 @@ use Zimbra\Struct\AccountSelector;
 use Zimbra\Struct\CursorInfo;
 use Zimbra\Struct\EntrySearchFilterInfo as SearchFilter;
 use Zimbra\Struct\GranteeChooser;
-use Zimbra\Soap\Api as AbstractApi;
+use Zimbra\Soap\Api;
 
 /**
  * Account api class
@@ -47,7 +47,7 @@ use Zimbra\Soap\Api as AbstractApi;
  * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright Copyright © 2020 by Nguyen Van Nguyen.
  */
-class Api extends AbstractApi implements AccountApiInterface
+class AccountApi extends Api implements AccountApiInterface
 {
     public function auth(
         AccountSelector $account = NULL,
