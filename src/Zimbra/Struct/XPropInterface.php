@@ -20,10 +20,9 @@ namespace Zimbra\Struct;
  */
 interface XPropInterface
 {
-    function createFromNameAndValue(string $name, string $value): XPropInterface;
     function getName(): string;
     function getValue(): string;
-    function setXParamInterfaces(array $xParams): self;
-    function addXParamInterface(XParamInterface $xParam): self;
-    function getXParamInterfaces(): array;
+    function addXParam(XParamInterface $xParam): self;
+    function setXParams(array $xParams): self;
+    function getXParams(): array;
 }

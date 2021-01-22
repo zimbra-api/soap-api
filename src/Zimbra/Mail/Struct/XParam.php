@@ -8,23 +8,28 @@
  * file that was distributed with this source code.
  */
 
-namespace Zimbra\Struct;
+namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlRoot, XmlValue};
+use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlRoot};
+
+use Zimbra\Struct\XParamInterface;
 
 /**
- * NamedValue class
+ * XParam class
+ * Non-standard parameter
  *
  * @package   Zimbra
+ * @subpackage Mail
  * @category  Struct
  * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright Copyright © 2013-present by Nguyen Van Nguyen.
  * @AccessType("public_method")
- * @XmlRoot(name="named")
+ * @XmlRoot(name="xparam")
  */
-class NamedValue
+class XParam implements XParamInterface
 {
     /**
+     * XPARAM Name
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
@@ -33,25 +38,24 @@ class NamedValue
     private $name;
 
     /**
+     * XPARAM value
      * @Accessor(getter="getValue", setter="setValue")
-     * @SerializedName("_content")
+     * @SerializedName("value")
      * @Type("string")
-     * @XmlValue(cdata=false)
+     * @XmlAttribute
      */
     private $value;
 
     /**
-     * Constructor method for NamedValue
+     * Constructor method for XParam
      * @param  string $name
      * @param  string $value
      * @return self
      */
-    public function __construct(string $name, ?string $value = NULL)
+    public function __construct(string $name, string $value)
     {
-        $this->setName($name);
-        if (NULL !== $value) {
-            $this->setValue($value);
-        }
+        $this->setName($name)
+             ->setValue($value);
     }
 
     /**
@@ -81,7 +85,7 @@ class NamedValue
      *
      * @return string
      */
-    public function getValue(): ?string
+    public function getValue(): string
     {
         return $this->value;
     }

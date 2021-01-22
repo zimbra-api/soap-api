@@ -10,7 +10,7 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlElement, XmlList, XmlRoot};
 
 use Zimbra\Struct\InviteComponentInterface;
 
@@ -29,13 +29,40 @@ use Zimbra\Struct\InviteComponentInterface;
 class InviteComponent extends InviteComponentCommon implements InviteComponentInterface
 {
     /**
-     * Header name
+     * Categories - for iCalendar CATEGORY properties
      * @Accessor(getter="getHeader", setter="setHeader")
-     * @SerializedName("header")
-     * @Type("string")
-     * @XmlAttribute
+     * @SerializedName("category")
+     * @Type("array<string>")
+     * @XmlList(inline = true, entry = "category")
      */
-    private $header;
+    private $categories;
+
+    /**
+     * Comments - for iCalendar COMMENT properties
+     * @Accessor(getter="getHeader", setter="setHeader")
+     * @SerializedName("comment")
+     * @Type("array<string>")
+     * @XmlList(inline = true, entry = "comment")
+     */
+    private $comments;
+
+    /**
+     * Contacts - for iCalendar CONTACT properties
+     * @Accessor(getter="getHeader", setter="setHeader")
+     * @SerializedName("contact")
+     * @Type("array<string>")
+     * @XmlList(inline = true, entry = "contact")
+     */
+    private $contacts;
+
+    /**
+     * for iCalendar GEO property
+     * @Accessor(getter="getAccount", setter="setAccount")
+     * @SerializedName("geo")
+     * @Type("Zimbra|Mail\Struct\GeoInfo")
+     * @XmlElement
+     */
+    private $geo;
 
     /**
      * Constructor method for InviteComponent

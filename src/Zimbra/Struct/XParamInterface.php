@@ -20,7 +20,6 @@ namespace Zimbra\Struct;
  */
 interface XParamInterface
 {
-    function createFromNameAndValue(string $name, string $value): XParamInterface;
     function getName(): string;
     function getValue(): string;
 }
