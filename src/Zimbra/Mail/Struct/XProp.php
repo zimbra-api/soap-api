@@ -60,6 +60,7 @@ class XProp implements XPropInterface
      * Constructor method for XProp
      * @param  string $name
      * @param  string $value
+     * @param  array $xParams
      * @return self
      */
     public function __construct(string $name, string $value, array $xParams = [])
