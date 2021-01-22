@@ -71,7 +71,8 @@ class AttachmentsInfo
     private $docAttachments;
 
     /**
-     * Constructor method for policy
+     * Constructor method
+     *
      * @param string $attachmentId
      * @param array $attachments
      * @return self

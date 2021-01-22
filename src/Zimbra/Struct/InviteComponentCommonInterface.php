@@ -10,6 +10,11 @@
 
 namespace Zimbra\Struct;
 
+use Zimbra\Enum\FreeBusyStatus;
+use Zimbra\Enum\InviteClass;
+use Zimbra\Enum\InviteStatus;
+use Zimbra\Enum\Transparency;
+
 /**
  * InviteComponentCommonInterface interface
  *
@@ -26,9 +31,9 @@ interface InviteComponentCommonInterface
     function setPercentComplete(string $percentComplete): self;
     function setCompleted(string $completed): self;
     function setNoBlob(bool $noBlob): self;
-    function setFreeBusyActual(string $freeBusyActual): self;
-    function setFreeBusy(string $freeBusy): self;
-    function setTransparency(string $transparency): self;
+    function setFreeBusyActual(FreeBusyStatus $freeBusyActual): self;
+    function setFreeBusy(FreeBusyStatus $freeBusy): self;
+    function setTransparency(Transparency $transparency): self;
     function setIsOrganizer(bool $isOrganizer): self;
     function setXUid(string $xUid): self;
     function setUid(string $uid): self;
@@ -37,8 +42,8 @@ interface InviteComponentCommonInterface
     function setCalItemId(string $calItemId): self;
     function setDeprecatedApptId(string $deprecatedApptId): self;
     function setCalItemFolder(string $calItemFolder): self;
-    function setStatus(string $status): self;
-    function setCalClass(string $calClass): self;
+    function setStatus(InviteStatus $status): self;
+    function setCalClass(InviteClass $calClass): self;
     function setUrl(string $url): self;
     function setIsException(bool $isException): self;
     function setRecurIdZ(string $recurIdZ): self;
@@ -47,33 +52,33 @@ interface InviteComponentCommonInterface
     function setNeverSent(bool $neverSent): self;
     function setChanges(string $changes): self;
 
-    function getMethod(): string;
-    function getComponentNum(): int;
-    function getRsvp(): bool;
-    function getPriority(): string;
-    function getName(): string;
-    function getLocation(): string;
-    function getPercentComplete(): string;
-    function getCompleted(): string;
-    function getNoBlob(): bool;
-    function getFreeBusyActual(): string;;
-    function getFreeBusy(): string;;
-    function getTransparency(): string;;
-    function getIsOrganizer(): bool;
-    function getXUid(): string;;
-    function getUid(): string;;
-    function getSequence(): int;
-    function getDateTime(): int;
-    function getCalItemId(): string;;
-    function getDeprecatedApptId(): string;;
-    function getCalItemFolder(): string;;
-    function getStatus(): string;;
-    function getCalClass(): string;;
-    function getUrl(): string;;
-    function getIsException(): bool;
-    function getRecurIdZ(): string;;
-    function getIsAllDay(): bool;
-    function getIsDraft(): bool;
-    function getNeverSent(): bool;
-    function getChanges(): string;;
+    function getMethod(): ?string;
+    function getComponentNum(): ?int;
+    function getRsvp(): ?bool;
+    function getPriority(): ?string;
+    function getName(): ?string;
+    function getLocation(): ?string;
+    function getPercentComplete(): ?string;
+    function getCompleted(): ?string;
+    function getNoBlob(): ?bool;
+    function getFreeBusyActual(): ?FreeBusyStatus;
+    function getFreeBusy(): ?FreeBusyStatus;
+    function getTransparency(): ?Transparency;
+    function getIsOrganizer(): ?bool;
+    function getXUid(): ?string;
+    function getUid(): ?string;
+    function getSequence(): ?int;
+    function getDateTime(): ?int;
+    function getCalItemId(): ?string;
+    function getDeprecatedApptId(): ?string;
+    function getCalItemFolder(): ?string;
+    function getStatus(): ?InviteStatus;
+    function getCalClass(): ?InviteClass;
+    function getUrl(): ?string;
+    function getIsException(): ?bool;
+    function getRecurIdZ(): ?string;
+    function getIsAllDay(): ?bool;
+    function getIsDraft(): ?bool;
+    function getNeverSent(): ?bool;
+    function getChanges(): ?string;
 }

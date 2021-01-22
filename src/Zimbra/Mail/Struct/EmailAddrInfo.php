@@ -56,7 +56,7 @@ class EmailAddrInfo
     private $personal;
 
     /**
-     * Constructor method for policy
+     * Constructor method
      * @param string $address
      * @param AddressType $addressType
      * @param string $personal

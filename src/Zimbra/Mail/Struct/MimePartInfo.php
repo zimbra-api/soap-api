@@ -71,7 +71,8 @@ class MimePartInfo
     private $attachments;
 
     /**
-     * Constructor method for policy
+     * Constructor method
+     *
      * @param string $contentType
      * @param string $content
      * @param string $contentId
