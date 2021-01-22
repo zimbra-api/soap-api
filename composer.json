@@ -1,14 +1,14 @@
 {
-    "name": "zimbra-api/soap-api",
+    "name": "zelrone/soap-api",
     "type": "library",
     "description": "PHP wrapper library around the Zimbra Soap API (web service)",
     "keywords": ["library", "soap", "web service", "client", "Zimbra API"],
-    "license": "BSD-3-Clause",
+    "license": "MIT",
     "authors": [
         {
-            "name": "Nguyen Van Nguyen",
-            "email": "nguyennv1981@gmail.com",
-            "homepage": "https://github.com/nguyennv"
+            "name": "Zelrone",
+            "email": "zelsdiary@gmail.com",
+            "homepage": "https://github.com/Zelrone"
         }
     ],
     "require": {
