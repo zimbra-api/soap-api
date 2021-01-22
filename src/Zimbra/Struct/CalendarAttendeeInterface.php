@@ -34,21 +34,21 @@ interface CalendarAttendeeInterface
     function setDelegatedTo(string $delegatedTo): self;
     function setDelegatedFrom(string $delegatedFrom): self;
 
-    function getAddress(): string;
-    function getUrl(): string;
-    function getDisplayName(): string;
-    function getSentBy(): string;
-    function getDir(): string;
-    function getLanguage(): string;
-    function getCuType(): string;
-    function getRole(): string;
-    function getPartStat(): string;
-    function getRsvp(): bool;
-    function getMember(): string;
-    function getDelegatedTo(): string;
-    function getDelegatedFrom(): string;
+    function getAddress(): ?string;
+    function getUrl(): ?string;
+    function getDisplayName(): ?string;
+    function getSentBy(): ?string;
+    function getDir(): ?string;
+    function getLanguage(): ?string;
+    function getCuType(): ?string;
+    function getRole(): ?string;
+    function getPartStat(): ?string;
+    function getRsvp(): ?bool;
+    function getMember(): ?string;
+    function getDelegatedTo(): ?string;
+    function getDelegatedFrom(): ?string;
 
-    function setXParamInterfaces(array $xParams): self;
-    function addXParamInterface(XParamInterface $xParam): self;
-    function getXParamInterfaces(): array;
+    function addXParam(XParamInterface $xParam): self;
+    function setXParams(array $xParams): self;
+    function getXParams(): array;
 }

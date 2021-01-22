@@ -3,6 +3,7 @@
 namespace Zimbra\Mail\Tests\Struct;
 
 use Zimbra\Enum\FreeBusyStatus;
+use Zimbra\Enum\InviteChange;
 use Zimbra\Enum\InviteClass;
 use Zimbra\Enum\InviteStatus;
 use Zimbra\Enum\Transparency;
@@ -37,7 +38,7 @@ class InviteComponentCommonTest extends ZimbraStructTestCase
         $calClass = InviteClass::PUB();
         $url = $this->faker->url;
         $recurIdZ = $this->faker->word;
-        $changes = $this->faker->word;
+        $changes = implode(',', $this->faker->randomElements(InviteChange::values(), 2));
 
         $inv = new InviteComponentCommon($method, $componentNum, FALSE);
         $this->assertSame($method, $inv->getMethod());

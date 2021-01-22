@@ -12,6 +12,7 @@ namespace Zimbra\Mail\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlRoot};
 use Zimbra\Enum\FreeBusyStatus;
+use Zimbra\Enum\InviteChange;
 use Zimbra\Enum\InviteClass;
 use Zimbra\Enum\InviteStatus;
 use Zimbra\Enum\Transparency;
@@ -956,7 +957,13 @@ class InviteComponentCommon implements InviteComponentCommonInterface
      */
     public function setChanges(string $changes): self
     {
-        $this->changes = $changes;
+        $validChanges = [];
+        foreach (explode(',', $changes) as $change) {
+            if (InviteChange::isValid($change)) {
+                $validChanges[] = $change;
+            }
+        }
+        $this->changes = implode(',', $validChanges);
         return $this;
     }
 }
