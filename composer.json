@@ -14,7 +14,7 @@
     "require": {
         "php": ">=5.5.0",
         "evenement/evenement": "~2.0",
-        "guzzlehttp/guzzle": "6.*",
+        "guzzlehttp/guzzle": "^7.0.1",
         "phpcollection/phpcollection": "0.*"
     },
     "require-dev": {
