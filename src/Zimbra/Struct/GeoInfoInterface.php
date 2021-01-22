@@ -20,7 +20,6 @@ namespace Zimbra\Struct;
  */
 interface GeoInfoInterface
 {
-    function create(string $latitude, string $longitude): GeoInfoInterface;
-    function getLatitude(): string;
-    function getLongitude(): string;
+    function getLatitude(): ?string;
+    function getLongitude(): ?string;
 }

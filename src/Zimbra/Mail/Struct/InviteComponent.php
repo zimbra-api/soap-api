@@ -12,8 +12,11 @@ namespace Zimbra\Mail\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlRoot};
 
+use Zimbra\Struct\InviteComponentInterface;
+
 /**
- * AddressBookTest struct class
+ * InviteComponent struct class
+ * Invitation Component
  *
  * @package    Zimbra
  * @subpackage Mail
@@ -21,9 +24,9 @@ use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAt
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
  * @AccessType("public_method")
- * @XmlRoot(name="addressBookTest")
+ * @XmlRoot(name="inv")
  */
-class AddressBookTest extends FilterTest
+class InviteComponent extends InviteComponentCommon implements InviteComponentInterface
 {
     /**
      * Header name
@@ -35,7 +38,7 @@ class AddressBookTest extends FilterTest
     private $header;
 
     /**
-     * Constructor method for AddressBookTest
+     * Constructor method for InviteComponent
      * 
      * @param int $index
      * @param bool $negative
@@ -44,7 +47,7 @@ class AddressBookTest extends FilterTest
      */
     public function __construct(?int $index = NULL, ?bool $negative = NULL, ?string $header = NULL)
     {
-        parent::__construct($index, $negative);
+    	parent::__construct($index, $negative);
         if (NULL !== $header) {
             $this->setHeader($header);
         }
