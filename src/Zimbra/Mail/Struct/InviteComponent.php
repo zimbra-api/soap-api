@@ -65,6 +65,15 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
     private $geo;
 
     /**
+     * Attendees
+     * @Accessor(getter="getHeader", setter="setHeader")
+     * @SerializedName("at")
+     * @Type("array<Zimbra|Mail\Struct\CalendarAttendee>")
+     * @XmlList(inline = true, entry = "at")
+     */
+    private $attendees;
+
+    /**
      * Constructor method for InviteComponent
      * 
      * @param int $index

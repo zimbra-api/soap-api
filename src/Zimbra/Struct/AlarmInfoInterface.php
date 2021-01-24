@@ -20,7 +20,6 @@ namespace Zimbra\Struct;
  */
 interface AlarmInfoInterface
 {
-    function createFromAction(string $action): AlarmInfoInterface;
     function setDescription(string $description): self;
     function setSummary(string $summary): self;
     function getAction(): string;

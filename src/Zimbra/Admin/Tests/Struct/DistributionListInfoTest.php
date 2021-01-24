@@ -15,9 +15,9 @@ class DistributionListInfoTest extends ZimbraStructTestCase
     public function testDistributionListInfo()
     {
         $id = $this->faker->uuid;
-        $name = $this->faker->word;
-        $member1 = $this->faker->word;
-        $member2 = $this->faker->word;
+        $name = $this->faker->email;
+        $member1 = $this->faker->email;
+        $member2 = $this->faker->email;
 
         $owner = new GranteeInfo(
             $id, $name, GranteeType::USR()
