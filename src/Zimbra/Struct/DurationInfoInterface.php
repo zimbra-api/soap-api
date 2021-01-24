@@ -10,6 +10,8 @@
 
 namespace Zimbra\Struct;
 
+use Zimbra\Enum\AlarmRelated;
+
 /**
  * DurationInfoInterface interface
  *
@@ -26,15 +28,15 @@ interface DurationInfoInterface
     function setHours(int $hours): self;
     function setMinutes(int $minutes): self;
     function setSeconds(int $seconds): self;
-    function setRelated(string $related): self;
+    function setRelated(AlarmRelated $related): self;
     function setRepeatCount(int $repeatCount): self;
 
-    function getDurationNegative(): bool;
-    function getWeeks(): int;
-    function getDays(): int;
-    function getHours(): int;
-    function getMinutes(): int;
-    function getSeconds(): int;
-    function getRelated(): string;
-    function getRepeatCount(): int;
+    function getDurationNegative(): ?bool;
+    function getWeeks(): ?int;
+    function getDays(): ?int;
+    function getHours(): ?int;
+    function getMinutes(): ?int;
+    function getSeconds(): ?int;
+    function getRelated(): ?AlarmRelated;
+    function getRepeatCount(): ?int;
 }

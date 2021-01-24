@@ -48,6 +48,7 @@ class XParam implements XParamInterface
 
     /**
      * Constructor method for XParam
+     *
      * @param  string $name
      * @param  string $value
      * @return self
@@ -93,7 +94,7 @@ class XParam implements XParamInterface
     /**
      * Sets value
      *
-     * @param  string $name
+     * @param  string $value
      * @return self
      */
     public function setValue(string $value): self
