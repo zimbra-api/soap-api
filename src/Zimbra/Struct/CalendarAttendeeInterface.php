@@ -10,6 +10,8 @@
 
 namespace Zimbra\Struct;
 
+use Zimbra\Enum\ParticipationStatus as PartStat;
+
 /**
  * CalendarAttendeeInterface interface
  *
@@ -28,7 +30,7 @@ interface CalendarAttendeeInterface
     function setLanguage(string $language): self;
     function setCuType(string $cuType): self;
     function setRole(string $role): self;
-    function setPartStat(string $partStat): self;
+    function setPartStat(PartStat $partStat): self;
     function setRsvp(bool $rsvp): self;
     function setMember(string $member): self;
     function setDelegatedTo(string $delegatedTo): self;
@@ -42,7 +44,7 @@ interface CalendarAttendeeInterface
     function getLanguage(): ?string;
     function getCuType(): ?string;
     function getRole(): ?string;
-    function getPartStat(): ?string;
+    function getPartStat(): ?PartStat;
     function getRsvp(): ?bool;
     function getMember(): ?string;
     function getDelegatedTo(): ?string;
