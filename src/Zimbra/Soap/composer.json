@@ -2,18 +2,20 @@
     "name": "zimbra-api/soap",
     "homepage": "https://github.com/zimbra-api",
     "description": "Soap libraries used by Zimbra Api",
-    "keywords": ["soap"],
+    "keywords": [
+        "soap"
+    ],
     "license": "BSD-3-Clause",
     "authors": [
         {
-            "name": "Nguyen Van Nguyen",
-            "email": "nguyennv1981@gmail.com",
-            "homepage": "https://github.com/nguyennv"
+            "name": "Viv",
+            "email": "zelsdiary@gmail.com",
+            "homepage": "https://github.com/Zelphire/"
         }
     ],
     "require": {
         "php": ">=5.5.0",
-        "guzzlehttp/guzzle": "6.*",
+        "guzzlehttp/guzzle": "^7.0.1",
         "zimbra-api/struct": "self.version"
     },
     "require-dev": {
@@ -21,7 +23,9 @@
         "fzaninotto/faker": "~v1.5.0"
     },
     "autoload": {
-        "psr-4": { "Zimbra\\Soap\\": "" },
+        "psr-4": {
+            "Zimbra\\Soap\\": ""
+        },
         "exclude-from-classmap": [
             "/Tests/"
         ]
