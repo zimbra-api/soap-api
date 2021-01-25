@@ -2,7 +2,9 @@
     "name": "zimbra-api/upload",
     "homepage": "https://github.com/zimbra-api",
     "description": "Upload client used by Zimbra Api",
-    "keywords": ["upload"],
+    "keywords": [
+        "upload"
+    ],
     "license": "BSD-3-Clause",
     "authors": [
         {
@@ -14,7 +16,7 @@
     "require": {
         "php": ">=5.5.0",
         "evenement/evenement": "~2.0",
-        "guzzlehttp/guzzle": "6.*",
+        "guzzlehttp/guzzle": "^7.0.1",
         "phpcollection/phpcollection": "0.*"
     },
     "require-dev": {
@@ -22,7 +24,9 @@
         "fzaninotto/faker": "~v1.5.0"
     },
     "autoload": {
-        "psr-4": { "Zimbra\\Upload\\": "" },
+        "psr-4": {
+            "Zimbra\\Upload\\": ""
+        },
         "exclude-from-classmap": [
             "/Tests/"
         ]
