@@ -31,12 +31,13 @@ class CalendarAttendeeTest extends ZimbraStructTestCase
 
         $xparam = new XParam($name, $value);
 
-        $at = new CalendarAttendee($address, $displayName, $role, $partStat, FALSE);
+        $at = new CalendarAttendee($address, $displayName, $role, $partStat, FALSE, [$xparam]);
         $this->assertSame($address, $at->getAddress());
         $this->assertSame($displayName, $at->getDisplayName());
         $this->assertSame($role, $at->getRole());
         $this->assertSame($partStat, $at->getPartStat());
         $this->assertFalse($at->getRsvp());
+        $this->assertSame([$xparam], $at->getXParams());
 
         $at = new CalendarAttendee();
         $at->setAddress($address)

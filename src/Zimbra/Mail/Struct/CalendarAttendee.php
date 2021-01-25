@@ -167,6 +167,7 @@ class CalendarAttendee implements CalendarAttendeeInterface
      * @param string $role
      * @param PartStat $partstat
      * @param bool $rsvp
+     * @param array $xParams
      * @return self
      */
     public function __construct(
@@ -174,9 +175,11 @@ class CalendarAttendee implements CalendarAttendeeInterface
         ?string $attendeeName = NULL,
         ?string $role = NULL,
         ?PartStat $partstat = NULL,
-        ?bool $rsvp = NULL
+        ?bool $rsvp = NULL,
+        array $xParams = []
     )
     {
+        $this->setXParams($xParams);
         if (NULL !== $attendeeEmail) {
             $this->setAddress($attendeeEmail);
         }

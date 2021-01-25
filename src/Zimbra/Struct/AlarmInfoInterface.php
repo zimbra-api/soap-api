@@ -10,6 +10,8 @@
 
 namespace Zimbra\Struct;
 
+use Zimbra\Enum\AlarmAction;
+
 /**
  * AlarmInfoInterface interface
  *
@@ -20,25 +22,25 @@ namespace Zimbra\Struct;
  */
 interface AlarmInfoInterface
 {
+    function setAction(AlarmAction $action): self;
     function setDescription(string $description): self;
     function setSummary(string $summary): self;
-    function getAction(): ?string;
+    function getAction(): AlarmAction;
     function getDescription(): ?string;
     function getSummary(): ?string;
 
     function setTrigger(AlarmTriggerInfoInterface $trigger): self;
     function setRepeat(DurationInfoInterface $repeat): self;
     function setAttach(CalendarAttachInterface $attach): self;
+    function getTrigger(): ?AlarmTriggerInfoInterface;
+    function getRepeat(): ?DurationInfoInterface;
+    function getAttach(): ?CalendarAttachInterface;
 
-    function setAttendees(array $attendees): self;
     function addAttendee(CalendarAttendeeInterface $attendee): self;
+    function setAttendees(array $attendees): self;
     function getAttendees(): array;
 
-    function setXProps(array $xProps): self;
     function addXProp(XPropInterface $xProp): self;
+    function setXProps(array $xProps): self;
     function getXProps(): array;
-
-    function getTriggerInfo(): ?AlarmTriggerInfoInterface;
-    function getRepeatInfo(): ?DurationInfoInterface;
-    function getAttachInfo(): ?CalendarAttachInterface;
 }
