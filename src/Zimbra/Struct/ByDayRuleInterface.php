@@ -11,16 +11,16 @@
 namespace Zimbra\Struct;
 
 /**
- * RecurrenceInfoInterface interface
+ * ByDayRuleInterface interface
  *
  * @package   Zimbra
  * @category  Struct
  * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright Copyright © 2013-present by Nguyen Van Nguyen.
  */
-interface RecurrenceInfoInterface
+interface ByDayRuleInterface
 {
-    function addRule(RecurRuleBaseInterface $rule): self;
-    function setRules(array $rules): self;
-    function getRules(): array;
+    function addDay(WkDayInterface $day): self;
+    function setDays(array $days): self;
+    function getDays(): array;
 }

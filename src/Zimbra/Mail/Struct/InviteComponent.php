@@ -119,6 +119,15 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
     private $htmlDescription;
 
     /**
+     * Organizer
+     * @Accessor(getter="getAccount", setter="setAccount")
+     * @SerializedName("or")
+     * @Type("Zimbra\Mail\Struct\CalOrganizer")
+     * @XmlElement
+     */
+    private $organizer;
+
+    /**
      * Constructor method for InviteComponent
      * 
      * @param int $index

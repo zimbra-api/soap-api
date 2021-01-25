@@ -11,16 +11,14 @@
 namespace Zimbra\Struct;
 
 /**
- * RecurrenceInfoInterface interface
+ * WkstRuleInterface interface
  *
  * @package   Zimbra
  * @category  Struct
  * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright Copyright © 2013-present by Nguyen Van Nguyen.
  */
-interface RecurrenceInfoInterface
+interface WkstRuleInterface
 {
-    function addRule(RecurRuleBaseInterface $rule): self;
-    function setRules(array $rules): self;
-    function getRules(): array;
+    function getDay(): ?string;
 }

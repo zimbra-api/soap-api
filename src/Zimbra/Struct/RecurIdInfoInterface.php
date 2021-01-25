@@ -11,16 +11,21 @@
 namespace Zimbra\Struct;
 
 /**
- * RecurrenceInfoInterface interface
+ * RecurIdInfoInterface interface
  *
  * @package   Zimbra
  * @category  Struct
  * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright Copyright © 2013-present by Nguyen Van Nguyen.
  */
-interface RecurrenceInfoInterface
+interface RecurIdInfoInterface
 {
-    function addRule(RecurRuleBaseInterface $rule): self;
-    function setRules(array $rules): self;
-    function getRules(): array;
+    function setRecurrenceRangeType(int $recurrenceRangeType): self;
+    function setRecurrenceId(String $recurrenceId): self;
+    function setTimezone(string $timezone): self;
+    function setRecurIdZ(string $recurIdZ): self;
+    function getRecurrenceRangeType(): ?int;
+    function getRecurrenceId(): ?string;
+    function getTimezone(): ?string;
+    function getRecurIdZ(): ?string;
 }
