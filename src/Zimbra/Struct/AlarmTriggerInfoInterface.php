@@ -11,19 +11,17 @@
 namespace Zimbra\Struct;
 
 /**
- * CalendarAttachInterface interface
+ * AlarmTriggerInfoInterface interface
  *
  * @package   Zimbra
  * @category  Struct
  * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright Copyright © 2013-present by Nguyen Van Nguyen.
  */
-interface CalendarAttachInterface
+interface AlarmTriggerInfoInterface
 {
-    function setUri(string $uri): self;
-    function setContentType(string $contentType): self;
-    function setBinaryB64Data(string $binaryB64Data): self;
-    function getUri(): ?string;
-    function getContentType(): ?string;
-    function getBinaryB64Data(): ?string;
+    function setAbsolute(DateAttrInterface $absolute): self;
+    function setRelative(DurationInfoInterface $relative): self ;
+    function getAbsolute(): ?DateAttrInterface;
+    function getRelative(): ?DurationInfoInterface;
 }
