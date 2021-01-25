@@ -21,7 +21,7 @@ namespace Zimbra\Struct;
 interface RecurIdInfoInterface
 {
     function setRecurrenceRangeType(int $recurrenceRangeType): self;
-    function setRecurrenceId(String $recurrenceId): self;
+    function setRecurrenceId(string $recurrenceId): self;
     function setTimezone(string $timezone): self;
     function setRecurIdZ(string $recurIdZ): self;
     function getRecurrenceRangeType(): ?int;
