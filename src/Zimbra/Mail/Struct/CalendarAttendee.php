@@ -17,7 +17,7 @@ use Zimbra\Struct\CalendarAttendeeInterface;
 
 /**
  * CalendarAttendee struct class
- * Invite component common information
+ * Calendar attendee information
  *
  * @package    Zimbra
  * @subpackage Mail
