@@ -11,18 +11,20 @@
 namespace Zimbra\Struct;
 
 /**
- * DtTimeInfoInterface interface
+ * DtValInterface interface
  *
  * @package   Zimbra
  * @category  Struct
  * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright Copyright © 2013-present by Nguyen Van Nguyen.
  */
-interface DtTimeInfoInterface
+interface DtValInterface
 {
-    function setTimezone(string $timezone): self;
-    function setUtcTime(int $utcTime): self;
-    function getDateTime(): ?string;
-    function getTimezone(): ?string;
-    function getUtcTime(): ?int;
+    function setStartTime(DtTimeInfoInterface $startTime): self;
+    function setEndTime(DtTimeInfoInterface $endTime): self;
+    function setDuration(DurationInfoInterface $duration): self;
+
+    function getStartTime(): ?DtTimeInfoInterface;
+    function getEndTime(): ?DtTimeInfoInterface;
+    function getDuration(): ?DurationInfoInterface;
 }
