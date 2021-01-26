@@ -1,0 +1,82 @@
+<?php declare(strict_types=1);
+/**
+ * This file is part of the Zimbra API in PHP library.
+ *
+ * © Nguyen Van Nguyen <nguyennv1981@gmail.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+namespace Zimbra\Mail\Struct;
+
+use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlRoot};
+
+use Zimbra\Struct\ByWeekNoRuleInterface;
+
+/**
+ * ByWeekNoRule class
+ * By-week-no rule
+ *
+ * @package   Zimbra
+ * @subpackage Mail
+ * @category  Struct
+ * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
+ * @copyright Copyright © 2013-present by Nguyen Van Nguyen.
+ * @AccessType("public_method")
+ * @XmlRoot(name="byweekno")
+ */
+class ByWeekNoRule implements ByWeekNoRuleInterface
+{
+    /**
+     * BYWEEKNO Week list.  Format : [[+]|-]num[,...] where num is between 1 and 53
+     * e.g. wklist="1,+2,-1" means first week, 2nd week, and last week of the year.
+     * @Accessor(getter="getList", setter="setList")
+     * @SerializedName("wklist")
+     * @Type("string")
+     * @XmlAttribute
+     */
+    private $list;
+
+    /**
+     * Constructor method for ByWeekNoRule
+     *
+     * @param  string $list
+     * @return self
+     */
+    public function __construct(string $list)
+    {
+        $this->setList($list);
+    }
+
+    /**
+     * Gets list
+     *
+     * @return string
+     */
+    public function getList(): string
+    {
+        return $this->list;
+    }
+
+    /**
+     * Sets list
+     *
+     * @param  string $list
+     * @return self
+     */
+    public function setList(string $list): self
+    {
+        $wklist = [];
+        foreach (explode(',', $list) as $wkno) {
+            if (is_numeric($wkno)) {
+                $wk = (int) $wkno;
+                if($wk != 0 && abs($wk) < 54 && !in_array($wkno, $wklist)) {
+                    $wklist[] = $wkno;
+                }
+            }
+        }
+        $this->list = implode(',', $wklist);
+        return $this;
+    }
+}
