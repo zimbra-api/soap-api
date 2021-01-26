@@ -12,11 +12,11 @@ namespace Zimbra\Mail\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlRoot};
 
-use Zimbra\Struct\BySecondRuleInterface;
+use Zimbra\Struct\ByYearDayRuleInterface;
 
 /**
- * BySecondRule class
- * By-second rule
+ * ByYearDayRule class
+ * By-year-day rule
  *
  * @package   Zimbra
  * @subpackage Mail
@@ -24,21 +24,23 @@ use Zimbra\Struct\BySecondRuleInterface;
  * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright Copyright © 2013-present by Nguyen Van Nguyen.
  * @AccessType("public_method")
- * @XmlRoot(name="bysecond")
+ * @XmlRoot(name="byyearday")
  */
-class BySecondRule implements BySecondRuleInterface
+class ByYearDayRule implements ByYearDayRuleInterface
 {
     /**
-     * Comma separated list of seconds where second is a number between 0 and 59
+     * BYYEARDAY yearday list.
+     * Format : [[+]|-]num[,...] where num is between 1 and 366
+     * e.g. yrdaylist="1,+2,-1" means January 1st, January 2nd, and December 31st.
      * @Accessor(getter="getList", setter="setList")
-     * @SerializedName("seclist")
+     * @SerializedName("yrdaylist")
      * @Type("string")
      * @XmlAttribute
      */
     private $list;
 
     /**
-     * Constructor method for BySecondRule
+     * Constructor method for ByYearDayRule
      *
      * @param  string $list
      * @return self
@@ -66,16 +68,16 @@ class BySecondRule implements BySecondRuleInterface
      */
     public function setList(string $list): self
     {
-        $seclist = [];
-        foreach (explode(',', $list) as $sec) {
-            if (is_numeric($sec)) {
-                $sec = (int) $sec;
-                if($sec >= 0 && $sec < 60 && !in_array($sec, $seclist)) {
-                    $seclist[] = $sec;
+        $yrdaylist = [];
+        foreach (explode(',', $list) as $yrday) {
+            if (is_numeric($yrday)) {
+                $day = (int) $yrday;
+                if($day != 0 && abs($day) < 367 && !in_array($yrday, $yrdaylist)) {
+                    $yrdaylist[] = $yrday;
                 }
             }
         }
-        $this->list = implode(',', $seclist);
+        $this->list = implode(',', $yrdaylist);
         return $this;
     }
 }

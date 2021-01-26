@@ -16,7 +16,7 @@ use Zimbra\Struct\ByHourRuleInterface;
 
 /**
  * ByHourRule class
- * Date time string attribute
+ * By-hour rule
  *
  * @package   Zimbra
  * @subpackage Mail

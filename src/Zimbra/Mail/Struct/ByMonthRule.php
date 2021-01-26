@@ -12,11 +12,11 @@ namespace Zimbra\Mail\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlRoot};
 
-use Zimbra\Struct\BySecondRuleInterface;
+use Zimbra\Struct\ByMonthRuleInterface;
 
 /**
- * BySecondRule class
- * By-second rule
+ * ByMonthRule class
+ * By-month rule
  *
  * @package   Zimbra
  * @subpackage Mail
@@ -24,21 +24,21 @@ use Zimbra\Struct\BySecondRuleInterface;
  * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright Copyright © 2013-present by Nguyen Van Nguyen.
  * @AccessType("public_method")
- * @XmlRoot(name="bysecond")
+ * @XmlRoot(name="bymonth")
  */
-class BySecondRule implements BySecondRuleInterface
+class ByMonthRule implements ByMonthRuleInterface
 {
     /**
-     * Comma separated list of seconds where second is a number between 0 and 59
+     * Comma separated list of months where month is a number between 1 and 12
      * @Accessor(getter="getList", setter="setList")
-     * @SerializedName("seclist")
+     * @SerializedName("molist")
      * @Type("string")
      * @XmlAttribute
      */
     private $list;
 
     /**
-     * Constructor method for BySecondRule
+     * Constructor method for ByMonthRule
      *
      * @param  string $list
      * @return self
@@ -66,16 +66,16 @@ class BySecondRule implements BySecondRuleInterface
      */
     public function setList(string $list): self
     {
-        $seclist = [];
-        foreach (explode(',', $list) as $sec) {
-            if (is_numeric($sec)) {
-                $sec = (int) $sec;
-                if($sec >= 0 && $sec < 60 && !in_array($sec, $seclist)) {
-                    $seclist[] = $sec;
+        $molist = [];
+        foreach (explode(',', $list) as $mo) {
+            if (is_numeric($mo)) {
+                $mo = (int) $mo;
+                if($mo > 0 && $mo < 13 && !in_array($mo, $molist)) {
+                    $molist[] = $mo;
                 }
             }
         }
-        $this->list = implode(',', $seclist);
+        $this->list = implode(',', $molist);
         return $this;
     }
 }

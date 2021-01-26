@@ -12,11 +12,11 @@ namespace Zimbra\Mail\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlRoot};
 
-use Zimbra\Struct\BySecondRuleInterface;
+use Zimbra\Struct\ByWeekNoRuleInterface;
 
 /**
- * BySecondRule class
- * By-second rule
+ * ByWeekNoRule class
+ * By-week-no rule
  *
  * @package   Zimbra
  * @subpackage Mail
@@ -24,21 +24,22 @@ use Zimbra\Struct\BySecondRuleInterface;
  * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright Copyright © 2013-present by Nguyen Van Nguyen.
  * @AccessType("public_method")
- * @XmlRoot(name="bysecond")
+ * @XmlRoot(name="byweekno")
  */
-class BySecondRule implements BySecondRuleInterface
+class ByWeekNoRule implements ByWeekNoRuleInterface
 {
     /**
-     * Comma separated list of seconds where second is a number between 0 and 59
+     * BYWEEKNO Week list.  Format : [[+]|-]num[,...] where num is between 1 and 53
+     * e.g. wklist="1,+2,-1" means first week, 2nd week, and last week of the year.
      * @Accessor(getter="getList", setter="setList")
-     * @SerializedName("seclist")
+     * @SerializedName("wklist")
      * @Type("string")
      * @XmlAttribute
      */
     private $list;
 
     /**
-     * Constructor method for BySecondRule
+     * Constructor method for ByWeekNoRule
      *
      * @param  string $list
      * @return self
@@ -66,16 +67,16 @@ class BySecondRule implements BySecondRuleInterface
      */
     public function setList(string $list): self
     {
-        $seclist = [];
-        foreach (explode(',', $list) as $sec) {
-            if (is_numeric($sec)) {
-                $sec = (int) $sec;
-                if($sec >= 0 && $sec < 60 && !in_array($sec, $seclist)) {
-                    $seclist[] = $sec;
+        $wklist = [];
+        foreach (explode(',', $list) as $wkno) {
+            if (is_numeric($wkno)) {
+                $wk = (int) $wkno;
+                if($wk != 0 && abs($wk) < 54 && !in_array($wkno, $wklist)) {
+                    $wklist[] = $wkno;
                 }
             }
         }
-        $this->list = implode(',', $seclist);
+        $this->list = implode(',', $wklist);
         return $this;
     }
 }

@@ -10,6 +10,8 @@
 
 namespace Zimbra\Struct;
 
+use Zimbra\Enum\WeekDay;
+
 /**
  * WkstRuleInterface interface
  *
@@ -20,5 +22,5 @@ namespace Zimbra\Struct;
  */
 interface WkstRuleInterface
 {
-    function getDay(): ?string;
+    function getDay(): WeekDay;
 }

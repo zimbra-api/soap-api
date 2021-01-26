@@ -12,11 +12,11 @@ namespace Zimbra\Mail\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlRoot};
 
-use Zimbra\Struct\BySecondRuleInterface;
+use Zimbra\Struct\BySetPosRuleInterface;
 
 /**
- * BySecondRule class
- * By-second rule
+ * BySetPosRule class
+ * By-set-pos rule
  *
  * @package   Zimbra
  * @subpackage Mail
@@ -24,21 +24,22 @@ use Zimbra\Struct\BySecondRuleInterface;
  * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright Copyright © 2013-present by Nguyen Van Nguyen.
  * @AccessType("public_method")
- * @XmlRoot(name="bysecond")
+ * @XmlRoot(name="bysetpos")
  */
-class BySecondRule implements BySecondRuleInterface
+class BySetPosRule implements BySetPosRuleInterface
 {
     /**
-     * Comma separated list of seconds where second is a number between 0 and 59
+     * Format <b>[[+]|-]num[,...]</b> where num is from 1 to 366
+     * <bysetpos> MUST only be used in conjunction with another <byXXX> element.
      * @Accessor(getter="getList", setter="setList")
-     * @SerializedName("seclist")
+     * @SerializedName("poslist")
      * @Type("string")
      * @XmlAttribute
      */
     private $list;
 
     /**
-     * Constructor method for BySecondRule
+     * Constructor method for BySetPosRule
      *
      * @param  string $list
      * @return self
@@ -66,16 +67,16 @@ class BySecondRule implements BySecondRuleInterface
      */
     public function setList(string $list): self
     {
-        $seclist = [];
-        foreach (explode(',', $list) as $sec) {
-            if (is_numeric($sec)) {
-                $sec = (int) $sec;
-                if($sec >= 0 && $sec < 60 && !in_array($sec, $seclist)) {
-                    $seclist[] = $sec;
+        $poslist = [];
+        foreach (explode(',', $list) as $posday) {
+            if (is_numeric($posday)) {
+                $day = (int) $posday;
+                if($day != 0 && abs($day) < 367 && !in_array($posday, $poslist)) {
+                    $poslist[] = $posday;
                 }
             }
         }
-        $this->list = implode(',', $seclist);
+        $this->list = implode(',', $poslist);
         return $this;
     }
 }
