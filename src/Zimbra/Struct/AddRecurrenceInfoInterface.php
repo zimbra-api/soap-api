@@ -11,14 +11,13 @@
 namespace Zimbra\Struct;
 
 /**
- * DateTimeStringAttrInterface interface
+ * AddRecurrenceInfoInterface interface
  *
  * @package   Zimbra
  * @category  Struct
  * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright Copyright © 2013-present by Nguyen Van Nguyen.
  */
-interface DateTimeStringAttrInterface
+interface AddRecurrenceInfoInterface extends RecurrenceInfoInterface
 {
-    function getDateTime(): string;
 }
