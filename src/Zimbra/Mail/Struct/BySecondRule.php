@@ -16,7 +16,7 @@ use Zimbra\Struct\BySecondRuleInterface;
 
 /**
  * BySecondRule class
- * Date time string attribute
+ * By-second rule
  *
  * @package   Zimbra
  * @subpackage Mail

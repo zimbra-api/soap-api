@@ -10,6 +10,8 @@
 
 namespace Zimbra\Struct;
 
+use Zimbra\Enum\WeekDay;
+
 /**
  * WkDayInterface interface
  *
@@ -20,9 +22,9 @@ namespace Zimbra\Struct;
  */
 interface WkDayInterface
 {
-    function setDay(string $day): ?self;
-    function getDay(): ?string;
+    function setDay(WeekDay $day): self;
+    function getDay(): WeekDay;
 
-    function setOrdWk(int $ordWk): ?self;
+    function setOrdWk(int $ordWk): self;
     function getOrdWk(): ?int;
 }
