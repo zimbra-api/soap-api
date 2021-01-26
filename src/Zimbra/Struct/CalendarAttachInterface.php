@@ -23,7 +23,7 @@ interface CalendarAttachInterface
     function setUri(string $uri): self;
     function setContentType(string $contentType): self;
     function setBinaryB64Data(string $binaryB64Data): self;
-    function getUri(): string;
-    function getContentType(): string;
-    function getBinaryB64Data(): string;
+    function getUri(): ?string;
+    function getContentType(): ?string;
+    function getBinaryB64Data(): ?string;
 }

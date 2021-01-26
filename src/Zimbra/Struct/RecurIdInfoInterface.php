@@ -11,18 +11,22 @@
 namespace Zimbra\Struct;
 
 /**
- * DtTimeInfoInterface interface
+ * RecurIdInfoInterface interface
  *
  * @package   Zimbra
  * @category  Struct
  * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright Copyright © 2013-present by Nguyen Van Nguyen.
  */
-interface DtTimeInfoInterface
+interface RecurIdInfoInterface
 {
+    function setRecurrenceRangeType(int $recurrenceRangeType): self;
+    function setRecurrenceId(string $recurrenceId): self;
     function setTimezone(string $timezone): self;
-    function setUtcTime(int $utcTime): self;
-    function getDateTime(): ?string;
+    function setRecurIdZ(string $recurIdZ): self;
+
+    function getRecurrenceRangeType(): int;
+    function getRecurrenceId(): string;
     function getTimezone(): ?string;
-    function getUtcTime(): ?int;
+    function getRecurIdZ(): ?string;
 }

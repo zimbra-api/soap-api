@@ -20,7 +20,7 @@ namespace Zimbra\Struct;
  */
 interface RecurrenceInfoInterface
 {
-    function setRuleInterfaces(array $rules): self;
-    function addRuleInterface(RecurRuleBaseInterface $rule): self;
-    function getRuleInterfaces(): array;
+    function addRule(RecurRuleBaseInterface $rule): self;
+    function setRules(array $rules): self;
+    function getRules(): array;
 }

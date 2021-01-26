@@ -26,13 +26,15 @@ interface CalOrganizerInterface
     function setSentBy(string $sentBy): self;
     function setDir(string $dir): self;
     function setLanguage(string $language): self;
-    function getAddress(): string;
-    function getUrl(): string;
-    function getDisplayName(): string;
-    function getSentBy(): string;
-    function getDir(): string;
-    function getLanguage(): string;
-    function setXParamInterfaces(array $xParams): self;
-    function addXParamInterface(XParamInterface $xParam): self;
-    function getXParamInterfaces(): array;
+
+    function getAddress(): ?string;
+    function getUrl(): ?string;
+    function getDisplayName(): ?string;
+    function getSentBy(): ?string;
+    function getDir(): ?string;
+    function getLanguage(): ?string;
+
+    function addXParam(XParamInterface $xParam): self;
+    function setXParams(array $xParams): self;
+    function getXParams(): array;
 }

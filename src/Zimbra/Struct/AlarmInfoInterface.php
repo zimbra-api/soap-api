@@ -10,6 +10,8 @@
 
 namespace Zimbra\Struct;
 
+use Zimbra\Enum\AlarmAction;
+
 /**
  * AlarmInfoInterface interface
  *
@@ -20,23 +22,25 @@ namespace Zimbra\Struct;
  */
 interface AlarmInfoInterface
 {
-    function createFromAction(string $action): AlarmInfoInterface;
+    function setAction(AlarmAction $action): self;
     function setDescription(string $description): self;
     function setSummary(string $summary): self;
-    function getAction(): string;
-    function getDescription(): string;
-    function getSummary(): string;
+    function getAction(): AlarmAction;
+    function getDescription(): ?string;
+    function getSummary(): ?string;
 
-    function setTriggerInterface(AlarmTriggerInfoInterface $trigger): self;
-    function setRepeatInterface(DurationInfoInterface $repeat): self;
-    function setAttachInterface(CalendarAttachInterface $attach): self;
-    function setAttendeeInterfaces(array $attendees): self;
-    function addAttendeeInterface(CalendarAttendeeInterface $attendee): self;
-    function setXPropsInterface(array $xProps): self;
-    function addXPropInterface(XPropInterface $xProp): self;
-    function getTriggerInfo(): AlarmTriggerInfoInterface;
-    function getRepeatInfo(): DurationInfoInterface;
-    function getAttachInfo(): CalendarAttachInterface;
-    function getAttendeeInterfaces(): array;
-    function getXPropInterfaces(): array;
+    function setTrigger(AlarmTriggerInfoInterface $trigger): self;
+    function setRepeat(DurationInfoInterface $repeat): self;
+    function setAttach(CalendarAttachInterface $attach): self;
+    function getTrigger(): ?AlarmTriggerInfoInterface;
+    function getRepeat(): ?DurationInfoInterface;
+    function getAttach(): ?CalendarAttachInterface;
+
+    function addAttendee(CalendarAttendeeInterface $attendee): self;
+    function setAttendees(array $attendees): self;
+    function getAttendees(): array;
+
+    function addXProp(XPropInterface $xProp): self;
+    function setXProps(array $xProps): self;
+    function getXProps(): array;
 }

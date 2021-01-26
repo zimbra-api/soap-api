@@ -59,10 +59,73 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
      * for iCalendar GEO property
      * @Accessor(getter="getAccount", setter="setAccount")
      * @SerializedName("geo")
-     * @Type("Zimbra|Mail\Struct\GeoInfo")
+     * @Type("Zimbra\Mail\Struct\GeoInfo")
      * @XmlElement
      */
     private $geo;
+
+    /**
+     * Attendees
+     * @Accessor(getter="getHeader", setter="setHeader")
+     * @SerializedName("at")
+     * @Type("array<Zimbra\Mail\Struct\CalendarAttendee>")
+     * @XmlList(inline = true, entry = "at")
+     */
+    private $attendees;
+
+    /**
+     * Alarm information
+     * @Accessor(getter="getHeader", setter="setHeader")
+     * @SerializedName("alarm")
+     * @Type("array<Zimbra\Mail\Struct\AlarmInfo>")
+     * @XmlList(inline = true, entry = "alarm")
+     */
+    private $alarms;
+
+    /**
+     * XPROP properties
+     * @Accessor(getter="getHeader", setter="setHeader")
+     * @SerializedName("xprop")
+     * @Type("array<Zimbra\Mail\Struct\XProp>")
+     * @XmlList(inline = true, entry = "xprop")
+     */
+    private $xProps;
+
+    /**
+     * First few bytes of the message (probably between 40 and 100 bytes)
+     * @Accessor(getter="getAccount", setter="setAccount")
+     * @SerializedName("fr")
+     * @Type("string")
+     * @XmlElement(cdata = false)
+     */
+    private $fragment;
+
+    /**
+     * Present if noBlob is set and invite has a plain text description
+     * @Accessor(getter="getAccount", setter="setAccount")
+     * @SerializedName("desc")
+     * @Type("string")
+     * @XmlElement(cdata = false)
+     */
+    private $description;
+
+    /**
+     * Present if noBlob is set and invite has an HTML description
+     * @Accessor(getter="getAccount", setter="setAccount")
+     * @SerializedName("descHtml")
+     * @Type("string")
+     * @XmlElement(cdata = false)
+     */
+    private $htmlDescription;
+
+    /**
+     * Organizer
+     * @Accessor(getter="getAccount", setter="setAccount")
+     * @SerializedName("or")
+     * @Type("Zimbra\Mail\Struct\CalOrganizer")
+     * @XmlElement
+     */
+    private $organizer;
 
     /**
      * Constructor method for InviteComponent

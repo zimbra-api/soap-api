@@ -8,21 +8,29 @@
  * file that was distributed with this source code.
  */
 
-namespace Zimbra\Struct;
+namespace Zimbra\Enum;
+
+use MyCLabs\Enum\Enum;
 
 /**
- * DtTimeInfoInterface interface
+ * AlarmRelated enum class
  *
  * @package   Zimbra
- * @category  Struct
+ * @category  Enum
  * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright Copyright © 2013-present by Nguyen Van Nguyen.
  */
-interface DtTimeInfoInterface
+class AlarmRelated extends Enum
 {
-    function setTimezone(string $timezone): self;
-    function setUtcTime(int $utcTime): self;
-    function getDateTime(): ?string;
-    function getTimezone(): ?string;
-    function getUtcTime(): ?int;
+    /**
+     * Constant for value 'START'
+     * @return string 'START'
+     */
+    private const START = 'START';
+
+    /**
+     * Constant for value 'END'
+     * @return string 'END'
+     */
+    private const END = 'END';
 }

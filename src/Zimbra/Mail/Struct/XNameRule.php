@@ -12,11 +12,11 @@ namespace Zimbra\Mail\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlRoot};
 
-use Zimbra\Struct\XParamInterface;
+use Zimbra\Struct\XNameRuleInterface;
 
 /**
- * XParam class
- * Non-standard parameter
+ * XNameRule class
+ * XName Rule
  *
  * @package   Zimbra
  * @subpackage Mail
@@ -24,12 +24,12 @@ use Zimbra\Struct\XParamInterface;
  * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright Copyright © 2013-present by Nguyen Van Nguyen.
  * @AccessType("public_method")
- * @XmlRoot(name="xparam")
+ * @XmlRoot(name="rule-x-name")
  */
-class XParam implements XParamInterface
+class XNameRule implements XNameRuleInterface
 {
     /**
-     * XPARAM Name
+     * XNAME Name
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
@@ -38,7 +38,7 @@ class XParam implements XParamInterface
     private $name;
 
     /**
-     * XPARAM value
+     * XNAME value
      * @Accessor(getter="getValue", setter="setValue")
      * @SerializedName("value")
      * @Type("string")
@@ -47,16 +47,20 @@ class XParam implements XParamInterface
     private $value;
 
     /**
-     * Constructor method for XParam
+     * Constructor method for XNameRule
      *
      * @param  string $name
      * @param  string $value
      * @return self
      */
-    public function __construct(string $name, string $value)
+    public function __construct(?string $name = NULL, ?string $value = NULL)
     {
-        $this->setName($name)
-             ->setValue($value);
+        if (NULL !== $name) {
+            $this->setName($name);
+        }
+        if (NULL !== $value) {
+            $this->setValue($value);
+        }
     }
 
     /**
@@ -64,7 +68,7 @@ class XParam implements XParamInterface
      *
      * @return string
      */
-    public function getName(): string
+    public function getName(): ?string
     {
         return $this->name;
     }
@@ -86,7 +90,7 @@ class XParam implements XParamInterface
      *
      * @return string
      */
-    public function getValue(): string
+    public function getValue(): ?string
     {
         return $this->value;
     }

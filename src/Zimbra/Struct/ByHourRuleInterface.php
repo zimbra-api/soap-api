@@ -11,18 +11,14 @@
 namespace Zimbra\Struct;
 
 /**
- * DtTimeInfoInterface interface
+ * ByHourRuleInterface interface
  *
  * @package   Zimbra
  * @category  Struct
  * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright Copyright © 2013-present by Nguyen Van Nguyen.
  */
-interface DtTimeInfoInterface
+interface ByHourRuleInterface
 {
-    function setTimezone(string $timezone): self;
-    function setUtcTime(int $utcTime): self;
-    function getDateTime(): ?string;
-    function getTimezone(): ?string;
-    function getUtcTime(): ?int;
+    function getList(): ?string;
 }

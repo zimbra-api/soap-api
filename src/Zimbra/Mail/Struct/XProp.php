@@ -58,6 +58,7 @@ class XProp implements XPropInterface
 
     /**
      * Constructor method for XProp
+     *
      * @param  string $name
      * @param  string $value
      * @param  array $xParams
@@ -105,7 +106,7 @@ class XProp implements XPropInterface
     /**
      * Sets value
      *
-     * @param  string $name
+     * @param  string $value
      * @return self
      */
     public function setValue(string $value): self

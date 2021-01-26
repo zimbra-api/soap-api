@@ -11,18 +11,17 @@
 namespace Zimbra\Struct;
 
 /**
- * DtTimeInfoInterface interface
+ * AlarmTriggerInfoInterface interface
  *
  * @package   Zimbra
  * @category  Struct
  * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright Copyright © 2013-present by Nguyen Van Nguyen.
  */
-interface DtTimeInfoInterface
+interface AlarmTriggerInfoInterface
 {
-    function setTimezone(string $timezone): self;
-    function setUtcTime(int $utcTime): self;
-    function getDateTime(): ?string;
-    function getTimezone(): ?string;
-    function getUtcTime(): ?int;
+    function setAbsolute(DateAttrInterface $absolute): self;
+    function setRelative(DurationInfoInterface $relative): self ;
+    function getAbsolute(): ?DateAttrInterface;
+    function getRelative(): ?DurationInfoInterface;
 }
