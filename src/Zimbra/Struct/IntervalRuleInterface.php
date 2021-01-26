@@ -20,5 +20,5 @@ namespace Zimbra\Struct;
  */
 interface IntervalRuleInterface
 {
-    function getIval(): ?int;
+    function getIval(): int;
 }
