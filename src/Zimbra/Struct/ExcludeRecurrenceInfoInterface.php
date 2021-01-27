@@ -11,20 +11,13 @@
 namespace Zimbra\Struct;
 
 /**
- * ExceptionRecurIdInfoInterface interface
+ * ExcludeRecurrenceInfoInterface interface
  *
  * @package   Zimbra
  * @category  Struct
  * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright Copyright © 2013-present by Nguyen Van Nguyen.
  */
-interface ExceptionRecurIdInfoInterface
+interface ExcludeRecurrenceInfoInterface
 {
-    function setDateTime(string $dateTime): self;
-    function setTimezone(string $timezone): self;
-    function setRecurrenceRangeType(int $recurrenceRangeType): self;
-
-    function getDateTime(): string;
-    function getTimezone(): string;
-    function getRecurrenceRangeType(): int;
 }

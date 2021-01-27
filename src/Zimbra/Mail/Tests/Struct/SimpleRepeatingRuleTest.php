@@ -37,45 +37,45 @@ class SimpleRepeatingRuleTest extends ZimbraStructTestCase
         $name = $this->faker->name;
         $value = $this->faker->word;
         $date = $this->faker->date;
-        $num = mt_rand(1, 100);
-        $ival = mt_rand(1, 100);
+        $num = $this->faker->numberBetween(1, 100);
+        $ival = $this->faker->numberBetween(1, 100);
         $day = WeekDay::SU();
-        $ordWk = mt_rand(1, 53);
+        $ordWk = $this->faker->numberBetween(1, 53);
         $seclist = implode(',', [
-            mt_rand(0, 59),
-            mt_rand(0, 59),
+            $this->faker->numberBetween(0, 59),
+            $this->faker->numberBetween(0, 59),
         ]);
         $minlist = implode(',', [
-            mt_rand(0, 59),
-            mt_rand(0, 59),
+            $this->faker->numberBetween(0, 59),
+            $this->faker->numberBetween(0, 59),
         ]);
         $hrlist = implode(',', [
-            mt_rand(0, 23),
-            mt_rand(0, 23),
+            $this->faker->numberBetween(0, 23),
+            $this->faker->numberBetween(0, 23),
         ]);
         $modaylist = implode(',', [
-            mt_rand(1, 31),
-            '+' . mt_rand(1, 31),
-            '-' . mt_rand(1, 31),
+            $this->faker->numberBetween(1, 31),
+            '+' . $this->faker->numberBetween(1, 31),
+            '-' . $this->faker->numberBetween(1, 31),
         ]);
         $yrdaylist = implode(',', [
-            mt_rand(1, 366),
-            '+' . mt_rand(1, 366),
-            '-' . mt_rand(1, 366),
+            $this->faker->numberBetween(1, 366),
+            '+' . $this->faker->numberBetween(1, 366),
+            '-' . $this->faker->numberBetween(1, 366),
         ]);
         $wklist = implode(',', [
-            mt_rand(1, 53),
-            '+' . mt_rand(1, 53),
-            '-' . mt_rand(1, 53),
+            $this->faker->numberBetween(1, 53),
+            '+' . $this->faker->numberBetween(1, 53),
+            '-' . $this->faker->numberBetween(1, 53),
         ]);
         $molist = implode(',', [
-            mt_rand(1, 12),
-            mt_rand(1, 12),
+            $this->faker->numberBetween(1, 12),
+            $this->faker->numberBetween(1, 12),
         ]);
         $poslist = implode(',', [
-            mt_rand(1, 366),
-            '+' . mt_rand(1, 366),
-            '-' . mt_rand(1, 366),
+            $this->faker->numberBetween(1, 366),
+            '+' . $this->faker->numberBetween(1, 366),
+            '-' . $this->faker->numberBetween(1, 366),
         ]);
 
         $until = new DateTimeStringAttr($date);

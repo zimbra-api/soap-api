@@ -175,18 +175,20 @@ class SimpleRepeatingRule implements RecurRuleBase, SimpleRepeatingRuleInterface
      * @Type("array<Zimbra\Mail\Struct\XNameRule>")
      * @XmlList(inline = true, entry = "rule-x-name")
      */
-    private $xNames;
+    private $xNames = [];
 
     /**
      * Constructor method for SimpleRepeatingRule
      *
      * @param  Frequency $frequency
      * @param  IntervalRule $ir
+     * @param  array $xNames
      * @return self
      */
-    public function __construct(Frequency $frequency, ?IntervalRule $ir = NULL)
+    public function __construct(Frequency $frequency, ?IntervalRule $ir = NULL, array $xNames = [])
     {
-        $this->setFrequency($frequency);
+        $this->setFrequency($frequency)
+             ->setXNames($xNames);
         if ($ir instanceof IntervalRule) {
             $this->setInterval($ir);
         }
