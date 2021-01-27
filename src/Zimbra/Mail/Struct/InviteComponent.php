@@ -10,7 +10,7 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlElement, XmlList, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlElement, XmlList, XmlRoot};
 
 use Zimbra\Struct\InviteComponentInterface;
 
@@ -30,7 +30,7 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
 {
     /**
      * Categories - for iCalendar CATEGORY properties
-     * @Accessor(getter="getHeader", setter="setHeader")
+     * @Accessor(getter="getCategories", setter="setCategories")
      * @SerializedName("category")
      * @Type("array<string>")
      * @XmlList(inline = true, entry = "category")
@@ -39,7 +39,7 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
 
     /**
      * Comments - for iCalendar COMMENT properties
-     * @Accessor(getter="getHeader", setter="setHeader")
+     * @Accessor(getter="getComments", setter="setComments")
      * @SerializedName("comment")
      * @Type("array<string>")
      * @XmlList(inline = true, entry = "comment")
@@ -48,7 +48,7 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
 
     /**
      * Contacts - for iCalendar CONTACT properties
-     * @Accessor(getter="getHeader", setter="setHeader")
+     * @Accessor(getter="getContacts", setter="setContacts")
      * @SerializedName("contact")
      * @Type("array<string>")
      * @XmlList(inline = true, entry = "contact")
@@ -57,7 +57,7 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
 
     /**
      * for iCalendar GEO property
-     * @Accessor(getter="getAccount", setter="setAccount")
+     * @Accessor(getter="getGeo", setter="setGeo")
      * @SerializedName("geo")
      * @Type("Zimbra\Mail\Struct\GeoInfo")
      * @XmlElement
@@ -66,7 +66,7 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
 
     /**
      * Attendees
-     * @Accessor(getter="getHeader", setter="setHeader")
+     * @Accessor(getter="getAttendees", setter="setAttendees")
      * @SerializedName("at")
      * @Type("array<Zimbra\Mail\Struct\CalendarAttendee>")
      * @XmlList(inline = true, entry = "at")
@@ -75,7 +75,7 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
 
     /**
      * Alarm information
-     * @Accessor(getter="getHeader", setter="setHeader")
+     * @Accessor(getter="getAlarms", setter="setAlarms")
      * @SerializedName("alarm")
      * @Type("array<Zimbra\Mail\Struct\AlarmInfo>")
      * @XmlList(inline = true, entry = "alarm")
@@ -84,7 +84,7 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
 
     /**
      * XPROP properties
-     * @Accessor(getter="getHeader", setter="setHeader")
+     * @Accessor(getter="getXProps", setter="setXProps")
      * @SerializedName("xprop")
      * @Type("array<Zimbra\Mail\Struct\XProp>")
      * @XmlList(inline = true, entry = "xprop")
@@ -93,7 +93,7 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
 
     /**
      * First few bytes of the message (probably between 40 and 100 bytes)
-     * @Accessor(getter="getAccount", setter="setAccount")
+     * @Accessor(getter="getFragment", setter="setFragment")
      * @SerializedName("fr")
      * @Type("string")
      * @XmlElement(cdata = false)
@@ -102,7 +102,7 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
 
     /**
      * Present if noBlob is set and invite has a plain text description
-     * @Accessor(getter="getAccount", setter="setAccount")
+     * @Accessor(getter="getDescription", setter="setDescription")
      * @SerializedName("desc")
      * @Type("string")
      * @XmlElement(cdata = false)
@@ -111,7 +111,7 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
 
     /**
      * Present if noBlob is set and invite has an HTML description
-     * @Accessor(getter="getAccount", setter="setAccount")
+     * @Accessor(getter="getHtmlDescription", setter="setHtmlDescription")
      * @SerializedName("descHtml")
      * @Type("string")
      * @XmlElement(cdata = false)
@@ -120,12 +120,57 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
 
     /**
      * Organizer
-     * @Accessor(getter="getAccount", setter="setAccount")
+     * @Accessor(getter="getOrganizer", setter="setOrganizer")
      * @SerializedName("or")
      * @Type("Zimbra\Mail\Struct\CalOrganizer")
      * @XmlElement
      */
     private $organizer;
+
+    /**
+     * Recurrence information
+     * @Accessor(getter="getRecurrence", setter="setRecurrence")
+     * @SerializedName("recur")
+     * @Type("Zimbra\Mail\Struct\RecurrenceInfo")
+     * @XmlElement
+     */
+    private $recurrence;
+
+    /**
+     * Recurrence id, if this is an exception
+     * @Accessor(getter="getExceptionId", setter="setExceptionId")
+     * @SerializedName("exceptId")
+     * @Type("Zimbra\Mail\Struct\ExceptionRecurIdInfo")
+     * @XmlElement
+     */
+    private $exceptionId;
+
+    /**
+     * Start date-time (required)
+     * @Accessor(getter="getDtStart", setter="setDtStart")
+     * @SerializedName("s")
+     * @Type("Zimbra\Mail\Struct\DtTimeInfo")
+     * @XmlElement
+     */
+    private $dtStart;
+
+    /**
+     * End date-time
+     * @Accessor(getter="getDtEnd", setter="setDtEnd")
+     * @SerializedName("e")
+     * @Type("Zimbra\Mail\Struct\DtTimeInfo")
+     * @XmlElement
+     */
+    private $dtEnd;
+
+    /**
+     * Duration
+     * @Accessor(getter="getDuration", setter="setDuration")
+     * @SerializedName("dur")
+     * @Type("Zimbra\Mail\Struct\DurationInfo")
+     * @XmlElement
+     */
+    private $duration;
 
     /**
      * Constructor method for InviteComponent

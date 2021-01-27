@@ -26,39 +26,39 @@ interface InviteComponentInterface extends InviteComponentCommonInterface
     function addComment(string $comment): self;
     function setContacts(array $contacts): self;
     function addContact(string $contact): self;
-
     function setFragment(string $fragment): self;
     function setDescription(string $description): self;
     function setHtmlDescription(string $htmlDescription): self;
+
     function getCategories(): array;
     function getComments(): array;
     function getContacts(): array;
-    function getFragment(): string;
-    function getDescription(): string;
-    function getHtmlDescription(): string;
+    function getFragment(): ?string;
+    function getDescription(): ?string;
+    function getHtmlDescription(): ?string;
 
-    function setGeoInterface(GeoInfoInterface $geo): self;
-    function setAttendeeInterfaces(array $attendees): self;
-    function addAttendeeInterface(CalendarAttendeeInterface $attendee): self;
-    function setAlarmInterfaces(array $alarms): self;
-    function addAlarmInterface(AlarmInfoInterface $alarm): self;
-    function setXPropInterfaces(array $xProps): self;
-    function addXPropInterface(XPropInterface $xProp): self;
-    function setOrganizerInterface(CalOrganizerInterface $organizer): self;
-    function setRecurrenceInterface(RecurrenceInfoInterface $recurrence): self;
-    function setExceptionIdInterface(ExceptionRecurIdInfoInterface $exceptionId): self;
-    function setDtStartInterface(DtTimeInfoInterface $dtStart): self;
-    function setDtEndInterface(DtTimeInfoInterface $dtEnd): self;
-    function setDurationInterface(DurationInfoInterface $duration): self;
+    function setGeo(GeoInfoInterface $geo): self;
+    function setAttendees(array $attendees): self;
+    function addAttendee(CalendarAttendeeInterface $attendee): self;
+    function setAlarms(array $alarms): self;
+    function addAlarm(AlarmInfoInterface $alarm): self;
+    function setXProps(array $xProps): self;
+    function addXProp(XPropInterface $xProp): self;
+    function setOrganizer(CalOrganizerInterface $organizer): self;
+    function setRecurrence(RecurrenceInfoInterface $recurrence): self;
+    function setExceptionId(ExceptionRecurIdInfoInterface $exceptionId): self;
+    function setDtStart(DtTimeInfoInterface $dtStart): self;
+    function setDtEnd(DtTimeInfoInterface $dtEnd): self;
+    function setDuration(DurationInfoInterface $duration): self;
 
-    function getGeoInterface(): GeoInfoInterface;
-    function getAttendeeInterfaces(): array;
-    function getAlarmInterfaces(): array;
-    function getXPropInterfaces(): array;
-    function getOrganizerInterface(): CalOrganizerInterface;
-    function getRecurrenceInterface(): RecurrenceInfoInterface;
-    function getExceptionIdInterface(): ExceptionRecurIdInfoInterface;
-    function getDtStartInterface(): DtTimeInfoInterface;
-    function getDtEndInterface(): DtTimeInfoInterface;
-    function getDurationInterface(): DurationInfoInterface;
+    function getGeo(): ?GeoInfoInterface;
+    function getAttendees(): array;
+    function getAlarms(): array;
+    function getXProps(): array;
+    function getOrganizer(): ?CalOrganizerInterface;
+    function getRecurrence(): ?RecurrenceInfoInterface;
+    function getExceptionId(): ?ExceptionRecurIdInfoInterface;
+    function getDtStart(): ?DtTimeInfoInterface;
+    function getDtEnd(): ?DtTimeInfoInterface;
+    function getDuration(): ?DurationInfoInterface;
 }

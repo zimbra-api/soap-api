@@ -12,11 +12,11 @@ namespace Zimbra\Mail\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlRoot};
 use Zimbra\Enum\RangeType;
-use Zimbra\Struct\RecurIdInfoInterface;
+use Zimbra\Struct\ExceptionRecurIdInfoInterface;
 
 /**
- * RecurIdInfo class
- * Recurrence ID Information
+ * ExceptionRecurIdInfo class
+ * Exception recurrence id information
  *
  * @package   Zimbra
  * @subpackage Mail
@@ -24,30 +24,35 @@ use Zimbra\Struct\RecurIdInfoInterface;
  * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright Copyright © 2013-present by Nguyen Van Nguyen.
  * @AccessType("public_method")
- * @XmlRoot(name="recurId")
+ * @XmlRoot(name="exceptId")
  */
-class RecurIdInfo implements RecurIdInfoInterface
+class ExceptionRecurIdInfo implements ExceptionRecurIdInfoInterface
 {
     /**
-     * Recurrence range type
-     * @Accessor(getter="getRecurrenceRangeType", setter="setRecurrenceRangeType")
-     * @SerializedName("rangeType")
-     * @Type("integer")
-     * @XmlAttribute
-     */
-    private $recurrenceRangeType;
-
-    /**
-     * Recurrence ID in format : YYMMDD[THHMMSS[Z]]
-     * @Accessor(getter="getRecurrenceId", setter="setRecurrenceId")
-     * @SerializedName("recurId")
+     * Date and/or time.  Format is : YYYYMMDD['T'HHMMSS[Z]]
+     * where:
+     *     YYYY - 4 digit year
+     *     MM   - 2 digit month
+     *     DD   - 2 digit day
+     * Optionally:
+     *     'T' the literal char "T" then 
+     *     HH - 2 digit hour (00-23)
+     *     MM - 2 digit minute (00-59)
+     *     SS - 2 digit second (00-59)
+     *     ...and finally an optional "Z" meaning that the time is UTC,
+     *     otherwise the tz="TIMEZONE" param MUST be specified with the DATETIME
+     *     e.g:
+     *         20050612  June 12, 2005
+     *         20050315T18302305Z  March 15, 2005 6:30:23.05 PM UTC
+     * @Accessor(getter="getDateTime", setter="setDateTime")
+     * @SerializedName("d")
      * @Type("string")
      * @XmlAttribute
      */
-    private $recurrenceId;
+    private $dateTime;
 
     /**
-     * Timezone name
+     * Java timezone identifier
      * @Accessor(getter="getTimezone", setter="setTimezone")
      * @SerializedName("tz")
      * @Type("string")
@@ -56,38 +61,34 @@ class RecurIdInfo implements RecurIdInfoInterface
     private $timezone;
 
     /**
-     * Recurrence-id in UTC time zone; used in non-all-day appointments only
-     * Format: YYMMDDTHHMMSSZ
-     * @Accessor(getter="getRecurIdZ", setter="setRecurIdZ")
-     * @SerializedName("ridZ")
-     * @Type("string")
+     * Range type - 1 means NONE, 2 means THISANDFUTURE, 3 means THISANDPRIOR
+     * @Accessor(getter="getRecurrenceRangeType", setter="setRecurrenceRangeType")
+     * @SerializedName("rangeType")
+     * @Type("integer")
      * @XmlAttribute
      */
-    private $recurIdZ;
+    private $recurrenceRangeType;
 
     /**
-     * Constructor method for RecurIdInfo
+     * Constructor method for ExceptionRecurIdInfo
      *
-     * @param  int $recurrenceRangeType
-     * @param  string $recurrenceId
+     * @param  string $dateTime
      * @param  string $timezone
-     * @param  string $recurIdZ
+     * @param  int $recurrenceRangeType
      * @return self
      */
     public function __construct(
-        int $recurrenceRangeType,
-        string $recurrenceId,
+        string $dateTime,
         ?string $timezone = NULL,
-        ?string $recurIdZ = NULL
+        ?int $recurrenceRangeType = NULL
     )
     {
-        $this->setRecurrenceRangeType($recurrenceRangeType)
-             ->setRecurrenceId($recurrenceId);
+        $this->setDateTime($dateTime);
         if (NULL !== $timezone) {
             $this->setTimezone($timezone);
         }
-        if (NULL !== $recurIdZ) {
-            $this->setRecurIdZ($recurIdZ);
+        if (NULL !== $recurrenceRangeType) {
+            $this->setRecurrenceRangeType($recurrenceRangeType);
         }
     }
 
@@ -96,7 +97,7 @@ class RecurIdInfo implements RecurIdInfoInterface
      *
      * @return int
      */
-    public function getRecurrenceRangeType(): int
+    public function getRecurrenceRangeType(): ?int
     {
         return $this->recurrenceRangeType;
     }
@@ -114,24 +115,24 @@ class RecurIdInfo implements RecurIdInfoInterface
     }
 
     /**
-     * Gets recurrenceId
+     * Gets dateTime
      *
      * @return string
      */
-    public function getRecurrenceId(): string
+    public function getDateTime(): string
     {
-        return $this->recurrenceId;
+        return $this->dateTime;
     }
 
     /**
-     * Sets recurrenceId
+     * Sets dateTime
      *
-     * @param  string $recurrenceId
+     * @param  string $dateTime
      * @return self
      */
-    public function setRecurrenceId(string $recurrenceId): self
+    public function setDateTime(string $dateTime): self
     {
-        $this->recurrenceId = $recurrenceId;
+        $this->dateTime = $dateTime;
         return $this;
     }
 
@@ -154,28 +155,6 @@ class RecurIdInfo implements RecurIdInfoInterface
     public function setTimezone(string $timezone): self
     {
         $this->timezone = $timezone;
-        return $this;
-    }
-
-    /**
-     * Gets recurIdZ
-     *
-     * @return string
-     */
-    public function getRecurIdZ(): ?string
-    {
-        return $this->recurIdZ;
-    }
-
-    /**
-     * Sets recurIdZ
-     *
-     * @param  string $recurIdZ
-     * @return self
-     */
-    public function setRecurIdZ(string $recurIdZ): self
-    {
-        $this->recurIdZ = $recurIdZ;
         return $this;
     }
 }

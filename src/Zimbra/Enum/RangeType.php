@@ -26,7 +26,7 @@ class RangeType extends Enum
      * Constant for value 'NONE'
      * @return string 1
      */
-    private const NONE = -1;
+    private const NONE = 1;
 
     /**
      * Constant for value 'THISANDFUTURE'

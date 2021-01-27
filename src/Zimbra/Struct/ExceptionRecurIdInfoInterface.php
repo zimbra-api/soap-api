@@ -25,6 +25,6 @@ interface ExceptionRecurIdInfoInterface
     function setRecurrenceRangeType(int $recurrenceRangeType): self;
 
     function getDateTime(): string;
-    function getTimezone(): string;
-    function getRecurrenceRangeType(): int;
+    function getTimezone(): ?string;
+    function getRecurrenceRangeType(): ?int;
 }
