@@ -13,7 +13,7 @@ class RangeTypeTest extends TestCase
     public function testRangeType()
     {
         $values = [
-            'NONE'          => -1,
+            'NONE'          => 1,
             'THISANDFUTURE' => 2,
             'THISANDPRIOR'  => 3,
         ];

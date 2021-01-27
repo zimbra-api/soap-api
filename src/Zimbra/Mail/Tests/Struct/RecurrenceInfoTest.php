@@ -21,7 +21,7 @@ class RecurrenceInfoTest extends ZimbraStructTestCase
 {
     public function testRecurrenceInfo()
     {
-        $recurrenceRangeType = mt_rand(1, 100);
+        $recurrenceRangeType = mt_rand(1, 3);
         $recurrenceId = $this->faker->date;
         $timezone = $this->faker->timezone;
         $recurIdZ = $this->faker->date;
