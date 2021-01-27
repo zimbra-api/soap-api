@@ -45,7 +45,7 @@ class SingleDates implements RecurRuleBase, SingleDatesInterface
      * @Type("array<Zimbra\Mail\Struct\DtVal>")
      * @XmlList(inline = true, entry = "dtval")
      */
-    private $dtVals;
+    private $dtVals = [];
 
     /**
      * Constructor method for SingleDates

@@ -10,17 +10,21 @@
 
 namespace Zimbra\Mail\Struct;
 
-use Zimbra\Struct\RecurRuleBaseInterface;
+use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlElement, XmlRoot};
+use Zimbra\Struct\CancelRuleInfoInterface;
 
 /**
- * RecurRuleBase interface
+ * CancelRuleInfo struct class
+ * Cancel rule information
  *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
+ * @AccessType("public_method")
+ * @XmlRoot(name="cancel")
  */
-interface RecurRuleBase extends RecurRuleBaseInterface
+class CancelRuleInfo extends RecurIdInfo implements RecurRuleBase, CancelRuleInfoInterface
 {
 }

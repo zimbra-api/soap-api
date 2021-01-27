@@ -14,7 +14,6 @@ use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlEl
 use Zimbra\Struct\AlarmTriggerInfoInterface;
 use Zimbra\Struct\DateAttrInterface;
 use Zimbra\Struct\DurationInfoInterface;
-use Zimbra\Struct\TzOnsetInfo;
 
 /**
  * AlarmTriggerInfo struct class
