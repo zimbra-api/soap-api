@@ -10,6 +10,8 @@
 
 namespace Zimbra\Struct;
 
+use Zimbra\Enum\Frequency;
+
 /**
  * SimpleRepeatingRuleInterface interface
  *
@@ -20,7 +22,7 @@ namespace Zimbra\Struct;
  */
 interface SimpleRepeatingRuleInterface
 {
-    function getFrequency(): string;
+    function getFrequency(): Frequency;
 
     function setUntil(DateTimeStringAttrInterface $until): self;
     function setCount(NumAttrInterface $count): self;
