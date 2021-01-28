@@ -44,7 +44,7 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
      * @Type("array<string>")
      * @XmlList(inline = true, entry = "category")
      */
-    private $categories;
+    private $categories = [];
 
     /**
      * Comments - for iCalendar COMMENT properties
@@ -53,7 +53,7 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
      * @Type("array<string>")
      * @XmlList(inline = true, entry = "comment")
      */
-    private $comments;
+    private $comments = [];
 
     /**
      * Contacts - for iCalendar CONTACT properties
@@ -62,7 +62,7 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
      * @Type("array<string>")
      * @XmlList(inline = true, entry = "contact")
      */
-    private $contacts;
+    private $contacts = [];
 
     /**
      * for iCalendar GEO property
@@ -80,7 +80,7 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
      * @Type("array<Zimbra\Mail\Struct\CalendarAttendee>")
      * @XmlList(inline = true, entry = "at")
      */
-    private $attendees;
+    private $attendees = [];
 
     /**
      * Alarm information
@@ -89,7 +89,7 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
      * @Type("array<Zimbra\Mail\Struct\AlarmInfo>")
      * @XmlList(inline = true, entry = "alarm")
      */
-    private $alarms;
+    private $alarms = [];
 
     /**
      * XPROP properties
@@ -98,7 +98,7 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
      * @Type("array<Zimbra\Mail\Struct\XProp>")
      * @XmlList(inline = true, entry = "xprop")
      */
-    private $xProps;
+    private $xProps = [];
 
     /**
      * First few bytes of the message (probably between 40 and 100 bytes)
