@@ -3,8 +3,8 @@
 namespace Zimbra\Mail\Tests\Struct;
 
 use Zimbra\Enum\ParticipationStatus as PartStat;
-use Zimbra\Mail\Struct\XParam;
 use Zimbra\Mail\Struct\CalendarAttendee;
+use Zimbra\Mail\Struct\XParam;
 use Zimbra\Struct\Tests\ZimbraStructTestCase;
 
 /**

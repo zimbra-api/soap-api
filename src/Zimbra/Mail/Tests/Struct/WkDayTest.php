@@ -14,7 +14,7 @@ class WkDayTest extends ZimbraStructTestCase
     public function testWkDay()
     {
         $day = WeekDay::SU();
-        $ordWk = mt_rand(1, 53);
+        $ordWk = $this->faker->numberBetween(1, 53);
 
         $wkday = new WkDay($day, $ordWk);
         $this->assertSame($day, $wkday->getDay());

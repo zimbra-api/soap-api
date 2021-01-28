@@ -13,8 +13,8 @@ class ByMinuteRuleTest extends ZimbraStructTestCase
     public function testByMinuteRule()
     {
         $list = implode(',', [
-            mt_rand(0, 59),
-            mt_rand(0, 59),
+            $this->faker->unique()->numberBetween(0, 59),
+            $this->faker->unique()->numberBetween(0, 59),
         ]);
 
         $rule = new ByMinuteRule($list);

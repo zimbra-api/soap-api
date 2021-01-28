@@ -13,7 +13,7 @@ class SizeTestTest extends ZimbraStructTestCase
 {
     public function testSizeTest()
     {
-        $index = mt_rand(1, 99);
+        $index = $this->faker->numberBetween(1, 99);
         $size = $this->faker->word;
 
         $test = new SizeTest(

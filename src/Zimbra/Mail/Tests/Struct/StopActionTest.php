@@ -12,7 +12,7 @@ class StopActionTest extends ZimbraStructTestCase
 {
     public function testStopAction()
     {
-        $index = mt_rand(1, 99);
+        $index = $this->faker->numberBetween(1, 99);
         $action = new StopAction($index);
 
         $xml = <<<EOT

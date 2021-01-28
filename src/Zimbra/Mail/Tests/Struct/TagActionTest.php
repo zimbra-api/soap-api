@@ -12,7 +12,7 @@ class TagActionTest extends ZimbraStructTestCase
 {
     public function testTagAction()
     {
-        $index = mt_rand(1, 99);
+        $index = $this->faker->numberBetween(1, 99);
         $tag = $this->faker->word;
 
         $action = new TagAction($index, $tag, FALSE);

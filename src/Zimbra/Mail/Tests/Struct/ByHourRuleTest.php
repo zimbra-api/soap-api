@@ -13,8 +13,8 @@ class ByHourRuleTest extends ZimbraStructTestCase
     public function testByHourRule()
     {
         $list = implode(',', [
-            mt_rand(0, 23),
-            mt_rand(0, 23),
+            $this->faker->unique()->numberBetween(0, 23),
+            $this->faker->unique()->numberBetween(0, 23),
         ]);
 
         $rule = new ByHourRule($list);

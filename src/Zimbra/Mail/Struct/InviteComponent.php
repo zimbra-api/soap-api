@@ -12,13 +12,16 @@ namespace Zimbra\Mail\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlElement, XmlList, XmlRoot};
 
-use Zimbra\Struct\InviteComponentInterface;
-use Zimbra\Struct\GeoInfoInterface;
+use Zimbra\Struct\AlarmInfoInterface;
+use Zimbra\Struct\CalendarAttendeeInterface;
 use Zimbra\Struct\CalOrganizerInterface;
-use Zimbra\Struct\RecurrenceInfoInterface;
-use Zimbra\Struct\ExceptionRecurIdInfoInterface;
 use Zimbra\Struct\DtTimeInfoInterface;
 use Zimbra\Struct\DurationInfoInterface;
+use Zimbra\Struct\ExceptionRecurIdInfoInterface;
+use Zimbra\Struct\GeoInfoInterface;
+use Zimbra\Struct\InviteComponentInterface;
+use Zimbra\Struct\RecurrenceInfoInterface;
+use Zimbra\Struct\XPropInterface;
 
 /**
  * InviteComponent struct class
@@ -200,7 +203,7 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
      *
      * @return array
      */
-    public function getCategories()
+    public function getCategories(): array
     {
         return $this->categories;
     }
@@ -211,7 +214,7 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
      * @param  array $categories
      * @return self
      */
-    public function setCategories(array $categories)
+    public function setCategories(array $categories): self
     {
         $this->categories = [];
         foreach ($categories as $category) {
@@ -226,7 +229,7 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
      * @param  string $category
      * @return self
      */
-    public function addCategory(string $category)
+    public function addCategory(string $category): self
     {
         $category = trim($category);
         if (!in_array($category, $this->categories)) {
@@ -240,7 +243,7 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
      *
      * @return array
      */
-    public function getComments()
+    public function getComments(): array
     {
         return $this->comments;
     }
@@ -251,7 +254,7 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
      * @param  array $comments
      * @return self
      */
-    public function setComments(array $comments)
+    public function setComments(array $comments): self
     {
         $this->comments = [];
         foreach ($comments as $comment) {
@@ -266,7 +269,7 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
      * @param  string $comment
      * @return self
      */
-    public function addComment(string $comment)
+    public function addComment(string $comment): self
     {
         $comment = trim($comment);
         if (!in_array($comment, $this->comments)) {
@@ -280,7 +283,7 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
      *
      * @return array
      */
-    public function getContacts()
+    public function getContacts(): array
     {
         return $this->contacts;
     }
@@ -291,7 +294,7 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
      * @param  array $contacts
      * @return self
      */
-    public function setContacts(array $contacts)
+    public function setContacts(array $contacts): self
     {
         $this->contacts = [];
         foreach ($contacts as $contact) {
@@ -306,7 +309,7 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
      * @param  string $contact
      * @return self
      */
-    public function addContact(string $contact)
+    public function addContact(string $contact): self
     {
         $contact = trim($contact);
         if (!in_array($contact, $this->contacts)) {

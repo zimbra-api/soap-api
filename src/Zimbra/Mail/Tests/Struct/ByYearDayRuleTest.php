@@ -13,9 +13,9 @@ class ByYearDayRuleTest extends ZimbraStructTestCase
     public function testByYearDayRule()
     {
         $list = implode(',', [
-            mt_rand(1, 366),
-            '+' . mt_rand(1, 366),
-            '-' . mt_rand(1, 366),
+            $this->faker->unique()->numberBetween(1, 366),
+            '+' . $this->faker->unique()->numberBetween(1, 366),
+            '-' . $this->faker->unique()->numberBetween(1, 366),
         ]);
 
         $rule = new ByYearDayRule($list);

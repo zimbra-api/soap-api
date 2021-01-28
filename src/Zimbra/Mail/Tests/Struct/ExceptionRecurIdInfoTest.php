@@ -14,7 +14,7 @@ class ExceptionRecurIdInfoTest extends ZimbraStructTestCase
     {
         $dateTime = $this->faker->date;
         $timezone = $this->faker->timezone;
-        $recurrenceRangeType = mt_rand(1, 3);
+        $recurrenceRangeType = $this->faker->numberBetween(1, 3);
 
         $exceptId = new ExceptionRecurIdInfo($dateTime, $timezone, $recurrenceRangeType);
         $this->assertSame($recurrenceRangeType, $exceptId->getRecurrenceRangeType());
