@@ -24,7 +24,7 @@ use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAt
  * @AccessType("public_method")
  * @XmlRoot(name="inv")
  */
-class InvitationInfo  extends InviteComponent
+class InvitationInfo extends InviteComponent
 {
     /**
      * ID

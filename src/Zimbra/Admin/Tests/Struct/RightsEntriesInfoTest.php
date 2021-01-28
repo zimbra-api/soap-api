@@ -19,8 +19,8 @@ class RightsEntriesInfoTest extends ZimbraStructTestCase
     public function testRightsEntriesInfo()
     {
         $name = $this->faker->word;
-        $value1= $this->faker->word;
-        $value2= $this->faker->word;
+        $value1= $this->faker->unique()->word;
+        $value2= $this->faker->unique()->word;
         $max= $this->faker->word;
         $min= $this->faker->word;
 
