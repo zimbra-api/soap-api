@@ -24,11 +24,13 @@
     },
     "autoload": {
         "psr-4": {
-            "Zimbra\\": "src/Zimbra"
-        },
-        "exclude-from-classmap": [
-            "**/Tests/"
-        ]
+            "Zimbra\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Zimbra\\Tests\\": "tests/"
+        }
     },
     "extra": {
         "branch-alias": {
