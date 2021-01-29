@@ -26,8 +26,8 @@ class InvitationInfoTest extends ZimbraStructTestCase
         $contentId = $this->faker->uuid;
         $summary = $this->faker->text;
         $value = $this->faker->text;
-        $tzStdOffset = mt_rand(1, 100);
-        $tzDayOffset = mt_rand(1, 100);
+        $tzStdOffset = $this->faker->randomNumber;
+        $tzDayOffset = $this->faker->randomNumber;
 
         $content = new RawInvite($id, $summary, $value);
         $inviteComponent = new InviteComponent($method, $componentNum, TRUE);
