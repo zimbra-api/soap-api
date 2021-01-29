@@ -98,7 +98,7 @@ class AlarmInfo implements AlarmInfoInterface
      * @Type("array<Zimbra\Mail\Struct\CalendarAttendee>")
      * @XmlList(inline = true, entry = "at")
      */
-    private $attendees;
+    private $attendees = [];
 
     /**
      * Non-standard properties (see RFC2445 section 4.8.8.1)
@@ -107,7 +107,7 @@ class AlarmInfo implements AlarmInfoInterface
      * @Type("array<Zimbra\Mail\Struct\XProp>")
      * @XmlList(inline = true, entry = "xprop")
      */
-    private $xProps;
+    private $xProps = [];
 
     /**
      * Constructor method for AlarmInfo

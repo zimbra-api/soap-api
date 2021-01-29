@@ -13,9 +13,9 @@ class ByMonthDayRuleTest extends ZimbraStructTestCase
     public function testByMonthDayRule()
     {
         $list = implode(',', [
-            mt_rand(1, 31),
-            '+' . mt_rand(1, 31),
-            '-' . mt_rand(1, 31),
+            $this->faker->unique()->numberBetween(1, 31),
+            '+' . $this->faker->unique()->numberBetween(1, 31),
+            '-' . $this->faker->unique()->numberBetween(1, 31),
         ]);
 
         $rule = new ByMonthDayRule($list);

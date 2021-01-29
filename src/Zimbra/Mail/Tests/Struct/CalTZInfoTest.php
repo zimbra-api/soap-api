@@ -14,8 +14,8 @@ class CalTZInfoTest extends ZimbraStructTestCase
     public function testCalTZInfo()
     {
         $id = $this->faker->word;
-        $tzStdOffset = mt_rand(1, 100);
-        $tzDayOffset = mt_rand(1, 100);
+        $tzStdOffset = $this->faker->randomNumber;
+        $tzDayOffset = $this->faker->randomNumber;
         $standardTZName = $this->faker->word;
         $daylightTZName = $this->faker->word;
 

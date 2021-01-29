@@ -13,8 +13,8 @@ class InviteTestTest extends ZimbraStructTestCase
     public function testInviteTest()
     {
         $index = mt_rand(1, 99);
-        $method1 = $this->faker->text;
-        $method2 = $this->faker->text;
+        $method1 = $this->faker->unique()->word;
+        $method2 = $this->faker->unique()->word;
 
         $test = new InviteTest(
             $index, TRUE, [$method1, $method2]

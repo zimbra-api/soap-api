@@ -37,45 +37,45 @@ class SimpleRepeatingRuleTest extends ZimbraStructTestCase
         $name = $this->faker->name;
         $value = $this->faker->word;
         $date = $this->faker->date;
-        $num = $this->faker->numberBetween(1, 100);
-        $ival = $this->faker->numberBetween(1, 100);
+        $num = $this->faker->unique()->numberBetween(1, 100);
+        $ival = $this->faker->unique()->numberBetween(1, 100);
         $day = WeekDay::SU();
-        $ordWk = $this->faker->numberBetween(1, 53);
+        $ordWk = $this->faker->unique()->numberBetween(1, 53);
         $seclist = implode(',', [
-            $this->faker->numberBetween(0, 59),
-            $this->faker->numberBetween(0, 59),
+            $this->faker->unique()->numberBetween(0, 59),
+            $this->faker->unique()->numberBetween(0, 59),
         ]);
         $minlist = implode(',', [
-            $this->faker->numberBetween(0, 59),
-            $this->faker->numberBetween(0, 59),
+            $this->faker->unique()->numberBetween(0, 59),
+            $this->faker->unique()->numberBetween(0, 59),
         ]);
         $hrlist = implode(',', [
-            $this->faker->numberBetween(0, 23),
-            $this->faker->numberBetween(0, 23),
+            $this->faker->unique()->numberBetween(0, 23),
+            $this->faker->unique()->numberBetween(0, 23),
         ]);
         $modaylist = implode(',', [
-            $this->faker->numberBetween(1, 31),
-            '+' . $this->faker->numberBetween(1, 31),
-            '-' . $this->faker->numberBetween(1, 31),
+            $this->faker->unique()->numberBetween(1, 31),
+            '+' . $this->faker->unique()->numberBetween(1, 31),
+            '-' . $this->faker->unique()->numberBetween(1, 31),
         ]);
         $yrdaylist = implode(',', [
-            $this->faker->numberBetween(1, 366),
-            '+' . $this->faker->numberBetween(1, 366),
-            '-' . $this->faker->numberBetween(1, 366),
+            $this->faker->unique()->numberBetween(1, 366),
+            '+' . $this->faker->unique()->numberBetween(1, 366),
+            '-' . $this->faker->unique()->numberBetween(1, 366),
         ]);
         $wklist = implode(',', [
-            $this->faker->numberBetween(1, 53),
-            '+' . $this->faker->numberBetween(1, 53),
-            '-' . $this->faker->numberBetween(1, 53),
+            $this->faker->unique()->numberBetween(1, 53),
+            '+' . $this->faker->unique()->numberBetween(1, 53),
+            '-' . $this->faker->unique()->numberBetween(1, 53),
         ]);
         $molist = implode(',', [
-            $this->faker->numberBetween(1, 12),
-            $this->faker->numberBetween(1, 12),
+            $this->faker->unique()->numberBetween(1, 12),
+            $this->faker->unique()->numberBetween(1, 12),
         ]);
         $poslist = implode(',', [
-            $this->faker->numberBetween(1, 366),
-            '+' . $this->faker->numberBetween(1, 366),
-            '-' . $this->faker->numberBetween(1, 366),
+            $this->faker->unique()->numberBetween(1, 366),
+            '+' . $this->faker->unique()->numberBetween(1, 366),
+            '-' . $this->faker->unique()->numberBetween(1, 366),
         ]);
 
         $until = new DateTimeStringAttr($date);

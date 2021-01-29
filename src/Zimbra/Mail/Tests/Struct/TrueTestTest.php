@@ -12,7 +12,7 @@ class TrueTestTest extends ZimbraStructTestCase
 {
     public function testTrueTest()
     {
-        $index = mt_rand(1, 99);
+        $index = $this->faker->numberBetween(1, 99);
 
         $test = new TrueTest(
             $index, TRUE

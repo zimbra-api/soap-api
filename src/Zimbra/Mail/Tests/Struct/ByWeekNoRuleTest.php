@@ -13,9 +13,9 @@ class ByWeekNoRuleTest extends ZimbraStructTestCase
     public function testByWeekNoRule()
     {
         $list = implode(',', [
-            mt_rand(1, 53),
-            '+' . mt_rand(1, 53),
-            '-' . mt_rand(1, 53),
+            $this->faker->unique()->numberBetween(1, 53),
+            '+' . $this->faker->unique()->numberBetween(1, 53),
+            '-' . $this->faker->unique()->numberBetween(1, 53),
         ]);
 
         $rule = new ByWeekNoRule($list);

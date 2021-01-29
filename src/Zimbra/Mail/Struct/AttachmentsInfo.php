@@ -41,7 +41,7 @@ class AttachmentsInfo
      * @Type("array<Zimbra\Mail\Struct\MimePartAttachSpec>")
      * @XmlList(inline = true, entry = "mp")
      */
-    private $mpAttachments;
+    private $mpAttachments = [];
 
     /**
      * Msg attachment details
@@ -50,7 +50,7 @@ class AttachmentsInfo
      * @Type("array<Zimbra\Mail\Struct\MsgAttachSpec>")
      * @XmlList(inline = true, entry = "m")
      */
-    private $msgAttachments;
+    private $msgAttachments = [];
 
     /**
      * Contact attachment details
@@ -59,7 +59,7 @@ class AttachmentsInfo
      * @Type("array<Zimbra\Mail\Struct\ContactAttachSpec>")
      * @XmlList(inline = true, entry = "cn")
      */
-    private $cnAttachments;
+    private $cnAttachments = [];
 
     /**
      * Doc attachment details
@@ -68,7 +68,7 @@ class AttachmentsInfo
      * @Type("array<Zimbra\Mail\Struct\DocAttachSpec>")
      * @XmlList(inline = true, entry = "doc")
      */
-    private $docAttachments;
+    private $docAttachments = [];
 
     /**
      * Constructor method

@@ -13,8 +13,8 @@ class ByMonthRuleTest extends ZimbraStructTestCase
     public function testByMonthRule()
     {
         $list = implode(',', [
-            mt_rand(1, 12),
-            mt_rand(1, 12),
+            $this->faker->unique()->numberBetween(1, 12),
+            $this->faker->unique()->numberBetween(1, 12),
         ]);
 
         $rule = new ByMonthRule($list);

@@ -21,17 +21,13 @@ class RecurrenceInfoTest extends ZimbraStructTestCase
 {
     public function testRecurrenceInfo()
     {
-        $recurrenceRangeType = mt_rand(1, 3);
+        $recurrenceRangeType = $this->faker->numberBetween(1, 3);
         $recurrenceId = $this->faker->date;
         $timezone = $this->faker->timezone;
         $recurIdZ = $this->faker->date;
 
-        $dateTime = $this->faker->date;
-        $timezone = $this->faker->timezone;
-        $frequency = Frequency::HOUR();
-
-        $add = new AddRecurrenceInfo([new SimpleRepeatingRule($frequency)]);
-        $exclude = new ExcludeRecurrenceInfo([new SimpleRepeatingRule($frequency)]);
+        $add = new AddRecurrenceInfo([new SimpleRepeatingRule(Frequency::HOUR())]);
+        $exclude = new ExcludeRecurrenceInfo([new SimpleRepeatingRule(Frequency::HOUR())]);
         $except = new ExceptionRuleInfo();
         $except->setRecurrenceRangeType($recurrenceRangeType)
             ->setRecurrenceId($recurrenceId)
@@ -39,7 +35,7 @@ class RecurrenceInfoTest extends ZimbraStructTestCase
             ->setRecurIdZ($recurIdZ);
         $cancel = new CancelRuleInfo($recurrenceRangeType, $recurrenceId, $timezone, $recurIdZ);
         $dates = new SingleDates($timezone);
-        $simple = new SimpleRepeatingRule($frequency);
+        $simple = new SimpleRepeatingRule(Frequency::HOUR());
         $rules = [
             $add,
             $exclude,

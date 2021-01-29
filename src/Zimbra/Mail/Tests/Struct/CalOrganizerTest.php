@@ -2,8 +2,8 @@
 
 namespace Zimbra\Mail\Tests\Struct;
 
-use Zimbra\Mail\Struct\XParam;
 use Zimbra\Mail\Struct\CalOrganizer;
+use Zimbra\Mail\Struct\XParam;
 use Zimbra\Struct\Tests\ZimbraStructTestCase;
 
 /**
@@ -20,7 +20,7 @@ class CalOrganizerTest extends ZimbraStructTestCase
         $displayName = $this->faker->name;
         $sentBy = $this->faker->email;
         $dir = $this->faker->word;
-        $language = $this->faker->word;
+        $language = $this->faker->locale;
 
         $xparam = new XParam($name, $value);
 

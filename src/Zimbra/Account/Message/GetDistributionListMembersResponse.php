@@ -140,7 +140,7 @@ class GetDistributionListMembersResponse implements ResponseInterface
      *
      * @return array
      */
-    public function getDlMembers()
+    public function getDlMembers(): array
     {
         return $this->dlMembers;
     }
@@ -151,7 +151,7 @@ class GetDistributionListMembersResponse implements ResponseInterface
      * @param  array $dlMembers
      * @return self
      */
-    public function setDlMembers(array $dlMembers)
+    public function setDlMembers(array $dlMembers): self
     {
         $this->dlMembers = [];
         foreach ($dlMembers as $dlMember) {
@@ -166,7 +166,7 @@ class GetDistributionListMembersResponse implements ResponseInterface
      * @param  string $dlMember
      * @return self
      */
-    public function addDlMember(string $dlMember)
+    public function addDlMember(string $dlMember): self
     {
         $dlMember = trim($dlMember);
         if (!in_array($dlMember, $this->dlMembers)) {
