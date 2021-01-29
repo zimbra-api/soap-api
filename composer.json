@@ -1,5 +1,5 @@
 {
-    "name": "zelrone/soap-api",
+    "name": "infince/soap-api",
     "type": "library",
     "description": "PHP wrapper library around the Zimbra Soap API (web service) Upgraded to work on Guzzel 7.*",
     "keywords": [
@@ -11,6 +11,11 @@
     ],
     "license": "MIT",
     "authors": [
+        {
+            "name": "Nguyen Van Nguyen",
+            "email": "nguyennv1981@gmail.com",
+            "homepage": "https://github.com/nguyennv"
+        },
         {
             "name": "Zelrone",
             "email": "zelsdiary@gmail.com",
