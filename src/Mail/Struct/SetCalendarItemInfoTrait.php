@@ -10,13 +10,12 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlElement};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
 
 use Zimbra\Enum\ParticipationStatus;
 
 /**
  * SetCalendarItemInfoTrait trait
- * XName Rule
  *
  * @package   Zimbra
  * @subpackage Mail
