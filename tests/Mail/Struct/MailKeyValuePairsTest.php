@@ -1,17 +1,17 @@
 <?php declare(strict_types=1);
 
-namespace Zimbra\Tests\Account\Struct;
+namespace Zimbra\Tests\Mail\Struct;
 
-use Zimbra\Account\Struct\AccountKeyValuePairs;
+use Zimbra\Mail\Struct\MailKeyValuePairs;
 use Zimbra\Struct\KeyValuePair;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**
- * Testcase class for AccountKeyValuePairs.
+ * Testcase class for MailKeyValuePairs.
  */
-class AccountKeyValuePairsTest extends ZimbraTestCase
+class MailKeyValuePairsTest extends ZimbraTestCase
 {
-    public function testAccountKeyValuePairs()
+    public function testMailKeyValuePairs()
     {
         $key1 = $this->faker->word;
         $key2 = $this->faker->word;
@@ -22,7 +22,7 @@ class AccountKeyValuePairsTest extends ZimbraTestCase
         $kvp2 = new KeyValuePair($key1, $value2);
         $kvp3 = new KeyValuePair($key2, $value2);
 
-        $kvp = new AccountKeyValuePairs([$kvp1]);
+        $kvp = new MailKeyValuePairs([$kvp1]);
         $this->assertSame([$kvp1], $kvp->getKeyValuePairs());
 
         $kvp->setKeyValuePairs([$kvp1, $kvp2])
@@ -40,7 +40,7 @@ class AccountKeyValuePairsTest extends ZimbraTestCase
 </kvp>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($kvp, 'xml'));
-        $this->assertEquals($kvp, $this->serializer->deserialize($xml, AccountKeyValuePairs::class, 'xml'));
+        $this->assertEquals($kvp, $this->serializer->deserialize($xml, MailKeyValuePairs::class, 'xml'));
 
         $json = json_encode([
             'a' => [
@@ -59,6 +59,6 @@ EOT;
             ],
         ]);
         $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($kvp, 'json'));
-        $this->assertEquals($kvp, $this->serializer->deserialize($json, AccountKeyValuePairs::class, 'json'));
+        $this->assertEquals($kvp, $this->serializer->deserialize($json, MailKeyValuePairs::class, 'json'));
     }
 }

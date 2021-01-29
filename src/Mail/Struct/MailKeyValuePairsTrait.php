@@ -8,21 +8,21 @@
  * file that was distributed with this source code.
  */
 
-namespace Zimbra\Account\Struct;
+namespace Zimbra\Mail\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlList};
 use Zimbra\Struct\KeyValuePair;
 
 /**
- * AccountKeyValuePairsTrait trait
+ * MailKeyValuePairsTrait trait
  * 
  * @package    Zimbra
- * @subpackage Account
+ * @subpackage Mail
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
  */
-trait AccountKeyValuePairsTrait
+trait MailKeyValuePairsTrait
 {
     /**
      * Key value pairs

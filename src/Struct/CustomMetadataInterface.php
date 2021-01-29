@@ -18,7 +18,7 @@ namespace Zimbra\Struct;
  * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright Copyright © 2013-present by Nguyen Van Nguyen.
  */
-interface CustomMetadataInterface
+interface CustomMetadataInterface extends KeyValuePairs
 {
     /**
      * Gets metadata section key
