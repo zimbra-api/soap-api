@@ -11,12 +11,12 @@ use Zimbra\Enum\AccountBy;
 use Zimbra\Enum\LockoutOperation;
 use Zimbra\Struct\AccountNameSelector;
 
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for LockoutMailbox.
  */
-class LockoutMailboxTest extends ZimbraStructTestCase
+class LockoutMailboxTest extends ZimbraTestCase
 {
     public function testLockoutMailbox()
     {

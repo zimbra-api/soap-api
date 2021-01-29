@@ -5,12 +5,12 @@ namespace Zimbra\Tests\Account\Struct;
 use Zimbra\Account\Struct\Signature;
 use Zimbra\Account\Struct\SignatureContent;
 use Zimbra\Enum\ContentType;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for Signature.
  */
-class SignatureTest extends ZimbraStructTestCase
+class SignatureTest extends ZimbraTestCase
 {
     public function testSignature()
     {

@@ -4,11 +4,11 @@ namespace Zimbra\Tests\Account\Message;
 
 use Zimbra\Account\Message\{DeleteIdentityEnvelope, DeleteIdentityBody, DeleteIdentityRequest, DeleteIdentityResponse};
 use Zimbra\Account\Struct\NameId;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 /**
  * Testcase class for DeleteIdentity.
  */
-class DeleteIdentityTest extends ZimbraStructTestCase
+class DeleteIdentityTest extends ZimbraTestCase
 {
     public function testDeleteIdentity()
     {

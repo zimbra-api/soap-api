@@ -8,12 +8,12 @@ use Zimbra\Admin\Message\GetDataSourcesRequest;
 use Zimbra\Admin\Message\GetDataSourcesResponse;
 use Zimbra\Admin\Struct\{Attr, DataSourceInfo};
 use Zimbra\Enum\DataSourceType;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for GetDataSourcesTest.
  */
-class GetDataSourcesTest extends ZimbraStructTestCase
+class GetDataSourcesTest extends ZimbraTestCase
 {
     public function testGetDataSources()
     {

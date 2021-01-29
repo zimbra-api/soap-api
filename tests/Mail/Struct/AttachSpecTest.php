@@ -3,12 +3,12 @@
 namespace Zimbra\Tests\Mail\Struct;
 
 use Zimbra\Mail\Struct\AttachSpec;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for AttachSpec.
  */
-class AttachSpecTest extends ZimbraStructTestCase
+class AttachSpecTest extends ZimbraTestCase
 {
     public function testAttachSpec()
     {

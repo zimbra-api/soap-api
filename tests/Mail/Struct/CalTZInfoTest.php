@@ -4,12 +4,12 @@ namespace Zimbra\Tests\Mail\Struct;
 
 use Zimbra\Mail\Struct\CalTZInfo;
 use Zimbra\Struct\TzOnsetInfo;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for CalTZInfo.
  */
-class CalTZInfoTest extends ZimbraStructTestCase
+class CalTZInfoTest extends ZimbraTestCase
 {
     public function testCalTZInfo()
     {

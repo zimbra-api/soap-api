@@ -8,12 +8,12 @@ use Zimbra\Admin\Message\RecalculateMailboxCountsRequest;
 use Zimbra\Admin\Message\RecalculateMailboxCountsResponse;
 use Zimbra\Admin\Struct\MailboxByAccountIdSelector;
 use Zimbra\Admin\Struct\MailboxQuotaInfo;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for RecalculateMailboxCountsTest.
  */
-class RecalculateMailboxCountsTest extends ZimbraStructTestCase
+class RecalculateMailboxCountsTest extends ZimbraTestCase
 {
     public function testRecalculateMailboxCounts()
     {

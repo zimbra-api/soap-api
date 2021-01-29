@@ -7,12 +7,12 @@ use Zimbra\Account\Message\ModifyWhiteBlackListEnvelope;
 use Zimbra\Account\Message\ModifyWhiteBlackListRequest;
 use Zimbra\Account\Message\ModifyWhiteBlackListResponse;
 use Zimbra\Struct\OpValue;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for ModifyWhiteBlackListTest.
  */
-class ModifyWhiteBlackListTest extends ZimbraStructTestCase
+class ModifyWhiteBlackListTest extends ZimbraTestCase
 {
     public function testModifyWhiteBlackList()
     {

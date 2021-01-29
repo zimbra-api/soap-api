@@ -4,12 +4,12 @@ namespace Zimbra\Tests\Admin\Struct;
 
 use Zimbra\Admin\Struct\CalendarResourceSelector;
 use Zimbra\Enum\CalendarResourceBy as CalResBy;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for CalendarResourceSelector.
  */
-class CalendarResourceSelectorTest extends ZimbraStructTestCase
+class CalendarResourceSelectorTest extends ZimbraTestCase
 {
     public function testCalendarResourceSelector()
     {

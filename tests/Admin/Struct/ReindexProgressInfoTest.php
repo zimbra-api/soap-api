@@ -3,12 +3,12 @@
 namespace Zimbra\Tests\Admin\Struct;
 
 use Zimbra\Admin\Struct\ReindexProgressInfo;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for ReindexProgressInfo.
  */
-class ReindexProgressInfoTest extends ZimbraStructTestCase
+class ReindexProgressInfoTest extends ZimbraTestCase
 {
     public function testReindexProgressInfo()
     {

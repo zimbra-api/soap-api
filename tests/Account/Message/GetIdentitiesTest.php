@@ -8,12 +8,12 @@ use Zimbra\Account\Message\GetIdentitiesRequest;
 use Zimbra\Account\Message\GetIdentitiesResponse;
 use Zimbra\Account\Struct\Attr;
 use Zimbra\Account\Struct\Identity;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for GetIdentitiesTest.
  */
-class GetIdentitiesTest extends ZimbraStructTestCase
+class GetIdentitiesTest extends ZimbraTestCase
 {
     public function testGetIdentities()
     {

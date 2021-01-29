@@ -10,12 +10,12 @@ use Zimbra\Account\Struct\AccountACEInfo;
 use Zimbra\Account\Struct\Right;
 use Zimbra\Enum\AceRightType;
 use Zimbra\Enum\GranteeType;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for GetRightsTest.
  */
-class GetRightsTest extends ZimbraStructTestCase
+class GetRightsTest extends ZimbraTestCase
 {
     public function testGetRights()
     {

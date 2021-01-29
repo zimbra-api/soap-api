@@ -2,14 +2,14 @@
 
 namespace Zimbra\Tests\Admin\Struct;
 
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 use Zimbra\Admin\Struct\GalContactInfo;
 use Zimbra\Admin\Struct\Attr;
 
 /**
  * Testcase class for GalContactInfo.
  */
-class GalContactInfoTest extends ZimbraStructTestCase
+class GalContactInfoTest extends ZimbraTestCase
 {
     public function testGalContactInfo()
     {

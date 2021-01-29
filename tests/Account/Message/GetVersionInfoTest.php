@@ -7,12 +7,12 @@ use Zimbra\Account\Message\GetVersionInfoEnvelope;
 use Zimbra\Account\Message\GetVersionInfoRequest;
 use Zimbra\Account\Message\GetVersionInfoResponse;
 use Zimbra\Account\Struct\VersionInfo;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for GetVersionInfoTest.
  */
-class GetVersionInfoTest extends ZimbraStructTestCase
+class GetVersionInfoTest extends ZimbraTestCase
 {
     public function testGetVersionInfo()
     {

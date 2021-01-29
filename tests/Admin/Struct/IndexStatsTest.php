@@ -3,12 +3,12 @@
 namespace Zimbra\Tests\Admin\Struct;
 
 use Zimbra\Admin\Struct\IndexStats;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for IndexStats.
  */
-class IndexStatsTest extends ZimbraStructTestCase
+class IndexStatsTest extends ZimbraTestCase
 {
     public function testIndexStats()
     {

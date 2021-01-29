@@ -3,12 +3,12 @@
 namespace Zimbra\Tests\Admin\Struct;
 
 use Zimbra\Admin\Struct\NameAndValue;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for NameAndValue.
  */
-class NameAndValueTest extends ZimbraStructTestCase
+class NameAndValueTest extends ZimbraTestCase
 {
     public function testNameAndValue()
     {

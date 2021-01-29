@@ -9,12 +9,12 @@ use Zimbra\Admin\Message\GetAllAccountLoggersResponse;
 use Zimbra\Admin\Struct\AccountLoggerInfo;
 use Zimbra\Admin\Struct\LoggerInfo;
 use Zimbra\Enum\LoggingLevel;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for GetAllAccountLoggersTest.
  */
-class GetAllAccountLoggersTest extends ZimbraStructTestCase
+class GetAllAccountLoggersTest extends ZimbraTestCase
 {
     public function testGetAllAccountLoggers()
     {

@@ -3,12 +3,12 @@
 namespace Zimbra\Tests\Mail\Struct;
 
 use Zimbra\Mail\Struct\ImapMessageInfo;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for ImapMessageInfo.
  */
-class ImapMessageInfoTest extends ZimbraStructTestCase
+class ImapMessageInfoTest extends ZimbraTestCase
 {
     public function testImapMessageInfo()
     {

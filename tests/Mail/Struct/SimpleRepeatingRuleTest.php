@@ -24,12 +24,12 @@ use Zimbra\Mail\Struct\WkstRule;
 use Zimbra\Mail\Struct\XNameRule;
 
 use Zimbra\Mail\Struct\SimpleRepeatingRule;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for SimpleRepeatingRule.
  */
-class SimpleRepeatingRuleTest extends ZimbraStructTestCase
+class SimpleRepeatingRuleTest extends ZimbraTestCase
 {
     public function testSimpleRepeatingRule()
     {

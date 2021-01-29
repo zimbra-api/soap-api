@@ -15,12 +15,12 @@ use Zimbra\Admin\Struct\IncorrectBlobSizeInfo;
 use Zimbra\Admin\Struct\UnexpectedBlobInfo;
 use Zimbra\Admin\Struct\IncorrectBlobRevisionInfo;
 use Zimbra\Admin\Struct\UsedBlobInfo;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for CheckBlobConsistency.
  */
-class CheckBlobConsistencyTest extends ZimbraStructTestCase
+class CheckBlobConsistencyTest extends ZimbraTestCase
 {
     public function testCheckBlobConsistency()
     {

@@ -6,12 +6,12 @@ use Zimbra\Admin\Struct\CacheEntrySelector;
 use Zimbra\Admin\Struct\CacheSelector;
 use Zimbra\Enum\CacheEntryBy;
 use Zimbra\Enum\CacheType;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for CacheSelector.
  */
-class CacheSelectorTest extends ZimbraStructTestCase
+class CacheSelectorTest extends ZimbraTestCase
 {
     public function testCacheSelector()
     {

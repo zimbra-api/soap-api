@@ -8,12 +8,12 @@ use Zimbra\Admin\Message\GetAllServersRequest;
 use Zimbra\Admin\Message\GetAllServersResponse;
 use Zimbra\Admin\Struct\Attr;
 use Zimbra\Admin\Struct\ServerInfo;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for GetAllServersTest.
  */
-class GetAllServersTest extends ZimbraStructTestCase
+class GetAllServersTest extends ZimbraTestCase
 {
     public function testGetAllServers()
     {

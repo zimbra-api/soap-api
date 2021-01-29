@@ -3,12 +3,12 @@
 namespace Zimbra\Tests\Admin\Struct;
 
 use Zimbra\Admin\Struct\CompletedTestInfo;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for CompletedTestInfo.
  */
-class CompletedTestInfoTest extends ZimbraStructTestCase
+class CompletedTestInfoTest extends ZimbraTestCase
 {
     public function testCompletedTestInfo()
     {

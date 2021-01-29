@@ -10,12 +10,12 @@ use Zimbra\Admin\Message\PurgeMessagesResponse;
 use Zimbra\Admin\Struct\MailboxByAccountIdSelector;
 use Zimbra\Admin\Struct\MailboxWithMailboxId;
 
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for PurgeMessagesTest.
  */
-class PurgeMessagesTest extends ZimbraStructTestCase
+class PurgeMessagesTest extends ZimbraTestCase
 {
     public function testPurgeMessages()
     {

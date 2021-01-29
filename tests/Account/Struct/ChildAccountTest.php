@@ -4,12 +4,12 @@ namespace Zimbra\Tests\Account\Struct;
 
 use Zimbra\Account\Struct\Attr;
 use Zimbra\Account\Struct\ChildAccount;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for ChildAccount.
  */
-class ChildAccountTest extends ZimbraStructTestCase
+class ChildAccountTest extends ZimbraTestCase
 {
     public function testChildAccount()
     {

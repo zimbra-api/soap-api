@@ -4,12 +4,12 @@ namespace Zimbra\Tests\Admin\Struct;
 
 use Zimbra\Admin\Struct\AccountInfo;
 use Zimbra\Admin\Struct\Attr;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for AccountInfo.
  */
-class AccountInfoTest extends ZimbraStructTestCase
+class AccountInfoTest extends ZimbraTestCase
 {
     public function testAccountInfo()
     {

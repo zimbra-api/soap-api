@@ -8,12 +8,12 @@ use Zimbra\Admin\Message\DeleteDataSourceRequest;
 use Zimbra\Admin\Message\DeleteDataSourceResponse;
 use Zimbra\Admin\Struct\Attr;
 use Zimbra\Struct\Id;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for DeleteDataSource.
  */
-class DeleteDataSourceTest extends ZimbraStructTestCase
+class DeleteDataSourceTest extends ZimbraTestCase
 {
     public function testDeleteDataSource()
     {

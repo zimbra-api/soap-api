@@ -7,12 +7,12 @@ use Zimbra\Admin\Message\GetAggregateQuotaUsageOnServerEnvelope;
 use Zimbra\Admin\Message\GetAggregateQuotaUsageOnServerRequest;
 use Zimbra\Admin\Message\GetAggregateQuotaUsageOnServerResponse;
 use Zimbra\Admin\Struct\DomainAggregateQuotaInfo;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for GetAggregateQuotaUsageOnServerTest.
  */
-class GetAggregateQuotaUsageOnServerTest extends ZimbraStructTestCase
+class GetAggregateQuotaUsageOnServerTest extends ZimbraTestCase
 {
     public function testGetAggregateQuotaUsageOnServer()
     {

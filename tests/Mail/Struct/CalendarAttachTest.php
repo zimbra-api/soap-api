@@ -3,12 +3,12 @@
 namespace Zimbra\Tests\Mail\Struct;
 
 use Zimbra\Mail\Struct\CalendarAttach;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for CalendarAttach.
  */
-class CalendarAttachTest extends ZimbraStructTestCase
+class CalendarAttachTest extends ZimbraTestCase
 {
     public function testCalendarAttach()
     {

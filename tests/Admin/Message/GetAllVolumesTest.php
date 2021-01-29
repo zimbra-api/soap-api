@@ -8,12 +8,12 @@ use Zimbra\Admin\Message\GetAllVolumesRequest;
 use Zimbra\Admin\Message\GetAllVolumesResponse;
 use Zimbra\Admin\Struct\VolumeInfo;
 use Zimbra\Enum\VolumeType;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for GetAllVolumesTest.
  */
-class GetAllVolumesTest extends ZimbraStructTestCase
+class GetAllVolumesTest extends ZimbraTestCase
 {
     public function testGetAllVolumes()
     {

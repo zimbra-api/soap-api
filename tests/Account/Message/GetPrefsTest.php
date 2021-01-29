@@ -7,12 +7,12 @@ use Zimbra\Account\Message\GetPrefsEnvelope;
 use Zimbra\Account\Message\GetPrefsRequest;
 use Zimbra\Account\Message\GetPrefsResponse;
 use Zimbra\Account\Struct\Pref;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for GetPrefsTest.
  */
-class GetPrefsTest extends ZimbraStructTestCase
+class GetPrefsTest extends ZimbraTestCase
 {
     public function testGetPrefs()
     {

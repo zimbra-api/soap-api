@@ -3,11 +3,12 @@
 namespace Zimbra\Tests\Struct;
 
 use Zimbra\Struct\CursorInfo;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for CursorInfo.
  */
-class CursorInfoTest extends ZimbraStructTestCase
+class CursorInfoTest extends ZimbraTestCase
 {
     public function testCursorInfo()
     {

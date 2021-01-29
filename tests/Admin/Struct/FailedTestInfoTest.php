@@ -3,12 +3,12 @@
 namespace Zimbra\Tests\Admin\Struct;
 
 use Zimbra\Admin\Struct\FailedTestInfo;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for FailedTestInfo.
  */
-class FailedTestInfoTest extends ZimbraStructTestCase
+class FailedTestInfoTest extends ZimbraTestCase
 {
     public function testFailedTestInfo()
     {

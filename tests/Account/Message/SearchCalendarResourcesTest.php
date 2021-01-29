@@ -17,13 +17,13 @@ use Zimbra\Enum\ConditionOperator as CondOp;
 
 use Zimbra\Struct\CursorInfo;
 use Zimbra\Struct\KeyValuePair;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 
 /**
  * Testcase class for SearchCalendarResourcesTest.
  */
-class SearchCalendarResourcesTest extends ZimbraStructTestCase
+class SearchCalendarResourcesTest extends ZimbraTestCase
 {
     protected function setUp(): void
     {

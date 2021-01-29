@@ -6,12 +6,12 @@ use Zimbra\Admin\Message\SetPasswordBody;
 use Zimbra\Admin\Message\SetPasswordEnvelope;
 use Zimbra\Admin\Message\SetPasswordRequest;
 use Zimbra\Admin\Message\SetPasswordResponse;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for SetPassword.
  */
-class SetPasswordTest extends ZimbraStructTestCase
+class SetPasswordTest extends ZimbraTestCase
 {
     public function testSetPassword()
     {

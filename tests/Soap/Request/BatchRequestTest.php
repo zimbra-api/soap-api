@@ -5,12 +5,12 @@ namespace Zimbra\Tests\Soap\Request;
 use JMS\Serializer\Annotation\{SerializedName, Type, XmlRoot, XmlValue};
 use Zimbra\Soap\Request;
 use Zimbra\Soap\Request\Batch;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for BatchRequest.
  */
-class BatchRequestTest extends ZimbraStructTestCase
+class BatchRequestTest extends ZimbraTestCase
 {
     public function testBatchRequest()
     {

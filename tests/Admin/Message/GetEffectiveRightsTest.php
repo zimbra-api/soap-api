@@ -26,12 +26,12 @@ use Zimbra\Enum\TargetBy;
 use Zimbra\Enum\TargetType;
 use Zimbra\Struct\NamedElement;
 
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for GetEffectiveRightsTest.
  */
-class GetEffectiveRightsTest extends ZimbraStructTestCase
+class GetEffectiveRightsTest extends ZimbraTestCase
 {
     public function testGetEffectiveRights()
     {

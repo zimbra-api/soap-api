@@ -3,12 +3,12 @@
 namespace Zimbra\Tests\Account\Struct;
 
 use Zimbra\Account\Struct\AccountCustomMetadata;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for AccountCustomMetadata.
  */
-class AccountCustomMetadataTest extends ZimbraStructTestCase
+class AccountCustomMetadataTest extends ZimbraTestCase
 {
     public function testAccountCustomMetadata()
     {

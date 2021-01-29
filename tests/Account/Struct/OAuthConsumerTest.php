@@ -3,12 +3,12 @@
 namespace Zimbra\Tests\Account\Struct;
 
 use Zimbra\Account\Struct\OAuthConsumer;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for OAuthConsumer.
  */
-class OAuthConsumerTest extends ZimbraStructTestCase
+class OAuthConsumerTest extends ZimbraTestCase
 {
     public function testOAuthConsumer()
     {

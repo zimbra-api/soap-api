@@ -4,12 +4,12 @@ namespace Zimbra\Tests\Admin\Struct;
 
 use Zimbra\Admin\Struct\Attr;
 use Zimbra\Admin\Struct\DomainInfo;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for DomainInfo.
  */
-class DomainInfoTest extends ZimbraStructTestCase
+class DomainInfoTest extends ZimbraTestCase
 {
     public function testDomainInfo()
     {

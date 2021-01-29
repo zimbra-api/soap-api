@@ -3,12 +3,12 @@
 namespace Zimbra\Tests\Mail\Struct;
 
 use Zimbra\Mail\Struct\ByHourRule;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for ByHourRule.
  */
-class ByHourRuleTest extends ZimbraStructTestCase
+class ByHourRuleTest extends ZimbraTestCase
 {
     public function testByHourRule()
     {

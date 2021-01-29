@@ -8,12 +8,12 @@ use Zimbra\Admin\Message\AutoCompleteGalRequest;
 use Zimbra\Admin\Message\AutoCompleteGalResponse;
 use Zimbra\Enum\GalSearchType;
 use Zimbra\Admin\Struct\ContactInfo;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for AutoCompleteGal.
  */
-class AutoCompleteGalTest extends ZimbraStructTestCase
+class AutoCompleteGalTest extends ZimbraTestCase
 {
     public function testAutoCompleteGal()
     {

@@ -8,12 +8,12 @@ use Zimbra\Admin\Message\GetAdminSavedSearchesRequest;
 use Zimbra\Admin\Message\GetAdminSavedSearchesResponse;
 use Zimbra\Struct\NamedElement;
 use Zimbra\Struct\NamedValue;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for GetAdminSavedSearchesTest.
  */
-class GetAdminSavedSearchesTest extends ZimbraStructTestCase
+class GetAdminSavedSearchesTest extends ZimbraTestCase
 {
     public function testGetAdminSavedSearches()
     {

@@ -3,12 +3,12 @@
 namespace Zimbra\Tests\Account\Struct;
 
 use Zimbra\Account\Struct\AuthToken;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for AuthToken.
  */
-class AuthTokenTest extends ZimbraStructTestCase
+class AuthTokenTest extends ZimbraTestCase
 {
     public function testAuthToken()
     {

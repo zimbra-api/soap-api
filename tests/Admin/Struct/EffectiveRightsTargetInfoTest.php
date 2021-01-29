@@ -8,12 +8,12 @@ use Zimbra\Admin\Struct\EffectiveAttrsInfo;
 use Zimbra\Admin\Struct\EffectiveRightsTargetInfo;
 use Zimbra\Admin\Struct\RightWithName;
 use Zimbra\Enum\TargetType;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for EffectiveRightsTargetInfo.
  */
-class EffectiveRightsTargetInfoTest extends ZimbraStructTestCase
+class EffectiveRightsTargetInfoTest extends ZimbraTestCase
 {
     public function testEffectiveRightsTargetInfo()
     {

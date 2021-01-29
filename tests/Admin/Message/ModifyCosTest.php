@@ -9,12 +9,12 @@ use Zimbra\Admin\Message\ModifyCosResponse;
 use Zimbra\Admin\Struct\Attr;
 use Zimbra\Admin\Struct\CosInfo;
 use Zimbra\Admin\Struct\CosInfoAttr;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for ModifyCos.
  */
-class ModifyCosTest extends ZimbraStructTestCase
+class ModifyCosTest extends ZimbraTestCase
 {
     public function testModifyCos()
     {

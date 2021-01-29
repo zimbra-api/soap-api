@@ -4,12 +4,12 @@ namespace Zimbra\Tests\Admin\Struct;
 
 use Zimbra\Admin\Struct\DomainSelector;
 use Zimbra\Enum\DomainBy;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for DomainSelector.
  */
-class DomainSelectorTest extends ZimbraStructTestCase
+class DomainSelectorTest extends ZimbraTestCase
 {
     public function testDomainSelector()
     {

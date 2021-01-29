@@ -8,12 +8,12 @@ use Zimbra\Admin\Message\RenameCalendarResourceRequest;
 use Zimbra\Admin\Message\RenameCalendarResourceResponse;
 use Zimbra\Admin\Struct\Attr;
 use Zimbra\Admin\Struct\CalendarResourceInfo;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for RenameCalendarResource.
  */
-class RenameCalendarResourceTest extends ZimbraStructTestCase
+class RenameCalendarResourceTest extends ZimbraTestCase
 {
     public function testRenameCalendarResource()
     {

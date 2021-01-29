@@ -4,14 +4,14 @@ namespace Zimbra\Tests\Account\Struct;
 
 use Zimbra\Account\Struct\Attr;
 use Zimbra\Account\Struct\AttrsImpl;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 use JMS\Serializer\Annotation\XmlRoot;
 
 /**
  * Testcase class for AttrsImpl.
  */
-class AttrsImplTest extends ZimbraStructTestCase
+class AttrsImplTest extends ZimbraTestCase
 {
     public function testAttrsImpl()
     {

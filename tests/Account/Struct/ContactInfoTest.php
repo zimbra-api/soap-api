@@ -6,12 +6,12 @@ use Zimbra\Account\Struct\AccountCustomMetadata;
 use Zimbra\Account\Struct\ContactInfo;
 use Zimbra\Account\Struct\ContactGroupMember;
 use Zimbra\Struct\ContactAttr;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for ContactInfo.
  */
-class ContactInfoTest extends ZimbraStructTestCase
+class ContactInfoTest extends ZimbraTestCase
 {
     public function testContactInfo()
     {

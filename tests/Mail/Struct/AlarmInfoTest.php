@@ -14,12 +14,12 @@ use Zimbra\Mail\Struct\DurationInfo;
 use Zimbra\Mail\Struct\XParam;
 use Zimbra\Mail\Struct\XProp;
 
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for AlarmInfo.
  */
-class AlarmInfoTest extends ZimbraStructTestCase
+class AlarmInfoTest extends ZimbraTestCase
 {
     public function testAlarmInfo()
     {

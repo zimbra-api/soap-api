@@ -9,12 +9,12 @@ use Zimbra\Admin\Message\AdminCreateWaitSetResponse;
 use Zimbra\Enum\InterestType;
 use Zimbra\Struct\IdAndType;
 use Zimbra\Struct\WaitSetAddSpec;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for AdminCreateWaitSet.
  */
-class AdminCreateWaitSetTest extends ZimbraStructTestCase
+class AdminCreateWaitSetTest extends ZimbraTestCase
 {
     public function testAdminCreateWaitSet()
     {

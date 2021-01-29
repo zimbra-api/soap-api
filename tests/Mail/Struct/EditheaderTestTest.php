@@ -4,12 +4,12 @@ namespace Zimbra\Tests\Mail\Struct;
 
 use Zimbra\Mail\Struct\EditheaderTest;
 use Zimbra\Enum\{ComparisonComparator, MatchType, RelationalComparator};
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for EditheaderTest.
  */
-class EditheaderTestTest extends ZimbraStructTestCase
+class EditheaderTestTest extends ZimbraTestCase
 {
     public function testEditheaderTest()
     {

@@ -20,12 +20,12 @@ use Zimbra\Enum\TargetType;
 use Zimbra\Enum\GranteeBy;
 use Zimbra\Enum\GranteeType;
 
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for RevokeRight.
  */
-class RevokeRightTest extends ZimbraStructTestCase
+class RevokeRightTest extends ZimbraTestCase
 {
     public function testRevokeRight()
     {

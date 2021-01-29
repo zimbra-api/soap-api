@@ -5,12 +5,12 @@ namespace Zimbra\Tests\Admin\Struct;
 use Zimbra\Admin\Struct\ConstraintInfo;
 use Zimbra\Admin\Struct\EffectiveAttrInfo;
 use Zimbra\Admin\Struct\EffectiveAttrsInfo;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for EffectiveAttrsInfo.
  */
-class EffectiveAttrsInfoTest extends ZimbraStructTestCase
+class EffectiveAttrsInfoTest extends ZimbraTestCase
 {
     public function testEffectiveAttrsInfo()
     {

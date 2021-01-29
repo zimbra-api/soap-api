@@ -8,12 +8,12 @@ use Zimbra\Admin\Struct\SessionForWaitSet;
 use Zimbra\Admin\Struct\WaitSetInfo;
 use Zimbra\Admin\Struct\WaitSetSessionInfo;
 use Zimbra\Struct\IdAndType;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for WaitSetInfo.
  */
-class WaitSetInfoTest extends ZimbraStructTestCase
+class WaitSetInfoTest extends ZimbraTestCase
 {
     public function testWaitSetInfo()
     {

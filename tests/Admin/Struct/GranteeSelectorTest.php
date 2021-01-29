@@ -5,12 +5,12 @@ namespace Zimbra\Tests\Admin\Struct;
 use Zimbra\Admin\Struct\GranteeSelector;
 use Zimbra\Enum\GranteeBy;
 use Zimbra\Enum\GranteeType;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for GranteeSelector.
  */
-class GranteeSelectorTest extends ZimbraStructTestCase
+class GranteeSelectorTest extends ZimbraTestCase
 {
     public function testGranteeSelector()
     {

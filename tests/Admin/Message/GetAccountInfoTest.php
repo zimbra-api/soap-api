@@ -8,12 +8,12 @@ use Zimbra\Admin\Struct\CosInfoAttr;
 use Zimbra\Admin\Struct\Attr;
 use Zimbra\Enum\AccountBy;
 use Zimbra\Struct\AccountSelector;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for GetAccountInfo.
  */
-class GetAccountInfoTest extends ZimbraStructTestCase
+class GetAccountInfoTest extends ZimbraTestCase
 {
     public function testGetAccountInfo()
     {

@@ -6,12 +6,12 @@ use Zimbra\Enum\{AccountBy, RequestFormat};
 use Zimbra\Soap\Header;
 use Zimbra\Soap\Header\{AccountInfo, Context, ChangeInfo, FormatInfo, NotifyInfo, SessionInfo, UserAgentInfo};
 use Zimbra\Struct\AuthTokenControl;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for Header.
  */
-class HeaderTest extends ZimbraStructTestCase
+class HeaderTest extends ZimbraTestCase
 {
     public function testSoapHeader()
     {

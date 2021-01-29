@@ -3,12 +3,12 @@
 namespace Zimbra\Tests\Admin\Struct;
 
 use Zimbra\Admin\Struct\ExportAndDeleteItemSpec;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for ExportAndDeleteItemSpec.
  */
-class ExportAndDeleteItemSpecTest extends ZimbraStructTestCase
+class ExportAndDeleteItemSpecTest extends ZimbraTestCase
 {
     public function testExportAndDeleteItemSpec()
     {

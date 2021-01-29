@@ -7,12 +7,12 @@ use Zimbra\Mail\Struct\MimePartAttachSpec;
 use Zimbra\Mail\Struct\MsgAttachSpec;
 use Zimbra\Mail\Struct\ContactAttachSpec;
 use Zimbra\Mail\Struct\DocAttachSpec;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for AttachmentsInfo.
  */
-class AttachmentsInfoTest extends ZimbraStructTestCase
+class AttachmentsInfoTest extends ZimbraTestCase
 {
     public function testAttachmentsInfo()
     {

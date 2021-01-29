@@ -8,12 +8,12 @@ use Zimbra\Admin\Message\ModifyDomainRequest;
 use Zimbra\Admin\Message\ModifyDomainResponse;
 use Zimbra\Admin\Struct\Attr;
 use Zimbra\Admin\Struct\DomainInfo;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for ModifyDomain.
  */
-class ModifyDomainTest extends ZimbraStructTestCase
+class ModifyDomainTest extends ZimbraTestCase
 {
     public function testModifyDomain()
     {

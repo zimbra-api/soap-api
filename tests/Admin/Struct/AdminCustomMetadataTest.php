@@ -4,12 +4,12 @@ namespace Zimbra\Tests\Admin\Struct;
 
 use Zimbra\Admin\Struct\AdminCustomMetadata;
 use Zimbra\Struct\KeyValuePair;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for AdminCustomMetadata.
  */
-class AdminCustomMetadataTest extends ZimbraStructTestCase
+class AdminCustomMetadataTest extends ZimbraTestCase
 {
     public function testAdminCustomMetadata()
     {

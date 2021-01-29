@@ -9,12 +9,12 @@ use Zimbra\Admin\Message\CountAccountResponse;
 use Zimbra\Admin\Struct\CosCountInfo;
 use Zimbra\Admin\Struct\DomainSelector;
 use Zimbra\Enum\DomainBy;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for CountAccount.
  */
-class CountAccountTest extends ZimbraStructTestCase
+class CountAccountTest extends ZimbraTestCase
 {
     public function testCountAccount()
     {

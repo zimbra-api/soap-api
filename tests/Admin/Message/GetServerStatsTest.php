@@ -9,12 +9,12 @@ use Zimbra\Admin\Message\GetServerStatsResponse;
 
 use Zimbra\Admin\Struct\Stat;
 
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for GetServerStatsTest.
  */
-class GetServerStatsTest extends ZimbraStructTestCase
+class GetServerStatsTest extends ZimbraTestCase
 {
     public function testGetServerStats()
     {

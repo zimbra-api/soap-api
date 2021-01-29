@@ -6,12 +6,12 @@ use Zimbra\Admin\Struct\AdminZimletConfigInfo;
 use Zimbra\Admin\Struct\AdminZimletGlobalConfigInfo;
 use Zimbra\Admin\Struct\AdminZimletHostConfigInfo;
 use Zimbra\Admin\Struct\AdminZimletProperty;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for AdminZimletConfigInfo.
  */
-class AdminZimletConfigInfoTest extends ZimbraStructTestCase
+class AdminZimletConfigInfoTest extends ZimbraTestCase
 {
     public function testAdminZimletConfigInfo()
     {

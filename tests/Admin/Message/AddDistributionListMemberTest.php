@@ -6,12 +6,12 @@ use Zimbra\Admin\Message\AddDistributionListMemberBody;
 use Zimbra\Admin\Message\AddDistributionListMemberEnvelope;
 use Zimbra\Admin\Message\AddDistributionListMemberRequest;
 use Zimbra\Admin\Message\AddDistributionListMemberResponse;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for AddDistributionListMember.
  */
-class AddDistributionListMemberTest extends ZimbraStructTestCase
+class AddDistributionListMemberTest extends ZimbraTestCase
 {
     public function testAddDistributionListMember()
     {

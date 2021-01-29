@@ -3,12 +3,12 @@
 namespace Zimbra\Tests\Admin\Struct;
 
 use Zimbra\Mail\Struct\{CreateItemNotification, DeleteItemNotification, ImapMessageInfo, ModifyItemNotification, ModifyTagNotification, PendingFolderModifications, RenameFolderNotification};
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for PendingFolderModifications.
  */
-class PendingFolderModificationsTest extends ZimbraStructTestCase
+class PendingFolderModificationsTest extends ZimbraTestCase
 {
     public function testPendingFolderModifications()
     {

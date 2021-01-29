@@ -11,12 +11,12 @@ use Zimbra\Admin\Struct\FreeBusyQueueProvider;
 use Zimbra\Struct\Id;
 use Zimbra\Struct\NamedElement;
 
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for GetFreeBusyQueueInfo.
  */
-class GetFreeBusyQueueInfoTest extends ZimbraStructTestCase
+class GetFreeBusyQueueInfoTest extends ZimbraTestCase
 {
     public function testGetFreeBusyQueueInfo()
     {

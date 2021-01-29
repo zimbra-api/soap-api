@@ -4,12 +4,12 @@ namespace Zimbra\Tests\Mail\Struct;
 
 use Zimbra\Mail\Struct\FilterVariable;
 use Zimbra\Mail\Struct\FilterVariables;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for FilterVariables.
  */
-class FilterVariablesTest extends ZimbraStructTestCase
+class FilterVariablesTest extends ZimbraTestCase
 {
     public function testFilterVariables()
     {

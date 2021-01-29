@@ -8,12 +8,12 @@ use Zimbra\Account\Message\CreateDistributionListRequest;
 use Zimbra\Account\Message\CreateDistributionListResponse;
 use Zimbra\Account\Struct\DLInfo;
 use Zimbra\Struct\KeyValuePair;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for CreateDistributionList.
  */
-class CreateDistributionListTest extends ZimbraStructTestCase
+class CreateDistributionListTest extends ZimbraTestCase
 {
     public function testCreateDistributionList()
     {

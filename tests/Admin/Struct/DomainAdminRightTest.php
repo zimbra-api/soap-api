@@ -5,12 +5,12 @@ namespace Zimbra\Tests\Admin\Struct;
 use Zimbra\Admin\Struct\DomainAdminRight;
 use Zimbra\Admin\Struct\RightWithName;
 use Zimbra\Enum\RightType;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for DomainAdminRight.
  */
-class DomainAdminRightTest extends ZimbraStructTestCase
+class DomainAdminRightTest extends ZimbraTestCase
 {
     public function testDomainAdminRight()
     {

@@ -5,12 +5,12 @@ namespace Zimbra\Tests\Admin\Struct;
 use Zimbra\Admin\Struct\QueueQuery;
 use Zimbra\Admin\Struct\QueueQueryField;
 use Zimbra\Admin\Struct\ValueAttrib;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for QueueQuery.
  */
-class QueueQueryTest extends ZimbraStructTestCase
+class QueueQueryTest extends ZimbraTestCase
 {
     public function testQueueQuery()
     {

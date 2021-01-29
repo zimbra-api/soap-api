@@ -20,12 +20,12 @@ use Zimbra\Enum\TargetType;
 use Zimbra\Enum\GranteeBy;
 use Zimbra\Enum\GranteeType;
 
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for CheckRight.
  */
-class CheckRightTest extends ZimbraStructTestCase
+class CheckRightTest extends ZimbraTestCase
 {
     public function testCheckRight()
     {

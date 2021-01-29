@@ -3,12 +3,12 @@
 namespace Zimbra\Tests\Mail\Struct;
 
 use Zimbra\Mail\Struct\ByMonthRule;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for ByMonthRule.
  */
-class ByMonthRuleTest extends ZimbraStructTestCase
+class ByMonthRuleTest extends ZimbraTestCase
 {
     public function testByMonthRule()
     {

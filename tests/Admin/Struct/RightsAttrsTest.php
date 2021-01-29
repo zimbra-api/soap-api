@@ -4,12 +4,12 @@ namespace Zimbra\Tests\Admin\Struct;
 
 use Zimbra\Admin\Struct\Attr;
 use Zimbra\Admin\Struct\RightsAttrs;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for RightsAttrs.
  */
-class RightsAttrsTest extends ZimbraStructTestCase
+class RightsAttrsTest extends ZimbraTestCase
 {
     public function testRightsAttrs()
     {

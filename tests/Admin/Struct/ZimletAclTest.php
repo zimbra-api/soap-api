@@ -4,12 +4,12 @@ namespace Zimbra\Tests\Admin\Struct;
 
 use Zimbra\Admin\Struct\ZimletAcl;
 use Zimbra\Enum\AclType;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for ZimletAcl.
  */
-class ZimletAclTest extends ZimbraStructTestCase
+class ZimletAclTest extends ZimbraTestCase
 {
     public function testZimletAcl()
     {

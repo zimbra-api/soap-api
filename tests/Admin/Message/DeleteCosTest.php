@@ -6,12 +6,12 @@ use Zimbra\Admin\Message\DeleteCosBody;
 use Zimbra\Admin\Message\DeleteCosEnvelope;
 use Zimbra\Admin\Message\DeleteCosRequest;
 use Zimbra\Admin\Message\DeleteCosResponse;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for DeleteCos.
  */
-class DeleteCosTest extends ZimbraStructTestCase
+class DeleteCosTest extends ZimbraTestCase
 {
     public function testDeleteCos()
     {

@@ -4,12 +4,12 @@ namespace Zimbra\Admin\Struct\Tests;
 
 use Zimbra\Enum\ConditionOperator as CondOp;
 use Zimbra\Admin\Struct\EntrySearchFilterSingleCond;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for EntrySearchFilterSingleCond.
  */
-class EntrySearchFilterSingleCondTest extends ZimbraStructTestCase
+class EntrySearchFilterSingleCondTest extends ZimbraTestCase
 {
     public function testEntrySearchFilterSingleCond()
     {

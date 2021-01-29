@@ -4,11 +4,12 @@ namespace Zimbra\Tests\Struct;
 
 use JMS\Serializer\Annotation\XmlRoot;
 use Zimbra\Struct\{AttrsImplTrait, KeyValuePair};
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for AttrsImplTrait.
  */
-class AttrsImplTraitTest extends ZimbraStructTestCase
+class AttrsImplTraitTest extends ZimbraTestCase
 {
     public function testAttrsImplTrait()
     {

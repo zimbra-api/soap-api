@@ -14,12 +14,12 @@ use Zimbra\Admin\Struct\ServerSelector;
 use Zimbra\Enum\DomainBy;
 use Zimbra\Enum\ServerBy;
 
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for GetAllAccounts.
  */
-class GetAllAccountsTest extends ZimbraStructTestCase
+class GetAllAccountsTest extends ZimbraTestCase
 {
     public function testGetAllAccounts()
     {

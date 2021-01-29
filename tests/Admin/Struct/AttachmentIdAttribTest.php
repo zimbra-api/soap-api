@@ -3,12 +3,12 @@
 namespace Zimbra\Tests\Admin\Struct;
 
 use Zimbra\Admin\Struct\AttachmentIdAttrib;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for AttachmentIdAttrib.
  */
-class AttachmentIdAttribTest extends ZimbraStructTestCase
+class AttachmentIdAttribTest extends ZimbraTestCase
 {
     public function testAttachmentIdAttrib()
     {

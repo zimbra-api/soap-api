@@ -6,12 +6,12 @@ use Zimbra\Admin\Message\ResetAllLoggersBody;
 use Zimbra\Admin\Message\ResetAllLoggersEnvelope;
 use Zimbra\Admin\Message\ResetAllLoggersRequest;
 use Zimbra\Admin\Message\ResetAllLoggersResponse;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for ResetAllLoggersTest.
  */
-class ResetAllLoggersTest extends ZimbraStructTestCase
+class ResetAllLoggersTest extends ZimbraTestCase
 {
     public function testResetAllLoggers()
     {

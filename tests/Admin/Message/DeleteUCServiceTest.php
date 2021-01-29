@@ -6,12 +6,12 @@ use Zimbra\Admin\Message\DeleteUCServiceBody;
 use Zimbra\Admin\Message\DeleteUCServiceEnvelope;
 use Zimbra\Admin\Message\DeleteUCServiceRequest;
 use Zimbra\Admin\Message\DeleteUCServiceResponse;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for DeleteUCService.
  */
-class DeleteUCServiceTest extends ZimbraStructTestCase
+class DeleteUCServiceTest extends ZimbraTestCase
 {
     public function testDeleteUCService()
     {

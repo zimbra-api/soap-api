@@ -3,12 +3,12 @@
 namespace Zimbra\Tests\Mail\Struct;
 
 use Zimbra\Mail\Struct\BulkTest;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for BulkTest.
  */
-class BulkTestTest extends ZimbraStructTestCase
+class BulkTestTest extends ZimbraTestCase
 {
     public function testBulkTest()
     {

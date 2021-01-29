@@ -6,12 +6,12 @@ use Zimbra\Admin\Message\AddAccountAliasBody;
 use Zimbra\Admin\Message\AddAccountAliasEnvelope;
 use Zimbra\Admin\Message\AddAccountAliasRequest;
 use Zimbra\Admin\Message\AddAccountAliasResponse;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for AddAccountAliasTest.
  */
-class AddAccountAliasTest extends ZimbraStructTestCase
+class AddAccountAliasTest extends ZimbraTestCase
 {
     public function testAddAccountAlias()
     {

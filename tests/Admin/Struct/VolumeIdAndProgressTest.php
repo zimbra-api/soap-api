@@ -3,12 +3,12 @@
 namespace Zimbra\Tests\Admin\Struct;
 
 use Zimbra\Admin\Struct\VolumeIdAndProgress;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for VolumeIdAndProgress.
  */
-class VolumeIdAndProgressTest extends ZimbraStructTestCase
+class VolumeIdAndProgressTest extends ZimbraTestCase
 {
     public function testVolumeIdAndProgress()
     {

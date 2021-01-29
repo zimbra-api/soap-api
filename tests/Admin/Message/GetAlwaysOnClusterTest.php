@@ -7,12 +7,12 @@ use Zimbra\Admin\Struct\AlwaysOnClusterInfo;
 use Zimbra\Admin\Struct\AlwaysOnClusterSelector;
 use Zimbra\Admin\Struct\Attr;
 use Zimbra\Enum\AlwaysOnClusterBy;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for GetAlwaysOnCluster.
  */
-class GetAlwaysOnClusterTest extends ZimbraStructTestCase
+class GetAlwaysOnClusterTest extends ZimbraTestCase
 {
     public function testGetAlwaysOnCluster()
     {

@@ -3,12 +3,12 @@
 namespace Zimbra\Tests\Mail\Struct;
 
 use Zimbra\Mail\Struct\BodyTest;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for BodyTest.
  */
-class BodyTestTest extends ZimbraStructTestCase
+class BodyTestTest extends ZimbraTestCase
 {
     public function testBodyTest()
     {

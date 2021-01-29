@@ -16,12 +16,12 @@ use Zimbra\Admin\Struct\ValueAttrib;
 use Zimbra\Enum\QueueActionBy;
 use Zimbra\Enum\QueueAction;
 
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for MailQueueAction.
  */
-class MailQueueActionTest extends ZimbraStructTestCase
+class MailQueueActionTest extends ZimbraTestCase
 {
     public function testMailQueueAction()
     {

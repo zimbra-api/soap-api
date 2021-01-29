@@ -7,12 +7,12 @@ use Zimbra\Admin\Struct\TypeIdName;
 use Zimbra\Admin\Struct\GranteeInfo;
 use Zimbra\Admin\Struct\RightModifierInfo;
 use Zimbra\Enum\GranteeType;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for GrantInfo.
  */
-class GrantInfoTest extends ZimbraStructTestCase
+class GrantInfoTest extends ZimbraTestCase
 {
     public function testGrantInfo()
     {

@@ -13,12 +13,12 @@ use Zimbra\Admin\Struct\GranteeInfo;
 use Zimbra\Enum\DistributionListBy as DLBy;
 use Zimbra\Enum\GranteeType;
 
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for GetDistributionListMembershipTest.
  */
-class GetDistributionListMembershipTest extends ZimbraStructTestCase
+class GetDistributionListMembershipTest extends ZimbraTestCase
 {
     public function testGetDistributionListMembership()
     {

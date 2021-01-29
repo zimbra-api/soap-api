@@ -6,12 +6,12 @@ use Zimbra\Admin\Message\DeleteDomainBody;
 use Zimbra\Admin\Message\DeleteDomainEnvelope;
 use Zimbra\Admin\Message\DeleteDomainRequest;
 use Zimbra\Admin\Message\DeleteDomainResponse;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for DeleteDomain.
  */
-class DeleteDomainTest extends ZimbraStructTestCase
+class DeleteDomainTest extends ZimbraTestCase
 {
     public function testDeleteDomain()
     {

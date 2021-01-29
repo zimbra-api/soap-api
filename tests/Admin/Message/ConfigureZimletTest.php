@@ -7,12 +7,12 @@ use Zimbra\Admin\Message\ConfigureZimletEnvelope;
 use Zimbra\Admin\Message\ConfigureZimletRequest;
 use Zimbra\Admin\Message\ConfigureZimletResponse;
 use Zimbra\Admin\Struct\AttachmentIdAttrib;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for ConfigureZimlet.
  */
-class ConfigureZimletTest extends ZimbraStructTestCase
+class ConfigureZimletTest extends ZimbraTestCase
 {
     public function testConfigureZimlet()
     {

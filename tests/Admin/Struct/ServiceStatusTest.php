@@ -4,12 +4,12 @@ namespace Zimbra\Tests\Admin\Struct;
 
 use Zimbra\Admin\Struct\ServiceStatus;
 use Zimbra\Enum\ZeroOrOne;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for ServiceStatus.
  */
-class ServiceStatusTest extends ZimbraStructTestCase
+class ServiceStatusTest extends ZimbraTestCase
 {
     public function testServiceStatus()
     {

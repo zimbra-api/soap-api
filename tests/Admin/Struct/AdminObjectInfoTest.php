@@ -5,12 +5,12 @@ namespace Zimbra\Tests\Admin\Struct;
 use JMS\Serializer\Annotation\XmlRoot;
 use Zimbra\Admin\Struct\AdminObjectInfo;
 use Zimbra\Admin\Struct\Attr;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for AdminObjectInfo.
  */
-class AdminObjectInfoTest extends ZimbraStructTestCase
+class AdminObjectInfoTest extends ZimbraTestCase
 {
     public function testAdminObjectInfo()
     {

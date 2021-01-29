@@ -6,12 +6,12 @@ use Zimbra\Admin\Message\DeleteAccountBody;
 use Zimbra\Admin\Message\DeleteAccountEnvelope;
 use Zimbra\Admin\Message\DeleteAccountRequest;
 use Zimbra\Admin\Message\DeleteAccountResponse;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for DeleteAccount.
  */
-class DeleteAccountTest extends ZimbraStructTestCase
+class DeleteAccountTest extends ZimbraTestCase
 {
     public function testDeleteAccount()
     {

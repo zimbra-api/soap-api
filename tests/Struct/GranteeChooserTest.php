@@ -3,11 +3,12 @@
 namespace Zimbra\Tests\Struct;
 
 use Zimbra\Struct\GranteeChooser;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for GranteeChooser.
  */
-class GranteeChooserTest extends ZimbraStructTestCase
+class GranteeChooserTest extends ZimbraTestCase
 {
     public function testGranteeChooser()
     {

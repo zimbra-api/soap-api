@@ -3,12 +3,12 @@
 namespace Zimbra\Tests\Admin\Struct;
 
 use Zimbra\Admin\Struct\QueueSummaryItem;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for QueueSummaryItem.
  */
-class QueueSummaryItemTest extends ZimbraStructTestCase
+class QueueSummaryItemTest extends ZimbraTestCase
 {
     public function testQueueSummaryItem()
     {

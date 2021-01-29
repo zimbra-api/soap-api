@@ -3,12 +3,12 @@
 namespace Zimbra\Tests\Admin\Struct;
 
 use Zimbra\Admin\Struct\Names;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for Names.
  */
-class NamesTest extends ZimbraStructTestCase
+class NamesTest extends ZimbraTestCase
 {
     public function testNames()
     {

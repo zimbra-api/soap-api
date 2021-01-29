@@ -4,12 +4,12 @@ namespace Zimbra\Tests\Account\Struct;
 
 use Zimbra\Account\Struct\AccountZimletContext;
 use Zimbra\Enum\ZimletPresence;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for AccountZimletContext.
  */
-class AccountZimletContextTest extends ZimbraStructTestCase
+class AccountZimletContextTest extends ZimbraTestCase
 {
     public function testAccountZimletContext()
     {

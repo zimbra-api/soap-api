@@ -6,12 +6,12 @@ use Zimbra\Admin\Message\ReloadLocalConfigBody;
 use Zimbra\Admin\Message\ReloadLocalConfigEnvelope;
 use Zimbra\Admin\Message\ReloadLocalConfigRequest;
 use Zimbra\Admin\Message\ReloadLocalConfigResponse;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for ReloadLocalConfigTest.
  */
-class ReloadLocalConfigTest extends ZimbraStructTestCase
+class ReloadLocalConfigTest extends ZimbraTestCase
 {
     public function testReloadLocalConfig()
     {

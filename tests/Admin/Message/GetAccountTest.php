@@ -7,12 +7,12 @@ use Zimbra\Admin\Struct\AccountInfo;
 use Zimbra\Admin\Struct\Attr;
 use Zimbra\Enum\AccountBy;
 use Zimbra\Struct\AccountSelector;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for GetAccount.
  */
-class GetAccountTest extends ZimbraStructTestCase
+class GetAccountTest extends ZimbraTestCase
 {
     public function testGetAccount()
     {

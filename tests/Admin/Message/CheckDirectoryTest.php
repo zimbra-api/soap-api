@@ -8,12 +8,12 @@ use Zimbra\Admin\Message\CheckDirectoryRequest;
 use Zimbra\Admin\Message\CheckDirectoryResponse;
 use Zimbra\Admin\Struct\CheckDirSelector;
 use Zimbra\Admin\Struct\DirPathInfo;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for CheckDirectory.
  */
-class CheckDirectoryTest extends ZimbraStructTestCase
+class CheckDirectoryTest extends ZimbraTestCase
 {
     public function testCheckDirectory()
     {

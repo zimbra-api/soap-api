@@ -7,12 +7,12 @@ use Zimbra\Admin\Message\SetCurrentVolumeEnvelope;
 use Zimbra\Admin\Message\SetCurrentVolumeRequest;
 use Zimbra\Admin\Message\SetCurrentVolumeResponse;
 use Zimbra\Enum\VolumeType;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for SetCurrentVolumeTest.
  */
-class SetCurrentVolumeTest extends ZimbraStructTestCase
+class SetCurrentVolumeTest extends ZimbraTestCase
 {
     public function testSetCurrentVolume()
     {

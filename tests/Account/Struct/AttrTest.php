@@ -3,12 +3,12 @@
 namespace Zimbra\Tests\Account\Struct;
 
 use Zimbra\Account\Struct\Attr;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for Attr.
  */
-class AttrTest extends ZimbraStructTestCase
+class AttrTest extends ZimbraTestCase
 {
     public function testAttr()
     {

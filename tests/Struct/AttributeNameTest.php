@@ -3,11 +3,12 @@
 namespace Zimbra\Tests\Struct;
 
 use Zimbra\Struct\AttributeName;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for AttributeName.
  */
-class AttributeNameTest extends ZimbraStructTestCase
+class AttributeNameTest extends ZimbraTestCase
 {
     public function testAttributeName()
     {

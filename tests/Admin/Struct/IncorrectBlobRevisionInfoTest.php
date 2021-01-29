@@ -4,12 +4,12 @@ namespace Zimbra\Tests\Admin\Struct;
 
 use Zimbra\Admin\Struct\IncorrectBlobRevisionInfo;
 use Zimbra\Admin\Struct\BlobRevisionInfo;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for IncorrectBlobRevisionInfo.
  */
-class IncorrectBlobRevisionInfoTest extends ZimbraStructTestCase
+class IncorrectBlobRevisionInfoTest extends ZimbraTestCase
 {
     public function testIncorrectBlobRevisionInfo()
     {

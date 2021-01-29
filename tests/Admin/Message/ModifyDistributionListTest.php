@@ -10,12 +10,12 @@ use Zimbra\Admin\Struct\Attr;
 use Zimbra\Admin\Struct\DistributionListInfo;
 use Zimbra\Admin\Struct\GranteeInfo;
 use Zimbra\Enum\GranteeType;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for ModifyDistributionList.
  */
-class ModifyDistributionListTest extends ZimbraStructTestCase
+class ModifyDistributionListTest extends ZimbraTestCase
 {
     public function testModifyDistributionList()
     {

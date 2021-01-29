@@ -10,12 +10,12 @@ use Zimbra\Admin\Struct\LoggerInfo;
 use Zimbra\Enum\AccountBy;
 use Zimbra\Enum\LoggingLevel;
 use Zimbra\Struct\AccountSelector;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for AddAccountLogger.
  */
-class AddAccountLoggerTest extends ZimbraStructTestCase
+class AddAccountLoggerTest extends ZimbraTestCase
 {
     public function testAddAccountLogger()
     {

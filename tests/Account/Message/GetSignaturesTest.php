@@ -9,12 +9,12 @@ use Zimbra\Account\Message\GetSignaturesResponse;
 use Zimbra\Account\Struct\Signature;
 use Zimbra\Account\Struct\SignatureContent;
 use Zimbra\Enum\ContentType;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for GetSignaturesTest.
  */
-class GetSignaturesTest extends ZimbraStructTestCase
+class GetSignaturesTest extends ZimbraTestCase
 {
     public function testGetSignatures()
     {

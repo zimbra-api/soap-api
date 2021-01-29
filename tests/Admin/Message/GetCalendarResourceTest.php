@@ -7,12 +7,12 @@ use Zimbra\Admin\Struct\Attr;
 use Zimbra\Admin\Struct\CalendarResourceInfo;
 use Zimbra\Admin\Struct\CalendarResourceSelector;
 use Zimbra\Enum\CalendarResourceBy as CalResBy;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for GetCalendarResource.
  */
-class GetCalendarResourceTest extends ZimbraStructTestCase
+class GetCalendarResourceTest extends ZimbraTestCase
 {
     public function testGetCalendarResource()
     {

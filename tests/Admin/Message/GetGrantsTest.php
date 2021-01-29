@@ -19,12 +19,12 @@ use Zimbra\Enum\GranteeType;
 use Zimbra\Enum\TargetBy;
 use Zimbra\Enum\TargetType;
 
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for GetGrants.
  */
-class GetGrantsTest extends ZimbraStructTestCase
+class GetGrantsTest extends ZimbraTestCase
 {
     public function testGetGrants()
     {

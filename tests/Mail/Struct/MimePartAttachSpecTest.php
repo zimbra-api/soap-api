@@ -3,12 +3,12 @@
 namespace Zimbra\Tests\Mail\Struct;
 
 use Zimbra\Mail\Struct\MimePartAttachSpec;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for MimePartAttachSpec.
  */
-class MimePartAttachSpecTest extends ZimbraStructTestCase
+class MimePartAttachSpecTest extends ZimbraTestCase
 {
     public function testMimePartAttachSpec()
     {

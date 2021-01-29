@@ -13,12 +13,12 @@ use Zimbra\Account\Struct\AccountZimletGlobalConfigInfo;
 use Zimbra\Account\Struct\AccountZimletHostConfigInfo;
 use Zimbra\Account\Struct\AccountZimletProperty;
 use Zimbra\Enum\ZimletPresence;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for AccountZimletInfo.
  */
-class AccountZimletInfoTest extends ZimbraStructTestCase
+class AccountZimletInfoTest extends ZimbraTestCase
 {
     public function testAccountZimletInfo()
     {

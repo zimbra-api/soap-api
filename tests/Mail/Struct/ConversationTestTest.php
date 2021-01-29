@@ -3,12 +3,12 @@
 namespace Zimbra\Tests\Mail\Struct;
 
 use Zimbra\Mail\Struct\ConversationTest;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for ConversationTest.
  */
-class ConversationTestTest extends ZimbraStructTestCase
+class ConversationTestTest extends ZimbraTestCase
 {
     public function testConversationTest()
     {

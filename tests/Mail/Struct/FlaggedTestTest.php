@@ -3,12 +3,12 @@
 namespace Zimbra\Tests\Mail\Struct;
 
 use Zimbra\Mail\Struct\FlaggedTest;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for FlaggedTest.
  */
-class FlaggedTestTest extends ZimbraStructTestCase
+class FlaggedTestTest extends ZimbraTestCase
 {
     public function testFlaggedTest()
     {

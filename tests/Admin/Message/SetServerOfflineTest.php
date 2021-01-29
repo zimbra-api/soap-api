@@ -10,12 +10,12 @@ use Zimbra\Admin\Message\SetServerOfflineResponse;
 use Zimbra\Admin\Struct\ServerSelector;
 use Zimbra\Enum\ServerBy;
 
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for SetServerOfflineTest.
  */
-class SetServerOfflineTest extends ZimbraStructTestCase
+class SetServerOfflineTest extends ZimbraTestCase
 {
     public function testSetServerOffline()
     {

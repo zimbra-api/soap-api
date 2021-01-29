@@ -9,12 +9,12 @@ use Zimbra\Admin\Struct\QueueQuery;
 use Zimbra\Admin\Struct\ValueAttrib;
 use Zimbra\Enum\QueueAction;
 use Zimbra\Enum\QueueActionBy;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for MailQueueWithAction.
  */
-class MailQueueWithActionTest extends ZimbraStructTestCase
+class MailQueueWithActionTest extends ZimbraTestCase
 {
     public function testMailQueueWithAction()
     {

@@ -5,12 +5,12 @@ namespace Zimbra\Tests\Mail\Struct;
 use Zimbra\Enum\{ComparisonComparator, MatchType, RelationalComparator};
 use Zimbra\Mail\Struct\ReplaceheaderAction;
 use Zimbra\Mail\Struct\EditheaderTest;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for ReplaceheaderAction.
  */
-class ReplaceheaderActionTest extends ZimbraStructTestCase
+class ReplaceheaderActionTest extends ZimbraTestCase
 {
     public function testReplaceheaderAction()
     {

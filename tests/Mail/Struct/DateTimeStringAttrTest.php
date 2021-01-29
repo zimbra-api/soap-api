@@ -3,12 +3,12 @@
 namespace Zimbra\Tests\Mail\Struct;
 
 use Zimbra\Mail\Struct\DateTimeStringAttr;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for DateTimeStringAttr.
  */
-class DateTimeStringAttrTest extends ZimbraStructTestCase
+class DateTimeStringAttrTest extends ZimbraTestCase
 {
     public function testDateTimeStringAttr()
     {

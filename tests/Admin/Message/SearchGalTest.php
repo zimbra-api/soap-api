@@ -13,12 +13,12 @@ use Zimbra\Admin\Struct\ContactGroupMember;
 use Zimbra\Enum\GalSearchType;
 use Zimbra\Struct\ContactAttr;
 
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for SearchGalTest.
  */
-class SearchGalTest extends ZimbraStructTestCase
+class SearchGalTest extends ZimbraTestCase
 {
     public function testSearchGal()
     {

@@ -8,12 +8,12 @@ use Zimbra\Admin\Message\GetAllDomainsRequest;
 use Zimbra\Admin\Message\GetAllDomainsResponse;
 use Zimbra\Admin\Struct\Attr;
 use Zimbra\Admin\Struct\DomainInfo;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for GetAllDomainsTest.
  */
-class GetAllDomainsTest extends ZimbraStructTestCase
+class GetAllDomainsTest extends ZimbraTestCase
 {
     public function testGetAllDomains()
     {

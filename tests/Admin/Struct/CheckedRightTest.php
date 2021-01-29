@@ -3,12 +3,12 @@
 namespace Zimbra\Tests\Admin\Struct;
 
 use Zimbra\Admin\Struct\CheckedRight;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for CheckedRight.
  */
-class CheckedRightTest extends ZimbraStructTestCase
+class CheckedRightTest extends ZimbraTestCase
 {
     public function testCheckedRight()
     {

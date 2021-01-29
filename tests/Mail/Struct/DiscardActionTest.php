@@ -3,12 +3,12 @@
 namespace Zimbra\Tests\Mail\Struct;
 
 use Zimbra\Mail\Struct\DiscardAction;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for DiscardAction.
  */
-class DiscardActionTest extends ZimbraStructTestCase
+class DiscardActionTest extends ZimbraTestCase
 {
     public function testDiscardAction()
     {

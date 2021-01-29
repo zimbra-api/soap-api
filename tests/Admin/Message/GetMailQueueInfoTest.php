@@ -8,12 +8,12 @@ use Zimbra\Admin\Struct\ServerQueues;
 use Zimbra\Admin\Struct\MailQueueCount;
 use Zimbra\Struct\NamedElement;
 
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for GetMailQueueInfo.
  */
-class GetMailQueueInfoTest extends ZimbraStructTestCase
+class GetMailQueueInfoTest extends ZimbraTestCase
 {
     public function testGetMailQueueInfo()
     {

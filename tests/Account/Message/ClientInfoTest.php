@@ -6,11 +6,11 @@ use Zimbra\Account\Message\{ClientInfoEnvelope, ClientInfoBody, ClientInfoReques
 use Zimbra\Admin\Struct\Attr;
 use Zimbra\Admin\Struct\DomainSelector;
 use Zimbra\Enum\DomainBy;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 /**
  * Testcase class for ClientInfo.
  */
-class ClientInfoTest extends ZimbraStructTestCase
+class ClientInfoTest extends ZimbraTestCase
 {
     public function testClientInfo()
     {

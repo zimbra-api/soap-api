@@ -3,12 +3,12 @@
 namespace Zimbra\Tests\Admin\Struct;
 
 use Zimbra\Admin\Struct\TypeIdName;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for TypeIdName.
  */
-class TypeIdNameTest extends ZimbraStructTestCase
+class TypeIdNameTest extends ZimbraTestCase
 {
     public function testTypeIdName()
     {

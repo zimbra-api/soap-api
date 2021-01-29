@@ -5,12 +5,12 @@ namespace Zimbra\Tests\Mail\Struct;
 use Zimbra\Enum\ParticipationStatus as PartStat;
 use Zimbra\Mail\Struct\CalendarAttendee;
 use Zimbra\Mail\Struct\XParam;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for CalendarAttendee.
  */
-class CalendarAttendeeTest extends ZimbraStructTestCase
+class CalendarAttendeeTest extends ZimbraTestCase
 {
     public function testCalendarAttendee()
     {

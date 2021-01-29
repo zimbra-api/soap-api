@@ -10,12 +10,12 @@ use Zimbra\Admin\Struct\LoggerInfo;
 use Zimbra\Enum\AccountBy;
 use Zimbra\Enum\LoggingLevel;
 use Zimbra\Struct\AccountSelector;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for RemoveAccountLogger.
  */
-class RemoveAccountLoggerTest extends ZimbraStructTestCase
+class RemoveAccountLoggerTest extends ZimbraTestCase
 {
     public function testRemoveAccountLogger()
     {

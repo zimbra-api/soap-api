@@ -8,12 +8,12 @@ use Zimbra\Admin\Message\CreateVolumeRequest;
 use Zimbra\Admin\Message\CreateVolumeResponse;
 use Zimbra\Admin\Struct\VolumeInfo;
 use Zimbra\Enum\VolumeType;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for CreateVolume.
  */
-class CreateVolumeTest extends ZimbraStructTestCase
+class CreateVolumeTest extends ZimbraTestCase
 {
     public function testCreateVolume()
     {

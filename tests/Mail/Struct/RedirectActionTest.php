@@ -3,12 +3,12 @@
 namespace Zimbra\Tests\Mail\Struct;
 
 use Zimbra\Mail\Struct\RedirectAction;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for RedirectAction.
  */
-class RedirectActionTest extends ZimbraStructTestCase
+class RedirectActionTest extends ZimbraTestCase
 {
     public function testRedirectAction()
     {

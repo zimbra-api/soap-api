@@ -4,12 +4,12 @@ namespace Zimbra\Tests\Account\Struct;
 
 use Zimbra\Account\Struct\HABGroupMember;
 use Zimbra\Struct\NamedValue;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for HABGroupMember.
  */
-class HABGroupMemberTest extends ZimbraStructTestCase
+class HABGroupMemberTest extends ZimbraTestCase
 {
     public function testHABGroupMember()
     {

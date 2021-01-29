@@ -4,12 +4,12 @@ namespace Zimbra\Tests\Account\Struct;
 
 use Zimbra\Enum\ContentType;
 use Zimbra\Account\Struct\SignatureContent;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for SignatureContent.
  */
-class SignatureContentTest extends ZimbraStructTestCase
+class SignatureContentTest extends ZimbraTestCase
 {
     public function testSignatureContent()
     {

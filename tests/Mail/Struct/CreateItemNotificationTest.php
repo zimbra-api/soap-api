@@ -3,12 +3,12 @@
 namespace Zimbra\Tests\Mail\Struct;
 
 use Zimbra\Mail\Struct\{CreateItemNotification, ImapMessageInfo};
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for CreateItemNotification.
  */
-class CreateItemNotificationTest extends ZimbraStructTestCase
+class CreateItemNotificationTest extends ZimbraTestCase
 {
     public function testCreateItemNotification()
     {

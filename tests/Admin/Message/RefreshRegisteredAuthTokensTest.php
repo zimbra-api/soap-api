@@ -6,12 +6,12 @@ use Zimbra\Admin\Message\RefreshRegisteredAuthTokensBody;
 use Zimbra\Admin\Message\RefreshRegisteredAuthTokensEnvelope;
 use Zimbra\Admin\Message\RefreshRegisteredAuthTokensRequest;
 use Zimbra\Admin\Message\RefreshRegisteredAuthTokensResponse;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for RefreshRegisteredAuthTokens.
  */
-class RefreshRegisteredAuthTokensTest extends ZimbraStructTestCase
+class RefreshRegisteredAuthTokensTest extends ZimbraTestCase
 {
     public function testRefreshRegisteredAuthTokens()
     {

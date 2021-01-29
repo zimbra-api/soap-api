@@ -8,12 +8,12 @@ use Zimbra\Admin\Struct\Attr;
 use Zimbra\Admin\Struct\ZimletInfo;
 use Zimbra\Struct\NamedElement;
 
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for GetZimlet.
  */
-class GetZimletTest extends ZimbraStructTestCase
+class GetZimletTest extends ZimbraTestCase
 {
     public function testGetZimlet()
     {

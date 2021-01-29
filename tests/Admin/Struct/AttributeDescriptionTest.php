@@ -3,12 +3,12 @@
 namespace Zimbra\Tests\Admin\Struct;
 
 use Zimbra\Admin\Struct\AttributeDescription;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for AttributeDescription.
  */
-class AttributeDescriptionTest extends ZimbraStructTestCase
+class AttributeDescriptionTest extends ZimbraTestCase
 {
     public function testAttributeDescription()
     {

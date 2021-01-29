@@ -10,12 +10,12 @@ use Zimbra\Admin\Message\GetMailboxResponse;
 use Zimbra\Admin\Struct\MailboxByAccountIdSelector;
 use Zimbra\Admin\Struct\MailboxWithMailboxId;
 
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for GetMailbox.
  */
-class GetMailboxTest extends ZimbraStructTestCase
+class GetMailboxTest extends ZimbraTestCase
 {
     public function testGetMailbox()
     {

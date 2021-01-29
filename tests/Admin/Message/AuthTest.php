@@ -8,12 +8,12 @@ use Zimbra\Admin\Message\AuthRequest;
 use Zimbra\Admin\Message\AuthResponse;
 use Zimbra\Enum\AccountBy;
 use Zimbra\Struct\AccountSelector;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for AuthResponse.
  */
-class AuthResponseTest extends ZimbraStructTestCase
+class AuthResponseTest extends ZimbraTestCase
 {
     public function testAuth()
     {

@@ -19,12 +19,12 @@ use Zimbra\Mail\Struct\XParam;
 use Zimbra\Mail\Struct\XProp;
 
 use Zimbra\Mail\Struct\InviteComponent;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for InviteComponent.
  */
-class InviteComponentTest extends ZimbraStructTestCase
+class InviteComponentTest extends ZimbraTestCase
 {
     public function testInviteComponent()
     {

@@ -4,12 +4,12 @@ namespace Zimbra\Tests\Account\Struct;
 
 use Zimbra\Enum\ZimletStatus;
 use Zimbra\Account\Struct\ZimletPrefsSpec;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for ZimletPrefsSpec.
  */
-class ZimletPrefsSpecTest extends ZimbraStructTestCase
+class ZimletPrefsSpecTest extends ZimbraTestCase
 {
     public function testZimletPrefsSpec()
     {

@@ -4,12 +4,12 @@ namespace Zimbra\Tests\Mail\Struct;
 
 use Zimbra\Mail\Struct\DateTest;
 use Zimbra\Enum\DateComparison;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for DateTest.
  */
-class DateTestTest extends ZimbraStructTestCase
+class DateTestTest extends ZimbraTestCase
 {
     public function testDateTest()
     {

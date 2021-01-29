@@ -10,12 +10,12 @@ use Zimbra\Admin\Struct\CosInfo;
 use Zimbra\Admin\Struct\CosInfoAttr;
 use Zimbra\Admin\Struct\CosSelector;
 use Zimbra\Enum\CosBy;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for CopyCos.
  */
-class CopyCosTest extends ZimbraStructTestCase
+class CopyCosTest extends ZimbraTestCase
 {
     public function testCopyCos()
     {

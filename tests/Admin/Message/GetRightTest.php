@@ -13,12 +13,12 @@ use Zimbra\Admin\Struct\RightsAttrs;
 use Zimbra\Admin\Struct\RightInfo;
 use Zimbra\Enum\RightClass;
 use Zimbra\Enum\RightType;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for GetRightTest.
  */
-class GetRightTest extends ZimbraStructTestCase
+class GetRightTest extends ZimbraTestCase
 {
     public function testGetRight()
     {

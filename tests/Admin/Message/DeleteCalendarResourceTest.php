@@ -6,12 +6,12 @@ use Zimbra\Admin\Message\DeleteCalendarResourceBody;
 use Zimbra\Admin\Message\DeleteCalendarResourceEnvelope;
 use Zimbra\Admin\Message\DeleteCalendarResourceRequest;
 use Zimbra\Admin\Message\DeleteCalendarResourceResponse;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for DeleteCalendarResource.
  */
-class DeleteCalendarResourceTest extends ZimbraStructTestCase
+class DeleteCalendarResourceTest extends ZimbraTestCase
 {
     public function testDeleteCalendarResource()
     {

@@ -6,12 +6,12 @@ use Zimbra\Admin\Message\CheckHealthBody;
 use Zimbra\Admin\Message\CheckHealthEnvelope;
 use Zimbra\Admin\Message\CheckHealthRequest;
 use Zimbra\Admin\Message\CheckHealthResponse;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for CheckHealth.
  */
-class CheckHealthTest extends ZimbraStructTestCase
+class CheckHealthTest extends ZimbraTestCase
 {
     public function testCheckHealth()
     {

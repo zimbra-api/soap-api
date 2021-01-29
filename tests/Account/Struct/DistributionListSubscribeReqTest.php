@@ -4,12 +4,12 @@ namespace Zimbra\Tests\Account\Struct;
 
 use Zimbra\Enum\DistributionListSubscribeOp as DLSubscribeOp;
 use Zimbra\Account\Struct\DistributionListSubscribeReq;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for DistributionListSubscribeReq.
  */
-class DistributionListSubscribeReqTest extends ZimbraStructTestCase
+class DistributionListSubscribeReqTest extends ZimbraTestCase
 {
     public function testDistributionListSubscribeReq()
     {

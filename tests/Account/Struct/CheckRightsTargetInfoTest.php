@@ -6,12 +6,12 @@ use Zimbra\Enum\TargetBy;
 use Zimbra\Enum\TargetType;
 use Zimbra\Account\Struct\CheckRightsRightInfo;
 use Zimbra\Account\Struct\CheckRightsTargetInfo;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for CheckRightsTargetInfo.
  */
-class CheckRightsTargetInfoTest extends ZimbraStructTestCase
+class CheckRightsTargetInfoTest extends ZimbraTestCase
 {
     public function testCheckRightsTargetInfo()
     {

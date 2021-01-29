@@ -17,12 +17,12 @@ use Zimbra\Admin\Struct\AdminZimletGlobalConfigInfo;
 use Zimbra\Admin\Struct\AdminZimletHostConfigInfo;
 use Zimbra\Admin\Struct\AdminZimletProperty;
 use Zimbra\Enum\ZimletPresence;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for GetAdminExtensionZimlets.
  */
-class GetAdminExtensionZimletsTest extends ZimbraStructTestCase
+class GetAdminExtensionZimletsTest extends ZimbraTestCase
 {
     public function testGetAdminExtensionZimlets()
     {

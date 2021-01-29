@@ -3,11 +3,12 @@
 namespace Zimbra\Tests\Struct;
 
 use Zimbra\Struct\OpValue;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for OpValue.
  */
-class OpValueTest extends ZimbraStructTestCase
+class OpValueTest extends ZimbraTestCase
 {
     public function testOpValue()
     {

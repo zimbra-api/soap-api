@@ -7,12 +7,12 @@ use Zimbra\Enum\Frequency;
 use Zimbra\Mail\Struct\ExceptionRuleInfo;
 use Zimbra\Mail\Struct\RecurrenceInfo;
 use Zimbra\Mail\Struct\SimpleRepeatingRule;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for ExceptionRuleInfo.
  */
-class ExceptionRuleInfoTest extends ZimbraStructTestCase
+class ExceptionRuleInfoTest extends ZimbraTestCase
 {
     public function testExceptionRuleInfo()
     {

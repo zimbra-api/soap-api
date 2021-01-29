@@ -4,11 +4,12 @@ namespace Zimbra\Tests\Struct;
 
 use Zimbra\Enum\InterestType;
 use Zimbra\Struct\WaitSetAddSpec;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for WaitSetAddSpec.
  */
-class WaitSetAddSpecTest extends ZimbraStructTestCase
+class WaitSetAddSpecTest extends ZimbraTestCase
 {
     public function testWaitSetAddSpec()
     {

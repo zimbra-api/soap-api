@@ -13,11 +13,11 @@ use Zimbra\Account\Struct\Pref;
 use Zimbra\Account\Struct\Session;
 use Zimbra\Enum\AccountBy;
 use Zimbra\Struct\AccountSelector;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 /**
  * Testcase class for Auth.
  */
-class AuthTest extends ZimbraStructTestCase
+class AuthTest extends ZimbraTestCase
 {
     public function testAuth()
     {

@@ -7,12 +7,12 @@ use Zimbra\Account\Message\ModifyPropertiesEnvelope;
 use Zimbra\Account\Message\ModifyPropertiesRequest;
 use Zimbra\Account\Message\ModifyPropertiesResponse;
 use Zimbra\Account\Struct\Prop;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for ModifyPropertiesTest.
  */
-class ModifyPropertiesTest extends ZimbraStructTestCase
+class ModifyPropertiesTest extends ZimbraTestCase
 {
     public function testModifyProperties()
     {

@@ -8,12 +8,12 @@ use Zimbra\Admin\Message\CreateAccountRequest;
 use Zimbra\Admin\Message\CreateAccountResponse;
 use Zimbra\Admin\Struct\AccountInfo;
 use Zimbra\Admin\Struct\Attr;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for CreateAccount.
  */
-class CreateAccountTest extends ZimbraStructTestCase
+class CreateAccountTest extends ZimbraTestCase
 {
     public function testCreateAccount()
     {

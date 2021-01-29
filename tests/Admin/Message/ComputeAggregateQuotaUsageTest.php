@@ -7,12 +7,12 @@ use Zimbra\Admin\Message\ComputeAggregateQuotaUsageEnvelope;
 use Zimbra\Admin\Message\ComputeAggregateQuotaUsageRequest;
 use Zimbra\Admin\Message\ComputeAggregateQuotaUsageResponse;
 use Zimbra\Admin\Struct\DomainAggregateQuotaInfo;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for ComputeAggregateQuotaUsage.
  */
-class ComputeAggregateQuotaUsageTest extends ZimbraStructTestCase
+class ComputeAggregateQuotaUsageTest extends ZimbraTestCase
 {
     public function testComputeAggregateQuotaUsage()
     {

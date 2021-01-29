@@ -3,12 +3,12 @@
 namespace Zimbra\Tests\Admin\Struct;
 
 use Zimbra\Admin\Struct\InheritedFlaggedValue;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for InheritedFlaggedValue.
  */
-class InheritedFlaggedValueTest extends ZimbraStructTestCase
+class InheritedFlaggedValueTest extends ZimbraTestCase
 {
     public function testInheritedFlaggedValue()
     {

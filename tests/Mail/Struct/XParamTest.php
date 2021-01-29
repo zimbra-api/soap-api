@@ -3,12 +3,12 @@
 namespace Zimbra\Tests\Mail\Struct;
 
 use Zimbra\Mail\Struct\XParam;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for XParam.
  */
-class XParamTest extends ZimbraStructTestCase
+class XParamTest extends ZimbraTestCase
 {
     public function testXParam()
     {

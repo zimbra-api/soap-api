@@ -8,12 +8,12 @@ use Zimbra\Admin\Message\DelegateAuthRequest;
 use Zimbra\Admin\Message\DelegateAuthResponse;
 use Zimbra\Struct\AccountSelector;
 use Zimbra\Enum\AccountBy;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for DelegateAuth.
  */
-class DelegateAuthTest extends ZimbraStructTestCase
+class DelegateAuthTest extends ZimbraTestCase
 {
     public function testDelegateAuth()
     {

@@ -6,11 +6,11 @@ use Zimbra\Account\Message\EndSessionEnvelope;
 use Zimbra\Account\Message\EndSessionBody;
 use Zimbra\Account\Message\EndSessionRequest;
 use Zimbra\Account\Message\EndSessionResponse;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 /**
  * Testcase class for EndSession.
  */
-class EndSessionTest extends ZimbraStructTestCase
+class EndSessionTest extends ZimbraTestCase
 {
     public function testEndSession()
     {

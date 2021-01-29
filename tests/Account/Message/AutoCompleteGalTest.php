@@ -8,11 +8,11 @@ use Zimbra\Account\Message\AutoCompleteGalRequest;
 use Zimbra\Account\Message\AutoCompleteGalResponse;
 use Zimbra\Account\Struct\ContactInfo;
 use Zimbra\Enum\GalSearchType;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 /**
  * Testcase class for AutoCompleteGal.
  */
-class AutoCompleteGalTest extends ZimbraStructTestCase
+class AutoCompleteGalTest extends ZimbraTestCase
 {
     public function testAutoCompleteGal()
     {

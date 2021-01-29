@@ -16,12 +16,12 @@ use Zimbra\Admin\Struct\RightWithName;
 use Zimbra\Enum\RightType;
 
 use Zimbra\Struct\NamedElement;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for GetRightsDocTest.
  */
-class GetRightsDocTest extends ZimbraStructTestCase
+class GetRightsDocTest extends ZimbraTestCase
 {
     public function testGetRightsDoc()
     {

@@ -8,12 +8,12 @@ use Zimbra\Admin\Message\GetAllAlwaysOnClustersRequest;
 use Zimbra\Admin\Message\GetAllAlwaysOnClustersResponse;
 use Zimbra\Admin\Struct\AlwaysOnClusterInfo;
 use Zimbra\Admin\Struct\Attr;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for GetAllAlwaysOnClustersTest.
  */
-class GetAllAlwaysOnClustersTest extends ZimbraStructTestCase
+class GetAllAlwaysOnClustersTest extends ZimbraTestCase
 {
     public function testGetAllAlwaysOnClusters()
     {

@@ -4,12 +4,12 @@ namespace Zimbra\Tests\Admin\Struct;
 
 use Zimbra\Admin\Struct\AdminKeyValuePairs;
 use Zimbra\Struct\KeyValuePair;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for AdminKeyValuePairs.
  */
-class AdminKeyValuePairsTest extends ZimbraStructTestCase
+class AdminKeyValuePairsTest extends ZimbraTestCase
 {
     public function testAdminKeyValuePairs()
     {

@@ -4,12 +4,12 @@ namespace Zimbra\Tests\Soap\Header;
 
 use Zimbra\Enum\AccountBy;
 use Zimbra\Soap\Header\AccountInfo;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for AccountInfo.
  */
-class AccountInfoTest extends ZimbraStructTestCase
+class AccountInfoTest extends ZimbraTestCase
 {
     public function testHeaderAccountInfo()
     {

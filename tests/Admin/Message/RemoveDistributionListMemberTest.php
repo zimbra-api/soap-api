@@ -6,12 +6,12 @@ use Zimbra\Admin\Message\RemoveDistributionListMemberBody;
 use Zimbra\Admin\Message\RemoveDistributionListMemberEnvelope;
 use Zimbra\Admin\Message\RemoveDistributionListMemberRequest;
 use Zimbra\Admin\Message\RemoveDistributionListMemberResponse;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for RemoveDistributionListMember.
  */
-class RemoveDistributionListMemberTest extends ZimbraStructTestCase
+class RemoveDistributionListMemberTest extends ZimbraTestCase
 {
     public function testRemoveDistributionListMember()
     {

@@ -12,12 +12,12 @@ use Zimbra\Admin\Struct\DomainInfo;
 use Zimbra\Admin\Struct\DomainSelector;
 use Zimbra\Enum\DomainBy;
 
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for GetDomainTest.
  */
-class GetDomainTest extends ZimbraStructTestCase
+class GetDomainTest extends ZimbraTestCase
 {
     public function testGetDomain()
     {

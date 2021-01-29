@@ -3,12 +3,12 @@
 namespace Zimbra\Tests\Admin\Struct;
 
 use Zimbra\Admin\Struct\DomainAggregateQuotaInfo;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for DomainAggregateQuotaInfo.
  */
-class DomainAggregateQuotaInfoTest extends ZimbraStructTestCase
+class DomainAggregateQuotaInfoTest extends ZimbraTestCase
 {
     public function testDomainAggregateQuotaInfo()
     {

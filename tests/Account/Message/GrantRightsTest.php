@@ -9,12 +9,12 @@ use Zimbra\Account\Message\GrantRightsResponse;
 use Zimbra\Account\Struct\AccountACEInfo;
 use Zimbra\Enum\AceRightType;
 use Zimbra\Enum\GranteeType;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for GrantRightsTest.
  */
-class GrantRightsTest extends ZimbraStructTestCase
+class GrantRightsTest extends ZimbraTestCase
 {
     public function testGrantRights()
     {

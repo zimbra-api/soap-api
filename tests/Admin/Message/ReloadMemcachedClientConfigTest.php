@@ -6,12 +6,12 @@ use Zimbra\Admin\Message\ReloadMemcachedClientConfigBody;
 use Zimbra\Admin\Message\ReloadMemcachedClientConfigEnvelope;
 use Zimbra\Admin\Message\ReloadMemcachedClientConfigRequest;
 use Zimbra\Admin\Message\ReloadMemcachedClientConfigResponse;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for ReloadMemcachedClientConfigTest.
  */
-class ReloadMemcachedClientConfigTest extends ZimbraStructTestCase
+class ReloadMemcachedClientConfigTest extends ZimbraTestCase
 {
     public function testReloadMemcachedClientConfig()
     {

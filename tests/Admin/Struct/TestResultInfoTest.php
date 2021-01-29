@@ -5,12 +5,12 @@ namespace Zimbra\Tests\Admin\Struct;
 use Zimbra\Admin\Struct\CompletedTestInfo;
 use Zimbra\Admin\Struct\FailedTestInfo;
 use Zimbra\Admin\Struct\TestResultInfo;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for TestResultInfo.
  */
-class TestResultInfoTest extends ZimbraStructTestCase
+class TestResultInfoTest extends ZimbraTestCase
 {
     public function testTestResultInfo()
     {

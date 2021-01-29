@@ -8,12 +8,12 @@ use Zimbra\Admin\Message\ModifyServerRequest;
 use Zimbra\Admin\Message\ModifyServerResponse;
 use Zimbra\Admin\Struct\Attr;
 use Zimbra\Admin\Struct\ServerInfo;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for ModifyServer.
  */
-class ModifyServerTest extends ZimbraStructTestCase
+class ModifyServerTest extends ZimbraTestCase
 {
     public function testModifyServer()
     {

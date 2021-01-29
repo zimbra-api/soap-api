@@ -5,12 +5,12 @@ namespace Zimbra\Tests\Admin\Struct;
 use Zimbra\Admin\Struct\StatsSpec;
 use Zimbra\Admin\Struct\StatsValueWrapper;
 use Zimbra\Struct\NamedElement;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for StatsSpec.
  */
-class StatsSpecTest extends ZimbraStructTestCase
+class StatsSpecTest extends ZimbraTestCase
 {
     public function testStatsSpec()
     {

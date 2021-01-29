@@ -14,12 +14,12 @@ use Zimbra\Admin\Struct\GranteeInfo;
 use Zimbra\Enum\DomainBy;
 use Zimbra\Enum\GranteeType;
 
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for GetAllDistributionLists.
  */
-class GetAllDistributionListsTest extends ZimbraStructTestCase
+class GetAllDistributionListsTest extends ZimbraTestCase
 {
     public function testGetAllDistributionLists()
     {

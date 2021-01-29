@@ -4,12 +4,12 @@ namespace Zimbra\Tests\Mail\Struct;
 
 use Zimbra\Enum\AddressType;
 use Zimbra\Mail\Struct\EmailAddrInfo;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for EmailAddrInfo.
  */
-class EmailAddrInfoTest extends ZimbraStructTestCase
+class EmailAddrInfoTest extends ZimbraTestCase
 {
     public function testEmailAddrInfo()
     {

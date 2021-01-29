@@ -6,12 +6,12 @@ use Zimbra\Account\Struct\DiscoverRightsEmail;
 use Zimbra\Account\Struct\DiscoverRightsInfo;
 use Zimbra\Account\Struct\DiscoverRightsTarget;
 use Zimbra\Enum\TargetType;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for DiscoverRightsInfo.
  */
-class DiscoverRightsInfoTest extends ZimbraStructTestCase
+class DiscoverRightsInfoTest extends ZimbraTestCase
 {
     public function testDiscoverRightsInfo()
     {

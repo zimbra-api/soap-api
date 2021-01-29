@@ -8,12 +8,12 @@ use Zimbra\Admin\Message\DeleteMailboxRequest;
 use Zimbra\Admin\Message\DeleteMailboxResponse;
 use Zimbra\Admin\Struct\MailboxByAccountIdSelector;
 use Zimbra\Admin\Struct\MailboxWithMailboxId;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for DeleteMailbox.
  */
-class DeleteMailboxTest extends ZimbraStructTestCase
+class DeleteMailboxTest extends ZimbraTestCase
 {
     public function testDeleteMailbox()
     {

@@ -3,12 +3,12 @@
 namespace Zimbra\Tests\Mail\Struct;
 
 use Zimbra\Mail\Struct\RecurIdInfo;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for RecurIdInfo.
  */
-class RecurIdInfoTest extends ZimbraStructTestCase
+class RecurIdInfoTest extends ZimbraTestCase
 {
     public function testRecurIdInfo()
     {

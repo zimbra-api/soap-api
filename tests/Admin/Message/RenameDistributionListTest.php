@@ -9,12 +9,12 @@ use Zimbra\Admin\Message\RenameDistributionListResponse;
 use Zimbra\Admin\Struct\DistributionListInfo;
 use Zimbra\Admin\Struct\GranteeInfo;
 use Zimbra\Enum\GranteeType;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for RenameDistributionList.
  */
-class RenameDistributionListTest extends ZimbraStructTestCase
+class RenameDistributionListTest extends ZimbraTestCase
 {
     public function testRenameDistributionList()
     {

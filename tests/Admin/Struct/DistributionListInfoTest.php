@@ -5,12 +5,12 @@ namespace Zimbra\Tests\Admin\Struct;
 use Zimbra\Admin\Struct\DistributionListInfo;
 use Zimbra\Admin\Struct\GranteeInfo;
 use Zimbra\Enum\GranteeType;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for DistributionListInfo.
  */
-class DistributionListInfoTest extends ZimbraStructTestCase
+class DistributionListInfoTest extends ZimbraTestCase
 {
     public function testDistributionListInfo()
     {

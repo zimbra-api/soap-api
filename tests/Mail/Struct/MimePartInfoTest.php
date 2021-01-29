@@ -8,12 +8,12 @@ use Zimbra\Mail\Struct\MsgAttachSpec;
 use Zimbra\Mail\Struct\ContactAttachSpec;
 use Zimbra\Mail\Struct\DocAttachSpec;
 use Zimbra\Mail\Struct\MimePartInfo;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for MimePartInfo.
  */
-class MimePartInfoTest extends ZimbraStructTestCase
+class MimePartInfoTest extends ZimbraTestCase
 {
     public function testMimePartInfo()
     {

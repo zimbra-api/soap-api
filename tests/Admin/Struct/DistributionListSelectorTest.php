@@ -4,12 +4,12 @@ namespace Zimbra\Tests\Admin\Struct;
 
 use Zimbra\Admin\Struct\DistributionListSelector;
 use Zimbra\Enum\DistributionListBy as DLBy;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for DistributionListSelector.
  */
-class DistributionListSelectorTest extends ZimbraStructTestCase
+class DistributionListSelectorTest extends ZimbraTestCase
 {
     public function testDistributionListSelector()
     {

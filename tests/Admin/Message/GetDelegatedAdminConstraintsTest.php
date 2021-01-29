@@ -10,12 +10,12 @@ use Zimbra\Admin\Struct\ConstraintAttr;
 use Zimbra\Admin\Struct\ConstraintInfo;
 use Zimbra\Struct\NamedElement;
 use Zimbra\Enum\TargetType;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for GetDelegatedAdminConstraintsTest.
  */
-class GetDelegatedAdminConstraintsTest extends ZimbraStructTestCase
+class GetDelegatedAdminConstraintsTest extends ZimbraTestCase
 {
     public function testGetDelegatedAdminConstraints()
     {

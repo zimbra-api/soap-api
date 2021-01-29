@@ -8,11 +8,11 @@ use Zimbra\Account\Message\ChangePasswordRequest;
 use Zimbra\Account\Message\ChangePasswordResponse;
 use Zimbra\Enum\AccountBy;
 use Zimbra\Struct\AccountSelector;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 /**
  * Testcase class for ChangePassword.
  */
-class ChangePasswordTest extends ZimbraStructTestCase
+class ChangePasswordTest extends ZimbraTestCase
 {
     public function testChangePassword()
     {

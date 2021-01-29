@@ -3,12 +3,12 @@
 namespace Zimbra\Tests\Mail\Struct;
 
 use Zimbra\Mail\Struct\AddressBookTest;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for AddressBookTest.
  */
-class AddressBookTestTest extends ZimbraStructTestCase
+class AddressBookTestTest extends ZimbraTestCase
 {
     public function testAddressBookTest()
     {

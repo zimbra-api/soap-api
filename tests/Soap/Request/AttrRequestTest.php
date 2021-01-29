@@ -5,12 +5,12 @@ namespace Zimbra\Tests\Soap\Request;
 use JMS\Serializer\Annotation\XmlRoot;
 use Zimbra\Soap\Request\Attr;
 use Zimbra\Struct\KeyValuePair;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for AttrRequest.
  */
-class AttrRequestTest extends ZimbraStructTestCase
+class AttrRequestTest extends ZimbraTestCase
 {
     public function testAttrRequest()
     {

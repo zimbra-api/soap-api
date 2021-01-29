@@ -4,12 +4,12 @@ namespace Zimbra\Tests\Admin\Struct;
 
 use Zimbra\Admin\Struct\CmdRightsInfo;
 use Zimbra\Struct\NamedElement;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for CmdRightsInfo.
  */
-class CmdRightsInfoTest extends ZimbraStructTestCase
+class CmdRightsInfoTest extends ZimbraTestCase
 {
     public function testCmdRightsInfo()
     {

@@ -6,12 +6,12 @@ use Zimbra\Admin\Message\RemoveAccountAliasBody;
 use Zimbra\Admin\Message\RemoveAccountAliasEnvelope;
 use Zimbra\Admin\Message\RemoveAccountAliasRequest;
 use Zimbra\Admin\Message\RemoveAccountAliasResponse;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for RemoveAccountAliasTest.
  */
-class RemoveAccountAliasTest extends ZimbraStructTestCase
+class RemoveAccountAliasTest extends ZimbraTestCase
 {
     public function testRemoveAccountAlias()
     {

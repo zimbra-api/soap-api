@@ -7,12 +7,12 @@ use Zimbra\Account\SerializerHandler;
 
 use Zimbra\Enum\ConditionOperator as CondOp;
 use Zimbra\Account\Struct\{EntrySearchFilterSingleCond, EntrySearchFilterMultiCond};
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for EntrySearchFilterMultiCond.
  */
-class EntrySearchFilterMultiCondTest extends ZimbraStructTestCase
+class EntrySearchFilterMultiCondTest extends ZimbraTestCase
 {
     protected function setUp(): void
     {

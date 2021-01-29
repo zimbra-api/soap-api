@@ -4,11 +4,12 @@ namespace Zimbra\Tests\Struct;
 
 use JMS\Serializer\Annotation\XmlRoot;
 use Zimbra\Struct\{AttributeSelector, AttributeSelectorTrait};
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for AttributeSelectorTrait.
  */
-class AttributeSelectorTrailTest extends ZimbraStructTestCase
+class AttributeSelectorTrailTest extends ZimbraTestCase
 {
     public function testAttributeSelectorTrail()
     {

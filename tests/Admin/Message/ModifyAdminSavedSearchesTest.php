@@ -7,12 +7,12 @@ use Zimbra\Admin\Message\ModifyAdminSavedSearchesEnvelope;
 use Zimbra\Admin\Message\ModifyAdminSavedSearchesRequest;
 use Zimbra\Admin\Message\ModifyAdminSavedSearchesResponse;
 use Zimbra\Struct\NamedValue;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for ModifyAdminSavedSearchesTest.
  */
-class ModifyAdminSavedSearchesTest extends ZimbraStructTestCase
+class ModifyAdminSavedSearchesTest extends ZimbraTestCase
 {
     public function testModifyAdminSavedSearches()
     {

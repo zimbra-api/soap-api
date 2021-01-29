@@ -4,12 +4,12 @@ namespace Zimbra\Tests\Admin\Struct;
 
 use Zimbra\Admin\Struct\AdminZimletHostConfigInfo;
 use Zimbra\Admin\Struct\AdminZimletProperty;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for AdminZimletHostConfigInfo.
  */
-class AdminZimletHostConfigInfoTest extends ZimbraStructTestCase
+class AdminZimletHostConfigInfoTest extends ZimbraTestCase
 {
     public function testAdminZimletHostConfigInfo()
     {

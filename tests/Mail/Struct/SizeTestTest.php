@@ -4,12 +4,12 @@ namespace Zimbra\Tests\Mail\Struct;
 
 use Zimbra\Mail\Struct\SizeTest;
 use Zimbra\Enum\NumberComparison;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for SizeTest.
  */
-class SizeTestTest extends ZimbraStructTestCase
+class SizeTestTest extends ZimbraTestCase
 {
     public function testSizeTest()
     {

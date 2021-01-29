@@ -8,12 +8,12 @@ use Zimbra\Admin\Message\CreateUCServiceRequest;
 use Zimbra\Admin\Message\CreateUCServiceResponse;
 use Zimbra\Admin\Struct\Attr;
 use Zimbra\Admin\Struct\UCServiceInfo;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for CreateUCService.
  */
-class CreateUCServiceTest extends ZimbraStructTestCase
+class CreateUCServiceTest extends ZimbraTestCase
 {
     public function testCreateUCService()
     {

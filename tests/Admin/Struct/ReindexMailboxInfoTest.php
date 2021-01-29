@@ -4,12 +4,12 @@ namespace Zimbra\Tests\Admin\Struct;
 
 use Zimbra\Admin\Struct\ReindexMailboxInfo;
 use Zimbra\Enum\ReindexType;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for ReindexMailboxInfo.
  */
-class ReindexMailboxInfoTest extends ZimbraStructTestCase
+class ReindexMailboxInfoTest extends ZimbraTestCase
 {
     public function testReindexMailboxInfo()
     {

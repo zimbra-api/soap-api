@@ -10,11 +10,11 @@ use Zimbra\Account\Message\GetDistributionListMembersResponse;
 use Zimbra\Account\Struct\HABGroupMember;
 use Zimbra\Struct\NamedValue;
 
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 /**
  * Testcase class for GetDistributionListMembers.
  */
-class GetDistributionListMembersTest extends ZimbraStructTestCase
+class GetDistributionListMembersTest extends ZimbraTestCase
 {
     public function testGetDistributionListMembers()
     {

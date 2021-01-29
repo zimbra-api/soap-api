@@ -5,12 +5,12 @@ namespace Zimbra\Tests\Admin\Response;
 use Zimbra\Admin\Message\{AutoProvTaskControlBody, AutoProvTaskControlEnvelope, AutoProvTaskControlRequest, AutoProvTaskControlResponse};
 use Zimbra\Admin\Struct\{AccountInfo, Attr, DomainSelector, PrincipalSelector};
 use Zimbra\Enum\{AutoProvTaskAction, AutoProvTaskStatus};
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for AutoProvTaskControl.
  */
-class AutoProvTaskControlTest extends ZimbraStructTestCase
+class AutoProvTaskControlTest extends ZimbraTestCase
 {
     public function testAutoProvTaskControl()
     {

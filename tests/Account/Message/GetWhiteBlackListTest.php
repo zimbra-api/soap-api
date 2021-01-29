@@ -6,12 +6,12 @@ use Zimbra\Account\Message\GetWhiteBlackListBody;
 use Zimbra\Account\Message\GetWhiteBlackListEnvelope;
 use Zimbra\Account\Message\GetWhiteBlackListRequest;
 use Zimbra\Account\Message\GetWhiteBlackListResponse;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for GetWhiteBlackListTest.
  */
-class GetWhiteBlackListTest extends ZimbraStructTestCase
+class GetWhiteBlackListTest extends ZimbraTestCase
 {
     public function testGetWhiteBlackList()
     {

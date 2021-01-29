@@ -7,12 +7,12 @@ use Zimbra\Admin\Struct\Attr;
 use Zimbra\Admin\Struct\UCServiceInfo;
 use Zimbra\Admin\Struct\UcServiceSelector;
 use Zimbra\Enum\UcServiceBy;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for GetUCService.
  */
-class GetUCServiceTest extends ZimbraStructTestCase
+class GetUCServiceTest extends ZimbraTestCase
 {
     public function testGetUCService()
     {

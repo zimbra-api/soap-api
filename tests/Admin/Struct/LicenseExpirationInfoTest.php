@@ -3,12 +3,12 @@
 namespace Zimbra\Tests\Admin\Struct;
 
 use Zimbra\Admin\Struct\LicenseExpirationInfo;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for LicenseExpirationInfo.
  */
-class LicenseExpirationInfoTest extends ZimbraStructTestCase
+class LicenseExpirationInfoTest extends ZimbraTestCase
 {
     public function testLicenseExpirationInfo()
     {

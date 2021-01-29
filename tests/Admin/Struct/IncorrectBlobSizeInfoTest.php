@@ -4,12 +4,12 @@ namespace Zimbra\Tests\Admin\Struct;
 
 use Zimbra\Admin\Struct\IncorrectBlobSizeInfo;
 use Zimbra\Admin\Struct\BlobSizeInfo;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for IncorrectBlobSizeInfo.
  */
-class IncorrectBlobSizeInfoTest extends ZimbraStructTestCase
+class IncorrectBlobSizeInfoTest extends ZimbraTestCase
 {
     public function testIncorrectBlobSizeInfo()
     {

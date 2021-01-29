@@ -3,12 +3,12 @@
 namespace Zimbra\Tests\Mail\Struct;
 
 use Zimbra\Mail\Struct\FacebookTest;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for FacebookTest.
  */
-class FacebookTestTest extends ZimbraStructTestCase
+class FacebookTestTest extends ZimbraTestCase
 {
     public function testFacebookTest()
     {

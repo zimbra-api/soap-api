@@ -3,11 +3,11 @@
 namespace Zimbra\Tests\Account\Message;
 
 use Zimbra\Account\Message\{ResetPasswordEnvelope, ResetPasswordBody, ResetPasswordRequest, ResetPasswordResponse};
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 /**
  * Testcase class for ResetPassword.
  */
-class ResetPasswordTest extends ZimbraStructTestCase
+class ResetPasswordTest extends ZimbraTestCase
 {
     public function testResetPassword()
     {

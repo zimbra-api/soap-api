@@ -3,12 +3,12 @@
 namespace Zimbra\Tests\Mail\Struct;
 
 use Zimbra\Mail\Struct\NotifyAction;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for NotifyAction.
  */
-class NotifyActionTest extends ZimbraStructTestCase
+class NotifyActionTest extends ZimbraTestCase
 {
     public function testNotifyAction()
     {

@@ -8,12 +8,12 @@ use Zimbra\Admin\Message\CreateDomainRequest;
 use Zimbra\Admin\Message\CreateDomainResponse;
 use Zimbra\Admin\Struct\Attr;
 use Zimbra\Admin\Struct\DomainInfo;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for CreateDomain.
  */
-class CreateDomainTest extends ZimbraStructTestCase
+class CreateDomainTest extends ZimbraTestCase
 {
     public function testCreateDomain()
     {

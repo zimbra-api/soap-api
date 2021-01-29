@@ -3,12 +3,12 @@
 namespace Zimbra\Tests\Mail\Struct;
 
 use Zimbra\Mail\Struct\XNameRule;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for XNameRule.
  */
-class XNameRuleTest extends ZimbraStructTestCase
+class XNameRuleTest extends ZimbraTestCase
 {
     public function testXNameRule()
     {

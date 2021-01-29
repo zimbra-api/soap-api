@@ -3,12 +3,12 @@
 namespace Zimbra\Tests\Mail\Struct;
 
 use Zimbra\Mail\Struct\CancelRuleInfo;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for CancelRuleInfo.
  */
-class CancelRuleInfoTest extends ZimbraStructTestCase
+class CancelRuleInfoTest extends ZimbraTestCase
 {
     public function testCancelRuleInfo()
     {

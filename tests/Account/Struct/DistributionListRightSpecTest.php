@@ -6,12 +6,12 @@ use Zimbra\Enum\DistributionListGranteeBy as DLGranteeBy;
 use Zimbra\Enum\GranteeType;
 use Zimbra\Account\Struct\DistributionListGranteeSelector;
 use Zimbra\Account\Struct\DistributionListRightSpec;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for DistributionListRightSpec.
  */
-class DistributionListRightSpecTest extends ZimbraStructTestCase
+class DistributionListRightSpecTest extends ZimbraTestCase
 {
     public function testDistributionListRightSpec()
     {

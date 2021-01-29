@@ -3,12 +3,12 @@
 namespace Zimbra\Tests\Admin\Struct;
 
 use Zimbra\Admin\Struct\CookieSpec;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for CookieSpec.
  */
-class CookieSpecTest extends ZimbraStructTestCase
+class CookieSpecTest extends ZimbraTestCase
 {
     public function testCookieSpec()
     {

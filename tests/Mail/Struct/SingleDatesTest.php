@@ -6,12 +6,12 @@ use Zimbra\Mail\Struct\DtVal;
 use Zimbra\Mail\Struct\DtTimeInfo;
 use Zimbra\Mail\Struct\DurationInfo;
 use Zimbra\Mail\Struct\SingleDates;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for SingleDates.
  */
-class SingleDatesTest extends ZimbraStructTestCase
+class SingleDatesTest extends ZimbraTestCase
 {
     public function testSingleDates()
     {

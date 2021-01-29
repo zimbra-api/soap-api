@@ -12,12 +12,12 @@ use Zimbra\Mail\Struct\CancelRuleInfo;
 use Zimbra\Mail\Struct\SingleDates;
 use Zimbra\Mail\Struct\SimpleRepeatingRule;
 
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for RecurrenceInfo.
  */
-class RecurrenceInfoTest extends ZimbraStructTestCase
+class RecurrenceInfoTest extends ZimbraTestCase
 {
     public function testRecurrenceInfo()
     {

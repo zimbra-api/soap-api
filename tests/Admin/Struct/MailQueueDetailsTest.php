@@ -6,12 +6,12 @@ use Zimbra\Admin\Struct\MailQueueDetails;
 use Zimbra\Admin\Struct\QueueSummary;
 use Zimbra\Admin\Struct\QueueSummaryItem;
 use Zimbra\Admin\Struct\QueueItem;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for MailQueueDetails.
  */
-class MailQueueDetailsTest extends ZimbraStructTestCase
+class MailQueueDetailsTest extends ZimbraTestCase
 {
     public function testMailQueueDetails()
     {

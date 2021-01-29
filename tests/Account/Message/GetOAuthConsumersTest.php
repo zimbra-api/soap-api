@@ -7,12 +7,12 @@ use Zimbra\Account\Message\GetOAuthConsumersEnvelope;
 use Zimbra\Account\Message\GetOAuthConsumersRequest;
 use Zimbra\Account\Message\GetOAuthConsumersResponse;
 use Zimbra\Account\Struct\OAuthConsumer;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for GetOAuthConsumersTest.
  */
-class GetOAuthConsumersTest extends ZimbraStructTestCase
+class GetOAuthConsumersTest extends ZimbraTestCase
 {
     public function testGetOAuthConsumers()
     {

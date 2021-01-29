@@ -4,12 +4,12 @@ namespace Zimbra\Tests\Admin\Struct;
 
 use Zimbra\Admin\Struct\ZimletDeploymentStatus;
 use Zimbra\Enum\ZimletDeployStatus;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for ZimletDeploymentStatus.
  */
-class ZimletDeploymentStatusTest extends ZimbraStructTestCase
+class ZimletDeploymentStatusTest extends ZimbraTestCase
 {
     public function testZimletDeploymentStatus()
     {

@@ -6,12 +6,12 @@ use Zimbra\Admin\Message\CheckPasswordStrengthBody;
 use Zimbra\Admin\Message\CheckPasswordStrengthEnvelope;
 use Zimbra\Admin\Message\CheckPasswordStrengthRequest;
 use Zimbra\Admin\Message\CheckPasswordStrengthResponse;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for CheckPasswordStrength.
  */
-class CheckPasswordStrengthTest extends ZimbraStructTestCase
+class CheckPasswordStrengthTest extends ZimbraTestCase
 {
     public function testCheckPasswordStrength()
     {

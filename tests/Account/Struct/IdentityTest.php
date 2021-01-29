@@ -4,12 +4,12 @@ namespace Zimbra\Tests\Account\Struct;
 
 use Zimbra\Account\Struct\Attr;
 use Zimbra\Account\Struct\Identity;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for Identity.
  */
-class IdentityTest extends ZimbraStructTestCase
+class IdentityTest extends ZimbraTestCase
 {
     public function testIdentity()
     {

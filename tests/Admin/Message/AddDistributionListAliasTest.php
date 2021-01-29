@@ -6,12 +6,12 @@ use Zimbra\Admin\Message\AddDistributionListAliasBody;
 use Zimbra\Admin\Message\AddDistributionListAliasEnvelope;
 use Zimbra\Admin\Message\AddDistributionListAliasRequest;
 use Zimbra\Admin\Message\AddDistributionListAliasResponse;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for AddDistributionListAlias.
  */
-class AddDistributionListAliasTest extends ZimbraStructTestCase
+class AddDistributionListAliasTest extends ZimbraTestCase
 {
     public function testAddDistributionListAlias()
     {

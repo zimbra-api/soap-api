@@ -6,12 +6,12 @@ use Zimbra\Admin\Message\DeleteServerBody;
 use Zimbra\Admin\Message\DeleteServerEnvelope;
 use Zimbra\Admin\Message\DeleteServerRequest;
 use Zimbra\Admin\Message\DeleteServerResponse;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for DeleteServer.
  */
-class DeleteServerTest extends ZimbraStructTestCase
+class DeleteServerTest extends ZimbraTestCase
 {
     public function testDeleteServer()
     {

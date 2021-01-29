@@ -9,12 +9,12 @@ use Zimbra\Admin\Message\GetLicenseInfoResponse;
 
 use Zimbra\Admin\Struct\LicenseExpirationInfo;
 
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for GetLicenseInfo.
  */
-class GetLicenseInfoTest extends ZimbraStructTestCase
+class GetLicenseInfoTest extends ZimbraTestCase
 {
     public function testGetLicenseInfo()
     {

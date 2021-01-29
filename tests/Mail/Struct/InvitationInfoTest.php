@@ -10,12 +10,12 @@ use Zimbra\Mail\Struct\MimePartInfo;
 use Zimbra\Mail\Struct\RawInvite;
 
 use Zimbra\Struct\TzOnsetInfo;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for InvitationInfo.
  */
-class InvitationInfoTest extends ZimbraStructTestCase
+class InvitationInfoTest extends ZimbraTestCase
 {
     public function testInvitationInfo()
     {

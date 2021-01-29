@@ -4,12 +4,12 @@ namespace Zimbra\Tests\Admin\Struct;
 
 use Zimbra\Admin\Struct\DLInfo;
 use Zimbra\Admin\Struct\Attr;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for DLInfo.
  */
-class DLInfoTest extends ZimbraStructTestCase
+class DLInfoTest extends ZimbraTestCase
 {
     public function testDLInfo()
     {

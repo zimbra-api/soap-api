@@ -3,12 +3,12 @@
 namespace Zimbra\Tests\Admin\Struct;
 
 use Zimbra\Admin\Struct\TargetWithType;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for TargetWithType.
  */
-class TargetWithTypeTest extends ZimbraStructTestCase
+class TargetWithTypeTest extends ZimbraTestCase
 {
     public function testTargetWithType()
     {

@@ -5,11 +5,11 @@ namespace Zimbra\Tests\Account\Message;
 use Zimbra\Account\Message\{CheckRightsEnvelope, CheckRightsBody, CheckRightsRequest, CheckRightsResponse};
 use Zimbra\Account\Struct\{CheckRightsRightInfo, CheckRightsTargetInfo, CheckRightsTargetSpec};
 use Zimbra\Enum\{TargetType, TargetBy};
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 /**
  * Testcase class for CheckRights.
  */
-class CheckRightsTest extends ZimbraStructTestCase
+class CheckRightsTest extends ZimbraTestCase
 {
     public function testCheckRights()
     {

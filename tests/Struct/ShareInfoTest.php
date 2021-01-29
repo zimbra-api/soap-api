@@ -3,11 +3,12 @@
 namespace Zimbra\Tests\Struct;
 
 use Zimbra\Struct\ShareInfo;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for ShareInfo.
  */
-class ShareInfoTest extends ZimbraStructTestCase
+class ShareInfoTest extends ZimbraTestCase
 {
     public function testShareInfo()
     {

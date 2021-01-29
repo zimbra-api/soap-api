@@ -8,12 +8,12 @@ use Zimbra\Admin\Message\CreateCalendarResourceRequest;
 use Zimbra\Admin\Message\CreateCalendarResourceResponse;
 use Zimbra\Admin\Struct\Attr;
 use Zimbra\Admin\Struct\CalendarResourceInfo;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for CreateCalendarResource.
  */
-class CreateCalendarResourceTest extends ZimbraStructTestCase
+class CreateCalendarResourceTest extends ZimbraTestCase
 {
     public function testCreateCalendarResource()
     {

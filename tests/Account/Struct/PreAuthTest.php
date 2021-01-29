@@ -3,12 +3,12 @@
 namespace Zimbra\Tests\Account\Struct;
 
 use Zimbra\Account\Struct\PreAuth;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for PreAuth.
  */
-class PreAuthTest extends ZimbraStructTestCase
+class PreAuthTest extends ZimbraTestCase
 {
     public function testPreAuth()
     {

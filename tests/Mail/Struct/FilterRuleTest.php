@@ -65,12 +65,12 @@ use Zimbra\Enum\LoggingLevel;
 use Zimbra\Enum\NumberComparison;
 use Zimbra\Enum\{MatchType, RelationalComparator};
 use Zimbra\Enum\{AddressPart, ComparisonComparator, CountComparison, StringComparison, ValueComparison};
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for FilterRule.
  */
-class FilterRuleTest extends ZimbraStructTestCase
+class FilterRuleTest extends ZimbraTestCase
 {
     protected function setUp(): void
     {

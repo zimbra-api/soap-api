@@ -4,12 +4,12 @@ namespace Zimbra\Tests\Admin\Struct;
 
 use Zimbra\Admin\Struct\TzFixupRuleMatchRules;
 use Zimbra\Admin\Struct\TzFixupRuleMatchRule;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for TzFixupRuleMatchRules.
  */
-class TzFixupRuleMatchRulesTest extends ZimbraStructTestCase
+class TzFixupRuleMatchRulesTest extends ZimbraTestCase
 {
     public function testTzFixupRuleMatchRules()
     {

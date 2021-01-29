@@ -4,12 +4,12 @@ namespace Zimbra\Tests\Admin\Struct;
 
 use Zimbra\Admin\Struct\LoggerInfo;
 use Zimbra\Enum\LoggingLevel;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for LoggerInfo.
  */
-class LoggerInfoTest extends ZimbraStructTestCase
+class LoggerInfoTest extends ZimbraTestCase
 {
     public function testLoggerInfo()
     {

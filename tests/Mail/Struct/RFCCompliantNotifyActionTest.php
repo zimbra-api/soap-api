@@ -3,12 +3,12 @@
 namespace Zimbra\Tests\Mail\Struct;
 
 use Zimbra\Mail\Struct\RFCCompliantNotifyAction;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for RFCCompliantNotifyAction.
  */
-class RFCCompliantNotifyActionTest extends ZimbraStructTestCase
+class RFCCompliantNotifyActionTest extends ZimbraTestCase
 {
     public function testRFCCompliantNotifyAction()
     {

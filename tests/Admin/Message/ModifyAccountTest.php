@@ -8,12 +8,12 @@ use Zimbra\Admin\Message\ModifyAccountRequest;
 use Zimbra\Admin\Message\ModifyAccountResponse;
 use Zimbra\Admin\Struct\AccountInfo;
 use Zimbra\Admin\Struct\Attr;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for ModifyAccount.
  */
-class ModifyAccountTest extends ZimbraStructTestCase
+class ModifyAccountTest extends ZimbraTestCase
 {
     public function testModifyAccount()
     {

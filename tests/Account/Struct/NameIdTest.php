@@ -3,12 +3,12 @@
 namespace Zimbra\Tests\Account\Struct;
 
 use Zimbra\Account\Struct\NameId;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for NameId.
  */
-class NameIdTest extends ZimbraStructTestCase
+class NameIdTest extends ZimbraTestCase
 {
     public function testNameId()
     {

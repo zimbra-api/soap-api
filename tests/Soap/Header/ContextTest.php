@@ -5,12 +5,12 @@ namespace Zimbra\Tests\Soap\Header;
 use Zimbra\Enum\{AccountBy, RequestFormat};
 use Zimbra\Soap\Header\{AccountInfo, Context, ChangeInfo, FormatInfo, NotifyInfo, SessionInfo, UserAgentInfo};
 use Zimbra\Struct\AuthTokenControl;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for Context.
  */
-class ContextTest extends ZimbraStructTestCase
+class ContextTest extends ZimbraTestCase
 {
     public function testHeaderContext()
     {

@@ -8,12 +8,12 @@ use Zimbra\Admin\Message\DeleteXMPPComponentRequest;
 use Zimbra\Admin\Message\DeleteXMPPComponentResponse;
 use Zimbra\Admin\Struct\XMPPComponentSelector;
 use Zimbra\Enum\XmppComponentBy as XmppBy;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for DeleteXMPPComponent.
  */
-class DeleteXMPPComponentTest extends ZimbraStructTestCase
+class DeleteXMPPComponentTest extends ZimbraTestCase
 {
     public function testDeleteXMPPComponent()
     {

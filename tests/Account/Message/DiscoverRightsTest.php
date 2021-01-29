@@ -7,11 +7,11 @@ use Zimbra\Account\Struct\DiscoverRightsEmail;
 use Zimbra\Account\Struct\DiscoverRightsInfo;
 use Zimbra\Account\Struct\DiscoverRightsTarget;
 use Zimbra\Enum\TargetType;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 /**
  * Testcase class for DiscoverRights.
  */
-class DiscoverRightsTest extends ZimbraStructTestCase
+class DiscoverRightsTest extends ZimbraTestCase
 {
     public function testDiscoverRights()
     {

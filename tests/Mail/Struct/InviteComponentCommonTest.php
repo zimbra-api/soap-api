@@ -8,12 +8,12 @@ use Zimbra\Enum\InviteClass;
 use Zimbra\Enum\InviteStatus;
 use Zimbra\Enum\Transparency;
 use Zimbra\Mail\Struct\InviteComponentCommon;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for InviteComponentCommon.
  */
-class InviteComponentCommonTest extends ZimbraStructTestCase
+class InviteComponentCommonTest extends ZimbraTestCase
 {
     public function testInviteComponentCommon()
     {

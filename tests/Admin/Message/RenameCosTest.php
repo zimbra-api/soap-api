@@ -9,12 +9,12 @@ use Zimbra\Admin\Message\RenameCosResponse;
 use Zimbra\Admin\Struct\Attr;
 use Zimbra\Admin\Struct\CosInfo;
 use Zimbra\Admin\Struct\CosInfoAttr;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for RenameCos.
  */
-class RenameCosTest extends ZimbraStructTestCase
+class RenameCosTest extends ZimbraTestCase
 {
     public function testRenameCos()
     {

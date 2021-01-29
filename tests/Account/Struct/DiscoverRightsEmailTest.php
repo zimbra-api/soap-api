@@ -3,12 +3,12 @@
 namespace Zimbra\Tests\Account\Struct;
 
 use Zimbra\Account\Struct\DiscoverRightsEmail;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for DiscoverRightsEmail.
  */
-class DiscoverRightsEmailTest extends ZimbraStructTestCase
+class DiscoverRightsEmailTest extends ZimbraTestCase
 {
     public function testDiscoverRightsEmail()
     {

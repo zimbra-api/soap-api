@@ -3,12 +3,12 @@
 namespace Zimbra\Tests\Account\Struct;
 
 use Zimbra\Account\Struct\Session;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for Session.
  */
-class SessionTest extends ZimbraStructTestCase
+class SessionTest extends ZimbraTestCase
 {
     public function testProp()
     {

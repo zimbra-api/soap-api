@@ -6,11 +6,11 @@ use Zimbra\Account\Message\{ModifySignatureEnvelope, ModifySignatureBody, Modify
 use Zimbra\Account\Struct\Signature;
 use Zimbra\Account\Struct\SignatureContent;
 use Zimbra\Enum\ContentType;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 /**
  * Testcase class for ModifySignature.
  */
-class ModifySignatureTest extends ZimbraStructTestCase
+class ModifySignatureTest extends ZimbraTestCase
 {
     public function testModifySignature()
     {

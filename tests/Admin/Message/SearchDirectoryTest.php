@@ -20,12 +20,12 @@ use Zimbra\Admin\Struct\GranteeInfo;
 use Zimbra\Enum\TargetType;
 use Zimbra\Enum\GranteeType;
 
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for SearchDirectoryTest.
  */
-class SearchDirectoryTest extends ZimbraStructTestCase
+class SearchDirectoryTest extends ZimbraTestCase
 {
     public function testSearchDirectory()
     {

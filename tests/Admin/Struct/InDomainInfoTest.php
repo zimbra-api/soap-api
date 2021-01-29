@@ -9,12 +9,12 @@ use Zimbra\Admin\Struct\EffectiveRightsInfo;
 use Zimbra\Admin\Struct\InDomainInfo;
 use Zimbra\Admin\Struct\RightWithName;
 use Zimbra\Struct\NamedElement;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for InDomainInfo.
  */
-class InDomainInfoTest extends ZimbraStructTestCase
+class InDomainInfoTest extends ZimbraTestCase
 {
     public function testInDomainInfo()
     {

@@ -3,12 +3,12 @@
 namespace Zimbra\Tests\Mail\Struct;
 
 use Zimbra\Mail\Struct\FlagAction;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for FlagAction.
  */
-class FlagActionTest extends ZimbraStructTestCase
+class FlagActionTest extends ZimbraTestCase
 {
     public function testFlagAction()
     {

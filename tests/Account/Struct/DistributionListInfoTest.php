@@ -7,12 +7,12 @@ use Zimbra\Account\Struct\DistributionListRightInfo;
 use Zimbra\Account\Struct\DistributionListGranteeInfo;
 use Zimbra\Enum\GranteeType;
 use Zimbra\Struct\KeyValuePair;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for DistributionListInfo.
  */
-class DistributionListInfoTest extends ZimbraStructTestCase
+class DistributionListInfoTest extends ZimbraTestCase
 {
     public function testDistributionListInfo()
     {

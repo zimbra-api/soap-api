@@ -4,12 +4,12 @@ namespace Zimbra\Tests\Admin\Struct;
 
 use Zimbra\Admin\Struct\Attr;
 use Zimbra\Admin\Struct\XMPPComponentInfo;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for XMPPComponentInfo.
  */
-class XMPPComponentInfoTest extends ZimbraStructTestCase
+class XMPPComponentInfoTest extends ZimbraTestCase
 {
     public function testXMPPComponentInfo()
     {

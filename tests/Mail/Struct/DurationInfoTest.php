@@ -4,12 +4,12 @@ namespace Zimbra\Tests\Mail\Struct;
 
 use Zimbra\Enum\AlarmRelated;
 use Zimbra\Mail\Struct\DurationInfo;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for DurationInfo.
  */
-class DurationInfoTest extends ZimbraStructTestCase
+class DurationInfoTest extends ZimbraTestCase
 {
     public function testDurationInfo()
     {

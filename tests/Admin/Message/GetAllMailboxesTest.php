@@ -7,12 +7,12 @@ use Zimbra\Admin\Message\GetAllMailboxesEnvelope;
 use Zimbra\Admin\Message\GetAllMailboxesRequest;
 use Zimbra\Admin\Message\GetAllMailboxesResponse;
 use Zimbra\Admin\Struct\MailboxInfo;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for GetAllMailboxesTest.
  */
-class GetAllMailboxesTest extends ZimbraStructTestCase
+class GetAllMailboxesTest extends ZimbraTestCase
 {
     public function testGetAllMailboxes()
     {

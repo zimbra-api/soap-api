@@ -3,12 +3,12 @@
 namespace Zimbra\Tests\Admin\Struct;
 
 use Zimbra\Admin\Struct\ZimletServerExtension;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for ZimletServerExtension.
  */
-class ZimletServerExtensionTest extends ZimbraStructTestCase
+class ZimletServerExtensionTest extends ZimbraTestCase
 {
     public function testZimletServerExtension()
     {

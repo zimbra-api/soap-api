@@ -11,12 +11,12 @@ use Zimbra\Admin\Struct\ReindexProgressInfo;
 use Zimbra\Enum\ReIndexAction;
 use Zimbra\Enum\ReIndexStatus;
 use Zimbra\Enum\ReindexType;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for ReIndex.
  */
-class ReIndexTest extends ZimbraStructTestCase
+class ReIndexTest extends ZimbraTestCase
 {
     public function testReIndexEnvelope()
     {

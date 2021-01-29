@@ -8,12 +8,12 @@ use Zimbra\Admin\Struct\ZimletAcl;
 use Zimbra\Admin\Struct\ZimletAclStatusPri;
 use Zimbra\Enum\AclType;
 use Zimbra\Enum\ZimletStatus;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for ZimletAclStatusPri.
  */
-class ZimletAclStatusPriTest extends ZimbraStructTestCase
+class ZimletAclStatusPriTest extends ZimbraTestCase
 {
     public function testZimletAclStatusPri()
     {

@@ -3,11 +3,12 @@
 namespace Zimbra\Tests\Struct;
 
 use Zimbra\Struct\ContactAttr;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for ContactAttr.
  */
-class ContactAttrTest extends ZimbraStructTestCase
+class ContactAttrTest extends ZimbraTestCase
 {
     public function testContactAttr()
     {

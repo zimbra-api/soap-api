@@ -3,12 +3,12 @@
 namespace Zimbra\Tests\Admin\Struct;
 
 use Zimbra\Admin\Struct\DeviceId;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for DeviceId.
  */
-class DeviceIdTest extends ZimbraStructTestCase
+class DeviceIdTest extends ZimbraTestCase
 {
     public function testDeviceId()
     {

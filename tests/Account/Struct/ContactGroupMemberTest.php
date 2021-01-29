@@ -4,12 +4,12 @@ namespace Zimbra\Tests\Struct;
 
 use Zimbra\Account\Struct\ContactGroupMember;
 use Zimbra\Account\Struct\ContactInfo;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for ContactGroupMember.
  */
-class ContactGroupMemberTest extends ZimbraStructTestCase
+class ContactGroupMemberTest extends ZimbraTestCase
 {
     public function testContactGroupMember()
     {

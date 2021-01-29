@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Zimbra\Tests\Struct;
+namespace Zimbra\Tests;
 
 use Doctrine\Common\Annotations\AnnotationRegistry;
 use Faker\Factory as FakerFactory;
@@ -10,7 +10,7 @@ use Zimbra\Common\SerializerFactory;
 /**
  * Base testcase class for all Zimbra testcases.
  */
-abstract class ZimbraStructTestCase extends TestCase
+abstract class ZimbraTestCase extends TestCase
 {
     protected $faker;
     protected $serializer;

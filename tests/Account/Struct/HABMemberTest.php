@@ -4,12 +4,12 @@ namespace Zimbra\Tests\Account\Struct;
 
 use JMS\Serializer\Annotation\XmlRoot;
 use Zimbra\Account\Struct\HABMember;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for HABMember.
  */
-class HABMemberTest extends ZimbraStructTestCase
+class HABMemberTest extends ZimbraTestCase
 {
     public function testHABMember()
     {

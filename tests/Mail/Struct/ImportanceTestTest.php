@@ -4,12 +4,12 @@ namespace Zimbra\Tests\Mail\Struct;
 
 use Zimbra\Enum\Importance;
 use Zimbra\Mail\Struct\ImportanceTest;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for ImportanceTest.
  */
-class ImportanceTestTest extends ZimbraStructTestCase
+class ImportanceTestTest extends ZimbraTestCase
 {
     public function testImportanceTest()
     {

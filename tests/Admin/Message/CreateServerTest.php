@@ -8,12 +8,12 @@ use Zimbra\Admin\Message\CreateServerRequest;
 use Zimbra\Admin\Message\CreateServerResponse;
 use Zimbra\Admin\Struct\ServerInfo;
 use Zimbra\Admin\Struct\Attr;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for CreateServer.
  */
-class CreateServerTest extends ZimbraStructTestCase
+class CreateServerTest extends ZimbraTestCase
 {
     public function testCreateServer()
     {

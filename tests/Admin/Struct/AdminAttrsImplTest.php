@@ -3,14 +3,14 @@
 namespace Zimbra\Tests\Admin\Struct;
 
 use JMS\Serializer\Annotation\XmlRoot;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 use Zimbra\Admin\Struct\AdminAttrsImpl;
 use Zimbra\Admin\Struct\Attr;
 
 /**
  * Testcase class for AdminAttrsImpl.
  */
-class AdminAttrsImplTest extends ZimbraStructTestCase
+class AdminAttrsImplTest extends ZimbraTestCase
 {
     public function testAdminAttrsImpl()
     {

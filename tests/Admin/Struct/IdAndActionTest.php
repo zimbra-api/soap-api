@@ -3,12 +3,12 @@
 namespace Zimbra\Tests\Admin\Struct;
 
 use Zimbra\Admin\Struct\IdAndAction;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for IdAndAction.
  */
-class IdAndActionTest extends ZimbraStructTestCase
+class IdAndActionTest extends ZimbraTestCase
 {
     public function testIdAndAction()
     {

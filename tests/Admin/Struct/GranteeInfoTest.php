@@ -4,12 +4,12 @@ namespace Zimbra\Tests\Admin\Struct;
 
 use Zimbra\Admin\Struct\GranteeInfo;
 use Zimbra\Enum\GranteeType;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for GranteeInfo.
  */
-class GranteeInfoTest extends ZimbraStructTestCase
+class GranteeInfoTest extends ZimbraTestCase
 {
     public function testGranteeInfo()
     {

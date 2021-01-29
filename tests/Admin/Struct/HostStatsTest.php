@@ -6,12 +6,12 @@ use Zimbra\Admin\Struct\HostStats;
 use Zimbra\Admin\Struct\StatsInfo;
 use Zimbra\Admin\Struct\StatsValues;
 use Zimbra\Admin\Struct\NameAndValue;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for HostStats.
  */
-class HostStatsTest extends ZimbraStructTestCase
+class HostStatsTest extends ZimbraTestCase
 {
     public function testHostStats()
     {

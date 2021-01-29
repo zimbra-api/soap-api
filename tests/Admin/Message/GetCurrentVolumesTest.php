@@ -7,12 +7,12 @@ use Zimbra\Admin\Message\GetCurrentVolumesEnvelope;
 use Zimbra\Admin\Message\GetCurrentVolumesRequest;
 use Zimbra\Admin\Message\GetCurrentVolumesResponse;
 use Zimbra\Admin\Struct\CurrentVolumeInfo;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for GetCurrentVolumesTest.
  */
-class GetCurrentVolumesTest extends ZimbraStructTestCase
+class GetCurrentVolumesTest extends ZimbraTestCase
 {
     public function testGetCurrentVolumes()
     {

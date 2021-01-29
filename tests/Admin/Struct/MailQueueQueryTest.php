@@ -6,12 +6,12 @@ use Zimbra\Admin\Struct\QueueQueryField;
 use Zimbra\Admin\Struct\MailQueueQuery;
 use Zimbra\Admin\Struct\QueueQuery;
 use Zimbra\Admin\Struct\ValueAttrib;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for MailQueueQuery.
  */
-class MailQueueQueryTest extends ZimbraStructTestCase
+class MailQueueQueryTest extends ZimbraTestCase
 {
     public function testMailQueueQuery()
     {

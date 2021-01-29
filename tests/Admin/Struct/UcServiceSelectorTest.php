@@ -4,12 +4,12 @@ namespace Zimbra\Tests\Admin\Struct;
 
 use Zimbra\Admin\Struct\UcServiceSelector;
 use Zimbra\Enum\UcServiceBy;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for UcServiceSelector.
  */
-class UcServiceSelectorTest extends ZimbraStructTestCase
+class UcServiceSelectorTest extends ZimbraTestCase
 {
     public function testUcServiceSelector()
     {

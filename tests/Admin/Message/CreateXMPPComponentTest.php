@@ -8,12 +8,12 @@ use Zimbra\Admin\Message\CreateXMPPComponentRequest;
 use Zimbra\Admin\Message\CreateXMPPComponentResponse;
 use Zimbra\Admin\Struct\{Attr, DomainSelector, ServerSelector, XMPPComponentInfo, XMPPComponentSpec};
 use Zimbra\Enum\{DomainBy, ServerBy};
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for CreateXMPPComponent.
  */
-class CreateXMPPComponentTest extends ZimbraStructTestCase
+class CreateXMPPComponentTest extends ZimbraTestCase
 {
     public function testCreateXMPPComponent()
     {

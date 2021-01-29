@@ -4,12 +4,12 @@ namespace Zimbra\Tests\Admin\Struct;
 
 use Zimbra\Admin\Struct\Attr;
 use Zimbra\Admin\Struct\ServerInfo;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for ServerInfo.
  */
-class ServerInfoTest extends ZimbraStructTestCase
+class ServerInfoTest extends ZimbraTestCase
 {
     public function testServerInfo()
     {

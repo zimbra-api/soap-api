@@ -3,12 +3,12 @@
 namespace Zimbra\Tests\Account\Struct;
 
 use Zimbra\Account\Struct\Pref;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for Pref.
  */
-class PrefTest extends ZimbraStructTestCase
+class PrefTest extends ZimbraTestCase
 {
     public function testPref()
     {

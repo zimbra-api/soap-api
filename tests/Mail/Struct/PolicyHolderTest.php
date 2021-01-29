@@ -5,12 +5,12 @@ namespace Zimbra\Tests\Mail\Struct;
 use Zimbra\Mail\Struct\Policy;
 use Zimbra\Mail\Struct\PolicyHolder;
 use Zimbra\Enum\Type;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for PolicyHolder.
  */
-class PolicyHolderTest extends ZimbraStructTestCase
+class PolicyHolderTest extends ZimbraTestCase
 {
     public function testPolicyHolder()
     {
