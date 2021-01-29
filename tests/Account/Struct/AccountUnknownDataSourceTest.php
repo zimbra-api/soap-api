@@ -4,12 +4,12 @@ namespace Zimbra\Tests\Account\Struct;
 
 use Zimbra\Enum\ConnectionType;
 use Zimbra\Account\Struct\AccountUnknownDataSource;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for AccountUnknownDataSource.
  */
-class AccountUnknownDataSourceTest extends ZimbraStructTestCase
+class AccountUnknownDataSourceTest extends ZimbraTestCase
 {
     public function testAccountUnknownDataSource()
     {

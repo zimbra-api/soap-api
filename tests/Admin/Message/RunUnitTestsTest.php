@@ -9,12 +9,12 @@ use Zimbra\Admin\Message\RunUnitTestsResponse;
 use Zimbra\Admin\Struct\CompletedTestInfo;
 use Zimbra\Admin\Struct\FailedTestInfo;
 use Zimbra\Admin\Struct\TestResultInfo;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for RunUnitTests.
  */
-class RunUnitTestsTest extends ZimbraStructTestCase
+class RunUnitTestsTest extends ZimbraTestCase
 {
     public function testRunUnitTests()
     {

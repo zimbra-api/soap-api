@@ -12,12 +12,12 @@ use Zimbra\Admin\Struct\EffectiveAttrsInfo;
 use Zimbra\Admin\Struct\TargetWithType;
 use Zimbra\Enum\DomainBy;
 use Zimbra\Enum\CosBy;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for GetCreateObjectAttrs.
  */
-class GetCreateObjectAttrsTest extends ZimbraStructTestCase
+class GetCreateObjectAttrsTest extends ZimbraTestCase
 {
     public function testGetCreateObjectAttrs()
     {

@@ -11,12 +11,12 @@ use Zimbra\Account\Struct\DistributionListRightSpec;
 use Zimbra\Account\Struct\DistributionListGranteeSelector;
 use Zimbra\Account\Struct\DistributionListAction;
 use Zimbra\Struct\KeyValuePair;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for DistributionListAction.
  */
-class DistributionListActionTest extends ZimbraStructTestCase
+class DistributionListActionTest extends ZimbraTestCase
 {
     public function testDistributionListAction()
     {

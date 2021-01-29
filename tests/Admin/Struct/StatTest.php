@@ -3,12 +3,12 @@
 namespace Zimbra\Tests\Admin\Struct;
 
 use Zimbra\Admin\Struct\Stat;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for Stat.
  */
-class StatTest extends ZimbraStructTestCase
+class StatTest extends ZimbraTestCase
 {
     public function testStat()
     {

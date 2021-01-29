@@ -3,12 +3,12 @@
 namespace Zimbra\Tests\Mail\Struct;
 
 use Zimbra\Mail\Struct\TrueTest;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for TrueTest.
  */
-class TrueTestTest extends ZimbraStructTestCase
+class TrueTestTest extends ZimbraTestCase
 {
     public function testTrueTest()
     {

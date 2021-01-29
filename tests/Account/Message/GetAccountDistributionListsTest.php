@@ -11,11 +11,11 @@ use Zimbra\Account\Struct\DLInfo;
 use Zimbra\Enum\MemberOfSelector;
 use Zimbra\Struct\KeyValuePair;
 
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 /**
  * Testcase class for GetAccountDistributionLists.
  */
-class GetAccountDistributionListsTest extends ZimbraStructTestCase
+class GetAccountDistributionListsTest extends ZimbraTestCase
 {
     public function testGetAccountDistributionLists()
     {

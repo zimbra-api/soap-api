@@ -9,12 +9,12 @@ use Zimbra\Admin\Struct\XMPPComponentInfo;
 use Zimbra\Admin\Struct\XMPPComponentSelector;
 use Zimbra\Enum\XmppComponentBy as XmppBy;
 
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for GetXMPPComponent.
  */
-class GetXMPPComponentTest extends ZimbraStructTestCase
+class GetXMPPComponentTest extends ZimbraTestCase
 {
     public function testGetXMPPComponent()
     {

@@ -3,12 +3,12 @@
 namespace Zimbra\Tests\Admin\Struct;
 
 use Zimbra\Admin\Struct\MissingBlobInfo;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for MissingBlobInfo.
  */
-class MissingBlobInfoTest extends ZimbraStructTestCase
+class MissingBlobInfoTest extends ZimbraTestCase
 {
     public function testMissingBlobInfo()
     {

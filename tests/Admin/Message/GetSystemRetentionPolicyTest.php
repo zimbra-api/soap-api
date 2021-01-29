@@ -11,12 +11,12 @@ use Zimbra\Mail\Struct\Policy;
 use Zimbra\Mail\Struct\RetentionPolicy;
 use Zimbra\Enum\CosBy;
 use Zimbra\Enum\Type;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for GetSystemRetentionPolicy.
  */
-class GetSystemRetentionPolicyTest extends ZimbraStructTestCase
+class GetSystemRetentionPolicyTest extends ZimbraTestCase
 {
     public function testGetSystemRetentionPolicy()
     {

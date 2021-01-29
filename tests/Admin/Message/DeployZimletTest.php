@@ -10,12 +10,12 @@ use Zimbra\Admin\Struct\AttachmentIdAttrib;
 use Zimbra\Admin\Struct\ZimletDeploymentStatus;
 use Zimbra\Enum\ZimletDeployAction;
 use Zimbra\Enum\ZimletDeployStatus;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for DeployZimlet.
  */
-class DeployZimletTest extends ZimbraStructTestCase
+class DeployZimletTest extends ZimbraTestCase
 {
     public function testDeployZimlet()
     {

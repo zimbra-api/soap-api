@@ -4,11 +4,11 @@ namespace Zimbra\Tests\Account\Message;
 
 use Zimbra\Account\Message\{DeleteSignatureEnvelope, DeleteSignatureBody, DeleteSignatureRequest, DeleteSignatureResponse};
 use Zimbra\Account\Struct\NameId;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 /**
  * Testcase class for DeleteSignature.
  */
-class DeleteSignatureTest extends ZimbraStructTestCase
+class DeleteSignatureTest extends ZimbraTestCase
 {
     public function testDeleteSignature()
     {

@@ -6,12 +6,12 @@ use Zimbra\Admin\Message\UndeployZimletBody;
 use Zimbra\Admin\Message\UndeployZimletEnvelope;
 use Zimbra\Admin\Message\UndeployZimletRequest;
 use Zimbra\Admin\Message\UndeployZimletResponse;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for UndeployZimletTest.
  */
-class UndeployZimletTest extends ZimbraStructTestCase
+class UndeployZimletTest extends ZimbraTestCase
 {
     public function testUndeployZimlet()
     {

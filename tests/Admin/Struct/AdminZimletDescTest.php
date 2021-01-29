@@ -6,12 +6,12 @@ use Zimbra\Admin\Struct\AdminZimletDesc;
 use Zimbra\Admin\Struct\AdminZimletInclude;
 use Zimbra\Admin\Struct\AdminZimletIncludeCSS;
 use Zimbra\Admin\Struct\ZimletServerExtension;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for AdminZimletDesc.
  */
-class AdminZimletDescTest extends ZimbraStructTestCase
+class AdminZimletDescTest extends ZimbraTestCase
 {
     public function testAdminZimletDesc()
     {

@@ -5,12 +5,12 @@ namespace Zimbra\Tests\Admin\Struct;
 use Zimbra\Admin\Struct\AliasInfo;
 use Zimbra\Admin\Struct\Attr;
 use Zimbra\Enum\TargetType;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for AliasInfo.
  */
-class AliasInfoTest extends ZimbraStructTestCase
+class AliasInfoTest extends ZimbraTestCase
 {
     public function testAliasInfo()
     {

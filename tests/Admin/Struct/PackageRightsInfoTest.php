@@ -5,12 +5,12 @@ namespace Zimbra\Tests\Admin\Struct;
 use Zimbra\Admin\Struct\CmdRightsInfo;
 use Zimbra\Admin\Struct\PackageRightsInfo;
 use Zimbra\Struct\NamedElement;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for PackageRightsInfo.
  */
-class PackageRightsInfoTest extends ZimbraStructTestCase
+class PackageRightsInfoTest extends ZimbraTestCase
 {
     public function testPackageRightsInfo()
     {

@@ -4,12 +4,12 @@ namespace Zimbra\Tests\Admin\Struct;
 
 use Zimbra\Admin\Struct\ServerQueues;
 use Zimbra\Admin\Struct\MailQueueCount;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for ServerQueues.
  */
-class ServerQueuesTest extends ZimbraStructTestCase
+class ServerQueuesTest extends ZimbraTestCase
 {
     public function testServerQueues()
     {

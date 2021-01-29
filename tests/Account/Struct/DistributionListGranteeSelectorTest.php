@@ -5,12 +5,12 @@ namespace Zimbra\Tests\Account\Struct;
 use Zimbra\Enum\GranteeType;
 use Zimbra\Enum\DistributionListGranteeBy as DLGranteeBy;
 use Zimbra\Account\Struct\DistributionListGranteeSelector;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for DistributionListGranteeSelector.
  */
-class DistributionListGranteeSelectorTest extends ZimbraStructTestCase
+class DistributionListGranteeSelectorTest extends ZimbraTestCase
 {
     public function testDistributionListGranteeSelector()
     {

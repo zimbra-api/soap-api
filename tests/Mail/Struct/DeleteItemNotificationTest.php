@@ -3,12 +3,12 @@
 namespace Zimbra\Tests\Mail\Struct;
 
 use Zimbra\Mail\Struct\DeleteItemNotification;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for DeleteItemNotification.
  */
-class DeleteItemNotificationTest extends ZimbraStructTestCase
+class DeleteItemNotificationTest extends ZimbraTestCase
 {
     public function testDeleteItemNotification()
     {

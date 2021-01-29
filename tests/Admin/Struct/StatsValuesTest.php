@@ -4,12 +4,12 @@ namespace Zimbra\Tests\Admin\Struct;
 
 use Zimbra\Admin\Struct\StatsValues;
 use Zimbra\Admin\Struct\NameAndValue;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for StatsValues.
  */
-class StatsValuesTest extends ZimbraStructTestCase
+class StatsValuesTest extends ZimbraTestCase
 {
     public function testStatsValues()
     {

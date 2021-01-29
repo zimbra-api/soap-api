@@ -3,12 +3,12 @@
 namespace Zimbra\Tests\Mail\Struct;
 
 use Zimbra\Mail\Struct\ByYearDayRule;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for ByYearDayRule.
  */
-class ByYearDayRuleTest extends ZimbraStructTestCase
+class ByYearDayRuleTest extends ZimbraTestCase
 {
     public function testByYearDayRule()
     {

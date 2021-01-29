@@ -6,12 +6,12 @@ use Zimbra\Admin\Message\DeleteVolumeBody;
 use Zimbra\Admin\Message\DeleteVolumeEnvelope;
 use Zimbra\Admin\Message\DeleteVolumeRequest;
 use Zimbra\Admin\Message\DeleteVolumeResponse;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for DeleteVolume.
  */
-class DeleteVolumeTest extends ZimbraStructTestCase
+class DeleteVolumeTest extends ZimbraTestCase
 {
     public function testDeleteVolume()
     {

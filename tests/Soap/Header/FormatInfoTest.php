@@ -4,12 +4,12 @@ namespace Zimbra\Tests\Soap\Header;
 
 use Zimbra\Enum\RequestFormat;
 use Zimbra\Soap\Header\FormatInfo;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for FormatInfo.
  */
-class FormatInfoTest extends ZimbraStructTestCase
+class FormatInfoTest extends ZimbraTestCase
 {
     public function testHeaderFormatInfo()
     {

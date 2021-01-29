@@ -3,12 +3,12 @@
 namespace Zimbra\Tests\Admin\Struct;
 
 use Zimbra\Admin\Struct\AccountsAttrib;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for AccountsAttrib.
  */
-class AccountsAttribTest extends ZimbraStructTestCase
+class AccountsAttribTest extends ZimbraTestCase
 {
     public function testAccountsAttrib()
     {

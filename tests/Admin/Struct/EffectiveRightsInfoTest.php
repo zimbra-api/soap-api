@@ -7,12 +7,12 @@ use Zimbra\Admin\Struct\EffectiveAttrInfo;
 use Zimbra\Admin\Struct\EffectiveAttrsInfo;
 use Zimbra\Admin\Struct\EffectiveRightsInfo;
 use Zimbra\Admin\Struct\RightWithName;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for EffectiveRightsInfo.
  */
-class EffectiveRightsInfoTest extends ZimbraStructTestCase
+class EffectiveRightsInfoTest extends ZimbraTestCase
 {
     public function testEffectiveRightsInfo()
     {

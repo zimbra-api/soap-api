@@ -10,12 +10,12 @@ use Zimbra\Admin\Struct\IntIdAttr;
 use Zimbra\Admin\Struct\VolumeIdAndProgress;
 use Zimbra\Enum\DedupAction;
 use Zimbra\Enum\DedupStatus;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for DedupeBlobs.
  */
-class DedupeBlobsTest extends ZimbraStructTestCase
+class DedupeBlobsTest extends ZimbraTestCase
 {
     public function testDedupeBlobs()
     {

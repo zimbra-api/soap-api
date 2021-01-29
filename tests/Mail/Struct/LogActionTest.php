@@ -4,12 +4,12 @@ namespace Zimbra\Tests\Mail\Struct;
 
 use Zimbra\Enum\LoggingLevel;
 use Zimbra\Mail\Struct\LogAction;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for LogAction.
  */
-class LogActionTest extends ZimbraStructTestCase
+class LogActionTest extends ZimbraTestCase
 {
     public function testLogAction()
     {

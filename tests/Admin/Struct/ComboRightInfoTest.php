@@ -4,12 +4,12 @@ namespace Zimbra\Tests\Admin\Struct;
 
 use Zimbra\Admin\Struct\ComboRightInfo;
 use Zimbra\Enum\RightType;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for ComboRightInfo.
  */
-class ComboRightInfoTest extends ZimbraStructTestCase
+class ComboRightInfoTest extends ZimbraTestCase
 {
     public function testComboRightInfo()
     {

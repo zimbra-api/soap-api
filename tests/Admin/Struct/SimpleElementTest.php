@@ -3,12 +3,12 @@
 namespace Zimbra\Tests\Admin\Struct;
 
 use Zimbra\Admin\Struct\SimpleElement;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for SimpleElement.
  */
-class SimpleElementTest extends ZimbraStructTestCase
+class SimpleElementTest extends ZimbraTestCase
 {
     public function testSimpleElement()
     {

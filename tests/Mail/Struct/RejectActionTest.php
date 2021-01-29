@@ -3,12 +3,12 @@
 namespace Zimbra\Tests\Mail\Struct;
 
 use Zimbra\Mail\Struct\RejectAction;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for RejectAction.
  */
-class RejectActionTest extends ZimbraStructTestCase
+class RejectActionTest extends ZimbraTestCase
 {
     public function testRejectAction()
     {

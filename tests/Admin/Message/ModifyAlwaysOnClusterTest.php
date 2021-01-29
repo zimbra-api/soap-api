@@ -8,12 +8,12 @@ use Zimbra\Admin\Message\ModifyAlwaysOnClusterRequest;
 use Zimbra\Admin\Message\ModifyAlwaysOnClusterResponse;
 use Zimbra\Admin\Struct\AlwaysOnClusterInfo;
 use Zimbra\Admin\Struct\Attr;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for ModifyAlwaysOnCluster.
  */
-class ModifyAlwaysOnClusterTest extends ZimbraStructTestCase
+class ModifyAlwaysOnClusterTest extends ZimbraTestCase
 {
     public function testModifyAlwaysOnCluster()
     {

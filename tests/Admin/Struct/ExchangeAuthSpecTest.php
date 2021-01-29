@@ -4,12 +4,12 @@ namespace Zimbra\Tests\Admin\Struct;
 
 use Zimbra\Admin\Struct\ExchangeAuthSpec;
 use Zimbra\Enum\AuthScheme;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for ExchangeAuthSpec.
  */
-class ExchangeAuthSpecTest extends ZimbraStructTestCase
+class ExchangeAuthSpecTest extends ZimbraTestCase
 {
     public function testExchangeAuthSpec()
     {

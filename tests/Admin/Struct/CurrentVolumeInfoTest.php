@@ -3,12 +3,12 @@
 namespace Zimbra\Tests\Admin\Struct;
 
 use Zimbra\Admin\Struct\CurrentVolumeInfo;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for CurrentVolumeInfo.
  */
-class CurrentVolumeInfoTest extends ZimbraStructTestCase
+class CurrentVolumeInfoTest extends ZimbraTestCase
 {
     public function testCurrentVolumeInfo()
     {

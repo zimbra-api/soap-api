@@ -6,12 +6,12 @@ use Zimbra\Account\Struct\AccountZimletDesc;
 use Zimbra\Account\Struct\AccountZimletInclude;
 use Zimbra\Account\Struct\AccountZimletIncludeCSS;
 use Zimbra\Account\Struct\ZimletServerExtension;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for AccountZimletDesc.
  */
-class AccountZimletDescTest extends ZimbraStructTestCase
+class AccountZimletDescTest extends ZimbraTestCase
 {
     public function testAccountZimletDesc()
     {

@@ -8,12 +8,12 @@ use Zimbra\Admin\Message\DeleteGalSyncAccountRequest;
 use Zimbra\Admin\Message\DeleteGalSyncAccountResponse;
 use Zimbra\Struct\AccountSelector;
 use Zimbra\Enum\AccountBy;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for DeleteGalSyncAccount.
  */
-class DeleteGalSyncAccountTest extends ZimbraStructTestCase
+class DeleteGalSyncAccountTest extends ZimbraTestCase
 {
     public function testDeleteGalSyncAccount()
     {

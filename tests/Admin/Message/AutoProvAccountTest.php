@@ -5,11 +5,11 @@ namespace Zimbra\Tests\Admin\Message;
 use Zimbra\Admin\Message\{AutoProvAccountBody, AutoProvAccountEnvelope, AutoProvAccountRequest, AutoProvAccountResponse};
 use Zimbra\Admin\Struct\{AccountInfo, Attr, DomainSelector, PrincipalSelector};
 use Zimbra\Enum\{AutoProvPrincipalBy, DomainBy};
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 /**
  * Testcase class for AutoProvAccount.
  */
-class AutoProvAccountTest extends ZimbraStructTestCase
+class AutoProvAccountTest extends ZimbraTestCase
 {
     public function testAutoProvAccount()
     {

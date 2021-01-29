@@ -4,12 +4,12 @@ namespace Zimbra\Tests\Admin\Struct;
 
 use Zimbra\Admin\Struct\FreeBusyQueueProvider;
 use Zimbra\Struct\Id;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for FreeBusyQueueProvider.
  */
-class FreeBusyQueueProviderTest extends ZimbraStructTestCase
+class FreeBusyQueueProviderTest extends ZimbraTestCase
 {
     public function testFreeBusyQueueProvider()
     {

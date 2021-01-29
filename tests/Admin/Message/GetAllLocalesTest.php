@@ -7,12 +7,12 @@ use Zimbra\Admin\Message\GetAllLocalesEnvelope;
 use Zimbra\Admin\Message\GetAllLocalesRequest;
 use Zimbra\Admin\Message\GetAllLocalesResponse;
 use Zimbra\Admin\Struct\LocaleInfo;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for GetAllLocalesTest.
  */
-class GetAllLocalesTest extends ZimbraStructTestCase
+class GetAllLocalesTest extends ZimbraTestCase
 {
     public function testGetAllLocales()
     {

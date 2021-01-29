@@ -3,12 +3,12 @@
 namespace Zimbra\Tests\Admin\Struct;
 
 use Zimbra\Admin\Struct\MailboxQuotaInfo;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for MailboxQuotaInfo.
  */
-class MailboxQuotaInfoTest extends ZimbraStructTestCase
+class MailboxQuotaInfoTest extends ZimbraTestCase
 {
     public function testMailboxQuotaInfo()
     {

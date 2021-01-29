@@ -3,11 +3,12 @@
 namespace Zimbra\Tests\Struct;
 
 use Zimbra\Struct\NamedElement;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for NamedElement.
  */
-class NamedElementTest extends ZimbraStructTestCase
+class NamedElementTest extends ZimbraTestCase
 {
     public function testNamedElement()
     {

@@ -5,12 +5,12 @@ namespace Zimbra\Tests\Admin\Struct;
 use Zimbra\Admin\Struct\ZimletStatus;
 use Zimbra\Admin\Struct\ZimletStatusParent;
 use Zimbra\Enum\ZimletStatusSetting;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for ZimletStatusParent.
  */
-class ZimletStatusParentTest extends ZimbraStructTestCase
+class ZimletStatusParentTest extends ZimbraTestCase
 {
     public function testZimletStatusParent()
     {

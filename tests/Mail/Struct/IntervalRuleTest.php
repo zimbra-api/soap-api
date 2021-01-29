@@ -3,12 +3,12 @@
 namespace Zimbra\Tests\Mail\Struct;
 
 use Zimbra\Mail\Struct\IntervalRule;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for IntervalRule.
  */
-class IntervalRuleTest extends ZimbraStructTestCase
+class IntervalRuleTest extends ZimbraTestCase
 {
     public function testIntervalRule()
     {

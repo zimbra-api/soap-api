@@ -4,12 +4,12 @@ namespace Zimbra\Tests\Admin\Struct;
 
 use Zimbra\Admin\Struct\ConstraintAttr;
 use Zimbra\Admin\Struct\ConstraintInfo;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for ConstraintAttr.
  */
-class ConstraintAttrTest extends ZimbraStructTestCase
+class ConstraintAttrTest extends ZimbraTestCase
 {
     public function testConstraintAttr()
     {

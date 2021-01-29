@@ -8,12 +8,12 @@ use Zimbra\Admin\Message\CreateDataSourceRequest;
 use Zimbra\Admin\Message\CreateDataSourceResponse;
 use Zimbra\Admin\Struct\{Attr, DataSourceSpecifier, DataSourceInfo};
 use Zimbra\Enum\DataSourceType;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for CreateDataSource.
  */
-class CreateDataSourceTest extends ZimbraStructTestCase
+class CreateDataSourceTest extends ZimbraTestCase
 {
     public function testCreateDataSource()
     {

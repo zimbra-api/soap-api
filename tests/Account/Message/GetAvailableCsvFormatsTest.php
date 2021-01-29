@@ -7,12 +7,12 @@ use Zimbra\Account\Message\GetAvailableCsvFormatsEnvelope;
 use Zimbra\Account\Message\GetAvailableCsvFormatsRequest;
 use Zimbra\Account\Message\GetAvailableCsvFormatsResponse;
 use Zimbra\Struct\NamedElement;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for GetAvailableCsvFormatsTest.
  */
-class GetAvailableCsvFormatsTest extends ZimbraStructTestCase
+class GetAvailableCsvFormatsTest extends ZimbraTestCase
 {
     public function testGetAvailableCsvFormats()
     {

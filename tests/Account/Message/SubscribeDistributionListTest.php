@@ -12,11 +12,11 @@ use Zimbra\Enum\DistributionListSubscribeOp as SubscribeOp;
 use Zimbra\Enum\DistributionListSubscribeStatus as SubscribeStatus;
 use Zimbra\Struct\DistributionListSelector;
 
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 /**
  * Testcase class for SubscribeDistributionList.
  */
-class SubscribeDistributionListTest extends ZimbraStructTestCase
+class SubscribeDistributionListTest extends ZimbraTestCase
 {
     public function testSubscribeDistributionList()
     {

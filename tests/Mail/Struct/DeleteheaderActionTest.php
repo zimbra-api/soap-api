@@ -5,12 +5,12 @@ namespace Zimbra\Tests\Mail\Struct;
 use Zimbra\Enum\{ComparisonComparator, MatchType, RelationalComparator};
 use Zimbra\Mail\Struct\DeleteheaderAction;
 use Zimbra\Mail\Struct\EditheaderTest;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for DeleteheaderAction.
  */
-class DeleteheaderActionTest extends ZimbraStructTestCase
+class DeleteheaderActionTest extends ZimbraTestCase
 {
     public function testDeleteheaderAction()
     {

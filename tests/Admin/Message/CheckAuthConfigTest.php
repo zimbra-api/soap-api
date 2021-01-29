@@ -7,12 +7,12 @@ use Zimbra\Admin\Message\CheckAuthConfigEnvelope;
 use Zimbra\Admin\Message\CheckAuthConfigRequest;
 use Zimbra\Admin\Message\CheckAuthConfigResponse;
 use Zimbra\Admin\Struct\Attr;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for CheckAuthConfig.
  */
-class CheckAuthConfigTest extends ZimbraStructTestCase
+class CheckAuthConfigTest extends ZimbraTestCase
 {
     public function testCheckAuthConfig()
     {

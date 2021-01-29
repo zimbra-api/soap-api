@@ -6,12 +6,12 @@ use Zimbra\Admin\Message\VerifyStoreManagerBody;
 use Zimbra\Admin\Message\VerifyStoreManagerEnvelope;
 use Zimbra\Admin\Message\VerifyStoreManagerRequest;
 use Zimbra\Admin\Message\VerifyStoreManagerResponse;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for VerifyStoreManager.
  */
-class VerifyStoreManagerTest extends ZimbraStructTestCase
+class VerifyStoreManagerTest extends ZimbraTestCase
 {
     public function testVerifyStoreManager()
     {

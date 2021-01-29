@@ -8,12 +8,12 @@ use Zimbra\Admin\Struct\InheritedFlaggedValue;
 use Zimbra\Enum\AccountBy;
 use Zimbra\Enum\DistributionListBy as DLBy;
 use Zimbra\Struct\AccountSelector;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for GetAdminConsoleUIComp.
  */
-class GetAdminConsoleUICompTest extends ZimbraStructTestCase
+class GetAdminConsoleUICompTest extends ZimbraTestCase
 {
     public function testGetAdminConsoleUIComp()
     {

@@ -12,12 +12,12 @@ use Zimbra\Admin\Struct\ZimletStatusCos;
 use Zimbra\Admin\Struct\ZimletStatusParent;
 use Zimbra\Enum\ZimletStatusSetting;
 
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for GetZimletStatusTest.
  */
-class GetZimletStatusTest extends ZimbraStructTestCase
+class GetZimletStatusTest extends ZimbraTestCase
 {
     public function testGetZimletStatus()
     {

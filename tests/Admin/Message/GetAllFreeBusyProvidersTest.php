@@ -7,12 +7,12 @@ use Zimbra\Admin\Message\GetAllFreeBusyProvidersEnvelope;
 use Zimbra\Admin\Message\GetAllFreeBusyProvidersRequest;
 use Zimbra\Admin\Message\GetAllFreeBusyProvidersResponse;
 use Zimbra\Admin\Struct\FreeBusyProviderInfo;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for GetAllFreeBusyProvidersTest.
  */
-class GetAllFreeBusyProvidersTest extends ZimbraStructTestCase
+class GetAllFreeBusyProvidersTest extends ZimbraTestCase
 {
     public function testGetAllFreeBusyProviders()
     {

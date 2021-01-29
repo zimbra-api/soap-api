@@ -7,12 +7,12 @@ use Zimbra\Admin\Message\GetQuotaUsageEnvelope;
 use Zimbra\Admin\Message\GetQuotaUsageRequest;
 use Zimbra\Admin\Message\GetQuotaUsageResponse;
 use Zimbra\Admin\Struct\AccountQuotaInfo;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for GetQuotaUsageTest.
  */
-class GetQuotaUsageTest extends ZimbraStructTestCase
+class GetQuotaUsageTest extends ZimbraTestCase
 {
     public function testGetQuotaUsage()
     {

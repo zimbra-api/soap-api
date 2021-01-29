@@ -4,12 +4,12 @@ namespace Zimbra\Tests\Account\Struct;
 
 use Zimbra\Enum\ConnectionType;
 use Zimbra\Account\Struct\AccountPop3DataSource;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for AccountPop3DataSource.
  */
-class AccountPop3DataSourceTest extends ZimbraStructTestCase
+class AccountPop3DataSourceTest extends ZimbraTestCase
 {
     public function testAccountPop3DataSource()
     {

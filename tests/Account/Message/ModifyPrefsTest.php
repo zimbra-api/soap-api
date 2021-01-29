@@ -7,12 +7,12 @@ use Zimbra\Account\Message\ModifyPrefsEnvelope;
 use Zimbra\Account\Message\ModifyPrefsRequest;
 use Zimbra\Account\Message\ModifyPrefsResponse;
 use Zimbra\Account\Struct\Pref;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for ModifyPrefsTest.
  */
-class ModifyPrefsTest extends ZimbraStructTestCase
+class ModifyPrefsTest extends ZimbraTestCase
 {
     public function testModifyPrefs()
     {

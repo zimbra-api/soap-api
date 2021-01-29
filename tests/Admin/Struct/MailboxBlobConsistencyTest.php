@@ -22,12 +22,12 @@ use Zimbra\Admin\Struct\IncorrectBlobRevisionInfo;
 use Zimbra\Admin\Struct\UsedBlobInfo;
 use Zimbra\Admin\Struct\UsedBlobsWrapper;
 
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for MailboxBlobConsistency.
  */
-class MailboxBlobConsistencyTest extends ZimbraStructTestCase
+class MailboxBlobConsistencyTest extends ZimbraTestCase
 {
     public function testMailboxBlobConsistency()
     {

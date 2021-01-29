@@ -3,12 +3,12 @@
 namespace Zimbra\Tests\Admin\Struct;
 
 use Zimbra\Admin\Struct\BlobSizeInfo;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for BlobSizeInfo.
  */
-class BlobSizeInfoTest extends ZimbraStructTestCase
+class BlobSizeInfoTest extends ZimbraTestCase
 {
     public function testBlobSizeInfo()
     {

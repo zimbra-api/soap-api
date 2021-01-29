@@ -4,12 +4,12 @@ namespace Zimbra\Tests\Admin\Struct;
 
 use Zimbra\Admin\Struct\AlwaysOnClusterInfo;
 use Zimbra\Admin\Struct\Attr;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for AlwaysOnClusterInfo.
  */
-class AlwaysOnClusterInfoTest extends ZimbraStructTestCase
+class AlwaysOnClusterInfoTest extends ZimbraTestCase
 {
     public function testAlwaysOnClusterInfo()
     {

@@ -3,12 +3,12 @@
 namespace Zimbra\Tests\Admin\Struct;
 
 use Zimbra\Admin\Struct\CheckDirSelector;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for CheckDirSelector.
  */
-class CheckDirSelectorTest extends ZimbraStructTestCase
+class CheckDirSelectorTest extends ZimbraTestCase
 {
     public function testCheckDirSelector()
     {

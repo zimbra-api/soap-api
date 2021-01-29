@@ -5,12 +5,12 @@ namespace Zimbra\Tests\Account\Struct;
 use JMS\Serializer\Annotation\XmlRoot;
 use Zimbra\Account\Struct\ObjectInfo;
 use Zimbra\Struct\KeyValuePair;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for ObjectInfo.
  */
-class ObjectInfoTest extends ZimbraStructTestCase
+class ObjectInfoTest extends ZimbraTestCase
 {
     public function testObjectInfo()
     {

@@ -3,12 +3,12 @@
 namespace Zimbra\Tests\Mail\Struct;
 
 use Zimbra\Mail\Struct\SocialcastTest;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for SocialcastTest.
  */
-class SocialcastTestTest extends ZimbraStructTestCase
+class SocialcastTestTest extends ZimbraTestCase
 {
     public function testSocialcastTest()
     {

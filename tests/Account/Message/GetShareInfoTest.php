@@ -11,12 +11,12 @@ use Zimbra\Enum\AccountBy;
 use Zimbra\Struct\AccountSelector;
 use Zimbra\Struct\GranteeChooser;
 use Zimbra\Struct\ShareInfo;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for GetShareInfoTest.
  */
-class GetShareInfoTest extends ZimbraStructTestCase
+class GetShareInfoTest extends ZimbraTestCase
 {
     public function testGetShareInfo()
     {

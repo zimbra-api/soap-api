@@ -3,12 +3,12 @@
 namespace Zimbra\Tests\Account\Struct;
 
 use Zimbra\Account\Struct\AccountZimletIncludeCSS;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for AccountZimletIncludeCSS.
  */
-class AccountZimletIncludeCSSTest extends ZimbraStructTestCase
+class AccountZimletIncludeCSSTest extends ZimbraTestCase
 {
     public function testAccountZimletIncludeCSS()
     {

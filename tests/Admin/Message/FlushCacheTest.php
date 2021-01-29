@@ -10,12 +10,12 @@ use Zimbra\Admin\Struct\CacheEntrySelector;
 use Zimbra\Admin\Struct\CacheSelector;
 use Zimbra\Enum\CacheEntryBy;
 use Zimbra\Enum\CacheType;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for FlushCache.
  */
-class FlushCacheTest extends ZimbraStructTestCase
+class FlushCacheTest extends ZimbraTestCase
 {
     public function testFlushCache()
     {

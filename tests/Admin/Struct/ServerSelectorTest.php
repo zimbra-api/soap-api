@@ -4,12 +4,12 @@ namespace Zimbra\Tests\Admin\Struct;
 
 use Zimbra\Admin\Struct\ServerSelector;
 use Zimbra\Enum\ServerBy;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for ServerSelector.
  */
-class ServerSelectorTest extends ZimbraStructTestCase
+class ServerSelectorTest extends ZimbraTestCase
 {
     public function testServerSelector()
     {

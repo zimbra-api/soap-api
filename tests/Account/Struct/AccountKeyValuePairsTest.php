@@ -4,12 +4,12 @@ namespace Zimbra\Tests\Account\Struct;
 
 use Zimbra\Account\Struct\AccountKeyValuePairs;
 use Zimbra\Struct\KeyValuePair;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for AccountKeyValuePairs.
  */
-class AccountKeyValuePairsTest extends ZimbraStructTestCase
+class AccountKeyValuePairsTest extends ZimbraTestCase
 {
     public function testAccountKeyValuePairs()
     {

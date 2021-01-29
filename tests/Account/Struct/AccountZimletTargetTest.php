@@ -3,12 +3,12 @@
 namespace Zimbra\Tests\Account\Struct;
 
 use Zimbra\Account\Struct\AccountZimletTarget;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for AccountZimletTarget.
  */
-class AccountZimletTargetTest extends ZimbraStructTestCase
+class AccountZimletTargetTest extends ZimbraTestCase
 {
     public function testAccountZimletTarget()
     {

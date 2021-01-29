@@ -11,12 +11,12 @@ use Zimbra\Admin\Struct\SimpleSessionInfo;
 use Zimbra\Enum\GetSessionsSortBy;
 use Zimbra\Enum\SessionType;
 
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for GetSessionsTest.
  */
-class GetSessionsTest extends ZimbraStructTestCase
+class GetSessionsTest extends ZimbraTestCase
 {
     public function testGetSessions()
     {

@@ -4,12 +4,12 @@ namespace Zimbra\Tests\Admin\Struct;
 
 use Zimbra\Admin\Struct\StatsValueWrapper;
 use Zimbra\Struct\NamedElement;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for StatsValueWrapper.
  */
-class StatsValueWrapperTest extends ZimbraStructTestCase
+class StatsValueWrapperTest extends ZimbraTestCase
 {
     public function testStatsValueWrapper()
     {

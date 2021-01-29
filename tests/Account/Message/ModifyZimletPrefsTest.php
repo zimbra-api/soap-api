@@ -8,12 +8,12 @@ use Zimbra\Account\Message\ModifyZimletPrefsRequest;
 use Zimbra\Account\Message\ModifyZimletPrefsResponse;
 use Zimbra\Account\Struct\ModifyZimletPrefsSpec;
 use Zimbra\Enum\ZimletStatus;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for ModifyZimletPrefsTest.
  */
-class ModifyZimletPrefsTest extends ZimbraStructTestCase
+class ModifyZimletPrefsTest extends ZimbraTestCase
 {
     public function testModifyZimletPrefs()
     {

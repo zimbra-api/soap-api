@@ -3,12 +3,12 @@
 namespace Zimbra\Tests\Admin\Struct;
 
 use Zimbra\Admin\Struct\AdminZimletProperty;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for AdminZimletProperty.
  */
-class AdminZimletPropertyTest extends ZimbraStructTestCase
+class AdminZimletPropertyTest extends ZimbraTestCase
 {
     public function testAdminZimletProperty()
     {

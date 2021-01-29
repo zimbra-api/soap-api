@@ -3,12 +3,12 @@
 namespace Zimbra\Tests\Mail\Struct;
 
 use Zimbra\Mail\Struct\BySecondRule;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for BySecondRule.
  */
-class BySecondRuleTest extends ZimbraStructTestCase
+class BySecondRuleTest extends ZimbraTestCase
 {
     public function testBySecondRule()
     {

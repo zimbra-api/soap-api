@@ -4,12 +4,12 @@ namespace Zimbra\Tests\Account\Struct;
 
 use Zimbra\Enum\ConnectionType;
 use Zimbra\Account\Struct\AccountYabDataSource;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for AccountYabDataSource.
  */
-class AccountYabDataSourceTest extends ZimbraStructTestCase
+class AccountYabDataSourceTest extends ZimbraTestCase
 {
     public function testAccountYabDataSource()
     {

@@ -3,12 +3,12 @@
 namespace Zimbra\Tests\Mail\Struct;
 
 use Zimbra\Mail\Struct\AddheaderAction;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for AddheaderAction.
  */
-class AddheaderActionTest extends ZimbraStructTestCase
+class AddheaderActionTest extends ZimbraTestCase
 {
     public function testAddheaderAction()
     {

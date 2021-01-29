@@ -3,12 +3,12 @@
 namespace Zimbra\Tests\Admin\Struct;
 
 use Zimbra\Admin\Struct\LimitedQuery;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for LimitedQuery.
  */
-class LimitedQueryTest extends ZimbraStructTestCase
+class LimitedQueryTest extends ZimbraTestCase
 {
     public function testLimitedQuery()
     {

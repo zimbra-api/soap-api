@@ -5,12 +5,12 @@ namespace Zimbra\Tests\Account\Struct;
 use Zimbra\Account\Struct\DistributionListRightInfo;
 use Zimbra\Account\Struct\DistributionListGranteeInfo;
 use Zimbra\Enum\GranteeType;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for DistributionListRightInfo.
  */
-class DistributionListRightInfoTest extends ZimbraStructTestCase
+class DistributionListRightInfoTest extends ZimbraTestCase
 {
     public function testDistributionListRightInfo()
     {

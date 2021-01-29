@@ -24,12 +24,12 @@ use Zimbra\Enum\GranteeBy;
 use Zimbra\Enum\GranteeType;
 use Zimbra\Struct\NamedElement;
 
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for GetAllEffectiveRightsTest.
  */
-class GetAllEffectiveRightsTest extends ZimbraStructTestCase
+class GetAllEffectiveRightsTest extends ZimbraTestCase
 {
     public function testGetAllEffectiveRights()
     {

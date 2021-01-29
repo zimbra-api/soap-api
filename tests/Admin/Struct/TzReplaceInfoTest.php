@@ -6,12 +6,12 @@ use Zimbra\Admin\Struct\CalTZInfo;
 use Zimbra\Admin\Struct\TzReplaceInfo;
 use Zimbra\Struct\TzOnsetInfo;
 use Zimbra\Struct\Id;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for TzReplaceInfo.
  */
-class TzReplaceInfoTest extends ZimbraStructTestCase
+class TzReplaceInfoTest extends ZimbraTestCase
 {
     public function testTzReplaceInfo()
     {

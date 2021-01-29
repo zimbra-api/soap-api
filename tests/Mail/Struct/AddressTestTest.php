@@ -4,12 +4,12 @@ namespace Zimbra\Tests\Mail\Struct;
 
 use Zimbra\Mail\Struct\AddressTest;
 use Zimbra\Enum\{AddressPart, ComparisonComparator, CountComparison, StringComparison, ValueComparison};
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for AddressTest.
  */
-class AddressTestTest extends ZimbraStructTestCase
+class AddressTestTest extends ZimbraTestCase
 {
     public function testAddressTest()
     {

@@ -6,12 +6,12 @@ use Zimbra\Admin\Message\SetLocalServerOnlineBody;
 use Zimbra\Admin\Message\SetLocalServerOnlineEnvelope;
 use Zimbra\Admin\Message\SetLocalServerOnlineRequest;
 use Zimbra\Admin\Message\SetLocalServerOnlineResponse;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for SetLocalServerOnlineTest.
  */
-class SetLocalServerOnlineTest extends ZimbraStructTestCase
+class SetLocalServerOnlineTest extends ZimbraTestCase
 {
     public function testSetLocalServerOnline()
     {

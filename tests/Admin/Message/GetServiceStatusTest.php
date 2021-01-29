@@ -11,12 +11,12 @@ use Zimbra\Admin\Struct\ServiceStatus;
 use Zimbra\Admin\Struct\TimeZoneInfo;
 use Zimbra\Enum\ZeroOrOne;
 
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for GetServiceStatusTest.
  */
-class GetServiceStatusTest extends ZimbraStructTestCase
+class GetServiceStatusTest extends ZimbraTestCase
 {
     public function testGetServiceStatus()
     {

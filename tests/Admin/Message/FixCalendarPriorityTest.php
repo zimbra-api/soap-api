@@ -7,12 +7,12 @@ use Zimbra\Admin\Message\FixCalendarPriorityEnvelope;
 use Zimbra\Admin\Message\FixCalendarPriorityRequest;
 use Zimbra\Admin\Message\FixCalendarPriorityResponse;
 use Zimbra\Struct\NamedElement;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for FixCalendarPriority.
  */
-class FixCalendarPriorityTest extends ZimbraStructTestCase
+class FixCalendarPriorityTest extends ZimbraTestCase
 {
     public function testFixCalendarPriority()
     {

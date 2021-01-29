@@ -3,12 +3,12 @@
 namespace Zimbra\Tests\Mail\Struct;
 
 use Zimbra\Mail\Struct\LinkedInTest;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for LinkedInTest.
  */
-class LinkedInTestTest extends ZimbraStructTestCase
+class LinkedInTestTest extends ZimbraTestCase
 {
     public function testLinkedInTest()
     {

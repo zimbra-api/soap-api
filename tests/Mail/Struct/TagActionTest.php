@@ -3,12 +3,12 @@
 namespace Zimbra\Tests\Mail\Struct;
 
 use Zimbra\Mail\Struct\TagAction;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for TagAction.
  */
-class TagActionTest extends ZimbraStructTestCase
+class TagActionTest extends ZimbraTestCase
 {
     public function testTagAction()
     {

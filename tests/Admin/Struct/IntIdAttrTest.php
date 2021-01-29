@@ -3,12 +3,12 @@
 namespace Zimbra\Tests\Admin\Struct;
 
 use Zimbra\Admin\Struct\IntIdAttr;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for IntIdAttr.
  */
-class IntIdAttrTest extends ZimbraStructTestCase
+class IntIdAttrTest extends ZimbraTestCase
 {
     public function testIntIdAttr()
     {

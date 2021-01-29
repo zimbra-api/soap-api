@@ -3,12 +3,12 @@
 namespace Zimbra\Tests\Soap\Header;
 
 use Zimbra\Soap\Header\UserAgentInfo;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for UserAgentInfo.
  */
-class UserAgentInfoTest extends ZimbraStructTestCase
+class UserAgentInfoTest extends ZimbraTestCase
 {
     public function testHeaderUserAgentInfo()
     {

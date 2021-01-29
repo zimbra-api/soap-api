@@ -13,12 +13,12 @@ use Zimbra\Admin\Struct\ServerSelector;
 use Zimbra\Enum\IpType;
 use Zimbra\Enum\ServerBy;
 
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for GetServerNIfsTest.
  */
-class GetServerNIfsTest extends ZimbraStructTestCase
+class GetServerNIfsTest extends ZimbraTestCase
 {
     public function testGetServerNIfs()
     {

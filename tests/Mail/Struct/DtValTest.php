@@ -5,12 +5,12 @@ namespace Zimbra\Tests\Mail\Struct;
 use Zimbra\Mail\Struct\DtVal;
 use Zimbra\Mail\Struct\DtTimeInfo;
 use Zimbra\Mail\Struct\DurationInfo;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for DtVal.
  */
-class DtValTest extends ZimbraStructTestCase
+class DtValTest extends ZimbraTestCase
 {
     public function testDtVal()
     {

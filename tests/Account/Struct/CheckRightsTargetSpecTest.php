@@ -5,12 +5,12 @@ namespace Zimbra\Tests\Account\Struct;
 use Zimbra\Enum\TargetBy;
 use Zimbra\Enum\TargetType;
 use Zimbra\Account\Struct\CheckRightsTargetSpec;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for CheckRightsTargetSpec.
  */
-class CheckRightsTargetSpecTest extends ZimbraStructTestCase
+class CheckRightsTargetSpecTest extends ZimbraTestCase
 {
     public function testCheckRightsTargetSpec()
     {

@@ -6,12 +6,12 @@ use Zimbra\Admin\Message\{AdminWaitSetBody, AdminWaitSetEnvelope, AdminWaitSetRe
 use Zimbra\Enum\InterestType;
 use Zimbra\Mail\Struct\{AccountWithModifications, CreateItemNotification, DeleteItemNotification, ImapMessageInfo, ModifyItemNotification, ModifyTagNotification, PendingFolderModifications, RenameFolderNotification};
 use Zimbra\Struct\{Id, IdAndType, WaitSetAddSpec};
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for AdminWaitSetResponse.
  */
-class AdminWaitSetResponseTest extends ZimbraStructTestCase
+class AdminWaitSetResponseTest extends ZimbraTestCase
 {
     public function testAdminWaitSet()
     {

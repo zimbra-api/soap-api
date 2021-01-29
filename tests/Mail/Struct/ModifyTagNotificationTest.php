@@ -3,12 +3,12 @@
 namespace Zimbra\Tests\Mail\Struct;
 
 use Zimbra\Mail\Struct\ModifyTagNotification;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for ModifyTagNotification.
  */
-class ModifyTagNotificationTest extends ZimbraStructTestCase
+class ModifyTagNotificationTest extends ZimbraTestCase
 {
     public function testModifyTagNotification()
     {

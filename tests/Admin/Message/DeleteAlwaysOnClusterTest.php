@@ -6,12 +6,12 @@ use Zimbra\Admin\Message\DeleteAlwaysOnClusterBody;
 use Zimbra\Admin\Message\DeleteAlwaysOnClusterEnvelope;
 use Zimbra\Admin\Message\DeleteAlwaysOnClusterRequest;
 use Zimbra\Admin\Message\DeleteAlwaysOnClusterResponse;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for DeleteAlwaysOnCluster.
  */
-class DeleteAlwaysOnClusterTest extends ZimbraStructTestCase
+class DeleteAlwaysOnClusterTest extends ZimbraTestCase
 {
     public function testDeleteAlwaysOnCluster()
     {

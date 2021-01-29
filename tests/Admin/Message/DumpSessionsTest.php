@@ -9,12 +9,12 @@ use Zimbra\Admin\Message\DumpSessionsResponse;
 use Zimbra\Admin\Struct\AccountSessionInfo;
 use Zimbra\Admin\Struct\InfoForSessionType;
 use Zimbra\Admin\Struct\SessionInfo;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for DumpSessions.
  */
-class DumpSessionsTest extends ZimbraStructTestCase
+class DumpSessionsTest extends ZimbraTestCase
 {
     public function testDumpSessions()
     {

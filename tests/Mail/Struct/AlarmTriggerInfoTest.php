@@ -5,12 +5,12 @@ namespace Zimbra\Tests\Mail\Struct;
 use Zimbra\Mail\Struct\AlarmTriggerInfo;
 use Zimbra\Mail\Struct\DateAttr;
 use Zimbra\Mail\Struct\DurationInfo;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for AlarmTriggerInfo.
  */
-class AlarmTriggerInfoTest extends ZimbraStructTestCase
+class AlarmTriggerInfoTest extends ZimbraTestCase
 {
     public function testAlarmTriggerInfo()
     {

@@ -3,11 +3,12 @@
 namespace Zimbra\Tests\Struct;
 
 use Zimbra\Struct\AuthTokenControl;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for AuthTokenControl.
  */
-class AuthTokenControlTest extends ZimbraStructTestCase
+class AuthTokenControlTest extends ZimbraTestCase
 {
     public function testAuthTokenControl()
     {

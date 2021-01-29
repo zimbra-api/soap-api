@@ -6,11 +6,11 @@ use Zimbra\Account\Message\{GetAccountInfoEnvelope, GetAccountInfoBody, GetAccou
 use Zimbra\Enum\AccountBy;
 use Zimbra\Struct\AccountSelector;
 use Zimbra\Struct\NamedValue;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 /**
  * Testcase class for GetAccountInfo.
  */
-class GetAccountInfoTest extends ZimbraStructTestCase
+class GetAccountInfoTest extends ZimbraTestCase
 {
     public function testGetAccountInfo()
     {

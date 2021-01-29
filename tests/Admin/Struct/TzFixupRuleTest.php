@@ -14,12 +14,12 @@ use Zimbra\Admin\Struct\TzFixupRuleMatchDates;
 use Zimbra\Admin\Struct\TzReplaceInfo;
 use Zimbra\Struct\Id;
 use Zimbra\Struct\TzOnsetInfo;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for TzFixupRule.
  */
-class TzFixupRuleTest extends ZimbraStructTestCase
+class TzFixupRuleTest extends ZimbraTestCase
 {
     public function testTzFixupRule()
     {

@@ -3,12 +3,12 @@
 namespace Zimbra\Tests\Admin\Struct;
 
 use Zimbra\Admin\Struct\FreeBusyProviderInfo;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for FreeBusyProviderInfo.
  */
-class FreeBusyProviderInfoTest extends ZimbraStructTestCase
+class FreeBusyProviderInfoTest extends ZimbraTestCase
 {
     public function testFreeBusyProviderInfo()
     {

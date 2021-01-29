@@ -3,12 +3,12 @@
 namespace Zimbra\Tests\Mail\Struct;
 
 use Zimbra\Mail\Struct\TwitterTest;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for TwitterTest.
  */
-class TwitterTestTest extends ZimbraStructTestCase
+class TwitterTestTest extends ZimbraTestCase
 {
     public function testTwitterTest()
     {

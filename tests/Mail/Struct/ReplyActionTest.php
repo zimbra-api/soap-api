@@ -3,12 +3,12 @@
 namespace Zimbra\Tests\Mail\Struct;
 
 use Zimbra\Mail\Struct\ReplyAction;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for ReplyAction.
  */
-class ReplyActionTest extends ZimbraStructTestCase
+class ReplyActionTest extends ZimbraTestCase
 {
     public function testReplyAction()
     {

@@ -8,12 +8,12 @@ use Zimbra\Admin\Message\ModifyUCServiceRequest;
 use Zimbra\Admin\Message\ModifyUCServiceResponse;
 use Zimbra\Admin\Struct\Attr;
 use Zimbra\Admin\Struct\UCServiceInfo;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for ModifyUCService.
  */
-class ModifyUCServiceTest extends ZimbraStructTestCase
+class ModifyUCServiceTest extends ZimbraTestCase
 {
     public function testModifyUCService()
     {

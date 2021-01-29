@@ -11,12 +11,12 @@ use Zimbra\Admin\Struct\AutoProvDirectoryEntry;
 use Zimbra\Admin\Struct\DomainSelector;
 use Zimbra\Enum\DomainBy;
 use Zimbra\Struct\KeyValuePair;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for SearchAutoProvDirectoryTest.
  */
-class SearchAutoProvDirectoryTest extends ZimbraStructTestCase
+class SearchAutoProvDirectoryTest extends ZimbraTestCase
 {
     public function testSearchAutoProvDirectory()
     {

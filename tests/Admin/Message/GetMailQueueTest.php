@@ -16,12 +16,12 @@ use Zimbra\Admin\Struct\QueueSummary;
 use Zimbra\Admin\Struct\QueueSummaryItem;
 use Zimbra\Admin\Struct\QueueItem;
 
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for GetMailQueue.
  */
-class GetMailQueueTest extends ZimbraStructTestCase
+class GetMailQueueTest extends ZimbraTestCase
 {
     public function testGetMailQueue()
     {

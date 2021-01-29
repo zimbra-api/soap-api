@@ -51,11 +51,11 @@ use Zimbra\Enum\InfoSection;
 use Zimbra\Enum\TargetType;
 use Zimbra\Enum\ZimletPresence;
 
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 /**
  * Testcase class for GetInfo.
  */
-class GetInfoTest extends ZimbraStructTestCase
+class GetInfoTest extends ZimbraTestCase
 {
     protected function setUp(): void
     {

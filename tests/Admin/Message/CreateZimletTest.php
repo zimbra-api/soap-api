@@ -8,12 +8,12 @@ use Zimbra\Admin\Message\CreateZimletRequest;
 use Zimbra\Admin\Message\CreateZimletResponse;
 use Zimbra\Admin\Struct\ZimletInfo;
 use Zimbra\Admin\Struct\Attr;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for CreateZimlet.
  */
-class CreateZimletTest extends ZimbraStructTestCase
+class CreateZimletTest extends ZimbraTestCase
 {
     public function testCreateZimlet()
     {

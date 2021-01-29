@@ -3,12 +3,12 @@
 namespace Zimbra\Tests\Admin\Struct;
 
 use Zimbra\Admin\Struct\LocaleInfo;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for LocaleInfo.
  */
-class LocaleInfoTest extends ZimbraStructTestCase
+class LocaleInfoTest extends ZimbraTestCase
 {
     public function testLocaleInfo()
     {

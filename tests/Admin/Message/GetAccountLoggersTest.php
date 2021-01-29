@@ -7,12 +7,12 @@ use Zimbra\Admin\Struct\LoggerInfo;
 use Zimbra\Enum\AccountBy;
 use Zimbra\Enum\LoggingLevel;
 use Zimbra\Struct\AccountSelector;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for GetAccountLoggers.
  */
-class GetAccountLoggersTest extends ZimbraStructTestCase
+class GetAccountLoggersTest extends ZimbraTestCase
 {
     public function testGetAccountLoggers()
     {

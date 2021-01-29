@@ -3,12 +3,12 @@
 namespace Zimbra\Tests\Admin\Struct;
 
 use Zimbra\Admin\Struct\Offset;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for Offset.
  */
-class OffsetTest extends ZimbraStructTestCase
+class OffsetTest extends ZimbraTestCase
 {
     public function testOffset()
     {

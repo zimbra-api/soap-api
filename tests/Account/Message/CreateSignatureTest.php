@@ -7,11 +7,11 @@ use Zimbra\Account\Struct\NameId;
 use Zimbra\Account\Struct\Signature;
 use Zimbra\Account\Struct\SignatureContent;
 use Zimbra\Enum\ContentType;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 /**
  * Testcase class for CreateSignature.
  */
-class CreateSignatureTest extends ZimbraStructTestCase
+class CreateSignatureTest extends ZimbraTestCase
 {
     public function testCreateSignature()
     {

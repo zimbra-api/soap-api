@@ -3,12 +3,12 @@
 namespace Zimbra\Tests\Account\Struct;
 
 use Zimbra\Account\Struct\Cos;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for Cos.
  */
-class CosTest extends ZimbraStructTestCase
+class CosTest extends ZimbraTestCase
 {
     public function testCos()
     {

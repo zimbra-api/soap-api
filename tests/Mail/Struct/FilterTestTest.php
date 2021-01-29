@@ -3,12 +3,12 @@
 namespace Zimbra\Tests\Mail\Struct;
 
 use Zimbra\Mail\Struct\FilterTest;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for FilterTest.
  */
-class FilterTestTest extends ZimbraStructTestCase
+class FilterTestTest extends ZimbraTestCase
 {
     public function testFilterTest()
     {

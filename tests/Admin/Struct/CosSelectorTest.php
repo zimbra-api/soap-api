@@ -4,12 +4,12 @@ namespace Zimbra\Tests\Admin\Struct;
 
 use Zimbra\Admin\Struct\CosSelector;
 use Zimbra\Enum\CosBy;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for CosSelector.
  */
-class CosSelectorTest extends ZimbraStructTestCase
+class CosSelectorTest extends ZimbraTestCase
 {
     public function testCosSelector()
     {

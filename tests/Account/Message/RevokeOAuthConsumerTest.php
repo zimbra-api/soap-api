@@ -3,11 +3,11 @@
 namespace Zimbra\Tests\Account\Message;
 
 use Zimbra\Account\Message\{RevokeOAuthConsumerEnvelope, RevokeOAuthConsumerBody, RevokeOAuthConsumerRequest, RevokeOAuthConsumerResponse};
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 /**
  * Testcase class for RevokeOAuthConsumer.
  */
-class RevokeOAuthConsumerTest extends ZimbraStructTestCase
+class RevokeOAuthConsumerTest extends ZimbraTestCase
 {
     public function testRevokeOAuthConsumer()
     {

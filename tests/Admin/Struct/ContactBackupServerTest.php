@@ -4,12 +4,12 @@ namespace Zimbra\Tests\Admin\Struct;
 
 use Zimbra\Admin\Struct\ContactBackupServer;
 use Zimbra\Enum\ContactBackupStatus;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for ContactBackupServer.
  */
-class ContactBackupServerTest extends ZimbraStructTestCase
+class ContactBackupServerTest extends ZimbraTestCase
 {
     public function testContactBackupServer()
     {

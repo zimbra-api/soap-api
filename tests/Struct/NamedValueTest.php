@@ -3,11 +3,12 @@
 namespace Zimbra\Tests\Struct;
 
 use Zimbra\Struct\NamedValue;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for NamedValue.
  */
-class NamedValueTest extends ZimbraStructTestCase
+class NamedValueTest extends ZimbraTestCase
 {
     public function testNamedValue()
     {

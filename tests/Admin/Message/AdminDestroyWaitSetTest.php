@@ -6,12 +6,12 @@ use Zimbra\Admin\Message\AdminDestroyWaitSetBody;
 use Zimbra\Admin\Message\AdminDestroyWaitSetEnvelope;
 use Zimbra\Admin\Message\AdminDestroyWaitSetRequest;
 use Zimbra\Admin\Message\AdminDestroyWaitSetResponse;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for AdminDestroyWaitSet.
  */
-class AdminDestroyWaitSetTest extends ZimbraStructTestCase
+class AdminDestroyWaitSetTest extends ZimbraTestCase
 {
     public function testAdminDestroyWaitSet()
     {

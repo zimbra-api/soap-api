@@ -4,12 +4,12 @@ namespace Zimbra\Tests\Admin\Struct;
 
 use Zimbra\Admin\Struct\AccountSessionInfo;
 use Zimbra\Admin\Struct\SessionInfo;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for AccountSessionInfo.
  */
-class AccountSessionInfoTest extends ZimbraStructTestCase
+class AccountSessionInfoTest extends ZimbraTestCase
 {
     public function testAccountSessionInfo()
     {

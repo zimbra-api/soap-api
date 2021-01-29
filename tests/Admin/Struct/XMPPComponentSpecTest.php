@@ -4,12 +4,12 @@ namespace Zimbra\Tests\Admin\Struct;
 
 use Zimbra\Admin\Struct\{Attr, DomainSelector, ServerSelector, XMPPComponentSpec};
 use Zimbra\Enum\{DomainBy, ServerBy};
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for XMPPComponentSpec.
  */
-class XMPPComponentSpecTest extends ZimbraStructTestCase
+class XMPPComponentSpecTest extends ZimbraTestCase
 {
     public function testXMPPComponentSpec()
     {

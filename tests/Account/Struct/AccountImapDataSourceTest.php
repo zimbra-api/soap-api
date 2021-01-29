@@ -4,12 +4,12 @@ namespace Zimbra\Tests\Account\Struct;
 
 use Zimbra\Enum\ConnectionType;
 use Zimbra\Account\Struct\AccountImapDataSource;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for AccountImapDataSource.
  */
-class AccountImapDataSourceTest extends ZimbraStructTestCase
+class AccountImapDataSourceTest extends ZimbraTestCase
 {
     public function testAccountImapDataSource()
     {

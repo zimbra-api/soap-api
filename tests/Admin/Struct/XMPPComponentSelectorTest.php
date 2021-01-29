@@ -4,12 +4,12 @@ namespace Zimbra\Tests\Admin\Struct;
 
 use Zimbra\Admin\Struct\XMPPComponentSelector;
 use Zimbra\Enum\XmppComponentBy as XmppBy;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for XMPPComponentSelector.
  */
-class XMPPComponentSelectorTest extends ZimbraStructTestCase
+class XMPPComponentSelectorTest extends ZimbraTestCase
 {
     public function testXMPPComponentSelector()
     {

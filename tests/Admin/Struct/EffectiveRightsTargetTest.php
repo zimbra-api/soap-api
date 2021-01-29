@@ -12,12 +12,12 @@ use Zimbra\Admin\Struct\RightWithName;
 use Zimbra\Admin\Struct\RightsEntriesInfo;
 use Zimbra\Enum\TargetType;
 use Zimbra\Struct\NamedElement;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for EffectiveRightsTarget.
  */
-class EffectiveRightsTargetTest extends ZimbraStructTestCase
+class EffectiveRightsTargetTest extends ZimbraTestCase
 {
     public function testEffectiveRightsTarget()
     {

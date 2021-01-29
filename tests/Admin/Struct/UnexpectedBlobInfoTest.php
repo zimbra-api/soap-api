@@ -3,12 +3,12 @@
 namespace Zimbra\Tests\Admin\Struct;
 
 use Zimbra\Admin\Struct\UnexpectedBlobInfo;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for UnexpectedBlobInfo.
  */
-class UnexpectedBlobInfoTest extends ZimbraStructTestCase
+class UnexpectedBlobInfoTest extends ZimbraTestCase
 {
     public function testUnexpectedBlobInfo()
     {

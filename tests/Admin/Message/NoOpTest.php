@@ -6,12 +6,12 @@ use Zimbra\Admin\Message\NoOpBody;
 use Zimbra\Admin\Message\NoOpEnvelope;
 use Zimbra\Admin\Message\NoOpRequest;
 use Zimbra\Admin\Message\NoOpResponse;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for NoOpTest.
  */
-class NoOpTest extends ZimbraStructTestCase
+class NoOpTest extends ZimbraTestCase
 {
     public function testNoOp()
     {

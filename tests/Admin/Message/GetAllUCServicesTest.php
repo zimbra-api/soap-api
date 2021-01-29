@@ -8,12 +8,12 @@ use Zimbra\Admin\Message\GetAllUCServicesRequest;
 use Zimbra\Admin\Message\GetAllUCServicesResponse;
 use Zimbra\Admin\Struct\Attr;
 use Zimbra\Admin\Struct\UCServiceInfo;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for GetAllUCServicesTest.
  */
-class GetAllUCServicesTest extends ZimbraStructTestCase
+class GetAllUCServicesTest extends ZimbraTestCase
 {
     public function testGetAllUCServices()
     {

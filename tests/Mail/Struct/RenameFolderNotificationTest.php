@@ -3,12 +3,12 @@
 namespace Zimbra\Tests\Mail\Struct;
 
 use Zimbra\Mail\Struct\RenameFolderNotification;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for RenameFolderNotification.
  */
-class RenameFolderNotificationTest extends ZimbraStructTestCase
+class RenameFolderNotificationTest extends ZimbraTestCase
 {
     public function testRenameFolderNotification()
     {

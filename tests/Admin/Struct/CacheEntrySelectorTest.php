@@ -4,12 +4,12 @@ namespace Zimbra\Tests\Admin\Struct;
 
 use Zimbra\Admin\Struct\CacheEntrySelector;
 use Zimbra\Enum\CacheEntryBy;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for CacheEntrySelector.
  */
-class CacheEntrySelectorTest extends ZimbraStructTestCase
+class CacheEntrySelectorTest extends ZimbraTestCase
 {
     public function testCacheEntrySelector()
     {

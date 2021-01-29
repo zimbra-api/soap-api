@@ -7,12 +7,12 @@ use Zimbra\Admin\Message\ModifyConfigEnvelope;
 use Zimbra\Admin\Message\ModifyConfigRequest;
 use Zimbra\Admin\Message\ModifyConfigResponse;
 use Zimbra\Admin\Struct\Attr;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for ModifyConfig.
  */
-class ModifyConfigTest extends ZimbraStructTestCase
+class ModifyConfigTest extends ZimbraTestCase
 {
     public function testModifyConfig()
     {

@@ -5,12 +5,12 @@ namespace Zimbra\Tests\Mail\Struct;
 use Zimbra\Mail\Struct\Policy;
 use Zimbra\Mail\Struct\RetentionPolicy;
 use Zimbra\Enum\Type;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for RetentionPolicy.
  */
-class RetentionPolicyTest extends ZimbraStructTestCase
+class RetentionPolicyTest extends ZimbraTestCase
 {
     public function testRetentionPolicy()
     {

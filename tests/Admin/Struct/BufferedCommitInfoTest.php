@@ -3,12 +3,12 @@
 namespace Zimbra\Tests\Admin\Struct;
 
 use Zimbra\Admin\Struct\BufferedCommitInfo;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for BufferedCommitInfo.
  */
-class BufferedCommitInfoTest extends ZimbraStructTestCase
+class BufferedCommitInfoTest extends ZimbraTestCase
 {
     public function testBufferedCommitInfo()
     {

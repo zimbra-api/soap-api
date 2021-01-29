@@ -4,12 +4,12 @@ namespace Zimbra\Tests\Admin\Struct;
 
 use Zimbra\Admin\Struct\AdminZimletGlobalConfigInfo;
 use Zimbra\Admin\Struct\AdminZimletProperty;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for AdminZimletGlobalConfigInfo.
  */
-class AdminZimletGlobalConfigInfoTest extends ZimbraStructTestCase
+class AdminZimletGlobalConfigInfoTest extends ZimbraTestCase
 {
     public function testAdminZimletGlobalConfigInfo()
     {

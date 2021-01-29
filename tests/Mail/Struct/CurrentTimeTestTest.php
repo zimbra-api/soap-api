@@ -4,12 +4,12 @@ namespace Zimbra\Tests\Mail\Struct;
 
 use Zimbra\Mail\Struct\CurrentTimeTest;
 use Zimbra\Enum\DateComparison;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for CurrentTimeTest.
  */
-class CurrentTimeTestTest extends ZimbraStructTestCase
+class CurrentTimeTestTest extends ZimbraTestCase
 {
     public function testCurrentTimeTest()
     {

@@ -20,12 +20,12 @@ use Zimbra\Admin\Struct\GranteeInfo;
 use Zimbra\Enum\TargetType;
 use Zimbra\Enum\GranteeType;
 
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for SearchAccountsTest.
  */
-class SearchAccountsTest extends ZimbraStructTestCase
+class SearchAccountsTest extends ZimbraTestCase
 {
     public function testSearchAccounts()
     {

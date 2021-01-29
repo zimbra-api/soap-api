@@ -3,12 +3,12 @@
 namespace Zimbra\Tests\Admin\Struct;
 
 use Zimbra\Admin\Struct\GranteeWithType;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for GranteeWithType.
  */
-class GranteeWithTypeTest extends ZimbraStructTestCase
+class GranteeWithTypeTest extends ZimbraTestCase
 {
     public function testGranteeWithType()
     {

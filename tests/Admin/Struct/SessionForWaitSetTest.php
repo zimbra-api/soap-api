@@ -4,12 +4,12 @@ namespace Zimbra\Tests\Admin\Struct;
 
 use Zimbra\Admin\Struct\SessionForWaitSet;
 use Zimbra\Admin\Struct\WaitSetSessionInfo;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for SessionForWaitSet.
  */
-class SessionForWaitSetTest extends ZimbraStructTestCase
+class SessionForWaitSetTest extends ZimbraTestCase
 {
     public function testSessionForWaitSet()
     {

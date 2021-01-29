@@ -8,12 +8,12 @@ use Zimbra\Admin\Message\ExportAndDeleteItemsRequest;
 use Zimbra\Admin\Message\ExportAndDeleteItemsResponse;
 use Zimbra\Admin\Struct\ExportAndDeleteItemSpec;
 use Zimbra\Admin\Struct\ExportAndDeleteMailboxSpec;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for ExportAndDeleteItems.
  */
-class ExportAndDeleteItemsTest extends ZimbraStructTestCase
+class ExportAndDeleteItemsTest extends ZimbraTestCase
 {
     public function testExportAndDeleteItems()
     {

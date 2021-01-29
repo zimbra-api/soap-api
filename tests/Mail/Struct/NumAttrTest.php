@@ -3,12 +3,12 @@
 namespace Zimbra\Tests\Mail\Struct;
 
 use Zimbra\Mail\Struct\NumAttr;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for NumAttr.
  */
-class NumAttrTest extends ZimbraStructTestCase
+class NumAttrTest extends ZimbraTestCase
 {
     public function testNumAttr()
     {

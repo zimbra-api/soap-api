@@ -4,11 +4,12 @@ namespace Zimbra\Tests\Struct;
 
 use Zimbra\Enum\AccountBy;
 use Zimbra\Struct\AccountSelector;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for AccountSelector.
  */
-class AccountSelectorTest extends ZimbraStructTestCase
+class AccountSelectorTest extends ZimbraTestCase
 {
     public function testAccountSelector()
     {

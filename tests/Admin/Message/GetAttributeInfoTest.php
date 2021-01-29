@@ -4,12 +4,12 @@ namespace Zimbra\Tests\Admin\Message;
 
 use Zimbra\Admin\Message\{GetAttributeInfoBody, GetAttributeInfoEnvelope, GetAttributeInfoRequest, GetAttributeInfoResponse};
 use Zimbra\Admin\Struct\AttributeDescription;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for GetAttributeInfo.
  */
-class GetAttributeInfoTest extends ZimbraStructTestCase
+class GetAttributeInfoTest extends ZimbraTestCase
 {
     public function testGetAttributeInfo()
     {

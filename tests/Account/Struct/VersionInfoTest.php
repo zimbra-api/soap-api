@@ -3,12 +3,12 @@
 namespace Zimbra\Tests\Account\Struct;
 
 use Zimbra\Account\Struct\VersionInfo;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for VersionInfo.
  */
-class VersionInfoTest extends ZimbraStructTestCase
+class VersionInfoTest extends ZimbraTestCase
 {
     public function testVersionInfo()
     {

@@ -6,12 +6,12 @@ use Zimbra\Admin\Message\DeleteDistributionListBody;
 use Zimbra\Admin\Message\DeleteDistributionListEnvelope;
 use Zimbra\Admin\Message\DeleteDistributionListRequest;
 use Zimbra\Admin\Message\DeleteDistributionListResponse;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for DeleteDistributionList.
  */
-class DeleteDistributionListTest extends ZimbraStructTestCase
+class DeleteDistributionListTest extends ZimbraTestCase
 {
     public function testDeleteDistributionList()
     {

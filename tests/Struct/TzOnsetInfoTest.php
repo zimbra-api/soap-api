@@ -3,11 +3,12 @@
 namespace Zimbra\Tests\Struct;
 
 use Zimbra\Struct\TzOnsetInfo;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for TzOnsetInfo.
  */
-class TzOnsetInfoTest extends ZimbraStructTestCase
+class TzOnsetInfoTest extends ZimbraTestCase
 {
     public function testTzOnsetInfo()
     {

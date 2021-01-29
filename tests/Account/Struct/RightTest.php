@@ -3,12 +3,12 @@
 namespace Zimbra\Tests\Account\Struct;
 
 use Zimbra\Account\Struct\Right;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for Right.
  */
-class RightTest extends ZimbraStructTestCase
+class RightTest extends ZimbraTestCase
 {
     public function testRight()
     {

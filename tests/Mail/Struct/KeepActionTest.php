@@ -3,12 +3,12 @@
 namespace Zimbra\Tests\Mail\Struct;
 
 use Zimbra\Mail\Struct\KeepAction;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for KeepAction.
  */
-class KeepActionTest extends ZimbraStructTestCase
+class KeepActionTest extends ZimbraTestCase
 {
     public function testKeepAction()
     {

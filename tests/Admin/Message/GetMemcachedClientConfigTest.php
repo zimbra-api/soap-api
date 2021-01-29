@@ -6,12 +6,12 @@ use Zimbra\Admin\Message\GetMemcachedClientConfigBody;
 use Zimbra\Admin\Message\GetMemcachedClientConfigEnvelope;
 use Zimbra\Admin\Message\GetMemcachedClientConfigRequest;
 use Zimbra\Admin\Message\GetMemcachedClientConfigResponse;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for GetMemcachedClientConfig.
  */
-class GetMemcachedClientConfigTest extends ZimbraStructTestCase
+class GetMemcachedClientConfigTest extends ZimbraTestCase
 {
     public function testGetMemcachedClientConfig()
     {

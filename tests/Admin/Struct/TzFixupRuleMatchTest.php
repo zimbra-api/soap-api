@@ -10,12 +10,12 @@ use Zimbra\Admin\Struct\TzFixupRuleMatchRules;
 use Zimbra\Admin\Struct\TzFixupRuleMatchDate;
 use Zimbra\Admin\Struct\TzFixupRuleMatchDates;
 use Zimbra\Struct\Id;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for TzFixupRuleMatch.
  */
-class TzFixupRuleMatchTest extends ZimbraStructTestCase
+class TzFixupRuleMatchTest extends ZimbraTestCase
 {
     public function testTzFixupRuleMatch()
     {

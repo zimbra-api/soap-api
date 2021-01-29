@@ -7,12 +7,12 @@ use Zimbra\Admin\Message\DeleteZimletEnvelope;
 use Zimbra\Admin\Message\DeleteZimletRequest;
 use Zimbra\Admin\Message\DeleteZimletResponse;
 use Zimbra\Struct\NamedElement;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for DeleteZimlet.
  */
-class DeleteZimletTest extends ZimbraStructTestCase
+class DeleteZimletTest extends ZimbraTestCase
 {
     public function testDeleteZimlet()
     {

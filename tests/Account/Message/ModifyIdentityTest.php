@@ -5,11 +5,11 @@ namespace Zimbra\Tests\Account\Message;
 use Zimbra\Account\Message\{ModifyIdentityEnvelope, ModifyIdentityBody, ModifyIdentityRequest, ModifyIdentityResponse};
 use Zimbra\Account\Struct\Attr;
 use Zimbra\Account\Struct\Identity;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 /**
  * Testcase class for ModifyIdentity.
  */
-class ModifyIdentityTest extends ZimbraStructTestCase
+class ModifyIdentityTest extends ZimbraTestCase
 {
     public function testModifyIdentity()
     {

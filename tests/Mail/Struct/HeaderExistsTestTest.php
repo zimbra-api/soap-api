@@ -3,12 +3,12 @@
 namespace Zimbra\Tests\Mail\Struct;
 
 use Zimbra\Mail\Struct\HeaderExistsTest;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for HeaderExistsTest.
  */
-class HeaderExistsTestTest extends ZimbraStructTestCase
+class HeaderExistsTestTest extends ZimbraTestCase
 {
     public function testHeaderExistsTest()
     {

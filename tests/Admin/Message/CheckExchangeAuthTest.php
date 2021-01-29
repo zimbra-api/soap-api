@@ -8,12 +8,12 @@ use Zimbra\Admin\Message\CheckExchangeAuthRequest;
 use Zimbra\Admin\Message\CheckExchangeAuthResponse;
 use Zimbra\Admin\Struct\ExchangeAuthSpec;
 use Zimbra\Enum\AuthScheme;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for CheckExchangeAuth.
  */
-class CheckExchangeAuthTest extends ZimbraStructTestCase
+class CheckExchangeAuthTest extends ZimbraTestCase
 {
     public function testCheckExchangeAuth()
     {

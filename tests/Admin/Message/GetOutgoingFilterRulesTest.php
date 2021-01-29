@@ -83,12 +83,12 @@ use Zimbra\Enum\ServerBy;
 
 use Zimbra\Struct\AccountSelector;
 
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for GetOutgoingFilterRulesTest.
  */
-class GetOutgoingFilterRulesTest extends ZimbraStructTestCase
+class GetOutgoingFilterRulesTest extends ZimbraTestCase
 {
     protected function setUp(): void
     {

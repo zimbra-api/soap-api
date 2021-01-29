@@ -4,12 +4,12 @@ namespace Zimbra\Tests\Account\Struct;
 
 use Zimbra\Account\Struct\BlackList;
 use Zimbra\Struct\OpValue;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for BlackList.
  */
-class BlackListTest extends ZimbraStructTestCase
+class BlackListTest extends ZimbraTestCase
 {
     public function testBlackList()
     {

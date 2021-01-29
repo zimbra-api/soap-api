@@ -10,12 +10,12 @@ use Zimbra\Admin\Message\GetIndexStatsResponse;
 use Zimbra\Admin\Struct\MailboxByAccountIdSelector;
 use Zimbra\Admin\Struct\IndexStats;
 
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for GetIndexStats.
  */
-class GetIndexStatsTest extends ZimbraStructTestCase
+class GetIndexStatsTest extends ZimbraTestCase
 {
     public function testGetIndexStats()
     {

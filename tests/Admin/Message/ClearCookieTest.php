@@ -7,12 +7,12 @@ use Zimbra\Admin\Message\ClearCookieEnvelope;
 use Zimbra\Admin\Message\ClearCookieRequest;
 use Zimbra\Admin\Message\ClearCookieResponse;
 use Zimbra\Admin\Struct\CookieSpec;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for ClearCookie.
  */
-class ClearCookieTest extends ZimbraStructTestCase
+class ClearCookieTest extends ZimbraTestCase
 {
     public function testClearCookie()
     {

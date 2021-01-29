@@ -9,12 +9,12 @@ use Zimbra\Admin\Message\GetMailboxStatsResponse;
 
 use Zimbra\Admin\Struct\MailboxStats;
 
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for GetMailboxStats.
  */
-class GetMailboxStatsTest extends ZimbraStructTestCase
+class GetMailboxStatsTest extends ZimbraTestCase
 {
     public function testGetMailboxStats()
     {

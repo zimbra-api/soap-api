@@ -3,12 +3,12 @@
 namespace Zimbra\Tests\Admin\Struct;
 
 use Zimbra\Admin\Struct\DistributionListMembershipInfo;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for DistributionListMembershipInfo.
  */
-class DistributionListMembershipInfoTest extends ZimbraStructTestCase
+class DistributionListMembershipInfoTest extends ZimbraTestCase
 {
     public function testDistributionListMembershipInfo()
     {

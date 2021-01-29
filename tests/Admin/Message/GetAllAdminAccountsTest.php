@@ -8,12 +8,12 @@ use Zimbra\Admin\Message\GetAllAdminAccountsRequest;
 use Zimbra\Admin\Message\GetAllAdminAccountsResponse;
 use Zimbra\Admin\Struct\AccountInfo;
 use Zimbra\Admin\Struct\Attr;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for GetAllAdminAccountsTest.
  */
-class GetAllAdminAccountsTest extends ZimbraStructTestCase
+class GetAllAdminAccountsTest extends ZimbraTestCase
 {
     public function testGetAllAdminAccounts()
     {

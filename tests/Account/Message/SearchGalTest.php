@@ -22,13 +22,13 @@ use Zimbra\Enum\MemberOfSelector;
 use Zimbra\Struct\ContactAttr;
 use Zimbra\Struct\CursorInfo;
 use Zimbra\Struct\KeyValuePair;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 
 /**
  * Testcase class for SearchGalTest.
  */
-class SearchGalTest extends ZimbraStructTestCase
+class SearchGalTest extends ZimbraTestCase
 {
     protected function setUp(): void
     {

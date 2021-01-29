@@ -3,12 +3,12 @@
 namespace Zimbra\Tests\Mail\Struct;
 
 use Zimbra\Mail\Struct\RawInvite;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for RawInvite.
  */
-class RawInviteTest extends ZimbraStructTestCase
+class RawInviteTest extends ZimbraTestCase
 {
     public function testRawInvite()
     {

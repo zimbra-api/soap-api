@@ -10,12 +10,12 @@ use Zimbra\Admin\Struct\{ContactBackupServer, ServerSelector};
 use Zimbra\Enum\ContactBackupStatus;
 use Zimbra\Enum\ContactBackupOp;
 use Zimbra\Enum\ServerBy;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for ContactBackup.
  */
-class ContactBackupTest extends ZimbraStructTestCase
+class ContactBackupTest extends ZimbraTestCase
 {
     public function testContactBackup()
     {

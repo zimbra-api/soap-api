@@ -8,12 +8,12 @@ use Zimbra\Admin\Message\GetAllXMPPComponentsRequest;
 use Zimbra\Admin\Message\GetAllXMPPComponentsResponse;
 use Zimbra\Admin\Struct\Attr;
 use Zimbra\Admin\Struct\XMPPComponentInfo;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for GetAllXMPPComponentsTest.
  */
-class GetAllXMPPComponentsTest extends ZimbraStructTestCase
+class GetAllXMPPComponentsTest extends ZimbraTestCase
 {
     public function testGetAllXMPPComponents()
     {

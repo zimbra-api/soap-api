@@ -7,12 +7,12 @@ use Zimbra\Admin\Message\PurgeFreeBusyQueueEnvelope;
 use Zimbra\Admin\Message\PurgeFreeBusyQueueRequest;
 use Zimbra\Admin\Message\PurgeFreeBusyQueueResponse;
 use Zimbra\Struct\NamedElement;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for PurgeFreeBusyQueueTest.
  */
-class PurgeFreeBusyQueueTest extends ZimbraStructTestCase
+class PurgeFreeBusyQueueTest extends ZimbraTestCase
 {
     public function testPurgeFreeBusyQueue()
     {

@@ -6,12 +6,12 @@ use Zimbra\Admin\Message\PingBody;
 use Zimbra\Admin\Message\PingEnvelope;
 use Zimbra\Admin\Message\PingRequest;
 use Zimbra\Admin\Message\PingResponse;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for PingTest.
  */
-class PingTest extends ZimbraStructTestCase
+class PingTest extends ZimbraTestCase
 {
     public function testPing()
     {

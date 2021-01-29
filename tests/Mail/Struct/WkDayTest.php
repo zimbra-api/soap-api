@@ -4,12 +4,12 @@ namespace Zimbra\Tests\Mail\Struct;
 
 use Zimbra\Enum\WeekDay;
 use Zimbra\Mail\Struct\WkDay;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for WkDay.
  */
-class WkDayTest extends ZimbraStructTestCase
+class WkDayTest extends ZimbraTestCase
 {
     public function testWkDay()
     {

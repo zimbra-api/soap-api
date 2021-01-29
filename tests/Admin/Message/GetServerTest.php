@@ -12,12 +12,12 @@ use Zimbra\Admin\Struct\ServerInfo;
 use Zimbra\Admin\Struct\ServerSelector;
 use Zimbra\Enum\ServerBy;
 
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for GetServerTest.
  */
-class GetServerTest extends ZimbraStructTestCase
+class GetServerTest extends ZimbraTestCase
 {
     public function testGetServer()
     {

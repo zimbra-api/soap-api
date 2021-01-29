@@ -38,12 +38,12 @@ use Zimbra\Enum\Importance;
 use Zimbra\Enum\DateComparison;
 use Zimbra\Enum\NumberComparison;
 use Zimbra\Enum\{AddressPart, ComparisonComparator, CountComparison, StringComparison, ValueComparison};
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for FilterTests.
  */
-class FilterTestsTest extends ZimbraStructTestCase
+class FilterTestsTest extends ZimbraTestCase
 {
     protected function setUp(): void
     {

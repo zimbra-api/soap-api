@@ -5,12 +5,12 @@ namespace Zimbra\Tests\Admin\Struct;
 use Zimbra\Admin\Struct\EffectiveRightsTargetSelector;
 use Zimbra\Enum\TargetBy;
 use Zimbra\Enum\TargetType;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for EffectiveRightsTargetSelector.
  */
-class EffectiveRightsTargetSelectorTest extends ZimbraStructTestCase
+class EffectiveRightsTargetSelectorTest extends ZimbraTestCase
 {
     public function testEffectiveRightsTargetSelector()
     {

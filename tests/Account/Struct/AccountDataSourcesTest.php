@@ -14,12 +14,12 @@ use Zimbra\Account\Struct\AccountGalDataSource;
 use Zimbra\Account\Struct\AccountCalDataSource;
 use Zimbra\Account\Struct\AccountUnknownDataSource;
 use Zimbra\Enum\ConnectionType;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for AccountDataSources.
  */
-class AccountDataSourcesTest extends ZimbraStructTestCase
+class AccountDataSourcesTest extends ZimbraTestCase
 {
     protected function setUp(): void
     {

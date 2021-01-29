@@ -3,12 +3,12 @@
 namespace Zimbra\Tests\Mail\Struct;
 
 use Zimbra\Mail\Struct\ErejectAction;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for ErejectAction.
  */
-class ErejectActionTest extends ZimbraStructTestCase
+class ErejectActionTest extends ZimbraTestCase
 {
     public function testErejectAction()
     {

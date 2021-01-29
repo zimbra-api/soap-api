@@ -4,12 +4,12 @@ namespace Zimbra\Tests\Admin\Struct;
 
 use Zimbra\Admin\Struct\Attr;
 use Zimbra\Admin\Struct\UCServiceInfo;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for UCServiceInfo.
  */
-class UCServiceInfoTest extends ZimbraStructTestCase
+class UCServiceInfoTest extends ZimbraTestCase
 {
     public function testUCServiceInfo()
     {

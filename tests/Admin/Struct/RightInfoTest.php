@@ -9,12 +9,12 @@ use Zimbra\Admin\Struct\RightsAttrs;
 use Zimbra\Admin\Struct\RightInfo;
 use Zimbra\Enum\RightClass;
 use Zimbra\Enum\RightType;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for RightInfo.
  */
-class RightInfoTest extends ZimbraStructTestCase
+class RightInfoTest extends ZimbraTestCase
 {
     public function testRightInfo()
     {

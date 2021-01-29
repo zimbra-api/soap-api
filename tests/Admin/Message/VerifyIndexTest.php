@@ -7,12 +7,12 @@ use Zimbra\Admin\Message\VerifyIndexEnvelope;
 use Zimbra\Admin\Message\VerifyIndexRequest;
 use Zimbra\Admin\Message\VerifyIndexResponse;
 use Zimbra\Admin\Struct\MailboxByAccountIdSelector;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for VerifyIndex.
  */
-class VerifyIndexTest extends ZimbraStructTestCase
+class VerifyIndexTest extends ZimbraTestCase
 {
     public function testVerifyIndex()
     {

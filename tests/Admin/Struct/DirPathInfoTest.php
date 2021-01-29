@@ -3,12 +3,12 @@
 namespace Zimbra\Tests\Admin\Struct;
 
 use Zimbra\Admin\Struct\DirPathInfo;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for DirPathInfo.
  */
-class DirPathInfoTest extends ZimbraStructTestCase
+class DirPathInfoTest extends ZimbraTestCase
 {
     public function testDirPathInfo()
     {

@@ -12,12 +12,12 @@ use Zimbra\Enum\CompactIndexStatus;
 use Zimbra\Enum\CountObjectsType;
 use Zimbra\Enum\DomainBy;
 use Zimbra\Enum\UcServiceBy;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for CountObjects.
  */
-class CountObjectsTest extends ZimbraStructTestCase
+class CountObjectsTest extends ZimbraTestCase
 {
     public function testCountObjects()
     {

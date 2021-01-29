@@ -3,12 +3,12 @@
 namespace Zimbra\Tests\Soap\Header;
 
 use Zimbra\Soap\Header\ChangeInfo;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for ChangeInfo.
  */
-class ChangeInfoTest extends ZimbraStructTestCase
+class ChangeInfoTest extends ZimbraTestCase
 {
     public function testHeaderChangeInfo()
     {

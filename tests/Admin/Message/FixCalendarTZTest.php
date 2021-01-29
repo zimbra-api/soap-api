@@ -20,12 +20,12 @@ use Zimbra\Admin\Struct\TzReplaceInfo;
 use Zimbra\Struct\Id;
 use Zimbra\Struct\NamedElement;
 use Zimbra\Struct\TzOnsetInfo;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for FixCalendarTZ.
  */
-class FixCalendarTZTest extends ZimbraStructTestCase
+class FixCalendarTZTest extends ZimbraTestCase
 {
     public function testFixCalendarTZ()
     {

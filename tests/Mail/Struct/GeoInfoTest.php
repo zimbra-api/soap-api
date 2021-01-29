@@ -3,12 +3,12 @@
 namespace Zimbra\Tests\Mail\Struct;
 
 use Zimbra\Mail\Struct\GeoInfo;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for GeoInfo.
  */
-class GeoInfoTest extends ZimbraStructTestCase
+class GeoInfoTest extends ZimbraTestCase
 {
     public function testGeoInfo()
     {

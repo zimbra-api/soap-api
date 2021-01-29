@@ -3,12 +3,12 @@
 namespace Zimbra\Tests\Mail\Struct;
 
 use Zimbra\Mail\Struct\Header;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for Header.
  */
-class HeaderTest extends ZimbraStructTestCase
+class HeaderTest extends ZimbraTestCase
 {
     public function testHeader()
     {

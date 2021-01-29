@@ -6,12 +6,12 @@ use Zimbra\Admin\Message\PurgeAccountCalendarCacheBody;
 use Zimbra\Admin\Message\PurgeAccountCalendarCacheEnvelope;
 use Zimbra\Admin\Message\PurgeAccountCalendarCacheRequest;
 use Zimbra\Admin\Message\PurgeAccountCalendarCacheResponse;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for PurgeAccountCalendarCacheTest.
  */
-class PurgeAccountCalendarCacheTest extends ZimbraStructTestCase
+class PurgeAccountCalendarCacheTest extends ZimbraTestCase
 {
     public function testPurgeAccountCalendarCache()
     {

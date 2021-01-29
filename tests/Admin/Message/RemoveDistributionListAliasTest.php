@@ -6,12 +6,12 @@ use Zimbra\Admin\Message\RemoveDistributionListAliasBody;
 use Zimbra\Admin\Message\RemoveDistributionListAliasEnvelope;
 use Zimbra\Admin\Message\RemoveDistributionListAliasRequest;
 use Zimbra\Admin\Message\RemoveDistributionListAliasResponse;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for RemoveDistributionListAlias.
  */
-class RemoveDistributionListAliasTest extends ZimbraStructTestCase
+class RemoveDistributionListAliasTest extends ZimbraTestCase
 {
     public function testRemoveDistributionListAlias()
     {

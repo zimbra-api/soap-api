@@ -8,12 +8,12 @@ use Zimbra\Admin\Message\CheckDomainMXRecordRequest;
 use Zimbra\Admin\Message\CheckDomainMXRecordResponse;
 use Zimbra\Admin\Struct\DomainSelector;
 use Zimbra\Enum\DomainBy;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for CheckDomainMXRecord.
  */
-class CheckDomainMXRecordTest extends ZimbraStructTestCase
+class CheckDomainMXRecordTest extends ZimbraTestCase
 {
     public function testCheckDomainMXRecord()
     {

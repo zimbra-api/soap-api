@@ -3,12 +3,12 @@
 namespace Zimbra\Tests\Admin\Struct;
 
 use Zimbra\Admin\Struct\IdStatus;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for IdStatus.
  */
-class IdStatusTest extends ZimbraStructTestCase
+class IdStatusTest extends ZimbraTestCase
 {
     public function testIdStatus()
     {

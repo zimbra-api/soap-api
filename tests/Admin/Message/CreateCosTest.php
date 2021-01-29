@@ -9,12 +9,12 @@ use Zimbra\Admin\Message\CreateCosResponse;
 use Zimbra\Admin\Struct\Attr;
 use Zimbra\Admin\Struct\CosInfo;
 use Zimbra\Admin\Struct\CosInfoAttr;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for CreateCos.
  */
-class CreateCosTest extends ZimbraStructTestCase
+class CreateCosTest extends ZimbraTestCase
 {
     public function testCreateCos()
     {

@@ -4,12 +4,12 @@ namespace Zimbra\Tests\Account\Struct;
 
 use Zimbra\Account\Struct\WhiteList;
 use Zimbra\Struct\OpValue;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for WhiteList.
  */
-class WhiteListTest extends ZimbraStructTestCase
+class WhiteListTest extends ZimbraTestCase
 {
     public function testWhiteList()
     {

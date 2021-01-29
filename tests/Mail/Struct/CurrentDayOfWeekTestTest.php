@@ -3,12 +3,12 @@
 namespace Zimbra\Tests\Mail\Struct;
 
 use Zimbra\Mail\Struct\CurrentDayOfWeekTest;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for CurrentDayOfWeekTest.
  */
-class CurrentDayOfWeekTestTest extends ZimbraStructTestCase
+class CurrentDayOfWeekTestTest extends ZimbraTestCase
 {
     public function testCurrentDayOfWeekTest()
     {

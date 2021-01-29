@@ -3,12 +3,12 @@
 namespace Zimbra\Tests\Mail\Struct;
 
 use Zimbra\Mail\Struct\BySetPosRule;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for BySetPosRule.
  */
-class BySetPosRuleTest extends ZimbraStructTestCase
+class BySetPosRuleTest extends ZimbraTestCase
 {
     public function testBySetPosRule()
     {

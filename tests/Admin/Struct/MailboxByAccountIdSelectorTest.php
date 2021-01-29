@@ -3,12 +3,12 @@
 namespace Zimbra\Tests\Admin\Struct;
 
 use Zimbra\Admin\Struct\MailboxByAccountIdSelector;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for MailboxByAccountIdSelector.
  */
-class MailboxByAccountIdSelectorTest extends ZimbraStructTestCase
+class MailboxByAccountIdSelectorTest extends ZimbraTestCase
 {
     public function testMailboxByAccountIdSelector()
     {

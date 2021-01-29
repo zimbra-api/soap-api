@@ -9,12 +9,12 @@ use Zimbra\Admin\Message\CheckGalConfigResponse;
 use Zimbra\Admin\Struct\Attr;
 use Zimbra\Admin\Struct\GalContactInfo;
 use Zimbra\Admin\Struct\LimitedQuery;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for CheckGalConfig.
  */
-class CheckGalConfigTest extends ZimbraStructTestCase
+class CheckGalConfigTest extends ZimbraTestCase
 {
     public function testCheckGalConfig()
     {

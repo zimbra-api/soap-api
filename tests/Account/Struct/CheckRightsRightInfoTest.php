@@ -3,12 +3,12 @@
 namespace Zimbra\Tests\Account\Struct;
 
 use Zimbra\Account\Struct\CheckRightsRightInfo;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for CheckRightsRightInfo.
  */
-class CheckRightsRightInfoTest extends ZimbraStructTestCase
+class CheckRightsRightInfoTest extends ZimbraTestCase
 {
     public function testCheckRightsRightInfo()
     {

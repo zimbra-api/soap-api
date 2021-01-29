@@ -5,12 +5,12 @@ namespace Zimbra\Tests\Account\Struct;
 use Zimbra\Account\Struct\AccountACEInfo;
 use Zimbra\Enum\AceRightType;
 use Zimbra\Enum\GranteeType;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for AccountACEInfo.
  */
-class AccountACEInfoTest extends ZimbraStructTestCase
+class AccountACEInfoTest extends ZimbraTestCase
 {
     public function testAccountACEInfo()
     {

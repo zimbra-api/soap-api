@@ -3,12 +3,12 @@
 namespace Zimbra\Tests\Mail\Struct;
 
 use Zimbra\Mail\Struct\ByWeekNoRule;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for ByWeekNoRule.
  */
-class ByWeekNoRuleTest extends ZimbraStructTestCase
+class ByWeekNoRuleTest extends ZimbraTestCase
 {
     public function testByWeekNoRule()
     {

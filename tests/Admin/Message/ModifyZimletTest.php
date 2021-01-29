@@ -12,12 +12,12 @@ use Zimbra\Admin\Struct\ZimletAcl;
 use Zimbra\Admin\Struct\ZimletAclStatusPri;
 use Zimbra\Enum\AclType;
 use Zimbra\Enum\ZimletStatus;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for ModifyZimlet.
  */
-class ModifyZimletTest extends ZimbraStructTestCase
+class ModifyZimletTest extends ZimbraTestCase
 {
     public function testModifyZimlet()
     {

@@ -19,12 +19,12 @@ use Zimbra\Admin\Struct\NameAndValue;
 
 use Zimbra\Struct\NamedElement;
 
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for GetLoggerStats.
  */
-class GetLoggerStatsTest extends ZimbraStructTestCase
+class GetLoggerStatsTest extends ZimbraTestCase
 {
     public function testGetLoggerStats()
     {

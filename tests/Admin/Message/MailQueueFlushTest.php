@@ -8,12 +8,12 @@ use Zimbra\Admin\Message\MailQueueFlushRequest;
 use Zimbra\Admin\Message\MailQueueFlushResponse;
 
 use Zimbra\Struct\NamedElement;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for MailQueueFlush.
  */
-class MailQueueFlushTest extends ZimbraStructTestCase
+class MailQueueFlushTest extends ZimbraTestCase
 {
     public function testMailQueueFlush()
     {

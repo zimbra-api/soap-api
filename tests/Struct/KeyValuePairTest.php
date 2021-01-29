@@ -3,11 +3,12 @@
 namespace Zimbra\Tests\Struct;
 
 use Zimbra\Struct\KeyValuePair;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for KeyValuePair.
  */
-class KeyValuePairTest extends ZimbraStructTestCase
+class KeyValuePairTest extends ZimbraTestCase
 {
     public function testKeyValuePair()
     {

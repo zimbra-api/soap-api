@@ -3,12 +3,12 @@
 namespace Zimbra\Tests\Admin\Struct;
 
 use Zimbra\Admin\Struct\RightModifierInfo;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for RightModifierInfo.
  */
-class RightModifierInfoTest extends ZimbraStructTestCase
+class RightModifierInfoTest extends ZimbraTestCase
 {
     public function testRightModifierInfo()
     {

@@ -5,12 +5,12 @@ namespace Zimbra\Tests\Account\Struct;
 use Zimbra\Account\Struct\DiscoverRightsEmail;
 use Zimbra\Account\Struct\DiscoverRightsTarget;
 use Zimbra\Enum\TargetType;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for DiscoverRightsTarget.
  */
-class DiscoverRightsTargetTest extends ZimbraStructTestCase
+class DiscoverRightsTargetTest extends ZimbraTestCase
 {
     public function testDiscoverRightsTarget()
     {

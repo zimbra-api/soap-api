@@ -3,12 +3,12 @@
 namespace Zimbra\Tests\Admin\Struct;
 
 use Zimbra\Admin\Struct\CosCountInfo;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for CosCountInfo.
  */
-class CosCountInfoTest extends ZimbraStructTestCase
+class CosCountInfoTest extends ZimbraTestCase
 {
     public function testCosCountInfo()
     {

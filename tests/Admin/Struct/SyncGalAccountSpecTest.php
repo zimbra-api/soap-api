@@ -5,12 +5,12 @@ namespace Zimbra\Tests\Admin\Struct;
 use Zimbra\Admin\Struct\SyncGalAccountSpec;
 use Zimbra\Admin\Struct\SyncGalAccountDataSourceSpec;
 use Zimbra\Enum\DataSourceBy;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for SyncGalAccountSpec.
  */
-class SyncGalAccountSpecTest extends ZimbraStructTestCase
+class SyncGalAccountSpecTest extends ZimbraTestCase
 {
     public function testSyncGalAccountSpec()
     {

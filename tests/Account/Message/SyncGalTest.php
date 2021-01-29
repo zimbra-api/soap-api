@@ -8,11 +8,11 @@ use Zimbra\Account\Message\SyncGalRequest;
 use Zimbra\Account\Message\SyncGalResponse;
 use Zimbra\Account\Struct\ContactInfo;
 use Zimbra\Struct\Id;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 /**
  * Testcase class for SyncGal.
  */
-class SyncGalTest extends ZimbraStructTestCase
+class SyncGalTest extends ZimbraTestCase
 {
     public function testSyncGal()
     {

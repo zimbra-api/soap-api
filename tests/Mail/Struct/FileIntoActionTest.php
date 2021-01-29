@@ -3,12 +3,12 @@
 namespace Zimbra\Tests\Mail\Struct;
 
 use Zimbra\Mail\Struct\FileIntoAction;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for FileIntoAction.
  */
-class FileIntoActionTest extends ZimbraStructTestCase
+class FileIntoActionTest extends ZimbraTestCase
 {
     public function testFileIntoAction()
     {

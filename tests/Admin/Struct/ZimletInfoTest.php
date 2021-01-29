@@ -4,12 +4,12 @@ namespace Zimbra\Tests\Admin\Struct;
 
 use Zimbra\Admin\Struct\Attr;
 use Zimbra\Admin\Struct\ZimletInfo;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for ZimletInfo.
  */
-class ZimletInfoTest extends ZimbraStructTestCase
+class ZimletInfoTest extends ZimbraTestCase
 {
     public function testZimletInfo()
     {

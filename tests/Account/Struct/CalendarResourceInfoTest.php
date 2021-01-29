@@ -4,12 +4,12 @@ namespace Zimbra\Tests\Account\Struct;
 
 use Zimbra\Account\Struct\CalendarResourceInfo;
 use Zimbra\Struct\KeyValuePair;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for CalendarResourceInfo.
  */
-class CalendarResourceInfoTest extends ZimbraStructTestCase
+class CalendarResourceInfoTest extends ZimbraTestCase
 {
     public function testCalendarResourceInfo()
     {

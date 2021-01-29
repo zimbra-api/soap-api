@@ -3,12 +3,12 @@
 namespace Zimbra\Tests\Admin\Struct;
 
 use Zimbra\Admin\Struct\RightWithName;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for RightWithName.
  */
-class RightWithNameTest extends ZimbraStructTestCase
+class RightWithNameTest extends ZimbraTestCase
 {
     public function testRightWithName()
     {

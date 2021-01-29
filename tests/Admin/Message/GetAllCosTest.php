@@ -8,12 +8,12 @@ use Zimbra\Admin\Message\GetAllCosRequest;
 use Zimbra\Admin\Message\GetAllCosResponse;
 use Zimbra\Admin\Struct\CosInfo;
 use Zimbra\Admin\Struct\CosInfoAttr;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for GetAllCosTest.
  */
-class GetAllCosTest extends ZimbraStructTestCase
+class GetAllCosTest extends ZimbraTestCase
 {
     public function testGetAllCos()
     {

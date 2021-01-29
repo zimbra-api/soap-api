@@ -4,12 +4,12 @@ namespace Zimbra\Tests\Admin\Struct;
 
 use Zimbra\Admin\Struct\{Attr, DataSourceInfo};
 use Zimbra\Enum\DataSourceType;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for DataSourceInfo.
  */
-class DataSourceInfoTest extends ZimbraStructTestCase
+class DataSourceInfoTest extends ZimbraTestCase
 {
     public function testDataSourceInfo()
     {

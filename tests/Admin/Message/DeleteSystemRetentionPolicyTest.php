@@ -10,12 +10,12 @@ use Zimbra\Admin\Struct\CosSelector;
 use Zimbra\Mail\Struct\Policy;
 use Zimbra\Enum\CosBy;
 use Zimbra\Enum\Type;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for DeleteSystemRetentionPolicy.
  */
-class DeleteSystemRetentionPolicyTest extends ZimbraStructTestCase
+class DeleteSystemRetentionPolicyTest extends ZimbraTestCase
 {
     public function testDeleteSystemRetentionPolicy()
     {

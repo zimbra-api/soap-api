@@ -8,12 +8,12 @@ use Zimbra\Admin\Message\MigrateAccountRequest;
 use Zimbra\Admin\Message\MigrateAccountResponse;
 
 use Zimbra\Admin\Struct\IdAndAction;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for MigrateAccount.
  */
-class MigrateAccountTest extends ZimbraStructTestCase
+class MigrateAccountTest extends ZimbraTestCase
 {
     public function testMigrateAccount()
     {

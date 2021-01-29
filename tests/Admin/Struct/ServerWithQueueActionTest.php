@@ -10,12 +10,12 @@ use Zimbra\Admin\Struct\MailQueueWithAction;
 use Zimbra\Admin\Struct\ValueAttrib;
 use Zimbra\Enum\QueueActionBy;
 use Zimbra\Enum\QueueAction;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for ServerWithQueueAction.
  */
-class ServerWithQueueActionTest extends ZimbraStructTestCase
+class ServerWithQueueActionTest extends ZimbraTestCase
 {
     public function testServerWithQueueAction()
     {

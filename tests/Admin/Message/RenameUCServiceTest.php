@@ -8,12 +8,12 @@ use Zimbra\Admin\Message\RenameUCServiceRequest;
 use Zimbra\Admin\Message\RenameUCServiceResponse;
 use Zimbra\Admin\Struct\Attr;
 use Zimbra\Admin\Struct\UCServiceInfo;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for RenameUCService.
  */
-class RenameUCServiceTest extends ZimbraStructTestCase
+class RenameUCServiceTest extends ZimbraTestCase
 {
     public function testRenameUCService()
     {

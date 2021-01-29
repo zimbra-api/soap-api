@@ -4,12 +4,12 @@ namespace Zimbra\Tests\Mail\Struct;
 
 use Zimbra\Mail\Struct\CalOrganizer;
 use Zimbra\Mail\Struct\XParam;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for CalOrganizer.
  */
-class CalOrganizerTest extends ZimbraStructTestCase
+class CalOrganizerTest extends ZimbraTestCase
 {
     public function testCalOrganizer()
     {

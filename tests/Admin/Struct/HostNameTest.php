@@ -3,12 +3,12 @@
 namespace Zimbra\Tests\Admin\Struct;
 
 use Zimbra\Admin\Struct\HostName;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for HostName.
  */
-class HostNameTest extends ZimbraStructTestCase
+class HostNameTest extends ZimbraTestCase
 {
     public function testHostName()
     {

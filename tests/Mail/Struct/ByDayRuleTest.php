@@ -5,12 +5,12 @@ namespace Zimbra\Tests\Mail\Struct;
 use Zimbra\Enum\WeekDay;
 use Zimbra\Mail\Struct\ByDayRule;
 use Zimbra\Mail\Struct\WkDay;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for ByDayRule.
  */
-class ByDayRuleTest extends ZimbraStructTestCase
+class ByDayRuleTest extends ZimbraTestCase
 {
     public function testByDayRule()
     {

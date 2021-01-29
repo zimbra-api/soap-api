@@ -3,12 +3,12 @@
 namespace Zimbra\Tests\Account\Struct;
 
 use Zimbra\Account\Struct\Prop;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for Prop.
  */
-class PropTest extends ZimbraStructTestCase
+class PropTest extends ZimbraTestCase
 {
     public function testProp()
     {

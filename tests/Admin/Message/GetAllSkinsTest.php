@@ -7,12 +7,12 @@ use Zimbra\Admin\Message\GetAllSkinsEnvelope;
 use Zimbra\Admin\Message\GetAllSkinsRequest;
 use Zimbra\Admin\Message\GetAllSkinsResponse;
 use Zimbra\Struct\NamedElement;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for GetAllSkinsTest.
  */
-class GetAllSkinsTest extends ZimbraStructTestCase
+class GetAllSkinsTest extends ZimbraTestCase
 {
     public function testGetAllSkins()
     {

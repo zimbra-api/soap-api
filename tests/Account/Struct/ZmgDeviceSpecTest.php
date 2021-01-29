@@ -3,12 +3,12 @@
 namespace Zimbra\Tests\Account\Struct;
 
 use Zimbra\Account\Struct\ZmgDeviceSpec;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for ZmgDeviceSpec.
  */
-class ZmgDeviceSpecTest extends ZimbraStructTestCase
+class ZmgDeviceSpecTest extends ZimbraTestCase
 {
     public function testZmgDeviceSpec()
     {

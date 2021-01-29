@@ -3,12 +3,12 @@
 namespace Zimbra\Tests\Mail\Struct;
 
 use Zimbra\Mail\Struct\CommunityRequestsTest;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for CommunityRequestsTest.
  */
-class CommunityRequestsTestTest extends ZimbraStructTestCase
+class CommunityRequestsTestTest extends ZimbraTestCase
 {
     public function testCommunityRequestsTest()
     {

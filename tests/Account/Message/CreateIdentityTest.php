@@ -5,11 +5,11 @@ namespace Zimbra\Tests\Account\Message;
 use Zimbra\Account\Message\{CreateIdentityEnvelope, CreateIdentityBody, CreateIdentityRequest, CreateIdentityResponse};
 use Zimbra\Account\Struct\Attr;
 use Zimbra\Account\Struct\Identity;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 /**
  * Testcase class for CreateIdentity.
  */
-class CreateIdentityTest extends ZimbraStructTestCase
+class CreateIdentityTest extends ZimbraTestCase
 {
     public function testCreateIdentity()
     {

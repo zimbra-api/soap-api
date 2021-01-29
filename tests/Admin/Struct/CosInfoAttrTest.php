@@ -3,12 +3,12 @@
 namespace Zimbra\Tests\Admin\Struct;
 
 use Zimbra\Admin\Struct\CosInfoAttr;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for CosInfoAttr.
  */
-class CosInfoAttrTest extends ZimbraStructTestCase
+class CosInfoAttrTest extends ZimbraTestCase
 {
     public function testCosInfoAttr()
     {

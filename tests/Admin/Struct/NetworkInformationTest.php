@@ -4,12 +4,12 @@ namespace Zimbra\Tests\Admin\Struct;
 
 use Zimbra\Admin\Struct\Attr;
 use Zimbra\Admin\Struct\NetworkInformation;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for NetworkInformation.
  */
-class NetworkInformationTest extends ZimbraStructTestCase
+class NetworkInformationTest extends ZimbraTestCase
 {
     public function testNetworkInformation()
     {

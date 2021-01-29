@@ -8,12 +8,12 @@ use Zimbra\Admin\Message\ModifyDataSourceRequest;
 use Zimbra\Admin\Message\ModifyDataSourceResponse;
 use Zimbra\Admin\Struct\{Attr, DataSourceInfo};
 use Zimbra\Enum\DataSourceType;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for ModifyDataSource.
  */
-class ModifyDataSourceTest extends ZimbraStructTestCase
+class ModifyDataSourceTest extends ZimbraTestCase
 {
     public function testModifyDataSource()
     {

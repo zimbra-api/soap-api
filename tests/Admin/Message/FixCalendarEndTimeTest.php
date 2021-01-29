@@ -7,12 +7,12 @@ use Zimbra\Admin\Message\FixCalendarEndTimeEnvelope;
 use Zimbra\Admin\Message\FixCalendarEndTimeRequest;
 use Zimbra\Admin\Message\FixCalendarEndTimeResponse;
 use Zimbra\Struct\NamedElement;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for FixCalendarEndTime.
  */
-class FixCalendarEndTimeTest extends ZimbraStructTestCase
+class FixCalendarEndTimeTest extends ZimbraTestCase
 {
     public function testFixCalendarEndTime()
     {

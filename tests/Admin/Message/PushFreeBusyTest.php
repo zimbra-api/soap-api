@@ -8,12 +8,12 @@ use Zimbra\Admin\Message\PushFreeBusyRequest;
 use Zimbra\Admin\Message\PushFreeBusyResponse;
 use Zimbra\Admin\Struct\Names;
 use Zimbra\Struct\Id;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for PushFreeBusyTest.
  */
-class PushFreeBusyTest extends ZimbraStructTestCase
+class PushFreeBusyTest extends ZimbraTestCase
 {
     public function testPushFreeBusy()
     {

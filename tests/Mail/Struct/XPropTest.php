@@ -4,12 +4,12 @@ namespace Zimbra\Tests\Mail\Struct;
 
 use Zimbra\Mail\Struct\XParam;
 use Zimbra\Mail\Struct\XProp;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for XProp.
  */
-class XPropTest extends ZimbraStructTestCase
+class XPropTest extends ZimbraTestCase
 {
     public function testXProp()
     {

@@ -7,12 +7,12 @@ use Zimbra\Admin\Message\GetConfigEnvelope;
 use Zimbra\Admin\Message\GetConfigRequest;
 use Zimbra\Admin\Message\GetConfigResponse;
 use Zimbra\Admin\Struct\Attr;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for GetConfigTest.
  */
-class GetConfigTest extends ZimbraStructTestCase
+class GetConfigTest extends ZimbraTestCase
 {
     public function testGetConfig()
     {

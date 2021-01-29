@@ -9,12 +9,12 @@ use Zimbra\Account\Message\RevokeRightsResponse;
 use Zimbra\Account\Struct\AccountACEInfo;
 use Zimbra\Enum\AceRightType;
 use Zimbra\Enum\GranteeType;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for RevokeRightsTest.
  */
-class RevokeRightsTest extends ZimbraStructTestCase
+class RevokeRightsTest extends ZimbraTestCase
 {
     public function testRevokeRights()
     {

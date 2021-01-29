@@ -3,12 +3,12 @@
 namespace Zimbra\Tests\Admin\Struct;
 
 use Zimbra\Admin\Struct\IntegerValueAttrib;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for IntegerValueAttrib.
  */
-class IntegerValueAttribTest extends ZimbraStructTestCase
+class IntegerValueAttribTest extends ZimbraTestCase
 {
     public function testIntegerValueAttrib()
     {

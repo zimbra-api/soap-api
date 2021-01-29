@@ -3,12 +3,12 @@
 namespace Zimbra\Tests\Mail\Struct;
 
 use Zimbra\Mail\Struct\ContactRankingTest;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for ContactRankingTest.
  */
-class ContactRankingTestTest extends ZimbraStructTestCase
+class ContactRankingTestTest extends ZimbraTestCase
 {
     public function testContactRankingTest()
     {

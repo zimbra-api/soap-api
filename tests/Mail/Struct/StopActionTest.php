@@ -3,12 +3,12 @@
 namespace Zimbra\Tests\Mail\Struct;
 
 use Zimbra\Mail\Struct\StopAction;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for StopAction.
  */
-class StopActionTest extends ZimbraStructTestCase
+class StopActionTest extends ZimbraTestCase
 {
     public function testStopAction()
     {

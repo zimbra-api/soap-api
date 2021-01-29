@@ -3,12 +3,12 @@
 namespace Zimbra\Tests\Admin\Struct;
 
 use Zimbra\Admin\Struct\BlobRevisionInfo;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for BlobRevisionInfo.
  */
-class BlobRevisionInfoTest extends ZimbraStructTestCase
+class BlobRevisionInfoTest extends ZimbraTestCase
 {
     public function testBlobRevisionInfo()
     {

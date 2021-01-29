@@ -3,12 +3,12 @@
 namespace Zimbra\Tests\Mail\Struct;
 
 use Zimbra\Mail\Struct\DtTimeInfo;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for DtTimeInfo.
  */
-class DtTimeInfoTest extends ZimbraStructTestCase
+class DtTimeInfoTest extends ZimbraTestCase
 {
     public function testDtTimeInfo()
     {

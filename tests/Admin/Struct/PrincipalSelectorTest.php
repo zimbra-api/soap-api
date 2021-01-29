@@ -4,12 +4,12 @@ namespace Zimbra\Tests\Admin\Struct;
 
 use Zimbra\Admin\Struct\PrincipalSelector;
 use Zimbra\Enum\AutoProvPrincipalBy as PrincipalBy;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for PrincipalSelector.
  */
-class PrincipalSelectorTest extends ZimbraStructTestCase
+class PrincipalSelectorTest extends ZimbraTestCase
 {
     public function testPrincipalSelector()
     {

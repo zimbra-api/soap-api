@@ -3,12 +3,12 @@
 namespace Zimbra\Tests\Admin\Struct;
 
 use Zimbra\Admin\Struct\ConstraintInfo;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for ConstraintInfo.
  */
-class ConstraintInfoTest extends ZimbraStructTestCase
+class ConstraintInfoTest extends ZimbraTestCase
 {
     public function testConstraintInfo()
     {

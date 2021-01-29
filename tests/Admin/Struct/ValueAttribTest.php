@@ -3,12 +3,12 @@
 namespace Zimbra\Tests\Admin\Struct;
 
 use Zimbra\Admin\Struct\ValueAttrib;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for ValueAttrib.
  */
-class ValueAttribTest extends ZimbraStructTestCase
+class ValueAttribTest extends ZimbraTestCase
 {
     public function testValueAttrib()
     {

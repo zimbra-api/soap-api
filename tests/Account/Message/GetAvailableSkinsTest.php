@@ -7,12 +7,12 @@ use Zimbra\Account\Message\GetAvailableSkinsEnvelope;
 use Zimbra\Account\Message\GetAvailableSkinsRequest;
 use Zimbra\Account\Message\GetAvailableSkinsResponse;
 use Zimbra\Struct\NamedElement;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for GetAvailableSkinsTest.
  */
-class GetAvailableSkinsTest extends ZimbraStructTestCase
+class GetAvailableSkinsTest extends ZimbraTestCase
 {
     public function testGetAvailableSkins()
     {

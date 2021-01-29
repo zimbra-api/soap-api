@@ -3,12 +3,12 @@
 namespace Zimbra\Tests\Admin\Struct;
 
 use Zimbra\Admin\Struct\TimeAttr;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for TimeAttr.
  */
-class TimeAttrTest extends ZimbraStructTestCase
+class TimeAttrTest extends ZimbraTestCase
 {
     public function testTimeAttr()
     {

@@ -4,12 +4,12 @@ namespace Zimbra\Tests\Admin\Struct;
 
 use Zimbra\Admin\Struct\AutoProvDirectoryEntry;
 use Zimbra\Struct\KeyValuePair;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for AutoProvDirectoryEntry.
  */
-class AutoProvDirectoryEntryTest extends ZimbraStructTestCase
+class AutoProvDirectoryEntryTest extends ZimbraTestCase
 {
     public function testAutoProvDirectoryEntry()
     {

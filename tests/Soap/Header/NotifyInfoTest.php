@@ -3,12 +3,12 @@
 namespace Zimbra\Tests\Soap\Header;
 
 use Zimbra\Soap\Header\NotifyInfo;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for NotifyInfo.
  */
-class NotifyInfoTest extends ZimbraStructTestCase
+class NotifyInfoTest extends ZimbraTestCase
 {
     public function testHeaderNotifyInfo()
     {

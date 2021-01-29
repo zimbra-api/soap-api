@@ -6,12 +6,12 @@ use Zimbra\Account\Struct\AccountZimletConfigInfo;
 use Zimbra\Account\Struct\AccountZimletGlobalConfigInfo;
 use Zimbra\Account\Struct\AccountZimletHostConfigInfo;
 use Zimbra\Account\Struct\AccountZimletProperty;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for AccountZimletConfigInfo.
  */
-class AccountZimletConfigInfoTest extends ZimbraStructTestCase
+class AccountZimletConfigInfoTest extends ZimbraTestCase
 {
     public function testAccountZimletConfigInfo()
     {

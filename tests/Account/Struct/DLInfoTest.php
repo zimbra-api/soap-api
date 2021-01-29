@@ -4,12 +4,12 @@ namespace Zimbra\Tests\Account\Struct;
 
 use Zimbra\Account\Struct\DLInfo;
 use Zimbra\Struct\KeyValuePair;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for DLInfo.
  */
-class DLInfoTest extends ZimbraStructTestCase
+class DLInfoTest extends ZimbraTestCase
 {
     public function testDLInfo()
     {

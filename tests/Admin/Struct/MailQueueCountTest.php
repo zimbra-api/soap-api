@@ -3,12 +3,12 @@
 namespace Zimbra\Tests\Admin\Struct;
 
 use Zimbra\Admin\Struct\MailQueueCount;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for MailQueueCount.
  */
-class MailQueueCountTest extends ZimbraStructTestCase
+class MailQueueCountTest extends ZimbraTestCase
 {
     public function testMailQueueCount()
     {

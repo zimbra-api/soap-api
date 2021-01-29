@@ -3,12 +3,12 @@
 namespace Zimbra\Tests\Mail\Struct;
 
 use Zimbra\Mail\Struct\MeTest;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for MeTest.
  */
-class MeTestTest extends ZimbraStructTestCase
+class MeTestTest extends ZimbraTestCase
 {
     public function testMeTest()
     {

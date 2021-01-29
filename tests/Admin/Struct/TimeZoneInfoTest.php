@@ -3,12 +3,12 @@
 namespace Zimbra\Tests\Admin\Struct;
 
 use Zimbra\Admin\Struct\TimeZoneInfo;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for TimeZoneInfo.
  */
-class TimeZoneInfoTest extends ZimbraStructTestCase
+class TimeZoneInfoTest extends ZimbraTestCase
 {
     public function testTimeZoneInfo()
     {

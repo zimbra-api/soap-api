@@ -9,12 +9,12 @@ use Zimbra\Admin\Message\CompactIndexResponse;
 use Zimbra\Admin\Struct\MailboxByAccountIdSelector;
 use Zimbra\Enum\CompactIndexAction;
 use Zimbra\Enum\CompactIndexStatus;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for CompactIndex.
  */
-class CompactIndexTest extends ZimbraStructTestCase
+class CompactIndexTest extends ZimbraTestCase
 {
     public function testCompactIndexEnvelope()
     {

@@ -12,12 +12,12 @@ use Zimbra\Mail\Struct\Header;
 use Zimbra\Mail\Struct\InvitationInfo;
 use Zimbra\Mail\Struct\MimePartInfo;
 use Zimbra\Mail\Struct\Msg;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for Msg.
  */
-class MsgTest extends ZimbraStructTestCase
+class MsgTest extends ZimbraTestCase
 {
     public function testMsg()
     {

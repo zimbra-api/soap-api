@@ -5,12 +5,12 @@ namespace Zimbra\Tests\Mail\Struct;
 use Zimbra\Mail\Struct\AddressTest;
 use Zimbra\Mail\Struct\EnvelopeTest;
 use Zimbra\Enum\{AddressPart, ComparisonComparator, CountComparison, StringComparison, ValueComparison};
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for EnvelopeTest.
  */
-class EnvelopeTestTest extends ZimbraStructTestCase
+class EnvelopeTestTest extends ZimbraTestCase
 {
     public function testEnvelopeTest()
     {

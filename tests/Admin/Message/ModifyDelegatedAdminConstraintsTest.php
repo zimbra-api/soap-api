@@ -9,12 +9,12 @@ use Zimbra\Admin\Message\ModifyDelegatedAdminConstraintsResponse;
 use Zimbra\Admin\Struct\ConstraintAttr;
 use Zimbra\Admin\Struct\ConstraintInfo;
 use Zimbra\Enum\TargetType;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for ModifyDelegatedAdminConstraints.
  */
-class ModifyDelegatedAdminConstraintsTest extends ZimbraStructTestCase
+class ModifyDelegatedAdminConstraintsTest extends ZimbraTestCase
 {
     public function testModifyDelegatedAdminConstraints()
     {

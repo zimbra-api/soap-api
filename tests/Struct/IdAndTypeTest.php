@@ -3,11 +3,12 @@
 namespace Zimbra\Tests\Struct;
 
 use Zimbra\Struct\IdAndType;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for IdAndType.
  */
-class IdAndTypeTest extends ZimbraStructTestCase
+class IdAndTypeTest extends ZimbraTestCase
 {
     public function testIdAndType()
     {

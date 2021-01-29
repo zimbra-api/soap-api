@@ -6,12 +6,12 @@ use Zimbra\Admin\Struct\RightViaInfo;
 use Zimbra\Admin\Struct\TargetWithType;
 use Zimbra\Admin\Struct\GranteeWithType;
 use Zimbra\Admin\Struct\CheckedRight;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for RightViaInfo.
  */
-class RightViaInfoTest extends ZimbraStructTestCase
+class RightViaInfoTest extends ZimbraTestCase
 {
     public function testRightViaInfo()
     {

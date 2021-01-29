@@ -6,12 +6,12 @@ use Zimbra\Admin\Message\CheckHostnameResolveBody;
 use Zimbra\Admin\Message\CheckHostnameResolveEnvelope;
 use Zimbra\Admin\Message\CheckHostnameResolveRequest;
 use Zimbra\Admin\Message\CheckHostnameResolveResponse;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for CheckHostnameResolve.
  */
-class CheckHostnameResolveTest extends ZimbraStructTestCase
+class CheckHostnameResolveTest extends ZimbraTestCase
 {
     public function testCheckHostnameResolve()
     {

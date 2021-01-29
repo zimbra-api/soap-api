@@ -9,12 +9,12 @@ use Zimbra\Admin\Message\GetAllZimletsResponse;
 use Zimbra\Admin\Struct\Attr;
 use Zimbra\Admin\Struct\ZimletInfo;
 use Zimbra\Enum\ZimletExcludeType;
-use Zimbra\Tests\Struct\ZimbraStructTestCase;
+use Zimbra\Tests\ZimbraTestCase;
 
 /**
  * Testcase class for GetAllZimletsTest.
  */
-class GetAllZimletsTest extends ZimbraStructTestCase
+class GetAllZimletsTest extends ZimbraTestCase
 {
     public function testGetAllZimlets()
     {
