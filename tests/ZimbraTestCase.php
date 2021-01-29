@@ -2,7 +2,6 @@
 
 namespace Zimbra\Tests;
 
-use Doctrine\Common\Annotations\AnnotationRegistry;
 use Faker\Factory as FakerFactory;
 use PHPUnit\Framework\TestCase;
 use Zimbra\Common\SerializerFactory;
