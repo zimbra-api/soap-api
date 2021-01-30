@@ -3,7 +3,6 @@
 namespace Zimbra\Tests\Mail\Struct;
 
 use Zimbra\Enum\InviteType;
-use Zimbra\Enum\ParticipationStatus;
 
 use Zimbra\Mail\Struct\CalendarReply;
 use Zimbra\Mail\Struct\CalTZInfo;
