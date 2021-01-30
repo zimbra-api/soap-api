@@ -8,28 +8,29 @@
  * file that was distributed with this source code.
  */
 
-namespace Zimbra\Account\Struct;
+namespace Zimbra\Mail\Struct;
 
 use JMS\Serializer\Annotation\{AccessType, XmlRoot};
+
 use Zimbra\Struct\KeyValuePairs;
 
 /**
- * AccountKeyValuePairs struct class
- * 
- * @package    Zimbra
- * @subpackage Account
- * @category   Struct
- * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
- * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
+ * MailKeyValuePairs class
+ *
+ * @package   Zimbra
+ * @subpackage Mail
+ * @category  Struct
+ * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
+ * @copyright Copyright © 2013-present by Nguyen Van Nguyen.
  * @AccessType("public_method")
  * @XmlRoot(name="kvp")
  */
-class AccountKeyValuePairs implements KeyValuePairs
+class MailKeyValuePairs implements KeyValuePairs
 {
-    use AccountKeyValuePairsTrait;
+    use MailKeyValuePairsTrait;
 
     /**
-     * Constructor method for AccountKeyValuePairs
+     * Constructor method for MailKeyValuePairs
      *
      * @param array $keyValuePairs
      */

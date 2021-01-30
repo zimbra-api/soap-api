@@ -10,28 +10,24 @@
 
 namespace Zimbra\Struct;
 
+use Zimbra\Enum\ParticipationStatus;
+
 /**
- * CustomMetadataInterface interface
+ * CalendarReplyInterface interface
  *
  * @package   Zimbra
  * @category  Struct
  * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright Copyright © 2013-present by Nguyen Van Nguyen.
  */
-interface CustomMetadataInterface extends KeyValuePairs
+interface CalendarReplyInterface extends RecurIdInfoInterface
 {
-    /**
-     * Gets metadata section key
-     *
-     * @return string
-     */
-    function getSection(): ?string;
+    function setSentBy(string $sentBy): self;
+    function setPartStat(ParticipationStatus $partStat): self;
 
-    /**
-     * Sets metadata section key
-     *
-     * @param  string $section
-     * @return self
-     */
-    function setSection(string $section): self;
+    function getSeq(): int;
+    function getDate(): int;
+    function getAttendee(): string;
+    function getSentBy(): ?string;
+    function getPartStat(): ?ParticipationStatus;
 }

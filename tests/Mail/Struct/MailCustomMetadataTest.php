@@ -1,26 +1,26 @@
 <?php declare(strict_types=1);
 
-namespace Zimbra\Tests\Account\Struct;
+namespace Zimbra\Tests\Mail\Struct;
 
-use Zimbra\Account\Struct\AccountCustomMetadata;
+use Zimbra\Mail\Struct\MailCustomMetadata;
 use Zimbra\Struct\KeyValuePair;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**
- * Testcase class for AccountCustomMetadata.
+ * Testcase class for MailCustomMetadata.
  */
-class AccountCustomMetadataTest extends ZimbraTestCase
+class MailCustomMetadataTest extends ZimbraTestCase
 {
-    public function testAccountCustomMetadata()
+    public function testMailCustomMetadata()
     {
         $section = $this->faker->word;
         $key = $this->faker->word;
         $value = $this->faker->text;
 
-        $meta = new AccountCustomMetadata($section);
+        $meta = new MailCustomMetadata($section);
         $this->assertSame($section, $meta->getSection());
 
-        $meta = new AccountCustomMetadata;
+        $meta = new MailCustomMetadata;
         $meta->setSection($section)
              ->setKeyValuePairs([new KeyValuePair($key, $value)]);
         $this->assertSame($section, $meta->getSection());
@@ -32,7 +32,7 @@ class AccountCustomMetadataTest extends ZimbraTestCase
 </meta>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($meta, 'xml'));
-        $this->assertEquals($meta, $this->serializer->deserialize($xml, AccountCustomMetadata::class, 'xml'));
+        $this->assertEquals($meta, $this->serializer->deserialize($xml, MailCustomMetadata::class, 'xml'));
 
         $json = json_encode([
             'section' => $section,
@@ -44,6 +44,6 @@ EOT;
             ],
         ]);
         $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($meta, 'json'));
-        $this->assertEquals($meta, $this->serializer->deserialize($json, AccountCustomMetadata::class, 'json'));
+        $this->assertEquals($meta, $this->serializer->deserialize($json, MailCustomMetadata::class, 'json'));
     }
 }

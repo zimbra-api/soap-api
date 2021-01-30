@@ -10,28 +10,25 @@
 
 namespace Zimbra\Struct;
 
+use Zimbra\Enum\AddressType;
+
 /**
- * CustomMetadataInterface interface
+ * EmailInfoInterface interface
  *
  * @package   Zimbra
  * @category  Struct
  * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright Copyright © 2013-present by Nguyen Van Nguyen.
  */
-interface CustomMetadataInterface extends KeyValuePairs
+interface EmailInfoInterface
 {
-    /**
-     * Gets metadata section key
-     *
-     * @return string
-     */
-    function getSection(): ?string;
+    function setGroup(bool $group): self;
+    function setCanExpandGroupMembers(bool $canExpandGroupMembers): ?self;
 
-    /**
-     * Sets metadata section key
-     *
-     * @param  string $section
-     * @return self
-     */
-    function setSection(string $section): self;
+    function getAddress(): ?string;
+    function getDisplay(): ?string;
+    function getPersonal(): ?string;
+    function getAddressType(): ?AddressType;
+    function getGroup(): ?bool;
+    function getCanExpandGroupMembers(): ?bool;
 }
