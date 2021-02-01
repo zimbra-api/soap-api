@@ -30,9 +30,7 @@ class ChatSummaryTest extends ZimbraTestCase
         $calItemType = InviteType::TASK();
 
         $email = new EmailInfo($address, $display, $personal, $addressType);
-        $invite = new InviteInfo($calItemType);
-
-        $chat = new ChatSummary($id, $autoSendTime, [$email], $subject, $fragment, $invite);
+        $chat = new ChatSummary($id, $autoSendTime, [$email], $subject, $fragment, new InviteInfo($calItemType));
         $this->assertTrue($chat instanceof MessageSummary);
 
         $xml = <<<EOT
