@@ -24,7 +24,7 @@ class BrowseBy extends Enum
 {
     /**
      * Constant for value 'domains'
-     * @return string 'adminName'
+     * @return string 'domains'
      */
     private const DOMAINS = 'domains';
 
