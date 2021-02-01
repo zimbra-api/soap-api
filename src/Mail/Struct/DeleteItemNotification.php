@@ -15,10 +15,11 @@ use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAt
 /**
  * DeleteItemNotification struct class
  *
- * @package   Zimbra
- * @category  Struct
- * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
- * @copyright Copyright © 2020 by Nguyen Van Nguyen.
+ * @package    Zimbra
+ * @subpackage Mail
+ * @category   Struct
+ * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
+ * @copyright  Copyright © 2020 by Nguyen Van Nguyen.
  * @AccessType("public_method")
  * @XmlRoot(name="deleted")
  */
