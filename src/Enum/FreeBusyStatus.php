@@ -42,7 +42,7 @@ class FreeBusyStatus extends Enum
 
     /**
      * Constant for value 'OutOfOffice' (busy-unavailable)
-     * @return string 'U'
+     * @return string 'O'
      */
-    private const OUT_OF_OFFICE = 'U';
+    private const OUT_OF_OFFICE = 'O';
 }
