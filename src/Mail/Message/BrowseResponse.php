@@ -28,14 +28,14 @@ use Zimbra\Soap\ResponseInterface;
 class BrowseResponse implements ResponseInterface
 {
     /**
-     * Matches
+     * Browse data
      * 
      * @Accessor(getter="getBrowseDatas", setter="setBrowseDatas")
      * @SerializedName("bd")
      * @Type("array<Zimbra\Mail\Struct\BrowseData>")
      * @XmlList(inline = true, entry = "bd")
      */
-    private $browseDatas;
+    private $browseDatas = [];
 
     /**
      * Constructor method for BrowseResponse
@@ -43,9 +43,7 @@ class BrowseResponse implements ResponseInterface
      * @param  array $browseDatas
      * @return self
      */
-    public function __construct(
-        array $browseDatas = []
-    )
+    public function __construct(array $browseDatas = [])
     {
         $this->setBrowseDatas($browseDatas);
     }
