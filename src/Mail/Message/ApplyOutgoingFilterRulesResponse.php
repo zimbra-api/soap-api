@@ -25,7 +25,7 @@ use Zimbra\Soap\ResponseInterface;
  * @AccessType("public_method")
  * @XmlRoot(name="ApplyOutgoingFilterRulesResponse")
  */
-class ApplyOutgoingFilterRulesResponse extends ApplyFilterRules
+class ApplyOutgoingFilterRulesResponse implements ResponseInterface
 {
     /**
      * Comma-separated list of message IDs that were affected

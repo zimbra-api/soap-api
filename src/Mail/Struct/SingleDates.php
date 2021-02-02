@@ -19,11 +19,11 @@ use Zimbra\Struct\SingleDatesInterface;
  * SingleDates class
  * Single dates information
  *
- * @package   Zimbra
+ * @package    Zimbra
  * @subpackage Mail
- * @category  Struct
- * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
- * @copyright Copyright © 2013-present by Nguyen Van Nguyen.
+ * @category   Struct
+ * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
+ * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
  * @AccessType("public_method")
  * @XmlRoot(name="dates")
  */

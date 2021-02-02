@@ -64,7 +64,7 @@ class ApplyOutgoingFilterRulesRequest extends Request
     /**
      * Constructor method for ApplyOutgoingFilterRulesRequest
      *
-     * @param  string $filterRules
+     * @param  array $filterRules
      * @param  IdsAttr $msgIds
      * @param  string $query
      * @return self
@@ -126,7 +126,7 @@ class ApplyOutgoingFilterRulesRequest extends Request
     /**
      * Gets query
      *
-     * @return AddedComment
+     * @return string
      */
     public function getQuery(): ?string
     {

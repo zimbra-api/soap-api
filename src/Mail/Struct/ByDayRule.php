@@ -19,11 +19,11 @@ use Zimbra\Struct\ByDayRuleInterface;
  * ByDayRule class
  * By-day rule
  *
- * @package   Zimbra
+ * @package    Zimbra
  * @subpackage Mail
- * @category  Struct
- * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
- * @copyright Copyright © 2013-present by Nguyen Van Nguyen.
+ * @category   Struct
+ * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
+ * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
  * @AccessType("public_method")
  * @XmlRoot(name="byday")
  */
