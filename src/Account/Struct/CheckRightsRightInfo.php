@@ -26,15 +26,6 @@ use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAt
 class CheckRightsRightInfo
 {
     /**
-     * name of right
-     * @Accessor(getter="getRight", setter="setRight")
-     * @SerializedName("_content")
-     * @Type("string")
-     * @XmlValue(cdata=false)
-     */
-    private $right;
-
-    /**
      * flags whether the authed user has the right on the target
      * @Accessor(getter="getAllow", setter="setAllow")
      * @SerializedName("allow")
@@ -42,6 +33,15 @@ class CheckRightsRightInfo
      * @XmlAttribute
      */
     private $allow;
+
+    /**
+     * name of right
+     * @Accessor(getter="getRight", setter="setRight")
+     * @SerializedName("_content")
+     * @Type("string")
+     * @XmlValue(cdata = false)
+     */
+    private $right;
 
     /**
      * Constructor method for CheckRightsRightInfo
@@ -52,7 +52,7 @@ class CheckRightsRightInfo
     public function __construct(string $right, bool $allow)
     {
         $this->setRight($right)
-            ->setAllow($allow);
+             ->setAllow($allow);
     }
 
     /**

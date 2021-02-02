@@ -149,7 +149,7 @@ class CheckRightsTargetSpec
     public function addRight($right): self
     {
         $right = trim($right);
-        if (!empty($right)) {
+        if (!empty($right) && !in_array($right, $this->rights)) {
             $this->rights[] = $right;
         }
         return $this;
