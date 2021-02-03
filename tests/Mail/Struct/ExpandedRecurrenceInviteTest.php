@@ -24,14 +24,14 @@ class ExpandedRecurrenceInviteTest extends ZimbraTestCase
         $endTime = $this->faker->unixTime;
         $range = $this->faker->randomElement(['THISANDFUTURE', 'THISANDPRIOR']);
         $dateTime = $this->faker->date;
-        $timezone = $this->faker->timezone;
+        $tz = $this->faker->timezone;
         $weeks = mt_rand(1, 100);
         $days = mt_rand(1, 30);
         $hours = mt_rand(0, 23);
         $minutes = mt_rand(0, 59);
         $seconds = mt_rand(0, 59);
 
-        $exceptionId = new InstanceRecurIdInfo($range, $dateTime, $timezone);
+        $exceptionId = new InstanceRecurIdInfo($range, $dateTime, $tz);
         $duration = new DurationInfo($weeks, $days, $hours, $minutes, $seconds);
         $recurrence = new RecurrenceInfo([new SimpleRepeatingRule(Frequency::HOUR())]);
 
@@ -41,7 +41,7 @@ class ExpandedRecurrenceInviteTest extends ZimbraTestCase
         $xml = <<<EOT
 <?xml version="1.0"?>
 <comp s="$startTime" e="$endTime">
-    <exceptId range="$range" d="$dateTime" tz="$timezone" />
+    <exceptId range="$range" d="$dateTime" tz="$tz" />
     <dur w="$weeks" d="$days" h="$hours" m="$minutes" s="$seconds" />
     <recur>
         <rule freq="HOU"/>
@@ -57,7 +57,7 @@ EOT;
             'exceptId' => [
                 'range' => $range,
                 'd' => $dateTime,
-                'tz' => $timezone,
+                'tz' => $tz,
             ],
             'dur' => [
                 'w' => $weeks,
