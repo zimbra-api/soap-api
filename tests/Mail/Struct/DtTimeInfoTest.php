@@ -14,7 +14,7 @@ class DtTimeInfoTest extends ZimbraTestCase
     {
         $dateTime = $this->faker->date;
         $timezone = $this->faker->timezone;
-        $utcTime = time();
+        $utcTime = $this->faker->unixTime;
 
         $dt = new DtTimeInfo($dateTime, $timezone, $utcTime);
         $this->assertSame($dateTime, $dt->getDateTime());
