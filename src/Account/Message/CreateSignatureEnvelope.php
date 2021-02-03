@@ -14,7 +14,7 @@ use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlEl
 use Zimbra\Soap\{BodyInterface, Envelope, Header};
 
 /**
- * CreateSignatureBody class
+ * CreateSignatureEnvelope class
  * 
  * @package    Zimbra
  * @subpackage Account
