@@ -59,7 +59,7 @@ class CheckPermissionResponse implements ResponseInterface
     )
     {
         $this->setAllow($allow)
-        	 ->setRights($rights);
+             ->setRights($rights);
     }
 
     /**
