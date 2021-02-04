@@ -85,24 +85,24 @@ class Notification implements NotificationInterface
     }
 
     /**
-     * Gets value
+     * Gets content
      *
      * @return string
      */
     public function getContent(): ?string
     {
-        return $this->value;
+        return $this->content;
     }
 
     /**
-     * Sets value
+     * Sets content
      *
-     * @param  string $value
+     * @param  string $content
      * @return self
      */
-    public function setContent(string $value): self
+    public function setContent(string $content): self
     {
-        $this->value = $value;
+        $this->content = $content;
         return $this;
     }
 }
