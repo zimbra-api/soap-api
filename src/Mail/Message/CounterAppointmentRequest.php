@@ -17,10 +17,9 @@ use Zimbra\Mail\Struct\Msg;
 use Zimbra\Soap\Request;
 
 /**
- * CancelAppointmentRequest class
- * Cancel appointment
- * NOTE: If canceling an exception, the original instance (ie the one the exception was "excepting") WILL NOT be
- * restored when you cancel this exception.
+ * CounterAppointmentRequest class
+ * Propose a new time/location.  Sent by meeting attendee to organizer.
+ * The syntax is very similar to CreateAppointmentRequest.
  * 
  * @package    Zimbra
  * @subpackage Mail
@@ -28,12 +27,12 @@ use Zimbra\Soap\Request;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
  * @AccessType("public_method")
- * @XmlRoot(name="CancelAppointmentRequest")
+ * @XmlRoot(name="CounterAppointmentRequest")
  */
-class CancelAppointmentRequest extends Request
+class CounterAppointmentRequest extends Request
 {
     /**
-     * ID of default invite
+     * Invite ID of default invite
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
@@ -42,7 +41,7 @@ class CancelAppointmentRequest extends Request
     private $id;
 
     /**
-     * Component number of default invite
+     * Component number of default component
      * @Accessor(getter="getComponentNum", setter="setComponentNum")
      * @SerializedName("comp")
      * @Type("integer")
@@ -51,7 +50,10 @@ class CancelAppointmentRequest extends Request
     private $componentNum;
 
     /**
-     * Modified sequence
+     * Changed sequence of fetched version.
+     * Used for conflict detection.  By setting this, the request indicates which version of the appointment it is
+     * attempting to propose.  If the appointment was updated on the server between the fetch and modify, an
+     * INVITE_OUT_OF_DATE exception will be thrown.
      * @Accessor(getter="getModifiedSequence", setter="setModifiedSequence")
      * @SerializedName("ms")
      * @Type("integer")
@@ -69,25 +71,7 @@ class CancelAppointmentRequest extends Request
     private $revision;
 
     /**
-     * Instance recurrence ID information
-     * @Accessor(getter="getInstance", setter="setInstance")
-     * @SerializedName("inst")
-     * @Type("Zimbra\Mail\Struct\InstanceRecurIdInfo")
-     * @XmlElement
-     */
-    private $instance;
-
-    /**
-     * Definition for TZID referenced by DATETIME in instance
-     * @Accessor(getter="getTimezone", setter="setTimezone")
-     * @SerializedName("tz")
-     * @Type("Zimbra\Mail\Struct\CalTZInfo")
-     * @XmlElement
-     */
-    private $timezone;
-
-    /**
-     * Message
+     * Details of counter proposal.
      * @Accessor(getter="getMsg", setter="setMsg")
      * @SerializedName("m")
      * @Type("Zimbra\Mail\Struct\Msg")
@@ -96,14 +80,12 @@ class CancelAppointmentRequest extends Request
     private $msg;
 
     /**
-     * Constructor method for CancelAppointmentRequest
+     * Constructor method for CounterAppointmentRequest
      *
      * @param  string $id
      * @param  int $componentNum
      * @param  int $modifiedSequence
      * @param  int $revision
-     * @param  InstanceRecurIdInfo $instance
-     * @param  CalTZInfo $timezone
      * @param  Msg $msg
      * @return self
      */
@@ -112,8 +94,6 @@ class CancelAppointmentRequest extends Request
         ?int $componentNum = NULL,
         ?int $modifiedSequence = NULL,
         ?int $revision = NULL,
-        ?InstanceRecurIdInfo $instance = NULL,
-        ?CalTZInfo $timezone = NULL,
         ?Msg $msg = NULL
     )
     {
@@ -128,12 +108,6 @@ class CancelAppointmentRequest extends Request
         }
         if (NULL !== $revision) {
             $this->setRevision($revision);
-        }
-        if ($instance instanceof InstanceRecurIdInfo) {
-            $this->setInstance($instance);
-        }
-        if ($timezone instanceof CalTZInfo) {
-            $this->setTimezone($timezone);
         }
         if ($msg instanceof Msg) {
             $this->setMsg($msg);
@@ -229,50 +203,6 @@ class CancelAppointmentRequest extends Request
     }
 
     /**
-     * Sets instance
-     *
-     * @param  InstanceRecurIdInfo $instance
-     * @return self
-     */
-    public function setInstance(InstanceRecurIdInfo $instance): self
-    {
-        $this->instance = $instance;
-        return $this;
-    }
-
-    /**
-     * Gets instance
-     *
-     * @return InstanceRecurIdInfo
-     */
-    public function getInstance(): ?InstanceRecurIdInfo
-    {
-        return $this->instance;
-    }
-
-    /**
-     * Sets timezone
-     *
-     * @param  CalTZInfo $timezone
-     * @return self
-     */
-    public function setTimezone(CalTZInfo $timezone): self
-    {
-        $this->timezone = $timezone;
-        return $this;
-    }
-
-    /**
-     * Gets timezone
-     *
-     * @return CalTZInfo
-     */
-    public function getTimezone(): ?CalTZInfo
-    {
-        return $this->timezone;
-    }
-
-    /**
      * Sets msg
      *
      * @param  Msg $msg
@@ -301,9 +231,9 @@ class CancelAppointmentRequest extends Request
      */
     protected function envelopeInit(): void
     {
-        if (!($this->envelope instanceof CancelAppointmentEnvelope)) {
-            $this->envelope = new CancelAppointmentEnvelope(
-                new CancelAppointmentBody($this)
+        if (!($this->envelope instanceof CounterAppointmentEnvelope)) {
+            $this->envelope = new CounterAppointmentEnvelope(
+                new CounterAppointmentBody($this)
             );
         }
     }
