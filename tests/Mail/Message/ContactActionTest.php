@@ -2,6 +2,8 @@
 
 namespace Zimbra\Tests\Mail\Message;
 
+use Zimbra\Enum\ContactActionOp;
+
 use Zimbra\Mail\Message\ContactActionEnvelope;
 use Zimbra\Mail\Message\ContactActionBody;
 use Zimbra\Mail\Message\ContactActionRequest;
@@ -21,7 +23,7 @@ class ContactActionTest extends ZimbraTestCase
     public function testContactAction()
     {
         $id = $this->faker->uuid;
-        $operation = $this->faker->word;
+        $operation = $this->faker->randomElement(ContactActionOp::values())->getValue();
         $name = $this->faker->word;
         $attachId = $this->faker->uuid;
         $cid = $this->faker->numberBetween(1, 100);

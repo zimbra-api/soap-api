@@ -16,7 +16,7 @@ use Zimbra\Soap\Request;
 
 /**
  * ContactActionRequest class
- * Complete a task instance
+ * Contact Action
  * 
  * @package    Zimbra
  * @subpackage Mail

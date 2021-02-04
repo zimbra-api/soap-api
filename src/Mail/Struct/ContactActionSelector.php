@@ -12,6 +12,8 @@ namespace Zimbra\Mail\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlList, XmlRoot};
 
+use Zimbra\Enum\ContactActionOp;
+
 /**
  * ContactActionSelector class
  *
@@ -74,6 +76,20 @@ class ContactActionSelector extends ActionSelector
             $operation, $ids, $constraint, $tag, $folder, $rgb, $color, $name, $flags, $tags, $tagNames, $nonExistentIds, $newlyCreatedIds
         );
         $this->setAttrs($attrs);
+    }
+
+    /**
+     * Sets operation
+     *
+     * @param  string $operation
+     * @return self
+     */
+    public function setOperation(string $operation): self
+    {
+        if (ContactActionOp::isValid($operation)) {
+            parent::setOperation($operation);
+        }
+        return $this;
     }
 
     /**

@@ -2,6 +2,7 @@
 
 namespace Zimbra\Tests\Mail\Struct;
 
+use Zimbra\Enum\ContactActionOp;
 use Zimbra\Mail\Struct\ContactActionSelector;
 use Zimbra\Mail\Struct\NewContactAttr;
 use Zimbra\Tests\ZimbraTestCase;
@@ -13,7 +14,7 @@ class ContactActionSelectorTest extends ZimbraTestCase
 {
     public function testContactActionSelector()
     {
-        $operation = $this->faker->word;
+        $operation = $this->faker->randomElement(ContactActionOp::values())->getValue();
         $ids = $this->faker->uuid;
         $name = $this->faker->word;
         $attachId = $this->faker->uuid;
