@@ -102,7 +102,7 @@ class CancelAppointmentRequest extends Request
      * @param  int $componentNum
      * @param  int $modifiedSequence
      * @param  int $revision
-     * @param  InstanceRecurIdInfo $= 
+     * @param  InstanceRecurIdInfo $instance
      * @param  CalTZInfo $timezone
      * @param  Msg $msg
      * @return self

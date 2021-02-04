@@ -14,7 +14,7 @@ use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlEl
 use Zimbra\Soap\{BodyInterface, Envelope, Header};
 
 /**
- * ApplyFilterRulesBody class
+ * ApplyFilterRulesEnvelope class
  * 
  * @package    Zimbra
  * @subpackage Mail

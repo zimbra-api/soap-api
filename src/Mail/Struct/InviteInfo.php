@@ -73,7 +73,9 @@ class InviteInfo implements InviteInfoInterface
      * Constructor method for InviteInfo
      *
      * @param  InviteType $calItemType
-     * @param  string $value
+     * @param  array $timezones
+     * @param  InviteComponent $inviteComponent
+     * @param  array $calendarReplies
      * @return self
      */
     public function __construct(
