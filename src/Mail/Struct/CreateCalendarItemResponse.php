@@ -13,6 +13,7 @@ namespace Zimbra\Mail\Struct;
 use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlElement, XmlRoot};
 
 use Zimbra\Struct\Id;
+use Zimbra\Soap\ResponseInterface;
 
 /**
  * CreateCalendarItemResponse class
@@ -26,7 +27,7 @@ use Zimbra\Struct\Id;
  * @AccessType("public_method")
  * @XmlRoot(name="response")
  */
-class CreateCalendarItemResponse
+class CreateCalendarItemResponse implements ResponseInterface
 {
     /**
      * Appointment ID
