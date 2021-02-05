@@ -52,15 +52,15 @@ class CounterAppointmentTest extends ZimbraTestCase
         $address = $this->faker->email;
         $personal = $this->faker->word;
 
-        $header = new Header($name, $value);
-        $mimePart = new MimePartInfo($contentType, $content, $contentId);
-        $attachments = new AttachmentsInfo($id);
-        $invite = new InvitationInfo($method, $componentNum, TRUE);
-        $emailAddress = new EmailAddrInfo($address, AddressType::FROM(), $personal);
-        $timezone = new CalTZInfo($id, $tzStdOffset, $tzDayOffset);
-
         $msg = new Msg(
-            $id, $origId, $replyType, $identityId, $subject, [$header], $inReplyTo, $folderId, $flags, $content, $mimePart, $attachments, $invite, [$emailAddress], [$timezone], $fragment
+            $id, $origId, $replyType, $identityId, $subject,
+            [new Header($name, $value)], $inReplyTo, $folderId, $flags, $content,
+            new MimePartInfo($contentType, $content, $contentId),
+            new AttachmentsInfo($id),
+            new InvitationInfo($method, $componentNum, TRUE),
+            [new EmailAddrInfo($address, AddressType::FROM(), $personal)],
+            [new CalTZInfo($id, $tzStdOffset, $tzDayOffset)],
+            $fragment
         );
 
         $request = new CounterAppointmentRequest(
