@@ -169,4 +169,7 @@ EOT;
  */
 class CalItemRequest extends CalItemRequestBase
 {
+    protected function envelopeInit(): void
+    {
+    }
 }

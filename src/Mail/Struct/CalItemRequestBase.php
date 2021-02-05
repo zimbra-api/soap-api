@@ -12,6 +12,8 @@ namespace Zimbra\Mail\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlElement};
 
+use Zimbra\Soap\Request;
+
 /**
  * CalItemRequestBase class
  *
@@ -22,7 +24,7 @@ use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAt
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
  * @AccessType("public_method")
  */
-abstract class CalItemRequestBase
+abstract class CalItemRequestBase extends Request
 {
     /**
      * If specified, the created appointment is echoed back in the response as if a
