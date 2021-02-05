@@ -96,6 +96,11 @@ class CreateCalendarItemResponse
      *
      * @param  string $calItemId
      * @param  string $deprecatedApptId
+     * @param  string $calInvId
+     * @param  int $modifiedSequence
+     * @param  int $revision
+     * @param  Id $msg
+     * @param  CalEcho $echo
      * @return self
      */
     public function __construct(
