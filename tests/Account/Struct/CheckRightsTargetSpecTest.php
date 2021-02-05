@@ -15,9 +15,9 @@ class CheckRightsTargetSpecTest extends ZimbraTestCase
     public function testCheckRightsTargetSpec()
     {
         $key = $this->faker->word;
-        $right1 = $this->faker->word;
-        $right2 = $this->faker->word;
-        $right3 = $this->faker->word;
+        $right1 = $this->faker->unique()->word;
+        $right2 = $this->faker->unique()->word;
+        $right3 = $this->faker->unique()->word;
 
         $target = new CheckRightsTargetSpec(
             TargetType::DOMAIN(), TargetBy::ID(), $key, [$right1, $right2]

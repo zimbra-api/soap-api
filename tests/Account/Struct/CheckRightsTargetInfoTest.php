@@ -16,8 +16,8 @@ class CheckRightsTargetInfoTest extends ZimbraTestCase
     public function testCheckRightsTargetInfo()
     {
         $key = $this->faker->word;
-        $right1 = $this->faker->word;
-        $right2 = $this->faker->word;
+        $right1 = $this->faker->unique()->word;
+        $right2 = $this->faker->unique()->word;
 
         $rightInfo1 = new CheckRightsRightInfo($right1, TRUE);
         $rightInfo2 = new CheckRightsRightInfo($right2, FALSE);
