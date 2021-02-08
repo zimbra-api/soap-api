@@ -18,6 +18,7 @@ class ContactInfoTest extends ZimbraTestCase
     {
         $sortField = $this->faker->word;
         $id = $this->faker->uuid;
+        $imapUid = $this->faker->randomNumber;
         $folder = $this->faker->word;
         $flags = $this->faker->word;
         $tags = $this->faker->word;
@@ -33,6 +34,7 @@ class ContactInfoTest extends ZimbraTestCase
         $type = $this->faker->word;
         $dlist = $this->faker->word;
         $reference = $this->faker->word;
+        $memberOf = $this->faker->word;
 
         $section = $this->faker->word;
         $key = $this->faker->word;
@@ -47,11 +49,12 @@ class ContactInfoTest extends ZimbraTestCase
         $member = new ContactGroupMember(MemberType::CONTACT(), $value);
 
         $contact = new ContactInfo(
-            $id, $sortField, TRUE, $folder, $flags, $tags, $tagNames, $changeDate, $modifiedSequenceId, $date, $revisionId, $fileAs, $email, $email2, $email3, $type, $dlist, $reference, FALSE, [$meta], [$attr], [$member]
+            $id, $sortField, TRUE, $imapUid, $folder, $flags, $tags, $tagNames, $changeDate, $modifiedSequenceId, $date, $revisionId, $fileAs, $email, $email2, $email3, $type, $dlist, $reference, FALSE, [$meta], [$attr], [$member], $memberOf
         );
         $this->assertSame($sortField, $contact->getSortField());
         $this->assertTrue($contact->getCanExpand());
         $this->assertSame($id, $contact->getId());
+        $this->assertSame($imapUid, $contact->getImapUid());
         $this->assertSame($folder, $contact->getFolder());
         $this->assertSame($flags, $contact->getFlags());
         $this->assertSame($tags, $contact->getTags());
@@ -71,11 +74,13 @@ class ContactInfoTest extends ZimbraTestCase
         $this->assertSame([$meta], $contact->getMetadatas());
         $this->assertSame([$attr], $contact->getAttrs());
         $this->assertSame([$member], $contact->getContactGroupMembers());
+        $this->assertSame($memberOf, $contact->getMemberOf());
 
         $contact = new ContactInfo('');
         $contact->setSortField($sortField)
             ->setCanExpand(FALSE)
             ->setId($id)
+            ->setImapUid($imapUid)
             ->setFolder($folder)
             ->setFlags($flags)
             ->setTags($tags)
@@ -94,10 +99,12 @@ class ContactInfoTest extends ZimbraTestCase
             ->setTooManyMembers(TRUE)
             ->setMetadatas([$meta])
             ->setAttrs([$attr])
-            ->setContactGroupMembers([$member]);
+            ->setContactGroupMembers([$member])
+            ->setMemberOf($memberOf);
         $this->assertSame($sortField, $contact->getSortField());
         $this->assertFalse($contact->getCanExpand());
         $this->assertSame($id, $contact->getId());
+        $this->assertSame($imapUid, $contact->getImapUid());
         $this->assertSame($folder, $contact->getFolder());
         $this->assertSame($flags, $contact->getFlags());
         $this->assertSame($tags, $contact->getTags());
@@ -117,6 +124,7 @@ class ContactInfoTest extends ZimbraTestCase
         $this->assertSame([$meta], $contact->getMetadatas());
         $this->assertSame([$attr], $contact->getAttrs());
         $this->assertSame([$member], $contact->getContactGroupMembers());
+        $this->assertSame($memberOf, $contact->getMemberOf());
 
         $contact->addMetadata($meta)
             ->addAttr($attr)
@@ -126,15 +134,16 @@ class ContactInfoTest extends ZimbraTestCase
         $this->assertSame([$member, $member], $contact->getContactGroupMembers());
 
         $contact = new ContactInfo(
-            $id, $sortField, TRUE, $folder, $flags, $tags, $tagNames, $changeDate, $modifiedSequenceId, $date, $revisionId, $fileAs, $email, $email2, $email3, $type, $dlist, $reference, FALSE, [$meta], [$attr], [$member]
+            $id, $sortField, TRUE, $imapUid, $folder, $flags, $tags, $tagNames, $changeDate, $modifiedSequenceId, $date, $revisionId, $fileAs, $email, $email2, $email3, $type, $dlist, $reference, FALSE, [$meta], [$attr], [$member], $memberOf
         );
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<cn sf="$sortField" exp="true" id="$id" l="$folder" f="$flags" t="$tags" tn="$tagNames" md="$changeDate" ms="$modifiedSequenceId" d="$date" rev="$revisionId" fileAsStr="$fileAs" email="$email" email2="$email2" email3="$email3" type="$type" dlist="$dlist" ref="$reference" tooManyMembers="false">
+<cn sf="$sortField" exp="true" id="$id" i4uid="$imapUid" l="$folder" f="$flags" t="$tags" tn="$tagNames" md="$changeDate" ms="$modifiedSequenceId" d="$date" rev="$revisionId" fileAsStr="$fileAs" email="$email" email2="$email2" email3="$email3" type="$type" dlist="$dlist" ref="$reference" tooManyMembers="false">
     <meta section="$section" />
     <a n="$key" part="$part" ct="$contentType" s="$size" filename="$contentFilename">$value</a>
     <m type="C" value="$value" />
+    <memberOf>$memberOf</memberOf>
 </cn>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($contact, 'xml'));
@@ -144,6 +153,7 @@ EOT;
             'sf' => $sortField,
             'exp' => TRUE,
             'id' => $id,
+            'i4uid' => $imapUid,
             'l' => $folder,
             'f' => $flags,
             't' => $tags,
@@ -180,6 +190,9 @@ EOT;
                     'type' => 'C',
                     'value' => $value,
                 ]
+            ],
+            'memberOf' => [
+                '_content' => $memberOf,
             ],
         ]);
         $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($contact, 'json'));

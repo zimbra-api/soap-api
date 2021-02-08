@@ -10,7 +10,7 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlList, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlElement, XmlList, XmlRoot};
 use Zimbra\Struct\ContactAttr;
 use Zimbra\Struct\ContactGroupMemberInterface;
 use Zimbra\Struct\ContactInterface;
@@ -31,6 +31,7 @@ use Zimbra\Struct\SearchHit;
 class ContactInfo implements ContactInterface, SearchHit
 {
     /**
+     * Sort field value
      * @Accessor(getter="getSortField", setter="setSortField")
      * @SerializedName("sf")
      * @Type("string")
@@ -39,6 +40,8 @@ class ContactInfo implements ContactInterface, SearchHit
     private $sortField;
 
     /**
+     * Set if the user can (has right to) expand group members.  Returned only if needExp
+     * is set in the request and only on group entries (type=group in attrs on a <cn>).
      * @Accessor(getter="getCanExpand", setter="setCanExpand")
      * @SerializedName("exp")
      * @Type("bool")
@@ -47,6 +50,7 @@ class ContactInfo implements ContactInterface, SearchHit
     private $canExpand;
 
     /**
+     * Unique contact ID
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
@@ -55,6 +59,16 @@ class ContactInfo implements ContactInterface, SearchHit
     private $id;
 
     /**
+     * IMAP UID
+     * @Accessor(getter="getImapUid", setter="setImapUid")
+     * @SerializedName("i4uid")
+     * @Type("integer")
+     * @XmlAttribute
+     */
+    private $imapUid;
+
+    /**
+     * Folder ID.  When creating a contact, this is the ID of the folder to create the contact in
      * @Accessor(getter="getFolder", setter="setFolder")
      * @SerializedName("l")
      * @Type("string")
@@ -63,6 +77,7 @@ class ContactInfo implements ContactInterface, SearchHit
     private $folder;
 
     /**
+     * Flags.  {flags} = (f)lagged, has (a)ttachment
      * @Accessor(getter="getFlags", setter="setFlags")
      * @SerializedName("f")
      * @Type("string")
@@ -71,6 +86,7 @@ class ContactInfo implements ContactInterface, SearchHit
     private $flags;
 
     /**
+     * Tags - Comma separated list of integers.  DEPRECATED - use "tn" instead
      * @Accessor(getter="getTags", setter="setTags")
      * @SerializedName("t")
      * @Type("string")
@@ -79,6 +95,7 @@ class ContactInfo implements ContactInterface, SearchHit
     private $tags;
 
     /**
+     * Comma-separated list of tag names
      * @Accessor(getter="getTagNames", setter="setTagNames")
      * @SerializedName("tn")
      * @Type("string")
@@ -87,6 +104,7 @@ class ContactInfo implements ContactInterface, SearchHit
     private $tagNames;
 
     /**
+     * Modified date in seconds
      * @Accessor(getter="getChangeDate", setter="setChangeDate")
      * @SerializedName("md")
      * @Type("int")
@@ -95,6 +113,7 @@ class ContactInfo implements ContactInterface, SearchHit
     private $changeDate;
 
     /**
+     * Modified sequence
      * @Accessor(getter="getModifiedSequenceId", setter="setModifiedSequenceId")
      * @SerializedName("ms")
      * @Type("int")
@@ -103,6 +122,7 @@ class ContactInfo implements ContactInterface, SearchHit
     private $modifiedSequenceId;
 
     /**
+     * Date in milliseconds
      * @Accessor(getter="getDate", setter="setDate")
      * @SerializedName("d")
      * @Type("int")
@@ -111,6 +131,7 @@ class ContactInfo implements ContactInterface, SearchHit
     private $date;
 
     /**
+     * Saved sequence number
      * @Accessor(getter="getRevisionId", setter="setRevisionId")
      * @SerializedName("rev")
      * @Type("int")
@@ -119,6 +140,8 @@ class ContactInfo implements ContactInterface, SearchHit
     private $revisionId;
 
     /**
+     * Current "file as" string for display/sorting purposes; cannot be used to
+     * set the file-as value
      * @Accessor(getter="getFileAs", setter="setFileAs")
      * @SerializedName("fileAsStr")
      * @Type("string")
@@ -127,6 +150,7 @@ class ContactInfo implements ContactInterface, SearchHit
     private $fileAs;
 
     /**
+     * Contact email address
      * @Accessor(getter="getEmail", setter="setEmail")
      * @SerializedName("email")
      * @Type("string")
@@ -135,6 +159,7 @@ class ContactInfo implements ContactInterface, SearchHit
     private $email;
 
     /**
+     * Contact email address 2
      * @Accessor(getter="getEmail2", setter="setEmail2")
      * @SerializedName("email2")
      * @Type("string")
@@ -143,6 +168,7 @@ class ContactInfo implements ContactInterface, SearchHit
     private $email2;
 
     /**
+     * Contact email address 3
      * @Accessor(getter="getEmail3", setter="setEmail3")
      * @SerializedName("email3")
      * @Type("string")
@@ -151,6 +177,7 @@ class ContactInfo implements ContactInterface, SearchHit
     private $email3;
 
     /**
+     * Contact type
      * @Accessor(getter="getType", setter="setType")
      * @SerializedName("type")
      * @Type("string")
@@ -159,6 +186,7 @@ class ContactInfo implements ContactInterface, SearchHit
     private $type;
 
     /**
+     * Contact dlist
      * @Accessor(getter="getDlist", setter="setDlist")
      * @SerializedName("dlist")
      * @Type("string")
@@ -167,6 +195,7 @@ class ContactInfo implements ContactInterface, SearchHit
     private $dlist;
 
     /**
+     * GAL entry reference
      * @Accessor(getter="getReference", setter="setReference")
      * @SerializedName("ref")
      * @Type("string")
@@ -175,6 +204,8 @@ class ContactInfo implements ContactInterface, SearchHit
     private $reference;
 
     /**
+     * If number of members on a GAL group is greater than the specified max,
+     * do not return any members for the entry.  Instead, set "tooManyMembers.
      * @Accessor(getter="getTooManyMembers", setter="setTooManyMembers")
      * @SerializedName("tooManyMembers")
      * @Type("bool")
@@ -183,6 +214,7 @@ class ContactInfo implements ContactInterface, SearchHit
     private $tooManyMembers;
 
     /**
+     * Custom metadata information
      * @Accessor(getter="getMetadatas", setter="setMetadatas")
      * @SerializedName("meta")
      * @Type("array<Zimbra\Mail\Struct\MailCustomMetadata>")
@@ -191,6 +223,7 @@ class ContactInfo implements ContactInterface, SearchHit
     private $metadatas = [];
 
     /**
+     * Attributes
      * @Accessor(getter="getAttrs", setter="setAttrs")
      * @SerializedName("a")
      * @Type("array<Zimbra\Struct\ContactAttr>")
@@ -199,12 +232,22 @@ class ContactInfo implements ContactInterface, SearchHit
     private $attrs = [];
 
     /**
+     * Contact group members
      * @Accessor(getter="getContactGroupMembers", setter="setContactGroupMembers")
      * @SerializedName("m")
      * @Type("array<Zimbra\Mail\Struct\ContactGroupMember>")
      * @XmlList(inline = true, entry = "m")
      */
     private $contactGroupMembers = [];
+
+    /**
+     * Comma separated list of IDs of contact groups this contact is a member of. Only provided if requested
+     * @Accessor(getter="getMemberOf", setter="setMemberOf")
+     * @SerializedName("memberOf")
+     * @Type("string")
+     * @XmlElement(cdata = false)
+     */
+    private $memberOf;
 
     /**
      * Constructor method for ContactInfo
@@ -231,12 +274,14 @@ class ContactInfo implements ContactInterface, SearchHit
      * @param array $metadatas
      * @param array $attrs
      * @param array $contactGroupMembers
+     * @param string $memberOf
      * @return self
      */
     public function __construct(
         string $id,
         ?string $sortField = NULL,
-        $canExpand = NULL,
+        ?bool $canExpand = NULL,
+        ?int $imapUid = NULL,
         ?string $folder = NULL,
         ?string $flags = NULL,
         ?string $tags = NULL,
@@ -253,17 +298,25 @@ class ContactInfo implements ContactInterface, SearchHit
         ?string $dlist = NULL,
         ?string $reference = NULL,
         ?bool $tooManyMembers = NULL,
-        array $metadatas = NULL,
-        array $attrs = NULL,
-        array $contactGroupMembers = NULL
+        array $metadatas  = [],
+        array $attrs = [],
+        array $contactGroupMembers = [],
+        ?string $memberOf = NULL
     )
     {
-        $this->setId($id);
+        $this->setId($id)
+             ->setMetadatas($metadatas)
+             ->setAttrs($attrs)
+             ->setContactGroupMembers($contactGroupMembers);
+
         if (NULL !== $sortField) {
             $this->setSortField($sortField);
         }
         if (NULL !== $canExpand) {
             $this->setCanExpand($canExpand);
+        }
+        if (NULL !== $imapUid) {
+            $this->setImapUid($imapUid);
         }
         if (NULL !== $folder) {
             $this->setFolder($folder);
@@ -313,14 +366,8 @@ class ContactInfo implements ContactInterface, SearchHit
         if (NULL !== $tooManyMembers) {
             $this->setTooManyMembers($tooManyMembers);
         }
-        if (NULL !== $metadatas) {
-            $this->setMetadatas($metadatas);
-        }
-        if (NULL !== $attrs) {
-            $this->setAttrs($attrs);
-        }
-        if (NULL !== $contactGroupMembers) {
-            $this->setContactGroupMembers($contactGroupMembers);
+        if (NULL !== $memberOf) {
+            $this->setMemberOf($memberOf);
         }
     }
 
@@ -387,6 +434,28 @@ class ContactInfo implements ContactInterface, SearchHit
     public function setId(string $id): self
     {
         $this->id = $id;
+        return $this;
+    }
+
+    /**
+     * Gets imapUid
+     *
+     * @return int
+     */
+    public function getImapUid(): ?int
+    {
+        return $this->imapUid;
+    }
+
+    /**
+     * Sets imapUid
+     *
+     * @param  int $imapUid
+     * @return self
+     */
+    public function setImapUid(int $imapUid): self
+    {
+        $this->imapUid = $imapUid;
         return $this;
     }
 
@@ -862,6 +931,28 @@ class ContactInfo implements ContactInterface, SearchHit
     public function addContactGroupMember(ContactGroupMemberInterface $contactGroupMember): self
     {
         $this->contactGroupMembers[] = $contactGroupMember;
+        return $this;
+    }
+
+    /**
+     * Gets memberOf
+     *
+     * @return string
+     */
+    public function getMemberOf(): ?string
+    {
+        return $this->memberOf;
+    }
+
+    /**
+     * Sets memberOf
+     *
+     * @param  string $memberOf
+     * @return self
+     */
+    public function setMemberOf(string $memberOf): self
+    {
+        $this->memberOf = $memberOf;
         return $this;
     }
 }

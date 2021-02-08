@@ -249,7 +249,7 @@ class ContactInfo
      */
     public function __construct(
         ?string $sortField = NULL,
-        $canExpand = NULL,
+        ?bool $canExpand = NULL,
         ?string $id = NULL,
         ?string $folder = NULL,
         ?string $flags = NULL,
