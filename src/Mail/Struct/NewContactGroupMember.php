@@ -8,34 +8,43 @@
  * file that was distributed with this source code.
  */
 
-namespace Zimbra\Account\Struct;
+namespace Zimbra\Mail\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlElement, XmlRoot};
 
+use Zimbra\Enum\MemberType;
+
 /**
- * ContactGroupMember struct class
+ * NewContactGroupMember struct class
  * 
  * @package    Zimbra
- * @subpackage Account
+ * @subpackage Mail
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
  * @AccessType("public_method")
  * @XmlRoot(name="m")
  */
-class ContactGroupMember
+class NewContactGroupMember
 {
     /**
-     * Contact group member type
+     * Member type
+     * C: reference to another contact
+     * G: reference to a GAL entry
+     * I: inlined member (member name and email address is embeded in the contact group)
      * @Accessor(getter="getType", setter="setType")
      * @SerializedName("type")
-     * @Type("string")
+     * @Type("Zimbra\Enum\MemberType")
      * @XmlAttribute
      */
     private $type;
 
     /**
-     * Contact group member value
+     * Member value
+     * type="C"     Item ID of another contact.
+     * If the referenced contact is in a shared folder, the item ID must be qualified by zimbraId of the owner. e.g. {zimbraId}:{itemId}
+     * type="G"     GAL entry reference (returned in SearchGalResponse)
+     * type="I"     name and email address in the form of: "{name}" <{email}>
      * @Accessor(getter="getValue", setter="setValue")
      * @SerializedName("value")
      * @Type("string")
@@ -44,36 +53,23 @@ class ContactGroupMember
     private $value;
 
     /**
-     * Contact
-     * @Accessor(getter="getContact", setter="setContact")
-     * @SerializedName("cn")
-     * @Type("Zimbra\Account\Struct\ContactInfo")
-     * @XmlElement
-     */
-    private $contact;
-
-    /**
-     * Constructor method for ContactGroupMember
-     * @param  string $type
+     * Constructor method for NewContactGroupMember
+     * @param  MemberType $type
      * @param  string $value
-     * @param  ContactInfo $contact
      * @return self
      */
-    public function __construct(string $type, string $value, ?ContactInfo $contact = NULL)
+    public function __construct(MemberType $type, string $value)
     {
         $this->setType($type)
             ->setValue($value);
-        if ($contact instanceof ContactInfo) {
-            $this->setContact($contact);
-        }
     }
 
     /**
      * Gets contact group member type
      *
-     * @return string
+     * @return MemberType
      */
-    public function getType(): string
+    public function getType(): MemberType
     {
         return $this->type;
     }
@@ -81,10 +77,10 @@ class ContactGroupMember
     /**
      * Sets contact group member type
      *
-     * @param  string $type
+     * @param  MemberType $type
      * @return self
      */
-    public function setType(string $type): self
+    public function setType(MemberType $type): self
     {
         $this->type = $type;
         return $this;
@@ -109,28 +105,6 @@ class ContactGroupMember
     public function setValue(string $value): self
     {
         $this->value = $value;
-        return $this;
-    }
-
-    /**
-     * Gets contact
-     *
-     * @return ContactInfo
-     */
-    public function getContact(): ?ContactInfo
-    {
-        return $this->contact;
-    }
-
-    /**
-     * Sets contact
-     *
-     * @param  ContactInfo $contact
-     * @return self
-     */
-    public function setContact(ContactInfo $contact): self
-    {
-        $this->contact = $contact;
         return $this;
     }
 }

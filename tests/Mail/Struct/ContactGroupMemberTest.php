@@ -1,9 +1,10 @@
 <?php declare(strict_types=1);
 
-namespace Zimbra\Tests\Struct;
+namespace Zimbra\Tests\Mail\Struct;
 
-use Zimbra\Account\Struct\ContactGroupMember;
-use Zimbra\Account\Struct\ContactInfo;
+use Zimbra\Enum\MemberType;
+use Zimbra\Mail\Struct\ContactGroupMember;
+use Zimbra\Mail\Struct\ContactInfo;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**
@@ -14,18 +15,17 @@ class ContactGroupMemberTest extends ZimbraTestCase
     public function testContactGroupMember()
     {
         $id = $this->faker->uuid;
-        $type = $this->faker->word;
+        $type = MemberType::CONTACT();
         $value = $this->faker->word;
 
-        $contact = new ContactInfo;
-        $contact->setId($id);
+        $contact = new ContactInfo($id);
 
         $member = new ContactGroupMember($type, $value, $contact);
         $this->assertSame($type, $member->getType());
         $this->assertSame($value, $member->getValue());
         $this->assertSame($contact, $member->getContact());
 
-        $member = new ContactGroupMember('', '');
+        $member = new ContactGroupMember(MemberType::CONTACT(), '');
         $member->setType($type)
             ->setValue($value)
             ->setContact($contact);
@@ -35,7 +35,7 @@ class ContactGroupMemberTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<m type="$type" value="$value">
+<m type="C" value="$value">
     <cn id="$id" />
 </m>
 EOT;
@@ -43,7 +43,7 @@ EOT;
         $this->assertEquals($member, $this->serializer->deserialize($xml, ContactGroupMember::class, 'xml'));
 
         $json = json_encode([
-            'type' => $type,
+            'type' => 'C',
             'value' => $value,
             'cn' => [
                 'id' => $id,

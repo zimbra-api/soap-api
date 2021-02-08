@@ -8,25 +8,30 @@
  * file that was distributed with this source code.
  */
 
-namespace Zimbra\Account\Struct;
+namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlList, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlElement, XmlList, XmlRoot};
 use Zimbra\Struct\ContactAttr;
+use Zimbra\Struct\ContactGroupMemberInterface;
+use Zimbra\Struct\ContactInterface;
+use Zimbra\Struct\CustomMetadataInterface;
+use Zimbra\Struct\SearchHit;
 
 /**
  * ContactInfo struct class
  * 
  * @package    Zimbra
- * @subpackage Account
+ * @subpackage Mail
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
  * @AccessType("public_method")
  * @XmlRoot(name="cn")
  */
-class ContactInfo
+class ContactInfo implements ContactInterface, SearchHit
 {
     /**
+     * Sort field value
      * @Accessor(getter="getSortField", setter="setSortField")
      * @SerializedName("sf")
      * @Type("string")
@@ -35,6 +40,8 @@ class ContactInfo
     private $sortField;
 
     /**
+     * Set if the user can (has right to) expand group members.  Returned only if needExp
+     * is set in the request and only on group entries (type=group in attrs on a <cn>).
      * @Accessor(getter="getCanExpand", setter="setCanExpand")
      * @SerializedName("exp")
      * @Type("bool")
@@ -43,6 +50,7 @@ class ContactInfo
     private $canExpand;
 
     /**
+     * Unique contact ID
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
@@ -51,6 +59,16 @@ class ContactInfo
     private $id;
 
     /**
+     * IMAP UID
+     * @Accessor(getter="getImapUid", setter="setImapUid")
+     * @SerializedName("i4uid")
+     * @Type("integer")
+     * @XmlAttribute
+     */
+    private $imapUid;
+
+    /**
+     * Folder ID.  When creating a contact, this is the ID of the folder to create the contact in
      * @Accessor(getter="getFolder", setter="setFolder")
      * @SerializedName("l")
      * @Type("string")
@@ -59,6 +77,7 @@ class ContactInfo
     private $folder;
 
     /**
+     * Flags.  {flags} = (f)lagged, has (a)ttachment
      * @Accessor(getter="getFlags", setter="setFlags")
      * @SerializedName("f")
      * @Type("string")
@@ -67,6 +86,7 @@ class ContactInfo
     private $flags;
 
     /**
+     * Tags - Comma separated list of integers.  DEPRECATED - use "tn" instead
      * @Accessor(getter="getTags", setter="setTags")
      * @SerializedName("t")
      * @Type("string")
@@ -75,6 +95,7 @@ class ContactInfo
     private $tags;
 
     /**
+     * Comma-separated list of tag names
      * @Accessor(getter="getTagNames", setter="setTagNames")
      * @SerializedName("tn")
      * @Type("string")
@@ -83,6 +104,7 @@ class ContactInfo
     private $tagNames;
 
     /**
+     * Modified date in seconds
      * @Accessor(getter="getChangeDate", setter="setChangeDate")
      * @SerializedName("md")
      * @Type("int")
@@ -91,6 +113,7 @@ class ContactInfo
     private $changeDate;
 
     /**
+     * Modified sequence
      * @Accessor(getter="getModifiedSequenceId", setter="setModifiedSequenceId")
      * @SerializedName("ms")
      * @Type("int")
@@ -99,6 +122,7 @@ class ContactInfo
     private $modifiedSequenceId;
 
     /**
+     * Date in milliseconds
      * @Accessor(getter="getDate", setter="setDate")
      * @SerializedName("d")
      * @Type("int")
@@ -107,6 +131,7 @@ class ContactInfo
     private $date;
 
     /**
+     * Saved sequence number
      * @Accessor(getter="getRevisionId", setter="setRevisionId")
      * @SerializedName("rev")
      * @Type("int")
@@ -115,6 +140,8 @@ class ContactInfo
     private $revisionId;
 
     /**
+     * Current "file as" string for display/sorting purposes; cannot be used to
+     * set the file-as value
      * @Accessor(getter="getFileAs", setter="setFileAs")
      * @SerializedName("fileAsStr")
      * @Type("string")
@@ -123,6 +150,7 @@ class ContactInfo
     private $fileAs;
 
     /**
+     * Contact email address
      * @Accessor(getter="getEmail", setter="setEmail")
      * @SerializedName("email")
      * @Type("string")
@@ -131,6 +159,7 @@ class ContactInfo
     private $email;
 
     /**
+     * Contact email address 2
      * @Accessor(getter="getEmail2", setter="setEmail2")
      * @SerializedName("email2")
      * @Type("string")
@@ -139,6 +168,7 @@ class ContactInfo
     private $email2;
 
     /**
+     * Contact email address 3
      * @Accessor(getter="getEmail3", setter="setEmail3")
      * @SerializedName("email3")
      * @Type("string")
@@ -147,6 +177,7 @@ class ContactInfo
     private $email3;
 
     /**
+     * Contact type
      * @Accessor(getter="getType", setter="setType")
      * @SerializedName("type")
      * @Type("string")
@@ -155,6 +186,7 @@ class ContactInfo
     private $type;
 
     /**
+     * Contact dlist
      * @Accessor(getter="getDlist", setter="setDlist")
      * @SerializedName("dlist")
      * @Type("string")
@@ -163,6 +195,7 @@ class ContactInfo
     private $dlist;
 
     /**
+     * GAL entry reference
      * @Accessor(getter="getReference", setter="setReference")
      * @SerializedName("ref")
      * @Type("string")
@@ -171,6 +204,8 @@ class ContactInfo
     private $reference;
 
     /**
+     * If number of members on a GAL group is greater than the specified max,
+     * do not return any members for the entry.  Instead, set "tooManyMembers.
      * @Accessor(getter="getTooManyMembers", setter="setTooManyMembers")
      * @SerializedName("tooManyMembers")
      * @Type("bool")
@@ -179,51 +214,47 @@ class ContactInfo
     private $tooManyMembers;
 
     /**
+     * Custom metadata information
      * @Accessor(getter="getMetadatas", setter="setMetadatas")
      * @SerializedName("meta")
-     * @Type("array<Zimbra\Account\Struct\AccountCustomMetadata>")
+     * @Type("array<Zimbra\Mail\Struct\MailCustomMetadata>")
      * @XmlList(inline = true, entry = "meta")
      */
-    private $metadatas;
+    private $metadatas = [];
 
     /**
+     * Attributes
      * @Accessor(getter="getAttrs", setter="setAttrs")
      * @SerializedName("a")
      * @Type("array<Zimbra\Struct\ContactAttr>")
      * @XmlList(inline = true, entry = "a")
      */
-    private $attrs;
+    private $attrs = [];
 
     /**
+     * Contact group members
      * @Accessor(getter="getContactGroupMembers", setter="setContactGroupMembers")
      * @SerializedName("m")
-     * @Type("array<Zimbra\Account\Struct\ContactGroupMember>")
+     * @Type("array<Zimbra\Mail\Struct\ContactGroupMember>")
      * @XmlList(inline = true, entry = "m")
      */
-    private $contactGroupMembers;
+    private $contactGroupMembers = [];
 
     /**
-     * @Accessor(getter="isOwner", setter="setIsOwner")
-     * @SerializedName("isOwner")
-     * @Type("bool")
-     * @XmlAttribute
+     * Comma separated list of IDs of contact groups this contact is a member of. Only provided if requested
+     * @Accessor(getter="getMemberOf", setter="setMemberOf")
+     * @SerializedName("memberOf")
+     * @Type("string")
+     * @XmlElement(cdata = false)
      */
-    private $isOwner;
-
-    /**
-     * @Accessor(getter="isMember", setter="setIsMember")
-     * @SerializedName("isMember")
-     * @Type("bool")
-     * @XmlAttribute
-     */
-    private $isMember;
+    private $memberOf;
 
     /**
      * Constructor method for ContactInfo
      *
+     * @param string $id
      * @param string $sortField
      * @param bool $canExpand
-     * @param string $id
      * @param string $folder
      * @param string $flags
      * @param string $tags
@@ -243,14 +274,14 @@ class ContactInfo
      * @param array $metadatas
      * @param array $attrs
      * @param array $contactGroupMembers
-     * @param bool $isOwner
-     * @param bool $isMember
+     * @param string $memberOf
      * @return self
      */
     public function __construct(
+        string $id,
         ?string $sortField = NULL,
         ?bool $canExpand = NULL,
-        ?string $id = NULL,
+        ?int $imapUid = NULL,
         ?string $folder = NULL,
         ?string $flags = NULL,
         ?string $tags = NULL,
@@ -267,21 +298,25 @@ class ContactInfo
         ?string $dlist = NULL,
         ?string $reference = NULL,
         ?bool $tooManyMembers = NULL,
-        array $metadatas = NULL,
-        array $attrs = NULL,
-        array $contactGroupMembers = NULL,
-        ?bool $isOwner = NULL,
-        ?bool $isMember = NULL
+        array $metadatas  = [],
+        array $attrs = [],
+        array $contactGroupMembers = [],
+        ?string $memberOf = NULL
     )
     {
+        $this->setId($id)
+             ->setMetadatas($metadatas)
+             ->setAttrs($attrs)
+             ->setContactGroupMembers($contactGroupMembers);
+
         if (NULL !== $sortField) {
             $this->setSortField($sortField);
         }
         if (NULL !== $canExpand) {
             $this->setCanExpand($canExpand);
         }
-        if (NULL !== $id) {
-            $this->setId($id);
+        if (NULL !== $imapUid) {
+            $this->setImapUid($imapUid);
         }
         if (NULL !== $folder) {
             $this->setFolder($folder);
@@ -331,20 +366,8 @@ class ContactInfo
         if (NULL !== $tooManyMembers) {
             $this->setTooManyMembers($tooManyMembers);
         }
-        if (NULL !== $metadatas) {
-            $this->setMetadatas($metadatas);
-        }
-        if (NULL !== $attrs) {
-            $this->setAttrs($attrs);
-        }
-        if (NULL !== $contactGroupMembers) {
-            $this->setContactGroupMembers($contactGroupMembers);
-        }
-        if (NULL !== $isOwner) {
-            $this->setIsOwner($isOwner);
-        }
-        if (NULL !== $isMember) {
-            $this->setIsMember($isMember);
+        if (NULL !== $memberOf) {
+            $this->setMemberOf($memberOf);
         }
     }
 
@@ -397,7 +420,7 @@ class ContactInfo
      *
      * @return string
      */
-    public function getId(): ?string
+    public function getId(): string
     {
         return $this->id;
     }
@@ -411,6 +434,28 @@ class ContactInfo
     public function setId(string $id): self
     {
         $this->id = $id;
+        return $this;
+    }
+
+    /**
+     * Gets imapUid
+     *
+     * @return int
+     */
+    public function getImapUid(): ?int
+    {
+        return $this->imapUid;
+    }
+
+    /**
+     * Sets imapUid
+     *
+     * @param  int $imapUid
+     * @return self
+     */
+    public function setImapUid(int $imapUid): self
+    {
+        $this->imapUid = $imapUid;
         return $this;
     }
 
@@ -771,7 +816,7 @@ class ContactInfo
      *
      * @return array
      */
-    public function getMetadatas(): ?array
+    public function getMetadatas(): array
     {
         return $this->metadatas;
     }
@@ -787,7 +832,7 @@ class ContactInfo
         if (!empty($metadatas)) {
             $this->metadatas = [];
             foreach ($metadatas as $metadata) {
-                if ($metadata instanceof AccountCustomMetadata) {
+                if ($metadata instanceof CustomMetadataInterface) {
                     $this->metadatas[] = $metadata;
                 }
             }
@@ -798,10 +843,10 @@ class ContactInfo
     /**
      * Add custom metadata information
      *
-     * @param  AccountCustomMetadata $metadata
+     * @param  CustomMetadataInterface $metadata
      * @return self
      */
-    public function addMetadata(AccountCustomMetadata $metadata): self
+    public function addMetadata(CustomMetadataInterface $metadata): self
     {
         $this->metadatas[] = $metadata;
         return $this;
@@ -812,7 +857,7 @@ class ContactInfo
      *
      * @return array
      */
-    public function getAttrs(): ?array
+    public function getAttrs(): array
     {
         return $this->attrs;
     }
@@ -853,7 +898,7 @@ class ContactInfo
      *
      * @return array
      */
-    public function getContactGroupMembers(): ?array
+    public function getContactGroupMembers(): array
     {
         return $this->contactGroupMembers;
     }
@@ -869,7 +914,7 @@ class ContactInfo
         if (!empty($contactGroupMembers)) {
             $this->contactGroupMembers = [];
             foreach ($contactGroupMembers as $contactGroupMember) {
-                if ($contactGroupMember instanceof ContactGroupMember) {
+                if ($contactGroupMember instanceof ContactGroupMemberInterface) {
                     $this->contactGroupMembers[] = $contactGroupMember;
                 }
             }
@@ -880,56 +925,34 @@ class ContactInfo
     /**
      * Add contact group member
      *
-     * @param  ContactGroupMember $contactGroupMember
+     * @param  ContactGroupMemberInterface $contactGroupMember
      * @return self
      */
-    public function addContactGroupMember(ContactGroupMember $contactGroupMember): self
+    public function addContactGroupMember(ContactGroupMemberInterface $contactGroupMember): self
     {
         $this->contactGroupMembers[] = $contactGroupMember;
         return $this;
     }
 
     /**
-     * Gets flags whether user is the owner of a group
+     * Gets memberOf
      *
-     * @return bool
+     * @return string
      */
-    public function isOwner(): ?bool
+    public function getMemberOf(): ?string
     {
-        return $this->isOwner;
+        return $this->memberOf;
     }
 
     /**
-     * Sets flags whether user is the owner of a group
+     * Sets memberOf
      *
-     * @param  bool $isOwner
+     * @param  string $memberOf
      * @return self
      */
-    public function setIsOwner(bool $isOwner): self
+    public function setMemberOf(string $memberOf): self
     {
-        $this->isOwner = $isOwner;
-        return $this;
-    }
-
-    /**
-     * Gets flags whether user is a member of a group
-     *
-     * @return bool
-     */
-    public function isMember(): ?bool
-    {
-        return $this->isMember;
-    }
-
-    /**
-     * Sets flags whether user is a member of a group
-     *
-     * @param  bool $isMember
-     * @return self
-     */
-    public function setIsMember(bool $isMember): self
-    {
-        $this->isMember = $isMember;
+        $this->memberOf = $memberOf;
         return $this;
     }
 }
