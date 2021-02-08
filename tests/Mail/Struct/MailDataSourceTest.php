@@ -1,17 +1,17 @@
 <?php declare(strict_types=1);
 
-namespace Zimbra\Tests\Account\Struct;
+namespace Zimbra\Tests\Mail\Struct;
 
 use Zimbra\Enum\ConnectionType;
-use Zimbra\Account\Struct\AccountDataSource;
+use Zimbra\Mail\Struct\MailDataSource;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**
- * Testcase class for AccountDataSource.
+ * Testcase class for MailDataSource.
  */
-class AccountDataSourceTest extends ZimbraTestCase
+class MailDataSourceTest extends ZimbraTestCase
 {
-    public function testAccountDataSource()
+    public function testMailDataSource()
     {
         $id = $this->faker->uuid;
         $name = $this->faker->name;
@@ -23,6 +23,11 @@ class AccountDataSourceTest extends ZimbraTestCase
         $password = $this->faker->text;
         $pollingInterval = $this->faker->word;
         $emailAddress = $this->faker->email;
+        $smtpHost = $this->faker->ipv4;
+        $smtpPort = $this->faker->randomNumber;
+        $smtpConnectionType = ConnectionType::CLEAR_TEXT();
+        $smtpUsername = $this->faker->email;
+        $smtpPassword = $this->faker->text;
         $defaultSignature = $this->faker->word;
         $forwardReplySignature = $this->faker->word;
         $fromDisplay = $this->faker->name;
@@ -41,11 +46,11 @@ class AccountDataSourceTest extends ZimbraTestCase
             $attribute2,
         ];
 
-        $dataSource = new AccountDataSource(
-            $id, $name, $folderId, FALSE, FALSE, $host, $port, $connectionType, $username, $password,
-            $pollingInterval, $emailAddress, FALSE, $defaultSignature, $forwardReplySignature,
-            $fromDisplay, $replyToAddress, $replyToDisplay, $importClass, $failingSince, $lastError,
-            $attributes, $refreshToken, $refreshTokenUrl
+        $dataSource = new MailDataSource(
+            $id, $name, $folderId, FALSE, FALSE, $host, $port, $connectionType, $username, $password, $pollingInterval, $emailAddress,
+            FALSE, $smtpHost, $smtpPort, $smtpConnectionType, FALSE, $smtpUsername, $smtpPassword,
+            FALSE, $defaultSignature, $forwardReplySignature,$fromDisplay, $replyToAddress, $replyToDisplay, $importClass,
+            $failingSince, $lastError, $refreshToken, $refreshTokenUrl, $attributes
         );
         $this->assertSame($id, $dataSource->getId());
         $this->assertSame($name, $dataSource->getName());
@@ -59,6 +64,13 @@ class AccountDataSourceTest extends ZimbraTestCase
         $this->assertSame($password, $dataSource->getPassword());
         $this->assertSame($pollingInterval, $dataSource->getPollingInterval());
         $this->assertSame($emailAddress, $dataSource->getEmailAddress());
+        $this->assertFalse($dataSource->isSmtpEnabled());
+        $this->assertSame($smtpHost, $dataSource->getSmtpHost());
+        $this->assertSame($smtpPort, $dataSource->getSmtpPort());
+        $this->assertSame($smtpConnectionType, $dataSource->getSmtpConnectionType());
+        $this->assertFalse($dataSource->isSmtpAuthRequired());
+        $this->assertSame($smtpUsername, $dataSource->getSmtpUsername());
+        $this->assertSame($smtpPassword, $dataSource->getSmtpPassword());
         $this->assertFalse($dataSource->isUseAddressForForwardReply());
         $this->assertSame($defaultSignature, $dataSource->getDefaultSignature());
         $this->assertSame($forwardReplySignature, $dataSource->getForwardReplySignature());
@@ -72,7 +84,7 @@ class AccountDataSourceTest extends ZimbraTestCase
         $this->assertSame($refreshToken, $dataSource->getRefreshToken());
         $this->assertSame($refreshTokenUrl, $dataSource->getRefreshTokenUrl());
 
-        $dataSource = new AccountDataSource();
+        $dataSource = new MailDataSource();
         $dataSource->setId($id)
             ->setName($name)
             ->setFolderId($folderId)
@@ -85,6 +97,13 @@ class AccountDataSourceTest extends ZimbraTestCase
             ->setPassword($password)
             ->setPollingInterval($pollingInterval)
             ->setEmailAddress($emailAddress)
+            ->setSmtpEnabled(TRUE)
+            ->setSmtpHost($smtpHost)
+            ->setSmtpPort($smtpPort)
+            ->setSmtpConnectionType($smtpConnectionType)
+            ->setSmtpAuthRequired(TRUE)
+            ->setSmtpUsername($smtpUsername)
+            ->setSmtpPassword($smtpPassword)
             ->setUseAddressForForwardReply(TRUE)
             ->setDefaultSignature($defaultSignature)
             ->setForwardReplySignature($forwardReplySignature)
@@ -94,10 +113,10 @@ class AccountDataSourceTest extends ZimbraTestCase
             ->setImportClass($importClass)
             ->setFailingSince($failingSince)
             ->setLastError($lastError)
-            ->setAttributes($attributes)
-            ->addAttribute($attribute)
             ->setRefreshToken($refreshToken)
-            ->setRefreshTokenUrl($refreshTokenUrl);
+            ->setRefreshTokenUrl($refreshTokenUrl)
+            ->setAttributes($attributes)
+            ->addAttribute($attribute);
         $this->assertSame($id, $dataSource->getId());
         $this->assertSame($name, $dataSource->getName());
         $this->assertSame($folderId, $dataSource->getFolderId());
@@ -110,6 +129,13 @@ class AccountDataSourceTest extends ZimbraTestCase
         $this->assertSame($password, $dataSource->getPassword());
         $this->assertSame($pollingInterval, $dataSource->getPollingInterval());
         $this->assertSame($emailAddress, $dataSource->getEmailAddress());
+        $this->assertTrue($dataSource->isSmtpEnabled());
+        $this->assertSame($smtpHost, $dataSource->getSmtpHost());
+        $this->assertSame($smtpPort, $dataSource->getSmtpPort());
+        $this->assertSame($smtpConnectionType, $dataSource->getSmtpConnectionType());
+        $this->assertTrue($dataSource->isSmtpAuthRequired());
+        $this->assertSame($smtpUsername, $dataSource->getSmtpUsername());
+        $this->assertSame($smtpPassword, $dataSource->getSmtpPassword());
         $this->assertTrue($dataSource->isUseAddressForForwardReply());
         $this->assertSame($defaultSignature, $dataSource->getDefaultSignature());
         $this->assertSame($forwardReplySignature, $dataSource->getForwardReplySignature());
@@ -129,7 +155,7 @@ class AccountDataSourceTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<dataSource id="$id" name="$name" l="$folderId" isEnabled="true" importOnly="true" host="$host" port="$port" connectionType="cleartext" username="$username" password="$password" pollingInterval="$pollingInterval" emailAddress="$emailAddress" useAddressForForwardReply="true" defaultSignature="$defaultSignature" forwardReplySignature="$forwardReplySignature" fromDisplay="$fromDisplay" replyToAddress="$replyToAddress" replyToDisplay="$replyToDisplay" importClass="$importClass" failingSince="$failingSince" refreshToken="$refreshToken" refreshTokenUrl="$refreshTokenUrl">
+<dataSource id="$id" name="$name" l="$folderId" isEnabled="true" importOnly="true" host="$host" port="$port" connectionType="cleartext" username="$username" password="$password" pollingInterval="$pollingInterval" emailAddress="$emailAddress" smtpEnabled="true" smtpHost="$smtpHost" smtpPort="$smtpPort" smtpConnectionType="cleartext" smtpAuthRequired="true" smtpUsername="$smtpUsername" smtpPassword="$smtpPassword" useAddressForForwardReply="true" defaultSignature="$defaultSignature" forwardReplySignature="$forwardReplySignature" fromDisplay="$fromDisplay" replyToAddress="$replyToAddress" replyToDisplay="$replyToDisplay" importClass="$importClass" failingSince="$failingSince" refreshToken="$refreshToken" refreshTokenUrl="$refreshTokenUrl">
     <lastError>$lastError</lastError>
     <a>$attribute1</a>
     <a>$attribute2</a>
@@ -137,7 +163,7 @@ class AccountDataSourceTest extends ZimbraTestCase
 </dataSource>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($dataSource, 'xml'));
-        $this->assertEquals($dataSource, $this->serializer->deserialize($xml, AccountDataSource::class, 'xml'));
+        $this->assertEquals($dataSource, $this->serializer->deserialize($xml, MailDataSource::class, 'xml'));
 
         $json = json_encode([
             'id' => $id,
@@ -152,6 +178,13 @@ EOT;
             'password' => $password,
             'pollingInterval' => $pollingInterval,
             'emailAddress' => $emailAddress,
+            'smtpEnabled' => TRUE,
+            'smtpHost' => $smtpHost,
+            'smtpPort' => $smtpPort,
+            'smtpConnectionType' => 'cleartext',
+            'smtpAuthRequired' => TRUE,
+            'smtpUsername' => $smtpUsername,
+            'smtpPassword' => $smtpPassword,
             'useAddressForForwardReply' => TRUE,
             'defaultSignature' => $defaultSignature,
             'forwardReplySignature' => $forwardReplySignature,
@@ -178,6 +211,6 @@ EOT;
             'refreshTokenUrl' => $refreshTokenUrl,
         ]);
         $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($dataSource, 'json'));
-        $this->assertEquals($dataSource, $this->serializer->deserialize($json, AccountDataSource::class, 'json'));
+        $this->assertEquals($dataSource, $this->serializer->deserialize($json, MailDataSource::class, 'json'));
     }
 }
