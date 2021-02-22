@@ -11,7 +11,6 @@
 namespace Zimbra\Mail\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlRoot};
-
 use Zimbra\Common\Text;
 
 /**
