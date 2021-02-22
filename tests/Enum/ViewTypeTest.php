@@ -13,13 +13,19 @@ class ViewTypeTest extends TestCase
     public function testViewType()
     {
         $values = [
-            'CONVERSATION' => 'conversation',
-            'MESSAGE'      => 'message',
-            'CONTACT'      => 'contact',
-            'APPOINTMENT'  => 'appointment',
-            'TASK'         => 'task',
-            'WIKI'         => 'wiki',
-            'DOCUMENT'     => 'document',
+            'UNKNOWN'              => '',
+            'SEARCH_FOLDER'        => 'search folder',
+            'TAG'                  => 'tag',
+            'CONVERSATION'         => 'conversation',
+            'MESSAGE'              => 'message',
+            'CONTACT'              => 'contact',
+            'DOCUMENT'             => 'document',
+            'APPOINTMENT'          => 'appointment',
+            'VIRTUAL_CONVERSATION' => 'virtual conversation',
+            'REMOTE_FOLDER'        => 'remote folder',
+            'WIKI'                 => 'wiki',
+            'TASK'                 => 'task',
+            'CHAT'                 => 'chat',
         ];
         foreach ($values as $enum => $value) {
             $this->assertSame(ViewType::$enum()->getValue(), $value);

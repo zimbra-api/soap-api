@@ -23,6 +23,24 @@ use MyCLabs\Enum\Enum;
 class ViewType extends Enum
 {
     /**
+     * Constant for value ''
+     * @return string ''
+     */
+    private const UNKNOWN = '';
+
+    /**
+     * Constant for value 'search folder'
+     * @return string 'search folder'
+     */
+    private const SEARCH_FOLDER = 'search folder';
+
+    /**
+     * Constant for value 'tag'
+     * @return string 'tag'
+     */
+    private const TAG = 'tag';
+
+    /**
      * Constant for value 'conversation'
      * @return string 'conversation'
      */
@@ -41,16 +59,28 @@ class ViewType extends Enum
     private const CONTACT = 'contact';
 
     /**
+     * Constant for value 'document'
+     * @return string 'document'
+     */
+    private const DOCUMENT = 'document';
+
+    /**
      * Constant for value 'appointment'
      * @return string 'appointment'
      */
     private const APPOINTMENT = 'appointment';
 
     /**
-     * Constant for value 'task'
-     * @return string 'task'
+     * Constant for value 'virtual conversation'
+     * @return string 'virtual conversation'
      */
-    private const TASK = 'task';
+    private const VIRTUAL_CONVERSATION = 'virtual conversation';
+
+    /**
+     * Constant for value 'remote folder'
+     * @return string 'remote folder'
+     */
+    private const REMOTE_FOLDER = 'remote folder';
 
     /**
      * Constant for value 'wiki'
@@ -59,8 +89,14 @@ class ViewType extends Enum
     private const WIKI = 'wiki';
 
     /**
-     * Constant for value 'document'
-     * @return string 'document'
+     * Constant for value 'task'
+     * @return string 'task'
      */
-    private const DOCUMENT = 'document';
+    private const TASK = 'task';
+
+    /**
+     * Constant for value 'chat'
+     * @return string 'chat'
+     */
+    private const CHAT = 'chat';
 }
