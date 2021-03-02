@@ -135,7 +135,7 @@ class SearchFolder extends Folder
         $validTypes = [];
         foreach (explode(',', $types) as $type) {
             if (ItemType::isValid($type) && !in_array($type, $validTypes)) {
-                $validTypes[] = $right;
+                $validTypes[] = $type;
             }
         }
         $this->types = implode(',', $validTypes);
