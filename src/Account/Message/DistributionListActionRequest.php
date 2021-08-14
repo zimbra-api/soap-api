@@ -20,8 +20,10 @@ use Zimbra\Soap\Request;
  * Perform an action on a Distribution List
  * Notes:
  *  - Authorized account must be one of the list owners 
- *  - For owners/rights, only grants on the group itself will be modified, grants on domain and globalgrant (from which the right can be inherited) will not be touched.
- *    Only admins can modify grants on domains and globalgrant, owners of groups can only modify grants on the group entry.
+ *  - For owners/rights, only grants on the group itself will be modified,
+ *    grants on domain and globalgrant (from which the right can be inherited) will not be touched.
+ *    Only admins can modify grants on domains and globalgrant, owners of groups
+ *    can only modify grants on the group entry.
  *
  * @package    Zimbra
  * @subpackage Account

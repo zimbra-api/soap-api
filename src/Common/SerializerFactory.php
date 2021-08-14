@@ -15,7 +15,10 @@ use JMS\Serializer\Handler\HandlerRegistryInterface;
 use JMS\Serializer\Handler\SubscribingHandlerInterface;
 use JMS\Serializer\{SerializerBuilder, SerializerInterface};
 use Zimbra\Common\Serializer\{
-    JsonDeserializationVisitorFactory, JsonSerializationVisitorFactory, XmlDeserializationVisitorFactory, XmlSerializationVisitorFactory
+    JsonDeserializationVisitorFactory,
+    JsonSerializationVisitorFactory,
+    XmlDeserializationVisitorFactory,
+    XmlSerializationVisitorFactory
 };
 
 /**
@@ -41,7 +44,6 @@ final class SerializerFactory
     {
         if (NULL === static::$builder) {
             AnnotationRegistry::registerLoader('class_exists');
-            static::addSerializerHandler(new SerializerHandler);
 
             static::$builder = SerializerBuilder::create()
                 ->addDefaultHandlers()

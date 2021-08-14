@@ -11,7 +11,7 @@
 namespace Zimbra\Account\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlRoot};
-use Zimbra\Enum\{AceRightType, GranteeType};
+use Zimbra\Enum\GranteeType;
 
 /**
  * AccountACEInfo struct class
@@ -37,7 +37,7 @@ class AccountACEInfo
     /**
      * @Accessor(getter="getRight", setter="setRight")
      * @SerializedName("right")
-     * @Type("Zimbra\Enum\AceRightType")
+     * @Type("string")
      * @XmlAttribute
      */
     private $right;
@@ -93,7 +93,7 @@ class AccountACEInfo
     /**
      * Constructor method for AccountACEInfo
      * @param GranteeType $granteeType
-     * @param AceRightType $right
+     * @param string $right
      * @param string $zimbraId
      * @param string $displayName
      * @param string $accessKey
@@ -104,7 +104,7 @@ class AccountACEInfo
      */
     public function __construct(
         GranteeType $granteeType,
-        AceRightType $right,
+        string $right,
         ?string $zimbraId = NULL,
         ?string $displayName = NULL,
         ?string $accessKey = NULL,
@@ -160,9 +160,9 @@ class AccountACEInfo
     /**
      * Gets the right enum
      *
-     * @return AceRightType
+     * @return string
      */
-    public function getRight(): AceRightType
+    public function getRight(): string
     {
         return $this->right;
     }
@@ -170,10 +170,10 @@ class AccountACEInfo
     /**
      * Sets the right enum
      *
-     * @param  AceRightType $right
+     * @param  string $right
      * @return self
      */
-    public function setRight(AceRightType $right): self
+    public function setRight(string $right): self
     {
         $this->right = $right;
         return $this;

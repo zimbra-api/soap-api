@@ -19,7 +19,8 @@ use Zimbra\Soap\Request;
  * Modify Preferences
  * Notes:
  * For multi-value prefs, just add the same attribute with 'n' different values
- * You can also add/subtract single values to/from a multi-value pref by prefixing the preference name with a '+' or '-', respectively in the same way you do when using zmprov.
+ * You can also add/subtract single values to/from a multi-value pref by prefixing
+ * the preference name with a '+' or '-', respectively in the same way you do when using zmprov.
  * 
  * @package    Zimbra
  * @subpackage Account

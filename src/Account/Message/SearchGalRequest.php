@@ -19,8 +19,7 @@ use Zimbra\Struct\CursorInfo;
 
 /**
  * SearchGalRequest class
- * Search Global Address List (GAL) for calendar resources
- * "attrs" attribute - comma-separated list of attrs to return ("displayName", "zimbraId", "zimbraCalResType")
+ * Search Global Address List (GAL)
  * 
  * @package    Zimbra
  * @subpackage Account

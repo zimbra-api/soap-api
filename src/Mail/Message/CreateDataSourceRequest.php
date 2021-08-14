@@ -62,7 +62,7 @@ class CreateDataSourceRequest extends Request
      * @Type("Zimbra\Mail\Struct\MailImapDataSource")
      * @VirtualProperty
      */
-    public function getImapDataSource()
+    public function getImapDataSource(): ?MailImapDataSource
     {
         return ($this->dataSource instanceof MailImapDataSource) ? $this->dataSource : NULL;
     }
@@ -72,7 +72,7 @@ class CreateDataSourceRequest extends Request
      * @Type("Zimbra\Mail\Struct\MailPop3DataSource")
      * @VirtualProperty
      */
-    public function getPop3DataSource()
+    public function getPop3DataSource(): ?MailPop3DataSource
     {
         return ($this->dataSource instanceof MailPop3DataSource) ? $this->dataSource : NULL;
     }
@@ -82,7 +82,7 @@ class CreateDataSourceRequest extends Request
      * @Type("Zimbra\Mail\Struct\MailCaldavDataSource")
      * @VirtualProperty
      */
-    public function getCaldavDataSource()
+    public function getCaldavDataSource(): ?MailCaldavDataSource
     {
         return ($this->dataSource instanceof MailCaldavDataSource) ? $this->dataSource : NULL;
     }
@@ -92,7 +92,7 @@ class CreateDataSourceRequest extends Request
      * @Type("Zimbra\Mail\Struct\MailYabDataSource")
      * @VirtualProperty
      */
-    public function getYabDataSource()
+    public function getYabDataSource(): ?MailYabDataSource
     {
         return ($this->dataSource instanceof MailYabDataSource) ? $this->dataSource : NULL;
     }
@@ -102,7 +102,7 @@ class CreateDataSourceRequest extends Request
      * @Type("Zimbra\Mail\Struct\MailRssDataSource")
      * @VirtualProperty
      */
-    public function getRssDataSource()
+    public function getRssDataSource(): ?MailRssDataSource
     {
         return ($this->dataSource instanceof MailRssDataSource) ? $this->dataSource : NULL;
     }
@@ -112,7 +112,7 @@ class CreateDataSourceRequest extends Request
      * @Type("Zimbra\Mail\Struct\MailGalDataSource")
      * @VirtualProperty
      */
-    public function getGalDataSource()
+    public function getGalDataSource(): ?MailGalDataSource
     {
         return ($this->dataSource instanceof MailGalDataSource) ? $this->dataSource : NULL;
     }
@@ -122,7 +122,7 @@ class CreateDataSourceRequest extends Request
      * @Type("Zimbra\Mail\Struct\MailCalDataSource")
      * @VirtualProperty
      */
-    public function getCalDataSource()
+    public function getCalDataSource(): ?MailCalDataSource
     {
         return ($this->dataSource instanceof MailCalDataSource) ? $this->dataSource : NULL;
     }
@@ -132,7 +132,7 @@ class CreateDataSourceRequest extends Request
      * @Type("Zimbra\Mail\Struct\MailUnknownDataSource")
      * @VirtualProperty
      */
-    public function getUnknownDataSource()
+    public function getUnknownDataSource(): ?MailUnknownDataSource
     {
         return ($this->dataSource instanceof MailUnknownDataSource) ? $this->dataSource : NULL;
     }

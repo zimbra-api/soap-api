@@ -11,7 +11,7 @@
 namespace Zimbra\Soap;
 
 use JMS\Serializer\SerializerInterface;
-use Zimbra\Common\SerializerBuilder;
+use Zimbra\Common\SerializerFactory;
 use Zimbra\Enum\RequestFormat;
 use Zimbra\Soap\Request\Batch;
 
@@ -44,7 +44,7 @@ abstract class Api implements ApiInterface
      */
     private $requestFormat;
 
-    public function __construct($endpoint = 'https://localhost/service/soap', ?string $requestFormat = NULL)
+    public function __construct(string $endpoint, ?string $requestFormat = NULL)
     {
         $this->client = new Client($endpoint);
         if (RequestFormat::isValid($requestFormat)) {
@@ -136,7 +136,7 @@ abstract class Api implements ApiInterface
             $this->getSerializer()->serialize($requestEnvelope, $this->serializeFormat()),
             [
                 'Content-Type' => 'application/soap+xml; charset=utf-8',
-                'User-Agent'   => isset($_SERVER['HTTP_USER_AGENT']) ? $_SERVER['HTTP_USER_AGENT'] : 'PHP-Zimbra-Soap-API',
+                'User-Agent'   => $_SERVER['HTTP_USER_AGENT'] ?? 'PHP-Zimbra-Soap-API',
             ]
         );
         $responseEnvelope = $this->getSerializer()->deserialize(
@@ -144,20 +144,6 @@ abstract class Api implements ApiInterface
             get_class($requestEnvelope), $this->serializeFormat()
         );
         return $responseEnvelope->getBody()->getResponse();
-    }
-
-    /**
-     * Perform a batch request.
-     *
-     * @param  array $requests
-     * @return ResponseInterface
-     */
-    public function batch(array $requests = []): ?ResponseInterface
-    {
-        $request = new \Zimbra\Soap\Request\Batch(
-            $requests
-        );
-        return $this->invoke($request);
     }
 
     /**
@@ -177,6 +163,6 @@ abstract class Api implements ApiInterface
      */
     protected function getSerializer(): SerializerInterface
     {
-        return SerializerBuilder::getSerializer();
+        return SerializerFactory::create();
     }
 }

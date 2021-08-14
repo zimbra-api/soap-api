@@ -15,7 +15,7 @@ use Zimbra\Soap\Request;
 
 /**
  * GetVersionInfoRequest class
- * Get Version information
+ * Get version information
  * 
  * @package    Zimbra
  * @subpackage Account

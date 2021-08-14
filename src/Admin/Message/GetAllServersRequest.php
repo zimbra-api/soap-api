@@ -81,7 +81,7 @@ class GetAllServersRequest extends Request
      *
      * @return string
      */
-    public function getService(): string
+    public function getService(): ?string
     {
         return $this->service;
     }
@@ -103,7 +103,7 @@ class GetAllServersRequest extends Request
      *
      * @return bool
      */
-    public function isApplyConfig(): bool
+    public function isApplyConfig(): ?bool
     {
         return $this->applyConfig;
     }
@@ -125,7 +125,7 @@ class GetAllServersRequest extends Request
      *
      * @return string
      */
-    public function getAlwaysOnClusterId(): string
+    public function getAlwaysOnClusterId(): ?string
     {
         return $this->alwaysOnClusterId;
     }

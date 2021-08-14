@@ -16,7 +16,7 @@ use Zimbra\Soap\Request;
 
 /**
  * ModifyZimletPrefsRequest class
- * Modify Zimlet Preferences
+ * Modify zimlet preferences
  * 
  * @package    Zimbra
  * @subpackage Account

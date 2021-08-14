@@ -16,7 +16,7 @@ use Zimbra\Soap\Request;
 
 /**
  * ModifyWhiteBlackListRequest class
- * Modify whiteListEntryerties related to zimlets
+ * Modify the anti-spam WhiteList and BlackList addresses
  * 
  * @package    Zimbra
  * @subpackage Account

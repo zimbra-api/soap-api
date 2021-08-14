@@ -15,7 +15,7 @@ use Zimbra\Soap\Request;
 
 /**
  * GetSignaturesRequest class
- * Get Signatures associated with an account
+ * Get signatures associated with an account
  * 
  * @package    Zimbra
  * @subpackage Account

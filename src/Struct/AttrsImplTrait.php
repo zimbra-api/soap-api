@@ -28,7 +28,7 @@ trait AttrsImplTrait
      * @Type("array<Zimbra\Struct\KeyValuePair>")
      * @XmlList(inline = true, entry = "a")
      */
-    private $attrs;
+    private $attrs = [];
 
     /**
      * Add an attr
@@ -64,7 +64,7 @@ trait AttrsImplTrait
      *
      * @return array
      */
-    public function getAttrs(): ?array
+    public function getAttrs(): array
     {
         return $this->attrs;
     }

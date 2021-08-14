@@ -16,7 +16,7 @@ use Zimbra\Soap\Request;
 
 /**
  * GetAccountInfoRequest class
- * Get Information about an account
+ * Get information about an account
  *
  * @package    Zimbra
  * @subpackage Account

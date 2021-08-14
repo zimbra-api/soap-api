@@ -10,7 +10,7 @@
 
 namespace Zimbra\Soap;
 
-use JMS\Serializer\Annotation\Exclude;
+use JMS\Serializer\Annotation\{Accessor, Exclude, SerializedName, Type, XmlAttribute};
 
 /**
  * Request class in Zimbra API PHP, not to be instantiated.
@@ -27,6 +27,37 @@ abstract class Request implements RequestInterface
      * @Exclude
      */
     protected $envelope;
+
+    /**
+     * Request id. Used with BatchRequestInterface
+     * @Accessor(getter="getRequestId", setter="setRequestId")
+     * @SerializedName("requestId")
+     * @Type("int")
+     * @XmlAttribute
+     */
+    protected $requestId;
+
+    /**
+     * Gets request id
+     *
+     * @return int
+     */
+    public function getRequestId(): ?int
+    {
+        return $this->requestId;
+    }
+
+    /**
+     * Sets request id
+     *
+     * @param  int $requestId
+     * @return self
+     */
+    public function setRequestId(int $requestId): self
+    {
+        $this->requestId = $requestId;
+        return $this;
+    }
 
     /**
      * Get soap envelope.

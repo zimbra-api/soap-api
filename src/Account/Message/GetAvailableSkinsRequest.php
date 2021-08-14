@@ -15,7 +15,10 @@ use Zimbra\Soap\Request;
 
 /**
  * GetAvailableSkinsRequest class
- * Returns the known CSV formats that can be used for import and export of addressbook.
+ * Get the intersection of installed skins on the server and the list specified in the
+ * zimbraAvailableSkin on an account (or its CoS).  If none is set in zimbraAvailableSkin, get the entire
+ * list of installed skins.  The installed skin list is obtained by a directory scan of the designated location of
+ * skins on a server.
  * 
  * @package    Zimbra
  * @subpackage Account

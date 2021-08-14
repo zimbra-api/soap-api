@@ -59,7 +59,7 @@ class CreateDataSourceResponse implements ResponseInterface
      * @Type("Zimbra\Mail\Struct\ImapDataSourceId")
      * @VirtualProperty
      */
-    public function getImapDataSource()
+    public function getImapDataSource(): ?ImapDataSourceId
     {
         return ($this->dataSource instanceof ImapDataSourceId) ? $this->dataSource : NULL;
     }
@@ -69,7 +69,7 @@ class CreateDataSourceResponse implements ResponseInterface
      * @Type("Zimbra\Mail\Struct\Pop3DataSourceId")
      * @VirtualProperty
      */
-    public function getPop3DataSource()
+    public function getPop3DataSource(): ?Pop3DataSourceId
     {
         return ($this->dataSource instanceof Pop3DataSourceId) ? $this->dataSource : NULL;
     }
@@ -79,7 +79,7 @@ class CreateDataSourceResponse implements ResponseInterface
      * @Type("Zimbra\Mail\Struct\CaldavDataSourceId")
      * @VirtualProperty
      */
-    public function getCaldavDataSource()
+    public function getCaldavDataSource(): ?CaldavDataSourceId
     {
         return ($this->dataSource instanceof CaldavDataSourceId) ? $this->dataSource : NULL;
     }
@@ -89,7 +89,7 @@ class CreateDataSourceResponse implements ResponseInterface
      * @Type("Zimbra\Mail\Struct\YabDataSourceId")
      * @VirtualProperty
      */
-    public function getYabDataSource()
+    public function getYabDataSource(): ?YabDataSourceId
     {
         return ($this->dataSource instanceof YabDataSourceId) ? $this->dataSource : NULL;
     }
@@ -99,7 +99,7 @@ class CreateDataSourceResponse implements ResponseInterface
      * @Type("Zimbra\Mail\Struct\RssDataSourceId")
      * @VirtualProperty
      */
-    public function getRssDataSource()
+    public function getRssDataSource(): ?RssDataSourceId
     {
         return ($this->dataSource instanceof RssDataSourceId) ? $this->dataSource : NULL;
     }
@@ -109,7 +109,7 @@ class CreateDataSourceResponse implements ResponseInterface
      * @Type("Zimbra\Mail\Struct\GalDataSourceId")
      * @VirtualProperty
      */
-    public function getGalDataSource()
+    public function getGalDataSource(): ?GalDataSourceId
     {
         return ($this->dataSource instanceof GalDataSourceId) ? $this->dataSource : NULL;
     }
@@ -119,7 +119,7 @@ class CreateDataSourceResponse implements ResponseInterface
      * @Type("Zimbra\Mail\Struct\CalDataSourceId")
      * @VirtualProperty
      */
-    public function getCalDataSource()
+    public function getCalDataSource(): ?CalDataSourceId
     {
         return ($this->dataSource instanceof CalDataSourceId) ? $this->dataSource : NULL;
     }
@@ -129,7 +129,7 @@ class CreateDataSourceResponse implements ResponseInterface
      * @Type("Zimbra\Mail\Struct\UnknownDataSourceId")
      * @VirtualProperty
      */
-    public function getUnknownDataSource()
+    public function getUnknownDataSource(): ?UnknownDataSourceId
     {
         return ($this->dataSource instanceof UnknownDataSourceId) ? $this->dataSource : NULL;
     }

@@ -73,7 +73,7 @@ class SyncGalRequest extends Request
     private $limit;
 
     /**
-     * Constructor method for SyncGal
+     * Constructor method for SyncGalRequest
      *
      * @param  string $token
      * @param  string $galAccountId
