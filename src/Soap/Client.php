@@ -65,9 +65,14 @@ class Client implements ClientInterface
      *
      * @param string $endpoint  The URL to request.
      * @param HttpClient $httpClient  The http client.
+     * @param RequestFactoryInterface $requestFactory  The http request factory.
+     * @param StreamFactoryInterface $streamFactory  The http stream factory.
      */
     public function __construct(
-        string $endpoint, HttpClient $httpClient, RequestFactoryInterface $requestFactory, StreamFactoryInterface $streamFactory
+        string $endpoint,
+        HttpClient $httpClient,
+        RequestFactoryInterface $requestFactory,
+        StreamFactoryInterface $streamFactory
     )
     {
         $this->endpoint = $endpoint;

@@ -147,7 +147,7 @@ class GetAccountInfoResponse implements ResponseInterface
      */
     public function addAttr(Attr $attr): self
     {
-        $this->attrs[] = $attr;
+        $this->attrList[] = $attr;
         return $this;
     }
 
@@ -157,12 +157,12 @@ class GetAccountInfoResponse implements ResponseInterface
      * @param array $attrs
      * @return self
      */
-    public function setAttrList(array $attrs): self
+    public function setAttrList(array $attrList): self
     {
-        $this->attrs = [];
-        foreach ($attrs as $attr) {
+        $this->attrList = [];
+        foreach ($attrList as $attr) {
             if ($attr instanceof Attr) {
-                $this->attrs[] = $attr;
+                $this->attrList[] = $attr;
             }
         }
         return $this;
@@ -175,7 +175,7 @@ class GetAccountInfoResponse implements ResponseInterface
      */
     public function getAttrList(): array
     {
-        return $this->attrs;
+        return $this->attrList;
     }
 
     /**

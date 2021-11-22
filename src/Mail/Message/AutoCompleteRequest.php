@@ -81,7 +81,7 @@ class AutoCompleteRequest extends Request
      * Constructor method for AutoCompleteRequest
      *
      * @param  string $name
-     * @param  GalSearchType $msgIds
+     * @param  GalSearchType $type
      * @param  bool $needCanExpand
      * @param  string $folderList
      * @param  bool $includeGal

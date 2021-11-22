@@ -11,7 +11,6 @@
 namespace Zimbra\Admin\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlList, XmlRoot};
-use Zimbra\Enum\CacheType;
 
 /**
  * CacheSelector struct class
@@ -105,15 +104,7 @@ class CacheSelector
      */
     public function setTypes(string $types): self
     {
-        $arrTypes = explode(',', $types);
-        $types = [];
-        foreach ($arrTypes as $type) {
-            $type = trim($type);
-            if (CacheType::isValid($type) && !in_array($type, $types)) {
-                $types[] = $type;
-            }
-        }
-        $this->types = implode(',', $types);
+        $this->types = $types;
         return $this;
     }
 
