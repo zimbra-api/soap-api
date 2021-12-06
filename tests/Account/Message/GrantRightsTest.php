@@ -24,7 +24,7 @@ class GrantRightsTest extends ZimbraTestCase
         $password = $this->faker->sha256;
 
         $ace = new AccountACEInfo(
-            GranteeType::USR(), AceRightType::INVITE(), $zimbraId, $displayName, $accessKey, $password, TRUE, TRUE
+            GranteeType::USR(), AceRightType::INVITE()->getValue(), $zimbraId, $displayName, $accessKey, $password, TRUE, TRUE
         );
 
         $request = new GrantRightsRequest([$ace]);

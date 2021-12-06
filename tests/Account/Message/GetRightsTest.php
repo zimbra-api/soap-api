@@ -35,7 +35,7 @@ class GetRightsTest extends ZimbraTestCase
         $request->setAces([$right]);
 
         $ace = new AccountACEInfo(
-            GranteeType::USR(), AceRightType::INVITE(), $zimbraId, $displayName, $accessKey, $password, TRUE, TRUE
+            GranteeType::USR(), AceRightType::INVITE()->getValue(), $zimbraId, $displayName, $accessKey, $password, TRUE, TRUE
         );
         $response = new GetRightsResponse([$ace]);
         $this->assertSame([$ace], $response->getAces());
