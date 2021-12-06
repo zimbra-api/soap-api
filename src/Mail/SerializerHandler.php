@@ -37,7 +37,7 @@ use Zimbra\Mail\Struct\NestedRule;
  */
 final class SerializerHandler implements SubscribingHandlerInterface
 {
-    public static function getSubscribingMethods()
+    public static function getSubscribingMethods(): array
     {
         return [
             [
@@ -105,7 +105,7 @@ final class SerializerHandler implements SubscribingHandlerInterface
 
     public function xmlDeserializeCreateDataSourceRequest(
         DeserializationVisitor $visitor, \SimpleXMLElement $data, array $type, Context $context
-    )
+    ): CreateDataSourceRequest
     {
         $serializer = SerializerFactory::create();
         $request = new CreateDataSourceRequest();
@@ -125,7 +125,7 @@ final class SerializerHandler implements SubscribingHandlerInterface
 
     public function jsonDeserializeCreateDataSourceRequest(
         DeserializationVisitor $visitor, $data, array $type, Context $context
-    )
+    ): CreateDataSourceRequest
     {
         $serializer = SerializerFactory::create();
         $request = new CreateDataSourceRequest();
@@ -141,7 +141,7 @@ final class SerializerHandler implements SubscribingHandlerInterface
 
     public function xmlDeserializeCreateDataSourceResponse(
         DeserializationVisitor $visitor, \SimpleXMLElement $data, array $type, Context $context
-    )
+    ): CreateDataSourceResponse
     {
         $serializer = SerializerFactory::create();
         $response = new CreateDataSourceResponse();
@@ -161,7 +161,7 @@ final class SerializerHandler implements SubscribingHandlerInterface
 
     public function jsonDeserializeCreateDataSourceResponse(
         DeserializationVisitor $visitor, $data, array $type, Context $context
-    )
+    ): CreateDataSourceResponse
     {
         $serializer = SerializerFactory::create();
         $response = new CreateDataSourceResponse();
@@ -177,7 +177,7 @@ final class SerializerHandler implements SubscribingHandlerInterface
 
     public function xmlDeserializeFilterTests(
         DeserializationVisitor $visitor, \SimpleXMLElement $data, array $type, Context $context
-    )
+    ): FilterTests
     {
         $serializer = SerializerFactory::create();
         $filterTests = new FilterTests(FilterCondition::ALL_OF());
@@ -202,7 +202,7 @@ final class SerializerHandler implements SubscribingHandlerInterface
 
     public function jsonDeserializeFilterTests(
         DeserializationVisitor $visitor, $data, array $type, Context $context
-    )
+    ): FilterTests
     {
         $serializer = SerializerFactory::create();
         $filterTests = new FilterTests(FilterCondition::ALL_OF());
@@ -221,7 +221,7 @@ final class SerializerHandler implements SubscribingHandlerInterface
 
     public function xmlDeserializeNestedRule(
         DeserializationVisitor $visitor, \SimpleXMLElement $data, array $type, Context $context
-    )
+    ): NestedRule
     {
         $serializer = SerializerFactory::create();
         $nestedRule = new NestedRule(new FilterTests(FilterCondition::ALL_OF()));
@@ -261,7 +261,7 @@ final class SerializerHandler implements SubscribingHandlerInterface
 
     public function jsonDeserializeNestedRule(
         DeserializationVisitor $visitor, $data, array $type, Context $context
-    )
+    ): NestedRule
     {
         $serializer = SerializerFactory::create();
         $nestedRule = new NestedRule(new FilterTests(FilterCondition::ALL_OF()));
@@ -296,7 +296,7 @@ final class SerializerHandler implements SubscribingHandlerInterface
 
     public function xmlDeserializeFilterRule(
         DeserializationVisitor $visitor, \SimpleXMLElement $data, array $type, Context $context
-    )
+    ): FilterRule
     {
         $serializer = SerializerFactory::create();
         $filterRule = new FilterRule('', FALSE, new FilterTests(FilterCondition::ALL_OF()));
@@ -345,7 +345,7 @@ final class SerializerHandler implements SubscribingHandlerInterface
 
     public function jsonDeserializeFilterRule(
         DeserializationVisitor $visitor, $data, array $type, Context $context
-    )
+    ): FilterRule
     {
         $serializer = SerializerFactory::create();
         $filterRule = new FilterRule('', FALSE, new FilterTests(FilterCondition::ALL_OF()));

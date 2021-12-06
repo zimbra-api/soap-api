@@ -31,7 +31,7 @@ use Zimbra\Common\Text;
  */
 final class SerializerHandler implements SubscribingHandlerInterface
 {
-    public static function getSubscribingMethods()
+    public static function getSubscribingMethods(): array
     {
         return [
             [
@@ -63,7 +63,7 @@ final class SerializerHandler implements SubscribingHandlerInterface
 
     public function xmlDeserializeAccountDataSources(
         DeserializationVisitor $visitor, \SimpleXMLElement $data, array $type, Context $context
-    )
+    ): AccountDataSources
     {
         $serializer = SerializerFactory::create();
         $types = AccountDataSources::dataSourceTypes();
@@ -81,7 +81,7 @@ final class SerializerHandler implements SubscribingHandlerInterface
 
     public function jsonDeserializeAccountDataSources(
         DeserializationVisitor $visitor, $data, array $type, Context $context
-    )
+    ): AccountDataSources
     {
         $serializer = SerializerFactory::create();
         $dataSources = [];
@@ -99,7 +99,7 @@ final class SerializerHandler implements SubscribingHandlerInterface
 
     public function xmlDeserializeSearchFilterMultiCond(
         DeserializationVisitor $visitor, \SimpleXMLElement $data, array $type, Context $context
-    )
+    ): MultiCond
     {
         $serializer = SerializerFactory::create();
         $conds = new MultiCond;
@@ -130,7 +130,7 @@ final class SerializerHandler implements SubscribingHandlerInterface
 
     public function jsonDeserializeSearchFilterMultiCond(
         DeserializationVisitor $visitor, $data, array $type, Context $context
-    )
+    ): MultiCond
     {
         $serializer = SerializerFactory::create();
         $conds = new MultiCond;
