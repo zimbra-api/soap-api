@@ -12,32 +12,39 @@ declare(strict_types=1);
 
 namespace Zimbra\Account;
 
-use Zimbra\Enum\AccountBy;
-use Zimbra\Enum\DistributionListBy as DistListBy;
-use Zimbra\Enum\DistributionListSubscribeOp as SubscribeOp;
-use Zimbra\Enum\GalSearchType as SearchType;
-use Zimbra\Enum\MemberOfSelector as MemberOf;
-use Zimbra\Enum\SortBy;
+use Zimbra\Enum\{
+    AccountBy,
+    DistributionListBy,
+    DistributionListSubscribeOp,
+    GalSearchType,
+    MemberOfSelector,
+    SortBy
+};
 
-use Zimbra\Account\Struct\AuthAttrs;
-use Zimbra\Account\Struct\AuthPrefs;
-use Zimbra\Account\Struct\AuthToken;
-use Zimbra\Account\Struct\BlackList;
-use Zimbra\Account\Struct\DistributionListSelector as DLSelector;
-use Zimbra\Account\Struct\DistributionListAction as DLAction;
-use Zimbra\Account\Struct\Identity;
-use Zimbra\Account\Struct\NameId;
-use Zimbra\Account\Struct\PreAuth;
-use Zimbra\Account\Struct\Signature;
-use Zimbra\Account\Struct\WhiteList;
+use Zimbra\Account\Struct\{
+    AuthAttrs,
+    AuthPrefs,
+    AuthToken,
+    BlackList,
+    DistributionListSelector,
+    DistributionListAction,
+    Identity,
+    NameId,
+    PreAuth,
+    Signature,
+    WhiteList
+};
 
 use Zimbra\Account\Message\AuthRequest;
 
-use Zimbra\Struct\AccountSelector;
-use Zimbra\Struct\CursorInfo;
-use Zimbra\Struct\EntrySearchFilterInfo as SearchFilter;
-use Zimbra\Struct\GranteeChooser;
-use Zimbra\Soap\Api;
+use Zimbra\Struct\{
+    AccountSelector,
+    CursorInfo,
+    EntrySearchFilterInfo,
+    GranteeChooser
+};
+
+use Zimbra\Soap\AbstractApi;
 
 /**
  * Account api class
@@ -47,7 +54,7 @@ use Zimbra\Soap\Api;
  * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright Copyright © 2020 by Nguyen Van Nguyen.
  */
-class AccountApi extends Api implements AccountApiInterface
+class AccountApi extends AbstractApi implements AccountApiInterface
 {
     public function auth(
         AccountSelector $account = NULL,

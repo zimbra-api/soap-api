@@ -24,7 +24,7 @@ use Zimbra\Soap\Header\Context;
  * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright Copyright © 2020 by Nguyen Van Nguyen.
  */
-abstract class Api implements ApiInterface
+abstract class AbstractApi implements ApiInterface
 {
     /**
      * Zimbra api soap client
