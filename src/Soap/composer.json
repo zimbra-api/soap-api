@@ -15,6 +15,7 @@
         "php": ">=7.2",
         "psr/http-client": "^1.0",
         "psr/http-factory": "^1.0",
+        "php-http/discovery": "^1.14",
         "zimbra-api/struct": "self.version"
     },
     "autoload": {

@@ -26,7 +26,6 @@ use Zimbra\Soap\Header\Context;
  */
 abstract class Api implements ApiInterface
 {
-
     /**
      * Zimbra api soap client
      * @var ClientInterface
