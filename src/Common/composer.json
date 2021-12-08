@@ -14,18 +14,13 @@
     ],
     "require": {
         "php": ">=7.2",
-        "jms/serializer": "^3.8",
-        "myclabs/php-enum": "^1.7"
-    },
-    "require-dev": {
-        "phpunit/phpunit": "^4.0 || ^5.0 || ^6.0 || ^7.0 || ^8.0",
-        "fzaninotto/faker": "^1.8"
+        "jms/serializer": "^3.0",
+        "myclabs/php-enum": "^1.0",
+        "psr/http-client": "^1.0",
+        "psr/http-factory": "^1.0"
     },
     "autoload": {
-        "psr-4": { "Zimbra\\Common\\": "" },
-        "exclude-from-classmap": [
-            "/Tests/"
-        ]
+        "psr-4": { "Zimbra\\Common\\": "" }
     },
     "extra": {
         "branch-alias": {

@@ -13,7 +13,8 @@ namespace Zimbra\Soap;
 use JMS\Serializer\SerializerInterface;
 use Zimbra\Common\SerializerFactory;
 use Zimbra\Enum\RequestFormat;
-use Zimbra\Soap\Request\Batch;
+use Zimbra\Soap\Header\AccountInfo;
+use Zimbra\Soap\Header\Context;
 
 /**
  * API is a base class which allows to manage Zimbra api
@@ -33,10 +34,16 @@ abstract class Api implements ApiInterface
     private $client;
 
     /**
-     * Zimbra api soap header
+     * Zimbra api request soap header
      * @var Header
      */
-    private $header;
+    private $requestHeader;
+
+    /**
+     * Zimbra api response soap header
+     * @var Header
+     */
+    private $responseHeader;
 
     /**
      * Request format
@@ -46,7 +53,7 @@ abstract class Api implements ApiInterface
 
     public function __construct(string $endpoint, ?string $requestFormat = NULL)
     {
-        $this->client = new Client($endpoint);
+        $this->client = new ClientFactory::create($endpoint);
         if (RequestFormat::isValid($requestFormat)) {
             $this->requestFormat = $requestFormat;
         }
@@ -77,23 +84,44 @@ abstract class Api implements ApiInterface
     }
 
     /**
-     * Get Zimbra api soap header.
+     * Get Zimbra api soap request header.
      *
      * @return Header
      */
-    public function getHeader(): Header
+    public function getRequestHeader(): ?Header
     {
-        return $this->header;
+        return $this->requestHeader;
     }
 
     /**
-     * Set Zimbra api soap header.
+     * Set Zimbra api soap request header.
      *
      * @return self
      */
-    public function setHeader(Header $header): self
+    public function setRequestHeader(Header $requestHeader): self
     {
-        $this->header = $header;
+        $this->requestHeader = $requestHeader;
+        return $this;
+    }
+
+    /**
+     * Get Zimbra api response soap header.
+     *
+     * @return Header
+     */
+    public function getResponseHeader(): ?Header
+    {
+        return $this->responseHeader;
+    }
+
+    /**
+     * Set Zimbra api response soap header.
+     *
+     * @return self
+     */
+    public function setResponseHeader(Header $responseHeader): self
+    {
+        $this->responseHeader = $responseHeader;
         return $this;
     }
 
@@ -129,8 +157,8 @@ abstract class Api implements ApiInterface
     protected function invoke(RequestInterface $request): ?ResponseInterface
     {
         $requestEnvelope = $request->getEnvelope();
-        if ($this->header instanceof Header) {
-            $requestEnvelope->setHeader($this->header);
+        if ($this->requestHeader instanceof Header) {
+            $requestEnvelope->setHeader($this->requestHeader);
         }
         $response = $this->getClient()->sendRequest(
             $this->getSerializer()->serialize($requestEnvelope, $this->serializeFormat()),
@@ -143,6 +171,9 @@ abstract class Api implements ApiInterface
             $response->getBody()->getContents(),
             get_class($requestEnvelope), $this->serializeFormat()
         );
+        if (!empty($responseEnvelope->getHeader())) {
+            $this->responseHeader = $responseEnvelope->getHeader();
+        }
         return $responseEnvelope->getBody()->getResponse();
     }
 
@@ -164,5 +195,13 @@ abstract class Api implements ApiInterface
     protected function getSerializer(): SerializerInterface
     {
         return SerializerFactory::create();
+    }
+
+    protected function initRequestHeader(): self
+    {
+        if (!($this->requestHeader instanceof Header)) {
+            $this->requestHeader = new Header(new Context());
+        }
+        return $this;
     }
 }

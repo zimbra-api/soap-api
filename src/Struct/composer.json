@@ -13,7 +13,6 @@
     ],
     "require": {
         "php": ">=7.2",
-        "jms/serializer": "^3.8",
         "zimbra-api/common": "self.version",
         "zimbra-api/enum": "self.version"
     },

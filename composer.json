@@ -12,11 +12,11 @@
         }
     ],
     "require": {
-        "php": "^7.4 || ^8.0 || ^8.1",
+        "php": ">=7.2",
         "psr/http-client": "^1.0",
         "psr/http-factory": "^1.0",
         "jms/serializer": "^3.0",
-        "myclabs/php-enum": "1.7.7"
+        "myclabs/php-enum": "^1.0"
     },
     "require-dev": {
         "phpunit/phpunit": "^8.0",
