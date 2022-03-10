@@ -27,7 +27,7 @@ class KeyValuePairTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<a n="$key">$value</a>
+<result n="$key">$value</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($kpv, 'xml'));
         $this->assertEquals($kpv, $this->serializer->deserialize($xml, KeyValuePair::class, 'xml'));

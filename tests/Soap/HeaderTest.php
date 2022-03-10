@@ -71,7 +71,7 @@ class HeaderTest extends ZimbraTestCase
         $requestFormat = RequestFormat::XML()->getValue();
         $xml = <<<EOT
 <?xml version="1.0"?>
-    <soap:Header xmlns:zm="urn:zimbra">
+    <result xmlns:zm="urn:zimbra">
         <zm:context hops="$hopCount">
             <authToken>$authToken</authToken>
             <session proxy="true" id="$id" seq="$sequence">$value</session>
@@ -90,7 +90,7 @@ class HeaderTest extends ZimbraTestCase
             <soapId>$soapRequestId</soapId>
             <csrfToken>$csrfToken</csrfToken>
        </zm:context>
-   </soap:Header>
+   </result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($header, 'xml'));
         $this->assertEquals($header, $this->serializer->deserialize($xml, Header::class, 'xml'));

@@ -22,7 +22,7 @@ class IdTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<id id="$value" />
+<result id="$value" />
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($id, 'xml'));
         $this->assertEquals($id, $this->serializer->deserialize($xml, Id::class, 'xml'));

@@ -2,7 +2,6 @@
 
 namespace Zimbra\Tests\Struct;
 
-use JMS\Serializer\Annotation\XmlRoot;
 use Zimbra\Struct\{AttributeSelector, AttributeSelectorTrait};
 use Zimbra\Tests\ZimbraTestCase;
 
@@ -27,7 +26,7 @@ class AttributeSelectorTrailTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<selector attrs="$attrs" />
+<result attrs="$attrs" />
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($attrSel, 'xml'));
         $this->assertEquals($attrSel, $this->serializer->deserialize($xml, AttributeSelectorImp::class, 'xml'));
@@ -40,9 +39,6 @@ EOT;
     }
 }
 
-/**
- * @XmlRoot(name="selector")
- */
 class AttributeSelectorImp implements AttributeSelector
 {
     use AttributeSelectorTrait;

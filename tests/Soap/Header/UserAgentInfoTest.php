@@ -27,7 +27,7 @@ class UserAgentInfoTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<userAgent name="$name" version="$version" />
+<result name="$name" version="$version" />
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($info, 'xml'));
         $this->assertEquals($info, $this->serializer->deserialize($xml, UserAgentInfo::class, 'xml'));

@@ -10,7 +10,7 @@
 
 namespace Zimbra\Soap\Header;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
 use Zimbra\Enum\RequestFormat;
 
 /**
@@ -20,8 +20,6 @@ use Zimbra\Enum\RequestFormat;
  * @category  Soap
  * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright Copyright © 2020 by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="format")
  */
 class FormatInfo
 {

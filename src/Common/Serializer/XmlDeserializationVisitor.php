@@ -88,11 +88,13 @@ final class XmlDeserializationVisitor extends AbstractVisitor implements NullAwa
         $previous = libxml_use_internal_errors(TRUE);
         libxml_clear_errors();
 
+        $previousEntityLoaderState = NULL;
         if (\LIBXML_VERSION < 20900) {
+            // phpcs:ignore Generic.PHP.DeprecatedFunctions.Deprecated
             $previousEntityLoaderState = libxml_disable_entity_loader($this->disableExternalEntities);
         }
 
-        if (false !== stripos($data, '<!doctype')) {
+        if (FALSE !== stripos($data, '<!doctype')) {
             $internalSubset = $this->getDomDocumentTypeEntitySubset($data);
             if (!in_array($internalSubset, $this->doctypeWhitelist, TRUE)) {
                 throw new InvalidArgumentException(sprintf(
@@ -107,6 +109,7 @@ final class XmlDeserializationVisitor extends AbstractVisitor implements NullAwa
         libxml_use_internal_errors($previous);
 
         if (\LIBXML_VERSION < 20900) {
+            // phpcs:ignore Generic.PHP.DeprecatedFunctions.Deprecated
             libxml_disable_entity_loader($previousEntityLoaderState);
         }
 
@@ -128,8 +131,9 @@ final class XmlDeserializationVisitor extends AbstractVisitor implements NullAwa
     /**
      * {@inheritdoc}
      */
-    public function visitNull($data, array $type): void
+    public function visitNull($data, array $type)
     {
+        return NULL;
     }
 
     /**
@@ -137,6 +141,8 @@ final class XmlDeserializationVisitor extends AbstractVisitor implements NullAwa
      */
     public function visitString($data, array $type): string
     {
+        $this->assertValueCanBeCastToString($data);
+
         return (string) $data;
     }
 
@@ -145,13 +151,17 @@ final class XmlDeserializationVisitor extends AbstractVisitor implements NullAwa
      */
     public function visitBoolean($data, array $type): bool
     {
+        $this->assertValueCanBeCastToString($data);
+
         $data = (string) $data;
 
-        if ('true' === strtolower($data) || '1' === $data) {
+        if ('true' === $data || '1' === $data) {
             return TRUE;
-        } elseif ('false' === strtolower($data) || '0' === $data) {
+        }
+        elseif ('false' === $data || '0' === $data) {
             return FALSE;
-        } else {
+        }
+        else {
             throw new RuntimeException(sprintf('Could not convert data to boolean. Expected "true", "false", "1" or "0", but got %s.', json_encode($data)));
         }
     }
@@ -161,6 +171,8 @@ final class XmlDeserializationVisitor extends AbstractVisitor implements NullAwa
      */
     public function visitInteger($data, array $type): int
     {
+        $this->assertValueCanBeCastToInt($data);
+
         return (int) $data;
     }
 
@@ -169,6 +181,8 @@ final class XmlDeserializationVisitor extends AbstractVisitor implements NullAwa
      */
     public function visitDouble($data, array $type): float
     {
+        $this->assertValueCanCastToFloat($data);
+
         return (float) $data;
     }
 
@@ -182,6 +196,7 @@ final class XmlDeserializationVisitor extends AbstractVisitor implements NullAwa
             if (2 !== count($type['params'])) {
                 throw new RuntimeException('The array type must be specified as "array<K,V>" for Key-Value-Pairs.');
             }
+
             $this->revertCurrentMetadata();
 
             [$keyType, $entryType] = $type['params'];
@@ -213,11 +228,12 @@ final class XmlDeserializationVisitor extends AbstractVisitor implements NullAwa
             $prefix = uniqid('ns-');
             $data->registerXPathNamespace($prefix, $namespace);
             $nodes = $data->xpath(sprintf('%s:%s', $prefix, $entryName));
-        } else {
+        }
+        else {
             $nodes = $data->xpath($entryName);
         }
 
-        if (null === $nodes || !\count($nodes)) {
+        if (NULL === $nodes || !\count($nodes)) {
             return [];
         }
 
@@ -277,6 +293,7 @@ final class XmlDeserializationVisitor extends AbstractVisitor implements NullAwa
             // Check XML element with namespace for discriminatorFieldName
             case !$metadata->xmlDiscriminatorAttribute && NULL !== $metadata->xmlDiscriminatorNamespace && isset($data->children($metadata->xmlDiscriminatorNamespace)->{$metadata->discriminatorFieldName}):
                 return (string) $data->children($metadata->xmlDiscriminatorNamespace)->{$metadata->discriminatorFieldName};
+
             // Check XML element for discriminatorFieldName
             case isset($data->{$metadata->discriminatorFieldName}):
                 return (string) $data->{$metadata->discriminatorFieldName};
@@ -303,12 +320,14 @@ final class XmlDeserializationVisitor extends AbstractVisitor implements NullAwa
     {
         $name = $metadata->serializedName;
 
-        if (TRUE === $metadata->inline) {
+        if (true === $metadata->inline) {
             if (!$metadata->type) {
                 throw RuntimeException::noMetadataForProperty($metadata->class, $metadata->name);
             }
+
             return $this->navigator->accept($data, $metadata->type);
         }
+
         if ($metadata->xmlAttribute) {
             $attributes = $data->attributes($metadata->xmlNamespace);
             if (isset($attributes[$name])) {
@@ -348,8 +367,10 @@ final class XmlDeserializationVisitor extends AbstractVisitor implements NullAwa
             if (!$metadata->type) {
                 throw RuntimeException::noMetadataForProperty($metadata->class, $metadata->name);
             }
+
             $v = $this->navigator->accept($enclosingElem, $metadata->type);
             $this->revertCurrentMetadata();
+
             return $v;
         }
 
@@ -358,26 +379,32 @@ final class XmlDeserializationVisitor extends AbstractVisitor implements NullAwa
             if (!$node->count()) {
                 throw new NotAcceptableException();
             }
-        } elseif ('' === $metadata->xmlNamespace) {
+        }
+        elseif ('' === $metadata->xmlNamespace) {
             // See #1087 - element must be like: <element xmlns="" /> - https://www.w3.org/TR/REC-xml-names/#iri-use
             // Use of an empty string in a namespace declaration turns it into an "undeclaration".
             $nodes = $data->xpath('./' . $name);
             if (empty($nodes)) {
                 throw new NotAcceptableException();
             }
+
             $node = reset($nodes);
-        } else {
-            $namespaces = array_merge($data->getDocNamespaces(), $data->getNamespaces());
+        }
+        else {
+            $namespaces = $data->getDocNamespaces();
             if (isset($namespaces[''])) {
                 $prefix = uniqid('ns-');
                 $data->registerXPathNamespace($prefix, $namespaces['']);
                 $nodes = $data->xpath('./' . $prefix . ':' . $name);
-            } else {
+            }
+            else {
                 $nodes = $data->xpath('./' . $name);
             }
+
             if (empty($nodes)) {
                 throw new NotAcceptableException();
             }
+
             $node = reset($nodes);
         }
 
@@ -388,6 +415,7 @@ final class XmlDeserializationVisitor extends AbstractVisitor implements NullAwa
         if (!$metadata->type) {
             throw RuntimeException::noMetadataForProperty($metadata->class, $metadata->name);
         }
+
         return $this->navigator->accept($node, $metadata->type);
     }
 
@@ -461,6 +489,7 @@ final class XmlDeserializationVisitor extends AbstractVisitor implements NullAwa
             if ('<' === $char) {
                 ++$braces;
             }
+
             if ('>' === $char) {
                 --$braces;
             }
@@ -484,13 +513,14 @@ final class XmlDeserializationVisitor extends AbstractVisitor implements NullAwa
             // If the "name" is empty means that we are on an not-existent node and subsequent operations on the object will trigger the warning:
             // "Node no longer exists"
             if ('' === $value->getName()) {
-                // @todo should be "TRUE", but for collections needs a default collection value. maybe something for the 2.0
+                // @todo should be "true", but for collections needs a default collection value. maybe something for the 2.0
                 return FALSE;
             }
 
             $xsiAttributes = $value->attributes('http://www.w3.org/2001/XMLSchema-instance');
-            if (isset($xsiAttributes['nil'])
-                && ('true' === strtolower((string) $xsiAttributes['nil']) || '1' === (string) $xsiAttributes['nil'])
+            if (
+                isset($xsiAttributes['nil'])
+                && ('true' === (string) $xsiAttributes['nil'] || '1' === (string) $xsiAttributes['nil'])
             ) {
                 return TRUE;
             }

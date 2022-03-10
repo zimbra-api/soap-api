@@ -41,7 +41,7 @@ class WaitSetAddSpecTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<a name="$name" id="$id" token="$token" types="f,m,c" />
+<result name="$name" id="$id" token="$token" types="f,m,c" />
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($waitSet, 'xml'));
         $this->assertEquals($waitSet, $this->serializer->deserialize($xml, WaitSetAddSpec::class, 'xml'));

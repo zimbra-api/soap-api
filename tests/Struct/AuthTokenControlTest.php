@@ -19,7 +19,7 @@ class AuthTokenControlTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<authTokenControl voidOnExpired="true" />
+<result voidOnExpired="true" />
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($control, 'xml'));
         $this->assertEquals($control, $this->serializer->deserialize($xml, AuthTokenControl::class, 'xml'));

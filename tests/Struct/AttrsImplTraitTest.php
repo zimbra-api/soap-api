@@ -2,7 +2,6 @@
 
 namespace Zimbra\Tests\Struct;
 
-use JMS\Serializer\Annotation\XmlRoot;
 use Zimbra\Struct\{AttrsImplTrait, KeyValuePair};
 use Zimbra\Tests\ZimbraTestCase;
 
@@ -34,11 +33,11 @@ class AttrsImplTraitTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<attrs>
+<result>
     <a n="$key1">$value1</a>
     <a n="$key2">$value2</a>
     <a n="$key3">$value3</a>
-</attrs>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($attrs, 'xml'));
         $this->assertEquals($attrs, $this->serializer->deserialize($xml, AttrsImplImp::class, 'xml'));
@@ -64,9 +63,6 @@ EOT;
     }
 }
 
-/**
- * @XmlRoot(name="attrs")
- */
 class AttrsImplImp
 {
     use AttrsImplTrait;

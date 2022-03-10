@@ -27,7 +27,7 @@ class IdAndTypeTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<IdAndType id="$id" type="$type" />
+<result id="$id" type="$type" />
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($idType, 'xml'));
         $this->assertEquals($idType, $this->serializer->deserialize($xml, IdAndType::class, 'xml'));

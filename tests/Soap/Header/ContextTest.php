@@ -118,7 +118,7 @@ class ContextTest extends ZimbraTestCase
         $requestFormat = RequestFormat::XML()->getValue();
         $xml = <<<EOT
 <?xml version="1.0"?>
-<context hops="$hopCount">
+<result hops="$hopCount">
     <authToken>$authToken</authToken>
     <session proxy="true" id="$id" seq="$sequence">$value</session>
     <sessionId proxy="false" id="$id" seq="$sequence">$value</sessionId>
@@ -135,7 +135,7 @@ class ContextTest extends ZimbraTestCase
     <via>$via</via>
     <soapId>$soapRequestId</soapId>
     <csrfToken>$csrfToken</csrfToken>
-</context>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($context, 'xml'));
         $this->assertEquals($context, $this->serializer->deserialize($xml, Context::class, 'xml'));

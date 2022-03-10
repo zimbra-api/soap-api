@@ -22,7 +22,7 @@ class AttributeNameTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<a n="$name" />
+<result n="$name" />
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($attr, 'xml'));
         $this->assertEquals($attr, $this->serializer->deserialize($xml, AttributeName::class, 'xml'));

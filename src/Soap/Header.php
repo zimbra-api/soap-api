@@ -10,7 +10,7 @@
 
 namespace Zimbra\Soap;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlElement, XmlNamespace, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement, XmlNamespace};
 use Zimbra\Soap\Header\Context;
 
 /**
@@ -20,9 +20,7 @@ use Zimbra\Soap\Header\Context;
  * @category  Soap
  * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright Copyright © 2020 by Nguyen Van Nguyen.
- * @AccessType("public_method")
  * @XmlNamespace(uri="urn:zimbra", prefix="zm")
- * @XmlRoot(name="soap:Header")
  */
 class Header
 {

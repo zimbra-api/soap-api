@@ -34,7 +34,7 @@ class CursorInfoTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<cursor id="$id" sortVal="$sortVal" endSortVal="$endSortVal" includeOffset="true" />
+<result id="$id" sortVal="$sortVal" endSortVal="$endSortVal" includeOffset="true" />
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($cursor, 'xml'));
         $this->assertEquals($cursor, $this->serializer->deserialize($xml, CursorInfo::class, 'xml'));

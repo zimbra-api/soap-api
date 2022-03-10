@@ -27,7 +27,7 @@ class ChangeInfoTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<change token="$changeId" type="$changeType" />
+<result token="$changeId" type="$changeType" />
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($info, 'xml'));
         $this->assertEquals($info, $this->serializer->deserialize($xml, ChangeInfo::class, 'xml'));

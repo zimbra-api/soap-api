@@ -47,7 +47,7 @@ class TzOnsetInfoTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<info mon="$mon" hour="$hour" min="$min" sec="$sec" mday="$mday" week="$week" wkday="$wkday" />
+<result mon="$mon" hour="$hour" min="$min" sec="$sec" mday="$mday" week="$week" wkday="$wkday" />
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($tzo, 'xml'));
         $this->assertEquals($tzo, $this->serializer->deserialize($xml, TzOnsetInfo::class, 'xml'));

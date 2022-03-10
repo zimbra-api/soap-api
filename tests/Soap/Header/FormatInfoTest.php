@@ -21,7 +21,7 @@ class FormatInfoTest extends ZimbraTestCase
         $requestFormat = RequestFormat::XML()->getValue();
         $xml = <<<EOT
 <?xml version="1.0"?>
-<format type="$requestFormat" />
+<result type="$requestFormat" />
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($info, 'xml'));
         $this->assertEquals($info, $this->serializer->deserialize($xml, FormatInfo::class, 'xml'));

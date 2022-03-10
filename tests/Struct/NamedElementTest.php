@@ -21,7 +21,7 @@ class NamedElementTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<named name="$name" />
+<result name="$name" />
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($named, 'xml'));
         $this->assertEquals($named, $this->serializer->deserialize($xml, NamedElement::class, 'xml'));

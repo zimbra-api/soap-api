@@ -30,7 +30,7 @@ class AccountNameSelectorTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<account by="name" name="$name">$value</account>
+<result by="name" name="$name">$value</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($acc, 'xml'));
         $this->assertEquals($acc, $this->serializer->deserialize($xml, AccountNameSelector::class, 'xml'));
