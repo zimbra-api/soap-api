@@ -35,7 +35,7 @@ class EntrySearchFilterSingleCondTest extends ZimbraTestCase
         $op = CondOp::EQ()->getValue();
         $xml = <<<EOT
 <?xml version="1.0"?>
-<cond attr="$attr" op="$op" value="$value" not="true" />
+<result attr="$attr" op="$op" value="$value" not="true" />
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($cond, 'xml'));
         $this->assertEquals($cond, $this->serializer->deserialize($xml, EntrySearchFilterSingleCond::class, 'xml'));

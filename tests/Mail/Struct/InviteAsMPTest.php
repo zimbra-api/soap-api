@@ -30,7 +30,7 @@ class InviteAsMPTest extends ZimbraTestCase
         $address = $this->faker->email;
         $display = $this->faker->name;
         $personal = $this->faker->word;
-        $addressType = AddressType::FROM();
+        $addressType = AddressType::TO();
         $calItemType = InviteType::TASK();
 
         $key = $this->faker->word;
@@ -96,7 +96,7 @@ class InviteAsMPTest extends ZimbraTestCase
         $xml = <<<EOT
 <?xml version="1.0"?>
 <msg id="$id" part="$part" sd="$sentDate">
-    <e a="$address" d="$display" p="$personal" t="f" />
+    <e a="$address" d="$display" p="$personal" t="t" />
     <su>$subject</su>
     <mid>$messageIdHeader</mid>
     <inv type="task" />
@@ -124,7 +124,7 @@ EOT;
                     'a' => $address,
                     'd' => $display,
                     'p' => $personal,
-                    't' => 'f',
+                    't' => 't',
                 ],
             ],
             'su' => [

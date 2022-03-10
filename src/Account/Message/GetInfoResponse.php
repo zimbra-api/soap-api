@@ -10,18 +10,11 @@
 
 namespace Zimbra\Account\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlElement, XmlList, XmlRoot};
-use Zimbra\Account\Struct\AccountDataSource;
-use Zimbra\Account\Struct\AccountDataSources;
-use Zimbra\Account\Struct\AccountZimletInfo;
-use Zimbra\Account\Struct\Attr;
-use Zimbra\Account\Struct\ChildAccount;
-use Zimbra\Account\Struct\Cos;
-use Zimbra\Account\Struct\DiscoverRightsInfo;
-use Zimbra\Account\Struct\Identity;
-use Zimbra\Account\Struct\Pref;
-use Zimbra\Account\Struct\Prop;
-use Zimbra\Account\Struct\Signature;
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement, XmlList};
+use Zimbra\Account\Struct\{
+    AccountDataSource, AccountDataSources, AccountZimletInfo, Attr,
+    ChildAccount, Cos, DiscoverRightsInfo, Identity, Pref, Prop, Signature
+};
 use Zimbra\Soap\ResponseInterface;
 
 /**
@@ -32,8 +25,6 @@ use Zimbra\Soap\ResponseInterface;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="GetInfoResponse")
  */
 class GetInfoResponse implements ResponseInterface
 {

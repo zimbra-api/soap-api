@@ -26,7 +26,7 @@ class AddressType extends Enum
      * Constant for value FROM
      * @return string 'f'
      */
-    private const FROM = 'f';
+    private const FRO = 'f';
 
     /**
      * Constant for value TO

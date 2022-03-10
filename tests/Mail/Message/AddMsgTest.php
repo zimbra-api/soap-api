@@ -51,7 +51,7 @@ class AddMsgTest extends ZimbraTestCase
         $address = $this->faker->email;
         $display = $this->faker->name;
         $personal = $this->faker->word;
-        $addressType = AddressType::FROM();
+        $addressType = AddressType::TO();
         $calItemType = InviteType::TASK();
 
         $email = new EmailInfo($address, $display, $personal, $addressType);
@@ -100,7 +100,7 @@ class AddMsgTest extends ZimbraTestCase
         </urn:AddMsgRequest>
         <urn:AddMsgResponse>
             <chat id="$id" autoSendTime="$autoSendTime">
-                <e a="$address" d="$display" p="$personal" t="f" />
+                <e a="$address" d="$display" p="$personal" t="t" />
                 <su>$subject</su>
                 <fr>$fragment</fr>
                 <inv type="task" />
@@ -139,7 +139,7 @@ EOT;
                                 'a' => $address,
                                 'd' => $display,
                                 'p' => $personal,
-                                't' => 'f',
+                                't' => 't',
                             ],
                         ],
                         'su' => [

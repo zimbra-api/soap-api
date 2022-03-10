@@ -10,7 +10,7 @@
 
 namespace Zimbra\Account\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlValue, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlValue};
 use Zimbra\Struct\ZimletTarget;
 
 /**
@@ -21,8 +21,6 @@ use Zimbra\Struct\ZimletTarget;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="target")
  */
 class AccountZimletTarget implements ZimletTarget
 {

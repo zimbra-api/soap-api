@@ -22,7 +22,7 @@ class AccountZimletTargetTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<target>$value</target>
+<result>$value</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($target, 'xml'));
         $this->assertEquals($target, $this->serializer->deserialize($xml, AccountZimletTarget::class, 'xml'));

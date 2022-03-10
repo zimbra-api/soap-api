@@ -28,7 +28,7 @@ class ZimletPrefsSpecTest extends ZimbraTestCase
         $presence = ZimletStatus::DISABLED()->getValue();
         $xml = <<<EOT
 <?xml version="1.0"?>
-<zimlet name="$name" presence="$presence" />
+<result name="$name" presence="$presence" />
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($zimlet, 'xml'));
         $this->assertEquals($zimlet, $this->serializer->deserialize($xml, ZimletPrefsSpec::class, 'xml'));

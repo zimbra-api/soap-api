@@ -41,11 +41,11 @@ class CheckRightsTargetSpecTest extends ZimbraTestCase
         $by = TargetBy::NAME()->getValue();
         $xml = <<<EOT
 <?xml version="1.0"?>
-<target type="$type" by="$by" key="$key">
+<result type="$type" by="$by" key="$key">
     <right>$right1</right>
     <right>$right2</right>
     <right>$right3</right>
-</target>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($target, 'xml'));
         $this->assertEquals($target, $this->serializer->deserialize($xml, CheckRightsTargetSpec::class, 'xml'));

@@ -38,11 +38,11 @@ class DiscoverRightsInfoTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<targets right="$right">
+<result right="$right">
     <target type="$type" id="$id" name="$name" d="$displayName">
         <email addr="$addr" />
     </target>
-</targets>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($targets, 'xml'));
         $this->assertEquals($targets, $this->serializer->deserialize($xml, DiscoverRightsInfo::class, 'xml'));

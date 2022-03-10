@@ -33,7 +33,7 @@ class PreAuthTest extends ZimbraTestCase
         $timestamp = $now + 1000;
         $xml = <<<EOT
 <?xml version="1.0"?>
-<preauth timestamp="$timestamp" expiresTimestamp="$expire">$computeValue</preauth>
+<result timestamp="$timestamp" expiresTimestamp="$expire">$computeValue</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($pre, 'xml'));
         $this->assertEquals($pre, $this->serializer->deserialize($xml, PreAuth::class, 'xml'));

@@ -25,7 +25,7 @@ class BounceMsgTest extends ZimbraTestCase
         $address = $this->faker->email;
         $personal = $this->faker->word;
 
-        $msg = new BounceMsgSpec($id, [new EmailAddrInfo($address, AddressType::FROM(), $personal)]);
+        $msg = new BounceMsgSpec($id, [new EmailAddrInfo($address, AddressType::TO(), $personal)]);
         $request = new BounceMsgRequest($msg);
         $this->assertSame($msg, $request->getMsg());
         $request = new BounceMsgRequest(new BounceMsgSpec(''));
@@ -55,7 +55,7 @@ class BounceMsgTest extends ZimbraTestCase
     <soap:Body>
         <urn:BounceMsgRequest>
             <m id="$id">
-                <e a="$address" t="f" p="$personal" />
+                <e a="$address" t="t" p="$personal" />
             </m>
         </urn:BounceMsgRequest>
         <urn:BounceMsgResponse />
@@ -73,7 +73,7 @@ EOT;
                         'e' => [
                             [
                                 'a' => $address,
-                                't' => 'f',
+                                't' => 't',
                                 'p' => $personal,
                             ],
                         ],

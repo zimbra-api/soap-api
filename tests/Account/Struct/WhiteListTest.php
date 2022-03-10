@@ -26,10 +26,10 @@ class WhiteListTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<whiteList>
+<result>
     <addr op="+">$value</addr>
     <addr op="-">$value</addr>
-</whiteList>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($whiteList, 'xml'));
         $this->assertEquals($whiteList, $this->serializer->deserialize($xml, WhiteList::class, 'xml'));

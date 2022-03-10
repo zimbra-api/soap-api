@@ -27,10 +27,10 @@ class BlackListTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<blackList>
+<result>
     <addr op="+">$value1</addr>
     <addr op="-">$value2</addr>
-</blackList>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($blackList, 'xml'));
         $this->assertEquals($blackList, $this->serializer->deserialize($xml, BlackList::class, 'xml'));

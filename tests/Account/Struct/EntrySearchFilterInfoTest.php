@@ -37,14 +37,14 @@ class EntrySearchFilterInfoTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<searchFilter>
+<result>
     <conds not="true" or="false">
         <conds not="false" or="true">
             <cond attr="$attr" op="ge" value="$value" not="false" />
         </conds>
         <cond attr="$attr" op="eq" value="$value" not="true" />
     </conds>
-</searchFilter>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($filter, 'xml'));
 
@@ -90,9 +90,9 @@ EOT;
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<searchFilter>
+<result>
     <cond attr="$attr" op="eq" value="$value" not="true" />
-</searchFilter>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($filter, 'xml'));
         $this->assertEquals($filter, $this->serializer->deserialize($xml, EntrySearchFilterInfo::class, 'xml'));

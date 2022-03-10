@@ -10,7 +10,6 @@
 
 namespace Zimbra\Account\Struct;
 
-use JMS\Serializer\Annotation\XmlRoot;
 use Zimbra\Struct\CalDataSource;
 
 /**
@@ -21,7 +20,6 @@ use Zimbra\Struct\CalDataSource;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @XmlRoot(name="cal")
  */
 class AccountCalDataSource extends AccountDataSource implements CalDataSource
 {

@@ -77,7 +77,7 @@ class AccountZimletInfoTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<zimlet>
+<result>
     <zimletContext baseUrl="$baseUrl" priority="$priority" presence="enabled" />
     <zimlet name="$name" version="$version" description="$description" extension="$extension" target="$target" label="$label">
         <serverExtension hasKeyword="$hasKeyword" extensionClass="$extensionClass" regex="$regex" />
@@ -92,7 +92,7 @@ class AccountZimletInfoTest extends ZimbraTestCase
             <property name="$name">$value</property>
         </host>
     </zimletConfig>
-</zimlet>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($zimlet, 'xml'));
         $this->assertEquals($zimlet, $this->serializer->deserialize($xml, AccountZimletInfo::class, 'xml'));

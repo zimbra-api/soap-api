@@ -41,11 +41,11 @@ class SignatureTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<signature name="$name" id="$id">
+<result name="$name" id="$id">
     <cid>$cid</cid>
     <content type="text/plain">$value</content>
     <content type="text/html">$value</content>
-</signature>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($sig, 'xml'));
         $this->assertEquals($sig, $this->serializer->deserialize($xml, Signature::class, 'xml'));

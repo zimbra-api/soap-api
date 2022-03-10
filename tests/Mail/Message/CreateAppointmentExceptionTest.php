@@ -76,7 +76,7 @@ class CreateAppointmentExceptionTest extends ZimbraTestCase
         $messageIdHeader = $this->faker->uuid;
 
         $display = $this->faker->name;
-        $addressType = AddressType::FROM();
+        $addressType = AddressType::TO();
         $calItemType = InviteType::TASK();
 
         $size = $this->faker->randomNumber;
@@ -90,7 +90,7 @@ class CreateAppointmentExceptionTest extends ZimbraTestCase
             new MimePartInfo($contentType, $content, $contentId),
             new AttachmentsInfo($id),
             new InvitationInfo($method, $componentNum, TRUE),
-            [new EmailAddrInfo($address, AddressType::FROM(), $personal)],
+            [new EmailAddrInfo($address, AddressType::TO(), $personal)],
             [new CalTZInfo($id, $tzStdOffset, $tzDayOffset)],
             $fragment
         );
@@ -159,7 +159,7 @@ class CreateAppointmentExceptionTest extends ZimbraTestCase
                 <mp ct="$contentType" content="$content" ci="$contentId" />
                 <attach aid="$id" />
                 <inv method="$method" compNum="$componentNum" rsvp="true" />
-                <e a="$address" t="f" p="$personal" />
+                <e a="$address" t="t" p="$personal" />
                 <tz id="$id" stdoff="$tzStdOffset" dayoff="$tzDayOffset" />
                 <fr>$fragment</fr>
             </m>
@@ -168,7 +168,7 @@ class CreateAppointmentExceptionTest extends ZimbraTestCase
             <m id="$id" />
             <echo>
                 <m id="$id" part="$part" sd="$sentDate">
-                    <e a="$address" d="$display" p="$personal" t="f" />
+                    <e a="$address" d="$display" p="$personal" t="t" />
                     <su>$subject</su>
                     <mid>$messageIdHeader</mid>
                     <inv type="task" />
@@ -237,7 +237,7 @@ EOT;
                         'e' => [
                             [
                                 'a' => $address,
-                                't' => 'f',
+                                't' => 't',
                                 'p' => $personal,
                             ],
                         ],
@@ -273,7 +273,7 @@ EOT;
                                     'a' => $address,
                                     'd' => $display,
                                     'p' => $personal,
-                                    't' => 'f',
+                                    't' => 't',
                                 ],
                             ],
                             'su' => [

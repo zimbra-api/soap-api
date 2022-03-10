@@ -29,7 +29,7 @@ class SignatureContentTest extends ZimbraTestCase
         $type = ContentType::TEXT_HTML()->getValue();
         $xml = <<<EOT
 <?xml version="1.0"?>
-<content type="$type">$value</content>
+<result type="$type">$value</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($content, 'xml'));
         $this->assertEquals($content, $this->serializer->deserialize($xml, SignatureContent::class, 'xml'));

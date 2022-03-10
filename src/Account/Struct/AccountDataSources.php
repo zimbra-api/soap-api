@@ -10,7 +10,7 @@
 
 namespace Zimbra\Account\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, Exclude, SerializedName, Type, VirtualProperty, XmlList, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, Exclude, SerializedName, Type, VirtualProperty, XmlList};
 
 /**
  * AccountDataSources struct class
@@ -20,8 +20,6 @@ use JMS\Serializer\Annotation\{Accessor, AccessType, Exclude, SerializedName, Ty
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="dataSources")
  */
 class AccountDataSources
 {

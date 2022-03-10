@@ -31,11 +31,11 @@ class HABGroupMemberTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<groupMember seniorityIndex="$seniorityIndex">
+<result seniorityIndex="$seniorityIndex">
     <name>$name</name>
     <attr name="$key1">$value1</attr>
     <attr name="$key2">$value2</attr>
-</groupMember>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($groupMember, 'xml'));
         $this->assertEquals($groupMember, $this->serializer->deserialize($xml, HABGroupMember::class, 'xml'));

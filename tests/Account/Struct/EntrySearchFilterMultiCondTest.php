@@ -53,13 +53,13 @@ class EntrySearchFilterMultiCondTest extends ZimbraTestCase
         $eq = CondOp::EQ()->getValue();
         $xml = <<<EOT
 <?xml version="1.0"?>
-<conds not="true" or="false">
+<result not="true" or="false">
     <conds not="false" or="true">
         <cond attr="$attr" op="$ge" value="$value" not="false" />
     </conds>
     <cond attr="$attr" op="$eq" value="$value" not="true" />
     <cond attr="$attr" op="$ge" value="$value" not="false" />
-</conds>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($conds, 'xml'));
 

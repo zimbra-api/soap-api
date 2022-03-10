@@ -10,7 +10,7 @@
 
 namespace Zimbra\Account\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
 use Zimbra\Account\Struct\AccountKeyValuePairsTrait;
 use Zimbra\Soap\Request;
 use Zimbra\Struct\KeyValuePairs;
@@ -26,8 +26,6 @@ use Zimbra\Struct\KeyValuePairs;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="CreateDistributionListRequest")
  */
 class CreateDistributionListRequest extends Request implements KeyValuePairs
 {

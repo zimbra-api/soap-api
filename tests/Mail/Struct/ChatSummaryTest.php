@@ -26,7 +26,7 @@ class ChatSummaryTest extends ZimbraTestCase
         $address = $this->faker->email;
         $display = $this->faker->name;
         $personal = $this->faker->word;
-        $addressType = AddressType::FROM();
+        $addressType = AddressType::TO();
         $calItemType = InviteType::TASK();
 
         $email = new EmailInfo($address, $display, $personal, $addressType);
@@ -36,7 +36,7 @@ class ChatSummaryTest extends ZimbraTestCase
         $xml = <<<EOT
 <?xml version="1.0"?>
 <chat id="$id" autoSendTime="$autoSendTime">
-    <e a="$address" d="$display" p="$personal" t="f" />
+    <e a="$address" d="$display" p="$personal" t="t" />
     <su>$subject</su>
     <fr>$fragment</fr>
     <inv type="task" />
@@ -53,7 +53,7 @@ EOT;
                     'a' => $address,
                     'd' => $display,
                     'p' => $personal,
-                    't' => 'f',
+                    't' => 't',
                 ],
             ],
             'su' => [

@@ -127,7 +127,7 @@ class AccountDataSourcesTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<dataSources>
+<result>
     <imap id="$id" name="$name" l="$folderId" isEnabled="true" importOnly="true" host="$host" port="$port" connectionType="$connectionType" username="$username" password="$password" pollingInterval="$pollingInterval" emailAddress="$emailAddress" useAddressForForwardReply="true" defaultSignature="$defaultSignature" forwardReplySignature="$forwardReplySignature" fromDisplay="$fromDisplay" replyToAddress="$replyToAddress" replyToDisplay="$replyToDisplay" importClass="$importClass" failingSince="$failingSince" refreshToken="$refreshToken" refreshTokenUrl="$refreshTokenUrl">
         <lastError>$lastError</lastError>
         <a>$attribute1</a>
@@ -168,7 +168,7 @@ class AccountDataSourcesTest extends ZimbraTestCase
         <a>$attribute1</a>
         <a>$attribute2</a>
     </unknown>
-</dataSources>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($dataSources, 'xml'));
         $this->assertEquals($dataSources, $this->serializer->deserialize($xml, AccountDataSources::class, 'xml'));

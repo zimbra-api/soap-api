@@ -22,7 +22,7 @@ class DiscoverRightsEmailTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<email addr="$addr" />
+<result addr="$addr" />
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($email, 'xml'));
         $this->assertEquals($email, $this->serializer->deserialize($xml, DiscoverRightsEmail::class, 'xml'));

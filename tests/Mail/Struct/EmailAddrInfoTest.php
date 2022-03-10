@@ -14,7 +14,7 @@ class EmailAddrInfoTest extends ZimbraTestCase
     public function testEmailAddrInfo()
     {
         $address = $this->faker->email;
-        $addressType = AddressType::FROM();
+        $addressType = AddressType::TO();
         $personal = $this->faker->word;
 
         $email = new EmailAddrInfo($address, $addressType, $personal);
@@ -32,14 +32,14 @@ class EmailAddrInfoTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<email a="$address" t="f" p="$personal" />
+<email a="$address" t="t" p="$personal" />
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($email, 'xml'));
         $this->assertEquals($email, $this->serializer->deserialize($xml, EmailAddrInfo::class, 'xml'));
 
         $json = json_encode([
             'a' => $address,
-            't' => 'f',
+            't' => 't',
             'p' => $personal,
         ]);
         $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($email, 'json'));

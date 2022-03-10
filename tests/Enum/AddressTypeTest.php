@@ -13,7 +13,7 @@ class AddressTypeTest extends TestCase
     public function testAddressType()
     {
         $values = [
-            'FROM'         => 'f',
+            'FRO'          => 'f',
             'TO'           => 't',
             'CC'           => 'c',
             'BCC'          => 'b',

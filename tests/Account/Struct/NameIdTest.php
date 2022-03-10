@@ -27,7 +27,7 @@ class NameIdTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<nameid name="$name" id="$id"/>
+<result name="$name" id="$id"/>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($nameId, 'xml'));
         $this->assertEquals($nameId, $this->serializer->deserialize($xml, NameId::class, 'xml'));

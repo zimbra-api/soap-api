@@ -10,7 +10,7 @@
 
 namespace Zimbra\Account\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlElement, XmlList, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement, XmlList};
 use Zimbra\Account\Struct\{Attr, AuthToken, PreAuth, Pref};
 use Zimbra\Soap\Request;
 use Zimbra\Struct\AccountSelector;
@@ -30,8 +30,6 @@ use Zimbra\Struct\AccountSelector;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="AuthRequest")
  */
 class AuthRequest extends Request
 {

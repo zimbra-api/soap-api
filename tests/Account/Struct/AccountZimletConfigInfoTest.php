@@ -57,14 +57,14 @@ class AccountZimletConfigInfoTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<zimletConfig name="$name" version="$version" description="$description" extension="$extension" target="$target" label="$label">
+<result name="$name" version="$version" description="$description" extension="$extension" target="$target" label="$label">
     <global>
         <property name="$name">$value</property>
     </global>
     <host name="$name">
         <property name="$name">$value</property>
     </host>
-</zimletConfig>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($zimletConfig, 'xml'));
         $this->assertEquals($zimletConfig, $this->serializer->deserialize($xml, AccountZimletConfigInfo::class, 'xml'));

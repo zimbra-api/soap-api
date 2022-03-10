@@ -39,9 +39,9 @@ class DistributionListRightInfoTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<info right="$right">
+<result right="$right">
     <grantee type="usr" id="$id" name="$name" />
-</info>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($info, 'xml'));
         $this->assertEquals($info, $this->serializer->deserialize($xml, DistributionListRightInfo::class, 'xml'));

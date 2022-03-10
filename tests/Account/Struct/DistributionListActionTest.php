@@ -59,7 +59,7 @@ class DistributionListActionTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<action op="delete">
+<result op="delete">
     <a n="$name">$value</a>
     <newName>$name</newName>
     <subsReq op="subscribe" bccOwners="true">$value</subsReq>
@@ -68,7 +68,7 @@ class DistributionListActionTest extends ZimbraTestCase
     <right right="$name">
         <grantee type="usr" by="name">$value</grantee>
     </right>
-</action>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($dl, 'xml'));
         $this->assertEquals($dl, $this->serializer->deserialize($xml, DistributionListAction::class, 'xml'));

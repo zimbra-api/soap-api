@@ -6,8 +6,6 @@ use Zimbra\Account\Struct\Attr;
 use Zimbra\Account\Struct\AttrsImpl;
 use Zimbra\Tests\ZimbraTestCase;
 
-use JMS\Serializer\Annotation\XmlRoot;
-
 /**
  * Testcase class for AttrsImpl.
  */
@@ -26,9 +24,9 @@ class AttrsImplTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<stub>
+<result>
     <a name="$name" pd="true">$value</a>
-</stub>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($stub, 'xml'));
         $this->assertEquals($stub, $this->serializer->deserialize($xml, StubAttrsImpl::class, 'xml'));
@@ -47,7 +45,6 @@ EOT;
     }
 }
 
-/** @XmlRoot(name="stub") */
 class StubAttrsImpl extends AttrsImpl
 {
 }

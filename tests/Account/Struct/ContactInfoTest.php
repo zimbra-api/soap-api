@@ -136,11 +136,11 @@ class ContactInfoTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<cn sf="$sortField" exp="true" id="$id" l="$folder" f="$flags" t="$tags" tn="$tagNames" md="$changeDate" ms="$modifiedSequenceId" d="$date" rev="$revisionId" fileAsStr="$fileAs" email="$email" email2="$email2" email3="$email3" type="$type" dlist="$dlist" ref="$reference" tooManyMembers="false" isOwner="true" isMember="false">
+<result sf="$sortField" exp="true" id="$id" l="$folder" f="$flags" t="$tags" tn="$tagNames" md="$changeDate" ms="$modifiedSequenceId" d="$date" rev="$revisionId" fileAsStr="$fileAs" email="$email" email2="$email2" email3="$email3" type="$type" dlist="$dlist" ref="$reference" tooManyMembers="false" isOwner="true" isMember="false">
     <meta section="$section" />
     <a n="$key" part="$part" ct="$contentType" s="$size" filename="$contentFilename">$value</a>
     <m type="$type" value="$value" />
-</cn>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($contact, 'xml'));
         $this->assertEquals($contact, $this->serializer->deserialize($xml, ContactInfo::class, 'xml'));

@@ -38,10 +38,10 @@ class DistributionListRightSpecTest extends ZimbraTestCase
         $byId = DLGranteeBy::ID()->getValue();
         $xml = <<<EOT
 <?xml version="1.0"?>
-<right right="$name">
+<result right="$name">
     <grantee type="$typeAll" by="$byName">$value1</grantee>
     <grantee type="$typeUsr" by="$byId">$value2</grantee>
-</right>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($right, 'xml'));
         $this->assertEquals($right, $this->serializer->deserialize($xml, DistributionListRightSpec::class, 'xml'));

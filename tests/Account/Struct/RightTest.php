@@ -22,7 +22,7 @@ class RightTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<ace right="$name" />
+<result right="$name" />
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($right, 'xml'));
         $this->assertEquals($right, $this->serializer->deserialize($xml, Right::class, 'xml'));

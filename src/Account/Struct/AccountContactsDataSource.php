@@ -10,7 +10,6 @@
 
 namespace Zimbra\Account\Struct;
 
-use JMS\Serializer\Annotation\XmlRoot;
 use Zimbra\Struct\ContactsDataSource;
 
 /**
@@ -21,7 +20,6 @@ use Zimbra\Struct\ContactsDataSource;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @XmlRoot(name="contacts")
  */
 class AccountContactsDataSource extends AccountDataSource implements ContactsDataSource
 {

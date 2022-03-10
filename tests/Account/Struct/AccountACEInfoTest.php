@@ -53,7 +53,7 @@ class AccountACEInfoTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<ace gt="usr" right="$right" zid="$zimbraId" d="$displayName" key="$accessKey" pw="$password" deny="true" chkgt="false" />
+<result gt="usr" right="$right" zid="$zimbraId" d="$displayName" key="$accessKey" pw="$password" deny="true" chkgt="false" />
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($ace, 'xml'));
         $this->assertEquals($ace, $this->serializer->deserialize($xml, AccountACEInfo::class, 'xml'));

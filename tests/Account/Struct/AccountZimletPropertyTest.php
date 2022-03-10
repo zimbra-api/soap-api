@@ -27,7 +27,7 @@ class AccountZimletPropertyTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<property name="$name">$value</property>
+<result name="$name">$value</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($property, 'xml'));
         $this->assertEquals($property, $this->serializer->deserialize($xml, AccountZimletProperty::class, 'xml'));

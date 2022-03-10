@@ -16,7 +16,7 @@ class EmailInfoTest extends ZimbraTestCase
         $address = $this->faker->email;
         $display = $this->faker->name;
         $personal = $this->faker->word;
-        $addressType = AddressType::FROM();
+        $addressType = AddressType::TO();
 
         $email = new EmailInfo($address, $display, $personal, $addressType);
         $this->assertSame($address, $email->getAddress());
@@ -40,7 +40,7 @@ class EmailInfoTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<email a="$address" d="$display" p="$personal" t="f" isGroup="true" exp="true" />
+<email a="$address" d="$display" p="$personal" t="t" isGroup="true" exp="true" />
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($email, 'xml'));
         $this->assertEquals($email, $this->serializer->deserialize($xml, EmailInfo::class, 'xml'));
@@ -49,7 +49,7 @@ EOT;
             'a' => $address,
             'd' => $display,
             'p' => $personal,
-            't' => 'f',
+            't' => 't',
             'isGroup' => TRUE,
             'exp' => TRUE,
         ]);

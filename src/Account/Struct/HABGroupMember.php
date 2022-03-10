@@ -10,7 +10,7 @@
 
 namespace Zimbra\Account\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlList, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlList};
 use Zimbra\Struct\NamedValue;
 
 /**
@@ -21,7 +21,6 @@ use Zimbra\Struct\NamedValue;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present name Nguyen Van Nguyen.
- * @XmlRoot(name="groupMember")
  */
 class HABGroupMember extends HABMember
 {

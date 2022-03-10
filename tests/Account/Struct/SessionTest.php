@@ -30,7 +30,7 @@ class SessionTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<session type="$type" id="$id">$id</session>
+<result type="$type" id="$id">$id</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($session, 'xml'));
         $this->assertEquals($session, $this->serializer->deserialize($xml, Session::class, 'xml'));

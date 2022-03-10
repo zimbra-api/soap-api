@@ -31,7 +31,7 @@ class LocaleInfoTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<locale id="$id" name="$name" localName="$localName" />
+<result id="$id" name="$name" localName="$localName" />
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($locale, 'xml'));
         $this->assertEquals($locale, $this->serializer->deserialize($xml, LocaleInfo::class, 'xml'));

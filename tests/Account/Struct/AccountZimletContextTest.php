@@ -34,7 +34,7 @@ class AccountZimletContextTest extends ZimbraTestCase
         $presence = ZimletPresence::ENABLED()->getValue();
         $xml = <<<EOT
 <?xml version="1.0"?>
-<zimletContext baseUrl="$baseUrl" priority="$priority" presence="$presence" />
+<result baseUrl="$baseUrl" priority="$priority" presence="$presence" />
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($zimletContext, 'xml'));
         $this->assertEquals($zimletContext, $this->serializer->deserialize($xml, AccountZimletContext::class, 'xml'));

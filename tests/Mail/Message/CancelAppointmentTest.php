@@ -59,7 +59,7 @@ class CancelAppointmentTest extends ZimbraTestCase
         $mimePart = new MimePartInfo($contentType, $content, $contentId);
         $attachments = new AttachmentsInfo($id);
         $invite = new InvitationInfo($method, $componentNum, TRUE);
-        $emailAddress = new EmailAddrInfo($address, AddressType::FROM(), $personal);
+        $emailAddress = new EmailAddrInfo($address, AddressType::TO(), $personal);
 
         $timezone = new CalTZInfo($id, $tzStdOffset, $tzDayOffset);
         $msg = new Msg(
@@ -123,7 +123,7 @@ class CancelAppointmentTest extends ZimbraTestCase
                 <mp ct="$contentType" content="$content" ci="$contentId" />
                 <attach aid="$id" />
                 <inv method="$method" compNum="$componentNum" rsvp="true" />
-                <e a="$address" t="f" p="$personal" />
+                <e a="$address" t="t" p="$personal" />
                 <tz id="$id" stdoff="$tzStdOffset" dayoff="$tzDayOffset" />
                 <fr>$fragment</fr>
             </m>
@@ -186,7 +186,7 @@ EOT;
                         'e' => [
                             [
                                 'a' => $address,
-                                't' => 'f',
+                                't' => 't',
                                 'p' => $personal,
                             ],
                         ],

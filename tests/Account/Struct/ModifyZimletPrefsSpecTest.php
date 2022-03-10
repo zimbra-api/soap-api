@@ -27,7 +27,7 @@ class ModifyZimletPrefsSpecTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<zimlet name="$name" presence="enabled" />
+<result name="$name" presence="enabled" />
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($zimlet, 'xml'));
         $this->assertEquals($zimlet, $this->serializer->deserialize($xml, ModifyZimletPrefsSpec::class, 'xml'));

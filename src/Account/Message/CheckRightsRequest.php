@@ -10,7 +10,7 @@
 
 namespace Zimbra\Account\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlList, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlList};
 use Zimbra\Account\Struct\CheckRightsTargetSpec;
 use Zimbra\Soap\Request;
 
@@ -23,8 +23,6 @@ use Zimbra\Soap\Request;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="CheckRightsRequest")
  */
 class CheckRightsRequest extends Request
 {

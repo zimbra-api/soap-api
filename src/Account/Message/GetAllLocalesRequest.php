@@ -10,7 +10,6 @@
 
 namespace Zimbra\Account\Message;
 
-use JMS\Serializer\Annotation\XmlRoot;
 use Zimbra\Soap\Request;
 
 /**
@@ -23,7 +22,6 @@ use Zimbra\Soap\Request;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @XmlRoot(name="GetAllLocalesRequest")
  */
 class GetAllLocalesRequest extends Request
 {

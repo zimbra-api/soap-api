@@ -32,7 +32,7 @@ class DistributionListGranteeSelectorTest extends ZimbraTestCase
         $by = DLGranteeBy::NAME()->getValue();
         $xml = <<<EOT
 <?xml version="1.0"?>
-<grantee type="$type" by="$by">$value</grantee>
+<result type="$type" by="$by">$value</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($grantee, 'xml'));
         $this->assertEquals($grantee, $this->serializer->deserialize($xml, DistributionListGranteeSelector::class, 'xml'));

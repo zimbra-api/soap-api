@@ -2,7 +2,6 @@
 
 namespace Zimbra\Tests\Account\Struct;
 
-use JMS\Serializer\Annotation\XmlRoot;
 use Zimbra\Account\Struct\HABMember;
 use Zimbra\Tests\ZimbraTestCase;
 
@@ -28,9 +27,9 @@ class HABMemberTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<stub seniorityIndex="$seniorityIndex">
+<result seniorityIndex="$seniorityIndex">
     <name>$name</name>
-</stub>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($stub, 'xml'));
         $this->assertEquals($stub, $this->serializer->deserialize($xml, StubHABMember::class, 'xml'));
@@ -46,9 +45,6 @@ EOT;
     }
 }
 
-/**
- * @XmlRoot(name="stub")
- */
 class StubHABMember extends HABMember
 {
 }
