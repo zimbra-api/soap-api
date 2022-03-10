@@ -32,10 +32,10 @@ class ExportAndDeleteMailboxSpecTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<mbox id="$id">
+<result id="$id">
     <item id="$id" version="$version" />
     <item id="$version" version="$id" />
-</mbox>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($mbox, 'xml'));
         $this->assertEquals($mbox, $this->serializer->deserialize($xml, ExportAndDeleteMailboxSpec::class, 'xml'));

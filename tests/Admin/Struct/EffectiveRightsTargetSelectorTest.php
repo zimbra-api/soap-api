@@ -34,7 +34,7 @@ class EffectiveRightsTargetSelectorTest extends ZimbraTestCase
         $by = TargetBy::NAME()->getValue();
         $xml = <<<EOT
 <?xml version="1.0"?>
-<target type="$type" by="$by">$value</target>
+<result type="$type" by="$by">$value</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($target, 'xml'));
         $this->assertEquals($target, $this->serializer->deserialize($xml, EffectiveRightsTargetSelector::class, 'xml'));

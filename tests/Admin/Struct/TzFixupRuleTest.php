@@ -78,7 +78,7 @@ class TzFixupRuleTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<fixupRule>
+<result>
     <match>
         <any />
         <tzid id="$id" />
@@ -100,7 +100,7 @@ class TzFixupRuleTest extends ZimbraTestCase
             <daylight mon="$mon" hour="$hour" min="$min" sec="$sec" />
         </tz>
     </replace>
-</fixupRule>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($fixupRule, 'xml'));
         $this->assertEquals($fixupRule, $this->serializer->deserialize($xml, TzFixupRule::class, 'xml'));

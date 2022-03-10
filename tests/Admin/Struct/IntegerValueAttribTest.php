@@ -22,7 +22,7 @@ class IntegerValueAttribTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<a value="$value" />
+<result value="$value" />
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($attr, 'xml'));
         $this->assertEquals($attr, $this->serializer->deserialize($xml, IntegerValueAttrib::class, 'xml'));

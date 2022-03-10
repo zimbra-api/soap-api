@@ -40,14 +40,14 @@ class DistributionListInfoTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<dl name="$name" id="$id" dynamic="true">
+<result name="$name" id="$id" dynamic="true">
     <dlm>$member1</dlm>
     <dlm>$member2</dlm>
     <owners>
         <owner id="$id" name="$name" type="usr" />
         <owner id="$id" name="$name" type="usr" />
     </owners>
-</dl>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($dl, 'xml'));
         $this->assertEquals($dl, $this->serializer->deserialize($xml, DistributionListInfo::class, 'xml'));

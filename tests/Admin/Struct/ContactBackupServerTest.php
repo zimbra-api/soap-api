@@ -28,7 +28,7 @@ class ContactBackupServerTest extends ZimbraTestCase
         $status = ContactBackupStatus::STOPPED()->getValue();
         $xml = <<<EOT
 <?xml version="1.0"?>
-<server name="$name" status="$status"/>
+<result name="$name" status="$status"/>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($server, 'xml'));
         $this->assertEquals($server, $this->serializer->deserialize($xml, ContactBackupServer::class, 'xml'));

@@ -33,11 +33,11 @@ class AutoProvDirectoryEntryTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<entry dn="$dn">
+<result dn="$dn">
     <a n="$key">$value</a>
     <key>$key1</key>
     <key>$key2</key>
-</entry>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($entry, 'xml'));
         $this->assertEquals($entry, $this->serializer->deserialize($xml, AutoProvDirectoryEntry::class, 'xml'));

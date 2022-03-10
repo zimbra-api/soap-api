@@ -28,7 +28,7 @@ class LoggerInfoTest extends ZimbraTestCase
         $level = LoggingLevel::INFO()->getValue();
         $xml = <<<EOT
 <?xml version="1.0"?>
-<logger category="$category" level="$level" />
+<result category="$category" level="$level" />
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($logger, 'xml'));
         $this->assertEquals($logger, $this->serializer->deserialize($xml, LoggerInfo::class, 'xml'));

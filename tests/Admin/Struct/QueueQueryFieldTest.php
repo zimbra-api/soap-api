@@ -33,10 +33,10 @@ class QueueQueryFieldTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<field name="$name">
+<result name="$name">
     <match value="$value1" />
     <match value="$value2" />
-</field>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($field, 'xml'));
         $this->assertEquals($field, $this->serializer->deserialize($xml, QueueQueryField::class, 'xml'));

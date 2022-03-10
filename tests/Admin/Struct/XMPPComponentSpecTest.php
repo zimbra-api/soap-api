@@ -37,11 +37,11 @@ class XMPPComponentSpecTest extends ZimbraTestCase
         $by = DomainBy::NAME()->getValue();
         $xml = <<<EOT
 <?xml version="1.0"?>
-<xmppcomponent name="$name">
+<result name="$name">
     <a n="$name">$value</a>
     <domain by="$by">$value</domain>
     <server by="$by">$value</server>
-</xmppcomponent>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($xmpp, 'xml'));
         $this->assertEquals($xmpp, $this->serializer->deserialize($xml, XMPPComponentSpec::class, 'xml'));

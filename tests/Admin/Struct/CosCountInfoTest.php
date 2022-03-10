@@ -30,7 +30,7 @@ class CosCountInfoTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<cos name="$name" id="$id">$value</cos>
+<result name="$name" id="$id">$value</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($cos, 'xml'));
         $this->assertEquals($cos, $this->serializer->deserialize($xml, CosCountInfo::class, 'xml'));

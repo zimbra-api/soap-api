@@ -39,12 +39,12 @@ class DomainAdminRightTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<right name="$name" type="preset">
+<result name="$name" type="preset">
     <desc>$desc</desc>
     <rights>
         <r n="$name" />
     </rights>
-</right>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($right, 'xml'));
         $this->assertEquals($right, $this->serializer->deserialize($xml, DomainAdminRight::class, 'xml'));

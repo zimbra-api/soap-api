@@ -28,7 +28,7 @@ class PrincipalSelectorTest extends ZimbraTestCase
         $by = PrincipalBy::NAME()->getValue();
         $xml = <<<EOT
 <?xml version="1.0"?>
-<principal by="$by">$value</principal>
+<result by="$by">$value</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($pri, 'xml'));
         $this->assertEquals($pri, $this->serializer->deserialize($xml, PrincipalSelector::class, 'xml'));

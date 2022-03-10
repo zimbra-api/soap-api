@@ -26,7 +26,7 @@ class VolumeIdAndProgressTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<volumeProgress volumeId="$volumeId" progress="$progress" />
+<result volumeId="$volumeId" progress="$progress" />
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($volumeProgress, 'xml'));
         $this->assertEquals($volumeProgress, $this->serializer->deserialize($xml, VolumeIdAndProgress::class, 'xml'));

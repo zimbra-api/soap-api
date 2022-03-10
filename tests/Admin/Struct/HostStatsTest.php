@@ -34,13 +34,13 @@ class HostStatsTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<hostname hn="$hostName">
+<result hn="$hostName">
     <stats name="$name">
         <values t="$t">
             <stat name="$name" value="$value" />
         </values>
     </stats>
-</hostname>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($hostname, 'xml'));
         $this->assertEquals($hostname, $this->serializer->deserialize($xml, HostStats::class, 'xml'));

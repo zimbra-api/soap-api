@@ -27,7 +27,7 @@ class LimitedQueryTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<query limit="$limit">$value</query>
+<result limit="$limit">$value</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($query, 'xml'));
         $this->assertEquals($query, $this->serializer->deserialize($xml, LimitedQuery::class, 'xml'));

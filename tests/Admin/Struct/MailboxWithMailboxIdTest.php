@@ -31,7 +31,7 @@ class MailboxWithMailboxIdTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<mbox mbxid="$mbxid" id="$id" s="$size" />
+<result mbxid="$mbxid" id="$id" s="$size" />
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($mbox, 'xml'));
         $this->assertEquals($mbox, $this->serializer->deserialize($xml, MailboxWithMailboxId::class, 'xml'));

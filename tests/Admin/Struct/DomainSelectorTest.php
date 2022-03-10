@@ -27,7 +27,7 @@ class DomainSelectorTest extends ZimbraTestCase
         $by = DomainBy::NAME()->getValue();
         $xml = <<<EOT
 <?xml version="1.0"?>
-<domain by="$by">$value</domain>
+<result by="$by">$value</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($domain, 'xml'));
         $this->assertEquals($domain, $this->serializer->deserialize($xml, DomainSelector::class, 'xml'));

@@ -33,7 +33,7 @@ class ZimletServerExtensionTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<serverExtension hasKeyword="$hasKeyword" extensionClass="$extensionClass" regex="$regex" />
+<result hasKeyword="$hasKeyword" extensionClass="$extensionClass" regex="$regex" />
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($serverExtension, 'xml'));
         $this->assertEquals($serverExtension, $this->serializer->deserialize($xml, ZimletServerExtension::class, 'xml'));

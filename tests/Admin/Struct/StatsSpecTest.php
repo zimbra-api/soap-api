@@ -35,11 +35,11 @@ class StatsSpecTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<stats name="$name" limit="$limit">
+<result name="$name" limit="$limit">
     <values>
         <stat name="$name" />
     </values>
-</stats>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($stats, 'xml'));
         $this->assertEquals($stats, $this->serializer->deserialize($xml, StatsSpec::class, 'xml'));

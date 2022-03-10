@@ -29,10 +29,10 @@ class StatsValueWrapperTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<values>
+<result>
     <stat name="$name1" />
     <stat name="$name2" />
-</values>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($values, 'xml'));
         $this->assertEquals($values, $this->serializer->deserialize($xml, StatsValueWrapper::class, 'xml'));

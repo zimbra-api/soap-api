@@ -39,9 +39,9 @@ class XMPPComponentInfoTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<xmppcomponent name="$name" id="$id" x-domainName="$domainName" x-serverName="$serverName">
+<result name="$name" id="$id" x-domainName="$domainName" x-serverName="$serverName">
     <a n="$key">$value</a>
-</xmppcomponent>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($xmpp, 'xml'));
         $this->assertEquals($xmpp, $this->serializer->deserialize($xml, XMPPComponentInfo::class, 'xml'));

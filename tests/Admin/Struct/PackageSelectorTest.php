@@ -22,7 +22,7 @@ class PackageSelectorTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<package name="$name" />
+<result name="$name" />
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($package, 'xml'));
         $this->assertEquals($package, $this->serializer->deserialize($xml, PackageSelector::class, 'xml'));

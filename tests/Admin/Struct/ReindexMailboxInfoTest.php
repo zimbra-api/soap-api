@@ -33,7 +33,7 @@ class ReindexMailboxInfoTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<mbox id="$id" types="$types" ids="$ids" />
+<result id="$id" types="$types" ids="$ids" />
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($mbox, 'xml'));
         $this->assertEquals($mbox, $this->serializer->deserialize($xml, ReindexMailboxInfo::class, 'xml'));

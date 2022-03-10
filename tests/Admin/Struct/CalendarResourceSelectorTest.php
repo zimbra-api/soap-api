@@ -27,7 +27,7 @@ class CalendarResourceSelectorTest extends ZimbraTestCase
         $by = CalResBy::NAME()->getValue();
         $xml = <<<EOT
 <?xml version="1.0"?>
-<calresource by="$by">$value</calresource>
+<result by="$by">$value</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($cal, 'xml'));
         $this->assertEquals($cal, $this->serializer->deserialize($xml, CalendarResourceSelector::class, 'xml'));

@@ -53,7 +53,7 @@ class WaitSetSessionInfoTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<WaitSetSession interestMask="$interestMask" highestChangeId="$highestChangeId" lastAccessTime="$lastAccessTime" creationTime="$creationTime" sessionId="$sessionId" token="$token" folderInterests="$folderInterests" changedFolders="$changedFolders" />
+<result interestMask="$interestMask" highestChangeId="$highestChangeId" lastAccessTime="$lastAccessTime" creationTime="$creationTime" sessionId="$sessionId" token="$token" folderInterests="$folderInterests" changedFolders="$changedFolders" />
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($WaitSetSession, 'xml'));
         $this->assertEquals($WaitSetSession, $this->serializer->deserialize($xml, WaitSetSessionInfo::class, 'xml'));

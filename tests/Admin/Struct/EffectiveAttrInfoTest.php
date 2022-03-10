@@ -37,7 +37,7 @@ class EffectiveAttrInfoTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<attr n="$name">
+<result n="$name">
     <constraint>
         <min>$min</min>
         <max>$max</max>
@@ -50,7 +50,7 @@ class EffectiveAttrInfoTest extends ZimbraTestCase
         <v>$value1</v>
         <v>$value2</v>
     </default>
-</attr>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($attr, 'xml'));
         $this->assertEquals($attr, $this->serializer->deserialize($xml, EffectiveAttrInfo::class, 'xml'));

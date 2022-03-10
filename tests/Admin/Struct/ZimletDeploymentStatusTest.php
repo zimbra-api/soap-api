@@ -30,7 +30,7 @@ class ZimletDeploymentStatusTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<progress server="$server" status="succeeded" error="$error" />
+<result server="$server" status="succeeded" error="$error" />
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($progress, 'xml'));
         $this->assertEquals($progress, $this->serializer->deserialize($xml, ZimletDeploymentStatus::class, 'xml'));

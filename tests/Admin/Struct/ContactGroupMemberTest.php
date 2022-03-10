@@ -32,9 +32,9 @@ class ContactGroupMemberTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<m type="$type" value="$value">
+<result type="$type" value="$value">
     <cn />
-</m>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($member, 'xml'));
         $this->assertEquals($member, $this->serializer->deserialize($xml, ContactGroupMember::class, 'xml'));

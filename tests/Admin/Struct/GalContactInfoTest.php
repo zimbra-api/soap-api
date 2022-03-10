@@ -26,9 +26,9 @@ class GalContactInfoTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<cn id="$id">
+<result id="$id">
     <a n="$key">$value</a>
-</cn>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($cn, 'xml'));
         $this->assertEquals($cn, $this->serializer->deserialize($xml, GalContactInfo::class, 'xml'));

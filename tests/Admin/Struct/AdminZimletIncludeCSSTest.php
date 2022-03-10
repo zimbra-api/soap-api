@@ -22,7 +22,7 @@ class AdminZimletIncludeCSSTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<includeCSS>$value</includeCSS>
+<result>$value</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($includeCSS, 'xml'));
         $this->assertEquals($includeCSS, $this->serializer->deserialize($xml, AdminZimletIncludeCSS::class, 'xml'));

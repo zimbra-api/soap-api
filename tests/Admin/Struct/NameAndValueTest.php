@@ -26,7 +26,7 @@ class NameAndValueTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<nameValue name="$name" value="$value" />
+<result name="$name" value="$value" />
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($nameValue, 'xml'));
         $this->assertEquals($nameValue, $this->serializer->deserialize($xml, NameAndValue::class, 'xml'));

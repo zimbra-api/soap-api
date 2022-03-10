@@ -47,7 +47,7 @@ class RightsEntriesInfoTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<entries>
+<result>
     <entry name="$name" />
     <rights>
         <right n="$name" />
@@ -84,7 +84,7 @@ class RightsEntriesInfoTest extends ZimbraTestCase
             </a>
         </getAttrs>
     </rights>
-</entries>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($entries, 'xml'));
         $this->assertEquals($entries, $this->serializer->deserialize($xml, RightsEntriesInfo::class, 'xml'));

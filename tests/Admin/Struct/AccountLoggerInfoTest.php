@@ -36,9 +36,9 @@ class AccountLoggerInfoTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<accountLogger name="$name" id="$id">
+<result name="$name" id="$id">
     <logger category="$category" level="info" />
-</accountLogger>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($accountLogger, 'xml'));
         $this->assertEquals($accountLogger, $this->serializer->deserialize($xml, AccountLoggerInfo::class, 'xml'));

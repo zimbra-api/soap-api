@@ -27,7 +27,7 @@ class ZimletAclTest extends ZimbraTestCase
         $type = AclType::GRANT()->getValue();
         $xml = <<<EOT
 <?xml version="1.0"?>
-<acl cos="$cos" acl="$type" />
+<result cos="$cos" acl="$type" />
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($acl, 'xml'));
         $this->assertEquals($acl, $this->serializer->deserialize($xml, ZimletAcl::class, 'xml'));

@@ -42,7 +42,7 @@ class GranteeSelectorTest extends ZimbraTestCase
         $by = GranteeBy::ID()->getValue();
         $xml = <<<EOT
 <?xml version="1.0"?>
-<grantee type="$type" by="$by" secret="$secret" all="true">$value</grantee>
+<result type="$type" by="$by" secret="$secret" all="true">$value</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($grantee, 'xml'));
         $this->assertEquals($grantee, $this->serializer->deserialize($xml, GranteeSelector::class, 'xml'));

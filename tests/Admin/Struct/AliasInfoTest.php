@@ -33,9 +33,9 @@ class AliasInfoTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<alias name="$name" id="$id" targetName="$targetName" type="$targetType">
+<result name="$name" id="$id" targetName="$targetName" type="$targetType">
     <a n="$key">$value</a>
-</alias>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($alias, 'xml'));
         $this->assertEquals($alias, $this->serializer->deserialize($xml, AliasInfo::class, 'xml'));

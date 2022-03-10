@@ -40,10 +40,10 @@ class CalendarResourceInfoTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<calresource name="$name" id="$id">
+<result name="$name" id="$id">
     <a n="$key1">$value1</a>
     <a n="$key2">$value2</a>
-</calresource>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($info, 'xml'));
         $this->assertEquals($info, $this->serializer->deserialize($xml, CalendarResourceInfo::class, 'xml'));

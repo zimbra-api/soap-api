@@ -63,7 +63,7 @@ class TzFixupRuleMatchTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<match>
+<result>
     <any />
     <tzid id="$id" />
     <nonDst offset="$offset" />
@@ -75,7 +75,7 @@ class TzFixupRuleMatchTest extends ZimbraTestCase
         <standard mon="$date_mon" mday="$date_mday" />
         <daylight mon="$date_mon" mday="$date_mday" />
     </dates>
-</match>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($match, 'xml'));
         $this->assertEquals($match, $this->serializer->deserialize($xml, TzFixupRuleMatch::class, 'xml'));

@@ -26,7 +26,7 @@ class AlwaysOnClusterSelectorTest extends ZimbraTestCase
         $by = AlwaysOnClusterBy::NAME()->getValue();
         $xml = <<<EOT
 <?xml version="1.0"?>
-<alwaysOnCluster by="$by">$value</alwaysOnCluster>
+<result by="$by">$value</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($aoc, 'xml'));
         $this->assertEquals($aoc, $this->serializer->deserialize($xml, AlwaysOnClusterSelector::class, 'xml'));

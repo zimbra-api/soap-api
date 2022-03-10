@@ -26,7 +26,7 @@ class TzFixupRuleMatchDateTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<date mon="$mon" mday="$mday" />
+<result mon="$mon" mday="$mday" />
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($date, 'xml'));
         $this->assertEquals($date, $this->serializer->deserialize($xml, TzFixupRuleMatchDate::class, 'xml'));

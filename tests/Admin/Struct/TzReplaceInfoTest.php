@@ -42,13 +42,13 @@ class TzReplaceInfoTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<replace>
+<result>
     <wellKnownTz id="$id" />
     <tz id="$id" stdoff="$stdoff" dayoff="$dayoff" stdname="$stdname" dayname="$dayname">
         <standard mon="$mon" hour="$hour" min="$min" sec="$sec" />
         <daylight mon="$mon" hour="$hour" min="$min" sec="$sec" />
     </tz>
-</replace>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($replace, 'xml'));
         $this->assertEquals($replace, $this->serializer->deserialize($xml, TzReplaceInfo::class, 'xml'));

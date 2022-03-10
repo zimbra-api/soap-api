@@ -33,14 +33,14 @@ class ConstraintInfoTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<constraint>
+<result>
     <min>$min</min>
     <max>$max</max>
     <values>
         <v>$value1</v>
         <v>$value2</v>
     </values>
-</constraint>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($constraint, 'xml'));
         $this->assertEquals($constraint, $this->serializer->deserialize($xml, ConstraintInfo::class, 'xml'));

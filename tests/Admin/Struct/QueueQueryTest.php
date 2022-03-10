@@ -37,11 +37,11 @@ class QueueQueryTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<query limit="$limit" offset="$offset">
+<result limit="$limit" offset="$offset">
     <field name="$name">
         <match value="$value" />
     </field>
-</query>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($query, 'xml'));
         $this->assertEquals($query, $this->serializer->deserialize($xml, QueueQuery::class, 'xml'));

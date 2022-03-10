@@ -64,11 +64,11 @@ class AdminZimletDescTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<zimlet name="$name" version="$version" description="$description" extension="$extension" target="$target" label="$label">
+<result name="$name" version="$version" description="$description" extension="$extension" target="$target" label="$label">
     <serverExtension hasKeyword="$hasKeyword" extensionClass="$extensionClass" regex="$regex" />
     <include>$value</include>
     <includeCSS>$value</includeCSS>
-</zimlet>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($zimlet, 'xml'));
         $this->assertEquals($zimlet, $this->serializer->deserialize($xml, AdminZimletDesc::class, 'xml'));

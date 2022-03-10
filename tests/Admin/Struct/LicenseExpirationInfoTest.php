@@ -22,7 +22,7 @@ class LicenseExpirationInfoTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<expiration date="$date" />
+<result date="$date" />
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($expiration, 'xml'));
         $this->assertEquals($expiration, $this->serializer->deserialize($xml, LicenseExpirationInfo::class, 'xml'));

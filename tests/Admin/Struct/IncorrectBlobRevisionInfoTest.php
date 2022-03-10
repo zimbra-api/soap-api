@@ -47,9 +47,9 @@ class IncorrectBlobRevisionInfoTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<item id="$id" rev="$revision" s="$size" volumeId="$volumeId">
+<result id="$id" rev="$revision" s="$size" volumeId="$volumeId">
     <blob path="$path" fileSize="$fileSize" rev="$revision" external="true" />
-</item>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($item, 'xml'));
         $this->assertEquals($item, $this->serializer->deserialize($xml, IncorrectBlobRevisionInfo::class, 'xml'));

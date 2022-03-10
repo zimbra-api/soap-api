@@ -33,11 +33,11 @@ class AdminKeyValuePairsTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<stub>
+<result>
     <a n="$key1">$value1</a>
     <a n="$key1">$value2</a>
     <a n="$key2">$value2</a>
-</stub>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($stub, 'xml'));
         $this->assertEquals($stub, $this->serializer->deserialize($xml, AdminKeyValuePairs::class, 'xml'));

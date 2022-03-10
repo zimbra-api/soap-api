@@ -78,7 +78,7 @@ class AdminZimletInfoTest extends ZimbraTestCase
         $presence = ZimletPresence::ENABLED()->getValue();
         $xml = <<<EOT
 <?xml version="1.0"?>
-<zimlet>
+<result>
     <zimletContext baseUrl="$baseUrl" priority="$priority" presence="$presence" />
     <zimlet name="$name" version="$version" description="$description" extension="$extension" target="$target" label="$label">
         <serverExtension hasKeyword="$hasKeyword" extensionClass="$extensionClass" regex="$regex" />
@@ -93,7 +93,7 @@ class AdminZimletInfoTest extends ZimbraTestCase
             <property name="$name">$value</property>
         </host>
     </zimletConfig>
-</zimlet>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($zimlet, 'xml'));
         $this->assertEquals($zimlet, $this->serializer->deserialize($xml, AdminZimletInfo::class, 'xml'));

@@ -43,10 +43,10 @@ class CacheSelectorTest extends ZimbraTestCase
         $by = CacheEntryBy::NAME()->getValue();
         $xml = <<<EOT
 <?xml version="1.0"?>
-<cache type="$types" allServers="true" imapServers="true">
+<result type="$types" allServers="true" imapServers="true">
     <entry by="$by">$value1</entry>
     <entry by="$by">$value2</entry>
-</cache>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($cache, 'xml'));
         $this->assertEquals($cache, $this->serializer->deserialize($xml, CacheSelector::class, 'xml'));

@@ -21,8 +21,6 @@ use Zimbra\Enum\XmppComponentBy as XmppBy;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="xmppcomponent")
  */
 class XMPPComponentSelector
 {

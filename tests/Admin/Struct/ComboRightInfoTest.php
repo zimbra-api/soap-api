@@ -34,7 +34,7 @@ class ComboRightInfoTest extends ZimbraTestCase
         $type = RightType::PRESET()->getValue();
         $xml = <<<EOT
 <?xml version="1.0"?>
-<right n="$name" type="$type" targetType="$targetType" />
+<result n="$name" type="$type" targetType="$targetType" />
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($right, 'xml'));
         $this->assertEquals($right, $this->serializer->deserialize($xml, ComboRightInfo::class, 'xml'));

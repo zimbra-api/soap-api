@@ -44,13 +44,13 @@ class MailQueueActionTest extends ZimbraTestCase
         $by = QueueActionBy::QUERY()->getValue();
         $xml = <<<EOT
 <?xml version="1.0"?>
-<action op="$op" by="$by">
+<result op="$op" by="$by">
     <query limit="$limit" offset="$offset">
         <field name="$name">
             <match value="$value" />
         </field>
     </query>
-</action>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($action, 'xml'));
         $this->assertEquals($action, $this->serializer->deserialize($xml, MailQueueAction::class, 'xml'));

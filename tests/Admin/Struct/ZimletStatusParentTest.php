@@ -30,9 +30,9 @@ class ZimletStatusParentTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<zimlets>
+<result>
     <zimlet name="$name" status="enabled" extension="true" priority="$priority" />
-</zimlets>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($zimlets, 'xml'));
         $this->assertEquals($zimlets, $this->serializer->deserialize($xml, ZimletStatusParent::class, 'xml'));

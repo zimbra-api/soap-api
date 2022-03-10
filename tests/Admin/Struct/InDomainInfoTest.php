@@ -47,7 +47,7 @@ class InDomainInfoTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<inDomain>
+<result>
     <domain name="$name" />
     <rights>
         <right n="$name" />
@@ -84,7 +84,7 @@ class InDomainInfoTest extends ZimbraTestCase
             </a>
         </getAttrs>
     </rights>
-</inDomain>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($inDomain, 'xml'));
         $this->assertEquals($inDomain, $this->serializer->deserialize($xml, InDomainInfo::class, 'xml'));

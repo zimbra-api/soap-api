@@ -10,8 +10,6 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\XmlRoot;
-
 /**
  * DomainInfo struct class
  *
@@ -20,7 +18,6 @@ use JMS\Serializer\Annotation\XmlRoot;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present name Nguyen Van Nguyen.
- * @XmlRoot(name="domain")
  */
 class DomainInfo extends AdminObjectInfo
 {

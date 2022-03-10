@@ -27,7 +27,7 @@ class TimeZoneInfoTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<timezone id="$id" displayName="$displayName" />
+<result id="$id" displayName="$displayName" />
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($info, 'xml'));
         $this->assertEquals($info, $this->serializer->deserialize($xml, TimeZoneInfo::class, 'xml'));

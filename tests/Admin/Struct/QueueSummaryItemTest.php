@@ -27,7 +27,7 @@ class QueueSummaryItemTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<qsi n="$count" t="$term" />
+<result n="$count" t="$term" />
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($qsi, 'xml'));
         $this->assertEquals($qsi, $this->serializer->deserialize($xml, QueueSummaryItem::class, 'xml'));

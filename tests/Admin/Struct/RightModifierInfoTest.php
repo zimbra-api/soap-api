@@ -34,7 +34,7 @@ class RightModifierInfoTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<right deny="true" canDelegate="false" disinheritSubGroups="false" subDomain="true">$value</right>
+<result deny="true" canDelegate="false" disinheritSubGroups="false" subDomain="true">$value</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($right, 'xml'));
         $this->assertEquals($right, $this->serializer->deserialize($xml, RightModifierInfo::class, 'xml'));

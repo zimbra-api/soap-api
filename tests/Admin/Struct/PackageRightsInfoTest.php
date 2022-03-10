@@ -34,7 +34,7 @@ class PackageRightsInfoTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<package name="$name">
+<result name="$name">
     <cmd name="$name">
         <rights>
             <right name="$name" />
@@ -44,7 +44,7 @@ class PackageRightsInfoTest extends ZimbraTestCase
             <note>$note2</note>
         </desc>
     </cmd>
-</package>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($package, 'xml'));
         $this->assertEquals($package, $this->serializer->deserialize($xml, PackageRightsInfo::class, 'xml'));

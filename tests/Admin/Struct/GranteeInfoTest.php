@@ -33,7 +33,7 @@ class GranteeInfoTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<grantee id="$id" name="$name" type="usr" />
+<result id="$id" name="$name" type="usr" />
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($grantee, 'xml'));
         $this->assertEquals($grantee, $this->serializer->deserialize($xml, GranteeInfo::class, 'xml'));

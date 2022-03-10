@@ -37,11 +37,11 @@ class RightViaInfoTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<via>
+<result>
     <target type="$type">$value</target>
     <grantee type="$type">$value</grantee>
     <right>$value</right>
-</via>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($via, 'xml'));
         $this->assertEquals($via, $this->serializer->deserialize($xml, RightViaInfo::class, 'xml'));

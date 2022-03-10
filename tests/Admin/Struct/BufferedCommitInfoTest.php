@@ -26,7 +26,7 @@ class BufferedCommitInfoTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<commit aid="$aid" cid="$cid" />
+<result aid="$aid" cid="$cid" />
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($commit, 'xml'));
         $this->assertEquals($commit, $this->serializer->deserialize($xml, BufferedCommitInfo::class, 'xml'));

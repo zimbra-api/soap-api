@@ -54,14 +54,14 @@ class ServerMailQueueDetailsTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<server name="$name">
+<result name="$name">
     <queue name="$name" time="$scanTime" scan="true" total="$total" more="true">
         <qs type="$type">
             <qsi n="$count" t="$term" />
         </qs>
         <qi id="$id" time="$time" fromdomain="$fromdomain" size="$size" from="$from" to="$to" host="$host" addr="$addr" reason="$reason" filter="$filter" todomain="$todomain" received="$received" />
     </queue>
-</server>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($server, 'xml'));
         $this->assertEquals($server, $this->serializer->deserialize($xml, ServerMailQueueDetails::class, 'xml'));

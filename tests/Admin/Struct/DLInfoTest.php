@@ -32,9 +32,9 @@ class DLInfoTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<dl name="$name" id="$id" dynamic="true" via="$via">
+<result name="$name" id="$id" dynamic="true" via="$via">
     <a n="$key">$value</a>
-</dl>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($dl, 'xml'));
         $this->assertEquals($dl, $this->serializer->deserialize($xml, DLInfo::class, 'xml'));

@@ -27,7 +27,7 @@ class MailQueueCountTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<queue name="$name" n="$count" />
+<result name="$name" n="$count" />
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($queue, 'xml'));
         $this->assertEquals($queue, $this->serializer->deserialize($xml, MailQueueCount::class, 'xml'));

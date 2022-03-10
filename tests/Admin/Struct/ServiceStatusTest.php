@@ -35,7 +35,7 @@ class ServiceStatusTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<status server="$server" service="$service" t="$time">1</status>
+<result server="$server" service="$service" t="$time">1</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($status, 'xml'));
         $this->assertEquals($status, $this->serializer->deserialize($xml, ServiceStatus::class, 'xml'));

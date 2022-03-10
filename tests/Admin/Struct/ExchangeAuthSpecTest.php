@@ -41,7 +41,7 @@ class ExchangeAuthSpecTest extends ZimbraTestCase
         $scheme = AuthScheme::FORM()->getValue();
         $xml = <<<EOT
 <?xml version="1.0"?>
-<auth url="$url" user="$user" pass="$pass" scheme="$scheme" type="$type" />
+<result url="$url" user="$user" pass="$pass" scheme="$scheme" type="$type" />
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($auth, 'xml'));
         $this->assertEquals($auth, $this->serializer->deserialize($xml, ExchangeAuthSpec::class, 'xml'));

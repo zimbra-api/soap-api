@@ -37,7 +37,7 @@ class CmdRightsInfoTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<cmd name="$name">
+<result name="$name">
     <rights>
         <right name="$name" />
     </rights>
@@ -45,7 +45,7 @@ class CmdRightsInfoTest extends ZimbraTestCase
         <note>$note1</note>
         <note>$note2</note>
     </desc>
-</cmd>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($cmd, 'xml'));
         $this->assertEquals($cmd, $this->serializer->deserialize($xml, CmdRightsInfo::class, 'xml'));

@@ -29,9 +29,9 @@ class AdminZimletGlobalConfigInfoTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<global>
+<result>
     <property name="$name">$value</property>
-</global>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($global, 'xml'));
         $this->assertEquals($global, $this->serializer->deserialize($xml, AdminZimletGlobalConfigInfo::class, 'xml'));

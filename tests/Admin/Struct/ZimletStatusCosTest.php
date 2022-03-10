@@ -33,9 +33,9 @@ class ZimletStatusCosTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<cos name="$name">
+<result name="$name">
     <zimlet name="$name" status="enabled" extension="true" priority="$priority" />
-</cos>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($cos, 'xml'));
         $this->assertEquals($cos, $this->serializer->deserialize($xml, ZimletStatusCos::class, 'xml'));

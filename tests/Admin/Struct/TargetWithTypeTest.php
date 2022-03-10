@@ -26,7 +26,7 @@ class TargetWithTypeTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<target type="$type">$value</target>
+<result type="$type">$value</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($target, 'xml'));
         $this->assertEquals($target, $this->serializer->deserialize($xml, TargetWithType::class, 'xml'));

@@ -46,7 +46,7 @@ class EffectiveRightsTargetInfoTest extends ZimbraTestCase
         $type = TargetType::DOMAIN()->getValue();
         $xml = <<<EOT
 <?xml version="1.0"?>
-<target type="$type" id="$id" name="$name">
+<result type="$type" id="$id" name="$name">
     <right n="$name" />
     <setAttrs all="true">
         <a n="$name">
@@ -80,7 +80,7 @@ class EffectiveRightsTargetInfoTest extends ZimbraTestCase
             </default>
         </a>
     </getAttrs>
-</target>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($target, 'xml'));
         $this->assertEquals($target, $this->serializer->deserialize($xml, EffectiveRightsTargetInfo::class, 'xml'));

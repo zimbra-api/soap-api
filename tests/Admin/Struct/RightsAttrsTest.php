@@ -24,9 +24,9 @@ class RightsAttrsTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<attrs all="true">
+<result all="true">
     <a n="$key">$value</a>
-</attrs>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($attrs, 'xml'));
         $this->assertEquals($attrs, $this->serializer->deserialize($xml, RightsAttrs::class, 'xml'));

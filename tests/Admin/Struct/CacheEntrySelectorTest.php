@@ -28,7 +28,7 @@ class CacheEntrySelectorTest extends ZimbraTestCase
         $by = CacheEntryBy::ID()->getValue();
         $xml = <<<EOT
 <?xml version="1.0"?>
-<entry by="$by">$value</entry>
+<result by="$by">$value</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($entry, 'xml'));
         $this->assertEquals($entry, $this->serializer->deserialize($xml, CacheEntrySelector::class, 'xml'));

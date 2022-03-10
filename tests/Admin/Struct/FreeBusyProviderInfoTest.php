@@ -42,7 +42,7 @@ class FreeBusyProviderInfoTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<provider name="$name" propagate="true" start="$start" end="$end" queue="$queue" prefix="$prefix" />
+<result name="$name" propagate="true" start="$start" end="$end" queue="$queue" prefix="$prefix" />
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($provider, 'xml'));
         $this->assertEquals($provider, $this->serializer->deserialize($xml, FreeBusyProviderInfo::class, 'xml'));

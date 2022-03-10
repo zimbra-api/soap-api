@@ -37,7 +37,7 @@ class AccountQuotaInfoTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<account name="$name" id="$id" used="$quotaUsed" limit="$quotaLimit" />
+<result name="$name" id="$id" used="$quotaUsed" limit="$quotaLimit" />
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($account, 'xml'));
         $this->assertEquals($account, $this->serializer->deserialize($xml, AccountQuotaInfo::class, 'xml'));

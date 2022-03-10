@@ -43,13 +43,13 @@ class MailQueueQueryTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<queue name="$name" scan="true" wait="$wait">
+<result name="$name" scan="true" wait="$wait">
     <query limit="$limit" offset="$offset">
         <field name="$name">
             <match value="$value" />
         </field>
     </query>
-</queue>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($queue, 'xml'));
         $this->assertEquals($queue, $this->serializer->deserialize($xml, MailQueueQuery::class, 'xml'));

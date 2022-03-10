@@ -75,7 +75,7 @@ class TzFixupTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<tzfixup>
+<result>
     <fixupRule>
         <match>
             <any />
@@ -99,7 +99,7 @@ class TzFixupTest extends ZimbraTestCase
             </tz>
         </replace>
     </fixupRule>
-</tzfixup>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($tzfixup, 'xml'));
         $this->assertEquals($tzfixup, $this->serializer->deserialize($xml, TzFixup::class, 'xml'));

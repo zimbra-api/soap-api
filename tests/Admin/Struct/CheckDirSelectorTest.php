@@ -25,7 +25,7 @@ class CheckDirSelectorTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<directory path="$path" create="true" />
+<result path="$path" create="true" />
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($dir, 'xml'));
         $this->assertEquals($dir, $this->serializer->deserialize($xml, CheckDirSelector::class, 'xml'));

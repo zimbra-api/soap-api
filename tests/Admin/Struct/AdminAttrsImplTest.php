@@ -2,7 +2,6 @@
 
 namespace Zimbra\Tests\Admin\Struct;
 
-use JMS\Serializer\Annotation\XmlRoot;
 use Zimbra\Tests\ZimbraTestCase;
 use Zimbra\Admin\Struct\AdminAttrsImpl;
 use Zimbra\Admin\Struct\Attr;
@@ -33,11 +32,11 @@ class AdminAttrsImplTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<stub>
+<result>
     <a n="$key1">$value1</a>
     <a n="$key2">$value2</a>
     <a n="$key3">$value3</a>
-</stub>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($stub, 'xml'));
         $this->assertEquals($stub, $this->serializer->deserialize($xml, StubAdminAttrsImpl::class, 'xml'));
@@ -63,9 +62,6 @@ EOT;
     }
 }
 
-/**
- * @XmlRoot(name="stub")
- */
 class StubAdminAttrsImpl extends AdminAttrsImpl
 {
 }

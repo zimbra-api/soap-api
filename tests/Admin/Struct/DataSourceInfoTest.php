@@ -35,9 +35,9 @@ class DataSourceInfoTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<dataSource name="$name" id="$id" type="pop3">
+<result name="$name" id="$id" type="pop3">
     <a n="$key">$value</a>
-</dataSource>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($ds, 'xml'));
         $this->assertEquals($ds, $this->serializer->deserialize($xml, DataSourceInfo::class, 'xml'));

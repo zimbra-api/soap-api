@@ -22,7 +22,7 @@ class AdminZimletIncludeTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<include>$value</include>
+<result>$value</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($include, 'xml'));
         $this->assertEquals($include, $this->serializer->deserialize($xml, AdminZimletInclude::class, 'xml'));

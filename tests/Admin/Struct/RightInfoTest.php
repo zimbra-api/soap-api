@@ -56,7 +56,7 @@ class RightInfoTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<right name="$name" type="preset" targetType="$targetType" rightClass="ALL">
+<result name="$name" type="preset" targetType="$targetType" rightClass="ALL">
     <desc>$desc</desc>
     <attrs all="true">
         <a n="$key">$value</a>
@@ -64,7 +64,7 @@ class RightInfoTest extends ZimbraTestCase
     <rights>
         <r n="$name" type="preset" targetType="$targetType" />
     </rights>
-</right>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($right, 'xml'));
         $this->assertEquals($right, $this->serializer->deserialize($xml, RightInfo::class, 'xml'));

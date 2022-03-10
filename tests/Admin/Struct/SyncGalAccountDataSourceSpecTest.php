@@ -34,7 +34,7 @@ class SyncGalAccountDataSourceSpecTest extends ZimbraTestCase
         $by = DataSourceBy::NAME()->getValue();
         $xml = <<<EOT
 <?xml version="1.0"?>
-<datasource by="$by" fullSync="true" reset="false">$value</datasource>
+<result by="$by" fullSync="true" reset="false">$value</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($ds, 'xml'));
         $this->assertEquals($ds, $this->serializer->deserialize($xml, SyncGalAccountDataSourceSpec::class, 'xml'));

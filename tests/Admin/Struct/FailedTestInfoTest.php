@@ -35,7 +35,7 @@ class FailedTestInfoTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<failure name="$name" execSeconds="$execSeconds" class="$className">$throwable</failure>
+<result name="$name" execSeconds="$execSeconds" class="$className">$throwable</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($failure, 'xml'));
         $this->assertEquals($failure, $this->serializer->deserialize($xml, FailedTestInfo::class, 'xml'));

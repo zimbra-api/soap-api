@@ -27,7 +27,7 @@ class DistributionListSelectorTest extends ZimbraTestCase
         $by = DLBy::NAME()->getValue();
         $xml = <<<EOT
 <?xml version="1.0"?>
-<dl by="$by">$value</dl>
+<result by="$by">$value</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($dl, 'xml'));
         $this->assertEquals($dl, $this->serializer->deserialize($xml, DistributionListSelector::class, 'xml'));

@@ -20,9 +20,9 @@ class NetworkInformationTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<ni>
+<result>
     <a n="$key">$value</a>
-</ni>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($ni, 'xml'));
         $this->assertEquals($ni, $this->serializer->deserialize($xml, NetworkInformation::class, 'xml'));

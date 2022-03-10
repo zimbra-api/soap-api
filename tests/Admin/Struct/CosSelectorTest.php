@@ -27,7 +27,7 @@ class CosSelectorTest extends ZimbraTestCase
         $by = CosBy::NAME()->getValue();
         $xml = <<<EOT
 <?xml version="1.0"?>
-<cos by="$by">$value</cos>
+<result by="$by">$value</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($cos, 'xml'));
         $this->assertEquals($cos, $this->serializer->deserialize($xml, CosSelector::class, 'xml'));
