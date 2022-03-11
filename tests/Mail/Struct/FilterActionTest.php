@@ -23,7 +23,7 @@ class FilterActionTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<action index="$index" />
+<result index="$index" />
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($action, 'xml'));
         $this->assertEquals($action, $this->serializer->deserialize($xml, FilterAction::class, 'xml'));

@@ -59,10 +59,10 @@ class CalTZInfoTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<tz id="$id" stdoff="$tzStdOffset" dayoff="$tzDayOffset" stdname="$standardTZName" dayname="$daylightTZName">
+<result id="$id" stdoff="$tzStdOffset" dayoff="$tzDayOffset" stdname="$standardTZName" dayname="$daylightTZName">
     <standard mon="$mon" hour="$hour" min="$min" sec="$sec" mday="$mday" week="$week" wkday="$wkday" />
     <daylight mon="$mon" hour="$hour" min="$min" sec="$sec" mday="$mday" week="$week" wkday="$wkday" />
-</tz>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($tz, 'xml'));
         $this->assertEquals($tz, $this->serializer->deserialize($xml, CalTZInfo::class, 'xml'));

@@ -63,7 +63,7 @@ class RecurrenceInfoTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<recur>
+<result>
     <add>
         <rule freq="HOU"/>
     </add>
@@ -74,7 +74,7 @@ class RecurrenceInfoTest extends ZimbraTestCase
     <cancel rangeType="$recurrenceRangeType" recurId="$recurrenceId" tz="$timezone" ridZ="$recurIdZ" />
     <dates tz="$timezone" />
     <rule freq="HOU"/>
-</recur>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($recur, 'xml'));
         $this->assertEquals($recur, $this->serializer->deserialize($xml, RecurrenceInfo::class, 'xml'));

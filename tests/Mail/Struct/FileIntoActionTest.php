@@ -27,7 +27,7 @@ class FileIntoActionTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<actionFileInto index="$index" folderPath="$folder" copy="true" />
+<result index="$index" folderPath="$folder" copy="true" />
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($action, 'xml'));
         $this->assertEquals($action, $this->serializer->deserialize($xml, FileIntoAction::class, 'xml'));

@@ -10,7 +10,7 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlElement, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
 
 /**
  * CreateItemNotification class
@@ -20,8 +20,6 @@ use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlEl
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020 by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="created")
  */
 class CreateItemNotification
 {

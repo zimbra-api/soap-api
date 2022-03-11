@@ -10,8 +10,10 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlElement, XmlRoot};
-use Zimbra\Enum\{AddressPart, ComparisonComparator, CountComparison, StringComparison, ValueComparison};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
+use Zimbra\Enum\{
+    AddressPart, ComparisonComparator, CountComparison, StringComparison, ValueComparison
+};
 
 /**
  * AddressTest struct class
@@ -21,8 +23,6 @@ use Zimbra\Enum\{AddressPart, ComparisonComparator, CountComparison, StringCompa
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="addressTest")
  */
 class AddressTest extends FilterTest
 {

@@ -95,7 +95,7 @@ class InviteAsMPTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<msg id="$id" part="$part" sd="$sentDate">
+<result id="$id" part="$part" sd="$sentDate">
     <e a="$address" d="$display" p="$personal" t="t" />
     <su>$subject</su>
     <mid>$messageIdHeader</mid>
@@ -110,7 +110,7 @@ class InviteAsMPTest extends ZimbraTestCase
     <dlSubs truncated="true">
         <content>$content</content>
     </dlSubs>
-</msg>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($msg, 'xml'));
         $this->assertEquals($msg, $this->serializer->deserialize($xml, InviteAsMP::class, 'xml'));

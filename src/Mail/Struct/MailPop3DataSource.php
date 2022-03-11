@@ -10,7 +10,7 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
 use Zimbra\Struct\Pop3DataSource;
 
 /**
@@ -21,8 +21,6 @@ use Zimbra\Struct\Pop3DataSource;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="pop3")
  */
 class MailPop3DataSource extends MailDataSource implements Pop3DataSource
 {

@@ -31,7 +31,7 @@ class RawInviteTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<invite uid="$uid" summary="$summary">$content</invite>
+<result uid="$uid" summary="$summary">$content</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($invite, 'xml'));
         $this->assertEquals($invite, $this->serializer->deserialize($xml, RawInvite::class, 'xml'));

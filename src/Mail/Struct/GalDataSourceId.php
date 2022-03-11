@@ -10,7 +10,6 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\XmlRoot;
 use Zimbra\Struct\Id;
 
 /**
@@ -21,7 +20,6 @@ use Zimbra\Struct\Id;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020 by Nguyen Van Nguyen.
- * @XmlRoot(name="gal")
  */
 class GalDataSourceId extends Id
 {

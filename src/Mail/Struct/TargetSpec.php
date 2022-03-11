@@ -10,9 +10,8 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlValue, XmlRoot};
-use Zimbra\Enum\AccountBy;
-use Zimbra\Enum\TargetType;
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlValue};
+use Zimbra\Enum\{AccountBy, TargetType};
 
 /**
  * TargetSpec class
@@ -23,8 +22,6 @@ use Zimbra\Enum\TargetType;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="target")
  */
 class TargetSpec
 {

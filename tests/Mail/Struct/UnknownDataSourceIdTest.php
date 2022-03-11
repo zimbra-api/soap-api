@@ -19,7 +19,7 @@ class UnknownDataSourceIdTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<unknown id="$id" />
+<result id="$id" />
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($unknown, 'xml'));
         $this->assertEquals($unknown, $this->serializer->deserialize($xml, UnknownDataSourceId::class, 'xml'));

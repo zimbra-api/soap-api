@@ -28,7 +28,7 @@ class FreeBusyUserStatusTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<usr name="$name" fb="F" />
+<result name="$name" fb="F" />
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($usr, 'xml'));
         $this->assertEquals($usr, $this->serializer->deserialize($xml, FreeBusyUserStatus::class, 'xml'));

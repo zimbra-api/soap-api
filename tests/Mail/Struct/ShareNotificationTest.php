@@ -20,9 +20,9 @@ class ShareNotificationTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<shr truncated="true">
+<result truncated="true">
     <content>$content</content>
-</shr>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($shr, 'xml'));
         $this->assertEquals($shr, $this->serializer->deserialize($xml, ShareNotification::class, 'xml'));

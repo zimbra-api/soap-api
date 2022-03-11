@@ -65,10 +65,10 @@ class PartInfoTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<mp part="$part" ct="$contentType" s="$size" cd="$contentDisposition" filename="$contentFilename" ci="$contentId" cl="$location" body="true" truncated="true">
+<result part="$part" ct="$contentType" s="$size" cd="$contentDisposition" filename="$contentFilename" ci="$contentId" cl="$location" body="true" truncated="true">
     <content>$content</content>
     <mp part="$part" ct="$contentType" />
-</mp>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($mp, 'xml'));
         $this->assertEquals($mp, $this->serializer->deserialize($xml, PartInfo::class, 'xml'));

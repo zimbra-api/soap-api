@@ -84,7 +84,7 @@ class AlarmInfoTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<alarm action="DISPLAY">
+<result action="DISPLAY">
     <trigger>
         <abs d="$date" />
         <rel w="$weeks" d="$days" h="$hours" m="$minutes" s="$seconds" />
@@ -99,7 +99,7 @@ class AlarmInfoTest extends ZimbraTestCase
     <xprop name="$name" value="$value">
         <xparam name="$name" value="$value" />
     </xprop>
-</alarm>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($alarm, 'xml'));
         $this->assertEquals($alarm, $this->serializer->deserialize($xml, AlarmInfo::class, 'xml'));

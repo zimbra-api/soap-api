@@ -35,7 +35,7 @@ class RecurIdInfoTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<recurId rangeType="$recurrenceRangeType" recurId="$recurrenceId" tz="$timezone" ridZ="$recurIdZ" />
+<result rangeType="$recurrenceRangeType" recurId="$recurrenceId" tz="$timezone" ridZ="$recurIdZ" />
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($recurId, 'xml'));
         $this->assertEquals($recurId, $this->serializer->deserialize($xml, RecurIdInfo::class, 'xml'));

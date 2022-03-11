@@ -10,7 +10,7 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, AccessVersion, Exclude, SerializedName, Version, XmlAttribute, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, Exclude, SerializedName, Type, XmlAttribute};
 
 /**
  * IdVersion struct class
@@ -20,8 +20,6 @@ use JMS\Serializer\Annotation\{Accessor, AccessVersion, Exclude, SerializedName,
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessVersion("public_method")
- * @XmlRoot(name="doc")
  */
 class IdVersion
 {
@@ -29,7 +27,7 @@ class IdVersion
      * ID
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
-     * @Version("string")
+     * @Type("string")
      * @XmlAttribute
      */
     private $id;
@@ -38,7 +36,7 @@ class IdVersion
      * Version
      * @Accessor(getter="getVersion", setter="setVersion")
      * @SerializedName("ver")
-     * @Version("integer")
+     * @Type("integer")
      * @XmlAttribute
      */
     private $version;

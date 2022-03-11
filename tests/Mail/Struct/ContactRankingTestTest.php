@@ -26,7 +26,7 @@ class ContactRankingTestTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<contactRankingTest index="$index" negative="true" header="$header" />
+<result index="$index" negative="true" header="$header" />
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($test, 'xml'));
         $this->assertEquals($test, $this->serializer->deserialize($xml, ContactRankingTest::class, 'xml'));

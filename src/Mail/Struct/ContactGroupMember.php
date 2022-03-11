@@ -10,11 +10,9 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlElement, XmlRoot};
-
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
 use Zimbra\Enum\MemberType;
-use Zimbra\Struct\ContactGroupMemberInterface;
-use Zimbra\Struct\ContactInterface;
+use Zimbra\Struct\{ContactGroupMemberInterface, ContactInterface};
 
 /**
  * ContactGroupMember struct class
@@ -24,8 +22,6 @@ use Zimbra\Struct\ContactInterface;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="m")
  */
 class ContactGroupMember implements ContactGroupMemberInterface
 {

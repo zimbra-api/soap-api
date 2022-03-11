@@ -29,9 +29,9 @@ class ByDayRuleTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<byday>
+<result>
     <wkday day="SU" ordwk="$ordWk" />
-</byday>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($byday, 'xml'));
         $this->assertEquals($byday, $this->serializer->deserialize($xml, ByDayRule::class, 'xml'));

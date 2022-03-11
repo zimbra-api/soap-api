@@ -71,7 +71,7 @@ class ActionSelectorTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<action id="$ids" op="$operation" tcon="$constraint" tag="$tag" l="$folder" rgb="$rgb" color="$color" name="$name" f="$flags" t="$tags" tn="$tagNames" nei="true" nci="true" />
+<result id="$ids" op="$operation" tcon="$constraint" tag="$tag" l="$folder" rgb="$rgb" color="$color" name="$name" f="$flags" t="$tags" tn="$tagNames" nei="true" nci="true" />
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($action, 'xml'));
         $this->assertEquals($action, $this->serializer->deserialize($xml, ActionSelector::class, 'xml'));

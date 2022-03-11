@@ -27,7 +27,7 @@ class FilterVariableTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<filterVariable name="$name" value="$value" />
+<result name="$name" value="$value" />
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($variable, 'xml'));
         $this->assertEquals($variable, $this->serializer->deserialize($xml, FilterVariable::class, 'xml'));

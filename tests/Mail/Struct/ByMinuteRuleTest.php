@@ -26,7 +26,7 @@ class ByMinuteRuleTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<byminute minlist="$list" />
+<result minlist="$list" />
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($rule, 'xml'));
         $this->assertEquals($rule, $this->serializer->deserialize($xml, ByMinuteRule::class, 'xml'));

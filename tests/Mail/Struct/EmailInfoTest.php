@@ -40,7 +40,7 @@ class EmailInfoTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<email a="$address" d="$display" p="$personal" t="t" isGroup="true" exp="true" />
+<result a="$address" d="$display" p="$personal" t="t" isGroup="true" exp="true" />
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($email, 'xml'));
         $this->assertEquals($email, $this->serializer->deserialize($xml, EmailInfo::class, 'xml'));

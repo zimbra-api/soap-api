@@ -42,7 +42,7 @@ class CalendarReplyTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<reply rangeType="$recurrenceRangeType" recurId="$recurrenceId" seq="$seq" d="$date" at="$attendee" sentBy="$sentBy" ptst="AC" />
+<result rangeType="$recurrenceRangeType" recurId="$recurrenceId" seq="$seq" d="$date" at="$attendee" sentBy="$sentBy" ptst="AC" />
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($reply, 'xml'));
         $this->assertEquals($reply, $this->serializer->deserialize($xml, CalendarReply::class, 'xml'));

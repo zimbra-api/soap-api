@@ -24,9 +24,9 @@ class ReplyActionTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<actionReply index="$index">
+<result index="$index">
     <content>$content</content>
-</actionReply>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($action, 'xml'));
         $this->assertEquals($action, $this->serializer->deserialize($xml, ReplyAction::class, 'xml'));

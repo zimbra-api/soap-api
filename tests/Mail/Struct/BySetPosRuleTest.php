@@ -27,7 +27,7 @@ class BySetPosRuleTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<bysetpos poslist="$list" />
+<result poslist="$list" />
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($rule, 'xml'));
         $this->assertEquals($rule, $this->serializer->deserialize($xml, BySetPosRule::class, 'xml'));

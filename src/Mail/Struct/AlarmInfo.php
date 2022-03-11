@@ -10,14 +10,16 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlElement, XmlList, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement, XmlList};
 use Zimbra\Enum\AlarmAction;
-use Zimbra\Struct\AlarmInfoInterface;
-use Zimbra\Struct\AlarmTriggerInfoInterface;
-use Zimbra\Struct\CalendarAttachInterface;
-use Zimbra\Struct\CalendarAttendeeInterface;
-use Zimbra\Struct\DurationInfoInterface;
-use Zimbra\Struct\XPropInterface;
+use Zimbra\Struct\{
+    AlarmInfoInterface,
+    AlarmTriggerInfoInterface,
+    CalendarAttachInterface,
+    CalendarAttendeeInterface,
+    DurationInfoInterface,
+    XPropInterface
+};
 
 /**
  * AlarmInfo class
@@ -28,8 +30,6 @@ use Zimbra\Struct\XPropInterface;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="alarm")
  */
 class AlarmInfo implements AlarmInfoInterface
 {

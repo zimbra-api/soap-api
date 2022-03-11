@@ -35,12 +35,12 @@ class ChatSummaryTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<chat id="$id" autoSendTime="$autoSendTime">
+<result id="$id" autoSendTime="$autoSendTime">
     <e a="$address" d="$display" p="$personal" t="t" />
     <su>$subject</su>
     <fr>$fragment</fr>
     <inv type="task" />
-</chat>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($chat, 'xml'));
         $this->assertEquals($chat, $this->serializer->deserialize($xml, ChatSummary::class, 'xml'));

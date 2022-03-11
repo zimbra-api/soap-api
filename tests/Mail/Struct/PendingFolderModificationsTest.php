@@ -61,7 +61,7 @@ class PendingFolderModificationsTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<mods id="$folderId">
+<result id="$folderId">
     <created>
         <m id="$id" i4uid="$imapUid" t="$type" f="$flags" tn="$tags" />
     </created>
@@ -74,7 +74,7 @@ class PendingFolderModificationsTest extends ZimbraTestCase
         <name>$name</name>
     </modTags>
     <modFolders id="$folderId" path="$path" change="$changeBitmask" />
-</mods>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($mods, 'xml'));
         $this->assertEquals($mods, $this->serializer->deserialize($xml, PendingFolderModifications::class, 'xml'));

@@ -32,14 +32,14 @@ class RetentionPolicyTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<retentionPolicy>
+<result>
     <keep>
         <policy type="system" id="$id" name="$name" lifetime="$lifetime" />
     </keep>
     <purge>
         <policy type="user" id="$id" name="$name" lifetime="$lifetime" />
     </purge>
-</retentionPolicy>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($retention, 'xml'));
         $this->assertEquals($retention, $this->serializer->deserialize($xml, RetentionPolicy::class, 'xml'));

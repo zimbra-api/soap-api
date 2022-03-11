@@ -27,7 +27,7 @@ class AddedCommentTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<comment parentId="$parentId" text="$text" />
+<result parentId="$parentId" text="$text" />
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($comment, 'xml'));
         $this->assertEquals($comment, $this->serializer->deserialize($xml, AddedComment::class, 'xml'));

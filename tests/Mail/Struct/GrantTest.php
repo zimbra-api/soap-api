@@ -50,7 +50,7 @@ class GrantTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<grant perm="$perm" gt="usr" zid="$granteeId" expiry="$expiry" d="$granteeName" pw="$guestPassword" key="$accessKey" />
+<result perm="$perm" gt="usr" zid="$granteeId" expiry="$expiry" d="$granteeName" pw="$guestPassword" key="$accessKey" />
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($grant, 'xml'));
         $this->assertEquals($grant, $this->serializer->deserialize($xml, Grant::class, 'xml'));

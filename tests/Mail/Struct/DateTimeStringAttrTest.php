@@ -23,7 +23,7 @@ class DateTimeStringAttrTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<attr d="$date" />
+<result d="$date" />
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($attr, 'xml'));
         $this->assertEquals($attr, $this->serializer->deserialize($xml, DateTimeStringAttr::class, 'xml'));

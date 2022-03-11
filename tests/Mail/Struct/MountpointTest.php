@@ -43,7 +43,7 @@ class MountpointTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<link id="$id" uuid="$uuid" owner="$ownerEmail" zid="$ownerAccountId" rid="$remoteFolderId" ruuid="$remoteUuid" oname="$remoteFolderName" reminder="true" broken="true" />
+<result id="$id" uuid="$uuid" owner="$ownerEmail" zid="$ownerAccountId" rid="$remoteFolderId" ruuid="$remoteUuid" oname="$remoteFolderName" reminder="true" broken="true" />
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($link, 'xml'));
         $this->assertEquals($link, $this->serializer->deserialize($xml, Mountpoint::class, 'xml'));

@@ -35,9 +35,9 @@ class BounceMsgSpecTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<msg id="$id">
+<result id="$id">
     <e a="$address" t="t" p="$personal" />
-</msg>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($msg, 'xml'));
         $this->assertEquals($msg, $this->serializer->deserialize($xml, BounceMsgSpec::class, 'xml'));

@@ -10,13 +10,9 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlElement, XmlList, XmlRoot};
-
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement, XmlList};
 use Zimbra\Enum\InviteType;
-
-use Zimbra\Struct\CalendarReplyInterface;
-use Zimbra\Struct\CalTZInfoInterface;
-use Zimbra\Struct\InviteComponentInterface;
+use Zimbra\Struct\{CalendarReplyInterface, CalTZInfoInterface, InviteComponentInterface};
 
 /**
  * MPInviteInfo class
@@ -27,8 +23,6 @@ use Zimbra\Struct\InviteComponentInterface;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="inv")
  */
 class MPInviteInfo
 {

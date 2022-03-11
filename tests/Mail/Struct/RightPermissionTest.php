@@ -26,7 +26,7 @@ class RightPermissionTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<right allow="true">$rightName</right>
+<result allow="true">$rightName</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($right, 'xml'));
         $this->assertEquals($right, $this->serializer->deserialize($xml, RightPermission::class, 'xml'));

@@ -23,7 +23,7 @@ class IntervalRuleTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<interval ival="$ival" />
+<result ival="$ival" />
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($rule, 'xml'));
         $this->assertEquals($rule, $this->serializer->deserialize($xml, IntervalRule::class, 'xml'));

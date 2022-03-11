@@ -24,7 +24,7 @@ class ErejectActionTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<actionEreject index="$index">$content</actionEreject>
+<result index="$index">$content</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($action, 'xml'));
         $this->assertEquals($action, $this->serializer->deserialize($xml, ErejectAction::class, 'xml'));

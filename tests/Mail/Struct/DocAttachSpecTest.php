@@ -32,7 +32,7 @@ class DocAttachSpecTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<doc path="$path" id="$id" ver="$version" optional="true" />
+<result path="$path" id="$id" ver="$version" optional="true" />
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($spec, 'xml'));
         $this->assertEquals($spec, $this->serializer->deserialize($xml, DocAttachSpec::class, 'xml'));

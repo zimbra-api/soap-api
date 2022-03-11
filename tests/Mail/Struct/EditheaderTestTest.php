@@ -45,10 +45,10 @@ class EditheaderTestTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<test matchType="contains" countComparator="true" valueComparator="true" relationalComparator="eq" comparator="i;ascii-numeric">
+<result matchType="contains" countComparator="true" valueComparator="true" relationalComparator="eq" comparator="i;ascii-numeric">
     <headerName>$headerName</headerName>
     <headerValue>$headerValue</headerValue>
-</test>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($test, 'xml'));
         $this->assertEquals($test, $this->serializer->deserialize($xml, EditheaderTest::class, 'xml'));

@@ -19,7 +19,7 @@ class RssDataSourceIdTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<rss id="$id" />
+<result id="$id" />
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($rss, 'xml'));
         $this->assertEquals($rss, $this->serializer->deserialize($xml, RssDataSourceId::class, 'xml'));

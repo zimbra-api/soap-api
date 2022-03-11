@@ -50,7 +50,7 @@ class ActionGrantSelectorTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<grant perm="$rights" gt="usr" zid="$zimbraId" d="$displayName" args="$args" pw="$password" key="$accessKey" />
+<result perm="$rights" gt="usr" zid="$zimbraId" d="$displayName" args="$args" pw="$password" key="$accessKey" />
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($grant, 'xml'));
         $this->assertEquals($grant, $this->serializer->deserialize($xml, ActionGrantSelector::class, 'xml'));

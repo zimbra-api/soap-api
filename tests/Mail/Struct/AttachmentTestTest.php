@@ -20,7 +20,7 @@ class AttachmentTestTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<attachmentTest index="$index" negative="true" />
+<result index="$index" negative="true" />
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($test, 'xml'));
         $this->assertEquals($test, $this->serializer->deserialize($xml, AttachmentTest::class, 'xml'));

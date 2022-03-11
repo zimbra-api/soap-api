@@ -107,7 +107,7 @@ class InviteComponentCommonTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<inv method="$method" compNum="$componentNum" rsvp="true" priority="$priority" name="$name" loc="$location" percentComplete="$percentComplete" completed="$completed" noBlob="true" fba="F" fb="B" transp="O" isOrg="true" x_uid="$xUid" uid="$uid" seq="$sequence" d="$dateTime" calItemId="$calItemId" apptId="$deprecatedApptId" ciFolder="$calItemFolder" status="CONF" class="PUB" url="$url" ex="true" ridZ="$recurIdZ" allDay="true" draft="true" neverSent="true" changes="$changes" />
+<result method="$method" compNum="$componentNum" rsvp="true" priority="$priority" name="$name" loc="$location" percentComplete="$percentComplete" completed="$completed" noBlob="true" fba="F" fb="B" transp="O" isOrg="true" x_uid="$xUid" uid="$uid" seq="$sequence" d="$dateTime" calItemId="$calItemId" apptId="$deprecatedApptId" ciFolder="$calItemFolder" status="CONF" class="PUB" url="$url" ex="true" ridZ="$recurIdZ" allDay="true" draft="true" neverSent="true" changes="$changes" />
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($inv, 'xml'));
         $this->assertEquals($inv, $this->serializer->deserialize($xml, InviteComponentCommon::class, 'xml'));

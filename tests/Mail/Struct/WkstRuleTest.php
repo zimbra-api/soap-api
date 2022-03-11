@@ -24,7 +24,7 @@ class WkstRuleTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<wkst day="SU" />
+<result day="SU" />
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($wkst, 'xml'));
         $this->assertEquals($wkst, $this->serializer->deserialize($xml, WkstRule::class, 'xml'));

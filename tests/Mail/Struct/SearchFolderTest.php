@@ -35,7 +35,7 @@ class SearchFolderTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<search id="$id" uuid="$uuid" query="$query" sortBy="dateDesc" types="$types" />
+<result id="$id" uuid="$uuid" query="$query" sortBy="dateDesc" types="$types" />
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($search, 'xml'));
         $this->assertEquals($search, $this->serializer->deserialize($xml, SearchFolder::class, 'xml'));

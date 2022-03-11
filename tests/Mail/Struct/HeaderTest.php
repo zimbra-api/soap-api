@@ -27,7 +27,7 @@ class HeaderTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<header name="$name">$value</header>
+<result name="$name">$value</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($header, 'xml'));
         $this->assertEquals($header, $this->serializer->deserialize($xml, Header::class, 'xml'));

@@ -10,10 +10,8 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlElement, XmlRoot};
-use Zimbra\Struct\DtValInterface;
-use Zimbra\Struct\DtTimeInfoInterface;
-use Zimbra\Struct\DurationInfoInterface;
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
+use Zimbra\Struct\{DtTimeInfoInterface, DtValInterface, DurationInfoInterface};
 
 /**
  * DtVal struct class
@@ -24,8 +22,6 @@ use Zimbra\Struct\DurationInfoInterface;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="dtval")
  */
 class DtVal implements DtValInterface
 {

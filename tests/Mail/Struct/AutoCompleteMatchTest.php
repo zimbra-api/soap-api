@@ -81,7 +81,7 @@ class AutoCompleteMatchTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<match email="$email" type="gal" ranking="$ranking" isGroup="true" exp="true" id="$id" l="$folder" display="$displayName" first="$firstName" middle="$middleName" last="$lastName" full="$fullName" nick="$nickname" company="$company" fileas="$fileAs" />
+<result email="$email" type="gal" ranking="$ranking" isGroup="true" exp="true" id="$id" l="$folder" display="$displayName" first="$firstName" middle="$middleName" last="$lastName" full="$fullName" nick="$nickname" company="$company" fileas="$fileAs" />
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($match, 'xml'));
         $this->assertEquals($match, $this->serializer->deserialize($xml, AutoCompleteMatch::class, 'xml'));

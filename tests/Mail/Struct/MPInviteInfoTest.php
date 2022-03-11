@@ -60,13 +60,13 @@ class MPInviteInfoTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<inv type="task">
+<result type="task">
     <tz id="$id" stdoff="$tzStdOffset" dayoff="$tzDayOffset" />
     <replies>
         <reply rangeType="$recurrenceRangeType" recurId="$recurrenceId" seq="$seq" d="$date" at="$attendee" />
     </replies>
     <comp method="$method" compNum="$componentNum" rsvp="true" />
-</inv>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($inv, 'xml'));
         $this->assertEquals($inv, $this->serializer->deserialize($xml, MPInviteInfo::class, 'xml'));

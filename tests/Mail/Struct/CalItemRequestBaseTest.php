@@ -2,8 +2,6 @@
 
 namespace Zimbra\Tests\Mail\Struct;
 
-use JMS\Serializer\Annotation\XmlRoot;
-
 use Zimbra\Enum\AddressType;
 use Zimbra\Enum\ReplyType;
 
@@ -87,7 +85,7 @@ class CalItemRequestBaseTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<request echo="true" max="$maxSize" want="true" neuter="true" forcesend="true">
+<result echo="true" max="$maxSize" want="true" neuter="true" forcesend="true">
     <m aid="$id" origid="$origId" rt="r" idnt="$identityId" su="$subject" irt="$inReplyTo" l="$folderId" f="$flags">
         <header name="$name">$value</header>
         <content>$content</content>
@@ -98,7 +96,7 @@ class CalItemRequestBaseTest extends ZimbraTestCase
         <tz id="$id" stdoff="$tzStdOffset" dayoff="$tzDayOffset" />
         <fr>$fragment</fr>
     </m>
-</request>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($request, 'xml'));
         $this->assertEquals($request, $this->serializer->deserialize($xml, CalItemRequest::class, 'xml'));
@@ -164,9 +162,6 @@ EOT;
     }
 }
 
-/**
- * @XmlRoot(name="request")
- */
 class CalItemRequest extends CalItemRequestBase
 {
     protected function envelopeInit(): void

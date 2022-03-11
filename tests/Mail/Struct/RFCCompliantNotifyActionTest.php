@@ -40,9 +40,9 @@ class RFCCompliantNotifyActionTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<actionRFCCompliantNotify index="$index" from="$from" importance="$importance" options="$options" message="$message">
+<result index="$index" from="$from" importance="$importance" options="$options" message="$message">
     <method>$method</method>
-</actionRFCCompliantNotify>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($action, 'xml'));
         $this->assertEquals($action, $this->serializer->deserialize($xml, RFCCompliantNotifyAction::class, 'xml'));

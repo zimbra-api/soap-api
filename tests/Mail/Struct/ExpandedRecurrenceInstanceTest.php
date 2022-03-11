@@ -38,7 +38,7 @@ class ExpandedRecurrenceInstanceTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<inst s="$startTime" dur="$duration" allDay="true" tzo="$tzOffset" ridZ="$recurIdZ" />
+<result s="$startTime" dur="$duration" allDay="true" tzo="$tzOffset" ridZ="$recurIdZ" />
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($inst, 'xml'));
         $this->assertEquals($inst, $this->serializer->deserialize($xml, ExpandedRecurrenceInstance::class, 'xml'));

@@ -31,7 +31,7 @@ class InstanceRecurIdInfoTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<inst range="$range" d="$dateTime" tz="$timezone" />
+<result range="$range" d="$dateTime" tz="$timezone" />
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($inst, 'xml'));
         $this->assertEquals($inst, $this->serializer->deserialize($xml, InstanceRecurIdInfo::class, 'xml'));

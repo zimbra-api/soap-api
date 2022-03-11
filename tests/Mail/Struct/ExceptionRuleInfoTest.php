@@ -44,14 +44,14 @@ class ExceptionRuleInfoTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<except rangeType="$recurrenceRangeType" recurId="$recurrenceId" tz="$timezone" ridZ="$recurIdZ">
+<result rangeType="$recurrenceRangeType" recurId="$recurrenceId" tz="$timezone" ridZ="$recurIdZ">
     <add>
         <rule freq="HOU" />
     </add>
     <exclude>
         <rule freq="HOU" />
     </exclude>
-</except>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($except, 'xml'));
         $this->assertEquals($except, $this->serializer->deserialize($xml, ExceptionRuleInfo::class, 'xml'));

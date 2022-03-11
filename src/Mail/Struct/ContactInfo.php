@@ -10,12 +10,10 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlElement, XmlList, XmlRoot};
-use Zimbra\Struct\ContactAttr;
-use Zimbra\Struct\ContactGroupMemberInterface;
-use Zimbra\Struct\ContactInterface;
-use Zimbra\Struct\CustomMetadataInterface;
-use Zimbra\Struct\SearchHit;
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement, XmlList};
+use Zimbra\Struct\{
+    ContactAttr, ContactGroupMemberInterface, ContactInterface, CustomMetadataInterface, SearchHit
+};
 
 /**
  * ContactInfo struct class
@@ -25,8 +23,6 @@ use Zimbra\Struct\SearchHit;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="cn")
  */
 class ContactInfo implements ContactInterface, SearchHit
 {

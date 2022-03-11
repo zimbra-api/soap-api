@@ -48,9 +48,9 @@ class AclTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<acl internalGrantExpiry="$internalGrantExpiry" guestGrantExpiry="$guestGrantExpiry">
+<result internalGrantExpiry="$internalGrantExpiry" guestGrantExpiry="$guestGrantExpiry">
     <grant perm="$perm" gt="usr" zid="$granteeId" expiry="$expiry" d="$granteeName" pw="$guestPassword" key="$accessKey" />
-</acl>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($acl, 'xml'));
         $this->assertEquals($acl, $this->serializer->deserialize($xml, Acl::class, 'xml'));

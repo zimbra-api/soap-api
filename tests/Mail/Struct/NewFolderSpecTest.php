@@ -75,11 +75,11 @@ class NewFolderSpecTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<folder name="$name" view="conversation" f="$flags" color="$color" rgb="$rgb" url="$url" l="$parentFolderId" fie="true" sync="true">
+<result name="$name" view="conversation" f="$flags" color="$color" rgb="$rgb" url="$url" l="$parentFolderId" fie="true" sync="true">
     <acl>
         <grant perm="$rights" gt="usr" zid="$zimbraId" d="$displayName" args="$args" pw="$password" key="$accessKey" />
     </acl>
-</folder>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($folder, 'xml'));
         $this->assertEquals($folder, $this->serializer->deserialize($xml, NewFolderSpec::class, 'xml'));

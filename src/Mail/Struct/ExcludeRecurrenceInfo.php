@@ -10,7 +10,6 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\XmlRoot;
 use Zimbra\Struct\ExcludeRecurrenceInfoInterface;
 
 /**
@@ -21,7 +20,6 @@ use Zimbra\Struct\ExcludeRecurrenceInfoInterface;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @XmlRoot(name="exclude")
  */
 class ExcludeRecurrenceInfo extends RecurrenceInfo implements RecurRuleBase, ExcludeRecurrenceInfoInterface
 {

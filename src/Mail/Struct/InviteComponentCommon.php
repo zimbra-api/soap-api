@@ -10,12 +10,8 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlRoot};
-use Zimbra\Enum\FreeBusyStatus;
-use Zimbra\Enum\InviteChange;
-use Zimbra\Enum\InviteClass;
-use Zimbra\Enum\InviteStatus;
-use Zimbra\Enum\Transparency;
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
+use Zimbra\Enum\{FreeBusyStatus, InviteChange, InviteClass, InviteStatus, Transparency};
 use Zimbra\Struct\InviteComponentCommonInterface;
 
 /**
@@ -27,8 +23,6 @@ use Zimbra\Struct\InviteComponentCommonInterface;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="inv")
  */
 class InviteComponentCommon implements InviteComponentCommonInterface
 {

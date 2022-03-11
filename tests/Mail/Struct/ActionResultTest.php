@@ -35,7 +35,7 @@ class ActionResultTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<action id="$id" op="$operation" nei="$nonExistentIds" nci="$newlyCreatedIds" />
+<result id="$id" op="$operation" nei="$nonExistentIds" nci="$newlyCreatedIds" />
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($action, 'xml'));
         $this->assertEquals($action, $this->serializer->deserialize($xml, ActionResult::class, 'xml'));

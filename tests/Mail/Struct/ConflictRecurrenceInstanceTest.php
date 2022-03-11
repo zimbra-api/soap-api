@@ -38,9 +38,9 @@ class ConflictRecurrenceInstanceTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<inst s="$startTime" dur="$duration" allDay="true" tzo="$tzOffset" ridZ="$recurIdZ">
+<result s="$startTime" dur="$duration" allDay="true" tzo="$tzOffset" ridZ="$recurIdZ">
     <usr name="$name" fb="F" />
-</inst>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($inst, 'xml'));
         $this->assertEquals($inst, $this->serializer->deserialize($xml, ConflictRecurrenceInstance::class, 'xml'));

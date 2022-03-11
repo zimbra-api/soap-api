@@ -40,13 +40,13 @@ class ExpandedRecurrenceInviteTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<comp s="$startTime" e="$endTime">
+<result s="$startTime" e="$endTime">
     <exceptId range="$range" d="$dateTime" tz="$tz" />
     <dur w="$weeks" d="$days" h="$hours" m="$minutes" s="$seconds" />
     <recur>
         <rule freq="HOU"/>
     </recur>
-</comp>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($comp, 'xml'));
         $this->assertEquals($comp, $this->serializer->deserialize($xml, ExpandedRecurrenceInvite::class, 'xml'));

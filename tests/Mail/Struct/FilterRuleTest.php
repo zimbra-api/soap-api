@@ -347,7 +347,7 @@ class FilterRuleTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<filterRule name="$name" active="true">
+<result name="$name" active="true">
     <filterVariables index="$index">
         <filterVariable name="$name" value="$value" />
     </filterVariables>
@@ -428,7 +428,7 @@ class FilterRuleTest extends ZimbraTestCase
     <nestedRule>
         <filterTests condition="allof" />
     </nestedRule>
-</filterRule>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($filterRule, 'xml'));
         $this->assertEquals($filterRule, $this->serializer->deserialize($xml, FilterRule::class, 'xml'));

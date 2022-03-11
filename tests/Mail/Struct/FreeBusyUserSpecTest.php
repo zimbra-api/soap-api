@@ -31,7 +31,7 @@ class FreeBusyUserSpecTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<usr l="$folderId" id="$id" name="$name" />
+<result l="$folderId" id="$id" name="$name" />
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($usr, 'xml'));
         $this->assertEquals($usr, $this->serializer->deserialize($xml, FreeBusyUserSpec::class, 'xml'));

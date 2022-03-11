@@ -30,7 +30,7 @@ class CurrentTimeTestTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<currentTimeTest index="$index" negative="true" dateComparison="before" time="$time" />
+<result index="$index" negative="true" dateComparison="before" time="$time" />
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($test, 'xml'));
         $this->assertEquals($test, $this->serializer->deserialize($xml, CurrentTimeTest::class, 'xml'));

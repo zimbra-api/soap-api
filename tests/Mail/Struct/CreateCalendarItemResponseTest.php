@@ -102,7 +102,7 @@ class CreateCalendarItemResponseTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<response calItemId="$calItemId" apptId="$deprecatedApptId" invId="$calInvId" ms="$modifiedSequence" rev="$revision">
+<result calItemId="$calItemId" apptId="$deprecatedApptId" invId="$calInvId" ms="$modifiedSequence" rev="$revision">
     <m id="$id" />
     <echo>
         <m id="$id" part="$part" sd="$sentDate">
@@ -122,7 +122,7 @@ class CreateCalendarItemResponseTest extends ZimbraTestCase
             </dlSubs>
         </m>
     </echo>
-</response>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($response, 'xml'));
         $this->assertEquals($response, $this->serializer->deserialize($xml, CreateCalendarItemResponse::class, 'xml'));

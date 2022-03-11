@@ -27,9 +27,9 @@ class MailCustomMetadataTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<meta section="$section">
+<result section="$section">
     <a n="$key">$value</a>
-</meta>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($meta, 'xml'));
         $this->assertEquals($meta, $this->serializer->deserialize($xml, MailCustomMetadata::class, 'xml'));

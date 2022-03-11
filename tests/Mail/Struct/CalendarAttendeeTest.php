@@ -73,9 +73,9 @@ class CalendarAttendeeTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<at a="$address" url="$url" d="$displayName" sentBy="$sentBy" dir="$dir" lang="$language" cutype="$cuType" role="$role" ptst="AC" rsvp="true" member="$member" delegatedTo="$delegatedTo" delegatedFrom="$delegatedFrom">
+<result a="$address" url="$url" d="$displayName" sentBy="$sentBy" dir="$dir" lang="$language" cutype="$cuType" role="$role" ptst="AC" rsvp="true" member="$member" delegatedTo="$delegatedTo" delegatedFrom="$delegatedFrom">
     <xparam name="$name" value="$value" />
-</at>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($at, 'xml'));
         $this->assertEquals($at, $this->serializer->deserialize($xml, CalendarAttendee::class, 'xml'));

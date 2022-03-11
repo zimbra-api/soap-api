@@ -2,8 +2,6 @@
 
 namespace Zimbra\Tests\Mail\Struct;
 
-use JMS\Serializer\Annotation\XmlRoot;
-
 use Zimbra\Enum\AddressType;
 use Zimbra\Enum\ParticipationStatus;
 use Zimbra\Enum\ReplyType;
@@ -68,7 +66,7 @@ class SetCalendarItemInfoTraitTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<item ptst="AC">
+<result ptst="AC">
     <m aid="$id" origid="$origId" rt="r" idnt="$identityId" su="$subject" irt="$inReplyTo" l="$folderId" f="$flags">
         <header name="$name">$value</header>
         <content>$content</content>
@@ -79,7 +77,7 @@ class SetCalendarItemInfoTraitTest extends ZimbraTestCase
         <tz id="$id" stdoff="$tzStdOffset" dayoff="$tzDayOffset" />
         <fr>$fragment</fr>
     </m>
-</item>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($item, 'xml'));
         $this->assertEquals($item, $this->serializer->deserialize($xml, SetCalendarItemInfoImp::class, 'xml'));
@@ -141,9 +139,6 @@ EOT;
     }
 }
 
-/**
- * @XmlRoot(name="item")
- */
 class SetCalendarItemInfoImp
 {
     use SetCalendarItemInfoTrait {

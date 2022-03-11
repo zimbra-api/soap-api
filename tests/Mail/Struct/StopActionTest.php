@@ -17,7 +17,7 @@ class StopActionTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<actionStop index="$index" />
+<result index="$index" />
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($action, 'xml'));
         $this->assertEquals($action, $this->serializer->deserialize($xml, StopAction::class, 'xml'));

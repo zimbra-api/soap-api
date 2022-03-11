@@ -28,7 +28,7 @@ class WkDayTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<wkday day="SU" ordwk="$ordWk" />
+<result day="SU" ordwk="$ordWk" />
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($wkday, 'xml'));
         $this->assertEquals($wkday, $this->serializer->deserialize($xml, WkDay::class, 'xml'));

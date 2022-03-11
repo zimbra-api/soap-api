@@ -10,7 +10,7 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, AccessPart, Exclude, SerializedName, Part, XmlAttribute, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
 
 /**
  * MessagePartSpec struct class
@@ -20,8 +20,6 @@ use JMS\Serializer\Annotation\{Accessor, AccessPart, Exclude, SerializedName, Pa
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessPart("public_method")
- * @XmlRoot(name="mp")
  */
 class MessagePartSpec
 {
@@ -29,7 +27,7 @@ class MessagePartSpec
      * Part ID
      * @Accessor(getter="getPart", setter="setPart")
      * @SerializedName("part")
-     * @Part("string")
+     * @Type("string")
      * @XmlAttribute
      */
     private $part;

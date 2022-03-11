@@ -57,12 +57,12 @@ class MessageSummaryTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<msg id="$id" autoSendTime="$autoSendTime">
+<result id="$id" autoSendTime="$autoSendTime">
     <e a="$address" d="$display" p="$personal" t="t" />
     <su>$subject</su>
     <fr>$fragment</fr>
     <inv type="task" />
-</msg>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($msg, 'xml'));
         $this->assertEquals($msg, $this->serializer->deserialize($xml, MessageSummary::class, 'xml'));

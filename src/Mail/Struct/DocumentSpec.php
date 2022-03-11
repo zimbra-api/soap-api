@@ -11,7 +11,7 @@
 namespace Zimbra\Mail\Struct;
 
 use JMS\Serializer\Annotation\{
-    Accessor, AccessType, Exclude, SerializedName, Type, XmlAttribute, XmlElement, XmlList, XmlRoot
+    Accessor, SerializedName, Type, XmlAttribute, XmlElement
 };
 use Zimbra\Type\Id;
 
@@ -23,8 +23,6 @@ use Zimbra\Type\Id;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="doc")
  */
 class DocumentSpec
 {

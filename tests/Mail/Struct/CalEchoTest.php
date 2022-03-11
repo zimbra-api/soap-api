@@ -68,7 +68,7 @@ class CalEchoTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<echo>
+<result>
     <m id="$id" part="$part" sd="$sentDate">
         <e a="$address" d="$display" p="$personal" t="t" />
         <su>$subject</su>
@@ -85,7 +85,7 @@ class CalEchoTest extends ZimbraTestCase
             <content>$content</content>
         </dlSubs>
     </m>
-</echo>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($echo, 'xml'));
         $this->assertEquals($echo, $this->serializer->deserialize($xml, CalEcho::class, 'xml'));

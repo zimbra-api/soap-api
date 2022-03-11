@@ -26,7 +26,7 @@ class EnvelopeTestTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<envelopeTest index="$index" negative="true" header="$header" part="domain" stringComparison="contains" caseSensitive="true" value="$value" valueComparison="eq" countComparison="eq" valueComparisonComparator="i;ascii-numeric" />
+<result index="$index" negative="true" header="$header" part="domain" stringComparison="contains" caseSensitive="true" value="$value" valueComparison="eq" countComparison="eq" valueComparisonComparator="i;ascii-numeric" />
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($test, 'xml'));
         $this->assertEquals($test, $this->serializer->deserialize($xml, EnvelopeTest::class, 'xml'));

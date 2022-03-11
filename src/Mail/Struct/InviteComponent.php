@@ -10,18 +10,19 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlElement, XmlList, XmlRoot};
-
-use Zimbra\Struct\AlarmInfoInterface;
-use Zimbra\Struct\CalendarAttendeeInterface;
-use Zimbra\Struct\CalOrganizerInterface;
-use Zimbra\Struct\DtTimeInfoInterface;
-use Zimbra\Struct\DurationInfoInterface;
-use Zimbra\Struct\ExceptionRecurIdInfoInterface;
-use Zimbra\Struct\GeoInfoInterface;
-use Zimbra\Struct\InviteComponentInterface;
-use Zimbra\Struct\RecurrenceInfoInterface;
-use Zimbra\Struct\XPropInterface;
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement, XmlList};
+use Zimbra\Struct\{
+    AlarmInfoInterface,
+    CalendarAttendeeInterface,
+    CalOrganizerInterface,
+    DtTimeInfoInterface,
+    DurationInfoInterface,
+    ExceptionRecurIdInfoInterface,
+    GeoInfoInterface,
+    InviteComponentInterface,
+    RecurrenceInfoInterface,
+    XPropInterface
+};
 
 /**
  * InviteComponent struct class
@@ -32,8 +33,6 @@ use Zimbra\Struct\XPropInterface;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="inv")
  */
 class InviteComponent extends InviteComponentCommon implements InviteComponentInterface
 {

@@ -26,9 +26,9 @@ class NotificationTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<notification truncated="true">
+<result truncated="true">
     <content>$content</content>
-</notification>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($notification, 'xml'));
         $this->assertEquals($notification, $this->serializer->deserialize($xml, Notification::class, 'xml'));

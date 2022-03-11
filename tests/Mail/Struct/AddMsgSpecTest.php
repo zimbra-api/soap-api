@@ -50,9 +50,9 @@ class AddMsgSpecTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<msg f="$flags" t="$tags" tn="$tagNames" l="$folder" noICal="true" d="$dateReceived" aid="$attachmentId">
+<result f="$flags" t="$tags" tn="$tagNames" l="$folder" noICal="true" d="$dateReceived" aid="$attachmentId">
     <content>$content</content>
-</msg>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($msg, 'xml'));
         $this->assertEquals($msg, $this->serializer->deserialize($xml, AddMsgSpec::class, 'xml'));

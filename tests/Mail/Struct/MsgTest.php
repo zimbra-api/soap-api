@@ -111,7 +111,7 @@ class MsgTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<msg aid="$id" origid="$origId" rt="r" idnt="$identityId" su="$subject" irt="$inReplyTo" l="$folderId" f="$flags">
+<result aid="$id" origid="$origId" rt="r" idnt="$identityId" su="$subject" irt="$inReplyTo" l="$folderId" f="$flags">
     <header name="$name">$value</header>
     <content>$content</content>
     <mp ct="$contentType" content="$content" ci="$contentId" />
@@ -120,7 +120,7 @@ class MsgTest extends ZimbraTestCase
     <e a="$address" t="t" p="$personal" />
     <tz id="$id" stdoff="$tzStdOffset" dayoff="$tzDayOffset" />
     <fr>$fragment</fr>
-</msg>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($msg, 'xml'));
         $this->assertEquals($msg, $this->serializer->deserialize($xml, Msg::class, 'xml'));

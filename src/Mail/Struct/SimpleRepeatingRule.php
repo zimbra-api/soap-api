@@ -10,23 +10,25 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlElement, XmlList, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement, XmlList};
 use Zimbra\Enum\Frequency;
-use Zimbra\Struct\SimpleRepeatingRuleInterface;
-use Zimbra\Struct\DateTimeStringAttrInterface;
-use Zimbra\Struct\NumAttrInterface;
-use Zimbra\Struct\IntervalRuleInterface;
-use Zimbra\Struct\BySecondRuleInterface;
-use Zimbra\Struct\ByMinuteRuleInterface;
-use Zimbra\Struct\ByHourRuleInterface;
-use Zimbra\Struct\ByDayRuleInterface;
-use Zimbra\Struct\ByMonthDayRuleInterface;
-use Zimbra\Struct\ByYearDayRuleInterface;
-use Zimbra\Struct\ByWeekNoRuleInterface;
-use Zimbra\Struct\ByMonthRuleInterface;
-use Zimbra\Struct\BySetPosRuleInterface;
-use Zimbra\Struct\WkstRuleInterface;
-use Zimbra\Struct\XNameRuleInterface;
+use Zimbra\Struct\{
+    ByDayRuleInterface,
+    ByHourRuleInterface,
+    ByMinuteRuleInterface,
+    ByMonthDayRuleInterface,
+    ByMonthRuleInterface,
+    BySecondRuleInterface,
+    BySetPosRuleInterface,
+    ByWeekNoRuleInterface,
+    ByYearDayRuleInterface,
+    DateTimeStringAttrInterface,
+    IntervalRuleInterface,
+    NumAttrInterface,
+    SimpleRepeatingRuleInterface,
+    WkstRuleInterface,
+    XNameRuleInterface
+};
 
 /**
  * SimpleRepeatingRule class
@@ -37,8 +39,6 @@ use Zimbra\Struct\XNameRuleInterface;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="rule")
  */
 class SimpleRepeatingRule implements RecurRuleBase, SimpleRepeatingRuleInterface
 {

@@ -59,13 +59,13 @@ class InvitationInfoTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<inv method="$method" compNum="$componentNum" rsvp="true" id="$id" ct="$contentType" ci="$contentId">
+<result method="$method" compNum="$componentNum" rsvp="true" id="$id" ct="$contentType" ci="$contentId">
     <content uid="$id" summary="$summary">$value</content>
     <comp method="$method" compNum="$componentNum" rsvp="true" />
     <tz id="$id" stdoff="$tzStdOffset" dayoff="$tzDayOffset" />
     <mp ct="$contentType" content="$value" ci="$contentId" />
     <attach aid="$id" />
-</inv>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($inv, 'xml'));
         $this->assertEquals($inv, $this->serializer->deserialize($xml, InvitationInfo::class, 'xml'));

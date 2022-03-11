@@ -24,7 +24,7 @@ class TagActionTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<actionTag index="$index" tagName="$tag" />
+<result index="$index" tagName="$tag" />
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($action, 'xml'));
         $this->assertEquals($action, $this->serializer->deserialize($xml, TagAction::class, 'xml'));
