@@ -10,8 +10,6 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\XmlRoot;
-
 /**
  * GetOutgoingFilterRulesRequest request class
  * Get filter rules
@@ -21,7 +19,6 @@ use JMS\Serializer\Annotation\XmlRoot;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @XmlRoot(name="GetOutgoingFilterRulesRequest")
  */
 class GetOutgoingFilterRulesRequest extends GetFilterRulesRequest
 {

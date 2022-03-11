@@ -21,8 +21,6 @@ use Zimbra\Soap\{Body, RequestInterface, ResponseInterface};
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="Body")
  */
 class ModifyAlwaysOnClusterBody extends Body
 {

@@ -10,9 +10,8 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlElement, XmlRoot};
-use Zimbra\Struct\NamedElement;
-use Zimbra\Struct\{AttributeSelector, AttributeSelectorTrait};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
+use Zimbra\Struct\{AttributeSelector, AttributeSelectorTrait, NamedElement};
 use Zimbra\Soap\Request;
 
 /**
@@ -24,8 +23,6 @@ use Zimbra\Soap\Request;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="GetZimletRequest")
  */
 class GetZimletRequest extends Request implements AttributeSelector
 {

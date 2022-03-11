@@ -81,8 +81,8 @@ class CheckAuthConfigTest extends ZimbraTestCase
         </urn:CheckAuthConfigRequest>
         <urn:CheckAuthConfigResponse>
             <code>$code</code>
-            <message>$message</message>
             <bindDn>$bindDn</bindDn>
+            <message>$message</message>
         </urn:CheckAuthConfigResponse>
     </soap:Body>
 </soap:Envelope>
@@ -107,11 +107,11 @@ EOT;
                     'code' => [
                         '_content' => $code,
                     ],
-                    'message' => [
-                        '_content' => $message,
-                    ],
                     'bindDn' => [
                         '_content' => $bindDn,
+                    ],
+                    'message' => [
+                        '_content' => $message,
                     ],
                     '_jsns' => 'urn:zimbraAdmin',
                 ],

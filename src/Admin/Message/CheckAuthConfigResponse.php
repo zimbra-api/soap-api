@@ -10,7 +10,7 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessorOrder, AccessType, SerializedName, Type, XmlElement, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlElement};
 use Zimbra\Soap\ResponseInterface;
 
 /**
@@ -21,9 +21,6 @@ use Zimbra\Soap\ResponseInterface;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @AccessorOrder("custom", custom = {"code", "message", "bindDn"})
- * @XmlRoot(name="CheckAuthConfigResponse")
  */
 class CheckAuthConfigResponse implements ResponseInterface
 {

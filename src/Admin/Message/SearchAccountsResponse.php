@@ -10,13 +10,10 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlList, XmlRoot};
-use Zimbra\Admin\Struct\CalendarResourceInfo;
-use Zimbra\Admin\Struct\DistributionListInfo;
-use Zimbra\Admin\Struct\AliasInfo;
-use Zimbra\Admin\Struct\AccountInfo;
-use Zimbra\Admin\Struct\DomainInfo;
-use Zimbra\Admin\Struct\CosInfo;
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
+use Zimbra\Admin\Struct\{
+    AccountInfo, AliasInfo, CalendarResourceInfo, CosInfo, DistributionListInfo, DomainInfo
+};
 use Zimbra\Soap\ResponseInterface;
 
 /**
@@ -27,8 +24,6 @@ use Zimbra\Soap\ResponseInterface;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="SearchAccountsResponse")
  */
 class SearchAccountsResponse implements ResponseInterface
 {

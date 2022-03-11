@@ -10,10 +10,8 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlElement, XmlRoot};
-use Zimbra\Admin\Struct\HostName;
-use Zimbra\Admin\Struct\StatsSpec;
-use Zimbra\Admin\Struct\TimeAttr;
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
+use Zimbra\Admin\Struct\{HostName, StatsSpec, TimeAttr};
 use Zimbra\Soap\Request;
 
 /**
@@ -30,8 +28,6 @@ use Zimbra\Soap\Request;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="GetLoggerStatsRequest")
  */
 class GetLoggerStatsRequest extends Request
 {

@@ -10,7 +10,6 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\XmlRoot;
 use Zimbra\Soap\Request;
 
 /**
@@ -26,7 +25,6 @@ use Zimbra\Soap\Request;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @XmlRoot(name="ComputeAggregateQuotaUsageRequest")
  */
 class ComputeAggregateQuotaUsageRequest extends Request
 {

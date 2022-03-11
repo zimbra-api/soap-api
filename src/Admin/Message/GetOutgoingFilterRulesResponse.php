@@ -10,8 +10,6 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{AccessType, XmlRoot};
-
 /**
  * GetOutgoingFilterRulesResponse class
  *
@@ -20,8 +18,6 @@ use JMS\Serializer\Annotation\{AccessType, XmlRoot};
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="GetOutgoingFilterRulesResponse")
  */
 class GetOutgoingFilterRulesResponse extends GetFilterRulesResponse
 {
