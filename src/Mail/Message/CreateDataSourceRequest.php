@@ -10,7 +10,7 @@
 
 namespace Zimbra\Mail\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, Exclude, SerializedName, Type, VirtualProperty, XmlElement, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, Exclude, SerializedName, Type, VirtualProperty};
 use Zimbra\Mail\Struct\MailImapDataSource;
 use Zimbra\Mail\Struct\MailPop3DataSource;
 use Zimbra\Mail\Struct\MailCaldavDataSource;
@@ -33,8 +33,6 @@ use Zimbra\Soap\Request;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="CreateDataSourceRequest")
  */
 class CreateDataSourceRequest extends Request
 {

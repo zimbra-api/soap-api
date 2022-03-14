@@ -10,7 +10,7 @@
 
 namespace Zimbra\Mail\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
 use Zimbra\Mail\Struct\CalItemRequestBase;
 use Zimbra\Mail\Struct\Msg;
 
@@ -23,8 +23,6 @@ use Zimbra\Mail\Struct\Msg;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="CreateAppointmentExceptionRequest")
  */
 class CreateAppointmentExceptionRequest extends CalItemRequestBase
 {

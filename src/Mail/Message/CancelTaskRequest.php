@@ -10,8 +10,6 @@
 
 namespace Zimbra\Mail\Message;
 
-use JMS\Serializer\Annotation\XmlRoot;
-
 /**
  * CancelTaskRequest class
  * Cancel Task request
@@ -21,7 +19,6 @@ use JMS\Serializer\Annotation\XmlRoot;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @XmlRoot(name="CancelTaskRequest")
  */
 class CancelTaskRequest extends CancelAppointmentRequest
 {

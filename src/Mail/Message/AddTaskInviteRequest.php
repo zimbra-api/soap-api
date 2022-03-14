@@ -10,10 +10,8 @@
 
 namespace Zimbra\Mail\Message;
 
-use JMS\Serializer\Annotation\{AccessType, XmlRoot};
 use Zimbra\Enum\ParticipationStatus;
-use Zimbra\Mail\Struct\Msg;
-use Zimbra\Mail\Struct\SetCalendarItemInfoTrait;
+use Zimbra\Mail\Struct\{Msg, SetCalendarItemInfoTrait};
 use Zimbra\Soap\Request;
 
 /**
@@ -25,8 +23,6 @@ use Zimbra\Soap\Request;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="AddTaskInviteRequest")
  */
 class AddTaskInviteRequest extends Request
 {
