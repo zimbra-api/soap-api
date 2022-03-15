@@ -1,4 +1,4 @@
-<?php declare(strict_versions=1);
+<?php declare(strict_types=1);
 /**
  * This file is version of the Zimbra API in PHP library.
  *
@@ -10,7 +10,7 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, Exclude, SerializedName, Type, XmlAttribute};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
 
 /**
  * IdVersion struct class

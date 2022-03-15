@@ -1,4 +1,4 @@
-<?php declare(strict_parts=1);
+<?php declare(strict_types=1);
 /**
  * This file is part of the Zimbra API in PHP library.
  *
@@ -36,7 +36,7 @@ class MessagePartSpec
      * Message ID
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
-     * @Part("string")
+     * @Type("string")
      * @XmlAttribute
      */
     private $id;
@@ -54,7 +54,7 @@ class MessagePartSpec
     }
 
     /**
-     * Gets part enum
+     * Gets part
      *
      * @return string
      */
@@ -64,7 +64,7 @@ class MessagePartSpec
     }
 
     /**
-     * Sets part enum
+     * Sets part
      *
      * @param  string $part
      * @return self

@@ -13,7 +13,7 @@ namespace Zimbra\Mail\Struct;
 use JMS\Serializer\Annotation\{
     Accessor, SerializedName, Type, XmlAttribute, XmlElement
 };
-use Zimbra\Type\Id;
+use Zimbra\Struct\Id;
 
 /**
  * DocumentSpec class
@@ -112,7 +112,7 @@ class DocumentSpec
      * Upload specification
      * @Accessor(getter="getUpload", setter="setUpload")
      * @SerializedName("upload")
-     * @Type("Zimbra\Type\Id")
+     * @Type("Zimbra\Struct\Id")
      * @XmlElement
      */
     private $upload;
@@ -418,9 +418,9 @@ class DocumentSpec
     /**
      * Gets messagePart
      *
-     * @return MessagePart
+     * @return MessagePartSpec
      */
-    public function getMessagePart(): ?MessagePart
+    public function getMessagePart(): ?MessagePartSpec
     {
         return $this->messagePart;
     }
@@ -428,23 +428,23 @@ class DocumentSpec
     /**
      * Sets messagePart
      *
-     * @param  MessagePart $messagePart
+     * @param  MessagePartSpec $messagePart
      * @return self
      */
-    public function setMessagePart(MessagePart $messagePart): self
+    public function setMessagePart(MessagePartSpec $messagePart): self
     {
         $this->messagePart = $messagePart;
         return $this;
     }
 
     /**
-     * Gets messagePart
+     * Gets docRevision
      *
      * @return IdVersion
      */
     public function getDocRevision(): ?IdVersion
     {
-        return $this->messagePart;
+        return $this->docRevision;
     }
 
     /**
