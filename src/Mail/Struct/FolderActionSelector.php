@@ -84,7 +84,7 @@ class FolderActionSelector extends ActionSelector
      * Grant
      * @Accessor(getter="getGrant", setter="setGrant")
      * @SerializedName("grant")
-     * @Type("App\Libraries\Zimbra\Mail\Type\ActionGrantSelector")
+     * @Type("Zimbra\Mail\Struct\ActionGrantSelector")
      * @XmlElement
      */
     private $grant;
@@ -94,7 +94,7 @@ class FolderActionSelector extends ActionSelector
      * 
      * @Accessor(getter="getGrants", setter="setGrants")
      * @SerializedName("acl")
-     * @Type("array<App\Libraries\Zimbra\Mail\Type\ActionGrantSelector>")
+     * @Type("array<Zimbra\Mail\Struct\ActionGrantSelector>")
      * @XmlList(inline = false, entry = "grant")
      */
     private $grants = [];
@@ -103,7 +103,7 @@ class FolderActionSelector extends ActionSelector
      * Retention policy
      * @Accessor(getter="getRetentionPolicy", setter="setRetentionPolicy")
      * @SerializedName("retentionPolicy")
-     * @Type("App\Libraries\Zimbra\Mail\Type\RetentionPolicy")
+     * @Type("Zimbra\Mail\Struct\RetentionPolicy")
      * @XmlElement
      */
     private $retentionPolicy;
