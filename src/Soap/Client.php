@@ -91,7 +91,7 @@ class Client implements ClientInterface
     public function sendRequest(string $soapMessage, array $headers = []): ?ResponseInterface
     {
         $request = $this->requestFactory->createRequest('POST', $this->endpoint);
-        $request = $this->request->withBody($this->streamFactory->createStream($soapMessage));
+        $request = $request->withBody($this->streamFactory->createStream($soapMessage));
         foreach ($headers as $name => $value) {
             $request = $request->withHeader($name, $value);
         }

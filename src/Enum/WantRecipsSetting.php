@@ -13,24 +13,30 @@ namespace Zimbra\Enum;
 use MyCLabs\Enum\Enum;
 
 /**
- * ContentType enum class
+ * WantRecipsSetting enum class
  *
  * @package   Zimbra
  * @category  Enum
  * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright Copyright © 2013-present by Nguyen Van Nguyen.
  */
-class ContentType extends Enum
+class WantRecipsSetting extends Enum
 {
     /**
-     * Constant for value 'text/plain'
-     * @return string 'text/plain'
+     * Constant for value '0'
+     * @return string '0'
      */
-    private const TEXT_PLAIN = 'text/plain';
+    private const PUT_SENDERS = '0';
 
     /**
-     * Constant for value 'text/html'
-     * @return string 'text/html'
+     * Constant for value '1'
+     * @return string '1'
      */
-    private const TEXT_HTML = 'text/html';
+    private const PUT_RECIPIENTS = '1';
+
+    /**
+     * Constant for value '2'
+     * @return string '2'
+     */
+    private const PUT_BOTH = '2';
 }

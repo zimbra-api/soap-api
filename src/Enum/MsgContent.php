@@ -13,24 +13,30 @@ namespace Zimbra\Enum;
 use MyCLabs\Enum\Enum;
 
 /**
- * ContentType enum class
+ * MsgContent enum class
  *
  * @package   Zimbra
  * @category  Enum
  * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright Copyright © 2013-present by Nguyen Van Nguyen.
  */
-class ContentType extends Enum
+class MsgContent extends Enum
 {
     /**
-     * Constant for value 'text/plain'
-     * @return string 'text/plain'
+     * Constant for value 'full'
+     * @return string 'full'
      */
-    private const TEXT_PLAIN = 'text/plain';
+    private const FULL = 'full';
 
     /**
-     * Constant for value 'text/html'
-     * @return string 'text/html'
+     * Constant for value 'original'
+     * @return string 'original'
      */
-    private const TEXT_HTML = 'text/html';
+    private const ORIGINAL = 'original';
+
+    /**
+     * Constant for value 'both'
+     * @return string 'both'
+     */
+    private const BOTH = 'both';
 }
