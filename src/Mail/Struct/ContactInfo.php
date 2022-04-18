@@ -17,6 +17,7 @@ use Zimbra\Struct\{
 
 /**
  * ContactInfo struct class
+ * Contact information
  * 
  * @package    Zimbra
  * @subpackage Mail

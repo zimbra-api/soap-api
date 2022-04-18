@@ -15,17 +15,10 @@ use JMS\Serializer\Handler\SubscribingHandlerInterface;
 use JMS\Serializer\Visitor\SerializationVisitorInterface as SerializationVisitor;
 use JMS\Serializer\Visitor\DeserializationVisitorInterface as DeserializationVisitor;
 
-use Zimbra\Common\SerializerFactory;
-use Zimbra\Common\Text;
+use Zimbra\Common\{SerializerFactory, Text};
 use Zimbra\Enum\FilterCondition;
-
-use Zimbra\Mail\Message\CreateDataSourceRequest;
-use Zimbra\Mail\Message\CreateDataSourceResponse;
-
-use Zimbra\Mail\Struct\FilterRule;
-use Zimbra\Mail\Struct\FilterTests;
-use Zimbra\Mail\Struct\FilterVariables;
-use Zimbra\Mail\Struct\NestedRule;
+use Zimbra\Mail\Message\{CreateDataSourceRequest, CreateDataSourceResponse};
+use Zimbra\Mail\Struct\{FilterRule, FilterTests, FilterVariables, NestedRule};
 
 /**
  * SerializerHandler class.
