@@ -34,31 +34,31 @@ class Client implements ClientInterface
      * Http client
      * @var HttpClient
      */
-    private $httpClient;
+    private HttpClient $httpClient;
 
     /**
      * Request factory
      * @var RequestFactoryInterface
      */
-    private $requestFactory;
+    private RequestFactoryInterface $requestFactory;
 
     /**
      * Stream factory
      * @var StreamFactoryInterface
      */
-    private $streamFactory;
+    private StreamFactoryInterface $streamFactory;
 
     /**
      * Last request message
      * @var RequestInterface
      */
-    private $request;
+    private ?RequestInterface $request = NULL;
 
     /**
      * Last response message
      * @var ResponseInterface
      */
-    private $response;
+    private ?ResponseInterface $response = NULL;
 
     /**
      * Http constructor

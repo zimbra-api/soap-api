@@ -11,7 +11,7 @@
 namespace Zimbra\Soap\Header;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlValue};
-use Zimbra\Enum\AccountBy;
+use Zimbra\Common\Enum\AccountBy;
 
 /**
  * AccountInfo struct class
@@ -26,10 +26,10 @@ class AccountInfo
     /**
      * @Accessor(getter="getBy", setter="setBy")
      * @SerializedName("by")
-     * @Type("Zimbra\Enum\AccountBy")
+     * @Type("Zimbra\Common\Enum\AccountBy")
      * @XmlAttribute
      */
-    private $by;
+    private AccountBy $by;
 
     /**
      * @Accessor(getter="getMountpointTraversed", setter="setMountpointTraversed")

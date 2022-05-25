@@ -32,7 +32,7 @@ abstract class Request implements RequestInterface
      * Request id. Used with BatchRequestInterface
      * @Accessor(getter="getRequestId", setter="setRequestId")
      * @SerializedName("requestId")
-     * @Type("int")
+     * @Type("string")
      * @XmlAttribute
      */
     protected $requestId;
@@ -40,9 +40,9 @@ abstract class Request implements RequestInterface
     /**
      * Gets request id
      *
-     * @return int
+     * @return string
      */
-    public function getRequestId(): ?int
+    public function getRequestId(): ?string
     {
         return $this->requestId;
     }
@@ -50,10 +50,10 @@ abstract class Request implements RequestInterface
     /**
      * Sets request id
      *
-     * @param  int $requestId
+     * @param  string $requestId
      * @return self
      */
-    public function setRequestId(int $requestId): self
+    public function setRequestId(string $requestId): self
     {
         $this->requestId = $requestId;
         return $this;

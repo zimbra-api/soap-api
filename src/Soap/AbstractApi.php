@@ -30,19 +30,19 @@ abstract class AbstractApi implements ApiInterface
      * Zimbra api soap client
      * @var ClientInterface
      */
-    private $client;
+    private ClientInterface $client;
 
     /**
      * Zimbra api request soap header
      * @var Header
      */
-    private $requestHeader;
+    private ?Header $requestHeader = NULL;
 
     /**
      * Zimbra api response soap header
      * @var Header
      */
-    private $responseHeader;
+    private ?Header $responseHeader = NULL;
 
     /**
      * Request format

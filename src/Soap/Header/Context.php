@@ -11,7 +11,7 @@
 namespace Zimbra\Soap\Header;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
-use Zimbra\Struct\AuthTokenControl;
+use Zimbra\Common\Struct\AuthTokenControl;
 
 /**
  * Header context class
@@ -45,7 +45,7 @@ class Context
      * @Type("Zimbra\Soap\Header\SessionInfo")
      * @XmlElement
      */
-    private $session;
+    private ?SessionInfo $session = NULL;
 
     /**
      * @Accessor(getter="getLegacySessionId", setter="setLegacySessionId")
@@ -53,7 +53,7 @@ class Context
      * @Type("Zimbra\Soap\Header\SessionInfo")
      * @XmlElement
      */
-    private $legacySessionId;
+    private ?SessionInfo $legacySessionId = NULL;
 
     /**
      * @Accessor(getter="getNoSession", setter="setNoSession")
@@ -69,7 +69,7 @@ class Context
      * @Type("Zimbra\Soap\Header\AccountInfo")
      * @XmlElement
      */
-    private $account;
+    private ?AccountInfo $account = NULL;
 
     /**
      * @Accessor(getter="getChange", setter="setChange")
@@ -77,7 +77,7 @@ class Context
      * @Type("Zimbra\Soap\Header\ChangeInfo")
      * @XmlElement
      */
-    private $change;
+    private ?ChangeInfo $change = NULL;
 
     /**
      * @Accessor(getter="getTargetServer", setter="setTargetServer")
@@ -93,15 +93,15 @@ class Context
      * @Type("Zimbra\Soap\Header\UserAgentInfo")
      * @XmlElement
      */
-    private $userAgent;
+    private ?UserAgentInfo $userAgent = NULL;
 
     /**
      * @Accessor(getter="getAuthTokenControl", setter="setAuthTokenControl")
      * @SerializedName("authTokenControl")
-     * @Type("Zimbra\Struct\AuthTokenControl")
+     * @Type("Zimbra\Common\Struct\AuthTokenControl")
      * @XmlElement
      */
-    private $authTokenControl;
+    private ?AuthTokenControl $authTokenControl = NULL;
 
     /**
      * @Accessor(getter="getFormat", setter="setFormat")
@@ -109,7 +109,7 @@ class Context
      * @Type("Zimbra\Soap\Header\FormatInfo")
      * @XmlElement
      */
-    private $format;
+    private ?FormatInfo $format = NULL;
 
     /**
      * @Accessor(getter="getNotify", setter="setNotify")
@@ -117,7 +117,7 @@ class Context
      * @Type("Zimbra\Soap\Header\NotifyInfo")
      * @XmlElement
      */
-    private $notify;
+    private ?NotifyInfo $notify = NULL;
 
     /**
      * @Accessor(getter="getNoNotify", setter="setNoNotify")

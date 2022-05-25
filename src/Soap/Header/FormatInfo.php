@@ -30,7 +30,7 @@ class FormatInfo
      * @Type("Zimbra\Enum\RequestFormat")
      * @XmlAttribute
      */
-    private $format;
+    private ?RequestFormat $format = NULL;
 
     /**
      * Constructor method for FormatInfo

@@ -10,6 +10,8 @@
 
 namespace Zimbra\Soap;
 
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
+
 /**
  * Response class in Zimbra API PHP.
  * 
@@ -20,4 +22,34 @@ namespace Zimbra\Soap;
  */
 abstract class Response implements ResponseInterface
 {
+    /**
+     * Request id. Used with BatchRequestInterface
+     * @Accessor(getter="getRequestId", setter="setRequestId")
+     * @SerializedName("requestId")
+     * @Type("string")
+     * @XmlAttribute
+     */
+    protected $requestId;
+
+    /**
+     * Gets request id
+     *
+     * @return string
+     */
+    public function getRequestId(): ?string
+    {
+        return $this->requestId;
+    }
+
+    /**
+     * Sets request id
+     *
+     * @param  string $requestId
+     * @return self
+     */
+    public function setRequestId(string $requestId): self
+    {
+        $this->requestId = $requestId;
+        return $this;
+    }
 }
