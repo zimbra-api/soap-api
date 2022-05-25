@@ -11,7 +11,7 @@
 namespace Zimbra\Admin\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
-use Zimbra\Enum\VolumeType;
+use Zimbra\Common\Enum\VolumeType;
 
 /**
  * VolumeInfo struct class

@@ -11,7 +11,7 @@
 namespace Zimbra\Admin\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement, XmlList};
-use Zimbra\Enum\RightType;
+use Zimbra\Common\Enum\RightType;
 
 /**
  * DomainAdminRight struct class
@@ -37,10 +37,10 @@ class DomainAdminRight
      * Right type
      * @Accessor(getter="getType", setter="setType")
      * @SerializedName("type")
-     * @Type("Zimbra\Enum\RightType")
+     * @Type("Zimbra\Common\Enum\RightType")
      * @XmlAttribute
      */
-    private $type;
+    private RightType $type;
 
     /**
      * Description

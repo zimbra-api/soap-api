@@ -66,7 +66,7 @@ class UsedBlobInfo
      * @Type("Zimbra\Admin\Struct\BlobSizeInfo")
      * @XmlElement
      */
-    private $blob;
+    private BlobSizeInfo $blob;
 
     /**
      * Constructor method for UsedBlobInfo

@@ -30,7 +30,7 @@ class MailQueueQuery
      * @Type("Zimbra\Admin\Struct\QueueQuery")
      * @XmlElement
      */
-    private $query;
+    private QueueQuery $query;
 
     /**
      * Queue name
@@ -69,8 +69,8 @@ class MailQueueQuery
      */
     public function __construct(QueueQuery $query, string $name, ?bool $scan = NULL, ?int $wait = NULL)
     {
-        $this->setQuery($query);
-        $this->setQueueName($name);
+        $this->setQuery($query)
+             ->setQueueName($name);
         if (NULL !== $scan) {
             $this->setScan($scan);
         }
@@ -84,7 +84,7 @@ class MailQueueQuery
      *
      * @return QueueQuery
      */
-    public function getQuery()
+    public function getQuery(): QueueQuery
     {
         return $this->query;
     }

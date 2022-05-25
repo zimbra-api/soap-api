@@ -11,7 +11,7 @@
 namespace Zimbra\Admin\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
-use Zimbra\Struct\Id;
+use Zimbra\Common\Struct\Id;
 
 /**
  * FreeBusyQueueProvider struct class
@@ -37,10 +37,10 @@ class FreeBusyQueueProvider
      * Information on accounts
      * @Accessor(getter="getAccounts", setter="setAccounts")
      * @SerializedName("account")
-     * @Type("array<Zimbra\Struct\Id>")
+     * @Type("array<Zimbra\Common\Struct\Id>")
      * @XmlList(inline = true, entry = "account")
      */
-    private $accounts;
+    private $accounts = [];
 
     /**
      * Constructor method for FreeBusyQueueProvider
@@ -52,7 +52,7 @@ class FreeBusyQueueProvider
     public function __construct(string $name, array $accounts = [])
     {
         $this->setName($name)
-            ->setAccounts($accounts);
+             ->setAccounts($accounts);
     }
 
     /**

@@ -29,7 +29,7 @@ class TzFixup
      * @Type("array<Zimbra\Admin\Struct\TzFixupRule>")
      * @XmlList(inline = true, entry = "fixupRule")
      */
-    private $fixupRules;
+    private $fixupRules = [];
 
     /**
      * Constructor method for TzFixup

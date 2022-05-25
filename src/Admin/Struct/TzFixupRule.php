@@ -30,7 +30,7 @@ class TzFixupRule
      * @Type("Zimbra\Admin\Struct\TZFixupRuleMatch")
      * @XmlElement
      */
-    private $match;
+    private ?TZFixupRuleMatch $match = NULL;
 
     /**
      * Need either "touch" or "replace" but not both 
@@ -39,7 +39,7 @@ class TzFixupRule
      * @Type("Zimbra\Admin\Struct\SimpleElement")
      * @XmlElement
      */
-    private $touch;
+    private ?SimpleElement $touch = NULL;
 
     /**
      * Replace any matching timezone with this timezone. Need either "touch" or "replace" but not both.
@@ -48,7 +48,7 @@ class TzFixupRule
      * @Type("Zimbra\Admin\Struct\TzReplaceInfo")
      * @XmlElement
      */
-    private $replace;
+    private ?TzReplaceInfo $replace = NULL;
 
     /**
      * Constructor method for TzFixupRule

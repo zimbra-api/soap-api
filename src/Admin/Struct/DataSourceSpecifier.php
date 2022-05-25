@@ -11,7 +11,7 @@
 namespace Zimbra\Admin\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
-use Zimbra\Enum\DataSourceType;
+use Zimbra\Common\Enum\DataSourceType;
 
 /**
  * DataSourceSpecifier struct class
@@ -28,10 +28,10 @@ class DataSourceSpecifier extends AdminAttrsImpl
      * Data source type
      * @Accessor(getter="getType", setter="setType")
      * @SerializedName("type")
-     * @Type("Zimbra\Enum\DataSourceType")
+     * @Type("Zimbra\Common\Enum\DataSourceType")
      * @XmlAttribute
      */
-    private $type;
+    private DataSourceType $type;
 
     /**
      * Data source name

@@ -11,7 +11,7 @@
 namespace Zimbra\Admin\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
-use Zimbra\Struct\Id;
+use Zimbra\Common\Struct\Id;
 
 /**
  * TzFixupRuleMatch struct class
@@ -31,16 +31,16 @@ class TzFixupRuleMatch
      * @Type("Zimbra\Admin\Struct\SimpleElement")
      * @XmlElement
      */
-    private $any;
+    private ?SimpleElement $any = NULL;
 
     /**
      * Tz ID
      * @Accessor(getter="getTzid", setter="setTzid")
      * @SerializedName("tzid")
-     * @Type("Zimbra\Struct\Id")
+     * @Type("Zimbra\Common\Struct\Id")
      * @XmlElement
      */
-    private $tzid;
+    private ?Id $tzid = NULL;
 
     /**
     * Offset
@@ -49,7 +49,7 @@ class TzFixupRuleMatch
      * @Type("Zimbra\Admin\Struct\Offset")
      * @XmlElement
      */
-    private $nonDst;
+    private ?Offset $nonDst = NULL;
 
     /**
      * Rules
@@ -58,7 +58,7 @@ class TzFixupRuleMatch
      * @Type("Zimbra\Admin\Struct\TZFixupRuleMatchRules")
      * @XmlElement
      */
-    private $rules;
+    private ?TZFixupRuleMatchRules $rules = NULL;
 
     /**
      * Dates
@@ -67,7 +67,7 @@ class TzFixupRuleMatch
      * @Type("Zimbra\Admin\Struct\TZFixupRuleMatchDates")
      * @XmlElement
      */
-    private $dates;
+    private ?TZFixupRuleMatchDates $dates = NULL;
 
     /**
      * Constructor method for TzFixupRuleMatch

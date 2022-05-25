@@ -66,7 +66,7 @@ class IncorrectBlobRevisionInfo
      * @Type("Zimbra\Admin\Struct\BlobRevisionInfo")
      * @XmlElement
      */
-    private $blob;
+    private BlobRevisionInfo $blob;
 
     /**
      * Constructor method for IncorrectBlobRevisionInfo

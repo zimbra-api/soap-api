@@ -11,7 +11,7 @@
 namespace Zimbra\Admin\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
-use Zimbra\Struct\LocaleInterface;
+use Zimbra\Common\Struct\LocaleInterface;
 
 /**
  * LocaleInfo class

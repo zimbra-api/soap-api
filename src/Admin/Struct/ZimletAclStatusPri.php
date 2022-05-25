@@ -11,7 +11,7 @@
 namespace Zimbra\Admin\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
-use Zimbra\Enum\ZimletStatus;
+use Zimbra\Common\Enum\ZimletStatus;
 
 /**
  * ZimletAclStatusPri struct class
@@ -40,7 +40,7 @@ class ZimletAclStatusPri
      * @Type("Zimbra\Admin\Struct\ZimletAcl")
      * @XmlElement
      */
-    private $acl;
+    private ?ZimletAcl $acl = NULL;
 
     /**
      * Status - valid values for valueattribute - enabled|disabled
@@ -49,7 +49,7 @@ class ZimletAclStatusPri
      * @Type("Zimbra\Admin\Struct\ValueAttrib")
      * @XmlElement
      */
-    private $status;
+    private ?ValueAttrib $status = NULL;
 
     /**
      * Priority
@@ -58,7 +58,7 @@ class ZimletAclStatusPri
      * @Type("Zimbra\Admin\Struct\IntegerValueAttrib")
      * @XmlElement
      */
-    private $priority;
+    private ?IntegerValueAttrib $priority = NULL;
 
     /**
      * Constructor method for ZimletAclStatusPri

@@ -30,7 +30,7 @@ class ServerWithQueueAction
      * @Type("Zimbra\Admin\Struct\MailQueueWithAction")
      * @XmlElement
      */
-    private $queue;
+    private MailQueueWithAction $queue;
 
     /**
      * MTA Server

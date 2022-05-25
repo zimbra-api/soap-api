@@ -11,7 +11,7 @@
 namespace Zimbra\Admin\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
-use Zimbra\Struct\ZimletServerExtensionInterface;
+use Zimbra\Common\Struct\ZimletServerExtensionInterface;
 
 /**
  * ZimletServerExtension class

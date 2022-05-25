@@ -11,7 +11,7 @@
 namespace Zimbra\Admin\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlValue};
-use Zimbra\Enum\ZeroOrOne;
+use Zimbra\Common\Enum\ZeroOrOne;
 
 /**
  * ServiceStatus struct class
@@ -55,10 +55,10 @@ class ServiceStatus
      * Status
      * @Accessor(getter="getStatus", setter="setStatus")
      * @SerializedName("_content")
-     * @Type("Zimbra\Enum\ZeroOrOne")
+     * @Type("Zimbra\Common\Enum\ZeroOrOne")
      * @XmlValue(cdata = false)
      */
-    private $status;
+    private ZeroOrOne $status;
 
     /**
      * Constructor method for ServiceStatus

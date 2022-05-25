@@ -11,7 +11,7 @@
 namespace Zimbra\Admin\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlList};
-use Zimbra\Struct\NamedElement;
+use Zimbra\Common\Struct\NamedElement;
 
 /**
  * StatsValueWrapper struct class
@@ -29,7 +29,7 @@ class StatsValueWrapper
      * 
      * @Accessor(getter="getStats", setter="setStats")
      * @SerializedName("stat")
-     * @Type("array<Zimbra\Struct\NamedElement>")
+     * @Type("array<Zimbra\Common\Struct\NamedElement>")
      * @XmlList(inline = true, entry = "stat")
      */
     private $stats = [];

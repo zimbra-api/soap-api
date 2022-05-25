@@ -39,7 +39,7 @@ class EffectiveAttrInfo
      * @Type("Zimbra\Admin\Struct\ConstraintInfo")
      * @XmlElement
      */
-    private $constraint;
+    private ?ConstraintInfo $constraint = NULL;
 
     /**
      * Inherited default value(or values if the attribute is multi-valued)
@@ -48,7 +48,7 @@ class EffectiveAttrInfo
      * @Type("array<string>")
      * @XmlList(inline = false, entry = "v")
      */
-    private $values;
+    private $values = [];
 
     /**
      * Constructor method for EffectiveAttrInfo
@@ -59,11 +59,11 @@ class EffectiveAttrInfo
      */
     public function __construct(string $name, ?ConstraintInfo $constraint = NULL, array $values = [])
     {
-        $this->setName($name);
+        $this->setName($name)
+             ->setValues($values);
         if ($constraint instanceof ConstraintInfo) {
             $this->setConstraint($constraint);
         }
-        $this->setValues($values);
     }
 
     /**

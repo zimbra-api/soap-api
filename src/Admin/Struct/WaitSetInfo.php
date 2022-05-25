@@ -11,7 +11,7 @@
 namespace Zimbra\Admin\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement, XmlList};
-use Zimbra\Struct\IdAndType;
+use Zimbra\Common\Struct\IdAndType;
 
 /**
  * WaitSetInfo struct class
@@ -65,10 +65,10 @@ class WaitSetInfo
      * Error information
      * @Accessor(getter="getErrors", setter="setErrors")
      * @SerializedName("errors")
-     * @Type("array<Zimbra\Struct\IdAndType>")
+     * @Type("array<Zimbra\Common\Struct\IdAndType>")
      * @XmlList(inline = false, entry = "error")
      */
-    private $errors;
+    private $errors = [];
 
     /**
      * Comma separated list of account IDs
@@ -77,7 +77,7 @@ class WaitSetInfo
      * @Type("Zimbra\Admin\Struct\AccountsAttrib")
      * @XmlElement
      */
-    private $signalledAccounts;
+    private ?AccountsAttrib $signalledAccounts = NULL;
 
     /**
      * CB sequence number
@@ -113,7 +113,7 @@ class WaitSetInfo
      * @Type("array<Zimbra\Admin\Struct\BufferedCommitInfo>")
      * @XmlList(inline = false, entry = "commit")
      */
-    private $bufferedCommits;
+    private $bufferedCommits = [];
 
     /**
      * Session information
@@ -122,7 +122,7 @@ class WaitSetInfo
      * @Type("array<Zimbra\Admin\Struct\SessionForWaitSet>")
      * @XmlList(inline = true, entry = "session")
      */
-    private $sessions;
+    private $sessions = [];
 
     /**
      * Constructor method for WaitSetInfo

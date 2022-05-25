@@ -39,7 +39,7 @@ class StatsValues
      * @Type("array<Zimbra\Admin\Struct\NameAndValue>")
      * @XmlList(inline = true, entry = "stat")
      */
-    private $stats;
+    private $stats = [];
 
     /**
      * Constructor method for StatsValues
@@ -51,7 +51,7 @@ class StatsValues
     public function __construct(string $t, array $stats = [])
     {
         $this->setT($t)
-            ->setStats($stats);
+             ->setStats($stats);
     }
 
     /**

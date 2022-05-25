@@ -84,7 +84,7 @@ class SessionForWaitSet
      * @Type("Zimbra\Admin\Struct\WaitSetSessionInfo")
      * @XmlElement
      */
-    private $waitSetSession;
+    private ?WaitSetSessionInfo $waitSetSession = NULL;
 
     /**
      * Constructor method for SessionForWaitSet

@@ -11,7 +11,7 @@
 namespace Zimbra\Admin\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
-use Zimbra\Enum\AuthScheme;
+use Zimbra\Common\Enum\AuthScheme;
 
 /**
  * ExchangeAuthSpec struct class
@@ -55,10 +55,10 @@ class ExchangeAuthSpec
      * Auth scheme
      * @Accessor(getter="getScheme", setter="setScheme")
      * @SerializedName("scheme")
-     * @Type("Zimbra\Enum\AuthScheme")
+     * @Type("Zimbra\Common\Enum\AuthScheme")
      * @XmlAttribute
      */
-    private $scheme;
+    private AuthScheme $scheme;
 
     /**
      * Auth type

@@ -30,7 +30,7 @@ class TzFixupRuleMatchRules
      * @Type("Zimbra\Admin\Struct\TzFixupRuleMatchRule")
      * @XmlElement
      */
-    private $standard;
+    private TzFixupRuleMatchRule $standard;
 
     /**
      * Daylight saving match rule
@@ -39,7 +39,7 @@ class TzFixupRuleMatchRules
      * @Type("Zimbra\Admin\Struct\TzFixupRuleMatchRule")
      * @XmlElement
      */
-    private $daylight;
+    private TzFixupRuleMatchRule $daylight;
 
     /**
      * Offset from UTC in standard time; local = UTC + offset

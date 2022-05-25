@@ -63,8 +63,8 @@ class ReindexProgressInfo
     )
     {
         $this->setNumSucceeded($numSucceeded)
-            ->setNumFailed($numFailed)
-            ->setNumRemaining($numRemaining);
+             ->setNumFailed($numFailed)
+             ->setNumRemaining($numRemaining);
     }
 
     /**

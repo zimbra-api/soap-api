@@ -39,7 +39,7 @@ class HostStats
      * @Type("Zimbra\Admin\Struct\StatsInfo")
      * @XmlElement
      */
-    private $stats;
+    private ?StatsInfo $stats = NULL;
 
     /**
      * Constructor method for HostStats

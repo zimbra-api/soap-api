@@ -39,7 +39,7 @@ class QueueSummary
      * @Type("array<Zimbra\Admin\Struct\QueueSummaryItem>")
      * @XmlList(inline = true, entry = "qsi")
      */
-    private $items;
+    private $items = [];
 
     /**
      * Constructor method for QueueSummary

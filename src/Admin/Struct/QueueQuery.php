@@ -31,7 +31,7 @@ class QueueQuery
      * @Type("array<Zimbra\Admin\Struct\QueueQueryField>")
      * @XmlList(inline = true, entry = "field")
      */
-    private $fields;
+    private $fields = [];
 
     /**
      * Limit the number of queue items to return in the response

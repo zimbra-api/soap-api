@@ -11,8 +11,6 @@
 namespace Zimbra\Admin\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlList};
-use Zimbra\Admin\Struct\CompletedTestInfo;
-use Zimbra\Admin\Struct\FailedTestInfo;
 
 /**
  * TestResultInfo struct class

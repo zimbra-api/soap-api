@@ -11,7 +11,7 @@
 namespace Zimbra\Admin\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlValue};
-use Zimbra\Enum\DataSourceBy;
+use Zimbra\Common\Enum\DataSourceBy;
 
 /**
  * SyncGalAccountDataSourceSpec struct class
@@ -28,10 +28,10 @@ class SyncGalAccountDataSourceSpec
      * The by
      * @Accessor(getter="getBy", setter="setBy")
      * @SerializedName("by")
-     * @Type("Zimbra\Enum\DataSourceBy")
+     * @Type("Zimbra\Common\Enum\DataSourceBy")
      * @XmlAttribute
      */
-    private $by;
+    private DataSourceBy $by;
 
     /**
      * If fullSync is set to 0 (false) or unset the default behavior is trickle sync which will pull in any new contacts or modified contacts since last sync.

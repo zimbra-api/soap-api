@@ -11,8 +11,7 @@
 namespace Zimbra\Admin\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
-use Zimbra\Enum\RightClass;
-use Zimbra\Enum\RightType;
+use Zimbra\Common\Enum\{RightClass, RightType};
 
 /**
  * RightInfo struct class
@@ -38,10 +37,10 @@ class RightInfo
      * Right type.  Valid values : getAttrs | setAttrs | combo | preset
      * @Accessor(getter="getType", setter="setType")
      * @SerializedName("type")
-     * @Type("Zimbra\Enum\RightType")
+     * @Type("Zimbra\Common\Enum\RightType")
      * @XmlAttribute
      */
-    private $type;
+    private RightType $type;
 
     /**
      * Target type.
@@ -56,10 +55,10 @@ class RightInfo
      * Right class
      * @Accessor(getter="getRightClass", setter="setRightClass")
      * @SerializedName("rightClass")
-     * @Type("Zimbra\Enum\RightClass")
+     * @Type("Zimbra\Common\Enum\RightClass")
      * @XmlAttribute
      */
-    private $rightClass;
+    private RightClass $rightClass;
 
     /**
      * Right description
@@ -77,7 +76,7 @@ class RightInfo
      * @Type("Zimbra\Admin\Struct\RightsAttrs")
      * @XmlElement
      */
-    private $attrs;
+    private ?RightsAttrs $attrs = NULL;
 
     /**
      * Rights
@@ -86,7 +85,7 @@ class RightInfo
      * @Type("Zimbra\Admin\Struct\ComboRights")
      * @XmlElement
      */
-    private $rights;
+    private ?ComboRights $rights = NULL;
 
     /**
      * Constructor method for RightInfo
@@ -110,9 +109,9 @@ class RightInfo
     )
     {
         $this->setName($name)
-            ->setType($type)
-            ->setRightClass($rightClass)
-            ->setDesc($desc);
+             ->setType($type)
+             ->setRightClass($rightClass)
+             ->setDesc($desc);
         if (NULL !== $targetType) {
             $this->setTargetType($targetType);
         }

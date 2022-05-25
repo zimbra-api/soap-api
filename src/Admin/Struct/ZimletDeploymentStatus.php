@@ -11,7 +11,7 @@
 namespace Zimbra\Admin\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
-use Zimbra\Enum\ZimletDeployStatus as DeployStatus;
+use Zimbra\Common\Enum\ZimletDeployStatus as DeployStatus;
 
 /**
  * ZimletDeploymentStatus struct class
@@ -37,10 +37,10 @@ class ZimletDeploymentStatus
      * Status - valid values succeeded|failed|pending
      * @Accessor(getter="getStatus", setter="setStatus")
      * @SerializedName("status")
-     * @Type("Zimbra\Enum\ZimletDeployStatus")
+     * @Type("Zimbra\Common\Enum\ZimletDeployStatus")
      * @XmlAttribute
      */
-    private $status;
+    private DeployStatus $status;
 
     /**
      * Error message

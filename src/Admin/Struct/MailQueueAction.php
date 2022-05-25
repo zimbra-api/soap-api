@@ -11,7 +11,7 @@
 namespace Zimbra\Admin\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
-use Zimbra\Enum\{QueueAction, QueueActionBy};
+use Zimbra\Common\Enum\{QueueAction, QueueActionBy};
 
 /**
  * MailQueueAction struct class
@@ -30,23 +30,23 @@ class MailQueueAction
      * @Type("Zimbra\Admin\Struct\QueueQuery")
      * @XmlElement
      */
-    private $query;
+    private QueueQuery $query;
 
     /**
      * @Accessor(getter="getOp", setter="setOp")
      * @SerializedName("op")
-     * @Type("Zimbra\Enum\QueueAction")
+     * @Type("Zimbra\Common\Enum\QueueAction")
      * @XmlAttribute
      */
-    private $op;
+    private QueueAction $op;
 
     /**
      * @Accessor(getter="getBy", setter="setBy")
      * @SerializedName("by")
-     * @Type("Zimbra\Enum\QueueActionBy")
+     * @Type("Zimbra\Common\Enum\QueueActionBy")
      * @XmlAttribute
      */
-    private $by;
+    private QueueActionBy $by;
 
     /**
      * Constructor method for MailQueueAction
@@ -67,7 +67,7 @@ class MailQueueAction
      *
      * @return QueueQuery
      */
-    public function getQuery()
+    public function getQuery(): QueueQuery
     {
         return $this->query;
     }
@@ -89,7 +89,7 @@ class MailQueueAction
      *
      * @return QueueAction
      */
-    public function getOp()
+    public function getOp(): QueueAction
     {
         return $this->op;
     }
@@ -111,7 +111,7 @@ class MailQueueAction
      *
      * @return QueueActionBy
      */
-    public function getBy()
+    public function getBy(): QueueActionBy
     {
         return $this->by;
     }

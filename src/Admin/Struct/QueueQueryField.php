@@ -40,7 +40,7 @@ class QueueQueryField
      * @Type("array<Zimbra\Admin\Struct\ValueAttrib>")
      * @XmlList(inline = true, entry = "match")
      */
-    private $matches;
+    private $matches = [];
 
     /**
      * Constructor method for QueueQueryField

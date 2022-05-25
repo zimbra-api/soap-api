@@ -39,7 +39,7 @@ class StatsInfo
      * @Type("Zimbra\Admin\Struct\StatsValues")
      * @XmlElement
      */
-    private $values;
+    private ?StatsValues $values = NULL;
 
     /**
      * Constructor method for StatsInfo

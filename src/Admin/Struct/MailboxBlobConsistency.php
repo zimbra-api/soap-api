@@ -39,7 +39,7 @@ class MailboxBlobConsistency
      * @Type("array<Zimbra\Admin\Struct\MissingBlobInfo>")
      * @XmlList(inline = false, entry = "item")
      */
-    private $missingBlobs;
+    private $missingBlobs = [];
 
     /**
      * Information about items with incorrect sizes
@@ -48,7 +48,7 @@ class MailboxBlobConsistency
      * @Type("array<Zimbra\Admin\Struct\IncorrectBlobSizeInfo>")
      * @XmlList(inline = false, entry = "item")
      */
-    private $incorrectSizes;
+    private $incorrectSizes = [];
 
     /**
      * Information about unexpected blobs
@@ -57,7 +57,7 @@ class MailboxBlobConsistency
      * @Type("array<Zimbra\Admin\Struct\UnexpectedBlobInfo>")
      * @XmlList(inline = false, entry = "blob")
      */
-    private $unexpectedBlobs;
+    private $unexpectedBlobs = [];
 
     /**
      * Information about items with incorrect revisions
@@ -66,7 +66,7 @@ class MailboxBlobConsistency
      * @Type("array<Zimbra\Admin\Struct\IncorrectBlobRevisionInfo>")
      * @XmlList(inline = false, entry = "item")
      */
-    private $incorrectRevisions;
+    private $incorrectRevisions = [];
 
     /**
      * Information about used blobs
@@ -75,7 +75,7 @@ class MailboxBlobConsistency
      * @Type("array<Zimbra\Admin\Struct\UsedBlobInfo>")
      * @XmlList(inline = false, entry = "item")
      */
-    private $usedBlobs;
+    private $usedBlobs = [];
 
     /**
      * Constructor method for MailboxBlobConsistency

@@ -11,7 +11,7 @@
 namespace Zimbra\Admin\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement, XmlList};
-use Zimbra\Enum\TargetType;
+use Zimbra\Common\Enum\TargetType;
 
 /**
  * EffectiveRightsTarget struct class
@@ -28,10 +28,10 @@ class EffectiveRightsTarget
      * Target type
      * @Accessor(getter="getType", setter="setType")
      * @SerializedName("type")
-     * @Type("Zimbra\Enum\TargetType")
+     * @Type("Zimbra\Common\Enum\TargetType")
      * @XmlAttribute
      */
-    private $type;
+    private TargetType $type;
 
     /**
      * Effective rights
@@ -40,7 +40,7 @@ class EffectiveRightsTarget
      * @Type("Zimbra\Admin\Struct\EffectiveRightsInfo")
      * @XmlElement
      */
-    private $all;
+    private ?EffectiveRightsInfo $all = NULL;
 
     /**
      * Attributes
@@ -49,7 +49,7 @@ class EffectiveRightsTarget
      * @Type("array<Zimbra\Admin\Struct\InDomainInfo>")
      * @XmlList(inline = true, entry = "inDomains")
      */
-    private $inDomainLists;
+    private $inDomainLists = [];
 
     /**
      * Attributes
@@ -58,7 +58,7 @@ class EffectiveRightsTarget
      * @Type("array<Zimbra\Admin\Struct\RightsEntriesInfo>")
      * @XmlList(inline = true, entry = "entries")
      */
-    private $entriesLists;
+    private $entriesLists = [];
 
     /**
      * Constructor method for EffectiveRightsTarget

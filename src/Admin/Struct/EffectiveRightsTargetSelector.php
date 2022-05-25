@@ -11,7 +11,7 @@
 namespace Zimbra\Admin\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlValue};
-use Zimbra\Enum\{TargetType, TargetBy};
+use Zimbra\Common\Enum\{TargetType, TargetBy};
 
 /**
  * EffectiveRightsTargetSelector struct class
@@ -28,19 +28,19 @@ class EffectiveRightsTargetSelector
      * Target type
      * @Accessor(getter="getType", setter="setType")
      * @SerializedName("type")
-     * @Type("Zimbra\Enum\TargetType")
+     * @Type("Zimbra\Common\Enum\TargetType")
      * @XmlAttribute
      */
-    private $type;
+    private TargetType $type;
 
     /**
      * Target by
      * @Accessor(getter="getBy", setter="setBy")
      * @SerializedName("by")
-     * @Type("Zimbra\Enum\TargetBy")
+     * @Type("Zimbra\Common\Enum\TargetBy")
      * @XmlAttribute
      */
-    private $by;
+    private ?TargetBy $by = NULL;
 
     /**
      * The value

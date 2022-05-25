@@ -30,7 +30,7 @@ class RightViaInfo
      * @Type("Zimbra\Admin\Struct\TargetWithType")
      * @XmlElement
      */
-    private $target;
+    private TargetWithType $target;
 
     /**
      * Target
@@ -39,7 +39,7 @@ class RightViaInfo
      * @Type("Zimbra\Admin\Struct\GranteeWithType")
      * @XmlElement
      */
-    private $grantee;
+    private GranteeWithType $grantee;
 
     /**
      * Target
@@ -48,7 +48,7 @@ class RightViaInfo
      * @Type("Zimbra\Admin\Struct\CheckedRight")
      * @XmlElement
      */
-    private $right;
+    private CheckedRight $right;
 
     /**
      * Constructor method for RightViaInfo

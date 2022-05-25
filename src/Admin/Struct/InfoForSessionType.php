@@ -49,7 +49,7 @@ class InfoForSessionType
      * @Type("array<Zimbra\Admin\Struct\AccountSessionInfo>")
      * @XmlList(inline = true, entry = "zid")
      */
-    private $accounts;
+    private $accounts = [];
 
     /**
      * If the request selected "listSessions" but NOT "groupByAccount" then
@@ -59,7 +59,7 @@ class InfoForSessionType
      * @Type("array<Zimbra\Admin\Struct\SessionInfo>")
      * @XmlList(inline = true, entry = "s")
      */
-    private $sessions;
+    private $sessions = [];
 
     /**
      * Constructor method for InfoForSessionType
@@ -70,7 +70,9 @@ class InfoForSessionType
      * @param  array  $sessions
      * @return self
      */
-    public function __construct(int $activeSessions, ?int $activeAccounts = NULL, array $accounts = [], array $sessions = [])
+    public function __construct(
+        int $activeSessions, ?int $activeAccounts = NULL, array $accounts = [], array $sessions = []
+    )
     {
         $this->setActiveSessions($activeSessions)
              ->setAccounts($accounts)

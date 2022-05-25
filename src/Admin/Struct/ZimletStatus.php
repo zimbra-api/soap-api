@@ -11,7 +11,7 @@
 namespace Zimbra\Admin\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
-use Zimbra\Enum\ZimletStatusSetting;
+use Zimbra\Common\Enum\ZimletStatusSetting;
 
 /**
  * ZimletStatus struct class
@@ -37,10 +37,10 @@ class ZimletStatus
      * Status
      * @Accessor(getter="getStatus", setter="setStatus")
      * @SerializedName("status")
-     * @Type("Zimbra\Enum\ZimletStatusSetting")
+     * @Type("Zimbra\Common\Enum\ZimletStatusSetting")
      * @XmlAttribute
      */
-    private $status;
+    private ZimletStatusSetting $status;
 
     /**
      * Extension

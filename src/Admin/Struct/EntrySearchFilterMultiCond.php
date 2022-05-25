@@ -13,7 +13,7 @@ namespace Zimbra\Admin\Struct;
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
 use Zimbra\Admin\Struct\EntrySearchFilterMultiCond as MultiCond;
 use Zimbra\Admin\Struct\EntrySearchFilterSingleCond as SingleCond;
-use Zimbra\Struct\SearchFilterCondition;
+use Zimbra\Common\Struct\SearchFilterCondition;
 
 /**
  * EntrySearchFilterMultiCond class

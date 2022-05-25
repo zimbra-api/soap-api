@@ -49,7 +49,7 @@ class CurrentVolumeInfo
     public function __construct(int $type, int $id)
     {
         $this->setId($id)
-            ->setType($type);
+             ->setType($type);
     }
 
     /**

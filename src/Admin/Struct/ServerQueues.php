@@ -39,7 +39,7 @@ class ServerQueues
      * @Type("array<Zimbra\Admin\Struct\MailQueueCount>")
      * @XmlList(inline = true, entry = "queue")
      */
-    private $queues;
+    private $queues = [];
 
     /**
      * Constructor method for ServerQueues

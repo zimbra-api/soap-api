@@ -11,7 +11,7 @@
 namespace Zimbra\Admin\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlValue};
-use Zimbra\Enum\DomainBy;
+use Zimbra\Common\Enum\DomainBy;
 
 /**
  * DomainSelector struct class
@@ -28,10 +28,10 @@ class DomainSelector
      * Select the meaning of {acct-selector-key}
      * @Accessor(getter="getBy", setter="setBy")
      * @SerializedName("by")
-     * @Type("Zimbra\Enum\DomainBy")
+     * @Type("Zimbra\Common\Enum\DomainBy")
      * @XmlAttribute
      */
-    private $by;
+    private DomainBy $by;
 
     /**
      * The key used to identify the domain

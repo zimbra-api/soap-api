@@ -27,19 +27,19 @@ class TzFixupRuleMatchDates
      * Standard match date
      * @Accessor(getter="getStandard", setter="setStandard")
      * @SerializedName("standard")
-     * @Type("Zimbra\Admin\Struct\TZFixupRuleMatchDate")
+     * @Type("Zimbra\Admin\Struct\TzFixupRuleMatchDate")
      * @XmlElement
      */
-    private $standard;
+    private TzFixupRuleMatchDate $standard;
 
     /**
      * Daylight saving match date
      * @Accessor(getter="getDaylight", setter="setDaylight")
      * @SerializedName("daylight")
-     * @Type("Zimbra\Admin\Struct\TZFixupRuleMatchDate")
+     * @Type("Zimbra\Admin\Struct\TzFixupRuleMatchDate")
      * @XmlElement
      */
-    private $daylight;
+    private TzFixupRuleMatchDate $daylight;
 
     /**
      * Offset from UTC in standard time; local = UTC + offset

@@ -40,7 +40,7 @@ class SyncGalAccountSpec
      * @Type("array<Zimbra\Admin\Struct\SyncGalAccountDataSourceSpec>")
      * @XmlList(inline = true, entry = "datasource")
      */
-    private $dataSources;
+    private $dataSources = [];
 
     /**
      * Constructor method for SyncGalAccountSpec

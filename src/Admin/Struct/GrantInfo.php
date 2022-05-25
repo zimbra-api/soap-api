@@ -30,7 +30,7 @@ class GrantInfo
      * @Type("Zimbra\Admin\Struct\TypeIdName")
      * @XmlElement
      */
-    private $target;
+    private TypeIdName $target;
 
     /**
      * Information on grantee
@@ -39,7 +39,7 @@ class GrantInfo
      * @Type("Zimbra\Admin\Struct\GranteeInfo")
      * @XmlElement
      */
-    private $grantee;
+    private GranteeInfo $grantee;
 
     /**
      * Information on right
@@ -48,7 +48,7 @@ class GrantInfo
      * @Type("Zimbra\Admin\Struct\RightModifierInfo")
      * @XmlElement
      */
-    private $right;
+    private RightModifierInfo $right;
 
     /**
      * Constructor method for GrantInfo

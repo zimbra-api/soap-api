@@ -11,7 +11,7 @@
 namespace Zimbra\Admin\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlValue};
-use Zimbra\Enum\ServerBy;
+use Zimbra\Common\Enum\ServerBy;
 
 /**
  * ServerSelector struct class
@@ -28,10 +28,10 @@ class ServerSelector
      * Selects the meaning of {server-key}
      * @Accessor(getter="getBy", setter="setBy")
      * @SerializedName("by")
-     * @Type("Zimbra\Enum\ServerBy")
+     * @Type("Zimbra\Common\Enum\ServerBy")
      * @XmlAttribute
      */
-    private $by;
+    private ServerBy $by;
 
     /**
      * Key for choosing server

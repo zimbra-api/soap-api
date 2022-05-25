@@ -11,7 +11,7 @@
 namespace Zimbra\Admin\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement, XmlList};
-use Zimbra\Struct\NamedElement;
+use Zimbra\Common\Struct\NamedElement;
 
 /**
  * InDomainInfo struct class
@@ -28,10 +28,10 @@ class InDomainInfo
      * Domains
      * @Accessor(getter="getDomains", setter="setDomains")
      * @SerializedName("domain")
-     * @Type("array<Zimbra\Struct\NamedElement>")
+     * @Type("array<Zimbra\Common\Struct\NamedElement>")
      * @XmlList(inline = true, entry = "domain")
      */
-    private $domains;
+    private $domains = [];
 
     /**
      * Rights
@@ -40,7 +40,7 @@ class InDomainInfo
      * @Type("Zimbra\Admin\Struct\EffectiveRightsInfo")
      * @XmlElement
      */
-    private $rights;
+    private EffectiveRightsInfo $rights;
 
     /**
      * Constructor method for InDomainInfo
@@ -51,7 +51,7 @@ class InDomainInfo
     public function __construct(EffectiveRightsInfo $rights, array $domains = [])
     {
         $this->setRights($rights)
-            ->setDomains($domains);
+             ->setDomains($domains);
     }
     /**
      * Gets domains

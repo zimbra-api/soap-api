@@ -30,7 +30,7 @@ class EffectiveRightsInfo
      * @Type("array<Zimbra\Admin\Struct\RightWithName>")
      * @XmlList(inline = true, entry = "right")
      */
-    private $rights;
+    private $rights = [];
 
     /**
      * All attributes that can be set
@@ -39,7 +39,7 @@ class EffectiveRightsInfo
      * @Type("Zimbra\Admin\Struct\EffectiveAttrsInfo")
      * @XmlElement
      */
-    private $setAttrs;
+    private EffectiveAttrsInfo $setAttrs;
 
     /**
      * All attributes that can be got
@@ -48,7 +48,7 @@ class EffectiveRightsInfo
      * @Type("Zimbra\Admin\Struct\EffectiveAttrsInfo")
      * @XmlElement
      */
-    private $getAttrs;
+    private EffectiveAttrsInfo $getAttrs;
 
     /**
      * Constructor method for EffectiveRightsInfo

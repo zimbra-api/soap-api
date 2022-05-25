@@ -29,7 +29,7 @@ class StatsSpec
      * @Type("Zimbra\Admin\Struct\StatsValueWrapper")
      * @XmlElement
      */
-    private $values;
+    private StatsValueWrapper $values;
 
     /**
      * @Accessor(getter="getName", setter="setName")

@@ -74,7 +74,7 @@ class SessionInfo
      * @Type("array<string, string>")
      * @XmlAttributeMap
      */
-    private $extraAttributes;
+    private $extraAttributes = [];
 
     /**
      * Constructor method for SessionInfo

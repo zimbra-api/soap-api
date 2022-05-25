@@ -30,7 +30,7 @@ class MailQueueWithAction
      * @Type("Zimbra\Admin\Struct\MailQueueAction")
      * @XmlElement
      */
-    private $action;
+    private MailQueueAction $action;
 
     /**
      * Queue name
@@ -58,7 +58,7 @@ class MailQueueWithAction
      *
      * @return MailQueueAction
      */
-    public function getAction()
+    public function getAction(): MailQueueAction
     {
         return $this->action;
     }

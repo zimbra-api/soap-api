@@ -11,7 +11,7 @@
 namespace Zimbra\Admin\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
-use Zimbra\Enum\LoggingLevel;
+use Zimbra\Common\Enum\LoggingLevel;
 
 /**
  * LoggerInfo struct class
@@ -35,10 +35,10 @@ class LoggerInfo
     /**
      * @Accessor(getter="getLevel", setter="setLevel")
      * @SerializedName("level")
-     * @Type("Zimbra\Enum\LoggingLevel")
+     * @Type("Zimbra\Common\Enum\LoggingLevel")
      * @XmlAttribute
      */
-    private $level;
+    private ?LoggingLevel $level = NULL;
 
     /**
      * Constructor method for loggerInfo

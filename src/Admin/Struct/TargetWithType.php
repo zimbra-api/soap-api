@@ -47,7 +47,7 @@ class TargetWithType
      * @param  string $value Value matching
      * @return self
      */
-    public function __construct($type, $value = NULL)
+    public function __construct(string $type, ?string $value = NULL)
     {
         $this->setType($type);
         if (NULL !== $value) {
@@ -82,7 +82,7 @@ class TargetWithType
      *
      * @return string
      */
-    public function getValue(): string
+    public function getValue(): ?string
     {
         return $this->value;
     }

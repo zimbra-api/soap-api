@@ -39,7 +39,7 @@ class XMPPComponentSpec extends AdminAttrsImpl
      * @Type("Zimbra\Admin\Struct\DomainSelector")
      * @XmlElement
      */
-    private $domain;
+    private DomainSelector $domain;
 
     /**
      * Server selector
@@ -48,7 +48,7 @@ class XMPPComponentSpec extends AdminAttrsImpl
      * @Type("Zimbra\Admin\Struct\ServerSelector")
      * @XmlElement
      */
-    private $server;
+    private ServerSelector $server;
 
     /**
      * Constructor method for XmppComponentSpec

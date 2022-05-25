@@ -11,7 +11,7 @@
 namespace Zimbra\Admin\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement, XmlList};
-use Zimbra\Struct\NamedElement;
+use Zimbra\Common\Struct\NamedElement;
 
 /**
  * RightsEntriesInfo struct class
@@ -28,10 +28,10 @@ class RightsEntriesInfo
      * Entries
      * @Accessor(getter="getEntries", setter="setEntries")
      * @SerializedName("entry")
-     * @Type("array<Zimbra\Struct\NamedElement>")
+     * @Type("array<Zimbra\Common\Struct\NamedElement>")
      * @XmlList(inline = true, entry = "entry")
      */
-    private $entries;
+    private $entries = [];
 
     /**
      * Effective rights
@@ -40,7 +40,7 @@ class RightsEntriesInfo
      * @Type("Zimbra\Admin\Struct\EffectiveRightsInfo")
      * @XmlElement
      */
-    private $rights;
+    private EffectiveRightsInfo $rights;
 
     /**
      * Constructor method for RightsEntriesInfo
@@ -51,7 +51,7 @@ class RightsEntriesInfo
     public function __construct(EffectiveRightsInfo $rights, array $entries = [])
     {
         $this->setRights($rights)
-            ->setEntries($entries);
+             ->setEntries($entries);
     }
     /**
      * Gets entries

@@ -11,7 +11,7 @@
 namespace Zimbra\Admin\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlValue};
-use Zimbra\Enum\AutoProvPrincipalBy as PrincipalBy;
+use Zimbra\Common\Enum\AutoProvPrincipalBy as PrincipalBy;
 
 /**
  * PrincipalSelector struct class
@@ -28,10 +28,10 @@ class PrincipalSelector
      * Meaning determined by {principal-selector-by}
      * @Accessor(getter="getBy", setter="setBy")
      * @SerializedName("by")
-     * @Type("Zimbra\Enum\AutoProvPrincipalBy")
+     * @Type("Zimbra\Common\Enum\AutoProvPrincipalBy")
      * @XmlAttribute
      */
-    private $by;
+    private PrincipalBy $by;
 
     /**
      * The key used to identify the principal

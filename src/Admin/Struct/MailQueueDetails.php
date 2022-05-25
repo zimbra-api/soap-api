@@ -77,7 +77,7 @@ class MailQueueDetails
      * @Type("array<Zimbra\Admin\Struct\QueueSummary>")
      * @XmlList(inline = true, entry = "qs")
      */
-    private $queueSummaries;
+    private $queueSummaries = [];
 
     /**
      * The various queue items that match the requested query.
@@ -86,7 +86,7 @@ class MailQueueDetails
      * @Type("array<Zimbra\Admin\Struct\QueueItem>")
      * @XmlList(inline = true, entry = "qi")
      */
-    private $queueItems;
+    private $queueItems = [];
 
     /**
      * Constructor method for MailQueueDetails

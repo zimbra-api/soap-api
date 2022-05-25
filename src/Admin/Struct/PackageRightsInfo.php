@@ -39,7 +39,7 @@ class PackageRightsInfo
      * @Type("array<Zimbra\Admin\Struct\CmdRightsInfo>")
      * @XmlList(inline = true, entry = "cmd")
      */
-    private $cmds;
+    private $cmds = [];
 
     /**
      * Constructor method for PackageRightsInfo

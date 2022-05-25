@@ -48,10 +48,7 @@ class MailboxQuotaInfo
      * @param int $quotaUsed
      * @return self
      */
-    public function __construct(
-        string $accountId,
-        int $quotaUsed
-    )
+    public function __construct(string $accountId, int $quotaUsed)
     {
         $this->setAccountId($accountId)
              ->setQuotaUsed($quotaUsed);

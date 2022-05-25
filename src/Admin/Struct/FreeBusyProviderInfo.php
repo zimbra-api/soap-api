@@ -97,11 +97,11 @@ class FreeBusyProviderInfo
     )
     {
         $this->setName($name)
-            ->setPropagate($propagate)
-            ->setStart($start)
-            ->setEnd($end)
-            ->setQueue($queue)
-            ->setPrefix($prefix);
+             ->setPropagate($propagate)
+             ->setStart($start)
+             ->setEnd($end)
+             ->setQueue($queue)
+             ->setPrefix($prefix);
     }
 
     /**
