@@ -30,7 +30,7 @@ class Header
      * @Type("Zimbra\Soap\Header\Context")
      * @XmlElement(namespace="urn:zimbra")
      */
-    private $context;
+    private ?Context $context = NULL;
 
     /**
      * Constructor method for Header
