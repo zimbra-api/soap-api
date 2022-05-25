@@ -2,9 +2,9 @@
 
 namespace Zimbra\Tests\Soap\Header;
 
-use Zimbra\Enum\{AccountBy, RequestFormat};
+use Zimbra\Common\Enum\{AccountBy, RequestFormat};
+use Zimbra\Common\Struct\AuthTokenControl;
 use Zimbra\Soap\Header\{AccountInfo, Context, ChangeInfo, FormatInfo, NotifyInfo, SessionInfo, UserAgentInfo};
-use Zimbra\Struct\AuthTokenControl;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**

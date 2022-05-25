@@ -3,10 +3,10 @@
 namespace Zimbra\Tests\Soap;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement, XmlRoot};
-use Zimbra\Enum\{AccountBy, RequestFormat};
+use Zimbra\Common\Enum\{AccountBy, RequestFormat};
+use Zimbra\Common\Struct\AuthTokenControl;
 use Zimbra\Soap\{Envelope, Header, Body, BodyInterface, RequestInterface, ResponseInterface};
 use Zimbra\Soap\Header\{AccountInfo, Context, ChangeInfo, FormatInfo, NotifyInfo, SessionInfo, UserAgentInfo};
-use Zimbra\Struct\AuthTokenControl;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**

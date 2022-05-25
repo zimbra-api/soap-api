@@ -2,7 +2,7 @@
 
 namespace Zimbra\Tests\Soap\Header;
 
-use Zimbra\Enum\RequestFormat;
+use Zimbra\Common\Enum\RequestFormat;
 use Zimbra\Soap\Header\FormatInfo;
 use Zimbra\Tests\ZimbraTestCase;
 

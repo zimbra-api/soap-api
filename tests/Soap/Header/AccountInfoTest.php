@@ -2,7 +2,7 @@
 
 namespace Zimbra\Tests\Soap\Header;
 
-use Zimbra\Enum\AccountBy;
+use Zimbra\Common\Enum\AccountBy;
 use Zimbra\Soap\Header\AccountInfo;
 use Zimbra\Tests\ZimbraTestCase;
 
