@@ -8,56 +8,35 @@
  * file that was distributed with this source code.
  */
 
-namespace Zimbra\Account\Struct;
+namespace Zimbra\Common\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlList};
-use Zimbra\Struct\NamedValue;
 
 /**
- * HABGroupMember struct class
- *
+ * AttrsImpl trait
+ * 
  * @package    Zimbra
- * @subpackage Account
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
- * @copyright  Copyright © 2013-present name Nguyen Van Nguyen.
+ * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
  */
-class HABGroupMember extends HABMember
+trait AttrsImplTrait
 {
     /**
-     * Member attributes. Currently only these attributes are returned: zimbraId, displayName
      * @Accessor(getter="getAttrs", setter="setAttrs")
-     * @SerializedName("attr")
-     * @Type("array<Zimbra\Struct\NamedValue>")
-     * @XmlList(inline = true, entry = "attr", skipWhenEmpty = true)
+     * @SerializedName("a")
+     * @Type("array<Zimbra\Common\Struct\KeyValuePair>")
+     * @XmlList(inline = true, entry = "a")
      */
     private $attrs = [];
 
     /**
-     * Constructor method for HABGroupMember
-     * 
-     * @param  string $name
-     * @param  int   $seniorityIndex
-     * @param  array  $attrs
-     * @return self
-     */
-    public function __construct(
-        string $name,
-        ?int $seniorityIndex = NULL,
-        array $attrs = []
-    )
-    {
-        parent::__construct($name, $seniorityIndex);
-        $this->setAttrs($attrs);
-    }
-
-    /**
      * Add an attr
      *
-     * @param  NamedValue $attr
+     * @param  KeyValuePair $attr
      * @return self
      */
-    public function addAttr(NamedValue $attr): self
+    public function addAttr(KeyValuePair $attr): self
     {
         $this->attrs[] = $attr;
         return $this;
@@ -73,7 +52,7 @@ class HABGroupMember extends HABMember
     {
         $this->attrs = [];
         foreach ($attrs as $attr) {
-            if ($attr instanceof NamedValue) {
+            if ($attr instanceof KeyValuePair) {
                 $this->attrs[] = $attr;
             }
         }
