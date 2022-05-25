@@ -11,7 +11,7 @@
 namespace Zimbra\Admin\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
-use Zimbra\Struct\{ZimletConfigInfo, ZimletContextInterface, ZimletDesc, ZimletInterface};
+use Zimbra\Common\Struct\{ZimletConfigInfo, ZimletContextInterface, ZimletDesc, ZimletInterface};
 
 /**
  * AdminZimletInfo class
@@ -31,7 +31,7 @@ class AdminZimletInfo implements ZimletInterface
      * @Type("Zimbra\Admin\Struct\AdminZimletContext")
      * @XmlElement
      */
-    private $zimletContext;
+    private ?ZimletContextInterface $zimletContext = NULL;
 
     /**
      * Zimlet description
@@ -40,7 +40,7 @@ class AdminZimletInfo implements ZimletInterface
      * @Type("Zimbra\Admin\Struct\AdminZimletDesc")
      * @XmlElement
      */
-    private $zimlet;
+    private ?ZimletDesc $zimlet = NULL;
 
     /**
      * Other elements
@@ -49,7 +49,7 @@ class AdminZimletInfo implements ZimletInterface
      * @Type("Zimbra\Admin\Struct\AdminZimletConfigInfo")
      * @XmlElement
      */
-    private $zimletConfig;
+    private ?ZimletConfigInfo $zimletConfig = NULL;
 
     /**
      * Constructor method for AdminZimletInfo

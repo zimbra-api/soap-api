@@ -11,7 +11,7 @@
 namespace Zimbra\Admin\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
-use Zimbra\Struct\{ZimletConfigInfo, ZimletGlobalConfigInfo, ZimletHostConfigInfo};
+use Zimbra\Common\Struct\{ZimletConfigInfo, ZimletGlobalConfigInfo, ZimletHostConfigInfo};
 
 /**
  * AdminZimletConfigInfo class
@@ -85,7 +85,7 @@ class AdminZimletConfigInfo implements ZimletConfigInfo
      * @Type("Zimbra\Admin\Struct\AdminZimletGlobalConfigInfo")
      * @XmlElement
      */
-    private $global;
+    private ?ZimletGlobalConfigInfo $global = NULL;
 
     /**
      * Zimlet host configuration information
@@ -94,7 +94,7 @@ class AdminZimletConfigInfo implements ZimletConfigInfo
      * @Type("Zimbra\Admin\Struct\AdminZimletHostConfigInfo")
      * @XmlElement
      */
-    private $host;
+    private ?ZimletHostConfigInfo $host = NULL;
 
     /**
      * Constructor method for AdminZimletConfigInfo

@@ -11,7 +11,7 @@
 namespace Zimbra\Admin\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
-use Zimbra\Struct\ContactAttr;
+use Zimbra\Common\Struct\ContactAttr;
 
 /**
  * ContactInfo class
@@ -187,7 +187,7 @@ class ContactInfo
     /**
      * @Accessor(getter="getAttrs", setter="setAttrs")
      * @SerializedName("a")
-     * @Type("array<Zimbra\Struct\ContactAttr>")
+     * @Type("array<Zimbra\Common\Struct\ContactAttr>")
      * @XmlList(inline = true, entry = "a")
      */
     private $attrs;

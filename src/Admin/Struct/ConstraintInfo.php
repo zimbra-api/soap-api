@@ -23,7 +23,6 @@ use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, Xml
  */
 class ConstraintInfo
 {
-
     /**
      * Minimum value
      * @Accessor(getter="getMin", setter="setMin")

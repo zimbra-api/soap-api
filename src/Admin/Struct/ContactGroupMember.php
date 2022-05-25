@@ -49,7 +49,7 @@ class ContactGroupMember
      * @Type("Zimbra\Admin\Struct\ContactInfo")
      * @XmlElement
      */
-    private $contact;
+    private ?ContactInfo $contact = NULL;
 
     /**
      * Constructor method for ContactGroupMember

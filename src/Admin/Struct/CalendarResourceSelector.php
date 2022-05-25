@@ -11,7 +11,7 @@
 namespace Zimbra\Admin\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlValue};
-use Zimbra\Enum\CalendarResourceBy as CalResBy;
+use Zimbra\Common\Enum\CalendarResourceBy;
 
 /**
  * CalendarResourceSelector struct class
@@ -28,10 +28,10 @@ class CalendarResourceSelector
      * Select the meaning of {cal-resource-selector-key}
      * @Accessor(getter="getBy", setter="setBy")
      * @SerializedName("by")
-     * @Type("Zimbra\Enum\CalendarResourceBy")
+     * @Type("Zimbra\Common\Enum\CalendarResourceBy")
      * @XmlAttribute
      */
-    private $by;
+    private CalendarResourceBy $by;
 
     /**
      * Specify calendar resource
@@ -44,11 +44,11 @@ class CalendarResourceSelector
 
     /**
      * Constructor method for CalendarResourceSelector
-     * @param  CalResBy $by
+     * @param  CalendarResourceBy $by
      * @param  string $value
      * @return self
      */
-    public function __construct(CalResBy $by, ?string $value = NULL)
+    public function __construct(CalendarResourceBy $by, ?string $value = NULL)
     {
         $this->setBy($by);
         if (NULL !== $value) {
@@ -59,9 +59,9 @@ class CalendarResourceSelector
     /**
      * Gets by enum
      *
-     * @return CalResBy
+     * @return CalendarResourceBy
      */
-    public function getBy(): CalResBy
+    public function getBy(): CalendarResourceBy
     {
         return $this->by;
     }
@@ -69,10 +69,10 @@ class CalendarResourceSelector
     /**
      * Sets by enum
      *
-     * @param  CalResBy $by
+     * @param  CalendarResourceBy $by
      * @return self
      */
-    public function setBy(CalResBy $by): self
+    public function setBy(CalendarResourceBy $by): self
     {
         $this->by = $by;
         return $this;

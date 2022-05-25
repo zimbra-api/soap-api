@@ -11,7 +11,7 @@
 namespace Zimbra\Admin\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
-use Zimbra\Enum\RightType;
+use Zimbra\Common\Enum\RightType;
 
 /**
  * ComboRightInfo struct class
@@ -35,10 +35,10 @@ class ComboRightInfo
     /**
      * @Accessor(getter="getType", setter="setType")
      * @SerializedName("type")
-     * @Type("Zimbra\Enum\RightType")
+     * @Type("Zimbra\Common\Enum\RightType")
      * @XmlAttribute
      */
-    private $type;
+    private RightType $type;
 
     /**
      * @Accessor(getter="getTargetType", setter="setTargetType")
@@ -56,7 +56,7 @@ class ComboRightInfo
     public function __construct(string $name, RightType $type, ?string $targetType = NULL)
     {
         $this->setName($name)
-            ->setType($type);
+             ->setType($type);
         if (NULL !== $targetType) {
             $this->setTargetType($targetType);
         }

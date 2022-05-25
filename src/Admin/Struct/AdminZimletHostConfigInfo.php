@@ -11,7 +11,7 @@
 namespace Zimbra\Admin\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
-use Zimbra\Struct\{ZimletHostConfigInfo, ZimletProperty};
+use Zimbra\Common\Struct\{ZimletHostConfigInfo, ZimletProperty};
 
 /**
  * AdminZimletHostConfigInfo struct class

@@ -11,7 +11,7 @@
 namespace Zimbra\Admin\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
-use Zimbra\Struct\CustomMetadataInterface;
+use Zimbra\Common\Struct\CustomMetadataInterface;
 
 /**
  * AdminCustomMetadata struct class

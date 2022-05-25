@@ -11,7 +11,7 @@
 namespace Zimbra\Admin\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
-use Zimbra\Struct\NamedElement;
+use Zimbra\Common\Struct\NamedElement;
 
 /**
  * CmdRightsInfo struct class
@@ -37,7 +37,7 @@ class CmdRightsInfo
      * Rights
      * @Accessor(getter="getRights", setter="setRights")
      * @SerializedName("rights")
-     * @Type("array<Zimbra\Struct\NamedElement>")
+     * @Type("array<Zimbra\Common\Struct\NamedElement>")
      * @XmlList(inline = false, entry = "right")
      */
     private $rights;

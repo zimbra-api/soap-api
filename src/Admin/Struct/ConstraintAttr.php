@@ -39,7 +39,7 @@ class ConstraintAttr
      * @Type("Zimbra\Admin\Struct\ConstraintInfo")
      * @XmlElement
      */
-    private $constraint;
+    private ConstraintInfo $constraint;
 
     /**
      * Constructor method for ConstraintAttr

@@ -11,7 +11,7 @@
 namespace Zimbra\Admin\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
-use Zimbra\Struct\TzOnsetInfo;
+use Zimbra\Common\Struct\TzOnsetInfo;
 
 /**
  * CalTZInfo struct class
@@ -55,19 +55,19 @@ class CalTZInfo
      * Time/rule for transitioning from daylight time to standard time. Either specify week/wkday combo, or mday.
      * @Accessor(getter="getStandardTzOnset", setter="setStandardTzOnset")
      * @SerializedName("standard")
-     * @Type("Zimbra\Struct\TzOnsetInfo")
+     * @Type("Zimbra\Common\Struct\TzOnsetInfo")
      * @XmlElement
      */
-    private $standardTzOnset;
+    private ?TzOnsetInfo $standardTzOnset = NULL;
 
     /**
      * Time/rule for transitioning from standard time to daylight time
      * @Accessor(getter="getDaylightTzOnset", setter="setDaylightTzOnset")
      * @SerializedName("daylight")
-     * @Type("Zimbra\Struct\TzOnsetInfo")
+     * @Type("Zimbra\Common\Struct\TzOnsetInfo")
      * @XmlElement
      */
-    private $daylightTzOnset;
+    private ?TzOnsetInfo $daylightTzOnset = NULL;
 
     /**
      * Standard Time component's timezone name

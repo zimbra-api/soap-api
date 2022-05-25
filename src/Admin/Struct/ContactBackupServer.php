@@ -11,8 +11,7 @@
 namespace Zimbra\Admin\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
-
-use Zimbra\Enum\ContactBackupStatus;
+use Zimbra\Common\Enum\ContactBackupStatus;
 
 /**
  * ContactBackupServer struct class
@@ -36,10 +35,10 @@ class ContactBackupServer
     /**
      * @Accessor(getter="getStatus", setter="setStatus")
      * @SerializedName("status")
-     * @Type("Zimbra\Enum\ContactBackupStatus")
+     * @Type("Zimbra\Common\Enum\ContactBackupStatus")
      * @XmlAttribute
      */
-    private $status;
+    private ContactBackupStatus $status;
 
     /**
      * Constructor method for ContactBackupServer

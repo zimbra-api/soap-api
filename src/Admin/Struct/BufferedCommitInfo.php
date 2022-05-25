@@ -11,7 +11,6 @@
 namespace Zimbra\Admin\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
-use Zimbra\Enum\AuthScheme;
 
 /**
  * BufferedCommitInfo struct class

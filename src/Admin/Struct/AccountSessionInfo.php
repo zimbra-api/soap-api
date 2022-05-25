@@ -48,7 +48,7 @@ class AccountSessionInfo
      * @Type("array<Zimbra\Admin\Struct\SessionInfo>")
      * @XmlList(inline = true, entry = "s")
      */
-    private $sessions;
+    private $sessions = [];
 
     /**
      * Constructor method for AccountSessionInfo
