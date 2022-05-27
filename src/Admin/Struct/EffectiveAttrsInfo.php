@@ -50,10 +50,10 @@ class EffectiveAttrsInfo
      */
     public function __construct(?bool $all = NULL, array $attrs = [])
     {
+        $this->setAttrs($attrs);
         if (NULL !== $all) {
             $this->setAll($all);
         }
-        $this->setAttrs($attrs);
     }
 
     /**

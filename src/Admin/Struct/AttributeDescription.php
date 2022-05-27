@@ -50,7 +50,7 @@ class AttributeDescription
     public function __construct(string $name, string $description)
     {
         $this->setName($name)
-            ->setDescription($description);
+             ->setDescription($description);
     }
 
     /**

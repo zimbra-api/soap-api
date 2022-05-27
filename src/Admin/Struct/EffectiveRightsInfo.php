@@ -60,8 +60,8 @@ class EffectiveRightsInfo
     public function __construct(EffectiveAttrsInfo $setAttrs, EffectiveAttrsInfo $getAttrs, array $rights = [])
     {
         $this->setSetAttrs($setAttrs)
-            ->setGetAttrs($getAttrs)
-            ->setRights($rights);
+             ->setGetAttrs($getAttrs)
+             ->setRights($rights);
     }
     /**
      * Gets rights

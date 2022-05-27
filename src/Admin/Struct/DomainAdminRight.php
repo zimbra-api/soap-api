@@ -58,7 +58,7 @@ class DomainAdminRight
      * @Type("array<Zimbra\Admin\Struct\RightWithName>")
      * @XmlList(inline = false, entry = "r")
      */
-    private $rights;
+    private $rights = [];
 
     /**
      * Constructor method for DomainAdminRight

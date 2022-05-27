@@ -40,7 +40,7 @@ class CmdRightsInfo
      * @Type("array<Zimbra\Common\Struct\NamedElement>")
      * @XmlList(inline = false, entry = "right")
      */
-    private $rights;
+    private $rights = [];
 
     /**
      * Notes
@@ -49,7 +49,7 @@ class CmdRightsInfo
      * @Type("array<string>")
      * @XmlList(inline = false, entry = "note")
      */
-    private $notes;
+    private $notes = [];
 
     /**
      * Constructor method for CmdRightsInfo

@@ -41,7 +41,7 @@ class ExportAndDeleteMailboxSpec
      * @Type("array<Zimbra\Admin\Struct\ExportAndDeleteItemSpec>")
      * @XmlList(inline = true, entry = "item")
      */
-    private $items;
+    private $items = [];
 
     /**
      * Constructor method for ExportAndDeleteMailboxSpec

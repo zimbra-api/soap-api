@@ -30,7 +30,7 @@ class AdminKeyValuePairs implements KeyValuePairs
      * @Type("array<Zimbra\Common\Struct\KeyValuePair>")
      * @XmlList(inline = true, entry = "a")
      */
-    private $keyValuePairs;
+    private $keyValuePairs = [];
 
     /**
      * AdminKeyValuePairs constructor.

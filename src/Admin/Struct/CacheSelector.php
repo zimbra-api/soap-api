@@ -30,7 +30,7 @@ class CacheSelector
      * @Type("array<Zimbra\Admin\Struct\CacheEntrySelector>")
      * @XmlList(inline = true, entry = "entry")
      */
-    private $entries;
+    private $entries = [];
 
     /**
      * Comma separated list of cache types.

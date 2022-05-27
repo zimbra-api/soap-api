@@ -182,7 +182,7 @@ class ContactInfo
      * @Type("array<Zimbra\Admin\Struct\AdminCustomMetadata>")
      * @XmlList(inline = true, entry = "meta")
      */
-    private $metadatas;
+    private $metadatas = [];
 
     /**
      * @Accessor(getter="getAttrs", setter="setAttrs")
@@ -190,7 +190,7 @@ class ContactInfo
      * @Type("array<Zimbra\Common\Struct\ContactAttr>")
      * @XmlList(inline = true, entry = "a")
      */
-    private $attrs;
+    private $attrs = [];
 
     /**
      * @Accessor(getter="getContactGroupMembers", setter="setContactGroupMembers")
@@ -198,7 +198,7 @@ class ContactInfo
      * @Type("array<Zimbra\Admin\Struct\ContactGroupMember>")
      * @XmlList(inline = true, entry = "m")
      */
-    private $contactGroupMembers;
+    private $contactGroupMembers = [];
 
     /**
      * Constructor method for ContactInfo

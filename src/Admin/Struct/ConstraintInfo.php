@@ -48,7 +48,7 @@ class ConstraintInfo
      * @Type("array<string>")
      * @XmlList(inline = false, entry = "v")
      */
-    private $values;
+    private $values = [];
 
     /**
      * Constructor method for ConstraintInfo

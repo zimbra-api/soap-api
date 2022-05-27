@@ -40,7 +40,7 @@ class AutoProvDirectoryEntry extends AdminKeyValuePairs
      * @Type("array<string>")
      * @XmlList(inline = true, entry = "key")
      */
-    private $keys;
+    private $keys = [];
 
     /**
      * Constructor method for AutoProvDirectoryEntry

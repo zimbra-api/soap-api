@@ -30,7 +30,7 @@ class ComboRights
      * @Type("array<Zimbra\Admin\Struct\ComboRightInfo>")
      * @XmlList(inline = true, entry = "r")
      */
-    private $comboRights;
+    private $comboRights = [];
 
     /**
      * Constructor method for ComboRights

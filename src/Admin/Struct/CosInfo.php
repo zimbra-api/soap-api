@@ -56,7 +56,7 @@ class CosInfo implements AdminObjectInterface
      * @Type("array<Zimbra\Admin\Struct\CosInfoAttr>")
      * @XmlList(inline = true, entry = "a")
      */
-    private $attrs;
+    private $attrs = [];
 
     /**
      * Constructor method for CosInfo
