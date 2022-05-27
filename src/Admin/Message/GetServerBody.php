@@ -30,7 +30,7 @@ class GetServerBody extends Body
      * @Type("Zimbra\Admin\Message\GetServerRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
      */
-    private $request;
+    private ?RequestInterface $request = NULL;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -38,7 +38,7 @@ class GetServerBody extends Body
      * @Type("Zimbra\Admin\Message\GetServerResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
      */
-    private $response;
+    private ?ResponseInterface $response = NULL;
 
     /**
      * Constructor method for GetServerBody

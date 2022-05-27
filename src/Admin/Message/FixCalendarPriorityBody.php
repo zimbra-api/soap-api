@@ -30,7 +30,7 @@ class FixCalendarPriorityBody extends Body
      * @Type("Zimbra\Admin\Message\FixCalendarPriorityRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
      */
-    private $request;
+    private ?RequestInterface $request = NULL;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -38,7 +38,7 @@ class FixCalendarPriorityBody extends Body
      * @Type("Zimbra\Admin\Message\FixCalendarPriorityResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
      */
-    private $response;
+    private ?ResponseInterface $response = NULL;
 
     /**
      * Constructor method for FixCalendarPriorityBody

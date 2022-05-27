@@ -22,42 +22,13 @@ use JMS\Serializer\Annotation\{Accessor, Exclude, SerializedName, Type, XmlAttri
  */
 abstract class Request implements RequestInterface
 {
+    use WithRequestId;
+
     /**
      * @var EnvelopeInterface
      * @Exclude
      */
     protected $envelope;
-
-    /**
-     * Request id. Used with BatchRequestInterface
-     * @Accessor(getter="getRequestId", setter="setRequestId")
-     * @SerializedName("requestId")
-     * @Type("string")
-     * @XmlAttribute
-     */
-    protected $requestId;
-
-    /**
-     * Gets request id
-     *
-     * @return string
-     */
-    public function getRequestId(): ?string
-    {
-        return $this->requestId;
-    }
-
-    /**
-     * Sets request id
-     *
-     * @param  string $requestId
-     * @return self
-     */
-    public function setRequestId(string $requestId): self
-    {
-        $this->requestId = $requestId;
-        return $this;
-    }
 
     /**
      * Get soap envelope.

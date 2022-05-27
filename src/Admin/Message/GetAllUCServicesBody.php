@@ -30,7 +30,7 @@ class GetAllUCServicesBody extends Body
      * @Type("Zimbra\Admin\Message\GetAllUCServicesRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
      */
-    private $request;
+    private ?RequestInterface $request = NULL;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -38,7 +38,7 @@ class GetAllUCServicesBody extends Body
      * @Type("Zimbra\Admin\Message\GetAllUCServicesResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
      */
-    private $response;
+    private ?ResponseInterface $response = NULL;
 
     /**
      * Constructor method for GetAllUCServicesBody

@@ -30,7 +30,7 @@ class GetAdminSavedSearchesBody extends Body
      * @Type("Zimbra\Admin\Message\GetAdminSavedSearchesRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
      */
-    private $request;
+    private ?RequestInterface $request = NULL;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -38,7 +38,7 @@ class GetAdminSavedSearchesBody extends Body
      * @Type("Zimbra\Admin\Message\GetAdminSavedSearchesResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
      */
-    private $response;
+    private ?ResponseInterface $response = NULL;
 
     /**
      * Constructor method for GetAdminSavedSearchesBody

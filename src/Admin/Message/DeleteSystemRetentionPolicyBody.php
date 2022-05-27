@@ -30,7 +30,7 @@ class DeleteSystemRetentionPolicyBody extends Body
      * @Type("Zimbra\Admin\Message\DeleteSystemRetentionPolicyRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
      */
-    private $request;
+    private ?RequestInterface $request = NULL;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -38,7 +38,7 @@ class DeleteSystemRetentionPolicyBody extends Body
      * @Type("Zimbra\Admin\Message\DeleteSystemRetentionPolicyResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
      */
-    private $response;
+    private ?ResponseInterface $response = NULL;
 
     /**
      * Constructor method for DeleteSystemRetentionPolicyBody

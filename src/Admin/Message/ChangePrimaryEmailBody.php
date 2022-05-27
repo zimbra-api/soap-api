@@ -30,7 +30,7 @@ class ChangePrimaryEmailBody extends Body
      * @Type("Zimbra\Admin\Message\ChangePrimaryEmailRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
      */
-    private $request;
+    private ?RequestInterface $request = NULL;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -38,7 +38,7 @@ class ChangePrimaryEmailBody extends Body
      * @Type("Zimbra\Admin\Message\ChangePrimaryEmailResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
      */
-    private $response;
+    private ?ResponseInterface $response = NULL;
 
     /**
      * Constructor method for ChangePrimaryEmailBody

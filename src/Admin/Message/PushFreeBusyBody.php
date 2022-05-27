@@ -30,7 +30,7 @@ class PushFreeBusyBody extends Body
      * @Type("Zimbra\Admin\Message\PushFreeBusyRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
      */
-    private $request;
+    private ?RequestInterface $request = NULL;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -38,7 +38,7 @@ class PushFreeBusyBody extends Body
      * @Type("Zimbra\Admin\Message\PushFreeBusyResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
      */
-    private $response;
+    private ?ResponseInterface $response = NULL;
 
     /**
      * Constructor method for PushFreeBusyBody

@@ -30,7 +30,7 @@ class GetCosBody extends Body
      * @Type("Zimbra\Admin\Message\GetCosRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
      */
-    private $request;
+    private ?RequestInterface $request = NULL;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -38,7 +38,7 @@ class GetCosBody extends Body
      * @Type("Zimbra\Admin\Message\GetCosResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
      */
-    private $response;
+    private ?ResponseInterface $response = NULL;
 
     /**
      * Constructor method for GetCosBody

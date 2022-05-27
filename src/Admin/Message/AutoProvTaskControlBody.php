@@ -30,7 +30,7 @@ class AutoProvTaskControlBody extends Body
      * @Type("Zimbra\Admin\Message\AutoProvTaskControlRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
      */
-    private $request;
+    private ?RequestInterface $request = NULL;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -38,7 +38,7 @@ class AutoProvTaskControlBody extends Body
      * @Type("Zimbra\Admin\Message\AutoProvTaskControlResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
      */
-    private $response;
+    private ?ResponseInterface $response = NULL;
 
     /**
      * Constructor method for AutoProvTaskControlBody

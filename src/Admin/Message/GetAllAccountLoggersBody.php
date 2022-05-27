@@ -30,7 +30,7 @@ class GetAllAccountLoggersBody extends Body
      * @Type("Zimbra\Admin\Message\GetAllAccountLoggersRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
      */
-    private $request;
+    private ?RequestInterface $request = NULL;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -38,7 +38,7 @@ class GetAllAccountLoggersBody extends Body
      * @Type("Zimbra\Admin\Message\GetAllAccountLoggersResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
      */
-    private $response;
+    private ?ResponseInterface $response = NULL;
 
     /**
      * Constructor method for GetAllAccountLoggersBody
