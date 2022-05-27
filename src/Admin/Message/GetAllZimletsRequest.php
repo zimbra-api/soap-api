@@ -11,7 +11,7 @@
 namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
-use Zimbra\Enum\ZimletExcludeType;
+use Zimbra\Common\Enum\ZimletExcludeType;
 use Zimbra\Soap\Request;
 
 /**
@@ -33,10 +33,10 @@ class GetAllZimletsRequest extends Request
      * none [default]:   return both mail and admin zimlets
      * @Accessor(getter="getExclude", setter="setExclude")
      * @SerializedName("exclude")
-     * @Type("Zimbra\Enum\ZimletExcludeType")
+     * @Type("Zimbra\Common\Enum\ZimletExcludeType")
      * @XmlAttribute
      */
-    private $exclude;
+    private ?ZimletExcludeType $exclude = NULL;
 
     /**
      * Constructor method for GetAllZimletsRequest

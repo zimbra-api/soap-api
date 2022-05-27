@@ -11,7 +11,6 @@
 namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement, XmlNamespace, XmlRoot};
-
 use Zimbra\Soap\{BodyInterface, Envelope, Header};
 
 /**
@@ -33,7 +32,7 @@ class AddDistributionListMemberEnvelope extends Envelope
      * @Type("Zimbra\Admin\Message\AddDistributionListMemberBody")
      * @XmlElement(namespace="http://www.w3.org/2003/05/soap-envelope")
      */
-    private $body;
+    private ?BodyInterface $body = NULL;
 
     /**
      * Constructor method for AddDistributionListMemberEnvelope

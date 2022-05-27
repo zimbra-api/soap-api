@@ -11,7 +11,7 @@
 namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
-use Zimbra\Enum\GalSearchType;
+use Zimbra\Common\Enum\GalSearchType;
 use Zimbra\Soap\Request;
 
 /**
@@ -58,10 +58,10 @@ class SearchGalRequest extends Request
      * Type of addresses to search.
      * @Accessor(getter="getType", setter="setType")
      * @SerializedName("type")
-     * @Type("Zimbra\Enum\GalSearchType")
+     * @Type("Zimbra\Common\Enum\GalSearchType")
      * @XmlAttribute
      */
-    private $type;
+    private ?GalSearchType $type = NULL;
 
     /**
      * GAL account ID

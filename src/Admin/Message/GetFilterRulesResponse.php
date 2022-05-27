@@ -14,9 +14,9 @@ use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, Xml
 use Zimbra\Admin\Struct\CosSelector as Cos;
 use Zimbra\Admin\Struct\DomainSelector as Domain;
 use Zimbra\Admin\Struct\ServerSelector as Server;
-use Zimbra\Mail\Struct\FilterRule;
+use Zimbra\Common\Enum\AdminFilterType;
 use Zimbra\Common\Struct\AccountSelector as Account;
-use Zimbra\Enum\AdminFilterType;
+use Zimbra\Mail\Struct\FilterRule;
 use Zimbra\Soap\ResponseInterface;
 
 /**
@@ -34,7 +34,7 @@ class GetFilterRulesResponse implements ResponseInterface
      * Type can be either before or after
      * @Accessor(getter="getType", setter="setType")
      * @SerializedName("type")
-     * @Type("Zimbra\Enum\AdminFilterType")
+     * @Type("Zimbra\Common\Enum\AdminFilterType")
      * @XmlAttribute
      */
     private AdminFilterType $type;

@@ -11,8 +11,8 @@
 namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
+use Zimbra\Common\Enum\GalSearchType;
 use Zimbra\Soap\Request;
-use Zimbra\Enum\GalSearchType;
 
 /**
  * AutoCompleteGalRequest class
@@ -48,10 +48,10 @@ class AutoCompleteGalRequest extends Request
      * Type of addresses to auto-complete on
      * @Accessor(getter="getType", setter="setType")
      * @SerializedName("type")
-     * @Type("Zimbra\Enum\GalSearchType")
+     * @Type("Zimbra\Common\Enum\GalSearchType")
      * @XmlAttribute()
      */
-    private $type;
+    private ?GalSearchType $type = NULL;
 
     /**
      * GAL Account ID

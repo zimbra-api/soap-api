@@ -11,7 +11,7 @@
 namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
-use Zimbra\Soap\{Body, BodyInterface, RequestInterface, ResponseInterface};
+use Zimbra\Soap\{Body, RequestInterface, ResponseInterface};
 
 /**
  * AdminCreateWaitSetBody class
@@ -30,7 +30,7 @@ class AdminCreateWaitSetBody extends Body
      * @Type("Zimbra\Admin\Message\AdminCreateWaitSetRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
      */
-    private $request;
+    private ?RequestInterface $request = NULL;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -38,7 +38,7 @@ class AdminCreateWaitSetBody extends Body
      * @Type("Zimbra\Admin\Message\AdminCreateWaitSetResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
      */
-    private $response;
+    private ?ResponseInterface $response = NULL;
 
     /**
      * Constructor method for AdminCreateWaitSetBody

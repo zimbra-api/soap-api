@@ -12,7 +12,7 @@ namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
 use Zimbra\Admin\Struct\ReindexMailboxInfo as Mbox;
-use Zimbra\Enum\ReIndexAction as Action;
+use Zimbra\Common\Enum\ReIndexAction as Action;
 use Zimbra\Soap\Request;
 
 /**
@@ -34,7 +34,7 @@ class ReIndexRequest extends Request
      * @Type("Zimbra\Admin\Struct\ReindexMailboxInfo")
      * @XmlElement
      */
-    private $mbox;
+    private Mbox $mbox;
 
     /**
      * Action to perform
@@ -43,10 +43,10 @@ class ReIndexRequest extends Request
      * cancel: cancel reindexing 
      * @Accessor(getter="getAction", setter="setAction")
      * @SerializedName("action")
-     * @Type("Zimbra\Enum\ReIndexAction")
+     * @Type("Zimbra\Common\Enum\ReIndexAction")
      * @XmlAttribute
      */
-    private $action;
+    private ?Action $action = NULL;
 
     /**
      * Constructor method for ReIndexRequest

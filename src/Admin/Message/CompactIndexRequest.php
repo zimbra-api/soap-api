@@ -12,7 +12,7 @@ namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
 use Zimbra\Admin\Struct\MailboxByAccountIdSelector as Mbox;
-use Zimbra\Enum\CompactIndexAction  as Action;
+use Zimbra\Common\Enum\CompactIndexAction as Action;
 use Zimbra\Soap\Request;
 
 /**
@@ -42,10 +42,10 @@ class CompactIndexRequest extends Request
      * status: show compact indexing status
      * @Accessor(getter="getAction", setter="setAction")
      * @SerializedName("action")
-     * @Type("Zimbra\Enum\CompactIndexAction")
+     * @Type("Zimbra\Common\Enum\CompactIndexAction")
      * @XmlAttribute
      */
-    private $action;
+    private ?Action $action = NULL;
 
     /**
      * Constructor method for CompactIndexRequest

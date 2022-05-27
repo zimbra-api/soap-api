@@ -12,7 +12,7 @@ namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
 use Zimbra\Admin\Struct\ServerSelector as Server;
-use Zimbra\Enum\IpType;
+use Zimbra\Common\Enum\IpType;
 use Zimbra\Soap\Request;
 
 /**
@@ -33,10 +33,10 @@ class GetServerNIfsRequest extends Request
      * specifics the ipAddress type (ipV4/ipV6/both). default is ipv4
      * @Accessor(getter="getType", setter="setType")
      * @SerializedName("type")
-     * @Type("Zimbra\Enum\IpType")
+     * @Type("Zimbra\Common\Enum\IpType")
      * @XmlAttribute
      */
-    private $type;
+    private ?IpType $type = NULL;
 
     /**
      * Server
@@ -54,7 +54,7 @@ class GetServerNIfsRequest extends Request
      * @param  IpType $type
      * @return self
      */
-    public function __construct(Server $server, IpType $type = NULL)
+    public function __construct(Server $server, ?IpType $type = NULL)
     {
         $this->setServer($server);
         if ($type instanceof IpType) {

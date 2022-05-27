@@ -12,7 +12,7 @@ namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
 use Zimbra\Admin\Struct\AttachmentIdAttrib;
-use Zimbra\Enum\ZimletDeployAction as DeployAction;
+use Zimbra\Common\Enum\ZimletDeployAction as DeployAction;
 use Zimbra\Soap\Request;
 
 /**
@@ -31,10 +31,10 @@ class DeployZimletRequest extends Request
      * Action - valid values : deployAll|deployLocal|status
      * @Accessor(getter="getAction", setter="setAction")
      * @SerializedName("action")
-     * @Type("Zimbra\Enum\ZimletDeployAction")
+     * @Type("Zimbra\Common\Enum\ZimletDeployAction")
      * @XmlAttribute
      */
-    private $action;
+    private DeployAction $action;
 
     /**
      * Flag whether to flush the cache
@@ -61,7 +61,7 @@ class DeployZimletRequest extends Request
      * @Type("Zimbra\Admin\Struct\AttachmentIdAttrib")
      * @XmlElement
      */
-    private $content;
+    private AttachmentIdAttrib $content;
 
     /**
      * Constructor method for DeployZimletRequest

@@ -11,7 +11,7 @@
 namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
-use Zimbra\Enum\AutoProvTaskAction;
+use Zimbra\Common\Enum\AutoProvTaskAction;
 use Zimbra\Soap\Request;
 
 /**
@@ -33,10 +33,10 @@ class AutoProvTaskControlRequest extends Request
      * Action to perform - one of start|status|stop
      * @Accessor(getter="getAction", setter="setAction")
      * @SerializedName("action")
-     * @Type("Zimbra\Enum\AutoProvTaskAction")
-     * @XmlAttribute()
+     * @Type("Zimbra\Common\Enum\AutoProvTaskAction")
+     * @XmlAttribute
      */
-    private $action;
+    private AutoProvTaskAction $action;
 
     /**
      * Constructor method for AutoProvTaskControlRequest

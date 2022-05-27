@@ -82,18 +82,22 @@ class AdminWaitSetResponse implements ResponseInterface
      * @return self
      */
     public function __construct(
-        string $waitSetId, ?bool $canceled = NULL, ?string $seqNo = NULL, array $signalledAccounts = [], array $errors = []
+        string $waitSetId,
+        ?bool $canceled = NULL,
+        ?string $seqNo = NULL,
+        array $signalledAccounts = [],
+        array $errors = []
     )
     {
-        $this->setWaitSetId($waitSetId);
+        $this->setWaitSetId($waitSetId)
+             ->setSignalledAccounts($signalledAccounts)
+             ->setErrors($errors);
         if (NULL !== $canceled) {
             $this->setCanceled($canceled);
         }
         if (NULL !== $seqNo) {
             $this->setSeqNo($seqNo);
         }
-        $this->setSignalledAccounts($signalledAccounts)
-             ->setErrors($errors);
     }
 
     /**

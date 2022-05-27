@@ -12,8 +12,8 @@ namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
 use Zimbra\Admin\Struct\{AdminAttrs, AdminAttrsImplTrait};
+use Zimbra\Common\Enum\GalMode;
 use Zimbra\Common\Struct\AccountSelector as Account;
-use Zimbra\Enum\GalMode;
 use Zimbra\Soap\Request;
 
 /**
@@ -61,7 +61,7 @@ class AddGalSyncDataSourceRequest extends Request implements AdminAttrs
      * GalMode type
      * @Accessor(getter="getType", setter="setType")
      * @SerializedName("type")
-     * @Type("Zimbra\Enum\GalMode")
+     * @Type("Zimbra\Common\Enum\GalMode")
      * @XmlAttribute
      */
     private GalMode $type;

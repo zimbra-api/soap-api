@@ -55,7 +55,7 @@ use Zimbra\Mail\Struct\{
     PolicyHolder
 };
 
-use Zimbra\Enum\{
+use Zimbra\Common\Enum\{
     AutoProvTaskAction,
     CompactIndexAction,
     ContactBackupOp,

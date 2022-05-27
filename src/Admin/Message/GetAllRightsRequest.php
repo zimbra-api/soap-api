@@ -11,7 +11,7 @@
 namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
-use Zimbra\Enum\RightClass;
+use Zimbra\Common\Enum\RightClass;
 use Zimbra\Soap\Request;
 
 /**
@@ -55,10 +55,10 @@ class GetAllRightsRequest extends Request
      * ALL:   return both admin rights and user rights
      * @Accessor(getter="getRightClass", setter="setRightClass")
      * @SerializedName("rightClass")
-     * @Type("Zimbra\Enum\RightClass")
+     * @Type("Zimbra\Common\Enum\RightClass")
      * @XmlAttribute
      */
-    private $rightClass;
+    private ?RightClass $rightClass = NULL;
 
     /**
      * Constructor method for GetAllRightsRequest
@@ -68,7 +68,9 @@ class GetAllRightsRequest extends Request
      * @param  RightClass $rightClass
      * @return self
      */
-    public function __construct(?string $targetType = NULL, ?bool $expandAllAttrs = NULL, ?RightClass $rightClass = NULL)
+    public function __construct(
+        ?string $targetType = NULL, ?bool $expandAllAttrs = NULL, ?RightClass $rightClass = NULL
+    )
     {
         if (NULL !== $targetType) {
             $this->setTargetType($targetType);

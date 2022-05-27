@@ -42,7 +42,7 @@ class AddDistributionListMemberRequest extends Request
      * @Type("array<string>")
      * @XmlList(inline = true, entry = "dlm")
      */
-    private $members;
+    private $members = [];
 
     /**
      * Constructor method for AddDistributionListMemberRequest

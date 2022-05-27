@@ -11,8 +11,8 @@
 namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
+use Zimbra\Common\Enum\TargetType;
 use Zimbra\Common\Struct\NamedElement;
-use Zimbra\Enum\TargetType;
 use Zimbra\Soap\Request;
 
 /**
@@ -34,7 +34,7 @@ class GetDelegatedAdminConstraintsRequest extends Request
      * Target Type
      * @Accessor(getter="getType", setter="setType")
      * @SerializedName("type")
-     * @Type("Zimbra\Enum\TargetType")
+     * @Type("Zimbra\Common\Enum\TargetType")
      * @XmlAttribute
      */
     private TargetType $type;

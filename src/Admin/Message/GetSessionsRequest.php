@@ -11,8 +11,8 @@
 namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
-use Zimbra\Enum\GetSessionsSortBy;
-use Zimbra\Enum\SessionType;
+use Zimbra\Common\Enum\GetSessionsSortBy;
+use Zimbra\Common\Enum\SessionType;
 use Zimbra\Soap\Request;
 
 /**
@@ -31,19 +31,19 @@ class GetSessionsRequest extends Request
      * Type - valid values soap|imap|admin
      * @Accessor(getter="getType", setter="setType")
      * @SerializedName("type")
-     * @Type("Zimbra\Enum\SessionType")
+     * @Type("Zimbra\Common\Enum\SessionType")
      * @XmlAttribute
      */
-    private $type;
+    private SessionType $type;
 
     /**
      * SortBy - valid values: nameAsc|nameDesc|createdAsc|createdDesc|accessedAsc|accessedDesc
      * @Accessor(getter="getSortBy", setter="setSortBy")
      * @SerializedName("sortBy")
-     * @Type("Zimbra\Enum\GetSessionsSortBy")
+     * @Type("Zimbra\Common\Enum\GetSessionsSortBy")
      * @XmlAttribute
      */
-    private $sortBy;
+    private ?GetSessionsSortBy $sortBy = NULL;
 
     /**
      * Offset - the starting offset (0, 25, etc)

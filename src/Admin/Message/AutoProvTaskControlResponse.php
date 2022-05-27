@@ -11,7 +11,7 @@
 namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
-use Zimbra\Enum\AutoProvTaskStatus;
+use Zimbra\Common\Enum\AutoProvTaskStatus;
 use Zimbra\Soap\ResponseInterface;
 
 /**
@@ -29,10 +29,10 @@ class AutoProvTaskControlResponse implements ResponseInterface
      * Auth token
      * @Accessor(getter="getStatus", setter="setStatus")
      * @SerializedName("status")
-     * @Type("Zimbra\Enum\AutoProvTaskStatus")
+     * @Type("Zimbra\Common\Enum\AutoProvTaskStatus")
      * @XmlAttribute
      */
-    private $status;
+    private AutoProvTaskStatus $status;
 
     /**
      * Constructor method for AutoProvTaskControlResponse

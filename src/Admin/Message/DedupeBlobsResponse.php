@@ -12,7 +12,7 @@ namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
 use Zimbra\Admin\Struct\VolumeIdAndProgress;
-use Zimbra\Enum\DedupStatus;
+use Zimbra\Common\Enum\DedupStatus;
 use Zimbra\Soap\ResponseInterface;
 
 /**
@@ -30,10 +30,10 @@ class DedupeBlobsResponse implements ResponseInterface
      * Status - one of started|running|idle|stopped
      * @Accessor(getter="getStatus", setter="setStatus")
      * @SerializedName("status")
-     * @Type("Zimbra\Enum\DedupStatus")
+     * @Type("Zimbra\Common\Enum\DedupStatus")
      * @XmlAttribute
      */
-    private $status;
+    private ?DedupStatus $status = NULL;
 
     /**
      * @Accessor(getter="getTotalSize", setter="setTotalSize")
@@ -58,7 +58,7 @@ class DedupeBlobsResponse implements ResponseInterface
      * @Type("array<Zimbra\Admin\Struct\VolumeIdAndProgress>")
      * @XmlList(inline = true, entry = "volumeBlobsProgress")
      */
-    private $volumeBlobsProgress;
+    private $volumeBlobsProgress = [];
 
     /**
      * blobDigestsProgress
@@ -67,7 +67,7 @@ class DedupeBlobsResponse implements ResponseInterface
      * @Type("array<Zimbra\Admin\Struct\VolumeIdAndProgress>")
      * @XmlList(inline = true, entry = "blobDigestsProgress")
      */
-    private $blobDigestsProgress;
+    private $blobDigestsProgress = [];
 
     /**
      * Constructor method for DedupeBlobsResponse

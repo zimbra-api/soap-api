@@ -12,7 +12,7 @@ namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
 use Zimbra\Admin\Struct\ReindexProgressInfo as Progress;
-use Zimbra\Enum\ReIndexStatus  as Status;
+use Zimbra\Common\Enum\ReIndexStatus  as Status;
 use Zimbra\Soap\ResponseInterface;
 
 /**
@@ -30,10 +30,10 @@ class ReIndexResponse implements ResponseInterface
      * Status - one of started|running|cancelled|idle
      * @Accessor(getter="getStatus", setter="setStatus")
      * @SerializedName("status")
-     * @Type("Zimbra\Enum\ReIndexStatus")
+     * @Type("Zimbra\Common\Enum\ReIndexStatus")
      * @XmlAttribute
      */
-    private $status;
+    private Status $status;
 
     /**
      * Specify reindexing to perform
@@ -42,7 +42,7 @@ class ReIndexResponse implements ResponseInterface
      * @Type("Zimbra\Admin\Struct\ReindexProgressInfo")
      * @XmlElement
      */
-    private $progress;
+    private ?Progress $progress = NULL;
 
     /**
      * Constructor method for ReIndexResponse
@@ -51,7 +51,7 @@ class ReIndexResponse implements ResponseInterface
      * @param Progress  $progress
      * @return self
      */
-    public function __construct(Status $status, Progress $progress = NULL)
+    public function __construct(Status $status, ?Progress $progress = NULL)
     {
         $this->setStatus($status);
         if ($progress instanceof Progress) {
@@ -64,7 +64,7 @@ class ReIndexResponse implements ResponseInterface
      *
      * @return Progress
      */
-    public function getProgress(): Progress
+    public function getProgress(): ?Progress
     {
         return $this->progress;
     }

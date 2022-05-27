@@ -11,7 +11,7 @@
 namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
-use Zimbra\Enum\LockoutOperation;
+use Zimbra\Common\Enum\LockoutOperation;
 use Zimbra\Common\Struct\AccountNameSelector as Account;
 use Zimbra\Soap\Request;
 
@@ -40,7 +40,7 @@ class LockoutMailboxRequest extends Request
      * one of 'start' or 'end'
      * @Accessor(getter="getOperation", setter="setOperation")
      * @SerializedName("op")
-     * @Type("Zimbra\Enum\LockoutOperation")
+     * @Type("Zimbra\Common\Enum\LockoutOperation")
      * @XmlAttribute
      */
     private ?LockoutOperation $operation = NULL;

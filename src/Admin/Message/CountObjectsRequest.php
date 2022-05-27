@@ -12,7 +12,7 @@ namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement, XmlList};
 use Zimbra\Admin\Struct\{DomainSelector, UcServiceSelector};
-use Zimbra\Enum\CountObjectsType;
+use Zimbra\Common\Enum\CountObjectsType;
 use Zimbra\Soap\Request;
 
 /**
@@ -41,10 +41,10 @@ class CountObjectsRequest extends Request
      * Object type
      * @Accessor(getter="getType", setter="setType")
      * @SerializedName("type")
-     * @Type("Zimbra\Enum\CountObjectsType")
+     * @Type("Zimbra\Common\Enum\CountObjectsType")
      * @XmlAttribute
      */
-    private $type;
+    private CountObjectsType $type;
 
     /**
      * Domain
@@ -54,7 +54,7 @@ class CountObjectsRequest extends Request
      * @Type("array<Zimbra\Admin\Struct\DomainSelector>")
      * @XmlList(inline = true, entry = "domain")
      */
-    private $domains;
+    private $domains = [];
 
     /**
      * UCService
@@ -63,7 +63,7 @@ class CountObjectsRequest extends Request
      * @Type("Zimbra\Admin\Struct\UcServiceSelector")
      * @XmlElement
      */
-    private $ucService;
+    private ?UcServiceSelector $ucService = NULL;
 
     /**
      * Get only related if delegated/domain admin

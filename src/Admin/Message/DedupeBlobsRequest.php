@@ -12,7 +12,7 @@ namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
 use Zimbra\Admin\Struct\IntIdAttr;
-use Zimbra\Enum\DedupAction;
+use Zimbra\Common\Enum\DedupAction;
 use Zimbra\Soap\Request;
 
 /**
@@ -31,10 +31,10 @@ class DedupeBlobsRequest extends Request
      * Action to perform - one of start|status|stop
      * @Accessor(getter="getAction", setter="setAction")
      * @SerializedName("action")
-     * @Type("Zimbra\Enum\DedupAction")
+     * @Type("Zimbra\Common\Enum\DedupAction")
      * @XmlAttribute
      */
-    private $action;
+    private DedupAction $action;
 
     /**
      * Volumes
@@ -43,7 +43,7 @@ class DedupeBlobsRequest extends Request
      * @Type("array<Zimbra\Admin\Struct\IntIdAttr>")
      * @XmlList(inline = true, entry = "volume")
      */
-    private $volumes;
+    private $volumes = [];
 
     /**
      * Constructor method for DedupeBlobsRequest
