@@ -11,7 +11,7 @@
 namespace Zimbra\Account\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlList};
-use Zimbra\Struct\KeyValuePair;
+use Zimbra\Common\Struct\KeyValuePair;
 
 /**
  * AccountKeyValuePairsTrait trait
@@ -28,10 +28,10 @@ trait AccountKeyValuePairsTrait
      * Key value pairs
      * @Accessor(getter="getKeyValuePairs", setter="setKeyValuePairs")
      * @SerializedName("a")
-     * @Type("array<Zimbra\Struct\KeyValuePair>")
+     * @Type("array<Zimbra\Common\Struct\KeyValuePair>")
      * @XmlList(inline = true, entry = "a")
      */
-    private $keyValuePairs;
+    private $keyValuePairs = [];
 
     /**
      * Add an attr

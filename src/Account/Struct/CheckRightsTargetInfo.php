@@ -11,7 +11,7 @@
 namespace Zimbra\Account\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
-use Zimbra\Enum\{TargetBy, TargetType};
+use Zimbra\Common\Enum\{TargetBy, TargetType};
 
 /**
  * CheckRightsTargetInfo struct class
@@ -27,18 +27,18 @@ class CheckRightsTargetInfo
     /**
      * @Accessor(getter="getTargetType", setter="setTargetType")
      * @SerializedName("type")
-     * @Type("Zimbra\Enum\TargetType")
+     * @Type("Zimbra\Common\Enum\TargetType")
      * @XmlAttribute
      */
-    private $targetType;
+    private TargetType $targetType;
 
     /**
      * @Accessor(getter="getTargetBy", setter="setTargetBy")
      * @SerializedName("by")
-     * @Type("Zimbra\Enum\TargetBy")
+     * @Type("Zimbra\Common\Enum\TargetBy")
      * @XmlAttribute
      */
-    private $targetBy;
+    private TargetBy $targetBy;
 
     /**
      * @Accessor(getter="getTargetKey", setter="setTargetKey")
@@ -73,13 +73,15 @@ class CheckRightsTargetInfo
      * @param  array $rights
      * @return self
      */
-    public function __construct(TargetType $type, TargetBy $by, string $key, bool $allow, array $rights = [])
+    public function __construct(
+        TargetType $type, TargetBy $by, string $key, bool $allow, array $rights = []
+    )
     {
         $this->setTargetType($type)
-            ->setTargetBy($by)
-            ->setTargetKey($key)
-            ->setAllow($allow)
-            ->setRights($rights);
+             ->setTargetBy($by)
+             ->setTargetKey($key)
+             ->setAllow($allow)
+             ->setRights($rights);
     }
 
     /**

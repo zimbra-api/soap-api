@@ -12,10 +12,10 @@ namespace Zimbra\Account\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
 use Zimbra\Account\Struct\EntrySearchFilterInfo;
-use Zimbra\Enum\GalSearchType;
-use Zimbra\Enum\MemberOfSelector;
+use Zimbra\Common\Enum\GalSearchType;
+use Zimbra\Common\Enum\MemberOfSelector;
+use Zimbra\Common\Struct\CursorInfo;
 use Zimbra\Soap\Request;
-use Zimbra\Struct\CursorInfo;
 
 /**
  * SearchGalRequest class
@@ -51,10 +51,10 @@ class SearchGalRequest extends Request
      * type of addresses to auto-complete on.
      * @Accessor(getter="getType", setter="setType")
      * @SerializedName("type")
-     * @Type("Zimbra\Enum\GalSearchType")
+     * @Type("Zimbra\Common\Enum\GalSearchType")
      * @XmlAttribute
      */
-    private $type;
+    private ?GalSearchType $type = NULL;
 
     /**
      * flag whether the <b>{exp}</b> flag is needed in the response for group entries.
@@ -80,10 +80,10 @@ class SearchGalRequest extends Request
      * Specify if the "isMember" flag is needed in the response for group entries.
      * @Accessor(getter="getNeedIsMember", setter="setNeedIsMember")
      * @SerializedName("needIsMember")
-     * @Type("Zimbra\Enum\MemberOfSelector")
+     * @Type("Zimbra\Common\Enum\MemberOfSelector")
      * @XmlAttribute
      */
-    private $needIsMember;
+    private ?MemberOfSelector $needIsMember = NULL;
 
     /**
      * Internal attr, for proxied GSA search from GetSMIMEPublicCerts only
@@ -157,10 +157,10 @@ class SearchGalRequest extends Request
      * Cursor specification
      * @Accessor(getter="getCursor", setter="setCursor")
      * @SerializedName("cursor")
-     * @Type("Zimbra\Struct\CursorInfo")
+     * @Type("Zimbra\Common\Struct\CursorInfo")
      * @XmlElement
      */
-    private $cursor;
+    private ?CursorInfo $cursor = NULL;
 
     /**
      * Search Filter
@@ -169,7 +169,7 @@ class SearchGalRequest extends Request
      * @Type("Zimbra\Account\Struct\EntrySearchFilterInfo")
      * @XmlElement
      */
-    private $searchFilter;
+    private ?EntrySearchFilterInfo $searchFilter = NULL;
 
     /**
      * Constructor method for SearchGalRequest
@@ -196,10 +196,10 @@ class SearchGalRequest extends Request
         ?EntrySearchFilterInfo $searchFilter = NULL,
         ?string $ref = NULL,
         ?string $name = NULL,
-        GalSearchType $type = NULL,
+        ?GalSearchType $type = NULL,
         ?bool $needCanExpand = NULL,
         ?bool $needIsOwner = NULL,
-        MemberOfSelector $needIsMember = NULL,
+        ?MemberOfSelector $needIsMember = NULL,
         ?bool $needSMIMECerts = NULL,
         ?string $galAccountId = NULL,
         ?bool $quick = NULL,

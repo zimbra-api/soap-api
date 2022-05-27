@@ -10,7 +10,7 @@
 
 namespace Zimbra\Account\Struct;
 
-use Zimbra\Struct\CalDataSource;
+use Zimbra\Common\Struct\CalDataSource;
 
 /**
  * AccountCalDataSource struct class

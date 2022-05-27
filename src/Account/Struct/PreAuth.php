@@ -11,7 +11,7 @@
 namespace Zimbra\Account\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlValue};
-use Zimbra\Struct\AccountSelector;
+use Zimbra\Common\Struct\AccountSelector;
 
 /**
  * PreAuth struct class

@@ -11,7 +11,7 @@
 namespace Zimbra\Account\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
-use Zimbra\Enum\MemberOfSelector;
+use Zimbra\Common\Enum\MemberOfSelector;
 use Zimbra\Soap\Request;
 
 /**
@@ -43,10 +43,10 @@ class GetAccountDistributionListsRequest extends Request
      * Possible values: all|directOnly|none
      * @Accessor(getter="getMemberOf", setter="setMemberOf")
      * @SerializedName("memberOf")
-     * @Type("Zimbra\Enum\MemberOfSelector")
+     * @Type("Zimbra\Common\Enum\MemberOfSelector")
      * @XmlAttribute
      */
-    private $memberOf;
+    private ?MemberOfSelector $memberOf = NULL;
 
     /**
      * comma-seperated attributes to return.

@@ -11,8 +11,8 @@
 namespace Zimbra\Account\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
+use Zimbra\Common\Struct\AccountSelector;
 use Zimbra\Soap\Request;
-use Zimbra\Struct\AccountSelector;
 
 /**
  * ChangePasswordRequest class
@@ -30,10 +30,10 @@ class ChangePasswordRequest extends Request
      * Details of the account
      * @Accessor(getter="getAccount", setter="setAccount")
      * @SerializedName("account")
-     * @Type("Zimbra\Struct\AccountSelector")
+     * @Type("Zimbra\Common\Struct\AccountSelector")
      * @XmlElement
      */
-    private $account;
+    private AccountSelector $account;
 
     /**
      * Old password
@@ -90,8 +90,8 @@ class ChangePasswordRequest extends Request
     )
     {
         $this->setAccount($account)
-            ->setOldPassword($oldPassword)
-            ->setPassword($newPassword);
+             ->setOldPassword($oldPassword)
+             ->setPassword($newPassword);
         if(NULL !== $virtualHost) {
             $this->setVirtualHost($virtualHost);
         }

@@ -11,7 +11,7 @@
 namespace Zimbra\Account\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
-use Zimbra\Struct\KeyValuePair;
+use Zimbra\Common\Struct\KeyValuePair;
 
 /**
  * ObjectInfo struct class
@@ -47,7 +47,7 @@ abstract class ObjectInfo
      * Attributes
      * @Accessor(getter="getAttrList", setter="setAttrList")
      * @SerializedName("a")
-     * @Type("array<Zimbra\Struct\KeyValuePair>")
+     * @Type("array<Zimbra\Common\Struct\KeyValuePair>")
      * @XmlList(inline = true, entry = "a", skipWhenEmpty = true)
      */
     private $attrList = [];

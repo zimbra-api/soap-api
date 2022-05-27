@@ -11,7 +11,7 @@
 namespace Zimbra\Account\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
-use Zimbra\Struct\{ZimletHostConfigInfo, ZimletProperty};
+use Zimbra\Common\Struct\{ZimletHostConfigInfo, ZimletProperty};
 
 /**
  * AccountZimletHostConfigInfo struct class
@@ -52,10 +52,10 @@ class AccountZimletHostConfigInfo implements ZimletHostConfigInfo
      */
     public function __construct(?string $name = NULL, array $properties = [])
     {
+        $this->setZimletProperties($properties);
         if (NULL !== $name) {
             $this->setName($name);
         }
-        $this->setZimletProperties($properties);
     }
 
     /**

@@ -12,8 +12,8 @@ namespace Zimbra\Account\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement, XmlList};
 use Zimbra\Account\Struct\{Attr, AuthToken, PreAuth, Pref};
+use Zimbra\Common\Struct\AccountSelector;
 use Zimbra\Soap\Request;
-use Zimbra\Struct\AccountSelector;
 
 /**
  * AuthRequest class
@@ -59,10 +59,10 @@ class AuthRequest extends Request
      * Specifies the account to authenticate against
      * @Accessor(getter="getAccount", setter="setAccount")
      * @SerializedName("account")
-     * @Type("Zimbra\Struct\AccountSelector")
+     * @Type("Zimbra\Common\Struct\AccountSelector")
      * @XmlElement
      */
-    private $account;
+    private ?AccountSelector $account = NULL;
 
     /**
      * Password to use in conjunction with an account
@@ -89,7 +89,7 @@ class AuthRequest extends Request
      * @Type("Zimbra\Account\Struct\PreAuth")
      * @XmlElement
      */
-    private $preauth;
+    private ?PreAuth $preauth = NULL;
 
     /**
      * An authToken can be passed instead of account/password/preauth to validate an existing auth token.
@@ -98,7 +98,7 @@ class AuthRequest extends Request
      * @Type("Zimbra\Account\Struct\AuthToken")
      * @XmlElement
      */
-    private $authToken;
+    private ?AuthToken $authToken = NULL;
 
     /**
      * JWT auth token
@@ -125,7 +125,7 @@ class AuthRequest extends Request
      * @Type("array<Zimbra\Account\Struct\Pref>")
      * @XmlList(inline = false, entry = "pref")
      */
-    private $prefs;
+    private $prefs = [];
 
     /**
      * Requested attribute settings. Only attributes that are allowed to be returned by GetInfo will be returned by this call
@@ -134,7 +134,7 @@ class AuthRequest extends Request
      * @Type("array<Zimbra\Account\Struct\Attr>")
      * @XmlList(inline = false, entry = "attr")
      */
-    private $attrs;
+    private $attrs = [];
 
     /**
      * The requestedSkin. If specified the name of the skin requested by the client.

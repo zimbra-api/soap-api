@@ -26,6 +26,8 @@ use Zimbra\Soap\Header\Context;
  */
 abstract class AbstractApi implements ApiInterface
 {
+    const SOAP_CONTENT_TYPE = 'application/soap+xml; charset=utf-8';
+
     /**
      * Zimbra api soap client
      * @var ClientInterface
@@ -50,9 +52,9 @@ abstract class AbstractApi implements ApiInterface
      */
     private $requestFormat;
 
-    public function __construct(string $endpoint, ?string $requestFormat = NULL)
+    public function __construct(string $serviceUrl, ?string $requestFormat = NULL)
     {
-        $this->client = new ClientFactory::create($endpoint);
+        $this->client = new ClientFactory::create($serviceUrl);
         if (RequestFormat::isValid($requestFormat)) {
             $this->requestFormat = $requestFormat;
         }
@@ -162,7 +164,7 @@ abstract class AbstractApi implements ApiInterface
         $response = $this->getClient()->sendRequest(
             $this->getSerializer()->serialize($requestEnvelope, $this->serializeFormat()),
             [
-                'Content-Type' => 'application/soap+xml; charset=utf-8',
+                'Content-Type' => static::SOAP_CONTENT_TYPE,
                 'User-Agent'   => $_SERVER['HTTP_USER_AGENT'] ?? 'PHP-Zimbra-Soap-API',
             ]
         );

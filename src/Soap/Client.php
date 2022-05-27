@@ -25,10 +25,10 @@ use Psr\Http\Message\{RequestFactoryInterface, RequestInterface, ResponseInterfa
 class Client implements ClientInterface
 {
     /**
-     * Soap end point
+     * Soap service url
      * @var string
      */
-    private $endpoint;
+    private $serviceUrl;
 
     /**
      * Http client
@@ -63,19 +63,19 @@ class Client implements ClientInterface
     /**
      * Http constructor
      *
-     * @param string $endpoint  The URL to request.
+     * @param string $serviceUrl  The URL to request.
      * @param HttpClient $httpClient  The http client.
      * @param RequestFactoryInterface $requestFactory  The http request factory.
      * @param StreamFactoryInterface $streamFactory  The http stream factory.
      */
     public function __construct(
-        string $endpoint,
+        string $serviceUrl,
         HttpClient $httpClient,
         RequestFactoryInterface $requestFactory,
         StreamFactoryInterface $streamFactory
     )
     {
-        $this->endpoint = $endpoint;
+        $this->serviceUrl = $serviceUrl;
         $this->httpClient = $httpClient;
         $this->requestFactory = $requestFactory;
         $this->streamFactory = $streamFactory;
@@ -90,7 +90,7 @@ class Client implements ClientInterface
      */
     public function sendRequest(string $soapMessage, array $headers = []): ?ResponseInterface
     {
-        $request = $this->requestFactory->createRequest('POST', $this->endpoint);
+        $request = $this->requestFactory->createRequest('POST', $this->serviceUrl);
         $request = $request->withBody($this->streamFactory->createStream($soapMessage));
         foreach ($headers as $name => $value) {
             $request = $request->withHeader($name, $value);

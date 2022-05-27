@@ -10,7 +10,7 @@
 
 namespace Zimbra\Account\Struct;
 
-use Zimbra\Struct\ImapDataSource;
+use Zimbra\Common\Struct\ImapDataSource;
 
 /**
  * AccountImapDataSource struct class

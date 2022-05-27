@@ -12,7 +12,7 @@ namespace Zimbra\Account\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
 use Zimbra\Account\Struct\{Attrs, AttrsImplTrait};
-use Zimbra\Struct\DistributionListSelector;
+use Zimbra\Common\Struct\DistributionListSelector;
 use Zimbra\Soap\Request;
 
 /**
@@ -51,10 +51,10 @@ class GetDistributionListRequest extends Request implements Attrs
      * Specify the distribution list
      * @Accessor(getter="getDl", setter="setDl")
      * @SerializedName("dl")
-     * @Type("Zimbra\Struct\DistributionListSelector")
+     * @Type("Zimbra\Common\Struct\DistributionListSelector")
      * @XmlElement
      */
-    private $dl;
+    private DistributionListSelector $dl;
 
     /**
      * Constructor method for GetDistributionListRequest

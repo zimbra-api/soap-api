@@ -11,7 +11,7 @@
 namespace Zimbra\Account\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlValue};
-use Zimbra\Enum\DistributionListSubscribeOp as SubscribeOp;
+use Zimbra\Common\Enum\DistributionListSubscribeOp as SubscribeOp;
 
 /**
  * DistributionListSubscribeReq struct class
@@ -28,10 +28,10 @@ class DistributionListSubscribeReq
      * operation
      * @Accessor(getter="getOp", setter="setOp")
      * @SerializedName("op")
-     * @Type("Zimbra\Enum\DistributionListSubscribeOp")
+     * @Type("Zimbra\Common\Enum\DistributionListSubscribeOp")
      * @XmlAttribute
      */
-    private $op;
+    private SubscribeOp $op;
 
     /**
      * @Accessor(getter="getValue", setter="setValue")

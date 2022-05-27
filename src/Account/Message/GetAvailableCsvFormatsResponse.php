@@ -11,7 +11,7 @@
 namespace Zimbra\Account\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlList};
-use Zimbra\Struct\NamedElement;
+use Zimbra\Common\Struct\NamedElement;
 use Zimbra\Soap\ResponseInterface;
 
 /**
@@ -30,10 +30,10 @@ class GetAvailableCsvFormatsResponse implements ResponseInterface
      * 
      * @Accessor(getter="getCsvFormats", setter="setCsvFormats")
      * @SerializedName("csv")
-     * @Type("array<Zimbra\Struct\NamedElement>")
+     * @Type("array<Zimbra\Common\Struct\NamedElement>")
      * @XmlList(inline = true, entry = "csv")
      */
-    private $csvFormats;
+    private $csvFormats = [];
 
     /**
      * Constructor method for GetAvailableCsvFormatsResponse

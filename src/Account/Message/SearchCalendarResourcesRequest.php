@@ -12,10 +12,10 @@ namespace Zimbra\Account\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
 use Zimbra\Account\Struct\EntrySearchFilterInfo;
+use Zimbra\Common\Struct\AttributeSelector;
+use Zimbra\Common\Struct\AttributeSelectorTrait;
+use Zimbra\Common\Struct\CursorInfo;
 use Zimbra\Soap\Request;
-use Zimbra\Struct\AttributeSelector;
-use Zimbra\Struct\AttributeSelectorTrait;
-use Zimbra\Struct\CursorInfo;
 
 /**
  * SearchCalendarResourcesRequest class
@@ -86,10 +86,10 @@ class SearchCalendarResourcesRequest extends Request implements AttributeSelecto
      * Cursor specification
      * @Accessor(getter="getCursor", setter="setCursor")
      * @SerializedName("cursor")
-     * @Type("Zimbra\Struct\CursorInfo")
+     * @Type("Zimbra\Common\Struct\CursorInfo")
      * @XmlElement
      */
-    private $cursor;
+    private ?CursorInfo $cursor = NULL;
 
     /**
      * GAL Account ID
@@ -116,7 +116,7 @@ class SearchCalendarResourcesRequest extends Request implements AttributeSelecto
      * @Type("Zimbra\Account\Struct\EntrySearchFilterInfo")
      * @XmlElement
      */
-    private $searchFilter;
+    private ?EntrySearchFilterInfo $searchFilter = NULL;
 
     /**
      * Constructor method for SearchCalendarResourcesRequest

@@ -11,8 +11,8 @@
 namespace Zimbra\Account\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
-use Zimbra\Struct\AccountSelector;
-use Zimbra\Struct\GranteeChooser;
+use Zimbra\Common\Struct\AccountSelector;
+use Zimbra\Common\Struct\GranteeChooser;
 use Zimbra\Soap\Request;
 
 /**
@@ -53,19 +53,19 @@ class GetShareInfoRequest extends Request
      * Filter by the specified grantee type
      * @Accessor(getter="getGrantee", setter="setGrantee")
      * @SerializedName("grantee")
-     * @Type("Zimbra\Struct\GranteeChooser")
+     * @Type("Zimbra\Common\Struct\GranteeChooser")
      * @XmlElement
      */
-    private $grantee;
+    private ?GranteeChooser $grantee = NULL;
 
     /**
      * Specifies the owner of the share
      * @Accessor(getter="getOwner", setter="setOwner")
      * @SerializedName("owner")
-     * @Type("Zimbra\Struct\AccountSelector")
+     * @Type("Zimbra\Common\Struct\AccountSelector")
      * @XmlElement
      */
-    private $owner;
+    private ?AccountSelector $owner = NULL;
 
     /**
      * Constructor method for GetShareInfoRequest

@@ -11,8 +11,8 @@
 namespace Zimbra\Account\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
-use Zimbra\Enum\ZimletPresence;
-use Zimbra\Struct\ZimletContextInterface;
+use Zimbra\Common\Enum\ZimletPresence;
+use Zimbra\Common\Struct\ZimletContextInterface;
 
 /**
  * AccountZimletContext class
@@ -48,10 +48,10 @@ class AccountZimletContext implements ZimletContextInterface
      * Valid values: mandatory | enabled | disabled
      * @Accessor(getter="getZimletPresence", setter="setZimletPresence")
      * @SerializedName("presence")
-     * @Type("Zimbra\Enum\ZimletPresence")
+     * @Type("Zimbra\Common\Enum\ZimletPresence")
      * @XmlAttribute
      */
-    private $zimletPresence;
+    private ZimletPresence $zimletPresence;
 
     /**
      * Constructor method for AccountZimletContext

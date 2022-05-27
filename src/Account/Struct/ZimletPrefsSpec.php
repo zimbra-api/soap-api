@@ -11,7 +11,7 @@
 namespace Zimbra\Account\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
-use Zimbra\Enum\ZimletStatus;
+use Zimbra\Common\Enum\ZimletStatus;
 
 /**
  * ZimletPrefsSpec struct class
@@ -35,10 +35,10 @@ class ZimletPrefsSpec
     /**
      * @Accessor(getter="getPresence", setter="setPresence")
      * @SerializedName("presence")
-     * @Type("Zimbra\Enum\ZimletStatus")
+     * @Type("Zimbra\Common\Enum\ZimletStatus")
      * @XmlAttribute
      */
-    private $presence;
+    private ZimletStatus $presence;
 
     /**
      * Constructor method for ZimletPrefsSpec

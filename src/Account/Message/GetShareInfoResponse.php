@@ -11,7 +11,7 @@
 namespace Zimbra\Account\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlList};
-use Zimbra\Struct\ShareInfo;
+use Zimbra\Common\Struct\ShareInfo;
 use Zimbra\Soap\ResponseInterface;
 
 /**
@@ -29,10 +29,10 @@ class GetShareInfoResponse implements ResponseInterface
      * Shares
      * @Accessor(getter="getShares", setter="setShares")
      * @SerializedName("share")
-     * @Type("array<Zimbra\Struct\ShareInfo>")
+     * @Type("array<Zimbra\Common\Struct\ShareInfo>")
      * @XmlList(inline = true, entry = "share")
      */
-    private $shares;
+    private $shares = [];
 
     /**
      * Constructor method for GetShareInfoResponse

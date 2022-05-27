@@ -11,7 +11,7 @@
 namespace Zimbra\Account\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement, XmlList};
-use Zimbra\Struct\NamedValue;
+use Zimbra\Common\Struct\NamedValue;
 use Zimbra\Soap\ResponseInterface;
 
 /**
@@ -41,10 +41,10 @@ class GetAccountInfoResponse implements ResponseInterface
      * displayName: display name for the account
      * @Accessor(getter="getAttrs", setter="setAttrs")
      * @SerializedName("attr")
-     * @Type("array<Zimbra\Struct\NamedValue>")
+     * @Type("array<Zimbra\Common\Struct\NamedValue>")
      * @XmlList(inline = true, entry = "attr")
      */
-    private $attrs;
+    private $attrs = [];
 
     /**
      * URL to talk to for soap service for this account.

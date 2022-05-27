@@ -13,7 +13,7 @@ namespace Zimbra\Account\Struct;
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
 use Zimbra\Account\Struct\EntrySearchFilterMultiCond as MultiCond;
 use Zimbra\Account\Struct\EntrySearchFilterSingleCond as SingleCond;
-use Zimbra\Struct\{EntrySearchFilterInterface, SearchFilterCondition};
+use Zimbra\Common\Struct\{EntrySearchFilterInterface, SearchFilterCondition};
 
 /**
  * EntrySearchFilterInfo class
@@ -33,7 +33,7 @@ class EntrySearchFilterInfo implements EntrySearchFilterInterface
      * @Type("Zimbra\Account\Struct\EntrySearchFilterSingleCond")
      * @XmlElement
      */
-    private $condition;
+    private ?SearchFilterCondition $condition = NULL;
 
     /**
      * Search filter compound condition
@@ -42,7 +42,7 @@ class EntrySearchFilterInfo implements EntrySearchFilterInterface
      * @Type("Zimbra\Account\Struct\EntrySearchFilterMultiCond")
      * @XmlElement
      */
-    private $conditions;
+    private ?SearchFilterCondition $conditions = NULL;
 
     /**
      * Constructor method for EntrySearchFilterInfo

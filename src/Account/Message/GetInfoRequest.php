@@ -11,7 +11,7 @@
 namespace Zimbra\Account\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
-use Zimbra\Enum\InfoSection;
+use Zimbra\Common\Enum\InfoSection;
 use Zimbra\Soap\Request;
 
 /**

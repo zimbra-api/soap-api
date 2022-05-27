@@ -12,7 +12,7 @@ namespace Zimbra\Account\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
 use Zimbra\Account\Struct\ContactInfo;
-use Zimbra\Struct\Id;
+use Zimbra\Common\Struct\Id;
 use Zimbra\Soap\ResponseInterface;
 
 /**
@@ -88,16 +88,16 @@ class SyncGalResponse implements ResponseInterface
      * @Type("array<Zimbra\Account\Struct\ContactInfo>")
      * @XmlList(inline = true, entry = "cn")
      */
-    private $contacts;
+    private $contacts = [];
 
     /**
      * details of deleted entries
      * @Accessor(getter="getDeleted", setter="setDeleted")
      * @SerializedName("deleted")
-     * @Type("array<Zimbra\Struct\Id>")
+     * @Type("array<Zimbra\Common\Struct\Id>")
      * @XmlList(inline = true, entry = "deleted")
      */
-    private $deleted;
+    private $deleted = [];
 
     /**
      * Constructor method for SyncGalResponse

@@ -12,7 +12,7 @@ declare(strict_types=1);
 
 namespace Zimbra\Account;
 
-use Zimbra\Enum\{
+use Zimbra\Common\Enum\{
     AccountBy,
     DistributionListBy,
     DistributionListSubscribeOp,
@@ -37,7 +37,7 @@ use Zimbra\Account\Struct\{
 
 use Zimbra\Account\Message\AuthRequest;
 
-use Zimbra\Struct\{
+use Zimbra\Common\Struct\{
     AccountSelector,
     CursorInfo,
     EntrySearchFilterInfo,

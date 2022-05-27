@@ -11,7 +11,7 @@
 namespace Zimbra\Account\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
-use Zimbra\Enum\GranteeType;
+use Zimbra\Common\Enum\GranteeType;
 
 /**
  * DistributionListGranteeInfo struct class
@@ -28,10 +28,10 @@ class DistributionListGranteeInfo
      * Grantee Type.
      * @Accessor(getter="getType", setter="setType")
      * @SerializedName("type")
-     * @Type("Zimbra\Enum\GranteeType")
+     * @Type("Zimbra\Common\Enum\GranteeType")
      * @XmlAttribute
      */
-    private $type;
+    private GranteeType $type;
 
     /**
      * Grantee id

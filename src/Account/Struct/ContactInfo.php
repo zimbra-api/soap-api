@@ -11,7 +11,7 @@
 namespace Zimbra\Account\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
-use Zimbra\Struct\ContactAttr;
+use Zimbra\Common\Struct\ContactAttr;
 
 /**
  * ContactInfo struct class
@@ -182,15 +182,15 @@ class ContactInfo
      * @Type("array<Zimbra\Account\Struct\AccountCustomMetadata>")
      * @XmlList(inline = true, entry = "meta")
      */
-    private $metadatas;
+    private $metadatas = [];
 
     /**
      * @Accessor(getter="getAttrs", setter="setAttrs")
      * @SerializedName("a")
-     * @Type("array<Zimbra\Struct\ContactAttr>")
+     * @Type("array<Zimbra\Common\Struct\ContactAttr>")
      * @XmlList(inline = true, entry = "a")
      */
-    private $attrs;
+    private $attrs = [];
 
     /**
      * @Accessor(getter="getContactGroupMembers", setter="setContactGroupMembers")
@@ -198,7 +198,7 @@ class ContactInfo
      * @Type("array<Zimbra\Account\Struct\ContactGroupMember>")
      * @XmlList(inline = true, entry = "m")
      */
-    private $contactGroupMembers;
+    private $contactGroupMembers = [];
 
     /**
      * @Accessor(getter="isOwner", setter="setIsOwner")

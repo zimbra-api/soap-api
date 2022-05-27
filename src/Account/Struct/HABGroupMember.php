@@ -11,7 +11,7 @@
 namespace Zimbra\Account\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlList};
-use Zimbra\Struct\NamedValue;
+use Zimbra\Common\Struct\NamedValue;
 
 /**
  * HABGroupMember struct class
@@ -28,7 +28,7 @@ class HABGroupMember extends HABMember
      * Member attributes. Currently only these attributes are returned: zimbraId, displayName
      * @Accessor(getter="getAttrs", setter="setAttrs")
      * @SerializedName("attr")
-     * @Type("array<Zimbra\Struct\NamedValue>")
+     * @Type("array<Zimbra\Common\Struct\NamedValue>")
      * @XmlList(inline = true, entry = "attr", skipWhenEmpty = true)
      */
     private $attrs = [];

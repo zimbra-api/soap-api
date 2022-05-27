@@ -11,7 +11,7 @@
 namespace Zimbra\Account\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlList};
-use Zimbra\Struct\OpValue;
+use Zimbra\Common\Struct\OpValue;
 
 /**
  * BlackList struct class
@@ -27,10 +27,10 @@ class BlackList
     /**
      * @Accessor(getter="getAddrs", setter="setAddrs")
      * @SerializedName("addr")
-     * @Type("array<Zimbra\Struct\OpValue>")
+     * @Type("array<Zimbra\Common\Struct\OpValue>")
      * @XmlList(inline = true, entry = "addr")
      */
-    private $addrs;
+    private $addrs = [];
 
     /**
      * Constructor method for BlackList

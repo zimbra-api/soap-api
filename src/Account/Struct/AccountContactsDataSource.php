@@ -10,7 +10,7 @@
 
 namespace Zimbra\Account\Struct;
 
-use Zimbra\Struct\ContactsDataSource;
+use Zimbra\Common\Struct\ContactsDataSource;
 
 /**
  * AccountContactsDataSource struct class

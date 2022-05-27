@@ -11,8 +11,8 @@
 namespace Zimbra\Account\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement, XmlList};
-use Zimbra\Enum\ConnectionType;
-use Zimbra\Struct\DataSource;
+use Zimbra\Common\Enum\ConnectionType;
+use Zimbra\Common\Struct\DataSource;
 
 /**
  * AccountDataSource struct class
@@ -95,10 +95,10 @@ class AccountDataSource implements DataSource
      * If not set on data source, fallback to the id on global config.
      * @Accessor(getter="getConnectionType", setter="setConnectionType")
      * @SerializedName("connectionType")
-     * @Type("Zimbra\Enum\ConnectionType")
+     * @Type("Zimbra\Common\Enum\ConnectionType")
      * @XmlAttribute
      */
-    private $connectionType;
+    private ?ConnectionType $connectionType = NULL;
 
     /**
      * Login string on data-source-server, for example a user name

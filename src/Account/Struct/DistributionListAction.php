@@ -14,7 +14,7 @@ use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, Xml
 use Zimbra\Account\Struct\DistributionListSubscribeReq as Subscribe;
 use Zimbra\Account\Struct\DistributionListGranteeSelector as Grantee;
 use Zimbra\Account\Struct\DistributionListRightSpec as Right;
-use Zimbra\Enum\Operation;
+use Zimbra\Common\Enum\Operation;
 
 /**
  * DistributionListAction class
@@ -29,10 +29,10 @@ class DistributionListAction extends AccountKeyValuePairs
     /**
      * @Accessor(getter="getOp", setter="setOp")
      * @SerializedName("op")
-     * @Type("Zimbra\Enum\Operation")
+     * @Type("Zimbra\Common\Enum\Operation")
      * @XmlAttribute
      */
-    private $op;
+    private Operation $op;
 
     /**
      * @Accessor(getter="getNewName", setter="setNewName")

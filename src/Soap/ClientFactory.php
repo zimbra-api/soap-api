@@ -25,14 +25,14 @@ use Http\Discovery\{Psr17FactoryDiscovery, Psr18ClientDiscovery};
 final class ClientFactory
 {
     public static function create(
-        string $endpoint,
+        string $serviceUrl,
         ?HttpClient $httpClient = NULL,
         ?RequestFactoryInterface $requestFactory = NULL,
         ?StreamFactoryInterface $streamFactory = NULL
     ): ClientInterface
     {
         return new Client(
-            $endpoint,
+            $serviceUrl,
             $httpClient ?: Psr18ClientDiscovery::find(),
             $requestFactory ?: Psr17FactoryDiscovery::findRequestFactory(),
             $streamFactory ?: Psr17FactoryDiscovery::findStreamFactory()

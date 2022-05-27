@@ -12,7 +12,7 @@ namespace Zimbra\Account\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
 use Zimbra\Account\Struct\DistributionListAction;
-use Zimbra\Struct\DistributionListSelector;
+use Zimbra\Common\Struct\DistributionListSelector;
 use Zimbra\Soap\Request;
 
 /**
@@ -37,10 +37,10 @@ class DistributionListActionRequest extends Request
      * Identifies the distribution list to act upon
      * @Accessor(getter="getDl", setter="setDl")
      * @SerializedName("dl")
-     * @Type("Zimbra\Struct\DistributionListSelector")
+     * @Type("Zimbra\Common\Struct\DistributionListSelector")
      * @XmlElement
      */
-    private $dl;
+    private DistributionListSelector $dl;
 
     /**
      * Specifies the action to perform

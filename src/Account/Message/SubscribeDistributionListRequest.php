@@ -11,9 +11,9 @@
 namespace Zimbra\Account\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
-use Zimbra\Enum\DistributionListSubscribeOp;
+use Zimbra\Common\Enum\DistributionListSubscribeOp;
+use Zimbra\Common\Struct\DistributionListSelector;
 use Zimbra\Soap\Request;
-use Zimbra\Struct\DistributionListSelector;
 
 /**
  * SubscribeDistributionListRequest class
@@ -31,19 +31,19 @@ class SubscribeDistributionListRequest extends Request
      * The operation to perform.
      * @Accessor(getter="getOp", setter="setOp")
      * @SerializedName("op")
-     * @Type("Zimbra\Enum\DistributionListSubscribeOp")
+     * @Type("Zimbra\Common\Enum\DistributionListSubscribeOp")
      * @XmlAttribute
      */
-    private $op;
+    private DistributionListSubscribeOp $op;
 
     /**
      * Selector for the distribution list
      * @Accessor(getter="getDl", setter="setDl")
      * @SerializedName("dl")
-     * @Type("Zimbra\Struct\DistributionListSelector")
+     * @Type("Zimbra\Common\Struct\DistributionListSelector")
      * @XmlElement
      */
-    private $dl;
+    private DistributionListSelector $dl;
 
     /**
      * Constructor method for SubscribeDistributionListRequest
@@ -57,7 +57,7 @@ class SubscribeDistributionListRequest extends Request
     )
     {
         $this->setDl($dl)
-            ->setOp($op);
+             ->setOp($op);
     }
 
     /**

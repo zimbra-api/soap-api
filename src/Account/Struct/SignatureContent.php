@@ -11,7 +11,7 @@
 namespace Zimbra\Account\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlValue};
-use Zimbra\Enum\ContentType;
+use Zimbra\Common\Enum\ContentType;
 
 /**
  * SignatureContent struct class
@@ -27,10 +27,10 @@ class SignatureContent
     /**
      * @Accessor(getter="getContentType", setter="setContentType")
      * @SerializedName("type")
-     * @Type("Zimbra\Enum\ContentType")
+     * @Type("Zimbra\Common\Enum\ContentType")
      * @XmlAttribute
      */
-    private $contentType;
+    private ?ContentType $type = NULL;
 
     /**
      * @Accessor(getter="getValue", setter="setValue")

@@ -11,7 +11,7 @@
 namespace Zimbra\Account\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
-use Zimbra\Struct\{ZimletGlobalConfigInfo, ZimletProperty};
+use Zimbra\Common\Struct\{ZimletGlobalConfigInfo, ZimletProperty};
 
 /**
  * AccountZimletGlobalConfigInfo struct class

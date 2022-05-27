@@ -19,12 +19,12 @@ use Zimbra\Account\Struct\{
     PreAuth,
     Signature
 };
-use Zimbra\Enum\{
+use Zimbra\Common\Enum\{
     DistributionListSubscribeOp,
     GalSearchType,
     MemberOfSelector
 };
-use Zimbra\Struct\{
+use Zimbra\Common\Struct\{
     AccountSelector,
     CursorInfo,
     DistributionListSelector,

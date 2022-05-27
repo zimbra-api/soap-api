@@ -10,7 +10,7 @@
 
 namespace Zimbra\Account\Struct;
 
-use Zimbra\Struct\KeyValuePairs;
+use Zimbra\Common\Struct\KeyValuePairs;
 
 /**
  * AccountKeyValuePairs struct class

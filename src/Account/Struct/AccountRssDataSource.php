@@ -10,7 +10,7 @@
 
 namespace Zimbra\Account\Struct;
 
-use Zimbra\Struct\RssDataSource;
+use Zimbra\Common\Struct\RssDataSource;
 
 /**
  * AccountRssDataSource struct class
