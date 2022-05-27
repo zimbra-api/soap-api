@@ -11,8 +11,8 @@
 namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
+use Zimbra\Common\Struct\AccountSelector as Account;
 use Zimbra\Soap\Request;
-use Zimbra\Struct\AccountSelector as Account;
 
 /**
  * ChangePrimaryEmailRequest class
@@ -30,10 +30,10 @@ class ChangePrimaryEmailRequest extends Request
      * Specifies the account to be changed
      * @Accessor(getter="getAccount", setter="setAccount")
      * @SerializedName("account")
-     * @Type("Zimbra\Struct\AccountSelector")
+     * @Type("Zimbra\Common\Struct\AccountSelector")
      * @XmlElement
      */
-    private $account;
+    private Account $account;
 
     /**
      * New account name

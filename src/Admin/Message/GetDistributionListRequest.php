@@ -12,7 +12,7 @@ namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
 use Zimbra\Admin\Struct\DistributionListSelector as DistributionList;
-use Zimbra\Struct\{AttributeSelector, AttributeSelectorTrait};
+use Zimbra\Common\Struct\{AttributeSelector, AttributeSelectorTrait};
 use Zimbra\Soap\Request;
 
 /**
@@ -63,7 +63,7 @@ class GetDistributionListRequest extends Request implements AttributeSelector
      * @Type("Zimbra\Admin\Struct\DistributionListSelector")
      * @XmlElement
      */
-    private $dl;
+    private ?DistributionList $dl = NULL;
 
     /**
      * Constructor method for GetDistributionListRequest

@@ -12,7 +12,7 @@ namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
 use Zimbra\Admin\Struct\XMPPComponentSelector;
-use Zimbra\Struct\{AttributeSelector, AttributeSelectorTrait};
+use Zimbra\Common\Struct\{AttributeSelector, AttributeSelectorTrait};
 use Zimbra\Soap\Request;
 
 /**
@@ -37,7 +37,7 @@ class GetXMPPComponentRequest extends Request implements AttributeSelector
      * @Type("Zimbra\Admin\Struct\XMPPComponentSelector")
      * @XmlElement
      */
-    private $component;
+    private XMPPComponentSelector $component;
 
     /**
      * Constructor method for GetXMPPComponentRequest

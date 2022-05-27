@@ -12,9 +12,8 @@ namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
 use Zimbra\Admin\Struct\DomainSelector;
+use Zimbra\Common\Struct\{AttributeSelector, AttributeSelectorTrait};
 use Zimbra\Soap\Request;
-use Zimbra\Struct\AttributeSelector;
-use Zimbra\Struct\AttributeSelectorTrait;
 
 /**
  * SearchAutoProvDirectoryRequest class
@@ -107,7 +106,7 @@ class SearchAutoProvDirectoryRequest extends Request implements AttributeSelecto
      * @Type("Zimbra\Admin\Struct\DomainSelector")
      * @XmlElement
      */
-    private $domain;
+    private DomainSelector $domain;
 
     /**
      * Constructor method for SearchAutoProvDirectoryRequest

@@ -11,9 +11,9 @@
 namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
+use Zimbra\Common\Struct\IdAndType;
 use Zimbra\Mail\Struct\AccountWithModifications;
 use Zimbra\Soap\ResponseInterface;
-use Zimbra\Struct\IdAndType;
 
 /**
  * AdminWaitSetResponse class
@@ -60,16 +60,16 @@ class AdminWaitSetResponse implements ResponseInterface
      * @Type("array<Zimbra\Mail\Struct\AccountWithModifications>")
      * @XmlList(inline = true, entry = "a")
      */
-    private $signalledAccounts;
+    private $signalledAccounts = [];
 
     /**
      * Error information
      * @Accessor(getter="getErrors", setter="setErrors")
      * @SerializedName("error")
-     * @Type("array<Zimbra\Struct\IdAndType>")
+     * @Type("array<Zimbra\Common\Struct\IdAndType>")
      * @XmlList(inline = true, entry = "error")
      */
-    private $errors;
+    private $errors = [];
 
     /**
      * Constructor method for AdminWaitSetResponse

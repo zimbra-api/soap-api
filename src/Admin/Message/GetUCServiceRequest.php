@@ -12,7 +12,7 @@ namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
 use Zimbra\Admin\Struct\UcServiceSelector;
-use Zimbra\Struct\{AttributeSelector, AttributeSelectorTrait};
+use Zimbra\Common\Struct\{AttributeSelector, AttributeSelectorTrait};
 use Zimbra\Soap\Request;
 
 /**
@@ -36,7 +36,7 @@ class GetUCServiceRequest extends Request implements AttributeSelector
      * @Type("Zimbra\Admin\Struct\UcServiceSelector")
      * @XmlElement
      */
-    private $ucService;
+    private UcServiceSelector $ucService;
 
     /**
      * Constructor method for GetUCServiceRequest

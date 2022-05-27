@@ -14,7 +14,7 @@ use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, Xml
 use Zimbra\Admin\Struct\CosSelector as Cos;
 use Zimbra\Admin\Struct\DomainSelector as Domain;
 use Zimbra\Admin\Struct\ServerSelector as Server;
-use Zimbra\Struct\AccountSelector as Account;
+use Zimbra\Common\Struct\AccountSelector as Account;
 use Zimbra\Enum\AdminFilterType;
 use Zimbra\Soap\Request;
 
@@ -37,16 +37,16 @@ class GetFilterRulesRequest extends Request
      * @Type("Zimbra\Enum\AdminFilterType")
      * @XmlAttribute
      */
-    private $type;
+    private AdminFilterType $type;
 
     /**
      * Account
      * @Accessor(getter="getAccount", setter="setAccount")
      * @SerializedName("account")
-     * @Type("Zimbra\Struct\AccountSelector")
+     * @Type("Zimbra\Common\Struct\AccountSelector")
      * @XmlElement
      */
-    private $account;
+    private ?Account $account = NULL;
 
     /**
      * Domain
@@ -55,7 +55,7 @@ class GetFilterRulesRequest extends Request
      * @Type("Zimbra\Admin\Struct\DomainSelector")
      * @XmlElement
      */
-    private $domain;
+    private ?Domain $domain = NULL;
 
     /**
      * COS
@@ -64,7 +64,7 @@ class GetFilterRulesRequest extends Request
      * @Type("Zimbra\Admin\Struct\CosSelector")
      * @XmlElement
      */
-    private $cos;
+    private ?Cos $cos = NULL;
 
     /**
      * Server
@@ -73,7 +73,7 @@ class GetFilterRulesRequest extends Request
      * @Type("Zimbra\Admin\Struct\ServerSelector")
      * @XmlElement
      */
-    private $server;
+    private ?Server $server = NULL;
 
     /**
      * Constructor method for GetFilterRulesRequest

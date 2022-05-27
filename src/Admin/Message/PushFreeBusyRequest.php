@@ -12,8 +12,8 @@ namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement, XmlList};
 use Zimbra\Admin\Struct\Names;
+use Zimbra\Common\Struct\Id;
 use Zimbra\Soap\Request;
-use Zimbra\Struct\Id;
 
 /**
  * PushFreeBusyRequest class
@@ -37,14 +37,14 @@ class PushFreeBusyRequest extends Request
      * @Type("Zimbra\Admin\Struct\Names")
      * @XmlElement
      */
-    private $domains;
+    private ?Names $domains = NULL;
 
     /**
      * Account ID
      * 
      * @Accessor(getter="getAccounts", setter="setAccounts")
      * @SerializedName("account")
-     * @Type("array<Zimbra\Struct\Id>")
+     * @Type("array<Zimbra\Common\Struct\Id>")
      * @XmlList(inline = true, entry = "account")
      */
     private $accounts;

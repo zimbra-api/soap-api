@@ -11,7 +11,7 @@
 namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
-use Zimbra\Struct\NamedElement as Server;
+use Zimbra\Common\Struct\NamedElement as Server;
 use Zimbra\Soap\Request;
 
 /**
@@ -31,10 +31,10 @@ class MailQueueFlushRequest extends Request
      * Mta server
      * @Accessor(getter="getServer", setter="setServer")
      * @SerializedName("server")
-     * @Type("Zimbra\Struct\NamedElement")
+     * @Type("Zimbra\Common\Struct\NamedElement")
      * @XmlElement
      */
-    private $server;
+    private Server $server;
 
     /**
      * Constructor method for MailQueueFlushRequest

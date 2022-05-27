@@ -11,8 +11,8 @@
 namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
+use Zimbra\Common\Struct\NamedElement;
 use Zimbra\Soap\Request;
-use Zimbra\Struct\NamedElement;
 
 /**
  * DeleteZimletRequest class
@@ -30,10 +30,10 @@ class DeleteZimletRequest extends Request
      * Zimlet name
      * @Accessor(getter="getZimlet", setter="setZimlet")
      * @SerializedName("zimlet")
-     * @Type("Zimbra\Struct\NamedElement")
+     * @Type("Zimbra\Common\Struct\NamedElement")
      * @XmlElement
      */
-    private $zimlet;
+    private NamedElement $zimlet;
 
     /**
      * Constructor method for DeleteZimletRequest

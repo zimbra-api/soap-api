@@ -12,9 +12,9 @@ namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
 use Zimbra\Admin\Struct\{AdminAttrs, AdminAttrsImplTrait};
+use Zimbra\Common\Struct\AccountSelector as Account;
 use Zimbra\Enum\GalMode;
 use Zimbra\Soap\Request;
-use Zimbra\Struct\AccountSelector as Account;
 
 /**
  * AddGalSyncDataSource request class
@@ -34,10 +34,10 @@ class AddGalSyncDataSourceRequest extends Request implements AdminAttrs
      * The account
      * @Accessor(getter="getAccount", setter="setAccount")
      * @SerializedName("account")
-     * @Type("Zimbra\Struct\AccountSelector")
+     * @Type("Zimbra\Common\Struct\AccountSelector")
      * @XmlElement
      */
-    private $account;
+    private Account $account;
 
     /**
      * Name of the data source
@@ -64,7 +64,7 @@ class AddGalSyncDataSourceRequest extends Request implements AdminAttrs
      * @Type("Zimbra\Enum\GalMode")
      * @XmlAttribute
      */
-    private $type;
+    private GalMode $type;
 
     /**
      * Contact folder name

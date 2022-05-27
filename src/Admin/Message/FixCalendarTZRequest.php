@@ -12,8 +12,8 @@ namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement, XmlList};
 use Zimbra\Admin\Struct\TzFixup;
+use Zimbra\Common\Struct\NamedElement;
 use Zimbra\Soap\Request;
-use Zimbra\Struct\NamedElement;
 
 /**
  * FixCalendarTZRequest class
@@ -52,10 +52,10 @@ class FixCalendarTZRequest extends Request
      * Accounts
      * @Accessor(getter="getAccounts", setter="setAccounts")
      * @SerializedName("account")
-     * @Type("array<Zimbra\Struct\NamedElement>")
+     * @Type("array<Zimbra\Common\Struct\NamedElement>")
      * @XmlList(inline = true, entry = "account")
      */
-    private $accounts;
+    private $accounts = [];
 
     /**
      * Fixup rules wrapper
@@ -64,7 +64,7 @@ class FixCalendarTZRequest extends Request
      * @Type("Zimbra\Admin\Struct\TzFixup")
      * @XmlElement
      */
-    private $tzFixup;
+    private ?TzFixup $tzFixup = NULL;
 
     /**
      * Constructor method for FixCalendarTZRequest

@@ -12,8 +12,8 @@ namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
 use Zimbra\Enum\LockoutOperation;
+use Zimbra\Common\Struct\AccountNameSelector as Account;
 use Zimbra\Soap\Request;
-use Zimbra\Struct\AccountNameSelector as Account;
 
 /**
  * LockoutMailboxRequest request class
@@ -31,10 +31,10 @@ class LockoutMailboxRequest extends Request
      * Account
      * @Accessor(getter="getAccount", setter="setAccount")
      * @SerializedName("account")
-     * @Type("Zimbra\Struct\AccountNameSelector")
+     * @Type("Zimbra\Common\Struct\AccountNameSelector")
      * @XmlElement
      */
-    private $account;
+    private Account $account;
 
     /**
      * one of 'start' or 'end'
@@ -43,7 +43,7 @@ class LockoutMailboxRequest extends Request
      * @Type("Zimbra\Enum\LockoutOperation")
      * @XmlAttribute
      */
-    private $operation;
+    private ?LockoutOperation $operation = NULL;
 
     /**
      * Constructor method for LockoutMailboxRequest

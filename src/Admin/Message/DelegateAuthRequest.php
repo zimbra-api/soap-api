@@ -11,8 +11,8 @@
 namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
+use Zimbra\Common\Struct\AccountSelector as Account;
 use Zimbra\Soap\Request;
-use Zimbra\Struct\AccountSelector as Account;
 
 /**
  * DelegateAuthRequest request class
@@ -32,10 +32,10 @@ class DelegateAuthRequest extends Request
      * Details of target account
      * @Accessor(getter="getAccount", setter="setAccount")
      * @SerializedName("account")
-     * @Type("Zimbra\Struct\AccountSelector")
+     * @Type("Zimbra\Common\Struct\AccountSelector")
      * @XmlElement
      */
-    private $account;
+    private Account $account;
 
     /**
      * Lifetime in seconds of the newly-created authtoken. defaults to 1 hour.

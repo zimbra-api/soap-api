@@ -11,8 +11,8 @@
 namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
+use Zimbra\Common\Struct\IdAndType;
 use Zimbra\Soap\ResponseInterface;
-use Zimbra\Struct\IdAndType;
 
 /**
  * AdminCreateWaitSetResponse class
@@ -56,10 +56,10 @@ class AdminCreateWaitSetResponse implements ResponseInterface
      * Error information
      * @Accessor(getter="getErrors", setter="setErrors")
      * @SerializedName("error")
-     * @Type("array<Zimbra\Struct\IdAndType>")
+     * @Type("array<Zimbra\Common\Struct\IdAndType>")
      * @XmlList(inline = true, entry = "error")
      */
-    private $errors;
+    private $errors = [];
 
     /**
      * Constructor method for AdminCreateWaitSetResponse

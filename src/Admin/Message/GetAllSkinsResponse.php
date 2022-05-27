@@ -11,7 +11,7 @@
 namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlList};
-use Zimbra\Struct\NamedElement;
+use Zimbra\Common\Struct\NamedElement;
 use Zimbra\Soap\ResponseInterface;
 
 /**
@@ -30,10 +30,10 @@ class GetAllSkinsResponse implements ResponseInterface
      * 
      * @Accessor(getter="getSkins", setter="setSkins")
      * @SerializedName("skin")
-     * @Type("array<Zimbra\Struct\NamedElement>")
+     * @Type("array<Zimbra\Common\Struct\NamedElement>")
      * @XmlList(inline = true, entry = "skin")
      */
-    private $skins;
+    private $skins = [];
 
     /**
      * Constructor method for GetAllSkinsResponse

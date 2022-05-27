@@ -11,8 +11,8 @@
 namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
+use Zimbra\Common\Struct\NamedElement;
 use Zimbra\Soap\Request;
-use Zimbra\Struct\NamedElement;
 
 /**
  * FixCalendarPriorityRequest class
@@ -41,10 +41,10 @@ class FixCalendarPriorityRequest extends Request
      * Accounts
      * @Accessor(getter="getAccounts", setter="setAccounts")
      * @SerializedName("account")
-     * @Type("array<Zimbra\Struct\NamedElement>")
+     * @Type("array<Zimbra\Common\Struct\NamedElement>")
      * @XmlList(inline = true, entry = "account")
      */
-    private $accounts;
+    private $accounts = [];
 
     /**
      * Constructor method for FixCalendarPriorityRequest

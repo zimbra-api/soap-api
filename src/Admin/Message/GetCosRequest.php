@@ -12,7 +12,7 @@ namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
 use Zimbra\Admin\Struct\CosSelector;
-use Zimbra\Struct\{AttributeSelector, AttributeSelectorTrait};
+use Zimbra\Common\Struct\{AttributeSelector, AttributeSelectorTrait};
 use Zimbra\Soap\Request;
 
 /**
@@ -36,7 +36,7 @@ class GetCosRequest extends Request implements AttributeSelector
      * @Type("Zimbra\Admin\Struct\CosSelector")
      * @XmlElement
      */
-    private $cos;
+    private CosSelector $cos;
 
     /**
      * Constructor method for GetCosRequest

@@ -11,8 +11,8 @@
 namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
+use Zimbra\Common\Struct\{Id, WaitSetAddSpec};
 use Zimbra\Soap\Request;
-use Zimbra\Struct\{Id, WaitSetAddSpec};
 
 /**
  * AdminWaitSet request class
@@ -97,28 +97,28 @@ class AdminWaitSetRequest extends Request
      * Waitsets to add
      * @Accessor(getter="getAddAccounts", setter="setAddAccounts")
      * @SerializedName("add")
-     * @Type("array<Zimbra\Struct\WaitSetAddSpec>")
+     * @Type("array<Zimbra\Common\Struct\WaitSetAddSpec>")
      * @XmlList(inline = false, entry = "a")
      */
-    private $addAccounts;
+    private $addAccounts = [];
 
     /**
      * Waitsets to update
      * @Accessor(getter="getUpdateAccounts", setter="setUpdateAccounts")
      * @SerializedName("update")
-     * @Type("array<Zimbra\Struct\WaitSetAddSpec>")
+     * @Type("array<Zimbra\Common\Struct\WaitSetAddSpec>")
      * @XmlList(inline = false, entry = "a")
      */
-    private $updateAccounts;
+    private $updateAccounts = [];
 
     /**
      * Waitsets to remove
      * @Accessor(getter="getRemoveAccounts", setter="setRemoveAccounts")
      * @SerializedName("remove")
-     * @Type("array<Zimbra\Struct\Id>")
+     * @Type("array<Zimbra\Common\Struct\Id>")
      * @XmlList(inline = false, entry = "a")
      */
-    private $removeAccounts;
+    private $removeAccounts = [];
 
     /**
      * Constructor method for AdminWaitSetRequest

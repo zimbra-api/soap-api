@@ -12,9 +12,9 @@ namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
 use Zimbra\Admin\Struct\{AdminAttrs, AdminAttrsImplTrait};
+use Zimbra\Common\Struct\AccountSelector;
 use Zimbra\Enum\GalMode;
 use Zimbra\Soap\Request;
-use Zimbra\Struct\AccountSelector;
 
 /**
  * CreateGalSyncAccountRequest class
@@ -55,16 +55,16 @@ class CreateGalSyncAccountRequest extends Request implements AdminAttrs
      * @Type("Zimbra\Enum\GalMode")
      * @XmlAttribute
      */
-    private $type;
+    private GalMode $type;
 
     /**
      * Account
      * @Accessor(getter="getAccount", setter="setAccount")
      * @SerializedName("account")
-     * @Type("Zimbra\Struct\AccountSelector")
+     * @Type("Zimbra\Common\Struct\AccountSelector")
      * @XmlElement
      */
-    private $account;
+    private AccountSelector $account;
 
     /**
      * password

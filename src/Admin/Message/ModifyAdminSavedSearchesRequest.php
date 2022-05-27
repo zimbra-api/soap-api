@@ -11,7 +11,7 @@
 namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlList, XmlRoot};
-use Zimbra\Struct\NamedValue;
+use Zimbra\Common\Struct\NamedValue;
 use Zimbra\Soap\Request;
 
 /**
@@ -34,7 +34,7 @@ class ModifyAdminSavedSearchesRequest extends Request
      * Search information
      * @Accessor(getter="getSearches", setter="setSearches")
      * @SerializedName("search")
-     * @Type("array<Zimbra\Struct\NamedValue>")
+     * @Type("array<Zimbra\Common\Struct\NamedValue>")
      * @XmlList(inline = true, entry = "search")
      */
     private $searches;

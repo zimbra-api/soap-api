@@ -13,7 +13,7 @@ namespace Zimbra\Admin\Message;
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
 use Zimbra\Admin\Struct\EntrySearchFilterInfo;
 use Zimbra\Soap\Request;
-use Zimbra\Struct\{AttributeSelector, AttributeSelectorTrait};
+use Zimbra\Common\Struct\{AttributeSelector, AttributeSelectorTrait};
 
 /**
  * SearchCalendarResourcesRequest class
@@ -91,7 +91,7 @@ class SearchCalendarResourcesRequest extends Request implements AttributeSelecto
      * @Type("Zimbra\Admin\Struct\EntrySearchFilterInfo")
      * @XmlElement
      */
-    private $searchFilter;
+    private ?EntrySearchFilterInfo $searchFilter = NULL;
 
     /**
      * Constructor method for SearchCalendarResourcesRequest

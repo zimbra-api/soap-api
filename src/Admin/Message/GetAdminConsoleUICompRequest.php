@@ -12,7 +12,7 @@ namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
 use Zimbra\Admin\Struct\DistributionListSelector as DlSelector;
-use Zimbra\Struct\AccountSelector;
+use Zimbra\Common\Struct\AccountSelector;
 use Zimbra\Soap\Request;
 
 /**
@@ -32,10 +32,10 @@ class GetAdminConsoleUICompRequest extends Request
      * Account
      * @Accessor(getter="getAccount", setter="setAccount")
      * @SerializedName("account")
-     * @Type("Zimbra\Struct\AccountSelector")
+     * @Type("Zimbra\Common\Struct\AccountSelector")
      * @XmlElement
      */
-    private $account;
+    private ?AccountSelector $account = NULL;
 
     /**
      * Distribution List
@@ -44,7 +44,7 @@ class GetAdminConsoleUICompRequest extends Request
      * @Type("Zimbra\Admin\Struct\DistributionListSelector")
      * @XmlElement
      */
-    private $dl;
+    private ?DlSelector $dl = NULL;
 
     /**
      * Constructor method for GetAdminConsoleUICompRequest

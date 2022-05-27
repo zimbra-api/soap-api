@@ -12,8 +12,8 @@ namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
 use Zimbra\Admin\Struct\LoggerInfo as Logger;
+use Zimbra\Common\Struct\AccountSelector as Account;
 use Zimbra\Soap\Request;
-use Zimbra\Struct\AccountSelector as Account;
 
 /**
  * RemoveAccountLoggerRequest request class
@@ -38,16 +38,16 @@ class RemoveAccountLoggerRequest extends Request
      * @Type("Zimbra\Admin\Struct\LoggerInfo")
      * @XmlElement
      */
-    private $logger;
+    private ?Logger $logger = NULL;
 
     /**
      * Use to select account
      * @Accessor(getter="getAccount", setter="setAccount")
      * @SerializedName("account")
-     * @Type("Zimbra\Struct\AccountSelector")
+     * @Type("Zimbra\Common\Struct\AccountSelector")
      * @XmlElement
      */
-    private $account;
+    private ?Account $account = NULL;
 
     /**
      * id

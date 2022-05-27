@@ -11,7 +11,7 @@
 namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
-use Zimbra\Struct\{AttributeSelector, AttributeSelectorTrait, NamedElement};
+use Zimbra\Common\Struct\{AttributeSelector, AttributeSelectorTrait, NamedElement};
 use Zimbra\Soap\Request;
 
 /**
@@ -32,10 +32,10 @@ class GetZimletRequest extends Request implements AttributeSelector
      * Zimlet selector
      * @Accessor(getter="getZimlet", setter="setZimlet")
      * @SerializedName("zimlet")
-     * @Type("Zimbra\Struct\NamedElement")
+     * @Type("Zimbra\Common\Struct\NamedElement")
      * @XmlElement
      */
-    private $zimlet;
+    private NamedElement $zimlet;
 
     /**
      * Constructor method for GetZimletRequest

@@ -12,7 +12,7 @@ namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
 use Zimbra\Admin\Struct\CalendarResourceSelector;
-use Zimbra\Struct\{AttributeSelector, AttributeSelectorTrait};
+use Zimbra\Common\Struct\{AttributeSelector, AttributeSelectorTrait};
 use Zimbra\Soap\Request;
 
 /**
@@ -47,7 +47,7 @@ class GetCalendarResourceRequest extends Request implements AttributeSelector
      * @Type("Zimbra\Admin\Struct\CalendarResourceSelector")
      * @XmlElement
      */
-    private $calResource;
+    private ?CalendarResourceSelector $calResource = NULL;
 
     /**
      * Constructor method for GetCalendarResourceRequest
@@ -57,7 +57,9 @@ class GetCalendarResourceRequest extends Request implements AttributeSelector
      * @param  string $attrs
      * @return self
      */
-    public function __construct(?CalendarResourceSelector $calResource = NULL, ?bool $applyCos = NULL, ?string $attrs = NULL)
+    public function __construct(
+        ?CalendarResourceSelector $calResource = NULL, ?bool $applyCos = NULL, ?string $attrs = NULL
+    )
     {
         if ($calResource instanceof CalendarResourceSelector) {
             $this->setCalResource($calResource);

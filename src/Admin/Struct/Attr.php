@@ -10,7 +10,7 @@
 
 namespace Zimbra\Admin\Struct;
 
-use Zimbra\Struct\KeyValuePair;
+use Zimbra\Common\Struct\KeyValuePair;
 
 /**
  * Attr struct class

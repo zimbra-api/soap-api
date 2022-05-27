@@ -12,8 +12,7 @@ namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
 use Zimbra\Soap\Request;
-use Zimbra\Struct\AttributeSelector;
-use Zimbra\Struct\AttributeSelectorTrait;
+use Zimbra\Common\Struct\{AttributeSelector, AttributeSelectorTrait};
 
 /**
  * SearchDirectoryRequest class

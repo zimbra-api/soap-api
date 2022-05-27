@@ -11,8 +11,8 @@
 namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
+use Zimbra\Common\Struct\AccountSelector;
 use Zimbra\Soap\Request;
-use Zimbra\Struct\AccountSelector;
 
 /**
  * DeleteGalSyncAccountRequest class
@@ -31,10 +31,10 @@ class DeleteGalSyncAccountRequest extends Request
      * Account
      * @Accessor(getter="getAccount", setter="setAccount")
      * @SerializedName("account")
-     * @Type("Zimbra\Struct\AccountSelector")
+     * @Type("Zimbra\Common\Struct\AccountSelector")
      * @XmlElement
      */
-    private $account;
+    private AccountSelector $account;
 
     /**
      * Constructor method for DeleteGalSyncAccountRequest

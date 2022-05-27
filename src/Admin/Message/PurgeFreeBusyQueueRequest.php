@@ -11,8 +11,8 @@
 namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
+use Zimbra\Common\Struct\NamedElement;
 use Zimbra\Soap\Request;
-use Zimbra\Struct\NamedElement;
 
 /**
  * PurgeFreeBusyQueueRequest class
@@ -30,10 +30,10 @@ class PurgeFreeBusyQueueRequest extends Request
      * FreeBusy Provider specification
      * @Accessor(getter="getProvider", setter="setProvider")
      * @SerializedName("provider")
-     * @Type("Zimbra\Struct\NamedElement")
+     * @Type("Zimbra\Common\Struct\NamedElement")
      * @XmlElement
      */
-    private $provider;
+    private ?NamedElement $provider = NULL;
 
     /**
      * Constructor method for PurgeFreeBusyQueueRequest

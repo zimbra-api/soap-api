@@ -70,7 +70,7 @@ use Zimbra\Enum\{
 };
 
 use Zimbra\Soap\{ApiInterface, ResponseInterface};
-use Zimbra\Struct\{
+use Zimbra\Common\Struct\{
     AccountSelector,
     AccountNameSelector,
     AdminFilterType,

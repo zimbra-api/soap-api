@@ -11,7 +11,7 @@
 namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
-use Zimbra\Struct\AccountSelector;
+use Zimbra\Common\Struct\AccountSelector;
 use Zimbra\Soap\Request;
 
 /**
@@ -40,10 +40,10 @@ class GetAccountLoggersRequest extends Request
      * Use to select account
      * @Accessor(getter="getAccount", setter="setAccount")
      * @SerializedName("account")
-     * @Type("Zimbra\Struct\AccountSelector")
+     * @Type("Zimbra\Common\Struct\AccountSelector")
      * @XmlElement
      */
-    private $account;
+    private ?AccountSelector $account = NULL;
 
     /**
      * Constructor method for GetAccountLoggersRequest

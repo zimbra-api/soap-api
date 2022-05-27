@@ -33,7 +33,7 @@ class AddAccountLoggerResponse implements ResponseInterface
      * @Type("array<Zimbra\Admin\Struct\LoggerInfo>")
      * @XmlList(inline = true, entry = "logger")
      */
-    private $loggers;
+    private $loggers = [];
 
     /**
      * Constructor method for AddAccountLoggerResponse

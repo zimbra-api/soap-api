@@ -11,9 +11,9 @@
 namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
+use Zimbra\Common\Struct\NamedElement;
 use Zimbra\Enum\TargetType;
 use Zimbra\Soap\Request;
-use Zimbra\Struct\NamedElement;
 
 /**
  * GetDelegatedAdminConstraintsRequest class
@@ -37,7 +37,7 @@ class GetDelegatedAdminConstraintsRequest extends Request
      * @Type("Zimbra\Enum\TargetType")
      * @XmlAttribute
      */
-    private $type;
+    private TargetType $type;
 
     /**
      * ID
@@ -61,10 +61,10 @@ class GetDelegatedAdminConstraintsRequest extends Request
      * Attrs
      * @Accessor(getter="getAttrs", setter="setAttrs")
      * @SerializedName("a")
-     * @Type("array<Zimbra\Struct\NamedElement>")
+     * @Type("array<Zimbra\Common\Struct\NamedElement>")
      * @XmlList(inline = true, entry = "a")
      */
-    private $attrs;
+    private $attrs = [];
 
     /**
      * Constructor method for GetDelegatedAdminConstraintsRequest

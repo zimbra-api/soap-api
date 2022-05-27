@@ -11,7 +11,7 @@
 namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
-use Zimbra\Struct\NamedElement;
+use Zimbra\Common\Struct\NamedElement;
 use Zimbra\Soap\Request;
 
 /**
@@ -32,10 +32,10 @@ class GetFreeBusyQueueInfoRequest extends Request
      * Provider
      * @Accessor(getter="getProvider", setter="setProvider")
      * @SerializedName("provider")
-     * @Type("Zimbra\Struct\NamedElement")
+     * @Type("Zimbra\Common\Struct\NamedElement")
      * @XmlElement
      */
-    private $provider;
+    private ?NamedElement $provider = NULL;
 
     /**
      * Constructor method for GetFreeBusyQueueInfoRequest
