@@ -12,7 +12,7 @@ namespace Zimbra\Mail\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
 
-use Zimbra\Enum\ParticipationStatus;
+use Zimbra\Common\Enum\ParticipationStatus;
 
 /**
  * SetCalendarItemInfoTrait trait
@@ -33,10 +33,10 @@ trait SetCalendarItemInfoTrait
      * "WA"iting (custom value only for todo), "DF" (deferred; custom value only for todo)
      * @Accessor(getter="getPartStat", setter="setPartStat")
      * @SerializedName("ptst")
-     * @Type("Zimbra\Enum\ParticipationStatus")
+     * @Type("Zimbra\Common\Enum\ParticipationStatus")
      * @XmlAttribute
      */
-    private $partStat;
+    private ?ParticipationStatus $partStat = NULL;
 
     /**
      * Message
@@ -45,7 +45,7 @@ trait SetCalendarItemInfoTrait
      * @Type("Zimbra\Mail\Struct\Msg")
      * @XmlElement
      */
-    private $msg;
+    private ?Msg $msg = NULL;
 
     /**
      * Constructor method

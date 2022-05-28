@@ -11,7 +11,7 @@
 namespace Zimbra\Mail\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlValue};
-use Zimbra\Enum\{AccountBy, TargetType};
+use Zimbra\Common\Enum\{AccountBy, TargetType};
 
 /**
  * TargetSpec class
@@ -29,19 +29,19 @@ class TargetSpec
      * Target type
      * @Accessor(getter="getTargetType", setter="setTargetType")
      * @SerializedName("type")
-     * @Type("Zimbra\Enum\TargetType")
+     * @Type("Zimbra\Common\Enum\TargetType")
      * @XmlAttribute
      */
-    private $targetType;
+    private TargetType $targetType;
 
     /**
      * Select the meaning of {value}
      * @Accessor(getter="getAccountBy", setter="setAccountBy")
      * @SerializedName("by")
-     * @Type("Zimbra\Enum\AccountBy")
+     * @Type("Zimbra\Common\Enum\AccountBy")
      * @XmlAttribute
      */
-    private $accountBy;
+    private AccountBy $accountBy;
 
     /**
      * The key used to identify the target

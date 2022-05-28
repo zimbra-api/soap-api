@@ -11,7 +11,7 @@
 namespace Zimbra\Mail\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
-use Zimbra\Enum\AutoCompleteMatchType as MatchType;
+use Zimbra\Common\Enum\AutoCompleteMatchType as MatchType;
 
 /**
  * AutoCompleteMatch class
@@ -38,10 +38,10 @@ class AutoCompleteMatch
      * Match type - gal|contact|rankingTable
      * @Accessor(getter="getMatchType", setter="setMatchType")
      * @SerializedName("type")
-     * @Type("Zimbra\Enum\AutoCompleteMatchType")
+     * @Type("Zimbra\Common\Enum\AutoCompleteMatchType")
      * @XmlAttribute
      */
-    private $matchType;
+    private ?MatchType $matchType = NULL;
 
     /**
      * Ranking

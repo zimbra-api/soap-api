@@ -11,7 +11,7 @@
 namespace Zimbra\Mail\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlList};
-use Zimbra\Enum\ContactActionOp;
+use Zimbra\Common\Enum\ContactActionOp;
 
 /**
  * ContactActionSelector class

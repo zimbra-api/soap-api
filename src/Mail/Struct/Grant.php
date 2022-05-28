@@ -11,7 +11,7 @@
 namespace Zimbra\Mail\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
-use Zimbra\Enum\{ActionGrantRight, GrantGranteeType};
+use Zimbra\Common\Enum\{ActionGrantRight, GrantGranteeType};
 
 /**
  * Grant struct class
@@ -38,10 +38,10 @@ class Grant
      * Grantee Type - usr | grp | cos | dom | all | pub | guest | key
      * @Accessor(getter="getGranteeType", setter="setGranteeType")
      * @SerializedName("gt")
-     * @Type("Zimbra\Enum\GrantGranteeType")
+     * @Type("Zimbra\Common\Enum\GrantGranteeType")
      * @XmlAttribute
      */
-    private $granteeType;
+    private GrantGranteeType $granteeType;
 
     /**
      * Grantee ID

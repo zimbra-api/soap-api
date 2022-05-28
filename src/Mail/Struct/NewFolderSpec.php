@@ -11,8 +11,8 @@
 namespace Zimbra\Mail\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
+use Zimbra\Common\Enum\ViewType;
 use Zimbra\Common\Text;
-use Zimbra\Enum\ViewType;
 
 /**
  * NewFolderSpec class
@@ -40,10 +40,10 @@ class NewFolderSpec
      * possible values are the same as <SearchRequest>'s {types}: <b>conversation|message|contact|etc</b>
      * @Accessor(getter="getDefaultView", setter="setDefaultView")
      * @SerializedName("view")
-     * @Type("Zimbra\Enum\ViewType")
+     * @Type("Zimbra\Common\Enum\ViewType")
      * @XmlAttribute
      */
-    private $defaultView;
+    private ?ViewType $defaultView = NULL;
 
     /**
      * Flags

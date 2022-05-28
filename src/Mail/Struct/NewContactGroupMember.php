@@ -11,7 +11,7 @@
 namespace Zimbra\Mail\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
-use Zimbra\Enum\MemberType;
+use Zimbra\Common\Enum\MemberType;
 
 /**
  * NewContactGroupMember struct class
@@ -31,10 +31,10 @@ class NewContactGroupMember
      * I: inlined member (member name and email address is embeded in the contact group)
      * @Accessor(getter="getType", setter="setType")
      * @SerializedName("type")
-     * @Type("Zimbra\Enum\MemberType")
+     * @Type("Zimbra\Common\Enum\MemberType")
      * @XmlAttribute
      */
-    private $type;
+    private MemberType $type;
 
     /**
      * Member value
@@ -58,7 +58,7 @@ class NewContactGroupMember
     public function __construct(MemberType $type, string $value)
     {
         $this->setType($type)
-            ->setValue($value);
+             ->setValue($value);
     }
 
     /**

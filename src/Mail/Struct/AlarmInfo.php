@@ -11,7 +11,7 @@
 namespace Zimbra\Mail\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement, XmlList};
-use Zimbra\Enum\AlarmAction;
+use Zimbra\Common\Enum\AlarmAction;
 use Zimbra\Struct\{
     AlarmInfoInterface,
     AlarmTriggerInfoInterface,
@@ -38,10 +38,10 @@ class AlarmInfo implements AlarmInfoInterface
      * Possible values: DISPLAY|AUDIO|EMAIL|PROCEDURE|X_YAHOO_CALENDAR_ACTION_IM|X_YAHOO_CALENDAR_ACTION_MOBILE
      * @Accessor(getter="getAction", setter="setAction")
      * @SerializedName("action")
-     * @Type("Zimbra\Enum\AlarmAction")
+     * @Type("Zimbra\Common\Enum\AlarmAction")
      * @XmlAttribute
      */
-    private $action;
+    private AlarmAction $action;
 
     /**
      * Alarm trigger information
@@ -50,7 +50,7 @@ class AlarmInfo implements AlarmInfoInterface
      * @Type("Zimbra\Mail\Struct\AlarmTriggerInfo")
      * @XmlElement
      */
-    private $trigger;
+    private ?AlarmTriggerInfo $trigger = NULL;
 
     /**
      * Alarm repeat information
@@ -59,7 +59,7 @@ class AlarmInfo implements AlarmInfoInterface
      * @Type("Zimbra\Mail\Struct\DurationInfo")
      * @XmlElement
      */
-    private $repeat;
+    private ?DurationInfo $repeat = NULL;
 
     /**
      * Alarm description
@@ -80,7 +80,7 @@ class AlarmInfo implements AlarmInfoInterface
      * @Type("Zimbra\Mail\Struct\CalendarAttach")
      * @XmlElement
      */
-    private $attach;
+    private ?CalendarAttach $attach = NULL;
 
     /**
      * Alarm summary

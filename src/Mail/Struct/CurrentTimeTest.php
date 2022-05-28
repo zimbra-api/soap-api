@@ -11,7 +11,7 @@
 namespace Zimbra\Mail\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
-use Zimbra\Enum\DateComparison;
+use Zimbra\Common\Enum\DateComparison;
 
 /**
  * CurrentTimeTest struct class
@@ -28,10 +28,10 @@ class CurrentTimeTest extends FilterTest
      * Date comparison setting - before|after
      * @Accessor(getter="getDateComparison", setter="setDateComparison")
      * @SerializedName("dateComparison")
-     * @Type("Zimbra\Enum\DateComparison")
+     * @Type("Zimbra\Common\Enum\DateComparison")
      * @XmlAttribute
      */
-    private $dateComparison;
+    private ?DateComparison $dateComparison = NULL;
 
     /**
      * Time in HHmm format

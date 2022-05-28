@@ -11,7 +11,7 @@
 namespace Zimbra\Mail\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement, XmlList};
-use Zimbra\Enum\InviteType;
+use Zimbra\Common\Enum\InviteType;
 use Zimbra\Struct\{
     CalendarReplyInterface, CalTZInfoInterface, InviteComponentInterface, InviteInfoInterface
 };
@@ -32,10 +32,10 @@ class InviteInfo implements InviteInfoInterface
      * Invite type - appt|task
      * @Accessor(getter="getCalItemType", setter="setCalItemType")
      * @SerializedName("type")
-     * @Type("Zimbra\Enum\InviteType")
+     * @Type("Zimbra\Common\Enum\InviteType")
      * @XmlAttribute
      */
-    private $calItemType;
+    private InviteType $calItemType;
 
     /**
      * Timezones
@@ -53,7 +53,7 @@ class InviteInfo implements InviteInfoInterface
      * @Type("Zimbra\Mail\Struct\InviteComponent")
      * @XmlElement
      */
-    private $inviteComponent;
+    private ?InviteComponent $inviteComponent = NULL;
 
     /**
      * List of replies received from attendees.

@@ -11,7 +11,7 @@
 namespace Zimbra\Mail\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
-use Zimbra\Enum\ParticipationStatus;
+use Zimbra\Common\Enum\ParticipationStatus;
 use Zimbra\Struct\CalendarReplyInterface;
 
 /**
@@ -70,10 +70,10 @@ class CalendarReply extends RecurIdInfo implements CalendarReplyInterface
      * "WA"iting (custom value only for todo), "DF" (deferred; custom value only for todo)
      * @Accessor(getter="getPartStat", setter="setPartStat")
      * @SerializedName("ptst")
-     * @Type("Zimbra\Enum\ParticipationStatus")
+     * @Type("Zimbra\Common\Enum\ParticipationStatus")
      * @XmlAttribute
      */
-    private $partStat;
+    private ?ParticipationStatus $partStat = NULL;
 
     /**
      * Constructor method for CalendarReply

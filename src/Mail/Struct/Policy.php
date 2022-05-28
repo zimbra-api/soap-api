@@ -11,7 +11,7 @@
 namespace Zimbra\Mail\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
-use Zimbra\Enum\Type as EnumType;
+use Zimbra\Common\Enum\Type as EnumType;
 
 /**
  * Policy struct class
@@ -28,10 +28,10 @@ class Policy
      * Retention policy type
      * @Accessor(getter="getType", setter="setType")
      * @SerializedName("type")
-     * @Type("Zimbra\Enum\Type")
+     * @Type("Zimbra\Common\Enum\Type")
      * @XmlAttribute
      */
-    private $type;
+    private ?EnumType $type = NULL;
 
     /**
      * The id

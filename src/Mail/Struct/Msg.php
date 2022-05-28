@@ -11,7 +11,7 @@
 namespace Zimbra\Mail\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement, XmlList};
-use Zimbra\Enum\ReplyType;
+use Zimbra\Common\Enum\ReplyType;
 
 /**
  * Msg class
@@ -47,10 +47,10 @@ class Msg
      * Reply type - r|w.  (r)eplied or for(w)arded.
      * @Accessor(getter="getReplyType", setter="setReplyType")
      * @SerializedName("rt")
-     * @Type("Zimbra\Enum\ReplyType")
+     * @Type("Zimbra\Common\Enum\ReplyType")
      * @XmlAttribute
      */
-    private $replyType;
+    private ?ReplyType $replyType = NULL;
 
     /**
      * Identity ID.  The identity referenced by {identity-id} specifies the folder where the sent message is saved.

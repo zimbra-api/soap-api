@@ -11,7 +11,7 @@
 namespace Zimbra\Mail\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
-use Zimbra\Enum\{ItemType, SearchSortBy};
+use Zimbra\Common\Enum\{ItemType, SearchSortBy};
 
 /**
  * SearchFolder struct class
@@ -37,10 +37,10 @@ class SearchFolder extends Folder
      * Sort by
      * @Accessor(getter="getSortBy", setter="setSortBy")
      * @SerializedName("sortBy")
-     * @Type("Zimbra\Enum\SearchSortBy")
+     * @Type("Zimbra\Common\Enum\SearchSortBy")
      * @XmlAttribute
      */
-    private $sortBy;
+    private ?SearchSortBy $sortBy = NULL;
 
     /**
      * Comma-separated list.  Legal values in list are:
@@ -61,10 +61,22 @@ class SearchFolder extends Folder
      */
     public function __construct(
         string $id,
-        string $uuid
+        string $uuid,
+        ?string $query = NULL,
+        ?SearchSortBy $sortBy = NULL,
+        ?string $types = NULL
     )
     {
     	parent::__construct($id, $uuid);
+        if (NULL !== $query) {
+            $this->setQuery($query);
+        }
+        if ($sortBy instanceof SearchSortBy) {
+            $this->setSortBy($sortBy);
+        }
+        if (NULL !== $types) {
+            $this->setTypes($types);
+        }
     }
 
     /**

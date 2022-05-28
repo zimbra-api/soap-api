@@ -11,8 +11,8 @@
 namespace Zimbra\Mail\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement, XmlList};
+use Zimbra\Common\Enum\ViewType;
 use Zimbra\Common\Text;
-use Zimbra\Enum\ViewType;
 
 /**
  * Folder class
@@ -132,10 +132,10 @@ class Folder
      * Default type for the folder; used by web client to decide which view to use.
      * @Accessor(getter="getView", setter="setView")
      * @SerializedName("view")
-     * @Type("Zimbra\Enum\ViewType")
+     * @Type("Zimbra\Common\Enum\ViewType")
      * @XmlAttribute
      */
-    private $view;
+    private ?ViewType $view = NULL;
 
     /**
      * Revision
@@ -289,7 +289,7 @@ class Folder
      * @Type("Zimbra\Mail\Struct\Acl")
      * @XmlElement
      */
-    private $acl;
+    private ?Acl $acl = NULL;
 
     /**
      * Sub folders
@@ -325,7 +325,7 @@ class Folder
      * @Type("Zimbra\Mail\Struct\RetentionPolicy")
      * @XmlElement
      */
-    private $retentionPolicy;
+    private ?RetentionPolicy $retentionPolicy = NULL;
 
     /**
      * Constructor method for Folder

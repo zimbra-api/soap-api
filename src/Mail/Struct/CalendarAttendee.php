@@ -11,7 +11,7 @@
 namespace Zimbra\Mail\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
-use Zimbra\Enum\ParticipationStatus as PartStat;
+use Zimbra\Common\Enum\ParticipationStatus as PartStat;
 use Zimbra\Struct\{CalendarAttendeeInterface, XParamInterface};
 
 /**
@@ -106,10 +106,10 @@ class CalendarAttendee implements CalendarAttendeeInterface
      * "WA"iting (custom value only for todo), "DF" (deferred; custom value only for todo)
      * @Accessor(getter="getPartStat", setter="setPartStat")
      * @SerializedName("ptst")
-     * @Type("Zimbra\Enum\ParticipationStatus")
+     * @Type("Zimbra\Common\Enum\ParticipationStatus")
      * @XmlAttribute
      */
-    private $partStat;
+    private ?PartStat $partStat = NULL;
 
     /**
      * RSVP flag.  Set if response requested, unset if no response requested
@@ -162,7 +162,7 @@ class CalendarAttendee implements CalendarAttendeeInterface
      * @param string $attendeeEmail
      * @param string $attendeeName
      * @param string $role
-     * @param PartStat $partstat
+     * @param PartStat $partStat
      * @param bool $rsvp
      * @param array $xParams
      * @return self
@@ -171,7 +171,7 @@ class CalendarAttendee implements CalendarAttendeeInterface
         ?string $attendeeEmail = NULL,
         ?string $attendeeName = NULL,
         ?string $role = NULL,
-        ?PartStat $partstat = NULL,
+        ?PartStat $partStat = NULL,
         ?bool $rsvp = NULL,
         array $xParams = []
     )
@@ -186,8 +186,8 @@ class CalendarAttendee implements CalendarAttendeeInterface
         if (NULL !== $role) {
             $this->setRole($role);
         }
-        if ($partstat instanceof PartStat) {
-            $this->setPartStat($partstat);
+        if ($partStat instanceof PartStat) {
+            $this->setPartStat($partStat);
         }
         if (NULL !== $rsvp) {
             $this->setRsvp($rsvp);

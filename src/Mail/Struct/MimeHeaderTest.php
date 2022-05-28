@@ -11,7 +11,7 @@
 namespace Zimbra\Mail\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
-use Zimbra\Enum\StringComparison;
+use Zimbra\Common\Enum\StringComparison;
 
 /**
  * MimeHeaderTest struct class
@@ -37,10 +37,10 @@ class MimeHeaderTest extends FilterTest
      * String comparison type - is|contains|matches
      * @Accessor(getter="getStringComparison", setter="setStringComparison")
      * @SerializedName("stringComparison")
-     * @Type("Zimbra\Enum\StringComparison")
+     * @Type("Zimbra\Common\Enum\StringComparison")
      * @XmlAttribute
      */
-    private $stringComparison;
+    private ?StringComparison $stringComparison = NULL;
 
     /**
      * Value

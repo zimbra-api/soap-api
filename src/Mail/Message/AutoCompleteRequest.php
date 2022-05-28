@@ -11,7 +11,7 @@
 namespace Zimbra\Mail\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
-use Zimbra\Enum\GalSearchType;
+use Zimbra\Common\Enum\GalSearchType;
 use Zimbra\Soap\Request;
 
 /**
@@ -43,10 +43,10 @@ class AutoCompleteRequest extends Request
      * type of addresses to auto-complete on
      * @Accessor(getter="getType", setter="setType")
      * @SerializedName("t")
-     * @Type("Zimbra\Enum\GalSearchType")
+     * @Type("Zimbra\Common\Enum\GalSearchType")
      * @XmlAttribute
      */
-    private $type;
+    private ?GalSearchType $type = NULL;
 
     /**
      * Set if the "exp" flag is needed in the response for group entries.  Default is unset.

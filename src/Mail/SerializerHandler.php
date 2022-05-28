@@ -16,7 +16,7 @@ use JMS\Serializer\Visitor\SerializationVisitorInterface as SerializationVisitor
 use JMS\Serializer\Visitor\DeserializationVisitorInterface as DeserializationVisitor;
 
 use Zimbra\Common\{SerializerFactory, Text};
-use Zimbra\Enum\FilterCondition;
+use Zimbra\Common\Enum\FilterCondition;
 use Zimbra\Mail\Message\{CreateDataSourceRequest, CreateDataSourceResponse};
 use Zimbra\Mail\Struct\{FilterRule, FilterTests, FilterVariables, NestedRule};
 

@@ -11,7 +11,7 @@
 namespace Zimbra\Mail\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
-use Zimbra\Enum\WeekDay;
+use Zimbra\Common\Enum\WeekDay;
 use Zimbra\Struct\WkstRuleInterface;
 
 /**
@@ -30,10 +30,10 @@ class WkstRule implements WkstRuleInterface
      * Weekday -  SU|MO|TU|WE|TH|FR|SA
      * @Accessor(getter="getDay", setter="setDay")
      * @SerializedName("day")
-     * @Type("Zimbra\Enum\WeekDay")
+     * @Type("Zimbra\Common\Enum\WeekDay")
      * @XmlAttribute
      */
-    private $day;
+    private WeekDay $day;
 
     /**
      * Constructor method for WkstRule

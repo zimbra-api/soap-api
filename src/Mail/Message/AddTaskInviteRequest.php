@@ -10,7 +10,7 @@
 
 namespace Zimbra\Mail\Message;
 
-use Zimbra\Enum\ParticipationStatus;
+use Zimbra\Common\Enum\ParticipationStatus;
 use Zimbra\Mail\Struct\{Msg, SetCalendarItemInfoTrait};
 use Zimbra\Soap\Request;
 

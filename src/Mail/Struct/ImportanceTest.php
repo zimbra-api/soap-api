@@ -11,7 +11,7 @@
 namespace Zimbra\Mail\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
-use Zimbra\Enum\Importance;
+use Zimbra\Common\Enum\Importance;
 
 /**
  * ImportanceTest struct class
@@ -28,10 +28,10 @@ class ImportanceTest extends FilterTest
      * Importance - high|normal|low
      * @Accessor(getter="getImportance", setter="setImportance")
      * @SerializedName("imp")
-     * @Type("Zimbra\Enum\Importance")
+     * @Type("Zimbra\Common\Enum\Importance")
      * @XmlAttribute
      */
-    private $importance;
+    private ?Importance $importance = NULL;
 
     /**
      * Constructor method for ImportanceTest

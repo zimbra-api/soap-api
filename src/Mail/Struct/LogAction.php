@@ -11,7 +11,7 @@
 namespace Zimbra\Mail\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlValue};
-use Zimbra\Enum\LoggingLevel;
+use Zimbra\Common\Enum\LoggingLevel;
 
 /**
  * LogAction struct class
@@ -28,10 +28,10 @@ class LogAction extends FilterAction
      * level - fatal|error|warn|info|debug|trace, info is default if not specified.
      * @Accessor(getter="getLevel", setter="setLevel")
      * @SerializedName("level")
-     * @Type("Zimbra\Enum\LoggingLevel")
+     * @Type("Zimbra\Common\Enum\LoggingLevel")
      * @XmlAttribute
      */
-    private $level;
+    private ?LoggingLevel $level = NULL;
 
     /**
      * message text
@@ -50,7 +50,9 @@ class LogAction extends FilterAction
      * @param string $content
      * @return self
      */
-    public function __construct(?int $index = NULL, ?LoggingLevel $level = NULL, ?string $content = NULL)
+    public function __construct(
+        ?int $index = NULL, ?LoggingLevel $level = NULL, ?string $content = NULL
+    )
     {
     	parent::__construct($index);
         if ($level instanceof LoggingLevel) {

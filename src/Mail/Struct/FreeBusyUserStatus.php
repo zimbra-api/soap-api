@@ -11,7 +11,7 @@
 namespace Zimbra\Mail\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
-use Zimbra\Enum\FreeBusyStatus;
+use Zimbra\Common\Enum\FreeBusyStatus;
 
 /**
  * FreeBusyUserStatus class
@@ -38,10 +38,10 @@ class FreeBusyUserStatus
      * Free/Busy status - B|T|O (Busy, Tentative or Out-of-office)
      * @Accessor(getter="getFreebusyStatus", setter="setFreebusyStatus")
      * @SerializedName("fb")
-     * @Type("Zimbra\Enum\FreeBusyStatus")
+     * @Type("Zimbra\Common\Enum\FreeBusyStatus")
      * @XmlAttribute
      */
-    private $freebusyStatus;
+    private FreeBusyStatus $freebusyStatus;
 
     /**
      * Constructor method for FreeBusyUserStatus

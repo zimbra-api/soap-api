@@ -11,7 +11,7 @@
 namespace Zimbra\Mail\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
-use Zimbra\Enum\AlarmRelated;
+use Zimbra\Common\Enum\AlarmRelated;
 use Zimbra\Struct\DurationInfoInterface;
 
 /**
@@ -86,10 +86,10 @@ class DurationInfo implements DurationInfoInterface
      * Valid values are : START|END
      * @Accessor(getter="getRelated", setter="setRelated")
      * @SerializedName("related")
-     * @Type("Zimbra\Enum\AlarmRelated")
+     * @Type("Zimbra\Common\Enum\AlarmRelated")
      * @XmlAttribute
      */
-    private $related;
+    private ?AlarmRelated $related = NULL;
 
     /**
      * Alarm repeat count

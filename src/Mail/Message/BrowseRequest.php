@@ -11,7 +11,7 @@
 namespace Zimbra\Mail\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
-use Zimbra\Enum\BrowseBy;
+use Zimbra\Common\Enum\BrowseBy;
 use Zimbra\Soap\Request;
 
 /**
@@ -34,10 +34,10 @@ class BrowseRequest extends Request
      * Browse by setting - domains|attachments|objects
      * @Accessor(getter="getBrowseBy", setter="setBrowseBy")
      * @SerializedName("browseBy")
-     * @Type("Zimbra\Enum\BrowseBy")
+     * @Type("Zimbra\Common\Enum\BrowseBy")
      * @XmlAttribute
      */
-    private $browseBy;
+    private BrowseBy $browseBy;
 
     /**
      * Regex string.  Return only those results which match the specified regular expression
